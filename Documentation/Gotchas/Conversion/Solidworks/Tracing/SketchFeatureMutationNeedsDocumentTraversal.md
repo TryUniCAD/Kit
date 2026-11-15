@@ -21,4 +21,10 @@ Do not assume a fixed feature position.
 
 This restriction belongs to the controlled new-part authoring sequence.
 It does not establish a lookup policy for arbitrary existing documents or templates containing additional sketches.
-Native verification of the corrected lookup remains pending.
+
+The corrected [source preflight](../../../../../re/solidworks/measurements/2026/CurveSourcePreflight.json) passed both controls and two selected discovery cases.
+The recorded sketch and boss `Name` setters returned without errors.
+All authored, reopened and edited feature trees contain `CurveSketch` and `CurveBoss`, with zero feature errors or warnings.
+The ten source phases passed all 119 numeric checks, with one body in every measured snapshot.
+This verifies the controlled new-part traversal and mutation sequence.
+It does not establish a complete family lock or acceptance of Kit-written curve output.

@@ -1,0 +1,1220 @@
+{
+  "schema": "kit-sw2026-incomplete-polygon-measurement/1",
+  "status": "incomplete controlled batch; no generated-output acceptance",
+  "generator_revision": "b23e72c609caca0d0ca4acf871e9680a325f0548",
+  "artifact": {
+    "id": 14177624347,
+    "run": 43756383239,
+    "job": 132941286371,
+    "synthetic": "2179cb75a8501f83d78eacbdeb67f533a94246cc",
+    "parents": [
+      "e04e7b78699d3f567409937007b00b567620078a",
+      "b23e72c609caca0d0ca4acf871e9680a325f0548"
+    ],
+    "github_digest": "sha256:bb4cb2ddd8a0728e915f0748e2057012e737699f5517aad0e3c202591cf50448",
+    "digest_authority": "github metadata; zip not independently rehashed"
+  },
+  "tool_hashes": {
+    "InspectView.py": {
+      "sha256": "a2f5903fcbab3a75bbe5d3f6926e1a0512bb647c53aed042c7efd670943a8314",
+      "bytes": 5841
+    },
+    "InspectEdit.py": {
+      "sha256": "730f09c4271b5a4d107ba9c2c78233c65504fd113572164addfe6a4529aba2d0",
+      "bytes": 7248
+    },
+    "InspectFresh.py": {
+      "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+      "bytes": 4187
+    },
+    "Swapp.py": {
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+      "bytes": 15278
+    },
+    "OracleIdentity.py": {
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "bytes": 4284
+    }
+  },
+  "native_report_raw_sha256": "ab653c6448ba147ee75ade1d6bfb001d392db8e9024f728e0535e558cb7aa890",
+  "native_report": {
+    "authority": "native-visible-document-viewport",
+    "started_at": 1794774663.8919418,
+    "job_sha256": "672e3642185903e3582a75e3b1f9f5ec6f0d0fdb0c176d47fd31acc9390f9eec",
+    "inspector_sha256": "a2f5903fcbab3a75bbe5d3f6926e1a0512bb647c53aed042c7efd670943a8314",
+    "results": [
+      {
+        "kind": "control",
+        "name": "ControlBefore",
+        "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\inputs\\NativeControl.SLDPRT",
+        "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\images\\ControlBefore.bmp",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794774663.9002132
+          },
+          {
+            "stage": "open_start",
+            "time": 1794774680.5049782
+          },
+          {
+            "stage": "open_return",
+            "time": 1794774690.8927634
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794774690.8971915
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794774691.501058
+          },
+          {
+            "stage": "initial_capture_start",
+            "time": 1794774695.140451
+          },
+          {
+            "stage": "initial_capture_return",
+            "time": 1794774695.7180603
+          },
+          {
+            "stage": "orient_start",
+            "time": 1794774695.7220614
+          },
+          {
+            "stage": "orient_return",
+            "time": 1794774696.470291
+          },
+          {
+            "stage": "capture_start",
+            "time": 1794774697.4991333
+          },
+          {
+            "stage": "capture_return",
+            "time": 1794774697.5894854
+          }
+        ],
+        "stage": "capture_return",
+        "oracle_identity": {
+          "process_id": 9464,
+          "process_creation_filetime": 134392482685197171,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 8.000000000000001e-6,
+          "area": 0.0028,
+          "com": [0.0, 0.0, 0.005],
+          "mass": 8.000000000000001e-6
+        },
+        "features": [
+          {
+            "name": "Comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "History",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Selection Sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Surface Bodies",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Solid Bodies",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Lights and Cameras",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Sketch1@NativeControl.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@NativeControl.Part",
+                "value": 0.02
+              }
+            ]
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@NativeControl.Part",
+                "value": 0.01
+              },
+              {
+                "name": "D1@Sketch1@NativeControl.Part",
+                "value": 0.04
+              },
+              {
+                "name": "D2@Sketch1@NativeControl.Part",
+                "value": 0.02
+              }
+            ]
+          }
+        ],
+        "initial_bitmap_saved": true,
+        "initial_bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\images\\ControlBefore_initial.bmp",
+        "initial_bitmap_sha256": "1094d670bc8fb5a620fe854c1154fcf925cdbd54d2b06869e19074567d5287c0",
+        "initial_bitmap_bytes": 2073654,
+        "rotations_before": {
+          "standard": {
+            "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+            "2": [
+              -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+              -6.982962677686267e-15, -0.0, -1.0
+            ],
+            "3": [
+              -3.5527136788005e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+              -3.5527136788005e-15
+            ],
+            "4": [
+              -3.5527136788005e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+              -3.5527136788005e-15
+            ],
+            "5": [
+              1.0, -0.0, 0.0, 0.0, -3.5527136788005e-15, 1.0, -0.0, -1.0,
+              -3.5527136788005e-15
+            ],
+            "6": [
+              1.0, 0.0, 0.0, 0.0, -3.5527136788005e-15, -1.0, 0.0, 1.0,
+              -3.5527136788005e-15
+            ],
+            "7": [
+              0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+              2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+              -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+            ],
+            "8": [
+              0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+              1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+              -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+            ],
+            "9": [
+              0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+              6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+              -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+            ]
+          },
+          "active": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868, 0.0,
+            0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+          ]
+        },
+        "bitmap_saved": true,
+        "bitmap_sha256": "2a2f00262b264880507eb0e7255de34362e259ecc5d7be7eb5aa0fe352ddd795",
+        "bitmap_bytes": 2073654,
+        "bitmap_signature": "424d",
+        "rotations_after": {
+          "standard": {
+            "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+            "2": [
+              -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+              -6.982962677686267e-15, -0.0, -1.0
+            ],
+            "3": [
+              -3.5527136788005e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+              -3.5527136788005e-15
+            ],
+            "4": [
+              -3.5527136788005e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+              -3.5527136788005e-15
+            ],
+            "5": [
+              1.0, -0.0, 0.0, 0.0, -3.5527136788005e-15, 1.0, -0.0, -1.0,
+              -3.5527136788005e-15
+            ],
+            "6": [
+              1.0, 0.0, 0.0, 0.0, -3.5527136788005e-15, -1.0, 0.0, 1.0,
+              -3.5527136788005e-15
+            ],
+            "7": [
+              0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+              2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+              -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+            ],
+            "8": [
+              0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+              1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+              -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+            ],
+            "9": [
+              0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+              6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+              -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+            ]
+          },
+          "active": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+            0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+          ]
+        },
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": [],
+        "sha256_after": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "unchanged_input": true
+      },
+      {
+        "kind": "generated-heldout",
+        "name": "H3_scalene",
+        "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\inputs\\H3_scalene.SLDPRT",
+        "sha256": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+        "bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\images\\H3_scalene.bmp",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794774701.330428
+          },
+          {
+            "stage": "open_start",
+            "time": 1794774715.8288298
+          },
+          {
+            "stage": "open_return",
+            "time": 1794774723.660716
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794774723.6667142
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794774724.3314195
+          },
+          {
+            "stage": "initial_capture_start",
+            "time": 1794774730.443859
+          },
+          {
+            "stage": "initial_capture_return",
+            "time": 1794774730.7660935
+          },
+          {
+            "stage": "orient_start",
+            "time": 1794774730.7699802
+          },
+          {
+            "stage": "orient_return",
+            "time": 1794774731.3790524
+          },
+          {
+            "stage": "capture_start",
+            "time": 1794774732.386602
+          },
+          {
+            "stage": "capture_return",
+            "time": 1794774732.4834416
+          }
+        ],
+        "stage": "capture_return",
+        "oracle_identity": {
+          "process_id": 4584,
+          "process_creation_filetime": 134392483058126528,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 9.932000000000002e-6,
+          "area": 0.003166276360558158,
+          "com": [0.006666666666666669, 0.007000000000000002, 0.0065],
+          "mass": 9.932000000000002e-6
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H3_scalene.Part",
+                "value": 0.013
+              }
+            ]
+          }
+        ],
+        "initial_bitmap_saved": true,
+        "initial_bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\images\\H3_scalene_initial.bmp",
+        "initial_bitmap_sha256": "8f7238a8e9d950f037709b698a92a0a5b0897bc4714722bd8df0c442ce7dd2a1",
+        "initial_bitmap_bytes": 2073654,
+        "rotations_before": {
+          "standard": {
+            "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+            "2": [
+              -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+              -6.982962677686267e-15, -0.0, -1.0
+            ],
+            "3": [
+              -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+              -3.552713678800501e-15
+            ],
+            "4": [
+              -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+              -3.552713678800501e-15
+            ],
+            "5": [
+              1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+              -3.552713678800501e-15
+            ],
+            "6": [
+              1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+              -3.552713678800501e-15
+            ],
+            "7": [
+              0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+              2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+              -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+            ],
+            "8": [
+              0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+              1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+              -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+            ],
+            "9": [
+              0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+              6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+              -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+            ]
+          },
+          "active": [
+            1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0,
+            0.0, 0.0, 0.0
+          ]
+        },
+        "bitmap_saved": true,
+        "bitmap_sha256": "0e2789d3712c152aaa89bd80a293530a8b5854060127342fbf812abb6aa995e9",
+        "bitmap_bytes": 2073654,
+        "bitmap_signature": "424d",
+        "rotations_after": {
+          "standard": {
+            "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+            "2": [
+              -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+              -6.982962677686267e-15, -0.0, -1.0
+            ],
+            "3": [
+              -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+              -3.552713678800501e-15
+            ],
+            "4": [
+              -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+              -3.552713678800501e-15
+            ],
+            "5": [
+              1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+              -3.552713678800501e-15
+            ],
+            "6": [
+              1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+              -3.552713678800501e-15
+            ],
+            "7": [
+              0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+              2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+              -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+            ],
+            "8": [
+              0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+              1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+              -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+            ],
+            "9": [
+              0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+              6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+              -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+            ]
+          },
+          "active": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+            0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+          ]
+        },
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": [],
+        "sha256_after": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+        "unchanged_input": true
+      },
+      {
+        "kind": "generated-heldout",
+        "name": "H5_irregular",
+        "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\inputs\\H5_irregular.SLDPRT",
+        "sha256": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+        "bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\images\\H5_irregular.bmp",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794774736.162089
+          },
+          {
+            "stage": "open_start",
+            "time": 1794774751.1450508
+          },
+          {
+            "stage": "open_return",
+            "time": 1794774757.5608597
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794774757.5668683
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794774758.399891
+          },
+          {
+            "stage": "initial_capture_start",
+            "time": 1794774764.8292725
+          },
+          {
+            "stage": "initial_capture_return",
+            "time": 1794774765.0545452
+          },
+          {
+            "stage": "orient_start",
+            "time": 1794774765.0564237
+          },
+          {
+            "stage": "orient_return",
+            "time": 1794774765.632661
+          },
+          {
+            "stage": "capture_start",
+            "time": 1794774766.6360621
+          },
+          {
+            "stage": "capture_return",
+            "time": 1794774766.7155676
+          }
+        ],
+        "stage": "capture_return",
+        "oracle_identity": {
+          "process_id": 6260,
+          "process_creation_filetime": 134392483406449422,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 1.31635e-5,
+          "area": 0.004932190747600379,
+          "com": [0.005411149516972432, 0.0033525658069662317, 0.0035],
+          "mass": 1.31635e-5
+        },
+        "features": [
+          {
+            "name": "authored comments",
+            "type": "CommentsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored favorites",
+            "type": "FavoriteFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored history",
+            "type": "HistoryFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored selection sets",
+            "type": "SelectionSetFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored sensors",
+            "type": "SensorFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Design Binder",
+            "type": "DocsFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored annotations",
+            "type": "DetailCabinet",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored surfaces",
+            "type": "SurfaceBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored solids",
+            "type": "SolidBodyFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored environment",
+            "type": "EnvFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored markups",
+            "type": "NotesAreaFtrFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored equations",
+            "type": "EqnFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Markups",
+            "type": "InkMarkupFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Top Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Right Plane",
+            "type": "RefPlane",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Origin",
+            "type": "OriginProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Sketch1",
+            "type": "ProfileFeature",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Boss-Extrude1",
+            "type": "Extrusion",
+            "error": 0,
+            "warning": false,
+            "suppressed": false,
+            "dims": [
+              {
+                "name": "D1@Boss-Extrude1@H5_irregular.Part",
+                "value": 0.007
+              }
+            ]
+          }
+        ],
+        "initial_bitmap_saved": true,
+        "initial_bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\images\\H5_irregular_initial.bmp",
+        "initial_bitmap_sha256": "43371ab55b6961c05132d9952272214f98677fa8a31c732cb965da5d8681b5c7",
+        "initial_bitmap_bytes": 2073654,
+        "rotations_before": {
+          "standard": {
+            "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+            "2": [
+              -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+              -6.982962677686267e-15, -0.0, -1.0
+            ],
+            "3": [
+              -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+              -3.552713678800501e-15
+            ],
+            "4": [
+              -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+              -3.552713678800501e-15
+            ],
+            "5": [
+              1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+              -3.552713678800501e-15
+            ],
+            "6": [
+              1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+              -3.552713678800501e-15
+            ],
+            "7": [
+              0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+              2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+              -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+            ],
+            "8": [
+              0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+              1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+              -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+            ],
+            "9": [
+              0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+              6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+              -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+            ]
+          },
+          "active": [
+            1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0,
+            0.0, 0.0, 0.0
+          ]
+        },
+        "bitmap_saved": true,
+        "bitmap_sha256": "302f408b6c577d0e43b4ec5389f1f4dc9f2a3a1cf8a49c1d617a2bbf783c05f0",
+        "bitmap_bytes": 2073654,
+        "bitmap_signature": "424d",
+        "rotations_after": {
+          "standard": {
+            "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+            "2": [
+              -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+              -6.982962677686267e-15, -0.0, -1.0
+            ],
+            "3": [
+              -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+              -3.552713678800501e-15
+            ],
+            "4": [
+              -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+              -3.552713678800501e-15
+            ],
+            "5": [
+              1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+              -3.552713678800501e-15
+            ],
+            "6": [
+              1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+              -3.552713678800501e-15
+            ],
+            "7": [
+              0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+              2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+              -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+            ],
+            "8": [
+              0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+              1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+              -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+            ],
+            "9": [
+              0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+              6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+              -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+            ]
+          },
+          "active": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+            0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+          ]
+        },
+        "controller_diagnostics": [],
+        "dialogs": [],
+        "progress_windows": [],
+        "sha256_after": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+        "unchanged_input": true
+      },
+      {
+        "kind": "generated-heldout",
+        "name": "H7_irregular",
+        "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\inputs\\H7_irregular.SLDPRT",
+        "sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+        "bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\images\\H7_irregular.bmp",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794774769.6227224
+          },
+          {
+            "stage": "open_start",
+            "time": 1794774781.8706937
+          },
+          {
+            "stage": "open_return",
+            "time": 1794774788.3516366
+          },
+          {
+            "stage": "rebuild_start",
+            "time": 1794774788.3616343
+          },
+          {
+            "stage": "rebuild_return",
+            "time": 1794774789.160352
+          }
+        ],
+        "stage": "rebuild_return",
+        "oracle_identity": {
+          "process_id": 9868,
+          "process_creation_filetime": 134392483740389058,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "exception": "com_error(-2147417848, 'The object invoked has disconnected from its clients.', None, None)",
+        "failure_stage": "rebuild_return",
+        "controller_diagnostics": [
+          {
+            "stage": "close_document",
+            "error": "AttributeError('<unknown>.GetTitle')"
+          },
+          {
+            "stage": "exit_confirmation",
+            "error": "owned process did not exit; its lifetime handle remains registered"
+          }
+        ],
+        "dialogs": [],
+        "progress_windows": [],
+        "sha256_after": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+        "unchanged_input": true
+      },
+      {
+        "kind": "control",
+        "name": "ControlAfter",
+        "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\inputs\\NativeControl.SLDPRT",
+        "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PolygonsB23\\images\\ControlAfter.bmp",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794774823.5023801
+          }
+        ],
+        "stage": "oracle_idle_guard",
+        "exception": "RuntimeError('existing SOLIDWORKS processes prevent a fresh oracle session: [9868]; no process was closed')",
+        "failure_stage": "oracle_idle_guard",
+        "dialogs": [],
+        "progress_windows": [],
+        "sha256_after": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "unchanged_input": true
+      }
+    ],
+    "limitation": "bitmap creation alone is not visual acceptance; every image needs inspection",
+    "finished_at": 1794774827.7443845
+  },
+  "trailing_control_healthy": false,
+  "candidate_rpc_loss": "H7 opened with zero errors and warnings and returned rebuild success, then disconnected during grouped body/mass/feature extraction; this report does not identify which grouped call failed",
+  "candidate_crash_attributed_to_format": false,
+  "reason": "the trailing control could not launch because the owned process remained; no passing after-control brackets this observation",
+  "owned_cleanup": {
+    "pid": 9868,
+    "expected_creation_filetime": 134392483740389058,
+    "terminated": true,
+    "actual_creation_filetime": 134392483740389058,
+    "exit_confirmed": true
+  },
+  "fresh_retry_raw_sha256": "2394472326144c4ce2b9e136907e14d50dc93940c106d595d6314b2a6d6d15be",
+  "fresh_retry": {
+    "authority": "clean-vendor-inspection",
+    "instrumented": false,
+    "started_at": 1794775290.1755898,
+    "results": [
+      {
+        "kind": "control_before",
+        "path": "external-batch/inputs/NativeControl.SLDPRT",
+        "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794775290.1791673
+          }
+        ],
+        "stage": "oracle_idle_guard",
+        "exception": "RuntimeError('existing SOLIDWORKS processes prevent a fresh oracle session: [972]; no process was closed')",
+        "exception_stage": "oracle_idle_guard",
+        "dialogs": [],
+        "progress_windows": [],
+        "geometry_and_rebuild_healthy": false
+      },
+      {
+        "kind": "candidate",
+        "path": "external-batch/inputs/H7_irregular.SLDPRT",
+        "sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794775294.4415314
+          }
+        ],
+        "stage": "oracle_idle_guard",
+        "exception": "RuntimeError('existing SOLIDWORKS processes prevent a fresh oracle session: [972]; no process was closed')",
+        "exception_stage": "oracle_idle_guard",
+        "dialogs": [],
+        "progress_windows": [],
+        "geometry_and_rebuild_healthy": false
+      },
+      {
+        "kind": "control_after",
+        "path": "external-batch/inputs/NativeControl.SLDPRT",
+        "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "stages": [
+          {
+            "stage": "oracle_idle_guard",
+            "time": 1794775298.7891483
+          }
+        ],
+        "stage": "oracle_idle_guard",
+        "exception": "RuntimeError('existing SOLIDWORKS processes prevent a fresh oracle session: [972]; no process was closed')",
+        "exception_stage": "oracle_idle_guard",
+        "dialogs": [],
+        "progress_windows": [],
+        "geometry_and_rebuild_healthy": false
+      }
+    ],
+    "generator": {
+      "id": 14177624347,
+      "run": 43756383239,
+      "job": 132941286371,
+      "synthetic": "2179cb75a8501f83d78eacbdeb67f533a94246cc",
+      "parents": [
+        "e04e7b78699d3f567409937007b00b567620078a",
+        "b23e72c609caca0d0ca4acf871e9680a325f0548"
+      ],
+      "github_digest": "sha256:bb4cb2ddd8a0728e915f0748e2057012e737699f5517aad0e3c202591cf50448",
+      "digest_authority": "github metadata; zip not independently rehashed",
+      "head": "b23e72c609caca0d0ca4acf871e9680a325f0548"
+    },
+    "job_sha256": "e02dba79054de0fc3a9d8da84df29829137c01227224e1634ab068bf52458ae5",
+    "inspector_sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+    "finished_at": 1794775303.0514832,
+    "controls_healthy": false,
+    "vendor_acceptance": "incomplete; geometry inspection alone does not prove editing or save/reopen"
+  },
+  "fresh_retry_scope": "all three rows refused before activation because preexisting pid972 was present; the retry measured no candidate or control",
+  "outside_session_origin": "unverified; it appeared outside the recorded batch launches",
+  "acceptance_limit": "the b9 canonical-view result remains separate; no b23 polygon acceptance, curve writer or assembly acceptance is established"
+}

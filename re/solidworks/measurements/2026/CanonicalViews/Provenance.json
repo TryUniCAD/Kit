@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "batch": "ViewsNegativeHalf03",
+  "scope": "completed source-revision canonical standard-view measurement and owner visual inspection",
+  "original_sources": {
+    "NativeViewReport.json": {
+      "sha256": "7b690c431d7997827058763239945d2c3135f1273cefcc883b9fd0cb150f044b",
+      "bytes": 64055,
+      "published_as": "NativeViewReport.json",
+      "publication_transformation": "JSON reserialization and only the 15 path replacements listed below"
+    },
+    "SourceManifest.json": {
+      "sha256": "00c820364647ce90a8354fbbc56d17e07b63bd03bf3ff0fa0923e857e4f15b51",
+      "bytes": 3306,
+      "role": "pre-run staging snapshot, selected provenance retained"
+    },
+    "ViewJob.json": {
+      "sha256": "c3f469585d58f1ce267a875c75f5368f664c6a808082c1cc0945bb2007aebbe5",
+      "bytes": 1488,
+      "role": "original ordered job, selected path-free case fields retained"
+    },
+    "EditJob.json": {
+      "batch": "Edits0af",
+      "sha256": "35abce0201b001b6229c06aac8a8a926074229705fd141e6baa1ae4012f0c04a",
+      "bytes": 5197,
+      "role": "independent prior baseline metrics and neutral inputs only; no native source files read"
+    }
+  },
+  "redactions": [
+    {
+      "json_pointer": "/results/0/path",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "json_pointer": "/results/0/bitmap",
+      "replacement": "external-originals/ControlBefore.bmp"
+    },
+    {
+      "json_pointer": "/results/0/initial_bitmap",
+      "replacement": "external-originals/ControlBefore_initial.bmp"
+    },
+    {
+      "json_pointer": "/results/1/path",
+      "replacement": "external-inputs/H3_scalene.SLDPRT"
+    },
+    {
+      "json_pointer": "/results/1/bitmap",
+      "replacement": "external-originals/H3_scalene.bmp"
+    },
+    {
+      "json_pointer": "/results/1/initial_bitmap",
+      "replacement": "external-originals/H3_scalene_initial.bmp"
+    },
+    {
+      "json_pointer": "/results/2/path",
+      "replacement": "external-inputs/H5_irregular.SLDPRT"
+    },
+    {
+      "json_pointer": "/results/2/bitmap",
+      "replacement": "external-originals/H5_irregular.bmp"
+    },
+    {
+      "json_pointer": "/results/2/initial_bitmap",
+      "replacement": "external-originals/H5_irregular_initial.bmp"
+    },
+    {
+      "json_pointer": "/results/3/path",
+      "replacement": "external-inputs/H7_irregular.SLDPRT"
+    },
+    {
+      "json_pointer": "/results/3/bitmap",
+      "replacement": "external-originals/H7_irregular.bmp"
+    },
+    {
+      "json_pointer": "/results/3/initial_bitmap",
+      "replacement": "external-originals/H7_irregular_initial.bmp"
+    },
+    {
+      "json_pointer": "/results/4/path",
+      "replacement": "external-inputs/NativeControl.SLDPRT"
+    },
+    {
+      "json_pointer": "/results/4/bitmap",
+      "replacement": "external-originals/ControlAfter.bmp"
+    },
+    {
+      "json_pointer": "/results/4/initial_bitmap",
+      "replacement": "external-originals/ControlAfter_initial.bmp"
+    }
+  ],
+  "generator": {
+    "source_head": "b9a599fdc95f8f8aa6534343568ba6c9ca11bb49",
+    "live_base": "f324fe6fe07bc2515147fcd7c6b213a31c8c1f8f",
+    "synthetic_commit": "438e6982d3edd771689abce500d639ce4ab8dfba",
+    "synthetic_parents": [
+      "f324fe6fe07bc2515147fcd7c6b213a31c8c1f8f",
+      "b9a599fdc95f8f8aa6534343568ba6c9ca11bb49"
+    ],
+    "run_id": 43731969072,
+    "job_id": 132866188827,
+    "artifact_id": 14168208508,
+    "artifact_name": "solidworks-construction-438e6982d3edd771689abce500d639ce4ab8dfba",
+    "artifact_digest": "sha256:c390d00ab4ffb41395b0d77cb7c20671407dedf1eac2d3b34c08ba835da59164",
+    "artifact_digest_authority": "GitHub artifact metadata; archive bytes not independently rehashed",
+    "remote_process_results": {
+      "policy_passed": 149,
+      "codec_process_passed": 163,
+      "fixture_dependent_skipped": 158
+    }
+  },
+  "inspector": {
+    "source_revision": "b9a599fdc95f8f8aa6534343568ba6c9ca11bb49",
+    "files": {
+      "InspectView.py": {
+        "sha256": "a2f5903fcbab3a75bbe5d3f6926e1a0512bb647c53aed042c7efd670943a8314",
+        "bytes": 5841
+      },
+      "Swapp.py": {
+        "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+        "bytes": 15278
+      },
+      "OracleIdentity.py": {
+        "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+        "bytes": 4284
+      }
+    }
+  },
+  "original_staging_snapshot": {
+    "status": "pre-run snapshot; these values are not the completed batch state",
+    "flags": {
+      "local_construction_executed": false,
+      "local_tests_executed": false,
+      "oracle_measurements_started": false
+    },
+    "limitation": "staging only; corrected view bytes have no new native measurements"
+  },
+  "case_order": [
+    {
+      "name": "ControlBefore",
+      "kind": "control"
+    },
+    {
+      "name": "H3_scalene",
+      "kind": "generated-heldout"
+    },
+    {
+      "name": "H5_irregular",
+      "kind": "generated-heldout"
+    },
+    {
+      "name": "H7_irregular",
+      "kind": "generated-heldout"
+    },
+    {
+      "name": "ControlAfter",
+      "kind": "control"
+    }
+  ],
+  "generated_input_manifest": [
+    {
+      "name": "H3_scalene.SLDPRT",
+      "bytes": 7623,
+      "sha256": "a9d3689346f63e2bad7c5bafa2ad4fd9827054df5c2b37c56232edd230f5f0d7",
+      "same_bytes_as_e176": true
+    },
+    {
+      "name": "H5_irregular.SLDPRT",
+      "bytes": 7693,
+      "sha256": "20c7cde31b4a86e140b3e7c5c51e22943c2a6f00a6c739113475bd74517e700d",
+      "same_bytes_as_e176": true
+    },
+    {
+      "name": "H7_irregular.SLDPRT",
+      "bytes": 7788,
+      "sha256": "e21417df65fcfcbdd7cb75787aaff95f36b14dd5a210b03744b9e7ec34b73189",
+      "same_bytes_as_e176": true
+    }
+  ],
+  "original_control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "png_conversion": {
+    "tool": "macOS sips",
+    "operation": "original BMP to lossless PNG for display",
+    "authority": "oracle owner supplied conversion provenance",
+    "pixel_equality_independently_measured": false,
+    "publication_operation": "copy PNG bytes unchanged; keep original BMP outside repository"
+  },
+  "visual_inspection": {
+    "authority": "oracle owner manual inspection of all 10 original staged PNGs, reported in task handoff",
+    "images_inspected": 10,
+    "controls_initial": "visible cuboid",
+    "controls_after_isometric_selection": "visible cuboid in isometric orientation",
+    "candidates_initial": "small but nonempty front-facing polygon",
+    "candidates_after_isometric_selection": "visible extrusion depth and side faces for all three candidates",
+    "initial_active_camera_identical_to_controls_claimed": false,
+    "publisher_independent_visual_inspection": false
+  },
+  "boundaries": {
+    "full_cad_goal_complete": false,
+    "production_adapter_read_only": true,
+    "latest_head_acceptance": false,
+    "dimension_edits_or_reopen_in_this_batch": false,
+    "curve_or_assembly_writer_acceptance": false,
+    "source_revision_only": true
+  }
+}

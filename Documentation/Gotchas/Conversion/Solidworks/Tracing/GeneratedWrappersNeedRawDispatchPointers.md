@@ -22,4 +22,9 @@ Pass the returned raw dispatch pointer to the generated interface wrapper.
 Record the requested interface ID with the native call.
 
 The [explicit-interface change](../../../../Changes/Solidworks/Inspection/SolidworksExplicitOracleInterfaces.md)
-records the tool behavior and its remaining verification limits.
+records the tool behavior and its verification limits.
+The corrected [source preflight](../../../../../re/solidworks/measurements/2026/CurveSourcePreflight.json) passed all ten phases and all 119 numeric checks.
+Its explicit line and arc queries returned `PyIDispatch`, and the subsequent native interface calls succeeded.
+The report retains the earlier `Invoke` and `InvokeTypes` failures as harness failures, with their raw report hashes.
+These measurements cover SOLIDWORKS-API-authored sources, not Kit-written curve output.
+The complete family lock and curve writer acceptance remain pending.

@@ -1,0 +1,201 @@
+{
+  "conversion": {
+    "tool": "macOS sips",
+    "operation": "original BMP to lossless PNG for display",
+    "authority": "oracle owner supplied conversion provenance",
+    "pixel_equality_independently_measured": false,
+    "publication_operation": "copy PNG bytes unchanged; keep original BMP outside repository"
+  },
+  "images": [
+    {
+      "case": "ControlBefore",
+      "phase": "initial",
+      "native_bmp": {
+        "name": "ControlBefore_initial.bmp",
+        "sha256": "1094d670bc8fb5a620fe854c1154fcf925cdbd54d2b06869e19074567d5287c0",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/ControlBefore_initial.png",
+        "sha256": "3fbb44b5f544de550bc8ada08b20f77e003b348f8207f9d67a737b141d51f71c",
+        "bytes": 152907,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "isometric_selected",
+      "native_bmp": {
+        "name": "ControlBefore.bmp",
+        "sha256": "2a2f00262b264880507eb0e7255de34362e259ecc5d7be7eb5aa0fe352ddd795",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/ControlBefore.png",
+        "sha256": "3d063a427f78124a7c43720e980b2c4db7ea9ff1d768a35b57322e0a270aef55",
+        "bytes": 204191,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "initial",
+      "native_bmp": {
+        "name": "H3_scalene_initial.bmp",
+        "sha256": "8f7238a8e9d950f037709b698a92a0a5b0897bc4714722bd8df0c442ce7dd2a1",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/H3_scalene_initial.png",
+        "sha256": "989c7fa683817a4f6e224464c48f10ad24bdc2c95c8030fbf1d5d36b6868048c",
+        "bytes": 249612,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "isometric_selected",
+      "native_bmp": {
+        "name": "H3_scalene.bmp",
+        "sha256": "0e2789d3712c152aaa89bd80a293530a8b5854060127342fbf812abb6aa995e9",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/H3_scalene.png",
+        "sha256": "794c214e0127fa735f66d021f617610762d9dc8422cd893a945dcd4a8cdc6f3a",
+        "bytes": 236949,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "initial",
+      "native_bmp": {
+        "name": "H5_irregular_initial.bmp",
+        "sha256": "43371ab55b6961c05132d9952272214f98677fa8a31c732cb965da5d8681b5c7",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/H5_irregular_initial.png",
+        "sha256": "402357b166b505dfa67fa20ad91e8909b9d308e4baf873138ed024c1a4420d61",
+        "bytes": 244420,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "isometric_selected",
+      "native_bmp": {
+        "name": "H5_irregular.bmp",
+        "sha256": "302f408b6c577d0e43b4ec5389f1f4dc9f2a3a1cf8a49c1d617a2bbf783c05f0",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/H5_irregular.png",
+        "sha256": "fd13699b282d06742b9dc4b4a8d5983d87595d3d5abcd5530ad0f00a20eb6ea3",
+        "bytes": 232182,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "initial",
+      "native_bmp": {
+        "name": "H7_irregular_initial.bmp",
+        "sha256": "5370ef8a72a7e791131bf34f256ceffad199ee4c9803f44c3c285135e9efcc53",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/H7_irregular_initial.png",
+        "sha256": "1da36d16b76abf949b83494e9898022ca717174ae92293cf31696ce480efd3a6",
+        "bytes": 241473,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "isometric_selected",
+      "native_bmp": {
+        "name": "H7_irregular.bmp",
+        "sha256": "b20fde79325cdd2fee35b8eb79dddefa1216e4069f882e8befb3f5911f96484d",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/H7_irregular.png",
+        "sha256": "9e4cdfa6b2a7792d4ac61b760c27a5956c82c5cec3c403f37aed21bcdf243c02",
+        "bytes": 228288,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "initial",
+      "native_bmp": {
+        "name": "ControlAfter_initial.bmp",
+        "sha256": "1094d670bc8fb5a620fe854c1154fcf925cdbd54d2b06869e19074567d5287c0",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/ControlAfter_initial.png",
+        "sha256": "3fbb44b5f544de550bc8ada08b20f77e003b348f8207f9d67a737b141d51f71c",
+        "bytes": 152907,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "isometric_selected",
+      "native_bmp": {
+        "name": "ControlAfter.bmp",
+        "sha256": "2a2f00262b264880507eb0e7255de34362e259ecc5d7be7eb5aa0fe352ddd795",
+        "bytes": 2073654,
+        "digest_rechecked_from_external_original": true,
+        "retained_external_only": true
+      },
+      "published_png": {
+        "path": "images/ControlAfter.png",
+        "sha256": "3d063a427f78124a7c43720e980b2c4db7ea9ff1d768a35b57322e0a270aef55",
+        "bytes": 204191,
+        "width": 960,
+        "height": 720,
+        "copied_unchanged": true
+      }
+    }
+  ]
+}

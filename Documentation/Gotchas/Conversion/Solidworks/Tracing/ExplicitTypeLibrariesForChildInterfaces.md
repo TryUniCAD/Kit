@@ -23,4 +23,10 @@ Keep generated wrappers in the guest cache, outside repository checkouts.
 The installed pywin32 implementation and its [upstream source](https://github.com/mhammond/pywin32/blob/main/com/win32com/client/__init__.py)
 explain the automatic discovery branch and wrapper construction.
 The installed registered library exposed the required line, arc and feature wrappers.
-The corrected native preflight remains pending.
+
+The corrected [source preflight](../../../../../re/solidworks/measurements/2026/CurveSourcePreflight.json) passed ten fresh-process phases on executable version `34.5.2.0604`.
+Its recorded line and arc interface queries returned raw `PyIDispatch` objects through the explicit version `34.0` library.
+Both controls and both selected discovery sources passed authoring, reopening and edit checks.
+All 119 numeric checks passed, with one body in every measured snapshot.
+This verifies the selected source-authoring binding path.
+The complete family lock and acceptance of Kit-written curve output remain pending.

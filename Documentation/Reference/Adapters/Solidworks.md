@@ -126,12 +126,17 @@ The [visible viewport inspector](../../Changes/Solidworks/Inspection/SolidworksN
 captures the application's actual model view for separate visual inspection.
 The [standard-view constructor](../../Changes/Solidworks/SolidworksStandardViewConstruction.md)
 generates the missing canonical rotations from native constructor rules.
-Its new bytes still require controlled geometry and viewport measurements.
+The [canonical-view measurements](../../Changes/Solidworks/Inspection/SolidworksCanonicalViewMeasurements.md)
+confirm nine named rotations and visible selected-view depth for three polygon cases at their recorded source revision.
+Later configuration/profile changes and initial-camera parity require separate measurements.
+The [later polygon interruption](../../Changes/Solidworks/Inspection/SolidworksControlledPolygonInterruption.md)
+records a disconnected heptagon query and unavailable trailing control, with acceptance withheld.
 The [quaternion half-angle gotcha](../../Gotchas/Conversion/Solidworks/Model/QuaternionRotationUsesNegativeHalfAngle.md)
 records the native negative half-angle and the refuted positive-factor assumption.
 The [controlled curve source authoring tool](../../Changes/Solidworks/Inspection/SolidworksCurveSourceAuthoring.md)
 prepares independent discovery and held-out inputs before curved-sketch writer
-implementation. Its native preflight and full-family lock remain pending.
+implementation. A two-case source preflight passed creation, reopen and driving edits with healthy controls.
+The full-family lock and Kit-written curve acceptance remain pending.
 The [explicit oracle interface bindings](../../Changes/Solidworks/Inspection/SolidworksExplicitOracleInterfaces.md)
 avoid automatic type discovery on child objects that reject `GetTypeInfo`.
 The [approved-session handoff tool](../../Changes/Solidworks/Inspection/SolidworksApprovedSessionHandoff.md)

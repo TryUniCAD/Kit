@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 standard-view construction
 
-Status: **signed native construction and wire rules recovered; the corrected negative-half-angle generator awaits native remeasurement**
+Status: **bounded canonical named-view parity measured on three generated polygon parts at source revision `b9a599fdc95f8f8aa6534343568ba6c9ca11bb49`; full CAD acceptance remains unfinished**
 
 The earlier generated model wrote ten null `moView_c` entries in its `f9f8`
 array
@@ -8,22 +8,30 @@ The native loader replaces each null with an identity-view constructor, assigns
 its index and reloads its name, without computing its canonical orientation
 The missing constructor lifecycle explains why a named isometric target can
 remain a front orientation even when the part has a healthy solid body
-Native acceptance of a generated repair, and initial active-camera behaviour,
-remain separate obligations
+Named-target parity of the corrected generator is now measured for the bounded
+batch below
+Initial active-camera parity and later-revision acceptance remain separate
+obligations
 
-The oracle owner's viewport observation is reported context, not a measurement
-performed or independently inspected here
-This work read native binaries and existing private static analyses only
+The original construction investigation read native binaries and private static
+analyses
+The subsequent evidence publication independently inspected the completed
+owner-controlled measurement JSON and image hashes
+The oracle owner's manual image inspection is attributed separately
 No vendor document stream, held-out native stream or saved field values supplied
 any of the constants or formulas below
-No CAD process, repository module or local test was executed
+The publication agent launched or attached to no CAD process and executed no
+repository imports or local tests
 The static investigation changed no writer code; the shared generator described below was implemented afterward
 
 The [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md),
 [reverse-engineering book](../../Playbook/README.md) and no-donor standard apply
-Their acceptance conditions are not satisfied by this static record
-The criteria's stopping conditions remain “success under every criterion on this
-page” or “the end of the available context”
+Their complete acceptance conditions are not satisfied by this bounded record
+The criteria state the stopping conditions exactly:
+
+> There are two acceptable stopping conditions.
+> The first is success under every criterion on this page.
+> The second is the end of the available context.
 
 ## Critical correction: the native half-angle is negative
 
@@ -59,7 +67,10 @@ because the API returns a tuple, so that failed helper supplies no standard-view
 matrix evidence
 These measurements prompted the native operand read but do not supply writer
 values
-Fresh native measurement of the corrected construction is still required
+The corrected negative-half-angle construction was subsequently measured in
+the [canonical-view batch](../measurements/2026/CanonicalViews/README.md)
+That result does not erase the failed positive-half-angle evidence or supply
+captured values to the generator
 
 ## Binary and evidence binding
 
@@ -357,26 +368,71 @@ This record therefore does not claim generated/native byte identity or native
 viewport acceptance from the formulas alone
 It does establish a generative computation rather than a saved matrix table
 
+## Bounded native measurement
+
+The completed `ViewsNegativeHalf03` batch measures generator and inspector
+revision `b9a599fdc95f8f8aa6534343568ba6c9ca11bb49`
+Its [native report](../measurements/2026/CanonicalViews/NativeViewReport.json)
+has path redactions only, with original raw SHA-256
+`7b690c431d7997827058763239945d2c3135f1273cefcc883b9fd0cb150f044b`
+The [provenance](../measurements/2026/CanonicalViews/Provenance.json) binds remote
+artifact `14168208508`, run `43731969072`, job `132866188827` and synthetic
+revision `438e6982d3edd771689abce500d639ce4ab8dfba`
+The original manifest's false measurement flags are explicitly retained as a
+pre-run staging snapshot, not the completed batch state
+
+The before/after controls and three generated candidates all opened with zero
+errors and warnings, rebuilt successfully and returned one body
+All recorded features were clean and unsuppressed
+Inputs retained their source hashes, with no recorded exceptions, cleanup
+errors, controller diagnostics or dialogs
+The five recorded process identities are distinct and match executable build
+`34.5.2.0604`, SHA-256
+`3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe`
+
+The [derived analysis](../measurements/2026/CanonicalViews/Analysis.json) checks
+all nine standard-view arrays from every row before and after selection
+All 90 arrays are finite numeric arrays of length nine
+Every candidate view matches the same view from both controls within absolute
+tolerance `1e-12`; the maximum absolute discrepancy is
+`7.888609052210118e-31`, while the controls differ by zero
+All standard-view arrays remain unchanged by the selection operation
+Every post-selection active rotation equals that row's isometric target
+exactly in its first nine coefficients
+View ID zero was not measured
+
+Candidate volume, area, center of mass and extrusion-depth readback match
+independent baseline metrics and neutral models within the recorded tolerances
+The oracle owner manually inspected all ten published PNGs
+Both controls show a visible cuboid initially and in isometric view
+All three candidates show a small but nonempty front-facing polygon initially,
+then visible extrusion depth and side faces after isometric selection and zoom
+The [image manifest](../measurements/2026/CanonicalViews/ImageManifest.json)
+binds unchanged PNG copies and external original BMP hashes
+Decoded-pixel equality across the owner's lossless `sips` conversion was not
+independently measured by the publisher
+
+This bounded named-target parity is **confirmed** by static construction rules
+and independent native measurement
+Captured rotation arrays remain measurement evidence, not writer constants
+Initial active-camera parity is **not claimed**: the candidates initially
+returned identity rotation while the controls retained another orientation
+The largest initial candidate/control coefficient difference is
+`0.5150380749100181`
+
 ## Remaining acceptance and uncertainty
 
-- Implement the shared default-view construction from the typed fields and
-  operation sequence, with no runtime vendor DLL or resource-file dependency
-  Canonical English resource names and documented binary constants are format
-  vocabulary; the writer must compute matrices rather than load captured ones
-- Verify the effective standard-field branch against the actual generated
-  detail-definition input; require explicit rules before supporting runtime
-  overrides or the nonzero base-orientation flag
-- Measure generated named standard views in the native application, including
-  isometric index seven, with healthy controls and unchanged geometry inputs
-  Record returned view/camera orientation and screenshots rather than relying
-  on the API call's lack of an exception
-- Check whether the initial active viewport additionally depends on definition
-  or UI camera state; this proof only supplies the model's canonical view targets
-- Confirm body count, mass properties, feature edits and rebuild acceptance stay
-  correct after adding the newly generated view objects and changed stream/map
-  lengths
+- The source-revision measurement does not establish native geometry,
+  dimension-edit or reopen acceptance for later configuration/profile changes
+- The viewport batch reads dimensions but does not edit, save or reopen them
+- Initial active-camera state still needs its own definition/UI camera
+  lifecycle; canonical target parity does not make the initial view identical
+- Runtime detail-standard overrides, alternate field branches and the nonzero
+  base-orientation flag remain outside the exposed construction bound
+- The complete CAD goal, curve or assembly writer acceptance and production
+  writer registration are not established; the adapter remains read-only
 
-Only the oracle owner can establish those native outcomes
+Only the oracle owner can establish the remaining native outcomes
 
 ## Shared generator
 
@@ -385,5 +441,7 @@ and returns ten distinct view objects to the shared model constructor. Its
 effective detail-standard input is explicitly limited to literal one, matching
 the current detail-definition factory. Alternate branches remain recorded
 knowledge, not exposed construction coverage. The complete-file process harness
-checks the decoded view inventory, ids and matrix-payload presence. Remote CI
-and fresh native geometry, edit and viewport measurements remain pending.
+checks the decoded view inventory, ids and matrix-payload presence. The bounded
+native viewport and baseline-geometry measurement above applies only to its
+recorded source revision. Later changes require fresh native geometry, edit
+and reopen measurements.

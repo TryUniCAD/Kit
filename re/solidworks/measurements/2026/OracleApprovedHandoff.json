@@ -1,0 +1,41 @@
+{
+  "schema": "kit-sw2026-approved-session-handoff/1",
+  "status": "exact empty process released after approved handoff",
+  "authorization": "user requested closing the preexisting solidworks session and resuming oracle measurements",
+  "tool_source_revision": "b23e72c609caca0d0ca4acf871e9680a325f0548",
+  "helper_manifest_sha256": "e70b34fe6cf9be72cf71718d5451fb41bfccb27f6b33a02c7b04350259087a0d",
+  "graceful_exit": {
+    "started_at": 1794773327.4195058,
+    "script_sha256": "434b67dc49b1c94aa6675ceab1f2c5a11348d550b892a28976db24376b00095f",
+    "expected_pid": 6176,
+    "expected_creation_filetime": 134392465504879321,
+    "exit_requested": true,
+    "exit_confirmed": false,
+    "identity": {
+      "process_id": 6176,
+      "process_creation_filetime": 134392465504879321,
+      "executable": "SLDWORKS.exe",
+      "file_version": "34.5.2.0604",
+      "file_version_words": [34, 5, 2, 604],
+      "expected_version": [34, 5, 2, 604],
+      "version_matches": true,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "pe_machine": "0x8664"
+    },
+    "documents": [],
+    "error": "RuntimeError('the selected session did not exit; no forced termination was attempted')",
+    "finished_at": 1794773357.9660563
+  },
+  "forced_cleanup": {
+    "pid": 6176,
+    "expected_creation_filetime": 134392465504879321,
+    "terminated": true,
+    "actual_creation_filetime": 134392465504879321,
+    "exit_confirmed": true
+  },
+  "forced_cleanup_source_revision": "f0d827e95e4ec72a8b023a6d71697771dc0f9ce9",
+  "forced_cleanup_tool_sha256": "e8c70ec8f847a5c281be08c9dc29290b48a5363bd52b603f4118203ca0f6aa63",
+  "scope": "the selected process had no open documents at the exit request; the exact PID and creation FILETIME were checked again before termination; no CAD output acceptance is established",
+  "prior_session": "the previously selected pid4640 was absent when this resumed turn began; this record does not establish whether its former unsaved drawing was saved by its owner"
+}
