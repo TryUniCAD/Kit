@@ -94,6 +94,7 @@ output = Path(sys.argv[3])
 sys.argv[:] = ["kit", "formats", "--json"]
 with redirect_stdout(io.StringIO()):
     assert CliEntry() == 0
+assert "importlib.metadata" not in sys.modules
 sys.argv[:] = ["convert", "research", "--root", str(output), "controller", "--help"]
 with redirect_stderr(io.StringIO()) as error_stream:
     assert SdkEntry() == 1

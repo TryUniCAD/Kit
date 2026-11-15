@@ -1,10 +1,10 @@
 from argparse import ArgumentParser
-from importlib.metadata import version as GetVersion
 from pathlib import Path as FilePath
 
 from convert.Commands.ConvertArgs import AddConvertMut
 from convert.Commands.DecodeArgs import AddDecodeMut
 from convert.Commands.ResearchArgs import AddResearchMut
+from convert.Commands.ReadVersion import ReadVersion
 
 
 # command discovery and validation need one consistent public argument contract
@@ -15,7 +15,9 @@ def BuildParser() -> ArgumentParser:
         allow_abbrev=False,
     )
     _ = Parser.add_argument(
-        "--version", action="version", version=GetVersion("unicad-kit")
+        "--version",
+        action="version",
+        version=ReadVersion(),
     )
     Commands = Parser.add_subparsers(dest="Command", required=True)
     Formats = Commands.add_parser(

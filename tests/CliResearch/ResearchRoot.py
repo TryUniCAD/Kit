@@ -10,7 +10,7 @@ def ResearchRoot() -> FilePath:
     RootPath = FilePath(__file__).resolve().parents[2] / "ResearchCheckout"
     if (
         not FilePath(RootValue).is_absolute()
-        or FilePath(RootValue).resolve() != RootPath
+        or FilePath(RootValue) != RootPath
         or RootPath.resolve() != RootPath
     ):
         raise ValueError(

@@ -179,6 +179,7 @@ Operational errors are JSON records on standard error.
 Argument errors use the parser's usage message.
 `--json` conversion reports contain no progress text on standard output.
 Run `kit --help` or `kit --version` for discovery.
+`--version` is a top-level option; place it before a subcommand.
 
 Tests execute only in remote CI.
 See the [change record](../Changes/Commands/CommandLineInterface.md) for verification evidence and limits.
