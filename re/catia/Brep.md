@@ -1453,6 +1453,26 @@ payload read as a little-endian u16 gives 15936, 15879, 15881, 1806, 2317, ..., 
 surface index. The u32 is therefore a tag or an offset into a table that is not the surface list,
 and the table that resolves it is still missing.
 
+The tail is a linked list of control points, not a face table. In `Copper_Washer` the six surface
+records are contiguous (17, 90, 163, 212, 261, 334) and the whole tail is 313 bytes. The tail is a
+chain of `00 00 12 00 33 37 <18 bytes>` blocks, each followed by a `60 <u32> 12 00 33 37 <18 bytes>`
+record whose u32 points into the next block's data. The `54` roster entries point at the `00 33 37`
+markers (410, 419, 429, 439, 455, 466, 482, 489), so the roster is the list of block heads. The
+eighteen-byte block is four floats plus two bytes; for the washer the floats are `1.0, 0.0, 0.0,
+8.0` and the two bytes are `(3, 0)`, `(2, 1)`, `(3, 1)`, `(5, 2)`, `(4, 2)`, `(5, 3)`, `(4, 3)`.
+The two bytes are a parameter pair, not a face pair: the same surface block carries several pairs,
+and the pairs do not form a function from faces to surfaces. The tail is the display control-point
+chain, and the face-to-surface map is not in it.
+
+The map is also not a monotone staircase over the surface list. If the surfaces were stored in
+first-use order, face `i` would map to surface `j` with `j` non-decreasing and increasing by at most
+one, and the trim kind would have to be compatible with the surface kind. Counting those staircases
+with the compatibility learned from the 22 decoded parts gives zero solutions for `Reservoir`
+(71 faces, 56 surfaces), `Pedal_Body` (338, 314), `4784` (416, 270), `4876` (870, 714) and `4876_1`
+(870, 714). Without the compatibility constraint the count is 721480692460864 for `Reservoir`, so
+the zero is not a counting artifact. The surfaces are not in first-use order, and the map is not a
+staircase.
+
 The `42 ff` block at `MainDataStream` offset 12377 is not that table either. It is 6430 bytes, which
 is 90.6 bytes per face for the 71 `Reservoir` faces, but its contents do not read as per-face
 records. The block starts with `ff 22 0b 00 00`, a count of 2850, and the body is a run of repeated
