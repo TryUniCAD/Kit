@@ -15,6 +15,9 @@ separate local allocator for configurations.
 Provide version provenance, timestamps, document options and density explicitly.
 The [construction record](../../../re/solidworks/records/ModelConstruction2026.md)
 lists the APIs and binary evidence.
+The record also derives target date code `2026306` from the native tagged
+build string and its string-processing calls. Parasolid behavior provenance
+is traced to the kernel session query; its numeric result remains unresolved.
 
 ## Limits
 
