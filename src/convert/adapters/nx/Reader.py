@@ -11,6 +11,7 @@ from convert.adapters.base.ProbeResult import ProbeResult
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.nx.CompoundReader import ReadCompound, ReadStreams
 from convert.adapters.nx.Format import KInfoValue
+from convert.adapters.nx.LegacyClasses import LegacyClass, LegacyTable
 from convert.adapters.nx.Geometry import ReadGeometry
 from convert.adapters.nx.Payload import NxPayload
 from convert.adapters.nx.PayloadReader import ReadPayload
@@ -125,6 +126,7 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
     if PartData is None:
         raise ValueError("NX part has no UG_PART payload")
     Payload = ReadPayload(PartData)
+    LegacyRecords = LegacyClasses(PartData)
     Attributes = ParseAttributes(Streams)
     References = ParseReferences(Streams)
     Geometry = ReadGeometry(Payload, Settings)
@@ -156,6 +158,10 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
         "nx.attributes": Attributes,
         "nx.external_references": References,
         "nx.application_version": Version,
+        "nx.legacy_class_count": len(LegacyRecords),
+        "nx.legacy_schema_count": len(
+            {ClassRecord.Schema for ClassRecord in LegacyRecords}
+        ),
     }
     DocValue = CadDoc(
         source=CadSource(
@@ -189,6 +195,16 @@ def ReadNx(Source: KSourceType, Options: ReadOptions | None = None) -> CadDoc:
     if Settings.strict:
         DocValue.assert_valid()
     return DocValue
+
+
+# legacy payloads carry a class table and no modern sections
+def LegacyClasses(PartData: bytes) -> tuple[LegacyClass, ...]:
+    if PartData.startswith(b"SPLMSSTR"):
+        return ()
+    try:
+        return LegacyTable(PartData)
+    except ValueError:
+        return ()
 
 
 # diagnostics keep legacy geometry omission visible instead of silently empty

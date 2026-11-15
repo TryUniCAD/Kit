@@ -140,6 +140,26 @@ wave_parent.prt         98        32    0x001068                0        n/a
 `TestNxLegacy` pins the framing, the extent and the rejection path on a constructed payload, so the
 test carries no captured bytes.
 
+`ReadNx` now calls it for compound containers and exposes the result as `nx.legacy_class_count` and
+`nx.legacy_schema_count`. Reading the three corpus parts through the adapter:
+
+```text
+part             container   classes   schemas   om sections   bodies
+flange.prt       compound        233        99             0        0
+vise_screw.prt   compound        192        83             0        0
+wave_parent.prt  compound         98        32             0        0
+```
+
+and the modern path is unchanged:
+
+```text
+dim40.prt        SPLMSSTR          0         -             5        1
+empty.prt        SPLMSSTR          0         -             4        0
+```
+
+Legacy geometry is still not decoded, so `bodies` stays zero for those parts; what is now read is the
+container, its streams, the attributes and the class table.
+
 ## The legacy payload is a separate serialisation of the whole model
 
 Reading the payload header and the class records shows this is not a wrapper around the modern
