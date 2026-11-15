@@ -9,6 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import Swapp
+from OracleIdentity import application_identity
 
 
 def inspect(path):
@@ -18,6 +19,9 @@ def inspect(path):
         controller = Swapp.Sw()
         try:
             result.update(revision=controller.revision, process_ids=sorted(Swapp.process_ids()))
+            result["oracle_identity"] = application_identity(controller.app)
+            if not result["oracle_identity"]["version_matches"]:
+                raise RuntimeError("oracle executable differs from SOLIDWORKS 2026 SP05.2 build 34.5.2.0604")
             if not controller.revision.startswith(Swapp.EXPECTED_BUILD):
                 raise RuntimeError(f"unexpected oracle revision: {controller.revision}")
             result.update(Swapp.measure(controller, path))
@@ -39,7 +43,13 @@ def healthy(result):
 def main():
     job = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
     output = Path(sys.argv[2])
-    result = {"authority": "clean-vendor-inspection", "instrumented": False, "started_at": time.time(), "results": []}
+    result = {
+        "authority": "clean-vendor-inspection", "instrumented": False,
+        "started_at": time.time(), "results": [],
+        "generator": job.get("generator"),
+        "job_sha256": hashlib.sha256(Path(sys.argv[1]).read_bytes()).hexdigest(),
+        "inspector_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+    }
     for kind, path in (("control_before", job["control"]), *(("candidate", path) for path in job["files"]), ("control_after", job["control"])):
         row = inspect(path)
         row["kind"] = kind
