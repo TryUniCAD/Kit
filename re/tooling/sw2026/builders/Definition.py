@@ -13,11 +13,11 @@ from builders.Model import object_list
 def identity_transform() -> dict:
     return {
         "has_matrix": 0,
-        "t0": 0.0,
-        "t1": 0.0,
-        "t2": 0.0,
-        "scale": 1.0,
-        "flags": 0,
+        "f58": 0.0,
+        "f60": 0.0,
+        "f68": 0.0,
+        "f70": 1.0,
+        "f78": 0,
     }
 
 

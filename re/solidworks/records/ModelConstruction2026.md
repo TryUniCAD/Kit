@@ -135,6 +135,10 @@ These are candidate fresh-document choices, not accepted neutral cache values.
 
 Static syntax parsing has completed for both builder modules.
 No tests were run locally.
+The first remote process run exposed conflicting provisional names for the
+transform schema. The registry preserves its first definition, so the builder
+uses the `Definition.py` field names `f08/f58/f60/f68/f70/f78`.
+This result is a codec-construction failure, not target acceptance evidence.
 The new process-boundary check is prepared for remote PR CI: it constructs
 different configuration counts and Unicode names from no input file, serializes
 both components into a generated container, decodes and re-emits each stream,
