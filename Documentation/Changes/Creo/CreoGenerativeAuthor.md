@@ -472,6 +472,27 @@ an identity):
 
 So neither natural generated default works: all-clean and all-dirty both fail.
 
+The field also cannot be dropped. `re/creo/tools/OmitMask.py` removes record 0's field header, its
+`f1 f8 80 fc` array introduction and its elements, plus the element runs in the three replay records:
+
+```text
+omit_a: AllFeatur 3478 -> 1873   no cr_flags_xar name left: True
+!15-Nov-26 02:40:09  Start C:\Mac\Home\Documents\creo-authored\omit_a.prt
+(no End line, no dbg_err_crash, process exits)
+```
+
+So the loader has no default for the field.
+
+That probe also pinned the replay form exactly: replay records carry the **elements only** — record 0 is
+`402` bytes (`f1 f8 80 fc` plus 398 element bytes, behind `e0 01 cr_flags_xar 00`) and records 1 to 3 are
+`398`, `398` and `392` bytes with no header and no array introduction.
+
+The masks are per class, not per document. Across the two unrelated controls the three datum planes have
+identical vectors, the empty control's 252 entries are identical to the ladder's first 252, and the csys
+differs from a plane at exactly two slots (`28`, `236`) in both files, while the ladder's protrusion
+differs at 195. See
+[the mask lane gotcha](../../Gotchas/Conversion/CreoMaskLaneRequired.md).
+
 The lane is neither value-driven nor size-driven. Six edits, one launch each:
 
 | edit | byte delta | result |
@@ -546,5 +567,6 @@ validator and the vendor loader reject when absent.
 - [Creo adapter](../../Reference/Adapters/Creo.md)
 - [Mass properties change entry](CreoNeutralMassProperties.md)
 - [Section subset tool change entry](CreoSectionSubsetTool.md)
+- [Mask lane gotcha](../../Gotchas/Conversion/CreoMaskLaneRequired.md)
 - [Required section set gotcha](../../Gotchas/Conversion/CreoRequiredSectionSet.md)
 - [Reader change entries](../../Changes/Index.md)

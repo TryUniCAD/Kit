@@ -2,6 +2,9 @@
 
 ## Pages
 
+- [Omit mask probe](tools/OmitMask.py) — removes `cr_flags_xar` from every feature record
+
+
 - [Feature struct](loader/FeatureStruct.md) — the model module that owns `cr_flags_xar`
 
 ## State

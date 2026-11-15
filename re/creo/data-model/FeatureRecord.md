@@ -162,6 +162,61 @@ Two conclusions follow, and both matter:
 So the accepted form is the control's token shape with limited freedom inside it, and neither "generate
 by value" nor "generate by size" reproduces it.
 
+## The field cannot be omitted
+
+The obvious bypass — drop the field and let the loader default it — was measured and fails. The whole
+field was removed from all four records: record 0's header `e0 01 cr_flags_xar 00`, its `f1 f8 80 fc`
+array introduction, and its 398 element bytes, plus the 398-element runs in records 1, 2 and 3. The
+`AllFeatur` payload went from `3478` to `1873` bytes and contained no occurrence of the name.
+
+```text
+omit_a: AllFeatur 3478 -> 1873
+no cr_flags_xar name left: True
+!15-Nov-26 02:40:09  Start C:\Mac\Home\Documents\creo-authored\omit_a.prt
+(no End line, no dbg_err_crash, process exits)
+```
+
+So the field is required, and the loader is not filling a default for it.
+
+## Replay records store only the element bytes
+
+The four records do not carry the field the same way, and the difference is exact:
+
+| Record | Bytes | Contents |
+| --- | ---: | --- |
+| 0 | `402` | `f1 f8 80 fc` then 398 bytes of elements, preceded by `e0 01 cr_flags_xar 00` |
+| 1 | `398` | elements only — no header, no array introduction |
+| 2 | `398` | elements only |
+| 3 | `392` | elements only |
+
+Record 1 begins `f6 e5 f5 88 01 ...`, which is exactly record 0's element run; the only difference is
+the missing four-byte introduction. So a replay record replays the *elements* of an array without
+re-declaring the array, and record 0 is the only one that carries the count.
+
+## The vector is a per-class constant
+
+The masks are not per-document state. Measured across the two retained controls:
+
+| Comparison | Result |
+| --- | --- |
+| empty control, features 7 / 5 / 3 (classes `923`) | identical to each other |
+| ladder, features 7 / 5 / 3 | identical to the empty control's |
+| empty control, four-feature vector vs ladder's first 252 entries | **identical** |
+| empty control feature 11 (csys, class `979`) vs a plane | differs at exactly 2 slots: `28` and `236` |
+| empty control feature 11 vs ladder feature 11 | the same two slots, same two values |
+| ladder protrusion (class `917`) vs a plane | differs at 195 of 252 slots |
+
+Two unrelated documents — a datum-only empty part and a part with three datums, a csys and solid
+geometry — produce byte-identical datum masks, including the csys's two deviations. The ladder's
+vector is the empty control's 252 values followed by 59 more.
+
+So the vector is a function of the feature class, not of the model. For the class set `{923, 979}` it is
+a fixed 252-entry vector with one variant for the planes and one for the csys.
+
+That is precisely the shape of a **captured table**: the values are ordered schema data read back from
+vendor saves, not something a generator can compute. Emitting them from `src/` would be transcribing
+vendor bytes, which the repository standard forbids.
+
 ## The lane is not a plain value array
 
 Two further launches contradict the assumption that `cr_flags_xar` is a list of 252 integers whose
@@ -220,11 +275,17 @@ location, the neighbouring names (`more_cr_flags`, `save_geoms`, `-dummy_*`) and
 
 ## What is needed
 
-1. Decode `cr_flags_xar` bit-to-field assignment, or prove that an all-dirty or all-clean array is
-   accepted.
-2. Emit the remaining 72 fields, which are mostly constants (`-1`, `0`, null) plus three small
-   nested records (`feat_type_ptr`, `idtab_ptr`, `body_geom_hdr`) and one 12-slot transform.
-3. Replay records two to four from the first record's schema.
+The remaining question is a policy one, because the technical options are exhausted:
 
-Until step 1 lands, `AllFeatur` stays unauthored, and with it the whole authored part: it is the one
-section that both our document validator and the vendor loader reject when absent.
+| Route | Status |
+| --- | --- |
+| omit the field | measured, fails |
+| all-clean (`-1`) or all-dirty (`0`) generated default | measured, both fail |
+| re-encode the same values with different tokens | measured, fails |
+| decode the bit semantics from the loader | no accessor exists (210 accessors cover only parenthesised union members); the consumer is at a compile-time struct offset in a 219 MB `.text` |
+| emit the per-class vector | would transcribe vendor saves, which the standard forbids |
+
+The per-class vector is stable across two documents, so it is *format-shaped* data rather than
+document-shaped data. But it is still copied, not computed. Until that distinction is resolved,
+`AllFeatur` stays unauthored, and with it the whole authored part: it is the one section that both our
+document validator and the vendor loader reject when absent.
