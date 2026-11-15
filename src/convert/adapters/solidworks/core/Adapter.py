@@ -1203,7 +1203,11 @@ def AsmDefinitions(
                                 or DocValue is not None
                             }
                             if ResolveComponents
-                            else {}
+                            else (
+                                {"source_resolution": "deferred"}
+                                if Definition.object_id != Native.root_definition_id
+                                else {}
+                            )
                         ),
                         "alternate_configuration_name": Definition.alternate_configuration_name,
                         "last_modified_stamp": Definition.last_modified_stamp,

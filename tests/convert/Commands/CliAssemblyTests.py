@@ -120,4 +120,12 @@ print(Document.to_json())
         "source_resolved" not in Definition.attributes
         for Definition in Assembly.definitions
     )
+    assert all(
+        (
+            Definition.attributes.get("source_resolution") == "deferred"
+            if Definition.id != Assembly.root_definition_id
+            else "source_resolution" not in Definition.attributes
+        )
+        for Definition in Assembly.definitions
+    )
     assert Source.read_bytes() == Original

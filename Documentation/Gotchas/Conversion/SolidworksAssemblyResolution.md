@@ -11,9 +11,13 @@ other definitions are true only when their referenced document was actually
 loaded. Cached meshes do not change false to true. Source paths remain provenance
 and are not used to infer missing sources in constructed typed JSON documents.
 When `resolve_components=False` deliberately defers loading, the adapter omits
-the flag on all definitions. Treat omission as unknown/deferred rather than
-false. Nested assembly reads use this existing deferred policy; no recursive
-hydration is introduced here.
+the boolean flag on all definitions. Skipped non-root definitions instead carry
+`source_resolution: deferred`; the decoded root does not. This explicit marker
+retains the missing qualification evidence even when a cached mesh exists,
+without falsely reporting that a lookup was attempted and failed. The CLI
+refuses the deferred marker recursively, while SDK inspection remains available.
+Nested assembly reads use this existing deferred policy; no recursive hydration
+is introduced here.
 
 Use `kit decode` to inspect these documents. The CLI conversion guard rejects
 explicit false flags, including within nested documents, while SDK inspection

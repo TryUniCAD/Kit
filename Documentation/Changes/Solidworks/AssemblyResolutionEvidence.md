@@ -6,7 +6,11 @@ and for a component whose document was actually loaded. It is false for every
 other unloaded component, including components with cached display meshes.
 The attribute is emitted only when component resolution was enabled. A deliberate
 `resolve_components=False` read omits it instead of reporting deferred component
-loads as failed. `AsmDefinitions` defaults to enabled resolution for existing
+loads as failed. Each skipped non-root definition instead records
+`source_resolution: deferred`, including definitions with cached display meshes.
+The decoded root is not marked deferred. This preserves explicit incomplete
+source evidence for nested projections without claiming a failed lookup.
+`AsmDefinitions` defaults to enabled resolution for existing
 callers; the assembly reader passes its actual resolution setting explicitly.
 
 `source_path` remains provenance. A cached mesh, source filename, or local
@@ -28,11 +32,16 @@ earlier strict-read or opaque-record refusal during conversion. It does not
 claim that the false-attribute guard is the sole native refusal reason.
 An additional real subprocess invokes the native SDK adapter with resolution
 deliberately disabled and verifies that every source-resolution flag is absent.
+It also verifies the deferred marker on every skipped non-root definition and
+its absence on the decoded root. The CLI refuses explicit deferred markers even
+when a cached mesh or another retained representation is present; those records
+remain available to SDK and CLI inspection.
 
 This change does not recursively hydrate nested assembly projections. Even with
 a complete file tree, a returned nested neutral document can still contain an
-unrepresented part and remain ineligible for CLI conversion. Omitted evidence
-means deferred resolution, not qualification or complete component semantics.
+unrepresented part and remain ineligible for CLI conversion. The explicit
+deferred marker records unfinished source loading, not qualification or complete
+component semantics.
 
 No local tests, decoding, or test collection were executed. Pinned formatting,
 type analysis and repository steering/path checks cover the change. Remote CI
