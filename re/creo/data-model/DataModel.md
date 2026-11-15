@@ -308,6 +308,26 @@ from `-201.7190851617055` to `-123.5`, length unchanged, loads twice with the bo
 segment's `verhor` from `1` to `0` likewise loads twice. So the row's *values* are tolerated; what is refused is
 a row whose *structure* differs from what the rest of the model expects.
 
+### `VisibGeom` emitted one element opener too many
+
+Comparing the two payloads byte for byte showed a defect in `Author.AuthorGeometryPayload`. The array form is
+`srf_array` → `f8 06 f7 03 fb`, and each element then opens itself with `e3`. The emitter wrote the array
+introduction **and** an `e3`, so the first element was opened twice:
+
+```text
+ladder: ... 73 72 66 5f 61 72 72 61 79 00 f8 06 f7 03 fb e3 e0 01 67 65 6f 6d 5f 69
+ours  : ... 73 72 66 5f 61 72 72 61 79 00 f8 06 f7 03 fb e3 e3 e0 01 67 65 6f 6d 5f
+```
+
+With the extra opener removed the two payloads are identical for the first 40 bytes, and our own reader still
+reads the generated section as six surfaces and one body (`vis_fixed`: `4 features, 1 body`).
+
+Creo still refuses a part carrying authored `VisibGeom` — `vis_ladder` (our six plane prototypes with our
+generated class-917 element, the ladder's class-949 kept) exits with no `End` line, twice — so the doubling was
+a real bug but not the reason the section is rejected. The remaining difference is content: the ladder's six
+surfaces are the six faces of its extruded box, each with an `outline`, `envlp`, `local_sys`, `topol_ref_data`
+and `next_geom_ptr` chain (geoms `77`, `82`, …), and ours are axis-aligned planes at an extent.
+
 ### A generated sketch-bearing element is refused
 
 `re/creo/tools/SketchDef.py` emits the `949` element with `sub_feat_arr` and the sketch: one section element

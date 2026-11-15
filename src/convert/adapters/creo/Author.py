@@ -274,7 +274,7 @@ def AuthorGeometryPayload(
     Payload = StructHeader("Sld_VisGeom") + b"\xe3"
     Payload += StructHeader("active_geom") + b"\xe2"
     Payload += StructHeader("srf_array") + b"\xf8" + IntValue(len(Planes))
-    Payload += b"\xf7" + IntValue(3) + b"\xfb\xe3"
+    Payload += b"\xf7" + IntValue(3) + b"\xfb"
     for IndexValue, (NormalValue, OriginValue) in enumerate(Planes):
         Values = PlaneValues(NormalValue, OriginValue)
         if IndexValue == 0:

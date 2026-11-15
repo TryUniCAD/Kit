@@ -1043,6 +1043,20 @@ What the row does carry is the constraint solution: `relat_ptr` with `a`/`b`/`c`
 `formula_ptr` with eight indices. A writer can emit the segment fields, but not the points they reference
 without solving those constraints, which is what the sketch solver does.
 
+### A real bug in the emitted `VisibGeom`
+
+The array form is `srf_array` → `f8 06 f7 03 fb` with each element opening itself, and the emitter wrote the
+introduction plus an extra `e3`, opening the first element twice:
+
+```text
+ladder: ... f8 06 f7 03 fb e3 e0 01 67 65 6f 6d 5f 69
+ours  : ... f8 06 f7 03 fb e3 e3 e0 01 67 65 6f 6d 5f
+```
+
+Fixed. The payloads now agree for the first 40 bytes and our reader still returns six surfaces and one body for
+the generated section (`vis_fixed`). Creo still refuses a part carrying authored `VisibGeom` (`vis_ladder`, no
+`End` line twice), so the doubling was a defect but not the rejection's cause.
+
 ### The generated sketch-bearing element is refused, for a measurable reason
 
 `re/creo/tools/SketchDef.py` emits the full-shape `949` element — `sub_feat_arr` with one section element
