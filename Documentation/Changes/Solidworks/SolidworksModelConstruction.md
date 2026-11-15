@@ -17,6 +17,9 @@ absent-log sentinel, independently of feature FILETIME words.
 The document journal explicitly uses native archive schema zero. A native loader
 trace exposed the mismatch, and the shipped class metadata independently proves
 the schema constant.
+The construction record now distinguishes header counter allocation, native
+initial-stamp normalization, wall-clock time and conditional save-time timestamp
+normalization. These rules do not infer counters from visible feature counts.
 These additions do not enable the production writer.
 
 ## Use
@@ -60,6 +63,12 @@ The [runtime schema gotcha](../../Gotchas/Conversion/Solidworks/RuntimeClassSche
 records the journal's nondefault class schema and the native rejection.
 The [system-folder binding gotcha](../../Gotchas/Conversion/Solidworks/SystemFoldersHaveModelBindings.md)
 records the model's required pointer relationships and the shared-stream alias.
+The [initial update gotcha](../../Gotchas/Conversion/Solidworks/InitialUpdateStampIsNormalized.md)
+records the native loader's separate counter fixup.
+The [header clock gotcha](../../Gotchas/Conversion/Solidworks/HeaderClockIsWallTime.md)
+records wall time behind the misleading vendor method name.
+The [modification-time gotcha](../../Gotchas/Conversion/Solidworks/HeaderModificationTimeHasSentinelYear.md)
+records the conditional save-time sentinel rule.
 
 ## Verification
 
@@ -74,4 +83,11 @@ That earlier run used a weaker suffix-based audit and establishes codec evidence
 only. The stricter audit and expanded component check passed at `5b546278f` in
 [run 43681676456](https://github.com/TryUniCAD/Kit/actions/runs/43681676456),
 native-file job `132713453212`. This establishes the component/access boundary.
+The expanded full base-graph subprocess check passed at `6c8f92431` in
+[run 43688828337](https://github.com/TryUniCAD/Kit/actions/runs/43688828337),
+job `132734920405`. The enclosing job remained red on five other checks;
+the model process passed within its `134` passing tests.
+This evidence covers generated Config/Resolved streams, their shared archive
+map, environment/self-component aliases and the strict construction audit.
+It does not establish vendor loadability or application usability.
 No tests or CAD oracle operations ran locally for this change.
