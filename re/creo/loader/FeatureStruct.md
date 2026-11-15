@@ -132,6 +132,36 @@ The consequence for the plan: locating the consumer by following a pointer to th
 record does not work, because no such pointer exists. The consumer has to be found by the code that
 computes the same index arithmetic, which means analysing `.text` (219 MB) rather than searching data.
 
+## Searching `.text` for the registry arithmetic
+
+Because no pointer to a record exists, the consumer has to be found inside code. Two scans were run over
+the 219 MB `.text` section.
+
+**Multiplier scan.** `imul r64, r/m64, 0xd0` finds `1494` sites. That is not discriminating: `0xd0` is a
+common structure size, so the hit list says nothing about this table.
+
+**RIP-relative scan.** `lea r64, [rip+disp32]` with `modrm & 0xc7 == 0x05` yields `6068` references whose
+target lands inside `.ddt`. They are not scattered: they cluster, and each cluster loads three addresses
+in a row — the `.ddt` base, one field address, and one further `.ddt` address:
+
+```text
+0xe4c35b -> 0x1543a5070      (constant across clusters)
+0xe4c367 -> 0x153ebc240      (varies per cluster)
+0xe4c370 -> 0x153eb7000      (.ddt base)
+```
+
+The shape reads like a registration call of `(base, field, something)` rather than a read path. That is
+the lead to follow: pick a cluster, walk back to its function entry, and read the call it feeds.
+
+Sample clusters, reproducible with the same scan:
+
+```text
+0xa6ac09 0xb3f95a 0xb401a5 0xe4c35b 0xe4d4ce 0x13d... (6068 total)
+```
+
+The scan itself is cheap and deterministic. What it does not do is name the function or say which bit of
+`cr_flags_xar` gates which field, which still requires reading the disassembly of the cluster consumers.
+
 ## Next
 
 The path is now name-based again, in the module that owns the struct:
@@ -141,8 +171,9 @@ The path is now name-based again, in the module that owns the struct:
 2. follow it to the feature-struct offsets of `cr_flags_xar` and `more_cr_flags`;
 3. follow the mask consumer to learn which bit gates which field.
 
-Step 1 is a code search across a 219 MB `.text` section, which in practice means a full analysis in
-Ghidra or an equivalent tool rather than offset arithmetic on data.
+Step 1 has a cheap entry point: the RIP-relative scan above already localises the cluster sites, so the
+work is reading a handful of functions rather than analysing 219 MB. Steps 2 and 3 remain disassembly
+reading.
 
 Step 1 needs a full analysis of a 326 MB PE. That is the remaining cost, and it is a different order of
 effort from the section-grammar work: not another emitter tweak.
