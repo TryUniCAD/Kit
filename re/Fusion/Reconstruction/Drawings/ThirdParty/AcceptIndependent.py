@@ -134,8 +134,8 @@ def run():
             if candidate["sheets"] and candidate["sheets"][0]["views"]:
                 info = candidate
                 break
-        except Exception:
-            pass
+        except Exception as Failure:
+            report["info_error"] = str(Failure)
         settle(5)
     if info is None:
         raise RuntimeError("Fusion did not expose the drawing views")
