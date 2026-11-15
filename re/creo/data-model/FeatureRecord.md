@@ -599,9 +599,20 @@ twodatum4: definition 1199 derived replay 133 section 1535
 (no End line; second run identical)
 ```
 
-So `ReplayOf` is faithful and the *assembly* is still wrong: a definition plus a byte-faithful replay does
-not produce a two-feature list. The difference must be in what surrounds the records — the `f7 03` lead,
-the `next_feat_ptr` values, or the ordering of the list — not in the replay bytes themselves.
+So `ReplayOf` is faithful and the *assembly* was wrong. The ladder's boundary makes the reason visible:
+
+```text
+ladder: ... lags 00 00  e0 00 next_feat_ptr 00  f2 e3  f7 03 05 90 01 00 ...
+```
+
+The close token of the finishing record rides **after** the `next_feat_ptr` header, not before it, and only
+one `next_feat_ptr` header is declared in the whole section. Our assembly emitted `... f2` at the end of the
+record and then `e0 00 next_feat_ptr 00 e3`, which is the same token stream in a different order.
+
+`Author.DatumFeatureRecord(..., TrailingClose=False)` now leaves the close to the caller, and the assembly
+emits `next_feat_ptr` with `f2 e3`, and the terminator with `f2 e1`, matching the ladder byte for byte at the
+boundary. The two-datum control built that way is still refused (`twodatum5`, silent exit twice), so the
+boundary ordering was a real difference but not the only one.
 
 Progress made getting there is real: `fc_hist` was being written as a hardcoded `8` instead of
 `first_geom_id`, and the array-strip test was scanning for the `f7` **byte** anywhere in a value rather

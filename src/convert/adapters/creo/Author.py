@@ -221,7 +221,7 @@ def PlaneDefine(
     Payload += StructHeader("srf_flip_dat") + b"\xe1"
     Payload += NameValue("list_id") + SignedInt(-5778)
     Payload += NameValue("list_type") + IntValue(98)
-    return Payload + b"\xf2"
+    return Payload + b"\xf2" if TrailingClose else Payload
 
 
 # later array elements may not redeclare fields
@@ -934,6 +934,7 @@ def DatumFeatureRecord(
     NumPlins: int,
     LargestPrevRev: int,
     ExtraSchema: bool = False,
+    TrailingClose: bool = True,
 ) -> bytes:
     Payload = FieldValue(1, "id", SignedInt(FeatureId))
     Payload += FieldValue(1, "indep_attributes_arr", SignedIntArray((4097, 0, 0, 0)))
