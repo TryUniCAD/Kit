@@ -48,7 +48,8 @@ KIndex = 711
 
 # keeps this focused behavior isolated so regressions remain immediately visible
 def LoadHostDll() -> bytes:
-    assert KDllInfo.is_file(), KDllInfo
+    if not KDllInfo.is_file():
+        PytestLib.skip("sldmfcu.dll is not tracked in this checkout")
     HostData = KDllInfo.read_bytes()
     if HostData.startswith(b"version https://git-lfs.github.com/spec/v1\n"):
         PytestLib.skip(
