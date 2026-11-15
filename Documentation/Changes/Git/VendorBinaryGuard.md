@@ -21,7 +21,7 @@ Pass an optional directory to inspect another checkout.
 Pass base and head revisions after that directory to scan incoming commits as CI does.
 Exit codes are zero for no prohibited paths, one for prohibited paths, and two for invalid arguments or Git failures.
 Remove reported paths from the Git index and keep authorized vendor software outside repository checkouts.
-See [the research artifact policy](../Reference/Research/ResearchArtifacts.md).
+See [the research artifact policy](../../Reference/Research/ResearchArtifacts.md).
 
 ## Limits
 
@@ -37,6 +37,7 @@ Bash syntax checks and Prettier 3.6.2 formatting checks passed locally.
 Remote CI process checks exercise a separate Git index with synthetic empty blobs.
 They cover allowed CAD paths, root and nested prohibited paths, mixed-case extensions, spaces, newlines, staged removal, and Git failures.
 Synthetic commits verify that adding and later removing prohibited paths still fails the incoming-history check.
-Execution results remain pending until this PR's CI completes.
+The guard and its process checks passed in [remote CI](https://github.com/TryUniCAD/Kit/actions/runs/43699428039/job/132767077962).
+All current-revision PR checks and merge-group acceptance remain separate requirements.
 
-See [why ignore rules do not block tracked files](../Gotchas/Git/IgnoreRulesDoNotBlockTrackedFiles.md).
+See [why ignore rules do not block tracked files](../../Gotchas/Git/IgnoreRulesDoNotBlockTrackedFiles.md).

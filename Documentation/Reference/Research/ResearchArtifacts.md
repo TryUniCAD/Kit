@@ -49,7 +49,7 @@ Remove each reported path from the index and keep authorized software outside re
 The guard checks filenames, including mixed-case extensions.
 It does not inspect archive members, detect renamed vendor software, rewrite existing history, or stop local commits before CI runs.
 The vendor software restriction still covers those cases.
-See [the guard change](../../Changes/VendorBinaryGuard.md) and [the ignore-rule limitation](../../Gotchas/Git/IgnoreRulesDoNotBlockTrackedFiles.md).
+See [the guard change](../../Changes/Git/VendorBinaryGuard.md) and [the ignore-rule limitation](../../Gotchas/Git/IgnoreRulesDoNotBlockTrackedFiles.md).
 
 ## External inputs
 

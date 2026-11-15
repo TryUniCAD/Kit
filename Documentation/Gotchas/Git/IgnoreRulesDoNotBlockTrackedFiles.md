@@ -16,4 +16,4 @@ See [the Git ignore documentation](https://git-scm.com/docs/gitignore).
 Use the repository-wide binary guard in the `Verify path policies` CI job.
 It checks every tracked filename rather than relying on ignore rules.
 Remove prohibited paths from the index and store authorized software outside repository checkouts.
-See [the artifact policy](../../Reference/Research/ResearchArtifacts.md) and [the guard change](../../Changes/VendorBinaryGuard.md).
+See [the artifact policy](../../Reference/Research/ResearchArtifacts.md) and [the guard change](../../Changes/Git/VendorBinaryGuard.md).
