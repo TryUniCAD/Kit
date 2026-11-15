@@ -1047,12 +1047,12 @@ def HasReferenceToken(Value: bytes) -> bool:
 
 
 # replays repeat the first record positionally so no field may be redeclared
-def ReplayOf(Definition: bytes) -> bytes:
+def ReplayPieces(Definition: bytes) -> list[tuple[int, str, bytes]]:
     Parser = StreamParser(Definition)
     Spans: list[tuple[str, bytes]] = []
     Original = Parser.ReadField
 
-    # capturing spans is how the replay keeps the definition order
+    # the csys needs the replay split by field so it can declare fields between ranges
     def ReadField(Descriptor) -> object:
         Start = Parser.Reader.Position
         Node = Original(Descriptor)
@@ -1061,7 +1061,7 @@ def ReplayOf(Definition: bytes) -> bytes:
 
     Parser.ReadField = ReadField
     Parser.Run()
-    Payload = b""
+    Pieces: list[tuple[int, str, bytes]] = []
     FirstIndex: dict[str, int] = {}
     FirstValue: dict[str, bytes] = {}
     for Position, (NameText, Value) in enumerate(Spans, start=1):
@@ -1074,8 +1074,9 @@ def ReplayOf(Definition: bytes) -> bytes:
         else:
             FirstIndex[NameText] = Position
             FirstValue[NameText] = Value
+        Piece = b""
         if Selector:
-            Payload += b"\xf7" + CompactInt(Selector)
+            Piece += b"\xf7" + CompactInt(Selector)
         if Value[:1] in (b"\xf1", b"\xf2"):
             Value = Value[1:]
         if Value[:1] == b"\xf8" and not HasReferenceToken(Value):
@@ -1092,8 +1093,12 @@ def ReplayOf(Definition: bytes) -> bytes:
             Value = Value[1 + Width :]
         if Value[:1] in (b"\xf9",):
             Value = Value[3:]
-        Payload += Value
-    return Payload
+        Pieces.append((Position, NameText, Piece + Value))
+    return Pieces
+
+
+def ReplayOf(Definition: bytes) -> bytes:
+    return b"".join(Piece for _Index, _Name, Piece in ReplayPieces(Definition))
 
 
 # the loader wants four layer entries regardless of how many features exist
@@ -1141,20 +1146,138 @@ def AllFeaturPayload(Record: bytes, FeatureId: int) -> bytes:
 
 # a datum only part needs one feature record and no replay records
 def DefaultAllFeatur() -> bytes:
-    Record = DatumFeatureRecord(
-        7,
-        923,
-        "FRONT",
-        8,
-        -5778,
-        (-1,) * 252,
-        200000,
-        200001,
-        1000000000,
-        12345,
-        99,
-        3,
-        1,
-        3,
+    Clean = (-1,) * 252
+    Front = DatumFeatureRecord(
+        7, 923, "FRONT", 8, -5778, Clean, 200000, 200001, 1000000000, 12345, 99, 3, 1, 3
     )
-    return AllFeaturPayload(Record, 7)
+    Top = b"\xf7\x03" + ReplayOf(
+        DatumFeatureRecord(
+            5,
+            923,
+            "TOP",
+            6,
+            -5778,
+            Clean,
+            200000,
+            200001,
+            1000000000,
+            12345,
+            99,
+            2,
+            1,
+            3,
+        )
+    )
+    Right = ReplayOf(
+        DatumFeatureRecord(
+            3,
+            923,
+            "RIGHT",
+            4,
+            -5778,
+            Clean,
+            200000,
+            200001,
+            1000000000,
+            12345,
+            99,
+            2,
+            1,
+            3,
+        )
+    )
+    Csys = CsysFeatureRecord(
+        11, -5778, Clean, 200000, 200001, 1000000000, 12345, 99, 0, 7, 3
+    )
+    Payload = StructHeader("Sld_Features") + b"\xe3"
+    Payload += StructHeader("first_feat_ptr") + b"\xe3"
+    Payload += Front
+    Payload += StructHeader("next_feat_ptr") + b"\xf2\xe3"
+    Payload += Top
+    Payload += b"\xe3" + Right
+    Payload += b"\xe3" + Csys
+    Payload += b"\xe1"
+    Payload += LayerListTail(7)
+    return SectionValue("AllFeatur", Payload)
+
+
+# a coordinate system is a feature whose record declares four fields of its own
+def CsysFeatureRecord(
+    FeatureId: int,
+    BodyId: int,
+    MaskValues: tuple[int, ...],
+    CreateDate: int,
+    RegenDate: int,
+    StampTime: int,
+    RandomNum: int,
+    HostId: int,
+    RevNum: int,
+    NumPlins: int,
+    LargestPrevRev: int,
+    ParentIds: tuple[int, ...] = (3, 5, 7),
+    History: tuple[int, ...] = (12, 534, 0, -1, 500),
+    FirstGeomId: int = -1,
+) -> bytes:
+    Head = SignedInt(FeatureId)
+    Head += SignedIntElements((4097, 0, 0, 0))
+    Head += b"\xe3"
+    Head += SignedInt(-1)
+    Head += SignedInt(979)
+    Head += b"\xe1"
+    Head += SignedInt(0)
+    Head += SignedIntElements((0,) * 8 + (16, 0, 0))
+    Head += SignedInt(0)
+    Head += SignedInt(991)
+    Head += SignedInt(-1)
+    Head += b"\xe3"
+    Head += SignedInt(0) * 3
+    Head += SignedInt(-1) * 3
+    Head += SignedInt(0) * 3
+    Head += SignedIntElements((301989889, 2, 0, 0, 0, 0))
+    Head += SignedInt(0)
+    Head += SignedInt(-1)
+    Head += b"\xe1"
+    Head += b"\xe3"
+    Definition = DatumFeatureRecord(
+        FeatureId,
+        979,
+        "DEFAULT_CSYS",
+        FirstGeomId,
+        BodyId,
+        MaskValues,
+        CreateDate,
+        RegenDate,
+        StampTime,
+        RandomNum,
+        HostId,
+        RevNum,
+        NumPlins,
+        LargestPrevRev,
+    )
+    Pieces = [Piece for _Index, _Name, Piece in ReplayPieces(Definition)]
+    Mid = b"".join(Pieces[30:39])
+    Body = b"".join(Pieces[39:60])
+    Tail = b"".join(Pieces[60:])
+    ParentTable = b"\xf8" + CompactInt(len(ParentIds))
+    ParentTable += b"".join(SignedInt(Value) for Value in ParentIds)
+    Payload = Head
+    Payload += FieldValue(0, "misc_id_tab_ptr", b"\xf8\x01\xf7\x4d\xfb\xe3")
+    Payload += FieldValue(
+        1,
+        "misc_hist",
+        b"\xf8"
+        + CompactInt(len(History))
+        + b"".join(SignedInt(Value) for Value in History)
+        + b"\xf2",
+    )
+    Payload += b"\xf7" + CompactInt(31)
+    Payload += Mid
+    Payload += FieldValue(
+        1, "parent_table", ParentTable + b"\xf7" + CompactInt(40) + Body
+    )
+    Payload += FieldValue(
+        1,
+        "avail_feat_parents",
+        ParentTable + b"\xf7" + CompactInt(60) + Tail,
+    )
+    return Payload

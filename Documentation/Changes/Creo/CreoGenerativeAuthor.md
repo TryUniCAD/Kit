@@ -590,6 +590,34 @@ bytes of datum-shaped values and then **declares** its own fields at three point
 skipping the datum fields it does not carry with `f7` selectors. Three values also differ from a plane:
 `intersection` is `991`, `misc_choice` starts with `301989889`, and `sect_name` is null.
 
+### The csys is generated, and AllFeatur has no vendor bytes
+
+`Author.CsysFeatureRecord` generates the `619`-byte coordinate system record, byte-identical to the
+control's. It is not a positional replay: `26` fields of datum-shaped values, then four fields declared in
+place, with `f7` selectors that skip the datum fields the record does not carry. The selectors are 1-based
+schema field indices — `31` `save_geoms`, `40` `topology_increment`, `43` `p_body`, and `60` `hostid`, the
+last naming the field *before* the resumed range. The record is assembled from `ReplayPieces` slices, so it
+cannot desync from `DatumFeatureRecord`.
+
+With that, every byte of `AllFeatur` is generated — four records, list skeleton, terminator and tail:
+
+```text
+allfeat4: records 1199 135 135 223, payload 1880 vs control 3478
+!15-Nov-26 06:19:17  End   C:\Mac\Home\Documents\creo-authored\allfeat4.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+two loads out of two, and `Author.DefaultAllFeatur` now emits exactly that section (`1880` bytes,
+byte-identical to the probe). The container with 41 authored sections loads with it:
+
+```text
+auth4 part 29673 bytes from control 81539
+!15-Nov-26 06:21:17  End   C:\Mac\Home\Documents\creo-authored\auth4.prt
+```
+
+Two shortcuts were refused twice each first: a `979` replay carrying datum fields (`inplace4`) and a `923`
+replay carrying `id 11` (`inplace5`). The feature class is validated against the record's own fields.
+
 ## What is left
 
 One vendor record: the csys (`619` bytes, class `979`). It is a replay of the first record's schema opened
