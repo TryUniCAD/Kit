@@ -308,6 +308,30 @@ from `-201.7190851617055` to `-123.5`, length unchanged, loads twice with the bo
 segment's `verhor` from `1` to `0` likewise loads twice. So the row's *values* are tolerated; what is refused is
 a row whose *structure* differs from what the rest of the model expects.
 
+### Which class table can be generated, and which cannot
+
+Four rows were built from the ladder's `FeatDefs` row and launched twice each:
+
+| Candidate | `949` element | `917` element | Creo |
+| --- | --- | --- | --- |
+| `class917_element` | vendor (id `66`) | **ours** (id `74`, 346 bytes) | loads, 2 of 2 |
+| `class917_whole` | ours (id `66`) | ours (id `74`) | refused twice |
+| `pair_e3` | ours, opened `e3` like the vendor | ours | refused twice |
+| `only917` | **absent** | ours | refused twice |
+
+So the class-917 element can be generated and is accepted in a part with a body, and the class-949 element
+cannot be replaced or omitted. The reason is visible in the element itself: the ladder's `949` element (id `66`)
+carries `sub_feat_arr` with one element (`id 0`, `type 160`, `sub_type -1`,
+`data(subft_indexnumber){index, tool_type 60001, sep_index}`, `expl_state_ref`, `feat_outl_info{ent_outl,
+max_text_len}`, `pre_roll_back`, `post_roll_back`, `post_regen`, `parchild_table`, `copy_info_ptr`,
+`embed_info_ptr`, `gsec_ptr`), and `gsec_ptr` is the sketch — `type`, `is_ref_gsec`, `name Sketch 1`,
+`gsec2d_ptr{segtab_ptr …}`. Ours emits ten fields, a placement record and a dimension table, with no
+`sub_feat_arr` at all.
+
+The opener was not the problem: `pair_e3` uses the vendor's `e3` element opener and is still refused, and
+removing the table entirely (`only917`) is refused as well, so the element is required and its content is what
+matters.
+
 ### The class-917 definition table
 
 `feat_defs_917` declares its elements as field index `0xC4`: `f4 06 f8 01 f7 80 c4 fb`, one element. The element

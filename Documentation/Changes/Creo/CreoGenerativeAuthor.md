@@ -1043,6 +1043,28 @@ What the row does carry is the constraint solution: `relat_ptr` with `a`/`b`/`c`
 `formula_ptr` with eight indices. A writer can emit the segment fields, but not the points they reference
 without solving those constraints, which is what the sketch solver does.
 
+### Only one of the two class tables can be generated
+
+Four rows were built from the ladder's `FeatDefs` and launched twice each:
+
+| Candidate | `949` element | `917` element | Creo |
+| --- | --- | --- | --- |
+| `class917_element` | vendor (id `66`) | **ours** (id `74`) | loads, 2 of 2 |
+| `class917_whole` | ours | ours | refused twice |
+| `pair_e3` | ours, opened `e3` like the vendor | ours | refused twice |
+| `only917` | absent | ours | refused twice |
+
+So a generated class-917 element is accepted, and the class-949 element can be neither replaced nor omitted.
+The difference is content: the ladder's `949` element carries `sub_feat_arr` — one element with `id`, `type 160`,
+`sub_type`, `data(subft_indexnumber)` (`index`, `tool_type 60001`, `sep_index`), `expl_state_ref`,
+`feat_outl_info` (`ent_outl` as six doubles, `max_text_len`), the roll-back fields, `parchild_table`,
+`copy_info_ptr`, `embed_info_ptr` and `gsec_ptr` — and `gsec_ptr` is the sketch (`type`, `is_ref_gsec`,
+`name Sketch 1`, `gsec2d_ptr{segtab_ptr …}`). Our element has ten fields, a placement record and a dimension
+table, and no `sub_feat_arr`.
+
+The element opener is not the cause: `pair_e3` uses the vendor's `e3` opener and is refused all the same, and
+`only917` shows the table cannot be dropped.
+
 ### A generated class-917 definition loads
 
 The class-917 table addresses its elements as field index `0xC4` (`f4 06 f8 01 f7 80 c4 fb`, one element). Its
