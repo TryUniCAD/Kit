@@ -1464,6 +1464,18 @@ Only 39 of the 1606 four-byte values fall in the surface-tag range 17..4495, and
 fall in 0..55, which is consistent with chance. The block is a run-length or bit-packed structure,
 not a face-to-surface table.
 
+The run-length reading does not close either. The body is 6425 bytes, which is 1285 five-byte
+records, and the header count is 2850, exactly twice that. But a `(u32 value, u8 count)` record
+does not match the observed runs: the first value `00 00 9b fe` repeats three times and is followed
+by `00`, not by a count of three. A `(u8 count, u32 value)` record gives a count of zero for the
+same run. So the count is not a per-record repetition count, and the block is not a simple
+run-length list.
+
+The small `MainDataStream` at stream index 7 (63 bytes) and the `Header` at index 5 (84 bytes) are
+not tag tables either. The 63-byte stream is a header plus a handful of floats, and the 84-byte
+stream is a stream directory of UTF-16 names. Neither contains a table that maps the `60`/`54` u32
+values 2957..4536 to surfaces.
+
 ## Evidence
 
 - `re/catia/tooling/ParseBrep.py` decodes 22 of 27 parts.
