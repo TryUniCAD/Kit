@@ -1,10 +1,3 @@
-<!--
-This SPDX license identifier and copyright notice must not be
-removed, altered, or obscured. Doing so is a material breach of
-the PolyForm Strict License 1.0.0 and voids all licenses granted
-to you under it immediately and permanently.
--->
-
 # Fusion native-file study
 
 The experimental reader exports observed native records and bounded geometry

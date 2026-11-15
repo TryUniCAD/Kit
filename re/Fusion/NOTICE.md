@@ -1,9 +1,8 @@
 # Research file attribution
 
-The following files carried the PolyForm Strict 1.0.0 license label and the
-copyright attribution “Copyright (c) 2026 Parashell, Odin Glynn-Martin”
-before the repository removed per-file notices. This record preserves the
-prior attribution. The header cleanup does not change licensing terms.
+The following files retain the attribution “Copyright (c) 2026 Parashell, Odin Glynn-Martin”.
+Kit uses the [MIT License](../../LICENSE).
+This record preserves attribution after removal of obsolete per-file notices.
 
 - `.gitattributes`
 - `Notes/Archive.md`

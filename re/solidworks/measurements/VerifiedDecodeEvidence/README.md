@@ -1,13 +1,3 @@
-<!--
-SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-
-This SPDX license identifier and copyright notice must not be
-removed, altered, or obscured. Doing so is a material breach of
-the PolyForm Strict License 1.0.0 and voids all licenses granted
-to you under it immediately and permanently.
--->
-
 # Verified SOLIDWORKS decode evidence
 
 These 20 controlled part cases record what a historical offline decode recovered from seven supported combinations of SOLIDWORKS features and profiles. Each linked Markdown file contains a JSON object with a historical event ID, units, and a `cases` array. Each case includes a label, source SHA-256, reference archive SHA-256, model SHA-256, and the decoded neutral model. The records are research observations, not native stream layouts, vendor samples, writer inputs, or evidence of coverage in the current Kit runtime.
@@ -21,6 +11,11 @@ These 20 controlled part cases record what a historical offline decode recovered
 | [Two lengths](TwoLength.md)               |     3 | Two independent lengths on opposite sides of the support plane: 10/4, 14/4, and 10/7 mm. The saved first and second end owners distinguish the parameters; parameter name or listing order does not assign the roles.                                    |
 | [Midplane](Midplane.md)                   |     3 | One total thickness of 10, 14, or 18 mm. The symmetric extrusion extends half the driving value to either side of the sketch plane.                                                                                                                      |
 | [Boss with cap fillets](BossCapFillet.md) |     3 | A 20 mm rectangle boss and independently owned radii of 2, 3, and 5 mm. Both selected cap edges come from the same rectangle side. The connectivity-based mapping joins the actual selected side and cap roles instead of assuming a target edge number. |
+
+## Licensing and attribution
+
+These evidence pages and their [change entry](../../../../Documentation/Changes/Solidworks/VerifiedDecodeEvidence.md) use Kit’s [MIT License](../../../../LICENSE).
+Copyright (c) 2026 Parashell, Odin Glynn-Martin.
 
 ## How the evidence was obtained
 

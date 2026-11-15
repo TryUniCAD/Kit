@@ -42,6 +42,14 @@ Maintained documentation lives in `Documentation/`. Follow
 [the publishing guide](Documentation/Publishing.md) for generated imports and GitHub wiki
 updates; generated docs must be reviewed and must not overwrite manual entries.
 
+## Licensing accuracy
+
+Always document the correct licensing for every added or changed artifact.
+Verify license statements against the governing `LICENSE` file and applicable third-party notices before publication.
+Kit uses the [MIT License](LICENSE); do not infer terms from copied headers or historical documents.
+Preserve third-party licenses and attribution, and identify their scope separately from Kit licensing.
+Do not invent restrictions or add retired per-file license boilerplate.
+
 ## Repository workflow
 
 Agents MUST activate [standard-pr-practice](.agents/skills/standard-pr-practice/SKILL.md)
