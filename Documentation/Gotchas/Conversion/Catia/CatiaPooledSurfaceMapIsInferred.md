@@ -150,6 +150,20 @@ Scanning `Reservoir` for that layout — a `0xa0..0xaf` byte, a three-byte heade
 does not use the small-header path at these offsets, and the header size for the other two paths
 depends on the stream version, which is the next thing to read.
 
+## The V5R5 header layout, and why it does not chain here
+
+`ReadHeaderObjectAt_V5R5` (`CATMathStream.dll` `0x1800a8300`) consumes exactly `0x15` bytes and
+requires the byte at header `+6` (or `+7` when the stream flag `0x20000` swaps byte order) to equal
+`0xb3`. It then reads three 16-bit fields — at `+4`, `+8`, and `+0xc` — and computes two boundaries:
+`pos + field8` and `pos + field8 + field12`. `pos + 0x15` is where the object's own data starts, so
+the header declares the object length and a second trailing length.
+
+Walking `Reservoir` with that rule finds no chain longer than one record. Tested combinations: marker
+at `+6` and `+7`, little- and big-endian 16-bit fields, and length pairs at `(+8, +0xc)`,
+`(+8, +0xa)`, `(+4, +8)`, and `(+0xb, +0xd)`. No combination chains past the first header, so
+`MainDataStream` is not a run of V5R5 object headers either — the file is on a newer header path
+where the length fields move.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits

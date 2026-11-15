@@ -193,6 +193,12 @@ The per-object framing chain is decompiled: `CATCGMStreamCGMImpl::Unserialize_Ob
 then calls the object's `UnStream`. The small-header form starts with `0xa0..0xaf` and resolves a
 type index through `CATCGMTypeByteIndexToShortValue`; no such anchored run exists in `Reservoir`.
 
+The V5R5 header layout is decompiled: `ReadHeaderObjectAt_V5R5` consumes `0x15` bytes, requires
+`0xb3` at header `+6` (or `+7` under the `0x20000` byte-order flag), and reads three 16-bit fields at
+`+4`, `+8`, and `+0xc` that declare the object length and a trailing length. No combination of marker
+offset, byte order, and length pair chains more than one header in `Reservoir`, so the corpus is on a
+newer header path than V5R5.
+
 The reference encoding is now recovered from the binaries, though the header offset is not. A face
 takes its surface from the first entry of the linked-object list that the generic object header
 passes in, and `CATCXFace::UnStream` then calls `SkipRemainingLinkedObjectsToRead`. The list is read
