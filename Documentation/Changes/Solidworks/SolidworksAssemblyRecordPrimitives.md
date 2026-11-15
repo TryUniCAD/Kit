@@ -51,13 +51,20 @@ complete consumption plus byte identity. It checks separate options allocation,
 owner identity, variable Unicode name/path lengths, saved version, configuration
 state, and invalid semantic inputs. The audit starts before builder imports and
 denies all file and directory access during construction and encoding; caught
-denials also fail the process. Current-revision execution remains pending.
+denials also fail the process.
 
 The first process revision failed in its reporting assertion because the
 standalone configuration grammar does not serialize the constructor's runtime
 owner field. The repaired check verifies the actual unit-component owner wire
 edge. The [owner-context gotcha](../../Gotchas/Conversion/Solidworks/Archive/ConfigurationOwnersNeedModelContext.md)
 records that failure and the correction; no extra archive field was added.
+
+[Remote native job 132799461617](https://github.com/TryUniCAD/Kit/actions/runs/43710059720/job/132799461617)
+passed both assembly construction process cases on code head `09a5df2e3`.
+The native suite reported 162 passed and 158 skipped in 70.05 seconds using
+synthetic merge `018bad00246d84aa85a4471ba3de48ea47943236` over parent
+`4df250ce5baef01fa76bbc575304c688c0379b63`. Current PR CI and configured
+approval remain separate revision-specific gates.
 
 This boundary covers initial records, not the complete generated assembly graph.
 Isolated unit tests are prohibited. These primitives do not

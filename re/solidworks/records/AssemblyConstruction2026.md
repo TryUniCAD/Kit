@@ -370,8 +370,8 @@ decoded name/id/time/category match authored input, the unit component's actual
 owner identity resolves, and three separate option objects survive serialization. It also
 checks explicit failures for unsupported inputs and denied runtime file access.
 This is configuration/file-record process coverage, not a complete generated
-assembly or native application acceptance. No local execution was performed;
-the current remote revision's outcome is still pending.
+assembly or native application acceptance. No local execution was performed.
+The measured remote outcome below covers the identified code revision.
 
 The first remote process run on head `224f4de8c1901f400dad7e0a6e423b2c9d58b22b`
 failed after successful configuration/file encoding, decoding and exact
@@ -382,8 +382,19 @@ real unit-component owner wire edge instead; it does not modify the feature
 grammar or add a fake owner field. The
 [owner-context gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ConfigurationOwnersNeedModelContext.md)
 records that distinction. The same revision's name-policy and result-type
-findings are repaired in the process harness; corrected remote execution is
-pending.
+findings are repaired in the process harness.
+
+[Native job 132799461617](https://github.com/TryUniCAD/Kit/actions/runs/43710059720/job/132799461617)
+then passed on code head `09a5df2e3dc94485e0bd3474a4675ac31412f258`,
+synthetic merge `018bad00246d84aa85a4471ba3de48ea47943236` over parent
+`4df250ce5baef01fa76bbc575304c688c0379b63`. The native suite reported
+**162 passed, 158 skipped in 70.05 seconds**, with both
+`AssemblyBuilderProcessTests.py` process cases passing. That establishes the
+guarded initial-record construction/codec boundary, Unicode archive growth,
+generated self-component owner reference, and rejected semantic requests.
+The separately passing source-assembly test still covers 14 exact streams
+across its two training controls. These are process and preservation results,
+not a generated complete assembly or vendor load/rebuild/mate-edit acceptance.
 
 ## Remaining construction work
 
