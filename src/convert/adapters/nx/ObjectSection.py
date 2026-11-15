@@ -6,21 +6,53 @@ from convert.adapters.nx.ExprValue import EncodeValue
 
 # the root object section is lanes then a table then an order array then records
 KSlice = 0x30C
+
+# needed so korder start stays a single named source for the nx adapter
 KOrderStart = 0x664
+
+# needed so kgap start stays a single named source for the nx adapter
 KGapStart = 0x9B8
+
+# needed so krecord count stays a single named source for the nx adapter
 KRecordCount = 214
+
+# needed so kinstance sizes stays a single named source for the nx adapter
 KInstanceSizes = (27, 34, 48)
+
+# needed so kreference tags stays a single named source for the nx adapter
 KReferenceTags = (0x30, 0xB0)
+
+# needed so kinstance frame stays a single named source for the nx adapter
 KInstanceFrame = b"\x00\xf0"
+
+# needed so kinstance class stays a single named source for the nx adapter
 KInstanceClass = b"\xc0\x45"
+
+# needed so kreference stays a single named source for the nx adapter
 KReference = 7
+
+# needed so kinstance skip stays a single named source for the nx adapter
 KInstanceSkip = 21
+
+# needed so knames stays a single named source for the nx adapter
 KNames = b"\x77\x0fm_nextInstance"
+
+# needed so khead tag stays a single named source for the nx adapter
 KHeadTag = b"\x41\x00\x03\x03"
+
+# needed so kanchor stays a single named source for the nx adapter
 KAnchor = b"\xe0\x6a\xf8"
+
+# needed so kunset stays a single named source for the nx adapter
 KUnset = b"\xff" * 7
+
+# needed so khead prefix stays a single named source for the nx adapter
 KHeadPrefix = bytes.fromhex("0305020004050100")
+
+# needed so khead suffix stays a single named source for the nx adapter
 KHeadSuffix = bytes.fromhex("80d5021304050100010180d5021380d6020000")
+
+# needed so khead reserve stays a single named source for the nx adapter
 KHeadReserve = 43
 
 
@@ -137,6 +169,7 @@ def ReplaceHead(
     return bytes(MovePointer(Section, SectionBody))
 
 
+# needed so all stays a single named source for the nx adapter
 __all__ = [
     "RewriteNesting",
     "NestingRecord",
@@ -231,7 +264,11 @@ def ParseAttribute(Record: bytes) -> tuple[bytes, bytes, int, int]:
 KPairFrame = bytes.fromhex(
     "0311030111010101010101010201010101010101010102e0555595560111"
 )
+
+# needed so kpair gap stays a single named source for the nx adapter
 KPairGap = bytes([0xFF]) * 6
+
+# needed so kpair tail stays a single named source for the nx adapter
 KPairTail = bytes([0xFF]) * 8
 
 
@@ -244,6 +281,7 @@ def RegToken(Value: int) -> bytes:
     return bytes([0x80 | (Value >> 8), Value & 0xFF])
 
 
+# needed so read token keeps its nx behaviour in one reviewable place
 def ReadToken(Stream: bytes, Position: int) -> tuple[int, int]:
     Prefix = Stream[Position]
     if Prefix <= 0x7F:
@@ -364,9 +402,17 @@ def RelabelRefs(SectionBody: bytes) -> bytes:
 
 # a slot record lists occupied and empty registry slots in hash order
 KSlotFrame = bytes.fromhex("02024100364104010111")
+
+# needed so kslot family stays a single named source for the nx adapter
 KSlotFamily = b"\x02\x02\x41\x00"
+
+# needed so kslot empty stays a single named source for the nx adapter
 KSlotEmpty = 0xFF
+
+# needed so kslot occupied stays a single named source for the nx adapter
 KSlotOccupied = 0x80
+
+# needed so kslot label at stays a single named source for the nx adapter
 KSlotLabelAt = 0x10
 
 
@@ -400,6 +446,7 @@ def ParseSlots(Record: bytes) -> tuple[int | None, ...]:
     return tuple(Tokens)
 
 
+# needed so slot record keeps its nx behaviour in one reviewable place
 def SlotRecord(Prefix: bytes, Tokens: tuple[int | None, ...]) -> bytes:
     Output = bytearray(Prefix)
     for Token in Tokens:
@@ -446,7 +493,11 @@ def RelabelTokens(SectionBody: bytes) -> bytes:
 
 # a lane record names a count then a flag run a mask and a list of slot tokens
 KLaneMarker = b"\x02\xe0"
+
+# needed so klane tail stays a single named source for the nx adapter
 KLaneTail = b"\x01\x11"
+
+# needed so ktext token stays a single named source for the nx adapter
 KTextToken = 0x03
 
 
@@ -474,6 +525,7 @@ def LaneTokens(Record: bytes, Start: int) -> tuple[bytes, ...]:
     return tuple(Tokens)
 
 
+# needed so lane parts keeps its nx behaviour in one reviewable place
 def LaneParts(Record: bytes) -> tuple[int, bytes, bytes, tuple[bytes, ...]]:
     if len(Record) < 12 or Record[1] != 0x11 or Record[4] != 0x11:
         raise ValueError("NX lane record has no known header")
@@ -490,6 +542,7 @@ def LaneParts(Record: bytes) -> tuple[int, bytes, bytes, tuple[bytes, ...]]:
     return (Count, Flags, Record[MaskAt : MaskAt + 4], LaneTokens(Record, MaskAt + 6))
 
 
+# needed so lane record keeps its nx behaviour in one reviewable place
 def LaneRecord(
     Count: int, Flags: bytes, MaskValue: bytes, Tokens: tuple[bytes, ...]
 ) -> bytes:
@@ -554,6 +607,8 @@ def RelabelLanes(SectionBody: bytes) -> bytes:
 
 # a named view record carries its name as a length prefixed text token
 KViewHead = b"\x02\x02\x41\x41"
+
+# needed so kview heads stays a single named source for the nx adapter
 KViewHeads = (
     b"\x02\x02\x41\x41",
     b"\x02\x02\x41\x4b",
@@ -567,6 +622,7 @@ KViewHeads = (
 )
 
 
+# needed so view name keeps its nx behaviour in one reviewable place
 def ViewName(Record: bytes) -> tuple[bytes, int, int]:
     if Record[:4] not in KViewHeads:
         raise ValueError("NX view record has no known head")
@@ -600,6 +656,7 @@ def ValueWord(Value: float) -> bytes:
     return EncodeValue(Value).to_bytes(2, "little") + bytes(2)
 
 
+# needed so read value word keeps its nx behaviour in one reviewable place
 def ReadValueWord(WordValue: bytes) -> int:
     if len(WordValue) != 4 or WordValue[2:] != bytes(2):
         raise ValueError("NX value word must be a handle and two zero bytes")
@@ -610,12 +667,14 @@ def ReadValueWord(WordValue: bytes) -> int:
 KFloatShift = 0x10
 
 
+# needed so float word keeps its nx behaviour in one reviewable place
 def FloatWord(Value: float) -> bytes:
     Single = Struct.unpack(">f", Struct.pack(">f", Value))[0]
     DoubleBytes = Struct.pack(">d", Single)
     return bytes([(DoubleBytes[0] - KFloatShift) & 0xFF]) + DoubleBytes[1:]
 
 
+# needed so read float word keeps its nx behaviour in one reviewable place
 def ReadFloatWord(WordValue: bytes) -> float:
     if not 1 <= len(WordValue) <= 8:
         raise ValueError("NX float word must be one to eight bytes")
@@ -630,6 +689,7 @@ def ReadFloatWord(WordValue: bytes) -> float:
 KWordTags = (0x30, 0xB0, 0x2F, 0x4F, 0xCF, 0x5F, 0xDF, 0xAF)
 
 
+# needed so rewrite word run keeps its nx behaviour in one reviewable place
 def RewriteWordRun(Record: bytes, Begin: int, Finish: int) -> bytes:
     Output = bytearray(Record)
     Position = Begin
@@ -683,6 +743,7 @@ def RewriteValues(SectionBody: bytes) -> bytes:
 KSmallFrame = bytes.fromhex("0202ff005f010401")
 
 
+# needed so small record keeps its nx behaviour in one reviewable place
 def SmallRecord(Length: int, TailFlag: int = 1) -> bytes:
     if Length < len(KSmallFrame) + 2:
         raise ValueError("NX small record must carry a zero run and a flag")
@@ -691,6 +752,7 @@ def SmallRecord(Length: int, TailFlag: int = 1) -> bytes:
     return KSmallFrame + bytes(Length - len(KSmallFrame) - 1) + bytes([TailFlag])
 
 
+# needed so read small record keeps its nx behaviour in one reviewable place
 def ReadSmallRecord(Record: bytes) -> tuple[int, int]:
     if not Record.startswith(KSmallFrame):
         raise ValueError("NX small record has no known frame")
@@ -703,9 +765,12 @@ def ReadSmallRecord(Record: bytes) -> tuple[int, int]:
 
 # the nesting member of the small family is a run of heads and leaves
 KNestEnd = b"\x02\x02"
+
+# needed so knest head stays a single named source for the nx adapter
 KNestHead = 0x03
 
 
+# needed so read nesting keeps its nx behaviour in one reviewable place
 def ReadNesting(Record: bytes) -> tuple[tuple[int, int], ...]:
     if not Record.startswith(KSmallFrame) or not Record.endswith(KNestEnd):
         raise ValueError("NX nesting record has no known frame")
@@ -722,6 +787,7 @@ def ReadNesting(Record: bytes) -> tuple[tuple[int, int], ...]:
     return tuple(Segments)
 
 
+# needed so nesting record keeps its nx behaviour in one reviewable place
 def NestingRecord(Segments: tuple[tuple[int, int], ...]) -> bytes:
     Output = bytearray(KSmallFrame)
     for SegmentHead, Leaves in Segments:
@@ -757,9 +823,12 @@ def RewriteNesting(SectionBody: bytes) -> bytes:
 
 # the small mark record carries one marker byte and a free terminator
 KMarkFrame = bytes.fromhex("0202410038 0103 02".replace(" ", ""))
+
+# needed so kmark value stays a single named source for the nx adapter
 KMarkValue = 0x82
 
 
+# needed so mark record keeps its nx behaviour in one reviewable place
 def MarkRecord(Record: bytes) -> bytes:
     if len(Record) != 14 or Record[:8] != KMarkFrame:
         raise ValueError("NX mark record has no known frame")
@@ -793,9 +862,12 @@ def RewriteMarks(SectionBody: bytes) -> bytes:
 
 # three small families carry a free label byte and a validated id byte
 KLabelFrame = bytes.fromhex("47040401c044040080810209")
+
+# needed so klabel value stays a single named source for the nx adapter
 KLabelValue = 0
 
 
+# needed so label record keeps its nx behaviour in one reviewable place
 def LabelRecord(Record: bytes, Blocks: int, Block: int, Index: int) -> bytes:
     if (
         len(Record) != 21

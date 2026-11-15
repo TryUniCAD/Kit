@@ -7,8 +7,14 @@ from convert.adapters.nx.PayloadReader import ReadPayload
 
 # section prefixes carry the declared size either inline or after the toolkit magic
 KPlainPrefix = 12
+
+# needed so kmixed prefix stays a single named source for the nx adapter
 KMixedPrefix = 16
+
+# needed so ktoolkit magic stays a single named source for the nx adapter
 KToolkitMagic = bytes.fromhex("c0d1f1ed")
+
+# needed so kindex header stays a single named source for the nx adapter
 KIndexHeader = 24
 
 

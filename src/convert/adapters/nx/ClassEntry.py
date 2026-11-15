@@ -6,7 +6,11 @@ from convert.adapters.nx.HashXxh import HashXxh
 
 # a class table entry carries a prefix two digests and a one byte tail
 KNameDigestWidth = 4
+
+# needed so klayout digest width stays a single named source for the nx adapter
 KLayoutDigestWidth = 4
+
+# needed so ktail width stays a single named source for the nx adapter
 KTailWidth = 1
 
 
@@ -47,6 +51,7 @@ def EntryParts(Entry: bytes, NameDigestValue: int) -> tuple[bytes, int, int]:
     return (Entry[:Position], Layout, Entry[TailAt])
 
 
+# needed so all stays a single named source for the nx adapter
 __all__ = [
     "ClassLink",
     "EntryParts",

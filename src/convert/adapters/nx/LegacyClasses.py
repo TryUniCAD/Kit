@@ -4,12 +4,26 @@ from dataclasses import dataclass as DataClass
 
 # legacy payloads carry class records as type six frames
 KRecordType = 0x06
+
+# needed so kname floor stays a single named source for the nx adapter
 KNameFloor = 2
+
+# needed so kname ceiling stays a single named source for the nx adapter
 KNameCeiling = 64
+
+# needed so kframe tail stays a single named source for the nx adapter
 KFrameTail = 4
+
+# needed so kattribute type stays a single named source for the nx adapter
 KAttributeType = 0x07
+
+# needed so kscan window stays a single named source for the nx adapter
 KScanWindow = 64
+
+# needed so kfirst text stays a single named source for the nx adapter
 KFirstText = 0x20
+
+# needed so klast text stays a single named source for the nx adapter
 KLastText = 0x7F
 
 
@@ -144,6 +158,7 @@ def ClassTableEnd(Payload: bytes, Records: tuple[LegacyClass, ...]) -> int:
     return Cursor
 
 
+# needed so all stays a single named source for the nx adapter
 __all__ = [
     "ClassTableEnd",
     "LegacyAttribute",

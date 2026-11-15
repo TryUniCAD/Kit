@@ -230,9 +230,9 @@ def LegacyMeta(
             sorted({SectionValue.Version for SectionValue in Sections})
         ),
         "nx.legacy_object_sections": len(Objects),
-        "nx.legacy_object_count": sum(len(Part) for Part in Objects),
+        "nx.legacy_object_count": sum(len(PartValue) for PartValue in Objects),
         "nx.legacy_object_bytes": sum(
-            RecordValue.Length for Part in Objects for RecordValue in Part
+            RecordValue.Length for PartValue in Objects for RecordValue in PartValue
         ),
     }
 

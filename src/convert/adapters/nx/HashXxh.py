@@ -2,9 +2,17 @@ from __future__ import annotations as Annotations
 
 # xxh32 constants come from the published algorithm and never encode file bytes
 KPrimeOne = 2654435761
+
+# needed so kprime two stays a single named source for the nx adapter
 KPrimeTwo = 2246822519
+
+# needed so kprime three stays a single named source for the nx adapter
 KPrimeThree = 3266489917
+
+# needed so kprime four stays a single named source for the nx adapter
 KPrimeFour = 668265263
+
+# needed so kprime five stays a single named source for the nx adapter
 KPrimeFive = 374761393
 
 # the mask keeps every accumulator inside the published word width

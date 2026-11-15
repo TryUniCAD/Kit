@@ -36,17 +36,41 @@ from convert.adapters.nx.PayloadReader import ReadPayload
 
 # the root section middle is a fixed layout around a counter and an anchor identity
 KVersion = b"NX 2506.9120 - External User Function"
+
+# needed so kanchor stays a single named source for the nx adapter
 KAnchor = b"\xe0\x6a\xf8"
+
+# needed so kunset stays a single named source for the nx adapter
 KUnset = b"\xff" * 7
+
+# needed so kcounter gap stays a single named source for the nx adapter
 KCounterGap = 49
+
+# needed so kcounter tail stays a single named source for the nx adapter
 KCounterTail = 76
+
+# needed so kroot counter stays a single named source for the nx adapter
 KRootCounter = 0x1E3
+
+# needed so kroot middle stays a single named source for the nx adapter
 KRootMiddle = 176
+
+# needed so kroot index stays a single named source for the nx adapter
 KRootIndex = 3
+
+# needed so kfeature index stays a single named source for the nx adapter
 KFeatureIndex = 4
+
+# needed so the feature section marker stays a single named source for the nx adapter
 KFeatureStub = b"OM\x01\x01"
+
+# needed so kname offset stays a single named source for the nx adapter
 KNameOffset = 0x29
+
+# needed so kcount bytes stays a single named source for the nx adapter
 KCountBytes = 32
+
+# needed so kdelta id stays a single named source for the nx adapter
 KDeltaId = bytes.fromhex(
     "040213050200000202ffff00ffff000000ffffffff0000ff00ffffffffff0000ff00ffff00ffff00ff0101"
 )

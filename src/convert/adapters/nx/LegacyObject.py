@@ -6,7 +6,11 @@ from .LegacySection import LegacySection
 
 # a legacy object area is addressed by a monotone section relative index
 KIndexFloor = 1
+
+# needed so kindex ceiling stays a single named source for the nx adapter
 KIndexCeiling = 4000
+
+# needed so kindex tail floor stays a single named source for the nx adapter
 KIndexTailFloor = 4096
 
 
@@ -28,9 +32,9 @@ class LegacyRecord:
 
 
 # a strictly increasing run of little endian words seeded with zero
-def ReadRun(Payload: bytes, Cursor: int, End: int) -> tuple[int, ...]:
+def ReadRun(Payload: bytes, Cursor: int, EndValue: int) -> tuple[int, ...]:
     Values: list[int] = []
-    while Cursor + 4 <= End:
+    while Cursor + 4 <= EndValue:
         Value = int.from_bytes(Payload[Cursor : Cursor + 4], "little")
         if Values and Value <= Values[-1]:
             break
@@ -41,25 +45,25 @@ def ReadRun(Payload: bytes, Cursor: int, End: int) -> tuple[int, ...]:
 
 # the index is the unique run whose second word equals the object table end
 def ReadIndex(Payload: bytes, Section: LegacySection) -> LegacyIndex | None:
-    End = min(Section.Offset + Section.Length, len(Payload))
+    EndValue = min(Section.Offset + Section.Length, len(Payload))
     Floor = max(Section.Length - KIndexTailFloor, 0)
     Found: list[LegacyIndex] = []
-    for Cursor in range(Section.Offset, max(End - 8, Section.Offset)):
+    for Cursor in range(Section.Offset, max(EndValue - 8, Section.Offset)):
         if Payload[Cursor] != 0 or Payload[Cursor + 1] != 0:
             continue
         if Payload[Cursor + 2] != 0 or Payload[Cursor + 3] != 0:
             continue
-        Entries = ReadRun(Payload, Cursor, End)
+        Entries = ReadRun(Payload, Cursor, EndValue)
         if len(Entries) < 3:
             continue
         CountAt = Cursor + 4 * len(Entries)
-        if CountAt + 4 > End:
+        if CountAt + 4 > EndValue:
             continue
         Count = int.from_bytes(Payload[CountAt : CountAt + 4], "little")
         if not KIndexFloor <= Count <= KIndexCeiling:
             continue
         ObjectEnd = CountAt + 4 + 4 * Count
-        if ObjectEnd > End:
+        if ObjectEnd > EndValue:
             continue
         if Entries[1] != ObjectEnd - Section.Offset:
             continue
@@ -75,8 +79,10 @@ def ReadIndex(Payload: bytes, Section: LegacySection) -> LegacyIndex | None:
 def ReadObjects(Payload: bytes, Index: LegacyIndex) -> tuple[int | None, ...]:
     Start = Index.Offset + 4 * len(Index.Entries) + 4
     return tuple(
-        int.from_bytes(Payload[Start + 4 * Slot : Start + 4 * Slot + 4], "little")
-        for Slot in range(Index.Count)
+        int.from_bytes(
+            Payload[Start + 4 * SlotValue : Start + 4 * SlotValue + 4], "little"
+        )
+        for SlotValue in range(Index.Count)
     )
 
 
@@ -92,19 +98,20 @@ def ReadRecords(
             if Position == 0
             else Section.Offset + Index.Entries[Position + 1]
         )
-        Stop = Section.Offset + Index.Entries[Position + 2]
-        if not Index.ObjectEnd <= Start <= Stop <= Section.Offset + Section.Length:
+        StopValue = Section.Offset + Index.Entries[Position + 2]
+        if not Index.ObjectEnd <= Start <= StopValue <= Section.Offset + Section.Length:
             return ()
         Output.append(
             LegacyRecord(
                 Start,
-                Stop - Start,
+                StopValue - Start,
                 Objects[Position] if Position < len(Objects) else None,
             )
         )
     return tuple(Output)
 
 
+# needed so all stays a single named source for the nx adapter
 __all__ = [
     "LegacyIndex",
     "LegacyRecord",

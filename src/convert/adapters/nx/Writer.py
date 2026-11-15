@@ -148,6 +148,8 @@ def WriteNx(
         "application_usable": True,
         "vendor_loadable": True,
     }
+
+    # needed so transfers keeps the nx sort rule in one place
     Transfers = tuple(
         CapTransfer(Value, TransferMode.KNative)
         for Value in sorted(GetDocumentCaps(DocValue), key=lambda Value: Value.value)

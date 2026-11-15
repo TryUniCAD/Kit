@@ -482,6 +482,8 @@ def TestNxExprDim() -> None:
 
 # section replacement keeps the segment index consistent when a body changes length
 def TestNxResize() -> None:
+
+    # needed so the resize test builds one section body without repeating framing
     def Section(BodyValue: bytes) -> bytes:
         return (
             b"\xff\xff\xff\xff"
@@ -710,6 +712,8 @@ def TestNxGrammar() -> None:
     assert RegToken(0x6F) == b"\x6f"
     assert RegToken(0xA6) == b"\x80\xa6"
     assert RegToken(0x1A6) == b"\x81\xa6"
+
+    # needed so every rejected attribute record is exercised in one ordered list
     Guards: tuple[Callable[[], object], ...] = (
         lambda: AttributeRecord(b"x" * 254, b"", 0),
         lambda: PairRecord(-1, 0),
@@ -923,6 +927,8 @@ def TestNxSlot() -> None:
     assert Object[14:17] == b"\x50\x00\x00"
     assert Object[17] == 0xFF
     assert ReadSlotHandle(Object) == 0x0050
+
+    # needed so every rejected slot object is exercised in one ordered list
     Guards: tuple[Callable[[], object], ...] = (
         lambda: SlotObject(-1),
         lambda: SlotObject(0x1000000),
@@ -1169,6 +1175,8 @@ def TestNxClassLink() -> None:
 
 # a legacy payload carries type six frames of schema class and value
 def TestNxLegacy() -> None:
+
+    # needed so the legacy frame test builds one class frame without repeating bytes
     def Frame(
         SchemaText: str, SchemaFlag: int, ClassName: str, ClassValue: int
     ) -> bytes:
@@ -1182,6 +1190,7 @@ def TestNxLegacy() -> None:
             + ClassValue.to_bytes(4, "little")
         )
 
+    # needed so the legacy field test builds one attribute frame without repeating bytes
     def Field(
         SchemaText: str,
         SchemaFlag: int,
@@ -1240,6 +1249,8 @@ def TestNxLegacy() -> None:
 
 # a legacy payload holds length prefixed object model sections
 def TestNxSections() -> None:
+
+    # needed so the section test builds one length prefixed section without repeating bytes
     def Build(VersionValue: int, PlatformText: str, PartText: str) -> bytes:
         SectionBytes = (
             b"OM\x01\x01"
@@ -1271,7 +1282,7 @@ def TestNxSections() -> None:
 
 
 # a legacy object area is framed by a monotone index and a count prefixed table
-def TestNxLegacyObject() -> None:
+def TestNxObject() -> None:
     Platform = "Intel x86/Windows NT"
     PartName = "authored.prt"
     SectionBytes = (
@@ -1291,14 +1302,14 @@ def TestNxLegacyObject() -> None:
     ObjectEnd = BodyBase + 4 * 4 + 4 + 4 * 3
     Entries = (0, ObjectEnd - Offset, ObjectEnd - Offset + 12, ObjectEnd - Offset + 24)
     Records = b"a" * 12 + b"b" * 12 + b"c" * 12
-    Body = (
+    BodyValue = (
         SectionBytes
         + b"".join(Value.to_bytes(4, "little") for Value in Entries)
         + len((1, 3, 5)).to_bytes(4, "little")
         + b"".join(Value.to_bytes(4, "little") for Value in (1, 3, 5))
         + Records
     )
-    PayloadBytes = len(Body).to_bytes(4, "big") + Body
+    PayloadBytes = len(BodyValue).to_bytes(4, "big") + BodyValue
     Sections = ReadSections(PayloadBytes)
     assert len(Sections) == 1
     Index = ReadIndex(PayloadBytes, Sections[0])

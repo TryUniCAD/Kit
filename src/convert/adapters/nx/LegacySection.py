@@ -4,14 +4,32 @@ from dataclasses import dataclass as DataClass
 
 # legacy payloads hold length prefixed object model sections
 KMagic = b"OM\x01\x01"
+
+# needed so kplatform at stays a single named source for the nx adapter
 KPlatformAt = 0x17
+
+# needed so kstamp width stays a single named source for the nx adapter
 KStampWidth = 3
+
+# needed so kcount length stays a single named source for the nx adapter
 KCountLength = 8
+
+# needed so kfloor version stays a single named source for the nx adapter
 KFloorVersion = 1
+
+# needed so kceiling version stays a single named source for the nx adapter
 KCeilingVersion = 40
+
+# needed so kfloor text stays a single named source for the nx adapter
 KFloorText = 0x20
+
+# needed so kceiling text stays a single named source for the nx adapter
 KCeilingText = 0x7F
+
+# needed so kfloor name stays a single named source for the nx adapter
 KFloorName = 1
+
+# needed so kceiling name stays a single named source for the nx adapter
 KCeilingName = 255
 
 
@@ -110,6 +128,7 @@ def ReadSections(Payload: bytes) -> tuple[LegacySection, ...]:
     return tuple(Output)
 
 
+# needed so all stays a single named source for the nx adapter
 __all__ = [
     "LegacySection",
     "ReadSection",

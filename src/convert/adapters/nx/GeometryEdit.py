@@ -14,6 +14,7 @@ from interchange.geometry.models.VectorSpace import SpaceVector
 KStreamHeader = 45
 
 
+# needed so stream bounds keeps its nx behaviour in one reviewable place
 def StreamBounds(Model: BrepModel) -> tuple[float, float, float]:
     Vertices = getattr(Model, "vertices")
     if not Vertices:
@@ -28,7 +29,10 @@ def StreamBounds(Model: BrepModel) -> tuple[float, float, float]:
     )
 
 
+# needed so scale model keeps its nx behaviour in one reviewable place
 def ScaleModel(Model: BrepModel, Factor: float) -> BrepModel:
+
+    # needed so point keeps its nx behaviour in one reviewable place
     def Point(Value: SpaceVector) -> SpaceVector:
         return SpaceVector(Value.x * Factor, Value.y, Value.z)
 
@@ -74,6 +78,7 @@ def ScaleModel(Model: BrepModel, Factor: float) -> BrepModel:
     return Scaled
 
 
+# needed so replace stream keeps its nx behaviour in one reviewable place
 def ReplaceStream(Payload: bytes, Inflated: bytes) -> bytes:
     Parsed = ReadPayload(Payload)
     if len(Parsed.streams) != 1:
@@ -105,12 +110,14 @@ def ReplaceStream(Payload: bytes, Inflated: bytes) -> bytes:
     )
 
 
+# needed so format number keeps its nx behaviour in one reviewable place
 def FormatNumber(Value: float) -> bytes:
     if float(Value).is_integer():
         return str(int(Value)).encode("ascii")
     return repr(float(Value)).encode("ascii")
 
 
+# needed so swap dimension keeps its nx behaviour in one reviewable place
 def SwapDimension(Payload: bytes, OldValue: float, NewValue: float) -> bytes:
     Marker = Payload.find(b"p0: ")
     if Marker < 0:
@@ -139,6 +146,7 @@ def SwapDimension(Payload: bytes, OldValue: float, NewValue: float) -> bytes:
     return bytes(Output[: Marker + 4]) + NewToken + bytes(Output[TokenEnd:])
 
 
+# needed so scale body length keeps its nx behaviour in one reviewable place
 def ScaleBodyLength(Payload: bytes, Length: float) -> bytes:
     if Length <= 0:
         raise ValueError("NX body length must be positive")

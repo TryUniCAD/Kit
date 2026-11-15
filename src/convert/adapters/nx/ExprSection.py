@@ -6,22 +6,52 @@ from convert.adapters.nx.ObjectSection import ValueWord
 
 # a part without expressions carries one fixed expression section middle
 KVersion = b"NX 2506.9120 - External User Function"
+
+# needed so kflags stays a single named source for the nx adapter
 KFlags = bytes([2]) * 7 + bytes([1]) * 6
+
+# needed so kzeros stays a single named source for the nx adapter
 KZeros = 52
+
+# needed so kobjects stays a single named source for the nx adapter
 KObjects = 6
+
+# needed so korder stays a single named source for the nx adapter
 KOrder = (1, 3, 5, 4, 6, 7)
+
+# needed so kmiddle length stays a single named source for the nx adapter
 KMiddleLength = 337
+
+# needed so kanchor stays a single named source for the nx adapter
 KAnchor = b"\xe0\x6a\xf8"
+
+# needed so kunset stays a single named source for the nx adapter
 KUnset = b"\xff" * 7
+
+# needed so khead stays a single named source for the nx adapter
 KHead = b"\x41\x00\x03\x05\x01\x00\x04\x05\x02\x00"
+
+# needed so khead tail stays a single named source for the nx adapter
 KHeadTail = bytes.fromhex("08021309020000")
+
+# needed so kdescriptor stays a single named source for the nx adapter
 KDescriptor = bytes.fromhex("0202ffffff41ff4200ff000000430000ff010101011e01000101")
+
+# needed so knames stays a single named source for the nx adapter
 KNames = bytes.fromhex(
     "010f4558505f6c6f6f6b75705f657870114558505f636f6d706172655f65787073104558505f686173685f737472696e670d4558505f686173685f65787000000121"
 )
+
+# needed so klane stays a single named source for the nx adapter
 KLane = bytes.fromhex("01000111")
+
+# needed so kgroup stays a single named source for the nx adapter
 KGroup = b"\x02\x02\x01\x02\x41\x00\x04\x0fDefault Group\x00"
+
+# needed so kdescriptor dim stays a single named source for the nx adapter
 KDescriptorDim = bytes.fromhex("0202ffffff41ff4200ff000000430000ff040104011e01000101")
+
+# needed so krecord stays a single named source for the nx adapter
 KRecord = b"\x02\x02\x04\x0fDefault Group\x00\x00\x3f\x00\x00"
 
 
@@ -31,6 +61,7 @@ KGroupPair = bytes.fromhex(
 ) + bytes.fromhex("040f44656661756c742047726f757000")
 
 
+# needed so group pair keeps its nx behaviour in one reviewable place
 def GroupPair() -> bytes:
     return KGroupPair
 
@@ -52,6 +83,7 @@ def OccupancyMap(Dimensions: int) -> int:
     return Result
 
 
+# needed so occupancy frame keeps its nx behaviour in one reviewable place
 def OccupancyFrame(Dimensions: int, Continuations: int) -> tuple[bytes, bytes]:
     if not 1 <= Dimensions <= 0x32:
         raise ValueError("NX occupancy needs one to fifty dimensions")
@@ -63,6 +95,7 @@ def OccupancyFrame(Dimensions: int, Continuations: int) -> tuple[bytes, bytes]:
     return (Opening, Trailing)
 
 
+# needed so expr occupancy keeps its nx behaviour in one reviewable place
 def ExprOccupancy(Dimensions: int, Continuations: int = 0) -> bytes:
     if not 1 <= Dimensions <= 0x32:
         raise ValueError("NX occupancy needs one to fifty dimensions")
@@ -77,11 +110,18 @@ def ExprOccupancy(Dimensions: int, Continuations: int = 0) -> bytes:
 
 # the names lane is a slot map of tokens whose width the lead byte fixes
 KExpNames = b"\x0fEXP_lookup_exp\x11EXP_compare_exps\x10EXP_hash_string\x0dEXP_hash_exp"
+
+# needed so klane value slots stays a single named source for the nx adapter
 KLaneValueSlots = 32
+
+# needed so klane map base stays a single named source for the nx adapter
 KLaneMapBase = 32
+
+# needed so ktoken widths stays a single named source for the nx adapter
 KTokenWidths = {0x8B: 2, 0x8C: 2, 0xC4: 4, 0xE0: 5}
 
 
+# needed so read lane tokens keeps its nx behaviour in one reviewable place
 def ReadLaneTokens(TokenArea: bytes) -> tuple[bytes, ...]:
     Tokens: list[bytes] = []
     Position = 0
@@ -98,6 +138,7 @@ def ReadLaneTokens(TokenArea: bytes) -> tuple[bytes, ...]:
     return tuple(Tokens)
 
 
+# needed so read lane keeps its nx behaviour in one reviewable place
 def ReadLane(Record: bytes) -> tuple[tuple[bytes, ...], bytes]:
     if b"EXP_lookup_exp" not in Record:
         raise ValueError("NX names lane has no known names")
@@ -158,9 +199,12 @@ def ExprHeadTail(Objects: int, Dimensions: int) -> bytes:
 
 # a group value is a length byte a text and a terminator
 KGroupHead = b"\x02\x02\x04\x0fDefault Group\x00"
+
+# needed so kgroup tail stays a single named source for the nx adapter
 KGroupTail = bytes.fromhex("003f0000")
 
 
+# needed so read group values keeps its nx behaviour in one reviewable place
 def ReadGroupValues(Record: bytes) -> tuple[bytes, ...]:
     if not Record.startswith(KGroupHead):
         raise ValueError("NX group record has no known head")
@@ -182,6 +226,7 @@ def ReadGroupValues(Record: bytes) -> tuple[bytes, ...]:
     return tuple(Values)
 
 
+# needed so group record keeps its nx behaviour in one reviewable place
 def GroupRecord(Values: tuple[bytes, ...]) -> bytes:
     Output = bytearray(KGroupHead + KGroupTail)
     if not Values:
@@ -243,9 +288,12 @@ def VersionBlock() -> bytes:
 
 # a slot object is a fixed frame five flags a handle and a terminator
 KSlotHead = bytes.fromhex("02020000ff000021")
+
+# needed so kslot flags stays a single named source for the nx adapter
 KSlotFlags = bytes([1]) * 5 + bytes(1)
 
 
+# needed so slot object keeps its nx behaviour in one reviewable place
 def SlotObject(Handle: int) -> bytes:
     if not 0 <= Handle <= 0xFFFFFF:
         raise ValueError("NX slot handle must fit three bytes")
@@ -257,12 +305,14 @@ def ValueSlot(Value: float) -> bytes:
     return KSlotHead + KSlotFlags + ValueWord(Value) + bytes(2) + b"\xff"
 
 
+# needed so read value slot keeps its nx behaviour in one reviewable place
 def ReadValueSlot(Object: bytes) -> int:
     if len(Object) != 21 or not Object.startswith(KSlotHead):
         raise ValueError("NX value slot has no known frame")
     return int.from_bytes(Object[14:16], "little")
 
 
+# needed so read slot handle keeps its nx behaviour in one reviewable place
 def ReadSlotHandle(Object: bytes) -> int:
     if len(Object) != 18 or not Object.startswith(KSlotHead):
         raise ValueError("NX slot object has no known frame")
@@ -304,6 +354,7 @@ def ExprLayout(Dimensions: int) -> tuple[str, ...]:
     return tuple(Layout)
 
 
+# needed so plain slot count keeps its nx behaviour in one reviewable place
 def PlainSlotCount(Dimensions: int) -> int:
     if Dimensions < 1:
         raise ValueError("NX dimension count must be at least one")
@@ -422,6 +473,7 @@ def LocateMiddle(SectionBody: bytes, Pointer: int) -> tuple[int, int] | None:
     return None
 
 
+# needed so middle parts keeps its nx behaviour in one reviewable place
 def MiddleParts(
     SectionBody: bytes, Start: int, Count: int, Pointer: int
 ) -> tuple[bytes, ...]:
@@ -499,6 +551,7 @@ def Adopt(
     return bytes(Authored)
 
 
+# needed so all stays a single named source for the nx adapter
 __all__ = [
     "Adopt",
     "ExprLayout",
