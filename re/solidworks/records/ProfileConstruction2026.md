@@ -22,6 +22,7 @@ Addresses use `sldmodu.dll` base `0x4b140000`, `sldmgu.dll` base `0x31dd0000`, a
 | Visibility line width | `f06=-1`, `f00=-1.0` | `sldmodu 0x4c3e10f2` passes enum minus one to the same constructor; confirmed static |
 | Deferred indices | Keep endpoint and handle targets as object references, resolve owning-array indices when the field is read for storage | Native point/line lookup and framing addresses in the polygon ledger; derived implementation |
 | Transform | Basis rows, authored translation, scale one, no perspective extension | `sldmgu 0x31e26880`, `0x31f09820`, `0x31e03ce0`; confirmed static |
+| Active compact transform keys | `has_matrix`, optional matrix `f08`, translation `f58/f60/f68`, scale `f70`, flags `f78` | Sorted registry loading installs the first provisional definition from `serial/defs/Definition.py`; later provisional definitions do not replace it |
 | Sketch line display | A null sketch line-display pointer is serialized through the default line-display constructor: empty string, width enum `-1` and float `-1.0`, line type `-1`, final integer `1` | `sldmodu 0x4c5916f0` null-pointer branch; `sldmfcu 0x3c802910`; confirmed static |
 | Sketch collections | Fresh entity, dimension, pattern, and auxiliary arrays are empty; counts derive from their current collections | `sldmodu 0x4c495450`; confirmed static |
 | Relation manager | Relation list and equation-value map are empty | `sldmodu 0x4c603200`; confirmed static |
@@ -70,6 +71,19 @@ Neither function replaces a dimension with a scalar, null pointer, captured reco
 The complete display-dimension factory remains unresolved, so these helpers alone cannot produce a live pad
 Native distance constructor `0x4c8a4840` calls display-dimension constructor `0x4c86f550` and initializer `0x4c889480`
 Those paths require display-item, dimension-text, model-handle, units, naming and document-style construction before live output can be emitted
+
+The fresh `moFeatureDimHandle_c` local dimension is schema key `ff0`, corresponding to runtime member `+0xf0`
+`moDimHandle_c` constructor `0x4c83c220` sets `+0x100=null`
+Its `f100` serializer branch is an optional external/cache dimension, not the fresh local dimension
+`moModDimHandle_c::Serialize` at `0x4c8346c0` writes the actual local dimension when its global reference pointer is null
+An initial helper lookup through `f100` alone was refuted and corrected before full dimensional construction
+The native display-dimension serializer writes a null backup definition for non-drawing models at `0x4c82e16d`, even though the constructor allocates a runtime backup object
+The part writer can therefore emit `fef8=None` from the serializer rule rather than copying that runtime allocation
+
+`moDisplayItem_c::Serialize` at `0x4ba4bc10` writes four point records and two vector records unconditionally in its 2026 store branch
+Its constructor `0x4ba656a0` creates four zero points and two Y-axis vectors
+The session preference at index `0x387` controls display flag `fb60 & 0x100`
+The exported getter `isDesignIntent` at `0x4b28d700` and setter `setDesignIntent` at `0x4c895cc0` identify this as a semantic design-intent choice rather than a universal constant
 
 ## Contracts
 

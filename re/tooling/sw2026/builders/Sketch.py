@@ -124,14 +124,14 @@ def frame_transform(*, frame: PlaneFrame):
     identity = (1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0)
     fields = {
         "has_matrix": int(rows != identity),
-        "t0": frame.origin[0],
-        "t1": frame.origin[1],
-        "t2": frame.origin[2],
-        "scale": 1.0,
-        "flags": 0,
+        "f58": frame.origin[0],
+        "f60": frame.origin[1],
+        "f68": frame.origin[2],
+        "f70": 1.0,
+        "f78": 0,
     }
     if fields["has_matrix"]:
-        fields["matrix"] = {f"m{i}": component for i, component in enumerate(rows)}
+        fields["f08"] = {f"m{i}": component for i, component in enumerate(rows)}
     return fields
 
 

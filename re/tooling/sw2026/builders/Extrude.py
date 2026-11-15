@@ -14,12 +14,14 @@ def _driving_value(*, display: Obj, angular: bool):
     if not isinstance(handles, (tuple, list)) or len(handles) != 1:
         raise ConstructionError("display dimension f850 must contain one constructed model-dimension handle")
     handle = handles[0].get("o")
-    if not isinstance(handle, Obj):
-        raise ConstructionError("display dimension f850[0].o must reference a model-dimension handle")
-    dimension = handle.get("f100")
+    if not isinstance(handle, Obj) or handle.cls != "moFeatureDimHandle_c":
+        raise ConstructionError("display dimension f850[0].o must reference moFeatureDimHandle_c")
+    if handle.get("fe8") is not None or handle.get("f100") is not None:
+        raise ConstructionError("fresh feature-dimension handles require the local dimension branch")
+    dimension = handle.get("ff0")
     expected_dimension = "AngleDim_c" if angular else "ParallelPlaneDistanceDim_c"
     if not isinstance(dimension, Obj) or dimension.cls != expected_dimension:
-        raise ConstructionError(f"blind end dimension handle f100 requires {expected_dimension}")
+        raise ConstructionError(f"blind end dimension handle ff0 requires {expected_dimension}")
     parameter = dimension.get("f28")
     expected_parameter = "moAngleParameter_c" if angular else "moLengthParameter_c"
     if not isinstance(parameter, Obj) or parameter.cls != expected_parameter:
