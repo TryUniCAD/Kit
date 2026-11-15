@@ -281,6 +281,26 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## The modern middle is a name and binary field stream, not a record list
+
+The migrated part's section 0 middle begins with attribute names separated by short binary fields:
+
+```text
+0x0000  7f 12 "first_record_area" 61 80 cf 1b "m_calculatorRegisterValues" 84 81 80 92
+        0f "m_nextInstance" 83 ef 80 92 1d "m_savedAdvancedDisplayFacets" 83 f1 80 92
+        14 "m_saveDisplayFacets" 83 ee 15 10 "m_cachedBodyBoxC" ...
+```
+
+so the names are real attribute names and each is preceded by a byte equal to its length plus one, but the
+binary field between names is not a fixed width: three bytes after `first_record_area`, four after
+`m_calculatorRegisterValues`, and the widths do not follow the name length. A brute force over start
+offset 0 to 5, name length `L` or `L-1`, and value width 0 to 8 parses at most **two** records before
+the framing breaks.
+
+That is the same shape as the legacy region: names and small binary fields interleaved, with no
+self-describing width. It also explains why the reader carries `middle` verbatim in both containers
+rather than decoding it.
+
 ## NX migrates a legacy part, which gives the same part in both formats
 
 Opening `wave_parent.prt` and saving it produces a `SPLMSSTR` part of the same model, so both
