@@ -275,42 +275,87 @@ The ladder's extrude and sketch records follow it, but their field boundaries ar
 `FeatDefsDtm` stores one placement record per datum. The record grammar is decoded and emitted by
 `Author.DatumPlaneRecord`; the field table is in [the datum placement page](DatumPlacement.md).
 
-**A `FeatDefs` row must describe every feature, and a definition needs its placement record.**
+**The class table holds one element, and that is not negotiable.**
 
-Four measurements settle this. First, replacing the ladder's row (`5977` bytes, seven definitions) with our
-generated one-definition row reads back through our adapter as `7 features, 2 params` with the body intact
-(`6` faces, volume `18482541.49`) but Creo answers `dbg_err_crash()`. Second, emitting **one definition per
-feature** (`(7, 5, 3, 11, 67, 75, 74)`, `2319` bytes) still crashes, so the definition count is necessary but not
-sufficient. Third, editing a single dimension value **in place** in the ladder's own row — same length, one
-`value` field rewritten from `-201.7190851617055` to `-123.5` — loads twice with the body intact:
+An earlier revision of this page said the row "must describe every feature" and that one definition per feature
+was required. That was wrong, and the measurement that produced it was on the datum-only control, which does not
+cross-check the row. The ladder's row shows the real structure:
 
 ```text
-ladder_same_len: 110065 bytes (unchanged length)
-readback params: [-123.5, -338.93815066863453, -86.06680966899467, -154.4303300690026]
-!15-Nov-26 07:27:07  End   C:\Mac\Home\Documents\creo-authored\ladder_same_len.prt
-!MT_CUST - Applied settings for mode # 1 : MT Part Solid        (2 of 2)
+feat_defs_949    f8 01 f7 02 fb e3 ...    one element, a definition for id 66
+feat_defs_917    f4 06 f8 01 f7 80 c4 fb  one element of field 0xC4 (196), the class-917 table
 ```
 
-Fourth, a definition built with a real `place_rec_ptr` — `local_sys` identity frame, `own_ref_id`, `orient`,
-`trf_arr` with one `type`/`key`/`idx` element, `transf`, `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`,
-`merge_info_ptr`, `state_ind`, `alumni_info` — loads on the datum control twice (`place_ctrl`, then
-`fd_place` from the landed emitter), so placement records are accepted and are now what
-`Author.PlacementRecord` emits.
+Two tests settle the count. Taking the ladder's own row and **appending one more `feat_defs_949` element**
+(bumping the count `01` to `02`) is refused twice:
 
-The ladder is still refused with placements present (`place_ladder`, silent exit twice). Comparing the two field
-sets shows what a solid feature needs beyond placement:
+```text
+ladder_add_def: 110457 bytes; payload 5977 -> 6369
+(no End line; second run identical)
+```
 
-| Field | Ladder definitions | Ours |
-| --- | --- | --- |
-| `place_rec_ptr` with `local_sys` / `trf_arr` / `transf` | present | present |
-| `sub_feat_arr` | 1 element: `id`, `type`, `sub_type`, `data(subft_indexnumber)`, `index`, `tool_type`, `sep_index` | absent |
-| `feat_outl_info` | `ent_outl` (6 doubles), `max_text_len` | absent |
-| `gsec_ptr` | `type`, `is_ref_gsec`, `name` (`Sketch 1`), `gsec2d_ptr` | absent |
-| `segtab_ptr` | `f8 06 f7 2f fb` with per-segment tables | absent |
+while our single-element row loads on the control twice (`fd_one_def`, `525`-byte body, `2 params`,
+`100.0` and `42.5`). So `feat_defs_<class>` holds exactly one element per class, and the multi-element form — and
+therefore `DefaultFeatDefs(FeatureIds=…)` — was a form the control tolerated rather than one the format allows.
 
-So a solid feature's definition carries its **sketch and segment tables**, which describe the geometry the
-feature was built from. That is the same boundary the `917` record reaches from the other side, and it is why a
-parameter can be edited into a part that has a body but not synthesised into one.
+**Placement records, by contrast, are real and load.** A definition built with `place_rec_ptr` (`local_sys`
+identity frame, `own_ref_id`, `orient`, `trf_arr` with one `type`/`key`/`idx` element, `transf`, `plcm_revnum`,
+`next_prop`, `cond_tbl_idx`, `comment`, `merge_info_ptr`, `state_ind`, `alumni_info`) loads on the control twice.
+The ladder is still refused, so placement is necessary and not sufficient.
+
+**Dimension values are not cross-checked, but a sketch is.** Rewriting one `value` field in the ladder's row
+from `-201.7190851617055` to `-123.5`, length unchanged, loads twice with the body intact. Flipping one
+segment's `verhor` from `1` to `0` likewise loads twice. So the row's *values* are tolerated; what is refused is
+a row whose *structure* differs from what the rest of the model expects.
+
+### The sketch chain: `gsec_ptr` to `segtab_ptr`
+
+A solid feature's definition carries its sketch. Decoded from the ladder's `Sketch 1`:
+
+```text
+gsec_ptr            f8 01 f7 2a fb      array of 1
+  element           e2
+    type            2
+    is_ref_gsec     0
+    name            'Sketch 1'
+    gsec2d_ptr      struct
+      segtab_ptr    f8 06 f7 2f fb      array of 6 segments
+      element e2, eleven fields:
+        type        2                   (2 = line)
+        dir         f8 03 f6 00 e4      three direction slots
+        pointid     f8 02 00 01        two point indices
+        cntrid      -1
+        arcorient   0
+        verhor      1
+        radius      -1
+        radius2     -1
+        ext_id      4
+        gen_info    struct
+        known_ent_info  f1 e2 {attr, known_ent_id} f2
+      then selector f7 2f and the next segment
+    anchor          totalpointid 8, checkarcs_flag, location, id
+    triples_ptr, rigid_chains_ptr, sketch_pattern_info, gsec3d_ptr,
+    first_chain_ptr (quilt_id, plane_id, plane_flip, ref_planes, ref_type, ext_ref_id)
+    unsolved_ptr    iges_file, solve_version, ent_tab, next_available_xid, chains
+```
+
+So the row stores segment **topology** — six lines over eight point ids — and not the point coordinates.
+Measured: the whole `5977`-byte payload contains exactly two `f9` double matrices, both `2x3` and both the
+sketch's envelope (`184.5078, 1.0, 115.6523, -154.4303, 1.0, -86.0668`). No 8-point or 16-double table exists
+in the row.
+
+The names that look like point tables are not: `mpoint`, `spoint` and `vpoint` occur ten times each and every
+occurrence is inside a `ModelView#…` section, which is display data, and `ActEntity` is cosmetic entities keyed
+by feature (`feat_id`, `datum_id`, `revnum`, `type 50`, …).
+
+What the row does carry instead is the **constraint solution**: `relat_ptr` with `a`, `b`, `c` arrays per
+relation, `formula_ptr` with eight indices, and the `dim_ref` records whose `a`/`b`/`c` slots hold the encoded
+values. That is solver state — the equations that placed the points — not geometry a writer can restate without
+solving them.
+
+So the chain is authorable **in shape** (the eleven segment fields are fully known, and `Author.PlacementRecord`
+shows the emitter pattern works) but not **in content**: the points it references are the output of the sketch
+solver, which is why every candidate that supplies a definition without a real sketch is refused.
 
 ### Where a Creo parameter lives: `FeatDefs` dimension records
 

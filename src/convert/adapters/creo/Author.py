@@ -1339,16 +1339,12 @@ def FeatDefBlock(
     return Payload
 
 
-# the row describes every feature the part declares so one block is written per feature
+# the class table holds one element so the row carries a single definition
 def DefaultFeatDefs(
     DimensionValue: tuple[float, ...] = (100.0,),
     FeatureId: int = 7,
-    FeatureIds: tuple[int, ...] | None = None,
 ) -> bytes:
-    Ids = FeatureIds if FeatureIds else (FeatureId,)
     Payload = StructHeader("Sld_FeatDefs") + b"\xe3"
-    Payload += StructHeader("feat_defs_949")
-    Payload += b"\xf8" + CompactInt(len(Ids)) + b"\xf7\x02\xfb"
-    for Value in Ids:
-        Payload += FeatDefBlock(Value, DimensionValue)
+    Payload += StructHeader("feat_defs_949") + b"\xf8\x01\xf7\x02\xfb"
+    Payload += FeatDefBlock(FeatureId, DimensionValue)
     return Payload

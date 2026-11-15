@@ -1025,43 +1025,54 @@ the solid that owns them.
 caller, including `AuthorBox`. It is repaired, and the surface record is still byte-identical to the ladder's
 first element (`409` bytes).
 
-### Definitions carry placement records, and still need sketch records
+### The sketch chain decodes, but its geometry is solver output
 
-`Author.DefaultFeatDefs` writes one definition block per feature (`FeatureIds`), and each definition now carries
-a `place_rec_ptr`: `local_sys` as an identity frame, `own_ref_id`, `orient`, `trf_arr` with one
-`type`/`key`/`idx` element, `transf`, `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`, `merge_info_ptr`,
-`state_ind`, `alumni_info`. That is the nesting the ladder uses; the earlier form emitted ten flat fields and a
-null `place_rec_ptr`.
+The last part of a body-producing definition with a shape was the sketch, and it is now decoded. `gsec_ptr`
+holds one element (`type 2`, `is_ref_gsec 0`, `name` — the ladder's reads `Sketch 1`) with a `gsec2d_ptr` whose
+`segtab_ptr` is `f8 06 f7 2f fb`: six segments, each eleven fields — `type`, `dir` (three slots), `pointid` (two
+indices), `cntrid`, `arcorient`, `verhor`, `radius`, `radius2`, `ext_id`, `gen_info`, `known_ent_info` — and the
+sketch declares `totalpointid 8` with `anchor`, `triples_ptr`, `rigid_chains_ptr`, `gsec3d_ptr`,
+`first_chain_ptr` (quilt, plane, ref planes) and `unsolved_ptr` (solve version, entity table, chains) after it.
 
-Measured on the datum control, where it loads twice:
+The row carries segment **topology** and not the point coordinates. The whole `5977`-byte payload contains two
+`f9` double matrices, both `2x3`, both the sketch envelope; there is no eight-point or sixteen-double table in
+it. The names that look like point tables are display data — `mpoint`, `spoint` and `vpoint` occur ten times
+each, always inside `ModelView#…` sections — and `ActEntity` holds cosmetic entities keyed by feature.
+
+What the row does carry is the constraint solution: `relat_ptr` with `a`/`b`/`c` arrays per relation and
+`formula_ptr` with eight indices. A writer can emit the segment fields, but not the points they reference
+without solving those constraints, which is what the sketch solver does.
+
+### Retraction: a feature-defs class table holds one element
+
+Two turns ago this entry said `DefaultFeatDefs` "writes one definition block per feature" and that matching the
+definition count was necessary for a part with a body. That was wrong. The ladder's row shows the structure:
 
 ```text
-fd_place.prt: 83381 bytes, FeatDefs body 1999, ids (7, 5, 3, 11)
-readback: 4 features 8 params [100.0, 42.5, 100.0, 42.5, 100.0, 42.5, 100.0, 42.5]
-!15-Nov-26 07:37:20  End   C:\Mac\Home\Documents\creo-authored\fd_place.prt
-!MT_CUST - Applied settings for mode # 1 : MT Part Solid        (2 of 2)
+feat_defs_949    f8 01 f7 02 fb e3 ...    one element, a definition for id 66
+feat_defs_917    f4 06 f8 01 f7 80 c4 fb  one element of field 0xC4, the class-917 table
 ```
 
-### A parameter can be authored into a part with a body, but not synthesised into one
+and appending one more `feat_defs_949` element to that row — bumping the count from `01` to `02` — is refused
+twice (`ladder_add_def`, no `End` line). Our multi-element parts loaded only because the datum-only control does
+not cross-check the row. `DefaultFeatDefs` is back to a single element, and `FeatureIds` is gone:
 
-Swapping the row into the ladder still fails, with or without placements:
+```text
+fd_one_def: 81917 bytes, FeatDefs body 535 (one element, placement record, two dimensions)
+readback: 4 features 2 params [100.0, 42.5]
+!15-Nov-26 07:46:50  End ...  MT Part Solid        (2 of 2)
+```
 
-| Candidate | Row | Creo |
-| --- | --- | --- |
-| `ladder_fd` | one definition (feature `7`) | `dbg_err_crash()` |
-| `ladder_fd7` | seven definitions, one per declared feature | `dbg_err_crash()` |
-| `place_ladder` | seven definitions, each with a placement record | silent exit twice |
+### Placement records load; the ladder is still refused
 
-What does work is editing a dimension **in place** in the ladder's own row: rewriting one `value` field from
-`-201.7190851617055` to `-123.5`, row length unchanged, loads twice with the body intact and reads back
-`-123.5`. That isolates the remaining gap to what else a definition contains.
+A definition now carries the placement record the ladder uses (`place_rec_ptr` with `local_sys`, `own_ref_id`,
+`orient`, `trf_arr`, `transf`, `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`, `merge_info_ptr`,
+`state_ind`, `alumni_info`), and that loads on the control twice. Swapping it into the ladder is still refused,
+so placement is necessary and not sufficient.
 
-A solid feature's definition also carries `sub_feat_arr` (`id`, `type`, `sub_type`,
-`data(subft_indexnumber)`, `index`, `tool_type`, `sep_index`), `feat_outl_info` (`ent_outl` as 6 doubles, plus
-`max_text_len`), `gsec_ptr` (`type`, `is_ref_gsec`, `name` — the ladder's reads `Sketch 1` — and `gsec2d_ptr`)
-and `segtab_ptr` (`f8 06 f7 2f fb` with per-segment tables). Those are the feature's sketch and segment
-records: geometry, not bookkeeping. So a dimension can be authored into a part that already has a body, and a
-feature definition that produces a body cannot be synthesised without its sketch.
+What the row tolerates is informative: rewriting one dimension `value` (`-201.719…` to `-123.5`) loads with the
+body intact, and flipping a segment's `verhor` from `1` to `0` also loads. Values are tolerated; a structurally
+different row is not.
 
 ### Dimensions are authored, counted and chosen
 
