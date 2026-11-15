@@ -94,7 +94,7 @@ def dimension_style(*, kind, font_name, line_style_name):
     if kind not in allowed:
         raise ValueError(f"unsupported dimension style {kind!r}")
     f = {
-        "f08": 1, "f0c": 1, "f10": 1, "f18": 1.0, "f20": 0.0127,
+        "f08": 1, "fc": 1, "f10": 1, "f18": 1.0, "f20": 0.0127,
         "f28": 1, "f30": 1.0, "f38": 0.0127, "f40": 1, "f44": 0,
         "f48": "", "f50": "", "f58": 0.0, "f60": 0.0,
         "f68": 1, "f6c": 0, "f70": 1, "f74": 0, "f78": 0,
@@ -127,7 +127,7 @@ def dimension_style(*, kind, font_name, line_style_name):
 
 def dimension_definitions(*, font_name, line_style_name):
     f = {
-        "f08": 0.001016, "f10": 0.003302, "f18": 0.00635, "f20": 0.001,
+        "f8": 0.001016, "f10": 0.003302, "f18": 0.00635, "f20": 0.001,
         "f28": 0.001, "f30": 0.005, "f38": 0.01, "f40": 0.003175,
         "f48": 0.001524, "f50": 0.00635, "f58": -25.0,
         "f60": 0, "f64": 0, "f68": 1, "f6c": 1, "f70": 20, "f74": 0,
@@ -154,7 +154,7 @@ def surface_finish_data(*, font_name):
 
 def note_data(*, font_name):
     f = {
-        "f08": "", "f10": 1, "f18": "", "f20": "", "f28": "",
+        "f8": "", "f10": 1, "f18": "", "f20": "", "f28": "",
         "f30": 1, "f34": 0, "f38": 0, "f3c": 0, "f40": 0, "f44": 0,
         "f48": 0, "f4c": 1, "f50": 0.0, "f58": 1, "f5c": 0, "f60": 2,
         "f68": 0.01016, "f70": 0.0, "f78": 0, "f7c": 0, "f80": 0, "f84": 3,
@@ -210,7 +210,7 @@ def center_mark_data(*, font_name):
 
 
 def datum_feature_data(*, font_name):
-    return {"f08": 0, "f0c": 0, "f10": 0, "f18": "", "f20": 0, "f24": 0,
+    return {"f8": 0, "fc": 0, "f10": 0, "f18": "", "f20": 0, "f24": 0,
             "f28": "", "f30": 0, "f34": 0, "f38": 0, "f40": annotation_data(font_name=font_name)}
 
 
@@ -229,7 +229,7 @@ def annotation_style(*, kind, font_name, language_id):
     if type(language_id) is not int or not 0 <= language_id <= 0xFFFF:
         raise ValueError("language id must be an authored Windows language id")
     f = {
-        "f08": 1, "f10": 0.00625, "f18": 1,
+        "f8": 1, "f10": 0.00625, "f18": 1,
         "f1c": 2 if language_id & 0x3FF == 0xD else 0,
         "f20": 0, "f24": 0, "f28": 0, "f34": 0, "f40": 0, "f44": -1,
         "f2c": line_width(category=0, width_m=-1),
@@ -353,7 +353,7 @@ def swift_options():
 def label_style(*, kind, font_name):
     if kind not in ("detail", "section", "auxiliary", "orthographic", "miscellaneous"):
         raise ValueError(f"unsupported label style {kind!r}")
-    f = {"f08": 2, "f0c": 1, "f10": 0, "f14": 1, "f18": 1, "f1c": 1,
+    f = {"f8": 2, "fc": 1, "f10": 0, "f14": 1, "f18": 1, "f1c": 1,
          "f20": 0, "f24": 0, "f28": 0, "f2c": 0, "f38": 0, "f44": 1,
          "f48": -1, "f58": 0, "f5c": 4, "f88": "", "f90": "",
          "f30": line_width(category=0, width_m=-1),
@@ -363,19 +363,19 @@ def label_style(*, kind, font_name):
     if kind == "detail":
         f.update({"fc8": 0, "fcc": 0x18})
     elif kind == "section":
-        f.update({"f0c": 2, "f10": 0, "f2c": 3,
+        f.update({"fc": 2, "f10": 0, "f2c": 3,
                   "f30": line_width(category=2, width_m=-1),
                   "fc8": 0.00635, "fd0": 0.002032, "fd8": 0.0127,
                   "fe0": 0, "fe4": 2, "fe8": 1, "fec": 1, "ff0": 1})
     elif kind == "auxiliary":
-        f.update({"f08": 1, "f0c": 1, "f10": 1, "f58": 0, "fc8": 1})
+        f.update({"f8": 1, "fc": 1, "f10": 1, "f58": 0, "fc8": 1})
     else:
-        f.update({"f08": 0, "f0c": 0, "fc8": 0, "fcc": 0})
+        f.update({"f8": 0, "fc": 0, "fc8": 0, "fcc": 0})
     return f
 
 
 def label_definitions(*, font_name):
-    f = {"f08": 1, "f0c": 1,
+    f = {"f8": 1, "fc": 1,
          "f458": character_format(font_name=font_name, height_m=0.0035, point_height=0)}
     for field, kind in (("f18", "detail"), ("fe8", "section"), ("f1e8", "auxiliary"),
                         ("f2b8", "orthographic"), ("f388", "miscellaneous")):
