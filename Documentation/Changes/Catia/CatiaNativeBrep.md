@@ -22,6 +22,15 @@ makes the planar faces coplanar for the simple parts. It is still a structural a
 the native B-rep topology or geometry, because the angular positions are assumed equal-spaced, not
 the stored tessellation.
 
+The stored tessellation angles are now measured, and they are not the assumed ones. The 116-float
+run at `226..690` in `Copper_Washer` `MainDataStream` contains only values from `8 * cos(18k)`,
+`8 * sin(18k)`, `5 * cos(22.5k)`, `5 * sin(22.5k)`, and `1.0`, with zero of 116 values outside that
+table. So the stored tessellation has 20 points on the outer circle at 18-degree steps and 16 on the
+inner at 22.5-degree steps. The reader places 11 handles over a semicircle at 15-degree steps, so
+only 26 of the 76 placed vertices land on the stored grid. The angular positions are therefore a
+uniform refinement, not the stored tessellation, and the change entry keeps the geometry classified
+as a structural approximation.
+
 Every placed handle satisfies all the surfaces of the faces that use it. Across the 22 decoded parts
 that is 4682 of 4682 handles on-surface, with zero exceptions. The plane-cone case covers 423 of the
 555 plane-cone handles; the other 132 are oblique sections (ellipse, parabola, hyperbola) and are

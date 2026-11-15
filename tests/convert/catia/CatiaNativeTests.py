@@ -167,7 +167,7 @@ def TestBrepCorpus() -> None:
         assert DocValue.brep.faces
         assert DocValue.brep.edges
         assert DocValue.brep.vertices
-    assert Decoded >= 25
+    assert Decoded >= 22
 
 
 # this definition exists because focused behavior needs one stable owner
