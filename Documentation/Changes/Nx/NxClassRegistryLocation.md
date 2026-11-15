@@ -45,8 +45,27 @@ the ids are **computed at runtime**, not stored: the registry holds names and po
 the function is in the module's code, not in its data, and reading it needs a disassembler rather
 than a string or byte search.
 
+## The registry spans several modules
+
+Scanning `libpart.dll` for every table name, verbatim:
+
+```text
+table names present in libpart.dll      54 of 129
+missing sample                          UGS::OM::SaveAuditTrail, UGS::LAYER_category,
+                                        UGS::COLOR_table, UGS::Cam::CutterDisplay,
+                                        UGS::SKELETON_grid_modeling
+```
+
+and the file carries 1,178 distinct `UGS::...` strings, so it holds a large slice of the registry but
+not all of it. The names that are missing there appear in other modules (`camservices.dll`,
+`libsyss.dll`, `ugshext.dll` among them), so the registry is spread across the installation rather
+than centralised. That is consistent with ids being computed rather than looked up: each module
+registers its classes and the value is derived at load.
+
 ## Limits
 
-- No disassembly was performed, so the function is still unread.
+- No disassembly was performed, so the function is still unread. No PE-capable disassembler is
+  installed on this host: `llvm-objdump` is absent and `/usr/bin/objdump` is Apple's, which reads
+  Mach-O only.
 - The name mismatch (`RootObject` against `RootObjectGroup`) is recorded but not explained.
 - `Writer.py` still requires a retained native document.
