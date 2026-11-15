@@ -302,6 +302,38 @@ stored prefixes found in any of them     0 of 152
 so the prefix is not present, in its stored form, in any structure the writer context references at
 its entry point. It is produced later, or it is derived from a value rather than copied.
 
+## The prefix ends in a per-class code read from the session table
+
+The hardened two-hook run succeeded: 7 writer invocations, and during the 157-entry pass the accessor
+fired for all 152 classes, giving `(class, slot, u16 value)` for each. The value is the **last byte
+of the entry prefix**:
+
+```text
+class                        prefix        slot    value   last byte
+UGS::OM::RootObject          38 74           73      116      0x74   116
+UGS::RM_part                 65 77           74      119      0x77   119
+UGS::OM::SaveAuditTrail      80 c9 78        70      120      0x78   120
+UGS::OM::SaveAuditTrailEntry 80 c8 78        70      120      0x78   120
+UGS::Sketch::Colors          83 e8 74        73      116      0x74   116
+UGS::OM::OptPointerValue     81 52 79       106      121      0x79   121
+UGS::OM::OldHashSet          80 aa 7a        92      122      0x7a   122
+UGS::Solid::Body             3d 7b         6510      123      0x7b   123
+```
+
+Exact for **92 of 152** classes. The other 60 are all of the shape where the last byte is `0x80..0x85`
+and the value is one higher (`0x80`/129, `0x81`/130, `0x83`/132, `0x84`/133, `0x85`/134), i.e. the
+same field with its high bit set and a one-off in my attribution — the log shows those classes
+reported with a neighbouring class's slot.
+
+So the prefix is:
+
+```text
+prefix = <encoding of the +0x34 value> <per-class code>
+```
+
+and the code is a small enumerated value (116..134, nineteen distinct across the table), read from
+the writer's session table rather than computed — which is what the earlier negative scans showed.
+
 ## What is left
 
 The prefix and the tail. Hooking `0x1801445xx` during a `SaveAs` and logging the two blocks and the
