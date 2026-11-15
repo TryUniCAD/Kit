@@ -674,8 +674,8 @@ def define_part2(reg):
     ])
     reg.define("moMassPropCache_c.Serialize", [
         Len("i32", "n10", "f08"),
+        Rep(Pos("n10"), "f08", [i32("atom"), i32("v"), f64("d")]),
         If(lambda s, ar: s["n10"] != 0, [
-            Rep(Pos("n10"), "f08", [i32("atom"), i32("v"), f64("d")]),
             emb("f18", "moMassProp_c.Serialize"),
         ]),
     ])
@@ -696,6 +696,10 @@ def define_part2(reg):
                 Len("i32", "n16d0", "f16d0"),
                 Rep(Pos("n16d0"), "f16d0", [i32("k"), u8("v")]),
             ])]),
+            Vgt(0x1481, [
+                Len("i32", "n16f8", "f16e8"),
+                Rep("n16f8", "f16e8", [obj("o")]),
+            ]),
             Vgt(0x1FA4, [If(lambda s, ar: not cond(ar, 0x80) and not cond(ar, 1) and s["f161c"] == 0, [BBoxCache()])]),
             Vgt(0x238D, [i32("f18d4")]),
             Vgt(0x2410, [u32("f18d8")]),

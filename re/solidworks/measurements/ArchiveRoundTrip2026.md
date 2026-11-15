@@ -46,8 +46,20 @@ without using a per-family recorded program.
 
 ## Remaining work
 
-Recover the missing configuration field from binary evidence and rerun the same
-remote checks. A successful follow-up must bind to its own exact head and keep
+The missing field was recovered from the 2026 binaries after this run.
+`sldmodu` instructions `0x4c238177`–`0x4c238180` pass the archive in `r8` to
+bridge slot `+0x648`; the pseudocode omitted that argument.
+In `sldsmmu`, vtable `0x3d9cca88` selects thunk `0x3d8e3150`, which calls
+`0x3d773430`. The load reads an i32 count at `0x3d7734e7`, then tagged
+`moPerBodySheetMetalDataNew_c` entries at `0x3d77350d`.
+The store reads the array count from model `+0x16f8`, with pointer data at `+0x16f0`.
+The field is present after version `0x1481`, between the two-map block and
+the bounding-box cache. A zero entry count explains the four-byte deficit.
+This is a counted array, not a proven constant or a padding span.
+Nonzero entries still require their class schema and fail closed when it is absent.
+
+Rerun the same remote checks with the typed count and array.
+A successful follow-up must bind to its own exact head and keep
 the initial failure above as history.
 This gate does not prove field semantics, unrelated-design constants, held-out
 generalization, neutral-model synthesis, or target-application acceptance.
