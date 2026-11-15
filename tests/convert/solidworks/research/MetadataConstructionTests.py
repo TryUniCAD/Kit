@@ -5,17 +5,18 @@ from json import dumps as DumpJson, loads as LoadJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
+from typing import cast as CastValue
 
 KRepoRoot = FilePath(__file__).resolve().parents[4]
 KProgram = FilePath(__file__).with_name("MetadataProcess.py")
-KStamp = {
+KStamp: dict[str, object] = {
     "status": 0,
     "user_index": 0,
     "company_index": 0,
     "timestamp": 1700000000,
     "comment": "authored test revision",
 }
-KHeader = {
+KHeader: dict[str, object] = {
     "next_id": 100,
     "user_names": ["author α"],
     "company_names": ["authored organization"],
@@ -30,7 +31,7 @@ KHeader = {
     "license_flags": 0,
     "license_type": 0,
 }
-KHistory = {
+KHistory: dict[str, object] = {
     "states": [
         {
             "file_version": 19000,
@@ -45,7 +46,7 @@ KHistory = {
     "cjk_saved": False,
     "cjk_warning": False,
 }
-KKeywords = {
+KKeywords: dict[str, object] = {
     "name": "authored <part> & α",
     "timestamp": 1700000100,
     "configurations": [
@@ -72,35 +73,43 @@ KKeywords = {
 }
 
 
-def MakeInput() -> dict:
-    return CopyValues(
-        {
-            "header2": KHeader,
-            "model_headers": {"7": {**KHeader, "model_present": True}},
-            "history": KHistory,
-            "keywords": KKeywords,
-        }
-    )
+def MakeInput() -> dict[str, object]:
+    InputData: dict[str, object] = {
+        "header2": KHeader,
+        "model_headers": {"7": {**CopyValues(KHeader), "model_present": True}},
+        "history": KHistory,
+        "keywords": KKeywords,
+    }
+    return CopyValues(InputData)
 
 
-def LargerInput() -> dict:
+def LargerInput() -> dict[str, object]:
     InputData = MakeInput()
-    InputData["header2"]["next_id"] = 400
-    InputData["header2"]["revision_logs"].append({"object_id": 31, "stamps": [KStamp]})
-    InputData["model_headers"]["9"] = {**CopyValues(KHeader), "model_present": True}
-    InputData["history"]["states"][0]["date_codes"].append(
+    Header = CastValue(dict[str, object], InputData["header2"])
+    Header["next_id"] = 400
+    CastValue(list[object], Header["revision_logs"]).append(
+        {"object_id": 31, "stamps": [KStamp]}
+    )
+    CastValue(dict[str, object], InputData["model_headers"])["9"] = {
+        **CopyValues(KHeader),
+        "model_present": True,
+    }
+    History = CastValue(dict[str, object], InputData["history"])
+    State = CastValue(dict[str, object], CastValue(list[object], History["states"])[0])
+    CastValue(list[object], State["date_codes"]).append(
         {"build_code": 1234570, "native_save": False}
     )
-    InputData["keywords"]["configurations"].append(
+    Keyword = CastValue(dict[str, object], InputData["keywords"])
+    CastValue(list[object], Keyword["configurations"]).append(
         {"id": 9, "name": "β configuration", "material": ""}
     )
-    InputData["keywords"]["features"].append(
+    CastValue(list[object], Keyword["features"]).append(
         {"id": 31, "name": "additional authored feature", "kind": "RefPlane"}
     )
     return InputData
 
 
-def RunMetadata(Inputs: list[dict]) -> list[dict]:
+def RunMetadata(Inputs: list[dict[str, object]]) -> list[dict[str, object]]:
     Outcome = RunProcess(
         [PythonExec, "-I", "-B", str(KProgram), str(KRepoRoot)],
         input=DumpJson(Inputs),
@@ -110,14 +119,16 @@ def RunMetadata(Inputs: list[dict]) -> list[dict]:
         timeout=120,
     )
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-    return LoadJson(Outcome.stdout)
+    return CastValue(list[dict[str, object]], LoadJson(Outcome.stdout))
 
 
 def TestMetadata() -> None:
     Small, Large = RunMetadata([MakeInput(), LargerInput()])
     assert Small["read_blocked"] and Large["read_blocked"]
     assert (Small["next_id"], Large["next_id"]) == (100, 400)
-    assert Small["header_owner"] == 0 and set(Small["models"].values()) == {1}
+    assert Small["header_owner"] == 0 and Small["models"] == {
+        "Contents/Config-7-ModelHeader": 1
+    }
     assert Small["log_ids"] == [0] and Large["log_ids"] == [0, 31]
     assert Small["users"] == ["author α"]
     assert Small["history_codes"] == [[1234567]]
@@ -127,35 +138,63 @@ def TestMetadata() -> None:
     assert Small["name"] == "authored <part> & α"
     assert Small["configs"] == ["7"] and Large["configs"] == ["7", "9"]
     assert Small["features"] == ["輪郭", "boss & <one>"]
-    assert len(Large["features"]) == 3 and Small["children"] == ["10"]
+    assert len(CastValue(list[object], Large["features"])) == 3 and Small[
+        "children"
+    ] == ["10"]
     assert Small["dimensions"] == ["12.5"]
-    assert len(Small["sizes"]) == 5 and len(Large["sizes"]) == 6
+    SmallSizes = CastValue(dict[str, int], Small["sizes"])
+    LargeSizes = CastValue(dict[str, int], Large["sizes"])
+    SmallHashes = CastValue(dict[str, str], Small["hashes"])
+    LargeHashes = CastValue(dict[str, str], Large["hashes"])
+    assert len(SmallSizes) == 5 and len(LargeSizes) == 6
+    assert (
+        SmallHashes["Contents/Config-7-ModelHeader"]
+        == LargeHashes["Contents/Config-7-ModelHeader"]
+    )
     for StreamName in (
         "Header2",
         "_MO_VERSION_19000/History",
         "swXmlContents/KeyWords",
     ):
-        assert Large["sizes"][StreamName] > Small["sizes"][StreamName]
-        assert Large["hashes"][StreamName] != Small["hashes"][StreamName]
+        assert LargeSizes[StreamName] > SmallSizes[StreamName]
+        assert LargeHashes[StreamName] != SmallHashes[StreamName]
 
 
 def TestProvenance() -> None:
     NativeSave = MakeInput()
-    NativeSave["history"]["states"][0]["date_codes"][0]["native_save"] = True
+    NativeSave["history"] = {
+        **KHistory,
+        "states": [
+            {
+                "file_version": 19000,
+                "date_codes": [{"build_code": 1234567, "native_save": True}],
+                "stamp": KStamp,
+            }
+        ],
+    }
     MissingCode = MakeInput()
-    MissingCode["history"]["states"][0]["date_codes"] = []
+    MissingCode["history"] = {
+        **KHistory,
+        "states": [{"file_version": 19000, "date_codes": [], "stamp": KStamp}],
+    }
     LicenseFlag = MakeInput()
-    LicenseFlag["header2"]["license_flags"] = 1
+    LicenseFlag["header2"] = {**KHeader, "license_flags": 1}
     Results = RunMetadata([NativeSave, MissingCode, LicenseFlag])
     assert all(Result["read_blocked"] for Result in Results)
-    assert "must not be fabricated or cleared" in Results[0]["error"]
-    assert "explicit build provenance" in Results[1]["error"]
-    assert "provenance must not be cleared" in Results[2]["error"]
+    assert "must not be fabricated or cleared" in CastValue(str, Results[0]["error"])
+    assert "explicit build provenance" in CastValue(str, Results[1]["error"])
+    assert "provenance must not be cleared" in CastValue(str, Results[2]["error"])
 
 
 def TestStampNames() -> None:
     InputData = MakeInput()
-    InputData["model_headers"]["7"]["user_names"] = ["different authored identity"]
+    InputData["model_headers"] = {
+        "7": {
+            **KHeader,
+            "model_present": True,
+            "user_names": ["different authored identity"],
+        }
+    }
     Result = RunMetadata([InputData])[0]
     assert Result["read_blocked"]
-    assert "different users or companies" in Result["error"]
+    assert "different users or companies" in CastValue(str, Result["error"])
