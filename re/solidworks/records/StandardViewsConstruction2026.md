@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 standard-view construction
 
-Status: **native construction and wire rules recovered; shared generator implemented; native remeasurement pending**
+Status: **signed native construction and wire rules recovered; the corrected negative-half-angle generator awaits native remeasurement**
 
 The earlier generated model wrote ten null `moView_c` entries in its `f9f8`
 array
@@ -24,6 +24,41 @@ The [CAD success criteria](../../../Documentation/Reference/Operations/CadSucces
 Their acceptance conditions are not satisfied by this static record
 The criteria's stopping conditions remain “success under every criterion on this
 page” or “the end of the available context”
+
+## Critical correction: the native half-angle is negative
+
+The first revision of this record incorrectly treated the axis-angle helper's
+half-angle factor as positive without reading its referenced constant
+That positive-half-angle assumption is **refuted**
+The first view construction following it produced a numerical orientation
+mismatch despite successful native loading and a nonempty body
+
+Instruction `sldmgu!0x31f0fa84` multiplies the incoming angle in `xmm7` by the
+binary64 at preferred address `0x31f46ff0`
+Direct inspection of that operand gives value `-0.5`, IEEE-754 bits
+`0xbfe0000000000000`
+The following cosine and sine calls consume this negative half-angle
+Consequently the native rule is
+`Q(axis,a)=(axis*sin(-a/2),cos(-a/2))`, with the vector's three components
+expanded separately
+Keep the documented angle constants, Hamilton multiplication order and matrix
+layout unchanged
+The owning correction is in axis-angle construction, not a transpose or sign
+patch fitted to a measured matrix
+
+The oracle owner's negative comparison is
+`Oracle121Takeover/Rotations417d/Rotations.json`, raw SHA-256
+`a75ba4f5f78d74690c33b0f501c6e0ee0c5f10b5e1bee8f16dafc392b6de1f36`
+Its authority is `native-visible-document-viewport`
+Both controls and the candidate have one body; the owner reports healthy,
+unchanged inputs in all three rows
+Their active-view orientation after standard view seven exposes the sign
+difference; the report's separate standard-view helper raised `ArrayData`
+because the API returns a tuple, so that failed helper supplies no standard-view
+matrix evidence
+These measurements prompted the native operand read but do not supply writer
+values
+Fresh native measurement of the corrected construction is still required
 
 ## Binary and evidence binding
 
@@ -196,9 +231,10 @@ At `0x4c033268`, that selects identity base quaternion `B=(0,0,0,1)`
 A nonzero flag instead derives a base quaternion from an inverse axis matrix;
 that alternate convention is outside this reconstruction
 
-Let `Q(axis,a)=(axis.x*sin(a/2),axis.y*sin(a/2),axis.z*sin(a/2),cos(a/2))`
+Let `Q(axis,a)=(axis.x*sin(-a/2),axis.y*sin(-a/2),axis.z*sin(-a/2),cos(-a/2))`
 `mg_RotationQuaternion` at `0x31f0fa20` normalizes the supplied axis, multiplies
-the angle by one half, calls cosine at `0x31f0fa8f` and sine at `0x31f0fa9a`,
+the angle by negative one half using constant `0x31f46ff0` at instruction
+`0x31f0fa84`, calls cosine at `0x31f0fa8f` and sine at `0x31f0fa9a`,
 then stores vector components at offsets `0/8/0x10` and the cosine at `+0x18`
 The helper has a small-angle identity branch, but every nonzero canonical angle
 listed here takes the trigonometric branch

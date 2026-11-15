@@ -17,7 +17,7 @@ def _multiply(a, b):
 
 
 def _rotation(axis, angle):
-    sine, cosine = math.sin(angle * 0.5), math.cos(angle * 0.5)
+    sine, cosine = math.sin(angle * -0.5), math.cos(angle * -0.5)
     return (*(component * sine for component in axis), cosine)
 
 

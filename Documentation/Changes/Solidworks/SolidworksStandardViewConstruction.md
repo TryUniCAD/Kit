@@ -17,3 +17,9 @@ The complete-file process harness checks ten distinct decoded view objects,
 their ordered ids and rotation-payload presence. Remote CI and new controlled
 viewport measurements are pending. Geometry/edit results measured before this
 change are retained separately; they do not establish acceptance of its new bytes.
+
+The first generated rotation exposed a sign error in the recovered constructor
+description. Direct binary inspection confirms that native axis-angle creation
+multiplies the angle by `-0.5`, not `+0.5`. The shared computation now uses that
+negative half-angle; the record retains the refuted assumption and exact native
+constant. Fresh numerical native parity remains pending.
