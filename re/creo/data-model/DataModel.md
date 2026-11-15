@@ -407,9 +407,28 @@ So our emitter covers the first seven fields and stops; the vendor record also c
 primitive, a first-contour reference with its own envelope, and topology reference data. That is why our
 payload is `399` bytes against `2899`.
 
-An earlier revision of this page said the structural divergence was gone. It is not: only the prefix
-agrees. What remains is both numeric (`envlp` and `outline` conventions) and structural (`srf_prim_ptr`,
-`frst_cntr_ptr`, `topol_ref_data`).
+All three nested structures are now emitted, and the surface record is **byte-identical** to the
+ladder's first element:
+
+```text
+record 409  element 1 409  byte-identical: True
+```
+
+The conventions, decoded from the ladder payload:
+
+| Field | Convention |
+| --- | --- |
+| `envlp` | four doubles: `(u0, u1, v0, v1)`; the ladder's first surface is `184.5078, 86.0668, -154.4303, -115.6523` |
+| `outline` | six doubles, the same envelope with the two zero crossings interleaved |
+| `srf_prim_ptr(plane)` | opens with `e3` and contains `local_sys`; it is **not** a separate payload |
+| `local_sys` | twelve doubles in run-compressed lanes, e.g. `[1,0,0,0,0, 1,0,-1,0,0,0,0]` |
+| `frst_cntr_ptr` | opens with `f1 e3`, so the close of the plane record rides inside its value |
+| `frst_cntr_crv_hdr_ptr` | the surface's own id plus one, not `next_geom_ptr` |
+| `topol_ref_data` | `owner_feat_revnum`, `srf_flip_dat`, `list_id` `-5778`, `list_type` `98`, then `f2` |
+
+Four details cost a byte comparison each: doubles inside these arrays use the compact scalar lanes and
+run compression; the close of the plane record belongs inside `frst_cntr_ptr`'s value; the contour header
+pointer is `geom_id + 1`; and `srf_prim_ptr(plane)` wraps `local_sys` rather than carrying its own data.
 
 The corrected payload is still rejected (silent exit twice), so the values matter too, but the emitter is
 now structurally faithful rather than guesswork.

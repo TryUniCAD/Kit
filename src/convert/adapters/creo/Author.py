@@ -183,20 +183,43 @@ def PlaneDefine(
     Values: tuple[float, ...],
     FeatureId: int = 74,
     NextGeomId: int = 82,
+    Envelope: tuple[float, ...] = (0.0, 1.0, 1.0, 0.0),
+    Outline: tuple[float, ...] = (0.0, 0.0, 1.0, 0.0, 1.0, 1.0),
 ) -> bytes:
-    Payload = NameValue("geom_id") + IntValue(GeomValue)
-    Payload += NameValue("geom_type") + IntValue(34)
-    Payload += NameValue("feat_id") + IntValue(FeatureId)
-    Payload += NameValue("orient") + SignedInt(-1)
-    Payload += NameValue("boundary_type") + SignedInt(0)
-    Payload += NameValue("next_geom_ptr") + SignedInt(NextGeomId)
-    Payload += b"\xe0\x02envlp\x00\xf9" + IntValue(2) + IntValue(2)
-    Payload += b"".join(ScalarValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
-    Payload += b"\xe0\x02outline\x00\xf9" + IntValue(2) + IntValue(3)
-    Payload += b"".join(ScalarValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
-    Payload += b"\xe0\x02local_sys\x00\xf9" + IntValue(4) + IntValue(3)
-    Payload += b"".join(ScalarValue(Value) for Value in Values)
-    return Payload
+    Payload = (
+        b"\xe3"
+        + NameValue("geom_id")
+        + IntValue(GeomValue)
+        + NameValue("geom_type")
+        + IntValue(34)
+        + NameValue("feat_id")
+        + IntValue(FeatureId)
+        + NameValue("orient")
+        + SignedInt(-1)
+        + NameValue("boundary_type")
+        + SignedInt(0)
+        + NameValue("next_geom_ptr")
+        + SignedInt(NextGeomId)
+    )
+    Payload += b"\xe0\x02envlp\x00\xf9\x02\x02"
+    Payload += RunValues(Envelope)
+    Payload += b"\xe0\x02outline\x00\xf9\x02\x03"
+    Payload += RunValues(Outline)
+    Payload += StructHeader("srf_prim_ptr(plane)") + b"\xe3"
+    Payload += b"\xe0\x02local_sys\x00\xf9\x04\x03"
+    Payload += RunValues(Values)
+    Payload += StructHeader("frst_cntr_ptr") + b"\xf1\xe3"
+    Payload += NameValue("frst_cntr_crv_hdr_ptr") + IntValue(GeomValue + 1)
+    Payload += NameValue("trv") + IntValue(1)
+    Payload += b"\xe0\x02envlp\x00\xf9\x02\x02"
+    Payload += RunValues(Envelope)
+    Payload += StructHeader("next_cntr_ptr") + b"\xf1\xe1"
+    Payload += StructHeader("topol_ref_data") + b"\xe3"
+    Payload += NameValue("owner_feat_revnum") + IntValue(13)
+    Payload += StructHeader("srf_flip_dat") + b"\xe1"
+    Payload += NameValue("list_id") + SignedInt(-5778)
+    Payload += NameValue("list_type") + IntValue(98)
+    return Payload + b"\xf2"
 
 
 # later array elements may not redeclare fields
@@ -205,22 +228,22 @@ def PlaneReplay(
     Values: tuple[float, ...],
     FeatureId: int = 74,
     NextGeomId: int = 82,
+    Envelope: tuple[float, ...] = (0.0, 1.0, 1.0, 0.0),
+    Outline: tuple[float, ...] = (0.0, 0.0, 1.0, 0.0, 1.0, 1.0),
 ) -> bytes:
-    Payload = (
-        b"\xe3"
-        + IntValue(GeomValue)
-        + IntValue(34)
-        + IntValue(FeatureId)
-        + SignedInt(-1)
-        + SignedInt(0)
-        + SignedInt(NextGeomId)
+    Payload = b"\xf7\x03\xe3" + IntValue(GeomValue) + IntValue(34) + IntValue(FeatureId)
+    Payload += SignedInt(-1) + SignedInt(0) + SignedInt(NextGeomId)
+    Payload += b"\xf9\x02\x02" + RunValues(Envelope)
+    Payload += b"\xf9\x02\x03" + RunValues(Outline)
+    Payload += b"\xe3"
+    Payload += b"\xf9\x04\x03" + RunValues(Values)
+    Payload += b"\xf1"
+    Payload += b"\xf1\xe3" + IntValue(NextGeomId) + IntValue(1)
+    Payload += b"\xf9\x02\x02" + RunValues(Envelope)
+    Payload += b"\xf1\xe1"
+    Payload += (
+        b"\xe3" + IntValue(13) + b"\xe1" + SignedInt(-5778) + IntValue(98) + b"\xf2"
     )
-    Payload += b"\xf9" + IntValue(2) + IntValue(2)
-    Payload += b"".join(ScalarValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
-    Payload += b"\xf9" + IntValue(2) + IntValue(3)
-    Payload += b"".join(ScalarValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
-    Payload += b"\xf9" + IntValue(4) + IntValue(3)
-    Payload += b"".join(ScalarValue(Value) for Value in Values)
     return Payload
 
 
