@@ -192,6 +192,19 @@ name-independent kinds: the forty classes sharing `kind = 3` span Annot, PMI, Di
 the kind is not the module. The remaining bits are still underived, and the first field does not
 decompose cleanly into two useful parts.
 
+## xxh32 of the name appears nowhere in the entry
+
+Since NX uses xxh32 for its own seals, the last test was whether a class id contains xxh32 of its
+name in any 32 bit window:
+
+```text
+classes tested                                   20
+windows searched per class                       all bit offsets
+matches                                          0
+```
+
+so the entry is not `xxh32(name)` in any alignment. That closes the seeded-hash reading as well.
+
 ## The class ids are not referenced elsewhere in the section
 
 One association route was left worth trying: if a class id appeared somewhere else in the object
