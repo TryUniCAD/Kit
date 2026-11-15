@@ -10,7 +10,12 @@ from tests.convert.Commands.Feature.ModifierCases import KModifierSpecs
 
 def BuildModifier(RecordKind: str) -> CadDocument:
     Document = MakeFusionDoc(DocumentSpec("Modifier prerequisites", "height", 20.0))
-    if RecordKind in ("CombineInactive", "CombineBadOperation", "CombineValid"):
+    if RecordKind in (
+        "CombineInactive",
+        "CombineBadOperation",
+        "CombineValid",
+        "CombineCut",
+    ):
         Document = AddCreator(Document)
     KindValue, Definition, Inputs = KModifierSpecs[RecordKind]
     Feature = FeatureStep(

@@ -14,7 +14,8 @@ Definitions must match an explicitly supported feature-kind contract; unmapped d
 Profile creation uses `DistanceExtrude`, `PlaneExtrude`, `AngularRevolve`, or `PlaneRevolve` with the existing SDK definition validators.
 It requires explicit create intent, an unsuppressed local sketch with nonempty declared profiles referencing nonconstruction entities, and an active declared reference input for that sketch.
 Profile links are indexed once per document; this is not geometric profile evaluation.
-The supported dependent modifier is `BoundScale`; it reuses the SDK's bound-control validation and requires an active generative input.
+The structurally understood dependent modifier is `BoundScale`; it reuses the SDK's bound-control validation and requires an active generative input.
+Those prerequisites do not qualify its evaluated geometry; local geometry also requires the [SDK regeneration contract](SdkGeometryContract.md).
 Legacy fillet, chamfer, shell, hole, pattern, scale, extrusion, and revolution definitions without these concrete prerequisite validators remain inspection-only.
 Boolean combine requires at least two distinct active generative inputs and join, cut, or intersect intent; repeated operands and sketch references do not count as generated bodies.
 An unrelated suppressed sketch reference without local geometry remains eligible, and tuple storage order does not replace explicit feature order.
@@ -35,7 +36,8 @@ Further cases retain a typed extrusion while adding plain or ownership-tagged me
 Active-history cases cover suppressed final operations, configuration-state and configuration-record suppression, suppressed direct and transitive dependencies, and root/nested documents with missing or existing destinations.
 Positive process cases preserve an unrelated inactive sketch reference and a valid typed extrusion whose timeline tuple is stored in reverse feature order.
 Prerequisite process cases add inputless, single-input, repeated-input, reference-only, inactive-input, and invalid-operation boolean records; inputless fillet/scale and reference-only shell records; mismatched kinds; absent profile dependencies; empty, unknown, construction-only, or suppressed profiles; and unvalidated legacy creation definitions.
-They include a two-generator boolean history as a positive neutral serialization boundary, without asserting evaluated Boolean geometry or native acceptance.
+The former two-generator Boolean serialization case now verifies geometry refusal, alongside a coincident-input cut with a retained nonempty B-rep.
+It is retained as regression coverage rather than treating declared operands as evaluated geometry.
 They validate input records before invoking the installed CLI, preserve sources and missing or existing destinations, and retain inspection.
 Positive cases preserve standalone and nested circle and rectangle sketch documents; existing Fusion round-trip and resolved assembly cases remain required.
 

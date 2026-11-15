@@ -5,7 +5,6 @@ from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from interchange.assembly.AssemblyEnums import ComponentKind, MateEntityKind, MateKind
 from interchange.document.models.DocumentModel import CadDocument
 from interchange.enums.EnumGeometry import ConstraintKind, GeometryKind
-from interchange.geometry.models.Sketch import ConstraintRef, SketchRelation
 from tests.convert.Commands.BuildTypedAsm import BuildTypedAsm
 
 
@@ -15,7 +14,7 @@ def BuildKinds(RecordName: str, Variant: str) -> CadDocument:
         "Mate": (MateKind.KCoincident, MateKind.KNative),
         "MateEntity": (MateEntityKind.KPlane, MateEntityKind.KNative),
         "SketchEntity": (GeometryKind.KCircle, GeometryKind.KNative),
-        "SketchRelation": (ConstraintKind.KFixed, ConstraintKind.KNative),
+        "SketchRelation": (ConstraintKind.KHorizontal, ConstraintKind.KNative),
     }[RecordName]
     KindValue = {
         "KnownEnum": KnownValue,
@@ -27,7 +26,17 @@ def BuildKinds(RecordName: str, Variant: str) -> CadDocument:
     Document = (
         BuildTypedAsm()
         if RecordName in ("Component", "Mate", "MateEntity")
-        else MakeFusionDoc(DocumentSpec("Typed kind history", "height", 20.0))
+        else MakeFusionDoc(
+            DocumentSpec(
+                "Typed kind history",
+                "height",
+                20.0,
+                ProfileKind="cuboid",
+                ConstrainRectangle=True,
+            )
+            if RecordName == "SketchRelation"
+            else DocumentSpec("Typed kind history", "height", 20.0)
+        )
     )
     if RecordName == "Component":
         assert Document.assembly is not None
@@ -78,8 +87,15 @@ def BuildKinds(RecordName: str, Variant: str) -> CadDocument:
             ),
         )
     else:
-        Relation = SketchRelation(
-            "constraint:kind", KindValue, (ConstraintRef(Sketch.entities[0].id),)
+        Sketch = ReplaceData(
+            Sketch,
+            constraints=tuple(
+                (
+                    ReplaceData(Relation, kind=KindValue)
+                    if Relation.kind == ConstraintKind.KHorizontal
+                    else Relation
+                )
+                for Relation in Sketch.constraints
+            ),
         )
-        Sketch = ReplaceData(Sketch, constraints=(*Sketch.constraints, Relation))
     return ReplaceData(Document, sketches=(Sketch, *Document.sketches[1:]))

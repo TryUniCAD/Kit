@@ -67,4 +67,8 @@ def BuildInactive(RecordKind: str) -> CadDocument:
                     ),
                 ),
             )
-    return ReplaceData(Document, feature_timeline=tuple(Features), metadata={})
+    return ReplaceData(
+        Document,
+        feature_timeline=tuple(Features),
+        metadata=Document.metadata if RecordKind == "Unordered" else {},
+    )

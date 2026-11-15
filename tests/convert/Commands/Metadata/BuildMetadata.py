@@ -64,7 +64,7 @@ def BuildMetadata(RecordKind: str, FieldName: str = "Document") -> CadDocument:
         else MakeFusionDoc(DocumentSpec("Typed metadata history", "height", 20.0))
     )
     if FieldName == "Document":
-        return ReplaceData(Document, metadata=Metadata)
+        return ReplaceData(Document, metadata={**Document.metadata, **Metadata})
     if FieldName in ("Feature", "Provenance"):
         Feature = ReplaceData(
             Document.feature_timeline[-1],

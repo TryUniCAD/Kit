@@ -1,5 +1,6 @@
 from convert.Commands.CheckFeatures import CheckFeatures
 from convert.Commands.CheckRetained import CheckRetained
+from convert.Commands.Qualified.CheckGeometry import CheckGeometry
 from interchange.assembly.AssemblyEnums import ComponentKind
 from interchange.brep.curves.BrepCurves import NativeCurve
 from interchange.brep.curves.BrepPcurves import NativePcurve
@@ -90,3 +91,5 @@ def CheckPortable(Document: CadDocument) -> None:
                     raise ValueError(type(Geometry).__name__ + KInspectText)
         CheckFeatures(PartValue)
     CheckRetained(Document)
+    for PartValue in WalkDocuments(Document):
+        CheckGeometry(PartValue)

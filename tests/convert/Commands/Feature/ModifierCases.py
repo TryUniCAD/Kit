@@ -23,11 +23,18 @@ KModifierSpecs: dict[str, tuple[FeatureKind, FeatureDef, tuple[str, ...]]] = {
         ("extrude", "other"),
     ),
     "CombineValid": (FeatureKind.KBoolean, CombineFeature(), ("extrude", "other")),
+    "CombineCut": (
+        FeatureKind.KBoolean,
+        CombineFeature(BooleanOp.KCutOperation),
+        ("extrude", "other"),
+    ),
     "FilletEmpty": (FeatureKind.KFillet, FilletFeature(KAmount), ()),
     "ShellReference": (FeatureKind.KShell, ShellFeature(KAmount), ("sketch",)),
     "ScaleEmpty": (FeatureKind.KScale, ScaleFeature(SpaceVector(1.0, 1.0, 1.0)), ()),
     "MismatchedKind": (FeatureKind.KScale, CombineFeature(), ("extrude",)),
 }
 KModifierCases = tuple(
-    NameValue for NameValue in KModifierSpecs if NameValue != "CombineValid"
+    NameValue
+    for NameValue in KModifierSpecs
+    if NameValue not in ("CombineValid", "CombineCut")
 )
