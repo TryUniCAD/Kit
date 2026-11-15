@@ -201,7 +201,24 @@ on the dimension values at all, and the group record carries the values as text 
 (`04 34 30 00` is `"40"`). That is what a composer has to emit: four constant objects,
 one head with the part identity, and one record whose text follows the values.
 
-## The order array is not a permutation of the object indices
+## The order array only has to be a set
+
+Mutation of `dim40`'s order array, each loaded in NX 2506:
+
+```text
+rotated by one                        loads   bodies 1  volume 23999.999999999996
+replaced by 1..24 in sequence         loads   bodies 1  volume 23999.999999999996
+reversed                              OPEN_FAILED
+every entry set to 1                  OPEN_FAILED
+```
+
+So the array is validated as a **set of ids**, not as an order: rotating it is accepted and
+so is the plain sequence `1..N`, while a reversal (which breaks the id-to-object pairing) and
+a collision are not. A writer can therefore emit `1..N` and needs no identifier scheme.
+
+That removes the last unknown in the expression section assembly.
+
+## The order array carries ids, not indices
 
 `dim40`'s section 2 carries 24 objects and an order array of 24 entries:
 
