@@ -11,9 +11,11 @@ from convert.adapters.solidworks.container.Container import (
     SldprtFormatError,
 )
 from convert.adapters.solidworks.container.Format import (
+    ASSEMBLY_SUFFIX as KAsmSuffix,
     DISPLAY_LISTS_STREAM as KDisplayStream,
     INFORMATION_STREAM as KInfoStream,
     KEYWORDS_STREAM as KKeyStream,
+    PART_SUFFIX as KPartSuffix,
 )
 
 KSheetFormatProperty = "SW-All Sheet Format Data"
@@ -221,7 +223,7 @@ def ViewOrder(DataValue: bytes) -> tuple[tuple[str, str], ...]:
     Tokens = TextData.split("@")
     Result: list[tuple[str, str]] = []
     for Index, Token in enumerate(Tokens):
-        if not Token.casefold().endswith((".sldprt", ".sldasm")):
+        if not Token.casefold().endswith((KPartSuffix, KAsmSuffix)):
             continue
         if Index + 2 >= len(Tokens):
             raise SldprtFormatError("drawing view list is truncated")
