@@ -414,7 +414,6 @@ def origin_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
     graph.sketch["_origin_constraint"] = constraint
     _bind_local_ref_flag(sketch=graph.sketch)
     graph.sketch["_requires_update"] = True
-    profile["f0c"] &= 0xFFFD7FF8
     return graph
 
 

@@ -232,14 +232,17 @@ After sketch update, the initializer calls `setNeedsUpdate(0,1,null)` on the ori
 Origin vtable `0x4d0ef510`, slot `+0xb8`, targets the feature wrapper at `0x4bb515c0`
 That status-zero path invokes the prior-state query at virtual `+0xc0`, then unconditionally calls node setter `0x4c03ed90` with status zero
 Instructions `0x4c03edf8` through `0x4c03ee99` store `f0c & 0xfffd7ff8`
-The builder applies this proved mutation to the origin node
+This is a post-solver mutation, not the state of an unsolved constructor graph
 The wrapper's later nonzero-status side effects are skipped by branches `0x4bb5169c` and `0x4bb51770`
 This does not close every indirect query or the preceding solver update
 The owner operation belongs at this point in model composition; later polygon and extrusion insertion can dirty the owner again
 It is not a rule to clear the final part's update state after those operations
 
-The builder records the native subsequent `sgSketch::update` at `0x4c549ab0` as unresolved regeneration work
-Its `_requires_update` metadata is explicit and does not claim post-solver cache/status identity or an accepted origin graph
+The factory retains the allocated node's constructor `f0c=1` while sketch `f128/f12c`, point `f34` and point colour remain at their constructor values
+The earlier factory incorrectly applied the post-solver clear before performing a solve
+The native bit-mask expression was correct, but its position in the generated lifecycle was not
+The stored pending bit satisfies the first per-feature admission predicate on the supported fresh path below
+Its `_requires_update` metadata remains descriptive and does not claim post-solver cache/status identity or an accepted origin graph
 
 ### Origin repair and solve dispatch
 
@@ -263,6 +266,29 @@ The separate below-update override `0x4c0e0970` reaches helper `0x4c707780`
 For the supported graph's absent derived-profile reference and sketch `f188=0`, branch `0x4c707878` returns zero at `0x4c708755`
 Null solver cache pointers and `_requires_update=True` therefore do not, by themselves, prove native solve scheduling
 Keep initializer repair, ordinary engine dispatch and final solver status as distinct lifecycle questions
+
+### Pending origin admission
+
+The actual part update entry `0x4c1d2940` calls body `0x4c1cc6d0`, which runs prepass `0x4c1c8e70` and main pass `0x4c1c9d50`
+For an ordinary non-atom feature, the prepass calls `0x4c1d04c0`, whose admission helper is `0x4c1d0110`
+That helper first calls the feature's needs-update virtual `+0xc0` with argument one
+A true result admits the feature immediately
+Otherwise it tests its own `f0c & 0x400`, an owner external-context gate and the earlier-change map before later feature-specific fallbacks
+An empty change map returns zero through `0x4c1d0440`; a dirty root alone is not an admission rule
+
+Node needs-update getter `0x4c03e5e0` returns one when the node's own `f0c` bit zero is set
+The constructed origin is the owning profile of its actual sketch, has no derived reference and retains that native constructor bit
+Its profile override `0x4c0e07a0` and generic feature query `0x4bb4d610` therefore produce a true needs-update result without relying on root propagation
+Admission through `0x4c1d04c0` sets bit mask `0x2` at runtime feature `+0x26c`
+Main pass `0x4c1c9d50` uses the runtime bit to call `0x4c1cd920`, which invokes update virtual `+0x138` without a second needs-update query
+For fresh profile `f3dc=0`, wrapper `0x4c0e6670` tail-jumps to engine `0x4c0dc6b0` at `0x4c0e6711`
+The admitted engine still requires a valid reference plane and healthy status before its sketch solve
+
+The factory therefore keeps the pending constructor bit instead of copying solved entity status two, colour four or current sketch status two
+The process regression now serializes the complete origin profile, decodes its actual `f0c`, checks the pre-solver state and re-encodes identical bytes
+Its external archive-map seed is the real model owner; the decoded sketch must point to the decoded profile itself
+These are component serialization and static admission checks, rather than target acceptance
+It does not establish a complete candidate's target opening, successful first solve, body regeneration or held-out acceptance
 
 ## Sketch update dataflow
 

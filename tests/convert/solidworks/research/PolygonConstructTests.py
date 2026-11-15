@@ -19,6 +19,17 @@ def TestOriginFlag(TmpPath: FilePath) -> None:
     assert Report["runtime_reads"] == []
 
 
+# unsolved origins need their actual serialized flag to reach native admission
+def TestOriginDirty(TmpPath: FilePath) -> None:
+    Outcome = RunPolygon(Directory=TmpPath, Scenario="ring", Count=3, Depth=0.025)
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    Report = LoadJson(Outcome.stdout)
+    assert Report["origin_pending_flags"] & 1 == 1
+    assert Report["origin_statuses"] == [1, 1, 1]
+    assert Report["origin_colour"] == 5
+    assert Report["runtime_reads"] == []
+
+
 # variable topology must determine archive size without selecting recorded shapes
 def TestVariableN(TmpPath: FilePath) -> None:
     Sizes: list[int] = []
