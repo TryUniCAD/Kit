@@ -27,7 +27,6 @@ from BuildPruned import emit_fresh
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.ShellParts import AuthorAppInfo
 from convert.formats.Fusion.DrawingCodec.Dwg.Header.HeaderFrame import KHeaderName
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgAppEntry import DwgAppEntry
-from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgRecord import DwgRecord
 from convert.formats.Fusion.DrawingCodec.Dwg.ReadDwgFile import ReadDwgFile
 from convert.formats.Fusion.DrawingCodec.Dwg.ReadDwgInventory import ReadInventory
 

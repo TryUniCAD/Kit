@@ -85,8 +85,8 @@ def read_scale(document):
                     "views": len(sheet["views"]),
                     "scale": sheet["views"][0]["scale"],
                 }
-        except Exception:
-            pass
+        except Exception as Failure:
+            report["info_error"] = str(Failure)
         settle(5)
     return {"error": "views never appeared"}
 
@@ -169,7 +169,7 @@ def cycle(label):
 def run():
     for label in labels:
         try:
-            row = cycle(label)
+            cycle(label)
         except Exception:
             report["rows"][label] = {"error": traceback.format_exc()}
     report["status"] = "done"
