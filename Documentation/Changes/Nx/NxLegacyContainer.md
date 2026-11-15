@@ -566,10 +566,23 @@ three-byte field, a zero-width field and a three-byte field, so the two forms co
 record and the choice is per field, not per record.
 
 The eight-byte grouping is falsified: `group[1:8] == double[0:7]`, `group[1:8] == double[1:8]`,
-`group[0:7] == double[0:7]` and both reversed variants match 0 of 42 groups. The seven-byte payload
-is also not the low seven bytes of the component's IEEE-754 double, not a float32 pair, and not a
-float32 with the tag as exponent. The arithmetic that maps a component to its seven-byte payload is
-not yet decoded.
+`group[0:7] == double[0:7]` and both reversed variants match 0 of 42 groups.
+
+The seven-byte payload is not a permuted double either. Taking the payload of the `0.2` component
+(`e4 f5 14 ea 72 d0 01`, from `Dark Dull Pink` fields 1 and 2) and trying all 5,040 byte orders as
+the low seven bytes of a double with high byte `0x3f`, `0x3e`, `0x3d`, `0x40` or `0x41` gives zero
+hits for `0.2`; the same search with the seven bytes as the high bytes and low byte `0x00` or `0x01`
+also gives zero:
+
+```text
+low-7 permutations giving 0.2:  0
+high-7 permutations giving 0.2: 0
+```
+
+It is not a 56-bit fraction (`LE/2^56 = 0.007086927556`, `BE/2^56 = 0.894364650000`), and no
+four-byte window of it is a float32 that is a power-of-two multiple of `0.2` (the closest ratios are
+`2^36.2` and `2^-82.8`). The arithmetic that maps a component to its seven-byte payload is not yet
+decoded.
 
 The four records that decode but disagree with the v7 doubles are consistent with the same reading:
 each was changed to a different cube value (`Light Yellow Orange` 0.8 -> 1.0, `Dark Hard Orange`
