@@ -6,15 +6,6 @@ import struct as Struct
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks.core.Native import ReadSerialized, Serialized
 
-# the sheet record carries a fixed scale and a trailing count
-KSheetScale = -2.0
-
-# the sheet record carries this fixed value before the empty string
-KSheetMarker = 4
-
-# the sheet record ends with six zero bytes before the count
-KSheetTail = 6
-
 # the view block holds ten fixed slots
 KViewSlots = 10
 
@@ -47,14 +38,6 @@ KViewGapThree = 3
 
 # the view record carries four reserved doubles
 KViewReserved = 4
-
-
-# callers need the sheet name scale and count as one value
-@dataclass(frozen=True, slots=True)
-class SheetRecord:
-    NameValue: str
-    Scale: float
-    Count: int
 
 
 # callers need the view name and its decoded fields as one value
@@ -101,41 +84,7 @@ class ViewTail:
     ClassRef: int
 
 
-# the sheet record is a name a scale a marker and a count
-def SheetRecordAt(DataValue: bytes) -> SheetRecord:
-    Offset = 2
-    NameValue, Offset = ReadSerialized(DataValue, Offset)
-    if Offset + 8 + 4 + 4 + 4 + KSheetTail + 2 > len(DataValue):
-        raise SldprtFormatError("drawing sheet record is truncated")
-    (Scale,) = Struct.unpack_from("<d", DataValue, Offset)
-    Offset += 8
-    (Marker,) = Struct.unpack_from("<I", DataValue, Offset)
-    Offset += 4
-    (ZeroValue,) = Struct.unpack_from("<I", DataValue, Offset)
-    Offset += 4
-    EmptyValue, Offset = ReadSerialized(DataValue, Offset)
-    if EmptyValue != "" or ZeroValue != 0 or Marker != KSheetMarker:
-        raise SldprtFormatError("drawing sheet record is invalid")
-    Offset += KSheetTail
-    (Count,) = Struct.unpack_from("<H", DataValue, Offset)
-    return SheetRecord(NameValue, Scale, Count)
-
-
-# the sheet record serializes back to the same name scale and count layout
-def EncodeSheet(Record: SheetRecord) -> bytes:
-    Output = bytearray()
-    Output.extend(Struct.pack("<H", 0))
-    Output.extend(Serialized(Record.NameValue))
-    Output.extend(Struct.pack("<d", Record.Scale))
-    Output.extend(Struct.pack("<I", KSheetMarker))
-    Output.extend(Struct.pack("<I", 0))
-    Output.extend(Serialized(""))
-    Output.extend(bytes(KSheetTail))
-    Output.extend(Struct.pack("<H", Record.Count))
-    return bytes(Output)
-
-
-# the first half of the payload carries the prefix vectors and scales
+# the first half is read separately so the payload stays under the split limit
 def ViewHeadAt(DataValue: bytes, Offset: int) -> tuple[ViewHead, int]:
     Prefix = DataValue[Offset]
     Offset += KViewPrefix
@@ -154,7 +103,7 @@ def ViewHeadAt(DataValue: bytes, Offset: int) -> tuple[ViewHead, int]:
     return ViewHead(Prefix, Origin, ScaleOne, Normal, GapOne, ScaleTwo, GapTwo), Offset
 
 
-# the second half of the payload carries the flags index and class reference
+# the second half is read separately so the payload stays under the split limit
 def ViewTailAt(DataValue: bytes, Offset: int) -> tuple[ViewTail, int]:
     (FlagValue,) = Struct.unpack_from("<i", DataValue, Offset)
     Offset += 4
@@ -176,7 +125,7 @@ def ViewTailAt(DataValue: bytes, Offset: int) -> tuple[ViewTail, int]:
     )
 
 
-# the view payload is read in two passes so the gaps stay explicit
+# the payload width must match so a shifted record cannot be accepted
 def ViewPayloadAt(DataValue: bytes, Offset: int) -> tuple[ViewRecord, int]:
     Start = Offset
     HeadValue, Offset = ViewHeadAt(DataValue, Offset)
@@ -205,7 +154,7 @@ def ViewPayloadAt(DataValue: bytes, Offset: int) -> tuple[ViewRecord, int]:
     )
 
 
-# the view record is a name followed by a fixed decoded payload
+# the name is read first so the payload can be decoded without it
 def ViewRecordAt(DataValue: bytes, Offset: int) -> tuple[ViewRecord, int]:
     NameValue, Offset = ReadSerialized(DataValue, Offset)
     if Offset + KViewPayload > len(DataValue):
@@ -214,20 +163,22 @@ def ViewRecordAt(DataValue: bytes, Offset: int) -> tuple[ViewRecord, int]:
     return ReplaceData(Payload, NameValue=NameValue), Offset
 
 
-# the view block is ten records followed by a fixed tail
+# the block is ten records plus a tail so a short block cannot be accepted
 def ViewBlock(DataValue: bytes) -> tuple[tuple[ViewRecord, ...], bytes]:
     Records: list[ViewRecord] = []
     Offset = 0
-    for _ in range(KViewSlots):
+    SlotIndex = 0
+    while SlotIndex < KViewSlots:
         Record, Offset = ViewRecordAt(DataValue, Offset)
         Records.append(Record)
+        SlotIndex += 1
     TailValue = DataValue[Offset:]
     if len(TailValue) != KViewTail:
         raise SldprtFormatError("drawing view block tail is invalid")
     return tuple(Records), TailValue
 
 
-# the view block serializes back to the same record and tail layout
+# the writer needs the exact field order and gaps to stay valid
 def EncodeViewBlock(Records: tuple[ViewRecord, ...], TailValue: bytes) -> bytes:
     Output = bytearray()
     for Record in Records:

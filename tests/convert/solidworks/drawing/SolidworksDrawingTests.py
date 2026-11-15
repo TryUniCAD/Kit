@@ -14,10 +14,12 @@ from convert.adapters.solidworks.container.Container import (
 )
 from convert.adapters.solidworks.drawing import DrawingData, ReadDrawing, WriteDrawing
 from convert.adapters.solidworks.drawing.DefinitionObjects import ObjectBlocks
-from convert.adapters.solidworks.drawing.DefinitionValues import (
+from convert.adapters.solidworks.drawing.DefinitionSheet import (
     EncodeSheet,
-    EncodeViewBlock,
     SheetRecordAt,
+)
+from convert.adapters.solidworks.drawing.DefinitionView import (
+    EncodeViewBlock,
     ViewBlock,
 )
 
@@ -65,7 +67,8 @@ def TestValues() -> None:
         assert SheetRecord.NameValue == "Sheet1"
         assert SheetRecord.Scale == PytestLib.approx(-2.0)
         assert SheetRecord.Count == CountValue
-        assert EncodeSheet(SheetRecord)[2:] == SheetValue.Values[2:]
+        assert SheetRecord.ClassRef == Struct.unpack_from("<H", SheetValue.Values, 0)[0]
+        assert EncodeSheet(SheetRecord) == SheetValue.Values
         ViewValue = ObjectBlocks(DataValue, "moView_c", "moSketchBlockMgr_c")[0]
         Records, TailValue = ViewBlock(ViewValue.Values)
         assert len(Records) == 10

@@ -2,18 +2,19 @@
 
 ## Behavior
 
-`convert.adapters.solidworks.drawing.DefinitionValues` decodes the
-`Contents/Definition` sheet and view object blocks into typed values.
+`convert.adapters.solidworks.drawing.DefinitionSheet` decodes the
+`Contents/Definition` sheet block into a typed value.
+`convert.adapters.solidworks.drawing.DefinitionView` decodes the view block.
 
 `SheetRecordAt(DataValue)` reads the `moDrSheet` value block and returns a
-`SheetRecord` with `Name`, `Scale`, and `Count`. `EncodeSheet(Record)` writes
-the block back.
+`SheetRecord` with `NameValue`, `Scale`, `Count`, and `ClassRef`.
+`EncodeSheet(Record)` writes the block back, including the class reference.
 
 `ViewBlock(DataValue)` reads the `moView_c` value block and returns ten
-`ViewRecord` values plus the 23-byte tail. Each `ViewRecord` carries `Name`,
-`Prefix`, `Origin`, `ScaleOne`, `Normal`, `GapOne`, `ScaleTwo`, `GapTwo`,
-`Flag`, `Value`, `Zero`, `Index`, `GapThree`, `Reserved`, and `ClassRef`.
-`EncodeViewBlock(Records, Tail)` writes the block back.
+`ViewRecord` values plus the 23-byte tail. Each `ViewRecord` carries
+`NameValue`, `Prefix`, `Origin`, `ScaleOne`, `Normal`, `GapOne`, `ScaleTwo`,
+`GapTwo`, `FlagValue`, `Value`, `ZeroValue`, `Index`, `GapThree`, `Reserved`,
+and `ClassRef`. `EncodeViewBlock(Records, TailValue)` writes the block back.
 
 The sheet record is a class reference, a name string, a `-2.0` scale, the
 marker `4`, a zero, an empty string, six zero bytes, and a two-byte count.
@@ -45,7 +46,7 @@ nine are `Unused`. The `Index` field runs from 0 to 9.
 ```python
 from convert.adapters.solidworks.container.Container import SldprtArchive
 from convert.adapters.solidworks.drawing.DefinitionObjects import ObjectBlocks
-from convert.adapters.solidworks.drawing.DefinitionValues import (
+from convert.adapters.solidworks.drawing.DefinitionSheet import (
     EncodeSheet,
     SheetRecordAt,
 )
@@ -54,8 +55,8 @@ archive = SldprtArchive.open("standard.SLDDRW")
 definition = archive.require("Contents/Definition")
 block = ObjectBlocks(definition, "moDrSheet", "moRefPlane_c")[0]
 record = SheetRecordAt(block.Values)
-print(record.Name, record.Scale, record.Count)
-assert EncodeSheet(record)[2:] == block.Values[2:]
+print(record.NameValue, record.Scale, record.Count, record.ClassRef)
+assert EncodeSheet(record) == block.Values
 ```
 
 ## Limitations
@@ -68,11 +69,12 @@ assert EncodeSheet(record)[2:] == block.Values[2:]
 
 ## Verification
 
-`SheetRecordAt` and `EncodeSheet` reproduce the `moDrSheet` bytes, and
-`ViewBlock` and `EncodeViewBlock` reproduce the `moView_c` bytes, for all ten
-tracked drawings: `orient-front`, `orient-top`, `standard`, `angled`,
-`minimal`, `projected`, `multisheet`, `large`, `coincident`, and `scale3`.
+`SheetRecordAt` and `EncodeSheet` reproduce the `moDrSheet` bytes, including the
+class reference, and `ViewBlock` and `EncodeViewBlock` reproduce the `moView_c`
+bytes, for all ten tracked drawings: `orient-front`, `orient-top`, `standard`,
+`angled`, `minimal`, `projected`, `multisheet`, `large`, `coincident`, and
+`scale3`.
 
-`TestValues` checks the sheet name, scale, and count, the ten view slots, the
-`*Full Sheet` and `Unused` names, the 0 to 9 indices, and the byte-exact
-round-trip for `angled`, `minimal`, and `standard`.
+`TestValues` checks the sheet name, scale, count, and class reference, the ten
+view slots, the `*Full Sheet` and `Unused` names, the 0 to 9 indices, and the
+byte-exact round-trip for `angled`, `minimal`, and `standard`.

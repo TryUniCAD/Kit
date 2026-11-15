@@ -37,8 +37,9 @@ instead of `(0, 0, 0, 1, 0, 0, 0, 1)`.
 ## Workaround
 
 Read the prefix byte first, then read the doubles and integers at the offsets
-above. `DefinitionValues.ViewRecordAt` does this and rejects a record whose
-width is not 124 bytes.
+above. `DefinitionView.ViewRecordAt` does this and rejects a record whose width
+is not 124 bytes. `DefinitionSheet.SheetRecordAt` reads the sheet block the same
+way, including its leading class reference.
 
 ## Evidence
 
