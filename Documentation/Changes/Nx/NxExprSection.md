@@ -201,6 +201,18 @@ on the dimension values at all, and the group record carries the values as text 
 (`04 34 30 00` is `"40"`). That is what a composer has to emit: four constant objects,
 one head with the part identity, and one record whose text follows the values.
 
+## The order array is not a permutation of the object indices
+
+`dim40`'s section 2 carries 24 objects and an order array of 24 entries:
+
+```text
+[1, 3, 5, 4, 6, 7, 11, 22, 21, 20, 19, 18, 17, 25, 23, 13, 12, 28, 24, 27, 26, 8, 9, 10]
+```
+
+the values run to 28 for 24 objects, so they are object identifiers rather than indices, and
+the identifier scheme is not decoded. A composer has to produce that array, which means one
+more unknown beyond the layout: the id each object receives.
+
 ## Inventory functions
 
 `ExprSection` now carries the measured counts as functions, so the composer has a
