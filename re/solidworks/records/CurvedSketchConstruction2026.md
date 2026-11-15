@@ -690,12 +690,113 @@ The latter can write `f1010/f1028` through `0x4c841110` at `0x4c8dc171`, then
 transform and further update those points at `0x4c8dc198`–`0x4c8dc1dd`
 Constructor zero points therefore cannot be emitted as a proven final witness
 rule
-The geometry/transform consumers in `0x4c841110`, the selected graphics-update
-branches, radial flag mutations, final prefix/formatting, tolerance ownership,
-and all resulting presentation coordinates remain to be closed before a radial
-display writer is justified
-This pass deliberately stops at that exact shared boundary rather than widening
-to solver internals or claiming native dimension acceptance
+The following section closes the explicit full-circle witness assignment and
+bounds the non-full-arc endpoint path
+Selected later graphics-update branches, radial flag mutations, final
+prefix/formatting, tolerance ownership and remaining presentation coordinates
+must still be closed before a radial display writer is justified
+
+## Full-circle zero witnesses and bounded arc endpoint ordering
+
+All addresses below use the hash-bound model DLL named above
+The relevant complete PE unwind extents and function fingerprints are:
+
+| Function or boundary             | Extent                    | SHA-256                                                            |
+| -------------------------------- | ------------------------- | ------------------------------------------------------------------ |
+| `moDimHandle_c::getArcEndPoints` | `[0x4c841110,0x4c84121e)` | `45675724d2357abdeefffc10d7729060f852a2f03ff1f4ce5e7567954321f401` |
+| `sgCircleDim` virtual `+0x140`   | `[0x4c41ccd0,0x4c41cf1b)` | `749c08df8e557aecf980d3fc80b267bc836b4c159be9df1c8e2d7f52553be6c6` |
+| Radial engine-update method      | `[0x4c8dbcf0,0x4c8dda24)` | `236de00145cb837b66d1f0e91f1a414d646e3a04c39ecf847d713732111bcf11` |
+
+The caller reaches the ordinary radial witness block only when its earlier
+update-state checks permit continued graphics work and `ffd8 & 0x40 == 0`
+The explicit gates include display runtime `+0xae0 == 0` at `0x4c8dbf7e`,
+the false virtual `+0xd20` result tested at `0x4c8dbf97`, and the radial/linear
+flag branch at `0x4c8dc153`
+No final result is inferred for a path that skips this block
+At `0x4c8dc171`, `getArcEndPoints` receives `&display.f1010` as its first point
+output and `&display.f1028` as its second
+
+The handle wrapper resolves its actual dimension through virtual `+0x730`
+and calls that dimension's virtual `+0x140` at `0x4c841157`
+The `sgCircleDim` vtable `0x4cf79588` binds this slot to `0x4c41ccd0` for both
+radius type `3` and diameter type `0x0f`
+That method first requires its `h1` at runtime `+0x130` to be an `sgArcHandle`
+and valid, then calls `isCircle` at `0x4c41cd36`
+For a valid full circle, the identical endpoint-index predicate returns true
+and branch `0x4c41cd3d` goes directly to the false return at `0x4c41cefc`
+It does not assign either output point or execute its plane/endpoint work
+Point type two and the radius/diameter dimension type are not used by this
+circle admission test
+
+The handle wrapper tests the false result at `0x4c84115a` and returns zero
+through `0x4c841207`, skipping all abbreviated-view and view-tag conversions
+The caller's false branch then explicitly constructs the point `(0,0,0)` at
+`0x4c8dc187`, from three scalar registers cleared immediately beforehand
+It assigns that point to `f1028` at `0x4c8dc198` and then to `f1010` at
+`0x4c8dc1a8`, and jumps over its plane-transform branch at `0x4c8dc1b9`
+Therefore the operation-derived rule **at this boundary** is:
+
+`valid full circle + reached ordinary radial witness block ->`
+`f1010 = f1028 = (positive-zero, positive-zero, positive-zero)`
+
+This is an explicit native assignment, not retention of constructor seeds and
+not a value observed in a saved stream
+The rule does not depend on circle centre, radius, seam/marker coordinate,
+dimension parameter value, presentation position or plane transform
+It applies to both radius and diameter representations of the full circle
+No null-component or identity-transform assumption is needed for this particular
+zero branch: all handle conversions and the caller's final transform are skipped
+The owning local graph must independently prove handle validity and full-circle
+identity; the same helper also returns false for invalid/non-arc inputs, so false
+alone is not validation of a generated circle
+
+For an ordinary **non-full arc**, the dimension method has a different proven
+branch
+It obtains native start/end point handles through arc virtual `+0x1f0/+0x1f8`,
+bound to `0x4c606160` and `0x4c605fb0`
+Let `S` and `E` be their native `firstPoint` results, and let `T` be the
+dimension plane returned through dimension virtual `+0x198`
+For a 2D sketch, the method computes the native inverse of `T` at
+`0x4c41cd9a`; for a 3D sketch it takes a different branch outside this bound
+The direction test at `0x4c41cdc1` determines the pair:
+
+| Arc direction | First helper output             | Second helper output            |
+| ------------- | ------------------------------- | ------------------------------- |
+| Positive      | `S` transformed by `inverse(T)` | `E` transformed by `inverse(T)` |
+| Nonpositive   | `E` transformed by `inverse(T)` | `S` transformed by `inverse(T)` |
+
+The method returns one only after those assignments, at `0x4c41cef5`
+The supported constructor vocabulary remains `+1/-1`; this native branch test
+does not justify accepting arbitrary direction integers
+
+For the bounded local handle with runtime `+0x168/+0x170` both null,
+`checkNapplyTransformforAbbrView` (`0x4c83edf0`) exits through `0x4c83ee94`–
+`0x4c83ee96` without changing either helper output
+For null view tag at handle `+0x130`, each `convertWithViewTag` call
+(`0x4c83fd00`) exits at `0x4c83fd75`–`0x4c83fd78`
+The handle constructor `0x4c83c360` initializes these three context pointers
+to null at `0x4c83c3fd`, `0x4c83c404` and `0x4c83c45a`
+These are explicit local-context conditions, not a claim that all drawing or
+component contexts are equivalent
+
+When the helper succeeds, the caller transforms both outputs at
+`0x4c8dc1c9` and `0x4c8dc1dd` by its own current plane transform
+The ordinary no-override path uses the dimension plane; optional display
+`f1060` and handle `+0x120` transforms require their own composition rules
+The inverse-then-forward sequence must not be silently replaced by an identity
+matrix, a transpose, fitted witness coordinates or a different arithmetic order
+This pass has not fully bound native `firstPoint` coordinates and the plane
+lookup to every neutral 2D frame, nor classified nonnull context transforms
+It therefore records the proven endpoint ordering and operations without
+claiming a complete general arc witness formula
+
+**Remaining boundary:** the caller continues after `0x4c8dc1e3` into later
+presentation calculations
+This finding does not prove that every later lifecycle path preserves the two
+points, that every other serialized display field is complete, or that a new
+generated circle opens/rebuilds/edits correctly
+Full-circle zero witnesses are **confirmed static at the stated update
+boundary**; persisted final-state and held-out native acceptance remain open
 
 ## Type-two circle marker and solver-coordinate boundary
 

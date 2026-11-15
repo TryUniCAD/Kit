@@ -20,6 +20,12 @@ derives the native angular search and distinct creation/rebuild fallbacks.
 Exact collision boundaries and complete first-solve acceptance remain separate
 obligations.
 
+For full-circle radius and diameter displays, the native witness engine's
+guarded false-result branch explicitly assigns both witness points zero and
+skips its plane transforms. The ledger records that intermediate rule separately
+from constructor zero seeds and unverified later presentation mutations. It does
+not establish final saved values or acceptance of an emitted dimension.
+
 Use these records to extend the shared graph only after locking the new native
 source family. The bounded reference results do not validate arbitrary
 constraints, display state, IDs, contours or extrusion geometry. Preserve every
