@@ -35,6 +35,8 @@ const StaticChecks = {
     required: [
       "Fusion archive compatibility",
       "CLI conversion and inspection compatibility",
+      "CLI process compatibility (Core)",
+      "CLI process compatibility (Qualification)",
     ],
   },
   "PythonQuality.yml": {

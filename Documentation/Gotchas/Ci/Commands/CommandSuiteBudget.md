@@ -9,5 +9,7 @@ Keep the required CLI and archive jobs separate. Preserve all cases, the locked
 environment, schema verification, and each 10-minute limit. Register both job
 names in the CI allowlist for pull requests and merge groups. The extra runner
 adds setup work but avoids sharing one execution budget across both suites.
+The expanded CLI cases also use [two required parallel groups](../../../Changes/Commands/CliProcessGroups.md)
+to keep execution within those unchanged job limits.
 
 See [the change and actual timing evidence](../../../Changes/Commands/CliProcessCi.md).

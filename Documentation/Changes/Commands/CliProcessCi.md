@@ -1,9 +1,10 @@
 # Run CLI process coverage independently of archive compatibility
 
-The Fusion compatibility workflow runs `tests/convert/Commands` in the required
-`CLI conversion and inspection compatibility` job. The existing
+The Fusion compatibility workflow runs `tests/convert/Commands` through the required
+`CLI conversion and inspection compatibility` report. Its current
+[parallel groups](CliProcessGroups.md) preserve every case. The existing
 `Fusion archive compatibility` job retains every codec/API case. Each suite
-executes once, on its own Ubuntu 24.04 runner with a 10-minute timeout, locked
+executes once, on Ubuntu 24.04 runners with 10-minute timeouts, locked
 Python 3.14 environment, and native schema provenance check.
 
 Both jobs are registered in the CI allowlist for pull requests and merge groups.
