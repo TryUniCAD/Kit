@@ -108,3 +108,18 @@ current buffer cursor and map length. These identify a concrete reference
 failure without treating an uncertain system unwind as a call chain. Absolute
 logical stream offsets remain unknown until an independently verified mapping
 exists.
+
+`--profile loader` limits observations to class/object dispatch, exceptions and
+part serialization's archive-context version selection. `--profile sketch`
+captures sketch lifecycle and stamp boundaries without the full object-dispatch
+traffic; `full` retains both. The manifest also verifies `sldmfcu.dll` before
+its helper and version probes activate. Class-reader schema outputs are omitted
+when that native branch does not initialize them, and runtime class names stop
+at their terminator.
+
+The first polygon-authoring attempt failed its preceding control and authored
+no training case. That action selected the privacy-redacted parser fixture
+instead of the original vendor-saved control used in earlier healthy oracle
+runs. This capture is discarded for inference; the cause of its process death
+is not attributed to redaction without further evidence. Subsequent oracle
+jobs explicitly identify the original control by its separate SHA-256.

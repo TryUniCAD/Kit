@@ -5,6 +5,7 @@ const Budget = 50000
 const Hooks = []
 const Scopes = new Map()
 const Epochs = new Map()
+const ModelScopes = new Map()
 
 function emit(Value) {
   if (Sequence >= Budget) { Dropped++; return }
@@ -57,7 +58,12 @@ function header(Address) {
 }
 
 function runtimeclass(Address) {
-  try { return Address.isNull() ? null : {pointer: Address.toString(), name: Address.readPointer().readCString(160), schema: Address.add(12).readU32()} }
+  try {
+    if (Address.isNull()) return null
+    const Bytes = new Uint8Array(Address.readPointer().readByteArray(160))
+    const End = Bytes.indexOf(0)
+    return {pointer: Address.toString(), name: String.fromCharCode(...Bytes.slice(0, End < 0 ? Bytes.length : End)), name_truncated: End < 0, schema: Address.add(12).readU32()}
+  }
   catch (ErrorInfo) { return {pointer: Address.toString(), error: String(ErrorInfo)} }
 }
 
@@ -101,14 +107,17 @@ rpc.exports = {
     return {phase: Phase}
   },
   moduleidentity() {
-    return Process.enumerateModules().filter(Value => ["sldmodu.dll", "swccu.dll", "sldarchiveu.dll", "mfc140u.dll", "vcruntime140.dll", "vcruntime140_1.dll", "kernelbase.dll", "user32.dll"].includes(Value.name.toLowerCase())).map(Value => ({name: Value.name, path: Value.path, base: Value.base.toString(), size: Value.size}))
+    return Process.enumerateModules().filter(Value => ["sldmodu.dll", "swccu.dll", "sldarchiveu.dll", "sldmfcu.dll", "mfc140u.dll", "vcruntime140.dll", "vcruntime140_1.dll", "kernelbase.dll", "user32.dll"].includes(Value.name.toLowerCase())).map(Value => ({name: Value.name, path: Value.path, base: Value.base.toString(), size: Value.size}))
   },
-  activate() {
+  activate(Profile = "full") {
     if (Process.arch !== "x64" || Hooks.length !== 0) throw new Error("exactly one activation in an x64 target is required")
+    if (!["full", "loader", "sketch"].includes(Profile)) throw new Error("a supported observation profile is required")
     const Model = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmodu.dll")
     const Common = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "swccu.dll")
     const Archive = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldarchiveu.dll")
-    if (Model === undefined || Common === undefined || Archive === undefined) throw new Error("selected target modules are not loaded")
+    const Mfc = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmfcu.dll")
+    if (Model === undefined || Common === undefined || Archive === undefined || Mfc === undefined) throw new Error("selected target modules are not loaded")
+    if (Profile !== "sketch") {
     attach(Common.base.add(0xa550), {
       onEnter(Args) { this.archive = Args[0]; emit({kind: "archive-object-enter", archive: archive(this.archive), map: objectmap(this.archive), requested_class: runtimeclass(Args[1]), caller: location(this.returnAddress)}) },
       onLeave(ReturnValue) { emit({kind: "archive-object-leave", archive: archive(this.archive), map: objectmap(this.archive), object: ReturnValue.toString()}) }
@@ -116,10 +125,36 @@ rpc.exports = {
     attach(Common.base.add(0xa2d0), {
       onEnter(Args) { this.archive = Args[0]; this.schema_pointer = Args[2]; this.tag_pointer = Args[3]; this.caller = location(this.returnAddress) },
       onLeave(ReturnValue) {
-        try { emit({kind: "archive-class-read", archive: archive(this.archive), map: objectmap(this.archive), runtime_class: runtimeclass(ReturnValue), schema_out: this.schema_pointer.isNull() ? null : this.schema_pointer.readU32(), tag_out: this.tag_pointer.isNull() ? null : this.tag_pointer.readU32(), caller: this.caller}) }
+        try { emit({kind: "archive-class-read", archive: archive(this.archive), map: objectmap(this.archive), runtime_class: runtimeclass(ReturnValue), schema_out: this.schema_pointer.isNull() || ReturnValue.isNull() ? null : this.schema_pointer.readU32(), tag_out: this.tag_pointer.isNull() ? null : this.tag_pointer.readU32(), caller: this.caller}) }
         catch (ErrorInfo) { emit({kind: "archive-class-read-error", error: String(ErrorInfo), caller: this.caller}) }
       }
     })
+    attach(Model.base.add(0x4c229a60 - 0x4b140000), {
+      onEnter(Args) {
+        this.thread = Process.getCurrentThreadId()
+        ModelScopes.set(this.thread, (ModelScopes.get(this.thread) || 0) + 1)
+        this.object = Args[0]
+        emit({kind: "part-serialize-enter", object: this.object.toString(), archive: archive(Args[1]), global_file_version: Mfc.base.add(0x3ce97b90 - 0x3c720000).readU32(), caller: location(this.returnAddress)})
+      },
+      onLeave() { emit({kind: "part-serialize-leave", object: this.object.toString()}); ModelScopes.set(this.thread, ModelScopes.get(this.thread) - 1) }
+    })
+    for (const [Address, Kind] of [[0x3c7a8e60, "su-archive"], [0x3c7a8e10, "mfc-archive"]]) {
+      attach(Mfc.base.add(Address - 0x3c720000), {
+        onEnter(Args) { this.active = (ModelScopes.get(Process.getCurrentThreadId()) || 0) > 0; this.object = Args[0]; this.input_archive = Args[1]; this.caller = location(this.returnAddress) },
+        onLeave() {
+          if (!this.active) return
+          try {
+            const Context = this.object.readPointer()
+            emit({kind: "part-archive-helper", overload: Kind, input_archive: this.input_archive.toString(), context: Context.toString(), context_file_version: Context.isNull() ? null : Context.add(0x7c0).readU32(), caller: this.caller})
+          } catch (ErrorInfo) { emit({kind: "part-archive-helper-error", error: String(ErrorInfo), caller: this.caller}) }
+        }
+      })
+    }
+    attach(Mfc.base.add(0x3c752350 - 0x3c720000), {
+      onEnter() { this.active = (ModelScopes.get(Process.getCurrentThreadId()) || 0) > 0; this.caller = location(this.returnAddress) },
+      onLeave(ReturnValue) { if (this.active) emit({kind: "part-version-fallback", file_version: ReturnValue.toUInt32(), caller: this.caller}) }
+    })
+    }
     attach(Common.base.add(0xa3a7), {onEnter() {
       try {
         const Runtime = this.context.rax
@@ -157,6 +192,7 @@ rpc.exports = {
       emit({kind: "native-exception", type: Details.type, address: location(Details.address), memory: Details.memory === undefined ? null : {operation: Details.memory.operation, address: Details.memory.address.toString()}, registers: Registers, backtrace: Frames, backtrace_error: BacktraceError, handled: false})
       return false
     })
+    if (Profile !== "loader") {
     attach(Model.base.add(0x4c5916f0 - 0x4b140000), {
       onEnter(Args) {
         this.thread = Process.getCurrentThreadId()
@@ -239,7 +275,8 @@ rpc.exports = {
       },
       onLeave(ReturnValue) { if (this.active) emit({kind: "archive-count", count: ReturnValue.toUInt32(), before: this.before, after: archive(this.archive), caller: this.caller}) }
     })
-    emit({kind: "hooks-ready", architecture: Process.arch, hook_count: Hooks.length, instruction_taint: false, absolute_stream_offsets: false})
+    }
+    emit({kind: "hooks-ready", architecture: Process.arch, profile: Profile, hook_count: Hooks.length, instruction_taint: false, absolute_stream_offsets: false})
     return {hooks: Hooks.length}
   },
   statistics() { return {events: Sequence, dropped: Dropped} }
