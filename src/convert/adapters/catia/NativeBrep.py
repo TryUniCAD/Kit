@@ -116,14 +116,14 @@ def Largest(Folder: CfvTwoFolder, NameValue: str) -> CfvTwoStream:
 # this definition exists because focused behavior needs one stable owner
 def ParseSurfaces(SourceData: bytes) -> list[SurfaceRec]:
     Surfaces: list[SurfaceRec] = []
-    End = -1
+    EndValue = -1
     for Marker in range(len(SourceData) - 5):
         if SourceData[Marker : Marker + 2] != b"\x00\x33":
             continue
         if SourceData[Marker + 2] not in KSurfaceKinds:
             continue
         Offset = Marker - 2
-        if Offset < End:
+        if Offset < EndValue:
             continue
         try:
             SurfaceValue, NextOffset = ParseSurf(SourceData, Offset)
@@ -136,15 +136,15 @@ def ParseSurfaces(SourceData: bytes) -> list[SurfaceRec]:
         ):
             continue
         Surfaces.append(SurfaceValue)
-        End = NextOffset
+        EndValue = NextOffset
     return Surfaces
 
 
 # this definition exists because focused behavior needs one stable owner
-def ParseEdgeCircles(
+def ParseCircles(
     SourceData: bytes,
 ) -> tuple[tuple[int, int, tuple[float, float, float], float], ...]:
-    Rows: list[tuple[int, int, tuple[float, float, float], float]] = []
+    RowValues: list[tuple[int, int, tuple[float, float, float], float]] = []
     Cursor = 0
     Limit = len(SourceData) - 8
     while Cursor <= Limit:
@@ -155,10 +155,10 @@ def ParseEdgeCircles(
                 and SourceData[Cursor + 8] == 0x37
                 and CountValue >= 18
             ):
-                Data = SourceData[Cursor + 9 : Cursor + 9 + CountValue]
-                Center = struct.unpack_from(">3f", Data, 0)
-                Radius = abs(struct.unpack_from(">f", Data, 12)[0])
-                Rows.append((Data[-2], Data[-1], Center, Radius))
+                DataValue = SourceData[Cursor + 9 : Cursor + 9 + CountValue]
+                Center = struct.unpack_from(">3f", DataValue, 0)
+                Radius = abs(struct.unpack_from(">f", DataValue, 12)[0])
+                RowValues.append((DataValue[-2], DataValue[-1], Center, Radius))
                 Cursor += 9 + CountValue
                 continue
         if (
@@ -167,14 +167,109 @@ def ParseEdgeCircles(
         ):
             CountValue = SourceData[Cursor - 1]
             if CountValue >= 18:
-                Data = SourceData[Cursor + 3 : Cursor + 3 + CountValue]
-                Center = struct.unpack_from(">3f", Data, 0)
-                Radius = abs(struct.unpack_from(">f", Data, 12)[0])
-                Rows.append((Data[-2], Data[-1], Center, Radius))
+                DataValue = SourceData[Cursor + 3 : Cursor + 3 + CountValue]
+                Center = struct.unpack_from(">3f", DataValue, 0)
+                Radius = abs(struct.unpack_from(">f", DataValue, 12)[0])
+                RowValues.append((DataValue[-2], DataValue[-1], Center, Radius))
                 Cursor += 3 + CountValue
                 continue
         Cursor += 1
-    return tuple(Rows)
+    return tuple(RowValues)
+
+
+# this definition exists because focused behavior needs one stable owner
+def AssignPlanesMut(
+    Surfaces: list[SurfaceRec],
+    Trims: tuple[TrimRec, ...],
+    Circles: tuple[tuple[int, int, tuple[float, float, float], float], ...],
+    Planes: list[int],
+    Assigned: list[int | None],
+    LoadValue: dict[int, int],
+) -> None:
+    for FaceIndex, TrimValue in enumerate(Trims):
+        if TrimValue.vector is None:
+            continue
+        Normal = Normalize(TrimValue.vector)
+        Offsets = [
+            sum(LeftValue * RightValue for LeftValue, RightValue in zip(Normal, Center))
+            for FaceA, FaceB, Center, _ in Circles
+            if FaceIndex in (FaceA, FaceB)
+        ]
+        if not Offsets:
+            continue
+        BestValue = None
+        BestError = 1e9
+        for Candidate in Planes:
+            Center = Surfaces[Candidate].bounds[:3]
+            Error = min(
+                abs(
+                    sum(
+                        LeftValue * RightValue
+                        for LeftValue, RightValue in zip(Normal, Center)
+                    )
+                    - Offset
+                )
+                for Offset in Offsets
+            )
+            if Error < BestError - 1e-6:
+                BestError = Error
+                BestValue = Candidate
+        if BestValue is not None and BestError < 1e-2:
+            Assigned[FaceIndex] = BestValue
+            LoadValue[BestValue] = LoadValue.get(BestValue, 0) + 1
+
+
+# this definition exists because focused behavior needs one stable owner
+def AssignCylsMut(
+    Surfaces: list[SurfaceRec],
+    Trims: tuple[TrimRec, ...],
+    Circles: tuple[tuple[int, int, tuple[float, float, float], float], ...],
+    Cylinders: list[int],
+    Assigned: list[int | None],
+    LoadValue: dict[int, int],
+) -> None:
+    for FaceIndex, TrimValue in enumerate(Trims):
+        if Assigned[FaceIndex] is not None:
+            continue
+        if TrimValue.kind not in (0x42, 0x43, 0x47):
+            continue
+        Radii = [
+            Radius for FaceA, FaceB, _, Radius in Circles if FaceIndex in (FaceA, FaceB)
+        ]
+        if not Radii:
+            continue
+        BestValue = None
+        BestError = 1e9
+        for Candidate in Cylinders:
+            Radius = abs(Surfaces[Candidate].params[5])
+            Error = min(abs(Radius - Value) for Value in Radii)
+            if Error < BestError - 1e-6:
+                BestError = Error
+                BestValue = Candidate
+        if BestValue is not None and BestError < 1e-2:
+            Assigned[FaceIndex] = BestValue
+            LoadValue[BestValue] = LoadValue.get(BestValue, 0) + 1
+
+
+# this definition exists because focused behavior needs one stable owner
+def AssignRestMut(
+    Surfaces: list[SurfaceRec],
+    Trims: tuple[TrimRec, ...],
+    Assigned: list[int | None],
+    LoadValue: dict[int, int],
+) -> None:
+    for FaceIndex, TrimValue in enumerate(Trims):
+        if Assigned[FaceIndex] is not None:
+            continue
+        Allowed = KTrimSurfaces.get(TrimValue.kind, frozenset(KSurfaceKinds))
+        Candidates = [
+            Index for Index, Value in enumerate(Surfaces) if Value.kind in Allowed
+        ]
+        if not Candidates:
+            Candidates = list(range(len(Surfaces)))
+        BestValue = min(Candidates, key=lambda Value: LoadValue.get(Value, 0))
+        Assigned[FaceIndex] = BestValue
+        LoadValue[BestValue] = LoadValue.get(BestValue, 0) + 1
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -184,7 +279,7 @@ def AssignSurfaces(
     SurfData: bytes,
 ) -> tuple[SurfaceRec, ...]:
     FaceCount = len(Trims)
-    Circles = ParseEdgeCircles(SurfData)
+    Circles = ParseCircles(SurfData)
     Cylinders: list[int] = []
     Planes: list[int] = []
     for Index, Value in enumerate(Surfaces):
@@ -193,65 +288,10 @@ def AssignSurfaces(
         elif Value.kind == 0x32:
             Planes.append(Index)
     Assigned: list[int | None] = [None] * FaceCount
-    Load: dict[int, int] = {}
-    for Face, TrimValue in enumerate(Trims):
-        if TrimValue.vector is None:
-            continue
-        Normal = Normalize(TrimValue.vector)
-        Offsets = [
-            sum(A * B for A, B in zip(Normal, Center))
-            for FaceA, FaceB, Center, _ in Circles
-            if Face in (FaceA, FaceB)
-        ]
-        if not Offsets:
-            continue
-        Best = None
-        BestError = 1e9
-        for Candidate in Planes:
-            Center = Surfaces[Candidate].bounds[:3]
-            Error = min(
-                abs(sum(A * B for A, B in zip(Normal, Center)) - Offset)
-                for Offset in Offsets
-            )
-            if Error < BestError - 1e-6:
-                BestError = Error
-                Best = Candidate
-        if Best is not None and BestError < 1e-2:
-            Assigned[Face] = Best
-            Load[Best] = Load.get(Best, 0) + 1
-    for Face, TrimValue in enumerate(Trims):
-        if Assigned[Face] is not None:
-            continue
-        if TrimValue.kind not in (0x42, 0x43, 0x47):
-            continue
-        Radii = [
-            Radius for FaceA, FaceB, _, Radius in Circles if Face in (FaceA, FaceB)
-        ]
-        if not Radii:
-            continue
-        Best = None
-        BestError = 1e9
-        for Candidate in Cylinders:
-            Radius = abs(Surfaces[Candidate].params[5])
-            Error = min(abs(Radius - Value) for Value in Radii)
-            if Error < BestError - 1e-6:
-                BestError = Error
-                Best = Candidate
-        if Best is not None and BestError < 1e-2:
-            Assigned[Face] = Best
-            Load[Best] = Load.get(Best, 0) + 1
-    for Face, TrimValue in enumerate(Trims):
-        if Assigned[Face] is not None:
-            continue
-        Allowed = KTrimSurfaces.get(TrimValue.kind, frozenset(KSurfaceKinds))
-        Candidates = [
-            Index for Index, Value in enumerate(Surfaces) if Value.kind in Allowed
-        ]
-        if not Candidates:
-            Candidates = list(range(len(Surfaces)))
-        Best = min(Candidates, key=lambda Value: Load.get(Value, 0))
-        Assigned[Face] = Best
-        Load[Best] = Load.get(Best, 0) + 1
+    LoadValue: dict[int, int] = {}
+    AssignPlanesMut(Surfaces, Trims, Circles, Planes, Assigned, LoadValue)
+    AssignCylsMut(Surfaces, Trims, Circles, Cylinders, Assigned, LoadValue)
+    AssignRestMut(Surfaces, Trims, Assigned, LoadValue)
     if any(Value is None for Value in Assigned):
         raise ValueError("surface assignment is incomplete")
     return tuple(Surfaces[Value] for Value in Assigned if Value is not None)
@@ -289,7 +329,7 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
                 for Value in FaceSurfaces
                 if Value.kind == 0x33 and len(Value.params) >= 6
             )
-            Tessellation = TessellationPoints(MainData, Radii) if Radii else ()
+            Tessellation = TessPoints(MainData, Radii) if Radii else ()
             return BrepData(
                 tuple(FaceSurfaces),
                 Trims,
@@ -304,7 +344,7 @@ def ParseBrep(Archive: CfvTwoArchive) -> BrepData:
 
 
 # this definition exists because focused behavior needs one stable owner
-def SurfaceConstraints(BrepValue: BrepData, Faces: set[int]) -> tuple[
+def SurfaceLimits(BrepValue: BrepData, Faces: set[int]) -> tuple[
     list[tuple[tuple[float, float, float], tuple[float, float, float]]],
     list[tuple[tuple[float, float, float], tuple[float, float, float], float]],
 ]:
@@ -340,7 +380,7 @@ def SurfaceConstraints(BrepValue: BrepData, Faces: set[int]) -> tuple[
 
 
 # this definition exists because focused behavior needs one stable owner
-def Satisfies(
+def IsSatisfied(
     Point: tuple[float, float, float],
     Planes: list[tuple[tuple[float, float, float], tuple[float, float, float]]],
     Cylinders: list[
@@ -349,13 +389,20 @@ def Satisfies(
 ) -> bool:
     for Normal, Center in Planes:
         if (
-            abs(sum(Normal[Axis] * (Point[Axis] - Center[Axis]) for Axis in range(3)))
+            abs(
+                sum(
+                    Normal[IndexValue] * (Point[IndexValue] - Center[IndexValue])
+                    for IndexValue in range(3)
+                )
+            )
             >= 1e-3
         ):
             return False
     for AxisValue, Center, Radius in Cylinders:
-        Delta = [Point[Axis] - Center[Axis] for Axis in range(3)]
-        Projection = sum(Delta[Axis] * AxisValue[Axis] for Axis in range(3))
+        Delta = [Point[IndexValue] - Center[IndexValue] for IndexValue in range(3)]
+        Projection = sum(
+            Delta[IndexValue] * AxisValue[IndexValue] for IndexValue in range(3)
+        )
         if (
             abs(
                 math.sqrt(
@@ -370,10 +417,35 @@ def Satisfies(
 
 
 # this definition exists because focused behavior needs one stable owner
-def IntersectionCircle(
-    BrepValue: BrepData, Pair: tuple[int, int]
+def ConeRadius(
+    Normal: tuple[float, float, float],
+    AxisValue: tuple[float, float, float],
+    Origin: tuple[float, float, float],
+    Center: tuple[float, float, float],
+    HalfAngleValue: float,
+) -> float | None:
+    HalfAngle = abs(HalfAngleValue)
+    if not 0.0 < HalfAngle < math.pi / 2.0:
+        return None
+    Alignment = abs(
+        sum(Normal[IndexValue] * AxisValue[IndexValue] for IndexValue in range(3))
+    )
+    if abs(Alignment - 1.0) > 1e-3:
+        return None
+    Distance = abs(
+        sum(
+            Normal[IndexValue] * (Origin[IndexValue] - Center[IndexValue])
+            for IndexValue in range(3)
+        )
+    )
+    return Distance * math.tan(HalfAngle)
+
+
+# this definition exists because focused behavior needs one stable owner
+def IntersectCircle(
+    BrepValue: BrepData, PairValue: tuple[int, int]
 ) -> tuple[tuple[float, float, float], tuple[float, float, float], float] | None:
-    for PlaneIndex, OtherIndex in (Pair, (Pair[1], Pair[0])):
+    for PlaneIndex, OtherIndex in (PairValue, (PairValue[1], PairValue[0])):
         PlaneValue = BrepValue.surfaces[PlaneIndex]
         OtherValue = BrepValue.surfaces[OtherIndex]
         if PlaneValue.kind != 0x32:
@@ -392,21 +464,18 @@ def IntersectionCircle(
         if OtherValue.kind == 0x33:
             Radius = abs(Params[5])
         elif OtherValue.kind == 0x34:
-            HalfAngle = abs(Params[5])
-            if not 0.0 < HalfAngle < math.pi / 2.0:
+            ConeValue = ConeRadius(Normal, AxisValue, Origin, Center, Params[5])
+            if ConeValue is None:
                 continue
-            Alignment = abs(sum(Normal[Axis] * AxisValue[Axis] for Axis in range(3)))
-            if abs(Alignment - 1.0) > 1e-3:
-                continue
-            Distance = abs(
-                sum(Normal[Axis] * (Origin[Axis] - Center[Axis]) for Axis in range(3))
-            )
-            Radius = Distance * math.tan(HalfAngle)
+            Radius = ConeValue
         else:
             continue
         if not math.isfinite(Radius) or Radius <= 0.0:
             continue
-        Offset = sum(Normal[Axis] * (Origin[Axis] - Center[Axis]) for Axis in range(3))
+        Offset = sum(
+            Normal[AxisValue] * (Origin[AxisValue] - Center[AxisValue])
+            for AxisValue in range(3)
+        )
         CircleCenter = (
             Origin[0] - Offset * Normal[0],
             Origin[1] - Offset * Normal[1],
@@ -443,18 +512,16 @@ def ArcPoint(
         )
     )
     Cosine = math.cos(Angle)
-    Sine = math.sin(Angle)
+    SineValue = math.sin(Angle)
     return (
-        Center[0] + Radius * (First[0] * Cosine + Second[0] * Sine),
-        Center[1] + Radius * (First[1] * Cosine + Second[1] * Sine),
-        Center[2] + Radius * (First[2] * Cosine + Second[2] * Sine),
+        Center[0] + Radius * (First[0] * Cosine + Second[0] * SineValue),
+        Center[1] + Radius * (First[1] * Cosine + Second[1] * SineValue),
+        Center[2] + Radius * (First[2] * Cosine + Second[2] * SineValue),
     )
 
 
 # this definition exists because focused behavior needs one stable owner
-def TessellationPoints(
-    SourceData: bytes, Radii: tuple[float, ...]
-) -> tuple[tuple[float, float], ...]:
+def LongestFloatRun(SourceData: bytes) -> list[float]:
     BestCount = 0
     BestStart = 0
     for Start in range(4):
@@ -476,11 +543,20 @@ def TessellationPoints(
                 BestCount = Count
                 BestStart = RunStart
     if BestCount < 8:
-        return ()
-    Values = [
+        return []
+    return [
         struct.unpack_from("<f", SourceData, BestStart + 4 * Index)[0]
         for Index in range(BestCount)
     ]
+
+
+# this definition exists because focused behavior needs one stable owner
+def TessPoints(
+    SourceData: bytes, Radii: tuple[float, ...]
+) -> tuple[tuple[float, float], ...]:
+    Values = LongestFloatRun(SourceData)
+    if not Values:
+        return ()
     Points: list[tuple[float, float]] = []
     Cursor = 2
     while Cursor + 1 < len(Values):
@@ -507,20 +583,20 @@ def LocalFrame(
     ]
     | None
 ):
-    Axes: dict[tuple[float, float, float], int] = {}
+    AxisValues: dict[tuple[float, float, float], int] = {}
     for SurfaceValue in BrepValue.surfaces:
         if SurfaceValue.kind != 0x33 or len(SurfaceValue.params) < 6:
             continue
         AxisValue = AxisFromCarrier(SurfaceValue.params)
-        Key = (
+        KeyValue = (
             round(AxisValue[0], 3),
             round(AxisValue[1], 3),
             round(AxisValue[2], 3),
         )
-        Axes[Key] = Axes.get(Key, 0) + 1
-    if not Axes:
+        AxisValues[KeyValue] = AxisValues.get(KeyValue, 0) + 1
+    if not AxisValues:
         return None
-    AxisValue = Normalize(max(Axes, key=lambda Value: Axes[Value]))
+    AxisValue = Normalize(max(AxisValues, key=lambda Value: AxisValues[Value]))
     Reference = (
         Normalize((1.0, 0.0, 0.0))
         if abs(AxisValue[0]) < 0.9
@@ -544,7 +620,7 @@ def LocalFrame(
 
 
 # this definition exists because focused behavior needs one stable owner
-def SnapToTessellation(
+def SnapToTessMut(
     BrepValue: BrepData, Positions: dict[int, tuple[float, float, float]]
 ) -> None:
     if not BrepValue.tessellation:
@@ -565,26 +641,26 @@ def SnapToTessellation(
         ]
         if not Nearby:
             continue
-        Best = min(
+        BestValue = min(
             Nearby,
             key=lambda Value: math.hypot(Value[0] - FirstValue, Value[1] - SecondValue),
         )
         Positions[Handle] = (
-            Best[0] * First[0] + Best[1] * Second[0] + Along * AxisValue[0],
-            Best[0] * First[1] + Best[1] * Second[1] + Along * AxisValue[1],
-            Best[0] * First[2] + Best[1] * Second[2] + Along * AxisValue[2],
+            BestValue[0] * First[0] + BestValue[1] * Second[0] + Along * AxisValue[0],
+            BestValue[0] * First[1] + BestValue[1] * Second[1] + Along * AxisValue[1],
+            BestValue[0] * First[2] + BestValue[1] * Second[2] + Along * AxisValue[2],
         )
 
 
 # this definition exists because focused behavior needs one stable owner
-def CornerPositions(
+def CornerUsage(
     BrepValue: BrepData,
-) -> dict[int, tuple[float, float, float]]:
+) -> tuple[dict[int, set[int]], list[int]]:
     Usage: dict[int, set[int]] = {}
     for FaceIndex, TrimValue in enumerate(BrepValue.trims):
         for Handle in set(TrimValue.handles):
             Usage.setdefault(Handle, set()).add(FaceIndex)
-    Arity2 = sorted(
+    ArityTwo = sorted(
         {
             Handle
             for EdgeValue in BrepValue.edges
@@ -592,42 +668,58 @@ def CornerPositions(
             for Handle in EdgeValue.handles
         }
     )
+    return Usage, ArityTwo
+
+
+# this definition exists because focused behavior needs one stable owner
+def AssignCorners(
+    BrepValue: BrepData,
+    Usage: dict[int, set[int]],
+    ArityTwo: list[int],
+) -> dict[int, tuple[float, float, float]]:
     Candidates = {
         Handle: [
             Index
             for Index, VertexRow in enumerate(BrepValue.vertices)
-            if Satisfies(VertexRow.point, *SurfaceConstraints(BrepValue, Usage[Handle]))
+            if IsSatisfied(VertexRow.point, *SurfaceLimits(BrepValue, Usage[Handle]))
         ]
-        for Handle in Arity2
+        for Handle in ArityTwo
     }
     Assign: dict[int, int] = {}
-    Used: set[int] = set()
-    for Handle in sorted(Arity2, key=lambda Value: len(Candidates[Value])):
+    UsedValues: set[int] = set()
+    for Handle in sorted(ArityTwo, key=lambda Value: len(Candidates[Value])):
         for Index in Candidates[Handle]:
-            if Index not in Used:
+            if Index not in UsedValues:
                 Assign[Handle] = Index
-                Used.add(Index)
+                UsedValues.add(Index)
                 break
-    Positions: dict[int, tuple[float, float, float]] = {
-        Handle: BrepValue.vertices[Index].point for Handle, Index in Assign.items()
-    }
+    return {Handle: BrepValue.vertices[Index].point for Handle, Index in Assign.items()}
+
+
+# this definition exists because focused behavior needs one stable owner
+def PlaceArcMut(
+    BrepValue: BrepData,
+    Usage: dict[int, set[int]],
+    ArityTwo: list[int],
+    Positions: dict[int, tuple[float, float, float]],
+) -> None:
     Pairs: dict[tuple[int, int], list[int]] = defaultdict(list)
     for Handle in sorted(Usage):
         if len(Usage[Handle]) == 2:
             Faces = sorted(Usage[Handle])
             Pairs[(Faces[0], Faces[1])].append(Handle)
-    for Pair, Handles in Pairs.items():
-        Circle = IntersectionCircle(BrepValue, Pair)
+    for PairValue, Handles in Pairs.items():
+        Circle = IntersectCircle(BrepValue, PairValue)
         if Circle is None:
             continue
         Center, AxisValue, Radius = Circle
-        Ends = [
+        EndValues = [
             Handle
-            for Handle in Arity2
+            for Handle in ArityTwo
             if Handle in Positions
             and abs(math.dist(Positions[Handle], Center) - Radius) < 1e-3
         ]
-        if len(Ends) != 2:
+        if len(EndValues) != 2:
             continue
         Reference = (
             Normalize((1.0, 0.0, 0.0))
@@ -656,39 +748,60 @@ def CornerPositions(
                 Point[2] - Center[2],
             )
             return math.atan2(
-                sum(Delta[Axis] * Second[Axis] for Axis in range(3)),
-                sum(Delta[Axis] * First[Axis] for Axis in range(3)),
+                sum(Delta[AxisValue] * Second[AxisValue] for AxisValue in range(3)),
+                sum(Delta[AxisValue] * First[AxisValue] for AxisValue in range(3)),
             )
 
-        Start = Angle(Positions[Ends[0]])
-        Delta = Angle(Positions[Ends[1]]) - Start
+        Start = Angle(Positions[EndValues[0]])
+        Delta = Angle(Positions[EndValues[1]]) - Start
         while Delta > math.pi:
             Delta -= 2.0 * math.pi
         while Delta < -math.pi:
             Delta += 2.0 * math.pi
-        Step = len(Handles) + 1
+        StepValue = len(Handles) + 1
         for Index, Handle in enumerate(Handles):
             Positions[Handle] = ArcPoint(
-                Center, AxisValue, Radius, Start + Delta * (Index + 1) / Step
+                Center, AxisValue, Radius, Start + Delta * (Index + 1) / StepValue
             )
+
+
+# this definition exists because focused behavior needs one stable owner
+def PlaceRestMut(
+    BrepValue: BrepData,
+    Usage: dict[int, set[int]],
+    Positions: dict[int, tuple[float, float, float]],
+) -> None:
     for Handle in sorted(Usage):
         if Handle in Positions:
             continue
-        Planes, Cylinders = SurfaceConstraints(BrepValue, Usage[Handle])
-        Best = None
+        Planes, Cylinders = SurfaceLimits(BrepValue, Usage[Handle])
+        BestValue = None
         BestDistance = None
         for VertexRow in BrepValue.vertices:
-            if not Satisfies(VertexRow.point, Planes, Cylinders):
+            if not IsSatisfied(VertexRow.point, Planes, Cylinders):
                 continue
             Distance = sum(
-                (VertexRow.point[Axis] - BrepValue.vertices[0].point[Axis]) ** 2
-                for Axis in range(3)
+                (VertexRow.point[AxisValue] - BrepValue.vertices[0].point[AxisValue])
+                ** 2
+                for AxisValue in range(3)
             )
             if BestDistance is None or Distance < BestDistance:
-                Best = VertexRow.point
+                BestValue = VertexRow.point
                 BestDistance = Distance
-        Positions[Handle] = Best if Best is not None else BrepValue.vertices[0].point
-    SnapToTessellation(BrepValue, Positions)
+        Positions[Handle] = (
+            BestValue if BestValue is not None else BrepValue.vertices[0].point
+        )
+
+
+# this definition exists because focused behavior needs one stable owner
+def CornerPositions(
+    BrepValue: BrepData,
+) -> dict[int, tuple[float, float, float]]:
+    Usage, ArityTwo = CornerUsage(BrepValue)
+    Positions = AssignCorners(BrepValue, Usage, ArityTwo)
+    PlaceArcMut(BrepValue, Usage, ArityTwo, Positions)
+    PlaceRestMut(BrepValue, Usage, Positions)
+    SnapToTessMut(BrepValue, Positions)
     return Positions
 
 
@@ -726,8 +839,8 @@ def ArcCircles(
     Circles: dict[
         int, tuple[tuple[float, float, float], tuple[float, float, float], float]
     ] = {}
-    for Pair, Handles in Pairs.items():
-        Circle = IntersectionCircle(BrepValue, Pair)
+    for PairValue, Handles in Pairs.items():
+        Circle = IntersectCircle(BrepValue, PairValue)
         if Circle is None:
             continue
         for Handle in Handles:
@@ -766,9 +879,9 @@ def BuildEdge(
         StartLength = math.sqrt(sum(Value * Value for Value in StartDelta))
         EndLength = math.sqrt(sum(Value * Value for Value in EndDelta))
         if StartLength > 1e-9 and EndLength > 1e-9:
-            Cosine = sum(StartDelta[Axis] * EndDelta[Axis] for Axis in range(3)) / (
-                StartLength * EndLength
-            )
+            Cosine = sum(
+                StartDelta[AxisValue] * EndDelta[AxisValue] for AxisValue in range(3)
+            ) / (StartLength * EndLength)
             Angle = math.acos(max(-1.0, min(1.0, Cosine)))
             if 1e-9 < Angle < math.pi - 1e-9:
                 CurveValue = CircleCurve(
@@ -819,6 +932,55 @@ def CycleArea(
 
 
 # this definition exists because focused behavior needs one stable owner
+def BuildCycleMut(
+    Cycle: tuple[int, ...],
+    VertexByHandle: dict[int, str],
+    VertexById: dict[str, BrepVertex],
+    EdgeByPair: dict[tuple[int, int], str],
+    CurveCount: int,
+    CoedgeCount: int,
+    Circles: dict[
+        int, tuple[tuple[float, float, float], tuple[float, float, float], float]
+    ],
+    Curves: list[LineCurve | CircleCurve],
+    Edges: list[BrepEdge],
+    Coedges: list[BrepCoedge],
+) -> list[str]:
+    CoedgeIds: list[str] = []
+    for Position, StartHandle in enumerate(Cycle):
+        EndHandle = Cycle[(Position + 1) % len(Cycle)]
+        HandlePair = (min(StartHandle, EndHandle), max(StartHandle, EndHandle))
+        EdgeId = EdgeByPair.get(HandlePair)
+        if EdgeId is None:
+            Circle = Circles.get(StartHandle) or Circles.get(EndHandle)
+            if Circle is not None:
+                Center, _, Radius = Circle
+                for Handle in HandlePair:
+                    Point = VertexById[VertexByHandle[Handle]].point
+                    if (
+                        abs(math.dist((Point.x, Point.y, Point.z), Center) - Radius)
+                        > 1e-3
+                    ):
+                        Circle = None
+                        break
+            CurveValue, EdgeValue = BuildEdge(
+                HandlePair,
+                VertexByHandle,
+                VertexById,
+                CurveCount + len(Curves),
+                Circle,
+            )
+            EdgeId = EdgeValue.id
+            EdgeByPair[HandlePair] = EdgeId
+            Curves.append(CurveValue)
+            Edges.append(EdgeValue)
+        CoedgeId = f"catia:coedge:{CoedgeCount + len(Coedges) + 1}"
+        Coedges.append(BrepCoedge(CoedgeId, EdgeId, reversed=StartHandle > EndHandle))
+        CoedgeIds.append(CoedgeId)
+    return CoedgeIds
+
+
+# this definition exists because focused behavior needs one stable owner
 def BuildFaceMut(
     FaceIndex: int,
     SurfaceValue: SurfaceRec,
@@ -844,39 +1006,18 @@ def BuildFaceMut(
         max(range(len(Cycles)), key=lambda Value: Areas[Value]) if Cycles else -1
     )
     for CycleIndex, Cycle in enumerate(Cycles, start=1):
-        CoedgeIds: list[str] = []
-        for Position, StartHandle in enumerate(Cycle):
-            EndHandle = Cycle[(Position + 1) % len(Cycle)]
-            HandlePair = (min(StartHandle, EndHandle), max(StartHandle, EndHandle))
-            EdgeId = EdgeByPair.get(HandlePair)
-            if EdgeId is None:
-                Circle = Circles.get(StartHandle) or Circles.get(EndHandle)
-                if Circle is not None:
-                    Center, _, Radius = Circle
-                    for Handle in HandlePair:
-                        Point = VertexById[VertexByHandle[Handle]].point
-                        if (
-                            abs(math.dist((Point.x, Point.y, Point.z), Center) - Radius)
-                            > 1e-3
-                        ):
-                            Circle = None
-                            break
-                CurveValue, EdgeValue = BuildEdge(
-                    HandlePair,
-                    VertexByHandle,
-                    VertexById,
-                    CurveCount + len(Curves),
-                    Circle,
-                )
-                EdgeId = EdgeValue.id
-                EdgeByPair[HandlePair] = EdgeId
-                Curves.append(CurveValue)
-                Edges.append(EdgeValue)
-            CoedgeId = f"catia:coedge:{CoedgeCount + len(Coedges) + 1}"
-            Coedges.append(
-                BrepCoedge(CoedgeId, EdgeId, reversed=StartHandle > EndHandle)
-            )
-            CoedgeIds.append(CoedgeId)
+        CoedgeIds = BuildCycleMut(
+            Cycle,
+            VertexByHandle,
+            VertexById,
+            EdgeByPair,
+            CurveCount,
+            CoedgeCount,
+            Circles,
+            Curves,
+            Edges,
+            Coedges,
+        )
         LoopId = f"catia:loop:{FaceIndex}:{CycleIndex}"
         Loops.append(
             BrepLoop(LoopId, tuple(CoedgeIds), outer=CycleIndex - 1 == OuterIndex)
@@ -953,7 +1094,7 @@ def BuildBrep(BrepValue: BrepData) -> BrepModel:
 
 
 # this definition exists because focused behavior needs one stable owner
-def DecodeTessellation(Archive: CfvTwoArchive) -> tuple[tuple[float, float], ...]:
+def DecodeTess(Archive: CfvTwoArchive) -> tuple[tuple[float, float], ...]:
     if not Archive.nested:
         return ()
     Folder = Archive.nested[0]
@@ -966,7 +1107,7 @@ def DecodeTessellation(Archive: CfvTwoArchive) -> tuple[tuple[float, float], ...
     )
     if not Radii:
         return ()
-    return TessellationPoints(MainData, Radii)
+    return TessPoints(MainData, Radii)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -980,7 +1121,7 @@ def DecodeBrep(
         return None, (
             Diagnostic(
                 "catia.brep.native_decode_failed",
-                f"Native CATIA B-rep decoding failed: {ErrorInfo}",
+                f"Native CATIA RightValue-rep decoding failed: {ErrorInfo}",
                 Severity.WARNING,
             ),
         )
@@ -989,7 +1130,7 @@ def DecodeBrep(
         return None, (
             Diagnostic(
                 "catia.brep.native_validation_failed",
-                f"Native CATIA B-rep validation failed: {Errors[0]}",
+                f"Native CATIA RightValue-rep validation failed: {Errors[0]}",
                 Severity.WARNING,
             ),
         )

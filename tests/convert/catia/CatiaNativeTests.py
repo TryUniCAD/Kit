@@ -10,7 +10,7 @@ from convert.adapters.catia.Container import CfvTwoArchive
 from convert.adapters.catia.NativeBrep import (
     BuildVertices,
     DecodeBrep,
-    DecodeTessellation,
+    DecodeTess,
     LocalFrame,
     ParseBrep,
 )
@@ -180,7 +180,7 @@ def TestBrepCorpus() -> None:
 
 
 # this definition exists because focused behavior needs one stable owner
-def TestBrepHeuristicMap() -> None:
+def TestBrepHeur() -> None:
     Archive = CfvTwoArchive.from_bytes((KCatparts / "Reservoir.CATPart").read_bytes())
     Model, Diagnostics = DecodeBrep(Archive)
     assert Model is not None
@@ -192,18 +192,26 @@ def TestBrepHeuristicMap() -> None:
 
 
 # this definition exists because focused behavior needs one stable owner
-def TestBrepTessellation() -> None:
+def TestBrepTess() -> None:
     Archive = CfvTwoArchive.from_bytes(
         (KCatparts / "Copper_Washer.CATPart").read_bytes()
     )
-    Points = DecodeTessellation(Archive)
+    Points = DecodeTess(Archive)
     assert len(Points) >= 40
     Outer = {
-        round(8.0 * math.cos(math.radians(18.0 * Step)), 3) for Step in range(20)
-    } | {round(8.0 * math.sin(math.radians(18.0 * Step)), 3) for Step in range(20)}
+        round(8.0 * math.cos(math.radians(18.0 * StepValue)), 3)
+        for StepValue in range(20)
+    } | {
+        round(8.0 * math.sin(math.radians(18.0 * StepValue)), 3)
+        for StepValue in range(20)
+    }
     Inner = {
-        round(5.0 * math.cos(math.radians(22.5 * Step)), 3) for Step in range(16)
-    } | {round(5.0 * math.sin(math.radians(22.5 * Step)), 3) for Step in range(16)}
+        round(5.0 * math.cos(math.radians(22.5 * StepValue)), 3)
+        for StepValue in range(16)
+    } | {
+        round(5.0 * math.sin(math.radians(22.5 * StepValue)), 3)
+        for StepValue in range(16)
+    }
     for YValue, ZValue in Points:
         Radius = math.hypot(YValue, ZValue)
         assert abs(Radius - 8.0) < 1e-2 or abs(Radius - 5.0) < 1e-2
@@ -264,12 +272,12 @@ def CylinderModel() -> BrepModel:
     Height = 1.0
     Points = [
         SpaceVector(
-            Radius * math.cos(math.pi / 2.0 * Step),
-            Radius * math.sin(math.pi / 2.0 * Step),
+            Radius * math.cos(math.pi / 2.0 * StepValue),
+            Radius * math.sin(math.pi / 2.0 * StepValue),
             Level,
         )
         for Level in (0.0, Height)
-        for Step in range(4)
+        for StepValue in range(4)
     ]
     Vertices = tuple(
         BrepVertex(f"catia:vertex:{Index + 1}", Point)
@@ -306,19 +314,22 @@ def CylinderModel() -> BrepModel:
         return CoedgeId
 
     Bottom = [
-        AddEdge(Step, (Step + 1) % 4, SpaceVector(0.0, 0.0, 0.0)) for Step in range(4)
+        AddEdge(StepValue, (StepValue + 1) % 4, SpaceVector(0.0, 0.0, 0.0))
+        for StepValue in range(4)
     ]
-    Top = [
-        AddEdge(4 + Step, 4 + (Step + 1) % 4, SpaceVector(0.0, 0.0, Height))
-        for Step in range(4)
+    TopValue = [
+        AddEdge(4 + StepValue, 4 + (StepValue + 1) % 4, SpaceVector(0.0, 0.0, Height))
+        for StepValue in range(4)
     ]
-    Up = AddEdge(0, 4, SpaceVector(0.0, 0.0, 0.0))
-    Down = AddEdge(4, 0, SpaceVector(0.0, 0.0, 0.0))
+    UpValue = AddEdge(0, 4, SpaceVector(0.0, 0.0, 0.0))
+    DownValue = AddEdge(4, 0, SpaceVector(0.0, 0.0, 0.0))
     Loops = (
         BrepLoop("catia:loop:1", tuple(Bottom), outer=True),
-        BrepLoop("catia:loop:2", tuple(Top), outer=True),
+        BrepLoop("catia:loop:2", tuple(TopValue), outer=True),
         BrepLoop(
-            "catia:loop:3", tuple(Bottom) + (Up,) + tuple(Top) + (Down,), outer=True
+            "catia:loop:3",
+            tuple(Bottom) + (UpValue,) + tuple(TopValue) + (DownValue,),
+            outer=True,
         ),
     )
     Faces = (
@@ -374,7 +385,7 @@ def CylinderModel() -> BrepModel:
 
 
 # this definition exists because focused behavior needs one stable owner
-def TestBrepCylinderWriter(TmpPath: Path) -> None:
+def TestBrepCyl(TmpPath: Path) -> None:
     Model = CylinderModel()
     assert Model.validate(frozenset({"catia:body:1"})) == ()
     DocValue = CadDocument(
@@ -419,18 +430,18 @@ def ConeModel() -> BrepModel:
     Height = 1.0
     Points = [
         SpaceVector(
-            BottomRadius * math.cos(math.pi / 2.0 * Step),
-            BottomRadius * math.sin(math.pi / 2.0 * Step),
+            BottomRadius * math.cos(math.pi / 2.0 * StepValue),
+            BottomRadius * math.sin(math.pi / 2.0 * StepValue),
             0.0,
         )
-        for Step in range(4)
+        for StepValue in range(4)
     ] + [
         SpaceVector(
-            TopRadius * math.cos(math.pi / 2.0 * Step),
-            TopRadius * math.sin(math.pi / 2.0 * Step),
+            TopRadius * math.cos(math.pi / 2.0 * StepValue),
+            TopRadius * math.sin(math.pi / 2.0 * StepValue),
             Height,
         )
-        for Step in range(4)
+        for StepValue in range(4)
     ]
     Vertices = tuple(
         BrepVertex(f"catia:vertex:{Index + 1}", Point)
@@ -467,25 +478,29 @@ def ConeModel() -> BrepModel:
         return CoedgeId
 
     Bottom = [
-        AddEdge(Step, (Step + 1) % 4, SpaceVector(0.0, 0.0, 0.0), BottomRadius)
-        for Step in range(4)
-    ]
-    Top = [
         AddEdge(
-            4 + Step,
-            4 + (Step + 1) % 4,
+            StepValue, (StepValue + 1) % 4, SpaceVector(0.0, 0.0, 0.0), BottomRadius
+        )
+        for StepValue in range(4)
+    ]
+    TopValue = [
+        AddEdge(
+            4 + StepValue,
+            4 + (StepValue + 1) % 4,
             SpaceVector(0.0, 0.0, Height),
             TopRadius,
         )
-        for Step in range(4)
+        for StepValue in range(4)
     ]
-    Up = AddEdge(0, 4, SpaceVector(0.0, 0.0, 0.0), BottomRadius)
-    Down = AddEdge(4, 0, SpaceVector(0.0, 0.0, 0.0), BottomRadius)
+    UpValue = AddEdge(0, 4, SpaceVector(0.0, 0.0, 0.0), BottomRadius)
+    DownValue = AddEdge(4, 0, SpaceVector(0.0, 0.0, 0.0), BottomRadius)
     Loops = (
         BrepLoop("catia:loop:1", tuple(Bottom), outer=True),
-        BrepLoop("catia:loop:2", tuple(Top), outer=True),
+        BrepLoop("catia:loop:2", tuple(TopValue), outer=True),
         BrepLoop(
-            "catia:loop:3", tuple(Bottom) + (Up,) + tuple(Top) + (Down,), outer=True
+            "catia:loop:3",
+            tuple(Bottom) + (UpValue,) + tuple(TopValue) + (DownValue,),
+            outer=True,
         ),
     )
     Faces = (
@@ -542,7 +557,7 @@ def ConeModel() -> BrepModel:
 
 
 # this definition exists because focused behavior needs one stable owner
-def TestBrepConeWriter(TmpPath: Path) -> None:
+def TestBrepCone(TmpPath: Path) -> None:
     Model = ConeModel()
     assert Model.validate(frozenset({"catia:body:1"})) == ()
     DocValue = CadDocument(
@@ -577,7 +592,7 @@ def TestBrepConeWriter(TmpPath: Path) -> None:
 
 
 # this definition exists because focused behavior needs one stable owner
-def TestBrepTwoLoopWriter(TmpPath: Path) -> None:
+def TwoLoopModel() -> BrepModel:
     Points = [
         SpaceVector(0.0, 0.0, 0.0),
         SpaceVector(1.0, 0.0, 0.0),
@@ -644,7 +659,7 @@ def TestBrepTwoLoopWriter(TmpPath: Path) -> None:
     ShellUse = BrepShellUse("catia:shell-use:1", Shell.id)
     Region = BrepRegion("catia:region:1", (ShellUse.id,), solid=True)
     BodyValue = BrepBody("catia:body:1", (Region.id,), design_body_id="catia:body:1")
-    Model = BrepModel(
+    return BrepModel(
         curves=tuple(Curves),
         surfaces=Surfaces,
         vertices=Vertices,
@@ -658,6 +673,10 @@ def TestBrepTwoLoopWriter(TmpPath: Path) -> None:
         regions=(Region,),
         bodies=(BodyValue,),
     )
+
+
+def TestBrepTwoLoop(TmpPath: Path) -> None:
+    Model = TwoLoopModel()
     assert Model.validate(frozenset({"catia:body:1"})) == ()
     DocValue = CadDocument(
         source=CadSource("catia.v5", "two.CATPart", "0" * 64),

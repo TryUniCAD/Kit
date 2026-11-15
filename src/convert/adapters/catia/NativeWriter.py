@@ -82,9 +82,9 @@ def PackTrim(
     Width: int,
     VectorValue: tuple[float, float, float] | None,
 ) -> bytes:
-    if not Loops or any(len(Loop) < 3 for Loop in Loops):
+    if not Loops or any(len(LoopValue) < 3 for LoopValue in Loops):
         raise ValueError("trim loop is too short")
-    Handles = tuple(Handle for Loop in Loops for Handle in Loop)
+    Handles = tuple(Handle for LoopValue in Loops for Handle in LoopValue)
     KindValue = 0x44 | (0x08 if VectorValue is not None else 0)
     DataValue = bytearray(b"\x01" + bytes([KindValue]))
     DataValue.append(len(Loops))
@@ -92,8 +92,8 @@ def PackTrim(
     DataValue.extend(struct.pack("<I", len(Handles)))
     if VectorValue is not None:
         DataValue.extend(struct.pack("<fff", *VectorValue))
-    for Loop in Loops:
-        DataValue.append(len(Loop))
+    for LoopValue in Loops:
+        DataValue.append(len(LoopValue))
     for Handle in Handles:
         DataValue.extend(Handle.to_bytes(Width, "big"))
     return bytes(DataValue)
@@ -159,7 +159,9 @@ def PackSurf(
     Radius = max(math.dist(Center, (Point.x, Point.y, Point.z)) for Point in Points)
     Bounds = (*Center, *HalfExtent, *Center, Radius)
     SignValue = 1 if getattr(FaceValue, "same_sense", True) else -1
-    Tail = struct.pack("<10f", *Bounds) + struct.pack("b", SignValue) + b"\x00\x00\x00"
+    TailValue = (
+        struct.pack("<10f", *Bounds) + struct.pack("b", SignValue) + b"\x00\x00\x00"
+    )
     if isinstance(SurfaceValue, CylinderSurface):
         AxisValue = AxisPair(SurfaceValue.axis)
         Carrier = (
@@ -170,7 +172,7 @@ def PackSurf(
             AxisValue[1],
             SurfaceValue.radius,
         )
-        return b"\x00\x02\x00\x33\x33" + struct.pack(">6f", *Carrier) + Tail
+        return b"\x00\x02\x00\x33\x33" + struct.pack(">6f", *Carrier) + TailValue
     if isinstance(SurfaceValue, ConeSurface):
         AxisValue = AxisPair(SurfaceValue.axis)
         Carrier = (
@@ -181,7 +183,7 @@ def PackSurf(
             AxisValue[1],
             SurfaceValue.half_angle,
         )
-        return b"\x00\x02\x00\x33\x34" + struct.pack(">6f", *Carrier) + Tail
+        return b"\x00\x02\x00\x33\x34" + struct.pack(">6f", *Carrier) + TailValue
     if isinstance(SurfaceValue, SphereSurface):
         SphereCarrier = (
             SurfaceValue.center.x,
@@ -189,7 +191,7 @@ def PackSurf(
             SurfaceValue.center.z,
             SurfaceValue.radius,
         )
-        return b"\x00\x02\x00\x33\x35" + struct.pack(">4f", *SphereCarrier) + Tail
+        return b"\x00\x02\x00\x33\x35" + struct.pack(">4f", *SphereCarrier) + TailValue
     if isinstance(SurfaceValue, TorusSurface):
         AxisValue = AxisPair(SurfaceValue.axis)
         TorusCarrier = (
@@ -201,8 +203,8 @@ def PackSurf(
             SurfaceValue.major_radius,
             SurfaceValue.minor_radius,
         )
-        return b"\x00\x02\x00\x33\x38" + struct.pack(">7f", *TorusCarrier) + Tail
-    return b"\x00\x02\x00\x33\x32" + Tail
+        return b"\x00\x02\x00\x33\x38" + struct.pack(">7f", *TorusCarrier) + TailValue
+    return b"\x00\x02\x00\x33\x32" + TailValue
 
 
 # this definition exists because focused behavior needs one stable owner
