@@ -1200,6 +1200,26 @@ For the first body at offset 8 the flag byte is `0x04`, so only the `0x4` field 
 formula gives 4, not 46. The offset must therefore already have advanced past the five-byte marker
 before the fields are read, and the exact starting offset is the part of the grammar still missing.
 
+The starting offset is not the record start either. The normal path of `ReadHeaderObjectAt` requires
+the first byte at the offset to be `0xe5` and throws `MathInReadStreamInvalidData_ERR_101` otherwise:
+
+```
+.l13:
+    rcx = *rsi;
+    rdx = byte at offset;
+    *rsi = offset + 1;
+    if (rdx == 0xe5) goto .l14;
+    goto .l12;          // .l12 throws
+```
+
+The body records at 8 and 54 start with `0x04` and `0x30`, not `0xe5`, and the 47 `0xe5` bytes in
+`Reservoir` are all inside the coordinate table at 1151..8933, so they are float data. The body
+records therefore do not use the normal path. `ReadHeaderObjectAt` dispatches on
+`0x28(stream) >= 0x3ef` to the normal path and otherwise to `ReadHeaderObjectAt_V5R5` at
+`0x1800a8300`, and on `0x2a(stream) & 0x10001` to `ReadHeaderObjectAt_SmallHeader` at `0x1800a7310`.
+The V5R5 path reads a 21-byte header (`rdi + 0x15` bounds check), so the body records are V5R5
+headers and the size formula for that path is what the chain walk needs.
+
 A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
