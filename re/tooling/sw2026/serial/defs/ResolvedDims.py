@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from Core import ArchiveError
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, i16, u8, i64, f32, f64, cstr, emb, base
-from Schema import Op, If, Rep, Raw, run_load, run_store
+from Schema import Fn, Op, If, Rep, Raw, run_load, run_store
 from defs.ResolvedCore import xo, obarray, Cnd, Legacy, Vin, PARENT, isa, has_condition, node_vt, vt, VT
 
 DIMENSION = "Dimension_c.Serialize"
@@ -63,6 +63,7 @@ HIERARCHY = {
     "moRefDim2E_c": "moRefDim_c",
     "ParallelPlaneDistanceDim_c": "moFeatureDim_c",
     "ThreeDRadiusDim_c": "moFeatureDim_c",
+    "moRevolvedRadiusDim_c": "ThreeDRadiusDim_c",
     "ThreeDdiameterDim_c": "moFeatureDim_c",
     "moNumberDim_c": "moFeatureDim_c",
     "moScalerDim_c": "moFeatureDim_c",
@@ -123,6 +124,12 @@ def serialize_ptr(name):
 
 def no_cond(mask):
     return lambda s, ar: not has_condition(ar, mask)
+
+
+def require_revolved_radius_version(ar, scope, o):
+    version = ver(ar)
+    if version != 19000:
+        raise ArchiveError(f"revolved-radius schema requires ordinary archive version 19000, got {version}")
 
 
 def vtv(slot, o):
@@ -247,6 +254,12 @@ def define_dimensions(reg):
     ])
     for c in ("ParallelPlaneDistanceDim_c", "ThreeDRadiusDim_c", "ThreeDdiameterDim_c", "moNumberDim_c", "moScalerDim_c"):
         reg.define(c, [base(FEATURE_DIM)])
+    reg.define("moRevolvedRadiusDim_c", [
+        Fn(require_revolved_radius_version, require_revolved_radius_version),
+        base("ThreeDRadiusDim_c"),
+        xo("f130", "moSkDimHandleValG2_c"),
+        i32("f128"),
+    ])
     reg.define("AngleDim_c", [base(FEATURE_DIM), Vge(0x2DD, [u16("ff8")])])
     reg.define(REF_DIM, [
         base(DIMENSION),

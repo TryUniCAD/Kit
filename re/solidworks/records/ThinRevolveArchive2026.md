@@ -129,7 +129,7 @@ These actions add no direct archive field. The callback dispatcher occupies `[0x
 
 The [installed API inventory](../v2026/evidence/RevolveAndConstraintTypeLibrary.json), SHA-256 `e6d1e947cdf4ec37f751307788d51405955e5f84ad8542ab0adc7a74a59ef416`, records current type-library declarations, library hashes, and tool identity. It supplies API vocabulary only. Its enum codes are not adopted as native-file domains or defaults.
 
-The directly declared references have existing base-display, radial-display, wrapper, line-reference, end-spec, list, and body schemas. Actual dynamic-subclass closure remains pending on locked discovery inputs. In particular, `moRevolvedRadiusDim_c` still lacks a schema, and this record does not prove its reachability for any thin case.
+The directly declared references have existing base-display, radial-display, wrapper, line-reference, end-spec, list, and body schemas. Actual dynamic-subclass closure remains pending on locked discovery inputs. The separate [revolved-radius dimension schema](RevolvedRadiusDimensionArchive2026.md) now covers `moRevolvedRadiusDim_c` structurally at version `19000`. It belongs to the feature-dimension hierarchy, not the display-radial hierarchy, and no incoming route from a thin case is established.
 
 Confidence is **partial**: class identities, exact modern field order, base calls, and stated gates have pinned static evidence. No thin source stream, held-out stream, fresh generated output, or native thin case was inspected for this change. AST and static source inspection are the only verification; remote CI and class-specific round trips remain pending. No application was launched or attached.
 
