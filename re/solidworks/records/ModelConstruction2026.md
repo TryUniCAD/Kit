@@ -424,7 +424,8 @@ Its keyword inputs are `node`, `name`, `allocator`, `detail_definitions`,
 It returns that object's field dictionary. The self component is explicitly
 absent or a constructed concrete object whose `owner` must be the same model
 object. Base constructor `0x4c00edb0` initializes `f990` to null; this helper
-does not choose a chain subtype or construct an assembly component.
+does not construct the dependency itself. A supplied self component must be a
+`moUnitComponent_c`; chain components represent instance paths instead.
 The relation graph is explicitly absent or a generated `moRelMgr_c` whose
 owner is that same model. Base constructor `0x4c00edb0` initializes `f9d0`
 to null; a later required manager must come from its real caller.
@@ -441,6 +442,29 @@ This is source-structure evidence, not a newly executed graph or native
 assembly acceptance. The existing subprocess check exercises `part_root`
 through this shared path when remote CI runs it.
 See [model offset ownership](../../../Documentation/Gotchas/Conversion/Solidworks/Model/ModelOffsetsAreTypeSpecific.md).
+
+The active new-model initializer is distinct from the loading/default path.
+New-model assembly constructor `0x4b67efe0` calls shared `0x4c00d8f0` at
+`0x4b67f037`; new-model part constructor `0x4c19f170` calls it at
+`0x4c19f1c7`. That shared initializer constructs `moRelMgr_c(owner=this)` into
+`f9d0` and `moUnitComponent_c(model=this, filed_owner=this)` into `f990`.
+The unit-component call and assignment are `0x4c00e850/0x4c00e85a`.
+Accordingly, `unit_component` and `relation_manager` support these two proven
+root classes while preserving the actual owner object.
+The active path also calls `moUnitsTable_c(1)` for user units `f9b8`, while
+analysis units `f9c0` initially remain absent.
+The active path also allocates empty `suObList` objects at `f9d8`, `fa48` and
+`fa50`. The typed pointer store does not normalize empty lists to null:
+`sldmfcu` `0x3c8cceb0` and `swccu` `0x31a45ef0` pass the actual pointer to
+`WriteObject`; generic `swccu` `0x31a3a930` emits a null tag only for a null
+pointer. The opposite normalization hypothesis is **refuted**.
+The common RES loader `0x4c234150` explicitly creates an empty list when
+loaded `fa48` or `fa50` is null. Its `f9d8` read and subsequent use are
+null-guarded; the broader semantic equivalence of a missing `f9d8` remains
+**partial**. The shared extraction preserves the existing part wire values
+while keeping active allocations, legal absent input and measured acceptance
+distinct. No oracle result yet validates this fresh graph.
+See [constructor paths](../../../Documentation/Gotchas/Conversion/Solidworks/Model/LoadingConstructorsDoNotDefineFreshGraphs.md).
 
 `part_root` and `part_graph` construct the base part and its principal planes.
 They require generated detail definitions, explicit document and analysis unit

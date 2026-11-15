@@ -10,6 +10,11 @@ part or assembly object, with explicit self-component and relation ownership.
 `part_root` adds its part-only fields through the existing public interface.
 The shared helper does not infer an assembly subtype or populate part scalars
 at offsets owned by assembly maps.
+The active new-model constructor proves unit-component and relation-manager
+ownership for both parts and assemblies; those factories now accept both roots.
+Loading-constructor null seeds remain distinct from active graph allocation.
+Typed list stores preserve nonnull empty pointers; explicit loader fixups
+establish absent-list regeneration only at the identified fields.
 The record also maps the two-stage native serializer dispatch and the archive
 helper's map lookup, separating selected runtime version from intended target.
 `part_graph` now accepts explicit folder names, cabinet name and creation time,
@@ -83,6 +88,10 @@ The [model offset gotcha](../../Gotchas/Conversion/Solidworks/Model/ModelOffsets
 records the boundary between shared model and concrete-root fields.
 The [serialization-dispatch gotcha](../../Gotchas/Conversion/Solidworks/Model/PartSerializeDispatchUsesArchiveContext.md)
 records the native bridge and version-dependent section selection.
+The [constructor-path gotcha](../../Gotchas/Conversion/Solidworks/Model/LoadingConstructorsDoNotDefineFreshGraphs.md)
+records why active allocations need separate store-rule evidence.
+Model gotchas now live under `Solidworks/Model/`, and process-check gotchas
+under `Ci/ProcessChecks/`, preserving the directory-density limit.
 
 ## Verification
 
