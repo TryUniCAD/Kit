@@ -80,3 +80,62 @@ records capture and binary hashes, exact addresses, the rejected input and
 evidence limits. This is an observed, binary-backed format correction, not full
 instruction taint or a measured speedup. Clean acceptance of corrected generated
 files remains pending.
+
+The observer now passes its retained trace interface to an explicitly selected
+action. `AuthorPolygons.py` brackets native document creation, sketch/feature
+authoring, first explicit rebuild, save and close with phase events. It accepts
+one JSON job naming `specifications`, `output` and a known `control`; its source
+specifications contain at most three training models. It records actual native
+point/segment/relation counts and geometry, helper/input hashes, and controls
+before and after in the same instrumented process. These are training
+observations, not clean generated-file acceptance.
+
+Additional version-bound probes cover complete sketch updates, coordinate
+commit counts, mapped solver statuses and independent header update/body stamp
+allocation. The module manifest now also requires the exact archive module
+hash. A mapped status event is explicitly observed before its caller resumes;
+it does not claim the subsequent entity setter has executed. Runtime sketch
+cache pointers remain distinct from similarly numbered profile fields. The
+new capture results will be recorded after execution; no status or stamp value
+is inferred from instrumentation setup alone.
+
+The corrected candidate's second capture confirms the journal schema comparison
+now matches zero and the loader reaches the part root. It then throws archive
+cause five. Native `ReadObject` explains this as an object index beyond the
+current read-map length, distinct from the earlier schema mismatch. Probes now
+record object dispatch, the returned class-reader tag, requested runtime class,
+current buffer cursor and map length. These identify a concrete reference
+failure without treating an uncertain system unwind as a call chain. Absolute
+logical stream offsets remain unknown until an independently verified mapping
+exists.
+
+`--profile loader` limits observations to class/object dispatch, exceptions and
+part serialization's archive-context version selection. `--profile sketch`
+captures sketch lifecycle and stamp boundaries without the full object-dispatch
+traffic; `full` retains both. The manifest also verifies `sldmfcu.dll` before
+its helper and version probes activate. Class-reader schema outputs are omitted
+when that native branch does not initialize them, and runtime class names stop
+at their terminator.
+
+The first polygon-authoring attempt failed its preceding control and authored
+no training case. That action selected the privacy-redacted parser fixture
+instead of the original vendor-saved control used in earlier healthy oracle
+runs. This capture is discarded for inference; the cause of its process death
+is not attributed to redaction without further evidence. Subsequent oracle
+jobs explicitly identify the original control by its separate SHA-256.
+
+Response files use the standard `@path` argument form, with one complete
+argument per line. The runner records their digests and the actual working
+directory. This keeps Parallels commands short without changing the oracle's
+working directory. The authoring action now inspects controls read-only through
+the previously successful retained-controller path and records the control
+digest. A second authoring setup also failed before creating a case; no solver
+rule is inferred from either failed control.
+
+The original control also failed with the previous exception instrumentation.
+Exception-function hooks and the process exception handler now require explicit
+`--exception-probes`; ordinary parser/status profiles install neither. This
+isolates the instrumentation during healthy-control checks. It does not suppress
+document errors: open/rebuild results, target termination, script failures and
+dialog records remain visible. The precise cause of the traced-control failure
+remains unproven until the reduced observation is compared with a healthy run.

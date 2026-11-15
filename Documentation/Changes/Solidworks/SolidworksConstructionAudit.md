@@ -24,3 +24,8 @@ The process harness declarations now carry the repository's required rationale
 comments, following explicit user authorization. This changes no audit or
 construction behavior. Static syntax and comment-policy checks were used;
 executable verification remains in remote CI.
+
+After the current main branch was integrated, remote path policy found 33 direct
+CI gotcha files against the unchanged limit of 32. The two new process-check
+findings now live under `Documentation/Gotchas/Ci/ProcessChecks/`; their links
+were updated and the gate remains enabled.

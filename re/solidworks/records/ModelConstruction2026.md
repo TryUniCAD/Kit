@@ -229,6 +229,92 @@ slot `0x4d8`; both ordinary child classes resolve that slot to `0x4b2fe0b0`,
 which only increments runtime reference count `0x10`.
 Neither callback advances header ids or stamps on those ordinary paths.
 
+The fresh part's update query follows an explicit constructor path too.
+Part vtable `0x4d1252d8` slot `0xc0` resolves to `0x4c1b8a60`.
+Model constructor `0x4c00edb0` writes qword `0x0c` at runtime offset `0x2b0`,
+so its upper word `0x2b4` is zero and the query's cached-update shortcut is
+absent. It calls node getter `0x4c03e5e0`, which returns `1` immediately when
+node `f0c` bit `1` is set. Derived-part traversal is reached only after a zero
+node result. This closes the pending constructor query for the fresh ordinary
+part; it does not prove completion of a rebuild or every cleared-state query.
+
+## Header counter and save lifecycle
+
+Status: **partial — code-derived rules, without generated-header native acceptance**.
+These rules refer to the manifest's `sldarchiveu.dll`, SHA-256
+`5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48`.
+The serializer evidence is REA
+`ev_99ce3579fb4002b5f0f926a20a8691b3b10de7c06da3b548f8649cdc37297589`.
+Its subject digest matches the manifest.
+
+The active filed-concept initializer `sldmodu` `0x4bda5a20` establishes the
+fresh header's provenance sequence when its create-header argument is nonzero.
+It constructs the header, obtains the root id through `getNewID`, creates and
+attaches a status-zero creation log, then assigns that log's `f50` from the
+authored document name. A supplied creation time other than `-1` replaces the
+head stamp time before `setCreationTime` runs. This closes the nonempty log
+name's constructor role; the metadata builder and its wire path must adopt
+the rule together before callers can provide that name.
+
+`moHeader_c::setCreationTime` at `0x31a05ec0` reads the first log's first stamp.
+If `f70 == -1`, it copies that timestamp to `f70`. If `f70` already equals the
+stamp time, it stores current wall time instead; otherwise it leaves `f70`
+unchanged. `resetCreationTime` at `0x31a05b30` optionally replaces that first
+stamp time and then copies it to `f70`. The fresh header constructor has
+`f70 == -1`, so the current explicit creation-time/first-stamp equality rule
+matches this initialization path. These calls do not advance either counter.
+
+| Operation                   | Rule                                                                                                                                                            | 2026 address |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Constructor                 | Seed independent update/body counters `f40/f44` with `101`; initialize `f48` through local calendar time `1990-01-01`, and `f50` through the unset-time utility | `0x31a02540` |
+| Next update stamp           | Increment the 32-bit `f40` word, replace `f48` with current wall time, return the new counter; both formal arguments are unused in this build                   | `0x31a05350` |
+| Current update stamp        | Return `f40`; the optional name argument does not select a separate counter                                                                                     | `0x319f9810` |
+| Next body stamp             | Increment the independent unsigned `f44` word and return it                                                                                                     | `0x31a05340` |
+| Body stamp synchronization  | Replace `f44` only when the supplied unsigned value is larger                                                                                                   | `0x31a05680` |
+| Explicit update replacement | Store the supplied `f40` value and return the previous value                                                                                                    | `0x31a06100` |
+| Update rollback             | Decrement `f40` without changing `f48`                                                                                                                          | `0x31a04f20` |
+| Storage wrapper             | Select the header stream and call serialization without advancing either counter                                                                                | `0x31a05d00` |
+
+The loader normalizes the constructor update seed. After reading `f40` for
+versions above `150`, instructions `0x31a03fed`–`0x31a03ff3` change `101` to
+`102`. A temporary current-time assignment follows. For versions above `3676`,
+including `19000`, the later read at `0x31a0440a`–`0x31a04411` overwrites that
+temporary `f48` with its stored value. No corresponding body-counter
+normalization appears in this serializer.
+The lossless research codec preserves the original wire value; it does not
+simulate this native in-memory fixup.
+
+The clock name is misleading. Imported `su_CTime::GetTickCount` resolves to
+`swccu.dll` `0x31a4c5d0`. That function calls `_time64(NULL)` and copies its
+result into the returned time object. It is wall time in seconds, not the
+Windows millisecond uptime counter. REA evidence
+`ev_30b8661a0b8051b1107966b2e0e9d1fa2e04f257ef3d5c8216ef7cb4e37e9d30`
+records the exact module SHA-256
+`d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c`.
+
+Save-time `f50` normalization is conditional rather than an unconditional clock
+write. The serializer compares its local-calendar year to the unset-time
+sentinel's year. When those years match and archive condition `0x80` is absent,
+it chooses current `_time64` time for calendar month zero; otherwise it uses
+`f70`, falling back to current time if `f70 == -1`.
+The decision and assignment occupy `0x31a035a6`–`0x31a03612`.
+An authored modification time outside that sentinel year passes through this
+branch unchanged. This does not establish every higher-level save caller.
+
+The model's session operation and body lifecycle remain separate.
+`moAtom_c::setBody` at `sldmodu` `0x4bcfb360` returns immediately for a null body
+or feature. It allocates a body stamp only when its third argument is nonzero
+and its manager/model/header path exists.
+`moFeature_c::iUpdatePreviewBodyTimeStamps` at `0x4bb4a890` iterates actual preview
+bodies and allocates one body stamp per body. An empty preview array takes no
+allocation path there.
+The model-update completion routine `0x4c1c8320` contains an additional session
+update call at `0x4c1c88ba`, conditional on its update work and prior status.
+These paths explain why visible-feature counts cannot determine either counter.
+No fixed increment count is inferred for fresh generation.
+See [initial update normalization](../../../Documentation/Gotchas/Conversion/Solidworks/InitialUpdateStampIsNormalized.md)
+and [the header clock](../../../Documentation/Gotchas/Conversion/Solidworks/HeaderClockIsWallTime.md).
+
 ## Configuration construction
 
 `configuration_manager` accepts authored names, the current configuration index,
@@ -245,6 +331,29 @@ id `-1`, flags `1`, empty lists and absent optional chooser/visual objects.
 The mass record follows `0x4bc1d500` and `0x4bc1cc20`:
 zero mass scalars, identity principal axes and an invalid-cache flag.
 No zero mass value is reported as measured geometry.
+
+Configuration `f9a8` is the stored configuration-data version, not an immutable
+constructor default. The constructor's `0x7fd` seed is replaced on ordinary
+storage: base serializer `0x4c217e30` obtains the selected archive-helper version
+and falls back to `getCurrentFileVerion` only for zero. When
+`getOpenedModel()` returns a model, it assigns that version to `f9a8` and writes
+it. Only the branch without an opened model retains the previous `f9a8`.
+The assignment/write sequence is at `0x4c21846c` and following instructions;
+the load branch reads the wire word for archive versions above `0x7ff`.
+The shared getter at `0x4b285780` has several linker-folded names; its relevant
+export here is `moBaseConfiguration_c::getOpenedModel`, not the decompiler's
+mate-group owner label.
+
+Fresh part configurations require an actual owning part. Their stored version
+now derives from the same explicit target version used by the fresh feature
+base, `19000` in the supported profile. They no longer emit `2045`.
+The process check reads these words back from the generated CMgr stream for
+one and seven configurations. Remote execution and a new native candidate
+measurement are pending for this correction.
+The parent-owned failed native trace observed helper version `2045` despite
+global version `19000`; the healthy control observed both at `19000`.
+The exact loader transfer from `f9a8` remains under investigation.
+See [configuration versions](../../../Documentation/Gotchas/Conversion/Solidworks/Model/ConfigurationVersionChangesOnSave.md).
 
 The variable-table presence flag is false for the newly empty variable-control maps.
 The native save at `0x4c21ef40` calls `hasRefOrFeatCntrlbyVarTable` before emitting them.
@@ -313,6 +422,89 @@ bit 4 depends on environment member `0x138`.
 The builder requires that boolean explicitly and never copies a saved flag.
 
 ## Part-root graph
+
+### Native archive dispatch
+
+The part's primary vtable `0x4d1252d8` has slot `0x10` at import thunk
+`0x4cb9e7a5`, slot `0x28` at `0x4c229a60`, and LW/RES slots
+`0x4b8/0x4c0` at `0x4c2309d0/0x4c2378b0`.
+The custom `su_CArchive::ReadObject` invokes slot `0x10`; the thunk reaches
+`swccu.dll` `su_CObject::Serialize(CArchive&)` at `0x31a3ba60`.
+That shared bridge unconditionally dispatches the actual object's slot `0x28`.
+REA evidence `ev_b15c2582b079c337879c95299e7ea4177f0844729d35f9cba8c4bf4a9846f2e8`
+has the manifest's `swccu.dll` subject hash.
+Both stages matter when choosing instrumentation sites.
+
+The part method reads the current archive helper's `0x7c0` version word,
+falling back to the global version getter only when it is zero.
+Versions above `0xc7c` dispatch the LW and RES section slots; older values use
+the legacy model method at `0x4c224e10`.
+Modern section helper `0x4c2114b0` consumes a four-byte length before the section
+body. Its known `0x80000/0x100000` section-skip conditions still consume that
+length. A section length interpreted as an object tag therefore requires
+checking the actual dispatch and archive context before changing map arithmetic.
+
+In the manifest's `sldmfcu.dll`, helper constructor `0x3c7a8e60` looks up its
+`su_CArchive*` in `moArchiveHelperObject_c::iMFCtoMOArchiveTable` and puts the
+resulting helper-object pointer at offset zero of its returned wrapper.
+It does not obtain that object through a fixed archive-member displacement.
+The `CArchive*` overload is `0x3c7a8e10`.
+Global getter `0x3c752350` reads the first word of version singleton
+`0x3ce97b90`, returned by `0x3c7522d0`.
+These are static routing rules; the generated candidate's actual version
+selection still needs the parent-owned native observation.
+See [part serialization dispatch](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PartSerializeDispatchUsesArchiveContext.md).
+
+### Shared and concrete fields
+
+`model_fields` initializes an actual preallocated, empty `moPart_c` or
+`moAssembly_c` object from the common model LW/RES wire ownership boundary.
+Its keyword inputs are `node`, `name`, `allocator`, `detail_definitions`,
+`document_units`, `analysis_units`, `self_component` and `relation_graph`.
+It returns that object's field dictionary. The self component is explicitly
+absent or a constructed concrete object whose `owner` must be the same model
+object. Base constructor `0x4c00edb0` initializes `f990` to null; this helper
+does not construct the dependency itself. A supplied self component must be a
+`moUnitComponent_c`; chain components represent instance paths instead.
+The relation graph is explicitly absent or a generated `moRelMgr_c` whose
+owner is that same model. Base constructor `0x4c00edb0` initializes `f9d0`
+to null; a later required manager must come from its real caller.
+
+The common set follows LW method `0x4c22ec80` and RES method `0x4c234150`.
+`part_root` then supplies the part-specific sections `0x4c2309d0` and
+`0x4c2378b0`, including the shared serializer's `PartOnly` branches.
+Thus the dimension-increment arrays remain in part wire construction even
+though their runtime members are initialized by the model constructor.
+No part scalar is assigned to an assembly-specific map at the same offset.
+Static declaration inspection preserved all `132` existing part field owners,
+partitioned into `98` common and `34` part-only fields with no overlap.
+This is source-structure evidence, not a newly executed graph or native
+assembly acceptance. The existing subprocess check exercises `part_root`
+through this shared path when remote CI runs it.
+See [model offset ownership](../../../Documentation/Gotchas/Conversion/Solidworks/Model/ModelOffsetsAreTypeSpecific.md).
+
+The active new-model initializer is distinct from the loading/default path.
+New-model assembly constructor `0x4b67efe0` calls shared `0x4c00d8f0` at
+`0x4b67f037`; new-model part constructor `0x4c19f170` calls it at
+`0x4c19f1c7`. That shared initializer constructs `moRelMgr_c(owner=this)` into
+`f9d0` and `moUnitComponent_c(model=this, filed_owner=this)` into `f990`.
+The unit-component call and assignment are `0x4c00e850/0x4c00e85a`.
+Accordingly, `unit_component` and `relation_manager` support these two proven
+root classes while preserving the actual owner object.
+The active path also calls `moUnitsTable_c(1)` for user units `f9b8`, while
+analysis units `f9c0` initially remain absent.
+The active path also allocates empty `suObList` objects at `f9d8`, `fa48` and
+`fa50`. The typed pointer store does not normalize empty lists to null:
+`sldmfcu` `0x3c8cceb0` and `swccu` `0x31a45ef0` pass the actual pointer to
+`WriteObject`; generic `swccu` `0x31a3a930` emits a null tag only for a null
+pointer. The opposite normalization hypothesis is **refuted**.
+The common RES loader `0x4c234150` explicitly creates an empty list when
+loaded `fa48` or `fa50` is null. Its `f9d8` read and subsequent use are
+null-guarded; the broader semantic equivalence of a missing `f9d8` remains
+**partial**. The shared extraction preserves the existing part wire values
+while keeping active allocations, legal absent input and measured acceptance
+distinct. No oracle result yet validates this fresh graph.
+See [constructor paths](../../../Documentation/Gotchas/Conversion/Solidworks/Model/LoadingConstructorsDoNotDefineFreshGraphs.md).
 
 `part_root` and `part_graph` construct the base part and its principal planes.
 They require generated detail definitions, explicit document and analysis unit
@@ -494,7 +686,7 @@ checks object aliases and rejects runtime data-file reads through Python's audit
 It deliberately keeps both vendor-acceptance flags false.
 Remote run [43675419713](https://github.com/TryUniCAD/Kit/actions/runs/43675419713)
 passed this configuration/definition process boundary at commit `07b9ce403`.
-The expanded principal-plane check and part-root additions await a new remote run.
+Later runs below cover the expanded principal-plane and part-root checks.
 The original suffix-based audit allowed unrecorded reads whose filenames looked
 like code. It does not establish an unqualified zero-runtime-read claim.
 The current harness imports its trusted bootstrap and `ConstructionGuard` first,
@@ -512,7 +704,13 @@ The expanded process check now also constructs the full requested base graph
 from generated style/unit dependencies, serializes Config and Resolved streams
 through one shared archive map, and verifies the environment alias and native
 self-component identity after decoding. It exercises zero/positive owner update
-flags through that file boundary. This expansion awaits its new remote result.
+flags through that file boundary. This expanded subprocess check passed at
+`6c8f92431` in [run 43688828337](https://github.com/TryUniCAD/Kit/actions/runs/43688828337),
+job `132734920405`. The job reported `5 failed, 134 passed, 158 skipped`;
+the model process was among the passing cases. Other signature-fixture,
+assembly-schema and composed-part callers kept the enclosing job red.
+The passing component process does not qualify those failures or establish
+native generated-part acceptance.
 The first strict-audit remote run at `236ccd510` correctly denied a lazy import
 of `encodings/utf_16_le.py` during Unicode string storage. The harness now resolves
 the native string codec names during its recorded initialization phase, before

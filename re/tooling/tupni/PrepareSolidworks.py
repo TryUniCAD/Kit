@@ -14,7 +14,7 @@ def prepare():
     Swapp.sweep()
     with Swapp.Dismisser() as dismisser:
         controller = Swapp.Sw()
-        identity = {"revision": controller.revision, "restarted": True, "dialogs": dismisser.log}
+        identity = {"revision": controller.revision, "restarted": True, "dialogs": dismisser.log, "progress_windows": dismisser.progress}
         try:
             if not controller.revision.startswith(Swapp.EXPECTED_BUILD):
                 raise RuntimeError(f"unexpected oracle revision: {controller.revision}")

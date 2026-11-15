@@ -190,8 +190,8 @@ def body_feature(**values) -> Obj:
 
 
 def unit_component(*, owner: Obj) -> Obj:
-    if not isinstance(owner, Obj) or owner.cls != "moPart_c":
-        raise ArchiveError("fresh unit components currently require a part owner")
+    if not isinstance(owner, Obj) or owner.cls not in ("moPart_c", "moAssembly_c"):
+        raise ArchiveError("fresh unit components require a classified part or assembly owner")
     return Obj("moUnitComponent_c", {"owner": owner, "has_ext": 0})
 
 
@@ -519,6 +519,8 @@ def configuration(
     updated_at: int,
     description: str = "",
 ) -> Obj:
+    if not isinstance(owner, Obj) or owner.cls != "moPart_c":
+        raise ArchiveError("fresh part configurations require their actual part owner")
     if type(local_id) is not int or not 0 <= local_id < 0x7FFFFFFF:
         raise ValueError("configuration ids must be nonnegative signed integers")
     if type(updated_at) is not int or not 0 <= updated_at <= 0xFFFFFFFF:
@@ -563,7 +565,7 @@ def configuration(
         "f6a0": None,
         "f6a8": object_list(),
         "f528": object_list(),
-        "f9a8": 0x7FD,
+        "f9a8": result.f["f2b0"],
         "f96c": 1,
         "f660": None,
         "fa98": object_list(),
@@ -651,8 +653,8 @@ def configuration_manager(
 
 
 def relation_manager(*, owner: Obj) -> Obj:
-    if not isinstance(owner, Obj) or owner.cls != "moPart_c":
-        raise ArchiveError("fresh relation managers currently require a part owner")
+    if not isinstance(owner, Obj) or owner.cls not in ("moPart_c", "moAssembly_c"):
+        raise ArchiveError("fresh relation managers require a classified part or assembly owner")
     return Obj("moRelMgr_c", {
         "owner": owner,
         "f58": object_list(),
@@ -687,23 +689,97 @@ def mark_model_update(*, model: Obj) -> None:
     model.f["f0c"] = (flags & 0xFFFD7FF9) | 1
 
 
-def _part_collections() -> dict:
+def _model_collections() -> dict:
     fields = {name: [] for name in (
         "f168", "f178", "fcd8", "f1310", "fec0", "f1288", "ffe0",
-        "f10b0", "f1108", "f1130", "f1d0", "f1628", "f16e8", "f1640",
+        "f10b0", "f1d0",
     )}
     fields.update({name: 0 for name in (
         "n168", "n180", "ncd8", "n1318", "nec8", "n1290", "nff4",
-        "n10c4", "n1118", "n1140", "n1d8", "n16f8",
+        "n10c4", "n1d8",
     )})
     fields.update({name: object_list() for name in (
         "fc90", "fb08", "f9c8", "fb30", "fba8", "fb58", "fb80",
         "fbf8", "fbd0", "fc20", "fc70", "f240",
     )})
+    fields["fdd0"] = {"n08": 0, "faces": [], "n58": 0, "props": []}
+    return fields
+
+
+def _part_collections() -> dict:
+    fields = {name: [] for name in (
+        "f1108", "f1130", "f1628", "f16e8", "f1640",
+    )}
+    fields.update({name: 0 for name in ("n1118", "n1140", "n16f8")})
     fields.update({
-        "fdd0": {"n08": 0, "faces": [], "n58": 0, "props": []},
         "f938": {"n08": 0, "bodies": [], "n58": 0, "props": []},
         "f1c70": {"n": 0, "items": []},
+    })
+    return fields
+
+
+def model_fields(
+    *,
+    node: Obj,
+    name: str,
+    allocator: PersistentIds,
+    detail_definitions: dict,
+    document_units: Obj,
+    analysis_units: Obj,
+    self_component: Obj | None,
+    relation_graph: Obj | None,
+) -> dict:
+    if not isinstance(node, Obj) or node.cls not in ("moPart_c", "moAssembly_c") or node.f:
+        raise ArchiveError("base model fields require a fresh empty part or assembly record")
+    if not isinstance(detail_definitions, dict) or not detail_definitions:
+        raise ArchiveError("model construction requires generated detail definitions")
+    if any(not isinstance(units, Obj) or units.cls != "moUnitsTable_c" for units in (document_units, analysis_units)):
+        raise ArchiveError("model construction requires explicit native unit-table graphs")
+    if self_component is not None:
+        if not isinstance(self_component, Obj) or self_component.cls != "moUnitComponent_c":
+            raise ArchiveError("fresh model self components must be native unit components")
+        if self_component.f.get("owner") is not node:
+            raise ArchiveError("the native self component must point to its actual model record")
+    if relation_graph is not None and (not isinstance(relation_graph, Obj) or relation_graph.cls != "moRelMgr_c" or relation_graph.f.get("owner") is not node):
+        raise ArchiveError("the relation graph must belong to its actual model record")
+    fields = concept_fields(name=name, allocator=allocator, node=node)
+    fields.update(_model_collections())
+    fields.update({field_name: 0 for field_name in (
+        "fb0", "fb4", "fd30", "has_f7f8", "fef8", "ff18", "ff20", "ff2c",
+        "f160", "ff1c", "shrinkwrap", "defeatured", "fd58", "f1188", "f118c",
+        "f1190", "f1194", "has_f1180", "f280", "f1308", "fd2c",
+        "has_fdb8", "fd48", "ff3c", "f1010", "fb00", "fd54", "has_f1270",
+    )})
+    fields.update({field_name: None for field_name in (
+        "fa70", "f2f8", "f1e0", "f9d8", "fa88", "attach", "fe80",
+        "fa48", "fa90", "fed0", "fe38", "fa50", "f12d0", "f1338",
+    )})
+    fields.update({
+        "f2c": fields["f2c"] | 0x100,
+        "f9b8": document_units,
+        "f9c0": analysis_units,
+        "fae0": detail_definitions,
+        "f990": self_component,
+        "f9d0": relation_graph,
+        "fdb0": Obj("moTransRefPlaneData_c", {"f08": 1, "f0c": 1, "f10": 0xFF00, "f14": 0xFF, "f18": 0x5F, "f1c": 0}),
+        "ff80": 1000.0,
+        "ff88": 1e-8,
+        "fa98": {"kind": 2, "f18": {"n": 0, "items": []}, "f110": -0x55555556, "f114": -0x44444445},
+        "fd50": 1,
+        "f784": bytes(16),
+        "f7a4": bytes(16),
+        "f1300": 101,
+        "fd88": {"f260": 100, "n6c": 0, "atoms": [], "fa8": 0},
+        "fd90": {"f80": 10000, "fe0": 0, "n": 0, "objects": []},
+        "f9f8": [{"o": None} for _ in range(10)],
+        "fce8": 0x32,
+        "fcec": 0x6C,
+        "fd44": 10,
+        "feb0": 199,
+        "feb4": 199,
+        "feb8": 0,
+        "f760": "",
+        "f768": "",
     })
     return fields
 
@@ -717,59 +793,28 @@ def part_root(
     analysis_units: Obj,
     hatch_name: str,
 ) -> Obj:
-    if not isinstance(detail_definitions, dict) or not detail_definitions:
-        raise ArchiveError("part construction requires generated detail definitions")
-    if any(not isinstance(units, Obj) or units.cls != "moUnitsTable_c" for units in (document_units, analysis_units)):
-        raise ArchiveError("part construction requires explicit native unit-table graphs")
     if not isinstance(hatch_name, str) or not hatch_name or "\x00" in hatch_name:
         raise ValueError("crosshatch names must be authored nonempty strings without null characters")
     result = Obj("moPart_c")
-    fields = concept_fields(name=name, allocator=allocator, node=result)
+    fields = model_fields(
+        node=result, name=name, allocator=allocator,
+        detail_definitions=detail_definitions, document_units=document_units,
+        analysis_units=analysis_units, self_component=unit_component(owner=result),
+        relation_graph=relation_manager(owner=result),
+    )
     fields.update(_part_collections())
     fields.update({field_name: 0 for field_name in (
-        "fb0", "fb4", "fd30", "has_f7f8", "fef8", "ff18", "ff20", "ff2c",
-        "f160", "ff1c", "shrinkwrap", "defeatured", "fd58", "f1188", "f118c",
-        "f1190", "f1194", "has_f1180", "f280", "f1308", "f15f0", "f1614",
-        "f1618", "f161c", "fd2c", "has_fdb8", "fd48", "ff3c", "f1010",
-        "f1014", "fb00", "fd54", "has_f1270", "f14f8",
-        "f1428", "f14d8", "f152c", "f1400", "f1698", "f169c", "has_f16b8",
-        "f1638", "f18d4", "f1900", "f1be0",
+        "f15f0", "f1614", "f1618", "f161c", "f1014", "f14f8", "f1428",
+        "f14d8", "f152c", "f1400", "f1698", "f169c", "has_f16b8", "f1638",
+        "f18d4", "f1900", "f1be0",
     )})
-    fields.update({field_name: None for field_name in (
-        "fa70", "f2f8", "f1420", "f1e0", "f9d8", "fa88", "attach", "fe80",
-        "fa48", "fa90", "fed0", "fe38", "fa50", "f12d0", "f1338", "f13f8",
-    )})
+    fields.update({"f1420": None, "f13f8": None})
     fields.update({
-        "f2c": fields["f2c"] | 0x100,
-        "f9b8": document_units,
-        "f9c0": analysis_units,
-        "fae0": detail_definitions,
-        "f990": unit_component(owner=result),
-        "f9d0": relation_manager(owner=result),
-        "fdb0": Obj("moTransRefPlaneData_c", {"f08": 1, "f0c": 1, "f10": 0xFF00, "f14": 0xFF, "f18": 0x5F, "f1c": 0}),
-        "ff80": 1000.0,
-        "ff88": 1e-8,
-        "fa98": {"kind": 2, "f18": {"n": 0, "items": []}, "f110": -0x55555556, "f114": -0x44444445},
-        "fd50": 1,
-        "f784": bytes(16),
-        "f7a4": bytes(16),
-        "f1300": 101,
         "f1418": Obj("gcXhatch_c", {"f08": hatch_name, "f10": 0.0, "f18": 1.0, "f34": 0, "f20": 0, "f24": 1, "f28": -1, "f2c": -1, "f30": 0}),
         "f1588": Obj("uoModelData_c", {"f08": None, "f10": 0}),
-        "fd88": {"f260": 100, "n6c": 0, "atoms": [], "fa8": 0},
-        "fd90": {"f80": 10000, "fe0": 0, "n": 0, "objects": []},
-        "f9f8": [{"o": None} for _ in range(10)],
-        "fce8": 0x32,
-        "fcec": 0x6C,
-        "fd44": 10,
-        "feb0": 199,
-        "feb4": 199,
-        "feb8": 0,
         "f1104": 20,
         "f1128": 20,
         "f18d8": 101,
-        "f760": "",
-        "f768": "",
     })
     return result
 

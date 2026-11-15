@@ -45,6 +45,8 @@ The local inter-component-reference flag is now derived from the native update p
 Static native dataflow also closes local dependency-bit clearing, point-cleanup preservation and the status-to-colour mapping
 The actual solver status remains a required dependency rather than a value inferred from the constructor
 Native serializer keys identify entity `f38` as line type, independently from constraint status `f34` and sketch saved status `f128`
+Further static control flow excludes the separate model-reference stamp increment for the supported local graphs; solver coordinate deltas and resulting statuses still require native observation
+Static native predicates now also establish that the origin's one local point constraint passes the logical-one admission validator; its complete update, solver status and stamp remain unresolved
 The construction ledger now audits the native runtime schemas of 19 class types named by the sketch and dimension builder layer, including the inline-only logical constraint that emits no class header
 The dimensional graph requires the explicit presentation input and completed shared model graph
 They do not change adapter capabilities
@@ -54,7 +56,9 @@ The [leader-selection gotcha](../../../Documentation/Gotchas/Conversion/Solidwor
 The [unit-vector gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/DefaultUnitVectorIsZero.md) records the native zero-vector constructor
 The [entity line-type gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/EntityLineTypeField.md) records the adjacent fields' distinct roles
 The [process-program declaration gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/ProcessProgramDeclarations.md) records the focused-file rule for generated test programs
-The [base-tip gotcha](../../../Documentation/Gotchas/Ci/PullRequestBaseTip.md) records a stale PR base snapshot encountered during integration
+The [runtime-offset owner gotcha](../../Gotchas/Conversion/Solidworks/Profile/SketchAndProfileRuntimeOffsets.md) distinguishes sketch solver fields from equal offsets in the separate profile object
+The [computed-field deletion gotcha](../../Gotchas/Conversion/Solidworks/Profile/ComputedFieldDeletion.md) records why protected mutation errors remain separate from missing-key errors
+The [base-tip gotcha](../../Gotchas/Ci/ProcessChecks/PullRequestBaseTip.md) records a stale PR base snapshot encountered during integration
 
 No local tests or oracle measurements were run
 The Python source passed static AST syntax parsing without imports or execution
@@ -69,6 +73,8 @@ The process stages each own a focused module under `tests/convert/solidworks/res
 Profile gotchas are grouped under `Documentation/Gotchas/Conversion/Solidworks/Profile/` to keep both parent directories within their file limits
 The naming and directory repairs passed at head `ee2eed2e4732e995fb8b0a7b281b8834cdf9a7f6`
 [Native job 132729524301](https://github.com/TryUniCAD/Kit/actions/runs/43687022248/job/132729524301) again passed all six polygon cases; its only failure was the next missing schema in inherited assembly resolved features
+[Native job 132749668250](https://github.com/TryUniCAD/Kit/actions/runs/43693750759/job/132749668250) subsequently reported 158 passes and 158 skips in 56.97 seconds, including assembly round trips, complete fresh-part construction and all six polygon cases
+[Native job 132755253903](https://github.com/TryUniCAD/Kit/actions/runs/43695583315/job/132755253903) reported the same 158 passes and 158 skips in 65.71 seconds on head `263be14d994c0e58aa7e0d92aa7e209454739e87`
 The process declarations now include the mandatory rationale comments authorized for these checks; their code and embedded programs are unchanged
 The component sketch archive uses a seeded external profile owner and does not establish complete part-file acceptance
 Held-out native acceptance, rebuild, body measurements, and dimension edits remain unverified

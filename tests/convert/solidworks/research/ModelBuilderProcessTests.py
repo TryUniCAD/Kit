@@ -75,6 +75,8 @@ def TestFreshGraphs(TmpPath: FilePath) -> None:
     ]
     assert First["configuration_ids"] == [0]
     assert Second["configuration_ids"] == list(range(7))
+    assert First["configuration_versions"] == [19000]
+    assert Second["configuration_versions"] == [19000] * 7
     assert First["next_configuration_id"] == 1
     assert Second["next_configuration_id"] == 7
     for Report in (First, Second):

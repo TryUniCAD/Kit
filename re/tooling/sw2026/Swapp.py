@@ -54,7 +54,7 @@ def process_ids():
     return {int(row[1].replace(",", "")) for row in csv.reader(io.StringIO(result.stdout)) if len(row) >= 2 and row[0].casefold() in names}
 
 
-def _dismiss_once(log, allowed_pids):
+def _dismiss_once(log, allowed_pids, progress):
     found = []
 
     def top(h, _):
@@ -73,7 +73,8 @@ def _dismiss_once(log, allowed_pids):
         def child(h, _):
             c = _cls(h)
             if c == "Button":
-                buttons.append((h, _text(h)))
+                if user32.IsWindowVisible(h) and user32.IsWindowEnabled(h):
+                    buttons.append((h, _text(h)))
             elif c == "Static":
                 t = _text(h)
                 if t:
@@ -81,6 +82,12 @@ def _dismiss_once(log, allowed_pids):
             return True
 
         user32.EnumChildWindows(d, EnumProc(child), 0)
+        stages = [set(("Opening\nComponents", "Loaded\nComponents")), set(("Update\nDrawing", "Updating\nDrawing", "Drawing\nUpdated")), set(("Update\nGraphics", "Generating\nGraphics", "Graphics\nGenerated"))]
+        if not title and len(statics) >= 3 and all(statics[index].replace("\r", "") in stages[index] for index in range(3)):
+            observation = {"kind": "native-load-progress", "dialog": title, "text": statics[:4], "buttons": [text for _, text in buttons], "dismissed": False}
+            if observation not in progress:
+                progress.append(observation)
+            continue
         pick = None
         for pref in ("OK", "&OK", "Close", "&Close", "Yes", "&Yes", "Continue", "Don't Save", "&Don't Save", "No", "&No"):
             for h, t in buttons:
@@ -97,13 +104,14 @@ def _dismiss_once(log, allowed_pids):
 class Dismisser:
     def __init__(self):
         self.log = []
+        self.progress = []
         self.stop = threading.Event()
         self.t = threading.Thread(target=self.run, daemon=True)
 
     def run(self):
         while not self.stop.is_set():
             try:
-                _dismiss_once(self.log, process_ids())
+                _dismiss_once(self.log, process_ids(), self.progress)
             except Exception as error:
                 self.log.append({"error": repr(error)})
                 self.stop.set()

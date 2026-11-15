@@ -1,0 +1,534 @@
+{
+  "status": "candidate open failed and trailing control contaminated by progress watchdog clicks; batch invalid",
+  "artifact": {
+    "head": "71f60bbfa5374ff7dae0cc87fb75eac62af6f821",
+    "run": 43693152389,
+    "job": 132747827486,
+    "id": 14153605978,
+    "digest_reported_by_github": "sha256:e7794a590eafa5a90a59463cbd6de42163ccb93fcceb134b1d1cb079d38cd81f",
+    "constructor_tree_matches_root_head": "97a247bf3f5e8887570b2856da3bc4e47f4549de"
+  },
+  "raw_report_sha256": "d8deb73ca3ee8b958155da2038b70342c46e63962d8cd8148eec7aea06a090b8",
+  "authority": "clean-vendor-inspection",
+  "instrumented": false,
+  "started_at": 1794730606.7135017,
+  "results": [
+    {
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Kit-worktrees\\sw2026\\re\\solidworks\\v2026\\corpus\\ladder\\L1_boss.SLDPRT",
+      "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "revision": "34.5.2",
+      "process_ids": [
+        4740,
+        11204
+      ],
+      "session_diagnostics": [],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "seconds": 56.86,
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "kind": "control_before",
+      "geometry_and_rebuild_healthy": true
+    },
+    {
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Kit-worktrees\\sw2026\\.rescratch\\sw26\\generated\\71f60bbfa\\H3_scalene.SLDPRT",
+      "sha256": "edd138ebf4b9067ce106e947f4c1db988f49366eb697a8aa315af6df806f3b55",
+      "revision": "34.5.2",
+      "process_ids": [
+        5100,
+        10668
+      ],
+      "exception": "com_error(-2147023170, 'The remote procedure call failed.', None, None)",
+      "controller_diagnostics": [
+        {
+          "stage": "close_documents",
+          "error": "AttributeError('SldWorks.Application.34.CloseAllDocuments')"
+        },
+        {
+          "stage": "exit_application",
+          "error": "AttributeError('SldWorks.Application.34.ExitApp')"
+        }
+      ],
+      "dialogs": [],
+      "kind": "candidate",
+      "geometry_and_rebuild_healthy": false
+    },
+    {
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Kit-worktrees\\sw2026\\re\\solidworks\\v2026\\corpus\\ladder\\L1_boss.SLDPRT",
+      "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "revision": "34.5.2",
+      "process_ids": [
+        11560,
+        12128
+      ],
+      "session_diagnostics": [],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "seconds": 17.44,
+      "controller_diagnostics": [],
+      "dialogs": [
+        {
+          "dialog": "",
+          "text": [
+            "Opening\nComponents",
+            "Update\nDrawing",
+            "Update\nGraphics",
+            " "
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Opening\nComponents",
+            "Update\nDrawing",
+            "Update\nGraphics",
+            " "
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Loaded\nComponents",
+            "Updating\nDrawing",
+            "Update\nGraphics",
+            " "
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Loaded\nComponents",
+            "Updating\nDrawing",
+            "Update\nGraphics",
+            " "
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Loaded\nComponents",
+            "Updating\nDrawing",
+            "Update\nGraphics",
+            "Skip Remaining"
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Loaded\nComponents",
+            "Updating\nDrawing",
+            "Update\nGraphics",
+            "Skip Remaining"
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Loaded\nComponents",
+            "Updating\nDrawing",
+            "Update\nGraphics",
+            "Skip Remaining"
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Loaded\nComponents",
+            "Updating\nDrawing",
+            "Update\nGraphics",
+            "Skip Remaining"
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Loaded\nComponents",
+            "Updating\nDrawing",
+            "Update\nGraphics",
+            "Skip Remaining"
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Loaded\nComponents",
+            "Drawing\nUpdated",
+            "Generating\nGraphics",
+            "Skip Remaining"
+          ],
+          "button": "Close"
+        },
+        {
+          "dialog": "",
+          "text": [
+            "Loaded\nComponents",
+            "Drawing\nUpdated",
+            "Graphics\nGenerated",
+            "Skip Remaining"
+          ],
+          "button": "Close"
+        }
+      ],
+      "kind": "control_after",
+      "geometry_and_rebuild_healthy": false
+    }
+  ],
+  "finished_at": 1794730864.868973,
+  "controls_healthy": false,
+  "vendor_acceptance": "incomplete; geometry inspection alone does not prove editing or save/reopen"
+}
