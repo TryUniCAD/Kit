@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace as ReplaceData
 from pathlib import Path as FilePath
 import struct as Struct
 
@@ -11,7 +12,7 @@ from convert.adapters.solidworks.container.Container import (
     SldprtArchive,
     SldprtFormatError,
 )
-from convert.adapters.solidworks.drawing import DrawingData, ReadDrawing
+from convert.adapters.solidworks.drawing import DrawingData, ReadDrawing, WriteDrawing
 
 # tracked drawings prove the reader against real solidworks authored sheets
 KDrawRoot = (
@@ -620,6 +621,40 @@ def TestFail() -> None:
         BlobValue = BuildArchive(StreamValue, Template=SourceBytes)
         with PytestLib.raises(SldprtFormatError):
             _ = ReadDrawing(BlobValue)
+
+
+# the writer must round trip the recovered position and scale records
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteView() -> None:
+    SourcePath = KDrawRoot / "orient-front.SLDDRW"
+    SourceBytes = SourcePath.read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    ViewValue = DataValue.Sheets[0].Views[0]
+    NewView = ReplaceData(ViewValue, PositionX=0.15, PositionY=0.20, ViewScale=3.0)
+    NewData = ReplaceData(
+        DataValue,
+        Sheets=(ReplaceData(DataValue.Sheets[0], Views=(NewView,)),),
+    )
+    BlobValue = WriteDrawing(SourceBytes, NewData)
+    assert BlobValue != SourceBytes
+    BackValue = ReadDrawing(BlobValue, IncludeSheetEdges=True)
+    BackView = BackValue.Sheets[0].Views[0]
+    assert BackView.PositionX == PytestLib.approx(0.15)
+    assert BackView.PositionY == PytestLib.approx(0.20)
+    assert BackView.ViewScale == PytestLib.approx(3.0)
+    assert len(BackView.SheetEdges) == len(ViewValue.SheetEdges)
+
+
+# a view count that does not match the source records must fail closed
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteNo() -> None:
+    SourceBytes = (KDrawRoot / "orient-front.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    EmptyData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=()),)
+    )
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDrawing(SourceBytes, EmptyData)
 
 
 # drawing writes stay rejected until the native grammar is recovered

@@ -217,3 +217,21 @@ view scale is recovered from the twin rather than assumed to equal the 2:1 sheet
 scale. The recovered sheet edges match the typed C# `View.GetPolylines5` edges
 with zero residual after rounding to nine decimals, and the horizontal padding
 stays at 0.004318 m.
+
+### Written view position and scale
+
+`WriteDrawing` rewrote the `orient-front.SLDDRW` view record from
+`(0.11, 0.23, 2.0)` to `(0.15, 0.20, 3.0)` and the four `standard.SLDDRW` views
+to `(0.05, 0.10, 1.5)`, `(0.11, 0.13, 1.5)`, `(0.17, 0.16, 1.5)`, and
+`(0.23, 0.19, 1.5)`. SOLIDWORKS opened both written files and reported the new
+values through `View.GetXform`:
+
+```
+written-front     GetXform=0.15,0.2,3
+written-standard  View1 0.05,0.1,1.5  View2 0.11,0.13,1.5
+                  View3 0.17,0.16,1.5 View4 0.23,0.19,1.5
+```
+
+`View.GetPolylines5` still returned the 75 edge doubles for the written front
+view. The writer is bounded to the recovered position and scale records; it
+retains the source document-level streams and does not change the orientation.

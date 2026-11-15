@@ -88,10 +88,25 @@ geometry still fails closed instead of returning a value that a caller could
 mistake for a complete drawing. Request positions separately with
 `IncludePositions=True` and sheet-space edges with `IncludeSheetEdges=True`.
 
+`WriteDrawing(Source, Data)` rewrites the recovered view position and scale
+records in a source drawing container and returns a new container. It writes the
+`Contents/Definition` view record (`x`, `y`, `0.0`, scale, `1.0`) and the
+`Contents/DisplayLists` primary and twin records. It requires the source view
+count to equal `Data` view count, every view to carry `PositionX`, `PositionY`,
+and `ViewScale`, and every value to be finite and in range; otherwise it raises
+`SldprtFormatError`. It does not generate the document-level streams, does not
+change the view orientation, and does not add or remove views.
+
 ## Limitations
 
-- this is a metadata reader only; `open_document` and `write_document` still
-  reject `.SLDDRW` at `src/convert/adapters/solidworks/container/Format.py`
+- `open_document` and `write_document` still reject `.SLDDRW` at
+  `src/convert/adapters/solidworks/container/Format.py`; `ReadDrawing` and
+  `WriteDrawing` are explicit opt-in functions
+- `WriteDrawing` is a view-record writer, not a from-scratch generator: it
+  requires a source container and retains its document-level streams
+- `WriteDrawing` does not change the view orientation, because the orientation
+  is derived from the model view name (`*Front`, `*Top`, `*Right`,
+  `*Isometric`) and rewriting that name invalidates the model reference
 - view centres, sheet outline bounds, model bounds, model-space edges, view
   orientation, and sheet-space edges are recovered, but hidden-line state,
   dimensions, and annotations are not

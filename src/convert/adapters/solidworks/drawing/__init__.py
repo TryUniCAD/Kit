@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from convert.adapters.solidworks.drawing.Drawing import ReadDrawing
+from convert.adapters.solidworks.drawing.Writer import WriteDrawing
 from convert.adapters.solidworks.drawing.Models import (
     DrawingData,
     DrawingRef,
@@ -20,4 +21,5 @@ __all__ = [
     "ViewOrientation",
     "ViewBounds",
     "ReadDrawing",
+    "WriteDrawing",
 ]
