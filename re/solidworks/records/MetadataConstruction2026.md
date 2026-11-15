@@ -225,3 +225,19 @@ state: “There are two acceptable stopping conditions. The first is success und
 every criterion on this page. The second is the end of the available context.
 Missing grammar is the work. It is not a blocker.” This component PR does not
 narrow those conditions or complete the parent writer goal.
+
+## Native class schema audit
+
+The header's `su_CStringArray` is a concrete archive object with wire schema
+zero. The exact 2026 `swccu.dll` getter `0x31a3de90` returns its native runtime
+descriptor at `0x31a680c8`; descriptor member `+0x0c` contains zero. The image
+SHA-256 is `d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c`.
+`string_array` therefore sets schema zero explicitly. This format constant
+comes from compiled class metadata, not a vendor-saved stream.
+
+The same audit resolved the six concrete metadata `mo*` classes to native
+versionable schema `0x80000001` (wire schema one). `suObList` has schema one,
+with descriptor `0x3ce6f5d0` and getter `0x3c8cd620` in `sldmfcu.dll`.
+The shared object helper's default is not an authority for a class's schema.
+The [schema finding](../../../Documentation/Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md)
+records the preceding live-loader rejection of the separate journal class.
