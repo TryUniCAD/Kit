@@ -469,7 +469,17 @@ marker  = map + 1                    33 = 0x21, 65 = 0x41, 65 = 0x41
 map     = smallest power of two > 5d + 2     32, 64, 64
 ```
 
-so the frame of the object is derived. What is **not** derived is where the `5d` ids land in
+so the frame of the object is derived, and `ExprSection.ExprOccupancyFrame(Dimensions,
+Continuations)` plus `OccupancyMap(Dimensions)` emit it, matching the head and terminator of all
+three parts:
+
+```text
+dim40    d 3  fe 0  map 32  head 10 01 21  end 10 21
+var_two  d 6  fe 3  map 64  head 1f 01 41  end 22 41
+var_d9   d 9  fe 4  map 64  head 2e 01 41  end 32 41
+```
+
+What is **not** derived is where the `5d` ids land in
 the map and where the `fe` bytes go: `var_two` writes `43 44 45 46 47 48 fe 49 fe 4a 4b 4c`
 and `var_d9` writes four `fe` bytes at other positions, so the layout is hash-driven like the
 names lane.

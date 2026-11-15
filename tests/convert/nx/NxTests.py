@@ -19,6 +19,8 @@ from convert.adapters.nx.ExprSection import (
     ExprLane,
     ReadLane,
     ExprOccupancy,
+    ExprOccupancyFrame,
+    OccupancyMap,
     ExprPreamble,
     GroupPair,
     GroupRecord,
@@ -1062,3 +1064,20 @@ def TestNxOccupancy() -> None:
     except ValueError:
         return
     raise AssertionError("occupancy accepted an unmeasured dimension count")
+
+
+# the occupancy frame follows the dimension count and the continuation count
+def TestNxOccFrame() -> None:
+    assert OccupancyMap(3) == 32
+    assert OccupancyMap(6) == 64
+    assert OccupancyMap(9) == 64
+    assert ExprOccupancyFrame(3, 0) == (bytes.fromhex("100121"), bytes.fromhex("1021"))
+    assert ExprOccupancyFrame(6, 3) == (bytes.fromhex("1f0141"), bytes.fromhex("2241"))
+    assert ExprOccupancyFrame(9, 4) == (bytes.fromhex("2e0141"), bytes.fromhex("3241"))
+    assert ExprOccupancy(3)[:3] == bytes.fromhex("100121")
+    assert ExprOccupancy(3)[-2:] == bytes.fromhex("1021")
+    try:
+        _ = ExprOccupancyFrame(0, 0)
+    except ValueError:
+        return
+    raise AssertionError("occupancy frame accepted zero dimensions")
