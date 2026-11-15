@@ -13,6 +13,7 @@ license-files = ["LICENSE", "src/convert/adapters/solidworks/container/OpenSwxLi
 authors = [
     { name = "Odin Glynn-Martin" },
     { name = "Stephen Harcourt" },
+    { name = "James Harcourt" },
 ]
 keywords = [
     "cad",
@@ -162,6 +163,8 @@ reportUnusedVariable = "error"
 exclude-newer = "7 days"
 environments = ["python_full_version >= '3.11.5'"]
 override-dependencies = [
+    "asteval>=1.0.9,<2",
+    "lxml>=6.1.0,<7",
     "click>=8.3.3,<8.5",
     "filelock==4.2.4",
     "mcp==1.30.0",
