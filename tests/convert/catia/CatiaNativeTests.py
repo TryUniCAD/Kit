@@ -6,7 +6,7 @@ from pathlib import Path
 from convert import open_document as OpenDoc
 from convert.adapters import WriteOptions
 from convert.adapters.catia.Adapter import CatiaAdapter, ReadCatia
-from convert.adapters.catia.Container import CfvTwoArchive
+from convert.adapters.catia.Container import CfvTwoArchive, OsmxArchive
 from convert.adapters.catia.NativeBrep import (
     BuildVertices,
     DecodeBrep,
@@ -42,6 +42,9 @@ KRootValue = Path(__file__).parents[3]
 
 # this binding exists because shared behavior needs one stable value
 KCatparts = KRootValue / "re" / "catia" / "examples" / ".CATPart"
+
+# this binding exists because shared behavior needs one stable value
+KParametric = KRootValue / "re" / "catia" / "examples" / "parametric"
 
 # this binding exists because shared behavior needs one stable value
 KQuads = (
@@ -189,6 +192,64 @@ def TestBrepHeur() -> None:
     )
     assert len(Model.faces) == 71
     assert len(Model.surfaces) == 71
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestOsmxParam() -> None:
+    Archive = CfvTwoArchive.from_bytes(
+        (
+            KParametric / "ISO_10642_HEXAGON_SOCKET_COUNTERSUNK_SCREW.CATPart"
+        ).read_bytes()
+    )
+    BestValue = None
+    for Folder in [Archive.outer] + list(Archive.nested):
+        for Stream in Folder.streams:
+            try:
+                DataValue = Archive.stream_bytes(Stream, Folder)
+            except Exception:
+                continue
+            if not DataValue.startswith(b"OSMX"):
+                continue
+            try:
+                Parsed = OsmxArchive.from_bytes(DataValue)
+            except Exception:
+                continue
+            if BestValue is None or len(Parsed.symbols) > len(BestValue.symbols):
+                BestValue = Parsed
+    assert BestValue is not None
+    Values = {Symbol.value for Symbol in BestValue.symbols}
+    assert len(Values) >= 300
+    assert "PRTSketch" in Values
+    assert "Sketch" in Values
+    assert "Constraints" in Values
+    assert "2DLine" in Values
+    assert "2DCircle" in Values
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestOsmxDumb() -> None:
+    Archive = CfvTwoArchive.from_bytes((KCatparts / "Bolt_M5x40.CATPart").read_bytes())
+    BestValue = None
+    for Folder in [Archive.outer] + list(Archive.nested):
+        for Stream in Folder.streams:
+            try:
+                DataValue = Archive.stream_bytes(Stream, Folder)
+            except Exception:
+                continue
+            if not DataValue.startswith(b"OSMX"):
+                continue
+            try:
+                Parsed = OsmxArchive.from_bytes(DataValue)
+            except Exception:
+                continue
+            if BestValue is None or len(Parsed.symbols) > len(BestValue.symbols):
+                BestValue = Parsed
+    assert BestValue is not None
+    Values = {Symbol.value for Symbol in BestValue.symbols}
+    assert "MechanicalPart" in Values
+    assert "_FtrList" in Values
+    assert "Sketch" not in Values
+    assert "Pad" not in Values
 
 
 # this definition exists because focused behavior needs one stable owner

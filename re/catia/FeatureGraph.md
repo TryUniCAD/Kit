@@ -55,6 +55,34 @@ The corpus therefore cannot validate a parametric-history decoder: there is no s
 constraint in it to decode. A parametric decoder needs a corpus of natively modelled parts, which
 must be produced through the vendor API or supplied by the user.
 
+## The vendor install supplies a parametric corpus
+
+The CATIA V5-6R2022 install contains 6979 `CATPart` files under
+`C:\Program Files\Dassault Systemes\B32\win_b64\startup\components` and
+`...\win_b64\reffiles`. 78 of the 79 sampled files carry a modelling vocabulary. Five of them are
+copied into `re/catia/examples/parametric/`:
+
+| file | symbols | feature vocabulary |
+| --- | --- | --- |
+| `ISO_10642_HEXAGON_SOCKET_COUNTERSUNK_SCREW` | 328 | `2DCircle`, `2DLine`, `2DPoint`, `ConstraintDYS`, `Constraints`, `EdgeFillet`, `EdgeFillet_Radius` |
+| `ISO_1207_GRADE_A_SLOTTED_CHEESE_HEAD_SCREW` | 309 | `2DLine`, `2DPoint`, `ConstraintDYS`, `Constraints`, `EdgeFillet`, `FilletType` |
+| `ISO_2010_GRADE_A_COUNTERSUNK_SLOTTED_RAISED_HEAD_SCREW` | 320 | `2DCircle`, `2DLine`, `2DPoint`, `CircPattern_AngularNumber`, `CircPattern_AngularStep` |
+| `ISO_2338_PARALLEL_PIN` | 234 | `2DCircle`, `Chamfer`, `Chamfer_Angle`, `Chamfer_Length1`, `Chamfer_Length2` |
+| `ISO_7089_PLAIN_WASHER_GRADE_A_NORMAL_SERIES` | 238 | `2DCircle`, `Chamfer`, `Chamfer_Angle`, `Chamfer_Length1`, `Chamfer_Length2` |
+
+`re/catia/tooling/Parametric.py` classifies a part as `parametric` when its largest OSMX symbol
+table contains a feature word, and as `dumb` otherwise. It reports 27 dumb and 5 parametric parts
+over `re/catia/examples`.
+
+## The OSMX symbol table has an extended length
+
+The symbol table is `|\x02`, a u32 section length, then a sequence of symbols. A symbol is a length
+byte followed by `length - 1` ASCII bytes. A length of zero means the next four bytes are a
+little-endian u32 length and the value is that many bytes. The extended form carries the design-table
+text, which contains newlines, so the printable check must allow `\t`, `\n`, and `\r`. The
+`ISO_10642` symbol table has 328 symbols and ends exactly at the section end; the earlier parser
+rejected it because it treated the zero length as a terminator and rejected the newline.
+
 ## Evidence
 
 - `src/convert/adapters/catia/Container.py` parses the OSMX symbol table.

@@ -169,7 +169,7 @@ def ParseOsmx(ClassType: type[OsmxArchive], Source: bytes | bytearray) -> OsmxAr
     if len(DataValue) < 104 or not DataValue.startswith(KOsmxMagic):
         raise OsmxFormatError("not an OSMX stream")
     SymbolTableOffset = Struct.unpack_from("<I", DataValue, 100)[0]
-    if SymbolTableOffset < 104 or SymbolTableOffset + 8 > len(DataValue):
+    if SymbolTableOffset < 104 or SymbolTableOffset + 6 > len(DataValue):
         raise OsmxFormatError("OSMX symbol table offset is outside the stream")
     if DataValue[SymbolTableOffset : SymbolTableOffset + 2] != b"|\x02":
         raise OsmxFormatError("OSMX symbol table marker is missing")
@@ -712,6 +712,25 @@ def ValidateClass(NameValue: str) -> None:
 
 
 # this definition exists because focused behavior needs one stable owner
+def OsmxSymbolAt(DataValue: bytes, Cursor: int) -> tuple[int, int] | None:
+    if Cursor >= len(DataValue):
+        return None
+    StoredLength = DataValue[Cursor]
+    if StoredLength == 0:
+        if Cursor + 5 > len(DataValue):
+            return None
+        ValueLength = int.from_bytes(DataValue[Cursor + 1 : Cursor + 5], "little")
+        ValueOffset = Cursor + 5
+    else:
+        ValueLength = StoredLength - 1
+        ValueOffset = Cursor + 1
+    ValueEnd = ValueOffset + ValueLength
+    if ValueLength < 0 or ValueEnd > len(DataValue):
+        return None
+    return (ValueOffset, ValueEnd)
+
+
+# this definition exists because focused behavior needs one stable owner
 def OsmxSymbolA(
     DataValue: bytes, SymbolTableOffset: int
 ) -> tuple[tuple[tuple[int, int], ...], bool]:
@@ -725,25 +744,22 @@ def OsmxSymbolA(
         SymbolBytes = 0
         Valid = True
         while Cursor < len(DataValue):
-            StoredLength = DataValue[Cursor]
-            ValueOffset = Cursor + 1
-            ValueLength = StoredLength - 1
-            ValueEnd = ValueOffset + ValueLength
+            SpanValue = OsmxSymbolAt(DataValue, Cursor)
+            if SpanValue is None:
+                Valid = False
+                break
+            ValueOffset, ValueEnd = SpanValue
+            ValueLength = ValueEnd - ValueOffset
             SymbolCount += 1
             SymbolBytes += ValueLength
             if SymbolCount > KMaxOsmxSymbols or SymbolBytes > KMaxOsmxSymbolBytes:
                 LimitExceeded = True
                 Valid = False
                 break
-            if (
-                StoredLength == 0
-                or ValueEnd > len(DataValue)
-                or any(
-                    (
-                        DataValue[Index] < 32 or DataValue[Index] > 126
-                        for Index in range(ValueOffset, ValueEnd)
-                    )
-                )
+            if any(
+                (DataValue[Index] < 32 and DataValue[Index] not in (9, 10, 13))
+                or DataValue[Index] > 126
+                for Index in range(ValueOffset, ValueEnd)
             ):
                 Valid = False
                 break
@@ -760,9 +776,10 @@ def DecodeOsmx(
     Cursor = SymbolDataOffset
     Symbols: list[OsmxSymbol] = []
     for Index in range(SymbolCount):
-        StoredLength = DataValue[Cursor]
-        ValueOffset = Cursor + 1
-        ValueEnd = ValueOffset + StoredLength - 1
+        SpanValue = OsmxSymbolAt(DataValue, Cursor)
+        if SpanValue is None:
+            raise OsmxFormatError("OSMX symbol table decode is incomplete")
+        ValueOffset, ValueEnd = SpanValue
         Symbols.append(
             OsmxSymbol(
                 Index, ValueOffset, DataValue[ValueOffset:ValueEnd].decode("ascii")

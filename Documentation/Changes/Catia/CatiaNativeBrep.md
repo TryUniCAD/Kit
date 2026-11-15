@@ -243,10 +243,18 @@ result = CatiaAdapter().write(
   and six vertices, and zero validation errors.
 - `tests/convert/catia/CatiaNativeTests.py` covers the corpus reader, the box writer round trip, the
   cylinder writer round trip, the cone writer round trip, and the two-loop writer round trip.
+- The OSMX symbol table reader now handles the extended length form (a zero length byte followed by
+  a little-endian u32 length) and allows `\t`, `\n`, and `\r` in symbol values. The 27 corpus parts
+  still decode with zero symbol-table failures, and the five parametric sample parts in
+  `re/catia/examples/parametric/` decode 234 to 328 symbols each.
+- `re/catia/tooling/Parametric.py` classifies 27 corpus parts as `dumb` and the five sample parts as
+  `parametric`, and reports the feature vocabulary (`2DLine`, `2DCircle`, `2DPoint`, `Constraints`,
+  `ConstraintDYS`, `EdgeFillet`, `Chamfer`, `CircPattern`, and their parameter names).
 
 ## Related information
 
 - [CATIA adapter](../Reference/Adapters/Catia.md)
 - [CATIA B-rep findings](../../re/catia/Brep.md)
+- [CATIA feature graph findings](../../re/catia/FeatureGraph.md)
 - [CATIA tessellation findings](../../re/catia/Tessellation.md)
 - [CATIA measurements](../../re/catia/Measurements.md)
