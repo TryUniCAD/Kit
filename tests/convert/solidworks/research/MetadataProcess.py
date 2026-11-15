@@ -1,31 +1,29 @@
 from __future__ import annotations
 
-from builtins import open as OpenFile
+from builtins import getattr as GetAttr, open as OpenFile
 from codecs import lookup as FindCodec
 from hashlib import sha256 as HashBytes
+from importlib import import_module as ImportModule
 from json import dumps as DumpJson, loads as LoadJson
 from pathlib import Path as FilePath
 from sys import addaudithook as AddAuditHook, argv as ArgValues, path as ImportPaths
 from sys import stdin as InputStream
-from typing import Any
+from typing import cast as CastValue
 from xml.etree.ElementTree import fromstring as ParseXml
 
 KRepoRoot = FilePath(ArgValues[1])
 ImportPaths.insert(0, str(KRepoRoot / "re" / "tooling" / "sw2026" / "serial"))
 ImportPaths.insert(0, str(KRepoRoot / "re" / "tooling" / "sw2026"))
 
-from Classes import registry as MakeRegistry
-from Streams import load_rooted as LoadRooted, store_rooted as StoreRooted
-from builders.Metadata import biography as MakeBiography, header as MakeHeader
-from builders.Metadata import history as MakeHistory, keywords as MakeKeywords
-from builders.Metadata import streams as MakeStreams
-
-KRegistry = MakeRegistry()
-KRequest = LoadJson(InputStream.read())
+KMetadata = ImportModule("builders.Metadata")
+KLoadRooted = ImportModule("Streams").load_rooted
+KStoreRooted = ImportModule("Streams").store_rooted
+KRegistry = ImportModule("Classes").registry()
+KRequest = CastValue(list[dict[str, dict[str, object]]], LoadJson(InputStream.read()))
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
 
-def DenyFiles(EventName: str, ArgsValue: tuple[Any, ...]) -> None:
+def DenyFiles(EventName: str, ArgsValue: tuple[object, ...]) -> None:
     if EventName in ("open", "os.listdir", "os.scandir", "subprocess.Popen"):
         raise PermissionError("metadata construction cannot access runtime files")
 
@@ -33,37 +31,40 @@ def DenyFiles(EventName: str, ArgsValue: tuple[Any, ...]) -> None:
 AddAuditHook(DenyFiles)
 
 
-def BuildStreams(InputData: dict[str, Any]) -> dict[str, bytes]:
-    return MakeStreams(
-        registry=KRegistry,
-        header2=MakeHeader(**InputData["header2"]),
-        model_headers={
-            int(Index): MakeHeader(**Values)
-            for Index, Values in InputData["model_headers"].items()
-        },
-        biography_record=MakeBiography(),
-        history_record=MakeHistory(**InputData["history"]),
-        keywords_data=MakeKeywords(**InputData["keywords"]),
+def BuildStreams(InputData: dict[str, dict[str, object]]) -> dict[str, bytes]:
+    return CastValue(
+        dict[str, bytes],
+        KMetadata.streams(
+            registry=KRegistry,
+            header2=KMetadata.header(**InputData["header2"]),
+            model_headers={
+                int(Index): KMetadata.header(**CastValue(dict[str, object], Values))
+                for Index, Values in InputData["model_headers"].items()
+            },
+            biography_record=KMetadata.biography(),
+            history_record=KMetadata.history(**InputData["history"]),
+            keywords_data=KMetadata.keywords(**InputData["keywords"]),
+        ),
     )
 
 
-def DecodeStreams(StreamData: dict[str, bytes]) -> dict[str, Any]:
-    Records = {}
+def DecodeStreams(StreamData: dict[str, bytes]) -> dict[str, object]:
+    Records: dict[str, object] = {}
     for StreamName, BlobValue in StreamData.items():
         if StreamName == "swXmlContents/KeyWords":
             continue
-        DocValue, Archive = LoadRooted(BlobValue, KRegistry, 1, 19000)
+        DocValue, Archive = KLoadRooted(BlobValue, KRegistry, 1, 19000)
         assert Archive.left() == 0 and not DocValue.tail
         assert len(DocValue.roots) == 1
-        assert StoreRooted(DocValue, KRegistry, 19000) == BlobValue
+        assert KStoreRooted(DocValue, KRegistry, 19000) == BlobValue
         Records[StreamName] = DocValue.roots[0]
     return Records
 
 
-def InspectResult(StreamData: dict[str, bytes]) -> dict[str, Any]:
+def InspectResult(StreamData: dict[str, bytes]) -> dict[str, object]:
     Records = DecodeStreams(StreamData)
-    Header = Records["Header2"].f
-    History = Records["_MO_VERSION_19000/History"].f
+    Header = GetAttr(Records["Header2"], "f")
+    History = GetAttr(Records["_MO_VERSION_19000/History"], "f")
     XmlRoot = ParseXml(StreamData["swXmlContents/KeyWords"][1:])
     return {
         "sizes": {
@@ -78,11 +79,11 @@ def InspectResult(StreamData: dict[str, bytes]) -> dict[str, Any]:
         "users": [Entry["s"] for Entry in Header["f10"].f["items"]],
         "log_ids": [Entry["o"].f["f48"] for Entry in Header["f20"].f["items"]],
         "models": {
-            NameValue: Record.f["fec"]
+            NameValue: GetAttr(Record, "f")["fec"]
             for NameValue, Record in Records.items()
             if NameValue.startswith("Contents/")
         },
-        "biography_count": Records["_MO_VERSION_19000/Biography"].f["n"],
+        "biography_count": GetAttr(Records["_MO_VERSION_19000/Biography"], "f")["n"],
         "history_codes": [
             [Entry["st"]["f08"] for Entry in State["st"]["f38"].f["states"]]
             for State in History["states"]
@@ -109,13 +110,14 @@ def InspectResult(StreamData: dict[str, bytes]) -> dict[str, Any]:
     }
 
 
-def ProcessInput(InputData: dict[str, Any]) -> dict[str, Any]:
+def ProcessInput(InputData: dict[str, dict[str, object]]) -> dict[str, object]:
+    Result: dict[str, object]
     try:
         Result = InspectResult(BuildStreams(InputData))
     except ValueError as ErrorInfo:
         Result = {"error": str(ErrorInfo)}
     try:
-        OpenFile("/metadata-donor-input.SLDPRT", "rb")
+        _ = OpenFile("/metadata-donor-input.SLDPRT", "rb")
     except PermissionError:
         Result["read_blocked"] = True
     return Result
