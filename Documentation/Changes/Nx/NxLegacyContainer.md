@@ -451,6 +451,26 @@ A non-greedy scan with the v8/v9 shape finds 682 entries in `flange.prt` section
 `vise_screw.prt` section 0, against 273 in `wave_parent.prt` section 0, so the name table is a
 version-dependent structure and the v7 count-plus-entry-list grammar does not carry over unchanged.
 
+## The v8 and v9 value record is a typed record, not a count plus entry list
+
+The bytes after the name-table flag are not the v7 count-plus-entry-list. The first two bytes are a
+type code that is constant per resource kind, and they are far larger than the record:
+
+```text
+flange       v9  colour entries  216 of 217 start 80 a4   record 5 to 8 bytes
+vise_screw   v8  colour entries  201 of 202 start 80 83   record 22 to 26 bytes
+```
+
+`80 a4` is `0xa480` = 42112 and `80 83` is `0x8380` = 33664 as a little-endian word, so neither can
+be a count for a record of 5 to 26 bytes. The record length also varies without a fixed entry size:
+the flange colour records are `80 a4 01 01 01` (Background), `80 a4 01 01 50 09 99 9a` (White) and
+`80 a4 50 09 99 9a 01 01` (Yellow), so the same type code carries a different number of bytes and the
+fields are not a fixed-size entry list.
+
+The type code is version-specific: the same colour kind is `80 a4` in `flange.prt` (v9) and `80 83` in
+`vise_screw.prt` (v8), so the value record is a versioned typed record and the v7 count-plus-entry-list
+grammar does not apply to it. The internal grammar after the two-byte type code is not yet decoded.
+
 ## The entry size is not the class's attribute count, layout size or schema flag
 
 The two records whose entry size is known name six classes, and the class data does not separate
