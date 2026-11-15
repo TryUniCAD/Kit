@@ -242,3 +242,10 @@ retains the source document-level streams and does not change the orientation.
 and renamed the `Data` view to `My View`. SOLIDWORKS opened the written file and
 reported `GetXform=-0.05,-0.02,1.5`, so a view outside the sheet rectangle is
 accepted and the record is matched by the source position rather than the name.
+
+### Written origin position and reordered data
+
+`WriteDrawing` rewrote the `orient-front.SLDDRW` view to `(0.0, 0.0, 1.5)` and
+SOLIDWORKS reported `GetXform=0,0,1.5`. Reversing the `standard.SLDDRW` view
+tuple before writing produced the same per-view positions as the natural order,
+because views are bound to the source by name.

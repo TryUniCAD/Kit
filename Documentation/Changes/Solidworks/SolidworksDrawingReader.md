@@ -93,8 +93,10 @@ records in a source drawing container and returns a new container. It writes the
 `Contents/Definition` view record (`x`, `y`, `0.0`, scale, `1.0`) and the
 `Contents/DisplayLists` primary and twin records, and shifts the sheet outline by
 the position delta. Records are matched to views by the source view position, so
-a renamed view still receives its own record. Negative positions are accepted
-because a view can sit outside the sheet rectangle. It requires the source view
+a renamed view still receives its own record. Views are bound to the source by
+name, so a reordered `Data` value still edits its own view. Negative and origin
+positions are accepted because a view can sit outside or at the corner of the
+sheet rectangle. It requires the source view
 count to equal `Data` view count, every view to carry `PositionX`, `PositionY`,
 and `ViewScale`, and every value to be finite and inside the reader bounds;
 otherwise it raises `SldprtFormatError`. It does not generate the document-level

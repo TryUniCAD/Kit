@@ -3,7 +3,6 @@ from __future__ import annotations
 from collections.abc import Sequence
 import math as MathValue
 import struct as Struct
-from typing import Protocol
 
 from convert.adapters.solidworks.container.Container import (
     BuildSldprt,
@@ -27,22 +26,14 @@ from convert.adapters.solidworks.drawing.WriterRecords import (
     DefinitionViews,
     DisplayView,
     DisplayViews,
+    PlacedRecord,
 )
-
-
-# both record kinds share the position fields the matcher needs
-class PositionedRecord(Protocol):
-    @property
-    def PositionX(self) -> float: ...
-
-    @property
-    def PositionY(self) -> float: ...
 
 
 # the source position is the only stable key when a view has been renamed
 def MatchRecordMut(
     SourceView: DrawingView,
-    Records: Sequence[PositionedRecord],
+    Records: Sequence[PlacedRecord],
     UsedIndices: set[int],
 ) -> int:
     if SourceView.PositionX is None or SourceView.PositionY is None:
@@ -58,6 +49,29 @@ def MatchRecordMut(
             UsedIndices.add(Index)
             return Index
     raise SldprtFormatError("source view has no matching record")
+
+
+# the name is the stable key so a reordered data value still edits its own view
+def BindViews(
+    SourceViews: tuple[DrawingView, ...], DataViews: tuple[DrawingView, ...]
+) -> tuple[tuple[DrawingView, DrawingView], ...]:
+    SourceByName = {ViewValue.Name: ViewValue for ViewValue in SourceViews}
+    Matched: dict[str, DrawingView] = {}
+    UnmatchedData: list[DrawingView] = []
+    for DataView in DataViews:
+        SourceView = SourceByName.get(DataView.Name)
+        if SourceView is not None and SourceView.Name not in Matched:
+            Matched[SourceView.Name] = DataView
+        else:
+            UnmatchedData.append(DataView)
+    UnmatchedSource = [
+        ViewValue for ViewValue in SourceViews if ViewValue.Name not in Matched
+    ]
+    if len(UnmatchedData) != len(UnmatchedSource):
+        raise SldprtFormatError("drawing view names do not match the source")
+    for SourceView, DataView in zip(UnmatchedSource, UnmatchedData, strict=True):
+        Matched[SourceView.Name] = DataView
+    return tuple((ViewValue, Matched[ViewValue.Name]) for ViewValue in SourceViews)
 
 
 # one view rewrite keeps the definition and display records in step
@@ -124,8 +138,8 @@ def WriteDrawing(Source: bytes, DataValue: DrawingData) -> bytes:
     )
     if len(SourceViews) != len(DataViews):
         raise SldprtFormatError("drawing view count does not match the source")
-    DefinitionRecords = DefinitionViews(Definition)
     DisplayRecords = DisplayViews(Display)
+    DefinitionRecords = DefinitionViews(Definition, DisplayRecords)
     if len(DefinitionRecords) != len(DataViews) or len(DisplayRecords) != len(
         DataViews
     ):
@@ -134,7 +148,7 @@ def WriteDrawing(Source: bytes, DataValue: DrawingData) -> bytes:
     NewDisplay = bytearray(Display)
     UsedDefinition: set[int] = set()
     UsedDisplay: set[int] = set()
-    for SourceView, DataView in zip(SourceViews, DataViews, strict=True):
+    for SourceView, DataView in BindViews(SourceViews, DataViews):
         DefinitionIndex = MatchRecordMut(SourceView, DefinitionRecords, UsedDefinition)
         DisplayIndex = MatchRecordMut(SourceView, DisplayRecords, UsedDisplay)
         RewriteViewMut(

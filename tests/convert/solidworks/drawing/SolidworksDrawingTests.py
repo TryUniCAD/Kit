@@ -676,6 +676,18 @@ def TestWriteOrder() -> None:
     assert Actual["Drawing View1"] == PytestLib.approx(0.17)
     assert Actual["Drawing View2"] == PytestLib.approx(0.05)
     assert Actual["Drawing View3"] == PytestLib.approx(0.11)
+    Reordered = ReplaceData(
+        DataValue,
+        Sheets=(ReplaceData(DataValue.Sheets[0], Views=tuple(reversed(NewViews))),),
+    )
+    ReorderedValue = ReadDrawing(
+        WriteDrawing(SourceBytes, Reordered), IncludeSheetEdges=True
+    )
+    ReorderedActual = {
+        ViewValue.Name: ViewValue.PositionX
+        for ViewValue in ReorderedValue.Sheets[0].Views
+    }
+    assert ReorderedActual == Actual
 
 
 # a renamed view must still receive the placement of its source record
@@ -695,6 +707,16 @@ def TestWriteName() -> None:
     assert BackView.PositionX == PytestLib.approx(-0.05)
     assert BackView.PositionY == PytestLib.approx(-0.02)
     assert BackView.ViewScale == PytestLib.approx(1.5)
+    OriginView = ReplaceData(ViewValue, PositionX=0.0, PositionY=0.0, ViewScale=1.5)
+    OriginData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=(OriginView,)),)
+    )
+    OriginValue = ReadDrawing(
+        WriteDrawing(SourceBytes, OriginData), IncludeSheetEdges=True
+    )
+    OriginBack = OriginValue.Sheets[0].Views[0]
+    assert OriginBack.PositionX == PytestLib.approx(0.0)
+    assert OriginBack.PositionY == PytestLib.approx(0.0)
 
 
 # a view count that does not match the source records must fail closed
