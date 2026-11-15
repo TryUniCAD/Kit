@@ -649,9 +649,18 @@ Two limits were measured and are worth keeping:
   form only when the bytes up to a nearby `00` are digits or signs, and the control and ladder reads are
   unchanged (`4` features; `7` features, `8` parameters, `6` faces, `12` edges, one solid, volume
   `18482541.490319017`).
-- **The silent fallback stays.** Making it raise was tried and reverted: it surfaced two further unknown
-  lanes in the feature section (`0xf5`, `0x57`) and the ladder read `0` features instead of `7`. A loud raise
-  is only safe once those are decoded.
+- **The silent fallback stays, and the reason is broader than the feature section.** Making it raise was
+  tried: `25` of `58` ladder rows raise, including the three the adapter reads — `VisibGeom`
+  (`0x59` at `612`), `AllFeatur` (`0x57` at `6347`) and `FeatDefs` (`0x00` at `921`) — and with the raise
+  enabled the ladder reads `0` features instead of `7`.
+  The lanes are a symptom, not the cause: near `6347` the bytes are
+  `e3 52 80 cb 00 e4 e3 57 80 c8 07 00 e3 59 …`, so `52` was taken as a 9-byte double and swallowed
+  `e3 57 80 c8`, while `52`/`57`/`59`/`5b`/`5d` are object ids in an id-table. Enabling the raise needs the
+  upstream alignment fixed first.
+- **Two sentinel lanes were tried and dropped.** `0xf6` (null) and `0xf5` (negated integer) inside a double
+  lane changed no measurement: with or without them the ladder's `AllFeatur` is `1007` nodes at
+  `7838/7838`, and `SolidPersistTable`/`SolidPrimdata`/`VisibGeom` parse to `357`/`30`/`2` nodes. Only the
+  `2f` decimal string mattered, so only it stayed.
 
 Re-emitting these rows byte-identically is not the goal either — a parsed vendor row re-emitted is a recorded
 payload replay, which the no-donor standard forbids in `src/`.

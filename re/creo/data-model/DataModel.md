@@ -333,10 +333,29 @@ therefore only takes the decimal form when the bytes up to a nearby `00` are all
 back to the previous behaviour otherwise. With that guard the control still reads `4` features and the ladder
 still reads `7` features, `8` parameters, `6` faces, `12` edges, one solid and volume `18482541.490319017`.
 
-**The silent fallback is still the right shape.** Making it raise was tried and reverted: it immediately
-surfaced two further unknown lanes in the feature section (`0xf5` and `0x57` at `4319` and `6347`), and the
-ladder read `0` features instead of `7` while they remained undecoded. A loud raise is only safe once those
-lanes are known, so the fallback stays lenient and this page records what it hides.
+**The silent fallback cannot yet be made loud.** Making it raise was tried, and the failures are wider than
+the feature section:
+
+```text
+ladder1.prt.2: 33 rows parse, 25 raise
+  VisibGeom   -> Creo double lane 0x59 at 612 is not decodable
+  AllFeatur   -> Creo double lane 0x57 at 6347 is not decodable
+  FeatDefs    -> Creo double lane 0x00 at 921 is not decodable
+```
+
+Those three are exactly the sections the adapter reads, and with the raise enabled the ladder reads `0`
+features instead of `7`. Across the whole empty control `20` of `56` rows raise.
+
+The lanes themselves are not the obstacle. Inspecting the survivors shows the parser has already slipped
+before the raise fires: around offset `6347` the bytes are
+`e3 52 80 cb 00 e4 e3 57 80 c8 07 00 e3 59 80 c8 06 00 …`, where `52` was taken as a full 9-byte double and
+swallowed `e3 57 80 c8`, and the values `52`, `57`, `59`, `5b`, `5d` are object ids in an id-table, not
+doubles. So the raise is pointing at an alignment error upstream, not at a missing double lane.
+
+Two sentinel lanes were tried and are **not** in the code because neither changed any measurement:
+`0xf6` (null) and `0xf5` (negated integer) inside a double lane. With and without them, the ladder's
+`AllFeatur` parses to `1007` nodes at `7838/7838`, and `SolidPersistTable`, `SolidPrimdata` and `VisibGeom`
+parse identically (`357`, `30` and `2` nodes). The only lane that mattered was the `2f` decimal string.
 
 **Re-emitting them byte-identically is not the goal anyway.** A parsed vendor row re-emitted is a recorded
 payload replay, which the no-donor standard forbids in `src/`. These rows have to be generated, so the
