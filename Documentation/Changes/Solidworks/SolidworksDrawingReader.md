@@ -88,6 +88,12 @@ geometry still fails closed instead of returning a value that a caller could
 mistake for a complete drawing. Request positions separately with
 `IncludePositions=True` and sheet-space edges with `IncludeSheetEdges=True`.
 
+`DefinitionGrammar` parses and serializes the `Contents/Definition` feature tree
+and model reference byte-exactly. The feature tree is a sequence of name, stamp,
+action, and id records followed by a tail record. The model reference is a
+`moExtObjectList_c` with one `moExtObject_c` and one `moCStringHandle_c`. The
+units table, sheet, view, and line style objects are not yet generated.
+
 `WriteDrawing(Source, Data)` rewrites the recovered view position and scale
 records in a source drawing container and returns a new container. It writes the
 `Contents/Definition` view record (`x`, `y`, `0.0`, scale, `1.0`) and the

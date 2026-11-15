@@ -249,3 +249,11 @@ accepted and the record is matched by the source position rather than the name.
 SOLIDWORKS reported `GetXform=0,0,1.5`. Reversing the `standard.SLDDRW` view
 tuple before writing produced the same per-view positions as the natural order,
 because views are bound to the source by name.
+
+### Definition feature tree and model reference
+
+`DefinitionGrammar` parsed and re-serialized the `Contents/Definition` feature
+tree and model reference byte-exactly for all ten tracked drawings. The feature
+tree holds 14 to 38 records; the model reference names `poly5a`, `poly5b`, or
+`poly5deep`. `renamed-ref.SLDDRW` replaced the model reference name with
+`poly5x` and SOLIDWORKS opened it with the same view position.
