@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 assembly archive grammar
 
-Target-application acceptance is unproven. This work extends the research source-document codec; it does not construct a fresh assembly or establish vendor loadability, rebuild correctness, or mate editability. Remote byte-identity verification is pending for 14 load-critical streams across two training assemblies.
+Target-application acceptance is unproven. This work extends the research source-document codec; it does not construct a fresh assembly or establish vendor loadability, rebuild correctness, or mate editability. The first remote byte-identity run passed 10 of 14 load-critical streams across two training assemblies; CMgr remains misaligned and prevents resolved-feature parsing.
 
 ## Authority and inputs
 
@@ -82,6 +82,33 @@ The serializer map identifies `0x4c221a20` as `moConfiguration_c`/`moDeformConfi
 
 The final config-object list uses the native add/remove condition sequence: OR `0x200` before the embedded list, then clear `0x200` afterward. It does not restore a saved prior bitmask. The schema pins version `19000` explicitly, so changing the DSL's default version cannot silently broaden this recovered layout.
 
+Exported `sldmfcu.dll` accessors independently bind these `moConfig_c` members. Each address below is a static read of the named member, not an observed native execution. The source codec preserves them; a future builder must supply authored settings or derive dependent state and validate the still-unrecovered enum domains.
+
+| Member    | Native accessor or predicate                                                            | Address                    |
+| --------- | --------------------------------------------------------------------------------------- | -------------------------- |
+| `f08`     | `getAction`, `moConfigAction_e`                                                         | `0x3c7553e0`               |
+| `f0c`     | `getExpAction`                                                                          | `0x3c765df0`               |
+| `f10`     | `getVisibility` returns 1 exactly when `f10 != 0` and runtime member `f24 == 0`         | `0x3c7c6800`               |
+| `f14`     | `excludeFromBOM` reads the member; `setExcludeFromBOM` directly stores its i32 argument | `0x3c765e60`, `0x3c765fb0` |
+| `f18`     | `getSuppressionState`; raw value 3 maps to 0 when its boolean argument is true          | `0x3c7c67f0`               |
+| `f28`     | `getAutoSuppressed`                                                                     | `0x3c757f20`               |
+| `f20`     | `getSolvingOption`, `moConfigSolvingOption_e`                                           | `0x3c74f9b0`               |
+| `f34`     | `getSaveAssemblyAsPartOption`, `moASMSLDPRTCompPref_e`                                  | `0x3c759fd0`               |
+| `f38`     | `getDisplayMode`, `displayModeType`                                                     | `0x3c755370`               |
+| `f3c`     | `getHlrDisplayQuality`, `hlrDisplayQualityType`                                         | `0x3c755380`               |
+| `f40`     | `getEdgesInShadedMode`                                                                  | `0x3c7512a0`               |
+| `f48/f50` | `getDisplayState` passes the embedded `visStateNameId_c` at `+0x48` to its copy helper  | `0x3c7c67a0`               |
+| `f58`     | `getHiddeninFMTree`                                                                     | `0x3c7553d0`               |
+| `f5c`     | `getIsSuppByCompPat`                                                                    | `0x3c7553b0`               |
+| `f60`     | `getIsVisSetByCompPat`                                                                  | `0x3c755390`               |
+| `f64`     | `getIsAZone` tests equality with 1; `isAZoneFlagSet` tests inequality with -1           | `0x3c7c67c0`, `0x3c7c6820` |
+| `f68`     | `getTLTransparency`                                                                     | `0x3c76cf30`               |
+| `f6c`     | `isFlexiblePartComp`                                                                    | `0x3c757ff0`               |
+| `f70`     | `getUseMassPropertyFromRigidState`                                                      | `0x3c757ec0`               |
+| `f74`     | `getHideForSpeedPakAtTopLevel`, u8                                                      | `0x3c7c67b0`               |
+
+Dependent-state formulas and enum domains remain unresolved. Runtime-only members such as `f24`, `f30`, `f78`, and `f7c` are not added to the archive merely because an accessor exposes them.
+
 ## Component and mate records
 
 `moReference_c` at `0x4b66f340` calls the shared feature serializer, then serializes these 2026 fields in order:
@@ -139,3 +166,11 @@ The new process-boundary test invokes the existing archive command in a subproce
 Local checks are restricted to AST parsing and static formatting/lint. No local serializer invocation, imports, tests, fixture parsing, or CAD automation were executed. Remote CI result and exact reviewed head will be recorded after execution.
 
 Remaining work includes nonzero obsolete mate-manager records, additional mate/assembly subclasses, condition-specific callbacks, fresh assembly builders, held-out layouts, and controlled target-application acceptance. Missing grammar remains active work in the parent goal.
+
+## First remote result
+
+[Native job 132720808853](https://github.com/TryUniCAD/Kit/actions/runs/43684101116/job/132720808853) ran PR 129 head `5dcd802279d5cb341bcb72296d250f59ac3a8759` using synthetic merge `d95c3fd` over parent `8e44d0eb5129e8ddffce92c49e59740c342d3f3a`. The whole smoke step reported 1 failed, 138 passed, and 158 skipped in 60.07 seconds.
+
+Both assembly Config-0 streams round-tripped exactly with no tail: A0 contained 24,828 decoded bytes and map count 103; A1 contained 25,338 bytes and map count 108. Both ModelHeader, Definition, Biography, and History streams also passed. Both CMgr streams failed with `bad class ref 32512 at 297`. Both resolved-feature checks stopped while deriving context from CMgr, before their own grammar was exercised. Total: `10/14 streams round-trip with no tail across 2 files`. This is an intermediate codec result, not target acceptance.
+
+The next investigation checks the configuration constructor's child-list state against the pointer guard in native concept resolved serialization, rather than inserting padding or fitting offsets.
