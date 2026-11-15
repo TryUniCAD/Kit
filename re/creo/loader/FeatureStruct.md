@@ -107,14 +107,42 @@ Two consequences:
   close enough to be worth testing as a hypothesis — one slot per registered field plus two — but it is
   not established, and it does not explain why the ladder control's array has `311` slots.
 
+## How the registry is referenced
+
+The records are not addressed by stored pointers. Searching the whole file for the 8-byte virtual
+address of the `cr_flags_xar` record (`0x1541e7e80`) returns **no hits**, and the same is true for
+`more_cr_flags` (`0x1541e7b40`). They are reached by index arithmetic from a table base.
+
+A range scan for any 8-byte word landing inside the table's virtual span
+`0x1541db360..0x1542006f0` finds pointers, and every one of them is record-aligned relative to the
+`cr_flags_xar` record:
+
+```text
+0x1541fbf70  = record + 395 * 0xd0
+0x1541ecae0  = record +  94 * 0xd0
+0x1541f56a0  = record + 266 * 0xd0
+0x1541f8420  = record + 272 * 0xd0
+```
+
+They are isolated single pointers, not runs: walking neighbours from each hit terminates immediately.
+So `.ddt` holds many small structures that each name one field record, rather than one array per struct.
+None of the pointers found so far lands on record `250`, which is the `cr_flags_xar` entry itself.
+
+The consequence for the plan: locating the consumer by following a pointer to the `cr_flags_xar`
+record does not work, because no such pointer exists. The consumer has to be found by the code that
+computes the same index arithmetic, which means analysing `.text` (219 MB) rather than searching data.
+
 ## Next
 
 The path is now name-based again, in the module that owns the struct:
 
-1. find the feature-struct offsets of `cr_flags_xar` and `more_cr_flags`, which are not in the `.ddt`
-   name registry;
-2. follow the model code that reads those offsets to learn which bit gates which field;
-3. test the index hypothesis, `250` against `252` slots in the empty control.
+1. find the code that indexes the `.ddt` registry, since the records are reached by index arithmetic and
+   never by stored pointer;
+2. follow it to the feature-struct offsets of `cr_flags_xar` and `more_cr_flags`;
+3. follow the mask consumer to learn which bit gates which field.
+
+Step 1 is a code search across a 219 MB `.text` section, which in practice means a full analysis in
+Ghidra or an equivalent tool rather than offset arithmetic on data.
 
 Step 1 needs a full analysis of a 326 MB PE. That is the remaining cost, and it is a different order of
 effort from the section-grammar work: not another emitter tweak.
