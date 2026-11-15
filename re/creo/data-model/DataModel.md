@@ -367,6 +367,34 @@ The field table is sound too, and an earlier guess of mine is wrong: the section
 data. The ladder's records genuinely append fields — record one declares 71, and the solid records (`67`,
 `75`, `74`) add more — which is why the count is far above 71.
 
+### The real defect: reference arrays carry their records inline
+
+Logging every field the parser reads inside record `74` shows the divergence concretely. Around `6341`:
+
+```text
+6341..6346  fc_hist        52 80 cb 00 e4
+6346..6347  save_geoms     e3
+6347..6387  transform      57 80 c8 07 00 e3 59 80 c8 06 00 e3 5b 80 c8 05 00 e3 5d 80 c8 04 00
+6388..6393  flags          f8 0c f7 74 fb
+6393..6393  cr_flags_xar   (empty)
+```
+
+Those bytes are not a transform. They are a **table of records**: ids `57`, `59`, `5b`, `5d` with the counter `7, 6, 5, 4`, each opened by `e3`, and they end at the header
+`e0 00 edg_id_tab_ptr 00` — a field the parser then reads *again* later, because it never consumed the table.
+
+The form that causes it is a reference array:
+
+```text
+f8 06  f7 1d  fb     <- array of 6 elements, each is a record of field 0x1d, then close
+e3 <id> ...          <- the six inline records follow here, opened by e3
+```
+
+`f8 <count> f7 <field> fb` declares the array and closes it immediately; the records themselves are written **inline after the array**, opened by `e3`. The same form appears in the control's csys record, where `misc_id_tab_ptr` is `f8 01 f7 4d fb` followed by a bare `e3`. Our reader treats those inline records as *subsequent fields*, so it drifts from that point on.
+
+That single mechanism explains all three symptoms at once: the empty `cr_flags_xar` in record `74` (the parser is reading table bytes by then), the "unknown double lanes" (`0x57`, `0x59`, `0x00`) that block the loud raise, and why the earlier csys work needed a bare `e3` whose owner was never identified.
+
+The fix is a parser change, not a data-model one: after reading a reference array whose elements name a field, read `count` inline records of that field's shape instead of continuing positionally. It is not implemented yet.
+
 What remains is a *type* mismatch rather than an index mismatch. In record `74`, which begins at `6267`,
 the field at `6347` is typed `t02` (double) but its bytes are an id table — `52 80 cb 00 e4 e3 57 80 c8
 07 00 e3 59 80 c8 06 00 …`, where `52`, `57`, `59` are ids — and that record's `cr_flags_xar` comes out
