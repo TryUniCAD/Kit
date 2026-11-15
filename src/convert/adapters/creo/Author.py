@@ -405,8 +405,7 @@ def EmptySectionPayloads() -> dict[str, bytes]:
     }
 
 
-# the loader cross checks this index against the feature chain
-# the index names only classes that carry definitions so 917 appears with a feature defs row
+# the index names only classes that carry definitions so 917 needs a feature defs row
 def FeatureIndexPayload(Classes: tuple[int, ...]) -> bytes:
     return SectionValue(
         "FeatDefsIndex",
