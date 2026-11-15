@@ -419,6 +419,38 @@ so the entry size is a property of the record, not of the class: the `00 00 04 0
 prefix selects 10-byte entries, and a double tail selects 12-byte entries. The prefix is the tail of
 the preceding value record, so the entry size is carried by the record that precedes the count.
 
+## The prefix is v7 only, and the name table changes shape in v8 and v9
+
+The `00 00 04 00 00 00 00 00` prefix is not a record header. It appears fifteen times in
+`wave_parent.prt` (v7) and zero times in `flange.prt` (v9) and `vise_screw.prt` (v8):
+
+```text
+flange       v9  prefix hits 0
+vise_screw   v8  prefix hits 0
+wave_parent  v7  prefix hits 15
+```
+
+and its `04 00 00 00` field is not the entry count: the count that follows is 3, and the field is
+constant across all fifteen hits, including the one record whose entries are 12 bytes rather than 10.
+So the field is a v7 record marker, not a count and not a type code that selects the entry size.
+
+The name table itself is present in all three versions, but its length field changes width:
+
+```text
+flange       v9  tag at 0x008254  len field 12  bytes 03 0c "Background\0" 01
+vise_screw   v8  tag at 0x006107  len field 12  bytes 03 0c "Background\0" 02
+wave_parent  v7  tag at 0x00216f  len field 11  bytes 03 0b 00 00 00 "Background\0"
+```
+
+so v7 stores `<u8 3><u32 len><string>` with `len = text length + 1`, and v8/v9 store
+`<u8 3><u8 len><string><u8 0><u8 flag>` with `len = text length + 2`. The trailing flag is a per-entry
+type code: `0x00` for `MODEL`, `0x01` for the colour names, `0x02` for the part name, the line styles
+and the layer names, and `0x03` to `0x10` for the numbered colour entries in `vise_screw.prt`.
+
+A non-greedy scan with the v8/v9 shape finds 682 entries in `flange.prt` section 0 and 297 in
+`vise_screw.prt` section 0, against 273 in `wave_parent.prt` section 0, so the name table is a
+version-dependent structure and the v7 count-plus-entry-list grammar does not carry over unchanged.
+
 ## The entry size is not the class's attribute count, layout size or schema flag
 
 The two records whose entry size is known name six classes, and the class data does not separate
