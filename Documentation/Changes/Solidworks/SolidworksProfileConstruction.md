@@ -40,6 +40,7 @@ These helpers are intermediate research
 The vertex-only profile contract contains no authored sketch dimensions or constraints
 It does not preserve a source sketch that contains additional design intent
 The origin graph explicitly records that its post-constructor sketch update remains unresolved
+It applies the proved post-origin `setNeedsUpdate(0,1,null)` mask to that origin node; the owner lifecycle remains the model composer's responsibility
 The local inter-component-reference flag is now derived from the native update predicate; final solver status and modification-stamp delta remain unresolved for both polygon and origin graphs
 Static native dataflow also closes local dependency-bit clearing, point-cleanup preservation and the status-to-colour mapping
 The actual solver status remains a required dependency rather than a value inferred from the constructor

@@ -161,6 +161,16 @@ Its point reference count derives from that constraint reference, following `sgE
 `sgLogG1Dim` constructor `0x4c4103c0` and base `0x4c410070` supply constraint type `0x11`, `f90=2`, other zero status fields and `fa0=0xfffe`
 Append routine `0x4c4a2b90` invokes reset `0x4c822050`, leaving serialized dimension refcount zero and parameter/tolerance pointers null
 
+After sketch update, the initializer calls `setNeedsUpdate(0,1,null)` on the origin and its owner
+Origin vtable `0x4d0ef510`, slot `+0xb8`, targets the feature wrapper at `0x4bb515c0`
+That status-zero path invokes the prior-state query at virtual `+0xc0`, then unconditionally calls node setter `0x4c03ed90` with status zero
+Instructions `0x4c03edf8` through `0x4c03ee99` store `f0c & 0xfffd7ff8`
+The builder applies this proved mutation to the origin node
+The wrapper's later nonzero-status side effects are skipped by branches `0x4bb5169c` and `0x4bb51770`
+This does not close every indirect query or the preceding solver update
+The owner operation belongs at this point in model composition; later polygon and extrusion insertion can dirty the owner again
+It is not a rule to clear the final part's update state after those operations
+
 The builder records the native subsequent `sgSketch::update` at `0x4c549ab0` as unresolved regeneration work
 Its `_requires_update` metadata is explicit and does not claim post-solver cache/status identity or an accepted origin graph
 
@@ -181,7 +191,7 @@ Runtime path coverage and target acceptance remain separate evidence
 | Dependency reset | `clearDependancyFlags` at `0x4c538d10` calls `0x4c5d3100`; for local handles it calls `0x4c3e2bd0(entity,0)` and `0x4c3e24a0(entity,0)` | The first masks `f56` with `0x3fff`; the second clears bit `0x8000`; constructor `f56=0` is unchanged | Closed static mutation for local geometry |
 | Point cleanup | `cleanOutSketchPoints` at `0x4c4a6e30` considers removal only when a permanent point is invisible, local and has degree zero | Polygon vertices have degree two; origin type one is visible because point vtable `0x4cdd2d48`, slot `+0x190`, targets `0x4c491cb0` and tests mask `0x138a02` | Closed preservation predicate |
 | Constraint validation tails | `0x4c4bbf40` iterates sketch `+0x58`; `0x4c4bbc60` examines offset dimensions and display dimensions | The current graph has empty block, offset and sketch-display collections; origin's one logical point constraint still requires its own validation and solver path | Closed empty loops; origin handler unresolved |
-| Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` can add a further conditional increment from model-reference and temporary update results | The latter helper only updates 3D planes, absent here; the point solver's write count and the other update results remain dependencies; insertion stamp remains separately derived as `1+n` | Unresolved conditional delta |
+| Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` can add a further conditional increment from model-reference and temporary update results | The first helper counts finite solver point positions with any coordinate change at least `1e-8`; the second only updates 3D planes, absent here; the actual solved positions and other update results remain dependencies; insertion stamp remains separately derived as `1+n` | Unresolved conditional delta |
 | Pattern/spline/styled helpers | `0x4c46f1b0`, `0x4c5483f0` and `0x4c52f470` iterate their corresponding collections | Empty collections make these loops inactive for the polygon and origin inputs | Closed static loop bounds |
 
 The jump table at `0x4c507948` maps raw solver status eleven to sketch/entity status one, raw one or ten to two, raw three to three, and raw zero/four/five/eight/nine to four
