@@ -340,6 +340,12 @@ result = CatiaAdapter().write(
   `max(distance(surface centre, box centre) + surface radius)` on `23/27`, so it needs exact geometry
   and the writer still cannot emit the records faithfully. `re/catia/tooling/FdRecords.py` dumps and
   checks them, so a vendor-saved comparison is one command away.
+- A transcode comparison (`re/catia/tooling/Transcode.py`) shows the surface records are faithful and
+  the curve table is not. On `Copper_Washer` the vendor writes `{50: 2, 51: 4, 54: 4, 55: 8}` and the
+  writer writes `{50: 2, 51: 4, 54: 180, 55: 0}`: every carrier kind matches, while the writer emits
+  one `54` curve record per decoded edge and no `55` circle record. Distinct-by-geometry does not
+  close it (`80` distinct lines against the vendor's `4`, `3` distinct circles against `8`), so the
+  decoded curves are per-edge tessellation approximations rather than the stored curve table.
 - The writer's `MainDataStream` is not structurally identical to a vendor stream, and the difference is
   now measured by parsed structure rather than raw byte counts: the writer's box emits one vertex table
   with eight rows and eight roster rows, matching the vendor convention of one roster row per vertex
