@@ -611,6 +611,8 @@ def TestBrepCyl(TmpPath: Path) -> None:
     )
     assert abs(CylinderValue.radius - 2.5) < 1e-4
     assert abs(CylinderValue.axis.z - 1.0) < 1e-4
+    assert len(Restored.brep.loops) == 3
+    assert sorted(len(Value.coedge_ids) for Value in Restored.brep.loops) == [4, 4, 10]
     assert Restored.brep.validate(frozenset({"catia:body:1"})) == ()
 
 
@@ -780,6 +782,8 @@ def TestBrepCone(TmpPath: Path) -> None:
         Value for Value in Restored.brep.surfaces if isinstance(Value, ConeSurface)
     )
     assert abs(ConeValue.half_angle - math.atan(1.0)) < 1e-4
+    assert len(Restored.brep.loops) == 3
+    assert sorted(len(Value.coedge_ids) for Value in Restored.brep.loops) == [4, 4, 10]
     assert Restored.brep.validate(frozenset({"catia:body:1"})) == ()
 
 

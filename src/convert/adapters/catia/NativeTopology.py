@@ -278,8 +278,29 @@ def WalkCycleMut(
     return ()
 
 
+# this definition exists because stored loop lengths reconstruct the seam directly
+def DirectCycles(TrimValue: TrimRec) -> tuple[tuple[int, ...], ...]:
+    CountA, CountB, CountC = TrimValue.counts
+    Lengths = TrimValue.lengths[: CountB + CountC]
+    if CountA != 0 or not Lengths:
+        return ()
+    if sum(Lengths) != len(TrimValue.handles):
+        return ()
+    Cycles: list[tuple[int, ...]] = []
+    Cursor = 0
+    for Length in Lengths:
+        Cycle = TrimValue.handles[Cursor : Cursor + Length]
+        if len(Cycle) >= 3:
+            Cycles.append(Cycle)
+        Cursor += Length
+    return tuple(Cycles)
+
+
 # this definition exists because focused behavior needs one stable owner
 def Boundary(TrimValue: TrimRec) -> tuple[tuple[int, ...], ...]:
+    Stored = DirectCycles(TrimValue)
+    if Stored:
+        return Stored
     Directed: set[tuple[int, int]] = set()
     for First, Second, Third in ExpandTri(TrimValue):
         for Start, EndOffset in ((First, Second), (Second, Third), (Third, First)):

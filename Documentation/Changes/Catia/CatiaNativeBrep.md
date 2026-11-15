@@ -218,7 +218,12 @@ result = CatiaAdapter().write(
   `Revolve` symbol, so every part is an imported dumb solid with no parametric history to decode.
 - The writer supports plane, cylinder, cone, sphere, and torus faces, and any number of loops per
   face. A cylinder or cone face needs a seam edge traversed in both directions to close its single
-  loop, so the writer emits two distinct seam edges between the same vertex pair.
+  loop, so the writer emits two distinct seam edges between the same vertex pair. The reader now
+  reconstructs the stored loop directly from the trim length list when the trim has no triangle
+  records and the lengths sum to the handle count, so a cylinder seam loop of ten handles round
+  trips as one loop of ten coedges instead of collapsing to a four-coedge circle. The cylinder and
+  cone writer round trips now produce nine edges and one ten-coedge seam loop, and both still
+  validate with zero errors.
 - The writer does not emit feature history, sketches, dimensions, or constraints.
 - The writer reports `vendor_loadable=False` and `application_usable=False`.
 - CATIA acceptance is not measured because the local CATIA install has no license.
