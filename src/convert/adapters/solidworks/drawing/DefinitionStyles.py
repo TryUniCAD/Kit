@@ -6,7 +6,7 @@ import struct as Struct
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 from convert.adapters.solidworks.core.Native import ReadSerialized, Serialized
 
-# the style record ends with a one byte terminator and a two byte class reference
+# the terminator width is needed because the block has no outer count
 KStyleTerminator = 1
 KStyleClassRef = 2
 

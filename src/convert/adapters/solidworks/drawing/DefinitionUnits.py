@@ -5,7 +5,7 @@ import struct as Struct
 
 from convert.adapters.solidworks.container.Container import SldprtFormatError
 
-# the units table starts with a four byte entry count
+# the entry width is needed because the tail has no length prefix
 KUnitEntrySize = 16
 
 

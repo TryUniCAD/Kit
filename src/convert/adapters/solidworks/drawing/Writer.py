@@ -144,7 +144,14 @@ def WriteDrawing(Source: bytes, DataValue: DrawingData) -> bytes:
         raise SldprtFormatError(f"drawing is missing {KDefinitionStream}")
     if Display is None:
         raise SldprtFormatError(f"drawing is missing {KDisplayStream}")
-    SourceData = ReadDrawing(Source, IncludePositions=True)
+    SourceData = ReadDrawing(Source, IncludePositions=True, IncludeValues=True)
+    if DataValue.Units is not None and DataValue.Units != SourceData.Units:
+        raise SldprtFormatError("drawing units cannot be rewritten")
+    if (
+        DataValue.LineStyles is not None
+        and DataValue.LineStyles != SourceData.LineStyles
+    ):
+        raise SldprtFormatError("drawing line styles cannot be rewritten")
     SourceViews = tuple(
         ViewValue for SheetValue in SourceData.Sheets for ViewValue in SheetValue.Views
     )

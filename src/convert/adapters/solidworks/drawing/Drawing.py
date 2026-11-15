@@ -205,6 +205,7 @@ def ReadDrawing(
     IncludePositions: bool = False,
     IncludeEdges: bool = False,
     IncludeSheetEdges: bool = False,
+    IncludeValues: bool = False,
 ) -> DrawingData:
     if IncludeGeometry:
         raise SldprtFormatError(
@@ -234,7 +235,10 @@ def ReadDrawing(
         Sheets = EdgeSheets(Sheets, Archive)
     if IncludeSheetEdges:
         Sheets = OrientSheets(Sheets, Archive)
-    Units, Styles = ReadValues(Archive)
+    Units: tuple[UnitTable, ...] | None = None
+    Styles: tuple[LineStyle, ...] | None = None
+    if IncludeValues:
+        Units, Styles = ReadValues(Archive)
     return DrawingData(
         NameValue,
         Sheets,

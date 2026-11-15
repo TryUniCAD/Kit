@@ -74,5 +74,5 @@ class DrawingData:
     References: tuple[DrawingRef, ...]
     Notes: tuple[str, ...]
     SourcePath: str
-    Units: tuple[UnitTable, ...] = ()
-    LineStyles: tuple[LineStyle, ...] = ()
+    Units: tuple[UnitTable, ...] | None = None
+    LineStyles: tuple[LineStyle, ...] | None = None
