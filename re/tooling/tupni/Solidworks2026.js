@@ -56,6 +56,20 @@ function header(Address) {
   catch (ErrorInfo) { return {pointer: Address.toString(), error: String(ErrorInfo)} }
 }
 
+function runtimeclass(Address) {
+  try { return Address.isNull() ? null : {pointer: Address.toString(), name: Address.readPointer().readCString(160), schema: Address.add(12).readU32()} }
+  catch (ErrorInfo) { return {pointer: Address.toString(), error: String(ErrorInfo)} }
+}
+
+function objectmap(Address) {
+  try {
+    const Array = Address.add(0x58).readPointer()
+    const Cursor = Address.add(0x38).readPointer()
+    const End = Address.add(0x40).readPointer()
+    return {array: Array.toString(), length: Array.add(0x10).readU32(), next_u16: End.sub(Cursor).toInt32() >= 2 ? Cursor.readU16() : null}
+  } catch (ErrorInfo) { return {error: String(ErrorInfo)} }
+}
+
 function throwInfo(Address) {
   try {
     const Image = Process.getModuleByAddress(Address)
@@ -95,6 +109,17 @@ rpc.exports = {
     const Common = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "swccu.dll")
     const Archive = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldarchiveu.dll")
     if (Model === undefined || Common === undefined || Archive === undefined) throw new Error("selected target modules are not loaded")
+    attach(Common.base.add(0xa550), {
+      onEnter(Args) { this.archive = Args[0]; emit({kind: "archive-object-enter", archive: archive(this.archive), map: objectmap(this.archive), requested_class: runtimeclass(Args[1]), caller: location(this.returnAddress)}) },
+      onLeave(ReturnValue) { emit({kind: "archive-object-leave", archive: archive(this.archive), map: objectmap(this.archive), object: ReturnValue.toString()}) }
+    })
+    attach(Common.base.add(0xa2d0), {
+      onEnter(Args) { this.archive = Args[0]; this.schema_pointer = Args[2]; this.tag_pointer = Args[3]; this.caller = location(this.returnAddress) },
+      onLeave(ReturnValue) {
+        try { emit({kind: "archive-class-read", archive: archive(this.archive), map: objectmap(this.archive), runtime_class: runtimeclass(ReturnValue), schema_out: this.schema_pointer.isNull() ? null : this.schema_pointer.readU32(), tag_out: this.tag_pointer.isNull() ? null : this.tag_pointer.readU32(), caller: this.caller}) }
+        catch (ErrorInfo) { emit({kind: "archive-class-read-error", error: String(ErrorInfo), caller: this.caller}) }
+      }
+    })
     attach(Common.base.add(0xa3a7), {onEnter() {
       try {
         const Runtime = this.context.rax

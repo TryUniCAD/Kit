@@ -98,3 +98,13 @@ it does not claim the subsequent entity setter has executed. Runtime sketch
 cache pointers remain distinct from similarly numbered profile fields. The
 new capture results will be recorded after execution; no status or stamp value
 is inferred from instrumentation setup alone.
+
+The corrected candidate's second capture confirms the journal schema comparison
+now matches zero and the loader reaches the part root. It then throws archive
+cause five. Native `ReadObject` explains this as an object index beyond the
+current read-map length, distinct from the earlier schema mismatch. Probes now
+record object dispatch, the returned class-reader tag, requested runtime class,
+current buffer cursor and map length. These identify a concrete reference
+failure without treating an uncertain system unwind as a call chain. Absolute
+logical stream offsets remain unknown until an independently verified mapping
+exists.
