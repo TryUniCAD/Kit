@@ -58,6 +58,9 @@ def main():
             QtWidgets.QApplication.instance().quit()
             return
         area.setActiveSubWindow(candidates[0])
+        window.show()
+        window.raise_()
+        window.activateWindow()
         record["active_view_title"] = candidates[0].windowTitle()
         Gui.activeDocument().activeView().viewAxonometric()
         Gui.activeDocument().activeView().fitAll()
@@ -68,7 +71,10 @@ def main():
         try:
             Gui.updateGui()
             path = output / "FreecadSource.png"
-            if not window.grab().save(str(path), "PNG"):
+            record["capture_api"] = "QScreen.grabWindow(native-window-id)"
+            record["native_window_id"] = int(window.winId())
+            Gui.activeDocument().activeView().saveImage(str(output / "FreecadViewport.png"), 1600, 1000, "Current")
+            if not window.screen().grabWindow(window.winId()).save(str(path), "PNG"):
                 raise RuntimeError("native FreeCAD window capture failed")
             record.update(screenshot_sha256=hashlib.sha256(path.read_bytes()).hexdigest(), source_sha256_after=hashlib.sha256(source.read_bytes()).hexdigest())
             (output / "FreecadSource.json").write_text(json.dumps(record, indent=2) + "\n")

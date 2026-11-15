@@ -48,6 +48,11 @@ The candidate remains rejected. Principal-plane reference times now derive
 from absent revision logs through the native unset-time rule; that consistency
 repair has not yet had native acceptance.
 
+Complete composition now supplies authored names and creation time to the base
+graph's twelve system folders and annotation cabinet. The serialized root
+environment pointer and resolved-feature root alias the same new object. Both
+process input sizes use the complete graph. Native acceptance remains pending.
+
 See the [composition record](../../../re/solidworks/records/FreshPartComposition2026.md)
 for field ownership and evidence limits.
 

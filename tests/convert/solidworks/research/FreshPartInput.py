@@ -27,6 +27,21 @@ def MakePartInput(
         },
         "target": {"date_code": 2026306, "parasolid_version": 370108},
         "presentation": {
+            "folder_names": {
+                "moCommentsFolder_c": "authored comments",
+                "moFavoriteFolder_c": "authored favorites",
+                "moHistoryFolder_c": "authored history",
+                "moSelectionSetFolder_c": "authored selection sets",
+                "moSensorFolder_c": "authored sensors",
+                "moDocsFolder_c": "authored document binder",
+                "moSurfaceBodyFolder_c": "authored surfaces",
+                "moSolidBodyFolder_c": "authored solids",
+                "moEnvFolder_c": "authored environment",
+                "moNotesAreaFtrFolder_c": "authored markups",
+                "moEqnFolder_c": "authored equations",
+                "moMaterialFolder_c": "authored material",
+            },
+            "cabinet_name": "authored annotations",
             "plane_names": {"x": "Right Plane", "y": "Top Plane", "z": "Front Plane"},
             "units": {
                 "length_unit": "mm",
