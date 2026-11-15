@@ -250,6 +250,12 @@ result = CatiaAdapter().write(
 - `re/catia/tooling/Parametric.py` classifies 27 corpus parts as `dumb` and the five sample parts as
   `parametric`, and reports the feature vocabulary (`2DLine`, `2DCircle`, `2DPoint`, `Constraints`,
   `ConstraintDYS`, `EdgeFillet`, `Chamfer`, `CircPattern`, and their parameter names).
+- `re/catia/tooling/OsmGraph.py` walks the OSMX `7c` record tree and parses the `7c 07` attribute
+  blocks. It recovers 309 to 1411 attributes with 136 to 138 distinct names from the five parametric
+  sample parts (`Pocket`, `Shaft`, `EndLimit`, `StartLimit`, `Profile`, `Direction`, `FirstAngle`,
+  `SecondAngle`, `d_dia`, `p_pitch`, `n_nom_Slot_Width`, `ConstraintDYS`, `SketchSupport`,
+  `AbsoluteAxis`), and 69 attributes with 33 distinct part-property names from the 27 corpus parts.
+  `Pedal_Body` recovers 210 attributes with 72 distinct names because it carries GSM point features.
 
 ## Related information
 

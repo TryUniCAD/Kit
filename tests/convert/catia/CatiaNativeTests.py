@@ -253,6 +253,87 @@ def TestOsmxDumb() -> None:
 
 
 # this definition exists because focused behavior needs one stable owner
+def OsmGraphStream(Archive: CfvTwoArchive) -> tuple[bytes, OsmxArchive]:
+    BestValue = None
+    for Folder in [Archive.outer] + list(Archive.nested):
+        for Stream in Folder.streams:
+            try:
+                DataValue = Archive.stream_bytes(Stream, Folder)
+            except Exception:
+                continue
+            if not DataValue.startswith(b"OSMX"):
+                continue
+            try:
+                Parsed = OsmxArchive.from_bytes(DataValue)
+            except Exception:
+                continue
+            if BestValue is None or len(Parsed.symbols) > len(BestValue[1].symbols):
+                BestValue = (DataValue, Parsed)
+    assert BestValue is not None
+    return BestValue
+
+
+# this definition exists because focused behavior needs one stable owner
+def OsmGraphNames(Archive: CfvTwoArchive) -> list[str]:
+    DataValue, Parsed = OsmGraphStream(Archive)
+    Symbols = [Symbol.value for Symbol in Parsed.symbols]
+    Names: list[str] = []
+    Cursor = 104
+    EndValue = Parsed.symbol_table_offset
+    while Cursor + 6 <= EndValue:
+        if DataValue[Cursor] != 0x7C or DataValue[Cursor + 1] != 0x07:
+            Cursor += 1
+            continue
+        Length = int.from_bytes(DataValue[Cursor + 2 : Cursor + 6], "little")
+        if Length < 6 or Cursor + Length > EndValue:
+            Cursor += 1
+            continue
+        Names.extend(OsmBlockNames(DataValue, Cursor, Length, Symbols))
+        Cursor += Length
+    return Names
+
+
+# this definition exists because focused behavior needs one stable owner
+def OsmBlockNames(
+    DataValue: bytes, Start: int, Length: int, Symbols: list[str]
+) -> list[str]:
+    Names: list[str] = []
+    Inner = Start + 6
+    StopValue = Start + Length
+    while Inner < StopValue:
+        KeyValue = DataValue[Inner]
+        if KeyValue == 0xFE:
+            Inner += 1
+            continue
+        Inner += 1
+        while Inner < StopValue and DataValue[Inner] != 0xFE:
+            TagValue = DataValue[Inner]
+            Width = {0x80: 5, 0x81: 1, 0xE8: 4, 0xE9: 5}.get(TagValue, 1)
+            Inner += Width
+        if Inner < StopValue:
+            Inner += 1
+        if KeyValue < len(Symbols):
+            Names.append(Symbols[KeyValue])
+    return Names
+
+
+# this definition exists because focused behavior needs one stable owner
+def TestOsmGraph() -> None:
+    Archive = CfvTwoArchive.from_bytes(
+        (
+            KParametric / "ISO_1207_GRADE_A_SLOTTED_CHEESE_HEAD_SCREW.CATPart"
+        ).read_bytes()
+    )
+    Names = OsmGraphNames(Archive)
+    assert len(Names) >= 500
+    assert "ParameterSet" in Names
+    assert "PRTSketch" in Names
+    assert "Sketch" in Names
+    assert "EndLimit" in Names
+    assert "StartLimit" in Names
+
+
+# this definition exists because focused behavior needs one stable owner
 def TestBrepTess() -> None:
     Archive = CfvTwoArchive.from_bytes(
         (KCatparts / "Copper_Washer.CATPart").read_bytes()

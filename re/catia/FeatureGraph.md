@@ -83,6 +83,43 @@ text, which contains newlines, so the printable check must allow `\t`, `\n`, and
 `ISO_10642` symbol table has 328 symbols and ends exactly at the section end; the earlier parser
 rejected it because it treated the zero length as a terminator and rejected the newline.
 
+## The OSMX object graph is a `7c` record tree
+
+The object graph before the symbol table is a tree of records framed as
+`7c <subtag> <u32 length>`. The subtags are `0x02` (symbol table), `0x04` (part container),
+`0x05` (object), `0x06` (object header), `0x07` (attribute block), `0x08` (relation set),
+`0x09` (relation), `0x0a` (relation operand list), `0x0b` (root list), and `0x0c` (file header).
+The length is the total record size including the six-byte header, so the next record starts at
+`offset + length`.
+
+A `7c 07` attribute block is a sequence of attributes. Each attribute is a symbol index followed by
+a list of tagged values and terminated by `fe`. The value tags are:
+
+| tag | width | meaning |
+| --- | --- | --- |
+| `0x80` | 5 | object reference or float bits |
+| `0x81` | 1 | boolean true |
+| `0x82`..`0x87` | 1 | small integer |
+| `0xe8` | 4 | object reference |
+| `0xe9` | 5 | object reference |
+| `0xfe` | 1 | terminator |
+
+The symbol index resolves against the symbol table to the attribute name. `re/catia/tooling/OsmGraph.py`
+walks the record tree, parses the attribute blocks, and reports the attribute names. On the five
+parametric sample parts it recovers 309 to 1411 attributes with 136 to 138 distinct names, including
+`Pocket`, `Shaft`, `EndLimit`, `StartLimit`, `Profile`, `Direction`, `FirstAngle`, `SecondAngle`,
+`d_dia`, `p_pitch`, `n_nom_Slot_Width`, `ConstraintDYS`, `SketchSupport`, and `AbsoluteAxis`.
+
+The 27 corpus parts recover only 69 attributes with 33 distinct names (`Density`, `Volume`, `Mass`,
+`$OSM_Xts`, `_AlgoConfigStream`, `GSMTool`, `Open_body`, `Solid`, `VPGlobal`, `FromArtToShape`,
+`VPMesh`), which are part properties, not features. `Pedal_Body` is the exception: it recovers 210
+attributes with 72 distinct names (`GSMPointBoundary`, `GSMPoint`, `RefPoint`, `OriginX`, `Origin`,
+`FeatureType`), because it carries GSM point features.
+
+The literal dimension values are not in the attribute block. A dimension attribute references a
+parameter object, and the parameter object holds the value. Decoding the parameter objects is the
+next step.
+
 ## Evidence
 
 - `src/convert/adapters/catia/Container.py` parses the OSMX symbol table.
