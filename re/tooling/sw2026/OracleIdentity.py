@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import hashlib
 import struct
+import ctypes
+import ctypes.wintypes as wt
 from pathlib import Path
 
 from win32api import GetFileVersionInfo, OpenProcess
@@ -10,12 +12,24 @@ from win32process import GetModuleFileNameEx
 EXPECTED_VERSION = (34, 5, 2, 604)
 
 
+def process_creation_time(handle):
+    kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+    query = kernel.GetProcessTimes
+    query.argtypes = [wt.HANDLE, ctypes.POINTER(wt.FILETIME), ctypes.POINTER(wt.FILETIME), ctypes.POINTER(wt.FILETIME), ctypes.POINTER(wt.FILETIME)]
+    query.restype = wt.BOOL
+    created, exited, system, user = wt.FILETIME(), wt.FILETIME(), wt.FILETIME(), wt.FILETIME()
+    if not query(int(handle), ctypes.byref(created), ctypes.byref(exited), ctypes.byref(system), ctypes.byref(user)):
+        raise ctypes.WinError(ctypes.get_last_error())
+    return (created.dwHighDateTime << 32) | created.dwLowDateTime
+
+
 def application_identity(application):
     member = application.GetProcessID
     process_id = int(member() if callable(member) else member)
     handle = OpenProcess(0x410, False, process_id)
     try:
         path = Path(GetModuleFileNameEx(handle, None))
+        created = process_creation_time(handle)
     finally:
         handle.Close()
     data = path.read_bytes()
@@ -28,7 +42,7 @@ def application_identity(application):
     if offset + 6 > len(data) or data[offset:offset + 4] != b"PE\0\0":
         raise RuntimeError("oracle process executable has no valid PE header")
     return {
-        "process_id": process_id, "executable": path.name,
+        "process_id": process_id, "process_creation_filetime": created, "executable": path.name,
         "file_version": ".".join(str(value) for value in version[:3]) + f".{version[3]:04d}",
         "file_version_words": list(version), "expected_version": list(EXPECTED_VERSION),
         "version_matches": version == EXPECTED_VERSION,

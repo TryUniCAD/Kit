@@ -14,7 +14,7 @@ import pythoncom
 import win32com.client as wc
 from win32com.client import VARIANT
 from win32api import OpenProcess
-from win32event import WAIT_TIMEOUT, WaitForSingleObject
+from win32event import WAIT_OBJECT_0, WAIT_TIMEOUT, WaitForSingleObject
 
 PROGID = "SldWorks.Application.34"
 EXPECTED_BUILD = "34.5.2"
@@ -36,7 +36,28 @@ OWNED_HANDLES = {}
 OWNED_LOCK = threading.Lock()
 
 user32 = ctypes.windll.user32
-EnumProc = ctypes.WINFUNCTYPE(ctypes.c_bool, wt.HWND, wt.LPARAM)
+send_message = ctypes.WinDLL("user32", use_last_error=True).SendMessageTimeoutW
+send_message.argtypes = [wt.HWND, wt.UINT, wt.WPARAM, wt.LPARAM, wt.UINT, wt.UINT, ctypes.POINTER(ctypes.c_size_t)]
+send_message.restype = wt.LPARAM
+EnumProc = ctypes.WINFUNCTYPE(wt.BOOL, wt.HWND, wt.LPARAM)
+user32.EnumWindows.argtypes = [EnumProc, wt.LPARAM]
+user32.EnumWindows.restype = wt.BOOL
+user32.EnumChildWindows.argtypes = [wt.HWND, EnumProc, wt.LPARAM]
+user32.EnumChildWindows.restype = wt.BOOL
+user32.GetWindowThreadProcessId.argtypes = [wt.HWND, ctypes.POINTER(wt.DWORD)]
+user32.GetWindowThreadProcessId.restype = wt.DWORD
+user32.GetWindowTextLengthW.argtypes = [wt.HWND]
+user32.GetWindowTextLengthW.restype = ctypes.c_int
+user32.GetWindowTextW.argtypes = [wt.HWND, wt.LPWSTR, ctypes.c_int]
+user32.GetWindowTextW.restype = ctypes.c_int
+user32.GetClassNameW.argtypes = [wt.HWND, wt.LPWSTR, ctypes.c_int]
+user32.GetClassNameW.restype = ctypes.c_int
+user32.IsWindowVisible.argtypes = [wt.HWND]
+user32.IsWindowVisible.restype = wt.BOOL
+user32.IsWindowEnabled.argtypes = [wt.HWND]
+user32.IsWindowEnabled.restype = wt.BOOL
+user32.IsChild.argtypes = [wt.HWND, wt.HWND]
+user32.IsChild.restype = wt.BOOL
 
 
 def _text(h):
@@ -67,7 +88,7 @@ def owned_process_ids():
         return {pid for pid, handle in OWNED_HANDLES.items() if WaitForSingleObject(handle, 0) == WAIT_TIMEOUT}
 
 
-def _dismiss_once(log, allowed_pids, progress):
+def _dismiss_once(log, allowed_pids, progress, stop):
     found = []
 
     def top(h, _):
@@ -79,6 +100,8 @@ def _dismiss_once(log, allowed_pids, progress):
 
     user32.EnumWindows(EnumProc(top), 0)
     for d, pid in found:
+        if stop.is_set():
+            break
         if pid not in owned_process_ids():
             continue
         title = _text(d)
@@ -94,7 +117,7 @@ def _dismiss_once(log, allowed_pids, progress):
                 t = _text(h)
                 if t:
                     statics.append(t)
-            return True
+            return not stop.is_set()
 
         user32.EnumChildWindows(d, EnumProc(child), 0)
         stages = [set(("Opening\nComponents", "Loaded\nComponents")), set(("Update\nDrawing", "Updating\nDrawing", "Drawing\nUpdated")), set(("Update\nGraphics", "Generating\nGraphics", "Graphics\nGenerated"))]
@@ -113,9 +136,18 @@ def _dismiss_once(log, allowed_pids, progress):
                 break
         current_pid = wt.DWORD()
         user32.GetWindowThreadProcessId(d, ctypes.byref(current_pid))
-        if pick and current_pid.value == pid and pid in owned_process_ids():
-            log.append({"dialog": title, "text": statics[:4], "button": _text(pick)})
-            user32.SendMessageW(pick, 245, 0, 0)
+        target_pid = wt.DWORD()
+        if pick:
+            user32.GetWindowThreadProcessId(pick, ctypes.byref(target_pid))
+        if pick and not stop.is_set() and current_pid.value == target_pid.value == pid and user32.IsChild(d, pick) and pid in owned_process_ids():
+            response = {"dialog": title, "text": statics[:4], "button": _text(pick)}
+            log.append(response)
+            outcome = ctypes.c_size_t()
+            ctypes.set_last_error(0)
+            response["message_completed"] = bool(send_message(pick, 245, 0, 0, 0x23, 2000, ctypes.byref(outcome)))
+            response["message_result"] = outcome.value
+            if not response["message_completed"]:
+                response["error"] = f"native dialog response failed or timed out; win32 error {ctypes.get_last_error()}"
 
 
 class Dismisser:
@@ -128,11 +160,11 @@ class Dismisser:
     def run(self):
         while not self.stop.is_set():
             try:
-                _dismiss_once(self.log, owned_process_ids(), self.progress)
+                _dismiss_once(self.log, owned_process_ids(), self.progress, self.stop)
             except Exception as error:
                 self.log.append({"error": repr(error)})
                 self.stop.set()
-            time.sleep(0.5)
+            self.stop.wait(0.5)
 
     def __enter__(self):
         self.t.start()
@@ -141,6 +173,8 @@ class Dismisser:
     def __exit__(self, *a):
         self.stop.set()
         self.t.join(timeout=3)
+        if self.t.is_alive():
+            self.log.append({"error": "native dialog monitor did not stop within three seconds"})
 
 
 def sweep():
@@ -222,16 +256,20 @@ class Sw:
     def close(self):
         if self.process_handle is None:
             return
-        try:
-            self.app.CloseAllDocuments(True)
-        except Exception as error:
-            self.diagnostics.append({"stage": "close_documents", "error": repr(error)})
-        try:
-            cv(self.app, "ExitApp")
-        except Exception as error:
-            self.diagnostics.append({"stage": "exit_application", "error": repr(error)})
-        self.app = None
-        pythoncom.CoUninitialize()
+        if self.app is not None:
+            try:
+                self.app.CloseAllDocuments(True)
+            except Exception as error:
+                self.diagnostics.append({"stage": "close_documents", "error": repr(error)})
+            try:
+                cv(self.app, "ExitApp")
+            except Exception as error:
+                self.diagnostics.append({"stage": "exit_application", "error": repr(error)})
+            self.app = None
+            pythoncom.CoUninitialize()
+        if WaitForSingleObject(self.process_handle, 30000) != WAIT_OBJECT_0:
+            self.diagnostics.append({"stage": "exit_confirmation", "error": "owned process did not exit; its lifetime handle remains registered"})
+            return
         with OWNED_LOCK:
             OWNED_HANDLES.pop(self.process_id, None)
             self.process_handle.Close()

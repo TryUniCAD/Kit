@@ -603,6 +603,34 @@ def run_worker(job_path, record_path):
     return 0 if rec.data["passed"] else 2
 
 
+def cleanup_owned_process(identity, oracle):
+    from win32api import OpenProcess, TerminateProcess
+    from win32event import WAIT_OBJECT_0, WAIT_TIMEOUT, WaitForSingleObject
+    from OracleIdentity import process_creation_time
+
+    pid, created = identity.get("process_id"), identity.get("process_creation_filetime")
+    result = {"pid": pid, "expected_creation_filetime": created, "terminated": False}
+    require(type(pid) is int and pid > 0 and type(created) is int and created > 0, "owned cleanup requires an exact process creation identity")
+    require(identity.get("version_matches") and identity.get("sha256") == oracle["executable_sha256"], "owned cleanup requires the pinned oracle identity")
+    if pid not in application_pids():
+        result["application_absent"] = True
+        return result
+    handle = OpenProcess(0x00101001, False, pid)
+    try:
+        result["actual_creation_filetime"] = process_creation_time(handle)
+        require(result["actual_creation_filetime"] == created, "recorded PID now belongs to a different process; cleanup refused")
+        state = WaitForSingleObject(handle, 0)
+        require(state in (WAIT_OBJECT_0, WAIT_TIMEOUT), "owned process lifetime state is unavailable")
+        if state == WAIT_TIMEOUT:
+            TerminateProcess(handle, 1)
+            result["terminated"] = True
+        result["exit_confirmed"] = WaitForSingleObject(handle, 30000) == WAIT_OBJECT_0
+        require(result["exit_confirmed"], "owned SOLIDWORKS process did not exit after termination")
+    finally:
+        handle.Close()
+    return result
+
+
 def dispatch_job(directory, job, timeout):
     directory.mkdir(parents=True, exist_ok=False)
     job_path, record_path = directory / "Job.json", directory / "Record.json"
@@ -624,13 +652,11 @@ def dispatch_job(directory, job, timeout):
             record["first_failure"] = {"stage": record.get("stage", "worker-start"), "type": "WorkerFailure", "error": "worker timed out" if timed_out else f"worker exited {exit_code}"}
         record["passed"] = False
         identity = record.get("identity", {})
-        pid = identity.get("process_id")
-        if pid and identity.get("version_matches") and identity.get("sha256") == job["oracle"]["executable_sha256"] and pid in application_pids():
-            killed = subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True, text=True, check=False)
-            exited = wait_exit(pid)
-            record["forced_owned_process_cleanup"] = {"pid": pid, "exit_code": killed.returncode, "stdout": killed.stdout, "stderr": killed.stderr, "exit_confirmed": exited}
-            if not exited:
-                record.setdefault("cleanup_errors", []).append({"stage": "forced-owned-process-cleanup", "type": "EvidenceFailure", "error": "owned SOLIDWORKS process did not exit after termination"})
+        if identity.get("process_id"):
+            try:
+                record["forced_owned_process_cleanup"] = cleanup_owned_process(identity, job["oracle"])
+            except Exception as error:
+                record.setdefault("cleanup_errors", []).append({"stage": "forced-owned-process-cleanup", "type": type(error).__name__, "error": str(error)})
     write_json(record_path, record)
     return record
 

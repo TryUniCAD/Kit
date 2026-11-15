@@ -610,9 +610,11 @@ their equation relations to rewrite existing dimension-name references
 With no such equation elements in the bounded fresh graph, its mutation body
 does not run; this is not a hidden global-feature-reference allocation rule
 It does not establish a complete general equation-registration lifecycle
-Dimension reference counts must still follow actual handle construction,
-cloning, attachment and destruction; one display entry alone is not proof of a
-serialized reference-count constant
+The [radial parameter lifecycle](RadialParameterLifecycle2026.md) now follows
+those concrete handle-construction, clone and detach calls: the bounded ordinary
+circle dimension keeps a zero count while its private parameter retains one
+runtime connection. Later direct stores and final saved-state acceptance remain
+open; one display entry alone is not proof of a universal count
 
 ## Fresh radial display fields and later-mutation boundary
 

@@ -22,10 +22,11 @@ def inspect(path, *, result=None, checkpoint=None):
         if checkpoint is not None:
             checkpoint()
 
-    Swapp.sweep()
     with Swapp.Dismisser() as dismisser:
         controller = None
         try:
+            progress("oracle_idle_guard", {"stage": "oracle_idle_guard"})
+            Swapp.sweep()
             controller = Swapp.Sw()
             result.update(revision=controller.revision, process_ids=sorted(Swapp.process_ids()))
             result["oracle_identity"] = application_identity(controller.app)
@@ -36,13 +37,15 @@ def inspect(path, *, result=None, checkpoint=None):
             result.update(Swapp.measure(controller, path, progress=progress))
         except Exception as error:
             result["exception"] = repr(error)
-            result["exception_stage"] = result.get("failure_stage", "oracle_setup")
+            result["exception_stage"] = result.get("failure_stage", result.get("stage", "oracle_setup"))
         finally:
             if controller is not None:
                 controller.close()
                 result["controller_diagnostics"] = controller.diagnostics
     result["dialogs"] = dismisser.log
     result["progress_windows"] = dismisser.progress
+    if checkpoint is not None:
+        checkpoint()
     return result
 
 

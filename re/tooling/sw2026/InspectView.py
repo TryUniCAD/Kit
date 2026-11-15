@@ -39,11 +39,12 @@ def capture(path, bitmap, result, checkpoint):
         result["stages"].append({"stage": stage, "time": time.time()})
         checkpoint()
 
-    Swapp.sweep()
     with Swapp.Dismisser() as dismisser:
         controller = None
         model = None
         try:
+            mark("oracle_idle_guard")
+            Swapp.sweep()
             controller = Swapp.Sw(visible=True)
             result["oracle_identity"] = application_identity(controller.app)
             if not result["oracle_identity"]["version_matches"]:

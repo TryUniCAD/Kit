@@ -119,21 +119,21 @@ whole persisted flag word is universal.
 
 All model extents below are half-open and use the pinned model-module hash.
 
-| Function or boundary             | Extent                    | SHA-256                                                            |
-| -------------------------------- | ------------------------- | ------------------------------------------------------------------ |
-| Radial constructor               | `[0x4c8bfc10,0x4c8bfe5a)` | `bc2bbf09a91cdcb5c68b134df358fb3c8b7e61c83fecf2b1096249c1012e90ba` |
-| Prefix initializer               | `[0x4c8cc1d0,0x4c8cc2d7)` | `45683ad6f31b269da94f3c2ac9952d92de71eaccfe0790f27fa8194e8294a0e5` |
-| Prefix setter                    | `[0x4c8978b0,0x4c897973)` | `fb8b8cd6c17a8b317eaa2974fbac937e24c8d85984ee0ab359200b97f9896f8f` |
-| Swift-type resolver              | `[0x4c844ab0,0x4c844ada)` | `116ca9705fa5594d0963c978b22f1ae61f0b6bd26b009c31cbbfcd20d742b676` |
-| Actual sketch-dimension resolver | `[0x4c8460f0,0x4c846136)` | `63712219a14794875ac1a797b878dd78716352868692b062830aa5268429f246` |
-| Diameter predicate leaf          | `[0x4c42a7f0,0x4c42a7fd)` | `a8f4c8d26dd1d03fcf869d9d7c75242f0291df42e4b37ffea27bd60214575371` |
-| Zero-return leaf                 | `[0x4b27cbe0,0x4b27cbe3)` | `4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e` |
-| Forced mode setter               | `[0x4c8d4bc0,0x4c8d50c3)` | `8cbc862add2f8a410551ab11076a21732d0961151a2e96d9ae8ddc5bbc0c7774` |
-| Radius-mode wrapper              | `[0x4c84c910,0x4c84c947)` | `d97bfb3612152243d1c5bf456bb3729a5b306abfd372788844f05bedb8de03f6` |
-| Diameter-mode wrapper            | `[0x4c84b650,0x4c84b687)` | `bd693d0168bb01d9bb9bb499a822652fb480853c9fd4a0a7b50b5d598c356fe3` |
-| Diameter-to-radius operation     | `[0x4c431170,0x4c4311e1)` | `af90bf6e617a7c5ffd72c368f3170179db40afcb0d5300093a05488a189ddeb3` |
-| Radius-to-diameter operation     | `[0x4c42f850,0x4c42f8c1)` | `8905cb0bd33e14f269b2de1d4a440ab2bd113b6320b6d94bba4ba9893e0766e3` |
-| Instance-count flag leaf         | `[0x4c898ce0,0x4c898d01)` | `d1c0e21da87d20f5abf87dc74968238445add715ad09feb829b9bc8cb444b11d` |
+| Function or boundary                                     | Extent                    | SHA-256                                                            |
+| -------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------ |
+| Radial constructor                                       | `[0x4c8bfc10,0x4c8bfe5a)` | `bc2bbf09a91cdcb5c68b134df358fb3c8b7e61c83fecf2b1096249c1012e90ba` |
+| Prefix initializer                                       | `[0x4c8cc1d0,0x4c8cc2d7)` | `45683ad6f31b269da94f3c2ac9952d92de71eaccfe0790f27fa8194e8294a0e5` |
+| Prefix setter                                            | `[0x4c8978b0,0x4c897973)` | `fb8b8cd6c17a8b317eaa2974fbac937e24c8d85984ee0ab359200b97f9896f8f` |
+| Swift-type resolver                                      | `[0x4c844ab0,0x4c844ada)` | `116ca9705fa5594d0963c978b22f1ae61f0b6bd26b009c31cbbfcd20d742b676` |
+| Actual sketch-dimension resolver, three unwind fragments | `[0x4c8460f0,0x4c8461ae)` | `babaf99b1ea9f17d8ee87ed1dbc46c4feb6f4edcc777bde0d7435cc9482eeea2` |
+| Diameter predicate leaf                                  | `[0x4c42a7f0,0x4c42a7fd)` | `a8f4c8d26dd1d03fcf869d9d7c75242f0291df42e4b37ffea27bd60214575371` |
+| Zero-return leaf                                         | `[0x4b27cbe0,0x4b27cbe3)` | `4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e` |
+| Forced mode setter                                       | `[0x4c8d4bc0,0x4c8d50c3)` | `8cbc862add2f8a410551ab11076a21732d0961151a2e96d9ae8ddc5bbc0c7774` |
+| Radius-mode wrapper                                      | `[0x4c84c910,0x4c84c947)` | `d97bfb3612152243d1c5bf456bb3729a5b306abfd372788844f05bedb8de03f6` |
+| Diameter-mode wrapper                                    | `[0x4c84b650,0x4c84b687)` | `bd693d0168bb01d9bb9bb499a822652fb480853c9fd4a0a7b50b5d598c356fe3` |
+| Diameter-to-radius operation                             | `[0x4c431170,0x4c4311e1)` | `af90bf6e617a7c5ffd72c368f3170179db40afcb0d5300093a05488a189ddeb3` |
+| Radius-to-diameter operation                             | `[0x4c42f850,0x4c42f8c1)` | `8905cb0bd33e14f269b2de1d4a440ab2bd113b6320b6d94bba4ba9893e0766e3` |
+| Instance-count flag leaf                                 | `[0x4c898ce0,0x4c898d01)` | `d1c0e21da87d20f5abf87dc74968238445add715ad09feb829b9bc8cb444b11d` |
 
 ## Remaining obligations
 
