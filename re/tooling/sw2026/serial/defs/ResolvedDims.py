@@ -87,6 +87,7 @@ HIERARCHY = {
     "moDisplayLinearPattCntDim_c": "moDisplayDim_c",
     "moDisplayCircularPattCntDim_c": "moDisplayDim_c",
     "moDoubleParameter_c": "moParameter_c",
+    "moLengthParameter_c": "moDoubleParameter_c",
     "moScalerParameter_c": "moDoubleParameter_c",
     "moAngleParameter_c": "moDoubleParameter_c",
     "moIntegerParameter_c": "moParameter_c",
@@ -659,6 +660,7 @@ def define_parameters(reg):
         Cnd(0x80, [], [Vgt(0x3DA, [u8("f68"), If(flag("f68"), [f64("f60")])])]),
     ])
     reg.define("moScalerParameter_c", [base(DOUBLE_PARAM)])
+    reg.define("moLengthParameter_c", [base(DOUBLE_PARAM)])
     reg.define("moAngleParameter_c", [base(DOUBLE_PARAM), Vlt(0x2DD, [u16("old_2dd")])])
     reg.define("moIntegerParameter_c", [
         base(PARAM),
@@ -684,7 +686,7 @@ def define(reg):
         vt(0xA78, c, a78)
         vt(0x8D8, c, d8)
         vt(0x8A8, c, a8)
-    for c in ("moScalerParameter_c", "moAngleParameter_c", "moIntegerParameter_c"):
+    for c in ("moScalerParameter_c", "moLengthParameter_c", "moAngleParameter_c", "moIntegerParameter_c"):
         node_vt(c)
     define_helpers(reg)
     define_dimensions(reg)

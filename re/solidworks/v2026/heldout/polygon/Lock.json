@@ -1,0 +1,450 @@
+{
+  "status": "locked source corpus; no generated-output acceptance",
+  "locked_at_utc": "2026-11-15T03:32:53.916967+00:00",
+  "baseline_head": "66fd65e181af98583e51c5b570b90adbe25897d7",
+  "family": "closed polygon blind extrusion",
+  "writer_state": "constructor and archive helpers exist; the polygon family emitter is not implemented",
+  "separation": "Writer authors must not inspect these native source streams or use their saved field values to construct output",
+  "source_store": ".rescratch/sw26/corpus/polygon-heldout",
+  "source_manifest_sha256": "513460c1a76a2d481adcb53c4f039bfd9fe16fcfca4c3182e8967d0b7079a5b3",
+  "dialogs": [],
+  "records": [
+    {
+      "name": "Control_before.SLDPRT",
+      "sha256": "880eee2022e9a55adde97f3a91bd985d80c1204a1e1f715d570e47072defa426",
+      "bytes": 54984,
+      "kind": "control",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "Control_before",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "add_to_db": true,
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -11,
+                  -9,
+                  26,
+                  -9
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  26,
+                  -9,
+                  26,
+                  18
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  26,
+                  18,
+                  -11,
+                  18
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -11,
+                  18,
+                  -11,
+                  -9
+                ]
+              }
+            ],
+            "dims": []
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 11
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 1.0988999999999998e-05,
+        "area": 0.0034059999999999997,
+        "com": [
+          0.0075,
+          0.0045,
+          0.005499999999999999
+        ],
+        "mass": 1.0988999999999998e-05
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ],
+      "dimension_values": [
+        0.011
+      ],
+      "feature_error_queries": "unavailable: VT_I4 passed to the Boolean out parameter; these records do not establish zero feature errors or warnings"
+    },
+    {
+      "name": "H3_scalene.SLDPRT",
+      "sha256": "051437f311217cc7eac0eb49a5a84b2d8acdc2507dbfc0c542e60393fc7d7cda",
+      "bytes": 56502,
+      "kind": "held-out",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "H3_scalene",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "add_to_db": true,
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -13,
+                  -7,
+                  29,
+                  -3
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  29,
+                  -3,
+                  4,
+                  31
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  4,
+                  31,
+                  -13,
+                  -7
+                ]
+              }
+            ],
+            "dims": []
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 13
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 9.932000000000002e-06,
+        "area": 0.003166276360558158,
+        "com": [
+          0.006666666666666669,
+          0.007000000000000002,
+          0.0065
+        ],
+        "mass": 9.932000000000002e-06
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ],
+      "dimension_values": [
+        0.013
+      ],
+      "feature_error_queries": "unavailable: VT_I4 passed to the Boolean out parameter; these records do not establish zero feature errors or warnings"
+    },
+    {
+      "name": "H5_irregular.SLDPRT",
+      "sha256": "f92409497c861c9d88c6933a3bc35bba8fcce1928cda6a4608499e82a09eb734",
+      "bytes": 55278,
+      "kind": "held-out",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "H5_irregular",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "add_to_db": true,
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -23,
+                  -8,
+                  7,
+                  -21
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  7,
+                  -21,
+                  36,
+                  -4
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  36,
+                  -4,
+                  19,
+                  28
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  19,
+                  28,
+                  -17,
+                  19
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -17,
+                  19,
+                  -23,
+                  -8
+                ]
+              }
+            ],
+            "dims": []
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 7
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 1.31635e-05,
+        "area": 0.004932190747600379,
+        "com": [
+          0.005411149516972432,
+          0.003352565806966232,
+          0.0035
+        ],
+        "mass": 1.31635e-05
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ],
+      "dimension_values": [
+        0.007
+      ],
+      "feature_error_queries": "unavailable: VT_I4 passed to the Boolean out parameter; these records do not establish zero feature errors or warnings"
+    },
+    {
+      "name": "H7_irregular.SLDPRT",
+      "sha256": "62602b7f17fc75ec6e51ae13c8a6bb7fd162c6a8b669da37eea99e2935535604",
+      "bytes": 59927,
+      "kind": "held-out",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "H7_irregular",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "add_to_db": true,
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -31,
+                  -6,
+                  -8,
+                  -25
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -8,
+                  -25,
+                  20,
+                  -19
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  -19,
+                  39,
+                  7
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  39,
+                  7,
+                  21,
+                  37
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  21,
+                  37,
+                  -13,
+                  32
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -13,
+                  32,
+                  -36,
+                  14
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -36,
+                  14,
+                  -31,
+                  -6
+                ]
+              }
+            ],
+            "dims": []
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 17
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 5.3796500000000006e-05,
+        "area": 0.009896349327158964,
+        "com": [
+          0.001440669932058777,
+          0.006562595460051613,
+          0.008499999999999999
+        ],
+        "mass": 5.3796500000000006e-05
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ],
+      "dimension_values": [
+        0.017
+      ],
+      "feature_error_queries": "unavailable: VT_I4 passed to the Boolean out parameter; these records do not establish zero feature errors or warnings"
+    },
+    {
+      "name": "Control_after.SLDPRT",
+      "sha256": "c6fa82d6c984f56eea8df1a4390d4e375f1710dab1eff8752169077f85c149a8",
+      "bytes": 55904,
+      "kind": "control",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "Control_after",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "add_to_db": true,
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -11,
+                  -9,
+                  26,
+                  -9
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  26,
+                  -9,
+                  26,
+                  18
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  26,
+                  18,
+                  -11,
+                  18
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -11,
+                  18,
+                  -11,
+                  -9
+                ]
+              }
+            ],
+            "dims": []
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 11
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 1.0988999999999998e-05,
+        "area": 0.0034059999999999997,
+        "com": [
+          0.0075,
+          0.0045,
+          0.005499999999999999
+        ],
+        "mass": 1.0988999999999998e-05
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ],
+      "dimension_values": [
+        0.011
+      ],
+      "feature_error_queries": "unavailable: VT_I4 passed to the Boolean out parameter; these records do not establish zero feature errors or warnings"
+    }
+  ]
+}

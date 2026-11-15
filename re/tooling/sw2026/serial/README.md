@@ -11,7 +11,7 @@ No writer is registered by this tooling.
 
 ```
 cd re/tooling/sw2026/serial
-uv run --no-sync python RoundTrip.py '<glob of .SLDPRT>' [Stream/Name,Other/Stream] --report report.json [-v]
+uv run --no-sync python RoundTrip.py '<glob of .SLDPRT>' [Stream/Name,Other/Stream] --report report.json [-v] [--link-config]
 ```
 
 Run checks in PR CI, never locally. The process exits 1 for an empty corpus, an unreadable
@@ -21,6 +21,11 @@ load-critical streams and checks optional modelled streams present in the docume
 Explicit stream lists require every named stream. `Config-0` expands across configurations;
 each configuration reads its own ModelHeader. JSON reports bind each file and stream to
 SHA-256 and disclose provisional schemas.
+
+`--link-config` additionally requires each selected resolved stream to inherit
+the configuration's class/object map and computed counter. Fresh builders use
+`ConfigPart.store_config_state` and seed `ResolvedCore.store_resolved` with its
+returned map. See the [2026 map finding](../../../solidworks/records/ArchiveMapConstruction2026.md).
 
 `tests/convert/solidworks/research/` invokes the CLI at a process boundary in remote CI.
 Its eight fixtures in `re/solidworks/v2026/corpus/ladder/` are privacy-redacted controls,

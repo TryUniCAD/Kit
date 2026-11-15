@@ -82,6 +82,16 @@ A future writer must derive each emitted structure from known format rules.
 The container, archive, configuration manager, definition, and resolved-feature codecs remain as its starting point.
 Do not present a carrier or a mode label as a completed translation.
 
+The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
+and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
+extend the research instruments without establishing writer support.
+The [oracle diagnostic correction](../../Changes/Solidworks/SolidworksOracleDiagnostics.md)
+records why the original source batch did not establish per-feature error status.
+The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
+and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
+build research object graphs from authored semantics and native constructor rules.
+Their process checks do not establish a complete, loadable native document.
+
 The [2026 archive research](../../Changes/Solidworks/SolidworksArchiveResearch.md)
 adds version-specific class schemas and a byte-identity checker under `re/`.
 Remote process checks use eight redacted, vendor-authored controls.

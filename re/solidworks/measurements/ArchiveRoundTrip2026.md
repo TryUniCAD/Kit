@@ -1,7 +1,25 @@
 # SOLIDWORKS 2026 archive byte identity
 
-Status: **56/56 critical streams passed on eight redacted controls; no generated SOLIDWORKS output**.
+Status: **56/56 critical streams and 8/8 linked resolved streams passed; no generated SOLIDWORKS output**.
 This record concerns source-stream representation only.
+
+## Linked-map remote run
+
+Head `d296a2714a78c127fd0df0b626c37b9a60247c3e` passed the
+[remote native-file job](https://github.com/TryUniCAD/Kit/actions/runs/43674084168/job/132690283373).
+The new process check loads each configuration first, inherits its actual
+class/object map into the resolved stream, and requires the resolved prefix
+to equal that computed map count. All eight resolved streams re-emitted
+identically with no unread tail. The existing 56/56 critical-stream gate
+and all rejection checks also passed.
+
+The job reported 124 passed and 158 existing fixture-dependent skips in
+18.82 seconds. No tests ran locally. The earlier revision's duplicate
+length-parameter owner was rejected at registry construction and was repaired
+by retaining one shared owner; no acceptance threshold was weakened.
+The [map finding](../records/ArchiveMapConstruction2026.md) records native
+cache-copy evidence. This remains a source-codec instrument, with no generated
+part, geometry, edit or vendor-load acceptance claim.
 
 ## Successful remote run
 

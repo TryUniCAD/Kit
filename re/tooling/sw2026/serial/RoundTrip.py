@@ -61,7 +61,7 @@ def expand(archive, names):
     return list(dict.fromkeys(out))
 
 
-def stream_roundtrip(archive, name, reg, plans):
+def stream_roundtrip(archive, name, reg, plans, linked=False):
     data = archive.get(name)
     if data is None:
         return {"passed": False, "error": f"required stream is missing: {name}"}
@@ -72,8 +72,17 @@ def stream_roundtrip(archive, name, reg, plans):
             doc, ar = load_resolved(data, reg, 19000)
             again = store_resolved(doc, reg, 19000)
         elif kind == "custom":
-            doc, ar = framing[0](data, reg, 19000, archive=archive, name=name)
-            again = framing[1](doc, reg, 19000)
+            options = {}
+            if linked and name.endswith("-ResolvedFeatures"):
+                from defs.ConfigPart import load_config
+                configuration_name = name.removesuffix("-ResolvedFeatures")
+                configuration, configuration_ar = load_config(archive.require(configuration_name), reg, 19000, archive=archive, name=configuration_name)
+                if configuration.tail:
+                    raise ArchiveError("configuration has an unread tail before map handoff")
+                options["seed"] = configuration_ar.map_state()
+                rec["seeded_map_count"] = configuration_ar.count
+            doc, ar = framing[0](data, reg, 19000, archive=archive, name=name, **options)
+            again = framing[1](doc, reg, 19000, **options)
         elif kind == "rooted":
             doc, ar = load_rooted(data, reg, framing, 19000)
             again = store_rooted(doc, reg, 19000)
@@ -97,7 +106,7 @@ def stream_roundtrip(archive, name, reg, plans):
     return rec
 
 
-def one(path, names, reg, plans):
+def one(path, names, reg, plans, linked=False):
     report = {"path": str(path), "streams": {}, "passed": False}
     try:
         raw = Path(path).read_bytes()
@@ -110,7 +119,7 @@ def one(path, names, reg, plans):
         if selected is None:
             selected = list(REQUIRED)
             selected.extend(name for name in plans if name not in REQUIRED and name in archive.streams)
-        streams = {name: stream_roundtrip(archive, name, reg, plans) for name in expand(archive, selected)}
+        streams = {name: stream_roundtrip(archive, name, reg, plans, linked) for name in expand(archive, selected)}
         report["streams"] = streams
         report["passed"] = bool(streams) and all(item["passed"] for item in streams.values())
     except Exception as error:
@@ -125,6 +134,7 @@ def main():
     parser.add_argument("streams", nargs="?", help="comma-separated required stream names")
     parser.add_argument("--report", type=Path)
     parser.add_argument("-v", "--verbose", action="store_true")
+    parser.add_argument("--link-config", action="store_true")
     args = parser.parse_args()
     names = args.streams.split(",") if args.streams is not None else None
     if names is not None and any(not name for name in names):
@@ -132,7 +142,7 @@ def main():
     paths = sorted({path for path in glob.glob(args.pattern, recursive=True) if Path(path).is_file() and not Path(path).name.startswith("~$")})
     reg = registry()
     plans = {**PLANS, **reg.plans}
-    files = [one(path, names, reg, plans) for path in paths]
+    files = [one(path, names, reg, plans, args.link_config) for path in paths]
     streams = [item for file in files for item in file["streams"].values()]
     report = {
         "version": 19000,
@@ -141,6 +151,7 @@ def main():
         "stream_count": len(streams),
         "passed_streams": sum(item["passed"] for item in streams),
         "passed": bool(files) and all(file["passed"] for file in files),
+        "linked_configurations": args.link_config,
         "provisional_schemas": sorted(reg.tentative),
     }
     if not paths:

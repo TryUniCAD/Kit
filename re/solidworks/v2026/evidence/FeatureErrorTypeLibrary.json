@@ -1,0 +1,17 @@
+{
+  "path": "C:\\Program Files\\SOLIDWORKS Corp\\SOLIDWORKS\\sldworks.tlb",
+  "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+  "library": "(IID('{83A33D31-27C5-11CE-BFD4-00400513BB57}'), 0, 3, 34, 0, 8)",
+  "interface": "IFeature",
+  "method": "GetErrorCode2",
+  "methods": [
+    {
+      "names": ["GetErrorCode2", "IsWarning"],
+      "member_id": 104,
+      "invoke_kind": 1,
+      "arguments": "(((26, 11), 2, None),)",
+      "return_type": "(3, 0, None)"
+    }
+  ],
+  "scope": "Static installed type-library metadata; no CAD application launched or attached"
+}
