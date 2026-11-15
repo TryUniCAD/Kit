@@ -1,6 +1,5 @@
 from dataclasses import replace as ReplaceValue
 
-from pytest import importorskip as ImportSkip
 from pytest import raises as ExpectError
 
 from convert.formats.Fusion.DrawingCodec.Author.BuildBundle import BuildBundle
@@ -11,8 +10,6 @@ from convert.formats.Fusion.DrawingCodec.Author.Model.DrawingSpec import Drawing
 from convert.formats.Fusion.DrawingCodec.Author.Model.SheetSpec import SheetSpec
 from convert.formats.Fusion.DocumentCodec.Model.ParsedSegment import ParsedSegment
 from convert.formats.Fusion.DrawingCodec.Author.Records.RecordIds import PlanIds
-from convert.formats.Fusion.DrawingCodec.Bundle.EmitDrawBundle import EmitDrawBundle
-from convert.formats.Fusion.DrawingCodec.Bundle.ReadDrawBundle import ReadDrawBundle
 from convert.formats.Fusion.DrawingCodec.Dwg.Author.AuthorDwg import AuthorDwg
 from convert.formats.Fusion.DrawingCodec.Model.DrawingDatabase import DrawingDatabase
 from convert.formats.Fusion.DrawingCodec.Dwg.Model.DwgFile import DwgFile
@@ -67,28 +64,15 @@ def TestFreshIds() -> None:
 
 # the new bundle contract needs boundary coverage so stored document relationships remain consistent
 def TestNewBundle() -> None:
-    Codec = ImportSkip("compression.zstd")
     Content = AuthorDwg(MakeDraft(KViews, (KDimension,)))
     SpecValue = MakeSpec()
     Drawing = BuildDrawing(
         SpecValue, DrawingDatabase(KDatabaseName, ReadDwgFile(Content))
     )
-    Bundle = BuildBundle(SpecValue, Drawing, KDesignData)
-    Emitted = EmitDrawBundle(Bundle, Codec.compress)
-
-    # shared inflate zstd setup keeps fixtures consistent so native document reconstruction failures identify the intended compatibility boundary
-    def InflateZstd(Packed: bytes, Expected: int) -> bytes:
-        Result = Codec.decompress(Packed)
-        assert isinstance(Result, bytes) and len(Result) == Expected
-        return Result
-
-    Again = ReadDrawBundle(Emitted, InflateZstd)
-    Database = Again.Drawing.Database
-    assert Database is not None
-    assert Database.FileName == KDatabaseName
-    assert Database.Content == Content
-    assert Again.Description.DesignName == "Kit Bracket Drawing"
-    assert [Entry.DataValue for Entry in Again.Documents] == [KDesignData]
+    assert Drawing.Database is not None
+    assert Drawing.Database.Content == Content
+    with ExpectError(ValueError, match="cannot be made loadable"):
+        _ = BuildBundle(SpecValue, Drawing, KDesignData)
 
 
 # the specification rejects contract needs boundary coverage so stored document relationships remain consistent

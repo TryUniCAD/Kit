@@ -38,6 +38,20 @@ A native run edits the `LAYOUT` object inside `Database.Model` from A3 to A1 and
 from the model. Fusion 2706.1.17 opened it in 4.7 s and reported `841.0 x 594.0` with views
 `[5, 4, 4]` and one dimension, so the projection and the rebuild are lossless for that edit.
 
+## Authoring gate
+
+`BuildBundle` now refuses a drawing whose database carries Kit's own product entry in its `AppInfo`.
+That entry is what `AuthorDwg` writes, and a database Kit authored cannot be made loadable because the
+header tail is a placeholder.
+
+```
+BuildBundle(MakeSpec(), BuildDrawing(MakeSpec(), authored_database), design)
+ValueError: Authored drawing databases cannot be made loadable, so the bundle is refused
+```
+
+The gate is on the bundle, not on `AuthorDwg`, so a caller can still build and inspect an authored
+drawing. What it cannot do is package one as a bundle that Fusion would reject.
+
 ## Behavior
 
 | Case                                  | Before                    | After                          |
@@ -46,6 +60,7 @@ from the model. Fusion 2706.1.17 opened it in 4.7 s and reported `841.0 x 594.0`
 | Re-emit an unedited drawing           | bytes copied              | model rebuilt, byte-identical  |
 | Edit a DWG object and re-emit         | not possible at this level | model edited, drawing rebuilt |
 | Read a drawing with an empty database | accepted                  | rejected                       |
+| Package an authored drawing as a bundle | emitted                 | refused                        |
 
 ## Limits
 

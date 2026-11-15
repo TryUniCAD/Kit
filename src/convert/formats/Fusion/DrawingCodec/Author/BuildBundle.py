@@ -42,6 +42,17 @@ KDesignObject = 2
 KDrawingObject = 1
 
 
+# the authored database gate needs one place so a bundle never packages a drawing fusion rejects
+def CheckLoadable(Drawing: FusionDrawing) -> None:
+    Database = Drawing.Database
+    if Database is None or Database.Model.AppInfo is None:
+        return
+    if any("Kit" in Entry.TextValue for Entry in Database.Model.AppInfo.AppEntries):
+        raise ValueError(
+            "Authored drawing databases cannot be made loadable, so the bundle is refused"
+        )
+
+
 # the bundle operation needs a consistent construction rule so sheet objects retain their intended document relationships
 def BuildBundle(
     SpecValue: DrawingSpec, Drawing: FusionDrawing, DesignData: bytes
@@ -50,6 +61,7 @@ def BuildBundle(
         raise ValueError("Expected a typed Fusion drawing")
     if type(DesignData) is not bytes or not DesignData:
         raise ValueError("Drawing bundles need the referenced design bytes")
+    CheckLoadable(Drawing)
     Identity = SpecValue.Identity
     History = SaveState() if SpecValue.History is None else SpecValue.History
     DesignPath = Identity.DesignFile + "." + KDesignType
