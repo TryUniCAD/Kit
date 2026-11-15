@@ -80,8 +80,8 @@ ConfigNames = [NamePrefix + str(IndexValue) for IndexValue in range(CountCfg)]
 ManagerNode = NewManager(
     owner=NativeObj("moPart_c"),
     names=ConfigNames,
-    date_code=2026001,
-    parasolid_version=380,
+    date_code=2026306,
+    parasolid_version=370108,
     updated_at=1700000000,
 )
 DocumentDef = NewPartDef(
@@ -107,8 +107,8 @@ PlaneNodes = NewPlanes(
     names={AxisName: NamePrefix + AxisName for AxisName in ("x", "y", "z")},
     owner=NativeObj("moPart_c"),
     allocator=IdAllocator,
-    date_code=2026001,
-    parasolid_version=380,
+    date_code=2026306,
+    parasolid_version=370108,
     retain_construction_flag=True,
 )
 StreamMap["Research/PrincipalPlanes"] = StoreRooted(
@@ -139,8 +139,8 @@ FolderNodes = NewFolders(
     names={ClassName: NamePrefix + ClassName for ClassName in ClassNames},
     owner=SystemOwner,
     allocator=IdAllocator,
-    date_code=2026001,
-    parasolid_version=380,
+    date_code=2026306,
+    parasolid_version=370108,
     created_at=1700000000,
 )
 """
@@ -151,8 +151,8 @@ CabinetNode = NewCabinet(
     name=NamePrefix + "annotations",
     owner=SystemOwner,
     allocator=IdAllocator,
-    date_code=2026001,
-    parasolid_version=380,
+    date_code=2026306,
+    parasolid_version=370108,
 )
 StreamMap["Research/SystemFeatures"] = StoreRooted(
     StreamDoc("rooted", {"base": 1}, [*FolderNodes, CabinetNode]), CodecReg, 19000

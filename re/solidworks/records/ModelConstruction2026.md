@@ -121,9 +121,28 @@ word. Its REA evidence id is
 `ev_ca4457ca262a70fa95d17d87837b42e3c2f8c203d7479c342689fac61ad210f4`;
 the module SHA-256 is
 `96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce`.
-The numeric kernel behavior version remains unresolved until the matching
-`pskernel.dll` implementation is inspected. It is not inferred from saved
-features, a marketing version, or the environment's pre-engine zero seed.
+The matching primary `pskernel.dll` has SHA-256
+`2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969`.
+Its preferred image base is `0x180000000`; all kernel addresses below use that
+base, independently of an application's relocated runtime address.
+Normal successful engine startup derives feature behavior version `370108`:
+
+| Stage                        | Native rule                                                                                                   | Address                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Select behavior kind         | `setSessionBehaviorUsingSWVersion(0, 0, 0)` selects kind `0x64f1`                                             | `sldgciParau` `0x33016650`                                     |
+| Set kernel mode              | Kind `0x64f1` becomes internal mode `1`                                                                       | `PK_SESSION_set_behaviour` `0x1803ea470`; branch `0x1803eaba1` |
+| Select latest index          | Helper clears `ecx` and jumps to a leaf that returns `0x185` when `cl` is zero                                | `0x180a917b0` to `0x1814306d0`                                 |
+| Read behavior result         | Mode `1` reads table index `0x185` from base `0x184394ffc`; entry `0x184395610` is `370108`                   | `PK_SESSION_ask_behaviour` `0x1803e1600`; branch `0x1803e1a97` |
+| Establish feature provenance | Successful startup copies result word `4` to GCP environment `0x27c`; the feature constructor reads that word | `sldgciParau` `0x3301338d`, then the getter chain above        |
+
+The independent kernel-build leaf at `0x1814306f0` instead returns `3701250`.
+`PK_SESSION_ask_kernel_version` at `0x1803f7520` splits that full build number
+into its reported components. It is not the behavior-version value emitted by
+this feature-construction path.
+Neither number comes from a saved feature, an estimated marketing version, or
+the environment's pre-engine zero seed.
+The builder still accepts an explicit version from the caller, so a different
+target or deliberately selected compatibility behavior requires its own provenance.
 
 ## Configuration construction
 
