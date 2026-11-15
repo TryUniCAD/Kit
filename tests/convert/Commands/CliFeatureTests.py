@@ -7,6 +7,7 @@ from pytest import mark as TestMark
 from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
 from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
 from tests.convert.Commands.BuildBadStep import BuildBadStep, KBadKinds
+from tests.convert.Commands.BuildExtraGeom import BuildExtraGeom
 from tests.convert.Commands.BuildSketchGeom import BuildSketchGeom
 from tests.convert.Commands.CheckJsonBlock import CheckJsonBlock
 from tests.convert.Commands.CliProcess import CliProcess
@@ -34,6 +35,24 @@ def CheckSketchGeom(
 ) -> None:
     Document = BuildSketchGeom(RecordKind)
     assert Document.feature_timeline and not Document.bodies
+    if IsNested:
+        Document = WrapDocument(Document)
+    CheckJsonBlock(Document, "IncompleteFeature", HasOutput, TmpPath)
+
+
+@TestMark.parametrize("RecordKind", ("UnlinkedBrep", "PlainMesh", "TaggedMesh"))
+@TestMark.parametrize("IsNested", (False, True))
+@TestMark.parametrize("HasOutput", (False, True))
+def CheckExtraGeom(
+    RecordKind: str, IsNested: bool, HasOutput: bool, TmpPath: FilePath
+) -> None:
+    Document = BuildExtraGeom(RecordKind)
+    assert Document.bodies and Document.feature_timeline[-1].definition is not None
+    if RecordKind == "UnlinkedBrep":
+        assert Document.brep is not None
+        assert all(not BodyValue.design_body_id for BodyValue in Document.brep.bodies)
+    else:
+        assert Document.meshes
     if IsNested:
         Document = WrapDocument(Document)
     CheckJsonBlock(Document, "IncompleteFeature", HasOutput, TmpPath)

@@ -1,0 +1,40 @@
+from dataclasses import replace as ReplaceData
+
+from convert.adapters.Fusion.Authoring.MakeFusionDoc import MakeFusionDoc
+from convert.formats.Fusion.DocumentCodec.Model.DocumentSpec import DocumentSpec
+from interchange.document.models.DocumentModel import CadDocument
+from interchange.records.RecordProvenance import Provenance
+from tests.convert.Commands.BuildHistory import BuildHistory
+
+
+def BuildExtraGeom(RecordKind: str) -> CadDocument:
+    Document = MakeFusionDoc(DocumentSpec("Typed geometry owner", "height", 20.0))
+    if RecordKind == "UnlinkedBrep":
+        assert Document.brep is not None
+        return ReplaceData(
+            Document,
+            brep=ReplaceData(
+                Document.brep,
+                bodies=tuple(
+                    ReplaceData(BodyValue, design_body_id="")
+                    for BodyValue in Document.brep.bodies
+                ),
+            ),
+            metadata={},
+        )
+    MeshValue = BuildHistory("Mesh", False).meshes[0]
+    if RecordKind == "TaggedMesh":
+        MeshValue = ReplaceData(
+            MeshValue,
+            attributes={
+                "feature_id": "extrude",
+                "design_body_id": "body",
+                "parametric": True,
+            },
+            provenance=Provenance(
+                "fixture",
+                "extrude",
+                attributes={"feature_id": "extrude", "design_body_id": "body"},
+            ),
+        )
+    return ReplaceData(Document, meshes=(MeshValue,), metadata={})

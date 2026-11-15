@@ -11,6 +11,8 @@ KBadKinds = {
     "EmptyDefinition": FeatureKind.KExtrusion,
     "NativeKind": FeatureKind.KNative,
     "NativeDefined": FeatureKind.KNative,
+    "Imported": FeatureKind.KImported,
+    "ImportedDefined": FeatureKind.KImported,
     "UnknownKind": "fixture.unknown",
     "UnknownDefined": "fixture.unknown",
     "BareReference": FeatureKind.KReference,
@@ -28,7 +30,7 @@ def BuildBadStep(RecordKind: str) -> CadDocument:
         kind=KBadKinds[RecordKind],
         definition=(
             Feature.definition
-            if RecordKind in ("UnknownDefined", "NativeDefined")
+            if RecordKind in ("UnknownDefined", "NativeDefined", "ImportedDefined")
             else None
         ),
         sketch_id=None if RecordKind == "BareReference" else Feature.sketch_id,
