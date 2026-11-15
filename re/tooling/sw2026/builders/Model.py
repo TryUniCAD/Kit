@@ -14,21 +14,24 @@ class PersistentIds:
         if any(type(value) is not int or not 0 <= value < 0x7FFFFFFF for value in self._reserved):
             raise ValueError("reserved persistent ids must be nonnegative signed integers")
         self._next_id = next_id
-        self._allocated: dict[Obj, int] = {}
+        self._allocated: dict[tuple[Obj, str], int] = {}
 
     @property
     def next_id(self) -> int:
         return self._next_id
 
-    def allocate(self, node: Obj) -> int:
+    def allocate(self, node: Obj, *, field: str = "f08") -> int:
         if not isinstance(node, Obj):
             raise TypeError("persistent ids belong to archive objects")
-        if node in self._allocated:
-            value = self._allocated[node]
-            if node.f.get("f08") != value:
-                raise ArchiveError("allocated node id was changed outside its allocator")
+        if field not in ("f08", "f50"):
+            raise ArchiveError("persistent id field is not classified for fresh construction")
+        key = (node, field)
+        if key in self._allocated:
+            value = self._allocated[key]
+            if node.f.get(field) != value:
+                raise ArchiveError("allocated persistent id was changed outside its allocator")
             return value
-        existing = node.f.get("f08", -1)
+        existing = node.f.get(field, -1)
         if existing != -1:
             raise ArchiveError("fresh nodes cannot supply an existing persistent id")
         value = self._next_id
@@ -37,8 +40,8 @@ class PersistentIds:
         if value >= 0x7FFFFFFF:
             raise ArchiveError("persistent id space exhausted")
         self._next_id = value + 1
-        self._allocated[node] = value
-        node.f["f08"] = value
+        self._allocated[key] = value
+        node.f[field] = value
         return value
 
 

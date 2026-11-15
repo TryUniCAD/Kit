@@ -27,8 +27,13 @@ No CAD process was launched or attached to during this work.
 | Manager `f40c`         | derived bookkeeping              | Number of fresh configurations when allocated sequentially from the constructor's zero seed | manager constructors `0x4b8802f0`, `0x4b880dd0`                                |
 | Component/archive tags | derived serialization references | Keep object pointers in the graph; compute archive map ids during storage                   | existing archive codec                                                         |
 
-`PersistentIds.allocate(node)` binds the allocation to the node's identity.
-Repeated allocation returns the same id; changing that id elsewhere raises an error.
+`PersistentIds.allocate(node, field="f08")` binds the allocation to object identity
+and its actual serialized id field. Repeated allocation returns the same id;
+changing that field elsewhere raises an error.
+Native feature-dimension naming at `0x4c821c40` calls the header's allocator for
+the dimension's `f50`. The profile builder therefore requests `field="f50"`;
+its parameter node keeps constructor id `-1` unless another proven operation
+allocates that node. No synthetic `f08` field is needed on a dimension.
 Configuration construction does not consume a persistent id.
 The manager's own constructor leaves its ordinary node id at `-1`.
 

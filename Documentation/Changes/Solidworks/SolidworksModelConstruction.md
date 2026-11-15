@@ -30,6 +30,8 @@ The [folder timestamp gotcha](../../Gotchas/Conversion/Solidworks/FolderFeatureC
 describes the separate native feature-constructor variant.
 The [test helper gotcha](../../Gotchas/Ci/CheckPrefixCollectsTests.md) records the
 repository's additional pytest collection prefix.
+The [dimension id gotcha](../../Gotchas/Conversion/Solidworks/DimensionAndParameterIds.md)
+records the header allocator's separate object-field binding for feature dimensions.
 
 ## Verification
 
