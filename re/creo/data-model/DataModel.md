@@ -275,6 +275,13 @@ The ladder's extrude and sketch records follow it, but their field boundaries ar
 `FeatDefsDtm` stores one placement record per datum. The record grammar is decoded and emitted by
 `Author.DatumPlaneRecord`; the field table is in [the datum placement page](DatumPlacement.md).
 
+### Authored sections
+
+Forty-one of the fifty-four directory rows can be emitted from format knowledge and accepted by the
+vendor loader; `FeatDefsDtm`, `BasBasData`, and `VisibGeom` are among them. What remains is
+`AllFeatur`, the three `ND:*` `PSB_Tokens` tables, the persistence/tessellation rows, and the two
+free-space extents.
+
 ### Decoded feature chain
 
 `re/creo/tools/TaggedStream.py` now decodes the full `AllFeatur` feature chain of both controls.

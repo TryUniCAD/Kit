@@ -715,3 +715,19 @@ def DefaultFeatDefsDtm(Extent: float) -> bytes:
         Csys,
         (0.0,) * 6,
     )
+
+
+def EmptyVisibGeom() -> bytes:
+    return SectionValue(
+        "VisibGeom",
+        StructBegin("Sld_VisGeom") + StructHeader("active_geom") + b"\xE2\xF2",
+    )
+
+
+def EmptyPartContainer(
+    FeatureClasses: tuple[int, ...] = (923, 979, 917),
+    ModelName: str = "part.prt",
+) -> bytes:
+    Bodies = EmptyPartSections(FeatureClasses)
+    Bodies["VisibGeom"] = EmptyVisibGeom()
+    return BuildContainer(tuple(Bodies.items()), ModelName)

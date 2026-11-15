@@ -421,6 +421,35 @@ sections 40  bytes 31271  delta -50268
 
 `FeatDefsDtm` therefore has no vendor-sourced content.
 
+## VisibGeom and the authored container
+
+`Author.EmptyVisibGeom()` emits the empty geometry form, `Sld_VisGeom` with an opened `active_geom` and
+no surfaces. It is byte-identical to the control (`control-equal: True 42 42`) and loads:
+
+```text
+sections 41  bytes 31271
+!15-Nov-26 02:08:44  End   C:\Mac\Home\Documents\creo-authored\vgempty.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+`Author.EmptyPartContainer()` assembles those 41 bodies through `BuildContainer`, so the result is a
+generated container rather than a rebuilt one:
+
+```text
+bytes 7956  base 0x2cc  rows 41  notes ()
+tail "#\n#END_OF_UGC\n"
+```
+
+The table parses cleanly with no notes. Our own reader refuses the file, correctly: with `AllFeatur`
+absent there are no features, parameters, or bodies, so the document validator reports "document has
+neither parameters, feature history, B-rep, mesh, nor assembly data". That is the same gap Creo shows
+as a rejection.
+
+The 13 rows still missing are the three `ND:*` token tables (each a `PSB_Tokens` root with a
+run-length `type_har` string), `SolidPersistTable`, `SolidPrimdata`, `DispDataTable`,
+`THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` rows (`IndentTag`, `FeatRefData`), the two
+free-space extents, and `AllFeatur`.
+
 ## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
