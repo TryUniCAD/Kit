@@ -213,28 +213,19 @@ def Extract(PathValue: Path) -> tuple[list[str], dict[str, int]]:
     return (Names, Counts)
 
 
-def ExtractValues(PathValue: Path) -> list[tuple[str, float]]:
+def ExtractValues(PathValue: Path) -> list[float]:
     Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
     Found = FindOsmx(Archive)
     if Found is None:
         return []
     Data, Parsed = Found
-    Symbols = [Symbol.value for Symbol in Parsed.symbols]
-    Records = ParseRecords(Data, 104, Parsed.symbol_table_offset)
-    Highest = max(
-        (Data[Start + 6] for Subtag, Start, _ in Records if Subtag == 0x07),
-        default=0,
-    )
-    if Highest >= len(Symbols):
-        Symbols = AllSymbols(Archive)
-    Values: list[tuple[str, float]] = []
-    for Subtag, Start, Length in Records:
-        if Subtag != 0x07:
+    Values: list[float] = []
+    for Offset in range(104, Parsed.symbol_table_offset - 9):
+        if Data[Offset] != 0xE6:
             continue
-        for Name, Items in ParseAttributes(Data, Start, Length, Symbols):
-            for Kind, Value in Items:
-                if Kind == "double" and isinstance(Value, float):
-                    Values.append((Name, Value))
+        Value = struct.unpack_from("<d", Data, Offset + 1)[0]
+        if 0.001 <= abs(Value) <= 1e6 and abs(Value - round(Value, 6)) < 1e-6:
+            Values.append(Value)
     return Values
 
 
@@ -248,7 +239,7 @@ def Main() -> None:
         Top = sorted(Counts.items(), key=lambda Item: -Item[1])[:10]
         print(f"{PathValue.name:56s} attributes={len(Names):5d} distinct={len(Counts):4d}")
         print(f"  {Top}")
-        print(f"  doubles={len(Values)} {Values[:8]}")
+        print(f"  doubles={len(Values)} {sorted(set(round(V, 4) for V in Values))[:12]}")
 
 
 if __name__ == "__main__":
