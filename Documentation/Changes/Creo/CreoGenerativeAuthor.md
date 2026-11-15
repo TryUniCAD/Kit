@@ -1025,6 +1025,14 @@ the solid that owns them.
 caller, including `AuthorBox`. It is repaired, and the surface record is still byte-identical to the ladder's
 first element (`409` bytes).
 
+### `FeatDefs` is per feature, so it cannot be swapped into a part with a body
+
+Replacing the ladder's `FeatDefs` (seven feature definitions) with our generated row (one definition, two
+dimensions) reads back through the adapter as `7 features, 2 params` **with the body intact** — `6` faces,
+volume `18482541.49` — but Creo answers `dbg_err_crash()`. The row must describe every feature the part
+declares, so a body-bearing part would need one definition per feature in that row, and our emitter currently
+writes one.
+
 ### Dimensions are authored, counted and chosen
 
 `Author.DefaultFeatDefs` takes a tuple of dimension values and emits one `dimtab_ptr` entry per value, with the

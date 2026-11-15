@@ -275,6 +275,12 @@ The ladder's extrude and sketch records follow it, but their field boundaries ar
 `FeatDefsDtm` stores one placement record per datum. The record grammar is decoded and emitted by
 `Author.DatumPlaneRecord`; the field table is in [the datum placement page](DatumPlacement.md).
 
+**A `FeatDefs` row is per feature, not a substitute.** Replacing the ladder's row (seven feature definitions)
+with our generated one (a single definition for feature `7`, two dimensions) reads back through our adapter as
+`7 features, 2 params, body 6 faces / volume 18482541.49` — but Creo answers with `dbg_err_crash()`. So the row
+has to describe **every** feature the part declares; it cannot be swapped for a one-feature version. A part with
+a body would therefore need a definition per feature in that row.
+
 ### Where a Creo parameter lives: `FeatDefs` dimension records
 
 Parameters come from the `FeatDefs` row (`Sld_FeatDefs`), which the datum-only control **does not have** — only

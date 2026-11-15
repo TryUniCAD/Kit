@@ -32,9 +32,10 @@ empty/solid_start_part_mmks.prt    byte-identical no-op: True
 ladder1.prt.2                      byte-identical no-op: True
 ```
 
-Replacing a section with a much shorter body inside the ladder's container still produces a row extent that our
-own reader rejects (`Creo table row 'FeatDefs' has an invalid extent`), so the replacement path is only
-validated on the control.
+An earlier version of this note said that replacing a section with a shorter body produced an extent our own
+reader rejects (`Creo table row 'FeatDefs' has an invalid extent`). That was wrong: it came from passing a bare
+payload where the builder expects the whole `#<name>\n` body. With the body wrapped correctly the replacement
+works and the file reads back.
 
 ## Evidence
 
