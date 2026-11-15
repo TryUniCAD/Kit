@@ -102,6 +102,10 @@ separates writable inspection from the default read-only action.
 The [initial-frame observer](../../Changes/Solidworks/SolidworksInitialFrameObservation.md)
 records the template update target and native exception details.
 Its measurements require healthy controls and do not establish native acceptance.
+The [model appearance constructor](../../Changes/Solidworks/SolidworksModelVisualProperties.md)
+replaces a null model appearance with an independently generated owned record.
+The measured prior fault and each constructor-derived field are documented;
+native acceptance of the replacement remains pending.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.

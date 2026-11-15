@@ -78,9 +78,16 @@ Static instruction checks corroborate the first part of the provider backtrace:
 the copy constructor `moVisualProperties_c(const moVisualProperties_c*)` at
 `0x3c9209e0` passes its null source to the leaf that reads `source+0xc` at
 `0x3c920a5d`. The caller at `0x4c1f4737` supplies the source previously returned
-by model virtual slot `+0x1040` at `0x4c1f46d0`. The copy path follows a missing
-peer-model visual record. The serialized ownership and required constructor
-state must be established before changing the builder.
+by model virtual slot `+0x1040` at `0x4c1f46d0`. The copy path follows missing
+visual state on the current base configuration, which is model member `+0xd78`,
+not a peer model.
+
+The display-state service's fallback at `0x327aad45` reads concept member
+`+0x78`; the active concept serializer owns that same `f78` field. The research
+model builder previously left this pointer null. The
+[visual construction record](VisualConstruction2026.md) now derives its owned
+visual object and mandatory material member from native default constructors.
+Generated native remeasurement is pending.
 
 The system-exception backtraces also contain non-code values in the healthy
 control. No unvalidated frame is treated as a call-chain fact. No exception is

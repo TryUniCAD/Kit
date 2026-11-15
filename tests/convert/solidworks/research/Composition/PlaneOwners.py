@@ -14,6 +14,12 @@ def ReadOwners(ArchiveFile: SldprtArchive, CodecReg: object) -> dict[str, bool]:
     OriginFields, SketchFields = ReadFields(OriginRef), ReadFields(SketchRef)
     Components = [OriginFields["f58"], SketchFields["f58"]]
     return {
+        "model_visual_properties": getattr(ReadFields(ModelRoot)["f78"], "cls", None)
+        == "moVisualProperties_c",
+        "separate_visual_owners": all(
+            ReadFields(Profile)["f78"] is not ReadFields(ModelRoot)["f78"]
+            for Profile in Profiles
+        ),
         "distinct_wrappers": OriginRef is not SketchRef,
         "distinct_components": Components[0] is not Components[1],
         "copied_components": all(

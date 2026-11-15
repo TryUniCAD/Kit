@@ -4,6 +4,7 @@ from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
 
 from Core import ArchiveError, Obj
+from builders.Visual import model_visual_properties
 
 
 class PersistentIds:
@@ -791,6 +792,7 @@ def model_fields(
     )})
     fields.update({
         "f2c": fields["f2c"] | 0x100,
+        "f78": model_visual_properties(),
         "f9b8": document_units,
         "f9c0": analysis_units,
         "fae0": detail_definitions,

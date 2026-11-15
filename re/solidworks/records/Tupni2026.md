@@ -430,7 +430,10 @@ localizes an access violation to a null source in the visual-properties copy
 constructor; static instruction inspection corroborates its immediate callers.
 Neither missing ordinary-sketch solve observations nor destructor-side body
 collection identifies this earlier failure. The owning serialized field and
-constructor state remain work for the shared builder.
+constructor state are now recorded in [VisualConstruction2026.md](VisualConstruction2026.md).
+The shared model builder generates that owned graph from native constructor
+rules. Its new output still requires remote construction and controlled native
+remeasurement; the diagnostic trace does not establish the repair's acceptance.
 
 A new REA pseudocode request for the origin initializer returned no analysis:
 the Hopper bridge exceeded its startup timeout, and authenticated document
