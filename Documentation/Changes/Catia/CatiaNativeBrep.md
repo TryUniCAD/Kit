@@ -167,6 +167,12 @@ one to four little-endian bytes, and the array is read by `ReadULong(uint*, coun
 the same element form. Decoding `MainDataStream` with that rule gives at most 18 consecutive records
 in `Reservoir` (offset `29353`), not 71, so the face list is not a contiguous run in that stream.
 
+`CATCXFace::Stream` (`0x18054eba0`) writes only the domain count, one named record per domain from
+`GetDomain`, and a `u16`, so the face never writes its own linked-object list: the list is emitted by
+`CATCXBody::Stream` with the element groups and handed to `CATCXFace::UnStream`. Probing both
+face-local layouts over the corpus finds no run reaching 90% of the face count for `4784`,
+`Pedal_Body`, or `Reservoir`; `re/catia/tooling/ProbeLinks.py` prints the candidates.
+
 The reference encoding is now recovered from the binaries, though the header offset is not. A face
 takes its surface from the first entry of the linked-object list that the generic object header
 passes in, and `CATCXFace::UnStream` then calls `SkipRemainingLinkedObjectsToRead`. The list is read

@@ -66,6 +66,36 @@ def Runs(Data: bytes, Minimum: int) -> list[tuple[int, int, int]]:
     return Found[:8]
 
 
+def TailRuns(Data: bytes, Minimum: int) -> list[tuple[int, int, int]]:
+    """Return runs of count-plus-one-entry records each closed by a u16."""
+    Found: list[tuple[int, int, int]] = []
+    for Start in range(len(Data) - 24):
+        Cursor = Start
+        Records: list[list[int]] = []
+        while len(Records) < 200 and Cursor < len(Data):
+            Count, After = ReadULong(Data, Cursor)
+            if Count is None or not 2 <= Count <= 7:
+                break
+            Tags: list[int] = []
+            Position = After
+            Broken = False
+            for _ in range(Count + 1):
+                Value, Position = ReadULong(Data, Position)
+                if Value is None:
+                    Broken = True
+                    break
+                Tags.append(Value)
+            if Broken or Position + 2 > len(Data):
+                break
+            Records.append(Tags)
+            Cursor = Position + 2
+        if len(Records) >= Minimum:
+            Seconds = {Value[1] for Value in Records if len(Value) > 1}
+            Found.append((len(Records), Start, len(Seconds)))
+    Found.sort(key=lambda Value: -Value[0])
+    return Found[:6]
+
+
 def Probe(PathValue: Path) -> None:
     Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
     Folder = Archive.nested[0]
@@ -76,6 +106,8 @@ def Probe(PathValue: Path) -> None:
     print(f"{PathValue.name}: faces {Faces} pool {Pool} main {len(MainData)}")
     for Records, Offset, Distinct in Runs(MainData, max(10, Faces // 2)):
         print(f"  run records {Records:4d} at {Offset:6d} distinct-second {Distinct}")
+    for Records, Offset, Distinct in TailRuns(MainData, max(10, int(Faces * 0.9))):
+        print(f"  tail records {Records:4d} at {Offset:6d} distinct-second {Distinct}")
 
 
 def Main() -> None:

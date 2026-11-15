@@ -53,6 +53,18 @@ Recorded searches for that header all failed on `Reservoir`: no run of 71 record
 count-then-four-byte-entry shape exists at a fixed stride `9`, `13`, `17`, `21`, or `25`, and no
 `03 00 00 00` followed by three entries below the pool size exists anywhere in `MainDataStream`.
 
+`CATCXFace::Stream` (`0x18054eba0`) shows the list is not written by the face at all. The face
+writes its domain count (domain count plus one when the owner pointer is present), then one named
+record per domain obtained from `GetDomain`, then a `u16` field. There is no
+`WriteListOfLinkedObjects` call in that function, so the face's linked-object list is emitted by
+`CATCXBody::Stream` (`0x180541d60`), which writes the element groups and passes each list to
+`CATCXFace::UnStream` on the read side. That is why every face-local scan misses.
+
+Both candidate face layouts were probed over the corpus. A count followed by `count` ULONG entries
+reaches at most 18 records in `Reservoir`; the `count + 1` entries plus a `u16` layout that
+`CATCXFace::Stream` implies reaches no run at 90% of the face count for `4784`, `Pedal_Body`, or
+`Reservoir`. `re/catia/tooling/ProbeLinks.py` prints both.
+
 The field framing is now pinned too. The count goes through
 `CATMathStreamImpl::WriteULong(value, "#NBLinkObjs")` (`CATMathStream.dll` `0x1800b7bb0`), which
 builds a prefix byte: bit `0x10` is set when byte 1 is non-zero, `0x20` for byte 2, and `0x40` for
