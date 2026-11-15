@@ -1025,35 +1025,43 @@ the solid that owns them.
 caller, including `AuthorBox`. It is repaired, and the surface record is still byte-identical to the ladder's
 first element (`409` bytes).
 
-### A parameter can be authored into a part with a body, but a definition needs its placement record
+### Definitions carry placement records, and still need sketch records
 
-`Author.DefaultFeatDefs` now takes `FeatureIds` and writes one definition block per feature. Measured against
-the datum-only control that loads (`fd_four`, `(7, 5, 3, 11)` with two dimensions each, read back as `4
-features, 8 params`, twice).
+`Author.DefaultFeatDefs` writes one definition block per feature (`FeatureIds`), and each definition now carries
+a `place_rec_ptr`: `local_sys` as an identity frame, `own_ref_id`, `orient`, `trf_arr` with one
+`type`/`key`/`idx` element, `transf`, `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`, `merge_info_ptr`,
+`state_ind`, `alumni_info`. That is the nesting the ladder uses; the earlier form emitted ten flat fields and a
+null `place_rec_ptr`.
 
-Swapping the same per-feature row into the ladder — which has a real body — still fails. Two variants were run:
+Measured on the datum control, where it loads twice:
+
+```text
+fd_place.prt: 83381 bytes, FeatDefs body 1999, ids (7, 5, 3, 11)
+readback: 4 features 8 params [100.0, 42.5, 100.0, 42.5, 100.0, 42.5, 100.0, 42.5]
+!15-Nov-26 07:37:20  End   C:\Mac\Home\Documents\creo-authored\fd_place.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid        (2 of 2)
+```
+
+### A parameter can be authored into a part with a body, but not synthesised into one
+
+Swapping the row into the ladder still fails, with or without placements:
 
 | Candidate | Row | Creo |
 | --- | --- | --- |
 | `ladder_fd` | one definition (feature `7`) | `dbg_err_crash()` |
 | `ladder_fd7` | seven definitions, one per declared feature | `dbg_err_crash()` |
+| `place_ladder` | seven definitions, each with a placement record | silent exit twice |
 
-So matching the definition count is necessary but not sufficient. What does work is editing a dimension
-**in place** in the ladder's own row: rewriting one `value` field from `-201.7190851617055` to `-123.5`, with
-the row length unchanged, loads twice with the body intact and reads back `-123.5`:
+What does work is editing a dimension **in place** in the ladder's own row: rewriting one `value` field from
+`-201.7190851617055` to `-123.5`, row length unchanged, loads twice with the body intact and reads back
+`-123.5`. That isolates the remaining gap to what else a definition contains.
 
-```text
-ladder_same_len: 110065 bytes (unchanged length)
-readback params: [-123.5, -338.93815066863453, -86.06680966899467, -154.4303300690026]
-!15-Nov-26 12:27:07  End   C:\Mac\Home\Documents\creo-authored\ladder_same_len.prt
-!MT_CUST - Applied settings for mode # 1 : MT Part Solid        (2 of 2)
-```
-
-That isolates the remaining gap to the definitions' **content**. The ladder's definition nests `own_ref_id`,
-`orient`, `trf_arr`, `type`, `key`, `idx`, `transf`, `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`,
-`merge_info_ptr`, `state_ind`, `alumni_info` and `sub_feat_arr` inside `place_rec_ptr`, and carries
-`local_sys` (12 doubles) and `transf` (12 doubles). Ours emits ten flat fields and an empty `place_rec_ptr`.
-Datum features tolerate that; solid features do not.
+A solid feature's definition also carries `sub_feat_arr` (`id`, `type`, `sub_type`,
+`data(subft_indexnumber)`, `index`, `tool_type`, `sep_index`), `feat_outl_info` (`ent_outl` as 6 doubles, plus
+`max_text_len`), `gsec_ptr` (`type`, `is_ref_gsec`, `name` — the ladder's reads `Sketch 1` — and `gsec2d_ptr`)
+and `segtab_ptr` (`f8 06 f7 2f fb` with per-segment tables). Those are the feature's sketch and segment
+records: geometry, not bookkeeping. So a dimension can be authored into a part that already has a body, and a
+feature definition that produces a body cannot be synthesised without its sketch.
 
 ### Dimensions are authored, counted and chosen
 

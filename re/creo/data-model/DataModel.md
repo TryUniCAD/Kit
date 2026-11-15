@@ -277,7 +277,7 @@ The ladder's extrude and sketch records follow it, but their field boundaries ar
 
 **A `FeatDefs` row must describe every feature, and a definition needs its placement record.**
 
-Three measurements settle this. First, replacing the ladder's row (`5977` bytes, seven definitions) with our
+Four measurements settle this. First, replacing the ladder's row (`5977` bytes, seven definitions) with our
 generated one-definition row reads back through our adapter as `7 features, 2 params` with the body intact
 (`6` faces, volume `18482541.49`) but Creo answers `dbg_err_crash()`. Second, emitting **one definition per
 feature** (`(7, 5, 3, 11, 67, 75, 74)`, `2319` bytes) still crashes, so the definition count is necessary but not
@@ -287,26 +287,30 @@ sufficient. Third, editing a single dimension value **in place** in the ladder's
 ```text
 ladder_same_len: 110065 bytes (unchanged length)
 readback params: [-123.5, -338.93815066863453, -86.06680966899467, -154.4303300690026]
-!15-Nov-27 12:27:07  End   C:\Mac\Home\Documents\creo-authored\ladder_same_len.prt
+!15-Nov-26 07:27:07  End   C:\Mac\Home\Documents\creo-authored\ladder_same_len.prt
 !MT_CUST - Applied settings for mode # 1 : MT Part Solid        (2 of 2)
 ```
 
-So a parameter can be authored into a part that has a body, and the crash is about what each definition
-*contains*, not about the row length or the edit itself. Comparing the two field sets shows the difference:
+Fourth, a definition built with a real `place_rec_ptr` — `local_sys` identity frame, `own_ref_id`, `orient`,
+`trf_arr` with one `type`/`key`/`idx` element, `transf`, `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`,
+`merge_info_ptr`, `state_ind`, `alumni_info` — loads on the datum control twice (`place_ctrl`, then
+`fd_place` from the landed emitter), so placement records are accepted and are now what
+`Author.PlacementRecord` emits.
+
+The ladder is still refused with placements present (`place_ladder`, silent exit twice). Comparing the two field
+sets shows what a solid feature needs beyond placement:
 
 | Field | Ladder definitions | Ours |
 | --- | --- | --- |
-| `place_rec_ptr` | struct | declared, but empty (`e1`) |
-| `local_sys` | 12 doubles | absent |
-| `trf_arr` | 1 element | absent |
-| `transf` | 12 doubles | absent |
-| `sub_feat_arr` | 1 element | absent |
-| `plcm_revnum`, `next_prop`, `cond_tbl_idx`, `comment`, `merge_info_ptr`, `state_ind`, `alumni_info` | present | absent |
+| `place_rec_ptr` with `local_sys` / `trf_arr` / `transf` | present | present |
+| `sub_feat_arr` | 1 element: `id`, `type`, `sub_type`, `data(subft_indexnumber)`, `index`, `tool_type`, `sep_index` | absent |
+| `feat_outl_info` | `ent_outl` (6 doubles), `max_text_len` | absent |
+| `gsec_ptr` | `type`, `is_ref_gsec`, `name` (`Sketch 1`), `gsec2d_ptr` | absent |
+| `segtab_ptr` | `f8 06 f7 2f fb` with per-segment tables | absent |
 
-Our definition is ten flat fields (`id`, `symbol_key`, `model_type`, `group_info_ptr`, `place_rec_ptr`,
-`own_ref_id`, `orient`, `type`, `key`, `idx`) plus a `dimtab_ptr`. The ladder's nests `own_ref_id`, `orient`,
-`trf_arr`, `type`, `key`, `idx`, `transf` and the rest inside `place_rec_ptr`, which is the feature's placement
-record. Datum features tolerate the flat form — those parts load — and solid features do not.
+So a solid feature's definition carries its **sketch and segment tables**, which describe the geometry the
+feature was built from. That is the same boundary the `917` record reaches from the other side, and it is why a
+parameter can be edited into a part that has a body but not synthesised into one.
 
 ### Where a Creo parameter lives: `FeatDefs` dimension records
 

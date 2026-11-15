@@ -1284,6 +1284,32 @@ def CsysFeatureRecord(
     return Payload
 
 
+# a feature that is not transformed stores the identity frame in its placement record
+KIdentityFrame = (1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0)
+
+
+# a placement record is where a feature definition keeps its frame and revision state
+def PlacementRecord() -> bytes:
+    Payload = b"\xe3"
+    Payload += b"\xe0\x02local_sys\x00\xf9\x04\x03" + RunValues(KIdentityFrame)
+    Payload += FieldValue(1, "own_ref_id", SignedInt(-1))
+    Payload += FieldValue(1, "orient", SignedInt(0))
+    Payload += StructHeader("trf_arr") + b"\xf8\x01\xf7\x0b\xfb"
+    Payload += b"\xe3"
+    Payload += FieldValue(1, "type", SignedInt(1))
+    Payload += FieldValue(1, "key", SignedInt(-1))
+    Payload += FieldValue(1, "idx", SignedInt(0))
+    Payload += b"\xe0\x02transf\x00\xf9\x04\x03" + RunValues(KIdentityFrame)
+    Payload += StructHeader("plcm_revnum") + b"\xf2\xe1"
+    Payload += StructHeader("next_prop") + b"\xf1\xe1"
+    Payload += FieldValue(1, "cond_tbl_idx", SignedInt(-1))
+    Payload += FieldValue(10, "comment", b"\xe1")
+    Payload += StructHeader("merge_info_ptr") + b"\xe1"
+    Payload += FieldValue(1, "state_ind", SignedInt(-1))
+    Payload += StructHeader("alumni_info") + b"\xe1"
+    return Payload
+
+
 # a parameter is a dimension record so each declared feature needs its own definition block
 def FeatDefBlock(
     FeatureId: int,
@@ -1293,13 +1319,8 @@ def FeatDefBlock(
     Payload += FieldValue(1, "id", SignedInt(FeatureId))
     Payload += FieldValue(1, "symbol_key", SignedInt(-1))
     Payload += FieldValue(1, "model_type", SignedInt(2))
-    Payload += FieldValue(0, "group_info_ptr", b"\xe1")
-    Payload += FieldValue(0, "place_rec_ptr", b"\xe1")
-    Payload += FieldValue(1, "own_ref_id", SignedInt(-1))
-    Payload += FieldValue(1, "orient", SignedInt(0))
-    Payload += FieldValue(0, "type", b"\xe1")
-    Payload += FieldValue(1, "key", SignedInt(-1))
-    Payload += FieldValue(1, "idx", SignedInt(0))
+    Payload += StructHeader("group_info_ptr") + b"\xe1"
+    Payload += StructHeader("place_rec_ptr") + PlacementRecord()
     Payload += FieldValue(
         0,
         "dimtab_ptr",
