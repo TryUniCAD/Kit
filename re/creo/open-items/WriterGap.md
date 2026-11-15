@@ -17,13 +17,14 @@ A neutral edit cannot be expressed by replaying the old bytes.
 
 ## Missing work
 
-1. Decode the `AllFeatur` footer and the `Sld_FeatDefs` records in `FeatDefs` and `FeatDefsDtm`.
-2. Decode the geometry prototype lanes and the contour and topology references in `VisibGeom`.
-3. Map feature identity, parent links, dimensions, relations, and configuration overrides to the neutral model.
-4. Prove which derived sections Creo recomputes after a feature edit.
-5. Build a symbolic writer that recomputes every index, count, checksum, and derived section.
-6. Measure a generated part in a fresh Creo process between healthy controls.
-7. Change a driving dimension, rebuild, and measure the geometry change.
+1. Decode the packed `ent_outl`/`envlp` double encoding and the ladder's `dtm_id_tab` structure.
+2. Decode the `Sld_FeatDefs` records in `FeatDefs`.
+3. Decode the geometry prototype lanes and the contour and topology references in `VisibGeom`.
+4. Map feature identity, parent links, dimensions, relations, and configuration overrides to the neutral model.
+5. Prove which derived sections Creo recomputes after a feature edit.
+6. Build a symbolic writer that recomputes every index, count, checksum, and derived section.
+7. Measure a generated part in a fresh Creo process between healthy controls.
+8. Change a driving dimension, rebuild, and measure the geometry change.
 
 ## Decoded so far
 
@@ -36,8 +37,35 @@ A neutral edit cannot be expressed by replaying the old bytes.
 
 The chain matches the model tree Creo shows.
 The grammar is recorded in [the loader notes](../loader/Loader.md#tagged-stream-parser-status).
-The parser stops at the `AllFeatur` footer, which uses a different field order.
-The footer and `Sld_FeatDefs` are the next decode targets.
+The empty control's `AllFeatur` now decodes end-to-end, including the footer
+(`foot_first_feat_ptr = None`, `foot_layer_count = 0`) and the recursive `layer_list`.
+The ladder's `AllFeatur` decodes the five features and the footer prefix, then stops at `0x1061`
+in the sketch/extrude payload.
+`FeatDefsDtm` decodes the datum placement records through `ent_outl`.
+
+## Packed double encoding
+
+`ent_outl` and `envlp` use a packed double encoding that is not yet decoded.
+The parser records each undecodable double as `RawDouble(<8 bytes>)` and continues.
+
+The empty control's `ent_outl` is `f9 02 03` (2x3) followed by
+`46 6f ca 90 66 89 b9 7f e4 18 2d 6f ca 90 66 89 b9 7f e4 18`.
+The two 9-byte blobs differ only in the first byte (`0x46` vs `0x2d`), and `0x18` is the 1.0
+constant. The ladder's `ent_outl` is `f9 02 03` followed by a 14-byte blob, `0x18`, a 16-byte
+blob, `0x18`. The blobs are variable length, so the encoding is not a fixed-size packed double.
+
+Disproved hypotheses:
+
+- ASCII hex string: `0x46` is a valid hex digit but `0x6f` is not, so the reader consumes one digit
+  and fails.
+- XOR mask to a valid hex string: no mask in `0..255` makes every byte a valid hex character.
+- Raw 8-byte IEEE double in any byte window or byte order: no window gives a plausible outline
+  coordinate.
+- Two 4-byte floats per 8-byte group: only some halves are plausible, the rest are denormal or
+  huge.
+
+The next decode target is the packed encoding, then the ladder's `dtm_id_tab` structure, then
+`Sld_FeatDefs`.
 
 ## One-feature ladder result
 
