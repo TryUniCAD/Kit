@@ -175,11 +175,20 @@ Runtime path coverage and target acceptance remain separate evidence
 | --- | --- | --- | --- |
 | Sketch `f188` | `sgSketch::update` at `0x4c549ab0` stores whether `0x4c6fcfc0` returns an inter-component reference | Zero for the current local point/line graphs with absent extension pointers, empty other geometry/reference arrays and `pd_f110=null`; origin's local logical point constraint does not add such a reference | Closed by static predicates; builder derives the value and fails closed when unsupported references are introduced |
 | Derived-profile predicate | `moProfileFeature_c::isDerived` at `0x4c0de380` requires nonnull profile-data `+0x110` before testing a derived reference | False from the constructed null pointer | Closed static dependency |
-| Constrained-status getter | `0x4c53d2c0` reads sketch `+0x12c`, except for the session's special mode returning seven | Constructor state is known, but a complete post-solver status rule remains unproved | Unresolved post-update state |
-| Entity constraint state | `setConstraintStatus` at `0x4c5d5370` writes common entity `+0x34`; other solver paths also set constraint colour/state | The common constructor's `f34/f38` are not claimed to equal final solver state | Unresolved post-update state |
-| Dependency reset | `clearDependancyFlags` at `0x4c538d10` iterates permanent entities and calls `0x4c5d3100` with a type mask | Requires that helper's final entity-field dataflow, not a guessed zero | Unresolved indirect mutation |
-| Modification stamp | The conditional `f56c` increment inside update `0x4c549ab0` depends on model-reference and temporary update results | Canonical insertion stamp remains separately derived as `1+n`; post-update delta is not assumed | Unresolved conditional delta |
+| Constrained-status getter and setter | `0x4c53d2c0` reads sketch `+0x12c`, except for the session's special mode returning seven; setter `0x4b2a77c0` writes the supplied status to that field | Constructor state is known, but a complete post-solver status rule remains unproved | Unresolved post-update state |
+| Entity constraint state | `0x4c502b70` queries solver virtual `+0x218` for each point and line, then passes the result to `0x4c5077f0`; `setConstraintStatus` at `0x4c5d5370` writes entity `+0x34` | The solver result is a required dependency; constructor `f34=1` is not independent proof of its final value; this setter does not write `f38` | Unresolved solver dependency |
+| Entity colour | `setConstraintColor` at `0x4c5d5260` uses mapping `0x4c3e15b0`, then setter `0x4c3e29e0` writes entity `+0x30` | With the current `f54` mask, status one maps to colour five and status two maps to four; current `f30=5` matches status one, but does not prove the solver chose it | Closed mapping; final input unresolved |
+| Dependency reset | `clearDependancyFlags` at `0x4c538d10` calls `0x4c5d3100`; for local handles it calls `0x4c3e2bd0(entity,0)` and `0x4c3e24a0(entity,0)` | The first masks `f56` with `0x3fff`; the second clears bit `0x8000`; constructor `f56=0` is unchanged | Closed static mutation for local geometry |
+| Point cleanup | `cleanOutSketchPoints` at `0x4c4a6e30` considers removal only when a permanent point is invisible, local and has degree zero | Polygon vertices have degree two; origin type one is visible because point vtable `0x4cdd2d48`, slot `+0x190`, targets `0x4c491cb0` and tests mask `0x138a02` | Closed preservation predicate |
+| Constraint validation tails | `0x4c4bbf40` iterates sketch `+0x58`; `0x4c4bbc60` examines offset dimensions and display dimensions | The current graph has empty block, offset and sketch-display collections; origin's one logical point constraint still requires its own validation and solver path | Closed empty loops; origin handler unresolved |
+| Modification stamp | `0x4c5195d0` adds the results of `0x4c5167d0` and `0x4c516600` to sketch `f56c`; update `0x4c549ab0` can add a further conditional increment from model-reference and temporary update results | The latter helper only updates 3D planes, absent here; the point solver's write count and the other update results remain dependencies; insertion stamp remains separately derived as `1+n` | Unresolved conditional delta |
 | Pattern/spline/styled helpers | `0x4c46f1b0`, `0x4c5483f0` and `0x4c52f470` iterate their corresponding collections | Empty collections make these loops inactive for the polygon and origin inputs | Closed static loop bounds |
+
+The jump table at `0x4c507948` maps raw solver status eleven to sketch/entity status one, raw one or ten to two, raw three to three, and raw zero/four/five/eight/nine to four
+`0x4c5077f0` then applies validity, external-reference, underlying-offset and visibility predicates before storing the result
+These are native branch rules, not evidence that a fresh free polygon or origin produced a particular solver result
+The final aggregator at `0x4c502b70` prioritizes invalid geometry, status four and status three, then returns one when any contributing entity is status one, otherwise two when a nonzero status was seen
+The `0x4c507b30` caller stores that aggregate in sketch `f12c`, except when its current state is the special mode seven
 
 Both polygon and origin graphs retain `_requires_update=True` until the remaining state rules are established
 
@@ -207,7 +216,7 @@ The sweep change has not been executed locally; its process-boundary regression 
 The sketch component explicitly seeds its external profile owner in the archive map; it is not a complete part or a vendor-loadability check
 Its cases cover variable N, a 10,000-line ring, crossings, touches, vertical overlap, adjacent backtracking and valid collinear edges
 It checks actual decoded dimension IDs and leaves parameter node IDs at their constructor value `-1`
-The shared `BuildAudit` hook starts before builder/schema imports, permits only actual import-loader code access during startup, then rejects runtime file access and child-process launches during construction
+The shared `BuildAudit` hook starts before builder/schema imports, permits actual import-loader code access and the bounded source-package/schema discovery needed during startup, then rejects runtime file access and child-process launches during construction
 It does not exempt arbitrary reads by filename suffix
 The sketch-info component test selects `ctx874=1`, so its external profile-owner reference is actually present in the encoded grammar and its identity assertion remains meaningful
 This coverage has only been syntax-checked locally and is pending its remote execution

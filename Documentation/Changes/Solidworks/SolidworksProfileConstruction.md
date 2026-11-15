@@ -41,6 +41,8 @@ The vertex-only profile contract contains no authored sketch dimensions or const
 It does not preserve a source sketch that contains additional design intent
 The origin graph explicitly records that its post-constructor sketch update remains unresolved
 The local inter-component-reference flag is now derived from the native update predicate; final solver status and modification-stamp delta remain unresolved for both polygon and origin graphs
+Static native dataflow also closes local dependency-bit clearing, point-cleanup preservation and the status-to-colour mapping
+The actual solver status remains a required dependency rather than a value inferred from the constructor
 The dimensional graph requires the explicit presentation input and completed shared model graph
 They do not change adapter capabilities
 See [the construction evidence](../../../re/solidworks/records/ProfileConstruction2026.md) for binary addresses, confidence labels, contracts, and remaining fields
