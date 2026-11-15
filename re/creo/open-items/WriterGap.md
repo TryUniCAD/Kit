@@ -17,11 +17,12 @@ A neutral edit cannot be expressed by replaying the old bytes.
 
 ## Missing work
 
-1. Decode the packed `ent_outl`/`envlp` double encoding and the ladder's `dtm_id_tab` structure.
+1. Decode the ladder's `dtm_id_tab` structure.
 2. Decode the remaining `Sld_FeatDefs` records in `FeatDefs`; the first definition decodes through
    `ent_outl`, then the flat field-index approach stops at `0x3be`.
 3. Decode the remaining geometry prototype lanes and the contour and topology references in
-   `VisibGeom`; the first plane prototype decodes through `outline`.
+   `VisibGeom`; the first plane prototype decodes through `outline`, then the `local_sys` cache
+   index lane stops at `0x14a`.
 4. Map feature identity, parent links, dimensions, relations, and configuration overrides to the neutral model.
 5. Prove which derived sections Creo recomputes after a feature edit.
 6. Build a symbolic writer that recomputes every index, count, checksum, and derived section.
@@ -45,16 +46,23 @@ The ladder's `AllFeatur` decodes the five features and the footer prefix, then s
 in the sketch/extrude payload.
 `FeatDefsDtm` decodes the datum placement records through `ent_outl`.
 
-## Packed double encoding
+## World-coordinate double encoding
 
-`ent_outl` and `envlp` use a packed double encoding that is not yet decoded.
-The parser records each undecodable double as `RawDouble(<8 bytes>)` and continues.
+`ent_outl`, `envlp`, and `outline` use the world-coordinate token lane, and the decode is
+resolved. In the positional-outline/world lane, `46 <tail7>` reconstructs `40 <tail7>` (positive)
+and `2d <tail7>` reconstructs `C0 <tail7>` (negative). The seven-byte sub-unit forms
+`4f <tail6>` and `d5 <tail6>` reconstruct `3F <tail6> 00` and `BF <tail6> 00`. The `0x18` byte is
+the one-byte 1.0 constant.
 
 The empty control's `ent_outl` is `f9 02 03` (2x3) followed by
-`46 6f ca 90 66 89 b9 7f e4 18 2d 6f ca 90 66 89 b9 7f e4 18`.
-The two 9-byte blobs differ only in the first byte (`0x46` vs `0x2d`), and `0x18` is the 1.0
-constant. The ladder's `ent_outl` is `f9 02 03` followed by a 14-byte blob, `0x18`, a 16-byte
-blob, `0x18`. The blobs are variable length, so the encoding is not a fixed-size packed double.
+`46 6f ca 90 66 89 b9 7f e4 18 2d 6f ca 90 66 89 b9 7f e4 18`. It decodes to
+`[254.33012701892218, 254.33012701892218, 1.0, -254.33012701892218, -254.33012701892218, 1.0]`,
+a square in homogeneous coordinates. The ladder's `ent_outl` decodes to
+`[186.8986780200836, -0.000125701882057086, 1.0, -156.82118748945425, -272.72085742045164, 1.0]`,
+a rectangle in the sketch plane. The `VisibGeom` plane prototype's `envlp` decodes to
+`[184.50782059963194, 86.06680966899467, -154.4303300690026, -115.65227549271083]` and its
+`outline` to
+`[184.50782059963194, 1.0, 115.65227549271083, -154.4303300690026, 1.0, -86.06680966899467]`.
 
 Disproved hypotheses:
 
@@ -69,8 +77,8 @@ Disproved hypotheses:
   `re/creo/tools/PackedDouble.py` produces denormals (`1.4e-312`) for the empty control and huge
   values (`4.8e-154`, `-2.5e169`) for the ladder. The high-nibble variant is equally implausible.
 
-The next decode target is the packed encoding, then the ladder's `dtm_id_tab` structure, then
-`Sld_FeatDefs`.
+The next decode target is the ladder's `dtm_id_tab` structure, then `Sld_FeatDefs`, then the
+`VisibGeom` `local_sys` cache index lane.
 
 ## One-feature ladder result
 

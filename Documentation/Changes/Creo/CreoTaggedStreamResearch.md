@@ -48,8 +48,16 @@ it runs past the end of the field table, which is what lets the recursive `layer
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) also decodes the datum placement records. The first record is the
 `FRONT` datum with `id = 7`, `type = 515`, `offset = 1.0`, `geometry2_id = 8`, and
 `attr = [32768, 0, 0, 0, 0]`. That is the parametric placement of the datum plane, not just a name.
-The parser now records an undecodable packed double as `RawDouble(<8 bytes>)` and continues, so
-`FeatDefsDtm` decodes through `ent_outl` to the next field.
+
+The `ent_outl`, `envlp`, and `outline` bounding boxes use the world-coordinate token lane, and the
+decode is resolved. In the positional-outline/world lane, `46 <tail7>` reconstructs `40 <tail7>`
+(positive) and `2d <tail7>` reconstructs `C0 <tail7>` (negative). The seven-byte sub-unit forms
+`4f <tail6>` and `d5 <tail6>` reconstruct `3F <tail6> 00` and `BF <tail6> 00`. The `0x18` byte is
+the one-byte 1.0 constant. The empty control's `ent_outl` decodes to
+`[254.33012701892218, 254.33012701892218, 1.0, -254.33012701892218, -254.33012701892218, 1.0]`,
+a square in homogeneous coordinates. The ladder's `ent_outl` decodes to
+`[186.8986780200836, -0.000125701882057086, 1.0, -156.82118748945425, -272.72085742045164, 1.0]`,
+a rectangle in the sketch plane.
 
 `FeatDefs` (`Sld_FeatDefs`) decodes the first feature definition, the ladder's extrude:
 `id = 66`, `type = 160`, `sub_type = -1`, `tool_type = 60001`, `index = 1`, and
@@ -61,20 +69,20 @@ handle the nested structures in `FeatDefs`.
 `geom_id = 77`, `geom_type = 34`, `feat_id = 74`, `orient = -1`, `boundary_type = 0`,
 `next_geom_ptr = 82`, `srf_prim_ptr(plane) = 48865`, `frst_cntr_ptr = 108`,
 `frst_cntr_crv_hdr_ptr = 105`, `trv = 110`, and `next_cntr_ptr = 0`. `geom_type = 34` is a plane
-surface and `feat_id = 74` is the owning feature. The parser stops at `0xbd` because the `outline`
-field uses the packed double encoding.
+surface and `feat_id = 74` is the owning feature. Its `envlp` decodes to
+`[184.50782059963194, 86.06680966899467, -154.4303300690026, -115.65227549271083]` and its
+`outline` to
+`[184.50782059963194, 1.0, 115.65227549271083, -154.4303300690026, 1.0, -86.06680966899467]`.
+The parser then stops at `0x14a` in the `local_sys` cache index lane.
 
 ## Limits
 
 - The empty control's `AllFeatur` decodes end-to-end. The ladder's `AllFeatur` decodes the five
   features and the footer prefix, then stops in the sketch/extrude payload at `0x1061`.
-- The `ent_outl` bounding-box matrix in `FeatDefsDtm` and `FeatDefs` uses a packed encoding that is
-  not yet decoded. The parser records each undecodable double as `RawDouble(<8 bytes>)` and
-  continues, so the rest of the section decodes.
 - `FeatDefs` decodes the first feature definition, then stops at `0x3be` because the flat
   field-index approach does not handle the nested structures.
-- `VisibGeom` decodes the first geometry prototype, then stops at `0xbd` because the `outline`
-  field uses the packed double encoding.
+- `VisibGeom` decodes the first geometry prototype, then stops at `0x14a` in the `local_sys` cache
+  index lane.
 - The parser is research code; it does not change the production adapter, which remains
   container-only.
 
@@ -82,6 +90,9 @@ field uses the packed double encoding.
 
 - The empty control decodes four features and the ladder decodes five.
 - The feature ids and types match the model tree that Creo 2027.2 shows for both files.
+- The world-coordinate decode produces finite, ordered bounding boxes for both controls:
+  the empty `ent_outl` is a symmetric square and the ladder `ent_outl` is a rectangle in the
+  sketch plane. The `VisibGeom` plane `envlp` and `outline` decode to the same coordinate family.
 - The parser is exercised only on the retained research controls under `re/creo/oracle/`.
 - No vendor file, vendor block, or captured table is stored under `src/`.
 

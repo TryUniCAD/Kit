@@ -168,8 +168,11 @@ next_cntr_ptr = 0
 
 `geom_type = 34` is a plane surface, `feat_id = 74` is the owning feature, and `srf_prim_ptr(plane)`
 is the surface primitive pointer. `frst_cntr_ptr` and `frst_cntr_crv_hdr_ptr` are the first contour
-and curve header pointers. The parser stops at `0xbd` because the `outline` field uses the packed
-double encoding.
+and curve header pointers. The prototype's `envlp` decodes to
+`[184.50782059963194, 86.06680966899467, -154.4303300690026, -115.65227549271083]` and its
+`outline` to
+`[184.50782059963194, 1.0, 115.65227549271083, -154.4303300690026, 1.0, -86.06680966899467]`.
+The parser then stops at `0x14a` in the `local_sys` cache index lane.
 
 Feature identity is split across a native id, a user-visible name, a type, a parent feature, and references.
 The data model needs all of these to rebuild a live tree.
@@ -318,17 +321,27 @@ plin_info_arr = [ref 21]
 `geometry2_id = 8` is the reference geometry. `attr` is the datum attribute array.
 This is the parametric placement of the datum plane, not just a name.
 
-The parser stops at the `ent_outl` bounding-box matrix, which uses the packed hex-nibble double
+The `ent_outl` bounding-box matrix uses the world-coordinate token lane, not the hex-string
 encoding. The `ugc_ieee_unformat_double` function reads a hex string where each byte's low nibble
 is a hex digit, and stores the bytes into the double buffer from the end backwards. The `0x0f`
 (0.0) and `0x18` (1.0) one-byte constants are handled by the caller, not the function.
 
 The hex-string hypothesis is disproved for `ent_outl`: `0x46` is a valid hex digit but `0x6f` is
-not, so the reader consumes one digit and fails. The bytes are a packed encoding. The parser now
-records an undecodable double as `RawDouble(<8 bytes>)` and continues, so `FeatDefsDtm` decodes
-through `ent_outl` to the next field. The empty control's `ent_outl` is two 9-byte blobs separated
-by `0x18` (1.0), differing only in the first byte (`0x46` vs `0x2d`), which is consistent with a
-sign or direction flag.
+not, so the reader consumes one digit and fails. The bytes are world-coordinate tokens. In the
+positional-outline/world lane, `46 <tail7>` reconstructs `40 <tail7>` (positive) and `2d <tail7>`
+reconstructs `C0 <tail7>` (negative). The seven-byte sub-unit forms `4f <tail6>` and `d5 <tail6>`
+reconstruct `3F <tail6> 00` and `BF <tail6> 00`. The `0x18` byte is the one-byte 1.0 constant.
+
+The empty control's `ent_outl` decodes to
+`[254.33012701892218, 254.33012701892218, 1.0, -254.33012701892218, -254.33012701892218, 1.0]`,
+a square in homogeneous coordinates. The ladder's `ent_outl` decodes to
+`[186.8986780200836, -0.000125701882057086, 1.0, -156.82118748945425, -272.72085742045164, 1.0]`,
+a rectangle in the sketch plane. The ladder's `outline` decodes to
+`[186.8986780200836, 1.0, 118.04313291316248, -156.82118748945425, 1.0, -88.45766708944632]`.
+The `VisibGeom` plane prototype's `envlp` decodes to
+`[184.50782059963194, 86.06680966899467, -154.4303300690026, -115.65227549271083]` and its
+`outline` to
+`[184.50782059963194, 1.0, 115.65227549271083, -154.4303300690026, 1.0, -86.06680966899467]`.
 
 ### Feature definitions
 

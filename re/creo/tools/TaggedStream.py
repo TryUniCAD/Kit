@@ -30,6 +30,10 @@ KOneByteDouble = {
     0x18: 1.0,
 }
 
+KStructural = frozenset(
+    {0xE0, 0xE1, 0xE2, 0xE3, 0xF1, 0xF2, 0xF3, 0xF4, 0xF7, 0xF8, 0xF9, 0xFB}
+)
+
 
 @dataclass
 class RawDouble:
@@ -145,12 +149,22 @@ class Parser:
         self.feature_start = 0
         self.structure_start: list[int] = []
 
-    def ReadDouble(self) -> object:
+    def ReadDouble(self, last: bool = False) -> object:
         reader = self.reader
         first = reader.data[reader.pos]
         if first in KOneByteDouble:
             reader.pos += 1
             return KOneByteDouble[first]
+        if first in (0x46, 0x2D):
+            reader.pos += 1
+            lead = b"\x40" if first == 0x46 else b"\xC0"
+            if last and reader.pos + 6 < len(reader.data) and reader.data[reader.pos + 6] in KStructural:
+                return struct.unpack(">d", lead + reader.take(6) + b"\x00")[0]
+            return struct.unpack(">d", lead + reader.take(7))[0]
+        if first in (0xD5, 0x4F):
+            reader.pos += 1
+            lead = b"\xBF" if first == 0xD5 else b"\x3F"
+            return struct.unpack(">d", lead + reader.take(6) + b"\x00")[0]
         if first == 0x52:
             reader.pos += 1
             return struct.unpack(">d", reader.take(8))[0]

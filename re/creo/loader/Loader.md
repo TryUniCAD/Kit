@@ -241,23 +241,27 @@ plin_info_arr = [ref 21]
 `geometry2_id = 8` is the reference geometry. `attr` is the datum attribute array.
 The record is the parametric placement of the datum plane, not just a name.
 
-The parser stops at the `ent_outl` bounding-box matrix, which uses the packed hex-nibble double
-encoding. The `ugc_ieee_unformat_double` function reads a hex string where each byte's low nibble
-is a hex digit, and stores the bytes into the double buffer from the end backwards. The `0x0f`
-(0.0) and `0x18` (1.0) one-byte constants are handled by the caller, not the function.
+The `ent_outl` bounding-box matrix uses the world-coordinate token lane. The
+`ugc_ieee_unformat_double` function reads a hex string where each byte's low nibble is a hex
+digit, and stores the bytes into the double buffer from the end backwards. The `0x0f` (0.0) and
+`0x18` (1.0) one-byte constants are handled by the caller, not the function.
 
 The hex-string hypothesis is disproved for `ent_outl`. The first byte `0x46` is a valid hex digit
 (`F`), but the next byte `0x6f` is not, so the hex-string reader consumes one digit and then fails.
-The `ent_outl` bytes are therefore a packed encoding, not a hex string. The parser now records an
-undecodable double as `RawDouble(<8 bytes>)` and continues, so `FeatDefsDtm` decodes through
-`ent_outl` and reaches the next field (`max_text_len`). The packed encoding is the remaining
-blocker for the datum outline.
+The `ent_outl` bytes are world-coordinate tokens. In the positional-outline/world lane,
+`46 <tail7>` reconstructs `40 <tail7>` (positive) and `2d <tail7>` reconstructs `C0 <tail7>`
+(negative). The seven-byte sub-unit forms `4f <tail6>` and `d5 <tail6>` reconstruct
+`3F <tail6> 00` and `BF <tail6> 00`. The `0x18` byte is the one-byte 1.0 constant.
 
-The empty control's `ent_outl` is two 9-byte blobs separated by `0x18` (1.0):
-`46 6f ca 90 66 89 b9 7f e4` and `2d 6f ca 90 66 89 b9 7f e4`. The two blobs differ only in the
-first byte (`0x46` vs `0x2d`), which is consistent with a sign or direction flag. The array is
-2x3, so each blob likely packs three doubles into nine bytes. The
-`ent_outl` values are the next decoder target.
+The empty control's `ent_outl` is `f9 02 03` (2x3) followed by
+`46 6f ca 90 66 89 b9 7f e4 18 2d 6f ca 90 66 89 b9 7f e4 18`. It decodes to
+`[254.33012701892218, 254.33012701892218, 1.0, -254.33012701892218, -254.33012701892218, 1.0]`,
+a square in homogeneous coordinates. The ladder's `ent_outl` decodes to
+`[186.8986780200836, -0.000125701882057086, 1.0, -156.82118748945425, -272.72085742045164, 1.0]`,
+a rectangle in the sketch plane. The `VisibGeom` plane prototype's `envlp` decodes to
+`[184.50782059963194, 86.06680966899467, -154.4303300690026, -115.65227549271083]` and its
+`outline` to
+`[184.50782059963194, 1.0, 115.65227549271083, -154.4303300690026, 1.0, -86.06680966899467]`.
 
 ## Open questions
 
