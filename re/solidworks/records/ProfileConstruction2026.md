@@ -364,6 +364,8 @@ For that large case it checks the native `0x7fff` large-map tag and six-byte ref
 This width-boundary case was not executed locally
 It checks actual decoded dimension IDs and leaves parameter node IDs at their constructor value `-1`
 The shared `BuildAudit` hook starts before builder/schema imports, permits actual import-loader code access and the bounded source-package/schema discovery needed during startup, then rejects runtime file access and child-process launches during construction
+It does not exempt arbitrary reads by filename suffix
+The sketch-info component test selects `ctx874=1`, so its external profile-owner reference is actually present in the encoded grammar and its identity assertion remains meaningful
 
 For PR head `4cb6785739079d6ebe1b745a21a8e63e49862b2d`, [native CI job 132714706575](https://github.com/TryUniCAD/Kit/actions/runs/43682093985/job/132714706575) passed all five existing `PolygonConstructTests.py` cases, including the 10,000-line ring, invalid geometry, editable depth and allocation assertions
 The same job passed `FreshPartTests.py`, `LockedPartTests.py` and `ModelBuilderProcessTests.py`
@@ -387,9 +389,6 @@ The oracle owner's `inspect-first.json`, SHA-256 `acf27f6dfdbefec4795bee97b93f02
 Both controls opened and rebuilt with no reported errors or warnings and one body
 This establishes a candidate failure, not its cause; the report does not isolate a profile, dimension, model or container defect
 Native fault-boundary recovery remains required before any generated-output acceptance claim
-It does not exempt arbitrary reads by filename suffix
-The sketch-info component test selects `ctx874=1`, so its external profile-owner reference is actually present in the encoded grammar and its identity assertion remains meaningful
-This coverage has only been syntax-checked locally and is pending its remote execution
 The oracle owner's subsequent `candidate-H3-first.json`, SHA-256 `31ba472a3c00d8539f85a805bdf5c088df8c4f7aafbc148831d81fe677d6b625`, records six native exceptions and no events from the configured feature-constructor or sketch-serializer hooks
 The owner-taking feature constructor `0x4bb38350` and the separate default constructor `0x4bb38710` are distinct observation boundaries; absence of one hook does not exclude every feature factory
 No invocation of the hooked sketch serializer was observed, so that capture does not isolate the owned profile-load rules or establish whether their generated state is correct
