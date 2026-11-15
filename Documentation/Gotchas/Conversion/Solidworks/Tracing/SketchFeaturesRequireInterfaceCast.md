@@ -12,9 +12,10 @@ The official 2026
 declares separate sketch and feature variables, then assigns the sketch to the
 feature interface. It does not invoke a sketch `GetFeature` member.
 The initial curve source authoring wrapper used that nonexistent member.
-Its first native preflight stopped earlier at the preference binding, so this
-correction comes from the documented interface contract, not a claimed later
-native failure.
+The [installed 2026 type-library inspection](../../../../../re/solidworks/v2026/evidence/CurveAuthoringTypeLibrary.json)
+confirms that `ISketch.GetSketchSegments` exists and `ISketch.GetFeature` does
+not in the same hash-bound library. Its first native preflight stopped earlier
+at the preference binding, so no later native failure is claimed.
 
 ## Workaround
 

@@ -132,6 +132,12 @@ records the native negative half-angle and the refuted positive-factor assumptio
 The [controlled curve source authoring tool](../../Changes/Solidworks/Inspection/SolidworksCurveSourceAuthoring.md)
 prepares independent discovery and held-out inputs before curved-sketch writer
 implementation. Its native preflight and full-family lock remain pending.
+The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
+bound both native reference scans and distinguish circle-marker updates from
+ordinary polygon points. These static rules do not establish curve acceptance.
+The [bounded curve lifecycle observer](../../Changes/Solidworks/Inspection/SolidworksCurveLifecycleObservation.md)
+retains the point/arc state and independent counters needed for controlled
+training observations; its new snapshots await a native run.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.

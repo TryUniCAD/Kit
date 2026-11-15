@@ -18,7 +18,10 @@ typed conversion.
 The relevant conversion and returned-out-argument logic is in
 [oleargs.cpp](https://github.com/mhammond/pywin32/blob/main/com/win32com/src/oleargs.cpp)
 and [PyIDispatch.cpp](https://github.com/mhammond/pywin32/blob/main/com/win32com/src/PyIDispatch.cpp).
-This is a source-backed binding hazard found during the curve authoring audit.
+The [installed 2026 descriptors](../../../../../re/solidworks/v2026/evidence/CurveAuthoringTypeLibrary.json)
+confirm the scalar out Boolean on `GetErrorCode2` and interface input pointers
+on selection calls. This is a source-backed binding hazard found during the
+curve authoring audit.
 The initial native preflight did not reach these calls; no native failure or
 successful corrected batch is inferred from this static evidence.
 

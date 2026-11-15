@@ -1,6 +1,9 @@
 # Generated model visual properties in SOLIDWORKS 2026
 
-Status: generated visual state passes clean native opening; the part has no body.
+Status: generated visual state passes clean native opening. The initial
+visual-only revision had no body; the later configuration-progress repair
+produced the three solids measured in
+[PolygonNativeMeasurements2026.md](PolygonNativeMeasurements2026.md).
 Production writing remains disabled. No saved appearance values or payloads are
 inputs to this constructor.
 

@@ -116,7 +116,10 @@ The sketch feature is obtained by
 with every cast recorded in the phase log. Calls that use explicit COM out
 variants use untyped dispatch to avoid
 [type-library wrapper drift](../../../Gotchas/Conversion/Solidworks/Tracing/TypeCastsChangeOutParameterBindings.md)
-after those casts. These binding corrections remain subject to native preflight.
+after those casts. The [installed 2026 type-library descriptors](../../../../re/solidworks/v2026/evidence/CurveAuthoringTypeLibrary.json)
+confirm the relevant void return, scalar out Boolean, selection interfaces and
+absent sketch method without launching or attaching to CAD. These binding
+corrections remain subject to native preflight.
 
 The 2026
 [dimension state enumeration](https://help.solidworks.com/2026/English/api/swconst/SOLIDWORKS.Interop.swconst~SOLIDWORKS.Interop.swconst.swDimensionDrivenState_e.html)

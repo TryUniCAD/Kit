@@ -1,6 +1,11 @@
 # SOLIDWORKS 2026 polygon-sketch construction
 
-Status: **partial construction ledger; no generated sketch or pad accepted**.
+Status: **historical constructor ledger; restricted polygon geometry and depth
+edit measurements now pass**.
+The [current native measurements](PolygonNativeMeasurements2026.md) bind the
+three generated cases and their tested revisions. Later view bytes still await
+remeasurement. This constructor record is not complete family or production
+acceptance.
 The rules below come from 2026 constructors and insertion methods.
 They are not captured records and are not a complete builder.
 

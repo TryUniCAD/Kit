@@ -1,6 +1,10 @@
 # SOLIDWORKS 2026 profile construction
 
-Status: fresh polygon profile and live blind-depth graph implemented, no generated profile or pad accepted
+Status: fresh polygon profile and live blind-depth graph implemented; three
+locked polygon cases pass the restricted native geometry/depth-edit/save/reopen
+procedure in [PolygonNativeMeasurements2026.md](PolygonNativeMeasurements2026.md)
+The changed standard-view bytes still await remeasurement, and production
+writing and complete CAD acceptance remain unfinished
 
 This extends [PolygonConstruction2026.md](PolygonConstruction2026.md)
 The eight schema ladder controls have contributed to derivation and are not held-out inputs
@@ -12,7 +16,13 @@ The writer author read the lock manifest and neutral input descriptions, but did
 ## Additional constructor rules
 
 Binary hashes are bound by [Manifest2026.json](../v2026/Manifest2026.json)
-Addresses use `sldmodu.dll` base `0x4b140000`, `sldmgu.dll` base `0x31dd0000`, and `sldmfcu.dll` base `0x3c800000`
+Addresses use `sldmodu.dll` base `0x4b140000`, `sldmgu.dll` base `0x31dd0000`, and `sldmfcu.dll` base `0x3c720000`
+The framework base corrects the earlier `0x3c800000` claim
+[Direct 2026 constructor evidence](../v2026/evidence/LineWidthConstructor2026.json)
+reverifies the line-width import and its unchanged absolute constructor address
+`0x3c84a8f0`, whose correct RVA is `0x12a8f0`
+The constructor still sets width `-1.0`, zero word `+4`, and category word `+6`
+from the caller; this is a base correction, not a fitted change to stored values
 
 | Field or operation | Rule | Evidence and confidence |
 | --- | --- | --- |

@@ -18,7 +18,7 @@ were not inspected to build these outputs and are never writer inputs.
 
 Remote process job `132815940695`, run `43715472183`, produced artifact
 `14162162423` from writer head `0212d3ce3b391ebfdaac133a33ed049407c287cd`.
-Current-head artifact `14162499059`, job `132819239580`, run `43716549792`, from
+Follow-up artifact `14162499059`, job `132819239580`, run `43716549792`, from
 head `01ab460e96433cd936dd4158f3a3f6e0a09d30b6`, independently regenerates all
 five files to identical bytes. Its synthetic merge
 `d7c9fb2dc2dbd639390dfbf609d7ebc199ea3b8f` has that source head as a parent.

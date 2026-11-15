@@ -18,8 +18,10 @@ The installed executable was `34.5.2.0604`, with SHA-256
 The wrapper revision was `f5d5a4b44`; the failed native records remain in the
 owner-controlled `CurvesPreflight01` batch. The
 [API method](https://help.solidworks.com/2026/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.ISldWorks~SetUserPreferenceToggle.html)
-belongs to the application interface. Do not infer its return type from similarly
-named document or extension methods.
+belongs to the application interface. The [installed 2026 type-library
+descriptor](../../../../../re/solidworks/v2026/evidence/CurveAuthoringTypeLibrary.json)
+confirms `VT_VOID` (24), with two input arguments and no returned Boolean.
+Do not infer its return type from similarly named document or extension methods.
 
 ## Workaround
 

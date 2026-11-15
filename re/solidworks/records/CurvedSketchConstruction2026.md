@@ -276,22 +276,480 @@ This is distinct from `f130`, the next permanent-marker counter
 Later update deltas and final saved/current statuses for curves are unresolved
 The polygon family's measured zero update delta cannot be transferred to curves
 
+## Full external-reference scan for fresh local curves
+
+The complete `sgSketch::hasExternalReferences` function at `0x4b94f7e0` was
+checked directly in the hash-bound `sldmodu.dll` above
+Its PE unwind extent is `[0x4b94f7e0,0x4b95055a)`; SHA-256 of those function
+bytes is `7f320714e35591b29f83403d71ff126d4fc9e14f6f48cf74badb075a8a04465e`
+This closes the previously unresolved **static scanner admission** question for
+the following bounded graph, including nonempty arc arrays
+It does not establish successful solve, contours, extrusion or native acceptance
+
+| Scan stage                              | Native condition and sufficient local-graph rule                                                                                                                     | Evidence                                                                                                                                        |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Derived profile                         | `moProfileFeature_c::isDerived` returns false when profile definition `pd_f110` is null; the derived-reference external predicate is therefore not called            | Scanner `0x4b94f822`–`0x4b94f84a`; predicate `0x4c0de380` tests profile `+0x3d0` then definition `+0x110`, with the null return at `0x4c0de44b` |
+| Offsets                                 | Empty sketch offset collection at runtime `+0x48` skips the loop; a populated offset with its `+0x68` equal to zero would instead return true                        | `0x4b94f850`–`0x4b94f88e`                                                                                                                       |
+| Intersections                           | Empty intersection collection at runtime `+0x50` skips the loop; a populated item's `+0x68` equal to zero would return true                                          | `0x4b94f890`–`0x4b94f8c9`                                                                                                                       |
+| Silhouettes                             | Empty silhouette collection at runtime `+0x110` skips the loop; a populated item's `+0x28` equal to zero would return true                                           | `0x4b94f8cb`–`0x4b94f908`                                                                                                                       |
+| Hatches and lines                       | Empty hatches and local permanent lines with null entity `ext` take their normal loop exits                                                                          | Hatch scan `0x4b94f90a`–`0x4b94f9c0`; line scan `0x4b94f9c5`–`0x4b94fa72`                                                                       |
+| Arcs, including circles                 | Every permanent arc is tested through the common external predicate with argument one; null entity `ext` advances the loop                                           | Arc scan `0x4b94fa77`–`0x4b94fb24`, detailed below                                                                                              |
+| Remaining curve and surface collections | Empty parabola, ellipse, plane, cylinder, sphere, cone, parametric-surface and spline arrays skip their scans; the spline-only equation-driven branch is unreachable | `0x4b94fb29`–`0x4b9500f7`; equation flag tested at `0x4b950091`                                                                                 |
+| Points                                  | Local permanent points with null entity `ext` advance without executing the optional external-origin/position exceptions                                             | Point scan `0x4b9500fc`–`0x4b95025a`; null-external result branches directly to handle destruction at `0x4b950168`                              |
+| Text and final result                   | Empty text array reaches the false result; the function has no later geometry or dimension scan                                                                      | Text scan `0x4b95025f`–`0x4b9502fe`; zero return value set at `0x4b950303`                                                                      |
+
+The arc iterator begins at index zero in `arcBegin` (`0x4c4a4170`) and ends at
+the dynamic count of sketch array `+0x28` in `arcEnd` (`0x4c4a41d0`)
+Their handle constructors set `f1c=-1` and retain this sketch as owner
+The scan compares these handles, tests `isNotPermanent` at `0x4b94faa9`, then
+makes a temporary arc-handle copy at `0x4b94fabc` through `0x4b738bd0`
+Copy constructor `0x4c55d900` preserves the sketch pointer, array index and
+`f1c`; it does not clone the referenced geometry
+
+For `sgArcHandle`, vtable `0x4d1c5ae8` slot `+0x378` targets `0x4c562f20`
+That method checks the sketch and index bounds, then resolves the arc through
+`0x4c4b0df0`: array `sketch+0x28`, data pointer `array+0x08`, stride `0xf8`
+Thus the external predicate reads the actual arc record, not a segment endpoint,
+centre point, an adjacency clone or an unrelated handle cache
+The iteration must still have valid owner and index relationships; a null
+predicate result from an invalid handle would not establish a valid graph
+
+The call at `0x4b94facc` is `sgEntHandle::isExternal(handle,1)`
+That wrapper (`0x4c5ce0c0`) first requires `f1c=-1`, resolves the entity through
+virtual `+0x378`, and calls entity predicate `0x4c3e2020`
+The entity predicate returns false immediately if either low permanence bit of
+`f54` is set; otherwise it tests entity runtime `+0x48`, the wire `ext` field
+For a permanent local arc `f54=4` and `ext=null`, that test returns false
+Argument one also bypasses the detachable-drawing exception, so no drawing
+session state affects this result
+The false branch at `0x4b94fad3` goes to `0x4b94faef`, destroys the temporary
+handle, and advances the iterator through `0x4c4cd4a0` at `0x4b94fafe`
+The arc handle's virtual type is two (`0x4b285dd0`), so this helper increments
+the array index; its separate type-`0x11` special case is not taken
+The arc's true-result cleanup begins at `0x4b950383` and returns one at
+`0x4b9503a2`; null `ext` cannot reach it
+
+No arc-radius, start/end equality, direction, centre index, point type or
+closed-loop test exists in this scan
+Consequently an ordinary arc and a circle represented by equal endpoint indices
+have the same local-reference admission rule
+With the bounded empty auxiliary collections above and local points/lines/arcs,
+the **full function** returns zero for `(1,0,0)`, the existing update call
+It also returns zero for other values of the last two arguments in this graph:
+their only additional branches are in the absent spline and external-point paths
+This is a **confirmed static** control-flow conclusion, not a measured curve run
+
+This function does not examine dimensions, pattern relations, groups, styled
+geometry or blocks directly
+Its result alone must not relax the separate constraint validators or prove the
+inter-component reference result stored in sketch `f188` by `0x4c6fcfc0`
+The current builder's conservative guards for those unsupported graph kinds
+remain independent obligations
+
+## Independent `f188` inter-component reference computation
+
+The complete predicate at `0x4c6fcfc0` was checked separately from
+`hasExternalReferences`
+Its PE unwind extent is `[0x4c6fcfc0,0x4c6fdea2)`; SHA-256 of those bytes is
+`662c64935b55a5f0e39b6e10c48ea66640c6ef2888c13fd77891abb8f1b56653`
+The binary binding is the same `sldmodu.dll` hash above
+It returns an actual qualifying reference-wrapper pointer, or null; its result
+is not itself a Boolean or a sketch-constraint status
+
+The ordinary `sgSketch::update` path calls it with arguments `(sketch,0,0)`
+at `0x4c549d9b`, tests the returned pointer at `0x4c549da3`, and stores
+`int(pointer != null)` to runtime sketch `+0x188` at `0x4c549da9`
+The zero base register is established at `0x4c549b07`
+The two intervening assignments of error results six and seven both leave this
+path through the common update return; they do not contaminate the Boolean
+The owner profile's virtual `+0x1ed8` must return zero at `0x4c549d85` to
+reach this assignment, as it does for the ordinary profile branch already
+recorded in [ProfileConstruction2026.md](ProfileConstruction2026.md)
+An update that aborts before this boundary has not recomputed the field
+
+The wire field is u16, not a pointer and not a four-byte archive integer
+`sgSketch::Serialize` reads its low word at `0x4c593820` and calls the u16
+store primitive at `0x4c59382a`
+The current-format load reads a u16 and zero-extends it into runtime `+0x188`
+at `0x4c598726`–`0x4c59872a`
+The active shared schema emits this field for versions greater than `0x249`
+The bounded computed result below is zero, which is represented without a
+narrowing ambiguity
+
+The full predicate has the following sufficient conditions for returning null
+Every runtime array container must exist, as installed by sketch construction;
+an empty data array is not permission to replace its container with a null
+runtime pointer
+
+| Stage                     | Bounded local condition and branch                                                                                                         | Evidence                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| Offsets and intersections | Empty arrays at sketch `+0x48` and `+0x50` skip reference-list collection and classification                                               | `0x4c6fcfe4`–`0x4c6fd1f1`                                                                         |
+| Lines                     | Null entity `ext` makes common entity external predicate false; the line advances without making a reference wrapper                       | Entity predicate call `0x4c6fd257`, false branch `0x4c6fd25e` to `0x4c6fd36b`                     |
+| Hatches                   | Empty array at sketch `+0x20`                                                                                                              | `0x4c6fd380`–`0x4c6fd4f6`                                                                         |
+| Arcs and circles          | Null entity `ext` makes the same entity predicate false and advances; no endpoint, radius or orientation condition occurs before that exit | Arc array `+0x28`, stride `0xf8`; call `0x4c6fd557`, false branch `0x4c6fd55e` to `0x4c6fd666`    |
+| Other geometry            | Empty ellipse array `+0x30`, the five geometry arrays `+0xe0` through `+0x100`, and spline array `+0x40` skip all their reference checks   | `0x4c6fd67b`–`0x4c6fdd22`                                                                         |
+| Points                    | Null entity `ext` takes the false branch directly to the next point, including point type-two circle markers                               | Point array `+0x08`, stride `0x158`; call `0x4c6fdd87`, false branch `0x4c6fdd8e` to `0x4c6fde33` |
+| Derived profile           | Null profile-data `pd_f110` makes `isDerived` false, as established above                                                                  | Final derived-profile test `0x4c6fde48`–`0x4c6fde56`; null return set at `0x4c6fde8c`             |
+
+For a nonlocal arc, the longer branch would inspect the entity's external
+reference, classify the wrapper through
+`moRefWrapper_c::isReferenceFromComponentToComponent` at `0x4c32d4d0`, and
+possibly return that wrapper
+The zero third argument disables the separate
+`isReferenceFromAssemblyToComponent` tests
+The zero second argument does not discard a qualifying component-to-component
+wrapper because it is broken; the broken-reference exception requires that
+argument to equal one
+These distinctions do not affect the local proof because null `ext` exits
+before any wrapper or reference classifier is reached
+No wrapper, create-version branch or reference cache must be synthesized to
+force the null result for a local curve
+
+**Confirmed static:** with the valid local graph above, this predicate returns
+null and the normal update computes `f188=0`, both with no constraints and
+with an owned local radius/diameter graph described below, provided that the
+radial graph retains every stated geometry/reference condition
+The function does not read the one-, two- or three-geometry value-dimension
+arrays, logical constraint arrays, dimension parameters, display collection,
+or entity constraint-reference count `f20`
+Its added value/display/parameter nodes and incremented `f20` therefore cannot
+change this predicate while the geometry `ext` pointers remain null and the
+specified auxiliary collections remain empty
+Consequently radius versus diameter and the nonnull invalid second dimension
+handle do not add an `f188` admission condition
+
+This is predicate invariance, not validation of dimension ownership, IDs,
+parameters or display data
+Those may still fail their independent validators while `f188` correctly stays
+zero
+The same restriction applies to unexamined graph kinds: this predicate does not
+directly scan text, parabola, silhouette, pattern or group collections, so its
+null result is not permission to accept those families
+The complete local external-reference scanner and this separate inter-component
+predicate are now both bounded statically for ordinary points/lines/arcs
+Constraint validation, curve first-solve behaviour and final measured state
+remain independent outstanding work
+
+## Radius and diameter dimension construction, partial graph
+
+Both radial cases use `sgCircleDim`, runtime-class record `0x4dafb268`, size
+`0x1a0`, raw schema `0x80000001`, loading factory `0x4c5782c0`
+Its fresh-construction vtable is `0x4cf79588`, whose serializer slot `+0x28`
+is inherited `sgValG1Dim::Serialize`, `0x4c59ec10`
+The active shared schema is `sgCircleDim -> VAL_G1 -> VALDIM -> SGDIM ->
+Dimension_c` in `ResolvedSketch.py`; the radial class adds no separate payload
+These metadata and dispatch facts are **confirmed static**
+
+The semantic authoring path is `sgSketch::makeRadDim` at `0x4c4cb670`
+Its whole PE unwind extent `[0x4c4cb670,0x4c4cb882)` has SHA-256
+`d927cd60080ad87d9b9e0108361f2b2b1727fa07335eb0b2d541175e3be70fde`
+It obtains arc centre through virtual `+0x180`, bound to
+`sgArcHandle::center` at `0x4c55e800`, and a curve point through virtual
+`+0x1c0`, bound to `sgSegmentHandle::secondPoint` at `0x4c607a40`
+The subtraction, squared length and square root at `0x4c4cb6e6`–`0x4c4cb6f9`
+derive `r=length(secondPoint-centre)` from geometry
+No saved radius or fitted constant participates
+
+The `DirDistOption` argument controls the representation:
+
+| Authoring condition                             | Constructor radius selector | Parameter value | Persisted `sgDim.f80` |
+| ----------------------------------------------- | --------------------------- | --------------- | --------------------- |
+| Option `9`                                      | One                         | `r`             | `3`                   |
+| Option `8`                                      | Zero                        | `2*r`           | `0x0f`                |
+| Other option, distinct start/end point indices  | One                         | `r`             | `3`                   |
+| Other option, identical start/end point indices | Zero                        | `2*r`           | `0x0f`                |
+
+The explicit options are compared at `0x4c4cb72a` and `0x4c4cb736`
+The fallback calls endpoint-index getters `0x4c6060d0` and `0x4c605f20`,
+compares them at `0x4c4cb757`, and doubles the radius at `0x4c4cb75e` only
+for the diameter case
+The fresh `sgCircleDim` constructor `0x4c40fec0` selects type `3` for a nonzero
+radius selector and type `0x0f` for zero, then calls base `0x4c411830`
+Its bytes `[0x4c40fec0,0x4c40ff03)` have SHA-256
+`4752ad20c6751f99417d898d0865edd42adcdaca65fdc73503d651ed0cd7dc06`
+This proves the radius/diameter meaning of these two type values without fitting
+an enum to a control file; it does not enumerate every legal `DirDistOption`
+
+The fresh bounded base graph has the following field rules
+These are constructor states, not a completed saved dimension graph
+
+| Field or relationship          | Classification and rule                                                                                                                | Native evidence                                                                                                                                               |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sgDim.f80`                    | Input-derived representation type `3` for radius, `0x0f` for diameter                                                                  | `0x4c40fed0`–`0x4c40fee0`; base store at `0x4c41009d`                                                                                                         |
+| `sgDim.f90`, `f94`, `f98`      | Constructor constants `2`, `0`, `0`                                                                                                    | `0x4c4100aa` stores the first two as one eight-byte store; `0x4c4100b7` stores the third                                                                      |
+| Runtime sketch link            | Actual owning sketch at dimension `+0x88`; it is independent of the dimension's parameter and display links                            | `0x4c4100a3`                                                                                                                                                  |
+| `VALDIM.fa0`                   | Constructor zero, so the current-version serializer omits the optional transform; the live `+0xa8` transform is constructed separately | `0x4c41172d`–`0x4c41173e`; serializer `0x4c59ea80` and active shared version condition                                                                        |
+| `VAL_G1.h1`                    | Independent handle object with the supplied arc handle's target, owner, index and concrete runtime type                                | `0x4c4118ac`–`0x4c4118b6`; assignment `0x4c5bf760` copies all `0x28` bytes, including the vtable                                                              |
+| `VAL_G1.h2`                    | A nonnull default `sgEntHandle` object with native index `-2`, `f1c=-1`, `f08=0` and null runtime sketch pointer                       | Array construction at `0x4c41187a`–`0x4c411893`, callback `0x4b27d470` and constructor `0x4c5bcd50`; no later assignment to the second element on this branch |
+| `VAL_G1.g1`, `g2`, `dir`       | Constructor zero, zero and positive unit X vector                                                                                      | Combined zero store at `0x4c4118bd`, axis getter and assignment `0x4c4118c4`–`0x4c4118d4`                                                                     |
+| Parameter                      | New `moLengthParameter_c` for both radial type values; value is the computed `r` or `2*r`                                              | Base `0x4c411700` selects the length runtime class at `0x4c411762`, calls `Dimension_c::createNewParameter` at `0x4c41177b`, then `SetValue` at `0x4c4117a3`  |
+| Dimension parameter ownership  | The created parameter is assigned to dimension runtime `+0x28`; it is not a borrowed sketch-entity value                               | `0x4c820e10`, assignment `0x4c820e37`                                                                                                                         |
+| Initial dimension ID           | `f50=-1` before subsequent registration/naming; do not emit this seed as a proven final persistent ID                                  | `Dimension_c` constructor `0x4c81f6d0`, store `0x4c81f717`                                                                                                    |
+| Arc constraint reference count | One additional valid local arc reference contributes `max(previous+1,1)` to entity `f20`                                               | Authoring call `0x4c4cb7c0`; handle `0x4c5bd330` local branch to entity increment `0x4c3e1510`                                                                |
+
+The second handle must not be replaced by a null archive pointer merely because
+it represents no selected second geometry
+The native store passes the addresses of both embedded handles to `WriteObject`
+at `0x4c59ed00` and `0x4c59ed0c`
+For the default second handle's negative index, the **unsigned** comparison at
+`0x4c5878d4`–`0x4c5878db` selects the extended encoding: u16 marker `0x777f`
+followed by signed i32 `-2`, then `f1c=-1` and `f08=0`
+It does not store u16 `0xfffe` as a short index in the current format
+After loading, the serializer restores each handle's runtime sketch owner from
+the dimension at `0x4c59ee85` and `0x4c59ef18`
+These ownership fixups do not turn the second object into a null pointer
+
+The stack dimension is appended to the sketch's one-geometry value-dimension
+array at runtime `+0x68` through `0x4c49aea0`
+The full append body continues past its first PE unwind fragment and returns
+at `0x4c49afc4`; treating fragment end `0x4c49aec9` as function end would miss
+the transfer/reset lifecycle
+It appends the constructed `0x1a0` record, resets the temporary through
+`0x4c822050`, and uses the resulting array index for the following display path
+This is an operation-derived graph, not a serialized dimension template
+
+`sgArcHandle::createDispDim` at `0x4c55ebc0` constructs a
+`moSkDimHandleValG1_c` through `0x4c83d4a0`, using the owning sketch and that
+value-dimension index
+The ordinary `sgCircleDim` branch allocates a `moDisplayRadialDim_c` of size
+`0x1140` and invokes constructor `0x4c8bfc10` at `0x4c55f14a`
+It appends the display object to sketch `+0x118` through `suObList::AddTail`
+at `0x4c55f164`
+When the caller supplies a presentation point, branch `0x4c55f042` uses that
+point; the geometry-derived default placement calculations are a different path
+The lower-level `sgSketch::makeCircleDim` at `0x4c4c5770` instead always passes
+radius selector one and creates only the value-dimension entry plus the arc's
+constraint reference; it is not a substitute for this display construction
+
+The following sections close a bounded retained registration path and map the
+radial display constructor seeds separately from later presentation mutations
+Completed reference counts, final presentation state, tolerance ownership,
+first-solve changes and editable/rebuild acceptance remain unresolved
+No radial writer, dimensioned native family acceptance or neutral-value fallback
+is established by this partial graph
+
+## Retained radial registration, parameter names and persistent IDs
+
+The fresh-profile authoring path at `[0x4c552950,0x4c553e30)` has SHA-256
+`23b377359d2456e7bc10043424e380311ad78ab9a401f4e2b7915c047b50b2d3`
+It constructs the profile through `0x4c0ca780` at `0x4c552b42`
+Its radial branch calls the index overload of `makeRadDim` at `0x4c553143`
+The model argument is explicitly null at `0x4c55313e`
+Wrapper `[0x4c4cb890,0x4c4cb907)` preserves that argument and forwards it
+unchanged at `0x4c4cb8e2`
+Thus a native retained authoring path uses the null-document presentation
+constructor branch while still retaining a real profile and model for ownership
+and subsequent registration
+It is not necessary to reinterpret a null style/document argument as a null
+feature owner
+
+After a successful display construction, the same branch performs these
+operations in order:
+
+1. Obtain the display's actual model-dimension handle at `0x4c553162`
+2. Assign the newly constructed profile as its feature owner through
+   `moDimHandle_c::setFeatureOwner` at `0x4c553170`, with null component argument
+3. Obtain the same display handle again and call
+   `moModelFeature_c::nameParameter(handle,1)` at `0x4c55318b`
+
+This branch retains the created display in the sketch's display collection
+It is distinct from the caller at `0x4c4db612`, which names a temporary radial
+dimension and subsequently removes its display through `deleteDispDim` at
+`0x4c4db6da`
+A constructor's existence or an ID allocation does not establish that its
+object survives in the final graph
+
+For an ordinary `sgCircleDim`, `setFeatureOwner` resolves the dimension through
+handle virtual `+0x730` and writes the actual feature pointer to dimension
+runtime `+0x40` at `0x4c84c2b8`
+The dimension's virtual `+0x2c8` and this handle's `+0x468` both use the zero
+return target for the ordinary radial branch, skipping the extra reference/3D
+owner propagation
+This operation does not write handle `fe8`
+At this owner-assignment boundary, the local handle keeps its absent
+global-feature reference; its
+ordinary `moSkDimHandle_c` wire branch contains `ff0` as an archive reference
+to the **same owning `sgSketch` object**, followed by value-dimension index
+`ff8`
+It does not embed a second independently constructed sketch or replace this
+reference by the `sgCircleDim` object
+The current shared schema records the distinction in `handle_has_gfr`
+
+The naming and ID dataflow is **confirmed static** for this bounded branch:
+
+| Operation or field        | Rule                                                                                                                                                                                       | Native evidence                                                                                                                                                      |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Candidate name            | Ask the actual dimension to generate a name for integer candidates beginning at one                                                                                                        | `nameParameter` starts at `0x4bea144b`, calls handle `genParamName` at `0x4bea1470`; `0x4c840ed0` dispatches to dimension virtual `+0x1e0`                           |
+| Name vocabulary           | Ordinary `sgCircleDim` uses the shared `Dimension_c::genParamName`, whose recorded prefix is `D` followed by the decimal candidate number                                                  | Circle vtable `0x4cf79588`, slot `+0x1e0` to `0x4c820f20`; prefix pointer `0x4db03700`, also bound in the profile construction record                                |
+| Collision handling        | Retry increasing integer candidates when the feature's existing display-handle names or additional registered name objects fail the native comparisons; ignore the very handle being named | `0x4bea14f0`–`0x4bea1566`, self-handle comparison `0x4bea150f`, additional feature-name walk `0x4bea157d`–`0x4bea15bb`, retry branches `0x4bea161d` and `0x4bea1637` |
+| Fresh first name          | `D1` when the profile has no other named display dimensions or additional registered name objects                                                                                          | First candidate one and empty collision walks; derived from the stated new-profile operation, not a saved dimension                                                  |
+| Apply chosen name         | `moDimHandle_c::setName` resolves the dimension and invokes virtual `+0x220` with the chosen name and flag one                                                                             | Call `0x4bea15e4`, dispatch `0x4c84c77a`                                                                                                                             |
+| Sketch-dimension override | `sgCircleDim` slot `+0x220` targets `0x4c430bc0`; it delegates to shared `Dimension_c::setParameterName` at `0x4c430c20`                                                                   | Direct circle vtable read and override instructions                                                                                                                  |
+| Parameter name object     | Apply the chosen text through `moParameter_c::setName`, retaining the parameter's actual node-name object at `f18`                                                                         | `0x4c821c67`; shared name-object construction already mapped in the profile ledger                                                                                   |
+| Dimension persistent ID   | Allocate through the owning non-viewer model's shared header only when dimension `f50==-1`, in the ordinary allocation mode; write the returned ID to `f50`                                | Test `0x4c821c6c`, owner/model chain `0x4c821c7c`–`0x4c821ca3`, viewer test `0x4c821cbe`, ordinary `getNewID` call `0x4c821d0b`, store `0x4c821d11`                  |
+| Repeated naming           | Preserve an already allocated `f50`; changing or reapplying the name does not allocate another ID through this branch                                                                      | Non-`-1` branch at `0x4c821c70`                                                                                                                                      |
+| Parameter node ID         | Retain the independent parameter-node constructor ID; dimension ID allocation above does not write parameter `f08`                                                                         | Parameter-name call followed by allocation into the dimension's `+0x50`, not into the parameter                                                                      |
+
+The native name-collision comparison and substring conventions have not been
+fully classified here; `D1` for the bounded empty-name case is proved, but an
+unqualified general collision policy must not be invented from that case
+The header allocator is shared with feature IDs and other dimensions; neither
+the name suffix nor the sketch value-array index is a persistent-ID formula
+The special global allocation mode, viewer path and detached/external ownership
+paths are outside this branch
+After the normal new-ID allocation, the native routine may also mark all
+configurations for rebuild at `0x4c821d54`, according to its model/configuration
+and flag predicates
+Completed configuration progress must account for actual allocated IDs
+
+The sketch override checks whether the name changed and scans equation-driven
+splines before marking the profile dirty
+That spline walk is empty for the stated local circle/arc graph
+The handle's earlier rename helper at `0x4c84aec0` enumerates opened models and
+their equation relations to rewrite existing dimension-name references
+With no such equation elements in the bounded fresh graph, its mutation body
+does not run; this is not a hidden global-feature-reference allocation rule
+It does not establish a complete general equation-registration lifecycle
+Dimension reference counts must still follow actual handle construction,
+cloning, attachment and destruction; one display entry alone is not proof of a
+serialized reference-count constant
+
+## Fresh radial display fields and later-mutation boundary
+
+`moDisplayRadialDim_c` has runtime-class record `0x4db03798`, size `0x1140`,
+raw schema `0x80000001`, loading factory `0x4c825270`, vtable `0x4d255be0`
+Its serializer slot `+0x28` is `0x4c8320a0`, the active `RADIAL` schema in
+`ResolvedDims.py`, following the shared `DISPLAY_DIM` base
+Fresh constructor `[0x4c8bfc10,0x4c8bfe5a)` has SHA-256
+`bc2bbf09a91cdcb5c68b134df358fb3c8b7e61c83fecf2b1096249c1012e90ba`
+It calls the actual handle-and-position display base constructor
+`[0x4c86ede0,0x4c86f54c)`, SHA-256
+`8578099b606653b94a334183a2a0ce7708c83a17e357628634477f414d61eebc`
+It must not be substituted by the feature-dimension overload without checking
+their different handle and presentation operations
+
+The following table classifies the radial-specific **constructor state at the
+direct initialization boundary**, before style/update helper effects
+It does not classify the final saved/current display as an all-zero structure
+
+| Current 2026 wire field, in radial serializer order | Constructor classification and rule                                                                                                  | Direct evidence                                                                                                               |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| `ffd8`                                              | Constructor flag vocabulary `0x80086` initially; subsequent flag operations remain ordered mutations                                 | `0x4c8bfc7f`; later constructor OR operations `0x4c8bfe0f` and `0x4c8bfe27` add `0x100000` and `0x200000` respectively        |
+| `ffe0`, `ffe8`, `fff0`, `fff8`, `f1000`, `f1008`    | Six constructor zero doubles; not a proved universal post-update cache value                                                         | Zero stores `0x4c8bfc89`–`0x4c8bfcac`                                                                                         |
+| `f1010`, `f1028`                                    | Two constructed zero points initially; derived witness-point state after later update, unresolved as final values                    | Two-element point construction `0x4c8bfcb3`–`0x4c8bfcd8`; actual later writes described below                                 |
+| `nfc0`, `ffc0`                                      | Count and entries from an initially empty string collection                                                                          | Collection members zeroed at `0x4c8bfc6a` and `0x4c8bfc71`; no captured string rows                                           |
+| `f1050`                                             | Null Hole Wizard callout-data pointer initially                                                                                      | `0x4c8bfcf3`                                                                                                                  |
+| `f1048`                                             | Constructed empty string                                                                                                             | `0x4c8bfce5`–`0x4c8bfcec`                                                                                                     |
+| `f1068`                                             | Null auxiliary display-list pointer initially                                                                                        | `0x4c8bfd0b`                                                                                                                  |
+| `has_f1060`, optional `f1060`                       | Presence zero from null transform pointer in this ordinary caller; caller-supplied-transform alternative has its own allocation rule | Null store `0x4c8bfd04`; conditional copy allocation `0x4c8bfd6b`–`0x4c8bfdac`; ordinary caller supplies null at `0x4c55f130` |
+| `f1090`                                             | Null mirror helper initially                                                                                                         | `0x4c8bfd27`                                                                                                                  |
+| `ffd4`                                              | Constructor zero from the upper half of the eight-byte `+0xfd0` store                                                                | `0x4c8bfc78`                                                                                                                  |
+| `f10a8`                                             | Null Hole Wizard information initially                                                                                               | `0x4c8bfd35`                                                                                                                  |
+| `f10a4`                                             | Constructor false byte, serialized by the current schema's integer field                                                             | `0x4c8bfd2e`                                                                                                                  |
+
+The retained null-document path above can reuse the shared, independently
+computed null-document display initialization rules, with explicit semantic
+presentation choices such as design intent and selected leader
+It does not require copying a document's saved dimension-style data
+When a real model is supplied instead, initializer `0x4c88a680` reads its
+`moDimDefs_c` at `model.getDetailDefs()+0x13b0`, rather than assigning universal
+precision constants: `f870/f874` come from definition `+0x6c`; centre-text flag
+`f8a4 & 0x10` comes from `getDimCenterText`; `ff00` comes from definition
+`+0xc0`
+Type-specific definition lookup supplies `fb68/fb6c` from definition `+0x0c/+0x10`,
+`f8ec` from `+0x84`, `ff10` from `getShowDualSplit`, `fb64` bits `0x1000/0x2000`
+from nonzero definition `+0x78/+0x9c`, and `fe40` from definition `+0x08`
+Those are style-input formulas, not constants learned from saved controls
+
+Text display kind is also computed, rather than copied from a public enum
+Initializer `0x4c889480` calls radial virtual `+0xae0`, target `0x4c8c9f30`,
+then the text object's virtual `+0xa8`, the already mapped kind setter
+Under its explicit valid-handle, no-callout, null-special-data, ordinary-radial
+conditions, that function selects text kind `0x11` for diameter and `0x14` for
+radius
+The diameter test dispatches through `0x4c8d2020` to handle `isDiametric`
+(`0x4c847730`) and circle-dimension virtual `+0x268`, target `0x4c42a7f0`,
+which compares `f80` to `0x0f`
+The radius branch's ordinary-radial condition is `ffd8 & 0x40 == 0`
+Different callout or linear-display predicates select other text kinds
+These are **confirmed static conditional rules**, not a measured final text
+kind or a promise that later formatting preserves it
+
+The display base's `SelLeader` field `ff80` is not initialized by the inspected
+handle-and-position constructor either
+The existing [uninitialized-leader gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/UninitializedDisplayLeaderSelection.md)
+therefore remains relevant: an explicit signed-32-bit presentation choice or
+a separately proven neutral state is required
+Allocator contents and zero found in a save are not defaults
+
+**Unresolved final-state boundary:** fresh radial construction invokes
+`updateDimension(position)` at `0x4c8bfddc`
+That routine at `0x4c8db220` computes reference/text placement and invokes the
+virtual engine-update method at `0x4c8dbc27`, bound to `0x4c8dbcf0`
+The latter can write `f1010/f1028` through `0x4c841110` at `0x4c8dc171`, then
+transform and further update those points at `0x4c8dc198`–`0x4c8dc1dd`
+Constructor zero points therefore cannot be emitted as a proven final witness
+rule
+The geometry/transform consumers in `0x4c841110`, the selected graphics-update
+branches, radial flag mutations, final prefix/formatting, tolerance ownership,
+and all resulting presentation coordinates remain to be closed before a radial
+display writer is justified
+This pass deliberately stops at that exact shared boundary rather than widening
+to solver internals or claiming native dimension acceptance
+
+## Type-two circle marker and solver-coordinate boundary
+
+The exact `sgPointHandle::isUniqueCirclePoint` function is
+`[0x4c5ff0a0,0x4c5ff0d8)`, SHA-256
+`d97745784478b33284403a972607d37c39f1c4a1e289942df5c042eb215a9471`
+The same hash-bound model DLL supplies this function and the caller below
+It resolves the point, returns false when point `f54 & 1` is nonzero, and
+otherwise returns whether point `fe4 == 2`
+It does not inspect point usage counts, arc endpoint indices, radius or centre
+The name alone is not a proof that a point belongs to exactly one circle
+For the valid local permanent type-two marker already described, the result is
+true; the owning graph must independently establish the actual circle identity
+
+The solver routine at `[0x4c5167d0,0x4c5172c9)` has SHA-256
+`df3e770b70119f8c3347baaf4a2c84ea821035c8cff8c4ca766aafd25856b4da`
+Its initial point loop calls this predicate at `0x4c516915`
+A true result branches at `0x4c51691c` to write one into the point's temporary
+skip mask at `0x4c51697e`–`0x4c51698a`
+The later ordinary point-coordinate loop tests that mask with `0xfffffffd`
+at `0x4c516bd7` and skips to the next point when the test is nonzero
+Thus this type-two marker does not take the ordinary coordinate-write calls
+at `0x4c516d44` and `0x4c516d93` in that pass
+This is a **confirmed static** branch result, not a measured solver run
+
+Skipping the ordinary loop does not prove an unchanged final marker coordinate
+The same routine has a later branch that calls
+`sgArcHandle::findUniquePointOnCircle` at `0x4c5170c8` and, when that call
+returns true, writes a point coordinate at `0x4c5170dc`
+The [marker placement record](CircleMarkerPlacement2026.md) derives the
+angular search, creation fallback and conditional rebuild rule from the native
+helpers, while retaining unresolved collision and numerical boundaries
+An arbitrary constructor coordinate or a polygon update rule is not a substitute
+No circle marker coordinate, final point status, geometry stamp or solve result
+has been accepted from generated output
+
 ## Remaining work before curved output can be claimed
 
-- Generalize the current local-reference inference guard in the shared sketch
-  builder only after tracing the arc branch of `sgSketch::hasExternalReferences`
-  at `0x4b94f7e0`; the existing guard deliberately rejects nonempty arc arrays
-  Null `ext` proves the individual entity predicate `0x4c3e2020` is false, but
-  is not by itself a complete scanner proof
+- After the native family lock, extend the shared builder's conservative guard
+  for local arcs only where the complete graph satisfies the scanner conditions
+  above and the separately proven `f188` conditions
+  Prove the independent constraint-validator paths before broadening their guards
+  The scanner's static false result does not establish a finished curve update
 - Trace the first solve, point and arc status mapping, final stamp, creation IDs,
   permanent markers and auxiliary point creation for newly authored circles and
   arcs with healthy controls
   Type-two circle markers have a special coordinate-update skip predicate
   `isUniqueCirclePoint` at `0x4c5ff0a0`; polygon point observations do not cover it
-- Recover radius/diameter and angular dimension constructors, parameter and
-  display links, constraint-use counts, edit/rebuild behaviour and any tolerance
-  graph needed for authored dimensions
-  The existing `sgCircleDim` serializer does not supply those constructor rules
+- Finish radial name-collision conventions, handle reference counts, final
+  display and tolerance lifecycle left unresolved above, and recover angular
+  dimension construction
+  Measure edit/rebuild behaviour and completed constraint-use counts
+  The existing serializer and the partial constructor graph do not supply those
+  remaining rules
 - Compute and validate mixed line/arc closed topology, intersections,
   self-intersections, duplicate/coincident entities, winding, holes and multiple
   disjoint regions
