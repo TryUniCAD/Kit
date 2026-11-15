@@ -13,11 +13,20 @@ A `7c 07` attribute block is a sequence of attributes. Each attribute is a
 symbol index followed by a list of tagged values and terminated by `fe`. The
 value tags are:
 
-    0x80 <u32>   object reference or float bits
-    0x81         boolean true
+    0x80 <i32>   escape, full 32-bit little-endian int follows
+    0x81..0xd0   compact int, value = byte - 0x81 (0..79)
+    0xd1..0xe4   two-byte compact int, value = (byte - 0xd1) << 8 | next byte
+    0xe6 <f64>   double
     0xe8 <3>     object reference
     0xe9 <4>     object reference
     0xfe         terminator
+
+`CATBmxStream::ReadInt` (`CATOmx.dll` `0x1800016e0`) decodes the compact int with
+`Min = 0x80`, `Max = 0x51`, and `Extra = 0x14`: a byte equal to `Min` escapes to a
+full int, `1..Max-1` is a one-byte value, and `Max..Max+Extra-1` reads one more
+byte. `CATSpecNewStream::ReadInt` (`CATObjectSpecsModeler.dll` `0x18010f200`)
+passes exactly those three constants, and `CATOsmObjStream::ReadSpecAttribute`
+(`0x1800d9c90`) passes `0x80`, `0x51`, and `0x14` to it.
 
 The symbol index resolves against the symbol table to the attribute name, so the
 extractor recovers the feature tree: which attributes each object carries
@@ -127,10 +136,36 @@ def ParseRecords(Data: bytes, Start: int, End: int) -> list[tuple[int, int, int]
     return Records
 
 
+KBmxMin = 0x80
+
+
+def ReadPackInt(Data: bytes, Cursor: int, End: int) -> tuple[int | None, int]:
+    """Decode the CATBmxStream::ReadInt compact integer."""
+    if Cursor >= End:
+        return (None, Cursor)
+    Delta = Data[Cursor] - KBmxMin
+    if Delta == 0:
+        if Cursor + 5 > End:
+            return (None, Cursor)
+        return (struct.unpack_from("<i", Data, Cursor + 1)[0], Cursor + 5)
+    if 1 <= Delta <= 0x50:
+        return (Delta - 1, Cursor + 1)
+    if 0x51 <= Delta < 0x65:
+        if Cursor + 2 > End:
+            return (None, Cursor)
+        return (((Delta - 0x51) << 8) + Data[Cursor + 1], Cursor + 2)
+    return (None, Cursor)
+
+
 def ParseValues(Data: bytes, Cursor: int, End: int) -> tuple[list[tuple[str, object]], int]:
     Values: list[tuple[str, object]] = []
     while Cursor < End and Data[Cursor] != 0xFE:
         Tag = Data[Cursor]
+        Compact, AfterCompact = ReadPackInt(Data, Cursor, End)
+        if Compact is not None and Tag not in (0xE6, 0xE8, 0xE9):
+            Values.append(("int", Compact))
+            Cursor = AfterCompact
+            continue
         Width = KValueTags.get(Tag)
         if Width is None:
             Values.append(("byte", Tag))

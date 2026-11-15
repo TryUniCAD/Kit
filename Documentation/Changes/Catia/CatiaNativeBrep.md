@@ -292,6 +292,16 @@ result = CatiaAdapter().write(
   and chamfer), `4.2`, `5.0`, `8.4`, `16.0`, `19.0`, `37.5` from the washer, and `360.0`, `90.0`,
   `20.0` from the screws. The value extraction is exact; the attribute-name association is not yet
   exact because the `7c 07` key byte and the `7c 06` header key list do not line up one-to-one.
+- The non-double attribute values are compact integers decoded from `CATBmxStream::ReadInt`
+  (`CATOmx.dll` `0x1800016e0`): `0x80` escapes to a four-byte `i32`, `0x81..0xd0` is a one-byte
+  value `byte - 0x81`, and `0xd1..0xe4` is a two-byte value `(byte - 0xd1) << 8 | next`. The callers
+  pass `Min = 0x80`, `Max = 0x51`, and `Extra = 0x14`. Re-decoding the parametric parts with this
+  table classifies 463 ints, 218 three-byte references, 140 four-byte references, and 3 doubles per
+  part, leaving 116 unrecognised bytes out of about 900 values.
+- Values are grouped by owning object: the `ea <u32>` field of the child `7c 06` header gives the
+  object id, so `ISO_7089` objects `22`, `23`, and `24` hold `8.4`, `16.0`, and `1.6`, and
+  `ISO_2338` object `52` holds `50.0` and object `75` holds `0.8`. The objects that carry a value
+  also carry an attribute named `MAvalue`.
 
 ## Related information
 

@@ -93,16 +93,24 @@ The length is the total record size including the six-byte header, so the next r
 `offset + length`.
 
 A `7c 07` attribute block is a sequence of attributes. Each attribute is a symbol index followed by
-a list of tagged values and terminated by `fe`. The value tags are:
+a list of values and terminated by `fe`. The values are read by `CATBmxStream::ReadInt`
+(`CATOmx.dll` `0x1800016e0`), which `CATSpecNewStream::ReadInt`
+(`CATObjectSpecsModeler.dll` `0x18010f200`) and `CATOsmObjStream::ReadSpecAttribute`
+(`0x1800d9c90`) both call with `Min = 0x80`, `Max = 0x51`, and `Extra = 0x14`:
 
-| tag | width | meaning |
-| --- | --- | --- |
-| `0x80` | 5 | object reference or float bits |
-| `0x81` | 1 | boolean true |
-| `0x82`..`0x87` | 1 | small integer |
-| `0xe8` | 4 | object reference |
-| `0xe9` | 5 | object reference |
-| `0xfe` | 1 | terminator |
+| byte | decode |
+| --- | --- |
+| `0x80` | escape, the next four bytes are a little-endian `i32` |
+| `0x81`..`0xd0` | one-byte int, `value = byte - 0x81` (`0..79`) |
+| `0xd1`..`0xe4` | two-byte int, `value = (byte - 0xd1) << 8 \| next byte` (`0..5119`) |
+| anything else | not an int, belongs to another value kind |
+
+`ReadInt` reads one byte, subtracts `Min`, and then: zero means the escape, `1..Max-1` gives
+`delta - 1`, and `Max..Max+Extra-1` reads a second byte and returns `(delta - Max) << 8 | byte2`.
+The `0xe6` double and the `0xe8`/`0xe9` references are separate tagged values handled by
+`ReadOsmValue`, not by `ReadInt`. Re-decoding the five parametric parts with this table leaves only
+116 unrecognized bytes per part out of roughly 900 values; the rest classify as `int` (463),
+`ref3` (218), `ref4` (140), and `double` (3, the ones inside attribute blocks).
 
 The symbol index resolves against the symbol table to the attribute name. `re/catia/tooling/OsmGraph.py`
 walks the record tree, parses the attribute blocks, and reports the attribute names. On the five
