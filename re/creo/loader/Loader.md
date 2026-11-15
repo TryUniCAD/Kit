@@ -194,6 +194,19 @@ The parser decodes the full `AllFeatur` feature chain of both controls:
 | `empty/solid_start_part_mmks.prt` | `FRONT` (7), `TOP` (5), `RIGHT` (3), `DEFAULT_CSYS` (11, type 979) |
 | `ladder/ladder1.prt.2` | the same four, plus `id 67` (type 923) |
 
+The empty control's `AllFeatur` now decodes end-to-end, including the footer. The footer is a
+structure with `foot_first_feat_ptr` and `foot_layer_count`; the empty control's footer is
+`foot_first_feat_ptr = None`, `foot_layer_count = 0`. The `layer_list` is a recursive structure:
+each entry has `feat_id`, `layer_id`, `back_layer_id`, and a nested `layer_list`. The empty
+control's layer list is `feat_id` 7, 5, 3, 11.
+
+The parser wraps the field index to the enclosing structure's start when it runs past the end of
+the field table. That is what lets the recursive `layer_list` decode: after `back_layer_id` the
+next field is the nested `layer_list` again.
+
+The ladder's `AllFeatur` decodes the five features and the footer prefix, then stops at `0x105e`
+in the sketch/extrude feature payload.
+
 The feature chain matches the model tree that Creo shows for both files.
 The parser stops at the `AllFeatur` footer, which uses a different field order
 (`misc_id_tab_ptr`, `misc_hist`, `parent_table`, `avail_feat_parents`, `layer_list`).

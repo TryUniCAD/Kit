@@ -40,9 +40,16 @@ The tool expects an extracted section body, not a whole `.prt` file. The extract
 
 The chain matches the model tree Creo shows for both files.
 
+The empty control's `AllFeatur` now decodes end-to-end, including the footer
+(`foot_first_feat_ptr = None`, `foot_layer_count = 0`) and the recursive `layer_list`
+(`feat_id` 7, 5, 3, 11). The parser wraps the field index to the enclosing structure's start when
+it runs past the end of the field table, which is what lets the recursive `layer_list` decode.
+
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) also decodes the datum placement records. The first record is the
 `FRONT` datum with `id = 7`, `type = 515`, `offset = 1.0`, `geometry2_id = 8`, and
 `attr = [32768, 0, 0, 0, 0]`. That is the parametric placement of the datum plane, not just a name.
+The parser now records an undecodable packed double as `RawDouble(<8 bytes>)` and continues, so
+`FeatDefsDtm` decodes through `ent_outl` to the next field.
 
 ## Limits
 

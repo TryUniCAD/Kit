@@ -114,6 +114,7 @@ class Parser:
         self.index = 0
         self.stack: list[list[int]] = [[]]
         self.feature_start = 0
+        self.structure_start: list[int] = []
 
     def ReadDouble(self) -> object:
         reader = self.reader
@@ -200,6 +201,7 @@ class Parser:
         if reader.pos < len(reader.data) and reader.data[reader.pos] in (0xE2, 0xE3):
             token = reader.byte()
             self.stack.append([])
+            self.structure_start.append(self.index)
             return Node("<begin>", token)
         if reader.pos < len(reader.data) and reader.data[reader.pos] in (0xF8, 0xF9):
             if reader.data[reader.pos] == 0xF8:
@@ -267,6 +269,8 @@ class Parser:
                 else:
                     self.nodes.append(Node("<ref>", 0xF7, field_id))
                 continue
+            if self.index >= len(self.fields) and self.structure_start:
+                self.index = self.structure_start[-1]
             if self.index < len(self.fields):
                 field_def = self.fields[self.index]
                 node = self.ReadField(field_def)
@@ -306,7 +310,7 @@ def Dump(nodes: list[Node], depth: int = 0) -> None:
     for node in nodes:
         if node.type_id == 0x00 and isinstance(node.value, list):
             print(f"{'  ' * depth}{node.name} {{")
-            Dump(node.value, depth + 1)
+            Dump([item for item in node.value if isinstance(item, Node)], depth + 1)
             print(f"{'  ' * depth}}}")
         else:
             print(f"{'  ' * depth}{node.name} = {node.value!r}")
