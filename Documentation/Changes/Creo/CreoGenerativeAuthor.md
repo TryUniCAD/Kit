@@ -463,9 +463,29 @@ counts and typed array intros; it keeps reference arrays verbatim; it adds `f7 0
 first replay and `f7 1e` / `f7 2b` before the duplicate names `fc_hist` and `p_body`; and `fc_hist`
 carries `first_geom_id` rather than a constant.
 
-Replacing all three plane records with our own generated values is still rejected (silent exit, twice),
-with revisions `3/3/3` and `3/2/1` both failing. The remaining difference is generated values or an
-unidentified cross-record rule.
+Replacing all three plane records with our own generated values is still rejected, and six candidates
+separate why:
+
+| Candidate | Differs in | Result |
+| --- | --- | --- |
+| record one only, all-clean 252 mask | mask in record one | loads |
+| records one to three, control scalars, all-clean 252 | mask in three | silent exit twice |
+| records one to three, 252 plain `f6` masks | mask encoding | silent exit twice |
+| records one to three, one slot everywhere | mask length | silent exit twice |
+| records one to four, all-clean 252 | mask in all four | silent exit twice |
+| records one to three, revisions `3/2/1` | revisions | silent exit twice |
+
+Generated scalars, mask encoding and mask length are all ruled out. Only the mask *content across
+records* remains: record one alone may be all-clean, all four may not. The plane and csys classes differ
+at exactly two slots (`28`, `236`), so the closest reading is that the mask is validated per class.
+
+Two candidates (`allclean4`, `allclean4b`) were malformed and their launches carry no information:
+record four's lane is elements-only, so substituting `Author.FlagValue` injected a stray close and count.
+`allclean4c`, which uses `Author.SignedIntElements`, is the valid test.
+
+`StreamParser` is not an oracle for replay records: it parses the control cleanly (`334` nodes,
+`pos 0xd96`) but explodes on a rebuilt section (`37456` nodes at `pos 0x597`) because it does not
+understand the `f7` selectors. Byte comparison against the control remains the reliable check.
 
 ## VisibGeom and the authored container
 

@@ -298,6 +298,41 @@ plane array where element two has a lead and element three does not.
 
 ## Open: the fully authored section is still rejected
 
+What the earlier section could not separate is now separated. Every candidate below uses our emitters for
+records one to three, which are byte-identical to the control when given its values, and one Creo launch
+each after the retry rule (a single silent exit is inconclusive):
+
+| Candidate | Differs from the control in | Result |
+| --- | --- | --- |
+| record one authored, our dates, all-clean 252 mask | mask in record one | loads |
+| records one to three authored, control scalars, all-clean 252 mask | mask in records one to three | silent exit twice |
+| records one to three authored, 252 plain `f6` masks | mask encoding only | silent exit twice |
+| records one to three authored, one slot everywhere | mask length | silent exit twice |
+| records one to four authored, all-clean 252 everywhere | mask in all four | silent exit twice |
+| records one to three authored, descending revisions | revisions | silent exit twice |
+
+So the rejection is **not** the generated scalars, **not** the mask encoding, and **not** the mask
+length. It survives every one of those. What it tracks is the mask *content across records*: record one
+alone may be all-clean, but all four may not.
+
+The closest reading is that the mask is validated per class rather than per record. The plane class and
+the csys class differ at exactly two slots (`28` and `236`), and making every record clean removes that
+distinction.
+
+### Two void candidates
+
+`allclean4` and `allclean4b` were malformed and their launches carry no information. Record four's lane
+is **elements only** — `392` bytes with no `f1` and no array count — so substituting `Author.FlagValue`,
+which emits `f1` plus `f8 01`, injected a stray close and count. Only `allclean4c`, which uses
+`Author.SignedIntElements` for record four, is a valid test.
+
+### The parser is not an oracle here
+
+`StreamParser` reaches the end of the control section cleanly (`334` nodes, `pos 0xd96`, `len 0xd96`) but
+explodes on a rebuilt section (`37456` nodes at `pos 0x597`). It does not understand the `f7` field
+selectors that replay records use, so it cannot confirm or deny a replay stream. Byte comparison against
+the control is the only reliable check, and it passes.
+
 Records one and two are structurally exact and load individually, but replacing all three plane records
 with our own generated values was rejected twice:
 
@@ -306,10 +341,8 @@ with our own generated values was rejected twice:
 | record one authored, our dates, all-clean mask | loads |
 | records one to three authored, our dates, descending revisions | silent exit twice |
 
-The difference is now only in generated values — `creat_date`, `regen_date`, `time`, `random_num`,
-`hostid` and `revnum` — or in a cross-record consistency rule that has not been identified. Per-record
-revision numbers of `3`, `2`, `1` were tried after `3`, `3`, `3` failed, so that is not the constraint
-either, or not the only one.
+Six candidates now separate the cause: generated scalars, mask encoding and mask length are all ruled
+out, and only the mask *content across records* remains. See the table above.
 
 ## What is needed
 
