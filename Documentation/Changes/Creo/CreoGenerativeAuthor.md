@@ -83,6 +83,7 @@ The probes live in `re/creo/tools/` and take no vendor bytes into `src/`:
 | `Placement.py` | a feature definition carrying `place_rec_ptr` |
 | `Class917.py` | a generated class-`917` definition element |
 | `SketchDef.py` | a generated sketch-bearing class-`949` element, reduced and complete |
+| `Rebuild.py` | rebuilds the 47-row generative part with one command; byte-deterministic |
 
 Launching Creo 2027.2 in Parallels:
 
