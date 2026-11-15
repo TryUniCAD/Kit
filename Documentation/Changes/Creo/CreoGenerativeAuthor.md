@@ -143,8 +143,27 @@ No "not a valid PART file" and no "cannot be retrieved", but also no "End" and n
 `MT Part Solid`, so the open did not complete. The authored geometry is therefore not proven
 valid, but the failure is now model-level rather than container-level.
 
-The `#\n` separators and the three-table `NEXT_TOC_ENTRY` chain (`0x31b` 32 rows, `0x10873` 22
-rows, `0x115a6` 128 rows in the control) are still not authored by `Author.py`.
+## Byte-identical layout model
+
+A no-op reconstruction of the vendor control now reproduces all `81539` bytes exactly:
+
+```text
+header + banner
+TOC 1 head + rows                     @0x31b, 32 rows
+sections 1                            @0xd8c..0x10871, 52 sections, exact gaps
+TOC 2 head + rows                     @0x10873, 22 rows
+sections 2                            @0x10fba..0x115a6, 2 sections
+TOC 3 head + rows                     @0x115a6, 128 rows
+trailing bytes                        @0x13e77..end, 12 bytes
+```
+
+The rule that made it work: sections are physically sorted by offset and each carries its own
+follow-on gap bytes (`#\n` internally), so the stream must be copied by physical order rather than
+by table row order. `EMPTY_SPACE_FOR_REUSE` is a free-space extent, not a zero-length row.
+
+The replacement rebuild still needs a table emitter that reproduces this layout after a length
+change, and the third table's 128 rows currently drift, so the geometry-isolation run is not yet
+valid.
 
 ## Limits
 
