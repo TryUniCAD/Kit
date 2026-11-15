@@ -33,6 +33,7 @@ SystemLib.addaudithook(AuditGuard.InspectEvent)
 
 
 KNative = """
+from codecs import lookup as FindCodec
 from Core import Obj as NativeObj
 from Classes import registry as NewRegistry
 from Streams import StreamDoc, store_rooted as StoreRooted, load_rooted as LoadRooted
@@ -68,6 +69,8 @@ from convert.adapters.solidworks.container.Container import (
 )
 
 CodecReg = NewRegistry()
+FindCodec("utf-16-le")
+FindCodec("latin-1")
 AuditGuard.BeginBuild()
 """
 
