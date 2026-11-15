@@ -549,6 +549,44 @@ all 41 replaced loads three times out of three (`auth42.prt`, `29176` bytes agai
 `SolidPrimdata`, `DispDataTable`, `THMB_IMG_MAIN`, `CGFPersistTable`, the two `kind b` rows and the two
 free-space extents.
 
+## The list wrapper is proven, the list boundary is not
+
+Two results this round, one positive and one negative.
+
+**Positive.** The control's four feature records, taken verbatim and paired with a *generated* tail
+(`Author.LayerListTail`), load:
+
+```text
+fullgen: control's four records verbatim, generated tail; payload 3482 vs control 3478
+!15-Nov-26 05:50:04  End   C:\Mac\Home\Documents\creo-authored\fullgen.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+So the wrapper — `Sld_Features`, `first_feat_ptr`, the record list, its terminator and the four-entry tail —
+composes with a real multi-record list. Only the record bytes in that candidate are vendor.
+
+**Negative.** Truncating the same list to two records is refused, whatever the record bytes are: the
+control's first two with an `f2 e1` terminator (`twocontrol`), the same two with the control's own
+end-of-list bytes (`twocontrol2`), and our definition plus a byte-exact derived replay (`twodatum5`) all
+exit without `End`, twice each. The record encoding is therefore no longer implicated.
+
+The ladder explains why the boundary is subtle: only the **first** boundary declares `next_feat_ptr` and it
+carries `f2 e3`, while record three opens with a bare `e3` and no header at all. Every two-record candidate
+re-declares `next_feat_ptr` before the terminator, which violates the "never re-declare a field mid-array"
+rule this format follows everywhere else.
+
+### A retraction about the widened schema
+
+An earlier revision of this entry recorded that the feature schema could be widened to the ladder's
+superset (`flags`, `first_hybrid_body_id`, `topo_parents`) and that the widened part loaded twice out of
+two. That result is **void**: `ExtraSchema` was a silent no-op, so the file tested was byte-identical to
+the plain datum part.
+
+Implemented properly the widened record is genuinely different (`1249` bytes, `76` declared fields against
+`1199` and `73`) and it is **refused**, twice. Our `73`-field schema is the one this build accepts; the
+ladder's `71`-field schema is a different schema version, and an ordered diff shows the lists diverge at
+index `30` (`flags` against `cr_flags_xar`), so they cannot be reconciled by adding fields.
+
 ## Authored geometry is still rejected
 
 With `AllFeatur` now generated, the control rebuilt with 42 authored sections and an authored

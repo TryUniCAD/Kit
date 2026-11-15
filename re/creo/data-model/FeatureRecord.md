@@ -517,17 +517,27 @@ schema, later records carry values only. That has a direct consequence for autho
 We declare five fields the ladder does not (`p_body`, `first_geom`, `first_hybrid_body`, `body_diff`,
 `hybrid_body_diff`), which is a schema-version difference rather than a gap.
 
-`Author.DatumFeatureRecord(..., ExtraSchema=True)` emits the three extra fields, and the authored part with
-that superset schema loads:
+**Retraction.** The first attempt at this reported a load twice out of two, but `ExtraSchema` was a silent
+no-op at the time: the parameter existed and nothing read it, so `extra3.prt` was byte-identical to the
+plain datum part. That result is void.
+
+Implemented properly, `Author.DatumFeatureRecord(..., ExtraSchema=True)` emits the three fields in the
+ladder's positions and produces a genuinely different record — `1249` bytes and `76` declared fields
+against the plain `1199` and `73` — and the part is **refused**:
 
 ```text
-extra3: superset schema (+flags, +first_hybrid_body_id, +topo_parents); record 1199 section 1394
-!15-Nov-26 05:23:57  End   C:\Mac\Home\Documents\creo-authored\extra3.prt
-!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+extra3b: genuinely widened schema; record 1249 section 1444
+!15-Nov-26 05:44:13  Start C:\Mac\Home\Documents\creo-authored\extra3b.prt
+(no End line; second run identical)
 ```
 
-repeated, twice out of two. So the feature schema can be widened to the ladder's without losing
-loadability, which is the prerequisite for adding a `917` record.
+So our `73`-field schema is the one this Creo build accepts, and the ladder's `71`-field schema is a
+different schema version rather than a superset. The two cannot be reconciled by adding fields, which
+closes the "pair the ladder's replay bytes with our definition" probe: it cannot be built.
+
+Note also that the earlier "delta is only three fields" comparison was a **set** comparison. An ordered
+diff shows the two lists diverge at index `30`, ladder `flags` against ours `cr_flags_xar`, so order — which
+positional replays depend on — was never matched.
 
 ### A `917` replay is refused
 
@@ -613,6 +623,43 @@ record and then `e0 00 next_feat_ptr 00 e3`, which is the same token stream in a
 emits `next_feat_ptr` with `f2 e3`, and the terminator with `f2 e1`, matching the ladder byte for byte at the
 boundary. The two-datum control built that way is still refused (`twodatum5`, silent exit twice), so the
 boundary ordering was a real difference but not the only one.
+
+### What the wrapper now proves, and what still fails
+
+`fullgen` takes the control's four records **verbatim** and replaces only the tail with
+`Author.LayerListTail(7)`. It loads:
+
+```text
+fullgen: control's four records verbatim, generated tail; payload 3482 vs control 3478
+!15-Nov-26 05:50:04  End   C:\Mac\Home\Documents\creo-authored\fullgen.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+That is the first time a multi-record list has composed with a generated tail, so the section wrapper —
+`Sld_Features`, `first_feat_ptr`, the list, the terminator and the four-entry tail — is proven against a
+real list. Only the record bytes in that candidate are vendor.
+
+Truncating the same list to two records is refused, and it fails identically **whatever the record bytes
+are**:
+
+| Candidate | Records | Result |
+| --- | --- | --- |
+| `fullgen` | control's four, generated tail | loads |
+| `twocontrol` | control's first two, `f2 e1` terminator | silent exit twice |
+| `twocontrol2` | control's first two, the control's own end-of-list bytes | silent exit twice |
+| `twodatum5` | our definition + byte-exact derived replay | silent exit twice |
+
+So the record encoding is no longer implicated: the control's own second record fails in a two-record list.
+The fault is in the boundary I emit or in a cross-section rule tied to truncating the list, and the ladder
+shows why the boundary is subtle — only the **first** boundary declares `next_feat_ptr`:
+
+```text
+0x663  e0 00 next_feat_ptr 00  f2 e3   <- declared once, closes record 1, opens record 2
+0x88e  e3                            <- record 3 opens with no header at all
+```
+
+Re-declaring `next_feat_ptr` before the terminator, which every two-record candidate does, breaks the rule
+already recorded on this page: never re-declare a field mid-array.
 
 ### The ladder's schema is not a subset of ours
 

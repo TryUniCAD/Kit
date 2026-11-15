@@ -971,6 +971,8 @@ def DatumFeatureRecord(
     Payload += FieldValue(
         2, "transform", b"\xf9\x04\x03" + RunValues(KIdentityColumn * 3)
     )
+    if ExtraSchema:
+        Payload += FieldValue(1, "flags", SignedInt(3))
     Payload += FieldValue(1, "cr_flags_xar", FlagValue(MaskValues))
     Payload += StructHeader("cvt_feat_dat") + b"\xe1"
     Payload += StructHeader("feat_dates_ptr") + b"\xe3"
@@ -986,6 +988,8 @@ def DatumFeatureRecord(
     Payload += FieldValue(1, "first_geom", SignedInt(0))
     Payload += FieldValue(1, "body_id", SignedInt(BodyId))
     Payload += FieldValue(1, "first_geom_id", SignedInt(-1))
+    if ExtraSchema:
+        Payload += FieldValue(1, "first_hybrid_body_id", SignedInt(-1))
     Payload += FieldValue(1, "ids_null_goem", b"\xf2" + SignedIntArray((BodyId,)))
     Payload += FieldValue(1, "first_quilt", b"\xf1" + SignedInt(0))
     Payload += FieldValue(1, "first_lo", SignedInt(0))
@@ -999,6 +1003,8 @@ def DatumFeatureRecord(
     Payload += FieldValue(1, "time", SignedInt(StampTime))
     Payload += FieldValue(1, "random_num", SignedInt(RandomNum))
     Payload += FieldValue(1, "hostid", SignedInt(HostId))
+    if ExtraSchema:
+        Payload += StructHeader("topo_parents") + b"\xf1\xe1"
     Payload += StructHeader("quilt_diff") + b"\xf1\xe1"
     Payload += StructHeader("body_diff") + b"\xe1"
     Payload += StructHeader("hybrid_body_diff") + b"\xe1"
