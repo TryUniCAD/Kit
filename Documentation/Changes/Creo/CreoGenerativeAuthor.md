@@ -908,29 +908,31 @@ hypothesis, recorded in [the feature struct page](../../../re/creo/loader/Featur
 So `AllFeatur` remains unauthored, and with it the part, because it is the one section both our
 validator and the vendor loader reject when absent.
 
-## The reader defect behind the "unknown lanes" is identified
+## The record-74 parse drift is measured, not explained
 
-Logging every field read inside the ladder's record `74` localises the drift. Around offset `6341` the bytes
-are a table of records — ids `57`, `59`, `5b`, `5d` with a counter `7, 6, 5, 4`, each opened by `e3` — but the
-parser labels them `fc_hist`, `save_geoms`, `transform` and `flags`, and then reads `cr_flags_xar` with **0**
-slots where every other record has `311` or `278`.
+Logging every field read inside the ladder's record `74` shows the drift concretely. Around offset `6341` the
+bytes are a table of records — ids `57`, `59`, `5b`, `5d` with a counter `7, 6, 5, 4`, each opened by `e3` —
+but the parser labels them `fc_hist`, `save_geoms`, `transform` and `flags`, then reads `cr_flags_xar` with
+`0` slots where every other record has `311` or `278`.
 
-The cause is a form the reader does not implement: a reference array declares its elements and closes
-immediately, and the records are written **inline after it**:
+The obvious suspect was the reference-array form `f8 <count> f7 <field> fb` with records following inline, and
+it was implemented and measured:
 
-```text
-f8 06  f7 1d  fb      <- array of 6, each element a record of field 0x1d, then close
-e3 <id> ...           <- the six inline records follow, opened by e3
-```
+| Measure | Before | After |
+| --- | --- | --- |
+| record `74` mask slots | `0` | `3` |
+| `AllFeatur` nodes | `1007` | `882` |
+| ladder surfaces / edges / solid / volume | `6` / `12` / `1` / `18482541.4903…` | **`5` / `6` / `0` / `None`** |
 
-The same form appears in the control's csys record, where `misc_id_tab_ptr` is `f8 01 f7 4d fb` followed by a
-bare `e3` whose owner was never identified. One mechanism therefore explains the empty mask, the "unknown
-double lanes" (`0x57`, `0x59`, `0x00`) that block the loud raise, and the stray `e3`.
+The change broke `VisibGeom`, which uses the same form for `srf_array` (`f8 06 f7 03 fb` followed by six
+surface records) and relies on the records being read positionally as fields. **The form is normal; the
+diagnosis was wrong**, and the change was reverted.
 
-The fix is a parser change — after such an array, read `count` inline records of the named field's shape — and
-it is **not implemented**.
+So the drift is localised but not explained: record `74` mislabels its table bytes and parses a short mask,
+while records `7`, `5`, `3`, `11`, `67`, `75` and the trailing one parse `311` or `278` slots. Distinguishing a
+vendor schema difference in the `917` records from a reader bug needs a second saved document.
 
-## Limits
+## Limits## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
   file". The section set is the cause: Creo validates every model section, and the authored part

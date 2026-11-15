@@ -367,6 +367,27 @@ The field table is sound too, and an earlier guess of mine is wrong: the section
 data. The ladder's records genuinely append fields — record one declares 71, and the solid records (`67`,
 `75`, `74`) add more — which is why the count is far above 71.
 
+### Retraction: that form is normal, and "fixing" it breaks VisibGeom
+
+The form was implemented — after `f8 <count> f7 <field> fb`, consume `<count>` `e3`-opened structures instead
+of reading them as fields — and measured:
+
+| Measure | Before | After |
+| --- | --- | --- |
+| ladder `AllFeatur` mask slots for record `74` | `0` | `3` (still wrong; others are `311`/`278`) |
+| ladder `AllFeatur` nodes | `1007` | `882` |
+| ladder surfaces / edges / solid / volume | `6` / `12` / `1` / `18482541.4903…` | **`5` / `6` / `0` / `None`** |
+
+The regression is decisive: `VisibGeom` uses exactly the same form for `srf_array` — `f8 06 f7 03 fb`
+followed by six `e3`-opened surface records — and that is how the reader correctly finds `6` surfaces. So the
+records after such an array are the array's elements and reading them positionally as fields is **correct**.
+The change was reverted.
+
+Which means the earlier claim on this page is wrong: this form is not a defect and does not explain the
+record-`74` drift. What the measurement does confirm is narrower and still useful — the record-`74` region
+genuinely mislabels table bytes as `fc_hist`/`transform`/`flags`, and its mask parses short, while every other
+record parses `311` or `278` slots.
+
 ### The real defect: reference arrays carry their records inline
 
 Logging every field the parser reads inside record `74` shows the divergence concretely. Around `6341`:
