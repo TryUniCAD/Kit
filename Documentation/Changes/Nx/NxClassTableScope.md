@@ -116,6 +116,22 @@ the builder is created from `NXOpen.Features.Chamfer.Null`, and `GetTargets` doe
 exist on it. `FirstOffset` is a string, so the offsets are set by text rather than by an
 expression object.
 
+## The insertion-ordinal model is refuted
+
+The last derivation class worth testing was that an entry's changing value is the number of
+classes inserted before it, which would make the table computable from the class set's ordering.
+It fails immediately: comparing the 128 classes common to `empty.prt` and `dim40.prt`, **every
+one of them changes length**, not just one field:
+
+```text
+classes common to both sets          128
+entries whose field count is unchanged   0
+```
+
+so the entry is not a fixed record with one shifting field. The candidate is refuted, and with it
+the twenty-first hypothesis on this table. The remaining options are unchanged: a kernel read of
+the class serialiser, or the name-to-value function from an authoritative source.
+
 ## Why the discriminator is not on the critical path
 
 Settling "increment depends on the class" against "increment depends on the class count"
