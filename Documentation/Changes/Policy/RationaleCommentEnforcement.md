@@ -14,8 +14,8 @@ Other explanatory comments and comment-oriented docstrings remain prohibited.
 
 ## CI and merge queue
 
-The [rationale workflow](../../.github/workflows/RationaleComments.yml) scans the complete tracked source tree on PRs, merge groups, and `main` pushes.
-Its existing check name remains registered in the [CI allowlist](../../.github/scripts/CiAllowlist.cjs) for both PR and queue aggregation.
+The [rationale workflow](../../../.github/workflows/RationaleComments.yml) scans the complete tracked source tree on PRs, merge groups, and `main` pushes.
+Its existing check name remains registered in the [CI allowlist](../../../.github/scripts/CiAllowlist.cjs) for both PR and queue aggregation.
 The merge queue always executes this check on the candidate.
 It cannot reuse a passing PR report to skip the scan.
 The subsequent change-range check still rejects newly added explanatory comments.
@@ -38,8 +38,8 @@ That diagnostic is supplementary; CI always runs the complete scan first.
 Fix reported `RAT001` through `RAT004` violations at their source.
 Do not add rationale failures to a baseline.
 
-See the [rationale standard](../../.agents/skills/standard-pr-practice/references/Standards/Portable/RationaleComments.md),
-[contribution guide](../Reference/Overview/Contributing.md), and [merge queue guide](../../MergeQueue.md).
+See the [rationale standard](../../../.agents/skills/standard-pr-practice/references/Standards/Portable/RationaleComments.md),
+[contribution guide](../../Reference/Overview/Contributing.md), and [merge queue guide](../../../MergeQueue.md).
 
 ## Verification
 
