@@ -124,6 +124,32 @@ uniquely gives `7` of the `55` faces that have any candidate cylinder in `Reserv
 `4784`, and `5` of `208` in `Pedal_Body`. Most cylinders share a radius or an axis, so the
 constraint almost never resolves to one surface, and it cannot close the map.
 
+## The per-object framing chain, from decompilation
+
+Hopper decompilation through `npx rea-agents decompile --provider hopper` now works on the smaller
+CATIA modules, and it names the chain that owns the linked-object list:
+
+```
+CATCGMStreamCGMImpl::Unserialize_Object        0x180052220
+  -> CATCGMStreamCGMImpl::CreateObjectUnStream
+       -> CATMathStreamImpl::ReadHeaderObjectAt 0x1800a56a0
+            version <  0x3ef      -> ReadHeaderObjectAt_V5R5      0x1800a8300
+            flags & 0x10001       -> ReadHeaderObjectAt_SmallHeader 0x1800a7310
+            otherwise             -> inline header read
+       -> ReadListOfLinkedObjects  (the "#NBLinkObjs"/"^LinkObj" pair)
+       -> object->UnStream(stream, list)
+```
+
+`ReadHeaderObjectAt_SmallHeader` reads one byte, requires `(byte & 0xe0) == 0xa0`, takes
+`byte & 0x0f` as a type index, and resolves it through `CATCGMTypeByteIndexToShortValue` using two
+following bytes. So a compact object header begins with `0xa0..0xaf`, and the linked-object list
+follows the header, not the object payload.
+
+Scanning `Reservoir` for that layout — a `0xa0..0xaf` byte, a three-byte header, then a count and
+`count` ULong entries, repeated for at least twenty records — returns no run. The corpus therefore
+does not use the small-header path at these offsets, and the header size for the other two paths
+depends on the stream version, which is the next thing to read.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits

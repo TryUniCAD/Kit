@@ -186,6 +186,13 @@ records. A final oracle also failed: no offset in `MainDataStream` or `SurfacicR
 `TagDifference.ReadTags`, to 71 entries with exactly 56 distinct values below 56, which is the shape
 `Reservoir`'s map must have.
 
+The per-object framing chain is decompiled: `CATCGMStreamCGMImpl::Unserialize_Object` calls
+`CreateObjectUnStream`, which reads a header with `CATMathStreamImpl::ReadHeaderObjectAt`
+(`0x1800a56a0`, dispatching to `ReadHeaderObjectAt_V5R5` below version `0x3ef` or
+`ReadHeaderObjectAt_SmallHeader` when flags `0x10001` are set), then reads the linked-object list,
+then calls the object's `UnStream`. The small-header form starts with `0xa0..0xaf` and resolves a
+type index through `CATCGMTypeByteIndexToShortValue`; no such anchored run exists in `Reservoir`.
+
 The reference encoding is now recovered from the binaries, though the header offset is not. A face
 takes its surface from the first entry of the linked-object list that the generic object header
 passes in, and `CATCXFace::UnStream` then calls `SkipRemainingLinkedObjectsToRead`. The list is read
