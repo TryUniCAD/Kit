@@ -1043,3 +1043,28 @@ def DatumFeatureReplay(
     Payload += b"\xe1"
     Payload += SignedInt(0)
     return Payload
+
+
+# the layer list and footer close the section and tolerate a shorter list
+def LayerListTail(FeatureId: int) -> bytes:
+    Payload = FieldValue(0, "layer_list", b"\xf8\x01\xf7\x51\xfb")
+    Payload += b"\xe2"
+    Payload += FieldValue(1, "feat_id", SignedInt(FeatureId))
+    Payload += FieldValue(1, "layer_id", SignedInt(0))
+    Payload += FieldValue(1, "back_layer_id", SignedInt(0))
+    Payload += b"\xf1"
+    Payload += StructHeader("footer") + b"\xf2\xe3"
+    Payload += StructHeader("foot_first_feat_ptr") + b"\xe1"
+    Payload += FieldValue(1, "foot_layer_count", SignedInt(0))
+    Payload += b"\xf2"
+    return Payload
+
+
+# a single feature needs no replay records and therefore no schema mask vector
+def AllFeaturPayload(Record: bytes, FeatureId: int) -> bytes:
+    Payload = StructHeader("Sld_Features") + b"\xe3"
+    Payload += StructHeader("first_feat_ptr") + b"\xe3"
+    Payload += Record
+    Payload += StructHeader("next_feat_ptr") + b"\xe1"
+    Payload += LayerListTail(FeatureId)
+    return SectionValue("AllFeatur", Payload)

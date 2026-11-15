@@ -366,6 +366,50 @@ So `AllFeatur` needs exactly one 252-value schema vector, and it is the only ven
 in the section. It is not derivable from a record's own fields, because record one may carry anything
 while the replays must carry it.
 
+### A one-feature section is authored and loads
+
+Because the definition record's mask is exempt, a section with a **single** feature record needs no replay
+records and therefore no schema mask vector. `Author.AllFeaturPayload` emits it: `Sld_Features`,
+`first_feat_ptr`, our record, a `next_feat_ptr` terminator of `e1`, and the layer tail.
+
+The first version kept the control's 129-byte tail and it loads:
+
+```text
+onefeat: head 34 record 1199 terminator 17 tail 129 total 1379
+!15-Nov-26 04:00:40  End   C:\Mac\Home\Documents\creo-authored\onefeat.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+Three loads out of three. That is the first authored `AllFeatur` the vendor has accepted, and everything
+in it is generated: the record fields, the dates and host id, the all-clean mask, the list skeleton and
+the terminator. Only the tail was vendor-sourced in that candidate.
+
+Two useful facts fell out of it. The `next_feat_ptr` terminator is a single `e1`, and the layer tail is
+**not** checked against the feature list: the control's tail declares four layer entries for features
+`7`, `5`, `3` and `11`, and the loader accepted it beside a one-feature list.
+
+### The generated tail is not yet accepted
+
+`Author.LayerListTail` emits the tail from `FeatureId`: a one-element `layer_list` referencing field
+`0x51`, one element of `feat_id`, `layer_id`, `back_layer_id`, then the `footer` with a null
+`foot_first_feat_ptr` and `foot_layer_count` zero. Its suffix matches the control exactly and its prefix
+differs only by the count and the three omitted elements, but the result is rejected:
+
+```text
+genall: fully generated AllFeatur 1376 bytes, control section 3489
+(no End line, no dbg_err_crash, process exits twice)
+```
+
+So the tail carries its own validation rule, and it is the last vendor-sourced part of the section. It is
+129 bytes and fully dumped:
+
+```text
+e0 00 layer_list 00 f8 04 f7 51 fb
+e2 e0 01 feat_id 00 07 e0 01 layer_id 00 00 e0 01 back_layer_id 00 00 f1
+f7 51 e2 05 00 00  e2 03 00 00  e2 0b 00 00
+e0 00 footer 00 f2 e3  e0 00 foot_first_feat_ptr 00 e1  e0 01 foot_layer_count 00 00  f2
+```
+
 ### Oracle reliability
 
 Every verdict in this page depends on the launch harness, so it was calibrated before the last probes:

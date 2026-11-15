@@ -510,6 +510,29 @@ record four's lane is elements-only, so substituting `Author.FlagValue` injected
 `pos 0xd96`) but explodes on a rebuilt section (`37456` nodes at `pos 0x597`) because it does not
 understand the `f7` selectors. Byte comparison against the control remains the reliable check.
 
+## A one-feature AllFeatur loads
+
+The definition record's mask is exempt, so a section holding a single feature record needs no replay
+records and no schema mask vector. `Author.AllFeaturPayload` emits `Sld_Features`, `first_feat_ptr`, our
+record, a `next_feat_ptr` terminator of `e1`, and the layer tail. With the control's tail it loads, three
+times out of three:
+
+```text
+onefeat: head 34 record 1199 terminator 17 tail 129 total 1379
+!15-Nov-26 04:00:40  End   C:\Mac\Home\Documents\creo-authored\onefeat.prt
+!MT_CUST - Applied settings for mode # 1 : MT Part Solid
+```
+
+That is the first authored `AllFeatur` the vendor has accepted, with generated record fields, generated
+dates and host id, a generated mask, and a generated list skeleton.
+
+Two incidental facts: the list terminator is a single `e1`, and the layer tail is not validated against
+the feature list — the control's tail declares four layer entries and the loader accepted it beside a
+one-feature list.
+
+`Author.LayerListTail` generates that tail, but the generated form is rejected (silent exit twice), so the
+129-byte tail remains the last vendor-sourced part of the section. The rule it carries is not yet known.
+
 ## VisibGeom and the authored container
 
 `Author.EmptyVisibGeom()` emits the empty geometry form, `Sld_VisGeom` with an opened `active_geom` and
