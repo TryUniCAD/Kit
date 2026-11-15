@@ -315,6 +315,12 @@ result = CatiaAdapter().write(
   axis-aligned normal (`+X`, `+Y`, or `+Z`). A tilted plane's bounding box carries no normal
   information, so the pooled plane deviations of `36` to `96` cannot be reduced from the record
   alone: it needs the decoded map to know which faces are planes.
+- Writer output is not byte-idempotent, and the difference is explained: a neutral model may declare
+  more edges than the decoded form keeps (the box fixture declares 24, the reader returns 12), and
+  `BuildSurf` writes one 11-byte curve record per edge, so a second write is 132 bytes smaller on the
+  box (`SurfacicReps` `631` -> `499`) and 11 bytes smaller on the cylinder. `MainDataStream` is
+  byte-identical at `444` for the box. The geometry and the validation result are unchanged; only the
+  edge count differs, because the reader normalises coedge pairs to one edge.
 - The writer's `MainDataStream` is not structurally identical to a vendor stream. Comparing the
   writer's box output with `Copper_Washer.CATPart` by marker counts gives: per-face
   `30 04 04 ff ff` blocks `6` in both; `30 04 04 fd ff` blocks `0` written against `3` in every
