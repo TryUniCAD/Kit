@@ -21,11 +21,6 @@ class OraclePolylines
         Type AppType = Type.GetTypeFromProgID("SldWorks.Application");
         object App = Activator.CreateInstance(AppType);
         object Doc = Call(App, "OpenDoc", Args[0], 3);
-        if (Doc == null)
-        {
-            Console.WriteLine("OPENED=False");
-            return;
-        }
         object View = Call(Doc, "GetFirstView");
         while (View != null)
         {
@@ -34,62 +29,31 @@ class OraclePolylines
             Console.WriteLine("VIEW=" + Name + " TYPE=" + TypeValue);
             try
             {
-                object Outline = Call(View, "GetOutline");
-                Array Box = Outline as Array;
-                if (Box == null)
-                {
-                    Console.WriteLine("OUTLINE=None " + (Outline == null ? "null" : Outline.GetType().ToString()));
-                }
-                else
-                {
-                    string Line = "OUTLINE=";
-                    for (int Index = 0; Index < Box.Length; Index++)
-                    {
-                        if (Index > 0) Line += ",";
-                        Line += Box.GetValue(Index).ToString();
-                    }
-                    Console.WriteLine(Line);
-                }
+                object Count = Call(View, "GetPolyLineCount5", (short)0);
+                Console.WriteLine("COUNT=" + Count);
             }
-            catch (Exception Error)
-            {
-                Console.WriteLine("OUTLINE_ERROR=" + Error.Message);
-            }
+            catch (Exception Error) { Console.WriteLine("COUNT_ERROR=" + Error.Message); }
             try
             {
                 object Result = Call(View, "GetPolylines5", (short)0);
                 Array Outer = Result as Array;
-                if (Outer == null)
-                {
-                    Console.WriteLine("POLY=None " + (Result == null ? "null" : Result.GetType().ToString()));
-                }
+                if (Outer == null) { Console.WriteLine("POLY=None"); }
                 else
                 {
-                    Console.WriteLine("POLY_TOTAL=" + Outer.Length);
-                    for (int Index = 0; Index < Outer.Length && Index < 8; Index++)
+                    Console.WriteLine("DOUBLES=" + Outer.Length);
+                    string Line = "";
+                    for (int Index = 0; Index < Outer.Length; Index++)
                     {
                         object Item = Outer.GetValue(Index);
-                        Array Inner = Item as Array;
-                        if (Inner == null)
-                        {
-                            Console.WriteLine("POLY=" + Index + " SCALAR=" + Item);
-                            continue;
-                        }
-                        string Line = "POLY=" + Index + " N=" + Inner.Length;
-                        for (int Point = 0; Point < Inner.Length && Point < 16; Point++)
-                        {
-                            Line += " " + Inner.GetValue(Point).ToString();
-                        }
-                        Console.WriteLine(Line);
+                        Line += Item.ToString() + (Index + 1 == Outer.Length ? "" : ",");
                     }
+                    Console.WriteLine(Line);
                 }
             }
-            catch (Exception Error)
-            {
-                Console.WriteLine("POLY_ERROR=" + Error.Message);
-            }
+            catch (Exception Error) { Console.WriteLine("POLY_ERROR=" + Error.Message); }
             View = Call(View, "GetNextView");
         }
-        Call(App, "CloseDoc", Text(Doc, "Title"));
+        try { Call(App, "CloseDoc", Text(Doc, "Title")); }
+        catch (Exception) { }
     }
 }
