@@ -79,7 +79,7 @@ view geometry from `Contents/Definition`, `Contents/DisplayLists`, or
 returning a partial drawing.
 
 See [the drawing reader change entry](../../Changes/Solidworks/SolidworksDrawingReader.md)
-and [the view-geometry gotcha](../../Gotchas/Conversion/SolidworksDrawingViewGeometry.md).
+and [the view-geometry gotcha](../../Gotchas/Conversion/Drawing/SolidworksDrawingViewGeometry.md).
 
 ## Writing and acceptance
 

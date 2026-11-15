@@ -91,4 +91,12 @@ successful rebuild and save. The tracked copy is
 `re/solidworks/examples/Drawings/multisheet.SLDDRW`. It exposed a real
 `Sheet Format` keyword entry that is not a drawing sheet; the stream layout and
 reader handling are recorded in
-[the sheet-format gotcha](../../Documentation/Gotchas/Conversion/SolidworksSheetFormatKeyword.md).
+[the sheet-format gotcha](../../Documentation/Gotchas/Conversion/Drawing/SolidworksSheetFormatKeyword.md).
+
+### Projected view drawing
+
+`AuthorProjected.vbs` created a base view (`Type=7`) and selected it before
+`CreateUnfoldedViewAt3` produced a projected view (`Type=4`), then rebuilt and
+saved `projected.SLDDRW`. Both views carry the parent model path in
+`swXmlContents/KeyWords`; the tracked copy is
+`re/solidworks/examples/Drawings/projected.SLDDRW`.

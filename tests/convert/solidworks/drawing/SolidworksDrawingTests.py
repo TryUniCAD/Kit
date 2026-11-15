@@ -108,6 +108,21 @@ def TestMulti() -> None:
     assert "multi sheet note" in DataValue.Notes
 
 
+# projected views carry the parent model path and must decode like base views
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestProj() -> None:
+    DataValue = ReadDrawing(KDrawRoot / "projected.SLDDRW")
+    assert DataValue.Name == "Draw2"
+    assert len(DataValue.Sheets) == 1
+    SheetValue = DataValue.Sheets[0]
+    assert [ItemValue.Name for ItemValue in SheetValue.Views] == [
+        "Drawing View1",
+        "Drawing View2",
+    ]
+    for ViewValue in SheetValue.Views:
+        assert ViewValue.ModelPath.casefold().endswith("poly5a.sldprt")
+
+
 # a truncated or inconsistent drawing archive must never be read partially
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestFail() -> None:

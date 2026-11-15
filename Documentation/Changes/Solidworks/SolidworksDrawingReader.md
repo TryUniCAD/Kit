@@ -59,10 +59,12 @@ metadata-only value that a caller could mistake for a complete drawing.
   template title-block text as well as authored notes
 - sheet order follows the `KeyWords` element order, which is not guaranteed to
   match the sheet tab order
+- view type (base, projected, section, detail) is an API value and is not in the
+  keyword stream; every model view is decoded by name and model path only
 
 ## Verification
 
-`tests/convert/solidworks/drawing/SolidworksDrawingTests.py` reads four real
+`tests/convert/solidworks/drawing/SolidworksDrawingTests.py` reads five real
 drawings authored in SOLIDWORKS Design Premium 2026 SP5.2 and tracked under
 `re/solidworks/examples/Drawings/`:
 
@@ -76,7 +78,10 @@ The first three use `Sheet1`, paper-size code `0`, and 0.2794 m by 0.2159 m.
 `multisheet.SLDDRW` has `Sheet2` with paper code `12` and `Sheet1` with paper
 code `0`, each with one view and a `2:1` scale; it also carries the template
 title-block notes. `TestMulti` requires that the `Sheet Format` pseudo-entry is
-ignored and that both real sheets decode. `TestOpen`
+ignored and that both real sheets decode. `projected.SLDDRW` was authored by
+`re/tooling/harness/AuthorProjected.vbs` with a base view (`Type=7`) and a
+projected view (`Type=4`); both carry the parent model path, and `TestProj`
+requires both to decode. `TestOpen`
 checks the document name and path, `TestSheet` checks sheet geometry, scale, view
 count, and referenced model, `TestText` checks the authored note and references,
 and `TestNote` verifies that padded note whitespace survives. `TestFail` removes
