@@ -368,6 +368,40 @@ the part filename:
 
 so the object region is a sequence of typed blocks and tagged values, not a single record grammar.
 
+## The object region carries a 273 entry name table
+
+The tagged value stream after the 12 record block is a name table. Each entry is
+`<u8 3><u32 len><string>`, and the strings are the part's named resources:
+
+```text
+0x01ef6  len 16  "wave_parent.prt"
+0x01fbe  len  6  "MODEL"
+0x02095  len  4  "ALL"
+0x0211b  len 10  "blockfont"
+0x0216f  len 11  "Background"
+0x0219d  len  6  "White"
+0x021c6  len 17  "Pale Weak Yellow"
+0x021fa  len 17  "Pale Dull Yellow"
+0x0222e  len 19  "Light Faded Yellow"
+0x02264  len 18  "Light Hard Yellow"
+0x02299  len  7  "Yellow"
+...
+0x079c6  len  7  "DASHED"
+0x079d2  len  8  "PHANTOM"
+0x079df  len 12  "CENTER_LINE"
+0x079f0  len  7  "DOTTED"
+0x079fc  len 12  "LONG_DASHED"
+0x07a0d  len 14  "DOTTED_DASHED"
+...
+0x07a6a  len 15  "ug_default.sbf"
+0x0809b  len 11  "xhatch.chx"
+```
+
+so the table holds the part name, the model name, the colour palette names, the line style names,
+the hatch pattern names and the default style file. The entries are interleaved with variable-size
+value records (doubles, counts and small integers), so the stream is not a pure sequence of tagged
+values: the tag-3 strings are the name table, and the records between them are the values.
+
 ## The directory region is a byte-packed id stream
 
 Walking the bytes after the third typed entry (0x19df in section 1) rules out both candidate
