@@ -381,6 +381,30 @@ last record touched, not necessarily the broken one.
 startup, and passing it as an argument (`parametric.exe -g:no_graphics replay.txt`) produces a trail containing
 only the start and end markers — no model commands. So a second oracle cannot be produced here by driving Creo.
 
+### The generated prefix is name-complete except one record
+
+Splitting both elements at `relat_ptr` — where our generated solver tables begin — and comparing the declarations in
+the prefixes gives a sharper result than the whole-element diff:
+
+| Prefix | Declarations |
+| --- | ---: |
+| vendor | 71 |
+| ours | 154 |
+
+The counts differ only because our emitter re-declares a name in each element instead of selecting it; no name is
+invented. Of the seventy-one vendor names, exactly **one** is absent from our prefix: `Structure_Invalid` (`t09`),
+which lives inside `parchild_table`:
+
+```text
+vendor: e0 00 parchild_table 00 f1 e3 e0 09 Structure_Invalid 00 c0 ab cd
+ours  : e0 00 parchild_table 00 e1
+```
+
+So the `949` prefix is structurally name-complete apart from one nested record, and the remaining doubt is in the
+values and in the solver tail, not in which fields appear. That is worth knowing before spending launches: a next
+attempt should populate `parchild_table` with its `Structure_Invalid` record and compare the *replay* encodings, not
+the field lists.
+
 ### Emitting the entity tables structurally is not enough either
 
 The diff showed sixty-one declarations we were nulling. Emitting them as *structure* — `ent_tab` with
