@@ -18,4 +18,10 @@ for near-zero coordinates. A passing result requires healthy controls before and
 after the cases, baseline and edited geometry matches, parameter readback, clean
 save/reopen and unchanged original inputs. This covers only the selected polygon
 blind-extrusion family and depth edit. It does not enable production writing or
-establish any other feature-family acceptance. Native execution is pending.
+establish any other feature-family acceptance.
+
+The [controlled three-case batch](../../../../re/solidworks/measurements/2026/PolygonDepthEdits.json)
+passes all baseline, depth-edit, save and reopen checks with healthy controls,
+unchanged original inputs and zero errors or warnings on build `34.5.2.0604`.
+The [measurement entry](../SolidworksPolygonNativeMeasurements.md) records the
+exact scope and limits.

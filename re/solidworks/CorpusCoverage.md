@@ -21,9 +21,12 @@ zero bodies. The
 [configuration progress measurement](measurements/2026/FreshPartConfigurationProgress.json)
 now opens and regenerates a fresh generated H3 part into one solid without
 intervention, with zero errors or warnings between healthy original controls.
-The locked input hashes remain unchanged. Editing, saved-copy reopening and
-the remaining family cases are still pending; no native assembly or complete
-feature-family acceptance is established and no FCStd conversion is counted.
+The locked input hashes remain unchanged. The subsequent
+[three-case native batch](records/PolygonNativeMeasurements2026.md) passes
+baseline geometry, live depth edits, save and fresh-process reopening for the
+triangle, pentagon and heptagon, with healthy controls and zero errors or
+warnings. This is the measured polygon subset only. No native assembly,
+broader feature coverage or FCStd conversion is counted.
 
 ## Last audit of the removed writer
 

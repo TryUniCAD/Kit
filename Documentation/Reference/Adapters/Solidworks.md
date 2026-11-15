@@ -119,6 +119,11 @@ measurement.
 The [native depth-edit inspection](../../Changes/Solidworks/Inspection/SolidworksNativeDepthEditInspection.md)
 checks generated geometry, a live parameter change and a saved-copy reopen in
 fresh application processes against explicit neutral-model expectations.
+The [three-case measured polygon batch](../../Changes/Solidworks/SolidworksPolygonNativeMeasurements.md)
+passes those checks with healthy controls and unchanged inputs. It remains
+research evidence; the public adapter still refuses writing.
+The [visible viewport inspector](../../Changes/Solidworks/Inspection/SolidworksNativeViewportInspection.md)
+captures the application's actual model view for separate visual inspection.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.
