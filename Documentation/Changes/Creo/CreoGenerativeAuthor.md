@@ -11,19 +11,25 @@ Read side: complete for the retained control. It decodes `7` features, `8` param
 one solid and volume `18482541.490319017`, and a no-op container rebuild of the `81539`-byte control is
 byte-identical.
 
-Write side: **partial, and not vendor-loadable for anything with geometry.** What Creo has accepted:
+Write side: **partial, and not vendor-loadable for anything with geometry.** What Creo has accepted cleanly —
+`End` plus `MT Part Solid`, no `dbg_err_crash`:
 
 | Candidate | What is authored | Creo |
 | --- | --- | --- |
-| `auth4` / `fullgen` | 41 of 54 directory rows, including a fully generated four-record `AllFeatur` (zero vendor bytes) | loads, 2 of 2 |
-| `featdefs` | 42 rows, plus a generated `FeatDefs` carrying one dimension, read back as `Creo dimension 0 = 100.0` | loads, 2 of 2 |
-| `fd_two` | 42 rows, `FeatDefs` with **two** dimensions, read back as `100.0` and `42.5` | loads, 2 of 2 |
-| `fd_owner7` | as `fd_two`, with the dimension owned by feature `7` instead of a non-existent `74` | loads, 2 of 2 |
+| `gen_rows4` | **47 of 53 directory rows**, all generated: `AllFeatur`, `FeatDefs`, `FeatDefsDtm`, `BasBasData`, the empty sections, `SolidPersistTable`, `SolidPrimdata`, `CGFPersistTable`, `THMB_IMG_MAIN` and the free-space extents | clean, 2 of 2 |
+| `featdefs` / `featdefs425` | the above class of part plus a generated `FeatDefs` carrying a dimension, read back as `100.0` and `42.5` respectively | clean, 2 of 2 |
+| `fd_one_def` | `FeatDefs` with two dimensions and the ladder's `place_rec_ptr` nesting | clean, 2 of 2 |
+| `class917_element` | a generated class-`917` definition element (346 bytes) in place of the vendor's | clean, 2 of 2 |
 
-Everything else fails. The authored part reads back as `4 features, 1 param, 0 bodies`, so there is **no
-body count, volume, centre of mass or dimension rebuild measured in Creo** and these acceptance criteria are
-not met. `Writer.py` therefore reports `mode=exact_native_roundtrip`, `vendor_loadable=False` and
-`application_usable=False`.
+None of these carries a body of our own: `gen_rows4` reads back `4 features, 0 bodies`, and `class917_element`
+loads the ladder's geometry, so its volume `18482541.490319017` is our reader reading vendor `VisibGeom`, not a
+Creo measurement. So there is **no Creo-measured body count, volume, centre of mass or feature tree for authored
+output**, and these acceptance criteria are not met. `Writer.py` therefore reports
+`mode=exact_native_roundtrip`, `vendor_loadable=False` and `application_usable=False`.
+
+Six of the `53` rows remain vendor-sourced and are measured non-derivable: `IndentTag` and `FeatRefData` are
+opaque blobs (`7.84` and `6.56` bits/byte entropy, no token declarations), and the three `PSB_Tokens` tables need
+their unit-system, model and PDM-trailer content.
 
 The measured blocks, each with its evidence further down:
 
@@ -65,6 +71,27 @@ carrying authored `VisibGeom` is **not** accepted by Creo — every such candida
 The prototypes reference topology that a datum-only part does not have.
 
 `AuthorPart` and `AuthorBox` return the complete file bytes.
+
+## Reproducing the evidence
+
+The probes live in `re/creo/tools/` and take no vendor bytes into `src/`:
+
+| Probe | What it measures |
+| --- | --- |
+| `Subset.py` | container rebuild: `Build(DataValue, Base, Drop, Replace)` with per-row version preserved; a no-op rebuild of either retained file is byte-identical |
+| `AddRow.py` | renames the reserved `EMPTY_SPACE_FOR_REUSE` row so a section the part never had can be added |
+| `Placement.py` | a feature definition carrying `place_rec_ptr` |
+| `Class917.py` | a generated class-`917` definition element |
+| `SketchDef.py` | a generated sketch-bearing class-`949` element, reduced and complete |
+
+Launching Creo 2027.2 in Parallels:
+
+```text
+prlctl exec "Windows 11" cmd /c "cd /d \"C:\Program Files\PTC\Creo 2027.2.0.0\Parametric\bin\" && start /b parametric.exe -g:no_graphics \"\\Mac\Home\Documents\creo-authored\<file>\""
+```
+
+Success is `Start C:`, `End   C:` and `MT Part Solid` in the newest `trail.txt.*` with no `dbg_err_crash` line;
+`cannot be retrieved` is an explicit refusal, and a file with `Start` and nothing else was not read.
 
 ## Verification
 

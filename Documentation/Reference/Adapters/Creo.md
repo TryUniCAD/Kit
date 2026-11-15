@@ -69,9 +69,10 @@ candidates were opened in Creo with `-g:no_graphics`, each twice, and the trail 
 
 | Candidate | Authored | Creo |
 | --- | --- | --- |
-| `auth4` | 41 of 54 directory rows, fully generated `AllFeatur` | loads, 2 of 2 |
-| `featdefs` | 42 rows, plus generated `FeatDefs` with one dimension read back as `100.0` | loads, 2 of 2 |
-| `fd_two` | 42 rows, `FeatDefs` with two dimensions read back as `100.0` and `42.5` | loads, 2 of 2 |
+| `gen_rows4` | 47 of 53 directory rows, all generated | clean, 2 of 2 |
+| `featdefs` / `featdefs425` | plus a generated `FeatDefs` with one dimension, read back as `100.0` / `42.5` | clean, 2 of 2 |
+| `fd_one_def` | `FeatDefs` with two dimensions and `place_rec_ptr` nesting | clean, 2 of 2 |
+| `class917_element` | a generated class-`917` definition element | clean, 2 of 2 |
 
 `AuthorBox` produces a six-plane `VisibGeom` whose volume and centroid round-trip through the reader, but a
 part carrying that `VisibGeom` is **not** accepted by Creo: six candidates exited with no `End` line. A
