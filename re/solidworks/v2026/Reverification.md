@@ -18,8 +18,13 @@ interactive SOLIDWORKS COM server.
 
 ## 2026 binaries
 
-Copied read-only from `C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS` into `.rescratch/sw26/bin`
-(not committed). Hashes are in `Manifest2026.json` beside this file.
+Read-only analysis inputs came from
+`C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS`. The private inputs were moved
+outside repository checkouts to
+`/Users/odin/Documents/UniCAD/Sw2026Research01a1dc84/bin` under the current
+research artifact policy. The external relocation manifest preserves every
+file's size and SHA-256. Version identities are in `Manifest2026.json` beside
+this file; no vendor software is distributed here.
 
 | file              | bytes      | version       |
 | ----------------- | ---------- | ------------- |
@@ -29,8 +34,10 @@ Copied read-only from `C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS` into `.rescr
 | `sldmfcu.dll`     | 8 274 520  | `34.5.2.0604` |
 
 Ghidra 12.1.3 headless on macOS (`/opt/homebrew/Cellar/ghidra/12.1.3`, OpenJDK 21) analyses them;
-the project lives under `.rescratch/sw26/gh` through a dot-free symlink because `analyzeHeadless`
-rejects path elements that start with `.`.
+the private analysis project and decompiler inputs now live under the external
+`Sw2026Research01a1dc84/gh` directory. Earlier runs required a dot-free path
+because `analyzeHeadless` rejects path elements that start with `.`. Existing
+recorded addresses and binary digests are unchanged by the relocation.
 
 ## Results
 
