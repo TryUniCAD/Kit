@@ -11,7 +11,8 @@ from OracleIdentity import application_identity
 
 
 def capture(path, bitmap, result, checkpoint):
-    if bitmap.exists() or bitmap.suffix.casefold() != ".bmp":
+    initial = bitmap.with_name(bitmap.stem + "_initial.bmp")
+    if bitmap.exists() or initial.exists() or bitmap.suffix.casefold() != ".bmp":
         raise ValueError("native viewport capture requires a new explicit BMP path")
     result.update(path=str(path), sha256=hashlib.sha256(path.read_bytes()).hexdigest(), bitmap=str(bitmap), stages=[])
 
@@ -39,6 +40,16 @@ def capture(path, bitmap, result, checkpoint):
             result["rebuilt"] = bool(model.ForceRebuild3(False))
             mark("rebuild_return")
             result.update(bodies=Swapp.bodies(model), mass=Swapp.mass(model), features=Swapp.features(model))
+            if errors or warnings or not result["rebuilt"] or result["bodies"] < 1 or not result["features"] or any(feature.get("error") != 0 or feature.get("warning") is not False for feature in result["features"]):
+                raise RuntimeError("viewport input does not have clean native geometry and feature status")
+            time.sleep(1)
+            mark("initial_capture_start")
+            result["initial_bitmap_saved"] = bool(model.SaveBMP(str(initial), 960, 720))
+            if not result["initial_bitmap_saved"] or not initial.is_file():
+                raise RuntimeError("initial native viewport bitmap was not created")
+            initial_data = initial.read_bytes()
+            result.update(initial_bitmap=str(initial), initial_bitmap_sha256=hashlib.sha256(initial_data).hexdigest(), initial_bitmap_bytes=len(initial_data))
+            mark("initial_capture_return")
             mark("orient_start")
             model.ShowNamedView2("", 7)
             Swapp.cv(model, "ViewZoomtofit2")
