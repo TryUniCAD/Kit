@@ -365,6 +365,42 @@ selection itself moves with something internal to the model that value or name e
 independently. So the group record's contents are model data that the writer cannot yet
 compute, and `ExprMiddle` cannot emit this object for an authored part.
 
+## The names lane is a hash-indexed slot map
+
+The lane's frame is decoded; its slot placement is not:
+
+```text
+<exprs + 1>                                       head count
+0f "EXP_lookup_exp" 11 "EXP_compare_exps"
+10 "EXP_hash_string" 0d "EXP_hash_exp"            constant name block
+01 21                                             split
+<label map> 21                                    two byte tokens and 01 fill
+<value map>                                       one byte per expression and ff fill
+<exprs + 1> 21                                    terminator repeating the head count
+```
+
+The label map is `34 - count` one bytes of fill plus one token per expression, and the value
+map is 31 byte slots holding one byte per expression with `ff` everywhere else. Where each
+expression lands in those maps is hash-indexed, and that is visible directly:
+
+```text
+part             exprs  head  label map  value slots
+empty_expr.prt       1     2         36  slot 24
+var_sph.prt          1     2         34  slot 0
+var_cyl.prt          2     3         35  slots 0, 1
+multi.prt            8     9         41  slots 0, 1, 26..30
+dim40.prt            3     4         36  slots 0, 1, 2
+var_e4.prt           4     5         40  slots 0, 1, 2, 29
+var_two.prt          6     7         39  slots 0..5
+```
+
+`empty_expr` puts its one value at slot 24 and `multi` splits its eight between 0, 1 and
+26 to 30, so the source's placement is a hash of the expression name. Mutation showed the
+indices are free — `8c 00` to `8c 05` and swapping two of them both load — so a writer may
+place its expressions at 0 upwards, which is what `var_two`, `dim40` and `var_cyl` already
+do. A names-lane emitter must therefore use writer-chosen indices plus the measured frame
+arithmetic, and cannot be validated by byte equality with `empty_expr` or `multi`.
+
 ## The head tail is a function of the object and dimension counts
 
 The head object ends in seven bytes that name the two ids following the last one used:
