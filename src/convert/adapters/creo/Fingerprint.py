@@ -5,6 +5,7 @@ from hashlib import sha256 as HashValue
 from interchange.document.models.DocumentModel import CadDocument
 
 
+# the registry caches by fingerprint so it must be stable
 def GetFingerprint(Value: CadDocument) -> str:
     Parts = (
         repr(Value.configurations),

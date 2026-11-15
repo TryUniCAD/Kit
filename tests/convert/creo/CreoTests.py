@@ -15,6 +15,7 @@ from convert.adapters.creo.Format import KFormatId
 from interchange.enums.EnumUnits import UnitSystem
 
 
+# every test needs a directory row so one builder serves them
 def TocRow(
     NameText: str,
     Offset: int,
@@ -25,6 +26,7 @@ def TocRow(
     return RowText.encode("ascii").ljust(80, b"#")[:80] + b"\n"
 
 
+# most tests only need a header and a directory
 def BuildSample(KindText: str = "PART", Damaged: bool = False) -> bytes:
     FirstLine = f"#UGC:2 {KindText} 1 2 3 4 5 6 7 8 00000000 \\".encode("ascii")
     HeaderBody = b"\n#- CMNM 008Test.prt\n#-END_OF_UGC_HEADER\n"
@@ -46,6 +48,7 @@ def BuildSample(KindText: str = "PART", Damaged: bool = False) -> bytes:
     return Header + Banner + TocHead + RowList + Geometry + Thumb
 
 
+# feature parsing needs a realistic section to be meaningful
 def BuildFeatureSample() -> bytes:
     FirstLine = f"#UGC:2 PART 1 2 3 4 5 6 7 8 00000000 \\".encode("ascii")
     HeaderBody = b"\n#- CMNM 008Test.prt\n#-END_OF_UGC_HEADER\n"
@@ -99,18 +102,10 @@ def BuildFeatureSample() -> bytes:
             4,
         )
     )
-    return (
-        Header
-        + Banner
-        + TocHead
-        + RowList
-        + Feature
-        + Definition
-        + Geometry
-        + Thumb
-    )
+    return Header + Banner + TocHead + RowList + Feature + Definition + Geometry + Thumb
 
 
+# the smallest useful assertion is that a part reads at all
 def TestRead() -> None:
     AdapterValue = CreoAdapter()
     DataValue = BuildSample()
@@ -135,6 +130,7 @@ def TestRead() -> None:
     assert DocumentValue.bodies == ()
 
 
+# feature rows are the reader surface most likely to regress
 def TestFeatureRows() -> None:
     AdapterValue = CreoAdapter()
     DocumentValue = AdapterValue.read(BuildFeatureSample())
@@ -195,6 +191,7 @@ def TestFeatureRows() -> None:
     assert DocumentValue.metadata["creo.geometry_decoded"] is False
 
 
+# the authored box is the only end to end writer check we have
 def TestAuthoredBox() -> None:
     AdapterValue = CreoAdapter()
     DataValue = AuthorBox(
@@ -217,6 +214,7 @@ def TestAuthoredBox() -> None:
     assert abs(CentroidValue[2] - 20.0) < 1e-9
 
 
+# replay is the current write mode so it needs direct cover
 def TestReplay() -> None:
     AdapterValue = CreoAdapter()
     DataValue = BuildSample()
@@ -231,6 +229,7 @@ def TestReplay() -> None:
         assert ResultValue.metadata["mode"] == "exact_native_roundtrip"
 
 
+# the registry contract is checked through the public adapter
 def TestPublic() -> None:
     DataValue = BuildSample()
     DocumentValue = OpenDoc(DataValue, source_format=KFormatId)
@@ -241,6 +240,7 @@ def TestPublic() -> None:
         assert ResultValue.bytes_written == len(DataValue)
 
 
+# edited parts must still read after sections change
 def TestEdited() -> None:
     AdapterValue = CreoAdapter()
     DocumentValue = AdapterValue.read(BuildSample())
@@ -255,6 +255,7 @@ def TestEdited() -> None:
             raise AssertionError("edited Creo document must not replay")
 
 
+# assemblies are rejected and that must stay explicit
 def TestAssembly() -> None:
     AdapterValue = CreoAdapter()
     ProbeValue = AdapterValue.probe(BuildSample("ASSEMBLY"))
@@ -267,6 +268,7 @@ def TestAssembly() -> None:
         raise AssertionError("assembly must not read as a part")
 
 
+# configuration handling is user visible so it is asserted
 def TestConfig() -> None:
     AdapterValue = CreoAdapter()
     try:
@@ -279,6 +281,7 @@ def TestConfig() -> None:
         raise AssertionError("unknown configuration must be rejected")
 
 
+# damaged input must fail without raising unknown errors
 def TestDamaged() -> None:
     AdapterValue = CreoAdapter()
     ProbeValue = AdapterValue.probe(BuildSample(Damaged=True))
@@ -291,6 +294,7 @@ def TestDamaged() -> None:
         raise AssertionError("damaged table of contents must be rejected")
 
 
+# the stream parser is the base every section decoder uses
 def TestStream() -> None:
     AdapterValue = CreoAdapter()
     StreamValue = BytesIo(BuildSample())
@@ -298,6 +302,7 @@ def TestStream() -> None:
     assert StreamValue.tell() == 0
 
 
+# bad input must be rejected with the creo error type
 def TestBadInput() -> None:
     AdapterValue = CreoAdapter()
     ProbeValue = AdapterValue.probe(b"#UGC:2 PART 1")

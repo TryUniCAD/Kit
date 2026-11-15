@@ -20,12 +20,15 @@ from convert.adapters.creo.Writer import IsCreoPath
 from convert.adapters.creo.Writer import WriteDocument
 
 
+# metadata is split from reading so support checks stay cheap
 class CreoMetadata:
 
+    # the registry expects a property not a method
     @property
     def info(self) -> AdapterInfo:
         return KInfoValue
 
+    # callers need a yes no answer before reading a whole file
     def Probe(self, Source: KSourceType) -> ProbeResult:
         try:
             DataValue, _ = SourceBytes(Source)
@@ -44,8 +47,10 @@ class CreoMetadata:
     probe = Probe
 
 
+# reading is separate so writers do not depend on it
 class CreoReader:
 
+    # the adapter contract fixes this signature
     def Read(
         self, Source: KSourceType, Options: ReadOptions | None = None
     ) -> CadDocument:
@@ -54,8 +59,10 @@ class CreoReader:
     read = Read
 
 
+# support checks are used to route documents between adapters
 class CreoSupport:
 
+    # routing needs a cheap document level predicate
     def Supports(self, DocumentValue: CadDocument, Target: KTargetType) -> bool:
         return IsCreoPath(Target) and isinstance(
             DocumentValue.metadata.get("creo.source_bytes"), bytes
@@ -64,8 +71,10 @@ class CreoSupport:
     supports = Supports
 
 
+# writing is separate so read only use does not import it
 class CreoWriter:
 
+    # the adapter contract fixes this signature
     def Write(
         self,
         DocumentValue: CadDocument,
@@ -77,5 +86,6 @@ class CreoWriter:
     write = Write
 
 
+# one class is what the registry instantiates
 class CreoAdapter(CreoMetadata, CreoReader, CreoSupport, CreoWriter):
     __slots__ = ()

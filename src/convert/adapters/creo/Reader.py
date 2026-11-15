@@ -44,8 +44,11 @@ from convert.adapters.creo.Toc import CreoEntry
 from convert.adapters.creo.Toc import ReadSection
 from convert.adapters.creo.Toc import ReadToc
 
+# the control part declares this configuration and we match it
 KDefaultConfiguration = "Default"
 
+
+# unit tokens appear as text so they are mapped once
 KUnitByToken = {
     "mm": UnitSystem.KMillimeter,
     "m": UnitSystem.KMeter,
@@ -53,6 +56,7 @@ KUnitByToken = {
 }
 
 
+# probe and read both need bytes from several source shapes
 def SourceBytes(Source: KSourceType) -> tuple[bytes, str]:
     if isinstance(Source, (bytes, bytearray)):
         return (bytes(Source), "<memory>")
@@ -81,6 +85,7 @@ def SourceBytes(Source: KSourceType) -> tuple[bytes, str]:
     return (bytes(ValueData), str(getattr(Source, "name", "<stream>")))
 
 
+# thumbnails are the only image data the interchange model keeps
 def ReadThumb(DataValue: bytes, Entries: tuple[CreoEntry, ...]) -> bytes | None:
     for EntryValue in Entries:
         if EntryValue.name != "THMB_IMG_MAIN":
@@ -96,6 +101,7 @@ def ReadThumb(DataValue: bytes, Entries: tuple[CreoEntry, ...]) -> bytes | None:
     return None
 
 
+# the model wants image payloads not the raw vendor block
 def ThumbPayload(Thumb: bytes | None) -> tuple[BrepPayload, ...]:
     if Thumb is None or len(Thumb) > KMaxSectionBytes:
         return ()
@@ -113,6 +119,7 @@ def ThumbPayload(Thumb: bytes | None) -> tuple[BrepPayload, ...]:
     return (Value,)
 
 
+# length units decide how every dimension is scaled
 def ReadLengthUnit(
     DataValue: bytes, Entries: tuple[CreoEntry, ...]
 ) -> tuple[UnitSystem | None, str]:
@@ -133,6 +140,7 @@ def ReadLengthUnit(
     return (None, "")
 
 
+# display sections are optional so they are named in one place
 KDisplaySections = frozenset(
     {
         "AssMrgPrt",
@@ -150,6 +158,7 @@ KDisplaySections = frozenset(
 )
 
 
+# callers want to know which sections were absent
 def CheckSections(DataValue: bytes, Entries: tuple[CreoEntry, ...]) -> tuple[str, ...]:
     Failures: list[str] = []
     for EntryValue in Entries:
@@ -162,6 +171,7 @@ def CheckSections(DataValue: bytes, Entries: tuple[CreoEntry, ...]) -> tuple[str
     return tuple(Failures)
 
 
+# the section table is queried repeatedly so it is built once
 def SectionTable(
     Entries: tuple[CreoEntry, ...],
 ) -> tuple[tuple[str, int, int, int, str], ...]:
@@ -177,6 +187,7 @@ def SectionTable(
     )
 
 
+# this is the single entry point the adapter contract calls
 def ReadDocument(
     Source: KSourceType, Options: ReadOptions | None = None
 ) -> CadDocument:
@@ -299,9 +310,11 @@ def ReadDocument(
     if OwnerId and ParameterRecords:
         ParameterIds = tuple(Value.id for Value in ParameterRecords)
         FeatureRecords = tuple(
-            Replace(FeatureValue, parameter_ids=ParameterIds)
-            if FeatureValue.id == OwnerId
-            else FeatureValue
+            (
+                Replace(FeatureValue, parameter_ids=ParameterIds)
+                if FeatureValue.id == OwnerId
+                else FeatureValue
+            )
             for FeatureValue in FeatureRecords
         )
     SurfaceRows = ()
@@ -395,12 +408,12 @@ def ReadDocument(
                         "creo.closed_loop_count": TopologyValue.closed_loop_count,
                         "creo.shell_count": TopologyValue.shell_count,
                         "creo.solid_count": TopologyValue.solid_count,
-            "creo.volume": MassValue.volume,
-            "creo.centroid": MassValue.centroid,
+                        "creo.volume": MassValue.volume,
+                        "creo.centroid": MassValue.centroid,
                         "creo.shell_closure_proven": TopologyValue.valid,
                         "creo.volume": MassValue.volume,
                         "creo.centroid": MassValue.centroid,
-            "creo.logical_object_count": len(LogicalObjects),
+                        "creo.logical_object_count": len(LogicalObjects),
                         "creo.logical_objects": tuple(
                             FreezeMapping(
                                 {

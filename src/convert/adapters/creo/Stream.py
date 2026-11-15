@@ -5,14 +5,22 @@ import struct
 from dataclasses import dataclass
 from dataclasses import field as MakeField
 
+# three scalars are stored as single bytes because they dominate
 KOneByteDouble = {0x0F: 0.0, 0x10: 1.0, 0x18: 1.0}
+
+# field names are ascii so the scanner can reject noise early
 KNameBytes = frozenset(
     b"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_()[] .:-+"
 )
+
+# a runaway name would mean we lost stream alignment
 KMaxFieldName = 60
+
+# absurd array counts mean corruption so they are capped
 KMaxArrayCount = 65536
 
 
+# names and types travel together because callers need both
 @dataclass
 class StreamField:
     name: str
@@ -21,6 +29,7 @@ class StreamField:
     offset: int = 0
 
 
+# the decoded tree is what every consumer queries by name
 @dataclass
 class StreamNode:
     name: str
@@ -30,6 +39,7 @@ class StreamNode:
     children: list["StreamNode"] = MakeField(default_factory=list)
 
 
+# dimensions are the only parametric value our readers expose
 @dataclass(frozen=True, slots=True)
 class CreoDimension:
     value: float
@@ -38,6 +48,7 @@ class CreoDimension:
     length: int
 
 
+# compact integers appear in every section so one decoder serves all
 def ReadCompactAt(DataValue: bytes, Position: int) -> tuple[int | None, int]:
     if Position >= len(DataValue):
         return None, Position
@@ -74,6 +85,7 @@ def ReadCompactAt(DataValue: bytes, Position: int) -> tuple[int | None, int]:
     return None, Position
 
 
+# array counts can be implicit so peeking avoids consuming them
 def PeekCount(DataValue: bytes, Position: int) -> int | None:
     if Position >= len(DataValue):
         return None
@@ -90,6 +102,7 @@ def PeekCount(DataValue: bytes, Position: int) -> int | None:
     return None
 
 
+# a cheap field index keeps later lookups from rescanning
 def ScanFields(DataValue: bytes) -> list[StreamField]:
     Fields: list[StreamField] = []
     Position = 0
@@ -114,21 +127,27 @@ def ScanFields(DataValue: bytes) -> list[StreamField]:
     return Fields
 
 
+# byte level cursor keeps parsing state in one place
 class StreamReader:
+
+    # the reader never copies so large sections stay cheap
     def __init__(self, DataValue: bytes) -> None:
         self.DataValue = DataValue
         self.Position = 0
 
+    # every token read funnels here so bounds checks happen once
     def Byte(self) -> int:
         Value = self.DataValue[self.Position]
         self.Position += 1
         return Value
 
+    # fixed spans are needed for doubles and names
     def Take(self, Count: int) -> bytes:
         Value = self.DataValue[self.Position : self.Position + Count]
         self.Position += Count
         return Value
 
+    # names are nul terminated and appear everywhere
     def CString(self) -> str:
         EndValue = self.DataValue.find(b"\x00", self.Position)
         if EndValue < 0:
@@ -137,6 +156,7 @@ class StreamReader:
         self.Position = EndValue + 1
         return Value
 
+    # compact widths are the most error prone part of the grammar
     def CompactInt(self) -> int | None:
         NegateValue = False
         if (
@@ -152,7 +172,10 @@ class StreamReader:
         return -Value if NegateValue else Value
 
 
+# nested records need a parser distinct from the cursor
 class StreamParser:
+
+    # the schema table is shared across nested records
     def __init__(
         self, DataValue: bytes, Boundaries: dict[int, int] | None = None
     ) -> None:
@@ -165,6 +188,7 @@ class StreamParser:
         self.FeatureStart = 0
         self.StructureStart: list[int] = []
 
+    # doubles come in several lanes and one owner decodes them all
     def ReadDouble(self) -> float | None:
         Reader = self.Reader
         if Reader.Position >= len(Reader.DataValue):
@@ -175,11 +199,11 @@ class StreamParser:
             return KOneByteDouble[FirstValue]
         if FirstValue in (0x46, 0x2D):
             Reader.Position += 1
-            LeadValue = b"\x40" if FirstValue == 0x46 else b"\xC0"
+            LeadValue = b"\x40" if FirstValue == 0x46 else b"\xc0"
             return struct.unpack(">d", LeadValue + Reader.Take(7))[0]
         if FirstValue in (0xD5, 0x4F):
             Reader.Position += 1
-            LeadValue = b"\xBF" if FirstValue == 0xD5 else b"\x3F"
+            LeadValue = b"\xbf" if FirstValue == 0xD5 else b"\x3f"
             return struct.unpack(">d", LeadValue + Reader.Take(6) + b"\x00")[0]
         if FirstValue == 0x52:
             Reader.Position += 1
@@ -199,6 +223,7 @@ class StreamParser:
         RawValue = bytes.fromhex(TextValue)[:8].ljust(8, b"\x00")
         return struct.unpack(">d", RawValue)[0]
 
+    # scalars and arrays dispatch on the same declared type
     def ReadScalar(self, TypeValue: int) -> object:
         if TypeValue in (0x01, 0x05, 0x07, 0x08, 0x09, 0x0B):
             return self.Reader.CompactInt()
@@ -212,6 +237,7 @@ class StreamParser:
             return struct.unpack(">f", self.Reader.Take(4))[0]
         return None
 
+    # arrays are where repeat tokens and counts interact
     def ReadArray(self, TypeValue: int, Count: int | None) -> list[object]:
         Reader = self.Reader
         Values: list[object] = []
@@ -249,6 +275,7 @@ class StreamParser:
                 break
         return Values
 
+    # values may be scalar array or record so dispatch lives here
     def ReadValue(self, TypeValue: int, Count: int | None) -> object:
         Reader = self.Reader
         if Reader.Position >= len(Reader.DataValue):
@@ -277,6 +304,7 @@ class StreamParser:
             return Reader.CompactInt()
         return self.ReadScalar(TypeValue)
 
+    # each field binds a name to a decoded value
     def ReadField(self, Field: StreamField) -> StreamNode:
         Reader = self.Reader
         StartValue = Reader.Position
@@ -320,6 +348,7 @@ class StreamParser:
         self.Nodes.append(Node)
         return Node
 
+    # callers want the whole tree without managing nesting
     def Run(self) -> list[StreamNode]:
         Reader = self.Reader
         Iterations = 0
@@ -359,9 +388,8 @@ class StreamParser:
             if TokenValue == 0xF7:
                 Reader.Position += 1
                 ReferenceValue = Reader.CompactInt()
-                if (
-                    ReferenceValue is not None
-                    and 1 <= ReferenceValue <= len(self.Fields)
+                if ReferenceValue is not None and 1 <= ReferenceValue <= len(
+                    self.Fields
                 ):
                     self.Index = ReferenceValue - 1
                     Field = self.Fields[self.Index]
@@ -381,9 +409,7 @@ class StreamParser:
                 Field = self.Fields[self.Index]
                 Node = self.ReadField(Field)
                 self.Index += 1
-                if Field.name == "next_feat_ptr" and isinstance(
-                    Node.value, StreamNode
-                ):
+                if Field.name == "next_feat_ptr" and isinstance(Node.value, StreamNode):
                     self.Index = self.FeatureStart
                 continue
             if TokenValue in (0xE2, 0xE3):
@@ -397,6 +423,7 @@ class StreamParser:
         return self.Nodes
 
 
+# dimensions are read directly because callers only need values
 def ReadDimensions(DataValue: bytes) -> tuple[CreoDimension, ...]:
     Parser = StreamParser(DataValue)
     _ = Parser.Run()
@@ -416,7 +443,5 @@ def ReadDimensions(DataValue: bytes) -> tuple[CreoDimension, ...]:
                     if isinstance(CandidateValue, int):
                         ReferenceValue = CandidateValue
                 break
-        Dimensions.append(
-            CreoDimension(Node.value, ReferenceValue, Node.offset, 8)
-        )
+        Dimensions.append(CreoDimension(Node.value, ReferenceValue, Node.offset, 8))
     return tuple(Dimensions)

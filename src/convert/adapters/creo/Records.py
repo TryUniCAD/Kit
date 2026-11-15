@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from operator import attrgetter as AttributeGetter
 
 from interchange.core.Common import FreezeMapping
 from interchange.enums.EnumFeatures import FeatureKind
@@ -12,11 +13,20 @@ from convert.adapters.creo.Format import KFormatId
 from convert.adapters.creo.Stream import StreamNode
 from convert.adapters.creo.Stream import StreamParser
 
+# the feature id field is the only anchor we can rely on
 KFeatureIdHeader = b"\xe0\x01id\x00"
+
+# every feature record opens with this marker pair
 KFeatureAnchor = b"\xe3\xf6"
+
+# the marker can appear in data so the window is bounded
 KAnchorWindow = 16
+
+# anything shorter cannot hold a feature row
 KMinimumRowBytes = 16
 
+
+# class numbers mean nothing to callers without labels
 KFeatureClassLabel = {
     911: "hole",
     913: "round",
@@ -32,6 +42,7 @@ KFeatureClassLabel = {
 }
 
 
+# feature rows are consumed positionally and never mutated
 @dataclass(frozen=True, slots=True)
 class CreoFeatureRow:
     feature_id: int
@@ -40,6 +51,7 @@ class CreoFeatureRow:
     length: int
 
 
+# compact integers start feature rows and must be read once
 def ReadCompactAt(DataValue: bytes, Position: int) -> tuple[int | None, int]:
     if Position >= len(DataValue):
         return None, Position
@@ -62,6 +74,7 @@ def ReadCompactAt(DataValue: bytes, Position: int) -> tuple[int | None, int]:
     return None, Position
 
 
+# the root class follows the anchor so it is resolved here
 def RootClassAt(DataValue: bytes, Position: int, Limit: int) -> int | None:
     EndValue = min(Limit, len(DataValue))
     AnchorValue = DataValue.find(KFeatureAnchor, Position, EndValue)
@@ -77,6 +90,7 @@ def RootClassAt(DataValue: bytes, Position: int, Limit: int) -> int | None:
     return None
 
 
+# boundaries let callers slice a section without reparsing
 def BoundaryStarts(DataValue: bytes) -> list[tuple[int, int, int]]:
     Starts: list[tuple[int, int, int]] = []
     for OffsetValue in range(len(DataValue)):
@@ -92,6 +106,7 @@ def BoundaryStarts(DataValue: bytes) -> list[tuple[int, int, int]]:
     return Starts
 
 
+# definition sites are where a new field enters the schema
 def DefinitionStarts(DataValue: bytes) -> list[tuple[int, int]]:
     Starts: list[tuple[int, int]] = []
     Position = DataValue.find(KFeatureIdHeader)
@@ -105,6 +120,7 @@ def DefinitionStarts(DataValue: bytes) -> list[tuple[int, int]]:
     return Starts
 
 
+# the chain is linked so rows are collected until it ends
 def ChainRows(DataValue: bytes) -> tuple[CreoFeatureRow, ...]:
     Nodes = StreamParser(DataValue).Run()
     Pending: list[tuple[int, int, int | None]] = []
@@ -143,6 +159,7 @@ def ChainRows(DataValue: bytes) -> tuple[CreoFeatureRow, ...]:
     return tuple(Rows)
 
 
+# callers want rows not the chain mechanics
 def ReadFeatureRows(DataValue: bytes) -> tuple[CreoFeatureRow, ...]:
     ChainValue = ChainRows(DataValue)
     if ChainValue:
@@ -159,9 +176,7 @@ def ReadFeatureRows(DataValue: bytes) -> tuple[CreoFeatureRow, ...]:
         if LengthValue < KMinimumRowBytes or FeatureValue in SeenIds:
             continue
         SeenIds.add(FeatureValue)
-        Rows.append(
-            CreoFeatureRow(FeatureValue, ClassValue, StartValue, LengthValue)
-        )
+        Rows.append(CreoFeatureRow(FeatureValue, ClassValue, StartValue, LengthValue))
     for Position, FeatureValue in DefinitionStarts(DataValue):
         if FeatureValue in SeenIds:
             continue
@@ -170,13 +185,14 @@ def ReadFeatureRows(DataValue: bytes) -> tuple[CreoFeatureRow, ...]:
             (Start for Start, _Id, _Class in Starts if Start > Position),
             len(DataValue),
         )
-        Rows.append(
-            CreoFeatureRow(FeatureValue, None, Position, EndValue - Position)
-        )
-    Rows.sort(key=lambda RowValue: RowValue.offset)
+        Rows.append(CreoFeatureRow(FeatureValue, None, Position, EndValue - Position))
+
+    # stable ordering is needed before offsets are compared
+    Rows.sort(key=AttributeGetter("offset"))
     return tuple(Rows)
 
 
+# callers want the fields of one feature without the chain
 def FeatureSteps(
     Rows: tuple[CreoFeatureRow, ...], SectionName: str = "AllFeatur"
 ) -> tuple[FeatureStep, ...]:

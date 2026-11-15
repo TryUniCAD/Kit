@@ -5,9 +5,11 @@ from dataclasses import dataclass
 from convert.adapters.creo.Compress import Uncompress
 from convert.adapters.creo.CreoFormat import CreoFormat
 
+# a runaway section count would mean we lost the directory
 KMaxSections = 100000
 
 
+# directory rows are parsed once and then treated as immutable
 @dataclass(frozen=True, slots=True)
 class CreoEntry:
     name: str
@@ -19,12 +21,14 @@ class CreoEntry:
     checksum_b: int
 
 
+# the whole directory is passed around so it stays immutable
 @dataclass(frozen=True, slots=True)
 class CreoToc:
     entries: tuple[CreoEntry, ...]
     notes: tuple[str, ...]
 
 
+# stored values are hex and corrupt rows must yield nothing
 def ParseHex(ValueText: str) -> int | None:
     try:
         return int(ValueText, 16)
@@ -32,18 +36,21 @@ def ParseHex(ValueText: str) -> int | None:
         return None
 
 
+# the end marker locating keeps trailing padding out of sections
 def FindMarker(DataValue: bytes, Marker: bytes, Start: int) -> int:
     if Start < 0 or Start >= len(DataValue):
         return -1
     return DataValue.find(Marker, Start)
 
 
+# non strict mode collects notes instead of raising
 def FailRowMut(Strict: bool, Notes: list[str], Message: str) -> None:
     if Strict:
         raise CreoFormat(Message)
     Notes.append(Message)
 
 
+# one table parser serves every directory chain level
 def ReadRows(
     DataValue: bytes, Start: int, Count: int, Width: int
 ) -> tuple[list[list[str]], int]:
@@ -60,6 +67,7 @@ def ReadRows(
     return RowList, Position
 
 
+# row fields vary by kind so building is separate from reading
 def MakeEntry(
     NameText: str,
     Absolute: int,
@@ -81,6 +89,7 @@ def MakeEntry(
     )
 
 
+# row kinds differ enough that each needs its own handling
 def ReadEntry(
     RowValue: list[str],
     BaseValue: int,
@@ -117,6 +126,7 @@ def ReadEntry(
     return (MakeEntry(NameText, Absolute, LengthValue, ExpandedValue, RowValue), None)
 
 
+# tables chain so each level parses with the same code
 def ReadTable(
     DataValue: bytes,
     Position: int,
@@ -149,6 +159,7 @@ def ReadTable(
     return (Entries, NextTable)
 
 
+# callers want every entry without following links themselves
 def ReadToc(DataValue: bytes, BaseValue: int, Strict: bool = True) -> CreoToc:
     Entries: list[CreoEntry] = []
     Notes: list[str] = []
@@ -172,6 +183,7 @@ def ReadToc(DataValue: bytes, BaseValue: int, Strict: bool = True) -> CreoToc:
     return CreoToc(tuple(Entries), tuple(Notes))
 
 
+# section bodies are sliced on demand to keep memory low
 def ReadSection(DataValue: bytes, EntryValue: CreoEntry) -> bytes:
     RawData = DataValue[EntryValue.offset : EntryValue.offset + EntryValue.length]
     LineEnd = RawData.find(b"\n")

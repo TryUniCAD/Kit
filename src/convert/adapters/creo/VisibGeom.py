@@ -9,11 +9,17 @@ from convert.adapters.creo.Stream import ScanFields
 from convert.adapters.creo.Stream import StreamNode
 from convert.adapters.creo.Stream import StreamParser
 
+# planes are the only surface type the mass code understands
 KPlaneType = 34
+
+# prototype records repeat so a bounded window is enough
 KPrototypeWindow = 12
+
+# three scalars fill the frame lanes and must decode once
 KLocalConstants = {0x0F: 1.0, 0x18: 0.0, 0x10: -1.0}
 
 
+# surfaces are decoded then read only by the mass code
 @dataclass(frozen=True, slots=True)
 class CreoSurface:
     geom_id: int
@@ -24,6 +30,7 @@ class CreoSurface:
     local_system: tuple[float, ...]
 
 
+# curves are kept because closure checks need every edge
 @dataclass(frozen=True, slots=True)
 class CreoCurve:
     curve_id: int
@@ -34,6 +41,7 @@ class CreoCurve:
     next_curve_ids: tuple[int | None, int | None]
 
 
+# mass values flow into document metadata so they are frozen
 @dataclass(frozen=True, slots=True)
 class CreoMassProperties:
     volume: float | None
@@ -44,6 +52,7 @@ class CreoMassProperties:
     valid: bool
 
 
+# topology counts are asserted against geometry so they are frozen
 @dataclass(frozen=True, slots=True)
 class CreoTopology:
     face_count: int
@@ -53,6 +62,7 @@ class CreoTopology:
     valid: bool
 
 
+# logical objects carry references the topology needs
 @dataclass(frozen=True, slots=True)
 class CreoLogicalObject:
     object_id: int
@@ -62,6 +72,7 @@ class CreoLogicalObject:
     next_object_id: int | None
 
 
+# doubles hide behind a length byte so position advances matter
 def ReadDoubleAt(DataValue: bytes, Position: int) -> tuple[float | None, int]:
     if Position >= len(DataValue):
         return None, Position
@@ -69,19 +80,21 @@ def ReadDoubleAt(DataValue: bytes, Position: int) -> tuple[float | None, int]:
     if TokenValue in KLocalConstants:
         return KLocalConstants[TokenValue], Position + 1
     if TokenValue in (0x2D, 0x46):
-        LeadValue = b"\x40" if TokenValue == 0x46 else b"\xC0"
+        LeadValue = b"\x40" if TokenValue == 0x46 else b"\xc0"
         return (
             struct.unpack(">d", LeadValue + DataValue[Position + 1 : Position + 8])[0],
             Position + 8,
         )
     if TokenValue == 0x52:
-        return struct.unpack(">d", DataValue[Position + 1 : Position + 9])[0], Position + 9
+        return (
+            struct.unpack(">d", DataValue[Position + 1 : Position + 9])[0],
+            Position + 9,
+        )
     return None, Position
 
 
-def DecodeLocalSystem(
-    DataValue: bytes, Offset: int
-) -> tuple[tuple[float, ...], int]:
+# the frame lane packs twelve slots and repeat tokens
+def DecodeLocalSystem(DataValue: bytes, Offset: int) -> tuple[tuple[float, ...], int]:
     Position = Offset
     if Position < len(DataValue) and DataValue[Position] == 0xF9:
         _RowsValue, Position = ReadCompactAt(DataValue, Position + 1)
@@ -103,14 +116,14 @@ def DecodeLocalSystem(
     return tuple(Values[:12]), Position
 
 
+# callers may get scalars or arrays and want one shape
 def NumberValues(Value: object) -> tuple[float, ...]:
     if isinstance(Value, list):
-        return tuple(
-            float(Item) for Item in Value if isinstance(Item, (int, float))
-        )
+        return tuple(float(Item) for Item in Value if isinstance(Item, (int, float)))
     return ()
 
 
+# fields repeat per prototype so index based lookup is used
 def FindNumber(Nodes: list[StreamNode], Index: int, Name: str) -> int | None:
     for Node in Nodes[Index + 1 : Index + KPrototypeWindow]:
         if Node.name == Name and isinstance(Node.value, int):
@@ -118,6 +131,7 @@ def FindNumber(Nodes: list[StreamNode], Index: int, Name: str) -> int | None:
     return None
 
 
+# the same field appears many times so lookup returns a span
 def FindValues(Nodes: list[StreamNode], Index: int, Name: str) -> tuple[float, ...]:
     for Node in Nodes[Index + 1 : Index + KPrototypeWindow]:
         if Node.name == Name:
@@ -125,6 +139,7 @@ def FindValues(Nodes: list[StreamNode], Index: int, Name: str) -> tuple[float, .
     return ()
 
 
+# prototype boundaries let a replay be located by offset
 def ElementBoundaries(DataValue: bytes) -> dict[int, int]:
     Fields = ScanFields(DataValue)
     Names = [Field.name for Field in Fields]
@@ -180,6 +195,7 @@ def ElementBoundaries(DataValue: bytes) -> dict[int, int]:
     return Boundaries
 
 
+# frames are needed without reparsing the whole section
 def FindLocalSystem(
     Nodes: list[StreamNode], Index: int, DataValue: bytes
 ) -> tuple[float, ...]:
@@ -190,6 +206,7 @@ def FindLocalSystem(
     return ()
 
 
+# every geometry consumer wants the same surface list
 def ReadGeometry(
     DataValue: bytes,
 ) -> tuple[tuple[CreoSurface, ...], tuple[CreoCurve, ...]]:
@@ -231,6 +248,7 @@ def ReadGeometry(
     return tuple(Surfaces), tuple(Curves)
 
 
+# three vector helpers are used by volume and outline code
 def Dot(
     LeftValue: tuple[float, float, float],
     RightValue: tuple[float, float, float],
@@ -242,6 +260,7 @@ def Dot(
     )
 
 
+# cross products drive both normals and tetrahedron volumes
 def Cross(
     LeftValue: tuple[float, float, float], RightValue: tuple[float, float, float]
 ) -> tuple[float, float, float]:
@@ -252,6 +271,7 @@ def Cross(
     )
 
 
+# offsetting vertices appears in every geometry routine
 def Sub(
     LeftValue: tuple[float, float, float], RightValue: tuple[float, float, float]
 ) -> tuple[float, float, float]:
@@ -262,6 +282,7 @@ def Sub(
     )
 
 
+# zero length normals must be rejected before division
 def Normalize(Value: tuple[float, float, float]) -> tuple[float, float, float] | None:
     LengthValue = math.sqrt(Dot(Value, Value))
     if LengthValue <= 1e-12:
@@ -269,6 +290,7 @@ def Normalize(Value: tuple[float, float, float]) -> tuple[float, float, float] |
     return (Value[0] / LengthValue, Value[1] / LengthValue, Value[2] / LengthValue)
 
 
+# a plane needs its normal and offset for intersection
 def PlaneValue(Surface: CreoSurface) -> tuple[tuple[float, float, float], float] | None:
     Values = Surface.local_system
     if len(Values) < 12:
@@ -280,6 +302,7 @@ def PlaneValue(Surface: CreoSurface) -> tuple[tuple[float, float, float], float]
     return NormalValue, Dot(NormalValue, OriginValue)
 
 
+# box volume comes from intersecting three planes
 def IntersectPlanes(
     First: tuple[tuple[float, float, float], float],
     Second: tuple[tuple[float, float, float], float],
@@ -306,14 +329,13 @@ def IntersectPlanes(
     )
 
 
+# volume and centroid are the acceptance numbers we report
 def ReadMassProperties(Surfaces: tuple[CreoSurface, ...]) -> CreoMassProperties:
     Planes = [PlaneValue(Surface) for Surface in Surfaces]
     Planes = [Plane for Plane in Planes if Plane is not None]
     if len(Planes) < 4:
         return CreoMassProperties(None, None, None, None, 0, False)
-    Framed = [
-        Surface for Surface in Surfaces if len(Surface.local_system) >= 12
-    ]
+    Framed = [Surface for Surface in Surfaces if len(Surface.local_system) >= 12]
     AverageOrigin = (
         sum(Surface.local_system[9] for Surface in Framed) / len(Framed),
         sum(Surface.local_system[10] for Surface in Framed) / len(Framed),
@@ -375,13 +397,16 @@ def ReadMassProperties(Surfaces: tuple[CreoSurface, ...]) -> CreoMassProperties:
             sum(Vertex[2] for Vertex in OnPlane) / len(OnPlane),
         )
         ReferenceValue = Sub(OnPlane[0], CenterValue)
-        Ordered = sorted(
-            OnPlane,
-            key=lambda Vertex: math.atan2(
-                Dot(Cross(ReferenceValue, Sub(Vertex, CenterValue)), NormalValue),
-                Dot(ReferenceValue, Sub(Vertex, CenterValue)),
-            ),
-        )
+
+        # ordering by angle keeps the outline from crossing itself
+        def AngleOf(Vertex: tuple[float, float, float]) -> float:
+            OffsetValue = Sub(Vertex, CenterValue)
+            return math.atan2(
+                Dot(Cross(ReferenceValue, OffsetValue), NormalValue),
+                Dot(ReferenceValue, OffsetValue),
+            )
+
+        Ordered = sorted(OnPlane, key=AngleOf)
         for IndexValue in range(1, len(Ordered) - 1):
             First = Ordered[0]
             Second = Ordered[IndexValue]
@@ -412,9 +437,8 @@ def ReadMassProperties(Surfaces: tuple[CreoSurface, ...]) -> CreoMassProperties:
     )
 
 
-def ReadTopology(
-    Curves: tuple[CreoCurve, ...], SurfaceCount: int
-) -> CreoTopology:
+# topology is counted from geometry rather than trusted
+def ReadTopology(Curves: tuple[CreoCurve, ...], SurfaceCount: int) -> CreoTopology:
     ById = {Curve.curve_id: Curve for Curve in Curves}
     FaceSlots: dict[int, list[tuple[int, int]]] = {}
     SharedEdges = 0
@@ -489,6 +513,7 @@ def ReadTopology(
     )
 
 
+# logical objects link features to geometry identifiers
 def ReadLogicalObjects(DataValue: bytes) -> tuple[CreoLogicalObject, ...]:
     Nodes = StreamParser(DataValue, ElementBoundaries(DataValue)).Run()
     Objects: list[CreoLogicalObject] = []

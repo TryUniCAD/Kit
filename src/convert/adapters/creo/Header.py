@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from convert.adapters.creo.CreoFormat import CreoFormat
 
 
+# the header fields are read once and never mutated
 @dataclass(frozen=True, slots=True)
 class CreoHeader:
     kind: str
@@ -16,6 +17,7 @@ class CreoHeader:
     header_lines: tuple[str, ...]
 
 
+# the first line decides whether we can read the file at all
 def GetKind(LineText: str) -> str:
     Words = LineText.rstrip("\\").split()
     if len(Words) < 2 or Words[0] != "#UGC:2":
@@ -30,6 +32,7 @@ def GetKind(LineText: str) -> str:
     return KindText
 
 
+# every section offset is relative to this stored base
 def GetBase(LineText: str) -> int:
     Words = LineText.rstrip("\\").split()
     if len(Words) < 3:
@@ -42,6 +45,7 @@ def GetBase(LineText: str) -> int:
     return BaseValue
 
 
+# the model name is needed for diagnostics and renames
 def GetCommonName(Lines: tuple[str, ...]) -> str:
     Names: list[str] = []
     for LineText in Lines:
@@ -65,6 +69,7 @@ def GetCommonName(Lines: tuple[str, ...]) -> str:
     return Names[0]
 
 
+# version strings gate which section layouts apply
 def ReadVersion(TextValue: str) -> str:
     Markers = ("Version ", "Release ", "Release")
     for Marker in Markers:
@@ -78,6 +83,7 @@ def ReadVersion(TextValue: str) -> str:
     return ""
 
 
+# callers want the parsed header without touching bytes
 def ReadHeader(DataValue: bytes) -> CreoHeader:
     Marker = b"#-END_OF_UGC_HEADER\n"
     EndIndex = DataValue.find(Marker)

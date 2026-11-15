@@ -2,10 +2,14 @@ from __future__ import annotations
 
 from convert.adapters.creo.CreoFormat import CreoFormat
 
+# a corrupt extent must not allocate the whole address space
 KMaxSectionBytes = 64 * 1024 * 1024
+
+# the code table is bounded by the format not by memory
 KMaxCodes = 1 << 17
 
 
+# the leading group is padding and skipping keeps offsets right
 def SkipGroup(
     Position: int,
     BitBuffer: int,
@@ -30,6 +34,7 @@ def SkipGroup(
     return (Position, BitBuffer, BitCount)
 
 
+# bit widths vary per code so one helper reads them
 def ReadBits(
     DataValue: bytes, Position: int, BitBuffer: int, BitCount: int, CodeSize: int
 ) -> tuple[int, int, int, bool]:
@@ -42,6 +47,7 @@ def ReadBits(
     return (Position, BitBuffer, BitCount, True)
 
 
+# code selection is the only branchy part of decoding
 def SelectCode(
     CodeValue: int, TableSize: int, Previous: int | None
 ) -> tuple[int, bool]:
@@ -56,6 +62,7 @@ def SelectCode(
     raise CreoFormat("Creo compression code is outside the table")
 
 
+# expansion writes output and grows the table together
 def ExpandCode(
     Prefixes: list[int], LastBytes: list[int], EntryCode: int
 ) -> tuple[bytearray, int]:
@@ -76,6 +83,7 @@ def ExpandCode(
     return (Stack, FirstByte)
 
 
+# the dictionary is mutated in place to avoid copying
 def UpdateDictMut(
     Prefixes: list[int],
     LastBytes: list[int],
@@ -88,6 +96,7 @@ def UpdateDictMut(
         LastBytes.append(FirstByte)
 
 
+# blocks reset independently so this stays separate
 def ResetBlockMut(
     Prefixes: list[int],
     LastBytes: list[int],
@@ -103,6 +112,7 @@ def ResetBlockMut(
     return SkipGroup(Position, BitBuffer, BitCount, GroupCount, CodeSize, DataValue)
 
 
+# every decode starts from the same four state values
 def InitState(Flags: int) -> tuple[int, bool, list[int], list[int]]:
     MaxBits = Flags & 0x1F
     if MaxBits < 9 or MaxBits > 16:
@@ -116,6 +126,7 @@ def InitState(Flags: int) -> tuple[int, bool, list[int], list[int]]:
     return (MaxBits, BlockMode, Prefixes, LastBytes)
 
 
+# one code at a time keeps the state machine readable
 def DecodeCodeMut(
     CodeValue: int,
     Prefixes: list[int],
@@ -136,6 +147,7 @@ def DecodeCodeMut(
     return min(CodeValue, len(Prefixes) - 1)
 
 
+# the table grows on demand until the section ends
 def GrowCode(
     Prefixes: list[int],
     Position: int,
@@ -155,6 +167,7 @@ def GrowCode(
     return (Position, BitBuffer, BitCount, CodeSize, GroupCount)
 
 
+# sections are stored compressed and callers want plain bytes
 def Uncompress(DataValue: bytes, Expected: int) -> bytes:
     if len(DataValue) < 4 or DataValue[:2] != b"\x1f\x9d":
         raise CreoFormat("Creo section is not Unix-compressed")

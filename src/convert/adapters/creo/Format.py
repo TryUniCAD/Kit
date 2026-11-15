@@ -5,12 +5,19 @@ from types import MappingProxyType
 from convert.adapters.base.AdapterInfo import AdapterInfo
 from interchange.enums.EnumDocument import Capability
 
+# the registry keys adapters by this stable identifier
 KFormatId = "creo.prt"
 
+
+# only prt files reach this adapter
 KSuffixes = (".prt",)
 
+
+# callers say proe as often as creo so both resolve
 KAliases = ("prt", "creo", "proe")
 
+
+# the loader needs these section names to validate a part
 KSectionNames = (
     "AllFeatur",
     "BasicData",
@@ -34,6 +41,8 @@ KSectionNames = (
     "VisibGeom",
 )
 
+
+# the registry compares adapter info so it must be stable
 KInfoValue = AdapterInfo(
     format_id=KFormatId,
     name="PTC Creo Parametric",
@@ -53,4 +62,6 @@ KInfoValue = AdapterInfo(
     part_extensions=KSuffixes,
 )
 
+
+# the format record is shared so it is frozen at import
 KFormatInfo = MappingProxyType({"info": KInfoValue, "format_id": KFormatId})

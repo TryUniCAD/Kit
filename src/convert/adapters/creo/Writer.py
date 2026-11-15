@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from contextlib import suppress
+from operator import attrgetter as AttributeGetter
 from hashlib import sha256 as HashValue
 import os as OsModule
 from pathlib import Path as FilePath
@@ -23,6 +24,7 @@ from convert.adapters.creo.Header import ReadHeader
 from convert.adapters.creo.Toc import ReadToc
 
 
+# callers ask by path before a document exists
 def IsCreoPath(Target: KTargetType) -> bool:
     if not isinstance(Target, (str, FilePath)):
         Writer = getattr(Target, "write", None)
@@ -31,6 +33,7 @@ def IsCreoPath(Target: KTargetType) -> bool:
     return NameText.endswith(".prt") or ".prt." in NameText
 
 
+# replay is the only truth today so it has one entry point
 def NativeBytes(Value: CadDocument) -> tuple[bytes, str]:
     DataValue = Value.metadata.get("creo.source_bytes")
     Expected = Value.metadata.get("creo.source_sha256")
@@ -57,6 +60,7 @@ def NativeBytes(Value: CadDocument) -> tuple[bytes, str]:
     return (DataValue, HeaderValue.kind)
 
 
+# callers want bytes and a mode without building a document
 def WriteBytes(
     Target: KTargetType, DataValue: bytes, Overwrite: bool
 ) -> FilePath | None:
@@ -86,6 +90,7 @@ def WriteBytes(
     return PathValue
 
 
+# adapter hooks need a document shaped result
 def WriteDocument(
     DocumentValue: CadDocument,
     Target: KTargetType,
@@ -98,10 +103,12 @@ def WriteDocument(
         raise ValueError("unsupported Creo destination format")
     if not IsCreoPath(Target):
         raise ValueError("Creo destination must end in .prt")
+
+    # capabilities must be sorted or downstream comparisons drift
     DataValue, _ = NativeBytes(DocumentValue)
     OutputValue = WriteBytes(Target, DataValue, Settings.overwrite)
     Capabilities = tuple(
-        sorted(GetDocumentCaps(DocumentValue), key=lambda Value: Value.value)
+        sorted(GetDocumentCaps(DocumentValue), key=AttributeGetter("value"))
     )
     Transfers = tuple(
         CapTransfer(CapabilityValue, TransferMode.KNative)

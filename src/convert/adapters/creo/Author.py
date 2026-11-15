@@ -2,16 +2,26 @@ from __future__ import annotations
 
 from struct import pack as PackValue
 
+# vendor banner text the loader uses to recognise a psb container
 KProductLine = (
     b"#Creo  TM  Version P-60-34  (c) 2019 by PTC Inc.  All Rights Reserved. 6.0.3.0\n"
 )
+
+# every directory row must repeat the same schema version
 KTocVersion = "1934"
 
-KDoublePrefix = {0x40: b"\x46", 0xC0: b"\x2D", 0x3F: b"\x28", 0xBF: b"\x4F"}
+
+# compact double lanes save twelve bytes on every stored scalar
+KDoublePrefix = {0x40: b"\x46", 0xC0: b"\x2d", 0x3F: b"\x28", 0xBF: b"\x4f"}
+
+# section rows default to the plain tagged stream kind
 KTocKind = "9"
+
+# directory rows are fixed width so offsets stay computable
 KTocWidth = 81
 
 
+# lengths and identifiers repeat everywhere so one encoder owns them
 def IntValue(Value: int) -> bytes:
     if 0 <= Value <= 0x7F:
         return bytes((Value,))
@@ -19,9 +29,10 @@ def IntValue(Value: int) -> bytes:
         return bytes((0x80 | (Value >> 8), Value & 0xFF))
     if 0 <= Value <= 0x1FFFFF:
         return bytes((0xC0 | (Value >> 16), (Value >> 8) & 0xFF, Value & 0xFF))
-    return b"\xE8" + Value.to_bytes(3, "big")
+    return b"\xe8" + Value.to_bytes(3, "big")
 
 
+# geometry needs doubles emitted in the vendor compact form
 def DoubleValue(Value: float) -> bytes:
     RawValue = PackValue(">d", Value)
     if RawValue[0] in (0x40, 0xC0) and RawValue[7] == 0x00:
@@ -29,6 +40,7 @@ def DoubleValue(Value: float) -> bytes:
     return b"\x52" + RawValue
 
 
+# scalar lanes must stay compact or later lanes misalign
 def CompactDouble(Value: float) -> bytes:
     RawValue = PackValue(">d", Value)
     Prefix = KDoublePrefix.get(RawValue[0])
@@ -37,18 +49,22 @@ def CompactDouble(Value: float) -> bytes:
     return b"\x52" + RawValue
 
 
+# field names are length prefixed in the typed name lane
 def NameValue(NameText: str) -> bytes:
-    return b"\xE0\x01" + NameText.encode("latin-1") + b"\x00"
+    return b"\xe0\x01" + NameText.encode("latin-1") + b"\x00"
 
 
+# every nested record begins with the same typed header
 def StructHeader(NameText: str) -> bytes:
-    return b"\xE0\x00" + NameText.encode("latin-1") + b"\x00"
+    return b"\xe0\x00" + NameText.encode("latin-1") + b"\x00"
 
 
+# the directory stores a body checksum the loader verifies
 def ChecksumValue(BodyValue: bytes) -> int:
     return sum(BodyValue) & 0xFFFF
 
 
+# one owner keeps row formatting identical across tables
 def TocRow(
     NameText: str,
     OffsetValue: int,
@@ -64,10 +80,12 @@ def TocRow(
     return RowText.encode("ascii").ljust(KTocWidth - 1, b"#")[: KTocWidth - 1] + b"\n"
 
 
+# the header is fixed width because the base offset is parsed from it
 def HeaderLine(TextValue: str) -> bytes:
     return TextValue.encode("latin-1").ljust(68, b" ")[:68] + b" \\\n"
 
 
+# whole part assembly lives here so callers cannot drift
 def BuildContainer(
     Sections: tuple[tuple[str, bytes], ...], ModelName: str = "box.prt"
 ) -> bytes:
@@ -88,8 +106,9 @@ def BuildContainer(
     BaseValue = len(Header)
     Header = Header.replace(b"00000000", f"{BaseValue:08x}".encode("ascii"), 1)
     TocHead = (
-        f"#UGC_TOC 2 {len(Sections)} {KTocWidth} 17".encode("ascii")
-        .ljust(KTocWidth - 1, b"#")[: KTocWidth - 1]
+        f"#UGC_TOC 2 {len(Sections)} {KTocWidth} 17".encode("ascii").ljust(
+            KTocWidth - 1, b"#"
+        )[: KTocWidth - 1]
         + b"\n"
     )
     BodyStart = BaseValue + len(KProductLine) + len(TocHead) + KTocWidth * len(Sections)
@@ -110,25 +129,28 @@ def BuildContainer(
     return Header + KProductLine + TocHead + Rows + Payloads + b"#END_OF_UGC\n"
 
 
+# the feature chain is the minimum a part must declare
 def AuthorFeaturePayload(Features: tuple[tuple[int, int], ...]) -> bytes:
-    Payload = StructHeader("Sld_Features") + b"\xE3"
+    Payload = StructHeader("Sld_Features") + b"\xe3"
     if not Features:
-        return Payload + StructHeader("first_feat_ptr") + b"\xE3"
-    Payload += StructHeader("first_feat_ptr") + b"\xE3"
+        return Payload + StructHeader("first_feat_ptr") + b"\xe3"
+    Payload += StructHeader("first_feat_ptr") + b"\xe3"
     for IndexValue, (FeatureValue, ClassValue) in enumerate(Features):
         if IndexValue > 0:
-            Payload += StructHeader("next_feat_ptr") + b"\xE3"
+            Payload += StructHeader("next_feat_ptr") + b"\xe3"
         Payload += NameValue("id") + IntValue(FeatureValue)
         Payload += NameValue("type") + IntValue(ClassValue)
     Payload += StructHeader("next_feat_ptr") + b"\x00"
     return Payload
 
 
+# keeps the older two section part available for tests
 def AuthorPart(Features: tuple[tuple[int, int], ...]) -> bytes:
     Sections = (("AllFeatur", AuthorFeaturePayload(Features)),)
     return BuildContainer(Sections)
 
 
+# plane frames repeat across prototypes so they decode once
 def PlaneValues(
     NormalValue: tuple[float, float, float],
     OriginValue: tuple[float, float, float],
@@ -154,30 +176,33 @@ def PlaneValues(
     )
 
 
+# the first array element must carry every field header
 def PlaneDefine(GeomValue: int, Values: tuple[float, ...]) -> bytes:
     Payload = NameValue("geom_id") + IntValue(GeomValue)
     Payload += NameValue("geom_type") + IntValue(34)
     Payload += NameValue("feat_id") + IntValue(74)
-    Payload += b"\xE0\x02envlp\x00\xF9" + IntValue(2) + IntValue(2)
+    Payload += b"\xe0\x02envlp\x00\xf9" + IntValue(2) + IntValue(2)
     Payload += b"".join(DoubleValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
-    Payload += b"\xE0\x02outline\x00\xF9" + IntValue(2) + IntValue(3)
+    Payload += b"\xe0\x02outline\x00\xf9" + IntValue(2) + IntValue(3)
     Payload += b"".join(DoubleValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
-    Payload += b"\xE0\x02local_sys\x00\xF9" + IntValue(4) + IntValue(3)
+    Payload += b"\xe0\x02local_sys\x00\xf9" + IntValue(4) + IntValue(3)
     Payload += b"".join(DoubleValue(Value) for Value in Values)
     return Payload
 
 
+# later array elements may not redeclare fields
 def PlaneReplay(GeomValue: int, Values: tuple[float, ...]) -> bytes:
-    Payload = b"\xE3" + IntValue(GeomValue) + IntValue(34) + IntValue(74)
-    Payload += b"\xF9" + IntValue(2) + IntValue(2)
+    Payload = b"\xe3" + IntValue(GeomValue) + IntValue(34) + IntValue(74)
+    Payload += b"\xf9" + IntValue(2) + IntValue(2)
     Payload += b"".join(DoubleValue(Value) for Value in (0.0, 1.0, 1.0, 0.0))
-    Payload += b"\xF9" + IntValue(2) + IntValue(3)
+    Payload += b"\xf9" + IntValue(2) + IntValue(3)
     Payload += b"".join(DoubleValue(Value) for Value in (0.0, 0.0, 1.0, 0.0, 1.0, 1.0))
-    Payload += b"\xF9" + IntValue(4) + IntValue(3)
+    Payload += b"\xf9" + IntValue(4) + IntValue(3)
     Payload += b"".join(DoubleValue(Value) for Value in Values)
     return Payload
 
 
+# surfaces encode differently from features so they own a writer
 def AuthorGeometryPayload(
     Minimum: tuple[float, float, float], Maximum: tuple[float, float, float]
 ) -> bytes:
@@ -191,10 +216,10 @@ def AuthorGeometryPayload(
         ((0.0, 0.0, 1.0), (0.0, 0.0, ZMinValue)),
         ((0.0, 0.0, -1.0), (0.0, 0.0, ZMaxValue)),
     )
-    Payload = StructHeader("Sld_VisGeom") + b"\xE3"
-    Payload += StructHeader("active_geom") + b"\xE2"
-    Payload += StructHeader("srf_array") + b"\xF8" + IntValue(len(Planes))
-    Payload += b"\xF7" + IntValue(3) + b"\xFB\xE3"
+    Payload = StructHeader("Sld_VisGeom") + b"\xe3"
+    Payload += StructHeader("active_geom") + b"\xe2"
+    Payload += StructHeader("srf_array") + b"\xf8" + IntValue(len(Planes))
+    Payload += b"\xf7" + IntValue(3) + b"\xfb\xe3"
     for IndexValue, (NormalValue, OriginValue) in enumerate(Planes):
         Values = PlaneValues(NormalValue, OriginValue)
         if IndexValue == 0:
@@ -204,6 +229,7 @@ def AuthorGeometryPayload(
     return Payload
 
 
+# a known volume is the only way to check the mass code
 def AuthorBox(
     Minimum: tuple[float, float, float],
     Maximum: tuple[float, float, float],
@@ -222,39 +248,44 @@ def AuthorBox(
     return BuildContainer(Sections)
 
 
+# closing levels are positional so callers must not write raw bytes
 def CloseValue(Level: int) -> bytes:
     return bytes((0xF0 + Level,))
 
 
+# opening a record correctly is easy to get wrong
 def StructBegin(NameText: str) -> bytes:
-    return StructHeader(NameText) + b"\xE3"
+    return StructHeader(NameText) + b"\xe3"
 
 
+# absent members still need their name on the wire
 def NullStruct(NameText: str) -> bytes:
-    return StructHeader(NameText) + b"\xE1"
+    return StructHeader(NameText) + b"\xe1"
 
 
+# arrays and unions share the same opening token
 def OpenStruct(NameText: str) -> bytes:
-    return StructHeader(NameText) + b"\xE2"
+    return StructHeader(NameText) + b"\xe2"
 
 
+# integer arrays appear in several sections so they share one emitter
 def IntArrayStruct(NameText: str, Values: tuple[int, ...]) -> bytes:
-    Payload = b"\xE0\x01" + NameText.encode("latin-1") + b"\x00"
-    Payload += b"\xF8" + IntValue(len(Values))
+    Payload = b"\xe0\x01" + NameText.encode("latin-1") + b"\x00"
+    Payload += b"\xf8" + IntValue(len(Values))
     for Value in Values:
         Payload += IntValue(Value)
     return Payload
 
 
+# every section body starts with its own name line
 def SectionValue(NameText: str, Payload: bytes) -> bytes:
     return b"#" + NameText.encode("latin-1") + b"\n" + Payload
 
 
+# these sections only need their root record to exist
 def EmptySectionPayloads() -> dict[str, bytes]:
     return {
-        "Notes": SectionValue(
-            "Notes", StructBegin("Sld_Notes") + CloseValue(1)
-        ),
+        "Notes": SectionValue("Notes", StructBegin("Sld_Notes") + CloseValue(1)),
         "PipeInfos": SectionValue(
             "PipeInfos",
             StructBegin("Sld_PipeInfo") + NullStruct("piping_info") + CloseValue(1),
@@ -289,6 +320,7 @@ def EmptySectionPayloads() -> dict[str, bytes]:
     }
 
 
+# the loader cross checks this index against the feature chain
 def FeatureIndexPayload(Classes: tuple[int, ...]) -> bytes:
     return SectionValue(
         "FeatDefsIndex",
@@ -298,21 +330,18 @@ def FeatureIndexPayload(Classes: tuple[int, ...]) -> bytes:
     )
 
 
+# typed fields are the atom every section emitter builds from
 def FieldValue(TypeDigit: int, NameText: str, Value: bytes) -> bytes:
     return bytes((0xE0, TypeDigit)) + NameText.encode("latin-1") + b"\x00" + Value
 
 
+# reference arrays point at an earlier element by index
 def RefArrayValue(NameText: str, Count: int, Reference: int) -> bytes:
-    Payload = (
-        b"\xF8"
-        + IntValue(Count)
-        + b"\xF7"
-        + IntValue(Reference)
-        + b"\xFB"
-    )
+    Payload = b"\xf8" + IntValue(Count) + b"\xf7" + IntValue(Reference) + b"\xfb"
     return FieldValue(0, NameText, Payload)
 
 
+# neutral state sections are optional but must still parse
 def NeutralEmptyPayloads() -> dict[str, bytes]:
     return {
         "NovisGeom": SectionValue(
@@ -321,14 +350,14 @@ def NeutralEmptyPayloads() -> dict[str, bytes]:
             + OpenStruct("inactive_geom")
             + StructHeader("external_geom")
             + CloseValue(1)
-            + b"\xE2"
+            + b"\xe2"
             + CloseValue(2),
         ),
         "BasFullData": SectionValue(
             "BasFullData",
             StructBegin("Sld_BasFullData")
             + RefArrayValue("dim_array", 3, 2)
-            + b"\xE1\xE1\xE1"
+            + b"\xe1\xe1\xe1"
             + FieldValue(1, "faceted_rep", CloseValue(1))
             + b"\x00"
             + CloseValue(1),
@@ -336,6 +365,7 @@ def NeutralEmptyPayloads() -> dict[str, bytes]:
     }
 
 
+# callers need one place that lists every section we generate
 def AuthoredSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
     Bodies = EmptySectionPayloads()
     Bodies.update(NeutralEmptyPayloads())
@@ -343,6 +373,7 @@ def AuthoredSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
     return Bodies
 
 
+# two dozen sections only require their root struct name
 KMinimalStructs = (
     ("BasicData", "Sld_BasicData"),
     ("MdlStatus", "Sld_MdlStatus"),
@@ -374,15 +405,15 @@ KMinimalStructs = (
 )
 
 
+# empty state sections are cheaper than modelling them
 def MinimalSections() -> dict[str, bytes]:
     return {
-        NameText: SectionValue(
-            NameText, StructBegin(StructName) + CloseValue(1)
-        )
+        NameText: SectionValue(NameText, StructBegin(StructName) + CloseValue(1))
         for NameText, StructName in KMinimalStructs
     }
 
 
+# the datum only part is the smallest model creo will load
 def EmptyPartSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
     Bodies = AuthoredSections(FeatureClasses)
     Bodies.update(MinimalSections())
@@ -391,16 +422,18 @@ def EmptyPartSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
     return Bodies
 
 
+# scalar values have three shorthand lanes worth using
 def ScalarValue(Value: float) -> bytes:
     if Value == 0.0:
         return b"\x18"
     if Value == 1.0:
-        return b"\x0F"
+        return b"\x0f"
     if Value == -1.0:
         return b"\x10"
     return CompactDouble(Value)
 
 
+# repeated scalars dominate the stream so runs need one owner
 def RunValues(Values: tuple[float, ...]) -> bytes:
     Payload = b""
     IndexValue = 0
@@ -414,17 +447,18 @@ def RunValues(Values: tuple[float, ...]) -> bytes:
             RunLength += 1
         Extra = RunLength - 1
         if Extra == 1:
-            Payload += b"\xE4"
+            Payload += b"\xe4"
         elif Extra == 2:
-            Payload += b"\xE5"
+            Payload += b"\xe5"
         elif Extra == 3:
-            Payload += b"\xE6"
+            Payload += b"\xe6"
         elif Extra > 3:
-            Payload += b"\xE7" + IntValue(Extra)
+            Payload += b"\xe7" + IntValue(Extra)
         IndexValue += RunLength
     return Payload
 
 
+# model identity lives here and nothing else may invent it
 def BasBasDataPayload(
     GeomRevision: int,
     CosmRevision: int,
@@ -441,32 +475,30 @@ def BasBasDataPayload(
     Payload += FieldValue(1, "tab_key", b"\x00")
     Payload += StructBegin("tab_key_struct")
     Payload += FieldValue(4, "type", IntValue(72))
-    Payload += StructHeader("tab_key_ptr") + b"\xF8\x42"
+    Payload += StructHeader("tab_key_ptr") + b"\xf8\x42"
     Payload += StructHeader("cmprs_tabkey") + CloseValue(1)
-    Payload += b"\xE1"
-    Payload += b"\xE0\x01type\x00" + CloseValue(1) + IntValue(2)
+    Payload += b"\xe1"
+    Payload += b"\xe0\x01type\x00" + CloseValue(1) + IntValue(2)
     Payload += StructBegin("revnum_ptr")
     Payload += FieldValue(1, "geom_revnum", IntValue(GeomRevision))
     Payload += FieldValue(1, "cosm_revnum", IntValue(CosmRevision))
-    Payload += b"\xE0\x01insert_layer_id\x00" + CloseValue(1) + b"\xF6"
+    Payload += b"\xe0\x01insert_layer_id\x00" + CloseValue(1) + b"\xf6"
     Payload += FieldValue(1, "layer_count", IntValue(LayerCount))
     Payload += FieldValue(2, "rel_part_eps", ScalarValue(RelativeEpsilon))
     Payload += FieldValue(2, "model_eps", ScalarValue(ModelEpsilon))
     Payload += FieldValue(1, "fixed_model_eps", IntValue(0))
     Payload += FieldValue(1, "part_type", IntValue(PartType))
     Payload += FieldValue(1, "first_ent_id", IntValue(FirstEntityId))
-    Payload += (
-        FieldValue(2, "outline", b"\xF9\x02\x03" + RunValues(Outline))
-    )
-    Payload += (
-        FieldValue(1, "attrib_array", b"\xF8" + IntValue(len(Attributes)))
-        + b"".join(IntValue(Value) for Value in Attributes)
-    )
+    Payload += FieldValue(2, "outline", b"\xf9\x02\x03" + RunValues(Outline))
+    Payload += FieldValue(
+        1, "attrib_array", b"\xf8" + IntValue(len(Attributes))
+    ) + b"".join(IntValue(Value) for Value in Attributes)
     Payload += FieldValue(2, "max_part_size", ScalarValue(MaxPartSize))
-    Payload += StructHeader("ref_part_tabs") + b"\xE3\xF2"
+    Payload += StructHeader("ref_part_tabs") + b"\xe3\xf2"
     return SectionValue("BasBasData", Payload)
 
 
+# research needs a plausible default before callers supply real values
 def DefaultBasBasData() -> bytes:
     return BasBasDataPayload(
         124,
@@ -482,9 +514,11 @@ def DefaultBasBasData() -> bytes:
     )
 
 
+# a datum frame starts at identity in every trace we hold
 KIdentityColumn = (1.0, 0.0, 0.0, 0.0)
 
 
+# datum placement carries the fields the loader validates hardest
 def DatumPlaneRecord(
     DatumId: int,
     Orient: int,
@@ -494,71 +528,72 @@ def DatumPlaneRecord(
     InstructionType: int = 515,
 ) -> bytes:
     Frame = tuple(Value for Column in Columns for Value in Column)
-    Payload = b"\xE3"
+    Payload = b"\xe3"
     Payload += FieldValue(1, "id", IntValue(DatumId))
-    Payload += FieldValue(1, "symbol_key", b"\xF6")
+    Payload += FieldValue(1, "symbol_key", b"\xf6")
     Payload += FieldValue(1, "model_type", IntValue(2))
     Payload += NullStruct("group_info_ptr")
     Payload += StructBegin("place_rec_ptr")
-    Payload += FieldValue(2, "local_sys", b"\xF9\x04\x03" + RunValues(Frame))
-    Payload += FieldValue(1, "own_ref_id", b"\xF6")
+    Payload += FieldValue(2, "local_sys", b"\xf9\x04\x03" + RunValues(Frame))
+    Payload += FieldValue(1, "own_ref_id", b"\xf6")
     Payload += FieldValue(1, "orient", IntValue(Orient))
-    Payload += FieldValue(0, "place_instruction_ptrs", b"\xF8\x01\xF7\x0B\xFB")
-    Payload += b"\xE3"
+    Payload += FieldValue(0, "place_instruction_ptrs", b"\xf8\x01\xf7\x0b\xfb")
+    Payload += b"\xe3"
     Payload += FieldValue(1, "type", IntValue(InstructionType))
     Payload += FieldValue(2, "offset", ScalarValue(0.0))
-    Payload += FieldValue(1, "dim_id", b"\xF6")
-    Payload += FieldValue(1, "ref_id", b"\xF6")
-    Payload += FieldValue(1, "geometry1_id", b"\xF6")
+    Payload += FieldValue(1, "dim_id", b"\xf6")
+    Payload += FieldValue(1, "ref_id", b"\xf6")
+    Payload += FieldValue(1, "geometry1_id", b"\xf6")
     Payload += FieldValue(1, "geometry2_id", IntValue(Geometry2Id))
     Payload += FieldValue(1, "memb_num1", IntValue(0))
     Payload += FieldValue(1, "memb_num2", IntValue(0))
-    Payload += FieldValue(1, "attr", b"\xF8\x03\xC0\x80\x00\x00\xE4")
-    Payload += FieldValue(0, "plin_info_arr", b"\xF8\x02\xF7\x15\xFB")
-    Payload += b"\xE3"
+    Payload += FieldValue(1, "attr", b"\xf8\x03\xc0\x80\x00\x00\xe4")
+    Payload += FieldValue(0, "plin_info_arr", b"\xf8\x02\xf7\x15\xfb")
+    Payload += b"\xe3"
     Payload += FieldValue(1, "type", IntValue(1))
     Payload += StructBegin("data(plin_info_ref)")
-    Payload += FieldValue(1, "id_type1", b"\xF5\x04")
+    Payload += FieldValue(1, "id_type1", b"\xf5\x04")
     Payload += FieldValue(1, "id_type2", IntValue(5))
     Payload += FieldValue(2, "offset2", ScalarValue(0.0))
-    Payload += b"\xF2"
-    Payload += b"\xF7\x15\xE3" + IntValue(6)
+    Payload += b"\xf2"
+    Payload += b"\xf7\x15\xe3" + IntValue(6)
     Payload += StructBegin("data(plin_info_ui_step)")
-    Payload += FieldValue(1, "step_ids", b"\xF8\x01\xF5\x64")
+    Payload += FieldValue(1, "step_ids", b"\xf8\x01\xf5\x64")
     Payload += FieldValue(1, "attr", IntValue(0))
-    Payload += FieldValue(2, "uv", b"\xF3\xF8\x02\x18\xE4")
-    Payload += StructHeader("trf_arr") + b"\xF2"
-    Payload += b"\xF8\x01\xF7\x1F\xFB"
-    Payload += b"\xE3"
+    Payload += FieldValue(2, "uv", b"\xf3\xf8\x02\x18\xe4")
+    Payload += StructHeader("trf_arr") + b"\xf2"
+    Payload += b"\xf8\x01\xf7\x1f\xfb"
+    Payload += b"\xe3"
     Payload += FieldValue(1, "type", IntValue(11))
-    Payload += FieldValue(1, "key", b"\xF6")
+    Payload += FieldValue(1, "key", b"\xf6")
     Payload += FieldValue(1, "idx", IntValue(0))
-    Payload += FieldValue(2, "transf", b"\xF9\x04\x03" + RunValues(Frame))
-    Payload += StructHeader("plcm_revnum") + b"\xF2"
-    Payload += b"\xE1"
+    Payload += FieldValue(2, "transf", b"\xf9\x04\x03" + RunValues(Frame))
+    Payload += StructHeader("plcm_revnum") + b"\xf2"
+    Payload += b"\xe1"
     Payload += StructHeader("next_prop") + CloseValue(1)
-    Payload += b"\xE1"
-    Payload += FieldValue(1, "cond_tbl_idx", b"\xF6")
-    Payload += FieldValue(10, "comment", b"\xE1")
-    Payload += StructHeader("merge_info_ptr") + b"\xE1"
-    Payload += FieldValue(1, "state_ind", b"\xF6")
-    Payload += StructHeader("alumni_info") + b"\xE1"
-    Payload += StructHeader("expl_state_ref") + b"\xE1"
+    Payload += b"\xe1"
+    Payload += FieldValue(1, "cond_tbl_idx", b"\xf6")
+    Payload += FieldValue(10, "comment", b"\xe1")
+    Payload += StructHeader("merge_info_ptr") + b"\xe1"
+    Payload += FieldValue(1, "state_ind", b"\xf6")
+    Payload += StructHeader("alumni_info") + b"\xe1"
+    Payload += StructHeader("expl_state_ref") + b"\xe1"
     Payload += StructBegin("feat_outl_info")
-    Payload += FieldValue(2, "ent_outl", b"\xF9\x02\x03" + RunValues(Outline))
-    Payload += StructHeader("pre_roll_back") + b"\xE1"
-    Payload += StructHeader("post_roll_back") + b"\xE1"
-    Payload += StructHeader("post_regen") + b"\xE1"
+    Payload += FieldValue(2, "ent_outl", b"\xf9\x02\x03" + RunValues(Outline))
+    Payload += StructHeader("pre_roll_back") + b"\xe1"
+    Payload += StructHeader("post_roll_back") + b"\xe1"
+    Payload += StructHeader("post_regen") + b"\xe1"
     Payload += StructHeader("parchild_table") + CloseValue(1)
-    Payload += b"\xE3"
-    Payload += FieldValue(9, "Structure_Invalid", b"\xC0\xAB\xCD")
+    Payload += b"\xe3"
+    Payload += FieldValue(9, "Structure_Invalid", b"\xc0\xab\xcd")
     Payload += StructHeader("copy_info_ptr") + CloseValue(1)
-    Payload += b"\xE1"
-    Payload += StructHeader("embed_info_ptr") + b"\xE1"
+    Payload += b"\xe1"
+    Payload += StructHeader("embed_info_ptr") + b"\xe1"
     Payload += CloseValue(1)
     return Payload
 
 
+# redeclaring fields mid array shifts every later index
 def DatumPlaneReplay(
     DatumId: int,
     Orient: int,
@@ -566,91 +601,93 @@ def DatumPlaneReplay(
     Columns: tuple[tuple[float, ...], ...],
     Outline: tuple[float, ...],
     InstructionType: int,
-    Lead: bytes = b"\xF7\x02",
+    Lead: bytes = b"\xf7\x02",
 ) -> bytes:
     Frame = tuple(Value for Column in Columns for Value in Column)
-    Payload = Lead + b"\xE3"
+    Payload = Lead + b"\xe3"
     Payload += IntValue(DatumId)
-    Payload += b"\xF6"
+    Payload += b"\xf6"
     Payload += IntValue(2)
-    Payload += b"\xE1\xE3"
+    Payload += b"\xe1\xe3"
     Payload += RunValues(Frame)
-    Payload += b"\xF6"
+    Payload += b"\xf6"
     Payload += IntValue(Orient)
-    Payload += b"\xF8\x01\xF7\x0B\xFB\xE3"
-    Payload += b"\xF7\x0C" + IntValue(InstructionType)
+    Payload += b"\xf8\x01\xf7\x0b\xfb\xe3"
+    Payload += b"\xf7\x0c" + IntValue(InstructionType)
     Payload += ScalarValue(0.0)
-    Payload += b"\xF6\xF6\xF6"
+    Payload += b"\xf6\xf6\xf6"
     Payload += IntValue(Geometry2Id)
     Payload += b"\x00\x00"
-    Payload += b"\xC0\x80\x00\x00\xE4"
-    Payload += b"\xF8\x02\xF7\x15\xFB\xE3"
-    Payload += b"\xF7\x16" + IntValue(1)
-    Payload += b"\xF7\x17\xE3\xF5\x04"
+    Payload += b"\xc0\x80\x00\x00\xe4"
+    Payload += b"\xf8\x02\xf7\x15\xfb\xe3"
+    Payload += b"\xf7\x16" + IntValue(1)
+    Payload += b"\xf7\x17\xe3\xf5\x04"
     Payload += IntValue(5)
     Payload += ScalarValue(0.0)
-    Payload += b"\xE3" + IntValue(6)
-    Payload += b"\xF7\x1B\xE3\xF5\x64\x00"
+    Payload += b"\xe3" + IntValue(6)
+    Payload += b"\xf7\x1b\xe3\xf5\x64\x00"
     Payload += ScalarValue(0.0)
-    Payload += b"\xE4"
-    Payload += b"\xF8\x01\xF7\x1F\xFB\xE3"
-    Payload += b"\xF7\x20" + IntValue(11)
-    Payload += b"\xF6" + IntValue(0)
+    Payload += b"\xe4"
+    Payload += b"\xf8\x01\xf7\x1f\xfb\xe3"
+    Payload += b"\xf7\x20" + IntValue(11)
+    Payload += b"\xf6" + IntValue(0)
     Payload += RunValues(Frame)
-    Payload += b"\xE1\xE1\xF6\xE1\xE1\xF6\xE1\xE1\xE3"
+    Payload += b"\xe1\xe1\xf6\xe1\xe1\xf6\xe1\xe1\xe3"
     Payload += RunValues(Outline)
-    Payload += b"\xE1\xE1\xE1\xE3\xC0\xAB\xCD\xE1\xE1"
+    Payload += b"\xe1\xe1\xe1\xe3\xc0\xab\xcd\xe1\xe1"
     return Payload
 
 
+# the coordinate system record is last so it may declare fields
 def CsysReplay(
     CsysId: int, Columns: tuple[tuple[float, ...], ...], Outline: tuple[float, ...]
 ) -> bytes:
     Frame = tuple(Value for Column in Columns for Value in Column)
-    Payload = b"\xE0\x00feat_defs_979\x00\xF2\xF8\x01\xF7\x35\xFB\xE3"
-    Payload += b"\xF7\x03" + IntValue(CsysId)
-    Payload += b"\xF6" + IntValue(2) + b"\xE1\xE3"
+    Payload = b"\xe0\x00feat_defs_979\x00\xf2\xf8\x01\xf7\x35\xfb\xe3"
+    Payload += b"\xf7\x03" + IntValue(CsysId)
+    Payload += b"\xf6" + IntValue(2) + b"\xe1\xe3"
     Payload += RunValues(Frame)
-    Payload += b"\xF6" + IntValue(0)
-    Payload += b"\xF8\x07\xF7\x0B\xFB\xE3"
-    Payload += b"\xF7\x0C\x84\xD8" + ScalarValue(0.0)
-    Payload += b"\xF6\xF6" + IntValue(6) + b"\xF6\x00\x00\x00\xE5"
-    Payload += b"\xF8\x02\xF7\x15\xFB\xE3"
-    Payload += b"\xF7\x16\x35"
-    Payload += b"\xE0\x00data(plin_info_ref_uv)\x00\xE3"
-    Payload += b"\xE0\x02uv_val\x00\xF8\x02\x18\xE4\xF2"
-    Payload += b"\xF7\x15\xE3" + IntValue(6)
-    Payload += b"\xF7\x1B\xE3\xF5\x64\x00\x18\xE4\xF1"
-    Payload += b"\xF7\x0B\xE3\x84\xD8\x18\xF6\xF6"
-    Payload += IntValue(8) + b"\xF6\x00\x00\x00\xE5"
-    Payload += b"\xF8\x02\xF7\x15\xFB\xE3\xF7\x16\x35\xF7\x36\xE3\x18\xE4"
-    Payload += b"\xE3" + IntValue(6)
-    Payload += b"\xF7\x1B\xE3\xF5\x64\x00\x18\xE4"
-    Payload += b"\xE3\x84\xD8\x18\xF6\xF6" + IntValue(4) + b"\xF6\x00\x00\x00\xE5"
-    Payload += b"\xF8\x02\xF7\x15\xFB\xE3\xF7\x16\x35\xF7\x36\xE3\x18\xE4"
-    Payload += b"\xE3" + IntValue(6)
-    Payload += b"\xF7\x1B\xE3\xF5\x64\x00\x18\xE4"
-    Payload += b"\xE3\x9D\x4C\x18\xF6\xF6" + IntValue(6) + b"\xF6\x00\x00\x00\xE5"
-    Payload += b"\xF8\x01\xF7\x15\xFB\xE3\xF7\x16" + IntValue(6)
-    Payload += b"\xE3\xF5\x64\x00\x18\xE4"
-    Payload += b"\xE3\x84\xF6\x2F\x08\x00\xF6\xF6\xF6\xF6\x00\x00\x00\xE5"
-    Payload += b"\xF8\x01\xF7\x15\xFB\xE3\xF7\x16" + IntValue(6)
-    Payload += b"\xE3\xF5\x64\x00\x18\xE4"
-    Payload += b"\xE3\x84\xF7\x48\x00\x00\xF6\xF6\xF6\xF6\x00\x00\x00\xE5"
-    Payload += b"\xF8\x01\xF7\x15\xFB\xE3\xF7\x16" + IntValue(6)
-    Payload += b"\xE3\xF5\x64\x00\x18\xE4"
-    Payload += b"\xE3\x9D\x55\x18\xF6\xF6" + IntValue(8) + b"\xF6\x00\x00\x00\xE5"
-    Payload += b"\xF8\x01\xF7\x15\xFB\xE3\xF7\x16" + IntValue(6)
-    Payload += b"\xE3\xF5\x64\x00\x18\xE4\xF2"
-    Payload += b"\xF7\x1F\xF8\x01\xF7\x1F\xFB\xE3\xF7\x20" + IntValue(10)
-    Payload += b"\xF6" + IntValue(0)
+    Payload += b"\xf6" + IntValue(0)
+    Payload += b"\xf8\x07\xf7\x0b\xfb\xe3"
+    Payload += b"\xf7\x0c\x84\xd8" + ScalarValue(0.0)
+    Payload += b"\xf6\xf6" + IntValue(6) + b"\xf6\x00\x00\x00\xe5"
+    Payload += b"\xf8\x02\xf7\x15\xfb\xe3"
+    Payload += b"\xf7\x16\x35"
+    Payload += b"\xe0\x00data(plin_info_ref_uv)\x00\xe3"
+    Payload += b"\xe0\x02uv_val\x00\xf8\x02\x18\xe4\xf2"
+    Payload += b"\xf7\x15\xe3" + IntValue(6)
+    Payload += b"\xf7\x1b\xe3\xf5\x64\x00\x18\xe4\xf1"
+    Payload += b"\xf7\x0b\xe3\x84\xd8\x18\xf6\xf6"
+    Payload += IntValue(8) + b"\xf6\x00\x00\x00\xe5"
+    Payload += b"\xf8\x02\xf7\x15\xfb\xe3\xf7\x16\x35\xf7\x36\xe3\x18\xe4"
+    Payload += b"\xe3" + IntValue(6)
+    Payload += b"\xf7\x1b\xe3\xf5\x64\x00\x18\xe4"
+    Payload += b"\xe3\x84\xd8\x18\xf6\xf6" + IntValue(4) + b"\xf6\x00\x00\x00\xe5"
+    Payload += b"\xf8\x02\xf7\x15\xfb\xe3\xf7\x16\x35\xf7\x36\xe3\x18\xe4"
+    Payload += b"\xe3" + IntValue(6)
+    Payload += b"\xf7\x1b\xe3\xf5\x64\x00\x18\xe4"
+    Payload += b"\xe3\x9d\x4c\x18\xf6\xf6" + IntValue(6) + b"\xf6\x00\x00\x00\xe5"
+    Payload += b"\xf8\x01\xf7\x15\xfb\xe3\xf7\x16" + IntValue(6)
+    Payload += b"\xe3\xf5\x64\x00\x18\xe4"
+    Payload += b"\xe3\x84\xf6\x2f\x08\x00\xf6\xf6\xf6\xf6\x00\x00\x00\xe5"
+    Payload += b"\xf8\x01\xf7\x15\xfb\xe3\xf7\x16" + IntValue(6)
+    Payload += b"\xe3\xf5\x64\x00\x18\xe4"
+    Payload += b"\xe3\x84\xf7\x48\x00\x00\xf6\xf6\xf6\xf6\x00\x00\x00\xe5"
+    Payload += b"\xf8\x01\xf7\x15\xfb\xe3\xf7\x16" + IntValue(6)
+    Payload += b"\xe3\xf5\x64\x00\x18\xe4"
+    Payload += b"\xe3\x9d\x55\x18\xf6\xf6" + IntValue(8) + b"\xf6\x00\x00\x00\xe5"
+    Payload += b"\xf8\x01\xf7\x15\xfb\xe3\xf7\x16" + IntValue(6)
+    Payload += b"\xe3\xf5\x64\x00\x18\xe4\xf2"
+    Payload += b"\xf7\x1f\xf8\x01\xf7\x1f\xfb\xe3\xf7\x20" + IntValue(10)
+    Payload += b"\xf6" + IntValue(0)
     Payload += RunValues(Frame)
-    Payload += b"\xE1\xE1\xF6\xE1\xE1\xF6\xE1\xE1\xE3"
+    Payload += b"\xe1\xe1\xf6\xe1\xe1\xf6\xe1\xe1\xe3"
     Payload += RunValues(Outline)
-    Payload += b"\xE1\xE1\xE1\xE3\xC0\xAB\xCD\xE1\xE1\xF3"
+    Payload += b"\xe1\xe1\xe1\xe3\xc0\xab\xcd\xe1\xe1\xf3"
     return Payload
 
 
+# the datum section is assembled from records plus one csys
 def FeatDefsDtmPayload(
     Planes: tuple[
         tuple[int, int, int, tuple[tuple[float, ...], ...], tuple[float, ...], int], ...
@@ -663,7 +700,7 @@ def FeatDefsDtmPayload(
     Payload += FieldValue(
         0,
         "feat_defs_923",
-        b"\xF8" + IntValue(len(Planes)) + b"\xF7\x02\xFB",
+        b"\xf8" + IntValue(len(Planes)) + b"\xf7\x02\xfb",
     )
     for IndexValue, Plane in enumerate(Planes):
         DatumId, Orient, Geometry2Id, Columns, Outline, InstructionType = Plane
@@ -679,12 +716,13 @@ def FeatDefsDtmPayload(
                 Columns,
                 Outline,
                 InstructionType,
-                b"\xF7\x02" if IndexValue == 1 else b"",
+                b"\xf7\x02" if IndexValue == 1 else b"",
             )
     Payload += CsysReplay(CsysId, CsysColumns, CsysOutline)
     return SectionValue("FeatDefsDtm", Payload)
 
 
+# callers need a complete datum section before parameters exist
 def DefaultFeatDefsDtm(Extent: float) -> bytes:
     First = ((1.0, 0.0, 0.0, 0.0),) * 3
     Second = (
@@ -717,13 +755,15 @@ def DefaultFeatDefsDtm(Extent: float) -> bytes:
     )
 
 
+# a part with no surfaces still needs the section present
 def EmptyVisibGeom() -> bytes:
     return SectionValue(
         "VisibGeom",
-        StructBegin("Sld_VisGeom") + StructHeader("active_geom") + b"\xE2\xF2",
+        StructBegin("Sld_VisGeom") + StructHeader("active_geom") + b"\xe2\xf2",
     )
 
 
+# the generated container is the only end to end authoring test
 def EmptyPartContainer(
     FeatureClasses: tuple[int, ...] = (923, 979, 917),
     ModelName: str = "part.prt",
@@ -733,6 +773,7 @@ def EmptyPartContainer(
     return BuildContainer(tuple(Bodies.items()), ModelName)
 
 
+# compact widths keep stored arrays small and aligned
 def CompactInt(Value: int) -> bytes:
     if Value < 0:
         raise ValueError("CompactInt takes a non-negative value")
@@ -746,16 +787,18 @@ def CompactInt(Value: int) -> bytes:
     return bytes((0xE7 + Width,)) + Value.to_bytes(Width, "big")
 
 
+# negative sentinels appear constantly so one encoder owns them
 def SignedInt(Value: int) -> bytes:
     if Value == -1:
-        return b"\xF6"
+        return b"\xf6"
     if Value < 0:
-        return b"\xF5" + CompactInt(-Value)
+        return b"\xf5" + CompactInt(-Value)
     return CompactInt(Value)
 
 
+# count and elements must agree or the reader desynchronises
 def SignedIntArray(Values: tuple[int, ...]) -> bytes:
-    Payload = b"\xF8" + CompactInt(len(Values))
+    Payload = b"\xf8" + CompactInt(len(Values))
     IndexValue = 0
     while IndexValue < len(Values):
         RunLength = 1
@@ -767,22 +810,24 @@ def SignedIntArray(Values: tuple[int, ...]) -> bytes:
         Payload += SignedInt(Values[IndexValue])
         Extra = RunLength - 1
         if Extra == 1:
-            Payload += b"\xE4"
+            Payload += b"\xe4"
         elif Extra == 2:
-            Payload += b"\xE5"
+            Payload += b"\xe5"
         elif Extra == 3:
-            Payload += b"\xE6"
+            Payload += b"\xe6"
         elif Extra > 3:
-            Payload += b"\xE7" + CompactInt(Extra)
+            Payload += b"\xe7" + CompactInt(Extra)
         IndexValue += RunLength
     return Payload
 
 
+# replay lanes omit the count the first lane already declared
 def SignedIntElements(Values: tuple[int, ...]) -> bytes:
     Body = SignedIntArray(Values)
-    Count = len(b"\xF8" + CompactInt(len(Values)))
+    Count = len(b"\xf8" + CompactInt(len(Values)))
     return Body[Count:]
 
 
+# the mask lane is a closed array behind a close token
 def FlagValue(Values: tuple[int, ...]) -> bytes:
-    return b"\xF1" + SignedIntArray(Values)
+    return b"\xf1" + SignedIntArray(Values)
