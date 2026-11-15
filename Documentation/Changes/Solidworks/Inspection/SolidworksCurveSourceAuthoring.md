@@ -55,7 +55,10 @@ identity matches that phase's exact oracle. Forced cleanup does not turn a
 failure into a pass.
 
 The input-dimension prompt preference is read before modification and restored
-in `finally`. Restoration is read back. Restoration or cleanup failures remain
+in `finally`. Both changes are read back; the application setter returns no
+success status. The
+[preference setter gotcha](../../../Gotchas/Conversion/Solidworks/Tracing/PreferenceToggleSettersReturnNoStatus.md)
+records the failed preflight that exposed this binding. Restoration or cleanup failures remain
 failures. An abnormal native process termination can prevent restoration; the
 partial record preserves its earlier value for the owner. The tool does not
 claim restoration after a crash.
@@ -128,11 +131,13 @@ tool does not equate a successful API call with preserved design intent.
 
 ## Verification
 
-The tool and neutral specifications were prepared without launching or attaching
-to SOLIDWORKS. Static Python syntax parsing and JSON inspection passed. The
+The tool and neutral specifications were initially prepared without launching or
+attaching to SOLIDWORKS. Static Python syntax parsing and JSON inspection passed. The
 specification contains 24 discovery cases, six held-out cases, two controls, and
-32 distinct names. The Python file contains no comments or docstrings. No oracle
-batch or local tests were run for this change. The
-relation and read-back paths remain unverified on the oracle. No native source
-files or `Lock.json` were produced during implementation. Native evidence must
-come from the sole oracle owner's later controlled run.
+32 distinct names. The Python file contains no comments or docstrings. The first
+controlled preflight on executable `34.5.2.0604` stopped both independent controls
+before document creation because the wrapper treated the application's void
+preference setter as a Boolean. The wrapper now requires preference read-back
+instead. Relation and geometry read-back paths remain unverified until a later
+native phase reaches them. No curve source family lock or generated curve
+acceptance is established. No local tests were run.

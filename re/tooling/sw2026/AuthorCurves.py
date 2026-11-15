@@ -527,7 +527,8 @@ def run_worker(job_path, record_path):
         preference = bool(rec.call("GetUserPreferenceToggle", session.app.GetUserPreferenceToggle, 10))
         rec.data["input_dimension_preference"] = {"before": preference, "restored": False}
         rec.flush()
-        require(bool(rec.call("SetUserPreferenceToggle", session.app.SetUserPreferenceToggle, 10, False)), "could not disable dimension prompt")
+        rec.call("SetUserPreferenceToggle", session.app.SetUserPreferenceToggle, 10, False)
+        require(not bool(rec.call("read disabled input dimension preference", session.app.GetUserPreferenceToggle, 10)), "could not disable dimension prompt")
         author = CurveAuthor(session.app, rec, Swapp)
         case = job["case"]
         path = Path(job["native_path"])
@@ -573,7 +574,7 @@ def run_worker(job_path, record_path):
                 rec.failure(error, cleanup=True)
         if session is not None and preference is not None:
             try:
-                require(bool(rec.call("restore input dimension preference", session.app.SetUserPreferenceToggle, 10, preference)), "preference restoration returned failure")
+                rec.call("restore input dimension preference", session.app.SetUserPreferenceToggle, 10, preference)
                 actual = bool(rec.call("read restored input dimension preference", session.app.GetUserPreferenceToggle, 10))
                 require(actual == preference, "input dimension preference was not restored")
                 rec.data["input_dimension_preference"]["restored"] = True
