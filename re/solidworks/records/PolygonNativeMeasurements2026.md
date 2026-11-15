@@ -74,5 +74,9 @@ verification outputs only and are not used by any writer.
 This procedure does not establish all sketch curves, construction geometry,
 relations, dimensions, placements, end conditions, advanced features,
 configurations, assemblies, source round trips or the 165-part FCStd target.
-It does not enable `SldprtAdapter` writing. Target viewport inspection and
-broader field/feature acceptance remain separate work before any product claim.
+It does not enable `SldprtAdapter` writing. The subsequent
+[viewport inspection](../measurements/2026/PolygonViewports.json) finds visible
+models but incorrect standard-view orientation: isometric selection still shows
+the generated front faces. Native null-view fallback does not reconstruct the
+indexed orientation constructor. Generated view records and broader field/feature
+acceptance remain work before any product claim.
