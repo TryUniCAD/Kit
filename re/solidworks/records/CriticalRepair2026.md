@@ -22,7 +22,7 @@ The following observations bind to `sldappu.dll`, SHA-256
 | --- | --- | --- |
 | `0x458a288a` | `auAm_c::apiOpenDoc` compares the 32-bit application member `+0x31c` with zero | Confirmed static instruction; runtime input result not yet traced |
 | `0x458a2897` | Nonzero selects an OR of `0x400000` into returned API error flags | Confirmed SDK mapping, not a format validator |
-| `0x457e3d86` | A repair/reporting path writes 32-bit one to application `RSI+0x31c` | Confirmed selected setter; caller function boundary remains separate from its nearest export label |
+| `0x457e3d86` | Writes one to `CAboutDlg+0x31c`, a different runtime object | Refuted application-flag interpretation; excluded from the repair observer |
 | `0x45d718ca` | An exception-handler-style path writes 32-bit one to application `RAX+0x31c` | Confirmed selected setter; the handler's initiating exception is unknown |
 | `0x45a29b50` | The latter path queries `uiEnvironment_c::getBOOL`, key `0x461`, default zero | Environment preference, not a recovered model validator |
 
@@ -33,18 +33,22 @@ No vendor listing is included here.
 
 ## Next observation
 
-The full and repair native profiles record both selected setter sites and the API comparison.
+The full and repair native profiles record the confirmed setter site and the API comparison.
 It retains the application pointer, thread, instruction location and raw adjacent
 32-bit words at `+0x314/+0x318/+0x31c/+0x320`.
 Only `+0x31c` has the critical-error mapping above.
 The other words remain unclassified runtime observations.
+The initially selected `0x457e3d86` site was excluded after RTTI established a
+different owner: `CAboutDlg` vtable `0x45ee5f38`, slot 96, points to
+`0x457e3310`. Its `+0x31c` word is not the application's repair flag.
+Matching offsets and immediate values do not establish matching field ownership.
 The runner verifies the additional application module hash before hook activation.
 
 The underlying file-format validator is not identified yet.
 Neither a serialized-field change nor a writer default follows from these runtime
 application flags. New controlled captures are pending.
 
-The `repair` profile arms only these three instruction sites. Clean inspection
+The `repair` profile arms only these two instruction sites. Clean inspection
 returns the critical repair error, while earlier full profiles terminate the same
 candidate process with exit code 1. These observations do not prove the reason
 for the difference. The smaller profile reduces the instrumentation boundary;

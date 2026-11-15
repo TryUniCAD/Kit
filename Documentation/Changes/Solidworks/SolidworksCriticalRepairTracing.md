@@ -4,7 +4,7 @@ The full native observation profile now records the application sites that selec
 The staged clean inspection returned no document, error `0x400000`, and zero warnings between two healthy controls.
 The [measurement](../../../re/solidworks/measurements/2026/FreshPartStages.json) retains separate open start and return markers.
 
-The observer records two selected repair-flag setters and the API comparison that maps this flag to the error bit.
+The observer records the confirmed repair-flag setter and the API comparison that maps this flag to the error bit.
 Each event includes the application pointer, thread, instruction location, and adjacent raw 32-bit words.
 The [repair record](../../../re/solidworks/records/CriticalRepair2026.md) separates the error mapping from the unidentified format validator.
 

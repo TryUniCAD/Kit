@@ -227,7 +227,7 @@ rpc.exports = {
     }
     if (Profile === "full" || Profile === "repair") {
       if (Application === undefined) throw new Error("selected application module is not loaded")
-      for (const [Address, Register, Kind] of [[0x457e3d86, "rsi", "critical-repair-setter-idle"], [0x45d718ca, "rax", "critical-repair-setter-handler"], [0x458a288a, "rbx", "critical-repair-api-test"]]) {
+      for (const [Address, Register, Kind] of [[0x45d718ca, "rax", "critical-repair-setter-handler"], [0x458a288a, "rbx", "critical-repair-api-test"]]) {
         attach(Application.base.add(Address - 0x453f0000), {
           onEnter() {
             try {

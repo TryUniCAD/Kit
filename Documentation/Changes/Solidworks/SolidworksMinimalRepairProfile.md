@@ -1,7 +1,7 @@
-# Inspect critical repair with three hooks
+# Inspect critical repair with two hooks
 
 The native observer accepts `--profile repair` for the selected critical repair sites.
-This profile arms only the two runtime flag setters and their API comparison.
+This profile arms only the confirmed runtime flag setter and its API comparison.
 The full, loader, and sketch profiles retain their existing coverage.
 
 The clean candidate run returned a critical repair error.
