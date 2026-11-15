@@ -124,6 +124,22 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### Records after `dimtab_ptr` are unreachable
+
+`relat_ptr` was reconciled to the vendor's token stream — its `c` array has four slots, not three, and the vendor
+closes and re-selects (`f1 f7 4a`) before the second relation. Both are emitted now.
+
+The trace does not move, and the reason is structural:
+
+```text
+relat949: two launches, both Start with no End
+std.out: gsec2d_ptr / dimtab_ptr
+```
+
+`dimtab_ptr` is the last record *entered*, so `relat_ptr`, `formula_ptr`, `nsket_info` and `unsolved_ptr` are never
+exercised. Reconciling them cannot produce a measurement until the dimension table passes, so the trace can only be
+moved by `dimtab_ptr` itself — whose remaining deltas are the value-level fields the loader ignores.
+
 ### The positional dimension form regresses, so `dimtab_ptr` is closed as value-level
 
 Emitting dimensions two to four positionally (declared once, then plain values, per-dimension `f3 f7 3e`) regresses the

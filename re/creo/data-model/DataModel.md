@@ -428,6 +428,28 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### Later records are unreachable, so matching them cannot be measured
+
+`relat_ptr` was reconciled against the vendor's token stream: its `c` array carries **four** slots (ours had three,
+a positional count mismatch) and the vendor closes and re-selects its schema (`f1 f7 4a`) before the second relation.
+Both are now emitted.
+
+The trace does not change, and two launches show why:
+
+```text
+relat949: 108613 bytes; element ~4160
+run 1: std.out stops at gsec2d_ptr / dimtab_ptr
+run 2: Start, no End
+```
+
+`dimtab_ptr` is the **last record entered**, so everything after it — `relat_ptr`, `formula_ptr`, `nsket_info`,
+`unsolved_ptr`, `skamp_ptr`, `triples_ptr` — is never exercised. Matching those records is therefore unobservable
+until the dimension table passes, which means the plan's order (relat, then formula, then nsket, then unsolved) cannot
+produce a measurement at any step.
+
+That is a structural conclusion, not a failure to try: the only record whose change can move the trace is
+`dimtab_ptr` itself, and its remaining deltas are the values the loader has been shown to ignore.
+
 ### `dimtab_ptr` is closed as value-level
 
 Emitting dimensions two to four positionally — declared once, then plain values, closed with the per-dimension

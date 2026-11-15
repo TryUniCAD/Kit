@@ -162,13 +162,15 @@ def Relation(IndexValue: int, FirstPoint: int, SecondPoint: int) -> bytes:
             b"\xF8\x04"
             + b"".join(Author.SignedInt(Value) for Value in Values),
         )
+    # the vendor's c array carries four slots and the format is positional so the count must match
     Payload += Author.FieldValue(
         2,
         "c",
-        b"\xF8\x03"
-        + Author.ScalarValue(0.0)
-        + Author.ScalarValue(0.0)
-        + Author.ScalarValue(0.0),
+        b"\xF8\x04"
+        + Author.ScalarValue(1.0)
+        + Author.ScalarValue(-1.0)
+        + Author.ScalarValue(1.0)
+        + Author.ScalarValue(1.0),
     )
     Payload += Author.FieldValue(1, "sign", Author.SignedInt(1))
     Payload += Author.FieldValue(1, "idim", Author.SignedInt(0))
@@ -214,6 +216,8 @@ def SolverTables(PointCount: int, EntityCount: int = 0) -> bytes:
     Payload = Author.StructHeader("relat_ptr") + b"\xF4\x04\xF8\x08\xF7\x4A\xFB"
     for IndexValue in range(PointCount):
         Payload += Relation(IndexValue, IndexValue, (IndexValue + 1) % PointCount)
+        if IndexValue == 0:
+            Payload += b"\xF1\xF7\x4A"
     Payload += b"\xE0\x01formula_ptr\x00\xF8\x08"
     Payload += b"".join(Author.SignedInt(IndexValue) for IndexValue in range(8))
     Payload += b"\xE0\x01qind\x00" + Author.SignedInt(-1)
