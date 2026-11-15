@@ -243,7 +243,10 @@ def WriteRegistry(RegistryValue: Registry) -> bytes:
 def RegistryStart(BodyValue: bytes) -> int | None:
     for Cursor in range(len(BodyValue) - 2):
         Length = BodyValue[Cursor]
-        if 2 <= Length <= KNameCeilingLength and BodyValue[Cursor + 1 : Cursor + 2] == b"U":
+        if (
+            2 <= Length <= KNameCeilingLength
+            and BodyValue[Cursor + 1 : Cursor + 2] == b"U"
+        ):
             if BodyValue[Cursor + 2 : Cursor + 3] == b"G":
                 return Cursor
     return None
