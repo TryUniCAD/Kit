@@ -33,7 +33,7 @@ No vendor listing is included here.
 
 ## Next observation
 
-The full native profile records both selected setter sites and the API comparison.
+The full and repair native profiles record both selected setter sites and the API comparison.
 It retains the application pointer, thread, instruction location and raw adjacent
 32-bit words at `+0x314/+0x318/+0x31c/+0x320`.
 Only `+0x31c` has the critical-error mapping above.
@@ -43,3 +43,9 @@ The runner verifies the additional application module hash before hook activatio
 The underlying file-format validator is not identified yet.
 Neither a serialized-field change nor a writer default follows from these runtime
 application flags. New controlled captures are pending.
+
+The `repair` profile arms only these three instruction sites. Clean inspection
+returns the critical repair error, while earlier full profiles terminate the same
+candidate process with exit code 1. These observations do not prove the reason
+for the difference. The smaller profile reduces the instrumentation boundary;
+its behavior must be measured on both the control and the candidate.

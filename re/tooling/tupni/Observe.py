@@ -33,7 +33,7 @@ def main():
     parser.add_argument("--seconds", type=float, default=5.0)
     parser.add_argument("--event-budget", type=int, default=100000)
     parser.add_argument("--module-manifest", type=Path)
-    parser.add_argument("--profile", choices=("full", "loader", "sketch"), default="full")
+    parser.add_argument("--profile", choices=("full", "loader", "sketch", "repair"), default="full")
     parser.add_argument("--exception-probes", action="store_true")
     parser.add_argument("--prepare-script", type=Path)
     parser.add_argument("--action-script", type=Path)

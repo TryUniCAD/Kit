@@ -141,14 +141,14 @@ rpc.exports = {
   },
   activate(Profile = "full", ExceptionProbes = false) {
     if (Process.arch !== "x64" || Hooks.length !== 0) throw new Error("exactly one activation in an x64 target is required")
-    if (!["full", "loader", "sketch"].includes(Profile)) throw new Error("a supported observation profile is required")
+    if (!["full", "loader", "sketch", "repair"].includes(Profile)) throw new Error("a supported observation profile is required")
     const Model = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmodu.dll")
     const Common = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "swccu.dll")
     const Archive = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldarchiveu.dll")
     const Mfc = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldmfcu.dll")
     const Application = Process.enumerateModules().find(Value => Value.name.toLowerCase() === "sldappu.dll")
     if (Model === undefined || Common === undefined || Archive === undefined || Mfc === undefined) throw new Error("selected target modules are not loaded")
-    if (Profile !== "sketch") {
+    if (Profile === "full" || Profile === "loader") {
     attach(Common.base.add(0xa550), {
       onEnter(Args) { this.archive = Args[0]; emit({kind: "archive-object-enter", archive: archive(this.archive), map: objectmap(this.archive), requested_class: runtimeclass(Args[1]), caller: location(this.returnAddress)}) },
       onLeave(ReturnValue) { emit({kind: "archive-object-leave", archive: archive(this.archive), map: objectmap(this.archive), object: ReturnValue.toString()}) }
@@ -225,7 +225,20 @@ rpc.exports = {
       return false
     })
     }
-    if (Profile !== "loader") {
+    if (Profile === "full" || Profile === "repair") {
+      if (Application === undefined) throw new Error("selected application module is not loaded")
+      for (const [Address, Register, Kind] of [[0x457e3d86, "rsi", "critical-repair-setter-idle"], [0x45d718ca, "rax", "critical-repair-setter-handler"], [0x458a288a, "rbx", "critical-repair-api-test"]]) {
+        attach(Application.base.add(Address - 0x453f0000), {
+          onEnter() {
+            try {
+              const ObjectPointer = this.context[Register]
+              emit({kind: Kind, thread: Process.getCurrentThreadId(), instruction: location(Application.base.add(Address - 0x453f0000)), application: ObjectPointer.toString(), fields: {raw_314: ObjectPointer.add(0x314).readU32(), raw_318: ObjectPointer.add(0x318).readU32(), critical_31c: ObjectPointer.add(0x31c).readU32(), raw_320: ObjectPointer.add(0x320).readU32()}})
+            } catch (ErrorInfo) { emit({kind: "critical-repair-probe-error", site: Kind, error: String(ErrorInfo)}) }
+          }
+        })
+      }
+    }
+    if (Profile === "full" || Profile === "sketch") {
     attach(Model.base.add(0x4c5916f0 - 0x4b140000), {
       onEnter(Args) {
         this.thread = Process.getCurrentThreadId()
@@ -273,17 +286,6 @@ rpc.exports = {
       onLeave(ReturnValue) { emit({kind: "update-session-stamp", object: this.object.toString(), arguments: this.arguments, raw_rax_not_semantic_result: ReturnValue.toString(), caller: this.caller}) }
     })
     if (Profile === "full") {
-      if (Application === undefined) throw new Error("selected application module is not loaded")
-      for (const [Address, Register, Kind] of [[0x457e3d86, "rsi", "critical-repair-setter-idle"], [0x45d718ca, "rax", "critical-repair-setter-handler"], [0x458a288a, "rbx", "critical-repair-api-test"]]) {
-        attach(Application.base.add(Address - 0x453f0000), {
-          onEnter() {
-            try {
-              const ObjectPointer = this.context[Register]
-              emit({kind: Kind, thread: Process.getCurrentThreadId(), instruction: location(Application.base.add(Address - 0x453f0000)), application: ObjectPointer.toString(), fields: {raw_314: ObjectPointer.add(0x314).readU32(), raw_318: ObjectPointer.add(0x318).readU32(), critical_31c: ObjectPointer.add(0x31c).readU32(), raw_320: ObjectPointer.add(0x320).readU32()}})
-            } catch (ErrorInfo) { emit({kind: "critical-repair-probe-error", site: Kind, error: String(ErrorInfo)}) }
-          }
-        })
-      }
       for (const [Address, Kind] of [[0x4c1c8320, "model-finalization"], [0x4b79aaf0, "model-modified-flag"], [0x4bcf3170, "model-get-bodies"]]) {
         attach(Model.base.add(Address - 0x4b140000), {
           onEnter(Args) {
