@@ -186,6 +186,12 @@ records. A final oracle also failed: no offset in `MainDataStream` or `SurfacicR
 `TagDifference.ReadTags`, to 71 entries with exactly 56 distinct values below 56, which is the shape
 `Reservoir`'s map must have.
 
+The linked-object mechanism is ruled out for normal parts: `CATCGMStreamCGMImpl::CreateObjectUnStream`
+(`0x1800519e0`) reads the 21-byte header, builds the object, and consumes the header flags, never
+calling `ReadListOfLinkedObjects`; the only writers of `#NBLinkObjs`/`^LinkObj` are a public feature API
+and the journal item stream. A face therefore receives an empty list on a normal save, and the surface
+reference has to be in `SurfacicReps`, whose name means "surface representations".
+
 The per-object framing chain is decompiled: `CATCGMStreamCGMImpl::Unserialize_Object` calls
 `CreateObjectUnStream`, which reads a header with `CATMathStreamImpl::ReadHeaderObjectAt`
 (`0x1800a56a0`, dispatching to `ReadHeaderObjectAt_V5R5` below version `0x3ef` or

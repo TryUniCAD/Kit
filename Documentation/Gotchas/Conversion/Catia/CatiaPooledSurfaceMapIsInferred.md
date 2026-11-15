@@ -184,6 +184,23 @@ parts whose exact-map peers sit at `0.0000`. The fix is not in the record: it ne
 which faces really are planes. Measured, not assumed: `BoundsNormal` output is one of six axis
 vectors for every plane record in the corpus.
 
+## A normal part save writes no linked-object list at all
+
+Decompiling the whole object path settles the question the earlier section could not:
+`CATCGMStreamCGMImpl::Unserialize_Object` (`0x180052220`) calls `CreateObjectUnStream`
+(`0x1800519e0`), which reads the 21-byte header, builds the object, and then consumes the header
+flags (`r14[0]`, `r14[0x18]`, `r14[0x19]`) into object state. It never calls
+`ReadListOfLinkedObjects`, and the only callers of `WriteListOfLinkedObjects` in the DLL are
+`CATCGMStream::WriteListOfLinkedObjects` (`0x18006ed10`, a public API for features) and
+`CATCGMJournalItem::Stream` (`0x180198375`).
+
+So `CATCXFace::UnStream` receives an empty list on a normal part save, and the `#NBLinkObjs`/
+`^LinkObj` mechanism is not where a face's surface comes from. The surface reference must therefore
+be in the geometry stream itself, which is named `SurfacicReps` — "surface representations". Every
+scan so far treated that stream as a table of `00 33 <kind>` surface records; the PCurve records that
+name a surface per edge have to live in the same stream, and the region between the surface records
+is where to look next.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits
