@@ -4,6 +4,7 @@ from builtins import getattr as GetAttr
 from types import ModuleType
 
 
+# process checks need actual style and unit graphs built from authored inputs alone
 def BuildRecords(
     InputData: dict[str, dict[str, object]],
     StyleModule: ModuleType,
