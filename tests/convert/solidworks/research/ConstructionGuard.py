@@ -8,6 +8,7 @@ class BuildAudit:
     def __init__(self, SchemaDir: FilePath) -> None:
         super().__init__()
         self.SchemaDir = str(SchemaDir)
+        self.SourceDir = SchemaDir.parents[4] / "src"
         self.Importing = True
         self.ModuleReads: list[str] = []
         self.DeniedReads: list[str] = []
@@ -34,7 +35,7 @@ class BuildAudit:
         CallerFrame = CurrentFrame.f_back
         SourceName = CallerFrame.f_code.co_filename
         ImportLoader = SourceName == "<frozen importlib._bootstrap_external>"
-        PathValue = str(ArgsValue[0])
+        PathValue = str(ArgsValue[0]) if ArgsValue else EventName
         if self.Importing and EventName == "open" and ImportLoader:
             if CallerFrame.f_code.co_name == "get_data" and PathValue.endswith(
                 (".py", ".pyc")
@@ -42,9 +43,14 @@ class BuildAudit:
                 self.ModuleReads.append(PathValue)
                 return
         if self.Importing and EventName in ("os.listdir", "os.scandir"):
-            if ImportLoader or PathValue in (
-                self.SchemaDir,
-                self.SchemaDir + "/__pycache__",
+            if (
+                ImportLoader
+                or FilePath(PathValue).is_relative_to(self.SourceDir)
+                or PathValue
+                in (
+                    self.SchemaDir,
+                    self.SchemaDir + "/__pycache__",
+                )
             ):
                 self.ModuleReads.append(PathValue)
                 return

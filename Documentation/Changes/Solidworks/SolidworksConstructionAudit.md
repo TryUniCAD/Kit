@@ -4,7 +4,9 @@ The research process harness installs `BuildAudit` before importing the builders
 or creating the shared schema registry. During imports, it records code-file
 opens made directly by the Python import loader and import-loader directory
 lookups. It also permits the schema registry to enumerate its exact definitions
-directory. Reads made by module bodies receive no filename-suffix exemption.
+directory and bytecode-cache directory, and permits adapter discovery to enumerate
+the repository's source-code tree. These directory lookups are recorded. Reads
+made by module bodies receive no filename-suffix exemption.
 
 `BeginBuild` closes the import phase. Every subsequent file open, directory read
 or subprocess launch raises `PermissionError`, including operations on paths
