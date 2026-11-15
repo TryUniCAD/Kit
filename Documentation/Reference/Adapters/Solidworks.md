@@ -91,6 +91,8 @@ The fresh [model component constructors](../../Changes/Solidworks/SolidworksMode
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.
 Their process checks do not establish a complete, loadable native document.
+The [fresh profile-reference repair](../../Changes/Solidworks/SolidworksProfileReferenceOwnership.md)
+gives the origin and ordinary sketch separate owned reference objects.
 
 The [2026 archive research](../../Changes/Solidworks/SolidworksArchiveResearch.md)
 adds version-specific class schemas and a byte-identity checker under `re/`.

@@ -111,18 +111,19 @@ def construct_part(*, registry, document, provenance, presentation, target):
     )
     plane = graph.planes[document["plane_axis"]]
     frame = PlaneFrame(origin=(0.0, 0.0, 0.0), u=plane["_plane_u"], v=plane["_plane_v"])
-    reference = component_plane(
-        plane=plane, component=graph.part["f990"], created_at=logged_creation_time(timestamps=()),
-        principal_normal=tuple(plane["f6f8"]["normal"][axis] for axis in ("x", "y", "z")),
-    )
+    reference_values = {
+        "plane": plane, "component": graph.part["f990"],
+        "created_at": logged_creation_time(timestamps=()),
+        "principal_normal": tuple(plane["f6f8"]["normal"][axis] for axis in ("x", "y", "z")),
+    }
     feature_values = {
         "owner": graph.part, "allocator": graph.allocator,
         "date_code": target["date_code"], "parasolid_version": target["parasolid_version"],
     }
     origin_node = model_feature(cls="moOriginProfileFeature_c", name=document["origin_name"], **feature_values)
-    origin_profile(profile=origin_node, plane=reference, frame=frame)
+    origin_profile(profile=origin_node, plane=component_plane(**reference_values), frame=frame)
     profile_node = model_feature(cls="moProfileFeature_c", name=document["sketch_name"], **feature_values)
-    profile = closed_profile(vertices=document["vertices_m"], profile=profile_node, plane=reference, frame=frame)
+    profile = closed_profile(vertices=document["vertices_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
     extrusion_node = body_feature(cls="moExtrusion_c", name=document["extrusion_name"], **feature_values)
     extrusion = live_blind_extrusion(
         feature=extrusion_node, profile=profile, depth=document["depth_m"], allocator=graph.allocator,

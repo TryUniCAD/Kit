@@ -37,6 +37,8 @@ KRoundTrip = ImportModule("RoundTrip")
 # codec initialization must not be mistaken for donor access during strict construction
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
+from tests.convert.solidworks.research.Composition.PlaneOwners import ReadOwners
+
 # explicit process input keeps generated values independent from local native files
 KRequest = CastValue(dict[str, object], LoadJson(InputStream.read()))
 KAuditValue.BeginBuild()
@@ -67,6 +69,7 @@ def BuildResult() -> dict[str, object]:
         "points": Constructed.extrusion.profile.point_count,
         "lines": Constructed.extrusion.profile.line_count,
         "depth": Constructed.extrusion.depth,
+        "plane_ownership": ReadOwners(Archive, KRegistry),
         "module_reads": KAuditValue.ModuleReads,
         "denied_reads": KAuditValue.DeniedReads,
         "vendor_acceptance": "unverified",

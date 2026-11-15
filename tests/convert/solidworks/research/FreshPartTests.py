@@ -18,6 +18,7 @@ def AssertPart(Report: dict[str, object], PointCount: int, DepthValue: float) ->
     assert Report["denied_reads"] == []
     assert Report["module_reads"]
     assert Report["vendor_acceptance"] == "unverified"
+    assert all(CastValue(dict[str, bool], Report["plane_ownership"]).values())
     Linked = Streams["Contents/Config-0-ResolvedFeatures"]
     assert Linked["seeded_map_count"] == Linked["map_base"] == Report["map_count"]
 

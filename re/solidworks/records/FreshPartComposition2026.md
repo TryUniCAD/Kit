@@ -37,6 +37,15 @@ schema directories. Importing Python modules is outside the conversion data
 boundary. The constructor takes no stream, path, donor payload or captured
 program input. The normal container serializer receives only the new stream map.
 
+The origin and ordinary profiles now own separate `moCompRefPlane_c` objects.
+Each wrapper contains a separate copied unit component; both copies retain the
+same actual model owner and target principal plane. The composer previously
+passed one wrapper to both profiles despite the native setters' exclusive
+ownership. The [plane-wrapper dataflow](ModelConstruction2026.md#plane-wrappers)
+proves the required lifetimes. A complete-file subprocess check decodes the
+shared configuration/resolved graph and reports these identities under the
+strict construction audit. Remote and native acceptance are pending.
+
 The origin profile retains an explicit unresolved native update state. Fresh
 header update/body counters start at the native constructor seed 101; their
 post-build state is not proven. Root/detail cache seeds have static constructor
