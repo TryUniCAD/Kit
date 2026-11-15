@@ -124,6 +124,23 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### Substituting the vendor's dimension elements is not a controlled experiment
+
+Replacing only the vendor's four dimension elements (`dimtab_ptr` to `relat_ptr`) inside the generated element stops at
+`gsec2d_ptr` — twice — which is *earlier* than the generated candidate reaching `dimtab_ptr`:
+
+```text
+dimswap: 108174 bytes; vendor dimension region 316 bytes
+run 1 / run 2: std.out stops at gsec2d_ptr
+```
+
+The vendor's region carries its own close counts, so inserting it where our builder emitted different nesting leaves
+unbalanced depth. That is the same confound already recorded for `sw2_attr` and `sw2_dim`, and it means splices only
+work where the two streams are equivalent.
+
+The generated candidate remains the only usable instrument, and it already follows the vendor's dimension token order
+while the trace stays at `dimtab_ptr`.
+
 ### Records after `dimtab_ptr` are unreachable
 
 `relat_ptr` was reconciled to the vendor's token stream — its `c` array has four slots, not three, and the vendor

@@ -428,6 +428,27 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### Splicing the vendor's dimension elements regresses the trace
+
+The isolating experiment was to substitute only the vendor's four dimension elements (`dimtab_ptr` to `relat_ptr`)
+into the otherwise generated element, which should show whether the failure is structural or value-level:
+
+```text
+dimswap: 108174 bytes; vendor dimension region 316 bytes
+run 1: std.out stops at gsec2d_ptr
+run 2: std.out stops at gsec2d_ptr
+```
+
+It stops **earlier** than the generated candidate (`relat949` reaches `dimtab_ptr`). So the substitution is not a
+controlled experiment: the vendor's dimension region carries its own close counts, and inserting it into a stream whose
+surrounding nesting was emitted by our builder leaves unbalanced depth. That is the same confound measured earlier for
+`sw2_attr` and `sw2_dim`.
+
+Consequence: in this element, splices are only valid at points where the two byte streams are *equivalent*; anywhere
+our nesting differs, the joined stream is not a consistent element. The generated candidate is the only instrument for
+`dimtab_ptr`, and it already carries the vendor's token order — `dispdimattr` as a struct with its trailing slot,
+`dimattr` with seven slots, `dim_ref` with `close 1`, `arr 2` and `sel 0x46` — while the trace stays put.
+
 ### Later records are unreachable, so matching them cannot be measured
 
 `relat_ptr` was reconciled against the vendor's token stream: its `c` array carries **four** slots (ours had three,
