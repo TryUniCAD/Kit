@@ -14,7 +14,7 @@ KInspectText = (
 
 def CheckPortable(Document: CadDocument) -> None:
     for PartValue in WalkDocuments(Document):
-        Problems = (
+        for RecordName, IsBlocked in (
             (
                 "UnqualifiedResearch",
                 PartValue.metadata.get("kit.research_read_status") == "unqualified",
@@ -35,8 +35,7 @@ def CheckPortable(Document: CadDocument) -> None:
                 ),
             ),
             ("RetainedPayload", bool(PartValue.brep_payloads)),
-        )
-        for RecordName, IsBlocked in Problems:
+        ):
             if IsBlocked:
                 raise ValueError(RecordName + KInspectText)
         Assembly = PartValue.assembly
