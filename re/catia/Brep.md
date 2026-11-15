@@ -1172,6 +1172,34 @@ record are not the sizes. For the first body at offset 8 the raw dwords are `0x0
 `0xc0d80000`, which do not sum to the 46-byte record length. Replicating the parse needs the full
 field grammar of the 0x740-byte function, which has not been recovered.
 
+The decompilation does give the grammar shape. The header has three optional fields gated on flag
+bits in `header[0]`, tested in the order `0x2`, `0x4`, `0x1`. Each present field consumes four bytes
+of stream but carries a one-byte value, taken from the first byte of the slot or from the third byte
+when a stream flag `0x20000` is set:
+
+```
+if ((header[0] & 0x4) != 0) {
+    rax = *rsi;                 // current offset
+    r9 = rax + 1; rdx = r9 + 1; r8 = rdx + 1; rbp = r8 + 1;
+    rax = byte at offset;
+    if ((stream[0x2a] & 0x20000) != 0) value = byte at offset + 2;
+    else value = rax;
+    *rsi = rbp;                 // advance four bytes
+    header[0x14] = value;
+} else {
+    header[0x14] = 0;
+}
+```
+
+and the same shape for `header[0x10]` under mask `0x1`. The next offset is then
+`offset + header[0x10] + header[0x14]`, so both sizes are single bytes and the maximum record is 510
+bytes.
+
+For the first body at offset 8 the flag byte is `0x04`, so only the `0x4` field is present and
+`header[0x10]` is zero. The `0x4` field reads the byte at the current offset, which is `0x04`, so the
+formula gives 4, not 46. The offset must therefore already have advanced past the five-byte marker
+before the fields are read, and the exact starting offset is the part of the grammar still missing.
+
 A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
