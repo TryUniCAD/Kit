@@ -6,6 +6,8 @@ from Core import ArchiveError, Obj
 
 
 def _multiply(a, b):
+    if len(a) != 4 or len(b) != 4:
+        raise ArchiveError("canonical view multiplication requires two four-component quaternions")
     ax, ay, az, aw = a
     bx, by, bz, bw = b
     return (

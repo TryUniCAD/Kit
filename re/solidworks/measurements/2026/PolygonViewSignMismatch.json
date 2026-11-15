@@ -1,0 +1,951 @@
+{
+  "authority": "native-visible-document-viewport",
+  "started_at": 1794750197.7754734,
+  "job_sha256": "d0d957e56e25a7d268d2f80304083b20642422ecba553057a8fd9c819378cf95",
+  "inspector_sha256": "2e39e202e59e92e3660482c90802fdeb0ca0ad66448aae0b1f4d2b551cfbe81b",
+  "results": [
+    {
+      "kind": "control_before",
+      "name": "ControlBefore",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Rotations417d\\inputs\\L1_boss.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Rotations417d\\images\\ControlBefore.bmp",
+      "stages": [
+        {
+          "stage": "open_start",
+          "time": 1794750206.762204
+        },
+        {
+          "stage": "open_return",
+          "time": 1794750216.9939597
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794750216.9969602
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794750217.436362
+        },
+        {
+          "stage": "initial_capture_start",
+          "time": 1794750221.2271903
+        },
+        {
+          "stage": "initial_capture_return",
+          "time": 1794750221.535734
+        },
+        {
+          "stage": "orient_start",
+          "time": 1794750221.5387387
+        },
+        {
+          "stage": "orient_return",
+          "time": 1794750222.1206422
+        },
+        {
+          "stage": "capture_start",
+          "time": 1794750223.12711
+        },
+        {
+          "stage": "capture_return",
+          "time": 1794750223.1808271
+        }
+      ],
+      "oracle_identity": {
+        "process_id": 12612,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "stage": "capture_return",
+      "opened": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "initial_bitmap_saved": true,
+      "initial_bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Rotations417d\\images\\ControlBefore_initial.bmp",
+      "initial_bitmap_sha256": "1094d670bc8fb5a620fe854c1154fcf925cdbd54d2b06869e19074567d5287c0",
+      "initial_bitmap_bytes": 2073654,
+      "rotations_before": {
+        "standard": {
+          "1": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "2": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "3": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "4": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "5": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "6": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "7": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "8": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "9": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          }
+        },
+        "active": [
+          0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+          1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+          -0.4666953889300622, -0.4555090068042732, 0.7580942940502868, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "bitmap_saved": true,
+      "bitmap_sha256": "2a2f00262b264880507eb0e7255de34362e259ecc5d7be7eb5aa0fe352ddd795",
+      "bitmap_bytes": 2073654,
+      "bitmap_signature": "424d",
+      "rotations_after": {
+        "standard": {
+          "1": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "2": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "3": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "4": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "5": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "6": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "7": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "8": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "9": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          }
+        },
+        "active": [
+          0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+          2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+          -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "sha256_after": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "unchanged_input": true
+    },
+    {
+      "kind": "candidate",
+      "name": "H3_scalene",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Rotations417d\\inputs\\H3_scalene.SLDPRT",
+      "sha256": "ccf3af842554d61082edba5b1fea0d52daf2ee359f2237e16bfc297f2cab5056",
+      "bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Rotations417d\\images\\H3_scalene.bmp",
+      "stages": [
+        {
+          "stage": "open_start",
+          "time": 1794750235.0682437
+        },
+        {
+          "stage": "open_return",
+          "time": 1794750244.733215
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794750244.739199
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794750246.5978234
+        },
+        {
+          "stage": "initial_capture_start",
+          "time": 1794750251.8956225
+        },
+        {
+          "stage": "initial_capture_return",
+          "time": 1794750252.2428324
+        },
+        {
+          "stage": "orient_start",
+          "time": 1794750252.2448275
+        },
+        {
+          "stage": "orient_return",
+          "time": 1794750252.8638303
+        },
+        {
+          "stage": "capture_start",
+          "time": 1794750253.86877
+        },
+        {
+          "stage": "capture_return",
+          "time": 1794750253.940364
+        }
+      ],
+      "oracle_identity": {
+        "process_id": 11372,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "stage": "capture_return",
+      "opened": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 9.932000000000002e-6,
+        "area": 0.003166276360558158,
+        "com": [0.006666666666666669, 0.007000000000000002, 0.0065],
+        "mass": 9.932000000000002e-6
+      },
+      "features": [
+        {
+          "name": "authored comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored history",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored selection sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored surfaces",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored solids",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored environment",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored markups",
+          "type": "NotesAreaFtrFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored material",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@H3_scalene.Part",
+              "value": 0.013
+            }
+          ]
+        }
+      ],
+      "initial_bitmap_saved": true,
+      "initial_bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Rotations417d\\images\\H3_scalene_initial.bmp",
+      "initial_bitmap_sha256": "8f7238a8e9d950f037709b698a92a0a5b0897bc4714722bd8df0c442ce7dd2a1",
+      "initial_bitmap_bytes": 2073654,
+      "rotations_before": {
+        "standard": {
+          "1": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "2": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "3": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "4": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "5": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "6": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "7": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "8": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "9": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          }
+        },
+        "active": [
+          1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+          0.0, 0.0
+        ]
+      },
+      "bitmap_saved": true,
+      "bitmap_sha256": "a43cf431444f4d116930881987897ee798ead5129afa511780dc52f7d046ad80",
+      "bitmap_bytes": 2073654,
+      "bitmap_signature": "424d",
+      "rotations_after": {
+        "standard": {
+          "1": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "2": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "3": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "4": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "5": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "6": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "7": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "8": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "9": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          }
+        },
+        "active": [
+          0.7071067811865464, -0.4082040559113551, -0.5773815451999837,
+          2.7755575615628914e-17, 0.8165408118857499, -0.5772877120855426,
+          0.7071067811865488, 0.4082040559113538, 0.5773815451999819, 0.0, 0.0,
+          0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "sha256_after": "ccf3af842554d61082edba5b1fea0d52daf2ee359f2237e16bfc297f2cab5056",
+      "unchanged_input": true
+    },
+    {
+      "kind": "control_after",
+      "name": "ControlAfter",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Rotations417d\\inputs\\L1_boss.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Rotations417d\\images\\ControlAfter.bmp",
+      "stages": [
+        {
+          "stage": "open_start",
+          "time": 1794750265.0107934
+        },
+        {
+          "stage": "open_return",
+          "time": 1794750275.8606281
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794750275.863634
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794750276.394246
+        },
+        {
+          "stage": "initial_capture_start",
+          "time": 1794750280.4280767
+        },
+        {
+          "stage": "initial_capture_return",
+          "time": 1794750280.7696366
+        },
+        {
+          "stage": "orient_start",
+          "time": 1794750280.7717068
+        },
+        {
+          "stage": "orient_return",
+          "time": 1794750281.345933
+        },
+        {
+          "stage": "capture_start",
+          "time": 1794750282.3505704
+        },
+        {
+          "stage": "capture_return",
+          "time": 1794750282.4060247
+        }
+      ],
+      "oracle_identity": {
+        "process_id": 12212,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "stage": "capture_return",
+      "opened": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "initial_bitmap_saved": true,
+      "initial_bitmap": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Rotations417d\\images\\ControlAfter_initial.bmp",
+      "initial_bitmap_sha256": "1094d670bc8fb5a620fe854c1154fcf925cdbd54d2b06869e19074567d5287c0",
+      "initial_bitmap_bytes": 2073654,
+      "rotations_before": {
+        "standard": {
+          "1": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "2": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "3": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "4": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "5": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "6": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "7": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "8": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "9": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          }
+        },
+        "active": [
+          0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+          1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+          -0.4666953889300622, -0.4555090068042732, 0.7580942940502868, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "bitmap_saved": true,
+      "bitmap_sha256": "2a2f00262b264880507eb0e7255de34362e259ecc5d7be7eb5aa0fe352ddd795",
+      "bitmap_bytes": 2073654,
+      "bitmap_signature": "424d",
+      "rotations_after": {
+        "standard": {
+          "1": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "2": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "3": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "4": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "5": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "6": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "7": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "8": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          },
+          "9": {
+            "exception": "AttributeError(\"'tuple' object has no attribute 'ArrayData'\")"
+          }
+        },
+        "active": [
+          0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+          2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+          -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "sha256_after": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "unchanged_input": true
+    }
+  ],
+  "limitation": "bitmap creation alone is not visual acceptance; every image needs inspection",
+  "finished_at": 1794750283.7089431
+}

@@ -25,3 +25,10 @@ negative half-angle; the record retains the refuted assumption and exact native
 constant. The [negative-half-angle gotcha](../../Gotchas/Conversion/Solidworks/Model/QuaternionRotationUsesNegativeHalfAngle.md)
 explains why the actual native helper must replace the assumed convention.
 Fresh numerical native parity remains pending.
+
+Quaternion multiplication rejects inputs with anything other than four
+components before unpacking. The constructor's three-component axes and
+appended cosine already produce four-component rotations; this guard makes
+that helper boundary explicit without changing the generated transform math.
+The [controlled negative comparison](../../../re/solidworks/measurements/2026/PolygonViewSignMismatch.json)
+retains the first reconstruction's orientation error and the healthy controls.

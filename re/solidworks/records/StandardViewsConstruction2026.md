@@ -47,7 +47,8 @@ The owning correction is in axis-angle construction, not a transpose or sign
 patch fitted to a measured matrix
 
 The oracle owner's negative comparison is
-`Oracle121Takeover/Rotations417d/Rotations.json`, raw SHA-256
+[committed negative comparison](../measurements/2026/PolygonViewSignMismatch.json),
+original `Oracle121Takeover/Rotations417d/Rotations.json`, raw SHA-256
 `a75ba4f5f78d74690c33b0f501c6e0ee0c5f10b5e1bee8f16dafc392b6de1f36`
 Its authority is `native-visible-document-viewport`
 Both controls and the candidate have one body; the owner reports healthy,
