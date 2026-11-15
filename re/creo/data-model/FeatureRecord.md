@@ -116,10 +116,26 @@ each word being `0xffffffff` with one or two bits cleared:
 field, and why those particular bits are dirty in a fresh part, is not decoded.
 
 Reproducing that array byte for byte from the control would be copying a captured table rather than
-generating it, so it is not implemented. A generated default of all `-1` is plausible — "no field
-dirty" — but it cannot be validated until the rest of the record is emitted, and a wrong mask set
-would surface as a silent model-load crash with no message, exactly like the failures already
-recorded for `FeatDefsDtm` and the authored geometry.
+generating it, so it is not implemented.
+
+The array is `f1 f8 80 fc ...`: a close token, then a compact count of `252`, then the values. The
+values use the whole compact-integer vocabulary (`f6` 27 times, `eb` 23, `e4` 14, `ea` 11, `e5` 8), so
+`252` logical elements come from far fewer bytes than `417`.
+
+## The masks are load-critical
+
+Three substitutions were measured on the control, each with one Creo 2027.2 launch. The field spans
+`0x21c..0x3bd` and the splice was first checked to be an identity (`splice is identity: True`).
+
+| Substitution | Result |
+| --- | --- |
+| every one of the 252 masks set to `-1` | model-load crash, no `End` |
+| every mask set to `0` | model-load crash, no `End` |
+| identity (control bytes) | loads |
+
+So the mask set is validated content, not a redundant cache. Both natural generated defaults fail:
+all-clean (`-1`) and all-dirty (`0`). The bit-to-field assignment therefore has to be decoded, or a
+mask layout that the loader accepts has to be found, before `AllFeatur` can be generated.
 
 ## What is needed
 

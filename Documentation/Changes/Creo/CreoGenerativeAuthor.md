@@ -456,11 +456,22 @@ free-space extents, and `AllFeatur`.
 [the feature record page](../../../re/creo/data-model/FeatureRecord.md): 78 nodes for the first
 feature, `1620` bytes, of which `cr_flags_xar` alone is `402`.
 
-`cr_flags_xar` is a compact-int array of 32-bit dirty masks, each word `0xffffffff` with one or two
-bits cleared (`0xfffff7ff`, `0xfeffffff`, `0xffefffff`, `0xdfffffff`). Which bit maps to which field,
-and why those bits are dirty in a fresh part, is not decoded. Copying the control's array would be
-donor data, so it is not emitted. A generated all-`-1` default is plausible but unverifiable until the
-other 72 fields exist, and a wrong mask set fails as a silent model-load crash.
+`cr_flags_xar` is `f1 f8 80 fc ...`: a close token, a compact count of `252`, then 32-bit masks, each
+`0xffffffff` with one or two bits cleared (`0xfffff7ff`, `0xfeffffff`, `0xffefffff`, `0xdfffffff`).
+Which bit maps to which field is not decoded. Copying the control's array would be donor data, so it is
+not emitted.
+
+The masks are load-critical, measured with three launches on the control (the splice first verified as
+an identity):
+
+| substitution | result |
+| --- | --- |
+| all 252 masks `-1` | crash, no `End` |
+| all masks `0` | crash, no `End` |
+| identity | loads |
+
+So neither natural generated default works: all-clean and all-dirty both fail. The bit assignment has
+to be decoded before `AllFeatur` can be generated.
 
 So `AllFeatur` remains unauthored, and with it the part, because it is the one section both our
 validator and the vendor loader reject when absent.
