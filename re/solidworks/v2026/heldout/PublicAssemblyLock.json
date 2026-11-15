@@ -1,0 +1,1345 @@
+{
+  "publisher": "GA3Dtech/GA3D-basicbot-2023",
+  "commit": "41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec",
+  "files": [
+    {
+      "path": "900a_GA3DtechProject_v1.0.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/900a_GA3DtechProject_v1.0.FCStd",
+      "bytes": 42616942,
+      "sha256": "053bdb3235269a95735cb2746b4588b1c8007a3330edce406cf1c2868b77da7d",
+      "git_blob_sha1": "7a5e93ea2b6c7e6e9bbd3ee3658d87a346491de1",
+      "objects": 34,
+      "types": {
+        "Part::FeaturePython": 10,
+        "App::FeaturePython": 24
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Copyright.txt",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Copyright.txt",
+      "bytes": 138,
+      "sha256": "df08911a316bc964c72e9a6ad2d43daf4f4a80379507864278294ea5b7ff7ba5",
+      "git_blob_sha1": "59fd40ce73b6cf5b432082f1b515f66d13ebe35a"
+    },
+    {
+      "path": "DISCLAIMER.txt",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/DISCLAIMER.txt",
+      "bytes": 1054,
+      "sha256": "c2193548f3213fcc94750160db0a73b38f6e4389428e08ede0b5fcacdad64b52",
+      "git_blob_sha1": "59fb009a289a2d07e2c1d5fb8dcefc1dca801dc7"
+    },
+    {
+      "path": "ElectroDrawer/910a_ElectroDrawer.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ElectroDrawer/910a_ElectroDrawer.FCStd",
+      "bytes": 529042,
+      "sha256": "5769490847d30b8f1fb108ef2e4f17bfc2824e844e730e8aeafbf59e30e8d7c3",
+      "git_blob_sha1": "e4161c830375a86f897210ffaebd270929905374",
+      "objects": 64,
+      "types": {
+        "Part::FeaturePython": 21,
+        "App::FeaturePython": 32,
+        "App::Part": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "App::Link": 3
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ElectroDrawer/911a_DrawerIn.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ElectroDrawer/911a_DrawerIn.FCStd",
+      "bytes": 238814,
+      "sha256": "0c8f52cda85783760e16f40c59e1f0f1c1f7be840fe5d7af60f63bd0b2e16f3b",
+      "git_blob_sha1": "5b52fc42123f748f15658e7913f5e48cf6b05b81",
+      "objects": 47,
+      "types": {
+        "Part::FeaturePython": 15,
+        "App::FeaturePython": 32
+      },
+      "program_version": "0.20R29177 (Git)"
+    },
+    {
+      "path": "ElectroDrawer/BT_001a_framefix_A.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ElectroDrawer/BT_001a_framefix_A.FCStd",
+      "bytes": 56510,
+      "sha256": "bc2082c3bd4709fef7b13132bb132dd53866b5d6eebba961b7ae2aac9a6869de",
+      "git_blob_sha1": "846562e8e7bf9513297f37ab0b71553d754a0bb5",
+      "objects": 18,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "Sketcher::SketchObject": 4,
+        "PartDesign::Pad": 2,
+        "PartDesign::Chamfer": 2,
+        "PartDesign::Pocket": 2
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ElectroDrawer/BV_001a_glissiere.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ElectroDrawer/BV_001a_glissiere.FCStd",
+      "bytes": 142850,
+      "sha256": "c6492aadc1a3113dfeb2a17cfb7d93d5ca4b3b15cffa2bddf9b607ae85c4681e",
+      "git_blob_sha1": "06c5fa725065667da4e8bf46d65871311af60b1a",
+      "objects": 19,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::SubShapeBinder": 1,
+        "Sketcher::SketchObject": 4,
+        "PartDesign::Pad": 3,
+        "PartDesign::Hole": 1,
+        "PartDesign::Fillet": 1,
+        "PartDesign::Chamfer": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ElectroDrawer/BV_002b_frontsupport.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ElectroDrawer/BV_002b_frontsupport.FCStd",
+      "bytes": 213415,
+      "sha256": "89285d07bd4ade2eb09ab8766894473516575629c966c1abdafb8241e5b00a21",
+      "git_blob_sha1": "0185b60a90c912b88f8afbdaa7c6dfc0ac3e56bc",
+      "objects": 30,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::SubShapeBinder": 1,
+        "Sketcher::SketchObject": 8,
+        "PartDesign::Pad": 3,
+        "PartDesign::Pocket": 3,
+        "PartDesign::Chamfer": 2,
+        "PartDesign::AdditivePipe": 1,
+        "PartDesign::Fillet": 3,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ElectroDrawer/CF_DIN35x400.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ElectroDrawer/CF_DIN35x400.FCStd",
+      "bytes": 107454,
+      "sha256": "e654c580c1d58cfbfd773d51b6d141b5e3fad719e543c6b375dd746ada9b09bd",
+      "git_blob_sha1": "1d65235b55d2a3fe3b6252e4b8084fe50cbdcb18",
+      "objects": 12,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pad": 2
+      },
+      "program_version": "0.20R29177 (Git)"
+    },
+    {
+      "path": "ElectroDrawer/V-Slot_20x20x100.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ElectroDrawer/V-Slot_20x20x100.FCStd",
+      "bytes": 82754,
+      "sha256": "7f1de9249db68a3ac203f06bf774b50f4d049abd94fede58592dfafbd1fa483d",
+      "git_blob_sha1": "8d611b704fff01fd908425632412b1d7a5d9ad0d",
+      "objects": 11,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 1
+      },
+      "program_version": "0.20R29177 (Git)"
+    },
+    {
+      "path": "ElectroDrawer/V-Slot_20x20x275.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ElectroDrawer/V-Slot_20x20x275.FCStd",
+      "bytes": 70773,
+      "sha256": "e15a33a6ff97358fe33fdc9ba20a673c86250ff132828fbcfc3160e89a4a114b",
+      "git_blob_sha1": "a3d897a01a8060d864b0bd4a71df79f8f6656c60",
+      "objects": 11,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Frame/BD_001b_bed.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/BD_001b_bed.FCStd",
+      "bytes": 13074,
+      "sha256": "c2e90d3ae6b8d02f11e599b8179643a2f1ccf8d9a3ef1a48e537a118b7372537",
+      "git_blob_sha1": "b937630febbb56ee347f10d398f3810a5993eff6",
+      "objects": 2,
+      "types": {
+        "Part::Box": 1,
+        "Part::Chamfer": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Frame/BD_002b_SquareArm.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/BD_002b_SquareArm.FCStd",
+      "bytes": 165154,
+      "sha256": "a2ca9592b3628e2be0d535eaeda3bcab4fb28c0df5716861639a2cb5d34e54ef",
+      "git_blob_sha1": "77d3058024e21e2db7e01b2d1a3f75c20237c500",
+      "objects": 21,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "Sketcher::SketchObject": 4,
+        "PartDesign::Pad": 1,
+        "PartDesign::Hole": 1,
+        "PartDesign::Chamfer": 2,
+        "PartDesign::Pocket": 2,
+        "PartDesign::Fillet": 2,
+        "Part::Mirroring": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Frame/BH_032a_fix.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/BH_032a_fix.FCStd",
+      "bytes": 176458,
+      "sha256": "3fa950b27dadbe504808c0d0318106d7179475166f643b9946f9d03a7e8514a5",
+      "git_blob_sha1": "a69fc1f305ef01b039a1db2186e12778bdb62342",
+      "objects": 28,
+      "types": {
+        "PartDesign::Body": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "Sketcher::SketchObject": 4,
+        "PartDesign::Pad": 2,
+        "PartDesign::Groove": 1,
+        "PartDesign::Chamfer": 2,
+        "PartDesign::Pocket": 1,
+        "PartDesign::Fillet": 1,
+        "PartDesign::PolarPattern": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Frame/BH_033a_buteeplateau.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/BH_033a_buteeplateau.FCStd",
+      "bytes": 99867,
+      "sha256": "2ef5892f1516b66de5f10dfdd884b140edb6b683679838577f2db87e35000299",
+      "git_blob_sha1": "5b8ada8b57d53a8eb0b3e23c3b7c1ac0f618af12",
+      "objects": 36,
+      "types": {
+        "PartDesign::Body": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "PartDesign::AdditiveBox": 1,
+        "Sketcher::SketchObject": 7,
+        "PartDesign::Pocket": 4,
+        "PartDesign::Fillet": 2,
+        "PartDesign::Hole": 2,
+        "PartDesign::ShapeBinder": 1,
+        "PartDesign::Pad": 2,
+        "PartDesign::Chamfer": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Frame/CF_001a_Frameplates.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/CF_001a_Frameplates.FCStd",
+      "bytes": 14094,
+      "sha256": "ef5661105657e402988327f6ae87611982d236bf6e5e04eaf9b1606694c2d9d4",
+      "git_blob_sha1": "f4342f8e6f97131f85ea67cb6821143d6314fde6",
+      "objects": 2,
+      "types": {
+        "Part::Box": 2
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Frame/CF_901a_Frame.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/CF_901a_Frame.FCStd",
+      "bytes": 3412390,
+      "sha256": "225c924350012e4ad35604eaf105af6b2059c3f6f6c9a0e4cfca88c69a1f4e16",
+      "git_blob_sha1": "cd257e15e3e0c80b52da46275195d6d348123496",
+      "objects": 128,
+      "types": {
+        "Part::FeaturePython": 36,
+        "App::FeaturePython": 66,
+        "Spreadsheet::Sheet": 2,
+        "App::Part": 3,
+        "App::Origin": 3,
+        "App::Line": 9,
+        "App::Plane": 9
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Frame/CF_950a_Plateau.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/CF_950a_Plateau.FCStd",
+      "bytes": 129539,
+      "sha256": "f0d1056b18febd8e2bcf1c8d7493a418eb7df1c69ddea8ed2bd0fc479ebf25f9",
+      "git_blob_sha1": "eef7c315b2e93e5a81324c75fbee22caf525ff8b",
+      "objects": 43,
+      "types": {
+        "Part::FeaturePython": 21,
+        "App::FeaturePython": 22
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Frame/T_nutM3_for_V-slot.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/T_nutM3_for_V-slot.FCStd",
+      "bytes": 53238,
+      "sha256": "9e5ce7fd763e2629f90211ac04ed4c5299490a0ac19eb286c49e33f713361b3e",
+      "git_blob_sha1": "edd513ddf0ab7cea1963d459f266ecdf33bdc57f",
+      "objects": 24,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "PartDesign::FeatureBase": 2,
+        "Sketcher::SketchObject": 2,
+        "PartDesign::Pad": 1,
+        "Part::FeaturePython": 1,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Frame/V-SlotDb_20x40x400_A.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/V-SlotDb_20x40x400_A.FCStd",
+      "bytes": 4201312,
+      "sha256": "dd8ce49da36635d10121775d2428bb3862f8c67fe8ed454738439c823f7e0738",
+      "git_blob_sha1": "854ae71845002dcb0c6ccd1594d6461035a05fc4",
+      "objects": 15,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 1,
+        "Sketcher::SketchObject": 2,
+        "PartDesign::Hole": 2
+      },
+      "program_version": "0.21R31035 (Git)"
+    },
+    {
+      "path": "Frame/V-SlotDb_20x40x400_B.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/V-SlotDb_20x40x400_B.FCStd",
+      "bytes": 277787,
+      "sha256": "7fb1bc8709f6389e2559cad6ce16fb53b531c17d3c36da76820efa12240d4a3f",
+      "git_blob_sha1": "357c80cfd0260b3821f1b4e548e9b4969a6a5744",
+      "objects": 13,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 1,
+        "Sketcher::SketchObject": 1,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R31035 (Git)"
+    },
+    {
+      "path": "Frame/V-SlotDb_20x40x400_C.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/V-SlotDb_20x40x400_C.FCStd",
+      "bytes": 169034,
+      "sha256": "d293aefcb892bb15872944eb8bcf8f4c36cb6585b6f6c32ba90ad6ae44f144d5",
+      "git_blob_sha1": "0099e43c1e453a5a834599078a62e7f66d7a51b9",
+      "objects": 13,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 1,
+        "Sketcher::SketchObject": 1,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R31035 (Git)"
+    },
+    {
+      "path": "Frame/V-SlotDb_20x40x400_D.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Frame/V-SlotDb_20x40x400_D.FCStd",
+      "bytes": 1234262,
+      "sha256": "80cb4956c24873aa86a06ebb24d96dad9bf1c4e51189de8fa249a6f113856030",
+      "git_blob_sha1": "6160f9ae5f608a74512e2b4f793731ec378052e4",
+      "objects": 15,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 1,
+        "Sketcher::SketchObject": 2,
+        "PartDesign::Hole": 2
+      },
+      "program_version": "0.21R31035 (Git)"
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/LICENSE.txt",
+      "bytes": 14393,
+      "sha256": "50fb0b92eadb0a70f7f14f8dbb6360c5a8226f1d4722089a96f4da5286b4f85b",
+      "git_blob_sha1": "1127aaecccea843186c12f20879fb98a3fc8368b"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/README.md",
+      "bytes": 261,
+      "sha256": "9a78e3288139baf8d5e5eb24b6348b9cb1a3dd009972be1bfb76959c95766f4e",
+      "git_blob_sha1": "58c24c2d541af24da0cf55e647e8f3a3905a13c3"
+    },
+    {
+      "path": "Standards/22x8x7_rollerBearing_002.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/22x8x7_rollerBearing_002.FCStd",
+      "bytes": 16106,
+      "sha256": "cff0d956416c9de7bc568a02cd95a9601152c9b068254d8472a194f92e620cce",
+      "git_blob_sha1": "2b224c57d2cd542ffc6a764b6c5a47d6a5ec3c73",
+      "objects": 1,
+      "types": {
+        "Part::Feature": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Standards/BH_roller_12x4x4.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/BH_roller_12x4x4.FCStd",
+      "bytes": 20192,
+      "sha256": "c079c5b07c28a8b4250499bbd933e3646f74efb51aac6ab28628999d5c14e94d",
+      "git_blob_sha1": "6c85e9632b0c248689ad81c84ac270613c9cfeb1",
+      "objects": 5,
+      "types": {
+        "Part::FeaturePython": 3,
+        "Part::MultiFuse": 1,
+        "Part::Cut": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Standards/GT2 Timing Pulley 20 Tooth1.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/GT2%20Timing%20Pulley%2020%20Tooth1.FCStd",
+      "bytes": 29342,
+      "sha256": "1c39d767dfea347293857877ffe9138616f50a202b0703668d1c67292e43e196",
+      "git_blob_sha1": "bf722cd326b73531cc850d4df6872792568ecccd",
+      "objects": 1,
+      "types": {
+        "Part::Feature": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Standards/GT2 Timing Pulley 20 Tooth1_diaInt4.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/GT2%20Timing%20Pulley%2020%20Tooth1_diaInt4.FCStd",
+      "bytes": 237586,
+      "sha256": "5e5a5871b41f38d72102ba90cec1d111f92a4b3d824f4a31f4a78f88ca707dff",
+      "git_blob_sha1": "a617b3a3173c151440f4a213fd326c732a7f2199",
+      "objects": 14,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "Sketcher::SketchObject": 1,
+        "PartDesign::Pad": 1,
+        "PartDesign::Pocket": 2
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Standards/MGN12H_double_Z.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/MGN12H_double_Z.FCStd",
+      "bytes": 247401,
+      "sha256": "85cad1a64fded07a8ff15c811d98feb733239190711b73bce8a225b8452aa204",
+      "git_blob_sha1": "7a1f21938bac95c024aac3a9263d95569bf1bae7",
+      "objects": 11,
+      "types": {
+        "Part::Feature": 3,
+        "App::Part": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Standards/Nema 17 Stepper L33.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/Nema%2017%20Stepper%20L33.FCStd",
+      "bytes": 105030,
+      "sha256": "f58e029ff6cff4ce9eb469930f11d5aa1d0b83b8dff84cf26f6cb5c14d90298b",
+      "git_blob_sha1": "6370912db15f52aeca16c536552eb6137c6739e3",
+      "objects": 27,
+      "types": {
+        "Part::Feature": 3,
+        "PartDesign::Body": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "PartDesign::FeatureBase": 2,
+        "Sketcher::SketchObject": 1,
+        "Part::FeaturePython": 3,
+        "App::DocumentObjectGroup": 1,
+        "Part::MultiFuse": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Standards/Standards_n_Fasteners.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/Standards_n_Fasteners.FCStd",
+      "bytes": 483860,
+      "sha256": "c42b83205bf19d81ff7ab7e65c774781d351ff9cc2c3acd80e8a69c3150d35db",
+      "git_blob_sha1": "c85d1c25587e00c1fe4f26c3b7b34a37cea802e5",
+      "objects": 117,
+      "types": {
+        "Part::FeaturePython": 29,
+        "App::FeaturePython": 8,
+        "TechDraw::DrawPage": 2,
+        "TechDraw::DrawSVGTemplate": 2,
+        "TechDraw::DrawProjGroup": 7,
+        "TechDraw::DrawProjGroupItem": 13,
+        "TechDraw::DrawViewDimension": 56
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Standards/T_nutM3_for_V-slot.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/T_nutM3_for_V-slot.FCStd",
+      "bytes": 53238,
+      "sha256": "9e5ce7fd763e2629f90211ac04ed4c5299490a0ac19eb286c49e33f713361b3e",
+      "git_blob_sha1": "edd513ddf0ab7cea1963d459f266ecdf33bdc57f",
+      "objects": 24,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "PartDesign::FeatureBase": 2,
+        "Sketcher::SketchObject": 2,
+        "PartDesign::Pad": 1,
+        "Part::FeaturePython": 1,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Standards/V-SlotDb_20x40x400.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/V-SlotDb_20x40x400.FCStd",
+      "bytes": 121255,
+      "sha256": "edb8b870d2d38d848b6c729fec57b22949365d4110d9e6023d7eb3aaa7084c46",
+      "git_blob_sha1": "815b6045e90db61dbe0c5cf1f55be897f01dbbf5",
+      "objects": 11,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Standards/Vslot_Lshape90.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Standards/Vslot_Lshape90.FCStd",
+      "bytes": 69433,
+      "sha256": "b628d60758ad19a69aa875e380902873d5fbee1b79cc913270be165d24c6544a",
+      "git_blob_sha1": "e2b0add6144170849344a08bd4cdc6f0b4294027",
+      "objects": 17,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "Sketcher::SketchObject": 2,
+        "PartDesign::Pad": 1,
+        "PartDesign::Hole": 1,
+        "PartDesign::PolarPattern": 1,
+        "PartDesign::Pocket": 1,
+        "PartDesign::Chamfer": 1,
+        "Part::FeaturePython": 2
+      },
+      "program_version": "0.20R29177 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/22x8x7_rollerBearing.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/22x8x7_rollerBearing.FCStd",
+      "bytes": 16151,
+      "sha256": "c5f262b20dcfa78f2f5d3a38895550a04ea96232c784d5a1de565184da6a91d3",
+      "git_blob_sha1": "1d1df4826b153c4bff5845db5de25c024b0854ce",
+      "objects": 1,
+      "types": {
+        "Part::Feature": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/AU_archive102_herringbone_pinion_vf.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/AU_archive102_herringbone_pinion_vf.FCStd",
+      "bytes": 3859484,
+      "sha256": "20dc0ec991965cca8425472af22ae8c32c22dd18997e049f4690bb9da2253cbb",
+      "git_blob_sha1": "e2ddc591dacdcc4cb59f658a96e57dbf26fb0516",
+      "objects": 14,
+      "types": {
+        "Part::FeaturePython": 1,
+        "Part::Cylinder": 1,
+        "Part::Fuse": 1,
+        "Sketcher::SketchObject": 5,
+        "PartDesign::Pocket": 5,
+        "PartDesign::Chamfer": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_001a_arm.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_001a_arm.FCStd",
+      "bytes": 110248,
+      "sha256": "679029a44b9c93670ebdfc43a026f4ee4fc13ab94c4298c24fc9fe9d6247c9e6",
+      "git_blob_sha1": "b17c2cd32f0d3f49511641d002c74522879685dc",
+      "objects": 21,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "Sketcher::SketchObject": 5,
+        "PartDesign::Pad": 4,
+        "PartDesign::Chamfer": 2,
+        "PartDesign::Hole": 1,
+        "PartDesign::Pocket": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_003b_band.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_003b_band.FCStd",
+      "bytes": 25413,
+      "sha256": "847144ffc78afb96d380eb8d4a9edacea8dc20ded3131757ca546b6cb570ec96",
+      "git_blob_sha1": "f2db67d52f2c00020ad418bc608efd7c2e99f282",
+      "objects": 11,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "Sketcher::SketchObject": 2,
+        "PartDesign::AdditivePipe": 1
+      },
+      "program_version": "0.21R31035 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_004a_push.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_004a_push.FCStd",
+      "bytes": 136929,
+      "sha256": "465491d315867e7fb559d4e220e501ab2ae93eb1af50f3eb7a5936606eaa2ffd",
+      "git_blob_sha1": "3fbe26674bdb6bf258d7a7ded8d1f7b202e2b6cc",
+      "objects": 25,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "Sketcher::SketchObject": 7,
+        "PartDesign::Pad": 4,
+        "PartDesign::Chamfer": 2,
+        "PartDesign::Hole": 1,
+        "PartDesign::Pocket": 3
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_005a_motfix.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_005a_motfix.FCStd",
+      "bytes": 290390,
+      "sha256": "ceb8bb8d3590f31d704b0b3a900b915896d3c0236881163ffd71780d9c68fbf3",
+      "git_blob_sha1": "e6c0e9919504ff83832422b3a88f3116b48a8189",
+      "objects": 20,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::SubShapeBinder": 2,
+        "Sketcher::SketchObject": 4,
+        "PartDesign::Pad": 3,
+        "PartDesign::Hole": 2,
+        "PartDesign::Chamfer": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_006a_45degsupport.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_006a_45degsupport.FCStd",
+      "bytes": 84618,
+      "sha256": "9f07bd2cb1a4db9b52b9ff023c69dfab987c92f2d5aa6d258f679b9af113260f",
+      "git_blob_sha1": "4f31cd43f122e401ed40a1846429ad01259d1f8c",
+      "objects": 15,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "Sketcher::SketchObject": 3,
+        "PartDesign::AdditivePipe": 1,
+        "PartDesign::Pad": 2,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_007b_Cylinder_guide.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_007b_Cylinder_guide.FCStd",
+      "bytes": 319801,
+      "sha256": "310496b06c95b8bcede03d13e0fefde12d7eee7e58952492fefd27696dd41703",
+      "git_blob_sha1": "31a8f8ee2dbb95aabc8f889dec4febe876cae902",
+      "objects": 18,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "Sketcher::SketchObject": 3,
+        "PartDesign::Pad": 1,
+        "PartDesign::Pocket": 2,
+        "PartDesign::PolarPattern": 2,
+        "Part::Helix": 1,
+        "PartDesign::Chamfer": 1
+      },
+      "program_version": "0.21R31035 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_010a_Bearing_fix.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_010a_Bearing_fix.FCStd",
+      "bytes": 32738,
+      "sha256": "830c7f5bf4f3dfb49aff5c7a95e408f6515b0ac6fd70c01a1d726ff6f9484dac",
+      "git_blob_sha1": "a136bc1f3d0d2b71cf581d640bd6f3e3873dc5c3",
+      "objects": 18,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::AdditiveCylinder": 1,
+        "PartDesign::SubtractiveCylinder": 1,
+        "PartDesign::Chamfer": 2,
+        "Sketcher::SketchObject": 3,
+        "PartDesign::Pocket": 2,
+        "PartDesign::Pad": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_011a_Bearing_fix2.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_011a_Bearing_fix2.FCStd",
+      "bytes": 142124,
+      "sha256": "29e3f70aed987b757e142e3858177a736e6253bb00205ea2bdfa3035ad8425c4",
+      "git_blob_sha1": "a227c3f3b76df2e666308c7a8ba365c9c91d1047",
+      "objects": 30,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::AdditiveCylinder": 1,
+        "PartDesign::SubtractiveCylinder": 1,
+        "PartDesign::Chamfer": 5,
+        "Sketcher::SketchObject": 6,
+        "PartDesign::Pocket": 5,
+        "PartDesign::Pad": 4
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_012a_Uclamp.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_012a_Uclamp.FCStd",
+      "bytes": 43492,
+      "sha256": "ae8d686b590c5c537f501b5d06cd5c7e16044f9fc2d4ac0e35c1129eaa845c7c",
+      "git_blob_sha1": "93eed148c0b812a2f4989fa1e423cb759689d18f",
+      "objects": 16,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "Sketcher::SketchObject": 3,
+        "PartDesign::Pad": 1,
+        "PartDesign::Pocket": 2,
+        "PartDesign::Chamfer": 1,
+        "PartDesign::Fillet": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/BU_roue_entrainement_extruder_herringbone.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/BU_roue_entrainement_extruder_herringbone.FCStd",
+      "bytes": 6810419,
+      "sha256": "792d69f05143ad47c60a7a201168d069790502559263fc334c716d8134459161",
+      "git_blob_sha1": "10fa80264ac1172c3a5e9123d53c88c4e71b1b39",
+      "objects": 32,
+      "types": {
+        "Part::FeaturePython": 2,
+        "Part::Cylinder": 1,
+        "Part::Fuse": 1,
+        "Sketcher::SketchObject": 7,
+        "PartDesign::Pocket": 7,
+        "PartDesign::PolarPattern": 3,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pad": 1,
+        "PartDesign::Chamfer": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/CF_920a_45Deg.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/CF_920a_45Deg.FCStd",
+      "bytes": 5094265,
+      "sha256": "9566f7fa87fcb1e6cc7553e28d3c9ed152eb8fca079929c71cb51b70a2c60ec5",
+      "git_blob_sha1": "f9c289dd52b8fa8dc91ccea3df23f1c0d4a7ef2f",
+      "objects": 92,
+      "types": {
+        "Part::FeaturePython": 26,
+        "App::FeaturePython": 66
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/CF_921a_SideA.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/CF_921a_SideA.FCStd",
+      "bytes": 201465,
+      "sha256": "dba24b70ae0a898e4ce57581dd7c90348c676d35b64024b87b511a4508dc5c50",
+      "git_blob_sha1": "b61ed7932f2a4128aaf8e64eecdedd635594cb96",
+      "objects": 74,
+      "types": {
+        "Part::FeaturePython": 23,
+        "App::FeaturePython": 35,
+        "App::Part": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/Nema 17 Stepper L33.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/Nema%2017%20Stepper%20L33.FCStd",
+      "bytes": 105242,
+      "sha256": "7d7b7337a4a563cbadf8d3333c53290e57cc4934562667d979f3f288c0ed4a9e",
+      "git_blob_sha1": "9aed92b809f6598a7740e9fecfc1265478e9bd0a",
+      "objects": 27,
+      "types": {
+        "Part::Feature": 3,
+        "PartDesign::Body": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "PartDesign::FeatureBase": 2,
+        "Sketcher::SketchObject": 1,
+        "Part::FeaturePython": 3,
+        "App::DocumentObjectGroup": 1,
+        "Part::MultiFuse": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/T_nutM3_for_V-slot.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/T_nutM3_for_V-slot.FCStd",
+      "bytes": 53238,
+      "sha256": "9e5ce7fd763e2629f90211ac04ed4c5299490a0ac19eb286c49e33f713361b3e",
+      "git_blob_sha1": "edd513ddf0ab7cea1963d459f266ecdf33bdc57f",
+      "objects": 24,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "PartDesign::FeatureBase": 2,
+        "Sketcher::SketchObject": 2,
+        "PartDesign::Pad": 1,
+        "Part::FeaturePython": 1,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/V-Slot 20x20x190 Linear Rail.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/V-Slot%2020x20x190%20Linear%20Rail.FCStd",
+      "bytes": 264320,
+      "sha256": "a6dd672ba9e322a5bd083ad7706327b13bc7784a1dd1953e43cf3f2e177d3f10",
+      "git_blob_sha1": "e309765983b6834b086a8902c558429b2cb3c69b",
+      "objects": 13,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 1,
+        "Sketcher::SketchObject": 1,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ThreadMill45DegInfinite/V-Slot 20x20x240 Linear Rail.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ThreadMill45DegInfinite/V-Slot%2020x20x240%20Linear%20Rail.FCStd",
+      "bytes": 143831,
+      "sha256": "f7873c3bc82c336e891bc56b8fe3331bbc5fc186fd783e64fb1d8f2f8f9ab639",
+      "git_blob_sha1": "108f9f7b79f3d68e343b32e0973e5b49dc9c4a4d",
+      "objects": 11,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Xcarriage/CF_901a_XAxis.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Xcarriage/CF_901a_XAxis.FCStd",
+      "bytes": 3486176,
+      "sha256": "cac5384e00427469550578d1cd91d72bbce01cf7727904c5aaf5f8293615bba5",
+      "git_blob_sha1": "135c7ffd7008f6ab3c9f1f1562680400956dde4f",
+      "objects": 135,
+      "types": {
+        "Part::FeaturePython": 53,
+        "App::FeaturePython": 72,
+        "App::Part": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "App::Link": 1,
+        "Spreadsheet::Sheet": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/BC_004b_SquareCarriage.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/BC_004b_SquareCarriage.FCStd",
+      "bytes": 449531,
+      "sha256": "2152761512c537c6a292d2ae607ac95272026c3c5c40ade4071863b09f556c03",
+      "git_blob_sha1": "487559448b8fdbbbcf4e3b0555a158f17aa98f50",
+      "objects": 27,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::SubShapeBinder": 1,
+        "Sketcher::SketchObject": 5,
+        "PartDesign::Pad": 1,
+        "PartDesign::Plane": 2,
+        "PartDesign::Fillet": 1,
+        "PartDesign::Chamfer": 1,
+        "PartDesign::Hole": 2,
+        "PartDesign::Mirrored": 2,
+        "PartDesign::Pocket": 4
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/BC_005d_CoreXY.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/BC_005d_CoreXY.FCStd",
+      "bytes": 1713601,
+      "sha256": "fd9a8b3637ab29a4b5b36cf0a52bde9e75b72d4995eda55ec11e990b494146c2",
+      "git_blob_sha1": "b1987fb7d4ae0e5ca9504f95b1bdc83cbdf8bff3",
+      "objects": 42,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::SubShapeBinder": 3,
+        "Sketcher::SketchObject": 11,
+        "PartDesign::AdditivePipe": 1,
+        "PartDesign::Pad": 5,
+        "PartDesign::Fillet": 2,
+        "PartDesign::Chamfer": 2,
+        "PartDesign::Pocket": 9,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/BD_005c_fixMotXY.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/BD_005c_fixMotXY.FCStd",
+      "bytes": 3201536,
+      "sha256": "03f47701bd978cc988a1d97e5a63cc75c0c20da3dab9ebba5219e42e54b23ab4",
+      "git_blob_sha1": "4c85886a3033f2f5b044d65187ded6d645fcb71a",
+      "objects": 88,
+      "types": {
+        "PartDesign::Body": 4,
+        "App::Origin": 4,
+        "App::Line": 12,
+        "App::Plane": 12,
+        "PartDesign::SubShapeBinder": 1,
+        "PartDesign::Pad": 7,
+        "Sketcher::SketchObject": 16,
+        "PartDesign::Pocket": 16,
+        "PartDesign::Chamfer": 1,
+        "PartDesign::Fillet": 6,
+        "PartDesign::Hole": 1,
+        "Part::FeaturePython": 2,
+        "PartDesign::FeatureBase": 3,
+        "PartDesign::MultiTransform": 1,
+        "Part::Mirroring": 1,
+        "Part::Cut": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/BD_008a_toolfixA.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/BD_008a_toolfixA.FCStd",
+      "bytes": 328914,
+      "sha256": "cdcec1e0f23c426d73a2b6115f155ebe4abebd06c2b0517112f8da2666a40a77",
+      "git_blob_sha1": "ef793e5df508f1aa5bf784b72d9fa8d443d1d1e3",
+      "objects": 32,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::SubShapeBinder": 2,
+        "Sketcher::SketchObject": 8,
+        "PartDesign::Pad": 1,
+        "PartDesign::Fillet": 3,
+        "PartDesign::Pocket": 7,
+        "PartDesign::Chamfer": 1,
+        "PartDesign::Plane": 1,
+        "PartDesign::Mirrored": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/BD_010a_tooljaw.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/BD_010a_tooljaw.FCStd",
+      "bytes": 526745,
+      "sha256": "913e77d9cada64537f336cd865417961b4f870163deb4a8f0b59b0ad2f4d0f8e",
+      "git_blob_sha1": "53b5ec8845ea4ec4c327bc11e6a404ca88dac95f",
+      "objects": 97,
+      "types": {
+        "PartDesign::Body": 6,
+        "App::Origin": 6,
+        "App::Line": 18,
+        "App::Plane": 18,
+        "PartDesign::SubShapeBinder": 1,
+        "Sketcher::SketchObject": 15,
+        "PartDesign::Pad": 3,
+        "PartDesign::Pocket": 13,
+        "PartDesign::Hole": 1,
+        "PartDesign::Plane": 1,
+        "PartDesign::Mirrored": 1,
+        "PartDesign::Fillet": 2,
+        "PartDesign::FeatureBase": 3,
+        "Part::Cut": 1,
+        "PartDesign::ShapeBinder": 4,
+        "Part::FeaturePython": 4
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/BD_011a_ToolPlate.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/BD_011a_ToolPlate.FCStd",
+      "bytes": 193343,
+      "sha256": "4c9f8aef05347ddaaea6b1041ba3d36900d70155390fb32e560177c32c8163e5",
+      "git_blob_sha1": "0db2e6e3c1425689d92c1f8217b945f14c8287a0",
+      "objects": 20,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::SubShapeBinder": 1,
+        "Sketcher::SketchObject": 4,
+        "PartDesign::Pad": 1,
+        "PartDesign::Pocket": 5,
+        "PartDesign::Chamfer": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/BD_013a_toolplate_holder.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/BD_013a_toolplate_holder.FCStd",
+      "bytes": 1311119,
+      "sha256": "e56c50987f3e9fc8a0e1c40b3054ba02c57d133f6381bc9fa2f3eb36e7f3f1b2",
+      "git_blob_sha1": "e9f93252ca4055cb18fc582bc7c9f285a1c08941",
+      "objects": 39,
+      "types": {
+        "Part::FeaturePython": 3,
+        "Part::Box": 1,
+        "App::FeaturePython": 4,
+        "Part::MultiFuse": 1,
+        "Part::Cut": 1,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::FeatureBase": 1,
+        "PartDesign::Pocket": 7,
+        "Sketcher::SketchObject": 5,
+        "PartDesign::Chamfer": 5,
+        "PartDesign::Pad": 1,
+        "PartDesign::Fillet": 2
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/BZ_016b_belt_tension_plates.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/BZ_016b_belt_tension_plates.FCStd",
+      "bytes": 976391,
+      "sha256": "7c48ac27bde7da9b3c9de78742015a3f31a62a92f3b1dfadda42c54875f7555f",
+      "git_blob_sha1": "f44f8da0461a03e70af6ab6b4daeddb41caf073f",
+      "objects": 55,
+      "types": {
+        "PartDesign::Body": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "PartDesign::SubShapeBinder": 1,
+        "Sketcher::SketchObject": 13,
+        "PartDesign::Pad": 7,
+        "PartDesign::Hole": 1,
+        "PartDesign::Pocket": 10,
+        "PartDesign::Plane": 1,
+        "PartDesign::Mirrored": 1,
+        "PartDesign::Fillet": 2,
+        "PartDesign::AdditiveCylinder": 1,
+        "PartDesign::Chamfer": 1,
+        "PartDesign::PolarPattern": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/CF_901a_Yspear.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/CF_901a_Yspear.FCStd",
+      "bytes": 1006685,
+      "sha256": "bf37475f66b17aad90e1b372e23ebafba442c1ed83565466384f99b2c60065b9",
+      "git_blob_sha1": "cfb268e0576671c6a1567fb4be1034c2c698dd0c",
+      "objects": 83,
+      "types": {
+        "Part::FeaturePython": 36,
+        "App::FeaturePython": 46,
+        "Spreadsheet::Sheet": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "Yspear/CF_902a_CoreXY.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/Yspear/CF_902a_CoreXY.FCStd",
+      "bytes": 322983,
+      "sha256": "fc68837b8f7e016aa2dec9e995a339af7cb5f1708b3d35961fe9619c06950c22",
+      "git_blob_sha1": "5517eb82d5850f812ac6ed57f3d0b646a899dd2d",
+      "objects": 81,
+      "types": {
+        "Part::FeaturePython": 30,
+        "App::FeaturePython": 50,
+        "Spreadsheet::Sheet": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ZscrewM6/22x8x7_rollerBearing_002.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ZscrewM6/22x8x7_rollerBearing_002.FCStd",
+      "bytes": 16106,
+      "sha256": "cff0d956416c9de7bc568a02cd95a9601152c9b068254d8472a194f92e620cce",
+      "git_blob_sha1": "2b224c57d2cd542ffc6a764b6c5a47d6a5ec3c73",
+      "objects": 1,
+      "types": {
+        "Part::Feature": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ZscrewM6/AT_913a_Zaxis.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ZscrewM6/AT_913a_Zaxis.FCStd",
+      "bytes": 512829,
+      "sha256": "7523fcabf3fd90b0720ea38e2488cde76599c8edab1357a05e9f926f028e46fc",
+      "git_blob_sha1": "52f14fb34339b49800934acd66168bbb8b0e7021",
+      "objects": 14,
+      "types": {
+        "Part::FeaturePython": 3,
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::AdditiveCylinder": 1,
+        "Sketcher::SketchObject": 1,
+        "PartDesign::SubtractiveHelix": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ZscrewM6/BD_003a_Zfix.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ZscrewM6/BD_003a_Zfix.FCStd",
+      "bytes": 210824,
+      "sha256": "a59b86c4f7655ab7838f3919db9b62dd62a9e3d59dddc3cd3d1c05566ebef4ce",
+      "git_blob_sha1": "f7f44ef095ffd9a30ccb97edcb48702e86b9c6e2",
+      "objects": 14,
+      "types": {
+        "PartDesign::Body": 1,
+        "App::Origin": 1,
+        "App::Line": 3,
+        "App::Plane": 3,
+        "PartDesign::SubShapeBinder": 1,
+        "PartDesign::Pad": 1,
+        "Sketcher::SketchObject": 1,
+        "PartDesign::Hole": 1,
+        "PartDesign::Pocket": 1,
+        "PartDesign::Chamfer": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ZscrewM6/BD_012a_douille.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ZscrewM6/BD_012a_douille.FCStd",
+      "bytes": 11195,
+      "sha256": "e3819e0e7f7af8a2d5e3323ede4baf06e57ddfc50718f341056307e8a52c52da",
+      "git_blob_sha1": "eaf1bbc24774e463d4f4f8927b7a470f200c145a",
+      "objects": 1,
+      "types": {
+        "Part::FeaturePython": 1
+      },
+      "program_version": "0.20R29177 (Git)"
+    },
+    {
+      "path": "ZscrewM6/BZ_004c_ZcarriagePlate.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ZscrewM6/BZ_004c_ZcarriagePlate.FCStd",
+      "bytes": 582607,
+      "sha256": "986f087c5d7d16502943e0ce5da41bff398937346d2e72e73e3102606d720f32",
+      "git_blob_sha1": "79eced039b1328cc8febea69ff368ec294339c4c",
+      "objects": 68,
+      "types": {
+        "PartDesign::Body": 3,
+        "App::Origin": 3,
+        "App::Line": 9,
+        "App::Plane": 9,
+        "PartDesign::SubShapeBinder": 4,
+        "Sketcher::SketchObject": 17,
+        "PartDesign::Pad": 5,
+        "PartDesign::Hole": 5,
+        "PartDesign::Pocket": 6,
+        "PartDesign::ShapeBinder": 2,
+        "PartDesign::Fillet": 2,
+        "PartDesign::LinearPattern": 1,
+        "PartDesign::Chamfer": 1,
+        "Part::Mirroring": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ZscrewM6/CF_002a_linearrail_doubleCarriage.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ZscrewM6/CF_002a_linearrail_doubleCarriage.FCStd",
+      "bytes": 281797,
+      "sha256": "55fb7f4d51376c03e009fba9e534b979785e6b5016502011817498a07af29d8b",
+      "git_blob_sha1": "97039790c040c0d84bc2c4f27a40f59d4ac15dcf",
+      "objects": 26,
+      "types": {
+        "Part::FeaturePython": 4,
+        "App::Part": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "App::FeaturePython": 6
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ZscrewM6/CF_902a_FramewZaxis.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ZscrewM6/CF_902a_FramewZaxis.FCStd",
+      "bytes": 12299527,
+      "sha256": "869dc8d283b5edeb8dd4b4f8e9a668ff96f4c86c6d9234eba351ebcb3cd3c494",
+      "git_blob_sha1": "67a550b9af33e5d32a934784057a72cbfcf655f1",
+      "objects": 82,
+      "types": {
+        "Part::FeaturePython": 26,
+        "App::FeaturePython": 38,
+        "App::Part": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "App::Link": 1,
+        "Spreadsheet::Sheet": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    },
+    {
+      "path": "ZscrewM6/T_nutM3_for_V-slot.FCStd",
+      "url": "https://raw.githubusercontent.com/GA3Dtech/GA3D-basicbot-2023/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/ZscrewM6/T_nutM3_for_V-slot.FCStd",
+      "bytes": 53238,
+      "sha256": "9e5ce7fd763e2629f90211ac04ed4c5299490a0ac19eb286c49e33f713361b3e",
+      "git_blob_sha1": "edd513ddf0ab7cea1963d459f266ecdf33bdc57f",
+      "objects": 24,
+      "types": {
+        "Part::Feature": 1,
+        "PartDesign::Body": 2,
+        "App::Origin": 2,
+        "App::Line": 6,
+        "App::Plane": 6,
+        "PartDesign::FeatureBase": 2,
+        "Sketcher::SketchObject": 2,
+        "PartDesign::Pad": 1,
+        "Part::FeaturePython": 1,
+        "PartDesign::Hole": 1
+      },
+      "program_version": "0.21R30669 (Git)"
+    }
+  ],
+  "network_transport": "https",
+  "policy": "original public native source, no target-vendor streams",
+  "total_native_files": 68,
+  "total_objects_across_native_documents": 2205,
+  "locked_at": "2026-11-15T06:03:29.265738+00:00",
+  "role": "held-out public acceptance source",
+  "source_page": "https://github.com/GA3Dtech/GA3D-basicbot-2023",
+  "publisher_site": "https://project.ga3d.tech/",
+  "main_file": "900a_GA3DtechProject_v1.0.FCStd",
+  "author": "Alain David Geiser / GA3D.tech",
+  "license": "CERN-OHL-W-2.0",
+  "source_manifest_sha256": "112694da7c320c45220698a44b7bb50cedb70c8b9b02837e981426b4d7b8734e",
+  "expected_evidence": [
+    "native FreeCAD source screenshot",
+    "generated SOLIDWORKS assembly screenshot",
+    "separately emitted native parts and subassemblies",
+    "feature and mate preservation",
+    "body and mass measurements",
+    "driving-dimension edit and save/reopen",
+    "no donor content or CAD runtime during conversion"
+  ]
+}

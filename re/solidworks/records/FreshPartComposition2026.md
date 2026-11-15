@@ -39,3 +39,12 @@ No local tests were run. Remote process integration and native application
 acceptance are pending. No writer capability has been enabled in the production
 adapter. Source corpus files and hash-locked held-out controls are not generated
 outputs and are excluded from generated coverage.
+
+## Reference creation identity
+
+The principal planes currently have no authored revision-log entries. Their
+FRData wrappers therefore use `logged_creation_time(timestamps=())`, the native
+absent-log sentinel, rather than the root document's authored creation date.
+Feature FILETIME fields remain separate. The
+[model record](ModelConstruction2026.md) traces this rule to native log access
+and `ut_getUnsetTime`; this correction has not yet passed native acceptance.

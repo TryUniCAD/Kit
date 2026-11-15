@@ -33,6 +33,7 @@ def main():
     parser.add_argument("--seconds", type=float, default=5.0)
     parser.add_argument("--event-budget", type=int, default=100000)
     parser.add_argument("--module-manifest", type=Path)
+    parser.add_argument("--prepare-script", type=Path)
     parser.add_argument("--action-script", type=Path)
     parser.add_argument("--action-input", type=Path)
     args = parser.parse_args()
@@ -52,6 +53,8 @@ def main():
     }
     session = None
     script = None
+    preparation = None
+    prepared = None
     started = time.monotonic()
 
     def receive(message, data):
@@ -64,17 +67,29 @@ def main():
             event["binary_data_bytes"] = len(data)
         record["messages"].append(event)
 
+    def detached(reason, crash):
+        record["detach_event"] = {"reason": str(reason), "crash": None if crash is None else str(crash)}
+        record["detached"] = True
+
     try:
         record["python_image"] = image_identity(Path(sys.executable))
         record["frida_image"] = image_identity(args.frida_dir / "frida" / "_frida.pyd")
         frida = importlib.import_module("frida")
         record["frida_version"] = frida.__version__
+        if args.prepare_script is not None:
+            record["prepare_path"] = str(args.prepare_script)
+            record["prepare_sha256"] = hashlib.sha256(args.prepare_script.read_bytes()).hexdigest()
+            manager = runpy.run_path(str(args.prepare_script))["prepare"]()
+            prepared = manager.__enter__()
+            preparation = manager
+            record["preparation_result"] = prepared["identity"]
         device = frida.get_local_device()
         targets = [p for p in device.enumerate_processes() if p.name.casefold() == args.process.casefold() and (args.pid is None or p.pid == args.pid)]
         if len(targets) != 1:
             raise RuntimeError(f"expected exactly one explicitly named target, found {len(targets)}")
         record["pid"] = targets[0].pid
         session = device.attach(targets[0].pid, realm=args.realm)
+        session.on("detached", detached)
         record["attached"] = True
         script = session.create_script(source.decode("utf-8"), name="kit-tupni-observation")
         script.on("message", receive)
@@ -82,7 +97,10 @@ def main():
         if args.module_manifest is not None:
             expected = json.loads(args.module_manifest.read_text(encoding="utf-8"))
             modules = script.exports_sync.moduleidentity()
+            record["module_runtime"] = modules
             record["module_images"] = {}
+            for module in modules:
+                record["module_images"][module["name"]] = image_identity(Path(module["path"]))
             for name, digest in expected.items():
                 matches = [module for module in modules if module["name"].casefold() == name.casefold()]
                 if len(matches) != 1:
@@ -96,8 +114,10 @@ def main():
         if args.action_script is not None:
             record["action_path"] = str(args.action_script)
             record["action_sha256"] = hashlib.sha256(args.action_script.read_bytes()).hexdigest()
+            if args.action_input is not None:
+                record["action_input"] = image_identity(args.action_input)
             action = runpy.run_path(str(args.action_script))
-            record["action_result"] = action["exercise"](args.action_input)
+            record["action_result"] = action["exercise"](args.action_input, prepared)
         time.sleep(args.seconds)
         if args.module_manifest is not None:
             record["producer_statistics"] = script.exports_sync.statistics()
@@ -106,6 +126,11 @@ def main():
     except Exception as error:
         record["exception"] = repr(error)
     finally:
+        if script is not None and "hook_activation" in record:
+            try:
+                record["producer_statistics"] = script.exports_sync.statistics()
+            except Exception as error:
+                record["statistics_exception"] = repr(error)
         if script is not None:
             try:
                 script.unload()
@@ -117,11 +142,16 @@ def main():
                 record["detached"] = True
             except Exception as error:
                 record["detach_exception"] = repr(error)
+        if preparation is not None:
+            try:
+                preparation.__exit__(None, None, None)
+            except Exception as error:
+                record["preparation_cleanup_exception"] = repr(error)
         record["elapsed_seconds"] = time.monotonic() - started
         record["script_errors"] = [event for event in record["messages"] if event["message"].get("type") == "error"]
         args.output.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({key: value for key, value in record.items() if key not in ("messages", "host")}))
-    return int("exception" in record or "detach_exception" in record or "script_unload_exception" in record or bool(record["script_errors"]) or record["messages_dropped"] != 0)
+    return int("exception" in record or "detach_exception" in record or "script_unload_exception" in record or "preparation_cleanup_exception" in record or "statistics_exception" in record or bool(record["script_errors"]) or record["messages_dropped"] != 0 or record.get("producer_statistics", {}).get("dropped", 0) != 0)
 
 
 if __name__ == "__main__":
