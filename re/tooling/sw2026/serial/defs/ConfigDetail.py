@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from Dsl import Vgt, Vge, Vlt, i32, u32, u16, i16, u8, u64, f32, f64, obj, cstr, emb, base
-from Schema import If, Op, Rep, run_load, run_store
+from Schema import If, Op, Rep
 
 LAYER_COND = 0x40000000
 CF = "utCharFormat_c"

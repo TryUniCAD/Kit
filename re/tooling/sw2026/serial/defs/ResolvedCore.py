@@ -3,7 +3,7 @@ from __future__ import annotations
 from Core import ArchiveError, Obj, Load, Store, BIG_TAG, BIG_CLASS, CLASS_TAG, NEW_CLASS, NULL_TAG
 from Streams import StreamDoc
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, i16, u8, f64, f32, cstr, emb, base, count
-from Schema import Op, If, Rep, Base, Emb, Scope, run_load, run_store
+from Schema import Op, If, Rep, run_load, run_store
 
 
 def ext_class_index(ar):

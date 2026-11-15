@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from Dsl import Vgt, Vlt, Fnz, i32, u32, u16, obj, cstr, time32, base, rep, emb
-from Schema import Cnt
+from Dsl import Vgt, Fnz, i32, u32, u16, obj, cstr, time32, base, emb
 
 
 def define(reg):

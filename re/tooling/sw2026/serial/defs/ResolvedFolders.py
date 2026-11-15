@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from Dsl import Vgt, Vge, Vlt, i32, u32, f64, cstr, emb, base
-from Schema import If, Rep
+from Dsl import Vgt, Vge, i32, u32, f64, cstr, base
+from Schema import Rep
 from defs.ResolvedCore import xo, obarray, concept_vt, vt, VIf
 
 FOLDERS = (

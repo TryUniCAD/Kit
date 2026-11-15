@@ -9,11 +9,13 @@ exp = {pe.OPTIONAL_HEADER.ImageBase + s.address: s.name.decode() for s in pe.DIR
 rva = va - pe.OPTIONAL_HEADER.ImageBase
 data = pe.get_memory_mapped_image()[rva:rva + n]
 md = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_64)
+md.detail = True
 for ins in md.disasm(data, va):
     note = ''
-    if ins.op_str.startswith('qword ptr [rip'):
-        tgt = ins.address + ins.size + int(ins.op_str.split('+ ')[1].rstrip(']'), 16) if '+ ' in ins.op_str else None
-        if tgt in imp: note = '  ; ' + imp[tgt][1]
+    for operand in ins.operands:
+        if operand.type == capstone.x86.X86_OP_MEM and operand.mem.base == capstone.x86.X86_REG_RIP:
+            tgt = ins.address + ins.size + operand.mem.disp
+            if tgt in imp: note = '  ; ' + imp[tgt][1]
     if ins.mnemonic in ('call', 'jmp') and ins.op_str.startswith('0x'):
         t = int(ins.op_str, 16)
         if t in exp: note = '  ; ' + exp[t]

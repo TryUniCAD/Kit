@@ -749,10 +749,10 @@ def define_objects(reg):
         Len("u32", "n", "items"),
         If(lambda s, ar: s["n"] != 0, [
             Vlt(0x1D9, [Old("moFeatColorTab_c colors pre-0x1d9")]),
-            Rep(lambda s, ar: max(s["n"] - (1 << 32) if s["n"] >= 1 << 31 else s["n"], 0), "items", [
-                emb("vp", "moVisualProperties_c.restore"),
-                i32("v"),
-            ]),
+        ]),
+        Rep(lambda s, ar: max(s["n"] - (1 << 32) if s["n"] >= 1 << 31 else s["n"], 0), "items", [
+            emb("vp", "moVisualProperties_c.restore"),
+            i32("v"),
         ]),
     ])
     vt(0x3E8, "moSketchBlockMgr_c", None)

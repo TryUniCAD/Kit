@@ -13,15 +13,16 @@ def tables(path):
 
 def _tables(path):
     cur = None
-    for line in open(path, errors="replace"):
-        if line.startswith("VT "):
-            head, _, rest = line[3:].partition(" @ ")
-            cur = (head.strip(), rest.split()[0], [])
-            yield cur
-        elif cur and line.startswith("  "):
-            p = line.strip().split("|")
-            if len(p) >= 3 and p[0].isdigit():
-                cur[2].append((int(p[0]), p[1], p[2]))
+    with open(path, errors="replace") as source:
+        for line in source:
+            if line.startswith("VT "):
+                head, _, rest = line[3:].partition(" @ ")
+                cur = (head.strip(), rest.split()[0], [])
+                yield cur
+            elif cur and line.startswith("  "):
+                p = line.strip().split("|")
+                if len(p) >= 3 and p[0].isdigit():
+                    cur[2].append((int(p[0]), p[1], p[2]))
 
 
 def build(dumps):

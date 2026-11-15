@@ -230,7 +230,12 @@ class Registry:
         run_load(self.classes[name], ar, scope, o)
 
     def run_store(self, name, ar, scope, o):
-        run_store(self.classes[name], ar, scope, o)
+        if name not in self.classes:
+            raise ArchiveError(f"no schema for {name} at {len(ar.out)}")
+        try:
+            run_store(self.classes[name], ar, scope, o)
+        except KeyError as error:
+            raise ArchiveError(f"missing field {error.args[0]!r} in {name} while storing {o.cls} at {len(ar.out)}") from error
 
     def load(self, ar, o):
         self.run_load(o.cls, ar, o.f, o)

@@ -47,6 +47,9 @@ That failure remains open until a later remote revision proves the repair.
 
 The [wire-state field table](../../../re/solidworks/records/ArchiveWireState2026.md)
 records the binary evidence and unresolved classification questions.
+The [header](../../../re/solidworks/records/HeaderConstruction2026.md) and
+[history](../../../re/solidworks/records/HistoryConstruction2026.md) studies add
+constructor-derived rules without promoting them as accepted writer defaults.
 
 Assembly schemas, complete field classification, synthesis from a neutral document,
 held-out measurements, and production conversion remain unfinished.

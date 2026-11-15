@@ -58,6 +58,15 @@ the bounding-box cache. A zero entry count explains the four-byte deficit.
 This is a counted array, not a proven constant or a padding span.
 Nonzero entries still require their class schema and fail closed when it is absent.
 
+The next remote revision, `dc4c3cb6311e155ea1dc97582fa3b6ea6983618a`, reached
+configuration re-emission rather than failing its section-length check.
+The [job](https://github.com/TryUniCAD/Kit/actions/runs/43658875948/job/132643498233)
+then failed on a missing `items` collection in the store path.
+An empty feature-color table had skipped construction of its empty list on load,
+although its count was still needed during storage.
+The schema now constructs the collection for zero entries and emits zero bytes
+for its body. The count remains derived from the collection; no tail is copied.
+
 Rerun the same remote checks with the typed count and array.
 A successful follow-up must bind to its own exact head and keep
 the initial failure above as history.

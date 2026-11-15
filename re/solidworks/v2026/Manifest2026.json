@@ -65,6 +65,12 @@
    "file_version": "34.5.2.0604"
   },
   {
+   "name": "sldutu.dll",
+   "bytes": 4061272,
+   "sha256": "dbc147c10b658544e44a7c13d3ae656c26a0778e9241fe74d6ca9ecae8730933",
+   "file_version": "34.5.2.0604"
+  },
+  {
    "name": "sldvisualstateu.dll",
    "bytes": 1326168,
    "sha256": "fb85d7921c52393e8bb847258b72d8cd006b37c118138c8260c6efe7dcc22c2c",
