@@ -12,6 +12,10 @@ from convert.adapters.solidworks.container.Format import (
     INFORMATION_STREAM as KInfoStream,
     KEYWORDS_STREAM as KKeyStream,
 )
+from convert.adapters.solidworks.drawing.DefinitionDimensions import (
+    DimensionParameter,
+    ParameterAt,
+)
 from convert.adapters.solidworks.drawing.DefinitionObjects import ObjectBlocks
 from convert.adapters.solidworks.drawing.DefinitionStyles import LineStyle, LineStyles
 from convert.adapters.solidworks.drawing.DefinitionUnits import UnitTable, UnitTableAt
@@ -199,6 +203,26 @@ def ReadValues(
     return Units, Styles
 
 
+def ReadDimensions(Archive: SldprtArchive) -> tuple[DimensionParameter, ...]:
+    Definition = Archive.get(KDefinitionStream)
+    if Definition is None:
+        return ()
+    Marker = b"\xff\xff\x01\x00\x12\x00moAngleParameter_c"
+    Parameters: list[DimensionParameter] = []
+    Offset = 0
+    while True:
+        Start = Definition.find(Marker, Offset)
+        if Start < 0:
+            break
+        ValueStart = Start + len(Marker)
+        if ValueStart + 76 > len(Definition):
+            raise SldprtFormatError("drawing dimension parameter is truncated")
+        Parameter, _ = ParameterAt(Definition, ValueStart)
+        Parameters.append(Parameter)
+        Offset = ValueStart + 76
+    return tuple(Parameters)
+
+
 def ReadDrawing(
     Source: str | FilePath | bytes,
     IncludeGeometry: bool = False,
@@ -206,6 +230,7 @@ def ReadDrawing(
     IncludeEdges: bool = False,
     IncludeSheetEdges: bool = False,
     IncludeValues: bool = False,
+    IncludeDimensions: bool = False,
 ) -> DrawingData:
     if IncludeGeometry:
         raise SldprtFormatError(
@@ -239,6 +264,9 @@ def ReadDrawing(
     Styles: tuple[LineStyle, ...] | None = None
     if IncludeValues:
         Units, Styles = ReadValues(Archive)
+    Parameters: tuple[DimensionParameter, ...] | None = None
+    if IncludeDimensions:
+        Parameters = ReadDimensions(Archive)
     return DrawingData(
         NameValue,
         Sheets,
@@ -247,4 +275,5 @@ def ReadDrawing(
         SourcePath,
         Units,
         Styles,
+        Parameters,
     )

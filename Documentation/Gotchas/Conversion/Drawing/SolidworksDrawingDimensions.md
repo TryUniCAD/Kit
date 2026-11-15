@@ -38,10 +38,11 @@ second `D1` record and a large payload that is not a parameter list.
 
 ## Workaround
 
-Do not treat the dimension blocks as a flat list. Read `moAngleParameter_c`
-with the fixed layout above and preserve the remaining bytes. The
-`sgLineHandle` and `sgSkOffsetDim` payloads are not decoded; a caller that
-needs them must keep the source container.
+Do not treat the dimension blocks as a flat list. `ReadDrawing(...,
+IncludeDimensions=True)` decodes `moAngleParameter_c` with the fixed layout
+above and preserves the remaining bytes. The `sgLineHandle` and
+`sgSkOffsetDim` payloads are not decoded; a caller that needs them must keep
+the source container.
 
 ## Evidence
 

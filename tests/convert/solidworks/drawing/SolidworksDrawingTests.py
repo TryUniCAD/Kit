@@ -118,6 +118,27 @@ def TestStyles() -> None:
     assert LastValue.ClassRef is None
 
 
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestDimensions() -> None:
+    for NameValue in ("coincident.SLDDRW", "large.SLDDRW", "multisheet.SLDDRW"):
+        DataValue = ReadDrawing(KDrawRoot / NameValue, IncludeDimensions=True)
+        Parameters = DataValue.DimensionParameters
+        assert Parameters is not None
+        assert len(Parameters) == 1
+        Parameter = Parameters[0]
+        assert Parameter.NameValue == "D2"
+        assert Parameter.Value == PytestLib.approx(2.0)
+        assert Parameter.FlagValue == -1
+        assert Parameter.UnitValue == 0
+        assert Parameter.TextValue == ""
+        assert Parameter.Measured == PytestLib.approx(1.3446183501864888)
+        assert Parameter.Count == 2
+        assert len(Parameter.Gap) == 2
+        assert len(Parameter.ZeroRun) == 3
+        assert len(Parameter.Reserved) == 20
+        assert len(Parameter.Tail) == 8
+
+
 # sheet geometry and view composition must match what solidworks authored
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestSheet() -> None:
