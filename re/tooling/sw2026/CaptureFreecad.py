@@ -8,7 +8,7 @@ from pathlib import Path
 
 import FreeCAD as App
 import FreeCADGui as Gui
-from PySide import QtCore, QtGui
+from PySide import QtCore, QtWidgets
 
 
 def vector(value):
@@ -19,7 +19,10 @@ def shape_record(obj):
     result = {"name": obj.Name, "label": obj.Label, "type": obj.TypeId, "status": list(obj.State)}
     if hasattr(obj, "Shape") and not obj.Shape.isNull():
         shape = obj.Shape
-        result.update(solids=len(shape.Solids), volume_mm3=float(shape.Volume), area_mm2=float(shape.Area), center_mm=vector(shape.CenterOfMass), valid=bool(shape.isValid()), visible=bool(obj.ViewObject.Visibility))
+        solids = shape.Solids
+        volume = sum(float(solid.Volume) for solid in solids)
+        center = [sum(float(solid.Volume) * vector(solid.CenterOfMass)[axis] for solid in solids) / volume for axis in range(3)] if volume else None
+        result.update(solids=len(solids), volume_mm3=volume, area_mm2=float(shape.Area), center_mm=center, valid=bool(shape.isValid()), visible=bool(obj.ViewObject.Visibility))
     if "sourceFile" in obj.PropertiesList:
         result["source_file"] = str(obj.sourceFile)
     return result
@@ -57,9 +60,18 @@ def main():
             (output / "FreecadSource.json").write_text(json.dumps(record, indent=2) + "\n")
         finally:
             App.closeDocument(document.Name)
-            QtGui.QApplication.instance().quit()
+            QtWidgets.QApplication.instance().quit()
 
     QtCore.QTimer.singleShot(5000, capture)
 
 
-main()
+try:
+    main()
+except Exception as error:
+    job = json.loads(Path(os.environ["KIT_PUBLIC_SOURCE_JOB"]).read_text())
+    output = Path(job["output"])
+    output.mkdir(parents=True, exist_ok=True)
+    (output / "FreecadSourceFailure.json").write_text(json.dumps({"exception": repr(error)}, indent=2) + "\n")
+    for name in tuple(App.listDocuments()):
+        App.closeDocument(name)
+    QtWidgets.QApplication.instance().quit()
