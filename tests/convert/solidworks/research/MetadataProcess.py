@@ -12,8 +12,14 @@ from typing import cast as CastValue
 from xml.etree.ElementTree import fromstring as ParseXml
 
 KRepoRoot = FilePath(ArgValues[1])
+ImportPaths.insert(0, str(KRepoRoot))
 ImportPaths.insert(0, str(KRepoRoot / "re" / "tooling" / "sw2026" / "serial"))
 ImportPaths.insert(0, str(KRepoRoot / "re" / "tooling" / "sw2026"))
+
+from tests.convert.solidworks.research.ConstructionGuard import BuildAudit
+
+KAuditValue = BuildAudit(KRepoRoot / "re" / "tooling" / "sw2026" / "serial" / "defs")
+AddAuditHook(KAuditValue.InspectEvent)
 
 KMetadata = ImportModule("builders.Metadata")
 KLoadRooted = ImportModule("Streams").load_rooted
@@ -23,12 +29,7 @@ KRequest = CastValue(list[dict[str, dict[str, object]]], LoadJson(InputStream.re
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
 
-def DenyFiles(EventName: str, ArgsValue: tuple[object, ...]) -> None:
-    if EventName in ("open", "os.listdir", "os.scandir", "subprocess.Popen"):
-        raise PermissionError("metadata construction cannot access runtime files")
-
-
-AddAuditHook(DenyFiles)
+KAuditValue.BeginBuild()
 
 
 def BuildStreams(InputData: dict[str, dict[str, object]]) -> dict[str, bytes]:
@@ -117,7 +118,8 @@ def ProcessInput(InputData: dict[str, dict[str, object]]) -> dict[str, object]:
     except ValueError as ErrorInfo:
         Result = {"error": str(ErrorInfo)}
     try:
-        _ = OpenFile("/metadata-donor-input.SLDPRT", "rb")
+        with OpenFile("/metadata-donor-input.SLDPRT", "rb") as DonorStream:
+            DonorStream.read(1)
     except PermissionError:
         Result["read_blocked"] = True
     return Result
