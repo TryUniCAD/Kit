@@ -384,6 +384,52 @@ def SurfaceLimits(BrepValue: BrepData, Faces: set[int]) -> tuple[
     return Planes, Cylinders
 
 
+# this definition exists because the least violating vertex is the safest fallback
+def Violation(
+    Point: tuple[float, float, float],
+    Planes: list[tuple[tuple[float, float, float], tuple[float, float, float]]],
+    Cylinders: list[
+        tuple[tuple[float, float, float], tuple[float, float, float], float]
+    ],
+) -> float:
+    Total = 0.0
+    for Normal, Center in Planes:
+        Total += abs(
+            sum(
+                Normal[IndexValue] * (Point[IndexValue] - Center[IndexValue])
+                for IndexValue in range(3)
+            )
+        )
+    for AxisValue, Center, Radius in Cylinders:
+        Delta = [Point[IndexValue] - Center[IndexValue] for IndexValue in range(3)]
+        Projection = sum(
+            Delta[IndexValue] * AxisValue[IndexValue] for IndexValue in range(3)
+        )
+        Total += abs(
+            math.sqrt(max(0.0, sum(Value * Value for Value in Delta) - Projection**2))
+            - Radius
+        )
+    return Total
+
+
+# this definition exists because the least violating vertex is the safest fallback
+def NearestVertex(
+    BrepValue: BrepData,
+    Planes: list[tuple[tuple[float, float, float], tuple[float, float, float]]],
+    Cylinders: list[
+        tuple[tuple[float, float, float], tuple[float, float, float], float]
+    ],
+) -> tuple[float, float, float]:
+    BestValue = BrepValue.vertices[0].point
+    BestScore = Violation(BestValue, Planes, Cylinders)
+    for VertexRow in BrepValue.vertices:
+        Score = Violation(VertexRow.point, Planes, Cylinders)
+        if Score < BestScore:
+            BestValue = VertexRow.point
+            BestScore = Score
+    return BestValue
+
+
 # this definition exists because focused behavior needs one stable owner
 def IsSatisfied(
     Point: tuple[float, float, float],
@@ -861,7 +907,9 @@ def PlaceRestMut(
                 BestValue = VertexRow.point
                 BestDistance = Distance
         Positions[Handle] = (
-            BestValue if BestValue is not None else BrepValue.vertices[0].point
+            BestValue
+            if BestValue is not None
+            else NearestVertex(BrepValue, Planes, Cylinders)
         )
 
 
