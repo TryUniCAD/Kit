@@ -164,6 +164,27 @@ The prefix values themselves are consistent with a per-class table entry rather 
 digest: `UGS::OM::RootObject` has `0x7438`, `UGS::RM_part` `0x7765` and `UGS::Solid::Body` `0x7b3d`,
 which rise with registration order across the table.
 
+## The prefix carries the class's +0x34 value
+
+Decoding the prefix against the descriptor value shows it is a byte string carrying that number, big
+endian, with a marker bit set in its leading byte:
+
+```text
+part                          prefix            +0x34        reading
+UGS::OM::SaveAuditTrail       80 c9 78          201          byte 1 = 0xc9 = 201
+UGS::OM::SaveAuditTrailEntry  80 c8 78          200          byte 1 = 0xc8 = 200
+UGS::Sketch::Colors           83 e8 74         1000          byte 1 = 0xe8 = 1000 & 0xff
+UGS::POINT                    83 84 80 80       900          0x0384 = 900
+UGS::SKELETON_grid_modeling   88 34 80 81      2100          0x0834 = 2100
+UGS::DWG_member_view_parameter 87 d0 80 83     2000          0x07d0 = 2000
+UGS::Attr::DAttributeDescriptionDepository a0 27 10 80 85  10000   0x2710 = 10000
+```
+
+Statistically, the second byte equals `+0x34 & 0xff` for **62 of 68** three-byte prefixes and the
+leading byte is the value's high byte with bit 7 set. So the prefix is an encoding of the same
+per-class number the registration descriptor carries at slot 0x28 and the registrant exposes at
+`+0x34` — not a digest and not set-derived.
+
 ## What is left
 
 The prefix and the tail. Hooking `0x1801445xx` during a `SaveAs` and logging the two blocks and the
