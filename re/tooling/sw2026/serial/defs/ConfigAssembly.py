@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from Core import ArchiveError
-from Dsl import base, cstr, emb, f64, i32, obj, u16, u32, u8, ver
+from Dsl import base, cstr, emb, f64, i32, obj, u16, u32, ver
 from Schema import If, Op, Scope, run_load, run_store
 from defs.ConfigPart import Cond, NCond, Norm, Present, Section
 from defs.ResolvedCore import CONCEPT_LW, FEATURE_XML, concept_vt, node_vt, vt, xo
