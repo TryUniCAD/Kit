@@ -10,9 +10,10 @@ the corresponding analysis appears on the pull request.
 On PR 142, head `2ec6c91a3bad613858f6bca66fb47d60786c20fd` targets
 `codex/solidworks-2026-native` at `0a515f4f9030876d06a9e18f6eb369b3d135e59a`.
 Its exact synthetic merge is `0a94cf2fd25e1f8ad1838cac92a3c4cf3a5ffe19`.
-Every visible validation job completed successfully, including the native-file
-process and Fusion compatibility, but no managed code-quality run or check
-exists on either analysis reference at the observation point.
+The native-file process, compatibility, lint, typing and repository policy jobs
+completed successfully. The aggregate remained pending because no managed
+code-quality run or check exists on either analysis reference at the observation
+point.
 
 The read-only code-quality setup endpoint reports `state=configured`, with
 Java/Kotlin, JavaScript/TypeScript and Python enabled, a standard runner and a
