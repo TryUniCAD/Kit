@@ -541,35 +541,32 @@ it is stable across parts with the same class set while moving when the set chan
 therefore a session-assigned reference handle: structural, validated, and not derivable from the
 class list.
 
-## A confounder the mutant matrix does not exclude
+## The confounder is resolved: there is no payload wide integrity check
 
-The mutant matrix above shows that changing a code byte, a tail byte, or the set of declarations is
-refused while the byte-identical control loads. It does not by itself separate semantic validation
-from an integrity check, and one experiment shows why that distinction matters. Flipping a single bit
-in a zero-filled run at `0x1fa8` of `dim40.prt` section 0 — outside the class table, whose extent is
-`0x7ae` to `0x1e0a` (5724 bytes) — is also refused:
+Changing a code byte, a tail byte, or the set of declarations is refused while the byte-identical
+control loads. That alone does not separate semantic validation from an integrity check, so the
+question was tested directly by flipping one bit in a zero-filled run of three different sections of
+`dim40.prt`, rebuilding each through the same path:
 
 ```text
-dim40.prt rebuilt unchanged                          bodies 1  volume 23999.999999999996
-dim40.prt, one bit set in a zero run at 0x1fa8       OPEN_FAILED
-wave_parent.prt, one bit set in a zero run at 0xa4   bodies 1  volume 1000000.0000000002
+mutant   where                              result
+zsec0    section 0, zero bit at 0x1fa8      OPEN_FAILED
+zsec1    section 1, zero bit at 0x5ba       OPEN_FAILED
+zsec4    section 4, zero bit at 0x42e       bodies 1  volume 23999.999999999996
 ```
 
-the legacy control matters: the same kind of edit is accepted there, so the refusal is specific to the
-modern container. Two explanations remain, and this entry cannot choose between them:
+a payload edit in section 4 is accepted, so **there is no payload wide checksum**. The refusals in
+sections 0 and 1 come from those sections being parsed, not from a global seal.
 
-1. the modern payload carries an integrity check over its content, so every content edit is refused
-   and the matrix says nothing about which fields the loader validates
-2. the zero run is a reserved field that must be zero, so parser strictness explains that single
-   failure and the matrix stands
+Two further measurements bound the checksum hypothesis for section 0 itself. The 12-byte trailer at
+the end of each section is not an xxh32 (seeds 0 to 2047), crc32 or adler32 of the section body, over
+the body with 0, 4, 8, 12 or 16 bytes trimmed from either end. And the 4 bytes that follow every
+_legacy_ section are the constant `c0 d1 f1 ed` in all eight sections across two files, which is a
+terminator rather than a checksum.
 
-what is excluded is that the 12-byte trailer at the end of a section is a plain xxh32, crc32 or
-adler32 of the section body with a seed from 0 to 2047, over the body with 0, 4, 8, 12 or 16 bytes
-trimmed from either end: none of those values appears in the trailer of any of the five sections.
-
-so the honest statement is narrower than the section above: **the loader refuses edits to the class
-table, and this branch has not established whether that is field validation or a checksum.** Settling
-it is a single question rather than a project: find one byte the loader ignores, or find the check.
+so the statement this entry makes is: the class table's values are validated by the loader, and the
+rejections are semantic rather than a failing seal. The class table extent used above is `0x7ae` to
+`0x1e0a`, 5724 bytes, which is also the size the `mut_noclass` removal takes out.
 
 ## Consequence
 
