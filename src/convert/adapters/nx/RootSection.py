@@ -13,7 +13,7 @@ from convert.adapters.nx.ExprSection import (
     Adopt as AdoptExpr,
 )
 from convert.adapters.nx.ExprSection import (
-    RewriteSlots,
+    RewriteMiddle,
 )
 from convert.adapters.nx.ExprSection import (
     ExprMiddle,
@@ -164,7 +164,7 @@ def WithStub(
             )
             SectionBody = AdoptExpr(SectionBody, ExprMiddle(Pointer - KExprMiddle))
         elif Index == 2:
-            SectionBody = RewriteSlots(PatchAnchor(SectionBody))
+            SectionBody = RewriteMiddle(PatchAnchor(SectionBody))
         Bodies.append(SectionBody)
     Resized = ResizePayload(Payload, Bodies)
     EndValue = ReadPayload(Resized).sections[-1]

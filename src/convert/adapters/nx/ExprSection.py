@@ -392,6 +392,87 @@ def ExprMiddleDim(
     return b"".join((Preamble, Padding, Table, Order, VersionBlock(), *Parts))
 
 
+# a written dimension shape finds its middle by the signature and table shape
+def LocateMiddle(SectionBody: bytes, Pointer: int) -> tuple[int, int] | None:
+    Signature = bytes([2]) * 7
+    Position = SectionBody.find(Signature)
+    while 0 <= Position < Pointer:
+        Count = SectionBody[Position + 7] + 5
+        Table = Position + 0x54
+        if (
+            6 <= Count <= 0x40
+            and SectionBody[Position + 9] == 1
+            and Table + 4 * Count + 4 <= len(SectionBody)
+            and int(Struct.unpack_from("<I", SectionBody, Table + 4 * Count)[0])
+            == Count
+        ):
+            Offsets = [
+                int(Struct.unpack_from("<I", SectionBody, Table + 4 * Index)[0])
+                for Index in range(Count)
+            ]
+            if (
+                Offsets[0] == Position + 0x58 + 8 * Count + 49
+                and all(
+                    Offsets[Index] < Offsets[Index + 1] for Index in range(Count - 1)
+                )
+                and Offsets[-1] < Pointer
+            ):
+                return (Position, Count)
+        Position = SectionBody.find(Signature, Position + 1)
+    return None
+
+
+def MiddleParts(
+    SectionBody: bytes, Start: int, Count: int, Pointer: int
+) -> tuple[bytes, ...]:
+    Offsets = [
+        int(Struct.unpack_from("<I", SectionBody, Start + 0x54 + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    Stops = [*Offsets[1:], Pointer]
+    return tuple(SectionBody[Begin:Finish] for Begin, Finish in zip(Offsets, Stops))
+
+
+# a written dimension shape replaces the source middle with a composed one
+def RewriteMiddle(SectionBody: bytes) -> bytes:
+    if not SectionBody.startswith(b"OM\x01\x01"):
+        return SectionBody
+    Pointer = int(Struct.unpack_from("<I", SectionBody, PointerOffset(SectionBody))[0])
+    Located = LocateMiddle(SectionBody, Pointer)
+    if Located is None:
+        return RewriteSlots(SectionBody)
+    Start, Objects = Located
+    if (Objects - KObjects) % KObjects:
+        return RewriteSlots(SectionBody)
+    Dimensions = (Objects - KObjects) // KObjects
+    if Dimensions < 1:
+        return RewriteSlots(SectionBody)
+    Parts = MiddleParts(SectionBody, Start, Objects, Pointer)
+    Slots = tuple(Chunk for Chunk in Parts if len(Chunk) in (18, 21))
+    Records = Parts[KObjects + len(Slots) :]
+    if len(Records) != Dimensions or len(Slots) != 5 * Dimensions:
+        return RewriteSlots(SectionBody)
+    LaneBytes = next(Chunk for Chunk in Parts if b"EXP_lookup_exp" in Chunk)
+    GroupBytes = next(Chunk for Chunk in Parts if Chunk.startswith(b"\x02\x02\x04\x0f"))
+    Labels, Values = ReadLane(LaneBytes)
+    Built = ExprMiddleDim(
+        Start,
+        Dimensions,
+        Parts[0][13:20],
+        Labels,
+        Values,
+        ReadGroupValues(GroupBytes),
+        Slots,
+        Records,
+        int(Struct.unpack_from("<I", SectionBody, Start + 48)[0]),
+    )
+    Output = bytearray(SectionBody[:Start])
+    Output.extend(Built)
+    Output.extend(SectionBody[Pointer:])
+    Struct.pack_into("<I", Output, PointerOffset(SectionBody), Start + len(Built))
+    return bytes(Output)
+
+
 # the section pointer field follows the part name and the eight section counts
 def PointerOffset(SectionBody: bytes) -> int:
     NameLength = int(Struct.unpack_from("<I", SectionBody, 0x25)[0])
@@ -434,6 +515,9 @@ __all__ = [
     "ValueSlot",
     "ExprMiddle",
     "ExprMiddleDim",
+    "LocateMiddle",
+    "MiddleParts",
+    "RewriteMiddle",
     "KMiddleLength",
     "KObjects",
     "PointerOffset",

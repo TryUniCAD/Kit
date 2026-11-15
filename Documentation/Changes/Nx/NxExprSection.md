@@ -430,6 +430,35 @@ const_box60.prt                346                  7              99.14%
 dim40.prt                      346                  7              99.14%
 ```
 
+## The writer composes the dimension shape
+
+`RewriteMiddle` now runs for section 2 in `nx.author_sections`. It locates the middle by its
+signature and table shape (a `02` heptad whose next byte is `objects - 5`, a table whose first
+offset equals `start + 0x58 + 8n + 49`, and an order count equal to the object count), derives
+`Dimensions = (objects - 6) / 6`, reads the lane, group items, slots and records from the source,
+and rebuilds the middle with `ExprMiddleDim`. Six object shapes, and any section whose counts do
+not fit, fall back to the previous slot rewrite.
+
+Section 2 now differs from its source, for the first time:
+
+```text
+part             section 0 differs  section 2 differs  payload identical
+empty.prt                      342                  7              99.00%
+multi.prt                      342                  6              99.02%
+var_blank.prt                  343                  6              99.00%
+const_box60.prt                346                 48              99.05%
+dim40.prt                      346                 48              99.05%
+```
+
+and every written part opens in NX 2506 with the expected geometry:
+
+```text
+rm_empty.prt bodies 0        rm_multi.prt bodies 0        rm_var_blank.prt bodies 0
+rm_dim40.prt bodies 1  volume 23999.999999999996
+rm_const_box60.prt bodies 1  volume 36000.0
+rm_var_two.prt bodies 2  volume 48000.0
+```
+
 ## The composed middle loads
 
 The offset arithmetic of a dimension-shape middle is measured exactly on `dim40` and
