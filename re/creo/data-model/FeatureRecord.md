@@ -529,6 +529,23 @@ extra3: superset schema (+flags, +first_hybrid_body_id, +topo_parents); record 1
 repeated, twice out of two. So the feature schema can be widened to the ladder's without losing
 loadability, which is the prerequisite for adding a `917` record.
 
+### A `917` replay is refused
+
+A `917` record is a replay of that same schema with `type = 917`, so one can be emitted without inventing
+fields. Emitting a datum definition plus a `917` replay in second position:
+
+```text
+solid917: datum + 917 replay; section 1537 record2 137
+!15-Nov-26 05:26:06  Start C:\Mac\Home\Documents\creo-authored\solid917.prt
+(no End line; second run identical)
+```
+
+Refused, silently, twice. The replay carried datum-shaped values in the protrusion's slots, so this result
+does not separate "the loader rejects a `917` here" from "these values are not a protrusion". What it does
+establish is that adding the record is not sufficient on its own: the record's own fields — section,
+contour and topology references — have to describe a real protrusion, and those are what the vendor
+regenerates.
+
 To add one, the **first** record would have to declare the union of datum and protrusion fields, and every
 later record would then have to carry values for that wider schema — including the replay-only sections
 that currently carry datum values. In other words the authored feature section is not extensible by
