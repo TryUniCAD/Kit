@@ -3,8 +3,8 @@
 ## Purpose and scope
 
 The `creo.prt` adapter reads PTC Creo Parametric and Pro/ENGINEER PSB part files.
-It validates the container, lists sections, inflates compressed sections, extracts the native thumbnail, and retains the source bytes for exact replay.
-It does not decode native geometry or feature records into neutral records.
+It validates the container, lists sections, inflates compressed sections, extracts the native thumbnail, decodes `AllFeatur` feature identity rows, and retains the source bytes for exact replay.
+It does not decode native geometry, sketches, or dimensions into neutral records.
 
 ## Container
 
@@ -34,10 +34,23 @@ The reader returns a `CadDocument` with:
 - model kind, common name, header lines, and section inventory;
 - the native JPEG thumbnail as an auxiliary payload;
 - the retained source bytes and digest;
-- a warning that native geometry and feature records remain encoded.
+- `AllFeatur` feature identity rows as `FeatureStep` records, each with the Creo feature id, root
+  schema class, class label, and a provenance span into the `AllFeatur` section;
+- warnings that parameters, sketches, dimensions, and geometry remain encoded.
 
-The reader does not report bodies, sketches, dimensions, or a feature timeline.
+Feature rows are discovered from the tag anchors documented in
+[the compound-boundary gotcha](../../Gotchas/Conversion/CreoTaggedCompoundBoundary.md): a boundary
+is offset zero or a byte after `0xe3`, and the row carries `e3 f6 <compact-class> e1` within the
+next 16 bytes. Rows shorter than 16 bytes and rows whose class is not a known feature class are
+rejected. The first feature is also taken from its `e0 01 id 00` definition when the anchor is
+outside the window.
+
+The reader does not report bodies, sketches, dimensions, or parameter values.
 Do not treat a successful read as native geometry coverage.
+
+Metadata reports `creo.feature_rows_decoded`, `creo.feature_row_count`,
+`creo.feature_history_decoded` (still false: no parameters or definitions), and
+`creo.geometry_decoded` (still false).
 
 ## Writing
 
@@ -51,7 +64,8 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 ## Limits
 
 - No independent PSB writer.
-- No native feature or B-rep decoding.
+- Feature identity only: no parameters, sketches, dimensions, or definitions.
+- No native geometry or B-rep decoding.
 - No assembly component resolution.
 - No drawing, format, section, or layout support.
 - No claim of lossless cross-format translation.
@@ -62,9 +76,11 @@ It keeps `vendor_loadable` and `application_usable` false because this path does
 - [Header](../../../src/convert/adapters/creo/Header.py)
 - [Table of contents](../../../src/convert/adapters/creo/Toc.py)
 - [Reader](../../../src/convert/adapters/creo/Reader.py)
+- [Feature records](../../../src/convert/adapters/creo/Records.py)
 - [Writer](../../../src/convert/adapters/creo/Writer.py)
 - [Container findings](../../../re/creo/container/Container.md)
 - [Writer gap](../../../re/creo/open-items/WriterGap.md)
 - [ARM64 startup gotcha](../../Gotchas/Conversion/CreoArmStartup.md)
 - [Legacy ASCII rejection gotcha](../../Gotchas/Conversion/CreoLegacyAsciiRejected.md)
 - [Change entry](../../Changes/Creo/CreoPsbContainer.md)
+- [Feature record change entry](../../Changes/Creo/CreoNeutralFeatureRecords.md)

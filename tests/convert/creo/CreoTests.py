@@ -45,6 +45,34 @@ def BuildSample(KindText: str = "PART", Damaged: bool = False) -> bytes:
     return Header + Banner + TocHead + RowList + Geometry + Thumb
 
 
+def BuildFeatureSample() -> bytes:
+    FirstLine = f"#UGC:2 PART 1 2 3 4 5 6 7 8 00000000 \\".encode("ascii")
+    HeaderBody = b"\n#- CMNM 008Test.prt\n#-END_OF_UGC_HEADER\n"
+    Header = FirstLine + HeaderBody
+    BaseValue = len(Header)
+    Header = Header.replace(b"00000000", f"{BaseValue:08x}".encode("ascii"), 1)
+    Banner = b"#Creo  TM  Version 13.0 (c) 2026 by PTC Inc.\n"
+    TocHead = b"#UGC_TOC 2 2 81 17".ljust(80, b"#")[:80] + b"\n"
+    FeatureBody = (
+        b"\xe3\x07\x00\x00\xe3\xf6\x83\x9b\xe1"
+        + b"\x00" * 8
+        + b"\xe3\x05\x00\x00\xe3\xf6\x83\x9b\xe1"
+        + b"\x00" * 8
+    )
+    Feature = b"#AllFeatur\n" + FeatureBody
+    Thumb = b"#THMB_IMG_MAIN\n\xff\xd8\xff\xd9"
+    BodyStart = BaseValue + len(Banner) + len(TocHead) + 162
+    RowList = TocRow(
+        "AllFeatur", BodyStart - BaseValue, len(Feature), len(FeatureBody)
+    ) + TocRow(
+        "THMB_IMG_MAIN",
+        BodyStart - BaseValue + len(Feature),
+        len(Thumb),
+        4,
+    )
+    return Header + Banner + TocHead + RowList + Feature + Thumb
+
+
 def TestRead() -> None:
     AdapterValue = CreoAdapter()
     DataValue = BuildSample()
@@ -67,6 +95,29 @@ def TestRead() -> None:
     assert DocumentValue.brep_payloads[0].data == b"\xff\xd8\xff\xd9"
     assert DocumentValue.feature_timeline == ()
     assert DocumentValue.bodies == ()
+
+
+def TestFeatureRows() -> None:
+    AdapterValue = CreoAdapter()
+    DocumentValue = AdapterValue.read(BuildFeatureSample())
+    FeatureIds = tuple(
+        FeatureValue.id for FeatureValue in DocumentValue.feature_timeline
+    )
+    assert FeatureIds == ("creo:feature:7", "creo:feature:5")
+    assert tuple(
+        FeatureValue.order for FeatureValue in DocumentValue.feature_timeline
+    ) == (0, 1)
+    FirstValue = DocumentValue.feature_timeline[0]
+    assert FirstValue.name == "Creo datum_plane 7"
+    assert FirstValue.attributes["creo.feature_id"] == 7
+    assert FirstValue.attributes["creo.root_class"] == 923
+    assert FirstValue.attributes["creo.root_class_label"] == "datum_plane"
+    assert FirstValue.provenance is not None
+    assert FirstValue.provenance.spans[0].stream == "AllFeatur"
+    assert DocumentValue.metadata["creo.feature_rows_decoded"] is True
+    assert DocumentValue.metadata["creo.feature_row_count"] == 2
+    assert DocumentValue.metadata["creo.feature_history_decoded"] is False
+    assert DocumentValue.metadata["creo.geometry_decoded"] is False
 
 
 def TestReplay() -> None:

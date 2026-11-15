@@ -23,6 +23,8 @@ from convert.adapters.creo.CreoFormat import CreoFormat
 from convert.adapters.creo.Fingerprint import GetFingerprint
 from convert.adapters.creo.Format import KFormatId
 from convert.adapters.creo.Header import ReadHeader
+from convert.adapters.creo.Records import FeatureSteps
+from convert.adapters.creo.Records import ReadFeatureRows
 from convert.adapters.creo.Toc import CreoEntry
 from convert.adapters.creo.Toc import ReadSection
 from convert.adapters.creo.Toc import ReadToc
@@ -199,13 +201,38 @@ def ReadDocument(
         Diagnostic("creo.section_invalid", Failure, severity=Severity.KWarning)
         for Failure in SectionFailures
     )
+    FeatureRows = ()
+    FeatureRecords = ()
+    FeatureNotes: tuple[Diagnostic, ...] = ()
+    FeatureEntry = next(
+        (
+            EntryValue
+            for EntryValue in TocValue.entries
+            if EntryValue.name == "AllFeatur"
+        ),
+        None,
+    )
+    if FeatureEntry is not None:
+        try:
+            FeatureRows = ReadFeatureRows(ReadSection(DataValue, FeatureEntry))
+        except CreoFormat as ErrorInfo:
+            FeatureNotes = (
+                Diagnostic(
+                    "creo.feature_rows_invalid",
+                    f"The AllFeatur section could not be decoded: {ErrorInfo}",
+                    severity=Severity.KWarning,
+                ),
+            )
+        else:
+            FeatureRecords = FeatureSteps(FeatureRows)
     Diagnostics = (
         *Notes,
         *UnitNotes,
         *SectionNotes,
+        *FeatureNotes,
         Diagnostic(
             "creo.container_only",
-            "The PSB container, section directory, native thumbnail, and source bytes are decoded. Native geometry, sketches, dimensions, and feature records remain encoded, so no neutral feature or body is claimed.",
+            "The PSB container, section directory, native thumbnail, and source bytes are decoded. Feature identity rows are decoded from AllFeatur tag anchors; parameters, sketches, dimensions, and geometry remain encoded, so no neutral body is claimed.",
             severity=Severity.KWarning,
         ),
     )
@@ -215,6 +242,8 @@ def ReadDocument(
             "creo.base": HeaderValue.base,
             "creo.common_name": HeaderValue.common_name,
             "creo.feature_history_decoded": False,
+            "creo.feature_row_count": len(FeatureRows),
+            "creo.feature_rows_decoded": bool(FeatureRows),
             "creo.geometry_decoded": False,
             "creo.header_lines": HeaderValue.header_lines,
             "creo.kind": HeaderValue.kind,
@@ -252,7 +281,7 @@ def ReadDocument(
         support_planes=(),
         sketches=(),
         selections=(),
-        feature_timeline=(),
+        feature_timeline=FeatureRecords,
         bodies=(),
         brep_payloads=Payloads,
         diagnostics=Diagnostics,
