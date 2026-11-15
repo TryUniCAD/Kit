@@ -590,6 +590,24 @@ little-endian integer is `510666948802020` and the big-endian integer is `644457
 neither divided or multiplied by `10^k` for `k` in `1..18` gives `0.2`. The bytes are not packed BCD
 (`e4`, `f5`, `ea`, `d0` are not valid digit pairs).
 
+It is not a fixed point with an integer scale either, at any of the three levels that scale could
+live at. Sweeping a single per-record `k` over `0..60` and both endiannesses, and requiring
+`int / 2^k` to reproduce the record's v7 triple within `1e-6`, gives zero hits for all thirteen
+records that have long fields:
+
+```text
+Light Hard Azure 0   Dark Dull Teal 0   Light Faded Red 0   Light Dull Red 0
+Light Blue Azure 0   Dark Dull Azure 0  Dark Weak Green 0   Obscure Dull Cyan 0
+Obscure Dull Teal 0  Dark Dull Pink 0   Light Hard Blue 0   Medium Faded Blue 0
+Dark Azure Blue 0
+```
+
+A per-field scale is falsified too: for all 60 (payload, value) pairs, `int / value` is never a
+power of two. The three-byte short form is not a power-of-two multiple of its value either
+(`log2(int/value)` is `25.594336`, `24.594338`, `22.415017` and `23.594304` for `0.2`, `0.4`, `0.6`
+and `0.8` little-endian), so the short form is not a fixed point and cannot supply the scale for the
+long form.
+
 The arithmetic that maps a component to its seven-byte payload is not yet decoded.
 
 The four records that decode but disagree with the v7 doubles are consistent with the same reading:
