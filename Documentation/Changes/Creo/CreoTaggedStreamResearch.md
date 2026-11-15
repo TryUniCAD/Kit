@@ -88,6 +88,17 @@ curve prototype (`crv_id = 87`, `type = 34`), and stops at `0x272` in the curve 
 - The parser is research code; it does not change the production adapter, which remains
   container-only.
 
+## Trace mode
+
+`python3 re/creo/tools/TaggedStream.py <section.bin> --trace` prints the last 24 field reads as
+`<offset> field <index> <name> type <type>`. The trace shows that the ladder's `AllFeatur` stops at
+field 88 `owner_ind` (type `0x01`) at `0x1064`, where the byte is `0xe5`. The preceding fields are
+`sorted = 7`, `revnums = 16`, and `owner_type = 0`. The first occurrence of the same fields, in the
+field definitions at `0x1336`, has `sorted = 1`, `revnums = [ref 86, ref 86]`, `owner_type = 4`,
+and `owner_ind = 0`. The second occurrence's `revnums = 16` is a structure pointer, not a scalar,
+so the flat field-index approach misaligns before `owner_ind`. The trace makes that visible without
+guessing.
+
 ## Verification
 
 - The empty control decodes four features and the ladder decodes five.

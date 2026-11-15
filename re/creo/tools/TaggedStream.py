@@ -151,6 +151,7 @@ class Parser:
         self.stack: list[list[int]] = [[]]
         self.feature_start = 0
         self.structure_start: list[int] = []
+        self.trace: list[tuple[int, int, str, int]] = []
 
     def ReadDouble(self, last: bool = False) -> object:
         reader = self.reader
@@ -267,6 +268,7 @@ class Parser:
 
     def ReadField(self, field_def: FieldDef) -> Node:
         reader = self.reader
+        self.trace.append((reader.pos, self.index, field_def.name, field_def.type_id))
         while reader.pos < len(reader.data) and 0xF1 <= reader.data[reader.pos] <= 0xF4:
             close = reader.data[reader.pos] - 0xF0
             reader.pos += 1
@@ -379,5 +381,8 @@ if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[2] == "--features":
         for feature in parser.Features():
             print(feature)
+    elif len(sys.argv) > 2 and sys.argv[2] == "--trace":
+        for position, index, name, type_id in parser.trace[-24:]:
+            print(f"{position:#06x} field {index + 1:3d} {name} type {type_id:#04x}")
     else:
         Dump(nodes)
