@@ -1348,3 +1348,33 @@ def DefaultFeatDefs(
     Payload += StructHeader("feat_defs_949") + b"\xf8\x01\xf7\x02\xfb"
     Payload += FeatDefBlock(FeatureId, DimensionValue)
     return Payload
+
+
+# a solid feature keeps its definition in the class table for its type and stores no coordinates
+def SolidFeatureDefinition(
+    FeatureId: int,
+    DimensionValue: tuple[float, ...] = (100.0,),
+) -> bytes:
+    Element = b"\xe3"
+    Element += b"\xf7\x03"
+    Element += SignedInt(FeatureId)
+    Element += SignedInt(-1)
+    Element += SignedInt(2)
+    Element += b"\xe1"
+    Element += StructHeader("place_rec_ptr") + PlacementRecord()
+    Element += FieldValue(
+        0,
+        "dimtab_ptr",
+        b"\xf8" + CompactInt(len(DimensionValue)) + b"\xf7\x03\xfb",
+    )
+    for Value in DimensionValue:
+        Element += b"\xe2"
+        Element += FieldValue(1, "type", SignedInt(1))
+        Element += FieldValue(2, "value", ScalarValue(Value))
+        Element += FieldValue(1, "direct", SignedInt(-1))
+        Element += FieldValue(2, "aux_value", ScalarValue(Value))
+        Element += FieldValue(1, "ext_id", SignedInt(-1))
+        Element += FieldValue(0, "dispdimattr", SignedInt(0))
+        Element += FieldValue(1, "dimattr", SignedIntArray((0,) * 7))
+        Element += b"\xf2"
+    return Element

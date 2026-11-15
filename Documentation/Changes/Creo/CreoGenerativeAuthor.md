@@ -1043,6 +1043,32 @@ What the row does carry is the constraint solution: `relat_ptr` with `a`/`b`/`c`
 `formula_ptr` with eight indices. A writer can emit the segment fields, but not the points they reference
 without solving those constraints, which is what the sketch solver does.
 
+### A generated class-917 definition loads
+
+The class-917 table addresses its elements as field index `0xC4` (`f4 06 f8 01 f7 80 c4 fb`, one element). Its
+element opens like the `949` element — selector `f7 03`, `id`, `symbol_key`, `model_type`, null
+`group_info_ptr`, `place_rec_ptr` — and then, inside `place_rec_ptr`, carries `place_instruction_ptrs` (one
+element of field `197`: `type`, `offset`, `dim_id`, `ref_id`, `geometry1_id`, `geometry2_id`, `memb_num1`,
+`memb_num2`, `attr[5]`), `plin_info_arr` (element `207`: `type`, `data(plin_info_ref)` with `id_type1`,
+`id_type2`, `offset2`, `uv[2]`, and `data(plin_info_ui_step)` with `step_ids[3]`, `attr`, `ref_ids`, `list_id`,
+`list_type`), then `outline`, `next_outline` and `attributes`.
+
+The placement instructions name other definitions: `geometry1_id` and `geometry2_id` are `66`, the id of the
+`949` element. So the two class tables reference each other.
+
+Replacing the ladder's class-917 element with `Author.SolidFeatureDefinition(74, (100.0,))` — 346 bytes carrying
+the selector, id, null `group_info_ptr`, an identity `place_rec_ptr` and one dimension — **loads twice**, body
+intact:
+
+```text
+class917_element: 108322 bytes; element 346, payload 5977 -> 4234
+readback: 7 features 5 params 1 bodies 18482541.490319017
+!15-Nov-26 07:54:00  End ...  MT Part Solid        (2 of 2)
+```
+
+That is the first generated definition for a solid feature this Creo accepts. Replacing **both** class tables
+(`class917_whole`) is refused twice, which is the same cross-reference seen from the other side.
+
 ### The sketch stores no coordinates, and the definition class must match the feature class
 
 The last shape I said the write side needed was the sketch's point geometry. There is none to decode: enumerating

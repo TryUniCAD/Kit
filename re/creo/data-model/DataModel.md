@@ -308,6 +308,49 @@ from `-201.7190851617055` to `-123.5`, length unchanged, loads twice with the bo
 segment's `verhor` from `1` to `0` likewise loads twice. So the row's *values* are tolerated; what is refused is
 a row whose *structure* differs from what the rest of the model expects.
 
+### The class-917 definition table
+
+`feat_defs_917` declares its elements as field index `0xC4`: `f4 06 f8 01 f7 80 c4 fb`, one element. The element
+opens like the `949` one and then adds the placement-instruction records:
+
+```text
+e3
+  f7 03                       selector to the class table element shape
+  <id> 74
+  <symbol_key> -1
+  <model_type> 2
+  e1                          group_info_ptr null
+  e3                          place_rec_ptr
+    0f 18 e6 ...              local_sys, run-compressed doubles
+    -1  0                     own_ref_id, orient
+    e0 00 place_instruction_ptrs 00 f8 01 f7 80 c5 fb
+      element 197: type, offset, dim_id, ref_id,
+                   geometry1_id 66, geometry2_id 66, memb_num1, memb_num2, attr[5]
+    e0 00 plin_info_arr 00 f8 01 f7 80 cf fb
+      element 207: type, data(plin_info_ref){id_type1, id_type2, offset2, uv[2]},
+                   data(plin_info_ui_step){step_ids[3], attr, ref_ids, list_id, list_type}
+    outline, next_outline, attributes
+```
+
+So a `917` definition's placement points at **other definitions' ids** — `geometry1_id` and `geometry2_id` are
+`66`, which is the id of the `949` element. That is the cross-reference that keeps a row consistent.
+
+**A generated `917` element loads.** Replacing the ladder's class-917 element with
+`Author.SolidFeatureDefinition(74, (100.0,))` — 346 bytes: selector `f7 03`, id, `symbol_key -1`,
+`model_type 2`, a null `group_info_ptr`, a `place_rec_ptr` carrying the identity frame, and one dimension —
+loads twice, with the body intact:
+
+```text
+class917_element: 108322 bytes; element 346, payload 5977 -> 4234
+readback: 7 features 5 params 1 bodies 18482541.490319017
+!15-Nov-26 07:54:00  End ...  MT Part Solid        (2 of 2)
+```
+
+**but generating the whole row is refused.** Replacing both class tables — the `949` element with
+`Author.FeatDefBlock(66, (100.0, 42.5))` and the `917` element with the generated one — is refused twice
+(`class917_whole`, no `End` line). That confirms the cross-reference: the `949` element is load-bearing because
+the `917` element's placement instructions name its id.
+
 ### What the loader does and does not validate
 
 Three in-place edits of the ladder's `FeatDefs` row, each the same length, each launched twice:
