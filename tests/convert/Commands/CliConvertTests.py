@@ -38,7 +38,13 @@ def CheckCliCatalog(TmpPath: FilePath) -> None:
 def CheckCliConvert(TmpPath: FilePath) -> None:
     Source = TmpPath / "source.f3d"
     Original = EmitDocument(
-        DocumentSpec("CLI circle", "radius", 12.0, ProfileKind="circle")
+        DocumentSpec(
+            "CLI rectangle",
+            "length",
+            12.0,
+            ProfileKind="rectangle",
+            ConstrainRectangle=True,
+        )
     )
     _ = Source.write_bytes(Original)
     Target = TmpPath / "decoded.json"

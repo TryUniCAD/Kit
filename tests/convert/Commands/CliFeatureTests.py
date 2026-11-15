@@ -1,6 +1,5 @@
 from json import loads as LoadJson
 from pathlib import Path as FilePath
-from typing import Literal
 
 from pytest import mark as TestMark
 
@@ -61,14 +60,17 @@ def CheckExtraGeom(
     CheckJsonBlock(Document, "IncompleteFeature", HasOutput, TmpPath)
 
 
-# supported sketch documents without local solid geometry must remain convertible
-@TestMark.parametrize("ProfileKind", ("circle", "rectangle"))
+# dimension driven sketch documents must preserve their qualified geometry without local solids
 @TestMark.parametrize("IsNested", (False, True))
-def CheckSketchOnly(
-    ProfileKind: Literal["circle", "rectangle"], IsNested: bool, TmpPath: FilePath
-) -> None:
+def CheckSketchOnly(IsNested: bool, TmpPath: FilePath) -> None:
     Document = MakeFusionDoc(
-        DocumentSpec("Typed sketch", "length", 20.0, ProfileKind=ProfileKind)
+        DocumentSpec(
+            "Typed sketch",
+            "length",
+            20.0,
+            ProfileKind="rectangle",
+            ConstrainRectangle=True,
+        )
     )
     Document.AssertValid()
     if IsNested:

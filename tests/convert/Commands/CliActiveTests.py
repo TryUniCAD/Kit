@@ -35,7 +35,7 @@ def CheckInactive(
     CheckJsonBlock(Document, "IncompleteFeature", HasOutput, TmpPath)
 
 
-# unrelated inactive references and tuple ordering must not invalidate otherwise qualified inputs
+# active references need qualified sketch geometry while supported execution ordering remains stable
 @TestMark.parametrize("RecordKind", ("InactiveReference", "Unordered"))
 @TestMark.parametrize("IsNested", (False, True))
 def CheckActive(RecordKind: str, IsNested: bool, TmpPath: FilePath) -> None:
@@ -44,6 +44,10 @@ def CheckActive(RecordKind: str, IsNested: bool, TmpPath: FilePath) -> None:
     if RecordKind == "InactiveReference":
         assert not Document.bodies and Document.brep is None
         assert any(Feature.suppressed for Feature in Document.feature_timeline)
+        if IsNested:
+            Document = WrapDocument(Document)
+        CheckJsonBlock(Document, "UnqualifiedGeometry", False, TmpPath)
+        return
     else:
         assert Document.feature_timeline[0].order > Document.feature_timeline[-1].order
     if IsNested:
