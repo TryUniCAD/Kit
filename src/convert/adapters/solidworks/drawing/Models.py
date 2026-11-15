@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from convert.adapters.solidworks.drawing.DefinitionStyles import LineStyle
+from convert.adapters.solidworks.drawing.DefinitionUnits import UnitTable
 from interchange import Vector3
 
 
@@ -72,3 +74,5 @@ class DrawingData:
     References: tuple[DrawingRef, ...]
     Notes: tuple[str, ...]
     SourcePath: str
+    Units: tuple[UnitTable, ...] = ()
+    LineStyles: tuple[LineStyle, ...] = ()

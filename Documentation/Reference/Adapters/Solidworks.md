@@ -81,6 +81,9 @@ space. `WriteDrawing(Source, Data)` rewrites the recovered view position and
 scale records in a source container; it does not generate the document-level
 streams or change the view orientation. `DefinitionSheet` and `DefinitionView`
 decode the `moDrSheet` and `moView_c` blocks into typed sheet and view records.
+`DefinitionUnits` and `DefinitionStyles` decode the units and line style blocks
+into typed entries and styles, exposed as `DrawingData.Units` and
+`DrawingData.LineStyles`.
 Projected outlines, hidden-line state, dimensions,
 annotations, and projection direction remain unrecovered, and the module does
 not register a drawing writer. The public `open_document` path still rejects

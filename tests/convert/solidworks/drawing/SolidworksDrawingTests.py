@@ -78,6 +78,38 @@ def TestValues() -> None:
         assert EncodeViewBlock(Records, TailValue) == ViewValue.Values
 
 
+# the public reader must expose the authored units and line styles as values
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestUnits() -> None:
+    DataValue = ReadDrawing(KDrawRoot / "orient-front.SLDDRW")
+    assert len(DataValue.Units) == 16
+    LengthValue = DataValue.Units[0]
+    assert len(LengthValue.Entries) == 2
+    assert LengthValue.Entries[0].Type == 1
+    assert LengthValue.Entries[0].Value == PytestLib.approx(0.1)
+    assert LengthValue.Entries[0].Unit == 4
+    assert LengthValue.Entries[1].Type == 1
+    assert LengthValue.Entries[1].Value == PytestLib.approx(0.7853981633974483)
+    assert LengthValue.Entries[1].Unit == 8
+    assert len(LengthValue.Tail) == 96
+    assert len(DataValue.LineStyles) == 7
+    FirstValue = DataValue.LineStyles[0]
+    assert FirstValue.Name == "CONTINUOUS"
+    assert FirstValue.Description == "Solid"
+    assert len(FirstValue.Values) == 1
+    assert FirstValue.Values[0] == PytestLib.approx(12.0)
+    assert FirstValue.ClassRef is not None
+    LastValue = DataValue.LineStyles[-1]
+    assert LastValue.Name == "CHAIN_THICK"
+    assert LastValue.Description == "Thin/Thick Chain"
+    assert len(LastValue.Values) == 4
+    assert LastValue.Values[0] == PytestLib.approx(1.25)
+    assert LastValue.Values[1] == PytestLib.approx(-0.25)
+    assert LastValue.Values[2] == PytestLib.approx(0.25)
+    assert LastValue.Values[3] == PytestLib.approx(-0.25)
+    assert LastValue.ClassRef is None
+
+
 # sheet geometry and view composition must match what solidworks authored
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestSheet() -> None:

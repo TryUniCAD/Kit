@@ -8,9 +8,13 @@ from convert.adapters.solidworks.container.Container import (
     SldprtFormatError,
 )
 from convert.adapters.solidworks.container.Format import (
+    DEFINITION_STREAM as KDefinitionStream,
     INFORMATION_STREAM as KInfoStream,
     KEYWORDS_STREAM as KKeyStream,
 )
+from convert.adapters.solidworks.drawing.DefinitionObjects import ObjectBlocks
+from convert.adapters.solidworks.drawing.DefinitionStyles import LineStyle, LineStyles
+from convert.adapters.solidworks.drawing.DefinitionUnits import UnitTable, UnitTableAt
 from convert.adapters.solidworks.drawing.Models import (
     DrawingData,
     DrawingRef,
@@ -176,6 +180,25 @@ def OpenArchive(Source: str | FilePath | bytes) -> tuple[SldprtArchive, str]:
     return SldprtArchive.open(PathValue), str(PathValue)
 
 
+def ReadValues(
+    Archive: SldprtArchive,
+) -> tuple[tuple[UnitTable, ...], tuple[LineStyle, ...]]:
+    Definition = Archive.get(KDefinitionStream)
+    if Definition is None:
+        return (), ()
+    Units = tuple(
+        UnitTableAt(Block.Values)
+        for Block in ObjectBlocks(Definition, "moUnitsTable_c", "moUnitComponent_c")
+        if len(Block.Values) >= 4
+    )
+    Styles = tuple(
+        Style
+        for Block in ObjectBlocks(Definition, "moLineStyle_c", "uiLineFontMgr_c")
+        for Style in LineStyles(Block.Values)
+    )
+    return Units, Styles
+
+
 def ReadDrawing(
     Source: str | FilePath | bytes,
     IncludeGeometry: bool = False,
@@ -211,10 +234,13 @@ def ReadDrawing(
         Sheets = EdgeSheets(Sheets, Archive)
     if IncludeSheetEdges:
         Sheets = OrientSheets(Sheets, Archive)
+    Units, Styles = ReadValues(Archive)
     return DrawingData(
         NameValue,
         Sheets,
         ReadReferences(RootValue),
         ReadNotes(RootValue),
         SourcePath,
+        Units,
+        Styles,
     )

@@ -64,8 +64,9 @@ assert EncodeSheet(record) == block.Values
 - the sheet `Count` field is not yet tied to a document-level meaning; it is
   `4`, `7`, `6`, `5`, `5`, `4`, `5`, `4`, and `4` across the tracked drawings
 - the view payload gaps and reserved doubles are preserved but not interpreted
-- the units table and line style blocks are still raw bytes
-- a from-scratch drawing still needs the units table and line style semantics
+- the units table and line style blocks are decoded by
+  [the units and line style entry](SolidworksDrawingUnitsStyles.md); their
+  tails and class references are preserved but not fully interpreted
 
 ## Verification
 
