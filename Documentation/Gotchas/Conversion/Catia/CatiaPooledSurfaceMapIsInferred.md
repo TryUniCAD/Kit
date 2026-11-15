@@ -173,6 +173,17 @@ edge row where the washer has none in that form. Our reader tolerates the differ
 parses what the writer emits, so this is invisible to round trips and visible only against a vendor
 file. Any claim about vendor loadability has to account for it.
 
+## A pooled plane's orientation cannot be recovered from its record alone
+
+`MakePlane` uses the stored trim vector when the face carries one. On a pooled part the inferred map
+can pair a cylinder-kind trim with a plane record, so `VectorValue` is `None` and the fallback
+`BoundsNormal` runs. That fallback returns `+X`, `+Y`, or `-Z` by picking the axis of the smallest
+bounding-box half-extent, so it can only produce an axis-aligned normal. A tilted plane's bounding box
+carries no normal information at all, which is why the pooled plane deviations reach `36` to `96` on
+parts whose exact-map peers sit at `0.0000`. The fix is not in the record: it needs the map to know
+which faces really are planes. Measured, not assumed: `BoundsNormal` output is one of six axis
+vectors for every plane record in the corpus.
+
 ## Workaround
 
 Treat the five pooled parts as approximate. The reader emits

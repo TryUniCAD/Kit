@@ -305,6 +305,10 @@ result = CatiaAdapter().write(
   cone writer round trips now produce nine edges and one ten-coedge seam loop, and both still
   validate with zero errors.
 - The writer does not emit feature history, sketches, dimensions, or constraints.
+- A pooled plane whose trim carries no vector falls back to `BoundsNormal`, which can only return an
+  axis-aligned normal (`+X`, `+Y`, or `+Z`). A tilted plane's bounding box carries no normal
+  information, so the pooled plane deviations of `36` to `96` cannot be reduced from the record
+  alone: it needs the decoded map to know which faces are planes.
 - The writer's `MainDataStream` is not structurally identical to a vendor stream. Comparing the
   writer's box output with `Copper_Washer.CATPart` by marker counts gives: per-face
   `30 04 04 ff ff` blocks `6` in both; `30 04 04 fd ff` blocks `0` written against `3` in every
