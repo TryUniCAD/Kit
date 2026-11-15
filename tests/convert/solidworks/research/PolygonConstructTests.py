@@ -35,7 +35,7 @@ def TestLargeRing(TmpPath: FilePath) -> None:
     assert Report["runtime_reads"] == []
 
 
-def TestExtendedReferences(TmpPath: FilePath) -> None:
+def TestWideRefs(TmpPath: FilePath) -> None:
     Count = 65537
     Outcome = RunPolygon(Directory=TmpPath, Scenario="ring", Count=Count, Depth=0.125)
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr

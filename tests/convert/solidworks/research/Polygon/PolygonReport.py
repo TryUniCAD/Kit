@@ -25,10 +25,4 @@ Report = {
     'module_read_count': len(AuditValue.ModuleReads),
     'vendor_loadable': False, 'application_usable': False,
 }
-
-Report['last_reference_tags'] = [Point['h2']['idx'], Line['fc8_s']]
-Report['last_reference_indices'] = [Second, Start]
-Report['late_reference_tag'] = int.from_bytes(LateBytes[:2], 'little')
-Report['late_reference_bytes'] = len(LateBytes)
-print(DumpJson(Report))
 """

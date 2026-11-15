@@ -6,4 +6,4 @@ In the locked 2026 `sldmodu.dll`, serializer `0x4c583460` labels `+0x34` as `Con
 
 Keep `f38` as the native constructor's line-type choice for this fresh branch. Derive solver state through its actual consumer and setter instead of treating nearby fields as aliases. Sketch `f128` is a separate saved-status field on a different class.
 
-See [the construction evidence](../../../../re/solidworks/records/ProfileConstruction2026.md) and [the locked binary manifest](../../../../re/solidworks/v2026/Manifest2026.json).
+See [the construction evidence](../../../../../re/solidworks/records/ProfileConstruction2026.md) and [the locked binary manifest](../../../../../re/solidworks/v2026/Manifest2026.json).

@@ -4,7 +4,7 @@ from pathlib import Path as FilePath
 from subprocess import CompletedProcess, run as RunProcess
 from sys import executable as PythonExec
 
-from tests.convert.solidworks.research.PolygonProgram import KProgram
+from tests.convert.solidworks.research.Polygon.PolygonProgram import KProgram
 
 KRepoRoot = FilePath(__file__).resolve().parents[4]
 

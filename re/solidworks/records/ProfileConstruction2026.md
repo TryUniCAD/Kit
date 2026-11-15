@@ -57,6 +57,40 @@ Array counts read the active collection rather than a separate copied count or a
 The sketch is unconstrained because this input contract contains vertices and no authored sketch dimensions or relations
 This does not claim support for a neutral sketch that contains additional authored dimensions or constraints
 
+## Runtime schema audit
+
+The initial complete-file rejection exposed an unrelated class whose runtime schema is zero, so a generic schema-one assumption is unsafe
+This audit reads each named `CRuntimeClass` record from the locked DLL, checks its class-name pointer, and reads `m_wSchema` at record `+0xc` and factory pointer at `+0x10`
+Every header-emitting type constructed by the current sketch/extrusion path has the existing wire schema one
+The raw versionable runtime value is `0x80000001` for the listed model-DLL types and `1` for `suObList`
+These are per-class native metadata rules, not values fitted to a saved file
+
+| Class | DLL | Runtime-class record | Raw schema | Current archive role |
+| --- | --- | --- | --- | --- |
+| `sgSketch` | `sldmodu` | `0x4dafc108` | `0x80000001` | Header schema one |
+| `sgPoint` | `sldmodu` | `0x4dafac08` | `0x80000001` | Embedded point fields in this path |
+| `sgLine` | `sldmodu` | `0x4dafbe68` | `0x80000001` | Embedded line fields in this path |
+| `sgPointHandle` | `sldmodu` | `0x4dafadb8` | `0x80000001` | Header schema one |
+| `sgLineHandle` | `sldmodu` | `0x4dafc048` | `0x80000001` | Header schema one |
+| `sgLogG1Dim` | `sldmodu` | `0x4d1c6c58` | `0xffff` | Embedded constraint fields only; no factory or class header |
+| `suObList` | `sldmfcu` | `0x3ce6f5d0` | `1` | Header schema one |
+| `moProfileFeature_c` | `sldmodu` | `0x4dad90f0` | `0x80000001` | Allocated input node, header schema one |
+| `moOriginProfileFeature_c` | `sldmodu` | `0x4dad9210` | `0x80000001` | Allocated input node, header schema one |
+| `moFavoriteHandle_c` | `sldmodu` | `0x4dad8c10` | `0x80000001` | Header schema one |
+| `moLengthParameter_c` | `sldmodu` | `0x4daefb70` | `0x80000001` | Header schema one |
+| `moAngleParameter_c` | `sldmodu` | `0x4daefba0` | `0x80000001` | Header schema one |
+| `ParallelPlaneDistanceDim_c` | `sldmodu` | `0x4db03cd8` | `0x80000001` | Header schema one |
+| `AngleDim_c` | `sldmodu` | `0x4db03dc8` | `0x80000001` | Header schema one |
+| `moFeatureDimHandle_c` | `sldmodu` | `0x4db03f48` | `0x80000001` | Header schema one |
+| `moDisplayDistanceDim_c` | `sldmodu` | `0x4db03768` | `0x80000001` | Header schema one |
+| `moDisplayAngularDim_c` | `sldmodu` | `0x4db03828` | `0x80000001` | Header schema one |
+| `moEndSpec_c` | `sldmodu` | `0x4dad9180` | `0x80000001` | Header schema one |
+| `moFromEndSpec_c` | `sldmodu` | `0x4dad9150` | `0x80000001` | Header schema one |
+
+The same records give native object sizes `0x158` for `sgPoint` and `0xf0` for `sgLine`
+Those sizes matter when an observation hook resolves an entity from its native array and index
+They do not change the serialized record lengths, which remain schema- and field-dependent
+
 ## Blind end-spec construction
 
 | Subject | Rule | Evidence and confidence |
@@ -244,13 +278,13 @@ No local tests, imports, reproductions, or oracle calls were run
 The edited Python sources passed static AST syntax parsing without importing or executing them
 Process-boundary regression coverage executes remotely with the assembled builder
 `PolygonProcess.py` now constructs fresh profiles and dimensional graphs in an isolated subprocess, writes their binary object archives into a container, decodes them, verifies byte identity and reference identity, then edits and re-encodes the live forward parameter
-Its generated startup, input, construction, codec, reference, edit and report stages reside in separate focused modules; `PolygonProgram.py` composes their exact declarations
+Its generated startup, input, construction, codec, reference, edit and report stages reside in focused modules under `tests/convert/solidworks/research/Polygon/`; `PolygonProgram.py` composes their exact declarations
 The sketch component explicitly seeds its external profile owner in the archive map; it is not a complete part or a vendor-loadability check
 Its cases cover variable N, a 10,000-line ring, crossings, touches, vertical overlap, adjacent backtracking and valid collinear edges
 An additional 65,537-line case crosses the native handle threshold `0x777f` and endpoint threshold `0xffff`
 The component archive also stores a later reference to the actual final adjacency handle and requires that decoding retain the same handle identity
 For that large case it checks the native `0x7fff` large-map tag and six-byte reference width, in addition to full archive byte identity
-This new width-boundary case has not been executed locally and requires remote CI evidence
+This width-boundary case was not executed locally
 It checks actual decoded dimension IDs and leaves parameter node IDs at their constructor value `-1`
 The shared `BuildAudit` hook starts before builder/schema imports, permits actual import-loader code access and the bounded source-package/schema discovery needed during startup, then rejects runtime file access and child-process launches during construction
 
@@ -258,7 +292,10 @@ For PR head `4cb6785739079d6ebe1b745a21a8e63e49862b2d`, [native CI job 132714706
 The same job passed `FreshPartTests.py`, `LockedPartTests.py` and `ModelBuilderProcessTests.py`
 It reported 138 passes and 158 skips in 40.09 seconds, after the shared model codec initialization repair
 Its tested PR merge snapshot was `0d3d057f4eab945d708e12dbda3cfb0fadb9485d`
-The origin-node lifecycle mask was included; the later 65,537-line case and focused-module layout still require remote execution
+The origin-node lifecycle mask was included
+At subsequent head `22a78891631498e176274289b2cafb00abc6b764`, [native job 132723081423](https://github.com/TryUniCAD/Kit/actions/runs/43684854129/job/132723081423) passed all six polygon cases, including the 65,537-line case, and reported 139 passes, 158 skips and one separate assembly-round-trip failure in 94.87 seconds
+Its assembly failure was `bad class ref 32512 at 297` for the A0/A1 assembly CMgr and linked streams
+The later naming and focused-directory repairs require current-head remote CI
 These process results establish container/archive construction and decoding, not native application acceptance, rebuild correctness or body measurements
 
 The first complete generated H3 candidate from parent revision `8e44d0eb5` was rejected during clean native opening
@@ -270,4 +307,12 @@ Native fault-boundary recovery remains required before any generated-output acce
 It does not exempt arbitrary reads by filename suffix
 The sketch-info component test selects `ctx874=1`, so its external profile-owner reference is actually present in the encoded grammar and its identity assertion remains meaningful
 This coverage has only been syntax-checked locally and is pending its remote execution
+The oracle owner's subsequent `candidate-H3-first.json`, SHA-256 `31ba472a3c00d8539f85a805bdf5c088df8c4f7aafbc148831d81fe677d6b625`, records six native exceptions and no events from the configured feature-constructor or sketch-serializer hooks
+The owner-taking feature constructor `0x4bb38350` and the separate default constructor `0x4bb38710` are distinct observation boundaries; absence of one hook does not exclude every feature factory
+No invocation of the hooked sketch serializer was observed, so that capture does not isolate the owned profile-load rules or establish whether their generated state is correct
+The later native schema probe `candidate-H3-schema.json`, SHA-256 `78c581343341446555c9c02da5872ca3c6a08c665dcd9dc3eae2c9001f43e4dc`, identifies the first rejection at `uoJournal_c`: the runtime schema is zero while the candidate emitted one
+The probe accepted the preceding History, Biography, ISO and line-font manager schema-one records
+The shared definition repair uses exported native runtime-class metadata at `slduiu!0x4aef6660+0xc`, independently proving schema zero
+This isolates the first observed schema mismatch; it does not establish that later generated graph state is accepted
+The later naming and focused-directory repairs remain pending remote execution
 The success criteria remain unsatisfied until held-out generated files pass target opening, rebuild, geometry measurements, feature-tree inspection, and dimension editing between healthy controls
