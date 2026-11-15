@@ -281,6 +281,42 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## The differential has one shared name, and its two values are not the same quantity
+
+Comparing the two files by attribute name gives exactly one name present in both object regions:
+
+```text
+name                 legacy bytes after it        modern bytes after it
+first_record_area    cf 00 00 00 (u32, 207)       80 cf 1c
+```
+
+the other five names sampled (`m_calculatorRegisterValues`, `m_nextInstance`,
+`m_savedAdvancedDisplayFacets`, `m_saveDisplayFacets`, `m_cachedBodyBoxC`) exist only in the migrated
+part, because they belong to classes the legacy file does not carry.
+
+The modern field widths, read by taking the bytes between a name and the next record's length byte,
+are not constant:
+
+```text
+first_record_area              80 cf 1c            3 bytes
+m_calculatorRegisterValues     84 81 80 92         4
+m_nextInstance                 83 ef 80 92         4
+m_savedAdvancedDisplayFacets   83 f1 80 92         4
+m_saveDisplayFacets            83 ee 15            3
+m_optTargetMatrix              83 ee 07            3
+m_displayMarker                83 87 7f            3
+m_userAttributeList            80 d0 02 02 04 06 02  7
+```
+
+so the width is not a function of the name, and the leading byte is always in `0x80` to `0x84`. The
+single shared pair cannot settle the encoding either, because the two values are not the same
+quantity: the legacy field is the attribute's id in that file (207), while the modern field is
+whatever the migrated part assigns, and nothing in the two files ties them together.
+
+That is the limit of the differential: one shared name, two different quantities, and a width that
+varies per record. Deriving the width rule needs the attribute's declared type from the schema, which
+is the next test rather than something this comparison can supply.
+
 ## The modern middle is a name and binary field stream, not a record list
 
 The migrated part's section 0 middle begins with attribute names separated by short binary fields:
