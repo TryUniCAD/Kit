@@ -53,9 +53,32 @@ Each was measured against the retained controls. None was adopted.
 | Treat `e2` as an array row separator and continue the array | `AllFeatur` ladder stops at `0x1d66`, `FeatDefs` at `0x4ba`, `BasicData` at `0xc6` (6 nodes) |
 | Treat every `e3` as a close with a level stack | `AllFeatur` stops at `0x688`/`0x7c5`, `FeatDefsDtm` ladder at `0x691`, `VisibGeom` at `0x23c`, `BasicData` at `0x53` |
 | On a bare `e3` at a new type-0 sibling, reset to the enclosing array class | `AllFeatur` ladder stops at `0x100d`, `FeatDefs` at `0x7f5`, `VisibGeom` at `0x2f7` (97 nodes), `BasicData` empty at `0x1cfd` |
+| Reset to the record start when a bare `e3` is followed by a compact-int byte | `VisibGeom` completes (553 nodes), but `AllFeatur` stops at `0x698`/`0x8ee`; a normal struct begin followed by `0x00` is indistinguishable |
+| Reset when the next type-0 field is defined later than the current offset | `AllFeatur` stops at `0x1d8`/`0x1da` (30 nodes); forward definitions are common, so the test fires inside ordinary records |
 
 The baseline parser keeps `AllFeatur`, `FeatDefsDtm`, `NovisGeom`, `BasicData`, and
 `SolidPrimdata` complete on both controls, so none of these rules is a safe default.
+
+## Confirmation from the open-source parser
+
+Cadmpeg's Rust codec settles the intent. In
+`crates/cadmpeg-codec-creo/src/psb.rs`, `COMPOUND_CLOSE` is `0xe3` and `COMPOUND_OPEN` is `0xe2`.
+In `crates/cadmpeg-codec-creo/src/feature/rows.rs`, `row_spans` treats a row as starting at offset
+zero, at the section header, or at any offset whose preceding byte is `COMPOUND_CLOSE`:
+
+```rust
+let starts_at_row_boundary = offset == 0
+    || section_header_end == Some(offset)
+    || (offset > 0 && payload[offset - 1] == psb::token::COMPOUND_CLOSE);
+```
+
+It also finds `e3 f6` inside the first 16 bytes of a row, reads the compact schema class after it,
+and requires `e1` before accepting the class. Rows are then span-partitioned and decoded
+independently. There is no global advancing field index across rows.
+
+So the format is record scoped: `e3` terminates a row, and a row is decoded from its own span.
+Our parser's global index is the mismatch. A faithful rewrite must split into `e3`-bounded spans,
+then decode each span with its own schema rather than inheriting the previous row's cursor.
 
 ## Correct direction
 

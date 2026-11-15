@@ -261,6 +261,12 @@ needs level tracking with per-level schema extents, not a single advancing index
 are recorded in
 [the compound-boundary gotcha](../../../Documentation/Gotchas/Conversion/CreoTaggedCompoundBoundary.md).
 
+Cadmpeg's Rust codec confirms the row model. `psb.rs` defines `COMPOUND_CLOSE = 0xe3`, and
+`feature/rows.rs` starts a row at offset zero, at the section header, or immediately after a
+`COMPOUND_CLOSE`; each row is span-partitioned and decoded independently with `e3 f6 <class> e1`
+carrying the root schema class. There is no shared cursor across rows. The research parser's
+global index is therefore the wrong model, and the rewrite must be span based.
+
 ### Datum placement records
 
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) decodes the datum placement records. The first record is the
