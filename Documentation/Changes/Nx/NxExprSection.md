@@ -289,8 +289,11 @@ dim40.prt           24    0x13         19    0x04                4
 var_two.prt         42    0x25         37    0x07                7
 ```
 
-So `02 02 02 02 02 02 02`, then `objects - 5`, then `ceil(objects / 6)`, then six `01`
-bytes, then the four byte version pointer. Both counts follow from the object count, which
+So `02 02 02 02 02 02 02`, then `objects - 5`, then `ceil(objects / 6)`, then a short run
+of `01` bytes, then the four byte version pointer. The run is **not** a constant: `empty`
+has four, while `dim40` and `empty_expr` have seven, so the tail of the preamble still
+carries something not yet identified and a composer cannot emit it from the object count
+alone. Both counts follow from the object count, which
 `ExprObjectCount` already gives, so the preamble is generated rather than carried.
 
 ## The writer-chosen layout

@@ -24,6 +24,15 @@ KGroup = b"\x02\x02\x01\x02\x41\x00\x04\x0fDefault Group\x00"
 KRecord = b"\x02\x02\x04\x0fDefault Group\x00\x00\x3f\x00\x00"
 
 
+# the order array only has to contain each id once so the writer emits one to N
+def ExprOrder(Objects: int) -> bytes:
+    if Objects < 1:
+        raise ValueError("NX expression order needs at least one object")
+    return Objects.to_bytes(4, "little") + b"".join(
+        Index.to_bytes(4, "little") for Index in range(1, Objects + 1)
+    )
+
+
 # the version block names the modeller and the system user that saved the part
 def VersionBlock() -> bytes:
     return (
@@ -172,6 +181,7 @@ def Adopt(SectionBody: bytes, Middle: bytes) -> bytes:
 __all__ = [
     "Adopt",
     "ExprLayout",
+    "ExprOrder",
     "ExprObjectCount",
     "PlainSlotCount",
     "ValueSlotCount",
