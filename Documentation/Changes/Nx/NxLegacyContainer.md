@@ -281,6 +281,28 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## The object data is a byte-packed id stream, not entries or length-prefixed records
+
+Walking the bytes after the third typed entry (0x19df in section 1) rules out both candidate
+grammars immediately:
+
+```text
+16-byte typed entry at 0x19df   id 196610  type 0xffff  flags 0xffff   BREAK
+length-prefixed record at 0x19df  length 196610, past the section end   BREAK
+```
+
+What is there instead is a byte-packed sequence of small integers separated by variable-length
+`ff` padding. The first 0x200 bytes yield
+
+```text
+2 3 4 5 6 7 8 9 10 18 26 31 32 33
+```
+
+and the region as a whole is 4.1 percent `ff` (2031 of 49105 bytes) in 567 alternating runs, so the
+padding is not a fixed-size slot table either. The values are all below the 98-class count, which
+makes them candidate class or object indices, but they are below the per-class code range (37 to 97)
+recorded earlier, so they are not those codes.
+
 ## The header is 15 bytes followed by exactly three typed entries
 
 Parsing the bytes after `kokr` as `<u32 id> <u16 type> <u16 flags> <u32 v1> <u32 v2>` entries of 16
