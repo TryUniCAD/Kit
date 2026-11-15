@@ -45,10 +45,24 @@ and the file comes solely from the emitters in `Author.py`.
 The retained ladder control still reads `volume=18482541.490319017`,
 `centroid=(15.038745265314674, -135.165, 14.792732911858081)`, `valid=True`.
 
+Creo 2027.2 in Parallels was launched on the authored file with `-g:no_graphics`. The trail file
+records that it was rejected:
+
+```text
+!15-Nov-26 00:44:09  Start C:\Mac\Home\Documents\creo-authored\box.prt
+!%CE00:44:09 The file C:\Mac\Home\Documents\creo-authored\box.prt is not a valid PART file.
+!%CE00:44:09 'C:\Mac\Home\Documents\creo-authored\box.prt' cannot be retrieved.
+```
+
+So the authored bytes round-trip through this reader but are **not** vendor-loadable. No Creo body
+count, volume, or centre of mass exists for authored output.
+
 ## Limits
 
-- The authored part contains only `AllFeatur` and `VisibGeom`. It is not yet shown to open in Creo,
-  and it has no `FeatDefs`, `BasicData`, or other sections the vendor may require.
+- The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
+  file", so the header, table-of-contents fields, section set, or section bodies are still
+  incomplete for the vendor. It has no `FeatDefs`, `BasicData`, or other sections a vendor part
+  normally carries.
 - Authored geometry has no curves, so shell closure is not proven and `solid_count` stays zero.
   Volume comes from the six plane half-spaces.
 - No Creo-measured acceptance exists for authored output.
