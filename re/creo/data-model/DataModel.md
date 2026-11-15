@@ -331,6 +331,33 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
+### Which of the eleven rows accept a minimal record
+
+Each variant keeps the `42` generated rows and replaces one vendor row with a minimal root record, launched once:
+
+| Row | Minimal root emitted | Creo |
+| --- | --- | --- |
+| `SolidPersistTable` | `pgl_persist_table` + `e3 e2` | **clean** |
+| `SolidPrimdata` | `pgl_primdata_group_table` + `e3 e2` | **clean** |
+| `ND:0:Model_L05_PX:1` | `PSB_Tokens` + `e3 e2` | `dbg_err_crash`, then `End` |
+| `ND:0:UnitSystemDef_L03:1` | `PSB_Tokens` + `e3 e2` | `dbg_err_crash`, then `End` |
+| `ND:0:PDMTrail_L03:1` | `PSB_Tokens` + `e3 e2` | `dbg_err_crash`, then `End` |
+
+So the two display-persistence tables are satisfied by an empty root record, and the three `PSB_Tokens` tables are
+not: they carry real content, and it is content about the unit system, the model and the PDM trailer — not about
+the solid.
+
+Both accepted shapes are now emitted by `Author.DefaultPersistTable` and `Author.DefaultPrimdataTable` and folded
+into `EmptyPartSections`, so the generative writer produces `44` of the `53` rows. That set loads cleanly:
+
+```text
+gen_rows3: 28364 bytes, 44 generated rows
+!15-Nov-26 08:53:30  End ...  MT Part Solid        (2 of 2, no dbg_err_crash)
+```
+
+The nine rows still vendor-sourced are the three `PSB_Tokens` tables, `DispDataTable`, `THMB_IMG_MAIN`,
+`CGFPersistTable`, `IndentTag`, `FeatRefData` and the two free-space extents.
+
 ### The ORDER_DEBUG crashes were a duplicated section header
 
 Comparing an empty `VisibGeom` against the control's showed the section builders return a **complete section**,

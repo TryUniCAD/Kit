@@ -1056,6 +1056,29 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
+### Two of the eleven rows accept an empty root record
+
+Replacing one vendor row at a time with a minimal root record, keeping the `42` generated rows:
+
+| Row | Minimal root | Creo |
+| --- | --- | --- |
+| `SolidPersistTable` | `pgl_persist_table` + `e3 e2` | **clean** |
+| `SolidPrimdata` | `pgl_primdata_group_table` + `e3 e2` | **clean** |
+| `ND:0:Model_L05_PX:1` | `PSB_Tokens` + `e3 e2` | `dbg_err_crash`, then `End` |
+| `ND:0:UnitSystemDef_L03:1` | `PSB_Tokens` + `e3 e2` | `dbg_err_crash`, then `End` |
+| `ND:0:PDMTrail_L03:1` | `PSB_Tokens` + `e3 e2` | `dbg_err_crash`, then `End` |
+
+The two display-persistence tables are satisfied by an empty root; the three `PSB_Tokens` tables are not — they
+carry unit-system, model and PDM-trailer content rather than solid content.
+
+Both accepted shapes are emitted by `Author.DefaultPersistTable` and `Author.DefaultPrimdataTable` and folded into
+`EmptyPartSections`, so the writer now generates `44` of the `53` rows, and that set loads cleanly:
+
+```text
+gen_rows3: 28364 bytes, 44 generated rows
+!15-Nov-26 08:53:30  End ...  MT Part Solid        (2 of 2, no dbg_err_crash)
+```
+
 ### The `ORDER_DEBUG` crashes were a duplicated section header
 
 The section builders return a complete section, header included, and `BuildContainer` writes `#<name>\n` itself,

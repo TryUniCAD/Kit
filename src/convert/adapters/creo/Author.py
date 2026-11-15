@@ -138,6 +138,16 @@ def StripSectionHeader(NameText: str, Value: bytes) -> bytes:
     return Value[len(Line) :] if Value.startswith(Line) else Value
 
 
+# these two persistence tables are accepted with an empty root record
+def DefaultPersistTable() -> bytes:
+    return StructHeader("pgl_persist_table") + b"\xe3\xe2"
+
+
+# the primdata group table keeps the same minimal shape
+def DefaultPrimdataTable() -> bytes:
+    return StructHeader("pgl_primdata_group_table") + b"\xe3\xe2"
+
+
 # the feature chain is the minimum a part must declare
 def AuthorFeaturePayload(Features: tuple[tuple[int, int], ...]) -> bytes:
     Payload = StructHeader("Sld_Features") + b"\xe3"
@@ -495,6 +505,10 @@ def EmptyPartSections(FeatureClasses: tuple[int, ...]) -> dict[str, bytes]:
     Bodies["BasBasData"] = DefaultBasBasData()
     Bodies["FeatDefsDtm"] = DefaultFeatDefsDtm(254.33012701892218)
     Bodies["AllFeatur"] = DefaultAllFeatur()
+    Bodies["SolidPersistTable"] = SectionValue(
+        "SolidPersistTable", DefaultPersistTable()
+    )
+    Bodies["SolidPrimdata"] = SectionValue("SolidPrimdata", DefaultPrimdataTable())
     return Bodies
 
 
