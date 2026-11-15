@@ -40,17 +40,25 @@ from the model. Fusion 2706.1.17 opened it in 4.7 s and reported `841.0 x 594.0`
 
 ## Authoring gate
 
-`BuildBundle` now refuses a drawing whose database carries Kit's own product entry in its `AppInfo`.
+`EmitDrawing` now refuses a drawing whose database carries Kit's own product entry in its `AppInfo`.
 That entry is what `AuthorDwg` writes, and a database Kit authored cannot be made loadable because the
 header tail is a placeholder.
 
 ```
-BuildBundle(MakeSpec(), BuildDrawing(MakeSpec(), authored_database), design)
-ValueError: Authored drawing databases cannot be made loadable, so the bundle is refused
+EmitDrawing(BuildDrawing(MakeSpec(), authored_database))
+ValueError: Authored drawing databases cannot be made loadable, so the drawing is refused
 ```
 
-The gate is on the bundle, not on `AuthorDwg`, so a caller can still build and inspect an authored
-drawing. What it cannot do is package one as a bundle that Fusion would reject.
+The gate is at emission, so every path that writes a drawing is covered, including a bundle.
+`BuildBundle` still builds the model, so a caller can inspect an authored drawing; it cannot emit one.
+
+The match is the product entry, `name ="Kit"`, not any text that contains `Kit`, so a Fusion database
+whose metadata mentions Kit elsewhere still emits.
+
+| Corpus                                   | Emitted | Refused |
+| ---------------------------------------- | ------- | ------- |
+| Fusion-saved drawings, product `Fusion Drawings` | 192 | 0 |
+| Research variants carrying Kit's product entry | 0 | 56 |
 
 ## Behavior
 

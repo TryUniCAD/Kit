@@ -38,6 +38,7 @@ def EmitDrawing(
         raise ValueError("Expected a typed Fusion drawing")
     CheckJoins(Value.Root, Value.Asset, Value.Database)
     CheckDatabase(Value.Segments, Value.Database)
+    CheckLoadable(Value)
     Payloads = DrawingPayloads(Value)
     Entries: list[PackageEntry] = []
     for SlotValue in Value.Layout:
@@ -51,6 +52,19 @@ def EmitDrawing(
     if Payloads:
         raise ValueError("Fusion drawing layout omits typed members")
     return EmitPackage(DrawingPackage(tuple(Entries)), CompressZstd)
+
+
+# the authored database gate needs one place so no emitter packages a drawing fusion rejects
+def CheckLoadable(Value: FusionDrawing) -> None:
+    Database = Value.Database
+    if Database is None or Database.Model.AppInfo is None:
+        return
+    if any(
+        'name ="Kit"' in Entry.TextValue for Entry in Database.Model.AppInfo.AppEntries
+    ):
+        raise ValueError(
+            "Authored drawing databases cannot be made loadable, so the drawing is refused"
+        )
 
 
 # drawing payloads needs an explicit validity boundary so drawing members retain their sheet and model associations

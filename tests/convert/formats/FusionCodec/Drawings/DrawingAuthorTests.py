@@ -4,6 +4,7 @@ from pytest import raises as ExpectError
 
 from convert.formats.Fusion.DrawingCodec.Author.BuildBundle import BuildBundle
 from convert.formats.Fusion.DrawingCodec.Author.BuildDrawing import BuildDrawing
+from convert.formats.Fusion.DrawingCodec.Bundle.EmitDrawBundle import EmitDrawBundle
 from convert.formats.Fusion.DrawingCodec.Author.MakeIdentity import MakeIdentity
 from convert.formats.Fusion.DrawingCodec.Author.Model.DesignTarget import DesignTarget
 from convert.formats.Fusion.DrawingCodec.Author.Model.DrawingSpec import DrawingSpec
@@ -71,8 +72,9 @@ def TestNewBundle() -> None:
     )
     assert Drawing.Database is not None
     assert Drawing.Database.Content == Content
+    Bundle = BuildBundle(SpecValue, Drawing, KDesignData)
     with ExpectError(ValueError, match="cannot be made loadable"):
-        _ = BuildBundle(SpecValue, Drawing, KDesignData)
+        _ = EmitDrawBundle(Bundle)
 
 
 # the specification rejects contract needs boundary coverage so stored document relationships remain consistent

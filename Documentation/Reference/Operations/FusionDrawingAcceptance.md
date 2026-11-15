@@ -126,13 +126,13 @@ Three limits were raised against this record and are accepted as limits, not fix
 | ----- | ------ |
 | Opaque class tails | The DWG projection keeps common-only objects with opaque class tails, so the model is typed where Kit knows the class and opaque where it does not. C3 covers the typed portion. |
 | Nonparametric drawings | A drawing has no feature tree, so `EmitDrawing` emits a drawing that is not parametric. C4 is not met for drawings, and the writer does not refuse them. |
-| Authoring gate | Resolved: `BuildBundle` refuses a database that carries Kit's own product entry, so the authoring path no longer packages a drawing Fusion rejects. |
+| Authoring gate | Resolved: `EmitDrawing` refuses a database whose product entry names Kit, so no path emits a drawing Fusion rejects. |
 
 The third limit is resolved. The criteria say a writer that cannot make a field from format knowledge
 must refuse the input, and `BuildBundle` now refuses an authored database:
 
 ```
-ValueError: Authored drawing databases cannot be made loadable, so the bundle is refused
+ValueError: Authored drawing databases cannot be made loadable, so the drawing is refused
 ```
 
 C9 is therefore incomplete but honest: Kit refuses rather than emitting a file Fusion rejects.
