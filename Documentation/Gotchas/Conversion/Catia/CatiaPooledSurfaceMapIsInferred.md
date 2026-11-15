@@ -27,9 +27,21 @@ A plain index table is ruled out: every stream of `Reservoir` was scanned for a 
 pool, and no such run exists, so the reference is not an array of surface indices. A permutation
 table is ruled out too: every exact part was scanned for a run of `n` 8-, 16-, or 32-bit
 little-endian values that is a permutation of `0..n-1` (the shape the identity map would take), and
-only the two six-face washers hit, at a relative offset of `-245`, which is a vertex-index run. The
-reference must be per-edge, through the edge's PCurve, or carried by the tag-difference reference
-encoding like the object references in the OSMX graph.
+only the two six-face washers hit, at a relative offset of `-245`, which is a vertex-index run. A
+table of `SurfacicReps` record offsets is ruled out as well: the first surface record starts at
+offset `17`, and no stream contains that value followed by the offsets of the next records.
+
+The per-face record cannot carry the choice either. `30 04 04 ff ff` appears exactly `FaceCount`
+times in every part and is followed by the same three bytes `e1 e1 e1` in every one of the 71
+`Reservoir` faces. A constant payload cannot encode a 56-way choice, so the surface is not named
+there. The only per-face-looking record left is `30 04 04 fd ff`, which appears exactly three times
+in every part regardless of face count.
+
+A contiguous tag array is ruled out for the same reason the index table is: no offset in
+`MainDataStream` decodes, through `TagDifference.ReadTags`, to `0..n-1` for `n = 6`, `12`, `56`, or
+`71`. The linked-object list is therefore per object, with one surface entry, and recovering it needs
+the object header offset that `CATCXFace::UnStream` consumes — the one piece the disassembly has not
+yet yielded.
 
 `RefineMap` sharpens the inferred map without changing its status. It places the handles without the
 tessellation snap, then re-picks each plane face's pooled plane by the summed distance of the face's

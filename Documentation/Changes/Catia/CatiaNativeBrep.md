@@ -136,6 +136,15 @@ surface is named by the edge's `CATPCurveEquation`, whose Stream (`0x1800bf2b0` 
 `SurfacicReps`: a scan for four doubles followed by a function domain byte and type gives no hits,
 and the concrete function class is caller-supplied, so the record has no fixed signature.
 
+Four more negative results narrow the reference. A `SurfacicReps` offset table does not exist: the
+first surface record starts at offset `17` and no stream continues that value with the next record
+offsets. The per-face `30 04 04 ff ff` record cannot carry the choice, because it appears exactly
+`FaceCount` times and its three-byte payload is constant (`e1 e1 e1`) in all 71 `Reservoir` faces, so
+it cannot encode a 56-way selection. The other per-face-looking record, `30 04 04 fd ff`, appears
+exactly three times in every part regardless of face count. And no offset in `MainDataStream`
+decodes through `TagDifference.ReadTags` to `0..n-1` for `n = 6`, `12`, `56`, or `71`, so the
+linked-object list is per object with one surface entry rather than a body-wide array.
+
 The reference encoding is now recovered from the binaries, though the header offset is not. A face
 takes its surface from the first entry of the linked-object list that the generic object header
 passes in, and `CATCXFace::UnStream` then calls `SkipRemainingLinkedObjectsToRead`. The list is read
