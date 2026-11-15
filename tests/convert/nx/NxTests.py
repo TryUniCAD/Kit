@@ -35,6 +35,11 @@ from convert.adapters.nx.ExprSection import (
     KMiddleLength as KExprMiddle,
 )
 from convert.adapters.nx.ClassEntry import ClassLink, EntryParts, NameDigest
+from convert.adapters.nx.LegacyClasses import (
+    ClassTableEnd,
+    LegacyTable,
+    ReadFrame,
+)
 from convert.adapters.nx.ObjectSection import (
     AttributeRecord,
     CarryId,
@@ -1156,3 +1161,44 @@ def TestNxClassLink() -> None:
     except ValueError:
         return
     raise AssertionError("name digest accepted an empty chain")
+
+
+# a legacy payload carries type six frames of schema class and value
+def TestNxLegacy() -> None:
+    def Frame(
+        SchemaText: str, SchemaFlag: int, ClassName: str, ClassValue: int
+    ) -> bytes:
+        return (
+            b"\x06"
+            + len(SchemaText).to_bytes(2, "little")
+            + SchemaText.encode("ascii")
+            + SchemaFlag.to_bytes(4, "little")
+            + len(ClassName).to_bytes(2, "little")
+            + ClassName.encode("ascii")
+            + ClassValue.to_bytes(4, "little")
+        )
+
+    PayloadBytes = (
+        b"\x00\x10padding" * 3
+        + Frame("UGS::OM::Meta", 1, "UGS::OM::RootObject", 55)
+        + Frame("RM", 40, "UGS::RM_part", 100)
+        + b"\x00tail"
+    )
+    Records = LegacyTable(PayloadBytes)
+    assert len(Records) == 2
+    assert Records[0].Schema == "UGS::OM::Meta"
+    assert Records[0].SchemaFlag == 1
+    assert Records[0].Name == "UGS::OM::RootObject"
+    assert Records[0].Value == 55
+    assert Records[1].Schema == "RM"
+    assert Records[1].Value == 100
+    Start = PayloadBytes.find(b"\x06")
+    assert ClassTableEnd(PayloadBytes, Records) == Start + len(
+        Frame("UGS::OM::Meta", 1, "UGS::OM::RootObject", 55)
+    ) + len(Frame("RM", 40, "UGS::RM_part", 100))
+    assert ReadFrame(PayloadBytes, len(PayloadBytes) - 1) is None
+    try:
+        _ = LegacyTable(b"no classes here")
+    except ValueError:
+        return
+    raise AssertionError("legacy parser accepted a payload without a class table")

@@ -119,6 +119,27 @@ five-entry experiment that isolates it.
 What remains for a from-scratch part is the `UGII` payload itself, not the container and not the
 class table.
 
+## The class table is readable in Kit
+
+`src/convert/adapters/nx/LegacyClasses.py` parses that table out of a raw legacy payload:
+`LegacyTable(Payload)` returns the records and `ClassTableEnd(Payload, Records)` returns the offset
+just past the last one. `ReadFrame` exposes the single-frame decode, and names are accepted as any
+printable ASCII run of 2 to 64 characters because the oldest sample uses bare schema names such as
+`RM` and `OM` where newer ones use `UGS::RM` and `UGS::OM::Meta`.
+
+Measured on the three corpus payloads, with each record's value compared against the same class in
+the live NX 2506 registry:
+
+```text
+payload            records   schemas   table end   shared classes   values matched
+flange.prt             233        99    0x00348b              127         127 of 127
+vise_screw.prt         192        83    0x002ab2              122         122 of 122
+wave_parent.prt         98        32    0x001068                0        n/a
+```
+
+`TestNxLegacy` pins the framing, the extent and the rejection path on a constructed payload, so the
+test carries no captured bytes.
+
 ## The legacy payload is a separate serialisation of the whole model
 
 Reading the payload header and the class records shows this is not a wrapper around the modern
