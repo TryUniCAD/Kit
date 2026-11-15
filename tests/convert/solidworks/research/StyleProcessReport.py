@@ -5,6 +5,7 @@ from hashlib import sha256 as HashBytes
 from typing import cast as CastValue
 
 
+# decoded field observations let the parent verify authored intent across the codec boundary
 def InspectResult(
     StyleRoot: object, UnitRoot: object, StyleBytes: bytes, UnitBytes: bytes
 ) -> dict[str, object]:
