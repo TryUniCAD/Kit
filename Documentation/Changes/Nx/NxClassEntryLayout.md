@@ -331,9 +331,27 @@ last byte == value - 3        26   (values 137..143)
 total                        151
 ```
 
-The growing offset with increasing value says my `2 * slot` index is mis-scaled for the larger
-entries rather than that the format changes: a table whose entries are wider than two bytes, or whose
-slot base differs, drifts exactly like this.
+Dumping the table itself settles the stride: entries are **two bytes**, little endian, and the entry
+at `2 * slot` is the class's code with a zero high byte.
+
+```text
+class                        slot   bytes at 2*slot   prefix tail
+UGS::OM::RootObject            73   74 00             0x74
+UGS::RM_part                   74   77 00             0x77
+UGS::OM::SaveAuditTrail        70   78 00             0x78
+UGS::OM::SaveAuditTrailEntry   70   78 00             0x78
+UGS::Sketch::Colors            73   74 00             0x74
+UGS::OM::OptPointerValue      106   79 00             0x79
+```
+
+`u16 at 2*slot` equals the prefix's final byte, with a zero high byte, for **64 of 152** classes —
+every class whose code is below `0x80` and whose slot lies inside the sampled table. So the stride is
+2 and the earlier "growing offset" was an artefact of comparing the code against the _encoded_ tail
+field rather than the table.
+
+The classes where the two do not coincide are those whose code is `>= 0x80` and whose slot exceeds
+the 2048 entries sampled, so the table bytes there were never read; their codes came from the
+accessor and their tail field uses a wider encoding.
 
 ## Original observation retained for context The other 60 are all of the shape where the last byte is `0x80..0x85`
 
