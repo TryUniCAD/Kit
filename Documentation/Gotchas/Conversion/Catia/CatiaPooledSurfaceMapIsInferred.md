@@ -24,8 +24,12 @@ corpus parts decode, but it is not the stored map.
 
 A plain index table is ruled out: every stream of `Reservoir` was scanned for a run of exactly
 `FaceCount` 8-bit or 16-bit little-endian values below the pool size that covers at least 85% of the
-pool, and no such run exists, so the reference is not an array of surface indices. It must be
-carried by the tag-difference reference encoding, like the object references in the OSMX graph.
+pool, and no such run exists, so the reference is not an array of surface indices. A permutation
+table is ruled out too: every exact part was scanned for a run of `n` 8-, 16-, or 32-bit
+little-endian values that is a permutation of `0..n-1` (the shape the identity map would take), and
+only the two six-face washers hit, at a relative offset of `-245`, which is a vertex-index run. The
+reference must be per-edge, through the edge's PCurve, or carried by the tag-difference reference
+encoding like the object references in the OSMX graph.
 
 `RefineMap` sharpens the inferred map without changing its status. It places the handles without the
 tessellation snap, then re-picks each plane face's pooled plane by the summed distance of the face's

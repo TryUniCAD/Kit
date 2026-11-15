@@ -146,7 +146,52 @@ themselves are decoded.
 The `7c 06` object header carries the object id and the part bounding box, not the parameter value:
 `7c 06 2a 00 00 00 01 00 38 39 ea 02 00 00 00 80 62 83 1b 2c 00 80 21 bb 23 43 80 05 66 9d 43 80
 c6 25 d0 3b 00 80 ff ff ff ff` has the same three floats (`163.73`, `314.8`, `0.00635`) in every
-object, so they are the part bounding box.
+object, so they are the part bounding box. The field before the floats is the object id:
+`7c 06 <u32 length> <flag> 04 <two symbol bytes> ea <u32 id> ...` gives ids `1..19` with no gaps for
+the non-parametric `Copper_Washer`, and 88 objects with ids up to `152` for `ISO_2338_PARALLEL_PIN`.
+
+## Reference encoding is not a plain index array
+
+Three searches came back negative, and they narrow the pooled face-to-surface reference.
+
+- A plain index table does not exist. Every stream of `Reservoir` was scanned for a run of exactly
+  `FaceCount` 8-bit or 16-bit little-endian values below the pool size that covers at least 85% of
+  the pool: no hits.
+- A face-count permutation table does not exist either. Every exact part was scanned for a run of
+  `n` 8-, 16-, or 32-bit little-endian values that is a permutation of `0..n-1`, which is what the
+  identity map of an exact part would look like. Only `Washer_6` and `Washer_6_DIN_433_1.1` hit, at
+  a relative offset of `-245`, which is a vertex-index run, not a surface map.
+- `0xd7 <byte>` is not an object-id reference. Treating it as one leaves 6 of 6 references
+  unresolved on `Copper_Washer` (ids `1..19`) and 17 of 32 unresolved on `ISO_2338_PARALLEL_PIN`
+  (ids up to `152`), so the value tags beyond `0x80`, `0x81`, `0xe6`, `0xe8`, and `0xe9` are still
+  unidentified.
+
+The `7c 07` blocks at `@3376`, `@3598`, and `@3820` of `ISO_2338_PARALLEL_PIN` are the same 119-byte
+template with keys `69..79` (`DefaultValuesBag`, `Prism_EndLimit_Length`, `Chamfer_Length1`,
+`Chamfer_Mode`, `Chamfer_Length2`, `Chamfer_Angle`, `CreationRelease`,
+`MechanicalPartProperties`, `WetArea`, `ResultIN`, `Volume`) and differ only in one small-int value
+that steps by `9`, so they are repeated default-value blocks rather than per-parameter records.
+
+## Values group by owning object
+
+Each `7c 05` object owns its own doubles, so the value side of the association is now exact per
+object. `re/catia/tooling/OsmGraph.py` `ExtractObjects` walks the `7c 05` records, reads the object
+id from the `ea <u32>` field of the child `7c 06` header, and lists the `e6` doubles inside that
+object:
+
+| part | object id -> doubles |
+| --- | --- |
+| `ISO_2338_PARALLEL_PIN` | `10` -> `200.0, 8.0, 15.0`; `23` -> `2.5, 6.2832`; `52` -> `50.0`; `75` -> `0.8`; `77` -> `15.0`; `109` -> `2.5`; `123` -> `50.0` |
+| `ISO_7089_PLAIN_WASHER` | `10` -> `5.0, 0.375, 37.5`; `22` -> `8.4`; `23` -> `16.0`; `24` -> `1.6`; `32` -> `8.0`; `45` -> `4.2` |
+| `ISO_1207_SLOTTED_CHEESE_HEAD_SCREW` | `10` -> `360.0, 0.4, 20.0, 3.3, 1.6`; `31` -> `-24.4473, -0.7351, 0.9962, 0.0872, 24.5407, 25.6449` |
+
+The objects that hold a parameter value carry an attribute named `MAvalue`, an exact symbol-table
+string, and the parameter's own doubles sit inside that object. The washer is the clearest case:
+`22`, `23`, and `24` are consecutive objects holding `8.4`, `16.0`, and `1.6`, which are the M8
+outside diameter, the M8 thickness, and the M4 thickness in the order they appear in the standard.
+The remaining step is the name: the object's own name is not in its `7c 07` block, and the
+`0xd7`/`0xe9` references in the parent blocks do not resolve against the `ea` object ids, so the
+name-to-object link is still open.
 
 ## Evidence
 

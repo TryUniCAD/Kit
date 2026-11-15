@@ -176,6 +176,41 @@ def ParseAttributes(
     return Attributes
 
 
+def ObjectId(Segment: bytes) -> int:
+    Marker = Segment.find(b"\x7c\x06")
+    if Marker < 0:
+        return -1
+    Length = struct.unpack_from("<I", Segment, Marker + 2)[0]
+    Header = Segment[Marker + 6 : Marker + Length]
+    Cursor = Header.find(b"\xea")
+    if Cursor < 0 or Cursor + 5 > len(Header):
+        return -1
+    return struct.unpack_from("<I", Header, Cursor + 1)[0]
+
+
+def ExtractObjects(PathValue: Path) -> list[tuple[int, list[float]]]:
+    Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
+    Found = FindOsmx(Archive)
+    if Found is None:
+        return []
+    Data, Parsed = Found
+    Values: list[tuple[int, list[float]]] = []
+    for Subtag, Start, Length in ParseRecords(Data, 104, Parsed.symbol_table_offset):
+        if Subtag != 0x05:
+            continue
+        Segment = Data[Start : Start + Length]
+        Doubles: list[float] = []
+        for Offset in range(len(Segment) - 9):
+            if Segment[Offset] != 0xE6:
+                continue
+            Value = struct.unpack_from("<d", Segment, Offset + 1)[0]
+            if 0.001 <= abs(Value) <= 1e6 and abs(Value - round(Value, 6)) < 1e-6:
+                Doubles.append(round(Value, 4))
+        if Doubles:
+            Values.append((ObjectId(Segment), Doubles))
+    return Values
+
+
 def Extract(PathValue: Path) -> tuple[list[str], dict[str, int]]:
     Archive = CfvTwoArchive.from_bytes(PathValue.read_bytes())
     Found = FindOsmx(Archive)
@@ -240,6 +275,7 @@ def Main() -> None:
         print(f"{PathValue.name:56s} attributes={len(Names):5d} distinct={len(Counts):4d}")
         print(f"  {Top}")
         print(f"  doubles={len(Values)} {sorted(set(round(V, 4) for V in Values))[:12]}")
+        print(f"  objects={ExtractObjects(PathValue)[:8]}")
 
 
 if __name__ == "__main__":
