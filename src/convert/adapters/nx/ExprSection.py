@@ -21,6 +21,7 @@ KNames = bytes.fromhex(
 )
 KLane = bytes.fromhex("01000111")
 KGroup = b"\x02\x02\x01\x02\x41\x00\x04\x0fDefault Group\x00"
+KDescriptorDim = bytes.fromhex("0202ffffff41ff4200ff000000430000ff040104011e01000101")
 KRecord = b"\x02\x02\x04\x0fDefault Group\x00\x00\x3f\x00\x00"
 
 
@@ -341,7 +342,7 @@ def ExprMiddle(BaseOffset: int, Identity: bytes = KUnset) -> bytes:
             Order,
             Version,
             HeadBytes,
-            KDescriptor,
+            KDescriptorDim,
             KNames,
             KLane,
             KGroup,

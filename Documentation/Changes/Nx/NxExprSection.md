@@ -430,6 +430,38 @@ const_box60.prt                346                  7              99.14%
 dim40.prt                      346                  7              99.14%
 ```
 
+## The middle layout is measured, but a composed middle does not load
+
+The offset arithmetic of a dimension-shape middle is now measured exactly on `dim40` and
+`const_box60`:
+
+```text
+0x00..0x53   preamble, ExprPreamble(objects, pointer, extra) then zero padding to 0x54
+0x54         object table, one absolute offset per object
++4n          order array, count then one id per object
++4+4n        version block, 49 bytes
+then         the objects
+```
+
+a composer built on that arithmetic reproduces the middle's **length exactly** (1043 bytes for
+24 objects) and its **complete object table byte for byte**, which confirms the arithmetic. It
+does not load, though:
+
+```text
+cx_dim40.prt        OPEN_FAILED
+cx_const_box60.prt  OPEN_FAILED
+```
+
+the only bytes it differs from the source in are the 22 order-array ids (it emits `1..24`) and
+the occupancy map placement (it places ids densely). Both of those were individually shown to
+be free — `ord_seq` loaded with ids `1..24`, and `oc2_*` loaded with a dense map — but **the
+two are not free in combination**. So at least one of those two earlier conclusions is only
+true against the source's other half, and the composer cannot be finished by composing the two
+independently verified freedoms.
+
+That composer was removed rather than kept, since a function that produces a refused section is
+worse than none.
+
 ## The occupancy object depends only on the dimension count
 
 The dimension shapes add an occupancy object the six object shape does not have. Dumping it
