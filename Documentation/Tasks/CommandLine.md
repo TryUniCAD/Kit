@@ -60,6 +60,7 @@ Local B-rep, meshes, or bodies without a feature timeline are refused, including
 Independent parameters do not supply missing feature history; parameter-only documents without geometry remain eligible.
 Definitionless operations and native, imported, or unknown feature kinds are refused; a supported sketch reference cannot substitute for a typed generator of local geometry.
 Each B-rep body must link to a local design body with a typed generating final feature.
+Final generators and their transitive feature dependencies must remain active; suppression in any configuration is refused conservatively for those body histories.
 Meshes are refused because their model has no typed ownership link to a generator; provenance and free-form ownership tags do not establish one.
 Use `kit decode` or the pinned research readers to inspect those unsupported semantics.
 It does not expose an option to bypass the output policy.

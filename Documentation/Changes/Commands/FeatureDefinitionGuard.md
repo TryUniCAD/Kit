@@ -6,6 +6,11 @@ This preserves the supported Fusion circle and rectangle sketch histories.
 Such a reference step cannot serve as a design body's final feature.
 
 Each local design body's final feature must be a typed non-reference generator.
+That generator and all its transitive feature dependencies must be active in feature-order sequence.
+Global feature suppression, per-feature configuration-state suppression, and configuration suppression lists make a step inactive.
+The policy treats suppression in any configuration conservatively because the model does not link a separate body result to each variant.
+It validates feature kinds and definitions even for inactive steps.
+An unrelated suppressed sketch reference without local geometry remains eligible, and tuple storage order does not replace explicit feature order.
 Every B-rep body must link through `design_body_id` to one of those local design bodies, and the B-rep body table must be nonempty.
 An unrelated typed feature or sketch-only timeline does not establish a generator for unlinked geometry.
 Mesh conversion is refused even alongside a typed extrusion because the mesh schema has no typed feature or design-body ownership link.
@@ -20,6 +25,8 @@ The shared neutral fixtures are unchanged.
 
 Process cases cover root and nested definitionless extrusion bodies, native, imported, and unknown kind labels with or without typed definitions, bare reference labels, reference final-body steps, and typed B-rep or mesh with only sketch history.
 Further cases retain a typed extrusion while adding plain or ownership-tagged meshes, or clearing B-rep body ownership links.
+Active-history cases cover suppressed final operations, configuration-state and configuration-record suppression, suppressed direct and transitive dependencies, and root/nested documents with missing or existing destinations.
+Positive process cases preserve an unrelated inactive sketch reference and a valid typed extrusion whose timeline tuple is stored in reverse feature order.
 They validate input records before invoking the installed CLI, preserve sources and missing or existing destinations, and retain inspection.
 Positive cases preserve standalone and nested circle and rectangle sketch documents; existing Fusion round-trip and resolved assembly cases remain required.
 
@@ -29,6 +36,7 @@ No tests, decoding, or CAD applications ran locally.
 Pinned Black and Prettier formatting passed.
 The initial guard's seven Python files passed Pyright, mypy, and steering compliance.
 Its ownership regression extension passed the same static checks for all three changed Python files.
+The active-history extension passed the same checks for its two new process-fixture files.
 Pyright also reported three unsupported settings already present in the repository configuration.
 Tracked-tree path policy and staged whitespace checks passed; remote process evidence remains required.
 

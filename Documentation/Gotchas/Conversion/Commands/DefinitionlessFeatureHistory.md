@@ -15,5 +15,11 @@ The CLI refuses meshes even when a separate typed extrusion exists or mesh attri
 For B-rep, the schema has an optional `BrepBody.design_body_id` link.
 Neutral validation permits an empty link; CLI conversion requires every B-rep body to link to a local design body whose final feature is a typed generator.
 
+An operation definition can also survive while its feature is suppressed.
+`FeatureStep.suppressed`, `FeatureCfgState.suppressed`, and `Configuration.suppressed_feature_ids` carry explicit suppression evidence.
+The CLI requires the final generator and its complete dependency chain to be active in explicit feature order.
+Suppression in any configuration makes that feature inactive because no typed body-to-variant ownership contract is present.
+This does not reject unrelated inactive sketch references in documents without local geometry or require timeline tuples to be stored in feature order.
+
 Definitions and generator presence still require separate parametric and target-application acceptance evidence.
 See [the change entry](../../../Changes/Commands/FeatureDefinitionGuard.md).
