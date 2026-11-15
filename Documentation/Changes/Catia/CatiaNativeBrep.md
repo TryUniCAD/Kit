@@ -373,6 +373,14 @@ result = CatiaAdapter().write(
 - `tests/convert/catia/CatiaNativeTests.py` covers the corpus reader, the box writer round trip, the
   cylinder writer round trip, the cone writer round trip, the torus writer round trip, the sphere
   writer round trip, and the two-loop writer round trip.
+- The OSMX reader accepts a symbol table section that ends before the stream does, which is what a
+  `CATProduct` product-structure stream looks like (`OSMX` at offset `176` of `3976` bytes in
+  `Tilton_Set.CATProduct`, `280` of `31384` in `Brake_Pedal_Assembly - Backup 1.CATProduct`). Before
+  the change all three product files raised `OSMX symbol table length is inconsistent`; after it they
+  parse `42`, `104`, and `41` symbols including `ASMPRODUCT`, `_PartNumber`, `_Component`, `_Source`,
+  and `_RepresentedBy`, and the 27 `CATPart` files still decode unchanged with the same five warnings.
+  The assembly instance list itself is not extracted yet: those attributes do not appear in the
+  product stream's `7c 07` blocks, so the tree is encoded in the `CATProdCont` payload.
 - The OSMX symbol table reader now handles the extended length form (a zero length byte followed by
   a little-endian u32 length) and allows `\t`, `\n`, and `\r` in symbol values. The 27 corpus parts
   still decode with zero symbol-table failures, and the five parametric sample parts in

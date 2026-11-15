@@ -174,8 +174,11 @@ def ParseOsmx(ClassType: type[OsmxArchive], Source: bytes | bytearray) -> OsmxAr
     if DataValue[SymbolTableOffset : SymbolTableOffset + 2] != b"|\x02":
         raise OsmxFormatError("OSMX symbol table marker is missing")
     SectionLength = Struct.unpack_from("<I", DataValue, SymbolTableOffset + 2)[0]
-    if SectionLength != len(DataValue) - SymbolTableOffset:
+    SectionEnd = SymbolTableOffset + SectionLength
+    if SectionEnd > len(DataValue):
         raise OsmxFormatError("OSMX symbol table length is inconsistent")
+    if SectionEnd < len(DataValue):
+        DataValue = DataValue[:SectionEnd]
     Candidates, LimitExceeded = OsmxSymbolA(DataValue, SymbolTableOffset)
     if LimitExceeded and not Candidates:
         raise OsmxFormatError("OSMX symbol table exceeds the safety limit")
