@@ -643,6 +643,39 @@ def TestWriteView() -> None:
     assert BackView.PositionY == PytestLib.approx(0.20)
     assert BackView.ViewScale == PytestLib.approx(3.0)
     assert len(BackView.SheetEdges) == len(ViewValue.SheetEdges)
+    assert ViewValue.OutlineMinX is not None
+    assert ViewValue.OutlineMinY is not None
+    assert BackView.OutlineMinX is not None
+    assert BackView.OutlineMinY is not None
+    assert BackView.OutlineMinX - ViewValue.OutlineMinX == PytestLib.approx(0.04)
+    assert BackView.OutlineMinY - ViewValue.OutlineMinY == PytestLib.approx(-0.03)
+
+
+# the writer must bind records by creation index when keyword order differs
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteOrder() -> None:
+    SourceBytes = (KDrawRoot / "angled.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    Views = DataValue.Sheets[0].Views
+    assert [ViewValue.Name for ViewValue in Views] != [
+        "Drawing View1",
+        "Drawing View2",
+        "Drawing View3",
+    ]
+    NewViews = tuple(
+        ReplaceData(ViewValue, PositionX=0.05 + 0.06 * Index, PositionY=0.10)
+        for Index, ViewValue in enumerate(Views)
+    )
+    NewData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=NewViews),)
+    )
+    BackValue = ReadDrawing(WriteDrawing(SourceBytes, NewData), IncludeSheetEdges=True)
+    Actual = {
+        ViewValue.Name: ViewValue.PositionX for ViewValue in BackValue.Sheets[0].Views
+    }
+    assert Actual["Drawing View1"] == PytestLib.approx(0.17)
+    assert Actual["Drawing View2"] == PytestLib.approx(0.05)
+    assert Actual["Drawing View3"] == PytestLib.approx(0.11)
 
 
 # a view count that does not match the source records must fail closed
