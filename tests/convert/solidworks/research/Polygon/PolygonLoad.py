@@ -11,6 +11,7 @@ from builders.Model import principal_plane as PrincipalPlane
 from builders.Model import unit_component as UnitComponent
 from builders.Sketch import ConstructionError, PlaneFrame
 from builders.Sketch import closed_profile as ClosedProfile
+from builders.Sketch import origin_profile as OriginProfile
 from builders.Extrude import live_blind_extrusion as LiveBlindPad
 from convert.adapters.solidworks.container.Container import build_sldprt as BuildContainer
 from convert.adapters.solidworks.container.Container import SldprtArchive
