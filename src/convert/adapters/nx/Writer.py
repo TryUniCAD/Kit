@@ -221,10 +221,12 @@ def CheckNeutral(DocValue: CadDoc) -> None:
 # the root head record names the part that the write targets
 def HeadText(Target: KTargetType, DocValue: CadDoc) -> bytes | None:
     if isinstance(Target, (str, FilePath)):
-        return b'Part renamed from "' + str(Target).encode("utf-8", "replace") + b'"'
+        TargetName = FilePath(str(Target)).name
+        return b'Part renamed from "' + TargetName.encode("utf-8", "replace") + b'"'
     PartName = DocValue.metadata.get("nx.part_name")
     if isinstance(PartName, str) and PartName:
-        return b'Part renamed from "' + PartName.encode("utf-8", "replace") + b'"'
+        TargetName = FilePath(PartName).name
+        return b'Part renamed from "' + TargetName.encode("utf-8", "replace") + b'"'
     return None
 
 
