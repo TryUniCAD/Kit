@@ -138,4 +138,24 @@ Exception-function hooks and the process exception handler now require explicit
 isolates the instrumentation during healthy-control checks. It does not suppress
 document errors: open/rebuild results, target termination, script failures and
 dialog records remain visible. The precise cause of the traced-control failure
-remains unproven until the reduced observation is compared with a healthy run.
+was not isolated to one hook. The reduced loader profile subsequently passed
+the original control. Its comparison with the rejected generated candidate
+identified an archive-context version mismatch; the native configuration store
+path supplied the general saved-version rule, now applied in the shared factory.
+
+The first successful polygon-authoring observation created three independently
+authored free polygons with 3, 8 and 11 vertices. All saved without errors and
+rebuilt as one solid, between healthy original controls. API point identities
+and line endpoints show shared closed rings with zero sketch relations. Native
+snapshots separately record point-slot counts, saved/current status and stamps.
+These are training observations, not held-out generated-file acceptance, and
+the three observed stamps alone do not establish a construction formula.
+
+The action now records sketch-local two-integer point identities and endpoint
+identities, retaining explicit errors when the returned COM interface lacks an
+endpoint getter. Native snapshots count active point slots using the documented
+dynamic-array prefix and deletion bit. Later snapshots also retain line endpoint
+indices, array pointers and completeness limits. Null arrays and bounded-scan
+overflow are incomplete observations. See the
+[native array gotcha](../../Gotchas/Conversion/Solidworks/Tracing/NativeSketchArrayCounts.md)
+and [capture summary](../../../re/solidworks/v2026/evidence/TupniPolygonAuthoring.json).

@@ -24,7 +24,7 @@ The fresh composition entered remote CI at
 `53c79e7394b8ec579cec799625575bf4d692c98d`; it had no generated-file vendor
 acceptance. The production adapter remained read-only.
 
-Open questions include post-build sketch state, transient persistent-id
+Open questions include general post-build sketch rules, transient persistent-id
 allocation, final header counters, cache neutralization, unmodeled classes,
 assemblies and the remaining feature families. A successful component codec
 round trip does not resolve these questions.
@@ -92,6 +92,31 @@ refill epochs are reported; absolute logical stream offsets remain explicitly
 unknown. It supplies no instruction taint or full symbolic dependency engine.
 
 ## First capture obligations
+
+### First successful polygon authoring capture
+
+Capture `.rescratch/sw26/tupni/polygon-api-authoring.json`, SHA-256
+`1561ff585126fe22975aec7ecdcf8fe07c92059bbf214c6e46c83aaf3ee2928d`,
+created and saved training `T3_free`, `T8_free` and `T11_free` on revision
+34.5.2. The original control passed before and after in the retained instrumented
+process. All three models rebuilt as one solid, had zero native feature/rebuild
+issues and saved with success and error/warning outputs zero. The `sketch`
+profile with exception interposition disabled collected 8,543 events over
+95.219 seconds, zero producer or host drops, zero script errors, no dialogs or
+cleanup diagnostics, and a clean detach.
+
+The API reported respectively 3, 8 and 11 points and segments, zero relations,
+and sketch-local endpoint identities forming shared closed rings. Positive
+native point-slot counts agreed. Saved regular sketches retained saved/current
+status 1/1, flags zero and stamps 4, 9 and 12. Origin snapshots retained 1/2 and
+stamp 1. These are observed training values; the apparent point-count relation
+must still be explained through native mutation dataflow before use as a writer
+expression. The [sanitized capture](../v2026/evidence/TupniPolygonAuthoring.json)
+retains helper/specification hashes, exact loaded-module identities, API
+topology, geometry and save-state events. Initial zero-point snapshots did not
+distinguish null arrays. Later line-index and array-identity probes were added
+after this capture and are not claimed retroactively. No generated-file or
+held-out acceptance follows from native authoring.
 
 ### Controlled loader profile and configuration version
 

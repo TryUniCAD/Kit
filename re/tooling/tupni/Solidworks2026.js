@@ -26,8 +26,38 @@ function archive(Address) {
 }
 
 function sketch(Address) {
-  try { return {pointer: Address.toString(), profile: Address.add(0x138).readPointer().toString(), saved_status: Address.add(0x128).readS32(), status: Address.add(0x12c).readS32(), flags: Address.add(0x188).readU32(), raw_f37c_u16: Address.add(0x37c).readU16(), runtime_f388: Address.add(0x388).readPointer().toString(), runtime_f3e0: Address.add(0x3e0).readPointer().toString(), stamp: Address.add(0x56c).readU32()} }
+  try { return {pointer: Address.toString(), profile: Address.add(0x138).readPointer().toString(), points: sketchpoints(Address), lines: sketchlines(Address), saved_status: Address.add(0x128).readS32(), status: Address.add(0x12c).readS32(), flags: Address.add(0x188).readU32(), raw_f37c_u16: Address.add(0x37c).readU16(), runtime_f388: Address.add(0x388).readPointer().toString(), runtime_f3e0: Address.add(0x3e0).readPointer().toString(), stamp: Address.add(0x56c).readU32()} }
   catch (ErrorInfo) { return {pointer: Address.toString(), error: String(ErrorInfo)} }
+}
+
+function sketchpoints(Address) {
+  try {
+    const Array = Address.add(8).readPointer()
+    if (Array.isNull()) return {array: Array.toString(), raw_count: null, active_count: null, bounded_scan_complete: false}
+    const Data = Array.add(8).readPointer()
+    const Count = Data.isNull() ? 0 : Data.sub(0x10).readS32()
+    if (Count < 0 || Count > 10000) return {raw_count: Count, active_count: null, bounded_scan_complete: false}
+    let Active = 0
+    for (let Index = 0; Index < Count; Index++) if ((Data.add(Index * 0x158 + 0x54).readU8() & 1) === 0) Active++
+    return {array: Array.toString(), data: Data.toString(), raw_count: Count, active_count: Active, bounded_scan_complete: true}
+  } catch (ErrorInfo) { return {error: String(ErrorInfo)} }
+}
+
+function sketchlines(Address) {
+  try {
+    const Array = Address.add(0x10).readPointer()
+    if (Array.isNull()) return {array: Array.toString(), raw_count: null, bounded_scan_complete: false}
+    const Data = Array.add(8).readPointer()
+    const Count = Data.isNull() ? 0 : Data.sub(0x10).readS32()
+    if (Count < 0 || Count > 512) return {array: Array.toString(), data: Data.toString(), raw_count: Count, bounded_scan_complete: false}
+    const Lines = []
+    for (let Index = 0; Index < Count; Index++) {
+      const Line = Data.add(Index * 0xf0)
+      const Flags = Line.add(0x54).readU32()
+      Lines.push({index: Index, flags_f54: Flags, deleted: (Flags & 1) !== 0, start_point_index: Line.add(0xc8).readS32(), end_point_index: Line.add(0xcc).readS32()})
+    }
+    return {array: Array.toString(), data: Data.toString(), raw_count: Count, bounded_scan_complete: true, slots: Lines}
+  } catch (ErrorInfo) { return {error: String(ErrorInfo)} }
 }
 
 function attach(Address, Handlers) {
@@ -47,7 +77,7 @@ function entity(Handle, Caller, Model) {
     const Data = Array.add(8).readPointer()
     const Address = Data.add(Index * (IsPoint ? 0x158 : 0xf0))
     Object.assign(Result, {resolved: true, kind: IsPoint ? "point" : "line", pointer: Address.toString(), color: Address.add(0x30).readU32(), constraint_status: Address.add(0x34).readS32(), line_type: Address.add(0x38).readU32()})
-    if (IsPoint) Object.assign(Result, {point_type_u16: Address.add(0xe4).readU16(), xyz: [0xc8, 0xd0, 0xd8].map(Offset => Address.add(Offset).readDouble())})
+    if (IsPoint) Object.assign(Result, {point_type_i32: Address.add(0xe4).readS32(), xyz: [0xc8, 0xd0, 0xd8].map(Offset => Address.add(Offset).readDouble())})
     return Result
   } catch (ErrorInfo) { return {handle: Handle.toString(), error: String(ErrorInfo)} }
 }

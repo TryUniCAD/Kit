@@ -13,6 +13,24 @@ from ExerciseSolidworks import exercise as inspect_control
 from InspectFresh import healthy
 
 
+def point_record(point):
+    return {
+        "id": [int(value) for value in Swapp.cv(point, "GetID")],
+        "xyz_m": [float(Swapp.cv(point, axis)) for axis in ("X", "Y", "Z")],
+    }
+
+
+def segment_record(segment):
+    record = {"type": int(Swapp.cv(segment, "GetType"))}
+    try:
+        record["start"] = point_record(Swapp.cv(segment, "GetStartPoint2"))
+        record["end"] = point_record(Swapp.cv(segment, "GetEndPoint2"))
+        record["endpoint_identity_complete"] = True
+    except Exception as error:
+        record.update(endpoint_identity_complete=False, endpoint_identity_error=repr(error))
+    return record
+
+
 def sketch_record(model, name):
     feature = Swapp.cv(model, "FeatureByName", name)
     sketch = Swapp.cv(feature, "GetSpecificFeature2")
@@ -28,6 +46,8 @@ def sketch_record(model, name):
         "relation_count": int(Swapp.cv(manager, "GetRelationsCount", 0)),
         "relation_types": [int(Swapp.cv(value, "GetRelationType")) for value in relations if value is not None],
         "points_m": [[float(Swapp.cv(point, axis)) for axis in ("X", "Y", "Z")] for point in points],
+        "point_records": [point_record(point) for point in points],
+        "segment_records": [segment_record(segment) for segment in segments],
     }
 
 
