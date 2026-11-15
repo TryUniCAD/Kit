@@ -6,6 +6,7 @@ from interchange.document.models.DocumentModel import CadDocument
 from interchange.geometry.models.Sketch import Sketch, SketchEntity
 
 
+# incomplete sketch histories need valid geometry so refusal exercises the intended conversion boundary
 def BuildSketches(RecordKind: str) -> CadDocument:
     Document = MakeFusionDoc(
         DocumentSpec("Sketch history", "radius", 20.0, ProfileKind="circle")

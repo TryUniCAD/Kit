@@ -7,11 +7,6 @@ from interchange.enums.EnumFeatures import FeatureKind
 
 def CheckFeatures(Document: CadDocument) -> None:
     Generators = set[str]()
-    HistorySketches = {
-        Feature.sketch_id
-        for Feature in Document.feature_timeline
-        if Feature.kind == FeatureKind.KReference and Feature.definition is None
-    }
     ActiveFeatures = set[str]()
     SketchInputs: dict[str, set[str]] = {}
     Sketches = {Sketch.id: Sketch for Sketch in Document.sketches}
@@ -41,6 +36,7 @@ def CheckFeatures(Document: CadDocument) -> None:
             if (
                 Feature.sketch_id is not None
                 and Feature.sketch_id in Sketches
+                and Feature.definition is None
                 and not Sketches[Feature.sketch_id].suppressed
             ):
                 SketchInputs.setdefault(Feature.sketch_id, set()).add(Feature.id)
@@ -50,7 +46,7 @@ def CheckFeatures(Document: CadDocument) -> None:
         Generators.add(Feature.id)
     if (
         Document.meshes
-        or any(Sketch.id not in HistorySketches for Sketch in Document.sketches)
+        or any(Sketch.id not in SketchInputs for Sketch in Document.sketches)
         or any(
             BodyValue.final_feature_id not in Generators
             for BodyValue in Document.bodies

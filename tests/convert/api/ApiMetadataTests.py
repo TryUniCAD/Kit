@@ -9,6 +9,7 @@ from convert.Commands.MainEntry import MainEntry
 from tests.convert.api.ApiTestPaths import KRootPath
 
 
+# installed command discovery must preserve the existing plugin entry point alongside the executable
 def CheckEntryPoint() -> None:
     EntryPoints = GetPackage("unicad-kit").entry_points
     assert [
