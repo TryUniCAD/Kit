@@ -307,12 +307,30 @@ nodisp: 28154 bytes; rows 49; dropped CGFPersistTable, DispDataTable, THMB_IMG_M
 That fits the earlier finding that only trailing rows (`IndentTag`, `FeatRefData`) may be dropped: the
 container's row set is otherwise fixed.
 
-**They cannot yet be re-emitted from a parsed tree.** `StreamParser` mis-decodes these tables because they
-use lanes it does not model: `t08` and `t09` integers appear where the parse reports floats like
-`9.215218961092862e-41`, and `id` reads back as `4294967295`. The parse still consumes exactly the row
-(it ends at `pos 1788 of 1788`), so the grammar is close, but the values are wrong and a byte-identical
-re-emit is not yet possible. Extending the parser with those two lanes is the prerequisite for treating
-these rows the way `FeatDefsDtm` was treated.
+**They cannot yet be re-emitted from a parsed tree, and the reason is not the type lanes.** An earlier
+revision of this page said `StreamParser` "mis-decodes their `t08` and `t09` lanes". That is wrong: `t08` and
+`t09` already decode as `CompactInt`, the same as `t01`, `t05`, `t07` and `t0B`.
+
+Instrumenting `SolidPrimdata` (`301` bytes) shows the real divergence:
+
+| Offset | Field | Raw span | |
+| ---: | --- | --- | --- |
+| `27` | `pgl_primdata_group_table` | `e2` | correct |
+| `54` | `pgl_primdata_groups_arr` | `f8 01 f7 02 fb` | correct, one element |
+| `59` | `pgl_primdata_group` | `e2` | correct |
+| `81` | `pgl_primdata_group` | `e3` | correct |
+| `94` | `lod_value` (`t02`) | `2f 30 00 e0 00 73 65 67` | **desync** |
+
+`ReadDouble` does not recognise the byte at `94`, so it takes its fallback path — advance eight bytes, return
+`None` — and swallows the start of the next field's header. Everything after that is misread, which is why the
+parse reports names like `segref_array`, `pgl_segref` and `p_seg_persistref` with single-byte values.
+
+So the gap is a **silent over-consume on an unknown double lane**, not a missing integer type. The fix is to
+make that fallback loud (raise, or consume nothing) and then decode the lane the LOD value actually uses.
+
+A second reason not to chase a byte-identical re-emit here: re-emitting a parsed vendor row is a recorded
+payload replay, which the no-donor standard forbids in `src/`. These rows have to be *generated*, so the
+useful output of parsing them is field semantics, not bytes.
 
 ### The `ND:*` token tables
 

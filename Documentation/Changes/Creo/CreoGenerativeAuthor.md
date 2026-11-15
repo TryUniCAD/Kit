@@ -633,18 +633,34 @@ these rows. Both are still **required**: dropping them, or dropping `DispDataTab
 `THMB_IMG_MAIN`, is refused with `cannot be retrieved`. That matches the earlier finding that only trailing
 rows (`IndentTag`, `FeatRefData`) may be dropped.
 
-They also cannot yet be re-emitted: `StreamParser` mis-decodes their `t08` and `t09` lanes — ids read back as
-`4294967295` and doubles as `9.2e-41` — although it consumes each row exactly. Extending the parser with
-those lanes is the prerequisite for treating them the way `FeatDefsDtm` was treated.
+They also cannot yet be re-emitted, and the cause is a reader defect rather than a missing type lane. An
+earlier revision of this entry said `StreamParser` mis-decodes `t08`/`t09`; that is wrong, both already decode
+as `CompactInt`. Instrumenting `SolidPrimdata` shows the divergence at offset `94`: `ReadDouble` does not
+recognise the double lane used by `lod_value`, so it takes a fallback that advances eight bytes and returns
+`None`, swallowing the next field's header. Everything after that is misread.
 
-### A reader limitation found on the way
+The fix is to make that fallback loud instead of silent, then decode the lane the LOD value uses. Note also
+that a byte-identical re-emit of a parsed vendor row is a recorded-payload replay, which the no-donor standard
+forbids in `src/`, so the useful output of parsing these rows is field semantics, not bytes.
 
-Checking those rows through the production path showed that `ReadSection` decompresses `SolidPersistTable`
-(`1788`) and `SolidPrimdata` (`301`) exactly, but **fails on `DispDataTable`** with
-`Creo compression code is outside the table`. The row's slice and magic are correct and `expanded` (`1138`)
-is larger than the stored `819`, so this is a decoder limitation, not a wrong offset. It is latent today
-because the display row is never consumed. See
-[the display-data decoder gotcha](../../Gotchas/Conversion/CreoDispDataDecoderLimit.md).
+### Parameters would need a section the empty control does not have
+
+Reading back `0 params` is structural, not a bug: parameters come from the `FeatDefs` row
+(`Sld_FeatDefs` → `feat_defs_949` → … → dimension values), and the datum-only control has **no `FeatDefs`
+row at all** — only the ladder does (`5987` bytes). So the authored container cannot carry a dimension by
+editing a generated section; it would have to add a row that this part never had.
+
+### What the authored container reads back as
+
+The container built from the 41 authored sections reads back through our own adapter as:
+
+```text
+authored container reads back: 4 features, 0 params, 0 bodies
+  features: ['Creo datum_plane 7', 'Creo datum_plane 5', 'Creo datum_plane 3', 'Creo coordinate_system 11']
+```
+
+which is exactly what it is: four datum features, no parameters and no solid. It is a correct round trip and
+it is not acceptance evidence — there is no body to measure.
 
 ## What is left
 
