@@ -158,6 +158,55 @@ Combined with the swap test (see `NxClassTableScope.md`), the conclusion is that
 only be produced by the loader that validates it. It cannot be derived from names, permuted between
 classes, copied from the registry, or shared between class sets.
 
+## The class entry carries the registry's class digest
+
+The entry layout resolves once the live registry's per-class digest is used as an anchor. For every
+class whose `GetClassDigest` is nonzero, the digest's four bytes appear **verbatim** inside the
+stored entry:
+
+```text
+classes with a nonzero digest                        135
+digest found verbatim in that class's entry          135 of 135
+digest offset within the entry                       6, 7, 8 or 9 (varies with the prefix length)
+```
+
+so an entry is
+
+```text
+<prefix, 6-9 bytes> <class digest, 4 bytes little-endian> <tail, 1-2 bytes>
+
+UGS::RM_part              32f71f03be4   25 5a 70 c8   01      digest 0xc8705a25
+UGS::Sketch::Colors       f474de4695f   c5 3f 28 d7   01      digest 0xd7283fc5
+UGS::Solid::Body          1efb4308a48   bb 21 1c 01   06      digest 0x011c21bb
+UGS::POINT                6100001df8e17 24 1f 00 6e   09      digest 0x6e001f24
+```
+
+The prefix decodes as one big-endian base-128 integer of 36 to 63 bits, and the tail as a small
+integer. Neither matches the registry's class id, attribute count, superclass id or the `+0x34`
+dword — 0 relations across the 135 classes:
+
+```text
+prefix - id / attrs / superclass / +0x34      135 distinct values each
+tail == id 0/135   tail == attrs 3/135   tail == superclass 1/135
+```
+
+The 19 classes with a zero digest (for example `UGS::OM::RootObject`) carry no digest field at all,
+which is why their entries are shorter and why their windows never matched.
+
+## What this means for a static writer
+
+The entry is a snapshot of **registry-derived per-class values**, one of which is the class digest.
+The digest is not a hash of the name: 30 digest functions over 10 name encodings do not produce it.
+What remains is that it is a digest of the class's _schema_ — its attribute list — which the registry
+builds when each module registers its classes with `AddAttribute`.
+
+Reproducing that statically therefore needs two things, in order:
+
+1. the registry's attribute names for a class, from `?GetAttribute@Class@OM@UGS@@QEBAPEAVAttribute@23@H`
+   and `Name2AttributeId`, so the schema can be enumerated at runtime and the digest function fitted
+2. the same schema from static data, since each module's `AddAttribute` calls pass literal name
+   strings that live in `.rdata` next to the call sites
+
 ## Limits
 
 - The entry's field positions are not assigned to registry properties.
