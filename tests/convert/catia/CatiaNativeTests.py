@@ -412,12 +412,15 @@ def TestBrepTess() -> None:
     Vertices, _ = BuildVertices(BrepValue)
     Frame = LocalFrame(BrepValue)
     assert Frame is not None
-    First, Second, _ = Frame
+    First, Second, _, Origin = Frame
     OnGrid = 0
     for VertexValue in Vertices:
         Point = VertexValue.point
-        FirstValue = Point.x * First[0] + Point.y * First[1] + Point.z * First[2]
-        SecondValue = Point.x * Second[0] + Point.y * Second[1] + Point.z * Second[2]
+        DeltaX = Point.x - Origin[0]
+        DeltaY = Point.y - Origin[1]
+        DeltaZ = Point.z - Origin[2]
+        FirstValue = DeltaX * First[0] + DeltaY * First[1] + DeltaZ * First[2]
+        SecondValue = DeltaX * Second[0] + DeltaY * Second[1] + DeltaZ * Second[2]
         Radius = math.hypot(FirstValue, SecondValue)
         Table = Outer if abs(Radius - 8.0) < 1e-2 else Inner
         if round(abs(FirstValue), 3) in Table and round(abs(SecondValue), 3) in Table:

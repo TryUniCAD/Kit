@@ -585,10 +585,13 @@ def LocalFrame(
         tuple[float, float, float],
         tuple[float, float, float],
         tuple[float, float, float],
+        tuple[float, float, float],
     ]
     | None
 ):
-    AxisValues: dict[tuple[float, float, float], int] = {}
+    Candidates: dict[
+        tuple[float, float, float], tuple[int, tuple[float, float, float]]
+    ] = {}
     for SurfaceValue in BrepValue.surfaces:
         if SurfaceValue.kind != 0x33 or len(SurfaceValue.params) < 6:
             continue
@@ -598,12 +601,18 @@ def LocalFrame(
             round(AxisValue[1], 3),
             round(AxisValue[2], 3),
         )
-        AxisValues[KeyValue] = AxisValues.get(KeyValue, 0) + 1
-    if not AxisValues:
+        Count, _ = Candidates.get(KeyValue, (0, (0.0, 0.0, 0.0)))
+        Candidates[KeyValue] = (
+            Count + 1,
+            (SurfaceValue.params[0], SurfaceValue.params[1], SurfaceValue.params[2]),
+        )
+    if not Candidates:
         return None
 
     # this callback exists because the dominant carrier axis defines the local frame
-    AxisValue = Normalize(max(AxisValues, key=lambda Value: AxisValues[Value]))
+    BestKey = max(Candidates, key=lambda Value: Candidates[Value][0])
+    Origin = Candidates[BestKey][1]
+    AxisValue = Normalize(BestKey)
     Reference = (
         Normalize((1.0, 0.0, 0.0))
         if abs(AxisValue[0]) < 0.9
@@ -623,7 +632,7 @@ def LocalFrame(
             Second[0] * AxisValue[1] - Second[1] * AxisValue[0],
         )
     )
-    return First, Second, AxisValue
+    return First, Second, AxisValue, Origin
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -635,11 +644,16 @@ def SnapToTessMut(
     Frame = LocalFrame(BrepValue)
     if Frame is None:
         return
-    First, Second, AxisValue = Frame
+    First, Second, AxisValue, Origin = Frame
     for Handle, Point in Positions.items():
-        Along = sum(Point[Index] * AxisValue[Index] for Index in range(3))
-        FirstValue = sum(Point[Index] * First[Index] for Index in range(3))
-        SecondValue = sum(Point[Index] * Second[Index] for Index in range(3))
+        Delta = (
+            Point[0] - Origin[0],
+            Point[1] - Origin[1],
+            Point[2] - Origin[2],
+        )
+        Along = sum(Delta[Index] * AxisValue[Index] for Index in range(3))
+        FirstValue = sum(Delta[Index] * First[Index] for Index in range(3))
+        SecondValue = sum(Delta[Index] * Second[Index] for Index in range(3))
         Radius = math.hypot(FirstValue, SecondValue)
         Nearby = [
             (FirstPoint, SecondPoint)
@@ -655,9 +669,18 @@ def SnapToTessMut(
             key=lambda Value: math.hypot(Value[0] - FirstValue, Value[1] - SecondValue),
         )
         Positions[Handle] = (
-            BestValue[0] * First[0] + BestValue[1] * Second[0] + Along * AxisValue[0],
-            BestValue[0] * First[1] + BestValue[1] * Second[1] + Along * AxisValue[1],
-            BestValue[0] * First[2] + BestValue[1] * Second[2] + Along * AxisValue[2],
+            Origin[0]
+            + BestValue[0] * First[0]
+            + BestValue[1] * Second[0]
+            + Along * AxisValue[0],
+            Origin[1]
+            + BestValue[0] * First[1]
+            + BestValue[1] * Second[1]
+            + Along * AxisValue[1],
+            Origin[2]
+            + BestValue[0] * First[2]
+            + BestValue[1] * Second[2]
+            + Along * AxisValue[2],
         )
 
 
