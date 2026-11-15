@@ -582,7 +582,23 @@ revision graph over geometry that the kernel produced. That is consistent with e
 this class — a `917` replay carrying datum-shaped values is refused, and so is a `923` replay wearing the csys
 id.
 
-## The solid feature in the ladder## The solid feature in the ladder
+### A 917 with every declared field nulled is refused
+
+`re/creo/tools/Protrusion.py` builds exactly that: the proven four-record assembly plus a `917` record made of a
+positional replay followed by the `37` declared fields, each null or `-1`, in the declared order. The record is
+`693` bytes and the section `2574`.
+
+```text
+solid917b: AllFeatur 2574
+!15-Nov-26 06:53:42  Start C:\Mac\Home\Documents\creo-authored\solid917b.prt
+(no End line; second run identical)
+```
+
+So the assembly, the schema and the field order are not what is missing — the *content* is. A `917` has to
+reference geometry and revision state that only a regenerated solid has, which matches the shape of those 37
+fields: `comp_hist`, `coll_refs_info`, `rev_info_arr`, `mdl_geom_rev`, `aggr_rev_info`.
+
+## The solid feature in the ladder## The solid feature in the ladder## The solid feature in the ladder
 
 Authoring a protrusion is the remaining geometry blocker, so the ladder's feature list was inventoried:
 

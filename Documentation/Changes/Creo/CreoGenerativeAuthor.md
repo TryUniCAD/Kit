@@ -980,6 +980,20 @@ the solid that owns them.
 caller, including `AuthorBox`. It is repaired, and the surface record is still byte-identical to the ladder's
 first element (`409` bytes).
 
+### A 917 emitter with nulled fields is refused
+
+`re/creo/tools/Protrusion.py` composes the proven four-record section plus a `917` record built from record
+67's `37` declared fields in order, each null or `-1`, alongside the generated dimension:
+
+```text
+solid917b: AllFeatur 2574
+(no End line; second run identical)
+```
+
+The assembly and the field order are therefore not the gap — the content is. Those fields are
+`comp_hist`, `coll_refs_info`, `rev_info_arr`, `mdl_geom_rev`, `aggr_rev_info` and friends: references and
+revision state over geometry that only a regenerated solid has.
+
 ## Limits## Limits
 
 - The authored part contains only `AllFeatur` and `VisibGeom`. Creo rejects it as "not a valid PART
