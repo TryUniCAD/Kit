@@ -63,6 +63,9 @@ Disproved hypotheses:
   coordinate.
 - Two 4-byte floats per 8-byte group: only some halves are plausible, the rest are denormal or
   huge.
+- Low-nibble hex string with `ugc_ieee_unformat_double`'s end-backwards byte order: the decoder in
+  `re/creo/tools/PackedDouble.py` produces denormals (`1.4e-312`) for the empty control and huge
+  values (`4.8e-154`, `-2.5e169`) for the ladder. The high-nibble variant is equally implausible.
 
 The next decode target is the packed encoding, then the ladder's `dtm_id_tab` structure, then
 `Sld_FeatDefs`.
