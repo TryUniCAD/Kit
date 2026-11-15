@@ -442,6 +442,58 @@ def SectionBody(data: bytes) -> bytes:
     return data
 
 
+def CompactAt(data: bytes, position: int) -> tuple[int | None, int]:
+    if position >= len(data):
+        return None, position
+    first = data[position]
+    if first <= 0x7F:
+        return first, position + 1
+    if first <= 0xBF:
+        if position + 1 >= len(data):
+            return None, position
+        return ((first & 0x3F) << 8) | data[position + 1], position + 2
+    if first <= 0xDF:
+        if position + 2 >= len(data):
+            return None, position
+        return (
+            ((first & 0x1F) << 16) | (data[position + 1] << 8) | data[position + 2],
+            position + 3,
+        )
+    if first == 0xF6:
+        return -1, position + 1
+    return None, position
+
+
+def RootClass(data: bytes, position: int, limit: int) -> int | None:
+    end = min(limit, len(data))
+    found = data.find(b"\xe3\xf6", position, end)
+    while found >= 0:
+        value, after = CompactAt(data, found + 2)
+        if value is not None and after < len(data) and data[after] == 0xE1:
+            return value
+        found = data.find(b"\xe3\xf6", found + 1, end)
+    return None
+
+
+def RowSpans(data: bytes) -> list[tuple[int, int, int, int]]:
+    starts: list[tuple[int, int, int]] = []
+    for offset in range(len(data)):
+        if offset != 0 and data[offset - 1] != 0xE3:
+            continue
+        ident, after = CompactAt(data, offset)
+        if ident is None or after <= offset:
+            continue
+        root = RootClass(data, after, after + 16)
+        if root is None:
+            continue
+        starts.append((offset, ident, root))
+    spans: list[tuple[int, int, int, int]] = []
+    for index, (start, ident, root) in enumerate(starts):
+        end = starts[index + 1][0] if index + 1 < len(starts) else len(data)
+        spans.append((start, end, ident, root))
+    return spans
+
+
 if __name__ == "__main__":
     path = Path(sys.argv[1])
     parser = Parser(SectionBody(path.read_bytes()))
@@ -453,6 +505,10 @@ if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[2] == "--features":
         for feature in parser.Features():
             print(feature)
+    elif len(sys.argv) > 2 and sys.argv[2] == "--rows":
+        body = SectionBody(path.read_bytes())
+        for start, end, ident, root in RowSpans(body):
+            print(f"{start:#06x}-{end:#06x} id={ident} root={root} bytes={end - start}")
     elif len(sys.argv) > 2 and sys.argv[2] == "--trace":
         for position, index, name, type_id in parser.trace[-24:]:
             print(f"{position:#06x} field {index + 1:3d} {name} type {type_id:#04x}")

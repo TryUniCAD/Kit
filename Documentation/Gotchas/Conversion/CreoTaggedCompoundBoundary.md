@@ -80,6 +80,28 @@ So the format is record scoped: `e3` terminates a row, and a row is decoded from
 Our parser's global index is the mismatch. A faithful rewrite must split into `e3`-bounded spans,
 then decode each span with its own schema rather than inheriting the previous row's cursor.
 
+## Anchor inventory
+
+`re/creo/tools/TaggedStream.py --rows` implements the cadmpeg boundary rule: a candidate row starts
+at offset 0 or immediately after `0xe3`, and carries `e3 f6 <compact-class> e1` within the first
+16 bytes after its identifier.
+
+Measured spans:
+
+| Section | Spans found |
+| --- | --- |
+| empty `AllFeatur` | 2 (`id 3` root 923, `id 11` root 979) |
+| ladder `AllFeatur` | 8 (`id 3` 923, `11` 979, `67` 923, `66` 949, `0` 923, `75` 923, `2` 917, `74` 917) |
+| ladder `FeatDefs` | 0 |
+| ladder `VisibGeom` | 0 |
+
+The anchors confirm the model for `AllFeatur`, including class `949` and the extrude class `917`.
+They also show its limit: the first rows of a section start at the schema record, not at an
+identifier, so they are not discovered. `FeatDefs` and `VisibGeom` do not carry the
+`e3 f6 <class> e1` anchor at all; their boundaries are bare `e3` plus a compact identifier
+(`… 62 e3 57 22 4a …` in `VisibGeom`). A second, anchor-free splitter is required for those
+sections.
+
 ## Correct direction
 
 `e3` needs level tracking with per-level schema extents: a level records its element start, the

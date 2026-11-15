@@ -267,6 +267,12 @@ Cadmpeg's Rust codec confirms the row model. `psb.rs` defines `COMPOUND_CLOSE = 
 carrying the root schema class. There is no shared cursor across rows. The research parser's
 global index is therefore the wrong model, and the rewrite must be span based.
 
+`re/creo/tools/TaggedStream.py --rows` implements the anchor half of that rule. It finds 2 spans
+in the empty `AllFeatur` (`id 3` root 923, `id 11` root 979) and 8 in the ladder (`3`/923,
+`11`/979, `67`/923, `66`/949, `0`/923, `75`/923, `2`/917, `74`/917). `FeatDefs` and `VisibGeom`
+yield no spans because they use bare `e3` boundaries without `e3 f6 <class> e1`, so an
+anchor-free splitter is still required for those sections.
+
 ### Datum placement records
 
 `FeatDefsDtm` (`Sld_FeatDefsDtm`) decodes the datum placement records. The first record is the

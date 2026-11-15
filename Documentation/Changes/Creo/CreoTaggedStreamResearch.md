@@ -111,6 +111,17 @@ The parser now reaches `0x2f7` and 117 nodes through the plane and curve prototy
 `python3 re/creo/tools/TaggedStream.py <section.bin> --trace` prints the last 24 field reads as
 `<offset> field <index> <name> type <type>`.
 
+## Row mode
+
+`python3 re/creo/tools/TaggedStream.py <section.bin> --rows` prints the cadmpeg row spans as
+`<start>-<end> id=<id> root=<class> bytes=<n>`. A row starts at offset 0 or immediately after
+`0xe3` and carries `e3 f6 <compact-class> e1` within the first 16 bytes after its identifier.
+
+Measured: empty `AllFeatur` yields 2 spans, ladder `AllFeatur` 8 spans (including class `949` and
+the extrude class `917`), while `FeatDefs` and `VisibGeom` yield 0 because they use bare `e3`
+boundaries without the `e3 f6 <class> e1` anchor. The row finder is additive and does not change
+the field parser.
+
 Field-level `e4`/`e5`/`e6` repeats resolve to the preceding logical value, `e1` terminates a numeric
 array, `0xfb` and `0xf0` act as value terminators, and a fresh `f8`/`f9` header overrides a stored
 array count. Each rule is additive: the empty control keeps its 330 `AllFeatur` nodes and the
