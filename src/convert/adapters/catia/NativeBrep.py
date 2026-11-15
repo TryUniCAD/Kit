@@ -156,6 +156,7 @@ def ParseCircles(
                 SourceData[Cursor + 6 : Cursor + 8] == b"\x00\x33"
                 and SourceData[Cursor + 8] == 0x37
                 and CountValue >= 18
+                and Cursor + 9 + CountValue <= len(SourceData)
             ):
                 DataValue = SourceData[Cursor + 9 : Cursor + 9 + CountValue]
                 Center = struct.unpack_from(">3f", DataValue, 0)
@@ -168,7 +169,7 @@ def ParseCircles(
             and SourceData[Cursor + 2] == 0x37
         ):
             CountValue = SourceData[Cursor - 1]
-            if CountValue >= 18:
+            if CountValue >= 18 and Cursor + 3 + CountValue <= len(SourceData):
                 DataValue = SourceData[Cursor + 3 : Cursor + 3 + CountValue]
                 Center = struct.unpack_from(">3f", DataValue, 0)
                 Radius = abs(struct.unpack_from(">f", DataValue, 12)[0])
@@ -1134,7 +1135,7 @@ def DecodeBrep(
         return None, (
             Diagnostic(
                 "catia.brep.native_decode_failed",
-                f"Native CATIA RightValue-rep decoding failed: {ErrorInfo}",
+                f"Native CATIA B-rep decoding failed: {ErrorInfo}",
                 Severity.WARNING,
             ),
         )
@@ -1143,7 +1144,7 @@ def DecodeBrep(
         return None, (
             Diagnostic(
                 "catia.brep.native_validation_failed",
-                f"Native CATIA RightValue-rep validation failed: {Errors[0]}",
+                f"Native CATIA B-rep validation failed: {Errors[0]}",
                 Severity.WARNING,
             ),
         )

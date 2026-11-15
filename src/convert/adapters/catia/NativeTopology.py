@@ -165,11 +165,15 @@ def ParseEdge(
         if KindValue not in (0x01, 0x02):
             break
         CountValue, Cursor = Count(SourceData, Cursor + 2)
+        if CountValue > len(SourceData) - Cursor:
+            raise ValueError("edge count exceeds the stream")
         for _ in range(CountValue):
             if SourceData[Cursor] != 0x02:
                 raise ValueError("edge row is missing")
             RowStart = Cursor
             Arity, Cursor = Count(SourceData, Cursor + 1)
+            if Arity * Width > len(SourceData) - Cursor:
+                raise ValueError("edge row exceeds the stream")
             Handles = tuple(
                 int.from_bytes(
                     SourceData[Cursor + Width * Index : Cursor + Width * (Index + 1)],
@@ -189,6 +193,8 @@ def ParseVert(SourceData: bytes, Offset: int) -> tuple[tuple[VertRec, ...], int]
     if SourceData[Offset : Offset + 2] != b"\x01\x06":
         raise ValueError("vertex table is missing")
     CountValue, Cursor = Count(SourceData, Offset + 2)
+    if CountValue > (len(SourceData) - Cursor) // 15:
+        raise ValueError("vertex count exceeds the stream")
     RowValues: list[VertRec] = []
     for _ in range(CountValue):
         if SourceData[Cursor : Cursor + 3] != b"\x05\x08\x01":
