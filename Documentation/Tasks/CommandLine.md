@@ -53,6 +53,7 @@ Format registration does not establish complete feature coverage.
 Expected result: the output file and a conversion report, or a nonzero exit with an error.
 The report includes usability claims, transfers, dropped capabilities, external requirements, and writer diagnostics.
 The command always uses strict reading and `allow_carrier=False`.
+It also requires every capability transfer to be native; mixed transfers and intrinsic target-limitation carriers are refused before output publication.
 It refuses native-only feature definitions or sketch geometry before writing, including in nested components.
 Retained native payloads, opaque B-rep records, and explicit incomplete assembly references or transforms are also refused.
 Local B-rep, meshes, or bodies without a feature timeline are refused, including nested documents and local assembly geometry.
