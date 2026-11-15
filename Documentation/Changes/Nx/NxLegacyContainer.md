@@ -281,6 +281,28 @@ of id objects — and what remains is a less direct route, such as ids resolved 
 at load time or registered when a class is first instantiated. Either way it is loader-time data
 rather than a table this branch can read out of the module statically.
 
+## NX migrates a legacy part, which gives the same part in both formats
+
+Opening `wave_parent.prt` and saving it produces a `SPLMSSTR` part of the same model, so both
+containers can be compared on identical objects:
+
+```text
+legacy wave_parent.prt          SPLMSSTR wave_modern.prt
+payload 71937, 5 sections       payload 51434, 5 sections
+98 classes                      160 classes, 64 of them shared after dropping the UGS:: prefix
+section 1 55056 bytes           section 0 40188 bytes, middle 32220, record area 0
+```
+
+and the payload metadata is per section rather than per part in both: `kokr` occurs 5 times in the
+modern payload and 7 in the legacy one, and `NX 3.0.2.3` occurs exactly 5 times in both, matching the
+five sections each file has.
+
+Two consequences follow. First, the migrated part is a usable key for future alignment work: it is
+the same model in a container whose framing is partly known. Second, it shows where Kit stands on
+both formats: the modern section's objects sit in `middle`, which the reader carries verbatim, and
+`record_area` is empty, so Kit decodes OM object records in neither container. Geometry comes from
+the Parasolid streams, which is why reading works without that layer.
+
 ## The class-id header hypothesis fails
 
 With the layouts available, the base class states the shape a record header should have.
