@@ -91,6 +91,36 @@ So the section is now decoded where it was regular and the remainder is a long t
 unique records. Reaching them means one grammar per record rather than one per family,
 which is why the generated share has stopped rising even though the work continues.
 
+## The 42 00 family is validated, so it stays carried
+
+Three 26 byte records in a body part share a frame and differ in exactly two bytes:
+
+```text
+02 02 42 00 47 03 04 01 c0 44 04 00 c0 7f ff 02 09 [17] 93 8c 16 [21] ff ff 90 fe
+record 1   17 = 0x25   21 = 0x3f
+record 2   17 = 0x0a   21 = 0x3d
+record 3   17 = 0x03   21 = 0x3c
+```
+
+Mutating each, one at a time, in NX 2506:
+
+```text
+byte 17 -> 0x30 in the first record     loads       bodies 1  volume 23999.999999999996
+byte 21 -> 0x30 in the first record     OPEN_FAILED
+byte 17 and 21                         OPEN_FAILED
+byte 17 and 21 in all three records    OPEN_FAILED
+```
+
+so byte 17 is a free label and **byte 21 is validated**: it survives being rewitten only if the
+value stays consistent with something else in the part, and the three source values are 63, 61
+and 60 for three records. That makes this family the first one where a field is not free, and it
+means the record cannot be re-emitted from a writer-chosen value pair without knowing what byte
+21 must equal. It stays carried.
+
+That corrects the trend I described in the previous entry: not every remaining family is
+relabellable, and the count of generated section-0 bytes cannot be raised by working through the
+census in order.
+
 ## Consequence
 
 The trailing words are free, but the id regions are coupling: a single byte can
