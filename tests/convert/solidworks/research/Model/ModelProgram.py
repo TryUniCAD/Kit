@@ -14,11 +14,13 @@ from tests.convert.solidworks.research.Model.BaseStyles import KBaseStyles
 from tests.convert.solidworks.research.Model.BaseGraph import KBaseGraph
 from tests.convert.solidworks.research.Model.BaseLifecycle import KBaseLifecycle
 from tests.convert.solidworks.research.Model.BaseStreams import KBaseStreams
+from tests.convert.solidworks.research.Model.References.Build import KReferences
 from tests.convert.solidworks.research.Model.BaseRevision import KBaseRevision
 from tests.convert.solidworks.research.Model.BaseHeader import KBaseHeader
 from tests.convert.solidworks.research.Model.ModelContainer import KContainer
 from tests.convert.solidworks.research.Model.BaseLoad import KBaseLoad
 from tests.convert.solidworks.research.Model.BaseAliases import KBaseAliases
+from tests.convert.solidworks.research.Model.References.Load import KReferenceLoad
 from tests.convert.solidworks.research.Model.BaseCheck import KBaseCheck
 from tests.convert.solidworks.research.Model.ModelCheck import KCheck
 from tests.convert.solidworks.research.Model.ModelMetrics import KMetrics
@@ -41,12 +43,14 @@ KProgram = (
     + KBaseGraph
     + KBaseLifecycle
     + KBaseStreams
+    + KReferences
     + KBaseRevision
     + KBaseHeader
     + KContainer
     + KBaseLoad
     + KBaseAliases
     + KBaseCheck
+    + KReferenceLoad
     + KCheck
     + KMetrics
     + KBaseMetrics

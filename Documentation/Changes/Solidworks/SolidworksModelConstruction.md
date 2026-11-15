@@ -10,9 +10,16 @@ part or assembly object, with explicit self-component and relation ownership.
 `part_root` adds its part-only fields through the existing public interface.
 The shared helper does not infer an assembly subtype or populate part scalars
 at offsets owned by assembly maps.
+`base_configuration_fields` similarly initializes an actual empty part or
+assembly configuration node with its matching model owner. Concrete builders
+add their own option and component fields. The existing part configuration API
+and all `103` direct field rules are preserved by static AST comparison, split
+into `83` base and `20` part rules without executing the builders.
 The active new-model constructor proves unit-component and relation-manager
 ownership for both parts and assemblies; those factories now accept both roots.
 Loading-constructor null seeds remain distinct from active graph allocation.
+The shared zero-status helper also accepts assemblies, following the named
+assembly constructor's explicit call to the model clear-state wrapper.
 Typed list stores preserve nonnull empty pointers; explicit loader fixups
 establish absent-list regeneration only at the identified fields.
 Fresh configuration `f9a8` now carries the selected target archive version.
@@ -33,6 +40,10 @@ The positive update helper marks the serialized model flag independently of
 header stamps and completed body updates.
 Reference creation times derive from authored creation logs or the native
 absent-log sentinel, independently of feature FILETIME words.
+Plane references now own distinct fresh unit-component copies, preserving the
+same model owner. Independent profiles must also receive distinct plane wrappers
+because their native setters adopt the supplied pointer and replacement deletes
+it directly. Unsupported component-copy states fail closed.
 The document journal explicitly uses native archive schema zero. A native loader
 trace exposed the mismatch, and the shipped class metadata independently proves
 the schema constant.
@@ -101,6 +112,16 @@ The [configuration-version gotcha](../../Gotchas/Conversion/Solidworks/Model/Con
 records why the constructor's legacy version is invalid as the fresh-save rule.
 The [body-stamp gotcha](../../Gotchas/Conversion/Solidworks/Model/BodyStampCountsAreNotBodyCounts.md)
 records the distinct native allocation paths observed for one final body.
+The [reference-ownership gotcha](../../Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md)
+records the separate exclusive lifetimes of profile plane wrappers and their
+component copies.
+The process regression round-trips two references through the real container,
+checking distinct wrapper/component objects and their shared actual model owner.
+The ownership regression passed remotely at `02b47edb8` in
+[run 43705037782](https://github.com/TryUniCAD/Kit/actions/runs/43705037782),
+job `132784186911`: `159` passed and `158` skipped in the native-file step.
+The subsequent base-configuration extraction awaits a fresh remote run.
+Neither establishes native generated-part acceptance.
 Model gotchas now live under `Solidworks/Model/`, and process-check gotchas
 under `Ci/ProcessChecks/`, preserving the directory-density limit.
 

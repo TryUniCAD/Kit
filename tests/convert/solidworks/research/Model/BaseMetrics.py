@@ -13,6 +13,14 @@ BuildReport.update(
         "base_root_id": BasePartRead["f08"],
         "base_root_flags": BasePartRead["f0c"],
         "base_flag_trace": BaseFlagTrace,
+        "reference_classes": [NodeValue.cls for NodeValue in ReferenceRead.roots],
+        "reference_components_distinct": (
+            FirstReference["f58"] is not SecondReference["f58"]
+        ),
+        "reference_owners_shared": all(
+            NodeValue["f58"]["owner"] is BasePartRead
+            for NodeValue in ReferenceRead.roots
+        ),
     }
 )
 """

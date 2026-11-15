@@ -5,6 +5,8 @@ KBaseImports = """
 from builders.Model import part_graph as NewPartGraph
 from builders.Model import clear_model_update as ClearModelUpdate
 from builders.Model import mark_model_update as MarkModelUpdate
+from builders.Model import component_plane as NewComponentPlane
+from builders.Model import logged_creation_time as LoggedCreationTime
 from builders.Styles import detail_definitions as NewDetails
 from builders.Units import unit_table_profile as NewUnits
 from builders.Metadata import header as NewHeader

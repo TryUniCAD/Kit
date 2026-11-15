@@ -252,6 +252,14 @@ authored insertion caller and notification's serialized effects remain
 **partial**. The existing `mark_model_update` helper does not assert that the
 configuration's separate rebuild query is true.
 
+The named assembly constructor also has a proven clear-state operation.
+Constructor `0x4b67efe0` supplies `(status=0, options=1, source=null)` at
+`0x4b67f7e8`–`0x4b67f7f6` to the same model wrapper `0x4c0363c0`.
+Its primary vtable `0x4ce69b30` resolves slot `0xb8` to that wrapper and
+`0xc0` to node getter `0x4c03e5e0`. `clear_model_update` therefore accepts
+an actual `moAssembly_c` for this constructor-backed operation. The separate
+positive-update helper's domain remains unchanged.
+
 ## Header counter and save lifecycle
 
 Status: **partial — code-derived rules, without generated-header native acceptance**.
@@ -362,6 +370,25 @@ an owning part node, and explicit version/timestamp provenance.
 Each configuration is a new object with its own property lists and invalid mass cache.
 All collection counts derive from their collections.
 
+`base_configuration_fields` initializes the base configuration fields on a
+caller's actual empty concrete node. It accepts `node`, `name`, `owner`,
+`local_id`, `date_code`, `parasolid_version`, `updated_at` and an optional
+authored `description`. A `moPartConfiguration_c` requires its actual
+`moPart_c` owner; a `moConfiguration_c` requires its actual `moAssembly_c`
+owner. It returns that node's field dictionary without allocating a temporary
+configuration object or a persistent header id. The shared feature initializer
+accepts the same actual preallocated node and rejects mismatched or populated
+objects.
+
+The extraction preserves all `103` direct part-configuration field rules by
+static AST comparison: `83` base rules and `20` part-only rules, with no
+overlap. Inherited feature field rules remain shared. `configuration` keeps its
+existing interface and adds only the part-specific fields after initialization.
+Assembly options, component records and other concrete additions remain the
+assembly builder's responsibility. In particular, the part `fc48/fc50`
+selectors must not stand in for assembly option objects at those offsets.
+This source comparison did not run a builder or establish native acceptance.
+
 The base configuration constructor `0x4bdbf820` initializes its options, maps,
 empty feature lists and mass-property cache.
 The derived part configuration constructor `0x4b595780` adds its body maps,
@@ -384,9 +411,13 @@ The shared getter at `0x4b285780` has several linker-folded names; its relevant
 export here is `moBaseConfiguration_c::getOpenedModel`, not the decompiler's
 mate-group owner label.
 That wrapper dispatches virtual slot `0x1280`. Base-configuration primary
-vtable `0x4d027498` and part-configuration primary vtable `0x4ce2d008` resolve
+vtable `0x4d027498`, part-configuration primary vtable `0x4ce2d008` and
+assembly-configuration primary vtable `0x4cecc720` resolve
 it to the constructor-backed feature owner getter `0x4bb45da0`.
 Thus the fresh linked owner takes the selected-version storage branch.
+The assembly configuration constructor `0x4b8c4f30` supplies that actual owner
+to the same base constructor `0x4bdbf820`; the shared target-save rule applies
+without using the part-specific selector fields.
 
 Fresh part configurations require an actual owning part. Their stored version
 now derives from the same explicit target version used by the fresh feature
@@ -438,7 +469,7 @@ classes without creating a redundant archive object.
 
 | Field          | Classification                | Rule                                                                                               | 2026 evidence                                           |
 | -------------- | ----------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| Wrapper `f58`  | derived reference             | Unit component's owning part relationship                                                          | `0x4b7e8250`, unit component `0x4b8281a0`               |
+| Wrapper `f58`  | derived exclusive ownership   | A distinct unit-component copy retaining the same owning model                                      | `0x4b7e8250`, `0x4b82ab30`, copy constructor `0x4b8280c0` |
 | FRData `f00`   | derived id                    | Referenced plane's persistent id                                                                   | `0x4bb34370`                                            |
 | FRData `f08`   | volatile/input provenance     | Referenced node's creation time                                                                    | same constructor calling `0x4c03e070`                   |
 | Wrapper `ff8`  | derived conditional ownership | Null for an allocated plane; inline geometry is retained only when the referenced plane id is `-1` | `0x4b7e7980`                                            |
@@ -449,6 +480,34 @@ byte `f34c`, then compares its normal to the positive canonical axes with
 tolerance `1e-12` at `0x4cdf2b88`.
 The current constructor accepts exact canonical principal normals only.
 It does not guess a principal kind from a display name.
+
+Native ownership requires two separate object identities. The incoming-component
+constructor `0x4b7e8250` calls component virtual slot `0x158` with argument zero
+and stores the returned object at `f58`. For the unit-component primary vtable
+`0x4ce9c4d0`, that slot targets `0x4b82ab30`, which allocates `0x28` bytes and
+calls the copy constructor `0x4b8280c0`. The copy obtains the original model
+through its getter and creates its own model handle; the owning model remains
+the same object. The component-reference destructor `0x4b7ea4a0` directly calls
+the component's deleting destructor at vtable slot `8` with argument one.
+It does not decrement a shared component reference count.
+
+The profile plane wrapper is separately exclusive. Its setter `0x4c0e4b80`
+adopts the supplied pointer at profile-data offset `0x78` without retaining it.
+Replacement `0x4c0e2c30` directly deletes the previous wrapper before assigning
+the new one. Independent profile data must therefore receive separate
+`component_plane` results, even when they refer to the same principal plane.
+The factory now clones each fresh nonexternal unit component, while preserving
+its actual part or assembly owner. Null components remain supported for the
+default reference-base constructor. Other concrete component copy paths and
+external state fail closed until their construction semantics are implemented.
+See [exclusive reference ownership](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md).
+The subprocess coverage now constructs two wrappers for one semantic principal
+plane, writes their distinct component copies through the real container, and
+checks decoded object identity and the shared model-owner alias. It passed at
+`02b47edb8` in [run 43705037782](https://github.com/TryUniCAD/Kit/actions/runs/43705037782),
+job `132784186911`; the native-file step reported `159` passed and `158`
+skipped. This is component/container evidence, without native acceptance of a
+generated part. No local tests ran.
 
 ## Principal-plane graph
 
