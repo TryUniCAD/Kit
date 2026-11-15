@@ -149,6 +149,19 @@ entry being a packed value whose low bits carry a per-set counter, and it is the
 evidence yet that the entry is structured rather than derived by hashing. The per-class constant
 is still not derived.
 
+## The class ids are not referenced elsewhere in the section
+
+One association route was left worth trying: if a class id appeared somewhere else in the object
+section, a record carrying it next to a name would give the mapping directly. Testing the first
+forty entries against the whole section body:
+
+```text
+classes whose encoded id occurs more than once   0 of 40
+```
+
+so the ids exist only in the table and carry no in-file association with their names. That route is
+closed too.
+
 ## "Constant plus increment" is refuted, in both arithmetics
 
 The previous entry claimed `entry(name, set) = constant(name) + increment(set)`. That was tested
