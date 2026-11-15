@@ -274,6 +274,13 @@ pairs that disagree with the live registry           0
 classes not present in the two modules scanned      100
 ```
 
+Adding `libmodl.dll`, `libmodlgeom.dll` and `libmodlint.dll` raises the extraction to 1,084 pairs
+and still yields **0 mismatches and the same 35 agreements**, because those modules do not contain
+the registration sites for the classes that were missing. Following the class name directly is no
+help either: `UGS::Solid::Body`, `UGS::POINT` and `UGS::LAYER_category` have **no `lea` xref at all**
+in the five modules inspected, so their names reach the registrant through a pointer table rather
+than a direct `lea`, which is a different registration shape from the 35 that do match.
+
 **zero mismatches** across every pair that could be checked. The 100 misses are classes registered
 by modules that were not copied to the host (`Solid::*`, `UGS::POINT`, `LAYER_category`, and so on),
 not failures of the rule.
