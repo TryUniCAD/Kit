@@ -124,8 +124,8 @@ Three limits were raised against this record and are accepted as limits, not fix
 
 | Limit | Effect |
 | ----- | ------ |
-| Opaque class tails | The DWG projection keeps common-only objects with opaque class tails, so the model is typed where Kit knows the class and opaque where it does not. C3 covers the typed portion. |
-| Nonparametric drawings | A drawing has no feature tree, so `EmitDrawing` emits a drawing that is not parametric. C4 is not met for drawings, and the writer does not refuse them. |
+| Opaque class tails | The DWG projection keeps common-only objects with opaque class tails, so the model is typed where Kit knows the class and opaque where it does not. C3 covers the typed portion. Refusing those objects would make the reader unable to open most drawings. |
+| Nonparametric drawings | A drawing has no feature tree, so `EmitDrawing` emits a drawing that is not parametric. C4 is not met for drawings, and the writer does not refuse them. Fusion's own saves carry no feature tree either, so refusing would refuse every drawing. |
 | Authoring gate | Resolved: `EmitDrawing` refuses a database whose product entry names Kit, so no path emits a drawing Fusion rejects. |
 
 The third limit is resolved. The criteria say a writer that cannot make a field from format knowledge
