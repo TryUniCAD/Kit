@@ -35,6 +35,20 @@ def TestLargeRing(TmpPath: FilePath) -> None:
     assert Report["runtime_reads"] == []
 
 
+def TestExtendedReferences(TmpPath: FilePath) -> None:
+    Count = 65537
+    Outcome = RunPolygon(Directory=TmpPath, Scenario="ring", Count=Count, Depth=0.125)
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    Report = LoadJson(Outcome.stdout)
+    assert Report["point_count"] == Report["line_count"] == Count
+    assert Report["point_references"] and Report["line_references"]
+    assert Report["last_reference_tags"] == [0x777F, 0xFFFF]
+    assert Report["last_reference_indices"] == [Count - 1, Count - 1]
+    assert Report["late_reference_tag"] == 0x7FFF
+    assert Report["late_reference_bytes"] == 6
+    assert Report["runtime_reads"] == []
+
+
 def TestBadRings(TmpPath: FilePath) -> None:
     for Scenario in ("crossing", "touch", "vertical_overlap", "backtrack"):
         Outcome = RunPolygon(Directory=TmpPath, Scenario=Scenario, Count=0, Depth=0.025)

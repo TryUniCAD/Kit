@@ -103,6 +103,9 @@ Seed = ArchiveMap(2, {1: ('obj', Profile.profile)})
 Context = {'conditions': 0x2000, 'owner_is_drawing': 0, 'ctx874': 1}
 SketchStore = Store(base=Seed.count, registry=Registry, version=19000, ctx=Context, seed=Seed)
 SketchStore.obj(Profile.sketch)
+LateOffset = len(SketchStore.out)
+SketchStore.obj(Profile.sketch['_point_nodes'][-1]['h2'])
+LateBytes = bytes(SketchStore.out[LateOffset:])
 EndStore = Store(registry=Registry, version=19000, ctx=Context)
 EndStore.obj(Graph.end_spec)
 Streams = {'Research/Sketch': bytes(SketchStore.out), 'Research/BlindEnd': bytes(EndStore.out)}
@@ -113,12 +116,16 @@ Archive = SldprtArchive.from_bytes(Container)
 KDecode = """
 SketchLoad = Load(Archive.require('Research/Sketch'), base=Seed.count, registry=Registry, version=19000, ctx=Context, seed=Seed)
 Sketch = SketchLoad.obj()
+LateHandle = SketchLoad.obj()
+if LateHandle is not Sketch['points'][-1]['point']['h2']:
+    raise RuntimeError('late archive handle reference identity was lost')
 EndLoad = Load(Archive.require('Research/BlindEnd'), registry=Registry, version=19000, ctx=Context)
 End = EndLoad.obj()
 if SketchLoad.left() or EndLoad.left():
     raise RuntimeError('fresh graph archive has unread bytes')
 SketchAgain = Store(base=Seed.count, registry=Registry, version=19000, ctx=Context, seed=Seed)
 SketchAgain.obj(Sketch)
+SketchAgain.obj(LateHandle)
 EndAgain = Store(registry=Registry, version=19000, ctx=Context)
 EndAgain.obj(End)
 if bytes(SketchAgain.out) != Streams['Research/Sketch'] or bytes(EndAgain.out) != Streams['Research/BlindEnd']:
@@ -177,11 +184,27 @@ Report = {
     'module_read_count': len(AuditValue.ModuleReads),
     'vendor_loadable': False, 'application_usable': False,
 }
+"""
+
+KWidths = """
+Report['last_reference_tags'] = [Point['h2']['idx'], Line['fc8_s']]
+Report['last_reference_indices'] = [Second, Start]
+Report['late_reference_tag'] = int.from_bytes(LateBytes[:2], 'little')
+Report['late_reference_bytes'] = len(LateBytes)
 print(DumpJson(Report))
 """
 
 KProgram = (
-    KPaths + KLoad + KInput + KSketch + KFeature + KEncode + KDecode + KRefs + KReport
+    KPaths
+    + KLoad
+    + KInput
+    + KSketch
+    + KFeature
+    + KEncode
+    + KDecode
+    + KRefs
+    + KReport
+    + KWidths
 )
 
 

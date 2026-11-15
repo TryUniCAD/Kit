@@ -58,6 +58,8 @@ That job also passed complete fresh-part process construction, but its overall s
 That snapshot includes the origin-node lifecycle mask; current-head CI with the shared model codec repair remains pending
 New process integration coverage writes fresh sketch and blind-end object archives into a container, decodes them, checks reference and byte identity, then edits the live forward parameter and re-encodes it
 Its geometry cases include variable vertex counts, a 10,000-line ring, crossings, touches, vertical overlaps, backtracking and valid collinear vertices
+New coverage adds a 65,537-line ring to cross the native short-index boundaries and round-trips a large-map reference to an actual adjacency handle
+The new boundary case remains pending remote execution
 It verifies dimension allocation and uses the shared `BuildAudit` guard before builder/schema imports, without a filename-suffix escape for direct data reads
 The component sketch archive uses a seeded external profile owner and does not establish complete part-file acceptance
 Held-out native acceptance, rebuild, body measurements, and dimension edits remain unverified
