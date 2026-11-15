@@ -65,6 +65,15 @@ def OutlineValues(
             )
         )
     ):
+        if not (
+            MathValue.isfinite(LowerX)
+            and MathValue.isfinite(LowerY)
+            and MathValue.isfinite(UpperX)
+            and MathValue.isfinite(UpperY)
+            and LowerX < UpperX
+            and LowerY < UpperY
+        ):
+            raise SldprtFormatError("drawing view outline is invalid")
         return (LowerX, LowerY, UpperX, UpperY)
     PositionX = ViewValue.PositionX
     PositionY = ViewValue.PositionY
