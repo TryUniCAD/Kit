@@ -24,6 +24,7 @@ from convert.adapters.nx.ObjectSection import (
     RelabelLanes,
     RelabelRefs,
     RelabelTokens,
+    RewriteLabels,
     RewriteMarks,
     ReplaceHead,
     RewriteNesting,
@@ -145,7 +146,11 @@ def WithStub(
                 RelabelLanes(
                     RelabelRefs(
                         RewriteNesting(
-                            RewriteMarks(RewriteValues(RewriteRecords(SectionBody)))
+                            RewriteMarks(
+                                RewriteLabels(
+                                    RewriteValues(RewriteRecords(SectionBody))
+                                )
+                            )
                         )
                     )
                 )

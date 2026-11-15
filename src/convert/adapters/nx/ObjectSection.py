@@ -789,3 +789,40 @@ def RewriteMarks(SectionBody: bytes) -> bytes:
         if len(Written) == Finish - Begin:
             Section[Begin:Finish] = Written
     return bytes(Section)
+
+
+# three small families carry a free label byte and a validated id byte
+KLabelFrame = bytes.fromhex("47040401c044040080810209")
+KLabelValue = 0
+
+
+def LabelRecord(Record: bytes) -> bytes:
+    if (
+        len(Record) != 21
+        or Record[:2] != b"\x02\x02"
+        or Record[3] != 0
+        or Record[4:16] != KLabelFrame
+    ):
+        raise ValueError("NX label record has no known frame")
+    return Record[:16] + bytes([KLabelValue]) + Record[17:]
+
+
+# the label byte is free and sits before a validated id so only it is rewritten
+def RewriteLabels(SectionBody: bytes) -> bytes:
+    Count = ObjectCount(SectionBody)
+    TableAt = TableStart(SectionBody, Count)
+    Starts = [
+        int(Struct.unpack_from("<I", SectionBody, TableAt + 4 * Index)[0])
+        for Index in range(Count)
+    ]
+    Stops = Starts[1:] + [len(SectionBody) - 12]
+    Section = bytearray(SectionBody)
+    for Begin, Finish in zip(Starts, Stops):
+        Record = bytes(SectionBody[Begin:Finish])
+        try:
+            Written = LabelRecord(Record)
+        except ValueError:
+            continue
+        if len(Written) == Finish - Begin:
+            Section[Begin:Finish] = Written
+    return bytes(Section)
