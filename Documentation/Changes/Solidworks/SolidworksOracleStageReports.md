@@ -18,5 +18,8 @@ Clean health checks also require a nonempty feature tree and successful feature 
 Unknown status is not treated as zero errors.
 
 Static Python syntax inspection passed.
-The revised native stage sequence remains pending.
+The [controlled stage sequence](../../../re/solidworks/measurements/2026/FreshPartStages.json) completed between two healthy original controls.
+The candidate returned no document with native open error `4194304` and zero warnings.
+No rebuild or later query ran for that candidate.
+Both controls completed all fourteen start/return markers and rebuilt one solid with zero errors or warnings.
 No local repository tests were run.

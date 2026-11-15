@@ -93,6 +93,8 @@ The [process exit-status record](../../Changes/Solidworks/SolidworksOracleExitSt
 distinguishes observed termination codes from lost COM connections.
 The [native stage reports](../../Changes/Solidworks/SolidworksOracleStageReports.md)
 preserve open results when later measurement or cleanup fails.
+The [critical repair observer](../../Changes/Solidworks/SolidworksCriticalRepairTracing.md)
+tracks the current native rejection without establishing a serializer correction.
 The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.

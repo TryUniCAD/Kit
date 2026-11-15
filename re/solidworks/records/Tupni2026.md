@@ -410,6 +410,19 @@ child list while separately storing resolved features, then restores it.
 An empty Config-0 list is not a proven composer defect; `f78` is visual
 properties, not a missing parent link. No speculative linkage field was added.
 
+The staged clean batch now supplies exact public API evidence: the same generated
+candidate returns no document from `OpenDoc6`, error `4194304` (`0x400000`),
+zero warnings and no RPC or cleanup error. It records only `open_start` and
+`open_return`; no explicit rebuild or measurement query runs on the candidate.
+Both healthy original controls complete fourteen stages and the expected one-body
+geometry. The [new measurement](../measurements/2026/FreshPartStages.json)
+does not retroactively establish the exact stage of older aggregate failures.
+
+The [critical repair record](CriticalRepair2026.md) maps the returned bit through
+the exact 2026 application DLL and identifies two selected setter sites to trace.
+The new full profile records those runtime words without changing preferences or
+writer fields. Controlled hook results remain pending.
+
 A new REA pseudocode request for the origin initializer returned no analysis:
 the Hopper bridge exceeded its startup timeout, and authenticated document
 cleanup was unavailable. That attempt supplies no native format finding.
