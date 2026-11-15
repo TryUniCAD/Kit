@@ -2,7 +2,8 @@
 
 Research builders now construct shared nodes, feature bases, plane wrappers,
 configuration-manager graphs and part-definition streams from explicit inputs
-and 2026 constructor rules.
+and 2026 constructor rules. They also construct principal planes and the base
+part root from generated style/unit dependencies.
 These additions do not enable the production writer.
 
 ## Use
@@ -31,5 +32,7 @@ Python syntax parsing completed for the research builders.
 The remote process check is prepared to construct different configuration counts,
 round-trip generated component streams through the container codec, preserve
 aliases and reject runtime data-file reads.
-It has not yet supplied a passing remote result.
+The configuration/definition boundary passed remotely at commit `07b9ce403` in
+[run 43675419713](https://github.com/TryUniCAD/Kit/actions/runs/43675419713).
+The expanded plane check and part-root additions await remote verification.
 No tests or CAD oracle operations ran locally for this change.

@@ -266,6 +266,99 @@ def component_plane(
     return Obj("moCompRefPlane_c", fields)
 
 
+def principal_plane(
+    *,
+    axis: str,
+    name: str,
+    owner: Obj,
+    allocator: PersistentIds,
+    date_code: int,
+    parasolid_version: int,
+    retain_construction_flag: bool,
+) -> Obj:
+    if axis not in ("x", "y", "z"):
+        raise ValueError("principal planes require a positive canonical normal axis")
+    if type(retain_construction_flag) is not bool:
+        raise TypeError("reference-geometry construction flag selection must be boolean")
+    axes = {label: tuple(float(i == index) for i in range(3)) for index, label in enumerate(("x", "y", "z"))}
+    u = axes["x"] if axis != "x" else tuple(-value for value in axes["z"])
+    v = axes["y"] if axis != "y" else tuple(-value for value in axes["z"])
+    normal = (
+        u[1] * v[2] - u[2] * v[1],
+        u[2] * v[0] - u[0] * v[2],
+        u[0] * v[1] - u[1] * v[0],
+    )
+    basis = (u, v, normal)
+    transform = {
+        "has_matrix": int(axis != "z"),
+        "f58": 0.0,
+        "f60": 0.0,
+        "f68": 0.0,
+        "f70": 1.0,
+        "f78": 0,
+    }
+    if transform["has_matrix"]:
+        transform["f08"] = {f"m{row * 3 + column}": basis[column][row] for row in range(3) for column in range(3)}
+    data = Obj("moDefaultRefPlnData_c", {
+        "root": dict.fromkeys(("x", "y", "z"), 0.0),
+        "normal": dict(zip(("x", "y", "z"), normal, strict=True)),
+        "f20": transform,
+        "b0": 0.0,
+        "b1": 0.0,
+        "b2": 0.0,
+        "b3": 0.0,
+        "f48": None,
+        "f50": 0,
+        "f54": -4,
+        "f58": -4,
+        "old_e5": 0,
+        "display_root": dict.fromkeys(("x", "y", "z"), 0.0),
+        "f5c": 1,
+        "f60": 0,
+        "f64": 0,
+        "f68": None,
+        "f70": None,
+        "f78": None,
+    })
+    result = atom_feature(
+        cls="moRefPlane_c", name=name, owner=owner, allocator=allocator,
+        date_code=date_code, parasolid_version=parasolid_version,
+    )
+    result.f.update({
+        "f6c0": dict.fromkeys(("x", "y", "z"), 0.0),
+        "f6dc": 1 | (4 if retain_construction_flag else 0),
+        "f6e0": 0,
+        "f6e8": None,
+        "f6f0": 0,
+        "f6f8": data,
+        "_principal_axis": axis,
+        "_plane_u": u,
+        "_plane_v": v,
+    })
+    return result
+
+
+def principal_planes(
+    *,
+    names: dict[str, str],
+    owner: Obj,
+    allocator: PersistentIds,
+    date_code: int,
+    parasolid_version: int,
+    retain_construction_flag: bool,
+) -> dict[str, Obj]:
+    if set(names) != {"x", "y", "z"}:
+        raise ValueError("principal plane names must identify each canonical normal axis")
+    return {
+        axis: principal_plane(
+            axis=axis, name=names[axis], owner=owner, allocator=allocator,
+            date_code=date_code, parasolid_version=parasolid_version,
+            retain_construction_flag=retain_construction_flag,
+        )
+        for axis in ("z", "y", "x")
+    }
+
+
 def empty_mass_properties() -> dict:
     result = {
         name: 0.0
@@ -418,6 +511,7 @@ def configuration_manager(
     result.f.update({
         "f360": configs[current],
         "f368": configs[current],
+        "f0c": result.f["f0c"] & 0xFFFD7FF8,
         "f40c": len(configs),
         "f370": object_list(configs),
         "f55c": 0,
@@ -447,6 +541,112 @@ def configuration_manager(
     return result
 
 
+def relation_manager(*, owner: Obj) -> Obj:
+    if not isinstance(owner, Obj) or owner.cls != "moPart_c":
+        raise ArchiveError("fresh relation managers currently require a part owner")
+    return Obj("moRelMgr_c", {
+        "owner": owner,
+        "f58": object_list(),
+        "f10": {"n": 0, "items": []},
+        "f170": "",
+        "f178": 0,
+        "f180": 0,
+        "f150": 0,
+        "ff4": -1,
+        "fa0": object_list(),
+        "f1b0": -1,
+        "n1c0": 0,
+        "f1c0": [],
+    })
+
+
+def _part_collections() -> dict:
+    fields = {name: [] for name in (
+        "f168", "f178", "fcd8", "f1310", "fec0", "f1288", "ffe0",
+        "f10b0", "f1108", "f1130", "f1d0", "f1628", "f16e8", "f1640",
+    )}
+    fields.update({name: 0 for name in (
+        "n168", "n180", "ncd8", "n1318", "nec8", "n1290", "nff4",
+        "n10c4", "n1118", "n1140", "n1d8", "n16f8",
+    )})
+    fields.update({name: object_list() for name in (
+        "fc90", "fb08", "f9c8", "fb30", "fba8", "fb58", "fb80",
+        "fbf8", "fbd0", "fc20", "fc70", "f240",
+    )})
+    fields.update({
+        "fdd0": {"n08": 0, "faces": [], "n58": 0, "props": []},
+        "f938": {"n08": 0, "bodies": [], "n58": 0, "props": []},
+        "f1c70": {"n": 0, "items": []},
+    })
+    return fields
+
+
+def part_root(
+    *,
+    name: str,
+    allocator: PersistentIds,
+    detail_definitions: dict,
+    document_units: Obj,
+    analysis_units: Obj,
+    hatch_name: str,
+) -> Obj:
+    if not isinstance(detail_definitions, dict) or not detail_definitions:
+        raise ArchiveError("part construction requires generated detail definitions")
+    if any(not isinstance(units, Obj) or units.cls != "moUnitsTable_c" for units in (document_units, analysis_units)):
+        raise ArchiveError("part construction requires explicit native unit-table graphs")
+    if not isinstance(hatch_name, str) or not hatch_name or "\x00" in hatch_name:
+        raise ValueError("crosshatch names must be authored nonempty strings without null characters")
+    result = Obj("moPart_c")
+    fields = concept_fields(name=name, allocator=allocator, node=result)
+    fields.update(_part_collections())
+    fields.update({field_name: 0 for field_name in (
+        "fb0", "fb4", "fd30", "has_f7f8", "fef8", "ff18", "ff20", "ff2c",
+        "f160", "ff1c", "shrinkwrap", "defeatured", "fd58", "f1188", "f118c",
+        "f1190", "f1194", "has_f1180", "f280", "f1308", "f15f0", "f1614",
+        "f1618", "f161c", "fd2c", "has_fdb8", "fd48", "ff3c", "f1010",
+        "f1014", "fb00", "fd54", "has_f1270", "f14f8",
+        "f1428", "f14d8", "f152c", "f1400", "f1698", "f169c", "has_f16b8",
+        "f1638", "f18d4", "f1900", "f1be0",
+    )})
+    fields.update({field_name: None for field_name in (
+        "fa70", "f2f8", "f1420", "f1e0", "f9d8", "fa88", "attach", "fe80",
+        "fa48", "fa90", "fed0", "fe38", "fa50", "f12d0", "f1338", "f13f8",
+    )})
+    fields.update({
+        "f2c": fields["f2c"] | 0x100,
+        "f9b8": document_units,
+        "f9c0": analysis_units,
+        "fae0": detail_definitions,
+        "f990": unit_component(owner=result),
+        "f9d0": relation_manager(owner=result),
+        "fdb0": Obj("moTransRefPlaneData_c", {"f08": 1, "f0c": 1, "f10": 0xFF00, "f14": 0xFF, "f18": 0x5F, "f1c": 0}),
+        "ff80": 1000.0,
+        "ff88": 1e-8,
+        "fa98": {"kind": 2, "f18": {"n": 0, "items": []}, "f110": -0x55555556, "f114": -0x44444445},
+        "fd50": 1,
+        "f784": bytes(16),
+        "f7a4": bytes(16),
+        "f1300": 101,
+        "f1418": Obj("gcXhatch_c", {"f08": hatch_name, "f10": 0.0, "f18": 1.0, "f34": 0, "f20": 0, "f24": 1, "f28": -1, "f2c": -1, "f30": 0}),
+        "f1588": Obj("uoModelData_c", {"f08": None, "f10": 0}),
+        "fd88": {"f260": 100, "n6c": 0, "atoms": [], "fa8": 0},
+        "fd90": {"f80": 10000, "fe0": 0, "n": 0, "objects": []},
+        "f9f8": [{"o": None} for _ in range(10)],
+        "fce8": 0x32,
+        "fcec": 0x6C,
+        "fd44": 10,
+        "feb0": 199,
+        "feb4": 199,
+        "feb8": 0,
+        "f1104": 20,
+        "f1128": 20,
+        "f18d8": 101,
+        "f760": "",
+        "f768": "",
+    })
+    return result
+
+
 @dataclass(slots=True)
 class ModelGraph:
     part: Obj
@@ -458,3 +658,38 @@ class ModelGraph:
     @property
     def next_persistent_id(self) -> int:
         return self.allocator.next_id
+
+
+def part_graph(
+    *,
+    name: str,
+    configuration_names: Iterable[str],
+    plane_names: dict[str, str],
+    detail_definitions: dict,
+    document_units: Obj,
+    analysis_units: Obj,
+    hatch_name: str,
+    date_code: int,
+    parasolid_version: int,
+    updated_at: int,
+    retain_construction_flag: bool,
+) -> ModelGraph:
+    allocator = PersistentIds()
+    part = part_root(
+        name=name, allocator=allocator, detail_definitions=detail_definitions,
+        document_units=document_units, analysis_units=analysis_units,
+        hatch_name=hatch_name,
+    )
+    manager = configuration_manager(
+        owner=part, names=configuration_names, date_code=date_code,
+        parasolid_version=parasolid_version, updated_at=updated_at,
+    )
+    planes = principal_planes(
+        names=plane_names, owner=part, allocator=allocator, date_code=date_code,
+        parasolid_version=parasolid_version,
+        retain_construction_flag=retain_construction_flag,
+    )
+    return ModelGraph(
+        part=part, allocator=allocator, configuration_manager=manager,
+        system_features=tuple(planes.values()), planes=planes,
+    )

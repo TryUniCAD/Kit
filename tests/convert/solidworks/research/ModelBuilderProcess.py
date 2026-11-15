@@ -19,18 +19,9 @@ sys.path.insert(0, str(root / 'src'))
 sys.path.insert(0, str(root / 're' / 'tooling' / 'sw2026'))
 sys.path.insert(0, str(root / 're' / 'tooling' / 'sw2026' / 'serial'))
 
-from Core import Obj
-from Classes import registry
-from Streams import StreamDoc, store_rooted, load_rooted
-from defs.Definition import load_definition, store_definition
-from builders.Model import configuration_manager
-from builders.Definition import part_definition, definition_stream
-from convert.adapters.solidworks.container.Container import build_sldprt, SldprtArchive
-
 """
 
 KGuard = """
-reg = registry()
 reads = []
 
 def audit(event, args):
@@ -47,8 +38,19 @@ def audit(event, args):
 
 """
 
-KBuild = """
+KLoad = """
 sys.addaudithook(audit)
+from Core import Obj
+from Classes import registry
+from Streams import StreamDoc, store_rooted, load_rooted
+from defs.Definition import load_definition, store_definition
+from builders.Model import configuration_manager, principal_planes, PersistentIds
+from builders.Definition import part_definition, definition_stream
+from convert.adapters.solidworks.container.Container import build_sldprt, SldprtArchive
+reg = registry()
+"""
+
+KBuild = """
 names = [prefix + str(index) for index in range(count)]
 manager = configuration_manager(
     owner=Obj('moPart_c'), names=names, date_code=2026001,
@@ -63,8 +65,23 @@ streams = {
     'Contents/CMgr': store_rooted(StreamDoc('rooted', {'base': 1}, [manager]), reg, 19000),
     'Contents/Definition': definition_stream(registry=reg, document=definition),
 }
+"""
+
+KPlanes = """
+allocator = PersistentIds()
+planes = principal_planes(
+    names={axis: prefix + axis for axis in ('x', 'y', 'z')},
+    owner=Obj('moPart_c'), allocator=allocator, date_code=2026001,
+    parasolid_version=380, retain_construction_flag=True,
+)
+streams['Research/PrincipalPlanes'] = store_rooted(
+    StreamDoc('rooted', {'base': 1}, list(planes.values())), reg, 19000,
+)
 blob = build_sldprt(streams)
 archive = SldprtArchive.from_bytes(blob)
+plane_doc, plane_ar = load_rooted(archive.require('Research/PrincipalPlanes'), reg, 1, 19000)
+if plane_doc.tail or store_rooted(plane_doc, reg, 19000) != streams['Research/PrincipalPlanes']:
+    raise RuntimeError('principal plane graph changed after decoding')
 """
 
 KCheck = """
@@ -87,6 +104,9 @@ report = {
     'configuration_names': [config['f18']['f08'] for config in configs],
     'configuration_ids': [config['f08'] for config in configs],
     'next_configuration_id': decoded['f40c'],
+    'plane_ids': [plane['f08'] for plane in plane_doc.roots],
+    'plane_normals': [plane['f6f8']['normal'] for plane in plane_doc.roots],
+    'next_persistent_id': allocator.next_id,
     'density_kg_m3': doc.head['f1688'],
     'journal_name': doc.head['ffd8']['f18']['f08'],
     'stream_bytes': {name: len(data) for name, data in streams.items()},
@@ -98,7 +118,7 @@ report = {
 print(json.dumps(report, ensure_ascii=True))
 """
 
-KProgram = KImports + KGuard + KBuild + KCheck + KReport
+KProgram = KImports + KGuard + KLoad + KBuild + KPlanes + KCheck + KReport
 
 
 def RunBuilders(
