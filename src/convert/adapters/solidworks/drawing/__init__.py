@@ -6,6 +6,7 @@ from convert.adapters.solidworks.drawing.Models import (
     DrawingRef,
     DrawingSheet,
     DrawingView,
+    ViewBounds,
 )
 
 __all__ = [
@@ -13,5 +14,6 @@ __all__ = [
     "DrawingRef",
     "DrawingSheet",
     "DrawingView",
+    "ViewBounds",
     "ReadDrawing",
 ]

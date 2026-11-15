@@ -64,6 +64,7 @@ def AttachPositions(
                     OutlineMinY=Placement.LowerY,
                     OutlineMaxX=Placement.UpperX,
                     OutlineMaxY=Placement.UpperY,
+                    ModelBounds=Placement.Bounds,
                 )
             )
             SeenKeys.add(ViewKey)

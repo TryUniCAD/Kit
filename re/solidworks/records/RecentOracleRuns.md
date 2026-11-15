@@ -151,3 +151,17 @@ primary position record, and `TestBounds` compares the reader against them for
 all seven drawings. The late-bound VBScript failure and the typed C# workaround
 are recorded in
 [the outline API gotcha](../../Documentation/Gotchas/Conversion/Drawing/SolidworksDrawingOutlineApi.md).
+
+### Recovered model bounds
+
+The nine doubles 135 bytes after each primary display-list pair are the
+referenced model centre, maximum, and minimum. They match the part B-rep exactly:
+
+```
+poly5a     center 0.0185,0.016,0.0045  max 0.042,0.032,0.009   min -0.005,0,0
+poly5deep  center 0.0185,0.016,0.0085  max 0.042,0.032,0.017   min -0.005,0,0
+poly5b     center 0.0185,0.0135,0.0065 max 0.045,0.037,0.013   min -0.008,-0.010,0
+```
+
+`TestModel` compares every recovered view against the part reader's B-rep
+bounding box.

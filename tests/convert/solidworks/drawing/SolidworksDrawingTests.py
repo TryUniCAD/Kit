@@ -272,6 +272,72 @@ def TestBounds() -> None:
                 assert ActualValue == PytestLib.approx(ExpectedValue)
 
 
+# recovered model bounds must match the referenced part bounding box
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestModel() -> None:
+    Expected = {
+        "standard.SLDDRW": (
+            (0.0185, 0.016, 0.0045),
+            (-0.005, 0.0, 0.0),
+            (0.042, 0.032, 0.009),
+        ),
+        "minimal.SLDDRW": (
+            (0.0185, 0.016, 0.0085),
+            (-0.005, 0.0, 0.0),
+            (0.042, 0.032, 0.017),
+        ),
+        "angled.SLDDRW": (
+            (0.0185, 0.0135, 0.0065),
+            (-0.008, -0.010, 0.0),
+            (0.045, 0.037, 0.013),
+        ),
+        "projected.SLDDRW": (
+            (0.0185, 0.016, 0.0045),
+            (-0.005, 0.0, 0.0),
+            (0.042, 0.032, 0.009),
+        ),
+        "multisheet.SLDDRW": (
+            (0.0185, 0.016, 0.0045),
+            (-0.005, 0.0, 0.0),
+            (0.042, 0.032, 0.009),
+        ),
+        "large.SLDDRW": (
+            (0.0185, 0.016, 0.0045),
+            (-0.005, 0.0, 0.0),
+            (0.042, 0.032, 0.009),
+        ),
+        "coincident.SLDDRW": (
+            (0.0185, 0.016, 0.0045),
+            (-0.005, 0.0, 0.0),
+            (0.042, 0.032, 0.009),
+        ),
+    }
+    for NameValue, BoundsData in Expected.items():
+        DataValue = ReadDrawing(KDrawRoot / NameValue, IncludePositions=True)
+        for SheetValue in DataValue.Sheets:
+            for ViewValue in SheetValue.Views:
+                Bounds = ViewValue.ModelBounds
+                assert Bounds is not None
+                for ActualValue, ExpectedValue in zip(
+                    (Bounds.Center.x, Bounds.Center.y, Bounds.Center.z),
+                    BoundsData[0],
+                    strict=True,
+                ):
+                    assert ActualValue == PytestLib.approx(ExpectedValue)
+                for ActualValue, ExpectedValue in zip(
+                    (Bounds.Minimum.x, Bounds.Minimum.y, Bounds.Minimum.z),
+                    BoundsData[1],
+                    strict=True,
+                ):
+                    assert ActualValue == PytestLib.approx(ExpectedValue)
+                for ActualValue, ExpectedValue in zip(
+                    (Bounds.Maximum.x, Bounds.Maximum.y, Bounds.Maximum.z),
+                    BoundsData[2],
+                    strict=True,
+                ):
+                    assert ActualValue == PytestLib.approx(ExpectedValue)
+
+
 # a display list whose position records disagree with the view list must fail
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestPosNo() -> None:

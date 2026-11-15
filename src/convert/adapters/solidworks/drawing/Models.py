@@ -2,6 +2,16 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from interchange import Vector3
+
+
+# frozen model bounds keep recovered extents tied to their centre
+@dataclass(frozen=True, slots=True)
+class ViewBounds:
+    Center: Vector3
+    Minimum: Vector3
+    Maximum: Vector3
+
 
 # frozen view data keeps recovered metadata safe to share between callers
 @dataclass(frozen=True, slots=True)
@@ -15,6 +25,7 @@ class DrawingView:
     OutlineMinY: float | None = None
     OutlineMaxX: float | None = None
     OutlineMaxY: float | None = None
+    ModelBounds: ViewBounds | None = None
 
 
 # frozen sheet data keeps each sheet composition explicit and immutable

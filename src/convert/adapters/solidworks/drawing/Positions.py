@@ -5,6 +5,8 @@ import math as MathValue
 import struct as Struct
 
 from convert.adapters.solidworks.container.Container import SldprtFormatError
+from convert.adapters.solidworks.drawing.Models import ViewBounds
+from interchange import Vector3
 
 # repeated position records are separated by this native display list stride
 KRecordOffset = 384
@@ -14,6 +16,9 @@ KMaxCoordinate = 1000000.0
 
 # the outline quadruple starts this many bytes after the paired centre record
 KOutlineOffset = 37
+
+# the model bounds block starts this many bytes after the paired centre record
+KBoundsOffset = 135
 
 
 # one recovered placement keeps the centre and sheet bounds together
@@ -25,9 +30,52 @@ class ViewPlacement:
     LowerY: float
     UpperX: float
     UpperY: float
+    Bounds: ViewBounds
 
 
 # view centres are recovered as paired display list records and deduplicated by pair
+def BoundsAt(DataValue: bytes, Offset: int) -> ViewBounds:
+    BoundsOffset = Offset + KBoundsOffset
+    if BoundsOffset + 72 > len(DataValue):
+        raise SldprtFormatError("drawing model bounds are truncated")
+    Values = Struct.unpack_from("<9d", DataValue, BoundsOffset)
+    if not all((MathValue.isfinite(ItemValue) for ItemValue in Values)):
+        raise SldprtFormatError("drawing model bounds are invalid")
+    CenterX, CenterY, CenterZ, PeakX, PeakY, PeakZ, FloorX, FloorY, FloorZ = Values
+    if (
+        FloorX > CenterX
+        or CenterX > PeakX
+        or FloorY > CenterY
+        or CenterY > PeakY
+        or FloorZ > CenterZ
+        or CenterZ > PeakZ
+    ):
+        raise SldprtFormatError("drawing model bounds are invalid")
+    return ViewBounds(
+        Vector3(CenterX, CenterY, CenterZ),
+        Vector3(FloorX, FloorY, FloorZ),
+        Vector3(PeakX, PeakY, PeakZ),
+    )
+
+
+def PlacementAt(
+    DataValue: bytes,
+    Offset: int,
+    Center: tuple[float, float],
+    Outline: tuple[float, float, float, float],
+) -> ViewPlacement:
+    LowerX, LowerY, UpperX, UpperY = Outline
+    return ViewPlacement(
+        Center[0],
+        Center[1],
+        LowerX,
+        LowerY,
+        UpperX,
+        UpperY,
+        BoundsAt(DataValue, Offset),
+    )
+
+
 def Positions(DataValue: bytes) -> tuple[ViewPlacement, ...]:
     Candidates: dict[int, tuple[float, float]] = {}
     for Offset in range(0, len(DataValue) - 32):
@@ -55,9 +103,8 @@ def Positions(DataValue: bytes) -> tuple[ViewPlacement, ...]:
         OutlineOffset = Offset + KOutlineOffset
         if OutlineOffset + 32 > len(DataValue):
             raise SldprtFormatError("drawing view outline is truncated")
-        LowerX, LowerY, UpperX, UpperY = Struct.unpack_from(
-            "<dddd", DataValue, OutlineOffset
-        )
+        Outline = Struct.unpack_from("<dddd", DataValue, OutlineOffset)
+        LowerX, LowerY, UpperX, UpperY = Outline
         if (
             not (
                 MathValue.isfinite(LowerX)
@@ -69,15 +116,6 @@ def Positions(DataValue: bytes) -> tuple[ViewPlacement, ...]:
             or LowerY >= UpperY
         ):
             raise SldprtFormatError("drawing view outline is invalid")
-        Points.append(
-            ViewPlacement(
-                Candidates[Offset][0],
-                Candidates[Offset][1],
-                LowerX,
-                LowerY,
-                UpperX,
-                UpperY,
-            )
-        )
+        Points.append(PlacementAt(DataValue, Offset, Candidates[Offset], Outline))
         Consumed.add(Paired)
     return tuple(Points)
