@@ -32,6 +32,9 @@ class CreoCurve:
 @dataclass(frozen=True, slots=True)
 class CreoLogicalObject:
     object_id: int
+    object_type: int | None
+    object_subtype: int | None
+    feature_id: int | None
     next_object_id: int | None
 
 
@@ -147,9 +150,22 @@ def ReadLogicalObjects(DataValue: bytes) -> tuple[CreoLogicalObject, ...]:
         if Node.name != "lo_id" or not isinstance(Node.value, int):
             continue
         NextValue: int | None = None
+        TypeValue: int | None = None
+        SubtypeValue: int | None = None
+        FeatureValue: int | None = None
         for Candidate in Nodes[Index + 1 : Index + 9]:
-            if Candidate.name == "next_lo_ptr" and isinstance(Candidate.value, int):
+            if Candidate.name == "lo_type" and isinstance(Candidate.value, int):
+                TypeValue = Candidate.value
+            elif Candidate.name == "lo_subtype" and isinstance(Candidate.value, int):
+                SubtypeValue = Candidate.value
+            elif Candidate.name == "feat_id" and isinstance(Candidate.value, int):
+                FeatureValue = Candidate.value
+            elif Candidate.name == "next_lo_ptr" and isinstance(Candidate.value, int):
                 NextValue = Candidate.value
                 break
-        Objects.append(CreoLogicalObject(Node.value, NextValue))
+        Objects.append(
+            CreoLogicalObject(
+                Node.value, TypeValue, SubtypeValue, FeatureValue, NextValue
+            )
+        )
     return tuple(Objects)

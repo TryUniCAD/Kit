@@ -380,6 +380,9 @@ def ReadDocument(
                             FreezeMapping(
                                 {
                                     "id": Logical.object_id,
+                                    "type": Logical.object_type,
+                                    "subtype": Logical.object_subtype,
+                                    "feature_id": Logical.feature_id,
                                     "next_id": Logical.next_object_id,
                                 }
                             )
