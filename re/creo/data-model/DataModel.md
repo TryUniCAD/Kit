@@ -818,7 +818,7 @@ Four rows were built from the ladder's `FeatDefs` row and launched twice each:
 
 | Candidate | `949` element | `917` element | Creo |
 | --- | --- | --- | --- |
-| `class917_element` | vendor (id `66`) | **ours** (id `74`, 346 bytes) | loads, 2 of 2 |
+| `class917_element` | vendor (id `66`) | **ours** (id `74`, `346` bytes then, `348` after the frame fix) | loads, 2 of 2 |
 | `class917_whole` | ours (id `66`) | ours (id `74`) | refused twice |
 | `pair_e3` | ours, opened `e3` like the vendor | ours | refused twice |
 | `only917` | **absent** | ours | refused twice |

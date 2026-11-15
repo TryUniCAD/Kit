@@ -123,7 +123,7 @@ def CheckEmitters() -> None:
     Protrusion = Author.SolidFeatureDefinition(74, (100.0,))
     Check(
         "generated class 917 element",
-        len(Protrusion) == 346 and b"place_rec_ptr" in Protrusion,
+        len(Protrusion) == 348 and b"place_rec_ptr" in Protrusion,
         f"{len(Protrusion)} bytes",
     )
 

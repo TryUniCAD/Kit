@@ -40,6 +40,8 @@ determinant `-1`, not a rotation. `KIdentityFrame` is corrected and now encodes 
 PASS  identity frame matches the vendor encoding      0f 18 e5 0f 18 e5 0f 18 e5
 ```
 
+It also lengthens the generated class-`917` element from `346` to `348` bytes, since the frame is one byte wider.
+
 It is a real fix and it is not the `949` blocker: the element still parses only as far as
 `sub_feat_arr → (subft_indexnumber)` before Creo exits.
 
@@ -59,7 +61,7 @@ Write side: **partial, and not vendor-loadable for anything with geometry.** Wha
 | `gen_rows4` | **47 of 53 directory rows**, all generated: `AllFeatur`, `FeatDefs`, `FeatDefsDtm`, `BasBasData`, the empty sections, `SolidPersistTable`, `SolidPrimdata`, `CGFPersistTable`, `THMB_IMG_MAIN` and the free-space extents | clean, 2 of 2 |
 | `featdefs` / `featdefs425` | the above class of part plus a generated `FeatDefs` carrying a dimension, read back as `100.0` and `42.5` respectively | clean, 2 of 2 |
 | `fd_one_def` | `FeatDefs` with two dimensions and the ladder's `place_rec_ptr` nesting | clean, 2 of 2 |
-| `class917_element` | a generated class-`917` definition element (346 bytes) in place of the vendor's | clean, 2 of 2 |
+| `class917_element` | a generated class-`917` definition element (346 bytes then, `348` after the frame fix) in place of the vendor's | clean, 2 of 2 |
 
 None of these carries a body of our own: `gen_rows4` reads back `4 features, 0 bodies`, and `class917_element`
 loads the ladder's geometry, so its volume `18482541.490319017` is our reader reading vendor `VisibGeom`, not a
