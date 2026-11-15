@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from Core import ArchiveError, Load, Store
+from Core import Load, Store
 
 
 class StreamDoc:

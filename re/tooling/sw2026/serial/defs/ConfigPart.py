@@ -103,6 +103,8 @@ class Len(Op):
 
     def load(self, ar, scope, o):
         scope[self.name] = ar.prim(self.kind)
+        if scope[self.name] == 0:
+            scope[self.items] = []
 
     def store(self, ar, scope, o):
         ar.prim(self.kind, len(scope[self.items]))

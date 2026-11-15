@@ -3,12 +3,10 @@ from __future__ import annotations
 import ctypes
 import ctypes.wintypes as wt
 import json
-import os
 import subprocess
 import sys
 import threading
 import time
-from pathlib import Path
 
 import pythoncom
 import win32com.client as wc
@@ -97,8 +95,9 @@ class Dismisser:
         while not self.stop.is_set():
             try:
                 _dismiss_once(self.log)
-            except Exception:
-                pass
+            except Exception as error:
+                self.log.append({"error": repr(error)})
+                self.stop.set()
             time.sleep(0.5)
 
     def __enter__(self):
@@ -136,25 +135,26 @@ def nothing():
 class Sw:
     def __init__(self, visible=False):
         pythoncom.CoInitialize()
+        self.diagnostics = []
         self.app = wc.DispatchEx(PROGID)
         self.app.Visible = visible
         self.app.UserControl = False
         try:
             self.app.FrameState = 1
-        except Exception:
-            pass
+        except Exception as error:
+            self.diagnostics.append({"stage": "frame_state", "error": repr(error)})
         self.revision = str(cv(self.app, "RevisionNumber"))
         self.launches = 0
 
     def close(self):
         try:
             self.app.CloseAllDocuments(True)
-        except Exception:
-            pass
+        except Exception as error:
+            self.diagnostics.append({"stage": "close_documents", "error": repr(error)})
         try:
             cv(self.app, "ExitApp")
-        except Exception:
-            pass
+        except Exception as error:
+            self.diagnostics.append({"stage": "exit_application", "error": repr(error)})
         self.app = None
         pythoncom.CoUninitialize()
 
@@ -184,8 +184,8 @@ class Sw:
     def close_doc(self, m):
         try:
             self.app.CloseDoc(str(cv(m, "GetTitle")))
-        except Exception:
-            pass
+        except Exception as error:
+            self.diagnostics.append({"stage": "close_document", "error": repr(error)})
 
     def save_as(self, m, path):
         e, w = byref_long(), byref_long()
@@ -199,10 +199,7 @@ def mass(m):
         mp = cv(m.Extension, "CreateMassProperty")
         if mp is None:
             return None
-        try:
-            mp.UseSystemUnits = True
-        except Exception:
-            pass
+        mp.UseSystemUnits = True
         out["volume"] = float(mp.Volume)
         out["area"] = float(mp.SurfaceArea)
         out["com"] = [float(v) for v in mp.CenterOfMass]
@@ -228,20 +225,20 @@ def features(m):
         try:
             code = f.GetErrorCode2(byref_long())
             item["error"] = int(code) if not isinstance(code, tuple) else int(code[0])
-        except Exception:
-            pass
+        except Exception as error:
+            item["error_query_error"] = repr(error)
         try:
             item["suppressed"] = bool(cv(f, "IsSuppressed"))
-        except Exception:
-            pass
+        except Exception as error:
+            item["suppression_query_error"] = repr(error)
         dims = []
         d = cv(f, "GetFirstDisplayDimension")
         while d is not None:
             try:
                 dd = d.GetDimension2(0)
                 dims.append({"name": str(dd.FullName), "value": float(dd.SystemValue)})
-            except Exception:
-                pass
+            except Exception as error:
+                dims.append({"error": repr(error)})
             d = f.GetNextDisplayDimension(d)
         if dims:
             item["dims"] = dims
@@ -259,7 +256,7 @@ def rebuild_errors(m):
 
 
 def measure(sw, path, rebuild=True):
-    rec = {"path": str(path)}
+    rec = {"path": str(path), "session_diagnostics": list(sw.diagnostics)}
     t0 = time.time()
     m, e, w = sw.open(path)
     rec["open_errors"] = e
@@ -276,6 +273,7 @@ def measure(sw, path, rebuild=True):
         rec["features"] = features(m)
     finally:
         sw.close_doc(m)
+    rec["session_diagnostics"] = list(sw.diagnostics)
     rec["seconds"] = round(time.time() - t0, 2)
     return rec
 

@@ -55,11 +55,13 @@ def main():
                 rec["exception"] = repr(ex)
                 try:
                     sw.close()
-                except Exception:
-                    pass
+                except Exception as cleanup_error:
+                    rec["cleanup_error"] = repr(cleanup_error)
+                rec["cleanup_diagnostics"] = list(sw.diagnostics)
                 Swapp.sweep()
                 sw = Swapp.Sw()
             rec["seconds"] = round(time.time() - t0, 2)
+            rec["session_diagnostics"] = list(sw.diagnostics)
             rec["dialogs"] = list(dz.log)
             dz.log.clear()
             results.append(rec)

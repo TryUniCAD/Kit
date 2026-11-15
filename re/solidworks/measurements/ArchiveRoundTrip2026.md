@@ -67,6 +67,14 @@ although its count was still needed during storage.
 The schema now constructs the collection for zero entries and emits zero bytes
 for its body. The count remains derived from the collection; no tail is copied.
 
+At head `f1439ab517a3213adee29e86d8de8984150502ee`, the
+[remote native-file job](https://github.com/TryUniCAD/Kit/actions/runs/43660242652/job/132647725050)
+advanced to a sketch-block map and reported missing collection `f68` in
+`moRefIdToSketchBlockListMap_c.FUN_4c9080f0`.
+This is the same zero-count construction issue at another declared collection.
+The shared length operation now initializes zero-count collections instead of
+adding a separate empty-case patch for each family. A fresh remote run is required.
+
 Rerun the same remote checks with the typed count and array.
 A successful follow-up must bind to its own exact head and keep
 the initial failure above as history.

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from Core import ArchiveError, Load, Store
-from Dsl import Vgt, Vge, Vlt, ver, i32, u32, cstr, obj, rep, base
+from Dsl import Vgt, Vlt, ver, i32, u32, cstr, obj, rep, base
 from Schema import If, Fn
 import Streams
 

@@ -51,6 +51,11 @@ The [header](../../../re/solidworks/records/HeaderConstruction2026.md) and
 [history](../../../re/solidworks/records/HistoryConstruction2026.md) studies add
 constructor-derived rules without promoting them as accepted writer defaults.
 
+Oracle helpers now record failed feature queries and cleanup operations.
+Failure to set construction geometry or select system mass-property units is no
+longer silently ignored. These scripts still need remote target acceptance.
+The disassembler uses structured memory operands and explicit PE symbol budgets.
+
 Assembly schemas, complete field classification, synthesis from a neutral document,
 held-out measurements, and production conversion remain unfinished.
 The [adapter guide](../../Reference/Adapters/Solidworks.md) retains that boundary.

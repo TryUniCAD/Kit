@@ -9,8 +9,7 @@ import traceback
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import Swapp
-from Swapp import cv, nothing
+from Swapp import cv, nothing, features, mass, bodies, sweep, Dismisser, Sw, emit
 
 PLANES = {"front": "Front Plane", "top": "Top Plane", "right": "Right Plane"}
 END = {
@@ -111,10 +110,7 @@ class Builder:
             if s is None:
                 raise RuntimeError(f"sketch entity {t} failed")
             if e.get("construction"):
-                try:
-                    s.ConstructionGeometry = True
-                except Exception:
-                    pass
+                s.ConstructionGeometry = True
             segs.append(s)
         sm.AddToDB = False
         for d in op.get("dims", []):
@@ -241,9 +237,9 @@ def author(sw, spec, outdir):
         m.ForceRebuild3(False)
         target = Path(outdir) / (spec["name"] + ".SLDPRT")
         rec["save"] = sw.save_as(m, target)
-        rec["features"] = Swapp.features(m)
-        rec["mass"] = Swapp.mass(m)
-        rec["bodies"] = Swapp.bodies(m)
+        rec["features"] = features(m)
+        rec["mass"] = mass(m)
+        rec["bodies"] = bodies(m)
         sw.close_doc(m)
         data = target.read_bytes()
         rec["sha256"] = hashlib.sha256(data).hexdigest()
@@ -253,8 +249,9 @@ def author(sw, spec, outdir):
         rec["trace"] = traceback.format_exc()
         try:
             sw.app.CloseAllDocuments(True)
-        except Exception:
-            pass
+        except Exception as cleanup_error:
+            rec["cleanup_error"] = repr(cleanup_error)
+    rec["session_diagnostics"] = list(sw.diagnostics)
     return rec
 
 
@@ -265,15 +262,15 @@ def main():
     specs = json.loads(specfile.read_text())
     restart_every = 20
     results = []
-    Swapp.sweep()
-    with Swapp.Dismisser() as dz:
-        sw = Swapp.Sw()
+    sweep()
+    with Dismisser() as dz:
+        sw = Sw()
         n = 0
         for spec in specs:
             if n and n % restart_every == 0:
                 sw.close()
-                Swapp.sweep()
-                sw = Swapp.Sw()
+                sweep()
+                sw = Sw()
             r = author(sw, spec, outdir)
             r["revision"] = sw.revision
             results.append(r)
@@ -282,7 +279,7 @@ def main():
         dialogs = dz.log
     manifest = outdir / (specfile.stem + ".manifest.json")
     manifest.write_text(json.dumps({"results": results, "dialogs": dialogs, "time": time.time()}, indent=1))
-    Swapp.emit({"ok": sum(1 for r in results if "error" not in r), "n": len(results), "errors": [(r["name"], r.get("error")) for r in results if "error" in r]})
+    emit({"ok": sum(1 for r in results if "error" not in r), "n": len(results), "errors": [(r["name"], r.get("error")) for r in results if "error" in r]})
 
 
 if __name__ == "__main__":

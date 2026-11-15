@@ -46,7 +46,6 @@ def main():
             if launches and launches % every == 0:
                 ctrl.append(control_run())
                 restart()
-            t0 = time.time()
             try:
                 r = Swapp.measure(sw, f)
                 if f in edits and r.get("opened"):

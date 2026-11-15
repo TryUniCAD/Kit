@@ -90,7 +90,6 @@ class Load:
         return self.prim("u32")
 
     def string(self):
-        start = self.p
         n = self.prim("u8")
         unicode = False
         if n == 0xFF:

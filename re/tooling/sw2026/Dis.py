@@ -1,6 +1,9 @@
 import sys, pefile, capstone
 f, va, n = sys.argv[1], int(sys.argv[2], 16), int(sys.argv[3])
-pe = pefile.PE(f)
+pefile.MAX_IMPORT_SYMBOLS = 100000
+pe = pefile.PE(f, max_symbol_exports=100000)
+for warning in pe.get_warnings():
+    print('PE warning:', warning, file=sys.stderr)
 imp = {}
 for e in getattr(pe, 'DIRECTORY_ENTRY_IMPORT', []):
     for i in e.imports:
