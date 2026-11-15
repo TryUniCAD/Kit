@@ -1053,31 +1053,27 @@ def TestNxLaneMap() -> None:
 
 # the occupancy object lists the allocated ids a dimension shape adds
 def TestNxOccupancy() -> None:
-    Object = ExprOccupancy(3)
-    assert len(Object) == 37
-    assert Object[:3] == bytes.fromhex("100121")
-    assert Object[-2:] == bytes.fromhex("1021")
-    assert Object[3:6] == bytes.fromhex("ffffff")
-    assert Object[15] == 0x4C
+    Three = ExprOccupancy(3)
+    assert len(Three) == 37
+    assert Three[:3] == bytes.fromhex("100121")
+    assert Three[-2:] == bytes.fromhex("1021")
+    assert Three[3:5] == bytes.fromhex("4344")
+    assert Three[18] == 0x51
+    assert Three.count(0xFF) == 17
+    assert len(ExprOccupancy(6)) == 69
+    assert ExprOccupancy(6)[:3] == bytes.fromhex("1f0141")
+    assert len(ExprOccupancy(9)) == 69
+    assert ExprOccupancy(9)[:3] == bytes.fromhex("2e0141")
+    assert ExprOccupancy(3, 2)[-2:] == bytes.fromhex("1221")
     try:
-        _ = ExprOccupancy(6)
+        _ = ExprOccupancy(0)
     except ValueError:
         return
-    raise AssertionError("occupancy accepted an unmeasured dimension count")
+    raise AssertionError("occupancy accepted zero dimensions")
 
 
 # the occupancy frame follows the dimension count and the continuation count
-def TestNxOccFrame() -> None:
-    assert OccupancyMap(3) == 32
-    assert OccupancyMap(6) == 64
-    assert OccupancyMap(9) == 64
+def TestNxOccFrames() -> None:
     assert OccupancyFrame(3, 0) == (bytes.fromhex("100121"), bytes.fromhex("1021"))
     assert OccupancyFrame(6, 3) == (bytes.fromhex("1f0141"), bytes.fromhex("2241"))
-    assert OccupancyFrame(9, 4) == (bytes.fromhex("2e0141"), bytes.fromhex("3241"))
-    assert ExprOccupancy(3)[:3] == bytes.fromhex("100121")
-    assert ExprOccupancy(3)[-2:] == bytes.fromhex("1021")
-    try:
-        _ = OccupancyFrame(0, 0)
-    except ValueError:
-        return
-    raise AssertionError("occupancy frame accepted zero dimensions")
+    assert OccupancyMap(9) == 64

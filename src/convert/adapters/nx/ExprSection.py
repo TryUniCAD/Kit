@@ -62,11 +62,16 @@ def OccupancyFrame(Dimensions: int, Continuations: int) -> tuple[bytes, bytes]:
     return (Opening, Trailing)
 
 
-def ExprOccupancy(Dimensions: int) -> bytes:
-    Object = KOccupancy.get(Dimensions)
-    if Object is None:
-        raise ValueError("NX occupancy object is only measured for three dimensions")
-    return Object
+def ExprOccupancy(Dimensions: int, Continuations: int = 0) -> bytes:
+    if not 1 <= Dimensions <= 0x32:
+        raise ValueError("NX occupancy needs one to fifty dimensions")
+    if not 0 <= Continuations <= 5 * Dimensions:
+        raise ValueError("NX occupancy continuation count is out of range")
+    Opening, Trailing = OccupancyFrame(Dimensions, Continuations)
+    MapSize = OccupancyMap(Dimensions)
+    Allocated = bytes(0x43 + Index for Index in range(5 * Dimensions))
+    Policy = Allocated + bytes([0xFE]) * Continuations
+    return Opening + Policy + bytes([0xFF]) * (MapSize - len(Policy)) + Trailing
 
 
 # the names lane is a slot map of tokens whose width the lead byte fixes

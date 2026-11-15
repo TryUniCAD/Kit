@@ -479,6 +479,27 @@ var_two  d 6  fe 3  map 64  head 1f 01 41  end 22 41
 var_d9   d 9  fe 4  map 64  head 2e 01 41  end 32 41
 ```
 
+The map's **contents are free**, measured by mutation on `dim40` and `var_two`, each loaded in
+NX 2506:
+
+```text
+map replaced by dense ids 43..51 then ff     bodies 1  volume 23999.999999999996
+two ids swapped                              bodies 1  volume 23999.999999999996
+whole map rotated by one byte                bodies 1  volume 23999.999999999996
+a fe continuation moved to the map end       bodies 2  volume 48000.0
+```
+
+so a writer may place its ids densely from `0x43` with no continuations, and
+`ExprOccupancy(Dimensions, Continuations)` does exactly that. Emitting it into four parts and
+loading each:
+
+```text
+oc2_dim40        d 3  bodies 1  volume 23999.999999999996
+oc2_const_box60  d 3  bodies 1  volume 36000.0
+oc2_var_two      d 6  bodies 2  volume 48000.0
+oc2_var_d9       d 9  bodies 3  volume 72000.0
+```
+
 What is **not** derived is where the `5d` ids land in
 the map and where the `fe` bytes go: `var_two` writes `43 44 45 46 47 48 fe 49 fe 4a 4b 4c`
 and `var_d9` writes four `fe` bytes at other positions, so the layout is hash-driven like the
