@@ -523,10 +523,59 @@ each appear twice, and the v7 lookup takes the last while the v9 scan takes the 
 two (`Light Teal Green` and `Light Teal Cyan`) are adjacent entries whose values are swapped, so the
 name order differs between the two files.
 
-The 14 undecoded `vise_screw.prt` records are a different sub-kind: they carry five or six four-byte
-fields with tags outside `{0x00, 0x01, 0x4f, 0x50}` (`0x13`, `0x2f`, `0x30`, `0xbc`, `0xbf`, `0xdc`,
-`0xe5`), and their v7 counterparts are still three doubles, so the encoding for that sub-kind is not
-yet decoded.
+## The long colour record is three fields with a full-precision form
+
+Fourteen `vise_screw.prt` colour records do not tile with the three-byte form. They are not a
+different resource: every one of the fourteen names is present in `flange.prt` (v9) and encoded
+there with the ordinary three-byte form, and those values agree with the v7 doubles:
+
+```text
+'Light Hard Azure'   80 a4 4f e9 99 9a 50 03 33 33 50 09 99 9a   (0.2, 0.6, 0.8)
+'Dark Dull Teal'     80 a4 4f e9 99 9a 50 03 33 33 4f e9 99 9a   (0.2, 0.6, 0.2)
+'Dark Blue Violet'   80 a4 4f e9 99 9a 00 50 03 33 33            (0.2, 0.0, 0.6)
+```
+
+so the long form is a v8 encoding of the same triple, not a different kind of entry.
+
+The long record is still three fields, and each field is a one-byte tag followed by a payload whose
+width the tag selects. The tag set is the three-byte set plus a full-precision set whose tags are
+exactly the three-byte tags minus `0x20`:
+
+```text
+tag 0x00  -> 0 bytes  -> 0.0
+tag 0x01  -> 0 bytes  -> 1.0
+tag 0x4f  -> 3 bytes  -> cube value
+tag 0x50  -> 3 bytes  -> cube value
+tag 0x2f  -> 7 bytes  -> full precision
+tag 0x30  -> 7 bytes  -> full precision
+```
+
+With that grammar all fourteen records tile exactly, three fields each, with no leftover bytes:
+
+```text
+'Light Hard Azure'   0x2f:fcdcdce548c495 0x30:06d6d6dc1a47aa 0x30:0afafb1331352c
+'Dark Dull Teal'     0x4f:e9999a         0x30:05d5d5bfba9593 0x2f:f3d3d3bcab169a
+'Dark Dull Pink'     0x30:081fb82c2bd7f5 0x2f:e4f514ea72d001 0x2f:e4f514ea72d001
+'Dark Blue Violet'   0x4f:e9999a         0x00:               0x50:033333
+14/14 tile
+```
+
+`Dark Dull Pink` stores the same seven-byte payload in fields 1 and 2, and its v7 value is
+`(0.6, 0.2, 0.2)`, so the payload is a function of the component value. `Dark Blue Violet` mixes a
+three-byte field, a zero-width field and a three-byte field, so the two forms coexist inside one
+record and the choice is per field, not per record.
+
+The eight-byte grouping is falsified: `group[1:8] == double[0:7]`, `group[1:8] == double[1:8]`,
+`group[0:7] == double[0:7]` and both reversed variants match 0 of 42 groups. The seven-byte payload
+is also not the low seven bytes of the component's IEEE-754 double, not a float32 pair, and not a
+float32 with the tag as exponent. The arithmetic that maps a component to its seven-byte payload is
+not yet decoded.
+
+The four records that decode but disagree with the v7 doubles are consistent with the same reading:
+each was changed to a different cube value (`Light Yellow Orange` 0.8 -> 1.0, `Dark Hard Orange`
+0.4 -> 0.6, `Light Teal Green` 0.4 -> 0.6, `Light Teal Cyan` 0.6 -> 0.4), so a modified colour that
+lands on the cube keeps the three-byte form while a modified colour that leaves the cube takes the
+full-precision form.
 
 ## The entry size is not the class's attribute count, layout size or schema flag
 
