@@ -392,6 +392,25 @@ only the start and end markers — no model commands. So a second oracle cannot 
 
 Both are waiting on a Creo launch; the guest agent is still refusing sessions.
 
+### The sketch's segment replay could not be decoded reliably
+
+To test whether the sketch's *topology* is the remaining constraint, the vendor's six segment records were read out of
+`segtab_ptr`. The first one is fully declared — `type 02`, `dir f8 03 f6 00 e4`, `pointid f8 02 00 01`, `cntrid f6`,
+`arcorient 00`, `verhor 01`, `radius f6`, `radius2 f6`, `ext_id 04` — but the remaining five use a selector followed
+by positional values:
+
+```text
+f7 2f e2 02 00 01 00 01 02 f6 00 00 f6 f6 05 e2 e2 00 f6 e2 02 01 00 e4 02 03 f6 00 01 f6 f6 06 ...
+```
+
+Resolving where `dir`'s three slots end and `pointid`'s two begin in that form is exactly the ambiguity that has
+misled earlier attempts on this page, so it was not guessed. The consequence is that the aligned candidate used
+sequential pairs — `(0,1) (1,2) …` — which need not be the profile the body was built from, and that alone could
+explain the refusal at `gsec2d_ptr`.
+
+A future attempt should decode that replay form first (it is the same selector-plus-positional scheme the parser
+already implements for other arrays) rather than trying more topologies blind.
+
 ### The trace moves once the sub-feature outline matches the part
 
 Using `std.out` as a guide, the `949` element was iterated record by record. Three results, in order:

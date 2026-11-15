@@ -86,6 +86,12 @@ This change was made **without a Creo run** — the guest agent is still unreach
 47-row artifact is unverified. The verification that it replaces a contradiction with agreement is byte-level, not
 a load.
 
+The sketch's own segment list is where the next attempt has to start, and its replay form is the obstacle: the first
+segment is fully declared, but the other five are selector-plus-positional (`f7 2f e2 02 00 01 00 01 02 f6 00 00 f6 f6
+05 …`), and resolving where `dir`'s three slots end and `pointid`'s two begin was not guessed here. The aligned
+candidate therefore used sequential point pairs, which need not match the profile the body was built from — and that
+alone may explain the refusal.
+
 ### Iterating with the trace: the outline is validated, the sketch is next
 
 `std.out` was used as a guide to fix the recorded records one at a time:
