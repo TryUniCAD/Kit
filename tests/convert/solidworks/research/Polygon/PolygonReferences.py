@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+# graph links must survive decoding beyond merely matching numeric field values
 KRefs = """
 PointRefs = []
 for Index, Entry in enumerate(Sketch['points']):

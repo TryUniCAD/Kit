@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+# live depth editing needs actual graph nodes and persistent allocation state
 KFeature = """
 Feature = BodyFeature(
     cls='moExtrusion_c', name='Authored pad', owner=Owner,

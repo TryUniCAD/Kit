@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+# process isolation needs observed graph results without sharing child memory
 KReport = """
 Report = {
     'point_count': Sketch['npoints'], 'line_count': Sketch['nlines'],

@@ -12,6 +12,7 @@ from tests.convert.solidworks.research.Polygon.PolygonEdit import KEdit
 from tests.convert.solidworks.research.Polygon.PolygonReport import KReport
 from tests.convert.solidworks.research.Polygon.PolygonWidths import KWidths
 
+# focused stages need one interpreter without obscuring their boundary order
 KProgram = (
     KPaths
     + KLoad

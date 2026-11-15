@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+# input geometry must be authored without depending on saved vendor documents
 KInput = """
 Cases = {
     'crossing': ((0, 0), (3, 2), (0, 3), (2, 0)),

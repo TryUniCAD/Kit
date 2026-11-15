@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+# semantic vertices need a fresh graph before archive behavior is meaningful
 KSketch = """
 Allocator = PersistentIds()
 Owner = Obj('moPart_c')
