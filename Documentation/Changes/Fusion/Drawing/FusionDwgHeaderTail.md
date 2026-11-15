@@ -45,6 +45,19 @@ header tests keep their previous code and expectations.
 previous evidence stands: the authored header tests pass, and the corpus saves parse and re-emit as
 before.
 
+Measured on this branch, with the shipped reader and writer:
+
+| Check                                                    | Result          |
+| -------------------------------------------------------- | --------------- |
+| Fusion-saved DWG read and re-emitted byte-exactly         | 60 of 60        |
+| Fusion-saved DWG header typed into parametric variables   | 60 of 60        |
+| Fusion-saved F2D drawing document re-emitted byte-exactly | 248 of 248      |
+| `tools.Donors.CheckReplays src`                           | no recorded payloads in 3078 files |
+
+The DWG and F2D corpora are Fusion saves kept outside the repository, so these counts are research
+measurements rather than a CI check. The reader is therefore lossless and parametric for every sample
+that was available, and the writer emits no recorded payload.
+
 The research record carries the measured numbers from the withdrawn implementation: 54 of 60 corpus
 headers reproduced byte-exactly and a drawing with a computed tail opened in local Fusion 2706.1.17
 and accepted a scaling edit. Those numbers describe the withdrawn code, not a shipped path.
