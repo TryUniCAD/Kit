@@ -149,6 +149,35 @@ entry being a packed value whose low bits carry a per-set counter, and it is the
 evidence yet that the entry is structured rather than derived by hashing. The per-class constant
 is still not derived.
 
+## "Constant plus increment" is refuted, in both arithmetics
+
+The previous entry claimed `entry(name, set) = constant(name) + increment(set)`. That was tested
+directly and it is wrong. Subtracting the measured per-set increment (0, 16, 15, 20) from each
+common class's value:
+
+```text
+classes common to empty and dim40          129
+classes whose delta is exactly 16            0
+distinct deltas                             90
+classes whose remainder is set invariant     0 of 129
+```
+
+and at the field level, asking whether exactly one base-128 field differs by exactly the set
+increment for each class:
+
+```text
+classes satisfying that model                5 of 129
+```
+
+so neither arithmetic supports the additive reading. The bit scatter described in the previous
+entry is real, but the explanation attached to it is not: a per-set addition would give a uniform
+delta per class, and the deltas are 90 to 101 distinct values.
+
+What survives from that line of work is narrower and still useful: entries are sequences of five
+to nine base-128 fields (`5:19, 6:28, 7:30, 8:25` classes by field count), the field count is
+stable for a given class across sets, and 35 of 128 entries grow by one byte between sets. The
+per-class value itself remains underived, and the per-set relationship is not additive.
+
 ## The entry is a per-class constant plus a small per-set increment
 
 XOR-ing each common class's decoded value between `empty.prt` and each other set scatters the
