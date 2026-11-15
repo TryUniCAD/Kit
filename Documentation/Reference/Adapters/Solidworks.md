@@ -161,6 +161,9 @@ closes an explicitly selected clean session after user authorization, while meas
 The [host deadline supervisor](../../Changes/Solidworks/Inspection/SolidworksOracleHostDeadline.md)
 bounds one owned oracle transport with a host monotonic deadline and records guest state as unknown after a timeout.
 It does not cancel guest jobs, recover the VM or establish native acceptance.
+The [interrupted source preflight](../../Changes/Solidworks/Inspection/SolidworksCurveSourceInterruption.md)
+completed rectangle-control authoring, then stalled while reopening that control.
+No candidate or healthy trailing control was measured, so no family lock or format-crash attribution follows.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.

@@ -20,6 +20,8 @@ Normal background services were left untouched.
 
 The source batch remains unfinished and invalid for acceptance.
 Neither requested annulus nor capsule candidate was measured.
+The [sanitized interrupted record](../../../../../re/solidworks/measurements/2026/CurveSourcePreflight07Interrupted.json)
+retains the completed control authoring and incomplete reopening evidence with their original hashes.
 The observations do not establish why the guest timeout failed to produce a result.
 They do not identify a capture-pipe problem, guest-clock behavior, native format defect or application crash cause.
 The reset and old-transport cleanup were owner recovery actions, not automated supervisor behavior.

@@ -1,0 +1,265 @@
+{
+  "schema": "kit-sw2026-curve-source-interruption/1",
+  "status": "invalid, aborted source preflight; zero candidates measured and no healthy trailing control",
+  "measurement_valid": false,
+  "source_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+  "source_batch": "CurvesPreflight07",
+  "publication_scope": "selected native API metadata and oracle-owner host recovery facts; no CAD application access during publication",
+  "raw_sources": {
+    "HostInterruption.json": {
+      "bytes": 2042,
+      "sha256": "a8d7803e61c4717850c0e0b3426ddb344d89e8bc69f1e269514ae48da5bc980b",
+      "role": "oracle-owner host interruption and recovery report",
+      "retained_external_only": true
+    },
+    "Batch.json": {
+      "bytes": 1002,
+      "sha256": "a8f6bdffec9d05459ab0bcbeafbb7209a61ee424a20bdf9aeef6310917b7d1df",
+      "role": "unfinalized controller checkpoint",
+      "retained_external_only": true
+    },
+    "Controls/ControlRectangle/Author/Job.json": {
+      "bytes": 1191,
+      "sha256": "c613616f1d63020224339ba03e48ae3da98711eecbdcd3be470f394f2e773a5f",
+      "role": "requested native control authoring",
+      "retained_external_only": true
+    },
+    "Controls/ControlRectangle/Author/Record.json": {
+      "bytes": 128892,
+      "sha256": "9c7bd25f2a88e4705e689f0f52688ced060737468b351873955f20db5acc10d7",
+      "role": "completed native control authoring phase",
+      "retained_external_only": true
+    },
+    "Controls/ControlRectangle/Verify/Job.json": {
+      "bytes": 1511,
+      "sha256": "a78866461890a01df8ddd4489ecdda29d221df814c78ed918dc5ed6f14f63e2d",
+      "role": "requested fresh reopening and depth edit",
+      "retained_external_only": true
+    },
+    "Controls/ControlRectangle/Verify/Record.json": {
+      "bytes": 4972,
+      "sha256": "3e2f0d049e88a07be56e49ac95653fd57c7c964596613a9a9413011dbf59de8e",
+      "role": "last persisted incomplete native verification phase",
+      "retained_external_only": true
+    }
+  },
+  "tool_hashes": {
+    "AuthorCurves.py": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31",
+    "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+  },
+  "specs_sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0",
+  "oracle": {
+    "progid": "SldWorks.Application.34",
+    "file_version_words": [34, 5, 2, 604],
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "times_utc": {
+    "batch_started": "2026-11-15T22:20:37.934755+00:00",
+    "control_author_started": "2026-11-15T22:20:38.289948+00:00",
+    "control_author_finished": "2026-11-15T22:21:38.614321+00:00",
+    "control_verify_started": "2026-11-15T22:21:40.174058+00:00",
+    "host_interruption_reported": "2026-11-15T22:52:50.207215+00:00"
+  },
+  "completed_phase": {
+    "case": "ControlRectangle",
+    "phase": "author",
+    "passed": true,
+    "worker_exit_code": 0,
+    "worker_timed_out": false,
+    "first_failure": null,
+    "cleanup_errors": [],
+    "oracle_identity": {
+      "process_id": 7244,
+      "process_creation_filetime": 134392548385549867,
+      "executable": "SLDWORKS.exe",
+      "file_version": "34.5.2.0604",
+      "file_version_words": [34, 5, 2, 604],
+      "expected_version": [34, 5, 2, 604],
+      "version_matches": true,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "pe_machine": "0x8664"
+    },
+    "checks": [
+      {
+        "name": "depth dimension",
+        "actual": 0.007713,
+        "expected": 0.007713,
+        "passed": true
+      },
+      {
+        "name": "extrusion depth",
+        "actual": 0.007713,
+        "expected": 0.007713,
+        "passed": true
+      },
+      {
+        "name": "volume",
+        "actual": 3.982056093639e-6,
+        "expected": 3.982056093639e-6,
+        "passed": true
+      },
+      {
+        "name": "surface area",
+        "actual": 0.0017553576619999999,
+        "expected": 0.0017553576620000003,
+        "passed": true
+      },
+      {
+        "name": "center of mass 0",
+        "actual": -0.007391,
+        "expected": -0.007391,
+        "passed": true
+      },
+      {
+        "name": "center of mass 1",
+        "actual": 0.011172999999999999,
+        "expected": 0.011173,
+        "passed": true
+      },
+      {
+        "name": "center of mass 2",
+        "actual": 0.0038565,
+        "expected": 0.0038565,
+        "passed": true
+      }
+    ],
+    "checks_passed": 7,
+    "bodies": 1,
+    "mass_properties": {
+      "volume": 3.982056093639e-6,
+      "area": 0.0017553576619999999,
+      "com": [-0.007391, 0.011172999999999999, 0.0038565]
+    },
+    "expected_center_of_mass": [-0.007391, 0.011173, 0.0038565],
+    "feature_entries": 25,
+    "all_recorded_features_without_errors_or_warnings": true,
+    "authored_core_features": [
+      {
+        "name": "CurveSketch",
+        "type": "ProfileFeature",
+        "suppressed": false
+      },
+      {
+        "name": "CurveBoss",
+        "type": "Extrusion",
+        "suppressed": false
+      }
+    ],
+    "relation_binding_schema": 1,
+    "relation_verification_passed": true,
+    "requested_authored_relations": [],
+    "requested_curve_relation_kinds_exercised": [],
+    "limitation": "the rectangle control requested none of the four authored curve-relation kinds; this phase does not verify annulus/capsule relation normalization",
+    "native_source_sha256_recorded_in_next_job": "e45c37f55bbafb11244bbefd8925525c6bc1838cb4f6cecc10969a05685accb0",
+    "native_source_digest_authority": "controller-generated verify job; publication did not read the native CAD file",
+    "input_dimension_preference": {
+      "before": false,
+      "restored": true
+    },
+    "dialogs": [],
+    "progress_windows": []
+  },
+  "incomplete_phase": {
+    "case": "ControlRectangle",
+    "phase": "verify",
+    "last_persisted_stage": "OpenDoc6",
+    "oracle_identity": {
+      "process_id": 4964,
+      "process_creation_filetime": 134392549004179679,
+      "executable": "SLDWORKS.exe",
+      "file_version": "34.5.2.0604",
+      "file_version_words": [34, 5, 2, 604],
+      "expected_version": [34, 5, 2, 604],
+      "version_matches": true,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "pe_machine": "0x8664"
+    },
+    "last_api_call": {
+      "method": "OpenDoc6",
+      "arguments": {
+        "document_type": 1,
+        "options": 1,
+        "configuration": "",
+        "errors": "out i4",
+        "warnings": "out i4"
+      },
+      "path": "external-control/ControlRectangle.SLDPRT",
+      "return_recorded": false,
+      "error_recorded": false,
+      "duration_recorded": false
+    },
+    "worker_finished_at_recorded": false,
+    "worker_exit_code_recorded": false,
+    "worker_timeout_result_recorded": false,
+    "persisted_passed": false,
+    "persisted_first_failure": null,
+    "persisted_checks": 0,
+    "snapshots_recorded": [],
+    "input_dimension_preference": {
+      "before": false,
+      "restored": false
+    },
+    "interpretation": "the initial false passed flag and null first_failure are an unfinished checkpoint, not a completed native failure diagnosis or success"
+  },
+  "controller_checkpoint": {
+    "recorded_control_before_count": 0,
+    "recorded_candidate_count": 0,
+    "recorded_control_after_count": 0,
+    "finalized": false,
+    "locked": false,
+    "first_failure": null,
+    "interpretation": "author_case returns only after its author and verify phases finish; the initial empty controller lists do not negate the completed author phase"
+  },
+  "host_interruption_and_recovery": {
+    "authority": "oracle-owner HostInterruption.json; publication did not independently repeat host or guest commands",
+    "status": "aborted incomplete preflight after guest command transport stopped progressing",
+    "host_execution_result": {
+      "source_preflight_exec_exit_code": 255,
+      "guest_tasklist_transport_completed": false,
+      "stale_host_tasklist_pid": 11453,
+      "stale_host_transport_action": "SIGTERM only after exact command identity check and confirmed guest reset"
+    },
+    "recovery": {
+      "pause": "failed with unexpected error",
+      "reset": "success confirmed by prlctl",
+      "post_reset_current_user_probe": "Microsoft Windows Version10.0.26100.4349"
+    },
+    "owned_identity_matches_last_worker": true,
+    "last_worker_digest_matches_host_record": true,
+    "post_reset_probe_scope": "current-user Windows command execution responded; COM readiness, restored preferences and CAD health were not established by that probe",
+    "timing_limit": "guest worker timeout240 did not yield a persisted timeout result or bound host observation; cause undetermined",
+    "cause_established": false
+  },
+  "external_capture": {
+    "name": "VmUnresponsive.png",
+    "sha256": "afee436e7480cfbc62202967c2fc3602bd5d2330dcfbb1a45e6147525bfb6f99",
+    "bytes": 628298,
+    "published": false,
+    "retained_external_only": true,
+    "owner_recorded_scope": "read-only VM capture inspected by oracle owner; control rectangle UI visible, no application action or geometry acceptance inferred",
+    "publication_independent_visual_inspection": false,
+    "digest_rechecked_from_external_file": true
+  },
+  "acceptance": {
+    "source_preflight_passed": false,
+    "selected_candidate_cases_measured": 0,
+    "healthy_trailing_control_observed": false,
+    "controls_healthy": null,
+    "family_lock_present": false,
+    "lock_file_present_at_publication": false,
+    "native_format_crash_attributed": false,
+    "curve_writer_acceptance_established": false,
+    "full_cad_goal_complete": false,
+    "production_adapter_read_only": true
+  },
+  "preservation": {
+    "original_records_unchanged_by_publication": true,
+    "native_cad_files_read_or_copied": false,
+    "vendor_software_copied": false,
+    "screenshot_not_published": true,
+    "publication_transformation": "selected JSON metadata only; one native input path replaced with an external-control placeholder; no original private paths or screenshot pixels published"
+  }
+}
