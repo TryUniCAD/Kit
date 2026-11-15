@@ -430,23 +430,27 @@ const_box60.prt                346                  7              99.14%
 dim40.prt                      346                  7              99.14%
 ```
 
-## The occupancy object is the remaining undecoded piece
+## The occupancy object depends only on the dimension count
 
-I recorded last turn that nothing in the expression section was left undecoded. That was
-wrong. The dimension shapes add an occupancy object that the six object shape does not have,
-and it is a slot map over allocated ids:
+The dimension shapes add an occupancy object the six object shape does not have. Dumping it
+for every fixture:
 
 ```text
-dim40    d = 3   37 bytes   10 01 21 | fff fff 43 44 45 46 47 48 49 4a 4b ff 4c 4d ...
-                             ids 43..51, fifteen entries, then 10 21
-var_two  d = 6   69 bytes   1f 01 41 | ff ff 43 44 ... 60 22 41
-                             ids 43..60, thirty entries, then 22 41
+d = 0    absent (the six object shape uses a four byte lane instead)
+d = 3    37 bytes  10 01 21 | ff ff ff | ids 43..51 | 10 21
+d = 6    69 bytes  1f 01 41 | ids 43..60 | 22 41
 ```
 
-The opening count is `5d + 1` and the id range is `5d` long in both parts, but the closing
-count is 16 for `dim40` and 34 for `var_two`, which is not the same function of `d`, and the
-marker byte differs (`21` against `41`). So the frame is partly measured and the id allocation
-is not, and `ExprMiddle` cannot emit a dimension shape until this object is decoded.
+`dim40` and `var_e4` carry **identical** objects even though one has a spare expression, so
+the object is a function of the dimension count alone, not of the expression list. The opening
+count is `5d + 1` (16 and 31) and the id range is `5d` long (15 and 30) in both, so two of the
+three fields are derived. The closing count is 16 for `d = 3` but 34 for `d = 6`, which is not
+the same function of `d`, and the marker byte differs (`21` against `41`), so the closing count
+is not derived yet.
+
+`ExprSection.ExprOccupancy(Dimensions)` therefore returns the measured `d = 3` object, byte
+identical on both fixtures that have one, and raises for any other count rather than
+extrapolating. That unblocks a three-dimension composer and nothing else.
 
 ## The names lane is emitted with writer-chosen slots
 

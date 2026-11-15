@@ -18,6 +18,7 @@ from convert.adapters.nx.ExprSection import (
     ExprHeadTail,
     ExprLane,
     ReadLane,
+    ExprOccupancy,
     ExprPreamble,
     GroupPair,
     GroupRecord,
@@ -1046,3 +1047,18 @@ def TestNxLaneMap() -> None:
     except ValueError:
         return
     raise AssertionError("names lane accepted a value count mismatch")
+
+
+# the occupancy object lists the allocated ids a dimension shape adds
+def TestNxOccupancy() -> None:
+    Object = ExprOccupancy(3)
+    assert len(Object) == 37
+    assert Object[:3] == bytes.fromhex("100121")
+    assert Object[-2:] == bytes.fromhex("1021")
+    assert Object[3:6] == bytes.fromhex("ffffff")
+    assert Object[15] == 0x4C
+    try:
+        _ = ExprOccupancy(6)
+    except ValueError:
+        return
+    raise AssertionError("occupancy accepted an unmeasured dimension count")

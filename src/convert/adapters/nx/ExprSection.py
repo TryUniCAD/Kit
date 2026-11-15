@@ -34,6 +34,21 @@ def GroupPair() -> bytes:
     return KGroupPair
 
 
+# the occupancy object lists the allocated ids a dimension shape adds
+KOccupancy = {
+    3: bytes.fromhex(
+        "100121ffffff434445464748494a4bff4c4dffffffffffffff4effffff4f50ffffff511021"
+    )
+}
+
+
+def ExprOccupancy(Dimensions: int) -> bytes:
+    Object = KOccupancy.get(Dimensions)
+    if Object is None:
+        raise ValueError("NX occupancy object is only measured for three dimensions")
+    return Object
+
+
 # the names lane is a slot map of tokens whose width the lead byte fixes
 KExpNames = b"\x0fEXP_lookup_exp\x11EXP_compare_exps\x10EXP_hash_string\x0dEXP_hash_exp"
 KLaneValueSlots = 32
