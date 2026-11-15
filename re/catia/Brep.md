@@ -1135,6 +1135,36 @@ The indices are far too large for an object table of 130 objects, the tags are m
 second record fails outright, so the `01` is not a linked-object count followed by an object
 reference.
 
+## The trim chain is preceded by a face-count header
+
+The trim chain is not the face-body region either. It is preceded by a five- or nine-byte header
+whose last field is the face count:
+
+| Part | Bytes before the first trim | Count |
+| --- | --- | ---: |
+| `Reservoir` | `d5 cc cc 3d 00 04 02 0a 47` | 71 |
+| `Pedal_Body` | `d5 cc cc 3d 00 04 02 0a ff 52 01 00 00` | 338 |
+| `4784` | `d5 cc cc 3d 00 04 02 0a ff a0 01 00 00` | 416 |
+
+`d5 cc cc 3d` is the float `0.1`, and `00 04 02 0a` is a four-byte marker followed by the count in
+the one-byte-or-`ff`-plus-`u32` encoding. So the trim chain is a table of `count` boundary records,
+and the count matches the face count exactly in all three parts.
+
+The trim chain itself contains no `30 04 04` marker at all (zero occurrences in the 8228-byte
+`Reservoir` chain), so the face headers are not interleaved with the trim records. The chain holds
+only `01 4b` (3 times) and `01 42` (29 times) record starts, which are the trim kinds.
+
+So the face bodies are not in the trim chain, not in the face-outer-bound run, not in the `42 ff`
+block, and not before the trim chain. The `SurfacicReps` stream does not hold them either: the face
+count does not appear anywhere in it as a `u32` or as an `ff`-prefixed `u32` for `Reservoir` (71),
+`Pedal_Body` (338), or `4784` (416).
+
+That exhausts the twelve regions the header chain defines. The face bodies must be inside one of
+them but not at a record boundary, and the only region whose size matches 71 face bodies is the
+8228-byte trim chain. Since the trim record is fully consumed by its own fields and the chain has no
+`30 04 04` marker, the linked-object data is either inside the trim record's handle array or the
+face body is not streamed per face at all.
+
 A constraint solver over the geometry does not converge. Treating each face as a variable over the
 surfaces of its planarity class, and each two-face handle group as a constraint that the two
 surfaces must share a vertex-table point, then running arc consistency to a fixed point, leaves 12
