@@ -275,7 +275,12 @@ class CurveAuthor:
         try:
             target = getattr(self.interfaces, kind)
             target = getattr(target, "default_interface", target)
-            return self.rec.call("QueryInterface " + kind, target, value, parameters={"interface": kind, "binding": "explicit registered 2026 type library"})
+            proxy = self.rec.call(
+                "QueryInterface " + kind, value._oleobj_.QueryInterface,
+                target.CLSID, self.sw.pythoncom.IID_IDispatch,
+                parameters={"interface": kind, "iid": str(target.CLSID), "binding": "explicit registered 2026 type library"},
+            )
+            return target(proxy)
         except Exception as error:
             raise PendingCapability(f"type-library cast to {kind} is unavailable: {error!r}") from error
 

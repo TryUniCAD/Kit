@@ -3,11 +3,14 @@
 The curve-source authoring tool now loads the registered 2026 type library before querying child interfaces.
 It resolves line, arc and feature wrappers from that library.
 It uses each class's default interface directly.
+It queries that interface on the returned object's raw dispatch pointer before constructing its generated wrapper.
 The recorder also supports keyword arguments for the explicit library loader.
 
 The previous automatic cast failed in both native controls when their returned objects rejected `GetTypeInfo`.
 The [binding gotcha](../../../Gotchas/Conversion/Solidworks/Tracing/ExplicitTypeLibrariesForChildInterfaces.md)
 records the failure and the explicit-library workaround.
+The [raw-pointer gotcha](../../../Gotchas/Conversion/Solidworks/Tracing/GeneratedWrappersNeedRawDispatchPointers.md)
+records why a dynamic wrapper cannot be passed directly to the generated wrapper constructor.
 
 The command syntax is unchanged.
 Each worker records the selected library identity and the requested interface binding.
