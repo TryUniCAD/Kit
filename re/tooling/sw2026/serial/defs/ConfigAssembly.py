@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from Core import ArchiveError
-from Dsl import CURRENT, base, cstr, emb, f64, i32, obj, u16, u32, u8, ver
+from Dsl import base, cstr, emb, f64, i32, obj, u16, u32, u8, ver
 from Schema import If, Op, Scope, run_load, run_store
 from defs.ConfigPart import Cond, NCond, Norm, Present, Section
 from defs.ResolvedCore import CONCEPT_LW, CONCEPT_RES, FEATURE_XML, concept_vt, vt, xo
@@ -9,8 +9,8 @@ from defs.ResolvedCore import CONCEPT_LW, CONCEPT_RES, FEATURE_XML, concept_vt, 
 
 class Version2026(Op):
     def check(self, ar):
-        if ver(ar) != CURRENT:
-            raise ArchiveError(f"assembly schema requires version {CURRENT}, got {ver(ar)}")
+        if ver(ar) != 19000:
+            raise ArchiveError(f"assembly schema requires version 19000, got {ver(ar)}")
 
     def load(self, ar, scope, o):
         self.check(ar)
@@ -72,20 +72,18 @@ class WithCondition(Op):
         self.mask, self.body = mask, list(body)
 
     def load(self, ar, scope, o):
-        prior = ar.ctx.get("conditions", 0)
-        ar.ctx["conditions"] = prior | self.mask
+        ar.ctx["conditions"] = ar.ctx.get("conditions", 0) | self.mask
         try:
             run_load(self.body, ar, scope, o)
         finally:
-            ar.ctx["conditions"] = prior
+            ar.ctx["conditions"] = ar.ctx.get("conditions", 0) & ~self.mask
 
     def store(self, ar, scope, o):
-        prior = ar.ctx.get("conditions", 0)
-        ar.ctx["conditions"] = prior | self.mask
+        ar.ctx["conditions"] = ar.ctx.get("conditions", 0) | self.mask
         try:
             run_store(self.body, ar, scope, o)
         finally:
-            ar.ctx["conditions"] = prior
+            ar.ctx["conditions"] = ar.ctx.get("conditions", 0) & ~self.mask
 
 
 def optional(kind, name, cls):
