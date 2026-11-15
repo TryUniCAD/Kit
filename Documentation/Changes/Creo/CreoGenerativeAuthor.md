@@ -124,6 +124,28 @@ gen_rows.prt: 26239 bytes, 47 generated rows
 16 of 16 checks pass
 ```
 
+### The generated definition is accepted except for its sketch tail
+
+Splitting our element at `gsec_ptr` and keeping the vendor's sketch and solver tail — so no element counts cross the
+boundary — loads cleanly, twice:
+
+```text
+sketchswap: 108324 bytes; swapped element 3827
+readback: 7 features, 5 params, 1 body
+!15-Nov-26 12:34:44  End ...  MT Part Solid
+!15-Nov-26 12:35:46  End ...  MT Part Solid
+```
+
+So Creo accepts, from our generator: `id`, `symbol_key`, `model_type`, `group_info_ptr`, `place_rec_ptr` with the
+identity frame, the entire `sub_feat_arr` record (section element, `expl_state_ref` with its `f3` prefix,
+`feat_outl_info` with the validated `ent_outl`, roll-back fields, `parchild_table` with `Structure_Invalid`,
+`copy_info_ptr` with its `f1` prefix, `embed_info_ptr`) and the class-`917` definition element.
+
+The rejected region is exactly `gsec_ptr` onward: the sketch and the solver's state. `ent_tab` holds
+`next_available_xid 8` and `chains` as **seven** elements (`bucket_index`, a two-element `bucket_xar`, `ent_mode`,
+`entry_ptr(entity_entry)` with `xid`/`ent_mode`/`start_vtx`/`end_vtx`/`center_vtx`/`pers_attribs`). Seven chains for
+six segments, so a one-entity-per-segment emitter would not match the vendor's graph.
+
 ### The sketch's six segments decode; reproducing them does not load
 
 The earlier reading — that the body carried five elements for a declared six — was wrong: `attributes` is part of

@@ -676,3 +676,37 @@ def BuildMeasured(Source: Path, Target: Path) -> bytes:
     Target.write_bytes(Result)
     print(f"{Target.name}: {len(Result)} bytes; element {len(Element)}")
     return Result
+
+
+def BuildSketchSwap(Source: Path, Target: Path) -> bytes:
+    """Our element prefix with the vendor sketch and solver tail from gsec_ptr onward."""
+    DataValue = Source.read_bytes()
+    Header = ReadHeader(DataValue)
+    Payload = None
+    for TableValue in Subset.ReadTables(DataValue, Header.base):
+        for Entry in TableValue.rows:
+            if Entry.name == "FeatDefs":
+                Offset = Header.base + Entry.offset
+                Body = DataValue[Offset : Offset + Entry.length]
+                Payload = Body[Body.find(b"\n") + 1 :]
+    if Payload is None:
+        raise SystemExit("the ladder has no FeatDefs row")
+    End = Payload.find(b"\xE0\x00feat_defs_917\x00")
+    Vendor = Payload[37:End]
+    Marker = b"\xE0\x00gsec_ptr\x00"
+    Ours = FullElement(66)
+    Swapped = Ours[: Ours.find(Marker)] + Vendor[Vendor.find(Marker) :]
+    Row = (
+        Author.StructHeader("Sld_FeatDefs")
+        + b"\xE3"
+        + Author.StructHeader("feat_defs_949")
+        + b"\xF8\x01\xF7\x02\xFB"
+        + Swapped
+        + Author.StructHeader("feat_defs_917")
+        + b"\xF4\x06\xF8\x01\xF7\x80\xC4\xFB"
+        + Author.SolidFeatureDefinition(74, (100.0,))
+    )
+    Result = Subset.Build(DataValue, Header.base, set(), {"FeatDefs": b"#FeatDefs\n" + Row})
+    Target.write_bytes(Result)
+    print(f"{Target.name}: {len(Result)} bytes; swapped element {len(Swapped)}")
+    return Result

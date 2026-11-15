@@ -428,6 +428,39 @@ So the parser now takes a `Legacy` flag: the reader uses the new rules, and `Rep
 | `gen_rows.prt` | `26239` bytes, 47 rows, `End` + `MT Part Solid` twice (`12:26:42`, `12:27:59`) |
 | vendor `949` element | `3827` of `3827` bytes, `pointid [[0,1], [1,2]]` |
 
+### The generated prefix and the 917 element are accepted; only the sketch tail is not
+
+Splicing our element's prefix onto the vendor's sketch and solver tail — split at `gsec_ptr`, so no counts cross —
+loads cleanly, twice:
+
+```text
+sketchswap: 108324 bytes; swapped element 3827
+readback: 7 features, 5 params, 1 body
+!15-Nov-26 12:34:44  End ...  MT Part Solid
+!15-Nov-26 12:35:46  End ...  MT Part Solid
+```
+
+That is a strong isolation. Generated and accepted in that part:
+
+- `id`, `symbol_key`, `model_type`, `group_info_ptr`, `place_rec_ptr` (with the identity frame)
+- the whole `sub_feat_arr` record: `id`, `type 160`, `sub_type`, `data(subft_indexnumber)`, `expl_state_ref`
+  (`f3`), `feat_outl_info` with the validated `ent_outl`, the three roll-back fields, `parchild_table` with
+  `Structure_Invalid`, `copy_info_ptr` (`f1`), `embed_info_ptr`
+- the class-`917` definition element
+
+So the **only** region Creo rejects is everything from `gsec_ptr` onward: `gsec2d_ptr` with its `segtab_ptr`,
+`attributes`, `dimtab_ptr`/`dim_ref`, `relat_ptr`, `formula_ptr`, `anchor`, `nsket_info`, `unsolved_ptr` with
+`ent_tab`/`chains`/`bucket_xar`, `skamp_ptr`, `triples_ptr`, `rigid_chains_ptr`, `gsec3d_ptr`, `first_chain_ptr`,
+`order_tab`, `p_saved_result` and `draft_setup_ptr`.
+
+`ent_tab` is mapped: `next_available_xid 8`, then `chains` as an array of **seven** elements, each with
+`bucket_index`, a two-element `bucket_xar`, `ent_mode` and an `entry_ptr(entity_entry)` carrying
+`xid`, `ent_mode`, `start_vtx`, `end_vtx`, `center_vtx` and `pers_attribs`. Seven chains for six segments means the
+entity graph is not one-record-per-segment, so emitting "one entity per segment" would not reproduce it.
+
+That is where the write side stands: the definition's structure is generated and accepted, and the sketch's solver
+state is the single remaining requirement — content the loader needs and whose *values* it does not check.
+
 ### All six segments decode, and the sketch still is not the blocker
 
 The apparent shortfall of one element was a misreading: `attributes` is part of the element template and sits
