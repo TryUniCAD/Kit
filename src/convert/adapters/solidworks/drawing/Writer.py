@@ -21,6 +21,7 @@ from convert.adapters.solidworks.drawing.Positions import (
     KMinScale,
     KOutlineOffset,
 )
+from convert.adapters.solidworks.drawing.WriterBindings import BindViews
 from convert.adapters.solidworks.drawing.WriterRecords import (
     DefinitionView,
     DefinitionViews,
@@ -49,29 +50,6 @@ def MatchRecordMut(
             UsedIndices.add(Index)
             return Index
     raise SldprtFormatError("source view has no matching record")
-
-
-# the name is the stable key so a reordered data value still edits its own view
-def BindViews(
-    SourceViews: tuple[DrawingView, ...], DataViews: tuple[DrawingView, ...]
-) -> tuple[tuple[DrawingView, DrawingView], ...]:
-    SourceByName = {ViewValue.Name: ViewValue for ViewValue in SourceViews}
-    Matched: dict[str, DrawingView] = {}
-    UnmatchedData: list[DrawingView] = []
-    for DataView in DataViews:
-        SourceView = SourceByName.get(DataView.Name)
-        if SourceView is not None and SourceView.Name not in Matched:
-            Matched[SourceView.Name] = DataView
-        else:
-            UnmatchedData.append(DataView)
-    UnmatchedSource = [
-        ViewValue for ViewValue in SourceViews if ViewValue.Name not in Matched
-    ]
-    if len(UnmatchedData) != len(UnmatchedSource):
-        raise SldprtFormatError("drawing view names do not match the source")
-    for SourceView, DataView in zip(UnmatchedSource, UnmatchedData, strict=True):
-        Matched[SourceView.Name] = DataView
-    return tuple((ViewValue, Matched[ViewValue.Name]) for ViewValue in SourceViews)
 
 
 # one view rewrite keeps the definition and display records in step
@@ -130,25 +108,15 @@ def WriteDrawing(Source: bytes, DataValue: DrawingData) -> bytes:
     if Display is None:
         raise SldprtFormatError(f"drawing is missing {KDisplayStream}")
     SourceData = ReadDrawing(Source, IncludePositions=True)
-    SourceViews = tuple(
-        ViewValue for SheetValue in SourceData.Sheets for ViewValue in SheetValue.Views
-    )
-    DataViews = tuple(
-        ViewValue for SheetValue in DataValue.Sheets for ViewValue in SheetValue.Views
-    )
-    if len(SourceViews) != len(DataViews):
-        raise SldprtFormatError("drawing view count does not match the source")
     DisplayRecords = DisplayViews(Display)
     DefinitionRecords = DefinitionViews(Definition, DisplayRecords)
-    if len(DefinitionRecords) != len(DataViews) or len(DisplayRecords) != len(
-        DataViews
-    ):
+    if len(DefinitionRecords) != len(DisplayRecords):
         raise SldprtFormatError("drawing view records do not match the view count")
     NewDefinition = bytearray(Definition)
     NewDisplay = bytearray(Display)
     UsedDefinition: set[int] = set()
     UsedDisplay: set[int] = set()
-    for SourceView, DataView in BindViews(SourceViews, DataViews):
+    for SourceView, DataView in BindViews(SourceData, DataValue):
         DefinitionIndex = MatchRecordMut(SourceView, DefinitionRecords, UsedDefinition)
         DisplayIndex = MatchRecordMut(SourceView, DisplayRecords, UsedDisplay)
         RewriteViewMut(

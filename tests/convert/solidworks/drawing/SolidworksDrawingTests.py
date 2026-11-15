@@ -749,6 +749,47 @@ def TestWriteName() -> None:
     assert OriginBack.PositionY == PytestLib.approx(0.0)
 
 
+# renaming more than one view is ambiguous and must fail closed
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteMany() -> None:
+    SourceBytes = (KDrawRoot / "standard.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    Views = tuple(
+        ReplaceData(ViewValue, Name=f"View{Index}")
+        for Index, ViewValue in enumerate(DataValue.Sheets[0].Views)
+    )
+    NewData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=Views),)
+    )
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDrawing(SourceBytes, NewData)
+
+
+# repeated view names on different sheets must bind by sheet and view name
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteSheet() -> None:
+    SourceBytes = (KDrawRoot / "multisheet.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    Sheets = tuple(
+        ReplaceData(
+            SheetValue,
+            Views=tuple(
+                ReplaceData(ViewValue, PositionX=0.10, PositionY=0.10)
+                for ViewValue in SheetValue.Views
+            ),
+        )
+        for SheetValue in DataValue.Sheets
+    )
+    BackValue = ReadDrawing(
+        WriteDrawing(SourceBytes, ReplaceData(DataValue, Sheets=Sheets)),
+        IncludeSheetEdges=True,
+    )
+    for SheetValue in BackValue.Sheets:
+        for ViewValue in SheetValue.Views:
+            assert ViewValue.PositionX == PytestLib.approx(0.10)
+            assert ViewValue.PositionY == PytestLib.approx(0.10)
+
+
 # a view count that does not match the source records must fail closed
 @PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
 def TestWriteNo() -> None:

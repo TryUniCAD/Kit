@@ -11,20 +11,20 @@ from convert.adapters.solidworks.core.Native import (
     Serialized,
 )
 
-# the feature record marker precedes the name and the creation action
+# the marker is needed because the record has no length prefix
 KFeatureMarker = bytes.fromhex("0a800100")
 
-# the feature record carries this fixed block before its timestamp
+# the block is needed because the timestamp is not aligned
 KFeatureBlock = bytes.fromhex("0c80000000000000")
 
-# the model reference marker follows the path string
+# the marker is needed because the name has no length prefix
 KReferenceMarker = bytes.fromhex("2e80")
 
-# the model reference list declares this fixed count
+# the count is needed because the list has no terminator
 KReferenceCount = 1
 
 
-# one feature record keeps the tree name stamp action and id together
+# callers need the name stamp action and id as one value
 @dataclass(frozen=True, slots=True)
 class FeatureRecord:
     NameValue: str
@@ -33,7 +33,7 @@ class FeatureRecord:
     IdValue: int
 
 
-# the tree tail keeps the last name stamp and count together
+# the tail is needed because the last record has no marker
 @dataclass(frozen=True, slots=True)
 class FeatureTail:
     NameValue: str
@@ -41,14 +41,14 @@ class FeatureTail:
     Count: int
 
 
-# one feature tree keeps the records and the tail together
+# callers need the records and tail as one value
 @dataclass(frozen=True, slots=True)
 class FeatureTreeData:
     Records: tuple[FeatureRecord, ...]
     Tail: FeatureTail
 
 
-# one model reference keeps the path name and stamp together
+# callers need the path and name as one value
 @dataclass(frozen=True, slots=True)
 class ModelReference:
     PathValue: str
@@ -56,7 +56,7 @@ class ModelReference:
     Marker: int
 
 
-# the feature tree starts after the header stamp record
+# the stamp is needed because the tree has no length prefix
 def FeatureStart(DataValue: bytes) -> int:
     StampOffset = DataValue.find(b"moStamp_c")
     if StampOffset < 0:
@@ -68,7 +68,7 @@ def FeatureStart(DataValue: bytes) -> int:
     return Offset + 4
 
 
-# the feature tree is a sequence of records followed by one tail record
+# the tail is needed because the last record has no marker
 def FeatureTree(DataValue: bytes) -> FeatureTreeData:
     Offset = FeatureStart(DataValue)
     Records: list[FeatureRecord] = []
@@ -94,7 +94,7 @@ def FeatureTree(DataValue: bytes) -> FeatureTreeData:
     raise SldprtFormatError("drawing feature tree has no tail record")
 
 
-# the model reference follows the feature tree and names the referenced model
+# the reference is needed because the view resolves its model by name
 def ModelRefAt(DataValue: bytes) -> ModelReference:
     Offset = FeatureStart(DataValue)
     while DataValue[Offset : Offset + 3] == b"\xff\xfe\xff":
@@ -127,7 +127,7 @@ def ModelRefAt(DataValue: bytes) -> ModelReference:
     return ModelReference(PathValue, NameValue, Marker)
 
 
-# the feature tree serializes back to the same record layout
+# the writer needs the exact layout to keep the stream valid
 def EncodeTree(TreeData: FeatureTreeData) -> bytes:
     Output = bytearray()
     for Record in TreeData.Records:
@@ -143,7 +143,7 @@ def EncodeTree(TreeData: FeatureTreeData) -> bytes:
     return bytes(Output)
 
 
-# the model reference serializes back to the same list layout
+# the writer needs the exact layout to keep the stream valid
 def EncodeModelRef(Reference: ModelReference) -> bytes:
     Output = bytearray()
     Output.extend(ClassDecl("moExtObjectList_c"))
