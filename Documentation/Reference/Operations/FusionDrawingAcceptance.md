@@ -17,6 +17,10 @@ Measured on 2026-11-14 and 2026-11-15 with Fusion 2706.1.17 on macOS arm64.
 
 The 16 data files are class vocabularies and per-class default tables, not captured document rows.
 
+One default was captured rather than derived: `ACDBASSOCINVENTORPERSSUBENTIDMANAGER.ManagerFlag` was
+`1` because every Fusion save carries `1`, although Fusion also opens the drawing with `0`.
+It is now the schema zero, so the table holds no value that only a save can justify.
+
 ## C2. No CAD runtime
 
 The reader, the writer and the author are pure Python. The native runs use Fusion only as the
@@ -29,6 +33,11 @@ acceptance oracle, never as part of a conversion.
 | Fusion-saved DWG read and re-emitted byte-exactly          | 60 of 60   |
 | Fusion-saved F2D drawing document re-emitted byte-exactly  | 248 of 248 |
 | Fusion-saved DWG header typed into parametric variables    | 60 of 60   |
+
+These are byte-preserving round trips, not a conversion. `ReadDrawing` keeps the embedded DWG as
+bytes and `EmitDrawing` writes them back, so the counts show that Kit does not damage a drawing it
+passes through. They do not show that Kit projects a drawing into an interchange model and rebuilds
+it, which is what C3 asks for. C3 is therefore **not met** for drawings.
 
 ## C4. Fully parametric
 
@@ -50,8 +59,14 @@ features   adsk::fusion::ExtrudeFeature
 sketch     Kit Sketch, 1 curve, 1 profile, 2 points
 ```
 
-The drawing side is parametric in the DWG: Fusion applies a sheet extent, a view scale and a view
-position that Kit writes, each verified with a one-input control.
+The design side meets C4: a parameter drives the geometry, and Fusion rebuilds the body from it.
+Editing `d1` from `20 mm` to `40 mm` doubled two bodies from `24.0` to `48.0` cm³ after
+`computeAll()`.
+
+The drawing side does not meet C4. Fusion applies a sheet extent, a view scale and a view position
+that Kit writes, each verified with a one-input control, but a drawing has no feature tree and no
+driving dimension that rebuilds geometry. Those controls show that Kit writes the fields Fusion
+reads; they are not parametric history.
 
 ## C5 to C7. Loadable, usable, and measured
 

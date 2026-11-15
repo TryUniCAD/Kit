@@ -13,10 +13,10 @@ records the verdict per criterion with the measured numbers.
 
 | Criterion                  | Verdict                                              |
 | -------------------------- | ---------------------------------------------------- |
-| C1 no donor data           | pass, scanner clean and no CAD files under `src/`    |
+| C1 no donor data           | pass, scanner clean, no CAD files under `src/`, and the one captured default is now the schema zero |
 | C2 no CAD runtime          | pass, Fusion is the oracle only                      |
-| C3 lossless                | pass, 60 of 60 DWG and 248 of 248 F2D byte-exact     |
-| C4 fully parametric        | pass for designs, pass for drawing properties        |
+| C3 lossless                | **not met** for drawings: 60 of 60 and 248 of 248 are byte replay, not conversion |
+| C4 fully parametric        | pass for designs, **not met** for drawings           |
 | C5 to C7 loadable and usable | **fail** for a drawing authored from nothing       |
 | C8 honest attestation      | the failure is stated as a failure                   |
 | C9 complete implementation | incomplete, blocked by policy                        |
@@ -25,7 +25,11 @@ records the verdict per criterion with the measured numbers.
 
 ## Behavior
 
-No code changes. The page is a record, and it links the gotchas that carry each finding.
+One data change: `ACDBASSOCINVENTORPERSSUBENTIDMANAGER.ManagerFlag` in the authored drawing defaults
+was `1` because every Fusion save carries `1`, although Fusion also opens the drawing with `0`.
+It is now the schema zero, so the table holds no value that only a save can justify.
+
+The rest is a record, and it links the gotchas that carry each finding.
 
 ## Verification
 
