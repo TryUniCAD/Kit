@@ -178,7 +178,7 @@ so an entry is
 UGS::RM_part              32f71f03be4   25 5a 70 c8   01      digest 0xc8705a25
 UGS::Sketch::Colors       f474de4695f   c5 3f 28 d7   01      digest 0xd7283fc5
 UGS::Solid::Body          1efb4308a48   bb 21 1c 01   06      digest 0x011c21bb
-UGS::POINT                6100001df8e17 24 1f 00 6e   09      digest 0x6e001f24
+UGS::POINT                6100001df8e17 4a b9 d4 b5   09      digest 0xb5d4b94a
 ```
 
 The prefix decodes as one big-endian base-128 integer of 36 to 63 bits, and the tail as a small
