@@ -331,10 +331,35 @@ mutually unrelated contents produces a section the solver cannot accept, which i
 edits reached from the other side — the row is tolerated where it is *inert* (a changed dimension, a flipped
 `verhor`, a rewired `pointid` that the solver re-derives) and refused where it must be *solved*.
 
-**Conclusion.** Authoring a body needs a constraint solver, not more field mapping: the `949` element has to be
-emitted together with a solution of its own relations, and the `917` element has to carry the revision graph that
-names the regenerated geometry. Field mapping is complete; the solver is the missing piece, and one worked
-example cannot be inverted into one.
+**Retraction.** The paragraph that stood here concluded that a body needs a constraint solver because the
+solver tables' *consistency* is validated. Two measurements say otherwise.
+
+First, editing a value inside the solver tables is accepted. Rewriting the first `triples_ptr` entry's
+`skamp_id` from `4` to `5` in place, at constant length, loads twice:
+
+```text
+triple_edit: 110065 bytes; skamp_id 0x4 -> 0x5
+!15-Nov-26 08:18:49  End ...  MT Part Solid        (2 of 2)
+```
+
+So the solver's output is as inert as a dimension value — the loader does not re-solve, and it does not check that
+`triples_ptr` agrees with `relat_ptr`.
+
+Second, **structure** is what is validated. Deleting one required sub-record from the vendor element is refused:
+
+```text
+no_saved_result: 109769 bytes; payload 5977 -> 5681 (p_saved_result removed, 296 bytes)
+(no End line; second run identical)
+```
+
+So `p_saved_result` is load-bearing even though its contents are not checked. The correct statement of the
+boundary is therefore: **values are inert, structure is mandatory, and the section must carry its full record
+set.** A generated `949` element is refused because it does not reproduce that record set exactly, not because
+its relations are unsolved.
+
+That is a better position than the retracted one: it means a body may be reachable without a solver, and the next
+useful measurement is a deletion bisect over the element's sub-records to enumerate which of them the loader
+requires.
 
 ### `VisibGeom` emitted one element opener too many
 

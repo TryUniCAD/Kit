@@ -1056,16 +1056,23 @@ readback: 7 features 9 params 1 bodies
 (no End line; second run identical)
 ```
 
-Presence is not enough; **consistency** is what is missing. `relat_ptr` names relations over point ids, `dim_ref`
-binds each dimension to two points, and `triples_ptr`/`p_saved_result` hold the solution that satisfies them.
-Tables with plausible but unrelated contents are refused, while inert edits — a changed dimension, a flipped
-`verhor`, a rewired `pointid` — are accepted because the solver re-derives the geometry.
+That result first looked like "the tables' contents must agree". Two further measurements refute that.
 
-So the write side is not blocked on knowledge of the format. Its field map is measured end to end: container,
-`AllFeatur`, `FeatDefs` class tables, `917` element, `949` element, `VisibGeom`. What a body additionally needs is
-a **constraint solver** that emits the `949` element together with the solution of its own relations, and a
-`917` revision graph naming the regenerated geometry. That is the software the format exists to describe, and it
-cannot be inverted from one worked example.
+Editing a value **inside** the solver tables is accepted — rewriting the first `triples_ptr` entry's `skamp_id`
+from `4` to `5` in place, at constant length, loads twice:
+
+```text
+triple_edit: 110065 bytes; skamp_id 0x4 -> 0x5
+!15-Nov-26 08:18:49  End ...  MT Part Solid        (2 of 2)
+```
+
+while **deleting** a required sub-record is refused — removing `p_saved_result` (296 bytes) from the vendor
+element gives no `End` line, twice.
+
+So the rule is: **values are inert, structure is mandatory.** A generated `949` element is refused because it does
+not reproduce the vendor's record set exactly, not because its relations are unsolved. That matters for the
+verdict: a body may be reachable without a constraint solver, and the next measurement is a deletion bisect over
+the element's sub-records to enumerate exactly what the loader requires.
 
 ### A real bug in the emitted `VisibGeom`
 
