@@ -97,6 +97,8 @@ def ParseSurf(SourceData: bytes, Offset: int) -> tuple[SurfaceRec, int]:
 # this definition exists because focused behavior needs one stable owner
 def BoundsNormal(Bounds: tuple[float, ...]) -> tuple[float, float, float]:
     HalfExtent = Bounds[3:6]
+
+    # this callback exists because the flattest extent fixes the normal axis
     Index = min(range(3), key=lambda Value: abs(HalfExtent[Value]))
     if Index == 0:
         return (1.0, 0.0, 0.0)
@@ -198,6 +200,8 @@ def MakeSurf(
 ) -> BrepSurface:
     SurfaceId = f"catia:surface:{Index}"
     Params = RecordValue.params
+
+    # this callback set exists because each surface kind needs its own carrier constructor
     Builders = {
         0x32: lambda: MakePlane(SurfaceId, RecordValue, VectorValue),
         0x33: lambda: MakeCylinder(SurfaceId, Params),

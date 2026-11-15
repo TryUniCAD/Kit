@@ -429,6 +429,7 @@ def CylinderModel() -> BrepModel:
     Edges: list[BrepEdge] = []
     Coedges: list[BrepCoedge] = []
 
+    # this definition exists because the circle writer test needs one shared edge helper
     def AddEdge(Start: int, EndIndex: int, Center: SpaceVector) -> str:
         CurveId = f"catia:curve:{len(Curves) + 1}"
         Curves.append(
@@ -593,6 +594,7 @@ def ConeModel() -> BrepModel:
     Edges: list[BrepEdge] = []
     Coedges: list[BrepCoedge] = []
 
+    # this definition exists because the arc writer test needs one shared edge helper
     def AddEdge(Start: int, EndIndex: int, Center: SpaceVector, Radius: float) -> str:
         CurveId = f"catia:curve:{len(Curves) + 1}"
         Curves.append(
@@ -751,6 +753,7 @@ def TwoLoopModel() -> BrepModel:
     Edges: list[BrepEdge] = []
     Coedges: list[BrepCoedge] = []
 
+    # this definition exists because the line writer test needs one shared edge helper
     def AddEdge(Start: int, EndIndex: int) -> str:
         CurveId = f"catia:curve:{len(Curves) + 1}"
         Curves.append(
@@ -817,6 +820,7 @@ def TwoLoopModel() -> BrepModel:
     )
 
 
+# this definition exists because the two loop round trip needs one entry point
 def TestBrepTwoLoop(TmpPath: Path) -> None:
     Model = TwoLoopModel()
     assert Model.validate(frozenset({"catia:body:1"})) == ()

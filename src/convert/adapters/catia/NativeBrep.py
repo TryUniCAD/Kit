@@ -110,6 +110,8 @@ def Largest(Folder: CfvTwoFolder, NameValue: str) -> CfvTwoStream:
     Matches = tuple(Stream for Stream in Folder.streams if Stream.name == NameValue)
     if not Matches:
         raise ValueError(f"{NameValue} stream is missing")
+
+    # this callback exists because the directory lists duplicate logical names
     return max(Matches, key=lambda Stream: Stream.logical_length)
 
 
@@ -267,6 +269,8 @@ def AssignRestMut(
         ]
         if not Candidates:
             Candidates = list(range(len(Surfaces)))
+
+        # this callback exists because pooled surfaces must stay balanced across faces
         BestValue = min(Candidates, key=lambda Value: LoadValue.get(Value, 0))
         Assigned[FaceIndex] = BestValue
         LoadValue[BestValue] = LoadValue.get(BestValue, 0) + 1
@@ -596,6 +600,8 @@ def LocalFrame(
         AxisValues[KeyValue] = AxisValues.get(KeyValue, 0) + 1
     if not AxisValues:
         return None
+
+    # this callback exists because the dominant carrier axis defines the local frame
     AxisValue = Normalize(max(AxisValues, key=lambda Value: AxisValues[Value]))
     Reference = (
         Normalize((1.0, 0.0, 0.0))
@@ -641,6 +647,8 @@ def SnapToTessMut(
         ]
         if not Nearby:
             continue
+
+        # this callback exists because the nearest tessellation point is the snap target
         BestValue = min(
             Nearby,
             key=lambda Value: math.hypot(Value[0] - FirstValue, Value[1] - SecondValue),
@@ -687,6 +695,8 @@ def AssignCorners(
     }
     Assign: dict[int, int] = {}
     UsedValues: set[int] = set()
+
+    # this callback exists because the most constrained handles must be assigned first
     for Handle in sorted(ArityTwo, key=lambda Value: len(Candidates[Value])):
         for Index in Candidates[Handle]:
             if Index not in UsedValues:
@@ -741,6 +751,7 @@ def PlaceArcMut(
             )
         )
 
+        # this definition exists because arc handles need an angle about the circle axis
         def Angle(Point: tuple[float, float, float]) -> float:
             Delta = (
                 Point[0] - Center[0],
@@ -1002,6 +1013,8 @@ def BuildFaceMut(
     LoopIds: list[str] = []
     Cycles = Boundary(TrimValue)
     Areas = [CycleArea(Cycle, VertexByHandle, VertexById) for Cycle in Cycles]
+
+    # this callback exists because the outer loop is the cycle with the largest area
     OuterIndex = (
         max(range(len(Cycles)), key=lambda Value: Areas[Value]) if Cycles else -1
     )
