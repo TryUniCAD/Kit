@@ -22,6 +22,8 @@ The production adapter stays read-only.
 The [configuration id gotcha](../../Gotchas/Conversion/Solidworks/ConfigurationIdsAreLocal.md)
 and [plane-wrapper gotcha](../../Gotchas/Conversion/Solidworks/PlaneWrapperGeometry.md)
 describe separate graph constraints.
+The [transform schema gotcha](../../Gotchas/Conversion/Solidworks/ProvisionalTransformFieldNames.md)
+records the active registry vocabulary found by remote construction.
 
 ## Verification
 
