@@ -202,7 +202,7 @@ jobs:
 
       - name: Precompile repository bytecode
         if: steps.bytecode.outputs.cache-matched-key == ''
-        run: uv run --no-sync --python 3.14 python -m compileall -q -j 0 src tools tests
+        run: uv run --no-sync --python 3.14 python -m compileall -q -j 0 src Cli tools tests
 
       - name: Download the shard plan
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
@@ -472,7 +472,7 @@ jobs:
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Run Bandit SAST
-        run: uv run bandit -q -r src tools .github/scripts -x .venv,examples,Parashell,modules,re,tests -s B101,B105,B314,B404,B405,B603,B607
+        run: uv run bandit -q -r src Cli tools .github/scripts -x .venv,examples,Parashell,modules,re,tests -s B101,B105,B314,B404,B405,B603,B607
 
   semgrep:
     if: github.event_name == 'merge_group' || github.event_name == 'push'
@@ -701,7 +701,7 @@ jobs:
         run: >-
           uv run flake8 --select=DUO
           --exclude=.venv,examples,Parashell,modules,re,tests
-          src tools .github/scripts
+          src Cli tools .github/scripts
 
   gitleaks:
     if: github.event_name == 'merge_group' || github.event_name == 'push'

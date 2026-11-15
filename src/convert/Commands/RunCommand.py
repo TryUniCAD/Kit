@@ -8,13 +8,10 @@ from convert.Commands.FormatReport import FormatReport
 from convert.Commands.PrintFormats import PrintFormats
 from convert.Commands.PrintReport import PrintReport
 from convert.Commands.SaveDecode import SaveDecode
-from convert.Commands.RunResearch import RunResearch
 
 
 # command routing must apply shared file protections before conversion or inspection can publish output
 def RunCommand(Options: CliOptions) -> None:
-    if Options.Command == "research":
-        RunResearch(Options)
     if Options.Command == "formats":
         Formats = FormatReport()
         if Options.JsonOutput:

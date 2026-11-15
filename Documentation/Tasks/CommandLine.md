@@ -23,7 +23,9 @@ These views require Python 3.14; container inventory remains available on older 
 
 For a published release containing this interface, use `uv tool install unicad-kit`.
 For repository development, follow [repository installation](Install.md), then use `uv run --frozen kit`.
-The equivalent module command is `uv run --frozen python -m convert`.
+The full CLI module command is `uv run --frozen python -m KitCli`.
+`uv run --frozen python -m convert` supports SDK formats, decoding, and conversion.
+Research execution uses `kit research` or `python -m KitCli research` so process access stays outside the SDK runtime.
 All commands below assume the installed tool is on `PATH`.
 
 ## Convert a file

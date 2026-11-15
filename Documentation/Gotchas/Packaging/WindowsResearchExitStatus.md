@@ -6,7 +6,7 @@ Returning before the research tool finishes can lose failure statuses consumed b
 
 On Windows, the CLI now uses [Popen](https://docs.python.org/3.14/library/subprocess.html#subprocess.Popen), inherits terminal streams, waits for completion, and exits with the child's return code.
 An interrupt in the launcher continues waiting instead of invoking `subprocess.run`'s exception path, which would kill a still-running child during cleanup.
-Linux and macOS retain process replacement for signal and supervisor ownership.
+Linux and macOS now use a separate child session with explicit signal forwarding and matching signal termination.
 The supervisor itself still requires Linux or macOS.
 
 Windows process coverage exercises pinned readers, artifact identity, failed batches, stale leases, and explicit supervisor refusal.

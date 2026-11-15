@@ -1,5 +1,3 @@
-from os import execv as ExecProcess
-from subprocess import Popen as StartProcess
 from sys import executable as KPythonPath, platform as KPlatform
 from typing import NoReturn
 
@@ -9,6 +7,11 @@ from convert.Commands.ResearchTools import KResearchScripts
 
 # research execution must use the selected checkout sdk and preserve downstream process outcomes
 def RunResearch(Options: CliOptions) -> NoReturn:
+    from subprocess import Popen as StartProcess
+
+    from KitCli.ExitResearch import ExitResearch
+    from KitCli.WaitResearch import WaitResearch
+
     if Options.ResearchRoot is None:
         raise ValueError("Research requires --root pointing to a trusted PR94 checkout")
     RootPath = Options.ResearchRoot.expanduser().resolve()
@@ -37,11 +40,7 @@ def RunResearch(Options: CliOptions) -> NoReturn:
             raise ValueError("Set research --root once, before the tool name")
         Arguments = ["--root", str(RootPath), *Arguments]
     CommandArgs = [KPythonPath, str(ScriptPath), *Arguments]
-    if KPlatform == "win32":
-        with StartProcess(CommandArgs) as ChildProcess:
-            while True:
-                try:
-                    raise SystemExit(ChildProcess.wait())
-                except KeyboardInterrupt:
-                    continue
-    ExecProcess(KPythonPath, CommandArgs)
+    with StartProcess(
+        CommandArgs, start_new_session=KPlatform != "win32"
+    ) as ChildProcess:
+        ExitResearch(WaitResearch(ChildProcess))

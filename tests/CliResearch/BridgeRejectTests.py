@@ -31,7 +31,7 @@ def CheckRootGuard(TmpPath: FilePath) -> None:
             KPythonPath,
             "-I",
             "-m",
-            "convert",
+            "KitCli",
             "research",
             "--root",
             str(TmpPath),

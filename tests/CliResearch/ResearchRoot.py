@@ -7,11 +7,17 @@ def ResearchRoot() -> FilePath:
     RootValue = KEnvironment.get("KIT_RESEARCH_CHECKOUT")
     if RootValue is None:
         raise ValueError("KIT_RESEARCH_CHECKOUT must identify the pinned PR94 checkout")
-    RootPath = FilePath(RootValue)
-    if not RootPath.is_absolute():
-        raise ValueError("KIT_RESEARCH_CHECKOUT must be absolute")
+    RootPath = FilePath(__file__).resolve().parents[2] / "ResearchCheckout"
+    if (
+        not FilePath(RootValue).is_absolute()
+        or FilePath(RootValue).resolve() != RootPath
+        or RootPath.resolve() != RootPath
+    ):
+        raise ValueError(
+            "KIT_RESEARCH_CHECKOUT must identify this repository ResearchCheckout"
+        )
     if not (RootPath / ".git").exists() or not (RootPath / "src/convert").is_dir():
         raise ValueError(
             "KIT_RESEARCH_CHECKOUT must contain the pinned repository and SDK"
         )
-    return RootPath.resolve()
+    return RootPath

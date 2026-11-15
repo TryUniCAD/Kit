@@ -45,7 +45,7 @@ def InterruptParent():
         time.sleep(0.01)
 threading.Thread(target=InterruptParent, daemon=True).start()
 sys.argv[:] = ["kit", "research", "--root", RootPath, "controller", str(ReadyPath), DonePath]
-from convert.Commands.MainEntry import MainEntry
+from KitCli.MainEntry import MainEntry
 raise SystemExit(MainEntry())
 """,
         encoding="utf-8",

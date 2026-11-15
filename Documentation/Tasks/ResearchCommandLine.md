@@ -11,6 +11,8 @@ Users do not write Python imports or scripts.
 Install a CLI revision from its source checkout with `uv tool install .`.
 Use `uv tool install --python 3.14 .` when Fusion research is required.
 The launcher uses the interpreter running `kit` and does not silently select another environment.
+The equivalent module command is `python -m KitCli research`.
+`python -m convert research` reports an error directing callers to these developer entry points.
 
 Select a trusted checkout containing PR #94 and the corpus's pinned Git objects.
 `--root` authorizes execution of that checkout's research code and SDK.
@@ -87,7 +89,8 @@ kit research --root /path/to/KitPr94 supervisor --config Supervisor.json resume 
 ```
 
 The supervisor owns pools, claims, leases, retries, restart fencing, and configured worker dispatch.
-The CLI replaces its process with that supervisor, preserving terminal signals, output, and exit statuses.
+On Linux and macOS the CLI starts a separate research session and forwards interrupt, termination, and hangup signals.
+It waits for cleanup, preserves output and exit statuses, and terminates with the child's signal when that child is killed.
 Supervisor contention retains status `4`.
 
 No production decode runner or model-provider registry is supplied by this bridge.
@@ -110,6 +113,8 @@ The research checkout can differ from the installed CLI checkout.
 The selected script starts in a fresh interpreter and explicitly loads its own SDK source.
 The CLI forwards reader output and exit codes without reconstructing fingerprints or receipts.
 It executes no shell and imports no research modules into production conversion.
+The packaged `KitCli` developer composition lives in `Cli/`, separately from the two SDK packages in `src/`.
+Conversion and inspection do not import its process launcher dependencies.
 
 ## If the command fails
 

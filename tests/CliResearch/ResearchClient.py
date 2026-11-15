@@ -1,6 +1,6 @@
 from pathlib import Path as FilePath
 from subprocess import CompletedProcess, run as RunProcess
-from sys import executable as KPythonPath
+from sys import executable as KPythonPath, platform as KPlatform
 
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
@@ -11,10 +11,11 @@ def ResearchCli(
 ) -> CompletedProcess[str]:
     return RunProcess(
         (
-            KPythonPath,
-            "-I",
-            "-m",
-            "convert",
+            str(
+                FilePath(KPythonPath).with_name(
+                    "kit.exe" if KPlatform == "win32" else "kit"
+                )
+            ),
             "research",
             "--root",
             str(ResearchRoot()),

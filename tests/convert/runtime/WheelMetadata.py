@@ -35,6 +35,6 @@ def CheckWheelMeta(ArchiveData: ZipFile, EntryNames: tuple[str, ...]) -> None:
         for RequirementText in RequirementList
     )
     assert ArchiveData.read(EntryPointName).decode("utf-8") == (
-        "[console_scripts]\nkit = convert.Commands.MainEntry:MainEntry\n\n"
+        "[console_scripts]\nkit = KitCli.MainEntry:MainEntry\n\n"
         "[kit]\nconvert = convert:convert\n"
     )

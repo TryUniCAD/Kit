@@ -147,6 +147,8 @@ enforced tool approvals. Follow the skill's administrator-requested merge rules.
 
 Install this CLI checkout with `uv tool install --python 3.14 .`.
 Use a separate, trusted checkout containing PR #94's research tools and pinned Git objects.
+Use `kit research` or `python -m KitCli research` for this developer workflow.
+`python -m convert` supports SDK formats, decoding, and conversion; research execution stays outside its runtime.
 The CLI is delivered in its own PR; do not add CLI implementation work to PR #94.
 Use that research checkout's absolute path as `--root` and choose unused output directories.
 

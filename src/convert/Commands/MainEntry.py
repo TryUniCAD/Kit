@@ -1,5 +1,7 @@
+from collections.abc import Callable
 from json import dumps as DumpJson
 from sys import argv as ArgValues, stderr as ErrorStream
+from typing import NoReturn
 
 from convert.adapters.base.UsabilityError import UsabilityError
 from convert.adapters.registry.RegistryErrors import RegistryError
@@ -9,7 +11,7 @@ from convert.Commands.RunCommand import RunCommand
 
 
 # command failures need stable exit codes and machine readable diagnostics for shell callers
-def MainEntry() -> int:
+def MainEntry(ResearchRunner: Callable[[CliOptions], NoReturn] | None = None) -> int:
     try:
         if any(len(Value) > 4096 or not Value.isprintable() for Value in ArgValues[1:]):
             raise ValueError(
@@ -20,6 +22,10 @@ def MainEntry() -> int:
         Options.Source = Options.Source.expanduser()
         if Options.Destination is not None:
             Options.Destination = Options.Destination.expanduser()
+        if Options.Command == "research":
+            if ResearchRunner is None:
+                raise ValueError("Run research with kit or python -m KitCli")
+            ResearchRunner(Options)
         RunCommand(Options)
         return 0
     except BrokenPipeError:
