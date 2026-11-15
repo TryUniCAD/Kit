@@ -235,3 +235,42 @@ written-standard  View1 0.05,0.1,1.5  View2 0.11,0.13,1.5
 `View.GetPolylines5` still returned the 75 edge doubles for the written front
 view. The writer is bounded to the recovered position and scale records; it
 retains the source document-level streams and does not change the orientation.
+
+### Written negative position and renamed view
+
+`WriteDrawing` rewrote the `orient-front.SLDDRW` view to `(-0.05, -0.02, 1.5)`
+and renamed the `Data` view to `My View`. SOLIDWORKS opened the written file and
+reported `GetXform=-0.05,-0.02,1.5`, so a view outside the sheet rectangle is
+accepted and the record is matched by the source position rather than the name.
+
+### Written origin position and reordered data
+
+`WriteDrawing` rewrote the `orient-front.SLDDRW` view to `(0.0, 0.0, 1.5)` and
+SOLIDWORKS reported `GetXform=0,0,1.5`. Reversing the `standard.SLDDRW` view
+tuple before writing produced the same per-view positions as the natural order,
+because views are bound to the source by name.
+
+### Definition feature tree and model reference
+
+`DefinitionGrammar` parsed and re-serialized the `Contents/Definition` feature
+tree and model reference byte-exactly for all ten tracked drawings. The feature
+tree holds 14 to 38 records; the model reference names `poly5a`, `poly5b`, or
+`poly5deep`. `renamed-ref.SLDDRW` replaced the model reference name with
+`poly5x` and SOLIDWORKS opened it with the same view position.
+
+### Definition object blocks
+
+`DefinitionObjects` parsed and re-serialized the units table, sheet, view, and
+line style object blocks byte-exactly for all ten tracked drawings. The units
+table holds 18 records and is 1,510 bytes; it differs across drawings only at
+one class reference index.
+
+### Definition sheet and view values
+
+`DefinitionValues` decoded the `moDrSheet` and `moView_c` blocks into typed
+records and re-serialized them byte-exactly for all ten tracked drawings. The
+sheet record is `Sheet1` with scale `-2.0` and a count of `4`, `7`, `6`, `5`,
+`5`, `4`, `5`, `4`, or `4`. The view block holds ten slots: `*Full Sheet`
+followed by nine `Unused` slots with indices 0 to 9. The view payload is not
+eight-byte aligned; it starts with a one-byte prefix and carries two-byte and
+three-byte gaps.

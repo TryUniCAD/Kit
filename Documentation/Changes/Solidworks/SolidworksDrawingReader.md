@@ -88,14 +88,30 @@ geometry still fails closed instead of returning a value that a caller could
 mistake for a complete drawing. Request positions separately with
 `IncludePositions=True` and sheet-space edges with `IncludeSheetEdges=True`.
 
+`DefinitionGrammar` parses and serializes the `Contents/Definition` feature tree
+and model reference byte-exactly. The feature tree is a sequence of name, stamp,
+action, and id records followed by a tail record. The model reference is a
+`moExtObjectList_c` with one `moExtObject_c` and one `moCStringHandle_c`. `DefinitionObjects` parses and serializes the units table, sheet, view, and line
+style object blocks byte-exactly. The units table is 1,510 bytes and constant
+across drawings except for one class reference index. The object values are
+still raw bytes, so a from-scratch drawing still needs the value semantics.
+
 `WriteDrawing(Source, Data)` rewrites the recovered view position and scale
 records in a source drawing container and returns a new container. It writes the
 `Contents/Definition` view record (`x`, `y`, `0.0`, scale, `1.0`) and the
-`Contents/DisplayLists` primary and twin records. It requires the source view
+`Contents/DisplayLists` primary and twin records, and scales and shifts the sheet outline by
+the scale ratio and position delta. Records are matched to views by the source view position and creation index, so
+coincident views keep their own records. Views are bound to the source by sheet
+and view name, so a reordered `Data` value still edits its own view and repeated
+view names on different sheets stay distinct. A renamed view raises
+`SldprtFormatError`, because the name is part of the model reference and the
+writer does not rewrite it. Negative and origin
+positions are accepted because a view can sit outside or at the corner of the
+sheet rectangle. It requires the source view
 count to equal `Data` view count, every view to carry `PositionX`, `PositionY`,
-and `ViewScale`, and every value to be finite and in range; otherwise it raises
-`SldprtFormatError`. It does not generate the document-level streams, does not
-change the view orientation, and does not add or remove views.
+and `ViewScale`, and every value to be finite and inside the reader bounds;
+otherwise it raises `SldprtFormatError`. It does not generate the document-level
+streams, does not change the view orientation, and does not add or remove views.
 
 ## Limitations
 

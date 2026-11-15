@@ -13,6 +13,15 @@ from convert.adapters.solidworks.container.Container import (
     SldprtFormatError,
 )
 from convert.adapters.solidworks.drawing import DrawingData, ReadDrawing, WriteDrawing
+from convert.adapters.solidworks.drawing.DefinitionObjects import ObjectBlocks
+from convert.adapters.solidworks.drawing.DefinitionSheet import (
+    EncodeSheet,
+    SheetRecordAt,
+)
+from convert.adapters.solidworks.drawing.DefinitionView import (
+    EncodeViewBlock,
+    ViewBlock,
+)
 
 # tracked drawings prove the reader against real solidworks authored sheets
 KDrawRoot = (
@@ -39,6 +48,95 @@ def TestOpen() -> None:
         assert isinstance(DataValue, DrawingData)
         assert DataValue.Name == KExpected[NameValue][0]
         assert DataValue.SourcePath.endswith(NameValue)
+
+
+# the definition sheet and view blocks must decode to the authored values
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestValues() -> None:
+    Counts = {
+        "angled.SLDDRW": 6,
+        "minimal.SLDDRW": 5,
+        "standard.SLDDRW": 7,
+    }
+    for NameValue, CountValue in Counts.items():
+        DataValue = SldprtArchive.open(KDrawRoot / NameValue).require(
+            "Contents/Definition"
+        )
+        SheetValue = ObjectBlocks(DataValue, "moDrSheet", "moRefPlane_c")[0]
+        SheetRecord = SheetRecordAt(SheetValue.Values)
+        assert SheetRecord.NameValue == "Sheet1"
+        assert SheetRecord.Scale == PytestLib.approx(-2.0)
+        assert SheetRecord.Count == CountValue
+        assert SheetRecord.ClassRef == Struct.unpack_from("<H", SheetValue.Values, 0)[0]
+        assert EncodeSheet(SheetRecord) == SheetValue.Values
+        ViewValue = ObjectBlocks(DataValue, "moView_c", "moSketchBlockMgr_c")[0]
+        Records, TailValue = ViewBlock(ViewValue.Values)
+        assert len(Records) == 10
+        assert Records[0].NameValue == "*Full Sheet"
+        assert [Record.NameValue for Record in Records[1:]] == ["Unused"] * 9
+        assert [Record.Index for Record in Records] == list(range(10))
+        assert EncodeViewBlock(Records, TailValue) == ViewValue.Values
+
+
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestUnits() -> None:
+    DataValue = ReadDrawing(KDrawRoot / "orient-front.SLDDRW", IncludeValues=True)
+    Units = DataValue.Units
+    assert Units is not None
+    assert len(Units) == 16
+    LengthValue = Units[0]
+    assert len(LengthValue.Entries) == 2
+    assert LengthValue.Entries[0].Type == 1
+    assert LengthValue.Entries[0].Value == PytestLib.approx(0.1)
+    assert LengthValue.Entries[0].Unit == 4
+    assert LengthValue.Entries[1].Type == 1
+    assert LengthValue.Entries[1].Value == PytestLib.approx(0.7853981633974483)
+    assert LengthValue.Entries[1].Unit == 8
+    assert len(LengthValue.Tail) == 96
+
+
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestStyles() -> None:
+    DataValue = ReadDrawing(KDrawRoot / "orient-front.SLDDRW", IncludeValues=True)
+    Styles = DataValue.LineStyles
+    assert Styles is not None
+    assert len(Styles) == 7
+    FirstValue = Styles[0]
+    assert FirstValue.Name == "CONTINUOUS"
+    assert FirstValue.Description == "Solid"
+    assert len(FirstValue.Values) == 1
+    assert FirstValue.Values[0] == PytestLib.approx(12.0)
+    assert FirstValue.ClassRef is not None
+    LastValue = Styles[-1]
+    assert LastValue.Name == "CHAIN_THICK"
+    assert LastValue.Description == "Thin/Thick Chain"
+    assert len(LastValue.Values) == 4
+    assert LastValue.Values[0] == PytestLib.approx(1.25)
+    assert LastValue.Values[1] == PytestLib.approx(-0.25)
+    assert LastValue.Values[2] == PytestLib.approx(0.25)
+    assert LastValue.Values[3] == PytestLib.approx(-0.25)
+    assert LastValue.ClassRef is None
+
+
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestDimensions() -> None:
+    for NameValue in ("coincident.SLDDRW", "large.SLDDRW", "multisheet.SLDDRW"):
+        DataValue = ReadDrawing(KDrawRoot / NameValue, IncludeDimensions=True)
+        Parameters = DataValue.DimensionParameters
+        assert Parameters is not None
+        assert len(Parameters) == 1
+        Parameter = Parameters[0]
+        assert Parameter.NameValue == "D2"
+        assert Parameter.Value == PytestLib.approx(2.0)
+        assert Parameter.FlagValue == -1
+        assert Parameter.UnitValue == 0
+        assert Parameter.TextValue == ""
+        assert Parameter.Measured == PytestLib.approx(1.3446183501864888)
+        assert Parameter.Count == 2
+        assert len(Parameter.Gap) == 2
+        assert len(Parameter.ZeroRun) == 3
+        assert len(Parameter.Reserved) == 20
+        assert len(Parameter.Tail) == 8
 
 
 # sheet geometry and view composition must match what solidworks authored
@@ -643,6 +741,201 @@ def TestWriteView() -> None:
     assert BackView.PositionY == PytestLib.approx(0.20)
     assert BackView.ViewScale == PytestLib.approx(3.0)
     assert len(BackView.SheetEdges) == len(ViewValue.SheetEdges)
+    assert ViewValue.OutlineMinX is not None
+    assert ViewValue.OutlineMinY is not None
+    assert ViewValue.PositionX is not None
+    assert ViewValue.PositionY is not None
+    assert BackView.OutlineMinX is not None
+    assert BackView.OutlineMinY is not None
+    Ratio = 3.0 / 2.0
+    Padding = 0.004318
+    assert BackView.OutlineMinX == PytestLib.approx(
+        0.15 + (ViewValue.OutlineMinX - ViewValue.PositionX + Padding) * Ratio - Padding
+    )
+    assert BackView.OutlineMinY == PytestLib.approx(
+        0.20 + (ViewValue.OutlineMinY - ViewValue.PositionY + Padding) * Ratio - Padding
+    )
+
+
+# the writer must bind records by creation index when keyword order differs
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteOrder() -> None:
+    SourceBytes = (KDrawRoot / "angled.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    Views = DataValue.Sheets[0].Views
+    assert [ViewValue.Name for ViewValue in Views] != [
+        "Drawing View1",
+        "Drawing View2",
+        "Drawing View3",
+    ]
+    NewViews = tuple(
+        ReplaceData(ViewValue, PositionX=0.05 + 0.06 * Index, PositionY=0.10)
+        for Index, ViewValue in enumerate(Views)
+    )
+    NewData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=NewViews),)
+    )
+    BackValue = ReadDrawing(WriteDrawing(SourceBytes, NewData), IncludeSheetEdges=True)
+    Actual = {
+        ViewValue.Name: ViewValue.PositionX for ViewValue in BackValue.Sheets[0].Views
+    }
+    assert Actual["Drawing View1"] == PytestLib.approx(0.17)
+    assert Actual["Drawing View2"] == PytestLib.approx(0.05)
+    assert Actual["Drawing View3"] == PytestLib.approx(0.11)
+    Reordered = ReplaceData(
+        DataValue,
+        Sheets=(ReplaceData(DataValue.Sheets[0], Views=tuple(reversed(NewViews))),),
+    )
+    ReorderedValue = ReadDrawing(
+        WriteDrawing(SourceBytes, Reordered), IncludeSheetEdges=True
+    )
+    ReorderedActual = {
+        ViewValue.Name: ViewValue.PositionX
+        for ViewValue in ReorderedValue.Sheets[0].Views
+    }
+    assert ReorderedActual == Actual
+
+
+# a view name is part of the model reference and cannot be rewritten
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteName() -> None:
+    SourceBytes = (KDrawRoot / "orient-front.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    ViewValue = DataValue.Sheets[0].Views[0]
+    NewView = ReplaceData(ViewValue, PositionX=-0.05, PositionY=-0.02, ViewScale=1.5)
+    NewData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=(NewView,)),)
+    )
+    BackValue = ReadDrawing(WriteDrawing(SourceBytes, NewData), IncludeSheetEdges=True)
+    BackView = BackValue.Sheets[0].Views[0]
+    assert BackView.PositionX == PytestLib.approx(-0.05)
+    assert BackView.PositionY == PytestLib.approx(-0.02)
+    assert BackView.ViewScale == PytestLib.approx(1.5)
+    assert BackView.Name == ViewValue.Name
+    RenamedView = ReplaceData(ViewValue, Name="My View")
+    RenamedData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=(RenamedView,)),)
+    )
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDrawing(SourceBytes, RenamedData)
+    OriginView = ReplaceData(ViewValue, PositionX=0.0, PositionY=0.0, ViewScale=1.5)
+    OriginData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=(OriginView,)),)
+    )
+    OriginValue = ReadDrawing(
+        WriteDrawing(SourceBytes, OriginData), IncludeSheetEdges=True
+    )
+    OriginBack = OriginValue.Sheets[0].Views[0]
+    assert OriginBack.PositionX == PytestLib.approx(0.0)
+    assert OriginBack.PositionY == PytestLib.approx(0.0)
+    OriginBytes = WriteDrawing(SourceBytes, OriginData)
+    AgainValue = ReadDrawing(
+        WriteDrawing(OriginBytes, OriginValue), IncludeSheetEdges=True
+    )
+    AgainBack = AgainValue.Sheets[0].Views[0]
+    assert AgainBack.PositionX == PytestLib.approx(0.0)
+    assert AgainBack.PositionY == PytestLib.approx(0.0)
+
+
+# renaming more than one view is ambiguous and must fail closed
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteMany() -> None:
+    SourceBytes = (KDrawRoot / "standard.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    Views = tuple(
+        ReplaceData(ViewValue, Name=f"View{Index}")
+        for Index, ViewValue in enumerate(DataValue.Sheets[0].Views)
+    )
+    NewData = ReplaceData(
+        DataValue, Sheets=(ReplaceData(DataValue.Sheets[0], Views=Views),)
+    )
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDrawing(SourceBytes, NewData)
+
+
+# coincident views must bind by creation index rather than record order
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteSame() -> None:
+    SourceBytes = (KDrawRoot / "coincident.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    Sheets = tuple(
+        ReplaceData(
+            SheetValue,
+            Views=tuple(
+                ReplaceData(
+                    ViewValue,
+                    PositionX=0.05 if ViewValue.Name == "Drawing View1" else 0.15,
+                    PositionY=0.10,
+                )
+                for ViewValue in SheetValue.Views
+            ),
+        )
+        for SheetValue in DataValue.Sheets
+    )
+    BackValue = ReadDrawing(
+        WriteDrawing(SourceBytes, ReplaceData(DataValue, Sheets=Sheets)),
+        IncludeSheetEdges=True,
+    )
+    Actual = {
+        ViewValue.Name: ViewValue.PositionX
+        for SheetValue in BackValue.Sheets
+        for ViewValue in SheetValue.Views
+    }
+    assert Actual["Drawing View1"] == PytestLib.approx(0.05)
+    assert Actual["Drawing View2"] == PytestLib.approx(0.15)
+
+
+# repeated view names on different sheets must bind by sheet and view name
+@PytestLib.mark.skipif(not KDrawRoot.is_dir(), reason="drawing corpus unavailable")
+def TestWriteSheet() -> None:
+    SourceBytes = (KDrawRoot / "multisheet.SLDDRW").read_bytes()
+    DataValue = ReadDrawing(SourceBytes, IncludeSheetEdges=True)
+    Sheets = tuple(
+        ReplaceData(
+            SheetValue,
+            Views=tuple(
+                ReplaceData(ViewValue, PositionX=0.10, PositionY=0.10)
+                for ViewValue in SheetValue.Views
+            ),
+        )
+        for SheetValue in DataValue.Sheets
+    )
+    BackValue = ReadDrawing(
+        WriteDrawing(SourceBytes, ReplaceData(DataValue, Sheets=Sheets)),
+        IncludeSheetEdges=True,
+    )
+    for SheetValue in BackValue.Sheets:
+        for ViewValue in SheetValue.Views:
+            assert ViewValue.PositionX == PytestLib.approx(0.10)
+            assert ViewValue.PositionY == PytestLib.approx(0.10)
+    Repeated = tuple(
+        ReplaceData(
+            SheetValue,
+            Views=tuple(
+                ReplaceData(
+                    ViewValue,
+                    Name="Drawing View1",
+                    PositionX=0.15 if SheetValue.Name == "Sheet2" else 0.05,
+                    PositionY=0.20 if SheetValue.Name == "Sheet2" else 0.10,
+                )
+                for ViewValue in SheetValue.Views
+            ),
+        )
+        for SheetValue in DataValue.Sheets
+    )
+    RepeatedValue = ReadDrawing(
+        WriteDrawing(SourceBytes, ReplaceData(DataValue, Sheets=Repeated)),
+        IncludeSheetEdges=True,
+    )
+    RepeatedActual = {
+        SheetValue.Name: ViewValue
+        for SheetValue in RepeatedValue.Sheets
+        for ViewValue in SheetValue.Views
+    }
+    assert RepeatedActual["Sheet1"].PositionX == PytestLib.approx(0.05)
+    assert RepeatedActual["Sheet1"].PositionY == PytestLib.approx(0.10)
+    assert RepeatedActual["Sheet2"].PositionX == PytestLib.approx(0.15)
+    assert RepeatedActual["Sheet2"].PositionY == PytestLib.approx(0.20)
 
 
 # a view count that does not match the source records must fail closed

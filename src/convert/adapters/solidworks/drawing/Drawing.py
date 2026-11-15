@@ -8,9 +8,17 @@ from convert.adapters.solidworks.container.Container import (
     SldprtFormatError,
 )
 from convert.adapters.solidworks.container.Format import (
+    DEFINITION_STREAM as KDefinitionStream,
     INFORMATION_STREAM as KInfoStream,
     KEYWORDS_STREAM as KKeyStream,
 )
+from convert.adapters.solidworks.drawing.DefinitionDimensions import (
+    DimensionParameter,
+    ParameterAt,
+)
+from convert.adapters.solidworks.drawing.DefinitionObjects import ObjectBlocks
+from convert.adapters.solidworks.drawing.DefinitionStyles import LineStyle, LineStyles
+from convert.adapters.solidworks.drawing.DefinitionUnits import UnitTable, UnitTableAt
 from convert.adapters.solidworks.drawing.Models import (
     DrawingData,
     DrawingRef,
@@ -176,12 +184,53 @@ def OpenArchive(Source: str | FilePath | bytes) -> tuple[SldprtArchive, str]:
     return SldprtArchive.open(PathValue), str(PathValue)
 
 
+def ReadValues(
+    Archive: SldprtArchive,
+) -> tuple[tuple[UnitTable, ...], tuple[LineStyle, ...]]:
+    Definition = Archive.get(KDefinitionStream)
+    if Definition is None:
+        return (), ()
+    Units = tuple(
+        UnitTableAt(Block.Values)
+        for Block in ObjectBlocks(Definition, "moUnitsTable_c", "moUnitComponent_c")
+        if len(Block.Values) >= 4
+    )
+    Styles = tuple(
+        Style
+        for Block in ObjectBlocks(Definition, "moLineStyle_c", "uiLineFontMgr_c")
+        for Style in LineStyles(Block.Values)
+    )
+    return Units, Styles
+
+
+def ReadDimensions(Archive: SldprtArchive) -> tuple[DimensionParameter, ...]:
+    Definition = Archive.get(KDefinitionStream)
+    if Definition is None:
+        return ()
+    Marker = b"\xff\xff\x01\x00\x12\x00moAngleParameter_c"
+    Parameters: list[DimensionParameter] = []
+    Offset = 0
+    while True:
+        Start = Definition.find(Marker, Offset)
+        if Start < 0:
+            break
+        ValueStart = Start + len(Marker)
+        if ValueStart + 76 > len(Definition):
+            raise SldprtFormatError("drawing dimension parameter is truncated")
+        Parameter, _ = ParameterAt(Definition, ValueStart)
+        Parameters.append(Parameter)
+        Offset = ValueStart + 76
+    return tuple(Parameters)
+
+
 def ReadDrawing(
     Source: str | FilePath | bytes,
     IncludeGeometry: bool = False,
     IncludePositions: bool = False,
     IncludeEdges: bool = False,
     IncludeSheetEdges: bool = False,
+    IncludeValues: bool = False,
+    IncludeDimensions: bool = False,
 ) -> DrawingData:
     if IncludeGeometry:
         raise SldprtFormatError(
@@ -211,10 +260,20 @@ def ReadDrawing(
         Sheets = EdgeSheets(Sheets, Archive)
     if IncludeSheetEdges:
         Sheets = OrientSheets(Sheets, Archive)
+    Units: tuple[UnitTable, ...] | None = None
+    Styles: tuple[LineStyle, ...] | None = None
+    if IncludeValues:
+        Units, Styles = ReadValues(Archive)
+    Parameters: tuple[DimensionParameter, ...] | None = None
+    if IncludeDimensions:
+        Parameters = ReadDimensions(Archive)
     return DrawingData(
         NameValue,
         Sheets,
         ReadReferences(RootValue),
         ReadNotes(RootValue),
         SourcePath,
+        Units,
+        Styles,
+        Parameters,
     )
