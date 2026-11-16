@@ -46,9 +46,14 @@ The new [geometry](../../../solidworks/records/GeometryArchive2026.md),
 [common-part](../../../solidworks/records/CommonPartOwners2026.md),
 [material/display](../../../solidworks/records/MaterialDisplayArchive2026.md) and
 [annotation](../../../solidworks/records/AnnotationArchive2026.md) owners bind 76 of those
-names to pinned 2026 native functions and dispatch. Changed-revision compatibility
-is pending. `su_CMapStringToInt` remains provisional because the available MFC image's
-raw ARM64X ordinals do not establish the imported x64 count methods.
+names to pinned 2026 native functions and dispatch. Their
+[changed-revision report](../../../solidworks/measurements/2026/CurveDiscoveryAdmission42525.json)
+preserves all 234 byte identities and leaves only the framework string-map count
+dependency provisional, with no missing schemas. Strict admission passes 156
+primary streams and zero linked streams in that historical report.
+The separate [MFC count owner](../../../solidworks/records/MfcCountArchive2026.md)
+now binds that remaining helper to the effective exports and complete mapped
+count bodies. Remote replay of this new owner remains pending.
 No admission gate is relaxed and no fresh-writer defaults follow from these schemas.
 
 `--link-config` additionally requires each selected resolved stream to inherit
@@ -89,7 +94,7 @@ Corpora (2026-saved):
 - `Core.py`: `Load` / `Store` archive (MFC tag grammar, class/object map, CString forms, counts,
   `ExtRef` for object refs below the stream's map base).
 - `Schema.py`: ops. `P` primitive, `S` CString, `O` object (tagged ReadObject/WriteObject),
-  `C` class tag only (ReadClass/WriteClass), `Cnt` MFC ReadCount/WriteCount, `Raw` fixed bytes,
+  `C` class tag only (ReadClass/WriteClass), `Cnt` vendor su_CArchive counts, `Raw` fixed bytes,
   `Base(cls)` run another schema in the same field scope (base-class `Serialize`), `Emb(name, cls)`
   run a schema in a nested scope (member object's `Serialize`/`restore` called directly),
   `If`, `Rep`, `Until`, `Fn(load, store)` escape hatch.
@@ -163,8 +168,20 @@ with the committed source, retained inventory and unused external output path.
 All architecture, runtime identity, export and cleanup guards remain active.
 The private binary captures are never publication inputs. See the
 [capture change](../../../../Documentation/Changes/Solidworks/Model/SolidworksMfcCountBodyCapture.md).
-The string-map owner remains provisional until fresh capture and owner review
-complete; vendor `Core.count_value` remains unchanged.
+The [third inspection](../../../solidworks/measurements/2026/MfcRuntimeView03.json)
+confirms both complete body comparisons. Vendor `Core.count_value` remains unchanged.
+
+The [framework map owner](defs/MfcMaps.py) uses a separate `MfcCount` operation for
+`su_CMapStringToInt`: u16, marker plus u32, or both markers plus u64. Existing
+`Cnt`/`count` operations continue to use vendor counts with only the u16/u32 escape.
+The map retains `n/items/k/v`, ordinary Core load/store and effective version 19000
+guards, and the existing decoder repetition limit. Native store uses canonical
+count width, so arbitrary overlong-count byte identity is not claimed. The
+[native record](../../../solidworks/records/MfcCountArchive2026.md),
+[change entry](../../../../Documentation/Changes/Solidworks/Model/SolidworksMfcCountArchiveOwner.md)
+and [count-family gotcha](../../../../Documentation/Gotchas/Conversion/Solidworks/Archive/FrameworkAndVendorArchiveCountsDiffer.md)
+give exact bindings and limitations. New remote replay, field classification and
+fresh writer acceptance remain separate pending evidence.
 
 ## Ownership
 

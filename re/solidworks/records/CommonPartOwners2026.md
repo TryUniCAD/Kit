@@ -1,6 +1,6 @@
 # Common part archive owners in SOLIDWORKS 2026
 
-Nine owner schemas have complete ordinary-version-19000 field-order proposals. The tenth requested owner, `su_CMapStringToInt`, remains provisional because its imported MFC count implementation is not bound to a matching private image. New replay, strict admission and native acceptance are pending.
+Nine owner schemas have ordinary-version-19000 field-order definitions in `CommonPartOwners2026.py`. The tenth owner, `su_CMapStringToInt`, now has a separate grounded definition in [MfcMaps.py](../../tooling/sw2026/serial/defs/MfcMaps.py). Its framework count imports, complete reached bodies and effective mapped-byte equality are bound in the [MFC count record](MfcCountArchive2026.md). New map replay, updated strict admission and native acceptance remain pending.
 
 ## Scope and method
 
@@ -35,7 +35,7 @@ Each row below gives the full half-open main-function span and its byte SHA-256,
 | `moSketchBlockMgr_c` / model | `0x4d261328` → `0x4c90b140` | `[0x4c90b140,0x4c90b2fc)` | `c46e9d5812d35a5a5f098fbdd5329a49adef694f8d0bf5b4477e6634becae2cf` |
 | `moSwiftGtsOptions_c` / MFC support | `0x3cc70890` → `0x3c83c760` | `[0x3c83c760,0x3c83dcb6)` | `15db26158f67ba338698842da7b2f4911ae9a902289df49babaa81039f8092d1` |
 | `su_CMapWordToOb.Serialize` / common support | Constructor installs `0x31a52490`; `+0x28` → `0x31a4b610` | `[0x31a4b610,0x31a4b6e3)` | `ddf8bd66b0aa74a7a73915367472a9254eded134d10abcc23c59941d3668c352` |
-| `su_CMapStringToInt` / common support, still provisional | Direct exported leaf, then tail target | `[0x31a376c0,0x31a376cb)` and `[0x31a37540,0x31a37689)` | `452ce506aa518b89cd2025a3dde69b33686ceb6cad73be18b05e892aac32deb7`; `2c4cfb0e3304b3d6169ae77815d8c1aea36b1e5cf76eae473b81945e871c5635` |
+| `su_CMapStringToInt` / common support, separate MFC owner | Direct exported leaf, then tail target | `[0x31a376c0,0x31a376cb)` and `[0x31a37540,0x31a37689)` | `452ce506aa518b89cd2025a3dde69b33686ceb6cad73be18b05e892aac32deb7`; `2c4cfb0e3304b3d6169ae77815d8c1aea36b1e5cf76eae473b81945e871c5635` |
 
 ## Base and virtual ownership
 
@@ -153,15 +153,17 @@ The native load suffix gates, in order, are:
 
 Modern native store emits the first 157 fields unconditionally, then gates `i3f8` with `>=0x3aff` and `i418` with `>0x46b5`. Instruction comparisons at `0x3c83d113` and `0x3c83d132` use `0x3aff` and `0x46b6`. The new codec guard makes every listed load/store addition active together and rejects historical versions rather than pretending the modern store sequence applies there. Field domains, units, authored/derived classification and fresh option defaults remain unproved.
 
-## Unclosed tenth owner: string-to-int map
+## Tenth owner: string-to-int map and framework count
 
 Native direct export `0x31a376c0` tests archive flag `0x10`; when set, it returns without reading or writing. Otherwise it tail-calls `0x31a37540`. The ordinary load/store chooses a 64-bit MFC `CArchive` count boundary and then serializes each entry as one framework CString and one i32. The integer-element helper has six contiguous chained-unwind fragments: `[0x31a31720,0x31a3174c)`, `[0x31a3174c,0x31a31790)`, `[0x31a31790,0x31a317d4)`, `[0x31a317d4,0x31a317ea)`, `[0x31a317ea,0x31a317f7)` and `[0x31a317f7,0x31a317fd)`. Its complete 221-byte span is `[0x31a31720,0x31a317fd)`, SHA-256 `a3381c4f01c65578b521d5a350249340ddb425a63ce979aed6a6181481d2b130`. Both ordinary branches transfer `4*element_count` bytes in chunks of at most `0x1fffffff` elements; the load branch checks the returned byte count and takes a nonreturning failure tail on mismatch, and a positive element count with a null data pointer follows a distinct failure call. Here each string-map entry passes exactly one element, so the full body confirms a single four-byte integer and no additional per-element framing. The earlier first-fragment hash is not a full-function fingerprint.
 
 The count-read thunk `0x31a4c719` binds IAT `0x31a502f8`, import `mfc140u.dll` ordinal `12087`. The write thunk `0x31a4c71f` binds IAT `0x31a502f0`, ordinal `14278`. These are not the vendor `su_CArchive::ReadCount/WriteCount` functions established above.
 
-The existing private `mfc140u.dll`, SHA-256 `88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1`, is machine `0xaa64`, reported as `coff-arm64x` by LLVM. At those same ordinal numbers its export RVAs are `0x153670` and `0x20d8c0`; direct instruction inspection identifies unrelated query/write behavior, not the required count pair. Those ordinal numbers cannot bind the x64 import using that mismatched export table. The file is not evidence for a universal MFC count formula, an extra 64-bit escape, or even a newly admitted restricted count domain.
+The private System32 `mfc140u.dll`, SHA-256 `88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1`, is a raw ARM64X image. Its unmodified export ordinal table does not bind the effective x64 import view. The successful metadata-only runtime probes establish the effective AMD64-facing exports at RVAs `0x6bcc70` and `0x6c5370`; exact fast-forward thunks lead to ARM64EC bodies at RVAs `0x557b30` and `0x557980`. Original ARM64 pdata/xdata bounds their complete 288/424-byte spans. The committed `MfcRuntimeView03` capture proves those complete effective mapped bodies literally equal the pinned original bytes. No framework method was invoked, and the capture tool's acceptance flags remain false.
 
-The pre-existing `SmallCMgr.py` declaration stays provisional and untouched. No `reg.define` or speculative count guard is added for this owner. Required next evidence is the matching x64 MFC image or an exact bound count-method instruction export, including identity, both method extents and hashes. Only then can the ordinary count encoding and any wide-count escape be promoted. No VM or licensing action is requested from this worker.
+The separate [MFC count field record](MfcCountArchive2026.md) gives every module, thunk, body and metadata fingerprint plus the immutable `MfcRuntimeView03` identities. The independently authored `MfcCount` uses u16, then a `0xffff` escape to u32, then a `0xffffffff` escape to u64. The native store thresholds are strict comparisons, so `0xffff` uses six bytes and `0xffffffff` uses fourteen. The native reader also accepts overlong forms; canonical store can normalize them, and arbitrary noncanonical byte identity is not claimed.
+
+[MfcMaps.py](../../tooling/sw2026/serial/defs/MfcMaps.py) preserves `n/items/k/v`, CString/i32 row operations and the shared decoder repetition limit. Its owner guard requires ordinary Core load/store and effective document version 19000. Native DB mode and historical versions are excluded; Core does not expose the native archive mode word. The later `SmallCMgr.py` provisional declaration remains untouched and cannot replace the new definition. Vendor `Core.count_value` retains its separate u16/u32 grammar, with no u64 escape. New source-schema replay and strict admission remain pending; no fresh map or model writer acceptance follows from the body capture.
 
 ## Replay preservation and open closure
 
@@ -185,6 +187,8 @@ The authoritative criteria state:
 > The second is the end of the available context.
 > Missing grammar is the work. It is not a blocker.
 
-This is a bounded static handoff, not completion of the overall CAD goal. The remaining named grammar boundary is the string-map's actual imported MFC count implementation.
+This is a bounded structural handoff, not completion of the overall CAD goal. The imported framework count implementation is now bound; the next checks are the new map owner's remote archive replay and strict source admission, followed by the separate semantic, held-out and fresh writer acceptance work.
 
 See the [change entry](../../../Documentation/Changes/Solidworks/Model/SolidworksCommonPartArchiveOwners.md) and [exception-directory gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Inspection/ExceptionDirectoryBoundsUnwindRecords.md).
+
+The separate [MFC owner change](../../../Documentation/Changes/Solidworks/Model/SolidworksMfcCountArchiveOwner.md) and [count-family gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/FrameworkAndVendorArchiveCountsDiffer.md) record the tenth owner's new boundary.
