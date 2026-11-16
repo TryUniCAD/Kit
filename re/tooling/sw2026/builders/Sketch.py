@@ -435,7 +435,16 @@ def _local_ref_flag(*, sketch: Obj):
         if sketch[name]:
             raise ConstructionError(f"reference-state inference is not established for {name}")
     dims = sketch["dims"]
-    for name in ("val_g1", "val_g2", "val_g3", "offset_dims", "log_g2", "log_g3", "iso", "linear_patterns", "linear_patt_cons", "circular_patterns", "circular_patt_cons", "list_7c0", "list_9f0", "groups"):
+    for record in dims["val_g1"]:
+        dimension = record["d"]
+        first, second = dimension.get("h1"), dimension.get("h2")
+        if not dimension.get("_ordinary_circle_value") or dimension.get("_sketch") is not sketch or dimension.get("f80") not in (3, 15):
+            raise ConstructionError("value reference inference requires a constructed local circle dimension")
+        if not isinstance(first, Obj) or first.cls != "sgArcHandle" or first.get("_sketch") is not sketch or first.get("f1c") != -1 or first.get("_arc") not in sketch["_arc_nodes"]:
+            raise ConstructionError("a radial value dimension requires an actual locally owned arc handle")
+        if not isinstance(second, Obj) or second.cls != "sgEntHandle" or second.get("idx") != 0x777F or second.get("f18") != -2 or second.get("f1c") != -1:
+            raise ConstructionError("a radial value dimension requires the native allocated invalid second handle")
+    for name in ("val_g2", "val_g3", "offset_dims", "log_g2", "log_g3", "iso", "linear_patterns", "linear_patt_cons", "circular_patterns", "circular_patt_cons", "list_7c0", "list_9f0", "groups"):
         if dims[name]:
             raise ConstructionError(f"reference-state inference is not established for {name}")
     for record in dims["log_g1"]:

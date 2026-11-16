@@ -1,0 +1,2255 @@
+{
+  "scope": "Guarded local constructor and common/radial engine field rules plus bounded cache/scheduling dependencies",
+  "target": "SOLIDWORKS 2026 SP05.2 34.5.2.0604",
+  "native_execution": false,
+  "native_acceptance": false,
+  "writer_code_supplied": false,
+  "whole_final_saved_radial_word_closed": false,
+  "post_owner_callback_preservation_proven": false,
+  "constructor_caches_proven_neutral": false,
+  "vendor_bytes_or_listings_included": false,
+  "method": "Original PE, complete chained AMD64 exception groups, retained private exports and LLVM; no new or shared REA target opened or changed",
+  "frozen_dependencies": [
+    {
+      "directory": "/private/tmp/pr121-radial-pattern-semantics",
+      "manifest_sha256": "afec6404862cdbae94d5deb13a491f5e380a63b6a3466abdabc06be434d46f4c",
+      "all_members_rehashed": true
+    }
+  ],
+  "modules": [
+    {
+      "filename": "sldmodu.dll",
+      "external_path": "/Users/odin/Documents/UniCAD/Sw2026Research01a1dc84/bin/sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "exception_directory_rva": "0x2a6a000",
+      "exception_directory_bytes": 988296,
+      "exception_record_bytes": 12
+    },
+    {
+      "filename": "sldmgu.dll",
+      "external_path": "/Users/odin/Documents/UniCAD/Sw2026Research01a1dc84/bin/sldmgu.dll",
+      "preferred_base": "0x31dd0000",
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c",
+      "exception_directory_rva": "0x22b000",
+      "exception_directory_bytes": 79032,
+      "exception_record_bytes": 12
+    },
+    {
+      "filename": "sldsessionu.dll",
+      "external_path": "/Users/odin/Documents/UniCAD/Sw2026Research01a1dc84/bin/sldsessionu.dll",
+      "preferred_base": "0x31980000",
+      "sha256": "c53d42d0b7bcfd9abf78cfd71ca6f71645cb8da16ea29c155f63172eaa17f421",
+      "exception_directory_rva": "0x35000",
+      "exception_directory_bytes": 8028,
+      "exception_record_bytes": 12
+    },
+    {
+      "filename": "sldappu.dll",
+      "external_path": "/Users/odin/Documents/UniCAD/Sw2026Research01a1dc84/bin/sldappu.dll",
+      "preferred_base": "0x453f0000",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "exception_directory_rva": "0xf4e000",
+      "exception_directory_bytes": 567636,
+      "exception_record_bytes": 12
+    },
+    {
+      "filename": "slduiu.dll",
+      "external_path": "/Users/odin/Documents/UniCAD/Sw2026Research01a1dc84/bin/slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "exception_directory_rva": "0x20bf000",
+      "exception_directory_bytes": 880608,
+      "exception_record_bytes": 12
+    }
+  ],
+  "functions": [
+    {
+      "module": "sldmodu.dll",
+      "name": "common_display_engine",
+      "entry": "0x4c8a0a40",
+      "start": "0x4c8a0a40",
+      "end": "0x4c8a1e15",
+      "bytes": 5077,
+      "sha256": "d410299b6feb4549de0d97d75ad43b2cf2afd9f528921b0d233bdc07ae654997",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8a0a40",
+          "end": "0x4c8a1e15",
+          "unwind_rva": "0x25677a0"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "radial_engine",
+      "entry": "0x4c8dbcf0",
+      "start": "0x4c8dbcf0",
+      "end": "0x4c8dda24",
+      "bytes": 7476,
+      "sha256": "236de00145cb837b66d1f0e91f1a414d646e3a04c39ecf847d713732111bcf11",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8dbcf0",
+          "end": "0x4c8dda24",
+          "unwind_rva": "0x257158c"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "radial_position_update",
+      "entry": "0x4c8db220",
+      "start": "0x4c8db220",
+      "end": "0x4c8dbce2",
+      "bytes": 2754,
+      "sha256": "96468e95c1fb6d3ac48999494c1acab202a14a682f7f5c5dffc912caafee17e3",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8db220",
+          "end": "0x4c8dbce2",
+          "unwind_rva": "0x2571a28"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "radial_constructor",
+      "entry": "0x4c8bfc10",
+      "start": "0x4c8bfc10",
+      "end": "0x4c8bfe5a",
+      "bytes": 586,
+      "sha256": "bc2bbf09a91cdcb5c68b134df358fb3c8b7e61c83fecf2b1096249c1012e90ba",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8bfc10",
+          "end": "0x4c8bfe5a",
+          "unwind_rva": "0x2570268"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "reference_metric",
+      "entry": "0x4c8413a0",
+      "start": "0x4c8413a0",
+      "end": "0x4c84153f",
+      "bytes": 415,
+      "sha256": "80ade3060a00f6832dcf3721fb4cc3e1501299e0b9e4e312bca1ab50cad16acc",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8413a0",
+          "end": "0x4c84153f",
+          "unwind_rva": "0x255f340"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "second_reference_start",
+      "entry": "0x4c844300",
+      "start": "0x4c844300",
+      "end": "0x4c844594",
+      "bytes": 660,
+      "sha256": "0baac35ed58506e912d028d15f773beef3d6c2be06945bfa29db6a7b5bd7f6f2",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c844300",
+          "end": "0x4c844594",
+          "unwind_rva": "0x255f8b4"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "reference_direction",
+      "entry": "0x4c843be0",
+      "start": "0x4c843be0",
+      "end": "0x4c843c35",
+      "bytes": 85,
+      "sha256": "d77b0ede8c3816aea4475b472796164a2afc927f88c408d7e9afd94bc78041fe",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c843be0",
+          "end": "0x4c843c35",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "default_reference_point",
+      "entry": "0x4b286940",
+      "start": "0x4b286940",
+      "end": "0x4b286970",
+      "bytes": 48,
+      "sha256": "ee09ad813882e583a230554aa57553de193700d49c59b3544f193643f08eed47",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4b286940",
+          "end": "0x4b286970",
+          "unwind_rva": "0x22463a4"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "reference_one_setter",
+      "entry": "0x4c897ed0",
+      "start": "0x4c897ed0",
+      "end": "0x4c897efd",
+      "bytes": 45,
+      "sha256": "17fa847802ed6315e80c09f240d3d36168231e4a3b1b7e4566c97b516b4baff3",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c897ed0",
+          "end": "0x4c897efd",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "delta_transform",
+      "entry": "0x4c841c20",
+      "start": "0x4c841c20",
+      "end": "0x4c841c92",
+      "bytes": 114,
+      "sha256": "f571a5f2fc2d079bfb87978c0fc7948b3742268a7bd66c749a4402fd885ca467",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c841c20",
+          "end": "0x4c841c92",
+          "unwind_rva": "0x25603a4"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "retained_handle_update",
+      "entry": "0x4c84eb30",
+      "start": "0x4c84eb30",
+      "end": "0x4c84ed8e",
+      "bytes": 606,
+      "sha256": "7085889c9aeecbc8f509346d7f8c65205fecb0ffd7a8ba158427b6716137898a",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c84eb30",
+          "end": "0x4c84eb47",
+          "unwind_rva": "0x23da798"
+        },
+        {
+          "start": "0x4c84eb47",
+          "end": "0x4c84ec8c",
+          "unwind_rva": "0x255fc38"
+        },
+        {
+          "start": "0x4c84ec8c",
+          "end": "0x4c84ed8e",
+          "unwind_rva": "0x255fc4c"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "owned_dimension_value_helper",
+      "entry": "0x4c84d6f0",
+      "start": "0x4c84d6f0",
+      "end": "0x4c84e494",
+      "bytes": 3492,
+      "sha256": "2d703491428ba7f44e67b96c0dbadb399ed0f8f50353fe6e6954238e3b228ef7",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c84d6f0",
+          "end": "0x4c84e494",
+          "unwind_rva": "0x255ffd8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "forced_radial_mode",
+      "entry": "0x4c8d4bc0",
+      "start": "0x4c8d4bc0",
+      "end": "0x4c8d50c3",
+      "bytes": 1283,
+      "sha256": "8cbc862add2f8a410551ab11076a21732d0961151a2e96d9ae8ddc5bbc0c7774",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8d4bc0",
+          "end": "0x4c8d50c3",
+          "unwind_rva": "0x2570c7c"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "empty_attachment_continuation",
+      "entry": "0x4c89c3c0",
+      "start": "0x4c89c3c0",
+      "end": "0x4c89ce34",
+      "bytes": 2676,
+      "sha256": "a0726cfc884c219b54eb3f393c346449b8c31b364c181ab6b2932a648788595a",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c89c3c0",
+          "end": "0x4c89ce34",
+          "unwind_rva": "0x25698a8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "prefix_initialization",
+      "entry": "0x4c8cc1d0",
+      "start": "0x4c8cc1d0",
+      "end": "0x4c8cc2d7",
+      "bytes": 263,
+      "sha256": "45683ad6f31b269da94f3c2ac9952d92de71eaccfe0790f27fa8194e8294a0e5",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8cc1d0",
+          "end": "0x4c8cc2d7",
+          "unwind_rva": "0x2572fc0"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "broken_area_wrapper",
+      "entry": "0x4c895160",
+      "start": "0x4c895160",
+      "end": "0x4c8951e3",
+      "bytes": 131,
+      "sha256": "5025c953098f37d3cc3b14d592fdfe952804a8e2b40b57af763c7c0ea996c3a3",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c895160",
+          "end": "0x4c8951e3",
+          "unwind_rva": "0x2245b80"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "broken_area_bit_setter",
+      "entry": "0x4ba710f0",
+      "start": "0x4ba710f0",
+      "end": "0x4ba71111",
+      "bytes": 33,
+      "sha256": "abf4671a4ce12d04a8d52d018f616dd8a8a3cc20277e6101682c3731833ede09",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "radial_compatibility_predicate",
+      "entry": "0x4c8d1d10",
+      "start": "0x4c8d1d10",
+      "end": "0x4c8d1db7",
+      "bytes": 167,
+      "sha256": "c2a755d7700c0593b4afbd3fff7b7dfc2ff535dd20c9894fe1472c6973f3e5e5",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8d1d10",
+          "end": "0x4c8d1db7",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "dimension_drawing_owner",
+      "entry": "0x4c87e9d0",
+      "start": "0x4c87e9d0",
+      "end": "0x4c87ea8c",
+      "bytes": 188,
+      "sha256": "56f14cb170f1506933aba7682c0d358087fe0477ca19e875023cab73f26ef069",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c87e9d0",
+          "end": "0x4c87ea8c",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "display_drawing",
+      "entry": "0x4be786f0",
+      "start": "0x4be786f0",
+      "end": "0x4be7898a",
+      "bytes": 666,
+      "sha256": "40e75bd76cf89e9f926871b4b8aff2a4ee8eb16de2687bbb2833b38c8810361c",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4be786f0",
+          "end": "0x4be7898a",
+          "unwind_rva": "0x224be14"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "abbreviated_view_admission",
+      "entry": "0x4b28cdd0",
+      "start": "0x4b28cdd0",
+      "end": "0x4b28cf2e",
+      "bytes": 350,
+      "sha256": "c7cd8bf5c40c19b429e867cd10c3f38c4cda0c42788a54713bf732a63dfc5afb",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4b28cdd0",
+          "end": "0x4b28cf2e",
+          "unwind_rva": "0x2248970"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "current_abbreviated_view",
+      "entry": "0x4bdd8010",
+      "start": "0x4bdd8010",
+      "end": "0x4bdd80b9",
+      "bytes": 169,
+      "sha256": "d6c5a447cf47964829e345d3d938137ac67599da5ac1b7f9b3a3fc59bd762522",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4bdd8010",
+          "end": "0x4bdd80b9",
+          "unwind_rva": "0x224928c"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "owned_name_detail_update",
+      "entry": "0x4c8a2d60",
+      "start": "0x4c8a2d60",
+      "end": "0x4c8a3033",
+      "bytes": 723,
+      "sha256": "fbb9c90a447b4861b34538a9c534217352d4b838424b7891f75d905d21420e6b",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8a2d60",
+          "end": "0x4c8a3033",
+          "unwind_rva": "0x2567954"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "linked_weld_update",
+      "entry": "0x4c8a3040",
+      "start": "0x4c8a3040",
+      "end": "0x4c8a3239",
+      "bytes": 505,
+      "sha256": "c4844e9296668e8dbb64ce908708770816595c18f215b3a98346f569e1d524e8",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8a3040",
+          "end": "0x4c8a3079",
+          "unwind_rva": "0x226e524"
+        },
+        {
+          "start": "0x4c8a3079",
+          "end": "0x4c8a3173",
+          "unwind_rva": "0x256798c"
+        },
+        {
+          "start": "0x4c8a3173",
+          "end": "0x4c8a3222",
+          "unwind_rva": "0x25679a8"
+        },
+        {
+          "start": "0x4c8a3222",
+          "end": "0x4c8a3231",
+          "unwind_rva": "0x25679bc"
+        },
+        {
+          "start": "0x4c8a3231",
+          "end": "0x4c8a3239",
+          "unwind_rva": "0x25679cc"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "center_mark_prepare",
+      "entry": "0x4c88ac60",
+      "start": "0x4c88ac60",
+      "end": "0x4c88af3b",
+      "bytes": 731,
+      "sha256": "a221beeb7eba248aeeea27903d5ef9a57b333f43a3a087fc317bd063832f996b",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c88ac60",
+          "end": "0x4c88af3b",
+          "unwind_rva": "0x256b050"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "detail_cabinet",
+      "entry": "0x4c01ff80",
+      "start": "0x4c01ff80",
+      "end": "0x4c01ffa0",
+      "bytes": 32,
+      "sha256": "dc531b8acc1b1fa45db4a32b943e6f38d22aeee042546e96d9fe49d46f1ae06b",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c01ff80",
+          "end": "0x4c01ffa0",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "detail_cabinet_count",
+      "entry": "0x4ba3a8e0",
+      "start": "0x4ba3a8e0",
+      "end": "0x4ba3a8eb",
+      "bytes": 11,
+      "sha256": "908262bdc7ca0787bf839b1383f63b583a26172da78c557f7bda73c59d062e0c",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "display_invalid_bits",
+      "entry": "0x4b349390",
+      "start": "0x4b349390",
+      "end": "0x4b3493ad",
+      "bytes": 29,
+      "sha256": "3c1413353d0bd9004c0266b40c6fe1ea94575171453b5c82351e9a566c57efe6",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "display_entities",
+      "entry": "0x4ba6a700",
+      "start": "0x4ba6a700",
+      "end": "0x4ba6a708",
+      "bytes": 8,
+      "sha256": "0ac442bcc70f2aa70d302e8b2fcf91d061ccb095fdd2878f9df735ba033a63de",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "display_bit_one_predicate",
+      "entry": "0x4b9b6a70",
+      "start": "0x4b9b6a70",
+      "end": "0x4b9b6a7a",
+      "bytes": 10,
+      "sha256": "bb4bc144134aefd6a127ce0e761b403402279ca0fbbce494ee99f860cdb5fc23",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "profile_active",
+      "entry": "0x4b28d050",
+      "start": "0x4b28d050",
+      "end": "0x4b28d05c",
+      "bytes": 12,
+      "sha256": "f15809ed5e7edf3e5515d2d9ebbac77aeed04a9c997492a69284ef0f6a87f85e",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "profile_filed_owner",
+      "entry": "0x4bb44300",
+      "start": "0x4bb44300",
+      "end": "0x4bb44319",
+      "bytes": 25,
+      "sha256": "a19f50b4de1adf961122527d8b789c184188d03cbe2cff867ade9296144fd9a1",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "profile_owner",
+      "entry": "0x4bb45da0",
+      "start": "0x4bb45da0",
+      "end": "0x4bb45da8",
+      "bytes": 8,
+      "sha256": "cd753b8aeb8b2bcf0ce1e4d32e51025cd6ae1f7e0893d61735a797ee2d472b5b",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "circle_arc_endpoints",
+      "entry": "0x4c41ccd0",
+      "start": "0x4c41ccd0",
+      "end": "0x4c41cf1b",
+      "bytes": 587,
+      "sha256": "749c08df8e557aecf980d3fc80b267bc836b4c159be9df1c8e2d7f52553be6c6",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c41ccd0",
+          "end": "0x4c41cf1b",
+          "unwind_rva": "0x24cc394"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "handle_arc_endpoints",
+      "entry": "0x4c841110",
+      "start": "0x4c841110",
+      "end": "0x4c84121e",
+      "bytes": 270,
+      "sha256": "45675724d2357abdeefffc10d7729060f852a2f03ff1f4ce5e7567954321f401",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c841110",
+          "end": "0x4c84121e",
+          "unwind_rva": "0x255f95c"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "get_display_dimension",
+      "entry": "0x4c842240",
+      "start": "0x4c842240",
+      "end": "0x4c84226a",
+      "bytes": 42,
+      "sha256": "4666f6415a8371795f05dbffef59dbdcedd7fc9aadab19cab9f224bc240e8a14",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c842240",
+          "end": "0x4c84226a",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "circle_display_lookup",
+      "entry": "0x4c41e610",
+      "start": "0x4c41e610",
+      "end": "0x4c41e694",
+      "bytes": 132,
+      "sha256": "7c26cf9a5cf8d93b6c76e83bc2bbecdab153620f8289a2b409bd9a94a17d851b",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c41e610",
+          "end": "0x4c41e694",
+          "unwind_rva": "0x22477f0"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "reference_abbreviation_gate",
+      "entry": "0x4c847af0",
+      "start": "0x4c847af0",
+      "end": "0x4c847d50",
+      "bytes": 608,
+      "sha256": "549aa2a01ce18e4df0f32cee7ce349df0c5cebfe8e0f5a0662027d0af1960aa9",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c847af0",
+          "end": "0x4c847d50",
+          "unwind_rva": "0x255f744"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "auto_foreshortening",
+      "entry": "0x4c874160",
+      "start": "0x4c874160",
+      "end": "0x4c8743e1",
+      "bytes": 641,
+      "sha256": "a48246ced5d744da9d7629227296eb8bc59a9e7c52a183781adea8994eabeed9",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c874160",
+          "end": "0x4c8743e1",
+          "unwind_rva": "0x2566574"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "radial_invalid_predicate",
+      "entry": "0x4c8d1f80",
+      "start": "0x4c8d1f80",
+      "end": "0x4c8d2017",
+      "bytes": 151,
+      "sha256": "34a6a5c475f3ff7c2c39475f82d02922cd5789f404a2b1dab79b0626ff516cf1",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8d1f80",
+          "end": "0x4c8d2017",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "radial_callout_predicate",
+      "entry": "0x4c8d2260",
+      "start": "0x4c8d2260",
+      "end": "0x4c8d22e8",
+      "bytes": 136,
+      "sha256": "03fbf81773fc9a1cb019f56b7710a62373622c90ddc1f69eb538331fcfa266b1",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8d2260",
+          "end": "0x4c8d22e8",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "common_entity_constructor",
+      "entry": "0x4c3e1030",
+      "start": "0x4c3e1030",
+      "end": "0x4c3e121d",
+      "bytes": 493,
+      "sha256": "980df4b8e792fc445db5624467a1e3eb3d82f0b629fe8a3663a16d2868fa75f3",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c3e1030",
+          "end": "0x4c3e121d",
+          "unwind_rva": "0x24c60fc"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "entity_constraint_color",
+      "entry": "0x4c3e15b0",
+      "start": "0x4c3e15b0",
+      "end": "0x4c3e1603",
+      "bytes": 83,
+      "sha256": "54920fc93eac8f4b3eb9cce9633c161144cab4fdf013ffb38b56e40ab6d910c8",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "handle_constraint_color_setter",
+      "entry": "0x4c5d5260",
+      "start": "0x4c5d5260",
+      "end": "0x4c5d536e",
+      "bytes": 270,
+      "sha256": "3dae35a92bf2ce2abdb682ff372c52cd4feee92865c6b8c86f637304c667ba43",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c5d5260",
+          "end": "0x4c5d527c",
+          "unwind_rva": "0x2255164"
+        },
+        {
+          "start": "0x4c5d527c",
+          "end": "0x4c5d5303",
+          "unwind_rva": "0x25073c0"
+        },
+        {
+          "start": "0x4c5d5303",
+          "end": "0x4c5d5340",
+          "unwind_rva": "0x25073d4"
+        },
+        {
+          "start": "0x4c5d5340",
+          "end": "0x4c5d5363",
+          "unwind_rva": "0x25073e8"
+        },
+        {
+          "start": "0x4c5d5363",
+          "end": "0x4c5d536e",
+          "unwind_rva": "0x25073f8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "handle_constraint_status_setter",
+      "entry": "0x4c5d5370",
+      "start": "0x4c5d5370",
+      "end": "0x4c5d53a7",
+      "bytes": 55,
+      "sha256": "00daca62e0cea88beaa0e0ab4b0b368e770655c740f726c332393f183e9b7fd0",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c5d5370",
+          "end": "0x4c5d53a7",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "solver_entity_status_aggregate",
+      "entry": "0x4c502b70",
+      "start": "0x4c502b70",
+      "end": "0x4c5075d0",
+      "bytes": 19040,
+      "sha256": "82e624d3e7486d065620b6ea86b9d81fa22b8189e30c65867bbcd5db9b26024b",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c502b70",
+          "end": "0x4c5075d0",
+          "unwind_rva": "0x24ef2c8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "solver_status_mapper_and_jump_table",
+      "entry": "0x4c5077f0",
+      "start": "0x4c5077f0",
+      "end": "0x4c507978",
+      "bytes": 392,
+      "sha256": "2db85b06d8dd5c4f39cdfe761f2d716ec193a14cf8e9532efdfb7f00c3cf4803",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c5077f0",
+          "end": "0x4c507978",
+          "unwind_rva": "0x2245b80"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "solver_status_commit",
+      "entry": "0x4c507b30",
+      "start": "0x4c507b30",
+      "end": "0x4c5091fb",
+      "bytes": 5835,
+      "sha256": "ea9b9ce5b4b13251fb3dbedb0db5b20ac3aa88f617548c9189a3ac696571978d",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c507b30",
+          "end": "0x4c5091fb",
+          "unwind_rva": "0x24ec8ac"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "coordinate_commit",
+      "entry": "0x4c5167d0",
+      "start": "0x4c5167d0",
+      "end": "0x4c5172c9",
+      "bytes": 2809,
+      "sha256": "df3e770b70119f8c3347baaf4a2c84ea821035c8cff8c4ca766aafd25856b4da",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c5167d0",
+          "end": "0x4c5172c9",
+          "unwind_rva": "0x24eed58"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "plane_coordinate_commit",
+      "entry": "0x4c516600",
+      "start": "0x4c516600",
+      "end": "0x4c5167c4",
+      "bytes": 452,
+      "sha256": "db0069904c440f5251fab681689bc33485c20b16e326343febfa3a413680353c",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c516600",
+          "end": "0x4c5167c4",
+          "unwind_rva": "0x24eef08"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "solver_commit",
+      "entry": "0x4c5195d0",
+      "start": "0x4c5195d0",
+      "end": "0x4c51a08b",
+      "bytes": 2747,
+      "sha256": "57332ed4d97849f9b8af3cf5c67415a1441aba2e8da01c033d1b912fe1ccf34c",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c5195d0",
+          "end": "0x4c51a08b",
+          "unwind_rva": "0x24ec104"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "sketch_update",
+      "entry": "0x4c549ab0",
+      "start": "0x4c549ab0",
+      "end": "0x4c54c4f6",
+      "bytes": 10822,
+      "sha256": "d33a53631e2cd8b2f63138fa52b39b61d8d0075953b43292d5bfa83297a00ed6",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c549ab0",
+          "end": "0x4c54c4f6",
+          "unwind_rva": "0x24f593c"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "sketch_constructor",
+      "entry": "0x4c495450",
+      "start": "0x4c495450",
+      "end": "0x4c49645e",
+      "bytes": 4110,
+      "sha256": "5b351f5b063df2246cd9d98eba252efb5da24ba545d7fb8b2891af5e6b9cf8eb",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c495450",
+          "end": "0x4c49645e",
+          "unwind_rva": "0x24df244"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "profile_update_query",
+      "entry": "0x4c0e07a0",
+      "start": "0x4c0e07a0",
+      "end": "0x4c0e0965",
+      "bytes": 453,
+      "sha256": "c6599557249f89535387729f9a5df7b73cc034080209048b10e36ad649d6c896",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c0e07a0",
+          "end": "0x4c0e07e5",
+          "unwind_rva": "0x2255c70"
+        },
+        {
+          "start": "0x4c0e07e5",
+          "end": "0x4c0e0895",
+          "unwind_rva": "0x2453c64"
+        },
+        {
+          "start": "0x4c0e0895",
+          "end": "0x4c0e08ce",
+          "unwind_rva": "0x2453c78"
+        },
+        {
+          "start": "0x4c0e08ce",
+          "end": "0x4c0e0950",
+          "unwind_rva": "0x2453c78"
+        },
+        {
+          "start": "0x4c0e0950",
+          "end": "0x4c0e0965",
+          "unwind_rva": "0x2453c78"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "profile_is_actual_sketch_owner",
+      "entry": "0x4c0de640",
+      "start": "0x4c0de640",
+      "end": "0x4c0de683",
+      "bytes": 67,
+      "sha256": "fa1ddaf242e7f4034731dbadb293cdf0b3ea93706146a3278a24e15f9c4ab8a1",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c0de640",
+          "end": "0x4c0de683",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "profile_suppression",
+      "entry": "0x4bb4bf50",
+      "start": "0x4bb4bf50",
+      "end": "0x4bb4bfde",
+      "bytes": 142,
+      "sha256": "261209a2035a420c3225d215bdfbde194829ecf9275335b1f71e26629551792a",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4bb4bf50",
+          "end": "0x4bb4bf6f",
+          "unwind_rva": "0x2245bc8"
+        },
+        {
+          "start": "0x4bb4bf6f",
+          "end": "0x4bb4bfcc",
+          "unwind_rva": "0x238c438"
+        },
+        {
+          "start": "0x4bb4bfcc",
+          "end": "0x4bb4bfde",
+          "unwind_rva": "0x238c44c"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "node_update_query",
+      "entry": "0x4c03e5e0",
+      "start": "0x4c03e5e0",
+      "end": "0x4c03e61a",
+      "bytes": 58,
+      "sha256": "f7349a19481472f0a172a40b46588c165080456ef2fc2470e5894d9336321446",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c03e5e0",
+          "end": "0x4c03e61a",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "generic_feature_update_query",
+      "entry": "0x4bb4d610",
+      "start": "0x4bb4d610",
+      "end": "0x4bb4d68a",
+      "bytes": 122,
+      "sha256": "05ea8b828cbaf307780718a858e1bab7ea77e79e2e75fefe922e5f27778a7e76",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4bb4d610",
+          "end": "0x4bb4d68a",
+          "unwind_rva": "0x22477f0"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "prepass_update_admission",
+      "entry": "0x4c1d0110",
+      "start": "0x4c1d0110",
+      "end": "0x4c1d0433",
+      "bytes": 803,
+      "sha256": "bfa5d4eeef3c977fca057d5196e924ef44ea6f85d824abdfc6f49190f183d8e6",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c1d0110",
+          "end": "0x4c1d0433",
+          "unwind_rva": "0x2479bc8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "prepass_update_admission_wrapper",
+      "entry": "0x4c1d04c0",
+      "start": "0x4c1d04c0",
+      "end": "0x4c1d0dab",
+      "bytes": 2283,
+      "sha256": "e87f354d06272c70fc471a4fec3f191217ad8cb235a2bc21574055dcf826c6fd",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c1d04c0",
+          "end": "0x4c1d0dab",
+          "unwind_rva": "0x2479cc8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "scheduled_feature_engine_call",
+      "entry": "0x4c1cd920",
+      "start": "0x4c1cd920",
+      "end": "0x4c1cdc56",
+      "bytes": 822,
+      "sha256": "9a79312152843f205e379b73864aa282132b478984c35bd6ac95ad13ee32b961",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c1cd920",
+          "end": "0x4c1cdc56",
+          "unwind_rva": "0x2479898"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "ordinary_profile_update_wrapper",
+      "entry": "0x4c0e6670",
+      "start": "0x4c0e6670",
+      "end": "0x4c0e6716",
+      "bytes": 166,
+      "sha256": "d0e6698f8c7edbc00ff28f8e4dae999f5c03bc5227fc79f6b7220ce3b98e50fd",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c0e6670",
+          "end": "0x4c0e6716",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "ordinary_profile_engine",
+      "entry": "0x4c0dc6b0",
+      "start": "0x4c0dc6b0",
+      "end": "0x4c0dd7c6",
+      "bytes": 4374,
+      "sha256": "6faa039114fb31da1d5fa632b0c7002d1266940a45a3172578786231b6392fb5",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c0dc6b0",
+          "end": "0x4c0dd7c6",
+          "unwind_rva": "0x2456318"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "point_handle_constructor",
+      "entry": "0x4c5f7da0",
+      "start": "0x4c5f7da0",
+      "end": "0x4c5f7dce",
+      "bytes": 46,
+      "sha256": "f27c95579e541b7cc5cb6112209518331ec2feb4fc46d9064b263736ad757754",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c5f7da0",
+          "end": "0x4c5f7dce",
+          "unwind_rva": "0x24fe410"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "saved_sketch_status_getter",
+      "entry": "0x4b2a74f0",
+      "start": "0x4b2a74f0",
+      "end": "0x4b2a74f7",
+      "bytes": 7,
+      "sha256": "420a21a65d1b07fcf5827e1a8bf0e01dcb40aa493db20951666fca24a802bfa4",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "current_sketch_status_getter",
+      "entry": "0x4c53d2c0",
+      "start": "0x4c53d2c0",
+      "end": "0x4c53d2ed",
+      "bytes": 45,
+      "sha256": "6a20a23166ad228a5910fd60d2b6b60ce1914130c8dad99bccab1108c829e9ee",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c53d2c0",
+          "end": "0x4c53d2ed",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "current_sketch_status_setter",
+      "entry": "0x4b2a77c0",
+      "start": "0x4b2a77c0",
+      "end": "0x4b2a77c7",
+      "bytes": 7,
+      "sha256": "62bd388d146824473191d02039fd75f61d643208f542e8dd55a6914bccf3d09a",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "ordinary_radial_wire_serializer",
+      "entry": "0x4c8320a0",
+      "start": "0x4c8320a0",
+      "end": "0x4c833155",
+      "bytes": 4277,
+      "sha256": "53e02cc934bab64e05119887283ce2458f6ecf9749c0814a2d7a5659fe40be87",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c8320a0",
+          "end": "0x4c833155",
+          "unwind_rva": "0x255ded8"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "common_display_wire_serializer",
+      "entry": "0x4c82c3d0",
+      "start": "0x4c82c3d0",
+      "end": "0x4c8310da",
+      "bytes": 19722,
+      "sha256": "1590b966dad82241f29d36dd8d02182b006a423eedc91f7dd9014d1ef9986fd2",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c82c3d0",
+          "end": "0x4c8310da",
+          "unwind_rva": "0x255d8ec"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "false_leaf",
+      "entry": "0x4b27cbe0",
+      "start": "0x4b27cbe0",
+      "end": "0x4b27cbe3",
+      "bytes": 3,
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "return_only_leaf",
+      "entry": "0x4b27e120",
+      "start": "0x4b27e120",
+      "end": "0x4b27e123",
+      "bytes": 3,
+      "sha256": "b6cbececf1b07e74f37d57710c68c31f0b92cb08d51093252b321b07542e177b",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmgu.dll",
+      "name": "zero_point_constructor",
+      "entry": "0x31dd3a20",
+      "start": "0x31dd3a20",
+      "end": "0x31dd3a31",
+      "bytes": 17,
+      "sha256": "1018b23bfc6803d1e50586a1e9b0151b14d97a7ba9267a595518de56a7704eab",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmgu.dll",
+      "name": "point_assignment",
+      "entry": "0x31dd4e60",
+      "start": "0x31dd4e60",
+      "end": "0x31dd4e7c",
+      "bytes": 28,
+      "sha256": "97562a904f41d1d5602b567c809b5b477c8952d745a0ce32ecc23d4a67b4e1ca",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldmgu.dll",
+      "name": "unit_vector_copy_constructor",
+      "entry": "0x31f19040",
+      "start": "0x31f19040",
+      "end": "0x31f1905c",
+      "bytes": 28,
+      "sha256": "f81692ea948a25c8e0f9ffee31a3b2443c342773f7d28b2a85d4c4de2ed018fa",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x31f19040",
+          "end": "0x31f1905c",
+          "unwind_rva": "0x1d09bc"
+        }
+      ]
+    },
+    {
+      "module": "sldmgu.dll",
+      "name": "unit_vector_assignment",
+      "entry": "0x31f193b0",
+      "start": "0x31f193b0",
+      "end": "0x31f193f1",
+      "bytes": 65,
+      "sha256": "1fedace19f3a5de3660544c3d3e702d3f1a5a70fc4d79c327cbbca6c46595dd8",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x31f193b0",
+          "end": "0x31f193f1",
+          "unwind_rva": "0x18e338"
+        }
+      ]
+    },
+    {
+      "module": "sldsessionu.dll",
+      "name": "application_getter",
+      "entry": "0x31989f60",
+      "start": "0x31989f60",
+      "end": "0x31989f68",
+      "bytes": 8,
+      "sha256": "3190b468a334b910ef300a85181158fc6e12bf07442e695fc9fb930f062e2f18",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldsessionu.dll",
+      "name": "application_setter",
+      "entry": "0x3198a650",
+      "start": "0x3198a650",
+      "end": "0x3198a666",
+      "bytes": 22,
+      "sha256": "3d8bc258b4523ac9da0164b02a430ee670eadefb9900f6fb6b2607a149eeb3b0",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldappu.dll",
+      "name": "application_getter",
+      "entry": "0x45857f70",
+      "start": "0x45857f70",
+      "end": "0x45857f82",
+      "bytes": 18,
+      "sha256": "ef176c5d8683c1df75c90930932fc96fbeac8e379ef7535698ef592480d3a11b",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x45857f70",
+          "end": "0x45857f82",
+          "unwind_rva": "0xc6cb44"
+        }
+      ]
+    },
+    {
+      "module": "sldappu.dll",
+      "name": "opening_dxf_query_leaf",
+      "entry": "0x456ef1d0",
+      "start": "0x456ef1d0",
+      "end": "0x456ef1d7",
+      "bytes": 7,
+      "sha256": "f40a6cf8532e0e005662c57d2e1e96cffc6a6cb475c60453aecaa1f9b6d32783",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "sldappu.dll",
+      "name": "module_state_import_thunk",
+      "entry": "0x45caa4ad",
+      "start": "0x45caa4ad",
+      "end": "0x45caa4b3",
+      "bytes": 6,
+      "sha256": "476989b7aa3a499f812ede4bd3f0d33a20f7ab3cb1d84a997d0185ed06f148c7",
+      "bound": "decoded leaf through return or tail jump",
+      "fragments": []
+    },
+    {
+      "module": "slduiu.dll",
+      "name": "normal_ui_start_application_registration",
+      "entry": "0x49e7f470",
+      "start": "0x49e7f470",
+      "end": "0x49e7fdd9",
+      "bytes": 2409,
+      "sha256": "2ed4b5bb9b1493f50a0438b907cdff9b3147790cfba1e072a3b127f8b8186f1a",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x49e7f470",
+          "end": "0x49e7fdd9",
+          "unwind_rva": "0x1cad340"
+        }
+      ]
+    },
+    {
+      "module": "slduiu.dll",
+      "name": "normal_application_query",
+      "entry": "0x4a26a620",
+      "start": "0x4a26a620",
+      "end": "0x4a26a63d",
+      "bytes": 29,
+      "sha256": "5fcb7eb7d5188b37bc63112587c774f884648930963da29ec9909b595bf09109",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4a26a620",
+          "end": "0x4a26a63d",
+          "unwind_rva": "0x1ab48a0"
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0x28",
+      "pointer_cell": "0x4d255c08",
+      "target": "0x4c8320a0",
+      "pointer_cell_sha256": "7fe1a9d67e9e4250b287af0a3089d749efdb19c8db174fc08b77f1b4ae17fd65"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0x128",
+      "pointer_cell": "0x4d255d08",
+      "target": "0x4b9b6a70",
+      "pointer_cell_sha256": "a2d449173083ce6da09bbd9518ccb276838a5c1ca40d3efa151d1a1d26712966"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0x1c8",
+      "pointer_cell": "0x4d255da8",
+      "target": "0x4c8a2d60",
+      "pointer_cell_sha256": "0076003df91ef54e260072f55230f9cfe6d18e85f9e6568e5248e196a5b0294e"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0x310",
+      "pointer_cell": "0x4d255ef0",
+      "target": "0x4c89c3c0",
+      "pointer_cell_sha256": "3ed934811a2f37100c373111e176adf98df22620cce7106d127ff3a03f8c0af8"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0x3c8",
+      "pointer_cell": "0x4d255fa8",
+      "target": "0x4c895160",
+      "pointer_cell_sha256": "3c4175c5fb8f2a30c7a978a9b752b3bcd3e4749c842ca5f4bc76a66daf191c7d"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0x868",
+      "pointer_cell": "0x4d256448",
+      "target": "0x4c888d40",
+      "pointer_cell_sha256": "197ddc6d30562b0eb70f3c9bc0e85094703ee5a9085fa72a5e43aa130b61df1c"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0x920",
+      "pointer_cell": "0x4d256500",
+      "target": "0x4b349390",
+      "pointer_cell_sha256": "feca559b77befcc04ecdb3a6aa0dadbf0ba1db643e508eb024bf91f24abc73e4"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0x9c8",
+      "pointer_cell": "0x4d2565a8",
+      "target": "0x4c8dbcf0",
+      "pointer_cell_sha256": "ba372ff6ff04f4b9fd03cfe0c461529868cc347763c5efa09ebf31cced399fd6"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0xb10",
+      "pointer_cell": "0x4d2566f0",
+      "target": "0x4b27cbe0",
+      "pointer_cell_sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0xb50",
+      "pointer_cell": "0x4d256730",
+      "target": "0x4c8d1d10",
+      "pointer_cell_sha256": "8c5067d2822cf5c69d482ef259cccfe887aaf554c9e9d80e44498640afd8e9b3"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0xc18",
+      "pointer_cell": "0x4d2567f8",
+      "target": "0x4c8c7020",
+      "pointer_cell_sha256": "3f5808e48dc3bc8d7f7cb9a690841a5d1b991d69936e56aa3608e35e2e9315a2"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0xd08",
+      "pointer_cell": "0x4d2568e8",
+      "target": "0x4c8d2020",
+      "pointer_cell_sha256": "6fbc1ce68def65a350b0800122e784fffe7cfd5b97e559730d485d54533181c6"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0xd10",
+      "pointer_cell": "0x4d2568f0",
+      "target": "0x4c8d4bc0",
+      "pointer_cell_sha256": "675e4341738791e9c2fdb88e49a04b56c7161a11c4d6a23e6950c42a8b3abf23"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moDisplayRadialDim_c",
+      "vtable": "0x4d255be0",
+      "slot": "0xd20",
+      "pointer_cell": "0x4d256900",
+      "target": "0x4c8d1f80",
+      "pointer_cell_sha256": "73fd5937b09ce99425b44b2072792e9cb3077e8710d6419dd2ab3be551008d59"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0xa0",
+      "pointer_cell": "0x4d242cb8",
+      "target": "0x4c847400",
+      "pointer_cell_sha256": "e9ad84b4d3c50ffdcf635f755b25a5435e99913050fe9ea3bb508fe9f02e6cdf"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0xc0",
+      "pointer_cell": "0x4d242cd8",
+      "target": "0x4c8483d0",
+      "pointer_cell_sha256": "fca7d15dfb74a216755ac30981fcfd5cd90ed6b5ccd5a90db06d759c04090f53"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x460",
+      "pointer_cell": "0x4d243078",
+      "target": "0x4b27e150",
+      "pointer_cell_sha256": "1521539b06ba82c3b9851ed134209715059e8f1f3c5568b9542ad8e7b93f4a66"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x468",
+      "pointer_cell": "0x4d243080",
+      "target": "0x4b27cbe0",
+      "pointer_cell_sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x4b0",
+      "pointer_cell": "0x4d2430c8",
+      "target": "0x4b27cbe0",
+      "pointer_cell_sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x4f0",
+      "pointer_cell": "0x4d243108",
+      "target": "0x4c842a30",
+      "pointer_cell_sha256": "03046d583cce3751da2dde9409af93d016c3e94940af21035031716f811539a6"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x500",
+      "pointer_cell": "0x4d243118",
+      "target": "0x4c844300",
+      "pointer_cell_sha256": "56f615c2eb0b2510dae6509dbc3c20fe8185809076a92fb7a93fcf650c68dd5a"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x530",
+      "pointer_cell": "0x4d243148",
+      "target": "0x4c843810",
+      "pointer_cell_sha256": "5f57893606699e632bb19ac86240428b089c35ed389b79be0632109181563864"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x568",
+      "pointer_cell": "0x4d243180",
+      "target": "0x4c84eb30",
+      "pointer_cell_sha256": "1155f9420e343321dea3b3d38405c4790a7bf4dc5263eaf63a0fd16cb6a10e8b"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x588",
+      "pointer_cell": "0x4d2431a0",
+      "target": "0x4b27e120",
+      "pointer_cell_sha256": "b7544b6276efeb1ee65ea35f4e7fb3923165ead475dfd3897232d128ce8b6e25"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x590",
+      "pointer_cell": "0x4d2431a8",
+      "target": "0x4c843be0",
+      "pointer_cell_sha256": "bdfc1e957ec1ed0aa10108a4ddbb96eff95ac227c5c2620a1aeb7c6466a37607"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x5f0",
+      "pointer_cell": "0x4d243208",
+      "target": "0x4c842240",
+      "pointer_cell_sha256": "d7c7c2bbf204477add224712ff2ad3d28afe9d99b2fdff525f6792b1255f988f"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x600",
+      "pointer_cell": "0x4d243218",
+      "target": "0x4c8479a0",
+      "pointer_cell_sha256": "baab079aa101801dc5f6db0de12ec9e17a45437ad9ea7d3825b43f31271ed170"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x618",
+      "pointer_cell": "0x4d243230",
+      "target": "0x4c846e00",
+      "pointer_cell_sha256": "c66d70700a026a0814c2af3b44325c2cd081800e0b60fed530c292d2a990d689"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moSkDimHandleRadial_c",
+      "vtable": "0x4d242c18",
+      "slot": "0x730",
+      "pointer_cell": "0x4d243348",
+      "target": "0x4c8460f0",
+      "pointer_cell_sha256": "36c444083bed558f11c8d3e4f23294cd2654a1362d3555caa3c27648108001ca"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x88",
+      "pointer_cell": "0x4cf79610",
+      "target": "0x4c81fc50",
+      "pointer_cell_sha256": "d2c6b94789e3db91e2be2218b923a37abd51c379bbbb8eac3553b6ba6d81c4ae"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x108",
+      "pointer_cell": "0x4cf79690",
+      "target": "0x4c420790",
+      "pointer_cell_sha256": "ea1305e0bcc978e0fdc286cfb3c0e03c4fa3db57b2f158f1d53cedb0ab0dea69"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x110",
+      "pointer_cell": "0x4cf79698",
+      "target": "0x4c420870",
+      "pointer_cell_sha256": "9220e44f3ec6e0c5ccf6b90e84165cfcdd7a4ded063bd1540cf9742678fb90a7"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x118",
+      "pointer_cell": "0x4cf796a0",
+      "target": "0x4b286940",
+      "pointer_cell_sha256": "54df7de8e831197991fb58f34844acddcd817bcebbeef6bba5e809ae7b79ec35"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x120",
+      "pointer_cell": "0x4cf796a8",
+      "target": "0x4b286940",
+      "pointer_cell_sha256": "54df7de8e831197991fb58f34844acddcd817bcebbeef6bba5e809ae7b79ec35"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x140",
+      "pointer_cell": "0x4cf796c8",
+      "target": "0x4c41ccd0",
+      "pointer_cell_sha256": "6c1df5ae1cc6260732932ba5ac6636c9d000ad7acba3625b19fe37a9b221180c"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x158",
+      "pointer_cell": "0x4cf796e0",
+      "target": "0x4b27cbe0",
+      "pointer_cell_sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x180",
+      "pointer_cell": "0x4cf79708",
+      "target": "0x4c41e610",
+      "pointer_cell_sha256": "013383d2204e7490df3e55b64ea5d46cdd9c27e9a39d3532f71f641dfc626fc6"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x268",
+      "pointer_cell": "0x4cf797f0",
+      "target": "0x4c42a7f0",
+      "pointer_cell_sha256": "e83b239ed60120653ad47096a2bf1c9d06e9f08a5290a451ca194a48ecd0c2e5"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x338",
+      "pointer_cell": "0x4cf798c0",
+      "target": "0x4b27cbe0",
+      "pointer_cell_sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x408",
+      "pointer_cell": "0x4cf79990",
+      "target": "0x4b34a3b0",
+      "pointer_cell_sha256": "ce3ab10b7da6404c4b3370ba3d5dae9baf75d39cfab9081c1ecde5b014f8d9ca"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgCircleDim",
+      "vtable": "0x4cf79588",
+      "slot": "0x438",
+      "pointer_cell": "0x4cf799c0",
+      "target": "0x4b27cbe0",
+      "pointer_cell_sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moProfileFeature_c",
+      "vtable": "0x4d0e8e80",
+      "slot": "0xc0",
+      "pointer_cell": "0x4d0e8f40",
+      "target": "0x4c0e07a0",
+      "pointer_cell_sha256": "4f5f3e8f3117338cacb0af55e4e5458f95e37cb94b4631a2d2a623947fb2bc9a"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moProfileFeature_c",
+      "vtable": "0x4d0e8e80",
+      "slot": "0x138",
+      "pointer_cell": "0x4d0e8fb8",
+      "target": "0x4c0e6670",
+      "pointer_cell_sha256": "4b89cfad0b98a12390afe028cd89cd32f742e08f881f3d1d037f987b6839051c"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moProfileFeature_c",
+      "vtable": "0x4d0e8e80",
+      "slot": "0x498",
+      "pointer_cell": "0x4d0e9318",
+      "target": "0x4bb44300",
+      "pointer_cell_sha256": "fbd33592bca0ce6fa3fcaa82e25fcadd2efbc61dd78934f58d4e93fc9983de7e"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moProfileFeature_c",
+      "vtable": "0x4d0e8e80",
+      "slot": "0x1280",
+      "pointer_cell": "0x4d0ea100",
+      "target": "0x4bb45da0",
+      "pointer_cell_sha256": "280d4e7d3ce93ac64d08ea2bc3ea769beba4b9267e5de4a40fe29aae11afcf0e"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moProfileFeature_c",
+      "vtable": "0x4d0e8e80",
+      "slot": "0x1958",
+      "pointer_cell": "0x4d0ea7d8",
+      "target": "0x4bb4bf50",
+      "pointer_cell_sha256": "afb320d12e471dd23149356debc574579d0dec3ea5df0bb62fd696d0bcdc219f"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moProfileFeature_c",
+      "vtable": "0x4d0e8e80",
+      "slot": "0x1970",
+      "pointer_cell": "0x4d0ea7f0",
+      "target": "0x4b28d050",
+      "pointer_cell_sha256": "2d9d80e33ec490b9e9fab81c05cf62d272525b405ea0a39ced8a8cb587af05ad"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moProfileFeature_c",
+      "vtable": "0x4d0e8e80",
+      "slot": "0x1ee8",
+      "pointer_cell": "0x4d0ead68",
+      "target": "0x4c0d71d0",
+      "pointer_cell_sha256": "2d85c5bedc0099d4c2d029c331385d407f1f8a7d172e6265f17baa8240b2f30b"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "moProfileFeature_c",
+      "vtable": "0x4d0e8e80",
+      "slot": "0x1f98",
+      "pointer_cell": "0x4d0eae18",
+      "target": "0x4c0de640",
+      "pointer_cell_sha256": "5fff404592f5f1857866af1a60fd9c1710082c68b95dff1ceedb719e1adf9341"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgPointHandle",
+      "vtable": "0x4d1cf2d8",
+      "slot": "0x2d8",
+      "pointer_cell": "0x4d1cf5b0",
+      "target": "0x4c5d0810",
+      "pointer_cell_sha256": "2ec0c244667a7907b221c6f1eda73b3ee5033e479ae9db9076e22f2b58317382"
+    },
+    {
+      "module": "sldmodu.dll",
+      "owner": "sgArcHandle",
+      "vtable": "0x4d1c5ae8",
+      "slot": "0x2d8",
+      "pointer_cell": "0x4d1c5dc0",
+      "target": "0x4c5d0810",
+      "pointer_cell_sha256": "2ec0c244667a7907b221c6f1eda73b3ee5033e479ae9db9076e22f2b58317382"
+    },
+    {
+      "module": "slduiu.dll",
+      "owner": "App_c normal startup receiver",
+      "vtable": "0x4a7a9460",
+      "slot": "0xf8",
+      "pointer_cell": "0x4a7a9558",
+      "target": "0x4a26a620",
+      "pointer_cell_sha256": "4c621600923949bc8e7901651206f4373227351ad7867af30eb4333dc5187b04"
+    }
+  ],
+  "imports": [
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a578",
+      "dll": "sldmgu.dll",
+      "name": "??0mgPoint_c@@QEAA@XZ"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a590",
+      "dll": "sldmgu.dll",
+      "name": "??4mgPoint_c@@QEAAAEBV0@AEBV0@@Z"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a5a0",
+      "dll": "sldmgu.dll",
+      "name": "??XmgPoint_c@@QEAAAEBV0@AEBVmgXform_c@@@Z"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a5c0",
+      "dll": "sldmgu.dll",
+      "name": "??G@YA?AVmgVector_c@@AEBVmgPoint_c@@0@Z"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a608",
+      "dll": "sldmgu.dll",
+      "name": "?isNotNull@mgVector_c@@QEBAHXZ"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a628",
+      "dll": "sldmgu.dll",
+      "name": "??0mgUnitVector_c@@QEAA@AEBV0@@Z"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a630",
+      "dll": "sldmgu.dll",
+      "name": "??4mgUnitVector_c@@QEAAAEBV0@AEBV0@@Z"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a680",
+      "dll": "sldmgu.dll",
+      "name": "?inverse@mgXform_c@@QEBA?AV1@XZ"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a688",
+      "dll": "sldmgu.dll",
+      "name": "??D@YA?AVmgXform_c@@AEBV0@0@Z"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3a8f0",
+      "dll": "sldmgu.dll",
+      "name": "?sqlen@mgVector_c@@QEBANXZ"
+    },
+    {
+      "module": "sldmodu.dll",
+      "iat": "0x4cd3c460",
+      "dll": "sldsessionu.dll",
+      "name": "?App@SldSession_c@@SAPEAVSldApp_c@@XZ"
+    },
+    {
+      "module": "slduiu.dll",
+      "iat": "0x4a4655e8",
+      "dll": "sldappu.dll",
+      "name": "?am_GetApp@@YAPEAVCAmApp@@XZ"
+    },
+    {
+      "module": "slduiu.dll",
+      "iat": "0x4a465ac0",
+      "dll": "sldappu.dll",
+      "name": "?getOpeningDfxDoc@CAmApp@@QEAAHXZ"
+    },
+    {
+      "module": "slduiu.dll",
+      "iat": "0x4a471f68",
+      "dll": "sldsessionu.dll",
+      "name": "?setApp@SldSession_c@@SAXPEAVSldApp_c@@@Z"
+    },
+    {
+      "module": "sldappu.dll",
+      "iat": "0x45e54c30",
+      "dll": "mfc140u.dll",
+      "name": "#2212"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "module": "sldmodu.dll",
+      "role": "metric_guard_and_wire_field_destination",
+      "start": "0x4c8a12ed",
+      "end": "0x4c8a130d",
+      "bytes": 32,
+      "sha256": "0ae574980ed95f02f1d229e97a4d9148cf39d9b04d51410eaf033d3abe593fe1",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "common_null_feature_owner_return",
+      "start": "0x4c8a1484",
+      "end": "0x4c8a149e",
+      "bytes": 26,
+      "sha256": "a31067002e25764a761d2b6eb3acab581212cc12558083b0cf45d81bcc983d65",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "owned_one_element_value_refresh",
+      "start": "0x4c8a152c",
+      "end": "0x4c8a158a",
+      "bytes": 94,
+      "sha256": "47819fe39522e17cf7e8b8f7732143579e6ccdde1ddb5aff662bcd92abde654b",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "owned_style_subtype_refresh",
+      "start": "0x4c8a1ce4",
+      "end": "0x4c8a1d15",
+      "bytes": 49,
+      "sha256": "e7501f8b01545f122d85770ec10c686f2ee90eee449793af7413fd2f185fca01",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "radial_ordered_transform_arguments",
+      "start": "0x4c8dc3cb",
+      "end": "0x4c8dc415",
+      "bytes": 74,
+      "sha256": "b075181557070dd2803e7712f565901fc109a52c99118da599c9b8012654cb17",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "radial_center_field_assignments",
+      "start": "0x4c8dc6f7",
+      "end": "0x4c8dc716",
+      "bytes": 31,
+      "sha256": "e248d9321d8828ac77c988d2d7e02509f05e3b089fa27c64aa8b7362f1966f2e",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "radial_value_and_direction_assignments",
+      "start": "0x4c8dc8b5",
+      "end": "0x4c8dc90f",
+      "bytes": 90,
+      "sha256": "81ff976fa0d27d52f3949efcc99e61a21c519364631b36648ec3df4edc652b33",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "arc_solver_status_input",
+      "start": "0x4c503055",
+      "end": "0x4c503077",
+      "bytes": 34,
+      "sha256": "f09573ac556c6fb62c8ac19722379ad329b8b3958880ab292e8a2f247913e09c",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "point_solver_status_input",
+      "start": "0x4c504387",
+      "end": "0x4c5043a9",
+      "bytes": 34,
+      "sha256": "b3f89d747421ea88ce669efaa0ed1a02d981fe4158a76709cfcfca5a4a660dad",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "solver_aggregate_current_status_destination",
+      "start": "0x4c507df1",
+      "end": "0x4c507e16",
+      "bytes": 37,
+      "sha256": "24b4a21e9d4c3f67898988be9babd0d0e337cf4b0d11b6e7b2eceadfd132d1d5",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "zero_plane_coordinate_contribution",
+      "start": "0x4c51662d",
+      "end": "0x4c51663e",
+      "bytes": 17,
+      "sha256": "f78f1563d82835c0990b9c8faaa28d228b4629d42bf7d2401dfdf708450553b8",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "coordinate_counts_add_to_stamp",
+      "start": "0x4c519966",
+      "end": "0x4c519974",
+      "bytes": 14,
+      "sha256": "71e7c7788a350c43389ba75ab660a5285cf5278bec61e6c866ffdcd8c22f2b3e",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "sldmodu.dll",
+      "role": "own_pending_flag_admits_feature",
+      "start": "0x4c1d013a",
+      "end": "0x4c1d0154",
+      "bytes": 26,
+      "sha256": "fd85ffeebe8761e33fa19fb7d3bd6e91be45acc224b6af120fd49820ae5c8008",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    },
+    {
+      "module": "slduiu.dll",
+      "role": "normal_application_registration_call",
+      "start": "0x49e7f55d",
+      "end": "0x49e7f56a",
+      "bytes": 13,
+      "sha256": "fc5567acfd66eebc4751eca0d9e029d2a8de392db2c2376c94d0682cd2b79c4d",
+      "instruction_boundaries_checked_with_llvm": true,
+      "runtime_hook_proposed": false
+    }
+  ],
+  "solver_status_jump_table": {
+    "address": "0x4c507948",
+    "bytes": 48,
+    "sha256": "914589f77cc1345e0ed4a63c5a7507cf441017256fb38349a2fb9cc0090bad06",
+    "raw_code_to_initial_branch": {
+      "0": "0x4c50783a",
+      "1": "0x4c507841",
+      "2": "0x4c507843",
+      "3": "0x4c507833",
+      "4": "0x4c50783a",
+      "5": "0x4c50783a",
+      "6": "0x4c507843",
+      "7": "0x4c507843",
+      "8": "0x4c50783a",
+      "9": "0x4c50783a",
+      "10": "0x4c507841",
+      "11": "0x4c50782c"
+    },
+    "not_final_status_without_predicates": true
+  },
+  "normal_ui_application_receiver": {
+    "object": "0x4aef55c8",
+    "initial_vtable": "0x4a7a9460",
+    "pointer_cell_sha256": "1d7ffd81a66b03ab651f3d2139348ce51a1844df7c7765b189bcc7b586da53a9",
+    "complete_object_locator": "0x4a935538",
+    "complete_object_locator_sha256": "9637e49ad284ff3c544e048143240f5a89cb1edf25063323f511e363c4b6962f",
+    "type_descriptor": "0x4af249b0",
+    "type": ".?AVApp_c@@",
+    "registration_callsite": "0x49e7f564",
+    "actual_runtime_override_observed": false
+  },
+  "source_inputs": [
+    {
+      "path": "Documentation/Reference/Operations/CadSuccessCriteria.md",
+      "sha256": "772399ad03dd557aa5a847f5963c059eed9b7cb69c8136c94beb69f03fa59af1"
+    },
+    {
+      "path": "re/Playbook/README.md",
+      "sha256": "63bd2480fb00d60e203fee5f98812d790ec97fe59e97e6613cd9c38729539920"
+    },
+    {
+      "path": "re/Playbook/LoaderAnalysis.md",
+      "sha256": "fba2fbf3ccc7bb9ebfdf647cb8bcf11751804c4c9f08a6887e09b40e8a431059"
+    },
+    {
+      "path": "re/Playbook/CorpusCorrelation.md",
+      "sha256": "4f9fbe8980b98b392c9aaf8217f909ee8916c75b3d7230a67798a871066b8512"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Sketch.py",
+      "sha256": "c8107a4d98227fef3c796b634247652ce0410a46bc01c6eadedd374c049f785f"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Extrude.py",
+      "sha256": "551ac417fffbc57e165faede2a5af89a7c3d9d1188c8051dbb8983e4a3956848"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Part.py",
+      "sha256": "1a1f2a95caaa0a0d138ec94b8a49ee69f2b49c0d0e11f051dff60d9a8dcced16"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Styles.py",
+      "sha256": "fcee44b9d8394016f1ec000bcd40962c19ebcfc0dc3ec45ac3f2ddf9e1da5be0"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedDims.py",
+      "sha256": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedSketch.py",
+      "sha256": "c6dcf4efa511acc92dc2a77aa2bc0def883a07941b2ab1690293185c055b8c9a"
+    },
+    {
+      "path": "re/solidworks/records/CurvedSketchConstruction2026.md",
+      "sha256": "46f029584c36d8b0134df96c56124951c74746a3b4a75a5fe775d9af3164991a"
+    },
+    {
+      "path": "re/solidworks/records/RadialPresentationConstruction2026.md",
+      "sha256": "bcb600a1af5cc73558c53142f8557e17128ffb71e73a30cb65e7d94ab8616a6a"
+    },
+    {
+      "path": "re/solidworks/records/RadialParameterLifecycle2026.md",
+      "sha256": "779cf6354197d800001bf1f5ab38c66ccc67216ff8d69a9296acf832cb4e35b5"
+    },
+    {
+      "path": "re/solidworks/records/ProfileConstruction2026.md",
+      "sha256": "41090a7775099d6a0f70a2e46d4333d05ef700a1abcd3b6f53476bcef507eed5"
+    },
+    {
+      "path": "re/solidworks/records/CircleMarkerPlacement2026.md",
+      "sha256": "43d6cba888ff31286c6c1be330aee0609eaeab7fd1fa6a0e8bf4f07cb96fe52d"
+    },
+    {
+      "path": "re/solidworks/records/CircleAdjacencyRegistration2026.md",
+      "sha256": "481f26fe05772a0766eb079dcabc4d38cc1cf67255034ffd42ee365a093fbbf2"
+    }
+  ],
+  "retained_private_reports": [
+    {
+      "path": "/tmp/pr121-radial-ffd8-closure.md",
+      "sha256": "91ee610157dbb6d92b2c16196fd07f3bee68770dd8a22357edb5f41f5084d8f1"
+    },
+    {
+      "path": "/tmp/pr121-radial-model-context.md",
+      "sha256": "9e8d679aeb62635d953ac236009e6540ca0afb587561050915ff74331d6205e8"
+    },
+    {
+      "path": "/tmp/pr121-radial-flag-notifications.md",
+      "sha256": "b2bbad585c4eea47641ffa866f49db4f3c3474b1b6c92f251ea2eee50d3b427f"
+    }
+  ],
+  "remaining": [
+    "Actual solver raw status and numerical solution for the selected generated circle/constraint graph",
+    "Complete final saved-status and modification-stamp lifecycle across all reached solve work",
+    "Owned sketch callback +0x4b0 and model-context/event listener effects",
+    "Native neutral-cache load/rebuild/edit acceptance and untouched held-out family acceptance"
+  ],
+  "independent_root_audit": {
+    "frozen_manifest_sha256": "0e5c780c880ddea03fd71246f6fe98cf044eb76aacabb47416b7954c60ade334",
+    "original_image_function_pointer_window_hashes_verified": true,
+    "raw_backed_span_bounds_enforced": true,
+    "native_execution": false
+  }
+}

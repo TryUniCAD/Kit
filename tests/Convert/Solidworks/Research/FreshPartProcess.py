@@ -73,6 +73,20 @@ def BuildResult() -> dict[str, object]:
         "points": Constructed.profile.point_count,
         "lines": Constructed.profile.line_count,
         "arcs": Constructed.profile.arc_count,
+        "radial": (
+            None
+            if Constructed.radial is None
+            else {
+                "type": Constructed.radial.dimension["f80"],
+                "name": Constructed.radial.parameter["f18"]["f08"],
+                "value": Constructed.radial.parameter["f58"],
+                "parameter_id": Constructed.radial.parameter["f08"],
+                "dimension_id": Constructed.radial.dimension["f50"],
+                "reference_count": Constructed.radial.dimension["refcount"],
+                "handle_class": Constructed.radial.handle.cls,
+                "display_class": Constructed.radial.display.cls,
+            }
+        ),
         "depth": None if Constructed.extrusion is None else Constructed.extrusion.depth,
         "has_extrusion": Constructed.extrusion is not None,
         "plane_ownership": ReadOwners(Archive, KRegistry),

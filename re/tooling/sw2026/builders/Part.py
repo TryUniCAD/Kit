@@ -10,6 +10,7 @@ from builders.Definition import definition_stream, part_definition
 from builders.Extrude import live_blind_extrusion
 from builders.Metadata import biography, fields, header, history, keywords, streams
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
+from builders.Radial import circle_dimension
 from builders.Sketch import PlaneFrame, closed_profile, origin_profile
 from builders.Styles import detail_definitions
 from builders.Units import unit_table_profile
@@ -23,6 +24,7 @@ class PartConstruction:
     model: Obj
     features: tuple[Obj, ...]
     profile: object
+    radial: object
     extrusion: object
     next_id: int
     configuration_map_count: int
@@ -32,7 +34,7 @@ def _rooted(*, registry, node):
     return store_rooted(StreamDoc("rooted", {"base": 1}, [node]), registry, 19000)
 
 
-def _metadata(*, registry, document, provenance, presentation, graph, features, profile, extrusion):
+def _metadata(*, registry, document, provenance, presentation, graph, features, profile, radial, extrusion):
     stamp = {
         "status": 0, "user_index": 0, "company_index": 0,
         "timestamp": provenance["created_at"], "comment": provenance["comment"],
@@ -50,6 +52,8 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
         item = {"id": feature["f08"], "name": feature["f18"]["f08"], "kind": feature.cls}
         if feature is profile.profile:
             item["tag"] = "Sketch"
+            if radial is not None:
+                item["dimensions"] = [{"name": radial.parameter["f18"]["f08"], "value": radial.parameter["f58"] / presentation["length_unit_m"]}]
         if extrusion is not None and feature is extrusion.feature:
             item.update({"tag": "Extrusion", "dimensions": [{"name": "D1", "value": extrusion.depth / presentation["length_unit_m"]}]})
         keyword_features.append(item)
@@ -89,7 +93,8 @@ def document_shape(document):
     required += ("vertices_m",) if profile_kind == "polygon" else ("center_m", "radius_m")
     if feature_kind == "blind_extrusion":
         required += ("depth_m",)
-    return fields(document, "part document", required, ("profile_kind", "feature_kind")), profile_kind, feature_kind
+    optional = ("profile_kind", "feature_kind") + (("circle_dimension",) if profile_kind == "circle" else ())
+    return fields(document, "part document", required, optional), profile_kind, feature_kind
 
 
 def construct_part(*, registry, document, provenance, presentation, target):
@@ -145,6 +150,13 @@ def construct_part(*, registry, document, provenance, presentation, target):
         profile = closed_profile(vertices=document["vertices_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
     else:
         profile = circle_profile(center_m=document["center_m"], radius_m=document["radius_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
+    radial = None
+    if "circle_dimension" in document:
+        request = fields(document["circle_dimension"], "circle dimension", ("mode", "text_point_m"))
+        radial = circle_dimension(
+            graph=profile, allocator=graph.allocator, **request,
+            design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
+        )
     features = (*graph.system_features, origin_node, profile_node)
     extrusion = None
     if feature_kind == "blind_extrusion":
@@ -165,7 +177,7 @@ def construct_part(*, registry, document, provenance, presentation, target):
     }
     result = _metadata(
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
-        graph=graph, features=features, profile=profile, extrusion=extrusion,
+        graph=graph, features=features, profile=profile, radial=radial, extrusion=extrusion,
     )
     definition = part_definition(
         density_kg_m3=document["density_kg_m3"], drafting_standard=presentation["drafting_standard"],
@@ -179,6 +191,6 @@ def construct_part(*, registry, document, provenance, presentation, target):
         "Contents/Config-0-ResolvedFeatures": store_resolved(resolved, registry, 19000, seed=state),
     })
     return PartConstruction(
-        streams=result, model=graph.part, features=features, profile=profile, extrusion=extrusion,
+        streams=result, model=graph.part, features=features, profile=profile, radial=radial, extrusion=extrusion,
         next_id=graph.next_persistent_id, configuration_map_count=state.count,
     )

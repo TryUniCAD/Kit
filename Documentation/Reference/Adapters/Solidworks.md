@@ -282,6 +282,8 @@ The [single-circle sketch synthesis](../../Changes/Solidworks/Model/SolidworksCi
 adds a constructor-derived research graph with computed topology, IDs and counts. Two remote process candidates passed strict archive comparisons and file-read guards; both also passed controlled native sketch load/rebuild/save/fresh-reopen measurements. No radial dimension or circle extrusion is enabled.
 The [controlled circle sketch inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleSketchInspection.md)
 checks local geometry, authored plane, zero-body topology, rebuild state, save and fresh-process reopen between controls. Its first native run passed four phases and 48 numeric/frame comparisons matching to six significant figures; held-out family acceptance remains unestablished.
+The [radial sketch synthesis](../../Changes/Solidworks/Model/SolidworksRadialSketchSynthesis.md)
+adds an unqualified front-plane radius/diameter value, parameter, handle and display graph with explicit presentation inputs. Its new remote process and native driving-edit checks remain pending; no fixed-center relation or extrusion is enabled.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

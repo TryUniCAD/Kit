@@ -48,7 +48,7 @@ def _dimension_text(*, angular: bool):
     return fields
 
 
-def _display_fields(*, handle: Obj, angular: bool, design_intent: bool, selected_leader: int):
+def common_display_fields(*, handle: Obj, angular: bool, design_intent: bool, selected_leader: int):
     if type(design_intent) is not bool:
         raise ConstructionError("display design intent must be an authored boolean")
     if type(selected_leader) is not int or not -(1 << 31) <= selected_leader < (1 << 31):
@@ -206,6 +206,11 @@ def _display_fields(*, handle: Obj, angular: bool, design_intent: bool, selected
     fields["f4f0"] = tuple({"p": _point()} for _ in range(4))
     fields["f550"] = tuple({"v": _point(y=1.0)} for _ in range(2))
     fields["f850"] = ({"o": handle},)
+    return fields
+
+
+def _display_fields(*, handle: Obj, angular: bool, design_intent: bool, selected_leader: int):
+    fields = common_display_fields(handle=handle, angular=angular, design_intent=design_intent, selected_leader=selected_leader)
     if angular:
         fields.update({"f100c": 0, "f1010": 1, "f1008": 1, "ffb8": _point(x=1.0), "ffd0": _point(y=1.0), "ffe8": 0.1, "fff0": 0.9, "fff8": 0.1, "f1000": 0.9, "f1018": 0x18})
     else:
