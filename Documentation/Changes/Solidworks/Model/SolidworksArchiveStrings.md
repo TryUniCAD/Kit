@@ -2,7 +2,7 @@
 
 The shared archive adds pure memory string primitives under `src/convert/adapters/solidworks/Archive/Strings`.
 These primitives do not expose a SOLIDWORKS adapter writer.
-Remote corpus verification remains pending for this changed implementation.
+Remote corpus verification passed with the shared object/map implementation on source `9d7209d515d6d7c6fafa461ae7dad917c97f8226`.
 
 `CStringValue(TextValue, IsUnicode)` requires explicit text and source encoding.
 The immutable value stores no payload, length, offset, template or saved field program.
@@ -54,7 +54,7 @@ Source, AST, and Black checks passed without executing a codec, schema, or local
 Independent original-PE inspection verified nine complete native function spans and thirteen relative-call targets.
 Remote process checks must retain all 234 strict stream identities, completed phases, linked-map seeds, and retained field graphs.
 The three existing negative process cases remain active.
-Long-string boundary and malformed-frame coverage remain separate pending process checks.
+The [complete modeled-archive check](SolidworksStringArchiveProcesses.md) adds separate long-string boundary and malformed-frame process coverage, pending its first remote execution.
 
 See the [encoding and length gotcha](../../../Gotchas/Conversion/Solidworks/Archive/CStringEncodingAndLengthUnits.md).
 The [CAD criteria](../../../Reference/Operations/CadSuccessCriteria.md) and [writer method](../../../../re/Playbook/WriterModel.md) still apply.

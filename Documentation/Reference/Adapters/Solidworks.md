@@ -99,6 +99,9 @@ derive Unicode payloads and length headers from supplied text.
 They preserve source encoding explicitly during reconstruction and reject repeated Unicode markers.
 The [2026 string record](../../../re/solidworks/records/CStringArchive2026.md) distinguishes ordinary framing from excluded DB and ANSI semantic behavior.
 The research archive uses this production layer directly.
+The [complete modeled-archive process check](../../Changes/Solidworks/Model/SolidworksStringArchiveProcesses.md)
+adds two-process string boundary and malformed-frame checks without a donor container or saved-stream passthrough.
+Its reduced containers establish archive compatibility only; remote execution of this new check remains pending.
 
 The [shared object and map model](../../Changes/Solidworks/Model/SolidworksArchiveObjectModel.md)
 tracks typed descriptors, node identities, recursive ownership, and inherited map snapshots.

@@ -51,6 +51,7 @@ The [map-view gotcha](../../../Gotchas/Conversion/Solidworks/Archive/LinkedMapVi
 Resolved streams now inherit the typed snapshot directly.
 Their compatibility views retain each immutable entry's identity through a shared, scoped memo.
 The original linked assertion remains active.
-Remote verification of this correction remains pending publication.
+All current PR CI passed on source `9d7209d515d6d7c6fafa461ae7dad917c97f8226`, including the original linked identity assertion.
+The configured automated review reports failed to finish and no current-head approval is available.
 
 The production adapter remains read-only. This shared infrastructure supplies no fresh feature builder and establishes no held-out native output acceptance, rebuild result, or complete CAD conversion coverage.
