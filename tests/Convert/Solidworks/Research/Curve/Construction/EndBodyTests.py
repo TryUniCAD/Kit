@@ -21,6 +21,7 @@ def TestEndBodies() -> None:
         ReverseValue,
         PlaneAxis,
         SecondDepth,
+        TextPoint,
     ) in (
         (
             "ReverseCircleBoss",
@@ -32,6 +33,7 @@ def TestEndBodies() -> None:
             True,
             "z",
             None,
+            [0.021719, 0.027913, 0.0],
         ),
         (
             "MidPlaneCircleBoss",
@@ -43,6 +45,7 @@ def TestEndBodies() -> None:
             False,
             "x",
             None,
+            [0.0, 0.018137, -0.029719],
         ),
         (
             "DualCircleBoss",
@@ -54,6 +57,7 @@ def TestEndBodies() -> None:
             True,
             "y",
             0.006431,
+            [0.022831, 0.0, -0.028317],
         ),
     ):
         Request = MakeCircleBody(
@@ -62,11 +66,7 @@ def TestEndBodies() -> None:
             DepthValue,
             NameValue,
             ModeValue,
-            [
-                CenterValue[0] + 2.0 * RadiusValue,
-                CenterValue[1] + 1.5 * RadiusValue,
-                0.0,
-            ],
+            TextPoint,
         )
         Document = CastValue(dict[str, object], Request["document"])
         Document.update(
