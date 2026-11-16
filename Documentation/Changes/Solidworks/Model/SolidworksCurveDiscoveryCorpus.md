@@ -103,7 +103,11 @@ This is a nonexhaustive visual privacy review, not native CAD acceptance.
 Only the 16 bounded container/metadata dependency modules executed during preparation;
 archive-schema, round-trip, product-verification and test execution remain in remote CI.
 The process fixture requests 208 strict critical/header comparisons and 26 linked resolved comparisons.
-Their results remain pending.
+The [first complete admission result](../../../../re/solidworks/measurements/2026/CurveArchiveAdmission01.json)
+now records all 234 byte identities and zero unread tails, with matching prepared
+file, stream and linked-seed hashes. Strict declaration admission failed on
+77 primary and 75 linked provisional owner names.
+Those failures remain enforced while native owner definitions are verified.
 
 The preceding independent anatomy study inspected only D01 and D19 discovery inputs.
 Both contained 40 valid compressed streams.

@@ -39,6 +39,18 @@ bounded raw arrays still need semantic classification and fresh construction rul
 See the [report contract](../../../../Documentation/Changes/Solidworks/Model/SolidworksArchiveSchemaUsage.md)
 and [closure limitation](../../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ProvisionalSchemasDoNotProveClosure.md).
 
+The [first complete curve-source admission record](../../../solidworks/measurements/2026/CurveArchiveAdmission01.json)
+contains 208 primary and 26 linked byte-identical comparisons with no unread tails.
+Strict admission still failed: 77 primary and 75 linked provisional owner names remained.
+The new [geometry](../../../solidworks/records/GeometryArchive2026.md),
+[common-part](../../../solidworks/records/CommonPartOwners2026.md),
+[material/display](../../../solidworks/records/MaterialDisplayArchive2026.md) and
+[annotation](../../../solidworks/records/AnnotationArchive2026.md) owners bind 76 of those
+names to pinned 2026 native functions and dispatch. Changed-revision compatibility
+is pending. `su_CMapStringToInt` remains provisional because the available MFC image's
+raw ARM64X ordinals do not establish the imported x64 count methods.
+No admission gate is relaxed and no fresh-writer defaults follow from these schemas.
+
 `--link-config` additionally requires each selected resolved stream to inherit
 the configuration's class/object map and computed counter. Fresh builders use
 `ConfigPart.store_config_state` and seed `ResolvedCore.store_resolved` with its

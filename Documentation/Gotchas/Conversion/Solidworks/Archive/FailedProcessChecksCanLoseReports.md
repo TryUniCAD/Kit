@@ -25,4 +25,6 @@ Treat partial reports and unsuccessful schema admission as failed evidence.
 
 The [workflow change](../../../../Changes/Solidworks/Model/SolidworksParserFailureArtifacts.md)
 preserves the check commands, action pin and failure gates.
-Remote verification of the new retention condition remains pending.
+The [subsequent failed job](https://github.com/TryUniCAD/Kit/actions/runs/43788378770/job/133041020665)
+verified the repair: its upload step passed and retained complete reports in
+artifact `14191736051`, while the original native-format failure stayed failed.

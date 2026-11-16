@@ -27,7 +27,12 @@ The new condition addresses that evidence-retention gap.
 GitHub's [status-check expression reference](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions)
 documents the implicit success predicate and the cancellation status function.
 The change received source and YAML inspection only.
-Remote verification of failed-run artifact retention remains pending.
+The [subsequent failed job](https://github.com/TryUniCAD/Kit/actions/runs/43788378770/job/133041020665)
+on `1f4c335b85eee2989c754348d6a8dc47eeb69f35` retained artifact `14191736051`.
+The native-format step remained failed and the upload step passed.
+The artifact contains complete primary and linked reports of 20,890,994 and
+14,866,232 bytes. The [admission record](../../../../re/solidworks/measurements/2026/CurveArchiveAdmission01.json)
+retains their exact hashes and unsuccessful schema-admission results.
 No local tests or native CAD calls ran.
 
 See the [failure-report gotcha](../../../Gotchas/Conversion/Solidworks/Archive/FailedProcessChecksCanLoseReports.md)

@@ -195,6 +195,15 @@ registry status alone does not establish field semantics or native writer accept
 The [curve discovery preparer](../../Changes/Solidworks/Model/SolidworksCurveDiscoveryCorpus.md)
 selects only the 24 locked discovery cases and two controls, records framed privacy
 transformations and leaves full archive-schema checks to remote CI.
+The [first complete source archive report](../../../re/solidworks/measurements/2026/CurveArchiveAdmission01.json)
+records all 234 requested byte identities and zero unread tails, while strict
+declaration admission fails on 77 primary and 75 linked provisional owners.
+The [geometry](../../Changes/Solidworks/Model/SolidworksGeometryArchiveOwners.md),
+[common-part](../../Changes/Solidworks/Model/SolidworksCommonPartArchiveOwners.md),
+[material/display](../../Changes/Solidworks/Model/SolidworksMaterialDisplayArchiveOwners.md)
+and [annotation](../../Changes/Solidworks/Model/SolidworksAnnotationArchiveOwners.md)
+definitions provide native evidence for 76 owners. Their changed-revision checks
+remain pending; the framework string-map count dependency remains provisional.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
