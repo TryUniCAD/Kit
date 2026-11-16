@@ -111,7 +111,7 @@ iterations = low if low < 0x80000000 else 0
 
 The original provisional expression compared the entire u64 with `0x80000000`. It incorrectly treated `0x100000001` as zero rows; the actual signed low32 requires one row. `AnnotationWire.note_attachment_count` applies the native rule while preserving the original u64 wire value and existing `n248`, `f248`, `key`, `kind` and `value` keys. The shared 10,000,000-item safety bound remains unchanged and can still reject a larger positive count.
 
-For each attachment, kinds 1, 2 and 4 carry an object reference, respectively GTol helper, surface-finish helper and note helper. Other kinds have only key/kind wire integers. No absent reference is synthesized. The [signed-count gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/NoteAttachmentCountUsesSignedLow32.md) records this boundary and its limitations.
+For each attachment, kinds 1, 2 and 4 carry an object reference, respectively GTol helper, surface-finish helper and note helper. Other kinds have only key/kind wire integers. No absent reference is synthesized. The [signed-count gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/NoteAttachmentCountUsesSignedLowDword.md) records this boundary and its limitations.
 
 ### GTol and annotation-view branches
 

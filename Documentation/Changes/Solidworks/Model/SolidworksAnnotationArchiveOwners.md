@@ -4,7 +4,7 @@ The shared research codec explicitly defines 52 dimension, annotation, label, ta
 
 Each owner begins with an effective-version-19000 admission check on both load and store. Historical and future versions fail before owner fields; the existing omitted/zero-version current alias remains. These are ordinary, non-DB archive layouts. No saved defaults, field rows, templates, raw payloads or production writer are introduced.
 
-The note-helper u64 attachment count now follows the native signed-low32 loop rule. The old whole-u64 predicate could silently treat a positive low32 count as zero when high32 was nonzero. The new rule retains the original u64 and row keys, and preserves the shared repetition safety limit. See the [specific count boundary](../../../Gotchas/Conversion/Solidworks/Model/NoteAttachmentCountUsesSignedLow32.md).
+The note-helper u64 attachment count now follows the native signed-low32 loop rule. The old whole-u64 predicate could silently treat a positive low32 count as zero when high32 was nonzero. The new rule retains the original u64 and row keys, and preserves the shared repetition safety limit. See the [specific count boundary](../../../Gotchas/Conversion/Solidworks/Model/NoteAttachmentCountUsesSignedLowDword.md).
 
 ## Evidence and use
 
