@@ -1,0 +1,9 @@
+# Independent circles in a generated sketch
+
+The research part constructor accepts `profile_kind: circle_set`, `feature_kind: sketch` and a nonempty `circles_m` list. Each member supplies exactly `center_m` and a positive finite `radius_m`. This rung requires disjoint circles with distinct centers. It admits no circle-set boss, dimensions, construction geometry, shared center or mixed entities. The public SOLIDWORKS adapter remains read-only.
+
+The single-circle path and circle-set path share the same graph constructor. Each circle owns its center, positive-X seam point, arc and concrete adjacency handle. Arc permanence supplies start/end/center role events; first-use order determines point creation IDs independently from geometry-array order. Point-use counts, center-use counts, arc IDs, handle indexes, next counters and the initial geometry stamp derive from the actual nodes and events. No saved field program, native file or template supplies output bytes.
+
+Remote process coverage requests two and four circles on Front and Top planes. It retains every existing complete archive comparison, file-read guard and configuration-progress check, saves the generated native artifacts, and requires Config-0 and linked resolved stream lengths to grow with the topology. The native inspector compares each requested circle's center/radius, frame, zero-body state, initial active sketch, explicit rebuild, save and fresh reopen between controls. The [construction ledger](../../../../../re/solidworks/records/CircleSetSynthesis2026.md) records field ownership and remaining acceptance.
+
+Verification at introduction: source/AST review only. No local tests, archive schemas or product verification ran. Both remote generation and a new native batch remain pending. Earlier single-circle measurements do not establish this rung; all six held-out native payloads remain sealed.

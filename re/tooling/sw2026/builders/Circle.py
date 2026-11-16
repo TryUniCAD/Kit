@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from math import isfinite
+from collections.abc import Mapping
+from math import hypot, isfinite
 
 from Core import Obj
 from builders.Sketch import (
@@ -38,10 +39,10 @@ def circle_arc(*, sketch, center, marker, points):
     return arc
 
 
-def bind_permanence(*, sketch, points, arcs, marker, center):
-    order = NodeOrder(nodes=(marker, center))
-    roles = (marker, marker, center)
-    centers = (center,)
+def bind_permanence(*, sketch, points, arcs):
+    roles = tuple(point for arc in arcs for point in (arc["_start"], arc["_end"], arc["_center"]))
+    order = NodeOrder(nodes=tuple({id(point): point for point in roles}.values()))
+    centers = tuple(arc["_center"] for arc in arcs)
     for point in points:
         del point.f["f0c"]
         del point.f["fe8"]
@@ -56,8 +57,9 @@ def bind_permanence(*, sketch, points, arcs, marker, center):
         del arc.f["f08"]
         arc.f.derived["f0c"] = lambda node=arc: _node_index(nodes=arcs, node=node) + 1
         arc.f.derived["f08"] = lambda node=arc: _node_index(nodes=arcs, node=node) + 1
-    marker["h1"] = arc_handle(sketch=sketch, arc=arcs[0], arcs=arcs)
-    marker["fe4"] = 2
+        marker = arc["_start"]
+        marker["h1"] = arc_handle(sketch=sketch, arc=arc, arcs=arcs)
+        marker["fe4"] = 2
 
 
 def bind_arrays(*, sketch, points, arcs):
@@ -82,12 +84,10 @@ def bind_arrays(*, sketch, points, arcs):
     sketch["_point_nodes"] = points
     sketch["_line_nodes"] = NodeOrder(nodes=())
     sketch["_arc_nodes"] = arcs
-    sketch["_profile_kind"] = "circle"
+    sketch["_profile_kind"] = "circle" if len(arcs) == 1 else "circle_set"
 
 
-def circle_profile(*, center_m, radius_m, profile, plane, frame):
-    if profile.cls != "moProfileFeature_c" or not isinstance(frame, PlaneFrame):
-        raise ConstructionError("circle sketches require an ordinary allocated profile and frame")
+def circle_positions(*, center_m, radius_m, frame):
     center_position = _vector(value=center_m, size=2)
     if type(radius_m) not in (int, float) or not isfinite(radius_m) or radius_m <= 0:
         raise ConstructionError("circle radius must be finite and positive")
@@ -96,13 +96,35 @@ def circle_profile(*, center_m, radius_m, profile, plane, frame):
         raise ConstructionError("circle radius is not representable at this center")
     for position in (center_position, marker_position):
         frame.world_point(point=position)
+    return center_position, marker_position
+
+
+def circle_set_profile(*, circles_m, profile, plane, frame):
+    if profile.cls != "moProfileFeature_c" or not isinstance(frame, PlaneFrame):
+        raise ConstructionError("circle sketches require an ordinary allocated profile and frame")
+    if not isinstance(circles_m, (tuple, list)) or not 1 <= len(circles_m) < 0x3FFFFFFF:
+        raise ConstructionError("circle sets require a nonempty bounded sequence")
+    positions = []
+    for circle in circles_m:
+        if not isinstance(circle, Mapping) or set(circle) != {"center_m", "radius_m"}:
+            raise ConstructionError("circle set members require exactly center_m and radius_m")
+        positions.append(circle_positions(**circle, frame=frame))
+    for index, (center, marker) in enumerate(positions):
+        radius = circles_m[index]["radius_m"]
+        for previous in range(index):
+            other = positions[previous][0]
+            if hypot(center[0] - other[0], center[1] - other[1]) <= radius + circles_m[previous]["radius_m"]:
+                raise ConstructionError("this circle set rung requires disjoint circles with distinct centers")
     graph = new_profile(profile=profile, plane=plane, frame=frame)
-    center = ordinary_point(sketch=graph.sketch, position=center_position)
-    marker = ordinary_point(sketch=graph.sketch, position=marker_position)
-    points = NodeOrder(nodes=(center, marker))
-    arcs = NodeOrder(nodes=(circle_arc(sketch=graph.sketch, center=center, marker=marker, points=points),))
-    bind_permanence(sketch=graph.sketch, points=points, arcs=arcs, marker=marker, center=center)
+    pairs = tuple((ordinary_point(sketch=graph.sketch, position=center), ordinary_point(sketch=graph.sketch, position=marker)) for center, marker in positions)
+    points = NodeOrder(nodes=tuple(point for pair in pairs for point in pair))
+    arcs = NodeOrder(nodes=tuple(circle_arc(sketch=graph.sketch, center=center, marker=marker, points=points) for center, marker in pairs))
+    bind_permanence(sketch=graph.sketch, points=points, arcs=arcs)
     bind_arrays(sketch=graph.sketch, points=points, arcs=arcs)
     _bind_local_ref_flag(sketch=graph.sketch)
     graph.sketch["_requires_update"] = True
     return graph
+
+
+def circle_profile(*, center_m, radius_m, profile, plane, frame):
+    return circle_set_profile(circles_m=({"center_m": center_m, "radius_m": radius_m},), profile=profile, plane=plane, frame=frame)

@@ -302,6 +302,8 @@ The [conditional part master grammar](../../Changes/Solidworks/Model/SolidworksS
 owns the directly serialized sheet-metal master that native saves may add before the common ID map, even when the visible feature tree contains only a circle boss. The repaired saved-reader process passed all 54 critical archive comparisons and 108 neutral numeric/frame checks across six derivatives; full CAD family and sheet-metal feature acceptance remain unestablished.
 The [initial circle-load inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleInitialLoadInspection.md)
 records body count, rebuild problems and active named features before any explicit rebuild. Its new native result is pending; earlier rebuilt measurements do not establish that initial state.
+The [independent circle-set sketch rung](../../Changes/Solidworks/Model/Curves/SolidworksCircleSetSketchSynthesis.md)
+uses the common constructor and actual permanence events for disjoint free circles. Its two/four-circle remote generation and native measurements remain pending; dimensioned sets and body generation remain closed.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

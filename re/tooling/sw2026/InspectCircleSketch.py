@@ -141,10 +141,13 @@ def snapshot(author, case, factor=1.0, depth_factor=1.0):
     constrained_status = int(author.get(author.sketch, "GetConstrainedStatus"))
     require(constrained_status not in (4, 5, 6, 7), f"generated circle has unacceptable constraint state {constrained_status}")
     geometry = author.geometry()
-    require(len(geometry) == 1 and geometry[0]["kind"] == "circle" and not geometry[0]["construction"], "generated sketch is not exactly one ordinary circle")
-    for index, expected in enumerate(document["center_m"]):
-        author.rec.close_number(f"center {index}", geometry[0]["center"][index], expected)
-    author.rec.close_number("radius", geometry[0]["radius"], document["radius_m"] * factor)
+    expected_circles = document["circles_m"] if document.get("profile_kind") == "circle_set" else [{"center_m": document["center_m"], "radius_m": document["radius_m"]}]
+    require(len(geometry) == len(expected_circles) and all(row["kind"] == "circle" and not row["construction"] for row in geometry), "generated sketch does not contain the requested ordinary circles")
+    for circle_index, (actual, expected_circle) in enumerate(zip(geometry, expected_circles)):
+        prefix = "" if len(expected_circles) == 1 else f"circle {circle_index} "
+        for index, expected in enumerate(expected_circle["center_m"]):
+            author.rec.close_number(f"{prefix}center {index}", actual["center"][index], expected)
+        author.rec.close_number(prefix + "radius", actual["radius"], expected_circle["radius_m"] * factor)
     body_objects = author.get(author.model, "GetBodies2", 0, False) or []
     has_body = document.get("feature_kind") == "blind_extrusion"
     require(len(body_objects) == int(has_body), "generated candidate has an unexpected solid body count")
@@ -246,7 +249,7 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     control = Path(job["control"])
     AuthorCurves.require(digest(control) == job["control_sha256"], "native control identity changed")
-    result = {"schema": "kit.sw2026.circle-sketch-inspection.v4", "scope": "single-circle sketch and blind boss research rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
+    result = {"schema": "kit.sw2026.circle-sketch-inspection.v5", "scope": "independent circle sketches and single-circle blind boss research rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
     def checkpoint():
         (output / "Inspection.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     checkpoint()
