@@ -109,6 +109,15 @@ file, stream and linked-seed hashes. Strict declaration admission failed on
 77 primary and 75 linked provisional owner names.
 Those failures remain enforced while native owner definitions are verified.
 
+The [post-change admission receipt](../../../../re/solidworks/measurements/2026/CurveDiscoveryAdmission42525.json)
+binds source `42525e342ee326eebb2b2be87aeb87cfaff2a71b` and verifies exact 26-file
+membership, prepared file hashes, all 234 selected stream lengths/hashes, the
+manifest/privacy-ledger/source-evidence chain, completed usage phases and all 26
+linked map seeds. The audit reads retained JSON metadata only; it does not reread
+native fixtures, open held-out payloads or execute an archive codec. Stream identity
+is complete for this batch while strict admission still fails on the single
+provisional string-to-int map owner. No native writer acceptance is inherited.
+
 The preceding independent anatomy study inspected only D01 and D19 discovery inputs.
 Both contained 40 valid compressed streams.
 Private metadata appeared in seven streams, including load-critical binary streams.

@@ -40,7 +40,14 @@ The pre-change remote reports covered 208 ordinary and 26 linked stream comparis
 Every comparison was byte-identical with zero unread tail.
 Strict admission still failed because those reports used 77 and 75 provisional schema names respectively.
 The seven helpers owned here are a subset, leaving 70 and 68 other pre-change names for independent verification.
-Post-change remote admission has not yet been measured.
+The [post-change source-parser receipt](../../../../re/solidworks/measurements/2026/CurveDiscoveryAdmission42525.json)
+binds source `42525e342ee326eebb2b2be87aeb87cfaff2a71b` to its actual synthetic
+candidate, retained reports and prepared manifest. All 234 comparisons remain
+byte-identical with zero tails. After all 76 shared owners in that revision,
+only `su_CMapStringToInt` remains actually used and provisional, with no missing
+schemas. Strict admission passes 156 primary streams and zero linked streams;
+both strict process cases still fail. This is source-parser evidence, not new
+field classifications, generated curves or native rebuild/edit acceptance.
 
 These are source-grammar instruments, not generated curve parts or production writer acceptance.
 Fresh construction rules, complete field classification and controlled held-out native measurements remain unfinished.

@@ -202,8 +202,10 @@ The [geometry](../../Changes/Solidworks/Model/SolidworksGeometryArchiveOwners.md
 [common-part](../../Changes/Solidworks/Model/SolidworksCommonPartArchiveOwners.md),
 [material/display](../../Changes/Solidworks/Model/SolidworksMaterialDisplayArchiveOwners.md)
 and [annotation](../../Changes/Solidworks/Model/SolidworksAnnotationArchiveOwners.md)
-definitions provide native evidence for 76 owners. Their changed-revision checks
-remain pending; the framework string-map count dependency remains provisional.
+definitions provide native evidence for 76 owners. Their [changed-revision report](../../../re/solidworks/measurements/2026/CurveDiscoveryAdmission42525.json)
+preserves all 234 byte identities and leaves only the framework string-map count
+dependency provisional, with no missing schemas. Strict admission passes 156
+primary streams and zero linked streams; both strict process cases still fail.
 The [complete decoded field inventory](../../Changes/Solidworks/Model/SolidworksCurveFieldInventory.md)
 adds separate remote correlation reports with exact integer text, decoded float bits,
 complete retained graph identities and byte-field hashes. Its process checks retain
