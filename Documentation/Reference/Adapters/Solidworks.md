@@ -209,6 +209,10 @@ adds separate remote correlation reports with exact integer text, decoded float 
 complete retained graph identities and byte-field hashes. Its process checks retain
 strict schema admission; field correlations do not establish construction rules or
 Kit-written curve acceptance.
+The [MFC runtime-view probe](../../Changes/Solidworks/Model/SolidworksMfcRuntimeViewInspection.md)
+can inspect effective exports in its own x64 analysis process without invoking
+archive methods. Raw file discovery and mapped export identity remain separate
+from proving a count implementation or accepting a CAD output.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
