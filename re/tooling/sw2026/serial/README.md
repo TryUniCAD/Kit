@@ -25,6 +25,14 @@ records canonical-width limits and the normalization of escaped object index zer
 Field inventories additionally fingerprint `ArchiveTag.py`, `ReadTag.py`, and `EncodeTag.py`.
 Remote byte-identity and retained-graph checks of this changed implementation remain pending.
 
+Class/object operations now delegate to the production `Archive/Objects/` and `Archive/Maps/` components.
+`Obj` retains its research interface as an `ArchiveNode` subclass.
+`MapBridge.py` preserves shared identities, lazy field providers, typed snapshots, and explicit inherited class bindings.
+The [object-model entry](../../../../Documentation/Changes/Solidworks/Model/SolidworksArchiveObjectModel.md)
+describes callback ownership and the native map bounds.
+Field fingerprints include both complete packages and the bridge.
+Remote process verification of this object/map promotion remains pending.
+
 CString methods now call the production `Archive/Strings/` layer.
 `Load.string` converts its typed result to the existing Unicode text or tagged ANSI text pair.
 `Store.string` selects explicit source-frame reconstruction and validates that ANSI pair.

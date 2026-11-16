@@ -4,12 +4,28 @@ import struct
 
 from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
 from convert.adapters.solidworks.Archive.Counts.ReadCount import ReadCount
+from convert.adapters.solidworks.Archive.Maps.AddEntryMut import AddEntryMut
+from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
+from convert.adapters.solidworks.Archive.Maps.BindClassMut import BindClassMut
+from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
+from convert.adapters.solidworks.Archive.Objects.ExternalRef import ExternalRef
+from convert.adapters.solidworks.Archive.Objects.ObjectRead import ObjectRead
+from convert.adapters.solidworks.Archive.Objects.ObjectStore import ObjectStore
+from convert.adapters.solidworks.Archive.Objects.ReadClassMut import ReadClassMut
+from convert.adapters.solidworks.Archive.Objects.ReadObjectMut import ReadObjectMut
+from convert.adapters.solidworks.Archive.Objects.ReadTypeMut import ReadTypeMut
+from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.Objects.WriteClassMut import WriteClassMut
+from convert.adapters.solidworks.Archive.Objects.WriteObjectMut import WriteObjectMut
 from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
 from convert.adapters.solidworks.Archive.Strings.EncodeString import EncodeString
 from convert.adapters.solidworks.Archive.Strings.ReadString import ReadString
 from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
 from convert.adapters.solidworks.Archive.Tags.EncodeTag import EncodeTag
 from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
+from MapBridge import MapTable, class_value, legacy_entry, schema_value, typed_snapshot
 
 NULL_TAG = 0x0000
 NEW_CLASS = 0xFFFF
@@ -27,16 +43,18 @@ class ArchiveError(Exception):
     pass
 
 
-class Obj:
-    __slots__ = ("cls", "f", "schema", "pos", "end", "index")
+class Obj(ArchiveNode):
+    __slots__ = ()
 
     def __init__(self, cls, f=None, schema=1):
-        self.cls = cls
-        self.f = {} if f is None else f
-        self.schema = schema
-        self.pos = None
-        self.end = None
-        self.index = None
+        super().__init__(class_value(cls, schema), {} if f is None else f)
+
+    cls = property(lambda self: self.ClassValue.NameValue, lambda self, value: setattr(self, "ClassValue", class_value(value, self.schema)))
+    schema = property(lambda self: schema_value(self.ClassValue))
+    f = property(lambda self: self.FieldsValue, lambda self, value: setattr(self, "FieldsValue", value))
+    pos = property(lambda self: self.StartOffset, lambda self, value: setattr(self, "StartOffset", value))
+    end = property(lambda self: self.EndOffset, lambda self, value: setattr(self, "EndOffset", value))
+    index = property(lambda self: self.IndexValue, lambda self, value: setattr(self, "IndexValue", value))
 
     def __getitem__(self, k):
         return self.f[k]
@@ -62,31 +80,73 @@ class ExtRef:
 
 
 class ArchiveMap:
-    __slots__ = ("count", "table")
+    __slots__ = ("state",)
 
-    def __init__(self, count, table):
-        if count < 1 or any(index < 1 or index >= count for index in table):
-            raise ArchiveError("invalid archive map snapshot")
-        self.count = count
-        self.table = dict(table)
+    def __init__(self, count=None, table=None, *, snapshot=None):
+        if snapshot is not None:
+            if count is not None or table is not None or type(snapshot) is not MapSnapshot:
+                raise ArchiveError("invalid archive map snapshot arguments")
+            self.state = snapshot
+        else:
+            self.state = typed_snapshot(count, table)
+
+    count = property(lambda self: self.state.CounterValue)
+    table = property(lambda self: {entry.IndexValue: legacy_entry(entry.EntryValue) for entry in self.state.EntriesValue})
 
 
-class Load:
+class ArchiveState:
+    def setup_maps(self, base, seed):
+        self._maps = ArchiveMaps(base, None if seed is None else seed.state)
+
+    @property
+    def count(self):
+        return self._maps.CounterValue
+
+    @count.setter
+    def count(self, value):
+        snapshot = MapSnapshot(value, tuple(self._maps.EntryMap.values()))
+        if value < self._maps.BaseValue:
+            raise ArchiveError("archive counter cannot precede its inherited prefix")
+        self._maps.CounterValue = snapshot.CounterValue
+
+    @property
+    def base(self):
+        return self._maps.BaseValue
+
+    @base.setter
+    def base(self, value):
+        if type(value) is not int or not 1 <= value <= self.count:
+            raise ArchiveError("archive base is outside its current map")
+        self._maps.BaseValue = value
+
+    @property
+    def table(self):
+        return MapTable(self._maps)
+
+    @table.setter
+    def table(self, value):
+        base = self.base
+        self._maps = ArchiveMaps(self.count, typed_snapshot(self.count, value))
+        self._maps.BaseValue = base
+
+    def map_state(self):
+        return ArchiveMap(snapshot=self._maps.Snapshot())
+
+    def bind_class(self, index, name):
+        BindClassMut(self._maps, ExternalClass(name, index))
+
+
+class Load(ArchiveState):
     def __init__(self, data, base=1, registry=None, version=None, ctx=None, *, seed=None):
         if seed is not None and base != seed.count:
             raise ArchiveError("archive map seed does not match the stream base")
         self.b = bytes(data)
         self.p = 0
-        self.count = base
-        self.base = base
-        self.table = {} if seed is None else dict(seed.table)
+        self.setup_maps(base, seed)
         self.registry = registry
         self.version = version
         self.ctx = ctx or {}
         self.trace = []
-
-    def map_state(self):
-        return ArchiveMap(self.count, self.table)
 
     def left(self):
         return len(self.b) - self.p
@@ -123,98 +183,72 @@ class Load:
         self.p = position
         return value.TextValue if value.IsUnicode else ("A", value.TextValue)
 
-    def read_class(self):
+    def read_tag(self):
         try:
             tag, position = ReadTag(self.b, self.p)
         except (TypeError, ValueError) as error:
             raise ArchiveError(f"invalid archive tag at {self.p}: {error}") from error
         self.p = position
+        return tag
+
+    def read_descriptor(self):
+        schema = self.prim("u16")
+        length = self.prim("u16")
+        return RuntimeClass(self.raw(length).decode("latin-1"), schema)
+
+    def object_reader(self):
+        return ObjectRead(
+            self._maps, self.read_tag, self.read_descriptor,
+            lambda node: self.registry.load(self, node),
+            lambda descriptor: Obj(descriptor.NameValue, schema=schema_value(descriptor)),
+            lambda: self.p,
+        )
+
+    def read_class(self):
+        tag = self.read_tag()
         if tag.KindValue == "Null":
             return ("null", None)
         if tag.KindValue == "NewClass":
-            schema = self.prim("u16")
-            n = self.prim("u16")
-            name = self.raw(n).decode("latin-1")
-            idx = self.count
-            self.table[idx] = ("class", name, schema)
-            self.count += 1
-            return ("classdef", (name, schema))
+            descriptor = ReadTypeMut(self.object_reader(), tag)
+            return ("classdef", (descriptor.NameValue, schema_value(descriptor)))
         return ("classref" if tag.KindValue == "ClassRef" else "objref", tag.IndexValue)
 
     def cls(self):
-        pos = self.p
-        kind, v = self.read_class()
-        if kind == "null":
-            return None
-        if kind == "classdef":
-            return v
-        if kind == "classref":
-            ent = self.table.get(v)
-            if ent is None or ent[0] != "class":
-                raise ArchiveError(f"bad class ref {v} at {pos}")
-            return (ent[1], ent[2])
-        raise ArchiveError(f"expected class tag at {pos}")
+        try:
+            descriptor = ReadClassMut(self.object_reader())
+            return None if descriptor is None else (descriptor.NameValue, schema_value(descriptor))
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive class at {self.p}: {error}") from error
 
     def obj(self, expect=None):
-        pos = self.p
-        kind, v = self.read_class()
-        if kind == "null":
-            return None
-        if kind == "objref":
-            ent = self.table.get(v)
-            if ent is None and v < self.base:
-                return ExtRef(v)
-            if ent is None or ent[0] != "obj":
-                raise ArchiveError(f"bad object ref {v} at {pos}")
-            return ent[1]
-        if kind == "classdef":
-            name, schema = v
-        else:
-            ent = self.table.get(v)
-            if ent is None or ent[0] != "class":
-                raise ArchiveError(f"bad class ref {v} at {pos}")
-            name, schema = ent[1], ent[2]
-        o = Obj(name, schema=schema)
-        o.pos = pos
-        o.index = self.count
-        self.table[self.count] = ("obj", o)
-        self.count += 1
-        self.registry.load(self, o)
-        o.end = self.p
-        return o
+        try:
+            value = ReadObjectMut(self.object_reader())
+            return ExtRef(value.IndexValue) if type(value) is ExternalRef else value
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive object at {self.p}: {error}") from error
 
 
-class Store:
+class Store(ArchiveState):
     def __init__(self, base=1, registry=None, version=None, ctx=None, *, seed=None):
         if seed is not None and base != seed.count:
             raise ArchiveError("archive map seed does not match the stream base")
         self.out = bytearray()
-        self.count = base
-        self.base = base
-        self.classes = {}
-        self.objects = {}
-        self.nodes = {}
-        if seed is not None:
-            for index, entry in seed.table.items():
-                if entry[0] == "class":
-                    self.classes[(entry[1], entry[2])] = index
-                elif entry[0] == "obj":
-                    node = entry[1]
-                    self.objects[id(node)] = index
-                    self.nodes[id(node)] = node
-                else:
-                    raise ArchiveError(f"unknown archive map entry {entry[0]!r}")
+        self.setup_maps(base, seed)
         self.registry = registry
         self.version = version
         self.ctx = ctx or {}
 
-    def map_state(self):
-        table = {index: ("class", name, schema) for (name, schema), index in self.classes.items()}
-        for key, index in self.objects.items():
-            if index in table:
-                raise ArchiveError(f"duplicate archive map index {index}")
-            table[index] = ("obj", self.nodes[key])
-        return ArchiveMap(self.count, table)
+    @property
+    def classes(self):
+        return {(descriptor.NameValue, schema_value(descriptor)): index for descriptor, index in self._maps.ClassLookup.items()}
+
+    @property
+    def objects(self):
+        return self._maps.ObjectLookup
+
+    @property
+    def nodes(self):
+        return {id(entry.EntryValue): entry.EntryValue for entry in self._maps.EntryMap.values() if isinstance(entry.EntryValue, ArchiveNode)}
 
     def prim(self, kind, v):
         self.out += struct.pack(PRIMS[kind], v)
@@ -246,35 +280,26 @@ class Store:
         except (TypeError, ValueError) as error:
             raise ArchiveError(f"invalid archive reference tag: {error}") from error
 
-    def cls(self, c):
-        if c is None:
-            self.out.extend(EncodeTag(ArchiveTag("Null", None)))
-            return
-        name, schema = c
-        if (name, schema) in self.classes:
-            self.tag(self.classes[(name, schema)], True)
-            return
-        self.out.extend(EncodeTag(ArchiveTag("NewClass", None)))
-        self.prim("u16", schema)
-        raw = name.encode("latin-1")
+    def write_tag(self, tag):
+        self.out.extend(EncodeTag(tag))
+
+    def write_descriptor(self, descriptor):
+        self.prim("u16", descriptor.SchemaValue)
+        raw = descriptor.NameValue.encode("latin-1")
         self.prim("u16", len(raw))
         self.raw(raw)
-        self.classes[(name, schema)] = self.count
-        self.count += 1
+
+    def object_writer(self):
+        return ObjectStore(self._maps, self.write_tag, self.write_descriptor, lambda node: self.registry.store(self, node))
+
+    def cls(self, c):
+        try:
+            WriteClassMut(self.object_writer(), None if c is None else class_value(*c))
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive class: {error}") from error
 
     def obj(self, o):
-        if o is None:
-            self.cls(None)
-            return
-        if isinstance(o, ExtRef):
-            self.tag(o.index, False)
-            return
-        key = id(o)
-        if key in self.objects:
-            self.tag(self.objects[key], False)
-            return
-        self.cls((o.cls, o.schema))
-        self.objects[key] = self.count
-        self.nodes[key] = o
-        self.count += 1
-        self.registry.store(self, o)
+        try:
+            WriteObjectMut(self.object_writer(), ExternalRef(o.index) if isinstance(o, ExtRef) else o)
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive object: {error}") from error

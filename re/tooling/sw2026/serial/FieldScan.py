@@ -292,6 +292,7 @@ def inventory_main():
         } for path in [
             HERE / "FieldScan.py", HERE / "Core.py", HERE / "Schema.py", HERE / "Classes.py",
             HERE / "Streams.py", HERE / "RoundTrip.py", HERE / "Dsl.py", HERE / "AnnotationWire.py",
+            HERE / "MapBridge.py",
             *sorted((HERE / "defs").glob("*.py")),
             ROOT / "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
@@ -302,6 +303,7 @@ def inventory_main():
             ROOT / "src/convert/adapters/solidworks/Archive/Tags/ArchiveTag.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Tags/EncodeTag.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Tags/ReadTag.py",
+            *[path for folder in ("Maps", "Objects") for path in sorted((ROOT / "src/convert/adapters/solidworks/Archive" / folder).glob("*.py"))],
         ]],
         "passed": bool(records) and all(item["passed"] for item in records),
     }

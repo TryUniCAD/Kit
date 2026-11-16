@@ -49,6 +49,7 @@ class Direct(Op):
 
     def store(self, ar, scope, o):
         ar.count += ar.ctx["direct"]
+        ar.base = ar.count
 
 
 class Section(Op):

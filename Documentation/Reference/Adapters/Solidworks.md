@@ -100,6 +100,12 @@ They preserve source encoding explicitly during reconstruction and reject repeat
 The [2026 string record](../../../re/solidworks/records/CStringArchive2026.md) distinguishes ordinary framing from excluded DB and ANSI semantic behavior.
 The research archive uses this production layer directly.
 
+The [shared object and map model](../../Changes/Solidworks/Model/SolidworksArchiveObjectModel.md)
+tracks typed descriptors, node identities, recursive ownership, and inherited map snapshots.
+The research archive delegates actual class/object operations to these production components.
+Its compatibility bridge preserves lazy field providers and explicit unknown-schema prefix bindings.
+No feature fields or native construction defaults come from this infrastructure.
+
 The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
 extend the research instruments without establishing writer support.

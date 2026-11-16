@@ -39,13 +39,13 @@ class XO(Op):
             name = known or EXT_CONCRETE.get(self.expect, self.expect)
             if name is None:
                 raise ArchiveError(f"external class {idx} with no static type at {ar.p}")
-            ar.table[idx] = ("class", name, ("ext", idx))
+            ar.bind_class(idx, name)
             ar.ctx.setdefault("ext_seen", {})[idx] = name
         return ar.obj()
 
     def write(self, ar, v):
         if isinstance(v, Obj) and isinstance(v.schema, tuple) and v.schema[0] == "ext":
-            ar.classes.setdefault((v.cls, v.schema), v.schema[1])
+            ar.bind_class(v.schema[1], v.cls)
         ar.obj(v)
 
     def load(self, ar, scope, o):
