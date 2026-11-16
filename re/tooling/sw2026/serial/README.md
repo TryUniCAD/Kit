@@ -25,6 +25,14 @@ records canonical-width limits and the normalization of escaped object index zer
 Field inventories additionally fingerprint `ArchiveTag.py`, `ReadTag.py`, and `EncodeTag.py`.
 Remote byte-identity and retained-graph checks of this changed implementation remain pending.
 
+CString methods now call the production `Archive/Strings/` layer.
+`Load.string` converts its typed result to the existing Unicode text or tagged ANSI text pair.
+`Store.string` selects explicit source-frame reconstruction and validates that ANSI pair.
+The [string promotion](../../../../Documentation/Changes/Solidworks/Model/SolidworksArchiveStrings.md)
+records its 2026 marker correction, ordinary-mode limits, and canonical encoding.
+Field inventories also fingerprint `CStringValue.py`, `ReadString.py`, and `EncodeString.py`.
+The resulting 58-source implementation inventory and actual archive processes require fresh remote verification.
+
 ## Run
 
 ```

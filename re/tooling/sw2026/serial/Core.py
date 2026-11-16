@@ -4,6 +4,9 @@ import struct
 
 from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
 from convert.adapters.solidworks.Archive.Counts.ReadCount import ReadCount
+from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
+from convert.adapters.solidworks.Archive.Strings.EncodeString import EncodeString
+from convert.adapters.solidworks.Archive.Strings.ReadString import ReadString
 from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
 from convert.adapters.solidworks.Archive.Tags.EncodeTag import EncodeTag
 from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
@@ -113,24 +116,12 @@ class Load:
         return value
 
     def string(self):
-        n = self.prim("u8")
-        unicode = False
-        if n == 0xFF:
-            w = self.prim("u16")
-            if w == 0xFFFE:
-                unicode = True
-                n = self.prim("u8")
-                if n == 0xFF:
-                    n = self.prim("u16")
-                    if n == 0xFFFF:
-                        n = self.prim("u32")
-            elif w == 0xFFFF:
-                n = self.prim("u32")
-            else:
-                n = w
-        if unicode:
-            return self.raw(2 * n).decode("utf-16-le", "surrogatepass")
-        return ("A", self.raw(n).decode("latin-1"))
+        try:
+            value, position = ReadString(self.b, self.p)
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive string at {self.p}: {error}") from error
+        self.p = position
+        return value.TextValue if value.IsUnicode else ("A", value.TextValue)
 
     def read_class(self):
         try:
@@ -238,34 +229,16 @@ class Store:
             raise ArchiveError(f"invalid archive count: {error}") from error
 
     def string(self, s):
-        if isinstance(s, tuple):
-            data = s[1].encode("latin-1")
-            n = len(data)
-            if n < 0xFF:
-                self.prim("u8", n)
-            elif n < 0xFFFE:
-                self.prim("u8", 0xFF)
-                self.prim("u16", n)
+        try:
+            if type(s) is tuple and len(s) == 2 and s[0] == "A":
+                value = CStringValue(s[1], False)
+            elif type(s) is str:
+                value = CStringValue(s, True)
             else:
-                self.prim("u8", 0xFF)
-                self.prim("u16", 0xFFFF)
-                self.prim("u32", n)
-            self.raw(data)
-            return
-        data = s.encode("utf-16-le", "surrogatepass")
-        n = len(data) // 2
-        self.prim("u8", 0xFF)
-        self.prim("u16", 0xFFFE)
-        if n < 0xFF:
-            self.prim("u8", n)
-        elif n < 0xFFFE:
-            self.prim("u8", 0xFF)
-            self.prim("u16", n)
-        else:
-            self.prim("u8", 0xFF)
-            self.prim("u16", 0xFFFF)
-            self.prim("u32", n)
-        self.raw(data)
+                raise TypeError("archive strings require Unicode text or an ANSI text pair")
+            self.out.extend(EncodeString(value, IsSourceFrame=True))
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive string: {error}") from error
 
     def tag(self, idx, cls):
         try:

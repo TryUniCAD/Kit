@@ -1,0 +1,533 @@
+{
+  "schema": "kit.sw2026.cstring-static-evidence.v1",
+  "scope": "Static original-file analysis only; no native execution, CAD file inspection or application acceptance",
+  "modules": [
+    {
+      "file": "swccu.dll",
+      "bytes": 252504,
+      "base": "0x31a30000",
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c"
+    },
+    {
+      "file": "sldmfcu.dll",
+      "bytes": 8274520,
+      "base": "0x3c720000",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    }
+  ],
+  "functions": [
+    {
+      "module": "swccu.dll",
+      "role": "wide CString reader",
+      "entry": "0x31a34100",
+      "end_exclusive": "0x31a34258",
+      "bytes": 344,
+      "sha256": "82d5e52679cde6f04a4d3bb18c6910aad3982a2aa991025aeed10243c0337fac",
+      "pe_runtime_function": {
+        "begin_rva": "0x4100",
+        "end_rva": "0x4258",
+        "unwind_rva": "0x24e80",
+        "version": 1,
+        "flags": 2,
+        "chain_info": false
+      },
+      "llvm_extent_disassembly_sha256": "b40676c6fd0d969c130cac2edec7d7416da09118eaef163eb26fe7f57bc1a626",
+      "llvm_stderr_bytes": 0,
+      "native_listing_published": false
+    },
+    {
+      "module": "swccu.dll",
+      "role": "wide CString writer",
+      "entry": "0x31a34590",
+      "end_exclusive": "0x31a346e8",
+      "bytes": 344,
+      "sha256": "cb20f3695053bce787b0d1e40e89a9074913d8152acb6a4104e5a15f4a23d8d1",
+      "pe_runtime_function": {
+        "begin_rva": "0x4590",
+        "end_rva": "0x46e8",
+        "unwind_rva": "0x24e3c",
+        "version": 1,
+        "flags": 2,
+        "chain_info": false
+      },
+      "llvm_extent_disassembly_sha256": "222a0b4835d1b9668e2f23dfa075707a458dfd2ae3b0231194a1fa528a8bccfe",
+      "llvm_stderr_bytes": 0,
+      "native_listing_published": false
+    },
+    {
+      "module": "swccu.dll",
+      "role": "shared string length reader",
+      "entry": "0x31a37e00",
+      "end_exclusive": "0x31a37e64",
+      "bytes": 100,
+      "sha256": "64088f680305b31935b117f780b3aa2db5eafc91161ce8c5a0745aead1b844a5",
+      "pe_runtime_function": {
+        "begin_rva": "0x7e00",
+        "end_rva": "0x7e64",
+        "unwind_rva": "0x25120",
+        "version": 1,
+        "flags": 0,
+        "chain_info": false
+      },
+      "llvm_extent_disassembly_sha256": "5dcb2e133df3cb7b6b8487047e73a90a3fc93cb4134f9d186dbf60cc39cf2dc1",
+      "llvm_stderr_bytes": 0,
+      "native_listing_published": false
+    },
+    {
+      "module": "swccu.dll",
+      "role": "unsigned byte reader",
+      "entry": "0x31a34270",
+      "end_exclusive": "0x31a342cd",
+      "bytes": 93,
+      "sha256": "e30b2af43e1fc68e7d3c480a748862b6f572271d86dee706b658171b9ce47e0d",
+      "pe_runtime_function": {
+        "begin_rva": "0x4270",
+        "end_rva": "0x42cd",
+        "unwind_rva": "0x2515c",
+        "version": 1,
+        "flags": 0,
+        "chain_info": false
+      },
+      "llvm_extent_disassembly_sha256": "c65fcfea2707c890b8d8f711e77c4ba1ee336b1c46cc8afdf8615ec319fcf7bd",
+      "llvm_stderr_bytes": 0,
+      "native_listing_published": false
+    },
+    {
+      "module": "swccu.dll",
+      "role": "unsigned word reader",
+      "entry": "0x31a342e0",
+      "end_exclusive": "0x31a34340",
+      "bytes": 96,
+      "sha256": "55e86b83dbb8bdaff9cb98179060fcf76032fd58177fac7c3f7d090cb5e478dd",
+      "pe_runtime_function": {
+        "begin_rva": "0x42e0",
+        "end_rva": "0x4340",
+        "unwind_rva": "0x2515c",
+        "version": 1,
+        "flags": 0,
+        "chain_info": false
+      },
+      "llvm_extent_disassembly_sha256": "22eaa63664b457ff7590727366f67cacb56d9d0abea866fb891c17f1f25cba3f",
+      "llvm_stderr_bytes": 0,
+      "native_listing_published": false
+    },
+    {
+      "module": "swccu.dll",
+      "role": "unsigned double word reader",
+      "entry": "0x31a343b0",
+      "end_exclusive": "0x31a3440e",
+      "bytes": 94,
+      "sha256": "d5329acf4b0e0d21145551775e655af6a85b63097addc5c22b4e327b59590c80",
+      "pe_runtime_function": {
+        "begin_rva": "0x43b0",
+        "end_rva": "0x440e",
+        "unwind_rva": "0x2515c",
+        "version": 1,
+        "flags": 0,
+        "chain_info": false
+      },
+      "llvm_extent_disassembly_sha256": "12ebfdd9f259a0ff0a331efdd1523eccc0de761a69c4b1369c52b5aaa61f6ce1",
+      "llvm_stderr_bytes": 0,
+      "native_listing_published": false
+    },
+    {
+      "module": "swccu.dll",
+      "role": "unsigned byte writer",
+      "entry": "0x31a34760",
+      "end_exclusive": "0x31a347b0",
+      "bytes": 80,
+      "sha256": "3a117fa9e1d6c5cd7f057113e90d0a578e523c1f739dde6da44f5931e9631016",
+      "pe_runtime_function": {
+        "begin_rva": "0x4760",
+        "end_rva": "0x47b0",
+        "unwind_rva": "0x2515c",
+        "version": 1,
+        "flags": 0,
+        "chain_info": false
+      },
+      "llvm_extent_disassembly_sha256": "dc70a8b2db5c0b7efc7b52c06b8948751dfc84fbb6f5bb545990f9dff69282a4",
+      "llvm_stderr_bytes": 0,
+      "native_listing_published": false
+    },
+    {
+      "module": "swccu.dll",
+      "role": "unsigned word writer",
+      "entry": "0x31a347c0",
+      "end_exclusive": "0x31a34812",
+      "bytes": 82,
+      "sha256": "570ea1ae0fa7e8a3c8fdd25aefd70abb43d5bb487735845dcaa9da6d93a54163",
+      "pe_runtime_function": {
+        "begin_rva": "0x47c0",
+        "end_rva": "0x4812",
+        "unwind_rva": "0x2515c",
+        "version": 1,
+        "flags": 0,
+        "chain_info": false
+      },
+      "llvm_extent_disassembly_sha256": "9eb745779cd6689451ab4764b954f9b3674c68377a5b5fb07825d9e0fdd8a391",
+      "llvm_stderr_bytes": 0,
+      "native_listing_published": false
+    },
+    {
+      "module": "swccu.dll",
+      "role": "unsigned double word writer",
+      "entry": "0x31a34880",
+      "end_exclusive": "0x31a348d0",
+      "bytes": 80,
+      "sha256": "ed5d3948dab0089bd0bac4b86b1b83a1d25ed1e29200a90c688d92a2a705e89c",
+      "pe_runtime_function": {
+        "begin_rva": "0x4880",
+        "end_rva": "0x48d0",
+        "unwind_rva": "0x2515c",
+        "version": 1,
+        "flags": 0,
+        "chain_info": false
+      },
+      "llvm_extent_disassembly_sha256": "3287a9b05540e5057feb312105084b30d8243b9bea47546608cb678f56a05793",
+      "llvm_stderr_bytes": 0,
+      "native_listing_published": false
+    }
+  ],
+  "direct_calls": [
+    {
+      "site": "0x31a3411c",
+      "target": "0x31a37e00",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "73df25ca0d10d4105918aa0ebef67c1d72028f028b0772e15e6bedd9f9a6f24d"
+    },
+    {
+      "site": "0x31a34136",
+      "target": "0x31a37e00",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "f4b870ea77a99627825f7089972e3615dd6fcdb1620b366f9cf4127c56d418cb"
+    },
+    {
+      "site": "0x31a345b8",
+      "target": "0x31a34760",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "dab38863547a7cf61de9e2bbdf88ce25f58fdb82ef247a28cff5da2ec798c1a0"
+    },
+    {
+      "site": "0x31a345c5",
+      "target": "0x31a347c0",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "11dcfa05408a06975d3a0193ab5e2639303808eee3c3b0c3fa135bd16a390b5b"
+    },
+    {
+      "site": "0x31a34636",
+      "target": "0x31a34760",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "3bf6080122168b0646c4138e2fdfe5df59fb28a00a8809e2010fa046ca2057ec"
+    },
+    {
+      "site": "0x31a34656",
+      "target": "0x31a34760",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "6b7fd2b27403f318e45756c473e5d9fb30caedf2b451f668986cd4822a02160d"
+    },
+    {
+      "site": "0x31a34674",
+      "target": "0x31a347c0",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "9ef96a941dabe5fa0471aaf64a3d80bffaeb1052c1d9223c517eae398df71e1d"
+    },
+    {
+      "site": "0x31a3467b",
+      "target": "0x31a34760",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "e3306e33d51785c6bfb5db8dd938c0c1ddeb1ed326abae143582cad207f79a11"
+    },
+    {
+      "site": "0x31a34688",
+      "target": "0x31a347c0",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "17f45e01d34d78422cb8700c42e1b1ee19147cb1ff67e000a16e162491638c32"
+    },
+    {
+      "site": "0x31a346a5",
+      "target": "0x31a34880",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "fcdd3ebef9411c10a36fa57b5a106413dc57ff74e48d73af33f98290550b3832"
+    },
+    {
+      "site": "0x31a37e0e",
+      "target": "0x31a34270",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "f4017ba8e579441420c0ad4159a389510574e941fde25d416b750b55ce747961"
+    },
+    {
+      "site": "0x31a37e24",
+      "target": "0x31a342e0",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "14ae4db1dc7c2943602cb33f9d56290feb3150b342616918aa2001c6cbecbd3e"
+    },
+    {
+      "site": "0x31a37e55",
+      "target": "0x31a343b0",
+      "source": "original PE rel32 call bytes",
+      "instruction_sha256": "856dd48bea62f3bf4264e5f8dcbba23b66969942530082accfa1e3f0df51f86c"
+    }
+  ],
+  "imports": [
+    {
+      "module": "sldmfcu.dll",
+      "iat": "0x3cb1d468",
+      "import_library": "swccu.dll",
+      "symbol": "??5@YAAEAVsu_CArchive@@AEAV0@AEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    {
+      "module": "sldmfcu.dll",
+      "iat": "0x3cb1d470",
+      "import_library": "swccu.dll",
+      "symbol": "??6@YAAEAVsu_CArchive@@AEAV0@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    }
+  ],
+  "tools": {
+    "pe_helper_sha256": "4dbf679fabf3e6c999934b543fe61577c8c31015cf29b49ab2048b1e484286a8",
+    "llvm_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c",
+    "llvm_version": "Apple LLVM version 21.0.0"
+  },
+  "disassembler_limit": "Hopper lacks complete function body ranges and incorrectly includes some DB tail targets and a long-length callee; PE exception extents and rel32 targets plus LLVM instruction ranges are authoritative here",
+  "framework_import_slots": [
+    {
+      "role": "buffer length setter",
+      "site": "0x31a3414e",
+      "iat": "0x31a50370",
+      "import_library": "mfc140u.dll",
+      "ordinal": 4954,
+      "symbol": null
+    },
+    {
+      "role": "wide text constructor",
+      "site": "0x31a341cd",
+      "iat": "0x31a50350",
+      "import_library": "mfc140u.dll",
+      "ordinal": 286,
+      "symbol": null
+    },
+    {
+      "role": "narrow text constructor",
+      "site": "0x31a341ee",
+      "iat": "0x31a50348",
+      "import_library": "mfc140u.dll",
+      "ordinal": 290,
+      "symbol": null
+    }
+  ],
+  "rea_evidence_references": [
+    {
+      "evidence_id": "ev_cb632b18d44ce3295c6bcd7d4de8661cf1c72aa4cb52d14eac6304e855994fcb",
+      "operation": "search_procedures",
+      "parameters": {
+        "pattern": "CString",
+        "mode": "literal",
+        "case_sensitive": false
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis.",
+        "Regex mode uses ECMAScript Unicode semantics in a cancellable worker with a 5-second matching deadline; matching failure leaves the service available. Literal mode retains native casefold semantics."
+      ]
+    },
+    {
+      "evidence_id": "ev_efd11e3b9dc50d4c14d96f4984c3bf6a6269c1b9beda2be9df32eca8e59489ee",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x31a34100"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_a0fc6ab1ddc1e3b858ac53c7bd9213e5609160fe55a53e7a216b778027b135ff",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x31a34590"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_009c2916dd17b7f492ea0d70edf95e0699f8bd8fd5ac98a01af22d0d34434cd0",
+      "operation": "procedure_info",
+      "parameters": {
+        "procedure": "0x31a34100"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_8cc9e0035a2c83c5d46bf781538b96a738cb8b22dfaf568e0f0d88a85434aed1",
+      "operation": "procedure_info",
+      "parameters": {
+        "procedure": "0x31a34590"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_ccb9f417f4b6747c22770223041b2067bf00d31fd9aba01d68ee6d8d3f73666b",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x31a37e00"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_91542d757baaf9f54ae76d115b7e3fa50da2b5818828d32e9736569d57485054",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x31a34100"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_45ca80d051c7ebcfa277f9afc2238d5ab5b4dae7ae52e49f37c707ab24074a30",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x31a34590"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_a9fe79264c01ef6c5f683820ac0a9ac2d062d48bc9bc6e409af908769869262c",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x31a37e00"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_4f73ac78b3498757474d70119ffa4c87fada585f7a220516e29c5bd225da0f96",
+      "operation": "procedure_callees",
+      "parameters": {
+        "procedure": "0x31a37e00"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_7bc8fd52c57062c3f937f2396806d7e148fa498b8a17936eda05ae4fd915195a",
+      "operation": "procedure_callees",
+      "parameters": {
+        "procedure": "0x31a34590"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_82db5b0b3dd2e61685d6a430a896930edd798e5185fc29eed95e3077e61b4e26",
+      "operation": "search_procedures",
+      "parameters": {
+        "pattern": "??6su_CArchive",
+        "mode": "literal",
+        "case_sensitive": true
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis.",
+        "Regex mode uses ECMAScript Unicode semantics in a cancellable worker with a 5-second matching deadline; matching failure leaves the service available. Literal mode retains native casefold semantics."
+      ]
+    },
+    {
+      "evidence_id": "ev_e0267eaf672a95d06eb4bee79cb1e7f5a38e54e96c64d066c280ee2a4131bad2",
+      "operation": "search_procedures",
+      "parameters": {
+        "pattern": "??5su_CArchive",
+        "mode": "literal",
+        "case_sensitive": true
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis.",
+        "Regex mode uses ECMAScript Unicode semantics in a cancellable worker with a 5-second matching deadline; matching failure leaves the service available. Literal mode retains native casefold semantics."
+      ]
+    },
+    {
+      "evidence_id": "ev_c3f91e1f068c1dec607c798ebf7d40a9acef6bf03e01f367f2346267f6630d7b",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x31a34270"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_dfef8ffdb630e379778ce95b11878adcbf0eafd815c92d945a1b9ef6fb1a014b",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x31a342e0"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_197ecac28a0f14448be7f58bff7beedcd3e97ae85d9f0833d336768e1a7c3cc3",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x31a343b0"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_a1a21fe0dada1aa3af4ab63ca99787584472b1d29e57fe3d9d249ca1ac03d815",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x31a34760"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_ac7c1b31162cceece995d40c89a01591ebcc65fd3fae1a607c28d57e328d8738",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x31a347c0"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    },
+    {
+      "evidence_id": "ev_3e13f51e4c346b797898b3722a51a443e29e8644459dc296d04a20296624f50b",
+      "operation": "procedure_assembly",
+      "parameters": {
+        "procedure": "0x31a37be0"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    }
+  ],
+  "schema_or_codec_or_target_executed": false,
+  "vm_cad_or_licensing_access": false,
+  "heldout_native_payloads_read": 0,
+  "vendor_listing_or_binary_in_publication": false,
+  "source_ansi_contract": "Explicit source-frame reconstruction only; no native narrow semantic or canonical-save claim",
+  "supported_length_contract": {
+    "minimum": 0,
+    "maximum": 2147483647,
+    "scope": "bounded contract from observed signed CString save representation and provider-identified external setter signature; external framework failure behavior uninspected"
+  },
+  "reserved_forms": {
+    "repeated_unicode_marker_rejected": true,
+    "u32_ffffffff_rejected_at_either_level": true,
+    "native_outer_sentinel_alias_excluded": true
+  }
+}

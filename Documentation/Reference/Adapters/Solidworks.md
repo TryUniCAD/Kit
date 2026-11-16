@@ -94,6 +94,12 @@ The research archive reads and writes its tags through this production layer.
 The [2026 grammar record](../../../re/solidworks/records/ArchiveTagGrammar2026.md) binds the encodings to complete native functions.
 Noncanonical input widths are not retained.
 
+The [typed string primitives](../../Changes/Solidworks/Model/SolidworksArchiveStrings.md)
+derive Unicode payloads and length headers from supplied text.
+They preserve source encoding explicitly during reconstruction and reject repeated Unicode markers.
+The [2026 string record](../../../re/solidworks/records/CStringArchive2026.md) distinguishes ordinary framing from excluded DB and ANSI semantic behavior.
+The research archive uses this production layer directly.
+
 The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
 extend the research instruments without establishing writer support.
