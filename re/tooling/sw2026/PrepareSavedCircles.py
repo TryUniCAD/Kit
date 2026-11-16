@@ -93,7 +93,7 @@ def prepare(api, selected, privacy):
             if stream.name.endswith(".xml"):
                 prepared, changes, spans = xml_redaction(stream.name, stream.data, privacy)
             else:
-                prepared, changes = binary_redaction(stream.name, stream.data, privacy)
+                prepared, changes = binary_redaction(stream.name, stream.data, privacy, additional_metadata_streams=("Contents/CMgr",))
                 spans = []
             require(len(prepared) == len(stream.data) and not privacy.scan(prepared, spans), f"unrecognized private context: {filename}/{stream.name}")
             covered = {index for change in changes for index in range(change["offset"], change["offset"] + change["bytes"])}

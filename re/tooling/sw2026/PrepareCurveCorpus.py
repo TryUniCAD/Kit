@@ -281,10 +281,10 @@ def replacement_record(kind, start, before, after, context):
     }
 
 
-def binary_redaction(name, data, privacy):
+def binary_redaction(name, data, privacy, *, additional_metadata_streams=()):
     output = bytearray(data)
     replacements = []
-    allowed = name in BINARY_METADATA or re.fullmatch(r"Contents/Config-\d+-ModelHeader", name) is not None
+    allowed = name in BINARY_METADATA or name in additional_metadata_streams or re.fullmatch(r"Contents/Config-\d+-ModelHeader", name) is not None
     cursor = 0
     while True:
         start = data.find(b"\xff\xfe\xff", cursor)
