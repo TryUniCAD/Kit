@@ -7,6 +7,8 @@ Use the Git commit to identify the exact revision.
 The package version alone does not identify every source change.
 
 Start with [getting started](GettingStarted.md).
+For terminal workflows, use [the command-line interface](Tasks/CommandLine.md).
+For deterministic decoding, use [the research CLI](Tasks/ResearchCommandLine.md).
 Read [the standards scope](Standards/Scope.md) for the language and conformance boundary.
 Public sources support this revision's standards mapping.
 Complete ASD-STE100 and ISO/IEC/IEEE 2651x conformance remains unverified.
@@ -48,6 +50,7 @@ Complete ASD-STE100 and ISO/IEC/IEEE 2651x conformance remains unverified.
 - [CATIA adapter](Reference/Adapters/Catia.md)
 - [Creo adapter](Reference/Adapters/Creo.md)
 - [JSON adapter and registry](Reference/Adapters/Json.md)
+- [Qualified Fusion adapter](Changes/Fusion/Adapter/FusionPublicAdapter.md)
 
 Adapter registration does not prove complete format coverage.
 Carrier preservation and source replay do not prove editable output in another format.
@@ -74,6 +77,8 @@ Use the result procedure before making a product acceptance claim.
 
 ## Maintenance
 
+- [Conversion completion roadmap](../Roadmap.md)
+- [Conversion backlog and PR ownership](Maintenance/ConversionBacklog.md)
 - [Information plan](Maintenance/InformationPlan.md)
 - [Documentation review](Maintenance/Review.md)
 - [Delivery and correction records](Maintenance/Delivery.md)
