@@ -13,7 +13,7 @@ from convert.adapters.solidworks.container.Format import (
     KEYWORDS_STREAM as KKeyStream,
 )
 from convert.adapters.solidworks.drawing.DefinitionDimensions import (
-    DimensionParameter,
+    DimensionParam,
     ParameterAt,
 )
 from convert.adapters.solidworks.drawing.DefinitionObjects import ObjectBlocks
@@ -203,12 +203,12 @@ def ReadValues(
     return Units, Styles
 
 
-def ReadDimensions(Archive: SldprtArchive) -> tuple[DimensionParameter, ...]:
+def ReadDimensions(Archive: SldprtArchive) -> tuple[DimensionParam, ...]:
     Definition = Archive.get(KDefinitionStream)
     if Definition is None:
         return ()
     Marker = b"\xff\xff\x01\x00\x12\x00moAngleParameter_c"
-    Parameters: list[DimensionParameter] = []
+    Parameters: list[DimensionParam] = []
     Offset = 0
     while True:
         Start = Definition.find(Marker, Offset)
@@ -221,6 +221,25 @@ def ReadDimensions(Archive: SldprtArchive) -> tuple[DimensionParameter, ...]:
         Parameters.append(Parameter)
         Offset = ValueStart + 76
     return tuple(Parameters)
+
+
+def SheetOptions(
+    Sheets: tuple[DrawingSheet, ...],
+    Information: bytes,
+    Archive: SldprtArchive,
+    IncludePositions: bool,
+    IncludeEdges: bool,
+    IncludeSheetEdges: bool,
+) -> tuple[DrawingSheet, ...]:
+    if IncludePositions or IncludeSheetEdges:
+        Sheets = PositionSheets(
+            Sheets, PropertyText(Information, KViewListProperty), Archive
+        )
+    if IncludeEdges or IncludeSheetEdges:
+        Sheets = EdgeSheets(Sheets, Archive)
+    if IncludeSheetEdges:
+        Sheets = OrientSheets(Sheets, Archive)
+    return Sheets
 
 
 def ReadDrawing(
@@ -252,19 +271,19 @@ def ReadDrawing(
     Sheets = ReadSheets(RootValue, SheetFormats(Information))
     if not Sheets:
         raise SldprtFormatError("drawing has no sheets")
-    if IncludePositions or IncludeSheetEdges:
-        Sheets = PositionSheets(
-            Sheets, PropertyText(Information, KViewListProperty), Archive
-        )
-    if IncludeEdges or IncludeSheetEdges:
-        Sheets = EdgeSheets(Sheets, Archive)
-    if IncludeSheetEdges:
-        Sheets = OrientSheets(Sheets, Archive)
+    Sheets = SheetOptions(
+        Sheets,
+        Information,
+        Archive,
+        IncludePositions,
+        IncludeEdges,
+        IncludeSheetEdges,
+    )
     Units: tuple[UnitTable, ...] | None = None
     Styles: tuple[LineStyle, ...] | None = None
     if IncludeValues:
         Units, Styles = ReadValues(Archive)
-    Parameters: tuple[DimensionParameter, ...] | None = None
+    Parameters: tuple[DimensionParam, ...] | None = None
     if IncludeDimensions:
         Parameters = ReadDimensions(Archive)
     return DrawingData(

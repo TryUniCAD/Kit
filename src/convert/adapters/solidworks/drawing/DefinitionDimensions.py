@@ -27,24 +27,24 @@ KParameterTail = 8
 
 # callers need the dimension name and its decoded fields as one value
 @dataclass(frozen=True, slots=True)
-class DimensionParameter:
+class DimensionParam:
     ClassRef: int
     NameValue: str
     Value: float
     FlagValue: int
     UnitValue: int
     TextValue: str
-    Gap: bytes
+    GapBytes: bytes
     Measured: float
     ZeroRun: bytes
     FlagByte: int
     Reserved: bytes
     Count: int
-    Tail: bytes
+    TailBytes: bytes
 
 
 # the parameter record is read as one fixed width value
-def ParameterAt(DataValue: bytes, Offset: int) -> tuple[DimensionParameter, int]:
+def ParameterAt(DataValue: bytes, Offset: int) -> tuple[DimensionParam, int]:
     Start = Offset
     (ClassRef,) = Struct.unpack_from("<H", DataValue, Offset)
     Offset += 2
@@ -56,7 +56,7 @@ def ParameterAt(DataValue: bytes, Offset: int) -> tuple[DimensionParameter, int]
     (UnitValue,) = Struct.unpack_from("<i", DataValue, Offset)
     Offset += 4
     TextValue, Offset = ReadSerialized(DataValue, Offset)
-    Gap = DataValue[Offset : Offset + KParameterGap]
+    GapBytes = DataValue[Offset : Offset + KParameterGap]
     Offset += KParameterGap
     (Measured,) = Struct.unpack_from("<d", DataValue, Offset)
     Offset += 8
@@ -68,32 +68,32 @@ def ParameterAt(DataValue: bytes, Offset: int) -> tuple[DimensionParameter, int]
     Offset += KParameterReserved
     (Count,) = Struct.unpack_from("<i", DataValue, Offset)
     Offset += 4
-    Tail = DataValue[Offset : Offset + KParameterTail]
+    TailBytes = DataValue[Offset : Offset + KParameterTail]
     Offset += KParameterTail
     if Offset - Start != KParameterWidth:
         raise SldprtFormatError("drawing dimension parameter width is invalid")
     return (
-        DimensionParameter(
+        DimensionParam(
             ClassRef,
             NameValue,
             Value,
             FlagValue,
             UnitValue,
             TextValue,
-            Gap,
+            GapBytes,
             Measured,
             ZeroRun,
             FlagByte,
             Reserved,
             Count,
-            Tail,
+            TailBytes,
         ),
         Offset,
     )
 
 
 # the writer needs the exact field order and gaps to stay valid
-def EncodeParameter(Parameter: DimensionParameter) -> bytes:
+def EncodeParameter(Parameter: DimensionParam) -> bytes:
     Output = bytearray()
     Output.extend(Struct.pack("<H", Parameter.ClassRef))
     Output.extend(Serialized(Parameter.NameValue))
@@ -101,11 +101,11 @@ def EncodeParameter(Parameter: DimensionParameter) -> bytes:
     Output.extend(Struct.pack("<i", Parameter.FlagValue))
     Output.extend(Struct.pack("<i", Parameter.UnitValue))
     Output.extend(Serialized(Parameter.TextValue))
-    Output.extend(Parameter.Gap)
+    Output.extend(Parameter.GapBytes)
     Output.extend(Struct.pack("<d", Parameter.Measured))
     Output.extend(Parameter.ZeroRun)
     Output.extend(bytes((Parameter.FlagByte,)))
     Output.extend(Parameter.Reserved)
     Output.extend(Struct.pack("<i", Parameter.Count))
-    Output.extend(Parameter.Tail)
+    Output.extend(Parameter.TailBytes)
     return bytes(Output)

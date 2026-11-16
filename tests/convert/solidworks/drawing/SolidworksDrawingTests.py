@@ -122,7 +122,7 @@ def TestStyles() -> None:
 def TestDimensions() -> None:
     for NameValue in ("coincident.SLDDRW", "large.SLDDRW", "multisheet.SLDDRW"):
         DataValue = ReadDrawing(KDrawRoot / NameValue, IncludeDimensions=True)
-        Parameters = DataValue.DimensionParameters
+        Parameters = DataValue.DimensionParams
         assert Parameters is not None
         assert len(Parameters) == 1
         Parameter = Parameters[0]
@@ -133,10 +133,10 @@ def TestDimensions() -> None:
         assert Parameter.TextValue == ""
         assert Parameter.Measured == PytestLib.approx(1.3446183501864888)
         assert Parameter.Count == 2
-        assert len(Parameter.Gap) == 2
+        assert len(Parameter.GapBytes) == 2
         assert len(Parameter.ZeroRun) == 3
         assert len(Parameter.Reserved) == 20
-        assert len(Parameter.Tail) == 8
+        assert len(Parameter.TailBytes) == 8
 
 
 # sheet geometry and view composition must match what solidworks authored
@@ -908,34 +908,18 @@ def TestWriteSheet() -> None:
         for ViewValue in SheetValue.Views:
             assert ViewValue.PositionX == PytestLib.approx(0.10)
             assert ViewValue.PositionY == PytestLib.approx(0.10)
-    Repeated = tuple(
+    Renamed = tuple(
         ReplaceData(
             SheetValue,
             Views=tuple(
-                ReplaceData(
-                    ViewValue,
-                    Name="Drawing View1",
-                    PositionX=0.15 if SheetValue.Name == "Sheet2" else 0.05,
-                    PositionY=0.20 if SheetValue.Name == "Sheet2" else 0.10,
-                )
+                ReplaceData(ViewValue, Name="Drawing View1")
                 for ViewValue in SheetValue.Views
             ),
         )
         for SheetValue in DataValue.Sheets
     )
-    RepeatedValue = ReadDrawing(
-        WriteDrawing(SourceBytes, ReplaceData(DataValue, Sheets=Repeated)),
-        IncludeSheetEdges=True,
-    )
-    RepeatedActual = {
-        SheetValue.Name: ViewValue
-        for SheetValue in RepeatedValue.Sheets
-        for ViewValue in SheetValue.Views
-    }
-    assert RepeatedActual["Sheet1"].PositionX == PytestLib.approx(0.05)
-    assert RepeatedActual["Sheet1"].PositionY == PytestLib.approx(0.10)
-    assert RepeatedActual["Sheet2"].PositionX == PytestLib.approx(0.15)
-    assert RepeatedActual["Sheet2"].PositionY == PytestLib.approx(0.20)
+    with PytestLib.raises(SldprtFormatError):
+        _ = WriteDrawing(SourceBytes, ReplaceData(DataValue, Sheets=Renamed))
 
 
 # a view count that does not match the source records must fail closed

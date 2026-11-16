@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from convert.adapters.solidworks.drawing.DefinitionDimensions import DimensionParameter
+from convert.adapters.solidworks.drawing.DefinitionDimensions import DimensionParam
 from convert.adapters.solidworks.drawing.DefinitionStyles import LineStyle
 from convert.adapters.solidworks.drawing.DefinitionUnits import UnitTable
 from interchange import Vector3
@@ -77,4 +77,4 @@ class DrawingData:
     SourcePath: str
     Units: tuple[UnitTable, ...] | None = None
     LineStyles: tuple[LineStyle, ...] | None = None
-    DimensionParameters: tuple[DimensionParameter, ...] | None = None
+    DimensionParams: tuple[DimensionParam, ...] | None = None
