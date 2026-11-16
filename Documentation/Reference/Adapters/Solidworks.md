@@ -276,6 +276,8 @@ passes the capture Boolean directly and preserves strict validation.
 The [corrected training repeat](../../Changes/Solidworks/Inspection/Sketches/SolidworksRadialTrainingRepeat.md)
 records two native authoring cases and fresh-process radius/diameter edits with forty-six matching numeric checks.
 These observations retain separate source, process, observer and control evidence; they provide no generated-output acceptance.
+The [public circle dispatch probe](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleApiDispatchProbe.md)
+adds an independently pinned observation of the actual forwarded COM call target; its new native run remains pending.
 Fresh training measurements remain pending.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.

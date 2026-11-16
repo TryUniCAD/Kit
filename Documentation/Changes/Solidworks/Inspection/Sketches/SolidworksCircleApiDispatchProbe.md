@@ -1,0 +1,13 @@
+# Public circle API dispatch observation
+
+The existing `radial-training` observer now records the actual selected receiver and function target for `ISketchManager.CreateCircleByRadius`. The exported application method is an interception wrapper: its complete native body forwards through the interface stored at wrapper `+0x50` and that interface's virtual slot `+0x130`. Its exported name alone does not identify the geometry construction helper.
+
+The new read-only callback is placed at the actual indirect call instruction, `sldappu.dll` preferred address `0x456e06da`, after the wrapper's interception callbacks. It captures `rcx` as receiver, `rdx` as selected function and `rbx` as wrapper. The recorded operands must match the wrapper field and virtual cell, and the selected target must belong to a loaded module. The callback invokes no native function, follows no target body and changes no model or process state beyond the existing interception mechanism.
+
+The [hook identity record](../../../../../re/solidworks/records/RadialTrainingHooks2026.json) binds the complete wrapper `[0x456e0600,0x456e0725)`, its original module hash, call instruction and complete-instruction relocation windows. Five-byte and fourteen-byte minimum patches end at `0x456e06e2` and `0x456e06ec`, respectively. The direct incoming-target search covers the complete owning function only. It does not prove whole-program interception safety or runtime relocator acceptance.
+
+Before activation, the controller now requires all twelve pinned mapped instruction windows instead of eleven. The existing module identity, owner, source-lock, before/after control, drop/error and cleanup gates remain active. Authoring qualification additionally requires this dispatch event in every training case. Reopen/edit does not require a public authoring call. A captured target remains explicitly unproved until its concrete implementation has independent native evidence.
+
+Usage remains the committed `Observe.py --profile radial-training` workflow with frozen sources and argument files, locked training specifications, an explicit action and the pinned executable/module hashes. No new production writer or native API dependency is introduced. Six held-out payloads remain excluded.
+
+Static Python AST, JavaScript syntax, original-PE boundaries and source review are the available verification. The changed observer's first controlled native run and remote CI remain pending publication. Old 36-hook training receipts remain bound to their original source; they do not establish the new callback's behavior. The [wrapper-boundary gotcha](../../../../Gotchas/Conversion/Solidworks/Tracing/PublicApiWrappersDoNotIdentifyNativeHelpers.md) explains the distinction.

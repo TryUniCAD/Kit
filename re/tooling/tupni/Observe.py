@@ -73,6 +73,7 @@ def training_qualification(record):
     required = {"radial-engine-leave", "radial-serialize-leave", "radial-raw-word-store", "sketch-whole-update-leave", "sketch-serialize-leave"}
     if action.get("phase") == "author":
         required.add("radial-constructor-leave")
+        required.add("circle-api-dispatch")
     for name, observed in counts.items():
         missing = sorted(required - observed.keys())
         if missing:
@@ -206,8 +207,8 @@ def main():
                 record["mapped_training_instructions_verified"] = False
                 record["full_mapped_function_bodies_verified"] = False
                 record["mapped_training_instruction_windows"] = []
-                if len(expected_windows) != 11 or len(observed_windows) != 11:
-                    raise RuntimeError("the exact eleven mapped training windows are required")
+                if len(expected_windows) != 12 or len(observed_windows) != 12:
+                    raise RuntimeError("the exact twelve mapped training windows are required")
                 for wanted, actual in zip(expected_windows, observed_windows):
                     data = bytes.fromhex(actual["bytes_hex"])
                     digest = hashlib.sha256(data).hexdigest()

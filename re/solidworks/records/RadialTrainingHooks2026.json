@@ -241,6 +241,22 @@
           "0x4c590557"
         ]
       ]
+    },
+    {
+      "module": "sldappu.dll",
+      "module_sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "role": "public ISketchManager circle-by-radius wrapper",
+      "start": "0x456e0600",
+      "end": "0x456e0725",
+      "bytes": 293,
+      "sha256": "aa7920b4816b74fc205041a8c12b17feece5dd7fe116f6134ee7d2c06e7a5a19",
+      "extent_kind": "complete AMD64 exception-directory ownership",
+      "fragments": [
+        [
+          "0x456e0600",
+          "0x456e0725"
+        ]
+      ]
     }
   ],
   "interior_hook_instructions": [
@@ -297,6 +313,15 @@
       "sha256": "28b887502c7b56ec11a1d0118ba84282605fc7d3a478f4a26fe96520a0b9e3ff",
       "role": "selected listener-list join",
       "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "sldappu.dll",
+      "module_sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "address": "0x456e06da",
+      "bytes": 2,
+      "sha256": "3b13dd103c9872398081e5c055fec5a762b83f1db6da42d9fdc5432a69eff25d",
+      "instruction": "call rdx; actual selected receiver rcx; wrapper rbx",
+      "provenance": "complete public wrapper instructions after interception callbacks"
     }
   ],
   "vtables": [
@@ -418,7 +443,7 @@
       ]
     }
   ],
-  "new_hook_count": 11,
+  "new_hook_count": 12,
   "acceptance": false,
   "new_hooks": [
     {
@@ -475,6 +500,11 @@
       "module": "sldmodu.dll",
       "address": "0x4c560e50",
       "listener_kind": "function entry/leave callbacks"
+    },
+    {
+      "module": "sldappu.dll",
+      "address": "0x456e06da",
+      "listener_kind": "interior instruction callback"
     }
   ],
   "mapped_hook_windows": [
@@ -789,6 +819,34 @@
       ],
       "interception_safety_proven": false,
       "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "sldappu.dll",
+      "address": "0x456e06da",
+      "rva": 3081946,
+      "bytes": 18,
+      "sha256": "93ac4109b6028105ed38c27a132896df3cbd4897e98954a538295e29ba886c3e",
+      "parent_start": "0x456e0600",
+      "parent_end": "0x456e0725",
+      "parent_sha256": "aa7920b4816b74fc205041a8c12b17feece5dd7fe116f6134ee7d2c06e7a5a19",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x456e06e2",
+          "whole_instruction_bytes": 8,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x456e06ec",
+          "whole_instruction_bytes": 18,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned controls; no live patch attempted"
     }
   ],
   "interception_limitations": [
