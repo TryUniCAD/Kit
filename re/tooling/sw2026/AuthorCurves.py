@@ -227,6 +227,8 @@ def edited_case(case):
     target, factor = result["edit"]["target"], result["edit"]["factor"]
     if target == "depth":
         result["depth_mm"] *= factor
+    elif target == "reverse-depth":
+        result["reverse_depth_mm"] *= factor
     else:
         index = int(target.removeprefix("curve-"))
         profile = result["profile"]
@@ -238,6 +240,25 @@ def edited_case(case):
             require(index == 0, "single-curve edit index must be zero")
             profile["radius_mm"] *= factor
     return result
+
+
+def extrusion_inputs(case):
+    condition = case.get("end_condition", "blind")
+    require(condition in ("blind", "mid_plane", "two_directions"), "unsupported authored end condition")
+    depth = float(case["depth_mm"]) / 1000
+    reverse_depth = float(case.get("reverse_depth_mm", 0.0)) / 1000
+    require(math.isfinite(depth) and depth > 0 and type(case["reverse"]) is bool, "extrusion requires positive finite depth and an explicit reversal")
+    require(math.isfinite(reverse_depth) and (reverse_depth > 0 if condition == "two_directions" else reverse_depth == 0), "second depth must be positive only for a two-direction extrusion")
+    return condition, depth, reverse_depth
+
+
+def axial_interval(case):
+    condition, depth, reverse_depth = extrusion_inputs(case)
+    if condition == "mid_plane":
+        low, high = -depth / 2, depth / 2
+    else:
+        low, high = -reverse_depth, depth
+    return (-high, -low) if case["reverse"] else (low, high)
 
 
 def relation_intent(case):
@@ -788,9 +809,10 @@ class CurveAuthor:
         self.set(sketch_feature, "Name", "CurveSketch")
         self.get(self.model, "ClearSelection2", True)
         require(bool(self.get(sketch_feature, "Select2", False, 0)), "extrusion sketch selection failed")
-        arguments = [True, False, case["reverse"], 0, 0, case["depth_mm"] / 1000, 0.0, False, False, False, False, 0.0, 0.0, False, False, False, False, True, True, True, 0, 0.0, False]
+        condition, depth, reverse_depth = extrusion_inputs(case)
+        arguments = [condition != "two_directions", False, case["reverse"], 6 if condition == "mid_plane" else 0, 0, depth, reverse_depth, False, False, False, False, 0.0, 0.0, False, False, False, False, True, True, True, 0, 0.0, False]
         boss = self.get(self.get(self.model, "FeatureManager"), "FeatureExtrusion3", *arguments)
-        require(boss is not None, "blind extrusion returned no feature")
+        require(boss is not None, "extrusion returned no feature")
         self.set(boss, "Name", "CurveBoss")
         display = self.get(boss, "GetFirstDisplayDimension")
         require(display is not None, "extrusion has no editable depth dimension")
@@ -798,6 +820,12 @@ class CurveAuthor:
         self.rec.close_number("depth dimension", self.get(dimension, "SystemValue"), case["depth_mm"] / 1000)
         self.dimensions.append({"role": "depth", "name": str(self.get(dimension, "FullName")), "value": case["depth_mm"] / 1000, "kind": "linear"})
         self.dimension_objects["depth"] = dimension
+        if condition == "two_directions":
+            second = self.get(self.model, "Parameter", "D2@CurveBoss")
+            require(second is not None, "two-direction extrusion has no second depth dimension")
+            self.rec.close_number("second depth dimension", self.get(second, "SystemValue"), reverse_depth)
+            self.dimensions.append({"role": "reverse-depth", "name": str(self.get(second, "FullName")), "value": reverse_depth, "kind": "linear"})
+            self.dimension_objects["reverse-depth"] = second
         self.refresh_dimension_names()
         self.rec.data.update(dimensions=self.dimensions, requested_relations=self.relations)
         self.rec.flush()
@@ -930,8 +958,15 @@ class CurveAuthor:
         definition = self.get(boss, "GetDefinition")
         require(definition is not None, "extrusion definition is unavailable")
         extrusion = {"depth": float(self.get(definition, "GetDepth", True)), "end": int(self.get(definition, "GetEndCondition", True)), "both_directions": bool(self.get(definition, "BothDirections")), "reverse": bool(self.get(definition, "ReverseDirection"))}
-        require(extrusion["end"] == 0 and not extrusion["both_directions"] and extrusion["reverse"] == case["reverse"], "extrusion definition differs from blind input")
+        condition, depth, reverse_depth = extrusion_inputs(case)
+        require(extrusion["end"] == (6 if condition == "mid_plane" else 0) and extrusion["both_directions"] == (condition == "two_directions") and extrusion["reverse"] == case["reverse"], "extrusion definition differs from requested end conditions")
         self.rec.close_number("extrusion depth", extrusion["depth"], case["depth_mm"] / 1000)
+        if "end_condition" in case:
+            extrusion.update(reverse_depth=float(self.get(definition, "GetDepth", False)), reverse_end=int(self.get(definition, "GetEndCondition", False)), from_type=int(self.get(definition, "FromType")), draft_forward=bool(self.get(definition, "GetDraftWhileExtruding", True)), draft_reverse=bool(self.get(definition, "GetDraftWhileExtruding", False)))
+            require(extrusion["from_type"] == 0 and not extrusion["draft_forward"] and not extrusion["draft_reverse"], "authored end-condition input has an unexpected start or draft")
+            if condition == "two_directions":
+                require(extrusion["reverse_end"] == 0, "second direction is not blind")
+                self.rec.close_number("reverse extrusion depth", extrusion["reverse_depth"], reverse_depth)
         body_objects = self.get(self.model, "GetBodies2", 0, False) or []
         require(len(body_objects) == case["expected_bodies"] > 0, "native solid body count differs from input")
         properties = self.get(self.get(self.model, "Extension"), "CreateMassProperty")
@@ -939,7 +974,8 @@ class CurveAuthor:
         self.set(properties, "UseSystemUnits", True)
         measured = {"volume": float(self.get(properties, "Volume")), "area": float(self.get(properties, "SurfaceArea")), "com": [float(value) for value in self.get(properties, "CenterOfMass")]}
         area, perimeter, center = planar_properties(case)
-        depth = case["depth_mm"] / 1000
+        low, high = axial_interval(case)
+        total_depth = high - low
         utility = self.get(self.app, "GetMathUtility")
         inverse = self.get(self.get(self.sketch, "ModelToSketchTransform"), "Inverse")
         def world(point):
@@ -950,15 +986,15 @@ class CurveAuthor:
         scale = math.sqrt(sum(value * value for value in normal))
         require(scale > 0, "sketch transform has no normal")
         base = world([center[0], center[1], 0.0])
-        sign = -1 if case["reverse"] else 1
-        expected_com = [base[index] + sign * normal[index] / scale * depth / 2 for index in range(3)]
-        self.rec.close_number("volume", measured["volume"], area * depth, absolute=1e-22)
-        self.rec.close_number("surface area", measured["area"], 2 * area + perimeter * depth, absolute=1e-18)
+        expected_com = [base[index] + normal[index] / scale * (low + high) / 2 for index in range(3)]
+        self.rec.close_number("volume", measured["volume"], area * total_depth, absolute=1e-22)
+        self.rec.close_number("surface area", measured["area"], 2 * area + perimeter * total_depth, absolute=1e-18)
         for index in range(3):
             self.rec.close_number(f"center of mass {index}", measured["com"][index], expected_com[index], absolute=1e-9)
         snapshot.update(
             relations=relations,
             extrusion=extrusion,
+            axial_interval=[low, high],
             bodies=len(body_objects),
             mass=measured,
             expected_com=expected_com,
@@ -1006,6 +1042,16 @@ def run_worker(job_path, record_path):
             saved = rec.call("SaveAs3", session.save_as, author.model, path, parameters={"path": str(path), "version": 0, "options": 1})
             require(saved == (True, 0, 0), f"native save failed or warned: {saved}")
             author.refresh_dimension_names()
+            if case.get("export_siblings"):
+                native_hash = digest(path)
+                rec.data["siblings"] = []
+                for suffix in (".x_t", ".step"):
+                    sibling = path.with_suffix(suffix)
+                    result = rec.call("export sibling " + suffix, session.save_as, author.model, sibling, parameters={"path": str(sibling), "version": 0, "options": 1})
+                    require(result == (True, 0, 0) and sibling.is_file() and sibling.stat().st_size > 0, f"native sibling export failed or warned: {result}")
+                    rec.data["siblings"].append({"file": sibling.name, "sha256": digest(sibling), "bytes": sibling.stat().st_size})
+                    rec.flush()
+                require(digest(path) == native_hash, "sibling export changed the saved native source")
         else:
             require(path.is_file() and digest(path) == job["source_sha256"], "saved source hash differs before fresh-process verification")
             author.load_relation_bindings(case, job.get("requested_relations"))
@@ -1161,11 +1207,17 @@ def main():
     require(not output.exists(), "use a new output directory so prior locks and evidence cannot be overwritten")
     require(args.timeout > 0, "worker timeout must be positive")
     spec = json.loads(source.read_text(encoding="utf-8"))
-    require(spec["schema"] == "kit-sw2026-curve-source-specs/1", "unknown curve source specification")
+    require(spec["schema"] in ("kit-sw2026-curve-source-specs/1", "kit-sw2026-end-source-specs/1"), "unknown source specification")
+    end_family = spec["schema"] == "kit-sw2026-end-source-specs/1"
+    discovery_count, heldout_count = (12, 4) if end_family else (24, 6)
     cases, controls = spec["cases"], spec["controls"]
     names = [case["name"] for case in cases + controls]
     require(len(set(names)) == len(names) and all(re.fullmatch(r"[A-Za-z][A-Za-z0-9_-]{0,63}", name) for name in names), "case names must be unique safe path components")
-    require(sum(case["split"] == "discovery" for case in cases) == 24 and sum(case["split"] == "heldout" for case in cases) == 6 and len(controls) == 2, "family requires 24 discovery, 6 heldout and 2 independent controls")
+    require(len(cases) == discovery_count + heldout_count and sum(case["split"] == "discovery" for case in cases) == discovery_count and sum(case["split"] == "heldout" for case in cases) == heldout_count and len(controls) == 2, "source family split differs from its required complete corpus")
+    if end_family:
+        require(all(case.get("export_siblings") is True and "end_condition" in case for case in cases), "end-condition source cases require explicit conditions and sibling exports")
+        for case in cases:
+            extrusion_inputs(case)
     require(all(case["split"] == "control" for case in controls), "control split is invalid")
     require(set(args.case) <= {case["name"] for case in cases}, "requested case is not in the neutral specification")
     selected = [case for case in cases if not args.case or case["name"] in args.case]
@@ -1173,7 +1225,7 @@ def main():
     hashes = tool_hashes()
     output.mkdir(parents=True)
     write_json(output / "Specs.json", spec)
-    batch = {"schema": "kit-sw2026-curve-source-batch/1", "generator_revision": args.generator_revision, "script_sha256": digest(__file__), "tool_hashes": hashes, "specs_sha256": digest(source), "oracle": spec["oracle"], "started_at": time.time(), "controls_before": [], "cases": [], "controls_after": [], "pending_cases": [], "first_failure": None, "locked": False}
+    batch = {"schema": "kit-sw2026-end-source-batch/1" if end_family else "kit-sw2026-curve-source-batch/1", "generator_revision": args.generator_revision, "script_sha256": digest(__file__), "tool_hashes": hashes, "specs_sha256": digest(source), "oracle": spec["oracle"], "started_at": time.time(), "controls_before": [], "cases": [], "controls_after": [], "pending_cases": [], "first_failure": None, "locked": False}
     def checkpoint():
         write_json(output / "Batch.json", batch)
     def failed(record):
@@ -1218,7 +1270,7 @@ def main():
     if tool_hashes() != hashes or digest(source) != batch["specs_sha256"]:
         if batch["first_failure"] is None:
             batch["first_failure"] = {"stage": "lock", "error": "authoring tools or neutral specifications changed during the batch"}
-    complete = len(selected) == 30 and len(batch["cases"]) == 30 and not batch["pending_cases"]
+    complete = len(selected) == len(batch["cases"]) == discovery_count + heldout_count and not batch["pending_cases"]
     healthy = len(batch["controls_before"]) == len(batch["controls_after"]) == 2 and all(record["passed"] for record in batch["controls_before"] + batch["controls_after"])
     eligible = complete and healthy and batch["first_failure"] is None and all(record["passed"] for record in batch["cases"])
     locked_cases = []
@@ -1233,7 +1285,7 @@ def main():
     if eligible:
         batch.update(locked=True, finished_at=time.time())
         checkpoint()
-        lock = {"schema": "kit-sw2026-curve-source-lock/1", "created_at": time.time(), "generator_revision": args.generator_revision, "script_sha256": batch["script_sha256"], "tool_hashes": hashes, "specs_sha256": batch["specs_sha256"], "batch_sha256": digest(output / "Batch.json"), "oracle": spec["oracle"], "cases": locked_cases, "writer_implementation_started": False, "heldout_policy": "Heldout native files and streams must not be inspected while deriving or implementing the family; only independent heldout oracle results establish generalization", "acceptance_scope": "2026-authored source corpus only; no Kit-written curve output or writer acceptance is established"}
+        lock = {"schema": "kit-sw2026-end-source-lock/1" if end_family else "kit-sw2026-curve-source-lock/1", "created_at": time.time(), "generator_revision": args.generator_revision, "script_sha256": batch["script_sha256"], "tool_hashes": hashes, "specs_sha256": batch["specs_sha256"], "batch_sha256": digest(output / "Batch.json"), "oracle": spec["oracle"], "cases": locked_cases, "writer_implementation_started": False, "heldout_policy": "Heldout native files and streams must not be inspected while deriving or implementing the family; only independent heldout oracle results establish generalization", "acceptance_scope": "2026-authored source corpus only; no Kit-written output or writer acceptance is established"}
         write_json(output / "Lock.json", lock)
     else:
         batch.update(finished_at=time.time(), incomplete_selection=not complete, controls_healthy=healthy)
