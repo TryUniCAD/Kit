@@ -9,13 +9,14 @@ from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 
 
 # earlier circle sources must remain independent of the unchanged measured writer and request adapter
-def VerifyCircleFreeze() -> dict[str, object]:
-    VerifyFreeze()
+def VerifyCurves() -> dict[str, object]:
+    BaseFreeze = VerifyFreeze()
     FreezePath = KRepoRoot / "re/solidworks/v2026/heldout/CurveCircleWriterFreeze.json"
     assert HashBytes(FreezePath.read_bytes()).hexdigest() == (
         "4a6cb20e311fa1572b234f12b4fb3dfdd672b5095ca147268bb410d76c5694f7"
     )
     Freeze = ReadObject(FreezePath)
+    assert BaseFreeze["measured_writer_revision"] == Freeze["measured_writer_revision"]
     assert Freeze["schema"] == "kit.sw2026.curve-circle-writer-freeze.v1"
     assert Freeze["heldout_native_payloads_inspected"] is False
     BasePath = KRepoRoot / CastValue(str, Freeze["base_freeze_path"])
@@ -32,13 +33,13 @@ def VerifyCircleFreeze() -> dict[str, object]:
         HashBytes(LockPath.read_bytes()).hexdigest()
         == Freeze["curve_source_lock_sha256"]
     )
-    Lock = ReadObject(LockPath)
+    SourceLock = ReadObject(LockPath)
     SpecsPath = KRepoRoot / "re/tooling/sw2026/CurveSpecs.json"
-    assert HashBytes(SpecsPath.read_bytes()).hexdigest() == Lock["specs_sha256"]
-    assert Lock["specs_sha256"] == Freeze["curve_specs_sha256"]
+    assert HashBytes(SpecsPath.read_bytes()).hexdigest() == SourceLock["specs_sha256"]
+    assert SourceLock["specs_sha256"] == Freeze["curve_specs_sha256"]
     Heldouts = [
         Entry
-        for Entry in CastValue(list[dict[str, object]], Lock["cases"])
+        for Entry in CastValue(list[dict[str, object]], SourceLock["cases"])
         if Entry["split"] == "heldout"
     ]
     Evaluated = CastValue(list[dict[str, object]], Freeze["evaluated_heldouts"])

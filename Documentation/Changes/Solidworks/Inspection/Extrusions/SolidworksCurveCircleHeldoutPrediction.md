@@ -8,4 +8,6 @@ The [remote generation receipt](../../../../../re/solidworks/measurements/2026/C
 
 Use the existing native circle-inspector job procedure after the generated artifact and tested revision have been verified. Native body/mass/edit/save/reopen measurements and original-source comparison remain pending. No local test, collection, archive parser or writer process ran.
 
+The first overall policy/type run rejected four new harness identifiers outside the repository's length bounds and an unused freeze-check result. The repair changes those harness names and binds the base/evaluation writer revisions explicitly. No constructor, grammar, request helper, frozen source or generated input changes; the measured source/artifact remains pinned to its original passing process receipt. Current-head CI is still required.
+
 The remaining four earlier held-outs—annulus, arc/chord solid, driving capsule and multibody/construction layout—remain explicitly outside the complete frozen contract and are not counted as passing. This protocol cannot qualify the whole curved-profile family, full presentation, a production adapter or corpus conversion. Failed predictions stay failed for this freeze; any writer repair requires new unseen source inputs locked before its changes.

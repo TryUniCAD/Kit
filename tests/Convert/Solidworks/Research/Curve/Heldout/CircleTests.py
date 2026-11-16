@@ -7,7 +7,7 @@ from tests.Convert.Solidworks.Research.Curve.Construction.HeldoutInput import (
     MakeHeldBody,
 )
 from tests.Convert.Solidworks.Research.Curve.Heldout.CircleFreeze import (
-    VerifyCircleFreeze,
+    VerifyCurves,
 )
 from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 from tests.Convert.Solidworks.Research.FreshPartRunner import RunFreshPart
@@ -15,8 +15,8 @@ from tests.Convert.Solidworks.Research.PartArtifacts import SavePartOutput
 
 
 # original circle heldouts must pass complete guarded emission without borrowing the other profiles
-def TestCircleHoldout() -> None:
-    Freeze = VerifyCircleFreeze()
+def TestCircleHold() -> None:
+    Freeze = VerifyCurves()
     Specs = ReadObject(KRepoRoot / "re/tooling/sw2026/CurveSpecs.json")
     Cases = [
         Entry
@@ -29,8 +29,11 @@ def TestCircleHoldout() -> None:
     assert {Entry["name"] for Entry in Cases} == {Entry["name"] for Entry in Locked}
     for CaseValue in Cases:
         assert CaseValue["dimension_kind"] in ("diameter", "radial")
-        Mode = "radius" if CaseValue["dimension_kind"] == "radial" else "diameter"
-        NeutralCase = CaseValue | {"end_condition": "blind", "dimension_kind": Mode}
+        ModeValue = "radius" if CaseValue["dimension_kind"] == "radial" else "diameter"
+        NeutralCase = CaseValue | {
+            "end_condition": "blind",
+            "dimension_kind": ModeValue,
+        }
         Request = MakeHeldBody(NeutralCase)
         Report = RunFreshPart(Request)
         SavePartOutput(CastValue(str, CaseValue["name"]), Request, Report)
@@ -46,4 +49,4 @@ def TestCircleHoldout() -> None:
         assert Report["configuration_progress"] is True
         assert Report["denied_reads"] == [] and Report["module_reads"]
         assert Report["vendor_acceptance"] == "unverified"
-    assert VerifyCircleFreeze() == Freeze
+    assert VerifyCurves() == Freeze
