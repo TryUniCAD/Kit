@@ -79,6 +79,9 @@ Its [preparation guide](../../../../Documentation/Changes/Solidworks/Model/Solid
 describes the exact input lock, privacy ledger and fixture limits.
 Remote schema checks of the prepared copies remain distinct from source-corpus
 acceptance and from any future Kit-written curve output.
+The [negative-fixture write repair](../../../../Documentation/Changes/Solidworks/Model/SolidworksFixturePreparationWrites.md)
+keeps the 64-byte truncated input's write outside assertions so optimization
+cannot remove fixture creation. The actual CLI failure case remains unchanged.
 The [failure-retention workflow](../../../../Documentation/Changes/Solidworks/Model/SolidworksParserFailureArtifacts.md)
 keeps full parser reports in `SourceParser/Curve/` when the native-format process
 step fails. Download the run's existing construction artifact; a retained failed

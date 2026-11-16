@@ -27,6 +27,5 @@ def SaveReceipt(
         (".stderr.log", Outcome.stderr),
         (".scope.json", DumpJson(Evidence, indent=2) + "\n"),
     ):
-        assert ReportPath.with_suffix(Suffix).write_text(
-            TextValue, encoding="utf-8"
-        ) == len(TextValue)
+        Written = ReportPath.with_suffix(Suffix).write_text(TextValue, encoding="utf-8")
+        assert Written == len(TextValue)

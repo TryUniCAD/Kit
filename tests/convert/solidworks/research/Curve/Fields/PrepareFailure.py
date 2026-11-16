@@ -32,7 +32,8 @@ def PrepareFailure(
         assert len(Truncated) == 64 < SourcePath.stat().st_size
         InputPath = TmpPath / "Truncated.SLDPRT"
         with InputPath.open("xb") as OutputFile:
-            assert OutputFile.write(Truncated) == 64
+            Written = OutputFile.write(Truncated)
+            assert Written == 64
         Pattern = str(InputPath)
         Expected = {InputPath.name: HashBytes(Truncated).hexdigest()}
     return Pattern, StreamName, Expected
