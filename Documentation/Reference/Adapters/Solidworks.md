@@ -278,28 +278,28 @@ records two native authoring cases and fresh-process radius/diameter edits with 
 These observations retain separate source, process, observer and control evidence; they provide no generated-output acceptance.
 The [public circle dispatch probe](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleApiDispatchProbe.md)
 adds an independently pinned observation site for the forwarded COM target; its controlled run installed all hooks but emitted no required public-dispatch event and remains unqualified.
-The [single-circle sketch synthesis](../../Changes/Solidworks/Model/SolidworksCircleSketchSynthesis.md)
+The [single-circle sketch synthesis](../../Changes/Solidworks/Model/Curves/SolidworksCircleSketchSynthesis.md)
 adds a constructor-derived research graph with computed topology, IDs and counts. Two remote process candidates passed strict archive comparisons and file-read guards; both also passed controlled native sketch load/rebuild/save/fresh-reopen measurements. This free-sketch result is separate from the radial and body rungs below.
 The [controlled circle sketch inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleSketchInspection.md)
 checks local geometry, authored plane, zero-body topology, rebuild state, save and fresh-process reopen between controls. Its first native run passed four phases and 48 numeric/frame comparisons matching to six significant figures; held-out family acceptance remains unestablished.
-The [circle lifecycle rules](../../Changes/Solidworks/Model/SolidworksCircleLifecycleRules.md)
+The [circle lifecycle rules](../../Changes/Solidworks/Model/Curves/SolidworksCircleLifecycleRules.md)
 bind actual solver/data ownership, conditional status/color rules and separate coordinate/stamp operations. They supply no feature-specific solved defaults.
-The [radial sketch synthesis](../../Changes/Solidworks/Model/SolidworksRadialSketchSynthesis.md)
+The [radial sketch synthesis](../../Changes/Solidworks/Model/Curves/SolidworksRadialSketchSynthesis.md)
 adds a front-plane radius/diameter value, parameter, handle and display graph with explicit presentation inputs. Its free-center candidates passed remote generation and six controlled native load/edit/save/fresh-reopen phases with 104 matching numeric/frame checks. No family or extrusion acceptance is established.
 The [radial sketch inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksRadialSketchInspection.md)
-adds explicit driving-value edits and fresh reopening of edited sketches while retaining geometry, plane, ownership and control gates. The [fixed-center relation](../../Changes/Solidworks/Model/SolidworksCircleCenterFixation.md) also passed six controlled native phases and 104 numeric/frame checks with fully constrained status and exact center bindings.
-The [circle blind boss synthesis](../../Changes/Solidworks/Model/SolidworksCircleExtrusionSynthesis.md)
-composes that constrained sketch with the shared blind feature/end-spec model. Both generated candidates passed six native load/rebuild/edit/save/fresh-reopen phases, with one body, fully constrained sketches and all 200 numeric comparisons matching to six significant figures between healthy controls. Saved-file archive/semantic comparison, general frames, complete presentation and held-out family acceptance remain unestablished; the public adapter still writes none.
-The [saved-circle input preparer](../../Changes/Solidworks/Model/SolidworksSavedCircleReaderInputs.md)
+adds explicit driving-value edits and fresh reopening of edited sketches while retaining geometry, plane, ownership and control gates. The [fixed-center relation](../../Changes/Solidworks/Model/Curves/SolidworksCircleCenterFixation.md) also passed six controlled native phases and 104 numeric/frame checks with fully constrained status and exact center bindings.
+The [circle blind boss synthesis](../../Changes/Solidworks/Model/Curves/SolidworksCircleExtrusionSynthesis.md)
+composes that constrained sketch with the shared blind feature/end-spec model. Both generated candidates passed six native load/rebuild/edit/save/fresh-reopen phases, with one body, fully constrained sketches and all 200 numeric comparisons matching to six significant figures between healthy controls. The saved derivatives now pass 54 critical archive comparisons and 108 neutral numeric/frame checks; complete presentation and held-out family acceptance remain unestablished, and the public adapter still writes none.
+The [saved-circle input preparer](../../Changes/Solidworks/Model/Curves/SolidworksSavedCircleReaderInputs.md)
 binds six vendor-saved derivatives to the native receipt and neutral edit targets, with bounded metadata redaction and no archive-schema execution during preparation. These are reader fixtures, not additional generated outputs.
-The [saved-circle process checks](../../Changes/Solidworks/Model/SolidworksSavedCircleReaderVerification.md)
+The [saved-circle process checks](../../Changes/Solidworks/Model/Curves/SolidworksSavedCircleReaderVerification.md)
 require 54 complete primary/linked stream comparisons and 108 neutral semantic/frame comparisons across those six derivatives. Their remote outcome is recorded independently from the native body measurements.
 The [archive failure diagnostics](../../Changes/Solidworks/Model/SolidworksArchiveFailureOwnership.md)
 retain the exact typed owner and cursor at a rejected archive boundary; diagnostics do not turn a failed comparison into acceptance.
-The [principal-plane circle rung](../../Changes/Solidworks/Model/SolidworksCirclePrincipalFrames.md)
-computes explicit world/local radial placement for the existing Front, Right and Top model frames; new-frame native acceptance is pending.
+The [principal-plane circle rung](../../Changes/Solidworks/Model/Curves/SolidworksCirclePrincipalFrames.md)
+computes explicit world/local radial placement for the existing Front, Right and Top model frames. The two new Right/Top candidates passed six controlled native phases and all 200 numeric checks, including body/mass targets and radial/depth edits through saving and fresh reopening. Full family, presentation and held-out acceptance remain unestablished.
 The [conditional part master grammar](../../Changes/Solidworks/Model/SolidworksSheetMetalMasterArchive.md)
-owns the directly serialized sheet-metal master that native saves may add before the common ID map, even when the visible feature tree contains only a circle boss. Repaired remote replay remains pending.
+owns the directly serialized sheet-metal master that native saves may add before the common ID map, even when the visible feature tree contains only a circle boss. The repaired saved-reader process passed all 54 critical archive comparisons and 108 neutral numeric/frame checks across six derivatives; full CAD family and sheet-metal feature acceptance remain unestablished.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

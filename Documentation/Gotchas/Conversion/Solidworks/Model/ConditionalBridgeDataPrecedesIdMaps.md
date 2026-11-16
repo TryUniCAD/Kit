@@ -8,4 +8,4 @@ Decode this branch using its concrete typed owner, inherited field callbacks and
 
 The presence flag is saved state, not a feature-family discriminator. Fresh constructor absence does not justify skipping a vendor-save payload. Keep strict counts, tails, identities and field ownership gates; do not truncate or patch the stream to regain alignment. Unsupported per-body child classes fail closed until their grammar is proven.
 
-Evidence: [2026 native owner and failed remote receipts](../../../../../re/solidworks/records/SmmMasterArchive2026.json). Repaired remote replay remains a separate requirement; the discovery does not establish sheet-metal feature acceptance.
+Evidence: [2026 native owner and failed remote receipts](../../../../../re/solidworks/records/SmmMasterArchive2026.json). The [repaired remote receipt](../../../../../re/solidworks/measurements/2026/SavedCircleReaderProcesses3d782d.json) now passes all 54 archive comparisons and 108 neutral numeric checks. This does not establish sheet-metal feature acceptance.

@@ -48,11 +48,17 @@ The fixed-center inputs were fully constrained and retained the exact native cen
 Two [generated blind circle bosses](measurements/2026/CircleBossInspection01.json)
 then passed six native phases and 200 numeric checks, including one solid body,
 volume, area, center of mass, radial/depth edits, saves and fresh reopens.
-Every batch had healthy original controls; all numeric comparisons matched to six significant figures.
+Two further [Right/Top principal-frame bosses](measurements/2026/CirclePrincipalInspection01.json)
+passed six native phases and another 200 numeric checks, including independent radial/depth edits,
+saves and fresh reopens. Their positive generation records passed all sixteen archive comparisons;
+the same remote job separately failed its saved-reader gate and is not counted as green.
+Every native batch had healthy original controls; all numeric comparisons matched to six significant figures.
 These are bounded generated research rungs, not completed family acceptance or FCStd conversions.
 Vendor-saved copies are derivatives and do not increase the generated-output count.
-Initial body presence before explicit rebuild, complete presentation and saved-file semantic
-comparison remain unestablished for the circle bosses.
+The six original Front-plane vendor-saved derivatives passed [54 archive comparisons and
+108 numeric/frame checks](measurements/2026/SavedCircleReaderProcesses3d782d.json); these
+reader inputs add zero generated-output cases. Initial body presence before explicit rebuild
+and complete presentation remain unestablished for the circle bosses.
 
 The [complete circle/arc source lock](v2026/heldout/CurveSourceLock.json)
 records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.

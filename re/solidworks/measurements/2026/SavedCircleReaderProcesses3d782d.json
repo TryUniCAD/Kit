@@ -1,0 +1,1855 @@
+{
+  "schema": "kit.sw2026.saved-circle-reader-processes.v1",
+  "scope": "complete critical archive and neutral edit semantics for six prepared vendor-saved derivatives; not writer coverage",
+  "source_revision": "3d782d6ad0d67d265068025df578815cb7f0203c",
+  "tested_revision": "859dd884d68cc7b223b4a6f5ddbb3cd2888cd88b",
+  "tested_tree": "ce96e95d45f7947d418ce51e28ba361a2753810e",
+  "verified_tested_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "3d782d6ad0d67d265068025df578815cb7f0203c"
+  ],
+  "run": 43872848360,
+  "job": 133318215327,
+  "job_conclusion": "success",
+  "remote_summaries": [
+    "============================= 171 passed in 16.21s =============================",
+    "================= 188 passed, 158 skipped in 208.23s (0:03:28) ================="
+  ],
+  "artifact": {
+    "id": 14229087094,
+    "name": "solidworks-construction-859dd884d68cc7b223b4a6f5ddbb3cd2888cd88b",
+    "bytes": 21142845,
+    "reported_digest": "sha256:2c5ac52aeeaae9dc72fa187389d340e47c2050c763d7b2c3c00a2527511b9aaf",
+    "zip_digest_independently_verified": false
+  },
+  "report": {
+    "bytes": 9094050,
+    "sha256": "3be628000f1d1add649c309dda8051231ef55ed436451c46be17176b61394f9b"
+  },
+  "manifest_sha256": "e86b4c7640779977085223287c48b00ecff648643358ac01efc7b6afe2bd7e21",
+  "source_receipt_sha256": "a957483d748b877230d96d5c24d8ad68551010a6b0a8b28a98387a756bc1bbda",
+  "implementation_fingerprints": [
+    {
+      "file": "re/tooling/sw2026/serial/SavedCircles.py",
+      "sha256": "8b450da5ff2f6bc00d81b881956ae6aa795a30e05720cd80f175daef143946d9"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/AnnotationWire.py",
+      "sha256": "1736c889060ff4147e6e18ecaf35fe31ae68f99cfda8c5bd87a9f0ebd5675bd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Classes.py",
+      "sha256": "7bcba68ca5d75b23f18b81eb1a54c1da1381f744242c63dc1aaca13cc10dcc4b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Core.py",
+      "sha256": "a57ee11c90fb018739e99f10a47a2e501d0dc06296c34362074def4bb0a5dd66"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Dsl.py",
+      "sha256": "8467587af31c6d2b92d2fd3191640ca75a15b4840c3958abca32707e8e9f9ea4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/FieldScan.py",
+      "sha256": "b4663fffc67df7a65e998ab259dac5094d029fb74fe481e3a0ae52a8431822a0"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/MapBridge.py",
+      "sha256": "eeb9b26114a3862e124e393c615c0c979c3dbf38c2b6d9b9cf2c54321d441393"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/RoundTrip.py",
+      "sha256": "c4f307e4a2b4277351ff919d0cc54ea68c76193986b417d654f38df59a5fd5ae"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Schema.py",
+      "sha256": "fafa579ea5bc961792fdaa697f1c8cf20856a9d4bedd1b14c288be938046b2bf"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Streams.py",
+      "sha256": "5732b6b5358676d32bff872d4919d6d40b4cf30107f243b87a330bbc5519f8d5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/StringCorpus.py",
+      "sha256": "f6b31a97abfa2d408b33e9eb30f38be5168425ed07856a1aab63f00fc56f92c9"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/CommonPartOwners2026.py",
+      "sha256": "035daed40818b8d4e1eed7b3560d6db05296f6b3158915e6d46dd2a15ab216e2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigAssembly.py",
+      "sha256": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigDetail.py",
+      "sha256": "c0522965c64530e568aa6ff688b58e86edaaaa369c9d4ad23530ad2798180d52"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigPart.py",
+      "sha256": "5a94e9ad6554ec6e54f40c311ae3a3b2328b90dd3e4318b5cc649f7aff4208eb"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigUnits.py",
+      "sha256": "3aceb00b5912707087c29e4061eaa52c5022daa2c6db23720b7b36eba031fb7c"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigVisual.py",
+      "sha256": "613d12ea8d6514015db720f5c12e1a7a2ff68e481a540a0abfcf3ab45a35e712"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Definition.py",
+      "sha256": "7f8b6ad83f7305498a7aaf9ab9b66ca9ad68442e42492a55c0b45fc0e19f649a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ExtObject.py",
+      "sha256": "c1b196cc17902c8acc19ff9ddac3147d7d44d38415f77fc85df84cee119fba5d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Geometry.py",
+      "sha256": "6512745e04f882620f35890d4f1fdef0f92333272e7654f7ec5de1bfb1e8f000"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MaterialDisplay.py",
+      "sha256": "a5efe19dbd86e8aebc70a0b2f9816d785c17f8fa84a571170d55f37ae72f4556"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MfcMaps.py",
+      "sha256": "15644267281dc8454741a5bd25d3037ea08022d377afa353a599df8a8e4bc924"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ModelHeader.py",
+      "sha256": "2a05200a42ae279b0ae147ae9879a7a8375a86c40a29098b3f7cc192a071521b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedBody.py",
+      "sha256": "0c0590805852de9698a7bea9d1d0e9e1580d317ae0e93597a0015e28cfb8e457"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedComp.py",
+      "sha256": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedCore.py",
+      "sha256": "e8205429dce688a2d41ccb2f8ef781b428f9099c5b695adc182a6557c6095413"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedDims.py",
+      "sha256": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFeatures.py",
+      "sha256": "7130a0a40aafedd7d61c408fac6c14f2cd7bbcb12fe6bf3b18be34f209c93b47"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFillet.py",
+      "sha256": "b4d1e51baaa2fd6b0b864baedd191177d98193f717aa2058320bcc673ecbf0bc"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFolders.py",
+      "sha256": "982d6ee0100e863d40f29f7e6353200931e460f8117d95855f25a224195ec718"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedPattern.py",
+      "sha256": "59b8b39337809c4297277a71f5095c50b8eb0929d07f5f6edd89156176fa34a4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedProfile.py",
+      "sha256": "4ea3ccd45146f3e70ff6aeada3c408265551f60925e4fef8ccb34ecb33a1d1f4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefGeom.py",
+      "sha256": "0990cfbe85b2ee755e18ae27284b17b9f22e39c1f03a1b8869594e280d31ae5b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefs.py",
+      "sha256": "b0ff1ee52afc7e4e528d0eab780dc8c2d359fe019fa0de4525bf8940ecdae576"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedSketch.py",
+      "sha256": "c6dcf4efa511acc92dc2a77aa2bc0def883a07941b2ab1690293185c055b8c9a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+      "sha256": "c47ae4c157592a8c2da63150e59420699961b1fd94e6b11d429eb4e0290bc97b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCusProps.py",
+      "sha256": "4fb716a697648aaecf0c4417869cde9ef350d2bf7df99ac5e87289455ad16f79"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallDocContent.py",
+      "sha256": "8b26de84ad013e16cf0f077c079101a59ef79e5289be847d9c3d201812f0787e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHeader.py",
+      "sha256": "ced15854e8a25899a453f4df5aaea9ea348891b26dfeef11a3466ba10c71a444"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHistory.py",
+      "sha256": "0243867b6e96c213b9a5603425c4240410648ff5d90d4cdd7a660cddb23433ff"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallStreams.py",
+      "sha256": "2c36304e92909de38874348a694d20900f628f5159a03e2d02161e3a29342183"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmmMaster.py",
+      "sha256": "5942042520e93d84a36d9e2b7914c7227a76a4d90163a7d2caf26aa866129a32"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDefinitions.py",
+      "sha256": "2a66ed3df6aa9864974f3cb3778a9bbd09c462547044ea809ca320f7ba8bc9da"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDetail.py",
+      "sha256": "f3eaeb136de7666a9cf4bba85e0cfedb6a11fa43e7264127b4316305b953aa03"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDimensions.py",
+      "sha256": "6280dcfe1af0c7236fd818df2dd0a4ffe771ad250f1ecea5e052b0af2cc4e9e6"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFormats.py",
+      "sha256": "90978760e3d058d12e71778443c8ceae868b66d64a7bd4768d36efa5e5cfc27a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFrame.py",
+      "sha256": "8b0a93853c3fb409d31e2ea36fae53f4bbd360e7366aa6c07f7b0981f5a9f37e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationHelpers.py",
+      "sha256": "e9602884db9466963c95acdf838140bde83ca68068fa75df326c4ad6e8610cd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationLabels.py",
+      "sha256": "af3428274f3cd1624a8e1b14e6c9684b659d00d5a0f40246403bde2b8e76073d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationTables.py",
+      "sha256": "e14f968e23ef2590d554a9adb45724e60a7df28e3e4ce4f966be0875acc481af"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationView.py",
+      "sha256": "ac3b349bc593cf8990c8357821477098b6265c19e475442afb883c58278d8df5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Visual.py",
+      "sha256": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VisualRefs.py",
+      "sha256": "dbf0c8ea784d2128573af6e21d7f7e808bacb36ea859c4146853c8fa372bbf81"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py",
+      "sha256": "a36a080ff7e73a6bc84d9e9d1bed111539447560958598f56daa0cda421cbce6"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
+      "sha256": "359ffb24181c7a2b9deead3e46cc7eb024b3ef0c569a760c86f474475f4bc01e"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/AddEntryMut.py",
+      "sha256": "74a2b02aa91f016609da5b01032e210de5d05984bd5f13034978048771a9a6f4"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ArchiveMaps.py",
+      "sha256": "d7e8ccdd0d8c81c68279672b3c6ccecc9a6330e3d4c814007a11f4e97d6a3841"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/BindClassMut.py",
+      "sha256": "b2249e7e0d2d8c14113dd6f8efff5d0ee8bdcca98ec47e86806f0b054d4d0269"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ClassIndex.py",
+      "sha256": "ea249652c2da2f6037d3637debe031c167a232b780c2782fff2fa76d7ecb41ba"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/FindClass.py",
+      "sha256": "7eb6b1c2920019aa100de053ca6f1d6160b98256d2563a24008f2ee32b7d7701"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/FindObject.py",
+      "sha256": "a772341da8f423e6ece816082caaf7e54e7d052993968f47c67fa550c0c8a56c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/MapEntry.py",
+      "sha256": "3422480656f9d6f8219839e6cad430fd0ad0b43522c4b16315a0407bfd1a85c0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/MapSnapshot.py",
+      "sha256": "ea3fd9a0b3a2494a15180d5b4ce661f8498e96168debc583db85e1fdf7934493"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ObjectIndex.py",
+      "sha256": "f4ecf8ba48b9c68beb41b13dd984b820c42b88d09a0a6647e34f74aa972d3bf0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/PutEntryMut.py",
+      "sha256": "290ec9d3ec0236b58bec2259c73e9aeee48121a13c2cb984bee6ff989ec3e32b"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ArchiveNode.py",
+      "sha256": "550abe31b41eeffce87931ea07c8a8fe04a349c37bf42bc07c82897ad2d75179"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalClass.py",
+      "sha256": "ab73b43cc167a36e361ecd30c85109f1efaf81da90bf35b0d9b4a6fd92448dad"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalRef.py",
+      "sha256": "19258628bfa23ec0cc98f75532537a90127d38cfce999c0155b4fa5fdfbc9dcc"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectRead.py",
+      "sha256": "79d8cdd212237716fac6145a048aa5d2b50410ddef03c94a03648cc6abbbea39"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectStore.py",
+      "sha256": "619fc4dbd2e9865c738af1df63929ddcfe2ef5997ae3a6f864b08507458df69f"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadClassMut.py",
+      "sha256": "f1e7fe9da0b747258fed8a46c9ec11689766c013d21f89f414b3b73d8b1ca906"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadObjectMut.py",
+      "sha256": "3f0b2e3565ed9a44f54f5840ca2cd2816fb540a4038c3b2ab863ec1926999a73"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadTypeMut.py",
+      "sha256": "52f1287b945bc1f9b952a409b0436d27a512d251e4426d513847da661d642b7c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/RuntimeClass.py",
+      "sha256": "be3d1dc45163164ab169648d5ab98e3bbb274f1c256c0606e9af8a1f6886240a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/WriteClassMut.py",
+      "sha256": "d53198ac370718d013ae35b0daef81aba0996f2743a1dc79734e1f85a67d2260"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/WriteObjectMut.py",
+      "sha256": "6cc29be5679a0f6c11ce3339624a256e7c5b1fbf3bb220b531c4ae1c314bc33f"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/CStringValue.py",
+      "sha256": "98732874a4fa36c8af8e5dde44dc1844617547a182f57e2d4f7c04844779dc86"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/EncodeString.py",
+      "sha256": "850cba1b90e592be68e7fb6558df4b798d22abf756ff963eb7210a5cd650419c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/ReadLength.py",
+      "sha256": "82c9924a621ee1a3a16d0226d39f16601d8689c9040e2870cecc8492a0263c4a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/ReadString.py",
+      "sha256": "1d5c8222608e80a69d92f68b9fe36a87647bb87009df949678aad61ec5d81512"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/ArchiveTag.py",
+      "sha256": "5046d947fbc1c2d6c7e9afa0904d1a3817d71573949aaa7768a0697decde11cf"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/EncodeTag.py",
+      "sha256": "399f98355bf255a8ee498b3c3c71451f9cb3edaa1d83efd5262959243ef12f6a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/ReadTag.py",
+      "sha256": "0a3dec0525cec4978adef4ac7b71e79396ce8c150cd04a41792b39e0f0be12db"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Archive.py",
+      "sha256": "6f09542d473fbc806f30e9dca8484422743e1cde39b57deb1a8ad0fab3a92eb0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Cmgr.py",
+      "sha256": "2bab2554e90fd8155d1ab50c1f8b50c869bc139820117535bdacece2957d4e8c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Container.py",
+      "sha256": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodeName.py",
+      "sha256": "5fe691829bd89bae76a0694c1d7cf737e24b771bbd9e6789f8325bef518a45a6"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodePayload.py",
+      "sha256": "bcd29a4cc9702a9ea714b4e6a0254ee214e8796f907403c6a9e0ad9dda8314a5"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodeScanned.py",
+      "sha256": "68b2f995303a13f0d2f6a52874d9cb07e8ceddc6896fba019db35b7fe4971c1d"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Definition.py",
+      "sha256": "f0cc64fbb208ce3bc6b670c9d0800315c69b0231b471210acc7490a6c5b3a071"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Format.py",
+      "sha256": "2765a1d4cd829871e013e187481b526f2e11781a3861faf5745be5a7f9da3c79"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/InflateStream.py",
+      "sha256": "eca4684d60f0a72a12ee09bf397c7e25092ddbb8b2d2c197b51b0264d9d1a5fe"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/LayoutQueries.py",
+      "sha256": "fcd7b0ca746dda67e662c1a0a2497e33be9c50103fa5679c4efc42be8fb30259"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Parasolid.py",
+      "sha256": "220107059a26880ec51a7a9f0eca8eb2096e745c73423d90fb5e2f2721a96c6c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/RotateBytes.py",
+      "sha256": "3f2dade005b18415e1715da6ae80ef60e060b696424be5d3203d5a236137b630"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/RunGroups.py",
+      "sha256": "04a8784a98cdeecf1647829410ae072e27a5f29a08e4d10c0b6c57b03e7a532e"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/SldprtFormat.py",
+      "sha256": "a8d8e087329d2c23270177ab2feec439ae05eae63d6b72b40e88749a2b1ea552"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/StreamLimits.py",
+      "sha256": "185abca48f0511d4c607f83bccbf1ec3c243b0d9b709a960fa54c4f5e8fbbece"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/StreamRecord.py",
+      "sha256": "b404735f9226a93ab290e64f30342fbd09ad85a2bc8a8fabb41f0bf879d56399"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_count": 6,
+  "primary_comparisons": 48,
+  "linked_comparisons": 6,
+  "numeric_comparisons": 108,
+  "direct_master_schema_calls": [
+    {
+      "file": "CircleRadiusBoss-open-save.SLDPRT",
+      "mode": "primary",
+      "stream": "Contents/Config-0",
+      "schema": "moSheetMetalMaster_c",
+      "via": "direct",
+      "parent_schema": "moModel_c.FUN_4c234150",
+      "object_class": "moSheetMetalMaster_c",
+      "object_type": "Core.Obj",
+      "source_streams": [
+        "Contents/Config-0"
+      ],
+      "count": 1
+    },
+    {
+      "file": "CircleRadiusBoss-fresh-reopen.SLDPRT",
+      "mode": "primary",
+      "stream": "Contents/Config-0",
+      "schema": "moSheetMetalMaster_c",
+      "via": "direct",
+      "parent_schema": "moModel_c.FUN_4c234150",
+      "object_class": "moSheetMetalMaster_c",
+      "object_type": "Core.Obj",
+      "source_streams": [
+        "Contents/Config-0"
+      ],
+      "count": 1
+    },
+    {
+      "file": "CircleRadiusBoss-edited-fresh-reopen.SLDPRT",
+      "mode": "primary",
+      "stream": "Contents/Config-0",
+      "schema": "moSheetMetalMaster_c",
+      "via": "direct",
+      "parent_schema": "moModel_c.FUN_4c234150",
+      "object_class": "moSheetMetalMaster_c",
+      "object_type": "Core.Obj",
+      "source_streams": [
+        "Contents/Config-0"
+      ],
+      "count": 1
+    },
+    {
+      "file": "CircleDiameterBoss-open-save.SLDPRT",
+      "mode": "primary",
+      "stream": "Contents/Config-0",
+      "schema": "moSheetMetalMaster_c",
+      "via": "direct",
+      "parent_schema": "moModel_c.FUN_4c234150",
+      "object_class": "moSheetMetalMaster_c",
+      "object_type": "Core.Obj",
+      "source_streams": [
+        "Contents/Config-0"
+      ],
+      "count": 1
+    },
+    {
+      "file": "CircleDiameterBoss-fresh-reopen.SLDPRT",
+      "mode": "primary",
+      "stream": "Contents/Config-0",
+      "schema": "moSheetMetalMaster_c",
+      "via": "direct",
+      "parent_schema": "moModel_c.FUN_4c234150",
+      "object_class": "moSheetMetalMaster_c",
+      "object_type": "Core.Obj",
+      "source_streams": [
+        "Contents/Config-0"
+      ],
+      "count": 1
+    },
+    {
+      "file": "CircleDiameterBoss-edited-fresh-reopen.SLDPRT",
+      "mode": "primary",
+      "stream": "Contents/Config-0",
+      "schema": "moSheetMetalMaster_c",
+      "via": "direct",
+      "parent_schema": "moModel_c.FUN_4c234150",
+      "object_class": "moSheetMetalMaster_c",
+      "object_type": "Core.Obj",
+      "source_streams": [
+        "Contents/Config-0"
+      ],
+      "count": 1
+    }
+  ],
+  "files": [
+    {
+      "file": "CircleRadiusBoss-open-save.SLDPRT",
+      "source_sha256": "3a2e7b78c0feb75b35b3a1d7fc3891cd5cd04d0773748f6a8cbcf6f12ab6136e",
+      "sha256": "2be24e233fb210e575c411ed7665d715036844859a86833bd025317c05edfee0",
+      "source_immutable": true,
+      "streams": [
+        {
+          "mode": "primary",
+          "stream": "Contents/CMgr",
+          "bytes": 2549,
+          "sha256": "0b0905a46976c11c2600c791b1b88ccad6f9999d4d503489d0ed7cc5bc14a6c1",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0",
+          "bytes": 24949,
+          "sha256": "0108db9a716df98148a4d55f6a50cbf5ae184847132ab7d065e5329676194952",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ModelHeader",
+          "bytes": 1325,
+          "sha256": "f69b4105ad3ebea020b533ed18a76bb8230a25cc19a03e5aab3539e4fef63fbe",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17100,
+          "sha256": "bc92d4b684a798e07f6204dd3cb640bc8d00f25ca5f05b57de92f4215459a986",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Definition",
+          "bytes": 855,
+          "sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/Biography",
+          "bytes": 1185,
+          "sha256": "57f38d00d6bb1f43fffe7e44e6065a84428179f1a1b2b7a61f6ffb770d2911a3",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/History",
+          "bytes": 167,
+          "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Header2",
+          "bytes": 1325,
+          "sha256": "f69b4105ad3ebea020b533ed18a76bb8230a25cc19a03e5aab3539e4fef63fbe",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "linked",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17100,
+          "sha256": "bc92d4b684a798e07f6204dd3cb640bc8d00f25ca5f05b57de92f4215459a986",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        }
+      ],
+      "semantics": {
+        "passed": true,
+        "checks": [
+          {
+            "label": "center_x",
+            "actual": -0.004913,
+            "expected": -0.004913,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "center_y",
+            "actual": 0.006281,
+            "expected": 0.006281,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "geometry_radius",
+            "actual": 0.007639,
+            "expected": 0.007639,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "radial_parameter",
+            "actual": 0.007639,
+            "expected": 0.007639,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "depth_parameter",
+            "actual": 0.012173,
+            "expected": 0.012173,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f58",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f60",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f68",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_scale",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m0",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m1",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m2",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m3",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m4",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m5",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m6",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m7",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m8",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          }
+        ],
+        "radial_mode": "radius",
+        "center_fixed": true,
+        "display_linked_to_actual_sketch": true,
+        "circle_radius": 0.007639,
+        "radial_value": 0.007639,
+        "depth": 0.012173,
+        "graph": {
+          "sha256": "2b4c76a4563b412e4c7f351d95758398d11d437cf066a107e9fe851f50ad5f01",
+          "node_count": 1749,
+          "reference_count": 2083,
+          "map_base": 121,
+          "map_count": 279,
+          "unresolved_references": 0
+        }
+      }
+    },
+    {
+      "file": "CircleRadiusBoss-fresh-reopen.SLDPRT",
+      "source_sha256": "d0b852bcb6ac22dfae9dbbc031df8a130f3cd1c17be25eee41c402692de4ce60",
+      "sha256": "8437bd6f8ef0ee25910bcad6cc5fac58d482d2f29f1c796c39966fe2ceb0d95e",
+      "source_immutable": true,
+      "streams": [
+        {
+          "mode": "primary",
+          "stream": "Contents/CMgr",
+          "bytes": 2619,
+          "sha256": "fde17248730f9a302d627435eb00203bf3b0276bff41a116a79031bd901c5a23",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0",
+          "bytes": 24967,
+          "sha256": "7630df45bedaed80c917294ee54ee91bf501d2c1e55c69f4dc2912a4deef8a8e",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ModelHeader",
+          "bytes": 1395,
+          "sha256": "54c223b5b39d9cb638faf94105516910f35069e9035dc016fa9fd099b87cbb59",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17184,
+          "sha256": "38e44e18248df90c55980b876d727cf39e524695d3ff461d938f81f581dba16b",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Definition",
+          "bytes": 855,
+          "sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/Biography",
+          "bytes": 1965,
+          "sha256": "52a2cecd003e971bbe5b9b94ef5797d1d455dd6cf62e81e19bcc999e3a485662",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/History",
+          "bytes": 167,
+          "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Header2",
+          "bytes": 1395,
+          "sha256": "54c223b5b39d9cb638faf94105516910f35069e9035dc016fa9fd099b87cbb59",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "linked",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17184,
+          "sha256": "38e44e18248df90c55980b876d727cf39e524695d3ff461d938f81f581dba16b",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        }
+      ],
+      "semantics": {
+        "passed": true,
+        "checks": [
+          {
+            "label": "center_x",
+            "actual": -0.004913,
+            "expected": -0.004913,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "center_y",
+            "actual": 0.006281,
+            "expected": 0.006281,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "geometry_radius",
+            "actual": 0.00924319,
+            "expected": 0.00924319,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "radial_parameter",
+            "actual": 0.00924319,
+            "expected": 0.00924319,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "depth_parameter",
+            "actual": 0.01387722,
+            "expected": 0.01387722,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f58",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f60",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f68",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_scale",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m0",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m1",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m2",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m3",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m4",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m5",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m6",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m7",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m8",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          }
+        ],
+        "radial_mode": "radius",
+        "center_fixed": true,
+        "display_linked_to_actual_sketch": true,
+        "circle_radius": 0.00924319,
+        "radial_value": 0.00924319,
+        "depth": 0.01387722,
+        "graph": {
+          "sha256": "e43b4f03b215fde2652cf14ea6a87b37c97ea70370ac419e87ac441f25355a8b",
+          "node_count": 1751,
+          "reference_count": 2085,
+          "map_base": 121,
+          "map_count": 279,
+          "unresolved_references": 0
+        }
+      }
+    },
+    {
+      "file": "CircleRadiusBoss-edited-fresh-reopen.SLDPRT",
+      "source_sha256": "4ee6f126772ada84587329e8be768030ce3f5ef5474777d4e9331930184220c8",
+      "sha256": "ec3fb50e8e68ee40df50128e425f3f73df8b532379bc51917eb918b023c63172",
+      "source_immutable": true,
+      "streams": [
+        {
+          "mode": "primary",
+          "stream": "Contents/CMgr",
+          "bytes": 2625,
+          "sha256": "b94e6121cebbd2e1bf78e276c04845a75ccaa69aff49f81f81914c025ea5dfc2",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0",
+          "bytes": 24967,
+          "sha256": "68508d9d4dc6f1222c6a01f64d0c07baf1ad4ebd654d91fc3c6b0a8c71c81d2b",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ModelHeader",
+          "bytes": 1401,
+          "sha256": "bad92b560acb2cb5ddb0a8fdedba513cc5fc92f05ea15137075cc9fea3ee1937",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17190,
+          "sha256": "3d78304104ce2de483c69fe1bd70359e9ddcd68edebccb850cd834b41c91c2ee",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Definition",
+          "bytes": 855,
+          "sha256": "7676820ef1aec7adc87512d87595df6efff19b7ac97f130c39f5dc0189398e8d",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/Biography",
+          "bytes": 2765,
+          "sha256": "26d2f34382698656801de2e91b5fed62b56279c45e36f4d7c4c7e1b5d3946fe4",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/History",
+          "bytes": 167,
+          "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Header2",
+          "bytes": 1401,
+          "sha256": "bad92b560acb2cb5ddb0a8fdedba513cc5fc92f05ea15137075cc9fea3ee1937",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "linked",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17190,
+          "sha256": "3d78304104ce2de483c69fe1bd70359e9ddcd68edebccb850cd834b41c91c2ee",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        }
+      ],
+      "semantics": {
+        "passed": true,
+        "checks": [
+          {
+            "label": "center_x",
+            "actual": -0.004913,
+            "expected": -0.004913,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "center_y",
+            "actual": 0.006281,
+            "expected": 0.006281,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "geometry_radius",
+            "actual": 0.00924319,
+            "expected": 0.00924319,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "radial_parameter",
+            "actual": 0.00924319,
+            "expected": 0.00924319,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "depth_parameter",
+            "actual": 0.01387722,
+            "expected": 0.01387722,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f58",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f60",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f68",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_scale",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m0",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m1",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m2",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m3",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m4",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m5",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m6",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m7",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m8",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          }
+        ],
+        "radial_mode": "radius",
+        "center_fixed": true,
+        "display_linked_to_actual_sketch": true,
+        "circle_radius": 0.00924319,
+        "radial_value": 0.00924319,
+        "depth": 0.01387722,
+        "graph": {
+          "sha256": "feb485b1085e973554e9a614ac6888e1febace452a354b1cbd28b5a888c131d6",
+          "node_count": 1751,
+          "reference_count": 2085,
+          "map_base": 121,
+          "map_count": 279,
+          "unresolved_references": 0
+        }
+      }
+    },
+    {
+      "file": "CircleDiameterBoss-open-save.SLDPRT",
+      "source_sha256": "7b1039d3772b40e78e00706f8eccd8197a38f572605005cd7dc6d718799b95bd",
+      "sha256": "553dc621b49512d22b2aab565bbdb0c0247a2be6f8c02bc32ebcf4a41db2fb55",
+      "source_immutable": true,
+      "streams": [
+        {
+          "mode": "primary",
+          "stream": "Contents/CMgr",
+          "bytes": 2561,
+          "sha256": "48a452aa12aa9835eb199d3641a8ae48e9a71afdce0cdb60d9d652fb5ef185c3",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0",
+          "bytes": 24953,
+          "sha256": "2f6f73f5c7883e7a0bf2ef4ec993d9a38bf485d33ccba3ef8ca8da6fb332fe7d",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ModelHeader",
+          "bytes": 1337,
+          "sha256": "bf4daa44384338efaf9d30b6be4b2d66640039840507510467080f830fe9ee07",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17126,
+          "sha256": "89e78e8e989a1b1bee685953c9680ce5fc4248d7bd338cf3b9a78deb9e737feb",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Definition",
+          "bytes": 855,
+          "sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/Biography",
+          "bytes": 1197,
+          "sha256": "b82013cf9b6bd4d4c188496331cab5f2289e1b846acbd7a5091878057f3faa4f",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/History",
+          "bytes": 167,
+          "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Header2",
+          "bytes": 1337,
+          "sha256": "bf4daa44384338efaf9d30b6be4b2d66640039840507510467080f830fe9ee07",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "linked",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17126,
+          "sha256": "89e78e8e989a1b1bee685953c9680ce5fc4248d7bd338cf3b9a78deb9e737feb",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        }
+      ],
+      "semantics": {
+        "passed": true,
+        "checks": [
+          {
+            "label": "center_x",
+            "actual": 0.006787,
+            "expected": 0.006787,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "center_y",
+            "actual": -0.003953,
+            "expected": -0.003953,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "geometry_radius",
+            "actual": 0.011146999999999999,
+            "expected": 0.011147,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "radial_parameter",
+            "actual": 0.022293999999999998,
+            "expected": 0.022294,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "depth_parameter",
+            "actual": 0.016391,
+            "expected": 0.016391,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f58",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f60",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f68",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_scale",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m0",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m1",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m2",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m3",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m4",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m5",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m6",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m7",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m8",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          }
+        ],
+        "radial_mode": "diameter",
+        "center_fixed": true,
+        "display_linked_to_actual_sketch": true,
+        "circle_radius": 0.011146999999999999,
+        "radial_value": 0.022293999999999998,
+        "depth": 0.016391,
+        "graph": {
+          "sha256": "391a1031676db808a65f85e7bd179c358df23180194f143425da689e97ba1d83",
+          "node_count": 1749,
+          "reference_count": 2083,
+          "map_base": 121,
+          "map_count": 279,
+          "unresolved_references": 0
+        }
+      }
+    },
+    {
+      "file": "CircleDiameterBoss-fresh-reopen.SLDPRT",
+      "source_sha256": "d026016c1f7a557173797e68b57b0c34efe2e0fc5334f4854d7d6d844a851a5a",
+      "sha256": "0e71a264d4182386dae17f494d78db397c84622675bcf35a629f59ac512de7a8",
+      "source_immutable": true,
+      "streams": [
+        {
+          "mode": "primary",
+          "stream": "Contents/CMgr",
+          "bytes": 2635,
+          "sha256": "101600c1a76dbe020731be02ff2be39d2f903009038c2c4fda2afb44c3e665d4",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0",
+          "bytes": 24971,
+          "sha256": "ba015675a14040d62c9f766e41b3d2cc64332ea58983aa71eca587e01d69151e",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ModelHeader",
+          "bytes": 1411,
+          "sha256": "6b2f3e6eaa2111037327d5a1d640cf5f53bdb845c655908ca4a8d1b87bfa6354",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17214,
+          "sha256": "a783525153a1538a46a725882570660855b70d427b278753f75987ba24669b76",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Definition",
+          "bytes": 855,
+          "sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/Biography",
+          "bytes": 1993,
+          "sha256": "01dbe7a659dd65e3d8363275b2c2319e4a34f903a423003530d0af8ef2de2e5f",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/History",
+          "bytes": 167,
+          "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Header2",
+          "bytes": 1411,
+          "sha256": "6b2f3e6eaa2111037327d5a1d640cf5f53bdb845c655908ca4a8d1b87bfa6354",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "linked",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17214,
+          "sha256": "a783525153a1538a46a725882570660855b70d427b278753f75987ba24669b76",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        }
+      ],
+      "semantics": {
+        "passed": true,
+        "checks": [
+          {
+            "label": "center_x",
+            "actual": 0.006787,
+            "expected": 0.006787,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "center_y",
+            "actual": -0.003953,
+            "expected": -0.003953,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "geometry_radius",
+            "actual": 0.008806129999999999,
+            "expected": 0.00880613,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "radial_parameter",
+            "actual": 0.017612259999999998,
+            "expected": 0.01761226,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "depth_parameter",
+            "actual": 0.014424079999999999,
+            "expected": 0.014424079999999999,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f58",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f60",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f68",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_scale",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m0",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m1",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m2",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m3",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m4",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m5",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m6",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m7",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m8",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          }
+        ],
+        "radial_mode": "diameter",
+        "center_fixed": true,
+        "display_linked_to_actual_sketch": true,
+        "circle_radius": 0.008806129999999999,
+        "radial_value": 0.017612259999999998,
+        "depth": 0.014424079999999999,
+        "graph": {
+          "sha256": "0f2a6039c2c72fc150dcf13dd3201faad0ecc81e4d71b54ba6d6e678c63aa02c",
+          "node_count": 1751,
+          "reference_count": 2085,
+          "map_base": 121,
+          "map_count": 279,
+          "unresolved_references": 0
+        }
+      }
+    },
+    {
+      "file": "CircleDiameterBoss-edited-fresh-reopen.SLDPRT",
+      "source_sha256": "b492be8e4256947a4545d71b2e26dbe956f7b21b3a6dba5977f0a6cf8974e4a7",
+      "sha256": "d4375a1e2ee594077e3450f0d436cf056f87a4a352fcd5b0e98e93eb0a16d49c",
+      "source_immutable": true,
+      "streams": [
+        {
+          "mode": "primary",
+          "stream": "Contents/CMgr",
+          "bytes": 2641,
+          "sha256": "db1f67257c1177e16ddc09b66b1f12586728dd2daa4c7417aca87b301bb3681e",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0",
+          "bytes": 24971,
+          "sha256": "7075e44dbbadc1dbc46a42cf579b2bb7a5a3d3be20207b4f971444976391be2f",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ModelHeader",
+          "bytes": 1417,
+          "sha256": "a858d2bfc98d9638c0c7b1a3a8be5a428eed8535353bf3721fe2170fedf6765d",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17220,
+          "sha256": "5f204c834280f91e10a7593e75b11a3c9fdbe7e375428cd5c821e9b94ea90bd9",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Contents/Definition",
+          "bytes": 855,
+          "sha256": "7676820ef1aec7adc87512d87595df6efff19b7ac97f130c39f5dc0189398e8d",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/Biography",
+          "bytes": 2809,
+          "sha256": "aca7f46c5f650dc4ea4279b5ec78951a73b9219134f1abf21b8adc9b6170a476",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "_MO_VERSION_19000/History",
+          "bytes": 167,
+          "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "primary",
+          "stream": "Header2",
+          "bytes": 1417,
+          "sha256": "a858d2bfc98d9638c0c7b1a3a8be5a428eed8535353bf3721fe2170fedf6765d",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        },
+        {
+          "mode": "linked",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 17220,
+          "sha256": "5f204c834280f91e10a7593e75b11a3c9fdbe7e375428cd5c821e9b94ea90bd9",
+          "tail": 0,
+          "passed": true,
+          "proven_schemas": true
+        }
+      ],
+      "semantics": {
+        "passed": true,
+        "checks": [
+          {
+            "label": "center_x",
+            "actual": 0.006787,
+            "expected": 0.006787,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "center_y",
+            "actual": -0.003953,
+            "expected": -0.003953,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "geometry_radius",
+            "actual": 0.008806129999999999,
+            "expected": 0.00880613,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "radial_parameter",
+            "actual": 0.017612259999999998,
+            "expected": 0.01761226,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "depth_parameter",
+            "actual": 0.014424079999999999,
+            "expected": 0.014424079999999999,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f58",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f60",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_f68",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_scale",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m0",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m1",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m2",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m3",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m4",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m5",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m6",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m7",
+            "actual": 0.0,
+            "expected": 0.0,
+            "matches_6_significant_figures": true
+          },
+          {
+            "label": "frame_m8",
+            "actual": 1.0,
+            "expected": 1.0,
+            "matches_6_significant_figures": true
+          }
+        ],
+        "radial_mode": "diameter",
+        "center_fixed": true,
+        "display_linked_to_actual_sketch": true,
+        "circle_radius": 0.008806129999999999,
+        "radial_value": 0.017612259999999998,
+        "depth": 0.014424079999999999,
+        "graph": {
+          "sha256": "73a81b90f79992f55f314a11aefdd0288eccc8523245bb4b8a6ad1c5e44be1ef",
+          "node_count": 1751,
+          "reference_count": 2085,
+          "map_base": 121,
+          "map_count": 279,
+          "unresolved_references": 0
+        }
+      }
+    }
+  ],
+  "all_passed": true,
+  "is_writer_output": false,
+  "native_acceptance_inherited": false,
+  "heldout_native_payloads_read": false,
+  "local_test_execution": false,
+  "limits": [
+    "Prepared vendor-saved derivatives only; no full CAD-family or new generated-output acceptance",
+    "No production writer capability or sheet-metal feature acceptance",
+    "Whole container and noncritical streams were preserved during fixture preparation; byte comparisons cover the eight selected critical/header streams and linked resolved view"
+  ]
+}

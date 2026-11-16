@@ -1,7 +1,0 @@
-# Circle solver coordinate and status ownership
-
-The [circle lifecycle record](../../../../re/solidworks/records/CircleLifecycleRules2026.md) and linked field ledger bind the concrete 2026 2D solver factory, application-coordinate/radius readers, raw status query, entity status/color mapping and counted stamp operations. Independent original-image checks covered 72 function groups, twelve vtable cells and twelve instruction windows. This adds recorded format knowledge, not a converter runtime dependency or a new feature acceptance result.
-
-The equal-endpoint type-two marker is skipped during ordinary solver point population and status mapping. Center coordinates, circle repair and current/saved sketch states have separate owners and thresholds. The allocated block-support helper contributes zero under the selected empty/local graph guards; a null-helper assumption is unnecessary. Node status and compatibility options remain actual unresolved solver inputs rather than feature-specific constants.
-
-Only static PE/LLVM inspection and metadata/hash audits were performed for these rules. The separate free-circle native receipt remains scoped to its original generator/inspector. The new radial graph, generic fixed-center relation, full callback preservation, extrusion and held-out family coverage still require their own evidence. No local tests, CAD/COM calls, licensing mutations or sealed payload reads occurred in this static investigation. See the [delay-import gotcha](../../../Gotchas/Conversion/Solidworks/Model/DelayImportsOwnSolverFactoryPointers.md).
