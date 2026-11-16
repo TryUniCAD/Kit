@@ -99,7 +99,7 @@ def run_case(controller, trace, case, directory, phase, source, oracle_identity)
             close_owned(author, controller, rec, trace)
         finally:
             trace.resettrainingobjects(False)
-            rec.data.update(training_result=result, finished_at=time.time())
+            rec.data.update(passed=result["passed"] and rec.data["first_failure"] is None and not rec.data["cleanup_errors"], training_result=result, finished_at=time.time())
             rec.flush()
     return result
 
