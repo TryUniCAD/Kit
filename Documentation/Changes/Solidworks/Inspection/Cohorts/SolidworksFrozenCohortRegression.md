@@ -60,7 +60,13 @@ and [source record](../../../../../re/solidworks/records/ImportDependencyClosure
 
 Static source/object, SHA-256 and AST inspection completed. Black formatted the
 changed Python outside `re`. No local tests or writer/codec executions ran.
-Remote execution of this new historical/current comparison is pending.
+The [remote job](https://github.com/TryUniCAD/Kit/actions/runs/43972344782/job/133667458900)
+at `4439534c531988783bba860154441a02530594d7` passed 201 native-format cases,
+158 fixture-dependent skips and 171 policy cases. All eight historical outputs
+match the original measured lengths and SHA-256 values. All eight current
+outputs equal their historical outputs byte for byte. Both sets pass 64 complete
+archive comparisons each and their runtime guards. The [receipt](../../../../../re/solidworks/measurements/2026/FrozenCohortProcesses4439.json)
+retains every output identity and the independently downloaded artifact digest.
 
 The prior native measurements retain their original byte identities and scope.
 This change adds no generated feature coverage, fresh held-out results, native

@@ -1,0 +1,111 @@
+{
+  "schema": "kit.sw2026.failed-tree-source-attempt.v1",
+  "source_revision": "8aab4bd9038609cf0da448d93ec362ab5e8a0b01",
+  "source_lock": {
+    "schema": "kit.sw2026.unseen-view-source-lock.v1",
+    "passed": false,
+    "source_revision": "8aab4bd9038609cf0da448d93ec362ab5e8a0b01",
+    "job_sha256": "f4719d161045f806ab12252792e8a9df96dc25103aa311c73b4623c6575401a0",
+    "specs_sha256": "42b718e7cf99e9160a0375deb1b8d530f20e3b35cdf62d488be088465b06d227",
+    "private_inspection_sha256": "35ca72ac4112ebbe9882008d215bebe06b05d609dd7529039dd6ed5abe309851",
+    "controls_healthy": true,
+    "control_immutable": true,
+    "started_at": 1794869239.1471567,
+    "finished_at": 1794869487.429792,
+    "writer_output_count": 0,
+    "native_acceptance": false,
+    "heldout_acceptance": false,
+    "payload_and_api_observations_sealed_until_writer_freeze": true,
+    "cases": [
+      {
+        "name": "P01MidplaneFolders",
+        "split": "heldout",
+        "passed": true,
+        "fresh_process": true,
+        "phases": 2,
+        "native_file": "P01MidplaneFolders\\author\\P01MidplaneFolders.SLDPRT",
+        "native_sha256": "ccd97106ea17becafa2724dae3007cc6690e89b3b2359bd5f8d50f708b92288e",
+        "native_bytes": 68090,
+        "record_sha256": [
+          "d795a0a7d23b10beab51b2c3c71d3fc474b8bcf924e9fdd3602b33079f1c4136",
+          "68ef286f35591c31de85e265c542a284d5881627f9e7f267c5bca3ffaebfe4a6"
+        ],
+        "numeric_check_count": 96
+      },
+      {
+        "name": "P02TwoWayFolders",
+        "split": "heldout",
+        "passed": false,
+        "fresh_process": true,
+        "phases": 2,
+        "native_file": "P02TwoWayFolders\\author\\P02TwoWayFolders.SLDPRT",
+        "native_sha256": "564d7c4fc422142916c6248536748f34e191db84c1a58b8e7a1f1ca028a5dc6b",
+        "native_bytes": 46807,
+        "record_sha256": [
+          "a4208e200140cd32c899f908b1988d11961c4b1c473cf033be86e3f835e78c27",
+          "1011a3596e3b20e3aedb9f0c57882d6dcfc1b3ff2c45c7cb3af564eb71d6643c"
+        ],
+        "numeric_check_count": 94
+      }
+    ]
+  },
+  "failure_diagnostics": {
+    "schema": "kit.sw2026.failed-source-diagnostics.v1",
+    "recorded_at_utc": "2026-11-16T22:53:34.993979+00:00",
+    "scope": "Failure and cleanup diagnostics only; failed cohort is ineligible; geometry trees poses API return values and native CAD payloads are not inspected",
+    "records": [
+      {
+        "phase": "author",
+        "record_sha256": "a4208e200140cd32c899f908b1988d11961c4b1c473cf033be86e3f835e78c27",
+        "first_failure": null,
+        "cleanup_errors": [],
+        "stage": "read restored dimension prompt"
+      },
+      {
+        "phase": "fresh-reopen",
+        "record_sha256": "1011a3596e3b20e3aedb9f0c57882d6dcfc1b3ff2c45c7cb3af564eb71d6643c",
+        "first_failure": {
+          "stage": "Scale2",
+          "type": "EvidenceFailure",
+          "error": "EvidenceFailure('source fresh rebuilt translation 0: 0.007068387670026221 differs from -0.003173')",
+          "pending_capability": false
+        },
+        "cleanup_errors": [],
+        "stage": "read restored dimension prompt"
+      }
+    ],
+    "native_payloads_inspected": false,
+    "native_acceptance": false,
+    "whole_geometry_trees_pose_arrays_and_api_logs_inspected": false,
+    "one_translation_component_exposed_by_failure_message": true,
+    "eligible_for_later_unseen_writer_evidence": false
+  },
+  "postflight": {
+    "created_at_utc": "2026-11-16T22:53:36.178860+00:00",
+    "returncode": 0,
+    "stdout_bytes": 7261,
+    "stdout_sha256": "f073dc5dc19f66605d7033148130a0d86bd494e852ba6f1e3e39e35dd425d9fd",
+    "row_count": 148,
+    "selected": [
+      {
+        "name": "lmgrd.exe",
+        "pid": 1604
+      },
+      {
+        "name": "lmgrd.exe",
+        "pid": 7936
+      },
+      {
+        "name": "sw_d.exe",
+        "pid": 3088
+      }
+    ],
+    "no_cad_process": true
+  },
+  "writer_change_started": false,
+  "generated_output_count": 0,
+  "fresh_unseen_evidence": false,
+  "cohort_eligible": false,
+  "native_acceptance": false,
+  "scope": "Failed native source authoring attempt only; no writer output was tested and failed sources cannot become fresh unseen evidence after repairs"
+}

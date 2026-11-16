@@ -4,7 +4,7 @@
 
 `re/tooling/sw2026/TreeSourceSpecs.json` defines two new independent native
 sources before the system-folder writer changes. They use different circle
-parameters, Front/Top frames, mid-plane/two-direction end conditions and distinct
+parameters, Front/Right frames, ordinary/reversed blind bosses and distinct
 orthographic poses. Both remain held out from the next writer implementation.
 
 The existing committed `AuthorViewCases.py` author creates each source through
@@ -18,6 +18,10 @@ The new evaluation scope is system-folder class, recursive order, captions and
 parents. The source observer already records that complete tree inside its
 geometry snapshot. Geometry and pose measurements remain controls; these inputs
 do not retroactively add body or camera coverage to the completed cohorts.
+The [2026 constructor/lookup record](../../../../../re/solidworks/records/MarkupFolderConstruction2026.md)
+confirms that the markup class inherits the common folder serializer, sets its
+ordinary folder state to one and is found by concrete class, independently from
+notes-area labels. This is static format knowledge, not generated acceptance.
 
 Native files and detailed API observations must remain sealed until the new
 presentation writer is frozen and its predictions pass the remote process
@@ -26,7 +30,19 @@ before then. Licensed software and native output remain outside checkouts.
 
 ## Verification and limits
 
-The specification and author source were inspected statically. New native source
-authoring is pending. No writer implementation, writer output, new feature
+The specification and author source were inspected statically. The first source
+attempt used mid-plane and two-direction bodies. The mid-plane source passed,
+but the two-direction source changed native view translation after the fresh
+rebuild. Both controls were healthy and cleanup was idle with licensing process
+identities unchanged. The [failed attempt](../../../../../re/solidworks/measurements/2026/TreeSourceAttempt01.json)
+remains failed and the whole pair is ineligible for future unseen evidence.
+Only failure/cleanup diagnostics were inspected; its native files, geometry,
+recursive trees and complete pose observations remain unopened.
+
+The current specification defines two different, still independent blind-body
+inputs for the bounded folder-topology question. They do not replace or qualify
+the failed mixed-end observations. Their native source authoring is pending.
+See the [native rebuild-view gotcha](../../../../Gotchas/Conversion/Solidworks/Oracle/RebuildCanChangeNativeViewTranslation.md).
+No writer implementation, writer output, new feature
 coverage, or native acceptance is established. No local tests ran. The production
 adapter remains read-only.
