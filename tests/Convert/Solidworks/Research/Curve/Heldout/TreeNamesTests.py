@@ -41,6 +41,7 @@ def TestTreeNames(TmpPath: FilePath) -> None:
     assert Report["passed"] is True
     assert Report["file_count"] == Report["material_name_count"] == 8
     assert Report["stream_count"] == 72
+    assert Report["document_transform_count"] == 16
     assert (
         Report["is_writer_output"]
         is Report["native_acceptance_inherited"]

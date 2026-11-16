@@ -40,6 +40,26 @@ def read_object(path):
     return value
 
 
+def splitter_state(value):
+    return {
+        "header": {key: value[key] for key in ("f08", "f0c", "f10", "f14", "f18", "f1c", "f20", "f24")},
+        "rows": [
+            {"cols": [{"xa": cell["xa"], "xb": cell["xb"], "a": cell["a"], "b": cell["b"], "c": cell["c"], "label_sha256": digest(cell["d"].encode("utf-8"))} for cell in row["cols"]]}
+            for row in value["rows"]
+        ],
+    }
+
+
+def document_views(document):
+    require(isinstance(document, Obj) and document.cls == "uiPartDoc_c", "view observations require the typed native part document")
+    result = {"default_transform_fae8": document["fae8"], "second_transform_faf0": document["faf0"], "environments": []}
+    for entry in document["faf8"]:
+        environment = entry["o"]
+        require(isinstance(environment, Obj) and environment.cls == "uiUserModelEnv_c", "unexpected user view environment owner")
+        result["environments"].append({"name_sha256": digest(environment["f08"].encode("utf-8")), "splitter_f10": splitter_state(environment["f10"]), "splitter_fe0": splitter_state(environment["fe0"])})
+    return result
+
+
 def fixture_inputs():
     manifest = read_object(CORPUS / "Manifest.json")
     proof = read_object(CORPUS / "SourceEvidence.json")
@@ -99,6 +119,7 @@ def inspect_file(entry):
     name = material["f18"]
     require(isinstance(name, Obj) and name.cls == "moNodeName_c" and isinstance(name["f08"], str) and name["f08"], "saved material-folder name has no proven typed owner")
     result["material_folder"] = {"class": material.cls, "node_name": name["f08"], "name_owner_class": name.cls, "persisted_field_path": "moMaterialFolder_c -> moNode_c.f18 -> moNodeName_c.f08", "material_string": material["f378"], "wire_flags": material["flags380"]}
+    result["document_view_state"] = document_views(models["Contents/Definition"]["document"].head)
     result["linked_graph"] = GraphProof(models[RESOLVED]["document"], reader, RESOLVED, models["Contents/Config-0"])
     require(result["linked_graph"]["unresolved_references"] == 0, "saved-tree graph has unresolved references")
     require(path.read_bytes() == raw, "saved-tree source changed during inspection")
@@ -125,6 +146,7 @@ def main():
         report["file_count"] = len(report["files"])
         report["stream_count"] = sum(len(x.get(kind, {}).get("streams", {})) for x in report["files"] for kind in ("primary", "linked"))
         report["material_name_count"] = sum("material_folder" in x for x in report["files"])
+        report["document_transform_count"] = sum(2 for x in report["files"] if "document_view_state" in x)
         report["passed"] = len(report["files"]) == 8 and all(x["passed"] for x in report["files"])
     except Exception as error:
         report.update(error=repr(error), trace=traceback.format_exc(limit=10))
