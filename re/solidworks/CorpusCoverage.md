@@ -12,7 +12,7 @@ not current capability.
 ## Generative 2026 research
 
 The independent research composer generates fresh native containers and streams
-from neutral polygon and depth inputs without saved-stream inputs. This is not
+from neutral polygon, circle, radial-dimension and depth inputs without saved-stream inputs. This is not
 the public adapter and does not count toward the requested 165-part and five-assembly conversion target.
 
 The [appearance repair measurement](measurements/2026/FreshPartModelAppearance.json)
@@ -37,7 +37,22 @@ healthy controls. All 72 independent scalar comparisons pass, and all 90
 standard-view arrays match the controls.
 Full feature-name preservation fails: each reopened copy renames its material folder.
 Initial-camera parity remains unestablished.
-These are three measured research outputs and zero completed FCStd conversions.
+These are three measured polygon research outputs and zero completed FCStd conversions.
+
+Two [generated free-circle sketches](measurements/2026/CircleSketchInspection01.json)
+passed four native load/rebuild/save/fresh-reopen phases and 48 numeric/frame checks.
+Two [free-center radial sketches](measurements/2026/RadialSketchInspection01.json)
+and two [fixed-center radial sketches](measurements/2026/FixedCircleInspection01.json)
+each passed six native phases and 104 numeric/frame checks, including driving radial edits.
+The fixed-center inputs were fully constrained and retained the exact native center relation.
+Two [generated blind circle bosses](measurements/2026/CircleBossInspection01.json)
+then passed six native phases and 200 numeric checks, including one solid body,
+volume, area, center of mass, radial/depth edits, saves and fresh reopens.
+Every batch had healthy original controls; all numeric comparisons matched to six significant figures.
+These are bounded generated research rungs, not completed family acceptance or FCStd conversions.
+Vendor-saved copies are derivatives and do not increase the generated-output count.
+Initial body presence before explicit rebuild, complete presentation and saved-file semantic
+comparison remain unestablished for the circle bosses.
 
 The [complete circle/arc source lock](v2026/heldout/CurveSourceLock.json)
 records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.

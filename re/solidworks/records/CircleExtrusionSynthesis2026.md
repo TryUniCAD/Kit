@@ -1,6 +1,6 @@
 # Single-circle blind boss synthesis rung
 
-Status: new research graph composed after the [fully constrained sketch measurements](../measurements/2026/FixedCircleInspection01.json) passed. Body generation, mass properties and feature-edit acceptance remain pending for this changed graph. No held-out or production writer acceptance is established.
+Status: the two generated research graphs passed [remote construction](../measurements/2026/CircleBossProcesses993e707.json) and the [controlled native body/edit rung](../measurements/2026/CircleBossInspection01.json). All six native phases and 200 numeric checks passed. No held-out, complete family or production writer acceptance is established.
 
 ## Shared model composition
 
@@ -21,14 +21,16 @@ The shared blind-profile guard now has two explicit branches. The polygon branch
 
 No parallel feature-family serializer or fallback stream is added. The composer generates all its existing streams and the container from the new graph alone. The first circle body route remains a canonical front-plane forward boss, blind, one direction, without draft/thin/cut. General end conditions, arbitrary frames, multiple loops and other families remain closed.
 
-## Planned native evidence
+## Measured native evidence
 
-The two independent process requests use different centers, radii, depths and radial modes. Each requires eight complete primary/linked archive comparisons and the original file-read/process guards. Exact generated artifacts will supply the oracle inputs after remote execution.
+The two independent process requests use different centers, radii, depths and radial modes. Each passed eight complete primary/linked archive comparisons and the original file-read/process guards. The exact artifacts from source `993e707cfa6b38d24c38520dd731f4a61bfbe076`, tested merge `5a475f001e7a5b61807292f5338b9b94b2611603`, supplied the immutable oracle inputs. The native process CI job passed 186 checks with 158 unrelated fixture skips; policy CI passed 171 checks.
 
-Native inspection must establish one solid body, a native forward blind `Extrusion` definition, editable radial/depth parameters, the exact fixed center, public fully constrained sketch status, no load/rebuild errors or warnings, and mass properties matching neutral mathematics. For radius `r`, depth `d` and center `(cx,cy)` on the canonical front frame:
+Native inspection established one solid body, a native forward blind `Extrusion` definition, editable radial/depth parameters, the exact fixed center, public fully constrained sketch status, no load/rebuild errors or warnings, and mass properties matching neutral mathematics. For radius `r`, depth `d` and center `(cx,cy)` on the canonical front frame:
 
 - Volume: `pi*r*r*d`
 - Area: `2*pi*r*r + 2*pi*r*d`
 - Center of mass: `(cx,cy,d/2)`
 
-Independent radial and depth edits must rebuild, preserve the requested center/plane, match updated mass targets, save, and survive another fresh-process reopen between healthy controls. Static construction and earlier sketch/polygon results do not replace these measurements. All six held-out payloads remain sealed until the family writer is frozen.
+Independent radial and depth edits rebuilt, preserved the requested center/plane, matched updated mass targets, saved, and survived another fresh-process reopen between healthy controls. Radius/depth factors were `1.21/1.14` for the radius case and `0.79/0.88` for the diameter case. All 200 comparisons matched to six significant figures. Each case used three distinct native process identities. Original input/control hashes remained unchanged, both controls were healthy, and the independent final inventory found no application process with unchanged licensing identities.
+
+The measurements inspect bodies after explicit rebuild. They do not establish body presence before that rebuild, complete names, appearances or camera parity. The six vendor-saved derivatives are reader/edit-survival evidence candidates, not six additional generated outputs. Their saved-file archive/semantic comparisons remain pending. Static construction and earlier sketch/polygon results are separate evidence. All six held-out payloads remain sealed until the family writer is frozen.

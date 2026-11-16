@@ -279,7 +279,7 @@ These observations retain separate source, process, observer and control evidenc
 The [public circle dispatch probe](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleApiDispatchProbe.md)
 adds an independently pinned observation site for the forwarded COM target; its controlled run installed all hooks but emitted no required public-dispatch event and remains unqualified.
 The [single-circle sketch synthesis](../../Changes/Solidworks/Model/SolidworksCircleSketchSynthesis.md)
-adds a constructor-derived research graph with computed topology, IDs and counts. Two remote process candidates passed strict archive comparisons and file-read guards; both also passed controlled native sketch load/rebuild/save/fresh-reopen measurements. No radial dimension or circle extrusion is enabled.
+adds a constructor-derived research graph with computed topology, IDs and counts. Two remote process candidates passed strict archive comparisons and file-read guards; both also passed controlled native sketch load/rebuild/save/fresh-reopen measurements. This free-sketch result is separate from the radial and body rungs below.
 The [controlled circle sketch inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleSketchInspection.md)
 checks local geometry, authored plane, zero-body topology, rebuild state, save and fresh-process reopen between controls. Its first native run passed four phases and 48 numeric/frame comparisons matching to six significant figures; held-out family acceptance remains unestablished.
 The [circle lifecycle rules](../../Changes/Solidworks/Model/SolidworksCircleLifecycleRules.md)
@@ -289,7 +289,7 @@ adds a front-plane radius/diameter value, parameter, handle and display graph wi
 The [radial sketch inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksRadialSketchInspection.md)
 adds explicit driving-value edits and fresh reopening of edited sketches while retaining geometry, plane, ownership and control gates. The [fixed-center relation](../../Changes/Solidworks/Model/SolidworksCircleCenterFixation.md) also passed six controlled native phases and 104 numeric/frame checks with fully constrained status and exact center bindings.
 The [circle blind boss synthesis](../../Changes/Solidworks/Model/SolidworksCircleExtrusionSynthesis.md)
-composes that constrained sketch with the shared blind feature/end-spec model. Remote generation and native body/mass/radial-and-depth-edit measurements remain pending for this new rung; no body-family acceptance is transferred.
+composes that constrained sketch with the shared blind feature/end-spec model. Both generated candidates passed six native load/rebuild/edit/save/fresh-reopen phases, with one body, fully constrained sketches and all 200 numeric comparisons matching to six significant figures between healthy controls. Saved-file archive/semantic comparison, general frames, complete presentation and held-out family acceptance remain unestablished; the public adapter still writes none.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
