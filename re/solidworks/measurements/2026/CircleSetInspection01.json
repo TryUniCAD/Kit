@@ -1,0 +1,3238 @@
+{
+  "schema": "kit.sw2026.circle-set-native-measurement.v1",
+  "scope": "independently owned disjoint free circle sketches; no dimensions or body family acceptance",
+  "inspection_source_revision": "f00d6ec4d5002ec5d1cfacaeaaf96b975faf8240",
+  "generator": {
+    "source_revision": "f00d6ec4d5002ec5d1cfacaeaaf96b975faf8240",
+    "tested_revision": "3b86016075964be5a9c9cc704a7f2bd5b42500e5",
+    "tested_tree": "a171b69f45bef76122c7e89b97b0801e867f4d0e",
+    "verified_tested_parents": [
+      "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+      "f00d6ec4d5002ec5d1cfacaeaaf96b975faf8240"
+    ],
+    "run": 43880315148,
+    "job": 133344150165,
+    "job_conclusion": "success",
+    "artifact": {
+      "id": 14232855838,
+      "size_in_bytes": 21239372,
+      "sha256": "8dd1be66d6df2cbe94148d6dc78f5cebea1c56857702d2bc1ab8fd2ea6d2803a",
+      "reported_digest_independently_verified": true
+    }
+  },
+  "frozen_sources": [
+    {
+      "path": "re/tooling/sw2026/InspectCircleSketch.py",
+      "bytes": 21085,
+      "sha256": "ab4c6208bae767dc5acede331f66b47f690320767b66790110fd57d6f964d278"
+    },
+    {
+      "path": "re/tooling/sw2026/AuthorCurves.py",
+      "bytes": 65987,
+      "sha256": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31"
+    },
+    {
+      "path": "re/tooling/sw2026/Swapp.py",
+      "bytes": 15278,
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectFresh.py",
+      "bytes": 4187,
+      "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793"
+    },
+    {
+      "path": "re/tooling/sw2026/OracleIdentity.py",
+      "bytes": 4284,
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    }
+  ],
+  "frozen_manifest": {
+    "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/CircleSetTools01/SourceManifest.json",
+    "sha256": "2c9dff3c953e7781cb385589f23779b1b3ccc1513d11b8eff003407bfb3addbe"
+  },
+  "job": {
+    "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/CircleSetTools01/InspectionJob.json",
+    "sha256": "a26190958f25fad4fcbbd34e7b3fa24b36cf9a3da88786812763ba9810bf09bf",
+    "cases": [
+      {
+        "name": "DualCircleSketch",
+        "path": "//Mac/Home/Documents/UniCAD/Oracle121Takeover/CircleSetTools01/Inputs/DualCircleSketch.SLDPRT",
+        "sha256": "349ce60dd2d639b610764602c8ed7316f22f77b63afd64152c6ee7df7ac23f29",
+        "request": {
+          "document": {
+            "name": "DualCircleSketch",
+            "configuration_name": "authored configuration",
+            "sketch_name": "Sketch1",
+            "extrusion_name": "Boss-Extrude1",
+            "origin_name": "Origin",
+            "plane_axis": "z",
+            "density_kg_m3": 1.0,
+            "profile_kind": "circle_set",
+            "feature_kind": "sketch",
+            "circles_m": [
+              {
+                "center_m": [
+                  -0.025701,
+                  -0.022913
+                ],
+                "radius_m": 0.003827
+              },
+              {
+                "center_m": [
+                  0.024473,
+                  -0.021139
+                ],
+                "radius_m": 0.005617
+              }
+            ]
+          },
+          "provenance": {
+            "author": "Kit research",
+            "company": "authored compatibility experiment",
+            "created_at": 1794700000,
+            "modified_at": 1794700000,
+            "comment": "generated from neutral geometry",
+            "originating_build_code": 2026001,
+            "license_origin": 0
+          },
+          "target": {
+            "date_code": 2026306,
+            "parasolid_version": 370108
+          },
+          "presentation": {
+            "folder_names": {
+              "moCommentsFolder_c": "authored comments",
+              "moFavoriteFolder_c": "authored favorites",
+              "moHistoryFolder_c": "authored history",
+              "moSelectionSetFolder_c": "authored selection sets",
+              "moSensorFolder_c": "authored sensors",
+              "moDocsFolder_c": "authored document binder",
+              "moSurfaceBodyFolder_c": "authored surfaces",
+              "moSolidBodyFolder_c": "authored solids",
+              "moEnvFolder_c": "authored environment",
+              "moNotesAreaFtrFolder_c": "authored markups",
+              "moEqnFolder_c": "authored equations",
+              "moMaterialFolder_c": "authored material"
+            },
+            "cabinet_name": "authored annotations",
+            "plane_names": {
+              "x": "Right Plane",
+              "y": "Top Plane",
+              "z": "Front Plane"
+            },
+            "units": {
+              "length_unit": "mm",
+              "angle_unit": "degree",
+              "unit_system": "mmgs",
+              "decimal_places": 4
+            },
+            "styles": {
+              "standard": 1,
+              "font_name": "Arial",
+              "line_style_name": "authored continuous",
+              "language_id": 1033,
+              "print_widths_m": [
+                0.0001,
+                0.0002,
+                0.0003,
+                0.0004,
+                0.0005,
+                0.0006,
+                0.0007,
+                0.0008
+              ],
+              "exclusion_names": [],
+              "task_labels": [
+                "description",
+                "high",
+                "low",
+                "complete",
+                "reminder"
+              ],
+              "cutlist_expressions": [
+                "item",
+                "description",
+                "stock"
+              ]
+            },
+            "hatch_name": "authored hatch",
+            "drafting_standard": "moISO_c",
+            "journal_name": "authored journal",
+            "tessellation": [
+              20,
+              15,
+              3,
+              false
+            ],
+            "detail_flags": [],
+            "system_preference_7a": false,
+            "design_intent": false,
+            "selected_leader": 0,
+            "cjk_saved": false
+          }
+        }
+      },
+      {
+        "name": "FourCircleSketch",
+        "path": "//Mac/Home/Documents/UniCAD/Oracle121Takeover/CircleSetTools01/Inputs/FourCircleSketch.SLDPRT",
+        "sha256": "7834ef502050621d893216556b87cb43e172f1ad074171a03e5f6571c853a944",
+        "request": {
+          "document": {
+            "name": "FourCircleSketch",
+            "configuration_name": "authored configuration",
+            "sketch_name": "Sketch1",
+            "extrusion_name": "Boss-Extrude1",
+            "origin_name": "Origin",
+            "plane_axis": "z",
+            "density_kg_m3": 1.0,
+            "profile_kind": "circle_set",
+            "feature_kind": "sketch",
+            "circles_m": [
+              {
+                "center_m": [
+                  -0.025701,
+                  -0.022913
+                ],
+                "radius_m": 0.003827
+              },
+              {
+                "center_m": [
+                  0.024473,
+                  -0.021139
+                ],
+                "radius_m": 0.005617
+              },
+              {
+                "center_m": [
+                  0.023129,
+                  0.028339
+                ],
+                "radius_m": 0.006421
+              },
+              {
+                "center_m": [
+                  -0.027437,
+                  0.026783
+                ],
+                "radius_m": 0.004739
+              }
+            ]
+          },
+          "provenance": {
+            "author": "Kit research",
+            "company": "authored compatibility experiment",
+            "created_at": 1794700000,
+            "modified_at": 1794700000,
+            "comment": "generated from neutral geometry",
+            "originating_build_code": 2026001,
+            "license_origin": 0
+          },
+          "target": {
+            "date_code": 2026306,
+            "parasolid_version": 370108
+          },
+          "presentation": {
+            "folder_names": {
+              "moCommentsFolder_c": "authored comments",
+              "moFavoriteFolder_c": "authored favorites",
+              "moHistoryFolder_c": "authored history",
+              "moSelectionSetFolder_c": "authored selection sets",
+              "moSensorFolder_c": "authored sensors",
+              "moDocsFolder_c": "authored document binder",
+              "moSurfaceBodyFolder_c": "authored surfaces",
+              "moSolidBodyFolder_c": "authored solids",
+              "moEnvFolder_c": "authored environment",
+              "moNotesAreaFtrFolder_c": "authored markups",
+              "moEqnFolder_c": "authored equations",
+              "moMaterialFolder_c": "authored material"
+            },
+            "cabinet_name": "authored annotations",
+            "plane_names": {
+              "x": "Right Plane",
+              "y": "Top Plane",
+              "z": "Front Plane"
+            },
+            "units": {
+              "length_unit": "mm",
+              "angle_unit": "degree",
+              "unit_system": "mmgs",
+              "decimal_places": 4
+            },
+            "styles": {
+              "standard": 1,
+              "font_name": "Arial",
+              "line_style_name": "authored continuous",
+              "language_id": 1033,
+              "print_widths_m": [
+                0.0001,
+                0.0002,
+                0.0003,
+                0.0004,
+                0.0005,
+                0.0006,
+                0.0007,
+                0.0008
+              ],
+              "exclusion_names": [],
+              "task_labels": [
+                "description",
+                "high",
+                "low",
+                "complete",
+                "reminder"
+              ],
+              "cutlist_expressions": [
+                "item",
+                "description",
+                "stock"
+              ]
+            },
+            "hatch_name": "authored hatch",
+            "drafting_standard": "moISO_c",
+            "journal_name": "authored journal",
+            "tessellation": [
+              20,
+              15,
+              3,
+              false
+            ],
+            "detail_flags": [],
+            "system_preference_7a": false,
+            "design_intent": false,
+            "selected_leader": 0,
+            "cjk_saved": false
+          }
+        }
+      }
+    ]
+  },
+  "raw_inspection": {
+    "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/CircleSetInspection01/Inspection.json",
+    "sha256": "05469b541435ccfa26da9ab879208ed84994add246f7d069c24c155ba20e1214",
+    "bytes": 71066
+  },
+  "host_transport": {
+    "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/CircleSetInspection01.Host.json",
+    "sha256": "651bd1a0fb7c25198da40c7bc1d5d5a935c68d99313bb70be56efe0828487094",
+    "status": "transport_exited",
+    "transport_exit_confirmed": true,
+    "transport_returncode": 0,
+    "supervisor_exit_code": 0,
+    "guest_state_unknown": true
+  },
+  "started_at": 1794837918.6966703,
+  "finished_at": 1794838072.2120547,
+  "cases": [
+    {
+      "name": "DualCircleSketch",
+      "phases": [
+        {
+          "phase": "open-save",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CircleSetTools01\\Inputs\\DualCircleSketch.SLDPRT",
+          "source_sha256": "349ce60dd2d639b610764602c8ed7316f22f77b63afd64152c6ee7df7ac23f29",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 6872,
+            "process_creation_filetime": 134393115485706935,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "initial_state": {
+            "before_explicit_rebuild": true,
+            "body_count": 0,
+            "expected_body_count": 0,
+            "rebuild_problem_count": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "requested_features": [
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "matches": 1,
+                "active": true
+              }
+            ],
+            "passed": true
+          },
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.025701,
+                  -0.022913
+                ],
+                "radius": 0.0038270000000000005
+              },
+              {
+                "construction": false,
+                "id": [
+                  1,
+                  2
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    1,
+                    2
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      2,
+                      4
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.024473,
+                  -0.021139
+                ],
+                "radius": 0.0056170000000000005
+              }
+            ],
+            "bodies": 0,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "constraint_status": 2,
+            "model_to_sketch_transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CircleSetInspection01\\DualCircleSketch\\open-save\\DualCircleSketchSaved.SLDPRT",
+          "saved_sha256": "a31cbd5b3e0f600318cf87a188c1459bd77b739c85eef9f656aff947abd9bc24",
+          "saved_bytes": 26067,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/CircleSetInspection01/DualCircleSketch/open-save/Record.json",
+            "sha256": "eb8582e6bbcc74ebaa26b40fc28d98d13a39ea3927cbd71cb0f5dcdb5c0e7ec7",
+            "bytes": 43347
+          },
+          "numeric_checks": [
+            {
+              "name": "circle 0 center 0",
+              "actual": -0.025701,
+              "expected": -0.025701,
+              "passed": true
+            },
+            {
+              "name": "circle 0 center 1",
+              "actual": -0.022913,
+              "expected": -0.022913,
+              "passed": true
+            },
+            {
+              "name": "circle 0 radius",
+              "actual": 0.0038270000000000005,
+              "expected": 0.003827,
+              "passed": true
+            },
+            {
+              "name": "circle 1 center 0",
+              "actual": 0.024473,
+              "expected": 0.024473,
+              "passed": true
+            },
+            {
+              "name": "circle 1 center 1",
+              "actual": -0.021139,
+              "expected": -0.021139,
+              "passed": true
+            },
+            {
+              "name": "circle 1 radius",
+              "actual": 0.0056170000000000005,
+              "expected": 0.005617,
+              "passed": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "phase": "fresh-reopen",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CircleSetInspection01\\DualCircleSketch\\open-save\\DualCircleSketchSaved.SLDPRT",
+          "source_sha256": "a31cbd5b3e0f600318cf87a188c1459bd77b739c85eef9f656aff947abd9bc24",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 4512,
+            "process_creation_filetime": 134393115750050499,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "initial_state": {
+            "before_explicit_rebuild": true,
+            "body_count": 0,
+            "expected_body_count": 0,
+            "rebuild_problem_count": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "requested_features": [
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "matches": 1,
+                "active": true
+              }
+            ],
+            "passed": true
+          },
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.025701,
+                  -0.022913
+                ],
+                "radius": 0.0038270000000000005
+              },
+              {
+                "construction": false,
+                "id": [
+                  1,
+                  2
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    1,
+                    2
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      2,
+                      4
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.024473,
+                  -0.021139
+                ],
+                "radius": 0.0056170000000000005
+              }
+            ],
+            "bodies": 0,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "constraint_status": 2,
+            "model_to_sketch_transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CircleSetInspection01\\DualCircleSketch\\fresh-reopen\\DualCircleSketchSaved.SLDPRT",
+          "saved_sha256": "6bfd889b373b4b521b8bc9d2e600e53d04844e45f29d601c0981687aaf9ad064",
+          "saved_bytes": 25950,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/CircleSetInspection01/DualCircleSketch/fresh-reopen/Record.json",
+            "sha256": "ec04f96b89e5c5e8508df93d1c1957b2110639124351cea36538608c88273e85",
+            "bytes": 43440
+          },
+          "numeric_checks": [
+            {
+              "name": "circle 0 center 0",
+              "actual": -0.025701,
+              "expected": -0.025701,
+              "passed": true
+            },
+            {
+              "name": "circle 0 center 1",
+              "actual": -0.022913,
+              "expected": -0.022913,
+              "passed": true
+            },
+            {
+              "name": "circle 0 radius",
+              "actual": 0.0038270000000000005,
+              "expected": 0.003827,
+              "passed": true
+            },
+            {
+              "name": "circle 1 center 0",
+              "actual": 0.024473,
+              "expected": 0.024473,
+              "passed": true
+            },
+            {
+              "name": "circle 1 center 1",
+              "actual": -0.021139,
+              "expected": -0.021139,
+              "passed": true
+            },
+            {
+              "name": "circle 1 radius",
+              "actual": 0.0056170000000000005,
+              "expected": 0.005617,
+              "passed": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "fresh_process": true,
+      "passed": true
+    },
+    {
+      "name": "FourCircleSketch",
+      "phases": [
+        {
+          "phase": "open-save",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CircleSetTools01\\Inputs\\FourCircleSketch.SLDPRT",
+          "source_sha256": "7834ef502050621d893216556b87cb43e172f1ad074171a03e5f6571c853a944",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 6488,
+            "process_creation_filetime": 134393116004873127,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "initial_state": {
+            "before_explicit_rebuild": true,
+            "body_count": 0,
+            "expected_body_count": 0,
+            "rebuild_problem_count": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "requested_features": [
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "matches": 1,
+                "active": true
+              }
+            ],
+            "passed": true
+          },
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.025701,
+                  -0.022913
+                ],
+                "radius": 0.0038270000000000005
+              },
+              {
+                "construction": false,
+                "id": [
+                  1,
+                  2
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    1,
+                    2
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      2,
+                      4
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.024473,
+                  -0.021139
+                ],
+                "radius": 0.0056170000000000005
+              },
+              {
+                "construction": false,
+                "id": [
+                  2,
+                  3
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    2,
+                    3
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      4,
+                      6
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.023129,
+                  0.028339
+                ],
+                "radius": 0.006421
+              },
+              {
+                "construction": false,
+                "id": [
+                  3,
+                  4
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    3,
+                    4
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      6,
+                      8
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.027437,
+                  0.026783
+                ],
+                "radius": 0.004739
+              }
+            ],
+            "bodies": 0,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "constraint_status": 2,
+            "model_to_sketch_transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CircleSetInspection01\\FourCircleSketch\\open-save\\FourCircleSketchSaved.SLDPRT",
+          "saved_sha256": "783141441b2ad1428b115cf2b26837c98a7345fac4cf659ea84ee730bc1f3db3",
+          "saved_bytes": 26071,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/CircleSetInspection01/FourCircleSketch/open-save/Record.json",
+            "sha256": "ae86129adf3d1fce7cbead7b103e021cfbf15b8abc136996637a0d4bb0c92cdb",
+            "bytes": 54046
+          },
+          "numeric_checks": [
+            {
+              "name": "circle 0 center 0",
+              "actual": -0.025701,
+              "expected": -0.025701,
+              "passed": true
+            },
+            {
+              "name": "circle 0 center 1",
+              "actual": -0.022913,
+              "expected": -0.022913,
+              "passed": true
+            },
+            {
+              "name": "circle 0 radius",
+              "actual": 0.0038270000000000005,
+              "expected": 0.003827,
+              "passed": true
+            },
+            {
+              "name": "circle 1 center 0",
+              "actual": 0.024473,
+              "expected": 0.024473,
+              "passed": true
+            },
+            {
+              "name": "circle 1 center 1",
+              "actual": -0.021139,
+              "expected": -0.021139,
+              "passed": true
+            },
+            {
+              "name": "circle 1 radius",
+              "actual": 0.0056170000000000005,
+              "expected": 0.005617,
+              "passed": true
+            },
+            {
+              "name": "circle 2 center 0",
+              "actual": 0.023129,
+              "expected": 0.023129,
+              "passed": true
+            },
+            {
+              "name": "circle 2 center 1",
+              "actual": 0.028339,
+              "expected": 0.028339,
+              "passed": true
+            },
+            {
+              "name": "circle 2 radius",
+              "actual": 0.006421,
+              "expected": 0.006421,
+              "passed": true
+            },
+            {
+              "name": "circle 3 center 0",
+              "actual": -0.027437,
+              "expected": -0.027437,
+              "passed": true
+            },
+            {
+              "name": "circle 3 center 1",
+              "actual": 0.026783,
+              "expected": 0.026783,
+              "passed": true
+            },
+            {
+              "name": "circle 3 radius",
+              "actual": 0.004739,
+              "expected": 0.004739,
+              "passed": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "phase": "fresh-reopen",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CircleSetInspection01\\FourCircleSketch\\open-save\\FourCircleSketchSaved.SLDPRT",
+          "source_sha256": "783141441b2ad1428b115cf2b26837c98a7345fac4cf659ea84ee730bc1f3db3",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 3664,
+            "process_creation_filetime": 134393116267146974,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "initial_state": {
+            "before_explicit_rebuild": true,
+            "body_count": 0,
+            "expected_body_count": 0,
+            "rebuild_problem_count": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "requested_features": [
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "matches": 1,
+                "active": true
+              }
+            ],
+            "passed": true
+          },
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.025701,
+                  -0.022913
+                ],
+                "radius": 0.0038270000000000005
+              },
+              {
+                "construction": false,
+                "id": [
+                  1,
+                  2
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    1,
+                    2
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      2,
+                      4
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.024473,
+                  -0.021139
+                ],
+                "radius": 0.0056170000000000005
+              },
+              {
+                "construction": false,
+                "id": [
+                  2,
+                  3
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    2,
+                    3
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      4,
+                      6
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.023129,
+                  0.028339
+                ],
+                "radius": 0.006421
+              },
+              {
+                "construction": false,
+                "id": [
+                  3,
+                  4
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    3,
+                    4
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      6,
+                      8
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.027437,
+                  0.026783
+                ],
+                "radius": 0.004739
+              }
+            ],
+            "bodies": 0,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "constraint_status": 2,
+            "model_to_sketch_transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CircleSetInspection01\\FourCircleSketch\\fresh-reopen\\FourCircleSketchSaved.SLDPRT",
+          "saved_sha256": "ae35fc4584954ad37c232582b3e3ea497374d2ab66b13716c2051efccd6d224b",
+          "saved_bytes": 25559,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/CircleSetInspection01/FourCircleSketch/fresh-reopen/Record.json",
+            "sha256": "e2eb30a51e48dfd83d23152de3aaf8a6580f6a4cfdd6eb5d801cc29aa8b15a01",
+            "bytes": 54103
+          },
+          "numeric_checks": [
+            {
+              "name": "circle 0 center 0",
+              "actual": -0.025701,
+              "expected": -0.025701,
+              "passed": true
+            },
+            {
+              "name": "circle 0 center 1",
+              "actual": -0.022913,
+              "expected": -0.022913,
+              "passed": true
+            },
+            {
+              "name": "circle 0 radius",
+              "actual": 0.0038270000000000005,
+              "expected": 0.003827,
+              "passed": true
+            },
+            {
+              "name": "circle 1 center 0",
+              "actual": 0.024473,
+              "expected": 0.024473,
+              "passed": true
+            },
+            {
+              "name": "circle 1 center 1",
+              "actual": -0.021139,
+              "expected": -0.021139,
+              "passed": true
+            },
+            {
+              "name": "circle 1 radius",
+              "actual": 0.0056170000000000005,
+              "expected": 0.005617,
+              "passed": true
+            },
+            {
+              "name": "circle 2 center 0",
+              "actual": 0.023129,
+              "expected": 0.023129,
+              "passed": true
+            },
+            {
+              "name": "circle 2 center 1",
+              "actual": 0.028339,
+              "expected": 0.028339,
+              "passed": true
+            },
+            {
+              "name": "circle 2 radius",
+              "actual": 0.006421,
+              "expected": 0.006421,
+              "passed": true
+            },
+            {
+              "name": "circle 3 center 0",
+              "actual": -0.027437,
+              "expected": -0.027437,
+              "passed": true
+            },
+            {
+              "name": "circle 3 center 1",
+              "actual": 0.026783,
+              "expected": 0.026783,
+              "passed": true
+            },
+            {
+              "name": "circle 3 radius",
+              "actual": 0.004739,
+              "expected": 0.004739,
+              "passed": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "fresh_process": true,
+      "passed": true
+    }
+  ],
+  "controls": [
+    {
+      "kind": "control_before",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794837918.6966703
+        },
+        {
+          "stage": "open_start",
+          "time": 1794837931.949804
+        },
+        {
+          "stage": "open_return",
+          "time": 1794837939.670049
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794837939.7099009
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794837940.200802
+        },
+        {
+          "stage": "status_start",
+          "time": 1794837940.200802
+        },
+        {
+          "stage": "status_return",
+          "time": 1794837940.2248087
+        },
+        {
+          "stage": "bodies_start",
+          "time": 1794837940.2268164
+        },
+        {
+          "stage": "bodies_return",
+          "time": 1794837940.383469
+        },
+        {
+          "stage": "mass_start",
+          "time": 1794837940.3878477
+        },
+        {
+          "stage": "mass_return",
+          "time": 1794837940.4723048
+        },
+        {
+          "stage": "features_start",
+          "time": 1794837940.4787247
+        },
+        {
+          "stage": "features_return",
+          "time": 1794837941.5610323
+        },
+        {
+          "stage": "close_start",
+          "time": 1794837941.5680282
+        },
+        {
+          "stage": "close_return",
+          "time": 1794837941.6937928
+        }
+      ],
+      "stage": "close_return",
+      "revision": "34.5.2",
+      "process_ids": [
+        4312,
+        5844
+      ],
+      "oracle_identity": {
+        "process_id": 5844,
+        "process_creation_filetime": 134393115231772284,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "session_diagnostics": [],
+      "seconds": 9.74,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "healthy": true
+    },
+    {
+      "kind": "control_after",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794838048.2507193
+        },
+        {
+          "stage": "open_start",
+          "time": 1794838060.7293692
+        },
+        {
+          "stage": "open_return",
+          "time": 1794838067.88946
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794838067.8952205
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794838068.380386
+        },
+        {
+          "stage": "status_start",
+          "time": 1794838068.3844075
+        },
+        {
+          "stage": "status_return",
+          "time": 1794838068.412502
+        },
+        {
+          "stage": "bodies_start",
+          "time": 1794838068.41872
+        },
+        {
+          "stage": "bodies_return",
+          "time": 1794838068.5549562
+        },
+        {
+          "stage": "mass_start",
+          "time": 1794838068.5591636
+        },
+        {
+          "stage": "mass_return",
+          "time": 1794838068.6353884
+        },
+        {
+          "stage": "features_start",
+          "time": 1794838068.6353884
+        },
+        {
+          "stage": "features_return",
+          "time": 1794838069.704704
+        },
+        {
+          "stage": "close_start",
+          "time": 1794838069.7067194
+        },
+        {
+          "stage": "close_return",
+          "time": 1794838069.8343287
+        }
+      ],
+      "stage": "close_return",
+      "revision": "34.5.2",
+      "process_ids": [
+        4700,
+        7792
+      ],
+      "oracle_identity": {
+        "process_id": 4700,
+        "process_creation_filetime": 134393116526543560,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "session_diagnostics": [],
+      "seconds": 9.11,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "healthy": true
+    }
+  ],
+  "inventories": {
+    "before": {
+      "scope": "read-only inventory before disjoint multi-circle sketch inspection",
+      "at_utc": "2026-11-16T14:02:55.978675+00:00",
+      "returncode": 0,
+      "stderr": "",
+      "raw_stdout_sha256": "6f0e5762501478cbf2fba837c700df72a67a68f00b69358f96ee97f566951edb",
+      "row_count": 142,
+      "selected_processes": [
+        {
+          "name": "lmgrd.exe",
+          "pid": 1604
+        },
+        {
+          "name": "lmgrd.exe",
+          "pid": 7936
+        },
+        {
+          "name": "sw_d.exe",
+          "pid": 4276
+        }
+      ]
+    },
+    "after": {
+      "scope": "read-only inventory after independent circle set sketch inspection",
+      "at_utc": "2026-11-16T14:12:50.808265+00:00",
+      "returncode": 0,
+      "stderr": "",
+      "raw_stdout_sha256": "aaae6de9d017cdc760d6927c2b9698c54164932cff15d5c3b42d46c51011d8e5",
+      "row_count": 143,
+      "selected_processes": [
+        {
+          "name": "lmgrd.exe",
+          "pid": 1604
+        },
+        {
+          "name": "lmgrd.exe",
+          "pid": 7936
+        },
+        {
+          "name": "sw_d.exe",
+          "pid": 4276
+        }
+      ]
+    }
+  },
+  "numeric_count": 72,
+  "all_numeric_match_6_significant_figures": true,
+  "sketch_rung_passed": true,
+  "native_acceptance": false,
+  "heldout_native_payloads_read": false,
+  "production_adapter": "read-only",
+  "limits": [
+    "Free sketches have zero requested solid bodies and no driving dimensions",
+    "No camera or complete presentation parity",
+    "No constrained set or body writer acceptance",
+    "Vendor-saved derivatives add zero generated-output cases"
+  ]
+}

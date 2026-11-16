@@ -303,7 +303,9 @@ owns the directly serialized sheet-metal master that native saves may add before
 The [initial circle-load inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleInitialLoadInspection.md)
 records body count, rebuild problems and active named features before any explicit rebuild. All twelve phases for the unchanged four circle bosses pass with one initial body and active named sketch/boss features; all 400 rebuilt numeric checks, radial/depth edits, saves and edited fresh reopens also pass between healthy controls. Viewport/camera and full presentation remain unmeasured by this procedure.
 The [independent circle-set sketch rung](../../Changes/Solidworks/Model/Curves/SolidworksCircleSetSketchSynthesis.md)
-uses the common constructor and actual permanence events for disjoint free circles. Its two/four-circle remote generation and native measurements remain pending; dimensioned sets and body generation remain closed.
+uses the common constructor and actual permanence events for disjoint free circles. The two/four-circle requests passed sixteen archive comparisons, topology-isolated resolved-stream growth and four controlled native load/rebuild/save/reopen phases with 72 matching numeric/frame checks. Dimensioned sets and body generation remain closed.
+The [open-arc sketch rung](../../Changes/Solidworks/Model/Curves/SolidworksOpenArcSketchSynthesis.md)
+computes signed partial-arc geometry with three distinct point nodes through that same arc/permanence model. Its positive/negative-sweep remote generation and native measurements remain pending; arc dimensions and bodies remain closed.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

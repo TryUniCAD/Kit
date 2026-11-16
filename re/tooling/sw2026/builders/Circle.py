@@ -22,21 +22,28 @@ def arc_handle(*, sketch, arc, arcs):
     ))
 
 
-def circle_arc(*, sketch, center, marker, points):
-    if center is marker or any(node.cls != "sgPoint" or node.get("_sketch") is not sketch for node in (center, marker)):
-        raise ConstructionError("a circle requires distinct local center and marker points")
+def arc_node(*, sketch, center, start, end, points, orientation):
+    if center is start or center is end or any(node.cls != "sgPoint" or node.get("_sketch") is not sketch for node in (center, start, end)):
+        raise ConstructionError("an arc requires local endpoints distinct from its center")
+    if type(orientation) is not int or orientation not in (-1, 1):
+        raise ConstructionError("ordinary arc orientation must be signed unit direction")
     fields = entity_fields(sketch=sketch)
     fields.update({
-        "_center": center, "_start": marker, "_end": marker,
-        "_ordinary_circle": True, "fd4": 0, "seg_tol": -1.0, "fd8": 1,
+        "_center": center, "_start": start, "_end": end,
+        "_ordinary_arc": True, "_ordinary_circle": start is end,
+        "fd4": 0, "seg_tol": -1.0, "fd8": orientation,
         "fe0": -2, "fe4": -2, "fe8": -2, "fec": -2,
     })
-    derived = {"fd0": lambda: int(marker["h1"] is not None and marker["h1"].get("_arc") is arc)}
-    for name, node in (("fc8", marker), ("fcc", marker), ("fdc", center)):
+    derived = {"fd0": lambda: int(all(point["h1"] is not None and point["h1"].get("_arc") is arc for point in (start, end)))}
+    for name, node in (("fc8", start), ("fcc", end), ("fdc", center)):
         derived[name] = lambda target=node: _node_index(nodes=points, node=target)
         derived[name + "_s"] = lambda target=node: min(_node_index(nodes=points, node=target), 0xFFFF)
     arc = Obj("sgArc", DerivedFields(fields=fields, derived=derived))
     return arc
+
+
+def circle_arc(*, sketch, center, marker, points):
+    return arc_node(sketch=sketch, center=center, start=marker, end=marker, points=points, orientation=1)
 
 
 def bind_permanence(*, sketch, points, arcs):
@@ -57,9 +64,13 @@ def bind_permanence(*, sketch, points, arcs):
         del arc.f["f08"]
         arc.f.derived["f0c"] = lambda node=arc: _node_index(nodes=arcs, node=node) + 1
         arc.f.derived["f08"] = lambda node=arc: _node_index(nodes=arcs, node=node) + 1
-        marker = arc["_start"]
-        marker["h1"] = arc_handle(sketch=sketch, arc=arc, arcs=arcs)
-        marker["fe4"] = 2
+        endpoints = tuple({id(point): point for point in (arc["_start"], arc["_end"])}.values())
+        for point in endpoints:
+            if point["h1"] is not None or point["h2"] is not None:
+                raise ConstructionError("this curve rung requires otherwise unused endpoint adjacency")
+            point["h1"] = arc_handle(sketch=sketch, arc=arc, arcs=arcs)
+            if arc["_ordinary_circle"]:
+                point["fe4"] = 2
 
 
 def bind_arrays(*, sketch, points, arcs):
@@ -84,7 +95,8 @@ def bind_arrays(*, sketch, points, arcs):
     sketch["_point_nodes"] = points
     sketch["_line_nodes"] = NodeOrder(nodes=())
     sketch["_arc_nodes"] = arcs
-    sketch["_profile_kind"] = "circle" if len(arcs) == 1 else "circle_set"
+    kind = "circle" if all(arc["_ordinary_circle"] for arc in arcs) else "arc"
+    sketch["_profile_kind"] = kind if len(arcs) == 1 else kind + "_set"
 
 
 def circle_positions(*, center_m, radius_m, frame):

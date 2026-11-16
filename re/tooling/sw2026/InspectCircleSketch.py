@@ -128,6 +128,28 @@ def initial_state(author, case):
     return {"before_explicit_rebuild": True, "body_count": body_count, "expected_body_count": int(has_body), "rebuild_problem_count": wrong, "features": features, "requested_features": targets, "passed": body_count == int(has_body) and wrong == 0 and tree_healthy and all(row["active"] for row in targets)}
 
 
+def check_geometry(author, document, factor):
+    geometry = author.geometry()
+    is_arc = document.get("profile_kind") == "arc"
+    expected_curves = document["circles_m"] if document.get("profile_kind") == "circle_set" else [{"center_m": document["center_m"], "radius_m": document["radius_m"]}]
+    expected_kind = "arc" if is_arc else "circle"
+    AuthorCurves.require(len(geometry) == len(expected_curves) and all(row["kind"] == expected_kind and not row["construction"] for row in geometry), "generated sketch does not contain the requested ordinary curves")
+    for curve_index, (actual, expected_curve) in enumerate(zip(geometry, expected_curves)):
+        prefix = "" if len(expected_curves) == 1 else f"circle {curve_index} "
+        for index, expected in enumerate(expected_curve["center_m"]):
+            author.rec.close_number(f"{prefix}center {index}", actual["center"][index], expected)
+        author.rec.close_number(prefix + "radius", actual["radius"], expected_curve["radius_m"] * factor)
+    if is_arc:
+        actual = geometry[0]
+        direction = 1 if document["sweep_angle_rad"] > 0 else -1
+        AuthorCurves.require(actual["direction"] == direction, "native arc rotation differs from the requested signed sweep")
+        for role, angle in (("start", document["start_angle_rad"]), ("end", document["start_angle_rad"] + document["sweep_angle_rad"])):
+            for axis, trig in enumerate((math.cos, math.sin)):
+                expected = document["center_m"][axis] + document["radius_m"] * factor * trig(angle)
+                author.rec.close_number(f"arc {role} {axis}", actual[role][axis], expected)
+    return geometry
+
+
 def snapshot(author, case, factor=1.0, depth_factor=1.0):
     require = AuthorCurves.require
     require(bool(author.get(author.model, "ForceRebuild3", False)), "circle sketch rebuild returned failure")
@@ -140,14 +162,7 @@ def snapshot(author, case, factor=1.0, depth_factor=1.0):
     author.sketch = author.get(feature, "GetSpecificFeature2")
     constrained_status = int(author.get(author.sketch, "GetConstrainedStatus"))
     require(constrained_status not in (4, 5, 6, 7), f"generated circle has unacceptable constraint state {constrained_status}")
-    geometry = author.geometry()
-    expected_circles = document["circles_m"] if document.get("profile_kind") == "circle_set" else [{"center_m": document["center_m"], "radius_m": document["radius_m"]}]
-    require(len(geometry) == len(expected_circles) and all(row["kind"] == "circle" and not row["construction"] for row in geometry), "generated sketch does not contain the requested ordinary circles")
-    for circle_index, (actual, expected_circle) in enumerate(zip(geometry, expected_circles)):
-        prefix = "" if len(expected_circles) == 1 else f"circle {circle_index} "
-        for index, expected in enumerate(expected_circle["center_m"]):
-            author.rec.close_number(f"{prefix}center {index}", actual["center"][index], expected)
-        author.rec.close_number(prefix + "radius", actual["radius"], expected_circle["radius_m"] * factor)
+    geometry = check_geometry(author, document, factor)
     body_objects = author.get(author.model, "GetBodies2", 0, False) or []
     has_body = document.get("feature_kind") == "blind_extrusion"
     require(len(body_objects) == int(has_body), "generated candidate has an unexpected solid body count")
@@ -249,7 +264,7 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     control = Path(job["control"])
     AuthorCurves.require(digest(control) == job["control_sha256"], "native control identity changed")
-    result = {"schema": "kit.sw2026.circle-sketch-inspection.v5", "scope": "independent circle sketches and single-circle blind boss research rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
+    result = {"schema": "kit.sw2026.circle-sketch-inspection.v6", "scope": "ordinary circle/open-arc sketches and single-circle blind boss research rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
     def checkpoint():
         (output / "Inspection.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     checkpoint()

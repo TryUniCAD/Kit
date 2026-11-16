@@ -439,8 +439,13 @@ def _local_ref_flag(*, sketch: Obj):
             raise ConstructionError("external sketch geometry requires additional native update rules")
     for entry in sketch["arcs"]:
         arc = entry["arc"]
-        if not arc.get("_ordinary_circle") or arc.get("_sketch") is not sketch or arc.get("_start") is not arc.get("_end") or arc.get("fe0") != -2:
-            raise ConstructionError("reference inference admits only constructed local ordinary circles")
+        if not arc.get("_ordinary_arc") or arc.get("_sketch") is not sketch or arc.get("fe0") != -2:
+            raise ConstructionError("reference inference admits only constructed local ordinary arcs")
+        for name in ("_start", "_end", "_center"):
+            point = arc.get(name)
+            if not isinstance(point, Obj) or point.cls != "sgPoint" or point.get("_sketch") is not sketch:
+                raise ConstructionError("local arcs require actual points in their owning sketch")
+            _node_index(nodes=sketch["_point_nodes"], node=point)
     for name in ("texts", "hatches", "ellipses", "parabolas", "splines", "planes", "cylinders", "spheres", "cones", "parametric", "styled", "blocks", "silhouettes"):
         if sketch[name]:
             raise ConstructionError(f"reference-state inference is not established for {name}")

@@ -62,6 +62,13 @@ then passes all twelve phases with one body and active named sketch/boss feature
 plus all 400 rebuilt geometry/frame/mass/edit comparisons between healthy controls. This adds no generated cases.
 Initial viewport/camera and complete presentation remain unestablished for the circle bosses.
 
+Two [disjoint circle-set sketches](measurements/2026/CircleSetInspection01.json)
+passed four controlled native phases and all 72 numeric/frame checks, with two/four requested circles,
+an active sketch, zero requested bodies, rebuild, save and fresh reopen. Their [remote generation](measurements/2026/CircleSetProcessesF00d6e.json)
+passed sixteen byte comparisons; equal-length names, the same plane and an unchanged two-circle prefix
+isolate the resolved-stream growth from 6,795 to 7,607 bytes while Config-0 stays at 21,138.
+These two generated research inputs still add zero completed FCStd conversions and no held-out family acceptance.
+
 The [complete circle/arc source lock](v2026/heldout/CurveSourceLock.json)
 records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.
 Those source files are not generated Kit outputs and add zero writer-coverage cases.
