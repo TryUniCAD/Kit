@@ -9,7 +9,7 @@ from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 
 
-# native save-boundary hypotheses require complete byte comparisons and the actual persisted name owner
+# native save boundary hypotheses require complete byte comparisons and the actual persisted name owner
 def TestTreeNames(TmpPath: FilePath) -> None:
     OutputRoot = (
         FilePath(ReadEnv("SwResearchOutput") or str(TmpPath))
