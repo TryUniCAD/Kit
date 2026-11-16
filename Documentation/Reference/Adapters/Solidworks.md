@@ -204,6 +204,11 @@ The [geometry](../../Changes/Solidworks/Model/SolidworksGeometryArchiveOwners.md
 and [annotation](../../Changes/Solidworks/Model/SolidworksAnnotationArchiveOwners.md)
 definitions provide native evidence for 76 owners. Their changed-revision checks
 remain pending; the framework string-map count dependency remains provisional.
+The [complete decoded field inventory](../../Changes/Solidworks/Model/SolidworksCurveFieldInventory.md)
+adds separate remote correlation reports with exact integer text, decoded float bits,
+complete retained graph identities and byte-field hashes. Its process checks retain
+strict schema admission; field correlations do not establish construction rules or
+Kit-written curve acceptance.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
