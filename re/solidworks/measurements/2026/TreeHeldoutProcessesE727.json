@@ -1,0 +1,383 @@
+{
+  "schema": "kit.sw2026.tree-heldout-processes.v1",
+  "recorded_at_utc": "2026-11-16T23:28:34.290449+00:00",
+  "writer_revision": "d5019da136433cf3b07dd8c53ee4a708950ad353",
+  "evaluation_revision": "e727ec09668386a0e6d70047d1887d4c3197ac24",
+  "tested_merge": "0a9f46cf06323dfc0056fa84f4f5bfcdadb60a5a",
+  "tested_tree": "18bc952ec10fbaecb5f436bafdedc505aa5a1cc4",
+  "verified_merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "e727ec09668386a0e6d70047d1887d4c3197ac24"
+  ],
+  "run_id": 43978320654,
+  "job_id": 133688098764,
+  "native_format_passed": 204,
+  "native_format_skipped": 158,
+  "policy_passed": 171,
+  "artifact": {
+    "id": 14282911917,
+    "bytes": 24044043,
+    "sha256": "51faae692755c28c6d089f005ba1a56e255803a3231a049eb5c22e06fc62c027"
+  },
+  "writer_freeze_sha256": "df4a70bb18a6ec7c58f3d975a86d0234f6b7508d086e4a36b4dffa199d2ac17a",
+  "constructor_dependency_count": 3435,
+  "changed_constructor_dependencies": [],
+  "source_lock_sha256": "4d6c6ea7e60f092a179566c811aa50a16fe7c8186053211b5ae7494ba9208f33",
+  "specs_sha256": "cfd695e43374abcafbce3b11214cc37638731951fb4184c2fbf8731b0641f25a",
+  "outputs": [
+    {
+      "name": "P03FrontFolders",
+      "artifact_name": "TreeP03FrontFolders",
+      "sha256": "03149ae3acf61c4eb19e4465e6990f8e1ca7be62a485a9d568ec5c6c29d88b58",
+      "bytes": 8066,
+      "request": {
+        "document": {
+          "name": "P03FrontFolders",
+          "configuration_name": "authored configuration",
+          "sketch_name": "CurveSketch",
+          "extrusion_name": "CurveBoss",
+          "origin_name": "Origin",
+          "plane_axis": "z",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "extrusion",
+          "center_m": [
+            -0.0037189999999999996,
+            0.006136999999999999
+          ],
+          "radius_m": 0.005193,
+          "circle_dimension": {
+            "mode": "diameter",
+            "text_point_m": [
+              0.005109099999999998,
+              0.012887899999999999,
+              0.0
+            ],
+            "fix_center": true
+          },
+          "depth_m": 0.011917,
+          "end_condition": "blind",
+          "reverse_direction": false
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "Comments",
+            "moFavoriteFolder_c": "Favorites",
+            "moHistoryFolder_c": "History",
+            "moSelectionSetFolder_c": "Selection Sets",
+            "moSensorFolder_c": "Sensors",
+            "moDocsFolder_c": "Design Binder",
+            "moSurfaceBodyFolder_c": "Surface Bodies",
+            "moSolidBodyFolder_c": "Solid Bodies",
+            "moEnvFolder_c": "Lights and Cameras",
+            "moInkMarkupFolder_c": "Markups",
+            "moEqnFolder_c": "Equations",
+            "moMaterialFolder_c": "Material <not specified>"
+          },
+          "cabinet_name": "Annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false,
+          "initial_view": {
+            "named_view": 8,
+            "scale2": 7.319,
+            "translation": [
+              0.003193,
+              0.001737,
+              -0.004219
+            ]
+          }
+        }
+      },
+      "features": [
+        "moCommentsFolder_c",
+        "moFavoriteFolder_c",
+        "moHistoryFolder_c",
+        "moSelectionSetFolder_c",
+        "moSensorFolder_c",
+        "moDocsFolder_c",
+        "moSurfaceBodyFolder_c",
+        "moSolidBodyFolder_c",
+        "moEnvFolder_c",
+        "moInkMarkupFolder_c",
+        "moEqnFolder_c",
+        "moMaterialFolder_c",
+        "moDetailCabinet_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moOriginProfileFeature_c",
+        "moProfileFeature_c",
+        "moExtrusion_c"
+      ],
+      "graph": {
+        "sha256": "135f62c98db2a9b0d49a1bb97226fd91512de01268e9a3bd79b81d8ae4286a03",
+        "node_count": 1471,
+        "reference_count": 1699,
+        "map_base": 82,
+        "map_count": 204,
+        "unresolved_references": 0
+      },
+      "sizes": {
+        "Header2": 458,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 163,
+        "Contents/Config-0-ModelHeader": 458,
+        "swXmlContents/KeyWords": 1493,
+        "Contents/Config-0": 21132,
+        "Contents/CMgr": 1159,
+        "Contents/Definition": 549,
+        "Contents/Config-0-ResolvedFeatures": 15079
+      },
+      "denied_reads": [],
+      "complete_archive_comparisons": 8,
+      "frozen_generator_revision": "d5019da136433cf3b07dd8c53ee4a708950ad353",
+      "private_reference_observations_read": false
+    },
+    {
+      "name": "P04RightFolders",
+      "artifact_name": "TreeP04RightFolders",
+      "sha256": "f6c0aa340d789028b4c7dfa262f356d75c6872dc0c11492ecd76fcfb4316baaa",
+      "bytes": 8073,
+      "request": {
+        "document": {
+          "name": "P04RightFolders",
+          "configuration_name": "authored configuration",
+          "sketch_name": "CurveSketch",
+          "extrusion_name": "CurveBoss",
+          "origin_name": "Origin",
+          "plane_axis": "x",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "extrusion",
+          "center_m": [
+            0.009173,
+            -0.002419
+          ],
+          "radius_m": 0.008719,
+          "circle_dimension": {
+            "mode": "radius",
+            "text_point_m": [
+              0.0,
+              0.008915699999999999,
+              -0.023995299999999997
+            ],
+            "fix_center": true
+          },
+          "depth_m": 0.023137,
+          "end_condition": "blind",
+          "reverse_direction": true
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "Comments",
+            "moFavoriteFolder_c": "Favorites",
+            "moHistoryFolder_c": "History",
+            "moSelectionSetFolder_c": "Selection Sets",
+            "moSensorFolder_c": "Sensors",
+            "moDocsFolder_c": "Design Binder",
+            "moSurfaceBodyFolder_c": "Surface Bodies",
+            "moSolidBodyFolder_c": "Solid Bodies",
+            "moEnvFolder_c": "Lights and Cameras",
+            "moInkMarkupFolder_c": "Markups",
+            "moEqnFolder_c": "Equations",
+            "moMaterialFolder_c": "Material <not specified>"
+          },
+          "cabinet_name": "Annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false,
+          "initial_view": {
+            "named_view": 9,
+            "scale2": 0.8173,
+            "translation": [
+              -0.004193,
+              0.006719,
+              0.002137
+            ]
+          }
+        }
+      },
+      "features": [
+        "moCommentsFolder_c",
+        "moFavoriteFolder_c",
+        "moHistoryFolder_c",
+        "moSelectionSetFolder_c",
+        "moSensorFolder_c",
+        "moDocsFolder_c",
+        "moSurfaceBodyFolder_c",
+        "moSolidBodyFolder_c",
+        "moEnvFolder_c",
+        "moInkMarkupFolder_c",
+        "moEqnFolder_c",
+        "moMaterialFolder_c",
+        "moDetailCabinet_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moOriginProfileFeature_c",
+        "moProfileFeature_c",
+        "moExtrusion_c"
+      ],
+      "graph": {
+        "sha256": "25460ec4b359d6ddfd731bba457194376c4140525c49293dc0b9f0e6b6aa03f2",
+        "node_count": 1473,
+        "reference_count": 1701,
+        "map_base": 82,
+        "map_count": 204,
+        "unresolved_references": 0
+      },
+      "sizes": {
+        "Header2": 458,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 163,
+        "Contents/Config-0-ModelHeader": 458,
+        "swXmlContents/KeyWords": 1493,
+        "Contents/Config-0": 21132,
+        "Contents/CMgr": 1159,
+        "Contents/Definition": 549,
+        "Contents/Config-0-ResolvedFeatures": 15205
+      },
+      "denied_reads": [],
+      "complete_archive_comparisons": 8,
+      "frozen_generator_revision": "d5019da136433cf3b07dd8c53ee4a708950ad353",
+      "private_reference_observations_read": false
+    }
+  ],
+  "generated_outputs": 2,
+  "complete_archive_comparisons": 16,
+  "private_reference_api_observations_inspected": false,
+  "native_reference_payloads_inspected": false,
+  "writer_executed_locally": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "passed": true
+}
