@@ -86,7 +86,7 @@ def document_shape(document):
     feature_kind = document.get("feature_kind", "blind_extrusion")
     if profile_kind not in ("polygon", "circle", "circle_set", "arc", "capsule") or feature_kind not in ("sketch", "blind_extrusion"):
         raise ArchiveError("unsupported fresh profile or feature kind")
-    if profile_kind in ("circle_set", "arc", "capsule") and feature_kind != "sketch":
+    if profile_kind in ("circle_set", "arc") and feature_kind != "sketch":
         raise ArchiveError("this curve profile admits only the free sketch research rung")
     if profile_kind == "circle" and feature_kind == "blind_extrusion":
         request = document.get("circle_dimension")

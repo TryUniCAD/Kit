@@ -307,7 +307,9 @@ uses the common constructor and actual permanence events for disjoint free circl
 The [open-arc sketch rung](../../Changes/Solidworks/Model/Curves/SolidworksOpenArcSketchSynthesis.md)
 computes signed partial-arc geometry with three distinct point nodes through that same arc/permanence model. Both signed-sweep candidates passed sixteen remote archive comparisons and four controlled native phases with all 64 numeric/frame checks matching to six significant figures, including both endpoints and native rotation direction. Arc dimensions and bodies remain closed.
 The [mixed line/arc sketch rung](../../Changes/Solidworks/Model/Curves/SolidworksMixedCurveSketchSynthesis.md)
-composes a rotated capsule through shared point, line, arc, adjacency and counter models. New generation and native join-identity measurements remain pending; this adds no body or driving-dimension acceptance.
+composes a rotated capsule through shared point, line, arc, adjacency and counter models. Both outputs passed sixteen complete comparisons and four controlled native phases with 124 matching numeric/frame checks and actual shared native endpoint identities. This adds no body or driving-dimension acceptance.
+The [capsule blind-boss composition](../../Changes/Solidworks/Model/Curves/SolidworksCapsuleExtrusionSynthesis.md)
+adds the shared blind feature and editable depth to that boundary. New generation, initial one-body, mass, depth-edit and edited-reopen measurements remain pending; radius/length dimensions and tangent constraints remain outside the rung.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

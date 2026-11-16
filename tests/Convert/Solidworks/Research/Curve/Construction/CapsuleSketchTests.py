@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Research.Curve.Construction.CircleInput import (
-    MakeCircleInput,
+from tests.Convert.Solidworks.Research.Curve.Construction.CapsuleInput import (
+    MakeCapsule,
 )
 from tests.Convert.Solidworks.Research.FreshPartRunner import RunFreshPart
 from tests.Convert.Solidworks.Research.PartArtifacts import SavePartOutput
@@ -22,12 +22,8 @@ def TestCapsule() -> None:
             -0.731,
         ),
     ):
-        Request = MakeCircleInput(CenterValue, RadiusValue, NameValue, PlaneValue)
-        Document = CastValue(dict[str, object], Request["document"])
-        Document.update(
-            profile_kind="capsule",
-            straight_length_m=LengthValue,
-            rotation_angle_rad=AngleValue,
+        Request = MakeCapsule(
+            CenterValue, RadiusValue, LengthValue, AngleValue, NameValue, PlaneValue
         )
         Report = RunFreshPart(Request)
         SavePartOutput(NameValue, Request, Report)

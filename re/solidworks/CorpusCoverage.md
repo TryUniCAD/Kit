@@ -76,6 +76,12 @@ positive/negative native rotation, rebuild, save and fresh reopen. Their
 with strict process/read guards. Controls were healthy and inputs immutable. These are two bounded free-sketch
 research outputs, with zero requested bodies and zero new completed FCStd conversions or held-out family acceptance.
 
+Two [mixed line/arc capsule sketches](measurements/2026/MixedCurveInspection01.json)
+then passed four phases, all 124 numeric/frame checks and actual shared native identities at all four joins.
+Their [process receipt](measurements/2026/MixedCurveProcesses26c200.json) retains sixteen complete comparisons,
+strict read guards and nineteen unchanged prior neutral outputs across the shared composer change.
+These free sketches add no completed FCStd conversion or held-out acceptance; body/depth behavior needs its own measurement.
+
 The [complete circle/arc source lock](v2026/heldout/CurveSourceLock.json)
 records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.
 Those source files are not generated Kit outputs and add zero writer-coverage cases.

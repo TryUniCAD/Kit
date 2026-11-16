@@ -346,6 +346,21 @@ def require_blind_profile(profile):
     if profile.point_count >= 3 and profile.line_count == profile.point_count and profile.arc_count == 0:
         return
     sketch = profile.sketch
+    if sketch.get("_profile_kind") == "closed_curve":
+        boundary = sketch.get("_closed_boundary", ())
+        segments = (*sketch["_line_nodes"], *sketch["_arc_nodes"])
+        if profile.point_count != 6 or profile.line_count != 2 or profile.arc_count != 2 or len(boundary) != 4:
+            raise ConstructionError("mixed blind construction requires the modeled capsule boundary")
+        if len({id(node) for node in boundary}) != 4 or {id(node) for node in boundary} != {id(node) for node in segments}:
+            raise ConstructionError("closed boundary must own every actual line and arc exactly once")
+        for index, node in enumerate(boundary):
+            if node.get("_sketch") is not sketch or node.get("ext") is not None or node["_end"] is not boundary[(index + 1) % len(boundary)]["_start"]:
+                raise ConstructionError("mixed blind construction requires an actual closed local endpoint ring")
+            if node.cls == "sgArc" and (not node.get("_ordinary_arc") or node.get("_ordinary_circle") or node["fd8"] != 1 or node["fe0"] != -2):
+                raise ConstructionError("capsule boundary requires its ordinary positive semicircular arcs")
+        if len({id(node["_start"]) for node in boundary}) != 4:
+            raise ConstructionError("capsule boundary vertices must be distinct actual points")
+        return
     if sketch.get("_profile_kind") != "circle" or profile.point_count != 2 or profile.line_count != 0 or profile.arc_count != 1:
         raise ConstructionError("blind construction admits only the modeled closed polygon or single circle")
     arc = sketch["_arc_nodes"][0]
