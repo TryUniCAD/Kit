@@ -33,7 +33,11 @@ in a fresh interpreter, requires eight complete archive comparisons, checks
 concrete feature classes and unresolved references, and exercises rejection of
 an unsupported combined folder set. Existing historical/current regressions
 still require all eight previously measured output hashes unchanged.
-Remote execution is pending. Only static source/AST inspection and formatting
+Remote execution at `d5019da136433cf3b07dd8c53ee4a708950ad353` passed 203
+native-format cases, 158 fixture-dependent skips and 171 policy cases, including
+the new discovery/rejection checks and all eight historical/current regressions.
+The [discovery receipt](../../../../re/solidworks/measurements/2026/MarkupDiscoveryProcessesD501.json)
+retains the generated identity, graph and artifact digest. Only static source/AST inspection and formatting
 ran locally; no local tests or writer/codec executions ran.
 
 No generated native tree-parity acceptance is claimed. The source failure for
