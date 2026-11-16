@@ -1,0 +1,757 @@
+{
+  "schema": "kit.sw2026.frozen-camera-reference-comparison.v1",
+  "recorded_at_utc": "2026-11-16T21:22:38.708478+00:00",
+  "scope": "Written orthographic field predictions and unedited native body observations compared with the two independent preimplementation native source API baselines",
+  "original_native_payloads_inspected": false,
+  "reference_api_sha256": "f0ba5f6756332c8805847f1cdc5dfb4788e1d7bb75f4a10eae8adcddd38c5640",
+  "generated_native_inspection_sha256": "05dd68e0118e8d98fc10be5fef2452483d7a80d0643de18d8d303dbfe4878ff6",
+  "prediction_receipt_sha256": "ea80589ec239c9ae3cf9cefa09ce588232ce9a941532e3c2c7946fedbdd40a64",
+  "writer_freeze_sha256": "8d02f3956b5af5fcf4f3495b062bb6b0ce3629fe78c33f7d7ce99da0fc99edba",
+  "written_field_comparisons": 26,
+  "written_fields_all_exact": true,
+  "source_body_comparisons": 40,
+  "numeric_comparisons": 66,
+  "numeric_exact_count": 66,
+  "numeric_six_digit_text_differences": [],
+  "exact_body_direction_comparisons": 12,
+  "maximum_relative_error": 0,
+  "passed": true,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "comparisons": [
+    {
+      "name": "H01TrimetricPan serialized orientation 0",
+      "kind": "written_field",
+      "actual": 0.8844181216774213,
+      "expected": 0.8844181216774213,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized orientation 1",
+      "kind": "written_field",
+      "actual": -0.24036589468392133,
+      "expected": -0.24036589468392133,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized orientation 2",
+      "kind": "written_field",
+      "actual": 0.400036026779314,
+      "expected": 0.400036026779314,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized orientation 3",
+      "kind": "written_field",
+      "actual": 1.3877787807814457e-17,
+      "expected": 1.3877787807814457e-17,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized orientation 4",
+      "kind": "written_field",
+      "actual": 0.8571673007021341,
+      "expected": 0.8571673007021341,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized orientation 5",
+      "kind": "written_field",
+      "actual": 0.5150380749100181,
+      "expected": 0.5150380749100181,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized orientation 6",
+      "kind": "written_field",
+      "actual": -0.4666953889300622,
+      "expected": -0.4666953889300622,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized orientation 7",
+      "kind": "written_field",
+      "actual": -0.4555090068042732,
+      "expected": -0.4555090068042732,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized orientation 8",
+      "kind": "written_field",
+      "actual": 0.7580942940502868,
+      "expected": 0.7580942940502868,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized translation f58",
+      "kind": "written_field",
+      "actual": -0.003719,
+      "expected": -0.003719,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized translation f60",
+      "kind": "written_field",
+      "actual": 0.005193,
+      "expected": 0.005193,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized translation f68",
+      "kind": "written_field",
+      "actual": -0.001731,
+      "expected": -0.001731,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan serialized scale",
+      "kind": "written_field",
+      "actual": 13.731,
+      "expected": 13.731,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline volume",
+      "kind": "source_body",
+      "actual": 5.273836581188428e-07,
+      "expected": 5.273836581188428e-07,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline area",
+      "kind": "source_body",
+      "actual": 0.0003618445577700227,
+      "expected": 0.0003618445577700227,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline com 0",
+      "kind": "source_body",
+      "actual": 0.006173,
+      "expected": 0.006173,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline com 1",
+      "kind": "source_body",
+      "actual": -0.003419,
+      "expected": -0.003419,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline com 2",
+      "kind": "source_body",
+      "actual": 0.004715499999999999,
+      "expected": 0.004715499999999999,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline depth",
+      "kind": "source_body",
+      "actual": 0.009430999999999998,
+      "expected": 0.009430999999999998,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline radius",
+      "kind": "source_body",
+      "actual": 0.0042190000000000005,
+      "expected": 0.0042190000000000005,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline center 0",
+      "kind": "source_body",
+      "actual": 0.006173,
+      "expected": 0.006173,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline center 1",
+      "kind": "source_body",
+      "actual": -0.003419,
+      "expected": -0.003419,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline driving radial",
+      "kind": "source_body",
+      "actual": 0.008438000000000001,
+      "expected": 0.008438000000000001,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline volume",
+      "kind": "source_body",
+      "actual": 5.273836581188428e-07,
+      "expected": 5.273836581188428e-07,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline area",
+      "kind": "source_body",
+      "actual": 0.0003618445577700227,
+      "expected": 0.0003618445577700227,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline com 0",
+      "kind": "source_body",
+      "actual": 0.006173,
+      "expected": 0.006173,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline com 1",
+      "kind": "source_body",
+      "actual": -0.003419,
+      "expected": -0.003419,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline com 2",
+      "kind": "source_body",
+      "actual": 0.004715499999999999,
+      "expected": 0.004715499999999999,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline depth",
+      "kind": "source_body",
+      "actual": 0.009430999999999998,
+      "expected": 0.009430999999999998,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline radius",
+      "kind": "source_body",
+      "actual": 0.0042190000000000005,
+      "expected": 0.0042190000000000005,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline center 0",
+      "kind": "source_body",
+      "actual": 0.006173,
+      "expected": 0.006173,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline center 1",
+      "kind": "source_body",
+      "actual": -0.003419,
+      "expected": -0.003419,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline driving radial",
+      "kind": "source_body",
+      "actual": 0.008438000000000001,
+      "expected": 0.008438000000000001,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized orientation 0",
+      "kind": "written_field",
+      "actual": 0.9354143467241411,
+      "expected": 0.9354143467241411,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized orientation 1",
+      "kind": "written_field",
+      "actual": -0.11785113014268137,
+      "expected": -0.11785113014268137,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized orientation 2",
+      "kind": "written_field",
+      "actual": 0.33333333326677816,
+      "expected": 0.33333333326677816,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized orientation 3",
+      "kind": "written_field",
+      "actual": 6.938893903907228e-18,
+      "expected": 6.938893903907228e-18,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized orientation 4",
+      "kind": "written_field",
+      "actual": 0.942809041610104,
+      "expected": 0.942809041610104,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized orientation 5",
+      "kind": "written_field",
+      "actual": 0.33333333325402237,
+      "expected": 0.33333333325402237,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized orientation 6",
+      "kind": "written_field",
+      "actual": -0.35355339051216605,
+      "expected": -0.35355339051216605,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized orientation 7",
+      "kind": "written_field",
+      "actual": -0.31180478216719176,
+      "expected": -0.31180478216719176,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized orientation 8",
+      "kind": "written_field",
+      "actual": 0.8819171037433291,
+      "expected": 0.8819171037433291,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized translation f58",
+      "kind": "written_field",
+      "actual": 0.002317,
+      "expected": 0.002317,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized translation f60",
+      "kind": "written_field",
+      "actual": -0.004193,
+      "expected": -0.004193,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized translation f68",
+      "kind": "written_field",
+      "actual": 0.006137,
+      "expected": 0.006137,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan serialized scale",
+      "kind": "written_field",
+      "actual": 0.7319,
+      "expected": 0.7319,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline volume",
+      "kind": "source_body",
+      "actual": 9.239218750305848e-06,
+      "expected": 9.239218750305848e-06,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline area",
+      "kind": "source_body",
+      "actual": 0.0024952144764407436,
+      "expected": 0.0024952144764407436,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline com 0",
+      "kind": "source_body",
+      "actual": -0.011419,
+      "expected": -0.011419,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline com 1",
+      "kind": "source_body",
+      "actual": -0.015586500000000001,
+      "expected": -0.015586500000000001,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline com 2",
+      "kind": "source_body",
+      "actual": -0.007193000000000001,
+      "expected": -0.007193000000000001,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline depth",
+      "kind": "source_body",
+      "actual": 0.031173,
+      "expected": 0.031173,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline radius",
+      "kind": "source_body",
+      "actual": 0.009713,
+      "expected": 0.009713,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline center 0",
+      "kind": "source_body",
+      "actual": -0.011419,
+      "expected": -0.011419,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline center 1",
+      "kind": "source_body",
+      "actual": 0.007193,
+      "expected": 0.007193,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline driving radial",
+      "kind": "source_body",
+      "actual": 0.009713,
+      "expected": 0.009713,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline volume",
+      "kind": "source_body",
+      "actual": 9.239218750305848e-06,
+      "expected": 9.239218750305848e-06,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline area",
+      "kind": "source_body",
+      "actual": 0.0024952144764407436,
+      "expected": 0.0024952144764407436,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline com 0",
+      "kind": "source_body",
+      "actual": -0.011419,
+      "expected": -0.011419,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline com 1",
+      "kind": "source_body",
+      "actual": -0.015586500000000001,
+      "expected": -0.015586500000000001,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline com 2",
+      "kind": "source_body",
+      "actual": -0.007193000000000001,
+      "expected": -0.007193000000000001,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline depth",
+      "kind": "source_body",
+      "actual": 0.031173,
+      "expected": 0.031173,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline radius",
+      "kind": "source_body",
+      "actual": 0.009713,
+      "expected": 0.009713,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline center 0",
+      "kind": "source_body",
+      "actual": -0.011419,
+      "expected": -0.011419,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline center 1",
+      "kind": "source_body",
+      "actual": 0.007193,
+      "expected": 0.007193,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline driving radial",
+      "kind": "source_body",
+      "actual": 0.009713,
+      "expected": 0.009713,
+      "exact": true,
+      "relative_error": 0.0,
+      "passed": true,
+      "six_digit_text_matches": true
+    }
+  ],
+  "exact_comparisons": [
+    {
+      "name": "H01TrimetricPan open-save baseline bodies",
+      "actual": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline end_condition",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "H01TrimetricPan open-save baseline reverse",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline bodies",
+      "actual": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline end_condition",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "H01TrimetricPan edit-save baseline reverse",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline bodies",
+      "actual": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline end_condition",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "H02DimetricPan open-save baseline reverse",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline bodies",
+      "actual": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline end_condition",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "H02DimetricPan edit-save baseline reverse",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    }
+  ]
+}

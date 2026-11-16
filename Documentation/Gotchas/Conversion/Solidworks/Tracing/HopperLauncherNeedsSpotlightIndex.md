@@ -1,0 +1,7 @@
+# Hopper launcher discovery requires a searchable app index
+
+An existing Hopper application can run and answer its own scripting API while its public `hopper` launcher reports that Hopper cannot be found. In the observed macOS session, `mdls` returned the app's bundle identifier but `mdfind` returned no matching application. This prevented the launcher from resolving the existing app under the user's Applications directory.
+
+Reimporting that exact application bundle with `mdimport -i` restored the searchable metadata. The same public launcher then found the existing Hopper 6.6.2 installation. No Hopper installation, REA registration, client configuration or CAD licensing process was changed. Verify the specific app path and discovery result before considering a configuration repair; do not change global indexing settings for this case.
+
+A failed REA startup can also retain document ownership while `binary_session` reports `open: false`. Export retained evidence before cleanup. Allow initial Hopper analysis or a known pending dialog to finish, then request `close_binary` on the same connection and require its successful acknowledgement. A missing helper process alone does not prove that document cleanup succeeded. In this session, confirmed cleanup allowed the original 2026 UI image to be opened through REA with its expected SHA-256; native function analysis remains a separate operation.
