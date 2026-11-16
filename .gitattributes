@@ -12,4 +12,6 @@
 *.sldprt binary
 *.x_t binary
 
+re/solidworks/v2026/heldout/EndConditionSourceLock.json binary
+
 /re export-ignore

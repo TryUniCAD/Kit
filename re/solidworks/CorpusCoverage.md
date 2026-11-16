@@ -95,6 +95,13 @@ records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.
 Those source files are not generated Kit outputs and add zero writer-coverage cases.
 The six held-out native payloads remain sealed during derivation and implementation.
 
+The separate [end-condition source lock](measurements/2026/EndConditionSourceLock02.json) adds sixteen vendor-authored
+source cases, 38 fresh phases and 437 passing numeric checks between healthy controls. It locks twelve discovery and
+four held-out inputs for forward/reversed blind, mid-plane and two-direction bosses. All eighteen original native hashes
+and 32 sibling hashes were verified. Fourteen discovery/control inputs were [privacy-prepared](measurements/2026/EndConditionPreparation02.json)
+for independent reader comparison in remote CI, which remains pending. All ten held-out native payloads across both
+source families remain sealed; this adds zero generated outputs, held-out writer results or FCStd conversions.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11

@@ -1,0 +1,154 @@
+{
+  "schema": "kit-sw2026-end-source-lock/1",
+  "created_at": 1794846197.4243448,
+  "generator_revision": "29b5cba98dd402e1eb855358862c036e30e6f648",
+  "script_sha256": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+  "tool_hashes": {
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+  },
+  "specs_sha256": "aaa4236ab265bef3ca5211b1cae9b558ad74bf2b4069e2568f51331bf74920a0",
+  "batch_sha256": "bb7f69664784f70c2cb9c58cb568a65735ccd943d671b548deb415184f354d6f",
+  "oracle": {
+    "progid": "SldWorks.Application.34",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "cases": [
+    {
+      "name": "D01Forward",
+      "split": "discovery",
+      "sha256": "5b69acfdf3acd2b2f33d0de470b05c713dc5039e6abdf3f9a1c01a2f05672a60",
+      "file": "Discovery\\D01Forward\\D01Forward.SLDPRT",
+      "manifest_sha256": "3d16b0e531ad99dc76589b6196b5966743f517e8db321af723d61664039b10ed"
+    },
+    {
+      "name": "D02Forward",
+      "split": "discovery",
+      "sha256": "790a15148135d097065704c517fa104a7eb2dc247cd806656191bfd1db02aa10",
+      "file": "Discovery\\D02Forward\\D02Forward.SLDPRT",
+      "manifest_sha256": "3f23e5f47dae4dab28c1c99caf65a50ed09a4a8dfb7607abfcf18b4fff55861e"
+    },
+    {
+      "name": "D03Forward",
+      "split": "discovery",
+      "sha256": "1c11331f3f35226184aac465a712a39e2a2e7e4692ec62c1d3d55b8a86ba55cc",
+      "file": "Discovery\\D03Forward\\D03Forward.SLDPRT",
+      "manifest_sha256": "619f9904cceb89cf4f3e73014d86a3fe010a45505d4654334e92974796d0f242"
+    },
+    {
+      "name": "D04Reverse",
+      "split": "discovery",
+      "sha256": "46967e35bf0624ea8bd81b6d014f5c2cd7f7d22a4e268dfadc3ddd573728ac49",
+      "file": "Discovery\\D04Reverse\\D04Reverse.SLDPRT",
+      "manifest_sha256": "e9156594474d4204d59ce4107da404ac6138ea00995167f7cbcb506ff4521336"
+    },
+    {
+      "name": "D05Reverse",
+      "split": "discovery",
+      "sha256": "3fb99fb448018c4935a5e51b3ae137b48049b6b5e14fa799ef64c52a077cc9b6",
+      "file": "Discovery\\D05Reverse\\D05Reverse.SLDPRT",
+      "manifest_sha256": "fae3094c4b115270eb722ea8580e4458ec2251bb1debb1be8e8d246f7b3596b1"
+    },
+    {
+      "name": "D06Reverse",
+      "split": "discovery",
+      "sha256": "5be4e7a14a84ae9ab29a9426f28fc905d879d9efd5a8c1e89eb2d674cc631664",
+      "file": "Discovery\\D06Reverse\\D06Reverse.SLDPRT",
+      "manifest_sha256": "4239a3bdda4e7e104beaf51ae37e5c186f7e944c5fef762b54098c7a20b71fc8"
+    },
+    {
+      "name": "D07MidPlane",
+      "split": "discovery",
+      "sha256": "64cdacc57cda31c080e81e5ba5c8adabfc40cbf62aa4e0bd55c50bbf8013a603",
+      "file": "Discovery\\D07MidPlane\\D07MidPlane.SLDPRT",
+      "manifest_sha256": "4c76fe840c73b34634fd5c1922828a65143f37e4479849bbc454d621daf3a748"
+    },
+    {
+      "name": "D08MidPlane",
+      "split": "discovery",
+      "sha256": "185c70d81c3ad563ddde77fc05991876bab03940382b6fe657590aa1c5f6b3d9",
+      "file": "Discovery\\D08MidPlane\\D08MidPlane.SLDPRT",
+      "manifest_sha256": "95207dedde90319c85a13be4cb870af276523de5dfbc3d7b4aaa997bbfe572a5"
+    },
+    {
+      "name": "D09MidPlane",
+      "split": "discovery",
+      "sha256": "e8a034650f4d3c7cfd00abbe6f09cfde45280e6e6baa1f33084c6571b4c1b9ca",
+      "file": "Discovery\\D09MidPlane\\D09MidPlane.SLDPRT",
+      "manifest_sha256": "b1ab1b426f3c4b2366d03905242769bc99383562ae77258c33cdcf4d46900c44"
+    },
+    {
+      "name": "D10TwoDirections",
+      "split": "discovery",
+      "sha256": "9d5a69bc05ae25b708d892eb3b76b18ac1d0478ad8b5179f558ed4f69041f7fd",
+      "file": "Discovery\\D10TwoDirections\\D10TwoDirections.SLDPRT",
+      "manifest_sha256": "013e99152806c7555f75287e739bbcd2f2828ddcccd7a6a0c4ef1817773da27c"
+    },
+    {
+      "name": "D11TwoDirections",
+      "split": "discovery",
+      "sha256": "50014a3792d4601211f34c1c72b0e921a168285f4913a56b58f360406523e99f",
+      "file": "Discovery\\D11TwoDirections\\D11TwoDirections.SLDPRT",
+      "manifest_sha256": "b49a6629871a0c415522f823b0005262e76a7bc12a99518d3e3ef3cd1f5f7547"
+    },
+    {
+      "name": "D12TwoDirections",
+      "split": "discovery",
+      "sha256": "2970637e91c2983a5ba016f2f7803461c01d6f9a898a6d332a4241e98f890c82",
+      "file": "Discovery\\D12TwoDirections\\D12TwoDirections.SLDPRT",
+      "manifest_sha256": "6535e8ddff793cae6d12df41b33696df067aa3dc7b1a1bb4ff8b60f9b5f121c7"
+    },
+    {
+      "name": "H01Forward",
+      "split": "heldout",
+      "sha256": "617a7972e40fbfa708d21fdf37356a72439745436858ed2e048814a4b3c63d81",
+      "file": "Heldout\\H01Forward\\H01Forward.SLDPRT",
+      "manifest_sha256": "f9f7aaf2ac8375422d28af13f1cda88befe9a00090ded0928c9dd71f1e1e16a2"
+    },
+    {
+      "name": "H02Reverse",
+      "split": "heldout",
+      "sha256": "873bc4bea8b527ffcd67f6d3592054adba305ebec7e0637418523e9e14701466",
+      "file": "Heldout\\H02Reverse\\H02Reverse.SLDPRT",
+      "manifest_sha256": "48c788688ef225755fffd89d6549a388d61129369531cd3e22fc84d341dbd54c"
+    },
+    {
+      "name": "H03MidPlane",
+      "split": "heldout",
+      "sha256": "5edfc5ccd7163fdcec4132e053a7dc0ee42603833af9028d8d8cc89cd4f373df",
+      "file": "Heldout\\H03MidPlane\\H03MidPlane.SLDPRT",
+      "manifest_sha256": "96ee86d73ecee312ebb5aee29e64f986bd823143256457e1de5375eedb916883"
+    },
+    {
+      "name": "H04TwoDirections",
+      "split": "heldout",
+      "sha256": "0dd4ffe69b16248dda5ebd7e468563a45c4a8e5b80a8fe0bff5e12da02c584d0",
+      "file": "Heldout\\H04TwoDirections\\H04TwoDirections.SLDPRT",
+      "manifest_sha256": "112bc6bbc7ba80c033b72ee948793e7aa4d06f8febae5c9409dd40f34d6118b2"
+    },
+    {
+      "name": "ControlRectangle",
+      "split": "control",
+      "sha256": "38e335b0a4d385ebd31141168907d55bd531da45da5c9674b71e8c24e786eea7",
+      "file": "Controls\\ControlRectangle\\ControlRectangle.SLDPRT",
+      "manifest_sha256": "9a0aaa4105526d03c9bfa8ee4373db714bd65e23ab543c4bb805937215ef387a"
+    },
+    {
+      "name": "ControlCircle",
+      "split": "control",
+      "sha256": "9bfb64f5570fdd7b23ea8118e2589d54d36b9c76f37a65633e33d9dc0daa58d0",
+      "file": "Controls\\ControlCircle\\ControlCircle.SLDPRT",
+      "manifest_sha256": "832e69e877ca90cc0d2672d242657f26553aa7cf6839da846944710b0c3a3619"
+    }
+  ],
+  "writer_implementation_started": false,
+  "heldout_policy": "Heldout native files and streams must not be inspected while deriving or implementing the family; only independent heldout oracle results establish generalization",
+  "acceptance_scope": "2026-authored source corpus only; no Kit-written output or writer acceptance is established"
+}
