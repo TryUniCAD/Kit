@@ -1,6 +1,6 @@
 # FCStd to SOLIDWORKS corpus coverage
 
-Status: **no production writing or accepted generated output**. Kit reads SOLIDWORKS files and writes none through its public adapter. FCStd to SLDPRT or
+Status: **no production writing or complete CAD acceptance**. Kit reads SOLIDWORKS files and writes none through its public adapter. FCStd to SLDPRT or
 SLDASM conversion raises `AdapterNotFoundError` for all 165 repository FCStd files. The writer
 measured below re-emitted one recorded vendor stream per family, so it was removed from production.
 See `Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md`.
@@ -13,7 +13,7 @@ not current capability.
 
 The independent research composer generates fresh native containers and streams
 from neutral polygon and depth inputs without saved-stream inputs. This is not
-the public adapter and does not count toward the 165-file conversion target.
+the public adapter and does not count toward the requested 165-part and five-assembly conversion target.
 
 The [appearance repair measurement](measurements/2026/FreshPartModelAppearance.json)
 first opened the generated H3 part with its sketch and extrusion suppressed and
@@ -27,6 +27,22 @@ baseline geometry, live depth edits, save and fresh-process reopening for the
 triangle, pentagon and heptagon, with healthy controls and zero errors or
 warnings. This is the measured polygon subset only. No native assembly,
 broader feature coverage or FCStd conversion is counted.
+
+The later [canonical-flag measurements](measurements/2026/PolygonCanonical/README.md)
+measure the three changed material-flag outputs directly, without transferring the
+older files' acceptance. All three input hashes match the generated files from
+CI artifact `14186359068` at `8d786b341ed291ee7e47fc1964ce7bc64014df04`.
+Geometry, selected views, a depth edit, save and fresh reopening pass between
+healthy controls. All 72 independent scalar comparisons pass, and all 90
+standard-view arrays match the controls.
+Full feature-name preservation fails: each reopened copy renames its material folder.
+Initial-camera parity remains unestablished.
+These are three measured research outputs and zero completed FCStd conversions.
+
+The [complete circle/arc source lock](v2026/heldout/CurveSourceLock.json)
+records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.
+Those source files are not generated Kit outputs and add zero writer-coverage cases.
+The six held-out native payloads remain sealed during derivation and implementation.
 
 ## Last audit of the removed writer
 

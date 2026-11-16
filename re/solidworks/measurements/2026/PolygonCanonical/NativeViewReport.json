@@ -1,0 +1,1678 @@
+{
+  "authority": "native-visible-document-viewport",
+  "started_at": 1794788716.2873669,
+  "job_sha256": "b757910d7c4ec20f49620b6e05bba02a98a4e17dfa4dc25de09fa2d01474818f",
+  "inspector_sha256": "a2f5903fcbab3a75bbe5d3f6926e1a0512bb647c53aed042c7efd670943a8314",
+  "results": [
+    {
+      "kind": "control",
+      "name": "ControlBefore",
+      "path": "<oracle-artifacts>/PolygonsCanonicalFlags01/inputs/NativeControl.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/ControlBefore.bmp",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794788716.293628
+        },
+        {
+          "stage": "open_start",
+          "time": 1794788727.8719091
+        },
+        {
+          "stage": "open_return",
+          "time": 1794788737.044121
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794788737.0502574
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794788737.4262822
+        },
+        {
+          "stage": "initial_capture_start",
+          "time": 1794788739.6942747
+        },
+        {
+          "stage": "initial_capture_return",
+          "time": 1794788739.9128804
+        },
+        {
+          "stage": "orient_start",
+          "time": 1794788739.9228978
+        },
+        {
+          "stage": "orient_return",
+          "time": 1794788740.4742072
+        },
+        {
+          "stage": "capture_start",
+          "time": 1794788741.5110295
+        },
+        {
+          "stage": "capture_return",
+          "time": 1794788741.6004722
+        }
+      ],
+      "stage": "capture_return",
+      "oracle_identity": {
+        "process_id": 4892,
+        "process_creation_filetime": 134392623207191446,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "opened": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@NativeControl.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@NativeControl.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@NativeControl.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@NativeControl.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@NativeControl.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "initial_bitmap_saved": true,
+      "initial_bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/ControlBefore_initial.bmp",
+      "initial_bitmap_sha256": "1094d670bc8fb5a620fe854c1154fcf925cdbd54d2b06869e19074567d5287c0",
+      "initial_bitmap_bytes": 2073654,
+      "rotations_before": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.5527136788005e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.5527136788005e-15
+          ],
+          "4": [
+            -3.5527136788005e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.5527136788005e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.5527136788005e-15, 1.0, -0.0, -1.0,
+            -3.5527136788005e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.5527136788005e-15, -1.0, 0.0, 1.0,
+            -3.5527136788005e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+          1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+          -0.4666953889300622, -0.4555090068042732, 0.7580942940502868, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "bitmap_saved": true,
+      "bitmap_sha256": "2a2f00262b264880507eb0e7255de34362e259ecc5d7be7eb5aa0fe352ddd795",
+      "bitmap_bytes": 2073654,
+      "bitmap_signature": "424d",
+      "rotations_after": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.5527136788005e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.5527136788005e-15
+          ],
+          "4": [
+            -3.5527136788005e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.5527136788005e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.5527136788005e-15, 1.0, -0.0, -1.0,
+            -3.5527136788005e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.5527136788005e-15, -1.0, 0.0, 1.0,
+            -3.5527136788005e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+          2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+          -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "sha256_after": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "unchanged_input": true
+    },
+    {
+      "kind": "generated-heldout",
+      "name": "H3_scalene",
+      "path": "<oracle-artifacts>/PolygonsCanonicalFlags01/inputs/H3_scalene.SLDPRT",
+      "sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+      "bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/H3_scalene.bmp",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794788744.374916
+        },
+        {
+          "stage": "open_start",
+          "time": 1794788757.4092312
+        },
+        {
+          "stage": "open_return",
+          "time": 1794788762.5533726
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794788762.5757275
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794788763.0268126
+        },
+        {
+          "stage": "initial_capture_start",
+          "time": 1794788766.89331
+        },
+        {
+          "stage": "initial_capture_return",
+          "time": 1794788767.0701869
+        },
+        {
+          "stage": "orient_start",
+          "time": 1794788767.0748556
+        },
+        {
+          "stage": "orient_return",
+          "time": 1794788767.6379695
+        },
+        {
+          "stage": "capture_start",
+          "time": 1794788768.6504478
+        },
+        {
+          "stage": "capture_return",
+          "time": 1794788768.7607734
+        }
+      ],
+      "stage": "capture_return",
+      "oracle_identity": {
+        "process_id": 6352,
+        "process_creation_filetime": 134392623488048812,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "opened": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 9.932000000000002e-6,
+        "area": 0.003166276360558158,
+        "com": [0.006666666666666669, 0.007000000000000002, 0.0065],
+        "mass": 9.932000000000002e-6
+      },
+      "features": [
+        {
+          "name": "authored comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored history",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored selection sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored surfaces",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored solids",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored environment",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored markups",
+          "type": "NotesAreaFtrFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored material",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@H3_scalene.Part",
+              "value": 0.013
+            }
+          ]
+        }
+      ],
+      "initial_bitmap_saved": true,
+      "initial_bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/H3_scalene_initial.bmp",
+      "initial_bitmap_sha256": "8f7238a8e9d950f037709b698a92a0a5b0897bc4714722bd8df0c442ce7dd2a1",
+      "initial_bitmap_bytes": 2073654,
+      "rotations_before": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "4": [
+            -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+            -3.552713678800501e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+            -3.552713678800501e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+          0.0, 0.0
+        ]
+      },
+      "bitmap_saved": true,
+      "bitmap_sha256": "0e2789d3712c152aaa89bd80a293530a8b5854060127342fbf812abb6aa995e9",
+      "bitmap_bytes": 2073654,
+      "bitmap_signature": "424d",
+      "rotations_after": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "4": [
+            -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+            -3.552713678800501e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+            -3.552713678800501e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+          2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+          -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "sha256_after": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+      "unchanged_input": true
+    },
+    {
+      "kind": "generated-heldout",
+      "name": "H5_irregular",
+      "path": "<oracle-artifacts>/PolygonsCanonicalFlags01/inputs/H5_irregular.SLDPRT",
+      "sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+      "bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/H5_irregular.bmp",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794788771.4991403
+        },
+        {
+          "stage": "open_start",
+          "time": 1794788783.4815402
+        },
+        {
+          "stage": "open_return",
+          "time": 1794788789.8058822
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794788789.8167572
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794788790.256011
+        },
+        {
+          "stage": "initial_capture_start",
+          "time": 1794788794.348931
+        },
+        {
+          "stage": "initial_capture_return",
+          "time": 1794788794.5214581
+        },
+        {
+          "stage": "orient_start",
+          "time": 1794788794.5232005
+        },
+        {
+          "stage": "orient_return",
+          "time": 1794788795.072565
+        },
+        {
+          "stage": "capture_start",
+          "time": 1794788796.1170707
+        },
+        {
+          "stage": "capture_return",
+          "time": 1794788796.22018
+        }
+      ],
+      "stage": "capture_return",
+      "oracle_identity": {
+        "process_id": 1088,
+        "process_creation_filetime": 134392623759477145,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "opened": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 1.31635e-5,
+        "area": 0.004932190747600379,
+        "com": [0.005411149516972432, 0.0033525658069662317, 0.0035],
+        "mass": 1.31635e-5
+      },
+      "features": [
+        {
+          "name": "authored comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored history",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored selection sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored surfaces",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored solids",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored environment",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored markups",
+          "type": "NotesAreaFtrFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored material",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@H5_irregular.Part",
+              "value": 0.007
+            }
+          ]
+        }
+      ],
+      "initial_bitmap_saved": true,
+      "initial_bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/H5_irregular_initial.bmp",
+      "initial_bitmap_sha256": "43371ab55b6961c05132d9952272214f98677fa8a31c732cb965da5d8681b5c7",
+      "initial_bitmap_bytes": 2073654,
+      "rotations_before": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "4": [
+            -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+            -3.552713678800501e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+            -3.552713678800501e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+          0.0, 0.0
+        ]
+      },
+      "bitmap_saved": true,
+      "bitmap_sha256": "302f408b6c577d0e43b4ec5389f1f4dc9f2a3a1cf8a49c1d617a2bbf783c05f0",
+      "bitmap_bytes": 2073654,
+      "bitmap_signature": "424d",
+      "rotations_after": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "4": [
+            -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+            -3.552713678800501e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+            -3.552713678800501e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+          2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+          -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "sha256_after": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+      "unchanged_input": true
+    },
+    {
+      "kind": "generated-heldout",
+      "name": "H7_irregular",
+      "path": "<oracle-artifacts>/PolygonsCanonicalFlags01/inputs/H7_irregular.SLDPRT",
+      "sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+      "bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/H7_irregular.bmp",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794788798.8421574
+        },
+        {
+          "stage": "open_start",
+          "time": 1794788811.375319
+        },
+        {
+          "stage": "open_return",
+          "time": 1794788817.7440221
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794788817.7535923
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794788818.2859385
+        },
+        {
+          "stage": "initial_capture_start",
+          "time": 1794788823.2088504
+        },
+        {
+          "stage": "initial_capture_return",
+          "time": 1794788823.4251664
+        },
+        {
+          "stage": "orient_start",
+          "time": 1794788823.4251664
+        },
+        {
+          "stage": "orient_return",
+          "time": 1794788824.0028718
+        },
+        {
+          "stage": "capture_start",
+          "time": 1794788825.0195134
+        },
+        {
+          "stage": "capture_return",
+          "time": 1794788825.1131277
+        }
+      ],
+      "stage": "capture_return",
+      "oracle_identity": {
+        "process_id": 3700,
+        "process_creation_filetime": 134392624033058349,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "opened": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 5.3796500000000006e-5,
+        "area": 0.009896349327158964,
+        "com": [
+          0.0014406699320587766, 0.006562595460051614, 0.008499999999999999
+        ],
+        "mass": 5.3796500000000006e-5
+      },
+      "features": [
+        {
+          "name": "authored comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored history",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored selection sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored surfaces",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored solids",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored environment",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored markups",
+          "type": "NotesAreaFtrFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "authored material",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@H7_irregular.Part",
+              "value": 0.017
+            }
+          ]
+        }
+      ],
+      "initial_bitmap_saved": true,
+      "initial_bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/H7_irregular_initial.bmp",
+      "initial_bitmap_sha256": "5370ef8a72a7e791131bf34f256ceffad199ee4c9803f44c3c285135e9efcc53",
+      "initial_bitmap_bytes": 2073654,
+      "rotations_before": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "4": [
+            -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+            -3.552713678800501e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+            -3.552713678800501e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+          0.0, 0.0
+        ]
+      },
+      "bitmap_saved": true,
+      "bitmap_sha256": "b20fde79325cdd2fee35b8eb79dddefa1216e4069f882e8befb3f5911f96484d",
+      "bitmap_bytes": 2073654,
+      "bitmap_signature": "424d",
+      "rotations_after": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.552713678800501e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "4": [
+            -3.552713678800501e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.552713678800501e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.552713678800501e-15, 1.0, -0.0, -1.0,
+            -3.552713678800501e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.552713678800501e-15, -1.0, 0.0, 1.0,
+            -3.552713678800501e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+          2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+          -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "sha256_after": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+      "unchanged_input": true
+    },
+    {
+      "kind": "control",
+      "name": "ControlAfter",
+      "path": "<oracle-artifacts>/PolygonsCanonicalFlags01/inputs/NativeControl.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/ControlAfter.bmp",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794788828.7298758
+        },
+        {
+          "stage": "open_start",
+          "time": 1794788842.1730533
+        },
+        {
+          "stage": "open_return",
+          "time": 1794788850.7084196
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794788850.7217405
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794788851.1189213
+        },
+        {
+          "stage": "initial_capture_start",
+          "time": 1794788853.5634012
+        },
+        {
+          "stage": "initial_capture_return",
+          "time": 1794788853.8315163
+        },
+        {
+          "stage": "orient_start",
+          "time": 1794788853.8315163
+        },
+        {
+          "stage": "orient_return",
+          "time": 1794788854.4349813
+        },
+        {
+          "stage": "capture_start",
+          "time": 1794788855.5060308
+        },
+        {
+          "stage": "capture_return",
+          "time": 1794788855.6015766
+        }
+      ],
+      "stage": "capture_return",
+      "oracle_identity": {
+        "process_id": 8424,
+        "process_creation_filetime": 134392624333144981,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "opened": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuilt": true,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@NativeControl.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@NativeControl.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@NativeControl.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@NativeControl.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@NativeControl.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "initial_bitmap_saved": true,
+      "initial_bitmap": "<oracle-artifacts>/PolygonsCanonicalFlags01/images/ControlAfter_initial.bmp",
+      "initial_bitmap_sha256": "1094d670bc8fb5a620fe854c1154fcf925cdbd54d2b06869e19074567d5287c0",
+      "initial_bitmap_bytes": 2073654,
+      "rotations_before": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.5527136788005e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.5527136788005e-15
+          ],
+          "4": [
+            -3.5527136788005e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.5527136788005e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.5527136788005e-15, 1.0, -0.0, -1.0,
+            -3.5527136788005e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.5527136788005e-15, -1.0, 0.0, 1.0,
+            -3.5527136788005e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+          1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+          -0.4666953889300622, -0.4555090068042732, 0.7580942940502868, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "bitmap_saved": true,
+      "bitmap_sha256": "2a2f00262b264880507eb0e7255de34362e259ecc5d7be7eb5aa0fe352ddd795",
+      "bitmap_bytes": 2073654,
+      "bitmap_signature": "424d",
+      "rotations_after": {
+        "standard": {
+          "1": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0],
+          "2": [
+            -1.0, 0.0, 6.982962677686267e-15, -0.0, 1.0, 0.0,
+            -6.982962677686267e-15, -0.0, -1.0
+          ],
+          "3": [
+            -3.5527136788005e-15, -0.0, -1.0, 0.0, 1.0, -0.0, 1.0, 0.0,
+            -3.5527136788005e-15
+          ],
+          "4": [
+            -3.5527136788005e-15, 0.0, 1.0, 0.0, 1.0, 0.0, -1.0, 0.0,
+            -3.5527136788005e-15
+          ],
+          "5": [
+            1.0, -0.0, 0.0, 0.0, -3.5527136788005e-15, 1.0, -0.0, -1.0,
+            -3.5527136788005e-15
+          ],
+          "6": [
+            1.0, 0.0, 0.0, 0.0, -3.5527136788005e-15, -1.0, 0.0, 1.0,
+            -3.5527136788005e-15
+          ],
+          "7": [
+            0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+            2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+            -0.7071067811865488, -0.4082040559113538, 0.5773815451999819
+          ],
+          "8": [
+            0.8844181216774213, -0.24036589468392133, 0.400036026779314,
+            1.3877787807814457e-17, 0.8571673007021341, 0.5150380749100181,
+            -0.4666953889300622, -0.4555090068042732, 0.7580942940502868
+          ],
+          "9": [
+            0.9354143467241411, -0.11785113014268137, 0.33333333326677816,
+            6.938893903907228e-18, 0.942809041610104, 0.33333333325402237,
+            -0.35355339051216605, -0.31180478216719176, 0.8819171037433291
+          ]
+        },
+        "active": [
+          0.7071067811865464, -0.4082040559113551, 0.5773815451999837,
+          2.7755575615628914e-17, 0.8165408118857499, 0.5772877120855426,
+          -0.7071067811865488, -0.4082040559113538, 0.5773815451999819, 0.0,
+          0.0, 0.0, 1.0, 0.0, 0.0, 0.0
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "sha256_after": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "unchanged_input": true
+    }
+  ],
+  "limitation": "bitmap creation alone is not visual acceptance; every image needs inspection",
+  "finished_at": 1794788858.4522476
+}

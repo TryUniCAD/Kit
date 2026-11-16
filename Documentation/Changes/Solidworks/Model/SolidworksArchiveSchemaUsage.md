@@ -107,14 +107,19 @@ Static inspection confirmed dispatch through the shared registry and preserved s
 The caller audit found that current custom entry points construct or forward tagged archive objects.
 The generic dispatch instrumentation also permits direct schemas whose operations do not require a tagged object context.
 Both draft Python files passed AST parsing.
-No schema module, CAD file, corpus fixture or local test was executed during this change.
+No schema module, CAD file, corpus fixture or test was executed locally for this implementation.
 The [first remote process run](https://github.com/TryUniCAD/Kit/actions/runs/43784683947/job/133029564572)
 on `6047d1d5594210cdfbe13b2c3aea45e5105b866f` passed the existing source-archive round trips
 but failed two fresh-construction checks: callable source inspection attempted eight
 reads of `ResolvedDims.py` inside each guarded construction process.
 The [source-inspection gotcha](../../../Gotchas/Conversion/Solidworks/Archive/SourceInspectionCanReadDuringConstruction.md)
 records the cause and repair. Removing source retrieval preserves those read-denial assertions.
-Fresh construction and full remote verification of the repair remain pending.
+The [repaired remote job](https://github.com/TryUniCAD/Kit/actions/runs/43785339499/job/133031601503)
+on `d6314fec97cb5c5ab9845223ec972fee421988e4` passed 171 policy checks and
+167 codec/process checks, with 158 fixture-dependent skips.
+Both fresh-construction checks passed with the original read-denial assertions.
+Its [CI aggregate](https://github.com/TryUniCAD/Kit/actions/runs/43785336951/job/133031595534)
+also passed. Later curve-discovery fixture admission remains separate and pending.
 No native load, rebuild, edit, geometry or writer acceptance is claimed.
 
 The [CAD success criteria](../../../Reference/Operations/CadSuccessCriteria.md) retain both stopping conditions:

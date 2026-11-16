@@ -135,7 +135,14 @@ Their system material-folder labels change on saved-copy reopening, so full name
 Initial-camera parity also remains unestablished.
 The [material-folder flag correction](../../Changes/Solidworks/SolidworksMaterialFolderFlagEncoding.md)
 now derives the current-format archive word from two fresh runtime Boolean states.
-Its changed bytes require new controlled measurements; the earlier evidence remains bound to its recorded hashes.
+Earlier measurements remain bound to their recorded hashes; changed bytes need their own controlled measurements.
+The [canonical-flag polygon measurements](../../Changes/Solidworks/Model/SolidworksCanonicalFlagPolygonMeasurements.md)
+now measure those changed bytes directly: all three files pass geometry, visible selected
+views and depth-edit/save/fresh-reopen checks between healthy controls.
+All 72 neutral scalar comparisons pass, with maximum center-of-mass error
+`2.6020852139652106e-18 m`; all 90 named-view arrays match the controls.
+The material-folder label still changes after reopening, so full feature-name
+preservation fails. Initial-camera parity remains unestablished.
 The [later polygon interruption](../../Changes/Solidworks/Inspection/SolidworksControlledPolygonInterruption.md)
 records the earlier disconnected heptagon query and unavailable trailing control.
 That incomplete batch is not counted as a format crash; the subsequent controlled repeats passed.
@@ -144,7 +151,7 @@ records the native negative half-angle and the refuted positive-factor assumptio
 The [controlled curve source authoring tool](../../Changes/Solidworks/Inspection/SolidworksCurveSourceAuthoring.md)
 prepares independent discovery and held-out inputs before curved-sketch writer
 implementation. A two-case source preflight passed creation, reopen and driving edits with healthy controls.
-The full-family lock and Kit-written curve acceptance remain pending.
+The later full-family source lock is recorded below; Kit-written curve acceptance remains pending.
 The [first full source attempt](../../../re/solidworks/measurements/2026/CurveSourceAttempt01.json)
 passed eighteen discovery cases and stopped on an annulus relation-count assertion with healthy controls.
 The [binding-aware source harness](../../Changes/Solidworks/Inspection/SolidworksCurveRelationBindings.md)

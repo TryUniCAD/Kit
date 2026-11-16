@@ -1,0 +1,2960 @@
+{
+  "schema": "kit-sw2026-canonical-polygon-analysis/1",
+  "authority": "independent standard-library JSON arithmetic over completed oracle records, neutral polygon inputs and unchanged PNG bytes; no product or oracle execution",
+  "independent_owner_verification": {
+    "record": "RootPosthocVerification.json",
+    "recorded_at": "2026-11-16T01:13:53.327780+00:00",
+    "all_nine_candidate_phases_clean": true,
+    "neutral_metric_maxima_agree": true,
+    "full_feature_name_parity": false
+  },
+  "analysis_input_sha256": {
+    "NativeViewReport.json": "94dfc4c95a40c7c37e0c9f0664e1e95c33bea970bc53969e3029c08ba72d4bd6",
+    "EditReport.json": "8617cdd1e695900420850be0793488d706990f3097375f43ce6f52d8c537e3f3",
+    "ViewJob.json": "9feb5677908a4f601b79b2d67e6e9e428a8b1506e8196dfa7f1fd7c14c9a4cc2",
+    "EditJob.json": "3f6289149ec86106e9f1a54f2907dc08e659f0177a385e499e3907aa645e575a",
+    "SourceManifest4ed.json": "4f5b892a64558c2287d43128e0956f0a65dc3eb05f60cdd2094edb998db147d3",
+    "Artifact8d.json": "e44eba84c8aa777221e4bc36f5f51a86725aa3c96f8d24a51c58b0e8537cc054",
+    "JobPreparation.json": "8513a375c87a7178d8574cb82438bed11f79d8212c10a2bbc4cb3adbfc41ee89",
+    "PngConversion.json": "5a7d9bdfa4e49040c1739a15206857d1a25e4c5d420c986ebef32b8f16b3a839",
+    "BaselineInputs.json": "ae55efc0bc5f71164bfecb0437fe2ead8ce9efdaadb4de69764d81598d4275e9",
+    "ImageManifest.json": "dddf2bce0d8ddf4c4ca7cf61c9096ff96ad540c7710e79f43e74503fa4a7cb6f",
+    "FrozenTools.json": "127d46c6f5ad11981ae8fcf49041b3055951c2c6d6e74abcfba11c80ef8658f8",
+    "HostReports.json": "89cfb99ca49251340e7f780a9fed4772f20b1e7aa421a314e8874417376cb375",
+    "Provenance.json": "f07b905b949eea5cc4aed8ddfeea0f3f801260fbf2dce426c42b7c425dad75e2",
+    "RootPosthocVerification.json": "20e94f5b82ab8843eb6dfdcfe3f33425881214b30a1f5bf7b38c4b97705c27e3",
+    "Analyze.py": "cb8e71ae6a24e5d823efa6583609d30a850765b1f0fb8d0ae4040886f96c3127"
+  },
+  "staged_source_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+  "byte_identical_verified_artifact_head": "8d786b341ed291ee7e47fc1964ce7bc64014df04",
+  "counts": {
+    "view_rows": 5,
+    "view_controls": 2,
+    "edit_controls": 2,
+    "candidate_baseline_edit_reopen_snapshots": 9,
+    "standard_view_arrays": 90,
+    "standard_coefficients": 810,
+    "standard_coefficients_against_four_control_anchors": 3240,
+    "finite_active_transforms_of_length16": 10,
+    "png_images": 10,
+    "distinct_native_process_lifetimes": 16,
+    "independent_candidate_metric_comparisons": 72
+  },
+  "tolerances": {
+    "relative_geometry": 1e-9,
+    "volume_absolute_m3": 1e-15,
+    "area_absolute_m2": 1e-12,
+    "com_absolute_m": 1e-12,
+    "mass_absolute_kg": 1e-15,
+    "depth_absolute_m": 1e-12,
+    "rotation_coefficient_absolute": 1e-12,
+    "formula": "abs(actual-expected) <= max(absolute tolerance, relative tolerance*abs(expected)); rotation and depth use absolute tolerance only"
+  },
+  "neutral_derivation": {
+    "source": "preexisting independently published BaselineInputs.json and matching unchanged neutral EditJob inputs",
+    "planar_area": "abs(sum(x_i*y_next-x_next*y_i))/2",
+    "centroid": "sum((coordinate_i+coordinate_next)*cross_i)/(3*sum(cross_i))",
+    "perimeter": "sum(hypot(dx,dy))",
+    "volume": "planar_area*depth",
+    "surface_area": "2*planar_area+perimeter*depth",
+    "center_of_mass": "polygon centroid x and y, depth/2",
+    "mass": "density*volume",
+    "native_payload_inspection": false
+  },
+  "controls_healthy_in_both_batches": true,
+  "control_mass_properties_identical_across_all_four_observations": true,
+  "view_rows": [
+    {
+      "name": "ControlBefore",
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "native_status": {
+        "checks": {
+          "opened": true,
+          "zero_open_errors": true,
+          "zero_open_warnings": true,
+          "rebuilt": true,
+          "one_body": true,
+          "expected_feature_count": true,
+          "features_clean_and_unsuppressed": true,
+          "no_diagnostics_or_dialogs": true,
+          "no_recorded_exception_or_cleanup_failure": true,
+          "exact_observed_2026_identity": true
+        },
+        "passed": true,
+        "whats_wrong_recorded": false,
+        "whats_wrong": null
+      },
+      "feature_count": 19,
+      "selected_active_rotation_vs_own_view7_max_absolute_difference": 0.0,
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.0
+    },
+    {
+      "name": "H3_scalene",
+      "source_sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+      "native_status": {
+        "checks": {
+          "opened": true,
+          "zero_open_errors": true,
+          "zero_open_warnings": true,
+          "rebuilt": true,
+          "one_body": true,
+          "expected_feature_count": true,
+          "features_clean_and_unsuppressed": true,
+          "no_diagnostics_or_dialogs": true,
+          "no_recorded_exception_or_cleanup_failure": true,
+          "exact_observed_2026_identity": true
+        },
+        "passed": true,
+        "whats_wrong_recorded": false,
+        "whats_wrong": null
+      },
+      "feature_count": 20,
+      "selected_active_rotation_vs_own_view7_max_absolute_difference": 0.0,
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.5150380749100181,
+      "independent_neutral_comparison": {
+        "volume_m3": {
+          "actual": 9.932000000000002e-6,
+          "expected": 9.931999999999999e-6,
+          "absolute_error": 3.3881317890172014e-21,
+          "relative_error": 3.411328825027388e-16,
+          "tolerance": 9.932e-15,
+          "within_tolerance": true
+        },
+        "surface_area_m2": {
+          "actual": 0.003166276360558158,
+          "expected": 0.0031662763605581575,
+          "absolute_error": 4.336808689942018e-19,
+          "relative_error": 1.369687353878837e-16,
+          "tolerance": 3.1662763605581576e-12,
+          "within_tolerance": true
+        },
+        "mass_kg": {
+          "actual": 9.932000000000002e-6,
+          "expected": 9.931999999999999e-6,
+          "absolute_error": 3.3881317890172014e-21,
+          "relative_error": 3.411328825027388e-16,
+          "tolerance": 9.932e-15,
+          "within_tolerance": true
+        },
+        "center_of_mass_0_m": {
+          "actual": 0.006666666666666669,
+          "expected": 0.006666666666666667,
+          "absolute_error": 1.734723475976807e-18,
+          "relative_error": 2.6020852139652106e-16,
+          "tolerance": 6.666666666666668e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_1_m": {
+          "actual": 0.007000000000000002,
+          "expected": 0.007,
+          "absolute_error": 1.734723475976807e-18,
+          "relative_error": 2.4781763942525816e-16,
+          "tolerance": 7.000000000000001e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_2_m": {
+          "actual": 0.0065,
+          "expected": 0.0065,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 6.5e-12,
+          "within_tolerance": true
+        }
+      },
+      "prior_independent_baseline_comparison": {
+        "volume_m3": {
+          "actual": 9.932000000000002e-6,
+          "expected": 9.932000000000002e-6,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 9.932000000000003e-15,
+          "within_tolerance": true
+        },
+        "surface_area_m2": {
+          "actual": 0.003166276360558158,
+          "expected": 0.003166276360558158,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 3.166276360558158e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_0_m": {
+          "actual": 0.006666666666666669,
+          "expected": 0.006666666666666669,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 6.6666666666666695e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_1_m": {
+          "actual": 0.007000000000000002,
+          "expected": 0.007000000000000002,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 7.0000000000000025e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_2_m": {
+          "actual": 0.0065,
+          "expected": 0.0065,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 6.5e-12,
+          "within_tolerance": true
+        }
+      },
+      "driving_depth_readback": {
+        "name": "D1@Boss-Extrude1@H3_scalene.Part",
+        "value": 0.013
+      },
+      "depth_comparison": {
+        "actual": 0.013,
+        "expected": 0.013,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      }
+    },
+    {
+      "name": "H5_irregular",
+      "source_sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+      "native_status": {
+        "checks": {
+          "opened": true,
+          "zero_open_errors": true,
+          "zero_open_warnings": true,
+          "rebuilt": true,
+          "one_body": true,
+          "expected_feature_count": true,
+          "features_clean_and_unsuppressed": true,
+          "no_diagnostics_or_dialogs": true,
+          "no_recorded_exception_or_cleanup_failure": true,
+          "exact_observed_2026_identity": true
+        },
+        "passed": true,
+        "whats_wrong_recorded": false,
+        "whats_wrong": null
+      },
+      "feature_count": 20,
+      "selected_active_rotation_vs_own_view7_max_absolute_difference": 0.0,
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.5150380749100181,
+      "independent_neutral_comparison": {
+        "volume_m3": {
+          "actual": 1.31635e-5,
+          "expected": 1.31635e-5,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 1.3163500000000002e-14,
+          "within_tolerance": true
+        },
+        "surface_area_m2": {
+          "actual": 0.004932190747600379,
+          "expected": 0.0049321907476003795,
+          "absolute_error": 8.673617379884035e-19,
+          "relative_error": 1.758572979786709e-16,
+          "tolerance": 4.9321907476003796e-12,
+          "within_tolerance": true
+        },
+        "mass_kg": {
+          "actual": 1.31635e-5,
+          "expected": 1.31635e-5,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 1.3163500000000002e-14,
+          "within_tolerance": true
+        },
+        "center_of_mass_0_m": {
+          "actual": 0.005411149516972432,
+          "expected": 0.005411149516972434,
+          "absolute_error": 1.734723475976807e-18,
+          "relative_error": 3.205831719370774e-16,
+          "tolerance": 5.4111495169724344e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_1_m": {
+          "actual": 0.0033525658069662317,
+          "expected": 0.0033525658069662326,
+          "absolute_error": 8.673617379884035e-19,
+          "relative_error": 2.5871579796767274e-16,
+          "tolerance": 3.352565806966233e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_2_m": {
+          "actual": 0.0035,
+          "expected": 0.0035,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 3.5000000000000004e-12,
+          "within_tolerance": true
+        }
+      },
+      "prior_independent_baseline_comparison": {
+        "volume_m3": {
+          "actual": 1.31635e-5,
+          "expected": 1.31635e-5,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 1.3163500000000002e-14,
+          "within_tolerance": true
+        },
+        "surface_area_m2": {
+          "actual": 0.004932190747600379,
+          "expected": 0.004932190747600379,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 4.932190747600379e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_0_m": {
+          "actual": 0.005411149516972432,
+          "expected": 0.005411149516972432,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 5.411149516972433e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_1_m": {
+          "actual": 0.0033525658069662317,
+          "expected": 0.003352565806966232,
+          "absolute_error": 4.336808689942018e-19,
+          "relative_error": 1.2935789898383637e-16,
+          "tolerance": 3.3525658069662325e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_2_m": {
+          "actual": 0.0035,
+          "expected": 0.0035,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 3.5000000000000004e-12,
+          "within_tolerance": true
+        }
+      },
+      "driving_depth_readback": {
+        "name": "D1@Boss-Extrude1@H5_irregular.Part",
+        "value": 0.007
+      },
+      "depth_comparison": {
+        "actual": 0.007,
+        "expected": 0.007,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      }
+    },
+    {
+      "name": "H7_irregular",
+      "source_sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+      "native_status": {
+        "checks": {
+          "opened": true,
+          "zero_open_errors": true,
+          "zero_open_warnings": true,
+          "rebuilt": true,
+          "one_body": true,
+          "expected_feature_count": true,
+          "features_clean_and_unsuppressed": true,
+          "no_diagnostics_or_dialogs": true,
+          "no_recorded_exception_or_cleanup_failure": true,
+          "exact_observed_2026_identity": true
+        },
+        "passed": true,
+        "whats_wrong_recorded": false,
+        "whats_wrong": null
+      },
+      "feature_count": 20,
+      "selected_active_rotation_vs_own_view7_max_absolute_difference": 0.0,
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.5150380749100181,
+      "independent_neutral_comparison": {
+        "volume_m3": {
+          "actual": 5.3796500000000006e-5,
+          "expected": 5.37965e-5,
+          "absolute_error": 6.776263578034403e-21,
+          "relative_error": 1.2596104910234686e-16,
+          "tolerance": 5.37965e-14,
+          "within_tolerance": true
+        },
+        "surface_area_m2": {
+          "actual": 0.009896349327158964,
+          "expected": 0.009896349327158962,
+          "absolute_error": 1.734723475976807e-18,
+          "relative_error": 1.7528923228448833e-16,
+          "tolerance": 9.896349327158962e-12,
+          "within_tolerance": true
+        },
+        "mass_kg": {
+          "actual": 5.3796500000000006e-5,
+          "expected": 5.37965e-5,
+          "absolute_error": 6.776263578034403e-21,
+          "relative_error": 1.2596104910234686e-16,
+          "tolerance": 5.37965e-14,
+          "within_tolerance": true
+        },
+        "center_of_mass_0_m": {
+          "actual": 0.0014406699320587766,
+          "expected": 0.0014406699320587764,
+          "absolute_error": 2.168404344971009e-19,
+          "relative_error": 1.5051361153017681e-16,
+          "tolerance": 1.4406699320587766e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_1_m": {
+          "actual": 0.006562595460051614,
+          "expected": 0.006562595460051614,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 6.5625954600516146e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_2_m": {
+          "actual": 0.008499999999999999,
+          "expected": 0.0085,
+          "absolute_error": 1.734723475976807e-18,
+          "relative_error": 2.0408511482080082e-16,
+          "tolerance": 8.500000000000001e-12,
+          "within_tolerance": true
+        }
+      },
+      "prior_independent_baseline_comparison": {
+        "volume_m3": {
+          "actual": 5.3796500000000006e-5,
+          "expected": 5.3796500000000006e-5,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 5.379650000000001e-14,
+          "within_tolerance": true
+        },
+        "surface_area_m2": {
+          "actual": 0.009896349327158964,
+          "expected": 0.009896349327158964,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 9.896349327158964e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_0_m": {
+          "actual": 0.0014406699320587766,
+          "expected": 0.001440669932058777,
+          "absolute_error": 4.336808689942018e-19,
+          "relative_error": 3.010272230603535e-16,
+          "tolerance": 1.4406699320587772e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_1_m": {
+          "actual": 0.006562595460051614,
+          "expected": 0.006562595460051613,
+          "absolute_error": 8.673617379884035e-19,
+          "relative_error": 1.3216748514643045e-16,
+          "tolerance": 6.562595460051614e-12,
+          "within_tolerance": true
+        },
+        "center_of_mass_2_m": {
+          "actual": 0.008499999999999999,
+          "expected": 0.008499999999999999,
+          "absolute_error": 0.0,
+          "relative_error": 0.0,
+          "tolerance": 8.5e-12,
+          "within_tolerance": true
+        }
+      },
+      "driving_depth_readback": {
+        "name": "D1@Boss-Extrude1@H7_irregular.Part",
+        "value": 0.017
+      },
+      "depth_comparison": {
+        "actual": 0.017,
+        "expected": 0.017,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      }
+    },
+    {
+      "name": "ControlAfter",
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "native_status": {
+        "checks": {
+          "opened": true,
+          "zero_open_errors": true,
+          "zero_open_warnings": true,
+          "rebuilt": true,
+          "one_body": true,
+          "expected_feature_count": true,
+          "features_clean_and_unsuppressed": true,
+          "no_diagnostics_or_dialogs": true,
+          "no_recorded_exception_or_cleanup_failure": true,
+          "exact_observed_2026_identity": true
+        },
+        "passed": true,
+        "whats_wrong_recorded": false,
+        "whats_wrong": null
+      },
+      "feature_count": 19,
+      "selected_active_rotation_vs_own_view7_max_absolute_difference": 0.0,
+      "initial_active_rotation_vs_controls_max_absolute_difference": 0.0
+    }
+  ],
+  "standard_view_comparisons": [
+    {
+      "case": "ControlBefore",
+      "phase": "before",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "before",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "before",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "before",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "before",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "before",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "before",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "before",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "before",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "after",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "after",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "after",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "after",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "after",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "after",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "after",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "after",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "after",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "before",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "before",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "before",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "before",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "before",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "before",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "before",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "before",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "before",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "after",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "after",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "after",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "after",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "after",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "after",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "after",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "after",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "after",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "before",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "before",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "before",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "before",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "before",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "before",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "before",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "before",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "before",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "after",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "after",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "after",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "after",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "after",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "after",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "after",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "after",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "after",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "before",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "before",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "before",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "before",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "before",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "before",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "before",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "before",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "before",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "after",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "after",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "after",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "after",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "after",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "after",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 7.888609052210118e-31,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "after",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "after",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "after",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "before",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "before",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "before",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "before",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "before",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "before",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "before",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "before",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "before",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "after",
+      "view_id": "1",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "after",
+      "view_id": "2",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "after",
+      "view_id": "3",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "after",
+      "view_id": "4",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "after",
+      "view_id": "5",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "after",
+      "view_id": "6",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "after",
+      "view_id": "7",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "after",
+      "view_id": "8",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "after",
+      "view_id": "9",
+      "coefficient_count": 9,
+      "maximum_absolute_difference_against_all_four_control_anchors": 0.0,
+      "within_declared_absolute_tolerance": true
+    }
+  ],
+  "standard_view_max_absolute_difference_against_controls": 7.888609052210118e-31,
+  "standard_views_match_within_declared_absolute_tolerance": true,
+  "initial_camera_parity_established": false,
+  "initial_camera_scope": "candidate initial front orientations and shape-dependent camera transforms do not establish control camera parity; only selected active rotation versus view7 is checked",
+  "edit_controls": [
+    {
+      "phase": "control_before",
+      "native_status": {
+        "checks": {
+          "opened": true,
+          "zero_open_errors": true,
+          "zero_open_warnings": true,
+          "rebuilt": true,
+          "one_body": true,
+          "expected_feature_count": true,
+          "features_clean_and_unsuppressed": true,
+          "no_diagnostics_or_dialogs": true,
+          "no_recorded_exception_or_cleanup_failure": true,
+          "exact_observed_2026_identity": true,
+          "zero_whats_wrong": true
+        },
+        "passed": true,
+        "whats_wrong_recorded": true,
+        "whats_wrong": 0
+      },
+      "mass": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      }
+    },
+    {
+      "phase": "control_after",
+      "native_status": {
+        "checks": {
+          "opened": true,
+          "zero_open_errors": true,
+          "zero_open_warnings": true,
+          "rebuilt": true,
+          "one_body": true,
+          "expected_feature_count": true,
+          "features_clean_and_unsuppressed": true,
+          "no_diagnostics_or_dialogs": true,
+          "no_recorded_exception_or_cleanup_failure": true,
+          "exact_observed_2026_identity": true,
+          "zero_whats_wrong": true
+        },
+        "passed": true,
+        "whats_wrong_recorded": true,
+        "whats_wrong": 0
+      },
+      "mass": {
+        "volume": 8.000000000000001e-6,
+        "area": 0.0028,
+        "com": [0.0, 0.0, 0.005],
+        "mass": 8.000000000000001e-6
+      }
+    }
+  ],
+  "edit_cases": [
+    {
+      "name": "H3_scalene",
+      "source_sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+      "edited_copy_sha256": "37b1446c35c16557feb12c305c79bd4ae99ca1ed9bef9ea2ece55890865007cb",
+      "source_unchanged": true,
+      "saved_copy_fingerprint_matches_fresh_reopen": true,
+      "saved_without_errors_or_warnings": true,
+      "native_match_flags": {
+        "baseline_match": true,
+        "edit_match": true,
+        "reopen_match": true
+      },
+      "phases": {
+        "baseline": {
+          "native_status": {
+            "checks": {
+              "opened": true,
+              "zero_open_errors": true,
+              "zero_open_warnings": true,
+              "rebuilt": true,
+              "one_body": true,
+              "expected_feature_count": true,
+              "features_clean_and_unsuppressed": true,
+              "no_diagnostics_or_dialogs": true,
+              "no_recorded_exception_or_cleanup_failure": true,
+              "exact_observed_2026_identity": true,
+              "zero_whats_wrong": true
+            },
+            "passed": true,
+            "whats_wrong_recorded": true,
+            "whats_wrong": 0
+          },
+          "source_or_copy_sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+          "feature_count": 20,
+          "independent_neutral_comparison": {
+            "volume_m3": {
+              "actual": 9.932000000000002e-6,
+              "expected": 9.931999999999999e-6,
+              "absolute_error": 3.3881317890172014e-21,
+              "relative_error": 3.411328825027388e-16,
+              "tolerance": 9.932e-15,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.003166276360558158,
+              "expected": 0.0031662763605581575,
+              "absolute_error": 4.336808689942018e-19,
+              "relative_error": 1.369687353878837e-16,
+              "tolerance": 3.1662763605581576e-12,
+              "within_tolerance": true
+            },
+            "mass_kg": {
+              "actual": 9.932000000000002e-6,
+              "expected": 9.931999999999999e-6,
+              "absolute_error": 3.3881317890172014e-21,
+              "relative_error": 3.411328825027388e-16,
+              "tolerance": 9.932e-15,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.006666666666666669,
+              "expected": 0.006666666666666667,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.6020852139652106e-16,
+              "tolerance": 6.666666666666668e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.007000000000000002,
+              "expected": 0.007,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.4781763942525816e-16,
+              "tolerance": 7.000000000000001e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.0065,
+              "expected": 0.0065,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 6.5e-12,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume_m3": {
+              "actual": 9.932000000000002e-6,
+              "expected": 9.932000000000002e-6,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 9.932000000000003e-15,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.003166276360558158,
+              "expected": 0.003166276360558158,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 3.166276360558158e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.006666666666666669,
+              "expected": 0.006666666666666669,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 6.6666666666666695e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.007000000000000002,
+              "expected": 0.007000000000000002,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 7.0000000000000025e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.0065,
+              "expected": 0.0065,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 6.5e-12,
+              "within_tolerance": true
+            }
+          },
+          "depth_readback": {
+            "name": "D1@Boss-Extrude1@H3_scalene.Part",
+            "value": 0.013
+          },
+          "depth_comparison": {
+            "actual": 0.013,
+            "expected": 0.013,
+            "absolute_error": 0.0,
+            "relative_error": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "edit": {
+          "native_status": {
+            "checks": {
+              "opened": true,
+              "zero_open_errors": true,
+              "zero_open_warnings": true,
+              "rebuilt": true,
+              "one_body": true,
+              "expected_feature_count": true,
+              "features_clean_and_unsuppressed": true,
+              "no_diagnostics_or_dialogs": true,
+              "no_recorded_exception_or_cleanup_failure": true,
+              "exact_observed_2026_identity": true,
+              "zero_whats_wrong": true
+            },
+            "passed": true,
+            "whats_wrong_recorded": true,
+            "whats_wrong": 0
+          },
+          "source_or_copy_sha256": "37b1446c35c16557feb12c305c79bd4ae99ca1ed9bef9ea2ece55890865007cb",
+          "feature_count": 20,
+          "independent_neutral_comparison": {
+            "volume_m3": {
+              "actual": 1.2415e-5,
+              "expected": 1.2415e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.2415000000000002e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.003575845450697697,
+              "expected": 0.0035758454506976973,
+              "absolute_error": 4.336808689942018e-19,
+              "relative_error": 1.2128065235861483e-16,
+              "tolerance": 3.5758454506976975e-12,
+              "within_tolerance": true
+            },
+            "mass_kg": {
+              "actual": 1.2415e-5,
+              "expected": 1.2415e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.2415000000000002e-14,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.006666666666666669,
+              "expected": 0.006666666666666667,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.6020852139652106e-16,
+              "tolerance": 6.666666666666668e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.006999999999999999,
+              "expected": 0.007,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.2390881971262908e-16,
+              "tolerance": 7.000000000000001e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.008125000000000002,
+              "expected": 0.008125,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.1350442781253008e-16,
+              "tolerance": 8.125000000000001e-12,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume_m3": {
+              "actual": 1.2415e-5,
+              "expected": 1.2414999999999999e-5,
+              "absolute_error": 1.6940658945086007e-21,
+              "relative_error": 1.3645315300109552e-16,
+              "tolerance": 1.2415e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.003575845450697697,
+              "expected": 0.003575845450697697,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 3.575845450697697e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.006666666666666669,
+              "expected": 0.006666666666666669,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 6.6666666666666695e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.006999999999999999,
+              "expected": 0.007000000000000001,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.478176394252581e-16,
+              "tolerance": 7.000000000000002e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.008125000000000002,
+              "expected": 0.008125,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.1350442781253008e-16,
+              "tolerance": 8.125000000000001e-12,
+              "within_tolerance": true
+            }
+          },
+          "depth_readback": {
+            "name": "D1@Boss-Extrude1@H3_scalene.Part",
+            "value": 0.01625
+          },
+          "depth_comparison": {
+            "actual": 0.01625,
+            "expected": 0.01625,
+            "absolute_error": 0.0,
+            "relative_error": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "reopened": {
+          "native_status": {
+            "checks": {
+              "opened": true,
+              "zero_open_errors": true,
+              "zero_open_warnings": true,
+              "rebuilt": true,
+              "one_body": true,
+              "expected_feature_count": true,
+              "features_clean_and_unsuppressed": true,
+              "no_diagnostics_or_dialogs": true,
+              "no_recorded_exception_or_cleanup_failure": true,
+              "exact_observed_2026_identity": true,
+              "zero_whats_wrong": true
+            },
+            "passed": true,
+            "whats_wrong_recorded": true,
+            "whats_wrong": 0
+          },
+          "source_or_copy_sha256": "37b1446c35c16557feb12c305c79bd4ae99ca1ed9bef9ea2ece55890865007cb",
+          "feature_count": 20,
+          "independent_neutral_comparison": {
+            "volume_m3": {
+              "actual": 1.2415e-5,
+              "expected": 1.2415e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.2415000000000002e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.003575845450697697,
+              "expected": 0.0035758454506976973,
+              "absolute_error": 4.336808689942018e-19,
+              "relative_error": 1.2128065235861483e-16,
+              "tolerance": 3.5758454506976975e-12,
+              "within_tolerance": true
+            },
+            "mass_kg": {
+              "actual": 1.2415e-5,
+              "expected": 1.2415e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.2415000000000002e-14,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.006666666666666669,
+              "expected": 0.006666666666666667,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.6020852139652106e-16,
+              "tolerance": 6.666666666666668e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.006999999999999999,
+              "expected": 0.007,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.2390881971262908e-16,
+              "tolerance": 7.000000000000001e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.008125000000000002,
+              "expected": 0.008125,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.1350442781253008e-16,
+              "tolerance": 8.125000000000001e-12,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume_m3": {
+              "actual": 1.2415e-5,
+              "expected": 1.2414999999999999e-5,
+              "absolute_error": 1.6940658945086007e-21,
+              "relative_error": 1.3645315300109552e-16,
+              "tolerance": 1.2415e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.003575845450697697,
+              "expected": 0.003575845450697697,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 3.575845450697697e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.006666666666666669,
+              "expected": 0.006666666666666669,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 6.6666666666666695e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.006999999999999999,
+              "expected": 0.007000000000000001,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.478176394252581e-16,
+              "tolerance": 7.000000000000002e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.008125000000000002,
+              "expected": 0.008125,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.1350442781253008e-16,
+              "tolerance": 8.125000000000001e-12,
+              "within_tolerance": true
+            }
+          },
+          "depth_readback": {
+            "name": "D1@Boss-Extrude1@H3_scalene_depth.Part",
+            "value": 0.01625
+          },
+          "depth_comparison": {
+            "actual": 0.01625,
+            "expected": 0.01625,
+            "absolute_error": 0.0,
+            "relative_error": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        }
+      },
+      "depth_factor": 1.25,
+      "measured_volume_factor": {
+        "actual": 1.2499999999999998,
+        "expected": 1.25,
+        "absolute_error": 2.220446049250313e-16,
+        "relative_error": 1.7763568394002506e-16,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      },
+      "live_edit_feature_name_and_type_order_preserved": true,
+      "feature_type_order_preserved_through_reopen": true,
+      "full_feature_names_preserved_through_reopen": false,
+      "live_edit_tree_changes": [],
+      "fresh_reopen_tree_changes": [
+        {
+          "index": 12,
+          "before": {
+            "name": "authored material",
+            "type": "MaterialFolder"
+          },
+          "after": {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder"
+          }
+        }
+      ],
+      "bounded_geometry_depth_save_reopen_passed": true
+    },
+    {
+      "name": "H5_irregular",
+      "source_sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+      "edited_copy_sha256": "9d26eb9e5cd1f3a59950a53bccd805fb7db2ba7511d1b7a629351a51043bd3a6",
+      "source_unchanged": true,
+      "saved_copy_fingerprint_matches_fresh_reopen": true,
+      "saved_without_errors_or_warnings": true,
+      "native_match_flags": {
+        "baseline_match": true,
+        "edit_match": true,
+        "reopen_match": true
+      },
+      "phases": {
+        "baseline": {
+          "native_status": {
+            "checks": {
+              "opened": true,
+              "zero_open_errors": true,
+              "zero_open_warnings": true,
+              "rebuilt": true,
+              "one_body": true,
+              "expected_feature_count": true,
+              "features_clean_and_unsuppressed": true,
+              "no_diagnostics_or_dialogs": true,
+              "no_recorded_exception_or_cleanup_failure": true,
+              "exact_observed_2026_identity": true,
+              "zero_whats_wrong": true
+            },
+            "passed": true,
+            "whats_wrong_recorded": true,
+            "whats_wrong": 0
+          },
+          "source_or_copy_sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+          "feature_count": 20,
+          "independent_neutral_comparison": {
+            "volume_m3": {
+              "actual": 1.31635e-5,
+              "expected": 1.31635e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.3163500000000002e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.004932190747600379,
+              "expected": 0.0049321907476003795,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.758572979786709e-16,
+              "tolerance": 4.9321907476003796e-12,
+              "within_tolerance": true
+            },
+            "mass_kg": {
+              "actual": 1.31635e-5,
+              "expected": 1.31635e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.3163500000000002e-14,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.005411149516972432,
+              "expected": 0.005411149516972434,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 3.205831719370774e-16,
+              "tolerance": 5.4111495169724344e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.0033525658069662317,
+              "expected": 0.0033525658069662326,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 2.5871579796767274e-16,
+              "tolerance": 3.352565806966233e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.0035,
+              "expected": 0.0035,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 3.5000000000000004e-12,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume_m3": {
+              "actual": 1.31635e-5,
+              "expected": 1.31635e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.3163500000000002e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.004932190747600379,
+              "expected": 0.004932190747600379,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 4.932190747600379e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.005411149516972432,
+              "expected": 0.005411149516972432,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 5.411149516972433e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.0033525658069662317,
+              "expected": 0.003352565806966232,
+              "absolute_error": 4.336808689942018e-19,
+              "relative_error": 1.2935789898383637e-16,
+              "tolerance": 3.3525658069662325e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.0035,
+              "expected": 0.0035,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 3.5000000000000004e-12,
+              "within_tolerance": true
+            }
+          },
+          "depth_readback": {
+            "name": "D1@Boss-Extrude1@H5_irregular.Part",
+            "value": 0.007
+          },
+          "depth_comparison": {
+            "actual": 0.007,
+            "expected": 0.007,
+            "absolute_error": 0.0,
+            "relative_error": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "edit": {
+          "native_status": {
+            "checks": {
+              "opened": true,
+              "zero_open_errors": true,
+              "zero_open_warnings": true,
+              "rebuilt": true,
+              "one_body": true,
+              "expected_feature_count": true,
+              "features_clean_and_unsuppressed": true,
+              "no_diagnostics_or_dialogs": true,
+              "no_recorded_exception_or_cleanup_failure": true,
+              "exact_observed_2026_identity": true,
+              "zero_whats_wrong": true
+            },
+            "passed": true,
+            "whats_wrong_recorded": true,
+            "whats_wrong": 0
+          },
+          "source_or_copy_sha256": "9d26eb9e5cd1f3a59950a53bccd805fb7db2ba7511d1b7a629351a51043bd3a6",
+          "feature_count": 20,
+          "independent_neutral_comparison": {
+            "volume_m3": {
+              "actual": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.005224988434500474,
+              "expected": 0.0052249884345004745,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.660026139505371e-16,
+              "tolerance": 5.2249884345004745e-12,
+              "within_tolerance": true
+            },
+            "mass_kg": {
+              "actual": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.005411149516972433,
+              "expected": 0.005411149516972434,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.602915859685387e-16,
+              "tolerance": 5.4111495169724344e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.00335256580696623,
+              "expected": 0.0033525658069662326,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 7.761473939030182e-16,
+              "tolerance": 3.352565806966233e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.004375,
+              "expected": 0.004375,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 4.375000000000001e-12,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume_m3": {
+              "actual": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.005224988434500474,
+              "expected": 0.0052249884345004745,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.660026139505371e-16,
+              "tolerance": 5.2249884345004745e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.005411149516972433,
+              "expected": 0.005411149516972436,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 4.808747579056159e-16,
+              "tolerance": 5.411149516972436e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.00335256580696623,
+              "expected": 0.0033525658069662326,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 7.761473939030182e-16,
+              "tolerance": 3.352565806966233e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.004375,
+              "expected": 0.004375,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 4.375000000000001e-12,
+              "within_tolerance": true
+            }
+          },
+          "depth_readback": {
+            "name": "D1@Boss-Extrude1@H5_irregular.Part",
+            "value": 0.00875
+          },
+          "depth_comparison": {
+            "actual": 0.00875,
+            "expected": 0.00875,
+            "absolute_error": 0.0,
+            "relative_error": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "reopened": {
+          "native_status": {
+            "checks": {
+              "opened": true,
+              "zero_open_errors": true,
+              "zero_open_warnings": true,
+              "rebuilt": true,
+              "one_body": true,
+              "expected_feature_count": true,
+              "features_clean_and_unsuppressed": true,
+              "no_diagnostics_or_dialogs": true,
+              "no_recorded_exception_or_cleanup_failure": true,
+              "exact_observed_2026_identity": true,
+              "zero_whats_wrong": true
+            },
+            "passed": true,
+            "whats_wrong_recorded": true,
+            "whats_wrong": 0
+          },
+          "source_or_copy_sha256": "9d26eb9e5cd1f3a59950a53bccd805fb7db2ba7511d1b7a629351a51043bd3a6",
+          "feature_count": 20,
+          "independent_neutral_comparison": {
+            "volume_m3": {
+              "actual": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.005224988434500474,
+              "expected": 0.0052249884345004745,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.660026139505371e-16,
+              "tolerance": 5.2249884345004745e-12,
+              "within_tolerance": true
+            },
+            "mass_kg": {
+              "actual": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.005411149516972433,
+              "expected": 0.005411149516972434,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.602915859685387e-16,
+              "tolerance": 5.4111495169724344e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.00335256580696623,
+              "expected": 0.0033525658069662326,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 7.761473939030182e-16,
+              "tolerance": 3.352565806966233e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.004375,
+              "expected": 0.004375,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 4.375000000000001e-12,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume_m3": {
+              "actual": 1.6454375e-5,
+              "expected": 1.6454375e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 1.6454375000000003e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.005224988434500474,
+              "expected": 0.0052249884345004745,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.660026139505371e-16,
+              "tolerance": 5.2249884345004745e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.005411149516972433,
+              "expected": 0.005411149516972436,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 4.808747579056159e-16,
+              "tolerance": 5.411149516972436e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.00335256580696623,
+              "expected": 0.0033525658069662326,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 7.761473939030182e-16,
+              "tolerance": 3.352565806966233e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.004375,
+              "expected": 0.004375,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 4.375000000000001e-12,
+              "within_tolerance": true
+            }
+          },
+          "depth_readback": {
+            "name": "D1@Boss-Extrude1@H5_irregular_depth.Part",
+            "value": 0.00875
+          },
+          "depth_comparison": {
+            "actual": 0.00875,
+            "expected": 0.00875,
+            "absolute_error": 0.0,
+            "relative_error": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        }
+      },
+      "depth_factor": 1.25,
+      "measured_volume_factor": {
+        "actual": 1.25,
+        "expected": 1.25,
+        "absolute_error": 0.0,
+        "relative_error": 0.0,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      },
+      "live_edit_feature_name_and_type_order_preserved": true,
+      "feature_type_order_preserved_through_reopen": true,
+      "full_feature_names_preserved_through_reopen": false,
+      "live_edit_tree_changes": [],
+      "fresh_reopen_tree_changes": [
+        {
+          "index": 12,
+          "before": {
+            "name": "authored material",
+            "type": "MaterialFolder"
+          },
+          "after": {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder"
+          }
+        }
+      ],
+      "bounded_geometry_depth_save_reopen_passed": true
+    },
+    {
+      "name": "H7_irregular",
+      "source_sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+      "edited_copy_sha256": "a83ac3cb3bb371954f380cc147ea84b0fe0918b5f0fd377ccd7978dc940f8e2f",
+      "source_unchanged": true,
+      "saved_copy_fingerprint_matches_fresh_reopen": true,
+      "saved_without_errors_or_warnings": true,
+      "native_match_flags": {
+        "baseline_match": true,
+        "edit_match": true,
+        "reopen_match": true
+      },
+      "phases": {
+        "baseline": {
+          "native_status": {
+            "checks": {
+              "opened": true,
+              "zero_open_errors": true,
+              "zero_open_warnings": true,
+              "rebuilt": true,
+              "one_body": true,
+              "expected_feature_count": true,
+              "features_clean_and_unsuppressed": true,
+              "no_diagnostics_or_dialogs": true,
+              "no_recorded_exception_or_cleanup_failure": true,
+              "exact_observed_2026_identity": true,
+              "zero_whats_wrong": true
+            },
+            "passed": true,
+            "whats_wrong_recorded": true,
+            "whats_wrong": 0
+          },
+          "source_or_copy_sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+          "feature_count": 20,
+          "independent_neutral_comparison": {
+            "volume_m3": {
+              "actual": 5.3796500000000006e-5,
+              "expected": 5.37965e-5,
+              "absolute_error": 6.776263578034403e-21,
+              "relative_error": 1.2596104910234686e-16,
+              "tolerance": 5.37965e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.009896349327158964,
+              "expected": 0.009896349327158962,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 1.7528923228448833e-16,
+              "tolerance": 9.896349327158962e-12,
+              "within_tolerance": true
+            },
+            "mass_kg": {
+              "actual": 5.3796500000000006e-5,
+              "expected": 5.37965e-5,
+              "absolute_error": 6.776263578034403e-21,
+              "relative_error": 1.2596104910234686e-16,
+              "tolerance": 5.37965e-14,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.0014406699320587766,
+              "expected": 0.0014406699320587764,
+              "absolute_error": 2.168404344971009e-19,
+              "relative_error": 1.5051361153017681e-16,
+              "tolerance": 1.4406699320587766e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.006562595460051614,
+              "expected": 0.006562595460051614,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 6.5625954600516146e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.008499999999999999,
+              "expected": 0.0085,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 2.0408511482080082e-16,
+              "tolerance": 8.500000000000001e-12,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume_m3": {
+              "actual": 5.3796500000000006e-5,
+              "expected": 5.3796500000000006e-5,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 5.379650000000001e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.009896349327158964,
+              "expected": 0.009896349327158964,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 9.896349327158964e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.0014406699320587766,
+              "expected": 0.001440669932058777,
+              "absolute_error": 4.336808689942018e-19,
+              "relative_error": 3.010272230603535e-16,
+              "tolerance": 1.4406699320587772e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.006562595460051614,
+              "expected": 0.006562595460051613,
+              "absolute_error": 8.673617379884035e-19,
+              "relative_error": 1.3216748514643045e-16,
+              "tolerance": 6.562595460051614e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.008499999999999999,
+              "expected": 0.008499999999999999,
+              "absolute_error": 0.0,
+              "relative_error": 0.0,
+              "tolerance": 8.5e-12,
+              "within_tolerance": true
+            }
+          },
+          "depth_readback": {
+            "name": "D1@Boss-Extrude1@H7_irregular.Part",
+            "value": 0.017
+          },
+          "depth_comparison": {
+            "actual": 0.017,
+            "expected": 0.017,
+            "absolute_error": 0.0,
+            "relative_error": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "edit": {
+          "native_status": {
+            "checks": {
+              "opened": true,
+              "zero_open_errors": true,
+              "zero_open_warnings": true,
+              "rebuilt": true,
+              "one_body": true,
+              "expected_feature_count": true,
+              "features_clean_and_unsuppressed": true,
+              "no_diagnostics_or_dialogs": true,
+              "no_recorded_exception_or_cleanup_failure": true,
+              "exact_observed_2026_identity": true,
+              "zero_whats_wrong": true
+            },
+            "passed": true,
+            "whats_wrong_recorded": true,
+            "whats_wrong": 0
+          },
+          "source_or_copy_sha256": "a83ac3cb3bb371954f380cc147ea84b0fe0918b5f0fd377ccd7978dc940f8e2f",
+          "feature_count": 20,
+          "independent_neutral_comparison": {
+            "volume_m3": {
+              "actual": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_error": 2.710505431213761e-20,
+              "relative_error": 4.0307535712750997e-16,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.010788186658948706,
+              "expected": 0.010788186658948703,
+              "absolute_error": 3.469446951953614e-18,
+              "relative_error": 3.2159685975360276e-16,
+              "tolerance": 1.0788186658948704e-11,
+              "within_tolerance": true
+            },
+            "mass_kg": {
+              "actual": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_error": 2.710505431213761e-20,
+              "relative_error": 4.0307535712750997e-16,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.001440669932058777,
+              "expected": 0.0014406699320587764,
+              "absolute_error": 6.505213034913027e-19,
+              "relative_error": 4.515408345905304e-16,
+              "tolerance": 1.4406699320587766e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.0065625954600516114,
+              "expected": 0.006562595460051614,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 3.9650245543929133e-16,
+              "tolerance": 6.5625954600516146e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.010624999999999999,
+              "expected": 0.010625,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 1.6326809185664065e-16,
+              "tolerance": 1.0625000000000002e-11,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume_m3": {
+              "actual": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_error": 2.710505431213761e-20,
+              "relative_error": 4.0307535712750997e-16,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.010788186658948706,
+              "expected": 0.010788186658948703,
+              "absolute_error": 3.469446951953614e-18,
+              "relative_error": 3.2159685975360276e-16,
+              "tolerance": 1.0788186658948704e-11,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.001440669932058777,
+              "expected": 0.0014406699320587764,
+              "absolute_error": 6.505213034913027e-19,
+              "relative_error": 4.515408345905304e-16,
+              "tolerance": 1.4406699320587766e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.0065625954600516114,
+              "expected": 0.006562595460051614,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 3.9650245543929133e-16,
+              "tolerance": 6.5625954600516146e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.010624999999999999,
+              "expected": 0.010625,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 1.6326809185664065e-16,
+              "tolerance": 1.0625000000000002e-11,
+              "within_tolerance": true
+            }
+          },
+          "depth_readback": {
+            "name": "D1@Boss-Extrude1@H7_irregular.Part",
+            "value": 0.02125
+          },
+          "depth_comparison": {
+            "actual": 0.02125,
+            "expected": 0.02125,
+            "absolute_error": 0.0,
+            "relative_error": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        },
+        "reopened": {
+          "native_status": {
+            "checks": {
+              "opened": true,
+              "zero_open_errors": true,
+              "zero_open_warnings": true,
+              "rebuilt": true,
+              "one_body": true,
+              "expected_feature_count": true,
+              "features_clean_and_unsuppressed": true,
+              "no_diagnostics_or_dialogs": true,
+              "no_recorded_exception_or_cleanup_failure": true,
+              "exact_observed_2026_identity": true,
+              "zero_whats_wrong": true
+            },
+            "passed": true,
+            "whats_wrong_recorded": true,
+            "whats_wrong": 0
+          },
+          "source_or_copy_sha256": "a83ac3cb3bb371954f380cc147ea84b0fe0918b5f0fd377ccd7978dc940f8e2f",
+          "feature_count": 20,
+          "independent_neutral_comparison": {
+            "volume_m3": {
+              "actual": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_error": 2.710505431213761e-20,
+              "relative_error": 4.0307535712750997e-16,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.010788186658948706,
+              "expected": 0.010788186658948703,
+              "absolute_error": 3.469446951953614e-18,
+              "relative_error": 3.2159685975360276e-16,
+              "tolerance": 1.0788186658948704e-11,
+              "within_tolerance": true
+            },
+            "mass_kg": {
+              "actual": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_error": 2.710505431213761e-20,
+              "relative_error": 4.0307535712750997e-16,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.001440669932058777,
+              "expected": 0.0014406699320587764,
+              "absolute_error": 6.505213034913027e-19,
+              "relative_error": 4.515408345905304e-16,
+              "tolerance": 1.4406699320587766e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.0065625954600516114,
+              "expected": 0.006562595460051614,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 3.9650245543929133e-16,
+              "tolerance": 6.5625954600516146e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.010624999999999999,
+              "expected": 0.010625,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 1.6326809185664065e-16,
+              "tolerance": 1.0625000000000002e-11,
+              "within_tolerance": true
+            }
+          },
+          "job_expected_comparison": {
+            "volume_m3": {
+              "actual": 6.724562500000002e-5,
+              "expected": 6.7245625e-5,
+              "absolute_error": 2.710505431213761e-20,
+              "relative_error": 4.0307535712750997e-16,
+              "tolerance": 6.7245625e-14,
+              "within_tolerance": true
+            },
+            "surface_area_m2": {
+              "actual": 0.010788186658948706,
+              "expected": 0.010788186658948703,
+              "absolute_error": 3.469446951953614e-18,
+              "relative_error": 3.2159685975360276e-16,
+              "tolerance": 1.0788186658948704e-11,
+              "within_tolerance": true
+            },
+            "center_of_mass_0_m": {
+              "actual": 0.001440669932058777,
+              "expected": 0.0014406699320587764,
+              "absolute_error": 6.505213034913027e-19,
+              "relative_error": 4.515408345905304e-16,
+              "tolerance": 1.4406699320587766e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_1_m": {
+              "actual": 0.0065625954600516114,
+              "expected": 0.006562595460051614,
+              "absolute_error": 2.6020852139652106e-18,
+              "relative_error": 3.9650245543929133e-16,
+              "tolerance": 6.5625954600516146e-12,
+              "within_tolerance": true
+            },
+            "center_of_mass_2_m": {
+              "actual": 0.010624999999999999,
+              "expected": 0.010625,
+              "absolute_error": 1.734723475976807e-18,
+              "relative_error": 1.6326809185664065e-16,
+              "tolerance": 1.0625000000000002e-11,
+              "within_tolerance": true
+            }
+          },
+          "depth_readback": {
+            "name": "D1@Boss-Extrude1@H7_irregular_depth.Part",
+            "value": 0.02125
+          },
+          "depth_comparison": {
+            "actual": 0.02125,
+            "expected": 0.02125,
+            "absolute_error": 0.0,
+            "relative_error": 0.0,
+            "tolerance": 1e-12,
+            "within_tolerance": true
+          }
+        }
+      },
+      "depth_factor": 1.25,
+      "measured_volume_factor": {
+        "actual": 1.2500000000000002,
+        "expected": 1.25,
+        "absolute_error": 2.220446049250313e-16,
+        "relative_error": 1.7763568394002506e-16,
+        "tolerance": 1e-12,
+        "within_tolerance": true
+      },
+      "live_edit_feature_name_and_type_order_preserved": true,
+      "feature_type_order_preserved_through_reopen": true,
+      "full_feature_names_preserved_through_reopen": false,
+      "live_edit_tree_changes": [],
+      "fresh_reopen_tree_changes": [
+        {
+          "index": 12,
+          "before": {
+            "name": "authored material",
+            "type": "MaterialFolder"
+          },
+          "after": {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder"
+          }
+        }
+      ],
+      "bounded_geometry_depth_save_reopen_passed": true
+    }
+  ],
+  "all_live_edit_feature_names_preserved": true,
+  "all_feature_type_orders_preserved": true,
+  "all_full_feature_names_preserved_through_reopen": false,
+  "metric_maxima": {
+    "all_candidate_phases": {
+      "volume_m3": {
+        "count": 12,
+        "max_absolute": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "volume_m3",
+          "actual": 6.724562500000002e-5,
+          "expected": 6.7245625e-5,
+          "absolute_error": 2.710505431213761e-20,
+          "relative_error": 4.0307535712750997e-16,
+          "tolerance": 6.7245625e-14,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "volume_m3",
+          "actual": 6.724562500000002e-5,
+          "expected": 6.7245625e-5,
+          "absolute_error": 2.710505431213761e-20,
+          "relative_error": 4.0307535712750997e-16,
+          "tolerance": 6.7245625e-14,
+          "within_tolerance": true
+        }
+      },
+      "surface_area_m2": {
+        "count": 12,
+        "max_absolute": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "surface_area_m2",
+          "actual": 0.010788186658948706,
+          "expected": 0.010788186658948703,
+          "absolute_error": 3.469446951953614e-18,
+          "relative_error": 3.2159685975360276e-16,
+          "tolerance": 1.0788186658948704e-11,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "surface_area_m2",
+          "actual": 0.010788186658948706,
+          "expected": 0.010788186658948703,
+          "absolute_error": 3.469446951953614e-18,
+          "relative_error": 3.2159685975360276e-16,
+          "tolerance": 1.0788186658948704e-11,
+          "within_tolerance": true
+        }
+      },
+      "mass_kg": {
+        "count": 12,
+        "max_absolute": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "mass_kg",
+          "actual": 6.724562500000002e-5,
+          "expected": 6.7245625e-5,
+          "absolute_error": 2.710505431213761e-20,
+          "relative_error": 4.0307535712750997e-16,
+          "tolerance": 6.7245625e-14,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "mass_kg",
+          "actual": 6.724562500000002e-5,
+          "expected": 6.7245625e-5,
+          "absolute_error": 2.710505431213761e-20,
+          "relative_error": 4.0307535712750997e-16,
+          "tolerance": 6.7245625e-14,
+          "within_tolerance": true
+        }
+      },
+      "center_of_mass_m": {
+        "count": 36,
+        "max_absolute": {
+          "case": "H5_irregular",
+          "phase": "edit",
+          "metric": "center_of_mass_1_m",
+          "actual": 0.00335256580696623,
+          "expected": 0.0033525658069662326,
+          "absolute_error": 2.6020852139652106e-18,
+          "relative_error": 7.761473939030182e-16,
+          "tolerance": 3.352565806966233e-12,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H5_irregular",
+          "phase": "edit",
+          "metric": "center_of_mass_1_m",
+          "actual": 0.00335256580696623,
+          "expected": 0.0033525658069662326,
+          "absolute_error": 2.6020852139652106e-18,
+          "relative_error": 7.761473939030182e-16,
+          "tolerance": 3.352565806966233e-12,
+          "within_tolerance": true
+        }
+      }
+    },
+    "view_candidates": {
+      "volume_m3": {
+        "count": 3,
+        "max_absolute": {
+          "case": "H7_irregular",
+          "phase": "view",
+          "metric": "volume_m3",
+          "actual": 5.3796500000000006e-5,
+          "expected": 5.37965e-5,
+          "absolute_error": 6.776263578034403e-21,
+          "relative_error": 1.2596104910234686e-16,
+          "tolerance": 5.37965e-14,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H3_scalene",
+          "phase": "view",
+          "metric": "volume_m3",
+          "actual": 9.932000000000002e-6,
+          "expected": 9.931999999999999e-6,
+          "absolute_error": 3.3881317890172014e-21,
+          "relative_error": 3.411328825027388e-16,
+          "tolerance": 9.932e-15,
+          "within_tolerance": true
+        }
+      },
+      "surface_area_m2": {
+        "count": 3,
+        "max_absolute": {
+          "case": "H7_irregular",
+          "phase": "view",
+          "metric": "surface_area_m2",
+          "actual": 0.009896349327158964,
+          "expected": 0.009896349327158962,
+          "absolute_error": 1.734723475976807e-18,
+          "relative_error": 1.7528923228448833e-16,
+          "tolerance": 9.896349327158962e-12,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H5_irregular",
+          "phase": "view",
+          "metric": "surface_area_m2",
+          "actual": 0.004932190747600379,
+          "expected": 0.0049321907476003795,
+          "absolute_error": 8.673617379884035e-19,
+          "relative_error": 1.758572979786709e-16,
+          "tolerance": 4.9321907476003796e-12,
+          "within_tolerance": true
+        }
+      },
+      "mass_kg": {
+        "count": 3,
+        "max_absolute": {
+          "case": "H7_irregular",
+          "phase": "view",
+          "metric": "mass_kg",
+          "actual": 5.3796500000000006e-5,
+          "expected": 5.37965e-5,
+          "absolute_error": 6.776263578034403e-21,
+          "relative_error": 1.2596104910234686e-16,
+          "tolerance": 5.37965e-14,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H3_scalene",
+          "phase": "view",
+          "metric": "mass_kg",
+          "actual": 9.932000000000002e-6,
+          "expected": 9.931999999999999e-6,
+          "absolute_error": 3.3881317890172014e-21,
+          "relative_error": 3.411328825027388e-16,
+          "tolerance": 9.932e-15,
+          "within_tolerance": true
+        }
+      },
+      "center_of_mass_m": {
+        "count": 9,
+        "max_absolute": {
+          "case": "H3_scalene",
+          "phase": "view",
+          "metric": "center_of_mass_0_m",
+          "actual": 0.006666666666666669,
+          "expected": 0.006666666666666667,
+          "absolute_error": 1.734723475976807e-18,
+          "relative_error": 2.6020852139652106e-16,
+          "tolerance": 6.666666666666668e-12,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H5_irregular",
+          "phase": "view",
+          "metric": "center_of_mass_0_m",
+          "actual": 0.005411149516972432,
+          "expected": 0.005411149516972434,
+          "absolute_error": 1.734723475976807e-18,
+          "relative_error": 3.205831719370774e-16,
+          "tolerance": 5.4111495169724344e-12,
+          "within_tolerance": true
+        }
+      }
+    },
+    "baseline_edit_reopen": {
+      "volume_m3": {
+        "count": 9,
+        "max_absolute": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "volume_m3",
+          "actual": 6.724562500000002e-5,
+          "expected": 6.7245625e-5,
+          "absolute_error": 2.710505431213761e-20,
+          "relative_error": 4.0307535712750997e-16,
+          "tolerance": 6.7245625e-14,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "volume_m3",
+          "actual": 6.724562500000002e-5,
+          "expected": 6.7245625e-5,
+          "absolute_error": 2.710505431213761e-20,
+          "relative_error": 4.0307535712750997e-16,
+          "tolerance": 6.7245625e-14,
+          "within_tolerance": true
+        }
+      },
+      "surface_area_m2": {
+        "count": 9,
+        "max_absolute": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "surface_area_m2",
+          "actual": 0.010788186658948706,
+          "expected": 0.010788186658948703,
+          "absolute_error": 3.469446951953614e-18,
+          "relative_error": 3.2159685975360276e-16,
+          "tolerance": 1.0788186658948704e-11,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "surface_area_m2",
+          "actual": 0.010788186658948706,
+          "expected": 0.010788186658948703,
+          "absolute_error": 3.469446951953614e-18,
+          "relative_error": 3.2159685975360276e-16,
+          "tolerance": 1.0788186658948704e-11,
+          "within_tolerance": true
+        }
+      },
+      "mass_kg": {
+        "count": 9,
+        "max_absolute": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "mass_kg",
+          "actual": 6.724562500000002e-5,
+          "expected": 6.7245625e-5,
+          "absolute_error": 2.710505431213761e-20,
+          "relative_error": 4.0307535712750997e-16,
+          "tolerance": 6.7245625e-14,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H7_irregular",
+          "phase": "edit",
+          "metric": "mass_kg",
+          "actual": 6.724562500000002e-5,
+          "expected": 6.7245625e-5,
+          "absolute_error": 2.710505431213761e-20,
+          "relative_error": 4.0307535712750997e-16,
+          "tolerance": 6.7245625e-14,
+          "within_tolerance": true
+        }
+      },
+      "center_of_mass_m": {
+        "count": 27,
+        "max_absolute": {
+          "case": "H5_irregular",
+          "phase": "edit",
+          "metric": "center_of_mass_1_m",
+          "actual": 0.00335256580696623,
+          "expected": 0.0033525658069662326,
+          "absolute_error": 2.6020852139652106e-18,
+          "relative_error": 7.761473939030182e-16,
+          "tolerance": 3.352565806966233e-12,
+          "within_tolerance": true
+        },
+        "max_relative": {
+          "case": "H5_irregular",
+          "phase": "edit",
+          "metric": "center_of_mass_1_m",
+          "actual": 0.00335256580696623,
+          "expected": 0.0033525658069662326,
+          "absolute_error": 2.6020852139652106e-18,
+          "relative_error": 7.761473939030182e-16,
+          "tolerance": 3.352565806966233e-12,
+          "within_tolerance": true
+        }
+      }
+    }
+  },
+  "images": [
+    {
+      "case": "ControlAfter",
+      "phase": "selected",
+      "png": "images/ControlAfter.png",
+      "sha256": "3d063a427f78124a7c43720e980b2c4db7ea9ff1d768a35b57322e0a270aef55",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    },
+    {
+      "case": "ControlAfter",
+      "phase": "initial",
+      "png": "images/ControlAfter_initial.png",
+      "sha256": "3fbb44b5f544de550bc8ada08b20f77e003b348f8207f9d67a737b141d51f71c",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "selected",
+      "png": "images/ControlBefore.png",
+      "sha256": "3d063a427f78124a7c43720e980b2c4db7ea9ff1d768a35b57322e0a270aef55",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    },
+    {
+      "case": "ControlBefore",
+      "phase": "initial",
+      "png": "images/ControlBefore_initial.png",
+      "sha256": "3fbb44b5f544de550bc8ada08b20f77e003b348f8207f9d67a737b141d51f71c",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "selected",
+      "png": "images/H3_scalene.png",
+      "sha256": "794c214e0127fa735f66d021f617610762d9dc8422cd893a945dcd4a8cdc6f3a",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    },
+    {
+      "case": "H3_scalene",
+      "phase": "initial",
+      "png": "images/H3_scalene_initial.png",
+      "sha256": "989c7fa683817a4f6e224464c48f10ad24bdc2c95c8030fbf1d5d36b6868048c",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "selected",
+      "png": "images/H5_irregular.png",
+      "sha256": "fd13699b282d06742b9dc4b4a8d5983d87595d3d5abcd5530ad0f00a20eb6ea3",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    },
+    {
+      "case": "H5_irregular",
+      "phase": "initial",
+      "png": "images/H5_irregular_initial.png",
+      "sha256": "402357b166b505dfa67fa20ad91e8909b9d308e4baf873138ed024c1a4420d61",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "selected",
+      "png": "images/H7_irregular.png",
+      "sha256": "9e4cdfa6b2a7792d4ac61b760c27a5956c82c5cec3c403f37aed21bcdf243c02",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    },
+    {
+      "case": "H7_irregular",
+      "phase": "initial",
+      "png": "images/H7_irregular_initial.png",
+      "sha256": "1da36d16b76abf949b83494e9898022ca717174ae92293cf31696ce480efd3a6",
+      "dimensions": [960, 720],
+      "copied_bytes_and_native_bmp_receipts_match": true
+    }
+  ],
+  "owner_visual_inspection": {
+    "status": "reported complete in the oracle-owner task handoff",
+    "images_viewed": 10,
+    "inspection_timestamp_utc": null,
+    "controls_initial_and_selected": "nonempty cuboids with depth",
+    "candidate_initial": "small nonempty front-view polygons",
+    "candidate_selected": "all three show clear extrusion depth and side faces after standard view 7 and zoom to fit",
+    "initial_camera_parity_established": false,
+    "publication_agent_visual_acceptance_claim": false,
+    "durable_record": "RootPosthocVerification.json",
+    "posthoc_verification_recorded_at_utc": "2026-11-16T01:13:53.327780+00:00"
+  },
+  "bounded_three_polygon_geometry_depth_save_reopen_passed": true,
+  "acceptance_limits": {
+    "exact_input_files_only": ["H3_scalene", "H5_irregular", "H7_irregular"],
+    "depth_edit_factor_only": 1.25,
+    "sketch_driving_edits_established": false,
+    "full_feature_name_preservation_established": false,
+    "initial_camera_parity_established": false,
+    "broader_native_feature_families_or_assemblies_established": false,
+    "production_adapter": "read-only",
+    "full_cad_goal_complete": false
+  }
+}

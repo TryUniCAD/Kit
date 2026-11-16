@@ -1,0 +1,50 @@
+{
+  "schema": "kit-sw2026-curve-discovery-preparation/1",
+  "authority": "committed-source research fixture privacy preparation and posthoc metadata review",
+  "preparer_revision": "f9fd31d3f9bc82b6ab65c4b1cdb580b8be9e9a56",
+  "preparer_sha256": "b9a0b9362690df027a20f716c4b075d71f1306816aa834e7f8cf9c51a98486e8",
+  "source_lock": {
+    "sha256": "21da3f3e8a6e2a6fe732f69c377a9539bc26a3ee1111795319b4a95d0124ad25",
+    "source_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+    "owner_verification_sha256": "0b9e314b871ec27ef1e0e21a60504d5cc107de632127f33267ce53c68d301403",
+    "heldout_native_payloads_included": 0
+  },
+  "fixture_directory": "../../v2026/corpus/curves-discovery",
+  "discovery_files": 24,
+  "control_files": 2,
+  "heldout_native_payloads_read": 0,
+  "prepared_native_bytes": 1571839,
+  "stream_records": 1040,
+  "framed_stream_privacy_operations": 286,
+  "structured_metadata_privacy_operations": 26,
+  "qualified_dimension_identities": 77,
+  "output_metadata": {
+    "Manifest.json": {
+      "bytes": 1634548,
+      "sha256": "83fdec0c415f6b2152d8df6bb12deba1b24313e8580597452505b139ec59a42e"
+    },
+    "PrivacyLedger.json": {
+      "bytes": 143865,
+      "sha256": "386ccad9eedb0b747f264490c9ef10f4e42debec006a14efeecaf096d8141e7c"
+    },
+    "SourceEvidence.json": {
+      "bytes": 6522,
+      "sha256": "1626654b6a28a2d250c60146c5d715cffb2c0b58d8c633854b366db87dc3987c"
+    }
+  },
+  "container_dependency_modules_executed": 16,
+  "archive_schemas_executed_locally": false,
+  "archive_model_verification_executed_locally": false,
+  "tests_executed_locally": false,
+  "preview_visual_review": {
+    "file": "CurveDiscoveryPreviewReview.json",
+    "sha256": "8a99e4591adeaff3256d39680e4c04f6216cc3b9676fa351f36e682608c608cf",
+    "images": 26,
+    "scope": "individual rendered images only, no visible private content observed; nonexhaustive and no CAD acceptance"
+  },
+  "no_kit_curve_output": true,
+  "fixture_native_acceptance": "unmeasured",
+  "remote_roundtrip_and_schema_verification": "pending",
+  "production_adapter": "read-only",
+  "full_goal": "unfinished"
+}

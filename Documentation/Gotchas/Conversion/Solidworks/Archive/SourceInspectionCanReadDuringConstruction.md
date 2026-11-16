@@ -28,7 +28,10 @@ authored schema outside the execution boundary.
 
 The repair removes source retrieval and keeps the original read-denial checks.
 It changes no serialized field, schema plan or writer output rule.
-Remote verification of the repaired revision remains pending.
+The [repaired remote job](https://github.com/TryUniCAD/Kit/actions/runs/43785339499/job/133031601503)
+on `d6314fec97cb5c5ab9845223ec972fee421988e4` passed both fresh-construction checks.
+Its codec/process batch recorded 167 passes and 158 fixture-dependent skips.
+The read-denial assertions remain unchanged, and no local tests ran.
 
 See the [schema-usage contract](../../../../Changes/Solidworks/Model/SolidworksArchiveSchemaUsage.md)
 and [fresh process boundary](../../../../../tests/convert/solidworks/research/FreshPartProcess.py).

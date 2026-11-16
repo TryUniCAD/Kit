@@ -1,0 +1,13 @@
+{
+  "scope": "job preparation only; no native invocation",
+  "source_jobs": {
+    "EditJob.json": "9c3e1c20f910d2dfcb3fb1fc047736094e846444892bd12a4207d1c6c4c9a4ec",
+    "ViewReservedJob.json": "e763e3bbe32075266e1a02fc92832e8dad714c497501330a671bdca4e4f5c761"
+  },
+  "path_replacements": {
+    "<oracle-artifacts>/PolygonsB23/images_reserved": "<oracle-artifacts>/PolygonsCanonicalFlags01/images",
+    "<oracle-artifacts>/PolygonsB23": "<oracle-artifacts>/PolygonsCanonicalFlags01"
+  },
+  "source_artifact_head": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+  "geometry_and_edit_expectations": "unchanged from independently recorded polygon neutral inputs and driving-depth formulas; no field generation or native inspection performed"
+}

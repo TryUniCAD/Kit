@@ -28,6 +28,13 @@ This is a measured system-folder label normalization.
 The observation alone does not identify the native setter, serialization field or save-time cause.
 It does not establish a rule for assigned materials, other languages or other document types.
 
+The later [canonical-flag measurements](../../../../../re/solidworks/measurements/2026/PolygonCanonical/README.md)
+repeat the same name change on all three flag-corrected outputs.
+All 20 feature names remain equal through live editing; fresh reopening changes
+only index 12, while all 20 feature types and their order remain equal.
+Geometry and depth-edit/save/reopen checks still pass with healthy controls.
+Correcting the current-format archive flag therefore does not repair this label difference.
+
 ## Workaround
 
 Compare native trees node by node after save and reopen, including names and types.

@@ -1,0 +1,190 @@
+{
+  "schema": "kit-sw2026-canonical-polygon-provenance/1",
+  "raw_sources": {
+    "NativeViewReport.json": {
+      "bytes": 64136,
+      "sha256": "f534f59128f4077b664b30b9f6fb28b68ebed65159d7c0d1aed008ece91eda43"
+    },
+    "EditReport.json": {
+      "bytes": 88837,
+      "sha256": "5512030e203ddcb352794099d57be457a9257f5d7ac344af1497a17002967a36"
+    },
+    "ViewJob.json": {
+      "bytes": 6773,
+      "sha256": "b757910d7c4ec20f49620b6e05bba02a98a4e17dfa4dc25de09fa2d01474818f"
+    },
+    "EditJob.json": {
+      "bytes": 10334,
+      "sha256": "3c3dd57ddc6fde9bd8b295b4865f8a6121eb4d7818408b9504a5fc26b114ea4a"
+    },
+    "SourceManifest4ed.json": {
+      "bytes": 5098,
+      "sha256": "486237165a288c8998076b2f944a2adff5146cc88447b4d4696fe305f3596311"
+    },
+    "JobPreparation.json": {
+      "bytes": 846,
+      "sha256": "3c4a961c6f5ffed7ab79aa8c695bd974d60126c2a479600e2b2204e7789f106e"
+    },
+    "PngConversion.json": {
+      "bytes": 2746,
+      "sha256": "5a7d9bdfa4e49040c1739a15206857d1a25e4c5d420c986ebef32b8f16b3a839"
+    },
+    "Artifact8d.json": {
+      "bytes": 1263,
+      "sha256": "e44eba84c8aa777221e4bc36f5f51a86725aa3c96f8d24a51c58b0e8537cc054"
+    },
+    "BaselineInputs.json": {
+      "bytes": 2638,
+      "sha256": "ae55efc0bc5f71164bfecb0437fe2ead8ce9efdaadb4de69764d81598d4275e9"
+    },
+    "FrozenTools/InspectFresh.py": {
+      "bytes": 4187,
+      "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793"
+    },
+    "FrozenTools/InspectEdit.py": {
+      "bytes": 7248,
+      "sha256": "730f09c4271b5a4d107ba9c2c78233c65504fd113572164addfe6a4529aba2d0"
+    },
+    "FrozenTools/InspectView.py": {
+      "bytes": 5841,
+      "sha256": "a2f5903fcbab3a75bbe5d3f6926e1a0512bb647c53aed042c7efd670943a8314"
+    },
+    "FrozenTools/Swapp.py": {
+      "bytes": 15278,
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+    },
+    "FrozenTools/OracleIdentity.py": {
+      "bytes": 4284,
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    },
+    "ViewRun01.Host.json": {
+      "bytes": 35392,
+      "sha256": "7cd6f32f4b19c531824413cf63f797a466847a92bd5418c8ccf6faa402526e0e"
+    },
+    "ViewRun01.stdout_path": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ViewRun01.stderr_path": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "EditRun01.Host.json": {
+      "bytes": 57817,
+      "sha256": "14cae12ba9f00169dc1c1fc49be9d785fca8cd43ba4cc79b1a157fa02a071709"
+    },
+    "EditRun01.stdout_path": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "EditRun01.stderr_path": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "HostToolsD697/SourceManifest.json": {
+      "bytes": 316,
+      "sha256": "48e8a35093fb7b7cd63f00fc7845fb855ee800179998dd0fbd0a71b907982b2f"
+    },
+    "HostToolsD697/RunOracleBatch.py": {
+      "bytes": 18234,
+      "sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd"
+    },
+    "RootPosthocVerification.json": {
+      "bytes": 10247,
+      "sha256": "24409bb8d93ded9a523e47e86b2cf752e45c8a8ca674bbb119754e34aa56a85f"
+    }
+  },
+  "published_raw_json_transform": "Private path-prefix redactions and JSON formatting only; no measured values or historical status fields were changed",
+  "staged_source_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+  "staged_source_manifest": "SourceManifest4ed.json",
+  "source_manifest_scope": "Immutable 4ed preparation snapshot; its pending native-acceptance text describes that historical stage",
+  "artifact_proof_snapshot": "Artifact8d.json",
+  "artifact_proof_scope": "Immutable byte-comparison snapshot; its pending text predates the completed native batches in this publication",
+  "current_artifact_root_verified": {
+    "head": "8d786b341ed291ee7e47fc1964ce7bc64014df04",
+    "run_id": 43776684508,
+    "job_id": 133004433464,
+    "artifact_id": 14186359068,
+    "artifact_name": "solidworks-construction-e04da1ee40d5d6ad91bbd5fa4ad26f444f7693fd",
+    "github_archive_digest": "sha256:5c6954edaf833cab271d92f709c933131e506bfccbc899866bc7f1299e4497af",
+    "archive_digest_authority": "GitHub artifact metadata; ZIP not independently rehashed",
+    "native_files": [
+      {
+        "name": "H3_scalene.SLDPRT",
+        "bytes": 7618,
+        "sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+        "complete_byte_equal_to_4ed": true,
+        "complete_byte_equal_to_staged": true
+      },
+      {
+        "name": "H5_irregular.SLDPRT",
+        "bytes": 7688,
+        "sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+        "complete_byte_equal_to_4ed": true,
+        "complete_byte_equal_to_staged": true
+      },
+      {
+        "name": "H7_irregular.SLDPRT",
+        "bytes": 7783,
+        "sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+        "complete_byte_equal_to_4ed": true,
+        "complete_byte_equal_to_staged": true
+      }
+    ],
+    "scope": "Exact complete-byte equality for these three measured candidate files only; no broader acceptance transfer",
+    "synthetic_merge": "e04da1ee40d5d6ad91bbd5fa4ad26f444f7693fd",
+    "synthetic_parents_ordered": [
+      "870e87eaed9efd065d700b15ccaad72fa50ff10a",
+      "8d786b341ed291ee7e47fc1964ce7bc64014df04"
+    ],
+    "synthetic_tree": "4e32b150d575ba32daa7369ef068b4b4840a89df",
+    "metadata_authority": "Independently verified by oracle owner and supplied in task handoff; not inferred by publisher"
+  },
+  "generated_input_manifest": [
+    {
+      "name": "H3_scalene.SLDPRT",
+      "sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+      "bytes": 7618
+    },
+    {
+      "name": "H5_irregular.SLDPRT",
+      "sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+      "bytes": 7688
+    },
+    {
+      "name": "H7_irregular.SLDPRT",
+      "sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+      "bytes": 7783
+    }
+  ],
+  "original_control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "case_order": [
+    {
+      "name": "ControlBefore",
+      "kind": "control"
+    },
+    {
+      "name": "H3_scalene",
+      "kind": "generated-heldout"
+    },
+    {
+      "name": "H5_irregular",
+      "kind": "generated-heldout"
+    },
+    {
+      "name": "H7_irregular",
+      "kind": "generated-heldout"
+    },
+    {
+      "name": "ControlAfter",
+      "kind": "control"
+    }
+  ],
+  "inspector_tools": "FrozenTools.json",
+  "host_supervision": "HostReports.json",
+  "native_source_payloads_read_or_copied_during_publication": false,
+  "curve_heldout_payloads_read_or_copied": false,
+  "publication_execution": "Standalone JSON arithmetic, hashing, PNG-header inspection and unchanged PNG copy only; no product, test, oracle or VM execution",
+  "native_acceptance_scope": "Three named canonical-flag polygon parts, visible standard views and one depth multiplication by 1.25 with save/fresh reopen; production adapter remains read-only and full CAD goal remains incomplete",
+  "independent_owner_posthoc_verification": "RootPosthocVerification.json"
+}

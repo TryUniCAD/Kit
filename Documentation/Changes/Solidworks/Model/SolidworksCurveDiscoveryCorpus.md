@@ -86,6 +86,25 @@ The private implementation received source inspection and AST/format checks only
 The preparer, container modules, archive schemas and tests were not executed by the implementation worker.
 No source files were transformed and no prepared corpus was created during that work.
 
+The owner subsequently ran the committed preparer at
+`f9fd31d3f9bc82b6ab65c4b1cdb580b8be9e9a56` for actual research data preparation.
+The [preparation record](../../../../re/solidworks/measurements/2026/CurveDiscoveryPreparation.json)
+binds 26 prepared native files totaling 1,571,839 bytes, 1,040 stream records,
+286 framed stream redactions and 26 structured-metadata redactions.
+The ledger retains 77 exact qualified dimension identities.
+The [prepared corpus](../../../../re/solidworks/v2026/corpus/curves-discovery/Manifest.json)
+has manifest SHA-256 `83fdec0c415f6b2152d8df6bb12deba1b24313e8580597452505b139ec59a42e`.
+All prepared-file hashes were checked against that manifest without executing archive schemas.
+
+An independent visual reviewer inspected all 26 extracted native `PreviewPNG` images individually.
+The [hash-bound review](../../../../re/solidworks/measurements/2026/CurveDiscoveryPreviewReview.json)
+records gray geometry on white backgrounds and no visible private text or application UI.
+This is a nonexhaustive visual privacy review, not native CAD acceptance.
+Only the 16 bounded container/metadata dependency modules executed during preparation;
+archive-schema, round-trip, product-verification and test execution remain in remote CI.
+The process fixture requests 208 strict critical/header comparisons and 26 linked resolved comparisons.
+Their results remain pending.
+
 The preceding independent anatomy study inspected only D01 and D19 discovery inputs.
 Both contained 40 valid compressed streams.
 Private metadata appeared in seven streams, including load-critical binary streams.
