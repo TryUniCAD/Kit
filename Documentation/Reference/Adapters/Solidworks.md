@@ -226,6 +226,9 @@ The [separate framework count owner](../../Changes/Solidworks/Model/SolidworksMf
 uses that pinned native evidence for the ordinary-version-19000 string-to-int map,
 preserving the vendor archive's independent count grammar. Remote admission of
 the new definition and native writer acceptance remain separate checks.
+The [usage-summary verifier](../../Changes/Solidworks/Model/SolidworksArchiveUsageSummaryVerification.md)
+checks aggregate schema unions against complete stream/dependency phases without
+treating a summary as a phase snapshot. Existing strict source gates remain active.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.

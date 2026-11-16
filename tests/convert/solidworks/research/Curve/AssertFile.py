@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import cast as CastValue
 from tests.convert.solidworks.research.Curve.AssertStream import AssertStream
-from tests.convert.solidworks.research.Curve.AssertUsage import AssertUsage
+from tests.convert.solidworks.research.Curve.AssertSummary import AssertSummary
 
 
 # each reported stream must refer to the actual prepared file and its manifest hashes
@@ -25,7 +25,7 @@ def AssertFile(
         is Report["proven_schemas"]
         is True
     )
-    AssertUsage(CastValue(dict[str, object], Report["schema_usage"]))
+    AssertSummary(CastValue(dict[str, object], Report["schema_usage"]), ParsedStreams)
     assert set(ParsedStreams) == set(Selected)
     for NameValue, StreamData in ParsedStreams.items():
         assert StreamData["sha256"] == ManifestStreams[NameValue]["sha256"]
