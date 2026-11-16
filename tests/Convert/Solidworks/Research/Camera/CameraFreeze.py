@@ -4,6 +4,7 @@ from hashlib import sha256 as HashBytes
 from typing import cast as CastValue
 
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
+from tests.Convert.Solidworks.Research.Camera.CheckViewFiles import CheckViewFiles
 from tests.Convert.Solidworks.Research.Curve.Fields.WriterFreeze import VerifyFreeze
 from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 
@@ -19,24 +20,7 @@ def VerifyCamera() -> dict[str, object]:
     assert Freeze["schema"] == "kit.sw2026.camera-writer-freeze.v1"
     assert Freeze["heldout_native_payloads_inspected_before_freeze"] is False
     assert Freeze["private_api_observations_inspected_before_freeze"] is False
-    Entries = CastValue(list[dict[str, object]], Freeze["files"])
-    assert Freeze["constructor_dependency_count"] == len(Entries) == 354
-    assert {
-        RowValue["path"]
-        for RowValue in CastValue(list[dict[str, object]], BaseFreeze["files"])
-    }.issubset({RowValue["path"] for RowValue in Entries})
-    for Entry in Entries:
-        SourcePath = KRepoRoot / CastValue(str, Entry["path"])
-        assert not SourcePath.is_symlink()
-        assert SourcePath.resolve().is_relative_to(KRepoRoot.resolve())
-        RawValue = SourcePath.read_bytes()
-        assert len(RawValue) == Entry["bytes"]
-        assert HashBytes(RawValue).hexdigest() == Entry["sha256"]
-    SchemaPath = KRepoRoot / CastValue(str, Freeze["schema_directory"])
-    assert (
-        sorted(SourcePath.name for SourcePath in SchemaPath.glob("*.py"))
-        == Freeze["schema_membership"]
-    )
+    CheckViewFiles(Freeze, BaseFreeze)
     LockPath = KRepoRoot / CastValue(str, Freeze["source_lock_path"])
     assert HashBytes(LockPath.read_bytes()).hexdigest() == Freeze["source_lock_sha256"]
     SourceLock = ReadObject(LockPath)

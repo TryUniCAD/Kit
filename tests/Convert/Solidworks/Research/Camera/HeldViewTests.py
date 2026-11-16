@@ -5,7 +5,7 @@ from typing import cast as CastValue
 
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 from tests.Convert.Solidworks.Research.Camera.CameraFreeze import VerifyCamera
-from tests.Convert.Solidworks.Research.Camera.HeldViewInput import MakeHeldView
+from tests.Convert.Solidworks.Research.Camera.MakeViewCase import MakeViewCase
 from tests.Convert.Solidworks.Research.Camera.RunCamera import RunCamera
 from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 from tests.Convert.Solidworks.Research.PartArtifacts import SavePartOutput
@@ -20,7 +20,7 @@ def TestHeldViews() -> None:
     assert len(Cases) == len(Locked) == 2
     assert {Value["name"] for Value in Cases} == {Value["name"] for Value in Locked}
     for CaseValue in Cases:
-        Request = MakeHeldView(CaseValue)
+        Request = MakeViewCase(CaseValue)
         Outcome = RunCamera(Request)
         assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
         Report = CastValue(dict[str, object], LoadJson(Outcome.stdout))
