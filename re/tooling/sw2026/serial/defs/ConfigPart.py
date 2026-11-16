@@ -6,6 +6,7 @@ from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, u8, f64, obj, cstr, emb, base
 from Schema import Op, If, Rep, Raw, Scope, run_load, run_store
 from defs.ResolvedCore import CONCEPT_RES, vt, concept_vt
 from defs.ConfigDetail import Shadow
+from defs.SmmMaster import DirectMaster
 
 NODE_LW = "moNode_c.SerializeLWData"
 CONCEPT_LW = "moConcept_c.SerializeLWData"
@@ -611,7 +612,7 @@ def define_model(reg):
             Len("i32", "nff4", "ffe0"),
             Rep(Pos("nff4"), "ffe0", [obj("k"), Norm("i32", "v", lambda v, ar: int(v != 0))]),
         ]),
-        Vgt(0x10EB, [PartOnly([i32("f1014")])]),
+        Vgt(0x10EB, [PartOnly([i32("f1014"), If(lambda s, ar: s["f1014"] != 0, [DirectMaster()])])]),
         Vgt(0x12B7, [
             Len("i32", "n10c4", "f10b0"),
             Vlt(0x12BB, [Old("FUN_4c234150 0x10b0 map pre-0x12bb")]),

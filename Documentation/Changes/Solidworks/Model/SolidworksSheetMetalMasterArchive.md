@@ -1,0 +1,11 @@
+# Conditional part master archive
+
+The research Config-0 grammar now reads and stores the direct `moSheetMetalMaster_c` payload when a 2026 part has nonzero `f1014`. The payload comes before the model's `f10b0` map. This is an independently recovered common-model branch, not a circle-specific offset patch or writer fallback.
+
+The native bridge constructs this concrete class and calls its serializer directly. The grammar therefore creates an inline typed node with its own virtual field owner, without an object/class tag or standalone map-counter allocation. Its inherited `moFeature_c` fields use the proven concept callbacks. The native tail is a signed count and typed per-body object pointers in list order. Store counts derive from actual lists; unsupported child schemas/types fail closed.
+
+All six vendor-saved circle boss derivatives reached `f1014=1` in the diagnostic remote run. The earlier grammar skipped the master and misread the following data as a 65,536-entry ID map, then reached EOF. The original strict byte-identity, tail, proven-schema, linked-map and semantic gates remain active. The [native owner record](../../../../re/solidworks/records/SmmMasterArchive2026.json) binds the exact DLL hashes, installed 34.5.2.0604 module, factory/vtable chain, serializers, callback imports and six failed-source predicates.
+
+The new class extends the shared archive model and remains under `re/`. It supplies no production write capability, native body bytes or saved values for newly generated parts. Fresh construction retains its independently derived absent-master state; native-save derived data must be decoded when present. Sheet-metal feature synthesis and nonempty per-body child coverage are not established.
+
+Verification at introduction: original PE/function/callback/import inspection, installed DLL identity inspection through the reserved VM, and source/AST review. No local archive schemas or tests ran. Remote replay and edited semantic results remain pending. The [bridge gotcha](../../../Gotchas/Conversion/Solidworks/Model/ConditionalBridgeDataPrecedesIdMaps.md) records the causal failure.

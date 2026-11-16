@@ -1,0 +1,386 @@
+{
+  "schema": "kit.sw2026.sheet-metal-master-owner.v1",
+  "scope": "ordinary 19000 part configuration bridge data; static field order and failed remote reader provenance only",
+  "native_execution": false,
+  "native_acceptance": false,
+  "vendor_bytes_or_listing_included": false,
+  "modules": [
+    {
+      "file": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "file": "sldsmmu.dll",
+      "sha256": "460e6d82f6b811805860b6df03e7b551a4a573aad598bd27501226586b0c9b95"
+    }
+  ],
+  "installed_smm_identity": {
+    "File": "sldsmmu.dll",
+    "Version": "34.5.2.0604",
+    "ProductVersion": "34.5.2.0604",
+    "Sha256": "460e6d82f6b811805860b6df03e7b551a4a573aad598bd27501226586b0c9b95",
+    "Bytes": 8364632
+  },
+  "installed_identity_receipt_sha256": "5c63d24deed132041c98c6b1862d5343899b55d3f401916ebd43d29a9c1ae3b2",
+  "functions": [
+    {
+      "module": "sldmodu.dll",
+      "name": "configuration common resolved loader",
+      "entry": "0x4c234150",
+      "start": "0x4c234150",
+      "end": "0x4c2378a1",
+      "bytes": 14161,
+      "sha256": "0b4ce1209e7d6151cd603478ab9b7b2090526a20024c756a35937d6e39a12b4e",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x4c234150",
+          "end": "0x4c2378a1",
+          "unwind_rva": "0x2482acc"
+        }
+      ]
+    },
+    {
+      "module": "sldsmmu.dll",
+      "name": "registered SMM bridge serialization slot",
+      "entry": "0x3d8e30b0",
+      "start": "0x3d8e30b0",
+      "end": "0x3d8e3147",
+      "bytes": 151,
+      "sha256": "339923bb8988ccd95b2ed5333f208fc5c35ee7e3e4603d47ec9a53f393d92bca",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x3d8e30b0",
+          "end": "0x3d8e3147",
+          "unwind_rva": "0x6fa4cc"
+        }
+      ]
+    },
+    {
+      "module": "sldsmmu.dll",
+      "name": "conditional SMM part data serializer",
+      "entry": "0x3d747d40",
+      "start": "0x3d747d40",
+      "end": "0x3d747e7c",
+      "bytes": 316,
+      "sha256": "19e755a5783ca042ddf20d188bc401ddb0729864775e5fedb2fa2b3829dd5d47",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x3d747d40",
+          "end": "0x3d747d96",
+          "unwind_rva": "0x6bc398"
+        },
+        {
+          "start": "0x3d747d96",
+          "end": "0x3d747dfa",
+          "unwind_rva": "0x6bc3a4"
+        },
+        {
+          "start": "0x3d747dfa",
+          "end": "0x3d747e16",
+          "unwind_rva": "0x6bc3b8"
+        },
+        {
+          "start": "0x3d747e16",
+          "end": "0x3d747e4c",
+          "unwind_rva": "0x6bc3cc"
+        },
+        {
+          "start": "0x3d747e4c",
+          "end": "0x3d747e62",
+          "unwind_rva": "0x6bc3e0"
+        },
+        {
+          "start": "0x3d747e62",
+          "end": "0x3d747e7c",
+          "unwind_rva": "0x6bc3f0"
+        }
+      ]
+    },
+    {
+      "module": "sldsmmu.dll",
+      "name": "per-body pointer read",
+      "entry": "0x3d7479f0",
+      "start": "0x3d7479f0",
+      "end": "0x3d747a22",
+      "bytes": 50,
+      "sha256": "2d13247c34f35becc67ac34e97cbffb07a4894bd4f5f0921d9c786b90dea225c",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x3d7479f0",
+          "end": "0x3d747a22",
+          "unwind_rva": "0x64b3d4"
+        }
+      ]
+    },
+    {
+      "module": "sldsmmu.dll",
+      "name": "per-body pointer write",
+      "entry": "0x3d747a70",
+      "start": "0x3d747a70",
+      "end": "0x3d747aa2",
+      "bytes": 50,
+      "sha256": "216a93c2248bc6b01ad0b536e0e9aee703e3f3e9360245a4b322d722066fa815",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x3d747a70",
+          "end": "0x3d747aa2",
+          "unwind_rva": "0x64b3d4"
+        }
+      ]
+    },
+    {
+      "module": "sldsmmu.dll",
+      "name": "bridge registration",
+      "entry": "0x3d8dddc0",
+      "start": "0x3d8dddc0",
+      "end": "0x3d8dddf9",
+      "bytes": 57,
+      "sha256": "c56e4b401b24ff55aa6d940f5ab31321183413cc212189ecfbadb34defc329ee",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x3d8dddc0",
+          "end": "0x3d8dddf9",
+          "unwind_rva": "0x64b300"
+        }
+      ]
+    }
+  ],
+  "bridge_binding": {
+    "module": "sldsmmu.dll",
+    "module_sha256": "460e6d82f6b811805860b6df03e7b551a4a573aad598bd27501226586b0c9b95",
+    "constructor": "0x3d8dddc0",
+    "vtable": "0x3d9cca88",
+    "slot": "0x2c8",
+    "cell": "0x3d9ccd50",
+    "cell_sha256": "4bb5d611edba1aec1a01ced946a4b1d266b8dccc525cc14a7a7a743ae1e4f262",
+    "target": "0x3d8e30b0",
+    "function": {
+      "name": "registered SMM bridge serialization slot",
+      "entry": "0x3d8e30b0",
+      "start": "0x3d8e30b0",
+      "end": "0x3d8e3147",
+      "bytes": 151,
+      "sha256": "339923bb8988ccd95b2ed5333f208fc5c35ee7e3e4603d47ec9a53f393d92bca",
+      "bound": "complete chained PE runtime-function group",
+      "fragments": [
+        {
+          "start": "0x3d8e30b0",
+          "end": "0x3d8e3147",
+          "unwind_rva": "0x6fa4cc"
+        }
+      ]
+    },
+    "native_execution": false
+  },
+  "master_callbacks": [
+    {
+      "slot": "0x3e8",
+      "cell": "0x3d95b7e0",
+      "target": "0x3d8ea85a",
+      "cell_sha256": "23b17e0c97914019ff97a0cb9a39c2f2812ca201083e0bf5e2cdf5e9462d2cda"
+    },
+    {
+      "slot": "0x3f8",
+      "cell": "0x3d95b7f0",
+      "target": "0x3d8ea84e",
+      "cell_sha256": "172f555b15855a01faa2f9c6471751c56421a404697744bd0fe9c48e84b1b53d"
+    },
+    {
+      "slot": "0x4b8",
+      "cell": "0x3d95b8b0",
+      "target": "0x3d8ea836",
+      "cell_sha256": "86941d068112b6b0a5113e82d0570d28ca1058d76f83b9d8e0ece0e71cd2f65e"
+    },
+    {
+      "slot": "0x4c0",
+      "cell": "0x3d95b8b8",
+      "target": "0x3d8ea830",
+      "cell_sha256": "8d418dec43cdf4f53545aeb9373678448a56a8a1f9ef5bf7547942450d9fa3a6"
+    }
+  ],
+  "callback_imports": [
+    {
+      "cell": "0x3d938de0",
+      "dll": "SLDMODU.dll",
+      "name": "?SerializeXmlData@moFeature_c@@UEAAXAEAVsu_CArchive@@AEAUXmlDataKey_c@@@Z"
+    },
+    {
+      "cell": "0x3d938df0",
+      "dll": "SLDMODU.dll",
+      "name": "?getIdForXmlDataExtracter@moNode_c@@UEAAHAEAUXmlDataKey_c@@@Z"
+    },
+    {
+      "cell": "0x3d938e10",
+      "dll": "SLDMODU.dll",
+      "name": "?SerializeLWData@moConcept_c@@UEAAXAEAVsu_CArchive@@@Z"
+    },
+    {
+      "cell": "0x3d938e18",
+      "dll": "SLDMODU.dll",
+      "name": "?SerializeResolvedData@moConcept_c@@UEAAXAEAVsu_CArchive@@@Z"
+    }
+  ],
+  "operator_imports": [
+    {
+      "iat": 1033102840,
+      "dll": "swccu.dll",
+      "name": "?WriteObject@su_CArchive@@QEAAXPEBVCObject@@PEBUCRuntimeClass@@@Z"
+    },
+    {
+      "iat": 1033102848,
+      "dll": "swccu.dll",
+      "name": "?ReadObject@su_CArchive@@QEAAPEAVCObject@@PEBUCRuntimeClass@@@Z"
+    }
+  ],
+  "base_imports": [
+    {
+      "cell": "0x3d936bd8",
+      "dll": "SLDMODU.dll",
+      "name": "?Serialize@moFeature_c@@UEAAXAEAVsu_CArchive@@@Z"
+    },
+    {
+      "cell": "0x3d936be0",
+      "dll": "SLDMODU.dll",
+      "name": "?setUIState@moFeature_c@@QEAAXW4featureUIState_e@@H@Z"
+    },
+    {
+      "cell": "0x3d939488",
+      "dll": "SLDMODU.dll",
+      "name": "??0moFeature_c@@IEAA@XZ"
+    },
+    {
+      "cell": "0x3d93e608",
+      "dll": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+    },
+    {
+      "cell": "0x3d93e610",
+      "dll": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@J@Z"
+    },
+    {
+      "cell": "0x3d93e618",
+      "dll": "swccu.dll",
+      "name": "?IsStoring@su_CArchive@@QEBAHXZ"
+    }
+  ],
+  "remote_failure": {
+    "source_revision": "097ab4b0fd0821bda8a5d40cfdb57a296213c155",
+    "run": 43869300178,
+    "job": 133305919571,
+    "artifact": 14228265059,
+    "report_sha256": "6864fa4bc6163bd8e78f1943651864f347ee4f347f8ec9d886d295d5f75daae0",
+    "cases": [
+      {
+        "file": "CircleRadiusBoss-open-save.SLDPRT",
+        "sha256": "2be24e233fb210e575c411ed7665d715036844859a86833bd025317c05edfee0",
+        "error": "ArchiveError('eof reading i32 at 24946')",
+        "f1014": 1,
+        "misread_map_count": 65536,
+        "schema_path": [
+          "moPart_c",
+          "moPart_c.FUN_4c2378b0",
+          "moModel_c.FUN_4c234150"
+        ],
+        "cursor": 24946
+      },
+      {
+        "file": "CircleRadiusBoss-fresh-reopen.SLDPRT",
+        "sha256": "8437bd6f8ef0ee25910bcad6cc5fac58d482d2f29f1c796c39966fe2ceb0d95e",
+        "error": "ArchiveError('eof reading i32 at 24964')",
+        "f1014": 1,
+        "misread_map_count": 65536,
+        "schema_path": [
+          "moPart_c",
+          "moPart_c.FUN_4c2378b0",
+          "moModel_c.FUN_4c234150"
+        ],
+        "cursor": 24964
+      },
+      {
+        "file": "CircleRadiusBoss-edited-fresh-reopen.SLDPRT",
+        "sha256": "ec3fb50e8e68ee40df50128e425f3f73df8b532379bc51917eb918b023c63172",
+        "error": "ArchiveError('eof reading i32 at 24964')",
+        "f1014": 1,
+        "misread_map_count": 65536,
+        "schema_path": [
+          "moPart_c",
+          "moPart_c.FUN_4c2378b0",
+          "moModel_c.FUN_4c234150"
+        ],
+        "cursor": 24964
+      },
+      {
+        "file": "CircleDiameterBoss-open-save.SLDPRT",
+        "sha256": "553dc621b49512d22b2aab565bbdb0c0247a2be6f8c02bc32ebcf4a41db2fb55",
+        "error": "ArchiveError('eof reading i32 at 24950')",
+        "f1014": 1,
+        "misread_map_count": 65536,
+        "schema_path": [
+          "moPart_c",
+          "moPart_c.FUN_4c2378b0",
+          "moModel_c.FUN_4c234150"
+        ],
+        "cursor": 24950
+      },
+      {
+        "file": "CircleDiameterBoss-fresh-reopen.SLDPRT",
+        "sha256": "0e71a264d4182386dae17f494d78db397c84622675bcf35a629f59ac512de7a8",
+        "error": "ArchiveError('eof reading i32 at 24968')",
+        "f1014": 1,
+        "misread_map_count": 65536,
+        "schema_path": [
+          "moPart_c",
+          "moPart_c.FUN_4c2378b0",
+          "moModel_c.FUN_4c234150"
+        ],
+        "cursor": 24968
+      },
+      {
+        "file": "CircleDiameterBoss-edited-fresh-reopen.SLDPRT",
+        "sha256": "d4375a1e2ee594077e3450f0d436cf056f87a4a352fcd5b0e98e93eb0a16d49c",
+        "error": "ArchiveError('eof reading i32 at 24968')",
+        "f1014": 1,
+        "misread_map_count": 65536,
+        "schema_path": [
+          "moPart_c",
+          "moPart_c.FUN_4c2378b0",
+          "moModel_c.FUN_4c234150"
+        ],
+        "cursor": 24968
+      }
+    ]
+  },
+  "rules": [
+    {
+      "owner": "moModel_c resolved part data",
+      "field": "f1018",
+      "presence": "archive version >= 0x10ec, actual part, and f1014 != 0",
+      "encoding": "direct moSheetMetalMaster_c payload; no object or class tag and no standalone map entry"
+    },
+    {
+      "owner": "moSheetMetalMaster_c",
+      "base": "moFeature_c",
+      "callback_family": "actual inherited moConcept_c lightweight and resolved data; feature XML through node key predicate"
+    },
+    {
+      "owner": "moSheetMetalMaster_c",
+      "field": "f358",
+      "encoding": "version >= 0x1061 signed i32 count followed by typed MFC moPerBodySheetMetalData_c object pointers in list order",
+      "count": "derive from actual list during store",
+      "unmodeled_child_classes": "fail closed if reached without their own proven schemas"
+    }
+  ],
+  "limits": [
+    "No production writer or sheet-metal feature acceptance",
+    "The direct master must retain its own dynamic class for inherited virtual field handlers",
+    "No fixture field values or byte spans supply generated writer content",
+    "Remote replay after this grammar change remains pending"
+  ]
+}

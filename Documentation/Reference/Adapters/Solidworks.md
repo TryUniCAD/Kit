@@ -298,6 +298,8 @@ The [archive failure diagnostics](../../Changes/Solidworks/Model/SolidworksArchi
 retain the exact typed owner and cursor at a rejected archive boundary; diagnostics do not turn a failed comparison into acceptance.
 The [principal-plane circle rung](../../Changes/Solidworks/Model/SolidworksCirclePrincipalFrames.md)
 computes explicit world/local radial placement for the existing Front, Right and Top model frames; new-frame native acceptance is pending.
+The [conditional part master grammar](../../Changes/Solidworks/Model/SolidworksSheetMetalMasterArchive.md)
+owns the directly serialized sheet-metal master that native saves may add before the common ID map, even when the visible feature tree contains only a circle boss. Repaired remote replay remains pending.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
