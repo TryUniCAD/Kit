@@ -14,13 +14,13 @@ def TestCircleSets() -> None:
     PreviousSizes = None
     for NameValue, PlaneValue, CircleValues in (
         (
-            "TwoCircleSketch",
+            "DualCircleSketch",
             "z",
-            [([-0.024137, 0.006841], 0.005293), ([0.018719, -0.003617], 0.008017)],
+            [([-0.025701, -0.022913], 0.003827), ([0.024473, -0.021139], 0.005617)],
         ),
         (
             "FourCircleSketch",
-            "y",
+            "z",
             [
                 ([-0.025701, -0.022913], 0.003827),
                 ([0.024473, -0.021139], 0.005617),
@@ -56,9 +56,9 @@ def TestCircleSets() -> None:
         assert Report["vendor_acceptance"] == "unverified"
         Sizes = CastValue(dict[str, int], Report["sizes"])
         if PreviousSizes is not None:
-            for StreamName in (
-                "Contents/Config-0",
-                "Contents/Config-0-ResolvedFeatures",
-            ):
-                assert Sizes[StreamName] > PreviousSizes[StreamName]
+            assert Sizes["Contents/Config-0"] == PreviousSizes["Contents/Config-0"]
+            assert (
+                Sizes["Contents/Config-0-ResolvedFeatures"]
+                > PreviousSizes["Contents/Config-0-ResolvedFeatures"]
+            )
         PreviousSizes = Sizes

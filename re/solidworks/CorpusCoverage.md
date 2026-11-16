@@ -57,8 +57,10 @@ These are bounded generated research rungs, not completed family acceptance or F
 Vendor-saved copies are derivatives and do not increase the generated-output count.
 The six original Front-plane vendor-saved derivatives passed [54 archive comparisons and
 108 numeric/frame checks](measurements/2026/SavedCircleReaderProcesses3d782d.json); these
-reader inputs add zero generated-output cases. Initial body presence before explicit rebuild
-and complete presentation remain unestablished for the circle bosses.
+reader inputs add zero generated-output cases. A [new inspection of the unchanged four bosses](measurements/2026/CircleInitialInspection01.json)
+then passes all twelve phases with one body and active named sketch/boss features before any explicit rebuild,
+plus all 400 rebuilt geometry/frame/mass/edit comparisons between healthy controls. This adds no generated cases.
+Initial viewport/camera and complete presentation remain unestablished for the circle bosses.
 
 The [complete circle/arc source lock](v2026/heldout/CurveSourceLock.json)
 records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.
