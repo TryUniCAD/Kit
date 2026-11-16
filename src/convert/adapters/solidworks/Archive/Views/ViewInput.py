@@ -22,7 +22,10 @@ class ViewInput:
             raise ValueError(
                 "view translation must contain three immutable coordinates"
             )
-        for Value in self.ShiftValues:
-            RequireScalar(Value)
+        object.__setattr__(
+            self,
+            "ShiftValues",
+            tuple(RequireScalar(Value) for Value in self.ShiftValues),
+        )
         if RequireScalar(self.ScaleValue) <= 0.0:
             raise ValueError("view scale must be positive")

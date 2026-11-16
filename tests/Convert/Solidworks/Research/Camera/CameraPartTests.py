@@ -61,7 +61,7 @@ def TestCameraPart() -> None:
 
 
 # invalid presentation must fail at the complete construction boundary before any native file is returned
-def TestCameraReject() -> None:
+def TestViewReject() -> None:
     for FieldName, FieldValue in (
         ("scale2", True),
         ("scale2", 0.0),
