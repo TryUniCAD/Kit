@@ -233,7 +233,7 @@ def load_resolved(data, reg, version=None, *, archive=None, name=None, seed=None
     if seed is not None:
         if head != seed.count:
             raise ArchiveError(f"resolved map base {head} differs from configuration map count {seed.count}")
-        ar.table = dict(seed.table)
+        ar.setup_maps(head, seed)
     n = ar.count_value()
     roots = [XO("o").read(ar) for _ in range(n)]
     hd = {"base": head, "n": n, "context": context}

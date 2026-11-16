@@ -38,12 +38,20 @@ def typed_snapshot(counter, table):
     return MapSnapshot(counter, tuple(entries))
 
 
+def legacy_row(entry, rows):
+    key = id(entry)
+    if key not in rows:
+        rows[key] = (entry, legacy_entry(entry.EntryValue))
+    return rows[key][1]
+
+
 class MapTable(Mapping):
-    def __init__(self, state):
+    def __init__(self, state, rows):
         self.state = state
+        self.rows = rows
 
     def __getitem__(self, index):
-        return legacy_entry(self.state.EntryMap[index].EntryValue)
+        return legacy_row(self.state.EntryMap[index], self.rows)
 
     def __iter__(self):
         return iter(self.state.EntryMap)

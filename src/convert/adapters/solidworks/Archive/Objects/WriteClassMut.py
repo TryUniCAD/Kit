@@ -24,4 +24,4 @@ def WriteClassMut(
         return
     WriterValue.TagWriter(ArchiveTag("NewClass", None))
     WriterValue.ClassWriter(ClassValue)
-    AddEntryMut(WriterValue.MapValue, ClassValue)
+    _ = AddEntryMut(WriterValue.MapValue, ClassValue)

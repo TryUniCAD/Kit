@@ -23,4 +23,4 @@ class MapEntry:
             if self.EntryValue.IndexValue != self.IndexValue:
                 raise ValueError("external class binding differs from its map slot")
             return
-        ArchiveNode.RequireNode(self.EntryValue)
+        _ = ArchiveNode.RequireNode(self.EntryValue)

@@ -46,6 +46,11 @@ Field inventories fingerprint every map/object package module and the bridge.
 Their real CLI process assertions require that exact implementation inventory.
 Static source, AST, and formatting checks passed without executing a codec, schema, or local test.
 Every production declaration is below the live 30-logical-line limit.
-Remote process checks of this changed implementation remain pending publication.
+The first remote integration run preserved archive bytes but failed the linked field-inventory identity assertion.
+The [map-view gotcha](../../../Gotchas/Conversion/Solidworks/Archive/LinkedMapViewsRetainEntryIdentity.md) records the compatibility-row identity error and its correction.
+Resolved streams now inherit the typed snapshot directly.
+Their compatibility views retain each immutable entry's identity through a shared, scoped memo.
+The original linked assertion remains active.
+Remote verification of this correction remains pending publication.
 
 The production adapter remains read-only. This shared infrastructure supplies no fresh feature builder and establishes no held-out native output acceptance, rebuild result, or complete CAD conversion coverage.

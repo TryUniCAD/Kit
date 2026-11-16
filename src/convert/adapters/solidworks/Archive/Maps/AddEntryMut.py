@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 # allocation must happen before body recursion can resolve self references
 def AddEntryMut(MapValue: ArchiveMaps, EntryValue: RuntimeClass | ArchiveNode) -> int:
     if type(EntryValue) is not RuntimeClass:
-        ArchiveNode.RequireNode(EntryValue)
+        _ = ArchiveNode.RequireNode(EntryValue)
     if MapValue.CounterValue >= KCounterLimit:
         raise ValueError("archive map reached the native allocation limit")
     IndexValue = MapValue.CounterValue

@@ -10,6 +10,7 @@ class ArchiveMaps:
 
     # each stream needs independent membership while seeded nodes retain their identity
     def __init__(self, BaseValue: int, SeedValue: MapSnapshot | None = None) -> None:
+        super().__init__()
         if SeedValue is None:
             SeedValue = MapSnapshot(BaseValue, ())
         if type(SeedValue) is not MapSnapshot or type(BaseValue) is not int:

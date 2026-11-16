@@ -20,7 +20,7 @@ def WriteObjectMut(
             raise ValueError(
                 "external object reference is outside the inherited prefix"
             )
-        FindObject(WriterValue.MapValue, NodeValue.IndexValue)
+        _ = FindObject(WriterValue.MapValue, NodeValue.IndexValue)
         WriterValue.TagWriter(ArchiveTag("ObjectRef", NodeValue.IndexValue))
         return
     NodeValue = ArchiveNode.RequireNode(NodeValue)
@@ -29,5 +29,5 @@ def WriteObjectMut(
         WriterValue.TagWriter(ArchiveTag("ObjectRef", IndexValue))
         return
     WriteClassMut(WriterValue, NodeValue.ClassValue)
-    AddEntryMut(WriterValue.MapValue, NodeValue)
+    _ = AddEntryMut(WriterValue.MapValue, NodeValue)
     WriterValue.BodyWriter(NodeValue)

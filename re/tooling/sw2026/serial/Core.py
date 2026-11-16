@@ -25,7 +25,7 @@ from convert.adapters.solidworks.Archive.Strings.ReadString import ReadString
 from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
 from convert.adapters.solidworks.Archive.Tags.EncodeTag import EncodeTag
 from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
-from MapBridge import MapTable, class_value, legacy_entry, schema_value, typed_snapshot
+from MapBridge import MapTable, class_value, legacy_row, schema_value, typed_snapshot
 
 NULL_TAG = 0x0000
 NEW_CLASS = 0xFFFF
@@ -80,9 +80,10 @@ class ExtRef:
 
 
 class ArchiveMap:
-    __slots__ = ("state",)
+    __slots__ = ("state", "rows")
 
-    def __init__(self, count=None, table=None, *, snapshot=None):
+    def __init__(self, count=None, table=None, *, snapshot=None, rows=None):
+        self.rows = {} if rows is None else rows
         if snapshot is not None:
             if count is not None or table is not None or type(snapshot) is not MapSnapshot:
                 raise ArchiveError("invalid archive map snapshot arguments")
@@ -91,12 +92,13 @@ class ArchiveMap:
             self.state = typed_snapshot(count, table)
 
     count = property(lambda self: self.state.CounterValue)
-    table = property(lambda self: {entry.IndexValue: legacy_entry(entry.EntryValue) for entry in self.state.EntriesValue})
+    table = property(lambda self: {entry.IndexValue: legacy_row(entry, self.rows) for entry in self.state.EntriesValue})
 
 
 class ArchiveState:
     def setup_maps(self, base, seed):
         self._maps = ArchiveMaps(base, None if seed is None else seed.state)
+        self._legacy_rows = {} if seed is None else seed.rows
 
     @property
     def count(self):
@@ -121,7 +123,7 @@ class ArchiveState:
 
     @property
     def table(self):
-        return MapTable(self._maps)
+        return MapTable(self._maps, self._legacy_rows)
 
     @table.setter
     def table(self, value):
@@ -130,7 +132,7 @@ class ArchiveState:
         self._maps.BaseValue = base
 
     def map_state(self):
-        return ArchiveMap(snapshot=self._maps.Snapshot())
+        return ArchiveMap(snapshot=self._maps.Snapshot(), rows=self._legacy_rows)
 
     def bind_class(self, index, name):
         BindClassMut(self._maps, ExternalClass(name, index))

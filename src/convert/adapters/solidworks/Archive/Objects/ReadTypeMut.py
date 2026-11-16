@@ -14,7 +14,7 @@ def ReadTypeMut(
         ClassValue = ReaderValue.ClassReader()
         if type(ClassValue) is not RuntimeClass:
             raise TypeError("new archive class requires a complete runtime descriptor")
-        AddEntryMut(ReaderValue.MapValue, ClassValue)
+        _ = AddEntryMut(ReaderValue.MapValue, ClassValue)
         return ClassValue
     if TagValue.KindValue == "ClassRef" and TagValue.IndexValue is not None:
         return FindClass(ReaderValue.MapValue, TagValue.IndexValue)
