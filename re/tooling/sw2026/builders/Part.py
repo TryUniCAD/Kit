@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from Core import ArchiveError, Obj
 from Streams import StreamDoc, store_rooted
 from builders.Arc import open_arc_profile
+from builders.Capsule import capsule_profile
 from builders.Circle import circle_profile, circle_set_profile
 from builders.Definition import definition_stream, part_definition
 from builders.Extrude import live_blind_extrusion
@@ -83,9 +84,9 @@ def document_shape(document):
         raise ArchiveError("part document must be a semantic mapping")
     profile_kind = document.get("profile_kind", "polygon")
     feature_kind = document.get("feature_kind", "blind_extrusion")
-    if profile_kind not in ("polygon", "circle", "circle_set", "arc") or feature_kind not in ("sketch", "blind_extrusion"):
+    if profile_kind not in ("polygon", "circle", "circle_set", "arc", "capsule") or feature_kind not in ("sketch", "blind_extrusion"):
         raise ArchiveError("unsupported fresh profile or feature kind")
-    if profile_kind in ("circle_set", "arc") and feature_kind != "sketch":
+    if profile_kind in ("circle_set", "arc", "capsule") and feature_kind != "sketch":
         raise ArchiveError("this curve profile admits only the free sketch research rung")
     if profile_kind == "circle" and feature_kind == "blind_extrusion":
         request = document.get("circle_dimension")
@@ -95,7 +96,7 @@ def document_shape(document):
         "name", "configuration_name", "sketch_name", "extrusion_name", "origin_name",
         "plane_axis", "density_kg_m3",
     )
-    required += {"polygon": ("vertices_m",), "circle": ("center_m", "radius_m"), "circle_set": ("circles_m",), "arc": ("center_m", "radius_m", "start_angle_rad", "sweep_angle_rad")}[profile_kind]
+    required += {"polygon": ("vertices_m",), "circle": ("center_m", "radius_m"), "circle_set": ("circles_m",), "arc": ("center_m", "radius_m", "start_angle_rad", "sweep_angle_rad"), "capsule": ("center_m", "radius_m", "straight_length_m", "rotation_angle_rad")}[profile_kind]
     if feature_kind == "blind_extrusion":
         required += ("depth_m",)
     optional = ("profile_kind", "feature_kind") + (("circle_dimension",) if profile_kind == "circle" else ())
@@ -157,8 +158,10 @@ def construct_part(*, registry, document, provenance, presentation, target):
         profile = circle_profile(center_m=document["center_m"], radius_m=document["radius_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
     elif profile_kind == "circle_set":
         profile = circle_set_profile(circles_m=document["circles_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
-    else:
+    elif profile_kind == "arc":
         profile = open_arc_profile(center_m=document["center_m"], radius_m=document["radius_m"], start_angle_rad=document["start_angle_rad"], sweep_angle_rad=document["sweep_angle_rad"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
+    else:
+        profile = capsule_profile(center_m=document["center_m"], radius_m=document["radius_m"], straight_length_m=document["straight_length_m"], rotation_angle_rad=document["rotation_angle_rad"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
     radial = None
     if "circle_dimension" in document:
         request = fields(document["circle_dimension"], "circle dimension", ("mode", "text_point_m"), ("fix_center",))

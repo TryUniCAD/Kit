@@ -69,6 +69,13 @@ passed sixteen byte comparisons; equal-length names, the same plane and an uncha
 isolate the resolved-stream growth from 6,795 to 7,607 bytes while Config-0 stays at 21,138.
 These two generated research inputs still add zero completed FCStd conversions and no held-out family acceptance.
 
+Two [ordinary signed open-arc sketches](measurements/2026/OpenArcInspection01.json)
+passed four controlled native phases and all 64 numeric/frame checks, including both endpoints,
+positive/negative native rotation, rebuild, save and fresh reopen. Their
+[remote generation](measurements/2026/OpenArcProcesses61622d.json) passed sixteen complete byte comparisons
+with strict process/read guards. Controls were healthy and inputs immutable. These are two bounded free-sketch
+research outputs, with zero requested bodies and zero new completed FCStd conversions or held-out family acceptance.
+
 The [complete circle/arc source lock](v2026/heldout/CurveSourceLock.json)
 records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.
 Those source files are not generated Kit outputs and add zero writer-coverage cases.

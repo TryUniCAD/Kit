@@ -1,0 +1,3019 @@
+{
+  "schema": "kit.sw2026.open-arc-native-measurement.v1",
+  "scope": "ordinary free positive/negative partial arc sketches; no driving dimension/body acceptance",
+  "inspection_source_revision": "61622d1a5c171734e6784abcbbf73bbabcd66f1f",
+  "generator": {
+    "source_revision": "61622d1a5c171734e6784abcbbf73bbabcd66f1f",
+    "tested_revision": "fe1f4a4f677c73e44d3237177ea43937e84ed1b5",
+    "tested_tree": "d622ef4786700c4abc09a41ca8cb89fb98c01293",
+    "verified_tested_parents": [
+      "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+      "61622d1a5c171734e6784abcbbf73bbabcd66f1f"
+    ],
+    "run": 43884843680,
+    "job": 133360066579,
+    "job_conclusion": "success",
+    "artifact": {
+      "id": 14233674137,
+      "size_in_bytes": 21335768,
+      "sha256": "9630a284fb6361d7a5b77a8e96fb5e3984a850c69e7f3304ba4df5bad373d72f",
+      "reported_digest_independently_verified": true
+    }
+  },
+  "frozen_sources": [
+    {
+      "path": "re/tooling/sw2026/InspectCircleSketch.py",
+      "bytes": 21951,
+      "sha256": "6efaa1963ec2d31e6e8f638421fb6bfcb5091240a9253b7cecd68e45cdada30a"
+    },
+    {
+      "path": "re/tooling/sw2026/AuthorCurves.py",
+      "bytes": 65987,
+      "sha256": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31"
+    },
+    {
+      "path": "re/tooling/sw2026/Swapp.py",
+      "bytes": 15278,
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectFresh.py",
+      "bytes": 4187,
+      "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793"
+    },
+    {
+      "path": "re/tooling/sw2026/OracleIdentity.py",
+      "bytes": 4284,
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    }
+  ],
+  "frozen_manifest": {
+    "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/OpenArcTools01/SourceManifest.json",
+    "sha256": "e4220eb232705b5352268c294bccfded9f7e4735359cd932672e2222bf49bec6"
+  },
+  "job": {
+    "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/OpenArcTools01/InspectionJob.json",
+    "sha256": "44b590a896612cb696a8516024d0eb6c022940ed3b2bd1e6a789c66e93677770",
+    "cases": [
+      {
+        "name": "ArcPositiveSketch",
+        "path": "//Mac/Home/Documents/UniCAD/Oracle121Takeover/OpenArcTools01/Inputs/ArcPositiveSketch.SLDPRT",
+        "sha256": "7e4856801beec8b656f9bf4e2c6764c856936055f6424150bc7558f8014127b0",
+        "request": {
+          "document": {
+            "name": "ArcPositiveSketch",
+            "configuration_name": "authored configuration",
+            "sketch_name": "Sketch1",
+            "extrusion_name": "Boss-Extrude1",
+            "origin_name": "Origin",
+            "plane_axis": "z",
+            "density_kg_m3": 1.0,
+            "profile_kind": "arc",
+            "feature_kind": "sketch",
+            "center_m": [
+              -0.004731,
+              0.006193
+            ],
+            "radius_m": 0.007137,
+            "start_angle_rad": 0.341,
+            "sweep_angle_rad": 1.137
+          },
+          "provenance": {
+            "author": "Kit research",
+            "company": "authored compatibility experiment",
+            "created_at": 1794700000,
+            "modified_at": 1794700000,
+            "comment": "generated from neutral geometry",
+            "originating_build_code": 2026001,
+            "license_origin": 0
+          },
+          "target": {
+            "date_code": 2026306,
+            "parasolid_version": 370108
+          },
+          "presentation": {
+            "folder_names": {
+              "moCommentsFolder_c": "authored comments",
+              "moFavoriteFolder_c": "authored favorites",
+              "moHistoryFolder_c": "authored history",
+              "moSelectionSetFolder_c": "authored selection sets",
+              "moSensorFolder_c": "authored sensors",
+              "moDocsFolder_c": "authored document binder",
+              "moSurfaceBodyFolder_c": "authored surfaces",
+              "moSolidBodyFolder_c": "authored solids",
+              "moEnvFolder_c": "authored environment",
+              "moNotesAreaFtrFolder_c": "authored markups",
+              "moEqnFolder_c": "authored equations",
+              "moMaterialFolder_c": "authored material"
+            },
+            "cabinet_name": "authored annotations",
+            "plane_names": {
+              "x": "Right Plane",
+              "y": "Top Plane",
+              "z": "Front Plane"
+            },
+            "units": {
+              "length_unit": "mm",
+              "angle_unit": "degree",
+              "unit_system": "mmgs",
+              "decimal_places": 4
+            },
+            "styles": {
+              "standard": 1,
+              "font_name": "Arial",
+              "line_style_name": "authored continuous",
+              "language_id": 1033,
+              "print_widths_m": [
+                0.0001,
+                0.0002,
+                0.0003,
+                0.0004,
+                0.0005,
+                0.0006,
+                0.0007,
+                0.0008
+              ],
+              "exclusion_names": [],
+              "task_labels": [
+                "description",
+                "high",
+                "low",
+                "complete",
+                "reminder"
+              ],
+              "cutlist_expressions": [
+                "item",
+                "description",
+                "stock"
+              ]
+            },
+            "hatch_name": "authored hatch",
+            "drafting_standard": "moISO_c",
+            "journal_name": "authored journal",
+            "tessellation": [
+              20,
+              15,
+              3,
+              false
+            ],
+            "detail_flags": [],
+            "system_preference_7a": false,
+            "design_intent": false,
+            "selected_leader": 0,
+            "cjk_saved": false
+          }
+        }
+      },
+      {
+        "name": "ArcNegativeSketch",
+        "path": "//Mac/Home/Documents/UniCAD/Oracle121Takeover/OpenArcTools01/Inputs/ArcNegativeSketch.SLDPRT",
+        "sha256": "ab9763eb689f0ca25b7662944f416d68d7709842ce02755bc510dd2e2d691943",
+        "request": {
+          "document": {
+            "name": "ArcNegativeSketch",
+            "configuration_name": "authored configuration",
+            "sketch_name": "Sketch1",
+            "extrusion_name": "Boss-Extrude1",
+            "origin_name": "Origin",
+            "plane_axis": "y",
+            "density_kg_m3": 1.0,
+            "profile_kind": "arc",
+            "feature_kind": "sketch",
+            "center_m": [
+              0.008917,
+              -0.005381
+            ],
+            "radius_m": 0.010423,
+            "start_angle_rad": -1.013,
+            "sweep_angle_rad": -4.319
+          },
+          "provenance": {
+            "author": "Kit research",
+            "company": "authored compatibility experiment",
+            "created_at": 1794700000,
+            "modified_at": 1794700000,
+            "comment": "generated from neutral geometry",
+            "originating_build_code": 2026001,
+            "license_origin": 0
+          },
+          "target": {
+            "date_code": 2026306,
+            "parasolid_version": 370108
+          },
+          "presentation": {
+            "folder_names": {
+              "moCommentsFolder_c": "authored comments",
+              "moFavoriteFolder_c": "authored favorites",
+              "moHistoryFolder_c": "authored history",
+              "moSelectionSetFolder_c": "authored selection sets",
+              "moSensorFolder_c": "authored sensors",
+              "moDocsFolder_c": "authored document binder",
+              "moSurfaceBodyFolder_c": "authored surfaces",
+              "moSolidBodyFolder_c": "authored solids",
+              "moEnvFolder_c": "authored environment",
+              "moNotesAreaFtrFolder_c": "authored markups",
+              "moEqnFolder_c": "authored equations",
+              "moMaterialFolder_c": "authored material"
+            },
+            "cabinet_name": "authored annotations",
+            "plane_names": {
+              "x": "Right Plane",
+              "y": "Top Plane",
+              "z": "Front Plane"
+            },
+            "units": {
+              "length_unit": "mm",
+              "angle_unit": "degree",
+              "unit_system": "mmgs",
+              "decimal_places": 4
+            },
+            "styles": {
+              "standard": 1,
+              "font_name": "Arial",
+              "line_style_name": "authored continuous",
+              "language_id": 1033,
+              "print_widths_m": [
+                0.0001,
+                0.0002,
+                0.0003,
+                0.0004,
+                0.0005,
+                0.0006,
+                0.0007,
+                0.0008
+              ],
+              "exclusion_names": [],
+              "task_labels": [
+                "description",
+                "high",
+                "low",
+                "complete",
+                "reminder"
+              ],
+              "cutlist_expressions": [
+                "item",
+                "description",
+                "stock"
+              ]
+            },
+            "hatch_name": "authored hatch",
+            "drafting_standard": "moISO_c",
+            "journal_name": "authored journal",
+            "tessellation": [
+              20,
+              15,
+              3,
+              false
+            ],
+            "detail_flags": [],
+            "system_preference_7a": false,
+            "design_intent": false,
+            "selected_leader": 0,
+            "cjk_saved": false
+          }
+        }
+      }
+    ]
+  },
+  "raw_inspection": {
+    "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/OpenArcInspection01/Inspection.json",
+    "sha256": "565642991d1ab7c09aecbcd874a6dae6c50ecce1136303663730219280e9df84",
+    "bytes": 67222
+  },
+  "host_transport": {
+    "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/OpenArcInspection01.Host.json",
+    "sha256": "bb29a62c96ec2c73173a4c565ad81640899f9152f9354166f01e639280270962",
+    "status": "transport_exited",
+    "transport_returncode": 0,
+    "supervisor_exit_code": 0,
+    "transport_exit_confirmed": true,
+    "guest_state_unknown": true
+  },
+  "started_at": 1794839321.04548,
+  "finished_at": 1794839475.651492,
+  "cases": [
+    {
+      "name": "ArcPositiveSketch",
+      "phases": [
+        {
+          "phase": "open-save",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\OpenArcTools01\\Inputs\\ArcPositiveSketch.SLDPRT",
+          "source_sha256": "7e4856801beec8b656f9bf4e2c6764c856936055f6424150bc7558f8014127b0",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 6620,
+            "process_creation_filetime": 134393129507239745,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "initial_state": {
+            "before_explicit_rebuild": true,
+            "body_count": 0,
+            "expected_body_count": 0,
+            "rebuild_problem_count": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "requested_features": [
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "matches": 1,
+                "active": true
+              }
+            ],
+            "passed": true
+          },
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      3
+                    ]
+                  },
+                  "start": {
+                    "kind": "point",
+                    "id": [
+                      1,
+                      1
+                    ]
+                  },
+                  "end": {
+                    "kind": "point",
+                    "id": [
+                      2,
+                      2
+                    ]
+                  }
+                },
+                "kind": "arc",
+                "center": [
+                  -0.004731,
+                  0.006193
+                ],
+                "radius": 0.007137,
+                "start": [
+                  0.0019950565866761376,
+                  0.008579824625486872
+                ],
+                "end": [
+                  -0.004069662716746428,
+                  0.013299293126361928
+                ],
+                "direction": 1
+              }
+            ],
+            "bodies": 0,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "constraint_status": 2,
+            "model_to_sketch_transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\OpenArcInspection01\\ArcPositiveSketch\\open-save\\ArcPositiveSketchSaved.SLDPRT",
+          "saved_sha256": "6f6dc5901c93406ad67f13692264c97766195a33d45f33e8bf596e44db7671fd",
+          "saved_bytes": 24804,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/OpenArcInspection01/ArcPositiveSketch/open-save/Record.json",
+            "sha256": "00ee8f084370ba07a34ba7977a0a0c234574e838f2d71091fe9425bfed360e40",
+            "bytes": 42623
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": -0.004731,
+              "expected": -0.004731,
+              "passed": true
+            },
+            {
+              "name": "center 1",
+              "actual": 0.006193,
+              "expected": 0.006193,
+              "passed": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.007137,
+              "expected": 0.007137,
+              "passed": true
+            },
+            {
+              "name": "arc start 0",
+              "actual": 0.0019950565866761376,
+              "expected": 0.0019950565866761376,
+              "passed": true
+            },
+            {
+              "name": "arc start 1",
+              "actual": 0.008579824625486872,
+              "expected": 0.008579824625486872,
+              "passed": true
+            },
+            {
+              "name": "arc end 0",
+              "actual": -0.004069662716746428,
+              "expected": -0.004069662716746428,
+              "passed": true
+            },
+            {
+              "name": "arc end 1",
+              "actual": 0.013299293126361928,
+              "expected": 0.013299293126361928,
+              "passed": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "phase": "fresh-reopen",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\OpenArcInspection01\\ArcPositiveSketch\\open-save\\ArcPositiveSketchSaved.SLDPRT",
+          "source_sha256": "6f6dc5901c93406ad67f13692264c97766195a33d45f33e8bf596e44db7671fd",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 4268,
+            "process_creation_filetime": 134393129771176661,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "initial_state": {
+            "before_explicit_rebuild": true,
+            "body_count": 0,
+            "expected_body_count": 0,
+            "rebuild_problem_count": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "requested_features": [
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "matches": 1,
+                "active": true
+              }
+            ],
+            "passed": true
+          },
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      3
+                    ]
+                  },
+                  "start": {
+                    "kind": "point",
+                    "id": [
+                      1,
+                      1
+                    ]
+                  },
+                  "end": {
+                    "kind": "point",
+                    "id": [
+                      2,
+                      2
+                    ]
+                  }
+                },
+                "kind": "arc",
+                "center": [
+                  -0.004731,
+                  0.006193
+                ],
+                "radius": 0.007137,
+                "start": [
+                  0.0019950565866761376,
+                  0.008579824625486872
+                ],
+                "end": [
+                  -0.004069662716746428,
+                  0.013299293126361928
+                ],
+                "direction": 1
+              }
+            ],
+            "bodies": 0,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "constraint_status": 2,
+            "model_to_sketch_transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\OpenArcInspection01\\ArcPositiveSketch\\fresh-reopen\\ArcPositiveSketchSaved.SLDPRT",
+          "saved_sha256": "57b93d5b0d16076fca7b82e71ff14934f02f84f145cc5a1de50b8871c2395140",
+          "saved_bytes": 26050,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/OpenArcInspection01/ArcPositiveSketch/fresh-reopen/Record.json",
+            "sha256": "06d0646a55403d555de3560dfabb3efbfed6f32fa58f7ee1d88c0946aab7fcb3",
+            "bytes": 42682
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": -0.004731,
+              "expected": -0.004731,
+              "passed": true
+            },
+            {
+              "name": "center 1",
+              "actual": 0.006193,
+              "expected": 0.006193,
+              "passed": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.007137,
+              "expected": 0.007137,
+              "passed": true
+            },
+            {
+              "name": "arc start 0",
+              "actual": 0.0019950565866761376,
+              "expected": 0.0019950565866761376,
+              "passed": true
+            },
+            {
+              "name": "arc start 1",
+              "actual": 0.008579824625486872,
+              "expected": 0.008579824625486872,
+              "passed": true
+            },
+            {
+              "name": "arc end 0",
+              "actual": -0.004069662716746428,
+              "expected": -0.004069662716746428,
+              "passed": true
+            },
+            {
+              "name": "arc end 1",
+              "actual": 0.013299293126361928,
+              "expected": 0.013299293126361928,
+              "passed": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "fresh_process": true,
+      "passed": true
+    },
+    {
+      "name": "ArcNegativeSketch",
+      "phases": [
+        {
+          "phase": "open-save",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\OpenArcTools01\\Inputs\\ArcNegativeSketch.SLDPRT",
+          "source_sha256": "ab9763eb689f0ca25b7662944f416d68d7709842ce02755bc510dd2e2d691943",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 5796,
+            "process_creation_filetime": 134393130031727099,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "initial_state": {
+            "before_explicit_rebuild": true,
+            "body_count": 0,
+            "expected_body_count": 0,
+            "rebuild_problem_count": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "requested_features": [
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "matches": 1,
+                "active": true
+              }
+            ],
+            "passed": true
+          },
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      3
+                    ]
+                  },
+                  "start": {
+                    "kind": "point",
+                    "id": [
+                      1,
+                      1
+                    ]
+                  },
+                  "end": {
+                    "kind": "point",
+                    "id": [
+                      2,
+                      2
+                    ]
+                  }
+                },
+                "kind": "arc",
+                "center": [
+                  0.008917,
+                  -0.005381
+                ],
+                "radius": 0.010422999999999998,
+                "start": [
+                  0.01443407980754427,
+                  -0.014224119325056473
+                ],
+                "end": [
+                  0.014969829278142903,
+                  0.0031044102275409203
+                ],
+                "direction": -1
+              }
+            ],
+            "bodies": 0,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "constraint_status": 2,
+            "model_to_sketch_transform": [
+              1.0,
+              -0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\OpenArcInspection01\\ArcNegativeSketch\\open-save\\ArcNegativeSketchSaved.SLDPRT",
+          "saved_sha256": "7a4db0295936f9b255b9bfca6b567c8bfca8a99705b5e966c901262096cc7a5a",
+          "saved_bytes": 25508,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/OpenArcInspection01/ArcNegativeSketch/open-save/Record.json",
+            "sha256": "0406e1c27cd6bae51d4d3d53009778dee3cd7f3ab7b3009d288c309c777e1089",
+            "bytes": 42877
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": 0.008917,
+              "expected": 0.008917,
+              "passed": true
+            },
+            {
+              "name": "center 1",
+              "actual": -0.005381,
+              "expected": -0.005381,
+              "passed": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.010422999999999998,
+              "expected": 0.010423,
+              "passed": true
+            },
+            {
+              "name": "arc start 0",
+              "actual": 0.01443407980754427,
+              "expected": 0.01443407980754427,
+              "passed": true
+            },
+            {
+              "name": "arc start 1",
+              "actual": -0.014224119325056473,
+              "expected": -0.014224119325056473,
+              "passed": true
+            },
+            {
+              "name": "arc end 0",
+              "actual": 0.014969829278142903,
+              "expected": 0.014969829278142903,
+              "passed": true
+            },
+            {
+              "name": "arc end 1",
+              "actual": 0.0031044102275409203,
+              "expected": 0.0031044102275409203,
+              "passed": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "phase": "fresh-reopen",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\OpenArcInspection01\\ArcNegativeSketch\\open-save\\ArcNegativeSketchSaved.SLDPRT",
+          "source_sha256": "7a4db0295936f9b255b9bfca6b567c8bfca8a99705b5e966c901262096cc7a5a",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 3752,
+            "process_creation_filetime": 134393130308122667,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "initial_state": {
+            "before_explicit_rebuild": true,
+            "body_count": 0,
+            "expected_body_count": 0,
+            "rebuild_problem_count": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "requested_features": [
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "matches": 1,
+                "active": true
+              }
+            ],
+            "passed": true
+          },
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      3
+                    ]
+                  },
+                  "start": {
+                    "kind": "point",
+                    "id": [
+                      1,
+                      1
+                    ]
+                  },
+                  "end": {
+                    "kind": "point",
+                    "id": [
+                      2,
+                      2
+                    ]
+                  }
+                },
+                "kind": "arc",
+                "center": [
+                  0.008917,
+                  -0.005381
+                ],
+                "radius": 0.010422999999999998,
+                "start": [
+                  0.01443407980754427,
+                  -0.014224119325056473
+                ],
+                "end": [
+                  0.014969829278142903,
+                  0.0031044102275409203
+                ],
+                "direction": -1
+              }
+            ],
+            "bodies": 0,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              }
+            ],
+            "constraint_status": 2,
+            "model_to_sketch_transform": [
+              1.0,
+              -0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\OpenArcInspection01\\ArcNegativeSketch\\fresh-reopen\\ArcNegativeSketchSaved.SLDPRT",
+          "saved_sha256": "ed18b45ff449a731071e30f5aa7446557503d01be7565babe1d542dd0df592be",
+          "saved_bytes": 25880,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/OpenArcInspection01/ArcNegativeSketch/fresh-reopen/Record.json",
+            "sha256": "1595ad33a5d0e3ff1ccbeeef250f4ecc1d3a0c4e3c6177129ea9430d4495d7e0",
+            "bytes": 42890
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": 0.008917,
+              "expected": 0.008917,
+              "passed": true
+            },
+            {
+              "name": "center 1",
+              "actual": -0.005381,
+              "expected": -0.005381,
+              "passed": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.010422999999999998,
+              "expected": 0.010423,
+              "passed": true
+            },
+            {
+              "name": "arc start 0",
+              "actual": 0.01443407980754427,
+              "expected": 0.01443407980754427,
+              "passed": true
+            },
+            {
+              "name": "arc start 1",
+              "actual": -0.014224119325056473,
+              "expected": -0.014224119325056473,
+              "passed": true
+            },
+            {
+              "name": "arc end 0",
+              "actual": 0.014969829278142903,
+              "expected": 0.014969829278142903,
+              "passed": true
+            },
+            {
+              "name": "arc end 1",
+              "actual": 0.0031044102275409203,
+              "expected": 0.0031044102275409203,
+              "passed": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "fresh_process": true,
+      "passed": true
+    }
+  ],
+  "controls": [
+    {
+      "kind": "control_before",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794839321.04548
+        },
+        {
+          "stage": "open_start",
+          "time": 1794839333.9115882
+        },
+        {
+          "stage": "open_return",
+          "time": 1794839341.8179955
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794839341.8179955
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794839342.2434578
+        },
+        {
+          "stage": "status_start",
+          "time": 1794839342.2434578
+        },
+        {
+          "stage": "status_return",
+          "time": 1794839342.2618608
+        },
+        {
+          "stage": "bodies_start",
+          "time": 1794839342.2618608
+        },
+        {
+          "stage": "bodies_return",
+          "time": 1794839342.4290938
+        },
+        {
+          "stage": "mass_start",
+          "time": 1794839342.4290938
+        },
+        {
+          "stage": "mass_return",
+          "time": 1794839342.4944243
+        },
+        {
+          "stage": "features_start",
+          "time": 1794839342.5112317
+        },
+        {
+          "stage": "features_return",
+          "time": 1794839343.615116
+        },
+        {
+          "stage": "close_start",
+          "time": 1794839343.615116
+        },
+        {
+          "stage": "close_return",
+          "time": 1794839343.7182097
+        }
+      ],
+      "stage": "close_return",
+      "revision": "34.5.2",
+      "process_ids": [
+        3884,
+        6136
+      ],
+      "oracle_identity": {
+        "process_id": 3884,
+        "process_creation_filetime": 134393129254338455,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "session_diagnostics": [],
+      "seconds": 9.81,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "healthy": true
+    },
+    {
+      "kind": "control_after",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794839451.883358
+        },
+        {
+          "stage": "open_start",
+          "time": 1794839463.8766918
+        },
+        {
+          "stage": "open_return",
+          "time": 1794839471.3509896
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794839471.392735
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794839471.852243
+        },
+        {
+          "stage": "status_start",
+          "time": 1794839471.856908
+        },
+        {
+          "stage": "status_return",
+          "time": 1794839471.8806865
+        },
+        {
+          "stage": "bodies_start",
+          "time": 1794839471.8806865
+        },
+        {
+          "stage": "bodies_return",
+          "time": 1794839472.0283551
+        },
+        {
+          "stage": "mass_start",
+          "time": 1794839472.0321145
+        },
+        {
+          "stage": "mass_return",
+          "time": 1794839472.1009827
+        },
+        {
+          "stage": "features_start",
+          "time": 1794839472.1029892
+        },
+        {
+          "stage": "features_return",
+          "time": 1794839473.1731172
+        },
+        {
+          "stage": "close_start",
+          "time": 1794839473.1816716
+        },
+        {
+          "stage": "close_return",
+          "time": 1794839473.294425
+        }
+      ],
+      "stage": "close_return",
+      "revision": "34.5.2",
+      "process_ids": [
+        6356,
+        6404
+      ],
+      "oracle_identity": {
+        "process_id": 6356,
+        "process_creation_filetime": 134393130562695314,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "session_diagnostics": [],
+      "seconds": 9.42,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "healthy": true
+    }
+  ],
+  "inventories": {
+    "failed_preflight_attempt": {
+      "scope": "read-only inventory before signed open-arc inspection",
+      "at_utc": "2026-11-16T14:27:48.419110+00:00",
+      "returncode": 255,
+      "stderr": "PrlJob_GetRetCode: Invalid argument. An invalid argument was passed.\n",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "row_count": 0,
+      "selected_processes": []
+    },
+    "before": {
+      "scope": "independent read-only retry after recorded Parallels transport exit 255",
+      "at_utc": "2026-11-16T14:28:41.215957+00:00",
+      "returncode": 0,
+      "stderr": "",
+      "raw_stdout_sha256": "907a59d02d721792a7ea43c598c5c162b35d4d5012fa4b8aebd950bfc61634b7",
+      "row_count": 142,
+      "selected_processes": [
+        {
+          "name": "lmgrd.exe",
+          "pid": 1604
+        },
+        {
+          "name": "lmgrd.exe",
+          "pid": 7936
+        },
+        {
+          "name": "sw_d.exe",
+          "pid": 4276
+        }
+      ]
+    },
+    "after": {
+      "scope": "read-only inventory after signed open-arc inspection",
+      "at_utc": "2026-11-16T14:32:36.233832+00:00",
+      "returncode": 0,
+      "stderr": "",
+      "raw_stdout_sha256": "120afb35c1003f3319a1dcb9531401809cedca3d635f5ee7bf1e7315d80e9692",
+      "row_count": 146,
+      "selected_processes": [
+        {
+          "name": "lmgrd.exe",
+          "pid": 1604
+        },
+        {
+          "name": "lmgrd.exe",
+          "pid": 7936
+        },
+        {
+          "name": "sw_d.exe",
+          "pid": 4276
+        }
+      ]
+    }
+  },
+  "numeric_count": 64,
+  "all_numeric_match_6_significant_figures": true,
+  "sketch_rung_passed": true,
+  "native_acceptance": false,
+  "heldout_native_payloads_read": false,
+  "production_adapter": "read-only",
+  "limits": [
+    "Free arcs have zero requested bodies and no driving dimensions",
+    "Endpoint and signed rotation checks do not establish a closed profile or native boss",
+    "No complete presentation, held-out family acceptance or production writing",
+    "The first inventory transport failure is retained separately from the successful independent preflight"
+  ]
+}

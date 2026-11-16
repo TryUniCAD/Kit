@@ -128,7 +128,36 @@ def initial_state(author, case):
     return {"before_explicit_rebuild": True, "body_count": body_count, "expected_body_count": int(has_body), "rebuild_problem_count": wrong, "features": features, "requested_features": targets, "passed": body_count == int(has_body) and wrong == 0 and tree_healthy and all(row["active"] for row in targets)}
 
 
+def check_capsule_geometry(author, document):
+    geometry = author.geometry()
+    lines = [row for row in geometry if row["kind"] == "line"]
+    arcs = [row for row in geometry if row["kind"] == "arc"]
+    AuthorCurves.require(len(geometry) == 4 and len(lines) == len(arcs) == 2 and not any(row["construction"] for row in geometry), "capsule must contain two ordinary lines and two ordinary arcs")
+    angle, radius, half_length = document["rotation_angle_rad"], document["radius_m"], document["straight_length_m"] / 2.0
+    u, v = (math.cos(angle), math.sin(angle)), (-math.sin(angle), math.cos(angle))
+    centers = [[document["center_m"][axis] + side * half_length * u[axis] for axis in range(2)] for side in (-1, 1)]
+    vertices = [[centers[center][axis] + side * radius * v[axis] for axis in range(2)] for center, side in ((0, -1), (1, -1), (1, 1), (0, 1))]
+    for index, (line, (start, end)) in enumerate(zip(lines, ((0, 1), (2, 3)))):
+        for role, vertex in (("start", start), ("end", end)):
+            for axis in range(2):
+                author.rec.close_number(f"line {index} {role} {axis}", line[role][axis], vertices[vertex][axis])
+    for index, (arc, (start, end, center)) in enumerate(zip(arcs, ((1, 2, 1), (3, 0, 0)))):
+        AuthorCurves.require(arc["direction"] == 1, "capsule arcs must follow the requested positive local direction")
+        author.rec.close_number(f"arc {index} radius", arc["radius"], radius)
+        for role, expected in (("start", vertices[start]), ("end", vertices[end]), ("center", centers[center])):
+            for axis in range(2):
+                author.rec.close_number(f"arc {index} {role} {axis}", arc[role][axis], expected[axis])
+    boundary = (lines[0], arcs[0], lines[1], arcs[1])
+    for index, segment in enumerate(boundary):
+        end = AuthorCurves.binding_key(segment["point_bindings"]["end"])
+        start = AuthorCurves.binding_key(boundary[(index + 1) % 4]["point_bindings"]["start"])
+        AuthorCurves.require(end == start, "capsule boundary has coincident coordinates but different native point identities")
+    return geometry
+
+
 def check_geometry(author, document, factor):
+    if document.get("profile_kind") == "capsule":
+        return check_capsule_geometry(author, document)
     geometry = author.geometry()
     is_arc = document.get("profile_kind") == "arc"
     expected_curves = document["circles_m"] if document.get("profile_kind") == "circle_set" else [{"center_m": document["center_m"], "radius_m": document["radius_m"]}]
@@ -264,7 +293,7 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     control = Path(job["control"])
     AuthorCurves.require(digest(control) == job["control_sha256"], "native control identity changed")
-    result = {"schema": "kit.sw2026.circle-sketch-inspection.v6", "scope": "ordinary circle/open-arc sketches and single-circle blind boss research rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
+    result = {"schema": "kit.sw2026.circle-sketch-inspection.v7", "scope": "ordinary circle/open-arc/capsule sketches and single-circle blind boss research rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
     def checkpoint():
         (output / "Inspection.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     checkpoint()

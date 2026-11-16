@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from math import cos, isfinite, sin, tau
 
-from builders.Circle import arc_node, bind_arrays, bind_permanence
+from builders.Circle import arc_node
+from builders.Geometry import bind_arrays, bind_permanence
 from builders.Sketch import (
     ConstructionError, NodeOrder, PlaneFrame, _bind_local_ref_flag, _vector,
     new_profile, ordinary_point,

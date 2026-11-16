@@ -4,22 +4,11 @@ from collections.abc import Mapping
 from math import hypot, isfinite
 
 from Core import Obj
+from builders.Geometry import bind_arrays, bind_permanence
 from builders.Sketch import (
     ConstructionError, DerivedFields, NodeOrder, PlaneFrame, _bind_local_ref_flag,
     _node_index, _vector, entity_fields, new_profile, ordinary_point,
 )
-
-
-def arc_handle(*, sketch, arc, arcs):
-    if sketch.cls != "sgSketch" or arc.cls != "sgArc" or arc.get("_sketch") is not sketch:
-        raise ConstructionError("arc handles require a locally owned arc node")
-    return Obj("sgArcHandle", DerivedFields(
-        fields={"_sketch": sketch, "_arc": arc, "f1c": -1, "f08": 0},
-        derived={
-            "idx": lambda: min(_node_index(nodes=arcs, node=arc), 0x777F),
-            "f18": lambda: _node_index(nodes=arcs, node=arc),
-        },
-    ))
 
 
 def arc_node(*, sketch, center, start, end, points, orientation):
@@ -34,7 +23,7 @@ def arc_node(*, sketch, center, start, end, points, orientation):
         "fd4": 0, "seg_tol": -1.0, "fd8": orientation,
         "fe0": -2, "fe4": -2, "fe8": -2, "fec": -2,
     })
-    derived = {"fd0": lambda: int(all(point["h1"] is not None and point["h1"].get("_arc") is arc for point in (start, end)))}
+    derived = {"fd0": lambda: int(all(any(point[slot] is not None and point[slot].get("_arc") is arc for slot in ("h1", "h2")) for point in (start, end)))}
     for name, node in (("fc8", start), ("fcc", end), ("fdc", center)):
         derived[name] = lambda target=node: _node_index(nodes=points, node=target)
         derived[name + "_s"] = lambda target=node: min(_node_index(nodes=points, node=target), 0xFFFF)
@@ -44,59 +33,6 @@ def arc_node(*, sketch, center, start, end, points, orientation):
 
 def circle_arc(*, sketch, center, marker, points):
     return arc_node(sketch=sketch, center=center, start=marker, end=marker, points=points, orientation=1)
-
-
-def bind_permanence(*, sketch, points, arcs):
-    roles = tuple(point for arc in arcs for point in (arc["_start"], arc["_end"], arc["_center"]))
-    order = NodeOrder(nodes=tuple({id(point): point for point in roles}.values()))
-    centers = tuple(arc["_center"] for arc in arcs)
-    for point in points:
-        del point.f["f0c"]
-        del point.f["fe8"]
-        del point.f["fec"]
-        point.f = DerivedFields(fields=point.f, derived={
-            "f0c": lambda node=point: _node_index(nodes=order, node=node) + 1,
-            "fe8": lambda node=point: sum(item is node for item in roles),
-            "fec": lambda node=point: sum(item is node for item in centers),
-        })
-    for arc in arcs:
-        del arc.f["f0c"]
-        del arc.f["f08"]
-        arc.f.derived["f0c"] = lambda node=arc: _node_index(nodes=arcs, node=node) + 1
-        arc.f.derived["f08"] = lambda node=arc: _node_index(nodes=arcs, node=node) + 1
-        endpoints = tuple({id(point): point for point in (arc["_start"], arc["_end"])}.values())
-        for point in endpoints:
-            if point["h1"] is not None or point["h2"] is not None:
-                raise ConstructionError("this curve rung requires otherwise unused endpoint adjacency")
-            point["h1"] = arc_handle(sketch=sketch, arc=arc, arcs=arcs)
-            if arc["_ordinary_circle"]:
-                point["fe4"] = 2
-
-
-def bind_arrays(*, sketch, points, arcs):
-    point_records = tuple({"kind": 0, "point": node.f} for node in points)
-    arc_records = tuple({"flags": 0, "arc": node.f} for node in arcs)
-    del sketch.f["points"]
-    del sketch.f["arcs"]
-    del sketch.f["f130"]
-    del sketch.f["f56c"]
-    sketch.f.derived.update({
-        "points": lambda: point_records,
-        "arcs": lambda: arc_records,
-        "f130": lambda: len(arcs) + 1,
-        "f56c": lambda: 1 + len(arcs),
-    })
-    counters = dict(sketch["f140"])
-    del counters["f08"]
-    del counters["f10"]
-    sketch["f140"] = DerivedFields(fields=counters, derived={
-        "f08": lambda: len(points) + 1, "f10": lambda: len(arcs) + 1,
-    })
-    sketch["_point_nodes"] = points
-    sketch["_line_nodes"] = NodeOrder(nodes=())
-    sketch["_arc_nodes"] = arcs
-    kind = "circle" if all(arc["_ordinary_circle"] for arc in arcs) else "arc"
-    sketch["_profile_kind"] = kind if len(arcs) == 1 else kind + "_set"
 
 
 def circle_positions(*, center_m, radius_m, frame):

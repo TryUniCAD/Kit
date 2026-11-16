@@ -4,7 +4,7 @@ from math import isfinite, sqrt
 from struct import pack
 
 from Core import Obj
-from builders.Circle import arc_handle
+from builders.Geometry import arc_handle
 from builders.Extrude import DimensionGraph, _point, common_display_fields
 from builders.Model import component_reference_fields, node_fields
 from builders.Sketch import ConstructionError, DerivedFields, NodeOrder, PlaneFrame, _node_index, _vector, dimension_fields, logical_point_constraint
