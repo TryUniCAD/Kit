@@ -1,0 +1,685 @@
+{
+  "schema": "kit.sw2026.frozen-camera-processes.v1",
+  "recorded_at_utc": "2026-11-16T21:09:38.369879+00:00",
+  "writer_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+  "evaluation_revision": "fd08a79ea0d54ad0943e76dd111c6d617ea95a5a",
+  "tested_merge": "dc74cd3385b3a8e3201617e90fbb54b7c258c3e8",
+  "tested_tree": "d9a2c5b591477468f01f91a6e32a85abc184d1df",
+  "base_revision": "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+  "run_id": 43955611187,
+  "job_id": 133609240846,
+  "native_format_passed": 201,
+  "native_format_skipped": 158,
+  "policy_passed": 171,
+  "artifact": {
+    "id": 14271412789,
+    "bytes": 23878729,
+    "github_sha256": "431c21d49e6e851b9279ab5196370cf99936ac008f0a3ca7e501966ce89a80e3",
+    "downloaded_sha256": "431c21d49e6e851b9279ab5196370cf99936ac008f0a3ca7e501966ce89a80e3",
+    "selected_members_only_extracted": true,
+    "declared_uncompressed_bytes": 917871834
+  },
+  "writer_freeze_sha256": "8d02f3956b5af5fcf4f3495b062bb6b0ce3629fe78c33f7d7ce99da0fc99edba",
+  "constructor_dependency_count": 354,
+  "changed_constructor_dependencies": [],
+  "schema_membership_matches": true,
+  "source_lock_sha256": "857ff7ff95ac69d81b229379136a988f64aed6af9be2b5fae105ac505499b697",
+  "specs_sha256": "8ce6c26c535afd87910448592a437ba1d954b5242dd3aa844025b929c95844bf",
+  "native_reference_payloads_inspected": false,
+  "private_reference_api_observations_inspected": false,
+  "runtime_writer_executed_locally": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "harness_repair": "public radial dimension spelling is normalized to radius before the unchanged frozen input adapter; no numerical or camera specification changes",
+  "evaluation_helpers": [
+    {
+      "path": "tests/Convert/Solidworks/Research/Camera/CameraFreeze.py",
+      "sha256": "5e1d3ebb52673fafbe8e9e14fc06bbde2c01ecdf89d9fa6fefffbaec5432087c",
+      "bytes": 1816
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Camera/CheckViewFiles.py",
+      "sha256": "a179918ee1fc7a3cc2707d17b372a058e7e39acd6624cd9528363b3bcbae86af",
+      "bytes": 1273
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Camera/MakeViewCase.py",
+      "sha256": "6c482730106c00fe7b9f8d871623c3ad71ddea5b882beaca601a2b4a80aa4e3d",
+      "bytes": 459
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Camera/HeldViewTests.py",
+      "sha256": "7fe6a7eda78493d868b2e67ffa52bcd9e5328cbc01d47269824e26685f7f14e6",
+      "bytes": 2362
+    }
+  ],
+  "outputs": [
+    {
+      "schema": "kit.sw2026.fresh-camera-part.v1",
+      "sizes": {
+        "Header2": 458,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 163,
+        "Contents/Config-0-ModelHeader": 458,
+        "swXmlContents/KeyWords": 1586,
+        "Contents/Config-0": 21136,
+        "Contents/CMgr": 1159,
+        "Contents/Definition": 549,
+        "Contents/Config-0-ResolvedFeatures": 15264
+      },
+      "view_fields": {
+        "orientation": {
+          "has_matrix": 1,
+          "f08": {
+            "m0": 0.8844181216774213,
+            "m1": -0.24036589468392133,
+            "m2": 0.400036026779314,
+            "m3": 1.3877787807814457e-17,
+            "m4": 0.8571673007021341,
+            "m5": 0.5150380749100181,
+            "m6": -0.4666953889300622,
+            "m7": -0.4555090068042732,
+            "m8": 0.7580942940502868
+          },
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "pan_zoom": {
+          "has_matrix": 0,
+          "f58": -0.003719,
+          "f60": 0.005193,
+          "f68": -0.001731,
+          "f70": 13.731,
+          "f78": 0
+        }
+      },
+      "graph": {
+        "sha256": "dcd347cd3b526bfd33d935523d17984114a01739a555e8753b46100ac778bf50",
+        "node_count": 1471,
+        "reference_count": 1699,
+        "map_base": 82,
+        "map_count": 204,
+        "unresolved_references": 0
+      },
+      "features": [
+        "moCommentsFolder_c",
+        "moFavoriteFolder_c",
+        "moHistoryFolder_c",
+        "moSelectionSetFolder_c",
+        "moSensorFolder_c",
+        "moDocsFolder_c",
+        "moSurfaceBodyFolder_c",
+        "moSolidBodyFolder_c",
+        "moEnvFolder_c",
+        "moNotesAreaFtrFolder_c",
+        "moEqnFolder_c",
+        "moMaterialFolder_c",
+        "moDetailCabinet_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moOriginProfileFeature_c",
+        "moProfileFeature_c",
+        "moExtrusion_c"
+      ],
+      "points": 2,
+      "arcs": 1,
+      "lines": 0,
+      "next_id": 26,
+      "map_count": 82,
+      "denied_reads": [],
+      "vendor_acceptance": "unverified",
+      "heldout_native_payloads_read": false,
+      "native_acceptance": false,
+      "sha256": "b53af0cf5bdc1e49a71a12e2ab36aea6eade783b1cd740d65ba75bf949a70a36",
+      "bytes": 8072,
+      "request": {
+        "document": {
+          "name": "H01TrimetricPan",
+          "configuration_name": "authored configuration",
+          "sketch_name": "CurveSketch",
+          "extrusion_name": "CurveBoss",
+          "origin_name": "Origin",
+          "plane_axis": "z",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "extrusion",
+          "center_m": [
+            0.006173,
+            -0.003419
+          ],
+          "radius_m": 0.0042190000000000005,
+          "circle_dimension": {
+            "mode": "diameter",
+            "text_point_m": [
+              0.013345300000000001,
+              0.002065700000000001,
+              0.0
+            ],
+            "fix_center": true
+          },
+          "depth_m": 0.009430999999999998,
+          "end_condition": "blind",
+          "reverse_direction": false
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "authored comments",
+            "moFavoriteFolder_c": "authored favorites",
+            "moHistoryFolder_c": "authored history",
+            "moSelectionSetFolder_c": "authored selection sets",
+            "moSensorFolder_c": "authored sensors",
+            "moDocsFolder_c": "authored document binder",
+            "moSurfaceBodyFolder_c": "authored surfaces",
+            "moSolidBodyFolder_c": "authored solids",
+            "moEnvFolder_c": "authored environment",
+            "moNotesAreaFtrFolder_c": "authored markups",
+            "moEqnFolder_c": "authored equations",
+            "moMaterialFolder_c": "authored material"
+          },
+          "cabinet_name": "authored annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false,
+          "initial_view": {
+            "named_view": 8,
+            "scale2": 13.731,
+            "translation": [
+              -0.003719,
+              0.005193,
+              -0.001731
+            ]
+          }
+        }
+      },
+      "source_policy": "neutral authored geometry only; no native source streams",
+      "name": "H01TrimetricPan",
+      "generated_file": "ViewH01TrimetricPan.SLDPRT",
+      "raw_report_sha256": "79c7de2d67253fd6139557b9ace162cbbf5112d5c2d5c10a99c1799979e4b37c",
+      "raw_report_bytes": 1000749,
+      "module_read_count": 2898,
+      "module_reads_canonical_sha256": "a09d3089a989c9b283b5053bf0e08376285fb4fca1bf0555ed2f21d1bc7d12ab",
+      "streams": {
+        "Header2": {
+          "bytes": 458,
+          "sha256": "d95f14ab87c21ba12026907a9f849db3e1da559885013ad24465da38b785ae2e",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 12,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 3,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 458,
+          "sha256": "55df9271957b1b349bcc3d4b2162c20f21d4bd7286cb063517b6f51a109f2d23",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 12,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0": {
+          "bytes": 21136,
+          "sha256": "b5145445c850be5eaee1186bd47073806a2fc2f3cdae5ee797ead158b3941996",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 3,
+          "map_count": 82,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "76ca8811bfb8aad707a490845e6bd07d11b3547ed358747852d5459406a72003",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 10,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Definition": {
+          "bytes": 549,
+          "sha256": "62bc5a973d3a7685ff33cee81057bb5ce7dce8555fccf5d6db82b75396dfac15",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 7,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15264,
+          "sha256": "52e71132630b17ac90d47e218f0b8e697c163a3c9b2d87ab644278be092fabcd",
+          "passed": true,
+          "seeded_map_count": 82,
+          "roots": 19,
+          "tail": 0,
+          "identical": true,
+          "map_base": 82,
+          "map_count": 204,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        }
+      }
+    },
+    {
+      "schema": "kit.sw2026.fresh-camera-part.v1",
+      "sizes": {
+        "Header2": 456,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 163,
+        "Contents/Config-0-ModelHeader": 456,
+        "swXmlContents/KeyWords": 1585,
+        "Contents/Config-0": 21134,
+        "Contents/CMgr": 1159,
+        "Contents/Definition": 549,
+        "Contents/Config-0-ResolvedFeatures": 15390
+      },
+      "view_fields": {
+        "orientation": {
+          "has_matrix": 1,
+          "f08": {
+            "m0": 0.9354143467241411,
+            "m1": -0.11785113014268137,
+            "m2": 0.33333333326677816,
+            "m3": 6.938893903907228e-18,
+            "m4": 0.942809041610104,
+            "m5": 0.33333333325402237,
+            "m6": -0.35355339051216605,
+            "m7": -0.31180478216719176,
+            "m8": 0.8819171037433291
+          },
+          "f58": 0.0,
+          "f60": 0.0,
+          "f68": 0.0,
+          "f70": 1.0,
+          "f78": 0
+        },
+        "pan_zoom": {
+          "has_matrix": 0,
+          "f58": 0.002317,
+          "f60": -0.004193,
+          "f68": 0.006137,
+          "f70": 0.7319,
+          "f78": 0
+        }
+      },
+      "graph": {
+        "sha256": "369b9949cd5e2c7c5ee0b1ed86367589cf6107cfd68c090cc73f5eae5056b23e",
+        "node_count": 1473,
+        "reference_count": 1701,
+        "map_base": 82,
+        "map_count": 204,
+        "unresolved_references": 0
+      },
+      "features": [
+        "moCommentsFolder_c",
+        "moFavoriteFolder_c",
+        "moHistoryFolder_c",
+        "moSelectionSetFolder_c",
+        "moSensorFolder_c",
+        "moDocsFolder_c",
+        "moSurfaceBodyFolder_c",
+        "moSolidBodyFolder_c",
+        "moEnvFolder_c",
+        "moNotesAreaFtrFolder_c",
+        "moEqnFolder_c",
+        "moMaterialFolder_c",
+        "moDetailCabinet_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moOriginProfileFeature_c",
+        "moProfileFeature_c",
+        "moExtrusion_c"
+      ],
+      "points": 2,
+      "arcs": 1,
+      "lines": 0,
+      "next_id": 26,
+      "map_count": 82,
+      "denied_reads": [],
+      "vendor_acceptance": "unverified",
+      "heldout_native_payloads_read": false,
+      "native_acceptance": false,
+      "sha256": "0bdfd2e8f011921eb215e363f07b31cd29b746db4af7a316e418697808e0ed8a",
+      "bytes": 8066,
+      "request": {
+        "document": {
+          "name": "H02DimetricPan",
+          "configuration_name": "authored configuration",
+          "sketch_name": "CurveSketch",
+          "extrusion_name": "CurveBoss",
+          "origin_name": "Origin",
+          "plane_axis": "y",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "extrusion",
+          "center_m": [
+            -0.011419,
+            0.007193
+          ],
+          "radius_m": 0.009713,
+          "circle_dimension": {
+            "mode": "radius",
+            "text_point_m": [
+              0.005093099999999998,
+              0.0,
+              -0.0198199
+            ],
+            "fix_center": true
+          },
+          "depth_m": 0.031173,
+          "end_condition": "blind",
+          "reverse_direction": true
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "authored comments",
+            "moFavoriteFolder_c": "authored favorites",
+            "moHistoryFolder_c": "authored history",
+            "moSelectionSetFolder_c": "authored selection sets",
+            "moSensorFolder_c": "authored sensors",
+            "moDocsFolder_c": "authored document binder",
+            "moSurfaceBodyFolder_c": "authored surfaces",
+            "moSolidBodyFolder_c": "authored solids",
+            "moEnvFolder_c": "authored environment",
+            "moNotesAreaFtrFolder_c": "authored markups",
+            "moEqnFolder_c": "authored equations",
+            "moMaterialFolder_c": "authored material"
+          },
+          "cabinet_name": "authored annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false,
+          "initial_view": {
+            "named_view": 9,
+            "scale2": 0.7319,
+            "translation": [
+              0.002317,
+              -0.004193,
+              0.006137
+            ]
+          }
+        }
+      },
+      "source_policy": "neutral authored geometry only; no native source streams",
+      "name": "H02DimetricPan",
+      "generated_file": "ViewH02DimetricPan.SLDPRT",
+      "raw_report_sha256": "d3c66045baf3df3f3ff97b25ea5bf1fab25f88b062e9d3f5624d84fecc126660",
+      "raw_report_bytes": 1002251,
+      "module_read_count": 2898,
+      "module_reads_canonical_sha256": "a09d3089a989c9b283b5053bf0e08376285fb4fca1bf0555ed2f21d1bc7d12ab",
+      "streams": {
+        "Header2": {
+          "bytes": 456,
+          "sha256": "ddee25ae9213babc31099c94ab60f1f86c9f0ae3c243e7ee6ab3ccdd067cb505",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 12,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 3,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 456,
+          "sha256": "996561924fdac017cd01bb725f2ecba085126d4a71615337a6f141cc75ae6625",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 12,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0": {
+          "bytes": 21134,
+          "sha256": "6900599d9dc4044263a8e97d9ad419718d8555519e4c9576ad9f7d64e32cfd84",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 3,
+          "map_count": 82,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "76ca8811bfb8aad707a490845e6bd07d11b3547ed358747852d5459406a72003",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 10,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Definition": {
+          "bytes": 549,
+          "sha256": "dde77db7f5c2acf5e0c0bb72048cb9d4e5524588509db35ecb489ff836bf858b",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 7,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15390,
+          "sha256": "a56c55e44dea1241ccb405f9e841daab80e48cf8b16b0b7e40993c452545a89c",
+          "passed": true,
+          "seeded_map_count": 82,
+          "roots": 19,
+          "tail": 0,
+          "identical": true,
+          "map_base": 82,
+          "map_count": 204,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        }
+      }
+    }
+  ],
+  "generated_outputs": 2,
+  "complete_archive_comparisons": 16,
+  "passed": true
+}
