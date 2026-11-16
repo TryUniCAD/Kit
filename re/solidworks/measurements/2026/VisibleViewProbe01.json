@@ -29,7 +29,7 @@
       "phases": [
         {
           "phase": "open-save",
-          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\EndHeldoutTools01\\Inputs\\H01Forward.SLDPRT",
+          "source": "EndHeldoutTools01/Inputs/H01Forward.SLDPRT",
           "source_sha256": "d01da999e8cd156f3af62fe21eee8e362bddb5a7aca4c88e6e6775c371e2b842",
           "passed": true,
           "oracle_identity": {
@@ -605,7 +605,7 @@
             ],
             "scale2": 1.0
           },
-          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\VisibleViewProbe01\\ViewBaseline\\open-save\\ViewBaselineViewSaved.SLDPRT",
+          "saved_path": "VisibleViewProbe01/ViewBaseline/open-save/ViewBaselineViewSaved.SLDPRT",
           "saved_sha256": "1c29bb3c7146f7b0564cba71bab9f088080426d9cdeb5cfd43d77b5954ef5aae",
           "saved_bytes": 64471,
           "after_save_pose": {
@@ -1011,7 +1011,7 @@
         },
         {
           "phase": "fresh-reopen",
-          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\VisibleViewProbe01\\ViewBaseline\\open-save\\ViewBaselineViewSaved.SLDPRT",
+          "source": "VisibleViewProbe01/ViewBaseline/open-save/ViewBaselineViewSaved.SLDPRT",
           "source_sha256": "1c29bb3c7146f7b0564cba71bab9f088080426d9cdeb5cfd43d77b5954ef5aae",
           "passed": true,
           "oracle_identity": {
@@ -1587,7 +1587,7 @@
             ],
             "scale2": 1.0
           },
-          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\VisibleViewProbe01\\ViewBaseline\\fresh-reopen\\ViewBaselineViewSaved.SLDPRT",
+          "saved_path": "VisibleViewProbe01/ViewBaseline/fresh-reopen/ViewBaselineViewSaved.SLDPRT",
           "saved_sha256": "399ea27008934d31a1cffaa05602cfb5c72bc854e1bef5ad286d7c0bad81ac41",
           "saved_bytes": 64760,
           "after_save_pose": {
@@ -2120,7 +2120,7 @@
       "phases": [
         {
           "phase": "open-save",
-          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\EndHeldoutTools01\\Inputs\\H01Forward.SLDPRT",
+          "source": "EndHeldoutTools01/Inputs/H01Forward.SLDPRT",
           "source_sha256": "d01da999e8cd156f3af62fe21eee8e362bddb5a7aca4c88e6e6775c371e2b842",
           "passed": false,
           "oracle_identity": {
@@ -2820,7 +2820,7 @@
       "phases": [
         {
           "phase": "open-save",
-          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\EndHeldoutTools01\\Inputs\\H01Forward.SLDPRT",
+          "source": "EndHeldoutTools01/Inputs/H01Forward.SLDPRT",
           "source_sha256": "d01da999e8cd156f3af62fe21eee8e362bddb5a7aca4c88e6e6775c371e2b842",
           "passed": true,
           "oracle_identity": {
@@ -3396,7 +3396,7 @@
             ],
             "scale2": 37.173
           },
-          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\VisibleViewProbe01\\ViewScale\\open-save\\ViewScaleViewSaved.SLDPRT",
+          "saved_path": "VisibleViewProbe01/ViewScale/open-save/ViewScaleViewSaved.SLDPRT",
           "saved_sha256": "2ebdc0582cba40ad30f4735d3cc54b55364a1765254ce62e96b2a6c5bfad125a",
           "saved_bytes": 64961,
           "after_save_pose": {
@@ -3802,7 +3802,7 @@
         },
         {
           "phase": "fresh-reopen",
-          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\VisibleViewProbe01\\ViewScale\\open-save\\ViewScaleViewSaved.SLDPRT",
+          "source": "VisibleViewProbe01/ViewScale/open-save/ViewScaleViewSaved.SLDPRT",
           "source_sha256": "2ebdc0582cba40ad30f4735d3cc54b55364a1765254ce62e96b2a6c5bfad125a",
           "passed": true,
           "oracle_identity": {
@@ -4378,7 +4378,7 @@
             ],
             "scale2": 37.173
           },
-          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\VisibleViewProbe01\\ViewScale\\fresh-reopen\\ViewScaleViewSaved.SLDPRT",
+          "saved_path": "VisibleViewProbe01/ViewScale/fresh-reopen/ViewScaleViewSaved.SLDPRT",
           "saved_sha256": "28339d45743d8d589f77f64d51dab33aa39363e38309f019d44f0eb650264f61",
           "saved_bytes": 64442,
           "after_save_pose": {
@@ -4911,7 +4911,7 @@
       "phases": [
         {
           "phase": "open-save",
-          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\EndHeldoutTools01\\Inputs\\H01Forward.SLDPRT",
+          "source": "EndHeldoutTools01/Inputs/H01Forward.SLDPRT",
           "source_sha256": "d01da999e8cd156f3af62fe21eee8e362bddb5a7aca4c88e6e6775c371e2b842",
           "passed": true,
           "oracle_identity": {
@@ -5487,7 +5487,7 @@
             ],
             "scale2": 1.0
           },
-          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\VisibleViewProbe01\\ViewTranslate\\open-save\\ViewTranslateViewSaved.SLDPRT",
+          "saved_path": "VisibleViewProbe01/ViewTranslate/open-save/ViewTranslateViewSaved.SLDPRT",
           "saved_sha256": "7cb0c4e335d37859210b3465521f46af3ae70515c6c296c3d87e939f7d6fd33b",
           "saved_bytes": 64685,
           "after_save_pose": {
@@ -5893,7 +5893,7 @@
         },
         {
           "phase": "fresh-reopen",
-          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\VisibleViewProbe01\\ViewTranslate\\open-save\\ViewTranslateViewSaved.SLDPRT",
+          "source": "VisibleViewProbe01/ViewTranslate/open-save/ViewTranslateViewSaved.SLDPRT",
           "source_sha256": "7cb0c4e335d37859210b3465521f46af3ae70515c6c296c3d87e939f7d6fd33b",
           "passed": true,
           "oracle_identity": {
@@ -6469,7 +6469,7 @@
             ],
             "scale2": 1.0
           },
-          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\VisibleViewProbe01\\ViewTranslate\\fresh-reopen\\ViewTranslateViewSaved.SLDPRT",
+          "saved_path": "VisibleViewProbe01/ViewTranslate/fresh-reopen/ViewTranslateViewSaved.SLDPRT",
           "saved_sha256": "690b37928f6923a57a7e2974da48038ac180c168bf0a81b692733201b8ec0873",
           "saved_bytes": 65152,
           "after_save_pose": {
@@ -7002,7 +7002,7 @@
       "phases": [
         {
           "phase": "open-save",
-          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\EndHeldoutTools01\\Inputs\\H01Forward.SLDPRT",
+          "source": "EndHeldoutTools01/Inputs/H01Forward.SLDPRT",
           "source_sha256": "d01da999e8cd156f3af62fe21eee8e362bddb5a7aca4c88e6e6775c371e2b842",
           "passed": false,
           "oracle_identity": {
@@ -8434,5 +8434,5 @@
   },
   "license_process_ids_unchanged": true,
   "postflight_no_cad_process": true,
-  "path_projection": "External guest paths are relative to the research output root; native executable path reduced to filename; full original API arrays retained externally with their fingerprints"
+  "path_projection": "Forward-slash and Windows UNC guest paths are relative to the research output root; executable path reduced to filename; original raw report and API arrays retained externally with their fingerprints"
 }

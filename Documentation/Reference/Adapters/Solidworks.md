@@ -327,9 +327,9 @@ prepares the eight native-saved derivatives with the bounded container/privacy h
 The [saved view-state observer](../../Changes/Solidworks/Inspection/Presentation/SolidworksSavedViewStateInspection.md)
 reports both document transforms and the two transforms in each user splitter cell, with hashed personal labels. Remote decoding passes 72 complete archive comparisons, sixteen document transforms and 48 per-user cell transforms, all identity. The native default setter forwards to transform assignment. The higher-level active-camera mapping remains unproven and is not inferred from these hidden-session observations, field names or historical 2025 data.
 The [visible native intervention probe](../../Changes/Solidworks/Inspection/Presentation/SolidworksVisibleViewInterventions.md)
-separates orientation, translation and scale changes on unchanged generated input and requires native save/fresh-reopen readback between healthy controls. New outcomes remain pending; these are training measurements and add no writer or held-out acceptance.
+separates orientation, translation and scale changes on unchanged generated input. All five cases and ten native save/fresh-reopen phases pass with exact pose persistence and healthy controls; these training measurements add no writer or held-out acceptance.
 Its [fixture preparer](../../Changes/Solidworks/Inspection/Presentation/SolidworksViewProbeReaderFixtures.md)
-requires a passing five-case batch and prepares all ten saved derivatives with original API poses and intact source chains, bounded metadata redaction and individually reviewed previews. Complete archive/graph decoding remains a separate remote step.
+prepares all ten saved derivatives with original API poses and intact source chains: 400 retained streams, 190 bounded metadata replacements and ten reviewed previews. Four distinct native API requests share one PNG, so a saved preview is not treated as active viewport proof. Complete archive/graph decoding remains a separate remote step.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
