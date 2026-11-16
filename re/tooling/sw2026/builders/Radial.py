@@ -145,7 +145,7 @@ def circle_dimension(*, graph, mode, text_point_m, allocator, design_intent, sel
     parameter = parameter_node(profile=graph.profile, value=value)
     dimension = value_dimension(profile=graph.profile, parameter=parameter, arc=arc, arcs=sketch["_arc_nodes"], diameter=mode == "diameter", allocator=allocator)
     values = NodeOrder(nodes=(dimension,))
-    sketch["dims"]["val_g1"].append({"d": dimension.f})
+    sketch["dims"]["val_g1"].append({"d": dimension})
     arc["_constraints"] = (dimension,)
     del arc.f["f20"]
     arc.f.derived["f20"] = lambda: len(arc["_constraints"])

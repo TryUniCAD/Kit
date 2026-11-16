@@ -70,6 +70,8 @@ def snapshot(author, case, factor=1.0):
     require(feature is not None, "generated circle sketch feature is missing")
     require(str(author.get(feature, "GetTypeName2")) == "ProfileFeature", "generated circle is not an ordinary native profile")
     author.sketch = author.get(feature, "GetSpecificFeature2")
+    constrained_status = int(author.get(author.sketch, "GetConstrainedStatus"))
+    require(constrained_status not in (4, 5, 6, 7), f"generated circle has unacceptable constraint state {constrained_status}")
     geometry = author.geometry()
     require(len(geometry) == 1 and geometry[0]["kind"] == "circle" and not geometry[0]["construction"], "generated sketch is not exactly one ordinary circle")
     for index, expected in enumerate(document["center_m"]):
@@ -81,7 +83,7 @@ def snapshot(author, case, factor=1.0):
     require(features and all(row.get("error") == 0 and row.get("warning") is False and not row.get("error_query_error") for row in features), "native feature tree has errors or warnings")
     require(not any(row["type"] == "Extrusion" for row in features), "sketch rung must not contain an extrusion")
     transform = author.get(author.sketch, "ModelToSketchTransform")
-    result = {"geometry": geometry, "bodies": 0, "whats_wrong": wrong, "features": features, "model_to_sketch_transform": list(author.get(transform, "ArrayData")), "frame": check_frame(author, document)}
+    result = {"geometry": geometry, "bodies": 0, "whats_wrong": wrong, "features": features, "constraint_status": constrained_status, "model_to_sketch_transform": list(author.get(transform, "ArrayData")), "frame": check_frame(author, document)}
     if "circle_dimension" in document:
         result["radial"] = driving_dimension(author, case, feature, factor)
     return result
