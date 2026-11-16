@@ -329,7 +329,20 @@ def run_load(ops, ar, scope, o):
             op.load(ar, scope, o)
         else:
             with usage.operation(op, index, scope):
-                op.load(ar, scope, o)
+                try:
+                    op.load(ar, scope, o)
+                except ArchiveError as error:
+                    if not hasattr(error, "details"):
+                        fields = getattr(scope, "own", scope)
+                        error.details = {
+                            "schema_path": list(usage.schemas),
+                            "operation_path": list(usage.operations),
+                            "object_class": o.cls if isinstance(o, Obj) else None,
+                            "cursor": ar.p, "remaining": ar.left(),
+                            "fields": {key: value for key, value in fields.items() if isinstance(value, (int, float))},
+                            "counts": {key: len(value) for key, value in fields.items() if isinstance(value, list)},
+                        }
+                    raise
 
 
 def run_store(ops, ar, scope, o):

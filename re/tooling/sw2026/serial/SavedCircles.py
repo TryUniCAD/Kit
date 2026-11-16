@@ -161,8 +161,6 @@ def fixture_inputs():
             "radial_factor": phase["saved_factor"], "depth_factor": phase["saved_depth_factor"],
         }
         require(item["expected"] == targets, "prepared semantic targets differ from independent neutral requests and native edit factors")
-        item["expected"]["sketch_name"] = "Sketch1"
-        item["expected"]["extrusion_name"] = "Boss-Extrude1"
     return manifest, proof, records
 
 
