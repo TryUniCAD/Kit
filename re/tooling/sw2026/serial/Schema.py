@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import inspect
 from collections import Counter
 from contextlib import contextmanager
 
@@ -62,17 +61,14 @@ class Usage:
     def raw(self, op, ar, o, declared):
         if callable(op.n):
             code = getattr(op.n, "__code__", None)
-            try:
-                source = inspect.getsource(op.n).strip()
-            except (OSError, TypeError):
-                source = None
             rule = {
                 "kind": "callable",
                 "module": getattr(op.n, "__module__", None),
                 "name": getattr(op.n, "__qualname__", type(op.n).__qualname__),
                 "source_file": getattr(code, "co_filename", None),
                 "source_line": getattr(code, "co_firstlineno", None),
-                "source": source,
+                "source": None,
+                "source_status": "not read during archive execution",
             }
         else:
             rule = {"kind": "constant", "value": op.n}

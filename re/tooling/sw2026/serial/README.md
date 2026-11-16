@@ -24,6 +24,8 @@ SHA-256 and disclose provisional schemas.
 
 Each stream records separate load and store schema usage, call routes, source-buffer
 candidates and reached `Raw` operations with their length rules and observed byte counts.
+Callable rules identify their in-memory module, source path and line without opening
+the source file. Their source-text field stays null; inspect the named schema separately.
 Started phases record whether they completed; failed or unstarted operations cannot
 claim proven schema admission. File and invocation summaries include dependency reads.
 `provisional_schemas` retains the whole registry inventory; `used_provisional_schemas`

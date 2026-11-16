@@ -81,9 +81,10 @@ Concurrent operations sharing one registry are outside this instrumentation's sc
 
 Every reached `Raw` operation reports its owning schema, concrete object class, field and nested operation path.
 The record includes its constant or callable length rule, declared length, observed byte count and completion state.
-Callable rules identify their module, function, source file and line.
-The report includes the independently authored Python source when available.
-Unavailable source remains null rather than receiving an invented formula.
+Callable rules identify their module, function, source file and line from the in-memory callable.
+The report never reads source files during archive execution.
+`source` remains null and `source_status` states that boundary.
+Use the referenced independently authored schema definition to inspect its formula.
 The recorder does not invoke the length callable a second time.
 
 This includes native byte-array schemas implemented with `Raw`, such as `su_CByteArray` and counted native arrays.
@@ -107,7 +108,13 @@ The caller audit found that current custom entry points construct or forward tag
 The generic dispatch instrumentation also permits direct schemas whose operations do not require a tagged object context.
 Both draft Python files passed AST parsing.
 No schema module, CAD file, corpus fixture or local test was executed during this change.
-The authorized remote process-boundary fixture run and resulting evidence remain pending.
+The [first remote process run](https://github.com/TryUniCAD/Kit/actions/runs/43784683947/job/133029564572)
+on `6047d1d5594210cdfbe13b2c3aea45e5105b866f` passed the existing source-archive round trips
+but failed two fresh-construction checks: callable source inspection attempted eight
+reads of `ResolvedDims.py` inside each guarded construction process.
+The [source-inspection gotcha](../../../Gotchas/Conversion/Solidworks/Archive/SourceInspectionCanReadDuringConstruction.md)
+records the cause and repair. Removing source retrieval preserves those read-denial assertions.
+Fresh construction and full remote verification of the repair remain pending.
 No native load, rebuild, edit, geometry or writer acceptance is claimed.
 
 The [CAD success criteria](../../../Reference/Operations/CadSuccessCriteria.md) retain both stopping conditions:
