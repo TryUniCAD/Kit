@@ -277,10 +277,11 @@ The [corrected training repeat](../../Changes/Solidworks/Inspection/Sketches/Sol
 records two native authoring cases and fresh-process radius/diameter edits with forty-six matching numeric checks.
 These observations retain separate source, process, observer and control evidence; they provide no generated-output acceptance.
 The [public circle dispatch probe](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleApiDispatchProbe.md)
-adds an independently pinned observation of the actual forwarded COM call target; its new native run remains pending.
+adds an independently pinned observation site for the forwarded COM target; its controlled run installed all hooks but emitted no required public-dispatch event and remains unqualified.
 The [single-circle sketch synthesis](../../Changes/Solidworks/Model/SolidworksCircleSketchSynthesis.md)
-adds a constructor-derived research graph with computed topology, IDs and counts. Remote process and native sketch measurements remain pending; no radial dimension or circle extrusion is enabled.
-Fresh training measurements remain pending.
+adds a constructor-derived research graph with computed topology, IDs and counts. Two remote process candidates passed strict archive comparisons and file-read guards; native sketch measurements remain pending, and no radial dimension or circle extrusion is enabled.
+The [controlled circle sketch inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleSketchInspection.md)
+checks local geometry, authored plane, zero-body topology, rebuild state, save and fresh-process reopen between controls. Its first native run remains pending.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

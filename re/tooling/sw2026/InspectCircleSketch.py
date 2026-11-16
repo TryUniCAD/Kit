@@ -1,0 +1,162 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import sys
+import time
+from pathlib import Path
+
+import AuthorCurves
+import Swapp
+from InspectFresh import healthy, inspect
+from OracleIdentity import application_identity
+
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def check_frame(author, document):
+    utility = author.get(author.app, "GetMathUtility")
+    inverse = author.get(author.get(author.sketch, "ModelToSketchTransform"), "Inverse")
+    bases = {
+        "z": ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0)),
+        "x": ((0.0, 0.0, -1.0), (0.0, 1.0, 0.0)),
+        "y": ((1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
+    }
+    u, v = bases[document["plane_axis"]]
+    observations = {}
+    for label, point, expected in (("origin", [0.0, 0.0, 0.0], (0.0, 0.0, 0.0)), ("u", [1.0, 0.0, 0.0], u), ("v", [0.0, 1.0, 0.0], v)):
+        native = author.get(utility, "CreatePoint", Swapp.VARIANT(Swapp.pythoncom.VT_ARRAY | Swapp.pythoncom.VT_R8, point))
+        world = [float(value) for value in author.get(author.get(native, "MultiplyTransform", inverse), "ArrayData")]
+        AuthorCurves.require(len(world) == 3, "native frame point has wrong cardinality")
+        for axis, value in enumerate(expected):
+            author.rec.close_number(f"frame {label} {axis}", world[axis], value)
+        observations[label] = world
+    return observations
+
+
+def snapshot(author, case):
+    require = AuthorCurves.require
+    require(bool(author.get(author.model, "ForceRebuild3", False)), "circle sketch rebuild returned failure")
+    wrong = int(author.get(author.get(author.model, "Extension"), "GetWhatsWrongCount"))
+    require(wrong == 0, f"circle sketch has {wrong} rebuild problems")
+    document = case["request"]["document"]
+    feature = author.get(author.model, "FeatureByName", document["sketch_name"])
+    require(feature is not None, "generated circle sketch feature is missing")
+    require(str(author.get(feature, "GetTypeName2")) == "ProfileFeature", "generated circle is not an ordinary native profile")
+    author.sketch = author.get(feature, "GetSpecificFeature2")
+    geometry = author.geometry()
+    require(len(geometry) == 1 and geometry[0]["kind"] == "circle" and not geometry[0]["construction"], "generated sketch is not exactly one ordinary circle")
+    for index, expected in enumerate(document["center_m"]):
+        author.rec.close_number(f"center {index}", geometry[0]["center"][index], expected)
+    author.rec.close_number("radius", geometry[0]["radius"], document["radius_m"])
+    body_objects = author.get(author.model, "GetBodies2", 0, False) or []
+    require(len(body_objects) == 0, "sketch-only candidate unexpectedly has solid bodies")
+    features = author.rec.call("native feature tree", Swapp.features, author.model)
+    require(features and all(row.get("error") == 0 and row.get("warning") is False and not row.get("error_query_error") for row in features), "native feature tree has errors or warnings")
+    require(not any(row["type"] == "Extrusion" for row in features), "sketch rung must not contain an extrusion")
+    transform = author.get(author.sketch, "ModelToSketchTransform")
+    return {"geometry": geometry, "bodies": 0, "whats_wrong": wrong, "features": features, "model_to_sketch_transform": list(author.get(transform, "ArrayData")), "frame": check_frame(author, document)}
+
+
+def run_phase(case, phase, source, output, expected_oracle, checkpoint):
+    directory = output / case["name"] / phase
+    directory.mkdir(parents=True, exist_ok=False)
+    rec = AuthorCurves.Recorder(directory / "Record.json", {"case": case, "phase": phase})
+    controller = None
+    author = None
+    result = {"phase": phase, "source": str(source), "source_sha256": digest(source), "passed": False}
+    with Swapp.Dismisser() as dialogs:
+        try:
+            rec.call("fresh oracle idle guard", Swapp.sweep)
+            controller = rec.call("start owned oracle", Swapp.Sw)
+            identity = rec.call("oracle executable identity", application_identity, controller.app)
+            AuthorCurves.require(identity["version_matches"] and identity["sha256"] == expected_oracle and controller.revision == "34.5.2", "circle sketch oracle identity differs")
+            result["oracle_identity"] = identity
+            author = AuthorCurves.CurveAuthor(controller.app, rec, Swapp)
+            author.model, errors, warnings = rec.call("open generated circle sketch", controller.open, source)
+            AuthorCurves.require(author.model is not None and errors == warnings == 0, f"circle sketch load failed or warned: {errors}, {warnings}")
+            result.update(open_errors=errors, open_warnings=warnings, snapshot=snapshot(author, case))
+            saved = directory / (case["name"] + "Saved.SLDPRT")
+            save_result = rec.call("save circle sketch copy", controller.save_as, author.model, saved)
+            AuthorCurves.require(save_result == (True, 0, 0), f"circle sketch save failed or warned: {save_result}")
+            result.update(saved_path=str(saved), saved_sha256=digest(saved), saved_bytes=saved.stat().st_size)
+            result["passed"] = True
+        except Exception as error:
+            rec.failure(error)
+            result["exception"] = repr(error)
+        finally:
+            try:
+                if author is not None and author.model is not None:
+                    rec.call("close owned circle sketch", controller.close_doc, author.model)
+                    author.model = None
+            except Exception as error:
+                rec.failure(error, cleanup=True)
+            finally:
+                if controller is not None:
+                    try:
+                        controller.close()
+                    except Exception as error:
+                        rec.failure(error, cleanup=True)
+                    result["controller_diagnostics"] = controller.diagnostics
+    result.update(dialogs=dialogs.log, progress_windows=dialogs.progress)
+    result["source_immutable"] = digest(source) == result["source_sha256"]
+    result["passed"] = result["passed"] and result["source_immutable"] and rec.data["first_failure"] is None and not rec.data["cleanup_errors"] and not result.get("controller_diagnostics") and not result["dialogs"]
+    rec.data.update(passed=result["passed"], sketch_result=result, finished_at=time.time())
+    rec.flush()
+    checkpoint()
+    return result
+
+
+def main():
+    source = Path(sys.argv[1])
+    job = json.loads(source.read_bytes())
+    output = Path(job["output"])
+    root = Path(job["checkout_root"]).resolve()
+    AuthorCurves.require(not output.resolve().is_relative_to(root), "oracle output must be outside the checkout")
+    output.mkdir(parents=True, exist_ok=False)
+    control = Path(job["control"])
+    AuthorCurves.require(digest(control) == job["control_sha256"], "native control identity changed")
+    result = {"schema": "kit.sw2026.circle-sketch-inspection.v1", "scope": "single-entity sketch synthesis rung only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
+    def checkpoint():
+        (output / "Inspection.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    checkpoint()
+    before = {"kind": "control_before"}
+    result["controls"].append(before)
+    inspect(control, result=before, checkpoint=checkpoint)
+    before["healthy"] = healthy(before) and before["oracle_identity"]["sha256"] == job["oracle_sha256"]
+    try:
+        if before["healthy"]:
+            for case in job["cases"]:
+                path = Path(case["path"])
+                AuthorCurves.require(digest(path) == case["sha256"], "generated source identity changed")
+                record = {"name": case["name"], "phases": []}
+                result["cases"].append(record)
+                first = run_phase(case, "open-save", path, output, job["oracle_sha256"], checkpoint)
+                record["phases"].append(first)
+                if first["passed"]:
+                    second = run_phase(case, "fresh-reopen", Path(first["saved_path"]), output, job["oracle_sha256"], checkpoint)
+                    record["phases"].append(second)
+                    one, two = first["oracle_identity"], second["oracle_identity"]
+                    record["fresh_process"] = one["process_id"] != two["process_id"] and one["process_creation_filetime"] != two["process_creation_filetime"]
+                record["passed"] = len(record["phases"]) == 2 and record.get("fresh_process") is True and all(row["passed"] for row in record["phases"])
+                checkpoint()
+    except Exception as error:
+        result["exception"] = repr(error)
+    finally:
+        after = {"kind": "control_after"}
+        result["controls"].append(after)
+        inspect(control, result=after, checkpoint=checkpoint)
+        after["healthy"] = healthy(after) and after["oracle_identity"]["sha256"] == job["oracle_sha256"]
+        result["controls_healthy"] = len(result["controls"]) == 2 and all(row.get("healthy") for row in result["controls"])
+        result["control_immutable"] = digest(control) == job["control_sha256"]
+        result["passed"] = result["controls_healthy"] and result["control_immutable"] and bool(job["cases"]) and len(result["cases"]) == len(job["cases"]) and all(row.get("passed") is True for row in result["cases"]) and not result.get("exception")
+        result["finished_at"] = time.time()
+        checkpoint()
+    print(json.dumps({"passed": result["passed"], "cases": len(result["cases"]), "native_acceptance": False}))
+    return 0 if result["passed"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

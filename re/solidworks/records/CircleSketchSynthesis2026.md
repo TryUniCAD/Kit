@@ -1,6 +1,6 @@
 # Single-circle sketch construction, first synthesis rung
 
-Status: constructor-derived research graph; remote process execution and native measurement pending. No circle-family or production writer acceptance is established.
+Status: constructor-derived research graph with two remote guarded process candidates; native measurement pending. No circle-family or production writer acceptance is established.
 
 The target remains SOLIDWORKS 2026 SP05.2, executable `34.5.2.0604`. The [curve construction record](CurvedSketchConstruction2026.md) binds original model module SHA-256 `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`, native constructors, complete serializers, array ownership, handle encoding, local-reference scanning and ID/stamp operations. The [adjacency record](CircleAdjacencyRegistration2026.md) closes deduplication independently of observed source rows.
 
@@ -31,4 +31,4 @@ The new graph has no fixed-center constraint or radial value/display dimension. 
 
 Entity color/status `f30/f34` and sketch `f128/f12c` retain their documented constructor states. Their saved neutrality, complete solve/stamp effects, native profile scheduling and application behavior must be established independently. Current source graphs and prior polygon rebuilds cannot establish those circle results. Native measurements must record load/rebuild state, exact circle geometry, feature tree, controls, save and fresh reopen before advancing this family up the synthesis ladder.
 
-The source family was locked before this code. All six held-out payloads remain unopened. The first process candidates are independent authored coordinates/radii and remain unqualified research outputs until the appropriate oracle results exist.
+The source family was locked before this code. All six held-out payloads remain unopened. The [first remote process receipt](../measurements/2026/CircleSketchProcesses814f5f8.json) binds two independent authored centers/radii, both principal planes, sixteen complete archive comparisons, file-read guards and exact generated hashes. The source revision is `814f5f82e0e8ac57a4b45f27193ca68fd17e01ef`, tested merge `927b55cb26ef30996270ade05fed48bcaf7836bf`; both parents were checked against GitHub. Native application behavior remains unqualified until controlled load, rebuild, geometry, save and fresh-reopen measurements exist.
