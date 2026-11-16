@@ -1,0 +1,1156 @@
+{
+  "schema": "kit.sw2026.mfc-runtime-view-publication.v1",
+  "status": "owned_runtime_view_inspected_no_count_rule_admission",
+  "scope": "metadata from the owner-run Python process only; no instruction-set, complete-function, native count-rule or CAD acceptance proof",
+  "source_revision": "067f473f58b6ea804483ff54789c2e78c8e6a0b1",
+  "tool_sha256": "28b020eb429cef0ddc279556ac0b6c922ec7b24ebf28d15855403f6424dc52f1",
+  "source_inputs": [
+    {
+      "source": "MfcRuntimeView02/Inventory.json",
+      "bytes": 16346,
+      "sha256": "2f85846bb67f141d309031b4a8935a212f7f06528e6dddf52e9cedcc9816a398"
+    },
+    {
+      "source": "MfcRuntimeView02.Host.json",
+      "bytes": 3916,
+      "sha256": "e1e4cc02e029ff91dec228ed2345a4f398d428474d69e542349f19b0d509d82f"
+    },
+    {
+      "source": "MfcRuntimeTools02/SourceManifest.json",
+      "bytes": 784,
+      "sha256": "9ff9f8676bf27732adf27ec04d8331799606870c3fdb67f671e72ead842c891c"
+    }
+  ],
+  "source_manifest_at_freeze_time": {
+    "schema": "kit.sw2026.frozen-runtime-probe-tools.v1",
+    "created_at": "2026-11-16T04:02:51.521609+00:00",
+    "source_revision": "067f473f58b6ea804483ff54789c2e78c8e6a0b1",
+    "files": [
+      {
+        "file": "InspectMfcRuntime.py",
+        "bytes": 18739,
+        "sha256": "28b020eb429cef0ddc279556ac0b6c922ec7b24ebf28d15855403f6424dc52f1"
+      },
+      {
+        "file": "InspectMfcFiles.py",
+        "bytes": 22237,
+        "sha256": "195a0d90fe26169b31e87234910af29b2b1f5289b58d29a2e91cafca62602960"
+      }
+    ],
+    "guest_probe_executed": false,
+    "causal_change": "dedicated actual-process machine query plus mapped own-executable identity; first failure retained unchanged",
+    "scope": "owned Python runtime-view inspection; no archive method, CAD, COM, existing-process or service actions"
+  },
+  "source_binding": {
+    "inventory_and_manifest_revision_match": true,
+    "tool_files": [
+      {
+        "file": "InspectMfcRuntime.py",
+        "bytes": 18739,
+        "sha256": "28b020eb429cef0ddc279556ac0b6c922ec7b24ebf28d15855403f6424dc52f1",
+        "frozen_and_committed_source_equal": true
+      },
+      {
+        "file": "InspectMfcFiles.py",
+        "bytes": 22237,
+        "sha256": "195a0d90fe26169b31e87234910af29b2b1f5289b58d29a2e91cafca62602960",
+        "frozen_and_committed_source_equal": true
+      }
+    ],
+    "source_manifest_guest_probe_executed_false_is_freeze_time_only": true,
+    "later_probe_execution_is_documented_by_completed_inventory": true,
+    "source_manifests_modified": false
+  },
+  "inventory": {
+    "schema": "kit.sw2026.mfc-runtime-view.v1",
+    "state": "completed",
+    "started_at": "2026-11-16T04:02:57.669653+00:00",
+    "source_revision": "067f473f58b6ea804483ff54789c2e78c8e6a0b1",
+    "tool_sha256": "28b020eb429cef0ddc279556ac0b6c922ec7b24ebf28d15855403f6424dc52f1",
+    "argv": [
+      "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools02/InspectMfcRuntime.py",
+      "--inventory",
+      "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+      "--output",
+      "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+      "--source-revision",
+      "067f473f58b6ea804483ff54789c2e78c8e6a0b1"
+    ],
+    "python": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]",
+    "python_executable": "<OWNED_PYTHON_EXECUTABLE>",
+    "process_id": 8704,
+    "process_architecture_verified": true,
+    "mapped_abi_view_verified": true,
+    "instruction_set_proven": false,
+    "native_implementation_bound": false,
+    "acceptance": false,
+    "archive_methods_invoked": false,
+    "private_ranges": [
+      {
+        "file": "MappedHeaders.private.bin",
+        "rva": 0,
+        "mapped_address": "0x7ff8442d0000",
+        "bytes": 1024,
+        "sha256": "dd453b341e966641d87c2274a8a350b354609b2965b35bcf7efce878c05adc54",
+        "full_function_extent_claimed": false
+      },
+      {
+        "file": "MappedExports.private.bin",
+        "rva": 9781616,
+        "mapped_address": "0x7ff844c24170",
+        "bytes": 112880,
+        "sha256": "f7ea2e7ba8bb9db475b41f53d1b5101a7f90e5c80497017f4a1b4c1b183b22e9",
+        "full_function_extent_claimed": false
+      },
+      {
+        "file": "MappedExceptionDirectory.private.bin",
+        "rva": 10437688,
+        "mapped_address": "0x7ff844cc4438",
+        "bytes": 180,
+        "sha256": "044a38ee12431efda2a522b194227905d4fa1a308085dca8a9a3d757a82724fa",
+        "full_function_extent_claimed": false
+      },
+      {
+        "file": "MappedLoadConfig.private.bin",
+        "rva": 7335216,
+        "mapped_address": "0x7ff8449ced30",
+        "bytes": 320,
+        "sha256": "07f8ee3e6d4a5eea53edec37553de03831c45291cf74ec7f9291da6c11e9f281",
+        "full_function_extent_claimed": false
+      },
+      {
+        "file": "Ordinal12087Eat.private.bin",
+        "rva": 7064688,
+        "mapped_address": "0x7ff84498cc70",
+        "bytes": 4096,
+        "sha256": "a5d5698d96dd24dc2bd7069de51c80ac7839bf7d1dda30b86cdbea34f4c69af4",
+        "full_function_extent_claimed": false
+      },
+      {
+        "file": "Ordinal14278Eat.private.bin",
+        "rva": 7099248,
+        "mapped_address": "0x7ff844995370",
+        "bytes": 3728,
+        "sha256": "c98f03437a8d961fde6065c5c79452e24d7d5f7a430423f0fd6c53d5409d1e9a",
+        "full_function_extent_claimed": false
+      }
+    ],
+    "mapped_directories": {
+      "MappedExceptionDirectory": {
+        "rva": 10437688,
+        "bytes": 180,
+        "decoded": false
+      },
+      "MappedLoadConfig": {
+        "rva": 7335216,
+        "bytes": 320,
+        "decoded": false
+      }
+    },
+    "resolved_ordinals": [
+      {
+        "ordinal": 12087,
+        "mapped_eat_address": "0x7ff84498cc70",
+        "get_proc_address": "0x7ff84498cc70",
+        "matches_mapped_eat": true,
+        "eat_window": {
+          "file": "Ordinal12087Eat.private.bin",
+          "rva": 7064688,
+          "mapped_address": "0x7ff84498cc70",
+          "bytes": 4096,
+          "sha256": "a5d5698d96dd24dc2bd7069de51c80ac7839bf7d1dda30b86cdbea34f4c69af4",
+          "full_function_extent_claimed": false
+        }
+      },
+      {
+        "ordinal": 14278,
+        "mapped_eat_address": "0x7ff844995370",
+        "get_proc_address": "0x7ff844995370",
+        "matches_mapped_eat": true,
+        "eat_window": {
+          "file": "Ordinal14278Eat.private.bin",
+          "rva": 7099248,
+          "mapped_address": "0x7ff844995370",
+          "bytes": 3728,
+          "sha256": "c98f03437a8d961fde6065c5c79452e24d7d5f7a430423f0fd6c53d5409d1e9a",
+          "full_function_extent_claimed": false
+        }
+      }
+    ],
+    "stage": "finished",
+    "updated_at": "2026-11-16T04:02:57.891276+00:00",
+    "helper_sha256": "195a0d90fe26169b31e87234910af29b2b1f5289b58d29a2e91cafca62602960",
+    "discovery": {
+      "sha256": "67d0e37be1e2cabdf2e233c66d2654b3caa2dc1692ef285df76190b6eb0b0a87",
+      "source_revision": "401a1ce515ae58661fa2806891a532b5e0c927c9"
+    },
+    "process_architecture": {
+      "process_machine": "0x0",
+      "native_machine": "0xaa64",
+      "pointer_bytes": 8,
+      "machine_type_information": {
+        "information_class": 9,
+        "structure_bytes": 8,
+        "process_machine": "0x8664",
+        "machine_attributes": "0x1"
+      }
+    },
+    "python_file": {
+      "path": "<OWNED_PYTHON_EXECUTABLE>",
+      "bytes": 103704,
+      "sha256": "ca60cf785b2314a6d6599eced15bdf094e6db171bec996b97a70b995942c3c37",
+      "mtime_ns": 1727784272000000000,
+      "file_identity": {
+        "device": 14617216468782733369,
+        "inode": 844424930704092
+      },
+      "inspected_at": "2026-11-16T04:02:57.693940+00:00",
+      "pe": {
+        "machine": 34404,
+        "machine_hex": "0x8664",
+        "machine_is_amd64": true,
+        "optional_header_magic": 523,
+        "coff_timestamp_raw": 1727752182,
+        "version_resources": {
+          "directory_rva": 20480,
+          "directory_size": 80784,
+          "version_type_present": true,
+          "entries": [
+            {
+              "path": [
+                16,
+                1,
+                1033
+              ],
+              "data_rva": 100320,
+              "bytes": 944,
+              "sha256": "acb05aa90b4f9036ac5b703ea99b5c6cb6ed6e598c156f6d8518a7bbef628c87",
+              "code_page": 0,
+              "reserved": 0,
+              "fixed_info": {
+                "signature": 4277077181,
+                "structure_version": 65536,
+                "file_version_ms": 196620,
+                "file_version_ls": 468583413,
+                "product_version_ms": 196620,
+                "product_version_ls": 468583413,
+                "file_flags_mask": 63,
+                "file_flags": 0,
+                "file_os": 4,
+                "file_type": 1,
+                "file_subtype": 0,
+                "file_date_ms": 0,
+                "file_date_ls": 0,
+                "file_version_words": [
+                  3,
+                  12,
+                  7150,
+                  1013
+                ],
+                "file_version": "3.12.7150.1013",
+                "file_version_build_padded": "3.12.7150.1013",
+                "product_version_words": [
+                  3,
+                  12,
+                  7150,
+                  1013
+                ],
+                "product_version": "3.12.7150.1013",
+                "product_version_build_padded": "3.12.7150.1013"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "python_mapped_image": {
+      "path": "<OWNED_PYTHON_EXECUTABLE>",
+      "base": "0x7ff6ba5c0000",
+      "image_size": 106496,
+      "declared_image_size": 106496,
+      "machine": 34404,
+      "machine_hex": "0x8664",
+      "optional_header_magic": "0x20b",
+      "header_bytes": 1024,
+      "header_sha256": "965dbc6d5518780ca825a75986a6e428339fda92032befd6e7cc96829b6e5d1a",
+      "module_reference_acquired": false
+    },
+    "raw_file_before": {
+      "path": "<WINDOWS_SYSTEM32_MFC>",
+      "bytes": 12118600,
+      "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+      "mtime_ns": 1763794712000000000,
+      "file_identity": {
+        "device": 14617216468782733369,
+        "inode": 562949953792771
+      },
+      "inspected_at": "2026-11-16T04:02:57.795447+00:00",
+      "pe": {
+        "machine": 43620,
+        "machine_hex": "0xaa64",
+        "machine_is_amd64": false,
+        "optional_header_magic": 523,
+        "coff_timestamp_raw": 612637928,
+        "exports": {
+          "present": true,
+          "dll_name": "mfc140u.dll",
+          "directory_rva": 9894496,
+          "directory_size": 112876,
+          "timestamp_raw": 4294967295,
+          "version_major": 0,
+          "version_minor": 0,
+          "ordinal_base": 256,
+          "address_count": 14109,
+          "name_count": 0,
+          "ordinals": [
+            {
+              "ordinal": 12087,
+              "address_table_index": 11831,
+              "names": [],
+              "rva": 1390192,
+              "status": "file_backed_export",
+              "file_offset": 1387120,
+              "section": ".text",
+              "section_executable": true
+            },
+            {
+              "ordinal": 14278,
+              "address_table_index": 14022,
+              "names": [],
+              "rva": 2152640,
+              "status": "file_backed_export",
+              "file_offset": 2149568,
+              "section": ".text",
+              "section_executable": true
+            }
+          ]
+        },
+        "version_resources": {
+          "directory_rva": 10559488,
+          "directory_size": 1414752,
+          "version_type_present": true,
+          "entries": [
+            {
+              "path": [
+                16,
+                1,
+                1033
+              ],
+              "data_rva": 11943936,
+              "bytes": 872,
+              "sha256": "132751c1c53f46858d0cda348334c712a96b713d94a21a34c0b7bd84d01c9632",
+              "code_page": 0,
+              "reserved": 0,
+              "fixed_info": {
+                "signature": 4277077181,
+                "structure_version": 65536,
+                "file_version_ms": 917554,
+                "file_version_ls": 2340880384,
+                "product_version_ms": 917554,
+                "product_version_ls": 2340880384,
+                "file_flags_mask": 63,
+                "file_flags": 0,
+                "file_os": 4,
+                "file_type": 2,
+                "file_subtype": 0,
+                "file_date_ms": 0,
+                "file_date_ls": 0,
+                "file_version_words": [
+                  14,
+                  50,
+                  35719,
+                  0
+                ],
+                "file_version": "14.50.35719.0",
+                "file_version_build_padded": "14.50.35719.0000",
+                "product_version_words": [
+                  14,
+                  50,
+                  35719,
+                  0
+                ],
+                "product_version": "14.50.35719.0",
+                "product_version_build_padded": "14.50.35719.0000"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "preexisting_module_handle": null,
+    "module_loaded_by_probe": true,
+    "mapped_module_path": "<WINDOWS_SYSTEM32_MFC>",
+    "mapped_pe": {
+      "base": "0x7ff8442d0000",
+      "image_size": 12181504,
+      "declared_image_size": 12181504,
+      "preferred_image_base": "0x7ff8442d0000",
+      "machine": "0x8664",
+      "optional_header_magic": "0x20b",
+      "coff_timestamp_raw": 612637928,
+      "header_size": 1024,
+      "sections": [
+        {
+          "name": ".text",
+          "virtual_size": 6876662,
+          "rva": 4096,
+          "raw_size": 6876672,
+          "raw_offset": 1024,
+          "characteristics": 1610612768
+        },
+        {
+          "name": ".hexpthk",
+          "virtual_size": 221584,
+          "rva": 6881280,
+          "raw_size": 221696,
+          "raw_offset": 6877696,
+          "characteristics": 1610612768
+        },
+        {
+          "name": ".rdata",
+          "virtual_size": 2943656,
+          "rva": 7106560,
+          "raw_size": 2944000,
+          "raw_offset": 7099392,
+          "characteristics": 1073741888
+        },
+        {
+          "name": ".data",
+          "virtual_size": 156248,
+          "rva": 10051584,
+          "raw_size": 106496,
+          "raw_offset": 10043392,
+          "characteristics": 3221225536
+        },
+        {
+          "name": ".pdata",
+          "virtual_size": 226540,
+          "rva": 10211328,
+          "raw_size": 226816,
+          "raw_offset": 10149888,
+          "characteristics": 1073741888
+        },
+        {
+          "name": ".didat",
+          "virtual_size": 2728,
+          "rva": 10440704,
+          "raw_size": 3072,
+          "raw_offset": 10376704,
+          "characteristics": 3221225536
+        },
+        {
+          "name": ".a64xrm",
+          "virtual_size": 110800,
+          "rva": 10444800,
+          "raw_size": 111104,
+          "raw_offset": 10379776,
+          "characteristics": 1073741888
+        },
+        {
+          "name": ".rsrc",
+          "virtual_size": 1414752,
+          "rva": 10559488,
+          "raw_size": 1415168,
+          "raw_offset": 10490880,
+          "characteristics": 1073741888
+        },
+        {
+          "name": ".reloc",
+          "virtual_size": 202220,
+          "rva": 11976704,
+          "raw_size": 202240,
+          "raw_offset": 11906048,
+          "characteristics": 1107296320
+        }
+      ]
+    },
+    "mapped_exports": {
+      "present": true,
+      "dll_name": "mfc140u.dll",
+      "directory_rva": 9781616,
+      "directory_size": 112880,
+      "timestamp_raw": 612637928,
+      "version_major": 0,
+      "version_minor": 0,
+      "ordinal_base": 256,
+      "address_count": 14109,
+      "name_count": 0,
+      "ordinals": [
+        {
+          "ordinal": 12087,
+          "address_table_index": 11831,
+          "names": [],
+          "rva": 7064688,
+          "status": "mapped_export",
+          "section": ".hexpthk",
+          "section_executable": true,
+          "mapped_offset": 7064688
+        },
+        {
+          "ordinal": 14278,
+          "address_table_index": 14022,
+          "names": [],
+          "rva": 7099248,
+          "status": "mapped_export",
+          "section": ".hexpthk",
+          "section_executable": true,
+          "mapped_offset": 7099248
+        }
+      ]
+    },
+    "raw_file_after": {
+      "path": "<WINDOWS_SYSTEM32_MFC>",
+      "bytes": 12118600,
+      "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1",
+      "mtime_ns": 1763794712000000000,
+      "file_identity": {
+        "device": 14617216468782733369,
+        "inode": 562949953792771
+      },
+      "inspected_at": "2026-11-16T04:02:57.873825+00:00",
+      "pe": {
+        "machine": 43620,
+        "machine_hex": "0xaa64",
+        "machine_is_amd64": false,
+        "optional_header_magic": 523,
+        "coff_timestamp_raw": 612637928,
+        "exports": {
+          "present": true,
+          "dll_name": "mfc140u.dll",
+          "directory_rva": 9894496,
+          "directory_size": 112876,
+          "timestamp_raw": 4294967295,
+          "version_major": 0,
+          "version_minor": 0,
+          "ordinal_base": 256,
+          "address_count": 14109,
+          "name_count": 0,
+          "ordinals": [
+            {
+              "ordinal": 12087,
+              "address_table_index": 11831,
+              "names": [],
+              "rva": 1390192,
+              "status": "file_backed_export",
+              "file_offset": 1387120,
+              "section": ".text",
+              "section_executable": true
+            },
+            {
+              "ordinal": 14278,
+              "address_table_index": 14022,
+              "names": [],
+              "rva": 2152640,
+              "status": "file_backed_export",
+              "file_offset": 2149568,
+              "section": ".text",
+              "section_executable": true
+            }
+          ]
+        },
+        "version_resources": {
+          "directory_rva": 10559488,
+          "directory_size": 1414752,
+          "version_type_present": true,
+          "entries": [
+            {
+              "path": [
+                16,
+                1,
+                1033
+              ],
+              "data_rva": 11943936,
+              "bytes": 872,
+              "sha256": "132751c1c53f46858d0cda348334c712a96b713d94a21a34c0b7bd84d01c9632",
+              "code_page": 0,
+              "reserved": 0,
+              "fixed_info": {
+                "signature": 4277077181,
+                "structure_version": 65536,
+                "file_version_ms": 917554,
+                "file_version_ls": 2340880384,
+                "product_version_ms": 917554,
+                "product_version_ls": 2340880384,
+                "file_flags_mask": 63,
+                "file_flags": 0,
+                "file_os": 4,
+                "file_type": 2,
+                "file_subtype": 0,
+                "file_date_ms": 0,
+                "file_date_ls": 0,
+                "file_version_words": [
+                  14,
+                  50,
+                  35719,
+                  0
+                ],
+                "file_version": "14.50.35719.0",
+                "file_version_build_padded": "14.50.35719.0000",
+                "product_version_words": [
+                  14,
+                  50,
+                  35719,
+                  0
+                ],
+                "product_version": "14.50.35719.0",
+                "product_version_build_padded": "14.50.35719.0000"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "ambiguities": [],
+    "owned_module_reference_released": true,
+    "finished_at": "2026-11-16T04:02:57.891276+00:00"
+  },
+  "host_observation": {
+    "schema": "kit-sw2026-host-oracle-supervision/1",
+    "status": "transport_exited",
+    "started_at": "2026-11-16T04:02:57.740939+00:00",
+    "started_monotonic_ns": 1351921529435333,
+    "host_pid": 25698,
+    "host_platform": "darwin",
+    "python_version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "script": "<EXTERNAL_TASK_ROOT>/HostToolsD697/RunOracleBatch.py",
+    "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+    "supervisor_argv": [
+      "<EXTERNAL_TASK_ROOT>/HostToolsD697/RunOracleBatch.py",
+      "--vm",
+      "Windows 11",
+      "--progress-root",
+      "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+      "--no-progress-seconds",
+      "360",
+      "--overall-seconds",
+      "2400",
+      "--",
+      "<OWNED_PYTHON_EXECUTABLE>",
+      "-B",
+      "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools02/InspectMfcRuntime.py",
+      "--inventory",
+      "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+      "--output",
+      "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+      "--source-revision",
+      "067f473f58b6ea804483ff54789c2e78c8e6a0b1"
+    ],
+    "command_argv": [
+      "<HOST_PRLCTL>",
+      "exec",
+      "Windows 11",
+      "--current-user",
+      "<OWNED_PYTHON_EXECUTABLE>",
+      "-B",
+      "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools02/InspectMfcRuntime.py",
+      "--inventory",
+      "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+      "--output",
+      "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+      "--source-revision",
+      "067f473f58b6ea804483ff54789c2e78c8e6a0b1"
+    ],
+    "guest_argv": [
+      "<OWNED_PYTHON_EXECUTABLE>",
+      "-B",
+      "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools02/InspectMfcRuntime.py",
+      "--inventory",
+      "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+      "--output",
+      "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+      "--source-revision",
+      "067f473f58b6ea804483ff54789c2e78c8e6a0b1"
+    ],
+    "vm": "Windows 11",
+    "current_user": true,
+    "progress_root": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+    "report_path": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02.Host.json",
+    "stdout_path": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02.Host.json.stdout.log",
+    "stderr_path": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02.Host.json.stderr.log",
+    "limits_seconds": {
+      "no_progress": 360.0,
+      "overall": 2400.0,
+      "terminate_wait": 10.0,
+      "kill_wait": 10.0,
+      "poll": 1.0
+    },
+    "progress": {
+      "records": {},
+      "history": [],
+      "observation_errors": [],
+      "last_scan": {
+        "observed_monotonic_ns": 1351922537743416,
+        "observed_at": "2026-11-16T04:02:58.749218+00:00",
+        "present_records": []
+      }
+    },
+    "guest_state_unknown": true,
+    "acceptance": false,
+    "acceptance_scope": "research host transport observations only; inspect native batch and controls separately",
+    "automatic_guest_kill": false,
+    "automatic_vm_reset": false,
+    "automatic_retry": false,
+    "external_inventory_required_before_another_batch": false,
+    "transport_pid": 25699,
+    "last_poll_at": "2026-11-16T04:02:58.749057+00:00",
+    "last_poll_monotonic_ns": 1351922537520041,
+    "elapsed_ns": 1008468250,
+    "no_progress_elapsed_ns": 1008468250,
+    "transport_returncode": 0,
+    "transport_live": false,
+    "observer_thread_live": true,
+    "finished_at": "2026-11-16T04:02:58.749371+00:00",
+    "finished_monotonic_ns": 1351922537903583,
+    "transport_exit_confirmed": true,
+    "transport_stop_failed": false,
+    "supervisor_exit_code": 0
+  },
+  "verified_metadata_observations": {
+    "owned_process_id": 8704,
+    "process_machine_type_info": {
+      "information_class": 9,
+      "process_machine": "0x8664",
+      "machine_attributes_hex": "0x1",
+      "machine_attributes_integer": 1,
+      "structure_bytes": 8
+    },
+    "original_is_wow64_process2": {
+      "process_machine": "0x0",
+      "native_machine": "0xaa64"
+    },
+    "raw_and_mapped_owned_python_machine": "0x8664",
+    "mapped_mfc_machine": "0x8664",
+    "raw_mfc_machine": "0xaa64",
+    "raw_mfc_before_after_file_identity_size_hash_and_mtime_equal": true,
+    "mapped_export_and_get_proc_address_matches": 2,
+    "export_ordinals": [
+      12087,
+      14278
+    ],
+    "mapped_export_section": ".hexpthk",
+    "owned_module_reference_released": true,
+    "archive_methods_invoked": false,
+    "transport_exited_naturally": true,
+    "transport_returncode": 0,
+    "host_deadline_exercised": false,
+    "host_progress_records_observed": 0,
+    "terminal_inventory_was_independently_inspected_after_transport_exit": true,
+    "transport_success_scope": "owned Python inspection transport only; no guest application state or archive rule acceptance"
+  },
+  "historical_failure01": {
+    "source_input": {
+      "source": "MfcRuntimeView01/Inventory.json",
+      "bytes": 3843,
+      "sha256": "f3c7169091cc0a91693577a61fc8114af46347ca39747e9b2e593e8937de4600"
+    },
+    "record": {
+      "schema": "kit.sw2026.mfc-runtime-view.v1",
+      "state": "failed",
+      "started_at": "2026-11-16T03:51:21.256159+00:00",
+      "source_revision": "45c0b91e773902258b5f4ce8218e7d276fbc5628",
+      "tool_sha256": "69f60b00f2942d236a01edd1da52bc8276e48813508783c86a20fe94e111b3df",
+      "argv": [
+        "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools01/InspectMfcRuntime.py",
+        "--inventory",
+        "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+        "--output",
+        "<EXTERNAL_TASK_ROOT>/MfcRuntimeView01",
+        "--source-revision",
+        "45c0b91e773902258b5f4ce8218e7d276fbc5628"
+      ],
+      "python": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]",
+      "python_executable": "<OWNED_PYTHON_EXECUTABLE>",
+      "process_id": 9068,
+      "mapped_abi_view_verified": false,
+      "instruction_set_proven": false,
+      "native_implementation_bound": false,
+      "acceptance": false,
+      "archive_methods_invoked": false,
+      "private_ranges": [],
+      "mapped_directories": {},
+      "resolved_ordinals": [],
+      "stage": "finished",
+      "updated_at": "2026-11-16T03:51:21.275029+00:00",
+      "helper_sha256": "195a0d90fe26169b31e87234910af29b2b1f5289b58d29a2e91cafca62602960",
+      "discovery": {
+        "sha256": "67d0e37be1e2cabdf2e233c66d2654b3caa2dc1692ef285df76190b6eb0b0a87",
+        "source_revision": "401a1ce515ae58661fa2806891a532b5e0c927c9"
+      },
+      "process_architecture": {
+        "process_machine": "0x0",
+        "native_machine": "0xaa64",
+        "pointer_bytes": 8
+      },
+      "python_file": {
+        "path": "<OWNED_PYTHON_EXECUTABLE>",
+        "bytes": 103704,
+        "sha256": "ca60cf785b2314a6d6599eced15bdf094e6db171bec996b97a70b995942c3c37",
+        "mtime_ns": 1727784272000000000,
+        "file_identity": {
+          "device": 14617216468782733369,
+          "inode": 844424930704092
+        },
+        "inspected_at": "2026-11-16T03:51:21.275029+00:00",
+        "pe": {
+          "machine": 34404,
+          "machine_hex": "0x8664",
+          "machine_is_amd64": true,
+          "optional_header_magic": 523,
+          "coff_timestamp_raw": 1727752182,
+          "version_resources": {
+            "directory_rva": 20480,
+            "directory_size": 80784,
+            "version_type_present": true,
+            "entries": [
+              {
+                "path": [
+                  16,
+                  1,
+                  1033
+                ],
+                "data_rva": 100320,
+                "bytes": 944,
+                "sha256": "acb05aa90b4f9036ac5b703ea99b5c6cb6ed6e598c156f6d8518a7bbef628c87",
+                "code_page": 0,
+                "reserved": 0,
+                "fixed_info": {
+                  "signature": 4277077181,
+                  "structure_version": 65536,
+                  "file_version_ms": 196620,
+                  "file_version_ls": 468583413,
+                  "product_version_ms": 196620,
+                  "product_version_ls": 468583413,
+                  "file_flags_mask": 63,
+                  "file_flags": 0,
+                  "file_os": 4,
+                  "file_type": 1,
+                  "file_subtype": 0,
+                  "file_date_ms": 0,
+                  "file_date_ls": 0,
+                  "file_version_words": [
+                    3,
+                    12,
+                    7150,
+                    1013
+                  ],
+                  "file_version": "3.12.7150.1013",
+                  "file_version_build_padded": "3.12.7150.1013",
+                  "product_version_words": [
+                    3,
+                    12,
+                    7150,
+                    1013
+                  ],
+                  "product_version": "3.12.7150.1013",
+                  "product_version_build_padded": "3.12.7150.1013"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "error": {
+        "type": "RuntimeError",
+        "message": "the owned process is not the selected emulated x64 process on ARM64"
+      },
+      "finished_at": "2026-11-16T03:51:21.275029+00:00"
+    },
+    "record_retained_unchanged": true,
+    "retrospectively_reclassified_as_success": false,
+    "evidence_or_acceptance_credit_transferred": false,
+    "scope": "first process-classification gate failure remains a separate failed attempt"
+  },
+  "publication": {
+    "operator_paths_and_argv_redacted": true,
+    "redaction_method": "exact case-insensitive prefix replacement of metadata string values only",
+    "redactions": [
+      {
+        "source": "MfcRuntimeView02/Inventory.json",
+        "json_pointer": "/argv/0",
+        "original_utf8_bytes": 84,
+        "original_value_sha256": "a035cf4cb8474a677f957b3f4af22dd8bbf182dac1b40c150aada675b8a660e4",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools02/InspectMfcRuntime.py",
+        "replacement_utf8_bytes": 59
+      },
+      {
+        "source": "MfcRuntimeView02/Inventory.json",
+        "json_pointer": "/argv/2",
+        "original_utf8_bytes": 75,
+        "original_value_sha256": "f94cd8c968dddbd62e9ede698b34a0f4789b426ea68a2d391e4adf9ada16c6ce",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+        "replacement_utf8_bytes": 50
+      },
+      {
+        "source": "MfcRuntimeView02/Inventory.json",
+        "json_pointer": "/argv/4",
+        "original_utf8_bytes": 62,
+        "original_value_sha256": "3f7928aca586472e23bc2cc16d5f1da0c44777ed9bcd9e33ea0ed7268b1c4824",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+        "replacement_utf8_bytes": 37
+      },
+      {
+        "source": "MfcRuntimeView02/Inventory.json",
+        "json_pointer": "/python_executable",
+        "original_utf8_bytes": 64,
+        "original_value_sha256": "5aec6d2362de024db656a9a1f657130738608de7493521949710b541fa78d540",
+        "replacement": "<OWNED_PYTHON_EXECUTABLE>",
+        "replacement_utf8_bytes": 25
+      },
+      {
+        "source": "MfcRuntimeView02/Inventory.json",
+        "json_pointer": "/python_file/path",
+        "original_utf8_bytes": 64,
+        "original_value_sha256": "5aec6d2362de024db656a9a1f657130738608de7493521949710b541fa78d540",
+        "replacement": "<OWNED_PYTHON_EXECUTABLE>",
+        "replacement_utf8_bytes": 25
+      },
+      {
+        "source": "MfcRuntimeView02/Inventory.json",
+        "json_pointer": "/python_mapped_image/path",
+        "original_utf8_bytes": 64,
+        "original_value_sha256": "5aec6d2362de024db656a9a1f657130738608de7493521949710b541fa78d540",
+        "replacement": "<OWNED_PYTHON_EXECUTABLE>",
+        "replacement_utf8_bytes": 25
+      },
+      {
+        "source": "MfcRuntimeView02/Inventory.json",
+        "json_pointer": "/raw_file_before/path",
+        "original_utf8_bytes": 31,
+        "original_value_sha256": "b5565d2c4cd64f1f49d35ff7285a785c9cb8d4e9a2bde0701a1ae63dbc4f3d5c",
+        "replacement": "<WINDOWS_SYSTEM32_MFC>",
+        "replacement_utf8_bytes": 22
+      },
+      {
+        "source": "MfcRuntimeView02/Inventory.json",
+        "json_pointer": "/mapped_module_path",
+        "original_utf8_bytes": 31,
+        "original_value_sha256": "b5565d2c4cd64f1f49d35ff7285a785c9cb8d4e9a2bde0701a1ae63dbc4f3d5c",
+        "replacement": "<WINDOWS_SYSTEM32_MFC>",
+        "replacement_utf8_bytes": 22
+      },
+      {
+        "source": "MfcRuntimeView02/Inventory.json",
+        "json_pointer": "/raw_file_after/path",
+        "original_utf8_bytes": 31,
+        "original_value_sha256": "b5565d2c4cd64f1f49d35ff7285a785c9cb8d4e9a2bde0701a1ae63dbc4f3d5c",
+        "replacement": "<WINDOWS_SYSTEM32_MFC>",
+        "replacement_utf8_bytes": 22
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/script",
+        "original_utf8_bytes": 78,
+        "original_value_sha256": "a1c231820c2ac11036770fbd61053e5d796befd4953716c049df24997bbf867e",
+        "replacement": "<EXTERNAL_TASK_ROOT>/HostToolsD697/RunOracleBatch.py",
+        "replacement_utf8_bytes": 52
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/supervisor_argv/0",
+        "original_utf8_bytes": 78,
+        "original_value_sha256": "a1c231820c2ac11036770fbd61053e5d796befd4953716c049df24997bbf867e",
+        "replacement": "<EXTERNAL_TASK_ROOT>/HostToolsD697/RunOracleBatch.py",
+        "replacement_utf8_bytes": 52
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/supervisor_argv/4",
+        "original_utf8_bytes": 63,
+        "original_value_sha256": "25a7b4d9c7e702b46e4b5328159bf021de65f8c7a2f9fdccf60f49d5b996d79d",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+        "replacement_utf8_bytes": 37
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/supervisor_argv/10",
+        "original_utf8_bytes": 64,
+        "original_value_sha256": "5aec6d2362de024db656a9a1f657130738608de7493521949710b541fa78d540",
+        "replacement": "<OWNED_PYTHON_EXECUTABLE>",
+        "replacement_utf8_bytes": 25
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/supervisor_argv/12",
+        "original_utf8_bytes": 84,
+        "original_value_sha256": "a035cf4cb8474a677f957b3f4af22dd8bbf182dac1b40c150aada675b8a660e4",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools02/InspectMfcRuntime.py",
+        "replacement_utf8_bytes": 59
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/supervisor_argv/14",
+        "original_utf8_bytes": 75,
+        "original_value_sha256": "f94cd8c968dddbd62e9ede698b34a0f4789b426ea68a2d391e4adf9ada16c6ce",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+        "replacement_utf8_bytes": 50
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/supervisor_argv/16",
+        "original_utf8_bytes": 62,
+        "original_value_sha256": "3f7928aca586472e23bc2cc16d5f1da0c44777ed9bcd9e33ea0ed7268b1c4824",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+        "replacement_utf8_bytes": 37
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/command_argv/0",
+        "original_utf8_bytes": 21,
+        "original_value_sha256": "4238158bf1abe7794143206584dd2013890f1856c46bf7d9ae7b2edb3d0ae038",
+        "replacement": "<HOST_PRLCTL>",
+        "replacement_utf8_bytes": 13
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/command_argv/4",
+        "original_utf8_bytes": 64,
+        "original_value_sha256": "5aec6d2362de024db656a9a1f657130738608de7493521949710b541fa78d540",
+        "replacement": "<OWNED_PYTHON_EXECUTABLE>",
+        "replacement_utf8_bytes": 25
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/command_argv/6",
+        "original_utf8_bytes": 84,
+        "original_value_sha256": "a035cf4cb8474a677f957b3f4af22dd8bbf182dac1b40c150aada675b8a660e4",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools02/InspectMfcRuntime.py",
+        "replacement_utf8_bytes": 59
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/command_argv/8",
+        "original_utf8_bytes": 75,
+        "original_value_sha256": "f94cd8c968dddbd62e9ede698b34a0f4789b426ea68a2d391e4adf9ada16c6ce",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+        "replacement_utf8_bytes": 50
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/command_argv/10",
+        "original_utf8_bytes": 62,
+        "original_value_sha256": "3f7928aca586472e23bc2cc16d5f1da0c44777ed9bcd9e33ea0ed7268b1c4824",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+        "replacement_utf8_bytes": 37
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/guest_argv/0",
+        "original_utf8_bytes": 64,
+        "original_value_sha256": "5aec6d2362de024db656a9a1f657130738608de7493521949710b541fa78d540",
+        "replacement": "<OWNED_PYTHON_EXECUTABLE>",
+        "replacement_utf8_bytes": 25
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/guest_argv/2",
+        "original_utf8_bytes": 84,
+        "original_value_sha256": "a035cf4cb8474a677f957b3f4af22dd8bbf182dac1b40c150aada675b8a660e4",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools02/InspectMfcRuntime.py",
+        "replacement_utf8_bytes": 59
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/guest_argv/4",
+        "original_utf8_bytes": 75,
+        "original_value_sha256": "f94cd8c968dddbd62e9ede698b34a0f4789b426ea68a2d391e4adf9ada16c6ce",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+        "replacement_utf8_bytes": 50
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/guest_argv/6",
+        "original_utf8_bytes": 62,
+        "original_value_sha256": "3f7928aca586472e23bc2cc16d5f1da0c44777ed9bcd9e33ea0ed7268b1c4824",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+        "replacement_utf8_bytes": 37
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/progress_root",
+        "original_utf8_bytes": 63,
+        "original_value_sha256": "25a7b4d9c7e702b46e4b5328159bf021de65f8c7a2f9fdccf60f49d5b996d79d",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02",
+        "replacement_utf8_bytes": 37
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/report_path",
+        "original_utf8_bytes": 73,
+        "original_value_sha256": "82a784d5f808634a2f9b6a72f425a8344b6fe3f0f53006d529cf91a0a37f4590",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02.Host.json",
+        "replacement_utf8_bytes": 47
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/stdout_path",
+        "original_utf8_bytes": 84,
+        "original_value_sha256": "606498f3d2385dc91d657dc2609471361d97821404c8ffbf64da3078458ab028",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02.Host.json.stdout.log",
+        "replacement_utf8_bytes": 58
+      },
+      {
+        "source": "MfcRuntimeView02.Host.json",
+        "json_pointer": "/stderr_path",
+        "original_utf8_bytes": 84,
+        "original_value_sha256": "66967fe9839e0dc0f597b40b4f61bf162eea3f1430a033a2f187212ad5401880",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView02.Host.json.stderr.log",
+        "replacement_utf8_bytes": 58
+      },
+      {
+        "source": "MfcRuntimeView01/Inventory.json",
+        "json_pointer": "/argv/0",
+        "original_utf8_bytes": 84,
+        "original_value_sha256": "923caeeba0aaaea17c572ea350130f867604ddbf32fc0243ffaebc38eaac4853",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeTools01/InspectMfcRuntime.py",
+        "replacement_utf8_bytes": 59
+      },
+      {
+        "source": "MfcRuntimeView01/Inventory.json",
+        "json_pointer": "/argv/2",
+        "original_utf8_bytes": 75,
+        "original_value_sha256": "f94cd8c968dddbd62e9ede698b34a0f4789b426ea68a2d391e4adf9ada16c6ce",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcDiscovery02/Inventory.json",
+        "replacement_utf8_bytes": 50
+      },
+      {
+        "source": "MfcRuntimeView01/Inventory.json",
+        "json_pointer": "/argv/4",
+        "original_utf8_bytes": 62,
+        "original_value_sha256": "f947bd9d1bab3cb313c86f472089c7ec9b12384751f5503227db45965fdaedce",
+        "replacement": "<EXTERNAL_TASK_ROOT>/MfcRuntimeView01",
+        "replacement_utf8_bytes": 37
+      },
+      {
+        "source": "MfcRuntimeView01/Inventory.json",
+        "json_pointer": "/python_executable",
+        "original_utf8_bytes": 64,
+        "original_value_sha256": "5aec6d2362de024db656a9a1f657130738608de7493521949710b541fa78d540",
+        "replacement": "<OWNED_PYTHON_EXECUTABLE>",
+        "replacement_utf8_bytes": 25
+      },
+      {
+        "source": "MfcRuntimeView01/Inventory.json",
+        "json_pointer": "/python_file/path",
+        "original_utf8_bytes": 64,
+        "original_value_sha256": "5aec6d2362de024db656a9a1f657130738608de7493521949710b541fa78d540",
+        "replacement": "<OWNED_PYTHON_EXECUTABLE>",
+        "replacement_utf8_bytes": 25
+      }
+    ],
+    "exact_numeric_trees_preserved_for_inventory_host_and_first_failure": true,
+    "integer_policy": "Python JSON integers preserved directly, including identifiers above JavaScript exact-integer precision; no floating-point intermediary",
+    "private_capture_names_lengths_and_hashes_as_recorded_only": true,
+    "private_capture_file_bytes_read_or_rehashed_by_worker": false,
+    "private_capture_or_vendor_bytes_included": false,
+    "mapped_windows_are_not_complete_function_evidence": true,
+    "worker_accessed_vm_cad_schema_or_product_runtime": false,
+    "worker_executed_tests_or_research_probe": false,
+    "metadata_and_committed_independently_authored_source_only": true
+  },
+  "instruction_set_proven": false,
+  "native_implementation_bound": false,
+  "acceptance": false,
+  "count_rule_admitted": false,
+  "native_writer_acceptance": false,
+  "next_step_scope": "a separately authorized exact-body capture is independent future evidence; no unperformed capture03 result or count-owner promotion is claimed"
+}
