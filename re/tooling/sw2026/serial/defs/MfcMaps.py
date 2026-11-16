@@ -10,26 +10,10 @@ class MfcCount(Op):
         self.name = name
 
     def load(self, ar, scope, o):
-        value = ar.prim("u16")
-        if value == 0xFFFF:
-            value = ar.prim("u32")
-            if value == 0xFFFFFFFF:
-                value = ar.prim("u64")
-        scope[self.name] = value
+        scope[self.name] = ar.count_value(framework=True)
 
     def store(self, ar, scope, o):
-        value = scope[self.name]
-        if not isinstance(value, int) or not 0 <= value <= 0xFFFFFFFFFFFFFFFF:
-            raise ArchiveError(f"MFC count {self.name} is outside the unsigned 64-bit domain")
-        if value < 0xFFFF:
-            ar.prim("u16", value)
-        else:
-            ar.prim("u16", 0xFFFF)
-            if value < 0xFFFFFFFF:
-                ar.prim("u32", value)
-            else:
-                ar.prim("u32", 0xFFFFFFFF)
-                ar.prim("u64", value)
+        ar.count_value(scope[self.name], framework=True)
 
 
 def require_ordinary_mfc_map(ar, scope, o):

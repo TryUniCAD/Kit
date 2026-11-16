@@ -82,6 +82,12 @@ A future writer must derive each emitted structure from known format rules.
 The container, archive, configuration manager, definition, and resolved-feature codecs remain as its starting point.
 Do not present a carrier or a mode label as a completed translation.
 
+The [shared count primitives](../../Changes/Solidworks/Model/SolidworksArchiveCountPrimitives.md)
+begin the generative archive layer in `src/convert/adapters/solidworks/Archive/Counts/`.
+They encode integer cardinalities and decode bounded byte buffers for the distinct vendor and framework count grammars.
+The research archive calls these functions directly, so its process checks cover the production implementation.
+This promotion adds no public writing capability.
+
 The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
 extend the research instruments without establishing writer support.

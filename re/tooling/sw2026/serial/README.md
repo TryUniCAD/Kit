@@ -7,6 +7,14 @@ instrument, not evidence of a generated part. The schemas remain incomplete, inc
 assembly configuration roots. Their fields are not yet all classified for production.
 No writer is registered by this tooling.
 
+The count methods now call the shared production primitives in
+`src/convert/adapters/solidworks/Archive/Counts/`.
+Both source files are included in field-inventory implementation fingerprints.
+The existing real CLI checks therefore exercise the promoted code at the archive process boundary.
+The [promotion entry](../../../../Documentation/Changes/Solidworks/Model/SolidworksArchiveCountPrimitives.md)
+describes both count domains and their limits.
+Historical source-admission results do not verify this changed implementation.
+
 ## Run
 
 ```

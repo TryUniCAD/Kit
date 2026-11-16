@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import struct
 
+from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
+from convert.adapters.solidworks.Archive.Counts.ReadCount import ReadCount
+
 NULL_TAG = 0x0000
 NEW_CLASS = 0xFFFF
 CLASS_TAG = 0x8000
@@ -98,11 +101,13 @@ class Load:
         self.p += n
         return v
 
-    def count_value(self):
-        w = self.prim("u16")
-        if w != 0xFFFF:
-            return w
-        return self.prim("u32")
+    def count_value(self, *, framework=False):
+        try:
+            value, position = ReadCount(self.b, self.p, IsFramework=framework)
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive count at {self.p}: {error}") from error
+        self.p = position
+        return value
 
     def string(self):
         n = self.prim("u8")
@@ -227,12 +232,11 @@ class Store:
     def raw(self, v):
         self.out += v
 
-    def count_value(self, v):
-        if v < 0xFFFF:
-            self.prim("u16", v)
-        else:
-            self.prim("u16", 0xFFFF)
-            self.prim("u32", v)
+    def count_value(self, v, *, framework=False):
+        try:
+            self.out.extend(EncodeCount(v, IsFramework=framework))
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive count: {error}") from error
 
     def string(self, s):
         if isinstance(s, tuple):

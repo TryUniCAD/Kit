@@ -289,7 +289,7 @@ def inventory_main():
         "file_count": len(records), "files": records,
         "implementation": [{
             "file": str(path.relative_to(ROOT)), "sha256": fingerprint(path.read_bytes()),
-        } for path in [HERE / "FieldScan.py", HERE / "Core.py", HERE / "Schema.py", HERE / "Classes.py", HERE / "Streams.py", HERE / "RoundTrip.py", HERE / "Dsl.py", HERE / "AnnotationWire.py", *sorted((HERE / "defs").glob("*.py"))]],
+        } for path in [HERE / "FieldScan.py", HERE / "Core.py", HERE / "Schema.py", HERE / "Classes.py", HERE / "Streams.py", HERE / "RoundTrip.py", HERE / "Dsl.py", HERE / "AnnotationWire.py", *sorted((HERE / "defs").glob("*.py")), ROOT / "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py", ROOT / "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py"]],
         "passed": bool(records) and all(item["passed"] for item in records),
     }
     if not records:
