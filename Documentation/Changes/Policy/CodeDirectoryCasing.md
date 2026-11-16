@@ -20,6 +20,9 @@ This migration renames 46 internal directories and moves 3,232 tracked files.
 For example, `convert.Formats`, `interchange.Core`, `tests.Convert`, and `tools.Steering` now use their required casing.
 Imports, source paths, workflow selections, package license paths, and maintained source links follow the new names.
 The steering baseline receives path relocations only; its accepted findings are unchanged.
+Historical secret-scan exceptions retain the path spelling from their recorded commits.
+The existing `.gitleaksignore` fingerprint uses the reachable historical commit `86ab1082` and its lowercase `resolved` directory.
+The rule-specific exception uses that same historical path.
 Public API wrappers, public metadata, wire type names, and format identifiers retain their existing contracts.
 
 The existing `Verify path policies` job now scans the complete tracked tree before its changed-destination scan.
@@ -51,4 +54,11 @@ The new process checks exercise invalid ancestors, all four code roots, exact pu
 Another process check verifies comment preservation across a rename and rejection of a subsequent explanatory comment.
 Merge-group acceptance remains separate from PR validation.
 
+The first merge-group history scan exposed an incorrectly renamed historical exception.
+The [failed job](https://github.com/TryUniCAD/Kit/actions/runs/43821151397/job/133144280395) identified Python syntax, `axis_kind=None`, at the old path.
+Source inspection confirmed that this expression contains no credential literal.
+The follow-up restores the existing historical exception without broadening its commit, path, rule, or value constraints.
+The scanner's negative control and complete history scan remain enabled for the next merge-group candidate.
+
 See [the contributor policy](../../Reference/Operations/Policy.md) and [the directory coverage gotcha](../../Gotchas/Authoring/FileChecksMissDirectoryCasing.md).
+See [historical scan path identities](../../Gotchas/Ci/Audits/HistoricalScanPathsUseCommitSpelling.md) before updating old scan fingerprints.

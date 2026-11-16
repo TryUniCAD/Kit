@@ -25,5 +25,5 @@ id = "generic-api-key"
 description = "Historical Python keyword argument axis_kind=None is source syntax"
 condition = "AND"
 commits = ["86ab1082a65054afb2c2022c77b18cd3a6b59908"]
-paths = ['''^src/convert/adapters/solidworks/Resolved/Core\.py$''']
+paths = ['''^src/convert/adapters/solidworks/resolved/Core\.py$''']
 regexes = ['''^axis_kind=None$''']
