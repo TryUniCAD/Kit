@@ -62,6 +62,10 @@ Its [preparation guide](../../../../Documentation/Changes/Solidworks/Model/Solid
 describes the exact input lock, privacy ledger and fixture limits.
 Remote schema checks of the prepared copies remain distinct from source-corpus
 acceptance and from any future Kit-written curve output.
+The [failure-retention workflow](../../../../Documentation/Changes/Solidworks/Model/SolidworksParserFailureArtifacts.md)
+keeps full parser reports in `SourceParser/Curve/` when the native-format process
+step fails. Download the run's existing construction artifact; a retained failed
+report is diagnostic evidence and does not establish admission or writer acceptance.
 
 Corpora (2026-saved):
 

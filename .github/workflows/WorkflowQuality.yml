@@ -75,6 +75,7 @@ jobs:
           tests/convert/Commands/CliRuntimeTests.py
 
       - name: Exercise native file reading and writing
+        id: native_formats
         env:
           SwResearchOutput: ${{ runner.temp }}/solidworks-construction
         run: >-
@@ -84,6 +85,9 @@ jobs:
           tests/steering/RationaleCommentsTests.py
 
       - name: Retain generated research candidates
+        if: >-
+          ${{ !cancelled() &&
+          (steps.native_formats.outcome == 'success' || steps.native_formats.outcome == 'failure') }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: solidworks-construction-${{ github.sha }}

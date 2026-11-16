@@ -4,7 +4,6 @@ from pathlib import Path as FilePath
 from typing import cast as CastValue
 from tests.convert.solidworks.research.Curve.CorpusPaths import KCurveCorpus
 from tests.convert.solidworks.research.Curve.AssertFile import AssertFile
-from tests.convert.solidworks.research.Curve.AssertUsage import AssertUsage
 
 
 # complete process reports must account for all expected files and stream records
