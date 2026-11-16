@@ -338,6 +338,8 @@ The [shared orthographic view constructor](../../Changes/Solidworks/Model/Solidw
 validates rigid view input in `src` and supplies separate model and pan/zoom records to the existing research definition serializer. Native acceptance remains pending; it does not enable a production writer.
 Its discovery subprocess checks now pass sixteen complete archive comparisons, runtime file/process guards and the 72-byte matrix growth rule. The [354-file writer freeze and unseen predictions](../../Changes/Solidworks/Inspection/Presentation/SolidworksCameraHeldoutPrediction.md)
 preserve independent camera source inputs and forbid reference access until generated predictions pass the complete process checks. Native acceptance remains pending.
+The [frozen camera inspector](../../Changes/Solidworks/Inspection/Presentation/SolidworksFrozenCameraInspection.md)
+captures the initial active pose before view setters or explicit rebuild, then compares it with independent source API observations through rebuild, radial/depth edits, saving and fresh reopening. Measurements remain pending; full presentation and production writing remain unfinished.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
