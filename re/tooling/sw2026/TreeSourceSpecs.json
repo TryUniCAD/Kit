@@ -1,0 +1,34 @@
+{
+  "schema": "kit.sw2026.unseen-view-specs.v1",
+  "scope": "Fresh independent native sources for system-folder class, recursive tree order, names and parent parity; reuses the existing controlled view source author; not a new camera or body-family acceptance claim",
+  "writer_change_not_started": true,
+  "private_observations_sealed_until_presentation_writer_freeze": true,
+  "units": {"profile_and_depth": "mm", "translation": "native IModelView.Translation3 coordinates", "scale2": "native IModelView.Scale2"},
+  "cases": [
+    {
+      "name": "P01MidplaneFolders",
+      "split": "heldout",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "mid_plane",
+      "depth_mm": 12.713,
+      "expected_bodies": 1,
+      "dimension_kind": "diameter",
+      "profile": {"kind": "circle", "center_mm": [3.137, -5.971], "radius_mm": 7.319},
+      "view_request": {"named_view": 8, "scale2": 21.973, "translation": [0.004137, -0.002719, 0.003193]}
+    },
+    {
+      "name": "P02TwoWayFolders",
+      "split": "heldout",
+      "plane": "top",
+      "reverse": true,
+      "end_condition": "two_directions",
+      "depth_mm": 19.317,
+      "reverse_depth_mm": 5.193,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "profile": {"kind": "circle", "center_mm": [-8.173, 4.219], "radius_mm": 6.137},
+      "view_request": {"named_view": 9, "scale2": 0.9137, "translation": [-0.003173, 0.005719, -0.002137]}
+    }
+  ]
+}
