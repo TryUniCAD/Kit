@@ -335,7 +335,9 @@ passes ninety complete archive comparisons and 130 exact native API component co
 The [unseen camera source author](../../Changes/Solidworks/Inspection/Presentation/SolidworksUnseenViewSourceLock.md)
 creates two independent native parts with distinct trimetric/dimetric poses and locks their hashes before camera writer implementation. Their payloads and detailed API observations remain sealed until that writer is frozen; source authoring does not count as generated acceptance.
 The [shared orthographic view constructor](../../Changes/Solidworks/Model/SolidworksOrthographicViewConstruction.md)
-validates rigid view input in `src` and supplies separate model and pan/zoom records to the existing research definition serializer. Its native and process-boundary acceptance remains pending; it does not enable a production writer.
+validates rigid view input in `src` and supplies separate model and pan/zoom records to the existing research definition serializer. Native acceptance remains pending; it does not enable a production writer.
+Its discovery subprocess checks now pass sixteen complete archive comparisons, runtime file/process guards and the 72-byte matrix growth rule. The [354-file writer freeze and unseen predictions](../../Changes/Solidworks/Inspection/Presentation/SolidworksCameraHeldoutPrediction.md)
+preserve independent camera source inputs and forbid reference access until generated predictions pass the complete process checks. Native acceptance remains pending.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
