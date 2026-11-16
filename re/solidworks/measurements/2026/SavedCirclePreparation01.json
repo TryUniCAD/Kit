@@ -1,0 +1,179 @@
+{
+  "schema": "kit.sw2026.saved-circle-preparation-public.v1",
+  "scope": "research data preparation and bounded preview privacy review; archive and semantic execution remains in remote CI",
+  "preparation_source_revision": "dec71938bc7dfbcd99456bc0a87d24601eb981be",
+  "preparation": {
+    "schema": "kit.sw2026.saved-circle-preparation.v1",
+    "notice": "Vendor-saved derivatives of generated research inputs; reader evidence only, not new writer outputs or inherited native acceptance",
+    "source_receipt_sha256": "a957483d748b877230d96d5c24d8ad68551010a6b0a8b28a98387a756bc1bbda",
+    "source_job_sha256": "fa562c973f1b9fd08719200f41c807a8a42ab3a7f1606326ec212a010fb2cd18",
+    "manifest_sha256": "e86b4c7640779977085223287c48b00ecff648643358ac01efc7b6afe2bd7e21",
+    "privacy_ledger_sha256": "4e58b6a69268225b60ea64682a2bbf10ff1d278c6f38fa81a3281f5092a67ae6",
+    "preparer_sha256": "a130ec053e551410ac6804195de7ce63172d7e350ad0c8c48fc73abb647f87a3",
+    "privacy_helper_sha256": "18105df07ce8652c1455b0e7f7a5e9e575ae4bbf94beb0bbf0c5b76ef980285f",
+    "modules": {
+      "strategy": "explicit real-module dependency order with namespace packages",
+      "package_initializers_executed": false,
+      "mocked_behavior": false,
+      "archive_schemas_loaded": false,
+      "modules": [
+        {
+          "module": "interchange.Enums.EnumBase",
+          "file": "src/interchange/Enums/EnumBase.py",
+          "sha256": "7a61a58b37bd722470c9a90b3927b4ffb4ab05058de835080d9cedb93ae94d60"
+        },
+        {
+          "module": "interchange.Enums.EnumDocument",
+          "file": "src/interchange/Enums/EnumDocument.py",
+          "sha256": "e39fa9274913b8b378a33af70ae25bbcd9c96b9cec9e4e1a216b80c79bf29afe"
+        },
+        {
+          "module": "convert.adapters.base.FieldAliases",
+          "file": "src/convert/adapters/base/FieldAliases.py",
+          "sha256": "fd661caa831de5cd81dd586507d17adab57a83f932f8911f9078ce1333ad5f74"
+        },
+        {
+          "module": "convert.adapters.base.ContractCompat",
+          "file": "src/convert/adapters/base/ContractCompat.py",
+          "sha256": "e5a1d064b5c1f0236d5bfbe5f4c57206d7467575650893614e757621d3fcb70f"
+        },
+        {
+          "module": "convert.adapters.base.AdapterInfoView",
+          "file": "src/convert/adapters/base/AdapterInfoView.py",
+          "sha256": "5c286161c68a2faa62034c73714b4eba99e908bccf9d5e2f13bc7decd966dc61"
+        },
+        {
+          "module": "convert.adapters.base.AdapterInfo",
+          "file": "src/convert/adapters/base/AdapterInfo.py",
+          "sha256": "e7339d05978a53daf6cf406e715585caea878ae8c385f4fa8be55e0f07055063"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.RotateBytes",
+          "file": "src/convert/adapters/solidworks/Container/RotateBytes.py",
+          "sha256": "3f2dade005b18415e1715da6ae80ef60e060b696424be5d3203d5a236137b630"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.DecodeName",
+          "file": "src/convert/adapters/solidworks/Container/DecodeName.py",
+          "sha256": "5fe691829bd89bae76a0694c1d7cf737e24b771bbd9e6789f8325bef518a45a6"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.SldprtFormat",
+          "file": "src/convert/adapters/solidworks/Container/SldprtFormat.py",
+          "sha256": "a8d8e087329d2c23270177ab2feec439ae05eae63d6b72b40e88749a2b1ea552"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.StreamLimits",
+          "file": "src/convert/adapters/solidworks/Container/StreamLimits.py",
+          "sha256": "185abca48f0511d4c607f83bccbf1ec3c243b0d9b709a960fa54c4f5e8fbbece"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.InflateStream",
+          "file": "src/convert/adapters/solidworks/Container/InflateStream.py",
+          "sha256": "eca4684d60f0a72a12ee09bf397c7e25092ddbb8b2d2c197b51b0264d9d1a5fe"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.DecodePayload",
+          "file": "src/convert/adapters/solidworks/Container/DecodePayload.py",
+          "sha256": "bcd29a4cc9702a9ea714b4e6a0254ee214e8796f907403c6a9e0ad9dda8314a5"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.StreamRecord",
+          "file": "src/convert/adapters/solidworks/Container/StreamRecord.py",
+          "sha256": "b404735f9226a93ab290e64f30342fbd09ad85a2bc8a8fabb41f0bf879d56399"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.DecodeScanned",
+          "file": "src/convert/adapters/solidworks/Container/DecodeScanned.py",
+          "sha256": "68b2f995303a13f0d2f6a52874d9cb07e8ceddc6896fba019db35b7fe4971c1d"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.Format",
+          "file": "src/convert/adapters/solidworks/Container/Format.py",
+          "sha256": "2765a1d4cd829871e013e187481b526f2e11781a3861faf5745be5a7f9da3c79"
+        },
+        {
+          "module": "convert.adapters.solidworks.Container.Container",
+          "file": "src/convert/adapters/solidworks/Container/Container.py",
+          "sha256": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81"
+        }
+      ],
+      "python": "3.11.16 (main, Sep  1 2026, 14:08:22) [Clang 22.1.3 ]"
+    },
+    "archive_schemas_executed": false,
+    "container_outputs_reparsed": false,
+    "source_files_unchanged": true,
+    "heldout_native_payloads_read": false,
+    "file_count": 6,
+    "prepared_bytes": 371600,
+    "stream_count": 240,
+    "stream_redactions": 120
+  },
+  "preview_review": {
+    "method": "All six originals viewed individually; final prepared preview hashes equal those inspected images",
+    "scope": "Nonexhaustive visual privacy review, no native CAD acceptance",
+    "files": [
+      {
+        "file": "CircleRadiusBoss-open-save.SLDPRT.png",
+        "sha256": "0b7ad2b7da890c91c04d6125683f87e4992ddf9ce2937a4cc1bc891d2edbf783",
+        "bytes": 26983,
+        "width": 640,
+        "height": 480,
+        "visually_inspected": true,
+        "observation": "Gray cylinder geometry on white; no visible personal text, application UI or user paths"
+      },
+      {
+        "file": "CircleRadiusBoss-fresh-reopen.SLDPRT.png",
+        "sha256": "70c5aa629746226030869eb01cfd187fb839b16524ba23593fdd81ebb1a2d7f4",
+        "bytes": 26741,
+        "width": 640,
+        "height": 480,
+        "visually_inspected": true,
+        "observation": "Gray cylinder geometry on white; no visible personal text, application UI or user paths"
+      },
+      {
+        "file": "CircleRadiusBoss-edited-fresh-reopen.SLDPRT.png",
+        "sha256": "70c5aa629746226030869eb01cfd187fb839b16524ba23593fdd81ebb1a2d7f4",
+        "bytes": 26741,
+        "width": 640,
+        "height": 480,
+        "visually_inspected": true,
+        "observation": "Gray cylinder geometry on white; no visible personal text, application UI or user paths"
+      },
+      {
+        "file": "CircleDiameterBoss-open-save.SLDPRT.png",
+        "sha256": "eb2bd06476e6eb7b938230a49cd87ef2296972b9269c8555b60ee0482f76abc3",
+        "bytes": 26297,
+        "width": 640,
+        "height": 480,
+        "visually_inspected": true,
+        "observation": "Gray cylinder geometry on white; no visible personal text, application UI or user paths"
+      },
+      {
+        "file": "CircleDiameterBoss-fresh-reopen.SLDPRT.png",
+        "sha256": "ec93aa1b17ad111dbe6eb86c22b915e2ac7882ef936a9784be585599f6513f40",
+        "bytes": 27000,
+        "width": 640,
+        "height": 480,
+        "visually_inspected": true,
+        "observation": "Gray cylinder geometry on white; no visible personal text, application UI or user paths"
+      },
+      {
+        "file": "CircleDiameterBoss-edited-fresh-reopen.SLDPRT.png",
+        "sha256": "ec93aa1b17ad111dbe6eb86c22b915e2ac7882ef936a9784be585599f6513f40",
+        "bytes": 27000,
+        "width": 640,
+        "height": 480,
+        "visually_inspected": true,
+        "observation": "Gray cylinder geometry on white; no visible personal text, application UI or user paths"
+      }
+    ]
+  },
+  "is_writer_output": false,
+  "native_acceptance_inherited": false,
+  "heldout_native_payloads_read": false,
+  "local_test_execution": false,
+  "local_archive_schema_execution": false,
+  "prepared_containers_reparsed_locally": false,
+  "reader_checks": "pending remote CI"
+}
