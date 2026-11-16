@@ -290,6 +290,8 @@ The [radial sketch inspector](../../Changes/Solidworks/Inspection/Sketches/Solid
 adds explicit driving-value edits and fresh reopening of edited sketches while retaining geometry, plane, ownership and control gates. The [fixed-center relation](../../Changes/Solidworks/Model/SolidworksCircleCenterFixation.md) also passed six controlled native phases and 104 numeric/frame checks with fully constrained status and exact center bindings.
 The [circle blind boss synthesis](../../Changes/Solidworks/Model/SolidworksCircleExtrusionSynthesis.md)
 composes that constrained sketch with the shared blind feature/end-spec model. Both generated candidates passed six native load/rebuild/edit/save/fresh-reopen phases, with one body, fully constrained sketches and all 200 numeric comparisons matching to six significant figures between healthy controls. Saved-file archive/semantic comparison, general frames, complete presentation and held-out family acceptance remain unestablished; the public adapter still writes none.
+The [saved-circle input preparer](../../Changes/Solidworks/Model/SolidworksSavedCircleReaderInputs.md)
+binds six vendor-saved derivatives to the native receipt and neutral edit targets, with bounded metadata redaction and no archive-schema execution during preparation. These are reader fixtures, not additional generated outputs.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
