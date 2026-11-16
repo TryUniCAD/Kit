@@ -11,4 +11,4 @@ def AssertInteger(Encoded: object) -> int:
     Number = DataValue["value"]
     assert type(Number) is int
     assert DataValue["decimal"] == str(Number)
-    return CastValue(int, Number)
+    return Number

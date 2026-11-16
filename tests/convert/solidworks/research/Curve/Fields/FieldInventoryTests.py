@@ -35,7 +35,7 @@ def TestFieldScan(TmpPath: FilePath, StreamName: str, IsLinked: bool) -> None:
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
     Statistics = AssertInventory(ReadObject(ReportPath), Entries, StreamName, IsLinked)
     CheckPath = ReportPath.with_suffix(".checked.json")
-    CheckPath.write_text(
+    _ = CheckPath.write_text(
         DumpJson(
             {
                 "scope": "decoded source field inventory contract only",

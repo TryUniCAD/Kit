@@ -67,7 +67,7 @@ def RunFieldCli(
                 + "\n",
             ),
         ):
-            ReportPath.with_suffix(Suffix).write_text(TextValue, encoding="utf-8")
+            _ = ReportPath.with_suffix(Suffix).write_text(TextValue, encoding="utf-8")
         raise
     SaveReceipt(ReportPath, Outcome, IsLinked)
     return Outcome

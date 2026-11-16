@@ -1,11 +1,8 @@
 from __future__ import annotations
 
-from hashlib import sha256 as HashBytes
-from math import isfinite as IsFinite, isnan as IsNan
-from struct import pack as PackValue, unpack as UnpackValue
-from typing import cast as CastValue
+from tests.convert.solidworks.research.Curve.Fields.AssertBytes import AssertBytes
 from tests.convert.solidworks.research.Curve.Fields.AssertContext import AssertContext
-from tests.convert.solidworks.research.Curve.Fields.AssertDigest import AssertDigest
+from tests.convert.solidworks.research.Curve.Fields.AssertFloat import AssertFloat
 from tests.convert.solidworks.research.Curve.Fields.AssertInteger import AssertInteger
 
 
@@ -33,44 +30,11 @@ def AssertValue(
         assert Value["target_id"] is None
     elif KindName == "int":
         assert set(Value) == {"type", "value", "decimal", "context"}
-        AssertInteger(Value)
+        _ = AssertInteger(Value)
     elif KindName == "float":
-        assert set(Value) == {
-            "type",
-            "value",
-            "hex",
-            "finite",
-            "context",
-            "decoded_python_binary64_be",
-        }
-        HexText = Value["hex"]
-        BitsText = Value["decoded_python_binary64_be"]
-        assert isinstance(HexText, str)
-        assert isinstance(BitsText, str) and len(BitsText) == 16
-        BitBytes = bytes.fromhex(BitsText)
-        assert len(BitBytes) == 8 and BitBytes.hex() == BitsText
-        BitValue = UnpackValue(">d", BitBytes)[0]
-        HexValue = float.fromhex(HexText)
-        assert type(Value["finite"]) is bool
-        assert Value["finite"] is IsFinite(BitValue)
-        if IsNan(BitValue):
-            assert IsNan(HexValue)
-            assert Value["value"] == HexText == "nan"
-        else:
-            assert PackValue(">d", HexValue) == BitBytes
-            assert BitValue.hex() == HexText
-            if IsFinite(BitValue):
-                assert type(Value["value"]) is float
-                assert PackValue(">d", CastValue(float, Value["value"])) == BitBytes
-            else:
-                assert Value["value"] == HexText
+        AssertFloat(Value)
     elif KindName == "bytes":
-        assert set(Value) == {"type", "bytes", "sha256", "context"}
-        assert type(Value["bytes"]) is int
-        assert CastValue(int, Value["bytes"]) >= 0
-        ByteHash = AssertDigest(Value["sha256"])
-        if Value["bytes"] == 0:
-            assert ByteHash == HashBytes(b"").hexdigest()
+        AssertBytes(Value)
     elif KindName in {"str", "bool", "null"}:
         assert set(Value) == {"type", "value", "context"}
         if KindName == "str":
