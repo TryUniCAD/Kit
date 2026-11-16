@@ -11,7 +11,7 @@ No writer is registered by this tooling.
 
 ```
 cd re/tooling/sw2026/serial
-uv run --no-sync python RoundTrip.py '<glob of .SLDPRT>' [Stream/Name,Other/Stream] --report report.json [-v] [--link-config]
+uv run --no-sync python RoundTrip.py '<glob of .SLDPRT>' [Stream/Name,Other/Stream] --report report.json [-v] [--link-config] [--require-proven]
 ```
 
 Run checks in PR CI, never locally. The process exits 1 for an empty corpus, an unreadable
@@ -22,10 +22,28 @@ Explicit stream lists require every named stream. `Config-0` expands across conf
 each configuration reads its own ModelHeader. JSON reports bind each file and stream to
 SHA-256 and disclose provisional schemas.
 
+Each stream records separate load and store schema usage, call routes, source-buffer
+candidates and reached `Raw` operations with their length rules and observed byte counts.
+Started phases record whether they completed; failed or unstarted operations cannot
+claim proven schema admission. File and invocation summaries include dependency reads.
+`provisional_schemas` retains the whole registry inventory; `used_provisional_schemas`
+contains only declarations reached during this invocation.
+
+`--require-proven` also rejects used provisional or missing schemas and incomplete
+operations. Unused provisional declarations do not fail it. The default retains its
+existing byte-identity and unread-tail conditions. `byte_identity_passed` and
+`proven_schemas` remain separate report fields. Nonprovisional declarations and
+bounded raw arrays still need semantic classification and fresh construction rules.
+See the [report contract](../../../../Documentation/Changes/Solidworks/Model/SolidworksArchiveSchemaUsage.md)
+and [closure limitation](../../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ProvisionalSchemasDoNotProveClosure.md).
+
 `--link-config` additionally requires each selected resolved stream to inherit
 the configuration's class/object map and computed counter. Fresh builders use
 `ConfigPart.store_config_state` and seed `ResolvedCore.store_resolved` with its
 returned map. See the [2026 map finding](../../../solidworks/records/ArchiveMapConstruction2026.md).
+The seed load has its own `schema_usage.dependencies` snapshot, source hash, byte count
+and unread-tail length. Its admission contributes to the selected stream's strict result,
+without claiming an additional seed-stream byte comparison.
 
 `tests/convert/solidworks/research/` invokes the CLI at a process boundary in remote CI.
 Its eight fixtures in `re/solidworks/v2026/corpus/ladder/` are privacy-redacted controls,

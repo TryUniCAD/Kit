@@ -61,33 +61,68 @@ def expand(archive, names):
     return list(dict.fromkeys(out))
 
 
-def stream_roundtrip(archive, name, reg, plans, linked=False):
+def usage_summary(records):
+    summary = {direction: {
+        "used_schemas": set(),
+        "provisional_schemas": set(),
+        "missing_schemas": set(),
+        "raw_operation_count": 0,
+    } for direction in ("load", "store")}
+    for record in records:
+        usage = record.get("schema_usage", {})
+        snapshots = [usage.get(direction) for direction in ("load", "store")]
+        snapshots.extend(usage.get("dependencies", []))
+        for snapshot in snapshots:
+            if snapshot is None:
+                continue
+            current = summary[snapshot["direction"]]
+            for key in ("used_schemas", "provisional_schemas", "missing_schemas"):
+                current[key].update(snapshot[key])
+            current["raw_operation_count"] += len(snapshot["raw_operations"])
+    return {direction: {
+        key: sorted(value) if isinstance(value, set) else value
+        for key, value in current.items()
+    } for direction, current in summary.items()}
+
+
+def stream_roundtrip(archive, name, reg, plans, linked=False, require_proven=False):
     data = archive.get(name)
     if data is None:
-        return {"passed": False, "error": f"required stream is missing: {name}"}
+        return {"passed": False, "byte_identity_passed": False, "proven_schemas": False, "schema_usage": {"load": None, "store": None, "dependencies": []}, "error": f"required stream is missing: {name}"}
     rec = {"bytes": len(data), "sha256": hashlib.sha256(data).hexdigest(), "passed": False}
+    load_usage, store_usage, dependencies = None, None, []
     try:
         kind, framing = plan(name, plans)
-        if kind == "resolved":
-            doc, ar = load_resolved(data, reg, 19000)
-            again = store_resolved(doc, reg, 19000)
-        elif kind == "custom":
-            options = {}
-            if linked and name.endswith("-ResolvedFeatures"):
-                from defs.ConfigPart import load_config
-                configuration_name = name.removesuffix("-ResolvedFeatures")
-                configuration, configuration_ar = load_config(archive.require(configuration_name), reg, 19000, archive=archive, name=configuration_name)
-                if configuration.tail:
-                    raise ArchiveError("configuration has an unread tail before map handoff")
-                options["seed"] = configuration_ar.map_state()
-                rec["seeded_map_count"] = configuration_ar.count
-            doc, ar = framing[0](data, reg, 19000, archive=archive, name=name, **options)
-            again = framing[1](doc, reg, 19000, **options)
-        elif kind == "rooted":
-            doc, ar = load_rooted(data, reg, framing, 19000)
-            again = store_rooted(doc, reg, 19000)
-        else:
-            raise ArchiveError(f"unknown stream framing {kind!r}")
+        options = {}
+        with reg.track_usage("load", name, role=kind, sources=archive.streams) as load_usage:
+            if kind == "resolved":
+                doc, ar = load_resolved(data, reg, 19000)
+            elif kind == "custom":
+                if linked and name.endswith("-ResolvedFeatures"):
+                    from defs.ConfigPart import load_config
+                    configuration_name = name.removesuffix("-ResolvedFeatures")
+                    configuration_data = archive.require(configuration_name)
+                    with reg.track_usage("load", configuration_name, role="linked_map_seed", sources=archive.streams) as dependency:
+                        dependency_record = {"usage": dependency, "bytes": len(configuration_data), "sha256": hashlib.sha256(configuration_data).hexdigest(), "tail": None}
+                        dependencies.append(dependency_record)
+                        configuration, configuration_ar = load_config(configuration_data, reg, 19000, archive=archive, name=configuration_name)
+                        dependency_record["tail"] = len(configuration.tail)
+                        if configuration.tail:
+                            raise ArchiveError("configuration has an unread tail before map handoff")
+                        options["seed"] = configuration_ar.map_state()
+                        rec["seeded_map_count"] = configuration_ar.count
+                doc, ar = framing[0](data, reg, 19000, archive=archive, name=name, **options)
+            elif kind == "rooted":
+                doc, ar = load_rooted(data, reg, framing, 19000)
+            else:
+                raise ArchiveError(f"unknown stream framing {kind!r}")
+        with reg.track_usage("store", name, role=kind) as store_usage:
+            if kind == "resolved":
+                again = store_resolved(doc, reg, 19000)
+            elif kind == "custom":
+                again = framing[1](doc, reg, 19000, **options)
+            else:
+                again = store_rooted(doc, reg, 19000)
         rec.update(roots=len(doc.roots), tail=len(doc.tail), identical=again == data)
         rec["passed"] = again == data and not doc.tail
         rec["map_base"] = ar.base
@@ -103,11 +138,26 @@ def stream_roundtrip(archive, name, reg, plans, linked=False):
         if hasattr(error, "details"):
             rec["details"] = error.details
         rec["trace"] = traceback.format_exc(limit=6)
+    finally:
+        rec["schema_usage"] = {
+            "load": load_usage.snapshot() if load_usage is not None else None,
+            "store": store_usage.snapshot() if store_usage is not None else None,
+            "dependencies": [{**item["usage"].snapshot(), **{key: value for key, value in item.items() if key != "usage"}} for item in dependencies],
+        }
+    rec["byte_identity_passed"] = rec["passed"]
+    summary = usage_summary([rec])
+    completed = load_usage is not None and load_usage.completed and store_usage is not None and store_usage.completed
+    completed = completed and all(item["usage"].completed and item["tail"] == 0 for item in dependencies)
+    rec["proven_schemas"] = completed and "error" not in rec and rec.get("tail") == 0 and all(not item["provisional_schemas"] and not item["missing_schemas"] for item in summary.values())
+    if require_proven and not rec["proven_schemas"]:
+        rec["passed"] = False
+        issues = {direction: {key: item[key] for key in ("provisional_schemas", "missing_schemas") if item[key]} for direction, item in summary.items() if item["provisional_schemas"] or item["missing_schemas"]}
+        rec.setdefault("error", f"used provisional or missing archive schemas: {issues}" if issues else "archive schema usage is incomplete")
     return rec
 
 
-def one(path, names, reg, plans, linked=False):
-    report = {"path": str(path), "streams": {}, "passed": False}
+def one(path, names, reg, plans, linked=False, require_proven=False):
+    report = {"path": str(path), "streams": {}, "passed": False, "byte_identity_passed": False, "proven_schemas": False, "schema_usage": usage_summary([])}
     try:
         raw = Path(path).read_bytes()
         report["sha256"] = hashlib.sha256(raw).hexdigest()
@@ -119,8 +169,11 @@ def one(path, names, reg, plans, linked=False):
         if selected is None:
             selected = list(REQUIRED)
             selected.extend(name for name in plans if name not in REQUIRED and name in archive.streams)
-        streams = {name: stream_roundtrip(archive, name, reg, plans, linked) for name in expand(archive, selected)}
+        streams = {name: stream_roundtrip(archive, name, reg, plans, linked, require_proven) for name in expand(archive, selected)}
         report["streams"] = streams
+        report["schema_usage"] = usage_summary(streams.values())
+        report["byte_identity_passed"] = bool(streams) and all(item.get("byte_identity_passed", False) for item in streams.values())
+        report["proven_schemas"] = bool(streams) and all(item.get("proven_schemas", False) for item in streams.values())
         report["passed"] = bool(streams) and all(item["passed"] for item in streams.values())
     except Exception as error:
         report["error"] = repr(error)
@@ -135,6 +188,7 @@ def main():
     parser.add_argument("--report", type=Path)
     parser.add_argument("-v", "--verbose", action="store_true")
     parser.add_argument("--link-config", action="store_true")
+    parser.add_argument("--require-proven", action="store_true", help="reject provisional or missing schemas actually used by selected streams and dependencies")
     args = parser.parse_args()
     names = args.streams.split(",") if args.streams is not None else None
     if names is not None and any(not name for name in names):
@@ -142,8 +196,9 @@ def main():
     paths = sorted({path for path in glob.glob(args.pattern, recursive=True) if Path(path).is_file() and not Path(path).name.startswith("~$")})
     reg = registry()
     plans = {**PLANS, **reg.plans}
-    files = [one(path, names, reg, plans, args.link_config) for path in paths]
+    files = [one(path, names, reg, plans, args.link_config, args.require_proven) for path in paths]
     streams = [item for file in files for item in file["streams"].values()]
+    usage = usage_summary(streams)
     report = {
         "version": 19000,
         "files": files,
@@ -153,6 +208,11 @@ def main():
         "passed": bool(files) and all(file["passed"] for file in files),
         "linked_configurations": args.link_config,
         "provisional_schemas": sorted(reg.tentative),
+        "schema_usage": usage,
+        "used_provisional_schemas": sorted({name for item in usage.values() for name in item["provisional_schemas"]}),
+        "require_proven": args.require_proven,
+        "byte_identity_passed": bool(files) and all(file["byte_identity_passed"] for file in files),
+        "proven_schemas": bool(files) and all(file["proven_schemas"] for file in files),
     }
     if not paths:
         report["error"] = "no input files matched"
@@ -160,10 +220,13 @@ def main():
         if "error" in file:
             print("BAD", file["path"], file["error"])
         for name, item in file["streams"].items():
-            print("OK " if item["passed"] else "BAD", Path(file["path"]).name, name, {key: value for key, value in item.items() if key != "trace"})
+            print("OK " if item["passed"] else "BAD", Path(file["path"]).name, name, {key: value for key, value in item.items() if key not in ("trace", "schema_usage")})
             if args.verbose and "trace" in item:
                 print(item["trace"])
-    print(f"{report['passed_streams']}/{len(streams)} streams round-trip with no tail across {len(files)} files")
+    if args.require_proven:
+        print(f"{report['passed_streams']}/{len(streams)} streams pass byte identity, tail and proven-schema checks across {len(files)} files")
+    else:
+        print(f"{report['passed_streams']}/{len(streams)} streams round-trip with no tail across {len(files)} files")
     if "error" in report:
         print(report["error"], file=sys.stderr)
     if args.report is not None:

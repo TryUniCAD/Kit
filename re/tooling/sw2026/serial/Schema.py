@@ -1,6 +1,121 @@
 from __future__ import annotations
 
-from Core import ArchiveError
+import inspect
+from collections import Counter
+from contextlib import contextmanager
+
+from Core import ArchiveError, Obj
+
+
+class Usage:
+    def __init__(self, registry, direction, stream, role, sources):
+        self.registry = registry
+        self.direction, self.stream, self.role = direction, stream, role
+        self.sources = {} if sources is None else sources
+        self.used, self.missing = set(), set()
+        self.calls = Counter()
+        self.schemas, self.operations, self.raw_operations = [], [], []
+        self.archive_sources = {}
+        self.completed = False
+
+    def object_context(self, o):
+        cls = o.cls if isinstance(o, Obj) else None
+        return cls, f"{type(o).__module__}.{type(o).__qualname__}"
+
+    def source_streams(self, ar):
+        if ar not in self.archive_sources:
+            if not hasattr(ar, "b"):
+                matches = [self.stream]
+            else:
+                matches = [name for name, data in self.sources.items() if data is ar.b]
+                if not matches:
+                    matches = [name for name, data in self.sources.items() if data == ar.b]
+            self.archive_sources[ar] = tuple(sorted(matches))
+        return self.archive_sources[ar]
+
+    @contextmanager
+    def schema(self, name, ar, o, via):
+        available = name in self.registry.classes
+        (self.used if available else self.missing).add(name)
+        parent = self.schemas[-1] if self.schemas else None
+        cls, object_type = self.object_context(o)
+        self.calls[(name, via, parent, cls, object_type, self.source_streams(ar))] += 1
+        self.schemas.append(name)
+        try:
+            yield
+        finally:
+            self.schemas.pop()
+
+    @contextmanager
+    def operation(self, op, index, scope):
+        self.operations.append({
+            "operation": f"{type(op).__module__}.{type(op).__qualname__}",
+            "index": index,
+            "field": getattr(op, "name", None),
+            "scope_index": getattr(scope, "index", None),
+        })
+        try:
+            yield
+        finally:
+            self.operations.pop()
+
+    def raw(self, op, ar, o, declared):
+        if callable(op.n):
+            code = getattr(op.n, "__code__", None)
+            try:
+                source = inspect.getsource(op.n).strip()
+            except (OSError, TypeError):
+                source = None
+            rule = {
+                "kind": "callable",
+                "module": getattr(op.n, "__module__", None),
+                "name": getattr(op.n, "__qualname__", type(op.n).__qualname__),
+                "source_file": getattr(code, "co_filename", None),
+                "source_line": getattr(code, "co_firstlineno", None),
+                "source": source,
+            }
+        else:
+            rule = {"kind": "constant", "value": op.n}
+        cls, object_type = self.object_context(o)
+        record = {
+            "schema": self.schemas[-1] if self.schemas else None,
+            "schema_path": list(self.schemas),
+            "object_class": cls,
+            "object_type": object_type,
+            "field": op.name,
+            "operation": f"{type(op).__module__}.{type(op).__qualname__}",
+            "operation_path": list(self.operations),
+            "source_streams": list(self.source_streams(ar)),
+            "length_rule": rule,
+            "declared_length": declared,
+            "observed_length": 0,
+            "completed": False,
+        }
+        self.raw_operations.append(record)
+        return record
+
+    def snapshot(self):
+        calls = [{
+            "schema": name,
+            "via": via,
+            "parent_schema": parent,
+            "object_class": cls,
+            "object_type": object_type,
+            "source_streams": list(streams),
+            "count": count,
+        } for (name, via, parent, cls, object_type, streams), count in self.calls.items()]
+        calls.sort(key=lambda item: (item["schema"], item["via"], item["parent_schema"] or "", item["object_class"] or "", item["object_type"], item["source_streams"]))
+        return {
+            "direction": self.direction,
+            "requested_stream": self.stream,
+            "role": self.role,
+            "completed": self.completed,
+            "used_schemas": sorted(self.used),
+            "provisional_schemas": sorted(self.used & self.registry.tentative),
+            "missing_schemas": sorted(self.missing),
+            "schema_calls": calls,
+            "raw_operations": list(self.raw_operations),
+        }
 
 
 class Op:
@@ -68,14 +183,32 @@ class Raw(Op):
 
     def load(self, ar, scope, o):
         n = self.n(scope, ar) if callable(self.n) else self.n
-        scope[self.name] = ar.raw(n)
+        usage = getattr(ar.registry, "_usage", None)
+        record = usage.raw(self, ar, o, n) if usage is not None else None
+        start = ar.p
+        try:
+            scope[self.name] = ar.raw(n)
+            if record is not None:
+                record["completed"] = True
+        finally:
+            if record is not None:
+                record["observed_length"] = ar.p - start
 
     def store(self, ar, scope, o):
         n = self.n(scope, ar) if callable(self.n) else self.n
-        data = scope[self.name]
-        if len(data) != n:
-            raise ArchiveError(f"{self.name} declares {n} bytes, got {len(data)}")
-        ar.raw(data)
+        usage = getattr(ar.registry, "_usage", None)
+        record = usage.raw(self, ar, o, n) if usage is not None else None
+        start = len(ar.out)
+        try:
+            data = scope[self.name]
+            if len(data) != n:
+                raise ArchiveError(f"{self.name} declares {n} bytes, got {len(data)}")
+            ar.raw(data)
+            if record is not None:
+                record["completed"] = True
+        finally:
+            if record is not None:
+                record["observed_length"] = len(ar.out) - start
 
 
 class Base(Op):
@@ -83,10 +216,10 @@ class Base(Op):
         self.cls = cls
 
     def load(self, ar, scope, o):
-        ar.registry.run_load(self.cls, ar, scope, o)
+        ar.registry.run_load(self.cls, ar, scope, o, via="base")
 
     def store(self, ar, scope, o):
-        ar.registry.run_store(self.cls, ar, scope, o)
+        ar.registry.run_store(self.cls, ar, scope, o, via="base")
 
 
 class Emb(Op):
@@ -95,11 +228,11 @@ class Emb(Op):
 
     def load(self, ar, scope, o):
         sub = Scope(scope, None)
-        ar.registry.run_load(self.cls, ar, sub, o)
+        ar.registry.run_load(self.cls, ar, sub, o, via="embedded")
         scope[self.name] = sub.own
 
     def store(self, ar, scope, o):
-        ar.registry.run_store(self.cls, ar, Scope(scope, None, scope[self.name]), o)
+        ar.registry.run_store(self.cls, ar, Scope(scope, None, scope[self.name]), o, via="embedded")
 
 
 class If(Op):
@@ -194,13 +327,23 @@ class Scope:
 
 
 def run_load(ops, ar, scope, o):
-    for op in ops:
-        op.load(ar, scope, o)
+    for index, op in enumerate(ops):
+        usage = getattr(ar.registry, "_usage", None)
+        if usage is None:
+            op.load(ar, scope, o)
+        else:
+            with usage.operation(op, index, scope):
+                op.load(ar, scope, o)
 
 
 def run_store(ops, ar, scope, o):
-    for op in ops:
-        op.store(ar, scope, o)
+    for index, op in enumerate(ops):
+        usage = getattr(ar.registry, "_usage", None)
+        if usage is None:
+            op.store(ar, scope, o)
+        else:
+            with usage.operation(op, index, scope):
+                op.store(ar, scope, o)
 
 
 class Registry:
@@ -208,6 +351,28 @@ class Registry:
         self.classes = {}
         self.tentative = set()
         self.plans = {}
+        self._usage = None
+
+    @contextmanager
+    def track_usage(self, direction, stream, *, role="stream", sources=None):
+        if direction not in ("load", "store"):
+            raise ValueError(f"unknown usage direction {direction!r}")
+        previous = self._usage
+        usage = Usage(self, direction, stream, role, sources)
+        self._usage = usage
+        try:
+            yield usage
+            usage.completed = True
+        finally:
+            self._usage = previous
+
+    @contextmanager
+    def schema_usage(self, name, ar, o, via):
+        if self._usage is None:
+            yield
+        else:
+            with self._usage.schema(name, ar, o, via):
+                yield
 
     def define(self, name, ops):
         if name in self.classes and name not in self.tentative:
@@ -224,21 +389,23 @@ class Registry:
     def has(self, name):
         return name in self.classes
 
-    def run_load(self, name, ar, scope, o):
-        if name not in self.classes:
-            raise ArchiveError(f"no schema for {name} at {ar.p}")
-        run_load(self.classes[name], ar, scope, o)
+    def run_load(self, name, ar, scope, o, *, via="direct"):
+        with self.schema_usage(name, ar, o, via):
+            if name not in self.classes:
+                raise ArchiveError(f"no schema for {name} at {ar.p}")
+            run_load(self.classes[name], ar, scope, o)
 
-    def run_store(self, name, ar, scope, o):
-        if name not in self.classes:
-            raise ArchiveError(f"no schema for {name} at {len(ar.out)}")
-        try:
-            run_store(self.classes[name], ar, scope, o)
-        except KeyError as error:
-            raise ArchiveError(f"missing field {error.args[0]!r} in {name} while storing {o.cls} at {len(ar.out)}") from error
+    def run_store(self, name, ar, scope, o, *, via="direct"):
+        with self.schema_usage(name, ar, o, via):
+            if name not in self.classes:
+                raise ArchiveError(f"no schema for {name} at {len(ar.out)}")
+            try:
+                run_store(self.classes[name], ar, scope, o)
+            except KeyError as error:
+                raise ArchiveError(f"missing field {error.args[0]!r} in {name} while storing {o.cls} at {len(ar.out)}") from error
 
     def load(self, ar, o):
-        self.run_load(o.cls, ar, o.f, o)
+        self.run_load(o.cls, ar, o.f, o, via="object")
 
     def store(self, ar, o):
-        self.run_store(o.cls, ar, o.f, o)
+        self.run_store(o.cls, ar, o.f, o, via="object")

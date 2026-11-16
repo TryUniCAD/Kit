@@ -181,6 +181,10 @@ The [complete curve-source family lock](../../Changes/Solidworks/Inspection/Rela
 now records 30 passing source cases, 66 fresh phases, 797 passing numeric checks and healthy controls before and after.
 All 32 source hashes were locked before fresh curve-writer implementation; six held-out native payloads remain sealed during derivation.
 The [portable lock](../../../re/solidworks/v2026/heldout/CurveSourceLock.json) permits discovery analysis and establishes no Kit-written curve acceptance.
+The [research schema-usage report](../../Changes/Solidworks/Model/SolidworksArchiveSchemaUsage.md)
+separates actual load/store and linked-seed schema admission from byte identity.
+Its strict option rejects used provisional or missing schemas and incomplete operations;
+registry status alone does not establish field semantics or native writer acceptance.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
