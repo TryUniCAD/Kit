@@ -297,6 +297,7 @@ def inventory_main():
             ROOT / "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Strings/CStringValue.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Strings/EncodeString.py",
+            ROOT / "src/convert/adapters/solidworks/Archive/Strings/ReadLength.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Strings/ReadString.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Tags/ArchiveTag.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Tags/EncodeTag.py",

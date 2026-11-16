@@ -28,6 +28,8 @@ Remote byte-identity and retained-graph checks of this changed implementation re
 CString methods now call the production `Archive/Strings/` layer.
 `Load.string` converts its typed result to the existing Unicode text or tagged ANSI text pair.
 `Store.string` selects explicit source-frame reconstruction and validates that ANSI pair.
+The focused `ReadLength` helper owns sentinel and length decoding separately from text payload decoding.
+Field inventories include all four production string module hashes.
 The [string promotion](../../../../Documentation/Changes/Solidworks/Model/SolidworksArchiveStrings.md)
 records its 2026 marker correction, ordinary-mode limits, and canonical encoding.
 Field inventories also fingerprint `CStringValue.py`, `ReadString.py`, and `EncodeString.py`.

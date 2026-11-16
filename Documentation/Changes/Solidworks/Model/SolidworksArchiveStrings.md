@@ -47,7 +47,8 @@ No long-string oracle measurement or semantic ANSI code-page equivalence is clai
 The research archive now routes every string read and write through these production modules.
 It converts typed results to its existing Unicode text or `("A", text)` representation.
 It validates ANSI tuple shape and selects source-frame reconstruction explicitly.
-Field inventories include all three production source hashes, and their process assertions require those exact modules.
+The focused `ReadLength` helper separates sentinel decoding from text payload decoding.
+Field inventories include all four production source hashes, and their process assertions require those exact modules.
 
 Source, AST, and Black checks passed without executing a codec, schema, or local test.
 Independent original-PE inspection verified nine complete native function spans and thirteen relative-call targets.

@@ -1,4 +1,5 @@
 from struct import pack as PackValue
+from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
 
@@ -7,7 +8,7 @@ from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
 def EncodeTag(TagValue: ArchiveTag) -> bytes:
     if type(TagValue) is not ArchiveTag:
         raise TypeError("archive tag value must be an archive tag")
-    if type(TagValue.KindValue) is not str:
+    if type(CastValue(object, TagValue.KindValue)) is not str:
         raise TypeError("archive tag kind must be a string")
     if TagValue.KindValue in ("Null", "NewClass"):
         if TagValue.IndexValue is not None:
