@@ -1,0 +1,11 @@
+# Saved-circle archive and parameter checks
+
+The research reader command `re/tooling/sw2026/serial/SavedCircles.py --report NEW_REPORT.json` compares the six prepared vendor-saved derivatives from the controlled circle boss experiment. It runs in remote CI through an independent Python process. These inputs are reader evidence, not additional generated output, held-out validation or transferred native acceptance.
+
+The command requires the manifest, privacy ledger, original native receipt, original job hash and preparation implementation hashes to agree. It checks exact six-file membership, original saved hashes, every prepared stream hash and immutable inputs. Both source feature names are neutral-request targets. Radius/depth targets use the explicit edit factors, including the final resaved copies.
+
+For each file, the existing shared grammar performs eight complete primary archive comparisons and one linked resolved-feature comparison. Proven-schema admission, complete stream consumption and byte identity are required. The semantic reader then loads the same complete model with its linked configuration map and checks actual circle endpoint/center topology, local center/radius, driving value mode and private parameter, fixed-center target, radial display owner/index, blind end condition, depth parameter and canonical frame. Its linked graph must contain no unresolved external reference.
+
+The process contract requires 54 stream comparisons and 108 numeric comparisons matching to six significant figures across six files. Partial archive failures retain their complete native stream diagnostics. Decoded semantic failure, unread tails, provisional/missing schemas, byte differences or mismatched provenance fail the process. Reports and stdout/stderr are preserved with the existing remote research artifacts.
+
+Verification at introduction: source/AST review and formatting only. No local archive schemas, reader checks or tests ran. Remote outcomes remain pending. The public adapter remains read-only. Complete native file re-emission, body-cache classification, all feature-name preservation, presentation, general frames and held-out family coverage remain separate requirements.

@@ -319,7 +319,7 @@ def binary_redaction(name, data, privacy, *, additional_metadata_streams=()):
     return bytes(output), replacements
 
 
-def xml_redaction(name, data, privacy, *, additional_metadata_properties=()):
+def xml_redaction(name, data, privacy, *, additional_metadata_properties=(), additional_metadata_attributes=()):
     output = bytearray(data)
     replacements = []
     dimension_spans = []
@@ -330,9 +330,38 @@ def xml_redaction(name, data, privacy, *, additional_metadata_properties=()):
         raise ValueError(f"DTD/entity declarations are unsupported in fixture XML: {name}")
 
     def begin(tag, attributes):
+        private_attributes = [key for key, value in attributes.items() if privacy.private(value, framed=True)]
+        if any((name, tag, key) not in additional_metadata_attributes for key in private_attributes):
+            raise ValueError(f"private XML attributes outside recognized metadata context: {name} ({tag}, attributes={private_attributes})")
         if stack:
             stack[-1]["children"] = True
         stack.append({"tag": tag, "attributes": attributes, "text": [], "start": None, "children": False})
+        if private_attributes:
+            start = parser.CurrentByteIndex
+            finish, quote = start, None
+            while finish < len(data):
+                byte = data[finish]
+                if quote is None and byte in (34, 39):
+                    quote = byte
+                elif quote == byte:
+                    quote = None
+                elif quote is None and byte == 62:
+                    break
+                finish += 1
+            if finish == len(data):
+                raise ValueError("private XML metadata attribute has no complete start tag")
+            located = set()
+            for match in re.finditer(rb"([A-Za-z_:][A-Za-z0-9_.:-]*)\s*=\s*([\"'])(.*?)\2", data[start:finish], re.DOTALL):
+                key = match.group(1).decode("ascii")
+                before = match.group(3)
+                begin, end = start + match.start(3), start + match.end(3)
+                if key in private_attributes and before == attributes[key].encode("utf-8"):
+                    after = privacy.replace(attributes[key], "utf-8").encode("utf-8")
+                    output[begin:end] = after
+                    replacements.append(replacement_record("xml-attribute", begin, before, after, tag + ":" + key))
+                    located.add(key)
+            if located != set(private_attributes):
+                raise ValueError(f"private XML attribute uses unsupported escaping/encoding: {name}")
 
     def text(value):
         if not stack:

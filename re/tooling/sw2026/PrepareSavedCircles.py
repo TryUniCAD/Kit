@@ -36,6 +36,17 @@ def dimension_names(value):
     return found
 
 
+def private_summary(data, privacy):
+    text = data.decode("utf-8", errors="replace")
+    technical = sorted({value for value in re.findall(r"D[1-9][0-9]*@[^<>\"'\s]+", text) if not privacy.non_email_private(value)})
+    return {
+        "home_path": privacy.home.search(text) is not None,
+        "account_name": any(pattern.search(text) is not None for pattern in privacy.names),
+        "email_patterns": len(privacy.email.findall(text)),
+        "technical_dimension_tokens": technical,
+    }
+
+
 def sources(receipt, job, source):
     require(receipt["schema"] == "kit.sw2026.circle-boss-edit-rung.v1", "unexpected native receipt")
     require(receipt["body_and_edit_rung_passed"] is True, "native body rung did not pass")
@@ -70,6 +81,7 @@ def sources(receipt, job, source):
                 "center_m": document["center_m"], "radius_m": document["radius_m"] * radial_factor,
                 "depth_m": document["depth_m"] * depth_factor,
                 "mode": document["circle_dimension"]["mode"], "plane_axis": document["plane_axis"],
+                "sketch_name": document["sketch_name"], "extrusion_name": document["extrusion_name"],
                 "radial_factor": radial_factor, "depth_factor": depth_factor,
             }
             require(all(math.isfinite(value) and value > 0 for value in (expected["radius_m"], expected["depth_m"])), "invalid neutral targets")
@@ -90,12 +102,18 @@ def prepare(api, selected, privacy):
             require(not privacy.private(stream.name), "private native stream name")
             total += len(stream.data)
             require(len(stream.data) <= MAX_STREAM and total <= MAX_DECODED, "saved fixture exceeds stream bound")
-            if stream.name.endswith(".xml"):
-                prepared, changes, spans = xml_redaction(stream.name, stream.data, privacy, additional_metadata_properties=(("docProps/ISolidWorksInformation.xml", "SW-Folder Name"),))
+            if stream.name.endswith(".xml") or stream.name == "swXmlContents/Features":
+                prepared, changes, spans = xml_redaction(
+                    stream.name, stream.data, privacy,
+                    additional_metadata_properties=(("docProps/ISolidWorksInformation.xml", "SW-Folder Name"),),
+                    additional_metadata_attributes=(("swXmlContents/Features", "http://www.solidworks.com/sw2003/schema}swFile", "swPath"),),
+                )
             else:
                 prepared, changes = binary_redaction(stream.name, stream.data, privacy, additional_metadata_streams=("Contents/CMgr", "Contents/Config-0-ResolvedFeatures"))
                 spans = []
-            require(len(prepared) == len(stream.data) and not privacy.scan(prepared, spans), f"unrecognized private context: {filename}/{stream.name}")
+            require(len(prepared) == len(stream.data), "metadata transformation changed encoded length")
+            if privacy.scan(prepared, spans):
+                raise ValueError(f"unrecognized private context: {filename}/{stream.name}; {private_summary(prepared, privacy)}")
             covered = {index for change in changes for index in range(change["offset"], change["offset"] + change["bytes"])}
             require(all(a == b or index in covered for index, (a, b) in enumerate(zip(stream.data, prepared))), "unrecorded metadata modification")
             items.append((stream.name, prepared))
