@@ -88,6 +88,12 @@ They encode integer cardinalities and decode bounded byte buffers for the distin
 The research archive calls these functions directly, so its process checks cover the production implementation.
 This promotion adds no public writing capability.
 
+The [shared tag primitives](../../Changes/Solidworks/Model/SolidworksArchiveTagPrimitives.md)
+classify structural markers and references before descriptor parsing or map resolution.
+The research archive reads and writes its tags through this production layer.
+The [2026 grammar record](../../../re/solidworks/records/ArchiveTagGrammar2026.md) binds the encodings to complete native functions.
+Noncanonical input widths are not retained.
+
 The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
 extend the research instruments without establishing writer support.

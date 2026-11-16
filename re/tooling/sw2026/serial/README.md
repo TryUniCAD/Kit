@@ -13,7 +13,17 @@ Both source files are included in field-inventory implementation fingerprints.
 The existing real CLI checks therefore exercise the promoted code at the archive process boundary.
 The [promotion entry](../../../../Documentation/Changes/Solidworks/Model/SolidworksArchiveCountPrimitives.md)
 describes both count domains and their limits.
-Historical source-admission results do not verify this changed implementation.
+The [promotion receipt](../../../solidworks/measurements/2026/CurveCountAdmissionFeb8.json)
+records all 234 strict byte identities and retained graph checks under source `feb8e11db`.
+Its 52 implementation fingerprints include both production count modules.
+Historical source-admission results remain bound to their original implementations.
+
+Structural tags now also call the production `Archive/Tags/` layer.
+Null, new-class, class-reference, and object-reference paths share the native 16/32-bit grammar.
+The [tag promotion](../../../../Documentation/Changes/Solidworks/Model/SolidworksArchiveTagPrimitives.md)
+records canonical-width limits and the normalization of escaped object index zero to null.
+Field inventories additionally fingerprint `ArchiveTag.py`, `ReadTag.py`, and `EncodeTag.py`.
+Remote byte-identity and retained-graph checks of this changed implementation remain pending.
 
 ## Run
 

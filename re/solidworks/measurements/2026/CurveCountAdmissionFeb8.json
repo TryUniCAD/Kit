@@ -1,0 +1,400 @@
+{
+  "schema": "kit.sw2026.source-archive-admission.v1",
+  "scope": "shared src count promotion through the real research archive CLI",
+  "source_revision": "feb8e11db40f0c50f13c9e673cdad87fa9dbc452",
+  "base_revision": "870e87eaed9efd065d700b15ccaad72fa50ff10a",
+  "tested_revision": "5152d5d10a80394a34947878bc8c68cc72350779",
+  "tested_tree": "1d2a51e41082c1f768d59fb121965ca5a39ad7be",
+  "verified_tested_parents": [
+    "870e87eaed9efd065d700b15ccaad72fa50ff10a",
+    "feb8e11db40f0c50f13c9e673cdad87fa9dbc452"
+  ],
+  "workflow_run": 43816632345,
+  "job_id": 133130055908,
+  "job_url": "https://github.com/TryUniCAD/Kit/actions/runs/43816632345/job/133130055908",
+  "remote_cases": {
+    "passed": 181,
+    "skipped_fixture_dependent": 158,
+    "failed": 0
+  },
+  "artifact": {
+    "id": 14203400268,
+    "name": "solidworks-construction-5152d5d10a80394a34947878bc8c68cc72350779",
+    "archive_bytes": 19325392,
+    "github_reported_archive_sha256": "6f383860e2eee8fe94098c92d2af15b5f3a6e05976585c95b0857320cc135cea",
+    "archive_digest_independently_verified": false
+  },
+  "roundtrip_reports": [
+    {
+      "report": "PrimaryStreams.json",
+      "bytes": 20444130,
+      "sha256": "2c69ec1c11232328df95e27f0f8893a73f1513454c67d23f7bbcdb5159897509",
+      "file_count": 26,
+      "stream_count": 208,
+      "all_passed": true,
+      "all_identical": true,
+      "all_zero_tails": true,
+      "all_proven": true,
+      "require_proven": true,
+      "used_provisional_schemas": []
+    },
+    {
+      "report": "LinkedConfig.json",
+      "bytes": 14621944,
+      "sha256": "27ff209155f4cc38fac90ad3a0dd6b9cc1cd1a99dd53006f68b36109e86418e7",
+      "file_count": 26,
+      "stream_count": 26,
+      "all_passed": true,
+      "all_identical": true,
+      "all_zero_tails": true,
+      "all_proven": true,
+      "require_proven": true,
+      "used_provisional_schemas": []
+    }
+  ],
+  "field_reports": [
+    {
+      "name": "LinkedConfig0ResolvedFeatures.json",
+      "bytes": 337984627,
+      "sha256": "c52ba39430d93e71fed0cbc4fc56531b1489abf923baf08e0e868e12797833c3",
+      "file_count": 26,
+      "passed": true,
+      "all_records_passed": true,
+      "all_proven": true,
+      "node_occurrences": 39710,
+      "unresolved_references": 0,
+      "implementation_count": 52,
+      "implementation_mismatches": []
+    },
+    {
+      "name": "PrimaryBiography.json",
+      "bytes": 4896728,
+      "sha256": "19a06599c018bdd4708a63213f6b467c836ad4b4a962166c8adae8e6089faa9d",
+      "file_count": 26,
+      "passed": true,
+      "all_records_passed": true,
+      "all_proven": true,
+      "node_occurrences": 364,
+      "unresolved_references": 0,
+      "implementation_count": 52,
+      "implementation_mismatches": []
+    },
+    {
+      "name": "PrimaryCMgr.json",
+      "bytes": 20107785,
+      "sha256": "aceb4774a79ca7a026ad250ed10ce1b04656eb28e4081dff8bf802f3ea9e9e9f",
+      "file_count": 26,
+      "passed": true,
+      "all_records_passed": true,
+      "all_proven": true,
+      "node_occurrences": 3250,
+      "unresolved_references": 0,
+      "implementation_count": 52,
+      "implementation_mismatches": []
+    },
+    {
+      "name": "PrimaryConfig0.json",
+      "bytes": 183222269,
+      "sha256": "840f506f1c0202a16e7beb25f56b5f6a004acc984e989961df8d71baf2d49920",
+      "file_count": 26,
+      "passed": true,
+      "all_records_passed": true,
+      "all_proven": true,
+      "node_occurrences": 16502,
+      "unresolved_references": 0,
+      "implementation_count": 52,
+      "implementation_mismatches": []
+    },
+    {
+      "name": "PrimaryConfig0ModelHeader.json",
+      "bytes": 22483383,
+      "sha256": "4a28882a58a94a64f0321ffe15abd6043469debe78ba92dbe96babe7ac8db4ba",
+      "file_count": 26,
+      "passed": true,
+      "all_records_passed": true,
+      "all_proven": true,
+      "node_occurrences": 4446,
+      "unresolved_references": 0,
+      "implementation_count": 52,
+      "implementation_mismatches": []
+    },
+    {
+      "name": "PrimaryConfig0ResolvedFeatures.json",
+      "bytes": 153261556,
+      "sha256": "9c9537d64b7ab35fe3bd2edc041d963973d21a1f0392253d335b492b596e3e1a",
+      "file_count": 26,
+      "passed": true,
+      "all_records_passed": true,
+      "all_proven": true,
+      "node_occurrences": 23442,
+      "unresolved_references": 164,
+      "implementation_count": 52,
+      "implementation_mismatches": []
+    },
+    {
+      "name": "PrimaryDefinition.json",
+      "bytes": 26825164,
+      "sha256": "3f01e6ee0c9e7132787ba508a45c54d18580e86238a4ca4a5187b0ff61b8a785",
+      "file_count": 26,
+      "passed": true,
+      "all_records_passed": true,
+      "all_proven": true,
+      "node_occurrences": 6240,
+      "unresolved_references": 0,
+      "implementation_count": 52,
+      "implementation_mismatches": []
+    },
+    {
+      "name": "PrimaryHeader2.json",
+      "bytes": 21693451,
+      "sha256": "45683a6b6ca1b1e22fb02b00f42646b4a26a93f5e61f971c40ab3734b36cde75",
+      "file_count": 26,
+      "passed": true,
+      "all_records_passed": true,
+      "all_proven": true,
+      "node_occurrences": 4446,
+      "unresolved_references": 0,
+      "implementation_count": 52,
+      "implementation_mismatches": []
+    },
+    {
+      "name": "PrimaryHistory.json",
+      "bytes": 1121910,
+      "sha256": "75f1048d75e276e02714be333417ee885b04faaf4d4d414d9afafb5b8e03e291",
+      "file_count": 26,
+      "passed": true,
+      "all_records_passed": true,
+      "all_proven": true,
+      "node_occurrences": 364,
+      "unresolved_references": 0,
+      "implementation_count": 52,
+      "implementation_mismatches": []
+    }
+  ],
+  "implementation": [
+    {
+      "file": "re/tooling/sw2026/serial/FieldScan.py",
+      "sha256": "d6b9227ed638eeae0e8edd3e9426a1dc0dfa2d46f6868ca16c1da2d46736c35f"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Core.py",
+      "sha256": "c1139b7ddb84cd2931c138dd51003794b449c1f1c5732ea01a4c65cd23986eb2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Schema.py",
+      "sha256": "4520a73e842bdb736ee6f450c35d740f07c91ccdf899b03f8ceb38426741fd39"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Classes.py",
+      "sha256": "7bcba68ca5d75b23f18b81eb1a54c1da1381f744242c63dc1aaca13cc10dcc4b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Streams.py",
+      "sha256": "5732b6b5358676d32bff872d4919d6d40b4cf30107f243b87a330bbc5519f8d5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/RoundTrip.py",
+      "sha256": "f36410fbbdd1e966e5088e334ace40c67f5d76e6dd4fee33e75ecba7c6cf9ab8"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Dsl.py",
+      "sha256": "8467587af31c6d2b92d2fd3191640ca75a15b4840c3958abca32707e8e9f9ea4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/AnnotationWire.py",
+      "sha256": "1736c889060ff4147e6e18ecaf35fe31ae68f99cfda8c5bd87a9f0ebd5675bd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/CommonPartOwners2026.py",
+      "sha256": "035daed40818b8d4e1eed7b3560d6db05296f6b3158915e6d46dd2a15ab216e2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigAssembly.py",
+      "sha256": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigDetail.py",
+      "sha256": "c0522965c64530e568aa6ff688b58e86edaaaa369c9d4ad23530ad2798180d52"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigPart.py",
+      "sha256": "82bd9af35b794ea68a1d40b9b3a6e044653b625fce3caf05580c61beb30676a3"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigUnits.py",
+      "sha256": "3aceb00b5912707087c29e4061eaa52c5022daa2c6db23720b7b36eba031fb7c"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigVisual.py",
+      "sha256": "613d12ea8d6514015db720f5c12e1a7a2ff68e481a540a0abfcf3ab45a35e712"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Definition.py",
+      "sha256": "7f8b6ad83f7305498a7aaf9ab9b66ca9ad68442e42492a55c0b45fc0e19f649a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ExtObject.py",
+      "sha256": "c1b196cc17902c8acc19ff9ddac3147d7d44d38415f77fc85df84cee119fba5d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Geometry.py",
+      "sha256": "6512745e04f882620f35890d4f1fdef0f92333272e7654f7ec5de1bfb1e8f000"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MaterialDisplay.py",
+      "sha256": "a5efe19dbd86e8aebc70a0b2f9816d785c17f8fa84a571170d55f37ae72f4556"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MfcMaps.py",
+      "sha256": "15644267281dc8454741a5bd25d3037ea08022d377afa353a599df8a8e4bc924"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ModelHeader.py",
+      "sha256": "2a05200a42ae279b0ae147ae9879a7a8375a86c40a29098b3f7cc192a071521b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedBody.py",
+      "sha256": "0c0590805852de9698a7bea9d1d0e9e1580d317ae0e93597a0015e28cfb8e457"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedComp.py",
+      "sha256": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedCore.py",
+      "sha256": "a1762ee4211aa33c2ad96c25f94d8162bf9f8c9e6e03f11d351654e6948e1d1d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedDims.py",
+      "sha256": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFeatures.py",
+      "sha256": "7130a0a40aafedd7d61c408fac6c14f2cd7bbcb12fe6bf3b18be34f209c93b47"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFillet.py",
+      "sha256": "b4d1e51baaa2fd6b0b864baedd191177d98193f717aa2058320bcc673ecbf0bc"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFolders.py",
+      "sha256": "982d6ee0100e863d40f29f7e6353200931e460f8117d95855f25a224195ec718"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedPattern.py",
+      "sha256": "59b8b39337809c4297277a71f5095c50b8eb0929d07f5f6edd89156176fa34a4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedProfile.py",
+      "sha256": "4ea3ccd45146f3e70ff6aeada3c408265551f60925e4fef8ccb34ecb33a1d1f4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefGeom.py",
+      "sha256": "0990cfbe85b2ee755e18ae27284b17b9f22e39c1f03a1b8869594e280d31ae5b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefs.py",
+      "sha256": "b0ff1ee52afc7e4e528d0eab780dc8c2d359fe019fa0de4525bf8940ecdae576"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedSketch.py",
+      "sha256": "c6dcf4efa511acc92dc2a77aa2bc0def883a07941b2ab1690293185c055b8c9a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+      "sha256": "c47ae4c157592a8c2da63150e59420699961b1fd94e6b11d429eb4e0290bc97b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCusProps.py",
+      "sha256": "4fb716a697648aaecf0c4417869cde9ef350d2bf7df99ac5e87289455ad16f79"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallDocContent.py",
+      "sha256": "8b26de84ad013e16cf0f077c079101a59ef79e5289be847d9c3d201812f0787e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHeader.py",
+      "sha256": "ced15854e8a25899a453f4df5aaea9ea348891b26dfeef11a3466ba10c71a444"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHistory.py",
+      "sha256": "0243867b6e96c213b9a5603425c4240410648ff5d90d4cdd7a660cddb23433ff"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallStreams.py",
+      "sha256": "2c36304e92909de38874348a694d20900f628f5159a03e2d02161e3a29342183"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDefinitions.py",
+      "sha256": "2a66ed3df6aa9864974f3cb3778a9bbd09c462547044ea809ca320f7ba8bc9da"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDetail.py",
+      "sha256": "f3eaeb136de7666a9cf4bba85e0cfedb6a11fa43e7264127b4316305b953aa03"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDimensions.py",
+      "sha256": "6280dcfe1af0c7236fd818df2dd0a4ffe771ad250f1ecea5e052b0af2cc4e9e6"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFormats.py",
+      "sha256": "90978760e3d058d12e71778443c8ceae868b66d64a7bd4768d36efa5e5cfc27a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFrame.py",
+      "sha256": "8b0a93853c3fb409d31e2ea36fae53f4bbd360e7366aa6c07f7b0981f5a9f37e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationHelpers.py",
+      "sha256": "e9602884db9466963c95acdf838140bde83ca68068fa75df326c4ad6e8610cd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationLabels.py",
+      "sha256": "af3428274f3cd1624a8e1b14e6c9684b659d00d5a0f40246403bde2b8e76073d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationTables.py",
+      "sha256": "e14f968e23ef2590d554a9adb45724e60a7df28e3e4ce4f966be0875acc481af"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationView.py",
+      "sha256": "ac3b349bc593cf8990c8357821477098b6265c19e475442afb883c58278d8df5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Visual.py",
+      "sha256": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VisualRefs.py",
+      "sha256": "dbf0c8ea784d2128573af6e21d7f7e808bacb36ea859c4146853c8fa372bbf81"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py",
+      "sha256": "a36a080ff7e73a6bc84d9e9d1bed111539447560958598f56daa0cda421cbce6"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
+      "sha256": "359ffb24181c7a2b9deead3e46cc7eb024b3ef0c569a760c86f474475f4bc01e"
+    }
+  ],
+  "all_52_implementation_fingerprints_match": true,
+  "all_234_graphs_passed": true,
+  "node_occurrences": 98764,
+  "local_product_or_test_execution": false,
+  "independent_inspection": "remote JSON data, source hashes, native-job logs and synthetic commit parents only",
+  "count_boundary_native_exercises": false,
+  "fresh_writer_output": false,
+  "heldout_acceptance": false,
+  "merge_group_acceptance": false,
+  "native_acceptance_inherited": false,
+  "limits": [
+    "Small source counts do not exercise every canonical width or malformed-input branch",
+    "Byte identity and strict schemas do not establish field semantics or fresh output construction",
+    "The public adapter remains read-only",
+    "Review approval and complete PR CI are separate current-head evidence"
+  ]
+}

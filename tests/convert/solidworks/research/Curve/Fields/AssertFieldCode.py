@@ -32,6 +32,10 @@ def AssertFieldCode(Report: dict[str, object]) -> None:
             "src/convert/adapters/solidworks/Archive/Counts/" + FileName
             for FileName in ("EncodeCount.py", "ReadCount.py")
         }
+        | {
+            "src/convert/adapters/solidworks/Archive/Tags/" + FileName
+            for FileName in ("ArchiveTag.py", "EncodeTag.py", "ReadTag.py")
+        }
     )
     Records = CastValue(list[dict[str, object]], Report["implementation"])
     Names = [CastValue(str, Record["file"]) for Record in Records]

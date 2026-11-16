@@ -4,6 +4,9 @@ import struct
 
 from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
 from convert.adapters.solidworks.Archive.Counts.ReadCount import ReadCount
+from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
+from convert.adapters.solidworks.Archive.Tags.EncodeTag import EncodeTag
+from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
 
 NULL_TAG = 0x0000
 NEW_CLASS = 0xFFFF
@@ -130,16 +133,14 @@ class Load:
         return ("A", self.raw(n).decode("latin-1"))
 
     def read_class(self):
-        tag = self.prim("u16")
-        if tag == BIG_TAG:
-            big = self.prim("u32")
-            if not big & BIG_CLASS:
-                return ("objref", big)
-            idx = big & 0x7FFFFFFF
-            return ("classref", idx)
-        if tag == NULL_TAG:
+        try:
+            tag, position = ReadTag(self.b, self.p)
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive tag at {self.p}: {error}") from error
+        self.p = position
+        if tag.KindValue == "Null":
             return ("null", None)
-        if tag == NEW_CLASS:
+        if tag.KindValue == "NewClass":
             schema = self.prim("u16")
             n = self.prim("u16")
             name = self.raw(n).decode("latin-1")
@@ -147,9 +148,7 @@ class Load:
             self.table[idx] = ("class", name, schema)
             self.count += 1
             return ("classdef", (name, schema))
-        if tag & CLASS_TAG:
-            return ("classref", tag & 0x7FFF)
-        return ("objref", tag)
+        return ("classref" if tag.KindValue == "ClassRef" else "objref", tag.IndexValue)
 
     def cls(self):
         pos = self.p
@@ -269,21 +268,20 @@ class Store:
         self.raw(data)
 
     def tag(self, idx, cls):
-        if idx < BIG_TAG:
-            self.prim("u16", (CLASS_TAG | idx) if cls else idx)
-        else:
-            self.prim("u16", BIG_TAG)
-            self.prim("u32", (BIG_CLASS | idx) if cls else idx)
+        try:
+            self.out.extend(EncodeTag(ArchiveTag("ClassRef" if cls else "ObjectRef", idx)))
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid archive reference tag: {error}") from error
 
     def cls(self, c):
         if c is None:
-            self.prim("u16", NULL_TAG)
+            self.out.extend(EncodeTag(ArchiveTag("Null", None)))
             return
         name, schema = c
         if (name, schema) in self.classes:
             self.tag(self.classes[(name, schema)], True)
             return
-        self.prim("u16", NEW_CLASS)
+        self.out.extend(EncodeTag(ArchiveTag("NewClass", None)))
         self.prim("u16", schema)
         raw = name.encode("latin-1")
         self.prim("u16", len(raw))
@@ -293,7 +291,7 @@ class Store:
 
     def obj(self, o):
         if o is None:
-            self.prim("u16", NULL_TAG)
+            self.cls(None)
             return
         if isinstance(o, ExtRef):
             self.tag(o.index, False)
@@ -302,17 +300,7 @@ class Store:
         if key in self.objects:
             self.tag(self.objects[key], False)
             return
-        ck = (o.cls, o.schema)
-        if ck in self.classes:
-            self.tag(self.classes[ck], True)
-        else:
-            self.prim("u16", NEW_CLASS)
-            self.prim("u16", o.schema)
-            name = o.cls.encode("latin-1")
-            self.prim("u16", len(name))
-            self.raw(name)
-            self.classes[ck] = self.count
-            self.count += 1
+        self.cls((o.cls, o.schema))
         self.objects[key] = self.count
         self.nodes[key] = o
         self.count += 1

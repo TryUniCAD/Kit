@@ -1,0 +1,267 @@
+{
+  "file": "/Users/odin/Documents/UniCAD/Sw2026Research01a1dc84/bin/swccu.dll",
+  "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+  "image_base": "0x31a30000",
+  "exception_directory": {
+    "rva": "0x3a000",
+    "bytes": 11748,
+    "records": 979
+  },
+  "functions": [
+    {
+      "start": "0x31a3a2d0",
+      "span_start": "0x31a3a2d0",
+      "span_end": "0x31a3a54e",
+      "span_bytes": 638,
+      "span_sha256": "4cc3a859c6f80bd33917528ca84cd7a09befa24cd1b3a7ca9a1b797e7c546393",
+      "fragments": [
+        {
+          "start": "0x31a3a2d0",
+          "end": "0x31a3a54e",
+          "unwind_rva": "0x2634c",
+          "bytes": 638,
+          "sha256": "4cc3a859c6f80bd33917528ca84cd7a09befa24cd1b3a7ca9a1b797e7c546393"
+        }
+      ],
+      "contiguous": true
+    },
+    {
+      "start": "0x31a3a550",
+      "span_start": "0x31a3a550",
+      "span_end": "0x31a3a781",
+      "span_bytes": 561,
+      "span_sha256": "f0df2c866475589522468bc63e508763695e34eec607a77975cc8b723c6ae43d",
+      "fragments": [
+        {
+          "start": "0x31a3a550",
+          "end": "0x31a3a56c",
+          "unwind_rva": "0x26248",
+          "bytes": 28,
+          "sha256": "80ea55a9dc5ba236642f6a671859bda899827d279812df421e42769a6f200cd9"
+        },
+        {
+          "start": "0x31a3a56c",
+          "end": "0x31a3a607",
+          "unwind_rva": "0x26254",
+          "bytes": 155,
+          "sha256": "ea57f00c801f272a9d531d9f43b90f99084c8002380744ba023258130c75f42b"
+        },
+        {
+          "start": "0x31a3a607",
+          "end": "0x31a3a71f",
+          "unwind_rva": "0x2626c",
+          "bytes": 280,
+          "sha256": "34c2279b9d77176ca5e720f03c80e8f9988ccddfbfcd2e57b74cbdaab9adacc7"
+        },
+        {
+          "start": "0x31a3a71f",
+          "end": "0x31a3a733",
+          "unwind_rva": "0x26284",
+          "bytes": 20,
+          "sha256": "d705a714f3a6fe9f7a0c2c3ced5a5a6ac46c1af740fc7badb93cae80b9afa5f4"
+        },
+        {
+          "start": "0x31a3a733",
+          "end": "0x31a3a781",
+          "unwind_rva": "0x26294",
+          "bytes": 78,
+          "sha256": "70ddd76d94d82ed1841634ac183e8e9eba08236bbfadd7dd7e0308682ae87abf"
+        }
+      ],
+      "contiguous": true
+    },
+    {
+      "start": "0x31a3a850",
+      "span_start": "0x31a3a850",
+      "span_end": "0x31a3a92e",
+      "span_bytes": 222,
+      "span_sha256": "3f669130b07f70d233357904c8bc35f268d00f671a8443bd714ef67c5482da0f",
+      "fragments": [
+        {
+          "start": "0x31a3a850",
+          "end": "0x31a3a86f",
+          "unwind_rva": "0x26308",
+          "bytes": 31,
+          "sha256": "23d63cbec0cc577ef35b43ca5e4cf133d86860b89e31609c1326325d852e4d98"
+        },
+        {
+          "start": "0x31a3a86f",
+          "end": "0x31a3a8b2",
+          "unwind_rva": "0x26314",
+          "bytes": 67,
+          "sha256": "cd72bd5d997eaadd9b34125493ad568dc7c4e920646c987eae4832942c2e693a"
+        },
+        {
+          "start": "0x31a3a8b2",
+          "end": "0x31a3a8d9",
+          "unwind_rva": "0x26328",
+          "bytes": 39,
+          "sha256": "dbdfd054dc6e3f1bad7a042820d7d08431ac494bd990f601014ef9edf1cc2c84"
+        },
+        {
+          "start": "0x31a3a8d9",
+          "end": "0x31a3a928",
+          "unwind_rva": "0x26328",
+          "bytes": 79,
+          "sha256": "5fe81054d4bf8691c2750ceb6c727a586b077a901a96abbce9a69c8ca420c109"
+        },
+        {
+          "start": "0x31a3a928",
+          "end": "0x31a3a92e",
+          "unwind_rva": "0x2633c",
+          "bytes": 6,
+          "sha256": "b620ec17102b6b5ab92cd2b9aa862a10c0ee108b9cffefea14cdba125d823a95"
+        }
+      ],
+      "contiguous": true
+    },
+    {
+      "start": "0x31a3a930",
+      "span_start": "0x31a3a930",
+      "span_end": "0x31a3aac8",
+      "span_bytes": 408,
+      "span_sha256": "474c25ccadca80f9def23e1803ac567387dbe37e4e7ceff6a30d2ddb67a723ad",
+      "fragments": [
+        {
+          "start": "0x31a3a930",
+          "end": "0x31a3aac8",
+          "unwind_rva": "0x262ac",
+          "bytes": 408,
+          "sha256": "474c25ccadca80f9def23e1803ac567387dbe37e4e7ceff6a30d2ddb67a723ad"
+        }
+      ],
+      "contiguous": true
+    },
+    {
+      "start": "0x31a3a110",
+      "span_start": "0x31a3a110",
+      "span_end": "0x31a3a2c9",
+      "span_bytes": 441,
+      "span_sha256": "15fe96b3db13ac6d65ca43438193932a4f517e029525b00f859e77492350d505",
+      "fragments": [
+        {
+          "start": "0x31a3a110",
+          "end": "0x31a3a2c9",
+          "unwind_rva": "0x262d4",
+          "bytes": 441,
+          "sha256": "15fe96b3db13ac6d65ca43438193932a4f517e029525b00f859e77492350d505"
+        }
+      ],
+      "contiguous": true
+    },
+    {
+      "start": "0x31a39d60",
+      "span_start": "0x31a39d60",
+      "span_end": "0x31a39d8a",
+      "span_bytes": 42,
+      "span_sha256": "e7ec26797981e629d3e7bb0533be0cc4c89591bea60a42a15877c8d1edd83e40",
+      "fragments": [
+        {
+          "start": "0x31a39d60",
+          "end": "0x31a39d8a",
+          "unwind_rva": "0x24c78",
+          "bytes": 42,
+          "sha256": "e7ec26797981e629d3e7bb0533be0cc4c89591bea60a42a15877c8d1edd83e40"
+        }
+      ],
+      "contiguous": true
+    }
+  ],
+  "instruction_windows": [
+    {
+      "conclusion": "read width and normalization",
+      "start": "0x31a3a30e",
+      "end": "0x31a3a35b",
+      "bytes": 77,
+      "sha256": "98ecd52fab8e44fdd837ff2b44d077bcaf923861764081c1ab49ed30b96039fd"
+    },
+    {
+      "conclusion": "original short new class selection",
+      "start": "0x31a3a382",
+      "end": "0x31a3a39b",
+      "bytes": 25,
+      "sha256": "d97bc534b16f0384a71e43032ec7a9268f3bdbe0a9bccd51c45d66b4cc98c2ef"
+    },
+    {
+      "conclusion": "class index zero and membership",
+      "start": "0x31a3a438",
+      "end": "0x31a3a457",
+      "bytes": 31,
+      "sha256": "c565baa0343a4091435e3de07e3954451cc37714086911fa372fabab75179add"
+    },
+    {
+      "conclusion": "object index membership and slot resolution",
+      "start": "0x31a3a58a",
+      "end": "0x31a3a5b6",
+      "bytes": 44,
+      "sha256": "f92b8988e4372a2415a051b6125aca72136ec0d2344d06e884548c0ab55a614a"
+    },
+    {
+      "conclusion": "load slot zero initialization",
+      "start": "0x31a3a233",
+      "end": "0x31a3a252",
+      "bytes": 31,
+      "sha256": "dc18669fb705f05704fe26e8a747bb56f7daf6925295cad59d8b92efc0bf8e08"
+    },
+    {
+      "conclusion": "class reference store widths and marker",
+      "start": "0x31a3a885",
+      "end": "0x31a3a8e3",
+      "bytes": 94,
+      "sha256": "c2dcdb5327e0680e7583b277b53b4f7a2f484db33c751d950952f9a87d1bb3b8"
+    },
+    {
+      "conclusion": "null object and reference store widths",
+      "start": "0x31a3a9a6",
+      "end": "0x31a3aa1b",
+      "bytes": 117,
+      "sha256": "827cfc6f17a5f624625a3c8175206a706346684c16ba555cbb462d9b8d5689dc"
+    },
+    {
+      "conclusion": "map allocation limit",
+      "start": "0x31a39d60",
+      "end": "0x31a39d8a",
+      "bytes": 42,
+      "sha256": "e7ec26797981e629d3e7bb0533be0cc4c89591bea60a42a15877c8d1edd83e40"
+    },
+    {
+      "conclusion": "object read early null mode",
+      "start": "0x31a3a550",
+      "end": "0x31a3a56c",
+      "bytes": 28,
+      "sha256": "80ea55a9dc5ba236642f6a671859bda899827d279812df421e42769a6f200cd9"
+    },
+    {
+      "conclusion": "expected runtime schema rejection",
+      "start": "0x31a3a2f9",
+      "end": "0x31a3a307",
+      "bytes": 14,
+      "sha256": "f6971cba85dfc573f71fcf5a3437f3944390d2216cda0e6915db42fadcd79036"
+    }
+  ],
+  "scope": {
+    "source": "original pinned 2026 binary and retained private decompile",
+    "metadata_only": true,
+    "vendor_bytes_in_record": false,
+    "cad_or_vm_access": false,
+    "native_acceptance": false,
+    "held_out_payload_access": false,
+    "codec_execution": false
+  },
+  "typed_api": {
+    "ArchiveTag": "KindValue Literal[Null,NewClass,ClassRef,ObjectRef], IndexValue int|None",
+    "ReadTag": "ReadTag(bytes, int) -> (ArchiveTag, int)",
+    "EncodeTag": "EncodeTag(ArchiveTag) -> bytes",
+    "canonical_encode": true,
+    "preserve_overlong_width": false,
+    "map_membership_proven_by_primitive": false
+  },
+  "domains": {
+    "reference_index_min": 1,
+    "reference_index_max": 2147483647,
+    "compact_reference_exclusive_upper": 32767,
+    "class_zero_valid": false,
+    "escaped_object_zero": "structural null",
+    "allocation_counter_exclusive_upper": 1073741822
+  }
+}

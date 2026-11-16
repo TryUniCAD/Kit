@@ -33,9 +33,12 @@ Its existing version, archive-mode, row-count, and schema-admission restrictions
 
 The real archive CLI process checks exercise the shared functions on the discovery and control streams.
 Field inventories include both production source hashes, and their process checks verify the exact implementation inventory.
-The earlier 234 strict source comparisons precede this promotion and do not verify the changed implementation.
-Current-revision remote execution is pending publication.
-Local verification consists of source inspection, AST parsing, formatting, and diff checks only.
+The [promotion receipt](../../../../re/solidworks/measurements/2026/CurveCountAdmissionFeb8.json) binds source `feb8e11db40f0c50f13c9e673cdad87fa9dbc452` to remote run `43816632345`.
+Job `133130055908` passed 181 codec/process cases with 158 unrelated fixture-dependent skips.
+All 234 strict archive comparisons retain identical bytes and zero tails.
+All 234 retained field graphs pass, and their 52 implementation fingerprints match the reviewed sources.
+The corpus does not exercise every count-width or malformed-input branch.
+Local verification uses source inspection, AST parsing, formatting, diff checks, and remote-artifact analysis only.
 
 This internal layer does not register a SOLIDWORKS writer.
 The public adapter remains read-only.
