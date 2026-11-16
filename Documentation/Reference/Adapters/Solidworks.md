@@ -316,6 +316,8 @@ The [second-depth native observer](../../Changes/Solidworks/Inspection/Extrusion
 adds independent direction/depth checks and separate second-depth edits to the shared inspector. The new observer passed twelve controlled phases for three new generated end-condition bosses plus an unchanged baseline, with 432 original numeric checks, initial bodies and edited fresh reopens; earlier receipts retain their original observer versions.
 The [shared end-condition constructor](../../Changes/Solidworks/Model/Curves/SolidworksExtrusionEndSynthesis.md)
 now uses those reconciled rules for explicit reversed, mid-plane and two-direction research requests. All three new requests passed 24 complete archive comparisons and controlled native body/edit/save/reopen measurements; 23 prior tagged neutral outputs remain byte-identical. The receipt retains two decimal rounding-boundary disagreements without changing targets or checks. Full presentation, held-out acceptance and production writing remain unfinished.
+The [frozen held-out protocol](../../Changes/Solidworks/Inspection/Extrusions/SolidworksEndConditionHeldoutPrediction.md)
+binds 341 unchanged writer/dependency files before four independent complete generation processes. It preserves the pre-implementation source split and keeps native payloads sealed during emission. New held-out generation and native results remain pending; failed predictions cannot be reused as unseen evidence after repairing the writer.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
