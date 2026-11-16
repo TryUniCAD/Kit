@@ -15,7 +15,7 @@ These 20 controlled part cases record what a historical offline decode recovered
 ## Licensing and attribution
 
 These evidence pages and their [change entry](../../../../Documentation/Changes/Solidworks/VerifiedDecodeEvidence.md) use Kit’s [MIT License](../../../../LICENSE).
-Copyright (c) 2026 Parashell, Odin Glynn-Martin.
+Copyright (c) 2026 Odin Glynn-Martin.
 
 ## How the evidence was obtained
 

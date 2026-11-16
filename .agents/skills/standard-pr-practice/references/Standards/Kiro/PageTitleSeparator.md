@@ -11,17 +11,17 @@ The separator between the brand name and the page name in a browser page title M
 Correct:
 
 ```
-Parashell :: Download
-Parashell :: Privacy Policy
-Not Found :: Parashell
+Kit :: Download
+Kit :: Privacy Policy
+Not Found :: Kit
 ```
 
 Forbidden:
 
 ```
-Parashell | Download
-Parashell - Download
-Parashell – Download
+Kit | Download
+Kit - Download
+Kit – Download
 ```
 
 ## Where This Applies

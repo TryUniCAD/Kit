@@ -9,7 +9,8 @@ provenance. Read each rule set relevant to the task, using the routing table in
 `../../SKILL.md`.
 
 The readable files retain the original content except for the retired file
-notice policy. The pinned Git commit preserves the original files, paths,
+notice policy and normalized project naming. Historical fork paths use `FreeCAD/`.
+The synchronization workflow derives the former name from the pinned source and applies these exact substitutions before comparison. The pinned Git commit preserves the original files, paths,
 modes, and bytes.
 [Manifest.json](Manifest.json) records the original Git blob, SHA-256, size, and
 current location for every file, pinned to source commit

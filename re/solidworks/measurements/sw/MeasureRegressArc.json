@@ -1,6 +1,6 @@
 [
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 12.021588099989458,
     "opened": true,
@@ -144,7 +144,7 @@
     "role": "control-before"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\kit_boss_boss.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\sw\\sldprt\\kit_boss_boss.SLDPRT",
     "returncode": 0,
     "seconds": 10.262456600001315,
     "opened": true,
@@ -307,7 +307,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\kit_boss_cut_cut_cut.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\sw\\sldprt\\kit_boss_cut_cut_cut.SLDPRT",
     "returncode": 0,
     "seconds": 9.385500399992452,
     "opened": true,
@@ -504,7 +504,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\kit_circle_boss.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\sw\\sldprt\\kit_circle_boss.SLDPRT",
     "returncode": 0,
     "seconds": 8.995164399995701,
     "opened": true,
@@ -650,7 +650,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\sw\\sldprt\\kit_boss_blind.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\sw\\sldprt\\kit_boss_blind.SLDPRT",
     "returncode": 0,
     "seconds": 9.055532600003062,
     "opened": true,
@@ -796,7 +796,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 9.209117699996568,
     "opened": true,

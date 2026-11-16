@@ -18,7 +18,7 @@ If you are unsure whether a request qualifies, default to logging it. When a sin
 
 ## Workspace Settings
 
-- Team: `Parashell`.
+- Team: `Kit`.
 - Workflow states (in order): `Backlog` → `Todo` → `In Progress` → `Done`. There is no state literally named "Resolved"; "resolved" means the completed state `Done`. `Duplicate` and `Canceled` are the other terminal states.
 - Always confirm the live state names with `list_issue_statuses` if a tool call rejects a state value.
 
@@ -35,11 +35,11 @@ Every issue MUST be created with a deliberate priority and at least one label. N
   - `Bug` — something is broken or behaving incorrectly (build failures, crashes, wrong output).
   - `Feature` — new capability or net-new functionality.
   - `Improvement` — refactor, performance, docs/steering, tooling, or polish of existing behavior.
-- Confirm the live label set with `list_issue_labels` (team `Parashell`) before creating. If none of the existing labels fit, create an appropriate one with `create_issue_label` rather than leaving the issue unlabeled, and never invent a label name without creating it.
+- Confirm the live label set with `list_issue_labels` (team `Kit`) before creating. If none of the existing labels fit, create an appropriate one with `create_issue_label` rather than leaving the issue unlabeled, and never invent a label name without creating it.
 
 ## The Loop
 
-1. **Log first.** Before touching code or running commands, create the issue with `save_issue` (team `Parashell`, state `Todo`). Set a deliberate `priority` and at least one `label` on creation per the Classification rules above — an issue at `No priority` or with no label is not properly logged. Title it as a concise problem statement. The description MUST contain a structured problem analysis, in the spirit of a Kiro spec / SWOT / problem breakdown:
+1. **Log first.** Before touching code or running commands, create the issue with `save_issue` (team `Kit`, state `Todo`). Set a deliberate `priority` and at least one `label` on creation per the Classification rules above — an issue at `No priority` or with no label is not properly logged. Title it as a concise problem statement. The description MUST contain a structured problem analysis, in the spirit of a Kiro spec / SWOT / problem breakdown:
 
    - **Problem** — what the user asked for, in their terms, plus the observable symptom or goal.
    - **Context** — affected files, components, domains, and any relevant current behavior you have confirmed.

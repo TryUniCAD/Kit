@@ -27,7 +27,7 @@ portable document includes the entire former skill; original steering versions
 and interface resources remain accessible from the index. The manifest records
 all 102 original files at the pinned pre-change commit. Remote CI verifies the
 historical inventory and bytes. The readable
-standards omit retired file-notice policy; unrelated rules remain intact.
+standards normalize project naming and omit retired file-notice policy; unrelated rules remain intact.
 
 | Work                                              | Required complete standards under `references/Standards/`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

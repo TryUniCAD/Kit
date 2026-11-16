@@ -1,6 +1,6 @@
 [
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A1_one_boss_front.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A1_one_boss_front.SLDPRT",
     "returncode": 0,
     "seconds": 10.920579899997392,
     "opened": false,
@@ -11,7 +11,7 @@
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A2_two_bosses_front.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A2_two_bosses_front.SLDPRT",
     "returncode": 0,
     "seconds": 22.445485399999598,
     "opened": true,
@@ -168,7 +168,7 @@
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A3_boss_then_cut.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A3_boss_then_cut.SLDPRT",
     "returncode": 0,
     "seconds": 16.158121000000392,
     "opened": true,
@@ -325,13 +325,13 @@
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A4_one_circle_boss.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A4_one_circle_boss.SLDPRT",
     "status": "timeout",
     "seconds": 432.83195259999775,
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A5_three_features.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A5_three_features.SLDPRT",
     "returncode": 0,
     "seconds": 39.030423600001086,
     "opened": true,
@@ -415,7 +415,7 @@
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A6_boss_through_cut.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A6_boss_through_cut.SLDPRT",
     "returncode": 0,
     "seconds": 20.487509499995213,
     "opened": true,
@@ -567,7 +567,7 @@
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A7_boss_top_plane.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A7_boss_top_plane.SLDPRT",
     "returncode": 0,
     "seconds": 21.1594127999997,
     "opened": true,
@@ -707,7 +707,7 @@
     "attempts": 1
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A8_boss_mid_plane.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A8_boss_mid_plane.SLDPRT",
     "returncode": 0,
     "seconds": 12.233784000003652,
     "opened": true,

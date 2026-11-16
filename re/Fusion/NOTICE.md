@@ -1,6 +1,6 @@
 # Research file attribution
 
-The following files retain the attribution “Copyright (c) 2026 Parashell, Odin Glynn-Martin”.
+The following files retain the attribution “Copyright (c) 2026 Odin Glynn-Martin”.
 Kit uses the [MIT License](../../LICENSE).
 This record preserves attribution after removal of obsolete per-file notices.
 

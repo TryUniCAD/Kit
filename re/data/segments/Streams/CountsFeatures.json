@@ -3,17 +3,17 @@
   "parts": [
     {
       "label": "baseline",
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
       "target": 1
     },
     {
       "label": "padplane",
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus2\\parts\\PADPLANE_rev_d5.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus2\\parts\\PADPLANE_rev_d5.SLDPRT",
       "target": 2
     },
     {
       "label": "three",
-      "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus2\\parts\\THREEFEATURE_pad_cut_pad.SLDPRT",
+      "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus2\\parts\\THREEFEATURE_pad_cut_pad.SLDPRT",
       "target": 3
     }
   ],

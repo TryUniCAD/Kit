@@ -3,7 +3,7 @@
     "name": "E1_op_cut_to_boss",
     "question": "does the operation word alone turn a cut into a boss",
     "donor": "CUTBASE_cd5.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E1_op_cut_to_boss.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E1_op_cut_to_boss.SLDPRT",
     "notes": [
       "flags[1] @13584 -> 0x40000140"
     ],
@@ -47,7 +47,7 @@
     "name": "E2_op_boss_to_cut",
     "question": "does the operation word alone turn a face-supported boss into a cut",
     "donor": "TWOPAD_d5.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E2_op_boss_to_cut.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E2_op_boss_to_cut.SLDPRT",
     "notes": [
       "flags[1] @16395 -> 0x400201ca",
       "reverse[1] @17517 0 -> 1"
@@ -92,7 +92,7 @@
     "name": "E3_blind_to_through_all",
     "question": "can blind become ThroughAll with the dimension object left in place",
     "donor": "CUTBASE_cd5.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E3_blind_to_through_all.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E3_blind_to_through_all.SLDPRT",
     "notes": [
       "end_condition[1] @14712 0 -> 1"
     ],
@@ -136,7 +136,7 @@
     "name": "E4_blind_to_mid_plane",
     "question": "can a later feature switch blind to MidPlane by one byte",
     "donor": "CUTBASE_cd5.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E4_blind_to_mid_plane.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E4_blind_to_mid_plane.SLDPRT",
     "notes": [
       "end_condition[1] @14712 0 -> 6"
     ],
@@ -180,7 +180,7 @@
     "name": "E5_plane_front_to_top",
     "question": "can the sketch support plane be switched Front -> Top",
     "donor": "BASELINE_40x20x10.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E5_plane_front_to_top.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E5_plane_front_to_top.SLDPRT",
     "notes": [
       "sketch_plane @7958 2 -> 3 (axis 2)"
     ],
@@ -216,7 +216,7 @@
     "name": "E6_plane_front_to_right",
     "question": "can the sketch support plane be switched Front -> Right",
     "donor": "BASELINE_40x20x10.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E6_plane_front_to_right.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E6_plane_front_to_right.SLDPRT",
     "notes": [
       "sketch_plane @7958 2 -> 4 (axis 1)"
     ],
@@ -252,7 +252,7 @@
     "name": "E7_reverse_first_feature",
     "question": "does the direction byte pair reverse feature 1",
     "donor": "BASELINE_40x20x10.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E7_reverse_first_feature.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E7_reverse_first_feature.SLDPRT",
     "notes": [
       "reverse[0] @9058 0 -> 1",
       "from_reverse @11043 0 -> 1"
@@ -289,7 +289,7 @@
     "name": "E8_first_feature_mid_plane",
     "question": "does the end-condition byte switch feature 1 to MidPlane",
     "donor": "BASELINE_40x20x10.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E8_first_feature_mid_plane.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E8_first_feature_mid_plane.SLDPRT",
     "notes": [
       "end_condition[0] @9064 0 -> 6"
     ],
@@ -325,7 +325,7 @@
     "name": "E9_comp_feature_reorder",
     "question": "is the rebuild order taken from the moCompFeature_c array order",
     "donor": "THREEFEATURE_pad_cut_pad.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E9_comp_feature_reorder.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E9_comp_feature_reorder.SLDPRT",
     "notes": [
       "swapped moCompFeature_c entries [2:4) and [4:6) (890..1128 <-> 1128..1366)"
     ],
@@ -381,7 +381,7 @@
     "name": "E10_comp_feature_drop_last",
     "question": "does deleting the last moCompFeature_c entry pair delete the feature",
     "donor": "THREEFEATURE_pad_cut_pad.SLDPRT",
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\parts\\E10_comp_feature_drop_last.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\parts\\E10_comp_feature_drop_last.SLDPRT",
     "notes": [
       "deleted moCompFeature_c entries 1128..1366 (238 bytes)"
     ],

@@ -249,7 +249,7 @@ KSample = (
 # this binding exists because shared behavior needs one stable value
 KFreecadExamples = (
     FilePath(__file__).parents[4]
-    / "Parashell"
+    / "FreeCAD"
     / ".pixi"
     / "envs"
     / "default"

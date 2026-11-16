@@ -30,7 +30,7 @@
       "moBBoxCenterData_c left stale (derived body bounding cache)",
       "moDefaultRefPlnData_c left stale (derived display extents, span=50.0)"
     ],
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A1_one_boss_front.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A1_one_boss_front.SLDPRT",
     "stream_names": [
       [
         "Sketch1",
@@ -74,7 +74,7 @@
       "moBBoxCenterData_c left stale (derived body bounding cache)",
       "moDefaultRefPlnData_c left stale (derived display extents, span=50.0)"
     ],
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A2_two_bosses_front.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A2_two_bosses_front.SLDPRT",
     "stream_names": [
       [
         "Sketch1",
@@ -122,7 +122,7 @@
       "moBBoxCenterData_c left stale (derived body bounding cache)",
       "moDefaultRefPlnData_c left stale (derived display extents, span=50.0)"
     ],
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A3_boss_then_cut.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A3_boss_then_cut.SLDPRT",
     "stream_names": [
       [
         "Sketch1",
@@ -165,7 +165,7 @@
       "moBBoxCenterData_c left stale (derived body bounding cache)",
       "moDefaultRefPlnData_c left stale (derived display extents, span=30.0)"
     ],
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A4_one_circle_boss.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A4_one_circle_boss.SLDPRT",
     "stream_names": [
       [
         "Sketch1",
@@ -218,7 +218,7 @@
       "moBBoxCenterData_c left stale (derived body bounding cache)",
       "moDefaultRefPlnData_c left stale (derived display extents, span=55.0)"
     ],
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A5_three_features.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A5_three_features.SLDPRT",
     "stream_names": [
       [
         "Sketch1",
@@ -270,7 +270,7 @@
       "moBBoxCenterData_c left stale (derived body bounding cache)",
       "moDefaultRefPlnData_c left stale (derived display extents, span=45.0)"
     ],
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A6_boss_through_cut.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A6_boss_through_cut.SLDPRT",
     "stream_names": [
       [
         "Sketch1",
@@ -313,7 +313,7 @@
       "moBBoxCenterData_c left stale (derived body bounding cache)",
       "moDefaultRefPlnData_c left stale (derived display extents, span=40.0)"
     ],
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A7_boss_top_plane.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A7_boss_top_plane.SLDPRT",
     "stream_names": [
       [
         "Sketch1",
@@ -352,7 +352,7 @@
       "moBBoxCenterData_c left stale (derived body bounding cache)",
       "moDefaultRefPlnData_c left stale (derived display extents, span=40.0)"
     ],
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\authored\\A8_boss_mid_plane.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\authored\\A8_boss_mid_plane.SLDPRT",
     "stream_names": [
       [
         "Sketch1",
@@ -392,6 +392,6 @@
     "predicted_centre_mm": null,
     "feature_count": 4,
     "error": "SerializeError(\"no skeleton matches shape (('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True)); available: (('boss', 'rectangle', 'plane', True),); (('boss', 'circle', 'plane', True),); (('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True)); (('boss', 'rectangle', 'plane', True), ('cut', 'rectangle', 'plane', True)); (('boss', 'rectangle', 'plane', True), ('cut', 'rectangle', 'plane', False)); (('boss', 'rectangle', 'plane', True), ('cut', 'circle', 'plane', True)); (('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'face', True)); (('boss', 'rectangle', 'plane', True), ('cut', 'rectangle', 'plane', True), ('boss', 'rectangle', 'face', True))\")",
-    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\author_parts.py\", line 147, in main\n    emission, size = serialize.build_part(\n                     ~~~~~~~~~~~~~~~~~~~~^\n        part, AUTHORED / f\"{label}.SLDPRT\", skeletons\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\Serialize.py\", line 631, in build_part\n    skeleton = select_skeleton(part, catalogue)\n  File \"C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\grammar\\Serialize.py\", line 247, in select_skeleton\n    raise SerializeError(f\"no skeleton matches shape {wanted}; available: {available}\")\nserialize.SerializeError: no skeleton matches shape (('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True)); available: (('boss', 'rectangle', 'plane', True),); (('boss', 'circle', 'plane', True),); (('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True)); (('boss', 'rectangle', 'plane', True), ('cut', 'rectangle', 'plane', True)); (('boss', 'rectangle', 'plane', True), ('cut', 'rectangle', 'plane', False)); (('boss', 'rectangle', 'plane', True), ('cut', 'circle', 'plane', True)); (('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'face', True)); (('boss', 'rectangle', 'plane', True), ('cut', 'rectangle', 'plane', True), ('boss', 'rectangle', 'face', True))\n"
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\author_parts.py\", line 147, in main\n    emission, size = serialize.build_part(\n                     ~~~~~~~~~~~~~~~~~~~~^\n        part, AUTHORED / f\"{label}.SLDPRT\", skeletons\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\Serialize.py\", line 631, in build_part\n    skeleton = select_skeleton(part, catalogue)\n  File \"C:\\Users\\odin\\Documents\\Kit\\.rescratch\\grammar\\Serialize.py\", line 247, in select_skeleton\n    raise SerializeError(f\"no skeleton matches shape {wanted}; available: {available}\")\nserialize.SerializeError: no skeleton matches shape (('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True)); available: (('boss', 'rectangle', 'plane', True),); (('boss', 'circle', 'plane', True),); (('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'plane', True)); (('boss', 'rectangle', 'plane', True), ('cut', 'rectangle', 'plane', True)); (('boss', 'rectangle', 'plane', True), ('cut', 'rectangle', 'plane', False)); (('boss', 'rectangle', 'plane', True), ('cut', 'circle', 'plane', True)); (('boss', 'rectangle', 'plane', True), ('boss', 'rectangle', 'face', True)); (('boss', 'rectangle', 'plane', True), ('cut', 'rectangle', 'plane', True), ('boss', 'rectangle', 'face', True))\n"
   }
 ]

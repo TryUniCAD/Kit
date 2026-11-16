@@ -78,7 +78,7 @@ centre of mass = (-4.2532265688094214e-16,
 
 The restored public `write_document(..., allow_carrier=False)` path emits the same 24
 first-principles streams. Its vendor-critical streams are byte-identical to this live-gated
-file; only the Parashell `Kit/Native` neutral metadata differs.
+file; only the `Kit/Native` neutral metadata differs.
 
 The volume independently equals
 `60*40*15 - 48*8*5 - pi*6^2*9`. Each depth was then edited from a fresh open:

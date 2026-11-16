@@ -1,6 +1,6 @@
 [
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 14.832710799993947,
     "opened": true,
@@ -144,7 +144,7 @@
     "role": "control-before"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\container\\sldprt\\cvA_headers.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\container\\sldprt\\cvA_headers.SLDPRT",
     "returncode": 0,
     "seconds": 32.38904409999668,
     "opened": false,
@@ -162,7 +162,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\container\\sldprt\\cvB_headers_config.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\container\\sldprt\\cvB_headers_config.SLDPRT",
     "returncode": 0,
     "seconds": 13.264627099997597,
     "opened": true,
@@ -325,7 +325,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\container\\sldprt\\cvC_full.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\container\\sldprt\\cvC_full.SLDPRT",
     "returncode": 0,
     "seconds": 11.032478599998285,
     "opened": true,
@@ -488,7 +488,7 @@
     "role": "candidate"
   },
   {
-    "path": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
+    "path": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus\\parts\\BASELINE_40x20x10.SLDPRT",
     "returncode": 0,
     "seconds": 11.763288499991177,
     "opened": true,

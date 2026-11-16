@@ -1,7 +1,7 @@
 {
   "label": "three",
-  "part": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\corpus2\\parts\\THREEFEATURE_pad_cut_pad.SLDPRT",
-  "log": "C:\\Users\\odin\\Documents\\Parashell\\Kit\\.rescratch\\trace\\out\\cdb_trace_three.log",
+  "part": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\corpus2\\parts\\THREEFEATURE_pad_cut_pad.SLDPRT",
+  "log": "C:\\Users\\odin\\Documents\\Kit\\.rescratch\\trace\\out\\cdb_trace_three.log",
   "stream_length": 24805,
   "base_map_index": 111,
   "object_count": 615,

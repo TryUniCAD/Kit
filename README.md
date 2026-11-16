@@ -117,6 +117,6 @@ See [release publishing](Documentation/Changes/CommitReleases.md) for the releas
 ## License
 
 Kit uses the [MIT License](LICENSE).
-Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt.
+Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt.
 Third-party materials retain their own licenses.
 See the [research artifact policy](Documentation/Reference/Research/ResearchArtifacts.md).
