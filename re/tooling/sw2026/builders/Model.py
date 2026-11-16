@@ -393,7 +393,7 @@ def folder(
     supported = {
         "moCommentsFolder_c", "moDocsFolder_c", "moEnvFolder_c", "moEqnFolder_c",
         "moFavoriteFolder_c", "moHistoryFolder_c", "moMaterialFolder_c",
-        "moNotesAreaFtrFolder_c", "moSelectionSetFolder_c", "moSensorFolder_c",
+        "moInkMarkupFolder_c", "moNotesAreaFtrFolder_c", "moSelectionSetFolder_c", "moSensorFolder_c",
         "moSolidBodyFolder_c", "moSurfaceBodyFolder_c",
     }
     if cls not in supported:
@@ -904,7 +904,8 @@ def part_graph(
         "moNotesAreaFtrFolder_c", "moSelectionSetFolder_c", "moSensorFolder_c",
         "moSolidBodyFolder_c", "moSurfaceBodyFolder_c",
     }
-    if not isinstance(folder_names, Mapping) or set(folder_names) != required_folders:
+    canonical_folders = required_folders - {"moNotesAreaFtrFolder_c"} | {"moInkMarkupFolder_c"}
+    if not isinstance(folder_names, Mapping) or set(folder_names) not in (required_folders, canonical_folders):
         raise ArchiveError("base part graphs require authored names for every classified system folder")
     allocator = PersistentIds()
     part = part_root(
