@@ -82,6 +82,14 @@ Their [process receipt](measurements/2026/MixedCurveProcesses26c200.json) retain
 strict read guards and nineteen unchanged prior neutral outputs across the shared composer change.
 These free sketches add no completed FCStd conversion or held-out acceptance; body/depth behavior needs its own measurement.
 
+Two [capsule blind bosses](measurements/2026/CapsuleBossInspection01.json) subsequently passed six phases,
+including an initial body before explicit rebuild, analytic mass targets, depth edits, saves and edited fresh reopens.
+All 304 original numeric checks pass with maximum relative error `5.680912614542858e-16`; the receipt retains two
+one-unit rounding ties that differ under six-digit text formatting. Both controls passed and inputs remained immutable.
+Their [generation receipt](measurements/2026/CapsuleBossProcesses7915de.json) retains sixteen complete archive comparisons
+and strict process/read guards. No radius/length driving dimension, tangent constraint, full presentation, held-out acceptance
+or completed FCStd conversion is counted.
+
 The [complete circle/arc source lock](v2026/heldout/CurveSourceLock.json)
 records 30 vendor-authored source cases, 66 fresh phases and 797 passing checks.
 Those source files are not generated Kit outputs and add zero writer-coverage cases.
