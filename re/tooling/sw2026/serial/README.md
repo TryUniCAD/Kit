@@ -55,6 +55,14 @@ and redacted hashes, authoring specifications, vendor revision and source measur
 ladder directory. It preserves encoded string widths while removing personal metadata,
 then rebuilds the source container. Production must never import it or load its output.
 
+`re/tooling/sw2026/PrepareCurveCorpus.py` separately prepares the locked curve
+discovery/control family, preserving source hashes and framed metadata redactions.
+It never selects the six held-out native payloads or executes archive schemas.
+Its [preparation guide](../../../../Documentation/Changes/Solidworks/Model/SolidworksCurveDiscoveryCorpus.md)
+describes the exact input lock, privacy ledger and fixture limits.
+Remote schema checks of the prepared copies remain distinct from source-corpus
+acceptance and from any future Kit-written curve output.
+
 Corpora (2026-saved):
 
 - `.rescratch/sw26/corpus/ladder/*.SLDPRT` (worktree root): empty part, plain, boss ladder L1-L4, controls.

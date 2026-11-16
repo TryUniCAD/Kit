@@ -185,6 +185,9 @@ The [research schema-usage report](../../Changes/Solidworks/Model/SolidworksArch
 separates actual load/store and linked-seed schema admission from byte identity.
 Its strict option rejects used provisional or missing schemas and incomplete operations;
 registry status alone does not establish field semantics or native writer acceptance.
+The [curve discovery preparer](../../Changes/Solidworks/Model/SolidworksCurveDiscoveryCorpus.md)
+selects only the 24 locked discovery cases and two controls, records framed privacy
+transformations and leaves full archive-schema checks to remote CI.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
