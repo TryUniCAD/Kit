@@ -1,0 +1,7 @@
+# Prepare complete visible view intervention reader fixtures
+
+The research-only `re/tooling/sw2026/PrepareViewProbe.py` selects all ten saved derivatives from a passing five-case visible view batch. It requires healthy controls, fresh-process reopen success, the exact job/receipt hashes, the pinned native build, immutable sources and an intact first-save/fresh-open hash chain. Each manifest record retains the original neutral geometry, explicit view request and actual native saved pose.
+
+Use the original external batch directory, published native receipt, original frozen job and a new external destination, with `--expected-receipt-sha256` and explicit `--redact-name` values. The wrapper reuses the established bounded container/privacy helpers. It retains every stream, permits only recognized metadata transformations with unchanged encoded lengths, writes a privacy ledger and extracts original previews for individual review. Source files remain unchanged. Preparation executes no archive schemas and does not reparse its container output.
+
+These are diagnostic vendor-saved derivatives of existing generated input, with zero new writer outputs or inherited acceptance. An explicit API view does not itself establish a typed archive field's role. Fixture admission requires individual preview inspection and subsequent complete remote archive/graph decoding. Initial verification is source/AST inspection only; preparation, native outcomes and remote decoding remain pending. No local test, archive schema or writer verification ran.

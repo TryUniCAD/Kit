@@ -12,7 +12,7 @@ the active view's `Orientation3` exposes a math transform. Treating the standard
 tuple as an object raised an attribute error and lost its returned values.
 The partial capture still retained the distinct active-orientation arrays.
 
-The controlled visible-intervention run on observer `c14f17bb9f34865643c43a2ef887e1215f3ad07a` also records the cardinality difference: the standard getter returns nine rotation coefficients, while `Orientation3.ArrayData` has sixteen transform elements. The nine rotation values match the active transform's first nine values after selection. Comparing both whole arrays as sixteen-element transforms rejects the observer before it saves the orientation case; it is a harness failure, not evidence that the generated model failed the requested rotation. The original run and its other interventions remain recorded separately.
+The [controlled visible-intervention run](../../../../../re/solidworks/measurements/2026/VisibleViewProbe01.json) on observer `c14f17bb9f34865643c43a2ef887e1215f3ad07a` also records the cardinality difference: the standard getter returns nine rotation coefficients, while `Orientation3.ArrayData` has sixteen transform elements. The nine rotation values match the active transform's first nine values after selection. Comparing both whole arrays as sixteen-element transforms rejects the observer before it saves the orientation case; it is a harness failure, not evidence that the generated model failed the requested rotation. The original run and its other interventions remain recorded separately.
 
 ## Workaround
 
