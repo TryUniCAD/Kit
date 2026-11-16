@@ -41,8 +41,13 @@ recursive trees and complete pose observations remain unopened.
 
 The current specification defines two different, still independent blind-body
 inputs for the bounded folder-topology question. They do not replace or qualify
-the failed mixed-end observations. Their native source authoring is pending.
+the failed mixed-end observations. Both passed native authoring and fresh
+reopening: four phases and 192 numeric checks between healthy controls. The
+[public source lock](../../../../../re/solidworks/v2026/heldout/TreeSourceLock.json)
+fixes their native hashes, all source-tool hashes and the private inspection
+digest. Postflight confirms no CAD process and unchanged licensing process IDs.
+Native files, detailed geometry, trees and pose observations remain sealed.
 See the [native rebuild-view gotcha](../../../../Gotchas/Conversion/Solidworks/Oracle/RebuildCanChangeNativeViewTranslation.md).
-No writer implementation, writer output, new feature
+No presentation-writer implementation, writer output, new feature
 coverage, or native acceptance is established. No local tests ran. The production
 adapter remains read-only.

@@ -57,6 +57,21 @@ The separately exported `setInkMarkupFolder` is an eight-byte leaf at
 the observed getter read that slot. Do not invent a wire cache or an archive
 patch from this runtime setter.
 
+## Localized default vocabulary
+
+Primary vtable `+0x1568` targets the six-byte leaf at `0x4beb6b00`, which returns
+resource ID `0x7f6f`. The `+0x4a8` method at `0x4beb6660` also loads that ID and
+assigns the resulting CString to its supplied output. The selected
+[REA-backed resource receipt](../measurements/2026/MarkupResource01.json) resolves
+language `1033` to `Markups` in `sldresu.dll`, whose full SHA-256 is
+`531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111`.
+The resource is block `2039`, entry `15`, at file offset `2965976`, length
+`3432`, SHA-256 `466dbb6f564764768d36fd9b87e1d6af06d94e2ed5cc78b0b6238f869f55b1f7`.
+All sixteen length-prefixed UTF-16 entries consume that block exactly. Only the
+selected seven-character vocabulary and format locations/hashes are recorded.
+No resource payload is redistributed. Runtime language fallback is not observed,
+so this is not an English-default rule for every locale.
+
 ## Observed tree consequence and pending writer
 
 The existing controlled recursive-tree receipt includes an extra top-level
