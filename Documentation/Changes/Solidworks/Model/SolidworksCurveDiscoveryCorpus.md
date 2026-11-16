@@ -72,7 +72,7 @@ Full model, archive-schema, linked-map and round-trip verification runs in remot
 The companion process fixture requires 208 critical/header stream checks and 26 linked resolved-stream checks.
 It checks the exact fixture membership and hashes against the portable source lock.
 Used provisional schemas, missing schemas, unread tails and byte differences fail those checks.
-These are expected checks, not execution results recorded by this change.
+The verification section records the subsequent remote results separately from preparation.
 
 The privacy scan covers supplied account names, home paths and email patterns in supported text encodings.
 It does not establish exhaustive privacy review of images or unknown embedded encodings.
@@ -117,6 +117,19 @@ linked map seeds. The audit reads retained JSON metadata only; it does not rerea
 native fixtures, open held-out payloads or execute an archive codec. Stream identity
 is complete for this batch while strict admission still fails on the single
 provisional string-to-int map owner. No native writer acceptance is inherited.
+
+The [strict admission receipt](../../../../re/solidworks/measurements/2026/CurveDiscoveryAdmissionCf26.json) binds source `cf26e9f113b17f4503b66f7268941d256f6706be` and the subsequent successful workflow.
+It verifies all 208 primary and 26 linked stream byte identities across the exact 24 discovery parts and two controls.
+All 494 load, store and dependency phases complete.
+All 26 linked seed hashes and map handoffs match.
+The manifest, privacy ledger, source evidence and source lock retain their verified hash chain.
+No reached provisional or missing schema remains in this batch.
+The 74 unused provisional registry declarations remain outside admitted coverage.
+
+The earlier `b291c4da` aggregate-summary assertion failures remain historical.
+Only retained JSON/log metadata and independently authored source were inspected for the latest publication audit.
+The six held-out native payloads remain sealed.
+Source parser admission transfers no native acceptance to prepared fixtures or future writer output.
 
 The preceding independent anatomy study inspected only D01 and D19 discovery inputs.
 Both contained 40 valid compressed streams.

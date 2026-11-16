@@ -197,12 +197,15 @@ does not insert a centre adjacency handle
 | `fe4`                                | Ordinary centre/endpoints type zero; the reused full-circle marker type two; point setter `0x4c601f20` writes this field      | Confirmed static                                                                                         |
 | `fe8`                                | Number of segment-use role calls affecting this point, including centre uses, not merely distinct incident segments           | Confirmed static, `0x4c602c10/0x4c490b80`                                                                |
 | `fec`                                | Number of centre role-two uses in this bounded graph                                                                          | Confirmed static, `0x4c491b00`                                                                           |
-| `h1`, `h2`                           | Separately owned clones of endpoint-adjacent segment handles, filled by insertion order; centre use alone leaves both null    | Confirmed static, `0x4c5f8460/0x4c601b00/0x4c5f7e40`                                                     |
+| `h1`, `h2`                           | Separately owned clones of endpoint-adjacent segment handles, inserted only when an equivalent target is not already registered; centre use alone leaves both null | Confirmed static, `0x4c5f8460/0x4c5f8060/0x4c601b00/0x4c5f7e40`                                   |
 | `pflags`                             | `0x1e` for positioned ordinary 2D points with no origin marker and ordinary profile owner; type two does not change this mask | Confirmed static, constructor `0x4c490970`, position setter `0x4c601d10`, mask construction `0x4c58f910` |
 | `f108`, `p1`, `p2`, `has_jet`, `ff0` | Constructor `-2`, two zero auxiliary positions, absent jet and zero final counter in the simple branch                        | Confirmed static, point constructor and serializer; later auxiliary operations excluded                  |
 
-For one otherwise unused circle, the marker consequently has `fe8=2`, `fec=0`
-and two distinct owned arc-handle objects that target the same arc index
+For one otherwise unused ordinary circle, the marker has `fe8=2`, `fec=0`,
+one owned arc-handle clone in `h1` and null `h2`
+The [adjacency registration finding](CircleAdjacencyRegistration2026.md) corrects
+the earlier two-clone inference: endpoint role counts increase independently,
+while the registrar checks existing equivalent handles before allocating
 The centre has `fe8=1`, `fec=1` and null adjacency handles
 For a lone open ordinary arc, each endpoint has one role use and the centre has
 one role use; these counts do not make an open arc a closed boundary
@@ -216,8 +219,9 @@ Handle constructor `0x4c55d940` installs the arc-handle vtable after invoking
 the segment-handle constructor `0x4c603e50`
 Its wire fields use the existing generic handle schema: `idx` is the index below
 `0x777f`, otherwise marker `0x777f` plus i32 `f18`; fresh `f1c=-1`, `f08=0`
-Cloning adjacent handles must preserve separate object identity and common target
-identity; an archive map reference is not a point-array index
+Every actually allocated clone retains its separate object identity and target
+identity; equivalence checks can prevent allocation of another clone
+An archive map reference is not a point-array index
 
 ## IDs, counters and completed-state boundaries
 

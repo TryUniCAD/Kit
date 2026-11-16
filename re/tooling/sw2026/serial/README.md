@@ -53,7 +53,11 @@ dependency provisional, with no missing schemas. Strict admission passes 156
 primary streams and zero linked streams in that historical report.
 The separate [MFC count owner](../../../solidworks/records/MfcCountArchive2026.md)
 now binds that remaining helper to the effective exports and complete mapped
-count bodies. Remote replay of this new owner remains pending.
+count bodies. The [subsequent successful source-admission receipt](../../../solidworks/measurements/2026/CurveDiscoveryAdmissionCf26.json)
+binds source `cf26e9f113b17f4503b66f7268941d256f6706be` and records all 234 strict
+byte identities, zero tails and no reached provisional or missing schemas.
+All 234 retained field inventories pass their real CLI process checks.
+The 74 unused provisional declarations remain outside admitted coverage.
 No admission gate is relaxed and no fresh-writer defaults follow from these schemas.
 
 `--link-config` additionally requires each selected resolved stream to inherit
@@ -183,8 +187,28 @@ count width, so arbitrary overlong-count byte identity is not claimed. The
 [native record](../../../solidworks/records/MfcCountArchive2026.md),
 [change entry](../../../../Documentation/Changes/Solidworks/Model/SolidworksMfcCountArchiveOwner.md)
 and [count-family gotcha](../../../../Documentation/Gotchas/Conversion/Solidworks/Archive/FrameworkAndVendorArchiveCountsDiffer.md)
-give exact bindings and limitations. New remote replay, field classification and
-fresh writer acceptance remain separate pending evidence.
+give exact bindings and limitations. The source-admission receipt records the
+successful remote replay. Field classification and fresh writer acceptance
+remain separate obligations.
+
+## Curve discovery correlation
+
+The [field and identity ledger](../../../solidworks/records/CurveDiscoveryFieldCorrelation2026.md)
+correlates all 26 linked discovery/control graphs against locked specifications,
+source API observations and the existing native construction findings. It covers
+30 field groups and separates array positions, creation IDs, permanent markers,
+dimension registration and archive identity. Its companion JSON retains the
+complete per-case witnesses and unresolved construction questions.
+
+All 90 point-use and centre-use comparisons and all 142 geometry constraint
+incidence comparisons agree within that source corpus. Saved circle adjacency,
+update stamps and tombstones retain their lifecycle evidence. The
+[circle adjacency finding](../../../solidworks/records/CircleAdjacencyRegistration2026.md)
+corrects an earlier two-clone inference: native equivalent-handle checks retain
+one marker handle despite two endpoint-use increments. Completed source
+history neither supplies cold writer defaults nor rejects an independently
+native-justified cold policy. The six held-out native payloads remain sealed.
+No fresh curve output is accepted by this correlation.
 
 ## Ownership
 

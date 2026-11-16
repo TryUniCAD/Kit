@@ -12,7 +12,20 @@ The normal sorted definitions loader discovers the module. It replaces the provi
 
 The pinned effective MFC exports lead through exact x64 fast-forward thunks to complete ARM64EC count bodies. `MfcRuntimeView03`, under committed source `925536db6adade2a04c1faf44b5516efd1a79110`, captured those complete 288/424-byte bodies. Both are literally equal to the independently inspected original spans. Inventory SHA-256 is `6907f9bcf6255b0025193f04a4eb773d8914b1917fe5f169fc0539710fe8df1d`; host receipt SHA-256 is `4db5e9f7df0bcbc68d165033d09fb5f5b4d8e48baa72493d2d1f670c063ac03b`. The [capture tool](SolidworksMfcCountBodyCapture.md) released its own runtime reference and invoked no count, CAD, COM, service or licensing method. Its acceptance flags remain false.
 
-The new schema draft passed static AST and source review only. No schema, codec, product or local test executed. New remote archive round trips, strict source admission and implementation boundary checks are pending. A nonprovisional owner and matching native bytes do not establish fresh writer, held-out model, rebuild, edit or geometry acceptance. No production adapter, native dependency, runtime file read, saved field value, captured row or donor fallback is added. The [CAD success criteria](../../../Reference/Operations/CadSuccessCriteria.md) still govern every output claim:
+The [source-admission receipt](../../../../re/solidworks/measurements/2026/CurveDiscoveryAdmissionCf26.json) binds source `cf26e9f113b17f4503b66f7268941d256f6706be`, workflow run `43806765968`, job `133099223531` and artifact `14198658366`.
+All 234 discovery/control archive comparisons pass strict admission with byte identity, zero tails and no reached provisional or missing schemas.
+All 234 retained field graphs pass their process checks.
+The job records 171 policy checks and 181 codec/process cases passing, with 158 unrelated fixture skips.
+
+The earlier `b291c4da` job remains a historical two-failure assertion-contract result.
+Its successful source reports and all 50 serializer implementation files equal the current ones in complete bytes.
+The repair reconstructs aggregate usage summaries from actual phases and preserves their completion checks.
+No schema, codec, product or test executed locally.
+
+The source corpus does not exercise every native count-domain or version branch.
+Matching bytes do not establish fresh writer, held-out model, rebuild, edit or geometry acceptance.
+No production adapter, native dependency, runtime file read, saved field value, captured row or donor fallback is added.
+The [CAD success criteria](../../../Reference/Operations/CadSuccessCriteria.md) still govern every output claim:
 
 > The first is success under every criterion on this page.
 > The second is the end of the available context.

@@ -18,7 +18,8 @@ uv run --no-sync python re/tooling/sw2026/serial/FieldScan.py \
   --inventory-json /tmp/CurveResolvedFields.json --link-config --require-proven
 ```
 
-This example has not been executed for this change.
+This exact example path has not been used.
+The verification section records equivalent invocations from remote CI.
 The process writes one JSON report and prints a compact receipt.
 Exit zero requires at least one input and successful inventory of every selected file.
 Existing report files and symlink inputs are rejected.
@@ -85,8 +86,8 @@ copy of a real fixture. Every invocation retains `--require-proven` and the exis
 120-second process timeout.
 
 Source inspection, AST parsing and formatting checks were performed locally.
-The tool, archive codecs, schemas and tests were not executed locally; remote
-process results remain pending. The suite checks:
+The tool, archive codecs, schemas and tests were not executed locally.
+The suite checks:
 
 1. Verify the exact 26 prepared discovery/control files against their manifest and portable source lock.
 2. Invoke the real `FieldScan.py` process for each intended critical/header stream.
@@ -109,6 +110,20 @@ under `SourceParser/Curve/Fields`, including failure evidence when the process e
 Legacy summary function bodies were compared statically with their previous revision;
 no legacy CLI execution is claimed by this change.
 This change does not add a workflow or modify `RoundTrip.py` or `Schema.py`.
+
+The [remote inventory receipt](../../../../re/solidworks/measurements/2026/CurveDiscoveryAdmissionCf26.json) binds the successful workflow at source `cf26e9f113b17f4503b66f7268941d256f6706be`.
+Nine fresh CLI modes over all 26 discovery/control inputs produce 234 retained graphs.
+All three negative CLI cases pass.
+Independent metadata checks confirm source and stream hashes, complete usage, linked map identities, owner references, scalar witnesses and graph completeness.
+
+The reports contain 98,764 node occurrences and 1,072,207 typed-value occurrences across separate graphs, including repeated loads and linked seeds.
+These are not unique native-field counts.
+All 164 explicitly unresolved references belong to standalone resolved inventories.
+Linked resolved inventories have zero unresolved references.
+Both archive reports and all nine successful inventory reports equal the historical `b291c4da` reports in complete bytes.
+The current process assertions pass.
+The [field correlation ledger](../../../../re/solidworks/records/CurveDiscoveryFieldCorrelation2026.md) separately classifies bounded geometry and identity groups with native evidence.
+Neither result supplies writer defaults or native writer acceptance.
 
 ## Evidence limits
 
