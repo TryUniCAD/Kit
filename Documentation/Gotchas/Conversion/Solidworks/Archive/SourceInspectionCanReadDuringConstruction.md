@@ -34,4 +34,4 @@ Its codec/process batch recorded 167 passes and 158 fixture-dependent skips.
 The read-denial assertions remain unchanged, and no local tests ran.
 
 See the [schema-usage contract](../../../../Changes/Solidworks/Model/SolidworksArchiveSchemaUsage.md)
-and [fresh process boundary](../../../../../tests/convert/solidworks/research/FreshPartProcess.py).
+and [fresh process boundary](../../../../../tests/Convert/Solidworks/Research/FreshPartProcess.py).

@@ -6,7 +6,7 @@ parsing stages still share one module.
 
 The model process review identified `KBaseGraph`, `KBaseStreams` and `KBaseLoad`
 as separate responsibilities. Each generated stage now lives in its own
-focused module under `tests/convert/solidworks/research/Model/`.
+focused module under `tests/Convert/Solidworks/Research/Model/`.
 `ModelProgram.py` composes their exact symbols in the established order;
 `ModelBuilderProcess.py` owns the isolated subprocess launch.
 

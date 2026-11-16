@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from Classes import registry
 from builders.Part import construct_part
-from convert.adapters.solidworks.container.Container import build_sldprt
+from convert.adapters.solidworks.Container.Container import build_sldprt
 
 
 def main():

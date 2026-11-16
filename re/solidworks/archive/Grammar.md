@@ -35,7 +35,7 @@ SOLIDWORKS. Claims marked PARTIAL or OPAQUE are called out as such.
 ## 1. Container framing (context, unchanged)
 
 The `.SLDPRT` is a SOLIDWORKS-proprietary archive of raw-deflate streams with a nibble-swapped
-name encoding. `src/convert/adapters/solidworks/container/Container.py` reads and writes it;
+name encoding. `src/convert/adapters/solidworks/Container/Container.py` reads and writes it;
 `build_sldprt(streams, template=<donor bytes>)` must be given a template because the
 `(file_id, local/central/end signature)` triplet has not been inverted. A wrong triplet
 hard-crashes SOLIDWORKS.
@@ -60,9 +60,10 @@ confirmation is in `Windbg.md`; the tags are:
 | `ff ff` `<u16 schema>` `<u16 nameLen>` `<ascii name>` | `wNewClassTag`: a class _definition_. `CRuntimeClass::Store` writes schema then name length then the name. |
 | `<u16 t>` with `t & 0x8000`, `t != 0xffff`            | class _reference_: class map index `t & 0x7fff`                                                            |
 | `<u16 t>` with `t & 0x8000 == 0`, `t != 0`            | object _reference_: object map index `t`                                                                   |
-| `7f ff` then `<u32>`                                  | `wBigObjectTag` escape for indices ≥ 0x7fff (not seen in this corpus)                                      |
+| `ff 7f` then `<u32>`                                  | `wBigObjectTag` escape for indices ≥ 0x7fff (not seen in this corpus)                                      |
 
-The historical `CLASS_MARKER = ff ff 01 00` combines `wNewClassTag` with a
+The historical `CLASS_MARKER = ff ff 01 00` in
+`src/convert/adapters/solidworks/Container/Format.py` combines `wNewClassTag` with a
 schema-one filter. The earlier seven-file survey did not establish a universal
 class schema. Exact 2026 native class metadata proves wire schema zero for
 `uoJournal_c` and `su_CStringArray`; a generated schema-one journal reached the

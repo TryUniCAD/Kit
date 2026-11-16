@@ -14,7 +14,7 @@ ROOT = HERE.parents[3]
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "src"))
 
-from convert.adapters.solidworks.container.Container import SldprtArchive
+from convert.adapters.solidworks.Container.Container import SldprtArchive
 from Core import ArchiveError
 from Classes import registry
 from Streams import load_resolved, load_rooted, store_resolved, store_rooted

@@ -60,7 +60,7 @@ These additions do not enable the production writer.
 The modules are under `re/tooling/sw2026/builders/`.
 The process check keeps its generated construction, serialization, parsing,
 validation and reporting stages in focused files under
-`tests/convert/solidworks/research/Model/`.
+`tests/Convert/Solidworks/Research/Model/`.
 Use `PersistentIds` for ordinary model nodes and the configuration manager's
 separate local allocator for configurations.
 Provide version provenance, timestamps, document options and density explicitly.

@@ -37,7 +37,7 @@ records eight authoring specifications, source measurements and hashes.
 Personal metadata in the fixtures is redacted at the same encoded width.
 Those fixtures are research inputs and are not generated writer output.
 
-The process checks in `tests/convert/solidworks/research/` require exact re-emission
+The process checks in `tests/Convert/Solidworks/Research/` require exact re-emission
 of every critical stream for all eight controls. Tests run in remote CI only.
 No local test execution or new vendor acceptance is claimed by this entry.
 The [initial remote measurement](../../../re/solidworks/measurements/ArchiveRoundTrip2026.md)

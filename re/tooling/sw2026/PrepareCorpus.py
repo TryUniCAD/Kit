@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'src'))
 
-from convert.adapters.solidworks.container.Container import BuildSldprt, SldprtArchive
+from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 
 TEXT = re.compile(rb'(?:[ -~]\x00){4,}|[ -~]{4,}')
 

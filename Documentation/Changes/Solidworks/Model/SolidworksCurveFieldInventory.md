@@ -78,7 +78,7 @@ Failed files do not receive successful correlation credit.
 ## Verification
 
 The change adds twenty seven focused process-suite modules under
-`tests/convert/solidworks/research/Curve/Fields`.
+`tests/Convert/Solidworks/Research/Curve/Fields`.
 Nine fresh CLI processes select the eight critical/header streams and the separate
 linked resolved stream across all 26 prepared inputs, producing 234 inventories.
 Three negative processes select an empty pattern, a missing stream and a truncated

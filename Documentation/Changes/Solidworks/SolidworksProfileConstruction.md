@@ -69,7 +69,7 @@ New process integration coverage writes fresh sketch and blind-end object archiv
 Its geometry cases include variable vertex counts, a 10,000-line ring, crossings, touches, vertical overlaps, backtracking and valid collinear vertices
 The 65,537-line case subsequently passed in [native job 132723081423](https://github.com/TryUniCAD/Kit/actions/runs/43684854129/job/132723081423), which passed all six polygon cases and failed only in separate inherited assembly parsing
 It verifies dimension allocation and uses the shared `BuildAudit` guard before builder/schema imports, without a filename-suffix escape for direct data reads
-The process stages each own a focused module under `tests/convert/solidworks/research/Polygon/`, while the small program composition and subprocess entry point import their exact declarations
+The process stages each own a focused module under `tests/Convert/Solidworks/Research/Polygon/`, while the small program composition and subprocess entry point import their exact declarations
 Profile gotchas are grouped under `Documentation/Gotchas/Conversion/Solidworks/Profile/` to keep both parent directories within their file limits
 The naming and directory repairs passed at head `ee2eed2e4732e995fb8b0a7b281b8834cdf9a7f6`
 [Native job 132729524301](https://github.com/TryUniCAD/Kit/actions/runs/43687022248/job/132729524301) again passed all six polygon cases; its only failure was the next missing schema in inherited assembly resolved features

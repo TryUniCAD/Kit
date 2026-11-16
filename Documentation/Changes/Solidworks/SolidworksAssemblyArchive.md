@@ -2,7 +2,7 @@
 
 The research archive codec now registers typed 2026 assembly, configuration, component reference, component history/favorite, live-section folder, mate, browser-cache, and mass-cache records. Assembly sections reuse the existing model serializer and class map. Counted records retain their order and object links; section lengths and collection lengths derive from the typed graph.
 
-Use `re/tooling/sw2026/serial/RoundTrip.py` with an assembly glob and explicit stream names in remote CI. `tests/convert/solidworks/research/AssemblyRoundTests.py` invokes that command as a subprocess and requires identical output with no unread tail for 14 streams across the two committed assembly parser controls.
+Use `re/tooling/sw2026/serial/RoundTrip.py` with an assembly glob and explicit stream names in remote CI. `tests/Convert/Solidworks/Research/AssemblyRoundTests.py` invokes that command as a subprocess and requires identical output with no unread tail for 14 streams across the two committed assembly parser controls.
 
 The [field and evidence finding](../../../re/solidworks/records/AssemblyArchive2026.md) records native module hashes, serializer addresses, field order, variable record boundaries, and unresolved branches. [Decompiler type ownership](../../Gotchas/Conversion/Solidworks/AssemblyDecompilerTypes.md) explains why inferred parameter types cannot identify the registered class by themselves.
 

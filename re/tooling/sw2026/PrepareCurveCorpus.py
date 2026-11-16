@@ -27,22 +27,22 @@ MAX_FILE = 64 * 1024 * 1024
 MAX_STREAM = 64 * 1024 * 1024
 MAX_DECODED = 256 * 1024 * 1024
 MODULES = (
-    "interchange.enums.EnumBase",
-    "interchange.enums.EnumDocument",
+    "interchange.Enums.EnumBase",
+    "interchange.Enums.EnumDocument",
     "convert.adapters.base.FieldAliases",
     "convert.adapters.base.ContractCompat",
     "convert.adapters.base.AdapterInfoView",
     "convert.adapters.base.AdapterInfo",
-    "convert.adapters.solidworks.container.RotateBytes",
-    "convert.adapters.solidworks.container.DecodeName",
-    "convert.adapters.solidworks.container.SldprtFormat",
-    "convert.adapters.solidworks.container.StreamLimits",
-    "convert.adapters.solidworks.container.InflateStream",
-    "convert.adapters.solidworks.container.DecodePayload",
-    "convert.adapters.solidworks.container.StreamRecord",
-    "convert.adapters.solidworks.container.DecodeScanned",
-    "convert.adapters.solidworks.container.Format",
-    "convert.adapters.solidworks.container.Container",
+    "convert.adapters.solidworks.Container.RotateBytes",
+    "convert.adapters.solidworks.Container.DecodeName",
+    "convert.adapters.solidworks.Container.SldprtFormat",
+    "convert.adapters.solidworks.Container.StreamLimits",
+    "convert.adapters.solidworks.Container.InflateStream",
+    "convert.adapters.solidworks.Container.DecodePayload",
+    "convert.adapters.solidworks.Container.StreamRecord",
+    "convert.adapters.solidworks.Container.DecodeScanned",
+    "convert.adapters.solidworks.Container.Format",
+    "convert.adapters.solidworks.Container.Container",
 )
 PACKAGES = (
     "interchange", "interchange.enums", "convert", "convert.adapters",
@@ -166,7 +166,7 @@ def container_api(repository):
         sys.modules[name] = module
         exec(compile(raw, str(path), "exec"), module.__dict__)
         loaded.append({"module": name, "file": str(path.relative_to(repository)), "sha256": digest(raw)})
-        if name == "interchange.enums.EnumDocument":
+        if name == "interchange.Enums.EnumDocument":
             sys.modules["interchange"].Capability = module.Capability
         if name == "convert.adapters.base.AdapterInfo":
             sys.modules["convert.adapters.base"].AdapterInfo = module.AdapterInfo

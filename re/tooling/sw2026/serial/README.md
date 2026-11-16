@@ -104,7 +104,7 @@ The seed load has its own `schema_usage.dependencies` snapshot, source hash, byt
 and unread-tail length. Its admission contributes to the selected stream's strict result,
 without claiming an additional seed-stream byte comparison.
 
-`tests/convert/solidworks/research/` invokes the CLI at a process boundary in remote CI.
+`tests/Convert/Solidworks/Research/` invokes the CLI at a process boundary in remote CI.
 Its eight fixtures in `re/solidworks/v2026/corpus/ladder/` are privacy-redacted controls,
 not held-out cases and not generated writer output. `Manifest.json` records original
 and redacted hashes, authoring specifications, vendor revision and source measurements.
