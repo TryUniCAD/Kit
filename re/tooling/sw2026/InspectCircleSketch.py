@@ -17,15 +17,19 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def check_frame(author, document):
-    utility = author.get(author.app, "GetMathUtility")
-    inverse = author.get(author.get(author.sketch, "ModelToSketchTransform"), "Inverse")
+def frame_basis(axis):
     bases = {
         "z": ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0)),
         "x": ((0.0, 0.0, -1.0), (0.0, 1.0, 0.0)),
         "y": ((1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
     }
-    u, v = bases[document["plane_axis"]]
+    return bases[axis]
+
+
+def check_frame(author, document):
+    utility = author.get(author.app, "GetMathUtility")
+    inverse = author.get(author.get(author.sketch, "ModelToSketchTransform"), "Inverse")
+    u, v = frame_basis(document["plane_axis"])
     observations = {}
     for label, point, expected in (("origin", [0.0, 0.0, 0.0], (0.0, 0.0, 0.0)), ("u", [1.0, 0.0, 0.0], u), ("v", [0.0, 1.0, 0.0], v)):
         native = author.get(utility, "CreatePoint", Swapp.VARIANT(Swapp.pythoncom.VT_ARRAY | Swapp.pythoncom.VT_R8, point))
@@ -78,7 +82,8 @@ def center_fixation(author, geometry):
 
 def body_snapshot(author, document, radius_factor, depth_factor):
     require = AuthorCurves.require
-    require(document["plane_axis"] == "z", "the first circle body inspection requires its canonical front frame")
+    u, v = frame_basis(document["plane_axis"])
+    normal = (u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0])
     feature = author.get(author.model, "FeatureByName", document["extrusion_name"])
     require(feature is not None and str(author.get(feature, "GetTypeName2")) == "Extrusion", "generated circle boss is missing or has another feature type")
     definition = author.get(feature, "GetDefinition")
@@ -96,7 +101,8 @@ def body_snapshot(author, document, radius_factor, depth_factor):
     require(properties is not None, "generated circle boss has no mass properties")
     author.set(properties, "UseSystemUnits", True)
     measured = {"volume": float(author.get(properties, "Volume")), "area": float(author.get(properties, "SurfaceArea")), "com": [float(value) for value in author.get(properties, "CenterOfMass")]}
-    expected = {"volume": math.pi * radius * radius * depth, "area": 2.0 * math.pi * radius * radius + 2.0 * math.pi * radius * depth, "com": [*document["center_m"], depth / 2.0]}
+    center_x, center_y = document["center_m"]
+    expected = {"volume": math.pi * radius * radius * depth, "area": 2.0 * math.pi * radius * radius + 2.0 * math.pi * radius * depth, "com": [center_x * u[index] + center_y * v[index] + normal[index] * depth / 2.0 for index in range(3)]}
     author.rec.close_number("solid volume", measured["volume"], expected["volume"], absolute=1e-22)
     author.rec.close_number("solid area", measured["area"], expected["area"], absolute=1e-18)
     require(len(measured["com"]) == 3, "solid mass center has wrong cardinality")

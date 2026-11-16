@@ -7,7 +7,7 @@ from Core import Obj
 from builders.Circle import arc_handle
 from builders.Extrude import DimensionGraph, _point, common_display_fields
 from builders.Model import component_reference_fields, node_fields
-from builders.Sketch import ConstructionError, DerivedFields, NodeOrder, _node_index, _vector, dimension_fields, logical_point_constraint
+from builders.Sketch import ConstructionError, DerivedFields, NodeOrder, PlaneFrame, _node_index, _vector, dimension_fields, logical_point_constraint
 
 
 def assign_bit(value, mask, enabled):
@@ -76,10 +76,16 @@ def projected_style(*, fields, root, subtype, diameter):
 
 def radial_display(*, profile, handle, parameter, mode, text_point_m, design_intent, selected_leader):
     frame = profile["_frame"]
-    if frame.origin != (0.0, 0.0, 0.0) or frame.u != (1.0, 0.0, 0.0) or frame.v != (0.0, 1.0, 0.0):
-        raise ConstructionError("the first radial presentation rung requires the canonical front-plane frame")
+    admitted = (
+        ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0)),
+        ((0.0, 0.0, -1.0), (0.0, 1.0, 0.0)),
+        ((1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
+    )
+    if frame.origin != (0.0, 0.0, 0.0) or (frame.u, frame.v) not in admitted:
+        raise ConstructionError("radial presentation requires an admitted principal-plane frame")
     point = _vector(value=text_point_m, size=3)
-    if point[2] != 0.0:
+    text_local = frame.sketch_point(point=point)
+    if text_local[2] != 0.0:
         raise ConstructionError("radial text must lie in the admitted sketch plane")
     diameter = mode == "diameter"
     fields = common_display_fields(handle=handle, angular=False, design_intent=design_intent, selected_leader=selected_leader)
@@ -96,9 +102,11 @@ def radial_display(*, profile, handle, parameter, mode, text_point_m, design_int
     subtype = root["f960" if diameter else "f3f8"]
     projected_style(fields=fields, root=root, subtype=subtype, diameter=diameter)
     center = handle["_value_dimension"]["h1"]["_arc"]["_center"]["pos"]
-    direction = (point[0] - center["x"], point[1] - center["y"], 0.0)
+    center_world = frame.world_point(point=(center["x"], center["y"]))
+    center_local = frame.sketch_point(point=center_world)
+    direction = (text_local[0] - center_local[0], text_local[1] - center_local[1], 0.0)
     squared = direction[0] * direction[0] + direction[1] * direction[1]
-    center_squared = center["x"] * center["x"] + center["y"] * center["y"]
+    center_squared = sum(value * value for value in center_world)
     if not isfinite(squared) or not isfinite(center_squared):
         raise ConstructionError("radial placement intermediates must be finite")
     distance = sqrt(squared)
@@ -113,9 +121,11 @@ def radial_display(*, profile, handle, parameter, mode, text_point_m, design_int
         fields["f8b0"] = distance - radius
         if not isfinite(fields["f8a8"]) or not isfinite(fields["f8b0"]):
             raise ConstructionError("radial placement ratios must be finite")
-    fields["fad0"] = sqrt(center_squared) if max(abs(center["x"]), abs(center["y"])) >= 1e-8 else value
-    fields["f958"] = _point(x=center["x"], y=center["y"])
-    fields["f988"] = _point(x=center["x"], y=center["y"])
+    fields["fad0"] = sqrt(center_squared) if max(abs(component) for component in center_world) >= 1e-8 else value
+    delta = PlaneFrame(origin=(0.0, 0.0, 0.0), u=(1.0, 0.0, 0.0), v=(0.0, 1.0, 0.0))
+    reference = delta.sketch_point(point=frame.sketch_point(point=center_world))
+    fields["f958"] = dict(zip(("x", "y", "z"), reference, strict=True))
+    fields["f988"] = dict(zip(("x", "y", "z"), reference, strict=True))
     fields["f950"] = value
     fields["f5b0"]["data"] = pack("<d", value)
     fields["f3e0"] &= ~0x200

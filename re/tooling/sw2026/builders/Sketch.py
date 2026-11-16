@@ -119,6 +119,11 @@ class PlaneFrame:
         x, y = _vector(value=point, size=2)
         return _vector(value=(o + x * u + y * v for o, u, v in zip(self.origin, self.u, self.v, strict=True)), size=3)
 
+    def sketch_point(self, *, point):
+        world = _vector(value=point, size=3)
+        difference = tuple(value - origin for value, origin in zip(world, self.origin, strict=True))
+        return _vector(value=(_dot(left=difference, right=axis) for axis in (self.u, self.v, self.normal)), size=3)
+
 
 def frame_transform(*, frame: PlaneFrame):
     rows = (*frame.u, *frame.v, *frame.normal)

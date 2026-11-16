@@ -296,6 +296,8 @@ The [saved-circle process checks](../../Changes/Solidworks/Model/SolidworksSaved
 require 54 complete primary/linked stream comparisons and 108 neutral semantic/frame comparisons across those six derivatives. Their remote outcome is recorded independently from the native body measurements.
 The [archive failure diagnostics](../../Changes/Solidworks/Model/SolidworksArchiveFailureOwnership.md)
 retain the exact typed owner and cursor at a rejected archive boundary; diagnostics do not turn a failed comparison into acceptance.
+The [principal-plane circle rung](../../Changes/Solidworks/Model/SolidworksCirclePrincipalFrames.md)
+computes explicit world/local radial placement for the existing Front, Right and Top model frames; new-frame native acceptance is pending.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

@@ -334,6 +334,12 @@ def run_load(ops, ar, scope, o):
                 except ArchiveError as error:
                     if not hasattr(error, "details"):
                         fields = getattr(scope, "own", scope)
+                        parents = []
+                        parent = scope
+                        while isinstance(parent, Scope):
+                            parent = parent.parent
+                            values = getattr(parent, "own", parent)
+                            parents.append({key: value for key, value in values.items() if type(value) is int})
                         error.details = {
                             "schema_path": list(usage.schemas),
                             "operation_path": list(usage.operations),
@@ -341,6 +347,7 @@ def run_load(ops, ar, scope, o):
                             "cursor": ar.p, "remaining": ar.left(),
                             "fields": {key: value for key, value in fields.items() if isinstance(value, (int, float))},
                             "counts": {key: len(value) for key, value in fields.items() if isinstance(value, list)},
+                            "ancestor_integer_fields": parents,
                         }
                     raise
 
