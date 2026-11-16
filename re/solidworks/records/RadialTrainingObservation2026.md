@@ -1,0 +1,100 @@
+# Radial and circle training observation contract
+
+Status: **partial — source and static native identity review only; no training capture or generated output acceptance**.
+
+The remaining question is the lifecycle of a computed radial flag word and circle graph. A saved word, unchanged endpoint, empty observed list or constructor coordinate is not a default or a universal callback-preservation proof. This tool observes those boundaries without changing model memory, return values or model validation. Its instrumentation patches code through checked Frida interception and is kept separate from clean acceptance.
+
+## Locked training inputs and smallest sequence
+
+The inputs copy neutral designs from `CurveSpecs.json`, SHA-256 `514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0`. They do not read native corpus payloads or change a source-family lock.
+
+| Specification | Cases / controlled difference | SHA-256 |
+| --- | --- | --- |
+| [RadialTraining.json](../../tooling/tupni/RadialTraining.json) | `TrainingD04Radius`, `TrainingD04Diameter`; the same D04 geometry and text-position formula, changing representation only | `4c9827d10c27766f3dc9dfe05c9de16f757949def4ce7d8b1bd82e2f39e43f01` |
+| [AnnulusTraining.json](../../tooling/tupni/AnnulusTraining.json) | `TrainingD19Annulus`, a separate unchanged-geometry copy of discovery D19 | `060fc61251afee7c172f731fb7c6501220f6671d0a5a9e69fb3db940028a9383` |
+
+Both files are locked before any new measurement. The first pair uses a front-plane circle with radius 7.391 mm, centre `(-3.719,5.173)` mm and depth 11.731 mm. The existing author chooses text point `centre+(1.7r,1.3r)`. The annulus preserves its shared centre and two radii. Each specification retains the source design's actual driving edit. Every case is labelled `training`, never held out.
+
+Run the radius/diameter pair first, bracketed by the existing healthy native control. Observe native circle creation, radial construction, post-owner solve, explicit rebuild and save. A separate fresh owned process then reopens those training sources, checks driving dimensions, performs the declared radius edit, rebuilds and saves an edited copy. It verifies the original source hash after close. Repeat the same two phases for the annulus. These are instrumented training observations; clean generated-output acceptance remains separate. The six held-out native payloads stay sealed.
+
+Parent-supplied discovery metadata reports a D19 endpoint with shared centre point index zero, creation ID two, `fe8=fec=2`, positive-X marker positions and point adjacency `h1` retained while `h2` is null. That is a source observation and mismatch question, not a newly measured result here. Its point `h1/h2` are distinct from the value dimension's embedded geometry handles. The earlier two-clone circle inference is refuted by the independently recovered [adjacency registrar](CircleAdjacencyRegistration2026.md): the first registration installs `h1`, then equal-handle membership prevents a duplicate for the same circle endpoint. Two role uses do not imply two clones. The prior 17-degree search remains a particular constructor path; it does not establish that `CreateCircleByRadius` used that path or retained its coordinate until save.
+
+## Existing snapshots and bounded additions
+
+[Solidworks2026.js](../../tooling/tupni/Solidworks2026.js) keeps the existing point/line/arc array readers and their bounds. The opt-in `radial-training` profile reuses existing update, coordinate-commit, whole-update and sketch-serialize entry/leave hooks. It adds only the fields and native boundaries below.
+
+| Owner | Added state | Bound / admission |
+| --- | --- | --- |
+| Existing point slots | Adjacency pointers at `+0xf8/+0x100`, each null or one geometry-handle snapshot | Same existing point loop, at most 512 stored slots; two direct pointer records, no adjacency-list walk |
+| Geometry handle | Vtable, raw `+8/+0xc`, sketch `+0x10`, index `+0x18`, raw `+0x1c`, retention-predicate slot `+0x2d8` target | Exact RTTI-bound `sgEntHandle`/`sgArcHandle` tables; read completeness and semantic class admission are separate; predicate is never invoked |
+| Radial display | Exact vtable, complete raw `ffd8` as u32/i32, `ffd4`, common flag gates, view count, align-group pointer and raw adjacent word, callout/mirror/Hole Wizard/transform pointers, both witnesses | At most 128 observed radial addresses between explicit metadata resets; no graph-list traversal |
+| Display handles | Data `+0x858`, signed count `+0x860`, up to eight pointers | Exact `getModelDimPtr` leaf establishes this layout; the separate `+0xe48` array is not substituted |
+| Actual retained radial handle | Concrete vtable, sketch/index, GFR/component/frozen state, precision/model/view/tag pointers | Exact `moSkDimHandleRadial_c` table; other concrete classes remain incomplete |
+| Local circle dimension | Exact table, representation word, sketch, raw dangling fields, parameter/owner/tolerance pointers, embedded geometry handles `+0x130/+0x158` | Null GFR/component/frozen state; value array `sketch+0x68`, data `array+8`, signed count at `data-0x10`, stride `0x1a0`, count at most 512 |
+| Reached native sketch callback | Target at the suppression-admitted native load and a later existing sketch snapshot | The later boundary also follows the model-owner query; this is not an executed-call or callback-only preservation proof |
+| Reached context notification | Actual returned context pointer/vtable, selected `+0x640` target and active sketch identity | Target-selection boundary before the native target load; the observer invokes no model-context getter |
+| Event `0x28` | Normal registration count, cookies, eight-byte eligibility words, reached GIT acquisition target/cookie, selected cached-or-new listener list, returned event boundary | Up to 64 registration/listener rows; interface/vtable/Release/Invoke pointers only; no interface method invoked by the observer |
+
+Native dynamic-array count provenance is the actual `sldmgu!amDynamicArrayCount` leaf: a signed 32-bit read at data minus `0x10`. Unsupported handle contexts, wrong concrete vtables, out-of-range counts/indexes, failed reads, nonfinite new point snapshots and absent lifecycle identities remain explicit incomplete states. An empty tracked-object set does not establish observed radial coverage. Metadata resets require no active tracked solve or event. Before every owned close the action clears tracked pointers and disables new field capture. Capture stays paused during close and control measurements, then resumes only for the next declared case. It also clears paused metadata after close. This avoids retaining freed display addresses across documents. It is not a general object-lifetime theorem for arbitrary native edits; unexpected reads or class changes remain incomplete and unqualified.
+
+The constructor ABI is `rcx=this`, `rdx=style model`, `r8=handle`, `r9=point`, then integer, transform pointer and integer stack arguments. The observer records the actual null/non-null style input and finite text point. Later ownership is independently visible through the resolved dimension. Owned nondrawing model, constructor style argument and null view are separate facts.
+
+The unique-point-search hook records actual entry/return callers, centre/normal/output and success-conditioned output. It does not read SIMD argument registers: `native_radius` and `native_step` remain null with an explicit unsupported-capture status. No general-purpose argument slot is presented as a native floating value. If a public API route bypasses this search, absence of that event does not establish an alternate constructor rule. The recorder's ordered API phase labels and native callsites identify the reached path or the exact gap for subsequent static analysis.
+
+## Native hook and field identities
+
+[RadialTrainingHooks2026.json](RadialTrainingHooks2026.json) gives every module hash, complete original function extent, complete chained ownership, selected vtable-slot hash and individual interior-instruction fingerprint. No proprietary instruction bytes or listings are reproduced in this publication. All new hook addresses are preferred VAs and are relocated through their actual module base.
+
+| New hook / owning function | Complete owning span | Original function SHA-256 |
+| --- | --- | --- |
+| Radial constructor `0x4c8bfc10` | `[0x4c8bfc10,0x4c8bfe5a)` | `bc2bbf09a91cdcb5c68b134df358fb3c8b7e61c83fecf2b1096249c1012e90ba` |
+| Radial engine `0x4c8dbcf0` | `[0x4c8dbcf0,0x4c8dda24)` | `236de00145cb837b66d1f0e91f1a414d646e3a04c39ecf847d713732111bcf11` |
+| Radial serializer entry/leave and actual word read `0x4c83215c` | `[0x4c8320a0,0x4c833155)` | `53e02cc934bab64e05119887283ce2458f6ecf9749c0814a2d7a5659fe40be87` |
+| Callback target load `0x4c54c32a` and post-owner-query boundary `0x4c54c348` | Existing update `[0x4c549ab0,0x4c54c4f6)` | `d33a53631e2cd8b2f63138fa52b39b61d8d0075953b43292d5bfa83297a00ed6` |
+| Context target selection `0x4b7988b1` | `[0x4b798880,0x4b7988d6)` | `a170b9aa6f04dd6e8ed38f15501e5a38333378113f7643c814a785cc7f1829b5` |
+| Actual event entry, GIT call `0x492b031a`, listener-list join `0x492b034b` | UI `[0x492b01f0,0x492b04f6)` | `5714a401d2b8ef12be658b21c4316f6e4965e870b0b51b15cdd59473cfc6702c` |
+| Unique circle-point search `0x4c560e50` | `[0x4c560e50,0x4c561083)` | `250094a7e230f70bf3fd6f2ac249b2538df6e287795fa171525b2cf8b40e6b52` |
+
+There are eleven new sites in seven owning functions: five actual function-entry callback objects and six instruction-probe functions. The probes use register context only, without function-entry arguments or return-address assumptions; see the [Frida API distinction](https://frida.re/docs/javascript-api/#interceptor) and [specific gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Tracing/InstructionProbesNeedProbeCallbacks.md). The actual model image SHA-256 is `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`, preferred base `0x4b140000`. UI image SHA-256 is `025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7`, base `0x48ea0000`. The [training module manifest](../../tooling/tupni/RadialTrainingModules.json) pins all eight required loaded modules before hooks activate. It includes the math image used only to establish array-count provenance, plus UI/part context images. A missing module rejects activation rather than silently omitting a hook.
+
+The local display, handle and circle tables are respectively `0x4d255be0`, `0x4d242c18` and `0x4cf79588`. The handle's RTTI parent is ValG1, not a substitute for its concrete radial identity. The UI context table is `0x4a65d908`. The identity JSON includes their first-32-byte hashes and exact selected slot targets. Geometry-handle admission additionally requires RTTI-bound tables `0x4d1cdd80` (`sgEntHandle`, COL `0x4d366c70`) or `0x4d1c5ae8` (`sgArcHandle`, COL `0x4d3657b0`), both primary offset zero. Their fingerprints and retention-slot targets are in the same JSON. Other concrete geometry handles are incomplete instead of being admitted from successful reads alone. Runtime listener pointer/vtable addresses are observations for subsequent binding; opaque listener implementations remain unbound and are never attached as new targets.
+
+## Mapped instructions and interception geometry
+
+Before activation, the owner-side runner compares all eleven mapped instruction windows to the independently pinned SHA-256 values in the identity JSON. It verifies exact module/RVA/length membership and saves only hashes and bounds, not code bytes. The agent rereads those same windows immediately before installing hooks and rejects changes. No saved CAD payload supplies these fingerprints. Full mapped-function byte identity is not claimed.
+
+Every site records complete-instruction relocation spans for minimum redirect sizes five and fourteen bytes. The chosen windows have no known direct incoming target strictly inside them within the complete owning function. This is a bounded static check, not whole-program indirect/exception target closure or successful runtime relocation. Standard checked/online interception remains required; no forced or unchecked relocation is introduced. A matching instruction signature does not prove safe interception.
+
+The abandoned callback probe at `0x4c54c336` would overwrite the independently targeted bypass at `0x4c54c338`. Its replacement at `0x4c54c32a` ends exactly at `0x4c54c338` for the fourteen-byte window. The abandoned context tail at `0x4b7988c8` would overwrite the null-branch target at `0x4b7988cb`. Its replacement at `0x4b7988b1` captures the actual context in `rax` before the native slot load and ends at `0x4b7988c3` for the fourteen-byte window. Rejected spans and incoming sources are recorded so neither hazard is restored. See the [interception-safety gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Tracing/InstructionBoundariesDoNotProveHookSafety.md).
+
+## Point serialization is another mutation boundary
+
+Original point serializer `[0x4c58f910,0x4c590557)`, SHA-256 `281ad8aacf682f14bbca0af3ff839ab74262ebc50afdba7ceea7a916f257193b`, tests the ordinary profile predicate and then each nonnull adjacency pointer's actual virtual `+0x2d8` result. A zero result clears the corresponding pointer at `+0xf8` or `+0x100` before the native store. This can remove a pointer; it does not explain allocation of a nonnull endpoint handle or prove why any particular saved field differs. The source annulus's shared centre and its two circle markers are distinct point identities. No new point hook is required because existing sketch-serialize entry/leave snapshots now include these two fields. The [specific gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PointAdjacencyCanChangeDuringSerialization.md) separates constructor adjacency from saved adjacency.
+
+## Retained action and capture validity
+
+[AuthorRadialTraining.py](../../tooling/tupni/AuthorRadialTraining.py) follows the retained-controller pattern of `AuthorPolygons.py` and directly reuses `AuthorCurves.CurveAuthor`, `Recorder`, geometry/relation checking, metric checking and edit-model computation. It does not invoke `run_worker`, create another application session, exit the application, enumerate/kill processes or touch licensing. The existing preparation owns application startup and cleanup. Each API call is checkpointed and phase-labelled by case plus ordered API-call index. Before closing, the action pauses capture and clears tracking; late function leaves also skip field reads while paused. The action closes only documents it created/opened and restores the input-dimension preference. Source SHA-256 and process birth identities distinguish authoring from fresh reopen.
+
+Use [Observe.py](../../tooling/tupni/Observe.py) with `--profile radial-training`, `--realm native`, the pinned training module manifest, existing retained preparation and this explicit action/input. The existing ledger records native-realm x64 success and emulated-realm rejection on this host. The profile checks that the selected process is the prepared controller's process before attachment. Its observation output must be unused with an existing parent; action output is a separate unused external directory. Normal profiles retain their existing behavior.
+
+The action job requires `phase` (`author` or `reopen-edit`), `specifications`, its exact `specifications_sha256`, `checkout_root`, unused external `output`, explicit healthy native `control` and `control_sha256`, and `oracle_sha256`. The only admitted oracle hash is `3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe`, with COM revision `34.5.2` and exact version matching from preparation. Reopen-edit additionally requires the prior completed author `source_manifest` and exact `source_manifest_sha256`. The action verifies the same buffer before parsing, reads it without modification and rechecks its digest at completion; it must belong to the same locked specification and a different process/birth identity. `Training.json` and per-case `Record.json` preserve progress, results, controls, source hashes and failures. Edited saves use new paths.
+
+An action `passed` flag means the declared training author/reopen/edit workflow completed with healthy instrumented controls. It does not mean field closure. `field_closure_proven`, `callback_effects_proven` and `acceptance` stay false. Validate the actual native event set separately: expected subject identities must be present, relevant snapshots must be complete, module/function identities must match, observed call/return boundaries must pair, both producer and host budgets must have zero drops, script/hook errors must be zero and detach/cleanup must complete. The runner publishes `training_qualification` with bounded reasons and per-case event counts. A hook error, unfinished scope, incomplete selected native state, missing required boundary, dropped event, script/cleanup error or missing mapped-instruction match sets `training_qualified=false` and returns nonzero while preserving the report. Graph scan checks use the actual bounded/count/completed-slot contract; point adjacency has its separate admission/read status. Optional unsupported SIMD fields remain outside the declared capture scope. A qualified capture still does not prove field closure. No callback effect is inferred from a single equal before/after word.
+
+## Decision after the owner measures
+
+A constructor-derived neutral policy must be explicitly named as a chosen operation sequence. Its word follows native constructor and mask rules, not a saved literal. It still needs graph-invariant proof and independent generated-output acceptance. Training that reveals later owner/solve/style changes requires tracing those admitted operations and computing their actual inputs. A nonempty listener or acquired interface remains an external implementation boundary; empty results in one run are not permanent environment defaults. No whole-word hypothesis or nonnull-style bit is promoted here.
+
+Likewise, compare marker/centre/index/adjacency state before dimension creation, across actual coordinate commits and before/after native serialization. Determine whether the actual by-radius route used the documented angular search, another constructor, a solver replacement or a serialization repair. The annulus coordinate mismatch is a reason to trace, not to choose positive X as a default. The registrar now independently explains single `h1`; the observer corroborates it without requiring cleanup or adding another adjacency hook. Preserve the [existing marker predicates](CircleMarkerPlacement2026.md), [radial lifecycle rules](RadialParameterLifecycle2026.md) and their unresolved callback/graph boundaries.
+
+## Authority and stopping conditions
+
+The [standard PR skill](../../../.agents/skills/standard-pr-practice/SKILL.md), host reverse-engineering skill, complete [CAD criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md), full [Playbook](../../Playbook/README.md), [loader](../../Playbook/LoaderAnalysis.md), [generative corpus](../../Playbook/GenerativeCorpus.md), [correlation](../../Playbook/CorpusCorrelation.md), [writer](../../Playbook/WriterModel.md) and [Tupni](../../Playbook/Tupni.md) chapters govern this handoff. The worker performed source/AST/JavaScript syntax and static PE/instruction/metadata inspection only. No VM, CAD, COM, licensing, schema/codec, test or held-out payload execution/read occurred. Proprietary listings/images remain outside checkouts.
+
+> YOU DO NOT HAVE THE ORACLE. DO NOT LAUNCH, ATTACH TO, OR AUTOMATE THE CAD APPLICATION. REQUEST MEASUREMENTS FROM THE ORACLE OWNER.
+
+> The first is success under every criterion on this page.
+> The second is the end of the available context.
+> Missing grammar is the work. It is not a blocker.
+
+This is a bounded training-tool handoff. Whole-flag, callback, marker final-state and generated-model acceptance claims remain pending.

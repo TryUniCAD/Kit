@@ -443,3 +443,7 @@ the Hopper bridge exceeded its startup timeout, and authenticated document
 cleanup was unavailable. That attempt supplies no native format finding.
 The existing hash-bound 2026 analysis remains the source for the continuation
 addresses. No vendor listings or software are added to this PR.
+
+## Radial and circle training observations
+
+The opt-in [radial training observer](../../../Documentation/Changes/Solidworks/Inspection/Sketches/SolidworksRadialTrainingObservations.md) reuses the retained controller and existing point/arc snapshots. It adds bounded radial word/handle and point-adjacency state at eleven hash-bound native sites, including actually reached callback/context/listener boundaries. The matched radius/diameter pair and separate annulus specification are locked before any measurement. Run authoring and fresh-process reopen/edit as separate training jobs between healthy controls, with `realm=native`, the complete pinned module manifest and unused external outputs. [The contract](RadialTrainingObservation2026.md) preserves incomplete states and distinguishes a training workflow result from field closure, callback preservation and clean generated-output acceptance. [Point serialization can change adjacency](../../../Documentation/Gotchas/Conversion/Solidworks/Model/PointAdjacencyCanChangeDuringSerialization.md); role-use counts do not imply duplicate handles, and a first-free marker is not a final saved default. The [registrar proof](CircleAdjacencyRegistration2026.md) independently explains single `h1`.

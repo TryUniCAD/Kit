@@ -1,0 +1,820 @@
+{
+  "schema": "kit-sw2026-radial-training-hook-identities/1",
+  "authority": "static native identity and field provenance; no executed training capture",
+  "functions": [
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "radial constructor",
+      "start": "0x4c8bfc10",
+      "end": "0x4c8bfe5a",
+      "bytes": 586,
+      "sha256": "bc2bbf09a91cdcb5c68b134df358fb3c8b7e61c83fecf2b1096249c1012e90ba",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership",
+      "fragments": [
+        [
+          "0x4c8bfc10",
+          "0x4c8bfe5a"
+        ]
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "radial engine",
+      "start": "0x4c8dbcf0",
+      "end": "0x4c8dda24",
+      "bytes": 7476,
+      "sha256": "236de00145cb837b66d1f0e91f1a414d646e3a04c39ecf847d713732111bcf11",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership",
+      "fragments": [
+        [
+          "0x4c8dbcf0",
+          "0x4c8dda24"
+        ]
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "radial serializer",
+      "start": "0x4c8320a0",
+      "end": "0x4c833155",
+      "bytes": 4277,
+      "sha256": "53e02cc934bab64e05119887283ce2458f6ecf9749c0814a2d7a5659fe40be87",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership",
+      "fragments": [
+        [
+          "0x4c8320a0",
+          "0x4c833155"
+        ]
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "existing sketch update; two new bounded callsite hooks",
+      "start": "0x4c549ab0",
+      "end": "0x4c54c4f6",
+      "bytes": 10822,
+      "sha256": "d33a53631e2cd8b2f63138fa52b39b61d8d0075953b43292d5bfa83297a00ed6",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership",
+      "fragments": [
+        [
+          "0x4c549ab0",
+          "0x4c54c4f6"
+        ]
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "model context notification; new tail-dispatch hook",
+      "start": "0x4b798880",
+      "end": "0x4b7988d6",
+      "bytes": 86,
+      "sha256": "a170b9aa6f04dd6e8ed38f15501e5a38333378113f7643c814a785cc7f1829b5",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership",
+      "fragments": [
+        [
+          "0x4b798880",
+          "0x4b7988d6"
+        ]
+      ]
+    },
+    {
+      "module": "slduiu.dll",
+      "module_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "role": "actual automation event dispatcher",
+      "start": "0x492b01f0",
+      "end": "0x492b04f6",
+      "bytes": 774,
+      "sha256": "5714a401d2b8ef12be658b21c4316f6e4965e870b0b51b15cdd59473cfc6702c",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership",
+      "fragments": [
+        [
+          "0x492b01f0",
+          "0x492b04f6"
+        ]
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "unique circle-point search",
+      "start": "0x4c560e50",
+      "end": "0x4c561083",
+      "bytes": 563,
+      "sha256": "250094a7e230f70bf3fd6f2ac249b2538df6e287795fa171525b2cf8b40e6b52",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership",
+      "fragments": [
+        [
+          "0x4c560e50",
+          "0x4c561083"
+        ]
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "local dimension resolution; field evidence only",
+      "start": "0x4c8460f0",
+      "end": "0x4c8461ae",
+      "bytes": 190,
+      "sha256": "babaf99b1ea9f17d8ee87ed1dbc46c4feb6f4edcc777bde0d7435cc9482eeea2",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership",
+      "fragments": [
+        [
+          "0x4c8460f0",
+          "0x4c846136"
+        ],
+        [
+          "0x4c846136",
+          "0x4c84618f"
+        ],
+        [
+          "0x4c84618f",
+          "0x4c8461ae"
+        ]
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "sketch resolution; field evidence only",
+      "start": "0x4c844620",
+      "end": "0x4c84473c",
+      "bytes": 284,
+      "sha256": "398ab6fc869c5518e5a67a9850f395bcd0b4d582379c43780ebe4b828107a0f0",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership",
+      "fragments": [
+        [
+          "0x4c844620",
+          "0x4c844667"
+        ],
+        [
+          "0x4c844667",
+          "0x4c844681"
+        ],
+        [
+          "0x4c844681",
+          "0x4c8446f9"
+        ],
+        [
+          "0x4c8446f9",
+          "0x4c844722"
+        ],
+        [
+          "0x4c844722",
+          "0x4c84473c"
+        ]
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "getModelDimPtr leaf; field evidence only",
+      "start": "0x4c8845c0",
+      "end": "0x4c8845e1",
+      "bytes": 33,
+      "sha256": "ebb1ee9e768bb9673d1366cf14f9606be6751b40aa1c38a32f05489a3c4ed024",
+      "extent_kind": "decoded leaf through final return; not hooked"
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "value-array getter leaf; field evidence only",
+      "start": "0x4b2857a0",
+      "end": "0x4b2857a5",
+      "bytes": 5,
+      "sha256": "fb6bf83d7403f34405349e1715c8966083af4295fe7dc65bad96d9a60589f9aa",
+      "extent_kind": "decoded leaf through final return; not hooked"
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "value-element getter leaf; field evidence only",
+      "start": "0x4c4b60c0",
+      "end": "0x4c4b60d3",
+      "bytes": 19,
+      "sha256": "d5fdf98fea413b790c6559b390b5eb42f1d97361bc64f4fe26ebbbad5c3c92f8",
+      "extent_kind": "decoded leaf through final return; not hooked"
+    },
+    {
+      "module": "sldmgu.dll",
+      "module_sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c",
+      "role": "array-count leaf; field evidence only",
+      "start": "0x31deec50",
+      "end": "0x31deec54",
+      "bytes": 4,
+      "sha256": "31f71d7bede065b6f512432eee8b2df89131143559901f2becc28be30804e926",
+      "extent_kind": "decoded leaf through final return; not hooked"
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "point constructor; adjacency field evidence only",
+      "start": "0x4c490970",
+      "end": "0x4c490a93",
+      "bytes": 291,
+      "sha256": "56093a7c54dff44ea20546fcf306a7c499cc13e499f52db6d556935eb46641c2",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; not hooked",
+      "fragments": [
+        [
+          "0x4c490970",
+          "0x4c490a93"
+        ]
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "role": "point serializer; adjacency field mutation evidence only",
+      "start": "0x4c58f910",
+      "end": "0x4c590557",
+      "bytes": 3143,
+      "sha256": "281ad8aacf682f14bbca0af3ff839ab74262ebc50afdba7ceea7a916f257193b",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; not hooked",
+      "fragments": [
+        [
+          "0x4c58f910",
+          "0x4c590557"
+        ]
+      ]
+    }
+  ],
+  "interior_hook_instructions": [
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4c83215c",
+      "bytes": 6,
+      "sha256": "340e7c00cae9f7e7647f80910c7edabf1ae8d77a9f5492cc32109e3f512f508f",
+      "role": "raw radial word read before store",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4c54c32a",
+      "bytes": 7,
+      "sha256": "4e30d26beaf182ef4c92f0ae5d15ba405db30d80eb5e9ad401d090a8bb0151f9",
+      "role": "suppression-admitted callback-target load; not an external call probe",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4c54c348",
+      "bytes": 3,
+      "sha256": "235a2688762c92ca79c29859f5c06c7f464a91b1c443f806674410e373b9ecd2",
+      "role": "after callback interval and model-owner query",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4b7988b1",
+      "bytes": 3,
+      "sha256": "9e0ab95c8f4a380c07ed1cc9c7a88012f1d18d7dad8b647caebf9455c70dbbc7",
+      "role": "actual context returned; before slot-target load",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "slduiu.dll",
+      "module_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "address": "0x492b031a",
+      "bytes": 3,
+      "sha256": "88b8fa4860e5c3ad9fbb959dc00abf7752c1c3559ebd9f98f1a8eb8142193311",
+      "role": "actual listener acquisition call",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "slduiu.dll",
+      "module_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "address": "0x492b034b",
+      "bytes": 4,
+      "sha256": "28b887502c7b56ec11a1d0118ba84282605fc7d3a478f4a26fe96520a0b9e3ff",
+      "role": "selected listener-list join",
+      "listener_kind": "instruction probe function"
+    }
+  ],
+  "vtables": [
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4d255be0",
+      "class": "moDisplayRadialDim_c",
+      "first_32_bytes_sha256": "1aa3fa0f259057071aa9647346dc9c390b96a3d1ff56c3dd31fa3e1779549614",
+      "selected_slots": [
+        {
+          "offset": "0x28",
+          "target": "0x4c8320a0",
+          "slot_8_bytes_sha256": "7fe1a9d67e9e4250b287af0a3089d749efdb19c8db174fc08b77f1b4ae17fd65"
+        },
+        {
+          "offset": "0x9c8",
+          "target": "0x4c8dbcf0",
+          "slot_8_bytes_sha256": "ba372ff6ff04f4b9fd03cfe0c461529868cc347763c5efa09ebf31cced399fd6"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4d242c18",
+      "class": "moSkDimHandleRadial_c",
+      "first_32_bytes_sha256": "a9a577bb53d4ebbf98ab12e20feeb6ff9e5cb89c0eac2e9d9addfd89eda50c95",
+      "selected_slots": [
+        {
+          "offset": "0x668",
+          "target": "0x4c844620",
+          "slot_8_bytes_sha256": "d271709ab4aa1491a128e463d21c03b0178b89d80792251960bd8e0fa5ca7c4c"
+        },
+        {
+          "offset": "0x730",
+          "target": "0x4c8460f0",
+          "slot_8_bytes_sha256": "36c444083bed558f11c8d3e4f23294cd2654a1362d3555caa3c27648108001ca"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4cf79588",
+      "class": "sgCircleDim",
+      "first_32_bytes_sha256": "1b2cd6a904ef19785ebb0736ce82663f02d18c653e69677733c19d6e51050a79",
+      "selected_slots": [
+        {
+          "offset": "0x258",
+          "target": "0x4b285770",
+          "slot_8_bytes_sha256": "275d01565cc9db7ded00eba7774d0a8a7829ab042d3492b310e839ff9920b370"
+        },
+        {
+          "offset": "0x268",
+          "target": "0x4c42a7f0",
+          "slot_8_bytes_sha256": "e83b239ed60120653ad47096a2bf1c9d06e9f08a5290a451ca194a48ecd0c2e5"
+        }
+      ]
+    },
+    {
+      "module": "slduiu.dll",
+      "module_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "address": "0x4a65d908",
+      "class": "ModelDocModelContext_c",
+      "first_32_bytes_sha256": "8d6c77dbd76720dcd9f7ff44cc2e919871ab9abde233ce9a5672e1a2379b84bd",
+      "selected_slots": [
+        {
+          "offset": "0x640",
+          "target": "0x497cd890",
+          "slot_8_bytes_sha256": "849a9304864fb560a1a9c3936cd87c82ceba33f86e3b21efaad5c2d531e5af30"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4cdd2d48",
+      "class": "sgPoint",
+      "first_32_bytes_sha256": "73eb6818001d55ca801cd9877371e88041dfb1f5e0d74a1d623c461511e2cc8f",
+      "selected_slots": [
+        {
+          "offset": "0x138",
+          "target": "0x4b340f10",
+          "slot_8_bytes_sha256": "80eef0074e56e4d135da36c1bfa226b6bc4bb152e9d4acb8d1f1eabb2ff7005f"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4d1cdd80",
+      "class": "sgEntHandle",
+      "rtti_complete_object_locator": "0x4d366c70",
+      "rtti_primary_offset": 0,
+      "first_32_bytes_sha256": "f84285968e910567b089541533b3e0970e1da638be046b18229df8d7978e6a90",
+      "selected_slots": [
+        {
+          "offset": "0x2d8",
+          "target": "0x4c5d0810",
+          "slot_8_bytes_sha256": "2ec0c244667a7907b221c6f1eda73b3ee5033e479ae9db9076e22f2b58317382"
+        }
+      ]
+    },
+    {
+      "module": "sldmodu.dll",
+      "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "address": "0x4d1c5ae8",
+      "class": "sgArcHandle",
+      "rtti_complete_object_locator": "0x4d3657b0",
+      "rtti_primary_offset": 0,
+      "first_32_bytes_sha256": "711a54eced0f6d303cc318a6c345ae880db91e982802c50e9e0abcc1eadf61a4",
+      "selected_slots": [
+        {
+          "offset": "0x2d8",
+          "target": "0x4c5d0810",
+          "slot_8_bytes_sha256": "2ec0c244667a7907b221c6f1eda73b3ee5033e479ae9db9076e22f2b58317382"
+        }
+      ]
+    }
+  ],
+  "new_hook_count": 11,
+  "acceptance": false,
+  "new_hooks": [
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c8bfc10",
+      "listener_kind": "function entry/leave callbacks"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c8dbcf0",
+      "listener_kind": "function entry/leave callbacks"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c8320a0",
+      "listener_kind": "function entry/leave callbacks"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c83215c",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c54c32a",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c54c348",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4b7988b1",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "slduiu.dll",
+      "address": "0x492b01f0",
+      "listener_kind": "function entry/leave callbacks"
+    },
+    {
+      "module": "slduiu.dll",
+      "address": "0x492b031a",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "slduiu.dll",
+      "address": "0x492b034b",
+      "listener_kind": "instruction probe function"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c560e50",
+      "listener_kind": "function entry/leave callbacks"
+    }
+  ],
+  "mapped_hook_windows": [
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c8bfc10",
+      "rva": 24640528,
+      "bytes": 20,
+      "sha256": "72d867a98b46c6a22685be6edeee299bc4d58a3e258bf69c37f38751395623f2",
+      "parent_start": "0x4c8bfc10",
+      "parent_end": "0x4c8bfe5a",
+      "parent_sha256": "bc2bbf09a91cdcb5c68b134df358fb3c8b7e61c83fecf2b1096249c1012e90ba",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x4c8bfc15",
+          "whole_instruction_bytes": 5,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x4c8bfc24",
+          "whole_instruction_bytes": 20,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c8dbcf0",
+      "rva": 24755440,
+      "bytes": 14,
+      "sha256": "e28320c8bf90ce2b388b9fda36bc70744cc2e1655599753640fc9ac61ff5d2f7",
+      "parent_start": "0x4c8dbcf0",
+      "parent_end": "0x4c8dda24",
+      "parent_sha256": "236de00145cb837b66d1f0e91f1a414d646e3a04c39ecf847d713732111bcf11",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x4c8dbcf7",
+          "whole_instruction_bytes": 7,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x4c8dbcfe",
+          "whole_instruction_bytes": 14,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c8320a0",
+      "rva": 24060064,
+      "bytes": 14,
+      "sha256": "aba8de1929ccfa4833090de9152b4bc1d5fae7b211f8cafe1ad2c530abd31061",
+      "parent_start": "0x4c8320a0",
+      "parent_end": "0x4c833155",
+      "parent_sha256": "53e02cc934bab64e05119887283ce2458f6ecf9749c0814a2d7a5659fe40be87",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x4c8320a7",
+          "whole_instruction_bytes": 7,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x4c8320ae",
+          "whole_instruction_bytes": 14,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c83215c",
+      "rva": 24060252,
+      "bytes": 15,
+      "sha256": "6c2f3fd1903f8af8a051d5e2250d6f481e0d4018c6020e574fb9ba39734cf1b3",
+      "parent_start": "0x4c8320a0",
+      "parent_end": "0x4c833155",
+      "parent_sha256": "53e02cc934bab64e05119887283ce2458f6ecf9749c0814a2d7a5659fe40be87",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x4c832162",
+          "whole_instruction_bytes": 6,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x4c83216b",
+          "whole_instruction_bytes": 15,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c54c32a",
+      "rva": 21021482,
+      "bytes": 14,
+      "sha256": "99d0caa0f2826b83bf28eb677d8c6a5c20c83a5bbbf27b34df1f1c34c98da6d2",
+      "parent_start": "0x4c549ab0",
+      "parent_end": "0x4c54c4f6",
+      "parent_sha256": "d33a53631e2cd8b2f63138fa52b39b61d8d0075953b43292d5bfa83297a00ed6",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x4c54c331",
+          "whole_instruction_bytes": 7,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x4c54c338",
+          "whole_instruction_bytes": 14,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c54c348",
+      "rva": 21021512,
+      "bytes": 15,
+      "sha256": "cf21c3ef681a3ec8703616de5ba32dee6411997ed0052c4c4688dd3964aff2e2",
+      "parent_start": "0x4c549ab0",
+      "parent_end": "0x4c54c4f6",
+      "parent_sha256": "d33a53631e2cd8b2f63138fa52b39b61d8d0075953b43292d5bfa83297a00ed6",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x4c54c34e",
+          "whole_instruction_bytes": 6,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x4c54c357",
+          "whole_instruction_bytes": 15,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4b7988b1",
+      "rva": 6654129,
+      "bytes": 18,
+      "sha256": "011687bb6f9bf7e775ecec5d16c21637806d50ec2a586aff191e9a7799672b13",
+      "parent_start": "0x4b798880",
+      "parent_end": "0x4b7988d6",
+      "parent_sha256": "a170b9aa6f04dd6e8ed38f15501e5a38333378113f7643c814a785cc7f1829b5",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x4b7988bb",
+          "whole_instruction_bytes": 10,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x4b7988c3",
+          "whole_instruction_bytes": 18,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "slduiu.dll",
+      "address": "0x492b01f0",
+      "rva": 4260336,
+      "bytes": 14,
+      "sha256": "f586f4fe0f414e19d96d990f8821702c9645533fe657981577338be06c78c8e8",
+      "parent_start": "0x492b01f0",
+      "parent_end": "0x492b04f6",
+      "parent_sha256": "5714a401d2b8ef12be658b21c4316f6e4965e870b0b51b15cdd59473cfc6702c",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x492b01f5",
+          "whole_instruction_bytes": 5,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x492b01fe",
+          "whole_instruction_bytes": 14,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "slduiu.dll",
+      "address": "0x492b031a",
+      "rva": 4260634,
+      "bytes": 21,
+      "sha256": "f740036c5dfab1d1acbff75c885fb80eaaf2535b1391d113e471587db6532f15",
+      "parent_start": "0x492b01f0",
+      "parent_end": "0x492b04f6",
+      "parent_sha256": "5714a401d2b8ef12be658b21c4316f6e4965e870b0b51b15cdd59473cfc6702c",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x492b0322",
+          "whole_instruction_bytes": 8,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x492b032f",
+          "whole_instruction_bytes": 21,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "slduiu.dll",
+      "address": "0x492b034b",
+      "rva": 4260683,
+      "bytes": 16,
+      "sha256": "7f59e6f466d58aeff4367893cde7bae477d4b7896f3c2137fba9844d6928bd3b",
+      "parent_start": "0x492b01f0",
+      "parent_end": "0x492b04f6",
+      "parent_sha256": "5714a401d2b8ef12be658b21c4316f6e4965e870b0b51b15cdd59473cfc6702c",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x492b0357",
+          "whole_instruction_bytes": 12,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x492b035b",
+          "whole_instruction_bytes": 16,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c560e50",
+      "rva": 21106256,
+      "bytes": 15,
+      "sha256": "7d969c050403f44b92cac982d97ad200df85365fbfc60f884b5752d7a497499e",
+      "parent_start": "0x4c560e50",
+      "parent_end": "0x4c561083",
+      "parent_sha256": "250094a7e230f70bf3fd6f2ac249b2538df6e287795fa171525b2cf8b40e6b52",
+      "relocation_windows": [
+        {
+          "minimum_patch_bytes": 5,
+          "covered_end": "0x4c560e55",
+          "whole_instruction_bytes": 5,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        },
+        {
+          "minimum_patch_bytes": 14,
+          "covered_end": "0x4c560e5f",
+          "whole_instruction_bytes": 15,
+          "known_direct_incoming_targets_inside": [],
+          "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+        }
+      ],
+      "interception_safety_proven": false,
+      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+    }
+  ],
+  "interception_limitations": [
+    "5/14-byte minimums are analyzed through complete instructions; incoming-target search is bounded to the owning function",
+    "No whole-program indirect/exception target closure or successful Frida relocation is claimed",
+    "Mapped prefix equality does not establish full mapped-function byte identity"
+  ],
+  "rejected_interception_sites": [
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4c54c336",
+      "minimum_5_byte_covered_end": "0x4c54c33f",
+      "minimum_14_byte_covered_end": "0x4c54c348",
+      "known_interior_target": "0x4c54c338",
+      "incoming_branch_sources": [
+        "0x4c54c328",
+        "0x4c54c334"
+      ],
+      "reason": "nullable/suppression bypass enters inside either overwritten window; replaced by target-load boundary 0x4c54c32a"
+    },
+    {
+      "module": "sldmodu.dll",
+      "address": "0x4b7988c8",
+      "minimum_5_byte_covered_end": "0x4b7988d0",
+      "minimum_14_byte_covered_end": "0x4b7988d6",
+      "known_interior_target": "0x4b7988cb",
+      "incoming_branch_sources": [
+        "0x4b79889e"
+      ],
+      "reason": "null-context branch enters inside either overwritten window; replaced by target-selection boundary 0x4b7988b1"
+    }
+  ]
+}
