@@ -34,6 +34,11 @@ output regressions pass.
 
 The prospective freeze was produced by static Git/source/hash inspection only.
 No local tests or writer/codec executions ran. The held-out generation gate is
-the next remote step. Native tree/edit/save/reopen comparison must follow those
+implemented in `TreeHeldTests.py` and is pending remote CI. It checks every
+frozen source file, complete `src` and schema membership, source identities and
+the evaluated case set before and after fresh guarded generation. Both outputs
+must pass eight complete archive comparisons with no unresolved references or
+denied reads before private observations can be opened.
+Native tree/edit/save/reopen comparison must follow those
 successful predictions before this rung can pass. No new generated native
 acceptance, complete family coverage or production writing is claimed.
