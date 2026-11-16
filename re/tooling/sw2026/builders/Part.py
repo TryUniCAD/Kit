@@ -84,8 +84,10 @@ def document_shape(document):
     feature_kind = document.get("feature_kind", "blind_extrusion")
     if profile_kind not in ("polygon", "circle") or feature_kind not in ("sketch", "blind_extrusion"):
         raise ArchiveError("unsupported fresh profile or feature kind")
-    if profile_kind == "circle" and feature_kind != "sketch":
-        raise ArchiveError("circle extrusion requires its separate measured sketch and dimension rungs")
+    if profile_kind == "circle" and feature_kind == "blind_extrusion":
+        request = document.get("circle_dimension")
+        if not isinstance(request, Mapping) or request.get("fix_center") is not True:
+            raise ArchiveError("circle extrusion requires an explicit driving dimension and fixed center")
     required = (
         "name", "configuration_name", "sketch_name", "extrusion_name", "origin_name",
         "plane_axis", "density_kg_m3",

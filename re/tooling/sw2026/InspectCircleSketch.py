@@ -76,7 +76,36 @@ def center_fixation(author, geometry):
     return fixed
 
 
-def snapshot(author, case, factor=1.0):
+def body_snapshot(author, document, radius_factor, depth_factor):
+    require = AuthorCurves.require
+    require(document["plane_axis"] == "z", "the first circle body inspection requires its canonical front frame")
+    feature = author.get(author.model, "FeatureByName", document["extrusion_name"])
+    require(feature is not None and str(author.get(feature, "GetTypeName2")) == "Extrusion", "generated circle boss is missing or has another feature type")
+    definition = author.get(feature, "GetDefinition")
+    require(definition is not None, "circle boss has no native feature definition")
+    end = int(author.get(definition, "GetEndCondition", True))
+    require(end == 0 and not bool(author.get(definition, "BothDirections")) and not bool(author.get(definition, "ReverseDirection")), "circle boss is not the requested forward single-ended blind feature")
+    radius = document["radius_m"] * radius_factor
+    depth = document["depth_m"] * depth_factor
+    author.rec.close_number("blind definition depth", author.get(definition, "GetDepth", True), depth)
+    name = "D1@" + document["extrusion_name"]
+    parameter = author.get(author.model, "Parameter", name)
+    require(parameter is not None and int(author.get(parameter, "DrivenState")) == 2 and not bool(author.get(parameter, "ReadOnly")), "circle boss depth is not an editable driving parameter")
+    author.rec.close_number("driving blind depth", author.get(parameter, "SystemValue"), depth)
+    properties = author.get(author.get(author.model, "Extension"), "CreateMassProperty")
+    require(properties is not None, "generated circle boss has no mass properties")
+    author.set(properties, "UseSystemUnits", True)
+    measured = {"volume": float(author.get(properties, "Volume")), "area": float(author.get(properties, "SurfaceArea")), "com": [float(value) for value in author.get(properties, "CenterOfMass")]}
+    expected = {"volume": math.pi * radius * radius * depth, "area": 2.0 * math.pi * radius * radius + 2.0 * math.pi * radius * depth, "com": [*document["center_m"], depth / 2.0]}
+    author.rec.close_number("solid volume", measured["volume"], expected["volume"], absolute=1e-22)
+    author.rec.close_number("solid area", measured["area"], expected["area"], absolute=1e-18)
+    require(len(measured["com"]) == 3, "solid mass center has wrong cardinality")
+    for axis in range(3):
+        author.rec.close_number(f"solid center of mass {axis}", measured["com"][axis], expected["com"][axis])
+    return {"feature_type": "Extrusion", "end_condition": end, "depth_parameter": name, "depth": depth, "radius": radius, "mass": measured, "expected_mass": expected}
+
+
+def snapshot(author, case, factor=1.0, depth_factor=1.0):
     require = AuthorCurves.require
     require(bool(author.get(author.model, "ForceRebuild3", False)), "circle sketch rebuild returned failure")
     wrong = int(author.get(author.get(author.model, "Extension"), "GetWhatsWrongCount"))
@@ -94,21 +123,25 @@ def snapshot(author, case, factor=1.0):
         author.rec.close_number(f"center {index}", geometry[0]["center"][index], expected)
     author.rec.close_number("radius", geometry[0]["radius"], document["radius_m"] * factor)
     body_objects = author.get(author.model, "GetBodies2", 0, False) or []
-    require(len(body_objects) == 0, "sketch-only candidate unexpectedly has solid bodies")
+    has_body = document.get("feature_kind") == "blind_extrusion"
+    require(len(body_objects) == int(has_body), "generated candidate has an unexpected solid body count")
     features = author.rec.call("native feature tree", Swapp.features, author.model)
     require(features and all(row.get("error") == 0 and row.get("warning") is False and not row.get("error_query_error") for row in features), "native feature tree has errors or warnings")
-    require(not any(row["type"] == "Extrusion" for row in features), "sketch rung must not contain an extrusion")
+    if not has_body:
+        require(not any(row["type"] == "Extrusion" for row in features), "sketch rung must not contain an extrusion")
     transform = author.get(author.sketch, "ModelToSketchTransform")
-    result = {"geometry": geometry, "bodies": 0, "whats_wrong": wrong, "features": features, "constraint_status": constrained_status, "model_to_sketch_transform": list(author.get(transform, "ArrayData")), "frame": check_frame(author, document)}
+    result = {"geometry": geometry, "bodies": len(body_objects), "whats_wrong": wrong, "features": features, "constraint_status": constrained_status, "model_to_sketch_transform": list(author.get(transform, "ArrayData")), "frame": check_frame(author, document)}
     if "circle_dimension" in document:
         result["radial"] = driving_dimension(author, case, feature, factor)
         if document["circle_dimension"].get("fix_center", False):
             require(constrained_status == 3, f"center-fixed radial sketch is not fully constrained: {constrained_status}")
             result["center_fixation"] = center_fixation(author, geometry)
+    if has_body:
+        result["extrusion"] = body_snapshot(author, document, factor, depth_factor)
     return result
 
 
-def run_phase(case, phase, source, output, expected_oracle, checkpoint, factor=1.0):
+def run_phase(case, phase, source, output, expected_oracle, checkpoint, factor=1.0, depth_factor=1.0):
     directory = output / case["name"] / phase
     directory.mkdir(parents=True, exist_ok=False)
     rec = AuthorCurves.Recorder(directory / "Record.json", {"case": case, "phase": phase})
@@ -125,7 +158,7 @@ def run_phase(case, phase, source, output, expected_oracle, checkpoint, factor=1
             author = AuthorCurves.CurveAuthor(controller.app, rec, Swapp)
             author.model, errors, warnings = rec.call("open generated circle sketch", controller.open, source)
             AuthorCurves.require(author.model is not None and errors == warnings == 0, f"circle sketch load failed or warned: {errors}, {warnings}")
-            result.update(open_errors=errors, open_warnings=warnings, snapshot=snapshot(author, case, factor))
+            result.update(open_errors=errors, open_warnings=warnings, snapshot=snapshot(author, case, factor, depth_factor))
             if phase == "fresh-reopen" and "circle_dimension" in case["request"]["document"]:
                 edited_factor = case["edit_factor"]
                 AuthorCurves.require(type(edited_factor) in (float, int) and math.isfinite(edited_factor) and edited_factor > 0 and edited_factor != 1, "radial edit factor must be an explicit finite positive change")
@@ -137,10 +170,21 @@ def run_phase(case, phase, source, output, expected_oracle, checkpoint, factor=1
                 result["edit"] = {"name": name, "before": result["snapshot"]["radial"]["value"], "after": target, "factor": edited_factor, "setter_status": status}
                 result["edited_snapshot"] = snapshot(author, case, edited_factor)
                 factor = edited_factor
+                if case["request"]["document"].get("feature_kind") == "blind_extrusion":
+                    depth_factor = case["depth_edit_factor"]
+                    AuthorCurves.require(type(depth_factor) in (float, int) and math.isfinite(depth_factor) and depth_factor > 0 and depth_factor != 1, "blind-depth edit factor must be an explicit finite positive change")
+                    document = case["request"]["document"]
+                    name = "D1@" + document["extrusion_name"]
+                    parameter = author.get(author.model, "Parameter", name)
+                    target = document["depth_m"] * depth_factor
+                    status = int(author.get(parameter, "SetSystemValue3", target, 1, Swapp.nothing()))
+                    AuthorCurves.require(status == 0, f"circle boss depth edit returned status {status}")
+                    result["depth_edit"] = {"name": name, "before": document["depth_m"], "after": target, "factor": depth_factor, "setter_status": status}
+                    result["edited_body_snapshot"] = snapshot(author, case, factor, depth_factor)
             saved = directory / (case["name"] + "Saved.SLDPRT")
             save_result = rec.call("save circle sketch copy", controller.save_as, author.model, saved)
             AuthorCurves.require(save_result == (True, 0, 0), f"circle sketch save failed or warned: {save_result}")
-            result.update(saved_path=str(saved), saved_sha256=digest(saved), saved_bytes=saved.stat().st_size, saved_factor=factor)
+            result.update(saved_path=str(saved), saved_sha256=digest(saved), saved_bytes=saved.stat().st_size, saved_factor=factor, saved_depth_factor=depth_factor)
             result["passed"] = True
         except Exception as error:
             rec.failure(error)
@@ -177,7 +221,7 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     control = Path(job["control"])
     AuthorCurves.require(digest(control) == job["control_sha256"], "native control identity changed")
-    result = {"schema": "kit.sw2026.circle-sketch-inspection.v2", "scope": "single-circle sketch and optional radial edit rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
+    result = {"schema": "kit.sw2026.circle-sketch-inspection.v3", "scope": "single-circle sketch and blind boss research rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
     def checkpoint():
         (output / "Inspection.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     checkpoint()
@@ -198,7 +242,7 @@ def main():
                     second = run_phase(case, "fresh-reopen", Path(first["saved_path"]), output, job["oracle_sha256"], checkpoint)
                     record["phases"].append(second)
                     if second["passed"] and "circle_dimension" in case["request"]["document"]:
-                        third = run_phase(case, "edited-fresh-reopen", Path(second["saved_path"]), output, job["oracle_sha256"], checkpoint, second["saved_factor"])
+                        third = run_phase(case, "edited-fresh-reopen", Path(second["saved_path"]), output, job["oracle_sha256"], checkpoint, second["saved_factor"], second["saved_depth_factor"])
                         record["phases"].append(third)
                     identities = [row["oracle_identity"] for row in record["phases"]]
                     record["fresh_process"] = len({row["process_id"] for row in identities}) == len(identities) and len({row["process_creation_filetime"] for row in identities}) == len(identities)

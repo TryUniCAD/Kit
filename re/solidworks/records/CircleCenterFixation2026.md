@@ -1,6 +1,6 @@
 # Generic local circle-center fixation
 
-Status: independently grounded constructor/append rules, with generated fixed-center acceptance pending. The [native evidence](CircleCenterFixation2026.json) binds fifty complete functions/leaves, twenty-two vtable cells and fifteen instruction windows in the pinned 2026 model and solver images. Root rehashed all seven frozen authored files, the three images and every function/cell/window against original raw-backed bytes. No vendor bytes/listings, CAD payload, captured default or recorded program is included.
+Status: independently grounded constructor/append rules and a passing controlled generated fixed-center sketch rung. The [native evidence](CircleCenterFixation2026.json) binds fifty complete functions/leaves, twenty-two vtable cells and fifteen instruction windows in the pinned 2026 model and solver images. Root rehashed all seven frozen authored files, the three images and every function/cell/window against original raw-backed bytes. No vendor bytes/listings, CAD payload, captured default or recorded program is included. The [process receipt](../measurements/2026/FixedCircleProcessesD149f81.json) and [native receipt](../measurements/2026/FixedCircleInspection01.json) separately bind the generated candidates, six passing native phases, 104 matching numeric/frame checks, fully constrained status, exact center relations, edited fresh reopens and healthy controls. No body-producing or held-out family acceptance is transferred from this rung.
 
 ## Admitted graph and operations
 

@@ -340,6 +340,25 @@ def blind_end_spec(*, forward_distance: Obj, reverse_distance: Obj, forward_draf
     })
 
 
+def require_blind_profile(profile):
+    if not isinstance(profile, ProfileGraph) or profile.profile.cls != "moProfileFeature_c":
+        raise ConstructionError("blind construction requires an ordinary constructed profile")
+    if profile.point_count >= 3 and profile.line_count == profile.point_count and profile.arc_count == 0:
+        return
+    sketch = profile.sketch
+    if sketch.get("_profile_kind") != "circle" or profile.point_count != 2 or profile.line_count != 0 or profile.arc_count != 1:
+        raise ConstructionError("blind construction admits only the modeled closed polygon or single circle")
+    arc = sketch["_arc_nodes"][0]
+    fixed = sketch.get("_fixed_center")
+    dimensions = sketch.get("_radial_dimensions", ())
+    if arc["_start"] is not arc["_end"] or arc["_center"] is arc["_start"] or arc["_sketch"] is not sketch:
+        raise ConstructionError("circle extrusion requires the actual closed local circle topology")
+    if not isinstance(fixed, Obj) or fixed.cls != "sgLogG1Dim" or fixed["f80"] != 0x11 or fixed["h1"].get("_point") is not arc["_center"]:
+        raise ConstructionError("circle extrusion requires its constructed fixed-center relation")
+    if len(dimensions) != 1 or dimensions[0].cls != "sgCircleDim" or dimensions[0]["f80"] not in (3, 15) or dimensions[0]["h1"].get("_arc") is not arc or dimensions[0]["f68"] != 0:
+        raise ConstructionError("circle extrusion requires its actual driving radial dimension")
+
+
 def blind_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth: float):
     if not isinstance(feature, Obj) or feature.cls != "moExtrusion_c":
         raise ConstructionError("blind extrusion requires an allocated moExtrusion_c body-feature node")
@@ -348,8 +367,7 @@ def blind_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth
             raise ConstructionError(f"body-feature factory has not constructed required base field {name}")
     if type(feature["f08"]) is not int or feature["f08"] < 0 or type(feature["f28"]) is not int:
         raise ConstructionError("body-feature identifiers and flags must come from the allocated model factory node")
-    if not isinstance(profile, ProfileGraph) or profile.point_count < 3 or profile.line_count != profile.point_count:
-        raise ConstructionError("blind extrusion requires a constructed closed polygon profile graph")
+    require_blind_profile(profile)
     if not isinstance(end_spec, Obj) or end_spec.cls != "moEndSpec_c" or end_spec.get("f08") != 1 or end_spec.get("f0c") != 0 or end_spec.get("f10") != 0:
         raise ConstructionError("blind extrusion requires a single-ended blind moEndSpec_c")
     if isinstance(depth, bool) or not isinstance(depth, (int, float)) or not isfinite(depth) or depth <= 0:
@@ -404,8 +422,7 @@ class ExtrusionGraph:
 def live_blind_extrusion(*, feature: Obj, profile: ProfileGraph, depth: float, allocator, design_intent: bool, selected_leader: int):
     if not isinstance(feature, Obj) or feature.cls != "moExtrusion_c":
         raise ConstructionError("live blind construction requires a body-feature factory extrusion node")
-    if not isinstance(profile, ProfileGraph) or profile.profile.cls != "moProfileFeature_c" or profile.line_count < 3 or profile.point_count != profile.line_count:
-        raise ConstructionError("live blind construction requires a closed ordinary polygon profile")
+    require_blind_profile(profile)
     if isinstance(depth, bool) or not isinstance(depth, (int, float)) or not isfinite(depth) or depth < 1e-14:
         raise ConstructionError("native blind construction requires a finite depth of at least 1e-14 metres")
     if type(design_intent) is not bool or type(selected_leader) is not int or not -(1 << 31) <= selected_leader < (1 << 31):

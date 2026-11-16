@@ -287,7 +287,9 @@ bind actual solver/data ownership, conditional status/color rules and separate c
 The [radial sketch synthesis](../../Changes/Solidworks/Model/SolidworksRadialSketchSynthesis.md)
 adds a front-plane radius/diameter value, parameter, handle and display graph with explicit presentation inputs. Its free-center candidates passed remote generation and six controlled native load/edit/save/fresh-reopen phases with 104 matching numeric/frame checks. No family or extrusion acceptance is established.
 The [radial sketch inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksRadialSketchInspection.md)
-adds explicit driving-value edits and fresh reopening of edited sketches while retaining geometry, plane, ownership and control gates. The first free-center radial run passed; the new [fixed-center relation](../../Changes/Solidworks/Model/SolidworksCircleCenterFixation.md) and fully constrained status/binding checks remain pending.
+adds explicit driving-value edits and fresh reopening of edited sketches while retaining geometry, plane, ownership and control gates. The [fixed-center relation](../../Changes/Solidworks/Model/SolidworksCircleCenterFixation.md) also passed six controlled native phases and 104 numeric/frame checks with fully constrained status and exact center bindings.
+The [circle blind boss synthesis](../../Changes/Solidworks/Model/SolidworksCircleExtrusionSynthesis.md)
+composes that constrained sketch with the shared blind feature/end-spec model. Remote generation and native body/mass/radial-and-depth-edit measurements remain pending for this new rung; no body-family acceptance is transferred.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

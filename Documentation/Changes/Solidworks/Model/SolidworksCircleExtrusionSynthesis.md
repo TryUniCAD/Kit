@@ -1,0 +1,11 @@
+# Generated single-circle blind bosses
+
+Research requests may combine `profile_kind="circle"`, `feature_kind="blind_extrusion"`, positive `depth_m` and an explicit fixed-center radius/diameter `circle_dimension`. This new body candidate follows the measured fully constrained sketch rung. The production adapter remains read-only and no circle-body family acceptance is established yet.
+
+The existing blind feature/end-spec/depth-dimension model now accepts a separately validated single-circle graph. It requires actual full-circle endpoint identity, a distinct fixed center and one driving radial dimension targeting that arc. The polygon branch remains in the same shared constructor. Profile dependencies, parameter IDs, counts, header/configuration progress and keyword values derive from the combined model. Unsupported graphs fail; there is no native stream, body or recorded-program fallback.
+
+Two independent subprocess cases vary centers, radii, depths and radial modes, preserve generated outputs and require eight full primary/linked comparisons each under existing read/process guards. Static AST/formatting review passed. First remote generation and native body measurements remain pending. The [rung ledger](../../../../re/solidworks/records/CircleExtrusionSynthesis2026.md) specifies scope, field owners and mathematical targets.
+
+The shared native inspector now checks one body, blind feature definition, editable radius/diameter and depth, volume/area/center of mass, fully constrained status and exact center relation. It edits both radial size and depth, rebuilds after each, saves and reopens the edited copy in another fresh process. Body cases require explicit positive changed `edit_factor` and `depth_edit_factor`; sketch-only routes retain zero-body checks. Output schema is now `kit.sw2026.circle-sketch-inspection.v3`. Old v1/v2 receipts remain bound to their original sources.
+
+General frames, end conditions, reverse/two-direction/draft/thin/cut, multiloop contours, appearances and held-out coverage remain outside this candidate. The earlier [fixed-circle receipt](../../../../re/solidworks/measurements/2026/FixedCircleInspection01.json) passed six native phases and 104 numeric/frame comparisons with healthy controls; it admits progress to this new rung without transferring body acceptance.
