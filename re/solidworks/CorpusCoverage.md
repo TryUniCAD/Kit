@@ -111,6 +111,17 @@ Their [generation receipt](measurements/2026/EndBossProcesses4b51.json) records 
 23 byte-identical prior tagged neutral outputs. No full presentation, held-out family result or completed FCStd conversion
 is counted, and all ten held-out native payloads remain sealed.
 
+The later [ordinary-folder held-out rung](measurements/2026/TreeParityInspection01.json)
+passes two new generated circle bosses against their independent native sources:
+twelve paired phases, 840 numeric checks, 440 exact pose comparisons and 22
+ordered-tree comparisons. Every tree has the same 25 named/typed/parented nodes;
+all forty scenes have one visible body. Radius/depth edits, native saves and
+edited fresh reopening pass between healthy controls, with fourteen distinct
+process creation identities, unchanged input hashes, idle postflight and unchanged
+licensing process IDs. These are bounded English tree/pose research outputs,
+not completed FCStd conversions or complete format acceptance. The public
+adapter remains read-only and the requested production corpus count remains zero.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11

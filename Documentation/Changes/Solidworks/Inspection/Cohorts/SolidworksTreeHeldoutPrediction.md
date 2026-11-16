@@ -48,6 +48,7 @@ retain their original hashes; no private reference was read before this receipt.
 
 The [paired native observer](SolidworksPairedTreeInspection.md) compares each
 generated prediction with its source through identical editing/save/reopen
-trajectories. Those measurements remain pending before this rung can pass.
-No new generated native
-acceptance, complete family coverage or production writing is claimed.
+trajectories. The [native measurements](SolidworksTreeParityMeasurements.md)
+now pass both cases, all twelve paired phases and 840 numeric checks, including
+exact poses and identical ordered 25-node trees. This qualifies only the bounded
+tree/pose rung. Complete family coverage and production writing remain unfinished.

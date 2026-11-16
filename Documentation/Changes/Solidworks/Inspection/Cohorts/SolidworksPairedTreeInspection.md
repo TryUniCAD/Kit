@@ -40,12 +40,16 @@ No licensing process is stopped or restarted.
 
 ## Verification and limits
 
-The new observer was inspected by AST and source only. No local tests ran.
-Native execution is pending successful frozen prediction and reference-access
-publication. All source and generated phases remain individually reported;
+The new observer was inspected by AST and source only before native execution.
+No local tests ran. After successful frozen prediction and reference-access
+publication, both cases passed all twelve paired phases and 840 numeric checks
+between healthy controls. All 440 pose comparisons are exact, all 22 ordered
+tree comparisons pass and every scene has one visible body. See the
+[measured result](SolidworksTreeParityMeasurements.md).
+All source and generated phases remain individually reported;
 failure in either lane rejects the paired case. Vendor-saved derivatives do not
 increase generated-output coverage.
 
-This tool adds no native acceptance by itself and does not enable production
+This tool does not enable production
 writing. Pixel viewport equality, broader feature families, arbitrary locale
 selection and the complete conversion goal remain unfinished.
