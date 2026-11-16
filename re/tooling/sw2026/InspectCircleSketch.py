@@ -111,6 +111,23 @@ def body_snapshot(author, document, radius_factor, depth_factor):
     return {"feature_type": "Extrusion", "end_condition": end, "depth_parameter": name, "depth": depth, "radius": radius, "mass": measured, "expected_mass": expected}
 
 
+def initial_state(author, case):
+    document = case["request"]["document"]
+    body_count = len(author.get(author.model, "GetBodies2", 0, False) or [])
+    wrong = int(author.get(author.get(author.model, "Extension"), "GetWhatsWrongCount"))
+    features = author.rec.call("native feature tree before explicit rebuild", Swapp.features, author.model)
+    has_body = document.get("feature_kind") == "blind_extrusion"
+    requested = [(document["sketch_name"], "ProfileFeature")]
+    if has_body:
+        requested.append((document["extrusion_name"], "Extrusion"))
+    targets = []
+    for name, kind in requested:
+        rows = [row for row in features if row.get("name") == name]
+        targets.append({"name": name, "type": kind, "matches": len(rows), "active": len(rows) == 1 and rows[0].get("type") == kind and rows[0].get("suppressed") is False and not rows[0].get("suppression_query_error")})
+    tree_healthy = bool(features) and all(row.get("error") == 0 and row.get("warning") is False and not row.get("error_query_error") for row in features)
+    return {"before_explicit_rebuild": True, "body_count": body_count, "expected_body_count": int(has_body), "rebuild_problem_count": wrong, "features": features, "requested_features": targets, "passed": body_count == int(has_body) and wrong == 0 and tree_healthy and all(row["active"] for row in targets)}
+
+
 def snapshot(author, case, factor=1.0, depth_factor=1.0):
     require = AuthorCurves.require
     require(bool(author.get(author.model, "ForceRebuild3", False)), "circle sketch rebuild returned failure")
@@ -164,7 +181,9 @@ def run_phase(case, phase, source, output, expected_oracle, checkpoint, factor=1
             author = AuthorCurves.CurveAuthor(controller.app, rec, Swapp)
             author.model, errors, warnings = rec.call("open generated circle sketch", controller.open, source)
             AuthorCurves.require(author.model is not None and errors == warnings == 0, f"circle sketch load failed or warned: {errors}, {warnings}")
-            result.update(open_errors=errors, open_warnings=warnings, snapshot=snapshot(author, case, factor, depth_factor))
+            result.update(open_errors=errors, open_warnings=warnings, initial_state=initial_state(author, case))
+            result["snapshot"] = snapshot(author, case, factor, depth_factor)
+            AuthorCurves.require(result["initial_state"]["passed"], "generated candidate failed native body/feature checks before explicit rebuild")
             if phase == "fresh-reopen" and "circle_dimension" in case["request"]["document"]:
                 edited_factor = case["edit_factor"]
                 AuthorCurves.require(type(edited_factor) in (float, int) and math.isfinite(edited_factor) and edited_factor > 0 and edited_factor != 1, "radial edit factor must be an explicit finite positive change")
@@ -227,7 +246,7 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     control = Path(job["control"])
     AuthorCurves.require(digest(control) == job["control_sha256"], "native control identity changed")
-    result = {"schema": "kit.sw2026.circle-sketch-inspection.v3", "scope": "single-circle sketch and blind boss research rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
+    result = {"schema": "kit.sw2026.circle-sketch-inspection.v4", "scope": "single-circle sketch and blind boss research rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
     def checkpoint():
         (output / "Inspection.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     checkpoint()
