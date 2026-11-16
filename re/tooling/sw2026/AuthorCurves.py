@@ -725,7 +725,12 @@ class CurveAuthor:
             dimension = self.dimension_objects[item["role"]]
             full_name = str(self.get(dimension, "FullName"))
             parts = full_name.split("@")
-            feature = "CurveBoss" if item["role"] == "depth" else "CurveSketch"
+            role = item["role"]
+            if role in ("depth", "reverse-depth"):
+                feature = "CurveBoss"
+            else:
+                require(re.fullmatch(r"curve-[0-9]+", role) is not None, "unrecognized driving-dimension role")
+                feature = "CurveSketch"
             require(len(parts) >= 2 and parts[1] == feature, f"dimension does not belong to its renamed feature: {full_name}")
             item.update(name=parts[0] + "@" + feature, full_name=full_name)
         self.rec.data["dimensions"] = self.dimensions
