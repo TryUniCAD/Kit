@@ -23,6 +23,22 @@ INVENTORY_SHA256 = "67d0e37be1e2cabdf2e233c66d2654b3caa2dc1692ef285df76190b6eb0b
 HELPER_SHA256 = "195a0d90fe26169b31e87234910af29b2b1f5289b58d29a2e91cafca62602960"
 ORDINALS = (12087, 14278)
 PROCESS_MACHINE_TYPE_INFO = 9
+COUNT_BODY_SPECS = {
+    12087: {
+        "thunk_rva": 0x6BCC70,
+        "thunk_sha256": "fa55fff220c458e914d00249b5fb46b623778bdde557fe261afeb6883fee0469",
+        "target_rva": 0x557B30,
+        "bytes": 288,
+        "body_sha256": "cd381ab524f765a17274de09b371c47ed028f0c3b2b31804eb3871fa71a5c0e4",
+    },
+    14278: {
+        "thunk_rva": 0x6C5370,
+        "thunk_sha256": "693ed1a1e4a317c9fed2fa8dc1dee237e7c670b2aae9ebb97c35c5031402e6dd",
+        "target_rva": 0x557980,
+        "bytes": 424,
+        "body_sha256": "ad9500fd35f8e392d159dbebacd41f377ec1fdbf9f778a25c76c2834af7fda84",
+    },
+}
 MAX_BLOCK = 2 * 1024 * 1024
 MAX_CAPTURE = 4 * 1024 * 1024
 
@@ -142,7 +158,7 @@ def identity_matches(value):
     )
 
 
-def save_range(output, report, image, name, rva, size, maximum):
+def save_range(output, report, image, name, rva, size, maximum, expected_raw=None):
     if size <= 0 or size > maximum or sum(item["bytes"] for item in report["private_ranges"]) + size > MAX_CAPTURE:
         raise ValueError("private capture exceeds its declared bounds")
     payload = image.read_rva(rva, size)
@@ -151,6 +167,12 @@ def save_range(output, report, image, name, rva, size, maximum):
         stream.write(payload)
     record = {"file": path.name, "rva": rva, "mapped_address": hex(image.base + rva), "bytes": size, "sha256": hashlib.sha256(payload).hexdigest(), "full_function_extent_claimed": False}
     report["private_ranges"].append(record)
+    if expected_raw is not None:
+        record["raw_sha256"] = hashlib.sha256(expected_raw).hexdigest()
+        record["mapped_equals_pinned_raw"] = payload == expected_raw
+        if not record["mapped_equals_pinned_raw"]:
+            raise RuntimeError("mapped count body differs from the pinned raw body")
+        record["full_function_extent_claimed"] = True
     return record
 
 
@@ -160,6 +182,30 @@ def capture_code(output, report, image, name, address):
     if section is None or not section["characteristics"] & 0x20000000:
         raise ValueError("resolved target is not in an executable section of the selected module")
     return save_range(output, report, image, name, rva, min(4096, available), 4096)
+
+
+def capture_count_body(output, report, image, ordinal, address, runtime_path):
+    specification = COUNT_BODY_SPECS[ordinal]
+    if address != image.base + specification["thunk_rva"]:
+        raise RuntimeError("selected count export has an unexpected thunk RVA")
+    thunk = image.read_rva(specification["thunk_rva"], 14)
+    thunk_hash = hashlib.sha256(thunk).hexdigest()
+    if thunk_hash != specification["thunk_sha256"] or thunk[9] != 0xE9:
+        raise RuntimeError("count export is not the exact pinned fast-forward sequence")
+    target_rva = address + 14 + struct.unpack_from("<i", thunk, 10)[0] - image.base
+    if target_rva != specification["target_rva"]:
+        raise RuntimeError("count fast-forward target differs from the pinned body")
+    offset, available, section = image.locate(target_rva, specification["bytes"])
+    if section is None or not section["characteristics"] & 0x20000000:
+        raise RuntimeError("count body span is not within the selected executable module")
+    with runtime_path.open("rb") as stream:
+        raw = files.PeFile(stream, os.fstat(stream.fileno()).st_size)
+        raw_thunk = raw.read_rva(specification["thunk_rva"], 14)
+        raw_body = raw.read_rva(target_rva, specification["bytes"])
+    if raw_thunk != thunk or hashlib.sha256(raw_body).hexdigest() != specification["body_sha256"]:
+        raise RuntimeError("raw count thunk or complete body differs from the pinned identity")
+    body = save_range(output, report, image, f"Ordinal{ordinal}CountBody", target_rva, specification["bytes"], specification["bytes"], expected_raw=raw_body)
+    report["count_bodies"].append({"ordinal": ordinal, "thunk_rva": specification["thunk_rva"], "thunk_bytes": 14, "thunk_sha256": thunk_hash, "target_rva": target_rva, "expected_body_sha256": specification["body_sha256"], "extent_evidence": "pinned original ARM64 pdata/xdata", "body": body})
 
 
 def run(args, output, report):
@@ -275,12 +321,17 @@ def run(args, output, report):
             if address != expected_address:
                 ambiguous.append(f"ordinal {ordinal} resolver differs from the effective export table")
                 item["resolved_window"] = capture_code(output, report, image, f"Ordinal{ordinal}Resolved", address)
+            if args.capture_count_bodies and image.machine == 0x8664 and address == expected_address:
+                checkpoint(output, report, f"capture_complete_count_body_{ordinal}")
+                capture_count_body(output, report, image, ordinal, address, path)
         report["raw_file_after"] = files.inspect_file(path)
         if not identity_matches(report["raw_file_after"]) or any(report["raw_file_before"][key] != report["raw_file_after"][key] for key in ("file_identity", "mtime_ns", "bytes", "sha256")):
             raise RuntimeError("runtime file identity changed during inspection")
         report["ambiguities"] = ambiguous
         if ambiguous:
             raise RuntimeError("ambiguous effective runtime view: " + "; ".join(ambiguous))
+        if args.capture_count_bodies and len(report["count_bodies"]) != len(ORDINALS):
+            raise RuntimeError("requested count-body capture did not complete for both ordinals")
     finally:
         try:
             checkpoint(output, report, "release_owned_module_reference")
@@ -290,6 +341,7 @@ def run(args, output, report):
             if not released:
                 raise ctypes.WinError(ctypes.get_last_error())
     report["mapped_abi_view_verified"] = True
+    report["count_body_bytes_verified"] = bool(args.capture_count_bodies)
 
 
 def main():
@@ -297,6 +349,7 @@ def main():
     parser.add_argument("--inventory", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--source-revision", required=True)
+    parser.add_argument("--capture-count-bodies", action="store_true")
     args = parser.parse_args()
     if not re.fullmatch(r"[0-9a-f]{40}", args.source_revision):
         parser.error("--source-revision requires an exact lowercase Git object identity")
@@ -305,7 +358,7 @@ def main():
     if files.inside_checkout(output):
         parser.error("private mapped ranges must remain outside repository checkouts")
     output.mkdir(parents=False, exist_ok=False)
-    report = {"schema": "kit.sw2026.mfc-runtime-view.v1", "state": "running", "started_at": files.utc_now(), "source_revision": args.source_revision, "tool_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "argv": sys.argv, "python": sys.version, "python_executable": sys.executable, "process_id": os.getpid(), "process_architecture_verified": False, "mapped_abi_view_verified": False, "instruction_set_proven": False, "native_implementation_bound": False, "acceptance": False, "archive_methods_invoked": False, "private_ranges": [], "mapped_directories": {}, "resolved_ordinals": []}
+    report = {"schema": "kit.sw2026.mfc-runtime-view.v1", "state": "running", "started_at": files.utc_now(), "source_revision": args.source_revision, "tool_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "argv": sys.argv, "python": sys.version, "python_executable": sys.executable, "process_id": os.getpid(), "process_architecture_verified": False, "mapped_abi_view_verified": False, "count_body_capture_requested": args.capture_count_bodies, "count_body_bytes_verified": False, "instruction_set_proven": False, "native_implementation_bound": False, "acceptance": False, "archive_methods_invoked": False, "private_ranges": [], "mapped_directories": {}, "resolved_ordinals": [], "count_bodies": []}
     checkpoint(output, report, "preflight")
     status = 1
     try:

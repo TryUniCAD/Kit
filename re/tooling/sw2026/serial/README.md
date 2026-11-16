@@ -152,6 +152,20 @@ Ghidra 12.1.3 projects, headless:
   and exports). Ghidra drops some import calls; cross-check suspicious gaps against disassembly.
 - 2025 notes in `re/solidworks/records/*.md` are hints only; 2026 differs.
 
+## MFC runtime count inspection
+
+The external [MFC runtime probe](../InspectMfcRuntime.py) accepts opt-in
+`--capture-count-bodies` for the two pinned count implementations. It validates
+the exact exported fast-forward thunks, captures the complete 288-byte and
+424-byte mapped bodies, and requires literal equality with independently bounded
+original-file bytes. Run only in the oracle owner's fresh x64 analysis process
+with the committed source, retained inventory and unused external output path.
+All architecture, runtime identity, export and cleanup guards remain active.
+The private binary captures are never publication inputs. See the
+[capture change](../../../../Documentation/Changes/Solidworks/Model/SolidworksMfcCountBodyCapture.md).
+The string-map owner remains provisional until fresh capture and owner review
+complete; vendor `Core.count_value` remains unchanged.
+
 ## Ownership
 
 One agent owns each `defs/` module. A class has exactly one owner. To use a class another module

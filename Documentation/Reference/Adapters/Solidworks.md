@@ -219,6 +219,9 @@ Its [process-architecture admission](../../Changes/Solidworks/Model/SolidworksMf
 requires the actual process-machine query and matching raw/mapped executable
 identities after the original WOW64-based guard rejected the first probe before
 MFC loading. That failure supplies no count or native CAD acceptance.
+The optional [complete count-body capture](../../Changes/Solidworks/Model/SolidworksMfcCountBodyCapture.md)
+can compare the two exact reached implementations with independently bounded
+original-file bytes. It adds no archive-method invocation or production dependency.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
