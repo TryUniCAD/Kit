@@ -357,7 +357,7 @@ def xml_redaction(name, data, privacy):
         metadata_property = any(key in property_key for key in ("author", "lastsavedby", "lastmodifiedby", "username", "creator"))
         allowed = name.startswith("docProps/") and name.endswith(".xml") and (local in XML_METADATA or local == "lpstr" and metadata_property)
         if not allowed or node["children"] or node["start"] is None:
-            raise ValueError(f"private XML text appears outside recognized metadata context: {name}")
+            raise ValueError(f"private XML text appears outside recognized metadata context: {name} ({tag})")
         start, finish = node["start"], parser.CurrentByteIndex
         before = data[start:finish]
         if before != value.encode("utf-8"):
