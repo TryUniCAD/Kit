@@ -278,6 +278,8 @@ records two native authoring cases and fresh-process radius/diameter edits with 
 These observations retain separate source, process, observer and control evidence; they provide no generated-output acceptance.
 The [public circle dispatch probe](../../Changes/Solidworks/Inspection/Sketches/SolidworksCircleApiDispatchProbe.md)
 adds an independently pinned observation of the actual forwarded COM call target; its new native run remains pending.
+The [single-circle sketch synthesis](../../Changes/Solidworks/Model/SolidworksCircleSketchSynthesis.md)
+adds a constructor-derived research graph with computed topology, IDs and counts. Remote process and native sketch measurements remain pending; no radial dimension or circle extrusion is enabled.
 Fresh training measurements remain pending.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.

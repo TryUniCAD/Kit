@@ -330,6 +330,10 @@ class ProfileGraph:
         return self.sketch["nlines"]
 
     @property
+    def arc_count(self):
+        return self.sketch["narcs"]
+
+    @property
     def points(self):
         return tuple(self.sketch.get("_point_nodes", ()))
 
@@ -420,11 +424,14 @@ def origin_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
 def _local_ref_flag(*, sketch: Obj):
     if sketch["f138"].get("pd_f110") is not None:
         raise ConstructionError("derived-profile reference state requires additional native update rules")
-    for name in ("points", "lines"):
-        field = "point" if name == "points" else "line"
+    for name, field in (("points", "point"), ("lines", "line"), ("arcs", "arc")):
         if any(entry[field]["ext"] is not None for entry in sketch[name]):
             raise ConstructionError("external sketch geometry requires additional native update rules")
-    for name in ("texts", "hatches", "arcs", "ellipses", "parabolas", "splines", "planes", "cylinders", "spheres", "cones", "parametric", "styled", "blocks", "silhouettes"):
+    for entry in sketch["arcs"]:
+        arc = entry["arc"]
+        if not arc.get("_ordinary_circle") or arc.get("_sketch") is not sketch or arc.get("_start") is not arc.get("_end") or arc.get("fe0") != -2:
+            raise ConstructionError("reference inference admits only constructed local ordinary circles")
+    for name in ("texts", "hatches", "ellipses", "parabolas", "splines", "planes", "cylinders", "spheres", "cones", "parametric", "styled", "blocks", "silhouettes"):
         if sketch[name]:
             raise ConstructionError(f"reference-state inference is not established for {name}")
     dims = sketch["dims"]

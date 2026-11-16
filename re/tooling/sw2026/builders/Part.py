@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 from Core import ArchiveError, Obj
 from Streams import StreamDoc, store_rooted
+from builders.Circle import circle_profile
 from builders.Definition import definition_stream, part_definition
 from builders.Extrude import live_blind_extrusion
 from builders.Metadata import biography, fields, header, history, keywords, streams
@@ -21,6 +22,7 @@ class PartConstruction:
     streams: dict[str, bytes]
     model: Obj
     features: tuple[Obj, ...]
+    profile: object
     extrusion: object
     next_id: int
     configuration_map_count: int
@@ -30,7 +32,7 @@ def _rooted(*, registry, node):
     return store_rooted(StreamDoc("rooted", {"base": 1}, [node]), registry, 19000)
 
 
-def _metadata(*, registry, document, provenance, presentation, graph, features, extrusion):
+def _metadata(*, registry, document, provenance, presentation, graph, features, profile, extrusion):
     stamp = {
         "status": 0, "user_index": 0, "company_index": 0,
         "timestamp": provenance["created_at"], "comment": provenance["comment"],
@@ -46,9 +48,9 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
     keyword_features = []
     for feature in features:
         item = {"id": feature["f08"], "name": feature["f18"]["f08"], "kind": feature.cls}
-        if feature is extrusion.profile.profile:
+        if feature is profile.profile:
             item["tag"] = "Sketch"
-        if feature is extrusion.feature:
+        if extrusion is not None and feature is extrusion.feature:
             item.update({"tag": "Extrusion", "dimensions": [{"name": "D1", "value": extrusion.depth / presentation["length_unit_m"]}]})
         keyword_features.append(item)
     configuration = graph.configuration_manager["f360"]
@@ -71,11 +73,27 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
     )
 
 
-def construct_part(*, registry, document, provenance, presentation, target):
-    document = fields(document, "part document", (
+def document_shape(document):
+    if not isinstance(document, Mapping):
+        raise ArchiveError("part document must be a semantic mapping")
+    profile_kind = document.get("profile_kind", "polygon")
+    feature_kind = document.get("feature_kind", "blind_extrusion")
+    if profile_kind not in ("polygon", "circle") or feature_kind not in ("sketch", "blind_extrusion"):
+        raise ArchiveError("unsupported fresh profile or feature kind")
+    if profile_kind == "circle" and feature_kind != "sketch":
+        raise ArchiveError("circle extrusion requires its separate measured sketch and dimension rungs")
+    required = (
         "name", "configuration_name", "sketch_name", "extrusion_name", "origin_name",
-        "plane_axis", "vertices_m", "depth_m", "density_kg_m3",
-    ))
+        "plane_axis", "density_kg_m3",
+    )
+    required += ("vertices_m",) if profile_kind == "polygon" else ("center_m", "radius_m")
+    if feature_kind == "blind_extrusion":
+        required += ("depth_m",)
+    return fields(document, "part document", required, ("profile_kind", "feature_kind")), profile_kind, feature_kind
+
+
+def construct_part(*, registry, document, provenance, presentation, target):
+    document, profile_kind, feature_kind = document_shape(document)
     provenance = fields(provenance, "authored provenance", (
         "author", "company", "created_at", "modified_at", "comment",
         "originating_build_code", "license_origin",
@@ -88,7 +106,7 @@ def construct_part(*, registry, document, provenance, presentation, target):
     ))
     target = fields(target, "native target", ("date_code", "parasolid_version"))
     if document["plane_axis"] not in ("x", "y", "z"):
-        raise ArchiveError("fresh polygon parts require a principal plane")
+        raise ArchiveError("fresh research parts require a principal plane")
     styles = presentation["styles"]
     if not isinstance(styles, Mapping):
         raise ArchiveError("part styles require semantic construction parameters")
@@ -123,13 +141,19 @@ def construct_part(*, registry, document, provenance, presentation, target):
     origin_node = model_feature(cls="moOriginProfileFeature_c", name=document["origin_name"], **feature_values)
     origin_profile(profile=origin_node, plane=component_plane(**reference_values), frame=frame)
     profile_node = model_feature(cls="moProfileFeature_c", name=document["sketch_name"], **feature_values)
-    profile = closed_profile(vertices=document["vertices_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
-    extrusion_node = body_feature(cls="moExtrusion_c", name=document["extrusion_name"], **feature_values)
-    extrusion = live_blind_extrusion(
-        feature=extrusion_node, profile=profile, depth=document["depth_m"], allocator=graph.allocator,
-        design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
-    )
-    features = (*graph.system_features, origin_node, profile_node, extrusion_node)
+    if profile_kind == "polygon":
+        profile = closed_profile(vertices=document["vertices_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
+    else:
+        profile = circle_profile(center_m=document["center_m"], radius_m=document["radius_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
+    features = (*graph.system_features, origin_node, profile_node)
+    extrusion = None
+    if feature_kind == "blind_extrusion":
+        extrusion_node = body_feature(cls="moExtrusion_c", name=document["extrusion_name"], **feature_values)
+        extrusion = live_blind_extrusion(
+            feature=extrusion_node, profile=profile, depth=document["depth_m"], allocator=graph.allocator,
+            design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
+        )
+        features += (extrusion_node,)
     record_configuration_progress(configuration=graph.configuration_manager["f360"], allocator=graph.allocator)
     config_data, state = store_config_state(StreamDoc("config", {"direct": 0}, [graph.part]), registry, 19000)
     resolved = StreamDoc("resolved", {"base": state.count, "context": {
@@ -141,7 +165,7 @@ def construct_part(*, registry, document, provenance, presentation, target):
     }
     result = _metadata(
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
-        graph=graph, features=features, extrusion=extrusion,
+        graph=graph, features=features, profile=profile, extrusion=extrusion,
     )
     definition = part_definition(
         density_kg_m3=document["density_kg_m3"], drafting_standard=presentation["drafting_standard"],
@@ -155,6 +179,6 @@ def construct_part(*, registry, document, provenance, presentation, target):
         "Contents/Config-0-ResolvedFeatures": store_resolved(resolved, registry, 19000, seed=state),
     })
     return PartConstruction(
-        streams=result, model=graph.part, features=features, extrusion=extrusion,
+        streams=result, model=graph.part, features=features, profile=profile, extrusion=extrusion,
         next_id=graph.next_persistent_id, configuration_map_count=state.count,
     )
