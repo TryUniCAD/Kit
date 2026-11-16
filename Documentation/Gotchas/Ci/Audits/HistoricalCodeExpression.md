@@ -7,7 +7,7 @@ The generic credential rule appears to identify a secret in historical SOLIDWORK
 ## Observed behavior
 
 The finding points to line 1,037 of
-[`Core.py` at `86ab1082`](https://github.com/TryUniCAD/Kit/blob/86ab1082a65054afb2c2022c77b18cd3a6b59908/src/convert/adapters/solidworks/resolved/Core.py#L1037).
+[`Core.py` at `86ab1082`](https://github.com/TryUniCAD/Kit/blob/86ab1082a65054afb2c2022c77b18cd3a6b59908/src/convert/adapters/solidworks/Resolved/Core.py#L1037).
 The extracted value is the unquoted Python argument `axis_kind=None`.
 The preceding offset variable supplied the detector's keyword context.
 That value is source syntax rather than a credential literal.
