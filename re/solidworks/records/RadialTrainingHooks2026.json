@@ -283,10 +283,10 @@
     {
       "module": "slduiu.dll",
       "module_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
-      "address": "0x492b031a",
+      "address": "0x492b02fa",
       "bytes": 3,
-      "sha256": "88b8fa4860e5c3ad9fbb959dc00abf7752c1c3559ebd9f98f1a8eb8142193311",
-      "role": "actual listener acquisition call",
+      "sha256": "9e0ab95c8f4a380c07ed1cc9c7a88012f1d18d7dad8b647caebf9455c70dbbc7",
+      "role": "eligibility-admitted actual GIT return and prospective target/argument selection; not an executed call",
       "listener_kind": "instruction probe function"
     },
     {
@@ -463,7 +463,7 @@
     },
     {
       "module": "slduiu.dll",
-      "address": "0x492b031a",
+      "address": "0x492b02fa",
       "listener_kind": "instruction probe function"
     },
     {
@@ -704,31 +704,35 @@
     },
     {
       "module": "slduiu.dll",
-      "address": "0x492b031a",
-      "rva": 4260634,
-      "bytes": 21,
-      "sha256": "f740036c5dfab1d1acbff75c885fb80eaaf2535b1391d113e471587db6532f15",
+      "address": "0x492b02fa",
+      "rva": 4260602,
+      "bytes": 14,
+      "sha256": "d4ccf264ef867e8424cabdaf2c9b89634f3680eb27441f07b390f2ac77fa4067",
       "parent_start": "0x492b01f0",
       "parent_end": "0x492b04f6",
       "parent_sha256": "5714a401d2b8ef12be658b21c4316f6e4965e870b0b51b15cdd59473cfc6702c",
       "relocation_windows": [
         {
           "minimum_patch_bytes": 5,
-          "covered_end": "0x492b0322",
-          "whole_instruction_bytes": 8,
+          "covered_end": "0x492b0301",
+          "whole_instruction_bytes": 7,
           "known_direct_incoming_targets_inside": [],
+          "contains_call": false,
+          "contains_pc_relative_operand": false,
           "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
         },
         {
           "minimum_patch_bytes": 14,
-          "covered_end": "0x492b032f",
-          "whole_instruction_bytes": 21,
+          "covered_end": "0x492b0308",
+          "whole_instruction_bytes": 14,
           "known_direct_incoming_targets_inside": [],
+          "contains_call": false,
+          "contains_pc_relative_operand": false,
           "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
         }
       ],
       "interception_safety_proven": false,
-      "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+      "runtime_relocator_acceptance": "pending fresh owned controlled run; no live patch attempted by this worker"
     },
     {
       "module": "slduiu.dll",
@@ -815,6 +819,47 @@
         "0x4b79889e"
       ],
       "reason": "null-context branch enters inside either overwritten window; replaced by target-selection boundary 0x4b7988b1"
+    },
+    {
+      "module": "slduiu.dll",
+      "address": "0x492b031a",
+      "source_revision_label": "3a8",
+      "observed_failure": "Frida checked activation rejected this instruction before action or controls",
+      "mapped_prefixes_verified": 11,
+      "action_started": false,
+      "controls_measured": false,
+      "acceptance": false,
+      "old_mapped_window": {
+        "module": "slduiu.dll",
+        "address": "0x492b031a",
+        "rva": 4260634,
+        "bytes": 21,
+        "sha256": "f740036c5dfab1d1acbff75c885fb80eaaf2535b1391d113e471587db6532f15",
+        "parent_start": "0x492b01f0",
+        "parent_end": "0x492b04f6",
+        "parent_sha256": "5714a401d2b8ef12be658b21c4316f6e4965e870b0b51b15cdd59473cfc6702c",
+        "relocation_windows": [
+          {
+            "minimum_patch_bytes": 5,
+            "covered_end": "0x492b0322",
+            "whole_instruction_bytes": 8,
+            "known_direct_incoming_targets_inside": [],
+            "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+          },
+          {
+            "minimum_patch_bytes": 14,
+            "covered_end": "0x492b032f",
+            "whole_instruction_bytes": 21,
+            "known_direct_incoming_targets_inside": [],
+            "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
+          }
+        ],
+        "interception_safety_proven": false,
+        "runtime_relocator_acceptance": "pending owned control; no live patch attempted"
+      },
+      "failure_cause": "not conclusively diagnosed; selected window crosses the indirect CALL return boundary",
+      "replacement_address": "0x492b02fa",
+      "replacement_semantics": "selected acquisition attempt; target not yet loaded into r10 and external call execution unproved"
     }
   ]
 }

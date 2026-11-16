@@ -7,7 +7,7 @@ const Scopes = new Map()
 const Epochs = new Map()
 const ModelScopes = new Map()
 
-const TrainingHookWindows = [{"module":"sldmodu.dll","rva":24640528,"bytes":20},{"module":"sldmodu.dll","rva":24755440,"bytes":14},{"module":"sldmodu.dll","rva":24060064,"bytes":14},{"module":"sldmodu.dll","rva":24060252,"bytes":15},{"module":"sldmodu.dll","rva":21021482,"bytes":14},{"module":"sldmodu.dll","rva":21021512,"bytes":15},{"module":"sldmodu.dll","rva":6654129,"bytes":18},{"module":"slduiu.dll","rva":4260336,"bytes":14},{"module":"slduiu.dll","rva":4260634,"bytes":21},{"module":"slduiu.dll","rva":4260683,"bytes":16},{"module":"sldmodu.dll","rva":21106256,"bytes":15}]
+const TrainingHookWindows = [{"module":"sldmodu.dll","rva":24640528,"bytes":20},{"module":"sldmodu.dll","rva":24755440,"bytes":14},{"module":"sldmodu.dll","rva":24060064,"bytes":14},{"module":"sldmodu.dll","rva":24060252,"bytes":15},{"module":"sldmodu.dll","rva":21021482,"bytes":14},{"module":"sldmodu.dll","rva":21021512,"bytes":15},{"module":"sldmodu.dll","rva":6654129,"bytes":18},{"module":"slduiu.dll","rva":4260336,"bytes":14},{"module":"slduiu.dll","rva":4260602,"bytes":14},{"module":"slduiu.dll","rva":4260683,"bytes":16},{"module":"sldmodu.dll","rva":21106256,"bytes":15}]
 let TrainingInstructionCache = null
 
 let TrainingActive = false
@@ -545,7 +545,7 @@ rpc.exports = {
       attach(UI.base.add(0x492b01f0 - 0x48ea0000), {
         onEnter(Args) { this.capture = TrainingCapture; if (!this.capture) return;
           this.thread = Process.getCurrentThreadId()
-          this.entry = {event_id: Args[1].toInt32(), object: Args[0], git_calls: 0, selected_list_observed: false}
+          this.entry = {event_id: Args[1].toInt32(), object: Args[0], selected_acquisition_attempts: 0, selected_list_observed: false}
           const Stack = TrainingEvents.get(this.thread) || []
           Stack.push(this.entry)
           TrainingEvents.set(this.thread, Stack)
@@ -553,21 +553,34 @@ rpc.exports = {
         },
         onLeave(ReturnValue) { if (!this.capture || !TrainingCapture) return;
           const Stack = TrainingEvents.get(this.thread)
-          if (this.entry.event_id === 0x28) emit({kind: "sketch-solve-event-leave", automation_document: this.entry.object.toString(), raw_return: ReturnValue.toString(), git_calls_observed: this.entry.git_calls, selected_list_observed: this.entry.selected_list_observed, radials: trainingradials(), callback_effects_proven: false})
+          if (this.entry.event_id === 0x28) emit({kind: "sketch-solve-event-leave", automation_document: this.entry.object.toString(), raw_return: ReturnValue.toString(), selected_acquisition_attempts_observed: this.entry.selected_acquisition_attempts, selected_list_observed: this.entry.selected_list_observed, radials: trainingradials(), callback_effects_proven: false})
           if (Stack !== undefined) { Stack.pop(); if (Stack.length === 0) TrainingEvents.delete(this.thread) }
         }
       })
-      attach(UI.base.add(0x492b031a - 0x48ea0000), function () { if (!TrainingCapture) return;
+      attach(UI.base.add(0x492b02fa - 0x48ea0000), function () { if (!TrainingCapture) return;
         const Scope = trainingtop(TrainingEvents)
         if (Scope === null || Scope.event_id !== 0x28) return
-        Scope.git_calls++
-        emit({kind: "sketch-solve-listener-acquisition", git_interface: this.context.rcx.toString(), actual_target: location(this.context.r10), cookie_u32: this.context.rdx.toUInt32(), iid_pointer: this.context.r8.toString(), output_pointer: this.context.r9.toString(), radials: trainingradials(), implementation_bound: false})
+        Scope.selected_acquisition_attempts++
+        try {
+          const Document = this.context.rsi
+          const Index = this.context.rbx.toInt32()
+          const Count = Document.add(0x210).readS32()
+          const Git = this.context.rax
+          if (!Document.equals(Scope.object) || Count < 0 || Count > 64 || Index < 0 || Index >= Count || Git.isNull()) throw new Error("selected acquisition receiver or row is outside the bound")
+          const Cookies = Document.add(0x208).readPointer()
+          if (Cookies.isNull()) throw new Error("selected acquisition cookie array is null")
+          const Target = Git.readPointer().add(0x28).readPointer()
+          emit({kind: "sketch-solve-listener-acquisition-selection", observation_boundary: "before target and cookie argument loads", automation_document: Document.toString(), row_index_i32: Index, git_interface: Git.toString(), selected_target: location(Target), target_not_yet_loaded: true, selected_cookie_u32: Cookies.add(Index * 4).readU32(), selected_iid_pointer: UI.base.add(0x4a8cc0a8 - 0x48ea0000).toString(), selected_output_pointer: this.context.rsp.add(0x48).toString(), call_execution_proven: false, selected_acquisition_attempts_observed: Scope.selected_acquisition_attempts, radials: trainingradials(), implementation_bound: false, complete: true})
+        } catch (ErrorInfo) {
+          TrainingIncomplete++
+          emit({kind: "sketch-solve-listener-acquisition-selection-error", complete: false, error: String(ErrorInfo), selected_acquisition_attempts_observed: Scope.selected_acquisition_attempts, call_execution_proven: false})
+        }
       })
       attach(UI.base.add(0x492b034b - 0x48ea0000), function () { if (!TrainingCapture) return;
         const Scope = trainingtop(TrainingEvents)
         if (Scope === null || Scope.event_id !== 0x28) return
         Scope.selected_list_observed = true
-        emit({kind: "sketch-solve-listener-selection", listeners: traininglisteners(this.context.r14), git_calls_observed: Scope.git_calls, radials: trainingradials(), callback_effects_proven: false})
+        emit({kind: "sketch-solve-listener-selection", listeners: traininglisteners(this.context.r14), selected_acquisition_attempts_observed: Scope.selected_acquisition_attempts, radials: trainingradials(), callback_effects_proven: false})
       })
       attach(Model.base.add(0x4c560e50 - 0x4b140000), {
         onEnter(Args) { this.capture = TrainingCapture; if (!this.capture) return;

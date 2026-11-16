@@ -28,3 +28,14 @@ The [instruction-probe API gotcha](../../../../Gotchas/Conversion/Solidworks/Tra
 
 The [PowerShell transport gotcha](../../../../Gotchas/Conversion/Solidworks/Tracing/ParallelsPowerShellNeedsEncodedCommands.md) records a separate read-only preflight quoting failure and its encoded-command workaround.
 That inventory changed no CAD or licensing process.
+
+## First activation result
+
+The [first attempt receipt](../../../../../re/solidworks/measurements/2026/RadialTrainingAuthor01.json) binds committed source `3a8f7180627c1402bd5059a839f27e57eaf7c0a2`.
+All eight required original module identities and eleven mapped instruction prefixes matched.
+Checked Frida interception rejected UI site `0x492b031a` before the action or controls started.
+No native events or model measurements were collected.
+The trace is unqualified and earns no native acceptance credit.
+Detach, owned cleanup and host exit completed without a reported crash.
+The subsequent inventory found no SOLIDWORKS process and preserved the license-server PIDs.
+Review another observation boundary before a fresh controlled run.
