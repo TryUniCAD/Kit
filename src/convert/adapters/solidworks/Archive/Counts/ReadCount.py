@@ -5,7 +5,7 @@ from struct import unpack_from as UnpackValue
 def ReadCount(
     BufferValue: bytes, OffsetValue: int, *, IsFramework: bool = False
 ) -> tuple[int, int]:
-    if not isinstance(BufferValue, bytes):
+    if type(BufferValue) is not bytes:
         raise TypeError("archive count input must be bytes")
     if type(OffsetValue) is not int or type(IsFramework) is not bool:
         raise TypeError("archive count position and domain have invalid types")

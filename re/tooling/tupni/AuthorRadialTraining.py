@@ -40,7 +40,7 @@ def close_owned(author, controller, rec, trace):
 
 def run_case(controller, trace, case, directory, phase, source, oracle_identity):
     directory.mkdir(exist_ok=False)
-    reset = trace.resettrainingobjects()
+    reset = trace.resettrainingobjects(True)
     AuthorCurves.require(reset["process_id"] == oracle_identity["process_id"], "trace and prepared controller refer to different processes")
     rec = TrainingRecorder(directory / "Record.json", {"case": case, "phase": phase}, trace, case["name"])
     author = AuthorCurves.CurveAuthor(controller.app, rec, Swapp)
@@ -149,7 +149,7 @@ def exercise(path, prepared):
         trace.markphase("training-control-before")
         record["control_before"] = inspect_control(control, prepared)
         AuthorCurves.require(healthy(record["control_before"]), "instrumented control failed before training")
-        trace.resettrainingobjects()
+        trace.resettrainingobjects(True)
         preference = bool(Swapp.cv(controller.app, "GetUserPreferenceToggle", 10))
         record["input_dimension_preference"] = {"before": preference, "restored": False}
         controller.app.SetUserPreferenceToggle(10, False)

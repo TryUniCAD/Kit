@@ -247,8 +247,12 @@ The [radial construction boundaries](../../Changes/Solidworks/Inspection/Solidwo
 separate geometry references, optional lookup indices, nullable tolerance and empty-list finalization.
 These bounded rules do not establish final saved curve state or native acceptance.
 The [bounded curve lifecycle observer](../../Changes/Solidworks/Inspection/SolidworksCurveLifecycleObservation.md)
-retains the point/arc state and independent counters needed for controlled
-training observations; its new snapshots await a native run.
+retains the point/arc state and independent counters needed for controlled training observations.
+The [radial training attempt](../../../re/solidworks/measurements/2026/RadialTrainingAuthor02.json)
+activated all 36 hooks and measured healthy controls, then stopped before circle authoring on an RPC argument error.
+The [explicit reset repair](../../Changes/Solidworks/Inspection/Sketches/SolidworksTrainingResetArguments.md)
+passes the capture Boolean directly and preserves strict validation.
+Fresh training measurements remain pending.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

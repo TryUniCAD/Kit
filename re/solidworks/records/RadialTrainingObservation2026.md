@@ -110,3 +110,9 @@ The [standard PR skill](../../../.agents/skills/standard-pr-practice/SKILL.md), 
 > Missing grammar is the work. It is not a blocker.
 
 This is a bounded training-tool handoff. Whole-flag, callback, marker final-state and generated-model acceptance claims remain pending.
+
+## Explicit reset argument after healthy activation
+
+The root-owned `d5f9` attempt activated all 36 hooks and retained healthy instrumented controls on both sides, with no reported native diagnostics or crash. It executed zero training cases: a bare `resettrainingobjects()` call reached the strict Boolean guard with a non-Boolean argument. Explicit False calls succeeded. These facts establish tool activation/control health only, not circle, callback or flag-word acceptance.
+
+The installed Frida 17.26.3 Python wrapper plus its version-pinned runtime dispatcher/sinks explain the argument contract: the absent binary payload is appended as null, occupying the first parameter when the positional list is empty. A JavaScript default does not replace null. The action now passes True explicitly at both capture-enable/reset calls, preserving all False calls and JavaScript validation. [The focused repair](../../../Documentation/Changes/Solidworks/Inspection/Sketches/SolidworksTrainingResetArguments.md), [specific gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Tracing/RpcDefaultsNeedExplicitArguments.md) and [evidence metadata](TrainingRpcBinding2026.json) give identities and source boundaries. No new runtime invocation occurred in the worker; a fresh committed owner run remains pending.

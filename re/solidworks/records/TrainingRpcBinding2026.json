@@ -1,0 +1,40 @@
+{
+  "schema": "kit-sw2026-training-rpc-binding-evidence/1",
+  "action_input_sha256": "37bcf3a7324c22331e9155012f371844ce3373525c5c4d778b32742c5f33bfb7",
+  "action_output_sha256": "90d821ace1ec68a5d813f6a706ca41e4396e92e13b9160b491efb38094943e5a",
+  "javascript_guard_modified": false,
+  "bare_calls_replaced": 2,
+  "installed_version": "17.26.3",
+  "local_sources": {
+    "frida/__init__.py": "f7fb4743a4bdfb124e7fab033cccf7b174f802fdd7499be687c7b6db54eeaa35",
+    "frida-17.26.3.dist-info/METADATA": "3042809b2129583e40c805bc92cb9c68e97b594f3b7936f5f19e25b62d9dd676"
+  },
+  "observed_binary": {
+    "image": "_frida.pyd",
+    "sha256": "ff3ed36723b20f23167454d2cc883ad13fc4f978a26161c35d59549714c5ab10",
+    "bytes": 169237504,
+    "pe_machine": "0x8664"
+  },
+  "observation_sha256": "1d3c019da038d43e75efcaa9d553c57c9eedf3bffee9a3bf5ed4ceb41657a28a",
+  "training_sha256": "bb0d45dbd3f31254934c90ba76060dc9b6106173feb48d07c0b3353cdaefe95f",
+  "hook_activation": {
+    "hooks": 36
+  },
+  "producer_statistics": {
+    "events": 5727,
+    "dropped": 0,
+    "training_hook_errors": 0,
+    "training_objects": 0,
+    "training_solves": 0,
+    "training_events": 0
+  },
+  "case_count": 0,
+  "failure": "RPCException('one explicit capture Boolean is required', 'Error', 'Error: one explicit capture Boolean is required\\n    at resettrainingobjects (/kit-tupni-observation.js:357:54)\\n    at call (native)\\n    at handleRpcMessage (/frida/runtime/message-dispatcher.js:45:44)\\n    at handleMessage (/frida/runtime/message-dispatcher.js:25:23)')",
+  "training_accepted": false,
+  "worker_execution": "metadata/source/AST inspection only; no Frida, CAD, COM, schema, codec or test execution",
+  "primary_runtime_sources": {
+    "dispatcher": "https://github.com/frida/frida-gum/blob/17.26.3/bindings/gumjs/runtime/message-dispatcher.js#L42",
+    "quickjs": "https://github.com/frida/frida-gum/blob/17.26.3/bindings/gumjs/gumquickcore.c#L5600",
+    "v8": "https://github.com/frida/frida-gum/blob/17.26.3/bindings/gumjs/gumv8core.cpp#L4463"
+  }
+}

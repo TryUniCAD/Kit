@@ -1,0 +1,436 @@
+{
+  "schema": "kit.sw2026.radial-training-observation-publication.v1",
+  "status": "healthy_hook_activation_and_controls_then_rpc_argument_rejection_before_training",
+  "source_revision": "d5f9f4bbdcdde8e90f4cfb319f2c4b8e95dd79d9",
+  "source_tree": "9342ae29fba17ab72c10f1191dc114bd99e35cda",
+  "phase": "author",
+  "trace_authority": "native-api-boundary-observation",
+  "instruction_taint": false,
+  "oracle_identity": {
+    "process_id": 4960,
+    "process_creation_filetime": 134392823566911425,
+    "executable": "SLDWORKS.exe",
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "expected_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "version_matches": true,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "bytes": 718936,
+    "pe_machine": "0x8664"
+  },
+  "source_binding": {
+    "manifest_sha256": "14d96459299e04cb6afdcca65aeb0b9e57158129f46a71632b6d9dc226c08526",
+    "freeze_time_guest_probe_executed": false,
+    "freeze_time_flag_preserved": true,
+    "all_frozen_sources_match_original_git_revision": true,
+    "files": [
+      {
+        "path": "re/tooling/tupni/Observe.py",
+        "bytes": 16114,
+        "sha256": "8274cba79359c17244d6a9be251dc563402e98a9b4305b965ab15c4dc4306744"
+      },
+      {
+        "path": "re/tooling/tupni/Solidworks2026.js",
+        "bytes": 51476,
+        "sha256": "d8bb6af99d8ed7d876a24d3f7a429da13087774ae851be05db701c722f501408"
+      },
+      {
+        "path": "re/tooling/tupni/RadialTrainingModules.json",
+        "bytes": 683,
+        "sha256": "99190c0e0f8c7cfaf4d43d4a248f22af24a1549bd0f32aaebc8a514ab84c0dc7"
+      },
+      {
+        "path": "re/tooling/tupni/RadialTraining.json",
+        "bytes": 1234,
+        "sha256": "4c9827d10c27766f3dc9dfe05c9de16f757949def4ce7d8b1bd82e2f39e43f01"
+      },
+      {
+        "path": "re/tooling/tupni/AnnulusTraining.json",
+        "bytes": 831,
+        "sha256": "060fc61251afee7c172f731fb7c6501220f6671d0a5a9e69fb3db940028a9383"
+      },
+      {
+        "path": "re/tooling/tupni/PrepareSolidworks.py",
+        "bytes": 1837,
+        "sha256": "17ffe44c90853f39a91139517acc0c829a4c5f60f349b50bffb9a49e22b10f0b"
+      },
+      {
+        "path": "re/tooling/tupni/AuthorRadialTraining.py",
+        "bytes": 12499,
+        "sha256": "37bcf3a7324c22331e9155012f371844ce3373525c5c4d778b32742c5f33bfb7"
+      },
+      {
+        "path": "re/tooling/tupni/ExerciseSolidworks.py",
+        "bytes": 1216,
+        "sha256": "3a49580204e57062f533b864371063b99d586b88d59dfa7efa1a35ed311e1093"
+      },
+      {
+        "path": "re/tooling/sw2026/AuthorCurves.py",
+        "bytes": 65987,
+        "sha256": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31"
+      },
+      {
+        "path": "re/tooling/sw2026/Swapp.py",
+        "bytes": 15278,
+        "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+      },
+      {
+        "path": "re/tooling/sw2026/OracleIdentity.py",
+        "bytes": 4284,
+        "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+      },
+      {
+        "path": "re/tooling/sw2026/InspectFresh.py",
+        "bytes": 4187,
+        "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793"
+      },
+      {
+        "path": "re/tooling/sw2026/CurveSpecs.json",
+        "bytes": 17275,
+        "sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0"
+      },
+      {
+        "path": "re/solidworks/records/RadialTrainingHooks2026.json",
+        "bytes": 32159,
+        "sha256": "97b79f2b082dd70840d56299aaea334b29d3187e67b554579f36efa0bb9e9136"
+      }
+    ],
+    "job_sha256": "b5e9b7d1f8e9d2f552875a848d0b3295b209a4aed29dddee3261abfa5fefef08",
+    "argument_file_sha256": "d8998c29620ad0d8a55bb66b47177d20b94b307d7397f5c5b4c3512be2e3b645"
+  },
+  "raw_records": [
+    {
+      "name": "AuthorObservation02.json",
+      "bytes": 6180851,
+      "sha256": "1d3c019da038d43e75efcaa9d553c57c9eedf3bffee9a3bf5ed4ceb41657a28a"
+    },
+    {
+      "name": "Training.json",
+      "bytes": 12636,
+      "sha256": "bb0d45dbd3f31254934c90ba76060dc9b6106173feb48d07c0b3353cdaefe95f"
+    },
+    {
+      "name": "RadialTrainingAuthor02.Host.json",
+      "bytes": 3568,
+      "sha256": "618cd00208bc10b0e2258e207cb6b46914f5e8e254d40aed919c9eaa239cf65f"
+    },
+    {
+      "name": "RadialTraining02PostInventory.json",
+      "bytes": 1115,
+      "sha256": "d3c2f8beafceb68792f93816928983556b46761e3c61b061bb80cd4045424261"
+    }
+  ],
+  "frida": {
+    "version": "17.26.3",
+    "realm": "native",
+    "extension_sha256": "ff3ed36723b20f23167454d2cc883ad13fc4f978a26161c35d59549714c5ab10",
+    "extension_bytes": 169237504
+  },
+  "original_modules": [
+    {
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "bytes": 46536280,
+      "pe_machine": "0x8664",
+      "module": "sldmodu.dll"
+    },
+    {
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "bytes": 16519768,
+      "pe_machine": "0x8664",
+      "module": "sldappu.dll"
+    },
+    {
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+      "bytes": 252504,
+      "pe_machine": "0x8664",
+      "module": "swccu.dll"
+    },
+    {
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+      "bytes": 231512,
+      "pe_machine": "0x8664",
+      "module": "sldarchiveu.dll"
+    },
+    {
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "bytes": 8274520,
+      "pe_machine": "0x8664",
+      "module": "sldmfcu.dll"
+    },
+    {
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c",
+      "bytes": 2363992,
+      "pe_machine": "0x8664",
+      "module": "sldmgu.dll"
+    },
+    {
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "bytes": 36036696,
+      "pe_machine": "0x8664",
+      "module": "slduiu.dll"
+    },
+    {
+      "sha256": "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494",
+      "bytes": 3340888,
+      "pe_machine": "0x8664",
+      "module": "sldprtu.dll"
+    }
+  ],
+  "mapped_training_instructions_verified": true,
+  "mapped_training_instruction_windows": [
+    {
+      "module": "sldmodu.dll",
+      "rva": 24640528,
+      "bytes": 20,
+      "mapped_address": "0x4c8bfc10",
+      "mapped_sha256": "72d867a98b46c6a22685be6edeee299bc4d58a3e258bf69c37f38751395623f2",
+      "expected_sha256": "72d867a98b46c6a22685be6edeee299bc4d58a3e258bf69c37f38751395623f2",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 24755440,
+      "bytes": 14,
+      "mapped_address": "0x4c8dbcf0",
+      "mapped_sha256": "e28320c8bf90ce2b388b9fda36bc70744cc2e1655599753640fc9ac61ff5d2f7",
+      "expected_sha256": "e28320c8bf90ce2b388b9fda36bc70744cc2e1655599753640fc9ac61ff5d2f7",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 24060064,
+      "bytes": 14,
+      "mapped_address": "0x4c8320a0",
+      "mapped_sha256": "aba8de1929ccfa4833090de9152b4bc1d5fae7b211f8cafe1ad2c530abd31061",
+      "expected_sha256": "aba8de1929ccfa4833090de9152b4bc1d5fae7b211f8cafe1ad2c530abd31061",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 24060252,
+      "bytes": 15,
+      "mapped_address": "0x4c83215c",
+      "mapped_sha256": "6c2f3fd1903f8af8a051d5e2250d6f481e0d4018c6020e574fb9ba39734cf1b3",
+      "expected_sha256": "6c2f3fd1903f8af8a051d5e2250d6f481e0d4018c6020e574fb9ba39734cf1b3",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 21021482,
+      "bytes": 14,
+      "mapped_address": "0x4c54c32a",
+      "mapped_sha256": "99d0caa0f2826b83bf28eb677d8c6a5c20c83a5bbbf27b34df1f1c34c98da6d2",
+      "expected_sha256": "99d0caa0f2826b83bf28eb677d8c6a5c20c83a5bbbf27b34df1f1c34c98da6d2",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 21021512,
+      "bytes": 15,
+      "mapped_address": "0x4c54c348",
+      "mapped_sha256": "cf21c3ef681a3ec8703616de5ba32dee6411997ed0052c4c4688dd3964aff2e2",
+      "expected_sha256": "cf21c3ef681a3ec8703616de5ba32dee6411997ed0052c4c4688dd3964aff2e2",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 6654129,
+      "bytes": 18,
+      "mapped_address": "0x4b7988b1",
+      "mapped_sha256": "011687bb6f9bf7e775ecec5d16c21637806d50ec2a586aff191e9a7799672b13",
+      "expected_sha256": "011687bb6f9bf7e775ecec5d16c21637806d50ec2a586aff191e9a7799672b13",
+      "matches": true
+    },
+    {
+      "module": "slduiu.dll",
+      "rva": 4260336,
+      "bytes": 14,
+      "mapped_address": "0x492b01f0",
+      "mapped_sha256": "f586f4fe0f414e19d96d990f8821702c9645533fe657981577338be06c78c8e8",
+      "expected_sha256": "f586f4fe0f414e19d96d990f8821702c9645533fe657981577338be06c78c8e8",
+      "matches": true
+    },
+    {
+      "module": "slduiu.dll",
+      "rva": 4260602,
+      "bytes": 14,
+      "mapped_address": "0x492b02fa",
+      "mapped_sha256": "d4ccf264ef867e8424cabdaf2c9b89634f3680eb27441f07b390f2ac77fa4067",
+      "expected_sha256": "d4ccf264ef867e8424cabdaf2c9b89634f3680eb27441f07b390f2ac77fa4067",
+      "matches": true
+    },
+    {
+      "module": "slduiu.dll",
+      "rva": 4260683,
+      "bytes": 16,
+      "mapped_address": "0x492b034b",
+      "mapped_sha256": "7f59e6f466d58aeff4367893cde7bae477d4b7896f3c2137fba9844d6928bd3b",
+      "expected_sha256": "7f59e6f466d58aeff4367893cde7bae477d4b7896f3c2137fba9844d6928bd3b",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 21106256,
+      "bytes": 15,
+      "mapped_address": "0x4c560e50",
+      "mapped_sha256": "7d969c050403f44b92cac982d97ad200df85365fbfc60f884b5752d7a497499e",
+      "expected_sha256": "7d969c050403f44b92cac982d97ad200df85365fbfc60f884b5752d7a497499e",
+      "matches": true
+    }
+  ],
+  "full_mapped_function_bodies_verified": false,
+  "hook_activation": {
+    "hooks": 36
+  },
+  "producer_statistics": {
+    "events": 5727,
+    "dropped": 0,
+    "training_hook_errors": 0,
+    "training_objects": 0,
+    "training_solves": 0,
+    "training_events": 0
+  },
+  "messages_dropped": 0,
+  "script_errors": [],
+  "training_qualified": false,
+  "attached": true,
+  "detached": true,
+  "detach_event": {
+    "reason": "application-requested",
+    "crash": null
+  },
+  "messages_recorded": 5727,
+  "controls": {
+    "control_before": {
+      "revision": "34.5.2",
+      "opened": true,
+      "rebuilt": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "session_diagnostics": [],
+      "stage": "close_return",
+      "feature_count": 19,
+      "all_feature_errors_zero": true,
+      "all_feature_warnings_clear": true
+    },
+    "control_after": {
+      "revision": "34.5.2",
+      "opened": true,
+      "rebuilt": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "session_diagnostics": [],
+      "stage": "close_return",
+      "feature_count": 19,
+      "all_feature_errors_zero": true,
+      "all_feature_warnings_clear": true
+    },
+    "same_instrumented_process": true,
+    "source_control_saved": false
+  },
+  "training_cases": 0,
+  "failure": {
+    "type": "frida.RPCException",
+    "message": "one explicit capture Boolean is required",
+    "stage": "capture reset after healthy first control and before case authoring",
+    "cause_record": "../../records/TrainingRpcBinding2026.json"
+  },
+  "qualification": {
+    "qualified": false,
+    "incomplete_native_states": 0,
+    "reasons": [
+      {
+        "reason": "training action or case membership is incomplete"
+      },
+      {
+        "reason": "exception",
+        "detail": "RPCException('one explicit capture Boolean is required', 'Error', 'Error: one explicit capture Boolean is required\\n    at resettrainingobjects (/kit-tupni-observation.js:357:54)\\n    at call (native)\\n    at handleRpcMessage (/frida/runtime/message-dispatcher.js:45:44)\\n    at handleMessage (/frida/runtime/message-dispatcher.js:25:23)')"
+      }
+    ],
+    "reason_limit": 256,
+    "case_event_counts": {},
+    "field_closure_proven": false,
+    "callback_effects_proven": false,
+    "acceptance": false
+  },
+  "supervision": {
+    "status": "transport_exited",
+    "transport_returncode": 1,
+    "transport_exit_confirmed": true,
+    "supervisor_exit_code": 1,
+    "guest_state_unknown": true,
+    "transport_live": false,
+    "external_inventory_required_before_another_batch": true,
+    "automatic_guest_kill": false,
+    "automatic_vm_reset": false,
+    "automatic_retry": false
+  },
+  "post_inventory": {
+    "read_only": true,
+    "returncode": 0,
+    "processes": [
+      {
+        "ProcessName": "lmgrd",
+        "Id": 1604
+      },
+      {
+        "ProcessName": "lmgrd",
+        "Id": 7936
+      },
+      {
+        "ProcessName": "sw_d",
+        "Id": 4276
+      }
+    ],
+    "solidworks_process_present": false,
+    "license_process_ids_match_preflight": true
+  },
+  "vendor_software_copied": false,
+  "heldout_native_payloads_read": false,
+  "format_crash_credit": false,
+  "field_closure_proven": false,
+  "callback_effects_proven": false,
+  "writer_output": false,
+  "acceptance": false,
+  "limits": [
+    "Hook activation and healthy controls establish instrumentation availability only",
+    "Zero circle cases were authored or measured",
+    "Source records remain immutable",
+    "Mapped prefix checks do not establish complete mapped function body equality",
+    "Fresh committed explicit-argument repair requires a separate owned batch"
+  ]
+}
