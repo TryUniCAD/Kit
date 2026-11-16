@@ -124,10 +124,12 @@ The base implementations have different behavior:
 
 The following actual call sites preserve this distinction:
 
-1. `moSkDimHandleValG1_c` constructor `0x4c83d4a0` resolves the actual embedded
+1. The retained radial-handle constructor `0x4c83d4a0` resolves the actual embedded
    dimension and calls its virtual `+0x1d0` at `0x4c83d512`
    Its final constructor store at `0x4c83d520` installs actual handle vtable
    `0x4d242c18`; the address is formed at `0x4c83d519`
+   Direct RTTI identifies the table as `moSkDimHandleRadial_c`, with immediate
+   parent `moSkDimHandleValG1_c`, correcting the earlier concrete ValG1 label
 2. Actual handle virtual `+0x430` selects clone `0x4c83fae0`
    It allocates a handle and invokes copy helper `0x4c846460`
    The helper resolves the source dimension through virtual `+0x730` at
@@ -352,9 +354,18 @@ branch does not execute that value-change body
 
 The base display update's call through actual handle `+0x568` is upstream of
 the tolerance update
-Actual ValG1 vtable `0x4d242c18` binds that slot to
+Actual radial-handle vtable `0x4d242c18` binds that slot to
 `moDimHandle_c::updateDimension`, `[0x4c84eb30,0x4c84ed8e)`
 This logical method spans three unwind fragments
+
+The table's complete-object locator is `0x4d3727d0`; its 24-byte SHA-256 is
+`6625165bfdf4d176089ba0ff0490758dbcf0ac79ad895cd91fff99dae08b9ec4`
+in the pinned model module. The seven-entry RTTI chain starts with radial,
+ValG1, sketch-handle and common dimension-handle classes at displacement zero.
+The existing shared codec already records the radial-to-ValG1 hierarchy.
+The corrected label leaves the actual inherited virtual targets unchanged.
+The [RTTI gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/DerivedHandleVtablesNeedRtti.md)
+records this evidence boundary.
 
 Its actual `+0x5f0` resolves the existing display through `0x4c842240`
 Actual radial display vtable `0x4d255be0` binds display `+0x900` to the

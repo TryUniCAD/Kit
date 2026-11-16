@@ -17,3 +17,8 @@ Verification used pinned 2026 modules, PE vtables, direct instructions and recor
 No CAD application was accessed, no held-out stream was inspected, and no local tests ran.
 General naming collisions, shared parameters, later presentation mutations and final native acceptance remain unfinished.
 The production adapter remains read-only.
+
+Direct 2026 RTTI subsequently corrected vtable `0x4d242c18` to the concrete
+radial-handle class, whose immediate parent is ValG1. The existing codec's
+hierarchy and verified virtual targets remain valid. The [RTTI gotcha](../../../Gotchas/Conversion/Solidworks/Model/DerivedHandleVtablesNeedRtti.md)
+retains the exact locator, hierarchy and hash evidence.

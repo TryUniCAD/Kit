@@ -63,13 +63,22 @@ virtual `+0x268` is `0x4c42a7f0`, whose explicit predicate is `f80 == 0x0f`.
 | Diameter, `sgCircleDim.f80 == 0x0f`, runtime `+0x1058 != 0` | `0x4c8cc1fe` selects string `0x2a12` | `<MOD-DIAM>`    |
 
 The helper's special `S` prefix requires handle virtual `+0x4b8` to return
-`0x1d`. The actual completed `moSkDimHandleValG1_c` constructor installs
+`0x1d`. The retained radial-handle constructor installs
 vtable `0x4d242c18` at `0x4c83d520`; its `+0x4b8` slot is `0x4c844ab0`.
 That method resolves the dimension through actual `+0x730`, `0x4c8460f0`,
 then invokes dimension virtual `+0x338`. Circle vtable `0x4cf79588` binds
 `+0x338` to the explicit zero-return leaf `0x4b27cbe0`.
 Thus this special prefix is excluded by the ordinary circle's real dispatch,
 not by assuming that every handle has the base class's table.
+
+Direct 2026 RTTI identifies that concrete table as `moSkDimHandleRadial_c`,
+whose immediate parent is `moSkDimHandleValG1_c`. Complete-object locator
+`0x4d3727d0` has SHA-256
+`6625165bfdf4d176089ba0ff0490758dbcf0ac79ad895cd91fff99dae08b9ec4`
+over its 24 bytes. Its hierarchy places both classes at primary-subobject
+displacement zero. This corrects the earlier concrete ValG1 label; the recorded
+virtual targets and prefix result remain unchanged. See the
+[RTTI gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/DerivedHandleVtablesNeedRtti.md).
 
 At `0x4c8cc2c0`, the helper calls `setPrefixText(prefix, 0)`.
 The setter assigns the primary runtime `+0x7f8` string at `0x4c8978ec`.

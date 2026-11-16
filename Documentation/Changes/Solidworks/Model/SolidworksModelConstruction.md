@@ -15,7 +15,7 @@ assembly configuration node with its matching model owner. Concrete builders
 add their own option and component fields. The existing part configuration API
 and all `103` direct field rules are preserved by static AST comparison, split
 into `83` base and `20` part rules without executing the builders.
-The subsequent [configuration update-state correction](SolidworksConfigurationUpdateState.md)
+The subsequent [configuration update-state correction](../SolidworksConfigurationUpdateState.md)
 applies the active base constructor's explicit flag-clear operation separately
 from the embedded configuration object's state.
 The active new-model constructor proves unit-component and relation-manager
@@ -64,7 +64,7 @@ validation and reporting stages in focused files under
 Use `PersistentIds` for ordinary model nodes and the configuration manager's
 separate local allocator for configurations.
 Provide version provenance, timestamps, document options and density explicitly.
-The [construction record](../../../re/solidworks/records/ModelConstruction2026.md)
+The [construction record](../../../../re/solidworks/records/ModelConstruction2026.md)
 lists the APIs and binary evidence.
 The record also derives target date code `2026306` from the native tagged
 build string and its string-processing calls. The kernel session query and its
@@ -76,46 +76,46 @@ startup on this target.
 The complete native part graph and target acceptance remain unfinished.
 Constructor seeds do not prove that an application save accepts a neutral cache.
 The production adapter stays read-only.
-The [configuration id gotcha](../../Gotchas/Conversion/Solidworks/ConfigurationIdsAreLocal.md)
-and [plane-wrapper gotcha](../../Gotchas/Conversion/Solidworks/PlaneWrapperGeometry.md)
+The [configuration id gotcha](../../../Gotchas/Conversion/Solidworks/ConfigurationIdsAreLocal.md)
+and [plane-wrapper gotcha](../../../Gotchas/Conversion/Solidworks/PlaneWrapperGeometry.md)
 describe separate graph constraints.
-The [transform schema gotcha](../../Gotchas/Conversion/Solidworks/ProvisionalTransformFieldNames.md)
+The [transform schema gotcha](../../../Gotchas/Conversion/Solidworks/ProvisionalTransformFieldNames.md)
 records the active registry vocabulary found by remote construction.
-The [folder timestamp gotcha](../../Gotchas/Conversion/Solidworks/FolderFeatureCreationTimes.md)
+The [folder timestamp gotcha](../../../Gotchas/Conversion/Solidworks/FolderFeatureCreationTimes.md)
 describes the separate native feature-constructor variant.
-The [test helper gotcha](../../Gotchas/Ci/ProcessChecks/CheckPrefixCollectsTests.md) records the
+The [test helper gotcha](../../../Gotchas/Ci/ProcessChecks/CheckPrefixCollectsTests.md) records the
 repository's additional pytest collection prefix.
-The [dimension id gotcha](../../Gotchas/Conversion/Solidworks/DimensionAndParameterIds.md)
+The [dimension id gotcha](../../../Gotchas/Conversion/Solidworks/DimensionAndParameterIds.md)
 records the header allocator's separate object-field binding for feature dimensions.
-The [transient dimension gotcha](../../Gotchas/Conversion/Solidworks/TransientDimensionsConsumeIds.md)
+The [transient dimension gotcha](../../../Gotchas/Conversion/Solidworks/TransientDimensionsConsumeIds.md)
 explains why a native object omitted by storage can still advance that allocator.
-The [codec initialization gotcha](../../Gotchas/Conversion/Solidworks/LazyCodecsAfterAudit.md)
+The [codec initialization gotcha](../../../Gotchas/Conversion/Solidworks/LazyCodecsAfterAudit.md)
 records a lazy code import exposed by the strict remote audit.
-The [kernel behavior-version gotcha](../../Gotchas/Conversion/Solidworks/KernelBehaviourVersion.md)
+The [kernel behavior-version gotcha](../../../Gotchas/Conversion/Solidworks/KernelBehaviourVersion.md)
 distinguishes the feature's compatibility behavior from the full kernel build.
-The [reference-time gotcha](../../Gotchas/Conversion/Solidworks/FeatureReferenceCreationTimes.md)
+The [reference-time gotcha](../../../Gotchas/Conversion/Solidworks/FeatureReferenceCreationTimes.md)
 requires component references to agree with their referenced node's creation log.
-The [runtime schema gotcha](../../Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md)
+The [runtime schema gotcha](../../../Gotchas/Conversion/Solidworks/RuntimeClassSchemasDiffer.md)
 records the journal's nondefault class schema and the native rejection.
-The [system-folder binding gotcha](../../Gotchas/Conversion/Solidworks/SystemFoldersHaveModelBindings.md)
+The [system-folder binding gotcha](../../../Gotchas/Conversion/Solidworks/SystemFoldersHaveModelBindings.md)
 records the model's required pointer relationships and the shared-stream alias.
-The [initial update gotcha](../../Gotchas/Conversion/Solidworks/InitialUpdateStampIsNormalized.md)
+The [initial update gotcha](../../../Gotchas/Conversion/Solidworks/InitialUpdateStampIsNormalized.md)
 records the native loader's separate counter fixup.
-The [header clock gotcha](../../Gotchas/Conversion/Solidworks/HeaderClockIsWallTime.md)
+The [header clock gotcha](../../../Gotchas/Conversion/Solidworks/HeaderClockIsWallTime.md)
 records wall time behind the misleading vendor method name.
-The [modification-time gotcha](../../Gotchas/Conversion/Solidworks/HeaderModificationTimeHasSentinelYear.md)
+The [modification-time gotcha](../../../Gotchas/Conversion/Solidworks/HeaderModificationTimeHasSentinelYear.md)
 records the conditional save-time sentinel rule.
-The [model offset gotcha](../../Gotchas/Conversion/Solidworks/Model/ModelOffsetsAreTypeSpecific.md)
+The [model offset gotcha](../../../Gotchas/Conversion/Solidworks/Model/ModelOffsetsAreTypeSpecific.md)
 records the boundary between shared model and concrete-root fields.
-The [serialization-dispatch gotcha](../../Gotchas/Conversion/Solidworks/Model/PartSerializeDispatchUsesArchiveContext.md)
+The [serialization-dispatch gotcha](../../../Gotchas/Conversion/Solidworks/Model/PartSerializeDispatchUsesArchiveContext.md)
 records the native bridge and version-dependent section selection.
-The [constructor-path gotcha](../../Gotchas/Conversion/Solidworks/Model/LoadingConstructorsDoNotDefineFreshGraphs.md)
+The [constructor-path gotcha](../../../Gotchas/Conversion/Solidworks/Model/LoadingConstructorsDoNotDefineFreshGraphs.md)
 records why active allocations need separate store-rule evidence.
-The [configuration-version gotcha](../../Gotchas/Conversion/Solidworks/Model/ConfigurationVersionChangesOnSave.md)
+The [configuration-version gotcha](../../../Gotchas/Conversion/Solidworks/Model/ConfigurationVersionChangesOnSave.md)
 records why the constructor's legacy version is invalid as the fresh-save rule.
-The [body-stamp gotcha](../../Gotchas/Conversion/Solidworks/Model/BodyStampCountsAreNotBodyCounts.md)
+The [body-stamp gotcha](../../../Gotchas/Conversion/Solidworks/Model/BodyStampCountsAreNotBodyCounts.md)
 records the distinct native allocation paths observed for one final body.
-The [reference-ownership gotcha](../../Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md)
+The [reference-ownership gotcha](../../../Gotchas/Conversion/Solidworks/Model/PlaneReferencesOwnTheirComponents.md)
 records the separate exclusive lifetimes of profile plane wrappers and their
 component copies.
 The process regression round-trips two references through the real container,
@@ -160,6 +160,6 @@ The stage extraction preserved the exact `12,575`-character generated program,
 SHA-256 `23d3aeb06e82ede7468f7dae3ced1b789a0fcd059a30a9e0f04869b371160ecb`,
 by static string comparison. Later configuration-version regression coverage
 extends its report. That comparison did not execute the child program.
-The [process-stage gotcha](../../Gotchas/Ci/ProcessChecks/ModelProcessStagesNeedFiles.md)
+The [process-stage gotcha](../../../Gotchas/Ci/ProcessChecks/ModelProcessStagesNeedFiles.md)
 records why short constants still need focused responsibility files.
 No tests or CAD oracle operations ran locally for this change.

@@ -177,6 +177,10 @@ The host transport ended normally with exit `2`; no deadline fired and no native
 The [later annulus/capsule source preflight](../../Changes/Solidworks/Inspection/Relations/SolidworksCurveBindingPreflight.md)
 passes ten phases and 121 numeric checks between healthy controls, confirming the repaired native bindings.
 Its two-case selection establishes no full-family lock or Kit-written curve acceptance.
+The [complete curve-source family lock](../../Changes/Solidworks/Inspection/Relations/SolidworksCurveSourceFamilyLock.md)
+now records 30 passing source cases, 66 fresh phases, 797 passing numeric checks and healthy controls before and after.
+All 32 source hashes were locked before fresh curve-writer implementation; six held-out native payloads remain sealed during derivation.
+The [portable lock](../../../re/solidworks/v2026/heldout/CurveSourceLock.json) permits discovery analysis and establishes no Kit-written curve acceptance.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.
@@ -195,7 +199,7 @@ The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleIns
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
 preserves existing sessions and limits dialog responses to registered live processes.
-The fresh [model component constructors](../../Changes/Solidworks/SolidworksModelConstruction.md)
+The fresh [model component constructors](../../Changes/Solidworks/Model/SolidworksModelConstruction.md)
 and [metadata constructors](../../Changes/Solidworks/SolidworksMetadataConstruction.md)
 build research object graphs from authored semantics and native constructor rules.
 Their process checks do not establish a complete, loadable native document.

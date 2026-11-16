@@ -6,7 +6,7 @@ not a native-format writer. It does not read saved streams, captured field
 programs, or vendor data tables. The neutral inputs are in
 `re/tooling/sw2026/CurveSpecs.json`.
 The [static curve construction record](../../../../re/solidworks/records/CurvedSketchConstruction2026.md)
-keeps native class, topology and counter rules separate from pending authoring
+keeps native class, topology and counter rules separate from source-corpus
 and generated-output acceptance. No circle/arc writer has been implemented.
 
 The specification contains 24 discovery cases, six held-out cases, and two
@@ -111,15 +111,16 @@ Fixed centers, coincident endpoints, tangent joins, and equal arc lengths use
 their documented API enum values. Shared endpoint identity is recorded instead
 of adding a redundant coincidence constraint.
 
-The sketch feature is obtained by
-[querying its feature interface](../../../Gotchas/Conversion/Solidworks/Tracing/SketchFeaturesRequireInterfaceCast.md),
-with every cast recorded in the phase log. Calls that use explicit COM out
+The sketch feature is obtained through the
+[actual document history](../../../Gotchas/Conversion/Solidworks/Tracing/SketchFeatureMutationNeedsDocumentTraversal.md)
+and bound through the registered 2026 feature interface, with every cast recorded
+in the phase log. Calls that use explicit COM out
 variants use untyped dispatch to avoid
 [type-library wrapper drift](../../../Gotchas/Conversion/Solidworks/Tracing/TypeCastsChangeOutParameterBindings.md)
 after those casts. The [installed 2026 type-library descriptors](../../../../re/solidworks/v2026/evidence/CurveAuthoringTypeLibrary.json)
 confirm the relevant void return, scalar out Boolean, selection interfaces and
 absent sketch method without launching or attaching to CAD. These binding
-corrections remain subject to native preflight.
+corrections were subsequently exercised by the complete source run below.
 
 The 2026
 [dimension state enumeration](https://help.solidworks.com/2026/English/api/swconst/SOLIDWORKS.Interop.swconst~SOLIDWORKS.Interop.swconst.swDimensionDrivenState_e.html)
@@ -152,6 +153,9 @@ specification contains 24 discovery cases, six held-out cases, two controls, and
 controlled preflight on executable `34.5.2.0604` stopped both independent controls
 before document creation because the wrapper treated the application's void
 preference setter as a Boolean. The wrapper now requires preference read-back
-instead. Relation and geometry read-back paths remain unverified until a later
-native phase reaches them. No curve source family lock or generated curve
-acceptance is established. No local tests were run.
+instead. The later [complete source-family run](Relations/SolidworksCurveSourceFamilyLock.md)
+now passes all 30 source cases, 66 fresh phases and 797 numeric checks, with
+healthy controls before and after. The [portable lock](../../../../re/solidworks/v2026/heldout/CurveSourceLock.json)
+binds all 32 native sources before fresh writer implementation.
+The full metadata record preserves source-only scope and sealed held-out payloads.
+No Kit-generated curve acceptance is established. No local tests were run.

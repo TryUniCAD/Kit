@@ -61,4 +61,9 @@ confirms the annulus's shared center identity in that new run only.
 Its edited dimensions were measured and discarded without saving.
 The two-case subset correctly produces no family lock or writer acceptance.
 The older frozen toolset and failed traces remain unchanged.
-Only a newly completed, healthy full-family run can create the source lock.
+The subsequent [complete family run](Relations/SolidworksCurveSourceFamilyLock.md)
+now passes all 30 source cases and both final controls, with 66 fresh phases and
+797 numeric checks. Its [portable lock](../../../../re/solidworks/v2026/heldout/CurveSourceLock.json)
+binds all 32 native source hashes before fresh curve-writer implementation.
+Six held-out native payloads remain sealed for future independent output checks.
+This source-family completion does not establish a Kit-written curve.

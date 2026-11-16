@@ -21,3 +21,9 @@ No CAD application was accessed, and no local tests ran.
 
 The documentation received source and link inspection.
 Rendered review, reader task evaluation and complete standards-conformance evidence remain unavailable.
+
+Direct 2026 RTTI subsequently corrected the retained handle's concrete label to
+`moSkDimHandleRadial_c`, derived from ValG1. The actual virtual targets and prefix
+rules remain unchanged. The [RTTI gotcha](../../../Gotchas/Conversion/Solidworks/Model/DerivedHandleVtablesNeedRtti.md)
+records the locator hash and hierarchy; the existing shared codec already has the
+correct parent link.
