@@ -102,6 +102,15 @@ and 32 sibling hashes were verified. Fourteen discovery/control inputs were [pri
 for independent reader comparison in remote CI, which remains pending. All ten held-out native payloads across both
 source families remain sealed; this adds zero generated outputs, held-out writer results or FCStd conversions.
 
+Three [new generated end-condition bosses](measurements/2026/EndBossInspection01.json) now pass reversed blind, mid-plane and
+two-direction native body/edit checks. An unchanged prior circle baseline is included separately and adds zero new outputs.
+All twelve candidate phases and 432 original numeric checks pass between healthy controls, including initial bodies,
+independent radial/first-depth/second-depth edits, save and edited fresh reopen. Maximum nonzero relative error is
+`6.917216933756428e-16`; zero targets are exact and two decimal rounding-boundary disagreements remain explicit.
+Their [generation receipt](measurements/2026/EndBossProcesses4b51.json) records 24 complete archive comparisons and
+23 byte-identical prior tagged neutral outputs. No full presentation, held-out family result or completed FCStd conversion
+is counted, and all ten held-out native payloads remain sealed.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11
