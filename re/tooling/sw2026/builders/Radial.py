@@ -153,7 +153,6 @@ def circle_dimension(*, graph, mode, text_point_m, allocator, design_intent, sel
     display = radial_display(profile=graph.profile, handle=handle, parameter=parameter, mode=mode, text_point_m=text_point_m, design_intent=design_intent, selected_leader=selected_leader)
     displays = sketch["dims"]["f118"]
     displays["items"].append({"o": display})
-    displays["n"] = len(displays["items"])
     sketch["_radial_dimensions"] = (dimension,)
     sketch["_value_nodes"] = values
     return DimensionGraph(parameter=parameter, dimension=dimension, handle=handle, display=display)
