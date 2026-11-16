@@ -1,0 +1,152 @@
+{
+  "schema": "kit.sw2026.hopper-mcp-session.v1",
+  "recorded_at_utc": "2026-11-16T21:48:14.666310+00:00",
+  "source_revision": "fb1958157ded70256a61abfca5f77148c40eb278",
+  "client_tool_sha256": "8bf9965b51f9b81344c9d9c690e0e33fa501d2203c77fc3b17bc7a42fca50538",
+  "mcp_protocol": "2025-06-18",
+  "mcp_server_name": "rea",
+  "mcp_server_version": "6.7.0",
+  "tool_inventory_count": 207,
+  "tool_inventory_digest": "af39310c9591bb981893ec0d2188b1bcf6e9cc8ba3ac513d5bbefc8ddcb85639",
+  "temporary_child_startup_timeout_ms": 900000,
+  "client_configuration_files_changed": false,
+  "software_installed_or_upgraded": false,
+  "cad_license_processes_touched": false,
+  "target": {
+    "format": "pe",
+    "kind": "executable",
+    "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+    "architecture": "x86_64"
+  },
+  "provider": {
+    "id": "hopper",
+    "name": "Hopper Disassembler",
+    "version": "launcher-sha256:e5f26f09bbae82efb7a7cf5a3d41f583b81b4521d373397975d183162dd0d265"
+  },
+  "analysis_profile": {
+    "provider": {
+      "id": "hopper",
+      "name": "Hopper Disassembler",
+      "version": "launcher-sha256:e5f26f09bbae82efb7a7cf5a3d41f583b81b4521d373397975d183162dd0d265"
+    },
+    "parameters": {
+      "target_kind": "executable",
+      "target_format": "pe",
+      "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+      "architecture": "x86_64",
+      "available_architectures": [
+        "x86_64"
+      ],
+      "loader": {
+        "source": "derived",
+        "arguments": [
+          "-l",
+          "WinPE",
+          "--intel-64"
+        ]
+      }
+    },
+    "digest": "9ce775b4525fcf296dc01a1cc87467100cc4b629acb5d0c74b33ab8f03e482db"
+  },
+  "observations": [
+    {
+      "operation": "procedure_callers",
+      "evidence_id": "ev_ef6366407a68ed476285770ef4e493517a2414d6b6cf238548a2508b591419b9",
+      "procedure": "0x497d68b0",
+      "callers": [
+        "0x493b4790",
+        "0x49797990",
+        "0x4979bc00"
+      ],
+      "relationship_coverage": {
+        "status": "complete"
+      },
+      "limitations": [
+        "Results depend on Hopper's completed static analysis."
+      ]
+    }
+  ],
+  "external_artifacts": [
+    {
+      "name": "Session.json",
+      "bytes": 382,
+      "sha256": "5c623bcffbdf2930bf63b661274a94b2cd52ff30a01fc80356d2006b770a5b62"
+    },
+    {
+      "name": "Reply00001.json",
+      "bytes": 1301,
+      "sha256": "7d0a0be895d385ddfe4fb0cbc394d6d4249820e9a22bd139287834ea35e8aebc"
+    },
+    {
+      "name": "Reply00002.json",
+      "bytes": 9626076,
+      "sha256": "66a54606f143b01b01d66f7e898189b187dfe25dcca7be69babcdd2943a86be2"
+    },
+    {
+      "name": "Reply00003.json",
+      "bytes": 159844,
+      "sha256": "d0b6d52d2c8dfefa68b8c77bf7e13b258ca690b79b8bc3c20f53d73b168ba7a6"
+    },
+    {
+      "name": "Reply00004.json",
+      "bytes": 821,
+      "sha256": "78d4bc18d1865aab51837e2958235f4a4358341c496deca6860bcf0643c5037b"
+    },
+    {
+      "name": "Reply00005.json",
+      "bytes": 3837,
+      "sha256": "7e751b9600856523dc8767123c5b3a20fb82b009b9aa81483a554c38f47a8ecf"
+    },
+    {
+      "name": "Reply00006.json",
+      "bytes": 520,
+      "sha256": "8163a9f079d68bc1d00c2cd03070806059087d295423894a2483fe2b7332c517"
+    },
+    {
+      "name": "UiReadyEvidence01.json",
+      "bytes": 1763,
+      "sha256": "93fdf0a08b3df90ffd1bb31a9b45201f061711e716009efb49ae691c81421b56"
+    },
+    {
+      "name": "Reply00008.json",
+      "bytes": 512,
+      "sha256": "7fb31e52206b089be3270777c940c54424a8dbc4a691ec276bc27872b4e52f8b"
+    },
+    {
+      "name": "Reply00009.json",
+      "bytes": 1702,
+      "sha256": "2095b1d4d3112d25300a0734c0840bf8fbd497f4402bc6be5366de22576cde30"
+    },
+    {
+      "name": "FinalEvidence.json",
+      "bytes": 1763,
+      "sha256": "93fdf0a08b3df90ffd1bb31a9b45201f061711e716009efb49ae691c81421b56"
+    },
+    {
+      "name": "Cleanup.json",
+      "bytes": 1627,
+      "sha256": "1fb4f081551f8e14a50bbb0fda6b4ce50eab3b54ab2bf9ab466283c1b3c7b008"
+    }
+  ],
+  "native_function_pseudocode_redistributed": false,
+  "assembly_redistributed": false,
+  "runtime_loader_path_verified_by_this_static_observation": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "ended_state": {
+    "native_dossier_result_received": false,
+    "request_deadline_seconds": 1080,
+    "cleanup_confirmed": false,
+    "error_code": "cleanup_incomplete",
+    "active_request": {
+      "request_id": 3,
+      "operation": "analyze_function",
+      "elapsed_ms": 1080133,
+      "caller_state": "cancelled",
+      "queued_requests": 0
+    },
+    "reason": "bridge operation analyze_function remained active after caller cancelled",
+    "licensed_application_killed": false,
+    "global_licensing_touched": false
+  }
+}

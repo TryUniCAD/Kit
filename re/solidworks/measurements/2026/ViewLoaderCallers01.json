@@ -1,0 +1,131 @@
+{
+  "schema": "kit.sw2026.view-loader-callers.v1",
+  "module_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+  "runtime_function_count": 73384,
+  "entry_only_bounds_superseded": "ViewCallerBounds01.json",
+  "method": "Full exception table and reverse chained-unwind ownership; every declared child fragment is included; no claim that unrelated tail callees belong to the body",
+  "functions": [
+    {
+      "entry": "0x493b4790",
+      "ranges": [
+        {
+          "start": "0x493b4790",
+          "end_exclusive": "0x493b4fdb",
+          "bytes": 2123,
+          "sha256": "bd175dde49fd73dc9b788660b70a4eee9506d4554ac7a978e24142ab1e9c597b"
+        }
+      ],
+      "declared_ownership_bytes": 2123,
+      "declared_ownership_sha256": "bd175dde49fd73dc9b788660b70a4eee9506d4554ac7a978e24142ab1e9c597b",
+      "contiguous": true,
+      "listing_sha256": "fd9d0f01dbe0b8658aa919cf0cea4312beacd6560cd3f508d09595b478f38f2a"
+    },
+    {
+      "entry": "0x49797990",
+      "ranges": [
+        {
+          "start": "0x49797990",
+          "end_exclusive": "0x497979b6",
+          "bytes": 38,
+          "sha256": "f3517f594207340c8cba4d7daf7a468be7dfa2d1caf7edab5feaaaf8f7530036"
+        },
+        {
+          "start": "0x497979b6",
+          "end_exclusive": "0x49797b08",
+          "bytes": 338,
+          "sha256": "e00266d2abacfdbd6097ddc1307f2912a05647453fe7e7636a0315206914ae37"
+        },
+        {
+          "start": "0x49797b08",
+          "end_exclusive": "0x49797b11",
+          "bytes": 9,
+          "sha256": "5d1bb485e7e7418b787753331833b43a3a096c691a0bc52797284a44c116bbb6"
+        }
+      ],
+      "declared_ownership_bytes": 385,
+      "declared_ownership_sha256": "e05a4eab94e48f0ab5b58c1039cefa4075b3fc0fa4e35d082a2cdc3ab7af53db",
+      "contiguous": true,
+      "listing_sha256": "883cad27991e67eae60cb3ca734535a3f533749b8980f7a2ca29e54145138e09"
+    },
+    {
+      "entry": "0x4979bc00",
+      "ranges": [
+        {
+          "start": "0x4979bc00",
+          "end_exclusive": "0x4979c315",
+          "bytes": 1813,
+          "sha256": "9603a633afaee5b393ace13933ad7169d9bf781a6860e3b7b5bade549b928412"
+        }
+      ],
+      "declared_ownership_bytes": 1813,
+      "declared_ownership_sha256": "9603a633afaee5b393ace13933ad7169d9bf781a6860e3b7b5bade549b928412",
+      "contiguous": true,
+      "listing_sha256": "97b0f1d84c59c4b38c729e392386df587033c4790d94c0f72cc2528109a31a9c"
+    }
+  ],
+  "rea_evidence_id": "ev_ef6366407a68ed476285770ef4e493517a2414d6b6cf238548a2508b591419b9",
+  "rea_provider": "hopper",
+  "native_target_executed": false,
+  "vendor_listings_redistributed": false,
+  "inspection_method": "REA MCP caller discovery followed by independently bounded original PE instructions and imports; composed decompilation returned no result",
+  "default_getters": [
+    {
+      "entry": "0x497871a0",
+      "bytes": 8,
+      "sha256": "920291e145b4de5d1d5649a719f622e739b700527c1142a5979403a72b1a23e6",
+      "receiver_pointer_offset": "0xaf0",
+      "returns_pointer": true
+    },
+    {
+      "entry": "0x49787270",
+      "bytes": 8,
+      "sha256": "5f97072a435f56a63ce9394e819a479062d70967dc65cbe31e6ec3424ceee834",
+      "receiver_pointer_offset": "0xae8",
+      "returns_pointer": true
+    }
+  ],
+  "guard_imports": [
+    {
+      "iat": "0x4a464248",
+      "module": "sldappu.dll",
+      "symbol": "?isOpenedViewOnly@baseDocState_c@@QEBAHXZ"
+    },
+    {
+      "iat": "0x4a4653e0",
+      "module": "sldappu.dll",
+      "symbol": "?GetDocument@uiBaseView_c@@QEBAPEAVuiModelDoc_c@@XZ"
+    },
+    {
+      "iat": "0x4a471648",
+      "module": "sldmgu.dll",
+      "symbol": "amDynamicArrayCount"
+    }
+  ],
+  "known_roles": {
+    "0x493b4790": "uiModelView_c::OnInitialUpdate",
+    "0x49797990": "uiModelDoc_c::iGetViewArray",
+    "0x4979bc00": "uiModelDoc_c::iSaveHiddenDocPreview"
+  },
+  "observed_branches": {
+    "normal_editable_view_without_user_environment": {
+      "routine": "0x493b4790",
+      "reset_identity_call": "0x493b4971",
+      "model_getter_call": "0x493b4983",
+      "model_setter_dispatch": "0x493b4994",
+      "model_setter_vtable_offset": "0x630",
+      "pan_zoom_getter_call": "0x493b4999",
+      "pan_zoom_setter_call": "0x493b49a4",
+      "drawing_and_view_only_paths_separate": true,
+      "optional_tree_shift_after_assignment": true
+    },
+    "iGetViewArray_null_environment": {
+      "routine": "0x49797990",
+      "null_environment_test": "0x497979aa",
+      "returns_without_splitter_restoration": true
+    }
+  },
+  "runtime_branch_instrumented": false,
+  "relation_to_native_camera_measurements": "Static restoration from the same document pair supports the independently observed initial poses without saved user rows; this does not claim a runtime call-site trace",
+  "native_acceptance": false,
+  "heldout_acceptance": false
+}

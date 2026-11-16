@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import os
 import queue
 import subprocess
@@ -19,11 +20,20 @@ def write_json(path, value):
     temporary.replace(path)
 
 
+class RequestCancelled(Exception):
+    def __init__(self, identity):
+        self.identity = identity
+        super().__init__(f"research client cancelled request {identity}")
+
+
 class Connection:
     def __init__(self, launcher, state, startup_ms, revision):
         self.state = state
         self.sequence = 0
         self.messages = queue.Queue()
+        self.write_lock = threading.Lock()
+        self.pending_lock = threading.Lock()
+        self.pending = None
         self.environment = os.environ.copy()
         self.environment["REA_HOPPER_STARTUP_TIMEOUT_MS"] = str(startup_ms)
         self.stderr = (state / "ServerStderr.log").open("w", encoding="utf-8")
@@ -45,14 +55,26 @@ class Connection:
             self.messages.put(None)
 
     def send(self, value):
-        self.process.stdin.write(json.dumps(value, separators=(",", ":"), allow_nan=False) + "\n")
-        self.process.stdin.flush()
+        with self.write_lock:
+            self.process.stdin.write(json.dumps(value, separators=(",", ":"), allow_nan=False) + "\n")
+            self.process.stdin.flush()
+
+    def cancel_current(self, reason):
+        with self.pending_lock:
+            identity = self.pending
+            if identity is None:
+                return
+            self.send({"jsonrpc": "2.0", "method": "notifications/cancelled", "params": {"requestId": identity, "reason": reason}})
+            write_json(self.state / (f"Cancellation{identity:05d}.json"), {"request_id": identity, "reason": reason, "source": "local research client", "native_result_received": False, "cancelled_at_utc": datetime.now(timezone.utc).isoformat()})
+            self.messages.put(RequestCancelled(identity))
 
     def request(self, method, parameters, timeout):
         self.sequence += 1
         identity = self.sequence
         started = time.monotonic()
-        self.send({"jsonrpc": "2.0", "id": identity, "method": method, "params": parameters})
+        with self.pending_lock:
+            self.send({"jsonrpc": "2.0", "id": identity, "method": method, "params": parameters})
+            self.pending = identity
         write_json(self.state / "Progress.json", {"request_id": identity, "method": method, "parameters": parameters, "started_at_utc": datetime.now(timezone.utc).isoformat(), "completed": False})
         try:
             while True:
@@ -62,6 +84,10 @@ class Connection:
                 response = self.messages.get(timeout=remaining)
                 if response is None:
                     raise EOFError("REA server closed its output")
+                if isinstance(response, RequestCancelled):
+                    if response.identity == identity:
+                        raise response
+                    continue
                 if isinstance(response, BaseException):
                     raise response
                 if response.get("id") == identity and "method" not in response:
@@ -84,6 +110,10 @@ class Connection:
         except queue.Empty as error:
             self.send({"jsonrpc": "2.0", "method": "notifications/cancelled", "params": {"requestId": identity, "reason": "research request absolute deadline exceeded"}})
             raise TimeoutError(f"REA request {identity} exceeded {timeout} seconds") from error
+        finally:
+            with self.pending_lock:
+                if self.pending == identity:
+                    self.pending = None
 
     def call(self, name, arguments, timeout):
         return self.request("tools/call", {"name": name, "arguments": arguments}, timeout)
@@ -137,15 +167,47 @@ def main():
         names = {item["name"] for item in inventory}
         write_json(args.state / "Tools.json", inventory)
         print(json.dumps({"ready": True, "server": initialize["serverInfo"], "tool_count": len(inventory)}), flush=True)
-        for line in sys.stdin:
-            request = json.loads(line)
+        commands = queue.Queue()
+        stopping = threading.Event()
+
+        def read_commands():
+            try:
+                for line in sys.stdin:
+                    command = json.loads(line)
+                    if command.get("cancel") is True:
+                        connection.cancel_current(str(command.get("reason", "operator cancellation")))
+                    else:
+                        if command.get("stop") is True:
+                            stopping.set()
+                            connection.cancel_current("operator requested session stop")
+                            commands.put(command)
+                            break
+                        commands.put(command)
+            except BaseException as error:
+                commands.put(error)
+            finally:
+                commands.put(None)
+
+        threading.Thread(target=read_commands, daemon=True).start()
+        while True:
+            request = commands.get()
+            if request is None or stopping.is_set():
+                break
+            if isinstance(request, BaseException):
+                raise request
             if request.get("stop") is True:
                 break
             name = request["name"]
             arguments = request.get("arguments", {})
             if name not in allowed or name not in names or not isinstance(arguments, dict):
                 raise ValueError("request must name an advertised permitted native analysis tool")
-            connection.call(name, arguments, timeout)
+            request_timeout = request.get("timeout_seconds", timeout)
+            if type(request_timeout) not in (int, float) or not math.isfinite(request_timeout) or not 0 < request_timeout <= timeout:
+                raise ValueError("request deadline must be finite positive seconds within the session limit")
+            try:
+                connection.call(name, arguments, request_timeout)
+            except (RequestCancelled, TimeoutError) as error:
+                print(json.dumps({"native_result_received": False, "request_error": str(error)}), flush=True)
     finally:
         try:
             if initialized:
