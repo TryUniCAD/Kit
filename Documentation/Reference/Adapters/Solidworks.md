@@ -215,6 +215,10 @@ The [MFC runtime-view probe](../../Changes/Solidworks/Model/SolidworksMfcRuntime
 can inspect effective exports in its own x64 analysis process without invoking
 archive methods. Raw file discovery and mapped export identity remain separate
 from proving a count implementation or accepting a CAD output.
+Its [process-architecture admission](../../Changes/Solidworks/Model/SolidworksMfcProcessArchitectureAdmission.md)
+requires the actual process-machine query and matching raw/mapped executable
+identities after the original WOW64-based guard rejected the first probe before
+MFC loading. That failure supplies no count or native CAD acceptance.
 The [local curve and radial construction rules](../../Changes/Solidworks/SolidworksCurveReferenceConstruction.md)
 bound both native reference scans and distinguish circle-marker updates from
 ordinary polygon points. These static rules do not establish curve acceptance.

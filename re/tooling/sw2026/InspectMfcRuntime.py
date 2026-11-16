@@ -22,6 +22,7 @@ MFC_VERSION = (14, 50, 35719, 0)
 INVENTORY_SHA256 = "67d0e37be1e2cabdf2e233c66d2654b3caa2dc1692ef285df76190b6eb0b0a87"
 HELPER_SHA256 = "195a0d90fe26169b31e87234910af29b2b1f5289b58d29a2e91cafca62602960"
 ORDINALS = (12087, 14278)
+PROCESS_MACHINE_TYPE_INFO = 9
 MAX_BLOCK = 2 * 1024 * 1024
 MAX_CAPTURE = 4 * 1024 * 1024
 
@@ -34,11 +35,20 @@ class ModuleInfo(ctypes.Structure):
     ]
 
 
+class ProcessMachineInfo(ctypes.Structure):
+    _fields_ = [
+        ("machine", wt.USHORT),
+        ("reserved", wt.USHORT),
+        ("attributes", wt.DWORD),
+    ]
+
+
 def kernel_api():
     kernel = ctypes.WinDLL("kernel32.dll", use_last_error=True, winmode=0x800)
     signatures = [
         ("GetCurrentProcess", [], wt.HANDLE),
         ("IsWow64Process2", [wt.HANDLE, ctypes.POINTER(wt.USHORT), ctypes.POINTER(wt.USHORT)], wt.BOOL),
+        ("GetProcessInformation", [wt.HANDLE, ctypes.c_int, ctypes.c_void_p, wt.DWORD], wt.BOOL),
         ("GetSystemDirectoryW", [wt.LPWSTR, wt.UINT], wt.UINT),
         ("GetModuleHandleW", [wt.LPCWSTR], wt.HMODULE),
         ("LoadLibraryExW", [wt.LPCWSTR, wt.HANDLE, wt.DWORD], wt.HMODULE),
@@ -91,6 +101,29 @@ class MappedPe(files.PeFile):
             raise ValueError("unsupported mapped directory framing")
         count = struct.unpack("<I", self.read(pe + 24 + 108, 4))[0]
         return (0, 0) if count <= index else struct.unpack("<II", self.read(pe + 24 + 112 + 8 * index, 8))
+
+
+def inspect_owned_executable(kernel, process, executable):
+    module = kernel.GetModuleHandleW(None)
+    if not module:
+        raise ctypes.WinError(ctypes.get_last_error())
+    buffer = ctypes.create_unicode_buffer(32768)
+    length = kernel.GetModuleFileNameW(module, buffer, len(buffer))
+    if not length or length >= len(buffer) or not Path(buffer.value).samefile(executable):
+        raise RuntimeError("mapped own executable does not match the inspected Python file")
+    information = ModuleInfo()
+    if not kernel.K32GetModuleInformation(process, module, ctypes.byref(information), ctypes.sizeof(information)):
+        raise ctypes.WinError(ctypes.get_last_error())
+    if information.base != module or not information.image_size:
+        raise RuntimeError("mapped own-executable bounds are ambiguous")
+    image = MappedPe(kernel, process, information.base, information.image_size)
+    if image.magic != 0x20B or not 0 < image.header_size <= 65536:
+        raise RuntimeError("mapped own executable has unsupported header framing")
+    pe = struct.unpack("<I", image.read(0x3C, 4))[0]
+    declared_size = struct.unpack("<I", image.read(pe + 24 + 56, 4))[0]
+    if declared_size != image.size:
+        raise RuntimeError("own-executable header and OS module bounds disagree")
+    return {"path": buffer.value, "base": hex(image.base), "image_size": image.size, "declared_image_size": declared_size, "machine": image.machine, "machine_hex": hex(image.machine), "optional_header_magic": hex(image.magic), "header_bytes": image.header_size, "header_sha256": hashlib.sha256(image.read(0, image.header_size)).hexdigest(), "module_reference_acquired": False}
 
 
 def checkpoint(output, report, stage):
@@ -149,9 +182,21 @@ def run(args, output, report):
     if not kernel.IsWow64Process2(process, ctypes.byref(process_machine), ctypes.byref(native_machine)):
         raise ctypes.WinError(ctypes.get_last_error())
     report["process_architecture"] = {"process_machine": hex(process_machine.value), "native_machine": hex(native_machine.value), "pointer_bytes": ctypes.sizeof(ctypes.c_void_p)}
+    checkpoint(output, report, "query_actual_process_machine")
+    machine_information = ProcessMachineInfo()
+    if ctypes.sizeof(machine_information) != 8:
+        raise RuntimeError("unexpected PROCESS_MACHINE_INFORMATION layout")
+    if not kernel.GetProcessInformation(process, PROCESS_MACHINE_TYPE_INFO, ctypes.byref(machine_information), ctypes.sizeof(machine_information)):
+        raise ctypes.WinError(ctypes.get_last_error())
+    report["process_architecture"]["machine_type_information"] = {"information_class": PROCESS_MACHINE_TYPE_INFO, "structure_bytes": ctypes.sizeof(machine_information), "process_machine": hex(machine_information.machine), "machine_attributes": hex(machine_information.attributes)}
     report["python_file"] = files.inspect_file(Path(sys.executable), include_exports=False)
-    if process_machine.value != 0x8664 or native_machine.value != 0xAA64 or report["python_file"].get("pe", {}).get("machine") != 0x8664:
-        raise RuntimeError("the owned process is not the selected emulated x64 process on ARM64")
+    checkpoint(output, report, "inspect_mapped_own_executable")
+    report["python_mapped_image"] = inspect_owned_executable(kernel, process, Path(sys.executable))
+    if machine_information.machine != 0x8664 or report["python_file"].get("pe", {}).get("machine") != 0x8664 or report["python_mapped_image"]["machine"] != 0x8664:
+        raise RuntimeError("actual process, raw executable and mapped executable do not agree on AMD64")
+    if native_machine.value != 0xAA64 or process_machine.value not in (0, 0x8664):
+        raise RuntimeError("WOW64/native architecture observations conflict with the selected process")
+    report["process_architecture_verified"] = True
     buffer = ctypes.create_unicode_buffer(32768)
     length = kernel.GetSystemDirectoryW(buffer, len(buffer))
     if not length or length >= len(buffer):
@@ -260,7 +305,7 @@ def main():
     if files.inside_checkout(output):
         parser.error("private mapped ranges must remain outside repository checkouts")
     output.mkdir(parents=False, exist_ok=False)
-    report = {"schema": "kit.sw2026.mfc-runtime-view.v1", "state": "running", "started_at": files.utc_now(), "source_revision": args.source_revision, "tool_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "argv": sys.argv, "python": sys.version, "python_executable": sys.executable, "process_id": os.getpid(), "mapped_abi_view_verified": False, "instruction_set_proven": False, "native_implementation_bound": False, "acceptance": False, "archive_methods_invoked": False, "private_ranges": [], "mapped_directories": {}, "resolved_ordinals": []}
+    report = {"schema": "kit.sw2026.mfc-runtime-view.v1", "state": "running", "started_at": files.utc_now(), "source_revision": args.source_revision, "tool_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "argv": sys.argv, "python": sys.version, "python_executable": sys.executable, "process_id": os.getpid(), "process_architecture_verified": False, "mapped_abi_view_verified": False, "instruction_set_proven": False, "native_implementation_bound": False, "acceptance": False, "archive_methods_invoked": False, "private_ranges": [], "mapped_directories": {}, "resolved_ordinals": []}
     checkpoint(output, report, "preflight")
     status = 1
     try:
