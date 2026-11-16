@@ -75,7 +75,7 @@ def TestPLHOSD() -> None:
             if isinstance(NodeInfo, AstInfo.Constant) and NodeInfo.value in Occurrences:
                 Occurrences[NodeInfo.value].append(RelativePath.as_posix())
     assert Occurrences == {
-        ItemValue: ["container/Format.py"] for ItemValue in ValueList
+        ItemValue: ["Container/Format.py"] for ItemValue in ValueList
     }
 
 
