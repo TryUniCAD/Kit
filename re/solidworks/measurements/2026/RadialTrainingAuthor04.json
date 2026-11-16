@@ -1,0 +1,2597 @@
+{
+  "schema": "kit.sw2026.radial-training-receipt.v1",
+  "scope": "vendor-authored controlled training only",
+  "phase": "author",
+  "source_revision": "3efbca9693e7c2935dff1c500141bac71f1e3f56",
+  "frozen_source_manifest": {
+    "schema": "kit-sw2026-frozen-oracle-source/1",
+    "guest_probe_executed": false,
+    "vendor_software_copied": false,
+    "heldout_native_payloads_read": false,
+    "acceptance": false,
+    "source_revision": "3efbca9693e7c2935dff1c500141bac71f1e3f56",
+    "source_tree": "8cce7928b18fbcdbd4313a86f9d11de4e0cb6f64",
+    "frozen_at_utc": "2026-11-16T06:56:34.457131+00:00",
+    "files": [
+      {
+        "path": "re/tooling/tupni/Observe.py",
+        "bytes": 16114,
+        "sha256": "8274cba79359c17244d6a9be251dc563402e98a9b4305b965ab15c4dc4306744"
+      },
+      {
+        "path": "re/tooling/tupni/Solidworks2026.js",
+        "bytes": 51476,
+        "sha256": "d8bb6af99d8ed7d876a24d3f7a429da13087774ae851be05db701c722f501408"
+      },
+      {
+        "path": "re/tooling/tupni/RadialTrainingModules.json",
+        "bytes": 683,
+        "sha256": "99190c0e0f8c7cfaf4d43d4a248f22af24a1549bd0f32aaebc8a514ab84c0dc7"
+      },
+      {
+        "path": "re/tooling/tupni/RadialTraining.json",
+        "bytes": 1234,
+        "sha256": "4c9827d10c27766f3dc9dfe05c9de16f757949def4ce7d8b1bd82e2f39e43f01"
+      },
+      {
+        "path": "re/tooling/tupni/AnnulusTraining.json",
+        "bytes": 831,
+        "sha256": "060fc61251afee7c172f731fb7c6501220f6671d0a5a9e69fb3db940028a9383"
+      },
+      {
+        "path": "re/tooling/tupni/PrepareSolidworks.py",
+        "bytes": 1837,
+        "sha256": "17ffe44c90853f39a91139517acc0c829a4c5f60f349b50bffb9a49e22b10f0b"
+      },
+      {
+        "path": "re/tooling/tupni/AuthorRadialTraining.py",
+        "bytes": 12605,
+        "sha256": "6e9fd00f38fec5996c352d21d83cd04626c5048b9132eaf35f7b9e6181ea94ee"
+      },
+      {
+        "path": "re/tooling/tupni/ExerciseSolidworks.py",
+        "bytes": 1216,
+        "sha256": "3a49580204e57062f533b864371063b99d586b88d59dfa7efa1a35ed311e1093"
+      },
+      {
+        "path": "re/tooling/sw2026/AuthorCurves.py",
+        "bytes": 65987,
+        "sha256": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31"
+      },
+      {
+        "path": "re/tooling/sw2026/Swapp.py",
+        "bytes": 15278,
+        "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+      },
+      {
+        "path": "re/tooling/sw2026/OracleIdentity.py",
+        "bytes": 4284,
+        "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+      },
+      {
+        "path": "re/tooling/sw2026/InspectFresh.py",
+        "bytes": 4187,
+        "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793"
+      },
+      {
+        "path": "re/tooling/sw2026/CurveSpecs.json",
+        "bytes": 17275,
+        "sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0"
+      },
+      {
+        "path": "re/solidworks/records/RadialTrainingHooks2026.json",
+        "bytes": 32159,
+        "sha256": "97b79f2b082dd70840d56299aaea334b29d3187e67b554579f36efa0bb9e9136"
+      }
+    ]
+  },
+  "manifest_file": {
+    "file": "RadialTrainingTools05/SourceManifest.json",
+    "bytes": 2779,
+    "sha256": "710d97d0c207897b18988ebd8245d0f823f7fbe0797018a4678327dcb5e21c63"
+  },
+  "raw_training": {
+    "file": "RadialTrainingAuthor04/Training.json",
+    "bytes": 17299,
+    "sha256": "11e2eaa13eed37ab569591c863d4bccd59c2b631bd139fd82338af3751310b6e"
+  },
+  "raw_observer": {
+    "file": "RadialTrainingTools05/AuthorObservation04.json",
+    "bytes": 9858765,
+    "sha256": "88fc7cb13c55ceec8a0835a977fe80d873f48a515019a7e9762c3c7e6acd0465"
+  },
+  "raw_host": {
+    "file": "RadialTrainingAuthor04.Host.json",
+    "bytes": 27320,
+    "sha256": "c8d775e7b0f885dc417800487c70fa342cc28702c461a6ae10ab423d0cea7278"
+  },
+  "oracle_identity": {
+    "process_id": 2736,
+    "process_creation_filetime": 134392858126240611,
+    "executable": "SLDWORKS.exe",
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "expected_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "version_matches": true,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "bytes": 718936,
+    "pe_machine": "0x8664"
+  },
+  "controls_share_instrumented_process": true,
+  "controls": {
+    "control_before": {
+      "kind": "instrumented-native-document",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+      "revision": "34.5.2",
+      "stages": [
+        {
+          "stage": "open_start",
+          "time": 1794812225.1891136
+        },
+        {
+          "stage": "open_return",
+          "time": 1794812232.752391
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794812232.7696497
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794812233.649795
+        },
+        {
+          "stage": "status_start",
+          "time": 1794812233.6706455
+        },
+        {
+          "stage": "status_return",
+          "time": 1794812233.7533395
+        },
+        {
+          "stage": "bodies_start",
+          "time": 1794812233.7533395
+        },
+        {
+          "stage": "bodies_return",
+          "time": 1794812233.8662746
+        },
+        {
+          "stage": "mass_start",
+          "time": 1794812233.8662746
+        },
+        {
+          "stage": "mass_return",
+          "time": 1794812234.016797
+        },
+        {
+          "stage": "features_start",
+          "time": 1794812234.016797
+        },
+        {
+          "stage": "features_return",
+          "time": 1794812235.0199492
+        },
+        {
+          "stage": "close_start",
+          "time": 1794812235.0199492
+        },
+        {
+          "stage": "close_return",
+          "time": 1794812235.1831
+        }
+      ],
+      "session_diagnostics": [],
+      "stage": "close_return",
+      "seconds": 10.0,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ]
+    },
+    "control_after": {
+      "kind": "instrumented-native-document",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+      "revision": "34.5.2",
+      "stages": [
+        {
+          "stage": "open_start",
+          "time": 1794812254.4677818
+        },
+        {
+          "stage": "open_return",
+          "time": 1794812256.5623136
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794812256.5623136
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794812256.7845488
+        },
+        {
+          "stage": "status_start",
+          "time": 1794812256.7862942
+        },
+        {
+          "stage": "status_return",
+          "time": 1794812256.795985
+        },
+        {
+          "stage": "bodies_start",
+          "time": 1794812256.795985
+        },
+        {
+          "stage": "bodies_return",
+          "time": 1794812256.9264152
+        },
+        {
+          "stage": "mass_start",
+          "time": 1794812256.9264152
+        },
+        {
+          "stage": "mass_return",
+          "time": 1794812256.983622
+        },
+        {
+          "stage": "features_start",
+          "time": 1794812256.983622
+        },
+        {
+          "stage": "features_return",
+          "time": 1794812257.9594054
+        },
+        {
+          "stage": "close_start",
+          "time": 1794812257.9594054
+        },
+        {
+          "stage": "close_return",
+          "time": 1794812258.082093
+        }
+      ],
+      "session_diagnostics": [],
+      "stage": "close_return",
+      "seconds": 3.61,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "cases": [
+    {
+      "case": {
+        "case": {
+          "name": "TrainingD04Radius",
+          "split": "training",
+          "plane": "front",
+          "reverse": false,
+          "depth_mm": 11.731,
+          "dimension_kind": "radial",
+          "expected_bodies": 1,
+          "edit": {
+            "target": "curve-0",
+            "factor": 1.17
+          },
+          "profile": {
+            "kind": "circle",
+            "center_mm": [
+              -3.719,
+              5.173
+            ],
+            "radius_mm": 7.391
+          }
+        },
+        "phase": "author",
+        "passed": true,
+        "native_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RadialTrainingAuthor04\\TrainingD04Radius\\TrainingD04Radius.SLDPRT",
+        "dimensions": [
+          {
+            "role": "curve-0",
+            "name": "D1@CurveSketch",
+            "value": 0.007391,
+            "kind": "radial",
+            "full_name": "D1@CurveSketch@TrainingD04Radius.Part"
+          },
+          {
+            "role": "depth",
+            "name": "D1@CurveBoss",
+            "value": 0.011731,
+            "kind": "linear",
+            "full_name": "D1@CurveBoss@TrainingD04Radius.Part"
+          }
+        ],
+        "requested_relations": [
+          {
+            "binding_schema": 1,
+            "type": 17,
+            "entities": [
+              "entity-0.center"
+            ],
+            "bindings": [
+              {
+                "kind": "point",
+                "id": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "segment": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point": "center"
+              }
+            ],
+            "mode": "native-relation",
+            "returned": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            }
+          }
+        ],
+        "sha256": "031b989304d53d2a87c9b1d13ea7e72985e8b7f0bd7a32ec82b734a89baf0581",
+        "bytes": 68161
+      },
+      "raw_record": {
+        "file": "RadialTrainingAuthor04/TrainingD04Radius/Record.json",
+        "bytes": 110164,
+        "sha256": "dfdd526cd94bb3c4aa8c0eeb15603c6d8fe0bc9ec3b3d5587359571d1f19724f"
+      },
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "numeric_checks": [
+        {
+          "name": "curve-0",
+          "actual": 0.007391,
+          "expected": 0.007391,
+          "passed": true
+        },
+        {
+          "name": "depth dimension",
+          "actual": 0.011731,
+          "expected": 0.011731,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.011731,
+          "expected": 0.011731,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 2.013220351695231e-06,
+          "expected": 2.013220351695231e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0008880069902597766,
+          "expected": 0.0008880069902597765,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.003718999999999999,
+          "expected": -0.0037189999999999996,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.005173,
+          "expected": 0.005173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0058655,
+          "expected": 0.0058655,
+          "passed": true
+        }
+      ],
+      "numeric_count": 8,
+      "all_numeric_match_6_significant_figures": true,
+      "measurements": {
+        "authored": {
+          "geometry": [
+            {
+              "construction": false,
+              "id": [
+                0,
+                1
+              ],
+              "binding": {
+                "kind": "arc",
+                "segment_type": 1,
+                "id": [
+                  0,
+                  1
+                ]
+              },
+              "point_bindings": {
+                "center": {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              },
+              "kind": "circle",
+              "center": [
+                -0.0037189999999999996,
+                0.005173
+              ],
+              "radius": 0.007391
+            }
+          ],
+          "relations": [
+            {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            {
+              "type": 3,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "bindings": null,
+              "returned_entities": 1,
+              "suppressed": false
+            }
+          ],
+          "relation_verification": {
+            "binding_schema": 1,
+            "observed": [
+              {
+                "type": 17,
+                "entities": 1,
+                "entity_ids": [
+                  [
+                    0,
+                    2
+                  ]
+                ],
+                "bindings": [
+                  {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                ],
+                "returned_entities": 1,
+                "suppressed": false
+              },
+              {
+                "type": 3,
+                "entities": 1,
+                "entity_ids": [
+                  [
+                    0,
+                    1
+                  ]
+                ],
+                "bindings": null,
+                "returned_entities": 1,
+                "suppressed": false
+              }
+            ],
+            "requests": [
+              {
+                "request_index": 0,
+                "type": 17,
+                "mode": "native-relation",
+                "requested_bindings": [
+                  {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                ],
+                "resolved_sources": [
+                  {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                ],
+                "matched": true,
+                "sources_match_requested_bindings": true,
+                "matching_relation_indices": [
+                  0
+                ],
+                "matched_relation_index": 0,
+                "reused_exact_point_constraint": false
+              }
+            ],
+            "invalid_filters": [
+              {
+                "selector": 1,
+                "count": 0
+              },
+              {
+                "selector": 2,
+                "count": 0
+              },
+              {
+                "selector": 6,
+                "count": 0
+              }
+            ],
+            "passed": true
+          },
+          "extrusion": {
+            "depth": 0.011731,
+            "end": 0,
+            "both_directions": false,
+            "reverse": false
+          },
+          "bodies": 1,
+          "mass": {
+            "volume": 2.013220351695231e-06,
+            "area": 0.0008880069902597766,
+            "com": [
+              -0.003718999999999999,
+              0.005173,
+              0.0058655
+            ]
+          },
+          "expected_com": [
+            -0.0037189999999999996,
+            0.005173,
+            0.0058655
+          ],
+          "feature_tree": [
+            {
+              "name": "Comments",
+              "type": "CommentsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Favorites",
+              "type": "FavoriteFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "History",
+              "type": "HistoryFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Selection Sets",
+              "type": "SelectionSetFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Sensors",
+              "type": "SensorFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Design Binder",
+              "type": "DocsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Annotations",
+              "type": "DetailCabinet",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes1___EndTag___",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Surface Bodies",
+              "type": "SurfaceBodyFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Solid Bodies",
+              "type": "SolidBodyFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Lights and Cameras",
+              "type": "EnvFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Ambient",
+              "type": "AmbientLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional1",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional2",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional3",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Markups",
+              "type": "InkMarkupFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Equations",
+              "type": "EqnFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Material <not specified>",
+              "type": "MaterialFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Front Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Top Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Right Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Origin",
+              "type": "OriginProfileFeature",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "CurveSketch",
+              "type": "ProfileFeature",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "CurveBoss",
+              "type": "Extrusion",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            }
+          ],
+          "body_boxes": [
+            [
+              -0.01111,
+              -0.0022180000000000004,
+              0.0,
+              0.0036720000000000004,
+              0.012563999999999999,
+              0.011731
+            ]
+          ]
+        }
+      },
+      "writer_output": false,
+      "native_acceptance": false
+    },
+    {
+      "case": {
+        "case": {
+          "name": "TrainingD04Diameter",
+          "split": "training",
+          "plane": "front",
+          "reverse": false,
+          "depth_mm": 11.731,
+          "dimension_kind": "diameter",
+          "expected_bodies": 1,
+          "edit": {
+            "target": "curve-0",
+            "factor": 1.17
+          },
+          "profile": {
+            "kind": "circle",
+            "center_mm": [
+              -3.719,
+              5.173
+            ],
+            "radius_mm": 7.391
+          }
+        },
+        "phase": "author",
+        "passed": true,
+        "native_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\RadialTrainingAuthor04\\TrainingD04Diameter\\TrainingD04Diameter.SLDPRT",
+        "dimensions": [
+          {
+            "role": "curve-0",
+            "name": "D1@CurveSketch",
+            "value": 0.014782,
+            "kind": "diameter",
+            "full_name": "D1@CurveSketch@TrainingD04Diameter.Part"
+          },
+          {
+            "role": "depth",
+            "name": "D1@CurveBoss",
+            "value": 0.011731,
+            "kind": "linear",
+            "full_name": "D1@CurveBoss@TrainingD04Diameter.Part"
+          }
+        ],
+        "requested_relations": [
+          {
+            "binding_schema": 1,
+            "type": 17,
+            "entities": [
+              "entity-0.center"
+            ],
+            "bindings": [
+              {
+                "kind": "point",
+                "id": [
+                  0,
+                  2
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "segment": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point": "center"
+              }
+            ],
+            "mode": "native-relation",
+            "returned": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            }
+          }
+        ],
+        "sha256": "abeab2e127faa3c8ea570573f62a396c6ed295c26cdca81f79ba0346c3db4531",
+        "bytes": 67147
+      },
+      "raw_record": {
+        "file": "RadialTrainingAuthor04/TrainingD04Diameter/Record.json",
+        "bytes": 110239,
+        "sha256": "bdb56651d73f49caee66bf0fc65246b50cebfad3e25fd1cdbd3a816c2e2b7494"
+      },
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "numeric_checks": [
+        {
+          "name": "curve-0",
+          "actual": 0.014782,
+          "expected": 0.014782,
+          "passed": true
+        },
+        {
+          "name": "depth dimension",
+          "actual": 0.011731,
+          "expected": 0.011731,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.011731,
+          "expected": 0.011731,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 2.013220351695231e-06,
+          "expected": 2.013220351695231e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0008880069902597766,
+          "expected": 0.0008880069902597765,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.003718999999999999,
+          "expected": -0.0037189999999999996,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.005173,
+          "expected": 0.005173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0058655,
+          "expected": 0.0058655,
+          "passed": true
+        }
+      ],
+      "numeric_count": 8,
+      "all_numeric_match_6_significant_figures": true,
+      "measurements": {
+        "authored": {
+          "geometry": [
+            {
+              "construction": false,
+              "id": [
+                0,
+                1
+              ],
+              "binding": {
+                "kind": "arc",
+                "segment_type": 1,
+                "id": [
+                  0,
+                  1
+                ]
+              },
+              "point_bindings": {
+                "center": {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              },
+              "kind": "circle",
+              "center": [
+                -0.0037189999999999996,
+                0.005173
+              ],
+              "radius": 0.007391
+            }
+          ],
+          "relations": [
+            {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            {
+              "type": 15,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "bindings": null,
+              "returned_entities": 1,
+              "suppressed": false
+            }
+          ],
+          "relation_verification": {
+            "binding_schema": 1,
+            "observed": [
+              {
+                "type": 17,
+                "entities": 1,
+                "entity_ids": [
+                  [
+                    0,
+                    2
+                  ]
+                ],
+                "bindings": [
+                  {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                ],
+                "returned_entities": 1,
+                "suppressed": false
+              },
+              {
+                "type": 15,
+                "entities": 1,
+                "entity_ids": [
+                  [
+                    0,
+                    1
+                  ]
+                ],
+                "bindings": null,
+                "returned_entities": 1,
+                "suppressed": false
+              }
+            ],
+            "requests": [
+              {
+                "request_index": 0,
+                "type": 17,
+                "mode": "native-relation",
+                "requested_bindings": [
+                  {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                ],
+                "resolved_sources": [
+                  {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                ],
+                "matched": true,
+                "sources_match_requested_bindings": true,
+                "matching_relation_indices": [
+                  0
+                ],
+                "matched_relation_index": 0,
+                "reused_exact_point_constraint": false
+              }
+            ],
+            "invalid_filters": [
+              {
+                "selector": 1,
+                "count": 0
+              },
+              {
+                "selector": 2,
+                "count": 0
+              },
+              {
+                "selector": 6,
+                "count": 0
+              }
+            ],
+            "passed": true
+          },
+          "extrusion": {
+            "depth": 0.011731,
+            "end": 0,
+            "both_directions": false,
+            "reverse": false
+          },
+          "bodies": 1,
+          "mass": {
+            "volume": 2.013220351695231e-06,
+            "area": 0.0008880069902597766,
+            "com": [
+              -0.003718999999999999,
+              0.005173,
+              0.0058655
+            ]
+          },
+          "expected_com": [
+            -0.0037189999999999996,
+            0.005173,
+            0.0058655
+          ],
+          "feature_tree": [
+            {
+              "name": "Comments",
+              "type": "CommentsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Favorites",
+              "type": "FavoriteFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "History",
+              "type": "HistoryFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Selection Sets",
+              "type": "SelectionSetFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Sensors",
+              "type": "SensorFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Design Binder",
+              "type": "DocsFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Annotations",
+              "type": "DetailCabinet",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Notes1___EndTag___",
+              "type": "NotesAreaFtrFolder",
+              "parent": "Annotations",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Surface Bodies",
+              "type": "SurfaceBodyFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Solid Bodies",
+              "type": "SolidBodyFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Lights and Cameras",
+              "type": "EnvFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Ambient",
+              "type": "AmbientLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional1",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional2",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Directional3",
+              "type": "DirectionLight",
+              "parent": "Lights and Cameras",
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Markups",
+              "type": "InkMarkupFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Equations",
+              "type": "EqnFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Material <not specified>",
+              "type": "MaterialFolder",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Front Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Top Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Right Plane",
+              "type": "RefPlane",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "Origin",
+              "type": "OriginProfileFeature",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "CurveSketch",
+              "type": "ProfileFeature",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            },
+            {
+              "name": "CurveBoss",
+              "type": "Extrusion",
+              "parent": null,
+              "error": 0,
+              "warning": false,
+              "suppressed": false
+            }
+          ],
+          "body_boxes": [
+            [
+              -0.01111,
+              -0.0022180000000000004,
+              0.0,
+              0.0036720000000000004,
+              0.012563999999999999,
+              0.011731
+            ]
+          ]
+        }
+      },
+      "writer_output": false,
+      "native_acceptance": false
+    }
+  ],
+  "numeric_checks": 16,
+  "passed": true,
+  "observation_qualified": true,
+  "hook_count": 36,
+  "training_qualification": {
+    "qualified": true,
+    "incomplete_native_states": 0,
+    "reasons": [],
+    "reason_limit": 256,
+    "case_event_counts": {
+      "TrainingD04Radius": {
+        "action-phase": 314,
+        "training-object-tracker-reset": 3,
+        "archive-class-schema": 82,
+        "feature-constructor": 16,
+        "sketch-serialize-enter": 6,
+        "archive-primitive": 851,
+        "archive-count": 4,
+        "sketch-serialize-leave": 6,
+        "model-needs-update": 28,
+        "sketch-whole-update-enter": 5,
+        "sketch-coordinate-commit": 5,
+        "sketch-update": 5,
+        "solver-status-map": 9,
+        "sketch-callback-target-load": 5,
+        "sketch-callback-after-owner-query-boundary": 5,
+        "model-context-target-selection": 4,
+        "sketch-solve-event-enter": 4,
+        "sketch-solve-listener-selection": 4,
+        "sketch-solve-event-leave": 4,
+        "sketch-whole-update-leave": 5,
+        "radial-constructor-enter": 1,
+        "radial-engine-enter": 4,
+        "radial-engine-leave": 4,
+        "radial-constructor-leave": 1,
+        "header-next-update-stamp": 18,
+        "update-session-stamp": 18,
+        "header-next-body-stamp": 4,
+        "radial-serialize-enter": 1,
+        "radial-raw-word-store": 1,
+        "radial-serialize-leave": 1
+      },
+      "TrainingD04Diameter": {
+        "action-phase": 314,
+        "training-object-tracker-reset": 4,
+        "archive-class-schema": 82,
+        "feature-constructor": 16,
+        "sketch-serialize-enter": 6,
+        "archive-primitive": 851,
+        "archive-count": 4,
+        "sketch-serialize-leave": 6,
+        "model-needs-update": 28,
+        "sketch-whole-update-enter": 5,
+        "sketch-coordinate-commit": 5,
+        "sketch-update": 5,
+        "solver-status-map": 9,
+        "sketch-callback-target-load": 5,
+        "sketch-callback-after-owner-query-boundary": 5,
+        "model-context-target-selection": 4,
+        "sketch-solve-event-enter": 4,
+        "sketch-solve-listener-selection": 4,
+        "sketch-solve-event-leave": 4,
+        "sketch-whole-update-leave": 5,
+        "radial-constructor-enter": 1,
+        "radial-engine-enter": 4,
+        "radial-engine-leave": 4,
+        "radial-constructor-leave": 1,
+        "header-next-update-stamp": 18,
+        "update-session-stamp": 18,
+        "header-next-body-stamp": 4,
+        "radial-serialize-enter": 1,
+        "radial-raw-word-store": 1,
+        "radial-serialize-leave": 1
+      }
+    },
+    "field_closure_proven": false,
+    "callback_effects_proven": false,
+    "acceptance": false
+  },
+  "producer_statistics": {
+    "events": 8565,
+    "dropped": 0,
+    "training_hook_errors": 0,
+    "training_objects": 0,
+    "training_solves": 0,
+    "training_events": 0
+  },
+  "messages_dropped": 0,
+  "script_errors": [],
+  "heldout_native_payloads_read": false,
+  "field_closure_proven": false,
+  "callback_effects_proven": false,
+  "generated_writer_output": false,
+  "heldout_acceptance": false,
+  "native_acceptance": false,
+  "limits": [
+    "Both native files were authored by SOLIDWORKS through COM for training, not by Kit",
+    "Training observations corroborate bounded native rules and never become saved defaults",
+    "Native callback effects and complete radial field closure remain unproved",
+    "These results provide no acceptance credit for generated circle or arc output",
+    "The host supervisor retains guest_state_unknown by design; independent post-inventory is recorded separately from transport exit"
+  ],
+  "host_receipt": {
+    "schema": "kit-sw2026-host-oracle-supervision/1",
+    "status": "transport_exited",
+    "started_at": "2026-11-16T06:56:34.570019+00:00",
+    "started_monotonic_ns": 33272416,
+    "host_pid": 6336,
+    "host_platform": "darwin",
+    "python_version": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+    "script": "/Users/odin/Documents/UniCAD/Oracle121Takeover/HostToolsD697/RunOracleBatch.py",
+    "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+    "supervisor_argv": [
+      "/Users/odin/Documents/UniCAD/Oracle121Takeover/HostToolsD697/RunOracleBatch.py",
+      "--vm",
+      "Windows 11",
+      "--progress-root",
+      "/Users/odin/Documents/UniCAD/Oracle121Takeover/RadialTrainingAuthor04",
+      "--report",
+      "/Users/odin/Documents/UniCAD/Oracle121Takeover/RadialTrainingAuthor04.Host.json",
+      "--no-progress-seconds",
+      "360",
+      "--overall-seconds",
+      "2400",
+      "--",
+      "C:\\Users\\odin\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-B",
+      "//Mac/Home/Documents/UniCAD/Oracle121Takeover/RadialTrainingTools05/re/tooling/tupni/Observe.py",
+      "@//Mac/Home/Documents/UniCAD/Oracle121Takeover/RadialTrainingTools05/AuthorArguments.txt"
+    ],
+    "command_argv": [
+      "/usr/local/bin/prlctl",
+      "exec",
+      "Windows 11",
+      "--current-user",
+      "C:\\Users\\odin\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-B",
+      "//Mac/Home/Documents/UniCAD/Oracle121Takeover/RadialTrainingTools05/re/tooling/tupni/Observe.py",
+      "@//Mac/Home/Documents/UniCAD/Oracle121Takeover/RadialTrainingTools05/AuthorArguments.txt"
+    ],
+    "guest_argv": [
+      "C:\\Users\\odin\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-B",
+      "//Mac/Home/Documents/UniCAD/Oracle121Takeover/RadialTrainingTools05/re/tooling/tupni/Observe.py",
+      "@//Mac/Home/Documents/UniCAD/Oracle121Takeover/RadialTrainingTools05/AuthorArguments.txt"
+    ],
+    "vm": "Windows 11",
+    "current_user": true,
+    "progress_root": "/Users/odin/Documents/UniCAD/Oracle121Takeover/RadialTrainingAuthor04",
+    "report_path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/RadialTrainingAuthor04.Host.json",
+    "stdout_path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/RadialTrainingAuthor04.Host.json.stdout.log",
+    "stderr_path": "/Users/odin/Documents/UniCAD/Oracle121Takeover/RadialTrainingAuthor04.Host.json.stderr.log",
+    "limits_seconds": {
+      "no_progress": 360.0,
+      "overall": 2400.0,
+      "terminate_wait": 10.0,
+      "kill_wait": 10.0,
+      "poll": 1.0
+    },
+    "progress": {
+      "records": {
+        "TrainingD04Radius/Record.json": {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "dfdd526cd94bb3c4aa8c0eeb15603c6d8fe0bc9ec3b3d5587359571d1f19724f",
+          "bytes": 110164,
+          "mtime_ns": 1794812245967122924,
+          "observed_monotonic_ns": 51618734500,
+          "observed_at": "2026-11-16T06:57:26.155471+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "close-owned-document",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": 1794812245.1313713,
+            "recorded_passed": true,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 313,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        },
+        "TrainingD04Diameter/Record.json": {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "bdb56651d73f49caee66bf0fc65246b50cebfad3e25fd1cdbd3a816c2e2b7494",
+          "bytes": 110239,
+          "mtime_ns": 1794812255284054896,
+          "observed_monotonic_ns": 61672822416,
+          "observed_at": "2026-11-16T06:57:36.209598+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "close-owned-document",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": 1794812254.4520266,
+            "recorded_passed": true,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 313,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        }
+      },
+      "history": [
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "e725ebb4d14984b6f63d8c64d785499b19b2b376870d45d323e09c98e19b251c",
+          "bytes": 1052,
+          "mtime_ns": 1794812236091222245,
+          "observed_monotonic_ns": 41562122166,
+          "observed_at": "2026-11-16T06:57:16.098823+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "load 2026 type library",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 1,
+            "check_count": 0
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "09e55837928c5e1702d0c6697e716a0685dae0247d44366f1602f457709507d8",
+          "bytes": 1957,
+          "mtime_ns": 1794812236154032521,
+          "observed_monotonic_ns": 42567743458,
+          "observed_at": "2026-11-16T06:57:17.104447+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "NewDocument",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 3,
+            "check_count": 0
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "edbe040f82086a80be8498b5a730af17412c42b8413f25b845febf16f88ede16",
+          "bytes": 3416,
+          "mtime_ns": 1794812237325762096,
+          "observed_monotonic_ns": 43572724375,
+          "observed_at": "2026-11-16T06:57:18.109432+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "InsertSketch",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 7,
+            "check_count": 0
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "9572a6f6da204b9583ff116ade7b941b731d85551477f1d72eac8e93ba47d24f",
+          "bytes": 12473,
+          "mtime_ns": 1794812239035768385,
+          "observed_monotonic_ns": 44578385416,
+          "observed_at": "2026-11-16T06:57:19.115098+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "AddRadialDimension2",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 33,
+            "check_count": 0
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "62a4d49e70db2406afd5ada68400a2346dc88bae8ba033c085f9993a0a61a4ae",
+          "bytes": 20879,
+          "mtime_ns": 1794812240118480836,
+          "observed_monotonic_ns": 45584140708,
+          "observed_at": "2026-11-16T06:57:20.120856+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "GetTypeName2",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 60,
+            "check_count": 1
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "bcf918f6633e5ca4a98309eb02b8c81cb7f45112bd4653228aedb01eabe2b97b",
+          "bytes": 28516,
+          "mtime_ns": 1794812240762396820,
+          "observed_monotonic_ns": 46587014333,
+          "observed_at": "2026-11-16T06:57:21.123735+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "set Name",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 85,
+            "check_count": 1
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "f2681775638e5d5b09c6e660d852594368d83a85e459cdeedf07dd0ae5083f2e",
+          "bytes": 39512,
+          "mtime_ns": 1794812242119234543,
+          "observed_monotonic_ns": 47592106541,
+          "observed_at": "2026-11-16T06:57:22.128830+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "RelationManager",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 113,
+            "check_count": 2
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "f0e8804b24f0dff18ee2a411a04d826671bde313afc27a2c003fb8e2ed79789b",
+          "bytes": 64139,
+          "mtime_ns": 1794812243130748896,
+          "observed_monotonic_ns": 48597876000,
+          "observed_at": "2026-11-16T06:57:23.134603+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "IsSuppressed",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 183,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "3b6583350b24dfc2c902febe513b8cc20e66aa373c9f69b23823ceab7bad2e28",
+          "bytes": 86105,
+          "mtime_ns": 1794812244135844391,
+          "observed_monotonic_ns": 49604384333,
+          "observed_at": "2026-11-16T06:57:24.141115+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "Name",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 258,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "baadd0a9ec2c84ad43b849882361b4b264041792939ebf2b64722b3f783c323e",
+          "bytes": 106916,
+          "mtime_ns": 1794812244972977636,
+          "observed_monotonic_ns": 50611266583,
+          "observed_at": "2026-11-16T06:57:25.148001+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "save-training-source",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 310,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "cf193a9d4e71a9f672abfa8e1de9d8d486a2b0d8c8795742c84adcbab39eaa47",
+          "bytes": 1945,
+          "mtime_ns": 1794812245995646739,
+          "observed_monotonic_ns": 51618262541,
+          "observed_at": "2026-11-16T06:57:26.155001+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "NewDocument",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 3,
+            "check_count": 0
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Radius/Record.json",
+          "sha256": "dfdd526cd94bb3c4aa8c0eeb15603c6d8fe0bc9ec3b3d5587359571d1f19724f",
+          "bytes": 110164,
+          "mtime_ns": 1794812245967122924,
+          "observed_monotonic_ns": 51618734500,
+          "observed_at": "2026-11-16T06:57:26.155471+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "close-owned-document",
+            "case": "TrainingD04Radius",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812235.255283,
+            "recorded_finished_at": 1794812245.1313713,
+            "recorded_passed": true,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 313,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "f198b77cf5c3238331dc95b80458dd778947163cbffabe337671e31377b187d4",
+          "bytes": 3404,
+          "mtime_ns": 1794812246904405250,
+          "observed_monotonic_ns": 52625635625,
+          "observed_at": "2026-11-16T06:57:27.162378+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "InsertSketch",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 7,
+            "check_count": 0
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "864ad42c64e86d348d5e5cfce34cf95426c03da32ab412454a2c2d9475a552be",
+          "bytes": 5038,
+          "mtime_ns": 1794812248159527845,
+          "observed_monotonic_ns": 53631702500,
+          "observed_at": "2026-11-16T06:57:28.168448+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "ConstructionGeometry",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 13,
+            "check_count": 0
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "972f5d2d6170334a7972d511b8dcd6a280b90dfe8ac6704567c184253f145768",
+          "bytes": 14768,
+          "mtime_ns": 1794812249056239770,
+          "observed_monotonic_ns": 54637770750,
+          "observed_at": "2026-11-16T06:57:29.174521+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "InsertSketch",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 40,
+            "check_count": 1
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "716942c60671d2889333b3f3026b68e758aaf8a2814a18859196222f0cd5471a",
+          "bytes": 28345,
+          "mtime_ns": 1794812250040793480,
+          "observed_monotonic_ns": 55644298708,
+          "observed_at": "2026-11-16T06:57:30.181051+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "FeatureExtrusion3",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 84,
+            "check_count": 1
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "f7ed19a23b3e5eeebe5afa22de400f582bfd9de1461c78adb5e88a59d2702f37",
+          "bytes": 31440,
+          "mtime_ns": 1794812251075892588,
+          "observed_monotonic_ns": 56646453166,
+          "observed_at": "2026-11-16T06:57:31.183211+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "ForceRebuild3",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 93,
+            "check_count": 2
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "2a819dbb6fb1eb6dd44d433ea50f23e569e70a496e3864614022fea1ae1a3496",
+          "bytes": 54578,
+          "mtime_ns": 1794812252184848179,
+          "observed_monotonic_ns": 57653193125,
+          "observed_at": "2026-11-16T06:57:32.189954+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "MultiplyTransform",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 153,
+            "check_count": 3
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "e2da63c19e482da1afcf691ffb742060629bd510f1dafbbd85c68705642a3d07",
+          "bytes": 77127,
+          "mtime_ns": 1794812253191802223,
+          "observed_monotonic_ns": 58659922791,
+          "observed_at": "2026-11-16T06:57:33.196687+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "Name",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 227,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "c26e507331944abfa68c7c3f293a480ef0a3eaaca105631f11df6403f781a239",
+          "bytes": 97397,
+          "mtime_ns": 1794812254193488331,
+          "observed_monotonic_ns": 59663047333,
+          "observed_at": "2026-11-16T06:57:34.199816+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "GetErrorCode2",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 296,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "bfd5abe51c425223476c65ad2b361168b9562939f73f459f08b4b7eb135a8dfb",
+          "bytes": 107853,
+          "mtime_ns": 1794812255139205564,
+          "observed_monotonic_ns": 60669601541,
+          "observed_at": "2026-11-16T06:57:35.206374+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "close-owned-document",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": null,
+            "recorded_passed": false,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 313,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        },
+        {
+          "path": "TrainingD04Diameter/Record.json",
+          "sha256": "bdb56651d73f49caee66bf0fc65246b50cebfad3e25fd1cdbd3a816c2e2b7494",
+          "bytes": 110239,
+          "mtime_ns": 1794812255284054896,
+          "observed_monotonic_ns": 61672822416,
+          "observed_at": "2026-11-16T06:57:36.209598+00:00",
+          "record": {
+            "schema": "kit-sw2026-curve-source-phase/1",
+            "stage": "close-owned-document",
+            "case": "TrainingD04Diameter",
+            "phase": "author",
+            "native_path": null,
+            "source_sha256": null,
+            "source_tool_hashes": null,
+            "identity": null,
+            "recorded_started_at": 1794812245.1467197,
+            "recorded_finished_at": 1794812254.4520266,
+            "recorded_passed": true,
+            "recorded_work_completed": null,
+            "first_failure": null,
+            "api_call_count": 313,
+            "check_count": 8
+          },
+          "json_status": "parsed"
+        }
+      ],
+      "observation_errors": [],
+      "last_scan": {
+        "observed_monotonic_ns": 99853993958,
+        "observed_at": "2026-11-16T06:58:14.390912+00:00",
+        "present_records": [
+          "TrainingD04Diameter/Record.json",
+          "TrainingD04Radius/Record.json"
+        ]
+      },
+      "last_changed_record": {
+        "path": "TrainingD04Diameter/Record.json",
+        "sha256": "bdb56651d73f49caee66bf0fc65246b50cebfad3e25fd1cdbd3a816c2e2b7494",
+        "bytes": 110239,
+        "mtime_ns": 1794812255284054896,
+        "observed_monotonic_ns": 61672822416,
+        "observed_at": "2026-11-16T06:57:36.209598+00:00",
+        "record": {
+          "schema": "kit-sw2026-curve-source-phase/1",
+          "stage": "close-owned-document",
+          "case": "TrainingD04Diameter",
+          "phase": "author",
+          "native_path": null,
+          "source_sha256": null,
+          "source_tool_hashes": null,
+          "identity": null,
+          "recorded_started_at": 1794812245.1467197,
+          "recorded_finished_at": 1794812254.4520266,
+          "recorded_passed": true,
+          "recorded_work_completed": null,
+          "first_failure": null,
+          "api_call_count": 313,
+          "check_count": 8
+        },
+        "json_status": "parsed"
+      }
+    },
+    "guest_state_unknown": true,
+    "acceptance": false,
+    "acceptance_scope": "research host transport observations only; inspect native batch and controls separately",
+    "automatic_guest_kill": false,
+    "automatic_vm_reset": false,
+    "automatic_retry": false,
+    "external_inventory_required_before_another_batch": false,
+    "transport_pid": 6356,
+    "last_poll_at": "2026-11-16T06:58:15.342550+00:00",
+    "last_poll_monotonic_ns": 100805613416,
+    "elapsed_ns": 100772510750,
+    "no_progress_elapsed_ns": 39132960750,
+    "transport_returncode": 0,
+    "transport_live": false,
+    "observer_thread_live": true,
+    "finished_at": "2026-11-16T06:58:15.342699+00:00",
+    "finished_monotonic_ns": 100805783166,
+    "transport_exit_confirmed": true,
+    "transport_stop_failed": false,
+    "supervisor_exit_code": 0
+  },
+  "host_transport_exited_zero": true,
+  "host_supervisor_does_not_establish_guest_exit": true,
+  "independent_post_inventory": {
+    "source_file": "RadialTraining04PostInventory.json",
+    "bytes": 1112,
+    "sha256": "40934f58f83eb501e3e5f5b014f11d781053c22acdaa87149cfcb148cf443f5a",
+    "record": {
+      "purpose": "read-only inventory after corrected training author run04",
+      "returncode": 0,
+      "stdout": "[{\"ProcessName\":\"lmgrd\",\"Id\":1604},{\"ProcessName\":\"lmgrd\",\"Id\":7936},{\"ProcessName\":\"sw_d\",\"Id\":4276}]\n",
+      "stderr": "#< CLIXML\n<Objs Version=\"1.1.0.1\" xmlns=\"http://schemas.microsoft.com/powershell/2004/04\"><Obj S=\"progress\" RefId=\"0\"><TN RefId=\"0\"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S=\"progress\" RefId=\"1\"><TNRef RefId=\"0\" /><MS><I64 N=\"SourceId\">1</I64><PR N=\"Record\"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>",
+      "processes": [
+        {
+          "ProcessName": "lmgrd",
+          "Id": 1604
+        },
+        {
+          "ProcessName": "lmgrd",
+          "Id": 7936
+        },
+        {
+          "ProcessName": "sw_d",
+          "Id": 4276
+        }
+      ],
+      "mutations": false
+    },
+    "sldworks_processes_observed": 0,
+    "license_process_ids_unchanged": true,
+    "process_mutations": false
+  }
+}

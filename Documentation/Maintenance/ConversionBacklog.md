@@ -68,8 +68,9 @@ The broader B04 programme remains blocked on its own dependencies.
 
 The [shared archive implementation](../Changes/Solidworks/Model/SolidworksArchiveObjectModel.md)
 adds memory-only counts, typed strings, tags, object identities, counters, and configuration-map handoffs.
-Source `3efbca9693e7c2935dff1c500141bac71f1e3f56` passed its PR CI.
-That result does not qualify the later object/map implementation or the current integration revision.
+Source `0b6e657648a08845ed19939dfe588b2e1c851248` passed all current PR CI, including the object/map integration and separate-process string checks.
+Its [recorded source compatibility](../../re/solidworks/measurements/2026/StringArchiveProcesses0b6e657.json) does not qualify a production writer or native generated output.
+The configured automated review failed to finish and has no current-head approval.
 The [coverage register](../../re/solidworks/CorpusCoverage.md) retains the generated-output limits.
 Circle presentation, complete field classification, broad feature coverage, and native assembly output remain unfinished.
 

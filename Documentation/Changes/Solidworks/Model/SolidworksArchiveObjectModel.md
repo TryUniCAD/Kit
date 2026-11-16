@@ -52,6 +52,7 @@ Resolved streams now inherit the typed snapshot directly.
 Their compatibility views retain each immutable entry's identity through a shared, scoped memo.
 The original linked assertion remains active.
 All current PR CI passed on source `9d7209d515d6d7c6fafa461ae7dad917c97f8226`, including the original linked identity assertion.
+The [source-admission receipt](../../../../re/solidworks/measurements/2026/CurveArchiveModelAdmission9d7209.json) binds 234 strict byte identities, 234 retained field graphs, 83 matching implementation fingerprints, and 99,579 node occurrences to that tested revision.
 The configured automated review reports failed to finish and no current-head approval is available.
 
 The production adapter remains read-only. This shared infrastructure supplies no fresh feature builder and establishes no held-out native output acceptance, rebuild result, or complete CAD conversion coverage.

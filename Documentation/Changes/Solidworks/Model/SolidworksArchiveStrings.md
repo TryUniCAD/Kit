@@ -54,7 +54,7 @@ Source, AST, and Black checks passed without executing a codec, schema, or local
 Independent original-PE inspection verified nine complete native function spans and thirteen relative-call targets.
 Remote process checks must retain all 234 strict stream identities, completed phases, linked-map seeds, and retained field graphs.
 The three existing negative process cases remain active.
-The [complete modeled-archive check](SolidworksStringArchiveProcesses.md) adds separate long-string boundary and malformed-frame process coverage, pending its first remote execution.
+The [complete modeled-archive check](SolidworksStringArchiveProcesses.md) passed its first remote execution on source `0b6e657648a08845ed19939dfe588b2e1c851248`, covering ten positive cases and three malformed-frame rejections.
 
 See the [encoding and length gotcha](../../../Gotchas/Conversion/Solidworks/Archive/CStringEncodingAndLengthUnits.md).
 The [CAD criteria](../../../Reference/Operations/CadSuccessCriteria.md) and [writer method](../../../../re/Playbook/WriterModel.md) still apply.

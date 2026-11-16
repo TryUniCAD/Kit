@@ -101,7 +101,7 @@ The [2026 string record](../../../re/solidworks/records/CStringArchive2026.md) d
 The research archive uses this production layer directly.
 The [complete modeled-archive process check](../../Changes/Solidworks/Model/SolidworksStringArchiveProcesses.md)
 adds two-process string boundary and malformed-frame checks without a donor container or saved-stream passthrough.
-Its reduced containers establish archive compatibility only; remote execution of this new check remains pending.
+Its first remote execution passes ten positive cases and three malformed-frame controls; reduced containers establish archive compatibility only.
 
 The [shared object and map model](../../Changes/Solidworks/Model/SolidworksArchiveObjectModel.md)
 tracks typed descriptors, node identities, recursive ownership, and inherited map snapshots.
@@ -273,6 +273,9 @@ The [radial training attempt](../../../re/solidworks/measurements/2026/RadialTra
 activated all 36 hooks and measured healthy controls, then stopped before circle authoring on an RPC argument error.
 The [explicit reset repair](../../Changes/Solidworks/Inspection/Sketches/SolidworksTrainingResetArguments.md)
 passes the capture Boolean directly and preserves strict validation.
+The [corrected training repeat](../../Changes/Solidworks/Inspection/Sketches/SolidworksRadialTrainingRepeat.md)
+records two native authoring cases and fresh-process radius/diameter edits with forty-six matching numeric checks.
+These observations retain separate source, process, observer and control evidence; they provide no generated-output acceptance.
 Fresh training measurements remain pending.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
