@@ -72,6 +72,14 @@ This bounded branch proves that a native operation can regenerate the persisted 
 
 Resources use type `6` (`RT_STRING`), sixteen entries per block, each encoded as a u16 UTF-16 code-unit count followed by text. Both selected resources below are language `1033`; their complete block payloads were consumed exactly when decoding, but unrelated block strings are not reproduced.
 
+The later [REA resource receipt](../measurements/2026/EmptyMaterialResource01.json)
+independently inventories all 4,738 resource entries and 2,363 payloads in the same
+hashed module, then corroborates the selected `0x4497` block location and digest.
+All 2,288 block bytes are consumed under the documented string-table rule.
+Only the selected caption, locations and hashes are recorded; no binary resource
+payload is redistributed. Resource inventory does not observe runtime locale
+selection or add native writer acceptance.
+
 | ID       | Block/index | Payload RVA / file offset | Payload bytes / SHA-256                                                   | Entry offset / code units | Vocabulary                 |
 | -------- | ----------- | ------------------------- | ------------------------------------------------------------------------- | ------------------------- | -------------------------- |
 | `0x4497` | `1098 / 7`  | `0x1e0498 / 1949848`      | `2288 / ac8673a065e924a4514e8db2d26babd3063dc87b231d71886e6fb0c35389f2f2` | `1350 / 24`               | `Material <not specified>` |

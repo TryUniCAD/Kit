@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from hashlib import sha256 as HashBytes
+from pathlib import Path as FilePath
 from typing import cast as CastValue
 
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
@@ -9,8 +10,8 @@ from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 
 
 # earlier circle sources must remain independent of the unchanged measured writer and request adapter
-def VerifyCurves() -> dict[str, object]:
-    BaseFreeze = VerifyFreeze()
+def VerifyCurves(SourceRoot: FilePath = KRepoRoot) -> dict[str, object]:
+    BaseFreeze = VerifyFreeze(SourceRoot)
     FreezePath = KRepoRoot / "re/solidworks/v2026/heldout/CurveCircleWriterFreeze.json"
     assert HashBytes(FreezePath.read_bytes()).hexdigest() == (
         "4a6cb20e311fa1572b234f12b4fb3dfdd672b5095ca147268bb410d76c5694f7"
@@ -22,9 +23,9 @@ def VerifyCurves() -> dict[str, object]:
     BasePath = KRepoRoot / CastValue(str, Freeze["base_freeze_path"])
     assert HashBytes(BasePath.read_bytes()).hexdigest() == Freeze["base_freeze_sha256"]
     for Entry in CastValue(list[dict[str, object]], Freeze["additional_files"]):
-        SourcePath = KRepoRoot / CastValue(str, Entry["path"])
+        SourcePath = SourceRoot / CastValue(str, Entry["path"])
         assert not SourcePath.is_symlink()
-        assert SourcePath.resolve().is_relative_to(KRepoRoot.resolve())
+        assert SourcePath.resolve().is_relative_to(SourceRoot.resolve())
         RawValue = SourcePath.read_bytes()
         assert len(RawValue) == Entry["bytes"]
         assert HashBytes(RawValue).hexdigest() == Entry["sha256"]
