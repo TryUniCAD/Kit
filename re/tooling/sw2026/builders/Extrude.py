@@ -291,23 +291,25 @@ def _driving_value(*, display: Obj, angular: bool):
     return float(value)
 
 
-def blind_end_spec(*, forward_distance: Obj, reverse_distance: Obj, forward_draft: Obj, reverse_draft: Obj):
+def modeled_end_spec(*, forward_distance: Obj, reverse_distance: Obj, forward_draft: Obj, reverse_draft: Obj, condition: str, reverse_direction: bool):
+    if condition not in ("blind", "mid_plane", "two_directions") or type(reverse_direction) is not bool:
+        raise ConstructionError("end specification requires a proven termination and explicit reversal")
     values = (forward_distance, reverse_distance, forward_draft, reverse_draft)
     if len({id(value) for value in values}) != len(values):
         raise ConstructionError("fresh end-spec dimensions require four distinct display nodes")
     depth = _driving_value(display=forward_distance, angular=False)
     reverse = _driving_value(display=reverse_distance, angular=False)
-    if depth <= 0 or reverse != depth:
-        raise ConstructionError("fresh blind end specifications require matching positive constructor depths")
+    if depth <= 0 or reverse <= 0 or condition != "two_directions" and reverse != depth:
+        raise ConstructionError("end specifications require positive depths and matching inactive constructor depths")
     if _driving_value(display=forward_draft, angular=True) != 0 or _driving_value(display=reverse_draft, angular=True) != 0:
         raise ConstructionError("blind construction currently requires zero draft angles")
     return Obj("moEndSpec_c", {
         "f138": None,
-        "f08": 1,
+        "f08": int(condition != "two_directions"),
         "f88": 0,
-        "f8c": 0,
+        "f8c": int(reverse_direction),
         "f90": None,
-        "f0c": 0,
+        "f0c": 6 if condition == "mid_plane" else 0,
         "f10": 0,
         "f18": forward_distance,
         "f20": reverse_distance,
@@ -338,6 +340,10 @@ def blind_end_spec(*, forward_distance: Obj, reverse_distance: Obj, forward_draf
         "f154": 0,
         "f158": 0,
     })
+
+
+def blind_end_spec(*, forward_distance: Obj, reverse_distance: Obj, forward_draft: Obj, reverse_draft: Obj):
+    return modeled_end_spec(forward_distance=forward_distance, reverse_distance=reverse_distance, forward_draft=forward_draft, reverse_draft=reverse_draft, condition="blind", reverse_direction=False)
 
 
 def require_blind_profile(profile):
@@ -374,7 +380,7 @@ def require_blind_profile(profile):
         raise ConstructionError("circle extrusion requires its actual driving radial dimension")
 
 
-def blind_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth: float):
+def profile_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth: float):
     if not isinstance(feature, Obj) or feature.cls != "moExtrusion_c":
         raise ConstructionError("blind extrusion requires an allocated moExtrusion_c body-feature node")
     for name in ("f08", "f28", "f60", "f368", "f388", "f780"):
@@ -383,8 +389,10 @@ def blind_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth
     if type(feature["f08"]) is not int or feature["f08"] < 0 or type(feature["f28"]) is not int:
         raise ConstructionError("body-feature identifiers and flags must come from the allocated model factory node")
     require_blind_profile(profile)
-    if not isinstance(end_spec, Obj) or end_spec.cls != "moEndSpec_c" or end_spec.get("f08") != 1 or end_spec.get("f0c") != 0 or end_spec.get("f10") != 0:
-        raise ConstructionError("blind extrusion requires a single-ended blind moEndSpec_c")
+    if not isinstance(end_spec, Obj) or end_spec.cls != "moEndSpec_c" or type(end_spec.get("f08")) is not int or end_spec["f08"] not in (0, 1) or end_spec.get("f0c") not in (0, 6) or end_spec.get("f10") != 0 or end_spec.get("f88") != 0 or type(end_spec.get("f8c")) is not int or end_spec["f8c"] not in (0, 1):
+        raise ConstructionError("extrusion requires a modeled blind, mid-plane or two-direction end specification")
+    if end_spec["f0c"] == 6 and end_spec["f08"] != 1:
+        raise ConstructionError("mid-plane construction requires a single full-depth parameter")
     if isinstance(depth, bool) or not isinstance(depth, (int, float)) or not isfinite(depth) or depth <= 0:
         raise ConstructionError("blind depth must be finite and positive")
     if _driving_value(display=end_spec.get("f18"), angular=False) != depth:
@@ -403,6 +411,12 @@ def blind_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth
     feature["f838"] = 0.0
     feature["f810"] = -1
     return feature
+
+
+def blind_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth: float):
+    if not isinstance(end_spec, Obj) or end_spec.get("f08") != 1 or end_spec.get("f0c") != 0 or end_spec.get("f8c") != 0:
+        raise ConstructionError("legacy blind construction requires forward single-ended semantics")
+    return profile_extrusion(feature=feature, profile=profile, end_spec=end_spec, depth=depth)
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -434,7 +448,24 @@ class ExtrusionGraph:
         return self.dimensions[0].parameter["f58"]
 
 
-def live_blind_extrusion(*, feature: Obj, profile: ProfileGraph, depth: float, allocator, design_intent: bool, selected_leader: int):
+    @property
+    def condition(self):
+        return "mid_plane" if self.end_spec["f0c"] == 6 else "two_directions" if self.end_spec["f08"] == 0 else "blind"
+
+    @property
+    def reverse_direction(self):
+        return bool(self.end_spec["f8c"])
+
+    @property
+    def reverse_depth(self):
+        return self.dimensions[1].parameter["f58"] if self.end_spec["f08"] == 0 else None
+
+    @property
+    def active_distances(self):
+        return self.dimensions[:2 if self.end_spec["f08"] == 0 else 1]
+
+
+def live_extrusion(*, feature: Obj, profile: ProfileGraph, depth: float, allocator, design_intent: bool, selected_leader: int, condition: str, reverse_direction: bool, reverse_depth: float | None = None):
     if not isinstance(feature, Obj) or feature.cls != "moExtrusion_c":
         raise ConstructionError("live blind construction requires a body-feature factory extrusion node")
     require_blind_profile(profile)
@@ -442,9 +473,23 @@ def live_blind_extrusion(*, feature: Obj, profile: ProfileGraph, depth: float, a
         raise ConstructionError("native blind construction requires a finite depth of at least 1e-14 metres")
     if type(design_intent) is not bool or type(selected_leader) is not int or not -(1 << 31) <= selected_leader < (1 << 31):
         raise ConstructionError("live blind construction requires explicit design intent and selected-leader presentation inputs")
-    dimensions = tuple(feature_dimension(feature=feature, dimension_id=i + 1, value=depth if i < 2 else 0.0, angular=i >= 2, allocator=allocator, design_intent=design_intent, selected_leader=selected_leader) for i in range(4))
+    if condition not in ("blind", "mid_plane", "two_directions") or type(reverse_direction) is not bool:
+        raise ConstructionError("live extrusion requires a proven end condition and explicit reversal")
+    if condition == "two_directions":
+        if isinstance(reverse_depth, bool) or not isinstance(reverse_depth, (int, float)) or not isfinite(reverse_depth) or reverse_depth < 1e-14:
+            raise ConstructionError("second direction requires its independent positive finite depth")
+        second_depth = reverse_depth
+    else:
+        if reverse_depth is not None:
+            raise ConstructionError("single-ended extrusion cannot supply a second active depth")
+        second_depth = depth
+    dimensions = tuple(feature_dimension(feature=feature, dimension_id=i + 1, value=(depth, second_depth, 0.0, 0.0)[i], angular=i >= 2, allocator=allocator, design_intent=design_intent, selected_leader=selected_leader) for i in range(4))
     from_offset = feature_dimension(feature=feature, dimension_id=19, value=0.0, angular=False, allocator=allocator, design_intent=design_intent, selected_leader=selected_leader)
-    end_spec = blind_end_spec(forward_distance=dimensions[0].display, reverse_distance=dimensions[1].display, forward_draft=dimensions[2].display, reverse_draft=dimensions[3].display)
+    end_spec = modeled_end_spec(forward_distance=dimensions[0].display, reverse_distance=dimensions[1].display, forward_draft=dimensions[2].display, reverse_draft=dimensions[3].display, condition=condition, reverse_direction=reverse_direction)
     end_spec["f140"]["f28"] = from_offset.display
-    blind_extrusion(feature=feature, profile=profile, end_spec=end_spec, depth=depth)
+    profile_extrusion(feature=feature, profile=profile, end_spec=end_spec, depth=depth)
     return ExtrusionGraph(feature=feature, profile=profile, end_spec=end_spec, dimensions=dimensions, from_offset=from_offset)
+
+
+def live_blind_extrusion(*, feature: Obj, profile: ProfileGraph, depth: float, allocator, design_intent: bool, selected_leader: int):
+    return live_extrusion(feature=feature, profile=profile, depth=depth, allocator=allocator, design_intent=design_intent, selected_leader=selected_leader, condition="blind", reverse_direction=False)

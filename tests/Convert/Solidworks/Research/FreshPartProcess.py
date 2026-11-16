@@ -89,6 +89,19 @@ def BuildResult() -> dict[str, object]:
             }
         ),
         "depth": None if Constructed.extrusion is None else Constructed.extrusion.depth,
+        "end_condition": (
+            None if Constructed.extrusion is None else Constructed.extrusion.condition
+        ),
+        "reverse_direction": (
+            None
+            if Constructed.extrusion is None
+            else Constructed.extrusion.reverse_direction
+        ),
+        "reverse_depth": (
+            None
+            if Constructed.extrusion is None
+            else Constructed.extrusion.reverse_depth
+        ),
         "has_extrusion": Constructed.extrusion is not None,
         "plane_ownership": ReadOwners(Archive, KRegistry),
         "configuration_progress": IsProgressValid(Archive, KRegistry),

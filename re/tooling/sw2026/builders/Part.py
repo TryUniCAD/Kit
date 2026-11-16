@@ -9,7 +9,7 @@ from builders.Arc import open_arc_profile
 from builders.Capsule import capsule_profile
 from builders.Circle import circle_profile, circle_set_profile
 from builders.Definition import definition_stream, part_definition
-from builders.Extrude import live_blind_extrusion
+from builders.Extrude import live_blind_extrusion, live_extrusion
 from builders.Metadata import biography, fields, header, history, keywords, streams
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
 from builders.Radial import circle_dimension
@@ -57,7 +57,7 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
             if radial is not None:
                 item["dimensions"] = [{"name": radial.parameter["f18"]["f08"], "value": radial.parameter["f58"] / presentation["length_unit_m"]}]
         if extrusion is not None and feature is extrusion.feature:
-            item.update({"tag": "Extrusion", "dimensions": [{"name": "D1", "value": extrusion.depth / presentation["length_unit_m"]}]})
+            item.update({"tag": "Extrusion", "dimensions": [{"name": graph.parameter["f18"]["f08"], "value": graph.parameter["f58"] / presentation["length_unit_m"]} for graph in extrusion.active_distances]})
         keyword_features.append(item)
     configuration = graph.configuration_manager["f360"]
     return streams(
@@ -84,11 +84,11 @@ def document_shape(document):
         raise ArchiveError("part document must be a semantic mapping")
     profile_kind = document.get("profile_kind", "polygon")
     feature_kind = document.get("feature_kind", "blind_extrusion")
-    if profile_kind not in ("polygon", "circle", "circle_set", "arc", "capsule") or feature_kind not in ("sketch", "blind_extrusion"):
+    if profile_kind not in ("polygon", "circle", "circle_set", "arc", "capsule") or feature_kind not in ("sketch", "blind_extrusion", "extrusion"):
         raise ArchiveError("unsupported fresh profile or feature kind")
     if profile_kind in ("circle_set", "arc") and feature_kind != "sketch":
         raise ArchiveError("this curve profile admits only the free sketch research rung")
-    if profile_kind == "circle" and feature_kind == "blind_extrusion":
+    if profile_kind == "circle" and feature_kind in ("blind_extrusion", "extrusion"):
         request = document.get("circle_dimension")
         if not isinstance(request, Mapping) or request.get("fix_center") is not True:
             raise ArchiveError("circle extrusion requires an explicit driving dimension and fixed center")
@@ -97,8 +97,12 @@ def document_shape(document):
         "plane_axis", "density_kg_m3",
     )
     required += {"polygon": ("vertices_m",), "circle": ("center_m", "radius_m"), "circle_set": ("circles_m",), "arc": ("center_m", "radius_m", "start_angle_rad", "sweep_angle_rad"), "capsule": ("center_m", "radius_m", "straight_length_m", "rotation_angle_rad")}[profile_kind]
-    if feature_kind == "blind_extrusion":
+    if feature_kind in ("blind_extrusion", "extrusion"):
         required += ("depth_m",)
+    if feature_kind == "extrusion":
+        required += ("end_condition", "reverse_direction")
+        if document.get("end_condition") == "two_directions":
+            required += ("reverse_depth_m",)
     optional = ("profile_kind", "feature_kind") + (("circle_dimension",) if profile_kind == "circle" else ())
     return fields(document, "part document", required, optional), profile_kind, feature_kind
 
@@ -171,12 +175,20 @@ def construct_part(*, registry, document, provenance, presentation, target):
         )
     features = (*graph.system_features, origin_node, profile_node)
     extrusion = None
-    if feature_kind == "blind_extrusion":
+    if feature_kind in ("blind_extrusion", "extrusion"):
         extrusion_node = body_feature(cls="moExtrusion_c", name=document["extrusion_name"], **feature_values)
-        extrusion = live_blind_extrusion(
-            feature=extrusion_node, profile=profile, depth=document["depth_m"], allocator=graph.allocator,
-            design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
-        )
+        if feature_kind == "blind_extrusion":
+            extrusion = live_blind_extrusion(
+                feature=extrusion_node, profile=profile, depth=document["depth_m"], allocator=graph.allocator,
+                design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
+            )
+        else:
+            extrusion = live_extrusion(
+                feature=extrusion_node, profile=profile, depth=document["depth_m"], allocator=graph.allocator,
+                design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
+                condition=document["end_condition"], reverse_direction=document["reverse_direction"],
+                reverse_depth=document.get("reverse_depth_m"),
+            )
         features += (extrusion_node,)
     record_configuration_progress(configuration=graph.configuration_manager["f360"], allocator=graph.allocator)
     config_data, state = store_config_state(StreamDoc("config", {"direct": 0}, [graph.part]), registry, 19000)
