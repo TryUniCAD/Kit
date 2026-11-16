@@ -1,0 +1,11 @@
+# Generated radial sketch driving-edit inspection
+
+`InspectCircleSketch.py` now handles an explicit `circle_dimension` request in the generated sketch input. The JSON job retains exact candidate/control hashes, generator revision, artifact identity and pinned executable hash. Each radial case additionally requires an explicitly authored positive finite `edit_factor` different from one.
+
+The inspector checks `D1@<sketch_name>` exists, is editable and driving, and has the radius/diameter value derived from the neutral radius. It requires one native display dimension that targets the same parameter. Local geometry, authored plane, zero bodies, feature errors/warnings and rebuild problems retain their original checks.
+
+Radial cases run three owned fresh processes: initial load/rebuild/save; saved-file reopen, driving edit/rebuild and edited save; then fresh reopen of the edited file. Center and plane must remain unchanged while radius and native parameter scale by the explicit factor. Every process has a distinct PID and creation time. Before/after controls, immutable original sources, cleanup and dialog gates remain mandatory. Plain free-circle cases keep their two-phase route. Results now use `kit.sw2026.circle-sketch-inspection.v2` and preserve original and edited snapshots separately.
+
+This changed workflow has passed static AST review only. Its first radial native run remains pending. The [earlier free-circle receipt](../../../../../re/solidworks/measurements/2026/CircleSketchInspection01.json) stays bound to its original v1 inspector and generator sources. No earlier result is transferred to the new radial graph or observer. Whole-family radial, extrusion, appearance and held-out acceptance flags remain false even if these bounded rung checks pass.
+
+See [radial synthesis](../../Model/SolidworksRadialSketchSynthesis.md), [controlled sketch inspection](SolidworksCircleSketchInspection.md) and the [constructor ledger](../../../../../re/solidworks/records/RadialStyleAndEngine2026.md). Execution stays in the reserved VM through `prlctl exec "Windows 11" --current-user`; the host supervisor and independently checked process inventory remain separate evidence from the native records. The tool does not change licensing or close unowned sessions.

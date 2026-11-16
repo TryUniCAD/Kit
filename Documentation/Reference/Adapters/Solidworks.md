@@ -284,6 +284,8 @@ The [controlled circle sketch inspector](../../Changes/Solidworks/Inspection/Ske
 checks local geometry, authored plane, zero-body topology, rebuild state, save and fresh-process reopen between controls. Its first native run passed four phases and 48 numeric/frame comparisons matching to six significant figures; held-out family acceptance remains unestablished.
 The [radial sketch synthesis](../../Changes/Solidworks/Model/SolidworksRadialSketchSynthesis.md)
 adds an unqualified front-plane radius/diameter value, parameter, handle and display graph with explicit presentation inputs. Its new remote process and native driving-edit checks remain pending; no fixed-center relation or extrusion is enabled.
+The [radial sketch inspector](../../Changes/Solidworks/Inspection/Sketches/SolidworksRadialSketchInspection.md)
+adds explicit driving-value edits and fresh reopening of the edited sketch while retaining the original geometry, plane, ownership and control gates. Its first radial run remains pending.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)

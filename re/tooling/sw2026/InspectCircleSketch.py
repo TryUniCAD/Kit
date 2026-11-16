@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import sys
 import time
 from pathlib import Path
@@ -36,7 +37,30 @@ def check_frame(author, document):
     return observations
 
 
-def snapshot(author, case):
+def driving_dimension(author, case, feature, factor):
+    document = case["request"]["document"]
+    request = document["circle_dimension"]
+    name = "D1@" + document["sketch_name"]
+    parameter = author.get(author.model, "Parameter", name)
+    AuthorCurves.require(parameter is not None, "generated radial parameter is missing")
+    AuthorCurves.require(int(author.get(parameter, "DrivenState")) == 2 and not bool(author.get(parameter, "ReadOnly")), "generated radial dimension is not editable and driving")
+    expected = document["radius_m"] * factor * (2 if request["mode"] == "diameter" else 1)
+    author.rec.close_number("driving radial value", author.get(parameter, "SystemValue"), expected)
+    displays = []
+    display = author.get(feature, "GetFirstDisplayDimension")
+    while display is not None:
+        AuthorCurves.require(len(displays) < 4, "unexpected radial display cycle or cardinality")
+        dimension = author.get(display, "GetDimension2", 0)
+        AuthorCurves.require(dimension is not None, "radial display has no dimension")
+        full = str(author.get(dimension, "FullName"))
+        AuthorCurves.require(full.split("@")[:2] == name.split("@"), "radial display targets a different parameter")
+        displays.append({"name": full, "value": float(author.get(dimension, "SystemValue"))})
+        display = author.get(feature, "GetNextDisplayDimension", display)
+    AuthorCurves.require(len(displays) == 1, "generated sketch must contain exactly one radial display")
+    return {"name": name, "mode": request["mode"], "value": float(author.get(parameter, "SystemValue")), "driving": True, "editable": True, "displays": displays}
+
+
+def snapshot(author, case, factor=1.0):
     require = AuthorCurves.require
     require(bool(author.get(author.model, "ForceRebuild3", False)), "circle sketch rebuild returned failure")
     wrong = int(author.get(author.get(author.model, "Extension"), "GetWhatsWrongCount"))
@@ -50,17 +74,20 @@ def snapshot(author, case):
     require(len(geometry) == 1 and geometry[0]["kind"] == "circle" and not geometry[0]["construction"], "generated sketch is not exactly one ordinary circle")
     for index, expected in enumerate(document["center_m"]):
         author.rec.close_number(f"center {index}", geometry[0]["center"][index], expected)
-    author.rec.close_number("radius", geometry[0]["radius"], document["radius_m"])
+    author.rec.close_number("radius", geometry[0]["radius"], document["radius_m"] * factor)
     body_objects = author.get(author.model, "GetBodies2", 0, False) or []
     require(len(body_objects) == 0, "sketch-only candidate unexpectedly has solid bodies")
     features = author.rec.call("native feature tree", Swapp.features, author.model)
     require(features and all(row.get("error") == 0 and row.get("warning") is False and not row.get("error_query_error") for row in features), "native feature tree has errors or warnings")
     require(not any(row["type"] == "Extrusion" for row in features), "sketch rung must not contain an extrusion")
     transform = author.get(author.sketch, "ModelToSketchTransform")
-    return {"geometry": geometry, "bodies": 0, "whats_wrong": wrong, "features": features, "model_to_sketch_transform": list(author.get(transform, "ArrayData")), "frame": check_frame(author, document)}
+    result = {"geometry": geometry, "bodies": 0, "whats_wrong": wrong, "features": features, "model_to_sketch_transform": list(author.get(transform, "ArrayData")), "frame": check_frame(author, document)}
+    if "circle_dimension" in document:
+        result["radial"] = driving_dimension(author, case, feature, factor)
+    return result
 
 
-def run_phase(case, phase, source, output, expected_oracle, checkpoint):
+def run_phase(case, phase, source, output, expected_oracle, checkpoint, factor=1.0):
     directory = output / case["name"] / phase
     directory.mkdir(parents=True, exist_ok=False)
     rec = AuthorCurves.Recorder(directory / "Record.json", {"case": case, "phase": phase})
@@ -77,11 +104,22 @@ def run_phase(case, phase, source, output, expected_oracle, checkpoint):
             author = AuthorCurves.CurveAuthor(controller.app, rec, Swapp)
             author.model, errors, warnings = rec.call("open generated circle sketch", controller.open, source)
             AuthorCurves.require(author.model is not None and errors == warnings == 0, f"circle sketch load failed or warned: {errors}, {warnings}")
-            result.update(open_errors=errors, open_warnings=warnings, snapshot=snapshot(author, case))
+            result.update(open_errors=errors, open_warnings=warnings, snapshot=snapshot(author, case, factor))
+            if phase == "fresh-reopen" and "circle_dimension" in case["request"]["document"]:
+                edited_factor = case["edit_factor"]
+                AuthorCurves.require(type(edited_factor) in (float, int) and math.isfinite(edited_factor) and edited_factor > 0 and edited_factor != 1, "radial edit factor must be an explicit finite positive change")
+                name = result["snapshot"]["radial"]["name"]
+                parameter = author.get(author.model, "Parameter", name)
+                target = result["snapshot"]["radial"]["value"] * edited_factor
+                status = int(author.get(parameter, "SetSystemValue3", target, 1, Swapp.nothing()))
+                AuthorCurves.require(status == 0, f"radial driving edit returned status {status}")
+                result["edit"] = {"name": name, "before": result["snapshot"]["radial"]["value"], "after": target, "factor": edited_factor, "setter_status": status}
+                result["edited_snapshot"] = snapshot(author, case, edited_factor)
+                factor = edited_factor
             saved = directory / (case["name"] + "Saved.SLDPRT")
             save_result = rec.call("save circle sketch copy", controller.save_as, author.model, saved)
             AuthorCurves.require(save_result == (True, 0, 0), f"circle sketch save failed or warned: {save_result}")
-            result.update(saved_path=str(saved), saved_sha256=digest(saved), saved_bytes=saved.stat().st_size)
+            result.update(saved_path=str(saved), saved_sha256=digest(saved), saved_bytes=saved.stat().st_size, saved_factor=factor)
             result["passed"] = True
         except Exception as error:
             rec.failure(error)
@@ -118,7 +156,7 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     control = Path(job["control"])
     AuthorCurves.require(digest(control) == job["control_sha256"], "native control identity changed")
-    result = {"schema": "kit.sw2026.circle-sketch-inspection.v1", "scope": "single-entity sketch synthesis rung only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
+    result = {"schema": "kit.sw2026.circle-sketch-inspection.v2", "scope": "single-circle sketch and optional radial edit rungs only", "started_at": time.time(), "generator": job["generator"], "job_sha256": digest(source), "tool_sha256": digest(Path(__file__)), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "radial_dimension_acceptance": False, "circle_extrusion_acceptance": False, "passed": False}
     def checkpoint():
         (output / "Inspection.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     checkpoint()
@@ -138,9 +176,13 @@ def main():
                 if first["passed"]:
                     second = run_phase(case, "fresh-reopen", Path(first["saved_path"]), output, job["oracle_sha256"], checkpoint)
                     record["phases"].append(second)
-                    one, two = first["oracle_identity"], second["oracle_identity"]
-                    record["fresh_process"] = one["process_id"] != two["process_id"] and one["process_creation_filetime"] != two["process_creation_filetime"]
-                record["passed"] = len(record["phases"]) == 2 and record.get("fresh_process") is True and all(row["passed"] for row in record["phases"])
+                    if second["passed"] and "circle_dimension" in case["request"]["document"]:
+                        third = run_phase(case, "edited-fresh-reopen", Path(second["saved_path"]), output, job["oracle_sha256"], checkpoint, second["saved_factor"])
+                        record["phases"].append(third)
+                    identities = [row["oracle_identity"] for row in record["phases"]]
+                    record["fresh_process"] = len({row["process_id"] for row in identities}) == len(identities) and len({row["process_creation_filetime"] for row in identities}) == len(identities)
+                expected_phases = 3 if "circle_dimension" in case["request"]["document"] else 2
+                record["passed"] = len(record["phases"]) == expected_phases and record.get("fresh_process") is True and all(row["passed"] for row in record["phases"])
                 checkpoint()
     except Exception as error:
         result["exception"] = repr(error)
