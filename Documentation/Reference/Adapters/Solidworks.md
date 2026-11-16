@@ -334,6 +334,8 @@ The [orthographic field correlation](../../Changes/Solidworks/Inspection/Present
 passes ninety complete archive comparisons and 130 exact native API component correspondences. Orientation is stored in the first document transform; translation and scale are stored in the second, with the primary user cell mirroring that pair. Native model/pan-zoom bridge inspection corroborates the split. Unseen generated camera output, perspective and actual visible viewport acceptance remain unqualified.
 The [unseen camera source author](../../Changes/Solidworks/Inspection/Presentation/SolidworksUnseenViewSourceLock.md)
 creates two independent native parts with distinct trimetric/dimetric poses and locks their hashes before camera writer implementation. Their payloads and detailed API observations remain sealed until that writer is frozen; source authoring does not count as generated acceptance.
+The [shared orthographic view constructor](../../Changes/Solidworks/Model/SolidworksOrthographicViewConstruction.md)
+validates rigid view input in `src` and supplies separate model and pan/zoom records to the existing research definition serializer. Its native and process-boundary acceptance remains pending; it does not enable a production writer.
 The [COM instance probe](../../Changes/Solidworks/Inspection/SolidworksOracleInstanceProbe.md)
 can check process separation before changing any application or document state.
 The [oracle ownership guard](../../Changes/Solidworks/Inspection/SolidworksOracleSessionOwnership.md)
