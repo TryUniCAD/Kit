@@ -319,7 +319,7 @@ def binary_redaction(name, data, privacy, *, additional_metadata_streams=()):
     return bytes(output), replacements
 
 
-def xml_redaction(name, data, privacy):
+def xml_redaction(name, data, privacy, *, additional_metadata_properties=()):
     output = bytearray(data)
     replacements = []
     dimension_spans = []
@@ -355,7 +355,7 @@ def xml_redaction(name, data, privacy):
         property_name = stack[-1]["attributes"].get("name", "") if stack else ""
         property_key = re.sub(r"[^a-z]", "", property_name.casefold())
         metadata_property = any(key in property_key for key in ("author", "lastsavedby", "lastmodifiedby", "username", "creator"))
-        allowed = name.startswith("docProps/") and name.endswith(".xml") and (local in XML_METADATA or local == "lpstr" and metadata_property)
+        allowed = name.startswith("docProps/") and name.endswith(".xml") and (local in XML_METADATA or local == "lpstr" and (metadata_property or (name, property_name) in additional_metadata_properties))
         if not allowed or node["children"] or node["start"] is None:
             key = "private-key-" + digest(property_name.encode()) if privacy.private(property_name) else property_name
             raise ValueError(f"private XML text appears outside recognized metadata context: {name} ({tag}, property={key})")

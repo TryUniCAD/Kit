@@ -91,7 +91,7 @@ def prepare(api, selected, privacy):
             total += len(stream.data)
             require(len(stream.data) <= MAX_STREAM and total <= MAX_DECODED, "saved fixture exceeds stream bound")
             if stream.name.endswith(".xml"):
-                prepared, changes, spans = xml_redaction(stream.name, stream.data, privacy)
+                prepared, changes, spans = xml_redaction(stream.name, stream.data, privacy, additional_metadata_properties=(("docProps/ISolidWorksInformation.xml", "SW-Folder Name"),))
             else:
                 prepared, changes = binary_redaction(stream.name, stream.data, privacy, additional_metadata_streams=("Contents/CMgr", "Contents/Config-0-ResolvedFeatures"))
                 spans = []
