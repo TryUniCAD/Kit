@@ -38,8 +38,9 @@ def apply_pose(author, requested):
         AuthorCurves.require(type(index) is int and 1 <= index <= 9, "named view must be a supported native index")
         target = author.get(author.model, "GetStandardViewRotation", index)
         target = list(target) if isinstance(target, (list, tuple)) else list(author.get(target, "ArrayData"))
+        AuthorCurves.require(len(target) == 9, "native standard view must return nine rotation coefficients")
         author.get(author.model, "ShowNamedView2", "", index)
-        expected["orientation"] = [float(x) for x in target]
+        expected["orientation"] = [*[float(x) for x in target], *read_pose(author)["orientation"][9:]]
     view = author.get(author.model, "ActiveView")
     if "scale2" in requested:
         scale = requested["scale2"]
