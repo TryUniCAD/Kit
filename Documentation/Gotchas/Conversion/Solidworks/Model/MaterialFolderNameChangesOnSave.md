@@ -43,3 +43,9 @@ Record this label difference explicitly rather than treating identical body coun
 Recover and implement the material-folder ownership and naming rule before claiming full preservation.
 
 The [change entry](../../../../Changes/Solidworks/Inspection/SolidworksCurrentPolygonMeasurements.md) links the bounded result and its limits.
+
+## Later save-boundary observation
+
+The [matched recursive-tree batch](../../../../../re/solidworks/measurements/2026/TreeNamesInspection01.json) repeats four independently generated end-condition cases with their canonical material-flag encoding. Each first live tree retains `authored material` after opening, explicit rebuild and immediately after the native save returns. Only fresh reopening exposes `Material <not specified>`; the remaining recursive nodes and parent relationships are unchanged across that boundary. Eight phases and both controls pass, with immutable sources and unchanged licensing identities.
+
+This observation narrows the transition but does not establish what string the native save persisted. Decode the saved inherited node-name field before assigning the cause to serialization, closing or loading. The static title-operation caller remains untraced; no arbitrary material label preservation is claimed.

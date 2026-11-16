@@ -10,6 +10,8 @@ The [end-condition held-out reference comparison](../../../../../re/solidworks/m
 
 Filtering the source records by their explicit null parent establishes a real top-level difference: the generated tree includes one additional `NotesAreaFtrFolder`. The native design sketch and extrusion names/types agree, while declared authored system presentation names differ from native defaults. Both original observation arrays remain in the receipt; full hierarchy and presentation parity remain false.
 
+The [later matched-walk receipt](../../../../../re/solidworks/measurements/2026/TreeNamesInspection01.json) uses that same source-side recursive walker on all four unchanged generated outputs. It records 26 generated entries and 25 source entries, with all six child type/parent pairs present and one additional generated top-level notes-area folder. All 24 load/rebuild/save tree observations retain that structure. This resolves the traversal ambiguity for those exact files while preserving the real extra node and presentation differences.
+
 ## Workaround
 
 Record node identity, name, type, parent and depth consistently in both observers. Compare equivalent traversal scopes before interpreting differences, and retain nested child observations before claiming a complete feature-tree round trip. A top-level-only result cannot establish that child features are missing or preserved. Healthy body/mass/dimension measurements remain a separate bounded result and do not substitute for tree parity.
