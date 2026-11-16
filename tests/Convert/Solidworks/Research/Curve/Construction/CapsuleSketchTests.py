@@ -10,7 +10,7 @@ from tests.Convert.Solidworks.Research.PartArtifacts import SavePartOutput
 
 
 # guarded capsule processes exercise shared endpoint identities across native line and arc arrays
-def TestCapsuleSketches() -> None:
+def TestCapsule() -> None:
     for NameValue, PlaneValue, CenterValue, RadiusValue, LengthValue, AngleValue in (
         ("CapsuleSketchSmall", "z", [-0.004183, 0.007291], 0.004637, 0.019373, 0.417),
         (
