@@ -391,6 +391,14 @@ def new_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
     return ProfileGraph(profile=profile, sketch=sketch)
 
 
+def logical_point_constraint(*, sketch, point, points):
+    if point.cls != "sgPoint" or point.get("_sketch") is not sketch or point["fe4"] not in (0, 1):
+        raise ConstructionError("fixed-point construction requires an ordinary local point")
+    fields = dimension_fields()
+    fields.update({"_sketch": sketch, "f80": 0x11, "f90": 2, "f94": 0, "f98": 0, "fa0": 0xFFFE, "fa4": 0, "h1": point_handle(sketch=sketch, point=point, points=points)})
+    return Obj("sgLogG1Dim", fields)
+
+
 def origin_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
     if profile.cls != "moOriginProfileFeature_c":
         raise ConstructionError("origin construction requires an allocated moOriginProfileFeature_c")
@@ -403,10 +411,7 @@ def origin_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
     point["fe4"] = 1
     point["f0c"] = 1
     points = NodeOrder(nodes=(point,))
-    handle = point_handle(sketch=graph.sketch, point=point, points=points)
-    fields = dimension_fields()
-    fields.update({"_sketch": graph.sketch, "f80": 0x11, "f90": 2, "f94": 0, "f98": 0, "fa0": 0xFFFE, "fa4": 0, "h1": handle})
-    constraint = Obj("sgLogG1Dim", fields)
+    constraint = logical_point_constraint(sketch=graph.sketch, point=point, points=points)
     point["_constraints"] = (constraint,)
     del point.f["f20"]
     point.f = DerivedFields(fields=point.f, derived={"f20": lambda: len(point["_constraints"])})
@@ -450,7 +455,7 @@ def _local_ref_flag(*, sketch: Obj):
     for record in dims["log_g1"]:
         handle = record["d"]["h1"]
         if record["d"]["f80"] != 0x11 or not isinstance(handle, Obj) or handle.cls != "sgPointHandle" or handle["f1c"] != -1:
-            raise ConstructionError("logical-constraint reference state requires a constructed local origin constraint")
+            raise ConstructionError("logical-constraint reference state requires a constructed local fixed-point constraint")
     return 0
 
 

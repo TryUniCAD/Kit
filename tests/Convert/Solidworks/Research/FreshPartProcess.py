@@ -73,6 +73,7 @@ def BuildResult() -> dict[str, object]:
         "points": Constructed.profile.point_count,
         "lines": Constructed.profile.line_count,
         "arcs": Constructed.profile.arc_count,
+        "center_fixed": Constructed.profile.sketch.get("_fixed_center") is not None,
         "radial": (
             None
             if Constructed.radial is None

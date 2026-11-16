@@ -60,6 +60,22 @@ def driving_dimension(author, case, feature, factor):
     return {"name": name, "mode": request["mode"], "value": float(author.get(parameter, "SystemValue")), "driving": True, "editable": True, "displays": displays}
 
 
+def center_fixation(author, geometry):
+    manager = author.get(author.sketch, "RelationManager")
+    observed = []
+    for relation in author.get(manager, "GetRelations", 0) or []:
+        if int(author.get(relation, "GetRelationType")) == 17:
+            observed.append(author.observe_relation(relation, {}))
+    AuthorCurves.require(len(observed) == 1, "generated circle must have exactly one fixed-point relation")
+    fixed = observed[0]
+    AuthorCurves.require(fixed["entities"] == 1 and fixed["returned_entities"] == 1 and not fixed["suppressed"], "center fixation has wrong cardinality or is suppressed")
+    expected = AuthorCurves.binding_key(geometry[0]["point_bindings"]["center"])
+    AuthorCurves.require(AuthorCurves.binding_key(fixed["bindings"][0]) == expected, "fixed-point relation targets another point")
+    for selector in (1, 2, 6):
+        AuthorCurves.require(not (author.get(manager, "GetRelations", selector) or []), f"generated fixed sketch has invalid relation filter {selector}")
+    return fixed
+
+
 def snapshot(author, case, factor=1.0):
     require = AuthorCurves.require
     require(bool(author.get(author.model, "ForceRebuild3", False)), "circle sketch rebuild returned failure")
@@ -86,6 +102,9 @@ def snapshot(author, case, factor=1.0):
     result = {"geometry": geometry, "bodies": 0, "whats_wrong": wrong, "features": features, "constraint_status": constrained_status, "model_to_sketch_transform": list(author.get(transform, "ArrayData")), "frame": check_frame(author, document)}
     if "circle_dimension" in document:
         result["radial"] = driving_dimension(author, case, feature, factor)
+        if document["circle_dimension"].get("fix_center", False):
+            require(constrained_status == 3, f"center-fixed radial sketch is not fully constrained: {constrained_status}")
+            result["center_fixation"] = center_fixation(author, geometry)
     return result
 
 

@@ -152,7 +152,7 @@ def construct_part(*, registry, document, provenance, presentation, target):
         profile = circle_profile(center_m=document["center_m"], radius_m=document["radius_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
     radial = None
     if "circle_dimension" in document:
-        request = fields(document["circle_dimension"], "circle dimension", ("mode", "text_point_m"))
+        request = fields(document["circle_dimension"], "circle dimension", ("mode", "text_point_m"), ("fix_center",))
         radial = circle_dimension(
             graph=profile, allocator=graph.allocator, **request,
             design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],

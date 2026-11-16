@@ -7,7 +7,7 @@ from Core import Obj
 from builders.Circle import arc_handle
 from builders.Extrude import DimensionGraph, _point, common_display_fields
 from builders.Model import component_reference_fields, node_fields
-from builders.Sketch import ConstructionError, DerivedFields, NodeOrder, _node_index, _vector, dimension_fields
+from builders.Sketch import ConstructionError, DerivedFields, NodeOrder, _node_index, _vector, dimension_fields, logical_point_constraint
 
 
 def assign_bit(value, mask, enabled):
@@ -129,9 +129,26 @@ def radial_display(*, profile, handle, parameter, mode, text_point_m, design_int
     return Obj("moDisplayRadialDim_c", fields)
 
 
-def circle_dimension(*, graph, mode, text_point_m, allocator, design_intent, selected_leader):
+def fix_circle_center(*, graph):
+    sketch = graph.sketch
+    arc = sketch["_arc_nodes"][0]
+    center = arc["_center"]
+    if sketch["dims"]["log_g1"] or center["fe4"] != 0 or center["fe8"] != 1 or center["fec"] != 1 or center["f20"] != 0:
+        raise ConstructionError("center fixation requires one unused ordinary center role")
+    constraint = logical_point_constraint(sketch=sketch, point=center, points=sketch["_point_nodes"])
+    sketch["dims"]["log_g1"].append({"d": constraint.f})
+    center["_constraints"] = (constraint,)
+    del center.f["f20"]
+    center.f.derived["f20"] = lambda: len(center["_constraints"])
+    sketch["_fixed_center"] = constraint
+    return constraint
+
+
+def circle_dimension(*, graph, mode, text_point_m, allocator, design_intent, selected_leader, fix_center=False):
     if mode not in ("radius", "diameter"):
         raise ConstructionError("circle dimension mode must be radius or diameter")
+    if type(fix_center) is not bool:
+        raise ConstructionError("circle center fixation must be an authored boolean")
     sketch = graph.sketch
     if sketch.get("_profile_kind") != "circle" or len(sketch["_arc_nodes"]) != 1 or sketch["dims"]["val_g1"] or sketch["dims"]["f118"]["items"]:
         raise ConstructionError("radial construction requires one fresh undimensioned local circle")
@@ -142,6 +159,8 @@ def circle_dimension(*, graph, mode, text_point_m, allocator, design_intent, sel
     value = 2.0 * radius if mode == "diameter" else radius
     if not isfinite(value) or value <= 0:
         raise ConstructionError("circle dimension geometry must yield a finite positive value")
+    if fix_center:
+        fix_circle_center(graph=graph)
     parameter = parameter_node(profile=graph.profile, value=value)
     dimension = value_dimension(profile=graph.profile, parameter=parameter, arc=arc, arcs=sketch["_arc_nodes"], diameter=mode == "diameter", allocator=allocator)
     values = NodeOrder(nodes=(dimension,))

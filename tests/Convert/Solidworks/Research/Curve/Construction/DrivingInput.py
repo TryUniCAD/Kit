@@ -14,8 +14,11 @@ def MakeRadialInput(
     NameValue: str,
     ModeValue: str,
     TextPoint: list[float],
+    FixCenter: bool = False,
 ) -> dict[str, object]:
     Request = MakeCircleInput(CenterValue, RadiusValue, NameValue, "z")
     Document = CastValue(dict[str, object], Request["document"])
     Document["circle_dimension"] = {"mode": ModeValue, "text_point_m": TextPoint}
+    if FixCenter:
+        CastValue(dict[str, object], Document["circle_dimension"])["fix_center"] = True
     return Request
