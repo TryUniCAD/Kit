@@ -322,6 +322,15 @@
       "sha256": "3b13dd103c9872398081e5c055fec5a762b83f1db6da42d9fdc5432a69eff25d",
       "instruction": "call rdx; actual selected receiver rcx; wrapper rbx",
       "provenance": "complete public wrapper instructions after interception callbacks"
+    },
+    {
+      "module": "sldappu.dll",
+      "module_sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "address": "0x456e06ad",
+      "bytes": 7,
+      "sha256": "3b5da0318786e70f83349065cc2fe02c9ce9237d0ca15cf591633fe7727ef3e0",
+      "instruction": "load rdx from rax+0x130; receiver rcx; wrapper rbx",
+      "provenance": "complete wrapper has no further call, branch or rdx reassignment before call rdx at0x456e06da"
     }
   ],
   "vtables": [
@@ -503,7 +512,7 @@
     },
     {
       "module": "sldappu.dll",
-      "address": "0x456e06da",
+      "address": "0x456e06ad",
       "listener_kind": "interior instruction callback"
     }
   ],
@@ -822,25 +831,25 @@
     },
     {
       "module": "sldappu.dll",
-      "address": "0x456e06da",
-      "rva": 3081946,
-      "bytes": 18,
-      "sha256": "93ac4109b6028105ed38c27a132896df3cbd4897e98954a538295e29ba886c3e",
+      "address": "0x456e06ad",
+      "rva": 3081901,
+      "bytes": 15,
+      "sha256": "81c957be7798abf446f8f644139adaa0fedb878b1e5049354ddc75bb1ee7dc95",
       "parent_start": "0x456e0600",
       "parent_end": "0x456e0725",
       "parent_sha256": "aa7920b4816b74fc205041a8c12b17feece5dd7fe116f6134ee7d2c06e7a5a19",
       "relocation_windows": [
         {
           "minimum_patch_bytes": 5,
-          "covered_end": "0x456e06e2",
-          "whole_instruction_bytes": 8,
+          "covered_end": "0x456e06b4",
+          "whole_instruction_bytes": 7,
           "known_direct_incoming_targets_inside": [],
           "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
         },
         {
           "minimum_patch_bytes": 14,
-          "covered_end": "0x456e06ec",
-          "whole_instruction_bytes": 18,
+          "covered_end": "0x456e06bc",
+          "whole_instruction_bytes": 15,
           "known_direct_incoming_targets_inside": [],
           "direct_target_search_scope": "complete owning function only; not whole-program/exception/indirect xrefs"
         }
@@ -918,6 +927,14 @@
       "failure_cause": "not conclusively diagnosed; selected window crosses the indirect CALL return boundary",
       "replacement_address": "0x492b02fa",
       "replacement_semantics": "selected acquisition attempt; target not yet loaded into r10 and external call execution unproved"
+    },
+    {
+      "module": "sldappu.dll",
+      "address": "0x456e06da",
+      "source_revision": "dfc8071f92e5bce657e25cf102f3855a2025063e",
+      "reason": "Frida17.26.3 rejected interception in the owned x64-emulated process despite matching all twelve pinned instruction windows; activation stopped before cases and controls",
+      "native_crash_counted": false,
+      "replacement_boundary": "0x456e06ad"
     }
   ]
 }

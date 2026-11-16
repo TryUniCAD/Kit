@@ -7,7 +7,7 @@ const Scopes = new Map()
 const Epochs = new Map()
 const ModelScopes = new Map()
 
-const TrainingHookWindows = [{"module":"sldmodu.dll","rva":24640528,"bytes":20},{"module":"sldmodu.dll","rva":24755440,"bytes":14},{"module":"sldmodu.dll","rva":24060064,"bytes":14},{"module":"sldmodu.dll","rva":24060252,"bytes":15},{"module":"sldmodu.dll","rva":21021482,"bytes":14},{"module":"sldmodu.dll","rva":21021512,"bytes":15},{"module":"sldmodu.dll","rva":6654129,"bytes":18},{"module":"slduiu.dll","rva":4260336,"bytes":14},{"module":"slduiu.dll","rva":4260602,"bytes":14},{"module":"slduiu.dll","rva":4260683,"bytes":16},{"module":"sldmodu.dll","rva":21106256,"bytes":15},{"module":"sldappu.dll","rva":3081946,"bytes":18}]
+const TrainingHookWindows = [{"module":"sldmodu.dll","rva":24640528,"bytes":20},{"module":"sldmodu.dll","rva":24755440,"bytes":14},{"module":"sldmodu.dll","rva":24060064,"bytes":14},{"module":"sldmodu.dll","rva":24060252,"bytes":15},{"module":"sldmodu.dll","rva":21021482,"bytes":14},{"module":"sldmodu.dll","rva":21021512,"bytes":15},{"module":"sldmodu.dll","rva":6654129,"bytes":18},{"module":"slduiu.dll","rva":4260336,"bytes":14},{"module":"slduiu.dll","rva":4260602,"bytes":14},{"module":"slduiu.dll","rva":4260683,"bytes":16},{"module":"sldmodu.dll","rva":21106256,"bytes":15},{"module":"sldappu.dll","rva":3081901,"bytes":15}]
 let TrainingInstructionCache = null
 
 let TrainingActive = false
@@ -491,19 +491,18 @@ rpc.exports = {
       TrainingModel = Model
       TrainingActive = true
       TrainingCapture = true
-      attach(Application.base.add(0x456e06da - 0x453f0000), function () {
+      attach(Application.base.add(0x456e06ad - 0x453f0000), function () {
         if (!TrainingCapture) return
         try {
           const Implementation = this.context.rcx
-          const Target = this.context.rdx
+          const Table = this.context.rax
+          const Target = Table.add(0x130).readPointer()
           const Wrapper = this.context.rbx
           if (Implementation.isNull() || Target.isNull() || Wrapper.isNull()) throw new Error("public circle dispatch requires nonnull live operands")
-          const Table = Implementation.readPointer()
-          const Slot = Table.add(0x130).readPointer()
-          if (!Slot.equals(Target) || !Wrapper.add(0x50).readPointer().equals(Implementation)) throw new Error("public circle dispatch operands differ from the bound wrapper fields")
+          if (!Implementation.readPointer().equals(Table) || !Wrapper.add(0x50).readPointer().equals(Implementation)) throw new Error("public circle dispatch operands differ from the bound wrapper fields")
           const TargetModule = Process.findModuleByAddress(Target)
           if (TargetModule === null) throw new Error("public circle dispatch target is not in a loaded module")
-          emit({kind: "circle-api-dispatch", instruction: location(Application.base.add(0x456e06da - 0x453f0000)), wrapper: Wrapper.toString(), implementation: Implementation.toString(), vtable: location(Table), virtual_slot: 0x130, target: location(Target), target_module: {name: TargetModule.name, path: TargetModule.path, base: TargetModule.base.toString(), size: TargetModule.size}, layout_read_complete: true, target_implementation_proven: false, acceptance: false})
+          emit({kind: "circle-api-dispatch", instruction: location(Application.base.add(0x456e06ad - 0x453f0000)), capture_boundary: "selected target load after interception callbacks", call_instruction: location(Application.base.add(0x456e06da - 0x453f0000)), wrapper: Wrapper.toString(), implementation: Implementation.toString(), vtable: location(Table), virtual_slot: 0x130, target: location(Target), target_module: {name: TargetModule.name, path: TargetModule.path, base: TargetModule.base.toString(), size: TargetModule.size}, layout_read_complete: true, target_implementation_proven: false, acceptance: false})
         } catch (ErrorInfo) { TrainingIncomplete++; emit({kind: "circle-api-dispatch-error", complete: false, error: String(ErrorInfo)}) }
       })
       attach(Model.base.add(0x4c8bfc10 - 0x4b140000), {
