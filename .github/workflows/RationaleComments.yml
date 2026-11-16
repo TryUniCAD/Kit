@@ -34,7 +34,7 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
-        run: uv sync --frozen --python 3.11
+        run: uv sync --frozen --extra dev --python 3.11
 
       - name: Verify rationale comments across every tracked owned source
         run: uv run python -m tools.Steering.CheckRationaleComments
@@ -51,4 +51,4 @@ jobs:
           uv run python -m tools.Steering.CheckRationaleComments "${Arguments[@]}"
 
       - name: Verify renamed source comment history
-        run: uv run pytest tests/Steering/RationaleRenameTests.py
+        run: uv run --extra dev pytest tests/Steering/RationaleRenameTests.py

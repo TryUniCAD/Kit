@@ -48,7 +48,7 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
-        run: uv sync --frozen --python 3.11
+        run: uv sync --frozen --extra dev --python 3.11
 
       - name: Verify complete tracked tree
         run: uv run python -m tools.Policy.CheckPaths
@@ -66,5 +66,5 @@ jobs:
 
       - name: Verify path policy at the command boundary
         run: >-
-          uv run pytest tests/Policy/DirectoryPolicyTests.py tests/Policy/DirectoryRenameTests.py
+          uv run --extra dev pytest tests/Policy/DirectoryPolicyTests.py tests/Policy/DirectoryRenameTests.py
           tests/Policy/PolicyCommandTest.py tests/Policy/GitModesTest.py
