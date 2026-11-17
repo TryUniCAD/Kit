@@ -59,3 +59,22 @@ Eight fresh SOLIDWORKS processes measured the two generated drawings, the reduce
 Stage the same pair in a fresh directory. Place `InspectDrawingSaveModes.py` with its staged tools and run it on `Trial.json` through the same Windows oracle. Pass `--packet-sha256` and `--runner-sha256` with the corresponding file hashes. The observer compares SaveAs after the initial rebuild with Save3 after the scale edit. Every in-place save checks that the native model path resolves to the disposable copy and marks that copy dirty. Both modes use the same paths for the generated input and the reduced control.
 
 The reduced native file saved and reopened in both modes. The pristine controls also completed their edit, SaveAs and reopen. In ten fresh processes, every open and rebuild was clean. The corrected generated drawing returned `[false,1,0]` in both modes. SaveAs left an empty target. Save3 left the writable copy byte-identical. The save failure occurs before a scale edit and also on explicit in-place save. [Native save-mode receipt](../measurements/2026/GeneratedBlankDrawingSaveModes03.json)
+
+## Drawing UI omissions
+
+`PrepareBlankDrawingUi.py` takes the pinned previous pair's `Trial.json`,
+`--prior-sha256` and `--out`. It decodes and re-encodes only the disclosed
+native reduced control's typed Definition, preserving its other six logical
+streams. It stages the unmodified repack and four isolated omissions. Run
+the staged `InspectBlankDrawingUi.py Trial.json --packet-sha256 SHA` in the
+pinned Windows oracle using the printed packet digest. The pristine brackets
+and four variants use the same loaded and saved paths across fresh processes.
+
+The viewport, both line tables, and the environment and BOM owner group were
+omitted independently and together. All fourteen native phases passed. Each
+saved drawing preserved the 3:2 sheet edit and ten-row feature tree. Typed
+readback found that the viewport, environment and BOM manager reappeared
+when omitted. Empty line style and font tables remained empty after save
+and fresh reopen. The reduced native drawing accepted those absent UI states
+together. The generated drawing's native save remains unresolved.
+[Typed omission and native readback](../measurements/2026/DrawingBlankUiOmission01.json)
