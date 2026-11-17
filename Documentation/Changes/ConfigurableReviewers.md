@@ -53,7 +53,7 @@ Removing the file does not edit live branch-protection settings.
 Process-boundary coverage runs the full aggregate in a Node subprocess for each configured reviewer.
 It covers successful, failed, missing, pending, stale, spoofed, and partial reports.
 Existing unrelated-CI and queue-acceptance cases remain.
-All test execution belongs to remote PR CI.
+Use the [current local execution and review timing](../../.agents/skills/standard-pr-practice/SKILL.md#large-pull-requests) for future PRs.
 No tests ran locally.
 
 The PR reporter executes trusted base code through `pull_request_target`.
