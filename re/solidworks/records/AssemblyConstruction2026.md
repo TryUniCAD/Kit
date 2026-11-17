@@ -353,7 +353,7 @@ runtime reference-resolution paths. Two generated files with the same
 kind, creation time and case-insensitive stem can match here even if their
 paths differ. The ordinary writer must handle such identity collisions
 explicitly. Graphics external references go through a separate comparison.
-The [identity gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ExternalFileIdentityUsesStemAndCreationTime.md)
+The [identity gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ExternalReferences/ExternalFileIdentityUsesStemAndCreationTime.md)
 records the resulting construction constraint.
 
 Hopper via REA returned the comparison in evidence
@@ -371,8 +371,45 @@ list. A preassigned index is preserved and raises the list mark if it
 is greater. This makes the first id 0, and lets a populated list have
 sparse ids. The high-water mark is not the number of direct archive
 reference slots. The
-[index gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ExternalReferenceIdsAreNotListCounts.md)
+[index gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ExternalReferences/ExternalReferenceIdsAreNotListCounts.md)
 links the rule to REA and separates it from the entry count.
+
+The [disclosed directory readback](../measurements/2026/AssemblyExternalDirectoryEA67.json)
+shows three separate quantities in the current fixtures:
+
+| Assembly | Related file entries in `f30` | Directory slots including `f38` | Child file ids | Occurrence direct archive slots |
+| --- | --- | --- | --- | --- |
+| Empty | 0 | 1 | — | — |
+| One child occurrence | 1 | 2 | 0 | 4 |
+| Two occurrences of that child | 1 | 2 | 0 | 4, 4 |
+
+Both headers in all three sources include a separately serialized self
+record with id -1 and the real active configuration. The child record
+has an unset configuration selector and an ordinary active-user count
+of one or two, matching the two disclosed occurrence counts. The empty
+source's `Header2.fc4` is one while its `Config-0-ModelHeader.fc4` is
+zero. The accepted empty candidates generated zero in both and omitted
+the self record. These observations do not establish the populated
+writer's final header policy.
+
+### Directory timestamps and occurrence update stamps
+
+The normal out-of-date walk in `slduiu.dll` can refresh an external
+record's last-save field `f70` from its referenced model's
+`moConfigurationMgr_c` runtime `+0x570` timestamp. The downward path
+gets the manager at `0x49436dba`, reads the timestamp at `0x49436dc5`,
+and conditionally calls the external `setLastSaveTimestamp` at
+`0x49436dea`. A second downward path at `0x49436f7a` and an upward
+path at `0x494376a2` also make conditional updates. The getter and setter
+`sldmodu.dll!0x4b2875f0` and `0x4b2931a0` independently name that
+manager member. The lightweight-open timestamp is a distinct member at
+`+0x560`.
+
+Both disclosed populated saves have equal external `f60` and `f70`.
+In each, that value differs from the actual child's header update
+timestamp `f48`, which still equals the occurrence's `f3e8`. This
+disproves using the occurrence's update timestamp for every external
+record. The refresh path does not prove the full fresh-save lifecycle.
 
 ## Computed geometric bounds
 

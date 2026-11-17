@@ -1,0 +1,323 @@
+{
+  "schema": "kit.sw2026.assembly-external-directory-measurement.v1",
+  "evaluation_revision": "ea67b05ea714f85a6d4c8dafe7bd684ad72ff38e",
+  "tested_merge": "c98b9029af83a98c9cdbf1bb05c8d8bda25bba24",
+  "tested_tree": "c32749eef6074ebe004d9bbb7934f284cde67fcc",
+  "merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "ea67b05ea714f85a6d4c8dafe7bd684ad72ff38e"
+  ],
+  "run_id": 44011893178,
+  "job_id": 133800616068,
+  "artifact_id": 14296988372,
+  "artifact_sha256": "0f1da456219fd57fcee3330d80e34f7ea9a6db95f9eebe488d28d51da94c55f8",
+  "source_member": {
+    "name": "SourceParser/Assembly/Synchronized.json",
+    "bytes": 4685578,
+    "sha256": "0a2450712f02fbee5772c3aae289a8a4065937616fbd0a24ffd297c8fbbd7af8"
+  },
+  "exact_archive_comparisons": 35,
+  "heldout_payloads_read": false,
+  "generated_empty_candidate_hashes_unchanged": true,
+  "native_populated_acceptance": false,
+  "cases": [
+    {
+      "name": "A12SyncedEmpty",
+      "parent_sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+      "occurrences": 0,
+      "directory": {
+        "Header2": {
+          "entries": [],
+          "self": {
+            "class": "moExtObject_c",
+            "document_kind": 3,
+            "filename_stem": "Assem1",
+            "creation_timestamp": 1794881589,
+            "reference_index": -1,
+            "configuration": {
+              "id": 0,
+              "name": "Default"
+            },
+            "registration_counts": {
+              "f48": 1,
+              "f4c": 0,
+              "f50": 0
+            },
+            "timestamps": {
+              "f60": 1794881603,
+              "f70": 0
+            }
+          },
+          "list_class": null,
+          "array_slots": 1,
+          "active_component_count": 1
+        },
+        "Contents/Config-0-ModelHeader": {
+          "entries": [],
+          "self": {
+            "class": "moExtObject_c",
+            "document_kind": 3,
+            "filename_stem": "Assem1",
+            "creation_timestamp": 1794881589,
+            "reference_index": -1,
+            "configuration": {
+              "id": 0,
+              "name": "Default"
+            },
+            "registration_counts": {
+              "f48": 1,
+              "f4c": 0,
+              "f50": 0
+            },
+            "timestamps": {
+              "f60": 1794881603,
+              "f70": 0
+            }
+          },
+          "list_class": null,
+          "array_slots": 1,
+          "active_component_count": 0
+        }
+      },
+      "reference_bindings": [],
+      "child_header_counters": null
+    },
+    {
+      "name": "A13SyncedSingle",
+      "parent_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+      "occurrences": 1,
+      "directory": {
+        "Header2": {
+          "entries": [
+            {
+              "class": "moExtObject_c",
+              "document_kind": 2,
+              "filename_stem": "CohortChild",
+              "creation_timestamp": 1794690236,
+              "reference_index": 0,
+              "configuration": {
+                "id": -1,
+                "name": ""
+              },
+              "registration_counts": {
+                "f48": 1,
+                "f4c": 0,
+                "f50": 0
+              },
+              "timestamps": {
+                "f60": 1794881660,
+                "f70": 1794881660
+              }
+            }
+          ],
+          "self": {
+            "class": "moExtObject_c",
+            "document_kind": 3,
+            "filename_stem": "Assem1",
+            "creation_timestamp": 1794881651,
+            "reference_index": -1,
+            "configuration": {
+              "id": 0,
+              "name": "Default"
+            },
+            "registration_counts": {
+              "f48": 1,
+              "f4c": 0,
+              "f50": 0
+            },
+            "timestamps": {
+              "f60": 1794881660,
+              "f70": 0
+            }
+          },
+          "list_class": "moExtObjectList_c",
+          "array_slots": 2,
+          "active_component_count": 1
+        },
+        "Contents/Config-0-ModelHeader": {
+          "entries": [
+            {
+              "class": "moExtObject_c",
+              "document_kind": 2,
+              "filename_stem": "CohortChild",
+              "creation_timestamp": 1794690236,
+              "reference_index": 0,
+              "configuration": {
+                "id": -1,
+                "name": ""
+              },
+              "registration_counts": {
+                "f48": 1,
+                "f4c": 0,
+                "f50": 0
+              },
+              "timestamps": {
+                "f60": 1794881660,
+                "f70": 1794881660
+              }
+            }
+          ],
+          "self": {
+            "class": "moExtObject_c",
+            "document_kind": 3,
+            "filename_stem": "Assem1",
+            "creation_timestamp": 1794881651,
+            "reference_index": -1,
+            "configuration": {
+              "id": 0,
+              "name": "Default"
+            },
+            "registration_counts": {
+              "f48": 1,
+              "f4c": 0,
+              "f50": 0
+            },
+            "timestamps": {
+              "f60": 1794881660,
+              "f70": 0
+            }
+          },
+          "list_class": "moExtObjectList_c",
+          "array_slots": 2,
+          "active_component_count": 1
+        }
+      },
+      "reference_bindings": [
+        {
+          "archive_index": 8,
+          "external_binding": {
+            "present": true,
+            "direct_index": 4
+          }
+        }
+      ],
+      "child_header_counters": {
+        "f40": 134,
+        "f48": 1794881658,
+        "f1300": 104
+      }
+    },
+    {
+      "name": "A14SyncedRepeat",
+      "parent_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+      "occurrences": 2,
+      "directory": {
+        "Header2": {
+          "entries": [
+            {
+              "class": "moExtObject_c",
+              "document_kind": 2,
+              "filename_stem": "CohortChild",
+              "creation_timestamp": 1794690236,
+              "reference_index": 0,
+              "configuration": {
+                "id": -1,
+                "name": ""
+              },
+              "registration_counts": {
+                "f48": 2,
+                "f4c": 0,
+                "f50": 0
+              },
+              "timestamps": {
+                "f60": 1794881716,
+                "f70": 1794881716
+              }
+            }
+          ],
+          "self": {
+            "class": "moExtObject_c",
+            "document_kind": 3,
+            "filename_stem": "Assem1",
+            "creation_timestamp": 1794881706,
+            "reference_index": -1,
+            "configuration": {
+              "id": 0,
+              "name": "Default"
+            },
+            "registration_counts": {
+              "f48": 1,
+              "f4c": 0,
+              "f50": 0
+            },
+            "timestamps": {
+              "f60": 1794881716,
+              "f70": 0
+            }
+          },
+          "list_class": "moExtObjectList_c",
+          "array_slots": 2,
+          "active_component_count": 2
+        },
+        "Contents/Config-0-ModelHeader": {
+          "entries": [
+            {
+              "class": "moExtObject_c",
+              "document_kind": 2,
+              "filename_stem": "CohortChild",
+              "creation_timestamp": 1794690236,
+              "reference_index": 0,
+              "configuration": {
+                "id": -1,
+                "name": ""
+              },
+              "registration_counts": {
+                "f48": 2,
+                "f4c": 0,
+                "f50": 0
+              },
+              "timestamps": {
+                "f60": 1794881716,
+                "f70": 1794881716
+              }
+            }
+          ],
+          "self": {
+            "class": "moExtObject_c",
+            "document_kind": 3,
+            "filename_stem": "Assem1",
+            "creation_timestamp": 1794881706,
+            "reference_index": -1,
+            "configuration": {
+              "id": 0,
+              "name": "Default"
+            },
+            "registration_counts": {
+              "f48": 1,
+              "f4c": 0,
+              "f50": 0
+            },
+            "timestamps": {
+              "f60": 1794881716,
+              "f70": 0
+            }
+          },
+          "list_class": "moExtObjectList_c",
+          "array_slots": 2,
+          "active_component_count": 2
+        }
+      },
+      "reference_bindings": [
+        {
+          "archive_index": 8,
+          "external_binding": {
+            "present": true,
+            "direct_index": 4
+          }
+        },
+        {
+          "archive_index": 16,
+          "external_binding": {
+            "present": true,
+            "direct_index": 4
+          }
+        }
+      ],
+      "child_header_counters": {
+        "f40": 134,
+        "f48": 1794881713,
+        "f1300": 104
+      }
+    }
+  ]
+}
