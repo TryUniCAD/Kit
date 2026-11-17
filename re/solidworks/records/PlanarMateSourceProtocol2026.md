@@ -22,6 +22,16 @@ principal plane. It reads the actual driving distance from the mate feature.
 [Mate authoring API](https://help.solidworks.com/2025/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IAssemblyDoc~AddMate5.html)
 and [SOLIDWORKS 2026 mate entity parameters](https://help.solidworks.com/2026/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IMateEntity2~EntityParams.html).
 
+The initial cohort reached native mate creation for all three disclosed cases.
+The observer then incorrectly applied the geometry enum to `ReferenceType2`.
+The COM method reports `swSelectType_e.swSelDATUMPLANES` (4) for the three
+principal plane references. The recorder observed eight finite parameters
+and the correct Top, Right and Front normals. Both controls passed. The
+verified correction changes only the observation gate. The authored
+placements, mate requests and private hold-out observations remain fixed.
+[First native reference observation](../measurements/2026/PlanarMateReferenceType01.json)
+and [reference type gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/PlanarMateReferenceUsesSelectionEnum.md).
+
 Use fresh processes to create and reopen each of the five reference pairs.
 Require the analytical placements and mass properties, synchronized child
 and parent save, zero warnings and an isolated reopen. Bracket the batch

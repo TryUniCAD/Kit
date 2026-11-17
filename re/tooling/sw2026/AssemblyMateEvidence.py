@@ -9,6 +9,7 @@ from AuthorCurves import require
 
 TYPES = {"coincident": 0, "parallel": 3, "distance": 5}
 PLANE_AXES = {"Right Plane": 0, "Top Plane": 1, "Front Plane": 2}
+DATUM_PLANE_SELECTION_TYPE = 4
 
 
 def author_plane_mates(author, model, assembly, components, case):
@@ -58,7 +59,7 @@ def mate_endpoint(author, mate, index):
     occurrence = author.typed(author.get(entity, "ReferenceComponent"), "Component2")
     reference_type = int(author.get(entity, "ReferenceType2"))
     parameters = [float(value) for value in author.get(entity, "EntityParams")]
-    require(reference_type == 3 and len(parameters) == 8 and all(map(math.isfinite, parameters)),
+    require(reference_type == DATUM_PLANE_SELECTION_TYPE and len(parameters) == 8 and all(map(math.isfinite, parameters)),
             "the native mate entity does not describe a plane")
     return {"occurrence": str(author.get(occurrence, "Name2")), "reference_type": reference_type,
             "point": parameters[:3], "normal": parameters[3:6]}
