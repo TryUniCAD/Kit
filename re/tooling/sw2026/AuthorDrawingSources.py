@@ -65,10 +65,10 @@ def compare_values(author, label, actual, expected):
 def view_state(author, view, request, expected_child):
     child = author.get(view, "ReferencedDocument")
     curves.require(child is not None, "drawing view did not resolve its referenced part")
-    child_path = Path(author.get(child, "GetPathName"))
+    child_path = Path(author.get(child, "GetPathName")).resolve()
     configuration = str(author.get(view, "ReferencedConfiguration"))
     active = author.get(author.get(child, "ConfigurationManager"), "ActiveConfiguration")
-    curves.require(child_path.resolve() == expected_child.resolve(), "drawing view resolved the wrong child")
+    curves.require(child_path == expected_child.resolve(), "drawing view resolved the wrong child")
     curves.require(configuration and configuration == str(author.get(active, "Name")), "drawing view references the wrong configuration")
     part = author.typed(child, "PartDoc")
     curves.require(len(author.get(part, "GetBodies2", 0, True) or ()) == 1, "drawing view must resolve one visible solid body")
@@ -85,7 +85,8 @@ def view_state(author, view, request, expected_child):
     transform = author.typed(author.get(view, "ModelToViewTransform"), "MathTransform")
     return {
         "name": str(author.get(view, "GetName2")), "orientation": orientation,
-        "reference_name": str(author.get(view, "GetReferencedModelName")), "configuration": configuration,
+        "reference_name": str(author.get(view, "GetReferencedModelName")), "resolved_reference_path": str(child_path),
+        "configuration": configuration,
         "position_m": position, "scale": scale, "outline_m": outline,
         "model_to_view": vector(author.get(transform, "ArrayData"), 16, "native model-to-view transform"),
         "child_volume_m3": mass["volume"], "child_area_m2": mass["area"],
@@ -122,8 +123,9 @@ def compare_states(author, actual, expected):
     if actual["view"] is None:
         return
     current, saved = actual["view"], expected["view"]
-    for field in ("name", "orientation", "reference_name", "configuration"):
+    for field in ("name", "orientation", "configuration"):
         curves.require(current[field] == saved[field], f"drawing view {field} changed on reopen")
+    curves.require(Path(current["resolved_reference_path"]) == Path(saved["resolved_reference_path"]), "resolved drawing reference changed on reopen")
     for field in ("position_m", "outline_m", "model_to_view", "child_center_m"):
         compare_values(author, f"reopened {field}", current[field], saved[field])
     for field in ("scale", "child_volume_m3", "child_area_m2"):

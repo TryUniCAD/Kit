@@ -1,0 +1,19 @@
+# Native SOLIDWORKS 2026 blind-cut objects
+
+The three disclosed [blind-cut sources](../v2026/heldout/OrdinaryBlindCutSourceLock.json) were independently authored as a rectangular boss followed by a blind circular pocket. The source tool qualified both features through native rebuild and a driving depth edit. The linked reader reached the following graph on all three source hashes. The two held-out payloads and their detailed observations remain sealed.
+
+`moICE_c` and `moExtrusion_c` share serializer `0x4bb11640` in `sldmodu.dll`, whose pinned SHA-256 is `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`. Slot 5 of the `moICE_c` vtable at `0x4cf4e530` verifies the shared dispatch. The `moICE_c` constructor at `0x4bad3f00` calls the typed extrusion constructor at `0x4bad3f0d`, installs its own vtables, and initializes `f810` to zero at `0x4bad3f2b`. The half-open constructor span `[0x4bad3f00,0x4bad3f3e)` has SHA-256 `1aa7be1814f6879a2d9e375f018e0f58e824a515434a06bec95878becccb701a`. The extrusion constructor sets its initial `f810` to −1 at `0x4bad3b3c`. [Bound 2026 class map](../../data/Serialization/SerializeMap2026.json)
+
+| Owner | Verified on disclosed saves | Construction status |
+| --- | --- | --- |
+| ResolvedFeatures | User history is profile, `moExtrusion_c`, second profile, `moICE_c`. Persistent IDs are 26, 32, 33 and 40 in this ladder. The linked stream inherits the configuration map. | Derive history order and allocate each graph's required IDs. Observed map lengths are topology measurements. |
+| `moICE_c.f810` | All three cut records store `1`. Side-by-side boss records store `−1`. | The constructor's initial zero is verified. The cut's authoring mutation still needs a bound cause. |
+| `moICE_c.f818` | One active reversed blind end (`f08=1`, `f0c=0`, `f8c=1`). `f18` owns a `moDisplayDistanceDim_c` and there is no reverse distance or draft display. | Depth and reversal are authored inputs. Derive the active display and its linked driving parameter from the selected sketch and depth. |
+| `moAtomFeature_c.f530` | A one-item array refers to the same `moAtom_c` in the inherited Config-0 map. | Derive the cut's affected body identity from the prior solid history and retain its live reference. |
+| `moAtomFeature_c.f548` | A one-item array holds a `moCompSolidBody_c`. | Map the native component body wrapper to the affected solid. The construction path remains open. |
+| `moAtomFeature_c.f4c0` | Present embedded `moBodyChooser_c` with one `moPerBodyChooserData_c` and `f68` pointing back to the actual `moICE_c`. | Recover the automatic feature-scope owner and the conditions under which the native initializer registers these arrays. |
+| `moAtomFeature_c.f28` | `0x400201ca` in each cut versus `0x40000140` in each boss. | Bind the flag mutations to the actual selected authoring path before assigning the final value. |
+| `moEndSpec_c.f158` | Values differ substantially across the depth ladder. | The owner's lifetime and serialization meaning remain open. |
+| `swXmlContents/KeyWords` | The cut is an `Extrusion` row with no `Type`. `DissectableChildren` points to the semantic cut sketch ID. The D1 text is the authored depth in millimetres. | Derive rows, IDs, and displayed length using the actual history and presentation units. |
+
+The private projection of these three source hashes has SHA-256 `6dd765bcf55306639a84bf303b1a2f8426e4af0434d1125b3a0a20326e26a396`. All 45 exercised linked streams re-emit byte for byte. The strict check accepts 42 streams, with two provisional owners in each optional visual-state stream. This evidence establishes the archived cut dependencies. Generated cuts require a separate construction model and native qualification.

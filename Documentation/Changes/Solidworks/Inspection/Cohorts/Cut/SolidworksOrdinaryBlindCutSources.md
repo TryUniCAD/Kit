@@ -24,3 +24,5 @@ byte comparisons and 42 strict schema checks. The three optional visual-state
 streams account for the strict failures. [Native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryBlindCutSourceLock.json)
 
 [Feature manager type-information gotcha](../../../../../Gotchas/Conversion/Solidworks/Oracle/FeatureManagerDispatchCanLackTypeInfo.md)
+
+The [blind-cut archive evidence](../../../../../../re/solidworks/records/OrdinaryBlindCutConstruction2026.md) identifies the cut class, connected end condition and affected-body graph. The [cut class gotcha](../../../../../Gotchas/Conversion/Solidworks/Archive/Cut/OrdinaryBlindCutsUseInstantExtrusion.md) records the exact native class observed in this cohort.
