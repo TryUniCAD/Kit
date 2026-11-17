@@ -7,6 +7,7 @@ from Core import ArchiveError, Obj
 from Streams import StreamDoc
 from defs.Definition import STANDARDS, store_definition
 
+from builders.Metadata import FILE_VERSION
 from builders.Model import object_list
 
 
@@ -216,4 +217,4 @@ def assembly_definition(
 def definition_stream(*, registry, document: Obj) -> bytes:
     if not isinstance(document, Obj) or document.cls not in ("uiPartDoc_c", "uiAssemblyDoc_c"):
         raise ArchiveError("definition construction requires a part or assembly document")
-    return store_definition(StreamDoc("definition", document, [document]), registry, 19000)
+    return store_definition(StreamDoc("definition", document, [document]), registry, FILE_VERSION)

@@ -1,13 +1,12 @@
 from __future__ import annotations
 
+from Core import DOCUMENT_VERSION_2026
 from Schema import If, P, O, S, Rep, Cnt, Base, Emb, C
-
-CURRENT = 19000
 
 
 def ver(ar):
     v = ar.version
-    return CURRENT if not v else v
+    return DOCUMENT_VERSION_2026 if not v else v
 
 
 def Vgt(n, then, other=()):

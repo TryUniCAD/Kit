@@ -4,10 +4,12 @@ import math
 from collections.abc import Mapping, Sequence
 from xml.etree.ElementTree import Element, SubElement, fromstring, tostring
 
-from Core import Obj
+from Core import DOCUMENT_VERSION_2026, Obj
 from Streams import StreamDoc, store_rooted
 
-FILE_VERSION = 19000
+FILE_VERSION = DOCUMENT_VERSION_2026
+BIOGRAPHY_STREAM = f"_MO_VERSION_{FILE_VERSION}/Biography"
+HISTORY_STREAM = f"_MO_VERSION_{FILE_VERSION}/History"
 COUNTER_SEED = 101
 LICENSE_ORIGINS = frozenset((0, 10, 20, 30, 40, 50))
 KEYWORD_TAGS = frozenset(("Feature", "Sketch", "Extrusion"))
@@ -144,7 +146,7 @@ def history(*, states, failure_severity, minimum_free_memory, license_origin, la
     for state in sequence(states, "version states"):
         state = fields(state, "version state", ("file_version", "date_codes", "stamp"))
         if integer(state["file_version"], "history file version") != FILE_VERSION:
-            raise ValueError("fresh history construction supports only the recovered 19000 format")
+            raise ValueError(f"fresh history construction supports only the recovered {FILE_VERSION} format")
         codes = []
         for value in sequence(state["date_codes"], "date-code provenance"):
             value = fields(value, "date-code provenance", ("build_code", "native_save"))
@@ -234,8 +236,8 @@ def rooted_metadata_streams(*, registry, header2, model_headers, biography_recor
     if not isinstance(model_headers, Mapping) or not model_headers:
         raise ValueError("metadata streams require a model header for each generated configuration")
     records = {"Header2": (header2, "moHeader_c"),
-               "_MO_VERSION_19000/Biography": (biography_record, "moBiography_c"),
-               "_MO_VERSION_19000/History": (history_record, "moVersionHistory_c")}
+               BIOGRAPHY_STREAM: (biography_record, "moBiography_c"),
+               HISTORY_STREAM: (history_record, "moVersionHistory_c")}
     for key, value in model_headers.items():
         key = integer(key, "configuration id", high=0x7FFFFFFF)
         records[f"Contents/Config-{key}-ModelHeader"] = (value, "moHeader_c")

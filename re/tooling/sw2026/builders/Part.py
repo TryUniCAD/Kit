@@ -12,7 +12,7 @@ from builders.ConfigurationHeader import CONFIGURATION_MANAGER_HEADER, configura
 from builders.Definition import definition_stream, part_definition
 from builders.ExternalFiles import ordinary_self_reference
 from builders.Extrude import live_blind_extrusion, live_extrusion
-from builders.Metadata import biography, fields, header, history, keywords, streams
+from builders.Metadata import FILE_VERSION, biography, fields, header, history, keywords, streams
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
 from builders.Radial import circle_dimension
 from builders.Sketch import PlaneFrame, closed_profile, origin_profile
@@ -38,7 +38,7 @@ class PartConstruction:
 
 
 def _rooted(*, registry, node):
-    return store_rooted(StreamDoc("rooted", {"base": 1}, [node]), registry, 19000)
+    return store_rooted(StreamDoc("rooted", {"base": 1}, [node]), registry, FILE_VERSION)
 
 
 def _metadata(*, registry, document, provenance, presentation, graph, features, profile, radial, extrusion, output):
@@ -76,7 +76,7 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
         model_headers={configuration["f08"]: model_header},
         biography_record=biography(),
         history_record=history(
-            states=[{"file_version": 19000, "date_codes": [{"build_code": provenance["originating_build_code"], "native_save": False}], "stamp": stamp}],
+            states=[{"file_version": FILE_VERSION, "date_codes": [{"build_code": provenance["originating_build_code"], "native_save": False}], "stamp": stamp}],
             failure_severity=0, minimum_free_memory=0xFFFFFFFF,
             license_origin=provenance["license_origin"], language_id=presentation["language_id"],
             cjk_saved=presentation["cjk_saved"], cjk_warning=False,
@@ -212,7 +212,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
         graph=graph, features=features, profile=profile, radial=radial, extrusion=extrusion, output=output,
     )
-    config_data, state = store_config_state(StreamDoc("config", {"model_header": model_header}, [graph.part]), registry, 19000)
+    config_data, state = store_config_state(StreamDoc("config", {"model_header": model_header}, [graph.part]), registry, FILE_VERSION)
     resolved = StreamDoc("resolved", {"base": state.count, "context": {
         "model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": graph.configuration_manager["f658"],
     }}, features)
@@ -225,7 +225,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         "Contents/Config-0": config_data,
         "Contents/CMgr": _rooted(registry=registry, node=graph.configuration_manager),
         "Contents/Definition": definition_stream(registry=registry, document=definition),
-        "Contents/Config-0-ResolvedFeatures": store_resolved(resolved, registry, 19000, seed=state),
+        "Contents/Config-0-ResolvedFeatures": store_resolved(resolved, registry, FILE_VERSION, seed=state),
     })
     manager_header = None
     if output is not None:

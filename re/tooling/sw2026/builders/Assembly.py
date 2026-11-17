@@ -5,6 +5,7 @@ from math import isfinite, sqrt
 
 from Core import Obj, Store
 from builders.ExternalFiles import referenced_configuration
+from builders.Metadata import FILE_VERSION
 from builders.Model import PersistentIds, base_configuration_fields, clear_model_update, component_plane, detail_cabinet, folder, logged_creation_time, model_feature, model_fields, object_list, principal_planes, relation_manager, unit_component
 from builders.Sketch import PlaneFrame, origin_profile
 
@@ -167,7 +168,7 @@ def store_empty_mates(*, registry, resolved_map, mate_group: Obj) -> bytes:
     group_items = mate_group["f60"]["list"]["items"]
     if group_items or mate_group["f4e8"] or mate_group["discarded_manager_records"]:
         raise ValueError("nonempty mate history needs a classified mate serializer")
-    archive = Store(old_count, registry, 19000, seed=resolved_map)
+    archive = Store(old_count, registry, FILE_VERSION, seed=resolved_map)
     archive.prim("i32", old_count)
     items = Obj("suObList", object_list())
     registry.run_store("suObList", archive, items.f, items)

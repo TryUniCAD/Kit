@@ -32,6 +32,7 @@ NEW_CLASS = 0xFFFF
 CLASS_TAG = 0x8000
 BIG_TAG = 0x7FFF
 BIG_CLASS = 0x80000000
+DOCUMENT_VERSION_2026 = 19000
 
 PRIMS = {
     "u8": "<B", "i8": "<b", "u16": "<H", "i16": "<h", "u32": "<I", "i32": "<i",
