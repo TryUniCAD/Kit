@@ -1,13 +1,19 @@
 from __future__ import annotations
 
 import math
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 
 from Core import ArchiveError, Obj
 from Streams import StreamDoc
 from defs.Definition import STANDARDS, store_definition
 
 from builders.Model import object_list
+
+
+SAVE_PART_PREFERENCES = (
+    ("f0c", "5fc"), ("f10", "5fd"), ("f18", "5fe"), ("f20", "5ff"), ("f28", "600"),
+    ("f30", "601"), ("f34", "602"), ("f2c", "603"), ("f38", "604"), ("f3c", "605"),
+)
 
 
 def identity_transform() -> dict:
@@ -52,19 +58,16 @@ def notebook(*, name: str) -> dict:
     }
 
 
-def part_definition(
+def _model_definition(
     *,
-    density_kg_m3: float,
+    cls: str,
+    clsid_a: int,
     drafting_standard: str,
     detail_flags: Iterable[int],
     tessellation: tuple[int, int, int, bool],
     system_preference_7a: bool,
     journal_name: str,
 ) -> Obj:
-    if isinstance(density_kg_m3, bool) or not isinstance(density_kg_m3, (int, float)):
-        raise TypeError("document density must be numeric")
-    if not math.isfinite(density_kg_m3) or density_kg_m3 <= 0:
-        raise ValueError("document density must be finite and positive")
     if drafting_standard not in STANDARDS:
         raise ArchiveError("unsupported drafting-standard runtime class")
     flags = frozenset(detail_flags)
@@ -79,7 +82,7 @@ def part_definition(
     mask = sum(1 << bit for bit in flags)
     low = mask & 0xFFFFFFFF
     high = mask >> 32
-    result = Obj("uiPartDoc_c")
+    result = Obj(cls)
     result.f.update({name: 0 for name in (
         "fac8", "fb54", "f850", "fb00", "fb04", "fa6c", "f1000", "f7b8",
         "f1348", "f1350", "f134c", "f1354", "fa78", "f1358", "f7bc",
@@ -93,7 +96,7 @@ def part_definition(
         "fa60": tessellation[2],
         "fa64": int(tessellation[3]),
         "fa74": 1,
-        "clsid_a": 0x83A33D30,
+        "clsid_a": clsid_a,
         "clsid_b": 0x27C5,
         "clsid_c": 0x11CE,
         "clsid_d": bytes.fromhex("bfd400400513bb57"),
@@ -137,12 +140,80 @@ def part_definition(
         "fd7c": 3,
         "nvar": 0,
         "f11a0": [],
-        "f1688": float(density_kg_m3),
+    })
+    return result
+
+
+def part_definition(
+    *,
+    density_kg_m3: float,
+    drafting_standard: str,
+    detail_flags: Iterable[int],
+    tessellation: tuple[int, int, int, bool],
+    system_preference_7a: bool,
+    journal_name: str,
+) -> Obj:
+    if isinstance(density_kg_m3, bool) or not isinstance(density_kg_m3, (int, float)):
+        raise TypeError("document density must be numeric")
+    if not math.isfinite(density_kg_m3) or density_kg_m3 <= 0:
+        raise ValueError("document density must be finite and positive")
+    result = _model_definition(
+        cls="uiPartDoc_c", clsid_a=0x83A33D30, drafting_standard=drafting_standard,
+        detail_flags=detail_flags, tessellation=tessellation,
+        system_preference_7a=system_preference_7a, journal_name=journal_name,
+    )
+    result.f["f1688"] = float(density_kg_m3)
+    return result
+
+
+def save_as_part_settings(*, preferences: Mapping[str, bool | int | float]) -> dict:
+    if not isinstance(preferences, Mapping) or preferences.keys() != {key for _, key in SAVE_PART_PREFERENCES}:
+        raise ValueError("save-as-part preferences must supply every native slot from 5fc through 605")
+    settings = {"f08": 0}
+    for field, key in SAVE_PART_PREFERENCES:
+        value = preferences[key]
+        if field in ("f10", "f20"):
+            if type(value) not in (float, int) or not math.isfinite(value):
+                raise ValueError(f"save-as-part preference {key} must be finite")
+            value = float(value)
+        elif field == "f3c":
+            if type(value) is not int or not -(1 << 31) <= value < (1 << 31):
+                raise ValueError(f"save-as-part preference {key} must fit a signed long")
+        else:
+            if type(value) is not bool:
+                raise ValueError(f"save-as-part preference {key} must be boolean")
+            value = int(value)
+        settings[field] = value
+    if settings["f10"] > 0.9:
+        settings["f10"] = 0.9
+    elif settings["f10"] < 0.0:
+        settings["f10"] = 0.0
+    return settings
+
+
+def assembly_definition(
+    *,
+    drafting_standard: str,
+    detail_flags: Iterable[int],
+    tessellation: tuple[int, int, int, bool],
+    system_preference_7a: bool,
+    journal_name: str,
+    save_as_part_preferences: Mapping[str, bool | int | float],
+) -> Obj:
+    result = _model_definition(
+        cls="uiAssemblyDoc_c", clsid_a=0x83A33D36, drafting_standard=drafting_standard,
+        detail_flags=detail_flags, tessellation=tessellation,
+        system_preference_7a=system_preference_7a, journal_name=journal_name,
+    )
+    result.f.update({
+        "f1840": 0, "f19c8": 0, "f1a38": "", "f1a40": "", "f1a48": 0,
+        "f19b0": 0, "f19b8": 0.0127, "f19c0": 0, "f1afc": 10,
+        "f1b48": save_as_part_settings(preferences=save_as_part_preferences),
     })
     return result
 
 
 def definition_stream(*, registry, document: Obj) -> bytes:
-    if not isinstance(document, Obj) or document.cls != "uiPartDoc_c":
-        raise ArchiveError("definition construction currently requires a part document")
+    if not isinstance(document, Obj) or document.cls not in ("uiPartDoc_c", "uiAssemblyDoc_c"):
+        raise ArchiveError("definition construction requires a part or assembly document")
     return store_definition(StreamDoc("definition", document, [document]), registry, 19000)

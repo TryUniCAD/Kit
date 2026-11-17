@@ -32,11 +32,11 @@ KAssemblyRoots = [
 # normalized assembly input must build its own root bytes in a separate guarded process
 def TestRootBuild() -> None:
     Lengths: list[int] = []
-    for NameValue in (
-        "Initial unit",
-        "Longer assembly title for measured construction",
+    for NameValue, FractionPreference, ExpectedValue in (
+        ("Initial unit", -0.2, 0.0),
+        ("Longer assembly title for measured construction", 1.2, 0.9),
     ):
-        Request = RootRequest(NameValue)
+        Request = RootRequest(NameValue, FractionPreference)
         Outcome = RunProcess(
             [
                 PythonExec,
@@ -67,7 +67,7 @@ def TestRootBuild() -> None:
             Report["unit_class"] == "moUnitsTable_c"
             and Report["relation_class"] == "moRelMgr_c"
         )
-        assert Report["component_total"] == 0 and Report["stream_count"] == 5
+        assert Report["component_total"] == 0 and Report["stream_count"] == 6
         assert Report["configuration_class"] == "moConfiguration_c"
         assert Report["configuration_name"] == "Named assembly configuration"
         assert Report["resolved_types"] == KAssemblyRoots
@@ -78,6 +78,10 @@ def TestRootBuild() -> None:
             is True
         )
         assert Report["empty_mates_linked"] is True
+        assert Report["definition_bytes_identity"] is True
+        assert Report["definition_class"] == "uiAssemblyDoc_c"
+        assert Report["definition_journal"] == NameValue
+        assert Report["save_as_part_fraction"] == ExpectedValue
         assert Report["denied_reads"] == [] and Report["model_code_reads"]
         assert (
             Report["complete_assembly_emitted"] is Report["native_acceptance"] is False

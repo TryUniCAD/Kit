@@ -82,6 +82,10 @@ A future writer must derive each emitted structure from known format rules.
 The container, archive, configuration manager, definition, and resolved-feature codecs remain as its starting point.
 Do not present a carrier or a mode label as a completed translation.
 
+The [assembly definition experiment](../../Changes/Solidworks/Inspection/Cohorts/SolidworksAssemblyDefinitionConstruction.md)
+constructs assembly document settings from authored inputs and the 2026 format rules.
+It verifies archive structure in a research process. It does not establish native assembly writing.
+
 The [shared count primitives](../../Changes/Solidworks/Model/SolidworksArchiveCountPrimitives.md)
 begin the generative archive layer in `src/convert/adapters/solidworks/Archive/Counts/`.
 They encode integer cardinalities and decode bounded byte buffers for the distinct vendor and framework count grammars.

@@ -15,5 +15,6 @@ list grammar. It rejects nonempty mate graphs at this boundary.
 The extended remote process gate exercises five generated logical streams:
 the configuration, its header, the configuration manager, resolved
 features, and the empty mate list. It requires whole-stream and map equality
-after independent decoding. Remote evidence for the extended gate is
-pending. The reduced container is not a complete native assembly file.
+after independent decoding. The
+[remote process job](https://github.com/TryUniCAD/Kit/actions/runs/44006095790/job/133781715823)
+passed on `fc6fd09fb`. The reduced container is not a complete native assembly file.

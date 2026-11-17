@@ -18,11 +18,13 @@ sys.addaudithook(AUDIT.InspectEvent)
 from Classes import registry
 from Streams import StreamDoc, load_rooted, store_rooted
 from builders.Assembly import initial_assembly_features, initial_assembly_model, initial_configuration, store_empty_mates
+from builders.Definition import assembly_definition, definition_stream
 from builders.Metadata import header
 from builders.Model import PersistentIds, configuration_manager
 from builders.Styles import detail_definitions
 from builders.Units import unit_table_profile
 from defs.ConfigPart import load_config, store_config_state
+from defs.Definition import load_definition
 from defs.ResolvedCore import load_resolved, store_resolved_state
 from convert.adapters.solidworks.Container.Container import SldprtArchive, build_sldprt
 
@@ -33,6 +35,7 @@ HEADER = CONFIG + "-ModelHeader"
 RESOLVED = CONFIG + "-ResolvedFeatures"
 MATES = CONFIG + "-MatesList"
 MANAGER = "Contents/CMgr"
+DEFINITION = "Contents/Definition"
 
 
 def inspect_root(request):
@@ -52,7 +55,10 @@ def inspect_root(request):
     feature_doc = StreamDoc("resolved", {"base": state.count, "context": context}, features)
     resolved, final_map = store_resolved_state(feature_doc, REGISTRY, 19000, seed=state)
     mates = store_empty_mates(registry=REGISTRY, resolved_map=final_map, mate_group=features[-1])
-    archive = SldprtArchive.from_bytes(build_sldprt({CONFIG: config, HEADER: report_header, MANAGER: manager_bytes, RESOLVED: resolved, MATES: mates}))
+    document_options = dict(presentation["definition"])
+    document_options["tessellation"] = tuple(document_options["tessellation"])
+    definition = definition_stream(registry=REGISTRY, document=assembly_definition(**document_options))
+    archive = SldprtArchive.from_bytes(build_sldprt({CONFIG: config, HEADER: report_header, MANAGER: manager_bytes, RESOLVED: resolved, MATES: mates, DEFINITION: definition}))
     decoded, read = load_config(archive.require(CONFIG), REGISTRY, 19000, archive=archive, name=CONFIG)
     restored, replay = store_config_state(decoded, REGISTRY, 19000)
     model = decoded.roots[0]
@@ -61,6 +67,9 @@ def inspect_root(request):
     resolved_doc, resolved_ar = load_resolved(archive.require(RESOLVED), REGISTRY, 19000, archive=archive, name=RESOLVED, seed=read.map_state())
     restored_res, resolved_replay = store_resolved_state(resolved_doc, REGISTRY, 19000, seed=read.map_state())
     raw_mates = archive.require(MATES)
+    decoded_definition, _ = load_definition(archive.require(DEFINITION), REGISTRY, 19000)
+    ui_doc = decoded_definition.head
+    restored_definition = definition_stream(registry=REGISTRY, document=ui_doc)
     return {
         "model_class": model.cls, "name": model["f18"]["f08"],
         "root_bytes": len(config), "root_sha256": hashlib.sha256(config).hexdigest(),
@@ -76,6 +85,9 @@ def inspect_root(request):
         "live_section_flag": next(node["f378"] for node in resolved_doc.roots if node.cls == "moLiveSectionFolder_c"),
         "resolved_bytes_identical": resolved == restored_res and not resolved_doc.tail,
         "empty_mates_linked": len(raw_mates) == 6 and int.from_bytes(raw_mates[4:], "little") == 0 and int.from_bytes(raw_mates[:4], "little", signed=True) == final_map.count == resolved_ar.count == resolved_replay.count,
+        "definition_class": ui_doc.cls, "definition_journal": ui_doc["ffd8"]["f18"]["f08"],
+        "definition_bytes_identity": restored_definition == definition and not decoded_definition.tail,
+        "save_as_part_fraction": ui_doc["f1b48"]["f10"],
         "component_total": model["f1560"],
         "stream_count": len(archive.streams),
         "model_code_reads": AUDIT.ModuleReads, "denied_reads": AUDIT.DeniedReads,
