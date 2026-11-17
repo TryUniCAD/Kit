@@ -57,7 +57,7 @@ def CheckReportFlow(CaseMode: str, CheckName: str) -> None:
         assert f"CI failed: {CheckName}" in ResultInfo.stderr
 
 
-# process execution verifies trusted-base phase selection and rejects unreadable markers
+# process execution verifies trusted base phase selection and rejects unreadable markers
 @Pytest.mark.parametrize(
     "CaseMode,PhaseName,ExitCode",
     (
