@@ -1,0 +1,48 @@
+{
+  "schema": "kit.sw2026.unseen-view-source-lock.v1",
+  "passed": true,
+  "source_revision": "3ec62065ea4874e882007937da612dbfa7efad8e",
+  "job_sha256": "0474771bab3368d17667c90c6befae513fd13310ae850871109fca886dda2251",
+  "specs_sha256": "85199f3695ff744ce825166f3451a0c3fe8b9f01d163c5ec4806b3a07489e723",
+  "private_inspection_sha256": "03dcc2d94e98c268eef93409d521ccf48922a73a7ab28a34f5a645bfdcb4483e",
+  "controls_healthy": true,
+  "control_immutable": true,
+  "started_at": 1794876796.2619934,
+  "finished_at": 1794876948.9545326,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "payload_and_api_observations_sealed_until_writer_freeze": true,
+  "cases": [
+    {
+      "name": "F01TopFrame",
+      "split": "heldout",
+      "passed": true,
+      "fresh_process": true,
+      "phases": 2,
+      "native_file": "F01TopFrame\\author\\F01TopFrame.SLDPRT",
+      "native_sha256": "146575f6ce4ae5cf4e0c4d06e21d2f6d0b32d597fa9dfcb7a872ccb60c89c064",
+      "native_bytes": 52950,
+      "record_sha256": [
+        "92f3fba230ce56f20b3b306ece799774e9deac1b95c3403aec9744721a6878da",
+        "c688a977410b91df86645d6a39c90ccf6d60c2eb30abc7b4d20bc62f9214a4e7"
+      ],
+      "numeric_check_count": 96
+    },
+    {
+      "name": "F02RightFrame",
+      "split": "heldout",
+      "passed": true,
+      "fresh_process": true,
+      "phases": 2,
+      "native_file": "F02RightFrame\\author\\F02RightFrame.SLDPRT",
+      "native_sha256": "b943ff0e320aaacb9be639a7ee0321cd31cb975aa5b36211e297b8fe77a8cfe0",
+      "native_bytes": 67903,
+      "record_sha256": [
+        "ef9c6b4b46c0deed1434f3077fcf3e831cfca2a9345cc25368715adc3c1f669b",
+        "dfc3823a5a3c98cf0840537a9ffd8a4d8d745e9273180d7a1295ea9d931ade0b"
+      ],
+      "numeric_check_count": 96
+    }
+  ]
+}

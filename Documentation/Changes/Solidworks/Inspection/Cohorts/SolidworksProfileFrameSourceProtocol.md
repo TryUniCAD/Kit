@@ -13,6 +13,13 @@ each in a fresh process and locks its save after a fresh reopen and healthy
 controls. Only the lock leaves the source side until a corrected writer is
 frozen and remote predictions and transform checks pass.
 
-This defines an unmeasured cohort. The previous measured files stay associated
-with their original writer revisions. Displaced planes and arbitrary sketch
-frames need separate source families.
+The [source lock](../../../../../re/solidworks/v2026/heldout/FrameSourceLock.json)
+binds both native files before the writer change. The
+[source completion receipt](../../../../../re/solidworks/measurements/2026/FrameSourceCompletion01.json)
+records four fresh source phases, 192 checks, healthy bracketing controls,
+unchanged source/control hashes and unchanged licensing process IDs. Private
+API observations and original payloads remain sealed. This qualifies the
+source design, with no new writer result.
+
+Previous measured files stay associated with their original writer revisions.
+Displaced planes and arbitrary sketch frames need separate source families.
