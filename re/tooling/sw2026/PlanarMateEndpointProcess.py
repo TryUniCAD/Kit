@@ -116,12 +116,12 @@ def main():
     datums = {node["f18"]["f08"]: node for node in bundle.child.features if node.get("_principal_axis")}
     selected = []
     for selector in selectors:
-        inputs = fields(selector, "mate endpoint", ("occurrence", "datum", "created_at"))
+        inputs = fields(selector, "mate endpoint", ("occurrence", "datum"), ("created_at",))
         ordinal = integer(inputs["occurrence"], "occurrence ordinal", low=0, high=len(occurrences) - 1)
         reference = occurrences[ordinal]
         datum = datums.get(inputs["datum"])
         require(datum is not None, "the selected datum does not exist in the generated child")
-        endpoint = planar_mate_endpoint(assembly=owner, occurrence=reference, child=bundle.child, datum=datum, created_at=inputs["created_at"])
+        endpoint = planar_mate_endpoint(assembly=owner, occurrence=reference, child=bundle.child, datum=datum, created_at=inputs.get("created_at"))
         selected.append((reference, endpoint))
     require(selected[0][0] is not selected[1][0], "the two selections must exercise distinct occurrence identities")
     data, next_index = encode(((row.component_plane, row.resolved_geometry, row.detached_geometry) for _, row in selected), inherited, rules)
@@ -130,7 +130,7 @@ def main():
     require(not reader.left() and reader.count == next_index, "endpoint mini-archive map did not consume exactly")
     require(encode(decoded, inherited, rules) == (data, next_index), "decoded endpoints did not re-encode exactly")
     print(json.dumps({
-        "schema": "kit.sw2026.generated-planar-mate-endpoint-graph.v1",
+        "schema": "kit.sw2026.generated-planar-mate-endpoint-graph.v2",
         "native_acceptance": False, "heldout_inputs_tested": 0,
         "input_runtime_file_access_attempts": len(AUDIT.DeniedReads),
         "endpoint_archive_bytes": len(data), "endpoint_archive_sha256": sha256(data).hexdigest(),

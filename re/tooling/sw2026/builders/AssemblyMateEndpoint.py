@@ -7,7 +7,7 @@ from Core import Obj
 from builders.AssemblyOccurrences import mate_occurrence_component
 from builders.Definition import identity_transform
 from builders.Metadata import integer
-from builders.Model import component_plane
+from builders.Model import component_plane, logged_creation_time
 from builders.Part import PartConstruction
 from builders.Sketch import PlaneFrame, frame_transform
 
@@ -45,7 +45,14 @@ def _placed_plane(datum: Obj, placement: dict) -> PlaneFrame:
     return PlaneFrame(origin=origin, u=rotate(datum["_plane_u"]), v=rotate(datum["_plane_v"]))
 
 
-def planar_mate_endpoint(*, assembly: Obj, occurrence: Obj, child: PartConstruction, datum: Obj, created_at: int) -> PlanarMateEndpoint:
+def _datum_creation_time(child: PartConstruction, datum: Obj) -> int:
+    logs = child.model_header["f20"]["items"]
+    log = next((row["o"] for row in logs if row["o"]["f48"] == datum["f08"]), None)
+    stamps = () if log is None else (row["o"]["f18"] for row in log["items"])
+    return logged_creation_time(timestamps=stamps)
+
+
+def planar_mate_endpoint(*, assembly: Obj, occurrence: Obj, child: PartConstruction, datum: Obj, created_at: int | None = None) -> PlanarMateEndpoint:
     if not isinstance(child, PartConstruction) or child.model.cls != "moPart_c":
         raise ValueError("a planar mate endpoint requires a constructed native part")
     if not isinstance(datum, Obj) or datum.cls != "moRefPlane_c" or datum.get("_principal_axis") not in ("x", "y", "z"):
@@ -66,9 +73,12 @@ def planar_mate_endpoint(*, assembly: Obj, occurrence: Obj, child: PartConstruct
             or occurrence["f3e0"] != child.model_header["f40"]):
         raise ValueError("the mate occurrence must target the current child configuration and update")
 
+    creation_time = _datum_creation_time(child, datum)
+    if created_at is not None and (type(created_at) is not int or created_at != creation_time):
+        raise ValueError("the selected datum creation time must match the referenced child's log")
     datum_geometry = datum["f6f8"]
     selected = component_plane(
-        plane=datum, component=child.model["f990"], created_at=created_at,
+        plane=datum, component=child.model["f990"], created_at=creation_time,
         principal_normal=_xyz(datum_geometry["normal"]),
     )
     selected["f58"] = chain
