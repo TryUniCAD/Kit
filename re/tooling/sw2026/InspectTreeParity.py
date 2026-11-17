@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 import sys
 import time
 from pathlib import Path
@@ -11,6 +12,25 @@ from InspectCircleSketch import digest, edit_dimensions, initial_state, snapshot
 from InspectFresh import healthy, inspect
 from OracleIdentity import application_identity
 from ProbeViewState import compare_pose, read_pose
+
+
+def compare_frame(author, case, result, label, values=None):
+    expected = case.get("locked_profile_frame")
+    if expected is None:
+        return
+    if values is None:
+        sketch_name = case["request"]["document"]["sketch_name"]
+        feature = author.get(author.model, "FeatureByName", sketch_name)
+        AuthorCurves.require(feature is not None, "initial profile feature is missing")
+        sketch = author.get(feature, "GetSpecificFeature2")
+        transform = author.get(sketch, "ModelToSketchTransform")
+        values = author.get(transform, "ArrayData")
+    actual = [float(value) for value in values]
+    AuthorCurves.require(len(actual) == 16 and all(math.isfinite(value) for value in actual), "invalid native profile transform")
+    passed = actual[:13] == expected
+    result.setdefault("profile_frame_comparisons", {})[label] = {"actual": actual, "expected": expected, "passed": passed, "exact_value_count": sum(a == b for a, b in zip(actual[:13], expected, strict=True))}
+    author.rec.flush()
+    AuthorCurves.require(passed, f"native profile transform differs from frozen generated archive at {label}")
 
 
 def compare_scene(author, actual, expected, label, result):
@@ -61,17 +81,23 @@ def run_phase(case, lane, phase, source, output, oracle, checkpoint, reference=N
             initial = scene(author, result, "initial", reference)
             if lane == "reference" and phase == "open-save":
                 compare_scene(author, initial, case["locked_source_scene"], "locked source initial", result)
+            compare_frame(author, case, result, "initial")
             result["initial_state"] = initial_state(author, case)
             AuthorCurves.require(result["initial_state"]["passed"], "paired tree input has no initial body or unhealthy features")
             result["snapshot"] = snapshot(author, case, *factors)
+            compare_frame(author, case, result, "rebuilt", result["snapshot"]["model_to_sketch_transform"])
             scene(author, result, "rebuilt", reference)
             if phase == "edit-save":
                 factors = edit_dimensions(author, case, result)
+                if "locked_profile_frame" in case:
+                    for label, key in (("radial-edit", "edited_snapshot"), ("depth-edit", "edited_body_snapshot")):
+                        compare_frame(author, case, result, label, result[key]["model_to_sketch_transform"])
                 scene(author, result, "edited", reference)
             saved = directory / (case["name"] + "PairedSaved.SLDPRT")
             status = recorder.call("save owned paired tree copy", controller.save_as, author.model, saved)
             AuthorCurves.require(status == (True, 0, 0), "paired tree save failed or warned")
             result.update(saved_path=str(saved), saved_sha256=digest(saved), saved_bytes=saved.stat().st_size, saved_factors=list(factors))
+            compare_frame(author, case, result, "saved")
             scene(author, result, "saved", reference)
             AuthorCurves.require(digest(saved) == result["saved_sha256"], "post-save observation changed the native copy")
             result["passed"] = True
@@ -123,9 +149,18 @@ def main():
     AuthorCurves.require(receipt["changed_constructor_dependencies"] == [] and job["writer_freeze_sha256"] == receipt["writer_freeze_sha256"], "prediction writer identity changed")
     predictions = {row["name"]: row for row in receipt["outputs"]}
     AuthorCurves.require(len(job["cases"]) == len(predictions) == 2 and {row["name"] for row in job["cases"]} == set(predictions), "complete prediction cohort is required")
+    frame_batch = receipt["schema"] == "kit.sw2026.frame-heldout-processes.v1"
+    if frame_batch:
+        AuthorCurves.require(job["generator"] == receipt["writer_revision"] and receipt["profile_model_to_sketch_checks"] == 26, "corrected profile prediction identities or checks differ")
+        AuthorCurves.require(receipt["private_reference_api_observations_inspected"] is receipt["native_reference_payloads_inspected"] is False, "frame predictions already accessed the native sources")
     for case in job["cases"]:
         prediction = predictions[case["name"]]
         AuthorCurves.require(case["request"] == prediction["request"] and case["sha256"] == prediction["sha256"], "inspection request differs from frozen prediction")
+        AuthorCurves.require("locked_profile_frame" not in case, "profile frame must come from the frozen prediction receipt")
+        if frame_batch:
+            expected = prediction["profile_model_to_sketch"]
+            AuthorCurves.require(len(expected) == 13 and all(type(value) in (int, float) and math.isfinite(value) for value in expected) and expected[-1] == 1, "prediction profile transform is incomplete")
+            case["locked_profile_frame"] = expected
     source_lock_path = Path(job["source_lock"])
     AuthorCurves.require(digest(source_lock_path) == receipt["source_lock_sha256"], "public source lock changed")
     source_lock = json.loads(source_lock_path.read_bytes())
@@ -148,6 +183,8 @@ def main():
     control = Path(job["control"])
     AuthorCurves.require(digest(control) == job["control_sha256"], "paired tree control changed")
     result = {"schema": "kit.sw2026.paired-tree-inspection.v1", "scope": "Frozen generated tree predictions compared with independent native source trajectories through identical edits save and fresh reopen", "started_at": time.time(), "inspection_source_revision": job["inspection_source_revision"], "generator": job["generator"], "prediction_receipt_sha256": digest(receipt_path), "reference_inspection_sha256": digest(private), "writer_freeze_sha256": job["writer_freeze_sha256"], "tool_sha256": digest(Path(__file__)), "job_sha256": digest(job_path), "cases": [], "controls": [], "native_acceptance": False, "heldout_acceptance": False, "passed": False}
+    if frame_batch:
+        result.update(schema="kit.sw2026.paired-frame-inspection.v1", scope="Persisted model-to-sketch transforms checked against both native trajectories before rebuild through edits save and reopen")
 
     def checkpoint():
         AuthorCurves.write_json(output / "Inspection.json", result)
@@ -182,6 +219,11 @@ def main():
         identities.extend(phase["oracle_identity"] for row in result["cases"] for lane in ("reference", "candidate") for phase in row[lane] if "oracle_identity" in phase)
         result["all_fresh_processes"] = len(identities) == 14 and len({row["process_creation_filetime"] for row in identities}) == 14
         result["passed"] = result["controls_healthy"] and result["inputs_immutable"] and result["all_fresh_processes"] and len(result["cases"]) == 2 and all(row["passed"] for row in result["cases"]) and not result.get("exception")
+        if frame_batch:
+            frames = [item for case in result["cases"] for lane in ("reference", "candidate") for phase in case[lane] for item in phase.get("profile_frame_comparisons", {}).values()]
+            result["profile_frame_comparison_count"] = len(frames)
+            result["exact_profile_frame_value_count"] = sum(row["exact_value_count"] for row in frames)
+            result["passed"] = result["passed"] and len(frames) == 44 and result["exact_profile_frame_value_count"] == 572 and all(row["passed"] for row in frames)
         result["finished_at"] = time.time()
         checkpoint()
     print(json.dumps({"passed": result["passed"], "cases": len(result["cases"]), "native_acceptance": False}))

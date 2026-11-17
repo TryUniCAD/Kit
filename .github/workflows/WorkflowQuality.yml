@@ -60,6 +60,7 @@ jobs:
           git fetch --no-tags --depth=1 origin
           f5953529e2114b5648cfe1e5341a83b1c2f0d9d6
           d5019da136433cf3b07dd8c53ee4a708950ad353
+          6fc97ccebb41696c5dbc03e538ba132064af241d
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3

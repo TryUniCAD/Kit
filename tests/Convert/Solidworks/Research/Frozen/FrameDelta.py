@@ -1,18 +1,14 @@
 from __future__ import annotations
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from tests.Convert.Solidworks.Research.Presentation.Frame.CheckFrame import CheckFrame
 
 
 # transform correction must be present in the decoded model without changing unrelated generated streams
 def FrameDelta(
     CurrentBytes: bytes, PriorBytes: bytes, PlaneAxis: str, Values: object
 ) -> list[str]:
-    Matrix = {
-        "x": [0, 0, 1, 0, 1, 0, -1, 0, 0],
-        "y": [1, 0, 0, 0, 0, 1, 0, -1, 0],
-        "z": [1, 0, 0, 0, 1, 0, 0, 0, 1],
-    }[PlaneAxis]
-    assert Values == [*Matrix, 0, 0, 0, 1]
+    CheckFrame(PlaneAxis, Values)
     if PlaneAxis == "z":
         assert CurrentBytes == PriorBytes
         return []
