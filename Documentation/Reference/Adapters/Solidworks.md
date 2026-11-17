@@ -113,7 +113,11 @@ emits a neutral definition DAG as distinct native files with shared
 repeated targets. It derives recursive stamps, direct directories,
 expanded counts and local bounds from the graph. The first
 three-file candidate passes 28 object-stream round trips and the
-SDK history route. Native generated nested acceptance is pending.
+SDK history route. Its controlled native trial also passes open,
+rebuild, a live leaf-depth edit, synchronized three-file saves and
+fresh reopen. The separate saved-state audit passes 36 scoped
+stream comparisons. Repeated and sealed qualification remain open.
+[Native nested measurements](../../../re/solidworks/records/GeneratedNestedAssemblyNative2026.md)
 The [assembly XML research profile](../../Changes/Solidworks/Inspection/Cohorts/Assembly/SolidworksAssemblyXmlIndexes.md) adds generated component and KeyWords indexes for one ordinary child and its rigid placements. The public SDK validates this generated pair with `include_brep=False`. The default geometry route requires a readable Parasolid payload in the child.
 
 The [shared count primitives](../../Changes/Solidworks/Model/SolidworksArchiveCountPrimitives.md)

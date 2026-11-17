@@ -74,3 +74,12 @@ dispatch. The generated save returns with the post-properties
 site armed and no delivered stop. This preserves the next split
 at the call instruction `+0x1df56`.
 [Properties comparison](../measurements/2026/DrawingBlankSavePropertiesGateNative01.json)
+
+The next seven-process comparison delivered `+0x1df56` on both traced
+lanes. The reduced-native lane delivered its same-frame return at
+`+0x1df5b`, saved and reopened. The generated save completed with
+error 1 while that return site was armed and unobserved. Both lanes
+explicitly removed all breakpoints, verified original instruction
+bytes after detach and measured debugger absence. The document
+properties call interval is the next loader-analysis boundary.
+[Call-entry comparison](../measurements/2026/DrawingBlankSavePropertiesEntryNative01.json)

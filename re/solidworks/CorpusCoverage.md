@@ -350,14 +350,20 @@ reopens. Direct directories, expanded occurrence counts, recursive stamps
 and child-local bounds follow distinct measured owners. The
 [pre-writer source lock](v2026/heldout/NestedAssemblySourceLock01.json)
 qualifies both sealed author/reopen source sets in eight fresh processes.
-Generated nested conversion coverage awaits the recursive generator
-and its own measured acceptance.
+Generated nested conversion coverage requires its own measured
+acceptance through the public adapter.
 The [recursive composer](records/GeneratedNestedAssembly2026.md) now
 generates one part, one nested module and the root from the neutral
 definition graph. Its 28 stream comparisons and SDK history read
 pass. The four-definition repeated case also generates
-deterministically. Native nested measurements and held-out
-qualification remain open.
+deterministically. The [first controlled native nested trial](records/GeneratedNestedAssemblyNative2026.md)
+passes open, rebuild, a live leaf-depth edit, synchronized saves and
+fresh reopen across four distinct processes with healthy brackets.
+The [typed saved-state comparison](records/GeneratedNestedAssemblySavedState2026.md)
+passes 36 stream round trips and preserves the actual edited depth,
+child stamps and local bounds. The repeated native trial and sealed
+qualification remain open. These disclosed proofs add zero completed
+FCStd conversions to the production audit.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
