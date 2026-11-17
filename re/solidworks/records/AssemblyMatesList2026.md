@@ -106,6 +106,13 @@ populated mate-list stream is proven for this archive version. Other parent
 streams still reach provisional schemas. Fresh mate construction and native
 acceptance remain open. [Reference-chain proof](PlanarMateReferenceChains2026.md)
 
+The [wrapper construction trace](PlanarMateWrapperWriteState2026.md)
+classifies the fresh resolved and detached endpoint state. The
+[input translation trace](PlanarMateInputTranslation2026.md) binds
+explicit alignment and the ordinary plane-distance options through the
+native command and model setters. The exposed solver states require a
+complete generated mate and controlled native measurement.
+
 Run from the repository root with the authorized disclosed source directory:
 
 ```sh
