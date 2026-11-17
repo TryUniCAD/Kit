@@ -1,0 +1,84 @@
+{
+  "schema": "kit.sw2026.reference-plane-runtime-publication.v1",
+  "tool_sha256": "f044e83c60fa2faae1bfa3e08b007c5cfcf00dbbd8efb05e6ec1e9e1d7732ce0",
+  "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "image_base": "0x4b140000",
+  "serialize_map_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+  "archive_dispatch": {
+    "module_sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+    "write_object": "0x31a3a930",
+    "runtime_class_virtual_slot": 0,
+    "runtime_class_lookup_call": "0x31a3aa21",
+    "write_class_call": "0x31a3aa29",
+    "write_class_target": "0x31a3a850",
+    "dispatch_window_sha256": "f86a948e0a7be01232f9aef3e722a0c7c3cb5bc95bedc53d3222eee2ac4d8486"
+  },
+  "classes": [
+    {
+      "rtti_class": "moConstraintDefaultPlaneRefplaneData_c",
+      "vtable": "0x4ced2548",
+      "serializer": "4b8e2ac0",
+      "get_runtime_class": "0x4b8df460",
+      "accessor_sha256": "3c6ec14319cf42108fc5680e4556f4c3df6b7dc92f9ca438291745903622a219",
+      "runtime_descriptor": "0x4dad2370",
+      "runtime_descriptor_sha256": "95a0278fa58e812404714ab3315232078f83c111d69ef53702cb7cee07a94322",
+      "published_archive_class": "moConstraintRefplaneData_c",
+      "same_as_rtti_name": false,
+      "runtime_object_size": 232,
+      "runtime_schema_word": "0x80000001",
+      "create_object": "0x4b8df400",
+      "get_base_class": "0x4b8df3f0",
+      "create_object_extent": {
+        "start": "0x4b8df400",
+        "end_exclusive": "0x4b8df45d",
+        "sha256": "fba52f4fbcd08c09ae3aba372c2383adabb803102013b0a3f9b1c9199e68b0fd"
+      }
+    },
+    {
+      "rtti_class": "moConstraintRefplaneData_c",
+      "vtable": "0x4cecfd60",
+      "serializer": "4b8e2ac0",
+      "get_runtime_class": "0x4b8df460",
+      "accessor_sha256": "3c6ec14319cf42108fc5680e4556f4c3df6b7dc92f9ca438291745903622a219",
+      "runtime_descriptor": "0x4dad2370",
+      "runtime_descriptor_sha256": "95a0278fa58e812404714ab3315232078f83c111d69ef53702cb7cee07a94322",
+      "published_archive_class": "moConstraintRefplaneData_c",
+      "same_as_rtti_name": true,
+      "runtime_object_size": 232,
+      "runtime_schema_word": "0x80000001",
+      "create_object": "0x4b8df400",
+      "get_base_class": "0x4b8df3f0",
+      "create_object_extent": {
+        "start": "0x4b8df400",
+        "end_exclusive": "0x4b8df45d",
+        "sha256": "fba52f4fbcd08c09ae3aba372c2383adabb803102013b0a3f9b1c9199e68b0fd"
+      }
+    },
+    {
+      "rtti_class": "moRefPlaneDistanceGeom_c",
+      "vtable": "0x4d173a70",
+      "serializer": "4c2d8ae0",
+      "get_runtime_class": "0x4c2d89b0",
+      "accessor_sha256": "a60023812dda266de4f6a26e6c12076b6d846d897c07c33b75baadc14b54cc9b",
+      "runtime_descriptor": "0x4daf67c8",
+      "runtime_descriptor_sha256": "26690f1ceaa62e01187666c33659bfaef795a8d2eb041ab2fb5c641eacfcec39",
+      "published_archive_class": "moRefPlaneDistanceGeom_c",
+      "same_as_rtti_name": true,
+      "runtime_object_size": 72,
+      "runtime_schema_word": "0x80000001",
+      "create_object": "0x4c2d7470",
+      "get_base_class": "0x4c2d7410",
+      "create_object_extent": {
+        "start": "0x4c2d7470",
+        "end_exclusive": "0x4c2d74c5",
+        "sha256": "4814d3aa86fe4b9dd9565fb53ceff6cf25498bba2e3b5cb0d3d00aeb36c046dd"
+      }
+    }
+  ],
+  "native_model_sources_read": 0,
+  "native_processes_started": 0,
+  "writer_output_count": 0,
+  "vendor_code_emitted": false,
+  "source_correlation_qualified": false,
+  "native_acceptance": false
+}

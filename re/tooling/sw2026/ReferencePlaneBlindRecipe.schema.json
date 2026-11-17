@@ -1,0 +1,703 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "kit.sw2026.offset-plane-blind-evaluation-recipe.v1"
+    },
+    "state": {
+      "enum": [
+        "source_pending",
+        "writer_pending",
+        "frozen"
+      ]
+    },
+    "execution_enabled": {
+      "type": "boolean"
+    },
+    "native_acceptance": {
+      "const": false
+    },
+    "family": {
+      "const": "principal-offset-plane-supported-circle-blind-boss"
+    },
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "container_version": {
+          "const": 4
+        },
+        "model_version": {
+          "const": 19000
+        },
+        "oracle_build": {
+          "const": "34.5.2.0604"
+        },
+        "oracle_sha256": {
+          "const": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+        },
+        "model_module_sha256": {
+          "const": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+        },
+        "core_module_sha256": {
+          "const": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3"
+        }
+      },
+      "required": [
+        "container_version",
+        "model_version",
+        "oracle_build",
+        "oracle_sha256",
+        "model_module_sha256",
+        "core_module_sha256"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_packet_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "source_lock_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "disclosed_source_qualification_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sealed_slots": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "slot": {
+                  "const": "H01"
+                },
+                "lock_receipt_sha256": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "native_manifest_sha256": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "slot",
+                "lock_receipt_sha256",
+                "native_manifest_sha256"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "slot": {
+                  "const": "H02"
+                },
+                "lock_receipt_sha256": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "native_manifest_sha256": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "slot",
+                "lock_receipt_sha256",
+                "native_manifest_sha256"
+              ]
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "source_slot_stages": {
+          "const": [
+            "before",
+            "author",
+            "reopen",
+            "after",
+            "lock"
+          ]
+        },
+        "source_seal_requires_all_disclosed_brackets": {
+          "const": true
+        }
+      },
+      "required": [
+        "source_packet_sha256",
+        "source_lock_sha256",
+        "disclosed_source_qualification_sha256",
+        "sealed_slots",
+        "source_slot_stages",
+        "source_seal_requires_all_disclosed_brackets"
+      ]
+    },
+    "frozen_code": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "writer_revision": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "complete_code_manifest_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "writer_evidence_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "translator_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "predictor_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "build_process_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observer_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "writer_files_sha256": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^(?!/)(?!.*//)[A-Za-z0-9_/-]+[.]py$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "source_before_code_required": {
+          "const": true
+        },
+        "code_lock_before_private_request_exposure": {
+          "const": true
+        }
+      },
+      "required": [
+        "writer_revision",
+        "complete_code_manifest_sha256",
+        "writer_evidence_sha256",
+        "translator_sha256",
+        "predictor_sha256",
+        "build_process_sha256",
+        "observer_sha256",
+        "writer_files_sha256",
+        "source_before_code_required",
+        "code_lock_before_private_request_exposure"
+      ]
+    },
+    "disclosed_generated_qualification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "qualified": {
+          "type": "boolean"
+        },
+        "open_edit_rebuild_save_reopen_0_0": {
+          "type": "boolean"
+        },
+        "six_significant_figures_geometry": {
+          "type": "boolean"
+        },
+        "source_inputs_immutable": {
+          "type": "boolean"
+        },
+        "zero_runtime_input_reads": {
+          "type": "boolean"
+        },
+        "independent_cases_sufficient_for_declared_scope": {
+          "type": "boolean"
+        },
+        "native_result_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "declared_supported_scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "qualified",
+        "open_edit_rebuild_save_reopen_0_0",
+        "six_significant_figures_geometry",
+        "source_inputs_immutable",
+        "zero_runtime_input_reads",
+        "independent_cases_sufficient_for_declared_scope",
+        "native_result_sha256",
+        "declared_supported_scope"
+      ]
+    },
+    "guest_private_base": {
+      "type": "string",
+      "pattern": "^[A-Za-z]:[\\\\][^\\\\]"
+    },
+    "evaluation_slot_stages": {
+      "const": [
+        "verify",
+        "exposure_lock",
+        "build",
+        "before",
+        "generated",
+        "reopen",
+        "after",
+        "qualify"
+      ]
+    },
+    "execution_rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sole_native_oracle_owner": {
+          "const": "root"
+        },
+        "metadata_and_evidence_locks_separate_from_native_launch": {
+          "const": true
+        },
+        "case_inputs_and_detailed_observations_guest_only": {
+          "const": true
+        },
+        "host_heldout_payload_reads": {
+          "const": 0
+        },
+        "sealed_specs_never_host_paths_or_stdout": {
+          "const": true
+        },
+        "neutral_request_from_authored_spec_only": {
+          "const": true
+        },
+        "prediction_from_authored_spec_and_documented_math_only": {
+          "const": true
+        },
+        "no_vendor_source_streams_or_recorded_values_in_generator": {
+          "const": true
+        },
+        "two_guarded_build_processes_identical": {
+          "const": true
+        },
+        "generator_runtime_file_reads": {
+          "const": 0
+        },
+        "generator_runtime_cad_reads": {
+          "const": 0
+        },
+        "generated_and_source_inputs_immutable": {
+          "const": true
+        },
+        "distance_edit_requires_analytic_centroid_change": {
+          "const": true
+        },
+        "original_radius_and_boss_depth_preserved": {
+          "const": true
+        },
+        "native_derivative_locked_before_fresh_reopen": {
+          "const": true
+        },
+        "fresh_native_processes_per_slot": {
+          "const": 4
+        },
+        "tail_control_independent_after_failure": {
+          "const": true
+        },
+        "crash_only_counted_with_passing_control": {
+          "const": true
+        },
+        "native_open_rebuild_save_reopen_errors": {
+          "const": 0
+        },
+        "native_open_rebuild_save_reopen_warnings": {
+          "const": 0
+        },
+        "public_progress_fields": {
+          "const": [
+            "schema",
+            "slot",
+            "phase",
+            "attempt",
+            "stage",
+            "started_at",
+            "finished_at",
+            "passed",
+            "identity",
+            "source_lock_sha256",
+            "code_lock_sha256",
+            "source_manifest_sha256",
+            "request_sha256",
+            "prediction_sha256",
+            "build_manifest_sha256",
+            "saved_manifest_sha256",
+            "private_observation_sha256",
+            "failure_code"
+          ]
+        },
+        "private_receipts_redirect_console_and_exceptions": {
+          "const": true
+        },
+        "all_inputs_and_code_reverified_after_native_phases": {
+          "const": true
+        },
+        "sealed_failure_never_fits_writer_or_predictor": {
+          "const": true
+        },
+        "completed_slot_receipts_survive_other_slot_hang": {
+          "const": true
+        },
+        "flexnet_untouched": {
+          "const": true
+        }
+      },
+      "required": [
+        "sole_native_oracle_owner",
+        "metadata_and_evidence_locks_separate_from_native_launch",
+        "case_inputs_and_detailed_observations_guest_only",
+        "host_heldout_payload_reads",
+        "sealed_specs_never_host_paths_or_stdout",
+        "neutral_request_from_authored_spec_only",
+        "prediction_from_authored_spec_and_documented_math_only",
+        "no_vendor_source_streams_or_recorded_values_in_generator",
+        "two_guarded_build_processes_identical",
+        "generator_runtime_file_reads",
+        "generator_runtime_cad_reads",
+        "generated_and_source_inputs_immutable",
+        "distance_edit_requires_analytic_centroid_change",
+        "original_radius_and_boss_depth_preserved",
+        "native_derivative_locked_before_fresh_reopen",
+        "fresh_native_processes_per_slot",
+        "tail_control_independent_after_failure",
+        "crash_only_counted_with_passing_control",
+        "native_open_rebuild_save_reopen_errors",
+        "native_open_rebuild_save_reopen_warnings",
+        "public_progress_fields",
+        "private_receipts_redirect_console_and_exceptions",
+        "all_inputs_and_code_reverified_after_native_phases",
+        "sealed_failure_never_fits_writer_or_predictor",
+        "completed_slot_receipts_survive_other_slot_hang",
+        "flexnet_untouched"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "state",
+    "execution_enabled",
+    "native_acceptance",
+    "family",
+    "format",
+    "source",
+    "frozen_code",
+    "disclosed_generated_qualification",
+    "guest_private_base",
+    "evaluation_slot_stages",
+    "execution_rules"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "frozen"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "execution_enabled": {
+            "const": true
+          },
+          "source": {
+            "properties": {
+              "source_lock_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "disclosed_source_qualification_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "sealed_slots": {
+                "items": {
+                  "properties": {
+                    "lock_receipt_sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "native_manifest_sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "frozen_code": {
+            "properties": {
+              "writer_revision": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "complete_code_manifest_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "writer_evidence_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "translator_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "predictor_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "build_process_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "observer_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "writer_files_sha256": {
+                "minProperties": 1
+              }
+            }
+          },
+          "disclosed_generated_qualification": {
+            "properties": {
+              "native_result_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "qualified": {
+                "const": true
+              },
+              "open_edit_rebuild_save_reopen_0_0": {
+                "const": true
+              },
+              "six_significant_figures_geometry": {
+                "const": true
+              },
+              "source_inputs_immutable": {
+                "const": true
+              },
+              "zero_runtime_input_reads": {
+                "const": true
+              },
+              "independent_cases_sufficient_for_declared_scope": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "execution_enabled": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "writer_pending"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "properties": {
+              "source_lock_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "disclosed_source_qualification_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "sealed_slots": {
+                "items": {
+                  "properties": {
+                    "lock_receipt_sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "native_manifest_sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "source_pending"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "frozen_code": {
+            "properties": {
+              "writer_revision": {
+                "type": "null"
+              },
+              "complete_code_manifest_sha256": {
+                "type": "null"
+              },
+              "writer_evidence_sha256": {
+                "type": "null"
+              },
+              "translator_sha256": {
+                "type": "null"
+              },
+              "predictor_sha256": {
+                "type": "null"
+              },
+              "build_process_sha256": {
+                "type": "null"
+              },
+              "observer_sha256": {
+                "type": "null"
+              },
+              "writer_files_sha256": {
+                "maxProperties": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

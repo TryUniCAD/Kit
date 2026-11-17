@@ -1,0 +1,56 @@
+# Offset-plane blind qualification protocol
+
+Task `B04-SW2026-REFPLANES`; owner `/root/assembly_occurrence`; delivery PR #121. Root owns the Windows oracle, Git and shared registers. Scope is an ordinary principal offset plane supporting a centered circle sketch and blind boss, with a real plane-distance edit. Angle planes and other selected geometry remain separate families. Dependencies are complete exact-build construction classification, the [disclosed source audit](ReferencePlaneSourceCorrelation2026.md), qualified pre-writer native source locks and independently accepted generated discovery cases. Exit is both blind generated cases passing native open, edit, rebuild, save and fresh reopen at `0/0`, with analytic geometry, healthy controls, immutable inputs and no generator file/CAD reads.
+
+## Current boundary
+
+[ReferencePlaneBlindRecipe.schema.json](../../tooling/sw2026/ReferencePlaneBlindRecipe.schema.json) is a recipe schema and execution contract. **There is no executable offset-plane blind writer runner, qualified writer or frozen execution packet yet.** The prepared private example is `state=source_pending`, `execution_enabled=false`. It contains no hidden design values, model paths, observations or generated geometry.
+
+The exact [source packet and observer retry](ReferencePlaneDimensionOwnership2026.md) precede this protocol. Its source packet hash is `c05c429097c4ad94177afd3cddd9535ca373a31e6dcfa845375d9c09c96d2e89`. Native source qualification and both independent hidden source locks remain required before any new offset-plane writer code. The schema's `source_pending` state therefore requires null writer/translator/predictor/observer fingerprints and no writer files. A schema-valid document alone never authenticates a source lock, code snapshot or native verdict; the eventual freezer and runner must verify the actual content-addressed receipts and files.
+
+The schema pins container `4`, model version `19000`, oracle build `34.5.2.0604` and the exact original oracle/model/core hashes. Method tokens, native addresses and construction/compatibility modes remain release-specific as described in the [managed plane record](ReferencePlaneManagedConstruction2026.md). A future build requires new map, constructor, reader and native qualification evidence; a changed version is not admitted by this recipe.
+
+## Source custody is a separate programme stage
+
+The existing source phase runner already separates metadata, original controls, authoring, fresh reopen, sealing and lock. Finish all four disclosed source cases and their independent tail control first. The disclosed repeat retains a control for the first Front profile; unrelated Top/reverse and Right profiles must retain their independently predicted geometry and edits.
+
+Only the complete healthy disclosed cohort permits guest-only `seal`. Each opaque hidden source slot then runs `before`, `author`, `reopen`, `after`, `lock` in separate invocations. Authoring retains its native-file checkpoint before cleanup. That checkpoint preserves evidence after a hang; it does not replace successful terminal author/reopen and healthy brackets. Public lock receipts contain hashes, timestamps, process identities and verdicts. Detailed hidden specifications, paths, native payloads and raw observations stay on a fixed private guest drive.
+
+Publish a sanitized combined source lock only after both slots satisfy those checks. Its hash, the source packet hash and each slot's independent lock/native-manifest hashes become the writer's source-before-code evidence. Do not read the source native files or hidden designs on the host to fill this recipe. Missing source locks keep the family in `source_pending`.
+
+## Writer and discovery gates
+
+After source locks qualify, complete the shared generative plane model from independent factory/setter/serializer rules and disclosed source correlations. Every field, frame, count, dimension, reference, derived stream and container byte must follow from the neutral request or a documented format rule. The current stored-frame reader and the typed round-trip audit do not supply a writer. No donor rows, templates, offset patches or save-derived field programs are admitted.
+
+The `writer_pending` state records an authenticated source lock but still disables execution. Before a frozen blind packet, independently qualify the generated behaviors admitted by the declared supported scope using the same writer/predictor/observer closure. Evidence must establish native `0/0` open/edit/rebuild/save/reopen, six-significant-figure geometry, immutable sources and zero runtime input reads. Use as many independent cases as the actual rules need; there is no fixed discovery-case quota. Principal supports, reversed placement and edits must be covered to the extent the writer admits them. The disclosed repeat remains useful for controls and determinism. Those are future requirements, not completed results.
+
+Freeze the actual writer revision, complete source closure, field-rule evidence, request translator, independent predictor, guarded build process and native observer. The recipe's `frozen` state requires their non-null hashes and authenticated generated discovery qualification for the declared supported scope. Capture a new code-before-exposure lock in the guest **before** the translator reads a hidden specification. Verify the entire frozen closure before and after every stage. A mismatch creates a new discovery task; it does not permit refitting the blind case.
+
+## Per-slot evaluation stages
+
+| Stage | Oracle processes | Required behavior |
+| --- | --- | --- |
+| `verify` | `0` | Verify the exact source/public locks, discovery results, code manifest, tools and fixed-drive private output custody. Do not expose a hidden request. |
+| `exposure_lock` | `0` | Write the immutable code lock first. Only then read the selected hidden authored specification inside the guest, translate it into a neutral request and independently compute predictions. Publish their hashes only. Never derive writer values from the native source's streams or observations. |
+| `build` | `0` | Run two fresh guarded generator processes from stdin with the identical frozen source and request. Require identical generated bytes, exact scoped typed readback and zero runtime file/CAD input reads. Native source paths and payloads are unavailable to those processes. Lock generated input hashes before the oracle. |
+| `before` | `1` | Open the exact unchanged native authored source as a healthy control in a fresh pinned oracle. Check independently predicted geometry/parameters and clean rebuild; save nothing. |
+| `generated` | `1` | Fresh-open the immutable generated part; verify plane/profile/boss ownership, all driving values, body count and independent mass/area/centroid. Edit the actual plane distance, rebuild, require the analytic centroid change while radius/depth remain unchanged, then save a separate derivative and lock its actual identity. Record all native statuses. |
+| `reopen` | `1` | Fresh-open the exact saved derivative, require the same edited native tree/support/parameters and analytic geometry, clean rebuild and editable dimensions. Preserve all original source/generated inputs. |
+| `after` | `1` | Independently run the unchanged native source control, including after any generated/reopen failure or hang. Keep FlexNet untouched. A crash counts only with a passing control. |
+| `qualify` | `0` | Verify four distinct ordered native identities, healthy brackets, all input/code hashes, saved-derivative custody and complete private observations. Publish only the whitelisted verdict/hashes and hash the private receipt. |
+
+The native observer should reuse the explicit [dimension ownership checks](ReferencePlaneDimensionOwnership2026.md), ordinary source geometry/transform observation and the established private recorder/opaque-identity helpers. Its own generated discovery acceptance must precede hidden use. A source-only or schema-only observer seam is insufficient.
+
+Each phase has a new output directory and independently retained progress/result receipt. Use separate slot/attempt custody so one hung slot cannot lose a completed slot's locks or prevent a new tail-control invocation. Keep previous failed packets and raw records immutable. Retrying an infrastructure or observer failure requires an explicit fresh packet/attempt with its exact source changes and evidence limits; hidden data cannot drive changes to the frozen writer, translator or predictor.
+
+## Public progress contract
+
+The recipe lists an exact public field whitelist: schema, opaque slot, phase/attempt, stage/timing, passed, opaque oracle identity, source/code/request/prediction/build/saved/private-observation hashes and a generic failure code. The runner must redirect detailed console output and exceptions to private guest storage before any hidden request exposure. Do not publish feature names, coordinates, dimensions, COM values, file paths, trees, model bytes, detailed errors or hidden design metadata on the host. Hashes and verdicts do not authorize opening the private receipt.
+
+Results stay separate from the recipe: its `native_acceptance` field remains false because a frozen recipe is not an executed qualification. Final acceptance belongs to independently verified result receipts. Ordinary source authoring, typed decode, generated discovery, blind native qualification and production promotion remain distinct facts.
+
+## Preparation evidence
+
+Schema SHA-256 `78af0f9365b539e7d3bbb75779e6dfc31480215657acbb5e900acfb1e0bb081d`; private no-value draft SHA-256 `743f83977780ac127f9cd47efc194c6fb2c2ef403d882d24ed96f2de2f3d7d98`. [Preparation receipt](../measurements/2026/ReferencePlaneBlindProtocolPreparation01.json), SHA-256 `7415408f6cf45c79c3a251f80fbbddbc5c82e5d8946ebbcb1b3b03b50f3ef79d`.
+
+The real JSON artifact was checked with `jsonschema 4.25.1`, Draft 2020-12. The pending draft passed structural admission. Premature execution/freeze, a writer stage without source locks, a private payload field, a writer fingerprint before source lock and an unbracketed stage order were rejected. These are structural policy checks; they do not authenticate actual receipts or qualify a runner. Hidden values created/read: `0`; native processes: `0`; writer outputs: `0`.
