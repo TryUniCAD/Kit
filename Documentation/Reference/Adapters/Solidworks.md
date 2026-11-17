@@ -85,6 +85,8 @@ Do not present a carrier or a mode label as a completed translation.
 The [assembly definition experiment](../../Changes/Solidworks/Inspection/Cohorts/SolidworksAssemblyDefinitionConstruction.md)
 constructs assembly document settings from authored inputs and the 2026 format rules.
 It verifies archive structure in a research process. It does not establish native assembly writing.
+The [empty assembly candidates](../../Changes/Solidworks/Inspection/Cohorts/SolidworksEmptyAssemblyCandidates.md)
+combine that record with the shared header and version metadata for controlled vendor inspection.
 
 The [shared count primitives](../../Changes/Solidworks/Model/SolidworksArchiveCountPrimitives.md)
 begin the generative archive layer in `src/convert/adapters/solidworks/Archive/Counts/`.

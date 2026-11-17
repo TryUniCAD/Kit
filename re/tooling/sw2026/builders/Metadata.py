@@ -230,7 +230,7 @@ def keywords(*, name, timestamp, configurations, features):
     return b"\x86<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" + tostring(root, encoding="utf-8", short_empty_elements=True) + b"\r\n"
 
 
-def streams(*, registry, header2, model_headers, biography_record, history_record, keywords_data):
+def rooted_metadata_streams(*, registry, header2, model_headers, biography_record, history_record):
     if not isinstance(model_headers, Mapping) or not model_headers:
         raise ValueError("metadata streams require a model header for each generated configuration")
     records = {"Header2": (header2, "moHeader_c"),
@@ -239,11 +239,6 @@ def streams(*, registry, header2, model_headers, biography_record, history_recor
     for key, value in model_headers.items():
         key = integer(key, "configuration id", high=0x7FFFFFFF)
         records[f"Contents/Config-{key}-ModelHeader"] = (value, "moHeader_c")
-    if not isinstance(keywords_data, bytes) or not keywords_data.startswith(b"\x86<?xml"):
-        raise ValueError("keyword data must come from the keyword constructor")
-    keyword_root = fromstring(keywords_data[1:])
-    if keyword_root.tag != "Keywords" or {int(node.attrib["id"]) for node in keyword_root.findall("Configuration")} != set(model_headers):
-        raise ValueError("keyword configurations must match the generated model-header stream ids")
     out = {}
     for name, (record, cls) in records.items():
         if not isinstance(record, Obj) or record.cls != cls:
@@ -260,5 +255,15 @@ def streams(*, registry, header2, model_headers, biography_record, history_recor
                 names = [e["s"] for e in record.f[field].f["items"]]
                 if index >= len(names) or names[index] != reference_names[index]:
                     raise ValueError("history provenance resolves to different users or companies across headers")
+    return out
+
+
+def streams(*, registry, header2, model_headers, biography_record, history_record, keywords_data):
+    out = rooted_metadata_streams(registry=registry, header2=header2, model_headers=model_headers, biography_record=biography_record, history_record=history_record)
+    if not isinstance(keywords_data, bytes) or not keywords_data.startswith(b"\x86<?xml"):
+        raise ValueError("keyword data must come from the keyword constructor")
+    keyword_root = fromstring(keywords_data[1:])
+    if keyword_root.tag != "Keywords" or {int(node.attrib["id"]) for node in keyword_root.findall("Configuration")} != set(model_headers):
+        raise ValueError("keyword configurations must match the generated model-header stream ids")
     out["swXmlContents/KeyWords"] = keywords_data
     return out

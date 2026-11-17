@@ -10,7 +10,7 @@ def RootRequest(NameValue: str, FractionPreference: float) -> dict[str, object]:
     assert isinstance(Presentation, dict)
     return {
         "name": NameValue,
-        "configuration_name": "Named assembly configuration",
+        "configuration_name": "Default",
         "origin_name": "Origin",
         "mate_group_name": "Mates",
         "provenance": Shared["provenance"],
@@ -18,6 +18,8 @@ def RootRequest(NameValue: str, FractionPreference: float) -> dict[str, object]:
         "presentation": {
             "styles": Presentation["styles"],
             "units": Presentation["units"],
+            "language_id": 1033,
+            "cjk_saved": Presentation["cjk_saved"],
             "definition": {
                 "drafting_standard": Presentation["drafting_standard"],
                 "detail_flags": Presentation["detail_flags"],
