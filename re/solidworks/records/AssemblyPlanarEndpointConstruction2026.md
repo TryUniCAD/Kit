@@ -38,3 +38,28 @@ rejects an unknown datum and an inconsistent time assertion. The complete
 mate feature, solver and native load, edit and save remain open.
 [Initial guarded proof](../measurements/2026/GeneratedPlanarMateEndpoint01.json)
 and [child creation-log proof](../measurements/2026/GeneratedPlanarMateDatumLog01.json).
+
+## Resolved wrappers before mate registration
+
+`PlanarMateWrapperProcess.py` accepts the same request. It serializes both
+selected `moPlaneRef_w` objects with the shared native reference-wrapper
+constructor and the valid resolved geometry. The current child configuration,
+update stamp and two transforms come from the selected child and occurrence.
+Selection references start unset. The independent solver status starts at zero.
+The standalone archive does not add a mate feature or assign a reference
+counter. [Wrapper construction trace](PlanarMateWrapperWriteState2026.md)
+
+The plane point in `f188` retains its zero-valued state on this path.
+`sldmodu.dll` calls the point default constructor at `0x4c307fa8`
+through import slot `0x4cd3a578`. The `sldmgu.dll` export at
+`0x31dd3a20` initializes all three coordinates to zero. The pinned module
+SHA-256 is `99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c`.
+The 17-byte function span has SHA-256
+`1018b23bfc6803d1e50586a1e9b0151b14d97a7ba9267a595518de56a7704eab`.
+All twelve disclosed resolved and detached wrappers retain zero there.
+
+The two authored placements produce 874- and 1,162-byte wrapper archives.
+Both consume the archive exactly, preserve the occurrence map bindings
+and repeat the earlier endpoint receipts byte for byte. No runtime file
+opens occur. The shared base fields also serve the existing revolve
+axis wrapper. [Resolved wrapper process receipt](../measurements/2026/GeneratedResolvedPlanarWrappers01.json)

@@ -103,15 +103,9 @@ def decode_endpoint(archive, expected, reference, owner):
     return selected, resolved, detached
 
 
-def main():
-    request = fields(json.load(sys.stdin), "planar mate endpoint probe", ("bundle", "endpoints"))
-    selectors = tuple(sequence(request["endpoints"], "mate endpoint selections"))
+def select_endpoints(*, bundle, owner, selectors):
+    selectors = tuple(sequence(selectors, "mate endpoint selections"))
     require(len(selectors) == 2, "the endpoint probe requires exactly two selections")
-    rules = registry()
-    tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
-    AUDIT.BeginBuild()
-    bundle = construct_assembly_bundle(registry=rules, request=request["bundle"])
-    owner, inherited = read_state(bundle, rules)
     occurrences = [row["o"] for row in owner["f68"]["list"]["items"]]
     datums = {node["f18"]["f08"]: node for node in bundle.child.features if node.get("_principal_axis")}
     selected = []
@@ -124,6 +118,17 @@ def main():
         endpoint = planar_mate_endpoint(assembly=owner, occurrence=reference, child=bundle.child, datum=datum, created_at=inputs.get("created_at"))
         selected.append((reference, endpoint))
     require(selected[0][0] is not selected[1][0], "the two selections must exercise distinct occurrence identities")
+    return selected
+
+
+def main():
+    request = fields(json.load(sys.stdin), "planar mate endpoint probe", ("bundle", "endpoints"))
+    rules = registry()
+    tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
+    AUDIT.BeginBuild()
+    bundle = construct_assembly_bundle(registry=rules, request=request["bundle"])
+    owner, inherited = read_state(bundle, rules)
+    selected = select_endpoints(bundle=bundle, owner=owner, selectors=request["endpoints"])
     data, next_index = encode(((row.component_plane, row.resolved_geometry, row.detached_geometry) for _, row in selected), inherited, rules)
     reader = Load(data, inherited.count, rules, DOCUMENT_VERSION_2026, seed=inherited)
     decoded = [decode_endpoint(reader, row, reference, owner) for reference, row in selected]

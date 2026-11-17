@@ -7,7 +7,7 @@ from Core import Obj
 from builders.AssemblyOccurrences import mate_occurrence_component
 from builders.Definition import identity_transform
 from builders.Metadata import integer
-from builders.Model import component_plane, logged_creation_time
+from builders.Model import component_plane, logged_creation_time, reference_wrapper_fields
 from builders.Part import PartConstruction
 from builders.Sketch import PlaneFrame, frame_transform
 
@@ -17,6 +17,7 @@ class PlanarMateEndpoint:
     component_plane: Obj
     resolved_geometry: dict
     detached_geometry: dict
+    configuration_id: int
 
 
 def _xyz(value):
@@ -100,4 +101,14 @@ def planar_mate_endpoint(*, assembly: Obj, occurrence: Obj, child: PartConstruct
     }
     detached = {"fd0": dict(origin), "fe8": dict(normal), "f100": identity_transform(),
                 **dict.fromkeys(extent_keys, 0.0)}
-    return PlanarMateEndpoint(selected, resolved, detached)
+    return PlanarMateEndpoint(selected, resolved, detached, child.configuration["f08"])
+
+
+def resolved_planar_wrapper(*, endpoint: PlanarMateEndpoint) -> Obj:
+    values = reference_wrapper_fields(reference=endpoint.component_plane)
+    values.update(endpoint.resolved_geometry)
+    values.update({
+        "f68": 1, "has_f10": 1, "has_f18": 1, "f0c": endpoint.configuration_id,
+        "f188": _point((0.0, 0.0, 0.0)),
+    })
+    return Obj("moPlaneRef_w", values)

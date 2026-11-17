@@ -238,6 +238,17 @@ def component_reference(*, component: Obj | None = None) -> Obj:
     raise ArchiveError("moCompRef_c is a nonserializable base; construct fields inside a concrete reference")
 
 
+def reference_wrapper_fields(*, reference: Obj) -> dict:
+    if not isinstance(reference, Obj):
+        raise TypeError("reference wrappers require a concrete archive reference")
+    return {
+        "f58": reference, "f60": None, "f68": 0, "f6c": 0, "f08": 101,
+        "has_f10": 0, "has_f18": 0, "f0c": -1, "f20": 0,
+        "f74": -12345, "f78": -12345, "f7c": -12345, "f50": 0, "f70": 19000,
+        "f34": 0, "f30": 0, "f98": 0, "f38": -1,
+    }
+
+
 def logged_creation_time(*, timestamps: Iterable[int]) -> int:
     values = tuple(timestamps)
     if any(type(value) is not int or not 0 <= value <= 0xFFFFFFFF for value in values):

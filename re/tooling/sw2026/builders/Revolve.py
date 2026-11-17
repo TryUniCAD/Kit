@@ -7,7 +7,7 @@ from struct import pack
 from Core import Obj
 from builders.Extrude import DimensionGraph, _construct_feature_dimension
 from builders.Geometry import bind_arrays, bind_permanence
-from builders.Model import component_reference_fields, logged_creation_time, node_list
+from builders.Model import component_reference_fields, logged_creation_time, node_list, reference_wrapper_fields
 from builders.Sketch import ConstructionError, DerivedFields, NodeOrder, PlaneFrame, ProfileGraph, _bind_local_ref_flag, _vector, empty_object_list, line_handle, new_profile, ordinary_line, ordinary_point, polygon_vertices
 
 
@@ -74,10 +74,7 @@ def _axis_reference(*, source: RevolveProfile, component: Obj, profile_created_a
     })
     selected = Obj("moCompSketchEntHandle_c", DerivedFields(fields=fields, derived={"f100": lambda: axis["f08"]}))
     return Obj("moLineRef_w", {
-        "f58": selected, "f60": None, "f68": 0, "f6c": 0, "f08": 101,
-        "has_f10": 0, "has_f18": 0, "f0c": -1, "f20": 0,
-        "f74": -12345, "f78": -12345, "f7c": -12345, "f50": 0, "f70": 19000,
-        "f34": 0, "f30": 0, "f98": 0, "f38": -1,
+        **reference_wrapper_fields(reference=selected),
         "fc8": _point(points[0]), "fe0": _point(direction), "ff8": 0,
         "fb0": 0.0, "fb8": sum(value * unit for value, unit in zip(delta, direction, strict=True)),
     })
