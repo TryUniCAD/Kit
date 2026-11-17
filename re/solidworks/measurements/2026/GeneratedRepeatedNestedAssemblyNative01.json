@@ -266,7 +266,7 @@
   "synchronized_derivative_files_match": true,
   "typed_saved_audit": {
     "direct_directory_users_exact": true,
-    "receipt_sha256": "0bf56c4d1c80a82b7bd297b7c1bf0efc5d6a144dbe3f4abbf02c0d1b02a23669",
+    "receipt_sha256": "17354e53036148332a988a78b5ed40924531b80631b59f311866aa2c5fc1d730",
     "saved_child_local_bounds_byte_equal": true,
     "states": {
       "FrozenGenerated": {
