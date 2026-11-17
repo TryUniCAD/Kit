@@ -1,0 +1,233 @@
+{
+  "controls_healthy": true,
+  "corrected_evaluation_changes": [
+    "interpretable",
+    "observed_save_edge",
+    "original_failure_reproduced"
+  ],
+  "corrected_evaluation_sha256": "dfe6b0caa48d004a39bfc382c83dcb29e9b582d31170b211d99c57adf4262972",
+  "corrected_observer_sha256": "74ea5b7fa16cc8289e501305731f67d2de9fbe6d9b67ae9ef673032274d809e6",
+  "distinct_processes": 7,
+  "heldout_inputs_tested": 0,
+  "inputs_immutable": true,
+  "lanes": {
+    "ControlAfter": {
+      "fresh_reopen": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "f462adc559a36242c68d2aea4a775e854eaa0162f84f69fb50f096627dd02f79",
+        "tree_rows": 10
+      },
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "matched_input": "MatchedDrawing/KitBlankSheetProbe.SLDDRW",
+      "matched_save": "MatchedDrawing/open_and_save/SavedDrawing.SLDDRW",
+      "open_and_save": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "f371de31380af501560b0449efdb1dd542c10b7da78c71856ae4deefee3307ef",
+        "save_event_trace": {
+          "events": [
+            [
+              7,
+              47000000
+            ],
+            [
+              9,
+              156000000
+            ],
+            [
+              28,
+              156000000
+            ]
+          ],
+          "save_return_ns": 375000000
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "save_target_bytes": 18173,
+        "save_target_sha256": "d1aa3229f15b7fa34fa09ea06b92dbf752fb534984878b68886fa94902931f25",
+        "tree_rows": 10
+      }
+    },
+    "ControlBefore": {
+      "fresh_reopen": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "40eccbd1f8df617148803301b06550b6dffbe1b6391d53cf0fda0a695846ee13",
+        "tree_rows": 10
+      },
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "matched_input": "MatchedDrawing/KitBlankSheetProbe.SLDDRW",
+      "matched_save": "MatchedDrawing/open_and_save/SavedDrawing.SLDDRW",
+      "open_and_save": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "e77ef25cc7f78cbc5f6d54520549af0680237c57d1dff5e6f6630e509ac02cc2",
+        "save_event_trace": {
+          "events": [
+            [
+              7,
+              63000000
+            ],
+            [
+              9,
+              141000000
+            ],
+            [
+              28,
+              157000000
+            ]
+          ],
+          "save_return_ns": 547000000
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "save_target_bytes": 18130,
+        "save_target_sha256": "d2c03ef7cda850afeecb3b1c65aa15da4ad22cde15b8b51124b0a597e877f750",
+        "tree_rows": 10
+      }
+    },
+    "Generated": {
+      "fresh_reopen": null,
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "matched_input": "MatchedDrawing/KitBlankSheetProbe.SLDDRW",
+      "matched_save": "MatchedDrawing/open_and_save/SavedDrawing.SLDDRW",
+      "open_and_save": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": false,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          2.0,
+          3.0
+        ],
+        "record_sha256": "7c9dceb1d1cf9d50a5cb26fc432e628939320e5adc1638a10cd795646eda7c2b",
+        "save_event_trace": {
+          "events": [
+            [
+              7,
+              47000000
+            ]
+          ],
+          "save_return_ns": 187000000
+        },
+        "save_status": [
+          false,
+          1,
+          0
+        ],
+        "save_target_bytes": 0,
+        "save_target_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tree_rows": 10
+      }
+    },
+    "ReducedNative": {
+      "fresh_reopen": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "cd6378428d2f922d218fd5158b333b6f7dacf18100a32d8f1c6475e29d3087a5",
+        "tree_rows": 10
+      },
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "matched_input": "MatchedDrawing/KitBlankSheetProbe.SLDDRW",
+      "matched_save": "MatchedDrawing/open_and_save/SavedDrawing.SLDDRW",
+      "open_and_save": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "eb891be15eaa89e276ca945a0cee2c4a75c23f3872e9b5d26c1ea949f48985de",
+        "save_event_trace": {
+          "events": [
+            [
+              7,
+              47000000
+            ],
+            [
+              9,
+              141000000
+            ],
+            [
+              28,
+              157000000
+            ]
+          ],
+          "save_return_ns": 422000000
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "save_target_bytes": 18429,
+        "save_target_sha256": "8ea21263e44fe9e1b48501b902db62806dcf3c0a7ce2438aeb2eebd3c9bc7f0c",
+        "tree_rows": 10
+      }
+    }
+  },
+  "native_acceptance": false,
+  "observed_save_edge": "after_storage_dispatch_before_third_party_storage_notification",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "original_observer_sha256": "5bffba7fb3fad79b605fb5ec2a95100ae850dcd8514fe299fc08b11aeb7f801c",
+  "packet_sha256": "f9a4ec47df3eceb0733ca702166925c104eb349518db48b7604c3dae4974941f",
+  "preparer_sha256": "58712c5b5a3698e13ab212eecada39e7352614f48eb931975b186c248ccbad41",
+  "prior_save_mode_receipt_sha256": "99bf351f22315debcb57ebd127d798ce6a01864554f9d481a2503530613ed35a",
+  "raw_native_result_sha256": "117283c94661f34d5eb1b3f6ec788b8770fa9fb085a5508a6d9d93a2600eefa7",
+  "raw_setup_failure_generated_lanes": 0,
+  "raw_setup_failure_sha256": "80c7cca1c3038507f0dc01aec3834cf6e4143d99d507396fe794f7b989b12224",
+  "same_physical_paths": true,
+  "schema": "kit.sw2026.blank-drawing-save-event-native-measurement.v1",
+  "support_tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "InspectBlankDrawingPair.py": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "InspectDrawingSaveModes.py": "a0108df8e4485189129121ae233062c47b86fc5326c5ebcb31beed4b63413f6d",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "tuple_and_json_list_evaluation_agree": true,
+  "writer_output_count": 0
+}

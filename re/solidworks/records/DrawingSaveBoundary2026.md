@@ -87,3 +87,12 @@ across twelve controlled processes. The seven logical streams and their
 compressed bytes agree across both inputs. The generated drawing's
 failure still needs localization inside the native save path.
 [Matched control and return-edge trace](DrawingContainerSaveFraming2026.md)
+
+## Native save events
+
+The generated blank reaches the SaveAs notification with ordinal 7.
+Save returns error 1 and leaves a zero-byte output before either
+third-party storage callback fires. All three matched controls report
+ordinals 7, 9 and 28 before saving and reopening. The pair localizes the
+blank failure after save dispatch and before the storage callbacks.
+[Native observation and offline evaluation](DrawingSaveEvents2026.md)
