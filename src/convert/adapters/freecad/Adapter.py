@@ -93,6 +93,7 @@ from convert.adapters.freecad.Brep import (
 )
 from convert.adapters.freecad.EditRead.Formula.ReconcileSheet import ReconcileSheet
 from convert.adapters.freecad.NativeParameters.RecoverAlias import RecoverAlias
+from convert.adapters.freecad.NativeReplay.ReplayResult import ReplayResult
 from convert.adapters.freecad.EditRead.Sketch.ReconcileSketch import ReconcileSketch
 from convert.adapters.freecad.EditPlaneRev.ReconcilePlaneRev import ReconcilePlane
 from convert.adapters.freecad.EditRev.ReconcileRev import ReconcileRev
@@ -2459,28 +2460,18 @@ def ExactResult(
     Portable: bool,
     NativeOuters: Sequence[tuple[str, CadDoc]],
     NativeSource: bytes,
+    UnprovenFeatures: tuple[str, ...] = (),
 ) -> WriteResult:
     PathValue = WriteBytes(Target, NativeSource, Overwrite)
     OuterRequirements = DocValue.assembly is not None or bool(NativeOuters)
-    Requirements = ("referenced FreeCAD component files",) if OuterRequirements else ()
-    return WriteResult(
-        path=PathValue,
-        adapter=Instance.info.format_id,
-        bytes_written=len(NativeSource),
-        diagnostics=DocValue.Diagnostics,
-        transfers=CapabilityA(DocValue, TargetPath, Portable, True),
-        metadata={
-            "mode": "exact_native_roundtrip",
-            "compatibility": "native-exact",
-            "vendor_loadable": True,
-            "application_usable": True,
-            "native_self_contained": not OuterRequirements,
-            "referenced_files_written": 0,
-            "runtime": "python-stdlib",
-        },
-        requirements=Requirements,
-        application_usable=True,
-        vendor_loadable=True,
+    return ReplayResult(
+        Instance.info.format_id,
+        DocValue,
+        PathValue,
+        len(NativeSource),
+        OuterRequirements,
+        CapabilityA(DocValue, TargetPath, Portable, True),
+        UnprovenFeatures,
     )
 
 
@@ -2701,7 +2692,10 @@ def MissingFeatures(
 
 
 # an archive carrier cannot satisfy the editable history requirement for any component
-def CheckFeatures(DocValue: CadDocument) -> None:
+def CheckFeatures(
+    DocValue: CadDocument, *, AllowReplay: bool = False
+) -> tuple[str, ...]:
+    UnprovenFeatures: list[str] = []
     for Component in DocTree(DocValue):
         if not MissingFeatures(Component, ()):
             continue
@@ -2712,10 +2706,16 @@ def CheckFeatures(DocValue: CadDocument) -> None:
             )
         Missing = MissingFeatures(Component, EditableFeatures)
         if Missing:
-            raise ValueError(
-                "FreeCAD cannot emit editable required features: "
-                + "; ".join(f"{Component.source.path}: {Value}" for Value in Missing)
+            FeatureLabels = tuple(
+                f"{Component.source.path}: {Value}" for Value in Missing
             )
+            if not AllowReplay:
+                raise ValueError(
+                    "FreeCAD cannot emit editable required features: "
+                    + "; ".join(FeatureLabels)
+                )
+            UnprovenFeatures.extend(FeatureLabels)
+    return tuple(UnprovenFeatures)
 
 
 # this definition selects exact replay or reconstruction for one write request
@@ -2730,7 +2730,6 @@ def WriteTarget(
     ShouldOverwrite = Selected.Overwrite if Overwrite is None else Overwrite
     if Selected.Validate:
         DocValue.assert_valid()
-    CheckFeatures(DocValue)
     if not Instance.supports(DocValue, Target):
         raise FreeCadAdapterA(
             f"FreeCAD destination must be a {Suffix} path or writable binary stream"
@@ -2752,7 +2751,9 @@ def WriteTarget(
             Portable,
             NativeOuters,
             NativeSource,
+            CheckFeatures(DocValue, AllowReplay=True),
         )
+    _ = CheckFeatures(DocValue)
     return RebuildResult(
         Instance,
         DocValue,
