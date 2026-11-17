@@ -68,8 +68,13 @@ read its complete standards index and every applicable rule before coding.
 
 - Use an isolated worktree and a separate normal PR for each task. Preserve
   user-owned changes and never write directly to `main`.
-- Push with `--no-verify`. Never run tests locally, including collection,
-  reproductions, hooks, or build commands that execute tests.
+- Push with `--no-verify`. Follow the skill's local execution rules. Large PRs
+  have standing authorization for relevant local tests permitted by repository policy.
+- For [large PRs](.agents/skills/standard-pr-practice/SKILL.md#large-pull-requests),
+  use parallel agents for independent work, with one owner per shared vendor
+  oracle. Retain needed evidence and close completed task-owned Hopper sessions.
+  Begin configured review once the requested work and its pre-review verification
+  are complete.
 - Unit tests are prohibited, including policy, security, and tooling unit
   tests. Validate through integration, end-to-end, smoke, compatibility, and
   repository policy checks at real component or process boundaries.
@@ -83,8 +88,9 @@ read its complete standards index and every applicable rule before coding.
 - Read every entry in `Reviewers` from
   [ReviewBot.json](.agents/skills/standard-pr-practice/ReviewBot.json), the sole
   source of reviewer identities, report names, and exact request comments.
-  Submit each entry's `Comment` verbatim once per accepted head unless that
-  reviewer already has a request or review for that head. Verify every responding
+  When review is due under the skill's timing rules, submit each entry's
+  `Comment` verbatim once per accepted head unless that reviewer already has
+  a request or review for that head. Verify every responding
   account/app and reviewed SHA, and address all findings. Every configured
   reviewer must pass all its native reports and submit an actual `APPROVED`
   review on the current head before the PR is ready. Missing, pending, failed,
@@ -194,4 +200,5 @@ The supervisor requires Linux or macOS; Fusion research requires Python 3.14.
 Use `kit research --root /path/to/KitPr94 TOOL --help` for tool-specific commands.
 Use `kit decode SOURCE` for working-file inspection and `kit convert SOURCE DESTINATION` for supported conversion.
 Read [the deterministic CLI procedure](Documentation/Tasks/ResearchCommandLine.md) before changing these workflows.
-All execution for verification remains in remote CI under the repository's local-test prohibition.
+Follow the skill's local execution rules for developer verification. Verify
+applicable PR and queue checks on their respective remote revisions.
