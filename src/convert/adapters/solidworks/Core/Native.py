@@ -37,6 +37,8 @@ from convert.adapters.solidworks.Core.LinearSketchOwner import (
     KVertexCount,
 )
 from convert.adapters.solidworks.Core.PlaneRefRecord import FindPlaneRef, KHandleVersion
+from convert.adapters.solidworks.Core.HeaderActions import ReadHdrAction
+from convert.adapters.solidworks.Core.RadialValue import MatchRadialVal
 from convert.adapters.solidworks.Core.SketchRelations.CircleCenterRule import (
     ReadCenterFix,
 )
@@ -998,6 +1000,7 @@ class NativeDimension:
     native_offset: int | None = None
     native_role: str | None = None
     operands: tuple[NativeOperand, ...] = ()
+    TypedOwner: Mapping[str, object] = Field(default_factory=dict[str, object])
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1207,6 +1210,7 @@ class NativeFeature:
     data: bytes = b""
     class_name: str = ""
     native_stream: str = ResolvedFeaturesStream
+    TypedOwner: Mapping[str, object] = Field(default_factory=dict[str, object])
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1246,6 +1250,7 @@ class NativeModel:
     equations: tuple[NativeEquation, ...] = Field(default_factory=tuple)
     active_configuration_id: int | None = None
     bounding_box: NativeBoundingBox | None = None
+    TypedGraph: Mapping[str, object] = Field(default_factory=dict[str, object])
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1381,18 +1386,7 @@ def ReadHeaderObjs(
         Offset += 2
         ActionIndex = 0
         while ActionIndex < ActionCount:
-            Offset = ExpectBytes(DataValue, Offset, bytes.fromhex("0a80"))
-            StoredIndex = Struct.unpack_from("<I", DataValue, Offset)[0]
-            if StoredIndex != ActionIndex:
-                raise SldprtFormatError(
-                    "native SOLIDWORKS header action index is invalid"
-                )
-            Offset += 10
-            ActionName, Offset = ReadSerialized(DataValue, Offset)
-            if ActionName not in {"Created", "Modified"}:
-                raise SldprtFormatError(
-                    "native SOLIDWORKS header action name is invalid"
-                )
+            Offset = ReadHdrAction(DataValue, Offset, ActionIndex, ReadSerialized)
             ActionIndex += 1
         (ObjectId,) = Struct.unpack_from("<I", DataValue, Offset)
         Offset += 4
@@ -2712,7 +2706,9 @@ def SketchPlaneRef(
 def ReadPlaneHandle(
     DataValue: bytes, Start: int, EndValue: int, Planes: Mapping[int, NativePlane]
 ) -> NativeSketchA | None:
-    OwnedPlanes = frozenset(Plane.object_id for Plane in Planes.values() if Plane.principal)
+    OwnedPlanes = frozenset(
+        Plane.object_id for Plane in Planes.values() if Plane.principal
+    )
     Match = FindPlaneRef(DataValue, Start, EndValue, OwnedPlanes)
     if Match is None:
         return None
@@ -4119,20 +4115,10 @@ def CircleSet(
                 continue
             StartAngle = MarkerStart(CenterMarker, RimMarker)
             for Index, Dimension in enumerate(Dimensions):
-                Semantic = None
-                NormalizedRadius = RadiusValue
-                if MathValue.isclose(
-                    Dimension.value_mm, RadiusValue, rel_tol=1e-07, abs_tol=1e-07
-                ):
-                    Semantic = "radius"
-                    NormalizedRadius = Dimension.value_mm
-                elif MathValue.isclose(
-                    Dimension.value_mm, RadiusValue * 2.0, rel_tol=1e-07, abs_tol=1e-07
-                ):
-                    Semantic = "diameter"
-                    NormalizedRadius = Dimension.value_mm / 2.0
-                if Semantic is None:
+                MatchedValue = MatchRadialVal(Dimension.value_mm, RadiusValue)
+                if MatchedValue is None:
                     continue
+                Semantic, NormalizedRadius = MatchedValue
                 CenterCoordinates = CenterMarker.coordinates_mm
                 if CenterCoordinates is None:
                     continue
@@ -4736,7 +4722,9 @@ VERTICAL_AXIS_SUBELEMENT = KVerticalAxisSubElem
 _SKETCH_PLANE_ID_RELATIVE = KSketchPlaneIdRelative  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SKETCH_PLANE_REFERENCE_PREFIX = KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
+_SKETCH_PLANE_REFERENCE_PREFIX = (
+    KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
+)
 
 # this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variable]
@@ -4746,7 +4734,9 @@ _SKETCH_PLANE_SCAN_BYTES = KSketchPlaneScanBytes  # lgtm[py/unused-global-variab
 
 
 # this binding exists because shared behavior needs one stable value
-_SURFACE_EXTRUSION_FEATURE_TYPES = KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
+_SURFACE_EXTRUSION_FEATURE_TYPES = (
+    KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
+)
 
 
 # this binding exists because shared behavior needs one stable value

@@ -1,0 +1,74 @@
+from dataclasses import replace as ReplaceValue
+
+from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
+    BindDepth,
+    BindExtrude,
+)
+from convert.adapters.solidworks.Core.TypedResolved.BindFeature import BindFeature
+from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
+from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
+from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
+from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
+from convert.adapters.solidworks.Core.TypedResolved.ReportTyped import ReportTyped
+
+
+# the public model must consume complete typed facts atomically while preserving unrelated legacy behavior
+def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
+    NodesValue = IndexFeatures(LinkValue)
+    Features = {
+        Feature.object_id: (
+            BindFeature(Feature, NodesValue[Feature.object_id], LinkValue)
+            if Feature.object_id in NodesValue
+            else Feature
+        )
+        for Feature in Model.features
+    }
+    OwnersValue = {
+        NativeId: ReadExtrude(LinkValue, NodeValue, NodesValue)
+        for NativeId, NodeValue in NodesValue.items()
+        if NativeId in Features and NodeValue.ClassValue.NameValue == "moExtrusion_c"
+    }
+    SketchIds = {Sketch.object_id for Sketch in Model.sketches}
+    OperationIds = {Operation.object_id for Operation in Model.operations}
+    if OwnersValue and len(Model.operations) != 1:
+        raise ValueError(
+            "multiple operation histories are outside typed blind topology"
+        )
+    if any(
+        NativeId not in OperationIds
+        or NativeNodeId(OwnerValue.ProfileValue) not in SketchIds
+        for NativeId, OwnerValue in OwnersValue.items()
+    ):
+        raise ValueError("typed blind owner lacks its public operation or sketch")
+    Features.update(
+        {
+            NativeId: BindDepth(Features[NativeId], OwnerValue)
+            for NativeId, OwnerValue in OwnersValue.items()
+        }
+    )
+    Operations = tuple(
+        ReplaceValue(
+            (
+                BindExtrude(Operation, OwnersValue[Operation.object_id])
+                if Operation.object_id in OwnersValue
+                else Operation
+            ),
+            name=Features[Operation.object_id].name,
+        )
+        for Operation in Model.operations
+    )
+    return ReplaceValue(
+        Model,
+        features=tuple(Features[Feature.object_id] for Feature in Model.features),
+        operations=Operations,
+        sketches=tuple(
+            ReplaceValue(Sketch, name=Features[Sketch.object_id].name)
+            for Sketch in Model.sketches
+        ),
+        planes=tuple(
+            ReplaceValue(Plane, name=Features[Plane.object_id].name)
+            for Plane in Model.planes
+        ),
+        TypedGraph=ReportTyped(Model, LinkValue, NodesValue, OwnersValue),
+    )

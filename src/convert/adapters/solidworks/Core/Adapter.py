@@ -145,6 +145,12 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
 from convert.adapters.solidworks.Core.ConfigurationInfo import WithCmgrInfo
+from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
+    TypedProvenance,
+)
+from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
+    WithTypedNative,
+)
 from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import HasDrawingClsid
 from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
 from convert.adapters.solidworks.Core.Native import (
@@ -293,7 +299,9 @@ def ReadAction(
     if HasDrawingClsid(Archive):
         return ReadDrawing(Archive, DataValue, Label, Settings)
     if IsDrawingPath(Label):
-        raise SldprtFormatError("SOLIDWORKS .SLDDRW source has no drawing Definition CLSID")
+        raise SldprtFormatError(
+            "SOLIDWORKS .SLDDRW source has no drawing Definition CLSID"
+        )
     Embedded = Archive.get(KitDocStream)
     if Embedded is not None:
         DocValue = EmbeddedDoc(Instance, Archive, DataValue, Label, Embedded, Settings)
@@ -301,7 +309,10 @@ def ReadAction(
         return DocValue
     if Archive.get(ComponentTreeStream) is not None:
         DocValue = RetainSource(
-            WithCmgrInfo(AsmDoc(Instance, Archive, DataValue, Label, Settings), Archive), DataValue
+            WithCmgrInfo(
+                AsmDoc(Instance, Archive, DataValue, Label, Settings), Archive
+            ),
+            DataValue,
         )
         ValidateSource(Label, True)
         return DocValue
@@ -400,6 +411,7 @@ def ReadNativePart(
                 "native_feature_count": len(Model.features),
                 "native_name_record_count": len(Model.names),
                 "native_scalar_count": len(Model.scalars),
+                "solidworks.typed_resolved_semantics": Model.TypedGraph,
                 "stream_names": tuple((Record.name for Record in Archive.records)),
             }
         ),
@@ -668,6 +680,7 @@ def AsmPartFields(Archive: SldprtArchive, Settings: ReadOptions) -> tuple[
         Archive.require(SelectedStream),
         resolved_stream=SelectedStream,
     )
+    Model = WithTypedNative(Model, Archive)
     ConfigValues = Configurations(Model, Settings.configuration)
     ParamValues = Parameters(Model)
     ParamIds = {Param.id for Param in ParamValues}
@@ -875,6 +888,7 @@ def AsmDoc(
                 "native_feature_count": len(Model.features),
                 "native_name_record_count": len(Model.names),
                 "native_scalar_count": len(Model.scalars),
+                "solidworks.typed_resolved_semantics": Model.TypedGraph,
                 "stream_names": tuple((Record.name for Record in Archive.records)),
                 "assembly_definition_count": len(Definitions),
                 "assembly_instance_count": len(Instances),
@@ -2029,14 +2043,17 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         )
     SelectedStream = ResolvedStream(Archive.streams, Lanes[SelectedId])
     ConfigStream = f"Contents/Config-{SelectedId}"
-    return DecodeNativeModel(
-        Keywords,
-        Archive.require(SelectedStream),
-        Archive.get(ConfigStream) or b"",
-        configuration_id=SelectedId,
-        resolved_stream=SelectedStream,
-        configuration_stream=ConfigStream,
-        ModelVersion=ContainerMo(Archive.streams),
+    return WithTypedNative(
+        DecodeNativeModel(
+            Keywords,
+            Archive.require(SelectedStream),
+            Archive.get(ConfigStream) or b"",
+            configuration_id=SelectedId,
+            resolved_stream=SelectedStream,
+            configuration_stream=ConfigStream,
+            ModelVersion=ContainerMo(Archive.streams),
+        ),
+        Archive,
     )
 
 
@@ -2096,7 +2113,10 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
                         else ParamRole.DRIVING
                     ),
                     owner_id=FeatureId(Feature.object_id),
-                    provenance=(
+                    provenance=TypedProvenance(
+                        Dimension.TypedOwner, f"{Feature.object_id}:{Dimension.name}"
+                    )
+                    or (
                         ProvenanceA(
                             f"{Feature.object_id}:{Dimension.name}",
                             Dimension.native_offset,
@@ -2114,6 +2134,7 @@ def Parameters(Model: NativeModel) -> tuple[Param, ...]:
                             "native_value": NativeValue,
                             "native_unit": "rad" if Dimension.kind == "angle" else "m",
                             "native_role": Dimension.native_role or "unresolved",
+                            "typed_archive_owner": Dimension.TypedOwner,
                             "native_operands": tuple(
                                 (
                                     {
@@ -3307,6 +3328,7 @@ def Timeline(
             "native_type": Feature.kind,
             "xml_tag": Feature.xml_tag,
             "native_properties": Feature.properties,
+            "typed_archive_owner": Feature.TypedOwner,
         }
         OperationValue, Selected = TimelineOp(Operation, SelectionIds)
         if Operation is not None:
@@ -3774,6 +3796,9 @@ def ProfileExtrema(Profile: NativeProfile) -> tuple[tuple[float, float], ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def FeatureA(Feature: NativeFeature) -> Provenance:
+    TypedSpan = TypedProvenance(Feature.TypedOwner, str(Feature.object_id))
+    if TypedSpan is not None:
+        return TypedSpan
     return ProvenanceA(
         str(Feature.object_id),
         Feature.native_offset,
