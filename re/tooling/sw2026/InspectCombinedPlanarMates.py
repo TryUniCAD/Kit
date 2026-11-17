@@ -29,16 +29,20 @@ def check_file(root, row):
 
 def verify(path, sha):
     root = path.parent.resolve(strict=True)
-    require(digest(path) == sha and SCRIPT.parent == root / "CompareTools", "use the frozen combined-mate packet and tools")
+    require(digest(path) == sha, "use the frozen combined-mate packet")
     job = json.loads(path.read_bytes())
+    attempt = job.get("attempt", "")
+    require(not attempt or re.fullmatch(r"T[0-9]{2}", attempt), "invalid combined-mate attempt")
+    tools = root / ("CompareTools" + attempt)
+    require(SCRIPT.parent == tools, "use the exact observer tool directory")
     require(job["schema"] == SCHEMA and job["oracle_sha256"] == ORACLE and job["heldout_inputs_read"] == 0,
             "the observer accepts the disclosed pinned plane-mate profile")
     require(set(job["tool_hashes"]) == set(TOOLS)
-            and all(digest(root / "CompareTools" / name) == job["tool_hashes"][name] for name in TOOLS), "an observer tool changed")
+            and all(digest(tools / name) == job["tool_hashes"][name] for name in TOOLS), "an observer tool changed")
     require(set(job["inputs"]) == {"source_parent", "source_child", "generated_parent", "generated_child"}
             and type(job["fixed_occurrence"]) is int and job["fixed_occurrence"] == 0, "unexpected paired input ownership")
     paths = {role: check_file(root, row) for role, row in job["inputs"].items()}
-    freeze = root / "GenerationFreeze.json"
+    freeze = root / ("GenerationFreeze" + attempt + ".json")
     require(digest(freeze) == job["generation_freeze_sha256"], "generated comparison custody changed")
     built = json.loads(freeze.read_bytes())
     require(re.fullmatch(r"[0-9a-f]{40}", job["writer_revision"]) and built["writer_revision"] == job["writer_revision"]
@@ -143,6 +147,8 @@ def phase(job, role, parent, child, target, *, editing=False, reopened=None):
             require(model is not None and errors == warnings == 0 and Path(author.get(model, "GetPathName")).samefile(parent),
                     "native combined assembly failed, warned or resolved another path")
             assembly = author.typed(model, "AssemblyDoc")
+            loaded_child = bound_child(author, assembly, child, 2)
+            result["child_stamp_on_open"] = int(author.get(loaded_child, "GetUpdateStamp"))
             result["initial"] = capture(author, model, assembly, child, case, mass, "initial")
             require(author.get(model, "ForceRebuild3", False), "native assembly rebuild failed")
             result["rebuilt"] = capture(author, model, assembly, child, case, mass, "rebuilt")
@@ -160,9 +166,10 @@ def phase(job, role, parent, child, target, *, editing=False, reopened=None):
                 result["saved"] = native_save(author, model, assembly, parent, child, recorder)
             if reopened is not None:
                 loaded_child = bound_child(author, assembly, child, 2)
-                require(int(author.get(loaded_child, "GetUpdateStamp")) == reopened["child"]["update_stamp"]
+                result["child_stamp_after_rebuild"] = int(author.get(loaded_child, "GetUpdateStamp"))
+                require(result["child_stamp_on_open"] == reopened["child"]["update_stamp"]
                         and digest(parent) == reopened["parent"] and digest(child) == reopened["child"]["native_sha256"],
-                        "fresh combined reopen lost the synchronized child or saved parent")
+                        "fresh combined open lost the synchronized child or saved parent")
             result["passed"] = True
         except Exception as error:
             recorder.failure(error)
@@ -198,9 +205,10 @@ def run(packet, sha):
     require(os.name == "nt", "combined native observation requires the Windows guest")
     job, paths = verify(packet, sha)
     root = packet.parent
-    output = root / "Inspection"
+    attempt = job.get("attempt", "")
+    output = root / ("Inspection" + attempt)
     output.mkdir()
-    work = root / "Working"
+    work = root / ("Working" + attempt)
     work.mkdir()
     parent = work / paths["generated_parent"].name
     child = work / paths["generated_child"].name
