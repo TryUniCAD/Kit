@@ -79,9 +79,9 @@ def main():
     AuthorCurves.require(native.name == "A12SyncedEmpty.SLDASM", "native input must be the previously disclosed empty discovery control")
     AuthorCurves.require(digest(control) == job["control_sha256"] and digest(native) == job["native_empty_sha256"], "oracle controls differ from the frozen inputs")
     candidates = [(row["name"], Path(row["path"]).resolve(), row["sha256"]) for row in job["candidates"]]
-    AuthorCurves.require({name for name, _, _ in candidates} == {"EmptyAssembly", "EmptyAssemblyWithLongerMeasurementTitle"} and len(candidates) == 2, "unexpected generated assembly cohort")
+    AuthorCurves.require(candidates and len({name for name, _, _ in candidates}) == len(candidates), "empty assembly candidate names must be distinct")
     for name, path, expected in candidates:
-        AuthorCurves.require(path.name == name + ".SLDASM" and not path.is_relative_to(checkout) and digest(path) == expected, "candidate path or artifact identity differs")
+        AuthorCurves.require(name and path.name == name + ".SLDASM" and not path.is_relative_to(checkout) and digest(path) == expected, "candidate path or artifact identity differs")
     output.mkdir(parents=True, exist_ok=False)
     report_path = output / "Inspection.json"
     report = {"schema": "kit.sw2026.empty-assembly-candidate-probe.v1", "started_at": time.time(), "job_sha256": digest(job_path), "tool_sha256": digest(Path(__file__)), "generator": job["generator"], "controls": [], "native_empty": [], "candidates": [], "heldout_acceptance": False, "passed": False}
@@ -124,7 +124,7 @@ def main():
         launches = report["controls"] + report["native_empty"] + [value for row in report["candidates"] for key, value in row.items() if key in ("open", "reopen")]
         times = [entry["oracle_identity"]["process_creation_filetime"] for entry in launches if "oracle_identity" in entry]
         report["distinct_launches"] = len(set(times))
-        report["passed"] = bool(len(times) == report["distinct_launches"] == len(launches) == 8 and report["controls_healthy"] and all(row["matches_discovery_control"] for row in report["candidates"]))
+        report["passed"] = bool(len(times) == report["distinct_launches"] == len(launches) == 4 + 2 * len(candidates) and report["controls_healthy"] and all(row["matches_discovery_control"] for row in report["candidates"]))
     except Exception as error:
         report["exception"] = repr(error)
     finally:

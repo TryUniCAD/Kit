@@ -10,7 +10,7 @@ from tests.Convert.Solidworks.Research.Assembly.RunRootProcess import RunRootPro
 
 
 # generated directory identity must survive independent header and configuration loads
-def TestSelfReference() -> None:
+def TestSelfFile() -> None:
     NameValue, FileName = "SelfReferenceModel", "SelfReferenceFile"
     PathValue = "C:\\Users\\Public\\Documents\\KitOracle\\" + FileName + ".SLDASM"
     Request = RootRequest(NameValue, 0.25)

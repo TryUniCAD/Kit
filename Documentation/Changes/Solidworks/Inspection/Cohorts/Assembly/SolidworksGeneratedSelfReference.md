@@ -12,6 +12,10 @@ uses the supplied path and timestamp as data. The guarded process checks
 the generated header fields, slot identity, archive round trips and
 runtime file-read boundary. Remote process and vendor results are pending.
 
+The vendor probe accepts one or more distinct frozen candidate files and
+requires a separate reopen process and the same four control launches
+around each batch.
+
 This research entry applies to an empty assembly. The
 [2026 construction evidence](../../../../../../re/solidworks/records/AssemblyConstruction2026.md#ordinary-self-reference-construction)
 records the native factory, connection, timestamp and archive rules.
