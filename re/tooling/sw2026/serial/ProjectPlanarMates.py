@@ -8,17 +8,18 @@ from AssemblyMates import load_mate_list, store_mate_list
 from AssemblySources import digest, require
 from Classes import registry
 from Core import DOCUMENT_VERSION_2026, Obj
-from PlanarMateSources import MATE_CLASSES, driving_distance
 from defs.ConfigPart import load_config
 from defs.ResolvedCore import load_resolved
+from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Assembly.Assembly import Configurations, Files, Models, XmlRoot
+from convert.adapters.solidworks.Assembly.PlanarMates.PlanarContext import PlanarChild, PlanarContext
+from convert.adapters.solidworks.Assembly.PlanarMates.ReadPlanarMate import ReadPlanarMate
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KComponentTreeStream
 from convert.adapters.solidworks.Core.Adapter import AsmInstanceId, PlaneId
 
 
-KINDS = {value: key for key, value in MATE_CLASSES.items()}
 ALIGNMENTS = {0: "unknown", 1: "aligned", 2: "anti_aligned"}
 
 
@@ -42,7 +43,9 @@ def read_child(archive, config_id, reg):
     datums = [node for node in resolved.roots if isinstance(node, Obj) and node.cls == "moRefPlane_c"]
     planes = {node["f08"]: node for node in datums}
     require(len(planes) == len(datums), "child datum ids are ambiguous")
-    return config.head["model_header"], planes
+    header_name = f"Contents/Config-{config_id}-ModelHeader"
+    header = ReadHeaderGraph(archive.require(header_name), DOCUMENT_VERSION_2026)
+    return PlanarChild(header, planes)
 
 
 def assembly_index(archive):
@@ -57,57 +60,20 @@ def assembly_index(archive):
     return config, by_feature, {definition.object_id: definition for definition in definitions}
 
 
-def occurrence_link(model, wrapper, mate, order):
-    require(wrapper.cls == "moPlaneRef_w" and wrapper["f74"] == mate["f08"]
-            and wrapper["f78"] == wrapper["f7c"] == order, "the resolved plane wrapper has inconsistent ownership")
-    plane = wrapper["f58"]
-    require(plane.cls == "moCompRefPlane_c" and plane["ff8"] is None, "resolved plane owns an unexpected target")
-    chain = plane["f58"]
-    require(chain.cls == "moChainComponent_c", "the resolved plane needs a component chain")
-    links = chain["f20"]["f08"]["f08"]
-    require(len(links) == 1 and links[0]["o"].cls == "moExtFeature_c",
-            "planar projection admits a direct occurrence chain")
-    link = links[0]["o"]
-    reference = link["f50"]
-    require(reference.cls == "moReference_c" and link["f44"] == reference["f08"] and reference["f4f8"] is link
-            and any(row["o"] is reference for row in model["f68"]["list"]["items"]),
-            "resolved mate plane lost its occurrence identity")
-    return plane, reference
-
-
-def endpoint(model, wrapper, mate, order, items, definitions, children):
-    target, reference = occurrence_link(model, wrapper, mate, order)
-    item = items.get(reference["f08"])
-    require(item is not None and not item.suppressed, "the resolved occurrence is missing from the enabled root index")
-    definition = definitions[item.definition_id]
-    source_name = PureWindowsPath(definition.source_path).name.casefold()
-    key = (source_name, item.configuration_id)
-    require(definition.document_type == "PART" and key in children,
-            "the resolved occurrence has no explicit part configuration")
-    header, datums = children[key]
-    selection = reference["f3c0"]
-    require(wrapper["f0c"] == selection["f10"] == item.configuration_id
-            and selection["f08"] == item.configuration_name, "mate wrapper child configuration differs")
-    require((wrapper["f08"] & 0xffffffff) == reference["f3e0"] == header["f40"], "mate wrapper child update is stale")
-    external = reference["f3b0"]["shared"]
-    child_file = header["f38"]["shared"]
-    require(all(external[field]["f08"] == child_file[field]["f08"] for field in ("h10", "h18")),
-            "mate wrapper targets a different part identity")
-    datum_id = target["ff0"]["f00"]
-    require(datum_id in datums, "the real child datum is missing")
+def endpoint(result, order):
     return {
         "order": order,
-        "occurrence_feature_id": reference["f08"],
-        "occurrence_object_id": item.object_id,
-        "instance_path": [AsmInstanceId(item.object_id)],
-        "child_definition_id": item.definition_id,
-        "child_configuration_id": item.configuration_id,
-        "child_update": header["f40"],
-        "datum_feature_id": datum_id,
-        "source_entity_id": PlaneId(datum_id),
-        "datum_name": datums[datum_id]["f18"]["f08"],
-        "stored_origin_m": [wrapper["fd0"][axis] for axis in ("x", "y", "z")],
-        "stored_normal": [wrapper["fe8"][axis] for axis in ("x", "y", "z")],
+        "occurrence_feature_id": result.OccurrenceFeatureId,
+        "occurrence_object_id": result.OccurrenceObjectId,
+        "instance_path": [AsmInstanceId(result.OccurrenceObjectId)],
+        "child_definition_id": result.ChildDefinitionId,
+        "child_configuration_id": result.ChildConfigId,
+        "child_update": result.ChildUpdateStamp,
+        "datum_feature_id": result.DatumFeatureId,
+        "source_entity_id": PlaneId(result.DatumFeatureId),
+        "datum_name": result.DatumName,
+        "stored_origin_m": list(result.OriginValue),
+        "stored_normal": list(result.NormalValue),
     }
 
 
@@ -133,17 +99,16 @@ def projection(assembly, child_archives):
             "mate projection requires proven field rules")
     require(store_mate_list(mates, reg, DOCUMENT_VERSION_2026, resolved_map=resolved_map) == raw,
             "mate list round trip differs")
+    context = PlanarContext(model, items, definitions, children)
     projections = []
     for mate in mates:
-        require(mate.cls in KINDS and mate["f3b4"] in ALIGNMENTS and len(mate["f410"]) == 2,
-                "mate class, alignment or endpoint count lies outside planar projection")
-        entities = [endpoint(model, row["o"], mate, order, items, definitions, children)
-                    for order, row in enumerate(mate["f410"])]
-        dimension = driving_distance(mate) if KINDS[mate.cls] == "distance" else None
+        result = ReadPlanarMate(context, mate, DOCUMENT_VERSION_2026)
         projections.append({
-            "mate_id": mate["f08"], "name": mate["f18"]["f08"], "kind": KINDS[mate.cls], "class": mate.cls,
-            "alignment_code": mate["f3b4"], "alignment": ALIGNMENTS[mate["f3b4"]], "entities": entities,
-            "driving_distance_m": None if dimension is None else dimension["distance_m"],
+            "mate_id": result.MateId, "name": result.NameValue, "kind": result.KindValue,
+            "class": result.ClassName, "alignment_code": result.AlignmentCode,
+            "alignment": ALIGNMENTS[result.AlignmentCode],
+            "entities": [endpoint(value, order) for order, value in enumerate(result.Endpoints)],
+            "driving_distance_m": result.DistanceValue,
         })
     return {
         "version": DOCUMENT_VERSION_2026, "configuration_id": config.configuration_id,

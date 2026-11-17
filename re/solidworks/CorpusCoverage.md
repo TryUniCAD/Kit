@@ -302,6 +302,10 @@ The [typed readback](measurements/2026/PlanarMateProjection01.json) matches the
 two ordered plane IDs and explicit alignment across six generated and native
 research inputs. The public assembly read still depends on the saved
 selection strings for these mates.
+The [SDK planar mate projection](records/PlanarMateSdkProjection2026.md)
+implements the typed join shared by the research command and its fresh
+generated process regression. The public route awaits production loaders
+for the linked assembly and part archive maps.
 The [parallel mate construction](measurements/2026/GeneratedParallelMateBundle01.json)
 round-trips six streams in a distinct generated parent and child with zero
 runtime input reads. The [native parallel trial](measurements/2026/GeneratedParallelMateNative01.json)
@@ -329,6 +333,12 @@ The [shared SDK header graph](records/SharedSdkHeaderGraph2026.md) re-emits
 31 standalone streams exactly across 17 disclosed files. The research
 generators use the same codec for both header streams and reproduce four
 earlier assembly bundles. The production corpus count is unchanged.
+
+The [disclosed nested audit](records/DisclosedNestedAssemblyArchiveAudit2026.md)
+checks 42 streams in seven saved definitions and binds both healthy native
+reopens. Direct directories, expanded occurrence counts, recursive stamps
+and child-local bounds follow distinct measured owners. Both sealed source
+locks are tracked separately from conversion coverage.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

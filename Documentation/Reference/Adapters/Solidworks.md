@@ -144,6 +144,14 @@ revision logs and bounds, and the SDK computes the string lengths, list counts
 and archive references. The [measured profile](../../../re/solidworks/records/SharedSdkHeaderGraph2026.md)
 covers parts, assemblies and blank drawing variants at version 19000.
 
+The [typed planar mate projection](../../Changes/Solidworks/Inspection/Cohorts/Assembly/References/SolidworksTypedPlanarMateProjection.md)
+uses the decoded assembly occurrence and the selected part datum to
+identify the two ordered planes of coincident, parallel and positive
+driving distance mates. The research projection command exercises the
+SDK implementation with linked native archive maps. Automatic assembly
+reads require the linked configuration, resolved feature and mate list
+loaders in the public SDK.
+
 The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
 extend the research instruments without establishing writer support.
