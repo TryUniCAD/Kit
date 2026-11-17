@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 class BodyContext:
     VersionValue: int
     LayoutsValue: Mapping[str, tuple[NativeField, ...]]
-    VirtualValue: Mapping[tuple[str, int], str | bool | None]
+    VirtualValue: Mapping[tuple[str, int], str | int | bool | None]
     SchemasValue: Mapping[str, tuple[int, ...]]
     UsageValue: BodyUsage = DataField(default_factory=BodyUsage)
     FlagsValue: dict[str, int] = DataField(default_factory=dict[str, int])

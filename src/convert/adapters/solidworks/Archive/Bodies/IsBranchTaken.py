@@ -3,6 +3,10 @@ from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Bodies.IsFieldBranch import IsFieldBranch
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Expressions.ExprFrame import ExprFrame
+from convert.adapters.solidworks.Archive.Expressions.ReadExpression import (
+    ReadExpression,
+)
 
 
 # field and mode guards must reproduce native branches without testing captured document rows
@@ -12,6 +16,13 @@ def IsBranchTaken(
     NodeValue: ArchiveNode,
     RuleValue: NativeField,
 ) -> bool:
+    if RuleValue.ModeValue == "Expression":
+        return bool(
+            ReadExpression(
+                ExprFrame(ContextValue, ScopeValue, NodeValue),
+                RuleValue.ExpressionValue,
+            )
+        )
     FlagsValue = ContextValue.FlagsValue
     if RuleValue.ModeValue in (
         "Nonzero",

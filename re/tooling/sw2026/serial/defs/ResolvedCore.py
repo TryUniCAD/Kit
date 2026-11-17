@@ -3,6 +3,7 @@ from __future__ import annotations
 from Core import ArchiveError, Obj, Load, Store, BIG_TAG, BIG_CLASS, CLASS_TAG, NEW_CLASS, NULL_TAG
 from CmgrBridge import load_cmgr
 from Streams import StreamDoc, load_rooted
+from ResolvedBridge import load_sdk_resolved, store_sdk_resolved_state
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, i16, u8, f64, f32, cstr, emb, base, count
 from Schema import Op, If, Rep, run_load, run_store
 
@@ -225,8 +226,8 @@ def document_context(archive, name, reg, version):
     return {"model_compressed_stream": 1, "model_is_part": int(value[0] == "moPart_c"), "cmgr_f658": managers[0]["f658"]}
 
 
-def load_resolved(data, reg, version=None, *, archive=None, name=None, seed=None):
-    context = document_context(archive, name, reg, version)
+def load_resolved_compat(data, reg, version=None, *, archive=None, name=None, seed=None, _context=None):
+    context = document_context(archive, name, reg, version) if _context is None else _context
     ar = Load(data, 1, reg, version, context)
     head = ar.prim("u32")
     ar.count = head
@@ -246,7 +247,7 @@ def load_resolved(data, reg, version=None, *, archive=None, name=None, seed=None
     return StreamDoc("resolved", hd, roots, rest), ar
 
 
-def store_resolved_state(doc, reg, version=None, *, seed=None):
+def store_resolved_state_compat(doc, reg, version=None, *, seed=None):
     ar = Store(doc.head["base"], reg, version, dict(doc.head["context"]), seed=seed)
     ar.prim("u32", doc.head["base"])
     ar.count_value(len(doc.roots))
@@ -261,6 +262,15 @@ def store_resolved_state(doc, reg, version=None, *, seed=None):
 
 def store_resolved(doc, reg, version=None, *, seed=None):
     return store_resolved_state(doc, reg, version, seed=seed)[0]
+
+
+def load_resolved(data, reg, version=None, *, archive=None, name=None, seed=None):
+    return load_sdk_resolved(data, reg, version, archive=archive, name=name, seed=seed,
+                             context_loader=document_context, fallback=load_resolved_compat)
+
+
+def store_resolved_state(doc, reg, version=None, *, seed=None):
+    return store_sdk_resolved_state(doc, reg, version, seed=seed, fallback=store_resolved_state_compat)
 
 
 PLANS = {"Contents/Config-0-ResolvedFeatures": ("custom", (load_resolved, store_resolved))}

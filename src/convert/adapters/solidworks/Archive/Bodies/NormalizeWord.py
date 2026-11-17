@@ -23,6 +23,8 @@ def NormalizeWord(
             )
         case "Identity":
             return NumberValue
+        case "Equals":
+            return int(NumberValue == RuleValue.MaskValue)
         case "Positive":
             return int(NumberValue > 0)
         case _:

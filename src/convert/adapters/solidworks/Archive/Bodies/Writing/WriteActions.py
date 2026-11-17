@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Bodies.Writing.WritePackedMut import (
+    WritePackedMut,
+)
 from collections.abc import Callable
 from types import MappingProxyType
 
@@ -79,6 +82,7 @@ KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] 
             "MassCaches": WriteCachesMut,
             "BBoxCache": WriteCachesMut,
             "DirectNode": WriteOwnedMut,
+            "Packed": WritePackedMut,
         }
     )
 )

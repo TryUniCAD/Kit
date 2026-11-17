@@ -22,6 +22,9 @@ def ReadCountMut(FrameValue: ReadFrame, RuleValue: NativeField) -> int:
     elif RuleValue.TypeValue == "Split":
         HighValue = CastValue(int, ReadScalarMut(Cursor, "u32"))
         LowValue = CastValue(int, ReadScalarMut(Cursor, "u32"))
+        if RuleValue.ModeValue == "Combined":
+            Fields[CountName] = (HighValue << 32) | LowValue
+            return NormalizeCount((HighValue << 32) | LowValue, "")
         Fields[CountName], Fields[RuleValue.OtherName] = HighValue, LowValue
         return NormalizeCount((HighValue << 32) | LowValue, RuleValue.ModeValue)
     else:

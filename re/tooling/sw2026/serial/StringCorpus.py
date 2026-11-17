@@ -62,12 +62,12 @@ def SourceInput():
 def SourceProof():
     Files = [HERE / Item for Item in (
         "StringCorpus.py", "Core.py", "Schema.py", "Classes.py", "Streams.py",
-        "RoundTrip.py", "FieldScan.py", "Dsl.py", "AnnotationWire.py", "MapBridge.py", "CmgrBridge.py", "ConfigBridge.py",
+        "RoundTrip.py", "FieldScan.py", "Dsl.py", "AnnotationWire.py", "MapBridge.py", "CmgrBridge.py", "ConfigBridge.py", "ResolvedBridge.py",
     )]
     Files.extend(sorted((HERE / "defs").glob("*.py")))
     Files.extend(ROOT / "src/convert/adapters/solidworks/Archive/Header" / Item
                  for Item in ("HeaderFields.py", "HeaderRefNodes.py", "ReadHeadItems.py"))
-    for Folder in ("Archive/Counts", "Archive/Strings", "Archive/Tags", "Archive/Objects", "Archive/Maps", "Archive/Scalars", "Archive/Bodies", "Archive/Cmgr", "Archive/Config", "Archive/Reading", "Container"):
+    for Folder in ("Archive/Counts", "Archive/Strings", "Archive/Tags", "Archive/Objects", "Archive/Maps", "Archive/Scalars", "Archive/Bodies", "Archive/Cmgr", "Archive/Config", "Archive/Resolved", "Archive/Expressions", "Archive/Reading", "Container"):
         Files.extend(sorted((ROOT / "src/convert/adapters/solidworks" / Folder).rglob("*.py")))
     return [{"file": str(Item.relative_to(ROOT)), "sha256": Digest(Item.read_bytes())} for Item in sorted(set(Files))]
 

@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPackedMut import (
+    ReadPackedMut,
+)
 from collections.abc import Callable
 from types import MappingProxyType
 
@@ -69,6 +72,7 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "MassCaches": ReadCachesMut,
             "BBoxCache": ReadCachesMut,
             "DirectNode": ReadOwnedMut,
+            "Packed": ReadPackedMut,
         }
     )
 )

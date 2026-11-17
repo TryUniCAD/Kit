@@ -300,7 +300,7 @@ def inventory_main():
         } for path in [
             HERE / "FieldScan.py", HERE / "Core.py", HERE / "Schema.py", HERE / "Classes.py",
             HERE / "Streams.py", HERE / "RoundTrip.py", HERE / "Dsl.py", HERE / "AnnotationWire.py",
-            HERE / "MapBridge.py", HERE / "CmgrBridge.py", HERE / "ConfigBridge.py",
+            HERE / "MapBridge.py", HERE / "CmgrBridge.py", HERE / "ConfigBridge.py", HERE / "ResolvedBridge.py",
             *sorted((HERE / "defs").glob("*.py")),
             ROOT / "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
@@ -314,7 +314,7 @@ def inventory_main():
             ROOT / "src/convert/adapters/solidworks/Archive/Header/HeaderFields.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Header/HeaderRefNodes.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Header/ReadHeadItems.py",
-            *[path for folder in ("Maps", "Objects", "Scalars", "Bodies", "Cmgr", "Config", "Reading") for path in sorted((ROOT / "src/convert/adapters/solidworks/Archive" / folder).rglob("*.py"))],
+            *[path for folder in ("Maps", "Objects", "Scalars", "Bodies", "Cmgr", "Config", "Resolved", "Expressions", "Reading") for path in sorted((ROOT / "src/convert/adapters/solidworks/Archive" / folder).rglob("*.py"))],
         ]],
         "passed": bool(records) and all(item["passed"] for item in records),
     }

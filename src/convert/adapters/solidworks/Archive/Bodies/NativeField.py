@@ -32,6 +32,7 @@ class NativeField:
         "MassCaches",
         "BBoxCache",
         "DirectNode",
+        "Packed",
     ]
     NameValue: str
     TypeValue: str = ""
@@ -42,3 +43,4 @@ class NativeField:
     MaskValue: int = 0
     OtherName: str = ""
     CompareValue: int = 0
+    ExpressionValue: tuple[object, ...] = ()

@@ -44,6 +44,8 @@ For ordinary version-19000 parts and assemblies, the SDK decodes `Contents/CMgr`
 
 For the measured ordinary single-configuration profile, `metadata["solidworks.typed_configuration_graph"]` reports the typed Config-0 stream, its inherited header aliases and map boundaries. The SDK decodes and serializes the same object graph. Twelve disclosed streams round-trip exactly with an independent CMgr context. This metadata supports inspection while the existing feature projection, strict linked-body boundary and read-only registration apply. [Typed configuration graph](../../Changes/Solidworks/Archive/SolidworksTypedConfigurationGraph.md)
 
+The internal SDK `ResolvedFeatures` codec extends the actual Config map and reads the separate CMgr context. Twelve disclosed parts and assemblies pass exact stream and object identity checks. Its research bridge passes the guarded construction regression and 42 linked comparisons, including six mate lists. The public adapter still uses the existing semantic admission for parts and assemblies. [Typed resolved graph](../../Changes/Solidworks/Archive/SolidworksTypedResolvedGraph.md)
+
 ## Read flow
 
 ```mermaid
