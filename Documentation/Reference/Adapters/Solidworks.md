@@ -54,7 +54,7 @@ The SDK reads and writes the complete ordinary 2026 part and assembly Definition
 
 The internal SDK construction layer can build the ordinary blind boss's typed length and angle parameter nodes and the complete end specification. It takes the allocated display and dimension owners and retains the caller's from-end identity. Two fresh generated topologies passed exact stream composition and memory readback. The profile, history and file-level construction remain separate requirements for writing. [Blind end construction](../../Changes/Solidworks/Construction/SolidworksBlindEndConstruction.md)
 
-The SDK constructs the local sketch graph for an ordinary closed polygon from ordered vertices and an allocated profile. It derives point, line, and incident-handle identities and preserves the actual model and support references in linked stream readback. This profile covers unconstrained rings. [Polygon geometry construction](../../Changes/Solidworks/Construction/SolidworksPolygonGeometryConstruction.md)
+The SDK constructs the local sketch graph for an ordinary closed polygon from ordered vertices and an allocated profile. It derives point, line, and incident-handle identities and preserves the actual model and support references in linked stream readback. This profile covers unconstrained rings. [Polygon geometry construction](../../Changes/Solidworks/Construction/SolidworksPolygonGeometryConstruction.md) The SDK can also initialize the ordinary part's own model, self-component and relation manager with its allocated IDs. Configuration and system-feature attachment use a separate construction step. [Part root construction](../../Changes/Solidworks/Construction/SolidworksPartRootConstruction.md)
 
 ## Read flow
 
