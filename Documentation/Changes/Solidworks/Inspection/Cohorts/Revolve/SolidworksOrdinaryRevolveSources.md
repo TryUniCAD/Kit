@@ -16,5 +16,6 @@ held-out payloads and detailed measurements remain sealed until writer
 predictions are frozen. [Native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolveSourceLock.json)
 
 The [2026 constructor evidence](../../../../../../re/solidworks/records/OrdinaryRevolvedBoss2026.md)
-documents the field rules, inputs and acceptance procedure. Generative
-construction and native writer verification are pending.
+documents the field rules, inputs and acceptance procedure. The disclosed
+files have exact archive readback, and the generated research candidate has
+separate verification evidence. [Saved field readback](../../../../../../re/solidworks/records/OrdinaryRevolvedBossReadback2026.md) and [candidate construction](SolidworksOrdinaryRevolveConstruction.md).

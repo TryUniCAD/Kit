@@ -191,6 +191,8 @@ def keywords(*, name, timestamp, configurations, features):
         raise ValueError("keyword metadata requires a configuration")
     feature_ids = set()
     pending = []
+    native_angular = False
+    omitted_sketch_type = False
     for value in sequence(features, "features"):
         value = fields(value, "feature", ("id", "name", "kind"), ("tag", "dimensions", "children", "dissectable", "root"))
         key = integer(value["id"], "feature id", low=1, high=0x7FFFFFFF)
@@ -200,7 +202,11 @@ def keywords(*, name, timestamp, configurations, features):
         tag = text(value.get("tag", "Feature"), "feature tag")
         if tag not in KEYWORD_TAGS:
             raise ValueError(f"unsupported keyword feature tag {tag!r}")
-        attrs = {"id": str(key), "Name": text(value["name"], "feature name"), "Type": text(value["kind"], "feature kind")}
+        attrs = {"id": str(key), "Name": text(value["name"], "feature name")}
+        if tag == "Sketch" and value["kind"] is None and value.get("dissectable") is True:
+            omitted_sketch_type = True
+        else:
+            attrs["Type"] = text(value["kind"], "feature kind")
         if "dissectable" in value:
             attrs["Dissectable"] = str(boolean(value["dissectable"], "dissectable state")).lower()
         if "root" in value:
@@ -214,7 +220,7 @@ def keywords(*, name, timestamp, configurations, features):
         node = SubElement(root, tag, attrs)
         names = set()
         for dimension in sequence(value.get("dimensions", ()), "feature dimensions"):
-            dimension = fields(dimension, "dimension", ("name", "value"))
+            dimension = fields(dimension, "dimension", ("name", "value"), ("unit",))
             dimension_name = text(dimension["name"], "dimension name")
             if dimension_name in names:
                 raise ValueError("dimension names must be unique within their feature")
@@ -226,10 +232,21 @@ def keywords(*, name, timestamp, configurations, features):
                 valid = False
             if not valid:
                 raise ValueError("keyword dimensions must be finite authored numbers in presentation units")
-            SubElement(node, "Dimension", {"Name": dimension_name}).text = str(number) if type(number) is int else format(number, ".17g")
+            display = str(number) if type(number) is int else format(number, ".17g")
+            if "unit" in dimension:
+                if dimension["unit"] != "degree" or tag != "Feature" or value["kind"] != "Revolve":
+                    raise ValueError("keyword unit suffix is classified only for ordinary revolve angle in degrees")
+                native_angular = True
+                display += "°"
+            SubElement(node, "Dimension", {"Name": dimension_name}).text = display
     if not feature_ids or any(key not in feature_ids for key in pending):
         raise ValueError("keyword metadata must contain its feature nodes and every referenced child")
-    return b"\x86<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" + tostring(root, encoding="utf-8", short_empty_elements=True) + b"\r\n"
+    if omitted_sketch_type and not native_angular:
+        raise ValueError("omitting the consumed sketch type requires a native revolve angle")
+    payload = tostring(root, encoding="utf-8", short_empty_elements=True)
+    if native_angular:
+        payload = payload.replace(b" />", b"/>")
+    return b"\x86<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" + payload + b"\r\n"
 
 
 def rooted_metadata_streams(*, registry, header2, model_headers, biography_record, history_record):

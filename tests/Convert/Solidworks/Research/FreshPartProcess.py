@@ -49,6 +49,7 @@ from tests.Convert.Solidworks.Research.Composition.ViewTargets import HasViewTar
 from tests.Convert.Solidworks.Research.Composition.ConfigurationProgress import (
     IsProgressValid,
 )
+from tests.Convert.Solidworks.Research.Revolve.RevolveReadback import ReadRevolution
 
 # explicit process input keeps generated values independent from local native files
 KRequest = CastValue(dict[str, object], LoadJson(InputStream.read()))
@@ -70,6 +71,7 @@ def BuildResult() -> dict[str, object]:
     }
     return {
         **(KReadSelfFile(Archive, KRegistry) if KRequest.get("output") else {}),
+        **(ReadRevolution(Archive, KRegistry) if Constructed.revolution else {}),
         "blob": EncodeBytes(BlobValue).decode("ascii"),
         "streams": Results,
         "sizes": {

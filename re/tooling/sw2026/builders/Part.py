@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import dataclass
+from math import degrees
 
 from Core import ArchiveError, Obj
 from Streams import StreamDoc, store_rooted
@@ -15,6 +16,7 @@ from builders.Extrude import live_blind_extrusion, live_extrusion
 from builders.Metadata import FILE_VERSION, biography, fields, header, history, keywords, streams
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
 from builders.Radial import circle_dimension
+from builders.Revolve import live_revolution, revolved_profile
 from builders.Sketch import PlaneFrame, closed_profile, origin_profile
 from builders.Styles import detail_definitions
 from builders.Units import unit_table_profile
@@ -35,13 +37,14 @@ class PartConstruction:
     extrusion: object
     next_id: int
     configuration_map_count: int
+    revolution: object | None = None
 
 
 def _rooted(*, registry, node):
     return store_rooted(StreamDoc("rooted", {"base": 1}, [node]), registry, FILE_VERSION)
 
 
-def _metadata(*, registry, document, provenance, presentation, graph, features, profile, radial, extrusion, output):
+def _metadata(*, registry, document, provenance, presentation, graph, features, profile, radial, extrusion, output, revolution=None):
     stamp = {
         "status": 0, "user_index": 0, "company_index": 0,
         "timestamp": provenance["created_at"], "comment": provenance["comment"],
@@ -59,10 +62,15 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
         item = {"id": feature["f08"], "name": feature["f18"]["f08"], "kind": feature.cls}
         if feature is profile.profile:
             item["tag"] = "Sketch"
+            if revolution is not None:
+                item.update(kind=None, dissectable=True)
             if radial is not None:
                 item["dimensions"] = [{"name": radial.parameter["f18"]["f08"], "value": radial.parameter["f58"] / presentation["length_unit_m"]}]
         if extrusion is not None and feature is extrusion.feature:
             item.update({"tag": "Extrusion", "dimensions": [{"name": graph.parameter["f18"]["f08"], "value": graph.parameter["f58"] / presentation["length_unit_m"]} for graph in extrusion.active_distances]})
+        if revolution is not None and feature is revolution.feature:
+            parameter = revolution.angle.parameter
+            item.update(kind="Revolve", dimensions=[{"name": parameter["f18"]["f08"], "value": degrees(parameter["f58"]), "unit": "degree"}])
         keyword_features.append(item)
     configuration = graph.configuration_manager["f360"]
     model_header = header(model_present=True, **values)
@@ -95,8 +103,10 @@ def document_shape(document):
         raise ArchiveError("part document must be a semantic mapping")
     profile_kind = document.get("profile_kind", "polygon")
     feature_kind = document.get("feature_kind", "blind_extrusion")
-    if profile_kind not in ("polygon", "circle", "circle_set", "arc", "capsule") or feature_kind not in ("sketch", "blind_extrusion", "extrusion"):
+    if profile_kind not in ("polygon", "circle", "circle_set", "arc", "capsule") or feature_kind not in ("sketch", "blind_extrusion", "extrusion", "revolve"):
         raise ArchiveError("unsupported fresh profile or feature kind")
+    if feature_kind == "revolve" and profile_kind != "polygon":
+        raise ArchiveError("this revolve candidate requires a closed rectangular contour")
     if profile_kind in ("circle_set", "arc") and feature_kind != "sketch":
         raise ArchiveError("this curve profile admits only the free sketch research rung")
     if profile_kind == "circle" and feature_kind in ("blind_extrusion", "extrusion"):
@@ -104,9 +114,13 @@ def document_shape(document):
         if not isinstance(request, Mapping) or request.get("fix_center") is not True:
             raise ArchiveError("circle extrusion requires an explicit driving dimension and fixed center")
     required = (
-        "name", "configuration_name", "sketch_name", "extrusion_name", "origin_name",
+        "name", "configuration_name", "sketch_name", "origin_name",
         "plane_axis", "density_kg_m3",
     )
+    if feature_kind == "revolve":
+        required += ("revolution_name", "axis_start_m", "axis_end_m", "angle_rad", "reverse_direction")
+    else:
+        required += ("extrusion_name",)
     required += {"polygon": ("vertices_m",), "circle": ("center_m", "radius_m"), "circle_set": ("circles_m",), "arc": ("center_m", "radius_m", "start_angle_rad", "sweep_angle_rad"), "capsule": ("center_m", "radius_m", "straight_length_m", "rotation_angle_rad")}[profile_kind]
     if feature_kind in ("blind_extrusion", "extrusion"):
         required += ("depth_m",)
@@ -141,6 +155,8 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     units = presentation["units"]
     if not isinstance(units, Mapping):
         raise ArchiveError("part units require semantic construction parameters")
+    if feature_kind == "revolve" and units.get("angle_unit") != "degree":
+        raise ArchiveError("the ordinary revolve metadata candidate requires degree presentation")
     length_scales = {
         "mm": 1e-3, "cm": 1e-2, "m": 1.0, "in": 0.0254, "ft": 0.3048,
         "angstrom": 1e-10, "nm": 1e-9, "um": 1e-6, "mil": 0.0000254, "microinch": 0.0000000254,
@@ -169,7 +185,11 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     origin_node = model_feature(cls="moOriginProfileFeature_c", name=document["origin_name"], **feature_values)
     origin_profile(profile=origin_node, plane=component_plane(**reference_values), frame=frame)
     profile_node = model_feature(cls="moProfileFeature_c", name=document["sketch_name"], **feature_values)
-    if profile_kind == "polygon":
+    revolve_source = None
+    if feature_kind == "revolve":
+        revolve_source = revolved_profile(vertices=document["vertices_m"], axis_start=document["axis_start_m"], axis_end=document["axis_end_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
+        profile = revolve_source.profile
+    elif profile_kind == "polygon":
         profile = closed_profile(vertices=document["vertices_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
     elif profile_kind == "circle":
         profile = circle_profile(center_m=document["center_m"], radius_m=document["radius_m"], profile=profile_node, plane=component_plane(**reference_values), frame=frame)
@@ -188,6 +208,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         )
     features = (*graph.system_features, origin_node, profile_node)
     extrusion = None
+    revolution = None
     if feature_kind in ("blind_extrusion", "extrusion"):
         extrusion_node = body_feature(cls="moExtrusion_c", name=document["extrusion_name"], **feature_values)
         if feature_kind == "blind_extrusion":
@@ -203,6 +224,14 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
                 reverse_depth=document.get("reverse_depth_m"),
             )
         features += (extrusion_node,)
+    elif revolve_source is not None:
+        revolve_node = body_feature(cls="moRevolution_c", name=document["revolution_name"], **feature_values)
+        revolution = live_revolution(
+            feature=revolve_node, source=revolve_source, allocator=graph.allocator, component=graph.part["f990"],
+            profile_created_at=provenance["created_at"], angle_rad=document["angle_rad"], reverse_direction=document["reverse_direction"],
+            design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
+        )
+        features += (revolve_node,)
     record_configuration_progress(configuration=graph.configuration_manager["f360"], allocator=graph.allocator)
     metadata_presentation = {
         "length_unit_m": length_scales[units["length_unit"]],
@@ -210,7 +239,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     }
     result, model_header = _metadata(
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
-        graph=graph, features=features, profile=profile, radial=radial, extrusion=extrusion, output=output,
+        graph=graph, features=features, profile=profile, radial=radial, extrusion=extrusion, output=output, revolution=revolution,
     )
     config_data, state = store_config_state(StreamDoc("config", {"model_header": model_header}, [graph.part]), registry, FILE_VERSION)
     resolved = StreamDoc("resolved", {"base": state.count, "context": {
@@ -236,4 +265,5 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         configuration=graph.configuration_manager["f360"], features=features,
         profile=profile, radial=radial, extrusion=extrusion,
         next_id=graph.next_persistent_id, configuration_map_count=state.count,
+        revolution=revolution,
     )

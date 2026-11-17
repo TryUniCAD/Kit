@@ -60,7 +60,7 @@ def bind_permanence(*, sketch, points, arcs, lines=None):
         segment.f.derived["f08"] = lambda node=segment: _node_index(nodes=segments, node=node) + 1
         if segment.cls == "sgLine":
             del segment.f["fd0"]
-            segment.f.derived["fd0"] = lambda node=segment: int(all(any(point[slot] is not None and point[slot].get("_line") is node for slot in ("h1", "h2")) for point in (node["_start"], node["_end"])))
+            segment.f.derived["fd0"] = lambda node=segment: int(not (node["f54"] & 8) and all(any(point[slot] is not None and point[slot].get("_line") is node for slot in ("h1", "h2")) for point in (node["_start"], node["_end"])))
 
 
 def bind_arrays(*, sketch, points, arcs, lines=None):
@@ -69,7 +69,7 @@ def bind_arrays(*, sketch, points, arcs, lines=None):
         raise ConstructionError("geometry arrays exceed signed next-counter width")
     records = {
         "points": tuple({"kind": 0, "point": node.f} for node in points),
-        "lines": tuple({"flags": 0, "line": node.f} for node in lines),
+        "lines": tuple({"flags": 2 if node["f54"] & 8 else 0, "line": node.f} for node in lines),
         "arcs": tuple({"flags": 0, "arc": node.f} for node in arcs),
     }
     for name in (*records, "f130", "f56c"):

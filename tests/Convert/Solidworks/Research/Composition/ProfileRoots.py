@@ -12,8 +12,8 @@ KLoadConfig = ImportModule("defs.ConfigPart").load_config
 KLoadResolved = ImportModule("defs.ResolvedCore").load_resolved
 
 
-# decoded profile relationships expose ownership defects that byte identity alone cannot detect
-def ReadProfiles(
+# decoded roots preserve the linked identities needed by process evidence
+def ReadLinkedRoots(
     ArchiveFile: SldprtArchive, CodecReg: object
 ) -> tuple[object, list[object]]:
     ConfigDocu, ConfigReader = KLoadConfig(
@@ -37,9 +37,19 @@ def ReadProfiles(
         or ProfileReader.left()
     ):
         raise RuntimeError("constructed profile ownership has unread bytes")
-    return CastValue(object, ConfigDocu.roots[0]), [
+    return CastValue(object, ConfigDocu.roots[0]), CastValue(
+        list[object], ProfileDocu.roots
+    )
+
+
+# decoded profile relationships expose ownership defects that byte identity alone cannot detect
+def ReadProfiles(
+    ArchiveFile: SldprtArchive, CodecReg: object
+) -> tuple[object, list[object]]:
+    ModelRoot, ResolvedRoots = ReadLinkedRoots(ArchiveFile, CodecReg)
+    return ModelRoot, [
         Feature
-        for Feature in CastValue(list[object], ProfileDocu.roots)
+        for Feature in ResolvedRoots
         if getattr(Feature, "cls", None)
         in ("moOriginProfileFeature_c", "moProfileFeature_c")
     ]

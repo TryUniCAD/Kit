@@ -227,8 +227,6 @@ class DimensionGraph:
 
 
 def feature_dimension(*, feature: Obj, dimension_id: int, value: float, angular: bool, allocator, design_intent: bool, selected_leader: int):
-    from builders.Model import component_reference_fields, node_fields
-
     if not isinstance(feature, Obj) or feature.cls != "moExtrusion_c" or type(feature.get("f08")) is not int or feature["f08"] < 0:
         raise ConstructionError("feature dimensions require their allocated extrusion owner")
     if type(dimension_id) is not int or not 1 <= dimension_id < (1 << 31):
@@ -243,6 +241,12 @@ def feature_dimension(*, feature: Obj, dimension_id: int, value: float, angular:
         raise ConstructionError("blind construction currently requires zero draft angles")
     if not angular and (value < 0 or 0 < value < 1e-14):
         raise ConstructionError("native length dimensions require zero or a positive value of at least 1e-14")
+    return _construct_feature_dimension(feature=feature, dimension_id=dimension_id, value=value, angular=angular, allocator=allocator, design_intent=design_intent, selected_leader=selected_leader)
+
+
+def _construct_feature_dimension(*, feature: Obj, dimension_id: int, value: float, angular: bool, allocator, design_intent: bool, selected_leader: int):
+    from builders.Model import component_reference_fields, node_fields
+
     parameter = Obj("moAngleParameter_c" if angular else "moLengthParameter_c")
     node_fields(name=f"D{dimension_id}", allocator=None, node=parameter)
     parameter.f.update({"_owner": feature, "f0c": 0, "f48": None, "f58": float(value), "f68": 0})
