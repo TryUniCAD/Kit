@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from collections.abc import Sequence
+from collections.abc import Iterable, Sequence
 from itertools import product
-from math import isfinite
+from math import isfinite, sqrt
 
 from Core import Obj
 from builders.Assembly import _initial_component_configuration, bounding_box, ordinary_part_reference_stamps
@@ -67,6 +67,45 @@ def placed_occurrence_bounds(*, reference: Obj, placement: PlaneFrame) -> dict:
     if not all(isfinite(value) for value in values):
         raise ValueError("derived occurrence bounds exceed the archive numeric domain")
     return {f"b{index}": value for index, value in enumerate(values)}
+
+
+def _union_placed_bounds(left: dict, right: dict) -> dict:
+    low = tuple(min(right[key], left[key]) for key in ("b6", "b7", "b8"))
+    high = tuple(max(right[key], left[key]) for key in ("b3", "b4", "b5"))
+    center = tuple(left[key] for key in ("b0", "b1", "b2"))
+    incoming_center = tuple(right[key] for key in ("b0", "b1", "b2"))
+    dx, dy, dz = (b - a for a, b in zip(center, incoming_center, strict=True))
+    distance = sqrt(dx * dx + dy * dy + dz * dz)
+    radius, incoming_radius = left["b9"], right["b9"]
+    enclosing_radius = (radius + incoming_radius + distance) * 0.5
+    if not isfinite(enclosing_radius):
+        raise ValueError("derived assembly bounds exceed the archive numeric domain")
+    if enclosing_radius > radius:
+        if enclosing_radius <= incoming_radius:
+            center, radius = incoming_center, incoming_radius
+        else:
+            weight = (enclosing_radius - radius) / distance
+            center = tuple(value + change * weight for value, change in zip(center, (dx, dy, dz), strict=True))
+            radius = enclosing_radius
+            x, y, z = (max(abs(a - c), abs(b - c)) for a, b, c in zip(low, high, center, strict=True))
+            corner_squared = x * x + y * y + z * z
+            radius_squared = radius * radius
+            if corner_squared + 5e-9 < radius_squared or (radius > 1e-10 and corner_squared * 1.000000005 < radius_squared):
+                return bounding_box(minimum=low, maximum=high)
+    values = (*center, *high, *low, radius)
+    if not all(isfinite(value) for value in values):
+        raise ValueError("derived assembly bounds exceed the archive numeric domain")
+    return {f"b{index}": value for index, value in enumerate(values)}
+
+
+def assembly_occurrence_bounds(*, occurrences: Iterable[tuple[Obj, PlaneFrame]]) -> dict:
+    boxes = (placed_occurrence_bounds(reference=reference, placement=placement) for reference, placement in occurrences)
+    result = next(boxes, None)
+    if result is None:
+        raise ValueError("populated assembly bounds require at least one occurrence")
+    for box in boxes:
+        result = _union_placed_bounds(result, box)
+    return result
 
 
 def resolved_part_occurrence(

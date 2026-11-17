@@ -6,10 +6,10 @@ from ntpath import normcase, normpath
 from Core import Obj
 from Streams import StreamDoc, store_rooted
 from builders.Assembly import initial_assembly_features, initial_assembly_model, initial_configuration, store_empty_mates
-from builders.AssemblyOccurrences import occurrence_configuration, placed_occurrence_bounds, resolved_part_occurrence
+from builders.AssemblyOccurrences import assembly_occurrence_bounds, occurrence_configuration, resolved_part_occurrence
 from builders.Definition import assembly_definition, definition_stream
 from builders.ExternalFiles import ordinary_self_reference, referenced_configuration
-from builders.Metadata import FILE_VERSION, biography, fields, header, history, rooted_metadata_streams, sequence
+from builders.Metadata import BIOGRAPHY_STREAM, FILE_VERSION, HISTORY_STREAM, biography, fields, header, history, rooted_metadata_streams, sequence
 from builders.Model import PersistentIds, configuration_manager, node_list, object_list, record_configuration_progress
 from builders.Part import PartConstruction, construct_part
 from builders.Sketch import PlaneFrame
@@ -24,7 +24,7 @@ RESOLVED = CONFIG + "-ResolvedFeatures"
 MATES = CONFIG + "-MatesList"
 MANAGER = "Contents/CMgr"
 DEFINITION = "Contents/Definition"
-METADATA = ("Header2", MODEL_HEADER, "_MO_VERSION_19000/Biography", "_MO_VERSION_19000/History")
+METADATA = ("Header2", MODEL_HEADER, BIOGRAPHY_STREAM, HISTORY_STREAM)
 
 
 @dataclass(frozen=True)
@@ -103,26 +103,28 @@ def _child_directory_entry(*, child: PartConstruction, uses: int) -> Obj:
     })
 
 
-def _insert_generated_child(*, model, configuration, top_header, model_header, child, occurrence, ids, target, feature_ordinal):
+def _insert_generated_child(*, model, configuration, top_header, model_header, child, occurrences, ids, target, first_ordinal):
     owner_file = model_header["f38"]
     if owner_file is None:
         raise ValueError("an assembly with occurrences requires an explicit native output path")
-    directory_entry = _child_directory_entry(child=child, uses=1)
+    count = len(occurrences)
+    directory_entry = _child_directory_entry(child=child, uses=count)
     parent_path, child_path = (record["shared"]["h18"]["f08"] for record in (owner_file, directory_entry))
     if normcase(normpath(parent_path)) == normcase(normpath(child_path)):
         raise ValueError("the assembly and generated child must have separate paths")
     minimum, maximum = _child_bounds(child)
-    reference = resolved_part_occurrence(
-        owner=model, owner_file=owner_file, child_model=child.model, child_header=child.model_header,
-        child_configuration=child.configuration, child_file=directory_entry, name=occurrence["name"],
-        placement=occurrence["placement"], minimum=minimum, maximum=maximum, feature_ordinal=feature_ordinal,
-        allocator=ids, **target,
+    references = tuple(
+        resolved_part_occurrence(
+            owner=model, owner_file=owner_file, child_model=child.model, child_header=child.model_header,
+            child_configuration=child.configuration, child_file=directory_entry, name=name,
+            placement=placement, minimum=minimum, maximum=maximum, feature_ordinal=ordinal,
+            allocator=ids, **target,
+        )
+        for ordinal, (name, placement) in enumerate(occurrences, first_ordinal)
     )
-    references = (reference,)
-    count = len(references)
-    bounds = placed_occurrence_bounds(reference=reference, placement=occurrence["placement"])
+    bounds = assembly_occurrence_bounds(occurrences=zip(references, (placement for _, placement in occurrences), strict=True))
     model.f.update(has_list68=1, f68=node_list(references), f1560=count, has_f1a18=1, f1a18=bounds, has_f1a20=1, f1a20=dict(bounds))
-    configuration["fce8"].append({"o": occurrence_configuration(reference=reference, configuration=configuration)})
+    configuration["fce8"].extend({"o": occurrence_configuration(reference=reference, configuration=configuration)} for reference in reversed(references))
     configuration["f4b0"] = count
     record_configuration_progress(configuration=configuration, allocator=ids)
     directory = Obj("moExtObjectList_c", object_list((directory_entry,)))
@@ -130,7 +132,7 @@ def _insert_generated_child(*, model, configuration, top_header, model_header, c
         record.f.update(f08=ids.next_id, fc4=count, f30=directory)
 
 
-def _construct_assembly(*, registry, request, child=None, occurrence=None) -> AssemblyConstruction:
+def _construct_assembly(*, registry, request, child=None, occurrences=()) -> AssemblyConstruction:
     fields(request, "assembly", ("name", "configuration_name", "origin_name", "mate_group_name", "provenance", "target", "presentation"), ("output",))
     name, presentation, provenance = (request[key] for key in ("name", "presentation", "provenance"))
     fields(presentation, "assembly presentation", ("styles", "units", "definition", "assembly_features", "language_id", "cjk_saved"))
@@ -146,7 +148,7 @@ def _construct_assembly(*, registry, request, child=None, occurrence=None) -> As
     if child is not None:
         _insert_generated_child(
             model=model, configuration=configuration, top_header=top_header, model_header=model_header,
-            child=child, occurrence=occurrence, ids=ids, target=target, feature_ordinal=len(features) - 1,
+            child=child, occurrences=occurrences, ids=ids, target=target, first_ordinal=len(features) - 1,
         )
     result = _header_streams(registry=registry, top_header=top_header, model_header=model_header, configuration=configuration, stamp=stamp, provenance=provenance, presentation=presentation)
     config, state = store_config_state(StreamDoc(CONFIG, {"model_header": model_header}, [model]), registry, FILE_VERSION)
@@ -170,12 +172,13 @@ def construct_empty_assembly(*, registry, request) -> AssemblyConstruction:
 
 def construct_assembly_bundle(*, registry, request) -> AssemblyBundle:
     values = fields(request, "generated assembly bundle", ("assembly", "child", "occurrences"))
-    occurrences = sequence(values["occurrences"], "assembly occurrences")
-    if len(occurrences) != 1:
-        raise ValueError("this research bundle requires one resolved occurrence")
-    occurrence = fields(occurrences[0], "assembly occurrence", ("name", "placement"))
-    frame = fields(occurrence["placement"], "occurrence placement", ("origin", "u", "v"))
+    occurrences = []
+    for item in sequence(values["occurrences"], "assembly occurrences"):
+        occurrence = fields(item, "assembly occurrence", ("name", "placement"))
+        frame = fields(occurrence["placement"], "occurrence placement", ("origin", "u", "v"))
+        occurrences.append((occurrence["name"], PlaneFrame(**frame)))
+    if not occurrences:
+        raise ValueError("this research bundle requires at least one resolved occurrence")
     child_request = fields(values["child"], "generated child", ("document", "provenance", "presentation", "target", "output"))
     child = construct_part(registry=registry, **child_request)
-    occurrence = {"name": occurrence["name"], "placement": PlaneFrame(**frame)}
-    return AssemblyBundle(_construct_assembly(registry=registry, request=values["assembly"], child=child, occurrence=occurrence), child)
+    return AssemblyBundle(_construct_assembly(registry=registry, request=values["assembly"], child=child, occurrences=occurrences), child)

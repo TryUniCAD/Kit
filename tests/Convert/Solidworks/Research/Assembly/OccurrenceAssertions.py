@@ -5,12 +5,16 @@ from typing import cast as CastValue
 from tests.Convert.Solidworks.Research.Assembly.AssemblyRootTests import KAssemblyRoots
 
 
-# generated topology must retain the native stream boundaries and one active occurrence
-def CheckOccReport(Report: dict[str, object]) -> None:
+# generated topology must retain native stream boundaries and the authored occurrence count
+def CheckOccReport(Report: dict[str, object], OccurrenceCount: int = 1) -> None:
     assert Report["native_acceptance"] is False and Report["denied_reads"] == []
     assert Report["resolved_types"] == KAssemblyRoots
-    assert Report["component_total"] == Report["configuration_component_total"] == 1
-    assert Report["header_component_totals"] == [1, 1]
+    assert (
+        Report["component_total"]
+        == Report["configuration_component_total"]
+        == OccurrenceCount
+    )
+    assert Report["header_component_totals"] == [OccurrenceCount, OccurrenceCount]
     assert Report["configuration_self_first"] is True
     assert Report["reconstructed_bytes_identical"] is Report["maps_consistent"] is True
     assert (
@@ -21,7 +25,7 @@ def CheckOccReport(Report: dict[str, object]) -> None:
 
 
 # directory timestamps and file identity come from the independently generated child
-def CheckDirectory(Report: dict[str, object]) -> object:
+def CheckDirectory(Report: dict[str, object], OccurrenceCount: int = 1) -> object:
     assert Report["directory_slots"] == [4]
     assert Report["directory_headers_agree"] is True
     (DirectoryEntry,) = CastValue(list[dict[str, object]], Report["directory"])
@@ -32,7 +36,7 @@ def CheckDirectory(Report: dict[str, object]) -> object:
     ChildHeader = CastValue(dict[str, int], Child["configuration_manager_header"])
     assert DirectoryEntry["path"] == ChildFile["path"]
     assert DirectoryEntry["configuration"] == {"f08": "", "f10": -1}
-    assert DirectoryFields["f48"] == 1 and DirectoryFields["f78"] == 0
+    assert DirectoryFields["f48"] == OccurrenceCount and DirectoryFields["f78"] == 0
     assert DirectoryFields["f60"] == ChildFields["f60"]
     assert DirectoryFields["f70"] == ChildHeader["saved_at"]
     return ChildFile["configuration"]

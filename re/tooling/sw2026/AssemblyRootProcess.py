@@ -55,14 +55,18 @@ def _inspect_occurrences(*, model, model_header, top_header, configuration, read
 def _inspect_occurrence_configuration(row):
     component = row["f10"]
     path = component["f20"]
-    target = path["f08"]["f08"][0]["o"]
+    targets = path["f08"]
+    target = targets["f08"][0]["o"]
     owner_file = component["f40"]
     return {
         "feature_id": target["f44"], "name": target["f38"]["f08"], "child_configuration": row["f28"],
         "has_backlink": target["f50"] is not None, "has_serialized_owner": component["owner"] is not None,
         "parent_identity_shared": all(target["f10"][key] is owner_file["shared"][key] for key in ("h10", "h18")),
+        "parent_identity_slots": [owner_file["shared"][key].index for key in ("h10", "h18")],
+        "record_slots": [record.index for record in (row, row["f08"], component, path, targets, target, owner_file)],
+        "name_handle_slot": target["f38"].index,
         "owner_file": self_reference_fields(owner_file),
-        "chain_count": path["f08"]["n"], "chain_mode": path["f24"], "chain_stamp": component["f30"],
+        "chain_count": targets["n"], "chain_mode": path["f24"], "chain_stamp": component["f30"],
     }
 
 
