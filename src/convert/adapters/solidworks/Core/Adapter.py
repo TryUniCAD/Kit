@@ -151,6 +151,7 @@ from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
     WithTypedNative,
 )
+from convert.adapters.solidworks.Core.TypedMates.WithTypedMates import WithTypedMates
 from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import HasDrawingClsid
 from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
 from convert.adapters.solidworks.Core.Native import (
@@ -737,6 +738,9 @@ def AsmDoc(
         Native, Archive, Label, Index, Settings
     )
     MatePayloads, MateEntities, Mates, MateGroups = AsmMates(Native, MateSourceValues)
+    MateEntities, Mates, TypedMates = WithTypedMates(
+        Native, Archive, ResolvedPaths, DocIds, Documents, MateEntities, Mates
+    )
     FlatMateValues = FlattenedMates(Native, Mates)
     PayloadSettings = ReadOptions(
         configuration=Settings.configuration,
@@ -894,6 +898,11 @@ def AsmDoc(
                 "assembly_instance_count": len(Instances),
                 "assembly_flattened_occurrence_count": len(PathRecords),
                 "assembly_mate_count": len(Mates),
+                **(
+                    {"solidworks.typed_mates_semantics": TypedMates}
+                    if TypedMates is not None
+                    else {}
+                ),
                 "assembly_flattened_mate_count": len(FlatMateValues),
                 "assembly_mesh_count": len(Meshes),
             }

@@ -1,0 +1,560 @@
+{
+  "cases": [
+    {
+      "child_public": {
+        "document_json_sha256": "70aae1807f264abc7a54a3b636e4bddbed79f619f0b7d310965a8a9ae30a08cf",
+        "exit_code": 0
+      },
+      "child_public_json_equal": true,
+      "child_sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+      "comparison": {
+        "alignment": "aligned",
+        "entity_ids": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "instance_paths": [
+          [
+            "sldasm:instance:4"
+          ],
+          [
+            "sldasm:instance:7"
+          ]
+        ],
+        "kind": "coincident",
+        "map_base": 168,
+        "map_terminal": 196,
+        "mate_id": "sldasm:mate:2:0:0",
+        "native_feature_id": 26,
+        "projection_equal": true,
+        "source_entity_ids": [
+          "sldprt:plane:3",
+          "sldprt:plane:3"
+        ],
+        "valid": true,
+        "value_mm": null
+      },
+      "deferred": {
+        "document_json_sha256": "4c49b4fd3763e1ff143b06269d7885e45613853ae083cf119ac6f15404f826e4",
+        "exit_code": 0
+      },
+      "deferred_behavior_equal": true,
+      "file_sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+      "previous_public": {
+        "document_json_sha256": "076d35e5b694faaee32fd734804bba7cec9ac2ac51bc360c621d8a84f283e1c4",
+        "exit_code": 0
+      },
+      "projection_json_sha256": "610f538749065349ea3cb4e26b92b5b8e852050148469493383cfff419ce4af2",
+      "public_document_json_sha256": "b7dad9ac5fb5de27b8adf5b2df21087d8fb4ba98b6ee57ffa0a18b57f880015c"
+    },
+    {
+      "child_public": {
+        "document_json_sha256": "91f6d0033231e84246f0bf22f0e937c5ad2ce148eb860feb3c774b2c01ba1ef3",
+        "exit_code": 0
+      },
+      "child_public_json_equal": true,
+      "child_sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+      "comparison": {
+        "alignment": "aligned",
+        "entity_ids": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "instance_paths": [
+          [
+            "sldasm:instance:4"
+          ],
+          [
+            "sldasm:instance:7"
+          ]
+        ],
+        "kind": "distance",
+        "map_base": 168,
+        "map_terminal": 207,
+        "mate_id": "sldasm:mate:2:0:0",
+        "native_feature_id": 27,
+        "projection_equal": true,
+        "source_entity_ids": [
+          "sldprt:plane:4",
+          "sldprt:plane:4"
+        ],
+        "valid": true,
+        "value_mm": 63.23
+      },
+      "deferred": {
+        "document_json_sha256": "2afc1b38b1feeb04d180d6287f20fb60853f5f6b04806238497a42d56c232901",
+        "exit_code": 0
+      },
+      "deferred_behavior_equal": true,
+      "file_sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+      "previous_public": {
+        "document_json_sha256": "1dd5c547e4879a450e6bd68208e4cd6d43373c2a1eff70b769b4e6f392bf2317",
+        "exit_code": 0
+      },
+      "projection_json_sha256": "d1c7b7197e5e35d309a1db9fdf495345b82d44d5e8b3d28f26ca50ebf6219c6f",
+      "public_document_json_sha256": "87322e09d12676167bcfbadf30c584015319cc769eca7a2f3c7253601feead93"
+    },
+    {
+      "child_public": {
+        "document_json_sha256": "671d82eed20a47ea77500636007938000abae598cd2a6e3f585b04f7fa45db4b",
+        "exit_code": 0
+      },
+      "child_public_json_equal": true,
+      "child_sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+      "comparison": {
+        "alignment": "aligned",
+        "entity_ids": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "instance_paths": [
+          [
+            "sldasm:instance:4"
+          ],
+          [
+            "sldasm:instance:7"
+          ]
+        ],
+        "kind": "parallel",
+        "map_base": 168,
+        "map_terminal": 196,
+        "mate_id": "sldasm:mate:2:0:0",
+        "native_feature_id": 26,
+        "projection_equal": true,
+        "source_entity_ids": [
+          "sldprt:plane:2",
+          "sldprt:plane:2"
+        ],
+        "valid": true,
+        "value_mm": null
+      },
+      "deferred": {
+        "document_json_sha256": "04ee73214388ffd4dc34d640c9ee26c55d2f5849ee2446d71fd33065aaa86689",
+        "exit_code": 0
+      },
+      "deferred_behavior_equal": true,
+      "file_sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+      "previous_public": {
+        "document_json_sha256": "d96427ee6b263315a30fe8a0937be6317b549b76870941cd09cf2aa73b75c828",
+        "exit_code": 0
+      },
+      "projection_json_sha256": "172e5a2e84993a6db32fbd4e5636d9d3d8ace5561cd5cdb2ee838d6cf93aab96",
+      "public_document_json_sha256": "65bb128f7642a6b708f1c0306767da4cf36bb21c05fc80b9e34c06201011c612"
+    },
+    {
+      "child_public": {
+        "document_json_sha256": "411698d507a54d6661cbcc5f68bf9a4aebf9a2f7809c5df0c8f7850965186d7a",
+        "exit_code": 0
+      },
+      "child_public_json_equal": true,
+      "child_sha256": "a7de2d89b272bc19e1f7bf018385398355dd3829280d36fc4ce5117fc04f045e",
+      "comparison": {
+        "alignment": "aligned",
+        "entity_ids": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "instance_paths": [
+          [
+            "sldasm:instance:4"
+          ],
+          [
+            "sldasm:instance:7"
+          ]
+        ],
+        "kind": "coincident",
+        "map_base": 133,
+        "map_terminal": 161,
+        "mate_id": "sldasm:mate:2:0:0",
+        "native_feature_id": 19,
+        "projection_equal": true,
+        "source_entity_ids": [
+          "sldprt:plane:15",
+          "sldprt:plane:15"
+        ],
+        "valid": true,
+        "value_mm": null
+      },
+      "deferred": {
+        "error": "interchange.document.CadDocumentValidationError: mate sldasm:mate:2:0:0 has no entities",
+        "exit_code": 1
+      },
+      "deferred_behavior_equal": true,
+      "file_sha256": "9e72103c59187edf2a511e38c262fd4e0e3f0d34e97b10f091068d0de8e9ed30",
+      "previous_public": {
+        "error": "interchange.document.CadDocumentValidationError: mate sldasm:mate:2:0:0 has no entities",
+        "exit_code": 1
+      },
+      "projection_json_sha256": "8eaca6e71bdb096db9eb9bc46935ae623ed60d5b2b39e1d9f696e27bd378a53a",
+      "public_document_json_sha256": "f99f9082f72782c74eac50490a4a5ce064edf6356e12113e3e7ff207cdbbdb55"
+    },
+    {
+      "child_public": {
+        "document_json_sha256": "fa7ffebca55b64699926e228adc13f623e04b87302ca3a7dbca60b22ec7ca785",
+        "exit_code": 0
+      },
+      "child_public_json_equal": true,
+      "child_sha256": "95e61a7d84fa9759a075310c2f6ebafb4318ba2a48abfc102dada2e5e8e041e4",
+      "comparison": {
+        "alignment": "aligned",
+        "entity_ids": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "instance_paths": [
+          [
+            "sldasm:instance:4"
+          ],
+          [
+            "sldasm:instance:7"
+          ]
+        ],
+        "kind": "parallel",
+        "map_base": 133,
+        "map_terminal": 161,
+        "mate_id": "sldasm:mate:2:0:0",
+        "native_feature_id": 19,
+        "projection_equal": true,
+        "source_entity_ids": [
+          "sldprt:plane:14",
+          "sldprt:plane:14"
+        ],
+        "valid": true,
+        "value_mm": null
+      },
+      "deferred": {
+        "error": "interchange.document.CadDocumentValidationError: mate sldasm:mate:2:0:0 has no entities",
+        "exit_code": 1
+      },
+      "deferred_behavior_equal": true,
+      "file_sha256": "9ce5fe055427207d77610a5ba1f3dd42411778b4ac3b8a1306eda17f07a6d719",
+      "previous_public": {
+        "error": "interchange.document.CadDocumentValidationError: mate sldasm:mate:2:0:0 has no entities",
+        "exit_code": 1
+      },
+      "projection_json_sha256": "81c1a397d6d089ea96bd7a6276eedc72cc1370e1d1dfa8e3a83a715ab45001ad",
+      "public_document_json_sha256": "da6d2b4b07b81c759bdfdca16ef18a5f87ed9d4777b413967bb420b6ae7a3fb1"
+    },
+    {
+      "child_public": {
+        "document_json_sha256": "8ba7464872bfe945b48cf16d063355de66398555baf320a10c32a70f8bd1d8ec",
+        "exit_code": 0
+      },
+      "child_public_json_equal": true,
+      "child_sha256": "6cce1a1b81935a6f3e0505bdf81908f496f010fa1a733233562af427ac200b37",
+      "comparison": {
+        "alignment": "aligned",
+        "entity_ids": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "instance_paths": [
+          [
+            "sldasm:instance:4"
+          ],
+          [
+            "sldasm:instance:7"
+          ]
+        ],
+        "kind": "distance",
+        "map_base": 133,
+        "map_terminal": 172,
+        "mate_id": "sldasm:mate:2:0:0",
+        "native_feature_id": 20,
+        "projection_equal": true,
+        "source_entity_ids": [
+          "sldprt:plane:16",
+          "sldprt:plane:16"
+        ],
+        "valid": true,
+        "value_mm": 71.375
+      },
+      "deferred": {
+        "error": "interchange.document.CadDocumentValidationError: mate sldasm:mate:2:0:0 has no entities",
+        "exit_code": 1
+      },
+      "deferred_behavior_equal": true,
+      "file_sha256": "1f596ea028ab6c7c6d964f21b8fcc7038f99c9f3ef5080f4927130328617c198",
+      "previous_public": {
+        "error": "interchange.document.CadDocumentValidationError: mate sldasm:mate:2:0:0 has no entities",
+        "exit_code": 1
+      },
+      "projection_json_sha256": "d644c2f02f54d33ad3125096ace34eca85d4930ebfacc99cfed31feb316c582e",
+      "public_document_json_sha256": "40e2255cfa46847183cce1e3e98f29d4f93225736a323298a1262af3c2e7be56"
+    }
+  ],
+  "cohort_manifest_sha256": "21a55366683f87c326da583ceb56bb973f43b0808b6edc7785dc64fac123ebf1",
+  "comparison_and_generated_sdk_source_bytes_identical": true,
+  "comparison_source_freeze_sha256": "6d0ed34779cd9ac0f847024ea0ca0d6d412eadf773f99b9bb16caef7dae1a8bb",
+  "delivery_pr": 121,
+  "diagnostic_only_tool_difference": "expected nonlocal handle rejection text",
+  "distinct_processes": true,
+  "frozen_source_python_files": 4768,
+  "full_family_coverage": false,
+  "generated_fault_input_hashes": [
+    {
+      "case": "TrailingMateByte",
+      "expected_error": "trailing bytes",
+      "file_sha256": "42c77202bce469fd5c82d290908c258c9d12c76e9bdf8d55656aa2d26861e1ec"
+    },
+    {
+      "case": "WrongMatePrefix",
+      "expected_error": "prefix differs",
+      "file_sha256": "45e7b9523979bd9d62c6f8b43d1590474f207d76aaac64117afd6e7824ac3b85"
+    },
+    {
+      "case": "StaleChildStamp",
+      "expected_error": "child update is stale",
+      "file_sha256": "6b5fb90b3c33a0113beea9c46c1426438796a87420db8c971fcdffb46eb0b4b4"
+    },
+    {
+      "case": "WrongChainOwner",
+      "expected_error": "different assembly",
+      "file_sha256": "8b11799f78eddaa91008bd32f7223ac8c8f769e593771946a2f5878ea27c95aa"
+    },
+    {
+      "case": "WrongEndpointOrdinal",
+      "expected_error": "inconsistent ownership",
+      "file_sha256": "491d7b1186ef80efbb955b5524cf0b6eee851b1dae3a9755d8e6d06d729f2725"
+    },
+    {
+      "case": "WrongChildDatum",
+      "expected_error": "expected concrete moRefPlane_c",
+      "file_sha256": "ffe1a5aa5fa5fbd5350fdfb95ef3b9989f14bcc9488482cb96d97c0d1cf73322"
+    },
+    {
+      "case": "CachedPlaneMismatch",
+      "expected_error": "wrapper plane disagrees",
+      "file_sha256": "516261449169271401451e13e743a4c13a13c707fd6235f3150f5a1c8794a3e9"
+    },
+    {
+      "case": "DistanceOption",
+      "expected_error": "distance mate mode",
+      "file_sha256": "00d091556dae0d0db91ca6dfb485e3d538081c2e9afa7ff24497f17cc2c1df8e"
+    },
+    {
+      "case": "ConfigTail",
+      "expected_error": "configuration has",
+      "file_sha256": "52cd930f300de187f026e8f75b367c5428c73f1908751d4e1954ecdcd6c12e4a"
+    },
+    {
+      "case": "UnassignedMateId",
+      "expected_error": "no assigned persistent identity",
+      "file_sha256": "3af667aa0ba3299f2d92d63ff6144e2b0c56a4e1ab00670950c519b9148a4aa7"
+    },
+    {
+      "case": "MateIdCollision",
+      "expected_error": "mate persistent identity collides",
+      "file_sha256": "299c0018de71c0d22bc560b59499c440797d17d8b90465f878aac84618586169"
+    },
+    {
+      "case": "DimensionIdCollision",
+      "expected_error": "dimension identity collides",
+      "file_sha256": "4b5ddab0c88b55eda7a342e9f3d1784730b8c751d34b2c886aa6badfe791ad55"
+    },
+    {
+      "case": "NonlocalDistanceHandle",
+      "expected_error": "expected concrete ParallelPlaneDistanceDim_c",
+      "file_sha256": "ebacaabe6c9f70d50a824195c90321ada9760aed8a13e7f7cc975a6478ad1642"
+    },
+    {
+      "case": "WrongChildIdentity",
+      "expected_error": "different part identity",
+      "file_sha256": "6e11c199938fd750a5d21333416af23ba49ab78cfcc575c2756370de8af11b70"
+    }
+  ],
+  "generated_process": {
+    "deferred_generated_rejection_preserved": true,
+    "expected": {
+      "distance_m": 0.06725,
+      "first_normal": [
+        0.6,
+        0.8,
+        0.0
+      ],
+      "first_origin_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_acceptance": false,
+      "order": [
+        "2",
+        "1"
+      ],
+      "second_normal": [
+        0.6,
+        0.8,
+        0.0
+      ],
+      "second_origin_m": [
+        0.034,
+        -0.006,
+        0.009
+      ]
+    },
+    "fault_count": 14,
+    "fault_manifest_sha256": "25f5d0801870d1130123f25df0cbddc27dcc6a85878bed8422ab041cc38aea03",
+    "fourteen_fault_process_test_passed": true,
+    "healthy_generated_tail_control": true,
+    "heldout_inputs_read": false,
+    "native_processes_started": 0,
+    "passed": true,
+    "positive_process_test_passed": true,
+    "prediction_before_generation_sha256": "b5e860cc572e04e40623b342b6e83bed67e962bc5f41bde8069908752b0f2434",
+    "proof_tool_sha256": "a768d28efe00c71f4ac201174856ca4114b933f968a43c95b3eaa059b4e75ac3",
+    "rotated_generated_read_passed": true,
+    "rotated_public_document_sha256": "b272059d71bd59fe99234b086a3037e44b9688dd52533c052eadec4713bff2be",
+    "rotated_request_sha256": "8587e512dd54cb809be06e15f4c6c2f25b1d4b757ac699d739b0d22faedd6aca",
+    "schema": "solidworks-public-planar-mates-generated-process-proof-v1",
+    "source_freeze_sha256": "e95cd446c60b1a517aab59000f0b03ebb89c198acf451db18c0ab9259b99dfad",
+    "writer_qualification_claim": false
+  },
+  "generated_process_sha256": "a237703d726dd92adbcc850c9110bfb54a4fcaf6d9473172113a54a68571a860",
+  "generated_source_freeze_sha256": "e95cd446c60b1a517aab59000f0b03ebb89c198acf451db18c0ab9259b99dfad",
+  "heldout_inputs_read": false,
+  "limits": [
+    "no new native application run",
+    "no original sealed input read",
+    "no native writer or heldout family acceptance",
+    "only the selected ordinary mate graph is admitted",
+    "preexisting instance flag and broad assembly projections retain their own coverage limits",
+    "other profiles use the legacy reader",
+    "remote CI is a separate pending parent gate"
+  ],
+  "local_checks": {
+    "black": true,
+    "donor_scan_clean": true,
+    "mypy": true,
+    "pyright_repository_config_unknown_settings": 3,
+    "pyright_source_diagnostics": 0,
+    "ruff": true,
+    "steering": true
+  },
+  "native_acceptance_claim": false,
+  "native_node_dispatch": {
+    "getter": "moNode_c::isSatNotSolved",
+    "heldout_inputs_read": false,
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "new_dynamic_observation": false,
+    "rows": [
+      {
+        "class": "moMateCoincident",
+        "slots": {
+          "0x230": "0x4b28e090",
+          "0x238": "0x4b30f9f0"
+        },
+        "vtable": "0x4cfa46e0"
+      },
+      {
+        "class": "moMateParallel",
+        "slots": {
+          "0x230": "0x4b28e090",
+          "0x238": "0x4b30f9f0"
+        },
+        "vtable": "0x4cf9fe10"
+      },
+      {
+        "class": "moMateDistanceDim_c",
+        "slots": {
+          "0x230": "0x4b28e090",
+          "0x238": "0x4b30f9f0"
+        },
+        "vtable": "0x4cfafd18"
+      }
+    ],
+    "schema": "solidworks-2026-public-mates-node-dispatch-v1",
+    "serializer_map_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+    "setter": "moNode_c::setSatNotSolved"
+  },
+  "native_node_dispatch_sha256": "39b212e1f833f658de74c5a810de4806dbc8a4c21683b065ff094ce94427db0d",
+  "native_processes_started": 0,
+  "original_inputs_unchanged": true,
+  "owned_source_sha256": {
+    "re/tooling/sw2026/CheckPublicMates.py": "0befa257a6bb3440916758c400959108d5a6c0a25a606e868292d15e5554a106",
+    "re/tooling/sw2026/PrepareMateReadFaults.py": "bdf5bc3ec5dd349b200e273e546d2a893c3e35d6bdfcb8803a00423a4140e18a",
+    "re/tooling/sw2026/PublicMateReadProcess.py": "a3ff7367d55c30ad3d6ffbdcc61d0c9243afde155469ab7c669b1b7abbfe5dfc",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "c200bccfe807a2c343d9cd81a14b519bcbbb343ac495b825c5142545c6120f6f",
+    "src/convert/adapters/solidworks/Core/TypedMates/CanReadMates.py": "4052cdc47ab8b6d722c042a4ea42969980c4fc2954e3d8226f37f02a2da0a606",
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckMateDatum.py": "6d3c3757cadc33028d32e97eec1b3184761629fa414e6eb2c4c56ca9dac3aae1",
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckMateIds.py": "eee17abbb426c8bdec8107914c6b6e4aba3490e919323efa26d2da0fe2b8b0e7",
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckMateMode.py": "79ec497f93257e25c63cff23e0db6bfa9f9e9aaebf53aa62054b4fc7ae98fd2f",
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckMateParam.py": "ad63138e1a703fb55c29ca3bc729cdeadd2290282582c98ffd7a8fc078557a2d",
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckMatePoint.py": "eb45b694610bfcbb22880f8b2913bc9b70fd10d62c5a736dc59306092d2c2dae",
+    "src/convert/adapters/solidworks/Core/TypedMates/MakeMateEntity.py": "1de6c7e42a6ffb7e2f3b025cebc67926c19eaabf6c0e44ecf9ae5b2247a738ee",
+    "src/convert/adapters/solidworks/Core/TypedMates/MakeMateRule.py": "6b63b0919aa42b615982130b0251b73e8545be8f8497a25804ec5acaf4046b4b",
+    "src/convert/adapters/solidworks/Core/TypedMates/MateProvenance.py": "566428a223caf8f1fdfa637d92a75cc5291392d8acac1d23112847ebcbf48850",
+    "src/convert/adapters/solidworks/Core/TypedMates/PublicMateEnv.py": "b06f29e06ed0b313a62f0a7a59442573fade7ec5bd8204e4db126fe2a672a7f5",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateChild.py": "e648db2cf9020aae55cb44b68d86174c444df709091be4af7fe2b11075d03605",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateFrame.py": "cdf2fac69f482cf411992838febefe0d70abd86096bf1d78ad0277071b8df543",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateKids.py": "813126d3ecb724ffa2697c37fb9ebfbadf4da58864502a516cb694dfe82cbbb2",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadPublicMate.py": "e25bca96b108d4b6e4227197295b86245f3cceca54ffdfe96f9ca7f365ed4d1b",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadPublicMates.py": "ec478671888e5e7d180a56c3425f985747c33a4d6fecc2c5436e10a5b0c4dc9a",
+    "src/convert/adapters/solidworks/Core/TypedMates/WithTypedMates.py": "e749c78e8dc96b950ceb98121b54c72334bd78372e641c99a7f02eebfc059249",
+    "tests/Convert/Solidworks/Research/Assembly/TypedMates/AssertPublicMate.py": "cf9b16b25c25de28e76bc7fc53c1353c55cbf23ba8a6482d883ebf7cf83b84ef",
+    "tests/Convert/Solidworks/Research/Assembly/TypedMates/PublicMateRejectTests.py": "2b2bd5e4912b30e0c6294038f72fcdad0510642cbaf60b1f14c224a70efb56a0",
+    "tests/Convert/Solidworks/Research/Assembly/TypedMates/PublicMatesTests.py": "74995b809aafacf631de38808715babb1ea86f1b97785f83bf3470bbe3b557b3",
+    "tests/Convert/Solidworks/Research/Assembly/TypedMates/RunMateFaults.py": "c9d061d2a6031722087ef2467b6724a86ece0f4d201791a8fef1f24b89d33365",
+    "tests/Convert/Solidworks/Research/Assembly/TypedMates/RunMateRead.py": "861df28a39124b54a62c8057fbea7830987437e72c05ca811aad70f49a35acd4"
+  },
+  "owner": "/root/assembly_occurrence",
+  "passed": true,
+  "previous_adapter_sha256": "9e91dee18aa6bec9d4e77783da0adab3501e8b9fe40ec109b72e3639b01bb099",
+  "prior_codec_review_manifest_sha256": "692e7f1ba46f3672d5fb2e96c68113e91c2f72034759e5c4705f3c05b49aa897",
+  "prior_codec_tranche19_unchanged": true,
+  "prior_generated_empty_entity_failures_repaired": 3,
+  "prior_native_successes_preserved": 3,
+  "process_count": 42,
+  "process_ids": [
+    88675,
+    88677,
+    88679,
+    88681,
+    88683,
+    88685,
+    88688,
+    88691,
+    88697,
+    88705,
+    88722,
+    88725,
+    88727,
+    88729,
+    88731,
+    88734,
+    88736,
+    88738,
+    88740,
+    88745,
+    88746,
+    88747,
+    88748,
+    88749,
+    88750,
+    88751,
+    88752,
+    88757,
+    88761,
+    88762,
+    88763,
+    88764,
+    88765,
+    88766,
+    88767,
+    88768,
+    88771,
+    88772,
+    88773,
+    88774,
+    88775,
+    88776
+  ],
+  "raw_comparison_sha256": "d36fdf54f7ff25cfb146917ef52950d3ed9db2d14122e8902691e492e5406ba7",
+  "repository_base_revision": "377d385ca8373e1efdbf7deb2cbbf2b95eb7f9c7",
+  "schema": "solidworks-2026-public-typed-planar-mates-v1",
+  "scope": "ordinary aligned single mate two direct resolved part occurrences and principal planes in Config-0",
+  "source_manifest_sha256": "99c89f00a44bf6c269d75dcafda4ef9dc9807805e1cc34f977dd3afb94295023",
+  "task_id": "B04-SW2026-PUBLIC-PLANAR-MATES",
+  "tool_sha256": "0befa257a6bb3440916758c400959108d5a6c0a25a606e868292d15e5554a106",
+  "writer_output_count": 0
+}
