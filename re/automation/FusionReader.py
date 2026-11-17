@@ -61,16 +61,18 @@ def source_digests(root):
 
 
 def read_document(content, allow_partial):
-    from convert.api.ApiOpen import OpenDocument
+    from convert.adapters.base.ReadOptions import ReadOptions
+    from convert.adapters.Fusion.Adapter import FusionReader
 
+    reader = FusionReader()
     try:
-        return OpenDocument(content, SourceFormat="fusion.f3d", StrictMode=True), "strict", None
+        return reader.Read(content, ReadOptions(strict=True)), "strict", None
     except ValueError as error:
         if not allow_partial:
             raise
         strict_reason = str(error)[:1024]
     try:
-        return OpenDocument(content, SourceFormat="fusion.f3d", StrictMode=False), "partial", strict_reason
+        return reader.Read(content, ReadOptions(strict=False)), "partial", strict_reason
     except ValueError as error:
         raise ValueError(f"strict: {strict_reason}; partial: {error}") from error
 
