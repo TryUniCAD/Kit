@@ -1,6 +1,6 @@
 # Generated linked front view with the native property prefix
 
-This research packet applies the independently traced per-document `vt` binding to the ordinary linked front-view constructor. Native blank edit, save and fresh reopen passed in the preceding ten-process trial. The linked front trial remains pending. Its new observer requires every native control, generated view edit and fresh reopen to pass. [Prefix rule](DrawingPropertyPrefix2026.md)
+This research packet applies the independently traced per-document `vt` binding to the ordinary linked front-view constructor. The disclosed linked drawing and its generated part pass native edit, save and fresh reopen across eight processes. The earlier ten-process blank comparison adopts the same source rule. [Prefix rule](DrawingPropertyPrefix2026.md)
 
 ## Neutral construction and isolated comparison
 
@@ -27,6 +27,12 @@ The source-only geometry is a 24 × 16 × 6 mm prism with one named configuratio
 The unchanged base observer resolves the actual referenced document and canonical child path, checks the exact child hash and configuration, requires one visible solid, measures volume/area/centre, sheet values, view orientation/scale/position, outline, transform, full tree and zero rebuild issues. It directly assigns the view position through typed COM, rebuilds, checks the independently prescribed asymmetric translation, saves an actual derivative and freshly reopens it in another process. Both drawing and child inputs must remain immutable.
 
 [InspectGeneratedFrontPropertyPrefix.py](../../tooling/sw2026/InspectGeneratedFrontPropertyPrefix.py) adds frozen construction/comparison/source custody and strict acceptance around that existing observer. It requires pristine before, reduced native, generated pair and pristine after to pass in eight distinct processes. The base observer's interpretable status is preserved as a separate result. The strict wrapper exits 3 for an interpretable generated failure or a failed reduced control. [Diagnostic exit boundary](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/DrawingDiagnosticsNeedEveryControlAndGeneratedPass.md)
+
+## Native linked drawing result
+
+All eight phases passed on SOLIDWORKS 2026 SP05.2 (34.5.2.0604), including the two pristine brackets and same-role reduced native control. The generated front view moved from `[0.08243, 0.09372]` m to `[0.085161, 0.091981]` m. SaveAs returned `[true, 0, 0]` and produced a 20,320-byte derivative. Fresh reopen preserved the edited position, the outline, all sixteen feature rows and the generated child configuration. The resolved child retained one body and the independently predicted geometry. Both generated phases had zero native open errors, open warnings and rebuild issues.
+
+The partial SDK drawing reader recovered the saved view position, unit scale, front orientation and generated child configuration and reference. The eight raw phase hashes match the host supervisor and the frozen input files remained immutable. The drawing save persists the view edit and child link. This test does not edit the child's dimensions or write the child back through SOLIDWORKS. [Native measurement](../measurements/2026/DrawingFrontPropertyPrefixNative01.json)
 
 ## Existing sealed-source coverage
 

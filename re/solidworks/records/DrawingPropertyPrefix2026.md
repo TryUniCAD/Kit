@@ -43,6 +43,6 @@ The [property-prefix observer](../../tooling/sw2026/InspectBlankDrawingPropertyP
 
 The pristine controls before and after the trial, repacked control and same-role reduced native drawing passed all eight corresponding phases. All ten process identities and raw hashes match the host supervisor. The SDK's partial layout reader independently recovered the edited sheet dimensions and scale from the native derivative. [Native receipt](../measurements/2026/DrawingBlankPropertyPrefixNative01.json)
 
-This comparison establishes the prefix rule for a disclosed single unformatted empty sheet. The linked part-view trial uses a separate packet. The two sealed drawing cases remain untouched and production writer qualification remains open.
+This comparison establishes the prefix rule for a disclosed single unformatted empty sheet. A separate [linked part-view trial](DrawingFrontPropertyPrefix2026.md) passes native position edit, save and fresh reopen with its generated child. The two sealed drawing cases remain untouched and production writer qualification remains open.
 
 REA evidence includes `ev_60dacbe63f3269bf0ac939fd470582937adb3d74b654c590c865705a7eb869f3`, `ev_8b08b791a84504e2f05c7d51fe6b237171f7782b21966950f1c75018cc6f93cd`, `ev_481b9810e5c502f4e60bfafa0020114599b3ce74ecabf36055d318119806f62a`, `ev_763934d257d478c82a3b65cf958eae66489d1af703664badb659d12d09051d6b`, `ev_fbb0ac6c33130a3d4b4ae8c43b0d0e17f39da5bbd2e31887d31d22f97d2224ff` and `ev_c84b5a1a796c1fee064c204a8479ee489d389f0181d85f37326420830b9539bc`. The bounded task-owned Hopper target was closed.

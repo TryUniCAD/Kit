@@ -274,6 +274,14 @@ controls and the reduced native drawing with the same seven stream roles
 passed through save and fresh reopen across the seven-process batch.
 The reduced derivative also regenerated the omitted detailing map.
 
+The [corrected linked drawing trial](measurements/2026/DrawingFrontPropertyPrefixNative01.json)
+passes actual view movement, native save and fresh reopen with its generated
+child. All eight phases pass, including the pristine brackets and
+same-role reduced control. The sixteen-row drawing tree, child link,
+configuration and geometry survive save. The SDK reads the edited view
+position and model reference in the native derivative. This comparison
+covers one disclosed unit-scale front view on an unformatted sheet.
+
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
 passed both native save modes under the original and Kit containers.
 The paired controls retain the same seven streams and compressed bytes.
@@ -393,6 +401,17 @@ identities with successful Document.xml discovery. The inventory includes 56
 documents with pads, 38 with pockets, 25 with chamfers, 23 with holes and 20 with
 revolutions. The original benchmark membership remains unverified. The private
 inventory digest is `db7280b68f5bd30d5d3a3f8e3fe92b1ed335e7cd76786ae5cfbddb0064efa52c`.
+
+The [strict neutral read census](measurements/2026/NeutralCorpusRead01.json)
+reads the 162 validated FCStd byte inputs in the SDK with B-rep and
+tessellation disabled. It finds two documents with assembly graphs,
+132 with native feature definitions, 69 with typed extrusion definitions,
+and 27 with typed chamfer definitions. These counts overlap within
+documents. An independent path-input pass matches the counts and resolves
+one external document link that the byte-input pass reports as unresolved.
+Benchmark membership, semantic equivalence and SOLIDWORKS output are
+separate checks. This census writes zero native files.
+[Input mode behavior](../../Documentation/Gotchas/Conversion/Freecad/ByteInputsLackExternalReferenceOrigin.md)
 
 The [blind-pocket discovery](measurements/2026/GeneratedBlindPocketNative02.json)
 passed native open and rebuild for the generated all-bodies cut with one
