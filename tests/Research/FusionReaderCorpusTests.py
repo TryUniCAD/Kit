@@ -5,7 +5,7 @@ from pathlib import Path as FilePath
 
 from tests.Research.FusionChecks import ReportCensus, VerifyChunk
 from tests.Research.FusionClient import FusionAssets, KControlAsset, ReadChunk
-from tests.Research.CollectFusion import CollectFusion
+from tests.Research.Census.CollectFusion import CollectFusion
 from tests.Research.FusionOutcomes import CheckOutcomes
 
 

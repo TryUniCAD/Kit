@@ -10,4 +10,4 @@ Local replacement refs and grafts can change the objects or ancestry observed by
 
 ## Workaround
 
-The corpus and capture tools use `--no-replace-objects`, disable grafts and inherited Git overrides, suppress system/global configuration and disable lazy fetching for both single commands and streaming object reads. Explicit historical acquisition names the reviewed authority and allowed blobs. Process cases exercise replaced commits, grafts, streaming blob replacement and hostile child environments; hosted execution remains required. See [capture history binding](../../Changes/Research/CaptureHistoryBinding.md).
+The corpus and capture tools use `--no-replace-objects`, disable grafts and inherited Git overrides, suppress system/global configuration and disable lazy fetching for both single commands and streaming object reads. Explicit historical acquisition names the reviewed authority and allowed blobs. Process cases exercise replaced commits, grafts, streaming blob replacement and hostile child environments; hosted execution remains required. See [capture history binding](../../Changes/Research/Automation/CaptureHistoryBinding.md).

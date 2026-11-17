@@ -12,4 +12,4 @@ The original capture authority remains `f5b23031c4163528a2e4f5029ab34102133b983e
 
 ## Workaround
 
-Use the [sealed history binding](../../Changes/Research/CaptureHistoryBinding.md): acquire metadata and explicit permitted research inputs from the existing pinned source ref, compare current modes and blob IDs, audit original provenance on the original graph and check current global aliases separately. Preserve original receipt pins and blockers. Do not check out the old graph, copy vendor software, replace receipts or claim newly established native acceptance.
+Use the [sealed history binding](../../Changes/Research/Automation/CaptureHistoryBinding.md): acquire metadata and explicit permitted research inputs from the existing pinned source ref, compare current modes and blob IDs, audit original provenance on the original graph and check current global aliases separately. Preserve original receipt pins and blockers. Do not check out the old graph, copy vendor software, replace receipts or claim newly established native acceptance.

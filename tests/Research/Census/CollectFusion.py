@@ -6,7 +6,7 @@ from pathlib import Path as FilePath
 
 # the full census needs bounded reader batches so a single subprocess cannot hide partial progress
 def CollectFusion(TargetList: list[FilePath], TempPath: FilePath) -> FilePath:
-    RootPath = FilePath(__file__).resolve().parents[2]
+    RootPath = FilePath(__file__).resolve().parents[3]
     CensusPath = FilePath(
         OsModule.environ.get("KIT_FUSION_CENSUS", str(TempPath / "census.json"))
     )
