@@ -99,5 +99,9 @@ blank failure after save dispatch and before the storage callbacks.
 
 The [ordinary post-notification branches](DrawingSavePostEventBranches2026.md)
 map the dispatcher aggregate, storage allocation and callback eligibility
-between those events. The runtime values for the generated lane remain
+between those events. A [target-state repeat](DrawingSaveEventState2026.md)
+recorded the generated failure and a deliberate event 7 veto. Both produced
+the same status and event sequence. The generated attempt left an empty
+target while the veto left that path absent. The generated attempt received
+none of the registered autosave callbacks. The exact internal branch remains
 unmeasured.

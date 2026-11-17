@@ -226,6 +226,10 @@ three controls passed over eight fresh processes.
 The [save-mode comparison](measurements/2026/GeneratedBlankDrawingSaveModes03.json)
 reproduced error 1 before a scale edit and in a writable in-place save.
 The reduced native control saved and reopened in both modes.
+The [target-state repeat](measurements/2026/DrawingBlankSaveEventStateNative01.json)
+distinguished the zero-byte generated target from the absent target after a
+calibrated event 7 veto. Both share the same error and event sequence.
+All three matched controls passed.
 The [typed UI omission comparison](measurements/2026/DrawingBlankUiOmission01.json)
 passed fourteen native phases. The reduced native document saved with its
 viewport, line tables, environment and BOM state omitted together.
@@ -289,6 +293,10 @@ processes. The [displaced pair](measurements/2026/GeneratedCoincidentMateActiveS
 closes a 4.73 mm plane offset during open and preserves the solved placement
 through rebuild, with three clean processes. Persistence from the displaced
 start, held-out mate acceptance and production qualification remain open.
+The [typed readback](measurements/2026/PlanarMateProjection01.json) matches the
+two ordered plane IDs and explicit alignment across six generated and native
+research inputs. The public assembly read still depends on the saved
+selection strings for these mates.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

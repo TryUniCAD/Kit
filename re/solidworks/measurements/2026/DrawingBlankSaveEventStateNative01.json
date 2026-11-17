@@ -1,0 +1,332 @@
+{
+  "advertised_autosave_ordinals": [
+    11,
+    48
+  ],
+  "branch_map_sha256": "5e6577cdbbac537ba28cb362e99ecd789fb0b205f7848800ebe0a0903732dfa2",
+  "com_progid": "SldWorks.Application.34",
+  "controls_healthy": true,
+  "generated_autosave_callback_seen": false,
+  "generated_failure_reproduced": true,
+  "generated_ordinary_storage_callback_seen": false,
+  "generated_runtime_branch": null,
+  "heldout_inputs_tested": 0,
+  "host_transport_sha256": "61466d51269ecfd94776975374a1f46e47ded5cc368376bdb863b70e8074f4a5",
+  "inputs_immutable": true,
+  "lanes": {
+    "ControlAfter": {
+      "event_trace": {
+        "event7_listener_return": 0,
+        "events": [
+          [
+            7,
+            47000000
+          ],
+          [
+            9,
+            141000000
+          ],
+          [
+            28,
+            156000000
+          ]
+        ],
+        "save_return_ns": 422000000
+      },
+      "fresh_reopen": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "de9112fbae5db2f9cdd4da89445374102fc9213ae7b5260270eff6675ac9ae0a",
+        "tree_rows": 10
+      },
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_and_save_record_sha256": "357c07442510c5b25758bd728ef3cc77bbee24fe230fff687b5cda0d8a86041a",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuild_problems": 0,
+      "rebuilt_scale": [
+        1.0,
+        1.0
+      ],
+      "save_flag_before_save": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_sha256": "99c352ac66aa19754a3a96bb5f457ef799d4a67eff7302802e0fd9bcc9359348",
+      "target": {
+        "after_return": {
+          "bytes": 18926,
+          "exists": true
+        },
+        "at_event7": {
+          "bytes": null,
+          "exists": false
+        },
+        "before_save": {
+          "bytes": null,
+          "exists": false
+        }
+      },
+      "tree_rows": 10,
+      "visible_path_matches_owned_working_copy": true
+    },
+    "ControlBefore": {
+      "event_trace": {
+        "event7_listener_return": 0,
+        "events": [
+          [
+            7,
+            94000000
+          ],
+          [
+            9,
+            203000000
+          ],
+          [
+            28,
+            219000000
+          ]
+        ],
+        "save_return_ns": 688000000
+      },
+      "fresh_reopen": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "0fe7530714596d25b60d1be8e4c1fcb540add851705d2b0b3a141289e9757cf3",
+        "tree_rows": 10
+      },
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_and_save_record_sha256": "63c9c145e90fba228ff8dcd718b9a0a17569ce388dd8cce5a56dd4b03c3caa99",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuild_problems": 0,
+      "rebuilt_scale": [
+        1.0,
+        1.0
+      ],
+      "save_flag_before_save": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_sha256": "f1e35ba17b18fc4d4e1d47292b98635dcf5266661875f3fef639fce5011035aa",
+      "target": {
+        "after_return": {
+          "bytes": 18434,
+          "exists": true
+        },
+        "at_event7": {
+          "bytes": null,
+          "exists": false
+        },
+        "before_save": {
+          "bytes": null,
+          "exists": false
+        }
+      },
+      "tree_rows": 10,
+      "visible_path_matches_owned_working_copy": true
+    },
+    "Generated": {
+      "event_trace": {
+        "event7_listener_return": 0,
+        "events": [
+          [
+            7,
+            63000000
+          ]
+        ],
+        "save_return_ns": 172000000
+      },
+      "fresh_reopen": null,
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "open_and_save_record_sha256": "88be9ecbdba162c3195ca4707d97831f481d7aae36fd12ad1170fea6f936de46",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuild_problems": 0,
+      "rebuilt_scale": [
+        2.0,
+        3.0
+      ],
+      "save_flag_before_save": true,
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "save_target_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "target": {
+        "after_return": {
+          "bytes": 0,
+          "exists": true
+        },
+        "at_event7": {
+          "bytes": null,
+          "exists": false
+        },
+        "before_save": {
+          "bytes": null,
+          "exists": false
+        }
+      },
+      "tree_rows": 10,
+      "visible_path_matches_owned_working_copy": true
+    },
+    "ReducedNative": {
+      "event_trace": {
+        "event7_listener_return": 0,
+        "events": [
+          [
+            7,
+            47000000
+          ],
+          [
+            9,
+            140000000
+          ],
+          [
+            28,
+            156000000
+          ]
+        ],
+        "save_return_ns": 437000000
+      },
+      "fresh_reopen": {
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuild_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "3921cd854cfc09b2c1a1592f1bc01728679ed6ea2ac2129bb67d4b977f38cddd",
+        "tree_rows": 10
+      },
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_and_save_record_sha256": "adb44bbe71e30ec504e5ad925b342ea2d50e3ad47f3ebe0d8d564b130a80e4f7",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuild_problems": 0,
+      "rebuilt_scale": [
+        1.0,
+        1.0
+      ],
+      "save_flag_before_save": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_sha256": "3d8d992fbee6f1447f9de9c2e92381eb6a4626ca28285a37e1d19fc9585ef451",
+      "target": {
+        "after_return": {
+          "bytes": 17915,
+          "exists": true
+        },
+        "at_event7": {
+          "bytes": null,
+          "exists": false
+        },
+        "before_save": {
+          "bytes": null,
+          "exists": false
+        }
+      },
+      "tree_rows": 10,
+      "visible_path_matches_owned_working_copy": true
+    }
+  },
+  "matched_input_relative": "MatchedDrawing/KitBlankSheetProbe.SLDDRW",
+  "matched_save_relative": "MatchedDrawing/open_and_save/SavedDrawing.SLDDRW",
+  "native_acceptance": false,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_pe_machine": "0x8664",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "63d68733f3e7f28732f7b927c7d0044da38829ce5ba5eeb124cf7d4b1c189455",
+  "passive_distinct_processes": 7,
+  "raw_native_result_sha256": "cbd2ee083fdf09acee702e1c0e6192ab0f21c44e0731a5a2ff40284bcd3621b7",
+  "same_physical_paths": true,
+  "schema": "kit.sw2026.blank-drawing-save-event-state-native-measurement.v1",
+  "source_event_packet_sha256": "f9a4ec47df3eceb0733ca702166925c104eb349518db48b7604c3dae4974941f",
+  "source_event_raw_result_sha256": "117283c94661f34d5eb1b3f6ec788b8770fa9fb085a5508a6d9d93a2600eefa7",
+  "source_event_receipt_sha256": "8e3a3820db4f91906dc1518873306ce7369bb5cab061b39b5323955a557a7507",
+  "state_observer_sha256": "f348545e208eb76bffde895523f17b972890d4e46df9512e70672d829c4b6212",
+  "support_tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "InspectBlankDrawingPair.py": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+    "InspectBlankDrawingSaveEvents.py": "74ea5b7fa16cc8289e501305731f67d2de9fbe6d9b67ae9ef673032274d809e6",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "InspectDrawingSaveModes.py": "a0108df8e4485189129121ae233062c47b86fc5326c5ebcb31beed4b63413f6d",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "total_distinct_processes": 8,
+  "transport_exit_confirmed": true,
+  "transport_returncode": 0,
+  "veto_calibration": {
+    "event_trace": {
+      "event7_listener_return": 1,
+      "events": [
+        [
+          7,
+          47000000
+        ]
+      ],
+      "save_return_ns": 62000000
+    },
+    "fresh_reopen": null,
+    "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+    "open_and_save_record_sha256": "dd12427d826ce1f2a6f2b59061de88eeabb4ac3665372b8ef034e2fc596cb19e",
+    "open_errors": 0,
+    "open_warnings": 0,
+    "rebuild_problems": 0,
+    "rebuilt_scale": [
+      1.0,
+      1.0
+    ],
+    "save_flag_before_save": true,
+    "save_status": [
+      false,
+      1,
+      0
+    ],
+    "save_target_sha256": null,
+    "target": {
+      "after_return": {
+        "bytes": null,
+        "exists": false
+      },
+      "at_event7": {
+        "bytes": null,
+        "exists": false
+      },
+      "before_save": {
+        "bytes": null,
+        "exists": false
+      }
+    },
+    "tree_rows": 10,
+    "visible_path_matches_owned_working_copy": true
+  },
+  "veto_calibration_interpretable": true,
+  "veto_footprint_matches_generated": false,
+  "writer_output_count": 0
+}
