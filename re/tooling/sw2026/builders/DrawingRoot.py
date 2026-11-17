@@ -43,6 +43,7 @@ def empty_drawing_root(*, name, allocator, settings, folder_names, sheet_names, 
     for node in children[:-1]:
         node["f0c"] &= 0xFFFD7FF8
     base["f60"] = node_list(children)
+    base["fd50"] = 0
     base.update(empty_drawing_tail(owner=model, active_sheet=sheet, auto_dim_text_link=auto_dim_text_link,
                                    block_identity=block_identity, created_at=created_at, **target))
     return model
