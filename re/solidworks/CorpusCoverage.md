@@ -361,9 +361,13 @@ passes open, rebuild, a live leaf-depth edit, synchronized saves and
 fresh reopen across four distinct processes with healthy brackets.
 The [typed saved-state comparison](records/GeneratedNestedAssemblySavedState2026.md)
 passes 36 stream round trips and preserves the actual edited depth,
-child stamps and local bounds. The repeated native trial and sealed
-qualification remain open. These disclosed proofs add zero completed
-FCStd conversions to the production audit.
+child stamps and local bounds. The [repeated native trial](records/GeneratedRepeatedNestedAssembly2026.md)
+also passes across four controlled processes with seven expanded
+paths and five solids. Editing the shared leaf changes all four of
+its placements, and all four files save and reopen successfully.
+Its typed audit passes 48 stream comparisons. Sealed qualification
+remains open. These disclosed proofs add zero completed FCStd
+conversions to the production audit.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
