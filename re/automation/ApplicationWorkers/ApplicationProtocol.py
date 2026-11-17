@@ -367,9 +367,7 @@ def committed_bytes(config, relative):
         "unapproved application source path",
     )
     root = Path(config["source_root"])
-    git = [windows_git(), "--no-replace-objects"] if windows_phase_a(config) else (
-        ["git", "--no-replace-objects"] if relative in (*MAC_QUIT_HELPERS, MAC_STARTUP_EVIDENCE, MAC_ARCHIVE_CONTROL, STARTUP_MANIFEST) else ["git"]
-    )
+    git = [windows_git() if windows_phase_a(config) else "git", "--no-replace-objects"]
     source = subprocess.run([*git, "-C", str(root), "show", f"{config['source_revision']}:{relative}"],
                             capture_output=True, check=False, timeout=15)
     require(source.returncode == 0 and 0 < len(source.stdout) <= MAX_BYTES, "pinned application input is unavailable")

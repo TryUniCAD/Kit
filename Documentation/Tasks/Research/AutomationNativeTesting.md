@@ -221,7 +221,11 @@ For the fourteen-file P01/P03 roster, use `--readback-operation p01-p03-readback
 Add `"readback_operation": "p01-p03-readback"` beside `source_revision` in job options.
 Use a separate run identity and operation-specific immutable version labels.
 Finish or resolve the previous operation before replacing its listener configuration.
-The queued worker does not accept P02 or P05 operations.
+For the five-file P02 circular roster, use `--readback-operation p02-readback` before both `listen` and `dispatch`.
+Add `"readback_operation": "p02-readback"` beside `source_revision` in job options.
+Each accepted circle observation requires verified bindings before and after rebuild.
+Use the same owned process, control and timeout recovery checks below.
+P05 remains reserved for frozen-rule holdout acceptance.
 
 ## Check native exit, restart, and recovery
 

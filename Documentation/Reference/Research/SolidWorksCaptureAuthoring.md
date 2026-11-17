@@ -17,3 +17,28 @@ The [capture source](../../../re/automation/PairedCaptures/SolidWorksAuthoring/S
 For discovery use P01, P03, and P04. Keep P02 reserved for circular-sketch qualification and P05 reserved for frozen-rule holdout evaluation. The launcher selects only the named case.
 
 The original capture record documents the independently authored fixtures and their measured results. The checked-in launcher received a static syntax check after its paths were made configurable. [SOLIDWORKS capture entry](../../Changes/Research/SolidWorksPairedCaptures.md)
+
+## Queued circular readback
+
+Use the existing installation configuration and a dedicated licensed Windows desktop with SOLIDWORKS build `34.4.1.1011`.
+The queued `p02-readback` operation reads the five pinned circular controls with healthy controls and a directly owned native process.
+Start its listener with the explicit operation.
+
+```powershell
+python -B re/automation/ApplicationWorkers/SolidWorksReadbackWorker.py --installation C:/KitPrivate/Installation.json --readback-operation p02-readback listen --interop 'C:/Program Files/SOLIDWORKS Corp/SOLIDWORKS/SolidWorks.Interop.sldworks.dll'
+```
+
+Configure the supervisor runner with the same installation path and `--readback-operation p02-readback` before `dispatch`.
+Set the controller job options to its exact `source_revision` and `readback_operation` with value `p02-readback`.
+Use the [native testing procedure](../../Tasks/Research/AutomationNativeTesting.md) for the controller store, installation, runner and resource configuration.
+The successful artifact roster contains `readback.plan`, `readback.measurements`, `readback.receipt` and `dispatch`.
+The receipt requires five observed files and five `circle_bindings_verified` results.
+
+Timeout recovery uses the existing listener flags and supervisor rearm protocol.
+The archived rearm verifier checks the P02 operation against the retained job definition.
+The listener and dispatcher verify their Windows safety helpers against the installation's configured source revision.
+Changed helper bytes fail admission before queued native work.
+
+These observations remain unqualified research evidence.
+P02 qualification requires independent evidence admission and the frozen-rule protocol.
+See [the A08f change](../../Changes/Research/Workers/SolidWorks/CircularReadbackQueue.md) for process verification and the native build prerequisite.

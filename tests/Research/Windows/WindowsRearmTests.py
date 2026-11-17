@@ -118,7 +118,13 @@ finally:
 @TestMark.skipif(OsLayer.name != "nt", reason="requires Windows application transport")
 @TestMark.parametrize(
     ("Restart", "Operation"),
-    ((False, "p04-readback"), (True, "p04-readback"), (False, "p01-p03-readback")),
+    (
+        (False, "p04-readback"),
+        (True, "p04-readback"),
+        (False, "p01-p03-readback"),
+        (False, "p02-readback"),
+        (True, "p02-readback"),
+    ),
 )
 def CheckRearm(Restart: bool, Operation: str) -> None:
     with TempFiles.TemporaryDirectory() as TempName:

@@ -10,7 +10,7 @@ from tempfile import TemporaryFile
 import time
 
 from ApplicationProtocol import (
-    ACKNOWLEDGEMENT, ApplicationTimeout, HostQueue, MAX_BYTES, PROTOCOL, QueueClient, WaitingApplication,
+    ACKNOWLEDGEMENT, ApplicationTimeout, HostQueue, MAX_BYTES, PROTOCOL, QueueClient, WaitingApplication, WINDOWS_HELPERS,
     committed_bytes, configuration, encoded, file_bytes, pin, record, request_link, require, sha256, write_new, write_record,
 )
 
@@ -19,9 +19,11 @@ LAUNCHER = "re/automation/PairedCaptures/SolidWorksAuthoring/ReadP04SolidWorks.p
 PROVIDER = "dassault.solidworks.com"
 OPERATION = "p04-readback"
 PRINCIPAL = "p01-p03-readback"
+CIRCULAR = "p02-readback"
 READBACK_SCOPES = {
     OPERATION: ("P04", "supporting_faces_verified", 11),
     PRINCIPAL: ("P01-P03", "principal_profiles_observed", 14),
+    CIRCULAR: ("P02", "circle_bindings_verified", 5),
 }
 BUILD = "34.4.1.1011"
 OUTPUTS = {
@@ -50,7 +52,7 @@ def phase_request(config, operation):
 
 def verify_sources(config):
     root = Path(__file__).resolve().parent
-    for relative in (WORKER, PROTOCOL):
+    for relative in (WORKER, PROTOCOL, *WINDOWS_HELPERS.values()):
         require(file_bytes(root / Path(relative).name) == committed_bytes(config, relative),
                 "running SolidWorks worker source differs from its installed revision")
 
@@ -72,6 +74,9 @@ def native_result(work, config, operation=OPERATION):
             and len(run["observations"]) == count
             and set(plan["native_files"]) == {item["file"] for item in run["observations"]}
             and all(item["status"] == "observed" for item in run["observations"])
+            and (operation != CIRCULAR or all(
+                item.get("circle_verified_before_and_after_rebuild") is True for item in run["observations"]
+            ))
             and receipt["plan_sha256"] == report["plan_sha256"] == plan_sha256
             and receipt["measurements_sha256"] == sha256(measurements)
             and report["source_bytes_verified_after_readback"] is True
@@ -349,8 +354,9 @@ def listen(config, interop, recovery_enabled, recover_failure, operation=OPERATI
 def dispatch(session, config, operation=OPERATION):
     job = record(session / "job.json")
     options = {"source_revision": config["source_revision"]}
-    if operation == PRINCIPAL:
-        options["readback_operation"] = PRINCIPAL
+    require(operation in READBACK_SCOPES, "unsupported SOLIDWORKS readback operation")
+    if operation != OPERATION:
+        options["readback_operation"] = operation
     require(job["session_version"] == 1 and job["inputs"] == {}
             and job["job"]["options"] == options,
             "SOLIDWORKS readback requires the installed revision and no caller-selected inputs")

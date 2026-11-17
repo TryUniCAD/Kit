@@ -51,7 +51,10 @@ def matched_timeout(row, spec, result, owner):
         all(timeout[key] == value for key, value in expected.items())
         and all(type(timeout[key]) is int for key in ("version", "generation", "attempt"))
         and isinstance(timeout["installation"], str) and isinstance(timeout["session"], str)
-        and spec["options"] in (pinned, {**pinned, "readback_operation": "p01-p03-readback"})
+        and spec["options"] in (
+            pinned, {**pinned, "readback_operation": "p01-p03-readback"},
+            {**pinned, "readback_operation": "p02-readback"},
+        )
         and all(isinstance(timeout[key], str) and re.fullmatch(pattern, timeout[key])
                 for key, pattern in (("queue_job_id", "[0-9a-f]{32}"), ("nonce", "[0-9a-f]{48}"),
                                      ("request_sha256", "[0-9a-f]{64}"), ("source_revision", "[0-9a-f]{40}")))

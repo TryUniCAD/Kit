@@ -25,9 +25,6 @@ if ([bool]$SourceRoot -ne [bool]$SourceRevision) {
 if ($QueuedRequestSha256 -and -not $SourceRevision) {
     throw 'Queued launch requires a pinned source revision.'
 }
-if ($QueuedRequestSha256 -and $ReadbackScope -eq 'P02') {
-    throw 'The P02 scope is a standalone readback.'
-}
 $repository = if ($SourceRoot) {
     (Resolve-Path -LiteralPath $SourceRoot).Path
 } else {

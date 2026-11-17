@@ -16,7 +16,7 @@ from ApplicationProtocol import (
     require,
     sha256,
 )
-from SolidWorksReadbackWorker import BUILD, OPERATION, PRINCIPAL, PROVIDER, phase_request
+from SolidWorksReadbackWorker import BUILD, OPERATION, PROVIDER, READBACK_SCOPES, phase_request
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from Artifacts import Artifacts
@@ -80,7 +80,8 @@ def attempt(store, receipt_pin):
     timeout = records["queue_timeout"]
     scope = spec["options"].get("readback_operation", OPERATION)
     options = {"source_revision": timeout["source_revision"]}
-    if scope == PRINCIPAL:
+    require(scope in READBACK_SCOPES, "unsupported SOLIDWORKS readback operation")
+    if scope != OPERATION:
         options["readback_operation"] = scope
     require(
         receipt["receipt_version"]
@@ -102,7 +103,7 @@ def attempt(store, receipt_pin):
         and spec["inputs"] == {}
         and timeout["resources"] == spec["resources"]
         and len(spec["resources"]) == 1
-        and scope in (OPERATION, PRINCIPAL)
+        and scope in READBACK_SCOPES
         and spec["options"] == options
         and re.fullmatch("[0-9a-f]{40}", timeout["source_revision"])
         and re.fullmatch("[0-9a-f]{32}", timeout["queue_job_id"])

@@ -38,6 +38,23 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ## Step register
 
+### PR 158 implementation follow-up
+
+The user assigned SOLIDWORKS and CAD-independent implementation to Codex on 2026-11-17.
+Delivery remains on [PR #158](https://github.com/TryUniCAD/Kit/pull/158), from isolated branch `codex/pr158-solidworks-completion`.
+The starting source revision is `a6cc279f629d088c526a654149bb9dc99a8b2bb6`.
+
+| Child ID | Owner | Scope                                                                                   | Depends on                                             | Status | Exit condition                                                                                                                                       |
+| -------- | ----- | --------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A07d     | Codex | Bind every inference execution to its normalized job, inputs and dependency fingerprint | A03 session contract and existing A07 process coverage | active | Actual runner processes reject changed session identities and malformed evidence while valid controller sessions retain their existing outcomes      |
+| A08f     | Codex | Queue the existing P02 circular SOLIDWORKS readback and pin ownership helpers           | Existing P02 collector, A03 and A08e                   | active | Queue, timeout recovery and source-integrity process checks pass, with independent licensed acceptance recorded separately                           |
+| A08g     | Codex | Fence supervised Windows worker entry after durable session publication                 | A03 ownership and leases, A08a                         | active | Real worker processes enter only after metadata publication and current-owner lease validation, including grouped claims and startup failure cleanup |
+
+The registered SOLIDWORKS application points to build `34.4.1.1011`, matching the retained native readback.
+A separate older installation reports build `33.0.0.5050`.
+Native execution must use the registered matching installation and preserve unrelated sessions.
+Independent source admission, qualified graph pairs, complete native writing, bidirectional acceptance and the two-week pilot retain their existing exit conditions.
+
 | ID  | Deliverable                                            | Depends on                           | Owner      | Status   | Exit criterion                                                                                                                                                                                                                     |
 | --- | ------------------------------------------------------ | ------------------------------------ | ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | A01 | Neutral contract and capability audit                  | None                                 | jdharcourt | complete | Existing fields, demonstrated gaps, version scope and independent acceptance requirements documented                                                                                                                               |
