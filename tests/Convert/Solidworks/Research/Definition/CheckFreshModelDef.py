@@ -8,7 +8,7 @@ from tests.Convert.Solidworks.Research.Definition.RunModelDefProcess import (
 )
 
 
-# independently launched readers must recover the authored definitions after complete SDK emission
+# independently launched readers must recover the authored definitions after complete sdk emission
 def CheckFreshModelDef() -> list[dict[str, object]]:
     Cases = DefSettingsCases()
     Reports = [RunModelDefProcess([CaseValue])[0] for CaseValue in Cases]

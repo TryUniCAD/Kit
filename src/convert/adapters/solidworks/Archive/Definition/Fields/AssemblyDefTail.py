@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Archive.Definition.Fields.ScalarFields import (
     MakeScalarRows,
 )
 
-# assembly save-as-part preferences remain inline and use the native field ordering
+# assembly part export preferences remain inline and use the native field ordering
 KAssemblyDefTail = MappingProxyType(
     {
         "uiAssemblyDoc_c.Serialize.own": (

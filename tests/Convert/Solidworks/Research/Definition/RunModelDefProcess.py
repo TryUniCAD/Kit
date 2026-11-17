@@ -5,7 +5,7 @@ from sys import executable as PythonExe
 from typing import cast as CastValue
 
 
-# isolated child processes attest to memory-only Definition construction and preparation
+# isolated child processes attest to memory-only definition construction and preparation
 def RunModelDefProcess(JobsValue: list[dict[str, object]]) -> list[dict[str, object]]:
     RootValue = FilePath(__file__).resolve().parents[5]
     Result = RunProcess(

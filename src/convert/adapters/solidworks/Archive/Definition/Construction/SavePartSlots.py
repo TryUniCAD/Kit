@@ -1,6 +1,6 @@
 from types import MappingProxyType
 
-# ordinary save-as-part settings expose the exact native preferences without assuming their names
+# ordinary part export settings expose the exact native preferences without assuming their names
 KSavePartSlots = MappingProxyType(
     {
         "5fc": "f0c",

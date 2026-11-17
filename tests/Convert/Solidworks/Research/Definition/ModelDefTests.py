@@ -6,7 +6,7 @@ from tests.Convert.Solidworks.Research.Definition.CheckModelDefRejection import 
 )
 
 
-# native Definition preparation must independently consume every fresh variant and reject invalid profiles
+# native definition preparation must independently consume every fresh variant and reject invalid profiles
 def TestModelDefinition() -> None:
     Reports = CheckFreshModelDef()
     CheckModelDefRejection(Reports[0])

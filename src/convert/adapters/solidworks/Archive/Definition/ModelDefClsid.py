@@ -4,7 +4,7 @@ from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsup
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Container.Definition import KAsmClsid, KPartClsid
 
-# the serialized guid resolves the untagged outer document owner before class-specific reads
+# the serialized guid resolves the untagged outer document owner before reads of the selected class
 KModelDefClsids = MappingProxyType(
     {
         RuntimeClass("uiPartDoc_c", 1): KPartClsid,
