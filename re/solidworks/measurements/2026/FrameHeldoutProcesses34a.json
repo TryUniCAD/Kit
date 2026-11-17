@@ -1,0 +1,404 @@
+{
+  "schema": "kit.sw2026.frame-heldout-processes.v1",
+  "passed": true,
+  "writer_revision": "6fc97ccebb41696c5dbc03e538ba132064af241d",
+  "tested_merge": "b1efd1135a8eeecacfbc8adfc09fba650a41a6be",
+  "tested_tree": "326b8288e8a1d31158ccfc231a09d8cb0781330d",
+  "verified_merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "34a28c080a859dce2e1035b9022f7c291fef0838"
+  ],
+  "evaluation_revision": "34a28c080a859dce2e1035b9022f7c291fef0838",
+  "run_id": 43997594150,
+  "job_id": 133753366411,
+  "artifact": {
+    "id": 14290418452,
+    "bytes": 24615635,
+    "sha256": "48c79b5b6c6e1acf55177e31df16566546a365b25ac497510ed3169f3e3e6467"
+  },
+  "writer_freeze_sha256": "7e80a951824e9c8e2b86e645d6326fa6a16c208d4f79a6598262c8192c8913f2",
+  "source_lock_sha256": "503d5a3587515f949998e39be5f8f4fd7aaeb75b17b79007c2babfe4e22e5b59",
+  "specs_sha256": "85199f3695ff744ce825166f3451a0c3fe8b9f01d163c5ec4806b3a07489e723",
+  "constructor_dependency_count": 3452,
+  "changed_constructor_dependencies": [],
+  "native_format_passed": 207,
+  "native_format_skipped": 158,
+  "policy_passed": 171,
+  "generated_outputs": 2,
+  "complete_archive_comparisons": 16,
+  "profile_model_to_sketch_checks": 26,
+  "private_reference_api_observations_inspected": false,
+  "native_reference_payloads_inspected": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "outputs": [
+    {
+      "name": "F01TopFrame",
+      "artifact_name": "FrameF01TopFrame",
+      "bytes": 8099,
+      "sha256": "960765c5ec7dfe1111487fae5a0ad87292553bbdd5325d7a891d77e6007e6142",
+      "report_bytes": 1217870,
+      "report_sha256": "2ee1fa7013d5a99bd70a1ae127df232cb3a7590d1536d7c97117962ae7519876",
+      "request": {
+        "document": {
+          "name": "F01TopFrame",
+          "configuration_name": "authored configuration",
+          "sketch_name": "CurveSketch",
+          "extrusion_name": "CurveBoss",
+          "origin_name": "Origin",
+          "plane_axis": "y",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "extrusion",
+          "center_m": [
+            0.004139,
+            -0.007913
+          ],
+          "radius_m": 0.009137000000000001,
+          "circle_dimension": {
+            "mode": "diameter",
+            "text_point_m": [
+              0.0196719,
+              0.0,
+              -0.003965100000000003
+            ],
+            "fix_center": true
+          },
+          "depth_m": 0.017397,
+          "end_condition": "blind",
+          "reverse_direction": true
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "Comments",
+            "moFavoriteFolder_c": "Favorites",
+            "moHistoryFolder_c": "History",
+            "moSelectionSetFolder_c": "Selection Sets",
+            "moSensorFolder_c": "Sensors",
+            "moDocsFolder_c": "Design Binder",
+            "moSurfaceBodyFolder_c": "Surface Bodies",
+            "moSolidBodyFolder_c": "Solid Bodies",
+            "moEnvFolder_c": "Lights and Cameras",
+            "moInkMarkupFolder_c": "Markups",
+            "moEqnFolder_c": "Equations",
+            "moMaterialFolder_c": "Material <not specified>"
+          },
+          "cabinet_name": "Annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false,
+          "initial_view": {
+            "named_view": 8,
+            "scale2": 1.5197,
+            "translation": [
+              0.002917,
+              -0.003197,
+              0.005713
+            ]
+          }
+        }
+      },
+      "profile_model_to_sketch": [
+        1.0,
+        0.0,
+        -0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "streams": {
+        "Header2": {
+          "bytes": 450,
+          "sha256": "1d4c4251793c6393a783fb59de85f7f43879a3a9b1ca082e79283c4c47b56230"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 450,
+          "sha256": "c381baf98d9000a51178ede22ee2eaf9defb2986fc7223a3ac8ea4bb9a8b1e1b"
+        },
+        "Contents/Config-0": {
+          "bytes": 21124,
+          "sha256": "8f729e07eebd5ed1ddd6c00c74caffb55540bcb0821ce19a724ade5dcea0dc5a"
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "76ca8811bfb8aad707a490845e6bd07d11b3547ed358747852d5459406a72003"
+        },
+        "Contents/Definition": {
+          "bytes": 549,
+          "sha256": "e2eb39f06c325021ec602ff02612586c8df1d0f364e61785fca9a4ac1fc4d7a1"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15223,
+          "sha256": "2c7a398db2feed20e0aaa40a9b992a4b9ef8f418c7b7d011a997db15696794f9"
+        }
+      },
+      "module_read_count": 5307,
+      "unresolved_references": 0,
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    },
+    {
+      "name": "F02RightFrame",
+      "artifact_name": "FrameF02RightFrame",
+      "bytes": 8057,
+      "sha256": "305a5b8519e7c7296da69e4932bb098c0e55607a019951f8d6a41a5573fd2811",
+      "report_bytes": 1217890,
+      "report_sha256": "55126901d5cc7e959789ffe09127dc5628e42aaba0f22848c34ea4485d968443",
+      "request": {
+        "document": {
+          "name": "F02RightFrame",
+          "configuration_name": "authored configuration",
+          "sketch_name": "CurveSketch",
+          "extrusion_name": "CurveBoss",
+          "origin_name": "Origin",
+          "plane_axis": "x",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "extrusion",
+          "center_m": [
+            -0.008712999999999999,
+            0.0051790000000000004
+          ],
+          "radius_m": 0.011731,
+          "circle_dimension": {
+            "mode": "radius",
+            "text_point_m": [
+              0.0,
+              0.0204293,
+              -0.011229700000000002
+            ],
+            "fix_center": true
+          },
+          "depth_m": 0.031791,
+          "end_condition": "blind",
+          "reverse_direction": false
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "Comments",
+            "moFavoriteFolder_c": "Favorites",
+            "moHistoryFolder_c": "History",
+            "moSelectionSetFolder_c": "Selection Sets",
+            "moSensorFolder_c": "Sensors",
+            "moDocsFolder_c": "Design Binder",
+            "moSurfaceBodyFolder_c": "Surface Bodies",
+            "moSolidBodyFolder_c": "Solid Bodies",
+            "moEnvFolder_c": "Lights and Cameras",
+            "moInkMarkupFolder_c": "Markups",
+            "moEqnFolder_c": "Equations",
+            "moMaterialFolder_c": "Material <not specified>"
+          },
+          "cabinet_name": "Annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false,
+          "initial_view": {
+            "named_view": 9,
+            "scale2": 2.7319,
+            "translation": [
+              -0.004713,
+              0.007931,
+              -0.002317
+            ]
+          }
+        }
+      },
+      "profile_model_to_sketch": [
+        -0.0,
+        0.0,
+        1.0,
+        -0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "streams": {
+        "Header2": {
+          "bytes": 454,
+          "sha256": "978206e63837a2cb0edde834aa906906dfb9c4237ce7d1ff8e3be73e8bbcbe8c"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 454,
+          "sha256": "b6850b5869f97477b16114fdfe723ec3d118648075d53764d4c45d5115d08152"
+        },
+        "Contents/Config-0": {
+          "bytes": 21128,
+          "sha256": "0c02d7073e9432a253c1472dcc4c01baffdb872dee52f729a4190585123c648a"
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "76ca8811bfb8aad707a490845e6bd07d11b3547ed358747852d5459406a72003"
+        },
+        "Contents/Definition": {
+          "bytes": 549,
+          "sha256": "6212019c5adac3983499a9573c1d57f70718567fe4ee91799d45f327dee983a4"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15205,
+          "sha256": "f5defc0e4bae44dc11f3488d1ac0133ed840dda60ac25d3cfdf9c9ce2734a346"
+        }
+      },
+      "module_read_count": 5307,
+      "unresolved_references": 0,
+      "complete_archive_comparisons": 8,
+      "denied_reads": []
+    }
+  ]
+}

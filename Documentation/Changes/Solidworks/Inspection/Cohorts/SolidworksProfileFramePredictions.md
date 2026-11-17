@@ -13,6 +13,11 @@ owners, and have no unresolved archive graph references. The guard checks the
 location of project code reads. These predictions are a prerequisite to the
 independent native comparison. They add no production writer coverage.
 
+The [remote prediction receipt](../../../../../re/solidworks/measurements/2026/FrameHeldoutProcesses34a.json)
+binds both generated files to the verified CI tree, artifact and neutral
+requests. All 16 complete stream comparisons and 26 stored transform values
+passed before reference access.
+
 The paired native inspector requires an artifact receipt with both persisted
 transforms before it reads the private observations. It checks the matrix,
 translation and scale from the native API before rebuild, after rebuild,
