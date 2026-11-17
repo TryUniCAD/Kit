@@ -1,0 +1,70 @@
+{
+  "schema": "kit.sw2026.tree-saved-readback-attempt.v1",
+  "source_revision": "856a88f759e7aeec2ae9884be7788aa6c1ebcf69",
+  "tested_merge": "7a6022d3b98673f119f9aa69e5275f7344cd921c",
+  "tested_tree": "c67d959d235519a81c35d21bc6db1a6d126eda10",
+  "verified_merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "856a88f759e7aeec2ae9884be7788aa6c1ebcf69"
+  ],
+  "run_id": 43987241013,
+  "job_id": 133718446481,
+  "native_format_failed": 1,
+  "native_format_passed": 204,
+  "native_format_skipped": 158,
+  "artifact": {
+    "id": 14285873096,
+    "bytes": 24211490,
+    "sha256": "57c25dc3dd689d39b4e415267beb0a86060e85b9d4fb6f5e670092acb0e8ca56"
+  },
+  "raw_readback_report": {
+    "bytes": 4586192,
+    "sha256": "744d8e6cc51fc16f56bf131fe592bf0f3f1e6dcb16ea2781256edf090f3a4696"
+  },
+  "fixture_manifest_sha256": "daa760007e98281c0384d4dc15f8abb7a8c9474ce5e79c56e27c61fd1e13dc5c",
+  "native_source_receipt_sha256": "a78652939aee0a38fb6f2a20f1cae4bbeb9b11f7fe8b4412e3aa899049edee56",
+  "completed_archive_comparisons_reported": 27,
+  "completed_semantic_checks": 54,
+  "completed_pose_checks": 51,
+  "files": [
+    {
+      "file": "P03FrontFolders-open-save.SLDPRT",
+      "passed": true,
+      "sha256": "54d5eec9303e2a85b234bc1b41b6518a180a86c5d95d2601c3899b0459048fe5",
+      "source_sha256": "fe4f9e952e48c8b77d3c24f5d07e5dab73cb03908df9aa43712f7c5bd98473da"
+    },
+    {
+      "file": "P03FrontFolders-edit-save.SLDPRT",
+      "passed": true,
+      "sha256": "c8de640769ce42e54eaba4d26f01ff7c994f00f3682799559139c4378a768c14",
+      "source_sha256": "a6cf229482d5338cc1b4a3f6180d9139da96fb8b45f25e3a61cc7d907f28e818"
+    },
+    {
+      "file": "P03FrontFolders-edited-fresh.SLDPRT",
+      "passed": true,
+      "sha256": "faf4f9f1de4e6cdb7bd8e458e0def7603cd6c1fe9d0f7195ca3bfea765ad1260",
+      "source_sha256": "d724a37f4ec8b635c40939f68561455dcab5661f581f56f66616ec934c7f9255"
+    },
+    {
+      "file": "P04RightFolders-open-save.SLDPRT",
+      "passed": false,
+      "error": "ValueError('saved semantic value differs: frame_m2: 1.0 != -1.0')"
+    },
+    {
+      "file": "P04RightFolders-edit-save.SLDPRT",
+      "passed": false,
+      "error": "ValueError('saved semantic value differs: frame_m2: 1.0 != -1.0')"
+    },
+    {
+      "file": "P04RightFolders-edited-fresh.SLDPRT",
+      "passed": false,
+      "error": "ValueError('saved semantic value differs: frame_m2: 1.0 != -1.0')"
+    }
+  ],
+  "root_cause": "Readback compared a persisted model-to-sketch transform with the inverse world-space sketch basis. All three Right-plane checks stopped at frame_m2: +1 stored versus -1 expected. The previously recorded native ModelToSketchTransform gives +1.",
+  "original_assertion_failed": true,
+  "passed": false,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false
+}

@@ -18,3 +18,11 @@ were not used for preparation.
 The new process check runs in the remote native format compatibility job.
 Prepared derivatives are reader fixtures; they do not add generated outputs,
 qualify another feature family, or change the read-only public adapter.
+
+The [first remote attempt](../../../../../re/solidworks/measurements/2026/TreeSavedReadbackAttempt856a.json)
+passed three Front-plane derivatives and failed the other three at the first
+direction-sensitive sketch matrix coefficient. The corrected check verifies
+the independently recorded model-to-sketch transform, including its inverse
+relationship to the observed world-space frame. The fixture bytes are identical.
+The [native field record](../../../../../re/solidworks/records/ProfileTransformDirection2026.md)
+also identifies the opposite-direction seed in the unchanged frozen writer.

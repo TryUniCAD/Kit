@@ -57,6 +57,7 @@ def fixture_inputs():
     records = manifest["records"]
     require(len(predictions) == 2 and len(observations) == len(records) == len(expected_files) == 6, "tree-parity fixture membership differs")
     require({x["file"] for x in records} == {x.name for x in CORPUS.glob("*.SLDPRT")} == expected_files, "tree-parity native file membership differs")
+    observed_records = []
     for entry in records:
         phase = observations[entry["name"], entry["phase"]]
         require(phase["lane"] == "candidate" and phase["passed"] and phase["source_immutable"], "tree-parity candidate phase differs")
@@ -69,10 +70,11 @@ def fixture_inputs():
         expected.update(radius_m=document["radius_m"] * factors[0], depth_m=document["depth_m"] * factors[1], mode=document["circle_dimension"]["mode"])
         expected.update(native_frame=phase["snapshot"]["frame"], native_saved_pose=phase["scenes"]["saved"]["pose"])
         require(entry["expected"] == expected, "tree-parity semantic targets differ from the neutral prediction and independent native measurements")
-    return manifest, records
+        observed_records.append({**entry, "native_model_to_sketch": phase["snapshot"]["model_to_sketch_transform"]})
+    return manifest, observed_records
 
 
-def sketch_state(objects, expected):
+def sketch_state(objects, expected, native_transform):
     profile = exactly([x for x in objects if x.cls == "moProfileFeature_c"], "ordinary sketch feature")
     boss = exactly([x for x in objects if x.cls == "moExtrusion_c"], "native extrusion feature")
     require(profile["f18"]["f08"] == expected["sketch_name"] and boss["f18"]["f08"] == expected["extrusion_name"], "tree-parity feature names differ")
@@ -106,13 +108,19 @@ def sketch_state(objects, expected):
     depth = parameter(object_type(end_spec["f18"], "moDisplayDistanceDim_c"))["f58"]
     number(checks, "depth_parameter", depth, expected["depth_m"])
     frame = profile["pd_ff0"]
-    native = expected["native_frame"]
-    for name, target in zip(("f58", "f60", "f68"), native["origin"], strict=True):
+    require(len(native_transform) == 16 and native_transform[12:] == [1.0, 0.0, 0.0, 0.0], "native model-to-sketch transform is not the claimed rigid frame")
+    native_frame = expected["native_frame"]
+    u, v = native_frame["u"], native_frame["v"]
+    normal = [u[(i + 1) % 3] * v[(i + 2) % 3] - u[(i + 2) % 3] * v[(i + 1) % 3] for i in range(3)]
+    basis = (u, v, normal)
+    inverse_matrix = [basis[col][row] for row in range(3) for col in range(3)]
+    inverse_translation = [-sum(axis[component] * native_frame["origin"][component] for component in range(3)) for axis in basis]
+    require(native_transform[:12] == [*inverse_matrix, *inverse_translation], "native model-to-sketch transform does not invert the observed sketch placement")
+    for name, target in zip(("f58", "f60", "f68"), native_transform[9:12], strict=True):
         number(checks, "frame_" + name, frame[name], target)
-    number(checks, "frame_scale", frame["f70"], 1.0)
-    normal = [native["u"][(index + 1) % 3] * native["v"][(index + 2) % 3] - native["u"][(index + 2) % 3] * native["v"][(index + 1) % 3] for index in range(3)]
+    number(checks, "frame_scale", frame["f70"], native_transform[12])
     matrix = frame["f08"] if frame["has_matrix"] else {f"m{index}": float(index in (0, 4, 8)) for index in range(9)}
-    for index, target in enumerate([*native["u"], *native["v"], *normal]):
+    for index, target in enumerate(native_transform[:9]):
         number(checks, "frame_m" + str(index), matrix[f"m{index}"], target)
     return {"passed": True, "checks": checks, "radial_mode": expected["mode"], "center_fixed": True, "display_linked_to_actual_sketch": True, "reverse_direction": expected["reverse_direction"], "plane_axis": expected["plane_axis"]}
 
@@ -158,7 +166,7 @@ def inspect_file(entry):
     markup = exactly([x for x in objects.values() if x.cls == "moInkMarkupFolder_c"], "actual markup folder")
     require(markup["f18"]["f08"] == "Markups" and markup["f360"] == 1 and markup["f370"] == 0, "tree-parity actual markup folder state differs")
     result["markup_folder"] = {"class": markup.cls, "node_name": markup["f18"]["f08"], "f360": markup["f360"], "f370": markup["f370"]}
-    result["semantics"] = sketch_state(list(objects.values()), entry["expected"])
+    result["semantics"] = sketch_state(list(objects.values()), entry["expected"], entry["native_model_to_sketch"])
     result["pose"] = pose_state(models["Contents/Definition"]["document"].head, entry["expected"])
     result["linked_graph"] = GraphProof(models[RESOLVED]["document"], reader, RESOLVED, models["Contents/Config-0"])
     require(result["linked_graph"]["unresolved_references"] == 0, "tree-parity linked graph has unresolved references")
