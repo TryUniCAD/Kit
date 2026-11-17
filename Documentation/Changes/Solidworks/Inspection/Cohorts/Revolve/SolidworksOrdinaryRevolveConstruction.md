@@ -6,18 +6,14 @@ Use `feature_kind="revolve"` with a principal-plane rectangular contour, `revolu
 
 Three independent generated candidates round-tripped all nine modeled streams with zero tails. The isolated process tests checked linked profile and line ownership, driving radians, metadata, input-dependent stream length and rejection of a crossing axis. The existing forward blind part and one-occurrence assembly bundle retained their native container hashes. [Process integration checks](../../../../../../tests/Convert/Solidworks/Research/Revolve/RevolvePartTests.py).
 
-The diagnostic wrapper schedules fresh native open, rebuild and in-memory driving-angle measurements with bracketing controls. Saving an edited candidate and verifying it on a fresh reopen remain pending. Two independently authored held-out inputs remain sealed. The user-facing adapter remains read-only. [Generated revolve inspector](../../../../../../re/tooling/sw2026/InspectGeneratedRevolves.py) and [native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolveSourceLock.json).
+The first generated cohort opened with warning 32, had one feature problem and zero initial bodies, and failed forced rebuild in each case. Both controls passed. Set `inspect_regeneration_warning` in the diagnostic job to record model state before explicit rebuild and continue the investigation. A warning still fails the acceptance gate. [Baseline diagnostic](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveRegeneration01.json) and [generated revolve inspector](../../../../../../re/tooling/sw2026/InspectGeneratedRevolves.py).
 
-The first generated cohort opened with warning 32 and failed forced rebuild with no solid bodies. Both controls passed. The controlled variant derives the selected sketch's creation stamp from the existing no-log rule and changes one resolved archive field. Native qualification of the variant remains pending. [Load and reference identity diagnostics](../../../../../../re/solidworks/records/OrdinaryRevolvedBossLoad2026.md).
+The corrected generator derives the selected axis reference's creation stamp from the sketch's own log state, including the native unset value for a sketch without logs. That single archive field changed across all three files. The corrected candidates opened without errors or warnings, rebuilt one solid and passed driving-angle edits for all three angle and direction cases. Both controls passed across five distinct processes and 75 numeric checks. [Load and reference identity diagnostics](../../../../../../re/solidworks/records/OrdinaryRevolvedBossLoad2026.md) and [measured intervention](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveSketchLog02.json).
 
-The first native inspection opened all three generated files with zero errors
-and warning 32 between healthy controls. The diagnostic job can specify
-`inspect_regeneration_warning` to record model state before explicit rebuild
-and continue measuring geometry and angle edits. A warning remains a failed
-acceptance gate.
+Saving an edited candidate and verifying it on a fresh reopen remain pending. Two independently authored held-out inputs remain sealed. The user-facing adapter remains read-only. [Preregistered held-out method](../../../../../../re/solidworks/records/OrdinaryRevolveHeldoutProtocol2026.md) and [native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolveSourceLock.json).
 
-The diagnostic recorded one feature problem and zero initial bodies in each
-candidate. Explicit rebuilding failed in all three cases. The next construction
-revision derives the axis reference's creation stamp from the sketch's own
-log state. Sketches without a saved log use the native unset creation time.
-The three new decoded archives differ at that one field. [Baseline diagnostic](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveRegeneration01.json)
+The first edited-save run kept all three edited angles, signed geometry and
+one solid on clean fresh reopen. The exact tree comparison found one difference
+at the empty material folder. SOLIDWORKS restored its standard caption on reopen.
+The matching presentation run uses the caption defined by the native English
+resource. [Edited-save diagnostic](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveEditedPresentation03.json)
