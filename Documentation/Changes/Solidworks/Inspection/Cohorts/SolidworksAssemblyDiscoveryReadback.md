@@ -15,6 +15,11 @@ preparation, and prepared containers were not reparsed on the host.
 
 The remote [assembly reader](../../../../../re/tooling/sw2026/serial/AssemblySources.py)
 compares seven complete archive streams per file and reports the typed model
-and header values, graph identities and class counts. It records the actual
-schema status for each stream. Remote comparison is pending. The fixtures
-provide discovery evidence, with no new writer outputs or acceptance.
+and header values, graph identities, class counts and reference update stamps.
+The reference projection checks both the configuration and its linked resolved
+map and distinguishes separate reference objects with identical content. It
+records the actual schema status for each stream. The [first remote receipt](../../../../../re/solidworks/measurements/2026/AssemblyDiscoveryProcesses6fc.json)
+passes all 21 stream comparisons and finds the expected zero, one and two
+ordinary references. The populated configurations retain external reference
+markers and the original native warning. The additional stamp projection
+still needs its remote result. Discovery adds no writer outputs or acceptance.

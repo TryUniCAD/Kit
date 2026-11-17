@@ -20,6 +20,7 @@ from Streams import load_rooted
 from StringCorpus import GraphProof, SourceProof
 from TreeNames import read_object, require
 from defs.ConfigPart import load_config
+from defs.ResolvedCore import load_resolved
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 
 CORPUS = ROOT / "re/solidworks/v2026/corpus/assembly-discovery"
@@ -27,6 +28,9 @@ RECEIPT = ROOT / "re/solidworks/measurements/2026/AssemblySourceAttempt02.json"
 NAMES = ("A07EmptyAssembly", "A08SingleAssembly", "A09RepeatedAssembly")
 HEADER = "Contents/Config-0-ModelHeader"
 CONFIG = "Contents/Config-0"
+RESOLVED = CONFIG + "-ResolvedFeatures"
+REFERENCE_CLASSES = {"moReference_c", "moReferenceInternal_c", "moReferenceBrowser_c", "moReferenceModel_c"}
+UPDATE_FIELDS = ("f3e0", "f3e8", "f3f0", "f3f4", "f3f8", "f400", "f408", "f4d8")
 
 
 def digest(raw):
@@ -56,7 +60,20 @@ def fixture_inputs():
     return files
 
 
-def decoded_state(archive, reg):
+def reference_updates(model_map, resolved_map):
+    rows, seen = [], set()
+    for stream, reader in ((CONFIG, model_map), (RESOLVED, resolved_map)):
+        for index, (kind, node) in sorted(reader.table.items()):
+            if kind != "obj" or not isinstance(node, Obj) or node.cls not in REFERENCE_CLASSES or id(node) in seen:
+                continue
+            seen.add(id(node))
+            fields = {key: node.f.get(key) for key in UPDATE_FIELDS}
+            require(all(type(value) is int for value in fields.values()), f"unmodeled update fields in {node.cls}")
+            rows.append({"class": node.cls, "stream": stream, "archive_index": index, "fields": fields})
+    return rows
+
+
+def decoded_state(archive, reg, resolved_complete):
     model_doc, model_map = load_config(archive.require(CONFIG), reg, 19000, archive=archive, name=CONFIG)
     header_doc, header_map = load_rooted(archive.require(HEADER), reg, 1, 19000)
     require(not model_doc.tail and not header_doc.tail, "assembly projection has unread bytes")
@@ -67,7 +84,7 @@ def decoded_state(archive, reg):
     header = headers[0]
     fields = {key: model.f.get(key) for key in ("f1560", "f1570", "f1a18", "f1a20", "f1a28", "f1674")}
     count = Counter(item[1].cls for item in model_map.table.values() if item[0] == "obj" and isinstance(item[1], Obj))
-    return {
+    result = {
         "assembly_owned_fields": fields,
         "self_component_class": model["f990"].cls if isinstance(model.f.get("f990"), Obj) else None,
         "header_scalar_fields": {key: header.f.get(key) for key in ("f40", "f48", "fc4")},
@@ -75,6 +92,12 @@ def decoded_state(archive, reg):
         "header_graph": GraphProof(header_doc, header_map, HEADER),
         "configuration_class_counts": dict(sorted(count.items())),
     }
+    if resolved_complete:
+        resolved_doc, resolved_map = load_resolved(archive.require(RESOLVED), reg, 19000, archive=archive, name=RESOLVED, seed=model_map.map_state())
+        require(not resolved_doc.tail and not resolved_map.left(), "assembly resolved projection has unread bytes")
+        result["resolved_graph"] = GraphProof(resolved_doc, resolved_map, RESOLVED, {"document": model_doc, "reader": model_map})
+        result["reference_update_fields"] = reference_updates(model_map, resolved_map)
+    return result
 
 
 def inspect_file(entry):
@@ -91,7 +114,7 @@ def inspect_file(entry):
     result["roundtrip"] = one(path, list(REQUIRED), reg, {**PLANS, **reg.plans}, True, False)
     observed = result["roundtrip"]["streams"]
     if all(observed.get(key, {}).get("passed") for key in (CONFIG, HEADER)):
-        result["wire_state"] = decoded_state(archive, reg)
+        result["wire_state"] = decoded_state(archive, reg, observed.get(RESOLVED, {}).get("passed", False))
     require(path.read_bytes() == raw, "assembly discovery input changed during decoding")
     result["passed"] = result["roundtrip"]["passed"] and "wire_state" in result
     return result

@@ -16,6 +16,12 @@ payload change on Right and Top. Stream order and uncompressed sizes must
 remain unchanged. The existing native measurements stay attached to the
 previous emitter hashes.
 
+The [remote discovery receipt](../../../../../re/solidworks/measurements/2026/ProfileFrameDiscoveryProcesses6fc.json)
+records 64 complete current archive comparisons. The two Front files remain
+byte identical. The other six change only the resolved profile stream, with
+each expected transform present. All eight original hashes reproduce from
+the pinned historical code.
+
 The [independent source lock](../../../../../re/solidworks/v2026/heldout/FrameSourceLock.json)
 predates the correction. New native acceptance requires testing predictions
 from the corrected frozen emitter against those sources. Displaced planes
