@@ -9,4 +9,4 @@ entries. Reading the mate list with a fresh object map loses those bindings.
 Carry the resolved-feature map into the mate-list codec and check
 `MatesList` before interpreting an empty resolved group as an unmated
 assembly. The native save prefix is the final map count.
-[Typed stream comparison](../../../../../re/solidworks/records/AssemblyMatesList2026.md#populated-planar-mates)
+[Typed stream comparison](../../../../../../re/solidworks/records/AssemblyMatesList2026.md#populated-planar-mates)
