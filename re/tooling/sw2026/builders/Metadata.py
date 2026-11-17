@@ -207,9 +207,10 @@ def keywords(*, name, timestamp, configurations, features):
         if tag not in KEYWORD_TAGS:
             raise ValueError(f"unsupported keyword feature tag {tag!r}")
         attrs = {"id": str(key), "Name": text(value["name"], "feature name")}
+        omitted_cut_type = tag == "Extrusion" and value["kind"] is None
         if tag == "Sketch" and value["kind"] is None and value.get("dissectable") is True:
             omitted_sketch_type = True
-        else:
+        elif not omitted_cut_type:
             attrs["Type"] = text(value["kind"], "feature kind")
         if "dissectable" in value:
             attrs["Dissectable"] = str(boolean(value["dissectable"], "dissectable state")).lower()
@@ -218,6 +219,8 @@ def keywords(*, name, timestamp, configurations, features):
         children = tuple(integer(c, "child feature id", low=1, high=0x7FFFFFFF) for c in sequence(value.get("children", ()), "child features"))
         if len(children) > 1:
             raise ValueError("keyword encoding for multiple dissectable children is not recovered")
+        if omitted_cut_type and len(children) != 1:
+            raise ValueError("ordinary cut keyword requires one dissectable profile")
         if children:
             attrs["DissectableChildren"] = ",".join(map(str, children))
         pending.extend(children)
@@ -243,6 +246,8 @@ def keywords(*, name, timestamp, configurations, features):
                 native_angular = True
                 display += "°"
             SubElement(node, "Dimension", {"Name": dimension_name}).text = display
+        if omitted_cut_type and names != {"D1"}:
+            raise ValueError("ordinary cut keyword requires its single driving D1")
     if not feature_ids or any(key not in feature_ids for key in pending):
         raise ValueError("keyword metadata must contain its feature nodes and every referenced child")
     if omitted_sketch_type and not native_angular:

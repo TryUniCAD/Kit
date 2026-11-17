@@ -386,6 +386,11 @@ Remote process checks use eight redacted, vendor-authored controls.
 These checks measure schema coverage. They do not establish generated output,
 held-out acceptance, or a production writer.
 
+The [blind-pocket discovery constructor](../../Changes/Solidworks/Model/Curves/SolidworksBlindPocketDiscovery.md)
+composes a rectangular boss and a circular blind cut from one authored model.
+Its explicit scope choices support controlled comparison of cold rebuild behaviour.
+Generated native measurements remain pending.
+
 ## Geometry cache boundary
 
 The partition stream can contain geometry derived from feature history.

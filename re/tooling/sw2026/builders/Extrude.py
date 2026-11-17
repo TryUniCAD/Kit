@@ -227,7 +227,7 @@ class DimensionGraph:
 
 
 def feature_dimension(*, feature: Obj, dimension_id: int, value: float, angular: bool, allocator, design_intent: bool, selected_leader: int):
-    if not isinstance(feature, Obj) or feature.cls != "moExtrusion_c" or type(feature.get("f08")) is not int or feature["f08"] < 0:
+    if not isinstance(feature, Obj) or feature.cls not in ("moExtrusion_c", "moICE_c") or type(feature.get("f08")) is not int or feature["f08"] < 0:
         raise ConstructionError("feature dimensions require their allocated extrusion owner")
     if type(dimension_id) is not int or not 1 <= dimension_id < (1 << 31):
         raise ConstructionError("feature dimension numbers must be positive signed 32-bit integers")
@@ -237,6 +237,8 @@ def feature_dimension(*, feature: Obj, dimension_id: int, value: float, angular:
         raise ConstructionError("selected leader requires an explicit signed 32-bit presentation value")
     if isinstance(value, bool) or not isinstance(value, (int, float)) or not isfinite(value):
         raise ConstructionError("feature dimension values must be finite numeric inputs")
+    if feature.cls == "moICE_c" and (angular or dimension_id != 1):
+        raise ConstructionError("ordinary blind cut construction admits only the driving D1 length")
     if angular and value != 0:
         raise ConstructionError("blind construction currently requires zero draft angles")
     if not angular and (value < 0 or 0 < value < 1e-14):
@@ -307,6 +309,14 @@ def modeled_end_spec(*, forward_distance: Obj, reverse_distance: Obj, forward_dr
         raise ConstructionError("end specifications require positive depths and matching inactive constructor depths")
     if _driving_value(display=forward_draft, angular=True) != 0 or _driving_value(display=reverse_draft, angular=True) != 0:
         raise ConstructionError("blind construction currently requires zero draft angles")
+    return _end_spec(
+        forward_distance=forward_distance, reverse_distance=reverse_distance,
+        forward_draft=forward_draft, reverse_draft=reverse_draft,
+        condition=condition, reverse_direction=reverse_direction,
+    )
+
+
+def _end_spec(*, forward_distance, reverse_distance, forward_draft, reverse_draft, condition, reverse_direction):
     return Obj("moEndSpec_c", {
         "f138": None,
         "f08": int(condition != "two_directions"),
@@ -384,9 +394,7 @@ def require_blind_profile(profile):
         raise ConstructionError("circle extrusion requires its actual driving radial dimension")
 
 
-def profile_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth: float):
-    if not isinstance(feature, Obj) or feature.cls != "moExtrusion_c":
-        raise ConstructionError("blind extrusion requires an allocated moExtrusion_c body-feature node")
+def _bind_profile_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth: float):
     for name in ("f08", "f28", "f60", "f368", "f388", "f780"):
         if name not in feature.f:
             raise ConstructionError(f"body-feature factory has not constructed required base field {name}")
@@ -413,6 +421,12 @@ def profile_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, dep
     feature["f28"] |= 0x140
     feature["f818"] = end_spec
     feature["f838"] = 0.0
+
+
+def profile_extrusion(*, feature: Obj, profile: ProfileGraph, end_spec: Obj, depth: float):
+    if not isinstance(feature, Obj) or feature.cls != "moExtrusion_c":
+        raise ConstructionError("blind extrusion requires an allocated moExtrusion_c body-feature node")
+    _bind_profile_extrusion(feature=feature, profile=profile, end_spec=end_spec, depth=depth)
     feature["f810"] = -1
     return feature
 
@@ -429,7 +443,7 @@ class ExtrusionGraph:
     profile: ProfileGraph
     end_spec: Obj
     dimensions: tuple[DimensionGraph, ...]
-    from_offset: DimensionGraph
+    from_offset: DimensionGraph | None
 
     @property
     def dimension_count(self):
@@ -437,7 +451,7 @@ class ExtrusionGraph:
 
     @property
     def constructed_dimensions(self):
-        return (*self.dimensions, self.from_offset)
+        return self.dimensions if self.from_offset is None else (*self.dimensions, self.from_offset)
 
     @property
     def parameters(self):
@@ -497,3 +511,22 @@ def live_extrusion(*, feature: Obj, profile: ProfileGraph, depth: float, allocat
 
 def live_blind_extrusion(*, feature: Obj, profile: ProfileGraph, depth: float, allocator, design_intent: bool, selected_leader: int):
     return live_extrusion(feature=feature, profile=profile, depth=depth, allocator=allocator, design_intent=design_intent, selected_leader=selected_leader, condition="blind", reverse_direction=False)
+
+
+def live_blind_cut(*, feature: Obj, profile: ProfileGraph, depth: float, allocator, design_intent: bool, selected_leader: int):
+    if not isinstance(feature, Obj) or feature.cls != "moICE_c":
+        raise ConstructionError("blind cut discovery requires an allocated moICE_c body-feature node")
+    if not isinstance(profile, ProfileGraph) or profile.sketch.get("_profile_kind") != "circle":
+        raise ConstructionError("blind cut discovery requires a single ordinary circular sketch")
+    distance = feature_dimension(
+        feature=feature, dimension_id=1, value=depth, angular=False,
+        allocator=allocator, design_intent=design_intent, selected_leader=selected_leader,
+    )
+    end_spec = _end_spec(
+        forward_distance=distance.display, reverse_distance=None, forward_draft=None,
+        reverse_draft=None, condition="blind", reverse_direction=True,
+    )
+    _bind_profile_extrusion(feature=feature, profile=profile, end_spec=end_spec, depth=depth)
+    feature["f28"] |= 0x2 | 0x8 | 0x80 | 0x20000
+    feature["f810"] = 1
+    return ExtrusionGraph(feature=feature, profile=profile, end_spec=end_spec, dimensions=(distance,), from_offset=None)

@@ -9,6 +9,7 @@ from Streams import StreamDoc, store_rooted
 from builders.Arc import open_arc_profile
 from builders.Capsule import capsule_profile
 from builders.Circle import circle_profile, circle_set_profile
+from builders.Cut import BlindPocketGraph, blind_pocket
 from builders.ConfigurationHeader import CONFIGURATION_MANAGER_HEADER, configuration_manager_header, configuration_manager_header_stream
 from builders.Definition import definition_stream, part_definition
 from builders.ExternalFiles import ordinary_self_reference
@@ -23,6 +24,9 @@ from builders.Styles import detail_definitions
 from builders.Units import unit_table_profile
 from defs.ConfigPart import store_config_state
 from defs.ResolvedCore import store_resolved
+
+
+_NO_BLIND_CUT = object()
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -40,13 +44,21 @@ class PartConstruction:
     configuration_map_count: int
     revolution: object | None = None
     rectangle_dimensions: tuple[DimensionGraph, ...] = ()
+    blind_pocket: BlindPocketGraph | None = None
 
 
 def _rooted(*, registry, node):
     return store_rooted(StreamDoc("rooted", {"base": 1}, [node]), registry, FILE_VERSION)
 
 
-def _metadata(*, registry, document, provenance, presentation, graph, features, profile, sketch_dimensions, extrusion, output, revolution=None, native_plane_roles=False):
+def _keyword_dimensions(dimensions, length_unit_m):
+    return [
+        {"name": dimension.parameter["f18"]["f08"], "value": dimension.parameter["f58"] / length_unit_m}
+        for dimension in dimensions
+    ]
+
+
+def _metadata(*, registry, document, provenance, presentation, graph, features, profile, sketch_dimensions, extrusion, output, revolution=None, native_plane_roles=False, pocket=None):
     stamp = {
         "status": 0, "user_index": 0, "company_index": 0,
         "timestamp": provenance["created_at"], "comment": provenance["comment"],
@@ -70,12 +82,16 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
             if revolution is not None:
                 item.update(kind=None, dissectable=True)
             if sketch_dimensions:
-                item["dimensions"] = [
-                    {"name": dimension.parameter["f18"]["f08"], "value": dimension.parameter["f58"] / presentation["length_unit_m"]}
-                    for dimension in sketch_dimensions
-                ]
+                item["dimensions"] = _keyword_dimensions(sketch_dimensions, presentation["length_unit_m"])
         if extrusion is not None and feature is extrusion.feature:
-            item.update({"tag": "Extrusion", "dimensions": [{"name": graph.parameter["f18"]["f08"], "value": graph.parameter["f58"] / presentation["length_unit_m"]} for graph in extrusion.active_distances]})
+            item.update(tag="Extrusion", dimensions=_keyword_dimensions(extrusion.active_distances, presentation["length_unit_m"]))
+        if pocket is not None:
+            cut = pocket.extrusion
+            if feature is cut.profile.profile:
+                item.update(tag="Sketch", dimensions=_keyword_dimensions((pocket.radial,), presentation["length_unit_m"]))
+            if feature is cut.feature:
+                item.update(tag="Extrusion", kind=None, children=(cut.profile.profile["f08"],),
+                            dimensions=_keyword_dimensions(cut.active_distances, presentation["length_unit_m"]))
         if revolution is not None and feature is revolution.feature:
             parameter = revolution.angle.parameter
             item.update(kind="Revolve", dimensions=[{"name": parameter["f18"]["f08"], "value": degrees(parameter["f58"]), "unit": "degree"}])
@@ -142,9 +158,11 @@ def document_shape(document):
     return fields(document, "part document", required, optional), profile_kind, feature_kind
 
 
-def construct_part(*, registry, document, provenance, presentation, target, output=None, native_plane_roles: bool = False):
+def construct_part(*, registry, document, provenance, presentation, target, output=None, native_plane_roles: bool = False, blind_cut_discovery=_NO_BLIND_CUT):
     boolean(native_plane_roles, "native plane keyword roles")
     document, profile_kind, feature_kind = document_shape(document)
+    if blind_cut_discovery is not _NO_BLIND_CUT and (profile_kind != "polygon" or feature_kind != "blind_extrusion" or document["plane_axis"] != "z" or native_plane_roles):
+        raise ArchiveError("blind cut discovery requires a standalone Front Plane part with one ordinary rectangular blind boss")
     provenance = fields(provenance, "authored provenance", (
         "author", "company", "created_at", "modified_at", "comment",
         "originating_build_code", "license_origin",
@@ -250,6 +268,14 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
             design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
         )
         features += (revolve_node,)
+    pocket = None
+    if blind_cut_discovery is not _NO_BLIND_CUT:
+        pocket = blind_pocket(
+            request=blind_cut_discovery, boss=extrusion, feature_values=feature_values,
+            reference_values=reference_values, features=features,
+            design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
+        )
+        features += (pocket.extrusion.profile.profile, pocket.extrusion.feature)
     record_configuration_progress(configuration=graph.configuration_manager["f360"], allocator=graph.allocator)
     metadata_presentation = {
         "length_unit_m": length_scales[units["length_unit"]],
@@ -258,7 +284,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     result, model_header = _metadata(
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
         graph=graph, features=features, profile=profile, sketch_dimensions=(radial,) if radial is not None else rectangle,
-        extrusion=extrusion, output=output, revolution=revolution, native_plane_roles=native_plane_roles,
+        extrusion=extrusion, output=output, revolution=revolution, native_plane_roles=native_plane_roles, pocket=pocket,
     )
     config_data, state = store_config_state(StreamDoc("config", {"model_header": model_header}, [graph.part]), registry, FILE_VERSION)
     resolved = StreamDoc("resolved", {"base": state.count, "context": {
@@ -284,5 +310,5 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         configuration=graph.configuration_manager["f360"], features=features,
         profile=profile, radial=radial, extrusion=extrusion,
         next_id=graph.next_persistent_id, configuration_map_count=state.count,
-        revolution=revolution, rectangle_dimensions=rectangle,
+        revolution=revolution, rectangle_dimensions=rectangle, blind_pocket=pocket,
     )

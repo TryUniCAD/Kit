@@ -43,6 +43,9 @@ KReadSelfFile = ImportModule("ExternalFileView").read_self_reference
 # sketch dimension evidence uses records from the reparsed container
 KReadRectangle = ImportModule("RectangleReadback").read_rectangle
 
+# decoding the pocket requires the byte stream rather than its live constructor graph
+KReadBlindCut = ImportModule("BlindCutReadback").read_blind_cut
+
 # codec initialization must not be mistaken for donor access during strict construction
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
@@ -65,6 +68,7 @@ def BuildResult() -> dict[str, object]:
     BlobValue = KContainer.build_sldprt(Constructed.streams)
     Archive = KContainer.SldprtArchive.from_bytes(BlobValue)
     ModelRoot, Profiles = ReadProfiles(Archive, KRegistry)
+    BossProfiles = Profiles if Constructed.blind_pocket is None else Profiles[:2]
     Results = {
         NameValue: KRoundTrip.stream_roundtrip(
             Archive, NameValue, KRegistry, {**KRoundTrip.PLANS, **KRegistry.plans}, True
@@ -76,9 +80,14 @@ def BuildResult() -> dict[str, object]:
         **(KReadSelfFile(Archive, KRegistry) if KRequest.get("output") else {}),
         **(ReadRevolution(Archive, KRegistry) if Constructed.revolution else {}),
         **(
+            {"blind_pocket": KReadBlindCut(Archive, KRegistry)}
+            if Constructed.blind_pocket is not None
+            else {}
+        ),
+        **(
             {
                 "rectangle": KReadRectangle(
-                    archive=Archive, model=ModelRoot, profiles=Profiles
+                    archive=Archive, model=ModelRoot, profiles=BossProfiles
                 )
             }
             if Constructed.rectangle_dimensions
@@ -126,8 +135,8 @@ def BuildResult() -> dict[str, object]:
             else Constructed.extrusion.reverse_depth
         ),
         "has_extrusion": Constructed.extrusion is not None,
-        "plane_ownership": ReadOwners(ModelRoot, Profiles),
-        "profile_model_to_sketch": KFrameValues(Profiles),
+        "plane_ownership": ReadOwners(ModelRoot, BossProfiles),
+        "profile_model_to_sketch": KFrameValues(BossProfiles),
         "configuration_progress": IsProgressValid(Archive, KRegistry),
         "standard_views": HasViewTargets(Archive, KRegistry),
         "module_reads": KAuditValue.ModuleReads,
