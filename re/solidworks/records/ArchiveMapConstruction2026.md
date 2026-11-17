@@ -69,10 +69,12 @@ The configuration decoder and writer allocate these slots from the same
 ordered header objects. A reference in the configuration resolves to its
 header object and the resolved-feature map inherits that identity. For
 generated documents the builders supply the header they just created.
-The [source directory measurement](../measurements/2026/AssemblyExternalDirectoryEA67.json)
-observes slot four in both ordinary populated designs. Its logical file
-id is zero and both occurrences of the repeated child use that one slot.
-The slot is derived from the current archive count and the header order.
+The [typed binding measurement](../measurements/2026/AssemblyDirectBindingsB6E.json)
+verifies slot four in both disclosed ordinary populated designs. Its logical
+file id is zero and all three tested occurrences resolve to the actual header
+object in their respective configuration map. The slot is derived from the
+current archive count and header order. The measurement retains all 35 exact
+archive comparisons and confirms zero unresolved references in both graphs.
 
 ## Limits
 

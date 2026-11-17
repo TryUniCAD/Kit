@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 fresh assembly construction
 
-Fresh assembly generation and target-application acceptance are unproven. The source codec passes 14 exact stream round trips across two training assemblies, as recorded in [AssemblyArchive2026.md](AssemblyArchive2026.md). That result establishes exercised encoding. It does not supply fresh object values, native loadability, a solved mate graph, or usable component geometry.
+Two fresh empty assemblies passed the [SOLIDWORKS 2026 open, rebuild, save and reopen comparison](../measurements/2026/EmptyAssemblyNative01.json). The source codec also passes 14 exact stream round trips across two earlier training assemblies, as recorded in [AssemblyArchive2026.md](AssemblyArchive2026.md). Populated assembly construction, solved mate graphs and generated component geometry still require acceptance.
 
 ## Authority and evidence
 
@@ -410,6 +410,69 @@ In each, that value differs from the actual child's header update
 timestamp `f48`, which still equals the occurrence's `f3e8`. This
 disproves using the occurrence's update timestamp for every external
 record. The refresh path does not prove the full fresh-save lifecycle.
+
+### Ordinary self-reference construction
+
+In `sldmodu.dll`, the self registration paths at `0x4bda6e14`,
+`0x4bda6ea6` and `0x4bda7055` call `createExtObject` at `0x4be8bcd0`
+with the same filed model, connection kind 1 and no borrowed external
+object. They install the result through `moHeader_c::setSelfExtObject`.
+The factory calls the ordinary external object constructor at
+`0x4be8be09` and `connect` at `0x4be8be95`. The archive module's
+`connect` at `0x319ff850` selects the active-user counter `+0x48`
+for kind 1. In the factory, `0x4be8be7d` reads the filed model's name
+via slot `+0x88`, then `0x4be8be89` calls `setName`. The concrete
+assembly vtable binds that slot to `moNode_c::name` at `0x4c03e5c0`.
+The record therefore retains both the full path and the actual model name.
+The selected-configuration call at `0x4be8bef3` supplies the active
+configuration's real name and local id when that context is present.
+See the [stored-name gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ExternalReferences/ExternalSelfReferenceUsesModelName.md).
+
+`slduiu.dll!uiModelDoc_c::OnSaveDocument` gets the self reference and
+checks `isLastModTimeStampUpdated` before sampling `su_CTime` at
+`0x496fd757`. The imported function is `swccu.dll!0x31a4c5d0`,
+which calls `_time64(NULL)` through IAT `0x31a50250`. At `0x496fd76f`
+it passes that Unix timestamp to `setSelfRefLastModTimestamp`.
+The archive implementation `0x31a060c0` forwards to the store at
+`0x319f9c13` that writes runtime member `+0x60`. The separate
+`setLastModTimeStamoUpdated` at `0x31a017d0` sets runtime bit `0x02`.
+The record writer clears that bit before emitting the flags at
+`0x319fd9cd`. The pinned `swccu.dll` SHA-256 is
+`d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c`.
+
+| Field | Classification for the fresh ordinary self record | Native evidence |
+| --- | --- | --- |
+| `shared.h18` | Authored full output path | Parameter constructor `0x319fb380` and path setter `0x31a01ae0` |
+| `shared.h10` | Derived from the actual generated model's name | Factory slot read and name setter described above |
+| `shared.f28` | Derived from the owning model header's creation time | Factory `0x4be8bd04` and constructor `0x319fb380` |
+| `f48` | One active registration of the self file | Self registration callers and connection kind 1 |
+| `f4c/f50` | Zero registrations of external-context or part-to-base links for this self record | Fresh constructor `0x319fb380` clears both, and self registers only kind 1 |
+| `f54` | Constructor-zero byte in this fresh profile, serialized as i32 | Constructor `0x319fb380`, store `0x319fdb76` |
+| `f58` | Zero persisted flags for current-version ordinary output without extra reference state | Constructor `0x319fb380` and store `0x319fd91f`–`0x319fd9cd` |
+| `f60` | Explicit save-event Unix timestamp | `OnSaveDocument` and the `su_CTime` call above |
+| `f70` | Default last-save cache of zero in the fresh self profile | Constructor `0x319fb380`, with the separate external refresh path above |
+| `f78` | Unassigned logical file id `-1`, since self has its own header owner | Constructor `0x319fb380`, self setter `0x31a060b0`, separate list setter `0x31a01690` |
+| `refcfg` | Actual generated active configuration name and local id | Factory `0x4be8bef3`, setter `0x31a01650` |
+
+The store similarly clears `0x04` through vtable slot `+0xa0`
+(`0x31a016b0`) and can clear future-version bit `0x20` via `+0xb0`
+(`0x31a01790`). It can set persisted `0x08` when runtime bit `0x100`
+is present. The current empty writer takes the ordinary branch from a
+fresh record. REA/Hopper evidence for the constructor is
+`ev_18ec15bc4f91727d568ab90a750d73adfb9a3d9f6ba74f7cd06c710dfeb649aa`.
+The self timestamp bridge is
+`ev_5d55cb0a0616a4ebeecd586ba633353b8b8b82953edee1fa513285299cfc7131`.
+The `+0xa0` and `+0xb0` setters are
+`ev_08c126db46874a1a6864ebaf2a55802fcf94bdd808c30bd703fa5fa722289f8d`
+and `ev_2f67d2a4cba9bd603803a50c43e2fe3ccbf625e6308a1998559e50701f73c5b0`.
+
+The research empty assembly builder accepts an explicit save event and
+path and places the same generated self record in `Header2` and the
+configuration model header. The latter provides its actual object for
+the direct archive map. Construction does not consult a path or clock.
+The guarded process can distinguish the model name, filename, creation
+timestamp and save timestamp. Native acceptance of this self-reference
+variant remains to be measured.
 
 ## Computed geometric bounds
 

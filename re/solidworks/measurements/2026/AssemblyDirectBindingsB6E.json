@@ -1,0 +1,81 @@
+{
+  "schema": "kit.sw2026.assembly-direct-bindings-measurement.v1",
+  "evaluation_revision": "b6e99586d7114a13520a77e5e930e69a489e60d4",
+  "tested_merge": "ea99fab63c2df0d24c974e5f4a29fb8efeae918c",
+  "tested_tree": "2f61b2a97c002b974a733a8fa3d53b4fd1fd256a",
+  "merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "b6e99586d7114a13520a77e5e930e69a489e60d4"
+  ],
+  "run_id": 44016972506,
+  "job_id": 133817222480,
+  "artifact_id": 14298893903,
+  "artifact_sha256": "fe473dc282cc61bd65e567f6fe1e86bee119ce13aa33584c42d7d7b4a1232ca8",
+  "source_member": {
+    "name": "SourceParser/Assembly/Synchronized.json",
+    "bytes": 4686040,
+    "sha256": "0a4e1f43280bfb9e94441f711c170a80a1a3df4b8c77df5974a99e671a8a3c16"
+  },
+  "exact_archive_comparisons": 35,
+  "typed_occurrence_bindings": 3,
+  "primary_config_part_inventories_checked": 26,
+  "linked_config_part_inventories_checked": 26,
+  "generated_empty_candidate_sha256": {
+    "EmptyAssembly": "cb6343837ee82aaab06194c7f1ef08c742a83477c20f86dc45cde3bbf2859d52",
+    "EmptyAssemblyWithLongerMeasurementTitle": "84103b7a427fd9b96a69f44e6f34249c157833f10a7f10d54e4496eb4191cc3f"
+  },
+  "heldout_payloads_read": false,
+  "native_populated_acceptance": false,
+  "cases": [
+    {
+      "name": "A12SyncedEmpty",
+      "prepared_parent_sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+      "reference_bindings": [],
+      "unresolved_references": {
+        "configuration_graph": 0,
+        "resolved_graph": 0
+      }
+    },
+    {
+      "name": "A13SyncedSingle",
+      "prepared_parent_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+      "reference_bindings": [
+        {
+          "present": true,
+          "header_alias": true,
+          "class": "moExtObject_c",
+          "list_index": 0,
+          "direct_index": 4
+        }
+      ],
+      "unresolved_references": {
+        "configuration_graph": 0,
+        "resolved_graph": 0
+      }
+    },
+    {
+      "name": "A14SyncedRepeat",
+      "prepared_parent_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+      "reference_bindings": [
+        {
+          "present": true,
+          "header_alias": true,
+          "class": "moExtObject_c",
+          "list_index": 0,
+          "direct_index": 4
+        },
+        {
+          "present": true,
+          "header_alias": true,
+          "class": "moExtObject_c",
+          "list_index": 0,
+          "direct_index": 4
+        }
+      ],
+      "unresolved_references": {
+        "configuration_graph": 0,
+        "resolved_graph": 0
+      }
+    }
+  ]
+}

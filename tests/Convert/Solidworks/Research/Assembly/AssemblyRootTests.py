@@ -1,15 +1,12 @@
 from __future__ import annotations
 
-from json import dumps as DumpJson, loads as LoadJson
-from subprocess import run as RunProcess
-from sys import executable as PythonExec
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 from tests.Convert.Solidworks.Research.Assembly.EmptyAssemblyArtifacts import (
     SaveCandidate,
 )
 from tests.Convert.Solidworks.Research.Assembly.RootRequest import RootRequest
+from tests.Convert.Solidworks.Research.Assembly.RunRootProcess import RunRootProcess
 
 # native discovery distinguishes sixteen serialized roots from additional visible assembly nodes
 KAssemblyRoots = [
@@ -40,23 +37,7 @@ def TestRootBuild() -> None:
         ("EmptyAssemblyWithLongerMeasurementTitle", 1.2, 0.9),
     ):
         Request = RootRequest(NameValue, FractionPreference)
-        Outcome = RunProcess(
-            [
-                PythonExec,
-                "-I",
-                "-B",
-                str(KRepoRoot / "re/tooling/sw2026/AssemblyRootProcess.py"),
-                str(KRepoRoot),
-            ],
-            cwd=KRepoRoot,
-            input=DumpJson(Request),
-            capture_output=True,
-            text=True,
-            check=False,
-            timeout=120,
-        )
-        assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-        Report = CastValue(dict[str, object], LoadJson(Outcome.stdout))
+        Report = RunRootProcess(Request)
         assert Report["name"] == NameValue and Report["model_class"] == "moAssembly_c"
         assert (
             Report["reconstructed_bytes_identical"] is Report["maps_consistent"] is True
@@ -92,6 +73,7 @@ def TestRootBuild() -> None:
             "_MO_VERSION_19000/History": True,
         }
         assert Report["denied_reads"] == [] and Report["model_code_reads"]
+        assert Report["self_reference"] is None
         assert (
             Report["complete_assembly_emitted"] is Report["native_acceptance"] is False
         )

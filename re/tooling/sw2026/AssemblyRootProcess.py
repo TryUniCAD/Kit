@@ -27,6 +27,23 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive, build
 
 REGISTRY = registry()
 CODECS = tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
+
+
+def self_reference_fields(node):
+    if node is None:
+        return None
+    definition = node["shared"]
+    return {
+        "class": node.cls,
+        "path": definition["h18"]["f08"],
+        "name": definition["h10"]["f08"],
+        "creation_time": definition["f28"],
+        "document_kind": definition["f20"],
+        "configuration": node["refcfg"],
+        "record": {key: node[key] for key in ("f48", "f4c", "f50", "f54", "f58", "f60", "f70", "f78")},
+    }
+
+
 def inspect_root(request):
     assembly = construct_empty_assembly(registry=REGISTRY, request=request)
     streams = assembly.streams
@@ -45,12 +62,18 @@ def inspect_root(request):
     ui_doc = decoded_definition.head
     restored_definition = definition_stream(registry=REGISTRY, document=ui_doc)
     metadata = {}
+    top_self = None
+    model_self = decoded.head["model_header"]["f38"]
     for name in METADATA:
         data = archive.require(name)
         document, _ = load_rooted(data, REGISTRY, 1, 19000)
         metadata[name] = not document.tail and store_rooted(document, REGISTRY, 19000) == data
         if name in ("Header2", MODEL_HEADER):
             metadata[name] = metadata[name] and document.roots[0]["fec"] == int(name == MODEL_HEADER)
+        if name == "Header2":
+            top_self = self_reference_fields(document.roots[0]["f38"])
+    own_reference = self_reference_fields(model_self)
+    direct_slots = [index for index, entry in read.table.items() if entry[0] == "obj" and entry[1] is model_self]
     return {
         "model_class": model.cls, "name": model["f18"]["f08"],
         "root_bytes": len(config), "root_sha256": hashlib.sha256(config).hexdigest(),
@@ -73,6 +96,9 @@ def inspect_root(request):
         "stream_count": len(archive.streams),
         "stream_hashes": {name: hashlib.sha256(archive.require(name)).hexdigest() for name in sorted(archive.streams)},
         "metadata_roundtrips": metadata,
+        "self_reference": own_reference,
+        "self_reference_headers_agree": own_reference == top_self,
+        "self_reference_direct_slots": direct_slots,
         "blob": b64encode(blob).decode("ascii"),
         "model_code_reads": AUDIT.ModuleReads, "denied_reads": AUDIT.DeniedReads,
         "complete_assembly_emitted": False, "native_acceptance": False,
