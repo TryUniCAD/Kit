@@ -1,6 +1,6 @@
 # Authored part-folder order in SOLIDWORKS 2026
 
-The disclosed paired drawing rehearsal failed its exact comparison solely on the linked child's ordered system tree. The corrected constructor is research only and awaits a fresh native rehearsal. No held-out drawing was opened and no complete CAD acceptance is claimed.
+The first disclosed paired drawing rehearsal failed solely on the linked child's ordered system tree. The corrected constructor then passed all eight native phases and all 950 comparison visits, including ordered child history, edit/save/fresh reopen and both controls. No held-out drawing was opened and no complete CAD acceptance is claimed.
 
 ## Measured failure and independent input
 
@@ -53,7 +53,9 @@ The [sanitized process receipt](../measurements/2026/PartFolderOrderProcess01.js
 
 An independent comparison parses the original disclosed child, old generated child and corrected generated child after the new candidate bytes were frozen. Config-0 and ResolvedFeatures round-trip exactly for all three. The corrected 19-root class/name/ID sequence equals the original child's sequence. That graph comparison is an instrument, not a native acceptance result.
 
-The corrected disclosed packet retains the exact previous observer and comparator: runner SHA-256 `d03d73ed1cd964142562905c0955e9a528d341f2c62fedb41b446ba2e2eea2fa`, tools manifest `be6e5d6f2ca7e1be468d5915c8c45ab2cb65a2e316cc9fe00d7748f08268b349`. Its new Trial SHA-256 is `9cf0198b96f2282693924a76e2da701a7d830fbdb8d3315533d8373a21c5d787`. Host custody and layout preflight pass; its native result remains pending. A corrected disclosed native pass is required before opening H01/H02.
+The corrected disclosed packet retains the exact previous observer and comparator: runner SHA-256 `d03d73ed1cd964142562905c0955e9a528d341f2c62fedb41b446ba2e2eea2fa`, tools manifest `be6e5d6f2ca7e1be468d5915c8c45ab2cb65a2e316cc9fe00d7748f08268b349`. Its Trial SHA-256 is `9cf0198b96f2282693924a76e2da701a7d830fbdb8d3315533d8373a21c5d787`. The [corrected native receipt](../measurements/2026/DrawingBlindDisclosedOrderNative01.json) records terminal zero, eight distinct clean phases, healthy brackets, immutable inputs and zero mismatches across 950 comparison visits. The [first mismatch receipt](../measurements/2026/DrawingBlindDisclosedOrderMismatchNative01.json) retains its 230 mismatches across the same 950 visits. Numeric comparisons retain the declared tolerances; the visit count includes structure, not 950 independently derived format rules.
+
+The [original held-out protocol](DrawingOriginalHeldoutEvaluation2026.md) now binds the corrected result and exact writer source closure before any original H01/H02 specification or native payload access. Those inputs remain sealed at this protocol freeze.
 
 ## Boundary
 

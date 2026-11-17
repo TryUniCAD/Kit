@@ -28,7 +28,7 @@ def bootstrap_writer():
         writer = Path(root).resolve()
         manifest = Path(argument("--writer-sources"))
         expected = argument("--writer-sources-sha256")
-    elif len(sys.argv) > 1 and sys.argv[1] == "attach-comparison":
+    elif len(sys.argv) > 1 and sys.argv[1] in ("attach-comparison", "freeze-generation"):
         directory = Path(argument("--output"))
         data = (directory / "HostPreparation.json").read_bytes()
         if sha256(data).hexdigest() != argument("--host-preparation-sha256"):
@@ -62,10 +62,13 @@ from InspectBlindDrawing import HELDOUT_NAMES, ORIGINAL_LOCK, ORIGINAL_SPECS, SC
 from InspectScaledDrawing import ORACLE_SHA256, ORIENTATIONS, relative_file
 from BlindDrawingSemantics import compare_values
 from CheckDrawingDefinitions import checked_artifacts
+from DrawingBlindQualification import (
+    FREEZE_SCHEMA, GENERATION_SCHEMA, ORDERED_MANIFEST, verify_corrected,
+)
 
 
 ROOT, TOOLS = RESEARCH_ROOT, RESEARCH_TOOLS
-NEW_METHOD_FILES = frozenset(("PrepareBlindDrawing.py", "InspectBlindDrawing.py", "BlindDrawingSemantics.py"))
+NEW_METHOD_FILES = frozenset(("PrepareBlindDrawing.py", "InspectBlindDrawing.py", "BlindDrawingSemantics.py", "DrawingBlindQualification.py"))
 
 HOST_SCHEMA = "kit.sw2026.blind-standard-drawing-host-preparation.v1"
 BINDING_SCHEMA = "kit.sw2026.blind-drawing-neutral-binding.v1"
@@ -89,7 +92,7 @@ def registration(arguments):
                 "disclosed mode requires an existing public drawing specification and lock")
     else:
         require(arguments.specs_sha256 == ORIGINAL_SPECS and arguments.source_lock_sha256 == ORIGINAL_LOCK
-                and set(names) <= set(HELDOUT_NAMES), "held-out mode requires the original registered specification and H01/H02 slots")
+                and names == HELDOUT_NAMES, "held-out mode requires the original registered specification and H01/H02 slots")
     lock = checked_json(arguments.source_lock, arguments.source_lock_sha256)
     require(lock["passed"] and lock["pinned_inputs_immutable"] and lock["control_results"] == [True, True]
             and lock["oracle_sha256"] == ORACLE_SHA256, "registered native drawing source lock is unqualified")
@@ -112,9 +115,12 @@ def discovery_profile(arguments):
     require(result["schema"] == PROFILE_SCHEMA and result["scaled_drawing_trial_passed"] and result["controls_healthy"]
             and result["distinct_processes"] == result["phase_count"] == 12 and result["input_files_immutable"],
             "scaled standard-view native discovery profile did not pass")
-    require(arguments.writer_sources_sha256 == arguments.profile_sources_sha256
-            and checked_json(arguments.profile_sources, arguments.profile_sources_sha256) == source,
-            "qualified discovery and immutable writer closures differ")
+    predecessor = checked_json(arguments.profile_sources, arguments.profile_sources_sha256)
+    if arguments.writer_sources_sha256 == ORDERED_MANIFEST:
+        verify_corrected(arguments, source, predecessor)
+    else:
+        require(arguments.disclosed and arguments.writer_sources_sha256 == arguments.profile_sources_sha256
+                and predecessor == source, "held-out drawings require the corrected qualified writer closure")
     return True
 
 
@@ -123,7 +129,7 @@ def method_source(name):
 
 
 def method_snapshot():
-    names = {*TOOL_NAMES, "PrepareBlindDrawing.py", "PrepareScaledDrawing.py", "serial/CheckDrawingDefinitions.py"}
+    names = {*TOOL_NAMES, "PrepareBlindDrawing.py", "DrawingBlindQualification.py", "PrepareScaledDrawing.py", "serial/CheckDrawingDefinitions.py"}
     return {"schema": "kit.sw2026.blind-drawing-method-source-snapshot.v1",
             "files": {name: digest(method_source(name).read_bytes()) for name in sorted(names)}}
 
@@ -163,6 +169,29 @@ def binding(arguments):
             "neutral binding requires a complete admitted bundle")
     require(all("saved_at" in request[key]["output"] for key in ("drawing", "part")), "neutral binding needs explicit save times")
     return value
+
+
+def qualification(arguments, source):
+    if arguments.profile_result is None or arguments.writer_sources_sha256 != ORDERED_MANIFEST:
+        return None
+    return verify_corrected(arguments, source, checked_json(arguments.profile_sources, arguments.profile_sources_sha256))
+
+
+def evaluation_freeze(arguments, method, qualified):
+    if arguments.disclosed:
+        return None
+    require(qualified is not None, "held-out generation requires the corrected paired native qualification")
+    require(arguments.evaluation_freeze is not None and arguments.evaluation_freeze_sha256 is not None,
+            "held-out specification stays sealed until the ordered method and evidence freeze is bound")
+    frozen = checked_json(arguments.evaluation_freeze, arguments.evaluation_freeze_sha256)
+    require(frozen == {
+        "schema": FREEZE_SCHEMA, "source_lock_sha256": ORIGINAL_LOCK, "source_specs_sha256": ORIGINAL_SPECS,
+        "case_names": list(HELDOUT_NAMES), "writer_source_manifest_sha256": ORDERED_MANIFEST,
+        "neutral_binding_sha256": arguments.neutral_binding_sha256, "qualification": qualified,
+        "method_sources": method, "heldout_inputs_read": 0, "vendor_runtime_executed": False,
+        "order": ["verify-qualification-only", "generate", "freeze-generation", "attach-comparison", "native-evaluation"],
+    }, "held-out mapper, evidence or ordered evaluation freeze changed before specification access")
+    return frozen
 
 
 def admission(case):
@@ -230,17 +259,27 @@ def generate_host(arguments):
     lock = registration(arguments)
     qualified = discovery_profile(arguments)
     neutral = binding(arguments)
+    sources = checked_json(arguments.writer_sources, arguments.writer_sources_sha256)
+    method = method_snapshot()
+    evidence = qualification(arguments, sources)
+    frozen = evaluation_freeze(arguments, method, evidence)
     output = arguments.output.resolve()
     require(not output.exists() and not output.is_relative_to(ROOT), "choose an unused blind-generation directory outside the checkout")
     windows = PureWindowsPath(arguments.windows_directory)
     require(windows.is_absolute(), "blind generation needs an absolute encoded Windows directory")
+    if arguments.verify_qualification_only:
+        require(qualified and evidence is not None and frozen is not None,
+                "pre-unseal verification requires the complete corrected original held-out evaluation freeze")
+        return {"schema": "kit.sw2026.original-blind-drawing-pre-unseal-verification.v1", "passed": True,
+                "evaluation_freeze_sha256": arguments.evaluation_freeze_sha256, "qualification": evidence,
+                "method_source_snapshot_sha256": digest(encoded(method)), "writer_sources_immutable": True,
+                "hidden_specification_opened": False, "native_source_payloads_read": False,
+                "output_directory_created": False, "vendor_runtime_executed": False}
     specs = checked_json(arguments.specs, arguments.specs_sha256)
     require(specs["schema"] == "kit.sw2026.drawing-source-specs.v1", "original source recipe schema differs")
     selected = [case for case in specs["cases"] if case["name"] in arguments.case]
     require(len(selected) == len(arguments.case) and len({case["name"] for case in selected}) == len(selected)
             and all(case["split"] == ("discovery" if arguments.disclosed else "heldout") for case in selected), "original source recipe selection differs")
-    sources = checked_json(arguments.writer_sources, arguments.writer_sources_sha256)
-    method = method_snapshot()
     output.mkdir(parents=True, exist_ok=False)
     (output / "NeutralBinding.json").write_bytes(arguments.neutral_binding.read_bytes())
     (output / "SourceLock.json").write_bytes(arguments.source_lock.read_bytes())
@@ -250,6 +289,7 @@ def generate_host(arguments):
               "source_specs_sha256": arguments.specs_sha256, "source_lock_sha256": arguments.source_lock_sha256,
               "neutral_binding_sha256": arguments.neutral_binding_sha256, "writer_source_snapshot_sha256": digest(encoded(sources)),
               "mapper_sha256": digest(Path(__file__).read_bytes()), "writer_discovery_profile_qualified": qualified,
+              "qualification": evidence, "evaluation_freeze_sha256": arguments.evaluation_freeze_sha256 if frozen is not None else None,
               "writer_root": str(arguments.writer_root.resolve()),
               "author_observations_read": False, "native_source_payloads_read": False, "vendor_runtime_executed": False,
               "writer_output_count": 0, "native_acceptance": False, "source_artifacts": {}}
@@ -285,9 +325,15 @@ def generate_host(arguments):
     for name in ("NeutralBinding.json", "SourceLock.json", "GeneratorSourceSnapshot.json", "MethodSourceSnapshot.json"):
         report["source_artifacts"][name] = digest((output / name).read_bytes())
     if arguments.profile_result is not None:
-        for name, source in (("DiscoveryProfile.json", arguments.profile_result), ("DiscoveryProfileSources.json", arguments.profile_sources)):
+        profiles = [("DiscoveryProfile.json", arguments.profile_result), ("DiscoveryProfileSources.json", arguments.profile_sources)]
+        if evidence is not None:
+            profiles.extend((("CorrectedNativeProfile.json", arguments.corrected_profile), ("OrderProcessProof.json", arguments.order_process_proof)))
+        for name, source in profiles:
             copyfile(source, output / name)
             report["source_artifacts"][name] = digest((output / name).read_bytes())
+    if frozen is not None:
+        copyfile(arguments.evaluation_freeze, output / "EvaluationFreeze.json")
+        report["source_artifacts"]["EvaluationFreeze.json"] = arguments.evaluation_freeze_sha256
     write_json(output / "HostPreparation.json", report)
     return {"output": str(output), "host_preparation_sha256": digest((output / "HostPreparation.json").read_bytes()),
             "writer_output_count": report["writer_output_count"], "author_observations_read": False,
@@ -309,9 +355,8 @@ def source_pair(corpus, lock, name, output, directory):
             "source_record_sha256": case["record_sha256"]}
 
 
-def attach_comparison(arguments):
+def frozen_host(arguments):
     output = arguments.output.resolve()
-    require(not (output / "Trial.json").exists(), "blind comparison packet already exists")
     host = checked_json(output / "HostPreparation.json", arguments.host_preparation_sha256)
     require(host["schema"] == HOST_SCHEMA and not host["author_observations_read"] and not host["native_source_payloads_read"]
             and host["writer_sources_immutable"] and host["neutral_inputs_immutable"], "blind generation was not independently frozen")
@@ -322,6 +367,48 @@ def attach_comparison(arguments):
         require(digest((Path(host["writer_root"]) / name).read_bytes()) == expected, f"blind writer changed before comparison attachment: {name}")
     require(method_snapshot() == json.loads((output / "MethodSourceSnapshot.json").read_bytes()),
             "blind method changed before comparison attachment")
+    for row in host["cases"]:
+        if row["state"] == "unsupported_before_oracle":
+            continue
+        for kind in ("drawing", "part"):
+            path = relative_file(output, row["directory"] + "/" + row[kind]["filename"])
+            require(digest(path.read_bytes()) == row[kind]["sha256"] and path.stat().st_size == row[kind]["bytes"],
+                    "generated drawing input changed before evidence freeze or attachment")
+    return host
+
+
+def generation_freeze_value(arguments, host):
+    files = {**host["source_artifacts"], "HostPreparation.json": arguments.host_preparation_sha256}
+    for row in host["cases"]:
+        if row["state"] != "unsupported_before_oracle":
+            files.update({row["directory"] + "/" + row[kind]["filename"]: row[kind]["sha256"] for kind in ("drawing", "part")})
+    return {"schema": GENERATION_SCHEMA, "host_preparation_sha256": arguments.host_preparation_sha256,
+            "evaluation_freeze_sha256": host["evaluation_freeze_sha256"], "mode": host["mode"],
+            "files_sha256": files, "writer_rerun": False, "native_source_payloads_read": False}
+
+
+def freeze_generation(arguments):
+    output = arguments.output.resolve()
+    require(not (output / "Trial.json").exists() and not (output / "GenerationEvidenceFreeze.json").exists(),
+            "blind generation evidence freeze already exists or comparison has begun")
+    host = frozen_host(arguments)
+    value = generation_freeze_value(arguments, host)
+    write_json(output / "GenerationEvidenceFreeze.json", value)
+    return {"generation_freeze": str(output / "GenerationEvidenceFreeze.json"),
+            "generation_freeze_sha256": digest((output / "GenerationEvidenceFreeze.json").read_bytes()),
+            "host_preparation_sha256": arguments.host_preparation_sha256, "writer_rerun": False,
+            "native_source_payloads_read": False, "vendor_runtime_executed": False}
+
+
+def attach_comparison(arguments):
+    output = arguments.output.resolve()
+    require(not (output / "Trial.json").exists(), "blind comparison packet already exists")
+    host = frozen_host(arguments)
+    freeze_sha = arguments.generation_freeze_sha256
+    if host["mode"] == "heldout" or freeze_sha is not None:
+        require(freeze_sha is not None, "held-out native comparison requires the separate generated-evidence freeze")
+        require(checked_json(output / "GenerationEvidenceFreeze.json", freeze_sha) == generation_freeze_value(arguments, host),
+                "generated evidence changed before native comparison access")
     lock = checked_json(output / "SourceLock.json", host["source_lock_sha256"])
     corpus = arguments.corpus.resolve()
     control_name = "D01FrontView" if host["source_lock_sha256"] == ORIGINAL_LOCK else "D00ScaledFront"
@@ -344,6 +431,8 @@ def attach_comparison(arguments):
                                                     "native_runtime_executed": False, "comparison_observations_only": True})
     sources = {**host["source_artifacts"], "HostPreparation.json": arguments.host_preparation_sha256,
                "ComparisonPreflight.json": digest((output / "ComparisonPreflight.json").read_bytes())}
+    if freeze_sha is not None:
+        sources["GenerationEvidenceFreeze.json"] = freeze_sha
     tools = output / "Tools"
     tools.mkdir(exist_ok=False)
     for name in TOOL_NAMES:
@@ -376,15 +465,25 @@ def main():
         generate_parser.add_argument("--" + name, required=True)
     generate_parser.add_argument("--case", action="append", required=True)
     generate_parser.add_argument("--disclosed", action="store_true")
-    for name in ("profile-result", "profile-sources"):
+    generate_parser.add_argument("--verify-qualification-only", action="store_true")
+    for name in ("profile-result", "profile-sources", "corrected-profile", "order-process-proof", "evaluation-freeze"):
         generate_parser.add_argument("--" + name, type=Path)
         generate_parser.add_argument("--" + name + "-sha256")
+    freeze_parser = commands.add_parser("freeze-generation")
+    freeze_parser.add_argument("--output", type=Path, required=True)
+    freeze_parser.add_argument("--host-preparation-sha256", required=True)
     attach_parser = commands.add_parser("attach-comparison")
     attach_parser.add_argument("--output", type=Path, required=True)
     attach_parser.add_argument("--corpus", type=Path, required=True)
     attach_parser.add_argument("--host-preparation-sha256", required=True)
+    attach_parser.add_argument("--generation-freeze-sha256")
     arguments = parser.parse_args()
-    result = generate_host(arguments) if arguments.operation == "generate" else attach_comparison(arguments)
+    if arguments.operation == "generate":
+        result = generate_host(arguments)
+    elif arguments.operation == "freeze-generation":
+        result = freeze_generation(arguments)
+    else:
+        result = attach_comparison(arguments)
     print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
 
 

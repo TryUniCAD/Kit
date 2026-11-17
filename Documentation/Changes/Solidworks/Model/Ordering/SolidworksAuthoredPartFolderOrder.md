@@ -4,7 +4,7 @@ The research part constructor accepts optional `presentation.folder_order`, an e
 
 Use the array when a neutral document carries an authored system-folder sequence across a JSON boundary. Sorting the object keys changes the order of the mapping. The constructor takes the order from the explicit array.
 
-The disclosed paired drawing rehearsal exposed this issue: all eight native phases passed, while strict source/generated comparison failed on child system-tree order in all five states. The corrected child sequence is derived from the exact original independent Python recipe. Native qualification of the corrected candidate remains pending; held-out drawings remain sealed and the comparator is unchanged.
+The disclosed paired drawing rehearsal exposed this issue: all eight native phases passed, while strict source/generated comparison failed on child system-tree order in all five states. The corrected child sequence is derived from the exact original independent Python recipe. Its subsequent eight-phase native rehearsal passed the unchanged comparator with zero mismatches across 950 comparison visits. Original held-out drawings remain sealed at the evaluation freeze. [Corrected native receipt](../../../../../re/solidworks/measurements/2026/DrawingBlindDisclosedOrderNative01.json)
 
 The guarded writer passed 19 fresh processes. Five prior pairs and the ordered pair each built twice with identical outputs. Seven invalid order requests failed before output. The run recorded zero runtime input-file access attempts. [Process checker](../../../../../re/tooling/sw2026/CheckPartFolderOrder.py)
 

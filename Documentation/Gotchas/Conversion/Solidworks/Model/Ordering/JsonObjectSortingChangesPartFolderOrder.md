@@ -14,6 +14,6 @@ The disclosed drawing rehearsal passed all eight native phases and both controls
 
 Carry a meaningful sequence as a JSON array. The research constructor now accepts `presentation.folder_order`, validated as an exact permutation of the existing folder class keys. Obtain it from independent authored input or a qualified source model, never from a per-case captured output table. Omitting it retains the old mapping behavior for compatibility.
 
-The native storage walk preserves linked-list traversal order. There is no general native alphabetical-folder requirement. The corrected disclosed candidate still requires native comparison before the original held-outs may be unsealed.
+The native storage walk preserves linked-list traversal order. There is no general native alphabetical-folder requirement. The corrected disclosed candidate subsequently passed all eight native phases and the unchanged paired comparator. The original held-outs still require the exact corrected qualification and frozen evaluation protocol before unsealing.
 
 See [the field and process evidence](../../../../../../re/solidworks/records/PartFolderOrder2026.md) and [the change entry](../../../../../Changes/Solidworks/Model/Ordering/SolidworksAuthoredPartFolderOrder.md).

@@ -1,0 +1,109 @@
+{
+  "complete_cad_acceptance": false,
+  "disclosed_attach_custody_verified": true,
+  "disclosed_case": "D01FrontView",
+  "disclosed_guarded_writer_builds": 2,
+  "evaluation_freeze_sha256": "382e49fa7e0b99129f48ce16a5d6b9fd94becb29a14bcb47886acd243e13211b",
+  "generation_freeze_negative_cases": [
+    {
+      "name": "MissingGeneratedEvidenceFreeze",
+      "native_source_path_supplied": false,
+      "rejected_before_native_source_access": true
+    },
+    {
+      "name": "WrongGeneratedEvidenceFreezeDigest",
+      "native_source_path_supplied": false,
+      "rejected_before_native_source_access": true
+    },
+    {
+      "name": "MutatedGeneratedPartInDisposableCopy",
+      "native_source_path_supplied": false,
+      "pristine_packet_untouched": true,
+      "rejected_before_native_source_access": true
+    }
+  ],
+  "generation_then_evidence_freeze_then_comparison": true,
+  "heldout_inputs_read": 0,
+  "mapper_sha256": "56270949c9ae6a1f62941755c8274cc101b87107fae3352d8e3802a0101b3fe9",
+  "native_oracle_executed": false,
+  "passed": true,
+  "pre_unseal_verification": {
+    "evaluation_freeze_sha256": "382e49fa7e0b99129f48ce16a5d6b9fd94becb29a14bcb47886acd243e13211b",
+    "hidden_specification_opened": false,
+    "method_source_snapshot_sha256": "cd5ad5f7c2e4baf11b12c59250446646d8d3f58a5b38c3cc44fee171fd976b37",
+    "native_source_payloads_read": false,
+    "output_directory_created": false,
+    "passed": true,
+    "qualification": {
+      "complete_cad_acceptance": false,
+      "corrected_native_receipt_sha256": "4d2021603b29662787eb19ecf4aa00a3b9c659e2e38ed13cbb8e68f02292a736",
+      "heldout_inputs_read": 0,
+      "neutral_binding_sha256": "3611c049a520b0d3855d70c5e7da650dc5e24e18a41bb349f6cd849ad63b06e1",
+      "order_process_proof_sha256": "a5cf6630e981ed66a68327dbf44d8264c34dd56ab6e37d3cd504a719e9150870",
+      "predecessor_source_manifest_sha256": "c1e8e5788d32e9fbdfdae83b1ec95410835b2ee05c47a2a278dfc2ad88ae1de4",
+      "qualified": true,
+      "scaled_native_result_sha256": "674daf809255fdc3261aee698006fcc1af5f7b0644c25d9b4b2f4f1082622d07",
+      "schema": "kit.sw2026.corrected-blind-drawing-qualification.v1",
+      "writer_source_manifest_sha256": "ba27d8eb41a580553678995b9d863a1162325b2d3dcf17c31a9e5c8b96840293"
+    },
+    "schema": "kit.sw2026.original-blind-drawing-pre-unseal-verification.v1",
+    "vendor_runtime_executed": false,
+    "writer_sources_immutable": true
+  },
+  "private_disclosed_pipeline_sha256": "7fb6bc56d1a1ea07710190a08ed83e6e9e2347d48c421362c0ee7956675df3e4",
+  "private_qualification_checks_sha256": "3e818bb468984f3d97268ace4b9cc18fc32f407efa5d5e954256bef334cc8545",
+  "qualification_fresh_processes": 8,
+  "qualification_helper_sha256": "5edf8f2f527c4194bc7653abe6a176954d644e8fc015dd637ed1c237f2177d45",
+  "qualification_negative_cases": [
+    {
+      "name": "MissingCorrected",
+      "output_directory_created": false,
+      "reason": "ValueError: held-out specification stays sealed until corrected native qualification and default reproduction are bound",
+      "rejected_before_specification_open": true,
+      "stdout_bytes": 0
+    },
+    {
+      "name": "WrongCorrectedDigest",
+      "output_directory_created": false,
+      "reason": "ValueError: held-out specification stays sealed until corrected native qualification and default reproduction are bound",
+      "rejected_before_specification_open": true,
+      "stdout_bytes": 0
+    },
+    {
+      "name": "WrongProcessDigest",
+      "output_directory_created": false,
+      "reason": "ValueError: held-out specification stays sealed until corrected native qualification and default reproduction are bound",
+      "rejected_before_specification_open": true,
+      "stdout_bytes": 0
+    },
+    {
+      "name": "MissingEvaluationFreeze",
+      "output_directory_created": false,
+      "reason": "ValueError: held-out specification stays sealed until the ordered method and evidence freeze is bound",
+      "rejected_before_specification_open": true,
+      "stdout_bytes": 0
+    },
+    {
+      "name": "WrongEvaluationDigest",
+      "output_directory_created": false,
+      "reason": "ValueError: pinned input changed: EvaluationFreeze.json",
+      "rejected_before_specification_open": true,
+      "stdout_bytes": 0
+    },
+    {
+      "name": "LegacyWriterOnly",
+      "output_directory_created": false,
+      "reason": "ValueError: held-out drawings require the corrected qualified writer closure",
+      "rejected_before_specification_open": true,
+      "stdout_bytes": 0
+    },
+    {
+      "name": "UnregisteredSlot",
+      "output_directory_created": false,
+      "reason": "ValueError: held-out mode requires the original registered specification and H01/H02 slots",
+      "rejected_before_specification_open": true,
+      "stdout_bytes": 0
+    }
+  ],
+  "schema": "kit.sw2026.original-blind-drawing-method-process-check.v1"
+}
