@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 from InferenceInputs import checksum
-from InferenceRunner import FIELD_KIND, FORMATS, GAP_KIND, RESCAN_KIND, RESERVED_SCOPES
+from InferenceRunner import FIELD_KIND, FORMATS, GAP_KIND, RESCAN_KIND
 from Records import canonical, digest, label, read_record, specification
 
 REQUEST_FIELDS = {
@@ -36,8 +36,6 @@ def build_schedule(request):
     ):
         raise ValueError("inference scheduling request does not match version 1")
     scope = label(request["scope"])
-    if scope in RESERVED_SCOPES:
-        raise ValueError("reserved native proof profiles require the preserved format implementation")
     family = label(request["family"])
     streams = request["stream_inputs"]
     archives = request["archives"]

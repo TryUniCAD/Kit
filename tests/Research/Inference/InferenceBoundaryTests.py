@@ -11,13 +11,8 @@ from pytest import mark as MarkValue
 # real standalone commands must consume the same checkout and source identity as the candidate
 KRepoRoot = FilePath(__file__).resolve().parents[3]
 
-# these historical profile names retain their original raw native proof requirements in follow ups
-KReserved = (
-    "p03-blind-boss.fusion",
-    "p03-blind-boss.solidworks",
-    "p04-cut-termination",
-    "p04-through-all-body-selection",
-)
+# the through all assessment needs accepted process evidence before it can claim a grid
+KGridScope = "p04-through-all-body-selection"
 
 
 # actual content addressed session files exercise the runner input pin boundary
@@ -117,13 +112,13 @@ def CheckGap(TmpPath: FilePath, Status: str) -> None:
     assert (TmpPath / Descriptor["path"]).read_bytes() == Payload
 
 
-# excluded native profiles and alleged native grids must never fall through the generic json evidence path
+# untrusted reports cannot substitute claims for an authenticated native grid
 @MarkValue.parametrize(
     "CaseName",
-    (*KReserved, "native_grid", "continued_from_receipt", "grid_from_receipt"),
+    ("corroborated-grid", "native_grid", "continued_from_receipt", "grid_from_receipt"),
 )
 def CheckReserved(TmpPath: FilePath, CaseName: str) -> None:
-    Scope = CaseName if CaseName in KReserved else "authored-generic-gap"
+    Scope = KGridScope if CaseName == "corroborated-grid" else "authored-generic-gap"
     Report = GapReport(Scope, "corroborated")
     if CaseName in ("native_grid", "continued_from_receipt"):
         Report[CaseName] = {"fixture": "must not substitute for native proof"}
@@ -133,16 +128,13 @@ def CheckReserved(TmpPath: FilePath, CaseName: str) -> None:
     WriteSession(TmpPath, "inference.paired-gap", Scope, {"plan": Descriptor}, Extra)
     Process = InvokeWorker(TmpPath)
     assert Process.returncode == 1 and "inference refused:" in Process.stderr
-    assert (
-        "preserved format implementation" in Process.stderr
-        or "assessment mode" in Process.stderr
-    )
+    assert "authenticated" in Process.stderr or "assessment mode" in Process.stderr
     assert not (TmpPath / "result.json").exists()
     assert (TmpPath / Descriptor["path"]).read_bytes() == Payload
 
 
-# scheduling rejects excluded proof profiles before publishing generic work that could bypass their native gates
-@MarkValue.parametrize("Scope", (*KReserved, "authored-generic-fields"))
+# scheduling must pin the dependent rescan to the field search it uses
+@MarkValue.parametrize("Scope", ("authored-generic-fields", "p03-blind-boss.fusion"))
 def CheckSchedule(TmpPath: FilePath, Scope: str) -> None:
     Request: dict[str, object] = {
         "inference_version": 1,
@@ -177,23 +169,16 @@ def CheckSchedule(TmpPath: FilePath, Scope: str) -> None:
         check=False,
         timeout=120,
     )
-    if Scope in KReserved:
-        assert (
-            Process.returncode == 1
-            and "preserved format implementation" in Process.stderr
-        )
-        assert not Process.stdout
-    else:
-        assert Process.returncode == 0, Process.stderr
-        JobRows = ParseJson(Process.stdout)["jobs"]
-        assert [JobValue["kind"] for JobValue in JobRows] == [
-            "inference.fields",
-            "inference.rescan",
-        ]
-        assert JobRows[1]["depends_on"] == [JobRows[0]["id"]]
-        assert all(
-            JobValue["tool_version"] == "main-sdk-boundary@1" for JobValue in JobRows
-        )
+    assert Process.returncode == 0, Process.stderr
+    JobRows = ParseJson(Process.stdout)["jobs"]
+    assert [JobValue["kind"] for JobValue in JobRows] == [
+        "inference.fields",
+        "inference.rescan",
+    ]
+    assert JobRows[1]["depends_on"] == [JobRows[0]["id"]]
+    assert all(
+        JobValue["tool_version"] == "main-sdk-boundary@1" for JobValue in JobRows
+    )
     assert RequestFile.read_text(encoding="utf-8") == Before
 
 

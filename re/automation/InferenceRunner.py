@@ -29,12 +29,11 @@ GAP_KIND = "inference.paired-gap"
 RESCAN_KIND = "inference.rescan"
 FORMATS = {"fusion.f3d", "solidworks.sldprt"}
 ARCHIVE_LIMIT = 64 * 1024 * 1024
-RESERVED_SCOPES = frozenset({"p03-blind-boss.fusion", "p03-blind-boss.solidworks", "p04-cut-termination", "p04-through-all-body-selection"})
 
 
 def evaluate_gap(scope, report, report_sha256):
-    if scope in RESERVED_SCOPES or "native_grid" in report or "continued_from_receipt" in report:
-        raise ValueError("reserved native proof profiles require the preserved format implementation")
+    if {"native_grid", "continued_from_receipt", "grid_from_receipt"} & report.keys():
+        raise ValueError("native grid claims require an authenticated receipt")
     sources = report["affected_archives"]
     status = report["status"]
     if (
@@ -76,6 +75,7 @@ def evaluate_gap(scope, report, report_sha256):
 
 def evaluate(plan, streams, plan_sha256):
     from InferenceSearch import search_fields
+
     groups = {split: [] for split in SPLITS}
     for observation in observations(plan):
         sample = {
@@ -120,14 +120,14 @@ def scan_archive(scope, assessment, content, source_format):
         if not isinstance(sources, dict) or sources.get(source_hash) != source_format:
             raise ValueError("rescan source format differs from its paired assessment")
     sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
-    from convert.api.ApiOpen import OpenDocument
+    from convert import open_document
 
-    document = OpenDocument(
+    document = open_document(
         content,
-        SourceFormat=source_format,
-        StrictMode=source_format == "solidworks.sldprt",
-        IncludeBrep=False,
-        IncludeTess=False,
+        source_format=source_format,
+        strict=source_format == "solidworks.sldprt",
+        include_brep=False,
+        include_tessellation=False,
     )
     neutral = document.to_json(indent=None)
     evidence = reader_evidence(json.loads(neutral))
@@ -151,8 +151,6 @@ def run(session):
     inputs = packet["inputs"]
     options = job["options"]
     scope = label(options["scope"])
-    if scope in RESERVED_SCOPES:
-        raise ValueError("reserved native proof profiles require the preserved format implementation")
     outcome = "completed"
     if type(packet["session_version"]) is not int or packet["session_version"] != 1:
         raise ValueError("unsupported inference session version")
@@ -160,10 +158,27 @@ def run(session):
         records = evaluate(*read_plan(session, inputs, scope))
         reason = "recorded the frozen discovery hypotheses and distinguishing evidence"
     elif job["kind"] == GAP_KIND:
-        if set(options) != {"scope"} or set(inputs) != {"plan"}:
+        from InferenceGrid.Evidence import KScopeGap, ObserveGrid
+
+        attached = scope == KScopeGap and set(options) == {"scope", "grid_from_receipt"}
+        if not attached and (set(options) != {"scope"} or set(inputs) != {"plan"}):
             raise ValueError("paired gap inputs do not match the assessment mode")
         report = read_json_input(session, inputs["plan"])
+        if scope == KScopeGap and (
+            report.get("status") != "needs-distinguishing-evidence"
+            or "native_grid" in report
+        ):
+            raise ValueError(
+                "the scope hypothesis requires authenticated grid evidence"
+            )
         outcome, reason, records = evaluate_gap(scope, report, inputs["plan"]["sha256"])
+        if attached:
+            records["assessment"] = {
+                **report,
+                "native_grid": ObserveGrid(session, packet, report),
+                "continued_from_receipt": checksum(options["grid_from_receipt"]),
+            }
+            reason = "verified Fusion scope observations and still needs saved target policy evidence"
     elif (
         job["kind"] == RESCAN_KIND
         and set(options) == {"scope", "source_format", "source_sha256"}
@@ -212,7 +227,12 @@ def run(session):
         {
             "outcome": outcome,
             "reason": reason,
-            "records": {**records, "semantic_qualification": "unverified", "native_acceptance": "not_established", "portable_complete": False},
+            "records": {
+                **records,
+                "semantic_qualification": "unverified",
+                "native_acceptance": "not_established",
+                "portable_complete": False,
+            },
         },
     )
 
