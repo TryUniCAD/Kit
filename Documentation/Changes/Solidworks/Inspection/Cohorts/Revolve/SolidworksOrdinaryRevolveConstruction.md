@@ -19,4 +19,4 @@ reopen. Both controls passed across eight distinct processes and 111 numeric
 checks. [Edited-save diagnostic](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveEditedPresentation03.json)
 and [fresh-reopen result](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveEditedReopen04.json).
 
-Two independently authored held-out inputs remain sealed. The user-facing adapter remains read-only. [Preregistered held-out method](../../../../../../re/solidworks/records/OrdinaryRevolveHeldoutProtocol2026.md) and [native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolveSourceLock.json).
+Two independently authored held-outs passed the native tree, geometry, profile and driving-edit comparisons with the same generator. Both controls passed. The user-facing adapter remains read-only. [Preregistered method](../../../../../../re/solidworks/records/OrdinaryRevolveHeldoutProtocol2026.md) and [held-out measurement](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveHeldout06.json).

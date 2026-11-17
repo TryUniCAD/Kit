@@ -1,0 +1,104 @@
+{
+  "schema": "kit.sw2026.ordinary-revolve-comparison.v1",
+  "split": "heldout",
+  "predictions_sha256": "6af346f6f26f822ccafc9d959b86b437879534fbcb95c43377f9d377580cd3dd",
+  "source_lock_sha256": "bf4a857b222a9ea61d5d74007fbde4090d95d1563aa8025de3b01454e1839b2f",
+  "inspection_sha256": "9e0acebebc15b461ed3b393be5389679e4e44a64b063741936e07dadcf85a09f",
+  "distinct_processes": 6,
+  "controls_healthy": true,
+  "cases": [
+    {
+      "name": "RevolveHeldoutFirst",
+      "candidate_sha256": "c89fbc3d053848351f4ed57113ddad04ef7bd12aef748ef186c86d44d57e6676",
+      "checks": {
+        "initial": {
+          "native_open_clean": true,
+          "one_body_available_on_open": true,
+          "native_tree_available_on_open": true,
+          "no_initial_rebuild_diagnostics": true
+        },
+        "rebuilt": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited_reopen": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edit_and_save": {
+          "edit_passed": true,
+          "native_save_clean": true,
+          "native_saved_reopen_clean": true,
+          "display_preference_restored": true
+        }
+      },
+      "passed": true,
+      "reference_sha256": "17147bc0f14a8e3567aa18fed8881928585257b51a5e357af014c9eac64e11a5",
+      "reference_phase_sha256": "c28d435fb4a0983b54e9fd43452db3a9c363edb4ca308163d6dc56652a8b8e30"
+    },
+    {
+      "name": "RevolveHeldoutSecond",
+      "candidate_sha256": "8bef34313ddf037eb08fb9962e7a0cd92fbcf8bdc202e3151594886998c1157f",
+      "checks": {
+        "initial": {
+          "native_open_clean": true,
+          "one_body_available_on_open": true,
+          "native_tree_available_on_open": true,
+          "no_initial_rebuild_diagnostics": true
+        },
+        "rebuilt": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited_reopen": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edit_and_save": {
+          "edit_passed": true,
+          "native_save_clean": true,
+          "native_saved_reopen_clean": true,
+          "display_preference_restored": true
+        }
+      },
+      "passed": true,
+      "reference_sha256": "fe4a27905de2a9b9e0767300d606c1609905a5bef007f05842b7489a9eef0bf5",
+      "reference_phase_sha256": "aa98dea394ba57dd7fac56e78b182c29e233770b694885aadb699564b744647a"
+    }
+  ],
+  "passed": true,
+  "heldout_acceptance": true,
+  "accepted_production_parts": 0
+}

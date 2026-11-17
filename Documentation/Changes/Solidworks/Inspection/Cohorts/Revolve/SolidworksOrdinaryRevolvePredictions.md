@@ -26,3 +26,12 @@ dimensions and clean edited reopens. The test method was then frozen before
 revealing the two held-outs. Production writing remains unavailable.
 [Disclosed comparison](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveCanonicalComparison05.json)
 and [held-out freeze](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolvePredictionFreeze01.json).
+
+Two held-out parts subsequently matched their independently authored feature
+trees, frames, driving dimensions and signed geometry. Both driving-angle edits
+saved and reopened cleanly between two healthy controls across six processes.
+The selected-axis verification was corrected to use the model-space frame
+before revealing either native reference. The generated writer revision and
+both neutral requests remained fixed.
+[Prediction record](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolveHeldoutPredictions01.json)
+and [held-out comparison](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveHeldout06.json).

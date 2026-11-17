@@ -178,7 +178,7 @@ All 75 numeric checks and both controls passed. The generated files use the sket
 for axis-reference creation time. The [edited-save and fresh-reopen result](measurements/2026/GeneratedRevolveEditedReopen04.json)
 adds 111 numeric checks across eight distinct SOLIDWORKS processes. With the native empty-material caption,
 all three candidates preserved their edited angle, signed geometry and exact 20-node tree on fresh reopen.
-Both controls passed. The revolve held-outs remain sealed and the production coverage counts are unchanged.
+Both controls passed. This cohort used disclosed designs and the production totals are unchanged.
 
 The [paired revolve comparison](measurements/2026/GeneratedRevolveCanonicalComparison05.json)
 uses canonical English folder roles in three new generated files. Every candidate exposed
@@ -186,6 +186,14 @@ one body on open. All three matched their independently authored 19-node trees, 
 model-space geometry and sketch frame, including clean fresh reopen of each edited derivative.
 Both controls passed. The [prediction freeze](v2026/heldout/OrdinaryRevolvePredictionFreeze01.json)
 pins the generator, fixtures, oracle and both comparison tools before held-out disclosure.
+
+Both [ordinary boss revolve held-outs](measurements/2026/GeneratedRevolveHeldout06.json)
+passed locked native comparisons for their tree, signed geometry, sketch frame and driving-angle
+edits. The two saved derivatives reopened cleanly between healthy controls, across six distinct
+processes. The [prediction record](v2026/heldout/OrdinaryRevolveHeldoutPredictions01.json)
+retains the original freeze and documents the model-space verification correction before revealing
+the reference results. This qualifies the research profile for a single ordinary boss on a
+principal plane. The public writer and production corpus totals are unchanged.
 
 The [drawing Definition receipt](measurements/2026/DrawingDefinitionCheck01.json)
 records six byte-exact archive comparisons and 78 native semantic observations for three disclosed
