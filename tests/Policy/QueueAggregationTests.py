@@ -39,7 +39,7 @@ def TestQueueGate(CheckName: str, Verdict: str, CaseMode: str) -> None:
     with Tempfile.TemporaryDirectory() as TempPath:
         ResultInfo = Subprocess.run(
             ["node", str(ScriptPath), CaseMode, Verdict, CheckName],
-            cwd=RootPath,
+            cwd=TempPath,
             env={**SystemEnv.environ, "RUNNER_TEMP": TempPath},
             capture_output=True,
             text=True,

@@ -1,5 +1,4 @@
 const Fs = require("node:fs");
-const Path = require("node:path");
 const { CiWorkflows } = require("./CiAllowlist.cjs");
 
 async function ReadReports(Github, Context, Refs, Workflows) {
@@ -227,10 +226,10 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
       base: Pull.base.sha,
       head: Pull.head.sha,
     });
-    const Directory = Path.join(process.env.RUNNER_TEMP, "PrCiEvidence");
+    const Directory = "PrCiEvidence";
     Fs.mkdirSync(Directory, { recursive: true });
     Fs.writeFileSync(
-      Path.join(Directory, "Evidence.json"),
+      "PrCiEvidence/Evidence.json",
       JSON.stringify(
         {
           format: "pr-head-tree-v1",

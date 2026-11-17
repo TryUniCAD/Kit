@@ -103,3 +103,14 @@ aggregator retains every job in its owning phase. Process-boundary aggregation
 coverage is updated for deferred PR checks and mandatory queue jobs.
 Local tests were not run. Remote PR validation and queue acceptance are pending.
 The first rollout candidate runs the previous job set for trusted-base compatibility.
+
+## Evidence output repair
+
+The first queue candidate `4b1be98f98db35de8ac7a67d0ba43d307b42d60a` reported
+two `js/path-injection` findings in the aggregate's evidence output paths.
+The reporter now writes the constant checkout-relative path
+`PrCiEvidence/Evidence.json`. Its upload step reads that same path.
+The process-boundary coverage runs in a temporary working directory and checks
+that an unrelated `RUNNER_TEMP` cannot redirect evidence output.
+
+See the [failed queue analysis](https://github.com/TryUniCAD/Kit/actions/runs/44029732190/job/133858489667).

@@ -39,13 +39,17 @@ def CheckReportFlow(CaseMode: str, CheckName: str) -> None:
     with Tempfile.TemporaryDirectory() as TempPath:
         ResultInfo = Subprocess.run(
             ["node", str(ScriptPath), CaseMode, "failure", CheckName],
-            cwd=RootPath,
-            env={**SystemEnv.environ, "RUNNER_TEMP": TempPath},
+            cwd=TempPath,
+            env={
+                **SystemEnv.environ,
+                "RUNNER_TEMP": str(FilePath(TempPath) / "OtherTemp"),
+            },
             capture_output=True,
             text=True,
             check=False,
             timeout=20,
         )
+        assert not (FilePath(TempPath) / "OtherTemp").exists()
         EvidencePath = FilePath(TempPath) / "PrCiEvidence/Evidence.json"
         assert EvidencePath.exists() == (
             ExpectedPass and not CaseMode.startswith("queue")

@@ -35,7 +35,7 @@ def TestReviewSkip(Verdict: str, CaseMode: str) -> None:
     with Tempfile.TemporaryDirectory() as TempPath:
         ResultInfo = Subprocess.run(
             ["node", str(ScriptPath), CaseMode, Verdict],
-            cwd=KRootPath,
+            cwd=TempPath,
             env={**SystemEnv.environ, "RUNNER_TEMP": TempPath},
             capture_output=True,
             text=True,
