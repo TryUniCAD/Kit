@@ -1,0 +1,83 @@
+{
+  "schema": "kit.sw2026.hopper-analysis-reuse.v1",
+  "scope": "Static local analysis of one markup class constructor. Evidence hashes only; executable, database and decompiled code stay outside the repository.",
+  "analysis_revision": "d5019da136433cf3b07dd8c53ee4a708950ad353",
+  "module": {
+    "name": "sldmodu.dll",
+    "build": "34.5.2.0604",
+    "architecture": "x86_64",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "hopper": {
+    "version": "6.6.2",
+    "initial_analysis_completed": true,
+    "observed_analysis_elapsed_seconds": 1275,
+    "saved_database": {
+      "bytes": 204758838,
+      "sha256": "7a858ad71991a89b8f2a54c934704507b2b7b1a09499d278c11e543f98c8bf63"
+    },
+    "saved_database_outside_checkout": true,
+    "saved_receipt": {
+      "bytes": 470,
+      "sha256": "e99ab0fe3a997d307b54eeb76be9698f21096a2a8ca7840ab657975db422078e"
+    },
+    "native_reopen": true,
+    "unique_window_observed": true,
+    "native_api_selected_by_exact_database_path": true,
+    "older_documents_preserved": true
+  },
+  "rea": {
+    "original_open_reply": {
+      "bytes": 823,
+      "sha256": "487e45839ac2f97c88aebb0ac953d226f01ab8bcedb5c7fe336980f8c25e8b29"
+    },
+    "startup_timeout_reply": {
+      "bytes": 3794,
+      "sha256": "a4a573d77f12430e953f4e92f39b5cfdc39d5d66ca5efbd12607419a05ecb1d0"
+    },
+    "startup_window_seconds": 900,
+    "timed_out_waiting_for_initial_bridge_not_procedure": true,
+    "close_reply": {
+      "bytes": 330,
+      "sha256": "89e646b13759820f624fd728ade2076810155278dceda3d990b6798e738771c3"
+    },
+    "close_acknowledged": true,
+    "final_open": false,
+    "final_cleanup_pending": false,
+    "final_status_reply": {
+      "bytes": 159845,
+      "sha256": "f797c75477dff0da23da665d315c1b11ff996abd50a318dcfe51b320ab2e2fe7"
+    },
+    "saved_database_rejection_reply": {
+      "bytes": 4458,
+      "sha256": "6be45755f8ef6c13061e5926969a396bef0316fe9ff43e733d603af4363544ba"
+    },
+    "saved_database_rejection": {
+      "code": "target_kind_unsupported",
+      "reason": "This Hopper macOS launcher cannot start REA's analysis bridge when opening a saved Hopper database. Open an executable target instead; saved-database analysis is unavailable until Hopper exposes a database launch route that runs the bridge script."
+    },
+    "native_decompilation_returned_by_rea": false
+  },
+  "constructor": {
+    "entry": "0x4beae190",
+    "basic_blocks": 1,
+    "elapsed_seconds": 0.006262063980102539,
+    "original_code_sha256": "b5bbdcd3a36eca32e31887c393a6760493ed7c1cb570da995df57c01ce298265",
+    "native_result": {
+      "bytes": 511,
+      "sha256": "dd80a4e86887ced6063f350ac5c631ffd2535527f3dffc6c7e7e7dcd94f44272"
+    },
+    "pseudocode_bytes": 156,
+    "pseudocode_sha256": "c6456a50a18dce209a2e3018d84d8f50a7fabf599157e3589ed1011102437139",
+    "facts": [
+      "calls moFolder_c base constructor",
+      "sets primary runtime class table at member offset 0",
+      "sets secondary runtime class table at member offset 0x48",
+      "initializes runtime scalar at member offset 0x360 to 1"
+    ],
+    "facts_checked_against_original_instructions": true
+  },
+  "writer_changed": false,
+  "vendor_listings_published": false,
+  "oracle_process_touched": false
+}

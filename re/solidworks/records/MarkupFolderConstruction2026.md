@@ -72,7 +72,7 @@ selected seven-character vocabulary and format locations/hashes are recorded.
 No resource payload is redistributed. Runtime language fallback is not observed,
 so this is not an English-default rule for every locale.
 
-## Observed tree consequence and pending writer
+## Observed tree consequence and writer verification
 
 The existing controlled recursive-tree receipt includes an extra top-level
 `NotesAreaFtrFolder` node in generated parts, plus a distinct native
@@ -84,9 +84,16 @@ The concrete class distinction is confirmed. The exact native insertion caller
 that produces the missing markup node was not traced here. Its observed later
 tree position is not a general insertion-order formula.
 
-The next shared-model change must admit the markup class and keep notes-area
-ownership separate, with counts and IDs recomputed from the graph. The
-[new independent source protocol](../../../Documentation/Changes/Solidworks/Inspection/Cohorts/SolidworksTreePresentationSourceLock.md)
-precedes that writer change. Its detailed observations remain sealed until the
-new writer is frozen and predictions pass remotely. This record alone adds no
-writer implementation, native acceptance or production coverage.
+The shared-model change admits the markup class and keeps notes-area ownership
+separate, with counts and IDs recomputed from the graph. The
+[independent source lock](../v2026/heldout/TreeSourceLock.json) precedes that
+writer change. Both later [paired native measurements](../measurements/2026/TreeParityInspection01.json)
+match the reference's 25-node tree through saves, driving edits and fresh
+reopening. This is a bounded English part result, with no production coverage.
+
+The [native Hopper query](../measurements/2026/MarkupHopperAnalysis01.json)
+corroborates the base-constructor call and the three runtime assignments in the
+original 62-byte constructor. Its saved analysis and decompiled result remain
+outside the checkout. REA identified the original PE and reported the bridge
+startup and saved-target limits; Hopper's native API supplied the successful
+decompilation after reopening the completed database.
