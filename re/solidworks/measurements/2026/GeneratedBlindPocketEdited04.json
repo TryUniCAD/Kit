@@ -1,0 +1,185 @@
+{
+  "schema": "kit.sw2026.generated-blind-pocket-edit-comparison.v1",
+  "scope": "Generated discovery part with a rectangular boss and ordinary all-bodies circular blind pocket.",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "generator_revision": "e25ef98ed14de27e894a82da8b5a4f923d5897c7",
+  "generator_tree": "8574c172c22bcf67e4660ca3f5cccf2af914326a",
+  "observer_revision": "120c90dae29f20c536880d629ef3d9a4741e9867",
+  "observer_tool_sha256": {
+    "AuthorBlindCutSources.py": "cf401ffa7d1029fcdc4ed1f684352b37de3f304cb1552cba077e57660fe9cd87",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectBlindPocketEdit.py": "1df29b0bd339dd341d67a27a9e3072af7b0d3076e53fd45f59312a4e0158430b",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "canonical_request_sha256": "ad59cad86f7345e1a1cdb7aba173a60c6206f6b74b60881a841ba2fa0ccbc6c5",
+  "changed_presentation_member": "presentation.folder_names.moMaterialFolder_c",
+  "original_observer_attempt_sha256": "e3bc31e276d31f7e0e780fe2d411bb469490fb38e185243b16ca0d48f7aed736",
+  "cases": [
+    {
+      "case": "original_caption",
+      "job_sha256": "dfd8178434b17f77eeb82d242dfd9ebffca1d3a282585b4f6cc2ddececd32a11",
+      "candidate_sha256": "340e52b7ca4acca96b977bb5f514eb361323a560a69e44c067801c91b4253b12",
+      "transport_sha256": "c80de916da8a890ee2a15ed1fd2fa4360ae5b145f03e27a5ca23d764b2d0bcfc",
+      "native_inspection_sha256": "7ea2f84fae8d166d32dd27043388b9096fe0c7fe10ea921c67001b0a700e0345",
+      "distinct_processes": 4,
+      "controls_healthy": true,
+      "dimension_edit": {
+        "name": "D1@BlindPocket@WorkingPocket.Part",
+        "before_m": 0.00483,
+        "after_m": 0.00831,
+        "setter_status": 0
+      },
+      "derivative_sha256": "bf1cce1709e68d45220bbebe0010ba31d21a2c1fc028750e30e09fe0878f28c2",
+      "baseline": {
+        "tree_nodes": 28,
+        "body_count": 1,
+        "cut_depth_m": 0.00483,
+        "geometry": {
+          "volume": 3.930540158687887e-05,
+          "area": 0.008483809302065872,
+          "com": [
+            -0.002795103893403539,
+            -0.0023222756847416787,
+            0.007936210541516118
+          ],
+          "mass": 3.930540158687887e-05
+        },
+        "coordinates_and_measures_match_at_6_digits": true,
+        "material_caption": "authored material"
+      },
+      "edited": {
+        "tree_nodes": 28,
+        "body_count": 1,
+        "cut_depth_m": 0.00831,
+        "geometry": {
+          "volume": 3.8856195972456194e-05,
+          "area": 0.008623967060076065,
+          "com": [
+            -0.0029395562949121735,
+            -0.002264729606091897,
+            0.007952004919487844
+          ],
+          "mass": 3.8856195972456194e-05
+        },
+        "coordinates_and_measures_match_at_6_digits": true,
+        "material_caption": "authored material"
+      },
+      "fresh_reopened": {
+        "tree_nodes": 28,
+        "body_count": 1,
+        "cut_depth_m": 0.00831,
+        "geometry": {
+          "volume": 3.8856195972456194e-05,
+          "area": 0.008623967060076065,
+          "com": [
+            -0.0029395562949121735,
+            -0.002264729606091897,
+            0.007952004919487844
+          ],
+          "mass": 3.8856195972456194e-05
+        },
+        "coordinates_and_measures_match_at_6_digits": true,
+        "material_caption": "Material <not specified>"
+      },
+      "tree_equal": false,
+      "tree_row_differences": [
+        [
+          19,
+          {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "parent": null,
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        ]
+      ],
+      "passed": false
+    },
+    {
+      "case": "canonical_caption",
+      "job_sha256": "6e42d661240c9b121e7f8c17882a56b27ac28abdf75414799641fdc86489c375",
+      "candidate_sha256": "9a051cd535ba71f7804c7822fdfb53a9b9dd2682b1d4d3242cc3a5351278e04f",
+      "transport_sha256": "0703e62843ed429fbaf639c5f5a3899b4060d3edbda09314ee31200d70e432de",
+      "native_inspection_sha256": "6a5ab410e3c38dff537aadbf4594ce8cc63470822c8d76b61aff4c41422224d3",
+      "distinct_processes": 4,
+      "controls_healthy": true,
+      "dimension_edit": {
+        "name": "D1@BlindPocket@WorkingPocket.Part",
+        "before_m": 0.00483,
+        "after_m": 0.00831,
+        "setter_status": 0
+      },
+      "derivative_sha256": "84ea5523e9f570719b3eccb8b0a4c377c6a0778371871f59e4bb13893e06acbe",
+      "baseline": {
+        "tree_nodes": 28,
+        "body_count": 1,
+        "cut_depth_m": 0.00483,
+        "geometry": {
+          "volume": 3.930540158687887e-05,
+          "area": 0.008483809302065872,
+          "com": [
+            -0.002795103893403539,
+            -0.0023222756847416787,
+            0.007936210541516118
+          ],
+          "mass": 3.930540158687887e-05
+        },
+        "coordinates_and_measures_match_at_6_digits": true,
+        "material_caption": "Material <not specified>"
+      },
+      "edited": {
+        "tree_nodes": 28,
+        "body_count": 1,
+        "cut_depth_m": 0.00831,
+        "geometry": {
+          "volume": 3.8856195972456194e-05,
+          "area": 0.008623967060076065,
+          "com": [
+            -0.0029395562949121735,
+            -0.002264729606091897,
+            0.007952004919487844
+          ],
+          "mass": 3.8856195972456194e-05
+        },
+        "coordinates_and_measures_match_at_6_digits": true,
+        "material_caption": "Material <not specified>"
+      },
+      "fresh_reopened": {
+        "tree_nodes": 28,
+        "body_count": 1,
+        "cut_depth_m": 0.00831,
+        "geometry": {
+          "volume": 3.8856195972456194e-05,
+          "area": 0.008623967060076065,
+          "com": [
+            -0.0029395562949121735,
+            -0.002264729606091897,
+            0.007952004919487844
+          ],
+          "mass": 3.8856195972456194e-05
+        },
+        "coordinates_and_measures_match_at_6_digits": true,
+        "material_caption": "Material <not specified>"
+      },
+      "tree_equal": true,
+      "tree_row_differences": [],
+      "passed": true
+    }
+  ],
+  "native_edit_save_reopen_verified": true,
+  "heldout_acceptance": false,
+  "accepted_production_parts": 0
+}

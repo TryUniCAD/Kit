@@ -247,8 +247,11 @@ The [blind-pocket discovery](measurements/2026/GeneratedBlindPocketNative02.json
 passed native open and rebuild for the generated all-bodies cut with one
 solid, its driving depth and radius, and analytic geometry at six significant
 figures. Its empty feature-scope sibling reported warning 32 and cut error 71.
-Both controls passed across four processes. Driving edits and held-out
-qualification remain open.
+Both controls passed across four processes. The subsequent
+[native edit comparison](measurements/2026/GeneratedBlindPocketEdited04.json)
+verified an 8.31 mm driving depth after fresh reopen with the canonical
+material caption, all 28 tree rows and correct geometry. Independent
+held-out qualification remains open.
 
 ## Last audit of the removed writer
 

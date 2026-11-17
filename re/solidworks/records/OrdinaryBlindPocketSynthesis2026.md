@@ -1,6 +1,6 @@
 # Ordinary SOLIDWORKS 2026 blind-pocket discovery
 
-Confidence is **partial**. This experiment constructs two sketches and two features from new dimensions and explicit body-scope choices. The all-bodies variant opened and rebuilt cleanly in SOLIDWORKS 2026. Driving edits and fresh saved reopens remain unmeasured.
+Confidence is **partial**. This experiment constructs two sketches and two features from new dimensions and explicit body-scope choices. The canonical all-bodies variant passed native open, rebuild, driving edit, save and fresh reopen in SOLIDWORKS 2026. Independent held-out acceptance remains open.
 
 ## Inputs and ownership
 
@@ -55,6 +55,21 @@ uncut boss at six significant figures. The variant difference was confined
 to the requested scope word in the resolved feature stream.
 [Empty feature scope gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/FeatureScope/EmptyFeatureScopeLeavesBossUncut.md)
 
-The result qualifies open and rebuild for the ordinary all-bodies discovery
-input. Explicit selected-body construction, driving edits and independent
-native save and reopen comparisons remain open. The held-out cases stay sealed.
+## Driving edit and fresh reopen
+
+The first edit observer stopped at the source profile's hard-coded feature
+names. The corrected observer checked the generated names and required all
+four features. It edited `D1@BlindPocket` from 4.83 mm to 8.31 mm with status
+0. The original material caption changed on fresh reopen. The other 27 tree
+rows and the edited geometry matched.
+
+The frozen generator first reproduced the original candidate hash. A
+second request used the canonical unspecified-material caption already
+verified in the [revolve edit comparison](../measurements/2026/GeneratedRevolveEditedReopen04.json).
+Its part preserved all 28 tree rows through the edit and fresh reopen. The
+solid measurements matched the analytical geometry to six significant
+figures. All opens and the edit save had zero errors and warnings. Both
+controls passed in each four-process batch. [Native edit comparison](../measurements/2026/GeneratedBlindPocketEdited04.json)
+
+Explicit selected-body construction and independent native comparison
+remain open. The held-out cases stay sealed.
