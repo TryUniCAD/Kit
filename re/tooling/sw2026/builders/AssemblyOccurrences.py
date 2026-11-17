@@ -6,6 +6,7 @@ from math import isfinite, sqrt
 
 from Core import Obj
 from builders.Assembly import _initial_component_configuration, bounding_box, ordinary_part_reference_stamps
+from builders.AssemblyTargetState import target_update_stamps
 from builders.ExternalFiles import referenced_configuration
 from builders.Metadata import integer
 from builders.Model import PersistentIds, feature
@@ -108,7 +109,7 @@ def assembly_occurrence_bounds(*, occurrences: Iterable[tuple[Obj, PlaneFrame]])
     return result
 
 
-def resolved_part_occurrence(
+def _resolved_occurrence(
     *,
     owner: Obj,
     owner_file: Obj,
@@ -118,8 +119,9 @@ def resolved_part_occurrence(
     child_file: Obj,
     name: str,
     placement: PlaneFrame,
-    minimum: Sequence[float],
-    maximum: Sequence[float],
+    kind: int,
+    local_bounds: dict,
+    stamps: dict,
     feature_ordinal: int,
     allocator: PersistentIds,
     date_code: int,
@@ -135,13 +137,11 @@ def resolved_part_occurrence(
     owner_definition = _shared_file(owner_file, kind=3)
     if owner_definition["h10"]["f08"] != owner["f18"]["f08"]:
         raise ValueError("the containing file must describe the generated assembly")
-    child_definition = _shared_file(child_file, kind=2)
-    stamps = ordinary_part_reference_stamps(child_model=child_model, child_header=child_header, assigned_transform=True)
-    selection = _configuration_pair(child_configuration, owner=child_model, kind="moPartConfiguration_c")
-    child_self = _shared_file(child_header["f38"], kind=2)
+    child_definition = _shared_file(child_file, kind=kind)
+    selection = _configuration_pair(child_configuration, owner=child_model, kind="moPartConfiguration_c" if kind == 2 else "moConfiguration_c")
+    child_self = _shared_file(child_header["f38"], kind=kind)
     if _file_identity(child_definition) != _file_identity(child_self):
         raise ValueError("the child directory record must describe the generated child file")
-    local_bounds = bounding_box(minimum=minimum, maximum=maximum)
     reference = feature(
         cls="moReference_c", name=name, owner=owner, allocator=allocator,
         date_code=date_code, parasolid_version=parasolid_version,
@@ -173,6 +173,24 @@ def resolved_part_occurrence(
         "f55c": 101,
     })
     return reference
+
+
+def resolved_part_occurrence(*, minimum: Sequence[float], maximum: Sequence[float], child_model: Obj, child_header: Obj, **values) -> Obj:
+    stamps = ordinary_part_reference_stamps(child_model=child_model, child_header=child_header, assigned_transform=True)
+    return _resolved_occurrence(child_model=child_model, child_header=child_header, kind=2,
+                                local_bounds=bounding_box(minimum=minimum, maximum=maximum), stamps=stamps, **values)
+
+
+def resolved_assembly_occurrence(*, child_model: Obj, child_header: Obj, **values) -> Obj:
+    if not isinstance(child_model, Obj) or child_model.cls != "moAssembly_c" or child_model["has_f1a18"] != 1:
+        raise ValueError("a subassembly occurrence requires its generated populated model and local bounds")
+    if not isinstance(child_header, Obj) or child_header.cls != "moHeader_c":
+        raise ValueError("a subassembly occurrence requires its generated model header")
+    geometry, transform = target_update_stamps(child_model)
+    stamps = {"f3e0": integer(child_header["f40"], "target update stamp"), "f3e8": integer(child_header["f48"], "target modification time"),
+              "f3f0": 102, "f3f4": geometry, "f3f8": transform}
+    return _resolved_occurrence(child_model=child_model, child_header=child_header, kind=3,
+                                local_bounds=dict(child_model["f1a18"]), stamps=stamps, **values)
 
 
 def occurrence_path(*, target: Obj) -> Obj:
@@ -240,7 +258,10 @@ def occurrence_configuration(
         "f40": context_file,
         "f48": 0,
     })
-    selected_options = configuration["fc50"]
+    child_kind = reference["f3b0"]["shared"]["f20"]
+    if child_kind not in (2, 3):
+        raise ValueError("occurrence configuration requires an ordinary external part or assembly")
+    selected_options = configuration["fc48" if child_kind == 3 else "fc50"]
     if not isinstance(selected_options, Obj) or selected_options.cls != "moConfig_c":
         raise ValueError("ordinary occurrence configuration requires the assembly insertion options")
     options = Obj("moConfig_c", dict(selected_options.f))

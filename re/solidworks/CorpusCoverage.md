@@ -352,6 +352,12 @@ and child-local bounds follow distinct measured owners. The
 qualifies both sealed author/reopen source sets in eight fresh processes.
 Generated nested conversion coverage awaits the recursive generator
 and its own measured acceptance.
+The [recursive composer](records/GeneratedNestedAssembly2026.md) now
+generates one part, one nested module and the root from the neutral
+definition graph. Its 28 stream comparisons and SDK history read
+pass. The four-definition repeated case also generates
+deterministically. Native nested measurements and held-out
+qualification remain open.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
