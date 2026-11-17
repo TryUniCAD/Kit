@@ -122,6 +122,14 @@ licensing process IDs. These are bounded English tree/pose research outputs,
 not completed FCStd conversions or complete format acceptance. The public
 adapter remains read-only and the requested production corpus count remains zero.
 
+The [six vendor-saved derivatives](measurements/2026/TreeSavedReadbackProcessesEfe1.json)
+also pass 54 archive comparisons, 108 semantic values and 102 exact pose
+values. The readback confirms the actual markup class and model-to-sketch
+transform in the saved files. These derivatives add no writer outputs. The
+[field direction record](records/ProfileTransformDirection2026.md) identifies
+an opposite-direction seed in the frozen research emitter that remains to be
+corrected and remeasured.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11

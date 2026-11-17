@@ -26,3 +26,10 @@ the independently recorded model-to-sketch transform, including its inverse
 relationship to the observed world-space frame. The fixture bytes are identical.
 The [native field record](../../../../../re/solidworks/records/ProfileTransformDirection2026.md)
 also identifies the opposite-direction seed in the unchanged frozen writer.
+
+The [corrected remote check](../../../../../re/solidworks/measurements/2026/TreeSavedReadbackProcessesEfe1.json)
+passes all 54 archive comparisons, 108 semantic values and 102 pose values.
+Every graph has zero unresolved references and one typed markup folder. All
+102 pose values and 102 of 108 semantic values are exactly equal; the remaining
+six semantic comparisons match to six significant figures. The native format
+job passes 205 cases and skips 158; the policy phase passes 171.

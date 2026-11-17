@@ -37,7 +37,9 @@ the model-to-sketch row basis is `Bᵀ` and translation is `−o Bᵀ`.
 The reader verifies that this formula equals the already measured
 model-to-sketch API values, then compares those independent values with
 the persisted matrix, translation and scale. No fixture bytes or neutral
-targets change because of the corrected direction.
+targets change because of the corrected direction. The
+[corrected remote readback](../measurements/2026/TreeSavedReadbackProcessesEfe1.json)
+passes all six derivatives and every persisted transform comparison.
 
 The frozen research generator's `Sketch.frame_transform` emits `(u,v,u×v)`
 and `o` directly into `pd_ff0`. That matches identity but has the opposite
