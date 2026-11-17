@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from math import isfinite
 
 from Core import Obj
+from builders.Assembly import PLANAR_MATE_CLASSES
 from builders.AssemblyOccurrences import mate_occurrence_component
 from builders.Definition import identity_transform
 from builders.Metadata import integer
@@ -139,8 +140,8 @@ def detached_planar_wrapper(*, endpoint: PlanarMateEndpoint, model_header: Obj, 
 
 
 def register_planar_wrapper_ids(*, mate: Obj) -> None:
-    if not isinstance(mate, Obj) or mate.cls != "moMateCoincident":
-        raise ValueError("reference allocation requires an ordinary coincident mate")
+    if not isinstance(mate, Obj) or mate.cls not in PLANAR_MATE_CLASSES.values():
+        raise ValueError("reference allocation requires a supported planar mate")
     group = mate.get("owner")
     if not isinstance(group, Obj) or group.cls != "moMateGroup_c":
         raise ValueError("reference allocation requires the registered mate group")
@@ -151,7 +152,7 @@ def register_planar_wrapper_ids(*, mate: Obj) -> None:
     counter = integer(assembly["fd48"], "assembly wrapper counter", high=0x7FFFFFFF)
     wrappers = tuple(row["o"] for row in mate["f410"])
     if len(wrappers) != 2 or wrappers[0] is wrappers[1]:
-        raise ValueError("a coincident mate requires two distinct resolved wrappers")
+        raise ValueError("a planar mate requires two distinct resolved wrappers")
     assignments = []
     used = set()
     for ordinal, wrapper in enumerate(wrappers):

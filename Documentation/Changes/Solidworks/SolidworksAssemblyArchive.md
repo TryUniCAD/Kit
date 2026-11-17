@@ -12,6 +12,8 @@ The [field and evidence finding](../../../re/solidworks/records/AssemblyArchive2
 
 [History component read context](../../Gotchas/Conversion/Solidworks/Archive/HistoryComponentReadContext.md) explains why the history pointer changes archive state during reading without adding a flag to the wire or mutating the writer context.
 
+[Assembly map flags](../../Gotchas/Conversion/Solidworks/Archive/Maps/AssemblyStringMapsDependOnArchiveFlag.md) records the pinned 2026 runtime bit that can suppress both embedded lightweight string maps.
+
 The fourth remote run passes the entire 14-stream process check, including resolved features after the component-history and live-section folder repairs. The folder schema includes its constructor-proven concept child list and an i32 normalization witness for a native byte flag. The same whole smoke job remains red for two unrelated signature-table checks that expected a removed licensed binary; the clean-main dependency repair is included in the next revision.
 
 This is a source-document research codec. It supplies no fresh assembly builder, no donor defaults, and no target-application acceptance claim. It rejects unsupported versions, unregistered classes, and identified unknown branches. Local checks were limited to static AST, formatting, and rationale validation. Queue acceptance and vendor load/rebuild/mate-edit measurements remain unproven.

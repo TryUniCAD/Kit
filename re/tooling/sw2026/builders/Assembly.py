@@ -11,6 +11,9 @@ from builders.Model import PersistentIds, base_configuration_fields, clear_model
 from builders.Sketch import PlaneFrame, origin_profile
 
 
+PLANAR_MATE_CLASSES = {"coincident": "moMateCoincident", "parallel": "moMateParallel"}
+
+
 def bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict:
     points = []
     for name, point in (("minimum", minimum), ("maximum", maximum)):
@@ -166,6 +169,6 @@ def store_assembly_mates(*, registry, resolved_map, mate_group: Obj, mates: Sequ
     group_items = mate_group["f60"]["list"]["items"]
     if group_items or mate_group["f4e8"] or mate_group["discarded_manager_records"]:
         raise ValueError("the resolved group must leave the separately serialized mate list empty")
-    if any(mate.cls != "moMateCoincident" or mate.get("owner") is not mate_group for mate in mates):
-        raise ValueError("the mate list requires supported coincident mates registered with its actual group")
+    if any(mate.cls not in PLANAR_MATE_CLASSES.values() or mate.get("owner") is not mate_group for mate in mates):
+        raise ValueError("the mate list requires supported planar mates registered with its actual group")
     return store_mate_list(mates, registry, FILE_VERSION, resolved_map=resolved_map)

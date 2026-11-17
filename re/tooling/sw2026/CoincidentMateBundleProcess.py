@@ -16,6 +16,7 @@ from AssemblyMates import load_mate_list, store_mate_list
 from Classes import registry
 from Core import DOCUMENT_VERSION_2026
 from Streams import load_rooted, store_rooted
+from builders.Assembly import PLANAR_MATE_CLASSES
 from builders.AssemblyDocument import CONFIG, MANAGER, MATES, MODEL_HEADER, RESOLVED, construct_assembly_bundle
 from builders.Metadata import boolean, fields
 from defs.ConfigPart import store_config_state
@@ -61,14 +62,14 @@ def check_mate(*, assembly_bytes, bundle, request, rules):
         (mate,), reader = load_mate_list(payload, rules, DOCUMENT_VERSION_2026, resolved_map=inherited)
     with rules.track_usage("store", MATES) as stored:
         require(store_mate_list((mate,), rules, DOCUMENT_VERSION_2026, resolved_map=inherited) == payload,
-                "the complete coincident mate did not re-encode exactly")
+                "the complete planar mate did not re-encode exactly")
     for usage in (loaded.snapshot(), stored.snapshot()):
         require(usage["completed"] and not usage["provisional_schemas"] and not usage["missing_schemas"],
                 "the mate list exercised an unqualified serializer")
     group, = (node for node in resolved.roots if node.cls == "moMateGroup_c")
     require(not group["f60"]["list"]["items"] and not group["f4e8"] and not group["discarded_manager_records"],
             "the mate must be serialized solely in the separate mate list")
-    require(mate.cls == "moMateCoincident" and mate["f18"]["f08"] == spec["name"]
+    require(mate.cls == PLANAR_MATE_CLASSES[spec["kind"]] and mate["f18"]["f08"] == spec["name"]
             and mate["f3b4"] == 1 and mate["f3b8"] == 0,
             "the complete mate lost its authored alignment or initial solver state")
     require(model["fd48"] == model["fd48#wire"] == 2 and configuration["f85c"] == mate["f08"]
@@ -114,24 +115,29 @@ def artifact(payload, streams):
     }
 
 
-def main():
-    request = fields(json.load(sys.stdin), "coincident mate bundle", ("bundle",), ("include_xml_metadata",))
+def generated_mate_report(raw, *, kind):
+    request = fields(raw, f"{kind} mate bundle", ("bundle",), ("include_xml_metadata",))
     metadata = boolean(request.get("include_xml_metadata", False), "assembly XML metadata")
-    require(len(request["bundle"].get("mates", ())) == 1, "the guarded process requires one authored mate")
+    mates = request["bundle"].get("mates", ())
+    require(len(mates) == 1 and isinstance(mates[0], dict) and mates[0].get("kind") == kind,
+            f"the guarded process requires one authored {kind} mate")
     tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
     rules = registry()
     AUDIT.BeginBuild()
     bundle = construct_assembly_bundle(registry=rules, request=request["bundle"], include_xml_metadata=metadata)
     assembly_bytes, child_bytes = (build_sldprt(item.streams) for item in (bundle.assembly, bundle.child))
-    result = {
-        "schema": "kit.sw2026.generated-coincident-mate-bundle.v1", "native_acceptance": False,
+    return {
+        "schema": f"kit.sw2026.generated-{kind}-mate-bundle.v1", "native_acceptance": False,
         "heldout_inputs_tested": 0, "writer_output_count": 2,
         "inspection": check_mate(assembly_bytes=assembly_bytes, bundle=bundle, request=request, rules=rules),
         "assembly": artifact(assembly_bytes, bundle.assembly.streams),
         "child": artifact(child_bytes, bundle.child.streams),
         "input_runtime_file_access_attempts": len(AUDIT.DeniedReads),
     }
-    print(json.dumps(result, sort_keys=True, allow_nan=False))
+
+
+def main():
+    print(json.dumps(generated_mate_report(json.load(sys.stdin), kind="coincident"), sort_keys=True, allow_nan=False))
 
 
 if __name__ == "__main__":

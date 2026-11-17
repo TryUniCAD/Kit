@@ -297,6 +297,10 @@ The [typed readback](measurements/2026/PlanarMateProjection01.json) matches the
 two ordered plane IDs and explicit alignment across six generated and native
 research inputs. The public assembly read still depends on the saved
 selection strings for these mates.
+The [parallel mate construction](measurements/2026/GeneratedParallelMateBundle01.json)
+round-trips six streams in a distinct generated parent and child with zero
+runtime input reads. The generated mate preserves two real Front Planes
+separated by 22.61 mm. Native trial and held-out qualification remain open.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

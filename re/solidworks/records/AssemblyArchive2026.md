@@ -49,6 +49,8 @@ Complete parsing and exact storage of the 14 exercised streams are **confirmed b
 
 The native store uses `f1940 == 1` whereas the read accepts nonzero. The codec preserves the read record; this is not evidence that a fresh builder may choose other flag values. The downstream-id branch under archive condition `0x80` is explicitly unmodelled rather than skipped.
 
+The lightweight map calls at `0x4b674812` and `0x4b674822` use the same import cell `0x4cd3e468`. It binds to `swccu.dll!su_CMapStringToString::Serialize` at `0x31a376d0` in the pinned 2026 build. The wrapper tests bit `0x10` of archive byte `+0x20`. A clear bit delegates to `CMapStringToString::Serialize`, while a set bit returns before transferring either map's fields. REA Hopper evidence `ev_51deb1fbc38a0aec350a6cd1fc16ced8ca2b7c1015262f5174086a518e16ac6f` identifies `swccu.dll` SHA-256 `d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c`. The two empty maps currently reproduce the measured ordinary configuration streams. The writer has yet to model the flag-setting contexts and nonempty map owners. [Archive flag gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Maps/AssemblyStringMapsDependOnArchiveFlag.md)
+
 Three member roles are independently bound by exported leaf accessors in the same binary:
 
 | Field   | Native role and evidence                                                                          | Constructor seed                  | Fresh generation obligation                                                                                                        |

@@ -8,7 +8,7 @@ from Streams import StreamDoc, store_rooted
 from builders.Assembly import initial_assembly_features, initial_assembly_model, initial_configuration, store_assembly_mates
 from builders.AssemblyMetadata import assembly_xml_streams
 from builders.AssemblyOccurrences import assembly_occurrence_bounds, occurrence_configuration, resolved_part_occurrence
-from builders.AssemblyPlanarMate import coincident_planar_mate
+from builders.AssemblyPlanarMate import aligned_planar_mate
 from builders.Definition import assembly_definition, definition_stream
 from builders.ExternalFiles import ordinary_self_reference, referenced_configuration
 from builders.Metadata import BIOGRAPHY_STREAM, FILE_VERSION, HISTORY_STREAM, biography, boolean, fields, header, history, revision_log, rooted_metadata_streams, semantic_stamp, sequence
@@ -171,7 +171,7 @@ def _construct_assembly(*, registry, request, child=None, occurrences=(), mate_r
         if mate_requests:
             mate_request, = mate_requests
             created_at = mate_request.get("created_at", provenance["modified_at"])
-            mate = coincident_planar_mate(
+            mate = aligned_planar_mate(
                 assembly=model, group=features[-1], occurrences=references, child=child, model_header=model_header,
                 configuration=configuration, allocator=ids, target=target, request=mate_request, created_at=created_at,
             )
@@ -211,7 +211,7 @@ def construct_assembly_bundle(*, registry, request, include_xml_metadata: bool =
         raise ValueError("this research bundle requires at least one resolved occurrence")
     mates = tuple(sequence(values.get("mates", ()), "assembly mates"))
     if len(mates) > 1 or any(not isinstance(mate, dict) for mate in mates):
-        raise ValueError("the discovery composer accepts a single coincident mate")
+        raise ValueError("the discovery composer accepts a single supported planar mate")
     child_request = fields(values["child"], "generated child", ("document", "provenance", "presentation", "target", "output"))
     child = construct_part(registry=registry, native_plane_roles=include_xml_metadata, **child_request)
     return AssemblyBundle(_construct_assembly(registry=registry, request=values["assembly"], child=child, occurrences=occurrences,
