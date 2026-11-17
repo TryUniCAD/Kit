@@ -427,6 +427,17 @@ def principal_planes(
     }
 
 
+def feature_filetime(created_at: int) -> dict[str, int]:
+    if type(created_at) is not int or not 0 <= created_at <= 0xFFFFFFFF:
+        raise ValueError("feature creation time must fit an unsigned Unix-seconds timestamp")
+    ticks = (created_at + 11644473600) * 10_000_000
+    low, high = ticks & 0xFFFFFFFF, ticks >> 32
+    return {
+        "f2a0": low - (1 << 32) if low & (1 << 31) else low,
+        "f2a4": high - (1 << 32) if high & (1 << 31) else high,
+    }
+
+
 def folder(
     *,
     cls: str,
@@ -449,21 +460,17 @@ def folder(
         raise TypeError("system folders require an archive-object owner")
     if cls == "moLiveSectionFolder_c" and owner.cls != "moAssembly_c":
         raise ArchiveError("fresh live section folders are classified only for ordinary assembly owners")
-    if type(created_at) is not int or not 0 <= created_at <= 0xFFFFFFFF:
-        raise ValueError("folder creation time must fit an unsigned Unix-seconds timestamp")
+    filetime = feature_filetime(created_at)
     if cls == "moEqnFolder_c" and (not isinstance(owner.f.get("f9d0"), Obj) or owner.f["f9d0"].cls != "moRelMgr_c"):
         raise ArchiveError("equation folders require the owner's native relation manager")
     result = feature(
         cls=cls, name=name, owner=owner, allocator=allocator, date_code=date_code,
         parasolid_version=parasolid_version,
     )
-    ticks = (created_at + 11644473600) * 10_000_000
-    low, high = ticks & 0xFFFFFFFF, ticks >> 32
     result.f.update({
         "f360": int(cls not in {"moCommentsFolder_c", "moSolidBodyFolder_c", "moSurfaceBodyFolder_c"}),
         "f370": 0,
-        "f2a0": low - (1 << 32) if low & (1 << 31) else low,
-        "f2a4": high - (1 << 32) if high & (1 << 31) else high,
+        **filetime,
     })
     if cls in {"moHistoryFolder_c", "moFavoriteFolder_c"}:
         result.f["f3c8"] = object_list()

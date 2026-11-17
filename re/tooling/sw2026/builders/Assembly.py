@@ -160,10 +160,12 @@ def initial_assembly_features(*, owner: Obj, allocator: PersistentIds, folder_na
     return (*(folders[kind] for kind in early_folders), cabinet, *(folders[kind] for kind in late_folders), *planes.values(), origin, group)
 
 
-def store_empty_mates(*, registry, resolved_map, mate_group: Obj) -> bytes:
+def store_assembly_mates(*, registry, resolved_map, mate_group: Obj, mates: Sequence[Obj] = ()) -> bytes:
     if not isinstance(mate_group, Obj) or mate_group.cls != "moMateGroup_c":
         raise ValueError("mate-list serialization requires its actual mate group")
     group_items = mate_group["f60"]["list"]["items"]
     if group_items or mate_group["f4e8"] or mate_group["discarded_manager_records"]:
-        raise ValueError("nonempty mate history needs a classified mate serializer")
-    return store_mate_list((), registry, FILE_VERSION, resolved_map=resolved_map)
+        raise ValueError("the resolved group must leave the separately serialized mate list empty")
+    if any(mate.cls != "moMateCoincident" or mate.get("owner") is not mate_group for mate in mates):
+        raise ValueError("the mate list requires supported coincident mates registered with its actual group")
+    return store_mate_list(mates, registry, FILE_VERSION, resolved_map=resolved_map)

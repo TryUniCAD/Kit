@@ -86,6 +86,14 @@ def semantic_stamp(value):
     return stamp(**value)
 
 
+def revision_log(*, object_id, name, entries):
+    stamps = [Obj("moStamp_c", entry) for entry in entries]
+    return Obj("moLogs_c", {
+        "n": len(stamps), "items": [{"o": entry} for entry in stamps],
+        "f48": object_id, "f50": text(name, "revision log name"),
+    })
+
+
 def header(*, next_id, user_names, company_names, revision_logs, created_at, modified_at, updated_at, model_present, component_count, update_stamp, body_stamp, license_flags, license_type):
     next_id = integer(next_id, "next persistent id", low=1, high=0x7FFFFFFF)
     users = tuple(text(s, "user name") for s in sequence(user_names, "user names"))
@@ -119,9 +127,7 @@ def header(*, next_id, user_names, company_names, revision_logs, created_at, mod
         for entry in entries:
             if entry["f0c"] >= len(users) or entry["f10"] >= len(companies):
                 raise ValueError("revision stamp index lies outside its header name table")
-        log_name = text(value.get("name", ""), "revision log name")
-        stamps = [Obj("moStamp_c", entry) for entry in entries]
-        logs.append(Obj("moLogs_c", {"n": len(stamps), "items": [{"o": s} for s in stamps], "f48": owner, "f50": log_name}))
+        logs.append(revision_log(object_id=owner, name=value.get("name", ""), entries=entries))
     if not logs:
         raise ValueError("fresh header construction requires an explicit revision log")
     if logs[0].f["items"][0]["o"].f["f18"] != created_at:

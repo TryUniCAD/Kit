@@ -25,10 +25,10 @@ def encode(records, inherited, rules):
     return bytes(archive.out), archive.count
 
 
-def inspect_wrapper(*, wrapper, owner, occurrence, endpoint):
+def inspect_wrapper(*, wrapper, owner, occurrence, endpoint, selection=(-12345, -12345, -12345)):
     require(wrapper.cls == "moPlaneRef_w", "resolved endpoint lost its concrete wrapper class")
-    require((wrapper["f74"], wrapper["f78"], wrapper["f7c"]) == (-12345, -12345, -12345),
-            "the pre-selection wrapper must retain its unassigned identity")
+    require((wrapper["f74"], wrapper["f78"], wrapper["f7c"]) == selection,
+            "the wrapper selection does not match the expected registration state")
     require(wrapper["f68"] == 1 and wrapper["f50"] == 0 and wrapper["f60"] is None,
             "resolved wrapper lost its valid fresh plane state")
     require(wrapper["f0c"] == endpoint.configuration_id and wrapper["f188"] == dict.fromkeys("xyz", 0.0),

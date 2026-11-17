@@ -5,12 +5,13 @@ from ntpath import normcase, normpath
 
 from Core import Obj
 from Streams import StreamDoc, store_rooted
-from builders.Assembly import initial_assembly_features, initial_assembly_model, initial_configuration, store_empty_mates
+from builders.Assembly import initial_assembly_features, initial_assembly_model, initial_configuration, store_assembly_mates
 from builders.AssemblyMetadata import assembly_xml_streams
 from builders.AssemblyOccurrences import assembly_occurrence_bounds, occurrence_configuration, resolved_part_occurrence
+from builders.AssemblyPlanarMate import coincident_planar_mate
 from builders.Definition import assembly_definition, definition_stream
 from builders.ExternalFiles import ordinary_self_reference, referenced_configuration
-from builders.Metadata import BIOGRAPHY_STREAM, FILE_VERSION, HISTORY_STREAM, biography, boolean, fields, header, history, rooted_metadata_streams, sequence
+from builders.Metadata import BIOGRAPHY_STREAM, FILE_VERSION, HISTORY_STREAM, biography, boolean, fields, header, history, revision_log, rooted_metadata_streams, semantic_stamp, sequence
 from builders.Model import PersistentIds, configuration_manager, node_list, object_list, record_configuration_progress
 from builders.Part import PartConstruction, construct_part
 from builders.Sketch import PlaneFrame
@@ -131,9 +132,21 @@ def _insert_generated_child(*, model, configuration, top_header, model_header, c
     directory = Obj("moExtObjectList_c", object_list((directory_entry,)))
     for record in (top_header, model_header):
         record.f.update(f08=ids.next_id, fc4=count, f30=directory)
+    return references
 
 
-def _construct_assembly(*, registry, request, child=None, occurrences=(), include_xml_metadata: bool = False) -> AssemblyConstruction:
+def _record_mate_creation(*, mate, allocator, configuration, headers, stamp):
+    record_configuration_progress(configuration=configuration, allocator=allocator)
+    name = mate["f18"]["f08"]
+    entry = semantic_stamp(stamp)
+    for record in headers:
+        logs = record["f20"]
+        logs["items"].append({"o": revision_log(object_id=mate["f08"], name=name, entries=[dict(entry)])})
+        logs["n"] = len(logs["items"])
+        record["f08"] = allocator.next_id
+
+
+def _construct_assembly(*, registry, request, child=None, occurrences=(), mate_requests=(), include_xml_metadata: bool = False) -> AssemblyConstruction:
     boolean(include_xml_metadata, "assembly XML metadata")
     if type(include_xml_metadata) is not bool:
         raise ValueError("assembly XML metadata selection must be boolean")
@@ -149,11 +162,22 @@ def _construct_assembly(*, registry, request, child=None, occurrences=(), includ
     features = initial_assembly_features(owner=model, allocator=ids, created_at=provenance["created_at"], origin_name=request["origin_name"], mate_group_name=request["mate_group_name"], **presentation["assembly_features"], **target)
     configuration = manager["f360"]
     top_header, model_header, stamp = _header_records(name=name, root=model, configuration=configuration, ids=ids, provenance=provenance, output=output)
+    mates = ()
     if child is not None:
-        _insert_generated_child(
+        references = _insert_generated_child(
             model=model, configuration=configuration, top_header=top_header, model_header=model_header,
             child=child, occurrences=occurrences, ids=ids, target=target, first_ordinal=len(features) - 1,
         )
+        if mate_requests:
+            mate_request, = mate_requests
+            created_at = mate_request.get("created_at", provenance["modified_at"])
+            mate = coincident_planar_mate(
+                assembly=model, group=features[-1], occurrences=references, child=child, model_header=model_header,
+                configuration=configuration, allocator=ids, target=target, request=mate_request, created_at=created_at,
+            )
+            _record_mate_creation(mate=mate, allocator=ids, configuration=configuration, headers=(top_header, model_header),
+                                  stamp={**stamp, "timestamp": created_at})
+            mates = (mate,)
     result = _header_streams(registry=registry, top_header=top_header, model_header=model_header, configuration=configuration, stamp=stamp, provenance=provenance, presentation=presentation)
     config, state = store_config_state(StreamDoc(CONFIG, {"model_header": model_header}, [model]), registry, FILE_VERSION)
     context = {"model_compressed_stream": 1, "model_is_part": 0, "cmgr_f658": manager["f658"]}
@@ -164,7 +188,7 @@ def _construct_assembly(*, registry, request, child=None, occurrences=(), includ
         CONFIG: config,
         MANAGER: store_rooted(StreamDoc("rooted", {"base": 1}, [manager]), registry, FILE_VERSION),
         RESOLVED: resolved,
-        MATES: store_empty_mates(registry=registry, resolved_map=final_map, mate_group=features[-1]),
+        MATES: store_assembly_mates(registry=registry, resolved_map=final_map, mate_group=features[-1], mates=mates),
         DEFINITION: definition_stream(registry=registry, document=assembly_definition(**options)),
     })
     if include_xml_metadata:
@@ -177,7 +201,7 @@ def construct_empty_assembly(*, registry, request, include_xml_metadata: bool = 
 
 
 def construct_assembly_bundle(*, registry, request, include_xml_metadata: bool = False) -> AssemblyBundle:
-    values = fields(request, "generated assembly bundle", ("assembly", "child", "occurrences"))
+    values = fields(request, "generated assembly bundle", ("assembly", "child", "occurrences"), ("mates",))
     occurrences = []
     for item in sequence(values["occurrences"], "assembly occurrences"):
         occurrence = fields(item, "assembly occurrence", ("name", "placement"))
@@ -185,6 +209,10 @@ def construct_assembly_bundle(*, registry, request, include_xml_metadata: bool =
         occurrences.append((occurrence["name"], PlaneFrame(**frame)))
     if not occurrences:
         raise ValueError("this research bundle requires at least one resolved occurrence")
+    mates = tuple(sequence(values.get("mates", ()), "assembly mates"))
+    if len(mates) > 1 or any(not isinstance(mate, dict) for mate in mates):
+        raise ValueError("the discovery composer accepts a single coincident mate")
     child_request = fields(values["child"], "generated child", ("document", "provenance", "presentation", "target", "output"))
     child = construct_part(registry=registry, native_plane_roles=include_xml_metadata, **child_request)
-    return AssemblyBundle(_construct_assembly(registry=registry, request=values["assembly"], child=child, occurrences=occurrences, include_xml_metadata=include_xml_metadata), child)
+    return AssemblyBundle(_construct_assembly(registry=registry, request=values["assembly"], child=child, occurrences=occurrences,
+                                              mate_requests=mates, include_xml_metadata=include_xml_metadata), child)

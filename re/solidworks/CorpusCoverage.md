@@ -279,6 +279,12 @@ retained their actual parent, occurrence and child datum identities through
 the typed archive, with placement-dependent lengths. Native mate acceptance
 remains open.
 
+The [complete coincident assembly construction](records/AssemblyCoincidentConstruction2026.md)
+emits the full mate list together with its fixed anchor, Config-0
+reference counter and paired header logs. Both authored assemblies
+round-trip the required archive graph. These research outputs await
+native solve and persist checks and add no production conversions.
+
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
 identities with successful Document.xml discovery. The inventory includes 56
