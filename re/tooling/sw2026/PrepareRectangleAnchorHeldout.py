@@ -14,9 +14,15 @@ from AuthorRectangleAnchors import BOSS, CONTROL, ORACLE, ROLES, SKETCH
 from InspectGeneratedRectangleAnchor import SCHEMA as NATIVE_SCHEMA, TOOLS as NATIVE_TOOLS, read_job
 
 
-SCHEMA = "kit.sw2026.corner-anchor-heldout-preparation.v1"
+SLOTS = {
+    "H01": ("corner", "kit.sw2026.corner-anchor-heldout-preparation.v1"),
+    "H02": ("center", "kit.sw2026.center-anchor-heldout-preparation.v1"),
+}
 SOURCE_LOCK = "7770ae975152aae0a6f211b5ab262541aeb15bea2861f96da9b80cd9cd432e7b"
-DISCLOSED = "2dfc27e4a4ecc546142593bc42d2e147bc163b6d402d97a9d16af94da8043a30"
+DISCLOSED = {
+    "corner": "2dfc27e4a4ecc546142593bc42d2e147bc163b6d402d97a9d16af94da8043a30",
+    "center": "98583726a8795c2bf4d97750724a5e38b02fcea667454e8866dcf547d0a8811e",
+}
 PRIVATE_ROOT = Path(r"C:\KitRectangleAnchorSources01")
 BUILDER = "re/tooling/sw2026/RectangleAnchorPartProcess.py"
 TOOLS = (*NATIVE_TOOLS, Path(__file__).name)
@@ -39,8 +45,10 @@ def new_json(path, value):
 
 def verify(root, sha):
     plan = load(checked(root / "Method.json", sha))
-    require(plan["schema"] == SCHEMA and plan["slot"] == "H01" and plan["oracle_sha256"] == ORACLE,
-            "expected the original held-out corner slot")
+    slot = plan["slot"]
+    require(slot in SLOTS, "expected an original held-out rectangle slot")
+    family, schema = SLOTS[slot]
+    require(plan["schema"] == schema and plan["oracle_sha256"] == ORACLE, "held-out rectangle method differs")
     require(Path(__file__).resolve().parent == root / "Tools" and set(plan["tools_sha256"]) == set(TOOLS),
             "expected the complete frozen anchor method")
     for name, expected in plan["tools_sha256"].items():
@@ -48,11 +56,13 @@ def verify(root, sha):
     checked(root / "Control.SLDPRT", CONTROL)
     lock = load(checked(root / "SourceLock.json", SOURCE_LOCK))
     require(lock["controls_healthy"] and lock["writer_output_count"] == 0 and lock["distinct_processes"] == 6
-            and lock["oracle_sha256"] == ORACLE and lock["cases"]["H01"]["family"] == "corner",
-            "pre-writer corner source qualification differs")
-    disclosed = load(checked(root / "DisclosedNative.json", DISCLOSED))
-    require(disclosed["passed"] and disclosed["native_constraint_and_tree_parity"] and disclosed["controls_healthy"]
-            and not disclosed["heldout_acceptance"], "expected the qualified disclosed corner comparison")
+            and lock["oracle_sha256"] == ORACLE and lock["cases"][slot]["family"] == family,
+            "pre-writer rectangle source qualification differs")
+    disclosed = load(checked(root / "DisclosedNative.json", DISCLOSED[family]))
+    require(disclosed["passed"] and disclosed["controls_healthy"] and not disclosed["heldout_acceptance"],
+            "expected the qualified disclosed rectangle comparison")
+    parity = disclosed["native_constraint_and_tree_parity"] if family == "corner" else disclosed["native_save_omits_auxiliary_line"]
+    require(parity, "the disclosed rectangle did not qualify its native construction")
     manifest = load(checked(root / "CodeManifest.json", plan["code_manifest_sha256"]))
     require(manifest["files_sha256"].get("re/tooling/sw2026/InspectGeneratedRectangleAnchor.py")
             == plan["tools_sha256"]["InspectGeneratedRectangleAnchor.py"]
@@ -72,41 +82,48 @@ def verify_code(root, manifest):
     return code
 
 
-def checked_case(case):
+def checked_case(case, family):
     require(set(case) == {"kind", "width_m", "height_m", "depth_m", "edit_width_m", "edit_height_m"}
-            and case["kind"] == "corner"
+            and case["kind"] == family
             and all(type(value) in (int, float) and math.isfinite(value) and 0.001 < value < 0.25
                     for name, value in case.items() if name != "kind")
             and case["width_m"] != case["edit_width_m"] and case["height_m"] != case["edit_height_m"],
-            "sealed recipe must independently change the corner's driving dimensions")
+            "sealed recipe must independently change the rectangle's driving dimensions")
     return case
 
 
-def release_recipe(root, method_sha, lock):
+def release_recipe(root, method_sha, plan, lock):
     require(os.name == "nt", "the original recipe is released from the Windows-local source store")
     require(not (root / "Candidate.SLDPRT").exists() and not (root / "SourceRecord.json").exists(),
             "recipe release precedes generated output and comparison inputs")
     specs = checked(PRIVATE_ROOT / "SourceRecipes.json", lock["sealed_specifications_sha256"])
-    case = checked_case(load(specs)["H01"])
-    receipt = {"slot": "H01", "case": case, "method_sha256": method_sha,
+    slot = plan["slot"]
+    case = checked_case(load(specs)[slot], SLOTS[slot][0])
+    receipt = {"slot": slot, "case": case, "method_sha256": method_sha,
                "source_lock_sha256": SOURCE_LOCK, "sealed_specifications_sha256": digest(specs),
                "native_sources_opened": False, "comparison_observations_opened": False}
     return {"recipe_sha256": new_json(root / "SelectedRecipe.json", receipt), "native_sources_opened": False}
 
 
-def make_request(code, case):
+def make_request(code, case, slot="H01"):
     sys.path[:0] = [str(code), str(code / "src")]
     from tests.Convert.Solidworks.Research.FreshPartInput import MakePartInput
     from tests.Convert.Solidworks.Research.Presentation.MakeTreeInput import MakeTreeInput
 
     width, height, depth = (case[key] for key in ("width_m", "height_m", "depth_m"))
-    vertices = [[0.0, 0.0], [width, 0.0], [width, height], [0.0, height]]
-    request = MakeTreeInput(MakePartInput(vertices, depth, "H01CornerModel"))
+    if case["kind"] == "corner":
+        vertices = [[0.0, 0.0], [width, 0.0], [width, height], [0.0, height]]
+        width_text, height_text = [width / 2, -0.3 * height], [1.3 * width, height / 2]
+    else:
+        half_width, half_height = width / 2, height / 2
+        vertices = [[-half_width, -half_height], [half_width, -half_height], [half_width, half_height], [-half_width, half_height]]
+        width_text, height_text = [0.0, -0.8 * height], [0.8 * width, 0.0]
+    name = {"H01": "H01CornerModel", "H02": "H02CenteredModel"}[slot]
+    request = MakeTreeInput(MakePartInput(vertices, depth, name))
     request["native_plane_roles"] = True
-    request["rectangle_anchor"] = "corner"
+    request["rectangle_anchor"] = case["kind"]
     request["document"].update(configuration_name="Default", sketch_name=SKETCH, extrusion_name=BOSS,
-                               rectangle_dimensions={"width_text_m": [width / 2, -0.3 * height],
-                                                     "height_text_m": [1.3 * width, height / 2], "route_centerline": False})
+                               rectangle_dimensions={"width_text_m": width_text, "height_text_m": height_text, "route_centerline": False})
     request["presentation"]["folder_order"] = list(request["presentation"]["folder_names"])
     return request
 
@@ -114,13 +131,15 @@ def make_request(code, case):
 def generate(root, method_sha, plan, lock, manifest, recipe_sha):
     code = verify_code(root, manifest)
     recipe = load(checked(root / "SelectedRecipe.json", recipe_sha))
-    require(recipe["slot"] == "H01" and recipe["method_sha256"] == method_sha
+    slot = plan["slot"]
+    family, _ = SLOTS[slot]
+    require(recipe["slot"] == slot and recipe["method_sha256"] == method_sha
             and recipe["source_lock_sha256"] == SOURCE_LOCK and not recipe["native_sources_opened"]
             and not recipe["comparison_observations_opened"] and recipe["sealed_specifications_sha256"] == lock["sealed_specifications_sha256"],
             "selected recipe does not come from the original source lock")
     require(all(not (root / name).exists() for name in ("Candidate.SLDPRT", "GenerationFreeze.json", "SourceRecord.json", "Job.json")),
             "generate afresh before attaching comparisons")
-    request = make_request(code, checked_case(recipe["case"]))
+    request = make_request(code, checked_case(recipe["case"], family), slot)
     request_file = root / "Request.json"
     request_sha = new_json(request_file, request)
     results = []
@@ -129,12 +148,12 @@ def generate(root, method_sha, plan, lock, manifest, recipe_sha):
                              cwd=code, capture_output=True, timeout=120)
         with (root / f"Writer{ordinal}.stderr").open("xb") as fp:
             fp.write(run.stderr)
-        require(run.returncode == 0, "guarded held-out corner generation failed")
+        require(run.returncode == 0, "guarded held-out rectangle generation failed")
         results.append(json.loads(run.stdout))
     first, second = results
-    require(first == second and first["writer_output_count"] == 1 and first["new_origin_relations"] == 1
+    require(first == second and first["writer_output_count"] == 1 and first["new_origin_relations"] == (1 if family == "corner" else 3)
             and first["input_runtime_file_access_attempts"] == 0 and not first["native_acceptance"],
-            "the two guarded corner builds disagree")
+            "the two guarded rectangle builds disagree")
     content = b64decode(first["native"].pop("artifact_base64"), validate=True)
     with (root / "Candidate.SLDPRT").open("xb") as writer:
         writer.write(content)
@@ -149,7 +168,7 @@ def generate(root, method_sha, plan, lock, manifest, recipe_sha):
 
 
 def attach(root, method_sha, plan, lock, generation_sha):
-    require(os.name == "nt", "the original corner observations stay bound to the Windows-local source")
+    require(os.name == "nt", "the original rectangle observations stay bound to the Windows-local source")
     freeze = load(checked(root / "GenerationFreeze.json", generation_sha))
     require(freeze["method_sha256"] == method_sha and freeze["code_manifest_sha256"] == plan["code_manifest_sha256"]
             and freeze["guarded_builds"] == 2 and not freeze["native_source_payloads_read"] and not freeze["comparison_observations_read"],
@@ -161,14 +180,15 @@ def attach(root, method_sha, plan, lock, generation_sha):
             "the generated candidate lacks its runtime guard")
     recipe = load(checked(root / "SelectedRecipe.json", freeze["recipe_sha256"]))
     require(not (root / "SourceRecord.json").exists() and not (root / "Job.json").exists(), "preserve the first native comparison")
-    identities = lock["cases"]["H01"]
-    files = load(checked(PRIVATE_ROOT / "H01Artifacts.json", identities["native_artifact_manifest_sha256"]))
-    require(set(files) == set(ROLES), "the declared original corner artifacts changed")
-    heldout = PRIVATE_ROOT / "corner"
+    slot = plan["slot"]
+    identities = lock["cases"][slot]
+    files = load(checked(PRIVATE_ROOT / (slot + "Artifacts.json"), identities["native_artifact_manifest_sha256"]))
+    require(set(files) == set(ROLES), "the declared original rectangle artifacts changed")
+    heldout = PRIVATE_ROOT / SLOTS[slot][0]
     checked(heldout / "Author" / "Record.json", identities["source_record_sha256"])
     for role, row in files.items():
         path = checked(heldout / "Author" / (role + ".SLDPRT"), row["sha256"])
-        require(path.stat().st_size == row["bytes"] and row["status"] == [True, 0, 0], "native corner source save differs")
+        require(path.stat().st_size == row["bytes"] and row["status"] == [True, 0, 0], "native rectangle source save differs")
     source_record = checked(heldout / "Reopen" / "Record.json", identities["reopen_record_sha256"])
     with (root / "SourceRecord.json").open("xb") as out:
         out.write(source_record.read_bytes())
@@ -186,7 +206,7 @@ def attach(root, method_sha, plan, lock, generation_sha):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Prepare the original pre-writer locked corner rectangle native comparison")
+    parser = argparse.ArgumentParser(description="Prepare an original pre-writer locked rectangle native comparison")
     parser.add_argument("phase", choices=("verify", "release-recipe", "generate", "attach"))
     parser.add_argument("root", type=Path)
     parser.add_argument("--method-sha256", required=True)
@@ -200,7 +220,7 @@ def main():
         result = {"verified": True, "hidden_recipe_opened": False, "native_source_payloads_read": False}
     elif args.phase == "release-recipe":
         verify_code(root, manifest)
-        result = release_recipe(root, args.method_sha256, lock)
+        result = release_recipe(root, args.method_sha256, plan, lock)
     elif args.phase == "generate":
         result = generate(root, args.method_sha256, plan, lock, manifest, args.recipe_sha256)
     else:
