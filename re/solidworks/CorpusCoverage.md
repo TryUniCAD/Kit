@@ -235,6 +235,14 @@ preserved the view edit, linked part and feature tree in sixteen passing
 native phases. The two omission derivatives kept the map empty through
 save and fresh reopen. Generated populated drawing acceptance remains open.
 
+The [generated front drawing and part trial](measurements/2026/GeneratedFrontDrawingNative01.json)
+passed clean native open, rebuild and the measured view movement while
+retaining the exact sixteen-row drawing tree and expected child geometry.
+Native SaveAs returned error 1 and left an empty target. Both pristine
+controls and the reduced native drawing with the same seven stream roles
+passed through save and fresh reopen across the seven-process batch.
+The reduced derivative also regenerated the omitted detailing map.
+
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.
 Both edited dimensions survived clean save and fresh reopen. The rebuilt geometry matched the

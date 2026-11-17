@@ -74,6 +74,7 @@ The [native held-out assembly trials](../../re/solidworks/measurements/2026/Gene
 The [drawing inspection receipt](../../re/solidworks/measurements/2026/DrawingSdkViewRead01.json) covers opt-in inspection of an ordinary sheet and its external part view.
 The [first generated blank drawing](../../re/solidworks/measurements/2026/GeneratedBlankDrawingNative01.json) opens, rebuilds and accepts a scale edit. Native save remains open.
 The [native drawing UI diagnostic](../../re/solidworks/measurements/2026/DrawingBlankUiOmission01.json) reproduces native save and reopen with the selected UI groups omitted together.
+The [generated front drawing trial](../../re/solidworks/measurements/2026/GeneratedFrontDrawingNative01.json) passes native open, rebuild and view movement with its generated child. Native save returns error 1 while the same-role reduced control saves and reopens.
 The [planar mate endpoint construction](../../re/solidworks/records/AssemblyPlanarEndpointConstruction2026.md) preserves inherited occurrence and datum identities in generated records.
 The [populated rectangle partition projection](../../re/solidworks/records/GeneratedRectanglePartition2026.md) generates the linked cache and rollback streams. The [standalone trial](../../re/solidworks/measurements/2026/GeneratedRectangleAttachmentNative04.json) records warning 32 and zero bodies at open with the attachment. Explicit rebuild restores the expected solid.
 Complete field classification, broad part and assembly semantics and generated drawing acceptance remain unfinished.

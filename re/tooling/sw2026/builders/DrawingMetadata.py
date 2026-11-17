@@ -1,10 +1,13 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
+from pathlib import PureWindowsPath
 from xml.etree.ElementTree import Element, SubElement, tostring
 
+from Core import Obj
 from builders.DrawingSheet import DrawingSheet, _paper_text
 from builders.Metadata import integer
-from convert.adapters.solidworks.Container.Format import KEYWORDS_STREAM
+from convert.adapters.solidworks.Container.Format import KEYWORDS_STREAM, KPartSuffix
 from convert.adapters.solidworks.Drawing.Metadata.ReadDrawProps import KDrawPropNamespace, KPropertyTextTag
 
 
@@ -20,7 +23,40 @@ def _fixed(value):
     return format(value, ".6f")
 
 
-def drawing_keywords(*, document_name, created_at, sheet, sheet_id):
+@dataclass(frozen=True, slots=True)
+class DrawingViewIndex:
+    name: str
+    path: PureWindowsPath
+    configuration: str
+    configuration_id: int
+
+    @classmethod
+    def from_view(cls, view):
+        if not isinstance(view, Obj) or view.cls != "moAbsoluteView" or view["f1018"] != "*Front":
+            raise ValueError("drawing view indexes require a generated ordinary front view")
+        reference = view["f5d8"]
+        file = reference["f3b0"]["shared"]
+        config = reference["f3c0"]
+        path = PureWindowsPath(_paper_text(file["h18"]["f08"], "drawing model path"))
+        if file["f20"] != 2 or not path.is_absolute() or path.suffix.casefold() != KPartSuffix:
+            raise ValueError("drawing indexes require an absolute native part path")
+        if path.stem.casefold() != file["h10"]["f08"].casefold():
+            raise ValueError("drawing part filename and directory model name differ")
+        return cls(
+            _paper_text(view["f18"]["f08"], "front view name"), path,
+            _paper_text(config["f08"], "drawing configuration name"),
+            integer(config["f10"], "drawing configuration id", high=0x7FFFFFFE),
+        )
+
+    def add_keyword(self, owner):
+        SubElement(owner, "View", id=str(self.configuration_id), Name=self.name,
+                   Description=self.configuration).text = self.path.stem + KPartSuffix
+
+    def layout_value(self, sheet):
+        return "@".join(("1:", "", self.configuration, str(self.configuration_id), str(self.path), self.name, sheet.name))
+
+
+def drawing_keywords(*, document_name, created_at, sheet, sheet_id, model_view=None):
     if not isinstance(sheet, DrawingSheet):
         raise ValueError("drawing keywords require generated sheet settings")
     name = _paper_text(document_name, "drawing name")
@@ -32,11 +68,14 @@ def drawing_keywords(*, document_name, created_at, sheet, sheet_id):
     SubElement(record, "ScaleDenominator", id="").text = _fixed(sheet.scale_denominator)
     SubElement(record, "ScaleNumerator", id="").text = _fixed(sheet.scale_numerator)
     SubElement(record, "TemplateName", id="").text = sheet.native_template_name
+    if model_view is not None:
+        model_view.add_keyword(record)
+        model_view.add_keyword(root)
     SubElement(record, "id", id="").text = item_id
     return b"\x86" + _xml(root)
 
 
-def drawing_layout_properties(*, sheet):
+def drawing_layout_properties(*, sheet, model_view=None):
     if not isinstance(sheet, DrawingSheet):
         raise ValueError("drawing property indexes require generated sheet settings")
     width, height = sheet.dimensions
@@ -47,19 +86,19 @@ def drawing_layout_properties(*, sheet):
         "SW-Total Sheets": "1",
         "SW-Sheet Name": sheet.name,
         "SW-All Sheet Names": sheet.name + "@",
-        "SW-Config-Model-View-Sheet-List": "0:",
+        "SW-Config-Model-View-Sheet-List": "0:" if model_view is None else model_view.layout_value(sheet),
         "SW-All Sheet Format Data": expanded,
     }
 
 
-def drawing_sheet_indexes(*, document_name, created_at, sheet, sheet_id):
-    properties = drawing_layout_properties(sheet=sheet)
+def drawing_sheet_indexes(*, document_name, created_at, sheet, sheet_id, model_view=None):
+    properties = drawing_layout_properties(sheet=sheet, model_view=model_view)
     root = Element(KDrawPropNamespace + "Properties")
     values = SubElement(root, "Properties")
     for ordinal, (name, value) in enumerate(properties.items(), 2):
         record = SubElement(values, "property", name=name, pid=str(ordinal))
         SubElement(record, KPropertyTextTag).text = value
     return {
-        KEYWORDS_STREAM: drawing_keywords(document_name=document_name, created_at=created_at, sheet=sheet, sheet_id=sheet_id),
+        KEYWORDS_STREAM: drawing_keywords(document_name=document_name, created_at=created_at, sheet=sheet, sheet_id=sheet_id, model_view=model_view),
         INFORMATION_STREAM: _xml(root),
     }

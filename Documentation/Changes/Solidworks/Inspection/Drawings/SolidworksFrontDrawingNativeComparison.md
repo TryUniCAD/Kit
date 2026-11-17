@@ -1,0 +1,3 @@
+# SOLIDWORKS native front drawing comparison
+
+The generated drawing opened and rebuilt in SOLIDWORKS `34.5.2.0604`, resolved its generated boss, and accepted the measured view movement with an unchanged sixteen-row tree. Native save returned `[false,1,0]` and left an empty target. Both pristine controls and the seven-role reduced native lane saved and reopened cleanly. The reduced input's omitted detailing map regenerated on save. The generated drawing still requires a successful save and fresh reopen before qualification. [Native receipt](../../../../../re/solidworks/measurements/2026/GeneratedFrontDrawingNative01.json) · [Trial and scope](../../../../../re/solidworks/records/GeneratedFrontDrawing2026.md#native-result)
