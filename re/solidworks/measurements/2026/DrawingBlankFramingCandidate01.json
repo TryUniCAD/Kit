@@ -1,0 +1,280 @@
+{
+  "changed_bytes": 120,
+  "changed_words": [
+    {
+      "kit_bytes": "ec6e2386",
+      "offset": 0,
+      "role": "file-id",
+      "vendor_bytes": "1d96781c"
+    },
+    {
+      "kit_bytes": "64d80045",
+      "offset": 8,
+      "role": "local-signature:Contents/Definition",
+      "vendor_bytes": "b1d2c3c4"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 18,
+      "role": "local-record-word:Contents/Definition",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "64d80045",
+      "offset": 4717,
+      "role": "local-signature:Header2",
+      "vendor_bytes": "b1d2c3c4"
+    },
+    {
+      "kit_bytes": "2cd2741c",
+      "offset": 4727,
+      "role": "local-record-word:Header2",
+      "vendor_bytes": "f0937cff"
+    },
+    {
+      "kit_bytes": "64d80045",
+      "offset": 5121,
+      "role": "local-signature:ModelStamps",
+      "vendor_bytes": "b1d2c3c4"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 5131,
+      "role": "local-record-word:ModelStamps",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "64d80045",
+      "offset": 5174,
+      "role": "local-signature:_MO_VERSION_19000/Biography",
+      "vendor_bytes": "b1d2c3c4"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 5184,
+      "role": "local-record-word:_MO_VERSION_19000/Biography",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "64d80045",
+      "offset": 5747,
+      "role": "local-signature:_MO_VERSION_19000/History",
+      "vendor_bytes": "b1d2c3c4"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 5757,
+      "role": "local-record-word:_MO_VERSION_19000/History",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "64d80045",
+      "offset": 5872,
+      "role": "local-signature:docProps/ISolidWorksInformation.xml",
+      "vendor_bytes": "b1d2c3c4"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 5882,
+      "role": "local-record-word:docProps/ISolidWorksInformation.xml",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "64d80045",
+      "offset": 7820,
+      "role": "local-signature:swXmlContents/KeyWords",
+      "vendor_bytes": "b1d2c3c4"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 7830,
+      "role": "local-record-word:swXmlContents/KeyWords",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "ae0d4ef6",
+      "offset": 8244,
+      "role": "directory-signature:Contents/Definition",
+      "vendor_bytes": "6fd70764"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 8256,
+      "role": "directory-record-word:Contents/Definition",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "ae0d4ef6",
+      "offset": 8309,
+      "role": "directory-signature:Header2",
+      "vendor_bytes": "6fd70764"
+    },
+    {
+      "kit_bytes": "2cd2741c",
+      "offset": 8321,
+      "role": "directory-record-word:Header2",
+      "vendor_bytes": "f0937cff"
+    },
+    {
+      "kit_bytes": "ae0d4ef6",
+      "offset": 8362,
+      "role": "directory-signature:ModelStamps",
+      "vendor_bytes": "6fd70764"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 8374,
+      "role": "directory-record-word:ModelStamps",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "ae0d4ef6",
+      "offset": 8419,
+      "role": "directory-signature:_MO_VERSION_19000/Biography",
+      "vendor_bytes": "6fd70764"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 8431,
+      "role": "directory-record-word:_MO_VERSION_19000/Biography",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "ae0d4ef6",
+      "offset": 8492,
+      "role": "directory-signature:_MO_VERSION_19000/History",
+      "vendor_bytes": "6fd70764"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 8504,
+      "role": "directory-record-word:_MO_VERSION_19000/History",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "ae0d4ef6",
+      "offset": 8563,
+      "role": "directory-signature:docProps/ISolidWorksInformation.xml",
+      "vendor_bytes": "6fd70764"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 8575,
+      "role": "directory-record-word:docProps/ISolidWorksInformation.xml",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "ae0d4ef6",
+      "offset": 8644,
+      "role": "directory-signature:swXmlContents/KeyWords",
+      "vendor_bytes": "6fd70764"
+    },
+    {
+      "kit_bytes": "81d2341c",
+      "offset": 8656,
+      "role": "directory-record-word:swXmlContents/KeyWords",
+      "vendor_bytes": "d056e1ff"
+    },
+    {
+      "kit_bytes": "54ce179a",
+      "offset": 8712,
+      "role": "directory-end-signature",
+      "vendor_bytes": "3144e902"
+    }
+  ],
+  "container_version": 4,
+  "definition_map_next_index": 212,
+  "header_map_next_index": 34,
+  "heldout_inputs_tested": 0,
+  "kit_framing": {
+    "bytes": 8734,
+    "file_id": 3966641030,
+    "record_words": {
+      "Contents/Definition": 473223809,
+      "Header2": 477418028,
+      "ModelStamps": 473223809,
+      "_MO_VERSION_19000/Biography": 473223809,
+      "_MO_VERSION_19000/History": 473223809,
+      "docProps/ISolidWorksInformation.xml": 473223809,
+      "swXmlContents/KeyWords": 473223809
+    },
+    "sha256": "c7251fc8aff23478daa02689de23471ed3166240d87e1a3c08f56b6ba71b7e6f",
+    "signatures": [
+      "64d80045",
+      "ae0d4ef6",
+      "54ce179a"
+    ]
+  },
+  "logical_streams_identical": true,
+  "native_acceptance": false,
+  "native_save_modes_sha256": "99bf351f22315debcb57ebd127d798ce6a01864554f9d481a2503530613ed35a",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "a9e12d81ceb33587e99efa57325fc022908385f1f2b15587776215429235f4a0",
+  "physical_comparison_sha256": "dad5a4bff602b006a440766c0ce6a0525f34c4aac8f000bca4a5e5f54bada355",
+  "preparer_sha256": "337f7a86d4203bd68a7196cbc2b066fb0e6ac424da16ae9a615fb5c5a8a2cc01",
+  "pristine_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+  "schema": "kit.sw2026.blank-drawing-framing-preparation.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "streams": {
+    "Contents/Definition": {
+      "bytes": 28950,
+      "sha256": "10059e622ae0400df68cd0f882be3e4e40969c04158812507b92956f50ae8fac"
+    },
+    "Header2": {
+      "bytes": 907,
+      "sha256": "9c3726df25b7253a1738a001bb9615c13a4f94842c20fd82bff5ac960ec221c2"
+    },
+    "ModelStamps": {
+      "bytes": 12,
+      "sha256": "6c55ab132013a1fb8957777142b49493f6a57b5a161164af2cad72b4f58ea58f"
+    },
+    "_MO_VERSION_19000/Biography": {
+      "bytes": 1605,
+      "sha256": "948b7d5c4f983a60bacb962e1eac93efaea590a75d50ed944a6a1babd405320b"
+    },
+    "_MO_VERSION_19000/History": {
+      "bytes": 101,
+      "sha256": "dd93de17b0bc222191404eadb5b4c43bd266a711606db218b309cbbadde80b07"
+    },
+    "docProps/ISolidWorksInformation.xml": {
+      "bytes": 13743,
+      "sha256": "3aa23a5fee27d5cbfa55e201c514be9fad8fcd9914e7b7b38399611d74e0f7e3"
+    },
+    "swXmlContents/KeyWords": {
+      "bytes": 823,
+      "sha256": "a528014fceb0b9e345eaf0d202e8df5325e3acd6616dbe94987841321a4506e6"
+    }
+  },
+  "tools": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "InspectBlankDrawingFraming.py": "f242f60abf8fc4fe9a346a8218a08dbaf2d7117d8631a26c5aa59e532c84969c",
+    "InspectBlankDrawingPair.py": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "InspectDrawingSaveModes.py": "a0108df8e4485189129121ae233062c47b86fc5326c5ebcb31beed4b63413f6d",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "vendor_framing": {
+    "bytes": 8734,
+    "file_id": 496400412,
+    "record_words": {
+      "Contents/Definition": 4292957904,
+      "Header2": 4286354416,
+      "ModelStamps": 4292957904,
+      "_MO_VERSION_19000/Biography": 4292957904,
+      "_MO_VERSION_19000/History": 4292957904,
+      "docProps/ISolidWorksInformation.xml": 4292957904,
+      "swXmlContents/KeyWords": 4292957904
+    },
+    "sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+    "signatures": [
+      "b1d2c3c4",
+      "6fd70764",
+      "3144e902"
+    ]
+  },
+  "writer_output_count": 0
+}

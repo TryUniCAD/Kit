@@ -78,3 +78,12 @@ when omitted. Empty line style and font tables remained empty after save
 and fresh reopen. The reduced native drawing accepted those absent UI states
 together. The generated drawing's native save remains unresolved.
 [Typed omission and native readback](../measurements/2026/DrawingBlankUiOmission01.json)
+
+## Physical framing
+
+The seven-role reduced native blank saves and fresh reopens under its
+original framing and the Kit physical profile. Both save modes pass
+across twelve controlled processes. The seven logical streams and their
+compressed bytes agree across both inputs. The generated drawing's
+failure still needs localization inside the native save path.
+[Matched control and return-edge trace](DrawingContainerSaveFraming2026.md)

@@ -243,6 +243,11 @@ controls and the reduced native drawing with the same seven stream roles
 passed through save and fresh reopen across the seven-process batch.
 The reduced derivative also regenerated the omitted detailing map.
 
+The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
+passed both native save modes under the original and Kit containers.
+The paired controls retain the same seven streams and compressed bytes.
+The twelve-process trial used no generated or held-out drawing inputs.
+
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.
 Both edited dimensions survived clean save and fresh reopen. The rebuilt geometry matched the
