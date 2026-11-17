@@ -1,11 +1,10 @@
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
-from convert.adapters.solidworks.Drawing.Definition.Emission.Layouts.ScalarFields import (
+from convert.adapters.solidworks.Archive.Definition.Fields.ScalarFields import (
     MakeScalarRows,
 )
 
-# the current ui document keeps its own state around the tagged native drawing model
+# the current document owners share their ui state after the native identity and model selection
 KDocHeadFields: tuple[NativeField, ...] = (
-    NativeField("Node", "model"),
     NativeField("Node", "fac0"),
     *MakeScalarRows("u8", "fac8"),
     NativeField("Embed", "fae8", "mgXform_c.restore"),
@@ -40,4 +39,10 @@ KDocHeadFields: tuple[NativeField, ...] = (
     NativeField("Embed", "expand_vals", "su_CWordArray"),
     *MakeScalarRows("u16", "f7b8"),
     *MakeScalarRows("u8", "has_pwmaterial"),
+    NativeField(
+        "Branch",
+        "has_pwmaterial",
+        BodyValue=(NativeField("Embed", "f1110", "PWMaterialManager_c.restore"),),
+        ModeValue="Nonzero",
+    ),
 )

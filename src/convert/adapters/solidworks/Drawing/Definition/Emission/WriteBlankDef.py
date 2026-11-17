@@ -28,14 +28,14 @@ from convert.adapters.solidworks.Drawing.Definition.Emission.CheckBlankGraph imp
 from convert.adapters.solidworks.Drawing.Definition.Emission.CheckBlankNode import (
     CheckBlankNode,
 )
-from convert.adapters.solidworks.Drawing.Definition.Emission.DefinitionWire import (
+from convert.adapters.solidworks.Archive.Definition.DefinitionWire import (
     DefinitionWire,
 )
 from convert.adapters.solidworks.Drawing.Definition.Emission.Layouts.BlankLayouts import (
     KBlankLayouts,
 )
-from convert.adapters.solidworks.Drawing.Definition.Emission.Layouts.ScalarFields import (
-    MakeScalarRows,
+from convert.adapters.solidworks.Archive.Definition.Fields.DefPrefixFields import (
+    KDefPrefixFields,
 )
 from convert.adapters.solidworks.Drawing.Definition.Emission.WalkDrawNodes import (
     WalkDrawNodes,
@@ -73,7 +73,7 @@ def WriteBlankDef(GraphValue: BlankGraph) -> DefinitionWire:
         WriteSchemaMut,
         WriteFieldsMut,
     )
-    WriteFieldsMut(FrameValue, MakeScalarRows("i32", "fa58 fa5c fa60 fa64 fa74"))
+    WriteFieldsMut(FrameValue, KDefPrefixFields)
     WriterValue.OutputValue.extend(KDrawClsid)
     WriteBodyMut(WriterValue, GraphValue.DocumentValue)
     ContextValue.UsageValue.IsComplete = True

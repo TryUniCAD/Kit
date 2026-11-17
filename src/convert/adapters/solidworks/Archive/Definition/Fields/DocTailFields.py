@@ -1,9 +1,9 @@
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
-from convert.adapters.solidworks.Drawing.Definition.Emission.Layouts.ScalarFields import (
+from convert.adapters.solidworks.Archive.Definition.Fields.ScalarFields import (
     MakeScalarRows,
 )
 
-# the drawing trailer follows every current document option without borrowing a saved suffix
+# the common document trailer owns current options before each document kind stores its fields
 KDocTailFields: tuple[NativeField, ...] = (
     NativeField("Text", "f1138"),
     NativeField("Embed", "f1158", "suObList"),
@@ -26,6 +26,4 @@ KDocTailFields: tuple[NativeField, ...] = (
         BodyValue=(NativeField("Node", "o"),),
         CountValue="nvar",
     ),
-    *MakeScalarRows("u16", "drawing_end_marker"),
-    *MakeScalarRows("i32", "f16c8 f16dc"),
 )

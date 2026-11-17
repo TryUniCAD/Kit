@@ -9,7 +9,7 @@ from builders.Assembly import initial_assembly_features, initial_assembly_model,
 from builders.AssemblyMetadata import assembly_xml_streams
 from builders.AssemblyOccurrences import assembly_occurrence_bounds, occurrence_configuration, resolved_part_occurrence
 from builders.AssemblyPlanarMate import aligned_planar_mate
-from builders.Definition import assembly_definition, definition_stream
+from builders.DefinitionSdk import assembly_definition_stream
 from builders.ExternalFiles import ordinary_self_reference, referenced_configuration
 from builders.Metadata import BIOGRAPHY_STREAM, FILE_VERSION, HISTORY_STREAM, biography, boolean, fields, header, history, revision_log, rooted_metadata_streams, semantic_stamp, sequence
 from builders.Model import PersistentIds, configuration_manager, node_list, object_list, record_configuration_progress
@@ -191,7 +191,7 @@ def _construct_assembly(*, registry, request, child=None, occurrences=(), mate_r
         MANAGER: store_rooted(StreamDoc("rooted", {"base": 1}, [manager]), registry, FILE_VERSION),
         RESOLVED: resolved,
         MATES: store_assembly_mates(registry=registry, resolved_map=final_map, mate_group=features[-1], mates=mates),
-        DEFINITION: definition_stream(registry=registry, document=assembly_definition(**options)),
+        DEFINITION: assembly_definition_stream(**options),
     })
     if include_xml_metadata:
         result.update(assembly_xml_streams(model=model, configuration=configuration, model_header=model_header, features=features, child=child))

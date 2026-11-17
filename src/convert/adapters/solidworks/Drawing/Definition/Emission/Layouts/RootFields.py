@@ -1,7 +1,7 @@
 from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
-from convert.adapters.solidworks.Drawing.Definition.Emission.Layouts.ScalarFields import (
+from convert.adapters.solidworks.Archive.Definition.Fields.ScalarFields import (
     MakeScalarRows,
 )
 

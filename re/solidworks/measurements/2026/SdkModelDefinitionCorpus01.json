@@ -1,0 +1,686 @@
+{
+  "corpus_revision": "7d9e15658f5e2d19db2d2f6afe5a995c26ebc54a",
+  "counts_by_suffix": {
+    ".sldasm": 8,
+    ".sldprt": 76
+  },
+  "distinct_definition_hashes": 64,
+  "file_count": 84,
+  "original_heldout_inputs_read": 0,
+  "passed": true,
+  "records": [
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assemblies/A0_one.SLDASM",
+      "file_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "277828eba47fa279ab56a0c22bdb72936abcdff4f97c1e1e6bd227de98ebb1a1"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assemblies/A1_two.SLDASM",
+      "file_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "1b9bec06510f34ff99269d06f16ca51c408bbab70e762c6c9770e106533d9f0a"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-discovery/A07EmptyAssembly.SLDASM",
+      "file_sha256": "c935cee2d4742885115a9ca3640a9714222525474c3c82f5c72922926b95840b",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "f2c00aa356a6da26f786bbfa7386097921a97ccf76c7f81d2b99a9e9bab47932"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-discovery/A08SingleAssembly.SLDASM",
+      "file_sha256": "9f98f7a6e3271187a20d41bb8c701399723f6448a86ff8471b525a45af50621f",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "277828eba47fa279ab56a0c22bdb72936abcdff4f97c1e1e6bd227de98ebb1a1"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-discovery/A09RepeatedAssembly.SLDASM",
+      "file_sha256": "4fc4d78edc4d4cb07f650d33cf77e5042af7939051b463d290cafb8b8b128180",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "1b9bec06510f34ff99269d06f16ca51c408bbab70e762c6c9770e106533d9f0a"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-synchronized/A12SyncedEmpty.SLDASM",
+      "file_sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "f2c00aa356a6da26f786bbfa7386097921a97ccf76c7f81d2b99a9e9bab47932"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-synchronized/A13SyncedSingle.SLDASM",
+      "file_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "277828eba47fa279ab56a0c22bdb72936abcdff4f97c1e1e6bd227de98ebb1a1"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/assembly-synchronized/A13SyncedSingleChild.SLDPRT",
+      "file_sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "7fa456b6979140dc87b863601c18675b9b1d59cba99ca1898387f4b111563375"
+    },
+    {
+      "bytes": 3900,
+      "file": "re/solidworks/v2026/corpus/assembly-synchronized/A14SyncedRepeat.SLDASM",
+      "file_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "1b9bec06510f34ff99269d06f16ca51c408bbab70e762c6c9770e106533d9f0a"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/assembly-synchronized/A14SyncedRepeatChild.SLDPRT",
+      "file_sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "527c90f79b20917b5a83fb9a0820ec3d8e9f1ef9ce82c6390028d0b57b1a51df"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/circle-saves/CircleDiameterBoss-edited-fresh-reopen.SLDPRT",
+      "file_sha256": "d4375a1e2ee594077e3450f0d436cf056f87a4a352fcd5b0e98e93eb0a16d49c",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "7676820ef1aec7adc87512d87595df6efff19b7ac97f130c39f5dc0189398e8d"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/circle-saves/CircleDiameterBoss-fresh-reopen.SLDPRT",
+      "file_sha256": "0e71a264d4182386dae17f494d78db397c84622675bcf35a629f59ac512de7a8",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/circle-saves/CircleDiameterBoss-open-save.SLDPRT",
+      "file_sha256": "553dc621b49512d22b2aab565bbdb0c0247a2be6f8c02bc32ebcf4a41db2fb55",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/circle-saves/CircleRadiusBoss-edited-fresh-reopen.SLDPRT",
+      "file_sha256": "ec3fb50e8e68ee40df50128e425f3f73df8b532379bc51917eb918b023c63172",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "7676820ef1aec7adc87512d87595df6efff19b7ac97f130c39f5dc0189398e8d"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/circle-saves/CircleRadiusBoss-fresh-reopen.SLDPRT",
+      "file_sha256": "8437bd6f8ef0ee25910bcad6cc5fac58d482d2f29f1c796c39966fe2ceb0d95e",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/circle-saves/CircleRadiusBoss-open-save.SLDPRT",
+      "file_sha256": "2be24e233fb210e575c411ed7665d715036844859a86833bd025317c05edfee0",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/ControlCircle.SLDPRT",
+      "file_sha256": "ee3d82b60adef1a7688fd0e6086d797f8c956c41e070670a581ad8669c9c35b7",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "6e83b6046c21b57965e5225be2434b63b6bb8ce3514969423346d79c9b4f283a"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/ControlRectangle.SLDPRT",
+      "file_sha256": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "3db7b664678e2c1d6f9718152efe1b86331d2c90d5c17a784f443db78019fef8"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D01CircleRadius.SLDPRT",
+      "file_sha256": "ee8ef8654e1673ee6ee0d0ee2167e6a4e4db9e832f99cbca2cae6feb298f970b",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "256aca0e70526a1d9fddfa65566733fbf9e8c2195159b564e4edb6b4a1ff16c3"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D02CircleRadius.SLDPRT",
+      "file_sha256": "406908b2aa5030a94e7cc83b80ff31c94dd65c516f2715e22a0a00d9a32b286d",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "325f10ab8e45161ca8f574afd4cdd52b4595a1807df588f43dea8dca6c24eda0"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D03CircleRadius.SLDPRT",
+      "file_sha256": "7efdcf4d75985ad6f9781b53f2af2c59abef60c5b7bc79135d04116414c9ec3d",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "1cad0c7603adce4cd1a2320a52ff7f8015bcfb766ca2efe83d0d17ab9c1d5b43"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D04CircleRadius.SLDPRT",
+      "file_sha256": "90482aaf96483e8610666d1f30598de194268f8bf2dd0322e6d6eb13fc3b387a",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "105138aaa2d20ab0e49aa164e0d134cf8698c058bcb41700e771062f0ea48161"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D05CircleRadius.SLDPRT",
+      "file_sha256": "533eac286d319026fed4d406bfe45927d97e6d88cd8bc824633cc2bceb161cd8",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "cb91ebbb33d4fe0fabf810e8e1b2b6a9368955c961b4652ccdb520c40dcfc24f"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D06CircleRadius.SLDPRT",
+      "file_sha256": "12534b9c377619b1fa6c444fb1d1d22acfac6859a61df97f69b51b005db75091",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "882e0557c066508165039ff635cb498af17fa6462d2faab730a2dc49a83c267c"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D07CircleRadius.SLDPRT",
+      "file_sha256": "214503789d42ba542361a1887ff43b5ccfb2957f50538ec7e551377b837f3ffa",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "1d2234473524a4904bdc874b434fd54a1cc3b8e4ac250b4a92f60ebf92cc50e4"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D08CircleRadius.SLDPRT",
+      "file_sha256": "c574140db365d91a9fc8f59182c3683df08a1f65fef06b888056a8d37ca4b0a7",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "b03423115b55592c4c3b12c41907446f8e89c053e387cf2d6ce67ce7f3e93c00"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D09Arc17Ccw.SLDPRT",
+      "file_sha256": "3fa1c49bfe77f2603433aff58e8ff7734e69c4676ca0a118f08515a13d7f7c15",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "77d7f952f17d6154f19989cdd4e8b1ab260f8c1f3fcd37eb50714ede9c1f13ec"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D10Arc17Cw.SLDPRT",
+      "file_sha256": "1c101c03d4d3a71085cb35bf04bfb7208aaad5303f27008b1a114c43652ef68e",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "754c008bac3cb6c4a5b40072bbc46b1c973b5054d3ca6eaefb262b712a3fef74"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D11Arc90Ccw.SLDPRT",
+      "file_sha256": "32e015006a03485fec11d47450808fcd558b96a8cade0ac95431147e1c645439",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "3bf583d217134ac9a342a5b9fb6a6294edd927a2ba5f061d3b776a586739d0f6"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D12Arc90Cw.SLDPRT",
+      "file_sha256": "3181d46b90cce119049994017d4aaba009facf97a5bea2b3f61909e7d96f5262",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "0dfd44e2c8eb89a09625f4b82dc0abf8b9216fd8d5a2745c09669026e59ce059"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D13Arc180Ccw.SLDPRT",
+      "file_sha256": "ac48bb9834e1a14750f8d6b69e2ab5fcb5d7029d203f0f09aeb55e2a497362c4",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "9233343be310ecb5096b3463baa57a30d6cd3a6624d3259bf4710f874c814844"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D14Arc180Cw.SLDPRT",
+      "file_sha256": "31e049bd6864e3fbc3da4e54281530820d9ce726ad2ec0723d5a78ce55742acc",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "6d0754474e178b5cff9283f742ac802a237b0198e0af0e7304c40fc773eed71a"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D15Arc270Ccw.SLDPRT",
+      "file_sha256": "1af41f0cf863f902bcb8482fa7eed5a2c28da0f232692d9c2a0e3286bab594bc",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "9788a67d05c5668eada94bfb64065b310087a68d421371c45cf0d34864078a34"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D16Arc270Cw.SLDPRT",
+      "file_sha256": "68e91546c1d6fb84f2730dd9f77d67cde6e01905a938502f4d1bb1ff9206ef9c",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "0e6fe7cedc0074ba33cc36012ee5ee4e8f9ffa9fa0a34aa86b4834d6e39c4543"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D17TopCircle.SLDPRT",
+      "file_sha256": "cdf237d6d0ae21c0e81de168d2d0d6153a1b6dc20cd2d53beca88bf60e4b7aa5",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "c2a58a239a33264d9fffd1a612c3a1dde28469bec3bc54bcccfa823fbb3c10c8"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D18RightCircle.SLDPRT",
+      "file_sha256": "3bf38305bea09980a8a44da09a8721ae00294a9683c1a1fc157335f17fda61a9",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "ac590a5cef496de2670a6d02d835bd960cbb215025c585415482d9f64447f9af"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D19Annulus.SLDPRT",
+      "file_sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "b01c48a44afe1f63f9d7d08f548d3aac96860a4c69fd7365c7eeeaa85beb3aff"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D20TwoCircles.SLDPRT",
+      "file_sha256": "ad42689b2b3e6e586b7acaff4c7f1c83e1839864c0877295fdd80a424aa92144",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "18ae46a29f92108327bb6fe141b4b6e31494771870b36cc1c4bd5cbffeabbe0f"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D21EightCircles.SLDPRT",
+      "file_sha256": "d51971d09bd449932b3bb5b18784dee3a29b7b41dec49b8a98729464f52bd5bf",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "b4a4f273e5d5d784d7b39130af93797a6cbf84f785dfaa0cb6dc018d346ae492"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D22ConstructionArc.SLDPRT",
+      "file_sha256": "b3f88291bc43d9930436079eae4a553dd4e73598c009dabff63c5d2ecae1f328",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "7612a5df38ebe163a9bf9dbb037ee41b15565831ef40d4a3346cd30b33c75e91"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D23TangentCapsule.SLDPRT",
+      "file_sha256": "f0f2f52523015ff8b7a68584cec2f1ae79e82bf0ed0a8cb7f6da982d82451bb1",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "fe6147a40f1bec93dfc9d27902eca08229db832199edba7059b27b8fa2f1eb55"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/curves-discovery/D24NearFullArc.SLDPRT",
+      "file_sha256": "e804f6507f3ee3a57a11be1494b0a040b7c3d0a8b3d90e1dab1dd61a2e109084",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "6a2287af9d4094c8e0f8204e68fe525c8c4dd86c18ef8ab03e5a3f878250c6a3"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/ControlCircle.SLDPRT",
+      "file_sha256": "ea66af3dbcb0d567ac333ea67c9752e4ae0dec2beb90d89ad634c7e899f72cd8",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "6e83b6046c21b57965e5225be2434b63b6bb8ce3514969423346d79c9b4f283a"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/ControlRectangle.SLDPRT",
+      "file_sha256": "010352800d3a485438e0b6530137cde56317f9f9e1c0e8c17bd914863a46bf37",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "3db7b664678e2c1d6f9718152efe1b86331d2c90d5c17a784f443db78019fef8"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D01Forward.SLDPRT",
+      "file_sha256": "6b95aeecb7057f247aa868d3ddf8b77a10fad309af7a7378da56321bd33dd191",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "c36f2f5cecb575aab7b403e89de3c2e2512499b3869e0dfb1aed859f1565e06c"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D02Forward.SLDPRT",
+      "file_sha256": "0d951e8984997e45eefb435aa6f9ee9920ba3e4a0d28782b325136b3153d0d59",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "d00b2fdaec76448806b598cd18a91b0be3cb8d4f0526ce7f8ad47b8ad2bb6e5e"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D03Forward.SLDPRT",
+      "file_sha256": "2044e27958b9725c79f356a7ab3653ab9e5db2c381dd6457fb737f0d25348b1a",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "73a47ae2e074453c6d21174b6fdce801cb06bc0128a06b9e7a36c04725aa3106"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D04Reverse.SLDPRT",
+      "file_sha256": "4f7ba1547e577010bb87f59c4eebe20a3dbb61a59c372bc34a8178082a674d42",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "68f9be2a08cfce1fb3c2b1466847aa87c7383cec4ca887146589337226230f1b"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D05Reverse.SLDPRT",
+      "file_sha256": "bbd32aaa07d731f248564f5305f66c9b516e91a4932fb8334af476e9fd6fea19",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "a2562115d29ada0363ef630d8f7e8227df75f6be0842da0ae6868bb5f0269ec3"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D06Reverse.SLDPRT",
+      "file_sha256": "7b39cb9c9b7026a1814c136613698de1e7ae25eb21a07b4c4d1c89f89fec500b",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "35f1bd9869019b6b849fd717ab8464e84d8b674f652d0f9b7cf908390ebd7371"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D07MidPlane.SLDPRT",
+      "file_sha256": "5d4d295282dc2ae43db28f7c7b3b9fb2dcf9a719c15d2b602b780459281176ee",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "f1ef128a3c8fd0fac5d881d529715882872df7c6841a461ae91b14431ea8c109"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D08MidPlane.SLDPRT",
+      "file_sha256": "565dceab2b91bc25e84d15f13ffd2acd781312e4d812aeb102af30cd7a6e6dc2",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "29cd408f4cbae915d7002e9207a1ce29e99731a05ae42a7c2cf95daa64587415"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D09MidPlane.SLDPRT",
+      "file_sha256": "900d81f7daa9a42cebc6f34f6b18a10257ddcd7ca07a483562a64b4608d0a1e0",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "8e92c5332ae6721561e59172ca7adcd37c2d025cc1b93e3ee954e8500c5a3b89"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D10TwoDirections.SLDPRT",
+      "file_sha256": "c2ab625827632e606efaad0e8ec2e3c75ef10355152a7df012f2cd92ec669083",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "277329e0b09858da1481b31f9e4ac8b7aff2cb2a82009e067cf89bf6e032e15f"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D11TwoDirections.SLDPRT",
+      "file_sha256": "68191a8949937c54151b2c6f0c16f72dda86273590557aba4c4ae3c52fb6fdc0",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "bf3acca027cf95b071e90f24762b96ffa4db0bf415a01eb0aa4bf993c6d3bb6a"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/end-conditions/D12TwoDirections.SLDPRT",
+      "file_sha256": "8fa04cc83bc3607c63214f8ed044174aaa1cdff42e0be093fe4a9da03edf7d0a",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "05fed404ab0bfb5f56f27716d420d6fd848c1713a81b410b94ac75406b66c3ec"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/ladder/C1a_control.SLDPRT",
+      "file_sha256": "da3d7292dd7a7e0bfa8f4dc528a1aabf28dfc03be06ebc6759c2f44925207d21",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "f325cfaeb49f64f239ab34213f4bb0de56840edfd37f5751c44278543532967a"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/ladder/C1b_control.SLDPRT",
+      "file_sha256": "fb41e09ab45b3119548f0e08e39ee6eef359cd523bb1bffd551292cec55dbccb",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "f325cfaeb49f64f239ab34213f4bb0de56840edfd37f5751c44278543532967a"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/ladder/E0_empty.SLDPRT",
+      "file_sha256": "eaf294476c1e998edcbf6183d77f50768f74fd509f030300c9ce7375dd7c1afb",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "e04d34f6a9e48cfb2557db0393f03f7b9957e37780759e452cdb798edcf6ec3a"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "file_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "14d9b75edf4586f8e1db2b166e855e29a03d4c88256e26d24351edb5c43d8a87"
+    },
+    {
+      "bytes": 3672,
+      "file": "re/solidworks/v2026/corpus/ladder/L2_boss.SLDPRT",
+      "file_sha256": "eaa3292009a2faf4fe2e9b07997ba3cf207bc06fcc89867310a9ee0377f1e533",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "80791081c581b6e7dabacb0b127e52495a30c19a591ada7c382b6bfd03208fcb"
+    },
+    {
+      "bytes": 3672,
+      "file": "re/solidworks/v2026/corpus/ladder/L3_boss.SLDPRT",
+      "file_sha256": "b35942e076fc0d29433ab4e695462b7570d2588b321abb650734a79b65cd04ce",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "80791081c581b6e7dabacb0b127e52495a30c19a591ada7c382b6bfd03208fcb"
+    },
+    {
+      "bytes": 3672,
+      "file": "re/solidworks/v2026/corpus/ladder/L4_boss.SLDPRT",
+      "file_sha256": "906f3d92df24ef8c04dc1ca36859d4d4c575fdf25115a75945218dcb3f8dc9a0",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "80791081c581b6e7dabacb0b127e52495a30c19a591ada7c382b6bfd03208fcb"
+    },
+    {
+      "bytes": 3816,
+      "file": "re/solidworks/v2026/corpus/ladder/P0_plain.SLDPRT",
+      "file_sha256": "2d11caf833f3e604006ed6920c62d4ca4c592a0a2059743ff1364548522d3cf8",
+      "next_map_index": 60,
+      "passed": true,
+      "stream_sha256": "f325cfaeb49f64f239ab34213f4bb0de56840edfd37f5751c44278543532967a"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/tree-parity-saves/P03FrontFolders-edit-save.SLDPRT",
+      "file_sha256": "c8de640769ce42e54eaba4d26f01ff7c994f00f3682799559139c4378a768c14",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "cc289949d7e8f3893c1ab60e439d41cbbcbcf1151100a93db8a75d46f4db43d4"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/tree-parity-saves/P03FrontFolders-edited-fresh.SLDPRT",
+      "file_sha256": "faf4f9f1de4e6cdb7bd8e458e0def7603cd6c1fe9d0f7195ca3bfea765ad1260",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "43ec254ac641a74ef1b5dc70e24fc6edf9ed854ff06b2b376e800b721c1a6bca"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/tree-parity-saves/P03FrontFolders-open-save.SLDPRT",
+      "file_sha256": "54d5eec9303e2a85b234bc1b41b6518a180a86c5d95d2601c3899b0459048fe5",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "839482897ded495d5fb3cf3ab6375fa77158e9c5baee7f9a2dcd97007ff2e054"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-edit-save.SLDPRT",
+      "file_sha256": "63ef29a1c59d8641f78348dc63f916ce9fae84709a141eec910c2baf6c0d3f7f",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "7a647c4218e7dcb80a465e6e1f8266a0f10c1457ee3033d9305b8c1256bc2f89"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-edited-fresh.SLDPRT",
+      "file_sha256": "b108c14b0f478d9fdcb795b838e9b55c37a3fbafe68b68cf2081f5b72d31620d",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "378d2bdb3ab80522267100173fb38a70142b2fc56f92e48732cf49050f8290d6"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-open-save.SLDPRT",
+      "file_sha256": "9de5ac4bd09b5dd57c3898afe2240cfd8433fc9872086872e6ff77e1f3134570",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "661628d8280a0e9c835e83519f969cc7f375556b0d7a759deccfa7b2f96251a3"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/tree-saves/H03MidPlane-fresh-reopen.SLDPRT",
+      "file_sha256": "c1b2e39d5e3514b1c43cd36488c989a18e4beb6d01c17bce7b4765d480c674ce",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/tree-saves/H03MidPlane-open-save.SLDPRT",
+      "file_sha256": "06fc822986e1c2e92b69d59dcd21450ab1abaa90a001f35d8f1b06ccf26fa10f",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/tree-saves/H04TwoDirections-fresh-reopen.SLDPRT",
+      "file_sha256": "b5f7ea5bf4b81ea06ae53c9200643c8a7b3c1636c7245e6901080978453c1b55",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/tree-saves/H04TwoDirections-open-save.SLDPRT",
+      "file_sha256": "6235f0a45c41bea9ac6b7878adf4bb4e8f43383e145a0b46f6c47c19b22f0085",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewBaseline-fresh-reopen.SLDPRT",
+      "file_sha256": "45be009a20cc3914dcee9e661bba80c0aac6dd3073f8e5d56cbefdc2404383a5",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "458c84b67991f163842cfd4853956cc601984115596e102ffd5bd4eea3a6a01b"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewBaseline-open-save.SLDPRT",
+      "file_sha256": "a68a68f6845423ed375303b75fd44011a6cc1fcb85826be07a61529e48c55a0a",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "2d479a644176ca4d4ad3f1028ea8391be884a2e23a60cec3ca21d7b06ea71f12"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewCombined-fresh-reopen.SLDPRT",
+      "file_sha256": "0a02385f3da8512d459db58c5bb902050b32368c16347b37dc7a672418b42fb0",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "7a1ea7a67490ba88de42687db3d132be0a5516aab60c36b254de9fe8adf6320e"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewCombined-open-save.SLDPRT",
+      "file_sha256": "5eef0d7e46cbbe42cfe6aab18c767e3d04325aab7684522f7da902a541f713c8",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "1c9fe2a21752735682c7d8a4af7d1c4ff8176234c67c9ba0344bf3bb3d63f714"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewOrientation-fresh-reopen.SLDPRT",
+      "file_sha256": "a5d0b1d0b445fcf6dd8855c55d73e672145cf15987bc158e173ef67006cebe74",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "e6d1dfe3f5b12424614ae5d03a1e6cda9d4353a2aa92ccab1f99f305000a9687"
+    },
+    {
+      "bytes": 999,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewOrientation-open-save.SLDPRT",
+      "file_sha256": "1a3a022a6b5765c8db6693b7f6330bc8097f73806df098d1447de38082fe16a2",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "412db56cd2878563c5305b4861e3dc15a73352b7afa3c34a51dcf36e190a9975"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewScale-fresh-reopen.SLDPRT",
+      "file_sha256": "6371c3889fb7bbe5b01367ae47849781698a1fb3e2a2781b873a6df1b7d0929f",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "684bf29af45474d26714b10742bd8630f69d5d95c2d9b41c464dc9875b154caf"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewScale-open-save.SLDPRT",
+      "file_sha256": "9dd99a1df44592fd7ba890a7b51f4a88815ff9de314060df8f9ee8ea06022da7",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "6f200385ab88e62281b86a9344f0eeb48d13c2f75e53ae0792b8b2c8d21afbce"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewTranslate-fresh-reopen.SLDPRT",
+      "file_sha256": "142eccd93fc80a61b8faaf4a8feb0921eb59e73f3ff12e996ee94b406cc64430",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "8715dac109414b9c824e13c76bf6531aa18d88af1d0342312b5ea0ea10129bb9"
+    },
+    {
+      "bytes": 855,
+      "file": "re/solidworks/v2026/corpus/view-probes/ViewTranslate-open-save.SLDPRT",
+      "file_sha256": "b63c98527d539ed944813e9836747c273eef785159bbac084af439b0dc9b1568",
+      "next_map_index": 11,
+      "passed": true,
+      "stream_sha256": "ad19c2db0bdec2d2cdf8ef2af51204745b2d21809f9cb6c4d691460395ad19f7"
+    }
+  ],
+  "schema": "kit.sw2026.sdk-model-definition-corpus.v1"
+}

@@ -37,8 +37,8 @@ from convert.adapters.solidworks.Drawing.Definition.Emission.DefinitionRead impo
 from convert.adapters.solidworks.Drawing.Definition.Emission.Layouts.BlankLayouts import (
     KBlankLayouts,
 )
-from convert.adapters.solidworks.Drawing.Definition.Emission.Layouts.ScalarFields import (
-    MakeScalarRows,
+from convert.adapters.solidworks.Archive.Definition.Fields.DefPrefixFields import (
+    KDefPrefixFields,
 )
 from convert.adapters.solidworks.Drawing.Definition.Emission.ReadDrawMut import (
     ReadDrawMut,
@@ -69,7 +69,7 @@ def ReadBlankDef(DataValue: bytes, VersionValue: int) -> DefinitionRead:
         ReadSchemaMut,
         ReadFieldsMut,
     )
-    ReadFieldsMut(FrameValue, MakeScalarRows("i32", "fa58 fa5c fa60 fa64 fa74"))
+    ReadFieldsMut(FrameValue, KDefPrefixFields)
     ClsidValue = CursorValue.TakeBytes(len(KDrawClsid))
     if ClsidValue != KDrawClsid:
         raise BodyUnsupported("blank drawing Definition has the wrong document clsid")

@@ -11,7 +11,8 @@ from builders.Capsule import capsule_profile
 from builders.Circle import circle_profile, circle_set_profile
 from builders.Cut import BlindPocketGraph, blind_pocket
 from builders.ConfigurationHeader import CONFIGURATION_MANAGER_HEADER, configuration_manager_header, configuration_manager_header_stream
-from builders.Definition import definition_stream, part_definition
+from builders.DefinitionSdk import part_definition_graph
+from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
 from builders.ExternalFiles import ordinary_self_reference
 from builders.Extrude import DimensionGraph, live_blind_extrusion, live_extrusion
 from builders.Metadata import FILE_VERSION, PRINCIPAL_KEYWORD_ROLES, biography, boolean, fields, header, history, keywords, streams
@@ -329,7 +330,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     resolved = StreamDoc("resolved", {"base": state.count, "context": {
         "model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": graph.configuration_manager["f658"],
     }}, features)
-    definition = part_definition(
+    definition = part_definition_graph(
         density_kg_m3=document["density_kg_m3"], drafting_standard=presentation["drafting_standard"],
         detail_flags=presentation["detail_flags"], tessellation=tuple(presentation["tessellation"]),
         system_preference_7a=presentation["system_preference_7a"], journal_name=presentation["journal_name"],
@@ -337,7 +338,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     result.update({
         "Contents/Config-0": config_data,
         "Contents/CMgr": _rooted(registry=registry, node=graph.configuration_manager),
-        "Contents/Definition": definition_stream(registry=registry, document=definition),
+        "Contents/Definition": WriteModelDef(definition).OutputValue,
         "Contents/Config-0-ResolvedFeatures": store_resolved(resolved, registry, FILE_VERSION, seed=state),
     })
     manager_header = None

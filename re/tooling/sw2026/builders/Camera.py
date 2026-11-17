@@ -3,7 +3,8 @@ from __future__ import annotations
 from dataclasses import replace
 
 from Core import ArchiveError
-from builders.Definition import definition_stream, part_definition
+from builders.DefinitionSdk import part_definition_graph
+from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
 from builders.Part import construct_part
 from builders.Views import standard_views
 from convert.adapters.solidworks.Archive.Views.MakeViewPair import MakeViewPair
@@ -30,11 +31,11 @@ def construct_camera_part(*, registry, document, provenance, presentation, targe
     view = camera_input(presentation["initial_view"])
     base_presentation = {key: value for key, value in presentation.items() if key != "initial_view"}
     construction = construct_part(registry=registry, document=document, provenance=provenance, presentation=base_presentation, target=target)
-    definition = part_definition(
+    definition = part_definition_graph(
         density_kg_m3=document["density_kg_m3"], drafting_standard=base_presentation["drafting_standard"],
         detail_flags=base_presentation["detail_flags"], tessellation=tuple(base_presentation["tessellation"]),
         system_preference_7a=base_presentation["system_preference_7a"], journal_name=base_presentation["journal_name"],
     )
-    definition["fae8"], definition["faf0"] = MakeViewPair(view)
-    streams = {**construction.streams, "Contents/Definition": definition_stream(registry=registry, document=definition)}
+    definition.DocumentValue.FieldsValue["fae8"], definition.DocumentValue.FieldsValue["faf0"] = MakeViewPair(view)
+    streams = {**construction.streams, "Contents/Definition": WriteModelDef(definition).OutputValue}
     return replace(construction, streams=streams)

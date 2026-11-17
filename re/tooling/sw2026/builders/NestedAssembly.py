@@ -11,7 +11,7 @@ from builders.AssemblyDocument import CONFIG, DEFINITION, MANAGER, MATES, RESOLV
 from builders.AssemblyOccurrences import assembly_occurrence_bounds, occurrence_configuration, resolved_assembly_occurrence, resolved_part_occurrence
 from builders.AssemblyTargetState import target_update_stamps
 from builders.ConfigurationHeader import CONFIGURATION_MANAGER_HEADER, configuration_manager_header, configuration_manager_header_stream
-from builders.Definition import assembly_definition, definition_stream
+from builders.DefinitionSdk import assembly_definition_stream
 from builders.Metadata import FILE_VERSION, fields, integer, sequence, text
 from builders.Model import PersistentIds, configuration_manager, node_list, object_list, record_configuration_progress
 from builders.NestedAssemblyMetadata import nested_assembly_xml
@@ -108,7 +108,7 @@ def _construct_node(*, registry, request, placements):
         MANAGER: store_rooted(StreamDoc("rooted", {"base": 1}, [manager]), registry, FILE_VERSION),
         RESOLVED: resolved,
         MATES: store_assembly_mates(registry=registry, resolved_map=resolved_map, mate_group=features[-1], mates=()),
-        DEFINITION: definition_stream(registry=registry, document=assembly_definition(**definition)),
+        DEFINITION: assembly_definition_stream(**definition),
         CONFIGURATION_MANAGER_HEADER: configuration_manager_header_stream(registry=registry, header=manager_header),
     })
     result = NestedDocument(streams=streams, model=model, model_header=model_header, manager_header=manager_header, configuration=configuration,
