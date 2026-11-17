@@ -47,7 +47,7 @@ The starting source revision is `a6cc279f629d088c526a654149bb9dc99a8b2bb6`.
 | Child ID | Owner | Scope                                                                                   | Depends on                                             | Status   | Exit condition                                                                                                                                       |
 | -------- | ----- | --------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | A07d     | Codex | Bind every inference execution to its normalized job, inputs and dependency fingerprint | A03 session contract and existing A07 process coverage | complete | Actual runner processes reject changed session identities and malformed evidence while valid controller sessions retain their existing outcomes      |
-| A08f     | Codex | Queue the existing P02 circular SOLIDWORKS readback and pin ownership helpers           | Existing P02 collector, A03 and A08e                   | active   | Queue, timeout recovery and source-integrity process checks pass, with independent licensed acceptance recorded separately                           |
+| A08f     | Codex | Queue the existing P02 circular SOLIDWORKS readback and pin ownership helpers           | Existing P02 collector, A03 and A08e                   | complete | Queue, timeout recovery and source-integrity process checks pass. The licensed queue accepted all five P02 observations with healthy controls        |
 | A08g     | Codex | Fence supervised Windows worker entry after durable session publication                 | A03 ownership and leases, A08a                         | complete | Real worker processes enter only after metadata publication and current-owner lease validation, including grouped claims and startup failure cleanup |
 
 Commit [`c572f1ac`](https://github.com/TryUniCAD/Kit/commit/c572f1ac8dfa613e8ff6bf9ea99e2be375deb63c) passed 63 combined inference, Windows launch, readback, and rearm process checks.
@@ -58,13 +58,15 @@ The [session lifetime change](../../Changes/Research/Workers/SolidWorks/OwnedRea
 At [`ee53cf7`](https://github.com/TryUniCAD/Kit/commit/ee53cf759f08a1f5608311fea0447e97a4a681fa), SOLIDWORKS accepted five P02 and 14 P01/P03 readbacks.
 Both healthy controls matched in each run, each owned process exited normally, and both acceptance fences cleared.
 P04 timed out in the final control close after all 11 capture calls and retained zero accepted observations.
+The [original-order P04 rerun](../../Changes/Research/Workers/SolidWorks/FinalControlVisibility.md#original-order-queued-confirmation) then accepted all 11 captures and both controls at `9fc3c9a2`, with normal owned exit and acknowledgement.
 
 The A04d [standalone circle reader](../../Changes/Research/Readers/SolidWorks/StandaloneCircleSketch.md) matched five pinned P02 controls through the public SDK.
 The change preserves the driving diameter, Origin coincidence and principal support while reporting zero bodies for the proved sketch-only history.
 A12 now has an optional [constructive VisualStates member](../../Changes/Research/Writers/SolidWorks/Metadata/SolidWorksConstructiveVisualState.md) for research packages.
 Eight saved members reconstructed exactly, and a separately authored state passed offline package checks.
 The integrated reader and writer research passed 80 focused checks.
-Native writer acceptance requires an approved save classification and native geometry, editability and display-state observations.
+The [native Student-context Boss witness](../../Changes/Research/Writers/SolidWorks/Metadata/NativeStudentBossWitness.md) confirms one independently generated rectangular Boss opened, accepted three live dimension edits and restorations, saved, and rebuilt in a fresh process.
+The saved display-state name and feature visibility persisted. The default appearance reset to gray, and qualified public writer acceptance remains open.
 
 The registered SOLIDWORKS application points to build `34.4.1.1011`, matching the retained native readback.
 A separate older installation reports build `33.0.0.5050`.
@@ -278,9 +280,9 @@ The hosted archive receipt at `0a70ff7e` covers the [framed resolved opening](..
 
 The [licensed P03 omission witness](../../Changes/Research/Writers/SolidWorks/SolidWorksArchiveOmissions.md) opened a repack without the physical partition, ghost partition, lightweight data or display list streams. A depth edit and restore preserved the expected volume and center of mass, and the stock controls exited normally. A synthesized P03 candidate can use this evidenced member set. The P01 omission witness and full generated native acceptance remain open.
 The [first six resolved system folders](../../Changes/Research/Writers/SolidWorks/SolidWorksResolvedFolders.md) and the [annotation cabinet](../../Changes/Research/Writers/SolidWorks/SolidWorksResolvedCabinet.md) join the licensed tree names and header IDs in all 14 saves. Together they allocate 26 slots and preserve the cabinet's reciprocal Notes references. The [Config-0 units table](../../Changes/Research/Writers/SolidWorks/SolidWorksConfigurationUnits.md) and [model presentation fields](../../Changes/Research/Writers/SolidWorks/SolidWorksConfigurationModelView.md) preserve unit ownership, optional curvature state and reference-plane presentation.
-The [configuration storage index](../../Changes/Research/Writers/SolidWorks/SolidWorksPartConfigurationIndex.md) reconstructs the active-config stream. The [archive framing](../../Changes/Research/Writers/SolidWorks/SolidWorksPartArchiveFraming.md) derives the paired ZIP timestamps and supplies typed generation-19000 storage entries. The new stream comparisons and licensed opening of a complete assembled part remain pending.
+The [configuration storage index](../../Changes/Research/Writers/SolidWorks/SolidWorksPartConfigurationIndex.md) reconstructs the active-config stream. The [archive framing](../../Changes/Research/Writers/SolidWorks/SolidWorksPartArchiveFraming.md) derives the paired ZIP timestamps and supplies typed generation-19000 storage entries. The [native Student-context Boss witness](../../Changes/Research/Writers/SolidWorks/Metadata/NativeStudentBossWitness.md) records the licensed opening and editable lifecycle of one independently assembled part.
 The saved controls support offline format research while A06 graph qualification and A09 codec evidence remain open.
-A12 still needs complete native generation from a qualified portable graph, refusal at the writer boundary, and controlled application evidence.
+A12 still needs complete native generation from a qualified portable graph, refusal at the writer boundary, and controlled application evidence for that public route.
 The separate SOLIDWORKS generative research in PR #121 records controlled load, edit, rebuild and fresh-reopen evidence for radius and diameter sketches and bounded blind circle bosses on build 34.5.2.0604. That source supplies independent constructor and oracle evidence for A12 and A16. The current public writer and qualified routes on PR #94 remain open. [PR #121 source and scope](https://github.com/TryUniCAD/Kit/pull/121)
 
 ## A16 FreeCAD end-owner bindings

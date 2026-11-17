@@ -42,6 +42,6 @@ Execution of those additional cases awaits the integrated committed source revis
 Read-only inspection found the registered SOLIDWORKS installation and both interop assemblies at build `34.4.1.1011`.
 The installation directory is `SOLIDWORKS (3)` on the inspected Windows machine.
 The [registered-installation gotcha](../../../../Gotchas/Research/Workers/SolidWorks/RegisteredInstallationVersion.md) records the read-only resolution procedure.
-Licensed P02 queue execution and its independent acceptance observations await the integrated committed source revision.
 The seven process cases use explicit fixture records and establish transport behavior only.
+The [licensed committed-source run](FinalControlDiscard.md#committed-lifetime-observation) independently accepted all five circle observations and both stock controls, observed normal owned-process exit and cleared acknowledgement.
 P02 evidence admission, portable semantic qualification and editable conversion acceptance retain their own requirements.
