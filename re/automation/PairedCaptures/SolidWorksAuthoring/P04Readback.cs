@@ -503,7 +503,12 @@ public sealed partial class P04Readback
         {
             try
             {
-                if (owned != null) progress.Invoke("close_document", (string)row["file"], () => app.CloseDoc(owned.GetTitle()));
+                if (owned != null)
+                {
+                    string closeName = progress.Invoke("close_title", (string)row["file"], () => owned.GetTitle());
+                    row["close_operand"] = closeName;
+                    progress.Invoke("close_document", (string)row["file"], () => app.CloseDoc(closeName), Row("operand", closeName));
+                }
                 Require(progress.Invoke("verify_empty", (string)row["file"], () => app.GetDocumentCount()) == 0,
                     "SOLIDWORKS document cleanup did not leave an empty session");
             }
@@ -621,6 +626,17 @@ public sealed partial class P04Readback
                 result["native_owner"] = owner;
                 owned = true;
             }
+            var lifetime = progress.Invoke("application_lifetime_read", null,
+                () => Row("user_control_before", application.UserControl,
+                    "background_control_before", application.UserControlBackground));
+            progress.Invoke("application_lifetime", null, () =>
+            {
+                application.UserControlBackground = true;
+                lifetime["background_control_after"] = application.UserControlBackground;
+                lifetime["user_control_after"] = application.UserControl;
+                Require((bool)lifetime["background_control_after"], "The owned background session did not retain explicit lifetime control");
+            }, lifetime);
+            result["application_lifetime"] = lifetime;
             var worker = new P04Readback(application, progress);
             var before = progress.Invoke("control_before", "control.SLDPRT", () => worker.Read(Path.Combine(workspace, "control.SLDPRT"), true));
             result["control_before"] = before;

@@ -19,7 +19,9 @@ public static class ProgressFixture
         var json = new System.Web.Script.Serialization.JavaScriptSerializer();
         var owner = json.Deserialize<System.Collections.Generic.Dictionary<string, object>>(System.IO.File.ReadAllText(ownerPath));
         var progress = new ReadbackProgress(journalPath, owner);
-        progress.Invoke("control_before", null, () => System.IO.File.WriteAllText(markerPath, "real filesystem fixture action"));
+        progress.Invoke("close_document", "control.SLDPRT",
+            () => System.IO.File.WriteAllText(markerPath, "real filesystem fixture action"),
+            new System.Collections.Generic.Dictionary<string, object> { { "operand", "control.SLDPRT" } });
         return json.Serialize(progress.Finish("observed"));
     }
 }

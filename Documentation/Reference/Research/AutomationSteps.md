@@ -44,11 +44,16 @@ The user assigned SOLIDWORKS and CAD-independent implementation to Codex on 2026
 Delivery remains on [PR #158](https://github.com/TryUniCAD/Kit/pull/158), from isolated branch `codex/pr158-solidworks-completion`.
 The starting source revision is `a6cc279f629d088c526a654149bb9dc99a8b2bb6`.
 
-| Child ID | Owner | Scope                                                                                   | Depends on                                             | Status | Exit condition                                                                                                                                       |
-| -------- | ----- | --------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A07d     | Codex | Bind every inference execution to its normalized job, inputs and dependency fingerprint | A03 session contract and existing A07 process coverage | active | Actual runner processes reject changed session identities and malformed evidence while valid controller sessions retain their existing outcomes      |
-| A08f     | Codex | Queue the existing P02 circular SOLIDWORKS readback and pin ownership helpers           | Existing P02 collector, A03 and A08e                   | active | Queue, timeout recovery and source-integrity process checks pass, with independent licensed acceptance recorded separately                           |
-| A08g     | Codex | Fence supervised Windows worker entry after durable session publication                 | A03 ownership and leases, A08a                         | active | Real worker processes enter only after metadata publication and current-owner lease validation, including grouped claims and startup failure cleanup |
+| Child ID | Owner | Scope                                                                                   | Depends on                                             | Status   | Exit condition                                                                                                                                       |
+| -------- | ----- | --------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A07d     | Codex | Bind every inference execution to its normalized job, inputs and dependency fingerprint | A03 session contract and existing A07 process coverage | complete | Actual runner processes reject changed session identities and malformed evidence while valid controller sessions retain their existing outcomes      |
+| A08f     | Codex | Queue the existing P02 circular SOLIDWORKS readback and pin ownership helpers           | Existing P02 collector, A03 and A08e                   | active   | Queue, timeout recovery and source-integrity process checks pass, with independent licensed acceptance recorded separately                           |
+| A08g     | Codex | Fence supervised Windows worker entry after durable session publication                 | A03 ownership and leases, A08a                         | complete | Real worker processes enter only after metadata publication and current-owner lease validation, including grouped claims and startup failure cleanup |
+
+Commit [`c572f1ac`](https://github.com/TryUniCAD/Kit/commit/c572f1ac8dfa613e8ff6bf9ea99e2be375deb63c) passed 63 combined inference, Windows launch, readback, and rearm process checks.
+The [inference session change](../../Changes/Research/Controller/InferenceSessionIntegrity.md) also records a passing historical archive gate.
+The [Windows launch change](../../Changes/Research/Supervisor/WindowsLaunchAuthorization.md) records the 18-case Windows regression.
+The [native progress record](../../Changes/Research/Workers/SolidWorks/NativeReadbackProgress.md) identifies the pending SOLIDWORKS control close.
 
 The registered SOLIDWORKS application points to build `34.4.1.1011`, matching the retained native readback.
 A separate older installation reports build `33.0.0.5050`.

@@ -62,6 +62,8 @@ def observe(request, work):
               'fixture_only': True, 'run': {
                   'status': 'observed', 'observations': observations, 'application': {'build': BUILD},
                   'native_owner': owner, 'owned_process_exit_observed': True,
+                  'application_lifetime': {'user_control_before': False, 'background_control_before': False,
+                                           'background_control_after': fault != 'lifetime', 'user_control_after': False},
                   'control_before': {'status': 'observed'}, 'control_after': {'status': 'observed'}}}
     owner_path = output / 'fixture-owner.json'
     write_record(owner_path, owner)

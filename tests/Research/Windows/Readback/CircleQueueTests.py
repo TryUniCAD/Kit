@@ -20,7 +20,8 @@ from tests.Research.Windows.Readback.QueueReadback import QueueReadback
 # circular completion requires every binding and distinct observed file before copied evidence is accepted
 @TestMark.skipif(HostPlatform != "win32", reason="Windows readback process boundary")
 @TestMark.parametrize(
-    "FaultName", ("none", "circle", "roster", "chain", "binding", "stage", "incomplete")
+    "FaultName",
+    ("none", "circle", "roster", "chain", "binding", "stage", "incomplete", "lifetime"),
 )
 def CheckCircleQueue(TmpPath: FilePath, FaultName: str) -> None:
     RootPath, ConfigPath = InstallReadback(TmpPath)
@@ -30,9 +31,13 @@ def CheckCircleQueue(TmpPath: FilePath, FaultName: str) -> None:
     if FaultName != "none":
         assert Result["outcome"] == "waiting_application", Result
         Expected = (
-            "lacks complete source"
-            if FaultName in ("circle", "roster")
-            else "native progress"
+            "background lifetime"
+            if FaultName == "lifetime"
+            else (
+                "lacks complete source"
+                if FaultName in ("circle", "roster")
+                else "native progress"
+            )
         )
         assert Expected in str(Result["reason"])
         assert "artifacts" not in Result
@@ -52,4 +57,10 @@ def CheckCircleQueue(TmpPath: FilePath, FaultName: str) -> None:
     Dispatch = DecodeJson((TmpPath / "Session/work/dispatch.json").read_bytes())
     assert Dispatch["proof"]["fixture_only"] is True
     assert Dispatch["proof"]["native_progress_events"] == 3
+    Measurement = DecodeJson(
+        (TmpPath / "Session/work/readback/measurements.json").read_bytes()
+    )
+    Journal = Measurement["run"]["native_progress"]["journal_utf8"].splitlines()
+    assert DecodeJson(Journal[0])["detail"] == {"operand": "control.SLDPRT"}
+    assert DecodeJson(Journal[1])["detail"] == {"operand": "control.SLDPRT"}
     assert (TmpPath / "Endpoint/fence.json").exists()

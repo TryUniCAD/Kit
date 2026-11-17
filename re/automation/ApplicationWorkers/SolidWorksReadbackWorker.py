@@ -89,6 +89,13 @@ def native_result(work, config, operation=OPERATION, progress_required=False, lo
     progress = {}
     if progress_required or "native_progress" in run:
         progress = require_progress(run.get("native_progress"), owner, work if local_progress else None)
+    if progress_required:
+        lifetime = run.get("application_lifetime")
+        require(isinstance(lifetime, dict) and set(lifetime) == {
+            "user_control_before", "background_control_before", "background_control_after", "user_control_after",
+        } and all(type(value) is bool for value in lifetime.values())
+                and lifetime["background_control_after"] is True,
+                "SOLIDWORKS readback lacks verified owned background lifetime control")
     return {"readback_plan_sha256": plan_sha256, "solidworks_build": application["build"],
             "native_owner_sha256": sha256(encoded(owner)), **progress}
 

@@ -74,13 +74,13 @@ public sealed class ReadbackProgress
         }
     }
 
-    public T Invoke<T>(string stage, string file, Func<T> action)
+    public T Invoke<T>(string stage, string file, Func<T> action, object detail = null)
     {
-        Record(stage, file, "started", null);
+        Record(stage, file, "started", detail);
         try
         {
             T value = action();
-            Record(stage, file, "completed", null);
+            Record(stage, file, "completed", detail);
             return value;
         }
         catch (Exception error)
@@ -92,9 +92,9 @@ public sealed class ReadbackProgress
         }
     }
 
-    public void Invoke(string stage, string file, Action action)
+    public void Invoke(string stage, string file, Action action, object detail = null)
     {
-        Invoke(stage, file, () => { action(); return true; });
+        Invoke(stage, file, () => { action(); return true; }, detail);
     }
 
     public object Finish(string outcome)
