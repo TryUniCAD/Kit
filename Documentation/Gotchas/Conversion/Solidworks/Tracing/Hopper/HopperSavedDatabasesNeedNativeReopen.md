@@ -14,6 +14,6 @@ its database path, and use the native scripting API for a bounded procedure.
 Keep the original executable hash alongside the database and result hashes.
 Do not assume that the direct native result was returned by REA.
 
-The [constructor receipt](../../../../../re/solidworks/measurements/2026/MarkupHopperAnalysis01.json)
+The [constructor receipt](../../../../../../re/solidworks/measurements/2026/MarkupHopperAnalysis01.json)
 records the timeout, cleanup, unsupported target response and successful native
 procedure query separately.
