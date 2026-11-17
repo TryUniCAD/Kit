@@ -60,7 +60,7 @@ def decode(root, manifest_path, asset_path, configuration, output):
     staging = Path(tempfile.mkdtemp(prefix=".reader-", dir=output.parent))
     try:
         sys.path.insert(0, str(root / "src"))
-        from convert.api.ApiOpen import OpenDocument
+        from convert.adapters.solidworks.Core.Adapter import ReadSldprt
         from convert.adapters.solidworks.Container.Container import SldprtArchive
         from convert.adapters.solidworks.Container.Format import KitDocStream
         from interchange.Core.Common import FreezeMapping
@@ -69,7 +69,7 @@ def decode(root, manifest_path, asset_path, configuration, output):
         archive = SldprtArchive.from_bytes(content, asset_path)
         if archive.get(KitDocStream) is not None:
             raise ValueError("embedded Kit documents are not independent native reader evidence")
-        document = OpenDocument(content, SourceFormat="solidworks.sldprt", Configuration=configuration, StrictMode=True)
+        document = ReadSldprt(content, Config=configuration)
         document = replace(
             document,
             metadata=FreezeMapping({**document.metadata, "kit.research_read_status": "unqualified"}),

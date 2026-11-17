@@ -39,6 +39,7 @@ from interchange.brep.Surfaces.BrepSurfaces import (
     TorusSurface,
 )
 from interchange.brep.Topology.BrepModel import BrepModel
+from convert.Geometry.PlanarLoopRoles import ReadPlanarRoles, SetPlanarRoles
 from convert.Geometry.TopoMapsView import TopoMapsView  # lgtm[py/unsafe-cyclic-import]
 from interchange.brep.Topology.BrepTopology import (
     BrepBody,
@@ -290,16 +291,16 @@ def EncodeBrepModel(
             raise ParaWriteError("SOLIDWORKS feature ids must be positive i32 values")
     ValidateSupport(Model)
     Topology = BrepTopology(Model)
-    BodyData = EncodeBrepBody(
+    BodyData, Indices = EncodeBodyMap(
         Model, Topology, PartValue=PartValue, SolidFeatureIds=FeatureIds
-    )[0]
+    )
     PayloadData = ParaStream(
         BodyData,
         KParaSchema,
         KParaPartDesc if PartValue else KParaModelDesc,
         UserFieldSize=0,
     )
-    VerifyBrepData(Model, PayloadData)
+    VerifyBrepData(Model, PayloadData, Indices)
     return PayloadData
 
 
@@ -354,9 +355,16 @@ def ValidateSupport(Model: BrepModel) -> None:
             "Parasolid B-rep writing does not support degenerate edges"
         )
     Loops = {LoopDataData.id: LoopDataData for LoopDataData in Model.loops}
+    PlanarOuters = ReadPlanarRoles(Model)
     for FaceDataData in Model.faces:
         Outer = tuple((Loops[LoopId].outer for LoopId in FaceDataData.loop_ids))
-        if Outer != (True,) + (False,) * (len(FaceDataData.loop_ids) - 1):
+        KnownOuter = PlanarOuters.get(FaceDataData.id)
+        if KnownOuter is not None:
+            if Outer != tuple(LoopId == KnownOuter for LoopId in FaceDataData.loop_ids):
+                raise ParaWriteError(
+                    f"Parasolid B-rep face {FaceDataData.id} loop roles disagree with planar containment"
+                )
+        elif Outer != (True,) + (False,) * (len(FaceDataData.loop_ids) - 1):
             raise ParaWriteError(
                 f"Parasolid B-rep face {FaceDataData.id} requires its first loop to be the only outer loop"
             )
@@ -371,11 +379,43 @@ def ValidateSupport(Model: BrepModel) -> None:
                 )
 
 
+# writer verification must match each loop to its emitted face and record identity
+def VerifyLoopRoles(
+    Model: BrepModel, Decoded: BrepModel, Indices: EncodeIndices | None
+) -> None:
+    if Indices is None:
+        if tuple(LoopValue.outer for LoopValue in Model.loops) != tuple(
+            LoopValue.outer for LoopValue in Decoded.loops
+        ):
+            raise ParaWriteError("generated Parasolid B-rep changes loop roles")
+        return
+    Faces = {FaceValue.id: FaceValue for FaceValue in Decoded.faces}
+    Roles = {LoopValue.id: LoopValue.outer for LoopValue in Decoded.loops}
+    for FaceValue in Model.faces:
+        Restored = Faces.get(NativeId("face", Indices.KFaces[FaceValue.id] + 1))
+        LoopIds = tuple(
+            NativeId("loop", Indices.KLoops[LoopId] + 1)
+            for LoopId in FaceValue.loop_ids
+        )
+        if Restored is None or Restored.loop_ids != LoopIds:
+            raise ParaWriteError(
+                f"generated Parasolid B-rep changes loop order for face {FaceValue.id}"
+            )
+    for LoopValue in Model.loops:
+        LoopId = NativeId("loop", Indices.KLoops[LoopValue.id] + 1)
+        if Roles.get(LoopId) != LoopValue.outer:
+            raise ParaWriteError(
+                f"generated Parasolid B-rep changes loop role for {LoopValue.id}"
+            )
+
+
 # this declaration exists because focused behavior needs one stable owner
-def VerifyBrepData(Model: BrepModel, PayloadData: bytes) -> None:
-    Decoded = DecodeBrepModel(PayloadData)
+def VerifyBrepData(
+    Model: BrepModel, PayloadData: bytes, Indices: EncodeIndices | None = None
+) -> None:
+    Decoded, Reason = ReadBrepResult(PayloadData)
     if Decoded is None:
-        raise ParaWriteError("generated Parasolid B-rep cannot be decoded")
+        raise ParaWriteError(f"generated Parasolid B-rep cannot be decoded ({Reason})")
     Errors = Decoded.validate()
     if Errors:
         raise ParaWriteError(Errors[0])
@@ -410,10 +450,7 @@ def VerifyBrepData(Model: BrepModel, PayloadData: bytes) -> None:
         (Region.solid for Region in Decoded.regions)
     ):
         raise ParaWriteError("generated Parasolid B-rep changes region solidity")
-    if tuple((LoopDataData.outer for LoopDataData in Model.loops)) != tuple(
-        (LoopDataData.outer for LoopDataData in Decoded.loops)
-    ):
-        raise ParaWriteError("generated Parasolid B-rep changes loop roles")
+    VerifyLoopRoles(Model, Decoded, Indices)
     if any(
         (
             Distance(Source.point, Restored.point) > 1e-09
@@ -772,6 +809,20 @@ def EncodeBrepBody(
     PartValue: bool = True,
     SolidFeatureIds: Mapping[str, int] | None = None,
 ) -> tuple[bytes, bool]:
+    Result, Indices = EncodeBodyMap(
+        Model, Topology, PartValue=PartValue, SolidFeatureIds=SolidFeatureIds
+    )
+    return Result, Indices.KSheet
+
+
+# verification needs record identities from the same allocator that emitted the body
+def EncodeBodyMap(
+    Model: BrepModel,
+    Topology: BrepTopology,
+    *,
+    PartValue: bool = True,
+    SolidFeatureIds: Mapping[str, int] | None = None,
+) -> tuple[bytes, EncodeIndices]:
     Config = MakeEncConfig(Model, Topology, SolidFeatureIds)
     Allocator = MakeAllocator(Config, PartValue)
     Indices = MakeEncodeIndex(Model, Topology, Config, Allocator)
@@ -800,7 +851,7 @@ def EncodeBrepBody(
         if Config.KSolidTri and not PartValue
         else bytes(Output)
     )
-    return Result, Indices.KSheet
+    return Result, Indices
 
 
 # encoder configuration derives deterministic vendor layout modes from model topology
@@ -1406,15 +1457,62 @@ def MakeNodeState(
     return Nodes
 
 
-# loop orientation converts face reversals into encoded coedge traversal directions
+# a shell can change traversal only when every paired edge proves reciprocal use
+def FindFinShells(
+    Topology: BrepTopology,
+    Owners: EncodeOwners,
+    ForwardFaces: Mapping[str, bool],
+    ForwardUses: Mapping[str, bool],
+) -> set[str]:
+    FaceBreaks: set[str] = set()
+    Unproved: set[str] = set()
+    for EdgeData in Topology.edges.values():
+        CoedgeIds = Topology.edge_coedges[EdgeData.id]
+        FaceIds = tuple(
+            Topology.loop_face[Topology.coedge_loop[CoedgeId]] for CoedgeId in CoedgeIds
+        )
+        ShellIds = {Owners.KFaceShell[FaceId] for FaceId in FaceIds}
+        if len(CoedgeIds) != 2 or len(ShellIds) != 1:
+            Unproved.update(ShellIds)
+            continue
+        FirstId, OtherId = CoedgeIds
+        FirstFace, OtherFace = FaceIds
+        (ShellId,) = ShellIds
+        RawOpposite = (
+            Topology.coedges[FirstId].reversed ^ Topology.coedges[OtherId].reversed
+        )
+        if RawOpposite == (ForwardUses[FirstFace] ^ ForwardUses[OtherFace]):
+            Unproved.add(ShellId)
+        elif EdgeData.start_vertex_id != EdgeData.end_vertex_id and RawOpposite == (
+            ForwardFaces[FirstFace] ^ ForwardFaces[OtherFace]
+        ):
+            FaceBreaks.add(ShellId)
+    return {
+        ShellId for ShellId in FaceBreaks - Unproved if Topology.shells[ShellId].closed
+    }
+
+
+# loop orientation converts face reversals into connected encoded coedge traversal
 def MakeLoopOrder(
-    Model: BrepModel, Topology: BrepTopology
+    Model: BrepModel, Topology: BrepTopology, Owners: EncodeOwners
 ) -> tuple[dict[str, tuple[str, ...]], dict[str, bool]]:
     EncodedLoops: dict[str, tuple[str, ...]] = {}
     EncodedReversed: dict[str, bool] = {}
+    ForwardFaces = {
+        FaceData.id: Topology.IsFaceForward(FaceData.id) for FaceData in Model.faces
+    }
+    ForwardUses = {
+        FaceData.id: ForwardFaces[FaceData.id] == FaceData.same_sense
+        for FaceData in Model.faces
+    }
+    UseShells = FindFinShells(Topology, Owners, ForwardFaces, ForwardUses)
     for LoopData in Model.loops:
-        FaceData = Topology.faces[Topology.loop_face[LoopData.id]]
-        FaceForward = Topology.IsFaceForward(FaceData.id)
+        FaceId = Topology.loop_face[LoopData.id]
+        FaceForward = (
+            ForwardUses[FaceId]
+            if Owners.KFaceShell[FaceId] in UseShells
+            else ForwardFaces[FaceId]
+        )
         EncodedLoops[LoopData.id] = (
             LoopData.coedge_ids
             if FaceForward
@@ -1497,7 +1595,7 @@ def MakeFinState(
     Indices: EncodeIndices,
     Owners: EncodeOwners,
 ) -> EncodeFinState:
-    EncodedLoops, EncodedReversed = MakeLoopOrder(Model, Topology)
+    EncodedLoops, EncodedReversed = MakeLoopOrder(Model, Topology, Owners)
     VertexFins: dict[str, list[int]] = {Vertex.id: [] for Vertex in Model.vertices}
     FinVertex: dict[int, str] = {}
     FinOther: dict[int, int] = {}
@@ -4181,14 +4279,20 @@ class RecordTables:
 
 # this declaration exists because focused behavior needs one stable owner
 def DecodeBrepModel(PayloadData: bytes | bytearray) -> BrepModel | None:
+    Model, _ = ReadBrepResult(PayloadData)
+    return Model
+
+
+# a generated payload must retain the reason that the public decoder treats as refusal
+def ReadBrepResult(PayloadData: bytes | bytearray) -> tuple[BrepModel | None, str]:
     DataValue = bytes(PayloadData)
     Header = ParaHeaderData(DataValue)
     if Header is None:
-        return None
+        return None, "invalid transmit header"
     DescValue = Header.description.casefold()
     if "delta" in DescValue or "transmit file" not in DescValue:
-        return None
-    return DecodePartModel(DataValue, Header)
+        return None, "unsupported transmit description"
+    return ReadPartResult(DataValue, Header)
 
 
 # this declaration exists because focused behavior needs one stable owner
@@ -4219,20 +4323,31 @@ def ParaHeaderData(DataValue: bytes) -> ParaHeader | None:
 
 # this declaration exists because focused behavior needs one stable owner
 def DecodePartModel(PayloadData: bytes, Header: ParaHeader) -> BrepModel | None:
+    Model, _ = ReadPartResult(PayloadData, Header)
+    return Model
+
+
+# the writer needs to distinguish record scanning from topology reconstruction and validation
+def ReadPartResult(
+    PayloadData: bytes, Header: ParaHeader
+) -> tuple[BrepModel | None, str]:
     BodyData = PayloadData[Header.body_offset :]
     if not BodyData or len(BodyData) > 268435456:
-        return None
+        return None, "invalid partition body length"
     Tables = ScanPartRecords(BodyData)
-    if Tables is None or not Tables.bridges:
-        return None
+    if Tables is None:
+        return None, "partition record scan exceeded its limits"
+    if not Tables.bridges:
+        return None, "partition contains no decoded faces"
     UnchangedIds, AttrOrders = SolidFaceData(BodyData)
     try:
         Model = BuildPartModel(Tables, UnchangedIds, AttrOrders)
-    except (KeyError, ValueError, OverflowError):
-        return None
-    if Model.validate():
-        return None
-    return Model
+    except (KeyError, ValueError, OverflowError) as Failure:
+        return None, f"invalid partition topology ({Failure})"
+    Errors = Model.validate()
+    if Errors:
+        return None, Errors[0]
+    return Model, ""
 
 
 # this declaration exists because focused behavior needs one stable owner
@@ -7451,19 +7566,21 @@ def BuildPartModel(
     FaceUses, Shells, ShellUses, Regions, Bodies = BuildTreeModel(
         Tables, OwnerFaces, FaceLoops, FaceRanks
     )
-    return BrepModel(
-        curves=Curves,
-        surfaces=Surfaces,
-        vertices=Vertices,
-        edges=Edges,
-        coedges=Coedges,
-        loops=Loops,
-        faces=Faces,
-        face_uses=FaceUses,
-        shells=Shells,
-        shell_uses=ShellUses,
-        regions=Regions,
-        bodies=Bodies,
+    return SetPlanarRoles(
+        BrepModel(
+            curves=Curves,
+            surfaces=Surfaces,
+            vertices=Vertices,
+            edges=Edges,
+            coedges=Coedges,
+            loops=Loops,
+            faces=Faces,
+            face_uses=FaceUses,
+            shells=Shells,
+            shell_uses=ShellUses,
+            regions=Regions,
+            bodies=Bodies,
+        )
     )
 
 
@@ -7986,7 +8103,7 @@ def MakePartEdges(
     return tuple(Edges)
 
 
-# outer loop discovery selects the first dimensional ring for every face
+# native order supplies roles when geometry cannot prove a more specific boundary
 def FindOuterLoops(
     FaceLoops: Mapping[int, Sequence[tuple[int, Sequence[int]]]], Tables: RecordTables
 ) -> set[int]:
