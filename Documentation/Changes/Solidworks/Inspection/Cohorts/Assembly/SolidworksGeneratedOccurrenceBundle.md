@@ -1,0 +1,9 @@
+# SOLIDWORKS generated occurrence bundle
+
+The SOLIDWORKS 2026 research process accepts an authored assembly and child-part request together with one resolved external part occurrence. It generates both file containers in memory. The assembly links to the generated child's file identity and configuration. Its occurrence owns a rigid placement, child-local bounds and a named entry in the configuration's contextual reference chain.
+
+Pass `assembly`, `child` and `occurrences` in one JSON object to `re/tooling/sw2026/AssemblyRootProcess.py`. The assembly and child each take an explicit native output path and save event. The child uses the existing research part builder with a forward blind polygon extrusion. The occurrence takes its name and a `placement` with `origin`, `u` and `v` in parent coordinates. The process returns the assembly and child containers with a decoded graph report. [Occurrence field and ownership rules](../../../../../../re/solidworks/records/OrdinaryOccurrenceConstruction2026.md)
+
+An isolated process integration test generated the bundle with identity placement and with a rotated, translated placement. It checked the external directory's direct slot, occurrence ownership, configuration identity, map continuity, stream round trips, bounds and runtime file-access audit. The two existing empty-assembly container hashes matched before and after the change. [Integration test](../../../../../../tests/Convert/Solidworks/Research/Assembly/OccurrenceBundleTests.py)
+
+This witness covers one generated external part occurrence. Repeated occurrences, assemblies as children, configurations beyond the single active configuration, mates and other component states are outside this bundle's contract. The process records native acceptance as false pending independent SOLIDWORKS measurement and leaves the user-facing adapter read-only.

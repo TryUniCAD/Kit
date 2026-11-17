@@ -28,6 +28,7 @@ class PartConstruction:
     model: Obj
     model_header: Obj
     manager_header: Obj | None
+    configuration: Obj
     features: tuple[Obj, ...]
     profile: object
     radial: object
@@ -231,7 +232,8 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         manager_header = configuration_manager_header(manager=graph.configuration_manager, saved_at=output["saved_at"])
         result[CONFIGURATION_MANAGER_HEADER] = configuration_manager_header_stream(registry=registry, header=manager_header)
     return PartConstruction(
-        streams=result, model=graph.part, model_header=model_header, manager_header=manager_header, features=features,
+        streams=result, model=graph.part, model_header=model_header, manager_header=manager_header,
+        configuration=graph.configuration_manager["f360"], features=features,
         profile=profile, radial=radial, extrusion=extrusion,
         next_id=graph.next_persistent_id, configuration_map_count=state.count,
     )
