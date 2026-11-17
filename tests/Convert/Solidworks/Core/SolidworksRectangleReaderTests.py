@@ -1,11 +1,13 @@
 from collections import Counter as CountKinds
 from json import loads as LoadJson
+from math import isclose as IsClose
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
 from typing import cast as CastValue
 
 from convert import open_document as OpenDocument
+from convert.Geometry.Revolve.SweepVector import CrossVector, DotVector
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 
@@ -43,6 +45,37 @@ def TestRectOpen() -> None:
     assert Bounds is not None
     assert Bounds.minimum == SpaceVector(-20.0, -10.0, 0.0)
     assert Bounds.maximum == SpaceVector(20.0, 10.0, 10.0)
+
+
+# the native shell must bound positive volume when its directed loops are integrated
+def TestRectWinding() -> None:
+    Document = OpenDocument(
+        KCorpus / "ladder/L1_boss.SLDPRT", include_tessellation=False
+    )
+    Model = Document.brep
+    assert Model is not None
+    assert not Document.validate()
+    Vertices = {Vertex.id: Vertex.point for Vertex in Model.vertices}
+    Edges = {EdgeData.id: EdgeData for EdgeData in Model.edges}
+    Starts = {
+        Coedge.id: Vertices[
+            (
+                Edges[Coedge.edge_id].end_vertex_id
+                if Coedge.reversed
+                else Edges[Coedge.edge_id].start_vertex_id
+            )
+        ]
+        for Coedge in Model.coedges
+    }
+    assert len(Model.loops) == 6
+    Volume = 0.0
+    for LoopValue in Model.loops:
+        First, Second, Third, Fourth = tuple(
+            Starts[UseId] for UseId in LoopValue.coedge_ids
+        )
+        Volume += DotVector(First, CrossVector(Second, Third))
+        Volume += DotVector(First, CrossVector(Third, Fourth))
+    assert IsClose(Volume / 6.0, 8000.0, abs_tol=1e-9)
 
 
 # current sketches with an actual arc array must keep their circular geometry

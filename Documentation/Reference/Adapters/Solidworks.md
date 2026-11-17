@@ -55,6 +55,11 @@ The reader combines available feature, geometry, and assembly information.
 Source metadata and diagnostics qualify the decoded result.
 The cached body geometry and feature history provide different evidence.
 
+The Parasolid reader uses forward fin links and terminal vertices for schema
+`SCH_3701250_37102_13006`. The disclosed SOLIDWORKS 2026 rectangular
+solids retain outward face loops and positive signed volume in
+`open_document()`. [Current fin orientation](../../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
+
 ### Drawing layout inspection
 
 For an ordinary SOLIDWORKS 2026 drawing, pass `strict=False` to `open_document()` or run `kit decode SOURCE --partial`. The returned `CadDocument.drawing` includes the active sheet, paper dimensions and scale. A sheet can have one external part front view with its position, outline, saved model path and selected configuration. View orientation, scale ratio and model-to-sheet transform come from the native Definition view. Distances are in metres. The standard interchange JSON path preserves these records.
