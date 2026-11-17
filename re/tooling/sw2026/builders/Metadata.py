@@ -13,6 +13,10 @@ HISTORY_STREAM = f"_MO_VERSION_{FILE_VERSION}/History"
 COUNTER_SEED = 101
 LICENSE_ORIGINS = frozenset((0, 10, 20, 30, 40, 50))
 KEYWORD_TAGS = frozenset(("Feature", "Sketch", "Extrusion"))
+PRINCIPAL_KEYWORD_ROLES = {
+    "moRefPlane_c": ("Feature", "PLANE"),
+    "moOriginProfileFeature_c": ("Sketch", "Origin"),
+}
 
 
 def integer(value, name, low=0, high=0xFFFFFFFF):

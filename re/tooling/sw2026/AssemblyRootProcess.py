@@ -24,7 +24,10 @@ from builders.Definition import definition_stream
 from defs.ConfigPart import load_config, store_config_state
 from defs.Definition import load_definition
 from defs.ResolvedCore import load_resolved, store_resolved_state
+from convert.adapters.solidworks.Assembly.Assembly import DecodeNativeAsm
 from convert.adapters.solidworks.Container.Container import SldprtArchive, build_sldprt
+from convert.adapters.solidworks.Container.Format import COMPONENT_TREE_STREAM, KEYWORDS_STREAM
+from convert.adapters.solidworks.Core.Native import ParseKeywords
 
 REGISTRY = registry()
 CODECS = tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
@@ -67,6 +70,20 @@ def _inspect_occurrence_configuration(row):
         "name_handle_slot": target["f38"].index,
         "owner_file": self_reference_fields(owner_file),
         "chain_count": targets["n"], "chain_mode": path["f24"], "chain_stamp": component["f30"],
+    }
+
+
+def _inspect_xml_metadata(archive):
+    decoded = DecodeNativeAsm(archive)
+    configurations, features = ParseKeywords(archive.require(KEYWORDS_STREAM))
+    return {
+        "version": decoded.application_version,
+        "file_count": len(decoded.files),
+        "definition_count": len(decoded.definitions),
+        "configuration_names": [configuration.name for configuration in configurations],
+        "paths": [value.path for value in decoded.occurrence_paths],
+        "native_feature_ids": [value.feature_id for value in decoded.occurrences],
+        "keyword_reference_ids": [value.object_id for value in features if value.xml_tag == "Reference"],
     }
 
 
@@ -126,11 +143,13 @@ def inspect_root(assembly):
     }
     if model["f1560"]:
         result.update(_inspect_occurrences(model=model, model_header=decoded.head["model_header"], top_header=top_header, configuration=configuration, read=read))
+    if COMPONENT_TREE_STREAM in streams:
+        result["xml_metadata"] = _inspect_xml_metadata(archive)
     return result
 
 
-def inspect_bundle(request):
-    bundle = construct_assembly_bundle(registry=REGISTRY, request=request)
+def inspect_bundle(request, *, include_xml_metadata):
+    bundle = construct_assembly_bundle(registry=REGISTRY, request=request, include_xml_metadata=include_xml_metadata)
     result = inspect_root(bundle.assembly)
     child = build_sldprt(bundle.child.streams)
     child_summary = read_self_reference(SldprtArchive.from_bytes(child), REGISTRY)
@@ -142,6 +161,7 @@ def inspect_bundle(request):
 
 
 REQUEST = json.load(sys.stdin)
+INCLUDE_XML_METADATA = REQUEST.pop("include_xml_metadata", False)
 AUDIT.BeginBuild()
-RESULT = inspect_bundle(REQUEST) if "occurrences" in REQUEST else inspect_root(construct_empty_assembly(registry=REGISTRY, request=REQUEST))
+RESULT = inspect_bundle(REQUEST, include_xml_metadata=INCLUDE_XML_METADATA) if "occurrences" in REQUEST else inspect_root(construct_empty_assembly(registry=REGISTRY, request=REQUEST, include_xml_metadata=INCLUDE_XML_METADATA))
 print(json.dumps(RESULT, allow_nan=False))

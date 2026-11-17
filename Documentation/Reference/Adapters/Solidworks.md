@@ -2,20 +2,20 @@
 
 ## Purpose and scope
 
-Kit registers one SOLIDWORKS adapter with part and assembly identifiers.
+Kit registers one SOLIDWORKS adapter with part, assembly and drawing identifiers.
 Its primary `format_id` is `solidworks.sldprt`.
-Its `aliases` field contains `solidworks.sldasm`.
-The adapter reads source records.
-It is not registered as a writer, so Kit cannot produce `.SLDPRT` or `.SLDASM` files.
+Its `aliases` field contains `solidworks.sldasm` and `solidworks.slddrw`.
+The registered SOLIDWORKS formats are read-only.
 It does not invoke SOLIDWORKS during production conversion.
 
 | Identifier          | Suffix    |
 | ------------------- | --------- |
 | `solidworks.sldprt` | `.SLDPRT` |
 | `solidworks.sldasm` | `.SLDASM` |
+| `solidworks.slddrw` | `.SLDDRW` |
 
 `available_adapters()` returns one entry for this adapter.
-Read its `aliases` field to find the assembly identifier.
+Read its `aliases` field to find the assembly and drawing identifiers.
 See [format selection](../../Tasks/SelectFormat.md) for a discovery example.
 
 Registration is not evidence of complete feature-family support.
@@ -55,12 +55,20 @@ The reader combines available feature, geometry, and assembly information.
 Source metadata and diagnostics qualify the decoded result.
 The cached body geometry and feature history provide different evidence.
 
+### Drawing layout inspection
+
+For an ordinary SOLIDWORKS 2026 drawing, pass `strict=False` to `open_document()` or run `kit decode SOURCE --partial`. The returned `CadDocument.drawing` includes the active sheet, paper dimensions and scale. A sheet can have one external part view with its position, outline, saved model path and selected configuration. Distances are in metres. The standard interchange JSON path preserves these records.
+
+The opt-in route supports a single unformatted sheet. The `slddrw.layout_inspection` diagnostic identifies the unqualified view settings, annotations, styles and graphics. Strict reads and native drawing writes remain unavailable. [Drawing layout change](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingLayoutInspection.md)
+
 ## Feature history
 
 The resolved-feature grammar includes class definitions and object references.
 The archive map changes as records are read.
 Structural edits require consistent identifiers and map indices.
 See [feature resolution](SolidworksFeatures.md) for the observed grammar.
+
+For an ordinary SOLIDWORKS 2026 sketch, the reader matches the complete principal-plane handle inside its resolved-feature span. The model's actual persistent ID, axis kind and basis establish the sketch's support. Use `open_document(path, include_brep=False)` to inspect those history relationships without requesting cached body geometry. [Principal-plane reference change](../../Changes/Solidworks/SolidworksPrincipalPlaneReferences.md)
 
 The `moCompFeature_c` record supplies feature-tree ordering information in the documented research families.
 Do not infer rebuild order from physical stream order alone.
@@ -89,6 +97,7 @@ The [empty assembly candidates](../../Changes/Solidworks/Inspection/Cohorts/Soli
 combine that record with the shared header and version metadata.
 Two generated empty candidates matched the native control through save and fresh reopen.
 This result applies to the research profile with no components or mates.
+The [assembly XML research profile](../../Changes/Solidworks/Inspection/Cohorts/Assembly/SolidworksAssemblyXmlIndexes.md) adds generated component and KeyWords indexes for one ordinary child and its rigid placements. The public SDK validates this generated pair with `include_brep=False`. The default geometry route requires a readable Parasolid payload in the child.
 
 The [shared count primitives](../../Changes/Solidworks/Model/SolidworksArchiveCountPrimitives.md)
 begin the generative archive layer in `src/convert/adapters/solidworks/Archive/Counts/`.

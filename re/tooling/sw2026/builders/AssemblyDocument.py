@@ -6,10 +6,11 @@ from ntpath import normcase, normpath
 from Core import Obj
 from Streams import StreamDoc, store_rooted
 from builders.Assembly import initial_assembly_features, initial_assembly_model, initial_configuration, store_empty_mates
+from builders.AssemblyMetadata import assembly_xml_streams
 from builders.AssemblyOccurrences import assembly_occurrence_bounds, occurrence_configuration, resolved_part_occurrence
 from builders.Definition import assembly_definition, definition_stream
 from builders.ExternalFiles import ordinary_self_reference, referenced_configuration
-from builders.Metadata import BIOGRAPHY_STREAM, FILE_VERSION, HISTORY_STREAM, biography, fields, header, history, rooted_metadata_streams, sequence
+from builders.Metadata import BIOGRAPHY_STREAM, FILE_VERSION, HISTORY_STREAM, biography, boolean, fields, header, history, rooted_metadata_streams, sequence
 from builders.Model import PersistentIds, configuration_manager, node_list, object_list, record_configuration_progress
 from builders.Part import PartConstruction, construct_part
 from builders.Sketch import PlaneFrame
@@ -132,7 +133,10 @@ def _insert_generated_child(*, model, configuration, top_header, model_header, c
         record.f.update(f08=ids.next_id, fc4=count, f30=directory)
 
 
-def _construct_assembly(*, registry, request, child=None, occurrences=()) -> AssemblyConstruction:
+def _construct_assembly(*, registry, request, child=None, occurrences=(), include_xml_metadata: bool = False) -> AssemblyConstruction:
+    boolean(include_xml_metadata, "assembly XML metadata")
+    if type(include_xml_metadata) is not bool:
+        raise ValueError("assembly XML metadata selection must be boolean")
     fields(request, "assembly", ("name", "configuration_name", "origin_name", "mate_group_name", "provenance", "target", "presentation"), ("output",))
     name, presentation, provenance = (request[key] for key in ("name", "presentation", "provenance"))
     fields(presentation, "assembly presentation", ("styles", "units", "definition", "assembly_features", "language_id", "cjk_saved"))
@@ -163,14 +167,16 @@ def _construct_assembly(*, registry, request, child=None, occurrences=()) -> Ass
         MATES: store_empty_mates(registry=registry, resolved_map=final_map, mate_group=features[-1]),
         DEFINITION: definition_stream(registry=registry, document=assembly_definition(**options)),
     })
+    if include_xml_metadata:
+        result.update(assembly_xml_streams(model=model, configuration=configuration, model_header=model_header, features=features, child=child))
     return AssemblyConstruction(result, state.count, final_map.count)
 
 
-def construct_empty_assembly(*, registry, request) -> AssemblyConstruction:
-    return _construct_assembly(registry=registry, request=request)
+def construct_empty_assembly(*, registry, request, include_xml_metadata: bool = False) -> AssemblyConstruction:
+    return _construct_assembly(registry=registry, request=request, include_xml_metadata=include_xml_metadata)
 
 
-def construct_assembly_bundle(*, registry, request) -> AssemblyBundle:
+def construct_assembly_bundle(*, registry, request, include_xml_metadata: bool = False) -> AssemblyBundle:
     values = fields(request, "generated assembly bundle", ("assembly", "child", "occurrences"))
     occurrences = []
     for item in sequence(values["occurrences"], "assembly occurrences"):
@@ -180,5 +186,5 @@ def construct_assembly_bundle(*, registry, request) -> AssemblyBundle:
     if not occurrences:
         raise ValueError("this research bundle requires at least one resolved occurrence")
     child_request = fields(values["child"], "generated child", ("document", "provenance", "presentation", "target", "output"))
-    child = construct_part(registry=registry, **child_request)
-    return AssemblyBundle(_construct_assembly(registry=registry, request=values["assembly"], child=child, occurrences=occurrences), child)
+    child = construct_part(registry=registry, native_plane_roles=include_xml_metadata, **child_request)
+    return AssemblyBundle(_construct_assembly(registry=registry, request=values["assembly"], child=child, occurrences=occurrences, include_xml_metadata=include_xml_metadata), child)

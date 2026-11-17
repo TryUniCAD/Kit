@@ -198,8 +198,9 @@ principal plane. The public writer and production corpus totals are unchanged.
 The [drawing Definition receipt](measurements/2026/DrawingDefinitionCheck01.json)
 records six byte-exact archive comparisons and 78 native semantic observations for three disclosed
 SOLIDWORKS 2026 drawings from the [drawing source lock](v2026/heldout/DrawingSourceLock01.json).
-The drawing work currently covers the main Definition archive. No generated drawing has passed native
-acceptance.
+The [SDK drawing layout receipt](measurements/2026/DrawingSdkLayoutCheck01.json) verifies a
+partial reader in the public adapter for those three native drawings. It supports the sheet and
+single external part view layout. Strict drawing reads and production writing await further qualification.
 
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.

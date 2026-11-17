@@ -13,7 +13,7 @@ from builders.ConfigurationHeader import CONFIGURATION_MANAGER_HEADER, configura
 from builders.Definition import definition_stream, part_definition
 from builders.ExternalFiles import ordinary_self_reference
 from builders.Extrude import DimensionGraph, live_blind_extrusion, live_extrusion
-from builders.Metadata import FILE_VERSION, biography, fields, header, history, keywords, streams
+from builders.Metadata import FILE_VERSION, PRINCIPAL_KEYWORD_ROLES, biography, boolean, fields, header, history, keywords, streams
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
 from builders.Radial import circle_dimension
 from builders.RectangleDimensions import rectangle_dimensions
@@ -46,7 +46,7 @@ def _rooted(*, registry, node):
     return store_rooted(StreamDoc("rooted", {"base": 1}, [node]), registry, FILE_VERSION)
 
 
-def _metadata(*, registry, document, provenance, presentation, graph, features, profile, sketch_dimensions, extrusion, output, revolution=None):
+def _metadata(*, registry, document, provenance, presentation, graph, features, profile, sketch_dimensions, extrusion, output, revolution=None, native_plane_roles=False):
     stamp = {
         "status": 0, "user_index": 0, "company_index": 0,
         "timestamp": provenance["created_at"], "comment": provenance["comment"],
@@ -62,6 +62,9 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
     keyword_features = []
     for feature in features:
         item = {"id": feature["f08"], "name": feature["f18"]["f08"], "kind": feature.cls}
+        plane_role = PRINCIPAL_KEYWORD_ROLES.get(feature.cls) if native_plane_roles else None
+        if plane_role is not None:
+            item["tag"], item["kind"] = plane_role
         if feature is profile.profile:
             item["tag"] = "Sketch"
             if revolution is not None:
@@ -139,7 +142,8 @@ def document_shape(document):
     return fields(document, "part document", required, optional), profile_kind, feature_kind
 
 
-def construct_part(*, registry, document, provenance, presentation, target, output=None):
+def construct_part(*, registry, document, provenance, presentation, target, output=None, native_plane_roles: bool = False):
+    boolean(native_plane_roles, "native plane keyword roles")
     document, profile_kind, feature_kind = document_shape(document)
     provenance = fields(provenance, "authored provenance", (
         "author", "company", "created_at", "modified_at", "comment",
@@ -254,7 +258,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     result, model_header = _metadata(
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
         graph=graph, features=features, profile=profile, sketch_dimensions=(radial,) if radial is not None else rectangle,
-        extrusion=extrusion, output=output, revolution=revolution,
+        extrusion=extrusion, output=output, revolution=revolution, native_plane_roles=native_plane_roles,
     )
     config_data, state = store_config_state(StreamDoc("config", {"model_header": model_header}, [graph.part]), registry, FILE_VERSION)
     resolved = StreamDoc("resolved", {"base": state.count, "context": {

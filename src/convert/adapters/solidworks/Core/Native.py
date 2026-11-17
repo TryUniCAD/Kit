@@ -29,6 +29,7 @@ from convert.adapters.solidworks.Container.Format import (
     SERIALIZED_STRING_MARKER as SerializedStringMarker,
     dimension_scalar_value_offset as DimensionScalarValue,
 )
+from convert.adapters.solidworks.Core.PlaneRefRecord import FindPlaneRef
 from convert.adapters.solidworks.Resolved.Core import (
     ANGLE_COPY_DELTAS as AngleCopyDeltas,
     DEPTH_COPY_DELTAS as DepthCopyDeltas,
@@ -241,7 +242,11 @@ def ApplySketchMut(StateData: DecodeState, Feature: NativeFeature) -> None:
     SketchStart = Feature.native_offset or 0
     SketchEnd = Feature.native_end or len(StateData.Resolved)
     RefValue = SketchPlaneRef(
-        StateData.Resolved, StateData.Classes, SketchStart, SketchEnd
+        StateData.Resolved,
+        StateData.Classes,
+        SketchStart,
+        SketchEnd,
+        StateData.PlaneById if Feature.native_end is not None else None,
     )
     Support, SupportSource, UnframedSupport = SupportPlaneRef(
         StateData.Resolved,
@@ -2558,7 +2563,11 @@ def SupportPlaneRef(
 
 # this definition exists because focused behavior needs one stable owner
 def SketchPlaneRef(
-    DataValue: bytes, Classes: tuple[NativeClass, ...], Start: int, EndValue: int
+    DataValue: bytes,
+    Classes: tuple[NativeClass, ...],
+    Start: int,
+    EndValue: int,
+    Planes: Mapping[int, NativePlane] | None = None,
 ) -> NativeSketchA | None:
     for Record in Classes:
         if Record.name != SketchChainClass or not Start <= Record.offset < EndValue:
@@ -2574,7 +2583,28 @@ def SketchPlaneRef(
         )
         if Scanned is not None:
             return Scanned
-    return None
+    return ReadPlaneHandle(DataValue, Start, EndValue, Planes) if Planes else None
+
+
+# the handle is authoritative when its axis and frame agree with the owned plane
+def ReadPlaneHandle(
+    DataValue: bytes, Start: int, EndValue: int, Planes: Mapping[int, NativePlane]
+) -> NativeSketchA | None:
+    OwnedPlanes = frozenset(Plane.object_id for Plane in Planes.values() if Plane.principal)
+    Match = FindPlaneRef(DataValue, Start, EndValue, OwnedPlanes)
+    if Match is None:
+        return None
+    Offset, PlaneId, AxisKind = Match
+    Plane = Planes[PlaneId]
+    Frame = ReadPlaneBasis(DataValue, Offset, EndValue, PlaneId, AxisKind)
+    if (
+        Frame is None
+        or KIdentityBasis[AxisKind - 1] != Plane.normal
+        or (Frame.u_axis, Frame.v_axis, Frame.normal)
+        != (Plane.u_axis, Plane.v_axis, Plane.normal)
+    ):
+        raise SldprtFormatError("SOLIDWORKS principal plane reference frame disagrees")
+    return Frame
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2593,6 +2623,13 @@ def ReadSketchPlane(
     AxisCode = Struct.unpack_from("<I", DataValue, Offset + KSketchPlaneAxisDelta)[0]
     if AxisCode != KSketchPlaneAxisComplemeA - PlaneObjectId:
         return None
+    return ReadPlaneBasis(DataValue, Offset, EndValue, PlaneObjectId, AxisCode)
+
+
+# both reference layouts share the same optional sketch basis representation
+def ReadPlaneBasis(
+    DataValue: bytes, Offset: int, EndValue: int, PlaneObjectId: int, AxisCode: int
+) -> NativeSketchA | None:
     FlagValue = DataValue[Offset + KSketchPlaneBasisFlagDelA]
     BasisOffset = Offset + KSketchPlaneBasisDelta
     if FlagValue == 0:
