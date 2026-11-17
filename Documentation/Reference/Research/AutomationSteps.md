@@ -67,6 +67,7 @@ Eight saved members reconstructed exactly, and a separately authored state passe
 The integrated reader and writer research passed 80 focused checks.
 The [native Student-context Boss witness](../../Changes/Research/Writers/SolidWorks/Metadata/NativeStudentBossWitness.md) confirms one independently generated rectangular Boss opened, accepted three live dimension edits and restorations, saved, and rebuilt in a fresh process.
 The saved display-state name and feature visibility persisted. The default appearance reset to gray, and qualified public writer acceptance remains open.
+The [explicit appearance work](../../Changes/Research/Writers/SolidWorks/Metadata/SolidWorksConstructiveVisualState.md#explicit-document-appearance) adds source-free document RGB and strict readback of the observed native saved locator across all three appearance owners. Both saved colors persisted through fresh read-only reopen and normal owned exit. The earlier writable-session exit failures remain recorded.
 
 The registered SOLIDWORKS application points to build `34.4.1.1011`, matching the retained native readback.
 A separate older installation reports build `33.0.0.5050`.
@@ -303,6 +304,7 @@ The [installed FreeCAD 1.1.4 witness](../../Changes/FreeCad/FreeCadEndNativeWitn
 Calculated cache presence does not qualify the route or establish the initial-open result.
 The [later calculated-cache witness](../../Changes/FreeCad/FreeCadInitialOpenWitness.md) at `161885d8` closes the pre-recompute initial-open measurement for three rectangular controls and records independent edits, restoration, save and fresh reopen.
 It retains false research flags and leaves the other cache families and route qualification unfinished.
+The PR #158 [rectangle verification](../../Changes/FreeCad/FreeCadRectangleVerification.md) records a fresh FreeCAD 1.1.4 witness for three rectangular controls, plus supplemental saved-edit and spreadsheet alias cases. The [exact replay repair](../../Changes/FreeCad/FreeCadExactReplayOrdering.md) preserves admitted source bytes while retaining the strict usability flags and fresh-output checks. The broader A16 checking and qualification requirements remain open.
 The next independent native witness must measure the original package immediately after open and before explicit recompute, then repeat driving edits, restoration, rebuild, save and fresh reopen with healthy controls.
 A13, A15 and the remaining route-specific acceptance requirements stay open.
 The inline guard and alias recovery are separate reader repairs, not native qualification.

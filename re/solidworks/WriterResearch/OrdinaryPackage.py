@@ -168,6 +168,14 @@ def BuildOrdinaryPackage(
     RequireArch(
         Resolved.Boss is not None, Boss is not None, "generated resolved boss ownership"
     )
+    ConfigVisual = Configuration.First.Visual
+    ManagerVisual = State.Manager.Visual
+    if not (ConfigVisual.UsesDefaultAppearance and ManagerVisual.UsesDefaultAppearance):
+        RequireArch(
+            (ConfigVisual, State.Visualization is not None),
+            (ManagerVisual, True),
+            "explicit appearance shared by all three ordinary package owners",
+        )
     Header = State.Header
     HeaderBytes = WriteModelHdr(
         Generation, Header.Logs, Header.SelfReference, Header.Tail

@@ -1,6 +1,7 @@
 from pathlib import PurePosixPath
 
 from CmgrOpening import ReadCmgrOpening
+from ReadCmgrVisualPrefix import ReadCmgrVisualPrefix, ReadMaterialFields
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.ArchiveCursor import (
     ArchiveCursor,
@@ -10,51 +11,21 @@ from convert.adapters.solidworks.Container.ArchiveCursor import (
 
 # the post-material color record is preceded by the inline RealView appearance
 def ReadRealView(Cursor: FieldCursor) -> None:
-    RequireArch(
-        (Cursor.ReadText(), Cursor.ReadText(), Cursor.ReadValue("<6di")),
-        ("", "Steel", (1.0, 1.0, 0.5, 0.3125, 0.0, 0.0, 0)),
-        "CMgr ordinary material prefix",
-    )
-    RequireArch(
-        (Cursor.ReadInts("<5i"), Cursor.ReadText(), Cursor.ReadInts("<2i")),
-        ((1, 0, 1, 1, 1), "", (1, 1)),
-        "CMgr RealView appearance presence",
-    )
-    _ = Cursor.ReadInts("<II")
-    RequireArch(Cursor.ReadText(), "defaultplastic", "CMgr RealView shader")
-    _ = Cursor.ReadValue("<BI10f")
-    (Mode,) = Cursor.ReadInts("<i")
-    RequireArch(Mode, 1, "CMgr RealView color mode")
-    _ = Cursor.ReadValue("<5fi2f")
-    MaterialPath = PurePosixPath(Cursor.ReadText().replace("\\", "/"))
+    Material = ReadMaterialFields(Cursor)
+    MaterialPath = PurePosixPath(Material["NativeAssetPath"].replace("\\", "/"))
     RequireArch(MaterialPath.name.casefold(), "color.p2m", "CMgr RealView color file")
-    _ = Cursor.ReadValue("<I2f")
-    _ = Cursor.ReadText()
-    _ = Cursor.ReadValue("<3fifi13f")
-    _ = Cursor.ReadText()
-    _ = Cursor.ReadValue("<f")
 
 
 # the same typed archive object can carry the inline visual body in either stream
 def ReadVisualSpan(Cursor: ArchiveCursor) -> tuple[int, int, ArchiveCursor]:
-    ColorValue, _, _ = Cursor.ReadInts("<3I")
-    ReadRealView(Cursor)
-    RequireArch(
-        (Cursor.ReadText(), Cursor.ReadInts("<2i")),
-        ("", (0, 0)),
-        "CMgr empty material suffix",
-    )
-    RequireArch(
-        (
-            Cursor.ReadText(),
-            Cursor.ReadInts("<2i"),
-            Cursor.ReadText(),
-            Cursor.ReadInts("<6i"),
-        ),
-        ("", (0, 1), "", (0, 1, -1, 0, 0, 1)),
-        "CMgr DSPBR appearance presence",
-    )
+    Fields = ReadCmgrVisualPrefix(Cursor, 19000, AllowSystemTexture=True)
     Start = Cursor.Offset
+    ReadColorDspbr(Cursor)
+    return Fields.SurfaceColor, Start, Cursor
+
+
+# independent prefix and dspbr ownership allows callers to consume each typed body exactly once
+def ReadColorDspbr(Cursor: FieldCursor) -> None:
     _ = Cursor.ReadValue("<26fi18fi2f")
     Paths = tuple(Cursor.ReadText() for _ in range(4))
     RequireArch((Paths, Cursor.ReadText()), (("",) * 4, "basic"), "CMgr DSPBR subtype")
@@ -69,7 +40,6 @@ def ReadVisualSpan(Cursor: ArchiveCursor) -> tuple[int, int, ArchiveCursor]:
     _ = Cursor.ReadValue("<2f")
     Paths += tuple(Cursor.ReadText() for _ in range(3))
     RequireArch(Paths, ("",) * 5, "CMgr DSPBR texture paths")
-    return ColorValue, Start, Cursor
 
 
 def ReadColorSpan(BlobValue: bytes, Generation: int) -> tuple[int, int, ArchiveCursor]:

@@ -1,5 +1,5 @@
-from CmgrVisualPrefix import CmgrVisualFields, WriteCmgrVisualPrefix
-from ColorAppearance import EncodeColorDspbr
+from CmgrVisualBody import WriteCmgrVisualBody
+from CmgrVisualPrefix import CmgrVisualFields
 from convert.adapters.solidworks.Config.RootLayout import KRootClass
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.Cmgr import KNodeNameClass, KVisualClass
@@ -26,7 +26,6 @@ def WriteConfigVisual(
         "Config-0 populated RealView and DSPBR objects",
     )
     Body = ArchiveWriter()
-    WriteCmgrVisualPrefix(Body, Generation, Fields)
-    Body.raw(EncodeColorDspbr(Generation, Fields.SurfaceColor))
+    WriteCmgrVisualBody(Body, Generation, Fields)
     Writer.BeginObject(KVisualClass, 1)
     Writer.raw(Body.build())

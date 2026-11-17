@@ -18,7 +18,7 @@ sys.path[:0] = [str(ROOT / "src"), str(ROOT / "re/solidworks/WriterResearch")]
 
 from CmgrBossMass import CalcBossMass
 from OrdinaryConfig import BuildOrdinaryConfig
-from OrdinaryPackage import BuildOrdinaryPackage
+from OrdinaryPackage import BuildOrdinaryPackage, KConfigManager
 from PartFraming import KPartGeneration
 from ResolvedPart import BuildOrdinaryResolved
 from VerifyFreshBoss import (
@@ -28,12 +28,14 @@ from VerifyFreshBoss import (
     PublishCandidate,
     VerifyFreshBoss,
 )
+from VisualState.VerifyAuthoredAppearance import BindDocumentColor, CheckInlineAppearances
 from VisualState.VisualStateArchive import EncodeVisualState
 from VisualState.VisualStateModel import CanonicalState, KVisualStateMember
 from VisualState.VisualStatePackage import MakePackageVisuals
 from VisualState.VisualStateReadback import DecodeVisualState
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Container.Format import KConfigStream
 
 
 def VerifyCorpus():
@@ -67,10 +69,12 @@ def VerifyCorpus():
     }
 
 
+# independent construction must preserve every member unrelated to the requested visual change
 def VerifyAuthored(Context, Settings, Candidate):
+    Required = {"representation_id", "name", "visibility"}
     RequireArch(
         type(Settings) is dict
-        and set(Settings) == {"representation_id", "name", "visibility"},
+        and Required <= set(Settings) <= Required | {"document_rgb"},
         True,
         "explicit authored visual settings",
     )
@@ -84,14 +88,6 @@ def VerifyAuthored(Context, Settings, Candidate):
         Bound.Bounds.Minimum, Bound.Bounds.Maximum, Owners.Config.First.DensityKgM3
     )
     Package = BuildPackageState(Context, Owners, Metadata, Mass)
-    Visual = MakePackageVisuals(
-        Package,
-        Bound.Profile,
-        Owners.System,
-        Settings["representation_id"],
-        Settings["name"],
-        Settings["visibility"],
-    )
     Plain = BuildOrdinaryPackage(
         KPartGeneration,
         Owners.Config,
@@ -106,9 +102,27 @@ def VerifyAuthored(Context, Settings, Candidate):
         Baseline["archive_sha256"],
         "unchanged default package generation",
     )
+    Configuration = Owners.Config
+    HasDocumentColor = "document_rgb" in Settings
+    if HasDocumentColor:
+        Configuration, Package = BindDocumentColor(
+            Configuration, Package, Settings["document_rgb"]
+        )
+        Config = BuildOrdinaryConfig(KPartGeneration, Configuration)
+        Resolved = BuildOrdinaryResolved(
+            KPartGeneration, Config, Owners.System, Bound.Profile, Bound.Boss
+        )
+    Visual = MakePackageVisuals(
+        Package,
+        Bound.Profile,
+        Owners.System,
+        Settings["representation_id"],
+        Settings["name"],
+        Settings["visibility"],
+    )
     Data = BuildOrdinaryPackage(
         KPartGeneration,
-        Owners.Config,
+        Configuration,
         Config,
         Resolved,
         Bound.Profile,
@@ -126,12 +140,15 @@ def VerifyAuthored(Context, Settings, Candidate):
         {*Original.streams, KVisualStateMember},
         "one explicit visual member added",
     )
-    for Name in Original.streams:
+    InlineMembers = {KConfigManager, KConfigStream} if HasDocumentColor else set()
+    for Name in set(Original.streams) - InlineMembers:
         RequireArch(
             Archive.require(Name),
             Original.require(Name),
             "unchanged geometry and package metadata",
         )
+    if HasDocumentColor:
+        CheckInlineAppearances(Archive, Original, KPartGeneration, Package.Manager.Visual)
     Payload = Archive.require(KVisualStateMember)
     Saved = DecodeVisualState(Payload, KPartGeneration)
     RequireArch(
@@ -147,6 +164,7 @@ def VerifyAuthored(Context, Settings, Candidate):
             "name": Saved.Name,
             "representation_id": Saved.RepresentationId,
             "appearance_id": Saved.Owners[0].Material.AppearanceId,
+            **({"document_rgb": Settings["document_rgb"]} if HasDocumentColor else {}),
             "visibility": {
                 (
                     "holder" if Owner.FeatureId is None else str(Owner.FeatureId)

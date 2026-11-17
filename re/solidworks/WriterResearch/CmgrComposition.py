@@ -12,8 +12,8 @@ from CmgrMass import EncodeEmptyMass
 from CmgrOpening import CmgrOpenFields, WriteCmgrOpening
 from CmgrPartEnd import WriteCmgrAliases, WriteCmgrPartEnd
 from CmgrTail import WriteCmgrTail
-from CmgrVisualPrefix import CmgrVisualFields, WriteCmgrVisualPrefix
-from ColorAppearance import EncodeColorDspbr
+from CmgrVisualBody import WriteCmgrVisualBody
+from CmgrVisualPrefix import CmgrVisualFields
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.Cmgr import FeatureStamp, Stamp
 from convert.adapters.solidworks.Container.Definition import ArchiveWriter
@@ -78,8 +78,7 @@ def BuildCmgr(Generation: int, Document: CmgrDocument) -> ArchiveWriter:
 
     Writer = ArchiveWriter()
     Slots = WriteCmgrOpening(Writer, Generation, Document.Opening)
-    WriteCmgrVisualPrefix(Writer, Generation, Document.Visual)
-    Writer.raw(EncodeColorDspbr(Generation, Document.Visual.SurfaceColor))
+    WriteCmgrVisualBody(Writer, Generation, Document.Visual)
     WriteCmgrFeature(Writer, Generation, Document.PartTime)
     WriteCmgrHeader(
         Writer,

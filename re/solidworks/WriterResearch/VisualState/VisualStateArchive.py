@@ -6,8 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from CmgrVisualPrefix import WriteCmgrVisualPrefix
-from ColorAppearance import EncodeColorDspbr
+from CmgrVisualBody import WriteCmgrVisualBody
 from PartArchive import PartArchiveWriter
 from VisualState.VisualStateModel import (
     CheckVisualState,
@@ -60,8 +59,7 @@ def WriteMaterial(Writer, Generation, Fields, Cache):
         Writer.u16(0)
         return
     BeginVisualObject(Writer, KAppearanceClass)
-    WriteCmgrVisualPrefix(Writer, Generation, Fields, AllowSystemTexture=True)
-    Writer.raw(EncodeColorDspbr(Generation, Fields.SurfaceColor))
+    WriteCmgrVisualBody(Writer, Generation, Fields, AllowSystemTexture=True)
 
 
 def WriteDisplay(Writer, Display, Cache):

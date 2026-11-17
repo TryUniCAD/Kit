@@ -6,11 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from CmgrColorReadback import ReadVisualSpan
-from CmgrVisualPrefix import WriteCmgrVisualPrefix
-from ColorAppearance import EncodeColorDspbr
-from PartArchive import PartArchiveWriter
-from VerifyCmgrVisual import read_visual_fields
+from VisualState.VisualMaterialReadback import ReadVisualMaterial
 from VisualState.VisualStateModel import (
     CheckVisualState,
     KAppearanceClass,
@@ -66,29 +62,6 @@ def ReadComponent(Cursor, Generation):
     return Cursor.ReadInts("<iI")
 
 
-def ReadVisualMaterial(Cursor, Generation):
-    Start = Cursor.Offset
-    Fields = read_visual_fields(Cursor)
-    Body = ArchiveCursor(
-        Cursor.BlobValue,
-        Start,
-        Cursor.NextIndex,
-        dict(Cursor.Classes),
-        dict(Cursor.Objects),
-    )
-    ReadVisualSpan(Body)
-    Cursor.Offset = Body.Offset
-    Writer = PartArchiveWriter()
-    WriteCmgrVisualPrefix(Writer, Generation, Fields, AllowSystemTexture=True)
-    Writer.raw(EncodeColorDspbr(Generation, Fields.SurfaceColor))
-    RequireArch(
-        Writer.build(),
-        Cursor.BlobValue[Start : Cursor.Offset],
-        "fully typed default-color appearance fields",
-    )
-    return Fields
-
-
 def ReadMaterial(Cursor, Generation, Cache):
     Tag, _, Index = Cursor.TakePointer((KMaterialClass,), CompactOnly=True)
     if Tag.kind == KObjectRefKind:
@@ -104,7 +77,7 @@ def ReadMaterial(Cursor, Generation, Cache):
             True,
             "owned appearance object",
         )
-        Value = ReadVisualMaterial(Cursor, Generation)
+        Value = ReadVisualMaterial(Cursor, Generation, AllowSystemTexture=True)
     RequireArch(Value not in Cache.values(), True, "interned ordinary visual attribute")
     Cache[Index] = Value
     return Value

@@ -9,6 +9,7 @@
 from dataclasses import replace
 
 from CmgrOpening import KFirstConfigurationId
+from CmgrVisualProfile import KDefaultProfile
 from ResolvedOrigin import KOriginTreeId
 from VisualState.VisualStateArchive import EncodeVisualState
 from VisualState.VisualStateModel import (
@@ -40,10 +41,11 @@ def MakePackageVisuals(State, Profile, System, RepresentationId, Name, Visibilit
         "authored Boolean visibility",
     )
     Created = {Log.TreeId: Log.CreatedTime for Log in State.Header.Logs.Revisions}
-    Material = replace(
-        State.Manager.Visual,
-        NativeAssetPath=r"<SystemTexture>\graphics\materials\color.p2m",
-    )
+    Material = State.Manager.Visual
+    if Material.UsesDefaultAppearance:
+        Material = replace(
+            Material, NativeAssetPath=KDefaultProfile.SystemTexturePath
+        )
     Owners = [
         VisualOwner(None, None, Material, VisualDisplay(Visibility["holder"], 6, 1, 0))
     ]
@@ -87,10 +89,11 @@ def EncodePackageVisuals(
         "visual references use their own feature creation logs",
     )
     Material = State.Owners[0].Material
+    Comparable = Material
+    if Material.UsesDefaultAppearance:
+        Comparable = replace(Material, NativeAssetPath=Manager.Visual.NativeAssetPath)
     RequireArch(
-        CanonicalMaterial(
-            replace(Material, NativeAssetPath=Manager.Visual.NativeAssetPath)
-        ),
+        CanonicalMaterial(Comparable),
         CanonicalMaterial(Manager.Visual),
         "holder copies the authored configuration appearance",
     )
