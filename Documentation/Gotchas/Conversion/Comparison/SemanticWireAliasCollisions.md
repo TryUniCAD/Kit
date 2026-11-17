@@ -20,6 +20,6 @@ Unambiguous compatibility aliases and migrations remain supported.
 The shared codec is unchanged.
 
 The check uses actual storage slots because compatibility metadata can rename reflected fields.
-See the [reflection gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Conversion/Comparison/CompatibilityModelReflection.md).
+See the [reflection gotcha](CompatibilityModelReflection.md).
 New process cases cover field aliases, typed feature slots, migration-generated defaults and valid legacy inputs.
 Source inspection established these paths; local tests were not run.

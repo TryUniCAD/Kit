@@ -6,8 +6,6 @@ Use the A06 research comparator to compare two existing `CadDocument` JSON docum
 The tool reports correspondence candidates, observed differences and unresolved domains.
 It does not qualify a reader, writer or native conversion.
 
-PR #94 retains this automation contract on main's existing SDK and codec. Broader native field/reader/writer changes remain in the preserved follow-up source. Unsupported source observations must remain unresolved or refuse; this scope change does not remove them to improve equality. See [automation-only scope](../../Changes/Research/AutomationOnlyScope.md).
-
 ## Before you start
 
 Use the repository's supported Python environment and a checkout containing the interchange codec.
@@ -148,7 +146,6 @@ Differences, ambiguity and exhausted work remain explicit completed observations
 The controller cannot turn an observation receipt into independently qualified CAD semantics.
 Update the job's immutable `tool_version` when its implementation changes so the controller invalidates cached work.
 The report's source-file seals record the executed observation; they do not automatically update existing job definitions.
-The reader worker additionally seals the actual SDK Python inventory and its eight direct tool sources. Using main's SDK therefore requires a new operation identity; preserve original `7317092e37f52d6bfc3f26449e2b16a5bd82e86b` and `880bf0bed53f338933e819eb92b423670c8377d8` reports and fingerprints at their own revisions.
 
 ## Connect native reader jobs
 
@@ -228,7 +225,7 @@ Independent source admission, frozen-rule evaluation and native acceptance remai
 
 - [A01 contract audit](NeutralContractAudit.md)
 - [A06 implementation and dependencies](AutomationSteps.md)
-- [Historical paired evidence preflight](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Controller/PairedEvidenceManifest.md), whose raw native verifiers remain follow-up work
+- [Paired evidence preflight](../../Changes/Research/Controller/PairedEvidenceManifest.md)
 - [Comparison change entry](../../Changes/Research/Readers/Comparison/SemanticGraphComparison.md)
 - [Controller worker contract](../../Changes/Research/Controller/SemanticComparisonWorker.md)
 - [Native reader worker contract](../../Changes/Research/Readers/Comparison/NeutralReaderWorker.md)
