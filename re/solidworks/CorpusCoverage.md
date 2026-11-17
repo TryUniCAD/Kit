@@ -153,6 +153,15 @@ The generated research count is two empty assemblies. Neither has components
 or mates, neither is a held-out conversion, and neither adds an accepted
 FCStd assembly to the production count of 0/5.
 
+A third [generated empty assembly with a self file record](measurements/2026/AssemblySelfReferenceNative01.json)
+also passed open, rebuild, save, fresh reopen and the native tree comparison.
+The [first generated populated assembly](measurements/2026/GeneratedSingleOccurrenceNative01.json)
+then opened, resolved its generated child, rebuilt and saved with zero errors and warnings.
+Both generated and freshly reopened phases rebuilt with the same 23-node feature tree and one-body geometry,
+passing all 42 numeric checks. The saved derivative returned warning 32 on fresh open between healthy controls.
+This result is a partial diagnostic for one occurrence. Full native acceptance needs a warning-free reopen,
+and the production counts remain 0/165 parts and 0/5 assemblies.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11

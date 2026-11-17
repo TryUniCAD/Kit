@@ -16,6 +16,8 @@ This record covers the ordinary, resolved, nonvirtual part occurrence in a singl
 
 The standard feature list for this profile has 15 roots before the mate group. One added occurrence therefore has `f4b4 = 15` regardless of its persistent id. A14 distinguishes the counters with persistent ids 24 and 25, while its two ordinals are 15 and 16.
 
+The normal load path reverses this separation. `moConcept_c::mergeFeatureList` at `0x4c17c6e0` visits the stored `f68` nodes and reads each ordinary reference's `f4b4` at `0x4c17c86b`. It calls `su_CObList::FindIndex` on the combined `f60` list at `0x4c17c87d` and `InsertBefore` at `0x4c17c892`. An index outside that list reaches `AddTail` at `0x4c17c89d`. [Occurrence position gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ExternalReferences/OccurrencePositionsFollowUnifiedFeatureOrder.md)
+
 ## Field rules
 
 | Object and field | Classification and rule | Evidence |
