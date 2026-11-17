@@ -180,11 +180,25 @@ adds 111 numeric checks across eight distinct SOLIDWORKS processes. With the nat
 all three candidates preserved their edited angle, signed geometry and exact 20-node tree on fresh reopen.
 Both controls passed. The revolve held-outs remain sealed and the production coverage counts are unchanged.
 
+The [paired revolve comparison](measurements/2026/GeneratedRevolveCanonicalComparison05.json)
+uses canonical English folder roles in three new generated files. Every candidate exposed
+one body on open. All three matched their independently authored 19-node trees, driving edit,
+model-space geometry and sketch frame, including clean fresh reopen of each edited derivative.
+Both controls passed. The [prediction freeze](v2026/heldout/OrdinaryRevolvePredictionFreeze01.json)
+pins the generator, fixtures, oracle and both comparison tools before held-out disclosure.
+
 The [drawing Definition receipt](measurements/2026/DrawingDefinitionCheck01.json)
 records six byte-exact archive comparisons and 78 native semantic observations for three disclosed
 SOLIDWORKS 2026 drawings from the [drawing source lock](v2026/heldout/DrawingSourceLock01.json).
 The drawing work currently covers the main Definition archive. No generated drawing has passed native
 acceptance.
+
+The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
+verifies two generated Front Plane rectangles with independent driving width and height edits.
+Both edited dimensions survived clean save and fresh reopen. The rebuilt geometry matched the
+analytical results and independently authored native reference parts. Both controls passed across
+22 processes. The generated and reference trees have 20 and 19 nodes respectively, and the synchronized
+assembly held-outs remain sealed. The production coverage counts are unchanged.
 
 ## Last audit of the removed writer
 

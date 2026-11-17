@@ -1,0 +1,41 @@
+{
+  "schema": "kit.sw2026.ordinary-revolve-qualifying-freeze.v1",
+  "recorded_utc": "2026-11-17T07:40:52.780850+00:00",
+  "protocol_sha256": "502136091b086432a36da363efc51449a927980186c3b5dbcc792a4f55017189",
+  "private_freeze_sha256": "d6576e9a274dd44814896adbd5f1b3c0ddbf1cdca78c130a704eb3fc475176ae",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "source_revision": "23e01579fb0ad607417ddfc84e4fbb7b0c55b1be",
+  "generator_revision": "cd0cf5738f074ac9d4fe44490db2bb89cc18dfe6",
+  "generator_tree": "efc6a8f176e7859e5d79069a707a462c259eb4b7",
+  "fixture_hashes": {
+    "FreshPartInput.py": "d9bb6741549a14043f05676c76a4fc1945434d768626a443bb6dbefc75476404",
+    "FreshPartProcess.py": "e09e9b1b8f755b126ec795c795e8ba64fc6e7c9eb08f7bd1c9257fd2d91d5fc7",
+    "Presentation/MakeTreeInput.py": "eef9c8fa1ea2d5e544cb3c989d1ce54a5f17f1e1b6a995706f1123882e8817a1",
+    "Presentation/Frame/CheckFrame.py": "2656adad6355d69dc4465ef046fa72da906172b93cf7eff91577bf8971d74a3d"
+  },
+  "source_lock_sha256": "bf4a857b222a9ea61d5d74007fbde4090d95d1563aa8025de3b01454e1839b2f",
+  "specs_sha256": "35a3af9a5195b1c723d7a2e08f370465c016923cff3e07b625cccaf08314cccc",
+  "disclosed_comparison_sha256": "e042af391128d6122fb2b451706af1c7db3e22e45953cab9a7a735fa2209aef4",
+  "oracle_tools": {
+    "AuthorRevolveSources.py": "1190f61d1158a7643d4c2d53a5707659edf04e0c0c1b9412db9606e9400f6369",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "InspectGeneratedRevolves.py": "4bc2cf3195bd566c91b1a5e94c444c546f1b8b29ab07866f6ff92ab3a1eb2e6e",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "prediction_tools": {
+    "PrepareRevolvePredictions.py": "21c4bd66b4c8c42c6ed7a428731f632762405bc1d350509d916bd6a672c54269",
+    "CompareRevolvePredictions.py": "aaec13633dd585d6aa1f4950c40835922b3e6bf617d1d74147fdadd87175c848"
+  },
+  "job_template_sha256": "50ed4bfc1ca4a85f0dbf481c4d8324203e172e66170d74b7f78a04a7bbd633a8",
+  "generated_discovery_cases_qualified": 3,
+  "heldout_case_names": [
+    "RevolveHeldoutFirst",
+    "RevolveHeldoutSecond"
+  ],
+  "heldout_spec_values_disclosed": false,
+  "heldout_native_bytes_disclosed": false,
+  "heldout_observations_disclosed": false
+}

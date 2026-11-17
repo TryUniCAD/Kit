@@ -19,5 +19,10 @@ All three disclosed candidates generated through isolated processes. Each
 passed nine complete archive round trips, reference-ownership and frame
 checks, with no reads denied during construction. This proof covers a single
 ordinary boss, a rectangular profile on one principal plane and a selected
-upright centreline. The revised presentation has a separate native acceptance
-step, and production writing remains unavailable.
+upright centreline. The three disclosed native comparisons passed across
+eight fresh processes. Each candidate exposed one solid and matched its
+independent 19-node tree on open, with matching profile frames, driving
+dimensions and clean edited reopens. The test method was then frozen before
+revealing the two held-outs. Production writing remains unavailable.
+[Disclosed comparison](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveCanonicalComparison05.json)
+and [held-out freeze](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolvePredictionFreeze01.json).
