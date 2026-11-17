@@ -95,3 +95,5 @@ processes retain healthy controls, explicit breakpoint removal,
 restored instructions and final debugger absence. The remaining
 interval lies inside the property serializer.
 [Property-storage comparison](../measurements/2026/DrawingBlankPropertyStorageModeNative01.json)
+
+The three inner `sldmfcu.dll` brackets narrow the remaining interval to the SOLIDWORKS-specific XML bag. Both inputs deliver general property return `+0xab220` and summary return `+0xab242` with EAX 1. General property mode is 1 and its DOM is null in both lanes. Both SOLIDWORKS property calls at `+0xab273` receive the expected document property owner and storage argument, mode 1 and a nonnull retained DOM. The reduced-native control delivers `+0xab278` with EAX 1 and saves. The generated save returns error 1 with that final return site armed and unobserved. All four lanes preserve their input bytes and both traced processes pass explicit breakpoint removal and instruction restoration. [Inner save brackets](../measurements/2026/DrawingBlankPropertySaveBracketsNative01.json)
