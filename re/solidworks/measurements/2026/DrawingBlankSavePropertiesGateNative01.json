@@ -1,0 +1,158 @@
+{
+  "schema": "kit.sw2026.blank-drawing-properties-gate-native.v1",
+  "comparison_passed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "doccplu_sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+  "script_revision": "1cda5258afbc560929612cb318acf68a9b1d334d",
+  "packet_sha256": "1511bb93e90dc557fed633e883862dc64f2e089ae67b50de0f13e67b840e31bc",
+  "raw_native_result_sha256": "f7f8183f14793421d193a26c0615977bf661afa7a356c85b3887086ab329221d",
+  "host_transport_result_sha256": "2d001c67cf4591ccb1dce38012ef46713dcc873047fcfe08c4f21a7671fdb8f1",
+  "observer_tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "DrawingSaveAggregateDbgEng.py": "d312a5b604d40ca3c5bccac65c35ce186aea5311bc21949939aa965fa3720c3f",
+    "InspectBlankDrawingPair.py": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+    "InspectBlankDrawingSaveAggregate.py": "b62865a6de7d9fd953655eda473b59f4bb4cd82f84585dfdfb9fba05208f3722",
+    "InspectBlankDrawingSaveAggregateSoftwareReturnMatched.py": "0a7dd67e7982fe3af94730201b8d7d7b518c2ed4ca7066b6d7aa9ebe0b95acc7",
+    "InspectBlankDrawingSaveEventState.py": "f348545e208eb76bffde895523f17b972890d4e46df9512e70672d829c4b6212",
+    "InspectBlankDrawingSaveEvents.py": "74ea5b7fa16cc8289e501305731f67d2de9fbe6d9b67ae9ef673032274d809e6",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "InspectDrawingSaveModes.py": "a0108df8e4485189129121ae233062c47b86fc5326c5ebcb31beed4b63413f6d",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "DrawingSaveStorageGateDbgEng.py": "15ba6e9cf6d95d426e641ee8ae70c588bfa67b3a9c07f2d40615e00e11f3c4d3",
+    "InspectBlankDrawingSaveAggregateSoftwareStorageMatched.py": "2a7f4e058c449da811e54247652361a42d2d7cb63fe6844ccfb802c895c7fec0",
+    "DrawingSavePreviewGateDbgEng.py": "53dc45e2ec6628b9518d3a31aa9ea50ed1c6add2156a68fb61f92aedd798906c",
+    "InspectBlankDrawingSaveAggregateSoftwarePreviewMatched.py": "1c7cc6f61aaf010bc655aa4fe8ddb07a91c7f3a63822243f5dd79f1a1abb6afb",
+    "DrawingSavePropertiesGateDbgEng.py": "9a42ce005817effb3aa28c1d3f1fad98d7a18aa0ebaf783bfca560586863cf04",
+    "InspectBlankDrawingSaveAggregateSoftwarePropertiesMatched.py": "1c9982fb3bae873244a6ee732cf104a50f13edd6e9ddc72a78ecf4d20fd2e230"
+  },
+  "transport_exit_code": 0,
+  "native_processes": 7,
+  "controls_healthy": true,
+  "same_physical_paths": true,
+  "inputs_immutable": true,
+  "source_preview_comparison_qualified": false,
+  "lanes": [
+    {
+      "lane": "ControlBefore",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 18309
+      },
+      "fresh_reopen_passed": true,
+      "trace": null
+    },
+    {
+      "lane": "ReducedNative",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 18137
+      },
+      "fresh_reopen_passed": true,
+      "trace": {
+        "listener_aggregate": 0,
+        "post_properties_rva": "0x1df5b",
+        "post_properties_stop_observed": true,
+        "post_properties_wait_exit_reason": "debug_event",
+        "third_party_stop_armed": true,
+        "breakpoint_cleanup": {
+          "mode": "explicit_removed",
+          "before_detach_read_complete": true,
+          "after_detach_read_complete": true,
+          "all_sites_original_after_detach": true,
+          "explicit_removal_complete": true,
+          "detached_and_restored": true,
+          "qualified": true
+        }
+      }
+    },
+    {
+      "lane": "Generated",
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7
+      ],
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 0
+      },
+      "fresh_reopen_passed": false,
+      "trace": {
+        "listener_aggregate": 0,
+        "post_properties_rva": "0x1df5b",
+        "post_properties_stop_observed": false,
+        "post_properties_wait_exit_reason": "save_returned",
+        "third_party_stop_armed": false,
+        "breakpoint_cleanup": {
+          "mode": "explicit_removed",
+          "before_detach_read_complete": true,
+          "after_detach_read_complete": true,
+          "all_sites_original_after_detach": true,
+          "explicit_removal_complete": true,
+          "detached_and_restored": true,
+          "qualified": true
+        }
+      }
+    },
+    {
+      "lane": "ControlAfter",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 19222
+      },
+      "fresh_reopen_passed": true,
+      "trace": null
+    }
+  ]
+}

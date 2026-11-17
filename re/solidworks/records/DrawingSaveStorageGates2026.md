@@ -64,3 +64,13 @@ explicit removal check with HRESULT `0x8000ffff`. Final debugger
 absence was measured. Both brackets passed. The full comparison
 remains failed pending a qualified repeat.
 [Preview attempt](../measurements/2026/DrawingBlankSavePreviewGateNative01.json)
+
+The properties-gate repeat qualifies its cleanup independently by
+owned engine-process selection and original instruction byte
+checks. Both lanes explicitly remove their breakpoints, restore
+all armed bytes and verify debugger absence. The reduced-native
+lane reaches both the post-properties site and third-party
+dispatch. The generated save returns with the post-properties
+site armed and no delivered stop. This preserves the next split
+at the call instruction `+0x1df56`.
+[Properties comparison](../measurements/2026/DrawingBlankSavePropertiesGateNative01.json)

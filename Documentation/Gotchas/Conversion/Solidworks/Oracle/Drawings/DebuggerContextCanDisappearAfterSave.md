@@ -17,3 +17,9 @@ follow-up can reselect and verify the captured owned engine process
 before removal, or verify restored original instruction bytes after
 the debugger detaches. Track explicit removal, restoration and
 debugger absence as separate observations.
+
+The next properties-gate trial successfully reselected the owned
+engine process. Both lanes completed explicit removal and byte
+restoration checks before confirmed debugger absence. The preview
+trial retains its original failed verdict.
+[Qualified cleanup repeat](../../../../../../re/solidworks/measurements/2026/DrawingBlankSavePropertiesGateNative01.json)
