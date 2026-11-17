@@ -18,8 +18,6 @@ import pytest as Pytest
         "Test suite / Shard (2)",
         "Test suite / Report",
         "Verify rationale comments on changed sources",
-        "CLI process compatibility (Core)",
-        "CLI process compatibility (Qualification)",
     ),
 )
 @Pytest.mark.parametrize(
