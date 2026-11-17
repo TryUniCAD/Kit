@@ -14,9 +14,9 @@ Read the first causal error in failed-job logs and annotations. Downstream cance
 
 ## Repair the cause within the authorized scope
 
-The scoped CI repair authorization and local-test restrictions in SKILL.md apply throughout this reference.
+The scoped CI repair authorization and local execution rules in SKILL.md apply throughout this reference.
 
-Classify the cause as an implementation defect, an independently justified test/fixture defect, a reproducible flake, or an external/workflow blocker. Use the repository's pinned runtime and the command CI actually ran to understand the failure, but do not execute tests locally under this user's rule. Diagnose from remote logs, source, and permitted non-test checks; test verification belongs in PR CI.
+Classify the cause as an implementation defect, an independently justified test/fixture defect, a reproducible flake, or an external/workflow blocker. Use the repository's pinned runtime and the command CI actually ran to understand the failure. Use local reproduction when authorized by the main skill. Verify applicable checks on the remote revision.
 
 Fix production behavior and add meaningful regression coverage. Correct test fixtures or expectations only when the intended contract independently proves they are wrong, preserving equivalent or stronger coverage. Dependency, lockfile, and application configuration repairs are allowed if they fix the diagnosed defect while preserving all applicable validation and acceptance gates. A flaky test needs synchronization or another root-cause repair that preserves its assertions, not repeated reruns until it passes.
 
@@ -32,7 +32,7 @@ An evidenced transient runner/service error allows one justified rerun. Record t
 
 ## Publication and final evidence
 
-Before publishing a fix, review the staged paths and outgoing commits, preserve unrelated work, perform permitted non-test validation, and refetch head/base. Integrate concurrent work without rewriting published history. Use a conventional commit and a normal push with the user's required `--no-verify`, read back the accepted SHA, and request review with each entry’s `Comment` loaded from `Reviewers` from [ReviewBot.json](../ReviewBot.json) for the accepted head as described in [ReviewFindings.md](ReviewFindings.md).
+Before publishing a fix, review the staged paths and outgoing commits, preserve unrelated work, validate within the local execution rules, and refetch head/base. Integrate concurrent work without rewriting published history. Use a conventional commit and a normal push with the user's required `--no-verify`, read back the accepted SHA, and when review is due request it with each entry’s `Comment` loaded from `Reviewers` from [ReviewBot.json](../ReviewBot.json) for the accepted head as described in [ReviewFindings.md](ReviewFindings.md).
 
 Wait for checks to schedule for that revision, rediscovering them as they appear. Use yielding sessions or discrete reads separated by responsive 30–60 second waits. `gh pr checks` may initially report no checks after a push; that means wait and investigate scheduling. A watcher is an intermediate signal, not the complete inventory.
 
