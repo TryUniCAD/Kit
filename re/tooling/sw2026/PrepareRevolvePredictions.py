@@ -60,6 +60,11 @@ def request_for(case, facade, make_part, make_tree):
     return request
 
 
+def world_point(plane, coordinates):
+    axes = WORLD_AXES[plane]
+    return [sum(value * basis[index] for value, basis in zip(coordinates, axes, strict=True)) for index in range(3)]
+
+
 def geometry_for(case, angle_degrees):
     inner, outer = case["radius_m"]
     low, high = case["axial_m"]
@@ -78,7 +83,7 @@ def geometry_for(case, angle_degrees):
         "angle_radians": theta,
         "volume": height * theta * radius_delta / 2,
         "area": area,
-        "com": [sum(value * basis[index] for value, basis in zip(center, WORLD_AXES[case["plane"]], strict=True)) for index in range(3)],
+        "com": world_point(case["plane"], center),
         "bodies": 1,
     }
 
@@ -108,14 +113,16 @@ def construct_case(case, facade, source_root, request, validate_frame, work):
     feature = report["revolution"]
     doc = request["document"]
     expected_length = doc["axis_end_m"][1] - doc["axis_start_m"][1]
+    expected_start = world_point(case["plane"], [*doc["axis_start_m"], 0])
+    expected_direction = WORLD_AXES[case["plane"]][1]
     if not (
         feature["profile_owned"] and feature["profile_reference_id"] == feature["profile_id"]
         and feature["feature_id"] == feature["keyword_feature_id"]
         and feature["profile_reference_time"] == 2592000
         and feature["selected_line_id"] == 4 and feature["line_mark"] == feature["axis_mark"] == 5
         and feature["angle_rad"] == feature["cached_angle_rad"] == doc["angle_rad"]
-        and feature["axis_start"] == dict(zip("xyz", [*doc["axis_start_m"], 0], strict=True))
-        and feature["axis_direction"] == {"x": 0, "y": 1, "z": 0}
+        and all(math.isclose(feature["axis_start"][name], value, rel_tol=2e-7, abs_tol=1e-10) for name, value in zip("xyz", expected_start, strict=True))
+        and all(math.isclose(feature["axis_direction"][name], value, rel_tol=2e-7, abs_tol=1e-12) for name, value in zip("xyz", expected_direction, strict=True))
         and math.isclose(feature["axis_length"], expected_length, rel_tol=2e-7, abs_tol=1e-12)
         and feature["reverse"] == int(case["reverse"]) and feature["keyword_frame"]
         and report["lines"] == 5 and all(report["plane_ownership"].values())
