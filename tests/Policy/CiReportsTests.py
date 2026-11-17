@@ -26,6 +26,8 @@ import pytest as Pytest
         ("check", "Verify rationale comments on changed sources"),
         ("check", "Build and verify release artifacts"),
         ("check", "Label first-time contributors"),
+        ("retired-fusion", "Ruff"),
+        ("queue-retired-fusion", "Ruff"),
         ("quality-fork", "Ruff"),
         ("quality-docs", "Ruff"),
     ),
@@ -45,7 +47,9 @@ def CheckReportFlow(CaseMode: str, CheckName: str) -> None:
             timeout=20,
         )
         EvidencePath = FilePath(TempPath) / "PrCiEvidence/Evidence.json"
-        assert EvidencePath.exists() == ExpectedPass, ResultInfo.stderr
+        assert EvidencePath.exists() == (
+            ExpectedPass and not CaseMode.startswith("queue")
+        ), ResultInfo.stderr
     assert ResultInfo.returncode == (0 if ExpectedPass else 1)
     assert "Review report" not in ResultInfo.stdout
     assert "Unlisted job" not in ResultInfo.stdout

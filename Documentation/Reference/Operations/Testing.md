@@ -3,8 +3,10 @@
 ## Purpose
 
 This reference separates structural checks, integration evidence, and product acceptance.
-Run tests only in remote CI.
-Do not run local tests, collection, reproductions, or hooks that execute tests.
+Follow [the skill's local execution rules](../../../.agents/skills/standard-pr-practice/SKILL.md#local-execution-rules).
+Large PRs can run relevant integration, compatibility, smoke, end-to-end, and
+repository policy checks locally. Verify the applicable remote PR and queue
+checks on their required revisions.
 
 ## Verification levels
 

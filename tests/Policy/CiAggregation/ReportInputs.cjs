@@ -5,8 +5,15 @@ function BuildReports(CaseMode, Verdict, CheckName) {
   const IsQueue = CaseMode.startsWith("queue");
   const HeadSha = "a".repeat(40);
   const Built = BuildExpected(IsQueue, HeadSha);
-  const Runs = Built.Runs;
-  const Checks = Built.Checks;
+  const Retired = CaseMode.endsWith("retired-fusion")
+    ? Built.Runs.find(
+        (Run) => Run.path === ".github/workflows/FusionCompatibility.yml",
+      )
+    : null;
+  const Runs = Built.Runs.filter((Run) => Run !== Retired);
+  const Checks = Built.Checks.filter(
+    (Check) => Check.check_suite.id !== Retired?.check_suite_id,
+  );
   const Expected = Checks.map(({ name, html_url }) => ({ name, html_url }));
   const Files =
     CaseMode === "quality-docs"

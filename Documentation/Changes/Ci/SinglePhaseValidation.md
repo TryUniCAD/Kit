@@ -84,6 +84,18 @@ No repository settings are changed by this PR.
 Job timings vary with runner and checkout performance. Reassess allocation
 from complete successful jobs when a check consistently crosses the cutoff.
 
+## Queue integration
+
+PR #155 made the dedicated Fusion compatibility reports optional before removal
+in PR #156. The phase allocation preserves that transition. Its jobs and phase
+preflight can be absent, and every reported failure still blocks aggregation.
+The complete queue suite continues to cover the compatibility cases.
+
+The queue marked this PR unmergeable against PR #155's candidate
+`256d5fbfcec145ac9d6c7ebcd389fac583afc414`. The integration preserves its optional
+reports and subprocess retirement cases alongside the phase-specific allocation.
+Both report-retirement cases remain in the remote policy job.
+
 ## Verification
 
 Source inspection confirmed that each split job has one phase and that the
