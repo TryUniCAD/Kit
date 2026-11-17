@@ -17,7 +17,10 @@ plane. Python syntax, API call arity, and whitespace passed static checks.
 The first oracle attempt stopped before creating the cut because the live
 feature manager returned `Invalid index` for a type-information query. The
 tool now resolves the interface directly from the registered 2026 library.
-The repaired oracle run and source lock are pending. The tool does not deliver
-a Kit writer or establish held-out writer acceptance.
+The repaired run qualified all five sources and the driving depth edits across
+12 fresh processes. Both controls passed, and the two held-out payloads and
+detailed observations remain sealed. The three discovery files pass 45 linked
+byte comparisons and 42 strict schema checks. The three optional visual-state
+streams account for the strict failures. [Native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryBlindCutSourceLock.json)
 
 [Feature manager type-information gotcha](../../../../../Gotchas/Conversion/Solidworks/Oracle/FeatureManagerDispatchCanLackTypeInfo.md)
