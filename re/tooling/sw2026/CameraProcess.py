@@ -16,6 +16,7 @@ AUDIT = BuildAudit(ROOT / "re/tooling/sw2026/serial/defs")
 sys.addaudithook(AUDIT.InspectEvent)
 
 from Classes import registry
+from ProfileTransform import stored_frame
 from RoundTrip import PLANS, stream_roundtrip
 from StringCorpus import GraphProof, LoadModels
 from builders.Camera import construct_camera_part
@@ -39,6 +40,7 @@ RESULT = {
     "streams": COMPARISONS,
     "sizes": {name: len(raw) for name, raw in CONSTRUCTION.streams.items()},
     "view_fields": {"orientation": DOCUMENT["fae8"], "pan_zoom": DOCUMENT["faf0"]},
+    "profile_model_to_sketch": stored_frame(MODELS[RESOLVED]["document"].roots),
     "graph": GRAPH,
     "features": [node.cls for node in CONSTRUCTION.features],
     "points": CONSTRUCTION.profile.point_count,

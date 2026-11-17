@@ -11,7 +11,7 @@ from tests.Convert.Solidworks.Research.Frozen.ComparePinned import ComparePinned
 from tests.Convert.Solidworks.Research.PartArtifacts import SavePartOutput
 
 
-# circle regressions must retain independent measured bytes across both current and historical processes
+# circle regressions keep historical measurements pinned while checking the current profile transform
 def CheckCircleCase(CaseValue: dict[str, object], SourceRoot: FilePath) -> None:
     assert CaseValue["dimension_kind"] in ("diameter", "radial")
     ModeValue = "radius" if CaseValue["dimension_kind"] == "radial" else "diameter"

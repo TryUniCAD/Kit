@@ -126,13 +126,15 @@ class PlaneFrame:
 
 
 def frame_transform(*, frame: PlaneFrame):
-    rows = (*frame.u, *frame.v, *frame.normal)
+    basis = (frame.u, frame.v, frame.normal)
+    rows = tuple(basis[column][row] for row in range(3) for column in range(3))
+    translation = frame.sketch_point(point=(0.0, 0.0, 0.0))
     identity = (1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0)
     fields = {
         "has_matrix": int(rows != identity),
-        "f58": frame.origin[0],
-        "f60": frame.origin[1],
-        "f68": frame.origin[2],
+        "f58": translation[0],
+        "f60": translation[1],
+        "f68": translation[2],
         "f70": 1.0,
         "f78": 0,
     }

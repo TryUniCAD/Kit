@@ -10,7 +10,7 @@ from tests.Convert.Solidworks.Research.Frozen.ComparePinned import ComparePinned
 from tests.Convert.Solidworks.Research.PartArtifacts import SavePartOutput
 
 
-# each current camera prediction must preserve the exact measured output of its historical writer
+# each camera regression pairs exact historical bytes with the independently checked current transform
 def CheckViewCase(CaseValue: dict[str, object], SourceRoot: FilePath) -> None:
     Request = MakeViewCase(CaseValue)
     Outcome = RunCamera(Request)

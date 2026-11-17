@@ -1,8 +1,8 @@
 # Lock unseen principal sketch frames before writer correction
 
 The [profile transform trace](../../../../../re/solidworks/records/ProfileTransformDirection2026.md)
-identified the stored model-to-sketch direction. The current research writer
-uses its inverse for the nonidentity principal frames. A native rebuild can
+identified the stored model-to-sketch direction. The earlier research writer
+used its inverse for the nonidentity principal frames. A native rebuild can
 still succeed, so the next evaluation must inspect the generated archive field
 before opening the file, as well as measure the edited native result.
 

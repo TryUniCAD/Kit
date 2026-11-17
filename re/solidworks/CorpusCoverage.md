@@ -127,8 +127,10 @@ also pass 54 archive comparisons, 108 semantic values and 102 exact pose
 values. The readback confirms the actual markup class and model-to-sketch
 transform in the saved files. These derivatives add no writer outputs. The
 [field direction record](records/ProfileTransformDirection2026.md) identifies
-an opposite-direction seed in the frozen research emitter that remains to be
-corrected and remeasured.
+an opposite-direction seed in the frozen research emitter. The current
+research emitter computes the inverse placement; its
+[independent sources](v2026/heldout/FrameSourceLock.json) were locked first,
+and native remeasurement of the corrected predictions is still pending.
 
 ## Last audit of the removed writer
 

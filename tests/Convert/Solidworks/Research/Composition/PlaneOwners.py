@@ -1,13 +1,10 @@
 from __future__ import annotations
 
-from convert.adapters.solidworks.Container.Container import SldprtArchive
 from tests.Convert.Solidworks.Research.Composition.NodeFields import ReadFields
-from tests.Convert.Solidworks.Research.Composition.ProfileRoots import ReadProfiles
 
 
 # complete file decoding must preserve exclusive reference allocations and their shared model relationship
-def ReadOwners(ArchiveFile: SldprtArchive, CodecReg: object) -> dict[str, bool]:
-    ModelRoot, Profiles = ReadProfiles(ArchiveFile, CodecReg)
+def ReadOwners(ModelRoot: object, Profiles: list[object]) -> dict[str, bool]:
     if len(Profiles) != 2:
         raise RuntimeError("constructed part requires origin and ordinary profiles")
     OriginRef, SketchRef = [ReadFields(Profile)["pd_f78"] for Profile in Profiles]

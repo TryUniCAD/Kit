@@ -34,10 +34,14 @@ KContainer = ImportModule("convert.adapters.solidworks.Container.Container")
 # codec initialization precedes the strict boundary used to audit construction inputs
 KRoundTrip = ImportModule("RoundTrip")
 
+# profile transform decoding reads generated archive fields after module initialization
+KFrameValues = ImportModule("ProfileTransform").stored_frame
+
 # codec initialization must not be mistaken for donor access during strict construction
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
 from tests.Convert.Solidworks.Research.Composition.PlaneOwners import ReadOwners
+from tests.Convert.Solidworks.Research.Composition.ProfileRoots import ReadProfiles
 from tests.Convert.Solidworks.Research.Composition.ViewTargets import HasViewTargets
 from tests.Convert.Solidworks.Research.Composition.ConfigurationProgress import (
     IsProgressValid,
@@ -53,6 +57,7 @@ def BuildResult() -> dict[str, object]:
     Constructed = KConstruct(registry=KRegistry, **KRequest)
     BlobValue = KContainer.build_sldprt(Constructed.streams)
     Archive = KContainer.SldprtArchive.from_bytes(BlobValue)
+    ModelRoot, Profiles = ReadProfiles(Archive, KRegistry)
     Results = {
         NameValue: KRoundTrip.stream_roundtrip(
             Archive, NameValue, KRegistry, {**KRoundTrip.PLANS, **KRegistry.plans}, True
@@ -103,7 +108,8 @@ def BuildResult() -> dict[str, object]:
             else Constructed.extrusion.reverse_depth
         ),
         "has_extrusion": Constructed.extrusion is not None,
-        "plane_ownership": ReadOwners(Archive, KRegistry),
+        "plane_ownership": ReadOwners(ModelRoot, Profiles),
+        "profile_model_to_sketch": KFrameValues(Profiles),
         "configuration_progress": IsProgressValid(Archive, KRegistry),
         "standard_views": HasViewTargets(Archive, KRegistry),
         "module_reads": KAuditValue.ModuleReads,
