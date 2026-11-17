@@ -221,6 +221,11 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         folder_order=presentation.get("folder_order"),
     )
     plane = graph.planes[document["plane_axis"]]
+    feature_values = {
+        "owner": graph.part, "allocator": graph.allocator,
+        "date_code": target["date_code"], "parasolid_version": target["parasolid_version"],
+    }
+    origin_node = model_feature(cls="moOriginProfileFeature_c", name=document["origin_name"], **feature_values)
     offset_plane = None
     if offset_plane_discovery is not _NO_OFFSET_PLANE:
         offset_plane = construct_offset_plane(
@@ -236,11 +241,6 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         "created_at": logged_creation_time(timestamps=()),
         "principal_normal": None if offset_plane is not None else tuple(plane["f6f8"]["normal"][axis] for axis in ("x", "y", "z")),
     }
-    feature_values = {
-        "owner": graph.part, "allocator": graph.allocator,
-        "date_code": target["date_code"], "parasolid_version": target["parasolid_version"],
-    }
-    origin_node = model_feature(cls="moOriginProfileFeature_c", name=document["origin_name"], **feature_values)
     if offset_plane is None:
         origin_graph = origin_profile(profile=origin_node, plane=component_plane(**reference_values), frame=frame)
     else:
@@ -278,7 +278,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
             graph=profile, allocator=graph.allocator, **request,
             design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
         )
-    features = (*graph.system_features, *((offset_plane.feature,) if offset_plane is not None else ()), origin_node, profile_node)
+    features = (*graph.system_features, origin_node, *((offset_plane.feature,) if offset_plane is not None else ()), profile_node)
     extrusion = None
     revolution = None
     if feature_kind in ("blind_extrusion", "extrusion"):
