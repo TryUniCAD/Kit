@@ -15,5 +15,10 @@ generated input. The observer records typed getter results and
 separates a completed save with an armed stop unobserved from a
 debugger failure. Both pristine native brackets must pass.
 
-The frozen host custody check passed. The native comparison is pending.
+The native attempt delivered both getter stops with zero results in
+both lanes. The generated save returned with the third-party site
+armed and unobserved. Explicit breakpoint removal then failed with
+HRESULT `0x8000ffff`, while final debugger absence was verified.
+The comparison retains exit 3 and requires a cleanup repeat.
 [Preview observer](../../../../../re/tooling/sw2026/drawing_preview_gate/InspectBlankDrawingSaveAggregateSoftwarePreviewMatched.py) · [Owned debugger](../../../../../re/tooling/sw2026/drawing_preview_gate/DrawingSavePreviewGateDbgEng.py) · [Qualified storage route](../../../../../re/solidworks/measurements/2026/DrawingBlankSaveStorageGateNative01.json)
+[Native preview attempt](../../../../../re/solidworks/measurements/2026/DrawingBlankSavePreviewGateNative01.json) · [Cleanup context](../../../../Gotchas/Conversion/Solidworks/Oracle/Drawings/DebuggerContextCanDisappearAfterSave.md)

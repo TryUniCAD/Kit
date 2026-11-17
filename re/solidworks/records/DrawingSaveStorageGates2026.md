@@ -56,3 +56,11 @@ The measured generated route has a valid storage root. The next
 paired run samples the later preview-only getters and third-party
 call entry to bound the intervening preamble.
 [Storage entry and validity receipt](../measurements/2026/DrawingBlankSaveStorageGateNative01.json)
+
+The next native attempt observed zero from both preview-only
+getters on both traced inputs. The generated save then returned
+after the armed third-party stop was unobserved. Cleanup failed its
+explicit removal check with HRESULT `0x8000ffff`. Final debugger
+absence was measured. Both brackets passed. The full comparison
+remains failed pending a qualified repeat.
+[Preview attempt](../measurements/2026/DrawingBlankSavePreviewGateNative01.json)
