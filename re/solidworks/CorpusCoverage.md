@@ -165,6 +165,12 @@ parent in order. The parent-only lane reproduced warning 32. Both lanes matched 
 and one-body geometry, with 84 numeric checks and four healthy controls. This adds one generated
 single-occurrence research case. The production counts remain 0/165 parts and 0/5 assemblies.
 
+The [generated repeated-occurrence measurement](measurements/2026/GeneratedRepeatedOccurrencesNative03.json)
+adds an assembly with three resolved placements of the same generated child. It passed clean open,
+rebuild, synchronized save and fresh reopen with 106 numeric checks and two healthy controls.
+The two observations preserve a 25-node tree and three placed bodies. The synchronized assembly
+held-outs remain sealed, and no production conversions are counted.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11

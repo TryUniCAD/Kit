@@ -4,4 +4,6 @@ The SOLIDWORKS 2026 research composer generates one assembly and one child part 
 
 The guarded process test generated three distinct placements and verified record ownership, archive order, sphere and corner extents, stream round trips and the file-access guard. The existing empty and single-occurrence requests produced identical container hashes before and after the change. [Integration test](../../../../../../tests/Convert/Solidworks/Research/Assembly/RepeatedOccurrenceBundleTests.py)
 
-The child remains an ordinary part with a forward blind polygon extrusion. Native acceptance of repeated generated occurrences is pending. The user-facing adapter remains read-only.
+One generated assembly with three placements of the same child, including a 90-degree rotation, passed SOLIDWORKS 2026 SP05.2 open, rebuild, synchronized save and fresh reopen. Both candidate phases matched the 25-node feature tree, three solid occurrences, requested transforms, expected volume, area and centre of mass. All 106 numeric checks and both controls passed across four processes. [Native measurement](../../../../../../re/solidworks/measurements/2026/GeneratedRepeatedOccurrencesNative03.json)
+
+The child is an ordinary part with a forward blind polygon extrusion. Held-out placement and mate coverage are pending. The user-facing adapter remains read-only.
