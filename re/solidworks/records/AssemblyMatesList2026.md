@@ -113,6 +113,11 @@ explicit alignment and the ordinary plane-distance options through the
 native command and model setters. The exposed solver states require a
 complete generated mate and controlled native measurement.
 
+The [coincident registration and publication trace](CoincidentMatePublication2026.md)
+separately binds resolved wrapper ordinals and the assembly-wide
+reference counter. It relates the mate ID and creation log to both
+headers, the active configuration and the independent mate-list stream.
+
 Run from the repository root with the authorized disclosed source directory:
 
 ```sh
