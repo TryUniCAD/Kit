@@ -91,17 +91,26 @@ class BlindCutAuthor(CurveAuthor):
         require(int(self.get(selection, "GetSelectedObjectCount2", -1)) == int(self.get(selection, "GetSelectedObjectCount2", 0)) == 1, "expected only the selected profile")
         return feature
 
-    def require_cut_signature(self, feature_manager):
-        typeinfo = self.rec.call("get installed FeatureManager ITypeInfo", feature_manager._oleobj_.GetTypeInfo)
+    def require_cut_signature(self):
+        library_id = "{83A33D31-27C5-11CE-BFD4-00400513BB57}"
+        library = self.rec.call("load registered 2026 sldworks type library", Swapp.pythoncom.LoadRegTypeLib, library_id, 34, 0, 0)
+        attributes = library.GetLibAttr()
+        require(str(attributes[0]).casefold() == library_id.casefold() and attributes[3:5] == (34, 0), "wrong sldworks type library identity")
+        typeinfo = next(
+            (library.GetTypeInfo(index) for index in range(library.GetTypeInfoCount())
+             if library.GetDocumentation(index)[0] == "IFeatureManager"),
+            None,
+        )
+        require(typeinfo is not None, "IFeatureManager is absent from the registered sldworks type library")
         for index in range(typeinfo.GetTypeAttr().cFuncs):
             descriptor = typeinfo.GetFuncDesc(index)
             names = typeinfo.GetNames(descriptor.memid)
             if names and names[0] == "FeatureCut4":
                 require(tuple(name.casefold() for name in names[1:]) == tuple(name.casefold() for name in CUT_ARGUMENTS), "installed FeatureCut4 argument order differs")
-                self.rec.data["feature_cut_type_info"] = {"interface": typeinfo.GetDocumentation(-1)[0], "names": names, "member_id": descriptor.memid, "invoke_kind": descriptor.invkind, "arguments": repr(descriptor.args), "return_type": repr(descriptor.rettype)}
+                self.rec.data["feature_cut_type_info"] = {"library_guid": str(attributes[0]), "library_version": list(attributes[3:5]), "interface": typeinfo.GetDocumentation(-1)[0], "names": names, "member_id": descriptor.memid, "invoke_kind": descriptor.invkind, "arguments": repr(descriptor.args), "return_type": repr(descriptor.rettype)}
                 self.rec.flush()
                 return
-        raise RuntimeError("FeatureCut4 is absent from the installed FeatureManager dispatch type information")
+        raise RuntimeError("FeatureCut4 is absent from the registered IFeatureManager declaration")
 
     def build(self, case, session):
         self.model = self.rec.call("new part", session.new_part)
@@ -118,7 +127,7 @@ class BlindCutAuthor(CurveAuthor):
         circle = case["cut_profile"]
         u, v = (value / 1000 for value in circle["center_mm"])
         self.create_sketch(case["plane"], CUT_SKETCH, "CreateCircleByRadius", (u, v, 0.0, circle["radius_mm"] / 1000), prior_name=BOSS_SKETCH)
-        self.require_cut_signature(feature_manager)
+        self.require_cut_signature()
         cut_args = (True, False, True, 0, 0, case["cut_depth_mm"] / 1000, 0.0, False, False, False, False, 0.0, 0.0, False, False, False, False, False, True, True, False, False, False, 0, 0.0, False, False)
         cut = self.get(feature_manager, "FeatureCut4", *cut_args)
         require(cut is not None, "native blind circular cut creation failed")
