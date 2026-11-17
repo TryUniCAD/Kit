@@ -144,8 +144,9 @@ def topology_nodes(geometry, marks):
                 "sense": "-" if use.reversed else "+", "curve": 0,
             }))
     for edge in geometry.edges:
+        anchor, = (use for use in uses_by_edge[edge.id] if not use.reversed)
         nodes.append(DraftNode(Ref(edge.id), 16, {
-            "owner": body, "curve": Ref(edge.curve_id), "halfedge": Ref(uses_by_edge[edge.id][0].id),
+            "owner": body, "curve": Ref(edge.curve_id), "halfedge": Ref(anchor.id),
             "next_on_curve": 0, "previous_on_curve": 0,
         }))
     for vertex in geometry.vertices:

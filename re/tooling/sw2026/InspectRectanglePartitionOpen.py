@@ -9,24 +9,32 @@ from AuthorCurves import digest, require, write_json
 from InspectPartitionOpen import HELPERS, MODES, PART, run_phase
 
 
-VARIANTS = ("WithoutPartition", "WithAttachment")
+JOBS = {
+    "kit.sw2026.rectangle-partition-open-job.v1": (
+        "Freeze.json", "kit.sw2026.rectangle-populated-attachment-discovery.v1", ("WithoutPartition", "WithAttachment"),
+    ),
+    "kit.sw2026.rectangle-edge-anchor-open-job.v1": (
+        "AnchorFreeze.json", "kit.sw2026.rectangle-edge-anchor-discovery.v1", ("OriginalAttachment", "CorrectedAttachment"),
+    ),
+}
 
 
 def prepare(job):
-    require(job["schema"] == "kit.sw2026.rectangle-partition-open-job.v1", "unexpected rectangle partition job")
+    require(job["schema"] in JOBS, "unexpected rectangle partition job")
+    lock_name, freeze_schema, variants = JOBS[job["schema"]]
     stage, control, checkout = (Path(job[key]).resolve(strict=True) for key in ("stage", "control", "checkout_root"))
     output = Path(job["output"]).resolve()
     active = stage / "Active"
     require(all(not path.is_relative_to(checkout) for path in (stage, control, output)), "probe inputs and output must stay outside the checkout")
     require(not output.exists() and not active.exists() and digest(control) == job["control_sha256"], "probe output already exists or control digest differs")
-    lock = stage / "Freeze.json"
+    lock = stage / lock_name
     require(digest(lock) == job["freeze_sha256"], "offline generation receipt digest differs")
     frozen = json.loads(lock.read_bytes())
-    require(frozen["schema"] == "kit.sw2026.rectangle-populated-attachment-discovery.v1" and frozen["heldout_acceptance"] is False,
+    require(frozen["schema"] == freeze_schema and frozen["heldout_acceptance"] is False,
             "probe requires the frozen rectangle discovery pair")
     require(PureWindowsPath(active / PART) == PureWindowsPath(frozen["native_path"]), "probe must use the originally encoded guest path")
-    require(set(frozen["variants"]) == set(VARIANTS) and len(set(frozen["variants"].values())) == 2, "probe needs two distinct variants")
-    sources = {variant: stage / variant / PART for variant in VARIANTS}
+    require(set(frozen["variants"]) == set(variants) and len(set(frozen["variants"].values())) == 2, "probe needs two distinct variants")
+    sources = {variant: stage / variant / PART for variant in variants}
     for variant, source in sources.items():
         require(source.resolve(strict=True) == source and digest(source) == frozen["variants"][variant], "frozen child does not match")
     return active, control, output, sources, frozen
@@ -104,6 +112,17 @@ def execute(job, job_path, active, control, output, sources, frozen):
             row.get("open_status") == [True, 0, 0] and row.get("after_open_geometry_matches")
             and row.get("rebuild_return") and row.get("after_rebuild_geometry_matches") for row in report["phases"]
         ))
+        if "CorrectedAttachment" in sources:
+            report["original_warning_reproduced"] = any(
+                row["variant"] == "OriginalAttachment" and row.get("open_status") == [True, 0, 32]
+                and row.get("after_open", {}).get("child", {}).get("body_count") == 0
+                and row.get("rebuild_return") and row.get("after_rebuild_geometry_matches") for row in report["phases"]
+            )
+            report["corrected_clean_open_and_rebuild"] = bool(report["diagnostic_completed"] and any(
+                row["variant"] == "CorrectedAttachment" and row.get("open_status") == [True, 0, 0]
+                and row.get("after_open_geometry_matches") and row.get("rebuild_return")
+                and row.get("after_rebuild_geometry_matches") for row in report["phases"]
+            ))
         report["finished_at"] = time.time()
         checkpoint()
     print(json.dumps({key: report[key] for key in ("diagnostic_completed", "controls_healthy", "distinct_processes", "both_clean_open_and_rebuild")}))
