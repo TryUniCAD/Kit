@@ -83,7 +83,8 @@ def main():
     rules = registry()
     AUDIT.BeginBuild()
     bundle = construct_assembly_bundle(registry=rules, request=request["bundle"])
-    owner, model_header, inherited = read_state(bundle, rules)
+    config, _, inherited = read_state(bundle, rules)
+    owner, model_header = config.roots[0], config.head["model_header"]
     selections = select_endpoints(bundle=bundle, owner=owner, selectors=request["endpoints"])
     wrapped = [resolved_planar_wrapper(endpoint=endpoint) for _, endpoint in selections]
     detached = []

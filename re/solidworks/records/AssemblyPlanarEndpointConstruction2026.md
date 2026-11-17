@@ -82,3 +82,21 @@ file reads. The shared absolute plane builder reproduces the frozen
 front drawing and part bytes exactly. Native load and retention of
 the complete assembly mate still require measurement.
 [Paired wrapper proof](../measurements/2026/GeneratedPairedPlanarWrappers01.json)
+
+## Assign resolved wrapper IDs
+
+`PlanarMateIdProcess.py` adds two authored mate names to the ordinary
+endpoint request. For each named coincident mate, the generated wrapper
+IDs come from the assembly's next `fd48` value. The feature ID and
+local endpoint ordinal retain their distinct fields. Retrying an
+already assigned wrapper retains its ID. The assignment validates both
+endpoints before updating the wrapper or assembly state.
+[Registration and traversal rules](CoincidentMatePublication2026.md#wrapper-ids-consume-a-separate-counter)
+
+Two guarded inputs assign wrapper IDs 0 and 1 to the first mate and 2
+and 3 to the second. Both mate-local ordinals remain 0 and 1. A retry
+preserves all four IDs and the next counter of 4. A rejected endpoint
+leaves the counter and the earlier input wrapper unchanged. In each
+assembly, the Config-0 archive changes one byte and retains its original
+map count. The wrapper archive and the Config-0 field re-encode exactly
+with zero runtime file reads. [Generated reference IDs](../measurements/2026/GeneratedPlanarWrapperIds01.json)

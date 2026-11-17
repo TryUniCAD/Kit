@@ -77,7 +77,7 @@ def read_state(bundle, rules):
     resolved, final = load_resolved(archive.require(RESOLVED), rules, DOCUMENT_VERSION_2026,
                                     archive=archive, name=RESOLVED, seed=initial.map_state())
     require(not config.tail and not resolved.tail, "the generated assembly seed graph did not consume exactly")
-    return config.roots[0], config.head["model_header"], final.map_state()
+    return config, resolved, final.map_state()
 
 
 def decode_endpoint(archive, expected, reference, owner):
@@ -127,7 +127,8 @@ def main():
     tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
     AUDIT.BeginBuild()
     bundle = construct_assembly_bundle(registry=rules, request=request["bundle"])
-    owner, _, inherited = read_state(bundle, rules)
+    config, _, inherited = read_state(bundle, rules)
+    owner = config.roots[0]
     selected = select_endpoints(bundle=bundle, owner=owner, selectors=request["endpoints"])
     data, next_index = encode(((row.component_plane, row.resolved_geometry, row.detached_geometry) for _, row in selected), inherited, rules)
     reader = Load(data, inherited.count, rules, DOCUMENT_VERSION_2026, seed=inherited)

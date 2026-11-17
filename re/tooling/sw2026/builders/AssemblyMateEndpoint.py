@@ -136,3 +136,40 @@ def detached_planar_wrapper(*, endpoint: PlanarMateEndpoint, model_header: Obj, 
         "f68": 1, "f188": _point((0.0, 0.0, 0.0)),
     })
     return Obj("moPlaneRef_w", values)
+
+
+def register_planar_wrapper_ids(*, mate: Obj) -> None:
+    if not isinstance(mate, Obj) or mate.cls != "moMateCoincident":
+        raise ValueError("reference allocation requires an ordinary coincident mate")
+    group = mate.get("owner")
+    if not isinstance(group, Obj) or group.cls != "moMateGroup_c":
+        raise ValueError("reference allocation requires the registered mate group")
+    assembly = group.get("owner")
+    if not isinstance(assembly, Obj) or assembly.cls != "moAssembly_c":
+        raise ValueError("the mate group must belong to the actual assembly")
+    mate_id = integer(mate["f08"], "mate persistent ID", high=0x7FFFFFFE)
+    counter = integer(assembly["fd48"], "assembly wrapper counter", high=0x7FFFFFFF)
+    wrappers = tuple(row["o"] for row in mate["f410"])
+    if len(wrappers) != 2 or wrappers[0] is wrappers[1]:
+        raise ValueError("a coincident mate requires two distinct resolved wrappers")
+    assignments = []
+    used = set()
+    for ordinal, wrapper in enumerate(wrappers):
+        if not isinstance(wrapper, Obj) or wrapper.cls != "moPlaneRef_w" or wrapper["f60"] is not None:
+            raise ValueError("only ordinary resolved plane wrappers consume these reference IDs")
+        chain = wrapper["f58"]["f58"]
+        if chain.cls != "moChainComponent_c" or chain["owner"] is not assembly:
+            raise ValueError("the wrapper chain must bind the containing assembly")
+        reference_id = wrapper["f78"]
+        if reference_id == -12345:
+            reference_id = integer(counter, "next assembly wrapper ID", high=0x7FFFFFFE)
+            counter += 1
+        else:
+            integer(reference_id, "allocated assembly wrapper ID", high=assembly["fd48"] - 1)
+        if reference_id in used:
+            raise ValueError("distinct mate wrappers cannot share a reference ID")
+        used.add(reference_id)
+        assignments.append((wrapper, reference_id, ordinal))
+    for wrapper, reference_id, ordinal in assignments:
+        wrapper.f.update(f74=mate_id, f78=reference_id, f7c=ordinal)
+    assembly["fd48"] = counter
