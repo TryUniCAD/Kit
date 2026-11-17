@@ -13,5 +13,9 @@ sequence. The reduced-native control must save and reopen cleanly.
 The generated branch must reproduce the existing failure footprint.
 Both trace stops and detachments must be observed.
 
-Host verification passed. The matched runtime comparison remains pending.
-[Matched observer](../../../../../re/tooling/sw2026/InspectBlankDrawingSaveAggregateSoftwareMatched.py) · [Reduced-native control](../../../../../re/solidworks/measurements/2026/DrawingBlankSaveAggregateSoftwareNative01.json)
+The matched native run observes zero at the aggregate test in both
+traced lanes. The generated blank still returns `[false, 1, 0]) after
+event 7 and leaves a zero-byte target. Both pristine brackets and the
+reduced native lane save and reopen successfully. Both debuggers detach
+cleanly. The generated failure occurs past the listener aggregate test.
+[Matched observer](../../../../../re/tooling/sw2026/InspectBlankDrawingSaveAggregateSoftwareMatched.py) · [Native comparison](../../../../../re/solidworks/measurements/2026/DrawingBlankSaveAggregateSoftwareMatchedNative01.json)

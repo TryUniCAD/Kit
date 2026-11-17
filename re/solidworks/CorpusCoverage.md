@@ -230,6 +230,11 @@ The [target-state repeat](measurements/2026/DrawingBlankSaveEventStateNative01.j
 distinguished the zero-byte generated target from the absent target after a
 calibrated event 7 veto. Both share the same error and event sequence.
 All three matched controls passed.
+The [matched software trace](measurements/2026/DrawingBlankSaveAggregateSoftwareMatchedNative01.json)
+measures a zero event aggregate in the reduced-native and generated blank
+drawings. The generated drawing still produces only event 7 and a zero-byte
+target. Both pristine checks and the traced reduced control save and reopen
+cleanly. The failing downstream save action remains open.
 The [typed UI omission comparison](measurements/2026/DrawingBlankUiOmission01.json)
 passed fourteen native phases. The reduced native document saved with its
 viewport, line tables, environment and BOM state omitted together.
