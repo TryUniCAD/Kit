@@ -77,6 +77,7 @@ The [native drawing UI diagnostic](../../re/solidworks/measurements/2026/Drawing
 The [generated front drawing trial](../../re/solidworks/measurements/2026/GeneratedFrontDrawingNative01.json) passes native open, rebuild and view movement with its generated child. Native save returns error 1 while the same-role reduced control saves and reopens.
 The [planar mate endpoint construction](../../re/solidworks/records/AssemblyPlanarEndpointConstruction2026.md) preserves inherited occurrence and datum identities in generated records.
 The [populated rectangle partition projection](../../re/solidworks/records/GeneratedRectanglePartition2026.md) generates the linked cache and rollback streams. The [standalone trial](../../re/solidworks/measurements/2026/GeneratedRectangleAttachmentNative04.json) records warning 32 and zero bodies at open with the attachment. Explicit rebuild restores the expected solid.
+The [forward edge-anchor comparison](../../re/solidworks/measurements/2026/GeneratedRectangleEdgeAnchorNative01.json) retains that initial-open warning on both matched inputs and the same analytic solid after rebuild.
 Complete field classification, broad part and assembly semantics and generated drawing acceptance remain unfinished.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.

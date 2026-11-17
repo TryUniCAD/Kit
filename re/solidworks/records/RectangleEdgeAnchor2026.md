@@ -58,8 +58,28 @@ from an independent tools folder. It retains the original idle guard,
 two healthy L1 process controls, same-path comparison, and frozen hashes.
 It captures open errors, warnings, bodies, feature ownership and geometry
 before and after explicit rebuild. The original-warning and corrected-open
-observations have separate result fields. Native observations for the
-corrected file are pending.
+observations have separate result fields.
+
+## Native result
+
+Both generated parts opened with warning 32 and zero solids on
+SOLIDWORKS 2026 SP05.2 build `34.5.2.0604`. The comparison used four distinct
+processes. Both L1 controls passed, and the staged input hashes matched
+their originals after close. The runner came from commit
+`6353bf9aa45cdbc4489892b1616e8fc276151f97`.
+[Native comparison receipt](../measurements/2026/GeneratedRectangleEdgeAnchorNative01.json).
+
+| Variant | Opened | Errors | Warnings | Solids after open | Rebuild returned | Solids after rebuild | Update stamp |
+| --- | --- | ---: | ---: | ---: | --- | ---: | --- |
+| Original attachment | Yes | 0 | 32 | 0 | True | 1 | 110 → 125 |
+| Forward fin anchors | Yes | 0 | 32 | 0 | True | 1 | 110 → 125 |
+
+Both cases reported `NeedsRebuild2=0` and `What's Wrong=0` before and
+after explicit rebuild. Each rebuilt solid had six extrusion-owned faces,
+volume 2949.84375 mm³, area 1334.875 mm² and centre
+`(14.25, -5.5, 4.375)` mm. The five-anchor correction establishes the
+authored endpoint order. The cache-open failure persists with those
+anchors, and its receive or attachment stage remains unobserved.
 
 The earlier standalone projection and attachment receipts identify the
 original edge selection. Their hashes remain the basis for reproducing

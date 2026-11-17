@@ -6,7 +6,9 @@ the edge endpoints in order.
 
 The paired probe regenerates the part from its original neutral dimensions.
 It changes five edge-to-fin pointers and reproduces every other active
-field, all other logical streams, and the stored rollback section. Native
-open and rebuild observations on the corrected part are pending.
+field, all other logical streams, and the stored rollback section. Both
+native opens returned warning 32 and zero solids. Explicit rebuild restored
+an extrusion-owned solid with the expected volume, area and centre in each
+case. Both L1 controls passed. The cache still fails the native open gate.
 
 [Rule, reproduction and comparison](../../../../../re/solidworks/records/RectangleEdgeAnchor2026.md)

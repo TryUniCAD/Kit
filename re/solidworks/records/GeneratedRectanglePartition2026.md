@@ -140,6 +140,10 @@ independent volume, area and centre exactly. The attachment still fails
 the initial native cache gate. This comparison did not edit or resave the
 part. [Matched native receipt](../measurements/2026/GeneratedRectangleAttachmentNative04.json)
 
+The [forward edge-anchor comparison](RectangleEdgeAnchor2026.md) corrects five
+ordered endpoint references. The attached original and corrected inputs still
+open with warning 32 and zero solids, then rebuild to the same correct body.
+
 The existing SDK B-rep decoder also accepts the generated cache and
 validates one solid, six faces and the expected absolute geometry. Its loop
 orientation is inward for this cache and for the L1, A13 and A14 vendor-saved
