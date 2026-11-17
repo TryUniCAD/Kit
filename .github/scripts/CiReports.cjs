@@ -1,14 +1,8 @@
 const Fs = require("node:fs");
 const Path = require("node:path");
-const Crypto = require("node:crypto");
-const Process = require("node:child_process");
-const {
-  CiWorkflows,
-  HasQualityCode,
-  WorkflowPath,
-} = require("./CiAllowlist.cjs");
+const { CiWorkflows } = require("./CiAllowlist.cjs");
 
-async function ReadReports(Github, Context, Refs, Workflows, Reused = false) {
+async function ReadReports(Github, Context, Refs, Workflows) {
   const Repository = Context.repo;
   const LatestRuns = new Map();
   const Checks = [];
@@ -72,10 +66,7 @@ async function ReadReports(Github, Context, Refs, Workflows, Reused = false) {
     )
       continue;
     Seen.add(Check.id);
-    const AllowedSkip =
-      Spec.skip?.includes(Check.name) ||
-      (Preflight && Run.event === "pull_request") ||
-      (Reused && Required && Spec.preflight);
+    const AllowedSkip = Spec.skip?.includes(Check.name);
     Rows.push({
       name: Check.name,
       workflow: Run.workflow,
@@ -128,250 +119,6 @@ async function ReadReports(Github, Context, Refs, Workflows, Reused = false) {
   return Rows;
 }
 
-async function IsQualityDue(Github, Context) {
-  const Pull = Context.payload.pull_request;
-  if (Pull.head.repo?.id !== Context.payload.repository.id) return false;
-  const Files = await Github.paginate(Github.rest.pulls.listFiles, {
-    ...Context.repo,
-    pull_number: Pull.number,
-    per_page: 100,
-  });
-  return Files.length < (Pull.changed_files ?? 0) || HasQualityCode(Files);
-}
-
-async function LoadEvidence(Github, Repository, Artifact) {
-  if (
-    Artifact.expired ||
-    Artifact.size_in_bytes > 1048576 ||
-    !Artifact.digest?.startsWith("sha256:")
-  ) {
-    throw new Error("CI evidence is expired, oversized, or missing its digest");
-  }
-  const Download = await Github.rest.actions.downloadArtifact({
-    ...Repository,
-    artifact_id: Artifact.id,
-    archive_format: "zip",
-  });
-  const Bytes = Buffer.from(Download.data);
-  if (
-    Bytes.length > 1048576 ||
-    `sha256:${Crypto.createHash("sha256").update(Bytes).digest("hex")}` !==
-      Artifact.digest
-  ) {
-    throw new Error("CI evidence artifact digest mismatch");
-  }
-  const Directory = Fs.mkdtempSync(
-    Path.join(process.env.RUNNER_TEMP, "PrCiEvidence-"),
-  );
-  const ArchivePath = Path.join(Directory, "Evidence.zip");
-  Fs.writeFileSync(ArchivePath, Bytes);
-  return JSON.parse(
-    Process.execFileSync("unzip", ["-p", ArchivePath, "Evidence.json"], {
-      maxBuffer: 65536,
-      encoding: "utf8",
-    }),
-  );
-}
-
-async function FindReuse(Github, Context, Core) {
-  if (Context.eventName !== "merge_group")
-    return { reuse: false, reason: "Fresh PR or push validation" };
-  const Group = Context.payload.merge_group;
-  const Branch = Group.base_ref.replace(/^refs\/heads\//, "");
-  const Repository = Context.repo;
-  const Candidate = (
-    await Github.rest.git.getCommit({
-      ...Repository,
-      commit_sha: Group.head_sha,
-    })
-  ).data;
-  const Entries = [];
-  let Cursor = null;
-  do {
-    const Data = await Github.graphql(
-      `query($owner:String!,$name:String!,$branch:String!,$cursor:String) {
-        repository(owner:$owner,name:$name) {
-          mergeQueue(branch:$branch) {
-            entries(first:100,after:$cursor) {
-              pageInfo { hasNextPage endCursor }
-              nodes { pullRequest { number headRefOid baseRefName state } }
-            }
-          }
-        }
-      }`,
-      {
-        owner: Repository.owner,
-        name: Repository.repo,
-        branch: Branch,
-        cursor: Cursor,
-      },
-    );
-    const Queue = Data.repository.mergeQueue;
-    if (!Queue)
-      return { reuse: false, reason: "Queue membership is unavailable" };
-    Entries.push(...Queue.entries.nodes);
-    Cursor = Queue.entries.pageInfo.hasNextPage
-      ? Queue.entries.pageInfo.endCursor
-      : null;
-  } while (Cursor);
-  const QueueRef = (Group.head_ref ?? "").match(
-    /^(?:refs\/heads\/)?gh-readonly-queue\/(.+)\/pr-(\d+)-[0-9a-f]{40}$/,
-  );
-  const QueuedNumber =
-    QueueRef && QueueRef[1] === Branch ? Number(QueueRef[2]) : null;
-  const Pulls = [];
-  for (const Entry of Entries) {
-    const Pull = Entry.pullRequest;
-    if (!Pull || Pull.state !== "OPEN" || Pull.baseRefName !== Branch) continue;
-    if (Pull.number === QueuedNumber) {
-      Pulls.push(Pull);
-      continue;
-    }
-    const Compared = await Github.rest.repos.compareCommits({
-      ...Repository,
-      base: Pull.headRefOid,
-      head: Group.head_sha,
-    });
-    if (["ahead", "identical"].includes(Compared.data.status)) Pulls.push(Pull);
-  }
-  if (!Pulls.length)
-    return { reuse: false, reason: "No matching queued PR heads" };
-  let Match = null;
-  for (const Pull of Pulls) {
-    const Current = (
-      await Github.rest.pulls.get({ ...Repository, pull_number: Pull.number })
-    ).data;
-    if (Current.state !== "open" || Current.head.sha !== Pull.headRefOid)
-      return { reuse: false, reason: "A queued PR changed" };
-    const Runs = await Github.paginate(
-      Github.rest.actions.listWorkflowRunsForRepo,
-      {
-        ...Repository,
-        head_sha: Pull.headRefOid,
-        event: "pull_request_target",
-        per_page: 100,
-      },
-    );
-    const Run = Runs.filter(
-      (Item) => Item.path?.split("@")[0] === WorkflowPath,
-    ).sort((Left, Right) => Right.id - Left.id)[0];
-    if (!Run || Run.status !== "completed" || Run.conclusion !== "success")
-      return { reuse: false, reason: "No successful PR aggregate run" };
-    const Artifacts = await Github.paginate(
-      Github.rest.actions.listWorkflowRunArtifacts,
-      {
-        ...Repository,
-        run_id: Run.id,
-        per_page: 100,
-      },
-    );
-    const Artifact = Artifacts.find(
-      (Item) =>
-        Item.name === `PrCiEvidence-${Run.run_attempt}` && !Item.expired,
-    );
-    if (!Artifact) continue;
-    const Evidence = await LoadEvidence(Github, Repository, Artifact);
-    if (
-      Evidence.repository_id !== Context.payload.repository.id ||
-      Evidence.format !== "pr-head-tree-v1" ||
-      Evidence.workflow_event !== "pull_request_target" ||
-      Evidence.pull_number !== Pull.number ||
-      Evidence.head_sha !== Pull.headRefOid ||
-      Evidence.head_repository_id !== Current.head.repo.id ||
-      Evidence.run_id !== Run.id ||
-      Evidence.run_attempt !== Run.run_attempt
-    )
-      continue;
-    const HealthRefs = [Pull.headRefOid];
-    if (Evidence.report_merge_sha) {
-      const Merge = (
-        await Github.rest.git.getCommit({
-          ...Repository,
-          commit_sha: Evidence.report_merge_sha,
-        })
-      ).data;
-      if (
-        !Merge.parents.some((Parent) => Parent.sha === Evidence.head_sha) ||
-        !Merge.parents.some((Parent) => Parent.sha === Evidence.base_sha)
-      )
-        continue;
-      HealthRefs.push(Evidence.report_merge_sha);
-    }
-    const Health = await ReadReports(
-      Github,
-      Context,
-      HealthRefs,
-      CiWorkflows(true, true),
-    );
-    if (Health.some((Row) => Row.state !== "pass")) {
-      return {
-        reuse: false,
-        reason: `PR #${Pull.number} lacks current healthy CI`,
-      };
-    }
-    const HeadCommit = (
-      await Github.rest.git.getCommit({
-        ...Repository,
-        commit_sha: Pull.headRefOid,
-      })
-    ).data;
-    const BaseComparison = await Github.rest.repos.compareCommits({
-      ...Repository,
-      base: Group.base_sha,
-      head: Pull.headRefOid,
-    });
-    if (
-      Evidence.base_sha === Group.base_sha &&
-      Evidence.base_is_ancestor === true &&
-      Evidence.head_tree_sha === Candidate.tree.sha &&
-      HeadCommit.tree.sha === Candidate.tree.sha &&
-      ["ahead", "identical"].includes(BaseComparison.data.status)
-    )
-      Match = {
-        pull: Pull.number,
-        run: Run.html_url,
-        tree: Candidate.tree.sha,
-        base: Group.base_sha,
-      };
-  }
-  if (!Match)
-    return {
-      reuse: false,
-      reason: "Candidate tree or base differs from the tested PR inputs",
-    };
-  for (const Pull of Pulls) {
-    const Current = (
-      await Github.rest.pulls.get({ ...Repository, pull_number: Pull.number })
-    ).data;
-    if (Current.state !== "open" || Current.head.sha !== Pull.headRefOid)
-      return {
-        reuse: false,
-        reason: "A queued head changed during verification",
-      };
-  }
-  Core.info(
-    `Reusing healthy PR CI from ${Match.run} for identical tree ${Match.tree} and base ${Match.base}`,
-  );
-  return { reuse: true, source: Match };
-}
-
-async function SetReuse({ github: Github, context: Context, core: Core }) {
-  let Result;
-  try {
-    Result = await FindReuse(Github, Context, Core);
-  } catch (ErrorInfo) {
-    Result = {
-      reuse: false,
-      reason: `Reuse evidence unavailable: ${ErrorInfo.message}`,
-    };
-  }
-  Core.setOutput("reuse", String(Result.reuse));
-  await Core.summary
-    .addHeading("PR CI reuse")
-    .addRaw(`${JSON.stringify(Result)}\n`)
-    .write();
-}
-
 async function PullMergeRef(Github, Context) {
   const Pull = Context.payload.pull_request;
   const Candidates = [
@@ -418,18 +165,7 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
     IsPull,
     false,
     Context.payload.action === "opened",
-    IsPull && (await IsQualityDue(Github, Context)),
   );
-  let Reuse = { reuse: false };
-  if (!IsPull) {
-    try {
-      Reuse = await FindReuse(Github, Context, Core);
-    } catch (ErrorInfo) {
-      Core.info(
-        `Running fresh candidate checks because reuse evidence is unavailable: ${ErrorInfo.message}`,
-      );
-    }
-  }
   const Deadline = Date.now() + 80 * 60000;
   let Rows;
   for (;;) {
@@ -446,7 +182,7 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
       )
         throw new Error("The PR head changed during CI aggregation");
     }
-    Rows = await ReadReports(Github, Context, Refs, Workflows, Reuse.reuse);
+    Rows = await ReadReports(Github, Context, Refs, Workflows);
     const Failed = Rows.filter((Row) => Row.state === "fail");
     if (Failed.length) {
       await Core.summary
@@ -519,80 +255,4 @@ async function Aggregate({ github: Github, context: Context, core: Core }) {
   }
 }
 
-async function VerifyEvidence({
-  github: Github,
-  context: Context,
-  core: Core,
-}) {
-  const ArtifactId = Number(process.env.PR_CI_ARTIFACT_ID);
-  if (!Number.isSafeInteger(ArtifactId) || ArtifactId <= 0)
-    throw new Error("Missing published evidence artifact ID");
-  const Artifact = (
-    await Github.rest.actions.getArtifact({
-      ...Context.repo,
-      artifact_id: ArtifactId,
-    })
-  ).data;
-  const Evidence = await LoadEvidence(Github, Context.repo, Artifact);
-  const Pull = Context.payload.pull_request;
-  if (
-    Evidence.format !== "pr-head-tree-v1" ||
-    Evidence.workflow_event !== Context.eventName ||
-    Evidence.repository_id !== Context.payload.repository.id ||
-    Evidence.head_repository_id !== Pull.head.repo.id ||
-    Evidence.pull_number !== Pull.number ||
-    Evidence.head_sha !== Pull.head.sha ||
-    Evidence.base_sha !== Pull.base.sha ||
-    Evidence.run_id !== Context.runId ||
-    Evidence.run_attempt !== Number(process.env.GITHUB_RUN_ATTEMPT)
-  ) {
-    throw new Error("Published CI evidence does not match this exact PR run");
-  }
-  const Head = (
-    await Github.rest.git.getCommit({
-      ...Context.repo,
-      commit_sha: Evidence.head_sha,
-    })
-  ).data;
-  const Comparison = await Github.rest.repos.compareCommits({
-    ...Context.repo,
-    base: Evidence.base_sha,
-    head: Evidence.head_sha,
-  });
-  if (
-    Head.tree.sha !== Evidence.head_tree_sha ||
-    Evidence.base_is_ancestor !==
-      ["ahead", "identical"].includes(Comparison.data.status)
-  ) {
-    throw new Error("Published CI evidence has inconsistent commit provenance");
-  }
-  if (Evidence.report_merge_sha) {
-    const Merge = (
-      await Github.rest.git.getCommit({
-        ...Context.repo,
-        commit_sha: Evidence.report_merge_sha,
-      })
-    ).data;
-    if (
-      !Merge.parents.some((Parent) => Parent.sha === Pull.head.sha) ||
-      !Merge.parents.some((Parent) => Parent.sha === Pull.base.sha)
-    ) {
-      throw new Error("Published CI evidence has inconsistent report refs");
-    }
-  }
-  if (
-    Context.eventName === "pull_request" &&
-    Evidence.report_merge_sha !== Context.sha
-  ) {
-    throw new Error(
-      "Bootstrap evidence does not identify its actual PR merge ref",
-    );
-  }
-  await Core.summary
-    .addRaw(
-      `Verified artifact ${Artifact.id} through the GitHub download API, including its digest and exact PR provenance\n`,
-    )
-    .write();
-}
-
-module.exports = { SetReuse, Aggregate, VerifyEvidence };
+module.exports = { Aggregate };

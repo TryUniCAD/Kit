@@ -3,8 +3,6 @@ name: Fusion compatibility
 on:
   pull_request:
   merge_group:
-  push:
-    branches: [main]
 
 permissions:
   contents: read
@@ -14,7 +12,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  pr-ci-reuse:
+    name: Validation phase (FusionCompatibility)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      phase: ${{ steps.phase.outputs.phase }}
+    steps:
+      - name: Checkout phase selector
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Read the trusted base validation phase
+        id: phase
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { SetPhase } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/CiPhase.cjs`);
+            await SetPhase({ github, context, core });
+
   cli-process:
+    if: >-
+      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
+    needs: pr-ci-reuse
     name: CLI process compatibility (${{ matrix.group }})
     runs-on: ubuntu-24.04
     timeout-minutes: 10
@@ -63,9 +84,10 @@ jobs:
             "${TestTargets[@]}"
 
   cli-compatibility:
+    if: >-
+      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
     name: CLI conversion and inspection compatibility
-    if: always()
-    needs: cli-process
+    needs: [pr-ci-reuse, cli-process]
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
@@ -75,6 +97,9 @@ jobs:
         run: test "$CLI_RESULT" = success
 
   archive-compatibility:
+    if: >-
+      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
+    needs: pr-ci-reuse
     name: Fusion archive compatibility
     runs-on: ubuntu-24.04
     timeout-minutes: 10

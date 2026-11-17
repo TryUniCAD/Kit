@@ -1,0 +1,34 @@
+{
+  "Version": 1,
+  "PullRequest": {
+    "PythonQuality.yml": ["Ruff", "Black"],
+    "PythonSteering.yml": [],
+    "ExplicitImports.yml": ["Reject Python wildcard imports"],
+    "PathPolicies.yml": ["Verify path policies"],
+    "SteeringSync.yml": ["Verify repository skill"],
+    "WorkflowPins.yml": ["Verify immutable workflow dependencies"],
+    "RationaleComments.yml": ["Verify rationale comments on changed sources"],
+    "WorkflowQuality.yml": ["Zizmor", "actionlint"],
+    "FusionCompatibility.yml": []
+  },
+  "MergeQueue": {
+    "PythonQuality.yml": ["Pyright", "Mypy"],
+    "PythonSteering.yml": ["Python steering"],
+    "ExplicitImports.yml": [],
+    "PathPolicies.yml": [],
+    "SteeringSync.yml": [],
+    "WorkflowPins.yml": [],
+    "RationaleComments.yml": [],
+    "WorkflowQuality.yml": [
+      "Verify CI policy and pytest compatibility",
+      "Research CLI compatibility",
+      "Research CLI Windows compatibility"
+    ],
+    "FusionCompatibility.yml": [
+      "Fusion archive compatibility",
+      "CLI conversion and inspection compatibility",
+      "CLI process compatibility (Core)",
+      "CLI process compatibility (Qualification)"
+    ]
+  }
+}
