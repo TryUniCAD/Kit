@@ -175,6 +175,40 @@ def resolved_part_occurrence(
     return reference
 
 
+def occurrence_path(*, target: Obj) -> Obj:
+    if not isinstance(target, Obj) or target.cls != "moExtFeature_c":
+        raise ValueError("an ordinary occurrence path requires its external-feature entry")
+    return Obj("moReferenceChain_c", {
+        "f08": Obj("moExtFeatureList_c", {"n": 1, "f08": [{"o": target}]}),
+        "f20": 0,
+        "f24": 0,
+        "f40": referenced_configuration(name=None, local_id=None),
+    })
+
+
+def occurrence_chain_stamp(reference: Obj) -> int:
+    return (101 + reference["f3f0"]) & 0xFFFFFFFF
+
+
+def mate_occurrence_component(*, owner: Obj, reference: Obj) -> Obj:
+    if not isinstance(reference, Obj) or reference.cls != "moReference_c":
+        raise ValueError("a mate endpoint requires an ordinary resolved occurrence")
+    if not isinstance(owner, Obj) or owner.cls != "moAssembly_c":
+        raise ValueError("a mate occurrence path requires the containing assembly")
+    if not any(row["o"] is reference for row in owner["f68"]["list"]["items"]):
+        raise ValueError("the selected occurrence must be a member of the containing assembly")
+    target = reference["f4f8"]
+    if not isinstance(target, Obj) or target.cls != "moExtFeature_c":
+        raise ValueError("a mate occurrence path requires its external-feature entry")
+    if target["f50"] is not reference or target["f44"] != reference["f08"]:
+        raise ValueError("a mate occurrence path must retain the containing assembly and occurrence backlink")
+    return Obj("moChainComponent_c", {
+        "owner": owner,
+        "f20": occurrence_path(target=target),
+        "f30": occurrence_chain_stamp(reference),
+    })
+
+
 def occurrence_configuration(
     *,
     reference: Obj,
@@ -186,12 +220,7 @@ def occurrence_configuration(
     assembly_configuration = _configuration_pair(configuration, owner=reference["owner"], kind="moConfiguration_c")
     owner_file = reference["f4f8"]["f10"]
     target = _external_feature(reference=reference, owner_file=owner_file, backlink=False)
-    path = Obj("moReferenceChain_c", {
-        "f08": Obj("moExtFeatureList_c", {"n": 1, "f08": [{"o": target}]}),
-        "f20": 0,
-        "f24": 0,
-        "f40": referenced_configuration(name=None, local_id=None),
-    })
+    path = occurrence_path(target=target)
     context_file = Obj("moExtObject_c", {
         "shared": owner_file,
         "f48": 0,
@@ -207,7 +236,7 @@ def occurrence_configuration(
     component = Obj("moContextChainComponent_c", {
         "owner": None,
         "f20": path,
-        "f30": (101 + reference["f3f0"]) & 0xFFFFFFFF,
+        "f30": occurrence_chain_stamp(reference),
         "f40": context_file,
         "f48": 0,
     })

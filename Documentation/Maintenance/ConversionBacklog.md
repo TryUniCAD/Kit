@@ -73,6 +73,9 @@ The [native held-out part trials](../../re/solidworks/measurements/2026/Generate
 The [native held-out assembly trials](../../re/solidworks/measurements/2026/GeneratedDimensionedAssembliesHeldout05.json) qualify three and four placements of one rectangular child with no mates.
 The [drawing inspection receipt](../../re/solidworks/measurements/2026/DrawingSdkViewRead01.json) covers opt-in inspection of an ordinary sheet and its external part view.
 The [first generated blank drawing](../../re/solidworks/measurements/2026/GeneratedBlankDrawingNative01.json) opens, rebuilds and accepts a scale edit. Native save remains open.
+The [native drawing UI diagnostic](../../re/solidworks/measurements/2026/DrawingBlankUiOmission01.json) reproduces native save and reopen with the selected UI groups omitted together.
+The [planar mate endpoint construction](../../re/solidworks/records/AssemblyPlanarEndpointConstruction2026.md) preserves inherited occurrence and datum identities in generated records.
+The [populated rectangle partition projection](../../re/solidworks/records/GeneratedRectanglePartition2026.md) generates the linked cache and rollback streams. Its native part attachment requires separate qualification.
 Complete field classification, broad part and assembly semantics and generated drawing acceptance remain unfinished.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.

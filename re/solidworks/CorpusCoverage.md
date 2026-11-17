@@ -226,6 +226,9 @@ three controls passed over eight fresh processes.
 The [save-mode comparison](measurements/2026/GeneratedBlankDrawingSaveModes03.json)
 reproduced error 1 before a scale edit and in a writable in-place save.
 The reduced native control saved and reopened in both modes.
+The [typed UI omission comparison](measurements/2026/DrawingBlankUiOmission01.json)
+passed fourteen native phases. The reduced native document saved with its
+viewport, line tables, environment and BOM state omitted together.
 
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.
@@ -251,10 +254,12 @@ conversion coverage remains zero.
 
 The [disclosed planar-mate readback](measurements/2026/AssemblyPlanarMateArchive01.json)
 reconstructed 51 streams across three parent and child pairs, including three
-populated mate lists. All six endpoint chains reused their exact occurrence
-objects and selected the authored datum planes. The distance dimension
-retained the authored value. Selected chain serializers remain provisional,
-and no generated mate trials count toward native acceptance.
+populated mate lists. A subsequent [chain proof](records/PlanarMateReferenceChains2026.md)
+qualified every executed serializer in the three lists. The
+[generated endpoints](measurements/2026/GeneratedPlanarMateEndpoint01.json)
+retained their actual parent, occurrence and child datum identities through
+the typed archive, with placement-dependent lengths. Native mate acceptance
+remains open.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
