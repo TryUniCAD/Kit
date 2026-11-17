@@ -86,6 +86,10 @@ Constructor seeds below describe initial allocation state. They are not universa
 
 The header update counter belongs to the actual header object. [ModelConstruction2026.md](ModelConstruction2026.md) records its independent increment and wall-clock timestamp rule. Neither header stamps nor assembly counters are derived from feature count alone.
 
+The [solve-state trace](AssemblySolveStatus2026.md) confirms that native updates
+can replace the initial `f1570` value with results from active mate items and
+reference walks. The no-mate saved boundary remains unproved.
+
 ## Components, paths, and configuration ownership
 
 | Owner/member                 | Classification                                         | Recovered construction rule                                                                                                    | Native evidence and unresolved boundary                                                                                         |
