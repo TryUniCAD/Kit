@@ -39,6 +39,21 @@ COUNT_BODY_SPECS = {
         "body_sha256": "ad9500fd35f8e392d159dbebacd41f377ec1fdbf9f778a25c76c2834af7fda84",
     },
 }
+
+STRING_MAP_EXPORT = {
+    "ordinal": 12804,
+    "thunk_rva": 0x6BF870,
+    "thunk_sha256": "734790583a36f03cea1366974c1f34bbbcc22b3724865c52b7058827d47f1f20",
+    "target_rva": 0x5CCA60,
+}
+STRING_MAP_BODY_SPECS = {
+    "Serialize": {"rva": 0x5CCA60, "bytes": 512, "sha256": "55c4262d37a701fbb4aa9b92c69ffe91f9439bf3e799b2bd731ec10c020cfcfc"},
+    "ReadString": {"rva": 0x35B750, "bytes": 604, "sha256": "a69b336e63174fac8a1e8852f062b8b2dbf0dc03f797347537668457c357151d"},
+    "WriteString": {"rva": 0x35B9B0, "bytes": 80, "sha256": "c95a956ba1c34a4473ed8d295d878bcc62ad14ea9bffabdd3eb4066a7ef1e526"},
+    "ReadStringLength": {"rva": 0x556330, "bytes": 564, "sha256": "39c3f838fe3fff276cbce10e2f32c885ce446d6c86699e77a55b380c06bfe811"},
+    "WriteStringLength": {"rva": 0x556570, "bytes": 1004, "sha256": "71d0f2b6c50cca434fd5bba1caca2025a937d514619b4f1ce98117662fb51500"},
+}
+
 MAX_BLOCK = 2 * 1024 * 1024
 MAX_CAPTURE = 4 * 1024 * 1024
 
@@ -171,7 +186,7 @@ def save_range(output, report, image, name, rva, size, maximum, expected_raw=Non
         record["raw_sha256"] = hashlib.sha256(expected_raw).hexdigest()
         record["mapped_equals_pinned_raw"] = payload == expected_raw
         if not record["mapped_equals_pinned_raw"]:
-            raise RuntimeError("mapped count body differs from the pinned raw body")
+            raise RuntimeError("mapped code span differs from the pinned raw body")
         record["full_function_extent_claimed"] = True
     return record
 
@@ -206,6 +221,57 @@ def capture_count_body(output, report, image, ordinal, address, runtime_path):
         raise RuntimeError("raw count thunk or complete body differs from the pinned identity")
     body = save_range(output, report, image, f"Ordinal{ordinal}CountBody", target_rva, specification["bytes"], specification["bytes"], expected_raw=raw_body)
     report["count_bodies"].append({"ordinal": ordinal, "thunk_rva": specification["thunk_rva"], "thunk_bytes": 14, "thunk_sha256": thunk_hash, "target_rva": target_rva, "expected_body_sha256": specification["body_sha256"], "extent_evidence": "pinned original ARM64 pdata/xdata", "body": body})
+
+
+
+def capture_string_map(output, report, image, kernel, module, runtime_path):
+    ordinal = STRING_MAP_EXPORT["ordinal"]
+    fields = struct.unpack("<IIHHIIIIIII", image.read_rva(image.export_rva, 40))
+    index = ordinal - fields[5]
+    if not 0 <= index < fields[6]:
+        raise RuntimeError("string-map ordinal is outside the mapped export table")
+    rva = struct.unpack("<I", image.read_rva(fields[8] + 4 * index, 4))[0]
+    if rva != STRING_MAP_EXPORT["thunk_rva"] or image.export_rva <= rva < image.export_rva + image.export_size:
+        raise RuntimeError("string-map mapped export is absent, forwarded or unexpected")
+    address = kernel.GetProcAddress(module, ctypes.c_void_p(ordinal))
+    if address != image.base + rva:
+        raise RuntimeError("string-map resolver differs from its exact mapped export")
+    thunk = image.read_rva(rva, 14)
+    thunk_hash = hashlib.sha256(thunk).hexdigest()
+    if thunk_hash != STRING_MAP_EXPORT["thunk_sha256"] or thunk[9] != 0xE9:
+        raise RuntimeError("string-map export is not its pinned fast-forward sequence")
+    target = rva + 14 + struct.unpack_from("<i", thunk, 10)[0]
+    if target != STRING_MAP_EXPORT["target_rva"]:
+        raise RuntimeError("string-map fast-forward target differs from its pinned body")
+    offset, available, section = image.locate(rva, 14)
+    if section is None or not section["characteristics"] & 0x20000000:
+        raise RuntimeError("string-map fast-forward sequence is outside executable memory")
+    with runtime_path.open("rb") as stream:
+        raw = files.PeFile(stream, os.fstat(stream.fileno()).st_size)
+        raw_thunk = raw.read_rva(rva, 14)
+        if raw_thunk != thunk:
+            raise RuntimeError("string-map mapped thunk differs from the pinned raw image")
+        entry = save_range(output, report, image, "Ordinal12804Thunk", rva, 14, 14)
+        entry.update(raw_sha256=hashlib.sha256(raw_thunk).hexdigest(), mapped_equals_pinned_raw=True)
+        report["string_map_export"] = {"ordinal": ordinal, "thunk_rva": rva, "target_rva": target,
+                                       "mapped_eat_address": hex(image.base + rva), "get_proc_address": hex(address),
+                                       "matches_mapped_eat": True, "thunk": entry}
+        for name, specification in STRING_MAP_BODY_SPECS.items():
+            checkpoint(output, report, "capture_string_map_" + name)
+            body_rva, length = specification["rva"], specification["bytes"]
+            offset, available, section = image.locate(body_rva, length)
+            if section is None or not section["characteristics"] & 0x20000000:
+                raise RuntimeError("string-map body is outside its bounded executable section")
+            raw_body = raw.read_rva(body_rva, length)
+            if hashlib.sha256(raw_body).hexdigest() != specification["sha256"]:
+                raise RuntimeError("string-map raw body differs from its pinned identity")
+            body = save_range(output, report, image, "StringMap" + name, body_rva, length, length,
+                              expected_raw=raw_body)
+            report["string_map_spans"].append({"name": name, "rva": body_rva, "bytes": length,
+                                               "expected_sha256": specification["sha256"],
+                                               "extent_evidence": "pinned original ARM64 pdata/xdata", "body": body})
+    if len(report["string_map_spans"]) != len(STRING_MAP_BODY_SPECS):
+        raise RuntimeError("string-map complete-span capture did not finish")
 
 
 def run(args, output, report):
@@ -324,6 +390,11 @@ def run(args, output, report):
             if args.capture_count_bodies and image.machine == 0x8664 and address == expected_address:
                 checkpoint(output, report, f"capture_complete_count_body_{ordinal}")
                 capture_count_body(output, report, image, ordinal, address, path)
+        if args.capture_string_map_spans:
+            if image.machine != 0x8664:
+                raise RuntimeError("string-map span capture requires the effective AMD64 view")
+            checkpoint(output, report, "capture_string_map_export_and_complete_bodies")
+            capture_string_map(output, report, image, kernel, module, path)
         report["raw_file_after"] = files.inspect_file(path)
         if not identity_matches(report["raw_file_after"]) or any(report["raw_file_before"][key] != report["raw_file_after"][key] for key in ("file_identity", "mtime_ns", "bytes", "sha256")):
             raise RuntimeError("runtime file identity changed during inspection")
@@ -342,6 +413,7 @@ def run(args, output, report):
                 raise ctypes.WinError(ctypes.get_last_error())
     report["mapped_abi_view_verified"] = True
     report["count_body_bytes_verified"] = bool(args.capture_count_bodies)
+    report["string_map_spans_verified"] = bool(args.capture_string_map_spans)
 
 
 def main():
@@ -350,6 +422,7 @@ def main():
     parser.add_argument("--output", required=True)
     parser.add_argument("--source-revision", required=True)
     parser.add_argument("--capture-count-bodies", action="store_true")
+    parser.add_argument("--capture-string-map-spans", action="store_true")
     args = parser.parse_args()
     if not re.fullmatch(r"[0-9a-f]{40}", args.source_revision):
         parser.error("--source-revision requires an exact lowercase Git object identity")
@@ -359,6 +432,8 @@ def main():
         parser.error("private mapped ranges must remain outside repository checkouts")
     output.mkdir(parents=False, exist_ok=False)
     report = {"schema": "kit.sw2026.mfc-runtime-view.v1", "state": "running", "started_at": files.utc_now(), "source_revision": args.source_revision, "tool_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "argv": sys.argv, "python": sys.version, "python_executable": sys.executable, "process_id": os.getpid(), "process_architecture_verified": False, "mapped_abi_view_verified": False, "count_body_capture_requested": args.capture_count_bodies, "count_body_bytes_verified": False, "instruction_set_proven": False, "native_implementation_bound": False, "acceptance": False, "archive_methods_invoked": False, "private_ranges": [], "mapped_directories": {}, "resolved_ordinals": [], "count_bodies": []}
+    report.update(string_map_span_capture_requested=args.capture_string_map_spans,
+                  string_map_spans_verified=False, string_map_spans=[])
     checkpoint(output, report, "preflight")
     status = 1
     try:
