@@ -10,10 +10,13 @@ The first generated cohort opened with warning 32, had one feature problem and z
 
 The corrected generator derives the selected axis reference's creation stamp from the sketch's own log state, including the native unset value for a sketch without logs. That single archive field changed across all three files. The corrected candidates opened without errors or warnings, rebuilt one solid and passed driving-angle edits for all three angle and direction cases. Both controls passed across five distinct processes and 75 numeric checks. [Load and reference identity diagnostics](../../../../../../re/solidworks/records/OrdinaryRevolvedBossLoad2026.md) and [measured intervention](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveSketchLog02.json).
 
-Saving an edited candidate and verifying it on a fresh reopen remain pending. Two independently authored held-out inputs remain sealed. The user-facing adapter remains read-only. [Preregistered held-out method](../../../../../../re/solidworks/records/OrdinaryRevolveHeldoutProtocol2026.md) and [native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolveSourceLock.json).
-
 The first edited-save run kept all three edited angles, signed geometry and
 one solid on clean fresh reopen. The exact tree comparison found one difference
 at the empty material folder. SOLIDWORKS restored its standard caption on reopen.
-The matching presentation run uses the caption defined by the native English
-resource. [Edited-save diagnostic](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveEditedPresentation03.json)
+Using the caption defined by the native English resource, all three candidates
+kept their exact 20-node trees, edited angles and signed geometry on clean fresh
+reopen. Both controls passed across eight distinct processes and 111 numeric
+checks. [Edited-save diagnostic](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveEditedPresentation03.json)
+and [fresh-reopen result](../../../../../../re/solidworks/measurements/2026/GeneratedRevolveEditedReopen04.json).
+
+Two independently authored held-out inputs remain sealed. The user-facing adapter remains read-only. [Preregistered held-out method](../../../../../../re/solidworks/records/OrdinaryRevolveHeldoutProtocol2026.md) and [native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolveSourceLock.json).

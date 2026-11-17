@@ -175,7 +175,16 @@ The [generated ordinary revolve measurement](measurements/2026/GeneratedRevolveS
 adds full-turn, forward partial and reverse partial parts. Each opened and rebuilt with zero errors
 and warnings, produced one solid with the expected mass properties, and passed a driving angle edit.
 All 75 numeric checks and both controls passed. The generated files use the sketch's actual log state
-for axis-reference creation time. Edited save and fresh reopening and the revolve held-outs remain pending.
+for axis-reference creation time. The [edited-save and fresh-reopen result](measurements/2026/GeneratedRevolveEditedReopen04.json)
+adds 111 numeric checks across eight distinct SOLIDWORKS processes. With the native empty-material caption,
+all three candidates preserved their edited angle, signed geometry and exact 20-node tree on fresh reopen.
+Both controls passed. The revolve held-outs remain sealed and the production coverage counts are unchanged.
+
+The [drawing Definition receipt](measurements/2026/DrawingDefinitionCheck01.json)
+records six byte-exact archive comparisons and 78 native semantic observations for three disclosed
+SOLIDWORKS 2026 drawings from the [drawing source lock](v2026/heldout/DrawingSourceLock01.json).
+The drawing work currently covers the main Definition archive. No generated drawing has passed native
+acceptance.
 
 ## Last audit of the removed writer
 
