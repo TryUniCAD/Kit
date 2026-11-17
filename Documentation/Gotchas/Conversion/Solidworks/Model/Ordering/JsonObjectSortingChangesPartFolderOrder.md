@@ -16,4 +16,4 @@ Carry a meaningful sequence as a JSON array. The research constructor now accept
 
 The native storage walk preserves linked-list traversal order. There is no general native alphabetical-folder requirement. The corrected disclosed candidate still requires native comparison before the original held-outs may be unsealed.
 
-See [the field and process evidence](../../../../../../re/solidworks/records/PartFolderOrder2026.md) and [the change entry](../../../../../Changes/Solidworks/Model/SolidworksAuthoredPartFolderOrder.md).
+See [the field and process evidence](../../../../../../re/solidworks/records/PartFolderOrder2026.md) and [the change entry](../../../../../Changes/Solidworks/Model/Ordering/SolidworksAuthoredPartFolderOrder.md).
