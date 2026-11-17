@@ -26,6 +26,10 @@ def AssertFieldCode(Report: dict[str, object]) -> None:
             )
         }
         | {
+            "src/convert/adapters/solidworks/Archive/Header/" + FileName
+            for FileName in ("HeaderFields.py", "HeaderRefNodes.py", "ReadHeadItems.py")
+        }
+        | {
             SourcePath.relative_to(KRepoRoot).as_posix()
             for SourcePath in (SerialPath / "defs").glob("*.py")
         }

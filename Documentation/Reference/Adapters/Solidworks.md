@@ -144,6 +144,13 @@ revision logs and bounds, and the SDK computes the string lengths, list counts
 and archive references. The [measured profile](../../../re/solidworks/records/SharedSdkHeaderGraph2026.md)
 covers parts, assemblies and blank drawing variants at version 19000.
 
+The [configuration header handoff](../../Changes/Solidworks/Model/SolidworksConfigHeaderHandoff.md)
+selects the same header file objects for the next archive and registers
+their references without writing bytes. The research linked loader
+uses the SDK selector and map allocator directly. Twelve measured
+files retain their original aliases through configuration, resolved
+features and available mate streams.
+
 The [typed planar mate projection](../../Changes/Solidworks/Inspection/Cohorts/Assembly/References/SolidworksTypedPlanarMateProjection.md)
 uses the decoded assembly occurrence and the selected part datum to
 identify the two ordered planes of coincident, parallel and positive

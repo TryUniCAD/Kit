@@ -340,6 +340,9 @@ The [shared SDK header graph](records/SharedSdkHeaderGraph2026.md) re-emits
 31 standalone streams exactly across 17 disclosed files. The research
 generators use the same codec for both header streams and reproduce four
 earlier assembly bundles. The production corpus count is unchanged.
+The [configuration handoff](records/ConfigHeaderHandoff2026.md) retains
+those exact SDK header nodes across twelve linked archive reads and
+stores, including the generated planar mate process regression.
 
 The [disclosed nested audit](records/DisclosedNestedAssemblyArchiveAudit2026.md)
 checks 42 streams in seven saved definitions and binds both healthy native

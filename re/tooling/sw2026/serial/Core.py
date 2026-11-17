@@ -4,9 +4,9 @@ import struct
 
 from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
 from convert.adapters.solidworks.Archive.Counts.ReadCount import ReadCount
-from convert.adapters.solidworks.Archive.Maps.AddEntryMut import AddEntryMut
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.BindClassMut import BindClassMut
+from convert.adapters.solidworks.Archive.Maps.BindNodesMut import BindNodesMut
 from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
@@ -140,11 +140,9 @@ class ArchiveState:
 
     def bind_direct_objects(self, objects):
         try:
-            for node in objects:
-                AddEntryMut(self._maps, node)
+            BindNodesMut(self._maps, objects)
         except (TypeError, ValueError) as error:
             raise ArchiveError(f"invalid direct archive object: {error}") from error
-        self.base = self.count
 
 
 class Load(ArchiveState):

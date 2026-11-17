@@ -11,6 +11,7 @@ from Core import Obj
 from RoundTrip import PLANS, REQUIRED, one
 from Streams import load_rooted
 from defs.ConfigPart import load_config
+from HeaderHandoff import inspect_handoff
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
 from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -129,6 +130,7 @@ def inspect(entry):
             require(WriteHeadGraph(ReadHeaderGraph(payload, 19000), 19000) == payload,
                     f"{stream} must round-trip through the shared SDK header codec")
         result["sdk_header_streams"] = list(headers)
+        result["sdk_config_handoff"] = inspect_handoff(archive, reg)
         result["wire_state"] = decoded_state(archive, reg, True) if entry["role"] == "parent" else child_state(archive, reg, headers[HEADER])
         result["save_times"] = save_times(archive, reg, headers)
         if entry["role"] == "parent":
@@ -184,8 +186,9 @@ def main():
             report["cases"].append(result)
         report["stream_comparisons"] = sum(len(item["roundtrip"]["streams"]) for row in report["cases"] for item in row.get("records", []))
         report["sdk_header_comparisons"] = sum(len(item.get("sdk_header_streams", ())) for row in report["cases"] for item in row.get("records", []))
+        report["sdk_config_handoffs"] = sum("sdk_config_handoff" in item for row in report["cases"] for item in row.get("records", []))
         report["external_file_time_comparisons"] = sum(len(checks) for row in report["cases"] for checks in row.get("external_file_time_checks", {}).values())
-        report["passed"] = report["stream_comparisons"] == 40 and report["sdk_header_comparisons"] == 10 and report["external_file_time_comparisons"] == 8 and all(row["passed"] for row in report["cases"])
+        report["passed"] = report["stream_comparisons"] == 40 and report["sdk_header_comparisons"] == 10 and report["sdk_config_handoffs"] == 5 and report["external_file_time_comparisons"] == 8 and all(row["passed"] for row in report["cases"])
     except Exception as error:
         report.update(error=repr(error), trace=traceback.format_exc(limit=8))
     with args.report.open("x", encoding="utf-8") as output:

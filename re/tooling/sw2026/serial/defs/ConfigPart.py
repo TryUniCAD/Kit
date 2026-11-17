@@ -7,6 +7,7 @@ from Schema import Op, If, Rep, Raw, Scope, run_load, run_store
 from defs.ResolvedCore import CONCEPT_RES, OIf, vt, concept_vt
 from defs.ConfigDetail import Shadow
 from defs.SmmMaster import DirectMaster
+from convert.adapters.solidworks.Archive.Header.HeaderRefNodes import HeaderRefNodes
 
 NODE_LW = "moNode_c.SerializeLWData"
 CONCEPT_LW = "moConcept_c.SerializeLWData"
@@ -248,7 +249,16 @@ def load_model_header(arc, name, reg, version):
     return hdr, reader
 
 
-def header_direct_objects(header):
+def direct_list_items(directory):
+    return tuple(row["o"] for row in directory.FieldsValue["items"])
+
+
+def header_direct_objects(header, version=None):
+    if version == 19000:
+        try:
+            return HeaderRefNodes(header, version, direct_list_items)
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid configuration header objects: {error}") from error
     if not isinstance(header, Obj) or header.cls != "moHeader_c":
         raise ArchiveError("configuration archive requires its typed model header")
     self_object = header["f38"]
@@ -267,7 +277,7 @@ def load_config(data, reg, version=None, *, archive=None, name="Contents/Config-
     if archive is None:
         raise ArchiveError(f"{name} requires its owning archive")
     header, header_reader = load_model_header(archive, name, reg, version)
-    ar = Load(data, 1, reg, version, {"header_objects": header_direct_objects(header)})
+    ar = Load(data, 1, reg, version, {"header_objects": header_direct_objects(header, version)})
     ar.model_header_source = (name + "-ModelHeader", header_reader)
     root = ar.obj()
     rest = ar.raw(ar.left())
@@ -281,7 +291,7 @@ def store_config(doc, reg, version=None):
 
 def store_config_state(doc, reg, version=None):
     ar = Store(1, reg, version, {
-        "header_objects": header_direct_objects(doc.head["model_header"]),
+        "header_objects": header_direct_objects(doc.head["model_header"], version),
     })
     for o in doc.roots:
         ar.obj(o)

@@ -11,6 +11,7 @@ from convert import open_document as OpenDocument
 from convert.adapters.solidworks.Assembly.Assembly import DecodeNativeAsm
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
+from tests.Convert.Solidworks.Research.Assembly.AssertHeadLink import AssertHeadLink
 from tests.Convert.Solidworks.Research.Assembly.PlanarMateInput import (
     KMateLength,
     KMovingOrigin,
@@ -63,6 +64,7 @@ def AssertMate(
 # valid generated mates must retain their endpoints even when saved selection strings supply none
 def TestPlanarMate(TmpPath: FilePath) -> None:
     ParentPath, ChildPath = RunMateBundle(MakeMateInput("original"), TmpPath / "pair")
+    AssertHeadLink(ParentPath, ChildPath)
     Archive = SldprtArchive.from_bytes(ParentPath.read_bytes())
     NativeAssembly = DecodeNativeAsm(Archive)
     (MateList,) = NativeAssembly.mate_lists
