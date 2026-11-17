@@ -29,7 +29,6 @@ const QueueJobs = [
 ];
 const ShardJobs = /^Test suite \/ Shard \(\d+\)$/;
 const PreflightNames = {
-  "FusionCompatibility.yml": "Validation phase (FusionCompatibility)",
   "PythonQuality.yml": "PR CI reuse (Python quality gate)",
   "PythonSteering.yml": "PR CI reuse (Python steering)",
   "ExplicitImports.yml": "PR CI reuse (Explicit imports)",
@@ -55,21 +54,16 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
   const Required = IsPull ? Phases.PullRequest : Phases.MergeQueue;
   const Deferred = IsPull ? Phases.MergeQueue : Phases.PullRequest;
   const Workflows = new Map(
-    Object.entries(PreflightNames).map(([File, Name]) => {
-      const Optional = File === "FusionCompatibility.yml";
-      return [
-        WorkflowRoot + File,
-        {
-          event: Event,
-          required: Optional ? [] : Required[File],
-          optional: Optional
-            ? [Name, ...Required[File], ...Deferred[File]]
-            : Deferred[File],
-          skip: Deferred[File],
-          preflight: Optional ? undefined : Name,
-        },
-      ];
-    }),
+    Object.entries(PreflightNames).map(([File, Name]) => [
+      WorkflowRoot + File,
+      {
+        event: Event,
+        required: Required[File],
+        optional: Deferred[File],
+        skip: Deferred[File],
+        preflight: Name,
+      },
+    ]),
   );
   if (!IsPull) {
     Workflows.set(QueuePath, {

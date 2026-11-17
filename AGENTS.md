@@ -81,6 +81,10 @@ read its complete standards index and every applicable rule before coding.
 - Run heavy acceptance and security checks on the merge-group candidate through
   [the native merge queue](MergeQueue.md). Keep every applicable CI gate enabled.
   Distinguish green PR checks from successful queue acceptance.
+- Add specialised end-to-end and compatibility tests to the complete test suite.
+  Run them through the existing merge-queue planner, shards, and report.
+  Share its runners and workflow, including Fusion and CLI compatibility coverage.
+  New specialised tests must use this same execution path.
 - Use `Pull Request / CI Agg` for overall CI health. Register every applicable
   PR and merge-queue CI job in the [CI allowlist](.github/scripts/CiAllowlist.cjs).
   Keep automated review out of the allowlist and its workflows. Assign each

@@ -10,9 +10,11 @@ administrator-authorized queue acceptance and managed-service disablement.
 
 Jobs measured below 45 seconds run on PRs. Jobs measured at 45 seconds or longer
 run on merge-group candidates. Duration includes job setup, checkout, commands,
-and finalization. Light dependency summaries follow their heavy dependencies.
+and finalization.
 The workflow phase selector is orchestration and runs in both phases.
 
+PR #156 moved Fusion and CLI compatibility into the complete queue suite.
+Its dedicated workflow and runners remain removed.
 The phase configuration is [.github/CiPhases.json](../../../.github/CiPhases.json).
 Each job's workflow condition must agree with this configuration.
 The [queue guide](../../../MergeQueue.md) describes validation and rollout.
@@ -54,8 +56,8 @@ The 2026-11-17 UTC samples occurred on 2026-11-16 Pacific time.
 
 The queue sample measured Actions CodeQL at 45 seconds and Python CodeQL at
 199 seconds. Managed JavaScript and Java scans exceeded 45 seconds.
-Fusion archive compatibility was still running after the other compatibility
-jobs completed and retains queue-only execution.
+Fusion archive compatibility exceeded 45 seconds in the same sample.
+Its archive cases and the two CLI process groups now run in the complete queue suite.
 
 Sources are the [Python quality run](https://github.com/TryUniCAD/Kit/actions/runs/44023202072),
 [workflow quality run](https://github.com/TryUniCAD/Kit/actions/runs/44023202147),
@@ -94,7 +96,9 @@ The complete queue suite continues to cover the compatibility cases.
 The queue marked this PR unmergeable against PR #155's candidate
 `256d5fbfcec145ac9d6c7ebcd389fac583afc414`. The integration preserves its optional
 reports and subprocess retirement cases alongside the phase-specific allocation.
-Both report-retirement cases remain in the remote policy job.
+PR #156 then retired that workflow. Its schema preparation remains in the queue
+planner and its test cases remain covered by the complete suite. The integration
+retains the shared-suite report checks and removes the retired phase entries.
 
 ## Verification
 

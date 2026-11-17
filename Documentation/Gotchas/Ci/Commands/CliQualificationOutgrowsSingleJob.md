@@ -5,10 +5,10 @@ The earlier 766-case CLI run finished in 380.95 seconds on one runner. A later
 before the unchanged ten-minute job timeout cancelled it. Passing archive or
 static checks does not make that incomplete CLI execution successful.
 
-Run core and qualification process groups in parallel while keeping every case,
-each ten-minute limit, schema provenance, and locked setup. Keep both group
-reports in the allowlist and require their joint success through the original CLI
-report. Core must exclude exactly the directories explicitly collected by
-Qualification so additions remain covered without duplicate execution.
+The dedicated core and qualification groups were the earlier workaround.
+The complete merge-queue suite now schedules these cases across its normal shards.
+Keep every case in the shared suite and preserve the locked environment and schema provenance check.
+The shared planner balances their execution with all other collected tests.
 
-See [the group workflow](../../../Changes/Commands/CliProcessGroups.md).
+See the [shared compatibility suite](../../../Changes/Ci/SharedCompatibilitySuite.md)
+and the [historical group workflow](../../../Changes/Commands/CliProcessGroups.md).

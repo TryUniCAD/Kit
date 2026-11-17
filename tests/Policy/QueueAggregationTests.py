@@ -25,8 +25,6 @@ import pytest as Pytest
         "Verify CI policy and pytest compatibility",
         "Analyze javascript-typescript",
         "Analyze java-kotlin",
-        "CLI process compatibility (Core)",
-        "CLI process compatibility (Qualification)",
     ),
 )
 @Pytest.mark.parametrize(
