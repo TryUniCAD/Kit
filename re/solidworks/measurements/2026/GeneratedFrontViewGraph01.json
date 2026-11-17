@@ -1,0 +1,116 @@
+{
+  "generated": [
+    {
+      "body_depth_m": 0.006,
+      "bytes": 4755,
+      "child_vertices_m": [
+        [
+          0,
+          0
+        ],
+        [
+          0.024,
+          0
+        ],
+        [
+          0.024,
+          0.016
+        ],
+        [
+          0,
+          0.016
+        ]
+      ],
+      "map_next_index": 67,
+      "next_persistent_id": 16,
+      "persistent_ids": [
+        9,
+        11,
+        10,
+        12,
+        13,
+        14,
+        15
+      ],
+      "position_m": [
+        0.08243,
+        0.09372
+      ],
+      "report_sha256": "0f596bf70c4f209a6c24b9f7f75abfef0f9f629bff13543191906aa0572b35ef",
+      "request_sha256": "3d2e5d5b2ccfa46cea27ffd67d5912137534997583605910a26341edf528defe",
+      "runtime_input_file_access_attempts": 0,
+      "sha256": "ea93f73b19ca5e27a1dc571fb10d743676096d5a4900d70cc5a7f526a94e1865",
+      "view_scale": 1
+    },
+    {
+      "body_depth_m": 0.012,
+      "bytes": 4755,
+      "child_vertices_m": [
+        [
+          0,
+          0
+        ],
+        [
+          0.031,
+          0
+        ],
+        [
+          0.031,
+          0.019
+        ],
+        [
+          0,
+          0.019
+        ]
+      ],
+      "map_next_index": 67,
+      "next_persistent_id": 16,
+      "persistent_ids": [
+        9,
+        11,
+        10,
+        12,
+        13,
+        14,
+        15
+      ],
+      "position_m": [
+        0.14423,
+        0.11228
+      ],
+      "report_sha256": "04e4650121a3c08684fd260e6f71c98a85e8f9a64744f230c11b990fb5997d31",
+      "request_sha256": "6900223a9e20ab655fb383fd558824e85e744a5e88ba39fc684e4eed928656ec",
+      "runtime_input_file_access_attempts": 0,
+      "sha256": "676cf21e28042a77688f4d4d16df39eb608f754d1933ded68fa8d0ec6bc726ca",
+      "view_scale": 1
+    }
+  ],
+  "heldout_inputs_tested": 0,
+  "native_acceptance": false,
+  "native_drawing_emitted": false,
+  "oracle_build": "34.5.2.0604",
+  "schema": "kit.sw2026.drawing-front-view-subgraph.v1",
+  "source_hashes": {
+    "re/tooling/sw2026/DrawingFrontGraphProcess.py": "ade74e5f0e513d4a3c16ee6314c84fc6037072f529afe38308f1dd421d9f5ee0",
+    "re/tooling/sw2026/builders/DrawingFrontProjection.py": "be87c9d480f2e59d526e936d3173fff1b3415d293235f864648e3837a482b0b7",
+    "re/tooling/sw2026/builders/DrawingViewLinks.py": "d2fd783af23c8b10eb634d629b9ad063c5920257fe0180c9939703cb5a530333",
+    "re/tooling/sw2026/builders/DrawingViewSupports.py": "ee82680cabae8c0142cb214a84815d157ebd82cbf18d0d31fa9d726aff91d087"
+  },
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "sources": [
+    {
+      "header_bound_double_words_identical": 10,
+      "name": "D01FrontView",
+      "native_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "projection_field_matches": 20
+    },
+    {
+      "header_bound_double_words_identical": 10,
+      "name": "D02MovedFrontView",
+      "native_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47",
+      "projection_field_matches": 20
+    }
+  ],
+  "unsupported_crossed_profile_rejected": true,
+  "unsupported_orientation_and_scale_rejected": true
+}
