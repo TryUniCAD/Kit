@@ -1,3 +1,4 @@
+const Phases = require("../CiPhases.json");
 const WorkflowRoot = ".github/workflows/";
 const WorkflowPath = WorkflowRoot + "PullRequest.yml";
 const QueuePath = WorkflowRoot + "MergeQueue.yml";
@@ -8,6 +9,8 @@ const QueueJobs = [
   "Test suite / Report",
   "Analyze actions",
   "Analyze python",
+  "Analyze javascript-typescript",
+  "Analyze java-kotlin",
   "Bandit",
   "Semgrep",
   "pip-audit",
@@ -25,46 +28,15 @@ const QueueJobs = [
   "TruffleHog",
 ];
 const ShardJobs = /^Test suite \/ Shard \(\d+\)$/;
-const KQualityPath = "dynamic/github-code-quality/codeql";
-const KQualityRun = "Code Quality";
-const KQualityJobs = /^Analyze \(.+\)$/;
-const KQualitySources =
-  /\.(?:cjs|cs|cts|go|java|js|jsx|kt|kts|mjs|mts|py|pyi|rb|ts|tsx)$/i;
-const StaticChecks = {
-  "PythonQuality.yml": {
-    required: ["Ruff", "Black", "Pyright", "Mypy"],
-    preflight: "PR CI reuse (Python quality gate)",
-  },
-  "PythonSteering.yml": {
-    required: ["Python steering"],
-    preflight: "PR CI reuse (Python steering)",
-  },
-  "ExplicitImports.yml": {
-    required: ["Reject Python wildcard imports"],
-    preflight: "PR CI reuse (Explicit imports)",
-  },
-  "PathPolicies.yml": { required: ["Verify path policies"] },
-  "SteeringSync.yml": {
-    required: ["Verify repository skill"],
-    preflight: "PR CI reuse (Steering synchronization)",
-  },
-  "WorkflowPins.yml": {
-    required: ["Verify immutable workflow dependencies"],
-    preflight: "PR CI reuse (Workflow pins)",
-  },
-  "RationaleComments.yml": {
-    required: ["Verify rationale comments on changed sources"],
-  },
-  "WorkflowQuality.yml": {
-    required: [
-      "Zizmor",
-      "actionlint",
-      "Verify CI policy and pytest compatibility",
-      "Research CLI compatibility",
-      "Research CLI Windows compatibility",
-    ],
-    preflight: "PR CI reuse (Workflow quality)",
-  },
+const PreflightNames = {
+  "PythonQuality.yml": "PR CI reuse (Python quality gate)",
+  "PythonSteering.yml": "PR CI reuse (Python steering)",
+  "ExplicitImports.yml": "PR CI reuse (Explicit imports)",
+  "PathPolicies.yml": "Validation phase (PathPolicies)",
+  "SteeringSync.yml": "PR CI reuse (Steering synchronization)",
+  "WorkflowPins.yml": "PR CI reuse (Workflow pins)",
+  "RationaleComments.yml": "Validation phase (RationaleComments)",
+  "WorkflowQuality.yml": "PR CI reuse (Workflow quality)",
 };
 const TargetChecks = {
   "PullRequestCI.yml": "Label CI changes",
@@ -77,25 +49,20 @@ const TargetChecks = {
   "PullRequestDiffBreakdown.yml": "Publish diff breakdown",
 };
 
-function HasQualityCode(Files) {
-  return Files.some((File) =>
-    [File.filename, File.previous_filename].some(
-      (Name) => typeof Name === "string" && KQualitySources.test(Name),
-    ),
-  );
-}
-
-function CiWorkflows(
-  IsPull,
-  IncludeAgg = false,
-  Opened = false,
-  Analyzed = false,
-) {
+function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
   const Event = IsPull ? "pull_request" : "merge_group";
+  const Required = IsPull ? Phases.PullRequest : Phases.MergeQueue;
+  const Deferred = IsPull ? Phases.MergeQueue : Phases.PullRequest;
   const Workflows = new Map(
-    Object.entries(StaticChecks).map(([File, Spec]) => [
+    Object.entries(PreflightNames).map(([File, Name]) => [
       WorkflowRoot + File,
-      { ...Spec, event: Event },
+      {
+        event: Event,
+        required: Required[File],
+        optional: Deferred[File],
+        skip: Deferred[File],
+        preflight: Name,
+      },
     ]),
   );
   if (!IsPull) {
@@ -107,7 +74,7 @@ function CiWorkflows(
     return Workflows;
   }
 
-  const Deferred = [
+  const QueueDeferred = [
     ...QueueJobs,
     "Analyze ${{ matrix.language }}",
     "Test suite / Shard (${{ matrix.shard }})",
@@ -115,18 +82,12 @@ function CiWorkflows(
   Workflows.set(QueuePath, {
     event: Event,
     required: [QueueGate],
-    optional: Deferred,
-    skip: Deferred,
+    optional: QueueDeferred,
+    skip: QueueDeferred,
   });
   Workflows.set(WorkflowRoot + "ReleaseBuild.yml", {
     event: Event,
     required: ["Build and verify release artifacts"],
-  });
-  Workflows.set(KQualityPath, {
-    event: "dynamic",
-    required: [],
-    matching: [KQualityJobs],
-    expected: Analyzed ? KQualityRun : null,
   });
   for (const [File, Name] of Object.entries(TargetChecks))
     Workflows.set(WorkflowRoot + File, {
@@ -148,4 +109,4 @@ function CiWorkflows(
   return Workflows;
 }
 
-module.exports = { CiWorkflows, HasQualityCode, WorkflowPath };
+module.exports = { CiWorkflows, WorkflowPath };

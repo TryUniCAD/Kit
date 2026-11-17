@@ -373,6 +373,11 @@ jobs:
             queries: ""
           - language: python
             queries: ./.github/CodeQL/PythonMaximal.qls
+          - language: javascript-typescript
+            queries: ""
+          - language: java-kotlin
+            queries: ""
+            config: ./.github/CodeQL/JavaResearch.yml
     steps:
       - name: Checkout repository
         # yamllint disable-line rule:comments
@@ -393,7 +398,7 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           build-mode: none
-          config-file: ./.github/CodeQL/CodeqlConfig.yml
+          config-file: ${{ matrix.config || './.github/CodeQL/CodeqlConfig.yml' }}
           queries: ${{ matrix.queries }}
 
       - name: Analyze repository
