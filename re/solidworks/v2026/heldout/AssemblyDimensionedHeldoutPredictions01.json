@@ -1,0 +1,78 @@
+{
+  "schema": "kit.sw2026.dimensioned-assembly-heldout-predictions.v1",
+  "recorded_utc": "2026-11-17T08:36:47.065011+00:00",
+  "pre_disclosure_freeze_sha256": "fa14432f10f088f8fa0d97fef8b6cba48ff062baeb2585e25f0ae44b6c13fc98",
+  "predictions_sha256": "97d583462824388d57d73d08b67b07f8f4020f94054775816577ed8a6017862c",
+  "generator_revision": "23e01579fb0ad607417ddfc84e4fbb7b0c55b1be",
+  "generator_tree": "1d6a9ee722f57e061725b43671498bf6fa3968e2",
+  "native_archives_disclosed": false,
+  "native_observations_disclosed": false,
+  "cases": [
+    {
+      "name": "A15HeldoutSyncedThree",
+      "occurrences": 3,
+      "trials": [
+        {
+          "title": "Width",
+          "files": {
+            "A15HeldoutSyncedThree.SLDASM": "daf3bdd806d975be5334ce0fd9086dacf1b5683d1ab3dacc3ebf924efe119eac",
+            "CohortChild.SLDPRT": "a190290e04e8500a14251bb3ef664c46e5ab8182889c97c50c62f7719a2e1a82"
+          },
+          "writer_request_sha256": "0d760028b4bbfb067e94398ba8cee17d4cd403a8a3d325f5299c252163af52ea",
+          "archive_checks_sha256": "31dab7f542ce560001251c018ce87672f735162ed0004ee7c33debfbe2feec57"
+        },
+        {
+          "title": "Height",
+          "files": {
+            "A15HeldoutSyncedThree.SLDASM": "bfa41ed62d6daab610768d11a686dd9b333db785b1fc354eb78fe7b47ad11878",
+            "CohortChild.SLDPRT": "8832d4007dff060abf874b8c4fe2328b8ef67d178fcf9424ebdcda9de38356d4"
+          },
+          "writer_request_sha256": "ed0a1559001a899efb1fc63e80aa3f0234268f18feebc0361f87141a22b9e5cd",
+          "archive_checks_sha256": "33b5f94f20382bf0450d62f0495274dac9f637179b95a449bd1bc56dd9dc866f"
+        },
+        {
+          "title": "Depth",
+          "files": {
+            "A15HeldoutSyncedThree.SLDASM": "5c6ee5588e554dd2f3433a25f1a512264ccc04c2597b7b6a837cbbd1b61f64af",
+            "CohortChild.SLDPRT": "6e6bae2342a3699c7d11aaeeba87dcfc24b03d3284159a952dcce6083908ff18"
+          },
+          "writer_request_sha256": "c64e341e35d45bce232704ebe273056b5e589db8f156780257106fb76d68a4f8",
+          "archive_checks_sha256": "30f4e5dff0dfd74deee99a82951d749ed96ddee99c90c1f0e9a5a398daa2931c"
+        }
+      ]
+    },
+    {
+      "name": "A16HeldoutSyncedFour",
+      "occurrences": 4,
+      "trials": [
+        {
+          "title": "Width",
+          "files": {
+            "A16HeldoutSyncedFour.SLDASM": "3e73b6756c1819c005e016664bd2527511bdce463dda654c4f169f497dec07e1",
+            "CohortChild.SLDPRT": "179987b67071790d137937f89fdd068fa2558962447b717c3211e5d3518a644a"
+          },
+          "writer_request_sha256": "58123e1d5e62c7b072893e0819701ca456d7ee3ba7720b410113f1169c4ba471",
+          "archive_checks_sha256": "21727a2bff4af1a06b3e1305d7e5b672521acc750103abd8d620c134f273c80d"
+        },
+        {
+          "title": "Height",
+          "files": {
+            "A16HeldoutSyncedFour.SLDASM": "7298185b7b72b00453397e86e571a7f6a874ca709f7ef5598c923e570c5e1260",
+            "CohortChild.SLDPRT": "46df4e5f36ac213b070d7bcc58dd8781fe49606714b88581a187da72855adf0e"
+          },
+          "writer_request_sha256": "7608bc53bb08f6fe2c33503af94a31472347d194491eeb9d74877a2db9d30f9c",
+          "archive_checks_sha256": "346768f203490cdf28677f56b62ec68efb2d9c03244e3c4220ac7a6e96038e4a"
+        },
+        {
+          "title": "Depth",
+          "files": {
+            "A16HeldoutSyncedFour.SLDASM": "22dc27e4d14943415067a0a1595d74c785b6c9ddbd5697af12d9428a2a926e81",
+            "CohortChild.SLDPRT": "652c686cb2267a5b20df6c5507bf82658117da0084a8934b66a9026ff3e31107"
+          },
+          "writer_request_sha256": "0dfa04779c618721a6e58887b4f4eccebb5dca3e912b67b44a05a8f33a06babe",
+          "archive_checks_sha256": "3664bc09fbdfce231aef9e67ab41e70dab17a216d60c522003f16d5266ae6338"
+        }
+      ]
+    }
+  ]
+}
