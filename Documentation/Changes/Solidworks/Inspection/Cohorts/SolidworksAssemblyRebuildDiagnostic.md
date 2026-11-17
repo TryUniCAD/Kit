@@ -24,3 +24,10 @@ component and no feature problems. `ForceRebuild3` cleared the state to `0`;
 `ForceRebuildAll` and the new save retained that state in memory. An unclassified
 progress detail blocked the fresh reopen. The observer now accepts the recorded
 long form of elapsed seconds as progress, and the first attempt stays incomplete.
+
+The [completed repeat](../../../../../re/solidworks/measurements/2026/AssemblyRebuildProbe02.json)
+had five distinct native processes, healthy controls and no unclassified
+dialogs. `NeedsRebuild2` returned to `1` with warning `32` on fresh opening
+of the rebuilt saved copy, although the state was `0` immediately after
+save. All input hashes and licensing process IDs remained unchanged.
+The warning-free reopen requirement remains unmet.

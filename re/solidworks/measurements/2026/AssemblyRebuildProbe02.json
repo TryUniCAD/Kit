@@ -1,0 +1,381 @@
+{
+  "source_revision": "23a5e0602b5b28bf3a50621df5e2067583b82ec6",
+  "job_sha256": "8a23524161ea3fcd2c5ed31ea1ccf03f53a60ef45d80c8ed09c66c94f1e860f3",
+  "tool_sha256": "958ae2f75890e1c4d6d12a4350709f7231203a8c8d94e8788e06edcfe62a61cc",
+  "started_at": 1794877555.747166,
+  "finished_at": 1794877668.917489,
+  "phases": [
+    {
+      "phase": "original-readonly",
+      "read_only": true,
+      "completed": true,
+      "source_sha256": "e5c4502ef3b6da5d106c7bb362e9e1ac0bd3c324e011b49320466eb8ec8eb87d",
+      "oracle_identity": {
+        "process_id": 4068,
+        "process_creation_filetime": 134393511843504370,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "open_errors": 0,
+      "open_warnings": 32,
+      "after_open": {
+        "needs_rebuild": 1,
+        "save_flag": false,
+        "whats_wrong": 0,
+        "top_level_count": 1
+      },
+      "controller_diagnostics": [],
+      "source_immutable": true,
+      "dialogs": [],
+      "progress_windows": [
+        {
+          "kind": "assembly-load-progress",
+          "dialog": "",
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            " ",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ],
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 4068
+        },
+        {
+          "kind": "assembly-load-progress",
+          "dialog": "",
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            "Opening File: <private path>",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ],
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 4068
+        },
+        {
+          "kind": "assembly-load-progress",
+          "dialog": "",
+          "text": [
+            "Opened -1\nComponents",
+            "Updating\nAssembly",
+            "Update\nGraphics",
+            "Post load updating",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ],
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 4068
+        }
+      ],
+      "record_sha256": "b7a6fd753ae2233def1d9650c32e9eebfbc7adf688759ef57d3d1659e0d17449"
+    },
+    {
+      "phase": "normal-open-rebuild-save",
+      "read_only": false,
+      "completed": true,
+      "source_sha256": "e5c4502ef3b6da5d106c7bb362e9e1ac0bd3c324e011b49320466eb8ec8eb87d",
+      "oracle_identity": {
+        "process_id": 9356,
+        "process_creation_filetime": 134393512067578488,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "open_errors": 0,
+      "open_warnings": 32,
+      "after_open": {
+        "needs_rebuild": 1,
+        "save_flag": false,
+        "whats_wrong": 0,
+        "top_level_count": 1
+      },
+      "active_rebuild_return": true,
+      "after_active_rebuild": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0,
+        "top_level_count": 1
+      },
+      "all_rebuild_return": true,
+      "after_all_rebuild": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0,
+        "top_level_count": 1
+      },
+      "saved_sha256": "3c51ac0ab3e4012a85a3231d0884dbd5b80270ab20c372f201c8508511817e2e",
+      "saved_bytes": 55999,
+      "after_save": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0,
+        "top_level_count": 1
+      },
+      "controller_diagnostics": [],
+      "source_immutable": true,
+      "dialogs": [],
+      "progress_windows": [
+        {
+          "kind": "assembly-load-progress",
+          "dialog": "",
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            " ",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ],
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 9356
+        },
+        {
+          "kind": "assembly-load-progress",
+          "dialog": "",
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            "Opening File: <private path>",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ],
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 9356
+        },
+        {
+          "kind": "assembly-load-progress",
+          "dialog": "",
+          "text": [
+            "Opened -1\nComponents",
+            "Updating\nAssembly",
+            "Update\nGraphics",
+            "Post load updating",
+            "Elapsed time: 0s",
+            "This file was last opened in 2 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ],
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 9356
+        }
+      ],
+      "record_sha256": "a18e3d11a79a37c2599da0e25fe4581f6bebe7ff83c2ac57e808c01a1a09a11a"
+    },
+    {
+      "phase": "fresh-rebuilt-save",
+      "read_only": true,
+      "completed": true,
+      "source_sha256": "3c51ac0ab3e4012a85a3231d0884dbd5b80270ab20c372f201c8508511817e2e",
+      "oracle_identity": {
+        "process_id": 6804,
+        "process_creation_filetime": 134393512293588300,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "open_errors": 0,
+      "open_warnings": 32,
+      "after_open": {
+        "needs_rebuild": 1,
+        "save_flag": false,
+        "whats_wrong": 0,
+        "top_level_count": 1
+      },
+      "controller_diagnostics": [],
+      "source_immutable": true,
+      "dialogs": [],
+      "progress_windows": [
+        {
+          "kind": "assembly-load-progress",
+          "dialog": "",
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            " ",
+            "Elapsed time: 0s",
+            "This file was last opened in 4 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ],
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 6804
+        },
+        {
+          "kind": "assembly-load-progress",
+          "dialog": "",
+          "text": [
+            "Open\nComponents",
+            "Update\nAssembly",
+            "Update\nGraphics",
+            "Opening File: <private path>",
+            "Elapsed time: 0s",
+            "This file was last opened in 4 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ],
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 6804
+        },
+        {
+          "kind": "assembly-load-progress",
+          "dialog": "",
+          "text": [
+            "Opened -1\nComponents",
+            "Updating\nAssembly",
+            "Update\nGraphics",
+            "Post load updating",
+            "Elapsed time: 0s",
+            "This file was last opened in 4 seconds.",
+            "For more information, view: ",
+            "Performance Evaluation"
+          ],
+          "buttons": [
+            "Close",
+            "Do not show again",
+            "Hide Details"
+          ],
+          "dismissed": false,
+          "process_id": 6804
+        }
+      ],
+      "record_sha256": "1f528a97e34baa4ecfcdaf4a5c159fced618833ee27175257329cce70d23fd5c"
+    }
+  ],
+  "controls_healthy": true,
+  "inputs_immutable": true,
+  "diagnostic_completed": true,
+  "rebuilt_copy_reopens_without_warning": false,
+  "native_acceptance": false,
+  "writer_output_count": 0,
+  "schema": "kit.sw2026.assembly-rebuild-probe-measurement.v1",
+  "raw_inspection_sha256": "acbb0ce1a427d7df9b1abb085cd25d2879ac17d0b289650592548b47e45b1c4d",
+  "tool_manifest_sha256": "eef33988780ccfec2462b06a038ba59bff6a900c8ffd9be509f5a3d718da3236",
+  "host_receipt_sha256": "f39509edf680a518a2c367ad32e296422e5f3fc564a224e2c1063ba7c6b78407",
+  "distinct_processes": 5,
+  "postflight": {
+    "at_utc": "2026-11-17T01:09:55.472542+00:00",
+    "returncode": 0,
+    "stdout_sha256": "3d2b78262a42f68f5a3d6c80a53d710363bac7261f018e3d5dcbf68bb4b007ad",
+    "stdout_bytes": 7276,
+    "row_count": 148,
+    "processes": [
+      {
+        "image": "lmgrd.exe",
+        "pid": 1604
+      },
+      {
+        "image": "lmgrd.exe",
+        "pid": 7936
+      },
+      {
+        "image": "sw_d.exe",
+        "pid": 3088
+      }
+    ],
+    "licensing_unchanged": true
+  },
+  "license_process_ids_unchanged": true,
+  "passed_warning_free_reopen": false
+}
