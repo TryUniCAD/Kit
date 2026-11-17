@@ -16,6 +16,7 @@ It is currently a closed study of empty geometry and an initial-to-current
 rollback. The preserved public blank writer and the research document composers
 continue using their existing call paths. Native load, edit, or save acceptance
 of newly generated files remains open.
+[Populated rectangle schema and rollback comparison](PopulatedPrismPartition2026.md)
 
 ## Format selection and framing
 
