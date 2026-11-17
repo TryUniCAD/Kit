@@ -1,0 +1,11 @@
+# Observe native drawing property-storage selection
+
+The fixed SOLIDWORKS 2026 debugger observer follows document-properties save through the storage-mode result, conditional fallback storage open, property-store arguments and inner return. It uses the corrected neutral-generated blank that still returns SaveAs error 1. The reduced native drawing and pristine brackets retain their independent save and fresh-reopen checks.
+
+The observer pins both `doccplu.dll` and `sldappu.dll`. Its allowed `sldappu.dll` stops are `+0x4f763b`, `+0x4f769b`, `+0x4f76af` and `+0x4f76b5`. Samples contain the typed scalar results and nullness of the retained storage, property owner, summary owner and storage argument. Raw pointers and instruction bytes stay outside the published records.
+
+Freeze the source chain, corrected generated input, native controls and debugger tools into a private packet. Run the pinned Windows Python entrypoint with `--packet-sha256 HASH`. Its `--verify-only` mode verifies custody before native startup. The frozen packet carries the exact tool hashes and ancestor receipts. [Paired observer](../../../../../re/tooling/sw2026/drawing_property_storage_mode/InspectBlankDrawingSavePropertyStorageModeMatched.py) · [Fixed debugger](../../../../../re/tooling/sw2026/drawing_property_storage_mode/DrawingSavePropertyStorageModeDbgEng.py)
+
+Each delivered stop must belong to the owned native process, AMD64 instruction, original save thread and nested frame. A completed SaveAs with an armed site and no delivered stop is recorded as unobserved. Explicit breakpoint removal, restored original instructions after detach and debugger absence remain measured conditions.
+
+The source and packet custody checks pass on the host. Native storage-mode results remain pending. The earlier section correction retains its measured failure. [Property rules and native boundary](../../../../../re/solidworks/records/DrawingPropertySections2026.md) · [Corrected candidate trial](../../../../../re/solidworks/measurements/2026/DrawingBlankPropertySectionsNative01.json)
