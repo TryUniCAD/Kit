@@ -1,6 +1,6 @@
 # Generated rectangular child partition
 
-The default SDK read resolved a validated exact solid in all three generated assembly pairs. Its rectangle sketch read added one false circle and reclassified the height relation as radius. Both errors also occur in the same child archives read in history-only mode. Native SOLIDWORKS compatibility for the generated partition is pending.
+The default SDK read resolved a validated exact solid in all three generated assembly pairs. The initial sketch reader added one false circle and reclassified the height relation as radius in both read modes. The controlled native comparison rejected the cache-bearing variant at open with warning 32.
 
 ## Generation and provenance
 
@@ -24,7 +24,17 @@ The two novel rectangles and the disclosed L1 dimensions are discovery inputs. T
 
 ## Native intervention
 
-Copy `L1Single/WithoutPartition` and `L1Single/WithPartition` one at a time into the exact encoded location `C:\Users\Public\Documents\KitOracle\GeneratedPrismPartition-6c31\Active\L1Single`. The two parent files share SHA-256 `75a62061ffee94dce7aa32607ee7aa39d73e1fcb044777d7317964bcc2daec7e`. The corresponding children hash to `2f9a7bc4ac421f5d18a60bd7c9fc38c9a73453173a5624ad7dadb1778120a331` and `024faf5e879743a6ad002a1bc4b9d748647b5d0044446a69c9c56f102ed5dd7e`. Inspect child body count before the first rebuild, then measure the ordinary scene, edit an actual driving dimension, save the owned child and parent in order, and reopen in a fresh process. Use the existing bracketing controls and check both the exact binding and updated body after reopen.
+Copy `L1Single/WithoutPartition` and `L1Single/WithPartition` one at a time into the exact encoded location `C:\Users\Public\Documents\KitOracle\GeneratedPrismPartition-6c31\Active\L1Single`. The two parent files share SHA-256 `75a62061ffee94dce7aa32607ee7aa39d73e1fcb044777d7317964bcc2daec7e`. The corresponding children hash to `2f9a7bc4ac421f5d18a60bd7c9fc38c9a73453173a5624ad7dadb1778120a331` and `024faf5e879743a6ad002a1bc4b9d748647b5d0044446a69c9c56f102ed5dd7e`.
+
+The [native comparison](../measurements/2026/GeneratedPrismPartitionNative02.json)
+used those exact byte pairs at the same encoded location. Without the partition,
+the child exposed one body immediately on open and kept its 50 mm width through
+the synchronized save and clean fresh reopen. With the partition, the same
+parent opened with zero errors and warning 32, failing the initial gate. The
+probe stopped that lane before rebuild or edit. Both controls passed across
+five processes and all staged inputs remained immutable. The experiment
+qualifies the archive construction and SDK geometry evidence only for the
+cache-bearing variant. The native source of warning 32 remains unassigned.
 
 ## SDK history discrepancy
 
