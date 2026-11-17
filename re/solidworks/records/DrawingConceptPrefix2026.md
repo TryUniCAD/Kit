@@ -28,6 +28,12 @@ The drawing chain is entered by a `moCompRef_c` within the view's geometry refer
 
 The common tag, count, string and map loops live in the SDK archive primitives. The fully typed current `Header2` decoder can consume the drawing model's inline header through those same primitive callbacks. The remaining classes in this prefix include default units, common model properties, feature concepts, the profile and sketch graph, and the drawing sheet and view owners. The older layer and display manager rules reached later in the complete Definition are outside this prefix.
 
+## Source-only read-rule port
+
+The [read-rule extraction](../../tooling/sw2026/serial/DrawingReadRules.py) compiles 115 independently authored vocabulary rows for version 19000, with a closed set of 52 runtime class descriptors. It reads only the registry and the source of its predicates. Its release scope follows the disclosed class coverage. Field decisions still come from the current archive input and scoped condition bits. Unsupported callbacks and dependent methods stop decoding if entered. The extraction has no saved bytes, stream offsets, or writer values.
+
+The [port check](../../tooling/sw2026/serial/CheckDrawingRulePort.py) runs the original typed codec and the read-only projection through the same disclosed Definition prefixes. It compares class slots and all 326 named object entries, preserving indices, record boundaries and field values. ANSI and Unicode string metadata are reduced to their decoded text in the comparison. Both methods reach identical cursors, counters and method sets. The process independently compares the projected view properties with the version-pinned native source evidence. [Port receipt](../measurements/2026/DrawingRulePort01.json)
+
 ## Independent view cache check
 
 The sheet and view bucket serializers invoke the inline graphics list under `uiViewBucket_c.f10` then `gcBucket_c.f6c8`. The owner is `suDynList<uoDisplayItem_c>::Serialize` at `0x3c805c80` in pinned `sldmfcu.dll` SHA-256 `af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735`. At this prefix, both normal bucket types carry two type-9 pen records, framed by a native list count. The sheet bucket then stores native paper height and width as doubles. The view bucket stores a centring transform and a paper placement transform before its first outline. The outline and position agree with Header2 and the native object graph on both disclosed views. [Display restore context](DrawingSdkInspection2026.md)

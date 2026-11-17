@@ -171,7 +171,7 @@ def measured_phase(*, job, entry, trial, lane, folder, reference, parent_path, c
                     "measure the edited synchronized pair", scene, author, parent, assembly, child, child_path, trial,
                     trial["geometry"], trial["dimensions"], root_tree, "edited",
                 )
-                child_save = save_owned_child(author, assembly, child_path, count, recorder, folder)
+                child_save = save_owned_child(author, assembly, child_path, count, recorder, folder, basename=child_path.name)
                 derivative = folder / "Edited.SLDASM"
                 parent_save = recorder.call("save the parent after the edited child", controller.save_as, parent, derivative)
                 require(list(parent_save) == [True, 0, 0] and derivative.is_file(), "edited parent save failed or warned")
