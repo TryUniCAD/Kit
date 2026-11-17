@@ -17,7 +17,7 @@ from builders.Extrude import DimensionGraph, live_blind_extrusion, live_extrusio
 from builders.Metadata import FILE_VERSION, PRINCIPAL_KEYWORD_ROLES, biography, boolean, fields, header, history, keywords, streams
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
 from builders.Radial import circle_dimension
-from builders.RectangleAnchor import corner_origin
+from builders.RectangleAnchor import rectangle_origin
 from builders.RectangleDimensions import rectangle_dimensions
 from builders.ReferencePlane import OffsetPlaneGraph, construct_offset_plane
 from builders.Revolve import live_revolution, revolved_profile
@@ -167,10 +167,10 @@ def document_shape(document):
 def construct_part(*, registry, document, provenance, presentation, target, output=None, native_plane_roles: bool = False, blind_cut_discovery=_NO_BLIND_CUT, offset_plane_discovery=_NO_OFFSET_PLANE, rectangle_anchor=None):
     boolean(native_plane_roles, "native plane keyword roles")
     document, profile_kind, feature_kind = document_shape(document)
-    if rectangle_anchor is not None and (rectangle_anchor != "corner" or profile_kind != "polygon" or
+    if rectangle_anchor is not None and (rectangle_anchor not in ("corner", "center") or profile_kind != "polygon" or
         feature_kind != "blind_extrusion" or document["plane_axis"] != "z" or "rectangle_dimensions" not in document or
         blind_cut_discovery is not _NO_BLIND_CUT or offset_plane_discovery is not _NO_OFFSET_PLANE):
-        raise ArchiveError("rectangle anchor discovery requires one origin-corner dimensioned Front Plane blind boss")
+        raise ArchiveError("rectangle anchor discovery requires one origin-anchored dimensioned Front Plane blind boss")
     if blind_cut_discovery is not _NO_BLIND_CUT and (profile_kind != "polygon" or feature_kind != "blind_extrusion" or document["plane_axis"] != "z" or native_plane_roles):
         raise ArchiveError("blind cut discovery requires a standalone Front Plane part with one ordinary rectangular blind boss")
     if offset_plane_discovery is not _NO_OFFSET_PLANE:
@@ -305,8 +305,8 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         )
         features += (revolve_node,)
     if rectangle_anchor is not None:
-        corner_origin(graph=profile, origin=origin_graph, component=graph.part["f990"],
-                      origin_created_at=logged_creation_time(timestamps=()))
+        rectangle_origin(graph=profile, origin=origin_graph, component=graph.part["f990"], mode=rectangle_anchor,
+                         origin_created_at=logged_creation_time(timestamps=()))
     pocket = None
     if blind_cut_discovery is not _NO_BLIND_CUT:
         pocket = blind_pocket(

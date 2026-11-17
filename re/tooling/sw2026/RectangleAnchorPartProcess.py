@@ -46,7 +46,7 @@ def verify_anchor(archive, rules, mode):
     if mode is None:
         require(not relations, "unanchored rectangle acquired a coincidence")
         return seed.count, terminal.count, len(relations)
-    require(mode == "corner" and len(relations) == 1, "expected one corner-to-origin coincidence")
+    require((mode, len(relations)) in (("corner", 1), ("center", 3)), "unexpected rectangle coincidence topology")
     external, = [item["point"] for item in sketch["points"] if item["kind"] == 1]
     wrapper = external["ext"]["f08"]
     selected = wrapper["f58"]
@@ -56,10 +56,27 @@ def verify_anchor(archive, rules, mode):
             "external point does not select its generated document origin")
     require(selected["f100"] == origin["pd_f80"]["points"][0]["point"]["f08"],
             "external point did not retain the origin's persistent mark")
-    relation = relations[0]["d"]
+    relation = relations[-1]["d"]
     require(relation["f80"] == 9 and sketch["points"][relation["h1"]["idx"]]["point"] is external
             and sketch["points"][relation["h2"]["idx"]]["point"]["pos"] == external["pos"] == {"x": 0.0, "y": 0.0},
             "generated logical relation lost ownership or point coordinates")
+    if mode == "center":
+        center_slot = relation["h2"]["idx"]
+        center = sketch["points"][center_slot]["point"]
+        require(center["fe4"] == 1 and center["fe8"] == 0 and center["f20"] == 3,
+                "generated center must own exactly its three coincidence relations")
+        diagonals = {index for index, row in enumerate(sketch["lines"]) if row["line"]["f54"] & 8}
+        require(len(sketch["lines"]) == 6 and len(diagonals) == 2, "expected four body edges and two construction diagonals")
+        for row in relations[:-1]:
+            link = row["d"]
+            require(link["f80"] == 9 and link["h1"].cls == "sgPointHandle" and link["h1"]["idx"] == center_slot
+                    and link["h2"].cls == "sgLineHandle" and link["h2"]["idx"] in diagonals,
+                    "center relation must own one actual construction diagonal")
+            line = sketch["lines"][link["h2"]["idx"]]["line"]
+            first, second = (sketch["points"][line[key]]["point"]["pos"] for key in ("fc8_s", "fcc_s"))
+            require(all(first[axis] == -second[axis] for axis in ("x", "y")) and line["f20"] == 1,
+                    "construction diagonal lost opposite endpoints or its center relation")
+            diagonals.remove(link["h2"]["idx"])
     return seed.count, terminal.count, len(relations)
 
 

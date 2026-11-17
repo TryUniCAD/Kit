@@ -320,6 +320,13 @@ analytical results and independently authored native reference parts. Both contr
 22 processes. The generated and reference trees have 20 and 19 nodes respectively.
 The production coverage counts are unchanged.
 
+The [original corner held-out](measurements/2026/RectangleCornerHeldoutNative01.json)
+and [disclosed centered case](measurements/2026/GeneratedCenteredRectangleNative01.json)
+retain all 25 source feature rows and full native constraints through
+independent width and height edits, clean saves and fresh reopen. The
+centered model keeps both construction diagonals in its saved files. These
+are research cases from independently authored neutral specifications.
+
 The [dimensioned assembly trials](measurements/2026/GeneratedDimensionedAssembliesNative04.json)
 verified independent width, height and depth edits in generated single- and repeated-occurrence
 bundles. All six trials matched their independent native geometry and exact recursive part and

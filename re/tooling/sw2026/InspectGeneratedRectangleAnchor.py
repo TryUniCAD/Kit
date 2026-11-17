@@ -31,10 +31,10 @@ def read_job(path, expected):
     require(set(job["inputs_sha256"]) == {"Control.SLDPRT", "Candidate.SLDPRT", "SourceRecord.json"}
             and job["inputs_sha256"]["Control.SLDPRT"] == CONTROL, "unexpected anchor inspection inputs")
     case = job["case"]
-    require(case["kind"] == "corner" and set(case) == {"kind", "width_m", "height_m", "depth_m", "edit_width_m", "edit_height_m"}
+    require(case["kind"] in ("corner", "center") and set(case) == {"kind", "width_m", "height_m", "depth_m", "edit_width_m", "edit_height_m"}
             and all(type(value) in (int, float) and math.isfinite(value) and value > 0.0 for key, value in case.items() if key != "kind")
             and case["width_m"] != case["edit_width_m"] and case["height_m"] != case["edit_height_m"],
-            "expected a corner with independent width and height perturbations")
+            "expected a rectangle anchor with independent width and height perturbations")
     source = json.loads((path.parent / "SourceRecord.json").read_bytes())
     require(source["job"]["case"] == case and source["job"]["phase"] == "Reopen" and source["passed"]
             and source["result"]["oracle_identity"]["sha256"] == ORACLE
@@ -46,18 +46,28 @@ def relation_signature(state):
     return Counter((row["kind"], row["suppressed"], tuple(sorted(row["entity_types"]))) for row in state["relations"])
 
 
+def construction_edges(state):
+    return sorted(tuple(sorted((row["start"], row["end"]))) for row in state["geometry"] if row["construction"])
+
+
 def compare(rec, state, source):
+    actual_edges, source_edges = construction_edges(state), construction_edges(source)
     checks = {
         "ordered_complete_tree": state["tree"] == source["tree"],
         "constraints_and_entity_types": relation_signature(state) == relation_signature(source),
         "body_count": state["body_count"] == source["body_count"],
         "fully_constrained": state["constraint_status"] == source["constraint_status"] == 3,
         "driving_dimension_names": set(state["dimensions_m"]) == set(source["dimensions_m"]),
+        "construction_line_count": len(actual_edges) == len(source_edges),
     }
     rec.data["structural_comparison"] = checks
     rec.flush()
     for key, passed in checks.items():
         require(passed, f"native rectangle source parity failed: {key}")
+    for actual_line, source_line in zip(actual_edges, source_edges, strict=True):
+        for actual_point, source_point in zip(actual_line, source_line, strict=True):
+            for actual, expected in zip(actual_point, source_point, strict=True):
+                rec.close_number("construction diagonal endpoint", actual, expected)
     for name, value in state["dimensions_m"].items():
         rec.close_number(name, value, source["dimensions_m"][name])
     mass = state["mass_properties"]
@@ -172,7 +182,7 @@ def run(path, expected, job, source):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Compare a generated corner rectangle with disclosed native source and edit observations")
+    parser = argparse.ArgumentParser(description="Compare a generated anchored rectangle with disclosed native source and edit observations")
     parser.add_argument("job", type=Path)
     parser.add_argument("--job-sha256", required=True)
     parser.add_argument("--verify-only", action="store_true")

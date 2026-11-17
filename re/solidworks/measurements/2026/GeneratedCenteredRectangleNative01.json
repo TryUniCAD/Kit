@@ -1,0 +1,249 @@
+{
+  "schema": "kit.sw2026.generated-centered-rectangle-native-discovery.v1",
+  "scope": "one disclosed centered Front Plane blind boss",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_build": "34.5.2.0604",
+  "native_packet_sha256": "056b63611bfa79958530032469bfd6ffba979f69f49b815b5ee5ea5937e38513",
+  "writer_closure_sha256": "04945bfe10e03719a2e14e9714e71c3ed7b52d063066b1da1e7ba15c9ce4581b",
+  "writer_closure_files": 3993,
+  "guarded_construction_proof_sha256": "f3e7380dc6381247d783df91f029fec7604f0221bd5a6852a05ceb2ac61694a8",
+  "runtime_input_reads": 0,
+  "candidate_sha256": "824daab42e94187652844ce6507beb34e17ff710e81ba677abe9966d2c90b676",
+  "candidate_bytes": 8440,
+  "source_record_sha256": "f692769ce72f4e497ffccdfd5e0defce1f83adce4bd928d0c4f86afc5d4d696e",
+  "source_shape_audit_sha256": "aaa5b24a47c45268b0c5cb1f515cc1f1e52bdd401a328cd063a8cd9ead73caa9",
+  "native_observer_sha256": "af0e9582d4b70ebbdf1c88fec60a14285696c932533664109bfb6bdb882a1e31",
+  "native_result_sha256": "e44ed7df747bfc5be72415217647a0bf86cc749a8b24c73bfacb8d745edff34d",
+  "host_transport_sha256": "35f3c9b61d3d4341f39de17853d69779d2783999bcf1dec4c90e4d81066b9d2a",
+  "phases": [
+    {
+      "phase": "ControlBefore",
+      "record_sha256": "0a536d1453aeb5363732b17863c34e31638a914001fdfa086384a4a89a563ff8",
+      "numeric_checks": 0,
+      "creation_filetime": 134394255019569432,
+      "passed": true
+    },
+    {
+      "phase": "Original",
+      "record_sha256": "2a196b5315084969fc578c296bd603d08361ea385da5aa938cf6300ceea1758f",
+      "numeric_checks": 41,
+      "creation_filetime": 134394255264672278,
+      "passed": true
+    },
+    {
+      "phase": "WidthEdit",
+      "record_sha256": "c6800ac1f5290e6aeef22985b0340f43507dd58d037ca7b1f473c8e42d38a231",
+      "numeric_checks": 41,
+      "creation_filetime": 134394255537371443,
+      "passed": true,
+      "save": {
+        "sha256": "fe5272de3c0e9b24956f351f5a3f5abe47fa3850c8ddb7ae379187819e4eed08",
+        "bytes": 53886,
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "phase": "HeightEdit",
+      "record_sha256": "51aaa625889ddffc0f39ffaf7f9ea440b218ed05acc66d99cd4817b74f0fbc24",
+      "numeric_checks": 41,
+      "creation_filetime": 134394255842397147,
+      "passed": true,
+      "save": {
+        "sha256": "56c09e7f5b628aea050b9d80ba6f8c7295675cd2841ff8a983c7304f720f6205",
+        "bytes": 51170,
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "phase": "Reopen",
+      "record_sha256": "dc421ec997b39fb3fbbcc4490be09c0b0fc3ea745f41c83a36ed83589441028f",
+      "numeric_checks": 82,
+      "creation_filetime": 134394268621474994,
+      "passed": true
+    },
+    {
+      "phase": "ControlAfter",
+      "record_sha256": "8772012a7f825e756d51d49d183f085ca45f8ada7652d0fbad5f0a56ddddaee1",
+      "numeric_checks": 0,
+      "creation_filetime": 134394269021730116,
+      "passed": true
+    }
+  ],
+  "states": [
+    {
+      "phase": "Original",
+      "role": "Original",
+      "tree_rows": 25,
+      "fully_constrained": true,
+      "relation_count": 9,
+      "visible_segments": 6,
+      "geometry": {
+        "volume": 7.560534751e-06,
+        "area": 0.0031540006,
+        "com": [
+          0.0,
+          0.0,
+          0.003415
+        ],
+        "mass": 7.560534751e-06
+      },
+      "driving_dimensions": {
+        "D1@AnchorSketch": 0.04319,
+        "D2@AnchorSketch": 0.02563,
+        "D1@AnchorBoss": 0.00683
+      }
+    },
+    {
+      "phase": "WidthEdit",
+      "role": "WidthEdit",
+      "tree_rows": 25,
+      "fully_constrained": true,
+      "relation_count": 9,
+      "visible_segments": 6,
+      "geometry": {
+        "volume": 6.251139059e-06,
+        "area": 0.0026683989999999997,
+        "com": [
+          4.113475695866468e-18,
+          2.4316666266885535e-18,
+          0.003415
+        ],
+        "mass": 6.251139059e-06
+      },
+      "driving_dimensions": {
+        "D1@AnchorSketch": 0.03571,
+        "D2@AnchorSketch": 0.02563,
+        "D1@AnchorBoss": 0.00683
+      }
+    },
+    {
+      "phase": "HeightEdit",
+      "role": "HeightEdit",
+      "tree_rows": 25,
+      "fully_constrained": true,
+      "relation_count": 9,
+      "visible_segments": 6,
+      "geometry": {
+        "volume": 1.1000091332999999e-05,
+        "area": 0.004320467,
+        "com": [
+          4.296597162167189e-18,
+          2.508189067740301e-18,
+          0.003415
+        ],
+        "mass": 1.1000091332999999e-05
+      },
+      "driving_dimensions": {
+        "D1@AnchorSketch": 0.04319,
+        "D2@AnchorSketch": 0.03729,
+        "D1@AnchorBoss": 0.00683
+      }
+    },
+    {
+      "phase": "Reopen",
+      "role": "WidthEdit",
+      "tree_rows": 25,
+      "fully_constrained": true,
+      "relation_count": 9,
+      "visible_segments": 6,
+      "geometry": {
+        "volume": 6.251139059e-06,
+        "area": 0.0026683989999999997,
+        "com": [
+          4.113475695866468e-18,
+          2.4316666266885535e-18,
+          0.003415
+        ],
+        "mass": 6.251139059e-06
+      },
+      "driving_dimensions": {
+        "D1@AnchorSketch": 0.03571,
+        "D2@AnchorSketch": 0.02563,
+        "D1@AnchorBoss": 0.00683
+      }
+    },
+    {
+      "phase": "Reopen",
+      "role": "HeightEdit",
+      "tree_rows": 25,
+      "fully_constrained": true,
+      "relation_count": 9,
+      "visible_segments": 6,
+      "geometry": {
+        "volume": 1.1000091332999999e-05,
+        "area": 0.004320467,
+        "com": [
+          4.071027857065925e-18,
+          2.6231150838529567e-18,
+          0.003415
+        ],
+        "mass": 1.1000091332999999e-05
+      },
+      "driving_dimensions": {
+        "D1@AnchorSketch": 0.04319,
+        "D2@AnchorSketch": 0.03729,
+        "D1@AnchorBoss": 0.00683
+      }
+    }
+  ],
+  "numeric_comparisons": 205,
+  "distinct_processes": 6,
+  "controls_healthy": true,
+  "native_saves_typed_audit_sha256": "c0e923de32b873e19ade346eb6154407520c0583a631e0e6c348dbd19853ea56",
+  "native_edited_archives": [
+    {
+      "state": "WidthEdit",
+      "artifact_sha256": "fe5272de3c0e9b24956f351f5a3f5abe47fa3850c8ddb7ae379187819e4eed08",
+      "line_entry_count": 6,
+      "ordinary_boundary_lines": 4,
+      "construction_diagonals": 2,
+      "auxiliary_lines": 0,
+      "relationship_count": 3,
+      "origin_local_target": true,
+      "roundtrips": {
+        "Contents/CMgr": true,
+        "Contents/CMgrHdr2": true,
+        "Contents/Config-0": true,
+        "Contents/Config-0-ModelHeader": true,
+        "Contents/Config-0-ResolvedFeatures": true,
+        "Contents/Definition": true,
+        "Header2": true
+      }
+    },
+    {
+      "state": "HeightEdit",
+      "artifact_sha256": "56c09e7f5b628aea050b9d80ba6f8c7295675cd2841ff8a983c7304f720f6205",
+      "line_entry_count": 6,
+      "ordinary_boundary_lines": 4,
+      "construction_diagonals": 2,
+      "auxiliary_lines": 0,
+      "relationship_count": 3,
+      "origin_local_target": true,
+      "roundtrips": {
+        "Contents/CMgr": true,
+        "Contents/CMgrHdr2": true,
+        "Contents/Config-0": true,
+        "Contents/Config-0-ModelHeader": true,
+        "Contents/Config-0-ResolvedFeatures": true,
+        "Contents/Definition": true,
+        "Header2": true
+      }
+    }
+  ],
+  "native_save_omits_auxiliary_line": true,
+  "native_save_linked_stream_roundtrips": 14,
+  "prior_corner_and_unanchored_byte_identity": true,
+  "off_origin_input_rejected": true,
+  "inputs_immutable": true,
+  "passed": true,
+  "heldout_acceptance": false,
+  "public_writer_qualified": false
+}

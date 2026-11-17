@@ -436,10 +436,10 @@ def origin_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
 def _local_ref_flag(*, sketch: Obj):
     if sketch["f138"].get("pd_f110") is not None:
         raise ConstructionError("derived-profile reference state requires additional native update rules")
-    anchor = sketch.get("_corner_origin")
+    anchor = sketch.get("_origin_anchor")
     anchored_point = None
     if anchor is not None:
-        anchored_point, origin, relation = anchor
+        anchored_point, origin, relation, diagonal_relations = anchor
         external = anchored_point["ext"]
         selected = external["f08"]["f58"]
         owner = sketch["f138"]["owner"]
@@ -486,11 +486,22 @@ def _local_ref_flag(*, sketch: Obj):
         if dims[name]:
             raise ConstructionError(f"reference-state inference is not established for {name}")
     if dims["log_g2"]:
-        if (anchor is None or len(dims["log_g2"]) != 1 or dims["log_g2"][0]["d"] is not relation
-            or relation["f80"] != 9 or relation["h1"].get("_point") is not anchored_point):
+        if anchor is None or len(dims["log_g2"]) != len(diagonal_relations) + 1:
             raise ConstructionError("binary relation reference inference requires the constructed origin coincidence")
+        expected = (*diagonal_relations, relation)
+        if any(record["d"] is not binding or binding["f80"] != 9 for record, binding in zip(dims["log_g2"], expected, strict=True)):
+            raise ConstructionError("binary relation reference inference requires actual rectangle coincidence nodes")
+        if relation["h1"].get("_point") is not anchored_point:
+            raise ConstructionError("the origin coincidence lost its external point")
         for handle in (relation["h1"], relation["h2"]):
             _require_local_handle(sketch=sketch, handle=handle, kind="sgPointHandle", key="_point", order="_point_nodes")
+        local = relation["h2"]["_point"]
+        for diagonal in diagonal_relations:
+            point_handle_value, line_handle_value = diagonal["h1"], diagonal["h2"]
+            _require_local_handle(sketch=sketch, handle=point_handle_value, kind="sgPointHandle", key="_point", order="_point_nodes")
+            _require_local_handle(sketch=sketch, handle=line_handle_value, kind="sgLineHandle", key="_line", order="_line_nodes")
+            if point_handle_value["_point"] is not local or not line_handle_value["_line"]["f54"] & 8:
+                raise ConstructionError("center coincidence requires the same local center and an actual construction diagonal")
     for record in dims["log_g1"]:
         relation = record["d"]
         handle = relation["h1"]
