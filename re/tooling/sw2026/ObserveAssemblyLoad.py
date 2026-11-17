@@ -1,8 +1,23 @@
 from __future__ import annotations
 
 import ctypes
+import re
 
 import Swapp
+
+
+def assembly_progress(title, statics, buttons):
+    if title or len(statics) < 3 or not set(buttons) <= {"Close", "Do not show again", "Hide Details", "Show Details"}:
+        return False
+    first, second, third, *details = statics
+    if not re.fullmatch(r"(?:Open|Opening|Opened|Loaded)(?: -?\d+)?\nComponents", first):
+        return False
+    if second not in {"Update\nAssembly", "Updating\nAssembly", "Assembly\nUpdated"}:
+        return False
+    if third not in {"Update\nGraphics", "Generating\nGraphics", "Graphics\nGenerated"}:
+        return False
+    known = r"(?:\s*|Elapsed time: \d+s|This file was last opened in \d+ seconds?\.|For more information, view: *|Performance Evaluation|Opening File: .+|Post load updating)"
+    return all(re.fullmatch(known, detail) for detail in details)
 
 
 class AssemblyLoadMonitor(Swapp.Dismisser):
@@ -35,12 +50,7 @@ class AssemblyLoadMonitor(Swapp.Dismisser):
                 return not self.stop.is_set()
 
             Swapp.user32.EnumChildWindows(handle, Swapp.EnumProc(child), 0)
-            stages = (
-                {"Open\nComponents", "Opening\nComponents", "Opened\nComponents", "Loaded\nComponents"},
-                {"Update\nAssembly", "Updating\nAssembly", "Assembly\nUpdated"},
-                {"Update\nGraphics", "Generating\nGraphics", "Graphics\nGenerated"},
-            )
-            is_progress = not title and 3 <= len(statics) <= 4 and all(statics[index] in values for index, values in enumerate(stages)) and all(not x.strip() for x in statics[3:]) and all(button == "Close" for button in buttons)
+            is_progress = assembly_progress(title, statics, buttons)
             row = {"kind": "assembly-load-progress" if is_progress else "unclassified-owned-dialog", "dialog": title, "text": statics, "buttons": buttons, "dismissed": False, "process_id": pid}
             destination = self.progress if is_progress else self.log
             if row not in destination:

@@ -12,3 +12,9 @@ reclassify the original dismissed-window batch as acceptance evidence.
 
 The [first source receipt](../../../../../re/solidworks/measurements/2026/AssemblySourceAttempt01.json)
 records the button action and the independent open status.
+
+A later read-only observer found the same window with signed component
+counts, elapsed and prior open times, performance details and extra buttons.
+The [second receipt](../../../../../re/solidworks/measurements/2026/AssemblySourceAttempt02.json)
+records those variants without a window action. Matching progress labels does
+not waive a separate numeric open warning.
