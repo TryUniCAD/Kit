@@ -16,11 +16,19 @@ function BuildReports(CaseMode, Verdict, CheckName) {
   const Built = BuildExpected(IsQueue, HeadSha);
   const Quality = Built.Runs.find((Run) => Run.path === KQualityPath);
   const Removed = KQualityAbsent.includes(CaseMode);
-  const Runs = Built.Runs.filter((Run) => !(Removed && Run === Quality));
+  const Retired = CaseMode.endsWith("retired-fusion")
+    ? Built.Runs.find(
+        (Run) => Run.path === ".github/workflows/FusionCompatibility.yml",
+      )
+    : null;
+  const Runs = Built.Runs.filter(
+    (Run) => !(Removed && Run === Quality) && Run !== Retired,
+  );
   const Checks = Built.Checks.filter(
     (Check) =>
-      Check.check_suite.id !== Quality?.check_suite_id ||
-      IsQualityKept(CaseMode, Check.name),
+      Check.check_suite.id !== Retired?.check_suite_id &&
+      (Check.check_suite.id !== Quality?.check_suite_id ||
+        IsQualityKept(CaseMode, Check.name)),
   );
   const Expected = Checks.map(({ name, html_url }) => ({ name, html_url }));
   const Files =

@@ -159,6 +159,11 @@ The acceptance gate requires the plan, every shard, and the report to succeed.
 The trusted-base `CI Agg` of the first sharded candidate still requires that name.
 The CI allowlist matches shard check names by pattern because the shard count changes with the suite.
 
+The [compatibility report transition](Documentation/Changes/Ci/CompatibilityReportRetirement.md)
+prepares removal of the dedicated Fusion compatibility workflow.
+The aggregate permits those reports to be absent and still requires every reported job and workflow to succeed.
+The follow-up removes duplicate execution after this allowlist reaches the trusted base.
+
 The seven historically flaky pending-aggregate probes and their dedicated helpers are removed.
 Completed-result process checks remain; pending-process liveness and evidence publication during waiting no longer have those probes.
 See the [removal scope and evidence](Documentation/Changes/Ci/FlakyPendingGateRemoval.md).
