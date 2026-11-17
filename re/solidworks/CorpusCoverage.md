@@ -242,6 +242,13 @@ controls passed across 26 distinct process births. This evidence qualifies the
 research profile with one repeated rectangular child and no mates. Production
 conversion coverage remains zero.
 
+The [disclosed planar-mate readback](measurements/2026/AssemblyPlanarMateArchive01.json)
+reconstructed 51 streams across three parent and child pairs, including three
+populated mate lists. All six endpoint chains reused their exact occurrence
+objects and selected the authored datum planes. The distance dimension
+retained the authored value. Selected chain serializers remain provisional,
+and no generated mate trials count toward native acceptance.
+
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
 identities with successful Document.xml discovery. The inventory includes 56

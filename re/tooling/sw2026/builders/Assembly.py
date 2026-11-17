@@ -3,7 +3,8 @@ from __future__ import annotations
 from collections.abc import Sequence
 from math import isfinite, sqrt
 
-from Core import Obj, Store
+from AssemblyMates import store_mate_list
+from Core import Obj
 from builders.ExternalFiles import referenced_configuration
 from builders.Metadata import FILE_VERSION
 from builders.Model import PersistentIds, base_configuration_fields, clear_model_update, component_plane, detail_cabinet, folder, logged_creation_time, model_feature, model_fields, object_list, principal_planes, relation_manager, unit_component
@@ -162,14 +163,7 @@ def initial_assembly_features(*, owner: Obj, allocator: PersistentIds, folder_na
 def store_empty_mates(*, registry, resolved_map, mate_group: Obj) -> bytes:
     if not isinstance(mate_group, Obj) or mate_group.cls != "moMateGroup_c":
         raise ValueError("mate-list serialization requires its actual mate group")
-    old_count = resolved_map.count
-    if not 0 < old_count <= 0x7FFFFFFF:
-        raise ValueError("resolved feature map count must fit the native mate-list prefix")
     group_items = mate_group["f60"]["list"]["items"]
     if group_items or mate_group["f4e8"] or mate_group["discarded_manager_records"]:
         raise ValueError("nonempty mate history needs a classified mate serializer")
-    archive = Store(old_count, registry, FILE_VERSION, seed=resolved_map)
-    archive.prim("i32", old_count)
-    items = Obj("suObList", object_list())
-    registry.run_store("suObList", archive, items.f, items)
-    return bytes(archive.out)
+    return store_mate_list((), registry, FILE_VERSION, resolved_map=resolved_map)

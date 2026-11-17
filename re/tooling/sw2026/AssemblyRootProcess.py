@@ -17,6 +17,7 @@ AUDIT = BuildAudit(ROOT / "re/tooling/sw2026/serial/defs")
 sys.addaudithook(AUDIT.InspectEvent)
 
 from Classes import registry
+from AssemblyMates import load_mate_list, store_mate_list
 from ExternalFileView import read_self_reference, self_reference_fields, self_reference_summary
 from Streams import load_rooted, store_rooted
 from builders.AssemblyDocument import CONFIG, DEFINITION, MANAGER, MATES, METADATA, MODEL_HEADER, RESOLVED, construct_assembly_bundle, construct_empty_assembly
@@ -100,6 +101,9 @@ def inspect_root(assembly):
     resolved_doc, resolved_ar = load_resolved(archive.require(RESOLVED), REGISTRY, 19000, archive=archive, name=RESOLVED, seed=read.map_state())
     restored_res, resolved_replay = store_resolved_state(resolved_doc, REGISTRY, 19000, seed=read.map_state())
     raw_mates = archive.require(MATES)
+    mate_seed = resolved_ar.map_state()
+    mates, _ = load_mate_list(raw_mates, REGISTRY, 19000, resolved_map=mate_seed)
+    restored_mates = store_mate_list(mates, REGISTRY, 19000, resolved_map=mate_seed)
     decoded_definition, _ = load_definition(archive.require(DEFINITION), REGISTRY, 19000)
     ui_doc = decoded_definition.head
     restored_definition = definition_stream(registry=REGISTRY, document=ui_doc)
@@ -128,7 +132,7 @@ def inspect_root(assembly):
         "resolved_types": [node.cls for node in resolved_doc.roots],
         "live_section_flag": next(node["f378"] for node in resolved_doc.roots if node.cls == "moLiveSectionFolder_c"),
         "resolved_bytes_identical": resolved == restored_res and not resolved_doc.tail,
-        "empty_mates_linked": len(raw_mates) == 6 and int.from_bytes(raw_mates[4:], "little") == 0 and int.from_bytes(raw_mates[:4], "little", signed=True) == assembly.resolved_map_count == resolved_ar.count == resolved_replay.count,
+        "empty_mates_linked": not mates and len(raw_mates) == 6 and raw_mates == restored_mates and assembly.resolved_map_count == resolved_ar.count == resolved_replay.count,
         "definition_class": ui_doc.cls, "definition_journal": ui_doc["ffd8"]["f18"]["f08"],
         "definition_bytes_identity": restored_definition == definition and not decoded_definition.tail,
         "save_as_part_fraction": ui_doc["f1b48"]["f10"],

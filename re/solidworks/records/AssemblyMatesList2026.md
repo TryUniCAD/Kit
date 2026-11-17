@@ -58,7 +58,56 @@ An empty assembly cannot use this missing-group repair branch. The six-byte
 empty mate list is separate from the serialized mate-group feature and does
 not construct a group by itself.
 
-The writer rule for the ordinary no-mate subset is to carry the generated
-resolved map forward and serialize its actual count followed by an empty
-object list. Mate object identities, nonempty serialized rows, legacy modes
-and full assembly acceptance remain outside this result.
+The writer rule is to carry the generated resolved map forward and serialize
+its actual count followed by the object list. The initial no-mate writer
+supplies an empty list through the same codec.
+
+## Populated planar mates
+
+The [disclosed archive check](../measurements/2026/AssemblyPlanarMateArchive01.json)
+verifies A17, A18, A19 and their synchronized child parts against the
+[source lock](../v2026/heldout/AssemblyPlanarMateSourceLock01.json). It
+reconstructs 51 logical streams byte for byte. All three resolved mate
+groups have empty children and empty `f4e8`. Each separate list has one
+complete mate and uses the resolved stream's final map.
+
+| Mate | List bytes | Initial map count | Final map count |
+| --- | ---: | ---: | ---: |
+| Coincident | 3304 | 168 | 196 |
+| Distance | 5117 | 168 | 207 |
+| Parallel | 3234 | 168 | 196 |
+
+Each `f3c8` row holds a detached plane wrapper under the endpoint ordinal.
+It contains its own anonymous `moRefPlane_c` with persistent ID -1,
+a unit component, and zero surface bounds. The matching `f410` row
+carries the same point and normal and binds to an actual `moReference_c`.
+Its `moCompRefPlane_c` refers to an occurrence chain whose external-feature
+entry is the exact `occurrence.f4f8` object retained in the inherited map.
+That entry's `f50` points to the occurrence itself.
+
+The resolved component plane's `ff0.f00` matches the child's datum feature
+ID. Its wrapper's `f08` matches the child model header update stamp and
+`occurrence.f3e0`. The wrapper's `f74` matches the mate ID and `f78` and
+`f7c` match the endpoint ordinal. Both transform fields `f10` and `f18`
+match the occurrence transform. The tangent basis and normal come from
+the datum frame rotated by that occurrence. The wrapper's `f100` is the
+inverse of that world-space plane frame, including translation terms
+`-dot(origin, axis)` for each of the rotated frame axes.
+
+The driving distance is in the display's `f850` handle list.
+`moFeatureDimHandle_c.ff0` owns the `ParallelPlaneDistanceDim_c`, whose
+`f28` parameter's `f58` matches both the independent design length and
+the display's `fad0`. It measures 0.06323 m in A18.
+
+The three lists still reach provisional serializers for `moChainComponent_c`,
+`moExtFeatureList_c` and `moReferenceChain_c`. Their exact round trips are
+source-read evidence. Fresh mate construction, other mate types and native
+acceptance remain open. The two held-out sources stay sealed.
+
+Run from the repository root with the authorized disclosed source directory:
+
+```sh
+PYTHONPATH=src:re/tooling/sw2026/serial python3.14 re/tooling/sw2026/serial/PlanarMateSources.py \
+  --source-root /absolute/path/to/disclosed-source-batch \
+  --report /tmp/AssemblyPlanarMateArchive01.json
+```
