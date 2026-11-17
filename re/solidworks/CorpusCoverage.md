@@ -201,6 +201,10 @@ SOLIDWORKS 2026 drawings from the [drawing source lock](v2026/heldout/DrawingSou
 The [SDK drawing layout receipt](measurements/2026/DrawingSdkLayoutCheck01.json) verifies a
 partial reader in the public adapter for those three native drawings. It supports the sheet and
 single external part view layout. Strict drawing reads and production writing await further qualification.
+The [drawing concept prefix check](measurements/2026/DrawingConceptPrefixCheck01.json)
+round-trips the ordered sheet and complete view records before the resolved model tail. The
+research reader extracts model orientation, scale and the view transform and compares them
+with the native observations in both view-bearing cases.
 
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.
