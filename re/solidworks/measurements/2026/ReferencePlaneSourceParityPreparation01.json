@@ -1,0 +1,235 @@
+{
+  "schema": "kit.sw2026.offset-plane-source-parity-preparation.v1",
+  "task_id": "B04-SW2026-REFPLANES",
+  "delivery_pr": 121,
+  "status": "private_disclosed_candidate_prepared_native_paired_acceptance_pending",
+  "native_acceptance": false,
+  "heldout_execution_enabled": false,
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "shared_part_or_model_modified_by_this_tranche": false,
+  "base_writer_revision": "ebbfb4d8d4e7b888968c8197f37baf064b26060b",
+  "source_lock_sha256": "c61560deff9c84addd65db48664ce6a5488ad3eecde9a070c62a215a5541d703",
+  "known_disclosed_scope_gap": {
+    "earlier_source_tree_rows": 26,
+    "earlier_independent_generated_tree_rows": 27,
+    "full_source_generated_tree_parity_previously_established": false,
+    "generation_recipe_changed_to_existing_canonical_roles": true,
+    "existing_role_record": "re/solidworks/records/MarkupFolderConstruction2026.md",
+    "explicit_order_record": "re/solidworks/records/PartFolderOrder2026.md"
+  },
+  "native_insertion_classification": {
+    "schema": "kit.sw2026.reference-plane-part-insertion-classification.v1",
+    "model_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "reference_plane_primary_vtable": "0x4d16f278",
+    "part_insertion_classifier_slots": [
+      {
+        "slot": "0xd18",
+        "target": "0x4b27cbe0",
+        "complete_leaf_bytes": 3,
+        "body_sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+        "return_i32": 0
+      },
+      {
+        "slot": "0xd20",
+        "target": "0x4b27cbe0",
+        "complete_leaf_bytes": 3,
+        "body_sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+        "return_i32": 0
+      },
+      {
+        "slot": "0xc48",
+        "target": "0x4b27cbe0",
+        "complete_leaf_bytes": 3,
+        "body_sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+        "return_i32": 0
+      },
+      {
+        "slot": "0xd10",
+        "target": "0x4b27cbe0",
+        "complete_leaf_bytes": 3,
+        "body_sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+        "return_i32": 0
+      },
+      {
+        "slot": "0x1450",
+        "target": "0x4b27e150",
+        "complete_leaf_bytes": 6,
+        "body_sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+        "return_i32": 1
+      }
+    ],
+    "owner_callback": {
+      "slot": "0x1288",
+      "target": "0x4bb51930"
+    },
+    "linked_child_connection": {
+      "slot": "0x4d8",
+      "target": "0x4b2fe0b0"
+    },
+    "existing_part_add_feature": "0x4c1c5040",
+    "existing_linked_insertion_callback": "0x4bdacc50",
+    "existing_node_list_store": "0x4c1799b0",
+    "classification": "moRefPlane uses the same ordinary part insertion predicates and owner/connection targets already bound for profile and extrusion; special-folder predicates return false",
+    "lifecycle_scope": "ordinary fresh part with no rollback or edit insertion cursor",
+    "source_author_sequence": "new_part returns the ordinary principal planes and Origin before InsertRefPlane publishes the new plane",
+    "writer_change_proposed": "allocate Origin before the authored plane dimension/feature, then publish Origin before OffsetPlane in the shared feature sequence",
+    "code_or_native_payloads_redistributed": false,
+    "heldout_inputs_read": 0,
+    "native_processes_started": 0
+  },
+  "native_insertion_private_receipt_sha256": "0352c488641e610c231fb36a737957927c055da1f1abf07b85471f47894c7526",
+  "private_part_patch_sha256": "f63ec04aa249f2e0747cd7f1038fb77167222a86b3f24dd3ed701a660a83ea65",
+  "private_part_sha256": "8793833bbf820c978d5f24e3cd7876a78052b33bf7cdcf775a6d5caade56c5e3",
+  "folder_order_model_sha256": "4bdd7397c1e7ba639fdb322a4b997c66ec0fc434341e830ac5adc274b0d4220e",
+  "complete_code_manifest_sha256": "f0972b72944fa36d6b884b4968501ca9b7411da7f705d0ab3d307c9b951dd589",
+  "complete_python_source_files": 3880,
+  "pure_disclosed_recipe_sha256": "67ec69705ee992ef62efd3ecd40e69d709d2fc57337be0b2a7757e52b126efc2",
+  "paired_observer_sha256": "4054e64c5ad56deb3260147f57979e0a7e094e4fef8e05783c4dcd9531771b25",
+  "prepared_plan_sha256": "4347960ef76c9c76e642d8c499cefa31eabc8c170d12b9d5b8e37a0831e9b8aa",
+  "prepared_plan_state": "prepared",
+  "recipe_prediction_lock_sha256": "2108e23be27c6ed0f4e860b1f7934e9cc84a1da6bc45d600c45249e25cefff15",
+  "construction_proof_sha256": "9ac2e9eff5342abd3cf60eef3355d5dad73989eb267953ea5ba346597426dcbe",
+  "guarded_generation": {
+    "cases": [
+      {
+        "case_id": "D01",
+        "request_sha256": "d7c22522f52c67e29a6874f29f1ba610d4fa1515de63a6c3a509ed28636375eb",
+        "prediction_sha256": "ba8d80d8d0f465ae240cdb2c11e38f4440304e82615cf94f4820cdeb5a78f742",
+        "native_sha256": "9a565b31ab2fcb750f993ab3e7249316f1437712aed879445f2a3986b72d922e",
+        "bytes": 8634,
+        "roundtrips_per_build": 11,
+        "runtime_input_read_attempts": 0,
+        "deterministic": true
+      },
+      {
+        "case_id": "D02",
+        "request_sha256": "0f71a4971acb47aec45154282620e9ef50e3b531f19738bca0ac0de09810aace",
+        "prediction_sha256": "17b9792bd376a19bfdb5d21a5f173a4899de2c72fc266aea0d976f59bd56dbd2",
+        "native_sha256": "fc3ba73557b5c3268c29683a7a1e87b31ac675979555e5514525ad958edde55f",
+        "bytes": 8628,
+        "roundtrips_per_build": 11,
+        "runtime_input_read_attempts": 0,
+        "deterministic": true
+      },
+      {
+        "case_id": "D03",
+        "request_sha256": "56414188a4535df0b6e10d081869beda53c469634499809ef202611e56a69dfd",
+        "prediction_sha256": "df00e46a1bd37a0c7103dbfcddb8f89b3e8fa229d4ece06ccce091af74a5bee1",
+        "native_sha256": "732d0d93db968c2f26242dbb92dcfa75d3a9748938d35ef7d602caacb1977a85",
+        "bytes": 8679,
+        "roundtrips_per_build": 11,
+        "runtime_input_read_attempts": 0,
+        "deterministic": true
+      },
+      {
+        "case_id": "D04",
+        "request_sha256": "735cd1fd376fb9ff4efbb54f7af75af976d727c52c2d25b1392b2d0ed0380d5b",
+        "prediction_sha256": "8f02f35ca8cad79c15bcbcb0d99b96115b9a5e0a06d34f6af33b564b508e2143",
+        "native_sha256": "8cd21b6d7d1be689f120cce89ee2a968dbf55ca016cc9354b3dcd242f795a297",
+        "bytes": 8689,
+        "roundtrips_per_build": 11,
+        "runtime_input_read_attempts": 0,
+        "deterministic": true
+      }
+    ],
+    "separate_processes": 8,
+    "native_source_files_accessed": 0,
+    "writer_input_file_reads": 0
+  },
+  "default_compatibility": {
+    "prior_proof_sha256": "24ea61220f0b1a385858b3a2f087c288ff549dc95b9e6f7ea99091141a1830e6",
+    "four_defaults": [
+      {
+        "name": "ParityDefaultRect",
+        "native_sha256": "25de4e23d285f1318b15f660414ff69ecf3976f9f709bb5b901ff74ef99622ef",
+        "serialized_bytes_identical": true,
+        "all_process_fields_identical_after_code_location_normalization": true,
+        "normalized_fields": [
+          "module_reads",
+          "streams.*.schema_usage.{load,store}.raw_operations.*.length_rule.source_file"
+        ]
+      },
+      {
+        "name": "ParityDefaultCirclex",
+        "native_sha256": "172e3315246a1d67563e18cb7dfb7995d6e11e86734edb176173f3105c2afb94",
+        "serialized_bytes_identical": true,
+        "all_process_fields_identical_after_code_location_normalization": true,
+        "normalized_fields": [
+          "module_reads",
+          "streams.*.schema_usage.{load,store}.raw_operations.*.length_rule.source_file"
+        ]
+      },
+      {
+        "name": "ParityDefaultCircley",
+        "native_sha256": "9060c31facc90c22ec3709eb02e6df839517d28c5f3988948f1b5a362f477634",
+        "serialized_bytes_identical": true,
+        "all_process_fields_identical_after_code_location_normalization": true,
+        "normalized_fields": [
+          "module_reads",
+          "streams.*.schema_usage.{load,store}.raw_operations.*.length_rule.source_file"
+        ]
+      },
+      {
+        "name": "ParityDefaultCirclez",
+        "native_sha256": "2cca52e25c3ddb86dbc80019d5007cbd425ac43f7ef3cc0b682a2e811d2d40b1",
+        "serialized_bytes_identical": true,
+        "all_process_fields_identical_after_code_location_normalization": true,
+        "normalized_fields": [
+          "module_reads",
+          "streams.*.schema_usage.{load,store}.raw_operations.*.length_rule.source_file"
+        ]
+      }
+    ],
+    "writer_and_all_other_dependencies_unchanged": true,
+    "only_pure_request_recipe_changed_in_latest_snapshot": true
+  },
+  "typed_paired_instrument": {
+    "private_receipt_sha256": "7417ff440c02b17d618520aa3d46858563540dc28947b8b970c7fe3c9f7b1356",
+    "passed": false,
+    "source_roots": 20,
+    "generated_roots": 20,
+    "ordered_class_name_lists_equal": false,
+    "first_difference": {
+      "index": 6,
+      "source": [
+        "moDetailCabinet_c",
+        "Annotations"
+      ],
+      "generated": [
+        "moSurfaceBodyFolder_c",
+        "Surface Bodies"
+      ]
+    },
+    "core_origin_plane_profile_boss_order_equal": true,
+    "prediction_lock_precedes_native_access": true,
+    "cache_or_cabinet_position_patch_added": false,
+    "native_ui_tree_equality_measured": false
+  },
+  "actual_native_record_comparator_replay": {
+    "private_receipt_sha256": "82ef899b631197c905eee86afb93f43442971a7fc5482722e52006fbc5dd5d2c",
+    "input_native_result_sha256": "fe6f62da47f725614508e7d51fefb0a000b83d32c1ea82a7ef095c48d760074e",
+    "passed": true,
+    "actual_healthy_controls_match": true,
+    "actual_unmatched_generated_model_rejected": true,
+    "full_ordered_tree_required": true,
+    "exact_semantic_identity_required": true
+  },
+  "preflight_recipe_correction": {
+    "prior_disabled_plan_sha256": "e2c3c731bf705ca0c69d7a18f4a625e2c17a2cbd4e80e863cafed4e7fe21b660",
+    "cause": "Right support U/V was transposed in provisional text placement; the existing principal-plane construction record gives U=-Z, V=+Y, N=+X",
+    "writer_or_D01_candidate_changed": false,
+    "corrected_before_any_native_or_heldout_execution": true,
+    "new_cross_product_guard": true
+  },
+  "unmet_gates": [
+    "root review and integration of private origin publication patch",
+    "committed exact writer source for controlled paired trial",
+    "native disclosed source/generated complete ordered tree and semantic identity equality",
+    "generated dimension edit, save and fresh reopen with full tree preservation and healthy brackets",
+    "new complete writer/translator/predictor/observer freeze before either private specification is exposed",
+    "both sealed held-out source/generated native evaluations"
+  ],
+  "passed": true,
+  "preparation_is_native_acceptance": false
+}
