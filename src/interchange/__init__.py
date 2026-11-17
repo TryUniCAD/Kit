@@ -90,6 +90,10 @@ from interchange.document.Models.DocumentError import DocumentError
 from interchange.document.Models.DocumentFilter import FilterDocument
 from interchange.document.Models.DocumentMetadata import AddWrapperMeta, GetSemanticMeta
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.document.Models.Drawing.DrawingData import DrawingData
+from interchange.document.Models.Drawing.DrawingModelRef import DrawingModelRef
+from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
+from interchange.document.Models.Drawing.DrawingView import DrawingView
 from interchange.document.Models.DocumentPayload import GetPayloadIds
 from interchange.Enums.EnumDocument import Capability, Severity
 from interchange.Enums.EnumFeatures import FeatureKind
@@ -332,6 +336,10 @@ __all__ = (
     "BrepWire",
     "CadDocument",
     "CadDocumentValidationError",
+    "DrawingData",
+    "DrawingModelRef",
+    "DrawingSheet",
+    "DrawingView",
     "CadSource",
     "Capability",
     "ChamferFeature",

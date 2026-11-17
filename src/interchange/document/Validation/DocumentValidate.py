@@ -8,6 +8,7 @@ from interchange.document.Models.DocumentIdentity import GetIdGroups
 from interchange.document.Models.DocumentModel import (  # lgtm[py/cyclic-import]
     CadDocument,
 )
+from interchange.document.Validation.CheckDocContent import CheckDocContent
 from interchange.Enums.EnumDocument import Capability
 
 
@@ -59,19 +60,7 @@ def GetDocErrors(DocumentValue: CadDocument) -> tuple[str, ...]:
             )
     if DocumentValue.assembly is not None:
         ErrorValues.extend(GetAssemblyErrs(DocumentValue, IdentitySets))
-    if not DocumentValue.configurations:
-        ErrorValues.append("document has no configuration")
-    if (
-        not DocumentValue.feature_timeline
-        and not DocumentValue.parameters
-        and DocumentValue.brep is None
-        and not DocumentValue.brep_payloads
-        and not DocumentValue.meshes
-        and DocumentValue.assembly is None
-    ):
-        ErrorValues.append(
-            "document has neither parameters, feature history, B-rep, mesh, nor assembly data"
-        )
+    ErrorValues.extend(CheckDocContent(DocumentValue))
     return tuple(ErrorValues)
 
 

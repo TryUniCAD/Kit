@@ -126,6 +126,8 @@ from convert.adapters.solidworks.Container.Format import (
     KEYWORDS_STREAM as KeywordsStream,
     KIT_DOCUMENT_STREAM as KitDocStream,
     KIT_RESOLVED_STREAM as KitResolvedStream,
+    KDrawingFormatId,
+    IsDrawingPath,
     MATES_STREAM_NAME as MatesStreamName,
     MATES_STREAM_SUFFIX as MatesStreamSuffix,
     PLANE_FEATURE_TYPES as PlaneFeatureTypes,
@@ -141,6 +143,8 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
+from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import HasDrawingClsid
+from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -264,6 +268,8 @@ def Probe(Instance: SldprtAdapter, Source: Source) -> ProbeResult:
     except (OSError, SldprtFormatError, TypeError, ValueError) as ErrorInfo:
         return ProbeResult(KFormatId, 0.0, str(ErrorInfo))
     Names = Archive.streams
+    if HasDrawingClsid(Archive):
+        return ProbeResult(KDrawingFormatId, 1.0, "native SOLIDWORKS drawing CLSID")
     if KeywordsStream in Names and any(
         (KResolvedConfigStream.fullmatch(NameValue) for NameValue in Names)
     ):
@@ -282,6 +288,10 @@ def ReadAction(
     Settings = Options or ReadOptions()
     DataValue, Label = SourceBytes(Source)
     Archive = SldprtArchive.from_bytes(DataValue, Label)
+    if HasDrawingClsid(Archive):
+        return ReadDrawing(Archive, DataValue, Label, Settings)
+    if IsDrawingPath(Label):
+        raise SldprtFormatError("SOLIDWORKS .SLDDRW source has no drawing Definition CLSID")
     Embedded = Archive.get(KitDocStream)
     if Embedded is not None:
         DocValue = EmbeddedDoc(Instance, Archive, DataValue, Label, Embedded, Settings)

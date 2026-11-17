@@ -9,6 +9,8 @@ from enum import Enum as EnumBase
 import json as JsonCodec
 from typing import cast as CastValue
 
+from interchange.serialization.OptionalFields import KOmitNullField
+from interchange.serialization.RecordType import DataRecord
 from interchange.serialization.Wire import GetWireField, GetWireType
 from interchange.serialization.WireData import KWireData
 
@@ -26,15 +28,22 @@ def OrderData(SourceValues: SetBase[object]) -> list[KWireData]:
     return sorted(EncodedValues, key=GetSortKey)
 
 
+# absent additive properties must leave earlier document encodings identical
+def EncodeRecord(SourceValue: DataRecord) -> dict[str, KWireData]:
+    ValueType = type(SourceValue)
+    ResultValue: dict[str, KWireData] = {"$type": GetWireType(ValueType)}
+    for FieldValue in GetFields(SourceValue):
+        MemberValue = CastValue(object, getattr(SourceValue, FieldValue.name))
+        if MemberValue is None and FieldValue.metadata.get(KOmitNullField):
+            continue
+        ResultValue[GetWireField(FieldValue.name, ValueType)] = ToData(MemberValue)
+    return ResultValue
+
+
 # recursive encoding preserves every supported container and model type losslessly
 def ToData(SourceValue: object) -> KWireData:
     if IsDataClass(SourceValue) and not isinstance(SourceValue, type):
-        ResultValue: dict[str, KWireData] = {"$type": GetWireType(type(SourceValue))}
-        for FieldValue in GetFields(SourceValue):
-            ResultValue[GetWireField(FieldValue.name, type(SourceValue))] = ToData(
-                CastValue(object, getattr(SourceValue, FieldValue.name))
-            )
-        return ResultValue
+        return EncodeRecord(SourceValue)
     if isinstance(SourceValue, EnumBase):
         return {
             "$enum": GetWireType(type(SourceValue)),
@@ -56,7 +65,7 @@ def ToData(SourceValue: object) -> KWireData:
         return [ToData(ItemValue) for ItemValue in ListValue]
     if isinstance(SourceValue, MappingBase):
         MapValue = CastValue(MappingBase[object, object], SourceValue)
-        ResultValue = {}
+        ResultValue: dict[str, KWireData] = {}
         for KeyValue, ItemValue in MapValue.items():
             if not isinstance(KeyValue, str):
                 raise TypeError("wire object keys must be strings")

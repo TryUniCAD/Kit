@@ -21,6 +21,7 @@ from interchange.Core.ModelBase import ModelBase, ModelDataMut
 from interchange.Core.ModelExtras import ModelExtras
 from interchange.document.Behavior.DocumentBehavior import DocumentApi
 from interchange.document.Models.DocumentRoot import DocumentRoot
+from interchange.document.Models.Drawing.DrawingData import DrawingData
 from interchange.Enums.EnumDocument import Capability
 from interchange.Enums.EnumUnits import UnitSystem
 from interchange.Features.FeatureBody import DesignBody
@@ -35,6 +36,7 @@ from interchange.Records.RecordConfig import Configuration
 from interchange.Records.RecordDiagnostic import Diagnostic
 from interchange.Records.RecordParameter import Parameter
 from interchange.Records.RecordSource import CadSource
+from interchange.serialization.OptionalFields import KOmitNullField
 
 
 # portable cad exchange needs one immutable root connecting every neutral model domain
@@ -60,6 +62,9 @@ class CadDocument(
     assembly: AssemblyData | None = None
     brep: BrepModel | None = None
     materials: tuple[MaterialRecord, ...] = ()
+    DrawingValue: DrawingData | None = MakeDataField(
+        default=None, metadata={KOmitNullField: True}
+    )
 
     # the assembly contract needs a shared interpretation so independent adapters agree on document semantics
     @property

@@ -19,6 +19,7 @@ from interchange.Core.Reflection import (
     GetDataFields,
     GetFieldMap,
 )
+from interchange.serialization.OptionalFields import KOmitNullField
 from interchange.serialization.Wire import GetModelField, GetSlotNames, GetWireField
 
 
@@ -141,8 +142,12 @@ def GetModelState(SelfValue: object) -> list[object]:
 # canonical slots need direct assignment when historical pickles restore positional state
 def SetModelState(SelfValue: object, StateValues: list[object]) -> None:
     ClassType = type(SelfValue)
-    for FieldName, FieldValue in zip(GetSlotNames(ClassType), StateValues):
+    SlotNames = GetSlotNames(ClassType)
+    for FieldName, FieldValue in zip(SlotNames, StateValues):
         object.__setattr__(SelfValue, FieldName, FieldValue)
+    for FieldName in SlotNames[len(StateValues) :]:
+        if GetStoredField(ClassType, FieldName).metadata.get(KOmitNullField):
+            object.__setattr__(SelfValue, FieldName, None)
 
 
 # historical repr keeps default bearing signatures and diagnostics source compatible
