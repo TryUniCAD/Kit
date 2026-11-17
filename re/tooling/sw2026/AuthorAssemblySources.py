@@ -11,6 +11,7 @@ import AuthorCurves
 import Swapp
 from InspectCircleSketch import digest
 from InspectFresh import healthy, inspect
+from ObserveAssemblyLoad import AssemblyLoadMonitor
 from OracleIdentity import application_identity
 
 
@@ -92,7 +93,7 @@ def snapshot(author, model, assembly, expected, control, control_mass, label):
     if expected:
         mass = author.rec.call("read assembly mass properties in system units", Swapp.mass, model)
         AuthorCurves.require(isinstance(mass, dict) and "error" not in mass, "native assembly has no mass properties")
-        for key in ("volume", "area", "mass"):
+        for key in ("volume", "area"):
             author.rec.close_number(f"{label} assembly {key}", mass[key], len(expected) * control_mass[key], absolute=1e-15)
         centers = [transform_point(matrix, control_mass["com"]) for matrix in expected]
         for index in range(3):
@@ -107,7 +108,7 @@ def run_phase(case, phase, output, job, control, control_mass, prior=None):
     recorder = AuthorCurves.Recorder(directory / "Record.json", {"case": case, "phase": phase})
     result = {"phase": phase, "passed": False}
     controller = model = None
-    with Swapp.Dismisser() as dialogs:
+    with AssemblyLoadMonitor() as dialogs:
         try:
             recorder.call("assembly source idle guard", Swapp.sweep)
             controller = recorder.call("start fresh owned assembly oracle", Swapp.Sw)

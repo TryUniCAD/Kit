@@ -1,0 +1,227 @@
+{
+  "source_revision": "1dc62d915e5fcace8e0e48d9f3c3bb99d4c04011",
+  "job_sha256": "bc30af6ff89a68272b2a5708498cddf467513f91289577be7e4055d7049d85d0",
+  "specs_sha256": "a0a2314be0e9d2d07d4df842d7447fac7ecdfb4eeae82a03e4f7c608521ac57d",
+  "tool_sha256": "2638826e5d7a8620337835c68a2c3ea6a9e463b3959fa0749d6e4432face17d5",
+  "private_inspection_sha256": "672600ceec614606c0af8571b42b169783c1141f8e8dce54a23b068484eb2405",
+  "controls_healthy": true,
+  "control_immutable": true,
+  "distinct_processes": 8,
+  "started_at": 1794876000.386467,
+  "finished_at": 1794876212.1006265,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "schema": "kit.sw2026.ordinary-assembly-source-attempt.v1",
+  "passed": false,
+  "eligible_for_heldout": false,
+  "source_lock_sha256": "7a4fbe94cc0b8602f090d140f3912dc8800d29f3a90c620c7a80ee8a7794b499",
+  "tool_manifest_sha256": "569b1202559c149ce6965c954c3ea4a5b3e76464b60d600f807db60c14b06d33",
+  "host_receipt_sha256": "34717e68e2305f95fa49d932a3b61ac4542739e2e73e1ac2a266e76b1d944af9",
+  "source_phase_count": 6,
+  "cases": [
+    {
+      "name": "A02EmptyAssembly",
+      "split": "discovery",
+      "passed": false,
+      "phases": 2,
+      "numeric_checks": 0,
+      "record_sha256": [
+        "6c59677c667b037fc8318b35609c116ad4e213db89dd93be6ee2be2c7b6647ba",
+        "b046f0766c7cf5f3830a2fec1543b3dab8e96dc3a48f82d119b4fb72f04305fe"
+      ],
+      "native_sha256": "fae4d12fd15cd106f79187878b0941e93d49600867d20fea8948bb3a8fb4cde0",
+      "native_bytes": 25443
+    },
+    {
+      "name": "A03SingleAssembly",
+      "split": "discovery",
+      "passed": false,
+      "phases": 1,
+      "numeric_checks": 19,
+      "record_sha256": [
+        "579f79f496257540b5b1da2eef71a5d943db2272924ca72650332dd6c33f04de"
+      ],
+      "native_sha256": null,
+      "native_bytes": null
+    },
+    {
+      "name": "A04RepeatedAssembly",
+      "split": "discovery",
+      "passed": false,
+      "phases": 1,
+      "numeric_checks": 35,
+      "record_sha256": [
+        "9350cd8d9c20b340236d35164faff0ee8c5aff59ac062bb72eb38f87a22376d4"
+      ],
+      "native_sha256": null,
+      "native_bytes": null
+    },
+    {
+      "name": "A05HeldoutThree",
+      "split": "heldout",
+      "passed": false,
+      "phases": 1,
+      "numeric_checks": 51,
+      "record_sha256": [
+        "521c167405b9bbc84a343882ea38d97ffde383a68cb6f505acc11c6daf06baf7"
+      ],
+      "native_sha256": null,
+      "native_bytes": null
+    },
+    {
+      "name": "A06HeldoutFour",
+      "split": "heldout",
+      "passed": false,
+      "phases": 1,
+      "numeric_checks": 67,
+      "record_sha256": [
+        "ae00f9b2870b036add1e7f21c7395d164bf04221b2dc1a3ed431c08be5cf7c38"
+      ],
+      "native_sha256": null,
+      "native_bytes": null
+    }
+  ],
+  "heldout_native_payloads_read": false,
+  "heldout_detailed_observations_used": false,
+  "postflight_no_cad_process": true,
+  "license_process_ids_unchanged": true,
+  "preflight": {
+    "at_utc": "2026-11-17T00:39:29.809072+00:00",
+    "returncode": 0,
+    "stdout_sha256": "79b4dd9abd012642f8ea66dadd69f28815802c7a17cf88f7dc638c7b39d99fc4",
+    "stdout_bytes": 7184,
+    "row_count": 146,
+    "processes": [
+      {
+        "image": "lmgrd.exe",
+        "pid": 1604
+      },
+      {
+        "image": "lmgrd.exe",
+        "pid": 7936
+      },
+      {
+        "image": "sw_d.exe",
+        "pid": 3088
+      }
+    ],
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "postflight": {
+    "at_utc": "2026-11-17T00:44:19.256906+00:00",
+    "returncode": 0,
+    "stdout_sha256": "a9882ad6b0ea5b250ab70ef22ac5b0349419daa40f42f1c1a8671a97a340057a",
+    "stdout_bytes": 7733,
+    "row_count": 157,
+    "processes": [
+      {
+        "image": "lmgrd.exe",
+        "pid": 1604
+      },
+      {
+        "image": "lmgrd.exe",
+        "pid": 7936
+      },
+      {
+        "image": "sw_d.exe",
+        "pid": 3088
+      }
+    ],
+    "licensing_unchanged": true
+  },
+  "discovery_diagnostics": [
+    {
+      "name": "A02EmptyAssembly",
+      "phases": [
+        {
+          "phase": "author",
+          "passed": true,
+          "first_failure": null,
+          "open_errors": null,
+          "open_warnings": null,
+          "dialogs": [],
+          "controller_diagnostics": [],
+          "failing_numeric_checks": []
+        },
+        {
+          "phase": "fresh-reopen",
+          "passed": false,
+          "first_failure": null,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "dialogs": [
+            {
+              "dialog": "",
+              "text": [
+                "Open\nComponents",
+                "Update\nAssembly",
+                "Update\nGraphics",
+                " "
+              ],
+              "button": "Close",
+              "message_completed": true,
+              "message_result": 0
+            }
+          ],
+          "controller_diagnostics": [],
+          "failing_numeric_checks": []
+        }
+      ]
+    },
+    {
+      "name": "A03SingleAssembly",
+      "phases": [
+        {
+          "phase": "author",
+          "passed": false,
+          "first_failure": {
+            "stage": "read assembly mass properties in system units",
+            "type": "EvidenceFailure",
+            "error": "EvidenceFailure('initial assembly mass: 0.008000000000000002 differs from 8.000000000000001e-06')",
+            "pending_capability": false
+          },
+          "open_errors": null,
+          "open_warnings": null,
+          "dialogs": [],
+          "controller_diagnostics": [],
+          "failing_numeric_checks": [
+            {
+              "name": "initial assembly mass",
+              "actual": 0.008000000000000002,
+              "expected": 8.000000000000001e-06,
+              "passed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A04RepeatedAssembly",
+      "phases": [
+        {
+          "phase": "author",
+          "passed": false,
+          "first_failure": {
+            "stage": "read assembly mass properties in system units",
+            "type": "EvidenceFailure",
+            "error": "EvidenceFailure('initial assembly mass: 0.016000000000000004 differs from 1.6000000000000003e-05')",
+            "pending_capability": false
+          },
+          "open_errors": null,
+          "open_warnings": null,
+          "dialogs": [],
+          "controller_diagnostics": [],
+          "failing_numeric_checks": [
+            {
+              "name": "initial assembly mass",
+              "actual": 0.016000000000000004,
+              "expected": 1.6000000000000003e-05,
+              "passed": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
