@@ -4,7 +4,7 @@ from tests.Convert.Solidworks.Research.FreshPartInput import MakePartInput
 
 
 # identical authored dimensions keep the cold scope experiment independent of geometry changes
-def MakeBlindCutInput(ScopeValue: str) -> dict[str, object]:
+def MakePocketInput(ScopeValue: str) -> dict[str, object]:
     Request = MakePartInput(
         [[-0.0319, -0.0241], [0.0267, -0.0241], [0.0267, 0.0193], [-0.0319, 0.0193]],
         0.0157,

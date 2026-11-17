@@ -3,7 +3,7 @@ from __future__ import annotations
 from math import isclose as IsClose
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Research.Cut.BlindCutInput import MakeBlindCutInput
+from tests.Convert.Solidworks.Research.Cut.BlindCutInput import MakePocketInput
 from tests.Convert.Solidworks.Research.FreshPartRunner import RunFreshPart
 from tests.Convert.Solidworks.Research.PartArtifacts import SavePartOutput
 
@@ -72,19 +72,19 @@ def AssertScopePair(
 
 
 # process isolation and linked stream round trips catch donor reads and hidden map ownership changes
-def TestBlindCutDiscovery() -> None:
+def TestBlindPocket() -> None:
     Original = None
     for ArtifactName, ScopeValue, ScopeWord in (
         ("BlindPocketAllBodies", "all_bodies", 0),
         ("BlindPocketEmptyFeatureScope", "empty_feature_scope", 1),
     ):
-        Request = MakeBlindCutInput(ScopeValue)
+        Request = MakePocketInput(ScopeValue)
         Report = RunFreshPart(Request)
         AssertPocket(Report, ScopeWord)
         Streams = CastValue(dict[str, dict[str, object]], Report["streams"])
         assert len(Streams) == 8
         assert all(
-            Row["passed"] and Row["tail"] == 0 for Row in Streams.values()
+            StreamRow["passed"] and StreamRow["tail"] == 0 for StreamRow in Streams.values()
         ), Streams
         Linked = Streams["Contents/Config-0-ResolvedFeatures"]
         assert Linked["seeded_map_count"] == Linked["map_base"] == Report["map_count"]
