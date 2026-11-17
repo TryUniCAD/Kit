@@ -25,4 +25,12 @@ Each trial edits one driving dimension by its native parameter name. The width t
 
 The runner records exact recursive native feature trees, occurrence counts and names, rigid placements, configuration names, driving values, solid body counts, volume, surface area, centre of mass and mass for every measured scene. Width and height edits can translate the unconstrained profile in its plane. The analytical centroid checks the depth coordinate, while native comparisons check all three coordinates. The native assembly mass and isolated part mass APIs have different effective defaults, so assembly mass is compared to the corresponding source assembly. [Mass scope](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/AssemblyMassCanDifferFromPartMass.md).
 
-`Inspection/Inspection.json` records both document controls, the tool hashes, independent process births and comparisons before edit, after edit and after synchronized save and fresh reopen. The fully executed deck uses 26 process births. Individual `EditRun.json` and `SavedReopen.json` receipts retain stage and COM error details. Native outcomes are pending. The A15 and A16 held-outs remain sealed.
+`Inspection/Inspection.json` records both document controls, the tool hashes, independent process births and comparisons before edit, after edit and after synchronized save and fresh reopen. Individual `EditRun.json` and `SavedReopen.json` receipts retain stage and COM error details.
+
+The [native measurement](../measurements/2026/GeneratedDimensionedAssembliesNative04.json)
+passed six independent single-dimension trials across 26 fresh processes. Each generated
+trial matched the corresponding measured native assembly and child before its edit, after
+the edit, at synchronized save and on fresh reopen. The single- and repeated-occurrence
+parents preserved 23 and 24 recursive nodes respectively. All child trees preserved 25
+nodes. The geometry, transforms and all three driving values matched. The staged sources
+remained immutable. Both controls passed and A15/A16 remain sealed.

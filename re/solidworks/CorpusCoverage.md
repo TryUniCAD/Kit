@@ -213,6 +213,12 @@ analytical results and independently authored native reference parts. Both contr
 22 processes. The generated and reference trees have 20 and 19 nodes respectively, and the synchronized
 assembly held-outs remain sealed. The production coverage counts are unchanged.
 
+The [dimensioned assembly trials](measurements/2026/GeneratedDimensionedAssembliesNative04.json)
+verified independent width, height and depth edits in generated single- and repeated-occurrence
+bundles. All six trials matched their independent native geometry and exact recursive part and
+assembly trees through clean native open, rebuild, synchronized save and fresh reopen.
+Both controls passed in a 26-process batch. The two assembly held-outs remain sealed.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11
