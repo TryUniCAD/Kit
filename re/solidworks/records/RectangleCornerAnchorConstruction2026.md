@@ -29,4 +29,4 @@ Two isolated guarded builds used the same frozen 4,590-file closure and produced
 
 The [disclosed native observer](../../tooling/sw2026/InspectGeneratedRectangleAnchor.py) compared the generated model to its independently authored source. The original and both independently edited siblings retained constraint state 3, all seven native relations, the same ordered 25-row feature tree, three driving dimensions and one solid. The source and candidate agreed in 165 numeric checks covering model geometry, volume, area, mass and centroid. Both edited files saved cleanly and retained their relation bindings and geometry in a fresh process. Both pristine controls passed across six distinct oracle processes. [Native receipt](../measurements/2026/GeneratedRectangleAnchorNative01.json)
 
-This disclosed result qualifies the fresh constructor and solver state for this one corner model. Centered construction and the two pre-writer held-outs remain open.
+The dedicated [original corner held-out](RectangleCornerHeldoutProtocol2026.md) also passes on the first generated candidate. The centered source has its own independent lock and qualification scope.

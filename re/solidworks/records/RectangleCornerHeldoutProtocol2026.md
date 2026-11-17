@@ -11,3 +11,11 @@ Task `B04-SW2026-RECTANCHOR`, owned by the PR #121 takeover agent. The first eva
 The tracked [guarded builder process](../../tooling/sw2026/RectangleAnchorPartProcess.py) uses the actual Config map for the resolved archive. The initial audit tried accessing a profile's construction-only owner directly after decode and failed. The corrected audit binds the actual support component and both mapped sketch point handles. Its construction output for the original disclosed request matches the earlier guarded archive byte for byte.
 
 The [method receipt](../measurements/2026/RectangleCornerHeldoutMethod01.json) binds the unchanged native observer and the frozen tool code. A new receipt using the disclosed dimensions passed the canonical recipe mapping and eight linked round trips. The method rejects a stale plan and generation before the selected recipe is released. These checks use no hidden inputs and make no native held-out claim.
+
+## Original corner result
+
+The first original candidate passes. The writer and method commit `4dd87c334fe53bc37230bd13bf0795ce8e2589e2` was verified against every frozen source path before releasing the original recipe. Two fresh guarded runs produced the same file and the generation receipt was frozen before the three original native files and their observations were verified.
+
+All six native processes and both pristine controls pass. The generated original and independent width and height edit states have all 25 native feature rows, a fully constrained sketch with seven relations, three driving dimensions and one solid. Both edits match the locked source metrics across 165 numeric checks. Both saves return `[true,0,0]` and both edited files match the original locked edited states on fresh reopen. The source and generated files remain immutable.
+
+This qualifies the original Front Plane corner and blind-boss profile in the research generator. The centered source stayed sealed to the writer and operator. The public writer and other profiles remain open. [Original native receipt](../measurements/2026/RectangleCornerHeldoutNative01.json)

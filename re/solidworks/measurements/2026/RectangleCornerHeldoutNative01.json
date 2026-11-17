@@ -1,0 +1,206 @@
+{
+  "schema": "kit.sw2026.original-corner-anchor-native-receipt.v1",
+  "slot": "H01",
+  "family": "corner",
+  "writer_method_commit": "4dd87c334fe53bc37230bd13bf0795ce8e2589e2",
+  "writer_source_manifest_sha256": "042a7857d6e271281c752d78d4c4876f776979ecf331fa8b62533d24fc6d3966",
+  "method_sha256": "22db4dcc713dd95920c5a3fe0803e037086d313fc434fc66d035f18bbef1582f",
+  "source_lock_sha256": "7770ae975152aae0a6f211b5ab262541aeb15bea2861f96da9b80cd9cd432e7b",
+  "selected_recipe_sha256": "b056328759640cfbdd06fec0d9cdd4e0fe540b25f5f8e8a5be8ada69d3e3f181",
+  "original_native_record_sha256": "3528a17ca50c7c8abe86cb426bdda9eb6f898153984abd97888dd9edc59e96d8",
+  "native_source_artifact_manifest_sha256": "6e5f9db7cd6256894f9f66996ffdfabf141e727481117f454adba33b450f9387",
+  "generation_freeze_sha256": "6dce1679c8abe8134d569bf3396536a0fe3068fbd33728eb35391d751f915295",
+  "guarded_construction_sha256": "8e199e9817b179f7b88794d7eeed5aa812dabb53af7fd65e0c141046f2efd245",
+  "guarded_builds": 2,
+  "runtime_input_reads": 0,
+  "native_generated_sha256": "043dfd08be6cc8ffa9a4297ec68b40533c72b8ce61fae874754cf72b7ca57c79",
+  "native_generated_bytes": 8289,
+  "native_packet_sha256": "f7a91b878990c337301bf46b7ed0ae1d0d44cc23786419403710cf6a92139c67",
+  "guest_result_sha256": "b22897f5c54b8a702b31c5f7ede3808ca944a634489f710b8c8d834823a17465",
+  "host_transport_sha256": "43e5633b85668e345bb84ac872199f01fb82471395da0d1e7381da28c4d96905",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "phases": [
+    {
+      "phase": "ControlBefore",
+      "sha256": "fb259b768e828de30143eaf555389140da1541c2abc339e188c2481b63b68853",
+      "process_creation_filetime": 134394251372079792,
+      "numeric_comparisons": 0,
+      "passed": true
+    },
+    {
+      "phase": "Original",
+      "sha256": "e1675798dae1f72c84efae01ed83fae81ab101c257c51d2e72044df96f555170",
+      "process_creation_filetime": 134394251614544850,
+      "numeric_comparisons": 33,
+      "passed": true
+    },
+    {
+      "phase": "WidthEdit",
+      "sha256": "a0fb4d4cd24bbd4087d8e54b0094bf6f2c4ba6bd8eccebfb2f9b05edea769057",
+      "process_creation_filetime": 134394251863979753,
+      "numeric_comparisons": 33,
+      "passed": true,
+      "save": {
+        "sha256": "5ef1aa5a589e155251030f8b37d206a542a8c8053bf1c275cf0f7161f357f275",
+        "bytes": 59699,
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "phase": "HeightEdit",
+      "sha256": "49c81752932f1c03cae96a3161f380aaa7e55f16aebe475d4693b2bf3a15437d",
+      "process_creation_filetime": 134394252115507858,
+      "numeric_comparisons": 33,
+      "passed": true,
+      "save": {
+        "sha256": "97bd7b5b05ce6e7379bb06aaf649f83243071cbf4042837ec3065e4b19925b01",
+        "bytes": 56257,
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "phase": "Reopen",
+      "sha256": "0ac8a411fc7e39e804207157bcb774e515282d26043ebe2627f4580b878833c5",
+      "process_creation_filetime": 134394252368134880,
+      "numeric_comparisons": 66,
+      "passed": true
+    },
+    {
+      "phase": "ControlAfter",
+      "sha256": "562390fef9a06b4c7cb1daf22b6d13e510e034347b1b9ffba344926f3d652ac2",
+      "process_creation_filetime": 134394252747993020,
+      "numeric_comparisons": 0,
+      "passed": true
+    }
+  ],
+  "states": [
+    {
+      "phase": "Original",
+      "role": "Original",
+      "tree_rows": 25,
+      "relation_count": 7,
+      "fully_constrained": true,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.071835,
+        "D2@AnchorSketch": 0.014808,
+        "D1@AnchorBoss": 0.006909
+      },
+      "mass_properties": {
+        "volume": 7.34932908612e-06,
+        "area": 0.003324698334,
+        "com": [
+          0.0359175,
+          0.007404,
+          0.0034545
+        ],
+        "mass": 7.34932908612e-06
+      }
+    },
+    {
+      "phase": "WidthEdit",
+      "role": "WidthEdit",
+      "tree_rows": 25,
+      "relation_count": 7,
+      "fully_constrained": true,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.035756,
+        "D2@AnchorSketch": 0.014808,
+        "D1@AnchorBoss": 0.006909
+      },
+      "mass_properties": {
+        "volume": 3.6581417248320006e-06,
+        "area": 0.001757643048,
+        "com": [
+          0.017878,
+          0.007404,
+          0.0034545
+        ],
+        "mass": 3.6581417248320006e-06
+      }
+    },
+    {
+      "phase": "HeightEdit",
+      "role": "HeightEdit",
+      "tree_rows": 25,
+      "relation_count": 7,
+      "fully_constrained": true,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.071835,
+        "D2@AnchorSketch": 0.037739,
+        "D1@AnchorBoss": 0.006909
+      },
+      "mass_properties": {
+        "volume": 1.8730168178084996e-05,
+        "area": 0.006936055661999999,
+        "com": [
+          0.0359175,
+          0.018869499999999997,
+          0.0034545
+        ],
+        "mass": 1.8730168178084996e-05
+      }
+    },
+    {
+      "phase": "Reopen",
+      "role": "WidthEdit",
+      "tree_rows": 25,
+      "relation_count": 7,
+      "fully_constrained": true,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.035756,
+        "D2@AnchorSketch": 0.014808,
+        "D1@AnchorBoss": 0.006909
+      },
+      "mass_properties": {
+        "volume": 3.6581417248320006e-06,
+        "area": 0.001757643048,
+        "com": [
+          0.017878,
+          0.007404,
+          0.0034545
+        ],
+        "mass": 3.6581417248320006e-06
+      }
+    },
+    {
+      "phase": "Reopen",
+      "role": "HeightEdit",
+      "tree_rows": 25,
+      "relation_count": 7,
+      "fully_constrained": true,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.071835,
+        "D2@AnchorSketch": 0.037739,
+        "D1@AnchorBoss": 0.006909
+      },
+      "mass_properties": {
+        "volume": 1.8730168178085e-05,
+        "area": 0.006936055661999999,
+        "com": [
+          0.035917500000000005,
+          0.0188695,
+          0.0034545
+        ],
+        "mass": 1.8730168178085e-05
+      }
+    }
+  ],
+  "numeric_comparisons": 165,
+  "distinct_processes": 6,
+  "controls_healthy": true,
+  "first_original_candidate_passed": true,
+  "inputs_immutable": true,
+  "native_observations_attached_after_generation_freeze": true,
+  "centered_heldout_opened": false,
+  "heldout_profile_passed": true,
+  "public_writer_qualified": false
+}
