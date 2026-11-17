@@ -7,3 +7,9 @@ The frozen [preparer](../../tooling/sw2026/PrepareRectangleAnchorHeldout.py) fol
 The native result requires the complete ordered feature tree, both construction diagonals, the fully constrained centered profile, three driving dimensions, both independent edits and measured solid geometry. The two edited saves must pass clean fresh reopens. Both pristine controls and each phase's exact oracle identity are required. Native failure, warning, timing or scope rejection stays in the first result.
 
 The [preparation receipt](../measurements/2026/RectangleCenterHeldoutMethod01.json) binds the frozen method, disclosed replay and observer. The host reproduces the disclosed center geometry and rejects generation without a selected recipe. Eight linked stream comparisons pass with three coincidence bindings. The rehearsal reads no held-out input and starts no native process.
+
+## Original centered result
+
+The first generated `H02` candidate passed. Each of the 4,008 frozen source files matched the committed writer and method `b7b5f9ed6e6536984af53a056f4d95e879b710ba` before the recipe was released. Two guarded builds produced identical files with zero runtime reads. The three original native files and the locked native observations were verified after the generated evidence freeze.
+
+All six native processes and both pristine controls passed. The original, both independent driving edits and both fresh reopens keep the 25-row ordered feature tree, nine relations, two actual construction diagonals, full constraint state and one solid. All 205 numeric comparisons matched. Both saves succeeded with zero errors or warnings. The locked inputs remained immutable. [Original native receipt](../measurements/2026/RectangleCenterHeldoutNative01.json)

@@ -22,4 +22,4 @@ Two fresh processes emitted the same 8,440 bytes with three type-9 relations, a 
 
 The generated model retains the same 25 feature rows, six visible edges, two construction diagonals and nine relations in its original, independent width edit, independent height edit and both fresh reopen states. All 205 numeric comparisons pass. Both clean saves retain six wire line entries and the actual origin link. Fourteen saved-stream round trips pass byte for byte. Both pristine controls pass across six distinct processes.
 
-The first original centered held-out remains sealed. The evidence covers one disclosed case and its independent edits. [Native construction receipt](../measurements/2026/GeneratedCenteredRectangleNative01.json)
+The independently locked [centered held-out](RectangleCenterHeldoutProtocol2026.md) passes on its first generated candidate with both diagonals and all 205 numeric checks. The [native construction receipt](../measurements/2026/GeneratedCenteredRectangleNative01.json) retains the earlier disclosed evidence.

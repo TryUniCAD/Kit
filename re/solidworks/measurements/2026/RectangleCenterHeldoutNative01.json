@@ -1,0 +1,136 @@
+{
+  "schema": "kit.sw2026.original-center-anchor-native-receipt.v1",
+  "slot": "H02",
+  "family": "center",
+  "writer_method_commit": "b7b5f9ed6e6536984af53a056f4d95e879b710ba",
+  "writer_source_manifest_sha256": "12fd2c92c787c9bff1e7a94c245dc6d67f23651575057b5802b38d098ec4da45",
+  "method_sha256": "6b72042cdd541a5e9e673ce94c8971f3c794121f0482e33f1a24eff3779c30c9",
+  "source_lock_sha256": "7770ae975152aae0a6f211b5ab262541aeb15bea2861f96da9b80cd9cd432e7b",
+  "selected_recipe_sha256": "187455b9790a24002917458aad6bfe4c21985c3f05438eb8f001563ab5099260",
+  "original_artifact_manifest_sha256": "f52f136349d3a5248fce3817c4696620651b2c3598462c9ed6a2b1abeaa53ca8",
+  "original_reopen_record_sha256": "294905a4c48b4a0e91f98ddb15e2a54b6ca0331e106269fe0f55d1ba578ea31b",
+  "generation_freeze_sha256": "9dd116c968679274311c3d75e9c4618278110d6e7b25a79aa70f193807a45305",
+  "native_generated_sha256": "fc6a097986900d6055c304a3ea37eba4d6d658651638c5561274a9a5a1bfac2a",
+  "native_generated_bytes": 8414,
+  "guarded_builds": 2,
+  "runtime_input_reads": 0,
+  "source_payloads_opened_after_generation_freeze": true,
+  "native_packet_sha256": "b93f5c11427890f1a2b6a6d1bbe7d21bf85828a1c336cbdbfbefd440b29dcc67",
+  "native_result_sha256": "a146054c8817e0c7b0c7b04b5a1fa3a39284fa12a4ed8f76fe9afb63b93e5e25",
+  "host_transport_sha256": "6ac8506034d4ec3d26f38166cd3c5e57eb073abb828daa0617a90b507144d374",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "phases": [
+    {
+      "role": "ControlBefore",
+      "record_sha256": "5b982ea34f43cf1e9d2717e89b8903f00099f301a66501a219a1b129b9077361",
+      "creation_filetime": 134394276316410042,
+      "numeric_checks": 0,
+      "states": []
+    },
+    {
+      "role": "Original",
+      "record_sha256": "efcd5805238e6fb0b6aae2237b4d5836d2bbeb6f8ae4cd66a88dbcd2fb14cf78",
+      "creation_filetime": 134394276582414497,
+      "numeric_checks": 41,
+      "states": [
+        {
+          "role": "Original",
+          "tree_rows": 25,
+          "relations": 9,
+          "construction_lines": 2,
+          "constraint_status": 3,
+          "solid_bodies": 1
+        }
+      ]
+    },
+    {
+      "role": "WidthEdit",
+      "record_sha256": "1a80cc92a336523a2d5d89a08d61369cbb76a769241a2e14479d96cc70406024",
+      "creation_filetime": 134394276893650415,
+      "numeric_checks": 41,
+      "states": [
+        {
+          "role": "WidthEdit",
+          "tree_rows": 25,
+          "relations": 9,
+          "construction_lines": 2,
+          "constraint_status": 3,
+          "solid_bodies": 1
+        }
+      ],
+      "save": {
+        "sha256": "c0a450f9dc3e6a1602dc9b28954adb2a36a413154fa0548391ef438da267ee63",
+        "bytes": 56001,
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "role": "HeightEdit",
+      "record_sha256": "8d0aea4716b8ca1fe249fc0b7a435c04123fc48e246131ce3f350650227695b9",
+      "creation_filetime": 134394277226068933,
+      "numeric_checks": 41,
+      "states": [
+        {
+          "role": "HeightEdit",
+          "tree_rows": 25,
+          "relations": 9,
+          "construction_lines": 2,
+          "constraint_status": 3,
+          "solid_bodies": 1
+        }
+      ],
+      "save": {
+        "sha256": "64aee4808a855a7ba9d2897dd5804970fe804e512b3a7335e320a0ee1aa3c935",
+        "bytes": 55122,
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "role": "Reopen",
+      "record_sha256": "a90ca4686dd1df541086b4f096ebc091fabda6cddef02fe8d70765fc42aa6edf",
+      "creation_filetime": 134394277572787277,
+      "numeric_checks": 82,
+      "states": [
+        {
+          "role": "WidthEdit",
+          "tree_rows": 25,
+          "relations": 9,
+          "construction_lines": 2,
+          "constraint_status": 3,
+          "solid_bodies": 1
+        },
+        {
+          "role": "HeightEdit",
+          "tree_rows": 25,
+          "relations": 9,
+          "construction_lines": 2,
+          "constraint_status": 3,
+          "solid_bodies": 1
+        }
+      ]
+    },
+    {
+      "role": "ControlAfter",
+      "record_sha256": "1e6496ae99f5b7d845038dcd0d24d78ebeee7a65b3388179a97636c2d7e75dd1",
+      "creation_filetime": 134394278023775412,
+      "numeric_checks": 0,
+      "states": []
+    }
+  ],
+  "numeric_comparisons": 205,
+  "controls_healthy": true,
+  "distinct_processes": 6,
+  "immutable_inputs": true,
+  "first_original_candidate_passed": true,
+  "heldout_profile_passed": true,
+  "public_writer_qualified": false
+}
