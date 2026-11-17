@@ -58,24 +58,27 @@ B14 can qualify earlier subsets while B06–B09 continue.
 B03's parent is not complete merely because its deterministic scheduler has process evidence.
 B04's parent is not complete merely because controlled constructor probes exist.
 
-### B04-SW2026: independent SOLIDWORKS writer
+### B04-SW2026: SOLIDWORKS 2026 native reading and writing
 
 Owner: the PR #121 takeover agent, delivering through [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
-Status: active implementation, with no production writer enabled.
-Scope: the generative 2026 archive model, native feature construction, controlled measurements, and subsequent part/assembly qualification.
+Status: active implementation. The production adapter remains read-only.
+Scope: native reading and generative writing for SLDPRT, SLDASM and SLDDRW in PR #121, with an adjacent-release qualification procedure.
 Dependencies: independently proven field rules, complete semantic construction, held-out native acceptance, and the applicable B03 evidence.
 The broader B04 programme remains blocked on its own dependencies.
 
 The [shared archive implementation](../Changes/Solidworks/Model/SolidworksArchiveObjectModel.md)
 adds memory-only counts, typed strings, tags, object identities, counters, and configuration-map handoffs.
-Source `0b6e657648a08845ed19939dfe588b2e1c851248` passed all current PR CI, including the object/map integration and separate-process string checks.
-Its [recorded source compatibility](../../re/solidworks/measurements/2026/StringArchiveProcesses0b6e657.json) does not qualify a production writer or native generated output.
-The configured automated review failed to finish and has no current-head approval.
-The [coverage register](../../re/solidworks/CorpusCoverage.md) retains the generated-output limits.
-Circle presentation, complete field classification, broad feature coverage, and native assembly output remain unfinished.
+Source `0b6e657648a08845ed19939dfe588b2e1c851248` passed its PR CI, including the object/map integration and separate-process string checks.
+The [native held-out part trials](../../re/solidworks/measurements/2026/GeneratedRevolveHeldout06.json) qualify ordinary single boss revolves in the research generator.
+The [native held-out assembly trials](../../re/solidworks/measurements/2026/GeneratedDimensionedAssembliesHeldout05.json) qualify three and four placements of one rectangular child with no mates.
+The [drawing inspection receipt](../../re/solidworks/measurements/2026/DrawingSdkViewRead01.json) covers opt-in inspection of an ordinary sheet and its external part view.
+Complete field classification, broad part and assembly semantics and generated drawing acceptance remain unfinished.
+Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
+Configured review is deferred until the full scope and pre-review acceptance evidence are complete.
 
-Exit condition: the writer derives complete native output from neutral semantics and passes all CAD criteria on held-out inputs.
-The 165-part/five-assembly generated conversion audit, editable native round trips, fail-closed adapter, and current-revision delivery gates must also pass.
+Exit condition: the reader and writer preserve complete native part, assembly and drawing semantics on held-out inputs under all CAD criteria.
+The writer derives every emitted byte from neutral inputs or format rules.
+The 165-part and five-assembly generated audit, editable native round trips, fail-closed adapter and current-revision delivery gates must pass.
 Protocol byte identity, an open PR, source training measurements, and green static checks do not complete this child.
 
 ## Important gap boundaries
@@ -108,12 +111,12 @@ They still belong to the broader A16 expansion scope and require explicit child 
 
 ### Drawings and assemblies
 
-SOLIDWORKS dimension decoding is already covered by PR #149.
-Its description explicitly excludes dimension rewriting.
+PR #149 merged its bounded SOLIDWORKS drawing dimension decoder.
+It exposes decoded angle parameters through the opt-in drawing reader. Drawing dimension rewriting remains in scope for B04-SW2026.
 Fusion's [drawing acceptance record](../Reference/Operations/FusionDrawingAcceptance.md)
 records authored-drawing loadability and other acceptance gaps.
 PR #151's local design export is a separate persistence experiment, not complete drawing or cross-format acceptance.
-PR #121's public assembly research also remains separate from production assembly conversion qualification.
+PR #121 covers the 2026 part, assembly and drawing routes described under B04-SW2026.
 
 ## Existing PR inventory
 

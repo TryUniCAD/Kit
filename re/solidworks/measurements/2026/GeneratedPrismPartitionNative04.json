@@ -1,0 +1,383 @@
+{
+  "schema": "kit.sw2026.generated-prism-partition-open-native.v1",
+  "scope": "Normal opens and in-memory rebuilds of one generated rectangular child, standalone and through its original assembly path.",
+  "source_revision": "068a45538d384950282dcc7edbada4d473e668f2",
+  "helper_revision": "cade27adc947bf4ee8c615465798993eec111043",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "job_sha256": "f2a8d9415a7d8fc03a8e9a602b77223b6be3babbb9f00129a3a27eef1a3d0a49",
+  "source_manifest_sha256": "7ffb5ca85ebe10aa2291e23c66f18c1c35ccc03bcdeb92b85b63fdb1ebe93883",
+  "private_inspection_sha256": "6ce9f209a3d050cc912fb809579072752e4ea278d8f0e7c1d6956c5f96723eb9",
+  "private_transport_sha256": "6b337d81eb145c7796a5accbd6a0447500d128f6b7e4302a8a0c0fd298a3e559",
+  "prior_native_job_sha256": "587edf6dadbf043149fccdb588b94bdaaf4287b8881e3bf258637257352516e8",
+  "tool_hashes": {
+    "InspectPartitionOpen.py": "4bdbb913f1cba294ee50cb029eb6769b2a9566f3a7ef38d0efb89406a97723c6",
+    "AuthorAssemblySources.py": "bcda45dd745e75f5cff9ae4706f5b4767c0d03d3ff2d9699f4832c487c6dea58",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "ProbeAssemblyRebuild.py": "3a7ac17866bb771bd5daa16fe5133652f639c0d402fb6ede58d3411733349cd4",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "input_variants": {
+    "WithoutPartition": {
+      "L1Single.SLDASM": "75a62061ffee94dce7aa32607ee7aa39d73e1fcb044777d7317964bcc2daec7e",
+      "PartitionProbeChild.SLDPRT": "2f9a7bc4ac421f5d18a60bd7c9fc38c9a73453173a5624ad7dadb1778120a331"
+    },
+    "WithPartition": {
+      "L1Single.SLDASM": "75a62061ffee94dce7aa32607ee7aa39d73e1fcb044777d7317964bcc2daec7e",
+      "PartitionProbeChild.SLDPRT": "024faf5e879743a6ad002a1bc4b9d748647b5d0044446a69c9c56f102ed5dd7e"
+    }
+  },
+  "transport": {
+    "status": "transport_exited",
+    "transport_returncode": 0,
+    "supervisor_exit_code": 0,
+    "transport_exit_confirmed": true,
+    "current_user": true,
+    "guest_state_unknown": true,
+    "automatic_guest_kill": false,
+    "automatic_retry": false,
+    "automatic_vm_reset": false
+  },
+  "distinct_processes": 6,
+  "both_controls_healthy": true,
+  "inputs_immutable": true,
+  "document_save_calls": 0,
+  "diagnostic_completed": true,
+  "controls": [
+    {
+      "phase": "before",
+      "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "healthy": true,
+      "open_status": [
+        true,
+        0,
+        0
+      ],
+      "rebuild_return": true,
+      "body_count": 1,
+      "mass_properties_si": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      }
+    },
+    {
+      "phase": "after",
+      "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "healthy": true,
+      "open_status": [
+        true,
+        0,
+        0
+      ],
+      "rebuild_return": true,
+      "body_count": 1,
+      "mass_properties_si": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      }
+    }
+  ],
+  "phases": [
+    {
+      "variant": "WithoutPartition",
+      "mode": "StandaloneChild",
+      "record_sha256": "1852205a87e4297b21dea2fbe35d96432aa7edb146910ec33c712ea488f6e49b",
+      "open_status": [
+        true,
+        0,
+        0
+      ],
+      "after_open": {
+        "child": {
+          "update_stamp": 116,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "body_count": 1,
+          "face_count": 6,
+          "face_owners": [
+            {
+              "name": "Boss-Extrude1",
+              "type": "Extrusion",
+              "count": 6
+            }
+          ],
+          "mass_properties_si": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06
+          }
+        }
+      },
+      "explicit_rebuild_return": true,
+      "after_rebuild": {
+        "child": {
+          "update_stamp": 130,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "body_count": 1,
+          "face_count": 6,
+          "face_owners": [
+            {
+              "name": "Boss-Extrude1",
+              "type": "Extrusion",
+              "count": 6
+            }
+          ],
+          "mass_properties_si": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06
+          }
+        }
+      }
+    },
+    {
+      "variant": "WithoutPartition",
+      "mode": "DirectParent",
+      "record_sha256": "6246194110c194b31441619b4d0a2d59576e72de40de661be31958e200b43406",
+      "open_status": [
+        true,
+        0,
+        0
+      ],
+      "after_open": {
+        "child": {
+          "update_stamp": 116,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "body_count": 1,
+          "face_count": 6,
+          "face_owners": [
+            {
+              "name": "Boss-Extrude1",
+              "type": "Extrusion",
+              "count": 6
+            }
+          ],
+          "mass_properties_si": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06
+          }
+        },
+        "parent": {
+          "update_stamp": 103,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        }
+      },
+      "explicit_rebuild_return": true,
+      "after_rebuild": {
+        "child": {
+          "update_stamp": 130,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "body_count": 1,
+          "face_count": 6,
+          "face_owners": [
+            {
+              "name": "Boss-Extrude1",
+              "type": "Extrusion",
+              "count": 6
+            }
+          ],
+          "mass_properties_si": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06
+          }
+        },
+        "parent": {
+          "update_stamp": 104,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        }
+      }
+    },
+    {
+      "variant": "WithPartition",
+      "mode": "StandaloneChild",
+      "record_sha256": "44e5af91889e80299c3c148e9568557130a622e3c8e15f7da8bef927b9f03bdf",
+      "open_status": [
+        true,
+        0,
+        32
+      ],
+      "after_open": {
+        "child": {
+          "update_stamp": 102,
+          "configuration": "Default",
+          "needs_rebuild": 1,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "body_count": 0,
+          "face_count": 0,
+          "face_owners": [],
+          "mass_properties_si": null
+        }
+      },
+      "explicit_rebuild_return": true,
+      "after_rebuild": {
+        "child": {
+          "update_stamp": 116,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "body_count": 1,
+          "face_count": 6,
+          "face_owners": [
+            {
+              "name": "Boss-Extrude1",
+              "type": "Extrusion",
+              "count": 6
+            }
+          ],
+          "mass_properties_si": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06
+          }
+        }
+      }
+    },
+    {
+      "variant": "WithPartition",
+      "mode": "DirectParent",
+      "record_sha256": "ffcad7584285cfd13d1bee441098641ad3c1e1db3237c3ad3dcdcba672f91ad1",
+      "open_status": [
+        true,
+        0,
+        32
+      ],
+      "after_open": {
+        "child": {
+          "update_stamp": 105,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "body_count": 1,
+          "face_count": 6,
+          "face_owners": [
+            {
+              "name": "Boss-Extrude1",
+              "type": "Extrusion",
+              "count": 6
+            }
+          ],
+          "mass_properties_si": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06
+          }
+        },
+        "parent": {
+          "update_stamp": 103,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        }
+      },
+      "explicit_rebuild_return": true,
+      "after_rebuild": {
+        "child": {
+          "update_stamp": 119,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "body_count": 1,
+          "face_count": 6,
+          "face_owners": [
+            {
+              "name": "Boss-Extrude1",
+              "type": "Extrusion",
+              "count": 6
+            }
+          ],
+          "mass_properties_si": {
+            "volume": 8.000000000000001e-06,
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06
+          }
+        },
+        "parent": {
+          "update_stamp": 104,
+          "configuration": "Default",
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        }
+      }
+    }
+  ],
+  "standalone_child_reproduces_warning": true,
+  "exact_kernel_or_attachment_predicate_identified": false,
+  "native_cache_acceptance": false,
+  "heldout_acceptance": false
+}

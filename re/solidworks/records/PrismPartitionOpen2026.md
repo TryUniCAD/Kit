@@ -1,6 +1,6 @@
 # Native partition load and body ownership on SOLIDWORKS 2026
 
-Adding the generated child partition changed the identical parent's load warning from 0 to 32 on `34.5.2.0604`, with both controls healthy. The earlier harness recorded the warning and stopped before examining the cache-bearing child. The warning identifies a rebuild requirement. The originating load or ownership predicate remains open. [Prior native comparison](../measurements/2026/GeneratedPrismPartitionNative02.json) and [2026 warning enumeration](https://help.solidworks.com/2026/English/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swFileLoadWarning_e.html?id=3b36a39206d34f468a0d2c24bef11595).
+The generated cache-bearing child opened standalone with warning 32, a rebuild flag and zero solids on `34.5.2.0604`. One explicit rebuild recovered the solid and its six extrusion-owned faces. Opening the identical parent with this child also returned warning 32, although the first component inspection already reported a solid and clear rebuild flags. The standalone result localizes the failure to child load or initialization. The exact kernel or attachment predicate remains open. [Follow-up native receipt](../measurements/2026/GeneratedPrismPartitionNative04.json) and [2026 warning enumeration](https://help.solidworks.com/2026/English/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swFileLoadWarning_e.html?id=3b36a39206d34f468a0d2c24bef11595).
 
 ## Frozen archive evidence
 
@@ -28,11 +28,24 @@ The pinned model DLL is `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3
 
 The body-restore helper establishes that native geometry attachment has an ownership step beyond geometric deserialization in this path. The normal open caller and kernel read result in the failed lane remain unobserved. The kernel transmit schema is distinct from the outer archive version stored at `f990`. [Existing warning-path map](AssemblyRebuildDecision2026.md) and [existing codec provenance boundaries](LegacyParasolidEmission2026.md).
 
+## Measured open and rebuild states
+
+The follow-up compared all four lanes at the original encoded paths with six distinct SOLIDWORKS process starts. Both bracketing controls opened, rebuilt and measured one solid with clean status. All trial opens returned zero errors. Each available solid had six faces owned by `Boss-Extrude1`, volume `8e-6 m³`, surface area `0.0028 m²`, and centre `(0, 0, 0.005) m`. The geometry queries left the observed stamps and rebuild flags stable. [Verified native receipt and source hashes](../measurements/2026/GeneratedPrismPartitionNative04.json).
+
+| Input and open route | Open warning | Child solids at first inspection | Child rebuild flag | Child stamp after open → after explicit rebuild |
+| --- | ---: | ---: | ---: | --- |
+| Cache-free, standalone | 0 | 1 | 0 | 116 → 130 |
+| Cache-free, through parent | 0 | 1 | 0 | 116 → 130 |
+| Cache-bearing, standalone | 32 | 0 | 1 | 102 → 116 |
+| Cache-bearing, through parent | 32 | 1 | 0 | 105 → 119 |
+
+All four explicit rebuilds succeeded and ended with one solid and a clear rebuild flag. In both direct parent trials the parent's own flag was already clear at the first inspection, with stamp 103 before the explicit rebuild and 104 afterward. The cache-bearing child was available and had its owned faces by the first component inspection in the warning-producing parent open. The cache-free child's first standalone stamp of 116 also matches the recovered standalone stamp of the cache-bearing child. The first native comparison had stopped immediately at the parent warning gate. [Earlier comparison](../measurements/2026/GeneratedPrismPartitionNative02.json).
+
 ## Follow-up diagnostic
 
 Use `python Tools/InspectPartitionOpen.py Job.json` from the external `NativeCacheOpenDiagnostic02` deck through the pinned Windows oracle transport. The unchanged job stages both exact child variants one at a time in `C:\Users\Public\Documents\KitOracle\GeneratedPrismPartition-6c31\Active\L1Single`. The parent filename, encoded path, and bytes are identical. Each variant gets a fresh standalone child open and a fresh direct parent open. The runner uses the same normal open flags as the first comparison, records warnings immediately, and continues observation after warning 32. It records update and rebuild state before and after geometry queries and an explicit rebuild, along with body count, mass properties and earliest owning feature per enumerated face when available. The run uses normal document close, keeps original files immutable, and archives copies after checking their hashes. Two healthy controls bracket six distinct process births. [Probe source](../../tooling/sw2026/InspectPartitionOpen.py) and [face ownership API](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IFace2~IGetFeature.html).
 
-An isolated child warning localizes a rebuild request to the child's load or initialization. A difference present only after opening the parent localizes the added effect to component resolution or reference update. A solid with correct measures and missing face owners indicates that geometry is available while live feature ownership needs further tracing. Zero exposed bodies still leaves kernel restore, delta processing and model attachment as separate possibilities. A successful rebuild preserves the original open result in the record. Native cache qualification requires a separate controlled edit and fresh reopen outcome.
+The follow-up measured an isolated child failure. Zero exposed bodies leaves kernel restore, delta processing and model attachment as separate possibilities. The successful explicit rebuild preserves the original warning in the record. Native cache qualification requires warning-free open, controlled edits and fresh reopen.
 
 | Frozen diagnostic input | SHA-256 |
 | --- | --- |
@@ -40,4 +53,4 @@ An isolated child warning localizes a rebuild request to the child's load or ini
 | `SourceManifest.json` | `7ffb5ca85ebe10aa2291e23c66f18c1c35ccc03bcdeb92b85b63fdb1ebe93883` |
 | `InspectPartitionOpen.py` | `4bdbb913f1cba294ee50cb029eb6769b2a9566f3a7ef38d0efb89406a97723c6` |
 
-Local preflight verified the prior job, exact child pair, parent, control, and all eight helper sources from `cade27adc947bf4ee8c615465798993eec111043`. No follow-up native measurements are recorded yet. A15 and A16 are outside this diagnostic.
+The receipt binds the committed runner at `068a45538d384950282dcc7edbada4d473e668f2`, its eight helper sources from `cade27adc947bf4ee8c615465798993eec111043`, and hashes for the private inspection and host transport records. The host transport records its confirmed exit separately from guest inventory. This diagnostic observes the original generated L1 pair and does not contribute to held-out results.
