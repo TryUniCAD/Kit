@@ -21,6 +21,8 @@ import pytest as Pytest
         ("check", "Label first-time contributors"),
         ("check", "CLI process compatibility (Core)"),
         ("check", "CLI process compatibility (Qualification)"),
+        ("retired-fusion", "Ruff"),
+        ("queue-retired-fusion", "Ruff"),
         ("quality-fork", "Ruff"),
         ("quality-docs", "Ruff"),
         ("quality-subset", "Ruff"),
