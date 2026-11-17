@@ -26,8 +26,11 @@ def AssertDocument(
         assert 1 <= Index < MapCount and Index not in SeenIndices
         SeenIndices.add(Index)
         MapValue = CastValue(dict[str, object], Entry["value"])
-        if AssertMapEntry(Entry, MapValue, Nodes, StreamName, Index, BaseCount):
-            HeaderIndices.add(Index)
+        HeaderIndex = AssertMapEntry(
+            Entry, MapValue, Nodes, StreamName, Index, BaseCount
+        )
+        if HeaderIndex is not None:
+            HeaderIndices.add(HeaderIndex)
         Values.append(MapValue)
     if StreamName == "Contents/Config-0":
         assert HeaderIndices == set(range(3, BaseCount))
