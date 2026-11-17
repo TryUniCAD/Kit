@@ -1,8 +1,9 @@
 # FCStd to SOLIDWORKS corpus coverage
 
-Status: **no production writing or complete CAD acceptance**. Kit reads SOLIDWORKS files and writes none through its public adapter. FCStd to SLDPRT or
-SLDASM conversion raises `AdapterNotFoundError` for all 165 repository FCStd files. The writer
-measured below re-emitted one recorded vendor stream per family, so it was removed from production.
+Status: **no production writing or complete CAD acceptance**. Kit reads SOLIDWORKS files and writes none through its public adapter. The
+recorded benchmark covers 165 FCStd parts and five assemblies. Its FCStd-to-SOLIDWORKS conversion
+requires a registered writer. The earlier writer measured below re-emitted one recorded vendor stream
+per family, so it was removed from production.
 See `Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md`.
 
 The figures below are the last audit of that removed writer. They record which source histories it
@@ -219,6 +220,13 @@ verified independent width, height and depth edits in generated single- and repe
 bundles. All six trials matched their independent native geometry and exact recursive part and
 assembly trees through clean native open, rebuild, synchronized save and fresh reopen.
 Both controls passed in a 26-process batch. The two assembly held-outs remain sealed.
+
+The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
+public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
+identities with successful Document.xml discovery. The inventory includes 56
+documents with pads, 38 with pockets, 25 with chamfers, 23 with holes and 20 with
+revolutions. The original benchmark membership remains unverified. The private
+inventory digest is `db7280b68f5bd30d5d3a3f8e3fe92b1ed335e7cd76786ae5cfbddb0064efa52c`.
 
 ## Last audit of the removed writer
 
