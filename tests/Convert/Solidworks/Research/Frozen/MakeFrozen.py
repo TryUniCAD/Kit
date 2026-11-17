@@ -10,8 +10,10 @@ from tests.Convert.Solidworks.Research.Frozen.ReadGitSource import ReadGitSource
 
 
 # historical runs must contain only reviewed source objects and no saved native payloads
-def MakeFrozen(SourceRoot: FilePath) -> None:
-    Manifest = ReadFrozen()
+def MakeFrozen(
+    SourceRoot: FilePath, Inventory: dict[str, object] | None = None
+) -> None:
+    Manifest = ReadFrozen() if Inventory is None else Inventory
     Revision = CastValue(str, Manifest["source_revision"])
     Outcome = RunProcess(
         ["git", "rev-parse", Revision + "^{tree}"],

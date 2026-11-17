@@ -10,8 +10,8 @@ from tests.Convert.Solidworks.Research.Frozen.MakeFrozen import MakeFrozen
 
 # isolated temporary sources preserve old measurements while the shared model continues to change
 @ContextManager
-def FrozenRoot() -> Iterator[FilePath]:
+def FrozenRoot(Inventory: dict[str, object] | None = None) -> Iterator[FilePath]:
     with TempDirectory(prefix="sw-frozen-") as FolderName:
         SourceRoot = FilePath(FolderName)
-        MakeFrozen(SourceRoot)
+        MakeFrozen(SourceRoot, Inventory)
         yield SourceRoot
