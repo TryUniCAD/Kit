@@ -1,0 +1,1135 @@
+{
+  "schema": "kit.sw2026.generated-distance-mate-native-open.v1",
+  "scope": "One discovered aligned Right Plane distance mate and its vertex-authored prism child. Read-only exact-encoded-path native observations.",
+  "passed": false,
+  "raw_failed_check": "child_dimensions",
+  "read_only": true,
+  "measured_vendor_loadable": true,
+  "measured_application_geometry_matches": true,
+  "native_acceptance": false,
+  "driving_edit_tested": false,
+  "persistence_tested": false,
+  "heldout_inputs_tested": 0,
+  "heldout_acceptance": false,
+  "writer_revision": "c4fda5661f92ed77d8b743be0d1940035bdd50fa",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "guarded_structural_receipt_sha256": "9fdea7a56f2eb3ba0c344f9062cab12a71a3c062c834a328e10a5265e713aa4a",
+  "authored_request_sha256": "2627dc197d5b551f11196ea2d3e88698033dd1af2ce8f24511ca64b04c1af265",
+  "original_path_setup_packet_sha256": "fc150e226e7c18467e17d73a55404e93868df1a63f870e7a00455810e37e5087",
+  "original_path_setup_native_receipt_sha256": "0678806bfc037f17689f90d0735d50b3871699b79283254389b3403470192ba3",
+  "exact_path_packet_sha256": "05f11605bc776e144780118058282af8cca725c5a601c74919d41ef0c89704ef",
+  "executed_tool_sha256": {
+    "AssemblyMateEvidence.py": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectGeneratedCoincidentMate.py": "ea83a2c3f1755966f34eaead10bdd6f7f987d42a4d9a15b8e154618e4cf7f683",
+    "InspectGeneratedDistanceMate.py": "3e18a599e525cd05c40bbe6a94a4796b6c73f153ebdcf6092661dcbb1149683b",
+    "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "ProbeAssemblyRebuild.py": "3a7ac17866bb771bd5daa16fe5133652f639c0d402fb6ede58d3411733349cd4",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "InspectEncodedDistanceMate.py": "3895feebacf15c0d511ff785c677fa5e8b7d40a5f25f4e225bae7b4d2d428fac"
+  },
+  "exact_path_preparer_sha256": "8bc784a6d347e15b63b320c20a3c92d7adeda5b433d557da69311a92f3c8041d",
+  "host_transport_sha256": "25d090fc49e2cf0cbdf2d7deb5422e43342b5309f6b889811e529dbec33ba256",
+  "host_transport_exit_code": 1,
+  "native_open_receipt_sha256": "e893156fecc8f286ff82d4564565319e23d5bfc0244e08373e586690448dd450",
+  "native_call_receipt_sha256": {
+    "ControlBefore": "f5987cff70821b9857a951f497641d23404f4b078c4b34684d629e1a1d2e4183",
+    "Generated": "9ce3b6af88cc70e57d62985cab617ce5f7ce5e608e1d31f81172b866c05b735e",
+    "ControlAfter": "412269c3cd5cfcac20118b773c96cec00c04684d7b28126bff73b4ddf80233df"
+  },
+  "controls_healthy": true,
+  "distinct_process_count": 3,
+  "frozen_and_staged_hashes_unchanged": true,
+  "a18_brackets": [
+    {
+      "phase": "ControlBefore",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "body_count": 2,
+      "native_distance_m": 0.06323,
+      "geometry": {
+        "child": {
+          "volume": 8.000000000000001e-06,
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06
+        },
+        "assembly": {
+          "volume": 1.6000000000000003e-05,
+          "area": 0.0056,
+          "com": [
+            0.031615000000000004,
+            -0.007412159992500894,
+            0.01727946676291983
+          ],
+          "mass": 0.016000000000000004
+        }
+      },
+      "both_scene_checks_passed": true
+    },
+    {
+      "phase": "ControlAfter",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "body_count": 2,
+      "native_distance_m": 0.06323,
+      "geometry": {
+        "child": {
+          "volume": 8.000000000000001e-06,
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06
+        },
+        "assembly": {
+          "volume": 1.6000000000000003e-05,
+          "area": 0.0056,
+          "com": [
+            0.031615000000000004,
+            -0.007412159992500894,
+            0.01727946676291983
+          ],
+          "mass": 0.016000000000000004
+        }
+      },
+      "both_scene_checks_passed": true
+    }
+  ],
+  "a18_control_files": {
+    "A18PlaneDistance.SLDASM": {
+      "sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+      "bytes": 57875
+    },
+    "CohortChild.SLDPRT": {
+      "sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+      "bytes": 59729
+    }
+  },
+  "generated_files": {
+    "DistanceMateDiscovery.SLDASM": {
+      "bytes": 9560,
+      "sha256": "1f596ea028ab6c7c6d964f21b8fcc7038f99c9f3ef5080f4927130328617c198"
+    },
+    "DistanceDatumPlate.SLDPRT": {
+      "bytes": 8070,
+      "sha256": "6cce1a1b81935a6f3e0505bdf81908f496f010fa1a733233562af427ac200b37"
+    }
+  },
+  "encoded_paths_by_file": {
+    "DistanceMateDiscovery.SLDASM": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceMateDiscovery.SLDASM",
+    "DistanceDatumPlate.SLDPRT": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceDatumPlate.SLDPRT"
+  },
+  "child_authored_scope": {
+    "vertices_m": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.03125,
+        0.0
+      ],
+      [
+        0.03125,
+        0.01875
+      ],
+      [
+        0.0,
+        0.01875
+      ]
+    ],
+    "authored_rectangle_dimensions": false,
+    "typed_child_exact_streams": {
+      "Contents/Config-0": {
+        "sha256": "b42111186bec6299bd730201dcc74e39e8e694c78f919af178012dc66bab373c",
+        "bytes": 21142
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "sha256": "27f41d5c3e71ccc8e1a145239e1233ba291ce37630d5d136af9b2aba4fd110c4",
+        "bytes": 14064
+      }
+    },
+    "sketch_dimension_record_counts": {
+      "val_g1": 0,
+      "val_g2": 0,
+      "val_g3": 0,
+      "log_g1": 0,
+      "log_g2": 0,
+      "log_g3": 0
+    },
+    "sketch_display_dimension_count": 0,
+    "boss_retains_profile": true,
+    "boss_forward_distance": {
+      "class": "moLengthParameter_c",
+      "name": "D1",
+      "metres": 0.0125
+    }
+  },
+  "generated_observation": {
+    "prior_stored_gap_m": 0.043875,
+    "open_errors": 0,
+    "open_warnings": 0,
+    "returned_exact_encoded_parent": true,
+    "first_pose": {
+      "pose": "solved",
+      "transforms": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.6780057348426142,
+          0.735056612459562,
+          0.0,
+          -0.735056612459562,
+          0.6780057348426142,
+          0.071375,
+          -0.00671,
+          0.01391,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "force_rebuild_passed": true,
+    "resolved_both_exact_child_documents": true,
+    "unclassified_dialogs": 0,
+    "controller_diagnostics": 0,
+    "observations": [
+      {
+        "phase": "initial",
+        "body_count": 2,
+        "checks": {
+          "pose": true,
+          "occurrences_and_anchor": true,
+          "plane_offsets": true,
+          "configurations": true,
+          "clean_feature_tree": true,
+          "child_feature_identity": true,
+          "child_dimensions": false,
+          "rebuild_status": true,
+          "analytical_geometry": true
+        },
+        "raw_matches": false,
+        "parent_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        },
+        "child_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        },
+        "parent_tree": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null
+          ],
+          [
+            "Live Section Planes",
+            "LiveSectionFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations"
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations"
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null
+          ],
+          [
+            "Ambient",
+            "AmbientLight",
+            "Lights and Cameras"
+          ],
+          [
+            "Directional1",
+            "DirectionLight",
+            "Lights and Cameras"
+          ],
+          [
+            "Directional2",
+            "DirectionLight",
+            "Lights and Cameras"
+          ],
+          [
+            "Directional3",
+            "DirectionLight",
+            "Lights and Cameras"
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null
+          ],
+          [
+            "DistanceDatumPlate-1",
+            "Reference",
+            null
+          ],
+          [
+            "DistanceDatumPlate-2",
+            "Reference",
+            null
+          ],
+          [
+            "Mates",
+            "MateGroup",
+            null
+          ],
+          [
+            "Distance1",
+            "MateDistanceDim",
+            "Mates"
+          ]
+        ],
+        "child_tree": [
+          [
+            "authored comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "authored favorites",
+            "FavoriteFolder",
+            null
+          ],
+          [
+            "authored history",
+            "HistoryFolder",
+            null
+          ],
+          [
+            "authored selection sets",
+            "SelectionSetFolder",
+            null
+          ],
+          [
+            "authored sensors",
+            "SensorFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "authored annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "authored surfaces",
+            "SurfaceBodyFolder",
+            null
+          ],
+          [
+            "authored solids",
+            "SolidBodyFolder",
+            null
+          ],
+          [
+            "authored environment",
+            "EnvFolder",
+            null
+          ],
+          [
+            "Ambient",
+            "AmbientLight",
+            "authored environment"
+          ],
+          [
+            "Directional1",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional2",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional3",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "authored markups",
+            "NotesAreaFtrFolder",
+            null
+          ],
+          [
+            "authored equations",
+            "EqnFolder",
+            null
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            null
+          ],
+          [
+            "Boss-Extrude1",
+            "Extrusion",
+            null
+          ]
+        ],
+        "child_stamp": 117,
+        "child_parameters_m": {
+          "D1@Sketch1": null,
+          "D2@Sketch1": null,
+          "D1@Boss-Extrude1": 0.0125
+        },
+        "native_mate": {
+          "name": "Distance1",
+          "feature_type": "MateDistanceDim",
+          "type": 5,
+          "alignment": 0,
+          "suppressed": false,
+          "flipped": false,
+          "entity_count": 2,
+          "entities": [
+            {
+              "occurrence": "DistanceDatumPlate-1",
+              "reference_type": 4,
+              "point": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "child_path_matches": true,
+              "reference_comparison": {
+                "returned_reference": true,
+                "feature_equality": 0,
+                "plane_equality": 1
+              }
+            },
+            {
+              "occurrence": "DistanceDatumPlate-2",
+              "reference_type": 4,
+              "point": [
+                0.071375,
+                -0.00671,
+                0.01391
+              ],
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "child_path_matches": true,
+              "reference_comparison": {
+                "returned_reference": true,
+                "feature_equality": 0,
+                "plane_equality": 1
+              }
+            }
+          ],
+          "dimension_name": "D1@Distance1@DistanceMateDiscovery.Assembly",
+          "dimension_m": 0.071375,
+          "entity_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": 0.071375
+          },
+          "placement_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": 0.071375
+          }
+        },
+        "observed_geometry": {
+          "child": {
+            "volume": 7.3242187500000006e-06,
+            "area": 0.002421875,
+            "com": [
+              0.015625,
+              0.009375,
+              0.00625
+            ],
+            "mass": 7.3242187500000006e-06
+          },
+          "assembly": {
+            "volume": 1.4648437500000001e-05,
+            "area": 0.00484375,
+            "com": [
+              0.0513125,
+              0.002213599968138623,
+              0.015644345792287365
+            ],
+            "mass": 0.014648437500000002
+          }
+        },
+        "predicted_geometry": {
+          "child": {
+            "volume": 7.32421875e-06,
+            "area": 0.002421875,
+            "com": [
+              0.015625,
+              0.009375,
+              0.00625
+            ]
+          },
+          "assembly": {
+            "volume": 1.46484375e-05,
+            "area": 0.00484375,
+            "com": [
+              0.0513125,
+              0.0022135999681386223,
+              0.015644345792287365
+            ]
+          }
+        },
+        "occurrences": [
+          {
+            "name": "DistanceDatumPlate-1",
+            "configuration": "Default",
+            "fixed": true,
+            "suppressed": false,
+            "visible_child_bodies": 1,
+            "child_path_matches": true,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform_matches": true
+          },
+          {
+            "name": "DistanceDatumPlate-2",
+            "configuration": "Default",
+            "fixed": false,
+            "suppressed": false,
+            "visible_child_bodies": 1,
+            "child_path_matches": true,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.6780057348426142,
+              0.735056612459562,
+              0.0,
+              -0.735056612459562,
+              0.6780057348426142,
+              0.071375,
+              -0.00671,
+              0.01391,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform_matches": true
+          }
+        ]
+      },
+      {
+        "phase": "rebuilt",
+        "body_count": 2,
+        "checks": {
+          "pose": true,
+          "occurrences_and_anchor": true,
+          "plane_offsets": true,
+          "configurations": true,
+          "clean_feature_tree": true,
+          "child_feature_identity": true,
+          "child_dimensions": false,
+          "rebuild_status": true,
+          "analytical_geometry": true
+        },
+        "raw_matches": false,
+        "parent_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        },
+        "child_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0
+        },
+        "parent_tree": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null
+          ],
+          [
+            "Live Section Planes",
+            "LiveSectionFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations"
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations"
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null
+          ],
+          [
+            "Ambient",
+            "AmbientLight",
+            "Lights and Cameras"
+          ],
+          [
+            "Directional1",
+            "DirectionLight",
+            "Lights and Cameras"
+          ],
+          [
+            "Directional2",
+            "DirectionLight",
+            "Lights and Cameras"
+          ],
+          [
+            "Directional3",
+            "DirectionLight",
+            "Lights and Cameras"
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null
+          ],
+          [
+            "DistanceDatumPlate-1",
+            "Reference",
+            null
+          ],
+          [
+            "DistanceDatumPlate-2",
+            "Reference",
+            null
+          ],
+          [
+            "Mates",
+            "MateGroup",
+            null
+          ],
+          [
+            "Distance1",
+            "MateDistanceDim",
+            "Mates"
+          ]
+        ],
+        "child_tree": [
+          [
+            "authored comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "authored favorites",
+            "FavoriteFolder",
+            null
+          ],
+          [
+            "authored history",
+            "HistoryFolder",
+            null
+          ],
+          [
+            "authored selection sets",
+            "SelectionSetFolder",
+            null
+          ],
+          [
+            "authored sensors",
+            "SensorFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "authored annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "authored surfaces",
+            "SurfaceBodyFolder",
+            null
+          ],
+          [
+            "authored solids",
+            "SolidBodyFolder",
+            null
+          ],
+          [
+            "authored environment",
+            "EnvFolder",
+            null
+          ],
+          [
+            "Ambient",
+            "AmbientLight",
+            "authored environment"
+          ],
+          [
+            "Directional1",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional2",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional3",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "authored markups",
+            "NotesAreaFtrFolder",
+            null
+          ],
+          [
+            "authored equations",
+            "EqnFolder",
+            null
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            null
+          ],
+          [
+            "Boss-Extrude1",
+            "Extrusion",
+            null
+          ]
+        ],
+        "child_stamp": 132,
+        "child_parameters_m": {
+          "D1@Sketch1": null,
+          "D2@Sketch1": null,
+          "D1@Boss-Extrude1": 0.0125
+        },
+        "native_mate": {
+          "name": "Distance1",
+          "feature_type": "MateDistanceDim",
+          "type": 5,
+          "alignment": 0,
+          "suppressed": false,
+          "flipped": false,
+          "entity_count": 2,
+          "entities": [
+            {
+              "occurrence": "DistanceDatumPlate-1",
+              "reference_type": 4,
+              "point": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "child_path_matches": true,
+              "reference_comparison": {
+                "returned_reference": true,
+                "feature_equality": 0,
+                "plane_equality": 1
+              }
+            },
+            {
+              "occurrence": "DistanceDatumPlate-2",
+              "reference_type": 4,
+              "point": [
+                0.071375,
+                -0.00671,
+                0.01391
+              ],
+              "normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "child_path_matches": true,
+              "reference_comparison": {
+                "returned_reference": true,
+                "feature_equality": 0,
+                "plane_equality": 1
+              }
+            }
+          ],
+          "dimension_name": "D1@Distance1@DistanceMateDiscovery.Assembly",
+          "dimension_m": 0.071375,
+          "entity_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": 0.071375
+          },
+          "placement_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": 0.071375
+          }
+        },
+        "observed_geometry": {
+          "child": {
+            "volume": 7.3242187500000006e-06,
+            "area": 0.002421875,
+            "com": [
+              0.015625,
+              0.009375,
+              0.00625
+            ],
+            "mass": 7.3242187500000006e-06
+          },
+          "assembly": {
+            "volume": 1.4648437500000001e-05,
+            "area": 0.00484375,
+            "com": [
+              0.0513125,
+              0.002213599968138623,
+              0.015644345792287365
+            ],
+            "mass": 0.014648437500000002
+          }
+        },
+        "predicted_geometry": {
+          "child": {
+            "volume": 7.32421875e-06,
+            "area": 0.002421875,
+            "com": [
+              0.015625,
+              0.009375,
+              0.00625
+            ]
+          },
+          "assembly": {
+            "volume": 1.46484375e-05,
+            "area": 0.00484375,
+            "com": [
+              0.0513125,
+              0.0022135999681386223,
+              0.015644345792287365
+            ]
+          }
+        },
+        "occurrences": [
+          {
+            "name": "DistanceDatumPlate-1",
+            "configuration": "Default",
+            "fixed": true,
+            "suppressed": false,
+            "visible_child_bodies": 1,
+            "child_path_matches": true,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform_matches": true
+          },
+          {
+            "name": "DistanceDatumPlate-2",
+            "configuration": "Default",
+            "fixed": false,
+            "suppressed": false,
+            "visible_child_bodies": 1,
+            "child_path_matches": true,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.6780057348426142,
+              0.735056612459562,
+              0.0,
+              -0.735056612459562,
+              0.6780057348426142,
+              0.071375,
+              -0.00671,
+              0.01391,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "transform_matches": true
+          }
+        ]
+      }
+    ]
+  }
+}

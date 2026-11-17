@@ -32,6 +32,7 @@ def TestSyncArchive(TmpPath: FilePath) -> None:
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
     Report = ReadObject(ReportPath)
     assert Report["passed"] is True and Report["stream_comparisons"] == 40
+    assert Report["sdk_header_comparisons"] == 10
     assert Report["external_file_time_comparisons"] == 8
     assert Report["native_acceptance"] is Report["heldout_payloads_read"] is False
     assert Report["writer_output_count"] == 0

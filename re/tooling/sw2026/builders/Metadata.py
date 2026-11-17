@@ -6,6 +6,7 @@ from xml.etree.ElementTree import Element, SubElement, fromstring, tostring
 
 from Core import DOCUMENT_VERSION_2026, Obj
 from Streams import StreamDoc, store_rooted
+from builders.HeaderGraphBridge import generated_header_bytes
 
 FILE_VERSION = DOCUMENT_VERSION_2026
 BIOGRAPHY_STREAM = f"_MO_VERSION_{FILE_VERSION}/Biography"
@@ -281,8 +282,11 @@ def rooted_metadata_streams(*, registry, header2, model_headers, biography_recor
     for name, (record, cls) in records.items():
         if not isinstance(record, Obj) or record.cls != cls:
             raise ValueError(f"{name} requires a constructed {cls}")
-        doc = StreamDoc(name, {"base": 1}, [record])
-        out[name] = store_rooted(doc, registry, FILE_VERSION)
+        if cls == "moHeader_c":
+            out[name] = generated_header_bytes(record, FILE_VERSION)
+        else:
+            doc = StreamDoc(name, {"base": 1}, [record])
+            out[name] = store_rooted(doc, registry, FILE_VERSION)
     for key, field in (("f0c", "f10"), ("f10", "f18")):
         reference_names = [e["s"] for e in header2.f[field].f["items"]]
         for state in history_record.f["states"]:

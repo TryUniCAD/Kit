@@ -310,6 +310,18 @@ separation. The [typed projection](measurements/2026/PlanarMateProjection02.json
 reads the actual parameter from the generated graph. Native qualification
 remains open.
 
+The [exact-path distance replay](records/GeneratedDistanceMateNativeOpen2026.md)
+resolves both children with clean native open and rebuild. The moving
+Right Plane changes from a 43.875 mm gap to 71.375 mm, with both controls
+passing. The full trial retains its failed verdict from an invalid expectation
+of named sketch parameters. Driving edit, save and held-out qualification
+remain open.
+
+The [shared SDK header graph](records/SharedSdkHeaderGraph2026.md) re-emits
+31 standalone streams exactly across 17 disclosed files. The research
+generators use the same codec for both header streams and reproduce four
+earlier assembly bundles. The production corpus count is unchanged.
+
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
 identities with successful Document.xml discovery. The inventory includes 56

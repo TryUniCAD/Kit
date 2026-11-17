@@ -137,6 +137,13 @@ The research archive delegates actual class/object operations to these productio
 Its compatibility bridge preserves lazy field providers and explicit unknown-schema prefix bindings.
 No feature fields or native construction defaults come from this infrastructure.
 
+The [shared 2026 header codec](../../Changes/Solidworks/Model/SolidworksSharedHeaderGraph.md)
+reads and writes the ordinary standalone `Header2` and ModelHeader graph.
+The planar assembly research process supplies the authored file identities,
+revision logs and bounds, and the SDK computes the string lengths, list counts
+and archive references. The [measured profile](../../../re/solidworks/records/SharedSdkHeaderGraph2026.md)
+covers parts, assemblies and blank drawing variants at version 19000.
+
 The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
 extend the research instruments without establishing writer support.
