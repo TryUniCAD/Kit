@@ -16,6 +16,13 @@ The independent research composer generates fresh native containers and streams
 from neutral polygon, circle, radial-dimension and depth inputs without saved-stream inputs. This is not
 the public adapter and does not count toward the requested 165-part and five-assembly conversion target.
 
+The [property-section drawing comparison](measurements/2026/DrawingBlankPropertySectionsNative01.json)
+generates the native text-section and name-dictionary framing from neutral
+sheet values. Two guarded builds agree with zero runtime input reads. The
+corrected complete blank opens, rebuilds and accepts a scale edit, then
+returns SaveAs error 1. Four reference lanes save and reopen in the
+nine-process batch. This experiment adds zero production conversions.
+
 The [appearance repair measurement](measurements/2026/FreshPartModelAppearance.json)
 first opened the generated H3 part with its sketch and extrusion suppressed and
 zero bodies. The

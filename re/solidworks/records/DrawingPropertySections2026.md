@@ -1,6 +1,6 @@
 # Drawing document-property section construction in SOLIDWORKS 2026
 
-The generated blank reached the native document-properties call and failed to deliver its return stop. Both controls and debugger cleanup passed. The corrected XML construction has passed offline generation and readback. Its native save and fresh reopen remain pending. [Measured call interval](../measurements/2026/DrawingBlankSavePropertiesEntryNative01.json)
+The generated blank reached the native document-properties call and failed to deliver its return stop. Both controls and debugger cleanup passed. Correcting the XML section and name dictionary preserved clean native open and sheet-scale editing, but SaveAs still returned `[false, 1, 0]`. The correction is a source-grounded grammar repair; it is insufficient to repair native saving. [Measured call interval](../measurements/2026/DrawingBlankSavePropertiesEntryNative01.json), [corrected-section native trial](../measurements/2026/DrawingBlankPropertySectionsNative01.json)
 
 ## Scope and implementation
 
@@ -26,7 +26,7 @@ All module addresses below use the original SOLIDWORKS 2026 SP05.2 images.
 | User-defined section identity | Store compares section GUID with immutable constant `0x3cc6a1b0` and names it `UserDefinedProperties`. Its GUID is `{D5CDD505-2E9C-101B-9397-08002B2CF9AE}`. | Confirmed source and disclosed records. |
 | Typed values | Section children named `property` contain `name`, decimal `pid` and a typed child in `http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes`. The type-name map at `0x3c88f6d0` maps variant 30 to `vt:lpstr`. | Confirmed ordinary text framing. |
 | Name dictionary | The reader separately visits `propertyNameDictionaryElement` at `0x3c891637`. The store emits these elements at `0x3c89244e/0x3c89254c`, with `name` and matching `pid`. | Confirmed source and disclosed records. |
-| Fresh ordinary IDs | `suOlePropertySection::GeneratePropertyID` at `0x3c88b3f0` starts its maximum at 2 and returns one plus the maximum admitted existing ID. Ordinary insertion calls it with EDX zero at `0x3c7cb602`. Fresh neutral entries therefore use 3 onward. | Source proven. New minimal profile awaits native measurement. |
+| Fresh ordinary IDs | `suOlePropertySection::GeneratePropertyID` at `0x3c88b3f0` starts its maximum at 2 and returns one plus the maximum admitted existing ID. Ordinary insertion calls it with EDX zero at `0x3c7cb602`. Fresh neutral entries therefore use 3 onward. | Source proven. The minimal profile opens and edits; save acceptance remains unqualified. |
 | Name lookup | `suOlePropertySection::GetID` at `0x3c88b910` uses the section's name dictionary. | Source proven. |
 | Optional state attributes | The store emits `status`, `IsEquation` and `TypeID` on their corresponding property states. The ordinary disclosed text entries omit them. | Ordinary absent-state vocabulary confirmed. Other states remain outside the constructor. |
 
@@ -53,13 +53,17 @@ Both documents use the same section name, GUID, namespaces and dictionary framin
 
 The measured save call at `doccplu+0x1df56` resolves to `sldappu!uiBaseDoc_c::SaveDocumentProperties` at `0x458e7590`. It passes the owner at `+0x448` to `suDocumentProperties::SaveToStorage` at `0x458e76af`, resolving to `sldmfcu!0x3c7ca630`. A negative fallback `StgOpenStorage` HRESULT at `0x458e769b` reaches the throw helper at `0x458e7704`. Ordinary scalar-zero returns are discarded by the outer caller. The exact runtime failing instruction remains unmeasured.
 
-## Verification and pending native test
+## Verification and native result
 
 The exact original neutral request has SHA-256 `fb9e098382aa68bc8232bc7adebb3a02183fd9244de082086d1b5dd143e94362`. Two separate guarded generator processes produced identical corrected files with SHA-256 `7400cf1fa4a71994807ce8e49283e2721e09a5ceaf723e36f6ae807906c94a26`. Both recorded zero runtime input-file access attempts.
 
 The seven stream roles match the earlier failing candidate. Only `docProps/ISolidWorksInformation.xml` changed. The Definition, Header2, model stamps, history, biography and keywords remain byte-identical. Structural readback found six typed text records, six matching dictionary entries and IDs 3 through 8. The existing public drawing reader retained the intended sheet, dimensions and scale.
 
-The native packet uses the existing committed `PrepareBlankDrawing.py` and `InspectBlankDrawing.py` tools. Its trial SHA-256 is `e0aab1bbdac876403626aa2a35fb41c1569fab326e63f051c00474263ac09301`. It retains pristine, repacked and reduced-native controls, the exact encoded generated path, sheet-scale editing, actual SaveAs and fresh reopen. The corrected file's native outcome remains pending.
+The native packet uses the existing committed `PrepareBlankDrawing.py` and `InspectBlankDrawing.py` tools. Its trial SHA-256 is `e0aab1bbdac876403626aa2a35fb41c1569fab326e63f051c00474263ac09301`. It retains pristine, repacked and reduced-native controls, the exact encoded generated path, sheet-scale editing, actual SaveAs and fresh reopen.
+
+The completed trial used nine distinct native processes. Both pristine brackets and the repacked and reduced-native controls saved and reopened with zero errors and warnings. The corrected generated file opened with zero errors and warnings and accepted the sheet-scale edit, then returned SaveAs `[false, 1, 0]`; no fresh reopen followed that failed save. The trial was interpretable and exited 3. The private result SHA-256 is `3e812322931dbaf696dfb56fc25ca23d22be3e75290bb4b2f30223159b96e784`; the host transport SHA-256 is `d37226b31d7b976bc04117886fe566f16bb6a9634fc1f02c1c869bb97eea96df`. [Sanitized native receipt](../measurements/2026/DrawingBlankPropertySectionsNative01.json)
+
+This refutes the hypothesis that correcting section framing, fresh IDs and name dictionaries alone repairs the blank drawing's save failure. It does not refute the independently traced grammar. The exact failing instruction inside the document-properties call, including summary-storage initialization and fallback-storage hypotheses, remains unmeasured.
 
 [InspectBlankDrawingPropertySections.py](../../tooling/sw2026/InspectBlankDrawingPropertySections.py) adds verification of the frozen request, construction and comparison receipts before native startup. It requires both packet and runner hashes. Its successful exit requires the generated case and controls to pass. The base observer's interpretable status remains a separate field.
 
