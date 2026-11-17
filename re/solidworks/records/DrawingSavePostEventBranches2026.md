@@ -39,6 +39,14 @@ calls. A separate destination bind tests the lock-bytes result at
 `0x18001c36d`. These are static branches. The generated route and its
 return values require native measurement.
 
+The lock-bytes creation helper calls `CreateFileW` with disposition 2
+at `sldmfcu.dll!0x3c7f2b53` before the storage root check. The subsequent
+wrapper constructor at `0x3c8b57a0` accepts an absent IStorage and ZIP
+backend and constructs the base storage object. The validity test can
+therefore fail after an object allocation. The staged paired observer
+samples the exact saveDoc entry and storage validity result to distinguish
+those paths. [Storage gate observer](../../tooling/sw2026/drawing_storage_gate/InspectBlankDrawingSaveAggregateSoftwareStorageMatched.py)
+
 REA instruction evidence `ev_3fd0415507a116177b1c456b796654bb0deec89447362f1ddbc5fb35fd05c002`,
 `ev_967a5dadd74a76025b8dd80caf3ef8d56d1777415b898d12e586db24c8c05c63`
 and `ev_fb7a567011325cc2fd03c6dc0d0b3430417e4f35f2724e57f26d581d149fb793`
