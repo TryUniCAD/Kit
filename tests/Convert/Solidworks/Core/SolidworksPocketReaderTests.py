@@ -67,7 +67,9 @@ def AssertPocketCut(Document: CadDocument) -> None:
 def TestPocketRead(TmpPath: FilePath) -> None:
     Report = RunFreshPart(MakePocketInput("all_bodies"))
     OutputPath = TmpPath / "BlindPocketAllBodies.SLDPRT"
-    OutputPath.write_bytes(DecodeBase(CastValue(str, Report["blob"]), validate=True))
+    BlobValue = DecodeBase(CastValue(str, Report["blob"]), validate=True)
+    BytesWritten = OutputPath.write_bytes(BlobValue)
+    assert BytesWritten == len(BlobValue)
     Document = OpenDocument(OutputPath, include_brep=False, include_tessellation=False)
     assert Document.validate() == ()
     assert not Document.brep_payloads and Document.brep is None
