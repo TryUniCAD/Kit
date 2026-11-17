@@ -1,0 +1,238 @@
+{
+  "schema": "kit.sw2026.generated-occurrence-derivative-stamps.v1",
+  "native_measurement": "GeneratedSingleOccurrenceNative01.json",
+  "generator_head": "5a9ec7b5ada121dbc437b5258a1cf216000b5eae",
+  "reader_wire_version": 19000,
+  "parsed_without_unread_bytes": [
+    "Header2",
+    "Contents/Config-0-ModelHeader",
+    "Contents/Config-0",
+    "Contents/CMgr",
+    "Contents/CMgrHdr2 when present"
+  ],
+  "generated_parent": {
+    "sha256": "e07690425577b1b5b6942cb15b5eb44fcea02a78e9dba2a009b2437534d67da4",
+    "bytes": 6932,
+    "header2": {
+      "f40": 101,
+      "f48": 1794700000,
+      "fc4": 1
+    },
+    "model_header": {
+      "f40": 101,
+      "f48": 1794700000,
+      "fc4": 1
+    },
+    "model": {
+      "f0c": 0,
+      "f1300": 101
+    },
+    "active_configuration": {
+      "name": "Default",
+      "f08": 0,
+      "f0c": 0,
+      "f4b0": 1,
+      "f4c4": 256,
+      "f860": 101,
+      "f968": 0
+    },
+    "self_save_event": 1794700075,
+    "container_matches_own_native_basename": true,
+    "config_manager_header": null,
+    "occurrence": {
+      "configuration": {
+        "f08": "authored configuration",
+        "f10": 0
+      },
+      "stamps": {
+        "f3e0": 101,
+        "f3e8": 1794700000,
+        "f3f0": 102,
+        "f3f4": 101,
+        "f3f8": 101
+      },
+      "feature": {
+        "f08": 17,
+        "f0c": 0,
+        "f2b8": 0,
+        "f2bc": 0,
+        "f408": 0,
+        "f4b4": 15
+      },
+      "directory": {
+        "f48": 1,
+        "f58": 0,
+        "f60": 1794700051,
+        "f70": 1794700051,
+        "f78": 0
+      },
+      "directory_direct_slots": [
+        4
+      ],
+      "directory_timestamps_agree_across_headers": true,
+      "configuration_reference": {
+        "f08": "authored configuration",
+        "f10": 0
+      },
+      "configuration_flags": 273,
+      "display_state": {
+        "f48": "",
+        "f50": -1
+      },
+      "stamps_match_child_disk": {
+        "f3e0": true,
+        "f3e8": true,
+        "f3f4": true
+      },
+      "directory_matches_child_disk": {
+        "path": true,
+        "name": true,
+        "creation_time": true,
+        "self_save_event": true,
+        "manager_save_event": true
+      }
+    }
+  },
+  "vendor_derivative": {
+    "sha256": "71168869267ecb7d6d4ac89c8e56bd847363cbe6e696dcd150cb914f3379063b",
+    "bytes": 53282,
+    "header2": {
+      "f40": 104,
+      "f48": 1794894176,
+      "fc4": 2
+    },
+    "model_header": {
+      "f40": 104,
+      "f48": 1794894176,
+      "fc4": 1
+    },
+    "model": {
+      "f0c": 0,
+      "f1300": 102
+    },
+    "active_configuration": {
+      "name": "Default",
+      "f08": 0,
+      "f0c": 0,
+      "f4b0": 1,
+      "f4c4": 2147746176,
+      "f860": 104,
+      "f968": 0
+    },
+    "self_save_event": 1794894178,
+    "container_matches_own_native_basename": false,
+    "config_manager_header": {
+      "f60": 1794894178,
+      "f68": 2,
+      "active": {
+        "f38": 104,
+        "f40": 0,
+        "f44": -2147221120,
+        "f4c": 102,
+        "f50": 204
+      }
+    },
+    "occurrence": {
+      "configuration": {
+        "f08": "authored configuration",
+        "f10": 0
+      },
+      "stamps": {
+        "f3e0": 132,
+        "f3e8": 1794894176,
+        "f3f0": 102,
+        "f3f4": 102,
+        "f3f8": 101
+      },
+      "feature": {
+        "f08": 17,
+        "f0c": 0,
+        "f2b8": 19000,
+        "f2bc": 2026306,
+        "f408": 0,
+        "f4b4": 15
+      },
+      "directory": {
+        "f48": 1,
+        "f58": 0,
+        "f60": 1794700051,
+        "f70": 1794700051,
+        "f78": 0
+      },
+      "directory_direct_slots": [
+        4
+      ],
+      "directory_timestamps_agree_across_headers": true,
+      "configuration_reference": {
+        "f08": "authored configuration",
+        "f10": 0
+      },
+      "configuration_flags": 1048849,
+      "display_state": {
+        "f48": "<authored configuration>_Display State 1",
+        "f50": 1
+      },
+      "stamps_match_child_disk": {
+        "f3e0": false,
+        "f3e8": false,
+        "f3f4": false
+      },
+      "directory_matches_child_disk": {
+        "path": true,
+        "name": true,
+        "creation_time": true,
+        "self_save_event": true,
+        "manager_save_event": true
+      }
+    }
+  },
+  "generated_child_on_disk": {
+    "sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+    "bytes": 8122,
+    "header2": {
+      "f40": 101,
+      "f48": 1794700000,
+      "fc4": 0
+    },
+    "model_header": {
+      "f40": 101,
+      "f48": 1794700000,
+      "fc4": 0
+    },
+    "model": {
+      "f0c": 1,
+      "f1300": 101
+    },
+    "active_configuration": {
+      "name": "authored configuration",
+      "f08": 0,
+      "f0c": 0,
+      "f4b0": -1,
+      "f4c4": 256,
+      "f860": 101,
+      "f968": 0
+    },
+    "self_save_event": 1794700051,
+    "container_matches_own_native_basename": true,
+    "config_manager_header": {
+      "f60": 1794700051,
+      "f68": 2,
+      "active": {
+        "f38": 101,
+        "f40": 0,
+        "f44": 256,
+        "f4c": 101,
+        "f50": 101
+      }
+    }
+  },
+  "oracle": {
+    "generated_open_errors": 0,
+    "generated_open_warnings": 0,
+    "derivative_open_errors": 0,
+    "derivative_open_warnings": 32,
+    "generated_and_derivative_rebuild_geometry_match": true,
+    "child_immutable_in_both_phases": true
+  },
+  "limits": "The comparison isolates three persisted occurrence stamps that diverged from the unchanged child. It does not establish the exact warning branch or independently vary child saves, the parent's saved-copy identity, or newly materialized metadata."
+}

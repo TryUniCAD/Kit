@@ -117,8 +117,8 @@ def bound_child(author, assembly, source, count):
     return documents[0]
 
 
-def save_owned_child(author, assembly, source, count, recorder, directory):
-    AuthorCurves.require(source.resolve().is_relative_to(directory.resolve()) and source.name == "CohortChild.SLDPRT", "child save must stay within its owned author directory")
+def save_owned_child(author, assembly, source, count, recorder, directory, *, basename="CohortChild.SLDPRT"):
+    AuthorCurves.require(source.resolve().is_relative_to(directory.resolve()) and source.name == basename, "child save must stay within its owned author directory")
     child = bound_child(author, assembly, source, count)
     original_hash = digest(source)
     stamp = int(author.get(child, "GetUpdateStamp"))
