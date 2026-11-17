@@ -1,0 +1,361 @@
+{
+  "schema": "kit.sw2026.blank-drawing-property-prefix-measurement.v1",
+  "scope": "disclosed single unformatted empty sheet with explicit retained XML value prefix",
+  "oracle": {
+    "product": "SOLIDWORKS 2026 SP05.2",
+    "file_version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "automation": "SldWorks.Application.34"
+  },
+  "execution": {
+    "host_driver": "prlctl exec --current-user",
+    "guest": "Windows 11",
+    "transport_exit": 0,
+    "native_processes": 10
+  },
+  "construction_commit": "cd40745425efe219974e063eba1bfb5d5c5ab5c7",
+  "packet_sha256": "04e1364393be6301e0c8f10bdacc5761e43ed7654c32d8a31265dabd249f5fa4",
+  "observer_sha256": "18440d2ea56a2bd142a1878b7253a8982742416007a8ca2fae2ea02504c012b1",
+  "source_proof_sha256": {
+    "GeneratedRequest.json": "fb9e098382aa68bc8232bc7adebb3a02183fd9244de082086d1b5dd143e94362",
+    "GeneratedConstruction.json": "9742daa30a1086a8ebc0f7d3a6badf106f64bf65fa56dc7bdaeb2c5698323923",
+    "PropertyPrefixConstruction.json": "db3f4ab127ebaf1c10de2f2cbaceea8ea276b07af07e2a071c4dff0c5d4d67a3",
+    "GeneratorSourceSnapshot.json": "3b88e43229e2c00a2c0658faad6db22160df91e9ff145af34b7dcb5f05a7deb1"
+  },
+  "raw_native_report_sha256": "5f6cbc9716e4779676aa9d91f9e505263fbedb5cacc2e3329fae316b64dd0c92",
+  "host_supervisor_report_sha256": "1924cbc5f7395b828005329c4629acd99c717a161b5fb003cb83f8195fe48ce1",
+  "baseline_failed_candidate_sha256": "7400cf1fa4a71994807ce8e49283e2721e09a5ceaf723e36f6ae807906c94a26",
+  "corrected_generated_sha256": "2ac13e616a8853add228bd11e21c400cb461b535bb9fc19252bb848bb410d1b4",
+  "baseline_changed_streams": [
+    "docProps/ISolidWorksInformation.xml"
+  ],
+  "expanded_property_trees_identical": true,
+  "guarded_identical_builds": 2,
+  "input_runtime_file_access_attempts": 0,
+  "inputs_immutable": true,
+  "case_receipts": [
+    {
+      "name": "ControlBefore",
+      "kind": "locked-control",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_edit_save": {
+        "record_sha256": "c45134e4ff583d315758af9a5466f1e0daa5af2348bb863e4c6c7b3e57526ecb",
+        "process_id": 9348,
+        "process_creation_filetime": 134394141664497012,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 24,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            1.0,
+            1.0
+          ],
+          "rebuilt": [
+            1.0,
+            1.0
+          ],
+          "edited": [
+            3.0,
+            2.0
+          ]
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "derivative_sha256": "825d0b20ed613be657fdde91fda24ffa7c0c72c8178987177c58123131f7a8e3",
+        "derivative_bytes": 18523
+      },
+      "fresh_reopen": {
+        "record_sha256": "75bc7d088675d021d5c78749fd0d3b5f7605a836da3531b3011ef3181fcbcd95",
+        "process_id": 8400,
+        "process_creation_filetime": 134394141921741264,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 16,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            3.0,
+            2.0
+          ],
+          "rebuilt": [
+            3.0,
+            2.0
+          ]
+        }
+      },
+      "exact_feature_tree_preserved": true
+    },
+    {
+      "name": "Repacked",
+      "kind": "repacked-control",
+      "input_sha256": "7344be42ffa72325dc4883a768cb4656f8d2319b2ee214c23de9f96bd5f4feb5",
+      "open_edit_save": {
+        "record_sha256": "130943d5610418c2d20c6df57c9612ee92e05461e075dae5a3cee36195e18d13",
+        "process_id": 2300,
+        "process_creation_filetime": 134394142160542283,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 24,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            1.0,
+            1.0
+          ],
+          "rebuilt": [
+            1.0,
+            1.0
+          ],
+          "edited": [
+            3.0,
+            2.0
+          ]
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "derivative_sha256": "0895fd9d1abfe9c9cdc9fb7c2290bfda2eba0f69a29ae0a245c9c4cc5fd4401c",
+        "derivative_bytes": 18256
+      },
+      "fresh_reopen": {
+        "record_sha256": "63c2d61e211030f4061d06fd68f183ed1a8f57729437ff38a9a37cffe10ab12f",
+        "process_id": 7656,
+        "process_creation_filetime": 134394142413008284,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 16,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            3.0,
+            2.0
+          ],
+          "rebuilt": [
+            3.0,
+            2.0
+          ]
+        }
+      },
+      "exact_feature_tree_preserved": true
+    },
+    {
+      "name": "ReducedNative",
+      "kind": "native-stream-reduction",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_edit_save": {
+        "record_sha256": "044de3a33e456ff680287ada3e5d53fe3f2f2b645b5077f51e922d67d06ef890",
+        "process_id": 980,
+        "process_creation_filetime": 134394142649613384,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 24,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            1.0,
+            1.0
+          ],
+          "rebuilt": [
+            1.0,
+            1.0
+          ],
+          "edited": [
+            3.0,
+            2.0
+          ]
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "derivative_sha256": "1f07237155afcc177134d3a4e75e3d42679c8a2f83e4c2cfb607a965682b53c2",
+        "derivative_bytes": 18700
+      },
+      "fresh_reopen": {
+        "record_sha256": "3426736416d85591b26d4b07cf8405595f8fdea7b78661cb8c64779b268db517",
+        "process_id": 9484,
+        "process_creation_filetime": 134394142909733140,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 16,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            3.0,
+            2.0
+          ],
+          "rebuilt": [
+            3.0,
+            2.0
+          ]
+        }
+      },
+      "exact_feature_tree_preserved": true
+    },
+    {
+      "name": "GeneratedBlank",
+      "kind": "generated",
+      "input_sha256": "2ac13e616a8853add228bd11e21c400cb461b535bb9fc19252bb848bb410d1b4",
+      "open_edit_save": {
+        "record_sha256": "4d5826b959f3ae5568024a5716e3db7b96092bc56693d0687f176dfe834394ed",
+        "process_id": 3240,
+        "process_creation_filetime": 134394143152834303,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 24,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            2.0,
+            3.0
+          ],
+          "rebuilt": [
+            2.0,
+            3.0
+          ],
+          "edited": [
+            3.0,
+            2.0
+          ]
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "derivative_sha256": "a4f2e57e4c8f4f55bc6872f3eb2972e8014b9370c6d9c38bb0410f3f07191f9a",
+        "derivative_bytes": 16178,
+        "sdk_derivative_layout": {
+          "sheet_count": 1,
+          "sheet_name": "Development Layout",
+          "paper_width_m": 0.2794,
+          "paper_height_m": 0.2159,
+          "scale_ratio": [
+            3.0,
+            2.0
+          ],
+          "view_count": 0,
+          "model_reference_count": 0,
+          "strict": false,
+          "sdk_commit": "657d27180"
+        }
+      },
+      "fresh_reopen": {
+        "record_sha256": "da3b7938201762186ddc611cdef263e5cc4c095e92c2a422d05fe7080437800a",
+        "process_id": 9516,
+        "process_creation_filetime": 134394143396983321,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 16,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            3.0,
+            2.0
+          ],
+          "rebuilt": [
+            3.0,
+            2.0
+          ]
+        }
+      },
+      "exact_feature_tree_preserved": true
+    },
+    {
+      "name": "ControlAfter",
+      "kind": "locked-control",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_edit_save": {
+        "record_sha256": "490dc8b5adc41c46f4c45b2da5724fb8b2e2b4c241597fe2d6bb967835ed4569",
+        "process_id": 5936,
+        "process_creation_filetime": 134394143639959783,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 24,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            1.0,
+            1.0
+          ],
+          "rebuilt": [
+            1.0,
+            1.0
+          ],
+          "edited": [
+            3.0,
+            2.0
+          ]
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "derivative_sha256": "bc60de25c9ad75af781a0f79a3a44873fc13c4a1bc26e17f863e9e5800173bd9",
+        "derivative_bytes": 18616
+      },
+      "fresh_reopen": {
+        "record_sha256": "378de53c166e3b0e91d673f969eac9c5737f5f815a9bcddca78b502919e245cc",
+        "process_id": 6924,
+        "process_creation_filetime": 134394143894606687,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "controller_diagnostics": 0,
+        "cleanup_errors": 0,
+        "source_immutable": true,
+        "checks_passed": 16,
+        "feature_rows": 10,
+        "scale_ratios": {
+          "initial": [
+            3.0,
+            2.0
+          ],
+          "rebuilt": [
+            3.0,
+            2.0
+          ]
+        }
+      },
+      "exact_feature_tree_preserved": true
+    }
+  ],
+  "disclosed_property_prefix_profile_passed": true,
+  "heldout_inputs_tested": 0,
+  "native_acceptance": false,
+  "production_conversions": 0
+}

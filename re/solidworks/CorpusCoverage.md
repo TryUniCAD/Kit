@@ -219,7 +219,7 @@ The [combined blank drawing diagnostic](measurements/2026/DrawingCacheCombinedOm
 shows that SOLIDWORKS regenerates four omitted display and preview streams
 after editing and saving the disclosed empty sheet. Both controls, the
 repacked control and the four-stream omission passed clean reopen over
-eight processes. Generated drawing acceptance remains zero.
+eight processes. This comparison measures the native reduction controls.
 
 The [first generated blank drawing](measurements/2026/GeneratedBlankDrawingNative01.json)
 opened and rebuilt cleanly. It retained the ten expected feature rows and
@@ -249,6 +249,14 @@ serialization branch remains under measurement.
 The [storage gate trace](measurements/2026/DrawingBlankSaveStorageGateNative01.json)
 observes a valid root in both lanes before the generated failure.
 Native drawing writing remains unqualified.
+The [property-prefix correction](measurements/2026/DrawingBlankPropertyPrefixNative01.json)
+changes only the retained property's XML lexical binding. The generated
+blank sheet passes native scale edit from 2:3 to 3:2, SaveAs and fresh reopen
+with its original ten feature rows. All four control lanes pass in ten
+native processes. The SDK reads the saved scale and dimensions from the
+generated derivative's native layout. This evidence covers a disclosed
+empty sheet. Held-out drawing and production writer qualification remain open.
+
 The [typed UI omission comparison](measurements/2026/DrawingBlankUiOmission01.json)
 passed fourteen native phases. The reduced native document saved with its
 viewport, line tables, environment and BOM state omitted together.

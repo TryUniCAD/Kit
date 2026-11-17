@@ -68,7 +68,7 @@ For an ordinary SOLIDWORKS 2026 drawing, pass `strict=False` to `open_document()
 
 The opt-in route supports a single unformatted sheet and verifies that Definition and the sheet and reference indexes agree. The `slddrw.layout_inspection` diagnostic identifies annotations, styles and graphics as outside this profile. Strict reads and native drawing writes remain unavailable. [Drawing view properties](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingViewProperties.md)
 
-The research property constructor generates ordinary text sections, fresh IDs and name dictionaries from neutral sheet metadata. Its complete generated blank passes native open, rebuild and scale edit, then returns SaveAs error 1. All four reference lanes save and reopen across nine native processes. [Property construction and measured boundary](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingPropertySections.md)
+The research property constructor generates text sections, IDs and name dictionaries from neutral sheet metadata. With the retained property XML's literal `vt` prefix declared, the generated blank sheet passes native open, rebuild, scale edit, SaveAs and fresh reopen. Four reference lanes pass in the ten-process comparison. This disclosed case is research evidence for the single unformatted empty sheet. [Property prefix and native result](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingPropertyPrefix.md)
 
 ## Feature history
 
