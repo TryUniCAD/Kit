@@ -48,6 +48,8 @@ The internal SDK `ResolvedFeatures` codec extends the actual Config map and read
 
 The public SDK uses matching version-19000 feature nodes for native name, class and identity. An ordinary single forward blind boss gets its profile dependency and driving depth through its typed archive owners. The read reports unsupported typed modes and retains the existing reader for other families. Geometry and mate projection still use their existing paths. [Typed public read](../../Changes/Solidworks/Archive/SolidworksTypedResolvedRead.md)
 
+The internal SDK construction layer can build the ordinary blind boss's typed length and angle parameter nodes and the complete end specification. It takes the allocated display and dimension owners and retains the caller's from-end identity. Two fresh generated topologies passed exact stream composition and memory readback. The profile, history and file-level construction remain separate requirements for writing. [Blind end construction](../../Changes/Solidworks/Construction/SolidworksBlindEndConstruction.md)
+
 ## Read flow
 
 ```mermaid
