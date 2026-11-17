@@ -27,11 +27,20 @@ def ReadDrawing(
             "drawing configuration selection belongs to the linked model view"
         )
     try:
+        from convert.adapters.solidworks.Drawing.Definition.Projection.JoinConcept import (
+            JoinConcept,
+        )
+        from convert.adapters.solidworks.Drawing.Definition.ReadConcept import (
+            ReadConcept,
+        )
+
         Version = CheckDrawLane(Archive)
-        Layout = ReadDrawLayout(Archive, Version)
+        Layout = JoinConcept(
+            ReadConcept(Archive, Version), ReadDrawLayout(Archive, Version)
+        )
     except SldprtFormat:
         raise
-    except (TypeError, ValueError) as ErrorValue:
+    except (KeyError, TypeError, ValueError) as ErrorValue:
         raise SldprtFormat(
             f"invalid SOLIDWORKS drawing layout: {ErrorValue}"
         ) from ErrorValue

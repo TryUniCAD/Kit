@@ -4,7 +4,7 @@ The SDK inspects version 4 containers with model archive version 19000. It resol
 
 For a single model view, `Header2.moHeader_c.bbox` contains the paper position and outline. The layout reader verifies a planar box with the recorded centre and independently derived sphere radius. Empty drawings carry neither a model link nor view bounds. `KeyWords` supplies the sheet and view names and sheet scale. The sheet-format and model-view lists in `ISolidWorksInformation.xml` supply dimensions and redundant ownership indexes. The measured view name and configuration match the source [authoring lock](../v2026/heldout/DrawingSourceLock01.json).
 
-`open_document(source, strict=False)` returns `CadDocument.drawing` with that layout. The diagnostic `slddrw.layout_inspection` identifies the remaining view scale, orientation, model-to-sheet transform, annotation, styling and display geometry work. The typed research Definition reader measures the first three of those fields separately. `CadDocument.drawing` defaults to absent for existing model documents, and their JSON omits the new field.
+`open_document(source, strict=False)` returns `CadDocument.drawing` with that layout. Definition supplies the actual orientation, view scale and model-to-sheet transform of the admitted front view. Its geometry and reference identity corroborate the separate layout streams. The diagnostic `slddrw.layout_inspection` identifies remaining annotations, styling and displayed geometry. `CadDocument.drawing` defaults to absent for existing model documents, and their JSON omits the new field.
 
 Run the process check against the disclosed oracle directory:
 
@@ -12,13 +12,15 @@ Run the process check against the disclosed oracle directory:
 PYTHONPATH=src python re/tooling/sw2026/serial/CheckSdkDrawingLayout.py /path/to/disclosed-sources
 ```
 
-The [process receipt](../measurements/2026/DrawingSdkLayoutCheck01.json) records three successful native layout reads and the resulting compact interchange JSON digests. Local checks matched the previous SDK output for the example part and the existing neutral assembly. The command-line `decode --partial` route returned the same active view-bearing sheet through the regular SDK adapter.
+The [initial layout receipt](../measurements/2026/DrawingSdkLayoutCheck01.json) records three successful native layout reads. The [view-properties receipt](../measurements/2026/DrawingSdkViewRead01.json) uses the same locked sources. It checks orientation, scale and the complete portable matrix against native readback and preserves each case through the SDK and interchange JSON. Both populated controls use the native identity rotation form. Strict reads and native writes require separate qualification.
 
 ## Reuse in the exact native reader
 
 The public archive cursor uses the shared tag, string, count and object-map primitives. The `Header2` decoder admits eight declared object classes and the shared file definition and bbox members. All ten rules are independently typed and none is marked provisional by the research registry. Its class table uses the exact archive version and class schema. Extension to an adjacent release requires the corresponding [qualification procedure](AdjacentReleaseQualification.md).
 
-The drawing model object in `Definition` reaches 166 typed schema methods in the empty control and 198 in the two model-view controls. The complete stream reaches 186 and 218 respectively. The qualified `moDrSheet` and `moAbsoluteView` rules can move beside the shared graph reader after their concrete archive dependencies are ported. The ten currently provisional methods include `moLayerMask_c`, `moLayerMgr_c`, `suUIntArray.Serialize`, `su_CMapStringToString` and six external-reference or object-collection methods. The model archive retains its drawing condition and directory ownership checks through [the current Definition grammar](DrawingDefinitionGrammar2026.md).
+The SDK [concept reader](../../../src/convert/adapters/solidworks/Drawing/Definition/ReadConcept.py) starts at the native Definition class framing. It uses one shared map through the first resolved concept, including the inline header directory. Version 19000 has a closed read grammar derived from independently authored source rules. The native drawing condition is scoped to the view owner. Unknown methods and currently unclassified modes reject inspection. The [concept record](DrawingConceptPrefix2026.md) identifies the included classes and five narrowly verified shared reference dependencies. The later Definition tail, layer managers and remaining display data still need qualification. [Full research grammar](DrawingDefinitionGrammar2026.md)
+
+Regenerate the read-only class vocabulary with [the source emitter](../../tooling/sw2026/serial/EmitDrawingReadRules.py). Run it with `PYTHONPATH=src python` and select `grammar` or `classes`. Format stdout with the repository-pinned Black version and compare it with `ConceptShapes.py` or `ShapeClasses.py` respectively. The emitter uses code only. The read grammar contains no captured stream data and the SDK does not import the research tooling.
 
 ## Display-list and view-bucket owners
 

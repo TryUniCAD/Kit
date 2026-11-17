@@ -32,3 +32,4 @@ def ReadHeadMut(ReaderValue: GraphReader, NodeValue: ArchiveNode) -> None:
     NodeValue.FieldsValue["header"] = NativeHeader(
         GetFileRef(Document), GetFileTable(Directory), Bounds
     )
+    NodeValue.FieldsValue["directory"] = Directory

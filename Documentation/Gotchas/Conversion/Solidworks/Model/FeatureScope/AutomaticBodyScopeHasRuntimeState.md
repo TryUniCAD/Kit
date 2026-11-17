@@ -10,4 +10,4 @@ Treat the constructor state and the load state separately. Verify how the
 concrete feature restores automatic selection or resolves explicit targets
 before relying on an empty saved body array. The pattern loader's restore
 condition belongs to its own serializer.
-[Ordinary blind-cut lifecycle](../../../../../re/solidworks/records/OrdinaryBlindCutConstruction2026.md#native-creation-and-body-selection).
+[Ordinary blind-cut lifecycle](../../../../../../re/solidworks/records/OrdinaryBlindCutConstruction2026.md#native-creation-and-body-selection).

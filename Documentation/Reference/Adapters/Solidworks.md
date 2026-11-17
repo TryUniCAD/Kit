@@ -57,9 +57,9 @@ The cached body geometry and feature history provide different evidence.
 
 ### Drawing layout inspection
 
-For an ordinary SOLIDWORKS 2026 drawing, pass `strict=False` to `open_document()` or run `kit decode SOURCE --partial`. The returned `CadDocument.drawing` includes the active sheet, paper dimensions and scale. A sheet can have one external part view with its position, outline, saved model path and selected configuration. Distances are in metres. The standard interchange JSON path preserves these records.
+For an ordinary SOLIDWORKS 2026 drawing, pass `strict=False` to `open_document()` or run `kit decode SOURCE --partial`. The returned `CadDocument.drawing` includes the active sheet, paper dimensions and scale. A sheet can have one external part front view with its position, outline, saved model path and selected configuration. View orientation, scale ratio and model-to-sheet transform come from the native Definition view. Distances are in metres. The standard interchange JSON path preserves these records.
 
-The opt-in route supports a single unformatted sheet. The `slddrw.layout_inspection` diagnostic identifies the unqualified view settings, annotations, styles and graphics. Strict reads and native drawing writes remain unavailable. [Drawing layout change](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingLayoutInspection.md)
+The opt-in route supports a single unformatted sheet and verifies that Definition and the sheet and reference indexes agree. The `slddrw.layout_inspection` diagnostic identifies annotations, styles and graphics as outside this profile. Strict reads and native drawing writes remain unavailable. [Drawing view properties](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingViewProperties.md)
 
 ## Feature history
 
@@ -70,7 +70,7 @@ See [feature resolution](SolidworksFeatures.md) for the observed grammar.
 
 For an ordinary SOLIDWORKS 2026 sketch, the reader matches the complete principal-plane handle inside its resolved-feature span. The model's actual persistent ID, axis kind and basis establish the sketch's support. Use `open_document(path, include_brep=False)` to inspect those history relationships without requesting cached body geometry. [Principal-plane reference change](../../Changes/Solidworks/SolidworksPrincipalPlaneReferences.md)
 
-For an ordinary dimensioned rectangle, the reader verifies the owned straight line ring and empty arc array. The sketch retains separate driving width and height, and the topology summary follows the actual profile bounds. [Rectangle sketch ownership](../../Changes/Solidworks/Inspection/SolidworksRectangleSketchOwnership.md)
+For an ordinary dimensioned rectangle, the reader verifies the owned straight line ring and empty arc array. The sketch retains separate driving width and height, and the topology summary follows the actual profile bounds. [Rectangle sketch ownership](../../Changes/Solidworks/Inspection/Sketches/SolidworksRectangleSketchOwnership.md)
 
 The `moCompFeature_c` record supplies feature-tree ordering information in the documented research families.
 Do not infer rebuild order from physical stream order alone.

@@ -14,9 +14,8 @@ from interchange.document.Models.Drawing.DrawingData import DrawingData
 KLayoutDiagnostic = Diagnostic(
     code="slddrw.layout_inspection",
     message=(
-        "Decoded sheet layout and model link placement. "
-        "View orientation, view scale, model-to-sheet transform, annotations, "
-        "native styles, and displayed geometry "
+        "Decoded sheet layout, model reference, and Definition view placement. "
+        "Annotations, native styles, and displayed geometry "
         "are outside this inspection profile."
     ),
     severity=Severity.KWarning,

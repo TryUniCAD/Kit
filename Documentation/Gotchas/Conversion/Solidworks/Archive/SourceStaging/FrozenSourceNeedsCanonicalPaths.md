@@ -12,4 +12,4 @@ the temporary root before constructing the auditor or passing the root
 to a child process. The assembly reproduction first missed the exported
 research script, then reached `no schema for moHeader_c` because the
 registry directory and auditor used different spellings.
-[Frozen assembly prediction tool](../../../../../re/tooling/sw2026/PrepareDimensionedAssemblyPredictions.py).
+[Frozen assembly prediction tool](../../../../../../re/tooling/sw2026/PrepareDimensionedAssemblyPredictions.py).

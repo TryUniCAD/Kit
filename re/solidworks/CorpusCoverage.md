@@ -204,7 +204,8 @@ single external part view layout. Strict drawing reads and production writing aw
 The [drawing concept prefix check](measurements/2026/DrawingConceptPrefixCheck01.json)
 round-trips the ordered sheet and complete view records before the resolved model tail. The
 research reader extracts model orientation, scale and the view transform and compares them
-with the native observations in both view-bearing cases.
+with the native observations in both view-bearing cases. The [SDK view receipt](measurements/2026/DrawingSdkViewRead01.json)
+verifies the same Definition properties and reference ownership through the public opt-in adapter.
 
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.

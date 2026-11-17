@@ -7,7 +7,7 @@ import ntpath
 from io import BytesIO
 from pathlib import Path
 
-from CheckDrawingDefinitions import DISCLOSED, SOURCE_LOCK, checked_artifacts, digest, require
+from CheckDrawingDefinitions import DISCLOSED, SOURCE_LOCK, checked_artifacts, compare_numeric, digest, require
 from convert import available_adapters, open_document, write_document
 from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from interchange import CadDocument
@@ -33,7 +33,15 @@ def check_layout(document, expected):
     require(ntpath.normcase(ntpath.normpath(reference.source_path)) == ntpath.normcase(ntpath.normpath(view["resolved_reference_path"])), "native external model path differs from the oracle path")
     require((stored.position.x, stored.position.y) == tuple(view["position_m"]), "drawing view position differs from the native readback")
     require(stored.outline == tuple(view["outline_m"]), "drawing view outline differs from the native readback")
-    require(stored.orientation_name is None and stored.scale_ratio is None and stored.model_to_sheet is None, "layout inspection reported unparsed view semantics")
+    require(stored.orientation_name == view["orientation"], "resolved view orientation differs from the native readback")
+    require(stored.scale_ratio is not None and stored.model_to_sheet is not None, "resolved view has no scale or native transform")
+    compare_numeric("resolved view scale", [stored.scale_ratio[0] / stored.scale_ratio[1]], [view["scale"]])
+    values = view["model_to_view"]
+    expected_rows = tuple(
+        tuple(values[column * 3 + row] * values[12] for column in range(3)) + (values[9 + row],)
+        for row in range(3)
+    ) + ((0.0, 0.0, 0.0, 1.0),)
+    compare_numeric("resolved model-to-sheet transform", stored.model_to_sheet.Values, [value for row in expected_rows for value in row])
 
 
 def check_case(root, case):
@@ -65,7 +73,12 @@ def check_case(root, case):
         require("does not support typed drawings" in str(error) and not rejected.getvalue(), "unsupported CAD output was not rejected before writing")
     else:
         raise ValueError("a part writer accepted drawing data")
-    return {"name": name, "source_sha256": digest(native), "neutral_json_sha256": digest(wire.encode("utf-8")), "views": 0 if authored["view"] is None else 1}
+    return {
+        "name": name,
+        "source_sha256": digest(native),
+        "neutral_json_sha256": digest(wire.encode("utf-8")),
+        "views": 0 if authored["view"] is None else 1,
+    }
 
 
 def main():
@@ -78,8 +91,9 @@ def main():
     info = [row for row in available_adapters() if "solidworks.slddrw" in row.aliases]
     require(len(info) == 1 and ".slddrw" in info[0].extensions, "drawing adapter is absent from public discovery")
     result = {
-        "schema": "kit.sw2026.drawing-sdk-layout.v1",
+        "schema": "kit.sw2026.drawing-sdk-layout.v2",
         "source_lock_sha256": digest(lock_bytes),
+        "definition_view_properties": True,
         "strict_reader_qualified": False,
         "native_writer_qualified": False,
         "cases": [check_case(options.corpus, locked_cases[name]) for name in DISCLOSED],
