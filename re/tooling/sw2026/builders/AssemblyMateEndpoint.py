@@ -7,7 +7,7 @@ from Core import Obj
 from builders.AssemblyOccurrences import mate_occurrence_component
 from builders.Definition import identity_transform
 from builders.Metadata import integer
-from builders.Model import component_plane, logged_creation_time, reference_wrapper_fields
+from builders.Model import absolute_reference_plane, component_plane, logged_creation_time, reference_wrapper_fields, unregistered_plane_reference
 from builders.Part import PartConstruction
 from builders.Sketch import PlaneFrame, frame_transform
 
@@ -26,6 +26,11 @@ def _xyz(value):
 
 def _point(value):
     return dict(zip("xyz", value, strict=True))
+
+
+def _signed_update(value: int) -> int:
+    update = integer(value, "model update stamp")
+    return update if update < 0x80000000 else update - 0x100000000
 
 
 def _placed_plane(datum: Obj, placement: dict) -> PlaneFrame:
@@ -91,10 +96,8 @@ def planar_mate_endpoint(*, assembly: Obj, occurrence: Obj, child: PartConstruct
         raise ValueError("the datum display rectangle must contain finite ordered bounds")
     origin = _point(frame.origin)
     normal = _point(frame.normal)
-    update = integer(occurrence["f3e0"], "child update stamp")
-    signed_update = update if update < 0x80000000 else update - 0x100000000
     resolved = {
-        "f08": signed_update,
+        "f08": _signed_update(occurrence["f3e0"]),
         "f10": dict(placement), "f18": dict(placement),
         "fd0": origin, "fe8": normal, "f100": frame_transform(frame=frame),
         **dict(zip(extent_keys, bounds, strict=True)),
@@ -110,5 +113,26 @@ def resolved_planar_wrapper(*, endpoint: PlanarMateEndpoint) -> Obj:
     values.update({
         "f68": 1, "has_f10": 1, "has_f18": 1, "f0c": endpoint.configuration_id,
         "f188": _point((0.0, 0.0, 0.0)),
+    })
+    return Obj("moPlaneRef_w", values)
+
+
+def detached_planar_wrapper(*, endpoint: PlanarMateEndpoint, model_header: Obj, configuration: Obj,
+                            date_code: int, parasolid_version: int) -> Obj:
+    owner = endpoint.component_plane["f58"]["owner"]
+    geometry = endpoint.detached_geometry
+    if model_header.cls != "moHeader_c" or not model_header["fec"] or configuration.cls != "moConfiguration_c":
+        raise ValueError("detached plane wrappers require the assembly model header and configuration")
+    plane = absolute_reference_plane(
+        owner=owner, name=None, root=geometry["fd0"], normal=geometry["fe8"], transform=identity_transform(),
+        bounds=(0.0, 0.0, 0.0, 0.0), date_code=date_code, parasolid_version=parasolid_version,
+    )
+    component = unregistered_plane_reference(plane=plane, component=owner["f990"])
+    component["f9c"] = endpoint.component_plane["ff0"]["f00"]
+    values = reference_wrapper_fields(reference=component)
+    values.update(geometry)
+    values.update({
+        "f08": _signed_update(model_header["f40"]), "f0c": configuration["f08"],
+        "f68": 1, "f188": _point((0.0, 0.0, 0.0)),
     })
     return Obj("moPlaneRef_w", values)

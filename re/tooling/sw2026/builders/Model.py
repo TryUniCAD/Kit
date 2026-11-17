@@ -71,11 +71,14 @@ def entity_visibility() -> dict:
     }
 
 
-def node_fields(*, name: str, allocator: PersistentIds | None, node: Obj) -> dict:
-    if not isinstance(name, str) or not name or "\x00" in name:
+def node_fields(*, name: str | None, allocator: PersistentIds | None, node: Obj) -> dict:
+    if name is None:
+        if allocator is not None or node.cls != "moRefPlane_c":
+            raise ValueError("only unassigned reference planes may omit a name")
+    elif not isinstance(name, str) or not name or "\x00" in name:
         raise ValueError("node names must be nonempty strings without null characters")
     fields = {
-        "f18": Obj("moNodeName_c", {"f08": name}),
+        "f18": None if name is None else Obj("moNodeName_c", {"f08": name}),
         "f0c": 1,
         "f28": 0x40000000,
         "f08": -1,
@@ -88,7 +91,7 @@ def node_fields(*, name: str, allocator: PersistentIds | None, node: Obj) -> dic
     return node.f
 
 
-def concept_fields(*, name: str, allocator: PersistentIds | None, node: Obj) -> dict:
+def concept_fields(*, name: str | None, allocator: PersistentIds | None, node: Obj) -> dict:
     fields = node_fields(name=name, allocator=allocator, node=node)
     fields.update({"has_list68": 0, "f78": None, "f60": node_list()})
     return fields
@@ -97,7 +100,7 @@ def concept_fields(*, name: str, allocator: PersistentIds | None, node: Obj) -> 
 def feature(
     *,
     cls: str,
-    name: str,
+    name: str | None,
     owner: Obj,
     allocator: PersistentIds | None,
     date_code: int,
@@ -298,6 +301,37 @@ def component_plane(
     return Obj("moCompRefPlane_c", fields)
 
 
+def unregistered_plane_reference(*, plane: Obj, component: Obj) -> Obj:
+    if not isinstance(plane, Obj) or plane.cls != "moRefPlane_c" or plane["f08"] != -1:
+        raise ArchiveError("an inline component reference requires an unregistered plane")
+    data = plane["f6f8"]
+    if not isinstance(data, Obj) or data.cls not in ("moAbsoluteRefPlnData_c", "moDrawingRefPlnData_c"):
+        raise ArchiveError("an inline component reference requires an unregistered absolute or drawing plane")
+    return Obj("moCompRefPlane_c", {
+        **component_reference_fields(component=component),
+        "ff0": {"f00": -1, "f08": logged_creation_time(timestamps=())},
+        "ff8": plane,
+        "f100": 0,
+    })
+
+
+def absolute_reference_plane(*, owner: Obj, name: str | None, root: dict, normal: dict, transform: dict,
+                             bounds: tuple[float, float, float, float], date_code: int, parasolid_version: int) -> Obj:
+    plane = atom_feature(cls="moRefPlane_c", name=name, owner=owner, allocator=None,
+                         date_code=date_code, parasolid_version=parasolid_version)
+    data = Obj("moAbsoluteRefPlnData_c", {
+        "root": dict(root), "normal": dict(normal), "f20": transform,
+        **{f"b{index}": bound for index, bound in enumerate(bounds)},
+        "f48": None, "f50": 0, "f54": 1, "f58": 2, "old_e5": 0,
+        "f5c": 1, "f60": 0, "f64": 0, "f68": None, "f70": None, "f78": None,
+    })
+    plane.f.update({
+        "f6c0": dict.fromkeys("xyz", 0.0), "f6dc": 4,
+        "f6e0": 0, "f6e8": None, "f6f0": 0, "f6f8": data,
+    })
+    return plane
+
+
 def principal_plane(
     *,
     axis: str,
@@ -308,6 +342,8 @@ def principal_plane(
     parasolid_version: int,
     retain_construction_flag: bool,
 ) -> Obj:
+    if name is None:
+        raise ValueError("principal planes require an authored name")
     if axis not in ("x", "y", "z"):
         raise ValueError("principal planes require a positive canonical normal axis")
     if type(retain_construction_flag) is not bool:

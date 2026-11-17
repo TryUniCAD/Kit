@@ -4,7 +4,7 @@ from Core import Obj
 from builders.Definition import identity_transform
 from builders.DrawingSheet import DrawingSheet
 from builders.DrawingTail import drawing_feature_filetime
-from builders.Model import atom_feature, component_reference_fields, feature, logged_creation_time, model_feature, node_list, object_list
+from builders.Model import absolute_reference_plane, feature, model_feature, node_list, object_list, unregistered_plane_reference
 from builders.Sketch import PlaneFrame, _bind_local_ref_flag, new_profile
 
 
@@ -20,33 +20,14 @@ _DETAIL_LIST_OFFSETS = (
 
 
 def _sheet_plane(*, owner, name, transform, provenance):
-    plane = atom_feature(cls="moRefPlane_c", name=name, owner=owner, allocator=None, **provenance)
+    if name is None:
+        raise ValueError("sheet support plane requires an authored name")
     root = dict(zip("xyz", _SHEET_FRAME.origin, strict=True))
     normal = dict(zip("xyz", _SHEET_FRAME.normal, strict=True))
     half_width = _DEFAULT_PLANE_WIDTH * 0.5
     half_height = _DEFAULT_PLANE_HEIGHT * 0.5
-    data = Obj("moAbsoluteRefPlnData_c", {
-        "root": root,
-        "normal": normal,
-        "f20": transform,
-        "b0": half_width, "b1": -half_width, "b2": half_height, "b3": -half_height,
-        "f48": None, "f50": 0, "f54": 1, "f58": 2, "old_e5": 0,
-        "f5c": 1, "f60": 0, "f64": 0, "f68": None, "f70": None, "f78": None,
-    })
-    plane.f.update({
-        "f6c0": dict(root), "f6dc": 4, "f6e0": 0, "f6e8": None, "f6f0": 0, "f6f8": data,
-    })
-    return plane
-
-
-def _sheet_plane_reference(*, plane, component):
-    if plane["f08"] != -1:
-        raise ValueError("sheet support reference requires the plane before persistent allocation")
-    return Obj("moCompRefPlane_c", {
-        **component_reference_fields(component=component),
-        "ff0": {"f00": plane["f08"], "f08": logged_creation_time(timestamps=())},
-        "ff8": plane, "f100": 0,
-    })
+    return absolute_reference_plane(owner=owner, name=name, root=root, normal=normal, transform=transform,
+                                    bounds=(half_width, -half_width, half_height, -half_height), **provenance)
 
 
 def _sheet_profile(*, owner, name, reference, allocator, transform, created_at, provenance):
@@ -74,7 +55,7 @@ def empty_drawing_sheet(*, settings, owner, allocator, plane_name, profile_name,
     provenance = {"date_code": date_code, "parasolid_version": parasolid_version}
     sheet = model_feature(cls="moDrSheet", name=settings.name, owner=owner, allocator=allocator, **provenance)
     plane = _sheet_plane(owner=sheet, name=plane_name, transform=settings.model_sketch_frame(), provenance=provenance)
-    reference = _sheet_plane_reference(plane=plane, component=component)
+    reference = unregistered_plane_reference(plane=plane, component=component)
     allocator.allocate(plane)
     profile = _sheet_profile(owner=sheet, name=profile_name, reference=reference, allocator=allocator,
                              transform=settings.model_sketch_frame(), created_at=created_at, provenance=provenance)

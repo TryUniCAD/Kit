@@ -3,9 +3,9 @@ from __future__ import annotations
 from Core import Obj
 from builders.Definition import identity_transform
 from builders.DrawingFrontProjection import FrontProjection
-from builders.DrawingSheetObjects import _detail_folder, _sheet_plane, _sheet_plane_reference, _sheet_profile
+from builders.DrawingSheetObjects import _detail_folder, _sheet_plane, _sheet_profile
 from builders.Metadata import fields
-from builders.Model import PersistentIds, node_list
+from builders.Model import PersistentIds, node_list, unregistered_plane_reference
 
 
 def _view_sketch(*, owner, component, allocator, created_at, plane_name, profile_name, origin, transform, sheet_plane, target):
@@ -18,7 +18,7 @@ def _view_sketch(*, owner, component, allocator, created_at, plane_name, profile
         })
     else:
         plane["f6c0"] = {"x": origin["x"] + data["b1"], "y": origin["y"] + data["b2"], "z": origin["z"]}
-    reference = _sheet_plane_reference(plane=plane, component=component)
+    reference = unregistered_plane_reference(plane=plane, component=component)
     allocator.allocate(plane)
     profile = _sheet_profile(owner=owner, name=profile_name, reference=reference, allocator=allocator,
                              transform=transform, created_at=created_at, provenance=target)

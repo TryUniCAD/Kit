@@ -63,3 +63,22 @@ Both consume the archive exactly, preserve the occurrence map bindings
 and repeat the earlier endpoint receipts byte for byte. No runtime file
 opens occur. The shared base fields also serve the existing revolve
 axis wrapper. [Resolved wrapper process receipt](../measurements/2026/GeneratedResolvedPlanarWrappers01.json)
+
+## Detached wrappers
+
+An optional `include_detached` input also constructs the detached
+`moPlaneRef_w` for each selection. It uses the containing assembly's
+actual model header and active configuration and keeps a separate unit
+component bound to that assembly. The inline absolute plane stays
+unnamed and unregistered. Its geometry uses the resolved endpoint's
+world origin and normal, the identity frame and zero bounds. The
+component plane retains the original child datum ID in `f9c`.
+[Native factory and ownership trace](PlanarMateWrapperWriteState2026.md#detached-and-resolved-plane-identity)
+
+Both paired process inputs preserve the resolved wrappers and round-trip
+the detached plane, unit component and actual parent references.
+The combined archives measure 2,366 and 2,654 bytes, with zero runtime
+file reads. The shared absolute plane builder reproduces the frozen
+front drawing and part bytes exactly. Native load and retention of
+the complete assembly mate still require measurement.
+[Paired wrapper proof](../measurements/2026/GeneratedPairedPlanarWrappers01.json)
