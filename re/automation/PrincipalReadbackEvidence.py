@@ -59,6 +59,14 @@ COLLECTORS = {
             "progress_collector": "9df818ab40763ab97253ed247565c5e5117235c3bf16538cba550d4ec30fc765",
         },
     ),
+    "d48381584d45cc1a11edbbd0ffdf3bb4ba70e72794bc1b4e5425209683cac7fb": (
+        True,
+        {
+            "launcher": "796e28c9a538ebc15d55f208bb4513534966a9a37d869eb7400a2c50b7f6cc02",
+            "circle_collector": "b674dd765c133a53efd87da406ce9ec6cbcf218b25a2ee3329228eeee61a5023",
+            "progress_collector": "9df818ab40763ab97253ed247565c5e5117235c3bf16538cba550d4ec30fc765",
+        },
+    ),
 }
 DOCUMENTS = ("plan", "measurements", "receipt")
 PHASES = ("before_rebuild", "after_rebuild")

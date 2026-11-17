@@ -36,6 +36,8 @@ from PartProperties import (
     PartPropertyInventory,
 )
 from ResolvedPart import OrdinaryResolvedArchive
+from VisualState.VisualStateModel import VisualState
+from VisualState.VisualStatePackage import EncodePackageVisuals
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.Bookkeeping import (
     EncodePartMeta,
@@ -84,6 +86,7 @@ class PackageState:
     Pmi: PmiIndex
     Content: PackageContent
     PreviewColors: Palette | None = None
+    Visualization: VisualState | None = None
 
 
 # CMgr reuses the same atom, file identity, and bounds carried by the generated part.
@@ -177,6 +180,17 @@ def BuildOrdinaryPackage(
         Header.SelfReference.ModifiedTime,
     )
     Streams = EncodePackageMetadata(Generation, State)
+    Streams.update(
+        EncodePackageVisuals(
+            Generation,
+            State.Visualization,
+            Profile,
+            Resolved.System,
+            Header,
+            State.Manager,
+            State.Definition,
+        )
+    )
     Identity = MakePartIndex(
         State.Indices.SavedPath,
         Header.SelfReference.File.Title,

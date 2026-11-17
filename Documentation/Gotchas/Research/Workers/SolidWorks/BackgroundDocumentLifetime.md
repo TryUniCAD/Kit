@@ -24,4 +24,13 @@ The API warns that activation can attach to an existing user session.
 Verify the exact owned process identity before application shutdown. [ExitApp API contract](https://help.solidworks.com/2024/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.isldworks~exitapp.html)
 
 The [recorded trace](../../../../Changes/Research/Workers/SolidWorks/OwnedReadbackLifetime.md#preserved-trace-observation) reached the final control close after five circular capture calls.
-Its timeout and exact cleanup are preserved while normal lifecycle acceptance remains open.
+Its timeout and exact cleanup are preserved.
+The later [committed-source observation](../../../../Changes/Research/Workers/SolidWorks/FinalControlDiscard.md) completed P02 and P01–P03 with normal application exit, while P04 repeated the final-control close timeout.
+Both initial lifetime flags were already true, so the earlier stall's cause remains unproven.
+
+The public `GetSaveFlag` contract notes that a dirty visible read-only document can prompt to save when the suppression preference is off.
+Record the actual dirty and read-only states without changing user preferences. [GetSaveFlag contract](https://help.solidworks.com/2025/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IModelDoc2~GetSaveFlag.html)
+
+For the verified owned final read-only stock control, the collector now uses the explicitly documented no-save `QuitDoc` operation with the exact title operand.
+This applies only after successful initial open verification and a fresh exact-path, read-only and sole-document check.
+The remaining document closes retain `CloseDoc`, and successful acceptance still requires an empty session and normal `ExitApp` and held-handle exit. [QuitDoc contract](https://help.solidworks.com/2021/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.isldworks~quitdoc.html)

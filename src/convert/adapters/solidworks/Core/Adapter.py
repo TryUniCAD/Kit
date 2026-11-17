@@ -147,6 +147,7 @@ from convert.adapters.solidworks.Core.EquationTarget import (
 from convert.adapters.solidworks.Core.BindInch import KUnresolvedInchDimension
 from convert.adapters.solidworks.Core.BossProjection import BindBossAxis
 from convert.adapters.solidworks.Core.CircularProjection import ProjectRoundDoc
+from convert.adapters.solidworks.Core.CircleOnly.Projection import ProjectSoloDoc
 from convert.adapters.solidworks.Core.ParseDisplay import (
     KInformationStream,
     ParseDisplay,
@@ -474,6 +475,7 @@ def ProjectPartDoc(
     DocValue = ProjectCutDoc(DocValue, Model.cut_source)
     DocValue = ProjectScopeDoc(DocValue, Model, Archive, Payloads, Settings)
     DocValue = ProjectPadDoc(DocValue, Archive, Model.active_configuration_id)
+    DocValue = ProjectSoloDoc(DocValue, Model, Archive)
     return ProjectRoundDoc(DocValue, Model, Archive, Settings.include_brep)
 
 

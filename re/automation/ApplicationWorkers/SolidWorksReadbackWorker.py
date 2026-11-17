@@ -13,7 +13,7 @@ from ApplicationProtocol import (
     ACKNOWLEDGEMENT, ApplicationTimeout, HostQueue, MAX_BYTES, PROTOCOL, QueueClient, WaitingApplication, WINDOWS_HELPERS,
     committed_bytes, configuration, encoded, file_bytes, pin, record, request_link, require, sha256, write_new, write_record,
 )
-from SolidWorksProgress import PROGRESS, recovery_progress, require_progress
+from SolidWorksProgress import PROGRESS, recovery_progress, require_final_discard, require_progress
 
 WORKER = "re/automation/ApplicationWorkers/SolidWorksReadbackWorker.py"
 LAUNCHER = "re/automation/PairedCaptures/SolidWorksAuthoring/ReadP04SolidWorks.ps1"
@@ -96,6 +96,7 @@ def native_result(work, config, operation=OPERATION, progress_required=False, lo
         } and all(type(value) is bool for value in lifetime.values())
                 and lifetime["background_control_after"] is True,
                 "SOLIDWORKS readback lacks verified owned background lifetime control")
+        require_final_discard(run["native_progress"], run["control_after"])
     return {"readback_plan_sha256": plan_sha256, "solidworks_build": application["build"],
             "native_owner_sha256": sha256(encoded(owner)), **progress}
 

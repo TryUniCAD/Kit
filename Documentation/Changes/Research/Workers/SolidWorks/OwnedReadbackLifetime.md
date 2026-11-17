@@ -47,11 +47,13 @@ Computer-use inspection exposed no SOLIDWORKS window or education/license prompt
 
 All 3,762 recorded source and input file hashes were unchanged.
 The timeout establishes cleanup and stage-retention evidence.
-Successful normal native close, exit and readback under the lifetime repair require a new committed-source observation.
+The later committed-source observation accepted P02 and P01–P03 with normal close and exit; P04 retained a final-control close timeout.
+The [final-control follow-up](FinalControlDiscard.md) records the separate results and their immutable receipts.
 
 ## Implementation verification
 
 The modified collector and existing rectangular Boss witness compiled against the installed `34.4.1.1011` interop assemblies without launching CAD.
 The managed-process coverage carries an actual close operand through the C# journal and Python queue boundary.
 It also rejects a reported run that lacks verified background lifetime control.
-Native confirmation of the repaired lifecycle remains pending.
+The lifetime assertion was present in both accepted scopes, but all four observed lifetime flags were already true.
+Those observations do not establish that the setter caused the earlier stalled close to return.

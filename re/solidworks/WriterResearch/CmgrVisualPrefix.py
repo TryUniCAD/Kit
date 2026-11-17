@@ -26,7 +26,12 @@ class CmgrVisualFields:
     UsesDefaultAppearance: bool
 
 
-def RequireVisualFields(Generation: int, Fields: CmgrVisualFields) -> None:
+def RequireVisualFields(
+    Generation: int,
+    Fields: CmgrVisualFields,
+    *,
+    AllowSystemTexture: bool = False,
+) -> None:
     RequireArch(Generation, 19000, "CMgr visual prefix generation")
     Colors = (
         Fields.SurfaceColor,
@@ -59,14 +64,22 @@ def RequireVisualFields(Generation: int, Fields: CmgrVisualFields) -> None:
         "CMgr retained bump and displacement settings",
     )
     Locator = PureWindowsPath(Fields.NativeAssetPath)
+    InstalledLocator = (
+        Locator.is_absolute()
+        and tuple(Part.casefold() for Part in Locator.parts[-4:])
+        == KDefaultMaterialAsset
+    )
+    SystemLocator = (
+        AllowSystemTexture
+        and Fields.NativeAssetPath == r"<SystemTexture>\graphics\materials\color.p2m"
+    )
     RequireArch(
         (
-            Locator.is_absolute(),
+            InstalledLocator or SystemLocator,
             ".." in Locator.parts,
             any(ord(Char) < 32 for Char in Fields.NativeAssetPath),
-            tuple(Part.casefold() for Part in Locator.parts[-4:]),
         ),
-        (True, False, False, KDefaultMaterialAsset),
+        (True, False, False),
         "CMgr installed default material locator",
     )
 
@@ -103,9 +116,13 @@ def WriteRealView(Writer: ArchiveWriter, Fields: CmgrVisualFields) -> None:
 
 # The body is inline in the already-open visual object and ends at the DSPBR body.
 def WriteCmgrVisualPrefix(
-    Writer: ArchiveWriter, Generation: int, Fields: CmgrVisualFields
+    Writer: ArchiveWriter,
+    Generation: int,
+    Fields: CmgrVisualFields,
+    *,
+    AllowSystemTexture: bool = False,
 ) -> None:
-    RequireVisualFields(Generation, Fields)
+    RequireVisualFields(Generation, Fields, AllowSystemTexture=AllowSystemTexture)
     Writer.raw(
         PackFields("<3I", Fields.SurfaceColor, Fields.WireColor, Fields.HiddenLineColor)
     )

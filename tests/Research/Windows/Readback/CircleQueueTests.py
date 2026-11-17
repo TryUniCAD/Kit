@@ -21,9 +21,20 @@ from tests.Research.Windows.Readback.QueueReadback import QueueReadback
 @TestMark.skipif(HostPlatform != "win32", reason="Windows readback process boundary")
 @TestMark.parametrize(
     "FaultName",
-    ("none", "circle", "roster", "chain", "binding", "stage", "incomplete", "lifetime"),
+    (
+        "none",
+        "circle",
+        "roster",
+        "chain",
+        "binding",
+        "stage",
+        "incomplete",
+        "lifetime",
+        "discard",
+        "operand",
+    ),
 )
-def CheckCircleQueue(TmpPath: FilePath, FaultName: str) -> None:
+def CheckRoundQueue(TmpPath: FilePath, FaultName: str) -> None:
     RootPath, ConfigPath = InstallReadback(TmpPath)
     Result = QueueReadback(TmpPath, RootPath, ConfigPath, FaultName)
     Records = CastValue(dict[str, object], Result["records"])
@@ -56,11 +67,20 @@ def CheckCircleQueue(TmpPath: FilePath, FaultName: str) -> None:
     assert Receipt["observed_files"] == Receipt["circle_bindings_verified"] == 5
     Dispatch = DecodeJson((TmpPath / "Session/work/dispatch.json").read_bytes())
     assert Dispatch["proof"]["fixture_only"] is True
-    assert Dispatch["proof"]["native_progress_events"] == 3
+    assert Dispatch["proof"]["native_progress_events"] == 5
     Measurement = DecodeJson(
         (TmpPath / "Session/work/readback/measurements.json").read_bytes()
     )
     Journal = Measurement["run"]["native_progress"]["journal_utf8"].splitlines()
-    assert DecodeJson(Journal[0])["detail"] == {"operand": "control.SLDPRT"}
-    assert DecodeJson(Journal[1])["detail"] == {"operand": "control.SLDPRT"}
+    assert DecodeJson(Journal[1])["detail"] == {
+        "save_flag": True,
+        "read_only": True,
+        "document_count": 1,
+    }
+    assert DecodeJson(Journal[2])["detail"] == {"operand": "control.SLDPRT"}
+    assert DecodeJson(Journal[3])["detail"] == {"operand": "control.SLDPRT"}
+    assert [DecodeJson(Item)["stage"] for Item in Journal[2:4]] == [
+        "quit_document",
+        "quit_document",
+    ]
     assert (TmpPath / "Endpoint/fence.json").exists()

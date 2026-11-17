@@ -54,6 +54,17 @@ Commit [`c572f1ac`](https://github.com/TryUniCAD/Kit/commit/c572f1ac8dfa613e8ff6
 The [inference session change](../../Changes/Research/Controller/InferenceSessionIntegrity.md) also records a passing historical archive gate.
 The [Windows launch change](../../Changes/Research/Supervisor/WindowsLaunchAuthorization.md) records the 18-case Windows regression.
 The [native progress record](../../Changes/Research/Workers/SolidWorks/NativeReadbackProgress.md) identifies the pending SOLIDWORKS control close.
+The [session lifetime change](../../Changes/Research/Workers/SolidWorks/OwnedReadbackLifetime.md) records the trace, recovery and subsequent owned-session checks.
+At [`ee53cf7`](https://github.com/TryUniCAD/Kit/commit/ee53cf759f08a1f5608311fea0447e97a4a681fa), SOLIDWORKS accepted five P02 and 14 P01/P03 readbacks.
+Both healthy controls matched in each run, each owned process exited normally, and both acceptance fences cleared.
+P04 timed out in the final control close after all 11 capture calls and retained zero accepted observations.
+
+The A04d [standalone circle reader](../../Changes/Research/Readers/SolidWorks/StandaloneCircleSketch.md) matched five pinned P02 controls through the public SDK.
+The change preserves the driving diameter, Origin coincidence and principal support while reporting zero bodies for the proved sketch-only history.
+A12 now has an optional [constructive VisualStates member](../../Changes/Research/Writers/SolidWorks/Metadata/SolidWorksConstructiveVisualState.md) for research packages.
+Eight saved members reconstructed exactly, and a separately authored state passed offline package checks.
+The integrated reader and writer research passed 80 focused checks.
+Native writer acceptance requires an approved save classification and native geometry, editability and display-state observations.
 
 The registered SOLIDWORKS application points to build `34.4.1.1011`, matching the retained native readback.
 A separate older installation reports build `33.0.0.5050`.

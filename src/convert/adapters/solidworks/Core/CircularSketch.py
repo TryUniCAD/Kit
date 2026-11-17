@@ -14,6 +14,7 @@ from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.Format import PART_FORMAT_ID as KPartFormatId
 from convert.adapters.solidworks.Core.OrdinaryRead import KArchiveSupport
 from convert.adapters.solidworks.Resolved.Circular.Part import CircularPart
+from convert.adapters.solidworks.Resolved.Circular.CircleOnly import CircleOnly
 from interchange.Core.Common import FreezeMapping
 from interchange.Enums.EnumGeometry import GeometryKind
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
@@ -81,7 +82,7 @@ def BindRoundParam(
 
 # rebind the already reached principal support using its typed frame and saved feature span
 def BindRoundPlane(
-    Plane: SupportPlane, Saved: CircularPart, Stream: str
+    Plane: SupportPlane, Saved: CircularPart | CircleOnly, Stream: str
 ) -> SupportPlane:
     Datum = Saved.Datum
     RequireArch(
@@ -104,7 +105,9 @@ def BindRoundPlane(
 
 
 # locate the unique retained representation of the typed profile and reconcile its sampled geometry
-def BindCircleEdge(Neutral: Sketch, Saved: CircularPart, Stream: str) -> SketchEntity:
+def BindCircleEdge(
+    Neutral: Sketch, Saved: CircularPart | CircleOnly, Stream: str
+) -> SketchEntity:
     ((EntityId,),) = Neutral.closed_profile_entity_ids
     (Entity,) = tuple(Value for Value in Neutral.entities if Value.id == EntityId)
     ArcValue = Saved.Circle
@@ -146,7 +149,7 @@ def BindCircleEdge(Neutral: Sketch, Saved: CircularPart, Stream: str) -> SketchE
 
 
 # the ordered coincidence retains the local point identifier of its external origin
-def OriginPointId(Saved: CircularPart) -> tuple[int, int]:
+def OriginPointId(Saved: CircularPart | CircleOnly) -> tuple[int, int]:
     (PointId,) = tuple(
         PointValue
         for PointValue in Saved.Coincidence["point_native_ids"]
@@ -156,7 +159,9 @@ def OriginPointId(Saved: CircularPart) -> tuple[int, int]:
 
 
 # the fixed construction point represents the actual external origin handle reached by coincidence
-def BindOriginProxy(Neutral: Sketch, Saved: CircularPart, Stream: str) -> SketchEntity:
+def BindOriginProxy(
+    Neutral: Sketch, Saved: CircularPart | CircleOnly, Stream: str
+) -> SketchEntity:
     Reference = Saved.Coincidence["origin_proxy"]
     OriginSlot, PointId = OriginPointId(Saved)
     Point = Saved.Points[OriginSlot]
@@ -181,7 +186,7 @@ def BindOriginProxy(Neutral: Sketch, Saved: CircularPart, Stream: str) -> Sketch
 
 # both typed relations are attached together preserving the original diameter id and coincidence operand order
 def BindRoundSketch(
-    Neutral: Sketch, Saved: CircularPart, ParameterId: str, Stream: str
+    Neutral: Sketch, Saved: CircularPart | CircleOnly, ParameterId: str, Stream: str
 ) -> Sketch:
     Profile = Saved.Profile
     RequireArch(
@@ -255,7 +260,14 @@ def BindRoundSketch(
         provenance=CircularSource(
             Stream,
             str(Profile["feature_id"]),
-            (Profile["feature_start"], Saved.Boss["offset"]),
+            (
+                Profile["feature_start"],
+                (
+                    Saved.Boss["offset"]
+                    if isinstance(Saved, CircularPart)
+                    else Saved.EndOffset
+                ),
+            ),
             "circular-sketch",
         ),
         attributes=FreezeMapping(

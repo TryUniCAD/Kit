@@ -96,3 +96,24 @@ def recovery_progress(work, launch):
         return {"status": "unavailable", "reason": "journal_not_published"}
     except (OSError, ValueError, KeyError, TypeError, RecursionError) as error:
         return {"status": "invalid", "error_type": type(error).__name__}
+
+
+# only the sole read-only final control may use the explicit no-save close path
+def require_final_discard(report, control):
+    state = control.get("close_state")
+    operand = control.get("close_operand")
+    require(isinstance(state, dict) and set(state) == {"save_flag", "read_only", "document_count"}
+            and type(state["save_flag"]) is bool and state["read_only"] is True
+            and type(state["document_count"]) is int and state["document_count"] == 1
+            and isinstance(operand, str) and operand and control.get("close_method") == "quit_document",
+            "native progress lacks sole read-only final-control discard evidence")
+    events = [json.loads(line) for line in report["journal_utf8"].splitlines()]
+    closes = [event for event in events if event["stage"] == "quit_document"]
+    require(len(closes) == 2 and [event["status"] for event in closes] == ["started", "completed"]
+            and all(event["file"] == "control.SLDPRT" and event["detail"] == {"operand": operand} for event in closes),
+            "native progress final-control discard stage or operand differs")
+    start = events.index(closes[0])
+    require(start > 0 and events[start - 1]["stage"] == "close_state"
+            and events[start - 1]["status"] == "completed" and events[start - 1]["file"] == "control.SLDPRT"
+            and events[start - 1]["detail"] == state,
+            "native progress final-control discard state differs")

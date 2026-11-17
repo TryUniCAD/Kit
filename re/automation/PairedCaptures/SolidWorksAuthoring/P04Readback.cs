@@ -425,11 +425,12 @@ public sealed partial class P04Readback
             "solid_body_count", bodies.Length, "final_body", includesBoss ? FinalBody(document) : null);
     }
 
-    Dictionary<string, object> Read(string path, bool control)
+    Dictionary<string, object> Read(string path, bool control, bool discardFinalControl = false)
     {
         int errors = 0, warnings = 0;
         var row = Row("file", Path.GetFileName(path), "status", "failed");
         IModelDoc2 owned = null;
+        bool verifiedReadOnly = false;
         try
         {
             Require(progress.Invoke("document_count", (string)row["file"], () => app.GetDocumentCount()) == 0,
@@ -444,6 +445,7 @@ public sealed partial class P04Readback
             Require(document.IsOpenedReadOnly(), "SOLIDWORKS did not open the scratch document read-only");
             Require(errors == 0 && (warnings & ~(int)swFileLoadWarning_e.swFileLoadWarning_ReadOnly) == 0,
                 "SOLIDWORKS open returned an error or an unexpected warning");
+            verifiedReadOnly = true;
             if (control)
             {
                 Require(progress.Invoke("control_rebuild", (string)row["file"], () => document.ForceRebuild3(false)), "Control rebuild failed");
@@ -507,7 +509,25 @@ public sealed partial class P04Readback
                 {
                     string closeName = progress.Invoke("close_title", (string)row["file"], () => owned.GetTitle());
                     row["close_operand"] = closeName;
-                    progress.Invoke("close_document", (string)row["file"], () => app.CloseDoc(closeName), Row("operand", closeName));
+                    var closeState = new Dictionary<string, object>();
+                    progress.Invoke("close_state", (string)row["file"], () =>
+                    {
+                        closeState["save_flag"] = owned.GetSaveFlag();
+                        closeState["read_only"] = owned.IsOpenedReadOnly();
+                        closeState["document_count"] = app.GetDocumentCount();
+                    }, closeState);
+                    row["close_state"] = closeState;
+                    bool finalNoSave = discardFinalControl && verifiedReadOnly;
+                    row["close_method"] = finalNoSave ? "quit_document" : "close_document";
+                    if (finalNoSave)
+                    {
+                        Require(control, "No-save final cleanup is restricted to the stock control");
+                        Require((bool)closeState["read_only"] && (int)closeState["document_count"] == 1
+                            && String.Equals(owned.GetPathName(), path, StringComparison.OrdinalIgnoreCase),
+                            "No-save cleanup no longer identifies the sole owned read-only scratch document");
+                        progress.Invoke("quit_document", (string)row["file"], () => app.QuitDoc(closeName), Row("operand", closeName));
+                    }
+                    else progress.Invoke("close_document", (string)row["file"], () => app.CloseDoc(closeName), Row("operand", closeName));
                 }
                 Require(progress.Invoke("verify_empty", (string)row["file"], () => app.GetDocumentCount()) == 0,
                     "SOLIDWORKS document cleanup did not leave an empty session");
@@ -647,7 +667,7 @@ public sealed partial class P04Readback
                 observations.Add(reading);
                 Require(!reading.ContainsKey("cleanup_diagnostic"), "Readback cleanup did not leave an empty session");
             }
-            var after = progress.Invoke("control_after", "control.SLDPRT", () => worker.Read(Path.Combine(workspace, "control.SLDPRT"), true));
+            var after = progress.Invoke("control_after", "control.SLDPRT", () => worker.Read(Path.Combine(workspace, "control.SLDPRT"), true, true));
             result["control_after"] = after;
             Require((string)after["status"] == "observed", "Post-run control did not pass");
             if (observations.Cast<Dictionary<string, object>>().All(row => (string)row["status"] == "observed"))

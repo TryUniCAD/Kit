@@ -64,7 +64,9 @@ def observe(request, work):
                   'native_owner': owner, 'owned_process_exit_observed': True,
                   'application_lifetime': {'user_control_before': False, 'background_control_before': False,
                                            'background_control_after': fault != 'lifetime', 'user_control_after': False},
-                  'control_before': {'status': 'observed'}, 'control_after': {'status': 'observed'}}}
+                  'control_before': {'status': 'observed'}, 'control_after': {
+                      'status': 'observed', 'close_operand': 'control.SLDPRT', 'close_method': 'quit_document',
+                      'close_state': {'save_flag': True, 'read_only': fault != 'discard', 'document_count': 1}}}}
     owner_path = output / 'fixture-owner.json'
     write_record(owner_path, owner)
     powershell = Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/powershell.exe'
@@ -77,6 +79,14 @@ def observe(request, work):
     assert generated.returncode == 0, generated.stderr.decode(errors='replace')
     native_progress = json.loads(generated.stdout)
     progress = journal_path.read_bytes().splitlines(keepends=True)
+    if fault == 'operand':
+        event = json.loads(progress[2])
+        event['detail']['operand'] = 'unrelated.SLDPRT'
+        progress[2] = encoded(event)
+        for index in range(3, len(progress)):
+            event = json.loads(progress[index])
+            event['previous_sha256'] = sha256(progress[index - 1])
+            progress[index] = encoded(event)
     if fault == 'chain':
         event = json.loads(progress[1])
         event['previous_sha256'] = '0' * 64
