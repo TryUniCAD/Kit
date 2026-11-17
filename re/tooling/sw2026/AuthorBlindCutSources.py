@@ -171,17 +171,18 @@ class BlindCutAuthor(CurveAuthor):
         inverse = self.get(transform, "Inverse")
         return {"geometry": observed, "model_to_sketch": list(self.get(transform, "ArrayData"))[:13]}, inverse
 
-    def snapshot(self, case, label, cut_depth):
+    def snapshot(self, case, label, cut_depth, *, roles=(BOSS_SKETCH, BOSS, CUT_SKETCH, CUT)):
+        boss_sketch, boss, cut_sketch, cut = roles
         require(self.get(self.model, "ForceRebuild3", False), "native solid rebuild failed")
         require(int(self.get(self.get(self.model, "Extension"), "GetWhatsWrongCount")) == 0, "document contains rebuild errors or warnings")
         tree = self.feature_tree()
-        snapshot = {"tree": tree, "boss": self.inspect_feature(BOSS, BOSS_SKETCH, case["boss_depth_mm"], True)}
-        snapshot["boss_profile"], inverse = self.inspect_profile(BOSS_SKETCH, case["boss_profile"])
+        snapshot = {"tree": tree, "boss": self.inspect_feature(boss, boss_sketch, case["boss_depth_mm"], True)}
+        snapshot["boss_profile"], inverse = self.inspect_profile(boss_sketch, case["boss_profile"])
         if cut_depth:
             names = [row["name"] for row in tree if not row["suppressed"]]
-            require(CUT_SKETCH in names and CUT in names and names.index(BOSS) < names.index(CUT), "cut is missing, suppressed or out of feature order")
-            snapshot["cut"] = self.inspect_feature(CUT, CUT_SKETCH, cut_depth, False)
-            snapshot["cut_profile"], _ = self.inspect_profile(CUT_SKETCH, case["cut_profile"])
+            require(cut_sketch in names and cut in names and names.index(boss) < names.index(cut), "cut is missing, suppressed or out of feature order")
+            snapshot["cut"] = self.inspect_feature(cut, cut_sketch, cut_depth, False)
+            snapshot["cut_profile"], _ = self.inspect_profile(cut_sketch, case["cut_profile"])
             for index, values in enumerate(zip(snapshot["cut_profile"]["model_to_sketch"], snapshot["boss_profile"]["model_to_sketch"], strict=True)):
                 self.rec.close_number(f"shared sketch frame element {index}", *values)
         solid_count = self.rec.call("solid body count", Swapp.bodies, self.model)
@@ -201,18 +202,19 @@ class BlindCutAuthor(CurveAuthor):
         self.rec.flush()
         return snapshot
 
-    def edit_depth(self, case):
-        dimension = self.get(self.model, "Parameter", f"D1@{CUT}")
+    def edit_depth(self, case, *, roles=(BOSS_SKETCH, BOSS, CUT_SKETCH, CUT)):
+        cut = roles[3]
+        dimension = self.get(self.model, "Parameter", f"D1@{cut}")
         require(dimension is not None, "native cut driving dimension is missing")
         name = str(self.get(dimension, "FullName"))
-        require(name.split("@")[1:2] == [CUT], "found dimension does not belong to the cut")
+        require(name.split("@")[1:2] == [cut], "found dimension does not belong to the cut")
         require(not self.get(dimension, "ReadOnly") and int(self.get(dimension, "DrivenState")) == 2, "cut depth is not driving and editable")
         before, target = case["cut_depth_mm"] / 1000, case["edit_depth_mm"] / 1000
         self.rec.close_number("initial cut driving dimension", self.get(dimension, "SystemValue"), before)
         status = int(self.get(dimension, "SetSystemValue3", target, 1, Swapp.nothing()))
         require(status == 0, f"cut depth dimension setter failed with status {status}")
         self.rec.close_number("edited cut driving dimension", self.get(dimension, "SystemValue"), target)
-        self.snapshot(case, "edited", case["edit_depth_mm"])
+        self.snapshot(case, "edited", case["edit_depth_mm"], roles=roles)
         self.rec.data["edit"] = {"name": name, "before_m": before, "after_m": target, "setter_status": status}
 
 
