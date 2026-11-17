@@ -1,0 +1,434 @@
+{
+  "schema": "kit.sw2026.drawing-archive-discovery.v1",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "source_revision": "3946bfe50452ff35817065bd1c439bd70cc61c10",
+  "first_attempt_lock_sha256": "4b9302235c4bf59972f40fa07d4c0f1f919dddba488d89ebb859963745a273a6",
+  "first_attempt_complete_source_lock": false,
+  "bracketing_native_controls": [
+    true,
+    true
+  ],
+  "container_version": 4,
+  "serializer_archive_version": 19000,
+  "disclosed_cases": [
+    {
+      "name": "D00EmptySheet",
+      "file_id": 3759644341,
+      "container_bytes": 17657,
+      "sha256": "c59553b52c2a742e082d158822a42f95605a8b7c316df7794ddab7aeb9fc1144",
+      "stream_size_bytes": {
+        "Contents/3DExperienceExchange2": 12288,
+        "Contents/CusProps": 102,
+        "Contents/Definition": 28950,
+        "Contents/DisplayLists": 3249,
+        "Contents/OleItems": 4,
+        "Contents/VBLists": 8,
+        "Contents/eModelLic": 4,
+        "DWG/DWG_HEADER": 4,
+        "Header2": 907,
+        "Images/Sheet_0": 3227,
+        "ModelStamps": 12,
+        "OleItemInformation/OLE_Item_Data": 4,
+        "Preview": 38816,
+        "PreviewPNG": 2907,
+        "SheetPreviews/SheetNames": 22,
+        "SwDocContentMgr/SwDocContentMgrInfo": 0,
+        "ThirdPtyStore/VisualStates_DisplayPane": 8,
+        "[Content_Types].xml": 556,
+        "_DL_VERSION_19000/DLUpdateStamp": 6,
+        "_MO_VERSION_19000/Biography": 1601,
+        "_MO_VERSION_19000/History": 101,
+        "_rels/.rels": 597,
+        "docProps/ISolidWorksInformation.xml": 13743,
+        "docProps/OpenTime.xml": 403,
+        "docProps/app.xml": 570,
+        "docProps/core.xml": 522,
+        "docProps/custom.xml": 853,
+        "swXmlContents/CustomProperties": 0,
+        "swXmlContents/KeyWords": 823
+      },
+      "archive_definition": {
+        "class": "moDrawing_c",
+        "schema": 1,
+        "root_tag_offset": 36,
+        "document_clsid": "83a33d34-27c5-11ce-bfd4-00400513bb57"
+      },
+      "header2": {
+        "sha256": "bd9a5b785f409ee7c3d4ca4357ab2071b387ab89fab69f9a43b4417fefbeb606",
+        "roundtrip_exact": true,
+        "tail_bytes": 0,
+        "map_next_index": 34,
+        "own_document_kind": 4,
+        "f38_f58": 8,
+        "external_entry_kinds": [],
+        "bbox": null,
+        "feature_count_field_f08": 9
+      },
+      "native_readback": {
+        "author_save_status": [
+          true,
+          0,
+          0
+        ],
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial_problems": 0,
+        "rebuilt_problems": 0,
+        "reopen_harness_passed": true,
+        "failed_gate": null,
+        "sheet_properties": [
+          0.0,
+          13.0,
+          1.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "authored_view": null,
+        "reopened_view": null
+      }
+    },
+    {
+      "name": "D01FrontView",
+      "file_id": 269363152,
+      "container_bytes": 22651,
+      "sha256": "e47f5e706dcba665e05c8f92edd7267e587cd4fee7c4b152ef918164a29f8717",
+      "stream_size_bytes": {
+        "Contents/3DExperienceExchange2": 12288,
+        "Contents/CusProps": 102,
+        "Contents/Definition": 37246,
+        "Contents/DisplayLists": 3908,
+        "Contents/OleItems": 4,
+        "Contents/VBLists": 6409,
+        "Contents/eModelLic": 4,
+        "DWG/DWG_HEADER": 4,
+        "Header2": 1717,
+        "Images/Sheet_0": 3227,
+        "ModelStamps": 12,
+        "OleItemInformation/OLE_Item_Data": 4,
+        "Preview": 39208,
+        "PreviewPNG": 3067,
+        "SheetPreviews/SheetNames": 22,
+        "SwDocContentMgr/SwDocContentMgrInfo": 0,
+        "ThirdPtyStore/VisualStates_DisplayPane": 8,
+        "[Content_Types].xml": 556,
+        "_DL_VERSION_19000/DLUpdateStamp": 6,
+        "_MO_VERSION_19000/Biography": 1597,
+        "_MO_VERSION_19000/History": 101,
+        "_rels/.rels": 597,
+        "docProps/ISolidWorksInformation.xml": 13909,
+        "docProps/OpenTime.xml": 403,
+        "docProps/app.xml": 570,
+        "docProps/core.xml": 522,
+        "docProps/custom.xml": 853,
+        "swXmlContents/CustomProperties": 0,
+        "swXmlContents/KeyWords": 1447
+      },
+      "archive_definition": {
+        "class": "moDrawing_c",
+        "schema": 1,
+        "root_tag_offset": 36,
+        "document_clsid": "83a33d34-27c5-11ce-bfd4-00400513bb57"
+      },
+      "header2": {
+        "sha256": "4e313a6d9fb680e8bf03469ae88596dd57dd57344715ded791c464b1d016d824",
+        "roundtrip_exact": true,
+        "tail_bytes": 0,
+        "map_next_index": 51,
+        "own_document_kind": 4,
+        "f38_f58": 8,
+        "external_entry_kinds": [
+          2
+        ],
+        "bbox": [
+          0.10341,
+          0.08763,
+          0.0,
+          0.117728,
+          0.096948,
+          0.0,
+          0.089092,
+          0.07831199999999999,
+          0.0,
+          0.017083039776339574
+        ],
+        "feature_count_field_f08": 16
+      },
+      "native_readback": {
+        "author_save_status": [
+          true,
+          0,
+          0
+        ],
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial_problems": 0,
+        "rebuilt_problems": 0,
+        "reopen_harness_passed": false,
+        "failed_gate": "raw_alias_equality",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          5.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "authored_view": {
+          "orientation": "*Front",
+          "position_m": [
+            0.10341,
+            0.08763
+          ],
+          "scale": 1.0,
+          "outline_m": [
+            0.089092,
+            0.07831199999999999,
+            0.117728,
+            0.096948
+          ],
+          "model_to_view": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.09341,
+            0.08263,
+            -0.0035,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "child_volume_m3": 1.4000000000000001e-06,
+          "child_area_m2": 0.00082,
+          "child_center_m": [
+            0.01,
+            0.005,
+            0.0035
+          ]
+        },
+        "reopened_view": {
+          "orientation": "*Front",
+          "position_m": [
+            0.10341,
+            0.08763
+          ],
+          "scale": 1.0,
+          "outline_m": [
+            0.089092,
+            0.07831199999999999,
+            0.117728,
+            0.096948
+          ],
+          "model_to_view": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.09341,
+            0.08263,
+            -0.0035,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "child_volume_m3": 1.4000000000000001e-06,
+          "child_area_m2": 0.00082,
+          "child_center_m": [
+            0.01,
+            0.005,
+            0.0035
+          ]
+        }
+      }
+    },
+    {
+      "name": "D02MovedFrontView",
+      "file_id": 2915967785,
+      "container_bytes": 22347,
+      "sha256": "d5c8b0b24cb2804b80dbd4935578e055b91b2b386d4dce68acc66ce63a4a12b0",
+      "stream_size_bytes": {
+        "Contents/3DExperienceExchange2": 12288,
+        "Contents/CusProps": 102,
+        "Contents/Definition": 37256,
+        "Contents/DisplayLists": 3908,
+        "Contents/OleItems": 4,
+        "Contents/VBLists": 6419,
+        "Contents/eModelLic": 4,
+        "DWG/DWG_HEADER": 4,
+        "Header2": 1727,
+        "Images/Sheet_0": 3227,
+        "ModelStamps": 12,
+        "OleItemInformation/OLE_Item_Data": 4,
+        "Preview": 39208,
+        "PreviewPNG": 3056,
+        "SheetPreviews/SheetNames": 22,
+        "SwDocContentMgr/SwDocContentMgrInfo": 0,
+        "ThirdPtyStore/VisualStates_DisplayPane": 8,
+        "[Content_Types].xml": 556,
+        "_DL_VERSION_19000/DLUpdateStamp": 6,
+        "_MO_VERSION_19000/Biography": 1617,
+        "_MO_VERSION_19000/History": 101,
+        "_rels/.rels": 597,
+        "docProps/ISolidWorksInformation.xml": 13929,
+        "docProps/OpenTime.xml": 403,
+        "docProps/app.xml": 570,
+        "docProps/core.xml": 522,
+        "docProps/custom.xml": 853,
+        "swXmlContents/CustomProperties": 0,
+        "swXmlContents/KeyWords": 1447
+      },
+      "archive_definition": {
+        "class": "moDrawing_c",
+        "schema": 1,
+        "root_tag_offset": 36,
+        "document_clsid": "83a33d34-27c5-11ce-bfd4-00400513bb57"
+      },
+      "header2": {
+        "sha256": "e8089dcf7cbd725b54ec8ea50e2a0517f49da74d6ad033bdf4cb6820959d4d03",
+        "roundtrip_exact": true,
+        "tail_bytes": 0,
+        "map_next_index": 51,
+        "own_document_kind": 4,
+        "f38_f58": 8,
+        "external_entry_kinds": [
+          2
+        ],
+        "bbox": [
+          0.12937,
+          0.11987,
+          0.0,
+          0.143688,
+          0.129188,
+          0.0,
+          0.11505200000000002,
+          0.110552,
+          0.0,
+          0.01708303977633957
+        ],
+        "feature_count_field_f08": 16
+      },
+      "native_readback": {
+        "author_save_status": [
+          true,
+          0,
+          0
+        ],
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial_problems": 0,
+        "rebuilt_problems": 0,
+        "reopen_harness_passed": false,
+        "failed_gate": "raw_alias_equality",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          5.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "authored_view": {
+          "orientation": "*Front",
+          "position_m": [
+            0.12937,
+            0.11987
+          ],
+          "scale": 1.0,
+          "outline_m": [
+            0.11505200000000002,
+            0.110552,
+            0.143688,
+            0.129188
+          ],
+          "model_to_view": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.11937000000000002,
+            0.11487,
+            -0.0035,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "child_volume_m3": 1.4000000000000001e-06,
+          "child_area_m2": 0.00082,
+          "child_center_m": [
+            0.01,
+            0.005,
+            0.0035
+          ]
+        },
+        "reopened_view": {
+          "orientation": "*Front",
+          "position_m": [
+            0.12937,
+            0.11987
+          ],
+          "scale": 1.0,
+          "outline_m": [
+            0.11505200000000002,
+            0.110552,
+            0.143688,
+            0.129188
+          ],
+          "model_to_view": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.11937000000000002,
+            0.11487,
+            -0.0035,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "child_volume_m3": 1.4000000000000001e-06,
+          "child_area_m2": 0.00082,
+          "child_center_m": [
+            0.01,
+            0.005,
+            0.0035
+          ]
+        }
+      }
+    }
+  ],
+  "writer_output_count": 0,
+  "native_writer_acceptance": false,
+  "heldout_payloads_or_observations_read": false
+}
