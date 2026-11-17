@@ -1,0 +1,73 @@
+{
+  "schema": "kit.sw2026.drawing-definition-check.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "source_revision": "9e5fd5994329768ffbc9183a1d198aaa642ef8e8",
+  "cases": [
+    {
+      "name": "D00EmptySheet",
+      "native_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "semantic_numeric_checks": 6,
+      "streams": {
+        "Contents/Definition": {
+          "sha256": "10059e622ae0400df68cd0f882be3e4e40969c04158812507b92956f50ae8fac",
+          "bytes": 28950,
+          "map_next_index": 212,
+          "exact": true,
+          "tail_bytes": 0
+        },
+        "Header2": {
+          "sha256": "9c3726df25b7253a1738a001bb9615c13a4f94842c20fd82bff5ac960ec221c2",
+          "bytes": 907,
+          "map_next_index": 34,
+          "exact": true,
+          "tail_bytes": 0
+        }
+      }
+    },
+    {
+      "name": "D01FrontView",
+      "native_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "semantic_numeric_checks": 36,
+      "streams": {
+        "Contents/Definition": {
+          "sha256": "c36e8b4eb1f3b54d6dae2d38d0d4b6d7e9fe1e58613a328a411146a9a2d75fbc",
+          "bytes": 37250,
+          "map_next_index": 331,
+          "exact": true,
+          "tail_bytes": 0
+        },
+        "Header2": {
+          "sha256": "452319b707f672655aa734dea8358eae79726a9a1d81196f0dacc1fb68a6bf98",
+          "bytes": 1721,
+          "map_next_index": 51,
+          "exact": true,
+          "tail_bytes": 0
+        }
+      }
+    },
+    {
+      "name": "D02MovedFrontView",
+      "native_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47",
+      "semantic_numeric_checks": 36,
+      "streams": {
+        "Contents/Definition": {
+          "sha256": "d6cea894ece2a6aed9c4c665c039d59f88dba67ea507e48cf75af01542461b5b",
+          "bytes": 37260,
+          "map_next_index": 331,
+          "exact": true,
+          "tail_bytes": 0
+        },
+        "Header2": {
+          "sha256": "4957c05a9a1317fdbb4189e73ac2f1ac0b49ab3dd29d87f250b45b6fb4e522c6",
+          "bytes": 1731,
+          "map_next_index": 51,
+          "exact": true,
+          "tail_bytes": 0
+        }
+      }
+    }
+  ],
+  "heldout_payloads_or_observations_read": false,
+  "writer_output_count": 0,
+  "native_writer_acceptance": false
+}

@@ -4,7 +4,7 @@ from Core import ArchiveError, Load, Store, Obj
 from Streams import StreamDoc, load_rooted
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, u8, f64, obj, cstr, emb, base, count, time32
 from Schema import Op, If, Rep, Raw, Scope, run_load, run_store
-from defs.ResolvedCore import CONCEPT_RES, vt, concept_vt
+from defs.ResolvedCore import CONCEPT_RES, OIf, vt, concept_vt
 from defs.ConfigDetail import Shadow
 from defs.SmmMaster import DirectMaster
 
@@ -45,10 +45,19 @@ def Pos(field):
 
 class Direct(Op):
     def load(self, ar, scope, o):
-        ar.bind_direct_objects(ar.ctx["header_objects"])
+        if o.cls == "moDrawing_c":
+            header = ar.obj()
+            if not isinstance(header, Obj) or header.cls != "moHeader_c":
+                raise ArchiveError(f"drawing model requires an inline header at {ar.p}")
+            scope["fa8"] = header
+        else:
+            ar.bind_direct_objects(ar.ctx["header_objects"])
 
     def store(self, ar, scope, o):
-        ar.bind_direct_objects(ar.ctx["header_objects"])
+        if o.cls == "moDrawing_c":
+            ar.obj(scope["fa8"])
+        else:
+            ar.bind_direct_objects(ar.ctx["header_objects"])
 
 
 class Section(Op):
@@ -356,7 +365,7 @@ def define(reg):
         Vge(0xF98, [obj("f9b8")], [Old("moUnitsTable_c default pre-0xf98")]),
         Vgt(0x8DD, [Vlt(0x959, [Old("moFeatureRefMgr_c 0x8de-0x958")])]),
         obj("f990"),
-        emb("fdd0", "moFaceVizProps_c.restore"),
+        OIf(lambda o: o.cls != "moDrawing_c", [emb("fdd0", "moFaceVizProps_c.restore")]),
         u8("fd30"),
         obj("fa70"),
         obj("fdb0"),

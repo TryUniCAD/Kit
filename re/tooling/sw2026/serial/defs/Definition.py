@@ -4,6 +4,7 @@ from Core import ArchiveError, Load, Obj, Store
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, i16, u8, f32, f64, obj, cstr, time32, rep, emb, base
 from Schema import If, Fn, Raw
 import Streams
+from defs.Drawing import DRAWING_CLSID, DrawingModel, drawing_document
 
 STANDARDS = ("moANSI_c", "moISO_c", "moBS_c", "moDIN_c", "moJIS_c", "moGB_c", "moGOST_c")
 
@@ -119,7 +120,7 @@ def define_env(reg):
     ])
     reg.define("uiUserModelEnv_c", [
         cstr("f08"),
-        If(flag("env_splitter", 1), [emb("f10", "uiSplitterInfo_c.Serialize")]),
+        If(lambda s, ar: flag("env_splitter", 1)(s, ar) and not ar.ctx.get("owner_is_drawing"), [emb("f10", "uiSplitterInfo_c.Serialize")]),
         Vgt(0x387, [i32("f1b0"), i32("f1b4")]),
         Vge(0x515, [emb("fe0", "uiSplitterInfo_c.Serialize")]),
         Vgt(0x8E5, [i32("f1b8"), i32("f1bc")]),
@@ -204,7 +205,9 @@ def define_doc(reg):
         u16("clsid_b"),
         u16("clsid_c"),
         Raw("clsid_d", 8),
-        If(lambda s, ar: ver(ar) < 0x3B3 or doc_holds_model(s, ar), [obj("model")]),
+        If(drawing_document, [DrawingModel()], [
+            If(lambda s, ar: ver(ar) < 0x3B3 or doc_holds_model(s, ar), [obj("model")]),
+        ]),
         obj("fac0"),
         Vgt(0x20D, [u8("fac8")]),
         emb("fae8", "mgXform_c.restore"),
@@ -291,6 +294,7 @@ def define_doc(reg):
 DOC_CLASSES = {
     (0x83A33D30, 0x27C5, 0x11CE, bytes.fromhex("bfd400400513bb57")): "uiPartDoc_c",
     (0x83A33D36, 0x27C5, 0x11CE, bytes.fromhex("bfd400400513bb57")): "uiAssemblyDoc_c",
+    DRAWING_CLSID: "uiDrawingDoc_c",
 }
 
 
@@ -349,11 +353,15 @@ def load_definition(data, reg, version=None, *, archive=None, name=None):
     reg.run_load("uiModelDoc_c.Serialize", ar, doc.f, doc)
     doc.cls = doc_class(doc.f)
     reg.run_load(f"{doc.cls}.Serialize.own", ar, doc.f, doc)
+    if doc.cls == "uiDrawingDoc_c" and ar.left():
+        raise ArchiveError(f"drawing Definition has {ar.left()} unclassified tail bytes at {ar.p}")
     rest = ar.raw(ar.left())
     return Streams.StreamDoc("definition", doc, [doc], rest), ar
 
 
 def store_definition(sd, reg, version=None):
+    if sd.head.cls == "uiDrawingDoc_c":
+        raise ArchiveError("drawing Definition construction has not qualified")
     ar = Store(1, reg, version)
     reg.run_store(f"{sd.head.cls}.Serialize", ar, sd.head.f, sd.head)
     ar.raw(sd.tail)
