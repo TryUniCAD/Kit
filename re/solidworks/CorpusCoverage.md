@@ -300,6 +300,14 @@ configuration and geometry survive save. The SDK reads the edited view
 position and model reference in the native derivative. This comparison
 covers one disclosed unit-scale front view on an unformatted sheet.
 
+The [original held-out front-view trial](measurements/2026/DrawingOriginalHeldoutNative01.json)
+qualifies two native drawing and ordinary rectangle pairs for the measured
+layout and linked edit profile. The two generated pairs match their original
+sources across 1,900 registered comparisons, including ordered feature
+trees, edited view state, linked child geometry, save and fresh reopen.
+Both controls pass across twelve distinct native processes. This research
+measurement adds no qualified production conversion.
+
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
 passed both native save modes under the original and Kit containers.
 The paired controls retain the same seven streams and compressed bytes.

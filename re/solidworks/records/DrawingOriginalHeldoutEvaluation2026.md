@@ -74,3 +74,13 @@ The profile admits the four proved named standard views and finite positive expl
 The [method process receipt](../measurements/2026/DrawingOriginalHeldoutMethodProcess01.json) records a positive fresh-process pre-unseal verification and seven negative qualification requests. Missing or stale corrected native evidence, default reproduction, method freeze, an old-only writer or an unregistered slot are rejected before the nonexistent specification path can be opened.
 
 A separate disclosed D01 rehearsal exercises generation, independent generated-evidence freeze and attachment with the same corrected writer and unchanged native observer. Two guarded builds are deterministic; layout preflight and standalone packet custody verify. Missing/stale evidence freezes and a mutated generated part in a disposable copy are rejected before source-native access. No native oracle or held-out source was used in these method checks.
+
+## Original held-out results
+
+Both original slots `H01SheetA` and `H02SheetB` pass the unchanged registered native comparison. The source drawing-child pairs were authored and hash-locked before the writer. Root verified the committed method before reading their authored specifications, generated each drawing and child in two identical guarded processes, and froze all 22 output and evidence files before accessing source binaries and observations.
+
+Each candidate matched the source across opening, rebuild, view edit, native save and fresh reopen in seven comparison gates with 950 visits and zero mismatches. The gates cover the ordered drawing and linked part feature trees, empty annotation inventories, sheet properties, view orientation, position, scale and transform, resolved child configuration, volume, area and centroid. The path roles and child update stamp have the previously registered exclusions. Independent path, hash and configuration checks passed.
+
+All twelve oracle phases on SOLIDWORKS 2026 SP05.2 build 34.5.2.0604 used distinct process births. The two pristine controls passed. All six native saves returned `[true,0,0]` and all twelve opens returned zero errors and warnings. The immutable inputs and all final phase-record hashes were verified after transport exit.
+
+The result qualifies these two one-view layouts and their ordinary rectangular children at the research boundary. Annotation coverage, arbitrary children, alternative layouts and production writing remain open. [Native held-out receipt](../measurements/2026/DrawingOriginalHeldoutNative01.json)
