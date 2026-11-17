@@ -84,7 +84,8 @@ def TestBlindPocket() -> None:
         Streams = CastValue(dict[str, dict[str, object]], Report["streams"])
         assert len(Streams) == 8
         assert all(
-            StreamRow["passed"] and StreamRow["tail"] == 0 for StreamRow in Streams.values()
+            StreamRow["passed"] and StreamRow["tail"] == 0
+            for StreamRow in Streams.values()
         ), Streams
         Linked = Streams["Contents/Config-0-ResolvedFeatures"]
         assert Linked["seeded_map_count"] == Linked["map_base"] == Report["map_count"]
