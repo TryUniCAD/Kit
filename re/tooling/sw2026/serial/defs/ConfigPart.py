@@ -840,10 +840,11 @@ def define_objects(reg):
         Vgt(0x446, [obj("f20")]),
         Vgt(0xFB8, [i32("f38")]),
     ])
-    reg.provisional("su_CMapStringToString", [
+    reg.provisional("su_CMapStringToString.UnverifiedArchiveVersion", [
         count("n"),
         Rep("n", "items", [cstr("k"), cstr("v")]),
     ])
+    reg.provisional("su_CMapStringToString", [base("su_CMapStringToString.UnverifiedArchiveVersion")])
     reg.provisional("moBendNoteFormat_c", [cstr("f08"), obj("f10")])
     reg.provisional("mgPoint_c.stream", [f64("x"), f64("y"), f64("z")])
     reg.provisional("moCachedBoundingBoxData_c", [

@@ -170,7 +170,7 @@ def define_chain_components(reg):
         obj("f20"),
         Vge(0x837, [u32("f30")]),
     ])
-    reg.provisional("moContextChainComponent_c", [
+    define_reference_archive(reg, "moContextChainComponent_c", [
         base("moChainComponent_c"),
         obj("f40"),
         Vge(0x38D, [i32("f48")]),

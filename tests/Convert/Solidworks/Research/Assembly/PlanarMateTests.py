@@ -11,6 +11,7 @@ from convert import open_document as OpenDocument
 from convert.adapters.solidworks.Assembly.Assembly import DecodeNativeAsm
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
+from tests.Convert.Solidworks.Research.Assembly.AssertGraphUse import AssertGraphUse
 from tests.Convert.Solidworks.Research.Assembly.AssertHeadLink import AssertHeadLink
 from tests.Convert.Solidworks.Research.Assembly.AssertScalarBad import AssertScalarBad
 from tests.Convert.Solidworks.Research.Assembly.PlanarMateInput import (
@@ -66,6 +67,7 @@ def AssertMate(
 def TestPlanarMate(TmpPath: FilePath) -> None:
     ParentPath, ChildPath = RunMateBundle(MakeMateInput("original"), TmpPath / "pair")
     AssertHeadLink(ParentPath, ChildPath)
+    AssertGraphUse(ParentPath, ChildPath)
     AssertScalarBad(ParentPath, ChildPath)
     Archive = SldprtArchive.from_bytes(ParentPath.read_bytes())
     NativeAssembly = DecodeNativeAsm(Archive)

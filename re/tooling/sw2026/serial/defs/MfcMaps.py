@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from Core import ArchiveError, Load, Store
-from Dsl import cstr, i32, ver
-from Schema import Fn, Op, Rep
+from Dsl import base, cstr, i32, ver
+from Schema import Fn, If, Op, Rep
 
 
 class MfcCount(Op):
@@ -29,4 +29,11 @@ def define(reg):
         Fn(require_ordinary_mfc_map, require_ordinary_mfc_map),
         MfcCount("n"),
         Rep("n", "items", [cstr("k"), i32("v")]),
+    ])
+    reg.define("su_CMapStringToString", [
+        If(lambda scope, ar: ver(ar) == 19000, [
+            Fn(require_ordinary_mfc_map, require_ordinary_mfc_map),
+            MfcCount("n"),
+            Rep("n", "items", [cstr("k"), cstr("v")]),
+        ], [base("su_CMapStringToString.UnverifiedArchiveVersion")]),
     ])
