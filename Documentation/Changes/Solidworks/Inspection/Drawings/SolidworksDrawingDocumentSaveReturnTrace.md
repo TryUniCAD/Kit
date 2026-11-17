@@ -15,5 +15,10 @@ records an observed EAX or the confirmed save return after a wait with
 no document-return stop. A debugger timeout or fault has a separate
 verdict. Two pristine drawings bracket the traces.
 
-Host verification passed. Native document-return results remain pending.
-[Return observer](../../../../../re/tooling/sw2026/drawing_doc_return/InspectBlankDrawingSaveAggregateSoftwareReturnMatched.py) · [Owned debugger](../../../../../re/tooling/sw2026/drawing_doc_return/DrawingSaveAggregateDbgEng.py) · [Matched aggregate evidence](../../../../../re/solidworks/measurements/2026/DrawingBlankSaveAggregateSoftwareMatchedNative01.json)
+Both traced lanes reached both stops in the same frame and returned zero
+at the aggregate test. EAX at the document return was 1 for the reduced
+native drawing and 0 for the generated drawing. The generated drawing
+still left a zero-byte target after event 7. All three native references
+saved and reopened. Both debugger detachments passed across seven
+distinct native processes.
+[Return observer](../../../../../re/tooling/sw2026/drawing_doc_return/InspectBlankDrawingSaveAggregateSoftwareReturnMatched.py) · [Owned debugger](../../../../../re/tooling/sw2026/drawing_doc_return/DrawingSaveAggregateDbgEng.py) · [Matched return evidence](../../../../../re/solidworks/measurements/2026/DrawingBlankSaveDocumentReturnNative01.json)

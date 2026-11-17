@@ -235,6 +235,10 @@ measures a zero event aggregate in the reduced-native and generated blank
 drawings. The generated drawing still produces only event 7 and a zero-byte
 target. Both pristine checks and the traced reduced control save and reopen
 cleanly. The failing downstream save action remains open.
+The [document return trace](measurements/2026/DrawingBlankSaveDocumentReturnNative01.json)
+observes the same document save call return 1 for the reduced-native
+drawing and 0 for the generated drawing. The internal storage and
+serialization branch remains under measurement.
 The [typed UI omission comparison](measurements/2026/DrawingBlankUiOmission01.json)
 passed fourteen native phases. The reduced native document saved with its
 viewport, line tables, environment and BOM state omitted together.
