@@ -1,0 +1,56 @@
+{
+  "schema": "kit.sw2026.synchronized-assembly-source-completion.v1",
+  "source_revision": "6f965c4a080f813c050046369a5e4cb3e575d1fb",
+  "native_oracle_build": "34.5.2.0604",
+  "native_oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "source_lock_sha256": "50de39dc21405cd346566f64244b62d457857758f339a95be4baf3466dfc1f80",
+  "oracle_source_lock_sha256": "f93e0837c5cf0441c43405cb54a47f82a6c57af4ca521a894f76c10f42040c25",
+  "private_inspection_sha256": "c70b6e905d0d96391b7a352713597cf800b6ca7d97bb399627f69965eb375367",
+  "job_sha256": "1475a9c7538d2181b15c35d5132300c76f0470f969cbe1f3b102f106bb16ef2a",
+  "tools_manifest_sha256": "2dc69e3e54b9d653b490df09be51fc6cd9ec2110c631d7dafb0f4b1d06be4ff3",
+  "transport_sha256": "a6f18fc2625dd322f7907d24e1f55d6dbc683f5b812c5e3d7b3754698fb5c283",
+  "specs_sha256": "b4d22e559b61ec1c1bae56c9c11fb97db05c040f5b01a94f129595e65e1cc922",
+  "distinct_processes": 12,
+  "controls_healthy": true,
+  "controls_immutable": true,
+  "source_cases": 5,
+  "source_phases": 10,
+  "warning_free_fresh_reopen_count": 5,
+  "authoring_numeric_checks": 900,
+  "discovery_cases": 3,
+  "heldout_cases": 2,
+  "private_api_observations_inspected": false,
+  "heldout_payloads_read": false,
+  "licensing_preflight": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    }
+  ],
+  "licensing_postflight": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    }
+  ],
+  "postflight_solidworks_process_count": 0,
+  "passed": true,
+  "writer_output_count": 0,
+  "full_native_acceptance": false
+}

@@ -138,6 +138,14 @@ passes 12 phases, 840 numeric checks, 572 exact profile transform values and
 significant figures. These two generated circle bosses add no completed
 FCStd conversions or native assemblies. The public adapter is read-only.
 
+The [synchronized assembly source lock](v2026/heldout/AssemblySyncSourceLock.json)
+now qualifies five native empty, single and repeated-component inputs,
+including two held-out parents with intact child hashes. The independent
+[completion record](measurements/2026/AssemblySyncSourceCompletion03.json)
+passes ten phases, 900 numeric comparisons and zero reopen warnings between
+healthy controls. These files are oracle-authored sources. The generated
+assembly count remains zero.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11

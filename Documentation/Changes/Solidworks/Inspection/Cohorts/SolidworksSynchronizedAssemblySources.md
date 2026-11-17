@@ -15,6 +15,10 @@ errors and warnings, the same saved child stamp, unchanged parent and child
 hashes and the requested occurrence geometry. The public lock records child
 identity without exposing its held-out stamp or other private observations.
 
-The new batch is pending. These are native test sources with no generated
-writer output. The original control and the failed previous attempts remain
-unchanged.
+The [public source lock](../../../../../re/solidworks/v2026/heldout/AssemblySyncSourceLock.json)
+and [completion receipt](../../../../../re/solidworks/measurements/2026/AssemblySyncSourceCompletion03.json)
+record five successful author and fresh-reopen pairs, zero reopen warnings,
+900 numeric comparisons and two healthy controls in 12 distinct processes.
+The two held-out parent and child pairs stay sealed before writer development.
+These are native test sources with no generated writer output. The original
+control and the failed previous attempts remain unchanged.

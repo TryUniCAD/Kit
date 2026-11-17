@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "source_revision": "6f965c4a080f813c050046369a5e4cb3e575d1fb",
+  "job_sha256": "1475a9c7538d2181b15c35d5132300c76f0470f969cbe1f3b102f106bb16ef2a",
+  "specs_sha256": "b4d22e559b61ec1c1bae56c9c11fb97db05c040f5b01a94f129595e65e1cc922",
+  "tool_sha256": "8cfc1281e3bca2e4c92aec64bfb32ac2367f8d3402b27e54445e00db2a545a15",
+  "controls_healthy": true,
+  "control_immutable": true,
+  "distinct_processes": 12,
+  "started_at": 1794881544.2020028,
+  "finished_at": 1794881895.9112346,
+  "schema": "kit.sw2026.ordinary-assembly-source-lock.v1",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "private_inspection_sha256": "c70b6e905d0d96391b7a352713597cf800b6ca7d97bb399627f69965eb375367",
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "heldout_results_sealed": true,
+  "cases": [
+    {
+      "name": "A12SyncedEmpty",
+      "split": "discovery",
+      "passed": true,
+      "native_sha256": "116ef8b6ff8c96d3a258ef4352c9c95745e0289d4124f996c1665b44ff2a5d6a",
+      "native_bytes": 25886,
+      "phases": 2,
+      "record_sha256": [
+        "7ab2c28699a1794d5ee4861cc3d39f92baee062edb12000eb64d8cf547728eff",
+        "bae80824a906361474e268f9d30336580cb70d35a5c20069af8549a24baa709d"
+      ],
+      "numeric_checks": 0,
+      "synchronized_child": null
+    },
+    {
+      "name": "A13SyncedSingle",
+      "split": "discovery",
+      "passed": true,
+      "native_sha256": "6b06937ca95ad7b2489e448537365b59ba09ea6498587593dcb1c44e502cb720",
+      "native_bytes": 54678,
+      "phases": 2,
+      "record_sha256": [
+        "40ffea0efcca952155e3ed29732866f86aa78b615f3c8cd204f96994d3c4c7a6",
+        "9e421c7c2cdd06dfc21a73d152508ad95ead5e3283171c8e95531e6bfa97901b"
+      ],
+      "numeric_checks": 105,
+      "synchronized_child": {
+        "native_sha256": "f7dcb761afd5f3761cbcabdda07928d22936884c34a5b1c4decdab45657f4fd8",
+        "native_bytes": 59783,
+        "path_basename": "CohortChild.SLDPRT"
+      }
+    },
+    {
+      "name": "A14SyncedRepeat",
+      "split": "discovery",
+      "passed": true,
+      "native_sha256": "afbadce4776edbf47a86f954eedac88336e1235c655781688b0974d305fe553f",
+      "native_bytes": 45725,
+      "phases": 2,
+      "record_sha256": [
+        "4c74509950b82e053b7c48033f0710c845f80939b4a6ad993e411f773f69d0cc",
+        "1c677fba7ed0bfdeb23a8f4061c4b4c40219fecea3b08abaf7cbc1a2fdb43bc0"
+      ],
+      "numeric_checks": 185,
+      "synchronized_child": {
+        "native_sha256": "1e8c99c6ab8777daec2b28cb57a9b3db8c18adf9d700415a9a4629e07d9d7550",
+        "native_bytes": 60456,
+        "path_basename": "CohortChild.SLDPRT"
+      }
+    },
+    {
+      "name": "A15HeldoutSyncedThree",
+      "split": "heldout",
+      "passed": true,
+      "native_sha256": "72b7bbe041dff54a5326297371b13bf6142f91eba2aa9fcf72e980146e9aa745",
+      "native_bytes": 45410,
+      "phases": 2,
+      "record_sha256": [
+        "8f463d3137c37343927751c61d362ddc850de36efac89dcfb9038900a8707071",
+        "09885ceedbee89e6237bf746479ff91dae41272ac52ec5b56e776b9c6e2d9350"
+      ],
+      "numeric_checks": 265,
+      "synchronized_child": {
+        "native_sha256": "faccd78fc854a25198924e93c34fff359abe9f3a6864b7710085cc7732b6beb4",
+        "native_bytes": 59244,
+        "path_basename": "CohortChild.SLDPRT"
+      }
+    },
+    {
+      "name": "A16HeldoutSyncedFour",
+      "split": "heldout",
+      "passed": true,
+      "native_sha256": "7b3e6b7ebf82a937e5d972c01c9d388d6f8a74306dffc1cc6d5983729868ba54",
+      "native_bytes": 45796,
+      "phases": 2,
+      "record_sha256": [
+        "d3ea336fdbb28536209ed7e3c40e993fbf076a9f4c25532314dab128321d90b6",
+        "d194e8b29e4ddf2d9fa1ee03253b162e9ca882542a5091da032bde09379492a2"
+      ],
+      "numeric_checks": 345,
+      "synchronized_child": {
+        "native_sha256": "292825392e621860682b186dd161ac30306a9fc2e797c4923483c0b4bb57e087",
+        "native_bytes": 59792,
+        "path_basename": "CohortChild.SLDPRT"
+      }
+    }
+  ]
+}
