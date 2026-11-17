@@ -12,10 +12,11 @@ from builders.Circle import circle_profile, circle_set_profile
 from builders.ConfigurationHeader import CONFIGURATION_MANAGER_HEADER, configuration_manager_header, configuration_manager_header_stream
 from builders.Definition import definition_stream, part_definition
 from builders.ExternalFiles import ordinary_self_reference
-from builders.Extrude import live_blind_extrusion, live_extrusion
+from builders.Extrude import DimensionGraph, live_blind_extrusion, live_extrusion
 from builders.Metadata import FILE_VERSION, biography, fields, header, history, keywords, streams
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
 from builders.Radial import circle_dimension
+from builders.RectangleDimensions import rectangle_dimensions
 from builders.Revolve import live_revolution, revolved_profile
 from builders.Sketch import PlaneFrame, closed_profile, origin_profile
 from builders.Styles import detail_definitions
@@ -38,13 +39,14 @@ class PartConstruction:
     next_id: int
     configuration_map_count: int
     revolution: object | None = None
+    rectangle_dimensions: tuple[DimensionGraph, ...] = ()
 
 
 def _rooted(*, registry, node):
     return store_rooted(StreamDoc("rooted", {"base": 1}, [node]), registry, FILE_VERSION)
 
 
-def _metadata(*, registry, document, provenance, presentation, graph, features, profile, radial, extrusion, output, revolution=None):
+def _metadata(*, registry, document, provenance, presentation, graph, features, profile, sketch_dimensions, extrusion, output, revolution=None):
     stamp = {
         "status": 0, "user_index": 0, "company_index": 0,
         "timestamp": provenance["created_at"], "comment": provenance["comment"],
@@ -64,8 +66,11 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
             item["tag"] = "Sketch"
             if revolution is not None:
                 item.update(kind=None, dissectable=True)
-            if radial is not None:
-                item["dimensions"] = [{"name": radial.parameter["f18"]["f08"], "value": radial.parameter["f58"] / presentation["length_unit_m"]}]
+            if sketch_dimensions:
+                item["dimensions"] = [
+                    {"name": dimension.parameter["f18"]["f08"], "value": dimension.parameter["f58"] / presentation["length_unit_m"]}
+                    for dimension in sketch_dimensions
+                ]
         if extrusion is not None and feature is extrusion.feature:
             item.update({"tag": "Extrusion", "dimensions": [{"name": graph.parameter["f18"]["f08"], "value": graph.parameter["f58"] / presentation["length_unit_m"]} for graph in extrusion.active_distances]})
         if revolution is not None and feature is revolution.feature:
@@ -129,6 +134,8 @@ def document_shape(document):
         if document.get("end_condition") == "two_directions":
             required += ("reverse_depth_m",)
     optional = ("profile_kind", "feature_kind") + (("circle_dimension",) if profile_kind == "circle" else ())
+    if profile_kind == "polygon" and feature_kind in ("sketch", "blind_extrusion"):
+        optional += ("rectangle_dimensions",)
     return fields(document, "part document", required, optional), profile_kind, feature_kind
 
 
@@ -206,6 +213,13 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
             graph=profile, allocator=graph.allocator, **request,
             design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
         )
+    rectangle = ()
+    if "rectangle_dimensions" in document:
+        request = fields(document["rectangle_dimensions"], "rectangle dimensions", ("width_text_m", "height_text_m", "route_centerline"))
+        rectangle = rectangle_dimensions(
+            graph=profile, allocator=graph.allocator, **request,
+            design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
+        )
     features = (*graph.system_features, origin_node, profile_node)
     extrusion = None
     revolution = None
@@ -239,7 +253,8 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     }
     result, model_header = _metadata(
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
-        graph=graph, features=features, profile=profile, radial=radial, extrusion=extrusion, output=output, revolution=revolution,
+        graph=graph, features=features, profile=profile, sketch_dimensions=(radial,) if radial is not None else rectangle,
+        extrusion=extrusion, output=output, revolution=revolution,
     )
     config_data, state = store_config_state(StreamDoc("config", {"model_header": model_header}, [graph.part]), registry, FILE_VERSION)
     resolved = StreamDoc("resolved", {"base": state.count, "context": {
@@ -265,5 +280,5 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         configuration=graph.configuration_manager["f360"], features=features,
         profile=profile, radial=radial, extrusion=extrusion,
         next_id=graph.next_persistent_id, configuration_map_count=state.count,
-        revolution=revolution,
+        revolution=revolution, rectangle_dimensions=rectangle,
     )

@@ -40,6 +40,9 @@ KFrameValues = ImportModule("ProfileTransform").stored_frame
 # generated file identity must agree across independent archive reads
 KReadSelfFile = ImportModule("ExternalFileView").read_self_reference
 
+# sketch dimension evidence uses records from the reparsed container
+KReadRectangle = ImportModule("RectangleReadback").read_rectangle
+
 # codec initialization must not be mistaken for donor access during strict construction
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
@@ -72,6 +75,15 @@ def BuildResult() -> dict[str, object]:
     return {
         **(KReadSelfFile(Archive, KRegistry) if KRequest.get("output") else {}),
         **(ReadRevolution(Archive, KRegistry) if Constructed.revolution else {}),
+        **(
+            {
+                "rectangle": KReadRectangle(
+                    archive=Archive, model=ModelRoot, profiles=Profiles
+                )
+            }
+            if Constructed.rectangle_dimensions
+            else {}
+        ),
         "blob": EncodeBytes(BlobValue).decode("ascii"),
         "streams": Results,
         "sizes": {

@@ -12,7 +12,7 @@ from InspectFresh import healthy, inspect
 from OracleIdentity import application_identity
 
 
-def edit(source, destination, parameter_name, value, result, checkpoint):
+def edit(source, destination, parameter_name, value, result, checkpoint, *, parameter_names=()):
     if source.resolve() == destination.resolve() or destination.exists():
         raise ValueError("edited output requires a new destination distinct from its copied input")
     if source.suffix.casefold() != ".sldprt" or destination.suffix.casefold() != ".sldprt":
@@ -63,6 +63,10 @@ def edit(source, destination, parameter_name, value, result, checkpoint):
                 mark(name + "_start")
                 result[name] = operation()
                 mark(name + "_return")
+            if parameter_names:
+                mark("parameters_start")
+                result["parameters"] = Swapp.parameters(model, parameter_names)
+                mark("parameters_return")
             mark("save_start")
             saved, errors, warnings = controller.save_as(model, destination)
             result.update(saved=saved, save_errors=errors, save_warnings=warnings)

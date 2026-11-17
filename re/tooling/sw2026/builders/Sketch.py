@@ -461,14 +461,34 @@ def _local_ref_flag(*, sketch: Obj):
             raise ConstructionError("a radial value dimension requires an actual locally owned arc handle")
         if not isinstance(second, Obj) or second.cls != "sgEntHandle" or second.get("idx") != 0x777F or second.get("f18") != -2 or second.get("f1c") != -1:
             raise ConstructionError("a radial value dimension requires the native allocated invalid second handle")
-    for name in ("val_g2", "val_g3", "offset_dims", "log_g2", "log_g3", "iso", "linear_patterns", "linear_patt_cons", "circular_patterns", "circular_patt_cons", "list_7c0", "list_9f0", "groups"):
+    for record in dims["val_g2"]:
+        dimension = record["d"]
+        if (dimension.cls != "sgPntPntDist" or not dimension.get("_ordinary_rectangle_value")
+            or dimension.get("_sketch") is not sketch or dimension.get("f80") != 1
+            or dimension.get("f68") != 0 or dimension.get("plane") is not None):
+            raise ConstructionError("value reference inference requires a constructed local point-to-point dimension")
+        for name in ("h1", "h2"):
+            _require_local_handle(sketch=sketch, handle=dimension.get(name), kind="sgPointHandle", key="_point", order="_point_nodes")
+    for name in ("val_g3", "offset_dims", "log_g2", "log_g3", "iso", "linear_patterns", "linear_patt_cons", "circular_patterns", "circular_patt_cons", "list_7c0", "list_9f0", "groups"):
         if dims[name]:
             raise ConstructionError(f"reference-state inference is not established for {name}")
     for record in dims["log_g1"]:
-        handle = record["d"]["h1"]
-        if record["d"]["f80"] != 0x11 or not isinstance(handle, Obj) or handle.cls != "sgPointHandle" or handle["f1c"] != -1:
+        relation = record["d"]
+        handle = relation["h1"]
+        if relation["f80"] in (4, 5) and relation.get("_sketch") is sketch:
+            _require_local_handle(sketch=sketch, handle=handle, kind="sgLineHandle", key="_line", order="_line_nodes")
+        elif relation["f80"] != 0x11 or not isinstance(handle, Obj) or handle.cls != "sgPointHandle" or handle["f1c"] != -1:
             raise ConstructionError("logical-constraint reference state requires a constructed local fixed-point constraint")
     return 0
+
+
+def _require_local_handle(*, sketch, handle, kind, key, order):
+    if (not isinstance(handle, Obj) or handle.cls != kind or handle.get("_sketch") is not sketch
+        or handle.get("f1c") != -1 or handle.get("f08") != 0):
+        raise ConstructionError(f"reference inference requires a constructed local {kind}")
+    index = _node_index(nodes=sketch[order], node=handle.get(key))
+    if handle["f18"] != index or handle["idx"] != min(index, 0x777F):
+        raise ConstructionError(f"local {kind} does not identify its own geometry slot")
 
 
 def _bind_local_ref_flag(*, sketch: Obj):

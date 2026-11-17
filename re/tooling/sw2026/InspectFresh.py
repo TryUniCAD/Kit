@@ -12,7 +12,7 @@ import Swapp
 from OracleIdentity import application_identity
 
 
-def inspect(path, *, result=None, checkpoint=None):
+def inspect(path, *, result=None, checkpoint=None, parameter_names=()):
     result = {} if result is None else result
     result.update(path=str(path), sha256=hashlib.sha256(Path(path).read_bytes()).hexdigest(), stages=[])
 
@@ -34,7 +34,7 @@ def inspect(path, *, result=None, checkpoint=None):
                 raise RuntimeError("oracle executable differs from SOLIDWORKS 2026 SP05.2 build 34.5.2.0604")
             if not controller.revision.startswith(Swapp.EXPECTED_BUILD):
                 raise RuntimeError(f"unexpected oracle revision: {controller.revision}")
-            result.update(Swapp.measure(controller, path, progress=progress))
+            result.update(Swapp.measure(controller, path, progress=progress, parameter_names=parameter_names))
         except Exception as error:
             result["exception"] = repr(error)
             result["exception_stage"] = result.get("failure_stage", result.get("stage", "oracle_setup"))

@@ -374,7 +374,15 @@ def rebuild_errors(m):
     return what
 
 
-def measure(sw, path, rebuild=True, *, progress=None, read_only=False):
+def parameters(model, names):
+    values = {}
+    for name in names:
+        dimension = model.Parameter(name)
+        values[name] = None if dimension is None else float(dimension.SystemValue)
+    return values
+
+
+def measure(sw, path, rebuild=True, *, progress=None, read_only=False, parameter_names=()):
     rec = {"path": str(path), "session_diagnostics": list(sw.diagnostics)}
     t0 = time.time()
     m = None
@@ -409,6 +417,10 @@ def measure(sw, path, rebuild=True, *, progress=None, read_only=False):
         checkpoint("features_start")
         rec["features"] = features(m)
         checkpoint("features_return")
+        if parameter_names:
+            checkpoint("parameters_start")
+            rec["parameters"] = parameters(m, parameter_names)
+            checkpoint("parameters_return")
     except Exception as error:
         rec["failure_stage"] = rec.get("stage")
         rec["measurement_exception"] = repr(error)
