@@ -102,4 +102,4 @@ def TestEmptyXml(TmpPath: FilePath) -> None:
     Document = OpenDocument(PathValue)
     assert Document.validate() == () and Document.assembly is not None
     assert len(Document.assembly.definitions) == 1
-    assert Document.assembly.instances == Document.assembly.documents == ()
+    assert not Document.assembly.instances and not Document.assembly.documents
