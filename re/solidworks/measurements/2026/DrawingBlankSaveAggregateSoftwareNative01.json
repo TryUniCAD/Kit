@@ -1,0 +1,99 @@
+{
+  "schema": "kit.sw2026.blank-drawing-save-aggregate-software-native.v1",
+  "passed": true,
+  "native_acceptance": false,
+  "generated_attempted": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "f0490fe9a9125a00a1825c2e3f1cb67fc08729e58a899b42c9fa00ed1fb0d71c",
+  "raw_native_result_sha256": "e5bd6c5fe6349594bcdf21f0087132adf3e756a6e8c63a7b7fc2d9a78fc9478f",
+  "host_transport_result_sha256": "d099996fada09b5702df89079683abae1be82f45846496fbd3c0eb4c6f001568",
+  "script_revision": "68c41f1bcd72754e8cc3f0c39490cda9486d0d6a",
+  "observer_tool_sha256": {
+    "DrawingSaveAggregateDbgEng.py": "e457e00853168e405febf430ff876e6faf4fc4a774c891e6c739760010c09d5c",
+    "InspectBlankDrawingSaveAggregate.py": "b62865a6de7d9fd953655eda473b59f4bb4cd82f84585dfdfb9fba05208f3722",
+    "InspectBlankDrawingSaveAggregateSoftwareControl.py": "b6177140c735ce6a7ac1f4ff57ad7c79befcda04ce7f9b615810b55074990078"
+  },
+  "controls_healthy": true,
+  "distinct_processes": 6,
+  "transport_exit_code": 0,
+  "inputs_immutable": true,
+  "lanes": [
+    {
+      "lane": "ControlBefore",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "saved_sha256": "ac5047e8b3177a0ff82126d54da7092ba0c921477716d0dacc3e92889c17f9fa",
+      "opened_and_saved": true,
+      "fresh_reopen": true,
+      "events": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "failed_open_sum": 0
+    },
+    {
+      "lane": "ReducedNative",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "saved_sha256": "e828209b1b5dff09c153ef01dd59ebf759c0c679f7f0d76022da1a83a9323bd9",
+      "opened_and_saved": true,
+      "fresh_reopen": true,
+      "events": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "failed_open_sum": 0
+    },
+    {
+      "lane": "ControlAfter",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "saved_sha256": "2e8543626709c2716f21b6968b7443fb09f6cd22c494ea9fec1a0e3918503bba",
+      "opened_and_saved": true,
+      "fresh_reopen": true,
+      "events": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "failed_open_sum": 0
+    }
+  ],
+  "doccplu_sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+  "trace": {
+    "breakpoint_kind": "dbgeng_managed_software",
+    "sample": {
+      "aggregate": 0,
+      "rva": 88422,
+      "effective_processor": "0x8664",
+      "executing_processor": "0x8664",
+      "bytes_read": 4,
+      "event7_seen": true
+    },
+    "initial_break_option_verified": true,
+    "initial_stop_verified": true,
+    "process_options_verified": true,
+    "process_options": 3,
+    "wait_exit_reason": "debug_event",
+    "detach_method": "DetachProcesses",
+    "breakpoint_removed": true,
+    "cleanup_confirmed": true,
+    "owned_process_debugger_present_after_cleanup": false
+  }
+}

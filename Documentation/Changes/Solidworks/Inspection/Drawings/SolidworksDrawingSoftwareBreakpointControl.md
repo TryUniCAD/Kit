@@ -12,6 +12,10 @@ Run `InspectBlankDrawingSaveAggregateSoftwareControl.py Trial.json
 inputs without SOLIDWORKS. In the pinned AMD64 oracle, omit
 `--verify-only` to run the native control. The initial debugger stop,
 aggregate sample, save and fresh reopen each have separate checks.
-Host preparation passed. Native breakpoint qualification remains open.
+The reduced-native control reached the breakpoint after event 7. Its
+four-byte aggregate was zero. The reduced drawing and the two pristine
+brackets saved and reopened cleanly in six distinct processes. The
+observer removed the breakpoint and confirmed debugger absence after
+detach. [Native control receipt](../../../../../re/solidworks/measurements/2026/DrawingBlankSaveAggregateSoftwareNative01.json)
 
 [Observer](../../../../../re/tooling/sw2026/InspectBlankDrawingSaveAggregateSoftwareControl.py) · [Debugger implementation](../../../../../re/tooling/sw2026/DrawingSaveAggregateDbgEng.py) · [Pinned save branch](../../../../../re/solidworks/records/DrawingSavePostEventBranches2026.md)

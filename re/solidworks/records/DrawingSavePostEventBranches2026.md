@@ -17,6 +17,33 @@ The accompanying JSON binds the analyzed AMD64 modules to SOLIDWORKS 2026 SP05.2
 
 The runtime values of the event aggregate, original path, destination storage pointer, preview modes and autosave state remain unmeasured for the generated lane. The callback trace leaves Definition serialization and commit entry open. These offsets describe live C++ owners. Their mapping to a generated drawing's archive fields remains unresolved. [Earlier save return edges](DrawingContainerSaveFraming2026.md#shared-save-return-edges)
 
+### Exact software trace sites
+
+REA with Hopper reproduced the instruction boundaries on the same
+`doccplu.dll` hash. The new reduced-native software control measures the
+aggregate at `0x180015966` as zero and completes native save and fresh
+reopen. [Native software control](../measurements/2026/DrawingBlankSaveAggregateSoftwareNative01.json)
+
+| Preferred address | State at the instruction |
+| --- | --- |
+| `0x180016421` | EAX holds the document save dispatch return from `0x18001641f`. The test at this address separates the zero path from the jump to `0x1800167ad`. |
+| `0x18001da03` | EAX holds the storage virtual validity result. Zero jumps to the storage error at `0x18001e930`. |
+| `0x18001dd1b`, `0x18001dd2b` | EAX holds each preview-only getter result immediately before its test. |
+| `0x18001dfa7`, `0x18001dfb5` | The UI XML stream call precedes third-party dispatch within the ordinary storage path. |
+
+`saveDoc` separates the file lock-bytes creation call at `0x18001c1c6`
+from structured-storage creation at `0x18001c1fd`. That storage call
+retries only result `0x80030002`, up to three total attempts. Other
+nonzero returns go to the failure handling before the SaveToStorage
+calls. A separate destination bind tests the lock-bytes result at
+`0x18001c36d`. These are static branches. The generated route and its
+return values require native measurement.
+
+REA instruction evidence `ev_3fd0415507a116177b1c456b796654bb0deec89447362f1ddbc5fb35fd05c002`,
+`ev_967a5dadd74a76025b8dd80caf3ef8d56d1777415b898d12e586db24c8c05c63`
+and `ev_fb7a567011325cc2fd03c6dc0d0b3430417e4f35f2724e57f26d581d149fb793`
+use module SHA-256 `ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8`.
+
 ## Smallest follow-up
 
 Reuse the four disclosed matched lanes and the checked type-library binding. Log `AutoSaveToStorageNotify` and `AutoSaveToStorageStoreNotify` if the pinned drawing source exposes them, with the existing four callback handlers. An observed 11 or 48 would prove entry to the alternate storage notification path. Capture the target's existence and size before save, at event 7 and after return. Read the visible path and dirty state through `GetPathName` and `GetSaveFlag` before the call. Keep callbacks free of COM calls and preserve the native controls and fresh-process checks.

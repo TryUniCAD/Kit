@@ -21,3 +21,16 @@ After the temporary depth edit, rebuild the leaf and its owners, measure the new
 Store native artifacts, full call logs and observations only in the private deck's `Results` area. Publish the exact deck and tool hashes, bracket status and the sanitized source lock. The held-out rows carry the hashes of their private records and the complete artifact manifest. Their topology, placements and detailed observations stay sealed. The authoring cohort records zero generated writer outputs and supplies source-lock evidence only.
 
 Host-only preflight validated both disclosed designs and the immutable tool and file binding with a disposable opaque slot. The native cohort and its source lock await the oracle owner's run.
+
+## First run and disclosed replay
+
+The first long transport ended before a full source lock. Both disclosed
+authors had saved their dependent file sets. Their original reopen
+observers rejected the indexed loading window. The corrected read-only
+replay checked the same source hashes and measured two clean reopens and
+rebuilds between healthy brackets. The first run's failed status remains
+recorded. [Disclosed replay receipt](../measurements/2026/NestedAssemblyDisclosedReplayNative01.json)
+
+The sealed source phases now run independently. The remaining holdout
+locks require author, read-only reopen and both controls for each slot.
+[Sealed phase procedure](SealedNestedAssemblySourcePhases2026.md)

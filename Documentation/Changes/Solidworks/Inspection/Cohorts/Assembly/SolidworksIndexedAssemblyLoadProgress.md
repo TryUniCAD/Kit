@@ -7,3 +7,7 @@ Run `ReplayIndexedAssemblyProgress.py <first-disclosed-results-directory>` to re
 For native confirmation, run `ReplayNestedAssemblyReopen.py prepare <first-results-directory> <pinned-native-control> <unused-sibling-deck>` on the host. Run its frozen `run` command with the replay manifest and digest in the pinned oracle. The tool reopens the two original disclosed assemblies read-only at their original paths. It checks all source file hashes and brackets the two reopens with fresh control processes. It writes only to the new replay directory. Native confirmation remains pending at this change's host verification stage.
 
 [Process reproduction](../../../../../../re/solidworks/measurements/2026/AssemblyIndexedProgressReplay01.json) · [Indexed progress gotcha](../../../../../Gotchas/Conversion/Solidworks/Oracle/Assembly/IndexedComponentLoadProgress.md) · [Same-path replay tool](../../../../../../re/tooling/sw2026/ReplayNestedAssemblyReopen.py)
+
+The four-process replay passed. The two disclosed sources reopened and
+rebuilt with no errors or warnings and preserved every original source
+file hash. Both brackets passed. [Native disclosed replay](../../../../../../re/solidworks/measurements/2026/NestedAssemblyDisclosedReplayNative01.json)
