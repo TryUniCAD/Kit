@@ -907,7 +907,7 @@ class CurveAuthor:
             require(len(matches) == 1, f"sketch geometry is missing or ambiguous: {item}")
             remaining.pop(matches[0])
 
-    def feature_tree(self):
+    def feature_tree(self, *, required_names=("CurveSketch", "CurveBoss")):
         result, visited = [], set()
         def visit(feature, parent):
             traversed = 0
@@ -926,12 +926,12 @@ class CurveAuthor:
                     item = {"name": name, "type": kind, "parent": parent, "error": code, "warning": is_warning, "suppressed": suppressed}
                     result.append(item)
                     require(code == 0 and not is_warning, f"native feature error or warning: {item}")
-                    if name in ("CurveSketch", "CurveBoss"):
+                    if name in required_names:
                         require(not suppressed, f"authored feature is suppressed: {name}")
                     visit(self.get(feature, "GetFirstSubFeature"), name)
                 feature = self.get(feature, "GetNextFeature" if parent is None else "GetNextSubFeature")
         visit(self.get(self.model, "FirstFeature"), None)
-        require({"CurveSketch", "CurveBoss"} <= {item["name"] for item in result}, "authored feature tree is incomplete")
+        require(set(required_names) <= {item["name"] for item in result}, "authored feature tree is incomplete")
         return result
 
     def snapshot(self, case, label):

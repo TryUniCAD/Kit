@@ -175,7 +175,7 @@ class BlindCutAuthor(CurveAuthor):
         boss_sketch, boss, cut_sketch, cut = roles
         require(self.get(self.model, "ForceRebuild3", False), "native solid rebuild failed")
         require(int(self.get(self.get(self.model, "Extension"), "GetWhatsWrongCount")) == 0, "document contains rebuild errors or warnings")
-        tree = self.feature_tree()
+        tree = self.feature_tree(required_names=roles if cut_depth else roles[:2])
         snapshot = {"tree": tree, "boss": self.inspect_feature(boss, boss_sketch, case["boss_depth_mm"], True)}
         snapshot["boss_profile"], inverse = self.inspect_profile(boss_sketch, case["boss_profile"])
         if cut_depth:
