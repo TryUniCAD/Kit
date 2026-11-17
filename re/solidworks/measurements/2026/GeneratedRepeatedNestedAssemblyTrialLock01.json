@@ -1,0 +1,71 @@
+{
+  "control_author_sha256": "66306b78ae69ef6160d54f5f4fc76b0a41bfa9b976145cdad1b4727215de0b1f",
+  "files": {
+    "module": {
+      "bytes": 8988,
+      "file": "OffsetModule.SLDASM",
+      "sha256": "c5e35659a66a95371f9085c3d1bd39651b852d37d47aaa69a73ead41258af003"
+    },
+    "other": {
+      "bytes": 8645,
+      "file": "GaugePlate.SLDPRT",
+      "sha256": "02a28a6d2df18fc9c957a81e9de099dd5c958da6cc1838cd48b5b88f8dd77cc7"
+    },
+    "plate": {
+      "bytes": 8653,
+      "file": "LinkPlate.SLDPRT",
+      "sha256": "6b8dad3871b7cd331257fba8e6eeab009b36fd054561d97a1c31ed8e389b2852"
+    },
+    "root": {
+      "bytes": 9574,
+      "file": "TiltFrame.SLDASM",
+      "sha256": "5cf0fbc9ca38ec592f5f1b61d9e44c2ae798c59f1fe966daf1389121fcc9195f"
+    }
+  },
+  "generator_report_sha256": "6372ca74951d07f993bac94786046652bc3c39502fa2a71070986fa6705f93d9",
+  "heldout_inputs_read": 0,
+  "host_verification": {
+    "host_native_entry_rejected": true,
+    "original_frozen_tool_and_result_preserved": true,
+    "separate_packet_verifier_passed": true
+  },
+  "native_acceptance": false,
+  "native_execution": "pending",
+  "observer_sha256": "c7f45011bc0e89e35fe09361012d5665a7fb7734d2493421d7b213c6e10cd15d",
+  "packet_sha256": "13c6f53da57a592e12304281f4cd6b025a60b5aab6f1df23ea3748d29c49cde1",
+  "prediction_sha256": "f5d87c822a39f7bae11c7ad11528c3871412fda250413cd5f7ce0d77efe9974e",
+  "request_sha256": "f85f0aac6644b1bc5ab2002ef061d52937a36d5e0617717fe256b92d28dc95e6",
+  "schema": "kit.sw2026.generated-repeated-nested-native-trial-lock.v1",
+  "source_lock_sha256": "01d38c3a89af115cf41134701888fb987513e86506f6559401ee323d9bcdc202",
+  "tool_sha256": {
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectGeneratedNestedAssembly.py": "a75a9cc22f21520e58e856c751a81c691f0d7bbe15c1657c7b646606d6e4b229",
+    "InspectRepeatedNestedAssembly.py": "c7f45011bc0e89e35fe09361012d5665a7fb7734d2493421d7b213c6e10cd15d",
+    "NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "ReplayIndexedAssemblyProgress.py": "4e7fe3c9b159ee5e0eabf96c08d1b27b64d4fd8187b22b39e8df0716739324a7",
+    "ReplayNestedAssemblyReopen.py": "60c8797a27b1179e61fd1ab38f1191a5371e3e49fb2c6c1136a104e5d6b01d92",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "writer_evidence_sha256": "168c45f25116ce4089d7830fe463f0d1becc3aa18768eb3d2297683fae4df6ec",
+  "writer_revision": "aa245b58e0dc9857f07e68aafa9727925ec52386",
+  "writer_tool_sha256": {
+    "NestedAssemblyBundleProcess.py": "c2cdcbdb42990a21453a4d2e1753ced794ae5f591c05aa28d71dd05ecbeeaad0",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "builders/Assembly.py": "e9f962dff15f97e3e5f7e79dc6b44bd0bc54fb7badb6e06ffc86fb2a75acc4ef",
+    "builders/AssemblyDocument.py": "7488cc2594456976451bb5e1b81a049d052033a339027f5922a957cdcbefd536",
+    "builders/AssemblyMetadata.py": "583b7761943284dbeb9b655bd740a65856892132c614f046c6a113bdf58299fb",
+    "builders/AssemblyOccurrences.py": "4daf8beb31a85aa3f00fbd1092239e369797a22acc7611cac5c210850640988f",
+    "builders/AssemblyTargetState.py": "c6f40ce995779fd4451e25bd2a3801119c151fd45df6a18b145f247ab2d4dfe1",
+    "builders/ConfigurationHeader.py": "87197b7d9b108135d006cdd5053c7af60ae02ddd0d9c1661ca3cb292bc7e9906",
+    "builders/NestedAssembly.py": "a81270bf9cfbfb014d2dfad9b2bb4cf1ad5f2508d2ea0cf74d52b2b8d610acb3",
+    "builders/NestedAssemblyMetadata.py": "4c0c32570006b8a6b66610d0bb4cfa7cfc3ed62d60536c854dbc81e8be35d767",
+    "builders/Part.py": "b82c0dd08099e7c53f33dca6eb9a3f2dfbfaf6d8c156b41f80976f1afbcd1a3f"
+  }
+}

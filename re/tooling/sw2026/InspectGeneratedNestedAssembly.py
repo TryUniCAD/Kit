@@ -7,6 +7,7 @@ import re
 import subprocess
 import sys
 import time
+from dataclasses import dataclass
 from pathlib import Path, PureWindowsPath
 from shutil import copyfile
 
@@ -26,6 +27,27 @@ SOURCE_LOCK = "01d38c3a89af115cf41134701888fb987513e86506f6559401ee323d9bcdc202"
 WRITER_EVIDENCE = "2539defed11f4fffd6c84d4caf0297895b5f24d1fb1cb6f123b83dd1b5840560"
 SOURCE = Path("NestedAssemblySource01") / "Results"
 WORK_DIRECTORY = PureWindowsPath(r"\\Mac\Home\Documents\UniCAD\Oracle121Takeover\GeneratedNestedAssembly01\GeneratedInput")
+
+
+@dataclass(frozen=True)
+class TrialProfile:
+    name: str = "GeneratedNestedAssembly01"
+    script: str = SCRIPT.name
+    schema: str = SCHEMA
+    evidence_file: str = "GeneratedNestedAssemblyBundle01.json"
+    evidence_sha256: str = WRITER_EVIDENCE
+    control: str = "N01NestedSingle"
+
+    @property
+    def work_directory(self):
+        return WORK_DIRECTORY.parent.parent / self.name / "GeneratedInput"
+
+    @property
+    def tool_names(self):
+        return TOOLS if self.script == SCRIPT.name else (*TOOLS, self.script)
+
+
+FIRST = TrialProfile()
 
 
 def json_file(path, expected, owner):
@@ -54,7 +76,7 @@ def definition_order(bundle):
     return result
 
 
-def validate_prediction(bundle, prediction):
+def validate_prediction(bundle, prediction, profile=FIRST):
     request = {"bundle": bundle, "edit": prediction["edit"]}
     require(json.loads(json.dumps(predict(request), allow_nan=False)) == prediction, "native geometry prediction does not follow from the neutral bundle")
     definitions = prediction["definitions"]
@@ -64,7 +86,7 @@ def validate_prediction(bundle, prediction):
     for key in definition_order(bundle):
         spec = by_id[key]
         file = prediction["definitions"][key]["file"]
-        require(PureWindowsPath(spec["request"]["output"]["path_name"]) == WORK_DIRECTORY / file and Path(file).name == file,
+        require(PureWindowsPath(spec["request"]["output"]["path_name"]) == profile.work_directory / file and Path(file).name == file,
                 "generated native references must point into their exact owned working directory")
         if spec["kind"] == "part":
             require("rectangle_dimensions" in spec["request"]["document"], "native leaf proof requires both authored driving sketch dimensions")
@@ -73,10 +95,10 @@ def validate_prediction(bundle, prediction):
             root["initial"]["volume"] != root["edited"]["volume"], "the native leaf edit must change the expanded root geometry")
 
 
-def prepare(args):
+def prepare(args, profile=FIRST):
     output = args.output.resolve()
-    require(output.name == "GeneratedNestedAssembly01" and output.parent.is_dir() and not output.exists() and
-            not output.is_relative_to(CHECKOUT), "choose the unused private GeneratedNestedAssembly01 packet")
+    require(output.name == profile.name and output.parent.is_dir() and not output.exists() and
+            not output.is_relative_to(CHECKOUT), "choose the unused private scoped generated nested packet")
     source = args.source.resolve(strict=True)
     require(source == output.parent / SOURCE, "keep the disclosed source at its exact original path")
     source_cases(source)
@@ -85,8 +107,8 @@ def prepare(args):
     request = json.loads((build / "Request.json").read_bytes())
     prediction = json.loads((build / "Expected.json").read_bytes())
     report = json.loads((build / "SanitizedBuild.json").read_bytes())
-    evidence_path = CHECKOUT / "re/solidworks/measurements/2026/GeneratedNestedAssemblyBundle01.json"
-    evidence = json_file(evidence_path, WRITER_EVIDENCE, CHECKOUT)
+    evidence_path = CHECKOUT / "re/solidworks/measurements/2026" / profile.evidence_file
+    evidence = json_file(evidence_path, profile.evidence_sha256, CHECKOUT)
     lock_path = CHECKOUT / "re/solidworks/v2026/heldout/NestedAssemblySourceLock01.json"
     checked(lock_path, SOURCE_LOCK, CHECKOUT)
     require(re.fullmatch(r"[0-9a-f]{40}", args.writer_revision) and report["source_lock_sha256"] == SOURCE_LOCK and report["native_acceptance"] is False and
@@ -96,7 +118,7 @@ def prepare(args):
             "native trial request or independent prediction changed")
     for name, sha in evidence["writer_tool_sha256"].items():
         checked(SCRIPT.parent / name, sha, SCRIPT.parent)
-    validate_prediction(request, prediction)
+    validate_prediction(request, prediction, profile)
     files = {}
     for key, row in report["documents"].items():
         spec = evidence["documents"][key]
@@ -115,40 +137,40 @@ def prepare(args):
                                 (build / "SanitizedBuild.json", "GeneratorReport.json"), (evidence_path, "WriterEvidence.json"), (lock_path, "SourceLock.json")):
         copyfile(source_path, output / target)
     tool_hashes = {}
-    for name in TOOLS:
+    for name in profile.tool_names:
         copyfile(SCRIPT.parent / name, tools / name)
         tool_hashes[name] = digest(tools / name)
     packet = output / "Trial.json"
-    write_json(packet, {"schema": SCHEMA, "oracle_sha256": ORACLE, "source_lock_sha256": SOURCE_LOCK,
-                        "writer_revision": args.writer_revision, "writer_evidence_sha256": WRITER_EVIDENCE,
+    write_json(packet, {"schema": profile.schema, "oracle_sha256": ORACLE, "source_lock_sha256": SOURCE_LOCK,
+                        "writer_revision": args.writer_revision, "writer_evidence_sha256": profile.evidence_sha256,
                         "writer_tool_sha256": evidence["writer_tool_sha256"], "tool_sha256": tool_hashes, "files": files,
                         "request_sha256": digest(output / "Request.json"), "prediction_sha256": digest(output / "Expected.json"),
-                        "generator_report_sha256": digest(output / "GeneratorReport.json"), "control_author_sha256": AUTHORED["N01NestedSingle"],
+                        "generator_report_sha256": digest(output / "GeneratorReport.json"), "control_author_sha256": AUTHORED[profile.control],
                         "heldout_inputs_read": 0, "native_acceptance": False})
     sha = digest(packet)
-    subprocess.run([sys.executable, "-B", str(tools / SCRIPT.name), "verify", str(packet), "--packet-sha256", sha], check=True, capture_output=True, timeout=25)
-    return {"packet": str(packet), "packet_sha256": sha, "observer_sha256": tool_hashes[SCRIPT.name]}
+    subprocess.run([sys.executable, "-B", str(tools / profile.script), "verify", str(packet), "--packet-sha256", sha], check=True, capture_output=True, timeout=25)
+    return {"packet": str(packet), "packet_sha256": sha, "observer_sha256": tool_hashes[profile.script]}
 
 
-def verify(path, sha):
+def verify(path, sha, profile=FIRST):
     root = path.parent
     require(path.name == "Trial.json" and checked(path, sha, root) == path, "native nested trial manifest is not pinned")
     packet = json.loads(path.read_bytes())
-    require(packet["schema"] == SCHEMA and packet["oracle_sha256"] == ORACLE and packet["source_lock_sha256"] == SOURCE_LOCK and
-            packet["writer_evidence_sha256"] == WRITER_EVIDENCE and packet["heldout_inputs_read"] == 0 and packet["native_acceptance"] is False and
+    require(packet["schema"] == profile.schema and packet["oracle_sha256"] == ORACLE and packet["source_lock_sha256"] == SOURCE_LOCK and
+            packet["writer_evidence_sha256"] == profile.evidence_sha256 and packet["heldout_inputs_read"] == 0 and packet["native_acceptance"] is False and
             re.fullmatch(r"[0-9a-f]{40}", packet["writer_revision"]), "unexpected native nested trial provenance")
     tools = (root / "Tools").resolve(strict=True)
-    require(tools == SCRIPT.parent and tools.is_relative_to(root) and set(packet["tool_sha256"]) == set(TOOLS), "run the exact frozen native nested tooling")
+    require(tools == SCRIPT.parent and tools.is_relative_to(root) and set(packet["tool_sha256"]) == set(profile.tool_names), "run the exact frozen native nested tooling")
     for name, wanted in packet["tool_sha256"].items():
         checked(tools / name, wanted, tools)
     checked(root / "SourceLock.json", SOURCE_LOCK, root)
-    evidence = json_file(root / "WriterEvidence.json", WRITER_EVIDENCE, root)
-    require(packet["writer_tool_sha256"] == evidence["writer_tool_sha256"] and packet["control_author_sha256"] == AUTHORED["N01NestedSingle"],
+    evidence = json_file(root / "WriterEvidence.json", profile.evidence_sha256, root)
+    require(packet["writer_tool_sha256"] == evidence["writer_tool_sha256"] and packet["control_author_sha256"] == AUTHORED[profile.control],
             "native nested writer or disclosed control identity differs")
     bundle = json_file(root / "Request.json", packet["request_sha256"], root)
     prediction = json_file(root / "Expected.json", packet["prediction_sha256"], root)
     json_file(root / "GeneratorReport.json", packet["generator_report_sha256"], root)
-    validate_prediction(bundle, prediction)
+    validate_prediction(bundle, prediction, profile)
     require(set(packet["files"]) == set(prediction["definitions"]), "native trial has an incomplete file closure")
     for key, row in packet["files"].items():
         require(row["file"] == prediction["definitions"][key]["file"] and row["sha256"] == evidence["documents"][key]["sha256"] and
@@ -232,7 +254,7 @@ def observe_scene(author, model, paths, prediction, edited):
     return result, definitions
 
 
-def generated_phase(phase, packet_path, packet, bundle, prediction, output):
+def generated_phase(phase, packet_path, packet, bundle, prediction, output, profile=FIRST):
     import Swapp
     from AuthorCurves import CurveAuthor
     from ObserveAssemblyLoad import AssemblyLoadMonitor
@@ -241,7 +263,7 @@ def generated_phase(phase, packet_path, packet, bundle, prediction, output):
     root = packet_path.parent
     working = root / "GeneratedInput"
     paths = {key: working / row["file"] for key, row in packet["files"].items()}
-    require(PureWindowsPath(str(working)) == WORK_DIRECTORY, "run the generated trial at its exact encoded UNC path")
+    require(PureWindowsPath(str(working)) == profile.work_directory, "run the generated trial at its exact encoded UNC path")
     recorder = Recorder(output / "Record.json", {"phase": phase, "packet_sha256": digest(packet_path)})
     result = {"passed": False, "mode": phase}
     controller = None
@@ -305,16 +327,16 @@ def generated_phase(phase, packet_path, packet, bundle, prediction, output):
     return result
 
 
-def run_phase(path, sha, phase):
+def run_phase(path, sha, phase, profile=FIRST):
     require(sys.platform == "win32", "native nested phases run only in the Windows guest")
-    packet, bundle, prediction, sources = verify(path, sha)
+    packet, bundle, prediction, sources = verify(path, sha, profile)
     output = path.parent / "Inspection" / phase
     output.mkdir(parents=True, exist_ok=False)
     if phase in ("before", "after"):
         record = output / "Record.json"
         started = time.time()
         write_json(record, {"stage": "native_control", "passed": False, "job": {"phase": phase, "packet_sha256": sha}, "started_at": started})
-        case, paths, prior = sources["N01NestedSingle"]
+        case, paths, prior = sources[profile.control]
         result = inspect_case(case, paths, prior, output)
         result["mode"] = phase
         write_json(record, {"stage": "complete", "passed": result["passed"], "job": {"phase": phase, "packet_sha256": sha},
@@ -323,12 +345,12 @@ def run_phase(path, sha, phase):
         if phase == "generated":
             before = json.loads((path.parent / "Inspection/before/Record.json").read_bytes())
             require(before["passed"] and before["job"]["packet_sha256"] == sha, "generated phase requires its healthy before control")
-        result = generated_phase(phase, path, packet, bundle, prediction, output)
+        result = generated_phase(phase, path, packet, bundle, prediction, output, profile)
     return {"phase": phase, "passed": result["passed"], "open_errors": result.get("open_errors"), "open_warnings": result.get("open_warnings")}
 
 
-def summarize(path, sha):
-    packet, _, prediction, _ = verify(path, sha)
+def summarize(path, sha, profile=FIRST):
+    packet, _, prediction, _ = verify(path, sha, profile)
     results = []
     for phase in PHASES:
         record = path.parent / "Inspection" / phase / "Record.json"
@@ -348,7 +370,7 @@ def summarize(path, sha):
     edited_files_match = set(saved) == set(packet["files"]) and all((native := path.parent / "GeneratedInput" / packet["files"][key]["file"]).is_file() and
                                                                        digest(native) == row["sha256"] for key, row in saved.items())
     bracket_order = all(first.get("finished_at", float("inf")) <= second.get("started_at", float("-inf")) for first, second in zip(results, results[1:]))
-    result = {"schema": SCHEMA, "packet_sha256": sha, "writer_revision": packet["writer_revision"], "writer_tool_sha256": packet["writer_tool_sha256"],
+    result = {"schema": profile.schema, "packet_sha256": sha, "writer_revision": packet["writer_revision"], "writer_tool_sha256": packet["writer_tool_sha256"],
               "source_lock_sha256": SOURCE_LOCK, "prediction_sha256": packet["prediction_sha256"], "oracle_sha256": ORACLE,
               "heldout_inputs_read": 0, "generated_input_files_immutable": True, "synchronized_derivative_files_match": edited_files_match,
               "controls_healthy": controls, "distinct_processes": distinct, "phases": results, "bracket_order_verified": bracket_order,
@@ -358,7 +380,7 @@ def summarize(path, sha):
     return {key: result[key] for key in ("passed", "controls_healthy", "distinct_processes")}
 
 
-def main():
+def main(profile=FIRST):
     parser = argparse.ArgumentParser(description="Freeze and measure the first generated ordinary nested prism bundle")
     modes = parser.add_subparsers(dest="mode", required=True)
     freezer = modes.add_parser("prepare")
@@ -373,14 +395,14 @@ def main():
             command.add_argument("phase", choices=PHASES)
     args = parser.parse_args()
     if args.mode == "prepare":
-        print(json.dumps(prepare(args), sort_keys=True))
+        print(json.dumps(prepare(args, profile), sort_keys=True))
         return 0
     path = args.manifest.resolve(strict=True)
     if args.mode == "verify":
-        verify(path, args.packet_sha256)
+        verify(path, args.packet_sha256, profile)
         print(json.dumps({"verified_packet": args.packet_sha256}))
         return 0
-    result = run_phase(path, args.packet_sha256, args.phase) if args.mode == "run" else summarize(path, args.packet_sha256)
+    result = run_phase(path, args.packet_sha256, args.phase, profile) if args.mode == "run" else summarize(path, args.packet_sha256, profile)
     print(json.dumps(result, sort_keys=True))
     return int(not result["passed"])
 
