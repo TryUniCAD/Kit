@@ -1,4 +1,5 @@
 from __future__ import annotations as Annotations
+
 import base64 as BaseSixFour
 from collections.abc import Callable as FuncCall, Mapping, Sequence
 from dataclasses import replace as Replace
@@ -13,7 +14,9 @@ from typing import TypeGuard, TypedDict as TypeDict
 import xml.etree.ElementTree as XmlTree
 import zipfile as Zipfile
 import zlib as ZlibValue
+
 import pytest as Pytest
+
 from convert import (
     ApplicationUsabilityError as AppUsabilityError,
     convert as Convert,
@@ -175,6 +178,8 @@ from interchange.Enums.EnumValues import ValueKind
 from interchange.Features.FeatureExtrude import ExtrudeEnd as ExtrusionEndCondition
 from interchange.Features.FeatureExtrude import ExtrudeFeature as ExtrusionFeature
 from interchange.geometry.Models.GeometryTypes import KGeometryTypes as GeometryTypes
+from tests.Convert.NativeWrites.IsNativeBlock import IsNativeBlock
+from tests.Convert.Qualification.TypedPart import TypedPart
 from tests.Interchange.Document.DocumentTests import document as NeutralDoc
 from tests.Interchange.Brep.BrepTests import triangle_brep as TriangleBrep
 
@@ -1359,7 +1364,6 @@ def TestSolidworksA() -> None:
     )
     DocValue = Replace(
         Source,
-        source=Replace(Source.source, format_id="solidworks.sldprt"),
         sketches=(Sketch,),
         feature_timeline=(Feature,),
         brep_payloads=(Payload,),
@@ -2621,29 +2625,25 @@ def TestRadiusRule() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestSolidworksB() -> None:
-    Source = NeutralDoc()
-    DocValue = Replace(
-        Source, source=Replace(Source.source, format_id="solidworks.sldprt")
+    Source = TypedPart()
+    OpenSketch = Replace(
+        Source.sketches[0],
+        entities=NeutralDoc().sketches[0].entities,
+        closed_profile_entity_ids=(),
     )
-    Output = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(DocValue, Output)
-    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-    DeclValue = RootValue.find("./Objects/Object[@name='Boss1']")
-    assert DeclValue is not None
-    assert DeclValue.get("type") == "Part::Feature"
-    Properties = RootValue.find("./ObjectData/Object[@name='Boss1']/Properties")
-    assert Properties is not None
-    Executable = Properties.find("./Property[@name='NativeExecutable']/Bool")
-    Reason = Properties.find("./Property[@name='NativeExecutionReason']/String")
-    assert Executable is not None and Executable.get("value") == "false"
-    assert Reason is not None and Reason.get("value") == "no_native_closed_profile"
-    assert FreeCadAdapter().read(Output.getvalue()) == DocValue
+    DocValue = Replace(Source, sketches=(OpenSketch,))
+    assert not OpenSketch.closed_profile_entity_ids
+    Output = IoStream.BytesIO(b"existing destination")
+    with Pytest.raises(
+        ValueError, match="FreeCAD cannot emit editable required features"
+    ):
+        _ = FreeCadAdapter().write(DocValue, Output)
+    assert Output.getvalue() == b"existing destination"
 
 
 # this definition exists because focused behavior needs one stable owner
 def TestSolidworks() -> None:
-    Source = NeutralDoc()
+    Source = TypedPart()
     First = SketchEntity(
         "sketch:1:circle:1", GeomKind.CIRCLE, CircleGeom(VectorTwo(0.0, 0.0), 10.0)
     )
@@ -2657,21 +2657,14 @@ def TestSolidworks() -> None:
     )
     DocValue = Replace(
         Source,
-        source=Replace(Source.source, format_id="solidworks.sldprt"),
         sketches=(Sketch,),
     )
-    Output = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(DocValue, Output)
-    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-    DeclValue = RootValue.find("./Objects/Object[@name='Boss1']")
-    Reason = RootValue.find(
-        "./ObjectData/Object[@name='Boss1']/Properties/Property[@name='NativeExecutionReason']/String"
-    )
-    assert DeclValue is not None and DeclValue.get("type") == "Part::Feature"
-    assert Reason is not None
-    assert Reason.get("value") == "profile_topology_not_statically_sound"
-    assert FreeCadAdapter().read(Output.getvalue()) == DocValue
+    Output = IoStream.BytesIO(b"existing destination")
+    with Pytest.raises(
+        ValueError, match="FreeCAD cannot emit editable required features"
+    ):
+        _ = FreeCadAdapter().write(DocValue, Output)
+    assert Output.getvalue() == b"existing destination"
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2790,15 +2783,9 @@ def TestFeatureAnd() -> None:
             ),
         ),
     )
-    Output = IoStream.BytesIO()
-    _ = Adapter.write(Edited, Output)
-    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-    AngleNode = RootValue.find(
-        "./ObjectData/Object[@name='Revolution']/Properties/Property[@name='Angle']/Float"
-    )
-    assert AngleNode is not None
-    assert AngleNode.get("value") == "37.5"
+    Restored = CadDocument.from_json(Edited.to_json())
+    assert Restored.feature_timeline == Edited.feature_timeline
+    assert IsNativeBlock(Restored, FreeCadAdapter().write, ".FCStd")
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2832,30 +2819,9 @@ def TestNonFeature() -> None:
         ),
     )
     DocValue.assert_valid()
-    Output = IoStream.BytesIO()
-    Adapter = FreeCadAdapter()
-    _ = Adapter.write(DocValue, Output)
-    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-    FeatureObject = next(
-        (
-            NodeValue
-            for NodeValue in RootValue.findall("./ObjectData/Object")
-            if (KitId := NodeValue.find("./Properties/Property[@name='KitId']/String"))
-            is not None
-            and KitId.get("value") == Feature.id
-        )
-    )
-    Values = {
-        NodeValue.get("name"): StringValue.get("value", "")
-        for NodeValue in FeatureObject.findall("./Properties/Property")
-        if (StringValue := NodeValue.find("./String")) is not None
-    }
-    assert Values["KitRole"] == "feature-data"
-    assert Values["NativeTypeId"] == "PartDesign::Hole"
-    assert '"diameter":6.5' in Values["NativeDefinitionJSON"]
-    Restored = Adapter.read(Output.getvalue())
-    assert Restored.feature(Feature.id).definition == Feature.definition
+    Restored = CadDocument.from_json(DocValue.to_json())
+    assert Restored.feature_timeline == DocValue.feature_timeline
+    assert IsNativeBlock(Restored, FreeCadAdapter().write, ".FCStd")
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3070,89 +3036,47 @@ def TestExplicit() -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestStrictTo(TmpPath: FilePath) -> None:
     Output = TmpPath / "blocked.FCStd"
-    with Pytest.raises(AppUsabilityError) as Captured:
-        _ = Convert(KSample, Output, allow_carrier=False)
-    assert "opaque_source_data" in Captured.value.issues
-    assert not Output.exists()
+    _ = Output.write_bytes(b"existing destination")
+    with Pytest.raises(ValueError, match="unqualified SOLIDWORKS sketch support"):
+        _ = Convert(KSample, Output, allow_carrier=False, overwrite=True)
+    assert Output.read_bytes() == b"existing destination"
 
 
 # this definition exists because focused behavior needs one stable owner
 def TestDirectFcstd(TmpPath: FilePath) -> None:
-    Output = TmpPath / "example.FCStd"
-    Result = Convert(KSample, Output, allow_carrier=True)
-    Restored = OpenDoc(Output)
-    assert Restored == Result.document
-    assert Restored.validate() == ()
-    assert [Payload.sha256 for Payload in Restored.brep_payloads] == [
+    Source = OpenDoc(KSample)
+    Source.assert_valid()
+    assert [Payload.sha256 for Payload in Source.brep_payloads] == [
         "8c57db227621a15a0a429cdd65dbe3f374e2c1145ef2f3edc3a25b745513bf3d",
         "3f3e3efbfbee0f41bda187579547881126cbf48101f006eecd759f491fc87ac6",
         "59d5eef7feb40d7a2ce52e20e50e14ca8eedaa1a1671b33a13fdc43720311cb7",
     ]
-    with Zipfile.ZipFile(Output) as Archive:
-        _ = Archive.testzip()
-        Names = set(Archive.namelist())
-        assert "Document.xml" in Names
-        assert "interchange/document.json" in Names
-        assert "Fillet1.Edges" not in Names
-        assert (
-            len(
-                Names
-                & {
-                    "interchange/native/sldprt_brep_0.x_b",
-                    "interchange/native/sldprt_brep_1.x_b",
-                    "interchange/native/sldprt_brep_2.x_b",
-                }
-            )
-            == 3
-        )
-        for Payload in Restored.brep_payloads:
-            Entry = f"interchange/native/{Payload.id.replace(':', '_')}.x_b"
-            assert Hashlib.sha256(Archive.read(Entry)).hexdigest() == Payload.sha256
+    assert IsNativeBlock(
+        Source,
+        FreeCadAdapter().write,
+        ".FCStd",
+        "unqualified SOLIDWORKS sketch support",
+    )
 
 
 # this definition exists because focused behavior needs one stable owner
 def TestFcstd(TmpPath: FilePath) -> None:
-    Output = TmpPath / "example.FCStd"
-    _ = Convert(KSample, Output, allow_carrier=True)
-    with Zipfile.ZipFile(Output) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-        Objects = RootValue.findall("./Objects/Object")
-        Types = [ItemValue.get("type") for ItemValue in Objects]
-        Names = {ItemValue.get("name") for ItemValue in Objects}
-        assert Types.count("Spreadsheet::Sheet") == 1
-        assert Types.count("Sketcher::SketchObject") == 5
-        assert Types.count("Part::Extrusion") == 5
-        assert Types.count("Part::Cut") == 2
-        assert Types.count("Part::MultiFuse") == 2
-        assert Types.count("Part::Fillet") == 0
-        assert {
-            "Parameters",
-            "Sketch1",
-            "Sketch2",
-            "Sketch3",
-            "Sketch4",
-            "Sketch6",
-            "Boss_Extrude1",
-            "Cut_Extrude1",
-            "Boss_Extrude2",
-            "Cut_Extrude2",
-            "Boss_Extrude3",
-            "Fillet1",
-        } <= Names
-        Fillet = RootValue.find("./Objects/Object[@name='Fillet1']")
-        assert Fillet is not None
-        assert Fillet.get("type") == "Part::Feature"
-        Executable = RootValue.find(
-            "./ObjectData/Object[@name='Fillet1']/Properties/Property[@name='NativeExecutable']/Bool"
-        )
-        Reason = RootValue.find(
-            "./ObjectData/Object[@name='Fillet1']/Properties/Property[@name='NativeExecutionReason']/String"
-        )
-        assert Executable is not None and Executable.get("value") == "false"
-        assert Reason is not None
-        assert Reason.get("value") == "topology_selection_not_statically_provable"
-        XmlValue = Archive.read("Document.xml")
-        assert b"KitMetadata" in XmlValue
+    Source = OpenDoc(KSample)
+    Source.assert_valid()
+    assert {Feature.name for Feature in Source.feature_timeline} >= {
+        "Boss-Extrude1",
+        "Cut-Extrude1",
+        "Boss-Extrude2",
+        "Cut-Extrude2",
+        "Boss-Extrude3",
+        "Fillet1",
+    }
+    assert IsNativeBlock(
+        Source,
+        FreeCadAdapter().write,
+        ".FCStd",
+        "unqualified SOLIDWORKS sketch support",
+    )
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3193,21 +3117,22 @@ def TestFcstdEmits() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestFcstdOutput(TmpPath: FilePath) -> None:
+    Source = TypedPart()
     First = TmpPath / "first.FCStd"
     Second = TmpPath / "second.FCStd"
-    _ = Convert(KSample, First, allow_carrier=True)
-    _ = Convert(KSample, Second, allow_carrier=True)
+    _ = WriteDoc(Source, First, allow_carrier=True)
+    _ = WriteDoc(Source, Second, allow_carrier=True)
     assert First.read_bytes() == Second.read_bytes()
 
 
 # this definition exists because focused behavior needs one stable owner
 def TestFcstdStream(TmpPath: FilePath) -> None:
     Output = TmpPath / "example.FCStd"
-    Result = Convert(KSample, Output, allow_carrier=True)
+    _ = WriteDoc(TypedPart(), Output, allow_carrier=True)
     Stream = IoStream.BytesIO(Output.read_bytes())
     assert FreeCadAdapter().probe(Stream).confidence == 1.0
     assert Stream.tell() == 0
-    assert OpenDoc(Stream) == Result.document
+    assert OpenDoc(Stream) == TypedPart()
 
 
 # this definition exists because focused behavior needs one stable owner
