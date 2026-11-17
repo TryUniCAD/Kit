@@ -11,7 +11,7 @@ The indexed observations do not establish a capture-time binding between each me
 Some records contain null measurements, load failures or zero-body results.
 An adjacent filename or a report-level completion label does not resolve that evidence gap.
 
-See the pinned [evidence index](../../../re/automation/Corpus.json), the [Fusion axis capture](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/re/Fusion/Study/revolveaxes-36bd04ac77e1/ground_truth.json) and [historical SOLIDWORKS measurements](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/re/solidworks/measurements/grammar/MeasureAuthored.json).
+See the pinned [evidence index](../../../re/automation/Corpus.json), the [Fusion axis capture](../../../re/Fusion/Study/revolveaxes-36bd04ac77e1/ground_truth.json) and [historical SOLIDWORKS measurements](../../../re/solidworks/measurements/grammar/MeasureAuthored.json).
 
 ## Workaround
 

@@ -122,7 +122,11 @@ def MutateIndex(
         )
     elif CaseMode == "missing-input":
         _ = RunGit(
-            BarePath, "update-index", "--force-remove", KSpecPath, IndexPath=IndexPath
+            BarePath,
+            "update-index",
+            "--index-info",
+            InputData=f"0 {'0' * 40}\t{KSpecPath}\n".encode(),
+            IndexPath=IndexPath,
         )
 
 
