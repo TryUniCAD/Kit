@@ -9,6 +9,12 @@ disclosed partial directions and two sealed partial held-outs.
 The probe verifies the selected sketch and line, measures one-body volume,
 area, centre of mass and rebuild state, and checks a driving angle edit in
 fresh reopen processes. It publishes a source lock containing file and
-measurement hashes. Source authoring and lock verification are pending.
+measurement hashes. The pinned SP05.2 batch qualified all five sources in
+12 distinct processes with healthy bracketing controls. The full-turn and
+both partial-turn discovery parts passed a driving angular edit. The two
+held-out payloads and detailed measurements remain sealed until writer
+predictions are frozen. [Native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolveSourceLock.json)
+
 The [2026 constructor evidence](../../../../../../re/solidworks/records/OrdinaryRevolvedBoss2026.md)
-documents the field rules, inputs and acceptance procedure.
+documents the field rules, inputs and acceptance procedure. Generative
+construction and native writer verification are pending.
