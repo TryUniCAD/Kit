@@ -75,7 +75,7 @@ The [drawing inspection receipt](../../re/solidworks/measurements/2026/DrawingSd
 The [first generated blank drawing](../../re/solidworks/measurements/2026/GeneratedBlankDrawingNative01.json) opens, rebuilds and accepts a scale edit. Native save remains open.
 The [native drawing UI diagnostic](../../re/solidworks/measurements/2026/DrawingBlankUiOmission01.json) reproduces native save and reopen with the selected UI groups omitted together.
 The [planar mate endpoint construction](../../re/solidworks/records/AssemblyPlanarEndpointConstruction2026.md) preserves inherited occurrence and datum identities in generated records.
-The [populated rectangle partition projection](../../re/solidworks/records/GeneratedRectanglePartition2026.md) generates the linked cache and rollback streams. Its native part attachment requires separate qualification.
+The [populated rectangle partition projection](../../re/solidworks/records/GeneratedRectanglePartition2026.md) generates the linked cache and rollback streams. The [standalone trial](../../re/solidworks/measurements/2026/GeneratedRectangleAttachmentNative04.json) records warning 32 and zero bodies at open with the attachment. Explicit rebuild restores the expected solid.
 Complete field classification, broad part and assembly semantics and generated drawing acceptance remain unfinished.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.
