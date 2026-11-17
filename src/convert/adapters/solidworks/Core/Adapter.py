@@ -111,6 +111,7 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     decode_mate_list as DecodeMateList,
     decode_native_assembly as DecodeNativeAsm,
 )
+from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import (
     SldprtArchive,
     SldprtFormatError,
@@ -2033,6 +2034,7 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         configuration_id=SelectedId,
         resolved_stream=SelectedStream,
         configuration_stream=ConfigStream,
+        ModelVersion=ContainerMo(Archive.streams),
     )
 
 
@@ -2937,6 +2939,18 @@ def RuleContextA(Sketch: NativeSketch, ParamIds: set[str]) -> RuleContext:
     )
 
 
+# named subelements must survive native entity identity resolution
+def RuleReferences(RuleValue: NativeRule, RefMap: Mapping[str, str]) -> list[RuleRef]:
+    Points = RuleValue.reference_points or ("",) * len(RuleValue.references)
+    References: list[RuleRef] = []
+    for NativeRef, PointName in zip(RuleValue.references, Points, strict=True):
+        EntityId = RefMap.get(NativeRef)
+        if EntityId is None:
+            return []
+        References.append(RuleRef(EntityId, PointName))
+    return References
+
+
 # this definition exists because each native rule needs deterministic occurrence binding
 def RulePartsMut(
     RuleValue: NativeRule, RefMap: Mapping[str, str], ContextMut: RuleContext
@@ -2949,12 +2963,7 @@ def RulePartsMut(
     str | None,
     str,
 ]:
-    ResolvedRefs = [RefMap.get(RefValue) for RefValue in RuleValue.references]
-    References = (
-        [RuleRef(Resolved) for Resolved in ResolvedRefs if Resolved is not None]
-        if ResolvedRefs and all(ResolvedRefs)
-        else []
-    )
+    References = RuleReferences(RuleValue, RefMap)
     KindValue = RuleValue.kind
     NativeName = (
         RuleValue.parameter.rsplit(":", 1)[-1]
@@ -3006,7 +3015,7 @@ def BuildSketchRule(
             ProvenanceA(
                 RuleValue.id,
                 RuleValue.native_offset,
-                8,
+                RuleValue.native_length,
                 "sketch-constraint",
                 Stream=Sketch.native_stream,
             )

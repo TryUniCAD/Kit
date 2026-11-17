@@ -38,6 +38,27 @@ def AssertProfiles(Document: CadDocument) -> None:
     assert RadiusRule.parameter_id == "sldprt:parameter:25:D1"
 
 
+# the fixed point targets only the centre while the radius remains driving
+def AssertCenterFix(Document: CadDocument) -> None:
+    _, PocketSketch = Document.sketches
+    (CircleEntity,) = PocketSketch.entities
+    assert not CircleEntity.fixed
+    RadiusRule, CenterRule = PocketSketch.constraints
+    assert RadiusRule.kind == "radius" and RadiusRule.driving
+    assert RadiusRule.parameter_id == "sldprt:parameter:25:D1"
+    (RadialRef,) = RadiusRule.references
+    assert (RadialRef.entity_id, RadialRef.point) == (CircleEntity.id, "")
+    assert CenterRule.kind == "fixed" and CenterRule.driving
+    assert CenterRule.parameter_id is None
+    (CenterRef,) = CenterRule.references
+    assert (CenterRef.entity_id, CenterRef.point) == (CircleEntity.id, "center")
+    assert CenterRule.attributes["native_code"] == 0x11
+    assert CenterRule.provenance is not None
+    (SpanValue,) = CenterRule.provenance.spans
+    assert SpanValue.stream == "Contents/Config-0-ResolvedFeatures"
+    assert SpanValue.length > 8
+
+
 # cut depth and its inputs must remain attached to their actual sketch and predecessor
 def AssertPocketCut(Document: CadDocument) -> None:
     NativeNodes = {Feature.name: Feature for Feature in Document.feature_timeline}
@@ -74,4 +95,5 @@ def TestPocketRead(TmpPath: FilePath) -> None:
     assert Document.validate() == ()
     assert not Document.brep_payloads and Document.brep is None
     AssertProfiles(Document)
+    AssertCenterFix(Document)
     AssertPocketCut(Document)

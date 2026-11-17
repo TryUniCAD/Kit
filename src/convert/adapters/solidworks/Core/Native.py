@@ -37,6 +37,12 @@ from convert.adapters.solidworks.Core.LinearSketchOwner import (
     KVertexCount,
 )
 from convert.adapters.solidworks.Core.PlaneRefRecord import FindPlaneRef, KHandleVersion
+from convert.adapters.solidworks.Core.SketchRelations.CircleCenterRule import (
+    ReadCenterFix,
+)
+from convert.adapters.solidworks.Core.SketchRelations.DimensionFields import (
+    RadialAnchor,
+)
 from convert.adapters.solidworks.Resolved.Core import (
     ANGLE_COPY_DELTAS as AngleCopyDeltas,
     DEPTH_COPY_DELTAS as DepthCopyDeltas,
@@ -1041,6 +1047,8 @@ class NativeRule:
     value: float | None
     native_offset: int | None
     native_code: int | None
+    reference_points: tuple[str, ...] = ()
+    native_length: int = 8
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1686,17 +1694,14 @@ def DecodeNotices(
     return tuple(Diagnostics)
 
 
-# this definition exists because focused behavior needs one stable owner
-def DecodeNative(
-    Keywords: bytes,
-    Resolved: bytes,
-    ConfigData: bytes = b"",
-    *,
-    ConfigId: int | None = None,
-    ResolvedStream: str = ResolvedFeaturesStream,
-    ConfigStream: str = "",
-    **LegacyValues: object,
-) -> NativeModel:
+# framework callers also supply the existing snake case configuration arguments
+def DecodeOptions(
+    LegacyValues: dict[str, object],
+    ConfigData: bytes,
+    ConfigId: int | None,
+    ResolvedStream: str,
+    ConfigStream: str,
+) -> tuple[bytes, int | None, str, str]:
     UnknownValues = set(LegacyValues) - {
         "configuration_data",
         "configuration_id",
@@ -1722,10 +1727,24 @@ def DecodeNative(
         raise TypeError("resolved_stream must be a string")
     if not isinstance(LegacyStream, str):
         raise TypeError("configuration_stream must be a string")
-    ConfigData = LegacyConfig
-    ConfigId = LegacyConfigId
-    ResolvedStream = LegacyResolved
-    ConfigStream = LegacyStream
+    return LegacyConfig, LegacyConfigId, LegacyResolved, LegacyStream
+
+
+# the selected configuration owns its feature and sketch archive state
+def DecodeNative(
+    Keywords: bytes,
+    Resolved: bytes,
+    ConfigData: bytes = b"",
+    *,
+    ConfigId: int | None = None,
+    ResolvedStream: str = ResolvedFeaturesStream,
+    ConfigStream: str = "",
+    ModelVersion: int | None = None,
+    **LegacyValues: object,
+) -> NativeModel:
+    ConfigData, ConfigId, ResolvedStream, ConfigStream = DecodeOptions(
+        LegacyValues, ConfigData, ConfigId, ResolvedStream, ConfigStream
+    )
     Configurations, XmlFeatures = ParseKeywords(Keywords)
     Names = ParseNames(Resolved)
     if ResolvedStream == ResolvedFeaturesStream:
@@ -1745,6 +1764,8 @@ def DecodeNative(
         FeatureIndexes,
     )
     DecodeTreeMut(StateData, Author)
+    if ModelVersion == 19000 and ResolvedStream != KitResolvedStream:
+        BindCentersMut(StateData)
     SketchesById = {Sketch.object_id: Sketch for Sketch in StateData.Sketches}
     StateData.Operations = [
         ResolveProfile(Operation, SketchesById, Resolved, NativeFeatures)
@@ -2432,6 +2453,95 @@ def IsOriginFeature(Feature: NativeFeature) -> bool:
         "origin",
         "mooriginprofilefeature_c",
     }
+
+
+# the unique typed origin sketch supplies the first local point class declaration
+def OriginSketch(StateData: DecodeState) -> bytes:
+    Origins = [
+        Feature
+        for Feature in StateData.NativeFeatures
+        if IsOriginFeature(Feature) and Feature.class_name == "moOriginProfileFeature_c"
+    ]
+    if len(Origins) != 1:
+        return b""
+    (Origin,) = Origins
+    Start, EndValue = Origin.native_offset, Origin.native_end
+    if Start is None or EndValue is None:
+        return b""
+    Declarations = [
+        Record.offset
+        for Record in StateData.Classes
+        if Record.name == "sgSketch" and Start + 6 <= Record.offset < EndValue
+    ]
+    if len(Declarations) != 1:
+        return b""
+    return StateData.Resolved[Declarations[0] - 6 : EndValue]
+
+
+# the current sketch and its dimension must agree on the same circle record
+def CenterSpan(
+    Resolved: bytes, Sketch: NativeSketch, OriginData: bytes
+) -> tuple[int, int] | None:
+    if len(Sketch.profiles) != 1 or len(Sketch.markers) != 3:
+        return None
+    (Profile,) = Sketch.profiles
+    if Profile.kind != "circle" or len(Profile.marker_offsets) != 3:
+        return None
+    if len(Sketch.dimensions) != 1 or Profile.dimension_kind != "radius":
+        return None
+    (Dimension,) = Sketch.dimensions
+    if Dimension.name != Profile.parameter_name or Dimension.native_offset is None:
+        return None
+    Start, EndValue = Sketch.native_offset, Sketch.native_end
+    CenterMark, SeamMark, ArcMark = Profile.marker_offsets
+    if (
+        not Start
+        <= CenterMark
+        < SeamMark
+        < ArcMark
+        < Dimension.native_offset
+        < EndValue
+    ):
+        return None
+    return ReadCenterFix(
+        Resolved[Start:EndValue],
+        OriginData,
+        (CenterMark - Start, SeamMark - Start, ArcMark - Start),
+        (Profile.coordinates[0], Profile.coordinates[1]),
+        RadialAnchor(
+            Dimension.name,
+            Dimension.native_offset - Start,
+            Dimension.value_mm,
+        ),
+    )
+
+
+# centre fixation augments existing relations while preserving radius editability
+def AddCenterRule(Sketch: NativeSketch, SpanValue: tuple[int, int]) -> NativeSketch:
+    Start, EndValue = SpanValue
+    RuleValue = NativeRule(
+        id=f"{Sketch.object_id}:profile:0:fixed-center",
+        kind="fixed",
+        references=(f"{Sketch.object_id}:profile:0",),
+        parameter=None,
+        value=None,
+        native_offset=Sketch.native_offset + Start,
+        native_code=0x11,
+        reference_points=("center",),
+        native_length=EndValue - Start,
+    )
+    return Replace(Sketch, constraints=(*Sketch.constraints, RuleValue))
+
+
+# the selected stream keeps origin and circle bindings within the same map context
+def BindCentersMut(StateData: DecodeState) -> None:
+    OriginData = OriginSketch(StateData)
+    if not OriginData:
+        return
+    for Index, Sketch in enumerate(StateData.Sketches):
+        SpanValue = CenterSpan(StateData.Resolved, Sketch, OriginData)
+        if SpanValue is not None:
+            StateData.Sketches[Index] = AddCenterRule(Sketch, SpanValue)
 
 
 # this definition exists because focused behavior needs one stable owner
