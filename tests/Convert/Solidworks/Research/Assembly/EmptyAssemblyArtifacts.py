@@ -9,7 +9,7 @@ from typing import cast as CastValue
 
 
 # the vendor pass needs the exact artifact from the guarded assembly construction process
-def SaveAssemblyOutput(
+def SaveCandidate(
     NameValue: str, Request: dict[str, object], Report: dict[str, object]
 ) -> None:
     OutputPath = ReadEnv("SwResearchOutput")

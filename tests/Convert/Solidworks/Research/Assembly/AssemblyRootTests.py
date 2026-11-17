@@ -7,7 +7,7 @@ from typing import cast as CastValue
 
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 from tests.Convert.Solidworks.Research.Assembly.EmptyAssemblyArtifacts import (
-    SaveAssemblyOutput,
+    SaveCandidate,
 )
 from tests.Convert.Solidworks.Research.Assembly.RootRequest import RootRequest
 
@@ -96,5 +96,5 @@ def TestRootBuild() -> None:
             Report["complete_assembly_emitted"] is Report["native_acceptance"] is False
         )
         Lengths.append(CastValue(int, Report["root_bytes"]))
-        SaveAssemblyOutput(NameValue, Request, Report)
+        SaveCandidate(NameValue, Request, Report)
     assert Lengths[1] > Lengths[0] > 0

@@ -13,7 +13,10 @@ The inspector verifies the exact artifact and oracle hashes, brackets the
 candidates with the native empty assembly and healthy solid-part controls,
 and records open, rebuild, save and fresh-reopen behavior separately.
 
-This reduced container omits the keyword index and unclassified optional data.
+This reduced container omits the keyword index and other unclassified streams.
 Whether these omissions are safe for an empty assembly is an open measurement.
-Remote process and native evidence for these candidates are pending. This work
-does not establish held-out acceptance or change public writer support.
+The [native-format job](https://github.com/TryUniCAD/Kit/actions/runs/44008628902/job/133789957496)
+passed all 209 format checks on `7a79e796e` and published the two candidates.
+That revision separately failed the Python name-length policy for an artifact
+helper. The rename leaves construction unchanged. Native evidence is pending.
+This work does not establish held-out acceptance or change public writer support.
