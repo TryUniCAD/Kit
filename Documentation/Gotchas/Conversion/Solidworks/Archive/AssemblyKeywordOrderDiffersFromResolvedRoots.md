@@ -10,4 +10,7 @@ This is the observed shape in the three
 [ordinary discovery assemblies](../../../../../re/solidworks/v2026/corpus/assembly-synchronized/Manifest.json).
 Do not project the resolved root order onto this index. Its feature and
 occurrence projection needs a separate construction rule. The reduced empty
-assembly experiment omits the index rather than substituting a partial one.
+assembly experiment omits the index. Two generated empty assemblies
+[passed the native comparison](../../../../../re/solidworks/measurements/2026/EmptyAssemblyNative01.json)
+with that omission and 31 other absent streams; this does not establish
+the keyword index's behavior for populated assemblies.

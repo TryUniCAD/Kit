@@ -86,7 +86,9 @@ The [assembly definition experiment](../../Changes/Solidworks/Inspection/Cohorts
 constructs assembly document settings from authored inputs and the 2026 format rules.
 It verifies archive structure in a research process. It does not establish native assembly writing.
 The [empty assembly candidates](../../Changes/Solidworks/Inspection/Cohorts/SolidworksEmptyAssemblyCandidates.md)
-combine that record with the shared header and version metadata for controlled vendor inspection.
+combine that record with the shared header and version metadata.
+Two generated empty candidates matched the native control through save and fresh reopen.
+This result applies to the research profile with no components or mates.
 
 The [shared count primitives](../../Changes/Solidworks/Model/SolidworksArchiveCountPrimitives.md)
 begin the generative archive layer in `src/convert/adapters/solidworks/Archive/Counts/`.

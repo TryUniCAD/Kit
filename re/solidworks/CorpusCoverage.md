@@ -143,8 +143,15 @@ now qualifies five native empty, single and repeated-component inputs,
 including two held-out parents with intact child hashes. The independent
 [completion record](measurements/2026/AssemblySyncSourceCompletion03.json)
 passes ten phases, 900 numeric comparisons and zero reopen warnings between
-healthy controls. These files are oracle-authored sources. The generated
-assembly count remains zero.
+healthy controls. These five files are oracle-authored sources and are
+excluded from generated coverage.
+
+Two [generated empty research assemblies](measurements/2026/EmptyAssemblyNative01.json)
+now match the native discovery control through open, rebuild, save and fresh
+reopen, with all ten candidate observations and four controls passing.
+The generated research count is two empty assemblies. Neither has components
+or mates, neither is a held-out conversion, and neither adds an accepted
+FCStd assembly to the production count of 0/5.
 
 ## Last audit of the removed writer
 

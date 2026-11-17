@@ -608,4 +608,6 @@ evidence, not execution traces or target-application acceptance.
 
 The unresolved work is concrete and active: complete ordinary component-reference construction; external file/header/configuration identity; context-dependent placement propagation; complete per-configuration option domains; solver state and common mate data; bounds-cache ownership and final visibility/explosion policy; and controlled native load/rebuild/edit acceptance with passing controls.
 
-The geometric-bounds, ordinary-file-definition, referenced-configuration, and initial assembly-configuration graph constructors are implemented here. A complete fresh assembly builder and native acceptance are not claimed. No local tests, builder imports, fixture reproductions, or CAD operations were run. The caller and loop conclusions are static evidence, not Tupni execution traces.
+The geometric-bounds, ordinary-file-definition, referenced-configuration, and initial assembly-configuration graph constructors are implemented here.
+The [empty assembly measurement](../measurements/2026/EmptyAssemblyNative01.json) separately proves native load, rebuild, save and reopen for two fresh empty files. Populated assembly and held-out acceptance remain open.
+The caller and loop conclusions in this record are static evidence, not Tupni execution traces.
