@@ -1,0 +1,5 @@
+# SOLIDWORKS drawing sheet rules
+
+The research builders derive ANSI A landscape dimensions, default zone counts and margins, and the two sketch scales from authored sheet settings. They also generate the corresponding drawing keyword and property indexes. The disclosed SOLIDWORKS 2026 sheets match the paper, zones and sketch transforms. Two generated index sets with different names, scales and length units pass the SDK property parsers. [Sheet field receipt](../../../../../re/solidworks/measurements/2026/DrawingSheetFields01.json)
+
+A separate research diagnostic prepares independent cache omissions from the locked native empty drawing. It preserves the unmodified control and compares open, rebuild, scale edit, save and fresh reopen for each omitted stream. The result can establish whether that cache is optional for the measured profile. A complete generated drawing still requires the remaining Definition fields and native trials. [Sheet construction and diagnostic procedure](../../../../../re/solidworks/records/DrawingEmptySheetConstruction2026.md)

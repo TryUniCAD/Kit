@@ -1,0 +1,107 @@
+{
+  "disclosed": [
+    {
+      "length_unit": "mm",
+      "model_sketch_scale": 1.0,
+      "name": "D00EmptySheet",
+      "sheet_scale": 1.0,
+      "source_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "ui_sketch_scale": 1.0,
+      "zone_counts": [
+        4,
+        4
+      ],
+      "zone_margins": [
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "length_unit": "mm",
+      "model_sketch_scale": 0.2,
+      "name": "D01FrontView",
+      "sheet_scale": 5.0,
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "ui_sketch_scale": 5.0,
+      "zone_counts": [
+        4,
+        4
+      ],
+      "zone_margins": [
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    {
+      "length_unit": "mm",
+      "model_sketch_scale": 0.2,
+      "name": "D02MovedFrontView",
+      "sheet_scale": 5.0,
+      "source_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47",
+      "ui_sketch_scale": 5.0,
+      "zone_counts": [
+        4,
+        4
+      ],
+      "zone_margins": [
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    }
+  ],
+  "generated_index_checks": [
+    {
+      "length_unit": "mm",
+      "ratio": [
+        3,
+        2
+      ],
+      "sheet": "Metric Paper",
+      "streams": {
+        "docProps/ISolidWorksInformation.xml": {
+          "bytes": 854,
+          "sha256": "b5138372060dd2adff61dd0b9103927e974daa2b973860818f9f605744d66d2e"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 421,
+          "sha256": "fd560250dc860b89de6c13244c0e9422122ff4d91e21f584fa08426f280b2669"
+        }
+      },
+      "zones": [
+        4,
+        4
+      ]
+    },
+    {
+      "length_unit": "in",
+      "ratio": [
+        2,
+        7
+      ],
+      "sheet": "Imperial Paper",
+      "streams": {
+        "docProps/ISolidWorksInformation.xml": {
+          "bytes": 860,
+          "sha256": "9b0a1a07f3f31a7d5ce21d19c0bb509fb76ee47f8d59ad7c6b9f0b37be24802f"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 425,
+          "sha256": "607a054bd9757519c5f427b53fd928937eaaf57b3ac36a29108118eeee8ce9ad"
+        }
+      },
+      "zones": [
+        2,
+        2
+      ]
+    }
+  ],
+  "native_acceptance": false,
+  "schema": "kit.sw2026.drawing-sheet-fields.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7"
+}
