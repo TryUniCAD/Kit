@@ -63,8 +63,11 @@ def fixture_inputs():
 def reference_updates(model_map, resolved_map):
     rows, seen = [], set()
     for stream, reader in ((CONFIG, model_map), (RESOLVED, resolved_map)):
-        for index, (kind, node) in sorted(reader.table.items()):
-            if kind != "obj" or not isinstance(node, Obj) or node.cls not in REFERENCE_CLASSES or id(node) in seen:
+        for index, entry in sorted(reader.table.items()):
+            if entry[0] != "obj":
+                continue
+            node = entry[1]
+            if not isinstance(node, Obj) or node.cls not in REFERENCE_CLASSES or id(node) in seen:
                 continue
             seen.add(id(node))
             fields = {key: node.f.get(key) for key in UPDATE_FIELDS}
