@@ -372,9 +372,12 @@ child stamps and local bounds. The [repeated native trial](records/GeneratedRepe
 also passes across four controlled processes with seven expanded
 paths and five solids. Editing the shared leaf changes all four of
 its placements, and all four files save and reopen successfully.
-Its typed audit passes 48 stream comparisons. Sealed qualification
-remains open. These disclosed proofs add zero completed FCStd
-conversions to the production audit.
+Its typed audit passes 48 stream comparisons. The later
+[blind evaluation](records/SealedNestedAssemblyEvaluation2026.md)
+passes both pre-writer locked ordinary rigid nested assembly cases
+across eight controlled native processes. It checks live depth edits,
+rebuild, synchronized save, geometry and fresh reopen. The family
+qualification adds zero completed FCStd conversions to the production audit.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

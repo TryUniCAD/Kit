@@ -1,0 +1,267 @@
+{
+  "schema": "kit.sw2026.sealed-nested-writer-public-result.v1",
+  "packet_sha256": "d124111f9b21546ce75c3e7b48b62160f572b429351d60884201104c162a2f14",
+  "writer_revision": "aa245b58e0dc9857f07e68aafa9727925ec52386",
+  "code_manifest_sha256": "67d68817da9ac9f14bb2c1e37a3015210846804888b2cd6c5744ce09dbaf1df7",
+  "source_lock_sha256": "01d38c3a89af115cf41134701888fb987513e86506f6559401ee323d9bcdc202",
+  "tools_sha256": {
+    "NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "ReplayIndexedAssemblyProgress.py": "4e7fe3c9b159ee5e0eabf96c08d1b27b64d4fd8187b22b39e8df0716739324a7",
+    "ReplayNestedAssemblyReopen.py": "60c8797a27b1179e61fd1ab38f1191a5371e3e49fb2c6c1136a104e5d6b01d92",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "InspectGeneratedNestedAssembly.py": "a75a9cc22f21520e58e856c751a81c691f0d7bbe15c1657c7b646606d6e4b229",
+    "RunSealedNestedSourcePhase.py": "b783cf04f7aa2118b1bc170590cb673eeec0c80d90b4d3914ebf631d4a323ae1",
+    "SealedNestedAssemblyPlan.py": "46189e5303593c507d8cec8150ca969cf6cdb81b1719ed3664cf591d70be2029",
+    "SealedNestedEvaluationState.py": "fb40aa3735e7a3fecb2aaa16c82db8dd1f33f51ce686b7d99b00c7672071c39f",
+    "InspectSealedNestedAssembly.py": "97a3676b269145c697c898af0e1aa7ac60fab0cad0f3c5b3b4d58df6f51f06f2",
+    "RunSealedNestedEvaluation.py": "66b73cd43571314bcf282a16e13f911871bb4d474ee3f53cffb78df4abb2462c",
+    "FreezeSealedNestedEvaluation.py": "1254558d4f0afbdfe6424e372ea67c224f1a264e3299fa3da7a4b729bd329c45"
+  },
+  "heldout_profiles_native_passed": true,
+  "controls_healthy": true,
+  "distinct_native_processes": 8,
+  "source_before_execution_verified_by_frozen_guest": true,
+  "host_heldout_payloads_read": 0,
+  "heldout_results_remain_sealed": true,
+  "native_acceptance": false,
+  "public_adapter_writer_qualified": false,
+  "slots": [
+    {
+      "slot": 1,
+      "qualified": true,
+      "phases": [
+        {
+          "phase": "before",
+          "attempt": 1,
+          "started_at": 1794936154.558181,
+          "finished_at": 1794936229.9671397,
+          "passed": true,
+          "private_record_sha256": "2a330853ab9697c867aaa685491df66d07e32c61849af647f6db2b26da82423b",
+          "public_record_sha256": "b6a4919a5062bd3fc4041b140730ece4e6ed1778bc2def8b3a36520f5a0e9173",
+          "identity": {
+            "process_id": 6648,
+            "process_creation_filetime": 134394097591041920,
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "successful_transport_sha256": "e27b815e96d4c0dec53ca9ac08694d0875756dfad13ab59e0aedcd2d1ca06a33",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "build",
+          "attempt": 1,
+          "started_at": 1794936312.4812307,
+          "finished_at": 1794936341.1675475,
+          "passed": true,
+          "private_record_sha256": "1f9b1b29b21b2085eb680332752a27eb72e06743456bf9a9679a2b3dfafca9d1",
+          "public_record_sha256": "4c3e65245a8e7e4398638842c19f3d31d908c2855540bde52f9048243a3eaa8d",
+          "successful_transport_sha256": "f45b81ac0a2f094d7f6303a3d41c3f8def99d3dc72a8f87ccfc8c6b171dc9ded",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "generated",
+          "attempt": 1,
+          "started_at": 1794936407.5016532,
+          "finished_at": 1794936551.351227,
+          "passed": true,
+          "private_record_sha256": "7a0805d265beace46c62c429d585b08635265a3c38676a025dd199358755eeab",
+          "public_record_sha256": "fe4abba78e78c578c5422c9eeeb4f34028e57c69c493351ca62779dc169a5ba9",
+          "identity": {
+            "process_id": 5096,
+            "process_creation_filetime": 134394100121513293,
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "successful_transport_sha256": "0342ddb0051e892d1b5187ced4a48685156b8298309a64e7b1d6c82809f3e4d9",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "reopen",
+          "attempt": 1,
+          "started_at": 1794937026.3956277,
+          "finished_at": 1794937111.7345195,
+          "passed": true,
+          "private_record_sha256": "6e208ec78f76a0c3c1a10de78182c0bae7082a86039aa6c3ffb15e3ee920a0bf",
+          "public_record_sha256": "d5d67847cf34d62703645951e66ab088524175bc32b9ef1c582ec373c42b49c0",
+          "identity": {
+            "process_id": 7700,
+            "process_creation_filetime": 134394106308956893,
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "successful_transport_sha256": "62c179186af5e118d5475f3c3c375ca2d1d2475f75af3ac8e812d35c5750f4bc",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "after",
+          "attempt": 1,
+          "started_at": 1794938679.2978477,
+          "finished_at": 1794938754.8779876,
+          "passed": true,
+          "private_record_sha256": "4b1f9cc510a8e7bb66d9538711739d0baeef9f56299eaf3758f026631ac3abb8",
+          "public_record_sha256": "b4f2d6daa47642455172768d6324153912f78c345f80aa2f553bc5c49798b972",
+          "identity": {
+            "process_id": 6932,
+            "process_creation_filetime": 134394122838383893,
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "successful_transport_sha256": "409810507f732ff0a23d3b525da044b739e0eaddbe24a2c8a84aaa9cf8cd9987",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "qualify",
+          "attempt": 1,
+          "started_at": 1794938955.6386158,
+          "finished_at": 1794938966.5532897,
+          "passed": true,
+          "private_record_sha256": "cd8a762223a661b9dfb2bf451f7e1ef91e22e84bd77a4790695e563959fc3dc9",
+          "public_record_sha256": "444b72f2d83eab4dcd75dd2c1fce8179c48fd5f35610e4d5085e3071e64477d0",
+          "successful_transport_sha256": "648b4d2190ebd86a71815e5130614e0c27c993d7be601c2802365ba1d587e3ec",
+          "transport_exit_code": 0
+        }
+      ],
+      "generated_artifact_manifest_sha256": "731034f167b073c866b5ea86633d33a8372d0990170e23a7e5cff0fb1dfc39e3",
+      "saved_artifact_manifest_sha256": "987e8d30422adcaaacf214c7288a12c8cf0854eb75c6e446c8e25e4fab8d6f36"
+    },
+    {
+      "slot": 2,
+      "qualified": true,
+      "phases": [
+        {
+          "phase": "before",
+          "attempt": 1,
+          "started_at": 1794938978.6508965,
+          "finished_at": 1794939055.2577562,
+          "passed": true,
+          "private_record_sha256": "ec960e860136f7b5e322aebe6197d90ddf7810fdc234e916ff97ca1850eb16c4",
+          "public_record_sha256": "225196712563e7e354bb66e2ae267d571131af1f4ab63a4ed0cd6ac433087f51",
+          "identity": {
+            "process_id": 2084,
+            "process_creation_filetime": 134394125834483139,
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "successful_transport_sha256": "22b7326acaae4efc125d14f78bf788e2f30c4ab8ed4c01e4003c26f13f2be28b",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "build",
+          "attempt": 1,
+          "started_at": 1794939071.7327316,
+          "finished_at": 1794939108.0764828,
+          "passed": true,
+          "private_record_sha256": "a0e0c3b1fd193b8d8f9d8f961a1411d534c7cfd4edf20c9836aedaed88a97f34",
+          "public_record_sha256": "fd0da7a45945bd19255a4b26ee46c4131bc48d583df3f06e62330dcc97517ee4",
+          "successful_transport_sha256": "3e0223bd6d186677e5dc24a03ee6dbdd546d9cde7517db38eb71331dfc989d84",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "generated",
+          "attempt": 1,
+          "started_at": 1794939122.714827,
+          "finished_at": 1794939364.7085097,
+          "passed": true,
+          "private_record_sha256": "ee2a43031610fb6929a7bc8841a93a40a12f1432c4e4c4e57ce2746feb5dabad",
+          "public_record_sha256": "cae0d91c1f84739f152e3c13ebd8aa1ab0a702ef0fda5b3bac2aa91457893fe9",
+          "identity": {
+            "process_id": 5840,
+            "process_creation_filetime": 134394127272899737,
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "successful_transport_sha256": "2f576a37fe12e7690666aa6e2bbdb25724376d917c92678192756c268203bc53",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "reopen",
+          "attempt": 1,
+          "started_at": 1794939377.602914,
+          "finished_at": 1794939496.7616234,
+          "passed": true,
+          "private_record_sha256": "2b11c339da6bf8f34c4cfa0d536ced48f6577014e9910828c06d29a9ea70cc4c",
+          "public_record_sha256": "b2757c215e6542751b969808694ca8c629676c021c4c31292e602ef8ee5c0156",
+          "identity": {
+            "process_id": 3968,
+            "process_creation_filetime": 134394129821828482,
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "successful_transport_sha256": "c6b8000633ffbdd44ad363d1b4e1b8f1f6648b48a985f07767073a1b9a8b78a4",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "after",
+          "attempt": 1,
+          "started_at": 1794939509.2835503,
+          "finished_at": 1794939585.4890256,
+          "passed": true,
+          "private_record_sha256": "51d383964cb93a64aa45487ba84fb03fa1c4427b187979cf9f21a84a1476c050",
+          "public_record_sha256": "cda6bb1dd692e69537acbd25deed80cf24b9ae1c12cf2b34ff84dd608a7eed0c",
+          "identity": {
+            "process_id": 10036,
+            "process_creation_filetime": 134394131138152759,
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "successful_transport_sha256": "08231b733f4ee9888693f10b1366cc6858413cadd1ef2800772e8a423e942b82",
+          "transport_exit_code": 0
+        },
+        {
+          "phase": "qualify",
+          "attempt": 1,
+          "started_at": 1794939598.1188338,
+          "finished_at": 1794939608.0393095,
+          "passed": true,
+          "private_record_sha256": "99a13ed0fe227128577d2be34bea10d9c3fc371143a1147f357bff2ef47902a2",
+          "public_record_sha256": "cc0e137282d561543267a193f19781f6ead6396d159598df70f50c7efd4ce77d",
+          "successful_transport_sha256": "eb9d835200656fdf299e088b5b45061672cf91f05d5ad6cfb2948b05fa78ab09",
+          "transport_exit_code": 0
+        }
+      ],
+      "generated_artifact_manifest_sha256": "941af3a0bb98d1342e670ff038874d836444d5560fec45fc658aba5841915eec",
+      "saved_artifact_manifest_sha256": "373f8b21ebe4fa3db117b017539ab15dba73c6a6139913147fded6028fa76a4b"
+    }
+  ],
+  "raw_public_summary_sha256": "7b31dd71fe0e33f4afe7d79e325bed5f3588192a34fd3eaa5e976229b99ab2dc",
+  "prepared_evaluator_revision": "334e7a509ca974676fcf34b76dcf0253a23e2334",
+  "guest_preflight_sha256": "67d0f033a68a5317cc492e450806e735c4205b04870a7ea80c3fe6fa1127f2bb",
+  "host_final_coordinator_sha256": "fa8fb831862ded8b698d376a68532e4002b0f85f54cb44e86d394ec9a1dbaca7",
+  "host_summary_exit_code": 0,
+  "frozen_python_dependency_files": 3385,
+  "input_runtime_file_read_attempts_per_writer_process": 0,
+  "guarded_writer_builds_per_slot": 2,
+  "prelaunch_transport_retries": [
+    {
+      "slot": 1,
+      "phase": "after",
+      "failed_transport_sha256": "b88625fdb8a9259a25dd52bf82f7159c6c5afe029212636eea06b7566d31d6f6",
+      "failed_transport_exit_code": 255,
+      "successful_transport_sha256": "409810507f732ff0a23d3b525da044b739e0eaddbe24a2c8a84aaa9cf8cd9987",
+      "guest_phase_attempt": 1
+    },
+    {
+      "slot": 2,
+      "phase": "generated",
+      "failed_transport_sha256": "e7692030f7b0517c0b405c48b422b8d2d3462c117345d3c7333e2684cf7230ed",
+      "failed_transport_exit_code": 255,
+      "successful_transport_sha256": "2f576a37fe12e7690666aa6e2bbdb25724376d917c92678192756c268203bc53",
+      "guest_phase_attempt": 1
+    }
+  ],
+  "native_geometry_relative_tolerance": 5e-07,
+  "native_geometry_absolute_tolerance": 1e-12,
+  "full_source_tree_and_presentation_parity_measured": false,
+  "production_corpus_conversions": {
+    "parts": 0,
+    "assemblies": 0
+  }
+}

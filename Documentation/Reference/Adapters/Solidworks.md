@@ -121,9 +121,12 @@ fresh reopen. The separate saved-state audit passes 36 scoped
 stream comparisons. A repeated four-definition hierarchy also
 passes native edit, synchronized saves and fresh reopen with seven
 paths and five solids. Its typed audit passes 48 stream comparisons.
-Sealed qualification remains open.
+Both pre-writer locked rigid nested layouts pass the same native edit,
+save and reopen checks across eight fresh processes. The scope is
+the research writer's ordinary centered-prism hierarchy.
 [Native nested measurements](../../../re/solidworks/records/GeneratedNestedAssemblyNative2026.md)
 [Repeated native measurements](../../../re/solidworks/records/GeneratedRepeatedNestedAssembly2026.md)
+[Blind evaluation](../../../re/solidworks/records/SealedNestedAssemblyEvaluation2026.md)
 The [assembly XML research profile](../../Changes/Solidworks/Inspection/Cohorts/Assembly/SolidworksAssemblyXmlIndexes.md) adds generated component and KeyWords indexes for one ordinary child and its rigid placements. The public SDK validates this generated pair with `include_brep=False`. The default geometry route requires a readable Parasolid payload in the child.
 
 The [shared count primitives](../../Changes/Solidworks/Model/SolidworksArchiveCountPrimitives.md)
