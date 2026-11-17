@@ -169,6 +169,19 @@ def run_phase(case, phase, output, job, control, control_mass, prior=None):
                     variants = [Swapp.VARIANT(Swapp.pythoncom.VT_ARRAY | kind, value) for kind, value in ((Swapp.pythoncom.VT_BSTR, names), (Swapp.pythoncom.VT_R8, transforms), (Swapp.pythoncom.VT_BSTR, origins))]
                     values = recorder.call("AddComponents3", assembly.AddComponents3, *variants, parameters={"names": names, "transforms": transforms, "coordinate_system_names": origins})
                     AuthorCurves.require(values is not None and len(values) == len(expected), "native assembly insertion count differs")
+                    if case.get("mates"):
+                        from AssemblyMateEvidence import author_plane_mates
+
+                        by_placement = {}
+                        for raw_component in values:
+                            component = author.typed(raw_component, "Component2")
+                            transform = author.typed(author.get(component, "Transform2"), "MathTransform")
+                            matrix = author.get(transform, "ArrayData")
+                            matches = [index for index, target in enumerate(expected) if transform_matches(matrix, target)]
+                            AuthorCurves.require(len(matches) == 1 and matches[0] not in by_placement,
+                                                 "inserted component does not match its requested mate placement")
+                            by_placement[matches[0]] = component
+                        author_plane_mates(author, model, assembly, [by_placement[index] for index in range(len(expected))], case)
                 path = directory / (case["name"] + ".SLDASM")
             else:
                 path = Path(prior["native_path"])
@@ -179,13 +192,21 @@ def run_phase(case, phase, output, job, control, control_mass, prior=None):
                 result.update(open_errors=errors, open_warnings=warnings)
                 AuthorCurves.require(model is not None and errors == warnings == 0, "assembly source reopen failed or warned")
                 assembly = author.typed(model, "AssemblyDoc")
-            result["initial"] = snapshot(author, model, assembly, expected, component_path, control_mass, "initial")
+            def capture(label):
+                observation = snapshot(author, model, assembly, expected, component_path, control_mass, label)
+                if case.get("mates"):
+                    from AssemblyMateEvidence import observe_plane_mates
+
+                    observation["mates"] = observe_plane_mates(author, model, observation["occurrences"], case)
+                return observation
+
+            result["initial"] = capture("initial")
             if synchronize and prior is not None:
                 child = bound_child(author, assembly, component_path, len(expected))
                 result["reopened_child_stamp"] = int(author.get(child, "GetUpdateStamp"))
                 AuthorCurves.require(result["reopened_child_stamp"] == prior["synchronized_child"]["update_stamp"], "reopened child update stamp differs from its saved source")
             AuthorCurves.require(bool(author.get(model, "ForceRebuild3", False)), "assembly source rebuild failed")
-            result["rebuilt"] = snapshot(author, model, assembly, expected, component_path, control_mass, "rebuilt")
+            result["rebuilt"] = capture("rebuilt")
             if prior is None:
                 if synchronize:
                     result["synchronized_child"] = save_owned_child(author, assembly, component_path, len(expected), recorder, directory)
@@ -193,7 +214,7 @@ def run_phase(case, phase, output, job, control, control_mass, prior=None):
                 AuthorCurves.require(status == (True, 0, 0), "native assembly source save failed or warned")
                 if synchronize:
                     AuthorCurves.require(digest(component_path) == result["synchronized_child"]["native_sha256"], "parent save replaced its synchronized child")
-                result["saved"] = snapshot(author, model, assembly, expected, component_path, control_mass, "saved")
+                result["saved"] = capture("saved")
                 result.update(native_path=str(path), native_sha256=digest(path), native_bytes=path.stat().st_size)
             else:
                 for name in ("initial", "rebuilt"):
@@ -201,6 +222,11 @@ def run_phase(case, phase, output, job, control, control_mass, prior=None):
                     actual = [[item[key] for key in keys] for item in result[name]["occurrences"]]
                     saved = [[item[key] for key in keys] for item in prior["saved"]["occurrences"]]
                     AuthorCurves.require(actual == saved, "assembly occurrence identity or state changed across reopen")
+                    if case.get("mates"):
+                        mate_keys = ("name", "type", "alignment", "dimension_name", "flipped")
+                        current_mates = [[item.get(key) for key in mate_keys] for item in result[name]["mates"]]
+                        saved_mates = [[item.get(key) for key in mate_keys] for item in prior["saved"]["mates"]]
+                        AuthorCurves.require(current_mates == saved_mates, "assembly mate identity or state changed across reopen")
                 result["source_immutable"] = digest(path) == prior["native_sha256"]
                 AuthorCurves.require(result["source_immutable"], "assembly source changed on reopen")
             result["passed"] = True
