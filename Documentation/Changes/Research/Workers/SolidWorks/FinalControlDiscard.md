@@ -59,4 +59,9 @@ The accepted observations remain unqualified native research evidence and do not
 The real Windows process suite exercises managed journal serialization across the Python queue boundary, retaining the no-save stage, dirty/read-only/count state and exact operand.
 It rejects a writable final-control claim and a mismatched operand even when the journal chain is recomputed consistently.
 The complete collector and Boss witness compile against the installed interops without launching CAD.
-Native confirmation of the targeted final-control no-save path remains pending a new committed-source P04 run.
+The committed-source P04 run on `56b2ad97b872789f00976a701060291ffaf5ac4a` also timed out inside the exact final `QuitDoc` call.
+Its flushed journal retained actual `save_flag=true`, `read_only=true` and `document_count=1` before the call.
+The 270-event journal SHA-256 is `237b8bf2c44898676647e97499c98cc38b2cd070e8543f7f8c30d0380f001946`.
+Exact-owner recovery SHA-256 is `15cfd38eb3e63069dcc148606edc69852a79b44e7302c85e1e83068ded4c47a6`.
+Zero observations were accepted; all 3,768 recorded source and input hashes were unchanged.
+The [private visibility follow-up](FinalControlVisibility.md) retains the next controlled observation and its order limitation.

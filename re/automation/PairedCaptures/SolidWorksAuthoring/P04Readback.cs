@@ -509,6 +509,12 @@ public sealed partial class P04Readback
                 {
                     string closeName = progress.Invoke("close_title", (string)row["file"], () => owned.GetTitle());
                     row["close_operand"] = closeName;
+                    var visibility = new Dictionary<string, object>();
+                    progress.Invoke("close_visibility", (string)row["file"], () =>
+                    {
+                        visibility["visible"] = owned.Visible;
+                    }, visibility);
+                    row["document_visible_at_close"] = visibility["visible"];
                     var closeState = new Dictionary<string, object>();
                     progress.Invoke("close_state", (string)row["file"], () =>
                     {
@@ -667,6 +673,8 @@ public sealed partial class P04Readback
                 observations.Add(reading);
                 Require(!reading.ContainsKey("cleanup_diagnostic"), "Readback cleanup did not leave an empty session");
             }
+            progress.Invoke("final_control_hidden", "control.SLDPRT",
+                () => application.DocumentVisible(false, (int)swDocumentTypes_e.swDocPART), Row("visible", false));
             var after = progress.Invoke("control_after", "control.SLDPRT", () => worker.Read(Path.Combine(workspace, "control.SLDPRT"), true, true));
             result["control_after"] = after;
             Require((string)after["status"] == "observed", "Post-run control did not pass");

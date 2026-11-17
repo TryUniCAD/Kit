@@ -34,3 +34,11 @@ Record the actual dirty and read-only states without changing user preferences. 
 For the verified owned final read-only stock control, the collector now uses the explicitly documented no-save `QuitDoc` operation with the exact title operand.
 This applies only after successful initial open verification and a fresh exact-path, read-only and sole-document check.
 The remaining document closes retain `CloseDoc`, and successful acceptance still requires an empty session and normal `ExitApp` and held-handle exit. [QuitDoc contract](https://help.solidworks.com/2021/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.isldworks~quitdoc.html)
+
+Read-only geometry and rebuild queries can leave the stock control dirty.
+The collector therefore sets per-part `DocumentVisible(false, swDocPART)` after all captures and before opening only the final control.
+It records the actual document `Visible` getter at close; acceptance requires false for that final control.
+This setting belongs to the owned application session and leaves the user's global preferences unchanged. [DocumentVisible contract](https://help.solidworks.com/2025/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISldWorks~DocumentVisible.html)
+
+The [private comparison](../../../../Changes/Research/Workers/SolidWorks/FinalControlVisibility.md) observed normal final close and exit with visibility false.
+Its capture order differed from the queued order, so that success does not isolate the cause of the earlier stall.

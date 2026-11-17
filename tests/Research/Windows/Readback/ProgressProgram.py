@@ -19,6 +19,15 @@ public static class ProgressFixture
         var json = new System.Web.Script.Serialization.JavaScriptSerializer();
         var owner = json.Deserialize<System.Collections.Generic.Dictionary<string, object>>(System.IO.File.ReadAllText(ownerPath));
         var progress = new ReadbackProgress(journalPath, owner);
+        progress.Invoke("final_control_hidden", "control.SLDPRT",
+            () => System.IO.File.WriteAllText(markerPath, "real filesystem fixture action"),
+            new System.Collections.Generic.Dictionary<string, object> { { "visible", false } });
+        progress.Invoke("control_after", "control.SLDPRT", () => {
+        progress.Invoke("open_document", "control.SLDPRT", () => System.IO.File.Exists(markerPath));
+        var visibility = new System.Collections.Generic.Dictionary<string, object>();
+        progress.Invoke("close_visibility", "control.SLDPRT", () => {
+            visibility["visible"] = !System.IO.File.Exists(markerPath);
+        }, visibility);
         var state = new System.Collections.Generic.Dictionary<string, object>();
         progress.Invoke("close_state", "control.SLDPRT", () => {
             state["save_flag"] = true;
@@ -28,6 +37,7 @@ public static class ProgressFixture
         progress.Invoke("quit_document", "control.SLDPRT",
             () => System.IO.File.WriteAllText(markerPath, "real filesystem fixture action"),
             new System.Collections.Generic.Dictionary<string, object> { { "operand", "control.SLDPRT" } });
+        });
         return json.Serialize(progress.Finish("observed"));
     }
 }

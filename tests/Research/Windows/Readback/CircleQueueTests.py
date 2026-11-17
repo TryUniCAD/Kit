@@ -32,6 +32,9 @@ from tests.Research.Windows.Readback.QueueReadback import QueueReadback
         "lifetime",
         "discard",
         "operand",
+        "visible",
+        "hidden",
+        "late_hidden",
     ),
 )
 def CheckRoundQueue(TmpPath: FilePath, FaultName: str) -> None:
@@ -67,20 +70,24 @@ def CheckRoundQueue(TmpPath: FilePath, FaultName: str) -> None:
     assert Receipt["observed_files"] == Receipt["circle_bindings_verified"] == 5
     Dispatch = DecodeJson((TmpPath / "Session/work/dispatch.json").read_bytes())
     assert Dispatch["proof"]["fixture_only"] is True
-    assert Dispatch["proof"]["native_progress_events"] == 5
+    assert Dispatch["proof"]["native_progress_events"] == 13
     Measurement = DecodeJson(
         (TmpPath / "Session/work/readback/measurements.json").read_bytes()
     )
     Journal = Measurement["run"]["native_progress"]["journal_utf8"].splitlines()
-    assert DecodeJson(Journal[1])["detail"] == {
+    Events = [DecodeJson(Item) for Item in Journal]
+    assert Events[0]["stage"] == "final_control_hidden"
+    Completed = {
+        Item["stage"]: Item for Item in Events if Item["status"] == "completed"
+    }
+    assert Completed["close_visibility"]["detail"] == {"visible": False}
+    assert Completed["close_state"]["detail"] == {
         "save_flag": True,
         "read_only": True,
         "document_count": 1,
     }
-    assert DecodeJson(Journal[2])["detail"] == {"operand": "control.SLDPRT"}
-    assert DecodeJson(Journal[3])["detail"] == {"operand": "control.SLDPRT"}
-    assert [DecodeJson(Item)["stage"] for Item in Journal[2:4]] == [
-        "quit_document",
-        "quit_document",
+    assert [Item["detail"] for Item in Events if Item["stage"] == "quit_document"] == [
+        {"operand": "control.SLDPRT"},
+        {"operand": "control.SLDPRT"},
     ]
     assert (TmpPath / "Endpoint/fence.json").exists()

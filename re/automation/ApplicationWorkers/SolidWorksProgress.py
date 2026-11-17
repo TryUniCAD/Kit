@@ -105,15 +105,33 @@ def require_final_discard(report, control):
     require(isinstance(state, dict) and set(state) == {"save_flag", "read_only", "document_count"}
             and type(state["save_flag"]) is bool and state["read_only"] is True
             and type(state["document_count"]) is int and state["document_count"] == 1
-            and isinstance(operand, str) and operand and control.get("close_method") == "quit_document",
+            and isinstance(operand, str) and operand and control.get("close_method") == "quit_document"
+            and control.get("document_visible_at_close") is False,
             "native progress lacks sole read-only final-control discard evidence")
     events = [json.loads(line) for line in report["journal_utf8"].splitlines()]
+    hidden = [event for event in events if event["stage"] == "final_control_hidden"]
+    require(len(hidden) == 2 and [event["status"] for event in hidden] == ["started", "completed"]
+            and all(event["file"] == "control.SLDPRT" and event["detail"] == {"visible": False} for event in hidden),
+            "native progress final-control visibility setting differs")
     closes = [event for event in events if event["stage"] == "quit_document"]
     require(len(closes) == 2 and [event["status"] for event in closes] == ["started", "completed"]
             and all(event["file"] == "control.SLDPRT" and event["detail"] == {"operand": operand} for event in closes),
             "native progress final-control discard stage or operand differs")
     start = events.index(closes[0])
+    after = [index for index, event in enumerate(events)
+             if event["stage"] == "control_after" and event["file"] == "control.SLDPRT"]
+    require(len(after) == 2 and events[after[0]]["status"] == "started"
+            and events[after[1]]["status"] == "completed"
+            and events.index(hidden[1]) < after[0] < start < after[1]
+            and any(after[0] < index < start and event["stage"] == "open_document"
+                    and event["file"] == "control.SLDPRT" and event["status"] == "completed"
+                    for index, event in enumerate(events)),
+            "native progress final-control visibility setting did not precede its open and close")
     require(start > 0 and events[start - 1]["stage"] == "close_state"
             and events[start - 1]["status"] == "completed" and events[start - 1]["file"] == "control.SLDPRT"
             and events[start - 1]["detail"] == state,
             "native progress final-control discard state differs")
+    require(start >= 3 and events[start - 3]["stage"] == "close_visibility"
+            and events[start - 3]["status"] == "completed" and events[start - 3]["file"] == "control.SLDPRT"
+            and events[start - 3]["detail"] == {"visible": False},
+            "native progress final-control visibility getter differs")

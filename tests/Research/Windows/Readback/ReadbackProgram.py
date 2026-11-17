@@ -66,6 +66,7 @@ def observe(request, work):
                                            'background_control_after': fault != 'lifetime', 'user_control_after': False},
                   'control_before': {'status': 'observed'}, 'control_after': {
                       'status': 'observed', 'close_operand': 'control.SLDPRT', 'close_method': 'quit_document',
+                      'document_visible_at_close': fault == 'visible',
                       'close_state': {'save_flag': True, 'read_only': fault != 'discard', 'document_count': 1}}}}
     owner_path = output / 'fixture-owner.json'
     write_record(owner_path, owner)
@@ -80,12 +81,28 @@ def observe(request, work):
     native_progress = json.loads(generated.stdout)
     progress = journal_path.read_bytes().splitlines(keepends=True)
     if fault == 'operand':
-        event = json.loads(progress[2])
+        slot = next(index for index, line in enumerate(progress) if json.loads(line)['stage'] == 'quit_document')
+        event = json.loads(progress[slot])
         event['detail']['operand'] = 'unrelated.SLDPRT'
-        progress[2] = encoded(event)
-        for index in range(3, len(progress)):
+        progress[slot] = encoded(event)
+        for index in range(slot + 1, len(progress)):
             event = json.loads(progress[index])
             event['previous_sha256'] = sha256(progress[index - 1])
+            progress[index] = encoded(event)
+    if fault == 'hidden':
+        for index, line in enumerate(progress):
+            event = json.loads(line)
+            if event['stage'] == 'final_control_hidden':
+                event['stage'] = 'other_visibility'
+            event['previous_sha256'] = sha256(progress[index - 1]) if index else None
+            progress[index] = encoded(event)
+    if fault == 'late_hidden':
+        settings, progress = progress[:2], progress[2:]
+        progress[-2:-2] = settings
+        for index, line in enumerate(progress):
+            event = json.loads(line)
+            event['sequence'] = index + 1
+            event['previous_sha256'] = sha256(progress[index - 1]) if index else None
             progress[index] = encoded(event)
     if fault == 'chain':
         event = json.loads(progress[1])
