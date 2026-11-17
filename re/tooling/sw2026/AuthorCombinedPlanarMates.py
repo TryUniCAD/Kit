@@ -7,9 +7,7 @@ from pathlib import Path
 import re
 import time
 
-from AuthorAssemblySources import run_phase
 from AuthorCurves import digest, require, write_json
-from InspectFresh import healthy, inspect
 
 
 SCHEMA = "kit.sw2026.combined-planar-mate-discovery-author.v1"
@@ -42,6 +40,9 @@ def verify(path, sha):
 def run(path, sha):
     require(os.name == "nt", "native assembly authoring requires the Windows guest")
     job, case, control = verify(path, sha)
+
+    from AuthorAssemblySources import run_phase
+    from InspectFresh import healthy, inspect
     root = path.parent
     output = root / "Native"
     output.mkdir()
