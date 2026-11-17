@@ -12,6 +12,9 @@ from InspectRectangleDimensions import centers_match, close
 
 
 CASES = ("A13SyncedSingle", "A14SyncedRepeat")
+HELDOUT_CASES = ("A15HeldoutSyncedThree", "A16HeldoutSyncedFour")
+HELDOUT_SCHEMA = "kit.sw2026.dimensioned-assembly-heldout-job.v1"
+SOURCE_LOCK = "50de39dc21405cd346566f64244b62d457857758f339a95be4baf3466dfc1f80"
 EDITS = (("Width", "D1@Sketch1"), ("Height", "D2@Sketch1"), ("Depth", "D1@Boss-Extrude1"))
 TOOL_FILES = (
     "AuthorAssemblySources.py", "AuthorCurves.py", "InspectCircleSketch.py",
@@ -34,14 +37,21 @@ def files_for(*, stage, folder, entries, case):
 
 
 def inputs(job, job_path):
-    require(job["schema"] == "kit.sw2026.dimensioned-assembly-discovery-job.v1", "unexpected assembly discovery job schema")
+    require(job["schema"] in ("kit.sw2026.dimensioned-assembly-discovery-job.v1", HELDOUT_SCHEMA), "unexpected dimensioned assembly job schema")
+    heldout = job["schema"] == HELDOUT_SCHEMA
+    cases = HELDOUT_CASES if heldout else CASES
     checkout = Path(job["checkout_root"]).resolve(strict=True)
     stage = Path(job["stage"]).resolve(strict=True)
     output = Path(job["output"]).resolve()
     require(not stage.is_relative_to(checkout) and job_path.parent == stage and output == stage / "Inspection", "assembly discovery needs external exact staging and output paths")
     source_snapshot = verified(stage / "SourceSnapshot.json", job["source_snapshot_sha256"], stage=stage)
     source = json.loads(source_snapshot.read_bytes())
-    require(tuple(case["name"] for case in job["cases"]) == CASES and tuple(source["cases"]) == CASES, "disclosed discovery case membership differs")
+    require(tuple(case["name"] for case in job["cases"]) == cases and tuple(source["cases"]) == cases, "assembly case membership differs")
+    if heldout:
+        require(source["source_lock_sha256"] == SOURCE_LOCK and source["predictions_sha256"] == job["predictions_sha256"], "held-out prediction scope differs")
+        prediction_file = verified(stage / "Predictions.json", job["predictions_sha256"], stage=stage)
+        prediction = json.loads(prediction_file.read_bytes())
+        require(all(prediction[key] == job[key] for key in ("cases", "dimensions", "geometry")), "held-out oracle job differs from the frozen prediction")
     require(set(job["dimensions"]) == {name for _, name in EDITS}, "baseline dimension set differs")
     result = {}
     for case in job["cases"]:
@@ -293,7 +303,8 @@ def main():
         for trial in case["trials"]:
             immutable.update((path, trial["files"][key]) for key, path in bound["generated"][trial["title"]].items())
     report = {
-        "schema": "kit.sw2026.dimensioned-assembly-discovery.v1",
+        "schema": ("kit.sw2026.dimensioned-assembly-heldout.v1" if job["schema"] == HELDOUT_SCHEMA
+                   else "kit.sw2026.dimensioned-assembly-discovery.v1"),
         "job_sha256": digest(job_path), "source_snapshot_sha256": job["source_snapshot_sha256"],
         "generator": job["generator"], "oracle_sha256": job["oracle_sha256"], "started_at": time.time(),
         "tool_sha256": {name: digest(Path(__file__).with_name(name)) for name in (*TOOL_FILES, Path(__file__).name)},
@@ -334,14 +345,15 @@ def main():
         report["controls_healthy"] = [row.get("healthy") for row in report["controls"]] == [True, True]
         identities = [row.get("oracle_identity", {}).get("process_creation_filetime") for row in phases]
         report["distinct_processes"] = len({value for value in identities if type(value) is int and value > 0})
-        report["expected_processes"] = 2 + 4 * len(EDITS) * len(CASES)
-        expected_trials = len(EDITS) * len(CASES)
+        expected_trials = len(EDITS) * len(job["cases"])
+        report["expected_processes"] = 2 + 4 * expected_trials
         trials = [row for case in report["cases"] for row in case["trials"]]
         report["passed"] = bool(
             report["controls_healthy"] and report["input_files_unchanged"] and "exception" not in report
             and len(identities) == report["distinct_processes"] == report["expected_processes"]
             and len(trials) == expected_trials and all(row.get("passed") for row in trials)
         )
+        report["heldout_acceptance"] = bool(report["passed"] and job["schema"] == HELDOUT_SCHEMA)
         report["finished_at"] = time.time()
         checkpoint()
     print(json.dumps({"passed": report["passed"], "controls_healthy": report["controls_healthy"], "cases": len(report["cases"])}))
