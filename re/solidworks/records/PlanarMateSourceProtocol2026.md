@@ -37,7 +37,14 @@ Require the analytical placements and mass properties, synchronized child
 and parent save, zero warnings and an isolated reopen. Bracket the batch
 with two measurements of the unchanged native rectangle control.
 
-The two cases with combined mates are held-out from the writer construction.
+All five native source pairs passed over 12 fresh processes with two healthy
+controls. The replay corrected the reference observer and kept the exact
+authored specification digest. The [source lock](../v2026/heldout/AssemblyPlanarMateSourceLock01.json)
+records the parent, child, phase and source-tool digests. The three disclosed
+designs provide one coincident, one parallel and one driving distance mate.
+The two held-out designs combine those types.
+
+The two cases with combined mates are held out from writer construction.
 Publish their archive and observation digests only. Pass the authored
 placements and semantics to the writer after freezing its source. Open the
 locked native comparisons after committing the candidate hashes. Qualify
