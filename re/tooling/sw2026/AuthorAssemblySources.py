@@ -102,12 +102,45 @@ def snapshot(author, model, assembly, expected, control, control_mass, label):
     return result
 
 
+def bound_child(author, assembly, source, count):
+    occurrences = author.get(assembly, "GetComponents", True) or ()
+    AuthorCurves.require(len(occurrences) == count and count > 0, "synchronized source requires its complete occurrence set")
+    documents = []
+    for value in occurrences:
+        occurrence = author.typed(value, "Component2")
+        child = author.get(occurrence, "GetModelDoc2")
+        AuthorCurves.require(child is not None and not author.get(occurrence, "IsSuppressed"), "synchronized source child is unavailable")
+        observed = Path(author.get(occurrence, "GetPathName")).resolve()
+        doc_path = Path(author.get(child, "GetPathName")).resolve()
+        AuthorCurves.require(observed == doc_path == source.resolve(), "synchronized source resolved a different child file")
+        documents.append(child)
+    return documents[0]
+
+
+def save_owned_child(author, assembly, source, count, recorder, directory):
+    AuthorCurves.require(source.resolve().is_relative_to(directory.resolve()) and source.name == "CohortChild.SLDPRT", "child save must stay within its owned author directory")
+    child = bound_child(author, assembly, source, count)
+    original_hash = digest(source)
+    stamp = int(author.get(child, "GetUpdateStamp"))
+    author.get(child, "SetSaveFlag")
+    AuthorCurves.require(bool(author.get(child, "GetSaveFlag")), "owned child did not become dirty")
+    errors, warnings = Swapp.byref_long(), Swapp.byref_long()
+    saved = recorder.call("persist owned child before parent", Swapp.invoke, child, "Save3", Swapp.SAVE_SILENT, errors, warnings)
+    status = [bool(saved), int(errors.value), int(warnings.value)]
+    AuthorCurves.require(status == [True, 0, 0] and int(author.get(child, "GetUpdateStamp")) == stamp, "synchronized child save failed or changed the stamp")
+    return {"native_sha256": digest(source), "native_bytes": source.stat().st_size, "path_basename": source.name, "original_sha256": original_hash, "update_stamp": stamp, "save_status": status}
+
+
 def run_phase(case, phase, output, job, control, control_mass, prior=None):
     directory = output / case["name"] / phase
     directory.mkdir(parents=True, exist_ok=False)
     recorder = AuthorCurves.Recorder(directory / "Record.json", {"case": case, "phase": phase})
     result = {"phase": phase, "passed": False}
     controller = model = None
+    component_path = control
+    synchronize = bool(job.get("synchronize_owned_children") and case["placements"])
+    if synchronize:
+        component_path = output / case["name"] / "author" / "CohortChild.SLDPRT"
     with AssemblyLoadMonitor() as dialogs:
         try:
             recorder.call("assembly source idle guard", Swapp.sweep)
@@ -125,7 +158,12 @@ def run_phase(case, phase, output, job, control, control_mass, prior=None):
                 AuthorCurves.require(model is not None, "native assembly document creation failed")
                 assembly = author.typed(model, "AssemblyDoc")
                 if expected:
-                    names = [str(control)] * len(expected)
+                    if synchronize:
+                        payload = control.read_bytes()
+                        with component_path.open("xb") as child_copy:
+                            child_copy.write(payload)
+                        AuthorCurves.require(digest(component_path) == job["control_sha256"], "owned child seed differs from its native control")
+                    names = [str(component_path)] * len(expected)
                     transforms = [v for row in expected for v in row]
                     origins = [""] * len(expected)
                     variants = [Swapp.VARIANT(Swapp.pythoncom.VT_ARRAY | kind, value) for kind, value in ((Swapp.pythoncom.VT_BSTR, names), (Swapp.pythoncom.VT_R8, transforms), (Swapp.pythoncom.VT_BSTR, origins))]
@@ -135,17 +173,27 @@ def run_phase(case, phase, output, job, control, control_mass, prior=None):
             else:
                 path = Path(prior["native_path"])
                 AuthorCurves.require(digest(path) == prior["native_sha256"], "locked assembly source changed before reopen")
+                if synchronize:
+                    AuthorCurves.require(digest(component_path) == prior["synchronized_child"]["native_sha256"], "owned child changed before assembly reopen")
                 model, errors, warnings = recorder.call("open locked assembly source", controller.open, path, read_only=True)
                 result.update(open_errors=errors, open_warnings=warnings)
                 AuthorCurves.require(model is not None and errors == warnings == 0, "assembly source reopen failed or warned")
                 assembly = author.typed(model, "AssemblyDoc")
-            result["initial"] = snapshot(author, model, assembly, expected, control, control_mass, "initial")
+            result["initial"] = snapshot(author, model, assembly, expected, component_path, control_mass, "initial")
+            if synchronize and prior is not None:
+                child = bound_child(author, assembly, component_path, len(expected))
+                result["reopened_child_stamp"] = int(author.get(child, "GetUpdateStamp"))
+                AuthorCurves.require(result["reopened_child_stamp"] == prior["synchronized_child"]["update_stamp"], "reopened child update stamp differs from its saved source")
             AuthorCurves.require(bool(author.get(model, "ForceRebuild3", False)), "assembly source rebuild failed")
-            result["rebuilt"] = snapshot(author, model, assembly, expected, control, control_mass, "rebuilt")
+            result["rebuilt"] = snapshot(author, model, assembly, expected, component_path, control_mass, "rebuilt")
             if prior is None:
+                if synchronize:
+                    result["synchronized_child"] = save_owned_child(author, assembly, component_path, len(expected), recorder, directory)
                 status = recorder.call("save native assembly source", controller.save_as, model, path)
                 AuthorCurves.require(status == (True, 0, 0), "native assembly source save failed or warned")
-                result["saved"] = snapshot(author, model, assembly, expected, control, control_mass, "saved")
+                if synchronize:
+                    AuthorCurves.require(digest(component_path) == result["synchronized_child"]["native_sha256"], "parent save replaced its synchronized child")
+                result["saved"] = snapshot(author, model, assembly, expected, component_path, control_mass, "saved")
                 result.update(native_path=str(path), native_sha256=digest(path), native_bytes=path.stat().st_size)
             else:
                 for name in ("initial", "rebuilt"):
@@ -173,6 +221,8 @@ def run_phase(case, phase, output, job, control, control_mass, prior=None):
                 result["controller_diagnostics"] = controller.diagnostics
     if prior is not None:
         result["source_immutable"] = digest(Path(prior["native_path"])) == prior["native_sha256"]
+        if synchronize:
+            result["source_immutable"] = result["source_immutable"] and digest(component_path) == prior["synchronized_child"]["native_sha256"]
     result.update(dialogs=dialogs.log, progress_windows=dialogs.progress)
     result["passed"] = bool(result["passed"] and result.get("source_immutable", True) and not result["dialogs"] and not result.get("controller_diagnostics") and recorder.data["first_failure"] is None and not recorder.data["cleanup_errors"])
     recorder.data.update(assembly_result=result, passed=result["passed"], finished_at=time.time())
@@ -189,6 +239,7 @@ def main():
     specs = json.loads(specs_path.read_bytes())
     cases = specs["cases"]
     AuthorCurves.require(specs["schema"] == "kit.sw2026.ordinary-assembly-specs.v1" and len(cases) == len({c["name"] for c in cases}) == 5 and [c["split"] for c in cases] == ["discovery"] * 3 + ["heldout"] * 2, "assembly source case membership differs")
+    AuthorCurves.require(bool(job.get("synchronize_owned_children")) == bool(specs.get("synchronize_owned_children")), "assembly child save protocol differs from its specification")
     AuthorCurves.require(all(re.fullmatch(r"A[0-9]{2}[A-Za-z]+", c["name"]) for c in cases if c["split"] == "discovery") and all(re.fullmatch(r"A[0-9]{2}Heldout[A-Za-z]+", c["name"]) for c in cases if c["split"] == "heldout"), "invalid assembly source names")
     control = Path(job["control"])
     AuthorCurves.require(digest(control) == job["control_sha256"], "assembly native control changed")
@@ -239,6 +290,9 @@ def main():
         for row in result["cases"]:
             first = row["phases"][0] if row["phases"] else {}
             lock["cases"].append({"name": row["name"], "split": row["split"], "passed": row.get("passed", False), "native_sha256": first.get("native_sha256"), "native_bytes": first.get("native_bytes"), "phases": len(row["phases"]), "record_sha256": [phase["record_sha256"] for phase in row["phases"]], "numeric_checks": sum(phase["numeric_checks"] for phase in row["phases"])})
+            if job.get("synchronize_owned_children"):
+                child = first.get("synchronized_child")
+                lock["cases"][-1]["synchronized_child"] = None if child is None else {key: child[key] for key in ("native_sha256", "native_bytes", "path_basename")}
         AuthorCurves.write_json(output / "SourceLock.json", lock)
     print(json.dumps({"passed": result["passed"], "cases": len(result["cases"]), "controls_healthy": result["controls_healthy"], "writer_output_count": 0}))
     return 0 if result["passed"] else 1

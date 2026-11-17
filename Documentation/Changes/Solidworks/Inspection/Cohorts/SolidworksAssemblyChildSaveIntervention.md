@@ -15,5 +15,8 @@ child's update stamp, actual disk hashes, geometry, load status and active
 configuration in six fresh processes including two controls.
 
 The procedure checks the ownership of the saved child path and never writes
-the original control. This is a diagnostic using private native copies;
-it has no generated output or held-out acceptance. Measurement is pending.
+the original control. The [completed six-process receipt](../../../../../re/solidworks/measurements/2026/AssemblyChildSaveProbe01.json)
+records healthy controls and matching geometry. The parent-only case returned
+warning 32 and reopened the child at stamp 120. An explicit child save kept
+stamp 134 and both the load warning and parent rebuild flag were zero. This
+is a diagnostic using private native copies; it adds no writer acceptance.

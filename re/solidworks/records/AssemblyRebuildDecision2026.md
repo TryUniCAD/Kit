@@ -75,3 +75,20 @@ for the single occurrence and `1794876511` for both repeated occurrences.
 The external part bytes used by the two source cases were unchanged.
 This does not establish the loaded child's update time at the point of saving
 the assembly or a causal explanation for the reopen warning.
+
+## Paired child-save intervention
+
+The [controlled save result](../measurements/2026/AssemblyChildSaveProbe01.json)
+uses the same seeded part and single occurrence in both lanes. At the point
+of parent save the child API reports update stamp 134 in both lanes. In the
+parent-only lane the child file is byte identical to its input and fresh open
+reads stamp 120. The parent returns warning 32 and requires a rebuild. In the
+other lane, saving the owned child explicitly retains 134 and the fresh
+parent returns warning 0 and reports no rebuild requirement. Visible child
+geometry and the paired volume, area and centre of mass are unchanged.
+
+This establishes a usable native source-authoring intervention. The native
+warning call site and the full relationship among child header state, saved
+reference fields and other load-time conditions remain unproved. A writer
+has to emit mutually consistent component and parent state from its model;
+it cannot use the native save procedure at runtime.
