@@ -3,7 +3,7 @@ from __future__ import annotations
 # configuration and resolved streams must share one archive map because environment references cross their boundary
 KBaseStreams = """
 BaseConfigBytes, BaseStoreMap = StoreConfigState(
-    StreamDoc("config", {"direct": 0}, [BaseGraph.part]), CodecReg, 19000
+    StreamDoc("config", {"model_header": BaseHeader}, [BaseGraph.part]), CodecReg, 19000
 )
 BaseContext = {
     "model_compressed_stream": 1,

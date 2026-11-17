@@ -42,10 +42,10 @@ KProgram = (
     + KBaseStyles
     + KBaseGraph
     + KBaseLifecycle
-    + KBaseStreams
-    + KReferences
     + KBaseRevision
     + KBaseHeader
+    + KBaseStreams
+    + KReferences
     + KContainer
     + KBaseLoad
     + KBaseAliases

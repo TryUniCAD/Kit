@@ -75,6 +75,9 @@ class FieldInventory:
         self.keepalive = []
 
     def register_map(self, ar, stream):
+        header_source = getattr(ar, "model_header_source", None)
+        if header_source is not None:
+            self.register_map(header_source[1], header_source[0])
         for index, entry in ar.table.items():
             if entry[0] == "obj":
                 self.origins.setdefault(id(entry[1]), {"stream": stream, "archive_index": integer(index)})

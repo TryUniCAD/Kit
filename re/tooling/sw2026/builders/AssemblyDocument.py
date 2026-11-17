@@ -39,9 +39,10 @@ def _header_streams(*, registry, name, root, configuration, ids, provenance, pre
         "created_at": created, "modified_at": modified, "updated_at": modified, "component_count": 0,
         "update_stamp": 101, "body_stamp": 101, "license_flags": 0, "license_type": 0,
     }
-    return rooted_metadata_streams(
+    model_header = header(model_present=True, **values)
+    result = rooted_metadata_streams(
         registry=registry, header2=header(model_present=False, **values),
-        model_headers={configuration["f08"]: header(model_present=True, **values)},
+        model_headers={configuration["f08"]: model_header},
         biography_record=biography(),
         history_record=history(
             states=[{"file_version": FILE_VERSION, "date_codes": [{"build_code": provenance["originating_build_code"], "native_save": False}], "stamp": stamp}],
@@ -50,6 +51,7 @@ def _header_streams(*, registry, name, root, configuration, ids, provenance, pre
             cjk_saved=presentation["cjk_saved"], cjk_warning=False,
         ),
     )
+    return result, model_header
 
 
 def construct_empty_assembly(*, registry, request) -> EmptyAssembly:
@@ -62,8 +64,8 @@ def construct_empty_assembly(*, registry, request) -> EmptyAssembly:
     model = initial_assembly_model(name=name, allocator=ids, detail_definitions=detail_definitions(**presentation["styles"]), document_units=unit_table_profile(**presentation["units"]))
     manager = configuration_manager(owner=model, names=[request["configuration_name"]], updated_at=provenance["modified_at"], configuration_builder=initial_configuration, **target)
     features = initial_assembly_features(owner=model, allocator=ids, created_at=provenance["created_at"], origin_name=request["origin_name"], mate_group_name=request["mate_group_name"], **presentation["assembly_features"], **target)
-    result = _header_streams(registry=registry, name=name, root=model, configuration=manager["f360"], ids=ids, provenance=provenance, presentation=presentation)
-    config, state = store_config_state(StreamDoc(CONFIG, {"direct": 0}, [model]), registry, FILE_VERSION)
+    result, model_header = _header_streams(registry=registry, name=name, root=model, configuration=manager["f360"], ids=ids, provenance=provenance, presentation=presentation)
+    config, state = store_config_state(StreamDoc(CONFIG, {"model_header": model_header}, [model]), registry, FILE_VERSION)
     context = {"model_compressed_stream": 1, "model_is_part": 0, "cmgr_f658": manager["f658"]}
     resolved, final_map = store_resolved_state(StreamDoc("resolved", {"base": state.count, "context": context}, features), registry, FILE_VERSION, seed=state)
     options = dict(presentation["definition"])

@@ -45,12 +45,10 @@ def Pos(field):
 
 class Direct(Op):
     def load(self, ar, scope, o):
-        ar.count += ar.ctx["direct"]
-        ar.base = ar.count
+        ar.bind_direct_objects(ar.ctx["header_objects"])
 
     def store(self, ar, scope, o):
-        ar.count += ar.ctx["direct"]
-        ar.base = ar.count
+        ar.bind_direct_objects(ar.ctx["header_objects"])
 
 
 class Section(Op):
@@ -230,31 +228,41 @@ class BBoxCache(Op):
                 ar.obj(e["o"])
 
 
-def model_header_direct(arc, name, reg):
+def load_model_header(arc, name, reg, version):
     data = arc.get(name + "-ModelHeader")
     if data is None:
-        raise ArchiveError(f"{name}-ModelHeader missing; direct load array count unknown")
-    doc, _ = load_rooted(data, reg, 1)
+        raise ArchiveError(f"{name}-ModelHeader missing for the configuration archive")
+    doc, reader = load_rooted(data, reg, 1, version)
     hdr = next((r for r in doc.roots if isinstance(r, Obj) and r.cls == "moHeader_c"), None)
     if hdr is None:
         raise ArchiveError("moHeader_c not found in ModelHeader stream")
-    k = 1 if hdr.f.get("f38") is not None else 0
-    lst = hdr.f.get("f30")
-    if lst is not None:
-        if not isinstance(lst, Obj) or "items" not in lst.f:
-            raise ArchiveError(f"moHeader_c.f30 list {lst!r} not modelled")
-        k += len(lst.f["items"])
-    return k
+    return hdr, reader
+
+
+def header_direct_objects(header):
+    if not isinstance(header, Obj) or header.cls != "moHeader_c":
+        raise ArchiveError("configuration archive requires its typed model header")
+    self_object = header["f38"]
+    listing = header["f30"]
+    objects = [] if self_object is None else [self_object]
+    if listing is not None:
+        if not isinstance(listing, Obj) or "items" not in listing.f:
+            raise ArchiveError("external reference list is not modeled")
+        objects.extend(row["o"] for row in listing["items"])
+    if any(not isinstance(node, Obj) for node in objects):
+        raise ArchiveError("external reference list requires typed objects")
+    return tuple(objects)
 
 
 def load_config(data, reg, version=None, *, archive=None, name="Contents/Config-0"):
     if archive is None:
         raise ArchiveError(f"{name} requires its owning archive")
-    k = model_header_direct(archive, name, reg)
-    ar = Load(data, 1, reg, version, {"direct": k})
+    header, header_reader = load_model_header(archive, name, reg, version)
+    ar = Load(data, 1, reg, version, {"header_objects": header_direct_objects(header)})
+    ar.model_header_source = (name + "-ModelHeader", header_reader)
     root = ar.obj()
     rest = ar.raw(ar.left())
-    return StreamDoc(name, {"direct": k}, [root], rest), ar
+    return StreamDoc(name, {"model_header": header}, [root], rest), ar
 
 
 def store_config(doc, reg, version=None):
@@ -263,7 +271,9 @@ def store_config(doc, reg, version=None):
 
 
 def store_config_state(doc, reg, version=None):
-    ar = Store(1, reg, version, {"direct": doc.head["direct"]})
+    ar = Store(1, reg, version, {
+        "header_objects": header_direct_objects(doc.head["model_header"]),
+    })
     for o in doc.roots:
         ar.obj(o)
     ar.raw(doc.tail)

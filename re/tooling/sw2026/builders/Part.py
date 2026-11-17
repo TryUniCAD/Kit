@@ -24,6 +24,7 @@ from defs.ResolvedCore import store_resolved
 class PartConstruction:
     streams: dict[str, bytes]
     model: Obj
+    model_header: Obj
     features: tuple[Obj, ...]
     profile: object
     radial: object
@@ -60,10 +61,11 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
             item.update({"tag": "Extrusion", "dimensions": [{"name": graph.parameter["f18"]["f08"], "value": graph.parameter["f58"] / presentation["length_unit_m"]} for graph in extrusion.active_distances]})
         keyword_features.append(item)
     configuration = graph.configuration_manager["f360"]
-    return streams(
+    model_header = header(model_present=True, **values)
+    result = streams(
         registry=registry,
         header2=header(model_present=False, **values),
-        model_headers={configuration["f08"]: header(model_present=True, **values)},
+        model_headers={configuration["f08"]: model_header},
         biography_record=biography(),
         history_record=history(
             states=[{"file_version": 19000, "date_codes": [{"build_code": provenance["originating_build_code"], "native_save": False}], "stamp": stamp}],
@@ -77,6 +79,7 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
             features=keyword_features,
         ),
     )
+    return result, model_header
 
 
 def document_shape(document):
@@ -191,18 +194,18 @@ def construct_part(*, registry, document, provenance, presentation, target):
             )
         features += (extrusion_node,)
     record_configuration_progress(configuration=graph.configuration_manager["f360"], allocator=graph.allocator)
-    config_data, state = store_config_state(StreamDoc("config", {"direct": 0}, [graph.part]), registry, 19000)
-    resolved = StreamDoc("resolved", {"base": state.count, "context": {
-        "model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": graph.configuration_manager["f658"],
-    }}, features)
     metadata_presentation = {
         "length_unit_m": length_scales[units["length_unit"]],
         "language_id": styles["language_id"], "cjk_saved": presentation["cjk_saved"],
     }
-    result = _metadata(
+    result, model_header = _metadata(
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
         graph=graph, features=features, profile=profile, radial=radial, extrusion=extrusion,
     )
+    config_data, state = store_config_state(StreamDoc("config", {"model_header": model_header}, [graph.part]), registry, 19000)
+    resolved = StreamDoc("resolved", {"base": state.count, "context": {
+        "model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": graph.configuration_manager["f658"],
+    }}, features)
     definition = part_definition(
         density_kg_m3=document["density_kg_m3"], drafting_standard=presentation["drafting_standard"],
         detail_flags=presentation["detail_flags"], tessellation=tuple(presentation["tessellation"]),
@@ -215,6 +218,7 @@ def construct_part(*, registry, document, provenance, presentation, target):
         "Contents/Config-0-ResolvedFeatures": store_resolved(resolved, registry, 19000, seed=state),
     })
     return PartConstruction(
-        streams=result, model=graph.part, features=features, profile=profile, radial=radial, extrusion=extrusion,
+        streams=result, model=graph.part, model_header=model_header, features=features,
+        profile=profile, radial=radial, extrusion=extrusion,
         next_id=graph.next_persistent_id, configuration_map_count=state.count,
     )

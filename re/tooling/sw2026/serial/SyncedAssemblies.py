@@ -122,6 +122,10 @@ def inspect_pair(docs, name, count):
     if row["passed"]:
         stamps = parent["wire_state"]["reference_update_fields"]
         require(len(stamps) == count, "synchronized assembly reference count differs")
+        bindings = [entry["external_binding"] for entry in stamps]
+        require(all(binding["header_alias"] and binding["class"] == "moExtObject_c" for binding in bindings), "occurrence does not point to a typed header object")
+        require(len({binding["direct_index"] for binding in bindings}) == int(count > 0), "repeated occurrences do not share one external header object")
+        require(all(parent["wire_state"][key]["unresolved_references"] == 0 for key in ("configuration_graph", "resolved_graph")), "synchronized assembly graph still has unresolved references")
         if child is not None:
             state = child["wire_state"]
             row["reference_checks"] = [

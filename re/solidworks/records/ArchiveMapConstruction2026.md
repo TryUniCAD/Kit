@@ -52,6 +52,28 @@ copies manager `+0x658` into helper `+0x890`; the MBSM suffix additionally
 requires a part model. A fresh manager's constructor value of zero must not
 be replaced by the ladder's saved value of one.
 
+## Direct header objects
+
+The paired model paths in `sldmodu.dll` `[0x4c17bd90,0x4c17c6b3)` bind
+the present header self object, then visit the external file list from
+head to tail. The save branch calls `AddToSaveMapDirect` at
+`0x4c17c0d8` and `0x4c17c11b`. The load branch for version
+`0x27bd` onward calls `AddToLoadArrayDirect` at `0x4c17c3c2` and
+`0x4c17c3f2`. Both use the actual `moHeader_c` self object from
+`f38` and the list at `f30`. The direct helpers in `swccu.dll`
+at `0x31a39d20` and `0x31a39d00` assign the current archive count to
+the pointer and advance the count by one. These calls write no object
+body to the configuration stream.
+
+The configuration decoder and writer allocate these slots from the same
+ordered header objects. A reference in the configuration resolves to its
+header object and the resolved-feature map inherits that identity. For
+generated documents the builders supply the header they just created.
+The [source directory measurement](../measurements/2026/AssemblyExternalDirectoryEA67.json)
+observes slot four in both ordinary populated designs. Its logical file
+id is zero and both occurrences of the repeated child use that one slot.
+The slot is derived from the current archive count and the header order.
+
 ## Limits
 
 Head `d296a2714a78c127fd0df0b626c37b9a60247c3e` passed the
@@ -61,7 +83,7 @@ eight resolved streams, and the existing gate still required 56/56 complete
 critical-stream comparisons. The native-file job reported 124 passed and
 158 existing fixture-dependent skips in 18.82 seconds. No tests ran locally.
 
-An inherited map proves no field semantics, geometry, dimension edit, or
-vendor rebuild. Direct external objects introduced by a ModelHeader still
-need their own symbolic bindings. Unknown class or object state must remain
-an explicit error. No generated document has been accepted by this work.
+The inherited map describes archive identity and bookkeeping. Generating
+a populated assembly also requires constructing the external metadata,
+occurrence and configuration graphs and measuring them in the vendor
+application.

@@ -63,6 +63,11 @@ def fixture_inputs():
 
 def reference_updates(model_map, resolved_map):
     rows, seen = [], set()
+    objects = model_map.ctx["header_objects"]
+    slots = {}
+    for index, record in enumerate(objects, model_map.base - len(objects)):
+        require(model_map.table[index][1] is record, "configuration map slot does not retain its header object")
+        slots[id(record)] = index
     for stream, reader in ((CONFIG, model_map), (RESOLVED, resolved_map)):
         for index, entry in sorted(reader.table.items()):
             if entry[0] != "obj":
@@ -74,12 +79,14 @@ def reference_updates(model_map, resolved_map):
             fields = {key: node.f.get(key) for key in UPDATE_FIELDS}
             require(all(type(value) is int for value in fields.values()), f"unmodeled update fields in {node.cls}")
             target = node.f.get("f3b0")
-            binding = {"present": target is not None}
+            binding = {"present": target is not None, "header_alias": id(target) in slots}
             if isinstance(target, ExtRef):
                 binding["direct_index"] = target.index
             elif isinstance(target, Obj):
                 binding["class"] = target.cls
                 binding["list_index"] = target.f.get("f78")
+                if id(target) in slots:
+                    binding["direct_index"] = slots[id(target)]
             rows.append({"class": node.cls, "stream": stream, "archive_index": index, "fields": fields, "external_binding": binding})
     return rows
 

@@ -137,6 +137,14 @@ class ArchiveState:
     def bind_class(self, index, name):
         BindClassMut(self._maps, ExternalClass(name, index))
 
+    def bind_direct_objects(self, objects):
+        try:
+            for node in objects:
+                AddEntryMut(self._maps, node)
+        except (TypeError, ValueError) as error:
+            raise ArchiveError(f"invalid direct archive object: {error}") from error
+        self.base = self.count
+
 
 class Load(ArchiveState):
     def __init__(self, data, base=1, registry=None, version=None, ctx=None, *, seed=None):
