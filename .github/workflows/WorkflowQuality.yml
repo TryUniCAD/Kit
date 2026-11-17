@@ -38,14 +38,12 @@ jobs:
     needs: pr-ci-reuse
     name: Verify CI policy and pytest compatibility
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 10
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          fetch-depth: 0
-          filter: blob:none
 
       - name: Set up uv
         uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
@@ -55,7 +53,6 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Synchronize the locked environment
-        id: linux_locked_environment
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Verify repository CI contracts at process boundaries
@@ -74,228 +71,6 @@ jobs:
           tests/Convert/Formats/ParasolidTests.py
           tests/Steering/RationaleCommentsTests.py
 
-      - name: Verify automation archive and comparison boundaries
-        run: >-
-          uv run --isolated --frozen --no-default-groups --extra dev --python 3.14
-          python -m pytest tests/Research/Archives/Comparison
-          tests/Research/Archives/Controller
-          tests/Research/Archives/HistoryInputAuditTests.py -q
-
-      - name: Fetch sealed capture lineage metadata and permitted research inputs
-        run: uv run --no-sync python re/automation/CaptureHistory.py fetch
-
-      - name: Verify pinned research corpus and command boundaries
-        run: |
-          uv run python re/automation/Corpus.py check --manifest re/automation/Corpus.json
-          uv run pytest tests/Research/CorpusFlowTests.py tests/Research/CaptureLineageFlowTests.py tests/Research/FusionCapturePlanTests.py -q
-
-      - name: Verify pinned SOLIDWORKS research reader through process boundaries
-        run: uv run --frozen python -m pytest tests/Research/Reader*Tests.py -q -s
-
-      - name: Verify durable research output intake through process boundaries
-        run: >-
-          uv run --frozen --no-default-groups --extra dev --python 3.14
-          python -m pytest tests/Research/Outputs tests/Research/Applications -q
-
-      - name: Verify pinned Fusion research reader through process boundaries
-        run: >-
-          uv run --frozen --no-default-groups --extra dev --python 3.14
-          python -m pytest tests/Research/FusionReader*Tests.py -q -s
-
-      - name: Verify durable research controller through process boundaries
-        run: >-
-          uv run --frozen --no-default-groups --extra dev --python 3.14
-          python -m pytest tests/Research/Controller*Tests.py -q
-
-      - name: Verify research session supervisor through process boundaries
-        if: ${{ !cancelled() && steps.linux_locked_environment.outcome == 'success' }}
-        env:
-          KIT_RESERVE_WITNESS: "1"
-        run: >-
-          uv run --frozen --no-default-groups --extra dev --python 3.14
-          python -m pytest tests/Research/Supervisor*Tests.py tests/Research/Supervisor/Supervisor*Tests.py tests/Research/Supervisor/Grouping tests/Research/Supervisor/Launch tests/Research/Owners tests/Research/Calibration -q -s
-
-  deterministic-inference:
-    if: >-
-      always() && !cancelled() && (github.event_name != 'merge_group' || (needs.pr-ci-reuse.result == 'success' && needs.pr-ci-reuse.outputs.reuse != 'true'))
-    needs: pr-ci-reuse
-    name: Verify deterministic research inference
-    runs-on: ubuntu-24.04
-    timeout-minutes: 10
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          filter: blob:none
-
-      - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          version: "0.12.5"
-          enable-cache: true
-          cache-dependency-glob: uv.lock
-
-      - name: Verify deterministic inference through process boundaries
-        id: inference_checks
-        run: >-
-          uv run --frozen --extra dev --group dev --python 3.14
-          python -m pytest tests/Research/Inference/InferenceBoundaryTests.py
-          tests/Research/ControllerPoolTests.py::CheckGridQueue
-          tests/Research/ControllerParallelTests.py::CheckTurnOrder -q
-          --report-log="${RUNNER_TEMP}/DeterministicInferenceChecks.jsonl"
-          --report-log-exclude-logs-on-passed-tests
-
-      - name: Publish deterministic inference process evidence
-        if: ${{ !cancelled() && steps.inference_checks.outcome != 'skipped' }}
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: DeterministicInferenceChecks-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/DeterministicInferenceChecks.jsonl
-          if-no-files-found: error
-          retention-days: 14
-
-  linux-oom-witness:
-    if: >-
-      always() && !cancelled() && (github.event_name != 'merge_group' || (needs.pr-ci-reuse.result == 'success' && needs.pr-ci-reuse.outputs.reuse != 'true'))
-    needs: pr-ci-reuse
-    name: Linux kernel OOM witness
-    runs-on: ubuntu-24.04
-    timeout-minutes: 5
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout exact candidate
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ github.sha }}
-          persist-credentials: false
-
-      - name: Observe the bounded Linux kernel memory failure
-        shell: bash
-        env:
-          WITNESS_REVISION: ${{ github.sha }}
-          WITNESS_REPORT: ${{ runner.temp }}/LinuxOomWitness.json
-        run: |
-          test "$(git rev-parse HEAD)" = "$WITNESS_REVISION"
-          source_blob="$(git rev-parse "$WITNESS_REVISION:re/automation/LinuxOomWitness.py")"
-          witness="$(mktemp -d "$RUNNER_TEMP/kit-oom-witness.XXXXXXXX")/LinuxOomWitness.py"
-          git cat-file blob "$source_blob" > "$witness"
-          source_sha="$(sha256sum "$witness")"
-          chmod 0400 "$witness"
-          sudo -n -- /usr/bin/env -i SUDO_UID="$(id -u)" SUDO_GID="$(id -g)" \
-            /usr/bin/python3 -I -S "$witness" --source-revision "$WITNESS_REVISION" \
-            --source-blob "$source_blob" --source-sha256 "${source_sha%% *}" \
-            --output "$WITNESS_REPORT"
-
-      - name: Publish sanitized kernel evidence
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: LinuxOomWitness-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/LinuxOomWitness.json
-          if-no-files-found: error
-          retention-days: 14
-
-      - name: Observe kernel OOM through the research supervisor
-        shell: bash
-        env:
-          WITNESS_REVISION: ${{ github.sha }}
-          WITNESS_REPORT: ${{ runner.temp }}/LinuxSupervisorOomWitness.json
-        run: |
-          test "$(git rev-parse HEAD)" = "$WITNESS_REVISION"
-          test -z "$(git status --porcelain --untracked-files=all -- re/automation)"
-          stage="$(sudo -n -- /usr/bin/mktemp -d /tmp/kit-supervisor-oom.XXXXXXXX)"
-          trap 'sudo -n -- /usr/bin/rm -f -- "$stage/LinuxOomGuest.py" "$stage/LinuxOomSupervisor.py" "$stage/LinuxOomWitness.py"; sudo -n -- /usr/bin/rmdir -- "$stage"' EXIT
-          sudo -n -- /usr/bin/chmod 0755 "$stage"
-          sources=()
-          for file in LinuxOomGuest.py LinuxOomSupervisor.py LinuxOomWitness.py; do
-            blob="$(git rev-parse "$WITNESS_REVISION:re/automation/$file")"
-            digest="$(git cat-file blob "$blob" | sha256sum)"
-            git cat-file blob "$blob" | sudo -n -- /usr/bin/tee "$stage/$file" > /dev/null
-            sudo -n -- /usr/bin/chmod 0444 "$stage/$file"
-            actual="$(sha256sum "$stage/$file")"
-            test "${digest%% *}" = "${actual%% *}"
-            sources+=(--source "$file:$blob:${digest%% *}")
-          done
-          sudo -n -- /usr/bin/env -i SUDO_UID="$(id -u)" SUDO_GID="$(id -g)" \
-            /usr/bin/python3 -B -I -S "$stage/LinuxOomSupervisor.py" --repository "$(pwd -P)" \
-            --revision "$WITNESS_REVISION" --output "$WITNESS_REPORT" "${sources[@]}"
-
-      - name: Publish sanitized supervisor OOM evidence
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          name: LinuxSupervisorOomWitness-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/LinuxSupervisorOomWitness.json
-          if-no-files-found: error
-          retention-days: 14
-
-  windows-supervisor:
-    if: >-
-      always() && !cancelled() && (github.event_name != 'merge_group' || (needs.pr-ci-reuse.result == 'success' && needs.pr-ci-reuse.outputs.reuse != 'true'))
-    needs: pr-ci-reuse
-    name: Windows research supervisor
-    runs-on: windows-2025
-    timeout-minutes: 15
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          filter: blob:none
-
-      - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          version: "0.12.5"
-          enable-cache: true
-          cache-dependency-glob: uv.lock
-
-      - name: Synchronize the locked Windows process environment
-        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
-
-      - name: Verify Windows supervisor through process boundaries
-        run: >-
-          uv run --frozen --no-default-groups --extra dev --python 3.14
-          python -m pytest -q tests/Research/Windows tests/Research/Outputs
-          tests/Research/Applications/ApplicationParkTests.py
-          tests/Research/Applications/Acceptance/AcceptanceSupervisorTests.py
-          tests/Research/Applications/Acceptance/AcceptanceCrashTests.py
-          tests/Research/Supervisor/Grouping/SupervisorBatchTests.py::CheckBatchCap
-          tests/Research/Supervisor/Grouping/SupervisorSoloTests.py::CheckBatchCrash
-          tests/Research/Owners tests/Research/WindowsRecords
-
-  macos-supervisor:
-    if: >-
-      always() && !cancelled() && (github.event_name != 'merge_group' || (needs.pr-ci-reuse.result == 'success' && needs.pr-ci-reuse.outputs.reuse != 'true'))
-    needs: pr-ci-reuse
-    name: macOS research supervisor
-    runs-on: macos-26
-    timeout-minutes: 20
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-          filter: blob:none
-
-      - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          version: "0.12.5"
-          enable-cache: true
-          cache-dependency-glob: uv.lock
-
-      - name: Synchronize the locked macOS process environment
-        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
-
-      - name: Verify macOS supervisor through process boundaries
-        run: >-
-          uv run --frozen --no-default-groups --extra dev --python 3.14
-          python -m pytest -q -s tests/Research/Supervisor*Tests.py tests/Research/Supervisor/Supervisor*Tests.py tests/Research/Outputs tests/Research/Applications tests/Research/Supervisor/Grouping tests/Research/Supervisor/Launch tests/Research/Owners tests/Research/Calibration
-
   research-cli:
     if: >-
       always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
@@ -309,7 +84,6 @@ jobs:
       - name: Checkout candidate CLI source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Checkout candidate research tools separately
@@ -330,6 +104,9 @@ jobs:
 
       - name: Install CLI and compatibility dependencies
         run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+
+      - name: Hydrate sealed research inputs for candidate CLI cases
+        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
 
       - name: Verify deterministic tools through the installed CLI
         run: >-
@@ -348,7 +125,6 @@ jobs:
       - name: Checkout candidate CLI source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Checkout candidate research tools separately
@@ -369,6 +145,9 @@ jobs:
 
       - name: Install CLI and compatibility dependencies
         run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+
+      - name: Hydrate sealed research inputs for candidate CLI cases
+        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
 
       - name: Verify reader and controller exit statuses through the installed CLI
         run: >-
@@ -392,7 +171,6 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-          filter: blob:none
           persist-credentials: false
 
       - name: Set up uv

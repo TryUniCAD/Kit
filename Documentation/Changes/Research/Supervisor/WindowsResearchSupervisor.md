@@ -61,7 +61,7 @@ Linux resource controls passed eleven supervisor scenarios at `b86f30c7`; curren
 
 The child fixture also handles the separate launcher PID used by Windows virtual environments.
 It records the interpreter's parent chain and verifies each distinct process against the supervisor's job object.
-The [launcher identity gotcha](../../../Gotchas/Research/Supervisor/WindowsVenvLaunchers.md) records the source evidence and the launcher/interpreter diagnostic boundary.
+The [launcher identity gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Supervisor/WindowsVenvLaunchers.md) records the source evidence and the launcher/interpreter diagnostic boundary.
 
 The implementation follows [job-object containment](https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects), [atomic job and handle assignment](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute), [creation-time measurement](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes) and [physical-memory measurement](https://learn.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-globalmemorystatusex).
 The [Python subprocess reference](https://docs.python.org/3.14/library/subprocess.html) defines the Windows environment and handle-inheritance requirements.
@@ -78,6 +78,6 @@ At source checkpoint `22a59e68c839354f3e6672eec6f67aa647aa1dce`, the [Windows se
 
 ## Native Job Object membership
 
-The supervisor now reads PID lists through the same checked native buffer as [offline calibration](WindowsOfflineCalibration.md). Session memory sampling grows the buffer to the reported membership and uses only a complete snapshot. Normal finish and orphan recovery keep their existing process identity and timeout checks and require native proof that the owned job is empty.
+The supervisor now reads PID lists through the same checked native buffer as [offline calibration](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Supervisor/WindowsOfflineCalibration.md). Session memory sampling grows the buffer to the reported membership and uses only a complete snapshot. Normal finish and orphan recovery keep their existing process identity and timeout checks and require native proof that the owned job is empty.
 
 A separate Windows process witness verified two owned processes in nested jobs, their drained state, and the handling of an incomplete one-slot query. Simulated count responses verified that a supervisor query grows from 64 to 73 members and that calibration retains its 64-member ceiling.

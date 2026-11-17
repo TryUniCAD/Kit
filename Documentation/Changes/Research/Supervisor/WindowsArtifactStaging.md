@@ -8,14 +8,14 @@ The Windows process check stages a valid bound input, replaces the owner through
 
 ## Matched Windows calibration
 
-The Windows run at `86338a90516df8f1eef9d4495b65cec981f06aa2` used the prior 32-archive Fusion discovery manifest. The decoder sources, package inventory and resource limits were identical. The canonical manifest SHA-256 is `a86e1ecfa76b5ce8c9a5698dd0e034378644105695b6c594bc8369ba00591620`. Both runs completed 32 jobs per trial and returned identical decoded-output digests with complete CPU and working-set telemetry. Every trial verified ordinary shutdown and empty Job Object membership, claims and sessions. [Historical calibration baseline](WindowsOfflineCalibration.md)
+The Windows run at `86338a90516df8f1eef9d4495b65cec981f06aa2` used the prior 32-archive Fusion discovery manifest. The decoder sources, package inventory and resource limits were identical. The canonical manifest SHA-256 is `a86e1ecfa76b5ce8c9a5698dd0e034378644105695b6c594bc8369ba00591620`. Both runs completed 32 jobs per trial and returned identical decoded-output digests with complete CPU and working-set telemetry. Every trial verified ordinary shutdown and empty Job Object membership, claims and sessions. [Historical calibration baseline](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Supervisor/WindowsOfflineCalibration.md)
 
 | Requested workers | Baseline decodes per minute | In-process decodes per minute | In-process overlap in seconds |
-| ---: | ---: | ---: | ---: |
-| 1 | 15.48 | 15.26 | 8.292 |
-| 2 | 32.52 | 33.18 | 2.725 |
-| 4 | 53.81 | 53.05 | 2.372 |
-| 8 | 68.22 | 73.48 | 1.976 |
+| ----------------: | --------------------------: | ----------------------------: | ----------------------------: |
+|                 1 |                       15.48 |                         15.26 |                         8.292 |
+|                 2 |                       32.52 |                         33.18 |                         2.725 |
+|                 4 |                       53.81 |                         53.05 |                         2.372 |
+|                 8 |                       68.22 |                         73.48 |                         1.976 |
 
 The eight-way decoder overlap increased from 0.554 to 1.976 seconds, clearing the existing one-second requirement. All adjacent in-process trials were comparable. The four-to-eight throughput gain of 38.5% exceeded the existing 10% threshold for a plateau. The sweep produced no recommendation through eight workers. Independent operating-system OOM attribution remains open.
 

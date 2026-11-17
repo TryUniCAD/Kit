@@ -1,33 +1,44 @@
 # Automation-only CI boundaries
 
-The research automation candidate keeps every CI gate and native test selector already present on main.
-Its additional workflow coverage follows the retained controller, immutable corpus, reader invocation, semantic comparison, output intake, inference and supervised-process components.
-New native decoder/writer proofs, their fixed capture censuses and the original paired native archive receipt move together to their format implementation follow-up.
-An automation process report cannot substitute for that native receipt or its exact check IDs and capture counts.
+The automation candidate preserves main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b` and its single-phase CI policy.
+Light PR checks and existing queue checks retain their conditions, names, commands, pins and acceptance requirements.
+No cross-phase PR result reuse or dedicated inference job is restored.
 
-`WorkflowQuality.yml` retains the existing policy, CLI, actionlint and Zizmor jobs.
-The policy job adds the retained comparison/controller/history-audit archive selectors, corpus and reader process boundaries, output/application intake, controller operations and Linux supervisor coverage.
-Dedicated deterministic inference, Linux kernel OOM, Windows supervisor and macOS supervisor jobs remain required in `CiAllowlist.cjs` for both applicable PR and queue evaluation.
-The inference job publishes `DeterministicInferenceChecks-<attempt>` from its actual pytest report log; it does not publish the former native archive rescan verdict.
-Publication runs only after its producer was attempted and still rejects a missing report.
+Generic research coverage enters the complete `tests/` collection through the existing queue planner.
+This includes controller, reader transport, corpus custody, semantic comparison, inference, worker transport and supervised-process cases.
+The shared Linux shards and completeness report still require every planned test exactly once.
+Only shards containing inference cases synchronize the existing locked development dependency group.
+New native decoder/writer proofs, fixed capture censuses and paired native archive releases remain in their preserved follow-up scope.
+Generic automation reports cannot substitute for those native proofs.
 
-Both research CLI jobs check out the candidate tool source separately from the installed CLI checkout.
-The queue does the same only for a shard whose actual planned IDs contain a research CLI case.
-The queue preserves collection, planned IDs, dependency tracking, accepted-ancestor reuse, job names, timeouts and acceptance rules.
-Only shards containing a planned `tests/Research/Inference/` node add the existing locked development dependency group before execution; the pytest extra and the dependency group remain distinct.
+The plan publishes its exact collected roster with `ShardPlan`.
+Supplemental Windows 2025 and macOS 26 runs select required process cases from that same roster.
+Each required selector must match collected IDs, and each selected ID must produce one completed outcome.
+A platform run also requires a successful platform-specific call, so an entirely skipped platform cannot pass.
+Each platform publishes the selected IDs, native-platform IDs and actual pytest report log.
+These supplemental reports remain separate from Linux shard dependency reuse and its exactly-once completeness result.
+Both platform jobs explicitly gate queue acceptance and are required in the queue allowlist.
+Their runner names remain literal pins, and shared steps use [supported YAML anchors](https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations).
 
-Candidate checkouts that require complete Git metadata use `fetch-depth: 0` and `filter: blob:none`.
-The [pinned checkout implementation](https://github.com/actions/checkout/blob/3d3c42e5aac5ba805825da76410c181273ba90b1/src/git-source-provider.ts) passes that filter to its full-history fetch and then checks out the requested candidate.
-Git's [partial fetch filter](https://git-scm.com/docs/fetch-options#Documentation/fetch-options.txt---filterltfilter-specgt) delays blob transfer; it does not remove history or prohibit later lazy blob reads.
-This is not an unsafe historical-tree checkout, a proof that a fork-only historical ref was fetched, or a replacement for explicit original-source and current-input byte binding.
-Historical source revisions, capture receipts, frozen baselines and private pipeline seals retain their original identities.
-Changed worker or SDK code requires new immutable tool versions and job fingerprints rather than rebinding earlier evidence.
+The existing bounded Linux kernel and supervisor OOM witnesses also run in the shared queue workflow.
+Their candidate-bound source blobs, restricted privileged staging and sanitized evidence remain unchanged.
+The witness job explicitly gates queue acceptance.
+Platform and OOM jobs defer on PRs and cannot be accepted from an old PR report.
+They retain independent licensed restart and native acceptance limitations.
 
-Hosted disposable-process and AppKit checks exercise automation state, custody and process transitions.
-They do not establish a signed-in licensed Fusion Phase A, observed native exit, replacement process and accepted Phase B.
-The native application restart witness and CAD qualification remain distinct evidence requirements; no check, protected rule, reviewer registry or merge-queue acceptance requirement changes here.
+Candidate checkouts needing ancestry use full Git history with `filter: blob:none`.
+The [pinned checkout implementation](https://github.com/actions/checkout/blob/3d3c42e5aac5ba805825da76410c181273ba90b1/src/git-source-provider.ts) passes that filter to its history fetch.
+Git's [partial fetch filter](https://git-scm.com/docs/fetch-options#Documentation/fetch-options.txt---filterltfilter-specgt) delays blob transfer rather than removing ancestry.
+The shared plan explicitly hydrates sealed original research inputs before collection.
+Research shards hydrate those inputs when their selected cases require them.
+CLI compatibility uses a separate checkout at the exact candidate SHA and hydrates that checkout's sealed inputs.
+The existing Linux and Windows CLI jobs retain their main phase allocation and test commands.
 
-The checksum-verified actionlint 1.7.12 executable passed both workflows; `node --check` passed the allowlist and Prettier 3.6.2 passed all four changed files.
-Static source comparison retained every main job and all eleven main workflow command blocks, adding exactly the four named automation jobs.
-Local verification is restricted to workflow/static syntax, formatting and repository policy checks.
-The assembled clean candidate still requires its own hosted process checks and merge-group acceptance; no test suite or workflow was executed locally.
+Historical receipts, corpus pins, frozen baselines and private pipeline seals keep their original identities.
+New worker or SDK code requires new immutable tool versions and job fingerprints.
+No historical tree is checked out or executed by lineage hydration.
+No native application, conversion qualification or licensed Fusion restart is established by automation fixtures.
+
+Local verification is limited to static workflow syntax, formatting and repository policy checks.
+No tests, collection, witnesses or workflows run locally.
+Current-candidate hosted results, configured review and administrator-authorized merge-group acceptance remain required.

@@ -128,7 +128,7 @@ wait under the existing controller rules.
 
 Requests, responses and ordinary result records use [atomic application publication](AtomicApplicationPublication.md).
 The final name appears after the file bytes are complete and synced, and exclusive publication preserves a pre-existing destination.
-Read [the publication gotcha](../../../Gotchas/Research/Workers/ExclusiveCreateIsNotPublication.md) for single-link and directory-sync limits.
+Read [the publication gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/ExclusiveCreateIsNotPublication.md) for single-link and directory-sync limits.
 
 ## Verification
 
@@ -146,11 +146,11 @@ whitespace checks. The first [Windows run at `6fb599a9`](https://github.com/TryU
 The fixture repair uses the existing label-array job contract and keeps capacity in the supervisor resource map.
 Process evidence is recorded below; licensed native-host execution remains pending. No captured native pair is qualified by this implementation.
 
-See [the main-thread availability gotcha](../../../Gotchas/Research/Workers/FusionMainThreadAvailability.md).
-See [the pre-acceptance durability gotcha](../../../Gotchas/Research/Workers/CopyIsNotAcceptance.md)
+See [the main-thread availability gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/FusionMainThreadAvailability.md).
+See [the pre-acceptance durability gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/CopyIsNotAcceptance.md)
 for the retained-spool recovery boundary.
 
-See the [resource requirement shape gotcha](../../../Gotchas/Research/Workers/ResourceRequirementsAreLabels.md).
+See the [resource requirement shape gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/ResourceRequirementsAreLabels.md).
 
 The first macOS run passed 28 cases and failed five: the two resource-shape fixtures, two pre-counterpart requests blocked by premature spool enumeration, and an existing PID-file publication race. The [queue admission gotcha](../../../Gotchas/Research/Workers/QueueAdmissionNeedsJobDirectory.md) records the source repair; these branches require reruns.
 
@@ -158,7 +158,7 @@ The [macOS gate at `3327f7fe`](https://github.com/TryUniCAD/Kit/actions/runs/436
 
 Windows installation and job records now use
 [protected immutable reads](WindowsImmutableRecords.md). The
-[path/handle timestamp gotcha](../../../Gotchas/Research/Workers/WindowsPathAndHandleTimes.md)
+[path/handle timestamp gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/WindowsPathAndHandleTimes.md)
 explains the CPython compatibility difference and the retained mutation guards.
 
 Windows endpoint locking and live process identities are documented separately. Native Windows dispatch continues to park. [Windows queue transport](WindowsApplicationTransport.md)

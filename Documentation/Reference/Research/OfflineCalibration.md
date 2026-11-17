@@ -7,7 +7,7 @@ python3 re/automation/Calibration.py --manifest CalibrationManifest.json --outpu
 ```
 
 The output directory must not exist.
-For a matched one-slot comparison with ordered archive grouping, use [the paired grouped mode](../../Changes/Research/Supervisor/GroupedOfflineCalibration.md).
+For a matched one-slot comparison with ordered archive grouping, use [the paired grouped mode](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Supervisor/GroupedOfflineCalibration.md).
 The tool creates private per-trial stores and does not attach to a live controller.
 Add `--max-concurrency 16` to append a sixteen-worker trial to the default sweep. Use the same manifest and resource reserves throughout. [Sixteen-worker calibration](../../Changes/Research/Supervisor/SixteenWorkerCalibration.md)
 Use an immutable checkout and inputs for the entire run.
@@ -105,4 +105,4 @@ The tool does not clear system caches or isolate the whole machine.
 Package-version inventory and source hashes do not establish native application acceptance.
 Review those conditions before using a local recommendation elsewhere.
 
-See [offline decoder calibration](../../Changes/Research/Supervisor/OfflineDecoderCalibration.md) and [Windows offline calibration](../../Changes/Research/Supervisor/WindowsOfflineCalibration.md).
+See [offline decoder calibration](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Supervisor/OfflineDecoderCalibration.md) and [Windows offline calibration](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Supervisor/WindowsOfflineCalibration.md).

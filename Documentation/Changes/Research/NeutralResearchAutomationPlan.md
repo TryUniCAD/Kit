@@ -2,7 +2,7 @@
 
 ## Behavior and scope
 
-The maintained [plan](../../Reference/Research/AutomationPlan.md) aligns SOLIDWORKS and Fusion research around the existing neutral document contract.
+The maintained [plan](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/AutomationPlan.md) aligns SOLIDWORKS and Fusion research around the existing neutral document contract.
 It defines paired semantic comparison, deterministic investigation, optional model escalation and independent native writers.
 Model escalation uses `claude-opus-5-5` or `gpt-6.1-sol` at `medium`, then `xhigh` after a logged model failure, and then parks the question.
 Reviewers run remote CI in batches. Candidates that pass a research check against their captures wait as pending CI until their batch result is recorded.
@@ -13,7 +13,7 @@ The proposed local checks add a saved-shape self-check that compares rebuilt fea
 
 The [step register](../../Reference/Research/AutomationSteps.md) provides A01–A16 identifiers, dependencies, owners, statuses and exit criteria.
 The step register is the only maintained record of the current status of each step.
-The [research instructions](../../../re/AGENTS.md) require progress comments on PR #94 and evidence-backed handoffs.
+The [research instructions](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/re/AGENTS.md) require progress comments on PR #94 and evidence-backed handoffs.
 The existing research entry point links to the maintained plan.
 
 ## Usage and limits

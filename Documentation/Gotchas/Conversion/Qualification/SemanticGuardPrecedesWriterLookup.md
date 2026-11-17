@@ -1,5 +1,7 @@
 # Semantic checks and inferred writer selection
 
+This records preserved decoder follow-up behavior at `fb723e0a920b4d03ad2d5635882860b800a9b61c`. Its decoder and writer changes are outside the main-based automation candidate.
+
 ## Expectation
 
 A partial Fusion history reports the same refusal for explicit format names and suffix-inferred destinations.
@@ -13,4 +15,4 @@ The [Fusion run at `95b3f2e4`](https://github.com/TryUniCAD/Kit/actions/runs/436
 ## Workaround
 
 Keep actual-history semantic refusal for both explicit Fusion names. Retain exact missing-writer refusal for its inferred Fusion destination, and independently require semantic refusal through an inferred JSON destination whose writer exists. All destinations must remain absent. The separate typed cuboid case retains all three missing-writer checks. The [full Fusion run at `22a59e68`](https://github.com/TryUniCAD/Kit/actions/runs/43678423837/job/132703567976) passed all 2,960 cases with three existing drawing-example skips, including this repaired ordering coverage. Current-head review and native conversion acceptance remain separate.
-See [native semantic write qualification](../../../Changes/Research/Readers/NativeSemanticWriteQualification.md).
+See [native semantic write qualification](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Readers/NativeSemanticWriteQualification.md).

@@ -1,6 +1,6 @@
 # Automation-only PR scope
 
-PR #94 now contains the generic research automation layer on main `1d294381340a36ce8e4d9e288e73d995da12fcd7`: corpus custody, controller jobs and artifacts, supervision and recovery, worker transport, existing-SDK reader observations, semantic comparison, generic inference and evidence reporting. It introduces no production native decoder, writer, neutral model or capability expansion.
+This candidate isolates the generic research automation layer from PR #94 on main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b`: corpus custody, controller jobs and artifacts, supervision and recovery, worker transport, existing-SDK reader observations, semantic comparison, generic inference and evidence reporting. It introduces no production native decoder, writer, neutral model or capability expansion.
 
 The broader work remains preserved at `fb723e0a920b4d03ad2d5635882860b800a9b61c`, its original history and isolated worktrees. Native record extraction, fixed P03/P04 inference grids, supplemental raw native proof, native CI batch release, writer candidates, FreeCAD caches and edited-history reconstruction belong to follow-ups. Their source, failures and authority blockers remain intact. No old 25-member native batch is accepted or released by this scope change.
 

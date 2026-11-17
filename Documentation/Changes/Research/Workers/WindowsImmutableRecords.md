@@ -13,14 +13,14 @@ This uses the existing locked `pywin32==312` dependency and adds no configuratio
 It changes file transport only: Fusion on Windows and SOLIDWORKS application
 workers still park as unsupported. It provides no native CAD qualification.
 
-See the [timestamp gotcha](../../../Gotchas/Research/Workers/WindowsPathAndHandleTimes.md)
+See the [timestamp gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/WindowsPathAndHandleTimes.md)
 for the pinned CPython and Windows API sources and actual failing Windows job.
 New real-process cases live in `tests/Research/WindowsRecords`; the rewritten-file
 case exercises both application reads and output intake. Existing output-intake
 and application parking process cases must also pass on the repaired head.
 Static checks ran locally; Windows process evidence is recorded below.
 
-The [pywin32 timestamp precision gotcha](../../../Gotchas/Research/Workers/PythonWinBasicTimePrecision.md)
+The [pywin32 timestamp precision gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/PythonWinBasicTimePrecision.md)
 explains the exact-second fixture baseline needed to prove a change-time-only
 mutation independently of modification-time checks.
 
@@ -28,7 +28,7 @@ The [Windows gate at `2ff96767`](https://github.com/TryUniCAD/Kit/actions/runs/4
 passed twenty-one cases, including both application parking cases, output intake,
 owner fencing, rewritten records, unsafe paths and the change-time-only mutation.
 One sharing-fixture assertion failed because it required native error codes from
-every Python file API. The [CRT sharing error gotcha](../../../Gotchas/Research/Workers/WindowsCrtSharingErrors.md)
+every Python file API. The [CRT sharing error gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/WindowsCrtSharingErrors.md)
 records the pinned source distinction. The revised case logs each refusal, adds a
 native write probe, and requires successful same-path controls after releasing
 the protected reader.

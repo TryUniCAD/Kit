@@ -18,14 +18,14 @@ Counts, booleans and exact fields remain exact.
 Reduced exact quantity ratios preserve [integer and normalization precision](../../../../Gotchas/Conversion/Comparison/SemanticNumericPrecision.md) before numeric tolerances are applied.
 Decimal literals that the existing codec would round to a different canonical magnitude are refused at the sealed input boundary.
 The same boundary refuses [colliding compatibility aliases](../../../../Gotchas/Conversion/Comparison/SemanticWireAliasCollisions.md), including migration-generated collisions.
-Projection resolves [canonical model identities and storage slots](../../../../Gotchas/Conversion/Comparison/CompatibilityModelReflection.md) before applying reference and quantity maps.
+Projection resolves [canonical model identities and storage slots](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Conversion/Comparison/CompatibilityModelReflection.md) before applying reference and quantity maps.
 Material fields, suppression, expressions, configuration overrides, feature order and dependency references remain observable.
 
 The report separates observed field differences, ambiguous correspondence and unresolved source domains.
 It records both input hashes, the tolerance-profile hash and source identity digests.
 The report also seals the three comparison source files and refuses a change to them after import or during evaluation.
 Native bytes, native-only records, missing feature definitions and unclassified extensions cannot become an equality success.
-This includes [source and provenance extension bags](../../../../Gotchas/Conversion/ProvenanceExtensionBags.md) and uncertain provenance confidence.
+This includes [source and provenance extension bags](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Conversion/ProvenanceExtensionBags.md) and uncertain provenance confidence.
 Assemblies, full boundary representations, payloads, meshes and reader diagnostics require their own independent comparison and remain explicit unresolved domains.
 
 Inline and parameter-linked feature definitions retain their distinct typed representations.
@@ -48,8 +48,8 @@ The new process coverage constructs independent typed documents, serializes them
 It covers renamed identities, explicit unit conversion, meaningful field/reference changes, symmetric ambiguity, unresolved evidence and input refusals.
 Candidate exhaustion remains an incomplete result.
 Local tests and collection were not run.
-The raw JSON bound now admits the [reported full native depth](../../../../Gotchas/Research/Readers/NativeNeutralJsonDepth.md) without removing retained metadata.
+The raw JSON bound now admits the [reported full native depth](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Readers/NativeNeutralJsonDepth.md) without removing retained metadata.
 Static syntax and formatting checks ran during implementation.
 Hosted execution and independently qualified paired evaluation remain required.
-The unsupported B-rep process fixture now contains an independently authored vertex body with valid ownership, following the [existing nonempty B-rep contract](../../../../Gotchas/Conversion/Comparison/EmptyBrepModelRefused.md).
+The unsupported B-rep process fixture now contains an independently authored vertex body with valid ownership, following the [existing nonempty B-rep contract](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Conversion/Comparison/EmptyBrepModelRefused.md).
 The existing model validator still runs before comparison, and the retained B-rep domain must still report unresolved.

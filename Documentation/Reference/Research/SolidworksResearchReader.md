@@ -43,7 +43,7 @@ Use `--manifest PATH` for another version-1 corpus manifest.
 Exit code `0` means the SDK decoded the file and its JSON survived typed reconstruction and reference validation.
 The command prints the output path, fingerprint, document hash and evidence counts.
 It always reports `portable_complete: false`.
-Its `document.json` also carries `kit.research_read_status = unqualified` in document metadata. The public reader can open that file for inspection. Public writing and conversion reject it before staging a destination, even when the side receipt is absent. Regenerate older research artifacts to attach the marker.
+Its `document.json` also carries `kit.research_read_status = unqualified` in document metadata. The marker is advisory on the existing main SDK; this automation scope adds no production export guard. Preserve the receipt and unresolved findings with the document.
 Independent semantic qualification and native acceptance remain unavailable.
 
 | File            | Content                                                                                          |
@@ -77,10 +77,6 @@ Inherited provenance identifies an enclosing record, not a proven byte location 
 Absent provenance remains unavailable.
 Numeric confidence does not qualify a field.
 
-SOLIDWORKS part equations retain their source text and link quoted references to known global variables or exact, unique `dimension@feature` names. The receipt reports missing or ambiguous right-hand references as `unresolved_equation_reference`.
-
-The public write and conversion APIs reject parts that carry these unresolved equation references, including when exporting to interchange JSON. The research reader's evidence files remain available for inspecting those parts.
-
 Unresolved entries include native-only definitions, retained bytes, `native:` codes and reader diagnostics.
 Extrusion and revolution direction, frame and operation remain explicitly unqualified.
 Every receipt retains the missing independent source-inventory and acceptance requirement.
@@ -102,52 +98,11 @@ No successful receipt is written for a rejected attempt.
 
 ## Verification boundaries
 
-### Discovery census
+The automation reader uses the existing main SDK. Its real process coverage binds an authored input to the manifest, invokes public reading, verifies typed reconstruction and the advisory marker, and checks tamper and overwrite refusal. Current remote execution remains required. No local reader, SDK, test or CAD application was run for this scope.
 
-On a completed **Workflow quality** run, download the `SolidworksDiscoveryCensus-<attempt>` artifact. It contains `SolidworksDiscoveryCensus.json` for all 25 native parts in the P01, P03 and P04 discovery families. The census uses the tested revision's Git objects and verifies each capture against the original exact receipt hash. Its alternate reader manifest binds the path, blob, byte count, SHA-256 and prefix. The historical 58-part reader check continues to use the pinned corpus manifest.
+The original [reader guide at `fb723e0a`](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/SolidworksResearchReader.md) retains the 58-part historical corpus checkpoint, 25-part discovery census, scoped native decoding comparisons and write safeguards. Their source, assertions, failures and reports remain preserved with the decoder follow-up; they are not current automation jobs or main-SDK capabilities established by this PR. Historical counts do not prove independent semantic qualification.
 
-The `boundary` field records whether the low-level native model and the process-based research reader each decoded a part. A native decode followed by a reader rejection localizes the failure to the later reader boundary. On successful reads, the report gives separate native and neutral comparisons to the measured file, including dimensions, equation text and bindings, operation codes, world-space sketch segments and observed support. Inspect the underlying records when a diagnostic comparison differs. Names and counts in the report serve this fixture census and do not establish semantic identity across formats.
-
-The census uses mass and centroid values from the saved independent measurements. For the two Front Plane P03 direction cases, it derives expected Z bounds from the measured centroid and blind-boss depth. It checks both P04 cut-centering equation bindings against each saved part's measured source. Other semantic mismatches and decoder rejections appear as research findings unless they affect a required check. Unverifiable inputs and invalid reader receipts fail the census. Use [the change entry](../../Changes/Research/SolidWorksDiscoveryCensus.md) for scope and evidence.
-
-The hosted support check also requires all eleven P04 cuts to retain their native face support and expose the expected `BlindBoss` producer in the neutral sketch selection. The [face producer comparison](../../Changes/Research/Readers/SolidWorks/SolidWorksCensusFaceProducer.md) describes the check and the separate licensed readback.
-
-The [timeline comparison](../../Changes/Research/Readers/SolidWorks/SolidWorksDiscoveryTimeline.md) compares the active configuration and the ordered roster of authored sketches and extrusions with the licensed reopen measurements.
-
-The [extrusion direction comparison](../../Changes/Research/Readers/SolidWorks/SolidWorksDiscoveryOperationAxes.md) compares each one-sided P03 and P04 extrusion's signed world direction with the licensed sketch pose and reversal flag. It also follows the neutral sketch identifier to the profile specified by the capture recipe.
-
-The [profile section comparison](../../Changes/Research/Readers/SolidWorks/SolidWorksDiscoveryProfileSections.md) compares the saved closed loop's area and world-space centroid with the licensed section measurements.
-
-The [body measurements comparison](../../Changes/Research/Readers/SolidWorks/SolidWorksDiscoveryBodyMeasurements.md) compares the typed single-solid volume and centroid with the licensed body measurements.
-
-The [parameter role comparison](../../Changes/Research/Readers/SolidWorks/SolidWorksDiscoveryParameterRoles.md) verifies the measured roster of names and each observed driving, derived or reference role.
-
-The P04 termination check uses the same measured receipts. It requires ten matching blind cut depths and one typed cut with the through-all end condition and an absent length. The source evidence retains native code 1. Destinations require separately qualified reconstruction. [Depthless through-all cut projection](../../Changes/Research/Readers/SolidWorksThroughAllProjection.md)
-
-The inch-length check verifies seven named, feature-owned resolved dimensions and three blind depths in the inch variants. Display metadata identifies the source unit and its native property stream. P04's six sketch dimensions remain outside this check while their configuration-stream ownership is unresolved. [Resolved-feature inch lengths](../../Changes/Research/SolidWorksResolvedInchLengths.md)
-
-The native reader [indexes inch scalar names per owner](../../Changes/Research/Readers/IndexedInchScalarBinding.md) across direct and linked-child binding.
-Duplicate-name candidates retain the existing unresolved status.
-
-The census also retains [principal support-layout candidates](../../Changes/Research/PrincipalSupportEvidence.md) with hashed native spans and explicit unresolved ownership.
-Its support-evidence gate checks 25 measured plane identifiers, including three YZ variants.
-These candidates do not change production support decoding or establish semantic qualification.
-
-[Direct adapter writes](../../Changes/Research/DirectAdapterWriteSafeguards.md) apply the registry's research, inch-length and equation safeguards before output mutation.
-The [support write gate](../../Changes/Research/SolidWorksSupportWriteGate.md) also rejects native-derived sketches with fallback, missing or unframed support evidence.
-Native reading and manual serialization remain available for inspection.
-
-### Historical corpus
-
-Remote process coverage exercises actual pinned files, typed reconstruction, tamper rejection and overwrite refusal.
-The corpus scenario requires every one of the 58 pinned parts to decode and reconstruct successfully.
-Any individual rejection fails that gate rather than passing through an aggregate success threshold.
-Four concurrent CLI processes bound execution overhead without changing the expected outcomes.
-This requirement covers the existing research projection, not independent semantic qualification.
-These checks run in the existing workflow-quality job.
-No local tests or CAD experiments ran for this implementation.
-Use the step register and PR comments for exact-revision results.
-Rendered usability and full language conformance remain unverified.
+Use the [sealed history preparation](../../Changes/Research/CaptureHistoryBinding.md) for permitted input acquisition and the [main-SDK boundary record](../../Changes/Research/Controller/MainSdkAutomationBoundaries.md) for current behavior.
 
 ## Related information
 
@@ -156,5 +111,3 @@ Rendered usability and full language conformance remain unverified.
 - [Neutral contract audit](NeutralContractAudit.md)
 - [Pinned corpus](PinnedCorpus.md)
 - [Parallel sessions](ParallelSessions.md)
-
-Unresolved equation and inch-dimension markers block public and direct interchange writes even after the source format is relabeled. See [retained semantic markers](../../Changes/Research/ReidentifiedWriteMarkers.md).

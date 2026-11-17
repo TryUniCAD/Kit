@@ -11,12 +11,12 @@ The remote process cases cover the unchanged default schedule and the extended s
 At `ddac1a709134cdd5e997c31bf658dfd6ec8c0507`, the extended schedule used the same 32 historical Fusion discovery archives and byte-identical manifest as the earlier [Windows staging comparison](WindowsArtifactStaging.md). The run used one thread per job and retained two CPUs and 4 GiB. All 160 jobs completed once with identical decoded-output digests and full CPU and working-set telemetry. All five trials verified clean exits and empty controller claims, supervisor sessions and Windows Job Objects.
 
 | Requested workers | Decodes per minute | Peak simultaneous decodes | Requested overlap in seconds |
-| ---: | ---: | ---: | ---: |
-| 1 | 17.02 | 1 | 5.657 |
-| 2 | 33.39 | 2 | 2.674 |
-| 4 | 49.87 | 4 | 2.827 |
-| 8 | 64.82 | 8 | 2.174 |
-| 16 | 85.05 | 15 | 0 |
+| ----------------: | -----------------: | ------------------------: | ---------------------------: |
+|                 1 |              17.02 |                         1 |                        5.657 |
+|                 2 |              33.39 |                         2 |                        2.674 |
+|                 4 |              49.87 |                         4 |                        2.827 |
+|                 8 |              64.82 |                         8 |                        2.174 |
+|                16 |              85.05 |                        15 |                            0 |
 
 The first four steps met the comparison criteria. The sixteen-worker trial held sixteen active supervisor sessions and reached fifteen simultaneous decoders. The first sixteen starts span 4.747 seconds at the supervisor boundary and 4.875 seconds at the decoder boundary. The earliest of those decodes ended 0.103 seconds before the last began. Available host memory stayed above 13.84 GiB. The eight-to-sixteen comparison is noncomparable under the existing overlap rule, and the sweep produced no recommendation.
 
@@ -24,17 +24,17 @@ The canonical manifest SHA-256 is `a86e1ecfa76b5ce8c9a5698dd0e034378644105695b6c
 
 ## Larger Windows discovery observation
 
-The follow-up at `5770f1b322688e55237172d7a6d57c983f334ce0` used 64 distinct historical Fusion study archives across 38 folders, with 53 additions relative to the earlier 32-archive cohort. The fixed-reader census recorded a successful strict or partial decode for every selected archive. The current and historical Git trees agree on every selected blob. The cohort excludes all paired captures and known nondiscovery and held study families, including exact-byte aliases. It ranks eligible inputs by uncompressed active Design stream size, archive size, then Git path, with at most three inputs per study folder. The bindings total 9,670,016 bytes. [Earlier historical selection](WindowsOfflineCalibration.md#larger-historical-fusion-discovery-sweep)
+The follow-up at `5770f1b322688e55237172d7a6d57c983f334ce0` used 64 distinct historical Fusion study archives across 38 folders, with 53 additions relative to the earlier 32-archive cohort. The fixed-reader census recorded a successful strict or partial decode for every selected archive. The current and historical Git trees agree on every selected blob. The cohort excludes all paired captures and known nondiscovery and held study families, including exact-byte aliases. It ranks eligible inputs by uncompressed active Design stream size, archive size, then Git path, with at most three inputs per study folder. The bindings total 9,670,016 bytes. [Earlier historical selection](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Supervisor/WindowsOfflineCalibration.md#larger-historical-fusion-discovery-sweep)
 
 The same five-step sweep ran on Windows with Python 3.14.6 and pywin32 312. All trials observed 20 affinity-visible logical CPUs. The runner used one thread, a 256 MiB initial admission estimate, a 1 GiB sampled worker limit and a 120-second job deadline. The host reserve remained two CPUs and 4 GiB. The per-trial deadline was 720 seconds for the larger cohort. [Offline calibration criteria](../../../Reference/Research/OfflineCalibration.md)
 
 | Requested workers | Decodes per minute | Peak active supervisor sessions | Peak simultaneous decodes | Longest requested overlap in seconds |
-| ---: | ---: | ---: | ---: | ---: |
-| 1 | 17.51 | 1 | 1 | 5.794 |
-| 2 | 31.98 | 2 | 2 | 4.086 |
-| 4 | 56.46 | 4 | 4 | 2.562 |
-| 8 | 75.35 | 8 | 8 | 2.326 |
-| 16 | 91.42 | 16 | 16 | 0.0885844 |
+| ----------------: | -----------------: | ------------------------------: | ------------------------: | -----------------------------------: |
+|                 1 |              17.51 |                               1 |                         1 |                                5.794 |
+|                 2 |              31.98 |                               2 |                         2 |                                4.086 |
+|                 4 |              56.46 |                               4 |                         4 |                                2.562 |
+|                 8 |              75.35 |                               8 |                         8 |                                2.326 |
+|                16 |              91.42 |                              16 |                        16 |                            0.0885844 |
 
 All 320 jobs completed once with complete CPU and working-set telemetry. The output digest `32a804539e3f50992b21f4ed576fb45979dd778696aea399761e3649d409f865` matched across all five trials. Every cleanup receipt verified a normal supervisor exit and empty claims, sessions and Job Objects. The sixteen-worker trial observed at least 14,080,610,304 bytes of available host memory and a peak sampled aggregate working set of 828,264,448 bytes.
 
@@ -57,12 +57,12 @@ The private timing report SHA-256 is `d571aac7ba69b073399a3fc5e419800b33b404b9b7
 The `b323938d0645bcded260e206e5fe3d164aed2252` sweep used the same 64 archived inputs, manifest, Python version, and reserve settings. The decoder, locked dependencies, calibration metrics and Windows resource observer were unchanged between source revisions. The built-in Windows supervisor used its [warm claim helper](WindowsWarmClaim.md) in all five trials.
 
 | Requested workers | Decodes per minute | Peak simultaneous decodes | Longest requested overlap in seconds |
-| ---: | ---: | ---: | ---: |
-| 1 | 17.79 | 1 | 6.648 |
-| 2 | 33.28 | 2 | 3.020 |
-| 4 | 48.58 | 4 | 3.832 |
-| 8 | 64.48 | 8 | 4.442 |
-| 16 | 77.51 | 16 | 5.681 |
+| ----------------: | -----------------: | ------------------------: | -----------------------------------: |
+|                 1 |              17.79 |                         1 |                                6.648 |
+|                 2 |              33.28 |                         2 |                                3.020 |
+|                 4 |              48.58 |                         4 |                                3.832 |
+|                 8 |              64.48 |                         8 |                                4.442 |
+|                16 |              77.51 |                        16 |                                5.681 |
 
 All 320 jobs completed once. All trials produced the same decoded-output digest as before, with complete CPU and working-set telemetry and clean supervisor, claim, session and Job Object shutdown receipts. The sixteen-worker trial observed at least 13,933,875,200 bytes of host memory available and a peak sampled aggregate working set of 1,139,089,408 bytes.
 

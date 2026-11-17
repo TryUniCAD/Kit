@@ -2,7 +2,7 @@
 
 ## Current scope
 
-[PR #94](https://github.com/TryUniCAD/Kit/pull/94) now contains automation only: corpus custody, durable jobs and artifacts, controller and supervisor recovery, application-worker transport, the main-SDK reader bridge, semantic comparison, generic inference and evidence reporting. The [scope record](../../Changes/Research/AutomationOnlyScope.md) records the boundary.
+This automation-only candidate continues [PR #94](https://github.com/TryUniCAD/Kit/pull/94): corpus custody, durable jobs and artifacts, controller and supervisor recovery, application-worker transport, the main-SDK reader bridge, semantic comparison, generic inference and evidence reporting. The [scope record](../../Changes/Research/AutomationOnlyScope.md) records the boundary.
 
 The SDK starts from main `1d294381340a36ce8e4d9e288e73d995da12fcd7`. Broader native decoders, writer constructors, native shape/cache reconciliation, fixed native grids and their proof suites belong to follow-up work. They are preserved with their original source graph; they are not deleted, accepted or replaced by generic JSON evidence.
 

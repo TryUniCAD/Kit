@@ -2,7 +2,7 @@
 
 ## Behavior
 
-A02c has a [capture procedure](../../Reference/Research/PairedCaptures.md) for the five paired recipes.
+A02c has a [capture procedure](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/PairedCaptures.md) for the five paired recipes.
 It defines the file set and the shared rules.
 It has a SOLIDWORKS checklist for each recipe and a measurement form.
 
@@ -19,7 +19,7 @@ It works on Windows and macOS, and it starts the next queued job as soon as the 
 Its `runner.json` reports the job count, failures, busy time and utilization.
 It does not start automatically.
 
-The SOLIDWORKS captures are described in [their own entry](SolidWorksPairedCaptures.md).
+The SOLIDWORKS captures are described in [their own entry](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/SolidWorksPairedCaptures.md).
 
 ## Usage and limits
 
@@ -32,7 +32,7 @@ Analytic comparisons are labelled separately and never replace a measurement.
 A capture does not qualify a reader, a writer or a conversion by itself.
 
 Two Fusion behaviors affect capture scripts.
-See [negative extent expressions](../../Gotchas/Conversion/Fusion/Api/FusionNegativeExtentExpression.md) and [face sketch reference planes](../../Gotchas/Conversion/Fusion/Api/FusionFaceSketchReferencePlane.md).
+See [negative extent expressions](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Conversion/Fusion/Api/FusionNegativeExtentExpression.md) and [face sketch reference planes](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Conversion/Fusion/Api/FusionFaceSketchReferencePlane.md).
 
 ## Verification
 

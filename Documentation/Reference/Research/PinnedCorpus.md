@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A02 supplies reproducible SOLIDWORKS and Fusion research inputs for the [automation plan](AutomationPlan.md).
+A02 supplies reproducible SOLIDWORKS and Fusion research inputs for the [automation plan](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/AutomationPlan.md).
 All implementation and current-step progress are tracked on [PR #94](https://github.com/TryUniCAD/Kit/pull/94).
 The inventory tool reads Git objects, hashes their unchanged bytes and indexes recorded evidence.
 It does not decode CAD, convert files, run models or start applications.
@@ -93,7 +93,7 @@ The audit does not rewrite history or qualify a capture.
 Choose reviewed explicit `--path` files or directories when the default tree exceeds its fixed source limits.
 Refusal reports selected file and byte totals plus bounded oversized-file metadata before reading source blobs; it never returns a partial inventory or silently omits captured JSON.
 Stdout JSON is ASCII escaped for redirected Windows output, while its canonical payload digest remains defined over UTF-8 with unescaped Unicode.
-See the [audit output and bounded-selection gotcha](../../Gotchas/Ci/Commands/HistoryAuditOutputEncoding.md).
+See the [audit output and bounded-selection gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Ci/Commands/HistoryAuditOutputEncoding.md).
 See the [pinned capture history gotcha](../../Gotchas/Git/PinnedCaptureVendorHistory.md).
 
 ## Author matched examples

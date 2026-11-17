@@ -59,7 +59,7 @@ Oversized ASCII and Unicode paths verify metadata-only refusal diagnostics witho
 Pinned formatting, type, steering, path, rationale, binary-range and whitespace checks validate the repair statically.
 No local tests or collection ran.
 Hosted execution remains required for the change revision.
-The [Windows output and bounded-selection gotcha](../../../Gotchas/Ci/Commands/HistoryAuditOutputEncoding.md) records the reported operator failure and exact metadata-only findings.
+The [Windows output and bounded-selection gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Ci/Commands/HistoryAuditOutputEncoding.md) records the reported operator failure and exact metadata-only findings.
 
 The audit reports dependencies for review.
 It neither rewrites history nor supplies replacement provenance.

@@ -15,7 +15,7 @@ The caller could receive an error despite the claim file and committed attempt b
 The adapter also used locale-dependent decoding for both captured streams, so incompatible decoding could reject or alter a Unicode response.
 
 This finding comes from source inspection, not a local reproduction or a newly observed licensed run.
-The earlier [history audit encoding failure](../../../Ci/Commands/HistoryAuditOutputEncoding.md) records a separate observed Windows stdout failure with a combining character.
+The earlier [history audit encoding failure](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Ci/Commands/HistoryAuditOutputEncoding.md) records a separate observed Windows stdout failure with a combining character.
 
 ## Repair and remaining boundary
 
@@ -24,7 +24,7 @@ Successful responses retain canonical JSON bytes and one LF; stderr diagnostics 
 The actual adapter decodes both streams strictly as UTF-8.
 The archive gate must also explicitly decode controller responses as UTF-8.
 Its former locale decoder could corrupt returned artifact paths after the controller changed to UTF-8 output.
-The [consumer repair](../../../../Changes/Research/Controller/ControllerUtfEightConsumers.md) pins only the controller child streams; unrelated archive child tools retain their existing decoding contracts.
+The [consumer repair](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Controller/ControllerUtfEightConsumers.md) pins only the controller child streams; unrelated archive child tools retain their existing decoding contracts.
 No logical record, byte limit, hash definition, transaction or return code changes.
 
 This removes locale encoding as the failure mechanism; it does not guarantee delivery after commit.

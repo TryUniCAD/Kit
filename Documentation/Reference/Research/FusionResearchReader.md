@@ -38,31 +38,18 @@ Inputs are bounded to 256 MiB, neutral JSON to 64 MiB, receipts to 32 MiB, and a
 Pin checks cover path, blob, size, SHA-256, and prefix.
 SDK source changes detected during decoding reject publication.
 `portable_complete` remains false, and native acceptance remains not established.
-Both strict and partial research outputs carry `kit.research_read_status = unqualified` in document metadata. The public reader can open them for inspection. Public writing and conversion reject marked files before staging a destination. Regenerate older research artifacts to attach the marker.
+Both strict and partial research outputs carry `kit.research_read_status = unqualified` in document metadata. This marker is advisory on the existing main SDK; this automation scope adds no production export guard. Retain the receipt and its unresolved evidence when inspecting output.
 Structural decoding and partial fallback do not qualify editable cross-format conversion.
-[Direct adapter writes](../../Changes/Research/DirectAdapterWriteSafeguards.md) apply the same research and unresolved-source safeguards as registry writes.
 
-The [strict reverse blind-prism reader](../../Changes/Research/Readers/Comparison/FusionStrictSignedPrism.md) accepts the bounded constrained metric-XY negative-distance P03 case after checking its signed parameter owner, selected loop, journal/snapshot geometry, native body ownership and mass cache.
-It retains the complete V2 native state and its read-only marker.
-The alternate YZ strict branch, marked and marker-stripped V2 writes, and V1 downgrade attempts retain their refusals.
-This scoped admission does not establish general reverse-extrusion coverage, editable conversion or fresh-process native acceptance.
+## Historical decoder evidence
 
-## Per-file outcome evidence
+The original [reader guide at `fb723e0a`](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/FusionResearchReader.md) describes the broader strict-prism rules, native write safeguards and full per-file outcome census. Those decoder additions and their coupled suites remain in the preserved follow-up scope. They are not features or CI artifacts of this main-based automation candidate.
 
-The remote corpus process check emits a complete census through `KIT_FUSION_CENSUS`.
-The workflow retains it as `FusionReaderCensus-<attempt>`.
-Each entry binds the source path, Git blob, SHA-256 and exact reader outcome.
-The report also records corpus, SDK, tool and runtime identities.
-Use the [census command](../../Changes/Research/FusionReaderOutcomeCensus.md) to compare two reports without decoding inputs.
-Any changed outcome requires review, including an improved outcome.
-The committed `re/automation/FusionOutcomes.json` baseline preserves the first successful remote report.
-Every later corpus check compares its full outcome roster against that baseline.
-See the [baseline provenance](../../Changes/Research/FusionReaderOutcomeCensus.md#evidence-and-limits).
-Aggregate success counts do not establish a per-file baseline or semantic qualification.
+The historical 714-input checkpoint reported 12 strict results, 685 partial results and 17 rejections at its original source. Parsing outcomes do not establish complete semantics, independent native acceptance or the result of a current-candidate run. The current [main-SDK boundary record](../../Changes/Research/Controller/MainSdkAutomationBoundaries.md) owns the reader contract.
 
 ## Recovery and related information
 
-Fetch missing pinned commits, restore the intended manifest, or choose another output path.
+Use the [sealed history preparation](../../Changes/Research/CaptureHistoryBinding.md) to acquire the permitted pinned inputs. Restore the intended manifest or choose another output path as needed.
 Inspect per-asset reasons and implement missing codec knowledge instead of relaxing checks.
 
 - [Separate installed CLI proposal](https://github.com/TryUniCAD/Kit/pull/119)

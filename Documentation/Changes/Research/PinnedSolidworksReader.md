@@ -7,7 +7,7 @@ It verifies one pinned Git asset, preserves the SDK neutral JSON and writes a se
 Native-only content, diagnostics, native codes and unqualified direction/frame mappings remain explicit.
 Typed reconstruction does not establish independent semantic or native acceptance.
 
-The [plan](../../Reference/Research/AutomationPlan.md) incorporates the newer parallel-session design and early-reader prerequisites.
+The [plan](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/AutomationPlan.md) incorporates the newer parallel-session design and early-reader prerequisites.
 The [register](../../Reference/Research/AutomationSteps.md) is the only maintained step-status record.
 It identifies A04 qualification work, A08 supervisor/application boundaries, optional A10 runners and A14 process gates.
 A models-off pilot does not depend on optional model runners.

@@ -12,7 +12,7 @@ It does not implement a decoder, comparator, controller, schema extension or nat
 Conversion support remains unqualified until the later route-specific gates pass.
 
 The audit inspects main `52dbbe55ea1410b6bcf0ac153975b8c35fe37a3d`.
-PR #94 supplies the [plan](AutomationPlan.md) and [step register](AutomationSteps.md).
+PR #94 supplies the [plan](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/AutomationPlan.md) and [step register](AutomationSteps.md).
 The separate Fusion comparison uses unmerged PR #92 at `be3220e3fb2e07ef33ee264f300a20f2c7a4a137`.
 Results from that branch are not main capabilities.
 
@@ -110,7 +110,7 @@ The pinned [unmerged Fusion adapter description](https://github.com/TryUniCAD/Ki
 It expressly rejects arbitrary changed neutral graphs outside those contracts.
 Do not resolve the main material gap by adding a competing type before reconciling that work.
 
-Source evidence: [SOLIDWORKS adapter](../../../src/convert/adapters/solidworks/Core/Adapter.py), [container versions](../../../src/convert/adapters/solidworks/Container/Format.py), [Fusion discovery exclusion](../../../src/convert/adapters/registry/AdapterDiscovery.py), [partial-reader options](../../../src/convert/adapters/Fusion/ReaderOptions.py), [corpus scope](../../../re/Fusion/Notes/Corpus.md), [measured writer scope](../../../re/solidworks/CorpusCoverage.md).
+Source evidence: [SOLIDWORKS adapter](../../../src/convert/adapters/solidworks/Core/Adapter.py), [container versions](../../../src/convert/adapters/solidworks/Container/Format.py), [Fusion discovery exclusion](../../../src/convert/adapters/registry/AdapterDiscovery.py), [partial-reader options](../../../src/convert/adapters/Fusion/ReaderOptions.py), [corpus scope](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/re/Fusion/Notes/Corpus.md), [measured writer scope](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/re/solidworks/CorpusCoverage.md).
 
 ## Demonstrated gaps and owning steps
 

@@ -10,12 +10,12 @@ The command emits a JSON report. It requires one receipt from each application f
 
 The intake checks exact Git blob aliases anywhere in the candidate tree and older reachable objects at each capture's introduction. It also checks native SHA-256 aliases in the immutable historical corpus manifest. Exact matches outside a capture's family, matches in the historical manifest, and reused prior Git blobs quarantine the entire capture family. All files in the annular revolution family are reserved for frozen-rule holdout evaluation. The intake uses P05 for inventory, hashes, provenance and recording coverage.
 
-| Exit | Meaning |
-| --- | --- |
-| `0` | Capture intake completed and found no quarantined families |
-| `1` | Invalid revision, missing inputs or mismatched evidence |
-| `2` | A family was quarantined, or `--require-pairs` found qualification blockers |
+| Exit | Meaning                                                                     |
+| ---- | --------------------------------------------------------------------------- |
+| `0`  | Capture intake completed and found no quarantined families                  |
+| `1`  | Invalid revision, missing inputs or mismatched evidence                     |
+| `2`  | A family was quarantined, or `--require-pairs` found qualification blockers |
 
-The current [lineage audit](PairedCaptureLineageAudit.md) identifies five recipes, ten receipts and 74 native files. The intake checks the [retained SOLIDWORKS source](../../Reference/Research/SolidWorksCaptureAuthoring.md) against the audit digest. Its JSON report records the outstanding application restart, readback, load diagnostic and binding gaps. The historical corpus and its reader inputs retain their own snapshot. Semantic qualification and CAD conversion acceptance use separate checks.
+The current [lineage audit](PairedCaptureLineageAudit.md) identifies five recipes, ten receipts and 74 native files. The intake checks the [retained SOLIDWORKS source](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/SolidWorksCaptureAuthoring.md) against the audit digest. Its JSON report records the outstanding application restart, readback, load diagnostic and binding gaps. The historical corpus and its reader inputs retain their own snapshot. Semantic qualification and CAD conversion acceptance use separate checks.
 
 The existing [corpus process check](../../../tests/Research/CorpusFlowTests.py) exercises the intake and verifies the holdout reservation and the blocked qualification status in CI.
