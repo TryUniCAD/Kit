@@ -230,6 +230,11 @@ The [typed UI omission comparison](measurements/2026/DrawingBlankUiOmission01.js
 passed fourteen native phases. The reduced native document saved with its
 viewport, line tables, environment and BOM state omitted together.
 
+The [disclosed front-view detailing map trial](measurements/2026/DrawingFrontDetailingMapOmission01.json)
+preserved the view edit, linked part and feature tree in sixteen passing
+native phases. The two omission derivatives kept the map empty through
+save and fresh reopen. Generated populated drawing acceptance remains open.
+
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.
 Both edited dimensions survived clean save and fresh reopen. The rebuilt geometry matched the
