@@ -60,6 +60,26 @@ def geometry(case, angle_degrees, sign):
 
 
 class RevolveAuthor(CurveAuthor):
+    def display_dimension_preference(self):
+        library = self.rec.call(
+            "load registered 2026 SwConst type library", Swapp.pythoncom.LoadRegTypeLib,
+            "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}", 34, 0, 0,
+        )
+        attributes = library.GetLibAttr()
+        require(attributes[3:5] == (34, 0), "wrong SwConst type library version")
+        enum = next(
+            (library.GetTypeInfo(index) for index in range(library.GetTypeInfoCount())
+             if library.GetDocumentation(index)[0] == "swUserPreferenceToggle_e"),
+            None,
+        )
+        require(enum is not None, "missing SwConst preference toggle enum")
+        for index in range(enum.GetTypeAttr().cVars):
+            constant = enum.GetVarDesc(index)
+            if enum.GetNames(constant.memid)[0] == "swDisplayFeatureDimensions":
+                require(type(constant.value) is int, "invalid display feature dimension toggle")
+                return constant.value
+        raise RuntimeError("missing swDisplayFeatureDimensions identity")
+
     def world(self, xyz):
         inverse = self.get(self.get(self.sketch, "ModelToSketchTransform"), "Inverse")
         utility = self.get(self.app, "GetMathUtility")
@@ -234,7 +254,17 @@ def run_phase(case, phase, path, oracle_hash, source_hash=None):
                 author.model, errors, warnings = recorder.call("fresh open standalone source", session.open, path)
                 require(author.model is not None and errors == warnings == 0, "native source failed to open cleanly")
                 boss = author.snapshot(case, "reopened", case["angle_deg"])
-                author.edit_angle(case, boss)
+                toggle = author.display_dimension_preference()
+                previous = bool(author.get(author.model, "GetUserPreferenceToggle", toggle))
+                recorder.data["display_dimension_preference"] = {"id": toggle, "before": previous, "restored": False}
+                try:
+                    author.get(author.model, "SetUserPreferenceToggle", toggle, True)
+                    require(author.get(author.model, "GetUserPreferenceToggle", toggle), "document did not enable feature dimension display")
+                    author.edit_angle(case, boss)
+                finally:
+                    author.get(author.model, "SetUserPreferenceToggle", toggle, previous)
+                    require(bool(author.get(author.model, "GetUserPreferenceToggle", toggle)) == previous, "document did not restore feature dimension display")
+                    recorder.data["display_dimension_preference"]["restored"] = True
             work_completed = True
         except Exception as error:
             recorder.failure(error)
