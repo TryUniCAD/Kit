@@ -11,3 +11,5 @@ The [preparation receipt](../../../../../re/solidworks/measurements/2026/Referen
 This addition is research only. It enables no public writer, admits no hidden execution and adds no angle or multiple-reference-plane support.
 
 The shared part builder now allocates and publishes Origin before the authored offset plane. Four disclosed profiles produced identical payloads to the private proof in eight fresh guarded processes, with eleven typed archive checks per build. Both the ordinary and anchored rectangular control profiles retained their original bytes. [Integrated construction receipt](../../../../../re/solidworks/measurements/2026/ReferencePlanePublicationIntegration01.json)
+
+The first disclosed paired trial passes the ordered 26-row native tree and exact plane and dimension ownership checks. The generated part's distance edit moves the solid by the predicted displacement and persists through save and fresh reopen. Both controls passed across four native processes. [Native result](../../../../../re/solidworks/measurements/2026/ReferencePlaneSourceParityNative01.json)
