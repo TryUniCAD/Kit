@@ -1,0 +1,13 @@
+# Generated offset-plane saved-file readback
+
+The first generated Front-offset native trial fails the strict complete-tree check because one unassigned-material caption changes on fresh reopening. Its four independent native phase snapshots otherwise pass with healthy controls, zero load errors/warnings, one predicted cylinder, a working plane-distance edit and successful native save/reopen. [Native receipt](../../../../../../re/solidworks/measurements/2026/GeneratedOffsetPlaneNative01.json)
+
+[AuditGeneratedReferencePlane.py](../../../../../../re/tooling/sw2026/serial/AuditGeneratedReferencePlane.py) audits the exact generated and native-edited siblings against a frozen complete serializer code manifest. Supply the absolute `Trial.json`, `--packet-sha256`, `--native-sha256`, `--code-root`, `--code-manifest` and an unused absolute `--output` outside the packet. It rejects undeclared CAD reads and packet mutations, re-emits six scoped streams per sibling and verifies the linked Config/Resolved object map, plane/sketch ownership, driving dimensions, update headers and persisted material state.
+
+The recorded process audit passes twelve stream round trips, two linked graph re-emissions, eighteen graph/header/lifecycle checks and six edit checks, with exactly two permitted native artifacts, zero writes or held-out reads and no CAD process. It explicitly distinguishes a fresh zero distance-display cache from the native-saved driving-value cache. Its earlier saved-cache-assumption diagnostic and the failed native aggregate are retained.
+
+The typed edited file preserves the plane and dimension IDs, persists the distance edit from 17.89 to 28.67 mm and retains radius 9.73 mm and depth 5.31 mm. Its material name remains the caller's authored value on disk; the observed native reopen/query path supplies the default caption.
+
+The [second disclosed native trial](../../../../../../re/solidworks/measurements/2026/GeneratedOffsetPlaneNative02.json) uses the previously code-bound English empty-material vocabulary with identical writer bytes and tree assertions. It passes all four native phases and the complete 27-row tree check. The same independent auditor also passes for that generated/saved pair, retaining the default material caption on disk. [Evidence and limits](../../../../../../re/solidworks/records/ReferencePlaneOffsetNativeDiscovery2026.md) [Existing material gotcha](../../../../../Gotchas/Conversion/Solidworks/Model/MaterialFolderNameChangesOnSave.md)
+
+These are disclosed discovery measurements. Enclosing raw operations and other native streams remain outside full field-classification claims. Angled/multiple-reference planes, generated other-axis/reverse cases, both sealed held-outs and public writer qualification remain open.
