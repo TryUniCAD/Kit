@@ -223,6 +223,9 @@ saved and reopened cleanly.
 The [matched-path cosmetic-thread comparison](measurements/2026/GeneratedBlankDrawingThreadFlagNative02.json)
 retained identical native save failures for both generated inputs. All
 three controls passed over eight fresh processes.
+The [save-mode comparison](measurements/2026/GeneratedBlankDrawingSaveModes03.json)
+reproduced error 1 before a scale edit and in a writable in-place save.
+The reduced native control saved and reopened in both modes.
 
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.
