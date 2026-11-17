@@ -7,8 +7,8 @@ from xml.etree.ElementTree import Element, SubElement, tostring
 from Core import Obj
 from builders.DrawingSheet import DrawingSheet, _paper_text
 from builders.Metadata import integer
+from builders.PropertySections import text_information_properties
 from convert.adapters.solidworks.Container.Format import KEYWORDS_STREAM, KPartSuffix
-from convert.adapters.solidworks.Drawing.Metadata.ReadDrawProps import KDrawPropNamespace, KPropertyTextTag
 
 
 INFORMATION_STREAM = "docProps/ISolidWorksInformation.xml"
@@ -93,11 +93,7 @@ def drawing_layout_properties(*, sheet, model_view=None):
 
 def drawing_sheet_indexes(*, document_name, created_at, sheet, sheet_id, model_view=None):
     properties = drawing_layout_properties(sheet=sheet, model_view=model_view)
-    root = Element(KDrawPropNamespace + "Properties")
-    values = SubElement(root, "Properties")
-    for ordinal, (name, value) in enumerate(properties.items(), 2):
-        record = SubElement(values, "property", name=name, pid=str(ordinal))
-        SubElement(record, KPropertyTextTag).text = value
+    root = text_information_properties(properties)
     return {
         KEYWORDS_STREAM: drawing_keywords(document_name=document_name, created_at=created_at, sheet=sheet, sheet_id=sheet_id, model_view=model_view),
         INFORMATION_STREAM: _xml(root),
