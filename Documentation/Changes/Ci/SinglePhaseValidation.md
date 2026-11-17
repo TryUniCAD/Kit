@@ -16,6 +16,8 @@ The workflow phase selector is orchestration and runs in both phases.
 The phase configuration is [.github/CiPhases.json](../../../.github/CiPhases.json).
 Each job's workflow condition must agree with this configuration.
 The [queue guide](../../../MergeQueue.md) describes validation and rollout.
+The repository guidance applies the requested cutoff to light change-range
+checks, so those checks execute with the other PR-only validations.
 
 The duplicate `main` push runs and cross-phase PR artifact reuse are retired.
 Test-module reuse from accepted ancestor queue candidates remains enabled.

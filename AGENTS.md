@@ -78,8 +78,14 @@ read its complete standards index and every applicable rule before coding.
   Distinguish green PR checks from successful queue acceptance.
 - Use `Pull Request / CI Agg` for overall CI health. Register every applicable
   PR and merge-queue CI job in the [CI allowlist](.github/scripts/CiAllowlist.cjs).
-  Keep automated review out of the allowlist and its workflows. Reuse healthy
-  PR reports in the queue only with verified identical inputs. Change-range verification, security scans, and test planning always execute on the candidate. A test module reuses a passing result only from an accepted ancestor candidate when every file and folder that it recorded is unchanged. Every other test executes on the candidate.
+  Keep automated review out of the allowlist and its workflows. Assign each
+  validation to one phase using its complete observed job duration. Jobs below
+  45 seconds, including light change-range checks, run on PRs. Jobs at or above
+  45 seconds run on merge-group candidates. Security scans and test planning
+  run on the candidate. Preserve the former job set during trusted-base rollout
+  until the phase-version marker reaches the base revision. A test module reuses
+  a passing result only from an accepted ancestor candidate when every file and
+  folder that it recorded is unchanged. Every other test executes on the candidate.
 - Read every entry in `Reviewers` from
   [ReviewBot.json](.agents/skills/standard-pr-practice/ReviewBot.json), the sole
   source of reviewer identities, report names, and exact request comments.
