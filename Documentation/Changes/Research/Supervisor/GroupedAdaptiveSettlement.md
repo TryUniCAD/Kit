@@ -16,4 +16,4 @@ It checks that all three responses are stale, the original session emits no adap
 The existing grouped memory and deadline cases cover accepted stop accounting.
 Hosted Linux and macOS verification of the new case is pending.
 
-See [the supervisor guide](../../../Reference/Research/ResearchSupervisor.md#optional-grouped-sessions) and [the stale-member gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Supervisor/GroupedAdaptiveStaleMembers.md).
+See [the supervisor guide](../../../Reference/Research/ResearchSupervisor.md#optional-grouped-sessions) and [the stale-member gotcha](../../../Gotchas/Research/Supervisor/GroupedAdaptiveStaleMembers.md).

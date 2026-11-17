@@ -37,7 +37,7 @@ Each member's outputs use the existing private-root, file-handle, digest and siz
 An invalid member cannot supply another member's accepted output.
 Valid members can finish while an invalid member retries.
 For a shared nonzero process exit, each affected member stores the bounded tail from the physical session’s `stderr.log` before cleanup.
-The [crash-tail gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Supervisor/GroupedCrashTails.md) explains why the source must be shared.
+The [crash-tail gotcha](../../../Gotchas/Research/Supervisor/GroupedCrashTails.md) explains why the source must be shared.
 Lease and execution deadlines still fence slow copies; renewal does not extend the execution deadline.
 
 A crash, stop, stale lease, setup failure or invalid member result retries affected unfinished jobs singly.
@@ -64,10 +64,10 @@ Remote results must be recorded on the tested commit before treating these cases
 These fixtures use synthetic input bytes and verify the supervisor, controller and artifact intake through real process boundaries.
 Calibration and the unattended pilot remain separate work.
 
-The first macOS run at `6e2da255` stopped before process execution because the new fence module collided with an existing unpackaged pytest module. The new module is renamed to `GroupedFenceTests.py`; [the basename gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Ci/Collection/PytestBasenameCollision.md) links the failure. Both case selections and their assertions remain enabled.
+The first macOS run at `6e2da255` stopped before process execution because the new fence module collided with an existing unpackaged pytest module. The new module is renamed to `GroupedFenceTests.py`; [the basename gotcha](../../../Gotchas/Ci/Collection/PytestBasenameCollision.md) links the failure. Both case selections and their assertions remain enabled.
 
 The macOS gate at `3327f7fe` passed all fifty cases in 382.80 seconds, including fourteen grouped cases. [Hosted macOS gate](https://github.com/TryUniCAD/Kit/actions/runs/43673846094/job/132689552836)
 
 The Windows process job selects the existing group-cap and group-crash cases. They verify the 20-member ceiling, separate accepted files and receipts, a real worker crash, and exactly one singleton retry per affected member. The fixture writes the same crash diagnostic bytes on each host.
 
-At `edd09981`, the Windows job passed 54 cases, including the group-cap case. The group-crash case reached temporary-directory cleanup, where an open SQLite fixture reader prevented Windows from deleting the private ledger. The diagnostic readers now close their connections explicitly. Hosted verification of the corrected cleanup is pending. [Fixture gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Supervisor/SqliteContextLeavesHandle.md) [Hosted job](https://github.com/TryUniCAD/Kit/actions/runs/43715564751/job/132816225586)
+At `edd09981`, the Windows job passed 54 cases, including the group-cap case. The group-crash case reached temporary-directory cleanup, where an open SQLite fixture reader prevented Windows from deleting the private ledger. The diagnostic readers now close their connections explicitly. Hosted verification of the corrected cleanup is pending. [Fixture gotcha](../../../Gotchas/Research/Supervisor/SqliteContextLeavesHandle.md) [Hosted job](https://github.com/TryUniCAD/Kit/actions/runs/43715564751/job/132816225586)

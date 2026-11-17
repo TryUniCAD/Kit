@@ -74,7 +74,7 @@ independent synchronized process evidence. This change does not claim those
 branches were exercised. Licensed application capture/readback remains separate.
 
 See [the intake gotcha](../../../Gotchas/Research/Workers/WorkerOutputsNeedIntake.md).
-The [flag-owner gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/PythonWinReparseFlagOwner.md)
+The [flag-owner gotcha](../../../Gotchas/Research/Workers/PythonWinReparseFlagOwner.md)
 records the real Windows failure and source verification.
 
 At source checkpoint `22a59e68c839354f3e6672eec6f67aa647aa1dce`, all five output-intake cases passed within the [Linux](https://github.com/TryUniCAD/Kit/actions/runs/43678423785/job/132703622509), [macOS](https://github.com/TryUniCAD/Kit/actions/runs/43678423785/job/132703622604) and [Windows](https://github.com/TryUniCAD/Kit/actions/runs/43678423785/job/132703622723) selections. This verifies the flag-owner repair and declared output lifecycle through real processes. It does not establish the independently synchronized branches or licensed application evidence identified above.

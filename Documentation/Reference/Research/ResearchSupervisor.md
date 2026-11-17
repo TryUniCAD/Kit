@@ -1,7 +1,5 @@
 # Research session supervisor
 
-This guide covers the automation-only candidate. Process and resource machinery can run against the existing main SDK without the preserved decoder/writer expansions. The [scope record](../../Changes/Research/AutomationOnlyScope.md) and [step register](AutomationSteps.md) retain the separate native, restart and pilot dependencies.
-
 ## Purpose
 
 A08a adds a local supervisor under `re/automation/`.
@@ -23,7 +21,7 @@ An owned built-in A03 supervisor reuses one bounded Windows helper for single-jo
 Linux and macOS retain their process-group and `wait4` paths.
 The hosted Linux research fixture observes a bounded cgroup OOM through the normal supervisor settlement path. [Hosted Linux supervisor witness](../../Changes/Research/Supervisor/HostedSupervisorOom.md)
 See [Windows supervision](../../Changes/Research/Supervisor/WindowsResearchSupervisor.md) for the exact process contract and verification limits.
-Application-worker transport is implemented separately from proof that a licensed installation completed its native workflow. Signed-in Fusion Phase A, owned restart and fresh Phase B remain open evidence requirements.
+Actual application authoring workers remain A08c work.
 Initialize an [A03 controller store](ResearchController.md#commands), or supply another adapter.
 Choose a private state directory on a local disk.
 
@@ -95,17 +93,17 @@ The registry maps each job kind to one runner.
 ```
 
 The runner and schema paths in this example are placeholders.
-The repository supplies research reader, comparison and generic inference runners. Generate their actual schemas and configure their absolute program paths, resources and immutable versions for your installation. The example is not a ready-made registry or native acceptance record.
+The repository does not ship a registry, because no production runner exists yet.
 
-| Field                      | Required | Meaning                                                                                                                                                                                                                                                          |
-| -------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pool`                     | Yes      | Pool that runs this job kind                                                                                                                                                                                                                                     |
-| `argv`                     | Yes      | 1–64 arguments; a whole `{session}` argument is the only substitution                                                                                                                                                                                            |
-| `result_schema`            | Yes      | JSON Schema for the `records` value; relative paths resolve from the root                                                                                                                                                                                        |
-| `threads`                  | No       | Threads per session, 1–256; recorded for A08b capacity limits                                                                                                                                                                                                    |
-| `max_memory_mib`           | No       | Sampled group-memory stop threshold, 1–1,048,576 MiB; default twice the initial estimate, capped at the maximum                                                                                                                                                  |
-| `initial_peak_memory_mib`  | No       | First memory estimate, 1–1,048,576 MiB; recorded for A08b capacity limits                                                                                                                                                                                        |
-| `application_installation` | No       | Owner-controlled application installation for [acknowledging accepted output](../../Changes/Research/Workers/SupervisedApplicationAcceptance.md). Relative paths resolve from the registry directory. Requires the built-in A03 adapter and a single-job runner. |
+| Field                     | Required | Meaning                                                                                                         |
+| ------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `pool`                    | Yes      | Pool that runs this job kind                                                                                    |
+| `argv`                    | Yes      | 1–64 arguments; a whole `{session}` argument is the only substitution                                           |
+| `result_schema`           | Yes      | JSON Schema for the `records` value; relative paths resolve from the root                                       |
+| `threads`                 | No       | Threads per session, 1–256; recorded for A08b capacity limits                                                   |
+| `max_memory_mib`          | No       | Sampled group-memory stop threshold, 1–1,048,576 MiB; default twice the initial estimate, capped at the maximum |
+| `initial_peak_memory_mib` | No       | First memory estimate, 1–1,048,576 MiB; recorded for A08b capacity limits                                       |
+| `application_installation` | No     | Owner-controlled application installation for [acknowledging accepted output](../../Changes/Research/Workers/SupervisedApplicationAcceptance.md). Relative paths resolve from the registry directory. Requires the built-in A03 adapter and a single-job runner. |
 
 The schema checker accepts `type`, `properties`, `required`, `additionalProperties`, `items`, `enum`, `const`, `minLength`, `maxLength`, `minimum`, `maximum`, `minItems` and `maxItems`.
 It refuses a schema that uses any other keyword.
@@ -183,7 +181,7 @@ See [durable worker outputs](../../Changes/Research/Workers/DurableWorkerOutputs
 The [local application dispatcher](../../Changes/Research/Workers/LocalApplicationDispatch.md) submits pinned Fusion phases to an owner-controlled add-in queue.
 Its fresh main-thread control probe, restart handoff and private spool protocol remain separate from native qualification.
 Windows ordinary Phase A requires an explicit owner opt-in and a pre-provisioned private endpoint. The hosted case checks the open-document refusal through the real queue. Licensed Windows capture and restart evidence are still pending. [Windows Fusion configuration and limits](../../Changes/Research/Workers/WindowsFusionPhaseA.md)
-Accepted dependency output binding is implemented by the generic artifact protocol. Automatic restart machinery and disposable-process controls do not establish actual signed-in Fusion exit, replacement and Phase B acceptance; that installation-specific evidence remains open.
+Automatic restart and downstream input binding remain open.
 
 `finish.json` becomes the controller result for every finished attempt.
 After the controller accepts it, the supervisor removes the session directory and the claim file.
@@ -243,7 +241,7 @@ Existing sessions drain normally when the target falls.
 Set `adaptive_limits` to `false` to use the measured capacity directly.
 See [adaptive pool limits](../../Changes/Research/Supervisor/AdaptivePoolLimits.md) for evidence events and branch limits.
 The deadline-pair event records both physical session IDs and the elapsed time between their accepted stop observations. [Deadline backoff evidence](../../Changes/Research/Supervisor/AdaptiveDeadlineEvidence.md)
-The historical matched Windows offline sweep sustained sixteen decoders for 5.681 seconds and completed its applicable comparisons. Its measured throughput gains exceeded that study's recommendation threshold; they are not measurements of the current automation candidate. [Offline calibration](OfflineCalibration.md) [Matched Windows sweep](../../Changes/Research/Supervisor/SixteenWorkerCalibration.md#windows-sweep-with-the-warm-claim-helper) [Grouped session evidence](../../Changes/Research/Supervisor/GroupedSmallFileSessions.md)
+The matched Windows offline sweep sustained sixteen decoders for 5.681 seconds and completed all applicable comparisons. Every measured throughput gain exceeded the recommendation threshold. [Offline calibration](OfflineCalibration.md) [Matched Windows sweep](../../Changes/Research/Supervisor/SixteenWorkerCalibration.md#windows-sweep-with-the-warm-claim-helper) [Grouped session evidence](../../Changes/Research/Supervisor/GroupedSmallFileSessions.md)
 
 ## Stops, pauses and stale leases
 
@@ -311,7 +309,7 @@ Load only an adapter module that you trust, because the supervisor executes it.
 
 ## Limits
 
-These limits apply to the automation supervisor:
+These limits are intentional for A08a:
 
 - A08b adds adaptive pool limits, optional grouped sessions and [standalone offline calibration](OfflineCalibration.md). Their tested checkpoints and remaining qualification belong in the [step register](AutomationSteps.md).
 - Output files are bounded. Memory stops use sampled process-group RSS and cannot contain children that leave the group.
@@ -319,8 +317,6 @@ These limits apply to the automation supervisor:
 - An expired A03 attempt still marks its resources unavailable, also for counted provider resources.
 - Application workers belong to A08c, and model runners belong to A10.
 - Windows uses Job Objects for descendant cleanup. Its receipt records a Windows exit code and no POSIX signal number.
-
-The two-week A15 pilot has not started. Recorded claim occupancy, commissioning batches, replayed controller events and disposable-process tests retain their own measurement scopes; they are not native application utilization or unattended acceptance. Models remain disabled unless separately authorized and implemented under A10.
 
 ## If the task fails
 

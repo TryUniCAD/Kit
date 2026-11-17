@@ -28,4 +28,4 @@ boundaries. Both contention cases passed in the 161-case macOS suite at
 PR head `14f4a1f2` and tested merge `1198983e`. A signed-in Fusion run
 remains pending. [Hosted macOS evidence](https://github.com/TryUniCAD/Kit/actions/runs/43788486237/job/133041436716)
 
-[Owner program](FusionLifecycleOwner.md), [Grid admission and restart fences](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/Workers/FusionGridPrecedenceRequiresAdmission.md)
+[Owner program](FusionLifecycleOwner.md), [Grid admission and restart fences](../../../Gotchas/Research/Workers/FusionGridPrecedenceRequiresAdmission.md)

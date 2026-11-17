@@ -6,7 +6,7 @@ This page is a design for future implementation.
 It describes how one machine runs many decoding sessions at the same time on top of a job controller.
 The supervisor uses the controller only through the [controller interface](#controller-interface).
 The [A03 controller](ResearchController.md) is the first adapter for that interface, but another controller can replace it.
-It also describes how Codex and Claude runners execute optional model investigations from the [plan](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/AutomationPlan.md#optional-model-investigations).
+It also describes how Codex and Claude runners execute optional model investigations from the [plan](AutomationPlan.md#optional-model-investigations).
 Each model runner uses one fixed model at two efforts, as [Model selection](#model-selection) describes.
 The [supervisor guide](ResearchSupervisor.md) describes the A08a implementation of the supervisor, session directories, pools and adapters.
 No step starts because of this page.
@@ -694,6 +694,6 @@ Calibration results and pilot measurements are recorded on PR #94 as observation
 
 ## Related information
 
-- [Neutral-first automation plan](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Reference/Research/AutomationPlan.md)
+- [Neutral-first automation plan](AutomationPlan.md)
 - [Step register](AutomationSteps.md)
 - [Durable research controller](ResearchController.md)
