@@ -16,6 +16,7 @@ KConceptShapes: Mapping[str, KRuleShape] = MappingProxyType(
             ),
         ),
         "mgBBox_c.restore": (("f64", "b0 b1 b2 b3 b4 b5 b6 b7 b8 b9"),),
+        "mgMatrix_c.restore": (("f64", "m0 m1 m2 m3 m4 m5 m6 m7 m8"),),
         "mgPoint_c.restore": (("f64", "x y z"),),
         "mgVector_c.restore": (("f64", "x y z"),),
         "mgXform_c.restore": (

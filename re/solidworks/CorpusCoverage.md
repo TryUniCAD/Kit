@@ -215,6 +215,14 @@ research reader extracts model orientation, scale and the view transform and com
 with the native observations in both view-bearing cases. The [SDK view receipt](measurements/2026/DrawingSdkViewRead01.json)
 verifies the same Definition properties and reference ownership through the public opt-in adapter.
 
+The [scaled drawing inspection](measurements/2026/DrawingScaledViewSdkRead01.json)
+covers disclosed Front, Top, Right and Isometric views at four non-unit
+scales. It passes complete Definition and Header2 byte identity and 36
+geometric probes through the public opt-in SDK reader. All four layouts
+survive neutral JSON serialization. Native source authoring and fresh
+reopen pass across ten processes. Expanded generated and held-out
+drawing qualification remain open.
+
 The [combined blank drawing diagnostic](measurements/2026/DrawingCacheCombinedOmission01.json)
 shows that SOLIDWORKS regenerates four omitted display and preview streams
 after editing and saving the disclosed empty sheet. Both controls, the

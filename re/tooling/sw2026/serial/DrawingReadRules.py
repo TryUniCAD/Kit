@@ -31,6 +31,7 @@ CLASS_SCHEMAS = {**dict.fromkeys(OBJECT_CLASSES, 1), "su_CStringArray": 0}
 METHODS = tuple("""
 FUN_4bb09f20
 mgBBox_c.restore
+mgMatrix_c.restore
 mgPoint_c.restore
 mgVector_c.restore
 mgXform_c.restore

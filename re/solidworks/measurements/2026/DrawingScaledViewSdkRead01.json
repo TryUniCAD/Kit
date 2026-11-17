@@ -1,0 +1,497 @@
+{
+  "schema": "kit.sw2026.scaled-drawing-sdk-read-measurement.v1",
+  "source_lock_sha256": "99c3e345182c20853445bd7240a881d6fce22d397961779445961d61718a3298",
+  "source_spec_sha256": "acb78b422358773320a6601d38bef8e17107f268e8912574d1c23a558584a03c",
+  "cases": [
+    {
+      "case": "D00ScaledFront",
+      "source_sha256": "0cd65761cefe2f1f7c016686f376021955cbb9d07651b437d164a384dcaa79af",
+      "native_record_sha256": [
+        "f2e648f71b11dccd1084d4fc64db438f16408a7ed4b8404d62d0aae4db6bef13",
+        "efe857007631b9c400b1975754a532a13714d374d16e11bb0c419e0fe069326e"
+      ],
+      "definition": {
+        "bytes": 37256,
+        "map_next": 331,
+        "exact": true,
+        "sha256": "bab129f06676bf95a6048e6d8ae8ae4236dd06ba0b6cc154f373c115bf1334f5"
+      },
+      "header": {
+        "bytes": 1727,
+        "map_next": 51,
+        "exact": true,
+        "sha256": "ee59a03711ba3af458f68f3d9f313f245a7541e2e36535d7b2bb30e23f6ab323"
+      },
+      "native_comparison_checks": 36,
+      "orientation": "*Front",
+      "scale_decimal": 0.375,
+      "scale_ratio": [
+        0.375,
+        1.0
+      ],
+      "scale_flags": {
+        "f610": 2456,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15,
+        "f1010": 0,
+        "f1020": 0,
+        "f1028": 0,
+        "f102c": 0,
+        "f1030": 1
+      },
+      "model_to_view": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.07768,
+        0.06683499999999999,
+        -0.0013125,
+        0.375
+      ],
+      "canonical_rotation": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "canonical_rotation_matches": true,
+      "position_m": [
+        0.08143,
+        0.06871
+      ],
+      "edited_position_m": [
+        0.084161,
+        0.06697099999999999
+      ],
+      "sheet_dimensions_m": [
+        0.2794,
+        0.21589999999999998
+      ],
+      "model_box": [
+        0.01,
+        0.005,
+        0.0035,
+        0.02,
+        0.01,
+        0.007,
+        0.0,
+        0.0,
+        0.0,
+        0.011715374513859981
+      ],
+      "cached_model_center": [
+        0.01,
+        0.005,
+        0.0035
+      ],
+      "raw_outline": [
+        0.07768,
+        0.06683499999999999,
+        0.08518,
+        0.070585
+      ],
+      "geometry_outline": [
+        0.07768,
+        0.06683499999999999,
+        0.08518,
+        0.070585
+      ],
+      "border_outline": [
+        0.073362,
+        0.06251699999999999,
+        0.08949800000000001,
+        0.074903
+      ],
+      "sdk_layout": {
+        "point_probes": 9,
+        "neutral_json_round_trip": true
+      }
+    },
+    {
+      "case": "D01ScaledTop",
+      "source_sha256": "71e63bfd28b27d444c54c4d541087584f356ab63e4e81f0fdfec4cc7e3a24941",
+      "native_record_sha256": [
+        "78b3c8c6056c64440a8ab0f1f95a54edda77ad64a5c2dd3883e3c1b6d4195003",
+        "dbddfcd705257491dbf6cef08f87a21ab4113356c74f0b7e1526a8a73cd37b54"
+      ],
+      "definition": {
+        "bytes": 37616,
+        "map_next": 331,
+        "exact": true,
+        "sha256": "84b61729046c516a3fe6a146310a0f3868fdd13e864de064c29c8134473a35aa"
+      },
+      "header": {
+        "bytes": 1723,
+        "map_next": 51,
+        "exact": true,
+        "sha256": "ae181b67995215fb7c373094c60e4b95dbbc64e937cdaac7a8d443f7d54439cd"
+      },
+      "native_comparison_checks": 36,
+      "orientation": "*Top",
+      "scale_decimal": 1.25,
+      "scale_ratio": [
+        1.25,
+        1.0
+      ],
+      "scale_flags": {
+        "f610": 2456,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15,
+        "f1010": 2,
+        "f1020": 0,
+        "f1028": 0,
+        "f102c": 0,
+        "f1030": 1
+      },
+      "model_to_view": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        -3.552713678800501e-15,
+        1.0,
+        0.0,
+        -1.0,
+        -3.552713678800501e-15,
+        0.10111,
+        0.09866500000000002,
+        -0.006249999999999985,
+        1.25
+      ],
+      "canonical_rotation": [
+        1.0,
+        -0.0,
+        0.0,
+        0.0,
+        -3.552713678800501e-15,
+        1.0,
+        -0.0,
+        -1.0,
+        -3.552713678800501e-15
+      ],
+      "canonical_rotation_matches": true,
+      "position_m": [
+        0.11361,
+        0.09429
+      ],
+      "edited_position_m": [
+        0.116341,
+        0.092551
+      ],
+      "sheet_dimensions_m": [
+        0.2794,
+        0.21589999999999998
+      ],
+      "model_box": [
+        0.01,
+        0.005,
+        0.0035,
+        0.02,
+        0.01,
+        0.007,
+        0.0,
+        0.0,
+        0.0,
+        0.011715374513859981
+      ],
+      "cached_model_center": [
+        0.01,
+        0.005,
+        0.0035
+      ],
+      "raw_outline": [
+        0.10111,
+        0.08991499999999998,
+        0.12611,
+        0.09866500000000002
+      ],
+      "geometry_outline": [
+        0.10111,
+        0.08991499999999998,
+        0.12611,
+        0.09866500000000002
+      ],
+      "border_outline": [
+        0.096792,
+        0.08559699999999998,
+        0.130428,
+        0.10298300000000002
+      ],
+      "sdk_layout": {
+        "point_probes": 9,
+        "neutral_json_round_trip": true
+      }
+    },
+    {
+      "case": "D02ScaledRight",
+      "source_sha256": "e846b69d5d751f19ce6c987c5a46008c0fdab2f979d6575d033fd4e5cdefd94f",
+      "native_record_sha256": [
+        "d0c84f0c456a367936604af8e8761b870fadc64b4452c97ec0ec571e175a75d5",
+        "08e126e34e704e07883d50091a4049ac5d99986549146ee5315a971eeaf03bc6"
+      ],
+      "definition": {
+        "bytes": 37624,
+        "map_next": 331,
+        "exact": true,
+        "sha256": "860acd202bd21876a1d6091aa417edaa6f50990649a23a400699be30d192c9d6"
+      },
+      "header": {
+        "bytes": 1727,
+        "map_next": 51,
+        "exact": true,
+        "sha256": "8c02481dd79336e538c2515f110bc475cef42e3c9c7eae565cd86a5decc9501c"
+      },
+      "native_comparison_checks": 36,
+      "orientation": "*Right",
+      "scale_decimal": 0.625,
+      "scale_ratio": [
+        0.625,
+        1.0
+      ],
+      "scale_flags": {
+        "f610": 2456,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15,
+        "f1010": 1,
+        "f1020": 0,
+        "f1028": 0,
+        "f102c": 0,
+        "f1030": 1
+      },
+      "model_to_view": [
+        -3.552713678800501e-15,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        -3.552713678800501e-15,
+        0.1520175,
+        0.114005,
+        -0.0062499999999999925,
+        0.625
+      ],
+      "canonical_rotation": [
+        -3.552713678800501e-15,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        -3.552713678800501e-15
+      ],
+      "canonical_rotation_matches": true,
+      "position_m": [
+        0.14983,
+        0.11713
+      ],
+      "edited_position_m": [
+        0.152561,
+        0.115391
+      ],
+      "sheet_dimensions_m": [
+        0.2794,
+        0.21589999999999998
+      ],
+      "model_box": [
+        0.01,
+        0.005,
+        0.0035,
+        0.02,
+        0.01,
+        0.007,
+        0.0,
+        0.0,
+        0.0,
+        0.011715374513859981
+      ],
+      "cached_model_center": [
+        0.01,
+        0.005,
+        0.0035
+      ],
+      "raw_outline": [
+        0.14764249999999998,
+        0.114005,
+        0.1520175,
+        0.120255
+      ],
+      "geometry_outline": [
+        0.14764249999999998,
+        0.114005,
+        0.1520175,
+        0.120255
+      ],
+      "border_outline": [
+        0.1433245,
+        0.10968699999999999,
+        0.1563355,
+        0.124573
+      ],
+      "sdk_layout": {
+        "point_probes": 9,
+        "neutral_json_round_trip": true
+      }
+    },
+    {
+      "case": "D03ScaledIsometric",
+      "source_sha256": "7cf7f1972b5bd55b39a2b97a7a257b7180f36b56d788eb5a414c510c46405f2f",
+      "native_record_sha256": [
+        "3d01d533890f04f3ea3aee8e4a94c8fe075f0ab54a4ecee172dc20be01498a84",
+        "42451d1d7308e2cd03ab4f84afbd0015a8a3c5c88bf55279761d99a8d55bcc6b"
+      ],
+      "definition": {
+        "bytes": 40664,
+        "map_next": 396,
+        "exact": true,
+        "sha256": "9b3091c159c1052d57cd7f4f1628e5a0f15eb98b4f1f2098070d421e70e59225"
+      },
+      "header": {
+        "bytes": 1735,
+        "map_next": 51,
+        "exact": true,
+        "sha256": "9537c34c99ee8b47a62b099b398622526f2e5df7e935d9b1406dff41aab670f1"
+      },
+      "native_comparison_checks": 36,
+      "orientation": "*Isometric",
+      "scale_decimal": 0.8,
+      "scale_ratio": [
+        0.8,
+        1.0
+      ],
+      "scale_flags": {
+        "f610": 2472,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15,
+        "f1010": 7,
+        "f1020": 0,
+        "f1028": 0,
+        "f102c": 0,
+        "f1030": 1
+      },
+      "model_to_view": [
+        0.7071067811865464,
+        -0.4082040559113551,
+        0.5773815451999837,
+        2.7755575615628914e-17,
+        0.8165408118857499,
+        0.5772877120855426,
+        -0.7071067811865488,
+        -0.4082040559113538,
+        0.5773815451999819,
+        0.18899304473782996,
+        0.13367244055629965,
+        -0.00854487153650199,
+        0.8
+      ],
+      "canonical_rotation": [
+        0.7071067811865464,
+        -0.4082040559113551,
+        0.5773815451999837,
+        2.7755575615628914e-17,
+        0.8165408118857499,
+        0.5772877120855426,
+        -0.7071067811865488,
+        -0.4082040559113538,
+        0.5773815451999819
+      ],
+      "canonical_rotation_matches": true,
+      "position_m": [
+        0.19267,
+        0.13253
+      ],
+      "edited_position_m": [
+        0.19540100000000002,
+        0.13079100000000002
+      ],
+      "sheet_dimensions_m": [
+        0.2794,
+        0.21589999999999998
+      ],
+      "model_box": [
+        0.01,
+        0.005,
+        0.0035,
+        0.02,
+        0.01,
+        0.007,
+        0.0,
+        0.0,
+        0.0,
+        0.011715374513859981
+      ],
+      "cached_model_center": [
+        0.01,
+        0.005,
+        0.0035
+      ],
+      "raw_outline": [
+        0.1850332467631853,
+        0.12485523294861438,
+        0.2003067532368147,
+        0.14020476705138563
+      ],
+      "geometry_outline": [
+        0.1850332467631853,
+        0.12485523294861438,
+        0.2003067532368147,
+        0.14020476705138563
+      ],
+      "border_outline": [
+        0.18071524676318532,
+        0.12053723294861438,
+        0.2046247532368147,
+        0.14452276705138561
+      ],
+      "sdk_layout": {
+        "point_probes": 9,
+        "neutral_json_round_trip": true
+      }
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "writer_outputs": 0,
+  "native_acceptance": false,
+  "record_from_audit_sha256": "742a095ab8460858fc348840cc765f17a89f4aa9e021e7a512a680171dfca047",
+  "host_supervisor_sha256": "6b06de1ce9132bb15e3537eed7e53758051770764ceeb1a03a52ba92cd3db967",
+  "source_authoring_commit": "f1b70b6c85f008d478b66c37313c83abc425eb6c",
+  "source_oracle": {
+    "Build": "34.5.2.0604",
+    "SHA256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "Processes": 10
+  },
+  "source_numeric_observations": 376,
+  "control_results": [
+    true,
+    true
+  ],
+  "sdk_point_probes": 36,
+  "sdk_json_roundtrips": 4,
+  "source_matched_rotation_count": 4,
+  "implementation_sha256": {
+    "re/tooling/sw2026/serial/AuditDrawingProjectionSources.py": "a0bbdf2a0c18dddd5ca4169e3f56d17c0b8d2ec94511344d7a9f69c21f055343",
+    "re/tooling/sw2026/serial/DrawingReadRules.py": "f8106939219aa7182c1e50f4a04050ede2f185b088531685622d78b7b4984132",
+    "src/convert/adapters/solidworks/Drawing/Definition/ConceptShapes.py": "462ab9381615e49ea7ef715b8e9591a62cd04552d46e03af9b1e6fa5b5eb355f",
+    "src/convert/adapters/solidworks/Drawing/Definition/Projection/ReadViewMatrix.py": "d4085b8bcd3ea4a30e56d3835c64b3730d8b7facc3dacc2c0de4abf93ad5ce34",
+    "src/convert/adapters/solidworks/Drawing/Definition/Projection/JoinViewOwners.py": "482cb20a63963c61e3537825db60f445b77127eb031ae90e2525d195e9c53876"
+  }
+}
