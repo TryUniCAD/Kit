@@ -9,11 +9,12 @@ anchor.
 Two authored assembled graphs pass exact round trips over six logical
 streams. The changed placement and mate name produce different stream
 lengths with zero runtime input file reads. Unsupported alignment or
-missing selection fails the process. Native solve, save and held-out
-acceptance are measured separately. The first generated pair passed native
+missing selection fails the process. The first generated pair passed native
 load, rebuild, child edit, save and reopen starting from coplanar positions.
-Placement correction and held-out acceptance remain open.
+The displaced pair passed native correction and rebuild. Persistence from
+the displaced start and held-out acceptance remain open.
 
 [Input and stream rules](../../../../../../re/solidworks/records/AssemblyCoincidentConstruction2026.md)
 · [Guarded receipt](../../../../../../re/solidworks/measurements/2026/GeneratedCoincidentMateBundle01.json)
-· [Native trial](SolidworksCoincidentMateNativeProof.md)
+· [Depth edit and reopen](SolidworksCoincidentMateNativeProof.md)
+· [Active correction](SolidworksCoincidentMateActiveSolve.md)

@@ -285,8 +285,10 @@ round-trip the required archive graph. The [first controlled native trial](measu
 opens one generated pair with coplanar placements, verifies the exact datum
 references and fixed anchor, then edits a driving depth and matches geometry
 after synchronized save and fresh reopen. Both controls passed over four
-processes. Placement correction, held-out mate acceptance and production
-qualification remain open.
+processes. The [displaced pair](measurements/2026/GeneratedCoincidentMateActiveSolve01.json)
+closes a 4.73 mm plane offset during open and preserves the solved placement
+through rebuild, with three clean processes. Persistence from the displaced
+start, held-out mate acceptance and production qualification remain open.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

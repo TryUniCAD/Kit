@@ -53,7 +53,10 @@ The guarded builder performs zero runtime file reads. The process rejects
 an unqualified alignment, repeated occurrence and missing datum.
 The first generated pair opened cleanly in SOLIDWORKS, retained the ordered
 plane references through a driving child depth edit, and saved and reopened
-with the new geometry. Both controls passed. Its input placements were
-already coincident. Placement correction and held-out acceptance remain open.
+with the new geometry. Another generated pair started with a 4.73 mm gap.
+SOLIDWORKS closed the gap during open, then preserved the solved pose during
+rebuild. Each trial passed both controls. Save from the displaced start and
+held-out acceptance remain open.
 [Construction receipt](../measurements/2026/GeneratedCoincidentMateBundle01.json) ·
-[Native trial](GeneratedCoincidentMateTrial2026.md)
+[Depth edit and reopen](GeneratedCoincidentMateTrial2026.md) ·
+[Active correction](CoincidentMateActiveSolve2026.md)
