@@ -329,6 +329,51 @@ record. Last-modification and last-save times are separate members `f60/f70`,
 identified by getters `0x319f8b30`/`0x31a008a0`; their final lifecycle policy
 still needs closure.
 
+### Ordinary external-file identity in the header
+
+The SOLIDWORKS 2026 `moHeader_c::hasExtObjRef` export at
+`sldarchiveu.dll!0x31a05460` walks the entries of its `f30` list and
+returns the first entry accepted by virtual slot `+0xe0`. The concrete
+`moExtObject_c` vtable `0x31a10318` binds that slot to its equality
+operator at `[0x319fc210,0x319fc347)`.
+
+The operator first accepts pointer identity. For distinct objects, slot
+`+0xd8` compares whether both objects are graphics references. The
+ordinary vtable's `+0xd0` target, `isGfxExtObj` at `0x319f9500`,
+returns false and selects the branch at `0x319fc2c3`. It compares
+the shared file definition's document kind at `+0x20` and creation
+timestamp at `+0x28`. The last comparison uses slot `+0x90` twice,
+checks equal string lengths and calls `CStringT::CompareNoCase`.
+The `+0x90` binding `0x31a008b0` returns shared-file field `+0x10`,
+the filename stem. The distinct path getter is `+0x88` at
+`0x31a009e0` and is not used by this branch.
+
+This is the header's ordinary equality lookup, not a claim about all
+runtime reference-resolution paths. Two generated files with the same
+kind, creation time and case-insensitive stem can match here even if their
+paths differ. The ordinary writer must handle such identity collisions
+explicitly. Graphics external references go through a separate comparison.
+The [identity gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ExternalFileIdentityUsesStemAndCreationTime.md)
+records the resulting construction constraint.
+
+Hopper via REA returned the comparison in evidence
+`ev_8e7a06b4c27329cefe33259c5ff36ecb211d6584fa113430be9278540fbf5b7d`.
+The slot addresses and string/member widths were verified against the
+original DLL instructions and PE table. This lookup has static evidence;
+the effect of a deliberate collision in a saved populated assembly is
+not measured.
+
+The same module's `moExtObjectList_c` constructor at `0x319fb090`
+initializes the id high-water mark at `+0x4c` to -1. The named index
+setter at `[0x31a01690,0x31a016b0)` sees an object's `f78=-1` as
+unassigned and stores `high_water + 1` into both the object and the
+list. A preassigned index is preserved and raises the list mark if it
+is greater. This makes the first id 0, and lets a populated list have
+sparse ids. The high-water mark is not the number of direct archive
+reference slots. The
+[index gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ExternalReferenceIdsAreNotListCounts.md)
+links the rule to REA and separates it from the entry count.
+
 ## Computed geometric bounds
 
 The first implemented assembly construction operation is

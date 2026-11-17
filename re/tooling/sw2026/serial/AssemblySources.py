@@ -73,7 +73,14 @@ def reference_updates(model_map, resolved_map):
             seen.add(id(node))
             fields = {key: node.f.get(key) for key in UPDATE_FIELDS}
             require(all(type(value) is int for value in fields.values()), f"unmodeled update fields in {node.cls}")
-            rows.append({"class": node.cls, "stream": stream, "archive_index": index, "fields": fields})
+            target = node.f.get("f3b0")
+            binding = {"present": target is not None}
+            if isinstance(target, ExtRef):
+                binding["direct_index"] = target.index
+            elif isinstance(target, Obj):
+                binding["class"] = target.cls
+                binding["list_index"] = target.f.get("f78")
+            rows.append({"class": node.cls, "stream": stream, "archive_index": index, "fields": fields, "external_binding": binding})
     return rows
 
 

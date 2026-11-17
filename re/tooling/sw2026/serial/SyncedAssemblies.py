@@ -54,6 +54,44 @@ def child_state(archive, reg):
     return {"f40": headers[0]["f40"], "f48": headers[0]["f48"], "f1300": config_doc.roots[0]["f1300"]}
 
 
+def reference_entry(node):
+    require(isinstance(node, Obj) and node.cls == "moExtObject_c", "ordinary external directory has an unexpected object kind")
+    definition = node["shared"]
+    stem = definition["h10"]
+    selected = node["refcfg"]
+    return {
+        "class": node.cls,
+        "document_kind": definition["f20"],
+        "filename_stem": stem["f08"] if isinstance(stem, Obj) else None,
+        "creation_timestamp": definition["f28"],
+        "reference_index": node["f78"],
+        "configuration": {"id": selected["f10"], "name": selected["f08"]},
+        "registration_counts": {key: node[key] for key in ("f48", "f4c", "f50")},
+        "timestamps": {key: node[key] for key in ("f60", "f70")},
+    }
+
+
+def file_directory(archive, reg):
+    result = {}
+    for stream in ("Header2", HEADER):
+        document, reader = load_rooted(archive.require(stream), reg, 1, 19000)
+        require(not document.tail and not reader.left(), "external directory projection has unread bytes")
+        headers = [node for node in document.roots if isinstance(node, Obj) and node.cls == "moHeader_c"]
+        require(len(headers) == 1, "external directory projection has no unique header")
+        header = headers[0]
+        listing = header["f30"]
+        owner = header["f38"]
+        entries = [] if listing is None else [reference_entry(row["o"]) for row in listing["items"]]
+        result[stream] = {
+            "entries": entries,
+            "self": None if owner is None else reference_entry(owner),
+            "list_class": None if listing is None else listing.cls,
+            "array_slots": len(entries) + int(owner is not None),
+            "active_component_count": header["fc4"],
+        }
+    return result
+
+
 def inspect(entry):
     path = CORPUS / entry["file"]
     require(not path.is_symlink() and path.resolve().parent == CORPUS.resolve(), "synchronized fixture is outside its corpus")
@@ -69,6 +107,8 @@ def inspect(entry):
     compared = report["streams"]
     if all(compared.get(key, {}).get("passed") for key in (CONFIG, HEADER, RESOLVED)):
         result["wire_state"] = decoded_state(archive, reg, True) if entry["role"] == "parent" else child_state(archive, reg)
+        if entry["role"] == "parent":
+            result["external_file_directories"] = file_directory(archive, reg)
     require(path.read_bytes() == raw, "synchronized fixture was mutated")
     result["passed"] = result["passed"] and "wire_state" in result
     return result
