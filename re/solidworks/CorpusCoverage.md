@@ -212,14 +212,23 @@ The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensions
 verifies two generated Front Plane rectangles with independent driving width and height edits.
 Both edited dimensions survived clean save and fresh reopen. The rebuilt geometry matched the
 analytical results and independently authored native reference parts. Both controls passed across
-22 processes. The generated and reference trees have 20 and 19 nodes respectively, and the synchronized
-assembly held-outs remain sealed. The production coverage counts are unchanged.
+22 processes. The generated and reference trees have 20 and 19 nodes respectively.
+The production coverage counts are unchanged.
 
 The [dimensioned assembly trials](measurements/2026/GeneratedDimensionedAssembliesNative04.json)
 verified independent width, height and depth edits in generated single- and repeated-occurrence
 bundles. All six trials matched their independent native geometry and exact recursive part and
 assembly trees through clean native open, rebuild, synchronized save and fresh reopen.
-Both controls passed in a 26-process batch. The two assembly held-outs remain sealed.
+Both controls passed in a 26-process batch. The subsequent
+[held-out comparison](measurements/2026/GeneratedDimensionedAssembliesHeldout05.json)
+passed all 210 gates across another six width, height and depth trials in three- and
+four-occurrence assemblies. Their parent and child files were generated before
+the native comparison archives and outcomes were opened. The observer matched
+both feature trees, configurations, component transforms, named dimensions and
+mass properties through rebuild, synchronized save and fresh reopen. Both
+controls passed across 26 distinct process births. This evidence qualifies the
+research profile with one repeated rectangular child and no mates. Production
+conversion coverage remains zero.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

@@ -33,4 +33,6 @@ trial matched the corresponding measured native assembly and child before its ed
 the edit, at synchronized save and on fresh reopen. The single- and repeated-occurrence
 parents preserved 23 and 24 recursive nodes respectively. All child trees preserved 25
 nodes. The geometry, transforms and all three driving values matched. The staged sources
-remained immutable. Both controls passed and A15/A16 remain sealed.
+remained immutable. Both controls passed. A15/A16 remained sealed throughout this
+discovery comparison and were measured later under the
+[held-out protocol](DimensionedAssemblyHeldoutProtocol2026.md).

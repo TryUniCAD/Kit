@@ -59,6 +59,21 @@ with the matching native source mass. Keep zero open and rebuild diagnostics,
 zero save warnings and an exact saved-child update stamp at fresh reopen.
 [Discovery protocol and tolerances](DimensionedAssemblyDiscovery2026.md).
 
-Publish the measured result for this ordinary placement profile and exact
-generator revision. Production corpus conversion requires the separate
-public writer and corpus acceptance.
+## Result
+
+The [pre-generation freeze](../v2026/heldout/AssemblyDimensionedPredictionFreeze01.json)
+was committed at `b1c2b68e3`. The
+[artifact prediction digest](../v2026/heldout/AssemblyDimensionedHeldoutPredictions01.json)
+was committed at `4a871a539` before binding the native archives. Each generated parent
+was opened directly at its encoded path. The source edit lanes preloaded their
+relocated reference part. Every saved comparison pair reopened directly in its
+own fresh process.
+
+The [native measurement](../measurements/2026/GeneratedDimensionedAssembliesHeldout05.json)
+records 210 passing comparison gates over six trials and 26 fresh processes.
+All 24 trial opens and all synchronized saves reported zero errors and warnings.
+Both bracketing controls were healthy, and all frozen inputs were unchanged.
+The three-occurrence assembly had 25 tree nodes and the four-occurrence assembly
+had 26. The child had 25 in both. This qualifies the ordinary repeated-child
+research profile at the pinned generator revision. Production corpus conversion
+requires a registered writer and production corpus acceptance.
