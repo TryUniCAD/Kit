@@ -17,7 +17,7 @@ The future A08a version-4 migration retains its planned scope.
 The existing `heartbeat --lease FILE` command is unchanged.
 Use `finish` to validate and submit a worker result.
 Changed prerequisite identities, stale tokens and expired deadlines still prevent renewal.
-See the [controller guide](../../Reference/Research/ResearchController.md) and [write-lock gotcha](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Gotchas/Research/HeartbeatArtifactHashing.md).
+See the [controller guide](../../Reference/Research/ResearchController.md) and [write-lock gotcha](../../Gotchas/Research/HeartbeatArtifactHashing.md).
 
 ## Verification
 

@@ -1,7 +1,5 @@
 # Durable research controller
 
-PR #94 is automation-only. This controller manages evidence and execution state on the existing main SDK; it does not add native decoders, writers or qualification. The [scope record](../../Changes/Research/AutomationOnlyScope.md) and [step register](AutomationSteps.md) distinguish current commands from preserved native-proof follow-ups.
-
 ## Purpose and scope
 
 A03 adds a local evidence store and job controller under `re/automation/`.
@@ -11,7 +9,7 @@ All work and current-step progress belong on [PR #94](https://github.com/TryUniC
 The controller does not launch workers, run shell commands, call models or decode CAD files.
 Later steps connect readers, comparison and investigation workers to this protocol.
 Production conversion must not import this research code.
-A02's incomplete independent qualification does not block this A03 metadata work.
+A02's missing native captures do not block this A03 metadata work.
 
 ## Store design
 
@@ -50,7 +48,7 @@ Unknown top-level fields are rejected.
 Dependencies and resources are arrays of labels; `options` is a JSON object.
 An input selector identifies a job in `depends_on` and can select its accepted result or a named artifact.
 The controller resolves the full input set in the same snapshot transaction that checks the dependencies.
-Candidate fingerprint selectors remain part of the generic dependency protocol for work awaiting CI. The original [fixed native batch example](https://github.com/Stephen316/Kit/blob/fb723e0a920b4d03ad2d5635882860b800a9b61c/Documentation/Changes/Research/Controller/PendingCandidateDependencies.md) is historical follow-up material; it does not accept or release that batch.
+Use [a candidate fingerprint selector](../../Changes/Research/Controller/PendingCandidateDependencies.md) for research jobs that can run while a selected candidate is awaiting CI.
 See [accepted dependency inputs](../../Changes/Research/Controller/DependencyOutputInputs.md) for the syntax and the Phase B example.
 Forward dependencies are allowed, but cycles roll back the submission.
 Use `submit-batch <file>` with a JSON object containing only `jobs`, an array of job records, to submit a group atomically.
@@ -147,7 +145,7 @@ The `/tmp/KitResearchState` path below is an example and can be removed by opera
 Commands emit bounded canonical UTF-8 JSON followed by LF and return `0` on success.
 Controller diagnostics also use UTF-8; subprocess clients must decode both output streams explicitly as UTF-8.
 The [transport repair](../../Changes/Research/Controller/ControllerUtfEightTransport.md) preserves Unicode paths and reasons under restrictive host encodings without changing record hashes or transaction semantics.
-The built-in A03 adapter decodes both controller output streams as UTF-8 before using verified artifact paths. The separate fixed native archive consumer and its original receipt evidence remain in the preserved follow-up source.
+The [archive inference consumer](../../Changes/Research/Controller/ControllerUtfEightConsumers.md) also decodes controller responses as UTF-8 before opening their verified artifact paths.
 Invalid records, unavailable stores and corrupted evidence return `1`.
 A stale lease from `heartbeat` or `finish` returns `3` with a `controller stale lease` message.
 A lease is stale when it was replaced, revoked or finished, when it expired, or when its inputs changed.
@@ -265,8 +263,6 @@ No distributed worker service, model provider, CAD adapter, neutral schema chang
 The A08a supervisor is the first local process that drives these commands.
 Worker-reported completion and a valid receipt do not prove the worker's assertion.
 Domain verification and native acceptance remain separate later steps.
-
-The current generic [inference runner](../../Changes/Research/Controller/DeterministicInference.md) records partial field hypotheses, parked gap assessments and main-reader rescans. Reserved native proof profiles refuse rather than falling through generic JSON evidence. Original native CI batch authority, missing Fusion source contracts, licensed restart evidence and the A15 pilot remain open under their owning steps.
 
 See [artifact publication across rollbacks](../../Gotchas/Research/ArtifactPublicationOutlivesRollback.md), [the step register](AutomationSteps.md) and [the corpus guide](PinnedCorpus.md).
 
