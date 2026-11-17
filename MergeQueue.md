@@ -159,10 +159,17 @@ The acceptance gate requires the plan, every shard, and the report to succeed.
 The trusted-base `CI Agg` of the first sharded candidate still requires that name.
 The CI allowlist matches shard check names by pattern because the shard count changes with the suite.
 
-The [compatibility report transition](Documentation/Changes/Ci/CompatibilityReportRetirement.md)
-prepares removal of the dedicated Fusion compatibility workflow.
-The aggregate permits those reports to be absent and still requires every reported job and workflow to succeed.
-The follow-up removes duplicate execution after this allowlist reaches the trusted base.
+Fusion archive and CLI process compatibility run in this complete suite.
+The planner verifies native schema provenance before collecting tests from `tests/`.
+The normal shards execute these cases with the other collected tests.
+The existing completeness report and acceptance gate cover their results.
+The [shared-suite change](Documentation/Changes/Ci/SharedCompatibilitySuite.md)
+removes their dedicated workflow and runners after the
+[allowlist transition](Documentation/Changes/Ci/CompatibilityReportRetirement.md) reaches the trusted base.
+
+Add new specialised end-to-end and compatibility tests under `tests/` using the existing discovery rules.
+Keep their preparation in the shared queue jobs and use the existing planner, shards, and report.
+This execution rule applies to new specialised coverage as well as Fusion and CLI compatibility.
 
 The seven historically flaky pending-aggregate probes and their dedicated helpers are removed.
 Completed-result process checks remain; pending-process liveness and evidence publication during waiting no longer have those probes.

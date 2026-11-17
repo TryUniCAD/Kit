@@ -66,6 +66,9 @@ jobs:
           key: queue-bytecode-${{ github.event.merge_group.base_sha || env.AuditSha }}
           restore-keys: queue-bytecode-
 
+      - name: Verify packaged native schema provenance
+        run: uv run --no-sync --python 3.14 python re/Fusion/Reconstruction/EntityGraph/PromoteCatalog.py --check
+
       - name: Collect the complete test suite
         run: |
           set -euo pipefail
