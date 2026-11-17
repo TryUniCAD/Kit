@@ -202,7 +202,7 @@ def ordinary_point(*, sketch: Obj, position: Sequence[float]):
 
 
 def point_handle(*, sketch: Obj, point: Obj, points: NodeOrder):
-    if sketch.cls != "sgSketch" or point.cls != "sgPoint" or point.get("_sketch") is not sketch:
+    if sketch.cls != "sgSketch" or point.cls not in ("sgPoint", "sgExternalPoint") or point.get("_sketch") is not sketch:
         raise ConstructionError("point handles require a point owned by their sketch")
     return Obj("sgPointHandle", DerivedFields(
         fields={"_sketch": sketch, "_point": point, "f1c": -1, "f08": 0},
@@ -436,8 +436,21 @@ def origin_profile(*, profile: Obj, plane: Obj, frame: PlaneFrame):
 def _local_ref_flag(*, sketch: Obj):
     if sketch["f138"].get("pd_f110") is not None:
         raise ConstructionError("derived-profile reference state requires additional native update rules")
+    anchor = sketch.get("_corner_origin")
+    anchored_point = None
+    if anchor is not None:
+        anchored_point, origin, relation = anchor
+        external = anchored_point["ext"]
+        selected = external["f08"]["f58"]
+        owner = sketch["f138"]["owner"]
+        if (anchored_point.cls != "sgExternalPoint" or anchored_point.get("_sketch") is not sketch
+            or origin.cls != "moOriginProfileFeature_c" or origin["owner"] is not owner
+            or selected.cls != "moCompSketchEntHandle_c" or selected["f58"]["owner"] is not owner
+            or selected["ff0"]["f00"] != origin["f08"] or selected["f0f8"].get("_sketch") is not origin["pd_f80"]):
+            raise ConstructionError("the external point must bind the actual origin in the same part")
     for name, field in (("points", "point"), ("lines", "line"), ("arcs", "arc")):
-        if any(entry[field]["ext"] is not None for entry in sketch[name]):
+        if any(entry[field]["ext"] is not None and (anchored_point is None or entry[field] is not anchored_point.f)
+               for entry in sketch[name]):
             raise ConstructionError("external sketch geometry requires additional native update rules")
     for entry in sketch["arcs"]:
         arc = entry["arc"]
@@ -469,9 +482,15 @@ def _local_ref_flag(*, sketch: Obj):
             raise ConstructionError("value reference inference requires a constructed local point-to-point dimension")
         for name in ("h1", "h2"):
             _require_local_handle(sketch=sketch, handle=dimension.get(name), kind="sgPointHandle", key="_point", order="_point_nodes")
-    for name in ("val_g3", "offset_dims", "log_g2", "log_g3", "iso", "linear_patterns", "linear_patt_cons", "circular_patterns", "circular_patt_cons", "list_7c0", "list_9f0", "groups"):
+    for name in ("val_g3", "offset_dims", "log_g3", "iso", "linear_patterns", "linear_patt_cons", "circular_patterns", "circular_patt_cons", "list_7c0", "list_9f0", "groups"):
         if dims[name]:
             raise ConstructionError(f"reference-state inference is not established for {name}")
+    if dims["log_g2"]:
+        if (anchor is None or len(dims["log_g2"]) != 1 or dims["log_g2"][0]["d"] is not relation
+            or relation["f80"] != 9 or relation["h1"].get("_point") is not anchored_point):
+            raise ConstructionError("binary relation reference inference requires the constructed origin coincidence")
+        for handle in (relation["h1"], relation["h2"]):
+            _require_local_handle(sketch=sketch, handle=handle, kind="sgPointHandle", key="_point", order="_point_nodes")
     for record in dims["log_g1"]:
         relation = record["d"]
         handle = relation["h1"]

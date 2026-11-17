@@ -17,6 +17,7 @@ from builders.Extrude import DimensionGraph, live_blind_extrusion, live_extrusio
 from builders.Metadata import FILE_VERSION, PRINCIPAL_KEYWORD_ROLES, biography, boolean, fields, header, history, keywords, streams
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
 from builders.Radial import circle_dimension
+from builders.RectangleAnchor import corner_origin
 from builders.RectangleDimensions import rectangle_dimensions
 from builders.ReferencePlane import OffsetPlaneGraph, construct_offset_plane
 from builders.Revolve import live_revolution, revolved_profile
@@ -163,9 +164,13 @@ def document_shape(document):
     return fields(document, "part document", required, optional), profile_kind, feature_kind
 
 
-def construct_part(*, registry, document, provenance, presentation, target, output=None, native_plane_roles: bool = False, blind_cut_discovery=_NO_BLIND_CUT, offset_plane_discovery=_NO_OFFSET_PLANE):
+def construct_part(*, registry, document, provenance, presentation, target, output=None, native_plane_roles: bool = False, blind_cut_discovery=_NO_BLIND_CUT, offset_plane_discovery=_NO_OFFSET_PLANE, rectangle_anchor=None):
     boolean(native_plane_roles, "native plane keyword roles")
     document, profile_kind, feature_kind = document_shape(document)
+    if rectangle_anchor is not None and (rectangle_anchor != "corner" or profile_kind != "polygon" or
+        feature_kind != "blind_extrusion" or document["plane_axis"] != "z" or "rectangle_dimensions" not in document or
+        blind_cut_discovery is not _NO_BLIND_CUT or offset_plane_discovery is not _NO_OFFSET_PLANE):
+        raise ArchiveError("rectangle anchor discovery requires one origin-corner dimensioned Front Plane blind boss")
     if blind_cut_discovery is not _NO_BLIND_CUT and (profile_kind != "polygon" or feature_kind != "blind_extrusion" or document["plane_axis"] != "z" or native_plane_roles):
         raise ArchiveError("blind cut discovery requires a standalone Front Plane part with one ordinary rectangular blind boss")
     if offset_plane_discovery is not _NO_OFFSET_PLANE:
@@ -237,12 +242,12 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     }
     origin_node = model_feature(cls="moOriginProfileFeature_c", name=document["origin_name"], **feature_values)
     if offset_plane is None:
-        origin_profile(profile=origin_node, plane=component_plane(**reference_values), frame=frame)
+        origin_graph = origin_profile(profile=origin_node, plane=component_plane(**reference_values), frame=frame)
     else:
         support = offset_plane.support
         origin_frame = PlaneFrame(origin=(0.0, 0.0, 0.0), u=support["_plane_u"], v=support["_plane_v"])
         origin_reference = {**reference_values, "plane": support, "principal_normal": origin_frame.normal}
-        origin_profile(profile=origin_node, plane=component_plane(**origin_reference), frame=origin_frame)
+        origin_graph = origin_profile(profile=origin_node, plane=component_plane(**origin_reference), frame=origin_frame)
     profile_node = model_feature(cls="moProfileFeature_c", name=document["sketch_name"], **feature_values)
     revolve_source = None
     if feature_kind == "revolve":
@@ -299,6 +304,9 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
             design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
         )
         features += (revolve_node,)
+    if rectangle_anchor is not None:
+        corner_origin(graph=profile, origin=origin_graph, component=graph.part["f990"],
+                      origin_created_at=logged_creation_time(timestamps=()))
     pocket = None
     if blind_cut_discovery is not _NO_BLIND_CUT:
         pocket = blind_pocket(
