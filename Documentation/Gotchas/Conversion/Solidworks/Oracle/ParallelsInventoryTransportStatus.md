@@ -15,3 +15,9 @@ The host supervisor likewise reports guest state as unknown after a clean transp
 Keep each command's exit status, stdout, stderr and observation time. Preserve unsuccessful receipts rather than replacing them. An independent direct invocation of `C:\Windows\System32\tasklist.exe /FO CSV /NH` through `prlctl exec "Windows 11" --current-user` succeeded with exit zero and a complete CSV result. Filter that recorded data for the CAD and license process names, retain its raw-output hash, and report the observed process state separately from native measurement success.
 
 This read-only fallback observed no SOLIDWORKS process and unchanged license-process IDs. It started no CAD/COM session and changed no service, license or VM state. The [fresh training receipt](../../../../../re/solidworks/measurements/2026/RadialTrainingReopenEdit02.json) records the successful inventory independently of transport cleanup.
+
+On Parallels 27.1.0, `--use-advanced-terminal` reached the same current-user
+session after the default channel returned `255`. Its output included terminal
+control sequences. A later default-channel inventory returned clean JSON and
+exit zero before and after the
+[self-reference batch](../../../../../re/solidworks/measurements/2026/AssemblySelfReferenceNative01.json).

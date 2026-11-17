@@ -472,7 +472,50 @@ configuration model header. The latter provides its actual object for
 the direct archive map. Construction does not consult a path or clock.
 The guarded process can distinguish the model name, filename, creation
 timestamp and save timestamp. Native acceptance of this self-reference
-variant remains to be measured.
+variant is recorded in [the self-reference measurement](../measurements/2026/AssemblySelfReferenceNative01.json).
+The 6,268-byte candidate passed open, rebuild, save and fresh reopen in
+the pinned SOLIDWORKS build, with six distinct processes and all controls
+healthy. This result covers one empty assembly with a generated self record.
+
+### Child directory timestamp sources
+
+In the ordinary downward out-of-date walk in `slduiu.dll`, call
+`0x49436e2b` obtains the actual child model header through virtual
+`+0x11f0`. At `0x49436f36` the held header reaches IAT `0x4a46a6f0`,
+`moHeader_c::getSelfRefLastModTimestamp`. The helper at `0x49439bc0`
+uses this value to refresh the parent's directory entry at `f60`
+when needed. The upward path calls that helper at `0x494376c9`.
+The getter `sldarchiveu.dll!0x31a053c0` reads the child's `f38` self
+object and returns its `f60` through `0x319f8b30`. The branch without
+a self object takes `su_CTime::GetTickCount` at `0x31a053e5`, the same
+Unix-time source traced above. This fallback makes the child self
+record material to the parent-child synchronization flow even when a
+minimal standalone child opens without it.
+
+The child manager's runtime save timestamp supplies the separate
+directory field `f70`. `doccplu.dll!SolidStorage_c::CreateNewConfigMgr`
+at `0x180031410` and `LoadConfigMgr` at `0x180039190` call
+`dmConfigMgrHeader_c::getSaveTimeStamp` through thunk `0x180046407`
+and IAT `0x180053058`. Both pass the result to the manager setter
+through thunk `0x18004609b`, which resolves to `sldmodu.dll!0x4b2931a0`.
+That setter stores the value at runtime `+0x570`. The manager header
+stores its save timestamp in `f60` on the `0xFD2` and later archive
+path. Its storage loader `sldarchiveu.dll!0x319f9540` selects
+`Contents/CMgrHdr2` for versions at least `0x816`, and the writer at
+`0x319f9820` follows the same filename selection. The full configuration
+stream `Contents/CMgr` has a separate object owner.
+
+On store, `doccplu.dll!SolidStorage_c::SaveConfigMgr` obtains the
+actual manager's `getLastSavedTimeStamp` at `0x18003ea95`, via IAT
+`0x180051f70`, and passes that value to the header setter at
+`0x18003eaa5`. The same function obtains the manager's tree sort order
+at `0x18003eaad`, adds a header entry for each visited configuration
+at `0x18003ee5f`, and writes the manager header through `0x18003efb2`.
+
+The child occurrence's update time still comes from the actual model
+header's `f48` through the reference update path. The disclosed readback
+now retains all three sources and exact manager-header stream comparisons.
+See the [timestamp gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ExternalReferences/ChildDirectoryTimesHaveDistinctOwners.md).
 
 ## Computed geometric bounds
 

@@ -1,0 +1,329 @@
+{
+  "schema": "kit.sw2026.assembly-self-reference-native-measurement.v1",
+  "scope": "generated empty assembly with an ordinary self record and one active configuration",
+  "native_application": {
+    "file_version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "pe_machine": "0x8664",
+    "vm": "Windows 11 ARM64 with x64 emulation",
+    "prog_id": "SldWorks.Application.34"
+  },
+  "generator": {
+    "pr_head": "d3f7fe4f64f03c580d41c9c6b2278699a2a5da5e",
+    "tested_merge": "2948ad4b3fd34b69b9b07c0a772cf78cc5804d46",
+    "tested_tree": "2f2f8db21384f12bd18b50e7cdd91fd3b4bf715b",
+    "workflow_run": 44018181604,
+    "native_format_job": 133821039190,
+    "artifact_id": 14299384315,
+    "artifact_sha256": "0727a9e4511079ce4faa6ee5f9dfdcfce572c6abde6a1bc8d8a93e2483fcdd44",
+    "candidate_bytes": 6268,
+    "candidate_sha256": "967b115ca0f44246fc82e8b22d7034dae0c43e58f7b2b80c7d5c762435ab576e",
+    "candidate_receipt_sha256": "11d4bcffb69cacb129bfe9ba3926cf130206cf69e30b64ca05a252862b54a06a",
+    "oracle_tool_revision": "055f98c5d6ede74128f670ca90f909673cbb11d7"
+  },
+  "verified_reproduction": {
+    "pr_head": "055f98c5d6ede74128f670ca90f909673cbb11d7",
+    "tested_merge": "693a9f4c9dcfc9c4645986f14154d1aa8c761ef6",
+    "tested_tree": "f7d970aab14d8b912d1850e849139565b04e8f01",
+    "workflow_run": 44018902199,
+    "native_format_job": 133823407055,
+    "artifact_id": 14300356591,
+    "artifact_sha256": "9fcc4c34b2e0525ff58256495a160c4245a33014297c2db0e85285fee41fe9f3",
+    "candidate_sha256": "967b115ca0f44246fc82e8b22d7034dae0c43e58f7b2b80c7d5c762435ab576e"
+  },
+  "tool_sha256": "70eb018612cad0b33b2581277a3eb9b0121b7ca946e4c15ff799326ba1b9d456",
+  "oracle_source_manifest_sha256": "67b88b056d6f1546175eb7f5baf0a2b4fa5845b4349826386c5b42d87afafd6c",
+  "oracle_job_sha256": "bfd4f848abfa89d80c578e40f6e6328be05d10299b77ca748c818d686c29c841",
+  "private_inspection_sha256": "79ebe0b890fbbf4dcaaa99b7e842861f1d8b9b32293659fc9c3c8348fed45f09",
+  "private_transport_sha256": "5606bff5902a5a75e487cb715e69e3044e462633902ce985a8f8a22ddc7a3797",
+  "inspection_started_at": 1794890630.723832,
+  "inspection_finished_at": 1794890866.22401,
+  "distinct_oracle_launches": 6,
+  "controls_healthy": true,
+  "solid_part_control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "native_empty_control_sha256": "116ef8b6ff8c96d3a258ef4352c9c95745e0289d4124f996c1665b44ff2a5d6a",
+  "license_processes_before": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    }
+  ],
+  "license_processes_after": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    }
+  ],
+  "preflight_sha256": "39cedcb98e2ca2fcc15d69d83e48f7024b4a1fef6cf59f3fbe86683d76cb06fe",
+  "postflight_sha256": "39cedcb98e2ca2fcc15d69d83e48f7024b4a1fef6cf59f3fbe86683d76cb06fe",
+  "solidworks_processes_after": [],
+  "machine_reset": false,
+  "guest_process_termination_by_supervisor": false,
+  "generated_stream_sha256": {
+    "Contents/CMgr": "c702cfe7b03ffa150efdd45e98c0d6b85548f0290d384a6711cecfce96bad668",
+    "Contents/Config-0": "8e23ce355295c674da4a4a8fdbaefa7b88617fb1357724b33fcaa9e32fc73665",
+    "Contents/Config-0-MatesList": "2f7a9abc14f7d5fa206df58e617c0db27cd42454216016b834ad3e2974898a9f",
+    "Contents/Config-0-ModelHeader": "856c8ab4dfc85a9b4c799b130800fa3ce018b16fc74e5331541bca0c495f92a1",
+    "Contents/Config-0-ResolvedFeatures": "2a3154051e2912e27f6ca07eaa8c5ac7413ae7aa770a4b9f96f2d1882b648933",
+    "Contents/Definition": "9bed5cc047e6f30d3014e851c8c03542560d6fc8d3ea90f07a9d5e5f478d2db8",
+    "Header2": "0ca632a81f4574bbafe13ac14ded6cacad7346194e050ef46df67b13b67ccd67",
+    "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+    "_MO_VERSION_19000/History": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+  },
+  "generated_bytes": 6268,
+  "ref_record": {
+    "class": "moExtObject_c",
+    "name": "SelfReferenceModel",
+    "filename": "SelfReferenceFile.SLDASM",
+    "creation_time": 1794700000,
+    "document_kind": 3,
+    "configuration": {
+      "f08": "Default",
+      "f10": 0
+    },
+    "fields": {
+      "f48": 1,
+      "f4c": 0,
+      "f50": 0,
+      "f54": 0,
+      "f58": 0,
+      "f60": 1794700037,
+      "f70": 0,
+      "f78": -1
+    },
+    "archive_slots": [
+      3
+    ],
+    "headers_agree": true
+  },
+  "open": {
+    "sha256": "967b115ca0f44246fc82e8b22d7034dae0c43e58f7b2b80c7d5c762435ab576e",
+    "opened": true,
+    "open_errors": 0,
+    "open_warnings": 0,
+    "rebuild_return": true,
+    "input_immutable": true,
+    "record_sha256": "9f33abb9c9f915e648df3ace8a0e5a7f8033b24d08971d4c36c3d560cebe2ca5"
+  },
+  "save": {
+    "status": [
+      true,
+      0,
+      0
+    ],
+    "sha256": "c51028a466c3dd9df413ebd1183641cbf7c60c8044fceb7dbfe6fa54c74f0029",
+    "bytes": 24039
+  },
+  "fresh_reopen": {
+    "sha256": "c51028a466c3dd9df413ebd1183641cbf7c60c8044fceb7dbfe6fa54c74f0029",
+    "opened": true,
+    "open_errors": 0,
+    "open_warnings": 0,
+    "rebuild_return": true,
+    "input_immutable": true,
+    "record_sha256": "7297e372b7cb86965a4e7f3d0bafb6404f2f2d382fcdf178e9102b6de43e7bce"
+  },
+  "matching_candidate_observations": 5,
+  "tree_sha256": "c03c02ab5558952c26ad3ee807f52bec411741838b7177bb6be0e13c0d4f3ebb",
+  "tree": [
+    {
+      "name": "Comments",
+      "type": "CommentsFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Favorites",
+      "type": "FavoriteFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "History",
+      "type": "HistoryFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Selection Sets",
+      "type": "SelectionSetFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Sensors",
+      "type": "SensorFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Live Section Planes",
+      "type": "LiveSectionFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Design Binder",
+      "type": "DocsFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Annotations",
+      "type": "DetailCabinet",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Notes",
+      "type": "NotesAreaFtrFolder",
+      "parent": "Annotations",
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Notes1___EndTag___",
+      "type": "NotesAreaFtrFolder",
+      "parent": "Annotations",
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Lights and Cameras",
+      "type": "EnvFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Ambient",
+      "type": "AmbientLight",
+      "parent": "Lights and Cameras",
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Directional1",
+      "type": "DirectionLight",
+      "parent": "Lights and Cameras",
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Directional2",
+      "type": "DirectionLight",
+      "parent": "Lights and Cameras",
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Directional3",
+      "type": "DirectionLight",
+      "parent": "Lights and Cameras",
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Markups",
+      "type": "InkMarkupFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Equations",
+      "type": "EqnFolder",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Front Plane",
+      "type": "RefPlane",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Top Plane",
+      "type": "RefPlane",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Right Plane",
+      "type": "RefPlane",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Origin",
+      "type": "OriginProfileFeature",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    },
+    {
+      "name": "Mates",
+      "type": "MateGroup",
+      "parent": null,
+      "error": 0,
+      "warning": false,
+      "suppressed": false
+    }
+  ],
+  "active_configuration": "Default",
+  "body_count": 0,
+  "open_component_count": 0,
+  "native_acceptance": true,
+  "heldout_acceptance": false,
+  "accepted_production_parts": 0,
+  "accepted_production_assemblies": 0
+}
