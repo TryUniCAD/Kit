@@ -68,7 +68,7 @@ The command copies the original manifest and supplied source files into the snap
 It checks their pins through the existing reporter.
 
 An omitted intervention source is unmeasured.
-An empty signed intervention source attests zero interventions.
+An empty intervention source supplies an operator attestation of zero interventions.
 An omitted or empty interval source does not establish active agent time.
 Acceptance attestations remain attestations until the independent gate verifies their referenced receipts.
 The command claims zero independently verified gains when acceptance evidence is absent.
