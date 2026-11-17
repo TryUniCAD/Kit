@@ -11,7 +11,7 @@ from builders.AssemblyOccurrences import assembly_occurrence_bounds, occurrence_
 from builders.AssemblyPlanarMate import aligned_planar_mate
 from builders.DefinitionSdk import assembly_definition_stream
 from builders.ExternalFiles import ordinary_self_reference, referenced_configuration
-from builders.Metadata import BIOGRAPHY_STREAM, FILE_VERSION, HISTORY_STREAM, biography, boolean, fields, header, history, revision_log, rooted_metadata_streams, semantic_stamp, sequence
+from builders.Metadata import BIOGRAPHY_STREAM, FILE_VERSION, HISTORY_STREAM, biography, boolean, fields, header, history, integer, revision_log, rooted_metadata_streams, semantic_stamp, sequence, text
 from builders.Model import PersistentIds, configuration_manager, node_list, object_list, record_configuration_progress
 from builders.Part import PartConstruction, construct_part
 from builders.Sketch import PlaneFrame
@@ -152,7 +152,7 @@ def _construct_assembly(*, registry, request, child=None, occurrences=(), mate_r
         raise ValueError("assembly XML metadata selection must be boolean")
     fields(request, "assembly", ("name", "configuration_name", "origin_name", "mate_group_name", "provenance", "target", "presentation"), ("output",))
     name, presentation, provenance = (request[key] for key in ("name", "presentation", "provenance"))
-    dimension_fields = ("design_intent", "selected_leader") if mate_requests and mate_requests[0].get("kind") == "distance" else ()
+    dimension_fields = ("design_intent", "selected_leader") if any(mate.get("kind") == "distance" for mate in mate_requests) else ()
     fields(presentation, "assembly presentation", ("styles", "units", "definition", "assembly_features", "language_id", "cjk_saved", *dimension_fields))
     fields(provenance, "assembly provenance", ("author", "company", "created_at", "modified_at", "comment", "originating_build_code", "license_origin"))
     target = fields(request["target"], "assembly target", ("date_code", "parasolid_version"))
@@ -169,17 +169,18 @@ def _construct_assembly(*, registry, request, child=None, occurrences=(), mate_r
             model=model, configuration=configuration, top_header=top_header, model_header=model_header,
             child=child, occurrences=occurrences, ids=ids, target=target, first_ordinal=len(features) - 1,
         )
-        if mate_requests:
-            mate_request, = mate_requests
+        mates = []
+        dimension_presentation = {key: presentation[key] for key in dimension_fields}
+        for mate_request in mate_requests:
             created_at = mate_request.get("created_at", provenance["modified_at"])
             mate = aligned_planar_mate(
                 assembly=model, group=features[-1], occurrences=references, child=child, model_header=model_header,
                 configuration=configuration, allocator=ids, target=target, request=mate_request, created_at=created_at,
-                dimension_presentation={key: presentation[key] for key in dimension_fields},
+                dimension_presentation=dimension_presentation,
             )
             _record_mate_creation(mate=mate, allocator=ids, configuration=configuration, headers=(top_header, model_header),
                                   stamp={**stamp, "timestamp": created_at})
-            mates = (mate,)
+            mates.append(mate)
     result = _header_streams(registry=registry, top_header=top_header, model_header=model_header, configuration=configuration, stamp=stamp, provenance=provenance, presentation=presentation)
     config, state = store_config_state(StreamDoc(CONFIG, {"model_header": model_header}, [model]), registry, FILE_VERSION)
     context = {"model_compressed_stream": 1, "model_is_part": 0, "cmgr_f658": manager["f658"]}
@@ -212,8 +213,15 @@ def construct_assembly_bundle(*, registry, request, include_xml_metadata: bool =
     if not occurrences:
         raise ValueError("this research bundle requires at least one resolved occurrence")
     mates = tuple(sequence(values.get("mates", ()), "assembly mates"))
-    if len(mates) > 1 or any(not isinstance(mate, dict) for mate in mates):
-        raise ValueError("the discovery composer accepts a single supported planar mate")
+    if any(not isinstance(mate, dict) for mate in mates):
+        raise ValueError("assembly mates require authored mappings")
+    if mates:
+        names = [text(mate.get("name"), "mate name") for mate in mates]
+        if not all(names) or len(set(names)) != len(names):
+            raise ValueError("ordinary planar mates require distinct nonempty names")
+        anchors = {integer(mate.get("fixed_occurrence"), "fixed occurrence ordinal", high=len(occurrences) - 1) for mate in mates}
+        if len(anchors) != 1:
+            raise ValueError("ordinary planar mates require one shared fixed occurrence")
     child_request = fields(values["child"], "generated child", ("document", "provenance", "presentation", "target", "output"))
     child = construct_part(registry=registry, native_plane_roles=include_xml_metadata, **child_request)
     return AssemblyBundle(_construct_assembly(registry=registry, request=values["assembly"], child=child, occurrences=occurrences,

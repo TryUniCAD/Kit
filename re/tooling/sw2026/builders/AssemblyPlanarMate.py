@@ -34,8 +34,8 @@ def aligned_planar_mate(*, assembly, group, occurrences, child, model_header, co
         required += ("distance_m",)
     fields(request, "planar mate", required, ("created_at",))
     kind = request["kind"]
-    if not isinstance(kind, str) or kind not in PLANAR_MATE_CLASSES or request["alignment"] != "aligned" or len(occurrences) != 2:
-        raise ValueError("the discovery composer admits one aligned coincident, parallel or distance mate between two ordinary occurrences")
+    if not isinstance(kind, str) or kind not in PLANAR_MATE_CLASSES or request["alignment"] != "aligned" or len(occurrences) < 2:
+        raise ValueError("the mate constructor requires aligned coincident, parallel or distance between resolved occurrences")
     if group.cls != "moMateGroup_c" or group["owner"] is not assembly:
         raise ValueError("the planar mate must register with the assembly's own mate group")
     filetime = feature_filetime(created_at)
