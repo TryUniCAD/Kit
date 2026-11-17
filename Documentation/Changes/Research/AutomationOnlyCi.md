@@ -1,6 +1,6 @@
-# Automation-only CI boundaries
+# Research CI phase boundaries
 
-The automation candidate preserves main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b` and its single-phase CI policy.
+The phase integration preserves main `5299eb2ffa5c287c93008bd221df6af2c2f9eb5b` and its single-phase CI policy.
 Light PR checks and existing queue checks retain their conditions, names, commands, pins and acceptance requirements.
 No cross-phase PR result reuse or dedicated inference job is restored.
 
@@ -8,8 +8,7 @@ Generic research coverage enters the complete `tests/` collection through the ex
 This includes controller, reader transport, corpus custody, semantic comparison, inference, worker transport and supervised-process cases.
 The shared Linux shards and completeness report still require every planned test exactly once.
 Only shards containing inference cases synchronize the existing locked development dependency group.
-New native decoder/writer proofs, fixed capture censuses and paired native archive releases remain in their preserved follow-up scope.
-Generic automation reports cannot substitute for those native proofs.
+Restored named decoder and writer tests run through the same collection, including the exact per-file Fusion census. The original PR #94 paired-archive receipt binds its original pull-request workflow and merge parents. Release of the pending historical batch retains its original authority and receipt checks.
 
 The plan publishes its exact collected roster with `ShardPlan`.
 Supplemental Windows 2025 and macOS 26 runs select required process cases from that same roster.

@@ -13,6 +13,8 @@ KRequiredNotice = (
 # only the complete leading notice may survive because misplaced or altered commentary remains prohibited
 def GetNoticeLines(SourceText: str) -> set[tuple[int, int]]:
     SourceLines = SourceText.replace("\r\n", "\n").split("\n")
-    if tuple(SourceLines[: len(KRequiredNotice)]) != KRequiredNotice:
+    FirstLine = int(SourceLines[0].startswith("#!"))
+    AfterLine = FirstLine + len(KRequiredNotice)
+    if tuple(SourceLines[FirstLine:AfterLine]) != KRequiredNotice:
         return set()
-    return {(LineNum, 0) for LineNum in range(1, len(KRequiredNotice) + 1)}
+    return {(LineNum, 0) for LineNum in range(FirstLine + 1, AfterLine + 1)}
