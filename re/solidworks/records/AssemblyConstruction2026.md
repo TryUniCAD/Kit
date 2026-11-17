@@ -172,6 +172,16 @@ follows the header lifecycle. The native next-update method replaces header
 `f48` with wall time. The fresh writer must derive its corresponding header
 state from explicit authored inputs and documented transitions.
 
+The [synchronized child and parent readback](../measurements/2026/AssemblySyncReadbackProcesses9c0.json)
+passes all nine cross-file comparisons in the clean single and repeated
+discovery assemblies: every reference's `f3e0`, `f3e8` and `f3f4` match its
+actual child header `f40`, header `f48` and model `f1300`. The construction
+helper now derives those values from the supplied child objects, uses the
+traced part-only literal for `f3f8`, and increments the separate placement
+seed only when the placement is assigned. These are reference fields within
+the ordinary part-target branch; the entire occurrence graph is not yet
+constructed or natively accepted.
+
 Without a target header, getters `0x4bdac640` and `0x4bdac6a0` return 101 and
 -1 respectively. Those fallbacks do not establish a completed, attached-header
 reference state.
@@ -362,6 +372,10 @@ policy remain to be closed. Assembly `f1a28` feeds byte `+0x102` in the bounding
 traversal context (`0x4b6c1ab0`); handler `0x4b6c9860` uses it to retain matching
 user-component records even when their `hasBody` query is false. This closes a
 specific dataflow use but does not yet establish the complete authored option.
+
+The [original lightweight store](AssemblyInitialRoot2026.md) separately gates
+both presence bytes on `mgBBox_c::isSet`. An empty model can omit both box
+records without claiming its native allocation contained null pointers.
 
 The helper was statically parsed; no local builder import, serialization or
 test execution was performed. Remote process coverage will exercise it with the

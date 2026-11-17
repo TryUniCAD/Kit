@@ -771,7 +771,7 @@ def model_fields(
     allocator: PersistentIds,
     detail_definitions: dict,
     document_units: Obj,
-    analysis_units: Obj,
+    analysis_units: Obj | None,
     self_component: Obj | None,
     relation_graph: Obj | None,
 ) -> dict:
@@ -779,8 +779,13 @@ def model_fields(
         raise ArchiveError("base model fields require a fresh empty part or assembly record")
     if not isinstance(detail_definitions, dict) or not detail_definitions:
         raise ArchiveError("model construction requires generated detail definitions")
-    if any(not isinstance(units, Obj) or units.cls != "moUnitsTable_c" for units in (document_units, analysis_units)):
-        raise ArchiveError("model construction requires explicit native unit-table graphs")
+    if not isinstance(document_units, Obj) or document_units.cls != "moUnitsTable_c":
+        raise ArchiveError("model construction requires a native user unit table")
+    if analysis_units is None:
+        if node.cls != "moAssembly_c":
+            raise ArchiveError("fresh parts require an explicit native analysis unit table")
+    elif not isinstance(analysis_units, Obj) or analysis_units.cls != "moUnitsTable_c":
+        raise ArchiveError("analysis units must be a native unit table")
     if self_component is not None:
         if not isinstance(self_component, Obj) or self_component.cls != "moUnitComponent_c":
             raise ArchiveError("fresh model self components must be native unit components")

@@ -14,5 +14,7 @@ parent's linked reference identities through the configuration map. It
 reports whether each saved reference's update counter, update time and
 geometry counter match the corresponding fields in its actual child. The
 comparisons are observations, with no imposed equality for an unproved
-native field rule. These fixtures add no generated assembly or writer
-acceptance. Remote evidence is pending.
+native field rule. The [remote receipt](../../../../../re/solidworks/measurements/2026/AssemblySyncReadbackProcesses9c0.json)
+passes all 35 archive comparisons. The saved update counter, update time and
+geometry counter match the precise child file for all three references.
+These fixtures add no generated assembly or writer acceptance.

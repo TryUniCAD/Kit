@@ -5,7 +5,7 @@ from math import isfinite, sqrt
 from ntpath import basename, splitext
 
 from Core import Obj
-from builders.Model import base_configuration_fields, object_list
+from builders.Model import PersistentIds, base_configuration_fields, clear_model_update, model_fields, object_list, relation_manager, unit_component
 
 
 def bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict:
@@ -133,3 +133,32 @@ def initial_configuration(
         "fce0": None,
     })
     return result
+
+
+def initial_assembly_model(*, name: str, allocator: PersistentIds, detail_definitions: dict, document_units: Obj) -> Obj:
+    node = Obj("moAssembly_c")
+    fields = model_fields(
+        node=node, name=name, allocator=allocator, detail_definitions=detail_definitions,
+        document_units=document_units, analysis_units=None,
+        self_component=unit_component(owner=node), relation_graph=relation_manager(owner=node),
+    )
+    fields.update({name: {"n": 0, "items": []} for name in ("f14a0", "f14d8", "f18c8", "f18e8")})
+    fields.update({name: None for name in ("f15a0", "f1608", "f1748", "f1740", "f1590", "f1868")})
+    fields.update({name: 0 for name in ("f1560", "f1570", "f1750", "f1598", "f1710", "f1940", "has_f1a18", "has_f1a20")})
+    fields.update(f1a28=1, f1674=-1)
+    clear_model_update(model=node)
+    return node
+
+
+def ordinary_part_reference_stamps(*, child_model: Obj, child_header: Obj, assigned_transform: bool) -> dict:
+    if not isinstance(child_model, Obj) or child_model.cls != "moPart_c":
+        raise ValueError("ordinary part reference updates require a part model owner")
+    if not isinstance(child_header, Obj) or child_header.cls != "moHeader_c":
+        raise ValueError("ordinary part reference updates require a child header owner")
+    if type(assigned_transform) is not bool:
+        raise ValueError("placement assignment requires an explicit boolean")
+    values = {"f3e0": child_header.f.get("f40"), "f3e8": child_header.f.get("f48"), "f3f4": child_model.f.get("f1300")}
+    if any(type(value) is not int or not 0 <= value <= 0xFFFFFFFF for value in values.values()):
+        raise ValueError("child reference update fields must fit the native unsigned domain")
+    values.update(f3f0=101 + int(assigned_transform), f3f8=101)
+    return values
