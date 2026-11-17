@@ -1,0 +1,652 @@
+{
+  "complete_cad_acceptance": false,
+  "fresh_rejection_processes": 7,
+  "fresh_successful_processes": 8,
+  "full_containers_match_research_writer": true,
+  "heldout_inputs_read": 0,
+  "independent_model_constructions": 16,
+  "independent_neutral_fixture_sha256": "a127d66ab5938b090fb94f33c87d507f7fa2ed796e591c001633f1c0ae3ee459",
+  "limits": [
+    "The SDK owns only the sheet own-field body, not the full Definition stream or neutral drawing construction.",
+    "These are independently authored offline component proofs, not new native qualification.",
+    "Inherited bases, caller map lifetime, model/UI suffix and other document streams retain their existing owners."
+  ],
+  "native_acceptance": false,
+  "negative": {
+    "cases": [
+      {
+        "error": "Core.ArchiveError: invalid archive object: sheet body requires version 19000 and moDrSheet schema one",
+        "input_sha256": "a787d62e653a3423810f0e7efe74173855379a4c93a5110fb8ba62014dd80ee5",
+        "native_map_and_buffer_unchanged_at_rejection": true,
+        "output_bytes": 0,
+        "probe": "archive_version",
+        "rejected": true
+      },
+      {
+        "error": "Core.ArchiveError: invalid archive object: sheet body requires its ordinary drawing archive context",
+        "input_sha256": "84e51df5ab2c1e14a2405440d5348aad8a4e42da3ab34cf538a4f05c102e5d09",
+        "native_map_and_buffer_unchanged_at_rejection": true,
+        "output_bytes": 0,
+        "probe": "archive_conditions",
+        "rejected": true
+      },
+      {
+        "error": "Core.ArchiveError: invalid archive object: sheet body requires version 19000 and moDrSheet schema one",
+        "input_sha256": "9c04f3de7ac56f440ab94aaaaa2731196b4d297e7687a527b192c0008c92b530",
+        "native_map_and_buffer_unchanged_at_rejection": true,
+        "output_bytes": 0,
+        "probe": "runtime_schema",
+        "rejected": true
+      },
+      {
+        "error": "Core.ArchiveError: invalid archive object: sheet body has unqualified annotation or ink view fields",
+        "input_sha256": "5559f53fb208f5537bb17a12ba111f913ddaaad66ee38ab86b503b82752227df",
+        "native_map_and_buffer_unchanged_at_rejection": true,
+        "output_bytes": 0,
+        "probe": "annotation_presence",
+        "rejected": true
+      },
+      {
+        "error": "Core.ArchiveError: invalid archive object: sheet body has unqualified annotation or ink view fields",
+        "input_sha256": "a2298b09175e4d708393e85a5ed135c077356281afd3b80ef0794fc9890c5541",
+        "native_map_and_buffer_unchanged_at_rejection": true,
+        "output_bytes": 0,
+        "probe": "annotation_marker",
+        "rejected": true
+      },
+      {
+        "error": "Core.ArchiveError: invalid archive object: sheet body has unqualified annotation or ink view fields",
+        "input_sha256": "e34d59fd7abd4a374189f4d85b9ac17276a204ed468ca5a062e004e464363e4f",
+        "native_map_and_buffer_unchanged_at_rejection": true,
+        "output_bytes": 0,
+        "probe": "ink_view",
+        "rejected": true
+      },
+      {
+        "error": "Core.ArchiveError: invalid archive object: sheet body requires explicit native presence flags",
+        "input_sha256": "86cf43d08f6e4fc73dd61922c77f2ca85d4c6da37093967797983fdeaeaf93ac",
+        "native_map_and_buffer_unchanged_at_rejection": true,
+        "output_bytes": 0,
+        "probe": "missing_presence",
+        "rejected": true
+      }
+    ],
+    "fresh_processes": 7,
+    "heldout_inputs_read": 0,
+    "passed": true,
+    "schema": "kit.sw2026.sdk-sheet-writer-negative-processes.v1",
+    "vendor_runtime_executed": false
+  },
+  "passed": true,
+  "positive": {
+    "cases": [
+      {
+        "input_sha256": "9d970790abebf2cd2aefe4860c08cd29a31c796c84eaa0ad2938176920fee80a",
+        "name": "BlankAlpha",
+        "result": {
+          "artifact_bytes": 5950,
+          "artifact_sha256": "b64bc65951ae13239b40cf74fb73a2a28c455f29db272732c0cc483f760bde40",
+          "heldout_inputs_read": 0,
+          "kind": "blank",
+          "logical_streams_identical": true,
+          "native_acceptance": false,
+          "passed": true,
+          "public_reader_passed": true,
+          "public_writer_enabled": false,
+          "runtime_input_file_access_attempts": 0,
+          "schema": "kit.sw2026.sdk-sheet-writer-result.v1",
+          "sdk_write_observations": [
+            {
+              "body_bytes": 192,
+              "map_after": 99,
+              "map_before": 98,
+              "map_identity_preserved": true,
+              "usage": {
+                "completed": false,
+                "field_calls": {
+                  "Array": 2,
+                  "Branch": 1,
+                  "Node": 4,
+                  "Present": 3,
+                  "Scalar": 26,
+                  "Text": 2
+                },
+                "missing_schemas": [],
+                "native_byte_fields": [],
+                "provisional_schemas": [],
+                "schema_calls": {
+                  "suObList": 1
+                },
+                "used_schemas": [
+                  "suObList"
+                ]
+              }
+            }
+          ],
+          "sheet": {
+            "class": "moDrSheet",
+            "detail_folder_alias_preserved": true,
+            "height_m": 0.21589999999999998,
+            "own_list_class": "suObList",
+            "profile_alias_preserved": true,
+            "property_view": "authored SdkBlankAlpha",
+            "scale": [
+              3.0,
+              7.0
+            ],
+            "width_m": 0.2794
+          },
+          "streams": {
+            "Contents/Definition": {
+              "bytes": 23831,
+              "sha256": "a21eb39cd4c54042746cfd81c511781aff234eb84b6270be7f19b837d102788c"
+            },
+            "Header2": {
+              "bytes": 725,
+              "sha256": "4ed8b0a22f7631d2f39bbb1ff82b72e0ef8cf15317c96d2a3bb4326a30bb41e4"
+            },
+            "ModelStamps": {
+              "bytes": 12,
+              "sha256": "964797a2fc409971994118a60e86606a1a450d875447728031583938b8749563"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "4b4583b0566518158e01ed1e72ea7eaa003da6152b4a92281ec7733206b8e7be"
+            },
+            "docProps/ISolidWorksInformation.xml": {
+              "bytes": 1353,
+              "sha256": "f1b9cd36b67ed193f8565a449110471be49dc41817ff886468356a3798ff32d6"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 442,
+              "sha256": "e3741acc1ce2726c62fd7e84e4f8edc4a75937cfcca1603328ad9407a4e7a153"
+            }
+          },
+          "vendor_runtime_executed": false
+        },
+        "twice_identical": true
+      },
+      {
+        "input_sha256": "8f0490cbcb2d9a35a4d5af1d98093863c7b949559c3a8b8474158bcb106b4e01",
+        "name": "BlankBeta",
+        "result": {
+          "artifact_bytes": 5992,
+          "artifact_sha256": "85743dc1c7f04c846b505a709a23d2b556d7625a3a1f0cd5107810e84d017c01",
+          "heldout_inputs_read": 0,
+          "kind": "blank",
+          "logical_streams_identical": true,
+          "native_acceptance": false,
+          "passed": true,
+          "public_reader_passed": true,
+          "public_writer_enabled": false,
+          "runtime_input_file_access_attempts": 0,
+          "schema": "kit.sw2026.sdk-sheet-writer-result.v1",
+          "sdk_write_observations": [
+            {
+              "body_bytes": 796,
+              "map_after": 99,
+              "map_before": 98,
+              "map_identity_preserved": true,
+              "usage": {
+                "completed": false,
+                "field_calls": {
+                  "Array": 2,
+                  "Branch": 1,
+                  "Node": 4,
+                  "Present": 3,
+                  "Scalar": 26,
+                  "Text": 2
+                },
+                "missing_schemas": [],
+                "native_byte_fields": [],
+                "provisional_schemas": [],
+                "schema_calls": {
+                  "suObList": 1
+                },
+                "used_schemas": [
+                  "suObList"
+                ]
+              }
+            }
+          ],
+          "sheet": {
+            "class": "moDrSheet",
+            "detail_folder_alias_preserved": true,
+            "height_m": 0.21589999999999998,
+            "own_list_class": "suObList",
+            "profile_alias_preserved": true,
+            "property_view": "independent metadata \u03a9 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "scale": [
+              7.0,
+              5.0
+            ],
+            "width_m": 0.2794
+          },
+          "streams": {
+            "Contents/Definition": {
+              "bytes": 24425,
+              "sha256": "48aaaac930a5c67b2d90e8d4ccd191b284158b473a3a2c7b8bc3677f4fabccfb"
+            },
+            "Header2": {
+              "bytes": 719,
+              "sha256": "b24910e68508d32fa5ad1f7e9e9d3f68859d0c28bbba904c3afe8b81752f344e"
+            },
+            "ModelStamps": {
+              "bytes": 12,
+              "sha256": "964797a2fc409971994118a60e86606a1a450d875447728031583938b8749563"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "4b4583b0566518158e01ed1e72ea7eaa003da6152b4a92281ec7733206b8e7be"
+            },
+            "docProps/ISolidWorksInformation.xml": {
+              "bytes": 1350,
+              "sha256": "622bc8f7572942830e8b47e13274dbce32a919dd9031c588adf48f495393e1ed"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 742,
+              "sha256": "9bebaeb702f583c305c6f2661b7e3dd541ba2794845e7dc00ec19d832cc26f96"
+            }
+          },
+          "vendor_runtime_executed": false
+        },
+        "twice_identical": true
+      },
+      {
+        "input_sha256": "092de7e6ac75856d4995ad587bc45cee28680ebf8102d2361ac7a4d0589266a1",
+        "name": "FrontAlpha",
+        "result": {
+          "artifact_bytes": 7143,
+          "artifact_sha256": "51f63350524952ed40d4441716e14140d9164eb953ee32d084a7cd5fcd30e9e9",
+          "heldout_inputs_read": 0,
+          "kind": "front",
+          "logical_streams_identical": true,
+          "native_acceptance": false,
+          "passed": true,
+          "public_reader_passed": true,
+          "public_writer_enabled": false,
+          "runtime_input_file_access_attempts": 0,
+          "schema": "kit.sw2026.sdk-sheet-writer-result.v1",
+          "sdk_write_observations": [
+            {
+              "body_bytes": 192,
+              "map_after": 99,
+              "map_before": 98,
+              "map_identity_preserved": true,
+              "usage": {
+                "completed": false,
+                "field_calls": {
+                  "Array": 2,
+                  "Branch": 1,
+                  "Node": 4,
+                  "Present": 3,
+                  "Scalar": 26,
+                  "Text": 2
+                },
+                "missing_schemas": [],
+                "native_byte_fields": [],
+                "provisional_schemas": [],
+                "schema_calls": {
+                  "suObList": 1
+                },
+                "used_schemas": [
+                  "suObList"
+                ]
+              }
+            },
+            {
+              "body_bytes": 192,
+              "map_after": 136,
+              "map_before": 135,
+              "map_identity_preserved": true,
+              "usage": {
+                "completed": false,
+                "field_calls": {
+                  "Array": 2,
+                  "Branch": 1,
+                  "Node": 4,
+                  "Present": 3,
+                  "Scalar": 26,
+                  "Text": 2
+                },
+                "missing_schemas": [],
+                "native_byte_fields": [],
+                "provisional_schemas": [],
+                "schema_calls": {
+                  "suObList": 1
+                },
+                "used_schemas": [
+                  "suObList"
+                ]
+              }
+            }
+          ],
+          "sheet": {
+            "class": "moDrSheet",
+            "detail_folder_alias_preserved": true,
+            "front_bundle": {
+              "child_configuration_id": 0,
+              "definition_map_next_index": 172,
+              "detailing_bucket_count": 0,
+              "header_map_next_index": 22,
+              "model_to_sheet": [
+                1.0,
+                0.0,
+                0.0,
+                0.11078,
+                0.0,
+                1.0,
+                0.0,
+                0.08642000000000001,
+                0.0,
+                0.0,
+                1.0,
+                -0.00265,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "next_persistent_id": 16,
+              "outline_m": [
+                0.108462,
+                0.079102,
+                0.13979799999999998,
+                0.10363800000000001
+              ],
+              "position_m": [
+                0.12413,
+                0.09137
+              ],
+              "readback_exact": true,
+              "scale_ratio": [
+                1.0,
+                1.0
+              ],
+              "sheet": "SdkFrontAlpha paper",
+              "view": "Drawing View1",
+              "view_persistent_id": 11
+            },
+            "height_m": 0.21589999999999998,
+            "own_list_class": "suObList",
+            "profile_alias_preserved": true,
+            "property_view": "authored SdkFrontAlpha",
+            "scale": [
+              3.0,
+              2.0
+            ],
+            "width_m": 0.2794
+          },
+          "streams": {
+            "Contents/Definition": {
+              "bytes": 28738,
+              "sha256": "2e59c797bed271068d84fb5287749d76bdbab21f728cb5bee82905bcab47836b"
+            },
+            "Header2": {
+              "bytes": 1075,
+              "sha256": "a59214ee78f75a606e103c921d03546dc9ed73b08c76aa6d8de0203366689f61"
+            },
+            "ModelStamps": {
+              "bytes": 12,
+              "sha256": "964797a2fc409971994118a60e86606a1a450d875447728031583938b8749563"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "4b4583b0566518158e01ed1e72ea7eaa003da6152b4a92281ec7733206b8e7be"
+            },
+            "docProps/ISolidWorksInformation.xml": {
+              "bytes": 1484,
+              "sha256": "a27c677627f809c24e77fc27ca494400c401fecb29fba44c951a7ce4b49a6355"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 648,
+              "sha256": "4755bc21f2e46ba64c45db12b85ae1895664101992ca55dd9e10034f6c5ee157"
+            }
+          },
+          "vendor_runtime_executed": false
+        },
+        "twice_identical": true
+      },
+      {
+        "input_sha256": "53ac40d14cc9ad4b3632cdebec919f553474a36112d3d94dec0f02550cd39fdb",
+        "name": "FrontBeta",
+        "result": {
+          "artifact_bytes": 7129,
+          "artifact_sha256": "4745659f48880718d199e18067157f2dfa59f8493556e9967ad681fd28d45e14",
+          "heldout_inputs_read": 0,
+          "kind": "front",
+          "logical_streams_identical": true,
+          "native_acceptance": false,
+          "passed": true,
+          "public_reader_passed": true,
+          "public_writer_enabled": false,
+          "runtime_input_file_access_attempts": 0,
+          "schema": "kit.sw2026.sdk-sheet-writer-result.v1",
+          "sdk_write_observations": [
+            {
+              "body_bytes": 190,
+              "map_after": 99,
+              "map_before": 98,
+              "map_identity_preserved": true,
+              "usage": {
+                "completed": false,
+                "field_calls": {
+                  "Array": 2,
+                  "Branch": 1,
+                  "Node": 4,
+                  "Present": 3,
+                  "Scalar": 26,
+                  "Text": 2
+                },
+                "missing_schemas": [],
+                "native_byte_fields": [],
+                "provisional_schemas": [],
+                "schema_calls": {
+                  "suObList": 1
+                },
+                "used_schemas": [
+                  "suObList"
+                ]
+              }
+            },
+            {
+              "body_bytes": 190,
+              "map_after": 136,
+              "map_before": 135,
+              "map_identity_preserved": true,
+              "usage": {
+                "completed": false,
+                "field_calls": {
+                  "Array": 2,
+                  "Branch": 1,
+                  "Node": 4,
+                  "Present": 3,
+                  "Scalar": 26,
+                  "Text": 2
+                },
+                "missing_schemas": [],
+                "native_byte_fields": [],
+                "provisional_schemas": [],
+                "schema_calls": {
+                  "suObList": 1
+                },
+                "used_schemas": [
+                  "suObList"
+                ]
+              }
+            }
+          ],
+          "sheet": {
+            "class": "moDrSheet",
+            "detail_folder_alias_preserved": true,
+            "front_bundle": {
+              "child_configuration_id": 0,
+              "definition_map_next_index": 172,
+              "detailing_bucket_count": 0,
+              "header_map_next_index": 22,
+              "model_to_sheet": [
+                1.0,
+                0.0,
+                0.0,
+                0.10643,
+                0.0,
+                1.0,
+                0.0,
+                0.08947000000000001,
+                0.0,
+                0.0,
+                1.0,
+                -0.0043,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "next_persistent_id": 16,
+              "outline_m": [
+                0.104112,
+                0.082152,
+                0.144148,
+                0.10058800000000001
+              ],
+              "position_m": [
+                0.12413,
+                0.09137
+              ],
+              "readback_exact": true,
+              "scale_ratio": [
+                1.0,
+                1.0
+              ],
+              "sheet": "SdkFrontBeta paper",
+              "view": "Drawing View1",
+              "view_persistent_id": 11
+            },
+            "height_m": 0.21589999999999998,
+            "own_list_class": "suObList",
+            "profile_alias_preserved": true,
+            "property_view": "authored SdkFrontBeta",
+            "scale": [
+              3.0,
+              2.0
+            ],
+            "width_m": 0.2794
+          },
+          "streams": {
+            "Contents/Definition": {
+              "bytes": 28716,
+              "sha256": "97914a0a71c630a50e73c347b1c43be7dc4063fa86f1149aa05d12782a58b66a"
+            },
+            "Header2": {
+              "bytes": 1065,
+              "sha256": "7ddea18dfec783ef3cee1ada11586113755bcd130d046c4d9d2d5b4bb022e8b6"
+            },
+            "ModelStamps": {
+              "bytes": 12,
+              "sha256": "964797a2fc409971994118a60e86606a1a450d875447728031583938b8749563"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 167,
+              "sha256": "4b4583b0566518158e01ed1e72ea7eaa003da6152b4a92281ec7733206b8e7be"
+            },
+            "docProps/ISolidWorksInformation.xml": {
+              "bytes": 1479,
+              "sha256": "2d36b91b1049c7d1efdb336cecdd97c89e1f0c6a7121e322c828c3b6cbb33a41"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 643,
+              "sha256": "b3bac852327fc79e1292cfa30629b3dd9cb3305dc2e42b7508c535c77a60875c"
+            }
+          },
+          "vendor_runtime_executed": false
+        },
+        "twice_identical": true
+      }
+    ],
+    "fresh_processes": 8,
+    "heldout_inputs_read": 0,
+    "independent_constructions": 16,
+    "passed": true,
+    "runtime_input_file_access_attempts": 0,
+    "schema": "kit.sw2026.sdk-sheet-writer-positive-processes.v1",
+    "vendor_runtime_executed": false
+  },
+  "private_negative_sha256": "df247411b78772f74882584f92fd634879b6fbe4dd558ccd07d119553efb576a",
+  "private_positive_sha256": "04d7b8abac24c017ddf8325aa7ea540b4a1b721abad4bd8745af375a91381f20",
+  "public_writer_enabled": false,
+  "runtime_input_file_access_attempts": 0,
+  "schema": "kit.sw2026.sdk-drawing-sheet-field-writer-process.v1",
+  "scope": "internal version 19000 moDrSheet own-field writer composed with research inherited/model/UI writers and the public drawing reader",
+  "sdk_native_byte_fields": 0,
+  "source_head": "4dd87c334fe53bc37230bd13bf0795ce8e2589e2",
+  "specimens_or_prior_trial_outputs_read": 0,
+  "static_evidence": {
+    "class": "moDrSheet",
+    "heldout_inputs_read": 0,
+    "inherited_model_feature_call": "0x4c95728b",
+    "ink_count_rule": {
+      "advance_by_eight": "0x4c958acb",
+      "first_element": "0x4c958aae",
+      "object_write": "0x4c958ac6",
+      "shift_by_three": "0x4c958aa1",
+      "subtract_end_begin": "0x4c958a93",
+      "write_i32_count": "0x4c958aa8"
+    },
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "proprietary_listings_published": false,
+    "runtime_class_descriptor": "0x4d2774b8",
+    "schema": "kit.sw2026.sdk-sheet-own-static-evidence.v1",
+    "serialize_entry": "0x4c957120",
+    "serializer_code_sha256": "e7721710576d43653b4839815644edef489fc33f974b6571ec1170af7bde0b60",
+    "serializer_range": [
+      "0x4c957120",
+      "0x4c958c70"
+    ],
+    "supported_ink_views": "empty only until element-class semantics are qualified",
+    "vendor_runtime_executed": false
+  },
+  "uncommitted_sources_sha256": {
+    "re/tooling/sw2026/SheetWriterProcess.py": "39cdc65eafab568c744ac69424482aa924b6de70a41770277e4c03338b95c19a",
+    "re/tooling/sw2026/serial/SheetWriteBridge.py": "4915f5184585f0c1fef2866dffacd5e8e7a967558e647b286fd19bb9b1eb0153",
+    "src/convert/adapters/solidworks/Drawing/Definition/Writing/CheckSheetData.py": "db8918688a2cb89c50bdbc455f8caf26599bd636660ef373a655d99ad2978895",
+    "src/convert/adapters/solidworks/Drawing/Definition/Writing/SheetFields.py": "575ba3884391a2aa88d08fbb19698ae49eff603d492a680a0b0af690ce012e5f",
+    "src/convert/adapters/solidworks/Drawing/Definition/Writing/WriteSheetMut.py": "2023cd8994ae1edbc29fbab24abac18a6318598c9949ff4b45ea930e3887f8c8",
+    "tests/Convert/Solidworks/Research/Drawing/BlankSheetTests.py": "50e846421fc360feea1888dd3a2ec6e6cb78efcc524432fae56426970a529f09",
+    "tests/Convert/Solidworks/Research/Drawing/FrontSheetTests.py": "9e44f3915eaf7a85448e077d99aa80200b8b9e3c6ed48b96ab7cc6a98567c8a2",
+    "tests/Convert/Solidworks/Research/Drawing/MakeFrontInput.py": "d04ddc5478b9e5d7320aef78c19d0b33b3ff4930c27df71cf85ace2a4dadaed0",
+    "tests/Convert/Solidworks/Research/Drawing/MakeSheetInput.py": "cc272df7e9312a07c3b81368558d9fdd2477fbc9b455423bd5ddf9ba73a2a6c6",
+    "tests/Convert/Solidworks/Research/Drawing/RunSheetCase.py": "cea4be17de024ebf72cb54130735795327e11bb48800fefc65a79609d26ac89f",
+    "tests/Convert/Solidworks/Research/Drawing/RunSheetReject.py": "d1d413ba5ba79676ee9ca5797268f12ca144a9fb3cc30b906f038bce2b4d8eff",
+    "tests/Convert/Solidworks/Research/Drawing/SheetGuardTests.py": "03df4518024f03460a4b205aa3c3aa4a3dcd3e5f02efbcc4624a6462bf2f168d"
+  },
+  "vendor_runtime_executed": false,
+  "verification": {
+    "black": "ten SDK and integration Python files unchanged",
+    "donor_scan": "no recorded payloads in 3456 files",
+    "mypy": "success no issues found in ten targeted source files",
+    "prettier": "three maintained Markdown files pass prettier 3.6.2 check",
+    "pyright": "zero errors warnings or informations for ten targeted files; local tool reports three preexisting unrecognized project settings",
+    "pyright_unrecognized_project_settings": [
+      "reportImplicitAbstractClass",
+      "reportIncompleteStubValue",
+      "reportUnsafeMultipleInheritance"
+    ],
+    "python_steering": "passed for ten SDK and integration Python files"
+  }
+}

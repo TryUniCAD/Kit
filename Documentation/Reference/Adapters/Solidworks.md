@@ -82,6 +82,8 @@ The research composer also builds the four measured named views with positive ex
 
 Both pre-writer locked Front drawing and ordinary rectangle pairs passed source-to-generated comparisons through view edits, native save and fresh reopen. Their ordered feature trees, sheet and view state, linked child geometry and empty annotation inventories match under the registered rules. Both controls and all twelve phases passed. [Original held-out results](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksOriginalDrawingHeldoutProtocol.md)
 
+The internal SDK writer can serialize ordinary 2026 sheet fields with the caller's actual drawing archive context and object map. Two blank and two linked generated designs matched the research serializer's complete streams in independent processes. The full Definition graph and public writer remain open. [Typed sheet fields](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksDrawingSheetFieldWriter.md)
+
 ## Feature history
 
 The resolved-feature grammar includes class definitions and object references.

@@ -1,0 +1,9 @@
+# SDK drawing sheet field writer
+
+The internal drawing archive now has a typed `moDrSheet` own-field layout and `WriteSheetMut` serializer. It reuses existing object maps, scalar/CString codecs and the shared field executor. All bytes come from the supplied graph and declared format rules; no saved payload, offset patch, capture row or runtime input file supplies output values.
+
+Use this boundary after inherited sheet/model fields are serialized, with the same active `BodyWriter` map and actual child objects. The function accepts version 19000, sheet schema one and ordinary context. It rejects unclassified annotation/ink branches, missing native presence flags and unsupported versions, schemas or filters. The complete semantic constructor, Definition stream and public writer remain unfinished; public writing is not enabled.
+
+Eight fresh processes covered two independently authored blank sheets and two Front views linked to independent rectangular children. Each constructed both writer paths, required complete logical-stream identity and public readback, preserved real graph aliases and recorded zero runtime input-file access attempts. The own body grows with authored Unicode text rather than a fixed payload. Seven additional full-process invalid jobs reject before SDK body/map mutation and return no container. Targeted steering and Black checks pass; the donor scan is clean. No native oracle or hidden source was used in this slice.
+
+See the [internal usage guide](../../../../../Reference/Research/Solidworks/DrawingSheetWriting.md), [field/source ledger](../../../../../../re/solidworks/records/DrawingSheetWriter2026.md), [process evidence](../../../../../../re/solidworks/measurements/2026/SdkDrawingSheetWrite01.json) and [archive-context gotcha](../../../../../Gotchas/Conversion/Solidworks/Archive/Drawings/DrawingSheetFieldsNeedTheirArchiveContext.md).
