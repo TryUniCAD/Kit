@@ -1,0 +1,89 @@
+{
+  "schema": "kit.sw2026.indexed-assembly-progress-classification.v1",
+  "passed": true,
+  "classifier_sha256": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+  "reproducer_sha256": "4e7fe3c9b159ee5e0eabf96c08d1b27b64d4fd8187b22b39e8df0716739324a7",
+  "disclosed_observations": [
+    {
+      "name": "N01NestedSingle",
+      "record_sha256": "3f793c6aa6d5fd8569f7ed627e7c12b44ec380c2deeecb36a62a817e546e67d3",
+      "first_status": "Opening Component 2 of 2",
+      "dismissed": false
+    },
+    {
+      "name": "N02MixedRepeated",
+      "record_sha256": "a980abd0a602a587d9277a05e12a84cddba657c8513ff3418128f8056645aa37",
+      "first_status": "Opening Component 2 of 7",
+      "dismissed": false
+    }
+  ],
+  "classifications": [
+    {
+      "case": "N01NestedSingle",
+      "progress": true
+    },
+    {
+      "case": "N02MixedRepeated",
+      "progress": true
+    },
+    {
+      "case": "established Open Components",
+      "progress": true
+    },
+    {
+      "case": "established Opening -2 Components",
+      "progress": true
+    },
+    {
+      "case": "established Loaded Components",
+      "progress": true
+    },
+    {
+      "case": "malformed Opening Component 0 of 2",
+      "progress": false
+    },
+    {
+      "case": "malformed Opening Component 3 of 2",
+      "progress": false
+    },
+    {
+      "case": "malformed Opening Component 2 of 0",
+      "progress": false
+    },
+    {
+      "case": "malformed Opening Component -1 of 2",
+      "progress": false
+    },
+    {
+      "case": "malformed Opening Component 2 of 2 items",
+      "progress": false
+    },
+    {
+      "case": "malformed Opening Component 2 out of 2",
+      "progress": false
+    },
+    {
+      "case": "named modal",
+      "progress": false
+    },
+    {
+      "case": "unexpected modal action",
+      "progress": false
+    },
+    {
+      "case": "warning alongside stages",
+      "progress": false
+    },
+    {
+      "case": "missing assembly stage",
+      "progress": false
+    },
+    {
+      "case": "different graphics stage",
+      "progress": false
+    }
+  ],
+  "native_acceptance": false,
+  "original_batch_reclassified": false,
+  "heldout_inputs_read": 0
+}

@@ -1,0 +1,372 @@
+{
+  "archive_read_map_counts_unchanged": true,
+  "archive_version": 19000,
+  "baseline_revision": "5fb3445359690ac08620c4d9ae9cf60a63a753ab",
+  "calls": [
+    {
+      "calls": 24,
+      "direction": "load",
+      "owning_schema": "moAssembly_c",
+      "schema": "moExtFeature_c"
+    },
+    {
+      "calls": 12,
+      "direction": "store",
+      "owning_schema": "moAssembly_c",
+      "schema": "moExtFeature_c"
+    },
+    {
+      "calls": 24,
+      "direction": "load",
+      "owning_schema": "moConfigurationMgr_c",
+      "schema": "moExtFeature_c"
+    },
+    {
+      "calls": 12,
+      "direction": "store",
+      "owning_schema": "moConfigurationMgr_c",
+      "schema": "moExtFeature_c"
+    },
+    {
+      "calls": 24,
+      "direction": "load",
+      "owning_schema": "moAssembly_c",
+      "schema": "moExtObjectInterface_c.FUN_4c179410"
+    },
+    {
+      "calls": 12,
+      "direction": "store",
+      "owning_schema": "moAssembly_c",
+      "schema": "moExtObjectInterface_c.FUN_4c179410"
+    },
+    {
+      "calls": 24,
+      "direction": "load",
+      "owning_schema": "moConfigurationMgr_c",
+      "schema": "moExtObjectInterface_c.FUN_4c179410"
+    },
+    {
+      "calls": 12,
+      "direction": "store",
+      "owning_schema": "moConfigurationMgr_c",
+      "schema": "moExtObjectInterface_c.FUN_4c179410"
+    }
+  ],
+  "completed_external_schema_calls": 144,
+  "disclosed_drawing_exclusion": {
+    "byte_identity": true,
+    "concept_prefix_bytes": 11235,
+    "concept_prefix_sha256": "c8a6e26bd1a4174c62294f5844acaece9bb1d41d37adf37a47345caac610f9e9",
+    "digest": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+    "drawing": "D01FrontView",
+    "map_next_index": 178,
+    "provisional_methods": [
+      "moExtFeature_c",
+      "moExtObjectInterface_c.FUN_4c179410"
+    ],
+    "same_usage_with_profile_disabled": true
+  },
+  "disclosed_planar": {
+    "cases": [
+      {
+        "child_sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+        "mate_class": "moMateCoincident",
+        "mate_stream": {
+          "bytes": 3304,
+          "map_base": 168,
+          "map_count": 196,
+          "proven_schemas": true,
+          "provisional_schemas": [],
+          "sha256": "4a2f58c037314e32a62852ab03fc3d18cf83320b357e9d73c8fb5a6d2ec47694"
+        },
+        "name": "A17PlaneCoincident",
+        "parent_sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+        "verified_endpoints": 2
+      },
+      {
+        "child_sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+        "mate_class": "moMateDistanceDim_c",
+        "mate_stream": {
+          "bytes": 5117,
+          "map_base": 168,
+          "map_count": 207,
+          "proven_schemas": true,
+          "provisional_schemas": [],
+          "sha256": "69918e4021805c0f8dadb0c5a0a75efd5887420591d459799474cdd7306c7963"
+        },
+        "name": "A18PlaneDistance",
+        "parent_sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+        "verified_endpoints": 2
+      },
+      {
+        "child_sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+        "mate_class": "moMateParallel",
+        "mate_stream": {
+          "bytes": 3234,
+          "map_base": 168,
+          "map_count": 196,
+          "proven_schemas": true,
+          "provisional_schemas": [],
+          "sha256": "5ee10ddcd3e5e31e6599cd4f3888f69f8b7f70868d31cfa707d02d1928a8e32e"
+        },
+        "name": "A19PlaneParallel",
+        "parent_sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+        "verified_endpoints": 2
+      }
+    ],
+    "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+    "stream_count": 51,
+    "structural_report_sha256": "71e07868adf797d8a5d92018fc1c736c8effc0403887d6108238e532d91c9a0c"
+  },
+  "distinct_logical_stream_comparisons": 79,
+  "drawing_rules_sha256": "8ce664a5cb18128d688fc808d2e4a8ebcca497e175b9a2aba23b1093320664b2",
+  "drawing_rules_unchanged": true,
+  "heldout_payloads_read": false,
+  "new_native_acceptance": false,
+  "new_native_application_runs": 0,
+  "offline_probe_sha256": {
+    "baseline": "c1358dae124990d4c9d06036f70854478d4fc0b9d8b2fd0e8745ef90ae11cc8b",
+    "corpus_tool": "530e2d011fe9dcd7d2a75d1a4baa9d789b0a30ab4fc0fa1d68c554290a9acb93",
+    "qualified": "7d4d56f1d2f0efafe87c20b23bad19ae182c4188f08ba706513d1bd050115ad7",
+    "scope_tool": "0cf75a6a82c1d0fb99bc9cc8751dbf95319f9f26b91300c7d84964f9e853b4bd",
+    "scope_witnesses": "7a4c134b28009ee85824e702062101ebc5ada8693bb7d4e878740a66fd9a978d"
+  },
+  "packaged_and_synchronized": {
+    "cases": {
+      "A0_one.SLDASM": {
+        "external_schema_calls": 12,
+        "sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+        "stream_count": 4
+      },
+      "A12SyncedEmpty.SLDASM": {
+        "external_schema_calls": 0,
+        "sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+        "stream_count": 4
+      },
+      "A13SyncedSingle.SLDASM": {
+        "external_schema_calls": 12,
+        "sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+        "stream_count": 4
+      },
+      "A13SyncedSingleChild.SLDPRT": {
+        "external_schema_calls": 0,
+        "sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+        "stream_count": 4
+      },
+      "A14SyncedRepeat.SLDASM": {
+        "external_schema_calls": 24,
+        "sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+        "stream_count": 4
+      },
+      "A14SyncedRepeatChild.SLDPRT": {
+        "external_schema_calls": 0,
+        "sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c",
+        "stream_count": 4
+      },
+      "A1_two.SLDASM": {
+        "external_schema_calls": 24,
+        "sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+        "stream_count": 4
+      }
+    },
+    "packaged_manifest_sha256": "e60ba221757cf1452d70d952eecc1eb41c75e2bc0711c0c6aac7c457f9cd15c8",
+    "synchronized_manifest_sha256": "86729463bf5734f53e209de81f09976cc95bee8c7d33395eb512ec0ed8b823b3"
+  },
+  "protected_generator_comparisons": {
+    "coincident": {
+      "assembly_sha256": "99061cdaf6901ea04b7455475da46c6de4e8621eedeb2e9429fed048124ae338",
+      "child_sha256": "21431fa7032ff75b910c0e00dde5b495846a49ed6b2563bc2494554a3fd74bda",
+      "generator_report_sha256": "9707eebe20f730fdaa8c279f5992a5deadbe383cafa1d1eaf7ab48accd3eb642",
+      "generator_report_unchanged": true,
+      "input_runtime_file_access_attempts": 0,
+      "native_receipt": "GeneratedCoincidentMateActiveSolve01.json",
+      "native_receipt_sha256": "3bfdacd2df5a464a891a6d788b2afa47df0eeec9b7a6597938680fcca5bec63c",
+      "native_writer_revision": "8db458c1a5d2029143deaa8f011cdb80968660d8",
+      "neutral_request_sha256": "4c67d6faf9d13a0a8170ac8f96f11da59991f5106fd4eb2ca60737d966270490"
+    },
+    "parallel": {
+      "assembly_sha256": "9ce5fe055427207d77610a5ba1f3dd42411778b4ac3b8a1306eda17f07a6d719",
+      "child_sha256": "95e61a7d84fa9759a075310c2f6ebafb4318ba2a48abfc102dada2e5e8e041e4",
+      "generator_report_sha256": "ce8a13504ad258765ca347ad52caeca70c23ba6a0d00e9a85d1647d3b78eb7a2",
+      "generator_report_unchanged": true,
+      "input_runtime_file_access_attempts": 0,
+      "native_receipt": "GeneratedParallelMateNative01.json",
+      "native_receipt_sha256": "90f79642ef4b5944a79559052cf53d6b8619ae673ef09ca4a3bcfd51ee09eb69",
+      "native_writer_revision": "c7eaaff300b20dbf106fec52f6845f8a47ad459b",
+      "neutral_request_sha256": "f2d56274820d484b200817e9bc01694d3cd9a9892e0dee06e4b5777502202c92"
+    }
+  },
+  "qualified_ordinary_schemas": [
+    "moExtFeature_c",
+    "moExtObjectInterface_c.FUN_4c179410"
+  ],
+  "retained_assembly_provisional_schemas": [
+    "moContextChainComponent_c",
+    "su_CMapStringToString"
+  ],
+  "schema": "kit.sw2026.ordinary-external-reference-usage-observation.v1",
+  "source_documents": 13,
+  "source_schema_sha256": {
+    "Schema.py": "156b25625c7b05fa3f1a17bbb8c31953fce8cc1f082f7bbdfef2c8f9301efede",
+    "defs/VisualRefs.py": "d1ef33a0bf7e7791f94c35f7ae0942ac84a98eb9ac31721e87cee1d885933220"
+  },
+  "streams_byte_identical": true,
+  "synthetic_scope_comparisons": {
+    "configuration_override": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "b32fa85464ba02a9f183f185d0501a4d312d96a1e55ab9a455444b9d1d9aadbe"
+    },
+    "drawing_context": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1,
+        "owner_is_drawing": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "cd5743408c36bb9c13873cd803f7e9a8cecfb73296a9c567fd38cadd25512304"
+    },
+    "mixed_ordinary_and_pattern": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 2,
+      "sha256": "5d16d1d91d8d022c321f287014e7bd0c86e0d21d21af7d36d4b7fa6449b07973"
+    },
+    "nonassembly_owner": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "413f9cc5ee1ca2de048c8bf090bd60e276f7c2eca734912e95546b229e541afc"
+    },
+    "noncanonical_flag": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "fcb5998b3dad762e0f5ab3ac71fbc8f6b04ad4684a745529e424c332d8c926f3"
+    },
+    "ordinary": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1
+      },
+      "provisional": [],
+      "rows": 1,
+      "sha256": "cd5743408c36bb9c13873cd803f7e9a8cecfb73296a9c567fd38cadd25512304"
+    },
+    "other_archive_version": {
+      "archive_version": 18999,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "cd5743408c36bb9c13873cd803f7e9a8cecfb73296a9c567fd38cadd25512304"
+    },
+    "plain_cstring_names": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1,
+        "plain_cstring_names": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "9d6a529d85f30f66c34c5568a231d333d3422f54bf9d2c89f7b6a04c12f6c753"
+    },
+    "special_filter_condition": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "conditions": 512,
+        "ctx3d0": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "cd5743408c36bb9c13873cd803f7e9a8cecfb73296a9c567fd38cadd25512304"
+    },
+    "unanchored": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "cd5743408c36bb9c13873cd803f7e9a8cecfb73296a9c567fd38cadd25512304"
+    },
+    "unspecified_archive_version": {
+      "archive_version": null,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "cd5743408c36bb9c13873cd803f7e9a8cecfb73296a9c567fd38cadd25512304"
+    },
+    "virtual_owner": {
+      "archive_version": 19000,
+      "byte_identity": true,
+      "flags": {
+        "ctx3d0": 1
+      },
+      "provisional": [
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "rows": 1,
+      "sha256": "546cef4c1108c27ace9a7705c7969b88ea31f0aeeb955f0d907bcac7f4437106"
+    }
+  }
+}

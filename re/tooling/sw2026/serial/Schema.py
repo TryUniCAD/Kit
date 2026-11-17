@@ -13,6 +13,7 @@ class Usage:
         self.sources = {} if sources is None else sources
         self.used, self.missing = set(), set()
         self.calls = Counter()
+        self.profile_calls = {}
         self.schemas, self.operations, self.raw_operations = [], [], []
         self.archive_sources = {}
         self.completed = False
@@ -39,6 +40,8 @@ class Usage:
         parent = self.schemas[-1] if self.schemas else None
         cls, object_type = self.object_context(o)
         self.calls[(name, via, parent, cls, object_type, self.source_streams(ar))] += 1
+        if name in self.registry.usage_profiles:
+            self.profile_calls.setdefault(name, []).append((ar.version, dict(ar.ctx), tuple(self.schemas), o))
         self.schemas.append(name)
         try:
             yield
@@ -101,13 +104,19 @@ class Usage:
             "count": count,
         } for (name, via, parent, cls, object_type, streams), count in self.calls.items()]
         calls.sort(key=lambda item: (item["schema"], item["via"], item["parent_schema"] or "", item["object_class"] or "", item["object_type"], item["source_streams"]))
+        provisional = self.used & self.registry.tentative
+        if self.completed:
+            for name, records in self.profile_calls.items():
+                profile = self.registry.usage_profiles.get(name)
+                if profile is not None and all(profile(*record) for record in records):
+                    provisional.discard(name)
         return {
             "direction": self.direction,
             "requested_stream": self.stream,
             "role": self.role,
             "completed": self.completed,
             "used_schemas": sorted(self.used),
-            "provisional_schemas": sorted(self.used & self.registry.tentative),
+            "provisional_schemas": sorted(provisional),
             "missing_schemas": sorted(self.missing),
             "schema_calls": calls,
             "raw_operations": list(self.raw_operations),
@@ -366,6 +375,7 @@ class Registry:
     def __init__(self):
         self.classes = {}
         self.tentative = set()
+        self.usage_profiles = {}
         self.plans = {}
         self._usage = None
 
@@ -394,12 +404,15 @@ class Registry:
         if name in self.classes and name not in self.tentative:
             raise ValueError(f"duplicate class {name}")
         self.tentative.discard(name)
+        self.usage_profiles.pop(name, None)
         self.classes[name] = list(ops)
 
-    def provisional(self, name, ops):
+    def provisional(self, name, ops, *, usage_profile=None):
         if name in self.classes:
             return
         self.tentative.add(name)
+        if usage_profile is not None:
+            self.usage_profiles[name] = usage_profile
         self.classes[name] = list(ops)
 
     def has(self, name):

@@ -3,21 +3,34 @@ from __future__ import annotations
 import ctypes
 import re
 
-import Swapp
-
-
 def assembly_progress(title, statics, buttons):
     if title or len(statics) < 3 or not set(buttons) <= {"Close", "Do not show again", "Hide Details", "Show Details"}:
         return False
     first, second, third, *details = statics
     if not re.fullmatch(r"(?:Open|Opening|Opened|Loaded)(?: -?\d+)?\nComponents", first):
-        return False
+        indexed = re.fullmatch(r"Opening Component ([1-9][0-9]*) of ([1-9][0-9]*)", first)
+        if indexed is None or int(indexed[1]) > int(indexed[2]):
+            return False
     if second not in {"Update\nAssembly", "Updating\nAssembly", "Assembly\nUpdated"}:
         return False
     if third not in {"Update\nGraphics", "Generating\nGraphics", "Graphics\nGenerated"}:
         return False
     known = r"(?:\s*|Elapsed time: \d+(?:s| seconds?)|This file was last opened in \d+ seconds?\.|For more information, view: *|Performance Evaluation|Opening File: .+|Post load updating)"
     return all(re.fullmatch(known, detail) for detail in details)
+
+
+if __name__ == "__main__":
+    import json
+    import sys
+
+    if sys.argv[1:] != ["--classify"]:
+        raise SystemExit("usage: ObserveAssemblyLoad.py --classify < windows.json")
+    records = json.load(sys.stdin)
+    print(json.dumps([assembly_progress(row["dialog"], row["text"], row["buttons"]) for row in records]))
+    raise SystemExit(0)
+
+
+import Swapp
 
 
 class AssemblyLoadMonitor(Swapp.Dismisser):

@@ -66,6 +66,10 @@ Started phases record whether they completed; failed or unstarted operations can
 claim proven schema admission. File and invocation summaries include dependency reads.
 `provisional_schemas` retains the whole registry inventory; `used_provisional_schemas`
 contains only declarations reached during this invocation.
+A usage profile qualifies a declaration for a completed phase when every reached call
+matches its recorded archive context and object fields. The registry inventory still lists
+the declaration. The [ordinary external reference profile](../../../solidworks/records/ExternalReferenceWire2026.md#archive-usage-profile)
+applies this rule to the assembly configuration and configuration manager.
 
 `--require-proven` also rejects used provisional or missing schemas and incomplete
 operations. Unused provisional declarations do not fail it. The default retains its

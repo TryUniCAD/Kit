@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from Core import ArchiveError, DOCUMENT_VERSION_2026
+from Core import ArchiveError, DOCUMENT_VERSION_2026, Obj
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, u8, f64, cstr, obj, rep, base, emb, time32
 from Schema import If, Fn
 
@@ -136,6 +136,34 @@ def define_reference_archive(reg, name, operations):
     reg.define(name, [If(current_reference_archive, operations, [base(legacy_name)])])
 
 
+def ordinary_external_reference(version, context, parents, record):
+    if version != DOCUMENT_VERSION_2026:
+        return False
+    if any(context.get(key, 0) for key in ("plain_cstring_names", "owner_is_drawing", "conditions")):
+        return False
+    if not isinstance(record, Obj) or (record.cls, record.schema) != ("moExtFeature_c", 1):
+        return False
+    fields = record.f
+    owner = fields.get("f10")
+    name = fields.get("f38")
+    if not isinstance(owner, dict) or (owner.get("f20"), owner.get("f08")) != (3, 0):
+        return False
+    if not isinstance(name, Obj) or name.cls != "moCStringHandle_c" or "f50" not in fields:
+        return False
+    if fields.get("f40") != 0 or fields.get("f58") != -1 or fields.get("f18") != {"f08": "", "f10": -1}:
+        return False
+    if parents and parents[-1] == "moExtFeature_c":
+        parents = parents[:-1]
+    if not parents or "moDrawing_c" in parents or "moDeformConfiguration_c" in parents:
+        return False
+    reference = fields["f50"]
+    if (parents[0], parents[-1]) == ("moAssembly_c", "moReference_c"):
+        return (isinstance(reference, Obj) and reference.cls == "moReference_c"
+                and reference.f.get("f4f8") is record and fields.get("f44") == reference.f.get("f08"))
+    return ((parents[0], parents[-1]) == ("moConfigurationMgr_c", "moExtFeatureList_c")
+            and "moConfiguration_c" in parents and context.get("ctx3d0") == 1 and reference is None)
+
+
 def define_chain_components(reg):
     define_reference_archive(reg, "moChainComponent_c", [
         base("moComponent_c"),
@@ -168,13 +196,13 @@ def define_chain_components(reg):
         u8("f40"),
         i32("f44"),
         If(lambda s, ar: ar.ctx.get("plain_cstring_names", 0) == 0 and ver(ar) > 0xAA8, [obj("f38")], [cstr("f38")]),
-    ])
+    ], usage_profile=ordinary_external_reference)
     reg.provisional("moExtFeature_c", [
         base("moExtObjectInterface_c.FUN_4c179410"),
         Vgt(0x91, [obj("f50")]),
         Vin(0x9F9, 0x105E, [legacy("moExtFeature_c moExtFeatPatData_c 0x9fa-0x105d")]),
         Vge(0x11EB, [i32("f58")]),
-    ])
+    ], usage_profile=ordinary_external_reference)
 
 
 def define(reg):

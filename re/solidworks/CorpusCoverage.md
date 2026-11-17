@@ -314,8 +314,11 @@ The [exact-path distance replay](records/GeneratedDistanceMateNativeOpen2026.md)
 resolves both children with clean native open and rebuild. The moving
 Right Plane changes from a 43.875 mm gap to 71.375 mm, with both controls
 passing. The full trial retains its failed verdict from an invalid expectation
-of named sketch parameters. Driving edit, save and held-out qualification
-remain open.
+of named sketch parameters. A [separate regenerated disclosed trial](records/GeneratedDistanceMateEdit2026.md)
+edits the driving length to 88.125 mm, saves both files and verifies the
+edited plane gap and geometry after fresh reopen. Typed readback resolves
+the same reference identities and edited length. Held-out qualification
+remains open.
 
 The [shared SDK header graph](records/SharedSdkHeaderGraph2026.md) re-emits
 31 standalone streams exactly across 17 disclosed files. The research
