@@ -6,7 +6,7 @@ from tests.Convert.Solidworks.Research.FreshPartInput import MakePartInput
 
 
 # neutral requests keep text anchors independent of the serialized dimension records
-def MakeRectangleInput(
+def MakeRectInput(
     NameValue: str,
     Vertices: list[list[float]],
     DepthValue: float,

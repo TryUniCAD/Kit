@@ -33,7 +33,7 @@ def AssertRectangle(
         CastValue(str, Value["name"]): CastValue(float, Value["value_m"]) / 0.001
         for Value in Values
     }
-    for Value, Size, Anchor in zip(Values, ExpectedSizes, TextAnchors, strict=True):
+    for Value, Length, Anchor in zip(Values, ExpectedSizes, TextAnchors, strict=True):
         assert Value["value_class"] == "sgPntPntDist"
         assert Value["parameter_class"] == "moLengthParameter_c"
         assert Value["display_class"] == "moDisplayDistanceDim_c"
@@ -42,5 +42,5 @@ def AssertRectangle(
         assert Value["route_centerline"] is RouteCenterline
         assert Value["parameter_id"] == -1 and Value["driven"] == 0
         assert Value["display_text_m"] == [*Anchor, 0.0]
-        assert IsClose(CastValue(float, Value["value_m"]), Size, abs_tol=1e-15)
+        assert IsClose(CastValue(float, Value["value_m"]), Length, abs_tol=1e-15)
         assert Value["display_value_m"] == Value["value_m"]
