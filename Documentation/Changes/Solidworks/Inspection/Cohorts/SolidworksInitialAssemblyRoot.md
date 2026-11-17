@@ -10,6 +10,9 @@ their own analysis unit table.
 The remote process check builds two independent roots from different authored
 names, writes an in-memory configuration and its header, decodes both through
 the container boundary and checks byte identity, map handoff and ownership.
-It denies runtime file access. These bounded root archives are not complete
-SOLIDWORKS assemblies and do not change the public adapter. Remote evidence
-is pending.
+It denies runtime file access. Both root constructions passed the
+[remote native-format job](https://github.com/TryUniCAD/Kit/actions/runs/44003713961/job/133773791525)
+on `f836b2bc2`; the longer name increased the serialized root length. The
+same revision separately failed a test-variable naming check, which is being
+corrected. These bounded archives are not complete SOLIDWORKS assemblies and
+do not change the public adapter.

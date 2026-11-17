@@ -19,7 +19,10 @@ def TestRootBuild() -> None:
         Shared = MakePartInput([], 0.0, NameValue)
         Request = {
             "name": NameValue,
-            **{Key: Shared[Key] for Key in ("presentation", "provenance")},
+            **{
+                FieldName: Shared[FieldName]
+                for FieldName in ("presentation", "provenance")
+            },
         }
         Outcome = RunProcess(
             [

@@ -14,7 +14,7 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "src"))
 
 from Classes import registry
-from Core import Obj
+from Core import ExtRef, Obj
 from RoundTrip import PLANS, REQUIRED, one
 from Streams import load_rooted
 from StringCorpus import GraphProof, SourceProof
@@ -29,6 +29,7 @@ NAMES = ("A07EmptyAssembly", "A08SingleAssembly", "A09RepeatedAssembly")
 HEADER = "Contents/Config-0-ModelHeader"
 CONFIG = "Contents/Config-0"
 RESOLVED = CONFIG + "-ResolvedFeatures"
+MANAGER = "Contents/CMgr"
 REFERENCE_CLASSES = {"moReference_c", "moReferenceInternal_c", "moReferenceBrowser_c", "moReferenceModel_c"}
 UPDATE_FIELDS = ("f3e0", "f3e8", "f3f0", "f3f4", "f3f8", "f400", "f408", "f4d8")
 
@@ -76,6 +77,40 @@ def reference_updates(model_map, resolved_map):
     return rows
 
 
+def configuration_layout(archive, reg):
+    document, reader = load_rooted(archive.require(MANAGER), reg, 1, 19000)
+    require(not document.tail and not reader.left(), "assembly configuration manager projection has unread bytes")
+    managers = [item for item in document.roots if isinstance(item, Obj) and item.cls == "moConfigurationMgr_c"]
+    require(len(managers) == 1, "assembly configuration manager is ambiguous")
+    manager = managers[0]
+    active = manager["f360"]
+    require(isinstance(active, Obj) and active.cls == "moConfiguration_c", "assembly active configuration has the wrong wire owner")
+    return {
+        "manager": {key: manager.f.get(key) for key in ("f40c", "f658", "f75c", "f0c")},
+        "active_name": active["f18"]["f08"], "active_class": active.cls,
+        "active_flags": {key: active.f.get(key) for key in ("f08", "f0c", "f824", "f82c", "fbc0", "fbc4")},
+        "active_options": [active[key].f for key in ("fc48", "fc50")],
+        "configured_object_count": len(active.f.get("fce8", [])),
+    }
+
+
+def resolved_layout(roots):
+    rows = []
+    for node in roots:
+        if node is None or isinstance(node, ExtRef):
+            rows.append({"class": None, "name": None, "external_archive_index": node.index if node is not None else None})
+            continue
+        require(isinstance(node, Obj), "ordinary assembly has an unresolved top-level feature slot")
+        name = node.f.get("f18")
+        row = {"class": node.cls, "name": name.f.get("f08") if isinstance(name, Obj) else None, "persistent_id": node.f.get("f08")}
+        if node.cls == "moLiveSectionFolder_c":
+            row["assembly_state"] = {key: node.f.get(key) for key in ("f360", "f370", "f378")}
+        if node.cls == "moMateGroup_c":
+            row["assembly_state"] = {"manager_count": len(node.f.get("discarded_manager_records", [])), "resolved_mate_row_count": len(node.f.get("f4e8", [])), "f4f8": node.f.get("f4f8")}
+        rows.append(row)
+    return rows
+
+
 def decoded_state(archive, reg, resolved_complete):
     model_doc, model_map = load_config(archive.require(CONFIG), reg, 19000, archive=archive, name=CONFIG)
     header_doc, header_map = load_rooted(archive.require(HEADER), reg, 1, 19000)
@@ -100,6 +135,8 @@ def decoded_state(archive, reg, resolved_complete):
         require(not resolved_doc.tail and not resolved_map.left(), "assembly resolved projection has unread bytes")
         result["resolved_graph"] = GraphProof(resolved_doc, resolved_map, RESOLVED, {"document": model_doc, "reader": model_map})
         result["reference_update_fields"] = reference_updates(model_map, resolved_map)
+        result["active_configuration"] = configuration_layout(archive, reg)
+        result["resolved_root_layout"] = resolved_layout(resolved_doc.roots)
     return result
 
 
