@@ -99,10 +99,12 @@ The driving distance is in the display's `f850` handle list.
 `f28` parameter's `f58` matches both the independent design length and
 the display's `fad0`. It measures 0.06323 m in A18.
 
-The three lists still reach provisional serializers for `moChainComponent_c`,
-`moExtFeatureList_c` and `moReferenceChain_c`. Their exact round trips are
-source-read evidence. Fresh mate construction, other mate types and native
-acceptance remain open. The two held-out sources stay sealed.
+The pinned 2026 read and store proof now qualifies `moChainComponent_c`,
+`moExtFeatureList_c` and `moReferenceChain_c` for the ordinary object archive.
+All 51 disclosed stream comparisons still match. Every executed method in each
+populated mate-list stream is proven for this archive version. Other parent
+streams still reach provisional schemas. Fresh mate construction and native
+acceptance remain open. [Reference-chain proof](PlanarMateReferenceChains2026.md)
 
 Run from the repository root with the authorized disclosed source directory:
 

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from Core import ArchiveError
+from Core import ArchiveError, DOCUMENT_VERSION_2026
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, u8, f64, cstr, obj, rep, base, emb, time32
 from Schema import If, Fn
 
@@ -126,8 +126,18 @@ def define_ent_refs(reg):
     reg.provisional("moCompFace_c", [base("moCompBEntRef_c")])
 
 
+def current_reference_archive(s, ar):
+    return ver(ar) == DOCUMENT_VERSION_2026
+
+
+def define_reference_archive(reg, name, operations):
+    legacy_name = f"{name}.UnverifiedArchiveVersion"
+    reg.provisional(legacy_name, operations)
+    reg.define(name, [If(current_reference_archive, operations, [base(legacy_name)])])
+
+
 def define_chain_components(reg):
-    reg.provisional("moChainComponent_c", [
+    define_reference_archive(reg, "moChainComponent_c", [
         base("moComponent_c"),
         obj("f20"),
         Vge(0x837, [u32("f30")]),
@@ -137,7 +147,7 @@ def define_chain_components(reg):
         obj("f40"),
         Vge(0x38D, [i32("f48")]),
     ])
-    reg.provisional("moReferenceChain_c", [
+    define_reference_archive(reg, "moReferenceChain_c", [
         If(condition(0x80000001), [], [Vlt(0x3B3, [legacy("moReferenceChain_c model pre-0x3b3")])]),
         Vgt(0x75, [u16("f24")]),
         If(condition(0x80000001), [i32("has_f18")]),
@@ -146,7 +156,7 @@ def define_chain_components(reg):
         i32("f20"),
         Vgt(0x8D1, [emb("f40", "moReferencedConfiguration_c")]),
     ])
-    reg.provisional("moExtFeatureList_c", [
+    define_reference_archive(reg, "moExtFeatureList_c", [
         Vlt(0xF21, [legacy("moExtFeatureList_c CObList pre-0xf21")]),
         i32("n"),
         rep(lambda s, ar: s["n"] & 0xFFFFFFFF, "f08", [obj("o")]),
