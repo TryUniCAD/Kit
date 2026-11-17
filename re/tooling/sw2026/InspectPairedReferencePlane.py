@@ -24,14 +24,21 @@ TOOLS = (*BASE_TOOLS, "ReferencePlaneSourceRecipe.py", SCRIPT.name)
 def verify(path, sha):
     root = path.parent.resolve(strict=True)
     job = json.loads(checked(path, sha, root).read_bytes())
+    mode = job.get("mode", "disclosed")
     require(path.name == "PairedTrial.json" and job["schema"] == SCHEMA and job["source_lock_sha256"] == SOURCE_LOCK_SHA256
-            and job["oracle_sha256"] == ORACLE and job["heldout_inputs_read"] == 0 and job["native_acceptance"] is False,
+            and job["oracle_sha256"] == ORACLE and mode in ("disclosed", "heldout") and job["native_acceptance"] is False,
             "another paired discovery identity was supplied")
+    heldout = mode == "heldout"
+    if heldout:
+        require(os.name == "nt" and re.fullmatch(r"[A-Za-z]:", root.drive) and job["host_private_payloads_read"] == 0
+                and job["heldout_inputs_read"] == 1, "the original plane comparison must stay guest-local")
+    else:
+        require(job["heldout_inputs_read"] == 0, "a disclosed comparison received a held-out input")
     require(SCRIPT.parent == root / "Tools" and set(job["tool_hashes"]) == set(TOOLS)
             and set(job["tool_hashes"]) == {item.name for item in SCRIPT.parent.glob("*.py")}, "use the exact frozen paired observer")
     for name, expected in job["tool_hashes"].items():
         checked(root / "Tools" / name, expected, root / "Tools")
-    checked(root / "SourceLock.json", SOURCE_LOCK_SHA256, root)
+    source_lock = checked(root / "SourceLock.json", SOURCE_LOCK_SHA256, root)
     checked(root / "ApiMetadata.json", job["api_metadata_sha256"], root)
     manifest = json.loads(checked(root / "CodeManifest.json", job["code_manifest_sha256"], root).read_bytes())
     code = root / "CodeRoot"
@@ -47,10 +54,23 @@ def verify(path, sha):
     from ReferencePlaneSourcePlan import disclosed_cases
 
     case = json.loads(checked(root / "Case.json", job["case_sha256"], root).read_bytes())
-    require(case in disclosed_cases(), "the paired observer admits only the original disclosed authored specifications")
+    if heldout:
+        seal = json.loads(source_lock.read_bytes())
+        slot = job["slot"]
+        record = next(row for row in seal["records"] if row["case_id"] == slot and row["phase"] == "lock")
+        frozen = json.loads(checked(root / "GenerationFreeze.json", job["generation_freeze_sha256"], root).read_bytes())
+        require(slot in ("H01", "H02") and case["id"] == slot and record["heldout_source_locked"]
+                and frozen["case_sha256"] == job["case_sha256"] and frozen["code_manifest_sha256"] == job["code_manifest_sha256"]
+                and frozen["request_sha256"] == job["request_sha256"] and frozen["prediction_sha256"] == job["prediction_sha256"]
+                and frozen["native_sources_read"] == 0 and frozen["guarded_builds"] == 2 and frozen["runtime_input_reads"] == 0
+                and frozen["generated_sha256"] == job["generated"]["sha256"],
+                "the held-out plane needs its original slot and pre-comparison generation freeze")
+    else:
+        require(case in disclosed_cases(), "the disclosed observer requires the original authored specifications")
     request = json.loads(checked(root / "Request.json", job["request_sha256"], root).read_bytes())
     expected = json.loads(checked(root / "Expected.json", job["prediction_sha256"], root).read_bytes())
-    require(expected == source_prediction(case) and request == source_request(case, Path(job["guest_root"]) / "GeneratedInput")
+    require(expected == source_prediction(case, heldout=heldout)
+            and request == source_request(case, Path(job["guest_root"]) / "GeneratedInput", heldout=heldout)
             and predict(request, case["edit_distance_m"]) == expected["native_observer_prediction"],
             "paired request or independent prediction differs from the authored source recipe")
     require(job["control"]["prediction"] == job["generated"]["prediction"] == expected["native_observer_prediction"]
@@ -108,7 +128,7 @@ def run(path, sha):
     immutable = {item: digest(item) for item in inputs}
     require(immutable[inputs[1]] == immutable[inputs[2]] == job["generated"]["sha256"], "actual generated custody differs from the frozen candidate")
     result = {"schema": SCHEMA, "packet_sha256": sha, "passed": False, "phases": [], "started_at": time.time(),
-              "source_generated_paired_acceptance": False, "heldout_inputs_read": 0}
+              "source_generated_paired_acceptance": False, "heldout_inputs_read": job["heldout_inputs_read"]}
     record = inspection / "PairedReferencePlaneResults.json"
 
     def phase(role, entry, source, edited=False):

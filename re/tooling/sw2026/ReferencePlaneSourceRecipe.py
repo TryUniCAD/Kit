@@ -16,18 +16,19 @@ BASIS = {"right": ((0.0, 0.0, -1.0), (0.0, 1.0, 0.0)),
          "front": ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0))}
 
 
-def checked_case(case):
+def checked_case(case, *, heldout=False):
     validate_case(case)
-    require(case["id"] in ("D01", "D02", "D03", "D04") and case["split"] == "discovery",
-            "the provisional recipe admits only declared disclosed source cases")
+    slots = ("H01", "H02") if heldout else ("D01", "D02", "D03", "D04")
+    split = "heldout" if heldout else "discovery"
+    require(case["id"] in slots and case["split"] == split, "the declared plane source slot differs from the recipe scope")
     return case
 
 
-def source_request(case, working):
+def source_request(case, working, *, heldout=False):
     from tests.Convert.Solidworks.Research.FreshPartInput import MakePartInput
     from tests.Convert.Solidworks.Research.Presentation.MakeTreeInput import MakeTreeInput
 
-    checked_case(case)
+    checked_case(case, heldout=heldout)
     working = PureWindowsPath(working)
     require(working.is_absolute() and (re.fullmatch(r"[A-Za-z]:", working.drive) or working.drive.startswith("\\\\"))
             and ".." not in working.parts, "the disclosed recipe requires an absolute declared guest working path")
@@ -49,8 +50,8 @@ def source_request(case, working):
     return request
 
 
-def source_prediction(case):
-    checked_case(case)
+def source_prediction(case, *, heldout=False):
+    checked_case(case, heldout=heldout)
     principal = {"x": BASE_NAMES["right"], "y": BASE_NAMES["top"], "z": BASE_NAMES["front"]}
     native = {"name": case["name"], "configuration": "Default", "plane": PLANE, "sketch": SKETCH,
               "boss": BOSS, "origin": "Origin", "principal_names": principal, "base_axis": AXES[case["base"]],

@@ -1,0 +1,152 @@
+{
+  "schema": "kit.sw2026.original-offset-plane-method-preparation-receipt.v1",
+  "disclosed_native_cases": [
+    {
+      "slot": "D01",
+      "base": "front",
+      "reverse": false,
+      "native_result_sha256": "381ec5033f864322f457ca82fd1f1ffef5e4dc953a5dd00fd4567621a06fd2d1",
+      "host_transport_sha256": "d165129238b4679342ab01195f25f8735993c2f89e7e4588e11e44fdfffdd539",
+      "packet_sha256": "5e2c76d41e38498c874c1b645608ef99ce86939287163beff8759f3d15209500",
+      "new_guarded_output_reproduced": true,
+      "generated_sha256": "9a565b31ab2fcb750f993ab3e7249316f1437712aed879445f2a3986b72d922e",
+      "read_attempts": 0,
+      "phases": [
+        {
+          "role": "ControlBefore",
+          "record_sha256": "8dd6a6e28b13497cb2d79a970782fb906260c44443fa507571d989ed81ae2d41",
+          "numeric_checks": 16,
+          "creation_time": 134394242533851672
+        },
+        {
+          "role": "Generated",
+          "record_sha256": "f35f45d024b6020a08d52c8c0af3a0f5d4a2161926ce76803d3f28756580ce72",
+          "numeric_checks": 33,
+          "creation_time": 134394242822846027
+        },
+        {
+          "role": "Reopen",
+          "record_sha256": "137649478b8f95e04f4b72219fa18a5ea65a8c3dcbdd3679a762c5a5661b6d77",
+          "numeric_checks": 16,
+          "creation_time": 134394243222949328
+        },
+        {
+          "role": "ControlAfter",
+          "record_sha256": "b4b4359e5e32093a900ff8bcf240f282aec3826632c89f80b99d09fbde89cfd8",
+          "numeric_checks": 16,
+          "creation_time": 134394243477961147
+        }
+      ],
+      "numeric_checks": 81
+    },
+    {
+      "slot": "D03",
+      "base": "top",
+      "reverse": true,
+      "native_result_sha256": "a3badc21c75925ac2f40290be7a5ef4b1fd3d5fa1f9dbec926fa6d92f73513b1",
+      "host_transport_sha256": "36d38972f5622d5a7ee13dbb8c892ac168b2ed7e7d04d318148bedefe7e9f942",
+      "packet_sha256": "1766a7a38f8612ab23588a922c6314d2135cafdeee558fb4de21696a96a10af4",
+      "new_guarded_output_reproduced": true,
+      "generated_sha256": "732d0d93db968c2f26242dbb92dcfa75d3a9748938d35ef7d602caacb1977a85",
+      "read_attempts": 0,
+      "phases": [
+        {
+          "role": "ControlBefore",
+          "record_sha256": "ec85963d40863825ad0beac79474c32ec30167ae45d7b7f318f84bcb5d6eb2ff",
+          "numeric_checks": 16,
+          "creation_time": 134394282963233166
+        },
+        {
+          "role": "Generated",
+          "record_sha256": "01ba76bce7b404067e5e1eb7e16988b967a8ace4e69df12b36fceea47edcf3ca",
+          "numeric_checks": 33,
+          "creation_time": 134394283268562783
+        },
+        {
+          "role": "Reopen",
+          "record_sha256": "9e4b31cb2c83ae93bb79d50690d3e296d64dbb6eec9a9a83c03f46ce764920fa",
+          "numeric_checks": 16,
+          "creation_time": 134394283657083471
+        },
+        {
+          "role": "ControlAfter",
+          "record_sha256": "d84b82588f797101bbf1e34bcbce35e7029ddd8a630b8a9d801cf803f4f3d277",
+          "numeric_checks": 16,
+          "creation_time": 134394283946777341
+        }
+      ],
+      "numeric_checks": 81
+    },
+    {
+      "slot": "D04",
+      "base": "right",
+      "reverse": false,
+      "native_result_sha256": "51ab991098c9e7cf46844f6e84017847b5151d919bbd8f98491e149a3c097015",
+      "host_transport_sha256": "47b92fb3684996a0cc813348955b8e7d309ec32444c0cffd4a950e6ca39f8918",
+      "packet_sha256": "ad8de3d83113b1557715ab0fc873cd6f1484c47b4b4fb53ec8824248741f30fd",
+      "new_guarded_output_reproduced": true,
+      "generated_sha256": "8cd21b6d7d1be689f120cce89ee2a968dbf55ca016cc9354b3dcd242f795a297",
+      "read_attempts": 0,
+      "phases": [
+        {
+          "role": "ControlBefore",
+          "record_sha256": "dc76c571869b2da4f5622ce68a6f2bffe969df64bcc15e4c7a9413b880bdecad",
+          "numeric_checks": 16,
+          "creation_time": 134394285306668461
+        },
+        {
+          "role": "Generated",
+          "record_sha256": "437dfdaa96d3fee2977206cae1662b971015f951963f4d6bc276d43202fca263",
+          "numeric_checks": 33,
+          "creation_time": 134394285615607996
+        },
+        {
+          "role": "Reopen",
+          "record_sha256": "5c1a563a8a25e4ded6d335314ffd5a9204adc7c195cf8ce8bb2be2e655f264d3",
+          "numeric_checks": 16,
+          "creation_time": 134394286044257581
+        },
+        {
+          "role": "ControlAfter",
+          "record_sha256": "c35245032c27a04cd16556e8b619954898963448d0712fffd1030b1dae87b3bc",
+          "numeric_checks": 16,
+          "creation_time": 134394286345964357
+        }
+      ],
+      "numeric_checks": 81
+    }
+  ],
+  "disclosed_native_processes": 12,
+  "disclosed_numeric_comparisons": 243,
+  "disclosed_source_qualification_sha256": "50e9883e79b738f3e1afdb33a6a76989bbb8bb71294feffb94f68769eff74e9e",
+  "disclosed_native_qualification_sha256": "5a648dda29b3b8416889efe7f44482f8a18c20a73a8a124aba5a67a92c9145a6",
+  "writer_closure_sha256": "fc4947b624fd5697cbc9942fa9ceda925b3b9de791a6a70024ff4fe6342d15bf",
+  "writer_closure_files": 4036,
+  "method_draft_sha256": "80e4537fc16a7f52dd17a42e6a5fd64e001d4f05933be64dacc27dc9c8c44f3f",
+  "recipe_draft_sha256": "5137f778cdd65ae6242d6ebb89fb31d51f778ec77c0df8cca00a204c29320a63",
+  "schema_validation_passed": true,
+  "host_verification_sha256": "ca6c0fce9098aec226ae5272f10a32a5a010d73568996b683d9d0e0d09b92df1",
+  "disclosed_packet_verification_sha256": "6c00b1dfb0723e0ce67b0598f25eb8483f5e3bda7f92d8e26a9fd8e3fc1a499c",
+  "heldout_host_rejection_sha256": "e488617be09721371a2abf174188e23c812411af88b3fda18cdb6822e7aa7fcb",
+  "source_lock_sha256": "c61560deff9c84addd65db48664ce6a5488ad3eecde9a070c62a215a5541d703",
+  "tool_hashes": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorReferencePlaneSources.py": "a2df6c81c6f8366cd5da14fefa685c279ef26f2c4271c6536e0afff71593c6aa",
+    "ReferencePlaneDimensions.py": "ada024b7a43428ca599ad14356adaeb4080b273559ea6214393691135f370504",
+    "ReferencePlaneSourcePlan.py": "9d878376609503827881a729f8e96c157c4066699eb9e772db7a33f0a08fd880",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "InspectGeneratedReferencePlane.py": "4e4cf6bc4e2d9dfd807cbd6c00ec3376ca41b895c1579f8ba26df65d0c263cef",
+    "ReferencePlaneSourceRecipe.py": "e0d1431f2fcf682a7c2b710e08492dc60f42272028bbb2ad82f0a86dc639af25",
+    "InspectPairedReferencePlane.py": "f25803eda152eaee9f06d063e38701c99b56006cb283327b25e424aadcc0c7da",
+    "RunReferencePlaneBlind.py": "b6a03caa2c7247e139feaeef99c28ce5c5ae035c1c35d9afe9e30ce08dcce5b2"
+  },
+  "host_heldout_payloads_read": 0,
+  "guarded_disclosed_replays": 3,
+  "heldout_native_processes_started": 0,
+  "accepted_heldout_results": 0
+}
