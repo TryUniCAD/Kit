@@ -1,0 +1,253 @@
+{
+  "schema": "kit.sw2026.assembly-reference-state-receipt.v1",
+  "source_revision": "70ce85162feba136349f4d94d86d26d65ab6ae08",
+  "started_at": 1794879883.3626409,
+  "finished_at": 1794880020.0038052,
+  "inspection_sha256": "2eb4ed0db4798bec54797c86c65944f67807fe1778f6aede8e1aed7487f63caa",
+  "host_transport_sha256": "1523dcc7f664f719766959e1e817907d668fc509877d339f134c5d70fb8e9d17",
+  "job_sha256": "ab029ba7f34ed1458598250919da58adaf45af73355c44a130d5ed749e606bfd",
+  "probe_sha256": "3a7ac17866bb771bd5daa16fe5133652f639c0d402fb6ede58d3411733349cd4",
+  "tools_manifest_sha256": "59e897a6f67c20a1e6b167928e9f07369964a600a974f0ec515189fb943fc088",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "source_sha256": "e5c4502ef3b6da5d106c7bb362e9e1ac0bd3c324e011b49320466eb8ec8eb87d",
+  "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "controls_healthy": true,
+  "inputs_immutable": true,
+  "distinct_processes": 6,
+  "controls": [
+    {
+      "kind": "control_before",
+      "healthy": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "process_id": 9276,
+        "process_creation_filetime": 134393534877786386,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "pe_machine": "0x8664"
+      }
+    },
+    {
+      "kind": "control_after",
+      "healthy": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "process_id": 9400,
+        "process_creation_filetime": 134393536011756329,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "pe_machine": "0x8664"
+      }
+    }
+  ],
+  "standalone_reference": {
+    "completed": true,
+    "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+    "open_errors": 0,
+    "open_warnings": 0,
+    "after_open": {
+      "needs_rebuild": 0,
+      "save_flag": false,
+      "whats_wrong": 0,
+      "active_configuration": "Default"
+    },
+    "record_sha256": "a03a0672aab819c7159d122a2cdccf39a5be61310056cf8fa3e043965c38abc2",
+    "source_immutable": true,
+    "oracle_identity": {
+      "process_id": 3256,
+      "process_creation_filetime": 134393535121950328,
+      "executable": "SLDWORKS.exe",
+      "file_version": "34.5.2.0604",
+      "version_matches": true,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "pe_machine": "0x8664"
+    }
+  },
+  "parent_phases": [
+    {
+      "phase": "original-readonly",
+      "source_sha256": "e5c4502ef3b6da5d106c7bb362e9e1ac0bd3c324e011b49320466eb8ec8eb87d",
+      "open_errors": 0,
+      "open_warnings": 32,
+      "completed": true,
+      "source_immutable": true,
+      "record_sha256": "0490a760b501a10bbd2b9dae025c11055aa59e92a4d52c52e354f414dc701a0a",
+      "after_open": {
+        "needs_rebuild": 1,
+        "save_flag": false,
+        "whats_wrong": 0,
+        "top_level_count": 1,
+        "child": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "whats_wrong": 0,
+          "referenced_configuration": "Default",
+          "active_configuration": "Default",
+          "path_basename": "L1_boss.SLDPRT"
+        }
+      },
+      "oracle_identity": {
+        "process_id": 4776,
+        "process_creation_filetime": 134393535339596858,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "pe_machine": "0x8664"
+      },
+      "recognized_progress_windows": 3
+    },
+    {
+      "phase": "normal-open-rebuild-save",
+      "source_sha256": "e5c4502ef3b6da5d106c7bb362e9e1ac0bd3c324e011b49320466eb8ec8eb87d",
+      "open_errors": 0,
+      "open_warnings": 32,
+      "completed": true,
+      "source_immutable": true,
+      "record_sha256": "ecf9e3a7427b521b3281737d45fd278fd586e3ba00843a73ec7bc709ea7b71a4",
+      "after_open": {
+        "needs_rebuild": 1,
+        "save_flag": false,
+        "whats_wrong": 0,
+        "top_level_count": 1,
+        "child": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "whats_wrong": 0,
+          "referenced_configuration": "Default",
+          "active_configuration": "Default",
+          "path_basename": "L1_boss.SLDPRT"
+        }
+      },
+      "after_active_rebuild": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0,
+        "top_level_count": 1,
+        "child": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "referenced_configuration": "Default",
+          "active_configuration": "Default",
+          "path_basename": "L1_boss.SLDPRT"
+        }
+      },
+      "after_all_rebuild": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0,
+        "top_level_count": 1,
+        "child": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "referenced_configuration": "Default",
+          "active_configuration": "Default",
+          "path_basename": "L1_boss.SLDPRT"
+        }
+      },
+      "after_save": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0,
+        "top_level_count": 1,
+        "child": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "whats_wrong": 0,
+          "referenced_configuration": "Default",
+          "active_configuration": "Default",
+          "path_basename": "L1_boss.SLDPRT"
+        }
+      },
+      "saved_sha256": "4138b6999425a783e4b41d9729a949285bd044a77d905f79ec693391bbb07239",
+      "saved_bytes": 55469,
+      "active_rebuild_return": true,
+      "all_rebuild_return": true,
+      "oracle_identity": {
+        "process_id": 8788,
+        "process_creation_filetime": 134393535555178976,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "pe_machine": "0x8664"
+      },
+      "recognized_progress_windows": 3
+    },
+    {
+      "phase": "fresh-rebuilt-save",
+      "source_sha256": "4138b6999425a783e4b41d9729a949285bd044a77d905f79ec693391bbb07239",
+      "open_errors": 0,
+      "open_warnings": 32,
+      "completed": true,
+      "source_immutable": true,
+      "record_sha256": "7f3a1f63c48cbe3587a8da2339775376573280dac030f4f911f30e2bad936879",
+      "after_open": {
+        "needs_rebuild": 1,
+        "save_flag": false,
+        "whats_wrong": 0,
+        "top_level_count": 1,
+        "child": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "whats_wrong": 0,
+          "referenced_configuration": "Default",
+          "active_configuration": "Default",
+          "path_basename": "L1_boss.SLDPRT"
+        }
+      },
+      "oracle_identity": {
+        "process_id": 4084,
+        "process_creation_filetime": 134393535795911616,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "pe_machine": "0x8664"
+      },
+      "recognized_progress_windows": 3
+    }
+  ],
+  "but_for_intervention_proven": false,
+  "parent_warning_cause_established": false,
+  "licensing_preflight": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    }
+  ],
+  "licensing_postflight": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    }
+  ],
+  "solidworks_postflight_count": 0,
+  "diagnostic_completed": true,
+  "writer_output_count": 0,
+  "native_acceptance": false
+}

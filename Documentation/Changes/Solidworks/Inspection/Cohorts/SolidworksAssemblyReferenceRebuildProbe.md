@@ -9,7 +9,9 @@ and its active configuration through the ordinary assembly occurrence.
 The probe records the child and parent rebuild, save and feature problem
 states separately. A fresh process is required for the standalone part,
 each parent phase and each bracketing control. It refuses a substituted
-or suppressed child and never overwrites the inputs. The new native
-measurement remains pending. These observations can distinguish a reported
-child rebuild from the parent state but cannot by themselves identify the
-native stale-reference branch.
+or suppressed child and never overwrites the inputs. The [native receipt](../../../../../re/solidworks/measurements/2026/AssemblyReferenceProbe03.json)
+records six fresh processes, two healthy controls and unchanged licensing
+processes. The child reports `NeedsRebuild2=0` alone and in all three parent
+reopens. Each parent reports `NeedsRebuild2=1` with open warning 32. This
+distinguishes the reported child rebuild state from the parent, without
+identifying the stale-reference or warning origin.

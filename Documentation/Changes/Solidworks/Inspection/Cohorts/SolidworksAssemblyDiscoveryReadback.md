@@ -21,5 +21,7 @@ map and distinguishes separate reference objects with identical content. It
 records the actual schema status for each stream. The [first remote receipt](../../../../../re/solidworks/measurements/2026/AssemblyDiscoveryProcesses6fc.json)
 passes all 21 stream comparisons and finds the expected zero, one and two
 ordinary references. The populated configurations retain external reference
-markers and the original native warning. The additional stamp projection
-still needs its remote result. Discovery adds no writer outputs or acceptance.
+markers and the original native warning. The [linked stamp projection](../../../../../re/solidworks/measurements/2026/AssemblyStampProcesses34a.json)
+also passes all 21 comparisons and finds that each reference time matches its
+parent header time in the two populated saves. That is a correlation, with no
+cause assigned to the rebuild warning. Discovery adds no writer outputs or acceptance.

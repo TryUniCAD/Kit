@@ -50,3 +50,28 @@ stamps by archive identity alongside the assembly header counters. A causal
 reopen measurement still needs to correlate the same child, ordinary
 reference and configuration across save/load; no universal neutral stamp or
 writer acceptance follows from these predicates.
+
+## Caller and discovery evidence
+
+A second Hopper caller pass has SHA-256
+`76004d436ddf40db7a56b946791159cbd76853d2e2a5b58f8b7b13ca8bdce3f5`.
+The original assembly vtable at `0x4ce69b30` binds `+0x1428` to the exported
+`getUpdateStatus` at `0x4b69e2c0`. Its 13 bytes, SHA-256
+`15e94d2b15e70ec023a25bc06bbb10dd12c7d95e412ee7937fad387c53eb64ab`,
+tail-call the combined walker with flag 1 and no supplied visited set.
+Slot `+0x13f8` binds `updateAndMarkConfigIfChanged` at `0x4b6b9bd0`. The
+original call at `0x4b6b9c42` is in its reverse-linked unwind fragment and
+uses the same arguments when the previous status is zero. A nonzero result
+enters the update branch. Neither edge ties the combined walker to warning
+32 at the load API boundary.
+
+The [child-state probe](../measurements/2026/AssemblyReferenceProbe03.json)
+measured the same `Default` part configuration without a rebuild requirement
+in the standalone process and inside each of the three parent reopens.
+The parent needed a rebuild and returned warning 32 on all three opens.
+The saved [reference projection](../measurements/2026/AssemblyStampProcesses34a.json)
+found that `f3e8` equals each populated parent header's `f48`: `1794876459`
+for the single occurrence and `1794876511` for both repeated occurrences.
+The external part bytes used by the two source cases were unchanged.
+This does not establish the loaded child's update time at the point of saving
+the assembly or a causal explanation for the reopen warning.
