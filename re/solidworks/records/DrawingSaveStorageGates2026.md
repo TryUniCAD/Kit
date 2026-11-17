@@ -83,3 +83,15 @@ explicitly removed all breakpoints, verified original instruction
 bytes after detach and measured debugger absence. The document
 properties call interval is the next loader-analysis boundary.
 [Call-entry comparison](../measurements/2026/DrawingBlankSavePropertiesEntryNative01.json)
+
+The next paired trace enters `suDocumentProperties::SaveToStorage`
+at `sldappu+0x4f76af` on both lanes. Both storage-mode results are
+1, selecting ZIP storage. Both property owners, summary owners
+and storage arguments are nonnull, with custom-data and option
+arguments zero. The reduced-native inner call delivers its return
+at `+0x4f76b5` with EAX 1. The generated save completes error 1
+with this return site armed and unobserved. All seven native
+processes retain healthy controls, explicit breakpoint removal,
+restored instructions and final debugger absence. The remaining
+interval lies inside the property serializer.
+[Property-storage comparison](../measurements/2026/DrawingBlankPropertyStorageModeNative01.json)
