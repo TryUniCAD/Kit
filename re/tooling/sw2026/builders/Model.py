@@ -713,8 +713,8 @@ def configuration_manager(
 
 
 def relation_manager(*, owner: Obj) -> Obj:
-    if not isinstance(owner, Obj) or owner.cls not in ("moPart_c", "moAssembly_c"):
-        raise ArchiveError("fresh relation managers require a classified part or assembly owner")
+    if not isinstance(owner, Obj) or owner.cls not in ("moPart_c", "moAssembly_c", "moDrawing_c"):
+        raise ArchiveError("fresh relation managers require a classified part, assembly or drawing owner")
     return Obj("moRelMgr_c", {
         "owner": owner,
         "f58": object_list(),
@@ -732,8 +732,8 @@ def relation_manager(*, owner: Obj) -> Obj:
 
 
 def clear_model_update(*, model: Obj) -> None:
-    if not isinstance(model, Obj) or model.cls not in ("moModel_c", "moPart_c", "moAssembly_c"):
-        raise ArchiveError("zero-status model update requires a classified model, part or assembly owner")
+    if not isinstance(model, Obj) or model.cls not in ("moModel_c", "moPart_c", "moAssembly_c", "moDrawing_c"):
+        raise ArchiveError("zero-status model update requires a classified model owner")
     flags = model.f.get("f0c")
     if type(flags) is not int or not 0 <= flags <= 0xFFFFFFFF:
         raise ArchiveError("model update requires an initialized unsigned flag word")
@@ -789,17 +789,19 @@ def model_fields(
     self_component: Obj | None,
     relation_graph: Obj | None,
 ) -> dict:
-    if not isinstance(node, Obj) or node.cls not in ("moPart_c", "moAssembly_c") or node.f:
-        raise ArchiveError("base model fields require a fresh empty part or assembly record")
+    if not isinstance(node, Obj) or node.cls not in ("moPart_c", "moAssembly_c", "moDrawing_c") or node.f:
+        raise ArchiveError("base model fields require a fresh part, assembly or drawing record")
     if not isinstance(detail_definitions, dict) or not detail_definitions:
         raise ArchiveError("model construction requires generated detail definitions")
     if not isinstance(document_units, Obj) or document_units.cls != "moUnitsTable_c":
         raise ArchiveError("model construction requires a native user unit table")
     if analysis_units is None:
-        if node.cls != "moAssembly_c":
+        if node.cls == "moPart_c":
             raise ArchiveError("fresh parts require an explicit native analysis unit table")
     elif not isinstance(analysis_units, Obj) or analysis_units.cls != "moUnitsTable_c":
         raise ArchiveError("analysis units must be a native unit table")
+    elif node.cls == "moDrawing_c":
+        raise ArchiveError("the empty drawing profile has no analysis unit table")
     if self_component is not None:
         if not isinstance(self_component, Obj) or self_component.cls != "moUnitComponent_c":
             raise ArchiveError("fresh model self components must be native unit components")

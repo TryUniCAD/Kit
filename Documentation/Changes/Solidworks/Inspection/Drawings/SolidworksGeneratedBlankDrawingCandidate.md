@@ -1,0 +1,3 @@
+# SOLIDWORKS generated blank drawing candidate
+
+The research constructor generates the native streams and container for one unformatted ANSI A landscape sheet from authored settings. Two inputs with different sheet names and ratios passed archive load, SDK inspection and the no-runtime-read process guard. A separate hash-bound native trial pairs the generated drawing with clean, repacked and reduced disclosed controls. It measures feature tree, scale edit, save and fresh reopen. Native trial and held-out qualification remain pending. [Candidate construction, command and measurements](../../../../../re/solidworks/records/GeneratedBlankDrawing2026.md)

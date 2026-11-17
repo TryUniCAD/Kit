@@ -259,8 +259,12 @@ def keywords(*, name, timestamp, configurations, features):
 
 
 def rooted_metadata_streams(*, registry, header2, model_headers, biography_record, history_record):
-    if not isinstance(model_headers, Mapping) or not model_headers:
-        raise ValueError("metadata streams require a model header for each generated configuration")
+    if not isinstance(model_headers, Mapping):
+        raise ValueError("metadata streams require a mapping of generated configuration headers")
+    if not model_headers:
+        own_file = header2.get("f38") if isinstance(header2, Obj) else None
+        if not isinstance(own_file, Obj) or own_file["shared"]["f20"] != 4:
+            raise ValueError("metadata streams require a model header for each generated configuration")
     records = {"Header2": (header2, "moHeader_c"),
                BIOGRAPHY_STREAM: (biography_record, "moBiography_c"),
                HISTORY_STREAM: (history_record, "moVersionHistory_c")}
