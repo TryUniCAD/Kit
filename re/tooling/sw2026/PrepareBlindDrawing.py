@@ -12,6 +12,7 @@ import sys
 
 
 SOURCE_MANIFEST_SHA256 = "c1e8e5788d32e9fbdfdae83b1ec95410835b2ee05c47a2a278dfc2ad88ae1de4"
+ORDERED_SOURCE_MANIFEST_SHA256 = "ba27d8eb41a580553678995b9d863a1162325b2d3dcf17c31a9e5c8b96840293"
 RESEARCH_ROOT = Path(__file__).resolve().parents[3]
 RESEARCH_TOOLS = Path(__file__).resolve().parent
 
@@ -39,7 +40,7 @@ def bootstrap_writer():
     else:
         raise ValueError("the immutable writer root and source manifest must be explicit")
     data = manifest.read_bytes()
-    if expected != SOURCE_MANIFEST_SHA256 or sha256(data).hexdigest() != expected:
+    if expected not in (SOURCE_MANIFEST_SHA256, ORDERED_SOURCE_MANIFEST_SHA256) or sha256(data).hexdigest() != expected:
         raise ValueError("the qualified immutable drawing source manifest differs")
     source = json.loads(data)
     if len(source["files"]) != 3685:

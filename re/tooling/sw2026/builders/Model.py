@@ -972,6 +972,7 @@ def part_graph(
     updated_at: int,
     created_at: int,
     retain_construction_flag: bool,
+    folder_order: list[str] | tuple[str, ...] | None = None,
 ) -> ModelGraph:
     required_folders = {
         "moCommentsFolder_c", "moDocsFolder_c", "moEnvFolder_c", "moEqnFolder_c",
@@ -982,6 +983,10 @@ def part_graph(
     canonical_folders = required_folders - {"moNotesAreaFtrFolder_c"} | {"moInkMarkupFolder_c"}
     if not isinstance(folder_names, Mapping) or set(folder_names) not in (required_folders, canonical_folders):
         raise ArchiveError("base part graphs require authored names for every classified system folder")
+    if folder_order is not None:
+        if not isinstance(folder_order, (list, tuple)) or not all(isinstance(cls, str) for cls in folder_order) or len(folder_order) != len(folder_names) or set(folder_order) != set(folder_names):
+            raise ArchiveError("authored part folder order must be an exact permutation of its folder classes")
+        folder_names = {cls: folder_names[cls] for cls in folder_order}
     allocator = PersistentIds()
     part = part_root(
         name=name, allocator=allocator, detail_definitions=detail_definitions,

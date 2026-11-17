@@ -180,7 +180,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         "journal_name", "tessellation", "detail_flags", "system_preference_7a",
         "design_intent", "selected_leader", "cjk_saved",
         "folder_names", "cabinet_name",
-    ))
+    ), ("folder_order",))
     target = fields(target, "native target", ("date_code", "parasolid_version"))
     if output is not None:
         output = fields(output, "part output", ("path_name", "saved_at"))
@@ -213,6 +213,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         document_units=document_units, analysis_units=analysis_units, hatch_name=presentation["hatch_name"],
         date_code=target["date_code"], parasolid_version=target["parasolid_version"],
         updated_at=provenance["modified_at"], created_at=provenance["created_at"], retain_construction_flag=True,
+        folder_order=presentation.get("folder_order"),
     )
     plane = graph.planes[document["plane_axis"]]
     offset_plane = None
