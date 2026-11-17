@@ -220,15 +220,18 @@ covers disclosed Front, Top, Right and Isometric views at four non-unit
 scales. It passes complete Definition and Header2 byte identity and 36
 geometric probes through the public opt-in SDK reader. All four layouts
 survive neutral JSON serialization. Native source authoring and fresh
-reopen pass across ten processes. Expanded generated and held-out
-drawing qualification remain open.
+reopen pass across ten processes.
 
 The [scaled view construction](measurements/2026/DrawingScaledViewBuild01.json)
 produces four distinct drawing and part pairs from independently supplied
 neutral requests. Two builds per case are identical and record zero
 runtime input-file access attempts. The prior unit-scale Front pair
-retains its original file hashes. The expanded native edit and save
-trials remain open.
+retains its original file hashes. In the [native generated comparison](measurements/2026/DrawingScaledViewNative01.json),
+the four new pairs and both pristine brackets pass twelve processes and
+1,194 numeric checks. All four generated drawings save and freshly
+reopen with the moved view, scale, orientation, child link, configuration,
+measured geometry and exact sixteen-row tree. The SDK reads the four
+saved layouts. Held-out drawing qualification remains open.
 
 The [combined blank drawing diagnostic](measurements/2026/DrawingCacheCombinedOmission01.json)
 shows that SOLIDWORKS regenerates four omitted display and preview streams

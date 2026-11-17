@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 disclosed standard-view sketch supports
 
-This is a source and offline correlation result for four disclosed discovery drawings. It does not qualify generated drawing output or held-out coverage. No vendor process was started and no hidden specification, saved case or author observation was opened.
+The source and offline correlation uses four disclosed discovery drawings. It ran without the vendor process or access to sealed inputs. A separate controlled run measures the generated drawings below.
 
 ## Custody
 
@@ -53,7 +53,7 @@ All four saved `f614` values are `0x710504`, including Isometric, with face-vali
 
 [DrawingViewSupports.py](../../tooling/sw2026/builders/DrawingViewSupports.py) now constructs the sheet inverse-scale and model unit-scale oriented frames. The model normal and display origin follow the chosen canonical axes. [DrawingFrontProjection.py](../../tooling/sw2026/builders/DrawingFrontProjection.py) obtains those axes from the actual generated child model's named view. It derives the centre, projected extent and border from the neutral child geometry and sheet size.
 
-The comparison passed 76 formula-check groups and eight exact stream round trips. Existing source/native controls establish the saved-source facts; they do not measure the expanded writer. The original blind mapper remains frozen and the two sealed drawing source specifications remain unopened.
+The comparison passed 76 formula-check groups and eight exact stream round trips. A separate controlled run measured four new generated pairs built twice from independently authored requests. Both pristine brackets and all four generated edit, save and reopen lanes passed across twelve distinct native processes. The generated derivatives retained their edited positions, named orientations, scales, child configuration and geometry and all sixteen drawing feature rows. Four SDK readbacks recovered the saved layouts. The original blind mapper remains frozen and the two held-out drawing sources remain sealed. [Native measurement](../measurements/2026/DrawingScaledViewNative01.json)
 
 ## Reproduction
 
