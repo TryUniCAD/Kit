@@ -220,6 +220,10 @@ accepted a sheet scale edit. Native SaveAs returned error 1 and produced an
 empty target. The reduced native control with the same seven stream roles
 saved and reopened cleanly.
 
+The [matched-path cosmetic-thread comparison](measurements/2026/GeneratedBlankDrawingThreadFlagNative02.json)
+retained identical native save failures for both generated inputs. All
+three controls passed over eight fresh processes.
+
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.
 Both edited dimensions survived clean save and fresh reopen. The rebuilt geometry matched the
