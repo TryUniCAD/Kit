@@ -1,0 +1,148 @@
+{
+  "schema": "kit.sw2026.generated-blind-pocket-native-discovery.v1",
+  "scope": "Controlled open and rebuild of two generated candidates with identical geometry and different body scope words.",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "source_revision": "e25ef98ed14de27e894a82da8b5a4f923d5897c7",
+  "tool_sha256": {
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "job_sha256": "bf040dac3047059b3be6f732d6c6e36cd3b92fb99cbcb3833608955570b16ad4",
+  "private_native_report_sha256": "f4919926953f67ebb3c3f7e5341a7ba06dca5cff98e70ca105711b56f2e6167d",
+  "private_transport_sha256": "60892c755d9b8f272a999eb9753b88872ab2bfc77080e6398dc3c28d9da11452",
+  "transport_exit": 1,
+  "distinct_processes": 4,
+  "input_files_unchanged": true,
+  "controls_healthy": true,
+  "analytic_geometry": {
+    "blind_pocket": {
+      "volume": 3.9305401586878874e-05,
+      "area": 0.008483809302065872,
+      "com": [
+        -0.0027951038934035393,
+        -0.0023222756847416782,
+        0.007936210541516118
+      ]
+    },
+    "uncut_boss": {
+      "volume": 3.9928867999999996e-05,
+      "area": 0.00828928,
+      "com": [
+        -0.002599999999999998,
+        -0.0023999999999999994,
+        0.00785
+      ]
+    }
+  },
+  "controls": [
+    {
+      "phase": "control_before",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "passed": true
+    },
+    {
+      "phase": "control_after",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "passed": true
+    }
+  ],
+  "cases": [
+    {
+      "name": "BlindPocketAllBodies.SLDPRT",
+      "sha256": "340e52b7ca4acca96b977bb5f514eb361323a560a69e44c067801c91b4253b12",
+      "authored_scope": "all_bodies",
+      "geometry_target": "blind_pocket",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuilt": true,
+      "rebuild_problems": 0,
+      "cut_feature_error": 0,
+      "body_count": 1,
+      "feature_count": 22,
+      "feature_order": [
+        [
+          "Sketch1",
+          "ProfileFeature"
+        ],
+        [
+          "Boss-Extrude1",
+          "Extrusion"
+        ],
+        [
+          "PocketSketch",
+          "ProfileFeature"
+        ],
+        [
+          "BlindPocket",
+          "ICE"
+        ]
+      ],
+      "dimension_system_values_m": {
+        "D1@BlindPocket": 0.00483,
+        "D1@PocketSketch": 0.006409999999999999
+      },
+      "measured_geometry": {
+        "volume": 3.930540158687887e-05,
+        "area": 0.008483809302065872,
+        "com": [
+          -0.002795103893403539,
+          -0.0023222756847416787,
+          0.007936210541516118
+        ],
+        "mass": 3.930540158687887e-05
+      },
+      "geometry_matches_at_6_digits": true
+    },
+    {
+      "name": "BlindPocketEmptyFeatureScope.SLDPRT",
+      "sha256": "49423910d16837ee8f3bfcd4dcfa61f471cd0274c93d6c6af3281ce2e8901d24",
+      "authored_scope": "empty_feature_scope",
+      "geometry_target": "uncut_boss",
+      "open_errors": 0,
+      "open_warnings": 32,
+      "rebuilt": false,
+      "rebuild_problems": 1,
+      "cut_feature_error": 71,
+      "body_count": 1,
+      "feature_count": 22,
+      "feature_order": [
+        [
+          "Sketch1",
+          "ProfileFeature"
+        ],
+        [
+          "Boss-Extrude1",
+          "Extrusion"
+        ],
+        [
+          "PocketSketch",
+          "ProfileFeature"
+        ],
+        [
+          "BlindPocket",
+          "ICE"
+        ]
+      ],
+      "dimension_system_values_m": {
+        "D1@BlindPocket": 0.00483,
+        "D1@PocketSketch": 0.006409999999999999
+      },
+      "measured_geometry": {
+        "volume": 3.992886799999999e-05,
+        "area": 0.00828928,
+        "com": [
+          -0.002599999999999998,
+          -0.0024,
+          0.00785
+        ],
+        "mass": 3.992886799999999e-05
+      },
+      "geometry_matches_at_6_digits": true
+    }
+  ],
+  "native_edit_save_reopen_verified": false,
+  "heldout_acceptance": false,
+  "accepted_production_parts": 0
+}

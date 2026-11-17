@@ -1,6 +1,6 @@
 # Ordinary SOLIDWORKS 2026 blind-pocket discovery
 
-Confidence is **partial**. This experiment constructs the two sketches and two features from new dimensions and explicit body-scope choices. Both choices start with the cut's constructor body state. The usability of that state after opening a generated file remains unmeasured.
+Confidence is **partial**. This experiment constructs two sketches and two features from new dimensions and explicit body-scope choices. The all-bodies variant opened and rebuilt cleanly in SOLIDWORKS 2026. Driving edits and fresh saved reopens remain unmeasured.
 
 ## Inputs and ownership
 
@@ -38,3 +38,23 @@ With rectangle area `A` and perimeter `P`, circle radius `r`, boss depth `B`, an
 For a healthy initial result, save to a separate path, reopen in a fresh process, edit the cut depth to 0.00831 m through its driving parameter, and rebuild. Verify that the boss depth, circle, centre, frame and dependencies survive. Save the edited result and reopen in another fresh process. Compare the final geometry and query the driving parameter. Preserve candidate and control hashes and all load, rebuild and edit results.
 
 If the all-bodies sibling passes and the empty scoped sibling keeps the uncut geometry or reports rebuild errors between healthy controls, the observed difference isolates the chosen persisted scope encoding on this input. If both pass, both cold encodings work on this input. COM results alone leave the internal route that selects bodies unresolved. If both fail or either control fails, this batch gives no discriminator. These generated discovery cases carry no held-out or production coverage.
+
+## Native open and rebuild result
+
+The [discovery receipt](../measurements/2026/GeneratedBlindPocketNative02.json)
+records four distinct fresh processes and two healthy controls. Both generated
+inputs kept their frozen hashes. The all-bodies candidate opened and rebuilt
+with zero errors or warnings. It reported two sketches, an Extrusion and an
+ICE cut among 22 measured feature nodes. The driving depth and sketch radius
+read as 4.83 mm and 6.41 mm. One solid matched the analytic volume, area
+and centre of mass to six significant figures.
+
+The empty feature-scope variant opened with warning 32. Rebuild returned
+false and the ICE feature reported error 71. Its solid measured as the
+uncut boss at six significant figures. The variant difference was confined
+to the requested scope word in the resolved feature stream.
+[Empty feature scope gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/FeatureScope/EmptyFeatureScopeLeavesBossUncut.md)
+
+The result qualifies open and rebuild for the ordinary all-bodies discovery
+input. Explicit selected-body construction, driving edits and independent
+native save and reopen comparisons remain open. The held-out cases stay sealed.

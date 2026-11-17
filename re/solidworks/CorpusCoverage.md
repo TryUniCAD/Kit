@@ -208,6 +208,12 @@ research reader extracts model orientation, scale and the view transform and com
 with the native observations in both view-bearing cases. The [SDK view receipt](measurements/2026/DrawingSdkViewRead01.json)
 verifies the same Definition properties and reference ownership through the public opt-in adapter.
 
+The [combined blank drawing diagnostic](measurements/2026/DrawingCacheCombinedOmission01.json)
+shows that SOLIDWORKS regenerates four omitted display and preview streams
+after editing and saving the disclosed empty sheet. Both controls, the
+repacked control and the four-stream omission passed clean reopen over
+eight processes. Generated drawing acceptance remains zero.
+
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.
 Both edited dimensions survived clean save and fresh reopen. The rebuilt geometry matched the
@@ -236,6 +242,13 @@ identities with successful Document.xml discovery. The inventory includes 56
 documents with pads, 38 with pockets, 25 with chamfers, 23 with holes and 20 with
 revolutions. The original benchmark membership remains unverified. The private
 inventory digest is `db7280b68f5bd30d5d3a3f8e3fe92b1ed335e7cd76786ae5cfbddb0064efa52c`.
+
+The [blind-pocket discovery](measurements/2026/GeneratedBlindPocketNative02.json)
+passed native open and rebuild for the generated all-bodies cut with one
+solid, its driving depth and radius, and analytic geometry at six significant
+figures. Its empty feature-scope sibling reported warning 32 and cut error 71.
+Both controls passed across four processes. Driving edits and held-out
+qualification remain open.
 
 ## Last audit of the removed writer
 
