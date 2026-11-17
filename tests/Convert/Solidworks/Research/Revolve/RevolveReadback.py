@@ -28,6 +28,7 @@ def ReadRevolution(ArchiveFile: SldprtArchive, CodecReg: object) -> dict[str, ob
     )
     AxisFields = ReadFields(NativeFields["f830"])
     Selected = ReadFields(AxisFields["f58"])
+    ProfileRef = CastValue(dict[str, object], Selected["ff0"])
     LineId = CastValue(int, ReadFields(Selected["f0f8"])["idx"])
     LineRows = CastValue(
         list[dict[str, object]], ReadFields(ProfileFields["pd_f80"])["lines"]
@@ -59,9 +60,8 @@ def ReadRevolution(ArchiveFile: SldprtArchive, CodecReg: object) -> dict[str, ob
             "single_end": EndFields["f08"],
             "end_condition": EndFields["f0c"],
             "profile_owned": FeatureRefs["list"]["items"][0]["o"] is Profile,
-            "profile_reference_id": CastValue(dict[str, object], Selected["ff0"])[
-                "f00"
-            ],
+            "profile_reference_id": ProfileRef["f00"],
+            "profile_reference_time": ProfileRef["f08"],
             "profile_id": ProfileFields["f08"],
             "selected_line_id": LineId,
             "axis_mark": Selected["f100"],

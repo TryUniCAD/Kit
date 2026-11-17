@@ -14,4 +14,4 @@ def TestCrossedAxis() -> None:
     Document = CastValue(dict[str, object], Request["document"])
     Document.update(axis_start_m=[0.02, -0.033], axis_end_m=[0.02, 0.041])
     with Raises(AssertionError, match="construction axis must be an upward line"):
-        RunFreshPart(Request)
+        _ = RunFreshPart(Request)

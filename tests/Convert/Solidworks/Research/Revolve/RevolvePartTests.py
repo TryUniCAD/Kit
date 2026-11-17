@@ -33,7 +33,10 @@ def TestRevolvePart() -> None:
         assert Readback["mode"] == Readback["end_condition"] == 0
         assert Readback["reverse"] == Direction and Readback["single_end"] == 1
         assert Readback["profile_owned"] is True
-        assert Readback["profile_reference_id"] == Readback["profile_id"]
+        assert (
+            Readback["profile_reference_id"] == Readback["profile_id"]
+            and Readback["profile_reference_time"] == 2592000
+        )
         assert Readback["selected_line_id"] == 4
         assert Readback["axis_mark"] == Readback["line_mark"]
         assert (

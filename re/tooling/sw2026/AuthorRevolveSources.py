@@ -151,7 +151,15 @@ class RevolveAuthor(CurveAuthor):
         self.set(boss, "Name", BOSS)
 
     def snapshot(self, case, label, angle_degrees):
-        require(self.get(self.model, "ForceRebuild3", False), "revolve rebuild failed")
+        rebuilt = self.get(self.model, "ForceRebuild3", False)
+        if not rebuilt:
+            self.rec.data["failed_rebuild"] = {
+                "phase": label,
+                "features": self.rec.call("feature tree after failed rebuild", Swapp.features, self.model),
+                "bodies": self.rec.call("solid body count after failed rebuild", Swapp.bodies, self.model),
+            }
+            self.rec.flush()
+        require(rebuilt, "revolve rebuild failed")
         require(int(self.get(self.get(self.model, "Extension"), "GetWhatsWrongCount")) == 0, "document contains rebuild errors or warnings")
         tree = self.rec.call("feature tree", Swapp.features, self.model)
         require(tree and all(feature.get("error") == 0 and feature.get("warning") is False for feature in tree), "feature tree has errors or warnings")

@@ -228,7 +228,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         revolve_node = body_feature(cls="moRevolution_c", name=document["revolution_name"], **feature_values)
         revolution = live_revolution(
             feature=revolve_node, source=revolve_source, allocator=graph.allocator, component=graph.part["f990"],
-            profile_created_at=provenance["created_at"], angle_rad=document["angle_rad"], reverse_direction=document["reverse_direction"],
+            profile_created_at=logged_creation_time(timestamps=()), angle_rad=document["angle_rad"], reverse_direction=document["reverse_direction"],
             design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
         )
         features += (revolve_node,)
