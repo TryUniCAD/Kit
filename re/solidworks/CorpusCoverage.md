@@ -171,6 +171,12 @@ rebuild, synchronized save and fresh reopen with 106 numeric checks and two heal
 The two observations preserve a 25-node tree and three placed bodies. The synchronized assembly
 held-outs remain sealed, and no production conversions are counted.
 
+The [generated ordinary revolve measurement](measurements/2026/GeneratedRevolveSketchLog02.json)
+adds full-turn, forward partial and reverse partial parts. Each opened and rebuilt with zero errors
+and warnings, produced one solid with the expected mass properties, and passed a driving angle edit.
+All 75 numeric checks and both controls passed. The generated files use the sketch's actual log state
+for axis-reference creation time. Edited save and fresh reopening and the revolve held-outs remain pending.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11

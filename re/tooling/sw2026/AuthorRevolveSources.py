@@ -236,7 +236,22 @@ class RevolveAuthor(CurveAuthor):
         self.rec.data["edit"] = {"passed": True, "name": name, "before_radians": request, "after_radians": target, "setter_status": status}
 
 
-def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regeneration_warning=False, record_path=None):
+def checked_angle_edit(author, case, boss):
+    toggle = author.display_dimension_preference()
+    previous = bool(author.get(author.model, "GetUserPreferenceToggle", toggle))
+    preference = {"id": toggle, "before": previous, "restored": False}
+    author.rec.data["display_dimension_preference"] = preference
+    try:
+        author.get(author.model, "SetUserPreferenceToggle", toggle, True)
+        require(author.get(author.model, "GetUserPreferenceToggle", toggle), "document did not enable feature dimension display")
+        author.edit_angle(case, boss)
+    finally:
+        author.get(author.model, "SetUserPreferenceToggle", toggle, previous)
+        require(bool(author.get(author.model, "GetUserPreferenceToggle", toggle)) == previous, "document did not restore feature dimension display")
+        preference["restored"] = True
+
+
+def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regeneration_warning=False, record_path=None, save_edited=None):
     record_path = record_path or path.with_suffix(f".{phase}.json")
     recorder = Recorder(record_path, {"case": case, "phase": phase})
     recorder.data["schema"] = "kit.sw2026.ordinary-revolve-source-phase.v1"
@@ -259,7 +274,7 @@ def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regen
                 recorder.data.update(native_sha256=digest(path), native_bytes=path.stat().st_size)
             else:
                 require(digest(path) == source_hash, "source changed before reopening")
-                author.model, errors, warnings = recorder.call("fresh open standalone source", session.open, path)
+                author.model, errors, warnings = recorder.call("fresh open standalone source", session.open, path, read_only=phase == "edited-reopen")
                 recorder.data["open_status"] = {"opened": author.model is not None, "errors": errors, "warnings": warnings}
                 allowed_warnings = (0, 32) if inspect_regeneration_warning else (0,)
                 require(author.model is not None and errors == 0 and warnings in allowed_warnings, "native source failed to open cleanly")
@@ -272,17 +287,13 @@ def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regen
                         "bodies": recorder.call("read body count before explicit rebuild", Swapp.bodies, author.model),
                     }
                 boss = author.snapshot(case, "reopened", case["angle_deg"])
-                toggle = author.display_dimension_preference()
-                previous = bool(author.get(author.model, "GetUserPreferenceToggle", toggle))
-                recorder.data["display_dimension_preference"] = {"id": toggle, "before": previous, "restored": False}
-                try:
-                    author.get(author.model, "SetUserPreferenceToggle", toggle, True)
-                    require(author.get(author.model, "GetUserPreferenceToggle", toggle), "document did not enable feature dimension display")
-                    author.edit_angle(case, boss)
-                finally:
-                    author.get(author.model, "SetUserPreferenceToggle", toggle, previous)
-                    require(bool(author.get(author.model, "GetUserPreferenceToggle", toggle)) == previous, "document did not restore feature dimension display")
-                    recorder.data["display_dimension_preference"]["restored"] = True
+                if phase == "reopen":
+                    checked_angle_edit(author, case, boss)
+                    if save_edited is not None and warnings == 0:
+                        require(not save_edited.exists(), "edited derivative already exists")
+                        status = recorder.call("save edited native derivative", session.save_as, author.model, save_edited)
+                        require(status == (True, 0, 0) and save_edited.is_file(), "edited native save failed or warned")
+                        recorder.data["edited_derivative"] = {"sha256": digest(save_edited), "bytes": save_edited.stat().st_size, "save_status": list(status)}
             work_completed = True
         except Exception as error:
             recorder.failure(error)
