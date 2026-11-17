@@ -22,6 +22,30 @@ The [runner](../../tooling/sw2026/RunReferencePlaneBlind.py) admits a schema-val
 
 Root invokes `prepare` and `measure` separately in the Windows guest. The first invocation verifies and copies code locally, selects the registered authored specification, computes an independent prediction and generates two identical files. Only after freezing that evidence does it verify the source and edited native hashes and attach a local control. The exact verified packet digest admits native measurement. The second invocation brackets the candidate with the original source, then verifies final native files and the entire code closure. Host output contains only the declared public receipt fields. Detailed case, preparation and native records remain guest-local.
 
+## Original held-out result
+
+Both original pre-writer slots passed on their first generated candidates.
+Each candidate opened with one solid, zero native diagnostics and all 26
+ordered source feature rows. Native plane and radius ownership matched the
+source. Editing the driving plane distance moved the body and preserved both
+owners and the exact tree through a clean save and fresh reopen. Body count,
+volume, area and centre of mass matched the independent prediction. All 162
+recorded numeric comparisons and four native controls passed across eight
+distinct processes. [Native receipt](../measurements/2026/ReferencePlaneOriginalHeldouts01.json)
+
+The code, method and schema-validated recipe were bound before guest-only
+exposure. Two fresh guarded builds per case made identical output locally,
+with zero runtime input-file reads. The guest audit independently rehashed
+both original inputs and derivatives, two generated inputs and derivatives,
+and all eight private phase records. The host receives only hashes and
+verdicts. The result qualifies the declared research profile.
+
+Before the original cases, the Windows-generated D03 disclosed control passed
+the same four-process native comparison. The preceding cross-runtime typed
+diagnostic localized the distinct macOS and Windows output hashes to eight
+near-zero standard-view coefficients in Config-0. The nine other streams
+matched exactly. [Runtime coefficient gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ConfigViewCoefficientsVaryByRuntime.md)
+
 ## Source custody is a separate programme stage
 
 The existing source phase runner already separates metadata, original controls, authoring, fresh reopen, sealing and lock. Finish all four disclosed source cases and their independent tail control first. The disclosed repeat retains a control for the first Front profile; unrelated Top/reverse and Right profiles must retain their independently predicted geometry and edits.
