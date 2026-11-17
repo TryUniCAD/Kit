@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
 from interchange.assembly.TransformMatrix import TransformMatrix
 
 
-# native column application needs a row-major matrix with the effective affine scale
+# native column application needs row major layout and the effective affine scale
 def ReadViewMatrix(
     Transform: Mapping[str, object], ScaleValue: float
 ) -> TransformMatrix:

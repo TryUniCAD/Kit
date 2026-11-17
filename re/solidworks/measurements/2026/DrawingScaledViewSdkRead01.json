@@ -491,7 +491,7 @@
     "re/tooling/sw2026/serial/AuditDrawingProjectionSources.py": "a0bbdf2a0c18dddd5ca4169e3f56d17c0b8d2ec94511344d7a9f69c21f055343",
     "re/tooling/sw2026/serial/DrawingReadRules.py": "f8106939219aa7182c1e50f4a04050ede2f185b088531685622d78b7b4984132",
     "src/convert/adapters/solidworks/Drawing/Definition/ConceptShapes.py": "462ab9381615e49ea7ef715b8e9591a62cd04552d46e03af9b1e6fa5b5eb355f",
-    "src/convert/adapters/solidworks/Drawing/Definition/Projection/ReadViewMatrix.py": "d4085b8bcd3ea4a30e56d3835c64b3730d8b7facc3dacc2c0de4abf93ad5ce34",
-    "src/convert/adapters/solidworks/Drawing/Definition/Projection/JoinViewOwners.py": "482cb20a63963c61e3537825db60f445b77127eb031ae90e2525d195e9c53876"
+    "src/convert/adapters/solidworks/Drawing/Definition/Projection/ReadViewMatrix.py": "047e8eb6c3d560d424613b71b8ffccc9ea81d8d9fbd150a2a5a43e812f8f90d3",
+    "src/convert/adapters/solidworks/Drawing/Definition/Projection/JoinViewOwners.py": "3692c746acd5c80fbf330474c2f196d8982cc774559a87e8139358c787de053a"
   }
 }

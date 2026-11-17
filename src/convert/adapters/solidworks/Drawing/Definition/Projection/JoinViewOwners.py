@@ -20,7 +20,7 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ReadViewMatrix im
 )
 from interchange.document.Models.Drawing.DrawingView import DrawingView
 
-# one measured named-view profile preserves the native selector and matrix relationship
+# native named views retain their selector and matrix relationship
 KViewDirections = MappingProxyType(
     {"*Front": 0, "*Right": 1, "*Top": 2, "*Isometric": 7}
 )
