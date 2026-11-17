@@ -193,7 +193,7 @@ def generate_boss(variant, sizes, body_name):
         len(sizes) == 3 and all(isfinite(value) and value > 0 for value in sizes),
         "Expected positive XY width, height and blind depth",
     )
-    width, height, depth = sizes
+    width, height, depth = sizes[0], sizes[1], sizes[2]
     spec = DocumentSpec(
         Title=f"P03 {variant} source-derived Boss",
         ParamName=DRIVERS[2],

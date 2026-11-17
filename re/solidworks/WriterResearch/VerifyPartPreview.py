@@ -168,21 +168,29 @@ def CheckRefusals() -> int:
         and set(Other.PngRgba[3::4]) == {255},
         "caller color policy leaves the geometry raster unchanged",
     )
-    Controls = (
-        (BuildPreviewDrawing, (3, Rectangle, Edges, 0.01)),
-        (BuildPreviewDrawing, (2, Rectangle, {**Edges, 1: (0, 2)}, 0.01)),
-        (BuildPreviewDrawing, (2, Rectangle, Edges, 0.0)),
-        (BuildPreviewDrawing, (2, Rectangle, Edges, float("nan"))),
-        (RenderPartPreview, (18000, Drawing, DEMO_COLORS)),
-        (RenderPartPreview, (19000, Drawing, (DEMO_COLORS[0],) * 3)),
+    DrawingControls = (
+        (3, Rectangle, Edges, 0.01),
+        (2, Rectangle, {**Edges, 1: (0, 2)}, 0.01),
+        (2, Rectangle, Edges, 0.0),
+        (2, Rectangle, Edges, float("nan")),
     )
-    for Operation, Args in Controls:
+    for DatumId, Corners, ControlEdges, Depth in DrawingControls:
         try:
-            Operation(*Args)
+            BuildPreviewDrawing(DatumId, Corners, ControlEdges, Depth)
         except ValueError:
             continue
         raise ValueError("ordinary renderer accepted invalid input")
-    return len(Controls)
+    RasterControls = (
+        (18000, Drawing, DEMO_COLORS),
+        (19000, Drawing, (DEMO_COLORS[0],) * 3),
+    )
+    for Generation, ControlDrawing, Colors in RasterControls:
+        try:
+            RenderPartPreview(Generation, ControlDrawing, Colors)
+        except ValueError:
+            continue
+        raise ValueError("ordinary renderer accepted invalid input")
+    return len(DrawingControls) + len(RasterControls)
 
 
 # source bindings name only the persisted model geometry rather than the saved pixels

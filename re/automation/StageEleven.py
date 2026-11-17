@@ -82,23 +82,22 @@ def observations(research, inputs, session):
             )
         sources[family] = directory
     reports, counterexamples = {}, []
-    for name, reader, arguments in (
-        (
-            "principal",
-            principal,
-            (sources["principal"], inputs["principal-dispatch"]["sha256"]),
-        ),
-        ("rectangles", rectangles, (counterexamples,)),
-        (
-            "cut",
-            cut,
-            (sources["cut"], inputs["cut-receipt"]["sha256"], counterexamples),
-        ),
-    ):
-        try:
-            reports[name] = reader(*arguments)
-        except (LookupError, ValueError) as error:
-            counterexamples.append({"check": name, "reason": str(error)[:2048]})
+    try:
+        reports["principal"] = principal(
+            sources["principal"], inputs["principal-dispatch"]["sha256"]
+        )
+    except (LookupError, ValueError) as error:
+        counterexamples.append({"check": "principal", "reason": str(error)[:2048]})
+    try:
+        reports["rectangles"] = rectangles(counterexamples)
+    except (LookupError, ValueError) as error:
+        counterexamples.append({"check": "rectangles", "reason": str(error)[:2048]})
+    try:
+        reports["cut"] = cut(
+            sources["cut"], inputs["cut-receipt"]["sha256"], counterexamples
+        )
+    except (LookupError, ValueError) as error:
+        counterexamples.append({"check": "cut", "reason": str(error)[:2048]})
     return reports, counterexamples
 
 
@@ -259,16 +258,21 @@ def run(session):
             digest(records) != ci["stage_record_sha256"]
             or digest(saves) != ci["saves_sha256"]
         ):
-            counterexamples.append({"check": "replay differs from the exact parked evidence"})
+            counterexamples.append(
+                {"check": "replay differs from the exact parked evidence"}
+            )
         records["ci"] = {
-            key: ci[key] for key in ("roster_sha256", "observation_sha256", "verification")
+            key: ci[key]
+            for key in ("roster_sha256", "observation_sha256", "verification")
         }
     if counterexamples:
         outcome = "rejected"
         reason = "paired discovery grid contains counterexamples or missing comparisons"
     elif resumed:
         outcome = "completed"
-        reason = "exact paired research replay and hosted archive compatibility verified"
+        reason = (
+            "exact paired research replay and hosted archive compatibility verified"
+        )
     else:
         outcome = "waiting_ci"
         reason = "paired discovery grid and repeat saves agreed with independent observations"
