@@ -276,14 +276,17 @@ populated mate lists. A subsequent [chain proof](records/PlanarMateReferenceChai
 qualified every executed serializer in the three lists. The
 [generated endpoints](measurements/2026/GeneratedPlanarMateEndpoint01.json)
 retained their actual parent, occurrence and child datum identities through
-the typed archive, with placement-dependent lengths. Native mate acceptance
-remains open.
+the typed archive, with placement-dependent lengths.
 
 The [complete coincident assembly construction](records/AssemblyCoincidentConstruction2026.md)
 emits the full mate list together with its fixed anchor, Config-0
 reference counter and paired header logs. Both authored assemblies
-round-trip the required archive graph. These research outputs await
-native solve and persist checks and add no production conversions.
+round-trip the required archive graph. The [first controlled native trial](measurements/2026/GeneratedCoincidentMateNative01.json)
+opens one generated pair with coplanar placements, verifies the exact datum
+references and fixed anchor, then edits a driving depth and matches geometry
+after synchronized save and fresh reopen. Both controls passed over four
+processes. Placement correction, held-out mate acceptance and production
+qualification remain open.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

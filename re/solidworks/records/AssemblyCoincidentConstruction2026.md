@@ -6,7 +6,8 @@ one generated rectangular child. The caller supplies the two ordered
 selections and the independently fixed occurrence. The model attaches
 the mate to its actual group and generates both the resolved and detached
 wrapper graphs from the child and parent.
-[Native registration rules](CoincidentMatePublication2026.md)
+[Native registration rules](CoincidentMatePublication2026.md),
+[update lifecycle](CoincidentMateLifecycle2026.md),
 and [wrapper construction](AssemblyPlanarEndpointConstruction2026.md).
 
 | Owner | Generated state |
@@ -50,5 +51,9 @@ Both cases reproduce all six changed or referenced logical streams and
 complete the mate-list read and write using qualified class schemas.
 The guarded builder performs zero runtime file reads. The process rejects
 an unqualified alignment, repeated occurrence and missing datum.
-Native loading, solving and save acceptance are still open.
-[Construction receipt](../measurements/2026/GeneratedCoincidentMateBundle01.json)
+The first generated pair opened cleanly in SOLIDWORKS, retained the ordered
+plane references through a driving child depth edit, and saved and reopened
+with the new geometry. Both controls passed. Its input placements were
+already coincident. Placement correction and held-out acceptance remain open.
+[Construction receipt](../measurements/2026/GeneratedCoincidentMateBundle01.json) ·
+[Native trial](GeneratedCoincidentMateTrial2026.md)

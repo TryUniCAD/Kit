@@ -96,3 +96,8 @@ third-party storage callback fires. All three matched controls report
 ordinals 7, 9 and 28 before saving and reopening. The pair localizes the
 blank failure after save dispatch and before the storage callbacks.
 [Native observation and offline evaluation](DrawingSaveEvents2026.md)
+
+The [ordinary post-notification branches](DrawingSavePostEventBranches2026.md)
+map the dispatcher aggregate, storage allocation and callback eligibility
+between those events. The runtime values for the generated lane remain
+unmeasured.
