@@ -7,3 +7,9 @@ Use `feature_kind="revolve"` with a principal-plane rectangular contour, `revolu
 Three independent generated candidates round-tripped all nine modeled streams with zero tails. The isolated process tests checked linked profile and line ownership, driving radians, metadata, input-dependent stream length and rejection of a crossing axis. The existing forward blind part and one-occurrence assembly bundle retained their native container hashes. [Process integration checks](../../../../../../tests/Convert/Solidworks/Research/Revolve/RevolvePartTests.py).
 
 The diagnostic wrapper schedules fresh native open, rebuild and in-memory driving-angle measurements with bracketing controls. Saving an edited candidate and verifying it on a fresh reopen remain pending. Two independently authored held-out inputs remain sealed. The user-facing adapter remains read-only. [Generated revolve inspector](../../../../../../re/tooling/sw2026/InspectGeneratedRevolves.py) and [native source lock](../../../../../../re/solidworks/v2026/heldout/OrdinaryRevolveSourceLock.json).
+
+The first native inspection opened all three generated files with zero errors
+and warning 32 between healthy controls. The diagnostic job can specify
+`inspect_regeneration_warning` to record model state before explicit rebuild
+and continue measuring geometry and angle edits. A warning remains a failed
+acceptance gate.

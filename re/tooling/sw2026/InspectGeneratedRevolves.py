@@ -33,6 +33,8 @@ def main():
     require(re.fullmatch(r"[0-9a-f]{40}", job["source_revision"]), "generated revolve job requires a pinned source revision")
     handedness = job["forward_handedness"]
     require(type(handedness) is int and handedness in (-1, 1), "generated revolve job requires a signed direction from its native controls")
+    inspect_regeneration_warning = job.get("inspect_regeneration_warning", False)
+    require(type(inspect_regeneration_warning) is bool, "warning inspection option must be boolean")
     checkout, control, output = (Path(job[key]).resolve() for key in ("checkout_root", "control", "output"))
     require(not output.is_relative_to(checkout), "generated revolve reports must be outside the checkout")
     require(digest(control) == job["control_sha256"], "native control digest differs")
@@ -44,6 +46,7 @@ def main():
         "source_revision": job["source_revision"], "oracle_sha256": job["oracle_sha256"],
         "job_sha256": digest(job_path), "inspector_sha256": digest(Path(__file__)),
         "forward_handedness": handedness,
+        "inspect_regeneration_warning": inspect_regeneration_warning,
         "started_at": time.time(), "controls": [], "cases": [], "passed": False,
         "heldout_acceptance": False, "saved_edit_reopened": False,
     }
@@ -61,7 +64,11 @@ def main():
             for source, entry in cases:
                 Swapp.sweep()
                 model = entry["model"]
-                row, phase_hash = run_phase(model, "reopen", source, job["oracle_sha256"], entry["sha256"])
+                row, phase_hash = run_phase(
+                    model, "reopen", source, job["oracle_sha256"], entry["sha256"],
+                    inspect_regeneration_warning=inspect_regeneration_warning,
+                    record_path=output / f"{source.stem}.reopen.json",
+                )
                 row.update(source_sha256=entry["sha256"], phase_sha256=phase_hash, generator_receipt_sha256=entry["generator_receipt_sha256"])
                 initial_direction = None if model["angle_deg"] == 360 else handedness
                 edited_direction = None if model["edit_angle_deg"] == 360 else handedness
@@ -70,7 +77,8 @@ def main():
                     and row.get("edited", {}).get("forward_handedness") == edited_direction
                 )
                 row["direction_matches_signed_target"] = direction_matches
-                row["passed"] = bool(row["passed"] and row.get("edit", {}).get("passed") and direction_matches and not row["cleanup_errors"])
+                row["geometry_and_edit_passed"] = bool(row["inspection_completed"] and row.get("edit", {}).get("passed") and direction_matches and not row["cleanup_errors"])
+                row["passed"] = row["passed"] and row["geometry_and_edit_passed"]
                 report["cases"].append(row)
                 write_json(report_path, report)
     except Exception as error:

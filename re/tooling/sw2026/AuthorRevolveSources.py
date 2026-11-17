@@ -228,8 +228,8 @@ class RevolveAuthor(CurveAuthor):
         self.rec.data["edit"] = {"passed": True, "name": name, "before_radians": request, "after_radians": target, "setter_status": status}
 
 
-def run_phase(case, phase, path, oracle_hash, source_hash=None):
-    record_path = path.with_suffix(f".{phase}.json")
+def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regeneration_warning=False, record_path=None):
+    record_path = record_path or path.with_suffix(f".{phase}.json")
     recorder = Recorder(record_path, {"case": case, "phase": phase})
     recorder.data["schema"] = "kit.sw2026.ordinary-revolve-source-phase.v1"
     session = None
@@ -252,7 +252,17 @@ def run_phase(case, phase, path, oracle_hash, source_hash=None):
             else:
                 require(digest(path) == source_hash, "source changed before reopening")
                 author.model, errors, warnings = recorder.call("fresh open standalone source", session.open, path)
-                require(author.model is not None and errors == warnings == 0, "native source failed to open cleanly")
+                recorder.data["open_status"] = {"opened": author.model is not None, "errors": errors, "warnings": warnings}
+                allowed_warnings = (0, 32) if inspect_regeneration_warning else (0,)
+                require(author.model is not None and errors == 0 and warnings in allowed_warnings, "native source failed to open cleanly")
+                if warnings == 32:
+                    extension = author.get(author.model, "Extension")
+                    recorder.data["before_explicit_rebuild"] = {
+                        "needs_rebuild": int(author.get(extension, "NeedsRebuild2")),
+                        "whats_wrong": int(author.get(extension, "GetWhatsWrongCount")),
+                        "save_flag": bool(author.get(author.model, "GetSaveFlag")),
+                        "bodies": recorder.call("read body count before explicit rebuild", Swapp.bodies, author.model),
+                    }
                 boss = author.snapshot(case, "reopened", case["angle_deg"])
                 toggle = author.display_dimension_preference()
                 previous = bool(author.get(author.model, "GetUserPreferenceToggle", toggle))
@@ -284,7 +294,8 @@ def run_phase(case, phase, path, oracle_hash, source_hash=None):
     recorder.data["dialogs"] = monitor.log
     expected_hash = source_hash or recorder.data.get("native_sha256")
     recorder.data["source_immutable"] = bool(expected_hash and path.is_file() and digest(path) == expected_hash)
-    recorder.data["passed"] = bool(work_completed and recorder.data["source_immutable"] and not recorder.data["first_failure"] and not recorder.data["dialogs"] and not recorder.data.get("controller_diagnostics"))
+    recorder.data["inspection_completed"] = bool(work_completed and recorder.data["source_immutable"] and not recorder.data["first_failure"] and not recorder.data["dialogs"] and not recorder.data.get("controller_diagnostics"))
+    recorder.data["passed"] = recorder.data["inspection_completed"] and recorder.data.get("open_status", {}).get("warnings", 0) == 0
     recorder.data["finished_at"] = time.time()
     recorder.flush()
     return recorder.data, digest(record_path)
