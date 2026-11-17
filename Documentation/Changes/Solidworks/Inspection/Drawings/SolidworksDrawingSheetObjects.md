@@ -1,0 +1,3 @@
+# SOLIDWORKS drawing sheet support objects
+
+The research builder creates the ANSI A landscape sheet, its local absolute reference plane, its editable-sketch representation and its empty detail folder. It derives the persistent feature IDs, models the plane reference before insertion, and supplies the paired model and UI sketch transforms from the authored sheet scale. The inspection command compares those relationships with three disclosed vendor controls and round-trips two independently authored subgraphs with different scales and allocator positions. A complete native `.SLDDRW` candidate and vendor trial remain pending. [Construction record and command](../../../../../re/solidworks/records/DrawingEmptySheetObjects2026.md)

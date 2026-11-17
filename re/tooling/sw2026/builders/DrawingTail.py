@@ -12,7 +12,7 @@ def _drawing(owner):
         raise ValueError("empty drawing managers require their actual model owner")
 
 
-def _feature_filetime(created_at):
+def drawing_feature_filetime(created_at):
     seconds = integer(created_at, "drawing creation time")
     value = (seconds + 11644473600) * 10_000_000
     lower, upper = value & 0xFFFFFFFF, value >> 32
@@ -44,7 +44,7 @@ def empty_block_manager(*, owner, block_identity, created_at, date_code, parasol
         allocator=None, date_code=date_code, parasolid_version=parasolid_version,
     )
     result.f.update({
-        **_feature_filetime(created_at),
+        **drawing_feature_filetime(created_at),
         "f18": None, "f0c": 0, "f380": block_identity.bytes_le,
         "blocks": {"f18": 0, "f30": result, "n70": 0, "f68": [], "n98": 0, "f90": []},
     })

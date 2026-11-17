@@ -195,8 +195,8 @@ def body_feature(**values) -> Obj:
 
 
 def unit_component(*, owner: Obj) -> Obj:
-    if not isinstance(owner, Obj) or owner.cls not in ("moPart_c", "moAssembly_c"):
-        raise ArchiveError("fresh unit components require a classified part or assembly owner")
+    if not isinstance(owner, Obj) or owner.cls not in ("moPart_c", "moAssembly_c", "moDrawing_c"):
+        raise ArchiveError("fresh unit components require a classified part, assembly or drawing owner")
     return Obj("moUnitComponent_c", {"owner": owner, "has_ext": 0})
 
 
