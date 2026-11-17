@@ -1,0 +1,148 @@
+{
+  "default_comparisons": [
+    {
+      "name": "BaselineRect",
+      "before_sha256": "62b404ed8ef70ba1419e7407fa7f1edc2e1b889009dc41e7ba40eee0cae1fa14",
+      "after_sha256": "62b404ed8ef70ba1419e7407fa7f1edc2e1b889009dc41e7ba40eee0cae1fa14",
+      "bytes_identical": true,
+      "runtime_input_read_attempts": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "BaselineCirclex",
+      "before_sha256": "e321ca45c95f0e7cf1898fef24f91df1c42bcf0248c0696f3ae26ae50b91ac5b",
+      "after_sha256": "e321ca45c95f0e7cf1898fef24f91df1c42bcf0248c0696f3ae26ae50b91ac5b",
+      "bytes_identical": true,
+      "runtime_input_read_attempts": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "BaselineCircley",
+      "before_sha256": "88c1cbda5029efe356926b0c263ec31ed2f0485545aa39fd1f19c5ec7abea674",
+      "after_sha256": "88c1cbda5029efe356926b0c263ec31ed2f0485545aa39fd1f19c5ec7abea674",
+      "bytes_identical": true,
+      "runtime_input_read_attempts": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "BaselineCirclez",
+      "before_sha256": "af758c985a3105edb9591326b4041fca06b5c96852c74b82d38e669914458ae9",
+      "after_sha256": "af758c985a3105edb9591326b4041fca06b5c96852c74b82d38e669914458ae9",
+      "bytes_identical": true,
+      "runtime_input_read_attempts": [
+        0,
+        0
+      ]
+    }
+  ],
+  "generated_cases": [
+    {
+      "case_id": "G01",
+      "request_sha256": "bb5e63c56edfe48d6856543a36c03fdaa17358bf0e293dd8e58b9196bcd20b3a",
+      "native_sha256": "ccd77c5d0a0b1d870fdade39b50df5d14999866ba36e58286066cb5765f86cd6",
+      "native_bytes": 8638,
+      "round_trips_per_build": 11,
+      "input_runtime_file_access_attempts": 0,
+      "deterministic": true,
+      "native_acceptance": false
+    },
+    {
+      "case_id": "G02",
+      "request_sha256": "0a1a13e45e4539b31cc99b385e73f9bc946c8d88ffef7740bb7b8ff875d52a89",
+      "native_sha256": "a10912f0f8beb74f89c701c5861c5ed90f6976fa9da0d7ab8988ce9e10ec1a5f",
+      "native_bytes": 8677,
+      "round_trips_per_build": 11,
+      "input_runtime_file_access_attempts": 0,
+      "deterministic": true,
+      "native_acceptance": false
+    },
+    {
+      "case_id": "G03",
+      "request_sha256": "073e10d04dd7a5ee32b0c3b92071382da30105741886bbd9ed9a4f4bfec8c3d7",
+      "native_sha256": "161fba61fa40062dcee1e59aafd6009f13b8f4d8b9c77dce3ec5881f60756f09",
+      "native_bytes": 8651,
+      "round_trips_per_build": 11,
+      "input_runtime_file_access_attempts": 0,
+      "deterministic": true,
+      "native_acceptance": false
+    }
+  ],
+  "negative_cases": [
+    {
+      "case_id": "zero_distance",
+      "exit_code": 1,
+      "output_bytes": 0,
+      "stderr_sha256": "069147b978453c33ff51516ec9ad4ad3fb46a1e30bc2ccc800bf434d23809823"
+    },
+    {
+      "case_id": "nonfinite_distance",
+      "exit_code": 1,
+      "output_bytes": 0,
+      "stderr_sha256": "069147b978453c33ff51516ec9ad4ad3fb46a1e30bc2ccc800bf434d23809823"
+    },
+    {
+      "case_id": "angle_request",
+      "exit_code": 1,
+      "output_bytes": 0,
+      "stderr_sha256": "e737fa579d35328aee6528938ccc4e24f592215b753f815bd0c67800d95109e8"
+    },
+    {
+      "case_id": "unknown_direction",
+      "exit_code": 1,
+      "output_bytes": 0,
+      "stderr_sha256": "b7024ab85829e5fb7d0b39c0ebe1d2fce336f2b3bb7befa54eb68246923c3c8a"
+    },
+    {
+      "case_id": "duplicate_plane_name",
+      "exit_code": 1,
+      "output_bytes": 0,
+      "stderr_sha256": "4546405c8b999c21f1d43ca2526e1d3b8f68fdbc23b4e1a8076a9d1c13d4a897"
+    },
+    {
+      "case_id": "diameter_mode",
+      "exit_code": 1,
+      "output_bytes": 0,
+      "stderr_sha256": "b57366dd18132d350afbe67d4d12188eac7c3000cadc1a18c971b9d68f561dda"
+    },
+    {
+      "case_id": "unfixed_center",
+      "exit_code": 1,
+      "output_bytes": 0,
+      "stderr_sha256": "6cabd4321089adaf53456df947da363b5c1ff1cfde98af6485b31388f5ec38bf"
+    },
+    {
+      "case_id": "off_plane_text",
+      "exit_code": 1,
+      "output_bytes": 0,
+      "stderr_sha256": "85c6be54c55f9452070291eeb48737bb43e4eba354ee593550f80fedf85a60d3"
+    }
+  ],
+  "schema": "kit.sw2026.generated-offset-composition-proof.v1",
+  "source_lock_sha256": "c61560deff9c84addd65db48664ce6a5488ad3eecde9a070c62a215a5541d703",
+  "code_manifest_sha256": "7491a46458bfd56f81acc93bbc6aebd58c8980df0cc5d18d2b03300d0f44ff0c",
+  "pre_hook_revision": "cb4e9a983bb2f5bb6da5aa6bf0bd78df72d52311",
+  "changed_writer_files_sha256": {
+    "re/tooling/sw2026/builders/Part.py": "03b790ed89ba64354ba5ca3ed119629ce402c68e6f4918ad53a554e61ac3373b",
+    "re/tooling/sw2026/builders/Radial.py": "8f9d8fd3f7e18c7f9763ec10835734c7a887cced83e601537b84555193d2d619",
+    "re/tooling/sw2026/builders/ReferencePlane.py": "b9686f0f643049b0bdc18793011516139dba72d991a0adbc5a177d76dcf39f15",
+    "re/tooling/sw2026/ReferencePlanePartProcess.py": "1dedb6929e14811ea92e88c972c81b0a66ed8d185dace86039a83fc71d5b2ff0"
+  },
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "generated_native_acceptance": false,
+  "passed": true,
+  "private_verifier_sha256": "06e8b964a650e8618b9aca77e67b63dbc79e9aedc52a175190e250ad41ebc243",
+  "verification_scope": "Guarded fresh-process composition and exact default byte comparison; no native oracle or held-out evaluation",
+  "limits": [
+    "Constructor cache load neutrality remains unqualified",
+    "Prior default Part.py and Radial.py are exact cb4e9a983bb2f5bb6da5aa6bf0bd78df72d52311 sources with the same other frozen dependencies",
+    "Native open, driving edit, rebuild, save and fresh reopen remain required",
+    "Static and disclosed source evidence are prerequisites, not generated vendor acceptance"
+  ]
+}

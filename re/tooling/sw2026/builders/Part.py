@@ -18,6 +18,7 @@ from builders.Metadata import FILE_VERSION, PRINCIPAL_KEYWORD_ROLES, biography, 
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
 from builders.Radial import circle_dimension
 from builders.RectangleDimensions import rectangle_dimensions
+from builders.ReferencePlane import OffsetPlaneGraph, construct_offset_plane
 from builders.Revolve import live_revolution, revolved_profile
 from builders.Sketch import PlaneFrame, closed_profile, origin_profile
 from builders.Styles import detail_definitions
@@ -27,6 +28,7 @@ from defs.ResolvedCore import store_resolved
 
 
 _NO_BLIND_CUT = object()
+_NO_OFFSET_PLANE = object()
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -45,6 +47,7 @@ class PartConstruction:
     revolution: object | None = None
     rectangle_dimensions: tuple[DimensionGraph, ...] = ()
     blind_pocket: BlindPocketGraph | None = None
+    offset_plane: OffsetPlaneGraph | None = None
 
 
 def _rooted(*, registry, node):
@@ -58,7 +61,7 @@ def _keyword_dimensions(dimensions, length_unit_m):
     ]
 
 
-def _metadata(*, registry, document, provenance, presentation, graph, features, profile, sketch_dimensions, extrusion, output, revolution=None, native_plane_roles=False, pocket=None):
+def _metadata(*, registry, document, provenance, presentation, graph, features, profile, sketch_dimensions, extrusion, output, revolution=None, native_plane_roles=False, pocket=None, offset_plane=None):
     stamp = {
         "status": 0, "user_index": 0, "company_index": 0,
         "timestamp": provenance["created_at"], "comment": provenance["comment"],
@@ -85,6 +88,8 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
                 item["dimensions"] = _keyword_dimensions(sketch_dimensions, presentation["length_unit_m"])
         if extrusion is not None and feature is extrusion.feature:
             item.update(tag="Extrusion", dimensions=_keyword_dimensions(extrusion.active_distances, presentation["length_unit_m"]))
+        if offset_plane is not None and feature is offset_plane.feature:
+            item.update(tag="Feature", kind="PLANE", dimensions=_keyword_dimensions((offset_plane.distance,), presentation["length_unit_m"]))
         if pocket is not None:
             cut = pocket.extrusion
             if feature is cut.profile.profile:
@@ -158,11 +163,14 @@ def document_shape(document):
     return fields(document, "part document", required, optional), profile_kind, feature_kind
 
 
-def construct_part(*, registry, document, provenance, presentation, target, output=None, native_plane_roles: bool = False, blind_cut_discovery=_NO_BLIND_CUT):
+def construct_part(*, registry, document, provenance, presentation, target, output=None, native_plane_roles: bool = False, blind_cut_discovery=_NO_BLIND_CUT, offset_plane_discovery=_NO_OFFSET_PLANE):
     boolean(native_plane_roles, "native plane keyword roles")
     document, profile_kind, feature_kind = document_shape(document)
     if blind_cut_discovery is not _NO_BLIND_CUT and (profile_kind != "polygon" or feature_kind != "blind_extrusion" or document["plane_axis"] != "z" or native_plane_roles):
         raise ArchiveError("blind cut discovery requires a standalone Front Plane part with one ordinary rectangular blind boss")
+    if offset_plane_discovery is not _NO_OFFSET_PLANE:
+        if profile_kind != "circle" or feature_kind != "blind_extrusion" or blind_cut_discovery is not _NO_BLIND_CUT or tuple(document["center_m"]) != (0.0, 0.0) or document["circle_dimension"].get("mode") != "radius":
+            raise ArchiveError("offset-plane discovery requires a centered driving circle and one blind boss")
     provenance = fields(provenance, "authored provenance", (
         "author", "company", "created_at", "modified_at", "comment",
         "originating_build_code", "license_origin",
@@ -178,6 +186,12 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         output = fields(output, "part output", ("path_name", "saved_at"))
     if document["plane_axis"] not in ("x", "y", "z"):
         raise ArchiveError("fresh research parts require a principal plane")
+    if offset_plane_discovery is not _NO_OFFSET_PLANE:
+        plane_request = fields(offset_plane_discovery, "ordinary offset-plane discovery", ("name", "distance_m", "reverse"))
+        existing_names = (*presentation["plane_names"].values(), *presentation["folder_names"].values(), presentation["cabinet_name"],
+                          document["name"], document["sketch_name"], document["extrusion_name"], document["origin_name"])
+        if plane_request["name"] in existing_names:
+            raise ArchiveError("the authored offset plane must have its own distinct feature name")
     styles = presentation["styles"]
     if not isinstance(styles, Mapping):
         raise ArchiveError("part styles require semantic construction parameters")
@@ -201,18 +215,33 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         updated_at=provenance["modified_at"], created_at=provenance["created_at"], retain_construction_flag=True,
     )
     plane = graph.planes[document["plane_axis"]]
-    frame = PlaneFrame(origin=(0.0, 0.0, 0.0), u=plane["_plane_u"], v=plane["_plane_v"])
+    offset_plane = None
+    if offset_plane_discovery is not _NO_OFFSET_PLANE:
+        offset_plane = construct_offset_plane(
+            request=offset_plane_discovery, support=plane, owner=graph.part, allocator=graph.allocator,
+            date_code=target["date_code"], parasolid_version=target["parasolid_version"],
+            created_at=logged_creation_time(timestamps=()), design_intent=presentation["design_intent"],
+            selected_leader=presentation["selected_leader"],
+        )
+        plane = offset_plane.feature
+    frame = offset_plane.frame if offset_plane is not None else PlaneFrame(origin=(0.0, 0.0, 0.0), u=plane["_plane_u"], v=plane["_plane_v"])
     reference_values = {
         "plane": plane, "component": graph.part["f990"],
         "created_at": logged_creation_time(timestamps=()),
-        "principal_normal": tuple(plane["f6f8"]["normal"][axis] for axis in ("x", "y", "z")),
+        "principal_normal": None if offset_plane is not None else tuple(plane["f6f8"]["normal"][axis] for axis in ("x", "y", "z")),
     }
     feature_values = {
         "owner": graph.part, "allocator": graph.allocator,
         "date_code": target["date_code"], "parasolid_version": target["parasolid_version"],
     }
     origin_node = model_feature(cls="moOriginProfileFeature_c", name=document["origin_name"], **feature_values)
-    origin_profile(profile=origin_node, plane=component_plane(**reference_values), frame=frame)
+    if offset_plane is None:
+        origin_profile(profile=origin_node, plane=component_plane(**reference_values), frame=frame)
+    else:
+        support = offset_plane.support
+        origin_frame = PlaneFrame(origin=(0.0, 0.0, 0.0), u=support["_plane_u"], v=support["_plane_v"])
+        origin_reference = {**reference_values, "plane": support, "principal_normal": origin_frame.normal}
+        origin_profile(profile=origin_node, plane=component_plane(**origin_reference), frame=origin_frame)
     profile_node = model_feature(cls="moProfileFeature_c", name=document["sketch_name"], **feature_values)
     revolve_source = None
     if feature_kind == "revolve":
@@ -234,6 +263,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         radial = circle_dimension(
             graph=profile, allocator=graph.allocator, **request,
             design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
+            offset_plane=offset_plane,
         )
     rectangle = ()
     if "rectangle_dimensions" in document:
@@ -242,7 +272,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
             graph=profile, allocator=graph.allocator, **request,
             design_intent=presentation["design_intent"], selected_leader=presentation["selected_leader"],
         )
-    features = (*graph.system_features, origin_node, profile_node)
+    features = (*graph.system_features, *((offset_plane.feature,) if offset_plane is not None else ()), origin_node, profile_node)
     extrusion = None
     revolution = None
     if feature_kind in ("blind_extrusion", "extrusion"):
@@ -284,7 +314,7 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
     result, model_header = _metadata(
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
         graph=graph, features=features, profile=profile, sketch_dimensions=(radial,) if radial is not None else rectangle,
-        extrusion=extrusion, output=output, revolution=revolution, native_plane_roles=native_plane_roles, pocket=pocket,
+        extrusion=extrusion, output=output, revolution=revolution, native_plane_roles=native_plane_roles, pocket=pocket, offset_plane=offset_plane,
     )
     config_data, state = store_config_state(StreamDoc("config", {"model_header": model_header}, [graph.part]), registry, FILE_VERSION)
     resolved = StreamDoc("resolved", {"base": state.count, "context": {
@@ -310,5 +340,5 @@ def construct_part(*, registry, document, provenance, presentation, target, outp
         configuration=graph.configuration_manager["f360"], features=features,
         profile=profile, radial=radial, extrusion=extrusion,
         next_id=graph.next_persistent_id, configuration_map_count=state.count,
-        revolution=revolution, rectangle_dimensions=rectangle, blind_pocket=pocket,
+        revolution=revolution, rectangle_dimensions=rectangle, blind_pocket=pocket, offset_plane=offset_plane,
     )

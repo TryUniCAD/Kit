@@ -1,0 +1,350 @@
+{
+  "schema": "kit.sw2026.disclosed-offset-radial-frame.v1",
+  "source_packet_sha256": "db56b95bad3543b5949848ce263bc8865c578ead20b688166d0b576310eeda7a",
+  "results": [
+    {
+      "case_id": "D01",
+      "role": "source",
+      "source_sha256": "32e0ff7e00be032841c1e9ec62a4f68b14695e42025d4de1830f054d209df296",
+      "profile_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "profile_translation": [
+        0.0,
+        0.0,
+        -0.01379
+      ],
+      "center_before_forward_m": [
+        0.0,
+        0.0,
+        0.01379
+      ],
+      "center_after_forward_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "observed_fad0_m": 0.01379,
+      "expected_fad0_m": 0.01379,
+      "checks": {
+        "profile_center_recovers_expected_plane_origin": true,
+        "ordered_forward_returns_local_center": true,
+        "fad0_matches_exact_reference_norm_branch": true,
+        "parameter_cache_matches_authored_radius": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D01",
+      "role": "edited",
+      "source_sha256": "c8cfa6fbf1ff06c3d9a94547a2d153e8ea4709696baad183a725bf8bacf96461",
+      "profile_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "profile_translation": [
+        0.0,
+        0.0,
+        -0.02453
+      ],
+      "center_before_forward_m": [
+        0.0,
+        0.0,
+        0.02453
+      ],
+      "center_after_forward_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "observed_fad0_m": 0.02453,
+      "expected_fad0_m": 0.02453,
+      "checks": {
+        "profile_center_recovers_expected_plane_origin": true,
+        "ordered_forward_returns_local_center": true,
+        "fad0_matches_exact_reference_norm_branch": true,
+        "parameter_cache_matches_authored_radius": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D02",
+      "role": "source",
+      "source_sha256": "b214b25fdc38fa370c1df378510d7661b8da3a45d51585186ccc44b9c931432d",
+      "profile_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "profile_translation": [
+        0.0,
+        0.0,
+        -0.01379
+      ],
+      "center_before_forward_m": [
+        0.0,
+        0.0,
+        0.01379
+      ],
+      "center_after_forward_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "observed_fad0_m": 0.01379,
+      "expected_fad0_m": 0.01379,
+      "checks": {
+        "profile_center_recovers_expected_plane_origin": true,
+        "ordered_forward_returns_local_center": true,
+        "fad0_matches_exact_reference_norm_branch": true,
+        "parameter_cache_matches_authored_radius": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D02",
+      "role": "edited",
+      "source_sha256": "d1e27137573ca2ba012e1eb9f32fbf7f9cbecaad88c56a767cd17e78ca3da59c",
+      "profile_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "profile_translation": [
+        0.0,
+        0.0,
+        -0.02453
+      ],
+      "center_before_forward_m": [
+        0.0,
+        0.0,
+        0.02453
+      ],
+      "center_after_forward_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "observed_fad0_m": 0.02453,
+      "expected_fad0_m": 0.02453,
+      "checks": {
+        "profile_center_recovers_expected_plane_origin": true,
+        "ordered_forward_returns_local_center": true,
+        "fad0_matches_exact_reference_norm_branch": true,
+        "parameter_cache_matches_authored_radius": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D03",
+      "role": "source",
+      "source_sha256": "0db39456711220babb5b3ecb38dff72fcc84b5311a038b5796ceed68d8ec09fb",
+      "profile_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "profile_translation": [
+        0.0,
+        0.0,
+        0.02713
+      ],
+      "center_before_forward_m": [
+        0.0,
+        -0.02713,
+        0.0
+      ],
+      "center_after_forward_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "observed_fad0_m": 0.02713,
+      "expected_fad0_m": 0.02713,
+      "checks": {
+        "profile_center_recovers_expected_plane_origin": true,
+        "ordered_forward_returns_local_center": true,
+        "fad0_matches_exact_reference_norm_branch": true,
+        "parameter_cache_matches_authored_radius": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D03",
+      "role": "edited",
+      "source_sha256": "9c6b2373d81f032b558ff7a9e04fcddca23e6fd37accad6e1b944f2b9ba79f45",
+      "profile_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "profile_translation": [
+        0.0,
+        0.0,
+        0.01471
+      ],
+      "center_before_forward_m": [
+        0.0,
+        -0.01471,
+        0.0
+      ],
+      "center_after_forward_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "observed_fad0_m": 0.01471,
+      "expected_fad0_m": 0.01471,
+      "checks": {
+        "profile_center_recovers_expected_plane_origin": true,
+        "ordered_forward_returns_local_center": true,
+        "fad0_matches_exact_reference_norm_branch": true,
+        "parameter_cache_matches_authored_radius": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D04",
+      "role": "source",
+      "source_sha256": "5e38824c7e8cb2e8966498f15cff4fa971916680b5561ec3f7cb7ccb4035babb",
+      "profile_matrix": [
+        -0.0,
+        0.0,
+        1.0,
+        -0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "profile_translation": [
+        0.0,
+        0.0,
+        -0.01937
+      ],
+      "center_before_forward_m": [
+        0.01937,
+        0.0,
+        0.0
+      ],
+      "center_after_forward_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "observed_fad0_m": 0.01937,
+      "expected_fad0_m": 0.01937,
+      "checks": {
+        "profile_center_recovers_expected_plane_origin": true,
+        "ordered_forward_returns_local_center": true,
+        "fad0_matches_exact_reference_norm_branch": true,
+        "parameter_cache_matches_authored_radius": true
+      },
+      "passed": true
+    },
+    {
+      "case_id": "D04",
+      "role": "edited",
+      "source_sha256": "80e8290c4d8db5b1a18e3d3f56509e9cd2e5763998be3a70035f9f31c04a2e16",
+      "profile_matrix": [
+        -0.0,
+        0.0,
+        1.0,
+        -0.0,
+        1.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "profile_translation": [
+        0.0,
+        0.0,
+        -0.03163
+      ],
+      "center_before_forward_m": [
+        0.03163,
+        0.0,
+        0.0
+      ],
+      "center_after_forward_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "observed_fad0_m": 0.03163,
+      "expected_fad0_m": 0.03163,
+      "checks": {
+        "profile_center_recovers_expected_plane_origin": true,
+        "ordered_forward_returns_local_center": true,
+        "fad0_matches_exact_reference_norm_branch": true,
+        "parameter_cache_matches_authored_radius": true
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "native_processes_started": 0,
+  "writer_output_count": 0,
+  "heldout_inputs_read": 0,
+  "task_id": "B04-SW2026-REFPLANES",
+  "delivery_pr": 121,
+  "raw_result_sha256": "61a013f05f7fb07835a754594c7f9b181179d33a38e0d12621fe4224c40353ce",
+  "frozen_disclosed_reader_manifest_sha256": "45796d29c804de3b73937d75a9eb1f1afd7d543a15c0b7263e3e08900da36722",
+  "observer_sha256": "96e24ad178dd044aaeb29dc31b9d15a36821bd1ec378f3d167e03e0a9d99c605",
+  "source_lock_sha256": "c61560deff9c84addd65db48664ce6a5488ad3eecde9a070c62a215a5541d703",
+  "native_rule_evidence": [
+    "re/solidworks/records/RadialStyleAndEngine2026.md",
+    "re/solidworks/records/RadialEngineConstruction2026.json",
+    "re/solidworks/records/RadialEngineFieldRules2026.json"
+  ],
+  "source_read_custody": {
+    "allowed_disclosed_native_files": 8,
+    "native_open_events": 32,
+    "denied_events": 0,
+    "heldout_inputs_read": 0,
+    "source_write_events": 0
+  },
+  "generated_native_acceptance": false,
+  "final_radial_callbacks_preserve_all_fields": false
+}

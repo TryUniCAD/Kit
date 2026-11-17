@@ -1,0 +1,9 @@
+# Generated ordinary offset-plane discovery
+
+The shared research Part model can construct one named principal-plane offset, its centered radius-driven circle and a blind boss from neutral inputs. [The process](../../../../../re/tooling/sw2026/ReferencePlanePartProcess.py) takes the ordinary Part request on stdin plus `offset_plane_discovery` with `name`, positive `distance_m` and Boolean `reverse`. It emits a complete generated part and exact readback evidence with native acceptance false.
+
+The construction ledger binds the compatibility plane factory, distance-dimension chain, local support and computed affine placement. The document origin stays at the model origin. The radial display applies its existing ordered transforms to the profile backed by the generated offset plane. Both held-out designs remain sealed under their pre-writer lock. [Construction ledger](../../../../../re/solidworks/records/ReferencePlaneOffsetConstruction2026.md) [Source lock](../../../../../re/solidworks/v2026/heldout/ReferencePlaneSourceLock01.json)
+
+The [process proof](../../../../../re/solidworks/measurements/2026/GeneratedOffsetPlaneComposition01.json) records three deterministic generated variants, eleven round-trips per build, zero runtime input reads, eight unsupported-input rejections and exact default-byte preservation on four prior requests. The [disclosed radial frame audit](../../../../../re/solidworks/measurements/2026/ReferencePlaneRadialFrameCorrelation01.json) separately checks the existing native transform/cache rule across eight source siblings.
+
+The research constructor uses fresh native cache states. Native open, distance edit, rebuild, save, fresh reopen and held-out qualification remain open. Angle, arbitrary and multiple-reference planes and other circle modes fail closed.

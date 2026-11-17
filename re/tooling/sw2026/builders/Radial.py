@@ -7,6 +7,7 @@ from Core import Obj
 from builders.Geometry import arc_handle
 from builders.Extrude import DimensionGraph, _point, common_display_fields
 from builders.Model import component_reference_fields, node_fields
+from builders.ReferencePlane import OffsetPlaneGraph
 from builders.Sketch import ConstructionError, DerivedFields, NodeOrder, PlaneFrame, _node_index, _vector, dimension_fields, logical_point_constraint
 
 
@@ -74,15 +75,22 @@ def projected_style(*, fields, root, subtype, diameter):
         raise ConstructionError("radial construction requires the explicit center-text style to be disabled")
 
 
-def radial_display(*, profile, handle, parameter, mode, text_point_m, design_intent, selected_leader):
+def radial_display(*, profile, handle, parameter, mode, text_point_m, design_intent, selected_leader, offset_plane=None):
     frame = profile["_frame"]
     admitted = (
         ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0)),
         ((0.0, 0.0, -1.0), (0.0, 1.0, 0.0)),
         ((1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
     )
-    if frame.origin != (0.0, 0.0, 0.0) or (frame.u, frame.v) not in admitted:
+    if (frame.u, frame.v) not in admitted:
         raise ConstructionError("radial presentation requires an admitted principal-plane frame")
+    if offset_plane is None:
+        if frame.origin != (0.0, 0.0, 0.0):
+            raise ConstructionError("translated radial presentation requires the actual constructed offset-plane graph")
+    else:
+        support = profile["pd_f78"]
+        if not isinstance(offset_plane, OffsetPlaneGraph) or frame != offset_plane.frame or support.cls != "moCompRefPlane_c" or support["ff0"]["f00"] != offset_plane.feature["f08"] or support["f100"] != 0 or support["f58"]["owner"] is not profile["owner"] or offset_plane.feature["owner"] is not profile["owner"]:
+            raise ConstructionError("the translated radial frame must retain its actual local offset-plane ownership")
     point = _vector(value=text_point_m, size=3)
     text_local = frame.sketch_point(point=point)
     if text_local[2] != 0.0:
@@ -154,7 +162,7 @@ def fix_circle_center(*, graph):
     return constraint
 
 
-def circle_dimension(*, graph, mode, text_point_m, allocator, design_intent, selected_leader, fix_center=False):
+def circle_dimension(*, graph, mode, text_point_m, allocator, design_intent, selected_leader, fix_center=False, offset_plane=None):
     if mode not in ("radius", "diameter"):
         raise ConstructionError("circle dimension mode must be radius or diameter")
     if type(fix_center) is not bool:
@@ -179,7 +187,7 @@ def circle_dimension(*, graph, mode, text_point_m, allocator, design_intent, sel
     del arc.f["f20"]
     arc.f.derived["f20"] = lambda: len(arc["_constraints"])
     handle = display_handle(sketch=sketch, dimension=dimension, values=values)
-    display = radial_display(profile=graph.profile, handle=handle, parameter=parameter, mode=mode, text_point_m=text_point_m, design_intent=design_intent, selected_leader=selected_leader)
+    display = radial_display(profile=graph.profile, handle=handle, parameter=parameter, mode=mode, text_point_m=text_point_m, design_intent=design_intent, selected_leader=selected_leader, offset_plane=offset_plane)
     displays = sketch["dims"]["f118"]
     displays["items"].append({"o": display})
     sketch["_radial_dimensions"] = (dimension,)
