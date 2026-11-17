@@ -6,7 +6,27 @@ from sys import executable as PythonExec
 from typing import cast as CastValue
 
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
-from tests.Convert.Solidworks.Research.FreshPartInput import MakePartInput
+from tests.Convert.Solidworks.Research.Assembly.RootRequest import RootRequest
+
+# native discovery distinguishes sixteen serialized roots from additional visible assembly nodes
+KAssemblyRoots = [
+    "moCommentsFolder_c",
+    "moFavoriteFolder_c",
+    "moHistoryFolder_c",
+    "moSelectionSetFolder_c",
+    "moSensorFolder_c",
+    "moLiveSectionFolder_c",
+    "moDocsFolder_c",
+    "moDetailCabinet_c",
+    "moEnvFolder_c",
+    "moInkMarkupFolder_c",
+    "moEqnFolder_c",
+    "moRefPlane_c",
+    "moRefPlane_c",
+    "moRefPlane_c",
+    "moOriginProfileFeature_c",
+    "moMateGroup_c",
+]
 
 
 # normalized assembly input must build its own root bytes in a separate guarded process
@@ -16,14 +36,7 @@ def TestRootBuild() -> None:
         "Initial unit",
         "Longer assembly title for measured construction",
     ):
-        Shared = MakePartInput([], 0.0, NameValue)
-        Request = {
-            "name": NameValue,
-            **{
-                FieldName: Shared[FieldName]
-                for FieldName in ("presentation", "provenance")
-            },
-        }
+        Request = RootRequest(NameValue)
         Outcome = RunProcess(
             [
                 PythonExec,
@@ -54,7 +67,17 @@ def TestRootBuild() -> None:
             Report["unit_class"] == "moUnitsTable_c"
             and Report["relation_class"] == "moRelMgr_c"
         )
-        assert Report["component_total"] == 0 and Report["stream_count"] == 2
+        assert Report["component_total"] == 0 and Report["stream_count"] == 5
+        assert Report["configuration_class"] == "moConfiguration_c"
+        assert Report["configuration_name"] == "Named assembly configuration"
+        assert Report["resolved_types"] == KAssemblyRoots
+        assert Report["live_section_flag"] == 1
+        assert (
+            Report["manager_bytes_identical"]
+            is Report["resolved_bytes_identical"]
+            is True
+        )
+        assert Report["empty_mates_linked"] is True
         assert Report["denied_reads"] == [] and Report["model_code_reads"]
         assert (
             Report["complete_assembly_emitted"] is Report["native_acceptance"] is False

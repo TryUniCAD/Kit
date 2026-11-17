@@ -393,13 +393,15 @@ def folder(
     supported = {
         "moCommentsFolder_c", "moDocsFolder_c", "moEnvFolder_c", "moEqnFolder_c",
         "moFavoriteFolder_c", "moHistoryFolder_c", "moMaterialFolder_c",
-        "moInkMarkupFolder_c", "moNotesAreaFtrFolder_c", "moSelectionSetFolder_c", "moSensorFolder_c",
+        "moInkMarkupFolder_c", "moLiveSectionFolder_c", "moNotesAreaFtrFolder_c", "moSelectionSetFolder_c", "moSensorFolder_c",
         "moSolidBodyFolder_c", "moSurfaceBodyFolder_c",
     }
     if cls not in supported:
         raise ArchiveError("system folder constructor is not classified for this runtime class")
     if not isinstance(owner, Obj):
         raise TypeError("system folders require an archive-object owner")
+    if cls == "moLiveSectionFolder_c" and owner.cls != "moAssembly_c":
+        raise ArchiveError("fresh live section folders are classified only for ordinary assembly owners")
     if type(created_at) is not int or not 0 <= created_at <= 0xFFFFFFFF:
         raise ValueError("folder creation time must fit an unsigned Unix-seconds timestamp")
     if cls == "moEqnFolder_c" and (not isinstance(owner.f.get("f9d0"), Obj) or owner.f["f9d0"].cls != "moRelMgr_c"):
@@ -426,6 +428,8 @@ def folder(
         result.f.update({"f378": "", "flags380": 0x80000000})
     if cls == "moNotesAreaFtrFolder_c":
         result.f.update({"f388": None, "f37c": 0, "f394": 0, "f378": 1, "f39c": 1})
+    if cls == "moLiveSectionFolder_c":
+        result.f["f378"] = 1
     if cls in {"moSolidBodyFolder_c", "moSurfaceBodyFolder_c"}:
         result.f.update({"f37c": 0, "f380": 0, "f388": None, "f3d8": None})
     if cls == "moEqnFolder_c":
@@ -648,23 +652,33 @@ def configuration_manager(
     parasolid_version: int,
     updated_at: int,
     current: int = 0,
+    configuration_builder=None,
 ) -> Obj:
     names = tuple(names)
     if not names or len(set(names)) != len(names):
         raise ValueError("a configuration manager requires distinct configuration names")
     if type(current) is not int or not 0 <= current < len(names):
         raise ValueError("current configuration must select an authored configuration")
+    kinds = {"moPart_c": "moPartConfiguration_c", "moAssembly_c": "moConfiguration_c"}
+    if not isinstance(owner, Obj) or owner.cls not in kinds:
+        raise ArchiveError("configuration manager requires a classified document model")
+    if configuration_builder is None:
+        if owner.cls != "moPart_c":
+            raise ArchiveError("assembly managers require their concrete configuration builder")
+        configuration_builder = configuration
     result = feature(
         cls="moConfigurationMgr_c", name="Configurations", owner=owner,
         allocator=None, date_code=date_code, parasolid_version=parasolid_version,
     )
     configs = tuple(
-        configuration(
+        configuration_builder(
             name=name, owner=owner, local_id=index, date_code=date_code,
             parasolid_version=parasolid_version, updated_at=updated_at,
         )
         for index, name in enumerate(names)
     )
+    if any(not isinstance(item, Obj) or item.cls != kinds[owner.cls] for item in configs):
+        raise ArchiveError("configuration class does not match its owning document")
     result.f.update({
         "f360": configs[current],
         "f368": configs[current],

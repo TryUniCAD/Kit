@@ -28,3 +28,13 @@ The selected block at file offset 1871488 has 1286 bytes and SHA-256
 Sixteen UTF-16 length-prefixed entries consume it exactly; index 10 is
 `Live Section Planes`. This supports the English caption without transferring
 any resource payload into the writer.
+
+The [remote resolved-root projection](../measurements/2026/AssemblyArchiveLayoutProcesses458.json)
+then found exactly the same ordered 16 archive roots in each of the discovery
+parents. `moMateGroup_c` is an explicit final root, even for the empty case.
+`moLiveSectionFolder_c` carries `f360=1`, `f370=0` and `f378=1`. The ordinary
+reference records live in `Config-0` rather than this resolved root list. The
+configuration's object list contains its initial entry plus one item per
+occurrence. Visible tree counts include the active annotation and environment
+children. Neither the observed persistent IDs nor saved node bytes are used
+as a generation program.

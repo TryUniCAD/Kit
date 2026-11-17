@@ -245,7 +245,7 @@ def load_resolved(data, reg, version=None, *, archive=None, name=None, seed=None
     return StreamDoc("resolved", hd, roots, rest), ar
 
 
-def store_resolved(doc, reg, version=None, *, seed=None):
+def store_resolved_state(doc, reg, version=None, *, seed=None):
     ar = Store(doc.head["base"], reg, version, dict(doc.head["context"]), seed=seed)
     ar.prim("u32", doc.head["base"])
     ar.count_value(len(doc.roots))
@@ -255,7 +255,11 @@ def store_resolved(doc, reg, version=None, *, seed=None):
         m = doc.head["mbsm"]
         reg.run_store(MBSM, ar, m.f, m)
     ar.raw(doc.tail)
-    return bytes(ar.out)
+    return bytes(ar.out), ar.map_state()
+
+
+def store_resolved(doc, reg, version=None, *, seed=None):
+    return store_resolved_state(doc, reg, version, seed=seed)[0]
 
 
 PLANS = {"Contents/Config-0-ResolvedFeatures": ("custom", (load_resolved, store_resolved))}

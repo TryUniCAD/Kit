@@ -4,8 +4,9 @@ from collections.abc import Sequence
 from math import isfinite, sqrt
 from ntpath import basename, splitext
 
-from Core import Obj
-from builders.Model import PersistentIds, base_configuration_fields, clear_model_update, model_fields, object_list, relation_manager, unit_component
+from Core import Obj, Store
+from builders.Model import PersistentIds, base_configuration_fields, clear_model_update, component_plane, detail_cabinet, folder, logged_creation_time, model_feature, model_fields, object_list, principal_planes, relation_manager, unit_component
+from builders.Sketch import PlaneFrame, origin_profile
 
 
 def bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict:
@@ -162,3 +163,46 @@ def ordinary_part_reference_stamps(*, child_model: Obj, child_header: Obj, assig
         raise ValueError("child reference update fields must fit the native unsigned domain")
     values.update(f3f0=101 + int(assigned_transform), f3f8=101)
     return values
+
+
+def initial_mate_group(*, owner: Obj, name: str, allocator: PersistentIds, date_code: int, parasolid_version: int) -> Obj:
+    if not isinstance(owner, Obj) or owner.cls != "moAssembly_c":
+        raise ValueError("initial mate groups require an ordinary assembly owner")
+    group = model_feature(cls="moMateGroup_c", name=name, owner=owner, allocator=allocator, date_code=date_code, parasolid_version=parasolid_version)
+    group.f.update(discarded_manager_records=[], f4e8=[], f4f8=0)
+    return group
+
+
+def initial_assembly_features(*, owner: Obj, allocator: PersistentIds, folder_names: dict, plane_names: dict, cabinet_name: str, origin_name: str, mate_group_name: str, created_at: int, date_code: int, parasolid_version: int):
+    early_folders = ("moCommentsFolder_c", "moFavoriteFolder_c", "moHistoryFolder_c", "moSelectionSetFolder_c", "moSensorFolder_c", "moLiveSectionFolder_c", "moDocsFolder_c")
+    late_folders = ("moEnvFolder_c", "moInkMarkupFolder_c", "moEqnFolder_c")
+    if not isinstance(owner, Obj) or owner.cls != "moAssembly_c" or set(folder_names) != set(early_folders + late_folders):
+        raise ValueError("ordinary assembly feature construction requires exactly its classified system folders")
+    args = {"owner": owner, "allocator": allocator, "date_code": date_code, "parasolid_version": parasolid_version}
+    folders = {kind: folder(cls=kind, name=folder_names[kind], created_at=created_at, **args) for kind in early_folders + late_folders}
+    owner["f1e0"] = folders["moEnvFolder_c"]
+    cabinet = detail_cabinet(name=cabinet_name, **args)
+    planes = principal_planes(names=plane_names, retain_construction_flag=True, **args)
+    front = planes["z"]
+    reference = component_plane(plane=front, component=owner["f990"], created_at=logged_creation_time(timestamps=()), principal_normal=(0.0, 0.0, 1.0))
+    frame = PlaneFrame(origin=(0.0, 0.0, 0.0), u=front["_plane_u"], v=front["_plane_v"])
+    origin = model_feature(cls="moOriginProfileFeature_c", name=origin_name, **args)
+    origin_profile(profile=origin, plane=reference, frame=frame)
+    group = initial_mate_group(name=mate_group_name, **args)
+    return (*(folders[kind] for kind in early_folders), cabinet, *(folders[kind] for kind in late_folders), *planes.values(), origin, group)
+
+
+def store_empty_mates(*, registry, resolved_map, mate_group: Obj) -> bytes:
+    if not isinstance(mate_group, Obj) or mate_group.cls != "moMateGroup_c":
+        raise ValueError("mate-list serialization requires its actual mate group")
+    old_count = resolved_map.count
+    if not 0 < old_count <= 0x7FFFFFFF:
+        raise ValueError("resolved feature map count must fit the native mate-list prefix")
+    group_items = mate_group["f60"]["list"]["items"]
+    if group_items or mate_group["f4e8"] or mate_group["discarded_manager_records"]:
+        raise ValueError("nonempty mate history needs a classified mate serializer")
+    archive = Store(old_count, registry, 19000, seed=resolved_map)
+    archive.prim("i32", old_count)
+    items = Obj("suObList", object_list())
+    registry.run_store("suObList", archive, items.f, items)
+    return bytes(archive.out)
