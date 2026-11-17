@@ -193,9 +193,10 @@ The [typed planar mate projection](../../Changes/Solidworks/Inspection/Cohorts/A
 uses the decoded assembly occurrence and the selected part datum to
 identify the two ordered planes of coincident, parallel and positive
 driving distance mates. The research projection command exercises the
-SDK implementation with linked native archive maps. Automatic assembly
-reads require the linked configuration, resolved feature and mate list
-loaders in the public SDK.
+SDK implementation with linked native archive maps. The typed SDK
+MatesList codec now accepts the actual resolved map and holds inherited
+occurrence aliases while reading and writing ordinary empty and planar lists.
+Automatic public mate admission remains open. [Typed mate list](../../Changes/Solidworks/Archive/SolidworksTypedMateListCodec.md)
 
 The [2026 archive map handoff](../../Changes/Solidworks/SolidworksArchiveMapHandoff.md)
 and [locked source controls](../../Changes/Solidworks/SolidworksOracleControls.md)
