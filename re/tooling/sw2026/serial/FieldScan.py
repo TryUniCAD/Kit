@@ -250,9 +250,14 @@ def inventory_file(path, name, linked, require_proven):
         record["unresolved_reference_count"] = sum(item["type"] == "external-object-reference" for item in inventory.references)
         record["stream"]["tail"] = len(doc.tail)
         source_names = sorted({candidate for snapshot in snapshots for call in snapshot["schema_calls"] for candidate in call["source_streams"]})
+        graph_names = {name, *(item["name"] for item in dependencies)}
+        for reader in (ar, *(item["archive"] for item in dependencies)):
+            header_source = getattr(reader, "model_header_source", None)
+            if header_source is not None:
+                graph_names.add(header_source[0])
         record["loader_source_streams"] = [{
             "name": candidate, "bytes": len(archive.require(candidate)), "sha256": fingerprint(archive.require(candidate)),
-            "graph_included": candidate == name or any(candidate == item["name"] for item in dependencies),
+            "graph_included": candidate in graph_names,
         } for candidate in source_names]
         record["passed"] = True
         record["stage"] = "complete"

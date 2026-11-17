@@ -13,6 +13,8 @@ def AssertSources(
     IsLinked: bool,
 ) -> None:
     GraphNames = {StreamName, *(["Contents/Config-0"] if IsLinked else [])}
+    if "Contents/Config-0" in GraphNames:
+        GraphNames.add("Contents/Config-0-ModelHeader")
     GraphSeeds = CastValue(list[dict[str, object]], Report["dependencies"])
     UsageData = CastValue(dict[str, object], Report["schema_usage"])
     Dependencies = CastValue(list[dict[str, object]], UsageData["dependencies"])

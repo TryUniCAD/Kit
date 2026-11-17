@@ -19,6 +19,7 @@ def AssertDocument(
         for FieldName in ("head", "roots", "loader_context")
     ]
     SeenIndices: set[int] = set()
+    HeaderIndices: set[int] = set()
     for Entry in CastValue(list[dict[str, object]], Document["archive_map"]):
         Index = AssertInteger(Entry["index"])
         assert 1 <= Index < MapCount and Index not in SeenIndices
@@ -33,10 +34,23 @@ def AssertDocument(
             assert Items[1]["type"] == "str" and Items[1]["value"]
         else:
             assert Entry["kind"] == "obj" and Target["type"] == "object"
-            assert AssertInteger(Target["archive_index"]) == Index
             OriginData = CastValue(dict[str, object], Target["archive_origin"])
-            assert AssertInteger(OriginData["archive_index"]) == Index
+            OriginIndex = AssertInteger(OriginData["archive_index"])
+            assert AssertInteger(Target["archive_index"]) == OriginIndex
+            if OriginData[
+                "stream"
+            ] == "Contents/Config-0-ModelHeader" and StreamName in {
+                "Contents/Config-0",
+                "Contents/Config-0-ResolvedFeatures",
+            }:
+                assert 3 <= Index < BaseCount
+                assert Target["position_stream"] == OriginData["stream"]
+                HeaderIndices.add(Index)
+            else:
+                assert OriginIndex == Index
         Values.append(MapValue)
+    if StreamName == "Contents/Config-0":
+        assert HeaderIndices == set(range(3, BaseCount))
     for FieldName, ExpectedKind in (("roots", "list"), ("loader_context", "dict")):
         Reference = CastValue(dict[str, object], Document[FieldName])
         assert Reference["type"] == "reference"

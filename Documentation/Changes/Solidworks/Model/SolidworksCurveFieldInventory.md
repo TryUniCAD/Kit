@@ -64,10 +64,13 @@ field was f64 or that a native f32 NaN payload survived the codec's conversion.
 The graph contains retained document headers, roots, loader context and archive-map entries.
 Linked mode also includes the complete retained configuration graph and its source hash.
 Seeded objects retain their configuration origin when referenced by the resolved graph.
+Direct configuration references retain their original model-header stream and
+index on the object record. Each configuration map entry records its own index.
 
 Custom loaders can read additional manager or model-header context.
 `loader_source_streams` lists those observed source candidates, with hashes and explicit `graph_included` flags.
-An auxiliary source marked false needs its own selected-stream inventory.
+The configuration graph includes the model-header object and its direct references.
+Select the model-header stream directly for its complete independent inventory.
 The report does not claim to recover discarded local variables or independently trace every primitive read.
 
 Failure records contain exception type and a hash of its message.
