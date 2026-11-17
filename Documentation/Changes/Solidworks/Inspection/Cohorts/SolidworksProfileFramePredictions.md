@@ -22,5 +22,6 @@ The paired native inspector requires an artifact receipt with both persisted
 transforms before it reads the private observations. It checks the matrix,
 translation and scale from the native API before rebuild, after rebuild,
 during the two driving edits, after save and on fresh reopen. It keeps the
-existing tree, pose, geometry, edit and control checks. The native run has not
-yet executed for these predictions.
+existing tree, pose, geometry, edit and control checks. The resulting
+[paired measurement](SolidworksProfileFrameNativeParity.md) passed the new
+frame comparisons and the existing native checks.

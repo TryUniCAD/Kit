@@ -128,9 +128,15 @@ values. The readback confirms the actual markup class and model-to-sketch
 transform in the saved files. These derivatives add no writer outputs. The
 [field direction record](records/ProfileTransformDirection2026.md) identifies
 an opposite-direction seed in the frozen research emitter. The current
-research emitter computes the inverse placement; its
-[independent sources](v2026/heldout/FrameSourceLock.json) were locked first,
-and native remeasurement of the corrected predictions is still pending.
+research emitter computes the inverse placement. Two new Top and Right
+sources were [locked](v2026/heldout/FrameSourceLock.json) before the correction.
+The [remote predictions](measurements/2026/FrameHeldoutProcesses34a.json)
+pass 16 full archive comparisons and 26 transformed values. The
+[paired native result](measurements/2026/FrameParityInspection01.json)
+passes 12 phases, 840 numeric checks, 572 exact profile transform values and
+22 ordered feature trees. All 50 paired mass-property values agree to six
+significant figures. These two generated circle bosses add no completed
+FCStd conversions or native assemblies. The public adapter is read-only.
 
 ## Last audit of the removed writer
 

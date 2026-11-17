@@ -23,7 +23,7 @@ each expected transform present. All eight original hashes reproduce from
 the pinned historical code.
 
 The [independent source lock](../../../../../re/solidworks/v2026/heldout/FrameSourceLock.json)
-predates the correction. New native acceptance requires testing predictions
-from the corrected frozen emitter against those sources. Displaced planes
-and arbitrary frames are outside this change's measured scope. The public
-adapter remains read-only.
+predates the correction. The [paired native result](SolidworksProfileFrameNativeParity.md)
+demonstrates exact model-to-sketch values and editable geometry for the two
+corrected predictions. Displaced planes and arbitrary frames are outside
+this measurement. The public adapter remains read-only.
