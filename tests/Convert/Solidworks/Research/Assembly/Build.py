@@ -9,6 +9,7 @@ from typing import cast as CastValue
 def BuildRecords(
     InputData: dict[str, dict[str, object]],
     BuilderModule: ModuleType,
+    FileModule: ModuleType,
     ModelModule: ModuleType,
     CoreModule: ModuleType,
 ) -> tuple[object, object, dict[str, object]]:
@@ -19,6 +20,6 @@ def BuildRecords(
     ComponentValue = GetAttr(ModelModule, "unit_component")(owner=OwnerValue)
     FileValue = CastValue(
         dict[str, object],
-        GetAttr(BuilderModule, "file_definition")(**InputData["file"]),
+        GetAttr(FileModule, "file_definition")(**InputData["file"]),
     )
     return ConfigValue, ComponentValue, FileValue

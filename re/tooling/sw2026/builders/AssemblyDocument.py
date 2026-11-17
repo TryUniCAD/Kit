@@ -3,8 +3,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from Streams import StreamDoc, store_rooted
-from builders.Assembly import initial_assembly_features, initial_assembly_model, initial_configuration, ordinary_assembly_self_reference, store_empty_mates
+from builders.Assembly import initial_assembly_features, initial_assembly_model, initial_configuration, store_empty_mates
 from builders.Definition import assembly_definition, definition_stream
+from builders.ExternalFiles import ordinary_self_reference
 from builders.Metadata import FILE_VERSION, biography, fields, header, history, rooted_metadata_streams
 from builders.Model import PersistentIds, configuration_manager
 from builders.Styles import detail_definitions
@@ -42,7 +43,7 @@ def _header_streams(*, registry, name, root, configuration, ids, provenance, pre
     model_header = header(model_present=True, **values)
     top_header = header(model_present=False, **values)
     if output is not None:
-        own_file = ordinary_assembly_self_reference(model=root, model_header=model_header, configuration=configuration, **output)
+        own_file = ordinary_self_reference(model=root, model_header=model_header, configuration=configuration, **output)
         top_header["f38"] = model_header["f38"] = own_file
     result = rooted_metadata_streams(
         registry=registry, header2=top_header,

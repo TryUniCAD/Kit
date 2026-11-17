@@ -24,6 +24,9 @@ AddAuditHook(KAuditValue.InspectEvent)
 # the actual fresh assembly implementation must participate in the audited process
 KAssembly = ImportModule("builders.Assembly")
 
+# file definitions use the same schema that supplies part and assembly headers
+KExternalFiles = ImportModule("builders.ExternalFiles")
+
 # assembly self components must use the shared model constructor and its proved owner domain
 KModel = ImportModule("builders.Model")
 
@@ -61,7 +64,7 @@ def ProcessInput(InputData: dict[str, dict[str, object]]) -> dict[str, object]:
     PriorDenied = len(KAuditValue.DeniedReads)
     try:
         ConfigValue, ComponentValue, FileValue = KBuildRecords(
-            InputData, KAssembly, KModel, KCore
+            InputData, KAssembly, KExternalFiles, KModel, KCore
         )
         Result = KInspectResult(
             *KRoundTrip(ConfigValue, ComponentValue, FileValue, KCore, KRegistry)

@@ -2,10 +2,9 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 from math import isfinite, sqrt
-from ntpath import basename, splitext
 
 from Core import Obj, Store
-from builders.Metadata import integer
+from builders.ExternalFiles import referenced_configuration
 from builders.Model import PersistentIds, base_configuration_fields, clear_model_update, component_plane, detail_cabinet, folder, logged_creation_time, model_feature, model_fields, object_list, principal_planes, relation_manager, unit_component
 from builders.Sketch import PlaneFrame, origin_profile
 
@@ -34,65 +33,6 @@ def bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict:
     if not all(isfinite(value) for value in values):
         raise ValueError("derived bounding-box state exceeds the archive numeric domain")
     return {f"b{index}": value for index, value in enumerate(values)}
-
-
-def file_definition(*, path_name: str, document_kind: str, created_at: int) -> dict:
-    if not isinstance(path_name, str) or not path_name or "\x00" in path_name:
-        raise ValueError("file references require an explicit nonempty path without null characters")
-    if document_kind not in ("part", "assembly"):
-        raise ValueError("fresh file definitions support native part and assembly documents")
-    if type(created_at) is not int or not 0 <= created_at <= 0xFFFFFFFF:
-        raise ValueError("referenced document creation time must fit the archive timestamp field")
-    name, extension = splitext(basename(path_name))
-    required_extension = ".sldprt" if document_kind == "part" else ".sldasm"
-    if not name or extension.lower() != required_extension:
-        raise ValueError("reference path extension must agree with its native document kind")
-    return {
-        "h18": Obj("moCStringHandle_c", {"f08": path_name}),
-        "h10": Obj("moCStringHandle_c", {"f08": name}),
-        "f20": 2 if document_kind == "part" else 3,
-        "f08": 0,
-        "f28": created_at,
-        "f38": "",
-        "f40": "",
-        "f50": "",
-        "f35": 0,
-    }
-
-
-def referenced_configuration(*, name: str | None, local_id: int | None) -> dict:
-    if name is None and local_id is None:
-        return {"f08": "", "f10": -1}
-    if not isinstance(name, str) or not name or "\x00" in name:
-        raise ValueError("referenced configuration names must be explicit nonempty strings")
-    if type(local_id) is not int or not 0 <= local_id < 0x7FFFFFFF:
-        raise ValueError("referenced configuration ids must identify an actual generated configuration")
-    return {"f08": name, "f10": local_id}
-
-
-def ordinary_assembly_self_reference(*, model, model_header, configuration, path_name, saved_at):
-    if not isinstance(model, Obj) or model.cls != "moAssembly_c":
-        raise ValueError("self reference requires the generated assembly model")
-    if not isinstance(configuration, Obj) or configuration.cls != "moConfiguration_c" or configuration["owner"] is not model:
-        raise ValueError("self reference requires the assembly's actual active configuration")
-    if not isinstance(model_header, Obj) or model_header.cls != "moHeader_c" or not model_header["fec"]:
-        raise ValueError("self reference requires the generated model header")
-    saved_at = integer(saved_at, "self reference save event", low=model_header["f50"])
-    definition = file_definition(path_name=path_name, document_kind="assembly", created_at=model_header["f70"])
-    definition["h10"]["f08"] = model["f18"]["f08"]
-    selected = referenced_configuration(name=configuration["f18"]["f08"], local_id=configuration["f08"])
-    return Obj("moExtObject_c", {
-        "shared": definition,
-        "f58": 0,
-        "f60": saved_at,
-        "f48": 1,
-        "f4c": 0,
-        "f78": -1,
-        "refcfg": selected,
-        "f54": 0,
-        "f70": 0,
-        "f50": 0,
-    })
 
 
 def _initial_configuration_options() -> Obj:

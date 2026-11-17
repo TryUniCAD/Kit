@@ -37,6 +37,9 @@ KRoundTrip = ImportModule("RoundTrip")
 # profile transform decoding reads generated archive fields after module initialization
 KFrameValues = ImportModule("ProfileTransform").stored_frame
 
+# generated file identity must agree across independent archive reads
+KReadSelfFile = ImportModule("ExternalFileView").read_self_reference
+
 # codec initialization must not be mistaken for donor access during strict construction
 KCodecs = tuple(FindCodec(Value) for Value in ("utf-16-le", "utf-8", "latin-1"))
 
@@ -66,6 +69,7 @@ def BuildResult() -> dict[str, object]:
         if NameValue != "swXmlContents/KeyWords"
     }
     return {
+        **(KReadSelfFile(Archive, KRegistry) if KRequest.get("output") else {}),
         "blob": EncodeBytes(BlobValue).decode("ascii"),
         "streams": Results,
         "sizes": {

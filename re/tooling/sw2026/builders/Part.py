@@ -8,7 +8,9 @@ from Streams import StreamDoc, store_rooted
 from builders.Arc import open_arc_profile
 from builders.Capsule import capsule_profile
 from builders.Circle import circle_profile, circle_set_profile
+from builders.ConfigurationHeader import CONFIGURATION_MANAGER_HEADER, configuration_manager_header, configuration_manager_header_stream
 from builders.Definition import definition_stream, part_definition
+from builders.ExternalFiles import ordinary_self_reference
 from builders.Extrude import live_blind_extrusion, live_extrusion
 from builders.Metadata import biography, fields, header, history, keywords, streams
 from builders.Model import body_feature, component_plane, logged_creation_time, model_feature, part_graph, record_configuration_progress
@@ -25,6 +27,7 @@ class PartConstruction:
     streams: dict[str, bytes]
     model: Obj
     model_header: Obj
+    manager_header: Obj | None
     features: tuple[Obj, ...]
     profile: object
     radial: object
@@ -37,7 +40,7 @@ def _rooted(*, registry, node):
     return store_rooted(StreamDoc("rooted", {"base": 1}, [node]), registry, 19000)
 
 
-def _metadata(*, registry, document, provenance, presentation, graph, features, profile, radial, extrusion):
+def _metadata(*, registry, document, provenance, presentation, graph, features, profile, radial, extrusion, output):
     stamp = {
         "status": 0, "user_index": 0, "company_index": 0,
         "timestamp": provenance["created_at"], "comment": provenance["comment"],
@@ -62,9 +65,13 @@ def _metadata(*, registry, document, provenance, presentation, graph, features, 
         keyword_features.append(item)
     configuration = graph.configuration_manager["f360"]
     model_header = header(model_present=True, **values)
+    top_header = header(model_present=False, **values)
+    if output is not None:
+        own_file = ordinary_self_reference(model=graph.part, model_header=model_header, configuration=configuration, **output)
+        top_header["f38"] = model_header["f38"] = own_file
     result = streams(
         registry=registry,
-        header2=header(model_present=False, **values),
+        header2=top_header,
         model_headers={configuration["f08"]: model_header},
         biography_record=biography(),
         history_record=history(
@@ -110,7 +117,7 @@ def document_shape(document):
     return fields(document, "part document", required, optional), profile_kind, feature_kind
 
 
-def construct_part(*, registry, document, provenance, presentation, target):
+def construct_part(*, registry, document, provenance, presentation, target, output=None):
     document, profile_kind, feature_kind = document_shape(document)
     provenance = fields(provenance, "authored provenance", (
         "author", "company", "created_at", "modified_at", "comment",
@@ -123,6 +130,8 @@ def construct_part(*, registry, document, provenance, presentation, target):
         "folder_names", "cabinet_name",
     ))
     target = fields(target, "native target", ("date_code", "parasolid_version"))
+    if output is not None:
+        output = fields(output, "part output", ("path_name", "saved_at"))
     if document["plane_axis"] not in ("x", "y", "z"):
         raise ArchiveError("fresh research parts require a principal plane")
     styles = presentation["styles"]
@@ -200,7 +209,7 @@ def construct_part(*, registry, document, provenance, presentation, target):
     }
     result, model_header = _metadata(
         registry=registry, document=document, provenance=provenance, presentation=metadata_presentation,
-        graph=graph, features=features, profile=profile, radial=radial, extrusion=extrusion,
+        graph=graph, features=features, profile=profile, radial=radial, extrusion=extrusion, output=output,
     )
     config_data, state = store_config_state(StreamDoc("config", {"model_header": model_header}, [graph.part]), registry, 19000)
     resolved = StreamDoc("resolved", {"base": state.count, "context": {
@@ -217,8 +226,12 @@ def construct_part(*, registry, document, provenance, presentation, target):
         "Contents/Definition": definition_stream(registry=registry, document=definition),
         "Contents/Config-0-ResolvedFeatures": store_resolved(resolved, registry, 19000, seed=state),
     })
+    manager_header = None
+    if output is not None:
+        manager_header = configuration_manager_header(manager=graph.configuration_manager, saved_at=output["saved_at"])
+        result[CONFIGURATION_MANAGER_HEADER] = configuration_manager_header_stream(registry=registry, header=manager_header)
     return PartConstruction(
-        streams=result, model=graph.part, model_header=model_header, features=features,
+        streams=result, model=graph.part, model_header=model_header, manager_header=manager_header, features=features,
         profile=profile, radial=radial, extrusion=extrusion,
         next_id=graph.next_persistent_id, configuration_map_count=state.count,
     )

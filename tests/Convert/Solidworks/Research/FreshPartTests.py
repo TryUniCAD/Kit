@@ -8,9 +8,11 @@ from tests.Convert.Solidworks.Research.FreshPartRunner import RunFreshPart
 
 
 # shared structural assertions keep every constructed shape subject to the same evidence
-def AssertPart(Report: dict[str, object], PointCount: int, DepthValue: float) -> None:
+def AssertPart(
+    Report: dict[str, object], PointCount: int, DepthValue: float, StreamCount: int = 8
+) -> None:
     Streams = CastValue(dict[str, dict[str, object]], Report["streams"])
-    assert len(Streams) == 8
+    assert len(Streams) == StreamCount
     assert all(Result["passed"] for Result in Streams.values()), Streams
     assert all(Result["tail"] == 0 for Result in Streams.values())
     assert Report["points"] == Report["lines"] == PointCount
