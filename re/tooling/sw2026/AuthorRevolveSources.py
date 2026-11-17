@@ -87,6 +87,18 @@ class RevolveAuthor(CurveAuthor):
         point = self.get(utility, "CreatePoint", array)
         return [float(value) for value in self.get(self.get(point, "MultiplyTransform", inverse), "ArrayData")]
 
+    def observe_profile(self):
+        frame_points = ([0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0])
+        segments = self.geometry()
+        require(len(segments) == 5 and all(item["kind"] == "line" for item in segments), "expected four profile edges and a construction axis")
+        manager = self.get(self.model, "ConfigurationManager")
+        active = self.get(manager, "ActiveConfiguration")
+        return {
+            "frame_points": [self.world(point) for point in frame_points],
+            "segments": [{key: item[key] for key in ("start", "end", "construction")} for item in segments],
+            "configuration": str(self.get(active, "Name")),
+        }
+
     def axis_data(self, raw):
         segment = self.typed(raw, "SketchSegment")
         line = self.typed(segment, "SketchLine")
@@ -251,7 +263,7 @@ def checked_angle_edit(author, case, boss):
         preference["restored"] = True
 
 
-def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regeneration_warning=False, record_path=None, save_edited=None):
+def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regeneration_warning=False, inspect_before_rebuild=False, inspect_profile=False, record_path=None, save_edited=None):
     record_path = record_path or path.with_suffix(f".{phase}.json")
     recorder = Recorder(record_path, {"case": case, "phase": phase})
     recorder.data["schema"] = "kit.sw2026.ordinary-revolve-source-phase.v1"
@@ -278,7 +290,7 @@ def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regen
                 recorder.data["open_status"] = {"opened": author.model is not None, "errors": errors, "warnings": warnings}
                 allowed_warnings = (0, 32) if inspect_regeneration_warning else (0,)
                 require(author.model is not None and errors == 0 and warnings in allowed_warnings, "native source failed to open cleanly")
-                if warnings == 32:
+                if warnings == 32 or inspect_before_rebuild:
                     extension = author.get(author.model, "Extension")
                     recorder.data["before_explicit_rebuild"] = {
                         "needs_rebuild": int(author.get(extension, "NeedsRebuild2")),
@@ -286,9 +298,17 @@ def run_phase(case, phase, path, oracle_hash, source_hash=None, *, inspect_regen
                         "save_flag": bool(author.get(author.model, "GetSaveFlag")),
                         "bodies": recorder.call("read body count before explicit rebuild", Swapp.bodies, author.model),
                     }
+                    if inspect_before_rebuild:
+                        recorder.data["before_explicit_rebuild"]["features"] = recorder.call(
+                            "read feature tree before explicit rebuild", Swapp.features, author.model,
+                        )
                 boss = author.snapshot(case, "reopened", case["angle_deg"])
+                if inspect_profile:
+                    recorder.data["reopened"]["profile"] = author.observe_profile()
                 if phase == "reopen":
                     checked_angle_edit(author, case, boss)
+                    if inspect_profile and recorder.data.get("edit", {}).get("passed"):
+                        recorder.data["edited"]["profile"] = author.observe_profile()
                     if save_edited is not None and warnings == 0:
                         require(not save_edited.exists(), "edited derivative already exists")
                         status = recorder.call("save edited native derivative", session.save_as, author.model, save_edited)

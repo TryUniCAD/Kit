@@ -35,6 +35,10 @@ def main():
     require(type(handedness) is int and handedness in (-1, 1), "generated revolve job requires a signed direction from its native controls")
     inspect_regeneration_warning = job.get("inspect_regeneration_warning", False)
     require(type(inspect_regeneration_warning) is bool, "warning inspection option must be boolean")
+    inspect_before_rebuild = job.get("inspect_before_rebuild", False)
+    require(type(inspect_before_rebuild) is bool, "initial inspection option must be boolean")
+    inspect_profile = job.get("inspect_profile", False)
+    require(type(inspect_profile) is bool, "profile inspection option must be boolean")
     verify_saved_edit = job.get("verify_saved_edit", False)
     require(type(verify_saved_edit) is bool, "edited save verification option must be boolean")
     checkout, control, output = (Path(job[key]).resolve() for key in ("checkout_root", "control", "output"))
@@ -52,6 +56,8 @@ def main():
         "job_sha256": digest(job_path), "inspector_sha256": digest(Path(__file__)),
         "forward_handedness": handedness,
         "inspect_regeneration_warning": inspect_regeneration_warning,
+        "inspect_before_rebuild": inspect_before_rebuild,
+        "inspect_profile": inspect_profile,
         "started_at": time.time(), "controls": [], "cases": [], "passed": False,
         "heldout_acceptance": False, "saved_edit_reopened": False, "derivative_reopens": [],
     }
@@ -73,6 +79,8 @@ def main():
                 row, phase_hash = run_phase(
                     model, "reopen", source, job["oracle_sha256"], entry["sha256"],
                     inspect_regeneration_warning=inspect_regeneration_warning,
+                    inspect_before_rebuild=inspect_before_rebuild,
+                    inspect_profile=inspect_profile,
                     record_path=output / f"{source.stem}.reopen.json",
                     save_edited=edited_path,
                 )
@@ -94,6 +102,8 @@ def main():
                     edited_model = model | {"angle_deg": model["edit_angle_deg"]}
                     reopened, derivative_record = run_phase(
                         edited_model, "edited-reopen", edited_path, job["oracle_sha256"], derivative["sha256"],
+                        inspect_before_rebuild=inspect_before_rebuild,
+                        inspect_profile=inspect_profile,
                         record_path=output / f"{source.stem}.edited-reopen.json",
                     )
                     reopened.update(source_sha256=derivative["sha256"], phase_sha256=derivative_record)
