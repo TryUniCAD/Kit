@@ -1,5 +1,5 @@
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
-from convert.adapters.solidworks.Archive.Bodies.ReadScopeValue import ReadScopeValue
+from convert.adapters.solidworks.Archive.Bodies.ReadRuleValue import ReadRuleValue
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Bodies.Writing.EncodeBodyText import (
     EncodeBodyText,
@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScala
 
 # body fields emit modeled values through shared codecs instead of retaining serialized operations
 def WriteValueMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
-    Value = ReadScopeValue(FrameValue.ScopeValue, RuleValue.NameValue)
+    Value = ReadRuleValue(FrameValue.ScopeValue, RuleValue)
     WriterValue = FrameValue.WriterValue
     if RuleValue.KindValue == "Node":
         WriteNodeMut(WriterValue, Value)

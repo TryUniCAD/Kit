@@ -16,6 +16,8 @@ def WriteCountMut(
     CountName = RuleValue.CountValue or RuleValue.NameValue + "#count"
     Buffer = FrameValue.WriterValue.OutputValue
     if RuleValue.TypeValue == "Split":
+        FrameValue.ScopeValue.ValuesValue[CountName] = ItemCount >> 32
+        FrameValue.ScopeValue.ValuesValue[RuleValue.OtherName] = ItemCount & 0xFFFFFFFF
         Buffer.extend(EncodeScalar(ItemCount >> 32, "u32"))
         Buffer.extend(EncodeScalar(ItemCount & 0xFFFFFFFF, "u32"))
         return
@@ -25,6 +27,7 @@ def WriteCountMut(
         if NormalizeCount(WireValue, RuleValue.ModeValue) == ItemCount
         else ItemCount
     )
+    FrameValue.ScopeValue.ValuesValue[CountName] = CountValue
     if RuleValue.TypeValue in ("Count", "Framework"):
         Buffer.extend(
             EncodeCount(CountValue, IsFramework=RuleValue.TypeValue == "Framework")

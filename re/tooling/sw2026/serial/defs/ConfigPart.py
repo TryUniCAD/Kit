@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from Core import ArchiveError, Load, Store, Obj
 from Streams import StreamDoc, load_rooted
+from ConfigBridge import load_sdk_config, store_sdk_config_state
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, u8, f64, obj, cstr, emb, base, count, time32
 from Schema import Op, If, Rep, Raw, Scope, run_load, run_store
 from defs.ResolvedCore import CONCEPT_RES, OIf, vt, concept_vt
@@ -273,10 +274,10 @@ def header_direct_objects(header, version=None):
     return tuple(objects)
 
 
-def load_config(data, reg, version=None, *, archive=None, name="Contents/Config-0"):
+def load_config_compat(data, reg, version=None, *, archive=None, name="Contents/Config-0", _header_info=None):
     if archive is None:
         raise ArchiveError(f"{name} requires its owning archive")
-    header, header_reader = load_model_header(archive, name, reg, version)
+    header, header_reader = load_model_header(archive, name, reg, version) if _header_info is None else _header_info
     ar = Load(data, 1, reg, version, {"header_objects": header_direct_objects(header, version)})
     ar.model_header_source = (name + "-ModelHeader", header_reader)
     root = ar.obj()
@@ -289,7 +290,7 @@ def store_config(doc, reg, version=None):
     return data
 
 
-def store_config_state(doc, reg, version=None):
+def store_config_state_compat(doc, reg, version=None):
     ar = Store(1, reg, version, {
         "header_objects": header_direct_objects(doc.head["model_header"], version),
     })
@@ -297,6 +298,17 @@ def store_config_state(doc, reg, version=None):
         ar.obj(o)
     ar.raw(doc.tail)
     return bytes(ar.out), ar.map_state()
+
+
+def load_config(data, reg, version=None, *, archive=None, name="Contents/Config-0"):
+    return load_sdk_config(data, reg, version, archive=archive, name=name,
+                           load_header=load_model_header, read_items=direct_list_items,
+                           fallback=load_config_compat)
+
+
+def store_config_state(doc, reg, version=None):
+    return store_sdk_config_state(doc, reg, version, read_items=direct_list_items,
+                                  fallback=store_config_state_compat)
 
 
 PLANS = {"Contents/Config-0": ("custom", (load_config, store_config))}

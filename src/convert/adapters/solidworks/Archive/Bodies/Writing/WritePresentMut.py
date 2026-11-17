@@ -7,6 +7,8 @@ from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScala
 def WritePresentMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     Fields = FrameValue.ScopeValue.FieldsValue
     Value = Fields.get(RuleValue.NameValue, int(RuleValue.CountValue in Fields))
+    if RuleValue.ModeValue == "ObjectPresence":
+        Value = int(Fields.get(RuleValue.CountValue) is not None)
     FrameValue.WriterValue.OutputValue.extend(EncodeScalar(Value, RuleValue.TypeValue))
     if Value != 0:
         FrameValue.FieldsWriter(FrameValue, RuleValue.BodyValue)

@@ -22,6 +22,16 @@ class NativeField:
         "Present",
         "Fail",
         "Validate",
+        "Section",
+        "Direct",
+        "Bytes",
+        "Length",
+        "Repeat",
+        "Normalize",
+        "GhostCount",
+        "MassCaches",
+        "BBoxCache",
+        "DirectNode",
     ]
     NameValue: str
     TypeValue: str = ""
@@ -31,3 +41,4 @@ class NativeField:
     ModeValue: str = ""
     MaskValue: int = 0
     OtherName: str = ""
+    CompareValue: int = 0

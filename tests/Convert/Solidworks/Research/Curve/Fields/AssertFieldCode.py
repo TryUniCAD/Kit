@@ -24,6 +24,7 @@ def AssertFieldCode(Report: dict[str, object]) -> None:
                 "AnnotationWire.py",
                 "MapBridge.py",
                 "CmgrBridge.py",
+                "ConfigBridge.py",
             )
         }
         | {
@@ -59,6 +60,7 @@ def AssertFieldCode(Report: dict[str, object]) -> None:
                 "Scalars",
                 "Bodies",
                 "Cmgr",
+                "Config",
                 "Reading",
             )
             for SourcePath in (

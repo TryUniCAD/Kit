@@ -12,4 +12,5 @@ def GetBodyReport(UsageValue: BodyUsage) -> Mapping[str, object]:
         "field_calls": dict(sorted(UsageValue.FieldCalls.items())),
         "missing_schemas": tuple(sorted(UsageValue.MissingNames)),
         "provisional_schemas": (),
+        "native_byte_fields": tuple(UsageValue.ByteFields),
     }

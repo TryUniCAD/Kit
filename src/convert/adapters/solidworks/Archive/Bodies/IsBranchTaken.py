@@ -1,7 +1,7 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
+from convert.adapters.solidworks.Archive.Bodies.IsFieldBranch import IsFieldBranch
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
-from convert.adapters.solidworks.Archive.Bodies.ReadScopeValue import ReadScopeValue
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
@@ -13,13 +13,15 @@ def IsBranchTaken(
     RuleValue: NativeField,
 ) -> bool:
     FlagsValue = ContextValue.FlagsValue
+    if RuleValue.ModeValue in (
+        "Nonzero",
+        "Equals",
+        "NotEquals",
+        "Greater",
+        "BitsEqual",
+    ):
+        return IsFieldBranch(ScopeValue, RuleValue)
     match RuleValue.ModeValue:
-        case "Nonzero":
-            return ReadScopeValue(ScopeValue, RuleValue.NameValue) != 0
-        case "Equals":
-            return (
-                ReadScopeValue(ScopeValue, RuleValue.NameValue) == RuleValue.MaskValue
-            )
         case "Condition":
             return bool(FlagsValue.get("conditions", 0) & RuleValue.MaskValue)
         case "Context":
@@ -36,5 +38,7 @@ def IsBranchTaken(
             ) or bool(FlagsValue.get("pe_file", 0))
         case "Class":
             return NodeValue.ClassValue.NameValue == RuleValue.NameValue
+        case "NotClass":
+            return NodeValue.ClassValue.NameValue != RuleValue.NameValue
         case _:
             raise ValueError(f"unsupported native branch rule {RuleValue.ModeValue}")

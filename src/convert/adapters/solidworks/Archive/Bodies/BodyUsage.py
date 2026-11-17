@@ -11,3 +11,6 @@ class BodyUsage:
     SchemaPath: list[str] = DataField(default_factory=list[str])
     FieldPath: list[str] = DataField(default_factory=list[str])
     IsComplete: bool = False
+    ByteFields: list[dict[str, object]] = DataField(
+        default_factory=list[dict[str, object]]
+    )

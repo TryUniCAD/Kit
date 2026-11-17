@@ -1,0 +1,41 @@
+from types import MappingProxyType
+
+# concrete native virtual targets select inherited configuration fields independently of saved values
+KConfigVirtuals = MappingProxyType(
+    {
+        ("moAmbientLight_c", 1000): "moFeature_c.SerializeXmlData",
+        ("moAssembly_c", 1000): None,
+        ("moDirectionLight_c", 1000): "moFeature_c.SerializeXmlData",
+        ("moEnvFolder_c", 1000): "moFeature_c.SerializeXmlData",
+        ("moExplViewManager_c", 1000): "moFeature_c.SerializeXmlData",
+        ("moPrtExplViewManager_c", 1000): "moFeature_c.SerializeXmlData",
+        ("moReference_c", 1000): "moFeature_c.SerializeXmlData",
+        ("moSketchBlockMgr_c", 1000): None,
+        ("moAmbientLight_c", 1016): True,
+        ("moAssembly_c", 1016): False,
+        ("moDirectionLight_c", 1016): True,
+        ("moEnvFolder_c", 1016): True,
+        ("moExplViewManager_c", 1016): True,
+        ("moPrtExplViewManager_c", 1016): True,
+        ("moReference_c", 1016): True,
+        ("moSketchBlockMgr_c", 1016): True,
+        ("moAmbientLight_c", 1208): "moConcept_c.SerializeLWData",
+        ("moAssembly_c", 1208): "moAssembly_c.SerializeLWData",
+        ("moAtom_c", 1208): "moConcept_c.SerializeLWData",
+        ("moDirectionLight_c", 1208): "moConcept_c.SerializeLWData",
+        ("moEnvFolder_c", 1208): "moConcept_c.SerializeLWData",
+        ("moExplViewManager_c", 1208): "moConcept_c.SerializeLWData",
+        ("moPrtExplViewManager_c", 1208): "moConcept_c.SerializeLWData",
+        ("moReference_c", 1208): "moConcept_c.SerializeLWData",
+        ("moSketchBlockMgr_c", 1208): "moConcept_c.SerializeLWData",
+        ("moAmbientLight_c", 1216): "moConcept_c.SerializeResolvedData",
+        ("moAssembly_c", 1216): "moAssembly_c.SerializeResolvedData",
+        ("moAtom_c", 1216): "moConcept_c.SerializeResolvedData",
+        ("moDirectionLight_c", 1216): "moConcept_c.SerializeResolvedData",
+        ("moEnvFolder_c", 1216): "moConcept_c.SerializeResolvedData",
+        ("moExplViewManager_c", 1216): "moConcept_c.SerializeResolvedData",
+        ("moPrtExplViewManager_c", 1216): "moConcept_c.SerializeResolvedData",
+        ("moReference_c", 1216): "moConcept_c.SerializeResolvedData",
+        ("moSketchBlockMgr_c", 1216): "moConcept_c.SerializeResolvedData",
+    }
+)
