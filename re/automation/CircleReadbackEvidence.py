@@ -97,6 +97,8 @@ def pinned_capture(snapshot, revision, plan):
             plan[role],
             {"control": CONTROL, "specification": SPEC}.get(role),
         )
+    if "progress_collector" in plan:
+        source_pin(snapshot, revision, f"{AUTHORING}/ReadbackProgress.cs", plan["progress_collector"])
     for name in ("executable", "interop", "constants"):
         require(
             re.fullmatch(r"[0-9a-f]{64}", plan[f"installed_{name}_sha256"]),

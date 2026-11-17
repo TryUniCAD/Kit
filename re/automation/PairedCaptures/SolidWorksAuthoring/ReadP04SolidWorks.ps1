@@ -116,6 +116,7 @@ if ($spec.sha256 -cne '3c93e024f9fbdda50e610bda3b363bf30e8e7cdc914ef0728087befe1
 }
 $collector = Get-Pin "$authoringRoot/P04Readback.cs"
 $CircleCollector = Get-Pin "$authoringRoot/P02Readback.cs"
+$progressCollector = Get-Pin "$authoringRoot/ReadbackProgress.cs"
 $launcher = Get-Pin "$authoringRoot/ReadP04SolidWorks.ps1"
 Assert-Bytes $PSCommandPath $launcher
 $files = [ordered]@{}
@@ -190,6 +191,8 @@ $collectorCopy = Join-Path $output 'P04Readback.cs'
 Copy-Pinned $collector $collectorCopy
 $CircleCopy = Join-Path $output 'P02Readback.cs'
 Copy-Pinned $CircleCollector $CircleCopy
+$progressCopy = Join-Path $output 'ReadbackProgress.cs'
+Copy-Pinned $progressCollector $progressCopy
 $provenance = [ordered]@{
     source_revision = $revision
     recipe = $ReadbackScope
@@ -197,6 +200,7 @@ $provenance = [ordered]@{
     launcher = $launcher
     collector = $collector
     circle_collector = $CircleCollector
+    progress_collector = $progressCollector
     control = $control
     native_files = $files
     installed_executable_sha256 = (Get-FileHash -LiteralPath $binary.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -219,7 +223,7 @@ $planPin = @{
 $webExtensions = Join-Path ([Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) 'System.Web.Extensions.dll'
 Add-Type -Path $constants.FullName
 Add-Type -Path $interop.FullName
-Add-Type -Path @($collectorCopy, $CircleCopy) -ReferencedAssemblies @($interop.FullName, $constants.FullName, 'System.Core.dll', $webExtensions)
+Add-Type -Path @($collectorCopy, $CircleCopy, $progressCopy) -ReferencedAssemblies @($interop.FullName, $constants.FullName, 'System.Core.dll', $webExtensions)
 if ($QueuedRequestSha256) {
     Write-NewJson (Join-Path $output 'native-ready.json') ([ordered]@{
         version = 1
@@ -241,7 +245,7 @@ if ($QueuedRequestSha256) {
         throw 'Direct launch belongs to another queued operation.'
     }
     $run = [P04Readback]::RunOwned($inputs, [string[]]@($files.Keys), $binary.FullName, $launchPath,
-        (Join-Path $output 'native-owner.json')) | ConvertFrom-Json
+        (Join-Path $output 'native-owner.json'), (Join-Path $output 'native-progress.jsonl')) | ConvertFrom-Json
 } else {
     $run = [P04Readback]::Run($inputs, [string[]]@($files.Keys), $binary.FullName) | ConvertFrom-Json
 }
@@ -257,6 +261,7 @@ foreach ($capture in $capturePins.Values) {
 }
 Assert-Bytes $collectorCopy $collector
 Assert-Bytes $CircleCopy $CircleCollector
+Assert-Bytes $progressCopy $progressCollector
 Assert-Bytes $provenancePath $planPin
 
 $reportPath = Join-Path $output 'measurements.json'

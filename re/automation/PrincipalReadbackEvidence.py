@@ -43,6 +43,14 @@ COLLECTORS = {
             "circle_collector": "b674dd765c133a53efd87da406ce9ec6cbcf218b25a2ee3329228eeee61a5023",
         },
     ),
+    "4e08e631435e6d9e96c1be6be29eb02c8f4a2aaa39b8d710c910c36d7d86135e": (
+        True,
+        {
+            "launcher": "796e28c9a538ebc15d55f208bb4513534966a9a37d869eb7400a2c50b7f6cc02",
+            "circle_collector": "b674dd765c133a53efd87da406ce9ec6cbcf218b25a2ee3329228eeee61a5023",
+            "progress_collector": "7db226822eab18df4291ce52835314307aca3ed4f07bd63109183e2b0f6465bc",
+        },
+    ),
 }
 DOCUMENTS = ("plan", "measurements", "receipt")
 PHASES = ("before_rebuild", "after_rebuild")
@@ -186,6 +194,13 @@ def read_sources(snapshot, plan):
             "worker compiled principal collector bundle differs from the approved sources",
         )
         sources["circle_collector"] = companion
+    if bundle is not None and "progress_collector" in bundle:
+        progress = git_pin(snapshot, revision, f"{AUTHORING}/ReadbackProgress.cs")
+        require(progress == plan.get("progress_collector") and progress["sha256"] == bundle["progress_collector"],
+                "worker native progress collector differs from the approved source")
+        sources["progress_collector"] = progress
+    else:
+        require("progress_collector" not in plan, "legacy principal collector has unexpected progress code")
     installed = {}
     for role in ("executable", "interop", "constants"):
         digest = plan[f"installed_{role}_sha256"]

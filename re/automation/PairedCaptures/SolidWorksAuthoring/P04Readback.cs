@@ -19,8 +19,11 @@ public sealed partial class P04Readback
     const string Build = "34.4.1.1011";
     static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
     readonly ISldWorks app;
+    readonly ReadbackProgress progress;
 
-    P04Readback(ISldWorks app) { this.app = app; }
+    P04Readback(ISldWorks app) : this(app, new ReadbackProgress(null, null)) { }
+
+    P04Readback(ISldWorks app, ReadbackProgress progress) { this.app = app; this.progress = progress; }
 
     [DllImport("kernel32.dll", CharSet = CharSet.Unicode, ExactSpelling = true, SetLastError = true)]
     static extern uint GetFinalPathNameByHandleW(SafeFileHandle file, StringBuilder path, uint capacity, uint flags);
@@ -429,9 +432,11 @@ public sealed partial class P04Readback
         IModelDoc2 owned = null;
         try
         {
-            Require(app.GetDocumentCount() == 0, "SOLIDWORKS session has an open document");
+            Require(progress.Invoke("document_count", (string)row["file"], () => app.GetDocumentCount()) == 0,
+                "SOLIDWORKS session has an open document");
             var options = (int)(swOpenDocOptions_e.swOpenDocOptions_Silent | swOpenDocOptions_e.swOpenDocOptions_ReadOnly);
-            var document = app.OpenDoc6(path, (int)swDocumentTypes_e.swDocPART, options, "", ref errors, ref warnings) as IModelDoc2;
+            var document = progress.Invoke("open_document", (string)row["file"],
+                () => app.OpenDoc6(path, (int)swDocumentTypes_e.swDocPART, options, "", ref errors, ref warnings)) as IModelDoc2;
             row["open"] = Row("document_returned", document != null, "errors", errors, "warnings", warnings);
             Require(document != null && string.Equals(document.GetPathName(), path, StringComparison.OrdinalIgnoreCase),
                 "SOLIDWORKS did not open the owned scratch document");
@@ -441,12 +446,14 @@ public sealed partial class P04Readback
                 "SOLIDWORKS open returned an error or an unexpected warning");
             if (control)
             {
-                Require(document.ForceRebuild3(false), "Control rebuild failed");
-                var bodies = Items(((IPartDoc)document).GetBodies2((int)swBodyType_e.swSolidBody, false));
-                var mass = document.Extension.CreateMassProperty2() as IMassProperty2;
+                Require(progress.Invoke("control_rebuild", (string)row["file"], () => document.ForceRebuild3(false)), "Control rebuild failed");
+                var bodies = Items(progress.Invoke("control_bodies", (string)row["file"],
+                    () => ((IPartDoc)document).GetBodies2((int)swBodyType_e.swSolidBody, false)));
+                var mass = progress.Invoke("control_mass_create", (string)row["file"],
+                    () => document.Extension.CreateMassProperty2()) as IMassProperty2;
                 Require(mass != null, "Control mass is unavailable");
                 mass.UseSystemUnits = true;
-                Require(mass.Recalculate(), "Control mass calculation failed");
+                Require(progress.Invoke("control_mass_recalculate", (string)row["file"], () => mass.Recalculate()), "Control mass calculation failed");
                 row["body_count"] = bodies.Length;
                 row["volume_mm3"] = mass.Volume * 1e9;
                 row["center_of_mass_m"] = mass.CenterOfMass;
@@ -456,10 +463,10 @@ public sealed partial class P04Readback
             else if (row["file"].ToString().StartsWith("P02-", StringComparison.Ordinal))
             {
                 var FileName = (string)row["file"];
-                var Before = ObserveCircle(document, FileName);
+                var Before = progress.Invoke("circle_before", FileName, () => ObserveCircle(document, FileName));
                 row["before_rebuild"] = Before;
-                Require(document.ForceRebuild3(false), "Circular profile rebuild failed");
-                var After = ObserveCircle(document, FileName);
+                Require(progress.Invoke("circle_rebuild", FileName, () => document.ForceRebuild3(false)), "Circular profile rebuild failed");
+                var After = progress.Invoke("circle_after", FileName, () => ObserveCircle(document, FileName));
                 row["after_rebuild"] = After;
                 row["circle_verified_before_and_after_rebuild"] = (bool)Before["verified"] && (bool)After["verified"];
             }
@@ -467,19 +474,19 @@ public sealed partial class P04Readback
                      row["file"].ToString().StartsWith("P03-", StringComparison.Ordinal))
             {
                 bool includesBoss = row["file"].ToString().StartsWith("P03-", StringComparison.Ordinal);
-                row["before_rebuild"] = ObservePrincipal(document, includesBoss);
-                Require(document.ForceRebuild3(false), "Principal profile rebuild failed");
-                row["after_rebuild"] = ObservePrincipal(document, includesBoss);
+                row["before_rebuild"] = progress.Invoke("principal_before", (string)row["file"], () => ObservePrincipal(document, includesBoss));
+                Require(progress.Invoke("principal_rebuild", (string)row["file"], () => document.ForceRebuild3(false)), "Principal profile rebuild failed");
+                row["after_rebuild"] = progress.Invoke("principal_after", (string)row["file"], () => ObservePrincipal(document, includesBoss));
             }
             else
             {
-                var before = Observe(document, null);
+                var before = progress.Invoke("cut_before", (string)row["file"], () => Observe(document, null));
                 row["before_rebuild"] = before;
                 var previous = (Dictionary<string, object>)before["support"];
                 byte[] reference = previous.ContainsKey("reference_base64")
                     ? Convert.FromBase64String((string)previous["reference_base64"]) : null;
-                Require(document.ForceRebuild3(false), "P04 rebuild failed");
-                var after = Observe(document, reference);
+                Require(progress.Invoke("cut_rebuild", (string)row["file"], () => document.ForceRebuild3(false)), "P04 rebuild failed");
+                var after = progress.Invoke("cut_after", (string)row["file"], () => Observe(document, reference));
                 row["after_rebuild"] = after;
                 var current = (Dictionary<string, object>)after["support"];
                 row["face_verified_before_and_after_rebuild"] = (bool)previous["verified"] && (bool)current["verified"];
@@ -496,8 +503,9 @@ public sealed partial class P04Readback
         {
             try
             {
-                if (owned != null) app.CloseDoc(owned.GetTitle());
-                Require(app.GetDocumentCount() == 0, "SOLIDWORKS document cleanup did not leave an empty session");
+                if (owned != null) progress.Invoke("close_document", (string)row["file"], () => app.CloseDoc(owned.GetTitle()));
+                Require(progress.Invoke("verify_empty", (string)row["file"], () => app.GetDocumentCount()) == 0,
+                    "SOLIDWORKS document cleanup did not leave an empty session");
             }
             catch (Exception error)
             {
@@ -510,16 +518,21 @@ public sealed partial class P04Readback
 
     public static string Run(string workspace, string[] files, string expectedExecutable)
     {
-        return Run(workspace, files, expectedExecutable, null, null);
+        return Run(workspace, files, expectedExecutable, null, null, null);
     }
 
     public static string RunOwned(string workspace, string[] files, string expectedExecutable, string launchPath, string ticketPath)
+    {
+        return RunOwned(workspace, files, expectedExecutable, launchPath, ticketPath, null);
+    }
+
+    public static string RunOwned(string workspace, string[] files, string expectedExecutable, string launchPath, string ticketPath, string progressPath)
     {
         var launch = Json.Deserialize<Dictionary<string, object>>(File.ReadAllText(launchPath, Encoding.UTF8));
         Require(launch != null && (int)launch["version"] == 1
             && ResolveExecutablePath((string)launch["image"]).Equals(ResolveExecutablePath(expectedExecutable), StringComparison.OrdinalIgnoreCase),
             "Queued launch does not identify the registered installation");
-        return Run(workspace, files, expectedExecutable, launch, ticketPath);
+        return Run(workspace, files, expectedExecutable, launch, ticketPath, progressPath);
     }
 
     static ISldWorks Attach()
@@ -552,8 +565,9 @@ public sealed partial class P04Readback
         finally { File.Delete(staged); }
     }
 
-    static string Run(string workspace, string[] files, string expectedExecutable, Dictionary<string, object> launch, string ticketPath)
+    static string Run(string workspace, string[] files, string expectedExecutable, Dictionary<string, object> launch, string ticketPath, string progressPath)
     {
+        var progress = new ReadbackProgress(progressPath, launch);
         var observations = new List<object>();
         var result = Row("status", "failed", "observations", observations);
         ISldWorks application = null;
@@ -567,9 +581,9 @@ public sealed partial class P04Readback
             int desktopSession;
             using (var caller = Process.GetCurrentProcess()) desktopSession = caller.SessionId;
             var requestedAt = DateTime.UtcNow;
-            application = launch == null
+            application = progress.Invoke("application_attach", null, () => launch == null
                 ? (ISldWorks)Activator.CreateInstance(Type.GetTypeFromProgID("SldWorks.Application", true))
-                : Attach();
+                : Attach());
             process = Process.GetProcessById(application.GetProcessID());
             var startedAt = process.StartTime.ToUniversalTime();
             var module = process.MainModule;
@@ -591,14 +605,15 @@ public sealed partial class P04Readback
                 Require(expectedProcess && process.Id == (int)launch["pid"] && process.SessionId == (int)launch["session"]
                     && created == (string)launch["created"], "Passive COM did not attach to the exact directly launched SOLIDWORKS process");
             }
-            string revision = application.RevisionNumber();
+            string revision = progress.Invoke("application_revision", null, () => application.RevisionNumber());
             string fileVersion = module.FileVersionInfo.FileVersion;
             observedApplication["build"] = fileVersion;
             observedApplication["revision"] = revision;
             Require(fileVersion == Build && revision == "34.4.1", "Unexpected SOLIDWORKS application build");
             if (launch != null)
             {
-                Require(application.GetDocumentCount() == 0, "The directly launched SOLIDWORKS process did not start empty");
+                Require(progress.Invoke("startup_empty", null, () => application.GetDocumentCount()) == 0,
+                    "The directly launched SOLIDWORKS process did not start empty");
                 var owner = Row("version", 1, "request_sha256", launch["request_sha256"],
                     "source_revision", launch["source_revision"], "pid", process.Id, "created", created,
                     "session", process.SessionId, "image", launch["image"], "build", fileVersion, "initial_documents", 0);
@@ -606,17 +621,17 @@ public sealed partial class P04Readback
                 result["native_owner"] = owner;
                 owned = true;
             }
-            var worker = new P04Readback(application);
-            var before = worker.Read(Path.Combine(workspace, "control.SLDPRT"), true);
+            var worker = new P04Readback(application, progress);
+            var before = progress.Invoke("control_before", "control.SLDPRT", () => worker.Read(Path.Combine(workspace, "control.SLDPRT"), true));
             result["control_before"] = before;
             Require((string)before["status"] == "observed", "Pre-run control did not pass");
             foreach (var file in files)
             {
-                var reading = worker.Read(Path.Combine(workspace, file), false);
+                var reading = progress.Invoke("capture", file, () => worker.Read(Path.Combine(workspace, file), false));
                 observations.Add(reading);
                 Require(!reading.ContainsKey("cleanup_diagnostic"), "Readback cleanup did not leave an empty session");
             }
-            var after = worker.Read(Path.Combine(workspace, "control.SLDPRT"), true);
+            var after = progress.Invoke("control_after", "control.SLDPRT", () => worker.Read(Path.Combine(workspace, "control.SLDPRT"), true));
             result["control_after"] = after;
             Require((string)after["status"] == "observed", "Post-run control did not pass");
             if (observations.Cast<Dictionary<string, object>>().All(row => (string)row["status"] == "observed"))
@@ -633,11 +648,11 @@ public sealed partial class P04Readback
                 try
                 {
                     Require(application.GetDocumentCount() == 0, "The owned SOLIDWORKS process still has open documents");
-                    application.ExitApp();
-                    Marshal.FinalReleaseComObject(application);
+                    progress.Invoke("application_exit", null, () => application.ExitApp());
+                    progress.Invoke("application_release", null, () => Marshal.FinalReleaseComObject(application));
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
-                    Require(process.WaitForExit(60000), "The owned SOLIDWORKS process did not exit");
+                    Require(progress.Invoke("application_exit_wait", null, () => process.WaitForExit(60000)), "The owned SOLIDWORKS process did not exit");
                     result["owned_process_exit_observed"] = true;
                 }
                 catch (Exception error)
@@ -648,6 +663,8 @@ public sealed partial class P04Readback
             }
             if (process != null) process.Dispose();
         }
+        var journal = progress.Finish((string)result["status"]);
+        if (journal != null) result["native_progress"] = journal;
         return Json.Serialize(result);
     }
 }

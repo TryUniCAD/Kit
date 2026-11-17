@@ -20,8 +20,9 @@ JOBS = {}
 
 
 class WindowsProcess:
-    def __init__(self, argv, root, environment, stdout, stderr, *, stdin=None):
+    def __init__(self, argv, root, environment, stdout, stderr, *, stdin=None, suspended=False):
         self.handle = None
+        self.thread = None
         self.job = None
         self.pid = None
         self.returncode = None
@@ -39,13 +40,14 @@ class WindowsProcess:
             win32job.SetInformationJobObject(self.job, win32job.JobObjectExtendedLimitInformation, limits)
             info = create_suspended(argv, root, environment, stdout, stderr, int(self.job), stdin=stdin)
             self.handle = info.process
+            self.thread = info.thread
             self.pid = int(info.pid)
             self.identity = creation_time(self.handle)
             if not win32job.IsProcessInJob(self.handle, self.job):
                 raise OSError("runner was not created inside its session job")
             JOBS[self.pid] = self
-            if win32process.ResumeThread(info.thread) != 1:
-                raise OSError("runner thread did not resume from its initial suspension")
+            if not suspended:
+                self.resume()
         except BaseException as error:
             try:
                 if self.handle is not None and win32event.WaitForSingleObject(self.handle, 0) == win32event.WAIT_TIMEOUT:
@@ -59,9 +61,18 @@ class WindowsProcess:
             if isinstance(error, pywintypes.error):
                 raise OSError(f"Windows runner setup failed: {error.winerror}") from error
             raise
+
+    def resume(self):
+        if self.thread is None:
+            raise OSError("runner has no held initial thread")
+        try:
+            if win32process.ResumeThread(self.thread) != 1:
+                raise OSError("runner thread did not resume from its initial suspension")
+        except pywintypes.error as error:
+            raise OSError(f"Windows runner resume failed: {error.winerror}") from error
         finally:
-            if info is not None:
-                KERNEL.CloseHandle(info.thread)
+            KERNEL.CloseHandle(self.thread)
+            self.thread = None
 
     def poll(self):
         if self.returncode is None and win32event.WaitForSingleObject(self.handle, 0) == win32event.WAIT_OBJECT_0:
@@ -100,6 +111,9 @@ class WindowsProcess:
             except OSError:
                 return False
         win32job.TerminateJobObject(self.job, 1)
+        if self.thread is not None:
+            KERNEL.CloseHandle(self.thread)
+            self.thread = None
         return True
 
     def memory(self):
@@ -128,6 +142,9 @@ class WindowsProcess:
 
     def close(self):
         JOBS.pop(self.pid, None)
+        if self.thread is not None:
+            KERNEL.CloseHandle(self.thread)
+            self.thread = None
         if self.job is not None:
             self.job.Close()
             self.job = None

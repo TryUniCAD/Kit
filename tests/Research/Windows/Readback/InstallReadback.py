@@ -21,10 +21,12 @@ def InstallReadback(TmpPath: FilePath) -> tuple[FilePath, FilePath]:
     ReadbackGit(RootPath, "config", "core.autocrlf", "false")
     for RelativePath in (
         "ApplicationWorkers/SolidWorksReadbackWorker.py",
+        "ApplicationWorkers/SolidWorksProgress.py",
         "ApplicationWorkers/ApplicationProtocol.py",
         "ApplicationWorkers/WindowsIdentity.py",
         "ApplicationWorkers/WindowsRecords.py",
         "PairedCaptures/SolidWorksAuthoring/ReadP04SolidWorks.ps1",
+        "PairedCaptures/SolidWorksAuthoring/ReadbackProgress.cs",
     ):
         Destination = RootPath / "re/automation" / RelativePath
         Destination.parent.mkdir(parents=True, exist_ok=True)

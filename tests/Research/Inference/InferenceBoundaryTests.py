@@ -8,6 +8,8 @@ from typing import cast as CastValue
 
 from pytest import mark as MarkValue
 
+from tests.Research.Inference.InferenceSession import WriteSession
+
 # real standalone commands must consume the same checkout and source identity as the candidate
 KRepoRoot = FilePath(__file__).resolve().parents[3]
 
@@ -42,22 +44,6 @@ def GapReport(ScopeName: str, Status: str) -> dict[str, object]:
     }
 
 
-# complete version one session packets pass through the actual command rather than private helpers
-def WriteSession(
-    RootPath: FilePath,
-    KindName: str,
-    Scope: str,
-    Inputs: dict[str, dict[str, str]],
-    Extra: dict[str, str] | None = None,
-) -> None:
-    Packet = {
-        "session_version": 1,
-        "job": {"kind": KindName, "options": {"scope": Scope, **(Extra or {})}},
-        "inputs": Inputs,
-    }
-    _ = (RootPath / "job.json").write_text(EncodeJson(Packet), encoding="utf-8")
-
-
 # process completion and durable result publication remain separately observable
 def InvokeWorker(RootPath: FilePath) -> CompletedProcess[str]:
     return RunProcess(
@@ -90,6 +76,23 @@ def AssertReceipt(
         Records["native_acceptance"] == "not_established"
         and Records["portable_complete"] is False
     )
+    Packet = ParseJson((RootPath / "job.json").read_bytes())
+    Execution = CastValue(dict[str, object], Records["execution"])
+    assert Execution["fingerprint"] == Packet["fingerprint"]
+    assert (
+        Execution["definition_sha256"]
+        == DigestBytes(
+            EncodeJson(
+                Packet["job"], sort_keys=True, separators=(",", ":"), ensure_ascii=False
+            ).encode()
+        ).hexdigest()
+    )
+    assert Execution["rule_version"] == Packet["job"]["rule_version"]
+    assert Execution["tool_version"] == Packet["job"]["tool_version"]
+    assert Execution["input_sha256"] == {
+        RoleName: Descriptor["sha256"]
+        for RoleName, Descriptor in Packet["inputs"].items()
+    }
     return Result
 
 

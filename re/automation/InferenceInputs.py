@@ -8,7 +8,10 @@
 
 import hashlib
 import json
+import math
+import os
 import re
+import stat
 
 from Records import label
 
@@ -49,24 +52,108 @@ def sha256(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def read_file(path, limit):
+    before = path.lstat()
+    if (
+        not stat.S_ISREG(before.st_mode)
+        or getattr(before, "st_file_attributes", 0)
+        & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+        or before.st_size > limit
+    ):
+        raise ValueError("inference input must be a bounded plain regular file")
+    descriptor = os.open(
+        path,
+        os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_NONBLOCK", 0),
+    )
+    with os.fdopen(descriptor, "rb") as source:
+        opened = os.fstat(source.fileno())
+        if not stat.S_ISREG(opened.st_mode) or (
+            opened.st_dev,
+            opened.st_ino,
+            opened.st_size,
+        ) != (
+            before.st_dev,
+            before.st_ino,
+            before.st_size,
+        ):
+            raise ValueError("inference input identity changed before reading")
+        content = source.read(limit + 1)
+        after = os.fstat(source.fileno())
+    current = path.lstat()
+    if (
+        len(content) != before.st_size
+        or len(content) > limit
+        or (after.st_size, after.st_mtime_ns, after.st_ctime_ns)
+        != (opened.st_size, opened.st_mtime_ns, opened.st_ctime_ns)
+        or (
+            current.st_dev,
+            current.st_ino,
+            current.st_size,
+            current.st_mtime_ns,
+            current.st_ctime_ns,
+        )
+        != (
+            before.st_dev,
+            before.st_ino,
+            before.st_size,
+            before.st_mtime_ns,
+            before.st_ctime_ns,
+        )
+    ):
+        raise ValueError("inference input changed while reading")
+    return content
+
+
+def unique_object(pairs):
+    value = dict(pairs)
+    if len(value) != len(pairs):
+        raise ValueError("inference metadata contains duplicate keys")
+    return value
+
+
+def parse_metadata(content):
+    try:
+        value = json.loads(content, object_pairs_hook=unique_object)
+        if not isinstance(value, dict):
+            raise ValueError("inference metadata must be an object")
+        pending = [(value, 0)]
+        visited = 0
+        while pending:
+            item, depth = pending.pop()
+            visited += 1
+            if depth > 64 or visited + len(pending) > 200000:
+                raise ValueError("inference metadata exceeds its structural limit")
+            if isinstance(item, dict):
+                pending.extend((child, depth + 1) for child in item.values())
+            elif isinstance(item, list):
+                pending.extend((child, depth + 1) for child in item)
+            elif isinstance(item, float) and not math.isfinite(item):
+                raise ValueError("inference metadata contains a nonfinite number")
+        return value
+    except RecursionError as error:
+        raise ValueError("inference metadata exceeds its structural limit") from error
+
+
 def read_input(session, descriptor, limit):
+    if not isinstance(descriptor, dict) or set(descriptor) != {
+        "binding",
+        "sha256",
+        "path",
+    }:
+        raise ValueError("inference input requires the version 1 session descriptor")
     expected = checksum(descriptor["sha256"])
     relative = f"inputs/{expected}"
     path = session / relative
     if descriptor["path"] != relative or path.resolve() != path:
         raise ValueError("inference input escaped its content-addressed session path")
-    with path.open("rb") as source:
-        content = source.read(limit + 1)
-    if len(content) > limit or sha256(content) != expected:
+    content = read_file(path, limit)
+    if sha256(content) != expected:
         raise ValueError("inference input exceeded its limit or differed from its pin")
     return content
 
 
 def read_json_input(session, descriptor):
-    value = json.loads(read_input(session, descriptor, 1024 * 1024))
-    if not isinstance(value, dict):
-        raise ValueError("inference metadata must be an object")
-    return value
+    return parse_metadata(read_input(session, descriptor, 1024 * 1024))
 
 
 def observations(plan):

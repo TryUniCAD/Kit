@@ -22,7 +22,8 @@ from InferenceInputs import (
 )
 from ReaderEvidence import reader_evidence
 from Records import canonical, digest, label
-from Sessions import read_bounded, write_private
+from InferenceSession import read_session
+from Sessions import write_private
 
 FIELD_KIND = "inference.fields"
 GAP_KIND = "inference.paired-gap"
@@ -146,14 +147,12 @@ def scan_archive(scope, assessment, content, source_format):
 
 def run(session):
     session = session.resolve()
-    packet = read_bounded(session / "job.json")
+    packet, execution = read_session(session)
     job = packet["job"]
     inputs = packet["inputs"]
     options = job["options"]
     scope = label(options["scope"])
     outcome = "completed"
-    if type(packet["session_version"]) is not int or packet["session_version"] != 1:
-        raise ValueError("unsupported inference session version")
     if job["kind"] == FIELD_KIND and set(options) == {"scope"}:
         records = evaluate(*read_plan(session, inputs, scope))
         reason = "recorded the frozen discovery hypotheses and distinguishing evidence"
@@ -229,6 +228,7 @@ def run(session):
             "reason": reason,
             "records": {
                 **records,
+                "execution": execution,
                 "semantic_qualification": "unverified",
                 "native_acceptance": "not_established",
                 "portable_complete": False,
@@ -238,9 +238,16 @@ def run(session):
 
 
 def result_schema():
+    pin_schema = {"type": "string", "minLength": 64, "maxLength": 64}
     return {
         "type": "object",
-        "required": ["inference_version", "kind", "scope", "source_sha256"],
+        "required": [
+            "inference_version",
+            "kind",
+            "scope",
+            "source_sha256",
+            "execution",
+        ],
         "properties": {
             "inference_version": {"type": "integer", "const": 1},
             "kind": {"enum": [FIELD_KIND, GAP_KIND, RESCAN_KIND]},
@@ -250,6 +257,35 @@ def result_schema():
                 "items": {"type": "string", "minLength": 64, "maxLength": 64},
                 "minLength": 64,
                 "maxLength": 64,
+            },
+            "execution": {
+                "type": "object",
+                "required": [
+                    "definition_sha256",
+                    "fingerprint",
+                    "rule_version",
+                    "tool_version",
+                    "input_sha256",
+                ],
+                "additionalProperties": False,
+                "properties": {
+                    "definition_sha256": pin_schema,
+                    "fingerprint": pin_schema,
+                    "rule_version": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                    },
+                    "tool_version": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                    },
+                    "input_sha256": {
+                        "type": "object",
+                        "additionalProperties": pin_schema,
+                    },
+                },
             },
         },
     }

@@ -13,6 +13,7 @@ from ApplicationProtocol import (
     ACKNOWLEDGEMENT, ApplicationTimeout, HostQueue, MAX_BYTES, PROTOCOL, QueueClient, WaitingApplication, WINDOWS_HELPERS,
     committed_bytes, configuration, encoded, file_bytes, pin, record, request_link, require, sha256, write_new, write_record,
 )
+from SolidWorksProgress import PROGRESS, recovery_progress, require_progress
 
 WORKER = "re/automation/ApplicationWorkers/SolidWorksReadbackWorker.py"
 LAUNCHER = "re/automation/PairedCaptures/SolidWorksAuthoring/ReadP04SolidWorks.ps1"
@@ -52,12 +53,12 @@ def phase_request(config, operation):
 
 def verify_sources(config):
     root = Path(__file__).resolve().parent
-    for relative in (WORKER, PROTOCOL, *WINDOWS_HELPERS.values()):
+    for relative in (WORKER, PROTOCOL, PROGRESS, *WINDOWS_HELPERS.values()):
         require(file_bytes(root / Path(relative).name) == committed_bytes(config, relative),
                 "running SolidWorks worker source differs from its installed revision")
 
 
-def native_result(work, config, operation=OPERATION):
+def native_result(work, config, operation=OPERATION, progress_required=False, local_progress=False):
     scope, count_field, count = READBACK_SCOPES[operation]
     plan_bytes = file_bytes(work / OUTPUTS["readback.plan"])
     plan = json.loads(plan_bytes)
@@ -85,8 +86,11 @@ def native_result(work, config, operation=OPERATION):
             and application["build"] == owner["build"] == BUILD
             and owner["source_revision"] == config["source_revision"] and owner["initial_documents"] == 0,
             "SOLIDWORKS readback lacks complete source, control, profile or process-exit evidence")
+    progress = {}
+    if progress_required or "native_progress" in run:
+        progress = require_progress(run.get("native_progress"), owner, work if local_progress else None)
     return {"readback_plan_sha256": plan_sha256, "solidworks_build": application["build"],
-            "native_owner_sha256": sha256(encoded(owner))}
+            "native_owner_sha256": sha256(encoded(owner)), **progress}
 
 
 def session_id(pid):
@@ -238,6 +242,7 @@ def record_timeout(work, request, listener, collector, handle, launch, recovery_
             update_owned_recovery(work, recovery, handle, launch)
     except Exception as error:
         recovery["reason"] = f"{type(error).__name__}: {error}"[:2048]
+    recovery["native_progress"] = recovery_progress(work, launch)
     write_record(work / "native-timeout-request.json", request)
     write_record(work / "native-recovery.json", recovery)
 
@@ -251,6 +256,7 @@ def record_collector_failure(work, request, listener, collector, handle, launch)
         update_owned_recovery(work, recovery, handle, launch, request["deadline"])
     except Exception as error:
         recovery["reason"] = f"{type(error).__name__}: {error}"[:2048]
+    recovery["native_progress"] = recovery_progress(work, launch)
     write_record(work / "native-failure-recovery.json", recovery)
 
 
@@ -325,7 +331,7 @@ def perform_readback(host, request, work, interop, launcher, recovery_enabled, r
     staged = work / Path(LAUNCHER).name
     write_new(staged, launcher)
     owner_hash = run_collector(host, request, work, interop, staged, recovery_enabled, recover_failure)
-    proof = native_result(work, host.config, operation)
+    proof = native_result(work, host.config, operation, progress_required=True, local_progress=True)
     require(proof["native_owner_sha256"] == owner_hash, "SOLIDWORKS measurements do not preserve the verified ownership ticket")
     files = {role: pin(work / relative, relative) for role, relative in OUTPUTS.items()}
     return "completed", f"licensed {READBACK_SCOPES[operation][0]} readback observed all pinned captures", {
@@ -378,7 +384,9 @@ def dispatch(session, config, operation=OPERATION):
                 and {role: item["path"] for role, item in response["files"].items()} == OUTPUTS,
                 "SOLIDWORKS phase proof or output roster differs from this request")
         artifacts = client.copy_files(session / "work", response)
-        require(all(proof[key] == value for key, value in native_result(session / "work", config, operation).items()),
+        require(all(proof[key] == value for key, value in native_result(
+            session / "work", config, operation, progress_required=True,
+        ).items()),
                 "copied SOLIDWORKS evidence differs from the phase proof")
         write_record(session / "work/dispatch.json", response)
         artifacts["dispatch"] = pin(session / "work/dispatch.json", "dispatch.json")

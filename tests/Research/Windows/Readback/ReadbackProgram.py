@@ -9,6 +9,7 @@
 
 # the queue fixture needs independent native handles while avoiding licensed cad execution
 KReadbackScript = """import os
+import json
 import subprocess
 import sys
 import time
@@ -62,11 +63,41 @@ def observe(request, work):
                   'status': 'observed', 'observations': observations, 'application': {'build': BUILD},
                   'native_owner': owner, 'owned_process_exit_observed': True,
                   'control_before': {'status': 'observed'}, 'control_after': {'status': 'observed'}}}
+    owner_path = output / 'fixture-owner.json'
+    write_record(owner_path, owner)
+    powershell = Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/powershell.exe'
+    journal_path = output / 'native-progress.jsonl'
+    generated = subprocess.run([
+        str(powershell), '-NoProfile', '-NonInteractive', '-File', str(Path(__file__).with_name('Progress.ps1')),
+        '-Source', str(Path(config['source_root']) / 're/automation/PairedCaptures/SolidWorksAuthoring/ReadbackProgress.cs'),
+        '-OwnerPath', str(owner_path), '-JournalPath', str(journal_path), '-MarkerPath', str(output / 'fixture-action.txt'),
+    ], capture_output=True, check=False, timeout=15, creationflags=subprocess.CREATE_NO_WINDOW)
+    assert generated.returncode == 0, generated.stderr.decode(errors='replace')
+    native_progress = json.loads(generated.stdout)
+    progress = journal_path.read_bytes().splitlines(keepends=True)
+    if fault == 'chain':
+        event = json.loads(progress[1])
+        event['previous_sha256'] = '0' * 64
+        progress[1] = encoded(event)
+    if fault == 'binding':
+        event = json.loads(progress[0])
+        event['binding']['request_sha256'] = '0' * 64
+        progress[0] = encoded(event)
+    if fault == 'stage':
+        event = json.loads(progress[1])
+        event['stage'] = 'other_control'
+        progress[1] = encoded(event)
+    journal = b''.join(progress)
+    if fault == 'incomplete':
+        journal = journal[:-1]
+    (output / 'native-progress.jsonl').write_bytes(journal)
+    report['run']['native_progress'] = {'version': 1, 'journal_utf8': journal.decode(),
+                                      'sha256': sha256(journal), 'events': len(progress), 'write_error': None}
     write_record(output / 'measurements.json', report)
     write_record(output / 'receipt.json', {
         'schema': 1, 'status': 'observed', 'observed_files': 5, 'circle_bindings_verified': 5,
         'plan_sha256': plan_hash, 'measurements_sha256': sha256((output / 'measurements.json').read_bytes())})
-    proof = native_result(work, config, CIRCULAR)
+    proof = native_result(work, config, CIRCULAR, progress_required=True, local_progress=True)
     files = {role: pin(work / relative, relative) for role, relative in OUTPUTS.items()}
     return 'completed', 'disposable process transport fixture only', {
         **phase_request(config, CIRCULAR), **proof,

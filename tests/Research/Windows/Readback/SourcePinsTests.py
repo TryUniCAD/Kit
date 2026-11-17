@@ -18,7 +18,9 @@ from tests.Research.Windows.Readback.ReadbackGit import ReadbackGit
 
 # listener admission must reject changed safety helpers before creating a queue or launching cad
 @TestMark.skipif(HostPlatform != "win32", reason="Windows listener admission")
-@TestMark.parametrize("HelperName", ("WindowsIdentity.py", "WindowsRecords.py"))
+@TestMark.parametrize(
+    "HelperName", ("WindowsIdentity.py", "WindowsRecords.py", "SolidWorksProgress.py")
+)
 @TestMark.parametrize("HasReplacement", (False, True))
 def CheckSourcePins(TmpPath: FilePath, HelperName: str, HasReplacement: bool) -> None:
     RootPath, ConfigPath = InstallReadback(TmpPath)

@@ -8,7 +8,9 @@ Linux and macOS retain their process-group and `wait4` paths.
 
 The supervisor creates each Windows runner suspended inside its private job object.
 `PROC_THREAD_ATTRIBUTE_JOB_LIST` assigns containment during creation, before the initial thread can execute.
-The supervisor then resumes that thread.
+The supervisor publishes `session.json`, renews every session lease, and checks the execution deadline before it resumes that thread.
+An expired lease, replaced owner, invalid renewal, or failed metadata write stops the held process before worker execution.
+See [Windows launch authorization](WindowsLaunchAuthorization.md) for the A08g process evidence.
 The job permits no breakaway and sets `JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE`.
 Closing the supervisor therefore terminates contained descendants, including descendants in separate console process groups.
 A successful leader exit also terminates remaining job processes before result publication.

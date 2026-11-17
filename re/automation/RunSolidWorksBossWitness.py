@@ -51,12 +51,14 @@ PinnedSources = (
     Path("re/automation/LogCapture.py"),
     Path("re/automation/ApplicationWorkers/ApplicationProtocol.py"),
     Path("re/automation/ApplicationWorkers/SolidWorksReadbackWorker.py"),
+    Path("re/automation/ApplicationWorkers/SolidWorksProgress.py"),
     Path("re/automation/ApplicationWorkers/WindowsIdentity.py"),
     Path("re/automation/ApplicationWorkers/WindowsRecords.py"),
     LauncherPath,
     AuthoringRoot / "BossWitnessReadback.cs",
     AuthoringRoot / "P04Readback.cs",
     AuthoringRoot / "P02Readback.cs",
+    AuthoringRoot / "ReadbackProgress.cs",
 )
 
 
