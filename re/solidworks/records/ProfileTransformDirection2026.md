@@ -30,6 +30,13 @@ forwards the plane data in `+0x6f8` to `moRefPlnData_c::getXform` at
 optional extra transform is a separate serialized owner and is not the
 `+0xf8` runtime inverse.
 
+Hopper's native API independently decompiled the exact named setter and plane
+getter entries. Its private result has SHA-256
+`167ecced2c75f84e44f6acdb1fc38179cffb6b5f0b8dd35c51b61afb57fcd96c`.
+For explicit target `0x4c2e8a20`, Hopper returned the caller's entry
+`0x4c2d5820`; the boundary check refused that pseudocode. The original PE
+export and jump operand independently distinguish the two 17-byte routines.
+
 ## Reader rule and writer boundary
 
 For rigid sketch-to-model row basis `B = (u, v, u × v)` and origin `o`,

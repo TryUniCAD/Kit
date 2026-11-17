@@ -16,7 +16,7 @@ def assembly_progress(title, statics, buttons):
         return False
     if third not in {"Update\nGraphics", "Generating\nGraphics", "Graphics\nGenerated"}:
         return False
-    known = r"(?:\s*|Elapsed time: \d+s|This file was last opened in \d+ seconds?\.|For more information, view: *|Performance Evaluation|Opening File: .+|Post load updating)"
+    known = r"(?:\s*|Elapsed time: \d+(?:s| seconds?)|This file was last opened in \d+ seconds?\.|For more information, view: *|Performance Evaluation|Opening File: .+|Post load updating)"
     return all(re.fullmatch(known, detail) for detail in details)
 
 

@@ -16,4 +16,11 @@ before and after active and full-configuration rebuilds. It saves a new copy
 and measures that copy in another fresh process. Known load-progress text
 is observed without dismissal, and warnings stay in each phase's record.
 This does not qualify any assembly writer output. Diagnostic measurements
-are pending.
+are pending for the separate saved-copy reopen.
+
+The [first diagnostic](../../../../../re/solidworks/measurements/2026/AssemblyRebuildAttempt01.json)
+observed warning `32` and `NeedsRebuild2 = 1` in both open modes, with one
+component and no feature problems. `ForceRebuild3` cleared the state to `0`;
+`ForceRebuildAll` and the new save retained that state in memory. An unclassified
+progress detail blocked the fresh reopen. The observer now accepts the recorded
+long form of elapsed seconds as progress, and the first attempt stays incomplete.
