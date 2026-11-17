@@ -223,6 +223,13 @@ survive neutral JSON serialization. Native source authoring and fresh
 reopen pass across ten processes. Expanded generated and held-out
 drawing qualification remain open.
 
+The [scaled view construction](measurements/2026/DrawingScaledViewBuild01.json)
+produces four distinct drawing and part pairs from independently supplied
+neutral requests. Two builds per case are identical and record zero
+runtime input-file access attempts. The prior unit-scale Front pair
+retains its original file hashes. The expanded native edit and save
+trials remain open.
+
 The [combined blank drawing diagnostic](measurements/2026/DrawingCacheCombinedOmission01.json)
 shows that SOLIDWORKS regenerates four omitted display and preview streams
 after editing and saving the disclosed empty sheet. Both controls, the

@@ -12,7 +12,7 @@ from builders.Model import PersistentIds, model_feature, node_list, object_list
 from builders.Part import PartConstruction
 
 
-def _view_state(*, drawing, child):
+def _view_state(*, drawing, child, normal):
     detail = drawing["fae0"]
     state = {name: 0 for name in (
         "f798", "f79c", "has_f6c8", "has_f8e0", "f7bc", "f7a8", "f7c0", "f7b4", "f8ec", "has_f9d8", "na10",
@@ -33,7 +33,7 @@ def _view_state(*, drawing, child):
         "fe40": 3, "f410": -1, "f3e8": 0.01, "f3f0": 0.003175, "fe94": child.model["ff3c"],
         "ffa8": detail["f15c"], "ffac": detail["f160"], "f7a0": detail["f2c6c"],
         "f55c": -1, "f594": -1, "f3f8": 1.0, "f5a8": 1, "f1030": 1,
-        "f610": (1 << 11) | (1 << 7) | (1 << 4) | (1 << 3),
+        "f610": (1 << 11) | (1 << 7) | (1 << (4 if sum(abs(value) >= 1e-8 for value in normal) == 1 else 5)) | (1 << 3),
         "f614": sum(1 << bit for bit in (2, 8, 10, 16, 20, 21, 22)),
         "f618": (1 << 15) if detail["f20"] & (1 << 18) else 0,
         "f61c": (1 << 3) | (1 << 2) | 1,
@@ -61,7 +61,7 @@ def add_front_view(*, drawing, child, sheet_settings, requested, created_at, tar
     projection = front_projection(child=child, sheet=sheet_settings, orientation=requested["orientation"],
                                   position=requested["position"], scale=requested["scale"])
     view = model_feature(cls="moAbsoluteView", name=requested["name"], owner=sheet, allocator=None, **target)
-    view.f.update(_view_state(drawing=drawing, child=child))
+    view.f.update(_view_state(drawing=drawing, child=child, normal=projection.model_axes[2]))
     view.f.update({**projection.view, **drawing_feature_filetime(created_at), "f0c": 0})
     allocator = PersistentIds(next_id=drawing["fa8"]["f08"])
     refs = single_view_links(drawing=drawing, child=child, local_bounds=projection.view["f600"],

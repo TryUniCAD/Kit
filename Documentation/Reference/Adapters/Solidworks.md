@@ -70,6 +70,8 @@ The opt-in route supports a single unformatted sheet and verifies that Definitio
 
 The research property constructor generates text sections, IDs and name dictionaries from neutral sheet metadata. With the retained property XML's literal `vt` prefix declared, the generated blank sheet passes native open, rebuild, scale edit, SaveAs and fresh reopen. Four reference lanes pass in the ten-process comparison. A separate disclosed generated drawing and part pass view position edit, save and fresh reopen across eight processes. Its saved drawing preserves the sixteen-row tree, resolved part configuration and child geometry. The scope includes a single independent unit-scale front view on an unformatted sheet. [Blank drawing result](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingPropertyPrefix.md) [Linked drawing result](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksFrontDrawingPropertyPrefix.md)
 
+The research composer also builds the four measured named views with positive explicit scales. It derives each view's sheet and model support planes from projected geometry and the generated model's canonical orientation. Two guarded builds of each of four new requests retained stream and layout identity. The prior unit Front pair retained both exact file hashes. Expanded native persistence and held-out trials are pending. [Scaled construction](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksScaledDrawingConstruction.md)
+
 ## Feature history
 
 The resolved-feature grammar includes class definitions and object references.

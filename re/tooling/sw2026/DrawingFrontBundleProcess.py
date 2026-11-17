@@ -62,7 +62,8 @@ def check_bundle(*, drawing_data, part_data, bundle, request, rules):
     linked_model, = projected.ModelRefs
     position = (shown.PositionValue.XCoord, shown.PositionValue.YCoord)
     require(shown.EntityName == request["view"]["name"] and position == tuple(request["view"]["position"])
-            and shown.OrientationName == "*Front" and shown.ScaleRatio == (1.0, 1.0) and shown.ConfigurationName == linked["f08"],
+            and shown.OrientationName == request["view"]["orientation"]
+            and shown.ScaleRatio == (float(request["view"]["scale"]), 1.0) and shown.ConfigurationName == linked["f08"],
             "drawing SDK layout differs from the authored view")
     require(linked_model.SourcePath == request["part"]["output"]["path_name"], "drawing SDK omitted the generated part path")
     return {"definition_map_next_index": count, "header_map_next_index": header_map, "view_persistent_id": view["f08"],

@@ -1,0 +1,286 @@
+{
+  "absolute_view_vtable": {
+    "dimension_override_slot": "0x2060",
+    "target_va": "0x4b745630",
+    "va": "0x4ce83fb8"
+  },
+  "geometry_is_orthogonal": {
+    "entry_sample_bytes": 16,
+    "entry_sample_sha256": "3f8f1d132a94e72e23beae40fd199ec21b1a4a6f0122735ad26885a7354b7645",
+    "exact_export_alias_count": 1,
+    "exact_exports": [
+      "?isOrthogonal@mgVector_c@@QEAAHXZ"
+    ],
+    "requested_va": "0x31f1b170",
+    "unwind_entry_found": false
+  },
+  "heldout_inputs_read": 0,
+  "model_imports": {
+    "0x4cd3a648": {
+      "module": "sldmgu.dll",
+      "symbol": "?zAxis@mgUnitVector_c@@SAAEBV1@XZ"
+    },
+    "0x4cd3a668": {
+      "module": "sldmgu.dll",
+      "symbol": "??4mgXform_c@@QEAAAEBV0@AEBV0@@Z"
+    },
+    "0x4cd3a680": {
+      "module": "sldmgu.dll",
+      "symbol": "?inverse@mgXform_c@@QEBA?AV1@XZ"
+    },
+    "0x4cd3a690": {
+      "module": "sldmgu.dll",
+      "symbol": "??XmgXform_c@@QEAAAEBV0@AEBV0@@Z"
+    },
+    "0x4cd3a908": {
+      "module": "sldmgu.dll",
+      "symbol": "?mg_TranslateXform@@YA?AVmgXform_c@@AEBVmgVector_c@@@Z"
+    },
+    "0x4cd3a988": {
+      "module": "sldmgu.dll",
+      "symbol": "??D@YA?AVmgUnitVector_c@@AEBV0@AEBVmgXform_c@@@Z"
+    },
+    "0x4cd3a9d0": {
+      "module": "sldmgu.dll",
+      "symbol": "?mg_ScaleXform@@YA?AVmgXform_c@@N@Z"
+    },
+    "0x4cd3ab40": {
+      "module": "sldmgu.dll",
+      "symbol": "??XmgUnitVector_c@@QEAAAEBV0@AEBVmgXform_c@@@Z"
+    },
+    "0x4cd3be10": {
+      "module": "sldmgu.dll",
+      "symbol": "?isOrthogonal@mgVector_c@@QEAAHXZ"
+    }
+  },
+  "model_routines": {
+    "absolute_view_dimension_override": {
+      "code_sha256": "687e797c6de8a89d08656a6173f2f80124bfb7ccf24920110b1fe9fa28774b7b",
+      "end_rva_exclusive": "0x605803",
+      "end_va_exclusive": "0x4b745803",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x605630",
+      "start_va": "0x4b745630",
+      "unwind_rva": "0x22f8840"
+    },
+    "center_mark_creation_body": {
+      "code_sha256": "c71c17901d29344213ebc0624a7e834fc60c6361dfc07bffd9652a97fa9a89a0",
+      "end_rva_exclusive": "0x1863c52",
+      "end_va_exclusive": "0x4c9a3c52",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x1863b44",
+      "start_va": "0x4c9a3b44",
+      "unwind_rva": "0x258b710"
+    },
+    "center_mark_plane_reframe": {
+      "code_sha256": "1136f87bef03f7bae805c35cf8edc8b568dd3a15204184aec8b75311df6afcc0",
+      "end_rva_exclusive": "0x1874910",
+      "end_va_exclusive": "0x4c9b4910",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x1874740",
+      "start_va": "0x4c9b4740",
+      "unwind_rva": "0x25903d4"
+    },
+    "create_absolute_default_plane": {
+      "code_sha256": "9c57503ca5073af6bb60db81397ec1349249cb16dc405f5c1958361731642fdb",
+      "end_rva_exclusive": "0x11940c7",
+      "end_va_exclusive": "0x4c2d40c7",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?createDefaultSketchRefPlane@moRefPlane_c@@SAPEAV1@PEAVmoConcept_c@@@Z"
+      ],
+      "start_rva": "0x1193fe0",
+      "start_va": "0x4c2d3fe0",
+      "unwind_rva": "0x249b364"
+    },
+    "create_drawing_default_plane": {
+      "code_sha256": "0e780f373b06c18e808c9cfdfe7c3f6d27ba53b12ac1f1dbafbb3915f81cc624",
+      "end_rva_exclusive": "0x11941c4",
+      "end_va_exclusive": "0x4c2d41c4",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x11940d0",
+      "start_va": "0x4c2d40d0",
+      "unwind_rva": "0x249b3b0"
+    },
+    "create_profile_feature": {
+      "code_sha256": "3bb0afbb0f15f6838fbe02bda61bd582bf2ae706033dff49778dfd684c0b2f37",
+      "end_rva_exclusive": "0x18555a6",
+      "end_va_exclusive": "0x4c9955a6",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?createProfileFeature@moDrView@@QEAAPEAVmoProfileFeature_c@@HHHH@Z"
+      ],
+      "start_rva": "0x18552b0",
+      "start_va": "0x4c9952b0",
+      "unwind_rva": "0x25897d0"
+    },
+    "finish_creating_view": {
+      "code_sha256": "f9d92d000c36973f287a0403943972f08fa2abe3a00e60a5dc4a54a74b4effc5",
+      "end_rva_exclusive": "0x1858565",
+      "end_va_exclusive": "0x4c998565",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?finishCreatingView@moDrView@@QEAAXPEAVmoDrSheet@@AEBVmgPoint_c@@HH@Z"
+      ],
+      "start_rva": "0x1858070",
+      "start_va": "0x4c998070",
+      "unwind_rva": "0x2589f68"
+    },
+    "get_four_corners": {
+      "code_sha256": "c230980fedbc3f5f7ad53aef141455c527319bcb8201093c850673322527efcc",
+      "end_rva_exclusive": "0x11a5881",
+      "end_va_exclusive": "0x4c2e5881",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?getFourCorners@moRefPlnData_c@@QEBAHQEAVmgPoint_c@@@Z"
+      ],
+      "start_rva": "0x11a57c0",
+      "start_va": "0x4c2e57c0",
+      "unwind_rva": "0x249c7b4"
+    },
+    "get_or_create_center_mark_sketch": {
+      "code_sha256": "4d49f7c6646ca51cd4ca19d5de372cc3f638bb27d8c069b8b4b5e98d905f4c22",
+      "end_rva_exclusive": "0x1863b44",
+      "end_va_exclusive": "0x4c9a3b44",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?getOrCreateCenterMarkSketch@moDrView@@QEAAPEAVmoProfileFeature_c@@XZ"
+      ],
+      "start_rva": "0x1863b10",
+      "start_va": "0x4c9a3b10",
+      "unwind_rva": "0x228c944"
+    },
+    "get_or_create_sheet_sketch": {
+      "code_sha256": "7c49799a33f45109b8960bede2302251006c3cf6acad9bd1ab252b811ee25af9",
+      "end_rva_exclusive": "0x1863cdc",
+      "end_va_exclusive": "0x4c9a3cdc",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?getOrCreateSketch@moDrView@@QEAAPEAVmoProfileFeature_c@@XZ"
+      ],
+      "start_rva": "0x1863cb0",
+      "start_va": "0x4c9a3cb0",
+      "unwind_rva": "0x2246070"
+    },
+    "is_okay_to_2d_dimension": {
+      "code_sha256": "888fc72da8c7e9c4d9e506cca27b881e9d779d93d6881d28be6c3421dca17971",
+      "end_rva_exclusive": "0x186ec55",
+      "end_va_exclusive": "0x4c9aec55",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?isOkayTo2DDimension@moDrView@@QEAAHPEAH@Z"
+      ],
+      "start_rva": "0x186eaf0",
+      "start_va": "0x4c9aeaf0",
+      "unwind_rva": "0x258ca24"
+    },
+    "set_drawing_scale": {
+      "code_sha256": "f5a1ad0e4c78d7ac298e3fa46871a77c69bfc7b3037bce5f5dac6d3f688e4c5a",
+      "end_rva_exclusive": "0x117c4b8",
+      "end_va_exclusive": "0x4c2bc4b8",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setDrawingScale@moDrawingRefPlnData_c@@QEAANN@Z"
+      ],
+      "start_rva": "0x117c360",
+      "start_va": "0x4c2bc360",
+      "unwind_rva": "0x2496dcc"
+    },
+    "set_is_okay_to_2d_dimension": {
+      "code_sha256": "a6a130a02feb63c372d3133c54d601a77d5b4b68ecb8922d5bf466a05911fdfd",
+      "end_rva_exclusive": "0x187652a",
+      "end_va_exclusive": "0x4c9b652a",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setIsOkayTo2DDimension@moDrView@@QEAAXH@Z"
+      ],
+      "start_rva": "0x18764e0",
+      "start_va": "0x4c9b64e0",
+      "unwind_rva": "0x2245b40"
+    },
+    "set_is_view_face_valid": {
+      "entry_sample_bytes": 16,
+      "entry_sample_sha256": "9cda45257caf2258b8d93f3ee85e9ff07caed98a3da6ec49f7a5006e6e1f429d",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setIsViewFaceValid@moDrView@@QEAAXH@Z"
+      ],
+      "requested_va": "0x4c9b6530",
+      "unwind_entry_found": false
+    },
+    "set_manual_regeneration": {
+      "entry_sample_bytes": 16,
+      "entry_sample_sha256": "c1920f6af4a1eafd48fa0694d615d4e7f95628652cd6b6819987cd32f711b2e2",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setManualRegen@moDrView@@QEAAXH@Z"
+      ],
+      "requested_va": "0x4c9b66e0",
+      "unwind_entry_found": false
+    },
+    "set_name_location": {
+      "entry_sample_bytes": 16,
+      "entry_sample_sha256": "11eb65233b1b34c4423b32a0d01782a64ab158fbd44a1a7b621f76178337976e",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setNameLocation@moRefGeom_c@@QEAAXAEBVmgPoint_c@@@Z"
+      ],
+      "requested_va": "0x4c2cf0c0",
+      "unwind_entry_found": false
+    },
+    "set_sketch_xforms": {
+      "code_sha256": "4191b15da9c29128c3edceec95e7dd812adf763cf59963c07eed44f03e06a0bf",
+      "end_rva_exclusive": "0xfa547c",
+      "end_va_exclusive": "0x4c0e547c",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setSketchXforms@moProfileFeature_c@@QEAAXXZ"
+      ],
+      "start_rva": "0xfa5280",
+      "start_va": "0x4c0e5280",
+      "unwind_rva": "0x245451c"
+    },
+    "update_name_location": {
+      "code_sha256": "a88e2bf750f7b80646fce5fab805030f1b4cee37b913c25c1c186d6bad4ba9de",
+      "end_rva_exclusive": "0x11b747a",
+      "end_va_exclusive": "0x4c2f747a",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?updateNameLocation@moRefPlnData_c@@QEAAXXZ"
+      ],
+      "start_rva": "0x11b72c0",
+      "start_va": "0x4c2f72c0",
+      "unwind_rva": "0x249c73c"
+    }
+  },
+  "modules": [
+    {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 2363992,
+      "image_base": "0x31dd0000",
+      "machine": "0x8664",
+      "name": "sldmgu.dll",
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+    }
+  ],
+  "orthogonal_tolerance": {
+    "type": "f64-le",
+    "va": "0x31f44800",
+    "value": 1e-08
+  },
+  "schema": "kit.sw2026.drawing-support-native-source-locations.v1",
+  "script_sha256": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+  "source_only": true,
+  "vendor_runtime_executed": false,
+  "writer_outputs": 0
+}

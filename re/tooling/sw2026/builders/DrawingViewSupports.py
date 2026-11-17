@@ -8,16 +8,21 @@ from builders.Metadata import fields
 from builders.Model import PersistentIds, node_list, unregistered_plane_reference
 
 
-def _view_sketch(*, owner, component, allocator, created_at, plane_name, profile_name, origin, transform, sheet_plane, target):
+def _view_sketch(*, owner, component, allocator, created_at, plane_name, profile_name, origin, transform, model_axes=None, target):
     plane = _sheet_plane(owner=owner, name=plane_name, transform=transform, provenance=target)
     data = plane["f6f8"]
     data["root"] = dict(origin)
-    if sheet_plane:
+    if model_axes is None:
         plane["f6f8"] = Obj("moDrawingRefPlnData_c", {
             **data.f, "b0": 0.0, "b1": 0.0, "b2": 0.0, "b3": 0.0, "f88": identity_transform(),
         })
     else:
-        plane["f6c0"] = {"x": origin["x"] + data["b1"], "y": origin["y"] + data["b2"], "z": origin["z"]}
+        x_axis, y_axis, normal = model_axes
+        data["normal"] = dict(zip("xyz", normal, strict=True))
+        plane["f6c0"] = {
+            axis: origin[axis] + data["b1"] * x + data["b2"] * y
+            for axis, x, y in zip("xyz", x_axis, y_axis, strict=True)
+        }
     reference = unregistered_plane_reference(plane=plane, component=component)
     allocator.allocate(plane)
     profile = _sheet_profile(owner=owner, name=profile_name, reference=reference, allocator=allocator,
@@ -41,11 +46,11 @@ def front_view_supports(*, view, drawing, projection, names, allocator, created_
     common = {"owner": view, "component": drawing["f990"], "allocator": allocator, "created_at": created_at, "target": target}
     sheet_plane, sheet_profile = _view_sketch(
         plane_name=names["sheet_plane"], profile_name=names["sheet_profile"], origin=projection.view["f778"],
-        transform=projection.sheet_sketch_transform, sheet_plane=True, **common,
+        transform=projection.sheet_sketch_transform, **common,
     )
     model_plane, model_profile = _view_sketch(
         plane_name=names["model_plane"], profile_name=names["model_profile"], origin=projection.view["f648"],
-        transform=projection.model_plane_transform, sheet_plane=False, **common,
+        transform=projection.model_plane_transform, model_axes=projection.model_axes, **common,
     )
     view.f.update({
         "f60": node_list((detail, sheet_plane, sheet_profile, model_plane, model_profile)),

@@ -43,7 +43,7 @@ def project_view(*, archive, header_bytes, sheet, settings, child, requested):
     view = projected.Sheets[0].Views[0]
     position = (view.PositionValue.XCoord, view.PositionValue.YCoord)
     require(position == tuple(requested["position"]) and view.OrientationName == requested["orientation"]
-            and view.ScaleRatio == (1.0, 1.0) and view.ConfigurationName == configuration and view.ModelRefId == model.EntityId,
+            and view.ScaleRatio == (float(requested["scale"]), 1.0) and view.ConfigurationName == configuration and view.ModelRefId == model.EntityId,
             "ordinary drawing reader lost authored placement or orientation")
     return {"name": view.EntityName, "position_m": position, "orientation": view.OrientationName, "scale": view.ScaleRatio,
             "model_to_sheet": view.ModelToSheet.Values, "outline_m": view.OutlineValues, "configuration": view.ConfigurationName}

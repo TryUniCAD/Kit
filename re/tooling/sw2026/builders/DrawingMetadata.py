@@ -32,8 +32,8 @@ class DrawingViewIndex:
 
     @classmethod
     def from_view(cls, view):
-        if not isinstance(view, Obj) or view.cls != "moAbsoluteView" or view["f1018"] != "*Front":
-            raise ValueError("drawing view indexes require a generated ordinary front view")
+        if not isinstance(view, Obj) or view.cls != "moAbsoluteView":
+            raise ValueError("drawing view indexes require a generated absolute view")
         reference = view["f5d8"]
         file = reference["f3b0"]["shared"]
         config = reference["f3c0"]
@@ -43,7 +43,7 @@ class DrawingViewIndex:
         if path.stem.casefold() != file["h10"]["f08"].casefold():
             raise ValueError("drawing part filename and directory model name differ")
         return cls(
-            _paper_text(view["f18"]["f08"], "front view name"), path,
+            _paper_text(view["f18"]["f08"], "drawing view name"), path,
             _paper_text(config["f08"], "drawing configuration name"),
             integer(config["f10"], "drawing configuration id", high=0x7FFFFFFE),
         )
