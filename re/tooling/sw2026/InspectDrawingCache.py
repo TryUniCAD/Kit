@@ -8,7 +8,7 @@ from pathlib import Path
 
 import AuthorCurves as curves
 from AuthorDrawingSources import compare_states, snapshot
-from DrawingCacheCases import CASES, SCHEMA, TOOL_NAMES, input_file
+from DrawingCacheCases import CASES, COMBINED_CASES, SCHEMA, TOOL_NAMES, input_file
 
 
 _EDITED_RATIO = (3.0, 2.0)
@@ -45,8 +45,12 @@ def read_job(path, packet_digest):
     curves.require(curves.digest(path) == packet_digest, "drawing cache trial manifest differs from its pinned hash")
     request = json.loads(path.read_bytes())
     curves.require(request["schema"] == SCHEMA and request["writer_output_count"] == 0, "wrong cached drawing research job")
-    row_keys = tuple((row["name"], row["omitted"]) for row in request["cases"])
-    curves.require(row_keys == CASES and not request["native_acceptance"], "unexpected drawing cache omission case order")
+    row_keys = tuple(
+        (row["name"], tuple(row["omitted"]) if isinstance(row["omitted"], list) else row["omitted"])
+        for row in request["cases"]
+    )
+    cases = COMBINED_CASES if request.get("combined") else CASES
+    curves.require(row_keys == cases and not request["native_acceptance"], "unexpected drawing cache omission case order")
     pinned = request["tool_hashes"]
     curves.require(set(pinned) == set(TOOL_NAMES), "missing cache test tool hashes")
     for name in TOOL_NAMES:
@@ -149,6 +153,7 @@ def run(path, packet_digest):
     report = {
         "schema": "kit.sw2026.drawing-cache-result.v1", "packet_sha256": packet_digest,
         "control_sha256": request["control_sha256"], "cases": reports, "writer_output_count": 0, "native_acceptance": False,
+        "combined": request.get("combined", False),
     }
     controls = (None, None)
     generic = dict(root=path.parent, output=output, request=request)

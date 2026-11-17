@@ -11,6 +11,7 @@ CASES = (
     ("OmitDisplayStamp", "_DL_VERSION_19000/DLUpdateStamp"),
     ("OmitSheetPreviewNames", "SheetPreviews/SheetNames"),
 )
+COMBINED_CASES = (*CASES[:2], ("OmitAllFourIndexes", tuple(omitted for _, omitted in CASES[2:])))
 TOOL_NAMES = ("DrawingCacheCases.py", "InspectDrawingCache.py", "AuthorDrawingSources.py", "AuthorCurves.py", "OracleIdentity.py", "Swapp.py")
 
 
