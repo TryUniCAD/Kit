@@ -29,7 +29,13 @@ from convert.adapters.solidworks.Container.Format import (
     SERIALIZED_STRING_MARKER as SerializedStringMarker,
     dimension_scalar_value_offset as DimensionScalarValue,
 )
-from convert.adapters.solidworks.Core.LinearSketchOwner import HasLineOnlyRect
+from convert.adapters.solidworks.Core.LinearSketchOwner import (
+    HasLineOnlyRect,
+    KLineTail,
+    KOrdinaryEntity,
+    KPointPosition,
+    KVertexCount,
+)
 from convert.adapters.solidworks.Core.PlaneRefRecord import FindPlaneRef, KHandleVersion
 from convert.adapters.solidworks.Resolved.Core import (
     ANGLE_COPY_DELTAS as AngleCopyDeltas,
@@ -1849,7 +1855,9 @@ def ParseKeywords(
             if TagValue != "Feature"
             else ElemValue.attrib.get("Type", "Feature")
         )
-        if KindValue.casefold() in PlaneFeatureTypes:
+        if KindValue.casefold() in PlaneFeatureTypes or (
+            TagValue == "Feature" and KindValue == "moRefPlane_c"
+        ):
             KindValue = CanonicalPlaneFeatureType.title()
         NameValue = ElemValue.attrib.get("Name", "")
         Dimensions = [
@@ -2420,7 +2428,10 @@ def PrincipalPlaneA(
 
 # this definition exists because focused behavior needs one stable owner
 def IsOriginFeature(Feature: NativeFeature) -> bool:
-    return Feature.properties.get("Type", "").casefold() == "origin"
+    return Feature.properties.get("Type", "").casefold() in {
+        "origin",
+        "mooriginprofilefeature_c",
+    }
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2868,9 +2879,15 @@ def DecodeSketch(
             DataValue, tuple(Marker.offset for Marker in Markers), Start, EndValue
         )
     )
-    ProfileValues, ProfileMarkers, Dimensions = DecodeProfiles(
-        Markers, Feature.dimensions, LineOnly=LineOnly
-    )
+    OwnedRect = RectFromRows(DataValue, Markers) if LineOnly else None
+    if OwnedRect is None:
+        ProfileValues, ProfileMarkers, Dimensions = DecodeProfiles(
+            Markers, Feature.dimensions, LineOnly=LineOnly
+        )
+    else:
+        ProfileValues = (OwnedRect,)
+        ProfileMarkers = set(OwnedRect.marker_offsets)
+        Dimensions = Feature.dimensions
     NormalizedMarkers = tuple(
         (
             NativeMarker(
@@ -3590,6 +3607,36 @@ def RectComponent(
         "rectangle",
         (XsValue[0], YsValue[0], XsValue[1], YsValue[1]),
         LineOffsets,
+    )
+
+
+# established array ownership keeps edge decoding independent of heuristic marker spacing
+def RectFromRows(
+    DataValue: bytes, Markers: Sequence[NativeMarker]
+) -> NativeProfile | None:
+    Points: list[NativeMarker] = []
+    Edges: list[NativeMarker] = []
+    for Marker in Markers[:KVertexCount]:
+        Position = KPointPosition.unpack_from(
+            DataValue, Marker.offset + KOrdinaryEntity.size
+        )
+        XYValue = (
+            Clean(round(Position[1] * KMillimetres, 12)),
+            Clean(round(Position[2] * KMillimetres, 12)),
+        )
+        Points.append(Replace(Marker, coordinates_mm=XYValue))
+    for Marker in Markers[KVertexCount:]:
+        TailValue = KLineTail.unpack_from(
+            DataValue, Marker.offset + KOrdinaryEntity.size
+        )
+        Edges.append(Replace(Marker, endpoint_indices=(TailValue[0], TailValue[1])))
+    Slots = set(range(KVertexCount))
+    Profile = RectComponent(Edges, Points, Slots, Slots)
+    if Profile is None:
+        return None
+    return Replace(
+        Profile,
+        marker_offsets=(*Profile.marker_offsets, *(Point.offset for Point in Points)),
     )
 
 

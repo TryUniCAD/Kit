@@ -72,6 +72,8 @@ For an ordinary SOLIDWORKS 2026 sketch, the reader matches the complete principa
 
 For an ordinary dimensioned rectangle, the reader verifies the owned straight line ring and empty arc array. The sketch retains separate driving width and height, and the topology summary follows the actual profile bounds. [Rectangle sketch ownership](../../Changes/Solidworks/Inspection/Sketches/SolidworksRectangleSketchOwnership.md)
 
+For the generated SOLIDWORKS 2026 blind-pocket discovery part, the reader recognizes the principal plane and origin class roles. Each sketch resolves through its native plane handle. The SDK recovers the closed rectangle from its confirmed point and line arrays. The blind depth and the cut's references to the boss and circular sketch remain available with B-rep excluded. [Blind-pocket sketch readback](../../Changes/Solidworks/Inspection/Sketches/SolidworksPocketSketchReadback.md)
+
 The `moCompFeature_c` record supplies feature-tree ordering information in the documented research families.
 Do not infer rebuild order from physical stream order alone.
 Boss and cut behavior can depend on several related records.
