@@ -1,0 +1,15 @@
+# Automation boundaries on the main SDK
+
+The automation-only candidate uses the existing main SDK readers and typed document codec. It does not carry the broader native-format decoder, model or writer additions from the preserved `fb723e0a920b4d03ad2d5635882860b800a9b61c` source tree.
+
+The pinned SOLIDWORKS and Fusion research readers call `convert.api.ApiOpen.OpenDocument`. They keep `kit.research_read_status: unqualified` in neutral metadata and preserve their source pins, original receipt identities, output limits, model reconstruction checks and unqualified evidence labels. The metadata marker is advisory in this scope; it does not add a production SDK export guard or establish native acceptance. Fusion retains its explicit opt-in partial retry and records the strict rejection when used.
+
+Generic `inference.fields`, `inference.paired-gap`, `inference.rescan` and scheduling remain available. Field search loads its existing NumPy dependency only when field inference runs. Use the locked development dependency group for inference process coverage. Generic gap and rescan receipts explicitly retain `semantic_qualification: unverified`, `native_acceptance: not_established` and `portable_complete: false`.
+
+The generic runner and scheduler refuse the reserved native profiles `p03-blind-boss.fusion`, `p03-blind-boss.solidworks`, `p04-cut-termination` and `p04-through-all-body-selection`. Generic gap records cannot import a `native_grid`, `continued_from_receipt` or `grid_from_receipt` proof claim. Those profiles require their preserved format-specific raw proof implementation; JSON observations do not replace it.
+
+The fixed `InferenceArchives`, `InferenceArchiveGate`, `InferenceGrid`, `PairedEvidenceManifest` and `CiPairedArchiveGate` implementations, their native proof suites and their coupled archive-consumer test move with the decoder/writer follow-ups. The generic controller and A03 adapter UTF-8 process coverage remains in the automation scope. This separation adds no substitute provider and does not relabel a historical native gate receipt as an automation result.
+
+Original corpus, recipe, capture, source revision and receipt pins remain unchanged. New operations need a new immutable tool version and job identity because the SDK and tool source inventories differ. Historical source graphs and private reports stay attached to their exact original revisions. Reintroducing captured files on a shortened history does not preserve `GitSnapshot` introduction ancestry; that custody boundary must be handled explicitly before any history rewrite or squash.
+
+Process coverage invokes the actual runner and scheduler for generic parked, corroborated and refuted gaps, authored numeric field inference with independent fixture refutation, main-SDK rescans, tampered pins and reserved-profile refusals. The existing research reader flow tests also check the metadata marker after real public reading. Local verification is static only; no tests, collection, reader, SDK or native application execution was performed.

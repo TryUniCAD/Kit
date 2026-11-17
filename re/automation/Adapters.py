@@ -1,0 +1,264 @@
+import hashlib
+import importlib.util
+import json
+import math
+import os
+import secrets
+import sqlite3
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+from Artifacts import Artifacts
+from ClaimWire import ClaimExchangeLost
+from GroupClaims import read_group
+from Records import bounded, canonical, label, read_record
+from OutputManifest import InvalidOutput
+from RecoveryFence import StaleOwner
+from StoreRead import read_store
+
+OPERATIONS = ("LockPath", "DefinePool", "DefineResource", "SubmitJobs", "BindInput", "ClaimJob", "RenewLease", "FinishJob", "FetchInput", "ReadStatus")
+CONTROLLER_TIMEOUT = 120
+A03_CAPACITY_REFUSAL = "concurrency limit"
+
+
+def copy_verified(source, destination, sha256):
+    hasher = hashlib.sha256()
+    count = 0
+    descriptor = os.open(destination, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+    with Path(source).open("rb") as reader, os.fdopen(descriptor, "wb") as writer:
+        while chunk := reader.read(1024 * 1024):
+            count += len(chunk)
+            if count > 256 * 1024 * 1024:
+                raise ValueError("input artifact exceeds 256 MiB")
+            hasher.update(chunk)
+            writer.write(chunk)
+        writer.flush()
+        os.fsync(writer.fileno())
+    if hasher.hexdigest() != sha256:
+        raise ValueError("input copy does not match its digest")
+    return count
+
+
+def without_token(record):
+    return {key: value for key, value in record.items() if key != "lease_token"}
+
+
+class A03Adapter:
+    OutputArtifactsVersion = 1
+    GroupClaimsVersion = 1
+    RecoveryFenceVersion = 1
+
+    def __init__(self, options, *, local_staging=False):
+        if set(options) != {"store"} or not isinstance(options["store"], str):
+            raise ValueError("the a03 adapter takes only a store path")
+        self.store = Path(options["store"]).resolve()
+        self.command = [sys.executable, str(Path(__file__).with_name("Controller.py")), "--store", str(self.store)]
+        self.owner = None
+        self.local_staging = local_staging
+        self.warm_claims = False
+        self.claim_helper = None
+        self.last_claim_refusal = None
+
+    def Invoke(self, *items, stale=False):
+        ownership = ["--owner", self.owner] if self.owner is not None else []
+        result = subprocess.run(self.command + ownership + [str(item) for item in items], capture_output=True, text=True, encoding="utf-8", timeout=CONTROLLER_TIMEOUT, check=False)
+        if result.returncode == 5:
+            raise StaleOwner("a03 rejected the replaced supervisor owner")
+        if stale and result.returncode == 3:
+            return None
+        if items[0] == "finish" and result.returncode == 4:
+            raise InvalidOutput(result.stderr.strip()[-2048:])
+        if result.returncode != 0:
+            raise ValueError(f"a03 {items[0]} failed: {result.stderr.strip()[-2048:]}")
+        return json.loads(result.stdout)
+
+    def LockPath(self):
+        return self.store / "supervisor.lock"
+
+    def BeginOwner(self):
+        if self.owner is not None:
+            raise ValueError("supervisor owner was already installed")
+        owner = secrets.token_hex(32)
+        response = self.Invoke("rotate-owner", "--new-owner", owner)
+        if not isinstance(response, dict) or set(response) != {"recovery_fence_version"} or type(response["recovery_fence_version"]) is not int or response["recovery_fence_version"] != 1:
+            raise ValueError("a03 returned an invalid recovery fence acknowledgement")
+        self.owner = owner
+        return response
+
+    def DefinePool(self, name, kinds):
+        return self.Invoke("pool", name, *[part for kind in kinds for part in ("--kind", kind)])
+
+    def DefineResource(self, name, capacity):
+        return self.Invoke("resource", name, "--capacity", capacity)
+
+    def SubmitJobs(self, path):
+        return self.Invoke("submit-batch", path)
+
+    def BindInput(self, name, path):
+        return self.Invoke("bind", name, path)
+
+    def ClaimJob(self, pool, worker, path):
+        self.last_claim_refusal = None
+        if self.warm_claims and self.owner is not None:
+            return self.warm_claim(pool, worker, Path(path))
+        response = self.Invoke("claim", "--worker", worker, "--pool", pool, "--claim-file", path)
+        if response["job"] is None:
+            self.observe_claim_refusal(response)
+            return None
+        return without_token(json.loads(Path(path).read_text(encoding="utf-8")))
+
+    def warm_claim(self, pool, worker, path):
+        from WindowsClaimTransport import WindowsClaimTransport
+
+        deadline = time.monotonic() + CONTROLLER_TIMEOUT
+        try:
+            if self.claim_helper is None:
+                self.claim_helper = WindowsClaimTransport(self.store, path.parent)
+            response = self.claim_helper.claim(self.owner, worker, pool, path, deadline)
+            if response["job"] is None:
+                if (set(response) != {"job", "reason"} or not isinstance(response["reason"], str)
+                        or path.exists() or path.is_symlink()):
+                    raise ClaimExchangeLost("Windows claim helper returned an inconsistent refusal")
+                self.observe_claim_refusal(response)
+                return None
+            claim = json.loads(path.read_text(encoding="utf-8"))
+            if (set(response) != {"job", "attempt", "claim_file"} or response["claim_file"] != str(path)
+                    or response["job"] != claim["job"]["id"] or type(response["attempt"]) is not int
+                    or response["attempt"] != claim["attempt"]):
+                raise ClaimExchangeLost("Windows claim helper acknowledgement differs from the durable claim")
+            return without_token(claim)
+        except (ClaimExchangeLost, StaleOwner):
+            self.CloseClaimHelper(terminate=True)
+            raise
+        except (OSError, ValueError, KeyError, TypeError, subprocess.TimeoutExpired) as error:
+            self.CloseClaimHelper(terminate=True)
+            raise ClaimExchangeLost("Windows claim helper outcome remains unresolved") from error
+
+    def observe_claim_refusal(self, response):
+        if response == {"job": None, "reason": A03_CAPACITY_REFUSAL}:
+            self.last_claim_refusal = response["reason"]
+
+    def CloseClaimHelper(self, *, terminate=False):
+        helper, self.claim_helper = self.claim_helper, None
+        if helper is not None:
+            helper.close(terminate=terminate)
+
+    def ClaimGroup(self, pool, worker, path, kinds):
+        registry = Path(path).with_suffix(".registry")
+        descriptor = os.open(registry, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        try:
+            with os.fdopen(descriptor, "w", encoding="utf-8") as output:
+                output.write(canonical({"group_registry_version": 1, "kinds": kinds}))
+            response = self.Invoke("claim-group", "--worker", worker, "--pool", pool, "--registry", registry, "--claim-dir", path)
+        finally:
+            registry.unlink(missing_ok=True)
+        return [without_token(item) for item in read_group(path)] if response["count"] else None
+
+    def RenewGroup(self, path):
+        response = self.Invoke("heartbeat-group", "--lease", path)
+        members = response.get("members")
+        if not isinstance(members, list) or not 1 <= len(members) <= 20 or any(not isinstance(item, dict) or type(item.get("stale")) is not bool for item in members) or type(response.get("stale")) is not bool or response["stale"] != any(item["stale"] for item in members):
+            raise ValueError("a03 returned an invalid group renewal response")
+        return response
+
+    def FinishGroup(self, path, result):
+        response = self.Invoke("finish-group", "--lease", path, "--result", result)
+        members = response.get("members")
+        if not isinstance(members, list) or len(members) != len(read_group(path)) or any(not isinstance(item, dict) or type(item.get("stale")) is not bool for item in members):
+            raise ValueError("a03 returned an invalid group finish response")
+        return response
+
+    def RenewLease(self, path):
+        response = self.Invoke("heartbeat", "--lease", path, stale=True)
+        return {"stale": True} if response is None else {"stale": False, "lease_until": response["lease_until"], "deadline": response["deadline"]}
+
+    def FinishJob(self, path, outcome, result, reason):
+        payload = read_record(result)
+        declared = payload.get("result")
+        output_args = ["--output-root", Path(result).parent / "work"] if isinstance(declared, dict) and "artifacts" in declared else []
+        return {"stale": self.Invoke("finish", "--lease", path, "--result", result, "--outcome", outcome, "--reason", reason, *output_args, stale=True) is None}
+
+    def FetchInput(self, sha256, destination):
+        if self.local_staging and self.owner is not None:
+            source = self.owned_artifact(sha256)
+        else:
+            source = self.Invoke("artifact", sha256)["path"]
+        return copy_verified(source, destination, sha256)
+
+    def owned_artifact(self, sha256):
+        database = self.store / "ledger.sqlite3"
+        if database.is_symlink() or not database.is_file():
+            raise ValueError("artifact lookup requires an initialized store database")
+        try:
+            with read_store(database, self.owner, (4,)):
+                artifacts = Artifacts(self.store, create=False)
+                artifacts.verify(sha256)
+                return artifacts.path(sha256)
+        except sqlite3.Error as error:
+            raise ValueError(f"a03 artifact lookup failed: {error}") from error
+
+    def ReadStatus(self, job=None, after=None):
+        items = ["status"]
+        if job is not None:
+            items += ["--job", label(job)]
+        if after is not None:
+            items += ["--after", label(after)]
+        return self.Invoke(*items)
+
+    def ReadCapacity(self):
+        database = self.store / "ledger.sqlite3"
+        try:
+            if self.owner is None or database.is_symlink() or not database.is_file():
+                return None
+            with read_store(database, self.owner, (4,), timeout=0.05) as db:
+                measured = time.monotonic()
+                maximum, dirty = db.execute(
+                    "SELECT (SELECT value FROM settings WHERE key='max_running'),"
+                    " EXISTS(SELECT 1 FROM dirty)"
+                ).fetchone()
+                running, leases, deadlines, next_lease, next_deadline = db.execute(
+                    "SELECT COUNT(*), COUNT(lease_until), COUNT(deadline),"
+                    " MIN(lease_until), MIN(deadline) FROM jobs WHERE state='running'"
+                ).fetchone()
+                bounded(running, 0, bounded(maximum, 1, 64))
+                if dirty or leases != running or deadlines != running:
+                    return None
+                expires = min(next_lease, next_deadline) if running else None
+                if expires is not None and (not math.isfinite(expires) or expires <= time.time()):
+                    return None
+                return {"measured": measured, "expires": expires,
+                        "maximum": maximum, "running": running}
+        except (OSError, ValueError, TypeError, sqlite3.Error):
+            return None
+
+
+def load_adapter(config, root):
+    if not isinstance(config, dict):
+        raise ValueError("controller configuration must be an object")
+    if config.get("adapter") == "a03":
+        return A03Adapter(
+            {key: value for key, value in config.items() if key != "adapter"},
+            local_staging=sys.platform == "win32",
+        )
+    if set(config) != {"module", "class", "options"} or not isinstance(config["options"], dict):
+        raise ValueError("controller needs adapter a03, or a module, class and options")
+    path = Path(config["module"])
+    path = (path if path.is_absolute() else Path(root) / path).resolve()
+    specification = importlib.util.spec_from_file_location(f"controller_adapter_{hashlib.sha256(str(path).encode()).hexdigest()[:16]}", path)
+    if specification is None or specification.loader is None or not path.is_file():
+        raise ValueError("controller adapter module cannot be loaded")
+    module = importlib.util.module_from_spec(specification)
+    specification.loader.exec_module(module)
+    adapter = getattr(module, config["class"])(config["options"])
+    missing = [name for name in OPERATIONS if not callable(getattr(adapter, name, None))]
+    if missing:
+        raise ValueError(f"controller adapter lacks {', '.join(missing)}")
+    capability = getattr(adapter, "GroupClaimsVersion", None)
+    if capability is not None and (type(capability) is not int or capability != 1 or any(not callable(getattr(adapter, name, None)) for name in ("ClaimGroup", "RenewGroup", "FinishGroup"))):
+        raise ValueError("group-capable adapter must provide protocol 1 ClaimGroup, RenewGroup and FinishGroup")
+    fence = getattr(adapter, "RecoveryFenceVersion", None)
+    if fence is not None and (type(fence) is not int or fence != 1 or not callable(getattr(adapter, "BeginOwner", None))):
+        raise ValueError("recovery-fenced adapter must provide protocol 1 BeginOwner")
+    return adapter

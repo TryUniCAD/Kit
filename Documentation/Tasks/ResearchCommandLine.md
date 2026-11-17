@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Run PR #94's pinned readers, corpus, durable controller, and configured supervisor through the installed `kit` command.
+Run PR #94's automation-only pinned readers, corpus, durable controller, and configured supervisor through the installed `kit` command.
 The CLI delegates to existing implementations and preserves their evidence contracts.
 Users do not write Python imports or scripts.
 
@@ -14,16 +14,17 @@ The launcher uses the interpreter running `kit` and does not silently select ano
 The equivalent module command is `python -m KitCli research`.
 `python -m convert research` reports an error directing callers to these developer entry points.
 
-Select a trusted checkout containing PR #94 and the corpus's pinned Git objects.
+Select a trusted automation checkout and retain the corpus's exact historical Git objects. Its reader bridge uses the existing main SDK; the broader decoder/writer source stays in follow-ups.
 `--root` authorizes execution of that checkout's research code and SDK.
 The wheel contains the SDK and CLI, not research fixtures or the `re/` workspace.
-The supervisor requires Linux or macOS.
-On Windows, reader, corpus, and controller commands wait for completion and return the tool's exit status.
+The installed CLI supervisor route requires Linux or macOS. The direct research supervisor has a separate documented Windows process contract; this rescope does not change the installed CLI's platform guard. Reader, corpus and controller commands wait for completion and return the tool's exit status.
 
 The examples use `/path/to/KitPr94` for the trusted research checkout.
 Replace it with its absolute path; the installed CLI checkout can be different.
 Replace example output paths with unused directories that you own.
 Preserve the original CAD files.
+
+When original lineage objects are missing, run the explicit `CaptureHistory.py fetch` setup command from the trusted automation checkout with its bundled `CaptureLineage.json`. The contract pins the preserved repository, exact source revision and input-tree identity. Historical metadata and whitelisted input hydration do not check out or execute the old SDK. Keep original receipts and capture paths unchanged; the current byte binding does not recreate historical introductions. No implicit fetch or rebinding is authorized by a successful reader receipt.
 
 ## Decode committed inputs
 
@@ -77,7 +78,7 @@ The CLI preserves stale-lease status `3` and the controller's integrity checks.
 
 ## Run configured sessions
 
-Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/ResearchSupervisor.md).
+Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](../Reference/Research/ResearchSupervisor.md).
 Use only trusted configuration and runner programs.
 
 ```sh
@@ -96,7 +97,7 @@ It waits for cleanup, preserves output and exit statuses, and terminates with th
 An uncatchable launcher kill cannot be forwarded; use the existing research lease and recovery controls after forced termination.
 Supervisor contention retains status `4`.
 
-No production decode runner or model-provider registry is supplied by this bridge.
+The existing main-SDK reader, semantic comparator and generic inference runners are research operations. This bridge supplies no native decoder/writer expansion or model-provider registry.
 Models remain disabled by default.
 Optional Codex/Claude runners, escalation, budgets, and private-data controls remain A10 work under the plan's authorization rules.
 Application workers remain separate isolated research oracles.
@@ -121,23 +122,24 @@ Conversion and inspection do not import its process launcher dependencies.
 
 ## If the command fails
 
-| Symptom                           | Action and stop condition                                          |
-| --------------------------------- | ------------------------------------------------------------------ |
-| Missing research script           | Select the intended trusted PR #94 checkout                        |
-| Missing pinned Git object         | Fetch the manifest's committed revision before retrying            |
-| Hash or prefix mismatch           | Restore or review the intended pin; do not relax checks            |
-| Existing output directory         | Choose an unused path; no overwrite bypass is exposed              |
-| Fusion requires Python 3.14       | Install or run the CLI with that interpreter                       |
-| Supervisor unavailable on Windows | Use Linux or macOS for orchestration                               |
-| Runner unavailable                | Configure an implemented runner or retain the blocked prerequisite |
+| Symptom                                     | Action and stop condition                                                                             |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Missing research script                     | Select the intended trusted PR #94 checkout                                                           |
+| Missing pinned Git object                   | Fetch the manifest's committed revision before retrying                                               |
+| Hash or prefix mismatch                     | Restore or review the intended pin; do not relax checks                                               |
+| Existing output directory                   | Choose an unused path; no overwrite bypass is exposed                                                 |
+| Fusion requires Python 3.14                 | Install or run the CLI with that interpreter                                                          |
+| Installed supervisor unavailable on Windows | Use Linux/macOS for this CLI route; follow the direct Windows research supervisor contract separately |
+| Runner unavailable                          | Configure an implemented runner or retain the blocked prerequisite                                    |
 
 Tests execute only in remote CI.
+The Linux and Windows [compatibility jobs](../Changes/Commands/ResearchCandidateCompatibility.md) install the CLI from the workflow candidate and select a separate research checkout at the same revision.
 See [the change record](../Changes/Research/DeterministicResearchCli.md) for compatibility coverage and limits.
 
 ## Related information
 
 - [General CLI](CommandLine.md)
-- [Research plan](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/AutomationPlan.md)
-- [Step register](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/AutomationSteps.md)
-- [SOLIDWORKS reader](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/SolidworksResearchReader.md)
-- [Fusion reader](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/FusionResearchReader.md)
+- [Automation scope](../Changes/Research/AutomationOnlyScope.md)
+- [Step register](../Reference/Research/AutomationSteps.md)
+- [SOLIDWORKS reader](../Reference/Research/SolidworksResearchReader.md)
+- [Fusion reader](../Reference/Research/FusionResearchReader.md)

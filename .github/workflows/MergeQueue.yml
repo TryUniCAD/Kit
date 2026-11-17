@@ -229,16 +229,23 @@ jobs:
           if grep --quiet '^tests/CliResearch/' "${RUNNER_TEMP}/ShardTests.txt"; then
             echo "research=true" >> "$GITHUB_OUTPUT"
           fi
+          if grep --quiet '^tests/Research/Inference/' "${RUNNER_TEMP}/ShardTests.txt"; then
+            echo "inference=true" >> "$GITHUB_OUTPUT"
+          fi
 
-      - name: Checkout pinned PR94 tools for research CLI cases
+      - name: Checkout candidate tools separately for research CLI cases
         if: steps.selection.outputs.research == 'true'
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: Stephen316/Kit
-          ref: b86f30c7e41abdc3812ada795a193377f6ddd220
+          ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
           path: ResearchCheckout
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
+
+      - name: Synchronize locked dependencies for inference shards
+        if: steps.selection.outputs.inference == 'true'
+        run: uv sync --frozen --no-default-groups --extra dev --group dev --python 3.14 --compile-bytecode
 
       - name: Run this shard's tests
         id: tests
@@ -468,6 +475,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
           ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
 
@@ -494,6 +502,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
           ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
 
@@ -520,6 +529,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
           ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
 
@@ -548,6 +558,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
           ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
 
@@ -576,6 +587,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
           ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
 
@@ -602,6 +614,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
           ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
 
@@ -694,6 +707,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
           ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
 
@@ -723,6 +737,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
           ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
 
@@ -934,6 +949,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
           ref: ${{ github.event_name == 'push' && env.AuditSha || github.sha }}
 
