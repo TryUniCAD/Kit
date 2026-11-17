@@ -341,8 +341,11 @@ earlier assembly bundles. The production corpus count is unchanged.
 The [disclosed nested audit](records/DisclosedNestedAssemblyArchiveAudit2026.md)
 checks 42 streams in seven saved definitions and binds both healthy native
 reopens. Direct directories, expanded occurrence counts, recursive stamps
-and child-local bounds follow distinct measured owners. Both sealed source
-locks are tracked separately from conversion coverage.
+and child-local bounds follow distinct measured owners. The
+[pre-writer source lock](v2026/heldout/NestedAssemblySourceLock01.json)
+qualifies both sealed author/reopen source sets in eight fresh processes.
+Generated nested conversion coverage awaits the recursive generator
+and its own measured acceptance.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

@@ -5,3 +5,9 @@ The nested source tool runs the before control, native author, read-only reopen,
 Prepare the phase packet with the existing guest deck path and digest. Run one phase per transport using the new packet digest, an opaque slot, and a trial identifier. Use a new attempt for a reopen retry and a new trial for an author retry. A sealed lock requires healthy brackets, successful native author and reopen phases, and unchanged artifact hashes.
 
 Host verification froze the ten tools with a nonexistent guest locator, rejected a changed observer, and rejected host-side native execution. Native results are pending. [Operator procedure](../../../../../../../re/solidworks/records/SealedNestedAssemblySourcePhases2026.md)
+
+Both sealed source slots passed their four native phases and locked
+their immutable artifact manifests. Eight distinct native processes
+and both pairs of brackets passed. The combined source lock precedes
+nested writer construction and exposes only opaque identities and
+hashes. [Pre-writer source lock](../../../../../../../re/solidworks/v2026/heldout/NestedAssemblySourceLock01.json)

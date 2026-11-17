@@ -35,3 +35,17 @@ Use an unused progress root and transport report for every phase. The runner cre
 Authoring the nested writer can begin once the native locks for both sealed slots and the disclosed source cohort are recorded. The holdout designs, outputs and measurements remain sealed for subsequent writer qualification. This source protocol establishes zero generated writer outputs.
 
 Host process verification froze the ten tools against a deliberately nonexistent guest file locator, rejected a changed observer, and rejected a native phase on the host before creating its progress directory. Native execution and source lock remain pending. [Phase runner](../../tooling/sw2026/RunSealedNestedSourcePhase.py) · [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
+
+## Qualified pre-writer locks
+
+Both sealed slots completed their independent before, author, reopen
+and after phases. Eight distinct native process lifetimes passed.
+The two lock commands checked their private artifacts and original
+phase receipts and published only the resulting hashes. Slot 2's
+lock command followed a transient host session failure before invocation.
+Its four completed native phases were retained.
+
+The combined source lock binds the two disclosed sources, the two
+sealed native artifact manifests, both specification hashes and all
+phase and transport hashes before nested writer implementation.
+[Pre-writer source lock](../v2026/heldout/NestedAssemblySourceLock01.json)
