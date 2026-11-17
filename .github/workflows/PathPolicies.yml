@@ -3,9 +3,6 @@ name: Path policies
 on:
   pull_request:
   merge_group:
-  push:
-    branches:
-      - main
 
 permissions:
   contents: read
@@ -15,7 +12,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  pr-ci-reuse:
+    name: Validation phase (PathPolicies)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      phase: ${{ steps.phase.outputs.phase }}
+    steps:
+      - name: Checkout phase selector
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Read the trusted base validation phase
+        id: phase
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { SetPhase } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/CiPhase.cjs`);
+            await SetPhase({ github, context, core });
+
   verify-path-policies:
+    if: >-
+      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'pull_request')
+    needs: pr-ci-reuse
     name: Verify path policies
     runs-on: ubuntu-24.04
     timeout-minutes: 10

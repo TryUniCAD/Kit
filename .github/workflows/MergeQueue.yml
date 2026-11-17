@@ -66,6 +66,9 @@ jobs:
           key: queue-bytecode-${{ github.event.merge_group.base_sha || env.AuditSha }}
           restore-keys: queue-bytecode-
 
+      - name: Verify packaged native schema provenance
+        run: uv run --no-sync --python 3.14 python re/Fusion/Reconstruction/EntityGraph/PromoteCatalog.py --check
+
       - name: Collect the complete test suite
         run: |
           set -euo pipefail
@@ -370,6 +373,11 @@ jobs:
             queries: ""
           - language: python
             queries: ./.github/CodeQL/PythonMaximal.qls
+          - language: javascript-typescript
+            queries: ""
+          - language: java-kotlin
+            queries: ""
+            config: ./.github/CodeQL/JavaResearch.yml
     steps:
       - name: Checkout repository
         # yamllint disable-line rule:comments
@@ -390,7 +398,7 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           build-mode: none
-          config-file: ./.github/CodeQL/CodeqlConfig.yml
+          config-file: ${{ matrix.config || './.github/CodeQL/CodeqlConfig.yml' }}
           queries: ${{ matrix.queries }}
 
       - name: Analyze repository

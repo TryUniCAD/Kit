@@ -1,0 +1,9 @@
+name: Java research security and quality
+
+disable-default-queries: true
+
+threat-models: local
+
+queries:
+  - uses: security-and-quality
+  - uses: security-experimental

@@ -19,48 +19,46 @@ Its source checkouts use `AuditSha`, and every test module runs without result r
 Repair audits select the triggering push's full commit SHA so the harness is included in their input.
 This audit evidence is separate from native merge-queue acceptance.
 
-PRs run Python lint, formatting, types, steering, import, path, skill, and
-workflow policies, including actionlint and Zizmor. Existing metadata labeling
-continues. Load every entry in `Reviewers` from
-[ReviewBot.json](.agents/skills/standard-pr-practice/ReviewBot.json), the sole source
-of reviewer identities, report names, and exact request comments. Submit each
-`Comment` verbatim once per head unless that reviewer already has a request or
-review for that revision. Every configured reviewer must pass all its native
-reports and submit an actual `APPROVED` review on the current head. Address every
-finding from its verified account or app. Missing, pending, failed, stale, or
-dismissed evidence blocks readiness. No human or code-owner approval is required
-by the agent workflow; independently enforced GitHub requirements must still be
-inspected and reported separately. The repository's CODEOWNERS file is removed.
+Jobs have one execution phase. Jobs that complete in less than 45 seconds run
+on PRs. Jobs that take 45 seconds or longer run on merge-group candidates.
+Measured duration includes runner setup, checkout, execution, and finalization.
+The [phase allocation](.github/CiPhases.json) records every split workflow job.
+See the [timing record](Documentation/Changes/Ci/SinglePhaseValidation.md).
 
-Use each reviewer's native review and status indicator. Approval and findings
-remain separate from CI health. Changing the JSON does not install integrations
-or modify live rulesets.
+PR validation includes Ruff, Black, explicit imports, path policies, rationale
+comments, skill preservation, workflow pins, Zizmor, actionlint, release artifact
+validation, and metadata labeling. Queue validation includes Pyright, Mypy,
+Python steering, CI process policy, research CLI compatibility, the full suite,
+CodeQL, and the other security and SBOM scans. Fusion and CLI compatibility
+execute through the complete suite.
+
+Load every entry in `Reviewers` from
+[ReviewBot.json](.agents/skills/standard-pr-practice/ReviewBot.json).
+Submit each `Comment` verbatim once per head unless that reviewer already has a
+request or review for that revision. Every configured reviewer must pass its
+native reports and submit an actual `APPROVED` review on the current head.
+Address every finding from its verified account or app. Missing, pending,
+failed, stale, or dismissed evidence blocks readiness. Independently enforced
+GitHub requirements remain separate from the agent workflow.
 
 [`Pull Request / CI Agg`](.github/workflows/PullRequest.yml) reports overall CI
 health for the exact revision using the [CI allowlist](.github/scripts/CiAllowlist.cjs).
-A check must come from GitHub Actions and match its workflow path, event, and
-job name. The aggregate also checks the outcome of each listed workflow run.
-It reads check runs and workflow runs. Commit statuses and unlisted reports
-cannot satisfy a required CI job.
+It verifies each check's GitHub Actions identity, workflow, event, and job name.
+It also checks every registered workflow outcome. Unexpected failures,
+cancellations, timeouts, and skipped required jobs fail the aggregate.
+Jobs assigned to the other phase are explicitly deferred.
 
 The [breaking change label check](Documentation/Changes/BreakingChangeLabelChecks.md)
 separates PR event types into different concurrency groups and reads current metadata.
-
 The [PR diff breakdown](Documentation/Reference/Operations/DiffBreakdown.md)
 publishes an immutable composition report for each new PR head from trusted base code.
 
-PR aggregation includes lint, formatting, types, repository policies, metadata
-labels, release artifact validation, and each GitHub-managed Code Quality
-`Analyze (<language>)` job that GitHub reports. The aggregate waits for a Code
-Quality run only on same-repository PRs that change analyzed source. See
-[applicable Code Quality checks](Documentation/Changes/CodeQualityApplicability.md).
-The first-time contributor label applies on PR creation. Merge-group
-aggregation includes the static checks and their reuse preflights, the full
-test suite, both candidate CodeQL jobs, all security and SBOM scans, and the
-acceptance gate. PR runs of the queue workflow report
-the acceptance gate with the heavy jobs deferred. Missing jobs keep the
-aggregate pending. Unexpected skips, cancellations, timeouts, and failures
-fail the aggregate. The summary links individual reports.
+GitHub-managed Code Quality has separate repository settings and still starts
+PR scans while enabled. Repository workflows cannot disable that service.
+The queue preserves its three languages and adds Actions analysis.
+Its security-and-quality and security-experimental suites retain blocking findings.
+A repository administrator must turn off managed Code Quality separately to
+complete removal of the managed duplicate. This PR changes no live settings.
 
 When adding or renaming CI, update the allowlist alongside the workflow and
 register each job under the event that runs it. Keep automated review outside
@@ -69,61 +67,35 @@ those workflows and verify its reports during PR review follow-up.
 Removing metadata from the JSON does not change integration-owned settings.
 Do not change live rulesets as part of this workflow.
 
-## Reuse healthy PR CI
+## Phase selection and rollout
 
-A successful PR aggregate publishes a small immutable evidence artifact bound
-to its repository, PR number, head repository, head SHA and tree, event base SHA,
-base ancestry, workflow event, workflow run, and attempt. A queued PR is
-included when its head is an ancestor of the candidate or when the candidate's
-`gh-readonly-queue/<branch>/pr-<number>-<sha>` ref names it. Squash candidates
-never contain the PR head as an ancestor, so the ref is the only membership
-signal for them. The merge queue
-checks current CI health for every included PR and validates the artifact's
-origin and SHA-256 digest. Reuse requires identical candidate and PR-head trees,
-identical base commits, and ancestry from that base to the PR head. With that
-ancestry, merging the base into the PR head adds no files or content. Only
-whole-tree checks are reusable. Path-diff and rationale checks always execute freshly on the queue candidate.
-The rationale gate scans every tracked owned Python source without a baseline.
-Missing comments on unchanged declarations and compatibility aliases also fail.
-The subsequent range check rejects newly added explanatory comments. Supplementary merge-ref reports
-are included only after their parents match the recorded head and base.
+The trusted `pull_request_target` aggregate uses the default branch's workflow
+and reporter. It never executes PR code. The queue aggregate loads its reporter
+from the exact merge-group base commit.
 
-Normal PR aggregation runs on `pull_request_target` using the trusted default
-branch's workflow and reporter, without checking out or executing PR code. Its
-artifact records the PR head input tree rather than treating the event's base
-SHA as a tested PR merge. The one-time `pull_request` preview used to install
-the pipeline in PR #49 has been retired. The aggregate runs only on
-`pull_request_target` and `merge_group`; component validation retains its own
-PR workflows. Bootstrap artifacts are never eligible for queue reuse; only
-successful trusted `pull_request_target` runs qualify.
+Each split workflow reads the phase-version marker at its event's base SHA.
+Before that marker lands, the workflow runs the former job set so the existing
+trusted aggregate can validate the rollout PR and its first queue candidate.
+Once the marker exists, the workflow runs only its assigned phase.
+Malformed markers and API failures fail the selector. Only a missing marker
+selects the original job set. Phase selection retains the existing preflight
+check names to satisfy the old aggregate during rollout.
 
-Queue preflights and the queue aggregate load the verifier from the exact trusted
-merge-group base commit. PR changes to the helper are not executed by those
-artifact-reading queue jobs. PR aggregation uses read-only permissions and does
-not receive repository secrets. The aggregate's 80-minute wait covers the
-45-minute audit jobs within its 90-minute job limit.
+The workflows no longer execute the same validation in both phases or after a
+`main` push. PR results remain available in the immutable evidence artifact.
+The former cross-phase artifact reuse and its download verification are retired.
+The test-suite cache still validates unchanged dependencies against an accepted
+ancestor candidate before reusing module outcomes.
 
-When that proof succeeds, eligible static jobs retain their check names but explicitly
-skip duplicate execution. The aggregate independently verifies reuse before
-accepting those skips. If a head, base, tree, report, or evidence artifact does
-not match, static checks execute on the candidate instead. Missing or expired
-evidence never produces a cached success. Change-range checks, acceptance, and heavy security always
-execute on the actual merge group. No acceptance result is inferred from PR CI.
-
-On merge groups, `Merge queue acceptance` requires every heavy job to succeed.
-`CI Agg` then combines static validation, verified reuse, every heavy check and
-the completed queue workflow. It explicitly expects `Merge queue acceptance`
-and fails immediately when any heavy check or the queue workflow fails. Missing
-or pending acceptance keeps the aggregate pending. Acceptance does not wait on
-the aggregate, so there is no dependency cycle. Both contexts are required by
-the live ruleset. The previous combination of excluding the queue workflow from
-`CI Agg` and not requiring acceptance allowed PR #42 to merge with failed
-CodeQL, dlint, Scorecard, and tests; both gaps are repaired here.
+On merge groups, `Merge queue acceptance` requires every direct heavy job to
+succeed. `CI Agg` also requires the queue-only workflows and completed acceptance.
+Acceptance does not wait on the aggregate. Both contexts remain required by the
+live ruleset. The aggregate's 80-minute wait remains within its 90-minute limit.
 
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
-`Merge queue acceptance` context on PRs with an explicit deferral summary. Its
-acceptance jobs are deliberately skipped at this stage, so green PR checks
-establish eligibility for queue enrollment, not acceptance success.
+`Merge queue acceptance` context on PRs with an explicit deferral summary.
+The expensive jobs run on `merge_group.checks_requested` and the existing
+explicit audit branch. PR success establishes eligibility for queue enrollment.
 
 The `Scorecard` job uses the checksum-pinned OpenSSF Scorecard CLI instead of
 `ossf/scorecard-action`, which rejects `merge_group` events. It runs the complete
@@ -135,13 +107,13 @@ JSON reports are summarized in the job log, command failures fail the job, and
 Scorecard API. See [the repair and verification entry](Documentation/Changes/QueueScorecard.md).
 
 On `merge_group.checks_requested`, the same workflow runs the complete pytest
-suite, both CodeQL language analyses, and every existing heavy security/SBOM scanner
+suite, all four CodeQL language analyses, and every existing heavy security/SBOM scanner
 as direct jobs in the queue workflow. No tests, assertions, scanner jobs, or security
 thresholds are removed. The stable acceptance gate depends explicitly on every heavy job, runs with `always()` and
 requires every acceptance and heavy security job to succeed; failures, cancellations,
-timeouts, and unexpected skips fail the gate. Fast CI additionally runs the existing CodeQL policy and pytest compatibility
-process checks, catching stale workflow references before enrollment. Static checks retain their required
-contexts on the merge group and either execute or use verified equivalent PR evidence.
+timeouts, and unexpected skips fail the gate. CI policy and pytest compatibility process checks run on the candidate.
+Queue-only type, steering, and research CLI jobs also gate the aggregate.
+PR-only checks have explicit deferred contexts on the candidate.
 
 The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedTestSuite.md).
 `Test suite / Plan` collects the candidate's tests and sizes the shard matrix.
@@ -158,6 +130,18 @@ The acceptance gate requires the plan, every shard, and the report to succeed.
 `Run the complete test suite` remains as a compatibility job that requires the same three jobs.
 The trusted-base `CI Agg` of the first sharded candidate still requires that name.
 The CI allowlist matches shard check names by pattern because the shard count changes with the suite.
+
+Fusion archive and CLI process compatibility run in this complete suite.
+The planner verifies native schema provenance before collecting tests from `tests/`.
+The normal shards execute these cases with the other collected tests.
+The existing completeness report and acceptance gate cover their results.
+The [shared-suite change](Documentation/Changes/Ci/SharedCompatibilitySuite.md)
+removes their dedicated workflow and runners after the
+[allowlist transition](Documentation/Changes/Ci/CompatibilityReportRetirement.md) reaches the trusted base.
+
+Add new specialised end-to-end and compatibility tests under `tests/` using the existing discovery rules.
+Keep their preparation in the shared queue jobs and use the existing planner, shards, and report.
+This execution rule applies to new specialised coverage as well as Fusion and CLI compatibility.
 
 The seven historically flaky pending-aggregate probes and their dedicated helpers are removed.
 Completed-result process checks remain; pending-process liveness and evidence publication during waiting no longer have those probes.
@@ -226,11 +210,6 @@ permission alone does not identify the person requesting the merge. A coding
 request, PR creation, skill invocation, or green CI grants no merge authority.
 Absent an explicit administrator merge request, finish the PR's available CI
 and configured reviewer follow-up and leave it open with acceptance clearly deferred.
-
-GitHub-managed `CodeQL - Code Quality` is a separate service configuration and
-currently still runs on PRs. This PR moves repository-owned heavy jobs; moving
-that external analyzer also requires its service settings to change. Include
-its current PR results when reporting all-CI readiness.
 
 GitHub runs repository settings and queue management outside the PR, so report
 activation and the first successful live merge-group run as separate evidence.

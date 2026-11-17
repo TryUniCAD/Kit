@@ -17,9 +17,14 @@ import pytest as Pytest
         "Test suite / Plan",
         "Test suite / Shard (2)",
         "Test suite / Report",
-        "Verify rationale comments on changed sources",
-        "CLI process compatibility (Core)",
-        "CLI process compatibility (Qualification)",
+        "Pyright",
+        "Mypy",
+        "Python steering",
+        "Research CLI compatibility",
+        "Research CLI Windows compatibility",
+        "Verify CI policy and pytest compatibility",
+        "Analyze javascript-typescript",
+        "Analyze java-kotlin",
     ),
 )
 @Pytest.mark.parametrize(
@@ -32,7 +37,7 @@ def TestQueueGate(CheckName: str, Verdict: str, CaseMode: str) -> None:
     with Tempfile.TemporaryDirectory() as TempPath:
         ResultInfo = Subprocess.run(
             ["node", str(ScriptPath), CaseMode, Verdict, CheckName],
-            cwd=RootPath,
+            cwd=TempPath,
             env={**SystemEnv.environ, "RUNNER_TEMP": TempPath},
             capture_output=True,
             text=True,

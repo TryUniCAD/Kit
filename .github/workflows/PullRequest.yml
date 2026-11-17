@@ -52,18 +52,6 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: PrCiEvidence-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/PrCiEvidence/Evidence.json
+          path: PrCiEvidence/Evidence.json
           if-no-files-found: error
           retention-days: 14
-
-      - name: Verify the published evidence through GitHub
-        if: github.event_name != 'merge_group'
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        env:
-          PR_CI_ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
-        with:
-          retries: 4
-          retry-exempt-status-codes: 400,401,403,422
-          script: |
-            const Reports = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/CiReports.cjs`);
-            await Reports.VerifyEvidence({ github, context, core });

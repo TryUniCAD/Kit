@@ -14,7 +14,7 @@ Keep a compact disposition for each finding: fixed with an accepted commit and v
 
 Read the implicated code, callers, tests, and relevant official API documentation. Evaluate conditional concerns such as “may be unsupported” or “could be wrong if” rather than discarding them as uncertainty. Establish whether the production path actually works. If correctness depends on an external service restriction, verify that restriction from authoritative documentation or authorized integration evidence; a mocked response or green unrelated CI does not settle it.
 
-Fix actionable code, fixture, and documentation defects coherently. Preserve test, type, security, and CI gates. Follow the main workflow's isolated-worktree, commit/push authorization, and no-local-tests rules. Written regression coverage becomes passing evidence only after remote CI executes it.
+Fix actionable code, fixture, and documentation defects coherently. Preserve test, type, security, and CI gates. Follow the main workflow's isolated-worktree, commit/push authorization, and local execution rules. Verify the affected regression coverage on the current remote revision.
 
 For an already-fixed finding, point to the accepted fix and relevant verification. For a false positive or conflicting instruction, answer with specific code, contract, or documentation evidence. An unverifiable concern remains open; do not label it a false positive merely because no failure has been reproduced.
 
@@ -22,9 +22,9 @@ Reply inside an existing review thread, then resolve it only after the finding i
 
 ## Request review for the current head
 
-After opening the PR and after each accepted push that changes its head, post a separate top-level PR comment for each reviewer whose entire body is that entry’s current `Comment` string loaded from [ReviewBot.json](../ReviewBot.json), unless that reviewer already has a request or review for that revision. Record the accepted head SHA and the request URL separately. A posted comment or reaction does not establish that a review ran. Verify the responding GitHub account or app and the revision it reviewed. Do not send a duplicate request for the same head or fall back to another reviewer.
+Follow the [review timing in the main skill](../SKILL.md#2-start-ci-and-schedule-review). Once review is due, post a separate top-level PR comment for each reviewer whose entire body is that entry’s current `Comment` string loaded from [ReviewBot.json](../ReviewBot.json), unless that reviewer already has a request or review for that revision. Record the accepted head SHA and the request URL separately. A posted comment or reaction does not establish that a review ran. Verify the responding GitHub account or app and the revision it reviewed. Do not send a duplicate request for the same head or fall back to another reviewer.
 
-Request each reviewer on the initial PR once. On later heads, a verified native run from that reviewer already
+Request each reviewer once for the first reviewable head. On later heads, a verified native run from that reviewer already
 queued or in progress on that exact SHA counts as an existing automatic review
 request. Follow it without posting a duplicate full re-review trigger. It remains
 pending evidence until the current-head verdict and findings are available.

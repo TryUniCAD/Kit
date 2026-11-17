@@ -2,16 +2,6 @@ const Fs = require("node:fs");
 const Path = require("node:path");
 
 const WorkflowDir = Path.resolve(__dirname, "../../../.github/workflows");
-const ManagedCode = {
-  path: "dynamic/github-code-quality/codeql",
-  event: "dynamic",
-  name: "Code Quality",
-  jobs: [
-    "Analyze (python)",
-    "Analyze (java-kotlin)",
-    "Analyze (javascript-typescript)",
-  ],
-};
 
 function ReadWorkflows(IsQueue) {
   const Workflows = [];
@@ -27,16 +17,23 @@ function ReadWorkflows(IsQueue) {
     if (!Event) continue;
     const Blocks = Jobs?.split(/^  [\w-]+:[ \t]*$/m).slice(1) ?? [];
     if (!Blocks.length) throw new Error(`No jobs found in ${File}`);
+    const Deferred = new Set();
     const Names = Blocks.flatMap((Block) => {
       const Name = Block.match(/^    name: (.+)$/m)?.[1];
       if (!Name) throw new Error(`Unnamed CI job in ${File}`);
       const Matrix = "Analyze ${{ matrix.language }}";
       const ShardMatrix = "Test suite / Shard (${{ matrix.shard }})";
       const GroupMatrix = "${{ matrix.group }}";
-      if (Name.includes(GroupMatrix))
-        return [...Block.matchAll(/^\s+- group: ([\w-]+)$/gm)].map(
+      const WrongPhase = IsQueue ? "pull_request" : "merge_group";
+      if (Block.includes(`outputs.phase == '${WrongPhase}'`))
+        Deferred.add(Name);
+      if (Name.includes(GroupMatrix)) {
+        const Expanded = [...Block.matchAll(/^\s+- group: ([\w-]+)$/gm)].map(
           ([, Group]) => Name.replace(GroupMatrix, Group),
         );
+        if (Deferred.has(Name)) Expanded.forEach((Item) => Deferred.add(Item));
+        return Expanded;
+      }
       if (IsQueue && Name === ShardMatrix)
         return [1, 2, 3].map((Index) => `Test suite / Shard (${Index})`);
       if (!IsQueue || Name !== Matrix) return [Name];
@@ -49,9 +46,9 @@ function ReadWorkflows(IsQueue) {
       event: Event,
       name: Header.match(/^name: (.+)$/m)?.[1] ?? File,
       jobs: Names,
+      deferred: Deferred,
     });
   }
-  if (!IsQueue) Workflows.push(ManagedCode);
   return Workflows;
 }
 
@@ -72,7 +69,7 @@ function BuildExpected(IsQueue, HeadSha) {
     });
     for (const Name of Workflow.jobs) {
       const Skipped =
-        (!IsQueue && Name.startsWith("PR CI reuse (")) ||
+        Workflow.deferred.has(Name) ||
         (!IsQueue &&
           Workflow.name === "Merge queue" &&
           Name !== "Merge queue acceptance");
