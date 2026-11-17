@@ -144,6 +144,7 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
+from convert.adapters.solidworks.Core.ConfigurationInfo import WithCmgrInfo
 from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import HasDrawingClsid
 from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
 from convert.adapters.solidworks.Core.Native import (
@@ -300,7 +301,7 @@ def ReadAction(
         return DocValue
     if Archive.get(ComponentTreeStream) is not None:
         DocValue = RetainSource(
-            AsmDoc(Instance, Archive, DataValue, Label, Settings), DataValue
+            WithCmgrInfo(AsmDoc(Instance, Archive, DataValue, Label, Settings), Archive), DataValue
         )
         ValidateSource(Label, True)
         return DocValue
@@ -404,6 +405,7 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
+    DocValue = WithCmgrInfo(DocValue, Archive)
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(DocValue, DataValue)

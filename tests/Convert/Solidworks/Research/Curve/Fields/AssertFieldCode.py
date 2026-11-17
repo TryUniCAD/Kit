@@ -23,6 +23,7 @@ def AssertFieldCode(Report: dict[str, object]) -> None:
                 "Dsl.py",
                 "AnnotationWire.py",
                 "MapBridge.py",
+                "CmgrBridge.py",
             )
         }
         | {
@@ -52,10 +53,17 @@ def AssertFieldCode(Report: dict[str, object]) -> None:
         }
         | {
             SourcePath.relative_to(KRepoRoot).as_posix()
-            for FolderName in ("Maps", "Objects", "Scalars")
+            for FolderName in (
+                "Maps",
+                "Objects",
+                "Scalars",
+                "Bodies",
+                "Cmgr",
+                "Reading",
+            )
             for SourcePath in (
                 KRepoRoot / "src/convert/adapters/solidworks/Archive" / FolderName
-            ).glob("*.py")
+            ).rglob("*.py")
         }
     )
     Records = CastValue(list[dict[str, object]], Report["implementation"])

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from Core import ArchiveError, Obj, Load, Store, BIG_TAG, BIG_CLASS, CLASS_TAG, NEW_CLASS, NULL_TAG
+from CmgrBridge import load_cmgr
 from Streams import StreamDoc, load_rooted
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, i16, u8, f64, f32, cstr, emb, base, count
 from Schema import Op, If, Rep, run_load, run_store
@@ -215,7 +216,7 @@ def document_context(archive, name, reg, version):
     kind, value = Load(model_data, 1, reg, version).read_class()
     if kind != "classdef" or value[0] not in ("moPart_c", "moAssembly_c"):
         raise ArchiveError(f"unsupported resolved model root {kind}: {value!r}")
-    manager_doc, manager_ar = load_rooted(archive.require("Contents/CMgr"), reg, 1, version)
+    manager_doc, manager_ar = load_cmgr(archive.require("Contents/CMgr"), reg, version)
     if manager_doc.tail or manager_ar.left():
         raise ArchiveError("configuration manager has unread context data")
     managers = [root for root in manager_doc.roots if isinstance(root, Obj) and root.cls == "moConfigurationMgr_c"]

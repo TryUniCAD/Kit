@@ -40,6 +40,8 @@ The implemented container uses encoded stream names and compressed data.
 A valid stream directory does not prove valid native feature records.
 A valid feature record does not establish a successful vendor rebuild.
 
+For ordinary version-19000 parts and assemblies, the SDK decodes `Contents/CMgr` as a typed graph with its own map starting at 1. Read `metadata["solidworks.typed_configuration_manager"]` for the stored configuration names, comments, IDs, actual selected pointer identities and grammar coverage. Unsupported manager profiles report a diagnostic alongside the existing portable projection. Config, resolved-feature and mate streams retain their separate admission requirements. [Typed configuration managers](../../Changes/Solidworks/Archive/SolidworksTypedConfigurationManager.md)
+
 ## Read flow
 
 ```mermaid

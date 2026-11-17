@@ -1,0 +1,40 @@
+from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
+from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
+from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Bodies.ReadScopeValue import ReadScopeValue
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+
+
+# field and mode guards must reproduce native branches without testing captured document rows
+def IsBranchTaken(
+    ContextValue: BodyContext,
+    ScopeValue: FieldScope,
+    NodeValue: ArchiveNode,
+    RuleValue: NativeField,
+) -> bool:
+    FlagsValue = ContextValue.FlagsValue
+    match RuleValue.ModeValue:
+        case "Nonzero":
+            return ReadScopeValue(ScopeValue, RuleValue.NameValue) != 0
+        case "Equals":
+            return (
+                ReadScopeValue(ScopeValue, RuleValue.NameValue) == RuleValue.MaskValue
+            )
+        case "Condition":
+            return bool(FlagsValue.get("conditions", 0) & RuleValue.MaskValue)
+        case "Context":
+            return bool(FlagsValue.get(RuleValue.NameValue, 0))
+        case "NotContext":
+            return not FlagsValue.get(RuleValue.NameValue, 0)
+        case "NotCondition":
+            return not (FlagsValue.get("conditions", 0) & RuleValue.MaskValue)
+        case "ConditionsClear":
+            return FlagsValue.get("conditions", 0) == 0
+        case "PeNoise":
+            return bool(
+                FlagsValue.get("pe_active", 0) and FlagsValue.get("pe_helper", 0)
+            ) or bool(FlagsValue.get("pe_file", 0))
+        case "Class":
+            return NodeValue.ClassValue.NameValue == RuleValue.NameValue
+        case _:
+            raise ValueError(f"unsupported native branch rule {RuleValue.ModeValue}")

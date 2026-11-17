@@ -24,7 +24,7 @@ def ReadNodeMut(ReaderValue: GraphReader) -> ArchiveNode | None:
         PartialValue(ReadTagMut, Cursor),
         PartialValue(ReadTypeDescMut, Cursor),
         PartialValue(ReaderValue.BodyReader, ReaderValue),
-        MakeArchiveNode,
+        MakeArchiveNode if ReaderValue.NodeFactory is None else ReaderValue.NodeFactory,
         Cursor.GetOffset,
     )
     ReaderValue.NestingDepth += 1

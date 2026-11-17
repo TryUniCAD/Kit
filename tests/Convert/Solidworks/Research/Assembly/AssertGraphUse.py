@@ -3,6 +3,7 @@ from subprocess import run as RunProcess
 from sys import executable as PythonExec
 
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
+from tests.Convert.Solidworks.Research.Assembly.CheckCmgrUse import CheckCmgrUse
 from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 
 
@@ -33,3 +34,4 @@ def AssertGraphUse(ParentPath: FilePath, ChildPath: FilePath) -> None:
         assert Report["passed"] is Report["proven_schemas"] is True
         assert Report["byte_identity_passed"] is Report["require_proven"] is True
         assert Report["used_provisional_schemas"] == []
+        CheckCmgrUse(Report)

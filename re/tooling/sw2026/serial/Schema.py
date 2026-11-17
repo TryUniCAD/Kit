@@ -16,7 +16,11 @@ class Usage:
         self.profile_calls = {}
         self.schemas, self.operations, self.raw_operations = [], [], []
         self.archive_sources = {}
+        self.shared_reports = []
         self.completed = False
+
+    def include_shared(self, report, ar):
+        self.shared_reports.append({**report, "source_streams": list(self.source_streams(ar))})
 
     def object_context(self, o):
         cls = o.cls if isinstance(o, Obj) else None
@@ -105,6 +109,10 @@ class Usage:
         } for (name, via, parent, cls, object_type, streams), count in self.calls.items()]
         calls.sort(key=lambda item: (item["schema"], item["via"], item["parent_schema"] or "", item["object_class"] or "", item["object_type"], item["source_streams"]))
         provisional = self.used & self.registry.tentative
+        shared_used = set()
+        for report in self.shared_reports:
+            if report["admitted"]:
+                shared_used.update(report["usage"]["used_schemas"])
         if self.completed:
             for name, records in self.profile_calls.items():
                 profile = self.registry.usage_profiles.get(name)
@@ -115,11 +123,12 @@ class Usage:
             "requested_stream": self.stream,
             "role": self.role,
             "completed": self.completed,
-            "used_schemas": sorted(self.used),
+            "used_schemas": sorted(self.used | shared_used),
             "provisional_schemas": sorted(provisional),
             "missing_schemas": sorted(self.missing),
             "schema_calls": calls,
             "raw_operations": list(self.raw_operations),
+            "shared_schema_usage": list(self.shared_reports),
         }
 
 

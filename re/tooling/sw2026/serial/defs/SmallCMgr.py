@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 from Core import ArchiveError
+from CmgrBridge import load_cmgr, store_cmgr
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, i16, u8, f64, f32, u64, obj, cstr, time32, rep, emb, base, count
 from Schema import Op, If
 from defs.ResolvedCore import vt, concept_vt, CONCEPT_LW, FEATURE_XML
 
 PLANS = {
-    "Contents/CMgr": ("rooted", 1),
+    "Contents/CMgr": ("custom", (load_cmgr, store_cmgr)),
 }
 
 

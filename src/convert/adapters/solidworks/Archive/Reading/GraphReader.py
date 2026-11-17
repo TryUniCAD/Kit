@@ -5,6 +5,8 @@ from dataclasses import dataclass as DataClass
 
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
+from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
 
 
@@ -15,3 +17,4 @@ class GraphReader:
     MapValue: ArchiveMaps
     BodyReader: Callable[[GraphReader, ArchiveNode], None]
     NestingDepth: int = 0
+    NodeFactory: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None
