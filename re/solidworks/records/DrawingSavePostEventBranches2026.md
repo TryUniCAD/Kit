@@ -47,6 +47,18 @@ therefore fail after an object allocation. The staged paired observer
 samples the exact saveDoc entry and storage validity result to distinguish
 those paths. [Storage gate observer](../../tooling/sw2026/drawing_storage_gate/InspectBlankDrawingSaveAggregateSoftwareStorageMatched.py)
 
+The paired run measures both entries and valid roots, with EAX 1 at
+`0x18001da03`. The generated failure therefore lies later in this
+call. The ordinary branch calls `writeVersion` at `0x18001da1d`
+and virtual `SaveDisplayName` at `0x18001da2b` before the owner
+virtual storage calls and the two preview-only tests.
+`SolidStorage_c::SaveDisplayName` at `0x180023000` wraps the storage
+and conditionally calls `SaveDisplayNameToStorage` at `0x180023095`.
+Its caller consumes no scalar return. REA instruction evidence
+`ev_f5df3991ead68289953e20bcbf571b126900d2248d3ac4228f8271b81cdf3efb`
+binds that routine on the pinned module.
+[Measured storage route](../measurements/2026/DrawingBlankSaveStorageGateNative01.json)
+
 REA instruction evidence `ev_3fd0415507a116177b1c456b796654bb0deec89447362f1ddbc5fb35fd05c002`,
 `ev_967a5dadd74a76025b8dd80caf3ef8d56d1777415b898d12e586db24c8c05c63`
 and `ev_fb7a567011325cc2fd03c6dc0d0b3430417e4f35f2724e57f26d581d149fb793`

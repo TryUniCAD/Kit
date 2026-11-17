@@ -41,4 +41,18 @@ The prepared private storage deck reuses the qualified debugger engine and all o
 
 The drawing override in slot `+0x3080` is `slddrwu!0x3defb790`. Its ordinary shared-save call is at `0x3defcdbb` and the typed result is ready at `0x3defcdc1`. Shared `uiModelDoc_c::saveDocument` checks the existing path at `this+0x2f8`; its helper result is tested at `slduiu!0x49725a8c` before the UI base save. The base save return is ready at `0x49725c13`. These are fallback observation sites if the storage entry is unobserved. No current measurement assigns the failure to those earlier gates.
 
-Each follow-up retains the same owned oracle identity, pinned module, COM call, path, passive brackets, native control and debugger cleanup. Distinguish an exact observed stop, a save completed with a stop unobserved, and an instrumentation failure. Current measurements qualify only the first two already traced native boundaries.
+Each follow-up retains the same owned oracle identity, pinned module, COM call, path, passive brackets, native control and debugger cleanup. Distinguish an exact observed stop, a save completed with a stop unobserved, and an instrumentation failure.
+
+## Measured storage route
+
+The normalized paired storage run observes both storage save entries at
+`+0x1b810` and both EAX values of 1 at root validity `+0x1da03`.
+Both stops retain the original save thread and a nested frame. The
+generated drawing still returns error 1 after event 7 with a zero-byte
+target. All three native reference lanes save and reopen, both
+debuggers detach cleanly and all seven process identities differ.
+
+The measured generated route has a valid storage root. The next
+paired run samples the later preview-only getters and third-party
+call entry to bound the intervening preamble.
+[Storage entry and validity receipt](../measurements/2026/DrawingBlankSaveStorageGateNative01.json)

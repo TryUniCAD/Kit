@@ -239,6 +239,9 @@ The [document return trace](measurements/2026/DrawingBlankSaveDocumentReturnNati
 observes the same document save call return 1 for the reduced-native
 drawing and 0 for the generated drawing. The internal storage and
 serialization branch remains under measurement.
+The [storage gate trace](measurements/2026/DrawingBlankSaveStorageGateNative01.json)
+observes a valid root in both lanes before the generated failure.
+Native drawing writing remains unqualified.
 The [typed UI omission comparison](measurements/2026/DrawingBlankUiOmission01.json)
 passed fourteen native phases. The reduced native document saved with its
 viewport, line tables, environment and BOM state omitted together.

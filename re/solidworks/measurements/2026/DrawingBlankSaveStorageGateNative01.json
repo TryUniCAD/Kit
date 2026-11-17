@@ -1,0 +1,128 @@
+{
+  "schema": "kit.sw2026.blank-drawing-storage-gate-native.v1",
+  "comparison_passed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "doccplu_sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+  "script_revision": "a18dcfada958195ab2d0371572b8a714ca9f7a22",
+  "packet_sha256": "bff896ec871fe3917ff4cada308f797593c0c9744bedbca12365745f48d73f4b",
+  "raw_native_result_sha256": "43511e990ee69c2b13229fce30a98c6b35745a6864b3bf60a6dc2f2396cc420a",
+  "host_transport_result_sha256": "58991bf68ba3b0cebff2edd3fcde4504dc2706752e8054d098ff9f53aa6466a9",
+  "observer_tool_sha256": {
+    "DrawingSaveAggregateDbgEng.py": "d312a5b604d40ca3c5bccac65c35ce186aea5311bc21949939aa965fa3720c3f",
+    "InspectBlankDrawingSaveAggregate.py": "b62865a6de7d9fd953655eda473b59f4bb4cd82f84585dfdfb9fba05208f3722",
+    "DrawingSaveStorageGateDbgEng.py": "15ba6e9cf6d95d426e641ee8ae70c588bfa67b3a9c07f2d40615e00e11f3c4d3",
+    "InspectBlankDrawingSaveAggregateSoftwareStorageMatched.py": "2a7f4e058c449da811e54247652361a42d2d7cb63fe6844ccfb802c895c7fec0"
+  },
+  "controls_healthy": true,
+  "native_processes": 7,
+  "inputs_immutable": true,
+  "same_physical_paths": true,
+  "transport_exit_code": 0,
+  "lanes": [
+    {
+      "lane": "ControlBefore",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 19061
+      },
+      "fresh_reopen_passed": true,
+      "trace": null
+    },
+    {
+      "lane": "ReducedNative",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 18362
+      },
+      "fresh_reopen_passed": true,
+      "trace": {
+        "listener_aggregate": 0,
+        "storage_entry_rva": "0x1b810",
+        "storage_entry_observed": true,
+        "validity_rva": "0x1da03",
+        "validity_eax": 1,
+        "same_save_thread_and_nested_frame": true,
+        "clean_detach": true
+      }
+    },
+    {
+      "lane": "Generated",
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7
+      ],
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 0
+      },
+      "fresh_reopen_passed": false,
+      "trace": {
+        "listener_aggregate": 0,
+        "storage_entry_rva": "0x1b810",
+        "storage_entry_observed": true,
+        "validity_rva": "0x1da03",
+        "validity_eax": 1,
+        "same_save_thread_and_nested_frame": true,
+        "clean_detach": true
+      }
+    },
+    {
+      "lane": "ControlAfter",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 19090
+      },
+      "fresh_reopen_passed": true,
+      "trace": null
+    }
+  ]
+}

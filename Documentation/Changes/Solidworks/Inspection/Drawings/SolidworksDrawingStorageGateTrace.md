@@ -15,10 +15,15 @@ then save and reopen cleanly, before the generated comparison. The
 results distinguish an observed storage result, a completed save with
 an armed site unobserved, and debugger failure.
 
-The host custody check passed. The native storage comparison is pending.
+Both traced lanes reached the storage save entry and returned EAX 1
+at root validity in the original thread and a nested save frame.
+The generated blank still returned error 1 with a zero-byte target.
+All three reference lanes saved and reopened. Both traced debugger
+detachments passed across seven distinct native processes.
 [Storage observer](../../../../../re/tooling/sw2026/drawing_storage_gate/InspectBlankDrawingSaveAggregateSoftwareStorageMatched.py) · [Owned debugger](../../../../../re/tooling/sw2026/drawing_storage_gate/DrawingSaveStorageGateDbgEng.py) · [Measured document return](../../../../../re/solidworks/measurements/2026/DrawingBlankSaveDocumentReturnNative01.json)
 
 The [pinned gate map](../../../../../re/solidworks/records/DrawingSaveStorageGates2026.md)
 records allocation before root validation and the downstream preview
 and XML boundaries. The [empty-target observation](../../../../Gotchas/Conversion/Solidworks/Oracle/Drawings/EmptySaveTargetPrecedesStorageValidation.md)
 preserves the distinction between a created file and a measured storage root.
+[Measured storage entry and validity](../../../../../re/solidworks/measurements/2026/DrawingBlankSaveStorageGateNative01.json)
