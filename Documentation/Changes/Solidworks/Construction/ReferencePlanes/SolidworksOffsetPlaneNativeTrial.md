@@ -1,0 +1,9 @@
+# Controlled generated offset-plane native trial
+
+[PrepareGeneratedReferencePlane.py](../../../../../re/tooling/sw2026/PrepareGeneratedReferencePlane.py) freezes the first generated offset-plane discovery trial from an immutable guarded build, the exact qualified disclosed Front control and a declared mounted guest path. It verifies the full frozen generator code manifest and four writer hashes, binds the actual committed writer revision, copies the existing source-qualified COM helpers and checks the generated file identity against its actual native input path.
+
+Use the preparer with absolute build, source-packet and unused output directories, plus `--guest-root`, `--writer-revision` and a positive `--edit-distance-m`. Its frozen [observer](../../../../../re/tooling/sw2026/InspectGeneratedReferencePlane.py) supports `verify Trial.json --packet-sha256 SHA` without CAD activation. Root alone runs `run` inside the reserved Windows guest.
+
+The four fresh native phases are a disclosed control, generated open/rebuild/distance edit/native save, fresh edited reopen and another disclosed control. The observer records initial body/mass/rebuild state, every API call, the complete measured feature tree, selected principal parent, actual plane/radius/depth bindings and cylinder geometry against independent formulas. A candidate failure still reaches the trailing control. Inputs and saved output are hash checked; zero native errors and warnings, four independent process identities, healthy brackets and immutable inputs are required for a passing batch.
+
+The [construction ledger](../../../../../re/solidworks/records/ReferencePlaneOffsetConstruction2026.md) distinguishes proven inputs from fresh constructor-cache states. Local verification covers syntax, prediction and packet custody only. No native result or hidden qualification is established by preparing or verifying the packet, and both held-out designs remain sealed.
