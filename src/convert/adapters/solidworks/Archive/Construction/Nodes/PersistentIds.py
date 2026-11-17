@@ -10,6 +10,7 @@ class PersistentIds:
 
     # explicit reservations preserve the target allocator boundary without deriving identifiers from saved documents
     def __init__(self, NextValue: int = 0, Reserved: tuple[int, ...] = ()) -> None:
+        super().__init__()
         CheckIdSeed(NextValue, Reserved)
         self.CounterValue = NextValue
         self.ReservedSet = frozenset(Reserved)

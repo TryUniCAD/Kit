@@ -28,7 +28,9 @@ def InitNodeMut(
             )
     elif type(NameValue) is not str or not NameValue or "\x00" in NameValue:
         raise ValueError("node names must be nonempty strings without null characters")
-    if Allocator is not None and not isinstance(Allocator, PersistentIds):
+    if Allocator is not None and not isinstance(
+        CastValue(object, Allocator), PersistentIds
+    ):
         raise TypeError("node registration requires the shared persistent allocator")
     NameNode = (
         None
