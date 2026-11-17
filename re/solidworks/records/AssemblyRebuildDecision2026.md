@@ -92,3 +92,12 @@ warning call site and the full relationship among child header state, saved
 reference fields and other load-time conditions remain unproved. A writer
 has to emit mutually consistent component and parent state from its model;
 it cannot use the native save procedure at runtime.
+
+The [paired generated-input comparison](../measurements/2026/GeneratedOccurrenceSaveComparison02.json)
+uses the same generated parent and child hashes for both lanes. The loaded child update stamp advances
+from 117 to 132 in both rebuilds. A parent-only save leaves the child bytes unchanged. Its parent reopens
+with warning 32, a parent rebuild flag and a child at stamp 117. Saving the rebuilt child first preserves
+132 on fresh reopen, with zero warning and zero rebuild flags in both documents. All four candidate
+phases have the same rebuilt geometry and tree and the four bracketing controls pass. This qualifies
+the measured one-occurrence synchronized save path. The exact caller of the regeneration decision
+and broader assembly behaviors still need separate evidence.

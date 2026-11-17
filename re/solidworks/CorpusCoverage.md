@@ -159,8 +159,11 @@ The [first generated populated assembly](measurements/2026/GeneratedSingleOccurr
 then opened, resolved its generated child, rebuilt and saved with zero errors and warnings.
 Both generated and freshly reopened phases rebuilt with the same 23-node feature tree and one-body geometry,
 passing all 42 numeric checks. The saved derivative returned warning 32 on fresh open between healthy controls.
-This result is a partial diagnostic for one occurrence. Full native acceptance needs a warning-free reopen,
-and the production counts remain 0/165 parts and 0/5 assemblies.
+In a [paired save comparison](measurements/2026/GeneratedOccurrenceSaveComparison02.json), the same
+generated inputs reopened without warning or rebuild requirements after saving the rebuilt child and
+parent in order. The parent-only lane reproduced warning 32. Both lanes matched the same 23-node tree
+and one-body geometry, with 84 numeric checks and four healthy controls. This adds one generated
+single-occurrence research case. The production counts remain 0/165 parts and 0/5 assemblies.
 
 ## Last audit of the removed writer
 
