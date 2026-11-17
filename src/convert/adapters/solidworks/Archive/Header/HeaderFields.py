@@ -1,6 +1,7 @@
-from struct import Struct
 from types import MappingProxyType
 from typing import TypeAlias
+
+from convert.adapters.solidworks.Archive.Scalars.ScalarWords import KScalarWords
 
 # header field rules provide the same wire order to both archive directions
 KHeaderLayout: TypeAlias = tuple[tuple[str, str], ...]
@@ -8,9 +9,12 @@ KHeaderLayout: TypeAlias = tuple[tuple[str, str], ...]
 # the current header graph has a single qualified model archive version
 KHeaderVersion = 19000
 
-# scalar types determine width and signedness independently from present values
+# header layout names retain their original scalar signedness in the shared vocabulary
+KHeaderScalars = MappingProxyType({"B": "u8", "H": "u16", "I": "u32", "i": "i32"})
+
+# header bounds and fields share the same scalar widths as every native archive owner
 KHeaderWords = MappingProxyType(
-    {"B": Struct("<B"), "H": Struct("<H"), "I": Struct("<I"), "i": Struct("<i")}
+    {WireName: KScalarWords[KindName] for WireName, KindName in KHeaderScalars.items()}
 )
 
 # native metadata separates external identities and bounds from scalar words

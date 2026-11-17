@@ -133,6 +133,11 @@ derive Unicode payloads and length headers from supplied text.
 They preserve source encoding explicitly during reconstruction and reject repeated Unicode markers.
 The [2026 string record](../../../re/solidworks/records/CStringArchive2026.md) distinguishes ordinary framing from excluded DB and ANSI semantic behavior.
 The research archive uses this production layer directly.
+The [shared scalar layer](../../Changes/Solidworks/Model/SolidworksSharedArchiveScalars.md)
+owns signed and unsigned integer widths and the two IEEE floating
+widths. The research field executor and SDK header fields call
+those same little-endian codecs. The linked-graph census records
+the remaining body grammar owners and qualification boundaries.
 The [complete modeled-archive process check](../../Changes/Solidworks/Model/SolidworksStringArchiveProcesses.md)
 adds two-process string boundary and malformed-frame checks without a donor container or saved-stream passthrough.
 Its first remote execution passes ten positive cases and three malformed-frame controls; reduced containers establish archive compatibility only.

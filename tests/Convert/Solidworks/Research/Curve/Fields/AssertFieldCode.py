@@ -52,7 +52,7 @@ def AssertFieldCode(Report: dict[str, object]) -> None:
         }
         | {
             SourcePath.relative_to(KRepoRoot).as_posix()
-            for FolderName in ("Maps", "Objects")
+            for FolderName in ("Maps", "Objects", "Scalars")
             for SourcePath in (
                 KRepoRoot / "src/convert/adapters/solidworks/Archive" / FolderName
             ).glob("*.py")

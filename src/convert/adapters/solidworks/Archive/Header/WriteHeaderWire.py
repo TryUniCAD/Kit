@@ -4,6 +4,7 @@ from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Header.HeaderFields import (
     KHeaderLayout,
+    KHeaderScalars,
     KHeaderWords,
 )
 from convert.adapters.solidworks.Archive.Header.ReadHeaderBounds import KHeaderBox
@@ -13,6 +14,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 from convert.adapters.solidworks.Archive.Objects.WriteObjectMut import WriteObjectMut
 from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
 from convert.adapters.solidworks.Archive.Strings.EncodeString import EncodeString
+from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
 
 # a typed string supplies its text and encoding while the codec computes its length
@@ -66,13 +68,13 @@ def StoreFieldsMut(
 ) -> None:
     for FieldName, WireName in LayoutValue:
         Value = Fields[FieldName]
-        Scalar = KHeaderWords.get(WireName)
-        if Scalar is not None:
+        ScalarKind = KHeaderScalars.get(WireName)
+        if ScalarKind is not None:
             if not isinstance(Value, int) or isinstance(Value, bool):
                 raise ValueError(
                     f"SOLIDWORKS header requires an integer for {FieldName}"
                 )
-            Buffer.extend(Scalar.pack(Value))
+            Buffer.extend(EncodeScalar(Value, ScalarKind))
         elif WireName == "text":
             StoreTextMut(Buffer, Value)
         elif WireName == "bounds":

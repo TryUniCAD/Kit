@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import struct
+from struct import error as StructError
 
 from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
 from convert.adapters.solidworks.Archive.Counts.ReadCount import ReadCount
@@ -19,6 +19,8 @@ from convert.adapters.solidworks.Archive.Objects.ReadTypeMut import ReadTypeMut
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Objects.WriteClassMut import WriteClassMut
 from convert.adapters.solidworks.Archive.Objects.WriteObjectMut import WriteObjectMut
+from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
+from convert.adapters.solidworks.Archive.Scalars.ReadScalar import ReadScalar
 from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
 from convert.adapters.solidworks.Archive.Strings.EncodeString import EncodeString
 from convert.adapters.solidworks.Archive.Strings.ReadString import ReadString
@@ -33,12 +35,6 @@ CLASS_TAG = 0x8000
 BIG_TAG = 0x7FFF
 BIG_CLASS = 0x80000000
 DOCUMENT_VERSION_2026 = 19000
-
-PRIMS = {
-    "u8": "<B", "i8": "<b", "u16": "<H", "i16": "<h", "u32": "<I", "i32": "<i",
-    "u64": "<Q", "i64": "<q", "f32": "<f", "f64": "<d",
-}
-
 
 class ArchiveError(Exception):
     pass
@@ -161,12 +157,11 @@ class Load(ArchiveState):
         return len(self.b) - self.p
 
     def prim(self, kind):
-        fmt = PRIMS[kind]
-        n = struct.calcsize(fmt)
-        if self.p + n > len(self.b):
-            raise ArchiveError(f"eof reading {kind} at {self.p}")
-        v = struct.unpack_from(fmt, self.b, self.p)[0]
-        self.p += n
+        try:
+            v, position = ReadScalar(self.b, self.p, kind)
+        except StructError as error:
+            raise ArchiveError(f"eof reading {kind} at {self.p}") from error
+        self.p = position
         return v
 
     def raw(self, n):
@@ -260,7 +255,7 @@ class Store(ArchiveState):
         return {id(entry.EntryValue): entry.EntryValue for entry in self._maps.EntryMap.values() if isinstance(entry.EntryValue, ArchiveNode)}
 
     def prim(self, kind, v):
-        self.out += struct.pack(PRIMS[kind], v)
+        self.out += EncodeScalar(v, kind)
 
     def raw(self, v):
         self.out += v

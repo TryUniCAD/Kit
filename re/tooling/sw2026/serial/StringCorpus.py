@@ -65,7 +65,9 @@ def SourceProof():
         "RoundTrip.py", "FieldScan.py", "Dsl.py", "AnnotationWire.py", "MapBridge.py",
     )]
     Files.extend(sorted((HERE / "defs").glob("*.py")))
-    for Folder in ("Archive/Counts", "Archive/Strings", "Archive/Tags", "Archive/Objects", "Archive/Maps", "Container"):
+    Files.extend(ROOT / "src/convert/adapters/solidworks/Archive/Header" / Item
+                 for Item in ("HeaderFields.py", "HeaderRefNodes.py", "ReadHeadItems.py"))
+    for Folder in ("Archive/Counts", "Archive/Strings", "Archive/Tags", "Archive/Objects", "Archive/Maps", "Archive/Scalars", "Container"):
         Files.extend(sorted((ROOT / "src/convert/adapters/solidworks" / Folder).rglob("*.py")))
     return [{"file": str(Item.relative_to(ROOT)), "sha256": Digest(Item.read_bytes())} for Item in sorted(set(Files))]
 

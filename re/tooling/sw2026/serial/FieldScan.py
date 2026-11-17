@@ -314,7 +314,7 @@ def inventory_main():
             ROOT / "src/convert/adapters/solidworks/Archive/Header/HeaderFields.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Header/HeaderRefNodes.py",
             ROOT / "src/convert/adapters/solidworks/Archive/Header/ReadHeadItems.py",
-            *[path for folder in ("Maps", "Objects") for path in sorted((ROOT / "src/convert/adapters/solidworks/Archive" / folder).glob("*.py"))],
+            *[path for folder in ("Maps", "Objects", "Scalars") for path in sorted((ROOT / "src/convert/adapters/solidworks/Archive" / folder).glob("*.py"))],
         ]],
         "passed": bool(records) and all(item["passed"] for item in records),
     }

@@ -30,6 +30,8 @@ def table_size(node):
 def codec_sources():
     paths = sorted((ARCHIVE / "Header").glob("*.py"))
     paths.append(ARCHIVE / "Reading/ReadNativeText.py")
+    paths.append(ARCHIVE / "Reading/ReadNativeScalar.py")
+    paths.extend(sorted((ARCHIVE / "Scalars").glob("*.py")))
     return {path.relative_to(ROOT).as_posix(): digest(path.read_bytes()) for path in paths}
 
 
