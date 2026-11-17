@@ -22,7 +22,7 @@ SCRIPT = Path(__file__).resolve()
 SCHEMA = "kit.sw2026.offset-plane-source-phases.v1"
 TOOLS = ("AuthorCurves.py", "AuthorAssemblySources.py", "InspectFresh.py", "InspectCircleSketch.py", "ObserveAssemblyLoad.py", "OracleIdentity.py", "Swapp.py",
          "NestedAssemblySourcePlan.py", "AuthorNestedAssemblySources.py", "RunSealedNestedSourcePhase.py",
-         "ReferencePlaneSourcePlan.py", "AuthorReferencePlaneSources.py", SCRIPT.name)
+         "ReferencePlaneSourcePlan.py", "ReferencePlaneDimensions.py", "AuthorReferencePlaneSources.py", SCRIPT.name)
 PHASES = ("metadata", "before", "author", "reopen", "after", "lock", "seal")
 
 

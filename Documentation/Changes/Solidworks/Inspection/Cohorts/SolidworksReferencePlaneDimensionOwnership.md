@@ -1,0 +1,9 @@
+# Offset-plane source dimension ownership
+
+The first disclosed offset-plane source authored the requested plane, circle and boss with matching independent geometry, then failed its radius observation before saving. A later first-display query produced the plane-distance value. The failed return's parameter name and object identity were not recorded, so the precise binding cause remains unqualified. Healthy native controls bracket this failed attempt.
+
+[ReferencePlaneDimensions.py](../../../../../re/tooling/sw2026/ReferencePlaneDimensions.py) adds explicit registered feature/dimension dispatch, named parameter ownership, bounded display traversal, native/canonical identity checks and an independent circle-radius query. The updated [source author](../../../../../re/tooling/sw2026/AuthorReferencePlaneSources.py) retains every original scalar and geometry predicate. The [phase freezer](../../../../../re/tooling/sw2026/ReferencePlaneSourcePhase.py) includes the new helper and freezes an independent retry packet; the original packet and raw records remain unchanged.
+
+Use the new packet's frozen verifier, then its metadata-only preflight. Review the additional exact-build interface and enum declarations before authoring `D01`. Continue native author/edit/save/fresh-reopen with healthy controls; hidden source generation remains gated on all disclosed source phases. No writer is enabled by this observer change.
+
+The [record](../../../../../re/solidworks/records/ReferencePlaneDimensionOwnership2026.md) and [sanitized receipt](../../../../../re/solidworks/measurements/2026/ReferencePlaneDimensionOwnershipRetry01.json) bind the original controlled failure and new frozen identities. Python parsing, the independent frozen verifier, unchanged disclosed inputs/control and preservation of the original author hash passed offline. The retry's native binding and source qualification are pending. No held-out source was read or evaluated.

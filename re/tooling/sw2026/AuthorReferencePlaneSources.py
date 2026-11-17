@@ -25,18 +25,26 @@ def metadata():
             for index in range(library.GetTypeInfoCount()):
                 info = library.GetTypeInfo(index)
                 name = info.GetDocumentation(-1)[0]
-                if name in ("IFeatureManager", "IRefPlaneFeatureData", "IRefPlane"):
+                wanted = {
+                    "IFeatureManager": ("InsertRefPlane",),
+                    "IRefPlaneFeatureData": ("Constraint", "Reference", "AngleOrDistance", "Type", "Type2", "Distance", "Angle", "ReversedReferenceDirection", "AccessSelections", "ReleaseSelectionAccess"),
+                    "IRefPlane": ("Transform",),
+                    "IFeature": ("Name", "GetTypeName2", "GetFirstDisplayDimension", "GetNextDisplayDimension", "GetSpecificFeature2"),
+                    "IDimension": ("FullName", "SystemValue", "DrivenState", "ReadOnly"),
+                    "IDisplayDimension": ("GetDimension2", "Type2"),
+                    "ISldWorks": ("IsSame",),
+                }
+                if name in wanted:
                     selected = []
                     for ordinal in range(info.GetTypeAttr().cFuncs):
                         descriptor = info.GetFuncDesc(ordinal)
                         names = tuple(info.GetNames(descriptor.memid))
-                        keep = names and (names[0] == "InsertRefPlane" if name == "IFeatureManager" else names[0] in
-                                          ("Constraint", "Reference", "AngleOrDistance", "Type", "Type2", "Distance", "Angle", "ReversedReferenceDirection", "Transform", "AccessSelections", "ReleaseSelectionAccess"))
+                        keep = names and names[0] in wanted[name]
                         if keep:
                             selected.append({"names": list(names), "member_id": descriptor.memid, "invoke_kind": descriptor.invkind,
                                              "arguments": repr(descriptor.args), "return_type": repr(descriptor.rettype)})
                     members[name] = {"guid": str(info.GetTypeAttr()[0]), "members": selected}
-                if library_name == "swconst" and name in ("swRefPlaneReferenceConstraints_e", "swRefPlaneReferenceIndex_e", "swRefPlaneType_e"):
+                if library_name == "swconst" and name in ("swRefPlaneReferenceConstraints_e", "swRefPlaneReferenceIndex_e", "swRefPlaneType_e", "swObjectEquality", "swDimensionType_e"):
                     values = {}
                     for ordinal in range(info.GetTypeAttr().cVars):
                         constant = info.GetVarDesc(ordinal)
@@ -51,6 +59,12 @@ def metadata():
                 constraints["swRefPlaneReferenceConstraint_OptionFlip"] == 256, "registered reference-plane constraint codes differ")
         for name in ("Constraint", "Reference", "AngleOrDistance"):
             require(any(row["names"][0] == name and row["invoke_kind"] == 2 for row in members["IRefPlaneFeatureData"]["members"]), "indexed reference-plane property is unavailable")
+        require(enums["swObjectEquality"]["swObjectSame"] == 1 and enums["swObjectEquality"]["swObjectNotSame"] == 0 and
+                enums["swObjectEquality"]["swObjectUnsupported"] == 2, "registered native object identity states differ")
+        require(all(name in enums["swDimensionType_e"] for name in ("swRadialDimension", "swLinearDimension")), "registered radial or linear display dimension kind is absent")
+        for interface, names in wanted.items():
+            require(interface in members and all(any(row["names"][0] == name for row in members[interface]["members"]) for name in names),
+                    "registered dimension ownership interface is incomplete")
         return {"schema": "kit.sw2026.reference-plane-api-metadata.v1", "libraries": {name: {
                     "guid": str(value.GetLibAttr()[0]), "major": value.GetLibAttr()[3], "minor": value.GetLibAttr()[4]} for name, value in libraries.items()},
                 "interfaces": members, "enums": enums, "native_processes_started": 0, "passed": True}
@@ -132,13 +146,10 @@ class PlaneAuthor(CurveAuthor):
         require(self.get(self.model, "ForceRebuild3", False), "native source rebuild failed")
 
     def plane_dimension(self):
-        plane = self.get(self.model, "FeatureByName", PLANE)
-        require(plane is not None, "authored reference plane is absent")
-        display = self.get(plane, "GetFirstDisplayDimension")
-        require(display is not None, "authored offset plane has no editable distance display")
-        dimension = self.get(display, "GetDimension2", 0)
-        require(dimension is not None and int(self.get(dimension, "DrivenState")) == 2, "plane distance dimension is not driving")
-        return dimension
+        from ReferencePlaneDimensions import dimension
+
+        parameter, binding = dimension(self, PLANE, "distance")
+        return parameter
 
     def edit_plane(self, value):
         dimension = self.plane_dimension()
@@ -149,10 +160,11 @@ class PlaneAuthor(CurveAuthor):
 
     def snapshot(self, case, edited=False):
         from AuthorAssemblySources import feature_tree
+        from ReferencePlaneDimensions import circle_geometry, dimension, feature
 
         wanted = geometry(case, edited)
-        sketch_feature = self.get(self.model, "FeatureByName", SKETCH)
-        plane = self.get(self.model, "FeatureByName", PLANE)
+        sketch_feature = feature(self, SKETCH)
+        plane = feature(self, PLANE)
         boss = self.get(self.model, "FeatureByName", BOSS)
         require(all(value is not None for value in (sketch_feature, plane, boss)), "native source lost a required feature")
         self.sketch = self.get(sketch_feature, "GetSpecificFeature2")
@@ -187,14 +199,13 @@ class PlaneAuthor(CurveAuthor):
         self.rec.close_number("feature-data offset distance", distance, wanted["distance_m"])
         parents = [{"name": str(self.get(value, "Name")), "type": str(self.get(value, "GetTypeName2"))} for value in self.get(plane, "GetParents") or ()]
         require({"name": BASE_NAMES[case["base"]], "type": "RefPlane"} in parents, "source plane does not retain its selected principal parent")
-        plane_dimension = self.plane_dimension()
+        plane_dimension, plane_binding = dimension(self, PLANE, "distance", wanted["distance_m"])
         plane_value = float(self.get(plane_dimension, "SystemValue"))
         self.rec.close_number("plane driving distance", plane_value, wanted["distance_m"])
-        radius_display = self.get(sketch_feature, "GetFirstDisplayDimension")
-        require(radius_display is not None, "circle radius dimension is absent")
-        radius_dimension = self.get(radius_display, "GetDimension2", 0)
+        radius_dimension, radius_binding = dimension(self, SKETCH, "radius", wanted["radius_m"], "curve-0")
         radius_value = float(self.get(radius_dimension, "SystemValue"))
         self.rec.close_number("circle driving radius", radius_value, wanted["radius_m"])
+        circle = circle_geometry(self, sketch_feature, wanted["radius_m"])
         depth_dimension = self.get(self.model, "Parameter", "D1@" + BOSS)
         require(depth_dimension is not None, "boss depth dimension is absent")
         depth = float(self.get(depth_dimension, "SystemValue"))
@@ -209,5 +220,6 @@ class PlaneAuthor(CurveAuthor):
                           "transform": [float(value) for value in self.get(transform, "ArrayData")],
                           "dimension": {"name": str(self.get(plane_dimension, "FullName")), "value_m": plane_value}},
                 "sketch_world_origin": origin, "sketch_world_normal": normal,
+                "dimension_bindings": {"plane": plane_binding, "radius": radius_binding}, "circle_geometry": circle,
                 "driving_dimensions_m": {"radius": radius_value, "plane_distance": plane_value, "boss_depth": depth},
                 "update_stamp": int(self.get(self.model, "GetUpdateStamp"))}
