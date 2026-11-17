@@ -70,6 +70,8 @@ See [feature resolution](SolidworksFeatures.md) for the observed grammar.
 
 For an ordinary SOLIDWORKS 2026 sketch, the reader matches the complete principal-plane handle inside its resolved-feature span. The model's actual persistent ID, axis kind and basis establish the sketch's support. Use `open_document(path, include_brep=False)` to inspect those history relationships without requesting cached body geometry. [Principal-plane reference change](../../Changes/Solidworks/SolidworksPrincipalPlaneReferences.md)
 
+For an ordinary dimensioned rectangle, the reader verifies the owned straight line ring and empty arc array. The sketch retains separate driving width and height, and the topology summary follows the actual profile bounds. [Rectangle sketch ownership](../../Changes/Solidworks/Inspection/SolidworksRectangleSketchOwnership.md)
+
 The `moCompFeature_c` record supplies feature-tree ordering information in the documented research families.
 Do not infer rebuild order from physical stream order alone.
 Boss and cut behavior can depend on several related records.

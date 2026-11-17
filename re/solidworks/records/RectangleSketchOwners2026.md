@@ -1,0 +1,23 @@
+# Linear rectangle ownership in SOLIDWORKS 2026 sketches
+
+The public reader previously added a circle to a dimensioned four-line rectangle. For the 18.5 × 24.8 mm offset rectangle, it interpreted the right-hand edge endpoints as a circle centre and rim, then reassigned D2 to radius. A disclosed vendor-authored rectangle, L1, showed the same result. The error affected the exact profile topology, D2 relation, and the axis-aligned summary bounds. [Original probe receipt](../measurements/2026/GeneratedPrismPartitionSdk01.json).
+
+## Typed owners
+
+The classifier's `05000100` is at relative offset 23 from the entity visibility marker. It is the shared `sg2DEnt` style pair `f30=5`, `f34=1`. The nearby heuristic native-kind integer is the `sg2DEnt.f20` reference count. Neither value identifies the actual primitive. The primitive is identified by the array owned by `sgSketch`, which reads separate counts and embedded records for points, lines, texts, hatches and arcs in that order. [Typed archive entities and collections](../../tooling/sw2026/serial/defs/ResolvedSketch.py).
+
+| Witness on the 19000 layout | Typed point records | Typed line or arc evidence |
+| --- | --- | --- |
+| Generated offset rectangle | `sgSketch` starts at 5301. False circle markers 5493 and 5655 lie eight bytes into point records `[5485,5645)` and `[5647,5807)`. Their slot IDs are 2 and 3. | Line row `[6067,6157)` owns compact endpoints 1 and 2, using zero-based array indices. Four typed line rows end at 6341. The following `ntexts`, `nhatches`, `narcs` words at 6341, 6345 and 6349 are zero. |
+| Disclosed L1 rectangle | `sgSketch` starts at 6041. The false markers 6233 and 6395 are inside the same point roles. | Typed line row `[6807,6897)` binds the same 1 and 2 slots. `npoints=4`, `nlines=4`, `narcs=0`. |
+| Native ControlCircle | `sgSketch` starts at 6049. Two actual point rows supply centre 0 and rim 1. | `narcs=1`, `sgArc` row `[6380,6490)` owns `fc8=fcc=1`, `fdc=0`. |
+| Native D19 annulus | Three point rows share centre 0. | `narcs=2`, arc rows `[6532,6642)` and `[6644,6754)` bind rims 1 and 2 to centre 0. |
+| Native D23 capsule | Six point rows serve both line and curve endpoints. | The two-line array precedes `narcs=2`. The two arc rows start at 7218 and 7330 and own different triples of start, finish and centre slots. |
+
+Offsets come from independently tracing the typed 2026 registry and the public visible marker parser on the same generated and disclosed archives. Point/line record headers carry `kind` or `flags` as `u16`, followed by `sg2DEnt.f08` and `f0c` as signed 32-bit values. In the admitted branch `dflt=0`, the external and group object tags are null, the entity flag words are 4 and 0, and the name tag is absent. This gives a 64-byte common span from `sg2DEnt` visibility to the primitive fields. `sgPoint` has 2D flags and finite coordinates. Ordinary `sgLine` has short endpoint slots followed by the two segment flag words, tolerance and 16-bit tail. With the ten-byte record header its width is 92 bytes. These field-width rules determine where to read the next array counts. [Reader](../../../src/convert/adapters/solidworks/Core/LinearSketchOwner.py).
+
+The production reader suppresses circle inference in the admitted branch with a verified 19000 principal support, four ordinary point rows, four fixed line rows forming a closed ring, and zero intervening texts, hatches and arcs. Existing circle evidence remains eligible outside that exact branch. No coordinate-based filter is used for arcs whose point roles can coincide with line endpoints. The 14000 archive `CULATA_IZQUIERDO.SLDPRT` retains the one circle and four rectangles of `Croquis7`. Other point styles, construction helpers and layouts continue through their existing readers.
+
+## Readback
+
+The three generated partition probes and the disclosed native A13 rectangular child yield one four-line closed profile, two linear constraints (`distance_x`, `distance_y`), and the expected bounds. The default generated assembly read also resolves its exact solid from the same child archive. Two circles remain in the actual D19 annulus. The four [public reader integration checks](../../../tests/Convert/Solidworks/Core/SolidworksRectangleReaderTests.py) cover those paths and the older mixed sketch. Comparing with revision `3c17262762ed465e4a29125dee46dfd38b696528` preserved public model projections on ten contemporary and older controls, including real mixed profiles. Regeneration kept every parent, both child variants, and all partition hashes identical across the three cases. The [comparison receipt](../measurements/2026/RectangleSketchOwnersSdk01.json) retains both A13 observations and the unchanged controls.

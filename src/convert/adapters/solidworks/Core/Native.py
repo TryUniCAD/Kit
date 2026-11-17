@@ -29,7 +29,8 @@ from convert.adapters.solidworks.Container.Format import (
     SERIALIZED_STRING_MARKER as SerializedStringMarker,
     dimension_scalar_value_offset as DimensionScalarValue,
 )
-from convert.adapters.solidworks.Core.PlaneRefRecord import FindPlaneRef
+from convert.adapters.solidworks.Core.LinearSketchOwner import HasLineOnlyRect
+from convert.adapters.solidworks.Core.PlaneRefRecord import FindPlaneRef, KHandleVersion
 from convert.adapters.solidworks.Resolved.Core import (
     ANGLE_COPY_DELTAS as AngleCopyDeltas,
     DEPTH_COPY_DELTAS as DepthCopyDeltas,
@@ -2859,8 +2860,16 @@ def DecodeSketch(
     Start = Feature.native_offset or 0
     EndValue = Feature.native_end or len(DataValue)
     Markers = list(ParseMarkers(DataValue, Start, EndValue))
+    LineOnly = (
+        SupportPlane is not None
+        and DataValue[SupportPlane.offset - len(KHandleVersion) : SupportPlane.offset]
+        == KHandleVersion
+        and HasLineOnlyRect(
+            DataValue, tuple(Marker.offset for Marker in Markers), Start, EndValue
+        )
+    )
     ProfileValues, ProfileMarkers, Dimensions = DecodeProfiles(
-        Markers, Feature.dimensions
+        Markers, Feature.dimensions, LineOnly=LineOnly
     )
     NormalizedMarkers = tuple(
         (
@@ -3428,12 +3437,17 @@ def AppendRectsMut(
 
 # this definition exists because focused behavior needs one stable owner
 def DecodeProfiles(
-    Markers: list[NativeMarker], Dimensions: tuple[NativeDimension, ...]
+    Markers: list[NativeMarker],
+    Dimensions: tuple[NativeDimension, ...],
+    *,
+    LineOnly: bool = False,
 ) -> tuple[tuple[NativeProfile, ...], set[int], tuple[NativeDimension, ...]]:
     LinkedRectangles, LinkedMarkers = LinkedRectangle(Markers)
     StructuralRectangles, StructuralRectangle = StructuralA(Markers, LinkedMarkers)
-    StructuralCircles, StructuralMarkers, StructuralDimensions = Structural(
-        Markers, Dimensions, LinkedMarkers | StructuralRectangle
+    StructuralCircles, StructuralMarkers, StructuralDimensions = (
+        ((), set[int](), {})
+        if LineOnly
+        else Structural(Markers, Dimensions, LinkedMarkers | StructuralRectangle)
     )
     StructuralPolylines, StructuralPolylineMarkers = PolyProfiles(
         Markers, LinkedMarkers | StructuralRectangle | StructuralMarkers
@@ -3447,7 +3461,9 @@ def DecodeProfiles(
     RemainingMarkers = [
         Marker for Marker in Markers if Marker.offset not in ExcludedMarkers
     ]
-    CircleProfileValues, CircleDimensions = CircleSet(RemainingMarkers, Dimensions)
+    CircleProfileValues, CircleDimensions = (
+        ((), {}) if LineOnly else CircleSet(RemainingMarkers, Dimensions)
+    )
     CircleDimensions.update(StructuralDimensions)
     Normalized = tuple(
         (

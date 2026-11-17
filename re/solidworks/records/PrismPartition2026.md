@@ -2,6 +2,11 @@
 
 The default SDK read resolved a validated exact solid in all three generated assembly pairs. The initial sketch reader added one false circle and reclassified the height relation as radius in both read modes. The controlled native comparison rejected the cache-bearing variant at open with warning 32.
 
+The [typed rectangle ownership check](RectangleSketchOwners2026.md) subsequently
+corrected the sketch geometry, driving constraints and bounds for all three
+SDK reads. The experiment's generated files and independent B-rep measurements
+are pinned in both receipts.
+
 ## Generation and provenance
 
 The [isolated process](../../tooling/sw2026/AssemblyPartitionProcess.py) constructs the existing indexed assembly and an ordinary dimensioned child. It reads the four edges from the actual local `sgLine` endpoints, the placement from the sketch frame, and the depth from the actual forward blind boss parameter. It converts metres to millimetres, constructs the exact prism from the four lines, and sends it to `EncodeBrep(partition=True)` and `EncodePartition`. Its temporary neutral body identifier names the extrusion's actual `f08`. The SDK derives a separate design-body-to-feature link from the independent archive history. The payload carries its own topology record indices and none of the SOLIDWORKS-specific feature attributes. [Prism geometry](../../../src/convert/Geometry/Extrude/Polygon/PolygonExtrude.py), [partition API](../../../src/convert/adapters/solidworks/Container/Parasolid.py), and [history read](../../../src/convert/adapters/solidworks/Core/Adapter.py).
