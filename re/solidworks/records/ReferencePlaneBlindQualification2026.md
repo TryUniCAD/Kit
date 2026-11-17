@@ -44,7 +44,7 @@ Before the original cases, the Windows-generated D03 disclosed control passed
 the same four-process native comparison. The preceding cross-runtime typed
 diagnostic localized the distinct macOS and Windows output hashes to eight
 near-zero standard-view coefficients in Config-0. The nine other streams
-matched exactly. [Runtime coefficient gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/ConfigViewCoefficientsVaryByRuntime.md)
+matched exactly. [Runtime coefficient gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Configuration/ConfigViewCoefficientsVaryByRuntime.md)
 
 ## Source custody is a separate programme stage
 
