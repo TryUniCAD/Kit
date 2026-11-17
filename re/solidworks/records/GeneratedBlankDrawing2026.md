@@ -18,7 +18,7 @@ The research constructor accepts a named, unformatted ANSI A landscape sheet, ex
 
 The executable is `34.5.2.0604`. The static evidence uses image addresses in `sldmodu.dll` SHA-256 `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`, `slddrwu.dll` SHA-256 `61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47`, `slduiu.dll` SHA-256 `025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7` and `sldarchiveu.dll` SHA-256 `5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48`. [Shared model construction](ModelConstruction2026.md) · [Metadata construction](MetadataConstruction2026.md)
 
-The candidate supplies fresh constructor values for lifecycle state, including revision counters, display flags and neutral self-file flags. Disclosed vendor saves also contain environments, a BOM manager, named UI styles, previous-open state and native license provenance. Those differences stay visible and require a native trial. The candidate covers the blank sheet graph. Model views, imported sheet formats, detailing state, custom styles, annotations and other paper profiles remain outside this experiment.
+The candidate supplies fresh constructor values for lifecycle state, including revision counters, display flags and neutral self-file flags. Disclosed vendor saves also contain environments, a BOM manager, named UI styles, previous-open state and native license provenance. Those differences stay visible for the save-stage investigation. The candidate covers the blank sheet graph. Model views, imported sheet formats, detailing state, custom styles, annotations and other paper profiles remain outside this experiment.
 
 ## Independent construction and paired trial
 
@@ -35,4 +35,10 @@ uv run --isolated --frozen --extra dev --python 3.11 python -B \
   --windows-path 'C:\Oracle\unused-trial-dir\Inputs\GeneratedBlank\KitBlankSheetProbe.SLDDRW'
 ```
 
-The guest launches `Tools/InspectBlankDrawing.py` with the staged `Trial.json` and `--packet-sha256` from the preparer. The licensed Windows process is confined to the oracle. Only the disclosed D00 contributes to the native diagnostic. The generated candidate has local archive and SDK evidence. Native opening, save and freshness outcomes remain pending, and the held-out source inputs remain sealed.
+The guest launches `Tools/InspectBlankDrawing.py` with the staged `Trial.json` and `--packet-sha256` from the preparer. The licensed Windows process is confined to the oracle. Only the disclosed D00 contributes to the native diagnostic.
+
+## Measured trial
+
+Nine distinct SOLIDWORKS `34.5.2.0604` processes verified the candidate and controls. The pristine bracketing controls, repacked control and reduced native diagnostic completed the edit, save and fresh reopen. The reduced diagnostic retained the exact seven input stream roles emitted by the constructor and its edited save produced 28 output streams. This measures joint omission of the other 22 roles for the disclosed blank sheet. [Native trial receipt](../measurements/2026/GeneratedBlankDrawingNative01.json)
+
+The generated drawing opened read-only with `[0,0]` errors and warnings and the independently specified ten-row tree. The named sheet, paper dimensions and 2:3 ratio matched after the forced rebuild. A 3:2 scale edit and rebuild succeeded in memory with zero `GetWhatsWrongCount` problems. `SaveAs3` returned `[false,1,0]` and left a zero-byte output file. The generated candidate therefore has no fresh reopen result. The save error maps to `swGenericSaveError`, which leaves the internal failure stage unresolved. All inputs remained immutable and the held-out source inputs remain sealed. [Empty save-target gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/DrawingSaveErrorCanLeaveEmptyTarget.md) · [2026 file save errors](https://help.solidworks.com/2026/english/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swFileSaveError_e.html?id=2.10.1.378)

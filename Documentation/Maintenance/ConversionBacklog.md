@@ -72,6 +72,7 @@ Source `0b6e657648a08845ed19939dfe588b2e1c851248` passed its PR CI, including th
 The [native held-out part trials](../../re/solidworks/measurements/2026/GeneratedRevolveHeldout06.json) qualify ordinary single boss revolves in the research generator.
 The [native held-out assembly trials](../../re/solidworks/measurements/2026/GeneratedDimensionedAssembliesHeldout05.json) qualify three and four placements of one rectangular child with no mates.
 The [drawing inspection receipt](../../re/solidworks/measurements/2026/DrawingSdkViewRead01.json) covers opt-in inspection of an ordinary sheet and its external part view.
+The [first generated blank drawing](../../re/solidworks/measurements/2026/GeneratedBlankDrawingNative01.json) opens, rebuilds and accepts a scale edit. Native save remains open.
 Complete field classification, broad part and assembly semantics and generated drawing acceptance remain unfinished.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.

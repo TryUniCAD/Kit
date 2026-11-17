@@ -214,6 +214,12 @@ after editing and saving the disclosed empty sheet. Both controls, the
 repacked control and the four-stream omission passed clean reopen over
 eight processes. Generated drawing acceptance remains zero.
 
+The [first generated blank drawing](measurements/2026/GeneratedBlankDrawingNative01.json)
+opened and rebuilt cleanly. It retained the ten expected feature rows and
+accepted a sheet scale edit. Native SaveAs returned error 1 and produced an
+empty target. The reduced native control with the same seven stream roles
+saved and reopened cleanly.
+
 The [rectangle dimension receipt](measurements/2026/GeneratedRectangleDimensionsNative01.json)
 verifies two generated Front Plane rectangles with independent driving width and height edits.
 Both edited dimensions survived clean save and fresh reopen. The rebuilt geometry matched the
