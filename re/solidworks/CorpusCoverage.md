@@ -299,8 +299,16 @@ research inputs. The public assembly read still depends on the saved
 selection strings for these mates.
 The [parallel mate construction](measurements/2026/GeneratedParallelMateBundle01.json)
 round-trips six streams in a distinct generated parent and child with zero
-runtime input reads. The generated mate preserves two real Front Planes
-separated by 22.61 mm. Native trial and held-out qualification remain open.
+runtime input reads. The [native parallel trial](measurements/2026/GeneratedParallelMateNative01.json)
+passes open and rebuild with two solid bodies and exact Front Plane
+references separated by 22.61 mm. Both controls pass. Editing, save
+and held-out qualification remain open.
+The [driving distance mate construction](measurements/2026/GeneratedDistanceMateBundle01.json)
+adds a separate guarded generated pair with six exact stream round trips
+and zero runtime file reads. Its authored distance differs from its start
+separation. The [typed projection](measurements/2026/PlanarMateProjection02.json)
+reads the actual parameter from the generated graph. Native qualification
+remains open.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

@@ -152,7 +152,8 @@ def _construct_assembly(*, registry, request, child=None, occurrences=(), mate_r
         raise ValueError("assembly XML metadata selection must be boolean")
     fields(request, "assembly", ("name", "configuration_name", "origin_name", "mate_group_name", "provenance", "target", "presentation"), ("output",))
     name, presentation, provenance = (request[key] for key in ("name", "presentation", "provenance"))
-    fields(presentation, "assembly presentation", ("styles", "units", "definition", "assembly_features", "language_id", "cjk_saved"))
+    dimension_fields = ("design_intent", "selected_leader") if mate_requests and mate_requests[0].get("kind") == "distance" else ()
+    fields(presentation, "assembly presentation", ("styles", "units", "definition", "assembly_features", "language_id", "cjk_saved", *dimension_fields))
     fields(provenance, "assembly provenance", ("author", "company", "created_at", "modified_at", "comment", "originating_build_code", "license_origin"))
     target = fields(request["target"], "assembly target", ("date_code", "parasolid_version"))
     output = fields(request["output"], "assembly output", ("path_name", "saved_at")) if "output" in request else None
@@ -174,6 +175,7 @@ def _construct_assembly(*, registry, request, child=None, occurrences=(), mate_r
             mate = aligned_planar_mate(
                 assembly=model, group=features[-1], occurrences=references, child=child, model_header=model_header,
                 configuration=configuration, allocator=ids, target=target, request=mate_request, created_at=created_at,
+                dimension_presentation={key: presentation[key] for key in dimension_fields},
             )
             _record_mate_creation(mate=mate, allocator=ids, configuration=configuration, headers=(top_header, model_header),
                                   stamp={**stamp, "timestamp": created_at})

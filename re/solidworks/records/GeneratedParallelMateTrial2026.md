@@ -1,0 +1,11 @@
+# Native open and rebuild of a generated parallel mate
+
+SOLIDWORKS 2026 SP05.2 opened and rebuilt the generated `ParallelPlatePair` with an aligned `Parallel1` mate, two resolved occurrences and zero errors or warnings. Both disclosed A19 controls passed. [Native receipt](../measurements/2026/GeneratedParallelMateNative01.json)
+
+The read-only trial measured the exact generated pair at its encoded paths. It ran the generated assembly between two same-path A19 control opens in three distinct fresh processes. The executable matched build `34.5.2.0604` in every phase. The generated inputs, working copies and A19 source pair retained their hashes. The six frozen writer sources and the observer matched commit `c7eaaff300b20dbf106fec52f6845f8a47ad459b`. Host transport confirmed exit `0`. The native call records supplied the open and rebuild verdicts. [Construction and frozen trial procedure](AssemblyParallelMateConstruction2026.md) · [Structural receipt](../measurements/2026/GeneratedParallelMateBundle01.json)
+
+The initial native tree and the rebuilt tree each had 25 parent rows and 26 child rows. `DatumPlate-1` stayed fixed at the origin. Floating `DatumPlate-2` retained its `38.419°` Z rotation and translation `(0.10321, −0.01873, 0.02261) m`. Both ordered endpoint references compared equal to the intended occurrence's specific Front Plane object. The native mate exposed API type `3` and alignment `0`. The entity frames and the independently predicted transforms both retained a signed plane gap of `0.02261 m`. [Native receipt](../measurements/2026/GeneratedParallelMateNative01.json) · [Plane object identity](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/MateDatumReferenceUsesSpecificPlane.md)
+
+Both generated observations measured two solid bodies, volume `7.109676e-6 m³`, area `0.00317476 m²`, and centre `(0.0637817038827, 0.00117764087413, 0.015755) m`. The three reported driving prism dimensions matched the authored values. The native controls preserved their signed plane gap of `−0.01597 m` and their known mass properties.
+
+The measured scope is open and rebuild of one already-parallel, aligned principal-plane pair. Active angular correction, driving edits, native save and fresh reopen, and independent held-out qualification remain unmeasured for this mate.

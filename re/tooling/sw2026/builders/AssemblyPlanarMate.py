@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
+
 from Core import Obj
 from builders.Assembly import PLANAR_MATE_CLASSES
 from builders.AssemblyMateEndpoint import detached_planar_wrapper, planar_mate_endpoint, register_planar_wrapper_ids, resolved_planar_wrapper
+from builders.AssemblyPlanarDistance import construct_planar_distance
 from builders.Metadata import fields, integer, sequence
 from builders.Model import feature_filetime, model_feature
 
@@ -25,11 +28,14 @@ def _selected_endpoints(*, assembly, occurrences, child, selections):
     return endpoints
 
 
-def aligned_planar_mate(*, assembly, group, occurrences, child, model_header, configuration, allocator, target, request, created_at) -> Obj:
-    fields(request, "planar mate", ("kind", "name", "alignment", "fixed_occurrence", "endpoints"), ("created_at",))
+def aligned_planar_mate(*, assembly, group, occurrences, child, model_header, configuration, allocator, target, request, created_at, dimension_presentation=None) -> Obj:
+    required = ("kind", "name", "alignment", "fixed_occurrence", "endpoints")
+    if isinstance(request, Mapping) and request.get("kind") == "distance":
+        required += ("distance_m",)
+    fields(request, "planar mate", required, ("created_at",))
     kind = request["kind"]
     if not isinstance(kind, str) or kind not in PLANAR_MATE_CLASSES or request["alignment"] != "aligned" or len(occurrences) != 2:
-        raise ValueError("the discovery composer admits one aligned coincident or parallel mate between two ordinary occurrences")
+        raise ValueError("the discovery composer admits one aligned coincident, parallel or distance mate between two ordinary occurrences")
     if group.cls != "moMateGroup_c" or group["owner"] is not assembly:
         raise ValueError("the planar mate must register with the assembly's own mate group")
     filetime = feature_filetime(created_at)
@@ -40,7 +46,7 @@ def aligned_planar_mate(*, assembly, group, occurrences, child, model_header, co
         {"k": index, "o": detached_planar_wrapper(endpoint=endpoint, model_header=model_header, configuration=configuration, **target)}
         for index, endpoint in enumerate(endpoints)
     ]
-    mate = model_feature(cls=PLANAR_MATE_CLASSES[kind], name=request["name"], owner=group, allocator=allocator, **target)
+    mate = model_feature(cls=PLANAR_MATE_CLASSES[kind], name=request["name"], owner=group, allocator=None if kind == "distance" else allocator, **target)
     mate.f.update({
         **filetime,
         "f370": [], "f388": 0, "f390": 0, "f394": 0,
@@ -49,6 +55,10 @@ def aligned_planar_mate(*, assembly, group, occurrences, child, model_header, co
         "f430": None, "f438": 0, "f448": [], "f468": None, "f470": None, "f478": None,
         "f480": 0, "f488": "", "f490": "",
     })
+    if kind == "distance":
+        presentation = fields(dimension_presentation, "distance mate presentation", ("design_intent", "selected_leader"))
+        construct_planar_distance(mate=mate, distance_m=request["distance_m"], allocator=allocator, **presentation)
+        allocator.allocate(mate)
     register_planar_wrapper_ids(mate=mate)
     occurrences[fixed]["f408"] = 1
     return mate

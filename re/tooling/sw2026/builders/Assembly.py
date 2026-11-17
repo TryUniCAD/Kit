@@ -11,7 +11,7 @@ from builders.Model import PersistentIds, base_configuration_fields, clear_model
 from builders.Sketch import PlaneFrame, origin_profile
 
 
-PLANAR_MATE_CLASSES = {"coincident": "moMateCoincident", "parallel": "moMateParallel"}
+PLANAR_MATE_CLASSES = {"coincident": "moMateCoincident", "parallel": "moMateParallel", "distance": "moMateDistanceDim_c"}
 
 
 def bounding_box(*, minimum: Sequence[float], maximum: Sequence[float]) -> dict:

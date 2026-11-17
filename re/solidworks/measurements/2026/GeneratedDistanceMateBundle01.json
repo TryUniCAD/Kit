@@ -1,0 +1,705 @@
+{
+  "schema": "kit.sw2026.generated-distance-mate-structural-proof.v1",
+  "archive_version": 19000,
+  "split": "discovery",
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "input_runtime_file_access_attempts": 0,
+  "writer_predecessor_revision": "c7eaaff300b20dbf106fec52f6845f8a47ad459b",
+  "writer_tool_hashes": {
+    "CoincidentMateBundleProcess.py": "5e896ec2ea84951cd9bd0fa2c5dc80949ab34b2f0fa7bc6f675db2bebea7cabc",
+    "ParallelMateBundleProcess.py": "3e0359e235497a978884fbac4f0f430b1c7621750e5ab3176a068751b65685a9",
+    "DistanceMateBundleProcess.py": "49220595c946ae42ddfd938d26a36fb020ce0fd7c8cf5bbbf02ca7fe7bc81514",
+    "PlanarMateEndpointProcess.py": "fb875ef97fdee0548c2f7e4bf5ce538fa0a58c783712e07916f1157438d6483f",
+    "PlanarMateWrapperProcess.py": "5e894c56981ae0ba936f3e5964effafbc3d1b98acf184621b88a21861c3e1ac2",
+    "builders/Assembly.py": "e9f962dff15f97e3e5f7e79dc6b44bd0bc54fb7badb6e06ffc86fb2a75acc4ef",
+    "builders/AssemblyDocument.py": "7488cc2594456976451bb5e1b81a049d052033a339027f5922a957cdcbefd536",
+    "builders/AssemblyMateEndpoint.py": "14f3896e089cfd87b8d962ed74b8a69c7d06b0cde26a2d78c4e9535a12ef8142",
+    "builders/AssemblyPlanarMate.py": "3cedbb46e824da1c1a964c35f2bbd9d8a8055941377e9cf3eec04b4040c0aec6",
+    "builders/AssemblyPlanarDistance.py": "c61a685c10f561712e7d0e7660a4d6ad7eb0097805889e4a062e8bb8caa9ff91",
+    "builders/Extrude.py": "12b26949b285eb8fd180729a7fcc57dd2457a5f13666c370f01f49f114fc3c79",
+    "serial/AssemblyMates.py": "3b461a967190267bb40d9c853cac9e9db54f4b79ae5f0bbd276e364f0bf333bf",
+    "serial/defs/ConfigAssembly.py": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62",
+    "serial/defs/ResolvedDims.py": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+  },
+  "python": "Python 3.14.7",
+  "guarded_report_sha256": "943618b9de268a81ebb8af4d2aadd71bd55fb3fa88afa73de3937ee7d3bf297d",
+  "candidate": {
+    "assembly": {
+      "bytes": 9560,
+      "sha256": "1f596ea028ab6c7c6d964f21b8fcc7038f99c9f3ef5080f4927130328617c198",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2386,
+          "sha256": "67ba58f536a4236f8107bcc8be5af95eb4755909e0413bfb0b97da522368ab5c"
+        },
+        "Contents/Config-0": {
+          "bytes": 21497,
+          "sha256": "6911cf522082fa9d449c6c378d240dcd9c349f863711ae4173ccebb820fa3f03"
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 4643,
+          "sha256": "4eff181cfb85bc2b475c772f347876157cf29da9393137b9d5a44f9907ec4fce"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1121,
+          "sha256": "958aeaee89bb535d9d5edcd49ffdec194945bd3b9d1687d491d09f778e39e2ae"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "bytes": 571,
+          "sha256": "5dda1a701f35303cbb7f1f553f74bfcc1a9c14269fc8bfb955d9ba37d8dbbeb7"
+        },
+        "Header2": {
+          "bytes": 1121,
+          "sha256": "9f66b1d9617f813ae71cfde09702fb762a05ed409149523d514245e9ba13eb4a"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "bytes": 2135,
+          "sha256": "e79f1a46ce648320b0b3c5c0543f75b631799a74803aa4ef536fffbd13ead0c2"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1171,
+          "sha256": "2cf821822ef18f4e761be829d35ba81458b0163f8219b50090397949548b1c2b"
+        }
+      }
+    },
+    "child": {
+      "bytes": 8070,
+      "sha256": "6cce1a1b81935a6f3e0505bdf81908f496f010fa1a733233562af427ac200b37",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "9233fb77757e85cc6bdf718082bbeb676dfabde6643810862cfe9d9896a21033"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2"
+        },
+        "Contents/Config-0": {
+          "bytes": 21142,
+          "sha256": "b42111186bec6299bd730201dcc74e39e8e694c78f919af178012dc66bab373c"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 743,
+          "sha256": "9936e600ad5712d068194f04c8a8facb22babadca3ac93dd6a53c8abe9ff1a78"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14064,
+          "sha256": "27f41d5c3e71ccc8e1a145239e1233ba291ce37630d5d136af9b2aba4fd110c4"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 743,
+          "sha256": "9686ce0f5823b5f10f615699a3e4393d74f63ac024bbcac23606e3dac27046ec"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1462,
+          "sha256": "9dba0be5aa4a2e2d3f4d6994e95a66f433ae64c010a21be692650bcb51447f16"
+        }
+      }
+    },
+    "heldout_inputs_tested": 0,
+    "input_runtime_file_access_attempts": 0,
+    "inspection": {
+      "config_map_next_index": 76,
+      "configuration_highest_id": 20,
+      "creation_logs": [
+        {
+          "name": "Distance1",
+          "object_id": 20,
+          "timestamp": 1794700000
+        },
+        {
+          "name": "Distance1",
+          "object_id": 20,
+          "timestamp": 1794700000
+        }
+      ],
+      "distance": {
+        "distance_m": 0.071375,
+        "initial_signed_separation_m": 0.043875,
+        "options": {
+          "f4c0": 1,
+          "f4d8": 1,
+          "f4dc": 3,
+          "f4e0": 3,
+          "f4f4": 0
+        },
+        "parameter_name": "D1",
+        "presentation_phase": "constructor",
+        "text_kind": 18,
+        "value_dimension_id": 19
+      },
+      "fixed_occurrence": 0,
+      "group_id": 16,
+      "logical_round_trips": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Config-0-MatesList",
+        "Header2",
+        "Contents/Config-0-ModelHeader",
+        "Contents/CMgr"
+      ],
+      "mate_fields": {
+        "f0c": 1,
+        "f2a0": 1694969856,
+        "f2a4": 31290514,
+        "f2b8": 0,
+        "f2bc": 0,
+        "f3b4": 1,
+        "f3b8": 0
+      },
+      "mate_id": 20,
+      "mate_list_bytes": 4643,
+      "mate_map_next_index": 172,
+      "mate_name": "Distance1",
+      "next_wrapper_id": 2,
+      "resolved_map_next_index": 133,
+      "wrappers": [
+        {
+          "detached": {
+            "anonymous_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "assembly_configuration_id": 0,
+            "assembly_update_stamp": 101,
+            "original_datum_id": 16,
+            "world_normal": {
+              "x": 1.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "world_origin": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "resolved": {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 16,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 17,
+            "selection": [
+              20,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "detached": {
+            "anonymous_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "assembly_configuration_id": 0,
+            "assembly_update_stamp": 101,
+            "original_datum_id": 16,
+            "world_normal": {
+              "x": 1.0,
+              "y": -0.0,
+              "z": 0.0
+            },
+            "world_origin": {
+              "x": 0.043875,
+              "y": -0.00671,
+              "z": 0.01391
+            }
+          },
+          "resolved": {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 16,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 18,
+            "selection": [
+              20,
+              1,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    "native_acceptance": false,
+    "schema": "kit.sw2026.generated-distance-mate-bundle.v1",
+    "split": "discovery",
+    "writer_output_count": 2,
+    "authored_prediction_sha256": "399badb994809c89fcff98037ba0e561392e9c0ce1f2624df904bf706fb53314",
+    "request_sha256": "2627dc197d5b551f11196ea2d3e88698033dd1af2ce8f24511ca64b04c1af265"
+  },
+  "length_variation": {
+    "authored_request_sha256": "8541a3864cf29678e3ef171de474259a500da2b2dba49ab8bf927762b0181130",
+    "distance_m": 0.093625,
+    "initial_signed_separation_m": 0.043875,
+    "child_byte_equal": true,
+    "changed_parent_streams": [
+      "Contents/Config-0-MatesList"
+    ],
+    "mate_stream": {
+      "bytes": 4643,
+      "sha256": "47fa6b2d2085e7b12e11d0f399dd61a5fc51ae5fdbc42b331f71591516777b59"
+    }
+  },
+  "prior_case_compatibility": [
+    {
+      "case": "coincident-plain",
+      "report_sha256": "0bf4b786a2c35d85545e16835e19eeb39e3c5aa2a19f36769201ed91c985331d",
+      "assembly_sha256": "d40b287a385a13dbedc36ac028739a172fe06a37adce8567fdd3fd0822402615",
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "input_sha256": "bc57b931f20370e2a6bcf29f7240d526d96e90835b3f3916359956b987e8b2f8",
+      "full_report_equal": true,
+      "parent_and_child_byte_equal": true
+    },
+    {
+      "case": "coincident-xml",
+      "report_sha256": "3c15d8cea02ce50e0e61156bbc93e7be83446a4adc796d75ccf10ce94449bf45",
+      "assembly_sha256": "561c497715efd4f078461cee551ca9ad25a8a6e88c8b99d532137891e6580856",
+      "child_sha256": "b08e51f5d939832cd2843c0d21e77a5b55d89f59ec9d9136de606d11a1b52860",
+      "input_sha256": "e9472df2a3674ef9725065160bc46ffcabf822d78adaf955655c5e728909fbf1",
+      "full_report_equal": true,
+      "parent_and_child_byte_equal": true
+    },
+    {
+      "case": "parallel-plain",
+      "report_sha256": "ce0f910f4b6bcc9c7fed89af0bdff56223bc9ad697e8612d1a1e09cf9a209dc4",
+      "assembly_sha256": "3f1e86d25f54a7bae9396e4b3ea676578ec5df149a812af8e3ef4be674bb47be",
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "input_sha256": "c8a82598fbe5c8de05f937ed290f8f75aae17cb482393a666194b3a887d79add",
+      "full_report_equal": true,
+      "parent_and_child_byte_equal": true
+    },
+    {
+      "case": "parallel-xml",
+      "report_sha256": "f273479c30f6080b290157c54fd54556301b82749995b002dc20e6fe27944537",
+      "assembly_sha256": "19a8578ef4a92347ed906d86283188e6042c1d0bfb97ef29352320de218cdc03",
+      "child_sha256": "b08e51f5d939832cd2843c0d21e77a5b55d89f59ec9d9136de606d11a1b52860",
+      "input_sha256": "b7395d3406a298219ad69cc22b016176485f18a4347e2d41e292c7b50646e9eb",
+      "full_report_equal": true,
+      "parent_and_child_byte_equal": true
+    }
+  ],
+  "guarded_rejections": [
+    {
+      "case": "missing driving value",
+      "exit_code": 1,
+      "emitted_output": false,
+      "diagnostic_contains": "missing"
+    },
+    {
+      "case": "nonpositive distance",
+      "exit_code": 1,
+      "emitted_output": false,
+      "diagnostic_contains": "driving distance in metres"
+    },
+    {
+      "case": "reversed ordered planes",
+      "exit_code": 1,
+      "emitted_output": false,
+      "diagnostic_contains": "positive signed separation"
+    },
+    {
+      "case": "missing leader choice",
+      "exit_code": 1,
+      "emitted_output": false,
+      "diagnostic_contains": "selected_leader"
+    },
+    {
+      "case": "nonboolean design intent",
+      "exit_code": 1,
+      "emitted_output": false,
+      "diagnostic_contains": "dimension design intent must be a boolean"
+    },
+    {
+      "case": "unsupported flip option",
+      "exit_code": 1,
+      "emitted_output": false,
+      "diagnostic_contains": "unsupported"
+    },
+    {
+      "case": "distance field on parallel mate",
+      "exit_code": 1,
+      "emitted_output": false,
+      "diagnostic_contains": "unsupported"
+    }
+  ],
+  "authored_request": {
+    "bundle": {
+      "assembly": {
+        "name": "DistanceMateDiscovery",
+        "configuration_name": "Default",
+        "origin_name": "Origin",
+        "mate_group_name": "Mates",
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "language_id": 1033,
+          "cjk_saved": false,
+          "definition": {
+            "drafting_standard": "moISO_c",
+            "detail_flags": [],
+            "tessellation": [
+              20,
+              15,
+              3,
+              false
+            ],
+            "system_preference_7a": false,
+            "journal_name": "DistanceMateDiscovery",
+            "save_as_part_preferences": {
+              "5fc": false,
+              "5fd": 0.25,
+              "5fe": false,
+              "5ff": 0.0,
+              "600": false,
+              "601": true,
+              "602": true,
+              "603": true,
+              "604": true,
+              "605": 0
+            }
+          },
+          "assembly_features": {
+            "plane_names": {
+              "x": "Right Plane",
+              "y": "Top Plane",
+              "z": "Front Plane"
+            },
+            "cabinet_name": "Annotations",
+            "folder_names": {
+              "moCommentsFolder_c": "Comments",
+              "moFavoriteFolder_c": "Favorites",
+              "moHistoryFolder_c": "History",
+              "moSelectionSetFolder_c": "Selection Sets",
+              "moSensorFolder_c": "Sensors",
+              "moLiveSectionFolder_c": "Live Section Planes",
+              "moDocsFolder_c": "Design Binder",
+              "moEnvFolder_c": "Lights and Cameras",
+              "moInkMarkupFolder_c": "Markups",
+              "moEqnFolder_c": "Equations"
+            }
+          },
+          "design_intent": false,
+          "selected_leader": 0
+        },
+        "output": {
+          "path_name": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceMateDiscovery.SLDASM",
+          "saved_at": 1794700075
+        }
+      },
+      "child": {
+        "document": {
+          "name": "DistanceDatumPlate",
+          "configuration_name": "Default",
+          "sketch_name": "Sketch1",
+          "extrusion_name": "Boss-Extrude1",
+          "origin_name": "Origin",
+          "plane_axis": "z",
+          "vertices_m": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.03125,
+              0.0
+            ],
+            [
+              0.03125,
+              0.01875
+            ],
+            [
+              0.0,
+              0.01875
+            ]
+          ],
+          "depth_m": 0.0125,
+          "density_kg_m3": 1.0
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "authored comments",
+            "moFavoriteFolder_c": "authored favorites",
+            "moHistoryFolder_c": "authored history",
+            "moSelectionSetFolder_c": "authored selection sets",
+            "moSensorFolder_c": "authored sensors",
+            "moDocsFolder_c": "authored document binder",
+            "moSurfaceBodyFolder_c": "authored surfaces",
+            "moSolidBodyFolder_c": "authored solids",
+            "moEnvFolder_c": "authored environment",
+            "moNotesAreaFtrFolder_c": "authored markups",
+            "moEqnFolder_c": "authored equations",
+            "moMaterialFolder_c": "authored material"
+          },
+          "cabinet_name": "authored annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false
+        },
+        "output": {
+          "path_name": "C:\\Users\\Public\\Documents\\KitOracle\\DistanceDatumPlate.SLDPRT",
+          "saved_at": 1794700051
+        }
+      },
+      "occurrences": [
+        {
+          "name": "DistanceDatumPlate-1",
+          "placement": {
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "u": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "v": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "name": "DistanceDatumPlate-2",
+          "placement": {
+            "origin": [
+              0.043875,
+              -0.00671,
+              0.01391
+            ],
+            "u": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "v": [
+              0.0,
+              0.6780057348426142,
+              0.735056612459562
+            ]
+          }
+        }
+      ],
+      "mates": [
+        {
+          "kind": "distance",
+          "name": "Distance1",
+          "alignment": "aligned",
+          "fixed_occurrence": 0,
+          "distance_m": 0.071375,
+          "endpoints": [
+            {
+              "occurrence": 0,
+              "datum": "Right Plane"
+            },
+            {
+              "occurrence": 1,
+              "datum": "Right Plane"
+            }
+          ]
+        }
+      ]
+    },
+    "include_xml_metadata": true
+  },
+  "authored_prediction": {
+    "split": "discovery",
+    "name": "DistanceMateDiscovery",
+    "child": "DistanceDatumPlate.SLDPRT",
+    "configuration": "Default",
+    "fixed_occurrence": 0,
+    "occurrence_names": [
+      "DistanceDatumPlate-1",
+      "DistanceDatumPlate-2"
+    ],
+    "rectangle_position": "corner",
+    "dimensions_m": {
+      "width": 0.03125,
+      "height": 0.01875,
+      "depth": 0.0125
+    },
+    "placements": [
+      {
+        "axis": "x",
+        "angle_deg": 0.0,
+        "translation_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "axis": "x",
+        "angle_deg": 47.312,
+        "translation_m": [
+          0.043875,
+          -0.00671,
+          0.01391
+        ]
+      }
+    ],
+    "mates": [
+      {
+        "kind": "distance",
+        "name": "Distance1",
+        "planes": [
+          [
+            0,
+            "Right Plane"
+          ],
+          [
+            1,
+            "Right Plane"
+          ]
+        ],
+        "distance_m": 0.071375
+      }
+    ],
+    "initial_signed_separation_m": 0.043875,
+    "planned_distance_edit_m": 0.088125,
+    "expected_prism_volume_m3": 7.32421875e-06
+  }
+}

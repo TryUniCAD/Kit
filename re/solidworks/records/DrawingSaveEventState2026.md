@@ -27,3 +27,5 @@ All five lanes opened and rebuilt with zero errors or warnings, ten tree rows, t
 | Pristine after | `[7,9,28]` | `[true,0,0]` | 18,926 bytes |
 
 The generated runtime listener aggregate, document dispatch result and target storage state remain unmeasured. The static branch map identifies the addresses that would distinguish them. [Post-event branch map](DrawingSavePostEventBranches2026.md) · [Save status gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/DrawingVetoAndSaveFailureShareStatus.md)
+
+Two later attachment attempts qualified the passive pristine brackets. The first stopped before requesting attachment. The second requested attachment, observed no initial debugger stop, and verified detachment on the same process handle. Neither reached the reduced control's save or the generated lane. [Setup receipt](../measurements/2026/DrawingBlankSaveAggregateSetupNative01.json) · [Initial stop gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/DebuggerAttachRequestNeedsAnInitialStop.md)

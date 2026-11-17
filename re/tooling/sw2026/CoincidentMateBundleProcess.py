@@ -47,6 +47,38 @@ def creation_log(*, header, mate, timestamp):
     return {"object_id": log["f48"], "name": log["f50"], "timestamp": stamp["f18"]}
 
 
+def check_distance(*, mate, spec, presentation, occurrences, headers):
+    display = mate["f4b8"]
+    handle, = (row["o"] for row in display["f850"])
+    dimension = handle["ff0"]
+    parameter = dimension["f28"]
+    require((display.cls, handle.cls, dimension.cls, parameter.cls) ==
+            ("moDisplayDistanceDim_c", "moFeatureDimHandle_c", "ParallelPlaneDistanceDim_c", "moLengthParameter_c"),
+            "the distance mate lost its native driving graph")
+    require(parameter["f18"]["f08"] == "D1" and parameter["f58"] == spec["distance_m"]
+            and parameter["f08"] == -1 and dimension["refcount"] == 1 and dimension["f48"] is None,
+            "the driving value, dimension name or retaining handle differs")
+    require(max(occurrence["f08"] for occurrence in occurrences) < dimension["f50"] < mate["f08"]
+            and all(row["o"]["f48"] != dimension["f50"] for header in headers for row in header["f20"]["items"]),
+            "the dimension must reserve an independent ID before the logged mate")
+    options = {field: mate[field] for field in ("f4c0", "f4d8", "f4dc", "f4e0", "f4f4")}
+    require(tuple(options.values()) == (1, 1, 3, 3, 0), "the ordinary aligned distance options differ")
+    text_kind = display["f6a0"]["f10"]
+    require(text_kind == 18 and display["ff80"] == presentation["selected_leader"]
+            and bool(display["fb60"] & 0x100) == presentation["design_intent"],
+            "the distance display lost its text kind or authored presentation choices")
+    first, second = (row["o"] for row in mate["f410"])
+    separation = sum((second["fd0"][axis] - first["fd0"][axis]) * first["fe8"][axis] for axis in "xyz")
+    require(separation > 0.0, "the decoded distance endpoints lost their positive signed separation")
+    require(dimension["has_fe0"] == dimension["has_ff0"] == dimension["pt_flags"] == 0
+            and display["fad0"] == 0.0, "the distance presentation differs from its constructor state")
+    return {
+        "distance_m": parameter["f58"], "initial_signed_separation_m": separation,
+        "parameter_name": parameter["f18"]["f08"], "value_dimension_id": dimension["f50"],
+        "text_kind": text_kind, "options": options, "presentation_phase": "constructor",
+    }
+
+
 def check_mate(*, assembly_bytes, bundle, request, rules):
     archive = SldprtArchive.from_bytes(assembly_bytes)
     config, resolved, inherited = read_state(bundle, rules)
@@ -96,7 +128,7 @@ def check_mate(*, assembly_bytes, bundle, request, rules):
     resolved_bytes, final = store_resolved_state(resolved, rules, DOCUMENT_VERSION_2026, seed=seed)
     require(config_bytes == archive.require(CONFIG) and resolved_bytes == archive.require(RESOLVED)
             and final.count == inherited.count, "the model archive changed its resolved map or bytes")
-    return {
+    inspection = {
         "mate_id": mate["f08"], "mate_name": mate["f18"]["f08"], "group_id": group["f08"],
         "mate_fields": {key: mate[key] for key in ("f0c", "f3b4", "f3b8", "f2a4", "f2a0", "f2b8", "f2bc")},
         "fixed_occurrence": spec["fixed_occurrence"], "configuration_highest_id": configuration["f85c"],
@@ -105,6 +137,12 @@ def check_mate(*, assembly_bytes, bundle, request, rules):
         "mate_list_bytes": len(payload), "logical_round_trips": [CONFIG, RESOLVED, MATES, "Header2", MODEL_HEADER, MANAGER],
         "wrappers": wrappers,
     }
+    if spec["kind"] == "distance":
+        inspection["distance"] = check_distance(
+            mate=mate, spec=spec, presentation=namespace["assembly"]["presentation"],
+            occurrences=occurrences, headers=(top_header, model_header),
+        )
+    return inspection
 
 
 def artifact(payload, streams):

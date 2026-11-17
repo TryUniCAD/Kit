@@ -8,7 +8,7 @@ from AssemblyMates import load_mate_list, store_mate_list
 from AssemblySources import digest, require
 from Classes import registry
 from Core import DOCUMENT_VERSION_2026, Obj
-from PlanarMateSources import MATE_CLASSES, distance_dimension
+from PlanarMateSources import MATE_CLASSES, driving_distance
 from defs.ConfigPart import load_config
 from defs.ResolvedCore import load_resolved
 from convert.adapters.solidworks.Assembly.Assembly import Configurations, Files, Models, XmlRoot
@@ -139,7 +139,7 @@ def projection(assembly, child_archives):
                 "mate class, alignment or endpoint count lies outside planar projection")
         entities = [endpoint(model, row["o"], mate, order, items, definitions, children)
                     for order, row in enumerate(mate["f410"])]
-        dimension = distance_dimension(mate, {"distance_m": mate["f4b8"]["fad0"]}) if KINDS[mate.cls] == "distance" else None
+        dimension = driving_distance(mate) if KINDS[mate.cls] == "distance" else None
         projections.append({
             "mate_id": mate["f08"], "name": mate["f18"]["f08"], "kind": KINDS[mate.cls], "class": mate.cls,
             "alignment_code": mate["f3b4"], "alignment": ALIGNMENTS[mate["f3b4"]], "entities": entities,

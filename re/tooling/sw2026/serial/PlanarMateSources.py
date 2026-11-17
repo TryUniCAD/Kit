@@ -99,7 +99,7 @@ def endpoint(mate, detached, attached, occurrence, position, plane, plane_name, 
     }
 
 
-def distance_dimension(mate, request):
+def driving_distance(mate):
     display = mate["f4b8"]
     handle, = (row["o"] for row in display["f850"])
     dimension = handle["ff0"]
@@ -109,8 +109,14 @@ def distance_dimension(mate, request):
         ("moDisplayDistanceDim_c", "moFeatureDimHandle_c", "ParallelPlaneDistanceDim_c", "moLengthParameter_c"),
         "the driving distance is missing its native dimension graph",
     )
-    require(display["fad0"] == parameter["f58"] == request["distance_m"], "distance display or driving parameter differs from its authored value")
     return {"display_slot": display.index, "handle_slot": handle.index, "dimension_slot": dimension.index, "parameter_slot": parameter.index, "distance_m": parameter["f58"]}
+
+
+def distance_dimension(mate, request):
+    driving = driving_distance(mate)
+    require(mate["f4b8"]["fad0"] == driving["distance_m"] == request["distance_m"],
+            "distance display or driving parameter differs from its authored value")
+    return driving
 
 
 def inspect_case(root, source, spec, reg):
