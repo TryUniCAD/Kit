@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "all_typed_joins_passed": true,
+      "case": "AnsiDetailCornerAlphaNativeIso",
+      "complete_difference_count": 184,
+      "drawing_f20": null,
+      "groups": {
+        "/child_details/f13b0": 17,
+        "/child_details/f58": 10,
+        "/child_details/ff68": 64,
+        "/child_details/n58": 1,
+        "/drawing_details/f13b0": 17,
+        "/drawing_details/f58": 10,
+        "/drawing_details/ff68": 64,
+        "/drawing_details/n58": 1
+      },
+      "identical_complete_differences_across_phases": true,
+      "phases": [
+        "open-save",
+        "reopen",
+        "edit-move-save",
+        "reopen-edited"
+      ]
+    },
+    {
+      "all_typed_joins_passed": true,
+      "case": "AnsiDetailCornerAlphaNativeAnsi",
+      "complete_difference_count": 185,
+      "drawing_f20": {
+        "left": 278528,
+        "path": "/drawing_details/f20",
+        "right": 1327104
+      },
+      "groups": {
+        "/child_details/f13b0": 17,
+        "/child_details/f58": 10,
+        "/child_details/ff68": 64,
+        "/child_details/n58": 1,
+        "/drawing_details/f13b0": 17,
+        "/drawing_details/f20": 1,
+        "/drawing_details/f58": 10,
+        "/drawing_details/ff68": 64,
+        "/drawing_details/n58": 1
+      },
+      "identical_complete_differences_across_phases": true,
+      "phases": [
+        "open-save",
+        "reopen",
+        "edit-move-save",
+        "reopen-edited"
+      ]
+    }
+  ],
+  "full_source_admission": false,
+  "heldout_acceptance": false,
+  "interpretation": {
+    "ansi_drawing_additional_delta": 1,
+    "dimension_unit_delta_per_model": 17,
+    "exclusion_delta_per_model": 11,
+    "swift_delta_per_model": 64
+  },
+  "normalization_candidate_native_acceptance": false,
+  "original_full_retention_passed": false,
+  "original_writer_frozen": true,
+  "schema": "drawing-detail-normalization-disclosed-observation-v1",
+  "selected_scope": "eight completed corner phases only; centered live artifacts not accessed",
+  "source_report_bytes": 243354,
+  "source_report_sha256": "dca701a7caebdd06bcf9a4c76fbcc9a2d0fd8c6ec8a5d0041c60b49d3a76a1d0"
+}

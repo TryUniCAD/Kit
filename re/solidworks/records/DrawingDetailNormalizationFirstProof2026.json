@@ -1,0 +1,38 @@
+{
+  "actual_map_counters": {
+    "after": {
+      "config": 95,
+      "resolved": 244
+    },
+    "before": {
+      "config": 87,
+      "resolved": 236
+    }
+  },
+  "cause": "incorrect comparison prediction reused standard/UI ownership; eight owned dual nodes advance Config and all dependent Resolved reference tags while part UI Definition remains unchanged",
+  "completed_workers": 6,
+  "correction": "retain strict complete style comparison, independently compare every typed Resolved field and actual seed alias; require precisely eight added length-unit owners and unchanged inherited classes; serialize from normal linked maps",
+  "diagnostic": "initialization changed streams outside actual style ownership",
+  "heldout_acceptance": false,
+  "identical_actual_paths": true,
+  "native_acceptance": false,
+  "native_or_format_crash": false,
+  "observed_changed_streams": {
+    "child": [
+      "Contents/Config-0",
+      "Contents/Config-0-ResolvedFeatures"
+    ],
+    "drawing": [
+      "Contents/Definition"
+    ]
+  },
+  "passed": false,
+  "root_result_bytes": 3217,
+  "root_result_sha256": "483f0d2433d4854e77f12c59c96bbe22d277758195b49ef7ba8bc9754cea7e6b",
+  "same_geometry_and_origin_links": true,
+  "schema": "drawing-detail-normalization-first-proof-v1",
+  "source_manifest_sha256": "1db9bcc2149e1751eac4c92cd74147ab1add8abd22151274ba6a1c0ede2016b8",
+  "successfully_prepared_variants": 2,
+  "writer_or_request_changed": false,
+  "zero_runtime_reads": true
+}

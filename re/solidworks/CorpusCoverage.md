@@ -362,6 +362,13 @@ linked archive streams. The full style check fails on 184 ISO and 185
 ANSI first-save differences. Original-source and held-out qualification
 remain open.
 
+The [document-style initialization experiment](measurements/2026/DrawingDetailInitialization01.json)
+derives the dimension formats, Swift settings and positive exclusion
+lists from neutral inputs and exact native rules. All 32 host workers
+pass. Each of the four comparisons keeps every resolved field and alias
+while advancing the linked map by eight actual dual-unit objects.
+The new native persistence and full style checks remain open.
+
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
 passed both native save modes under the original and Kit containers.
 The paired controls retain the same seven streams and compressed bytes.

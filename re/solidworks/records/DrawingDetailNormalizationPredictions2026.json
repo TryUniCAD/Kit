@@ -1,0 +1,210 @@
+{
+  "cases": [
+    {
+      "analysis_precision": 6,
+      "exclusions": "explicit ten-word English unit vocabulary",
+      "expected_base_angle_precision": 3,
+      "expected_dual_precision": {
+        "ansi": 2,
+        "iso": 3
+      },
+      "expected_primary_style_precision": 2,
+      "expected_swift_precision": 3,
+      "precision": 3,
+      "standards": [
+        "iso",
+        "ansi"
+      ]
+    },
+    {
+      "analysis_precision": 1,
+      "exclusions": [
+        "authored µm exclusion",
+        "NeutralCaseToken"
+      ],
+      "expected_base_angle_precision": 5,
+      "expected_dual_precision": {
+        "ansi": 2,
+        "iso": 3
+      },
+      "expected_primary_style_precision": 2,
+      "expected_swift_precision": 5,
+      "precision": 5,
+      "standards": [
+        "iso",
+        "ansi"
+      ]
+    }
+  ],
+  "exclusion_rules": {
+    "constructor": "nine literal strings plus localized resource string 0x7fbe in position six",
+    "empty_authored_set": "no preserved-empty native promise; existing original failure remains explicit",
+    "experiment": "positive caller-authored rows in both baseline and initialized requests; first design declares English native vocabulary, second declares two unrelated neutral literals",
+    "legacy": "version below 0x17ff explicitly initializes exclusions; not admitted by this experiment",
+    "ordinary_load": "if serialized n58 > 0: clear constructed rows then read exactly n58; otherwise preserve the constructed rows"
+  },
+  "host_gates": {
+    "atomic_refusals": 8,
+    "complete_typed_resolved_fields_and_aliases_unchanged": true,
+    "config_map_counter_delta": 8,
+    "dimension_paths": 17,
+    "drawing_changed_streams": [
+      "Contents/Definition"
+    ],
+    "exclusion_paths": 0,
+    "expected_changed_detail_paths_per_model": 81,
+    "independent_preparations": 8,
+    "part_changed_streams": [
+      "Contents/Config-0",
+      "Contents/Config-0-ResolvedFeatures"
+    ],
+    "part_definition_unchanged": true,
+    "positive_builds": 16,
+    "resolved_map_counter_delta": 8,
+    "same_model_comparisons": 4,
+    "swift_paths": 64,
+    "unchanged": "complete geometry, IDs, drivers, texts, actual origin/file/configuration/component aliases, UI standards, all other typed presentation paths",
+    "workers": 32
+  },
+  "initial_root_failure_sha256": "483f0d2433d4854e77f12c59c96bbe22d277758195b49ef7ba8bc9754cea7e6b",
+  "initial_source_manifest_sha256": "1db9bcc2149e1751eac4c92cd74147ab1add8abd22151274ba6a1c0ede2016b8",
+  "native_exit_gates": {
+    "exact_new_packet": "prepare only after independent host replay passes",
+    "full_typed_presentation_equality_required": true,
+    "healthy_controls_required": 2,
+    "ignore_or_allowlist_rewrites": false,
+    "native_or_heldout_acceptance": false,
+    "planned_fresh_processes": 18
+  },
+  "request_sha256": "9b1c9181b7f236cbc2e1c87451cbd0b4ab7e5b18107ec21f3abc4c462d252292",
+  "schema": "drawing-detail-normalization-predictions-v1",
+  "scope": {
+    "angle": "degree",
+    "classes": [
+      "moPart_c",
+      "moDrawing_c"
+    ],
+    "fresh_metric_swift_only": true,
+    "heldout_acceptance": false,
+    "length": "mm",
+    "native_acceptance": false,
+    "source_or_vendor_saved_values_used_as_defaults": false,
+    "source_original_admission": false,
+    "version": 19000
+  },
+  "separate_unresolved_field": {
+    "experiment_policy": "do not set or clear this field beyond the unchanged already proven fresh ANSI defaults; any subsequent rewrite still fails complete presentation retention",
+    "known_setter": "sldmfcu.dll 0x3c7db8c0",
+    "mask": "0x100000",
+    "meaning": "CLUseCenterline",
+    "observed_ansi_corner_transition": {
+      "after": "0x144000",
+      "before": "0x44000"
+    },
+    "owner": "drawing model moDetailDefs_c.f20",
+    "unknown": "actual drawing-only setter/copy caller and its lifecycle guard; direct current serializer preserves the raw word"
+  },
+  "source_manifest_sha256": "8a72047d19750a4b9230de23a440b1c7280736c6b1b691b2945083dac58b5b19",
+  "swift_rules": {
+    "after": "f10=1; all fresh tolerance/flag state remains the same for the selected metric constructor selector zero",
+    "metric_source": "actual primary length virtual IsMetric",
+    "precision_fields": {
+      "f100": "max(source_precision,2)",
+      "f108": "max(source_precision,1)",
+      "f118": "max(source_precision,2)",
+      "f128": "max(source_precision,2)",
+      "f138": "max(source_precision,1)",
+      "f148": "max(source_precision,1)",
+      "f158": "max(source_precision,2)",
+      "f168": "max(source_precision,2)",
+      "f178": "max(source_precision,1)",
+      "f188": "max(source_precision,1)",
+      "f198": "max(source_precision,1)",
+      "f1a8": "max(source_precision,1)",
+      "f1b8": "max(source_precision,1)",
+      "f1c8": "max(source_precision,1)",
+      "f1d8": "max(source_precision,1)",
+      "f1e8": "max(source_precision,1)",
+      "f1f8": "max(source_precision,1)",
+      "f208": "max(source_precision,1)",
+      "f210": "max(source_precision,2)",
+      "f218": "max(source_precision,1)",
+      "f220": "max(source_precision,2)",
+      "f228": "max(source_precision,1)",
+      "f230": "max(source_precision,1)",
+      "f238": "max(source_precision,1)",
+      "f240": "max(source_precision,1)",
+      "f248": "max(source_precision,1)",
+      "f258": "max(source_precision,1)",
+      "f268": "max(source_precision,1)",
+      "f278": "max(source_precision,1)",
+      "f288": "max(source_precision,1)",
+      "f298": "max(source_precision,1)",
+      "f2a8": "max(source_precision,1)",
+      "f2c8": "max(source_precision,2)",
+      "f2d8": "max(source_precision,2)",
+      "f2e0": "max(source_precision,2)",
+      "f2f0": "max(source_precision,1)",
+      "f30": "max(source_precision,2)",
+      "f300": "max(source_precision,1)",
+      "f308": "max(source_precision,1)",
+      "f318": "max(source_precision,1)",
+      "f328": "max(source_precision,1)",
+      "f330": "max(source_precision,1)",
+      "f340": "max(source_precision,1)",
+      "f350": "max(source_precision,1)",
+      "f358": "max(source_precision,1)",
+      "f368": "max(source_precision,1)",
+      "f378": "max(source_precision,1)",
+      "f380": "max(source_precision,1)",
+      "f388": "max(source_precision,1)",
+      "f390": "max(source_precision,1)",
+      "f398": "max(source_precision,1)",
+      "f40": "max(source_precision,1)",
+      "f50": "max(source_precision,1)",
+      "f60": "max(source_precision,1)",
+      "f70": "max(source_precision,1)",
+      "fa0": "max(source_precision,1)",
+      "fb0": "max(source_precision,1)",
+      "fc0": "max(source_precision,1)",
+      "fd0": "max(source_precision,1)",
+      "fe0": "max(source_precision,1)",
+      "ff0": "max(source_precision,2)"
+    },
+    "runtime_f3dc": "retained; neither standard setter nor this selected initialization replaces its original constructor ownership",
+    "source_precision": "min(actual primary length row.f0c,16)",
+    "when": "fresh embedded Swift.f10 == 0",
+    "wire_aliases": {
+      "f220#0": "f220",
+      "f220#1": "f220"
+    }
+  },
+  "unit_rules": {
+    "analysis_table_mutated": false,
+    "angle_children": [
+      "f1f0",
+      "f830",
+      "fa68"
+    ],
+    "angle_precision": {
+      "f1f0": "min(dimension.f80,16)",
+      "f830": "min(dimension.f108,16)",
+      "fa68": "actual model.f9b8 angle row.f0c"
+    },
+    "dual_precision": "min(dimension.f84,16)",
+    "dual_unit": "fresh MakeDualLength(actual authored primary length unit); independent ownership for each dimension style",
+    "length_children": [
+      "fe0",
+      "f2f8",
+      "f3f8",
+      "f500",
+      "f608",
+      "f830",
+      "f960",
+      "fa68"
+    ],
+    "primary_precision": "min(dimension.f80,16)",
+    "primary_table_mutated": false,
+    "primary_unit": "fresh owned clone of actual model.f9b8 length row, never model.f9c0"
+  }
+}
