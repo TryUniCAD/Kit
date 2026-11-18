@@ -1,0 +1,282 @@
+{
+  "schema": "kit.sw2026.drawing-bom-manager-static-proof.v1",
+  "scope": "ordinary version19000 raw manager collection linkage only; populated BOM child semantics not admitted",
+  "modules": [
+    {
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "bytes": 46536280,
+      "base": "0x4b140000",
+      "file_version": [
+        34,
+        5,
+        2,
+        604
+      ]
+    },
+    {
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "bytes": 36036696,
+      "base": "0x48ea0000",
+      "file_version": [
+        34,
+        5,
+        2,
+        604
+      ]
+    }
+  ],
+  "class": {
+    "vtable": "0x4d00c420",
+    "offset": 0,
+    "serializer": "0x4bd7cf40",
+    "rtti": [
+      ".?AVmoBomInfoMgr_c@@",
+      ".?AVsu_CObject@@",
+      ".?AVCObject@@"
+    ],
+    "table_span": {
+      "start": "0x4d00c420",
+      "end": "0x4d00c450",
+      "bytes": 48,
+      "sha256": "a05b295f24a5a1847067adb14cf2eed537718e79ea8462594c61b46531105582"
+    },
+    "locator_span": {
+      "start": "0x4d33e928",
+      "end": "0x4d33e940",
+      "bytes": 24,
+      "sha256": "7f3a95976075640404621657b6222f20392f6b64adb9dcdc2c78df6261a25f1d"
+    },
+    "runtime_getter": {
+      "start": "0x4bd7cf00",
+      "end": "0x4bd7cf08",
+      "bytes": 8,
+      "sha256": "54643da542ff4078838f1c3bdeaa521f1d210ebd934f4d2fe962f6c29a248b87"
+    },
+    "runtime_descriptor": {
+      "start": "0x4dae4880",
+      "end": "0x4dae48b0",
+      "bytes": 48,
+      "sha256": "437898e1af868b2f4f264d0a0318ec54084293df8dada9afc6d37f4dc287b89d"
+    },
+    "runtime_schema_word": "0x80000001",
+    "object_size": 88
+  },
+  "complete_functions": {
+    "sldmodu.dll": {
+      "0x4bd7cf40": {
+        "ranges": [
+          {
+            "start": "0x4bd7cf40",
+            "end": "0x4bd7d04a",
+            "bytes": 266,
+            "sha256": "faa2e94141d5aace0126e560b7966d36acfe0d290de261a1bd2a56d73a2bbfad"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4bd7cf40",
+            "end": "0x4bd7d04a",
+            "unwind": "0x4d38be9c"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x4bd7be60": {
+        "ranges": [
+          {
+            "start": "0x4bd7be60",
+            "end": "0x4bd7be9f",
+            "bytes": 63,
+            "sha256": "6b430baf9d6916a3dd7e4176961496da16b6e12480258ede73326bfadd3bfdf2"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4bd7be60",
+            "end": "0x4bd7be9f",
+            "unwind": "0x4d519d5c"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x4bd7ca10": {
+        "ranges": [
+          {
+            "start": "0x4bd7ca10",
+            "end": "0x4bd7ca62",
+            "bytes": 82,
+            "sha256": "053c91347d21a0736a74c02d65dc1c10b5a94709a612fb18b7859a6c32da145f"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4bd7ca10",
+            "end": "0x4bd7ca62",
+            "unwind": "0x4d385bd8"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x4bd7cb90": {
+        "ranges": [
+          {
+            "start": "0x4bd7cb90",
+            "end": "0x4bd7cbdf",
+            "bytes": 79,
+            "sha256": "ca2dc28d56d1d8d8b04a3377c655a96fa22f2381b7c9054d22c19e7687d4404b"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4bd7cb90",
+            "end": "0x4bd7cbdf",
+            "unwind": "0x4d385bd8"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      }
+    },
+    "slduiu.dll": {
+      "0x497011e0": {
+        "ranges": [
+          {
+            "start": "0x497011e0",
+            "end": "0x49704a43",
+            "bytes": 14435,
+            "sha256": "005891cd89400858a8a72b7dcdb21fad4b68e430a71ce5bbb19d798fcad28c5e"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x497011e0",
+            "end": "0x49704a43",
+            "unwind": "0x4aa5c7d4"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      }
+    }
+  },
+  "manager_field_order": [
+    "n:i32 signed collection count",
+    "f08: n tagged object rows each o, native typed descriptor moBomInfo_c"
+  ],
+  "store_list_owner": "native suObList embedded at manager+8, count member at manager+0x20; next pointer at list node+0 and object pointer at list node+0x10",
+  "load_loop": "signed count greater than0 reads one object per iteration and AddTail appends to owned list; nonpositive count reads no child body",
+  "ordinary_object_operations": {
+    "store": "0x4bd7cfc9 uses su_CArchive::WriteObject at IAT0x4cd3d898",
+    "load": "0x4bd7d00f uses su_CArchive::ReadObject at IAT0x4cd3d890",
+    "expected_child_descriptor": {
+      "start": "0x4dae4850",
+      "end": "0x4dae4880",
+      "bytes": 48,
+      "sha256": "9e7fbc2059ba0e148b4b5175381d5f95488c06c805e885d4e9fe4ce95156e081"
+    },
+    "expected_child_class": "moBomInfo_c"
+  },
+  "database_alternative": {
+    "predicate_import": "?IsDBStream@su_CArchive@@QEBAHXZ",
+    "store": "su_CDBArchive::WriteObject via0x4cd3d970",
+    "load": "su_CDBArchive::ReadObject via0x4cd3d978",
+    "supported": false
+  },
+  "archive_import_identities": {
+    "0x4cd33cf0": {
+      "module": "SLDMFCU.dll",
+      "symbol": "??0moArchiveHelper_c@@QEAA@PEAVsu_CArchive@@@Z"
+    },
+    "0x4cd3d870": {
+      "module": "swccu.dll",
+      "symbol": "?IsStoring@su_CArchive@@QEBAHXZ"
+    },
+    "0x4cd3d878": {
+      "module": "swccu.dll",
+      "symbol": "?IsDBStream@su_CArchive@@QEBAHXZ"
+    },
+    "0x4cd3d880": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@J@Z"
+    },
+    "0x4cd3d888": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+    },
+    "0x4cd3d890": {
+      "module": "swccu.dll",
+      "symbol": "?ReadObject@su_CArchive@@QEAAPEAVCObject@@PEBUCRuntimeClass@@@Z"
+    },
+    "0x4cd3d898": {
+      "module": "swccu.dll",
+      "symbol": "?WriteObject@su_CArchive@@QEAAXPEBVCObject@@PEBUCRuntimeClass@@@Z"
+    },
+    "0x4cd3d970": {
+      "module": "swccu.dll",
+      "symbol": "?WriteObject@su_CDBArchive@@QEAAXPEBVCObject@@PEBUCRuntimeClass@@@Z"
+    },
+    "0x4cd3d978": {
+      "module": "swccu.dll",
+      "symbol": "?ReadObject@su_CDBArchive@@QEAAPEAVCObject@@PEAUCRuntimeClass@@@Z"
+    },
+    "0x4cd33d78": {
+      "module": "SLDMFCU.dll",
+      "symbol": "?AddTail@suObList@@QEAAPEAU__POSITION@@PEAVCObject@@@Z"
+    }
+  },
+  "native_helper_context": {
+    "set": "0x4bd7cf6d writes helper+0x838=1 before direction branch",
+    "clear": "0x4bd7d03e writes helper+0x838=0 on normal return",
+    "previous_value_restored": false,
+    "serialized_extra_word": false,
+    "null_or_nested_context_and_exception_preservation_not_claimed": true,
+    "child_body_context_rules_admitted": false
+  },
+  "ui_document_owner": {
+    "field": "uiModelDoc_c+0xab8",
+    "store_call": "0x497018d1",
+    "load_call": "0x4970333f",
+    "read_version_gate_site": "0x4970332e",
+    "read_gate": "effective version>=0x8d6",
+    "store_gate": "current manager object always stored at this position",
+    "store_operator": "sldmodu!0x4bd7cb90",
+    "read_operator": "sldmodu!0x4bd7ca10",
+    "operator_expected_descriptor": {
+      "start": "0x4dae4880",
+      "end": "0x4dae48b0",
+      "bytes": 48,
+      "sha256": "437898e1af868b2f4f264d0a0318ec54084293df8dada9afc6d37f4dc287b89d"
+    }
+  },
+  "base_and_version": "no own base serializer call and no own document version gate in manager body; exact19000 non database profile only",
+  "sdk_reuse": {
+    "path": "src/convert/adapters/solidworks/Archive/Definition/Fields/DocStyleFields.py",
+    "source_sha256": "ca34220edd97dbe7f7a7647e79a06ebecb214b6000137f0381d9a1514cdbaae4",
+    "key": "moBomInfoMgr_c",
+    "field_rules_changed": false,
+    "link_only_this_named_mapping_entry": true,
+    "typed_count_and_reference_maps_unchanged": true,
+    "moBomInfo_c_concrete_child_schema_added": false
+  },
+  "remaining_domains": [
+    "populated concrete moBomInfo_c child bodies and their helper838 effects remain outside the current drawing schema profile",
+    "arbitrary wrong runtime child types and malformed native collection states are not semantically qualified",
+    "list or row presence is source input and never inferred as a universal empty default",
+    "native runtime behavior and semantic BOM reconstruction are not established by this raw collection linkage"
+  ],
+  "previous_failure": {
+    "report_sha256": "d795686e707ddfbdcc88b0735682857c1b5d0327e06f89d0fc49cec3bc98538d",
+    "both_originals": "moBomInfoMgr_c schema1"
+  },
+  "fresh_defaults_added": false,
+  "native_execution": false,
+  "vm_access": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}

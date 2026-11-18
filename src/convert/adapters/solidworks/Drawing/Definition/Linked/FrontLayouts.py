@@ -37,5 +37,6 @@ KFrontLayouts = MappingProxyType(
         **KDrawingEnvironmentFields,
         "moScaleSysScale_c": (),
         "moLineStyle_c": KDocStyleFields["moLineStyle_c"],
+        "moBomInfoMgr_c": KDocStyleFields["moBomInfoMgr_c"],
     }
 )
