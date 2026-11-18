@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BindFeature import BindFeatu
 from convert.adapters.solidworks.Core.TypedResolved.Circles.BindLocalCirc import (
     BindLocalCirc,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadCutHistory import (
+    ReadCutHistory,
+)
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.Lines.BindLineLoop import (
     BindLineLoop,
@@ -41,10 +44,14 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
     }
     SketchIds = {Sketch.object_id for Sketch in Model.sketches}
     OperationIds = {Operation.object_id for Operation in Model.operations}
+    BodyEvidence = None
+    CutProfileId = None
     if OwnersValue and len(Model.operations) != 1:
-        raise ValueError(
-            "multiple operation histories are outside typed blind topology"
+        CutValue, BodyEvidence = ReadCutHistory(
+            Model, LinkValue, NodesValue, OwnersValue
         )
+        OwnersValue[NativeNodeId(CutValue.NodeValue)] = CutValue
+        CutProfileId = NativeNodeId(CutValue.ProfileValue)
     if any(
         NativeId not in OperationIds
         or NativeNodeId(OwnerValue.ProfileValue) not in SketchIds
@@ -82,7 +89,7 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
             )
             continue
         Circle = BindCircle(Sketch, NodeValue, LinkValue) or BindLocalCirc(
-            Sketch, NodeValue, LinkValue
+            Sketch, NodeValue, LinkValue, AllowFree=Sketch.object_id == CutProfileId
         )
         if Circle is not None:
             Circles[Sketch.object_id] = Circle
@@ -107,7 +114,14 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
         ),
         TypedGraph={
             **ReportTyped(
-                Model, LinkValue, NodesValue, OwnersValue, tuple(Circles), tuple(Lines)
+                Model,
+                LinkValue,
+                NodesValue,
+                OwnersValue,
+                tuple(Key for Key, Value in Circles.items() if Value.dimensions),
+                tuple(Lines),
+                BodyEvidence,
+                tuple(Key for Key, Value in Circles.items() if not Value.dimensions),
             ),
             "native_tree": TreeValue.EvidenceValue,
             **(

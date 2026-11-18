@@ -40,7 +40,7 @@ The implemented container uses encoded stream names and compressed data.
 A valid stream directory does not prove valid native feature records.
 A valid feature record does not establish a successful vendor rebuild.
 
-For ordinary version-19000 blind-cut files, the internal codec retains the native cut class and its affected-body and surface-reference records. Three disclosed saves and a generated discovery part re-emit Config-0 and ResolvedFeatures byte for byte. Public portable cut projection remains open. [Typed blind-cut archive](../../Changes/Solidworks/Archive/SolidworksTypedBlindCutArchive.md)
+For ordinary version-19000 blind-cut files, the codec retains the native cut class and its affected-body and surface-reference records. The public history reader binds a measured one-boss cut to its actual sketch, consumed body producer and live depth owners. The cut sketch preserves a free, radius-driven or diameter-driven circle. Use `include_brep=False` to inspect the cache-free pocket history. [Typed blind-cut archive](../../Changes/Solidworks/Archive/SolidworksTypedBlindCutArchive.md) [Typed history](../../Changes/Solidworks/Reading/Parts/SolidworksTypedBlindPocketHistory.md)
 
 The internal pocket composer builds a Front-plane rectangular blind boss followed by a reversed circular blind cut from neutral history. It preserves a free circle or the actual fixed-centre radius or diameter. Three disclosed designs pass 30 exact generated stream comparisons and 275 native open, edit, save and reopen checks. Held-out comparison and public admission remain open. [SDK blind pocket](../../Changes/Solidworks/Construction/SolidworksSdkBlindPocket.md)
 

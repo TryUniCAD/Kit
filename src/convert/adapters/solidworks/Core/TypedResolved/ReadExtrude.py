@@ -11,11 +11,14 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
-# ordinary boss semantics require actual typed parents and live directions from the retained end specification
+# ordinary extrusion semantics require actual typed parents and live directions from the retained end specification
 def ReadExtrude(
-    LinkValue: NativeLink, NodeValue: ArchiveNode, Features: Mapping[int, ArchiveNode]
+    LinkValue: NativeLink,
+    NodeValue: ArchiveNode,
+    Features: Mapping[int, ArchiveNode],
+    IsCut: bool = False,
 ) -> ExtrudeOwner:
-    NodeValue = RequireNative(NodeValue, "moExtrusion_c")
+    NodeValue = RequireNative(NodeValue, "moICE_c" if IsCut else "moExtrusion_c")
     ParentsValue = ReadParents(NodeValue)
     if any(
         Features.get(NativeNodeId(ParentValue)) is not ParentValue
@@ -28,7 +31,7 @@ def ReadExtrude(
         if ParentValue.ClassValue.NameValue == "moProfileFeature_c"
     )
     if len(ProfilesValue) != 1:
-        raise ValueError("ordinary boss requires one retained profile")
+        raise ValueError("ordinary extrusion requires one retained profile")
     EndValue = RequireNative(NodeValue.FieldsValue.get("f818"), "moEndSpec_c")
     FieldsValue = EndValue.FieldsValue
     ModeValue = ReadEndMode(FieldsValue)

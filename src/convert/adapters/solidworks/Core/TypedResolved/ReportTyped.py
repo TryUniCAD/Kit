@@ -18,6 +18,8 @@ def ReportTyped(
     OwnersValue: Mapping[int, ExtrudeOwner],
     CircleIds: tuple[int, ...],
     LineIds: tuple[int, ...] = (),
+    BodyEvidence: Mapping[str, object] | None = None,
+    FreeCircleIds: tuple[int, ...] = (),
 ) -> Mapping[str, object]:
     LegacyIds = {Feature.object_id for Feature in Model.features}
     return {
@@ -47,17 +49,21 @@ def ReportTyped(
             if OwnersValue
             else ()
         )
-        + (
-            ("closed_circle", "radial_dimension", "fixed_circle_center")
-            if CircleIds
-            else ()
-        )
-        + (("closed_line_loop", "line_endpoints", "line_handles") if LineIds else ()),
+        + (("closed_circle",) if CircleIds or FreeCircleIds else ())
+        + (("radial_dimension", "fixed_circle_center") if CircleIds else ())
+        + (("closed_line_loop", "line_endpoints", "line_handles") if LineIds else ())
+        + (("consumed_body_producer", "cut_body_scope") if BodyEvidence else ()),
         **({"line_loop_profiles": LineIds} if LineIds else {}),
-        **({"circle_profiles": CircleIds} if CircleIds else {}),
+        **(
+            {"circle_profiles": (*CircleIds, *FreeCircleIds)}
+            if CircleIds or FreeCircleIds
+            else {}
+        ),
+        **({"free_circle_profiles": FreeCircleIds} if FreeCircleIds else {}),
+        **({"cut_body_dependency": BodyEvidence} if BodyEvidence else {}),
         "usage": LinkValue.ResolvedValue.ReportValue,
         "full_linked_graph": False,
-        "typed_geometry_projection": bool(CircleIds or LineIds),
+        "typed_geometry_projection": bool(CircleIds or FreeCircleIds or LineIds),
         "typed_assembly_mates": False,
         "public_writer_qualified": False,
     }

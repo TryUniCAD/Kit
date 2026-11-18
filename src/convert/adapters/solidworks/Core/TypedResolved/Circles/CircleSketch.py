@@ -19,22 +19,23 @@ from interchange.geometry.Models.Sketch import (
 from interchange.geometry.Models.VectorPlane import PlaneVector
 
 
-# the public sketch keeps both geometric entities and their distinct driving and fixed native relation roles
+# the public circle preserves actual geometry while exposing only the driving and fixed relations present in the sketch
 def CircleSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
     CircleValue = SketchValue.TypedCircle
     if CircleValue is None:
         raise ValueError("typed circle sketch requires its actual linked circle")
     SketchId = f"sldprt:sketch:{SketchValue.object_id}"
     ArcValue, CenterValue = CircleEntities(SketchId, CircleValue)
-    ParamId = LineParamId(SketchValue.object_id, CircleValue.DriverName)
-    if ParamId not in ParameterIds:
-        raise ValueError("typed circle sketch lacks its projected driving parameter")
-    return Sketch(
-        SketchId,
-        SketchValue.name,
-        f"sldprt:plane:{SketchValue.support_plane_id}",
-        (ArcValue, CenterValue),
-        (
+    ParamIds: tuple[str, ...] = ()
+    Relations: tuple[SketchRelation, ...] = ()
+    if CircleValue.DriverName is not None and CircleValue.ModeValue is not None:
+        ParamId = LineParamId(SketchValue.object_id, CircleValue.DriverName)
+        if ParamId not in ParameterIds:
+            raise ValueError(
+                "typed circle sketch lacks its projected driving parameter"
+            )
+        ParamIds = (ParamId,)
+        Relations = (
             SketchRelation(
                 f"{ArcValue.id}:radial",
                 CircleValue.ModeValue,
@@ -44,8 +45,14 @@ def CircleSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
             SketchRelation(
                 f"{CenterValue.id}:fixed", "fixed", (ConstraintRef(CenterValue.id),)
             ),
-        ),
-        (ParamId,),
+        )
+    return Sketch(
+        SketchId,
+        SketchValue.name,
+        f"sldprt:plane:{SketchValue.support_plane_id}",
+        (ArcValue, CenterValue),
+        Relations,
+        ParamIds,
         ((ArcValue.id,),),
         provenance=TypedProvenance(CircleValue.OwnerValue, str(SketchValue.object_id)),
         attributes={

@@ -26,4 +26,16 @@ Each generated part opened with one solid before explicit rebuild, with zero ope
 
 All three batches pass 275 numeric checks across 12 fresh processes with six healthy controls. Config-0 and ResolvedFeatures re-emit exactly from each native-edited file. The receipts bind the original measured tooling. In those raw per-phase files the terminal outcome is `result.passed`. The recorder now mirrors that value at the top level for subsequent runs.
 
-The public portable read still reports the multi-operation typed projection boundary on these histories. The two earlier locked source parts remain reserved for the original held-out comparison after semantic projection. [Native receipt](../measurements/2026/SdkBlindPocketNative01.json) [Original source locks](../v2026/heldout/OrdinaryBlindCutSourceLock.json)
+[Native receipt](../measurements/2026/SdkBlindPocketNative01.json) · [Original source locks](../v2026/heldout/OrdinaryBlindCutSourceLock.json)
+
+## Typed portable history
+
+The actual cut's concept list `f60` aliases the circular sketch. The consumed solid comes from the shared archive pointer `cut.f530.items[0].o is boss.f528.items[0].o`. Both the consumed atom and the cut's separate `f528` result are members of Config-0 `fd88` and the inherited map. Their `f12c` and `f130` fields agree with each producing feature. The source saves store scope code 1 and a wrapper whose two atom IDs, lineage list, feature ID and component owner agree with the consumed body. The generated native saves store scope code 0 with the same actual atom relationship. Both profiles own a one-row chooser that points back to the cut. The automatic-selection flag remains runtime state.
+
+The fresh profiles have zero managed atoms, zero ghost bodies and the ordinary all-bodies constructor state. Their exact feature inventory, absence of model relations, actual shared Front datum, rectangular and circular contour owners and positive wall margins establish that the cut consumes the sole boss. This evidence provides the producer feature ID and leaves the atom IDs absent.
+
+The normal reader preserves the two independent length parameter owners, the cut's orientation, its circle geometry and the ordered boss/profile dependencies. The free circle has an empty native relation manager and two actual local points. A radius or diameter retains its actual length parameter and fixed-centre relation. The original discovered stock has a construction line and retains its established sketch projection.
+
+Three disclosed source files, three generated originals and three native-edited saves pass in both strict path and byte modes with B-rep excluded. Re-serialized research copies with a self-consuming result, foreign chooser, unsupported scope, mismatched selected atom, cold scope override or alternate end all reject the typed ownership claim. The first checker expected a sketch geometry ID for the radial driver. Its corrected check uses the actual feature-timeline sketch ID and independently checks the circle and centre references.
+
+The two original held-out payloads remain sealed. The analytic cold B-rep and public writer qualification are open. [Public read receipt](../measurements/2026/SdkBlindPocketTypedRead01.json) · [Change entry](../../../Documentation/Changes/Solidworks/Reading/Parts/SolidworksTypedBlindPocketHistory.md)

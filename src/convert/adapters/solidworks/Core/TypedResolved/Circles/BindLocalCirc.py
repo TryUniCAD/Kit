@@ -11,14 +11,21 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # the direct circle path recovers the actual parameter and centre when legacy marker bindings are unavailable
 def BindLocalCirc(
-    SketchValue: NativeSketch, NodeValue: ArchiveNode, LinkValue: NativeLink
+    SketchValue: NativeSketch,
+    NodeValue: ArchiveNode,
+    LinkValue: NativeLink,
+    AllowFree: bool = False,
 ) -> NativeSketch | None:
     try:
         ShapeValue = RequireNative(NodeValue.FieldsValue.get("pd_f80"), "sgSketch")
-        Result = ReadLocalCirc(ShapeValue, LinkValue)
+        Result = ReadLocalCirc(ShapeValue, LinkValue, AllowFree)
     except (ValueError, KeyError, TypeError):
         return None
     if Result is None:
         return None
     CircleValue, Dimension = Result
-    return ReplaceValue(SketchValue, TypedCircle=CircleValue, dimensions=(Dimension,))
+    return ReplaceValue(
+        SketchValue,
+        TypedCircle=CircleValue,
+        dimensions=() if Dimension is None else (Dimension,),
+    )

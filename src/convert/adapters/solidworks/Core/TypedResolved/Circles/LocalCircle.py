@@ -9,6 +9,6 @@ class LocalCircle:
     RadiusValue: float
     ArcMark: int
     CenterMark: int
-    ModeValue: str
-    DriverName: str
+    ModeValue: str | None
+    DriverName: str | None
     OwnerValue: Mapping[str, object]
