@@ -2,6 +2,9 @@ from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Ends.ReportEndFields import (
+    ReportEndFields,
+)
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
@@ -34,14 +37,16 @@ def ReportTyped(
                 "parent_ids": tuple(
                     NativeNodeId(NodeValue) for NodeValue in OwnerValue.ParentsValue
                 ),
-                "parameter_name": OwnerValue.DepthValue.DepthValue.name,
-                "depth_m": OwnerValue.DepthValue.DepthValue.native_value,
-                "parameter_owner": OwnerValue.DepthValue.DepthValue.TypedOwner,
+                **ReportEndFields(OwnerValue),
             }
             for NativeId, OwnerValue in OwnersValue.items()
         ),
         "semantic_fields": ("feature_id", "feature_name", "feature_class")
-        + (("blind_profile", "blind_depth") if OwnersValue else ())
+        + (
+            ("extrusion_profile", "extrusion_end", "driving_depth")
+            if OwnersValue
+            else ()
+        )
         + (
             ("closed_circle", "radial_dimension", "fixed_circle_center")
             if CircleIds

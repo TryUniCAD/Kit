@@ -33,10 +33,11 @@ def CheckPartInput(
         )
     if (
         InputValue.SystemValue.OriginAxis != "z"
-        or dict(InputValue.SystemValue.PlaneNames).get("z") != PlanValue.PlaneName
+        or dict(InputValue.SystemValue.PlaneNames).get(PlanValue.AxisValue)
+        != PlanValue.PlaneName
     ):
         raise ValueError(
-            "part system support must match the actual neutral front plane"
+            "part system support must match the actual neutral principal plane"
         )
     if (
         InputValue.HeaderValue.CreatedAt != InputValue.SystemValue.CreatedAt

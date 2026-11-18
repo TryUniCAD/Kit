@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
     BindExtrude,
 )
 from convert.adapters.solidworks.Core.TypedResolved.BindFeature import BindFeature
+from convert.adapters.solidworks.Core.TypedResolved.Circles.BindLocalCirc import (
+    BindLocalCirc,
+)
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.Lines.BindLineLoop import (
     BindLineLoop,
@@ -78,7 +81,9 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
                 Features[Sketch.object_id], dimensions=LineValue.dimensions
             )
             continue
-        Circle = BindCircle(Sketch, NodeValue, LinkValue)
+        Circle = BindCircle(Sketch, NodeValue, LinkValue) or BindLocalCirc(
+            Sketch, NodeValue, LinkValue
+        )
         if Circle is not None:
             Circles[Sketch.object_id] = Circle
             Features[Sketch.object_id] = ReplaceValue(

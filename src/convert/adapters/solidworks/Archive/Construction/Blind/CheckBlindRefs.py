@@ -1,9 +1,7 @@
-from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndInput import (
-    BlindEndInput,
-)
 from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndRefs import (
     BlindEndRefs,
 )
+from convert.adapters.solidworks.Archive.Construction.Blind.EndInput import KEndInput
 from convert.adapters.solidworks.Archive.Construction.Blind.ReadEndParam import (
     ReadEndParam,
 )
@@ -13,7 +11,7 @@ from convert.adapters.solidworks.Archive.Construction.Blind.RequireEndNode impor
 
 
 # distinct constructor calls must keep their display parameter and persistent dimension identities independent
-def CheckBlindRefs(InputValue: BlindEndInput, RefsValue: BlindEndRefs) -> None:
+def CheckBlindRefs(InputValue: KEndInput, RefsValue: BlindEndRefs) -> None:
     FromValue = RequireEndNode(RefsValue.FromEndValue, "moFromEndSpec_c")
     if type(FromValue.FieldsValue["t"]) is not int or FromValue.FieldsValue["t"] != 0:
         raise ValueError("blind construction requires its ordinary from end mode")

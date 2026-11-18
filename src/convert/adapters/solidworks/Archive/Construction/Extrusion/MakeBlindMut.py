@@ -1,7 +1,5 @@
 from typing import cast as CastValue
-from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndInput import (
-    BlindEndInput,
-)
+from convert.adapters.solidworks.Archive.Construction.Blind.EndInput import KEndInput
 from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndRefs import (
     BlindEndRefs,
 )
@@ -35,7 +33,7 @@ def MakeBlindMut(
     NameValue: str,
     OwnerValue: ArchiveNode,
     ProfileValue: ProfileGraph,
-    InputValue: BlindEndInput,
+    InputValue: KEndInput,
     TargetValue: FeatureTarget,
     Allocator: PersistentIds,
     DesignIntent: bool,

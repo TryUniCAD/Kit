@@ -17,7 +17,7 @@ from tests.Convert.Solidworks.Research.ConstructionGuard import BuildAudit
 AUDIT = BuildAudit(ROOT / "re/tooling/sw2026/serial/defs")
 sys.addaudithook(AUDIT.InspectEvent)
 
-from SdkBlindPartChecks import driving_depth, name, node, require
+from SdkBlindPartChecks import name, node, require
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
 from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
@@ -42,6 +42,7 @@ from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePart
 from interchange.document.Validation.DocumentAssemblyValidate import GetAssemblyErrs
 from interchange.document.Validation.DocumentFeatureValidate import GetFeatureErrs
 from interchange.document.Validation.DocumentReferenceValidate import GetRefErrors
+from interchange.Features.FeatureExtrude import ExtrudeEnd
 from interchange.geometry.Models.GeometryCurves import CircleGeometry
 from interchange.serialization.Deserialize import FromData
 
@@ -56,20 +57,35 @@ def identity(data):
 
 def expected(document):
     sketch, feature = document.sketches[0], document.feature_timeline[0]
+    support = document.support_planes[0]
+    definition = feature.definition
     circle = sketch.entities[0].geometry
     require(type(circle) is CircleGeometry and document.units == "mm", "expected authored millimetre circle")
     radial = next(row for row in document.parameters if row.owner_id == sketch.id)
-    depth = next(row for row in document.parameters if row.owner_id == feature.id)
+    depths = {row.name: row for row in document.parameters if row.owner_id == feature.id}
     mode = next(row.kind for row in sketch.constraints if row.parameter_id == radial.id)
     x, y, radius = circle.center.x * 0.001, circle.center.y * 0.001, circle.radius * 0.001
-    length = depth.value.value * 0.001
+    length = depths["D1"].value.value * 0.001
+    second = depths["D2"].value.value * 0.001 if "D2" in depths else None
+    condition = {ExtrudeEnd.KBlind: "blind", ExtrudeEnd.KMidPlane: "mid_plane",
+                 ExtrudeEnd.KTwoLengths: "two_directions"}[definition.end_condition]
+    frame = [[value.x, value.y, value.z] for value in
+             (support.transform.x_axis, support.transform.y_axis, support.transform.z_axis)]
+    normal = tuple(frame[2])
+    axis = {(1, 0, 0): "x", (0, 1, 0): "y", (0, 0, 1): "z"}[normal]
+    total = length + (second or 0)
+    middle = 0.0 if condition == "mid_plane" else (length - (second or 0)) / 2
+    if definition.reversed:
+        middle = -middle
     return {
         "name": document.metadata["name"], "config": document.configurations[0].name,
-        "sketch": sketch.name, "feature": feature.name, "support": document.support_planes[0].name,
+        "sketch": sketch.name, "feature": feature.name, "support": support.name,
         "center_m": [x, y], "radius_m": radius, "depth_m": length, "mode": mode,
         "radial_m": radial.value.value * 0.001,
-        "volume_m3": pi * radius ** 2 * length, "area_m2": 2 * pi * radius * (radius + length),
-        "com_m": [x, y, length / 2],
+        "end_condition": condition, "reverse_direction": definition.reversed, "second_depth_m": second,
+        "plane_axis": axis, "frame_columns": frame,
+        "volume_m3": pi * radius ** 2 * total, "area_m2": 2 * pi * radius * (radius + total),
+        "com_m": [x * u + y * v + middle * n for u, v, n in zip(*frame, strict=True)],
     }
 
 
@@ -142,7 +158,41 @@ def check_profile(profile, root, boss, authored):
     require(node(support.FieldsValue["f58"], "moUnitComponent_c").FieldsValue["owner"] is root and
             boss.FieldsValue["f60"]["list"]["items"][0]["o"] is profile,
             "decoded native support ownership or extrusion link differs")
-    return {"fixed_center": True, "owned_radial_parameter": True, "closed_circle": True, "display_matches_parameter": True}
+    frame = profile.FieldsValue["pd_ff0"]
+    rotation = [value for row in zip(*authored["frame_columns"], strict=True) for value in row]
+    if authored["plane_axis"] == "z":
+        require(frame["has_matrix"] == 0, "front plane acquired a rotation matrix")
+    else:
+        require(frame["has_matrix"] == 1 and [frame["f08"][f"m{index}"] for index in range(9)] == rotation,
+                "typed plane frame differs from the actual neutral transform")
+    return {"fixed_center": True, "owned_radial_parameter": True, "closed_circle": True,
+            "display_matches_parameter": True, "actual_support_frame": True}
+
+
+def check_boss_end(boss, authored):
+    end = node(boss.FieldsValue["f818"], "moEndSpec_c").FieldsValue
+    require([end[key] for key in ("f08", "f0c", "f10", "f88", "f8c")]
+            == [int(authored["end_condition"] != "two_directions"),
+                6 if authored["end_condition"] == "mid_plane" else 0,
+                0, 0, int(authored["reverse_direction"])],
+            "typed end specification differs from the neutral conditions")
+    require(node(end["f140"], "moFromEndSpec_c").FieldsValue["t"] == 0,
+            "typed boss unexpectedly gained a start reference")
+    facts = []
+    second = authored["second_depth_m"]
+    for ordinal, (field, value) in enumerate((("f18", authored["depth_m"]),
+                                              ("f20", authored["depth_m"] if second is None else second)), 1):
+        display = node(end[field], "moDisplayDistanceDim_c").FieldsValue
+        require(display["n850"] == len(display["f850"]) == 1, "end length lost its unique dimension handle")
+        handle = node(display["f850"][0]["o"], "moFeatureDimHandle_c").FieldsValue
+        dimension = node(handle["ff0"], "ParallelPlaneDistanceDim_c").FieldsValue
+        parameter = node(dimension["f28"], "moLengthParameter_c")
+        require(dimension["f50"] == 20 + ordinal and parameter.FieldsValue["f08"] == -1 and
+                name(parameter) == f"D{ordinal}" and parameter.FieldsValue["f58"] == value,
+                "the end length does not retain its actual driving value and identity")
+        facts.append({"name": name(parameter), "length_m": value, "id": dimension["f50"],
+                      "active": ordinal == 1 or second is not None})
+    return facts
 
 
 def prepare(authored):
@@ -162,14 +212,19 @@ def prepare(authored):
             name(config.RootValue) == authored["name"] and name(cmgr.RootValue.FieldsValue["f360"]) == authored["config"],
             "decoded document names differ from their actual neutral owners")
     facts = check_profile(profile, config.RootValue, boss, authored)
-    depth = driving_depth(boss, authored["depth_m"], 21)
+    depths = check_boss_end(boss, authored)
     config_bytes, repeated = WriteConfigMut(config.RootValue, 19000, header)
     keywords = fromstring(streams["swXmlContents/KeyWords"][1:])
+    dims = [[("D1", authored["radial_m"])], [("D1", authored["depth_m"])]]
+    if authored["second_depth_m"] is not None:
+        dims[1].append(("D2", authored["second_depth_m"]))
     require(keywords.attrib["Name"] == authored["name"] and
             [row.tag for row in keywords[-2:]] == ["Sketch", "Extrusion"] and
-            all(len(row) == 1 and row[0].attrib["Name"] == "D1" for row in keywords[-2:]) and
-            all(isclose(float(row[0].text) * 0.001, authored[key], rel_tol=1e-13)
-                for row, key in zip(keywords[-2:], ("radial_m", "depth_m"), strict=True)),
+            all(len(row) == len(group) and
+                all(dimension.attrib["Name"] == name_value and
+                    isclose(float(dimension.text) * 0.001, length, rel_tol=1e-13)
+                    for dimension, (name_value, length) in zip(row, group, strict=True))
+                for row, group in zip(keywords[-2:], dims, strict=True)),
             "keyword dimensions lost their actual separate owners and driving lengths")
     roundtrip = {
         "Header2": WriteHeadGraph(ReadHeaderGraph(streams["Header2"], 19000), 19000),
@@ -186,7 +241,7 @@ def prepare(authored):
     require(roundtrip == streams and BuildSldprt(streams, FormatVersion=4) == blob,
             "roundtrip changed a stream or container")
     return {"artifact": identity(blob), "streams": {key: {**identity(value), "byte_identity": True} for key, value in roundtrip.items()},
-            "exact_repacked_archive": True, "typed_geometry": facts, "driving_depth": depth, "dimensions": authored}
+            "exact_repacked_archive": True, "typed_geometry": facts, "native_depths": depths, "dimensions": authored}
 
 
 document_value = FromData(REQUEST["document"])

@@ -1,5 +1,8 @@
 from dataclasses import dataclass as DataClass
 
+from convert.adapters.solidworks.Archive.Construction.Blind.BossEndInput import (
+    BossEndInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Circles.CircleInput import (
     CircleInput,
 )
@@ -11,6 +14,7 @@ class CirclePlan:
     NameValue: str
     ConfigName: str
     PlaneName: str
+    AxisValue: str
     SketchId: str
     SketchName: str
     FeatureId: str
@@ -21,4 +25,14 @@ class CirclePlan:
     RadialId: str
     IsDiameter: bool
     TextPoint: tuple[float, float]
-    DepthValue: float
+    EndValue: BossEndInput
+
+    # the shared part archive exposes the actual primary driving length
+    @property
+    def DepthValue(self) -> float:
+        return self.EndValue.DepthValue
+
+    # only an active second end supplies another independent dimension keyword
+    @property
+    def SecondDepth(self) -> float | None:
+        return self.EndValue.SecondDepth

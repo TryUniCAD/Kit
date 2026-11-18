@@ -14,6 +14,7 @@ from interchange import (
     CircleGeometry as CircleGeom,
     ParameterRole as ParamRole,
 )
+from interchange.Features.FeatureExtrude import ExtrudeEnd
 from convert.Geometry.Opencascade import decode_ascii_brep as DecodeAsciiBrep
 from convert.adapters.base import ParseUntrusted
 from convert.adapters.solidworks.Container.Container import SldprtFormatError
@@ -40,6 +41,7 @@ from convert.adapters.solidworks.Core.PlaneRefRecord import FindPlaneRef, KHandl
 from convert.adapters.solidworks.Core.HeaderActions import ReadHdrAction
 from convert.adapters.solidworks.Core.RadialValue import MatchRadialVal
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
+from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import LocalCircle
 from convert.adapters.solidworks.Core.SketchRelations.CircleCenterRule import (
     ReadCenterFix,
 )
@@ -1129,6 +1131,7 @@ class NativeSketch:
     support_source: str = KRefSupportSource
     unframed_support_plane_id: int | None = None
     TypedLines: LineLoop | None = None
+    TypedCircle: LocalCircle | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1197,6 +1200,7 @@ class NativeOperation(NativeOpFrame):
     angle_copies: tuple[NativeDepthCopy, ...] = ()
     instance_count: int | None = None
     spacing_mm: float | None = None
+    extrusion_end: ExtrudeEnd | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

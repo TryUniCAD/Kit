@@ -9,18 +9,20 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadNativeName import ReadNa
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 
 
-# a display cache cannot replace the live parameter selected by the forward end specification
-def ReadDepthOwner(LinkValue: NativeLink, DisplayValue: ArchiveNode) -> DepthOwner:
+# a display cache cannot replace the live parameter selected by its actual end specification slot
+def ReadDepthOwner(
+    LinkValue: NativeLink, DisplayValue: ArchiveNode, SlotName: str = "f18"
+) -> DepthOwner:
     DisplayValue = RequireNative(DisplayValue, "moDisplayDistanceDim_c")
     HandlesValue = NativeRows(DisplayValue.FieldsValue.get("f850"))
     if len(HandlesValue) != 1:
-        raise ValueError("forward depth requires one actual display handle")
+        raise ValueError("end depth requires one actual display handle")
     HandleValue = RequireNative(HandlesValue[0].get("o"), "moFeatureDimHandle_c")
     if (
         HandleValue.FieldsValue.get("fe8") is not None
         or HandleValue.FieldsValue.get("f100") is not None
     ):
-        raise ValueError("forward depth requires the local dimension branch")
+        raise ValueError("end depth requires the local dimension branch")
     Dimension = RequireNative(
         HandleValue.FieldsValue.get("ff0"), "ParallelPlaneDistanceDim_c"
     )
@@ -37,7 +39,7 @@ def ReadDepthOwner(LinkValue: NativeLink, DisplayValue: ArchiveNode) -> DepthOwn
         raise ValueError("ordinary blind depth must be positive")
     NativeId = Dimension.FieldsValue.get("f50")
     if type(NativeId) is not int or NativeId < 0:
-        raise ValueError("forward depth lacks its persistent dimension identity")
+        raise ValueError("end depth lacks its persistent dimension identity")
     DepthValue = NativeDimension(
         ReadNativeName(Parameter),
         NativeValue * 1000.0,
@@ -52,7 +54,7 @@ def ReadDepthOwner(LinkValue: NativeLink, DisplayValue: ArchiveNode) -> DepthOwn
             "dimension_index": Dimension.IndexValue,
             "handle_index": HandleValue.IndexValue,
             "display_index": DisplayValue.IndexValue,
-            "slot": "f818.f18",
+            "slot": "f818." + SlotName,
         },
     )
     return DepthOwner(Parameter, Dimension, HandleValue, DisplayValue, DepthValue)

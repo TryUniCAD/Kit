@@ -148,6 +148,12 @@ from convert.adapters.solidworks.Core.ConfigurationInfo import WithCmgrInfo
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Circles.CircleSketch import (
+    CircleSketch,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Ends.BuildTypedEnd import (
+    BuildTypedEnd,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
     WithTypedNative,
@@ -2552,6 +2558,8 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
 def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
     if Sketch.TypedLines is not None:
         return LineSketch(Sketch, ParamIds)
+    if Sketch.TypedCircle is not None:
+        return CircleSketch(Sketch, ParamIds)
     Entities, RefMap, ProfileEntities, ProfileOffsets = ProfileSketch(Sketch)
     MarkerValues, MarkerEntities = SketchMarkers(
         Sketch, ProfileOffsets, ProfileEntities
@@ -3430,10 +3438,18 @@ def OperationAttrs(Operation: NativeOperation) -> dict[str, object]:
             {
                 "length_mm": Operation.length_mm,
                 "direction_multiplier": (
-                    -1 if Operation.kind in {"cut", "revolve_cut", "hole"} else 1
+                    -1
+                    if Operation.kind in {"cut", "revolve_cut", "hole"}
+                    or (
+                        Operation.extrusion_end is not None
+                        and Operation.direction_code == 1
+                    )
+                    else 1
                 ),
                 "end_condition": (
-                    "blind"
+                    Operation.extrusion_end.value
+                    if Operation.extrusion_end is not None
+                    else "blind"
                     if Operation.termination_code == 0
                     else f"native:{Operation.termination_code}"
                 ),
@@ -3519,6 +3535,8 @@ def BuildExtrude(Operation: NativeOperation | None) -> ExtrusionFeature | None:
         or Operation.length_mm is None
     ):
         return None
+    if Operation.extrusion_end is not None:
+        return BuildTypedEnd(Operation, Operation.extrusion_end, Operation.length_mm)
     return ExtrusionFeature(
         length=ParamValue(Operation.length_mm, ValueKind.LENGTH, "mm"),
         end_condition=(

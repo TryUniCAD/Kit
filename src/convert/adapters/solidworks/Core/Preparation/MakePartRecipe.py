@@ -40,7 +40,7 @@ def MakePartRecipe(PlanValue: KPartPlan, WrittenAt: int) -> PartBuildInput:
         StyleValue,
         UnitInput("mm", "degree", "mmgs", 4),
         UnitInput("m", "radian", "mks", 4),
-        DefaultPartTree(PlanValue.PlaneName, WrittenAt),
+        DefaultPartTree(PlanValue.PlaneName, WrittenAt, PlanValue.AxisValue),
         TargetValue,
         HeaderInput("Kit", "", CommentValue, WrittenAt, WrittenAt, WrittenAt),
         HistoryInput(

@@ -17,3 +17,13 @@ class BlindPlan:
     DepthValue: float
     WidthValue: float
     HeightValue: float
+
+    # ordinary line loop parts use the canonical front support
+    @property
+    def AxisValue(self) -> str:
+        return "z"
+
+    # the admitted line loop boss has only its one active depth
+    @property
+    def SecondDepth(self) -> None:
+        return None

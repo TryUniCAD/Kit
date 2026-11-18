@@ -42,8 +42,8 @@ def MakeCirclePart(
     ProfileValue = MakeCircleFeat(
         PlanValue.SketchName,
         SystemValue.RootValue,
-        SystemValue.SystemValues.PlaneValues["z"],
-        "z",
+        SystemValue.SystemValues.PlaneValues[PlanValue.AxisValue],
+        PlanValue.AxisValue,
         PlanValue.CircleValue,
         InputValue.TargetValue,
         Allocator,

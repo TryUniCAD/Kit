@@ -13,6 +13,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan import (
+    CirclePlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartStreams import (
     EmitPartStreams,
 )
@@ -49,11 +52,16 @@ def FinishBlindMut(
     Allocator: PersistentIds,
     SketchDims: tuple[KeywordDim, ...] = (),
 ) -> PartCandidate:
+    EndInput = (
+        PlanValue.EndValue
+        if type(PlanValue) is CirclePlan
+        else BlindEndInput(PlanValue.DepthValue, False, 19000)
+    )
     BossValue = MakeBlindMut(
         PlanValue.FeatureName,
         SystemValue.RootValue,
         ProfileValue,
-        BlindEndInput(PlanValue.DepthValue, False, 19000),
+        EndInput,
         InputValue.TargetValue,
         Allocator,
         InputValue.DesignIntent,

@@ -40,15 +40,16 @@ def replay(src, proof, action, request):
     return report
 
 
-def case(src, proof, source, out, kind, guest):
+def case(src, proof, source, out, guest):
     data = source.read_bytes()
     request = json.loads(data)
     built = replay(src, proof, "build", data)
     prepared = replay(src, proof, "prepare", encoded({**request, "build": built}))
     dimensions = built["dimensions"]
+    kind = dimensions["mode"]
     name = dimensions["name"]
     stored = PureWindowsPath(built["stored_self_path"])
-    if (dimensions != prepared["dimensions"] or dimensions["mode"] != kind
+    if (dimensions != prepared["dimensions"] or kind not in ("radius", "diameter")
             or stored.parent != PureWindowsPath(r"C:\KitSdkCandidates")
             or stored.name != name + ".SLDPRT"):
         raise ValueError("candidate provenance, names or driving intent differ")
@@ -56,7 +57,7 @@ def case(src, proof, source, out, kind, guest):
         raise ValueError("build and preparation did not inspect the same bytes")
     if len(built["streams"]) != 10 or prepared["exact_repacked_archive"] is not True:
         raise ValueError("incomplete generated native archive")
-    child = out / kind
+    child = out / source.stem
     child.mkdir()
     blob = b64decode(built.pop("blob"), validate=True)
     candidate = child / stored.name
@@ -72,14 +73,19 @@ def case(src, proof, source, out, kind, guest):
     geometry = {
         "name": name, "configuration_name": dimensions["config"],
         "sketch_name": dimensions["sketch"], "extrusion_name": dimensions["feature"],
-        "origin_name": "Origin", "plane_axis": "z", "profile_kind": "circle", "feature_kind": "blind_extrusion",
+        "origin_name": "Origin", "plane_axis": dimensions["plane_axis"], "profile_kind": "circle", "feature_kind": "extrusion",
         "center_m": dimensions["center_m"], "radius_m": dimensions["radius_m"], "depth_m": dimensions["depth_m"],
         "circle_dimension": {"mode": kind, "fix_center": True},
         "expected_body_density_kg_m3": 1.0, "document_density_kg_m3": 1000.0,
+        "end_condition": dimensions["end_condition"], "reverse_direction": dimensions["reverse_direction"],
     }
-    return {"name": name, "path": guest(candidate), "sha256": built["sha256"],
-            "request": {"document": geometry}, "edit_factor": request["radial_edit_factor"],
-            "depth_edit_factor": request["depth_edit_factor"]}, evidence
+    oracle_case = {"name": name, "path": guest(candidate), "sha256": built["sha256"],
+                   "request": {"document": geometry}, "edit_factor": request["radial_edit_factor"],
+                   "depth_edit_factor": request["depth_edit_factor"]}
+    if dimensions["second_depth_m"] is not None:
+        geometry["reverse_depth_m"] = dimensions["second_depth_m"]
+        oracle_case["reverse_depth_edit_factor"] = request["second_edit_factor"]
+    return oracle_case, evidence
 
 
 def main():
@@ -90,6 +96,7 @@ def main():
     parser.add_argument("control", type=Path)
     parser.add_argument("--control-sha256", required=True)
     parser.add_argument("--shared-home", type=Path, required=True)
+    parser.add_argument("--case", action="append")
     args = parser.parse_args()
     base = args.frozen_source.resolve(strict=True)
     request_dir = args.request_directory.resolve(strict=True)
@@ -111,12 +118,15 @@ def main():
     out.mkdir(parents=True, exist_ok=False)
     cases = []
     receipts = {}
-    for kind in ("radius", "diameter"):
-        row, receipt = case(src, proof, request_dir / (kind + ".json"), out, kind, guest)
+    labels = args.case or ["radius", "diameter"]
+    if any(not label or not label.isascii() or not label.replace("-", "").isalnum() for label in labels):
+        raise ValueError("oracle case labels must be simple local request stems")
+    for label in labels:
+        row, receipt = case(src, proof, request_dir / (label + ".json"), out, guest)
         cases.append(row)
-        receipts[kind] = receipt
-    if len({row["sha256"] for row in cases}) != len(cases):
-        raise ValueError("circle designs did not produce different files")
+        receipts[label] = receipt
+    if any(len({row[key] for row in cases}) != len(cases) for key in ("sha256", "name")):
+        raise ValueError("distinct circle designs require distinct files and names")
     control = args.control.resolve(strict=True)
     if sha256(control.read_bytes()).hexdigest() != args.control_sha256:
         raise ValueError("native control does not match the approved immutable hash")

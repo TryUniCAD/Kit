@@ -1,18 +1,19 @@
-from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndInput import (
-    BlindEndInput,
-)
+from convert.adapters.solidworks.Archive.Construction.Blind.EndInput import KEndInput
 from convert.adapters.solidworks.Archive.Construction.Blind.ReadEndHandle import (
     ReadEndHandle,
 )
 from convert.adapters.solidworks.Archive.Construction.Blind.RequireEndNode import (
     RequireEndNode,
 )
+from convert.adapters.solidworks.Archive.Construction.Blind.SelectEndValue import (
+    SelectEndValue,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
 # end references must bind the expected named live parameter and its independently allocated dimension identity
 def ReadEndParam(
-    InputValue: BlindEndInput, DisplayValue: ArchiveNode, OrdinalValue: int
+    InputValue: KEndInput, DisplayValue: ArchiveNode, OrdinalValue: int
 ) -> ArchiveNode:
     IsAngular = OrdinalValue in (3, 4)
     DisplayValue = RequireEndNode(
@@ -30,7 +31,7 @@ def ReadEndParam(
     NameValue = RequireEndNode(ParamValue.FieldsValue["f18"], "moNodeName_c")
     if NameValue.FieldsValue["f08"] != f"D{OrdinalValue}":
         raise ValueError("blind dimension name does not match its constructor role")
-    ExpectedValue = float(InputValue.DepthValue) if OrdinalValue in (1, 2) else 0.0
+    ExpectedValue = SelectEndValue(InputValue, OrdinalValue)
     NativeValue = ParamValue.FieldsValue["f58"]
     if type(NativeValue) not in (int, float) or NativeValue != ExpectedValue:
         raise ValueError("blind dimension value does not match its neutral input")

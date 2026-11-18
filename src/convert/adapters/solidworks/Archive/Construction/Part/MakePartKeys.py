@@ -44,6 +44,12 @@ def MakePartKeys(
     ScaleValue = {"mm": 0.001, "m": 1.0, "in": 0.0254}[
         InputValue.DocumentUnits.LengthUnit
     ]
+    SecondDepth = PlanValue.SecondDepth
+    DepthDims: tuple[KeywordDim, ...] = (
+        KeywordDim("D1", PlanValue.DepthValue / ScaleValue, None),
+    )
+    if SecondDepth is not None:
+        DepthDims += (KeywordDim("D2", SecondDepth / ScaleValue, None),)
     for IndexValue, NodeValue in enumerate(FeatureValues):
         TagValue = (
             "Sketch"
@@ -51,7 +57,7 @@ def MakePartKeys(
             else "Extrusion" if IndexValue == len(FeatureValues) - 1 else "Feature"
         )
         Dimensions = (
-            (KeywordDim("D1", PlanValue.DepthValue / ScaleValue, None),)
+            DepthDims
             if TagValue == "Extrusion"
             else SketchDims if TagValue == "Sketch" else ()
         )

@@ -1,15 +1,17 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Core.TypedResolved.Ends.ReadEndMode import ReadEndMode
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.ReadDepthOwner import ReadDepthOwner
 from convert.adapters.solidworks.Core.TypedResolved.ReadParents import ReadParents
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
+from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
-# blind boss semantics require actual typed parents and the ordinary forward end branch
+# ordinary boss semantics require actual typed parents and live directions from the retained end specification
 def ReadExtrude(
     LinkValue: NativeLink, NodeValue: ArchiveNode, Features: Mapping[int, ArchiveNode]
 ) -> ExtrudeOwner:
@@ -26,18 +28,10 @@ def ReadExtrude(
         if ParentValue.ClassValue.NameValue == "moProfileFeature_c"
     )
     if len(ProfilesValue) != 1:
-        raise ValueError("ordinary blind boss requires one retained profile")
+        raise ValueError("ordinary boss requires one retained profile")
     EndValue = RequireNative(NodeValue.FieldsValue.get("f818"), "moEndSpec_c")
     FieldsValue = EndValue.FieldsValue
-    for FieldName, Expected in (("f08", 1), ("f0c", 0), ("f10", 0), ("f88", 0)):
-        if (
-            type(FieldsValue.get(FieldName)) is not int
-            or FieldsValue[FieldName] != Expected
-        ):
-            raise ValueError("extrusion end mode is outside ordinary blind semantics")
-    ReverseValue = FieldsValue.get("f8c")
-    if type(ReverseValue) is not int or ReverseValue != 0:
-        raise ValueError("reversed extrusion is outside typed forward blind semantics")
+    ModeValue = ReadEndMode(FieldsValue)
     FromValue = RequireNative(FieldsValue.get("f140"), "moFromEndSpec_c")
     if (
         type(FromValue.FieldsValue.get("t")) is not int
@@ -45,11 +39,27 @@ def ReadExtrude(
     ):
         raise ValueError("offset extrusion starts are outside typed blind semantics")
     DepthValue = ReadDepthOwner(LinkValue, RequireNative(FieldsValue.get("f18")))
+    SecondValue = None
+    if ModeValue == ExtrudeEnd.KTwoLengths:
+        SecondValue = ReadDepthOwner(
+            LinkValue, RequireNative(FieldsValue.get("f20")), "f20"
+        )
+        if (
+            DepthValue.Parameter is SecondValue.Parameter
+            or DepthValue.DepthValue.name == SecondValue.DepthValue.name
+            or DepthValue.Dimension.FieldsValue["f50"]
+            == SecondValue.Dimension.FieldsValue["f50"]
+        ):
+            raise ValueError(
+                "two direction extrusion requires distinct active driving owners"
+            )
     return ExtrudeOwner(
         NodeValue,
         ProfilesValue[0],
         ParentsValue,
         EndValue,
         DepthValue,
-        bool(ReverseValue),
+        bool(FieldsValue["f8c"]),
+        ModeValue,
+        SecondValue,
     )

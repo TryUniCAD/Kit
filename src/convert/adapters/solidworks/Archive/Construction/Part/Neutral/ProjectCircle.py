@@ -1,13 +1,16 @@
 from math import isclose as IsClose
 
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CheckCircBase import (
-    CheckCircBase,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CheckPartLinks import (
+    CheckPartLinks,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan import (
     CirclePlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.IsCircDiameter import (
     IsCircDiameter,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadBossEnd import (
+    ReadBossEnd,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadCircGeom import (
     ReadCircGeom,
@@ -18,28 +21,33 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadCircParam
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadLength import (
     ReadLength,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis import (
+    ReadPrincAxis,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.RequireBossBase import (
+    RequireBossBase,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.RequirePlainDoc import (
+    CheckPartScope,
+)
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
 from interchange.document.Models.DocumentModel import CadDocument
-from interchange.document.Validation.DocumentValidate import AssertValid
 
 
-# the circle plan projects its actual geometry owners and two editable drivers independent of neutral parameter order
+# the circle plan preserves its analytic geometry and actual support and extrusion end ownership
 def ProjectCircle(DocumentValue: CadDocument) -> CirclePlan:
-    if type(DocumentValue) is not CadDocument:
-        raise TypeError("circle boss requires an actual neutral document")
-    AssertValid(DocumentValue)
-    if (
-        len(DocumentValue.parameters),
-        len(DocumentValue.sketches),
-        len(DocumentValue.feature_timeline),
-    ) != (2, 1, 1):
-        raise ValueError(
-            "circle boss requires one sketch one boss and their two drivers"
-        )
-    RadialParam, DepthParam = ReadCircParams(DocumentValue)
-    Definition = CheckCircBase(DocumentValue, DepthParam)
+    CheckPartScope(DocumentValue, (2, 3))
+    PlaneValue = CheckPartLinks(DocumentValue)
+    SketchValue, FeatureValue = (
+        DocumentValue.sketches[0],
+        DocumentValue.feature_timeline[0],
+    )
+    AxisValue = ReadPrincAxis(PlaneValue.transform)
+    Definition = RequireBossBase(FeatureValue)
+    EndValue = ReadBossEnd(Definition, AxisValue)
+    RadialParam, DepthParam = ReadCircParams(DocumentValue, Definition)
     NameValue = ReadStyleText(
         DocumentValue.metadata.get("name"), "neutral document name"
     )
@@ -48,10 +56,6 @@ def ProjectCircle(DocumentValue: CadDocument) -> CirclePlan:
         raise ValueError(
             "circle boss requires an explicit document name and supported units"
         )
-    SketchValue, FeatureValue = (
-        DocumentValue.sketches[0],
-        DocumentValue.feature_timeline[0],
-    )
     CircleValue = ReadCircGeom(SketchValue, UnitScale)
     IsDiameter = IsCircDiameter(SketchValue, SketchValue.entities[0].id, RadialParam.id)
     RadiusValue = CircleValue.RadiusValue
@@ -66,7 +70,8 @@ def ProjectCircle(DocumentValue: CadDocument) -> CirclePlan:
     return CirclePlan(
         NameValue,
         DocumentValue.configurations[0].name,
-        DocumentValue.support_planes[0].name,
+        PlaneValue.name,
+        AxisValue,
         SketchValue.id,
         SketchValue.name,
         FeatureValue.id,
@@ -77,5 +82,5 @@ def ProjectCircle(DocumentValue: CadDocument) -> CirclePlan:
         RadialParam.id,
         IsDiameter,
         (CenterX + RadiusValue * 2, CenterY + RadiusValue),
-        ReadLength(Definition.length),
+        EndValue,
     )

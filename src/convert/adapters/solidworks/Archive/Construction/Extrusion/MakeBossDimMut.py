@@ -1,6 +1,4 @@
-from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndInput import (
-    BlindEndInput,
-)
+from convert.adapters.solidworks.Archive.Construction.Blind.EndInput import KEndInput
 from convert.adapters.solidworks.Archive.Construction.Blind.MakeBlindParam import (
     MakeBlindParam,
 )
@@ -31,7 +29,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 # every constructed feature dimension consumes its own real persistent identifier including the conditionally omitted from offset dimension
 def MakeBossDimMut(
     OwnerValue: ArchiveNode,
-    InputValue: BlindEndInput,
+    InputValue: KEndInput,
     OrdinalValue: int,
     DesignIntent: bool,
     SelectedLeader: int,
