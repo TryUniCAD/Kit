@@ -1,0 +1,46 @@
+{
+  "candidate_control_bytes_changed": false,
+  "confidence": "confirmed_for_the_measured_ordinary_external_origin_profile",
+  "delivery_pr": 121,
+  "exact_observer_diff": {
+    "all_other_function_bodies_exact": true,
+    "corrected_observer_sha256": "6d3a16a4d8e1497542918b95fd4c4a32a025383e536418072cf01a7f66b6a089",
+    "function_body_changes": [
+      "two_exact_parent_lists",
+      "predecessor_custody_checks"
+    ],
+    "generated_input_changes": 0,
+    "prior_observer_sha256": "27f6a44fab6a376d5528ebcf8c6684e32fc277ab7dcd872fff53adcc554e846a",
+    "schema": "kit.sw2026.anchored-observer-exact-diff.v1",
+    "sdk_source_changes": 0
+  },
+  "heldout_inputs_read": 0,
+  "native_named_lifecycle_accepted": false,
+  "native_retry_executed_by_worker": false,
+  "new_native_failed_report_sha256": "e402c2967320c0309e8d02b0eb90a290e3220c17c429e633b43429b35b185895",
+  "new_recorded_default_states": 4,
+  "offline_numeric_checks": 128,
+  "offline_replay_passed": true,
+  "offline_replay_report_sha256": "7a10c49f8dd84c4ca06191d2f6c93bd10f683ba9c29ea25f142296a13f8c3753",
+  "predictions_changed": false,
+  "prior_native_report_sha256": "a230f247f6d5db4c423303ef52d4cbe1ee0450cbd40eb92ebcfb9770ce3919c6",
+  "prior_states": 15,
+  "retry_host_verify_passed": true,
+  "retry_packet_sha256": "542de0e34ace2fb574d112302fb57c71302781fcbb81fb39f1ef9be2812af9fc",
+  "rule": {
+    "boss_parents": [
+      "actual_profile",
+      "actual_support_plane",
+      "actual_selected_model_origin"
+    ],
+    "profile_parents": [
+      "actual_support_plane",
+      "actual_selected_model_origin"
+    ]
+  },
+  "schema": "kit.sw2026.anchored-native-origin-parent-rule.v1",
+  "sdk_files_changed": 0,
+  "source_graph": "actual_sgExtEnt_to_moSketchExtRef_to_moCompSketchEntHandle_targets_same_model_origin_profile_and_point",
+  "source_original_qualification": false,
+  "task_id": "B04-SW2026-ANCHORED-NAMED-PART"
+}
