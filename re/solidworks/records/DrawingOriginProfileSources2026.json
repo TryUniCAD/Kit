@@ -1,0 +1,241 @@
+{
+  "actual_alias_path": [
+    "view.f630",
+    "detail_folder.f8f8",
+    "display.f48",
+    "moCompProfile_c.f58",
+    "moChainComponent_c.f20",
+    "moReferenceChain_c.f08",
+    "moExtFeatureList_c",
+    "moExtFeature_c.f50 is actual view.f5d8"
+  ],
+  "actual_disclosed_target": {
+    "class": "moOriginProfileFeature_c",
+    "creation_epoch": 1794529625,
+    "drawing_state_count": 8,
+    "inline_frdata_id": 5,
+    "native_api_id": 5,
+    "observations_not_constructor_defaults": true,
+    "ordinary_sketch_id": 26,
+    "same_origin_after_move_save_reopen": true,
+    "source_count": 4
+  },
+  "ghost_body_reader_boundary": {
+    "actual_owner": "embedded moGhostBodyObject_c row of moGhostBodyIdManager_c, not a moGhostProfileFeature_c or sgGhostSketch",
+    "complete_join_sha256": "7634e1411915609fd293a87ab7f743a588eba338c85adfb6aba467a3b23b91eb",
+    "current_cohort_native_writer_acceptance": false,
+    "existing_proof": {
+      "exact_stream_checks": 6,
+      "meaning": "prior disclosed Config and Resolved codec proof, not this new cohort or native writer acceptance",
+      "receipt": "re/solidworks/measurements/2026/SdkGhostBodyConfig01.json",
+      "record": "re/solidworks/records/SdkGhostBodyConfig2026.md"
+    },
+    "failed_join": {
+      "diagnostic": "unsupported SOLIDWORKS body schema moGhostBodyObject_c.FUN_4bf05390",
+      "drawing_definition_exact_checks": 8,
+      "linked_child_failures": 8,
+      "reader_completed": false,
+      "sha256": "0d3d1cc4b2142fd9be3f5304c995bab778c28c23dd44a4a48fc01761178c756e"
+    },
+    "heldout_acceptance": false,
+    "imports": [
+      {
+        "iat": "0x4cd3d880",
+        "identity": [
+          "swccu.dll",
+          "??6su_CArchive@@QEAAAEAV0@J@Z"
+        ]
+      },
+      {
+        "iat": "0x4cd3d888",
+        "identity": [
+          "swccu.dll",
+          "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+        ]
+      },
+      {
+        "iat": "0x4cd3d898",
+        "identity": [
+          "swccu.dll",
+          "?WriteObject@su_CArchive@@QEAAXPEBVCObject@@PEBUCRuntimeClass@@@Z"
+        ]
+      },
+      {
+        "iat": "0x4cd3d890",
+        "identity": [
+          "swccu.dll",
+          "?ReadObject@su_CArchive@@QEAAPEAVCObject@@PEBUCRuntimeClass@@@Z"
+        ]
+      },
+      {
+        "iat": "0x4cd3a968",
+        "identity": [
+          "sldmgu.dll",
+          "?save@mgPoint_c@@QEBAXAEAVsu_CArchive@@@Z"
+        ]
+      },
+      {
+        "iat": "0x4cd3a970",
+        "identity": [
+          "sldmgu.dll",
+          "?restore@mgPoint_c@@QEAAXAEAVsu_CArchive@@@Z"
+        ]
+      }
+    ],
+    "native_acceptance": false,
+    "native_method": {
+      "entry": "0x4bf05390",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 1012,
+          "end": "0x4bf05784",
+          "sha256": "2c04d213d52ff74e4980b965a4d0113221dea5fe359bf9bc90b325844fe2729d",
+          "start": "0x4bf05390"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bf05390",
+          "end": "0x4bf05784",
+          "unwind": "0x4d552e6c"
+        }
+      ]
+    },
+    "native_module": {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "exception_directory": {
+        "bytes": 988296,
+        "records": 82358,
+        "rva": "0x2a6a000"
+      },
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "normalization_boundaries": [
+      "native store derives has_f50 from pointer nonnull; raw wire codec preserves original presence scalar",
+      "native identifier read inserts only missing values into its runtime array; raw wire codec retains order and multiplicity",
+      "negative counts visit no rows by native signed-positive loop; typed codec keeps its existing repetition safety limit",
+      "no fresh ghost-body row values or generation defaults are supplied",
+      "nonnull f50 remains subject to actual concrete-class grammar admission; unsupported descendants still fail closed"
+    ],
+    "ordered_wire_fields": [
+      {
+        "field": "f08",
+        "load": "0x4bf05561",
+        "store": "0x4bf053fc",
+        "type": "i32"
+      },
+      {
+        "field": "f0c",
+        "load": "0x4bf0556b",
+        "runtime_fixup": "ordinary integer assignment from temporary; no wire change",
+        "store": "0x4bf05406",
+        "type": "i32"
+      },
+      {
+        "field": "f10",
+        "load": "0x4bf0557f",
+        "store": "0x4bf05413",
+        "type": "i32"
+      },
+      {
+        "field": "fc0",
+        "load": "0x4bf0558c",
+        "store": "0x4bf05420",
+        "type": "i32"
+      },
+      {
+        "field": "nb0/fa0",
+        "load_gate": "0x4bf055ad",
+        "store_gate": "0x4bf05432",
+        "type": "i32 count; positive count repeats i32 identifier v",
+        "version_at_least": "0xf6d"
+      },
+      {
+        "field": "has_f50/f50",
+        "load_gate": "0x4bf0561e",
+        "null_tag_allowed_by_wire_reader": true,
+        "store_gate": "0x4bf054b2",
+        "type": "i32 presence; when nonzero actual object tag expected to derive from moGhostGeometricData_c",
+        "version_at_least": "0xf81"
+      },
+      {
+        "field": "nf0/ff0",
+        "load_gate": "0x4bf0566f",
+        "mgPoint_encoding": "shared three-f64 xyz grammar",
+        "store_gate": "0x4bf054fe",
+        "type": "i32 count; positive count repeats mgPoint_c.restore p",
+        "version_at_least": "0xf8c"
+      }
+    ],
+    "ordinary_context": {
+      "additional_context_branch_in_body": false,
+      "archive_conditions": 0,
+      "complete_source_semantics_admitted": false,
+      "database_mode": false,
+      "file_version": 19000
+    },
+    "original_writer_unchanged": true,
+    "reader_change": {
+      "existing_research_and_manager_operations_unchanged": true,
+      "new_manifest_sha256": "c038ac2e2d374d96930ea206b0bfc4eeec3b4013ad2e0e2e00862eb168b7864e",
+      "new_source_sha256": "fb679705fcb9ae37b7de314d9c12bd2433d444dce3e928fe7d8d3469116247c7",
+      "parent_manifest_sha256": "66b81576ae9424372bb89f70369b90f28727e3cd6fa39e8070f5270bb5ff4a33",
+      "shared_repo_changed": false,
+      "single_dictionary_entry_ast_delta_verified": true,
+      "sole_source_path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ModelFields.py",
+      "source_file_count": 4389
+    },
+    "schema": "kit.sw2026.origin-child-ghost-body-reader-refresh.v1",
+    "status": "independent static verification and root reader retry passed on all eight disclosed drawing/child states",
+    "stopping_conditions": [
+      "The first is success under every criterion on this page.",
+      "The second is the end of the available context."
+    ],
+    "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+    "worker_execution": {
+      "hidden_inputs_read": 0,
+      "product_or_codec_execution": false,
+      "static_pe_llvm_hash_ast_only": true,
+      "tests": false,
+      "vm": false
+    }
+  },
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "native_acceptance": false,
+  "native_lookup_record": "DrawingOriginProfileLinkage2026.json",
+  "no_saved_values_for_generation": true,
+  "old_discovery_comparison": {
+    "creation_epoch": 2592000,
+    "meaning": "unset epoch when that actual origin lacks a creation log; not a universal origin constant",
+    "ordinary_sketch_id": 18,
+    "origin_id": 17,
+    "record": "DrawingOriginProfileLinkage2026.md"
+  },
+  "portable_input_rules": {
+    "component_path": "preserve actual same view/internal/external reference aliases; no source-name selection",
+    "configuration": "select actual child configuration through the actual internal reference f3c0",
+    "display_id": "allocate through the actual model display-counter namespace, separately from model/archive IDs",
+    "origin_creation_epoch": "DatumTime(actual generated child Header, actual origin ID), including native unset only when no log exists",
+    "origin_id": "read actual generated origin f08 through the shared persistent-ID owner"
+  },
+  "receipt": "../measurements/2026/DrawingOriginProfileSourceLock01.json",
+  "schema": "kit.sw2026.drawing-origin-profile-source-evidence.v1",
+  "source_field_observations_not_writer_rules": true,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "unqualified": [
+    "fully generative origin-display composition",
+    "fresh constructor-chain state for this new composition",
+    "complete original source/output parity and semantic drawing projection",
+    "original held-out acceptance",
+    "future hidden source lock and frozen writer/native measurement"
+  ],
+  "worker_native_or_product_execution": false
+}
