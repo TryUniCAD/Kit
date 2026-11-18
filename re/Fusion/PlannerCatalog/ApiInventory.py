@@ -22,13 +22,16 @@ def DefaultValue(Value):
         return {"kind": "unresolved"}
 
 
-# preview and retirement flags summarize availability without redistributing vendor documentation
+# textual markers retain documentation mentions without asserting the availability of their owning declaration
 def ApiFlags(Node):
     Description = (ast.get_docstring(Node) or "").lower()
     return {
-        "preview": "preview feature" in Description,
-        "retired": "retired" in Description,
-        "deprecated": "deprecated" in Description or "retired" in Description,
+        "documentation_mentions": {
+            "preview": "preview" in Description,
+            "retirement": "retired" in Description,
+            "deprecation": "deprecated" in Description,
+        },
+        "availability_status": "unverified",
     }
 
 

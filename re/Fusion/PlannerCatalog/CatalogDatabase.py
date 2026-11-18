@@ -173,7 +173,7 @@ def WriteBundle(Rows, OutputPath, Version, AllCsv=False):
         CsvQueries = {
             "ApiOptions.csv": "SELECT id,parent_id,kind,name,details FROM items WHERE kind IN ('api_property','api_method') ORDER BY id",
             "ApiEnums.csv": "SELECT id,parent_id,kind,name,json_extract(details,'$.value') AS value FROM items WHERE kind IN ('api_enum_value','api_constant') ORDER BY id",
-            "ApiTypes.csv": "SELECT id,name,source_id,json_extract(details,'$.role') AS role,json_extract(details,'$.preview') AS preview FROM items WHERE kind='api_type' ORDER BY id",
+            "ApiTypes.csv": "SELECT id,name,source_id,json_extract(details,'$.role') AS role,json_extract(details,'$.documentation_mentions.preview') AS preview_mentioned FROM items WHERE kind='api_type' ORDER BY id",
             "Commands.csv": "SELECT id,name,source_id,json_extract(details,'$.command_id') AS command_id,json_extract(details,'$.isApplicable') AS applicable FROM items WHERE kind='ui_command' ORDER BY id",
             "NativeTypes.csv": "SELECT id,name,source_id,details FROM items WHERE kind='native_type' ORDER BY id",
             "Gaps.csv": "SELECT code,item_id,source_id,details FROM gaps ORDER BY code,item_id,id",

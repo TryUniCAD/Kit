@@ -57,6 +57,8 @@ Integer keys and indexes provide compact internal joins.
 Readable identity views preserve stable references for planner queries.
 API relationships include inheritance, property types, parameter types and return types.
 Method argument details preserve declared defaults and unresolved domains.
+Documentation markers record textual mentions of preview, retirement or deprecation.
+They do not establish the availability of the owning declaration.
 
 ## Verify and rebuild
 

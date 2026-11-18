@@ -27,6 +27,7 @@ The command snapshot contains 3,151 registered commands, 38 workspace identities
 Document counts were zero before and after capture.
 The saved script digest identifies the exact capture source.
 The [command metadata gotcha](../../Gotchas/Research/FusionCommandMetadataAvailability.md) explains unavailable optional fields.
+The [documentation-mention gotcha](../../Gotchas/Research/FusionApiDocumentationMentions.md) separates textual markers from actual API availability.
 
 The API inventory contains 2,037 classes, 6,696 properties and 2,144 class constants.
 The evidence import retains 1,958 native metatypes and 494 initialized exact own schema/version pairs.
@@ -36,7 +37,10 @@ All qualification states remain unverified.
 Actual collection and independent bundle readback were performed.
 The verifier checks file hashes, SQLite integrity, foreign keys, row fingerprints, CSV counts and unknown-schema handling.
 Process-boundary integration coverage is registered under `tests/FusionCatalog/` for the shared acceptance suite.
-Local product tests and format qualification are not claimed.
+All four focused process integration cases passed locally with pinned pytest `9.1.1`.
+They cover fresh generation from independently authored metadata, bundle readback, tamper rejection and destination preservation.
+The input definitions raise if executed, which checks that collection uses syntax rather than imports.
+Complete merge-group acceptance and format qualification remain unexecuted.
 
 ## Limits
 

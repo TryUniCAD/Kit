@@ -1,4 +1,4 @@
-id,name,source_id,role,preview
+id,name,source_id,role,preview_mentioned
 api:adsk.cam.AdditiveFEAAnalysisType,AdditiveFEAAnalysisType,api:adsk.cam,enum_candidate,0
 api:adsk.cam.AdditiveFEACard,AdditiveFEACard,api:adsk.cam,enum_candidate,0
 api:adsk.cam.AdditiveFEAConvection,AdditiveFEAConvection,api:adsk.cam,class,0
@@ -295,7 +295,7 @@ api:adsk.core.CloudFileDialog,CloudFileDialog,api:adsk.core,class,0
 api:adsk.core.CloudFolderDialog,CloudFolderDialog,api:adsk.core,class,0
 api:adsk.core.Color,Color,api:adsk.core,class,0
 api:adsk.core.ColorProperty,ColorProperty,api:adsk.core,class,0
-api:adsk.core.Command,Command,api:adsk.core,class,0
+api:adsk.core.Command,Command,api:adsk.core,class,1
 api:adsk.core.CommandControl,CommandControl,api:adsk.core,class,0
 api:adsk.core.CommandCreatedEvent,CommandCreatedEvent,api:adsk.core,class,0
 api:adsk.core.CommandCreatedEventArgs,CommandCreatedEventArgs,api:adsk.core,class,0

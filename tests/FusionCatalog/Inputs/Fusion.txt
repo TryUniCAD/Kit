@@ -1,0 +1,32 @@
+raise AssertionError("Metadata fixtures must not be executed")
+
+from . import core
+
+class Feature(core.Base):
+    @property
+    def name(self) -> str:
+        return type(self).__name__
+
+class ProbeFeature(Feature):
+    def measure(self, scale: float = 1.0) -> float:
+        return scale * 2
+
+class ProbeMode:
+    Primary = 0
+    Secondary = -1
+
+class ProbeFeatureInput(core.Base):
+    def __init__(self):
+        self._mode = ProbeMode.Primary
+
+    @property
+    def mode(self) -> ProbeMode:
+        return self._mode
+
+    @mode.setter
+    def mode(self, value: ProbeMode):
+        self._mode = value
+
+    def configure(self, mode: ProbeMode = ProbeMode.Primary) -> bool:
+        self.mode = mode
+        return self.mode == mode
