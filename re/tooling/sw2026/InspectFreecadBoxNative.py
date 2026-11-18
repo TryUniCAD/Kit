@@ -37,7 +37,10 @@ def verify(packet, expected):
     for name, digest in job["tools_sha256"].items():
         checked(tools, name, digest)
     inputs = job["inputs_sha256"]
-    curves.require(set(inputs) == {"Control.SLDPRT", "Candidate.SLDPRT", "BuildSource.json", "Case.json", "Build.json"}
+    expected_inputs = {"Control.SLDPRT", "Candidate.SLDPRT", "BuildSource.json", "Case.json", "Build.json"}
+    if job.get("observer_retry"):
+        expected_inputs.add("FirstTrialResult.json")
+    curves.require(set(inputs) == expected_inputs
                    and inputs["Control.SLDPRT"] == CONTROL, "FreeCAD box trial source roles differ")
     evidence = {name: checked(root, name, digest) for name, digest in inputs.items()}
     build = json.loads(evidence["Build.json"].read_bytes())
@@ -54,6 +57,17 @@ def verify(packet, expected):
     location = PureWindowsPath(build["native_path"])
     curves.require(location.parent == PureWindowsPath(r"C:\KitFreecadBox121") and location.name == case["name"] + ".SLDPRT",
                    "FreeCAD box candidate lacks its exact isolated native identity")
+    curves.require(case["density_kg_m3"] == 1 and case["document_preference_density_kg_m3"] == 1000,
+                   "this unassigned part profile requires the separately measured density owners")
+    if job.get("observer_retry"):
+        prior = json.loads(evidence["FirstTrialResult.json"].read_bytes())
+        measured = prior["phases"]["Generated"]
+        curves.require(prior["packet_sha256"] == job["observer_retry"]["first_packet_sha256"]
+                       and prior["controls_healthy"] and prior["first_generation_immutable"] and not prior["passed"]
+                       and measured["open_errors"] == measured["open_warnings"] == 0 and "anchored mass" in measured["error"]
+                       and measured["states"]["Initial"]["body_count"] == 1
+                       and measured["states"]["Initial"]["mass"]["mass"] == measured["states"]["Initial"]["mass"]["volume"],
+                       "observer-only retry must retain the exact first density-owner failure")
     return job, case, evidence, location
 
 
@@ -73,6 +87,11 @@ def snapshot(author, case):
                for name, index in SUMMARY_FIELDS.items()}
     expected = case["source_text"]
     curves.require(state["body_type"] == 0 and state["body_topology"] == [8, 12, 6], "FreeCAD box topology differs")
+    state["document_density_preference_kg_m3"] = float(
+        author.get(author.get(model, "Extension"), "GetUserPreferenceDouble", 7, 0)
+    )
+    author.rec.close_number("document density preference", state["document_density_preference_kg_m3"],
+                            case["document_preference_density_kg_m3"])
     curves.require(set(file_text) == set(expected["file"]) and
                    all(file_text[name]["raw"] == file_text[name]["resolved"] == value and
                        file_text[name]["type"] == 30 and not file_text[name]["linked"]
@@ -184,9 +203,13 @@ def run(packet, wanted):
         rows["ControlBefore"] = control_phase(output, "ControlBefore", seed)
         checkpoint()
         if rows["ControlBefore"]["passed"]:
-            candidate.parent.mkdir()
-            with evidence["Candidate.SLDPRT"].open("rb") as src, candidate.open("xb") as dst:
-                copyfileobj(src, dst)
+            if job.get("observer_retry"):
+                curves.require(candidate.is_file() and curves.digest(candidate) == digest,
+                               "observer retry requires the existing exact generated file")
+            else:
+                candidate.parent.mkdir()
+                with evidence["Candidate.SLDPRT"].open("rb") as src, candidate.open("xb") as dst:
+                    copyfileobj(src, dst)
             first = rows["Generated"] = phase(output, "Generated", candidate, digest, case)
             checkpoint()
             if first["passed"]:

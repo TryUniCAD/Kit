@@ -40,3 +40,14 @@ fresh reopen between separate healthy controls. The
 [build-only receipt](../measurements/2026/SdkFreecadOriginBoxBuild01.json)
 binds the frozen candidate and measurement packet. Native acceptance,
 original benchmark membership and the full public route remain open.
+
+The first controlled native attempt opened the exact generated file with
+zero errors and warnings. It observed one solid with eight vertices,
+twelve edges and six faces, the expected volume and area and all thirteen
+literal properties. Its mass assertion incorrectly used the document
+density preference as the unassigned body's actual density. The
+[density-owner record](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Parts/DefaultPartDensityHasTwoOwners.md)
+establishes the separate checks. The corrected observer measures both and
+requires the same immutable candidate. The failed first attempt is retained
+under raw result SHA-256
+`e67edbfededf32690b5c96661b545c52a5fbaf1d309c19dae701e3a3b5494c2b`.
