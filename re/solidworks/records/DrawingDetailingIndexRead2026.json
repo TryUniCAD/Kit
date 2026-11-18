@@ -1,0 +1,566 @@
+{
+  "schema": "kit.sw2026.drawing-detailing-index-native-read-admission.v1",
+  "scope": "retain actual ordinary19000 moEdgeRef_c native index with explicit unprojected portable edge semantics; no generated detailing map or writer qualification",
+  "native_root_field_rules": {
+    "schema": "kit.sw2026.drawing-root-field-rules-checkpoint.v1",
+    "scope": "named root qualification fields only; actual source states pending separate read-only observer; no SDK or writer changes",
+    "module": {
+      "name": "sldmodu.dll",
+      "bytes": 46536280,
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "base": "0x4b140000",
+      "exception_directory": {
+        "rva": "0x2a6a000",
+        "bytes": 988296,
+        "records": 82358
+      }
+    },
+    "class": {
+      "name": "moDrawing_c",
+      "vtable": "0x4d26af68",
+      "serialize_slot": "0x28",
+      "serializer": "0x4c95d340",
+      "rtti_chain": [
+        ".?AVmoDrawing_c@@",
+        ".?AVmoModel_c@@",
+        ".?AVmoFiledConcept_c@@",
+        ".?AVmoConcept_c@@",
+        ".?AVmoLoggedNode_c@@",
+        ".?AVmoNode_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@",
+        ".?AVutDisplayedEntity_c@@"
+      ],
+      "sketch_block_getter_slot": "0x180",
+      "sketch_block_getter": "0x4b2899d0"
+    },
+    "functions": {
+      "drawing_serializer": {
+        "ranges": [
+          {
+            "start": "0x4c95d340",
+            "end": "0x4c95eda7",
+            "bytes": 6759,
+            "sha256": "0ee0c731411c7d66949f5437343f963d1b63e91822faf987434a739570b878cd"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4c95d340",
+            "end": "0x4c95eda7",
+            "unwind": "0x4d6c3f44"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "drawing_constructor": {
+        "ranges": [
+          {
+            "start": "0x4c96b480",
+            "end": "0x4c96ba13",
+            "bytes": 1427,
+            "sha256": "f138b2fcc5c781010fe8b3a2972c963e2ef6e1600949794061a13a1cbbf41c4d"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4c96b480",
+            "end": "0x4c96ba13",
+            "unwind": "0x4d6c5b40"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "hole_map_getter": {
+        "ranges": [
+          {
+            "start": "0x4b334a20",
+            "end": "0x4b334a28",
+            "bytes": 8,
+            "sha256": "868bfd52554e5de9017bbced5fd12dfbf5b0048d6330dd1defd8396caecf20a6"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "edge_map_getter": {
+        "ranges": [
+          {
+            "start": "0x4b334a10",
+            "end": "0x4b334a18",
+            "bytes": 8,
+            "sha256": "38a276d1d2f0c0f87c18b8931da4d0395b21f72d7e10ef8d69d8c50949058691"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "thread_cache_getter": {
+        "ranges": [
+          {
+            "start": "0x4b3333f0",
+            "end": "0x4b3333f8",
+            "bytes": 8,
+            "sha256": "f1a7794dacc30bbdede7cc468b09713e4d83b25233064e2ad4454be9b309559e"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "preview_map_getter": {
+        "ranges": [
+          {
+            "start": "0x4b334ad0",
+            "end": "0x4b334ad8",
+            "bytes": 8,
+            "sha256": "39371a8a57e2821212e91ea955719dca2330db8ce5a10a12040017ab5673fa22"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "layer_manager_getter": {
+        "ranges": [
+          {
+            "start": "0x4b287670",
+            "end": "0x4b287678",
+            "bytes": 8,
+            "sha256": "129f28f8f907d2c947a27f8852ac0ee270171801b23716dfea62f50ac7ba2abf"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "sketch_block_manager_getter": {
+        "ranges": [
+          {
+            "start": "0x4b2899d0",
+            "end": "0x4b2899d8",
+            "bytes": 8,
+            "sha256": "fc1eed68a7266e1db1bd3c2bac6c0e914b55d707359f0aaa17724afe0647bf1a"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "clear_local_feature": {
+        "ranges": [
+          {
+            "start": "0x4b759a30",
+            "end": "0x4b759a44",
+            "bytes": 20,
+            "sha256": "53504ab00795db959a5292d4a2a8fe742112448990d355e5affc2a9c2fc6c92a"
+          },
+          {
+            "start": "0x4b759a44",
+            "end": "0x4b759a7b",
+            "bytes": 55,
+            "sha256": "a10a8eac5cde6744e2f75dab2a79e6ce4bf7f56a694e682b4335ab60422f138b"
+          },
+          {
+            "start": "0x4b759a7b",
+            "end": "0x4b759a86",
+            "bytes": 11,
+            "sha256": "7b621aeee727a734a4b5db938934795acfb76e2edd49165530a760bac9d9d13f"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4b759a30",
+            "end": "0x4b759a44",
+            "unwind": "0x4d395c70"
+          },
+          {
+            "begin": "0x4b759a44",
+            "end": "0x4b759a7b",
+            "unwind": "0x4d438f1c"
+          },
+          {
+            "begin": "0x4b759a7b",
+            "end": "0x4b759a86",
+            "unwind": "0x4d438f30"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+        "combined_contiguous_span": {
+          "start": "0x4b759a30",
+          "end": "0x4b759a86",
+          "bytes": 86,
+          "sha256": "c842fe8c8e234255b836de45d1243a3935d0584ebb8d8e1e9906ca24b76dae27"
+        }
+      },
+      "clear_entity_local_feature": {
+        "ranges": [
+          {
+            "start": "0x4bac8600",
+            "end": "0x4bac8615",
+            "bytes": 21,
+            "sha256": "e5c49cefd5d095e5f2431f71bdb1b6e1427984893a10251ca6f4d9f4d629829f"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      }
+    },
+    "version_context": {
+      "claimed_version": 19000,
+      "ordinary_non_database_only": true,
+      "effective_native_version": "archive helper+0x7c0 when nonzero; native default-version fallback otherwise",
+      "base_call": "0x4c95d388 ->0x4c224e10 common model serializer",
+      "header_and_common_lightweight_resolved_maps": "existing SDK rules unchanged"
+    },
+    "field_rules": {
+      "root_children": {
+        "owner": "moConcept_c resolved f60.list.items",
+        "guard": "exactly seven ordered roots and the actual f1430 sheet occurs once",
+        "rule_kind": "selected semantic profile restriction, not a universal native child-count constant",
+        "actual_states_pending": true
+      },
+      "f1430": {
+        "meaning": "actual active moDrSheet pointer",
+        "store_site": "0x4c95d526",
+        "guard": "same object as exactly one ordered root child"
+      },
+      "f1458": {
+        "native_type": "suObList pointer",
+        "store_site": "0x4c95d555",
+        "store_iat": "0x4cd33c58 SLDMFCU suObList pointer operator",
+        "read_version_min": "0x656",
+        "read_site": "0x4c95e277",
+        "read_iat": "0x4cd33c60 SLDMFCU suObList pointer operator",
+        "historical_postread_branch": "nonnull only for version<0x826 iterates items and calls0x4c9c60c0; excluded at19000",
+        "constructor_state": "null at0x4c96b617",
+        "guard": "null",
+        "populated_semantic_role": "unresolved; no general admission"
+      },
+      "f1560": {
+        "native_getter": "getModelName_ConfigIDtoHoleWzInfoMap",
+        "getter": "0x4b334a20 returns this+0x1560",
+        "wire_count": "n1568 signed32",
+        "modern_read_version_min": "0x3345 nested map; 0x3337..0x3344 uses separate older grammar",
+        "modern_read_count_site": "0x4c95e66d",
+        "outer_row": "CString key then signed32 inner count",
+        "inner_row_wire_order": [
+          "signed32 key",
+          "typed moHoleWizardInfo_c pointer",
+          "CString pair text"
+        ],
+        "native_store_count_formula": "getDetailDefs() nonnull and detail defs+0x220 nonzero ? model+0x1568 :0",
+        "store_count_site": "0x4c95d594",
+        "guard": "empty",
+        "runtime_map_key_domain": "C++ pair contains CString and unsigned32; raw signed wire bits retained",
+        "flag_meaning": "exact field+0x220 name/domain unresolved; do not invent a preference default"
+      },
+      "f1570": {
+        "native_getter": "getModelName_CompStringtoNodeIDEdgeRef_Map",
+        "getter": "0x4b334a10 returns this+0x1570",
+        "wire_count": "n1578 signed32",
+        "read_version_min": "0x335a",
+        "read_version_branch": "0x4c95e886",
+        "read_count_site": "0x4c95e8a1",
+        "outer_row": "CString model/config key then signed32 inner count",
+        "inner_row_wire_order": [
+          "CString component key",
+          "signed32 downstream key",
+          "tagged moBEntRef_c-derived reference"
+        ],
+        "native_store_count_formula": "same detail defs+0x220 predicate ? model+0x1578 :0",
+        "store_count_site": "0x4c95d74e",
+        "store_runtime_fixup": "nonnull row reference calls moBEntRef_c::setLocalFeatureToNULL at0x4c95d803 before tagged store0x4c95d80e",
+        "read_runtime_fixup": "native load assumes nonnull retained reference and increments runtime+0x68 at0x4c95e979; optional+0x40 reference receives use()",
+        "guard": "empty",
+        "disclosed_prior_owner": "DrawingDetailingEdgeMap2026 identifies downstream kernel edge IDs separately from feature persistent IDs",
+        "raw_codec_normalization": "none; preserve actual source wire values and aliases"
+      },
+      "n1740": {
+        "native_owner": "map at this+0x1738",
+        "native_getter": "getPreviewViewDataForDetailingMode at0x4b334ad0",
+        "meaning": "preview-view-data map entry count",
+        "native_value_type": "moPreviewViewData keyed by viewDirection",
+        "wire_type": "signed32",
+        "store_count_site": "0x4c95d907",
+        "read_version_min": "0x372a",
+        "read_version_branch": "0x4c95eab1",
+        "read_count_site": "0x4c95eacc",
+        "guard": "exactly0",
+        "populated_preview_grammar": "outside current SDK profile"
+      },
+      "f14f8": {
+        "native_owner": "embedded moModelNameToXmlStreamNameMap_c",
+        "dispatch_site": "0x4c95da4f actual embedded vtable+0x28",
+        "wire_rule": "shared MFC CString-to-CString map then signed32 f38 allocator",
+        "guard": "items empty; retained allocator not overwritten",
+        "constructor_f38": "1 only for fresh empty map as separately recorded in DrawingEmptyManagers2026"
+      },
+      "zero_instance_blocks": {
+        "native_version_min": "0xc94",
+        "dispatch_guard": "actual moDrawing vtable+0x180 returns nonnull manager+0xe80",
+        "getter_leaf": "0x4b2899d0",
+        "serialize_call": "0x4c95daaa ->0x4c90c8b0",
+        "selected_guard": "actual block manager present, zero-instance list empty",
+        "native_serialize_method_identity": "full helper body not newly traced in this checkpoint; existing block record remains dependency"
+      },
+      "f1538": {
+        "native_getter": "getCThreadCacheHLRDataList at0x4b3333f0",
+        "meaning": "cosmetic-thread HLR cache pointer vector",
+        "version_min": "0x2b74",
+        "version_branch": "0x4c95dad3",
+        "store_count_formula": "(vector_end-vector_begin)/8 as signed32",
+        "store_count_site": "0x4c95db04",
+        "element_type": "moCThreadCacheHLRData_c runtime descriptor0x4db07010",
+        "element_object_mode_predicate": "IsDBStream import0x4cd3d878; ordinary object path only",
+        "constructor_state": "three vector pointers initialized null at0x4c96b67f/686/68d",
+        "guard": "empty",
+        "populated_semantic_admission": false
+      },
+      "fed0": {
+        "native_owner": "moLayerMgr_c from inherited moModel_c",
+        "getter": "0x4b287670 reads model+0xed0",
+        "guard": "actual layer manager f30 object is the same moDrawing_c root; equality by object identity, not numeric ID"
+      }
+    },
+    "store_vs_raw_replay": {
+      "native_option_gates_must_not_be_applied_to_generic_saved_wire_replay": true,
+      "new_saved_values_adopted_as_defaults": false,
+      "setLocalFeatureToNULL_boundary": "moBEntRef iterates actual f08 entity IDs at runtime+0x10 stride16; calls0x4bac8600 when entity+8 nonnull",
+      "entity_tail_boundary": "0x4bac8600 loads entity+8; when its+0x18 nonnull tail jumps0x4bb5dfd0 with adjusted receiver+0x10; target implementation and serialized mutation consequences not traced",
+      "callback_preservation_claimed": false
+    },
+    "unchanged_reader_manifest_sha256": "a34cd41281726a08d732b71c0addd4448745c0e16419910cd87f25af7adbdaf2",
+    "observer_source_sha256": "24af0a2e00a92ff3f3aebda328436056d3fc41731ce49996751d36f374e681cc",
+    "source_native_observation_used_for_static_rules": false,
+    "sdk_changed": false,
+    "normal_guard_changed": false,
+    "writer_changed": false,
+    "vm_access": false,
+    "native_execution": false,
+    "native_acceptance": false,
+    "heldout_acceptance": false,
+    "stopping_conditions": [
+      "The first is success under every criterion on this page.",
+      "The second is the end of the available context."
+    ]
+  },
+  "native_edge_store_normalization": {
+    "schema": "kit.sw2026.drawing-edge-map-store-normalization-supplement.v1",
+    "parent_field_checkpoint_sha256": "8ad98da41d461577a4ba63c10f45f813767ac717354f5a79b02da9ae383a7ee0",
+    "module": {
+      "name": "sldmodu.dll",
+      "bytes": 46536280,
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "base": "0x4b140000"
+    },
+    "prior_independent_keeper_record": {
+      "path": "re/solidworks/records/DrawingSketchEntityIdArchive2026.json",
+      "sha256": "22314e49af8c301db43d4eb61c7e121523b267a5738bf3e9f243e3b386e4c479"
+    },
+    "functions": {
+      "bent_clear": {
+        "ranges": [
+          {
+            "start": "0x4b759a30",
+            "end": "0x4b759a44",
+            "bytes": 20,
+            "sha256": "53504ab00795db959a5292d4a2a8fe742112448990d355e5affc2a9c2fc6c92a"
+          },
+          {
+            "start": "0x4b759a44",
+            "end": "0x4b759a7b",
+            "bytes": 55,
+            "sha256": "a10a8eac5cde6744e2f75dab2a79e6ce4bf7f56a694e682b4335ab60422f138b"
+          },
+          {
+            "start": "0x4b759a7b",
+            "end": "0x4b759a86",
+            "bytes": 11,
+            "sha256": "7b621aeee727a734a4b5db938934795acfb76e2edd49165530a760bac9d9d13f"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4b759a30",
+            "end": "0x4b759a44",
+            "unwind": "0x4d395c70"
+          },
+          {
+            "begin": "0x4b759a44",
+            "end": "0x4b759a7b",
+            "unwind": "0x4d438f1c"
+          },
+          {
+            "begin": "0x4b759a7b",
+            "end": "0x4b759a86",
+            "unwind": "0x4d438f30"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+        "combined_contiguous_span": {
+          "start": "0x4b759a30",
+          "end": "0x4b759a86",
+          "bytes": 86,
+          "sha256": "c842fe8c8e234255b836de45d1243a3935d0584ebb8d8e1e9906ca24b76dae27"
+        }
+      },
+      "entity_clear": {
+        "ranges": [
+          {
+            "start": "0x4bac8600",
+            "end": "0x4bac8615",
+            "bytes": 21,
+            "sha256": "e5c49cefd5d095e5f2431f71bdb1b6e1427984893a10251ca6f4d9f4d629829f"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "keeper_conditional_clear": {
+        "ranges": [
+          {
+            "start": "0x4bb5dfd0",
+            "end": "0x4bb5dfe7",
+            "bytes": 23,
+            "sha256": "a893187120b35084f9876d94799afca070c35a596e89e2eaf2ab4d4ab03c4469"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "keeper_serializer": {
+        "ranges": [
+          {
+            "start": "0x4bba8de0",
+            "end": "0x4bba9632",
+            "bytes": 2130,
+            "sha256": "8e9458bdc861730155a43ea0c8fa1819c7f69376f2de0ed8fb7726a595c95348"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4bba8de0",
+            "end": "0x4bba9632",
+            "unwind": "0x4d4d50c8"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      }
+    },
+    "sites": {
+      "drawing_row_call": "0x4c95d803",
+      "drawing_row_object_store": "0x4c95d80e",
+      "bent_to_entity": "0x4b759a66",
+      "entity_to_keeper_tail": "0x4bac860f",
+      "leaf_store": "0x4bb5dfde"
+    },
+    "receivers": {
+      "bent_clear": "actual retained moBEntRef_c-derived edge-map row reference",
+      "bent_loop": "for signed-positive entity count runtime+8, visit entity array runtime+0x10 in16-byte elements, skip null element+8",
+      "entity_clear": "actual moEntityId_c array element; loads its nonnull rep pointer+8",
+      "keeper_clear": "entity rep+0x10, the independently bound embedded FR keeper",
+      "physical_cached_feature": "keeper+8 equals rep+0x18",
+      "physical_persistent_reference": "keeper+0x10 equals rep+0x20"
+    },
+    "exact_effect": "for every reached nonnull entity rep, if keeper+0x10 is nonnull and keeper+8 is nonnull, set only keeper+8 to null; otherwise preserve it",
+    "leaf_calls": [],
+    "leaf_incoming_edge": "conditional external tail transfer from0x4bac860f; not treated as part of nearest exported4bb5de20 symbol extent",
+    "wire_ownership": {
+      "keeper_schema": "moEntityIdRep_c.FUN_4bba8de0",
+      "ordered_fields": [
+        "raw object reference f08",
+        "typed moFR_c object reference f10"
+      ],
+      "cached_feature_is_serialized": "keeper+8 is the first serialized f08 object reference",
+      "persistent_reference_is_serialized": "keeper+0x10 is the second serialized f10 moFR_c object reference",
+      "runtime_to_raw_path": "moDrawing_c.f1570[section].rows[row].ref.f10[entity].f08(rep).f10(keeper).f08",
+      "not_an_unwritten_runtime_only_word": true,
+      "non_null_persistent_reference_preserved_by_this_chain": true,
+      "all_other_graph_or_listener_paths_proven_preserved": false
+    },
+    "raw_replay_rule": "do not apply vendor save normalization to the generic wire codec; retain original local and persistent references and archive-map identity",
+    "fresh_default_inferred": false,
+    "original_source_field_values_observed_by_this_static_supplement": false,
+    "source_or_model_payload_read": false,
+    "sdk_changed": false,
+    "guard_changed": false,
+    "writer_changed": false,
+    "native_execution": false,
+    "vm_access": false,
+    "native_acceptance": false,
+    "heldout_acceptance": false,
+    "stopping_conditions": [
+      "The first is success under every criterion on this page.",
+      "The second is the end of the available context."
+    ]
+  },
+  "original_root_state_sha256": "89063a943ff99b9ece6b4efc811e96c534ada9119dcd39e25b3b28284b5a69b7",
+  "actual_source_boundaries": [
+    {
+      "case": "H01SheetA",
+      "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "failed_predicates": [
+        "f1570_edge_map_empty"
+      ],
+      "model_sections": 1,
+      "entry_counts": [
+        4
+      ],
+      "all_other_root_predicates_pass": true,
+      "raw_byte_round_trip_passed": true,
+      "same_object_identities": true
+    },
+    {
+      "case": "H02SheetB",
+      "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "failed_predicates": [
+        "f1570_edge_map_empty"
+      ],
+      "model_sections": 1,
+      "entry_counts": [
+        4
+      ],
+      "all_other_root_predicates_pass": true,
+      "raw_byte_round_trip_passed": true,
+      "same_object_identities": true
+    }
+  ],
+  "source_values_used_as_implementation_defaults": false,
+  "rule": {
+    "version": 19000,
+    "root_class": "concrete moDrawing_c schema1",
+    "row_reference_class": "concrete moEdgeRef_c schema1",
+    "other_BEntRef_classes": "unsupported rather than guessed",
+    "model_and_component_keys": "retain exact native text including case; no filename, configuration ID, spelling or key pattern inferred from source rows",
+    "downstream_id": "nonzero unsigned32 native kernel identity; wire signed32 bits joined by value &0xffffffff, independent of persistent f08 feature IDs",
+    "zero_id_evidence": "the previously pinned UI insertion callback excludes zero downstream IDs before adding edge-map rows",
+    "ordering": "retain section and row order; do not sort by guessed normalization",
+    "uniqueness": "exact outer model key and inner component-text/unsigned-id pair are unique within their native std::map owners; repeated reference node aliases are permitted",
+    "counts": "derive from actual rows for fresh graphs; validate every explicitly supplied decoded count as a matching nonnegative signed32 integer; no fixed section or entry count",
+    "object_ownership": "entries retain the exact ArchiveNode objects and complete raw fields; no FR or child geometry reconstruction, clone, imported body or null replacement",
+    "portable_resolution": "unprojected, surfaced as drawing.detailing_edges for any retained model section",
+    "result_api": "NamedRead and FrontRead expose DetailingMap plus Unprojected from their actual graphs, without adding duplicated stored wire fields",
+    "root_checks": "replace only f1570-empty condition with typed accessor; all ten other root predicates and all later sheet/view/child/layer guards stay intact",
+    "raw_store": "preserve source fields; never apply the native save suppression or cached-feature clearing to generic replay"
+  },
+  "new_concrete_class_schemas": [],
+  "new_wire_layouts": [],
+  "runtime_source_file_or_native_dependencies_added": false,
+  "fresh_writer_constructor_changed": false,
+  "original_frozen_writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "parent_reader_manifest_sha256": "f2ed9763541e932998a0f6f1fd44631e707267b1af3edf9c4f7e519e1ff737de",
+  "actual_sdk_process_verification": "pending root execution of frozen candidate; worker static checks only",
+  "full_original_semantics_admitted": false,
+  "native_execution": false,
+  "vm_access": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "original_writer_verdict_changed": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "mechanical_revision": {
+    "previous_proof_sha256": "07f23f12e8ceb556c21cd42228056dcab30d93a8fb82e53fb0fe18f1ab54417b",
+    "previous_candidate_manifest_sha256": "a21e61108a06426bad82f97fec55463afb5eb667d809853f47ad18779ff2a7f7",
+    "reason": "strict source typing requires runtime validation of CStringValue text before returning a string; all valid native keys and wire fields unchanged",
+    "static_runner_correction": "use explicit package bases for all own modules; relative pyright includes prevent unintended broad collection; prior interrupted static attempt receives no passing credit"
+  }
+}

@@ -1,0 +1,532 @@
+{
+  "schema": "kit.sw2026.drawing-detailing-index-reader-receipt.v1",
+  "task_id": "B04-SW2026-DRAWPROPS",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "scope": "typed native detailing-index retention with explicit unprojected portable semantics; normal original Definition reads still reject annotation/display content",
+  "reader_manifest_sha256": "865a837d791304f6cf5da690d04aedd916a929b55f418fb907bf88b400f3a419",
+  "reader_source_files": 4368,
+  "sdk_delta_paths": [
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/DetailEntry.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/DetailGroup.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/DetailMap.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/NeedDetailMap.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/NeedDetailNode.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/NeedDetailRows.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/NeedDetailText.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/NeedMapCount.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/ReadDetailGroup.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/ReadDetailItem.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/ReadDetailMap.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Detailing/ReadDownstream.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/Checks/CheckFrontGraph.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontRead.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Named/Checks/CheckNamedGraph.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Named/NamedRead.py"
+  ],
+  "parent_reader_manifest_sha256": "f2ed9763541e932998a0f6f1fd44631e707267b1af3edf9c4f7e519e1ff737de",
+  "native_rule_record_sha256": "93c81d6773322af9a1774b41d03cedc0caeb1e472ff6935d84e95fe942c3f67f",
+  "original_frozen_writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "prior_cohort": {
+    "report": "SdkDrawingDetailEdgePrior01.json",
+    "sha256": "18244c764507d41b7b5d2fd20a0829997c2891d849cb46ab526d6954e8f55a10",
+    "source_manifest_sha256": "865a837d791304f6cf5da690d04aedd916a929b55f418fb907bf88b400f3a419",
+    "real_workers": 43,
+    "phases": [
+      {
+        "elapsed_seconds": 17.35294424998574,
+        "name": "six-disclosed-independent-pairs",
+        "passed": true,
+        "real_workers": 18
+      },
+      {
+        "elapsed_seconds": 22.347675166791305,
+        "name": "unsupported-disclosed-jobs",
+        "passed": true,
+        "real_workers": 25
+      }
+    ],
+    "passed": true,
+    "source_immutable": true,
+    "runner_sha256": "d2dcacded379755882c20b1925119fa238c9766d1a00b1bd1071ecaeed6865d2"
+  },
+  "preservation_process": {
+    "report": "DetailEdgeProcessResults01.json",
+    "sha256": "a019d6731d635e266084b2d85a5474722721ad6c1f969bf61f6ea1c32e0a3c81",
+    "tool": "re/tooling/sw2026/InspectDetailingIndexRead.py",
+    "tool_sha256": "3f787806f93efa59478cfbf9dcb898ec6f1cc7522cb78d141ef22494eca93897",
+    "generated_empty_control": {
+      "input_sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee",
+      "definition_sha256": "29cb5d23bd6269a57bf237f48b9d0ea71630af5864c6f89ad860d1b47304d178",
+      "normal_read_passed": true,
+      "normal_store_byte_identical": true,
+      "unprojected": [],
+      "typed_sections": 0,
+      "alias_owner_is_actual_model": true,
+      "input_producer": "SDK generated disclosed Front control"
+    },
+    "generated_control_unchanged": true,
+    "source_immutable": true,
+    "passed": true,
+    "original_cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "definition_bytes": 37612,
+        "definition_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "raw_load_complete": true,
+        "raw_store_complete": true,
+        "raw_byte_round_trip_passed": true,
+        "output_bytes": 37612,
+        "output_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "unread_tail_bytes": 0,
+        "map_counter": 331,
+        "map_slots_equal": true,
+        "same_object_identities": true,
+        "typed_model_sections": 1,
+        "typed_row_counts": [4],
+        "raw_reference_aliases_preserved": true,
+        "unprojected": ["drawing.detailing_edges"],
+        "portable_edge_resolution_claimed": false,
+        "f08_owner_label_corrected": true,
+        "malformed_cases": [
+          {
+            "case": "missing outer rows",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires ordered rows",
+            "result_returned": false
+          },
+          {
+            "case": "outer negative count",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "outer count mismatch",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "outer boolean count",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "invalid section mapping",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires typed field mappings",
+            "result_returned": false
+          },
+          {
+            "case": "invalid model text",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires native text keys",
+            "result_returned": false
+          },
+          {
+            "case": "inner negative count",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "inner count mismatch",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "inner boolean count",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "missing inner rows",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires ordered rows",
+            "result_returned": false
+          },
+          {
+            "case": "invalid component text",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires native text keys",
+            "result_returned": false
+          },
+          {
+            "case": "zero downstream id",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires nonzero downstream ids",
+            "result_returned": false
+          },
+          {
+            "case": "downstream below signed32",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires nonzero downstream ids",
+            "result_returned": false
+          },
+          {
+            "case": "downstream above signed32",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires nonzero downstream ids",
+            "result_returned": false
+          },
+          {
+            "case": "boolean downstream id",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires nonzero downstream ids",
+            "result_returned": false
+          },
+          {
+            "case": "null edge reference",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          },
+          {
+            "case": "same name external reference",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          },
+          {
+            "case": "wrong edge schema",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          },
+          {
+            "case": "wrong reference class",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          },
+          {
+            "case": "duplicate component id",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index has duplicate component ids",
+            "result_returned": false
+          },
+          {
+            "case": "duplicate model key",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index has duplicate model keys",
+            "result_returned": false
+          },
+          {
+            "case": "invalid row mapping",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires typed field mappings",
+            "result_returned": false
+          },
+          {
+            "case": "missing edge reference",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          }
+        ],
+        "normal_reader_rejection": {
+          "type": "BodyUnsupported",
+          "message": "named drawing Definition excludes unqualified annotation and display payloads"
+        },
+        "normal_rejection_retained": true,
+        "input_unchanged": true,
+        "missing_schemas": {
+          "load": [],
+          "store": []
+        }
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "definition_bytes": 37608,
+        "definition_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "raw_load_complete": true,
+        "raw_store_complete": true,
+        "raw_byte_round_trip_passed": true,
+        "output_bytes": 37608,
+        "output_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "unread_tail_bytes": 0,
+        "map_counter": 331,
+        "map_slots_equal": true,
+        "same_object_identities": true,
+        "typed_model_sections": 1,
+        "typed_row_counts": [4],
+        "raw_reference_aliases_preserved": true,
+        "unprojected": ["drawing.detailing_edges"],
+        "portable_edge_resolution_claimed": false,
+        "f08_owner_label_corrected": true,
+        "malformed_cases": [
+          {
+            "case": "missing outer rows",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires ordered rows",
+            "result_returned": false
+          },
+          {
+            "case": "outer negative count",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "outer count mismatch",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "outer boolean count",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "invalid section mapping",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires typed field mappings",
+            "result_returned": false
+          },
+          {
+            "case": "invalid model text",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires native text keys",
+            "result_returned": false
+          },
+          {
+            "case": "inner negative count",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "inner count mismatch",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "inner boolean count",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index count disagrees with its rows",
+            "result_returned": false
+          },
+          {
+            "case": "missing inner rows",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires ordered rows",
+            "result_returned": false
+          },
+          {
+            "case": "invalid component text",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires native text keys",
+            "result_returned": false
+          },
+          {
+            "case": "zero downstream id",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires nonzero downstream ids",
+            "result_returned": false
+          },
+          {
+            "case": "downstream below signed32",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires nonzero downstream ids",
+            "result_returned": false
+          },
+          {
+            "case": "downstream above signed32",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires nonzero downstream ids",
+            "result_returned": false
+          },
+          {
+            "case": "boolean downstream id",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires nonzero downstream ids",
+            "result_returned": false
+          },
+          {
+            "case": "null edge reference",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          },
+          {
+            "case": "same name external reference",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          },
+          {
+            "case": "wrong edge schema",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          },
+          {
+            "case": "wrong reference class",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          },
+          {
+            "case": "duplicate component id",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index has duplicate component ids",
+            "result_returned": false
+          },
+          {
+            "case": "duplicate model key",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index has duplicate model keys",
+            "result_returned": false
+          },
+          {
+            "case": "invalid row mapping",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires typed field mappings",
+            "result_returned": false
+          },
+          {
+            "case": "missing edge reference",
+            "rejected_by_typed_index": true,
+            "exception": "BodyUnsupported",
+            "message": "drawing detailing index requires a concrete current moEdgeRef_c",
+            "result_returned": false
+          }
+        ],
+        "normal_reader_rejection": {
+          "type": "BodyUnsupported",
+          "message": "named drawing Definition excludes unqualified annotation and display payloads"
+        },
+        "normal_rejection_retained": true,
+        "input_unchanged": true,
+        "missing_schemas": {
+          "load": [],
+          "store": []
+        }
+      }
+    ]
+  },
+  "normal_original_probe": {
+    "report": "DetailEdgeOriginals01.json",
+    "sha256": "08ff7b81f375d8ee151cf2068d91b7ceb3077b6295719f91b724e557d3826dce",
+    "runner_sha256": "d117fce8d55a3c7790045112f5af322d93769c99e96164eda6bf7a94e131b0e3",
+    "source_manifest_sha256": "865a837d791304f6cf5da690d04aedd916a929b55f418fb907bf88b400f3a419",
+    "cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "definition_bytes": 37612,
+        "definition_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "typed_stream_complete": false,
+        "codec_round_trip_passed": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "named drawing Definition excludes unqualified annotation and display payloads",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "definition_bytes": 37608,
+        "definition_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "typed_stream_complete": false,
+        "codec_round_trip_passed": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "named drawing Definition excludes unqualified annotation and display payloads",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      }
+    ]
+  },
+  "static_checks": {
+    "ast": "passed16 SDK files and independent process tool",
+    "black": "26.10.1 passed",
+    "ruff": "0.17.4 passed",
+    "mypy": "2.4.1 strict explicit package bases passed16 files",
+    "pyright": "1.1.414 strict16 files zero errors and warnings",
+    "steering": "passed16 files",
+    "donor_scan": "no recorded payloads in16 files",
+    "first_static_attempt_retained": "candidate01 type-check diagnostics and interrupted incorrectly scoped pyright attempt receive no passing credit",
+    "worker_local_product_or_test_execution": false
+  },
+  "unprojected_marker": "drawing.detailing_edges",
+  "read_result_properties_verified_on_generated_empty_control": true,
+  "typed_accessor_verified_on_complete_raw_original_graphs": true,
+  "original_normal_read_result_returned": false,
+  "original_normal_store_counted_as_passed": false,
+  "portable_child_edge_projection_claimed": false,
+  "later_annotation_display_guards_unchanged": true,
+  "layouts_or_class_admissions_added": false,
+  "fresh_writer_constructors_changed": false,
+  "original_writer_changed": false,
+  "complete_source_semantics_admitted": false,
+  "native_execution": false,
+  "vm_access": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "original_heldout_verdict_changed": false,
+  "public_writer_registration_changed": false,
+  "saved_file_fallback": false,
+  "sanitization": "private detailed native index rows and full graph/map reports retained by hash; this receipt publishes ownership counts and preservation outcomes without captured source key tables, vendor code, CAD payloads or host home paths",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}

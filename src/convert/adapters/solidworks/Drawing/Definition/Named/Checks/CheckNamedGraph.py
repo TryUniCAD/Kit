@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Drawing.Definition.Detailing.ReadDetailMap import (
+    ReadDetailMap,
+)
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Drawing.Definition.Emission.BlankGraph import (
     BlankGraph,
@@ -33,12 +36,13 @@ def CheckNamedGraph(GraphValue: NamedGraph) -> None:
     CheckBlankDoc(BlankGraph(Document, GraphValue.VersionValue))
     ModelValue = NeedConceptNode(Document.FieldsValue["model"], "moDrawing_c")
     FieldsValue = ModelValue.FieldsValue
+    _ = ReadDetailMap(ModelValue, GraphValue.VersionValue)
     SheetValue = NeedConceptNode(FieldsValue["f1430"], "moDrSheet")
     Children = ReadBlankKids(ModelValue)
     if (
         len(Children) != 7
         or sum(NodeValue is SheetValue for NodeValue in Children) != 1
-        or any(FieldsValue[FieldName] for FieldName in ("f1560", "f1570", "f1538"))
+        or any(FieldsValue[FieldName] for FieldName in ("f1560", "f1538"))
         or FieldsValue["n1740"] != 0
         or FieldsValue["f1458"] is not None
         or FieldsValue["fe80"] is None

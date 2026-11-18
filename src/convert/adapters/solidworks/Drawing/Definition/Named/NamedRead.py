@@ -1,3 +1,10 @@
+from convert.adapters.solidworks.Drawing.Definition.Detailing.DetailMap import DetailMap
+from convert.adapters.solidworks.Drawing.Definition.Detailing.ReadDetailMap import (
+    ReadDetailMap,
+)
+from convert.adapters.solidworks.Drawing.Definition.Detailing.NeedDetailNode import (
+    NeedDetailNode,
+)
 from dataclasses import dataclass as DataClass
 
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
@@ -11,3 +18,15 @@ class NamedRead:
     GraphValue: NamedGraph
     MapValue: MapSnapshot
     UsageValue: BodyUsage
+
+    # readers must expose retained native identities separately from portable edge semantics
+    @property
+    def DetailingMap(self) -> DetailMap:
+        FieldsValue = self.GraphValue.DocumentValue.FieldsValue
+        ModelValue = NeedDetailNode(FieldsValue.get("model"), "moDrawing_c")
+        return ReadDetailMap(ModelValue, self.GraphValue.VersionValue)
+
+    # complete byte grammar cannot silently imply projection of native model edge identities
+    @property
+    def Unprojected(self) -> tuple[str, ...]:
+        return self.DetailingMap.Unprojected

@@ -1,0 +1,121 @@
+{
+  "schema": "kit.sw2026.drawing-root-guard-field-label-correction.v1",
+  "scope": "correct the semantic label in the immutable generic guard metadata; no raw report, observer, SDK or writer change",
+  "historical_tool_sha256": "24af0a2e00a92ff3f3aebda328436056d3fc41731ce49996751d36f374e681cc",
+  "historical_report_sha256": "89063a943ff99b9ece6b4efc811e96c534ada9119dcd39e25b3b28284b5a69b7",
+  "independent_typed_process_sha256": "a019d6731d635e266084b2d85a5474722721ad6c1f969bf61f6ea1c32e0a3c81",
+  "native_module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "native_body_evidence": {
+    "method": "moBEntRef_c::setLocalFeatureToNULL",
+    "entry": "0x4b759a30",
+    "complete_end": "0x4b759a86",
+    "chained_fragments": 3,
+    "complete_bytes": 86,
+    "combined_sha256": "c842fe8c8e234255b836de45d1243a3935d0584ebb8d8e1e9906ca24b76dae27",
+    "rule": "signed-positive runtime count+8 controls16-byte entity array+0x10 iteration; f08 belongs to the reference count rather than moNode identity"
+  },
+  "sdk_format_evidence": {
+    "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ReferenceFields.py",
+    "owner": "moBEntRef_c",
+    "field": "f08 unsigned32",
+    "array": "f10 repeated by f08 with signed-positive count semantics"
+  },
+  "rows": [
+    {
+      "case": "H01SheetA",
+      "object_index": 215,
+      "class": "moEdgeRef_c",
+      "historical_label": "persistent_id",
+      "historical_value": 4,
+      "actual_field": "moBEntRef_c.f08",
+      "actual_meaning": "entity reference count",
+      "independent_actual_entity_count": 4
+    },
+    {
+      "case": "H01SheetA",
+      "object_index": 231,
+      "class": "moEdgeRef_c",
+      "historical_label": "persistent_id",
+      "historical_value": 4,
+      "actual_field": "moBEntRef_c.f08",
+      "actual_meaning": "entity reference count",
+      "independent_actual_entity_count": 4
+    },
+    {
+      "case": "H01SheetA",
+      "object_index": 244,
+      "class": "moEdgeRef_c",
+      "historical_label": "persistent_id",
+      "historical_value": 4,
+      "actual_field": "moBEntRef_c.f08",
+      "actual_meaning": "entity reference count",
+      "independent_actual_entity_count": 4
+    },
+    {
+      "case": "H01SheetA",
+      "object_index": 257,
+      "class": "moEdgeRef_c",
+      "historical_label": "persistent_id",
+      "historical_value": 4,
+      "actual_field": "moBEntRef_c.f08",
+      "actual_meaning": "entity reference count",
+      "independent_actual_entity_count": 4
+    },
+    {
+      "case": "H02SheetB",
+      "object_index": 215,
+      "class": "moEdgeRef_c",
+      "historical_label": "persistent_id",
+      "historical_value": 4,
+      "actual_field": "moBEntRef_c.f08",
+      "actual_meaning": "entity reference count",
+      "independent_actual_entity_count": 4
+    },
+    {
+      "case": "H02SheetB",
+      "object_index": 231,
+      "class": "moEdgeRef_c",
+      "historical_label": "persistent_id",
+      "historical_value": 4,
+      "actual_field": "moBEntRef_c.f08",
+      "actual_meaning": "entity reference count",
+      "independent_actual_entity_count": 4
+    },
+    {
+      "case": "H02SheetB",
+      "object_index": 244,
+      "class": "moEdgeRef_c",
+      "historical_label": "persistent_id",
+      "historical_value": 4,
+      "actual_field": "moBEntRef_c.f08",
+      "actual_meaning": "entity reference count",
+      "independent_actual_entity_count": 4
+    },
+    {
+      "case": "H02SheetB",
+      "object_index": 257,
+      "class": "moEdgeRef_c",
+      "historical_label": "persistent_id",
+      "historical_value": 4,
+      "actual_field": "moBEntRef_c.f08",
+      "actual_meaning": "entity reference count",
+      "independent_actual_entity_count": 4
+    }
+  ],
+  "three_distinct_identities": [
+    "drawing moNode persistent identity",
+    "detailing map downstream kernel identity",
+    "moBEntRef entity array count"
+  ],
+  "raw_report_or_tool_rewritten": false,
+  "sdk_changed": false,
+  "writer_changed": false,
+  "native_execution": false,
+  "vm_access": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}

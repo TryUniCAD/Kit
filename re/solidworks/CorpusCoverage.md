@@ -213,8 +213,9 @@ The [SDK drawing layout receipt](measurements/2026/DrawingSdkLayoutCheck01.json)
 partial reader in the public adapter for those three native drawings. It supports the sheet and
 single external part view layout. The [raw Definition proof](measurements/2026/DrawingRawGrammar01.json)
 re-emits both original streams byte for byte. The [empty appearance-manager receipt](measurements/2026/DrawingEmptyAppearanceReader01.json)
-advances those originals to the strict root ownership and model link cache check. Strict drawing reads
-and production writing await further qualification.
+advances both original reads to the root guard. The [typed detailing index proof](measurements/2026/DrawingDetailingIndexRead01.json)
+keeps the actual edge-reference graph and marks its portable edge projection open. Both originals
+reach the annotation and display check. Strict drawing reads and production writing await further qualification.
 The [drawing concept prefix check](measurements/2026/DrawingConceptPrefixCheck01.json)
 round-trips the ordered sheet and complete view records before the resolved model tail. The
 research reader extracts model orientation, scale and the view transform and compares them
@@ -323,9 +324,11 @@ source-semantic acceptance.
 
 The [raw Definition grammar proof](records/DrawingRawGrammarBoundary2026.md)
 reads and writes every byte of the two original Definition streams through the
-typed graph. Both maps and object identities survive. Strict UI state rejects
-both files because they carry a PW material owner. Other stream parity and
-complete drawing admission remain open.
+typed graph. Both maps and object identities survive. That proof records an
+initial UI state rejection for the present PW material owner. The later
+[typed detailing verification](records/DrawingDetailingIndexRead2026.md)
+reaches the annotation and display check. Other stream parity and complete
+drawing admission remain open.
 
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
 passed both native save modes under the original and Kit containers.

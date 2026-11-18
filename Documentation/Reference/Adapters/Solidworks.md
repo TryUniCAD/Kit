@@ -176,7 +176,10 @@ the drawing user model environment, its embedded splitter and the
 bill-of-materials manager. The complete Definition streams round-trip
 byte for byte through the raw typed research path. Both originals pass the
 empty appearance-manager check with the saved allocator counter intact.
-They reach the strict root ownership and model link cache check.
+The typed detailing index also retains the actual ordered model groups,
+component keys, downstream identifiers and reference aliases. A populated
+index records `drawing.detailing_edges` as unprojected. Both originals then
+reach the strict annotation and display check.
 [Drawing component profile](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksComponentProfileArchive.md)
 [Drawing reference chains](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingReferenceChains.md)
 [Drawing edge references](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingEdgeReferences.md)
@@ -189,6 +192,7 @@ They reach the strict root ownership and model link cache check.
 [Drawing BOM managers](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingBomManagers.md)
 [Complete raw drawing Definition checks](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingRawGrammarChecks.md)
 [Empty drawing appearance state](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingEmptyAppearanceState.md)
+[Drawing detailing index](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingDetailingIndex.md)
 
 ## Feature history
 
