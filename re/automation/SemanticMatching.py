@@ -435,7 +435,10 @@ def match_graphs(left, right, tolerances, max_candidates=100000):
     alternatives = {}
     while candidates:
         preferred, alternatives = _preferences(candidates)
-        selected = anchors if anchors else preferred
+        field_anchors, _ = _preferences(
+            {pair: (0, 0, 0) for pair in candidates if not differences[pair]}
+        )
+        selected = anchors if anchors else field_anchors if field_anchors else preferred
         anchors = []
         if not selected:
             break
