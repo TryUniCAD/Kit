@@ -1,0 +1,142 @@
+{
+  "schema": "kit.sw2026.sdk-blank-drawing-native.v1",
+  "scope": "disclosed ordinary blank SDK drawing with standard English binder caption",
+  "oracle": {
+    "file_version": "34.5.2.0604",
+    "exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "com": "SldWorks.Application.34",
+    "transport": "Parallels prlctl exec --current-user"
+  },
+  "builder": {
+    "source_files": 3048,
+    "source_manifest_sha256": "a66dd6b2acf3ef7b3f6b9e51a8b06e0b0b988e473813dd98bb3e1a43014e96a0",
+    "proof_sha256": "40fb17ad190496201f637e02ac15f3725a13f927295162f3fcc76bb4c44229a5",
+    "neutral_request_sha256": "2a4de479d71866c9b985797815875b54c57468684efcbafdff10b1978fb55b1c",
+    "generated_sha256": "c059b19358b09b09ec538c939cf2a19ee9c409b6f779319b866a28286b4f10e8",
+    "guarded_builds": 2,
+    "runtime_file_reads": 0
+  },
+  "native": {
+    "packet_sha256": "5f48aa57d38b0b013b03658524f1489110ae1dfbc2d004fdb8835142056de203",
+    "terminal_sha256": "718262635c447ea846e8c59c4d6cc246003918f320c41d73ec54a72527bf387c",
+    "host_sha256": "51d83d8d9769352a55c23945cd1d092343c9110c57d43962d5c4eb9e24766271",
+    "transport_exit_code": 0,
+    "phases": [
+      {
+        "role": "ControlBefore/OpenEditSave",
+        "record_sha256": "623b1a2d24874627e1c10c9d5e5621d27f4be6ce471537eac47890bf98486881",
+        "numeric_checks": 24,
+        "tree_rows": 10,
+        "open_status": [
+          0,
+          0
+        ],
+        "process_creation_filetime": 134394375484703271
+      },
+      {
+        "role": "ControlBefore/FreshReopen",
+        "record_sha256": "062cdd071a8426a5fbe855ccbb8f7fa82fcbf1ace555ea0eaccaaed2570b5819",
+        "numeric_checks": 16,
+        "tree_rows": 10,
+        "open_status": [
+          0,
+          0
+        ],
+        "process_creation_filetime": 134394375732141623
+      },
+      {
+        "role": "Generated/OpenEditSave",
+        "record_sha256": "e21f078df511092682a11239e0f53dc997492acb4aa5ca7a3bf371c4cad8958b",
+        "numeric_checks": 24,
+        "tree_rows": 10,
+        "open_status": [
+          0,
+          0
+        ],
+        "process_creation_filetime": 134394375961602603
+      },
+      {
+        "role": "Generated/FreshReopen",
+        "record_sha256": "1936dc4818f4ede7c9edcbe036e6e14817af8565bbaef6a3d64045dcdba0be74",
+        "numeric_checks": 16,
+        "tree_rows": 10,
+        "open_status": [
+          0,
+          0
+        ],
+        "process_creation_filetime": 134394376202933667
+      },
+      {
+        "role": "ControlAfter/OpenEditSave",
+        "record_sha256": "7a394c543b73dd7d84a186ca52bfb57f81725d0337905a92016f8462893f19ed",
+        "numeric_checks": 24,
+        "tree_rows": 10,
+        "open_status": [
+          0,
+          0
+        ],
+        "process_creation_filetime": 134394376430937975
+      },
+      {
+        "role": "ControlAfter/FreshReopen",
+        "record_sha256": "f81c90d4d1befb3713f8a1b4bf507cbf43cc0d071bee30a47e688febfd8eb938",
+        "numeric_checks": 16,
+        "tree_rows": 10,
+        "open_status": [
+          0,
+          0
+        ],
+        "process_creation_filetime": 134394376667472178
+      }
+    ],
+    "controls_healthy": true,
+    "numeric_comparisons": 120,
+    "feature_tree_rows": 10,
+    "scale_before": [
+      13,
+      7
+    ],
+    "scale_after": [
+      3,
+      2
+    ],
+    "save_status": [
+      true,
+      0,
+      0
+    ],
+    "derivative_sha256": "3407eebcf113d89d265bc93ae78ec5f491d28320acad2f47b7c0ebecc76c1860",
+    "inputs_unchanged": true,
+    "native_edit_and_reopen_passed": true
+  },
+  "initial_custom_caption": {
+    "terminal_sha256": "e00db5ba651c945e043ad48cc99cf51fd9b2113c851dddbaa80f135cb5ac0891",
+    "host_sha256": "7340b40ccd68fdbfcb58fc5c456eecfd0c05ac69bba0214d81f5c69c09bebfe0",
+    "passed": false,
+    "controls_healthy": true,
+    "open_status": [
+      0,
+      0
+    ],
+    "all_eight_sheet_values_match": true,
+    "sole_tree_difference": {
+      "row": 2,
+      "class": "moDocsFolder_c",
+      "archive_name": "PortableAlpha documents",
+      "native_api_name": "Design Binder"
+    }
+  },
+  "saved_layout_read": {
+    "strict": false,
+    "sheet": "PortableAlpha paper",
+    "scale_ratio": [
+      3.0,
+      2.0
+    ],
+    "model_views": 0
+  },
+  "pre_writer_heldout_inputs_read": 0,
+  "public_writer_enabled": false,
+  "qualified_production_corpus_outputs": 0,
+  "passed": true
+}
