@@ -39,9 +39,10 @@ def CheckBundleRead() -> None:
         ).fetchone()
         assert Property == (1,)
         assert Database.execute(
-            "SELECT json_extract(details,'$.availability_status'),json_extract(details,'$.retired') "
+            "SELECT json_extract(details,'$.availability_status'),json_extract(details,'$.retired'),"
+            "json_extract(details,'$.documentation_mentions.retirement') "
             "FROM items WHERE id='api:adsk.fusion.Occurrence.transform2'"
-        ).fetchone() == ("unverified", None)
+        ).fetchone() == ("unverified", None, 1)
         assert Database.execute(
             "SELECT target_id FROM relations WHERE owner_id=? AND relation='property_type'",
             ("api:adsk.fusion.ExtrudeFeatureInput.operation",),
