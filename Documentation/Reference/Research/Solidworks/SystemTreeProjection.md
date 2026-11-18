@@ -20,8 +20,7 @@ The original keyword type remains in
 Inspect `status` and the qualification flags before using these rows for a
 comparison. An unqualified layout keeps the existing timeline. Arbitrary
 application settings, languages, authored-caption normalization and runtime
-error/warning/suppression states are not qualified. The public writer remains
-disabled.
+error/warning/suppression states are unqualified by this reader evidence.
 
 See the [field and ownership record](../../../../re/solidworks/records/SystemTreeProjection2026.md),
 the [verification receipt](../../../../re/solidworks/measurements/2026/SdkSystemTreeProjection01.json)

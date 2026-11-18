@@ -18,7 +18,7 @@ No replacement percentage is claimed without a complete acceptance matrix.
 
 | Family                  | Production position at this revision                                                                       | Remaining product requirement                                                                       |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| SOLIDWORKS              | Part and assembly reader. The recorded-payload writer was removed.                                         | Generative native output, broader semantic reads and qualified editable routes.                     |
+| SOLIDWORKS              | Part and assembly reader, partial drawing reader, and a generative writer for one line-loop blind boss.     | Native assembly and drawing output, broader semantic reads and qualified editable routes.           |
 | Fusion                  | Public reader and writer for qualified parameter, circle, rectangle, cylinder, cuboid and frustum graphs.  | General portable feature graphs, broader schemas, configurations and qualified cross-format routes. |
 | FreeCAD                 | Archive reader and writer with geometry, feature and assembly paths.                                       | Per-version semantic coverage and measured acceptance for each claimed conversion direction.        |
 | CATIA V5                | Part/product adapter with bounded native interpretation and preservation paths.                            | Complete geometry, parametric history and independently measured native conversion.                 |

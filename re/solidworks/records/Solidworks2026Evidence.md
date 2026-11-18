@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Default SDK standalone part recipe](SdkDefaultPartRecipe2026.md) and [controlled native evidence](../measurements/2026/SdkDefaultPartNative01.json) | Four guarded writers reproduce the ten streams from two models. Both parts pass 240 native checks with the document density preference and effective unassigned body density measured separately. |
 | [Current planar mate reference chains](../measurements/2026/AssemblyPlanarMateArchive01.json) and [class rules](PlanarMateReferenceChains2026.md) | 51 exact stream comparisons across three disclosed mate pairs. All three MatesList serializations resolve without provisional reference-chain classes. |
 | [Generated planar mate endpoints](../measurements/2026/GeneratedPlanarMateEndpoint01.json) | Two authored occurrence and datum references round-trip with zero runtime file reads. |
 | [Planar wrapper construction](PlanarMateWrapperWriteState2026.md) and [input translation](PlanarMateInputTranslation2026.md) | Native constructors and three disclosed mates establish resolved and detached ownership, explicit alignment and the two default distance options. |

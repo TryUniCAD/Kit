@@ -14,6 +14,16 @@ def FormatReport() -> list[dict[str, object]]:
             "aliases": (Readers.get(FormatId) or Writers[FormatId]).AliasNames,
             "read": FormatId in Readers,
             "write": FormatId in Writers,
+            **(
+                {
+                    "write_extensions": Writers[FormatId].Extensions,
+                    "write_aliases": Writers[FormatId].AliasNames,
+                }
+                if FormatId in Writers
+                and FormatId in Readers
+                and Writers[FormatId] != Readers[FormatId]
+                else {}
+            ),
         }
         for FormatId in sorted(Readers.keys() | Writers.keys())
     ]

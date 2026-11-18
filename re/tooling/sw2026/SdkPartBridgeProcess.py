@@ -21,7 +21,6 @@ sys.addaudithook(AUDIT.InspectEvent)
 
 from SdkBlindPartSettings import settings
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
 from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import MakeBlindPart
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
@@ -128,28 +127,29 @@ def main():
     file = candidate.HeaderValue.FieldsValue["f38"].FieldsValue["shared"]["h18"].FieldsValue["value"].TextValue
     require(file == final_path and file != staged, "native header published a temporary staging identity")
     adapter = REGISTRY.GetReader("solidworks.sldprt")
-    require(not hasattr(adapter, "write") and not hasattr(adapter, "supports"), "read-only adapter acquired a write entry point")
+    require(not hasattr(adapter, "write") and not hasattr(adapter, "supports"), "reader and writer entry points must remain distinct")
     destination = BytesIO()
     try:
         WriteDocument(document, destination, DestFormat="solidworks.sldprt")
-    except NotFoundError:
-        pass
+    except ValueError as error:
+        require(str(error) == "unnamed native streams require an explicit final destination",
+                "the unbound binary destination failed for the wrong reason")
     else:
         raise ValueError("normal public save admitted an unqualified writer")
-    require(destination.getvalue() == b"" and not any(value.info.format_id in ("solidworks.sldprt", "solidworks.sldasm", "solidworks.slddrw") for value in REGISTRY.GetWriters()),
-            "normal writer discovery changed or public save mutated the destination")
+    require(destination.getvalue() == b"" and REGISTRY.GetWriter("solidworks.sldprt").info.extensions == (".sldprt",),
+            "part writer discovery or unbound stream atomicity differs")
     readback = public_reader(candidate)
     rejections = malformed(document, recipe, final_path, options)
     imported = sorted(name for name, module in tuple(sys.modules.items())
                       if str(getattr(module, "__file__", "")).startswith(str(ROOT / "re") + "/")
                       and name not in ("__main__", "SdkBlindPartSettings"))
     require(not imported, "SDK preparation imported research implementation")
-    return {"passed": True, "scope": "unregistered ordinary WriteOptions to complete SDK-only plain part preparation",
+    return {"passed": True, "scope": "explicit recipe WriteOptions path to complete SDK-only plain part preparation",
             "bytes": len(candidate.BytesValue), "sha256": sha256(candidate.BytesValue).hexdigest(), "blob": b64encode(candidate.BytesValue).decode("ascii"),
             "streams": {name: {"bytes": len(data), "sha256": sha256(data).hexdigest()} for name, data in candidate.StreamsValue.items()},
             "exact_direct_candidate": True, "exact_named_configuration": True, "exact_configuration_id": True,
             "derived_neutral_units_and_support": True, "encoded_final_path": final_path, "staging_path_not_encoded": True,
-            "caller_destinations_unchanged": True, "public_writer_available": False, "public_save_rejected": True,
+            "caller_destinations_unchanged": True, "public_writer_available": True, "public_save_rejected": True,
             "public_read": readback, "malformed": rejections,
             "runtime_input_file_reads": len(AUDIT.DeniedReads), "sdk_runtime_research_imports": len(imported),
             "native_acceptance": False, "public_writer_qualified": False}

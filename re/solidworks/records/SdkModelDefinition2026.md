@@ -19,7 +19,7 @@ construction ledger.
 
 | Fields | Fresh classes and data lineage |
 | --- | --- |
-| `fa58/fa5c/fa60/fa64` | Input: three explicit nonnegative signed tessellation preferences and a boolean. Their wider preference semantics remain unresolved. |
+| `fa58/fa5c/fa60/fa64` | Input: shaded tessellation, derived angular tessellation, wireframe tessellation and optimal tessellation. The default part profile uses the registered factory tuple `26,4,25,true`. |
 | `fa74` | Selected ordinary UI format switch, constructor value one. |
 | Document CLSID | Derived from the concrete model document kind, `83a33d30` for a part and `83a33d36` for an assembly with the shared GUID tail. |
 | `fac0/fac8` | Fresh document has no UI sketch owner and sets the corresponding constructor byte to zero. |
@@ -31,13 +31,13 @@ construction ledger.
 | `basedoc/fbf0/fb20` | No authored OLE or model presentation objects. The fresh second base-document field and the model data integer are zero. |
 | `fb54/fb3c/fb40/fd68/f850/fab8/fb00/fb04/fa6c/fa10/fa98` | Ordinary constructor values from the version-matched UI initializer. The nullable owners start absent. |
 | `ffd8` | Notebook constructor, reset and journal initialization supply separate empty lists and distinct state words. Its name is authored. Journal time and state are initialized zero. |
-| `f1000/fa90/f1014` | Constructor zero/one for the first and last fields. The native `0x7a` preference is an explicit boolean input. |
+| `f1000/fa90/f1014` | Constructor zero/one for the first and last fields. The native `0x7a` stream-compression preference is an explicit boolean input with registered default false. |
 | `expand_keys/expand_vals/f7b8/has_pwmaterial` | Fresh expansion keys and values are empty, the flag word is zero and the fresh renderer owner is absent. Saved streams with a renderer owner carry two signed words and its counted object list before the trailer. |
 | `f1138/f1158/f1150/ff40/f1140/ff88/ffb0` | No authored content in these fresh text and collection owners. All lengths and counts follow the actual values. |
 | `f1348/f1350/f134c/f1354/fa78/f1358/f1370` | Fresh constructor words and the separate PhotoView options initializer. |
 | `f1388/f1390/f7bc/f135c/f13c8/f13d0/f1400/f1408/f13f0/fa7c/fa80/fd78` | Ordinary fresh constructor words and an empty counted options array. |
 | `f12e8/f1424/f930/f1304/fd7c/f1368/f3e8/f11a0` | Ordinary fresh constructor pointer, scalar words and empty variation collection. |
-| `f1688` | Part density input, finite and positive, stored as binary64. |
+| `f1688` | Document material-density preference in kilograms per cubic metre, finite and positive, stored as binary64. Its registered default is 1000. The effective mass calculation has a separate body density. |
 | `f1840/f19c8/f1a38/f1a40/f1a48/f19b0/f19b8/f19c0/f1afc` | Assembly constructor fields in the recovered assembly tail. Preserve the ordinary distinct words, empty Strings and native 0.0127 value. |
 | `f1b48` | The ten native preferences are authored through their exact slot numbers. The nested constructor owns zero `f08` and derives the bounded `f10` from slot `5fd`. |
 
@@ -52,6 +52,11 @@ under the drawing codec.
 
 [Process and source receipt](../measurements/2026/SdkModelDefinition01.json) ·
 [Disclosed native stream inventory](../measurements/2026/SdkModelDefinitionCorpus01.json)
+
+The [factory settings trace](../measurements/2026/SdkPartPreferenceDefaults01.json)
+identifies the exact preference constructors and confirms their registered
+initial values. The [default part recipe](SdkDefaultPartRecipe2026.md) applies
+those values to independent fresh neutral documents.
 
 The independent corpus audit reads committed disclosed files from a pinned
 revision. It excludes original holdout slots. The SDK consumes all 84

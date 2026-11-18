@@ -1,9 +1,11 @@
 # FCStd to SOLIDWORKS corpus coverage
 
-Status: **no production writing or complete CAD acceptance**. Kit reads SOLIDWORKS files and writes none through its public adapter. The
-recorded benchmark covers 165 FCStd parts and five assemblies. Its FCStd-to-SOLIDWORKS conversion
-requires a registered writer. The earlier writer measured below re-emitted one recorded vendor stream
-per family, so it was removed from production.
+Status: **0 of 165 FCStd parts and 0 of five FCStd assemblies qualified**.
+Kit's generative public writer accepts the scoped ordinary neutral line-loop
+blind boss. Its held-out native SOLIDWORKS examples are separate from the
+FCStd benchmark. The earlier writer measured below re-emitted a recorded
+vendor stream per family, so it was removed from production.
+See the [native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md).
 See `Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md`.
 
 The figures below are the last audit of that removed writer. They record which source histories it
@@ -13,8 +15,8 @@ not current capability.
 ## Generative 2026 research
 
 The independent research composer generates fresh native containers and streams
-from neutral polygon, circle, radial-dimension and depth inputs without saved-stream inputs. This is not
-the public adapter and does not count toward the requested 165-part and five-assembly conversion target.
+from neutral polygon, circle, radial-dimension and depth inputs without saved-stream inputs.
+Its research results remain separate from public SDK and FCStd acceptance.
 
 The [property-section drawing comparison](measurements/2026/DrawingBlankPropertySectionsNative01.json)
 generates the native text-section and name-dictionary framing from neutral

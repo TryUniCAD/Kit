@@ -1,7 +1,7 @@
 from typing import cast as CastValue
 
 
-# the bridge must preserve exact full candidate bytes final identity and actual public parameter ownership while leaving normal save unavailable
+# the bridge must preserve exact candidate bytes final identity and public ownership while rejecting an unnamed stream
 def AssertBridge(ReportValue: dict[str, object]) -> int:
     for NameValue in (
         "exact_direct_candidate",
@@ -13,7 +13,7 @@ def AssertBridge(ReportValue: dict[str, object]) -> int:
         "public_save_rejected",
     ):
         assert ReportValue[NameValue] is True
-    assert ReportValue["public_writer_available"] is False
+    assert ReportValue["public_writer_available"] is True
     StreamsValue = CastValue(dict[str, object], ReportValue["streams"])
     assert len(StreamsValue) == 10
     PublicValue = CastValue(dict[str, object], ReportValue["public_read"])

@@ -5,8 +5,10 @@ original source: `.agents/skills/no-donor-blocks/SKILL.md`
 This section replaces the preserved "THE STATE OF THE WORK" paragraph below where they disagree.
 [AGENTS.md](../../../../../../AGENTS.md) takes precedence over the preserved text.
 
-Kit does not write SOLIDWORKS files.
-The SOLIDWORKS adapter is registered as a reader only.
+Kit registers a generative standalone SOLIDWORKS 2026 part writer for the
+qualified ordinary closed line-loop blind boss. The reader also recognizes
+assemblies and drawings. Output for each further family requires its own
+held-out oracle qualification.
 
 The removed writer did not generate its streams from format rules.
 Each supported family was one vendor-saved stream, re-encoded as typed field operations.

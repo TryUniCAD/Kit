@@ -22,11 +22,11 @@ def CheckPartOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
         or not SettingsValue.configuration
     ):
         raise TypeError("write configuration must be nonempty text or absent")
-    if SettingsValue.destination_format not in (
-        None,
-        "solidworks.sldprt",
-        "sldprt",
-        ".sldprt",
+    DestinationFormat = SettingsValue.destination_format
+    if DestinationFormat is not None and (
+        type(CastValue(object, DestinationFormat)) is not str
+        or DestinationFormat.casefold()
+        not in ("solidworks.sldprt", "sldprt", ".sldprt")
     ):
         raise ValueError("plain part preparation requires a part destination format")
     AllowedNames = {

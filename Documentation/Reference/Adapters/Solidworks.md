@@ -2,11 +2,11 @@
 
 ## Purpose and scope
 
-Kit registers one SOLIDWORKS adapter with part, assembly and drawing identifiers.
-Its primary `format_id` is `solidworks.sldprt`.
-Its `aliases` field contains `solidworks.sldasm` and `solidworks.slddrw`.
-The registered SOLIDWORKS formats are read-only.
-It does not invoke SOLIDWORKS during production conversion.
+Kit registers a SOLIDWORKS reader with part, assembly and drawing identifiers.
+Its primary `format_id` is `solidworks.sldprt`, with reader aliases
+`solidworks.sldasm` and `solidworks.slddrw`.
+The generative writer uses `solidworks.sldprt` for the qualified part family.
+Production format operations run without the vendor application.
 
 | Identifier          | Suffix    |
 | ------------------- | --------- |
@@ -42,7 +42,7 @@ A valid feature record does not establish a successful vendor rebuild.
 
 For ordinary version-19000 parts and assemblies, the SDK decodes `Contents/CMgr` as a typed graph with its own map starting at 1. Read `metadata["solidworks.typed_configuration_manager"]` for the stored configuration names, comments, IDs, actual selected pointer identities and grammar coverage. Unsupported manager profiles report a diagnostic alongside the existing portable projection. Config, resolved-feature and mate streams retain their separate admission requirements. [Typed configuration managers](../../Changes/Solidworks/Archive/SolidworksTypedConfigurationManager.md)
 
-For the measured ordinary single-configuration profile, `metadata["solidworks.typed_configuration_graph"]` reports the typed Config-0 stream, its inherited header aliases and map boundaries. The SDK decodes and serializes the same object graph. Twelve disclosed streams round-trip exactly with an independent CMgr context. This metadata supports inspection while the existing feature projection, strict linked-body boundary and read-only registration apply. [Typed configuration graph](../../Changes/Solidworks/Archive/SolidworksTypedConfigurationGraph.md)
+For the measured ordinary single-configuration profile, `metadata["solidworks.typed_configuration_graph"]` reports the typed Config-0 stream, its inherited header aliases and map boundaries. The SDK decodes and serializes the same object graph. Twelve disclosed streams round-trip exactly with an independent CMgr context. The typed metadata preserves the strict linked-body boundary. [Typed configuration graph](../../Changes/Solidworks/Archive/SolidworksTypedConfigurationGraph.md)
 
 The internal SDK `ResolvedFeatures` codec extends the actual Config map and reads the separate CMgr context. Twelve disclosed parts and assemblies pass exact stream and object identity checks. Its research bridge passes the guarded construction regression and 42 linked comparisons, including six mate lists. [Typed resolved graph](../../Changes/Solidworks/Archive/SolidworksTypedResolvedGraph.md)
 
@@ -138,8 +138,26 @@ A single flag change is not a general operation converter.
 
 ## Writing
 
-Kit does not write SOLIDWORKS files.
-A conversion to a `.SLDPRT` or `.SLDASM` destination raises `AdapterNotFoundError` and creates no file.
+The public writer accepts a neutral millimetre document with one active
+configuration, the canonical Front Plane, one closed loop of ordinary sketch
+lines, one forward blind boss and one solid. It preserves the actual
+neutral sketch, boss and configuration names and the driving `D1` depth.
+
+Call `write_document(document, path)` with a `.SLDPRT` path whose basename
+matches the document name. Set `overwrite=True` to replace an existing
+destination. Use `destination_format="solidworks.sldprt"` and pass
+`values={"final_destination": absolute_part_path}` for a binary stream.
+On a host without a Windows path, the archive stores the declared standalone
+locator with the same basename. The generated document opens independently
+of that locator.
+
+The `kit convert` command applies its separate portable-geometry gate.
+Use the SDK call above for the initial SOLIDWORKS write profile.
+
+The writer rejects other feature combinations, material assignments,
+unmapped source state, assemblies and drawings before publishing a file.
+[Native part writer](../../Changes/Solidworks/Construction/SolidworksNativePartWriter.md) ·
+[Default recipe and field rules](../../../re/solidworks/records/SdkDefaultPartRecipe2026.md)
 
 The earlier writer did not generate its streams from format rules.
 Each supported family re-emitted a recorded payload, which is a typed recording of one saved stream.

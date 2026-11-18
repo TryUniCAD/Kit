@@ -25,7 +25,7 @@ Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) to 
 
 | Format               | Suffixes                  | Registration      |
 | -------------------- | ------------------------- | ----------------- |
-| SOLIDWORKS part      | `.SLDPRT`                 | Reader            |
+| SOLIDWORKS part      | `.SLDPRT`                 | Reader and bounded writer |
 | SOLIDWORKS assembly  | `.SLDASM`                 | Reader            |
 | SOLIDWORKS drawing   | `.SLDDRW`                 | Partial reader    |
 | FreeCAD              | `.FCStd`                  | Reader and writer |
@@ -36,7 +36,7 @@ Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) to 
 Registration does not establish complete feature coverage or lossless translation.
 Native replay and carrier preservation have different meanings from editable cross-format output.
 Check the format reference and result for each input.
-SOLIDWORKS output is unavailable until a generative serializer replaces the removed recorded-payload writer.
+The generative SOLIDWORKS part writer supports one canonical line-loop sketch with a forward blind boss. [SOLIDWORKS writer scope](Documentation/Reference/Adapters/Solidworks.md#writing)
 The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md) reads and writes qualified parameter, circle, rectangle, cylinder, cuboid, and frustum documents. Arbitrary feature graphs remain unsupported; `strict=False` explicitly selects the earlier partial reader.
 
 ## Command line

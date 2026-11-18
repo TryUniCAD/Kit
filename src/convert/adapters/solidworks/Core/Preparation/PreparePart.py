@@ -1,9 +1,6 @@
 from typing import cast as CastValue
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import (
-    MakeBlindPart,
-)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectPlain import (
     ProjectPlain,
 )
@@ -13,10 +10,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
-from convert.adapters.solidworks.Core.Preparation.BindPartIntent import BindPartIntent
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.CheckPlainScope import CheckPlainScope
-from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPartPath
+from convert.adapters.solidworks.Core.Preparation.RunPartPrep import RunPartPrep
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -32,15 +28,6 @@ def PreparePart(
     SettingsValue = CheckPartOpts(OptionsValue)
     CheckPlainScope(DocumentValue)
     PlanValue = ProjectPlain(DocumentValue)
-    ConfigValue = DocumentValue.configurations[0]
-    if SettingsValue.configuration not in (
-        None,
-        ConfigValue.id,
-        ConfigValue.name,
-    ):
-        raise ValueError("requested write configuration is unavailable")
-    OutputValue = FinalPartPath(
-        TargetValue, SettingsValue, RecipeValue.OutputValue, PlanValue.NameValue
+    return RunPartPrep(
+        DocumentValue, TargetValue, PlanValue, RecipeValue, SettingsValue
     )
-    InputValue = BindPartIntent(DocumentValue, PlanValue, RecipeValue, OutputValue)
-    return MakeBlindPart(DocumentValue, InputValue)
