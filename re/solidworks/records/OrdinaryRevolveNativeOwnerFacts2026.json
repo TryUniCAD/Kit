@@ -1,0 +1,115 @@
+{
+  "exports": {
+    "?getAngle@moRevolution_c@@QEAANXZ": "0x4c396260",
+    "?getAngleDim@moRevolution_c@@QEBAPEAVmoDisplayDim_c@@H@Z": "0x4c396320",
+    "?getCenterLineEndPts@moRevolution_c@@SAHPEAVmoLineRef_w@@PEAVmgPoint_c@@1@Z": "0x4c3966d0",
+    "?getPermanentMark@moCompSketchEntHandle_c@@QEAAKXZ": "0x4b283ca0",
+    "?getReverseDir@moRevolution_c@@QEAAHXZ": "0x4b37fb40",
+    "?getValue@moDimHandle_c@@QEBANH@Z": "0x4c844d80",
+    "?getValue@moDisplayDim_c@@UEAANH@Z": "0x4c888d40",
+    "?getValue@moDoubleParameter_c@@QEBANH@Z": "0x4c19c860",
+    "?isAxisValid@moRevolution_c@@QEBAHXZ": "0x4c39e660",
+    "?isCenterline@sgLineHandle@@QEBAHXZ": "0x4c5dcda0"
+  },
+  "image_base": "0x4b140000",
+  "machine": "0x8664",
+  "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "runtime_observed": false,
+  "spans": {
+    "0x4b283ca0": {
+      "end_va": "0x4b283ca7",
+      "file_offset": "0x1430a0",
+      "length": 7,
+      "sha256": "7ae3bbf974d887ad8912de6a67b7545cb3173c6a4b3ad7a4234712d65cd8d9db"
+    },
+    "0x4b37fb30": {
+      "end_va": "0x4b37fb37",
+      "file_offset": "0x23ef30",
+      "length": 7,
+      "sha256": "aec909cca191ba03c04358d364098a092f0d6a87acfd436b4fad299c9ece9095"
+    },
+    "0x4b37fb40": {
+      "end_va": "0x4b37fb47",
+      "file_offset": "0x23ef40",
+      "length": 7,
+      "sha256": "9010bcae65621414d12dd3999c5d94ee51a794ae8f10e017c6b019ad7aaf2811"
+    },
+    "0x4c19c860": {
+      "end_va": "0x4c19c876",
+      "file_offset": "0x105bc60",
+      "length": 22,
+      "sha256": "415ee9b01c7618ea435fdcd4513f12a0dd54c88c8118abf7fc9698be688c7823"
+    },
+    "0x4c396260": {
+      "end_va": "0x4c39631b",
+      "file_offset": "0x1255660",
+      "length": 187,
+      "sha256": "6f035be7893d75d8c1447034dc9d8d11b3888fc1681363b7f8b208c6d0dc715c"
+    },
+    "0x4c396320": {
+      "end_va": "0x4c3963a6",
+      "file_offset": "0x1255720",
+      "length": 134,
+      "sha256": "df749e776e29cf336a8801c264a5af4a0d35b3b9c3d797320a17e85b5ccf56ec"
+    },
+    "0x4c39e660": {
+      "end_va": "0x4c39e73a",
+      "file_offset": "0x125da60",
+      "length": 218,
+      "sha256": "89340e917219d7e6fc83b7947eea4af6563aa9dc1b8073ba2707b8ca6a119371"
+    },
+    "0x4c81fc50": {
+      "end_va": "0x4c81fcc8",
+      "file_offset": "0x16df050",
+      "length": 120,
+      "sha256": "8d22f72a10a562de976ae62ed700209684367dd3d4b4b19c7f4a8b2fd87d5819"
+    },
+    "0x4c844d80": {
+      "end_va": "0x4c844dc2",
+      "file_offset": "0x1704180",
+      "length": 66,
+      "sha256": "e327ff72feddb0609c15f14b6bdf7056add9eea087c856c2fb252e95c74f379f"
+    },
+    "0x4c845450": {
+      "end_va": "0x4c845686",
+      "file_offset": "0x1704850",
+      "length": 566,
+      "sha256": "2d5cad498f722fbd1f02d3a46bb822193482e80256785af6b5ade43da1457421"
+    },
+    "0x4c860770": {
+      "end_va": "0x4c860775",
+      "file_offset": "0x171fb70",
+      "length": 5,
+      "sha256": "b62c4aba2bc35adf98e5372b3a70fbf354adf3067d056def867e2eee5276ef6d"
+    },
+    "0x4c888d40": {
+      "end_va": "0x4c888e92",
+      "file_offset": "0x1748140",
+      "length": 338,
+      "sha256": "8337a1dc5b0bfeffd58b8855ecafdccdb1513ce27f22f7026c7798d2bd4b2ec6"
+    }
+  },
+  "vtable_slots": {
+    "AngleDim_c": {
+      "slots": {
+        "0x28": "0x4c8294c0",
+        "0x88": "0x4c81fc50"
+      },
+      "vtable": "0x4d1b5438"
+    },
+    "moDisplayAngularDim_c": {
+      "slots": {
+        "0x28": "0x4c82b8b0",
+        "0x868": "0x4c860770"
+      },
+      "vtable": "0x4d247828"
+    },
+    "moFeatureDimHandle_c": {
+      "slots": {
+        "0x28": "0x4c8346c0",
+        "0x730": "0x4c845450"
+      },
+      "vtable": "0x4d18b230"
+    }
+  }
+}

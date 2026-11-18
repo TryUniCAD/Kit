@@ -1,0 +1,580 @@
+{
+  "cases": {
+    "RevolveFull": {
+      "actual_projection": {
+        "axis_constraints": 0,
+        "axis_selection_path": [
+          [
+            "sketch",
+            "sldprt:sketch:26"
+          ],
+          [
+            "sketch_entity",
+            "sldprt:sketch:26:line:1"
+          ]
+        ],
+        "constraints": 4,
+        "construction_entities": 1,
+        "dimension_id": 27,
+        "driver_name": "D1",
+        "effective_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "entities": 5,
+        "native_axis_array_index": 5,
+        "native_axis_creation_id": 5,
+        "native_axis_permanent_mark": 1,
+        "native_solver_status_not_measured": true,
+        "radians": 6.283185307179586,
+        "raw_axis_end_m": [
+          0.002,
+          0.037,
+          0.0
+        ],
+        "raw_axis_start_m": [
+          0.002,
+          -0.026000000000000002,
+          0.0
+        ],
+        "retired_lines": 1,
+        "retired_points": 4,
+        "reverse": false
+      },
+      "angular_display_observation": [
+        {
+          "editable": true,
+          "name": "D1@OrdinaryBossRevolve@RevolveFull.Part",
+          "type": 3,
+          "value": 6.283185307179586
+        }
+      ],
+      "native_in_memory_edit": {
+        "after_radians": 3.8920842319473548,
+        "before_radians": 6.283185307179586,
+        "name": "D1@OrdinaryBossRevolve@RevolveFull.Part",
+        "passed": true,
+        "setter_status": 0
+      },
+      "native_reopen_sha256": "35795ccd5a42ad297a187d516e6a36c9d4e089a6eabce1558b6c669c505908bc",
+      "native_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "native_states": {
+        "edited": {
+          "angle_radians": 3.8920842319473548,
+          "api_mode": 0,
+          "axis": {
+            "id": [
+              5,
+              5
+            ],
+            "name": "Line5",
+            "owner_segment_ids": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "points": [
+              [
+                0.002,
+                -0.026,
+                0.0
+              ],
+              [
+                0.002,
+                0.037,
+                0.0
+              ]
+            ]
+          },
+          "forward_handedness": -1,
+          "mass": {
+            "area": 0.009319535202450496,
+            "com": [
+              -0.0017410970882428957,
+              0.004000000000000003,
+              -0.0094973282505437
+            ],
+            "mass": 4.763911099903561e-05,
+            "volume": 4.763911099903561e-05
+          },
+          "parents": [
+            "RevolveSketch",
+            "Front Plane"
+          ],
+          "reverse": false
+        },
+        "reopened": {
+          "angle_radians": 6.283185307179586,
+          "api_mode": 0,
+          "axis": {
+            "id": [
+              5,
+              5
+            ],
+            "name": "Line5",
+            "owner_segment_ids": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "points": [
+              [
+                0.002,
+                -0.026,
+                0.0
+              ],
+              [
+                0.002,
+                0.037,
+                0.0
+              ]
+            ]
+          },
+          "forward_handedness": null,
+          "mass": {
+            "area": 0.013069025438933537,
+            "com": [
+              0.0020000000000000005,
+              0.004000000000000001,
+              1.5610629066404477e-19
+            ],
+            "mass": 7.690618815987813e-05,
+            "volume": 7.690618815987813e-05
+          },
+          "parents": [
+            "RevolveSketch",
+            "Front Plane"
+          ],
+          "reverse": false
+        }
+      }
+    },
+    "RevolvePartialForward": {
+      "actual_projection": {
+        "axis_constraints": 0,
+        "axis_selection_path": [
+          [
+            "sketch",
+            "sldprt:sketch:26"
+          ],
+          [
+            "sketch_entity",
+            "sldprt:sketch:26:line:1"
+          ]
+        ],
+        "constraints": 4,
+        "construction_entities": 1,
+        "dimension_id": 27,
+        "driver_name": "D1",
+        "effective_axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "entities": 5,
+        "native_axis_array_index": 5,
+        "native_axis_creation_id": 5,
+        "native_axis_permanent_mark": 1,
+        "native_solver_status_not_measured": true,
+        "radians": 1.9722220547535925,
+        "raw_axis_end_m": [
+          -0.004,
+          0.023,
+          0.0
+        ],
+        "raw_axis_start_m": [
+          -0.004,
+          -0.031,
+          0.0
+        ],
+        "retired_lines": 1,
+        "retired_points": 4,
+        "reverse": false
+      },
+      "angular_display_observation": [
+        {
+          "editable": true,
+          "name": "D1@OrdinaryBossRevolve@RevolvePartialForward.Part",
+          "type": 3,
+          "value": 1.9722220547535925
+        }
+      ],
+      "native_in_memory_edit": {
+        "after_radians": 1.239183768915974,
+        "before_radians": 1.9722220547535925,
+        "name": "D1@OrdinaryBossRevolve@RevolvePartialForward.Part",
+        "passed": true,
+        "setter_status": 0
+      },
+      "native_reopen_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+      "native_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "native_states": {
+        "edited": {
+          "angle_radians": 1.239183768915974,
+          "api_mode": 0,
+          "axis": {
+            "id": [
+              5,
+              5
+            ],
+            "name": "Line5",
+            "owner_segment_ids": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "points": [
+              [
+                -0.004,
+                -0.031,
+                0.0
+              ],
+              [
+                -0.004,
+                0.023,
+                0.0
+              ]
+            ]
+          },
+          "forward_handedness": -1,
+          "mass": {
+            "area": 0.002280196035766647,
+            "com": [
+              0.0082760995477737,
+              -0.0024999999999999996,
+              -0.008756456708240542
+            ],
+            "mass": 7.026171969753567e-06,
+            "volume": 7.026171969753567e-06
+          },
+          "parents": [
+            "RevolveSketch",
+            "Front Plane"
+          ],
+          "reverse": false
+        },
+        "reopened": {
+          "angle_radians": 1.9722220547535925,
+          "api_mode": 0,
+          "axis": {
+            "id": [
+              5,
+              5
+            ],
+            "name": "Line5",
+            "owner_segment_ids": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "points": [
+              [
+                -0.004,
+                -0.031,
+                0.0
+              ],
+              [
+                -0.004,
+                0.023,
+                0.0
+              ]
+            ]
+          },
+          "forward_handedness": -1,
+          "mass": {
+            "area": 0.003181833127346918,
+            "com": [
+              0.0035092458646750063,
+              -0.0025,
+              -0.01134523292985816
+            ],
+            "mass": 1.118249905045287e-05,
+            "volume": 1.118249905045287e-05
+          },
+          "parents": [
+            "RevolveSketch",
+            "Front Plane"
+          ],
+          "reverse": false
+        }
+      }
+    },
+    "RevolvePartialReverse": {
+      "actual_projection": {
+        "axis_constraints": 0,
+        "axis_selection_path": [
+          [
+            "sketch",
+            "sldprt:sketch:26"
+          ],
+          [
+            "sketch_entity",
+            "sldprt:sketch:26:line:1"
+          ]
+        ],
+        "constraints": 4,
+        "construction_entities": 1,
+        "dimension_id": 27,
+        "driver_name": "D1",
+        "effective_axis": [
+          -0.0,
+          -1.0,
+          -0.0
+        ],
+        "entities": 5,
+        "native_axis_array_index": 5,
+        "native_axis_creation_id": 5,
+        "native_axis_permanent_mark": 1,
+        "native_solver_status_not_measured": true,
+        "radians": 1.9722220547535925,
+        "raw_axis_end_m": [
+          -0.004,
+          0.023,
+          0.0
+        ],
+        "raw_axis_start_m": [
+          -0.004,
+          -0.031,
+          0.0
+        ],
+        "retired_lines": 1,
+        "retired_points": 4,
+        "reverse": true
+      },
+      "angular_display_observation": [
+        {
+          "editable": true,
+          "name": "D1@OrdinaryBossRevolve@RevolvePartialReverse.Part",
+          "type": 3,
+          "value": 1.9722220547535925
+        }
+      ],
+      "native_in_memory_edit": {
+        "after_radians": 1.239183768915974,
+        "before_radians": 1.9722220547535925,
+        "name": "D1@OrdinaryBossRevolve@RevolvePartialReverse.Part",
+        "passed": true,
+        "setter_status": 0
+      },
+      "native_reopen_sha256": "27c5496ffd5f0ed868fe1d043a2e3e7a63bfe82652f64490ad08122dc8da591c",
+      "native_sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+      "native_states": {
+        "edited": {
+          "angle_radians": 1.239183768915974,
+          "api_mode": 0,
+          "axis": {
+            "id": [
+              5,
+              5
+            ],
+            "name": "Line5",
+            "owner_segment_ids": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "points": [
+              [
+                -0.004,
+                -0.031,
+                0.0
+              ],
+              [
+                -0.004,
+                0.023,
+                0.0
+              ]
+            ]
+          },
+          "forward_handedness": -1,
+          "mass": {
+            "area": 0.002280196035766647,
+            "com": [
+              0.008276099547773698,
+              -0.0024999999999999996,
+              0.00875645670824054
+            ],
+            "mass": 7.026171969753568e-06,
+            "volume": 7.026171969753568e-06
+          },
+          "parents": [
+            "RevolveSketch",
+            "Front Plane"
+          ],
+          "reverse": true
+        },
+        "reopened": {
+          "angle_radians": 1.9722220547535925,
+          "api_mode": 0,
+          "axis": {
+            "id": [
+              5,
+              5
+            ],
+            "name": "Line5",
+            "owner_segment_ids": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "points": [
+              [
+                -0.004,
+                -0.031,
+                0.0
+              ],
+              [
+                -0.004,
+                0.023,
+                0.0
+              ]
+            ]
+          },
+          "forward_handedness": -1,
+          "mass": {
+            "area": 0.003181833127346918,
+            "com": [
+              0.0035092458646750076,
+              -0.0025000000000000005,
+              0.01134523292985816
+            ],
+            "mass": 1.1182499050452868e-05,
+            "volume": 1.1182499050452868e-05
+          },
+          "parents": [
+            "RevolveSketch",
+            "Front Plane"
+          ],
+          "reverse": true
+        }
+      }
+    }
+  },
+  "delivery_pr": 121,
+  "generation_rules_or_defaults_added": false,
+  "heldout_inputs_read": 0,
+  "native_owner_facts_sha256": "2bed57ab933393746c749d033f23c8e6de42c46ca3a83bf7f469044c2afce972",
+  "native_processes_started": 0,
+  "owner": "configuration_header",
+  "private_source_lock_sha256": "ece8557f66ac26e74d08085761d6afe474c9b12620a6c5b2703f2050ff2642d9",
+  "process_proof_sha256": "ed16a35d590ad0748ca0bd76a97d80c96e9e3aa691997e7f7cdb3eae8be283e4",
+  "prototype_sha256": "df17bc4525281a95a0e750632be0545dfbff17a50b0bbfd2146d345cae3c031a",
+  "public_registration_changed": false,
+  "remaining": [
+    "full public timeline and neutral document integration",
+    "configuration and expression variants",
+    "other support planes and selected-axis ownership families",
+    "two-sided symmetric thin cut and assembly modes",
+    "original prewriter heldout qualification",
+    "actual native sketch solver status observation"
+  ],
+  "schema": "kit.sw2026.ordinary-revolve-semantic-ownership.v1",
+  "sdk_source_manifest_sha256": "20c018a8fbc033a1fb10a0343cefb5654289aeb01780cde63e37a1c9503a70f8",
+  "source_lock_record": "re/solidworks/v2026/heldout/OrdinaryRevolveSourceLock.json",
+  "source_lock_sha256": "bf4a857b222a9ea61d5d74007fbde4090d95d1563aa8025de3b01454e1839b2f",
+  "status": "private_reader_boundary_proved_on_three_disclosed_sources_only",
+  "task_id": "B04-SW2026-REVOLVE-SEMANTIC-OWNERSHIP"
+}
