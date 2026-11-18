@@ -168,9 +168,11 @@ its three shared reference-chain classes. That subtree decodes fully in both
 disclosed original source drawings. The root map reads the ordinary edge
 reference through its shared base, sketch-entity and end-face surface
 identities, line style and line-font configuration. Both reads also decode
-the drawing user model environment and its embedded splitter. The
-bill-of-materials manager is the next unsupported owner in both files.
-Complete original Definition reads remain open.
+the drawing user model environment, its embedded splitter and the
+bill-of-materials manager. The complete Definition streams round-trip
+byte for byte through the raw typed research path. Both original
+drawings still trigger the strict UI state guard with a present
+PW material owner.
 [Drawing component profile](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksComponentProfileArchive.md)
 [Drawing reference chains](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingReferenceChains.md)
 [Drawing edge references](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingEdgeReferences.md)
@@ -180,6 +182,8 @@ Complete original Definition reads remain open.
 [Drawing line fonts](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingLineFonts.md)
 [Drawing user environment](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingUserEnvironments.md)
 [Drawing splitter bodies](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingSplitterBodies.md)
+[Drawing BOM managers](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingBomManagers.md)
+[Complete raw drawing Definition checks](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingRawGrammarChecks.md)
 
 ## Feature history
 

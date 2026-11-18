@@ -318,6 +318,12 @@ retain 13 differing drawing feature names and a linked child with a distinct
 notes folder class and feature row count. These two pairs do not pass
 source-semantic acceptance.
 
+The [raw Definition grammar proof](records/DrawingRawGrammarBoundary2026.md)
+reads and writes every byte of the two original Definition streams through the
+typed graph. Both maps and object identities survive. Strict UI state rejects
+both files because they carry a PW material owner. Other stream parity and
+complete drawing admission remain open.
+
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
 passed both native save modes under the original and Kit containers.
 The paired controls retain the same seven streams and compressed bytes.
