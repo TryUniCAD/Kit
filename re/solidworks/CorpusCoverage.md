@@ -534,6 +534,12 @@ normal SDK source and saved-file audits pass. Four controls bracket the runs.
 Both candidates come from the frozen neutral-only internal writer. These
 SOLIDWORKS cases add zero FCStd corpus conversions.
 
+The [public perpendicular registry evaluation](measurements/2026/SdkPerpendicularRegistryHeldout01.json)
+runs those two source pairs against normal registry output. Both pass 484 checks
+in total, twelve paired native comparisons and six strict SDK readbacks.
+The qualified public writer covers this perpendicular profile.
+The FCStd qualification counts stay at 0/165 parts and 0/5 assemblies.
+
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
 identities with successful Document.xml discovery. The inventory includes 56

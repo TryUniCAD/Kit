@@ -22,7 +22,7 @@ from interchange.document.Validation.DocumentAssemblyValidate import GetAssembly
 from interchange.document.Validation.DocumentFeatureValidate import GetFeatureErrs
 from interchange.document.Validation.DocumentReferenceValidate import GetRefErrors
 from interchange.serialization.Deserialize import FromData
-from MakeAssemblyBoundaryCase import make_case
+from MakeAssemblyBoundaryCase import make_case, make_perpendicular_case
 
 
 def require(value, message):
@@ -52,7 +52,12 @@ def reader_info():
 
 def run(mode, count, output, incoming):
     output.mkdir(parents=True, exist_ok=False)
-    document = make_case(count) if incoming is None else FromData(incoming["document"])
+    if incoming is not None:
+        document = FromData(incoming["document"])
+    elif mode.startswith("perpendicular"):
+        document = make_perpendicular_case(invalid=mode == "perpendicular-invalid")
+    else:
+        document = make_case(count)
     document.assert_valid()
     epoch = 1794001000 if incoming is None else incoming["saved_at"]
     module = import_module("convert.adapters.solidworks.Core.AssemblyWriting.EmitAsmMut")
@@ -62,7 +67,7 @@ def run(mode, count, output, incoming):
     native = ("C:\\KitPublicRegistryProof\\" + target.name) if incoming is None else incoming["native_parent"]
     options = {"native_destination": native, "require_native_transfers": True}
     format_id, overwrite, stream = None, False, None
-    if mode == "explicit":
+    if mode in ("explicit", "perpendicular-explicit"):
         format_id = "solidworks.sldasm"
     elif mode == "child-collision":
         child.write_bytes(b"preexisting owned test data")
@@ -107,7 +112,7 @@ def run(mode, count, output, incoming):
         actual = graph.documents[0]
         extra = replace(actual.document, metadata={**actual.document.metadata, "unprojected": "text"})
         document = replace(document, assembly=replace(graph, documents=(replace(actual, document=extra),)))
-    elif mode not in ("fresh", "commit-failure", "race-protection", "direct"):
+    elif mode not in ("fresh", "commit-failure", "race-protection", "direct", "perpendicular", "perpendicular-invalid"):
         raise ValueError("unknown public assembly process scenario")
     if mode == "direct":
         require(os.name == "nt", "direct Windows native-path qualification needs a genuine Windows filesystem process")
@@ -150,10 +155,14 @@ def run(mode, count, output, incoming):
     after = state(output)
     require(not audit["runtime_input_reads"], "the SDK writer opened a runtime input file: " + repr(audit["runtime_input_reads"]) + "; " + repr(error))
     require(not any(name.startswith(".") for name in after), "the public transaction leaked staging output")
-    if mode in ("fresh", "explicit", "direct") or mode == "missing-mapping" and os.name == "nt":
+    if mode in ("fresh", "explicit", "direct", "perpendicular", "perpendicular-explicit") or mode == "missing-mapping" and os.name == "nt":
         require(error is None and result is not None and set(after) == {target.name, child.name}, "the normal public SDK bundle was not produced")
         require(result.application_usable and result.vendor_loadable and len(result.transferred_capabilities) == 9
+                and not result.dropped and not result.carrier_capabilities
                 and result.metadata["component_file_count"] == 1 and result.path == target.resolve(), "normal result metadata or native transfer scope differs")
+        expected_profile = ("2026_ordinary_owned_perpendicular_assembly" if any(mate.kind == "perpendicular" for mate in document.assembly.mates)
+                            else "2026_ordinary_owned_planar_assembly")
+        require(result.metadata["native_qualification"] == expected_profile, "the native result attests a different mate profile")
         if incoming is not None:
             require({name: row["sha256"] for name, row in after.items()} == incoming["expected_sha256"], "normal output differs from the measured native input")
     elif mode == "race-protection":

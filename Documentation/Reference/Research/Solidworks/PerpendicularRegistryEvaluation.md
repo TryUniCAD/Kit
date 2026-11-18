@@ -11,6 +11,6 @@ Use the active private `PublicPerpendicularEvaluationMethod03` packet. The compl
 
 The primary API call is ordinary `convert.write_document` with extension-based registry selection. Explicit native mapping is retained for the separate reproduction directory and existing cross-host publication contract. Both emitted artifacts are native. The research unqualified permission does not add carrier data or change the SDK default recipe. Unsupported input must reject before publication.
 
-The original pre-writer-locked cases have already qualified the internal constructor, so this procedure adds route evidence without claiming two new unseen designs. Actual guest results remain pending until root executes them. Host replay, complete decoding or progress messages do not substitute for that evidence.
+Root ran both original pre-writer-locked cases in the verified guest, and both passed all paired native comparisons and saved-file readbacks. The cases also qualified the earlier internal constructor. This run adds normal route evidence for the same two designs. [Native results and public registration](../../../../re/solidworks/records/PerpendicularRegistryAccepted2026.md)
 
 [Preparation and scope](PerpendicularRegistryPromotion.md) · [Change entry](../../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryEvaluation.md)

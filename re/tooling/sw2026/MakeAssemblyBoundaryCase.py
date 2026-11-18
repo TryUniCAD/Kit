@@ -96,3 +96,15 @@ def make_case(count):
                             tuple(parameters), principal('root'), (), (), (), (), assembly=graph, metadata={'name': name})
     document.assert_valid()
     return document
+
+
+def make_perpendicular_case(invalid=False):
+    document = make_case(2)
+    graph = document.assembly
+    first, second = graph.mate_entities[:2]
+    second = replace(second, source_entity_id=first.source_entity_id if invalid else 'child/plane/x')
+    mate = replace(graph.mates[0], name='Perpendicular1', kind=MateKind.PERPENDICULAR,
+                   alignment=MateAlignment.UNKNOWN)
+    group = replace(graph.mate_groups[0], mate_ids=(mate.id,))
+    return replace(document, parameters=(), assembly=replace(
+        graph, mate_entities=(first, second), mates=(mate,), mate_groups=(group,)))

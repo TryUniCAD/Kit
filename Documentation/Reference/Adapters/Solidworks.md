@@ -70,7 +70,7 @@ For an ordinary aligned coincident, parallel or positive-distance mate between t
 
 The ordinary mate reader also resolves one solved perpendicular mate between two direct occurrences of the same part. It retains the observed endpoint order, actual principal planes, one fixed occurrence and the accepted child configuration. Neutral alignment is `unknown` for the measured archive mode. [Perpendicular reader](../../Changes/Solidworks/Archive/Assembly/SolidworksPerpendicularReaderOwnership.md)
 
-The internal principal-plane perpendicular writer passes two pre-writer locked assembly and child pairs through native edits, synchronized save and fresh reopen. Both pairs retain the ordered mate references, geometry and three driver values. A separate disclosed pair generated through the registry with its standard recipe passed 190 native checks and strict SDK readback. That registry profile remains gated pending held-out qualification. [Perpendicular held-out proof](../../Changes/Solidworks/Archive/Assembly/SolidworksPerpendicularHeldoutProof.md) [Registry native verification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryNative.md)
+The public writer accepts one initially satisfied principal-plane perpendicular between two direct occurrences of one owned dimensioned rectangular part. Both pre-writer locked assembly and child pairs pass the standard registry recipe, a live child depth edit, valid reorientation, synchronized save and fresh reopen. Both retain the ordered mate references, geometry and three driver values. [Perpendicular writer qualification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
 
 The SDK construction layer builds complete aligned coincident and parallel plane-mate graphs from the actual registered assembly and child datum owners. Six independently generated parent and child pairs match the research composer byte for byte across all three principal axes. The SDK also constructs the complete positive driving distance graph with its dimension allocated before the mate, two actual reference pairs and its live length parameter. Six independent parent and child bundles match the reference composer across all principal axes. [Driving distance construction](../../Changes/Solidworks/Archive/SolidworksDrivingDistanceConstruction.md) [Fresh planar mate construction](../../Changes/Solidworks/Archive/SolidworksFreshPlanarMateConstruction.md)
 
@@ -102,8 +102,9 @@ child-first save, and fresh reopen. Kit preserves all six mate endpoints and
 
 The normal writer accepts this bounded assembly profile through an
 `.SLDASM` filesystem destination and generates its shared child beside it.
-The initial group uses two or three direct occurrences and aligned
-coincident, parallel and positive driving distance mates on principal
+It supports aligned coincident, parallel and positive driving distance groups
+with two or three direct occurrences. It also supports one initially satisfied
+perpendicular with two direct occurrences. All mate endpoints are principal
 planes. [Assembly writing profile](SolidworksAssemblyWriting.md)
 
 The internal recursive composer attaches actual generated part and subassembly targets to fully resolved rigid occurrences. It derives expanded activity and world bounds from the dependency graph. A three-definition hierarchy and four-definition repeated hierarchy pass 156 typed stream comparisons. Thirty earlier single- and ordered-mate bundles retain exact bytes. [Generated assembly targets](../../Changes/Solidworks/Archive/Assembly/SolidworksGeneratedAssemblyTargets.md)

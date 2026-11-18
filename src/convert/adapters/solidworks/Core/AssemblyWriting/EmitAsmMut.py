@@ -16,12 +16,11 @@ from convert.adapters.solidworks.Core.AssemblyWriting.CheckFreshAsm import (
     CheckFreshAsm,
 )
 from convert.adapters.solidworks.Core.AssemblyWriting.FinalAsmPath import FinalAsmPath
-from convert.adapters.solidworks.Core.AssemblyWriting.QualifyPerpAsm import (
-    QualifyPerpAsm,
-)
+from convert.adapters.solidworks.Core.AssemblyWriting.QualifyAsm import QualifyAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.WriteAsmBundle import (
     WriteAsmBundle,
 )
+from interchange.assembly.AssemblyEnums import MateKind
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -44,4 +43,7 @@ def EmitAsmMut(
     )
     CheckFreshAsm(FinalPath, ModelValue.ChildValue.name)
     Candidate = PrepareAssembly(DocumentValue, NativePath, int(ReadTime()))
-    return QualifyPerpAsm(DocumentValue, WriteAsmBundle(Candidate, OutputPath))
+    IsPerpendicular = any(
+        Mate.kind == MateKind.KPerpendicular for Mate in ModelValue.GraphValue.mates
+    )
+    return QualifyAsm(WriteAsmBundle(Candidate, OutputPath), IsPerpendicular)
