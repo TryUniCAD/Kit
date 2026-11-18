@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Sketch.RequirePolygon import (
+    RequirePolygon,
+)
 from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph import (
     DimensionGraph,
 )
@@ -84,7 +87,8 @@ def MakeRectDimsMut(
             )
         )
     LogicalValues = tuple(
-        MakeAxisDim(GraphValue.GeometryValue, IndexValue) for IndexValue in range(4)
+        MakeAxisDim(RequirePolygon(GraphValue.GeometryValue), IndexValue)
+        for IndexValue in range(4)
     )
     ResultTuple = tuple(ResultValues)
     PublishRectMut(GraphValue, ResultTuple, LogicalValues, Allocator, AnnotationId)

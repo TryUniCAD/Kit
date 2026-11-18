@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Sketch.RequirePolygon import (
+    RequirePolygon,
+)
 from struct import pack as PackValues
 
 from convert.adapters.solidworks.Archive.Construction.Dimensions.LinearStyle import (
@@ -46,7 +49,9 @@ def MakeRectDisplay(
     FieldsValue.update(MakeDistTail())
     FieldsValue.update(StyleValue.ProjectionValue)
     FieldsValue.update(
-        ReadRectPlace(GraphValue.GeometryValue, IndexValue, LengthValue, TextPoint)
+        ReadRectPlace(
+            RequirePolygon(GraphValue.GeometryValue), IndexValue, LengthValue, TextPoint
+        )
     )
     FieldsValue["owner"] = GraphValue.ProfileValue
     FieldsValue["f58"] = AnnotationId
