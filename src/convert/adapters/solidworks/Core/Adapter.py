@@ -2418,7 +2418,7 @@ def ProfileSketch(
                     ProfileEntities[MarkerOffset] = EntityId
         elif Profile.kind == "circle":
             FirstCoord, SecondCoord, Radius = Profile.coordinates
-            EntityId = ProfileId(Sketch.object_id, ProfileIndex)
+            EntityId = CircleProfileId(Sketch.object_id, Profile, ProfileIndex)
             Entities.append(
                 SketchEntity(
                     id=EntityId,
@@ -2539,7 +2539,9 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
                 )
             )
         elif Profile.kind == "circle":
-            ClosedProfiles.append((ProfileId(Sketch.object_id, ProfileIndex),))
+            ClosedProfiles.append(
+                (CircleProfileId(Sketch.object_id, Profile, ProfileIndex),)
+            )
     return tuple(ClosedProfiles)
 
 
@@ -3900,6 +3902,15 @@ def SelectionId(
 ) -> str:
     Producer = f":{ProducerId}" if ProducerId is not None else ""
     return f"sldprt:selection:{NativeId}:{KindValue}{Producer}:{LocalId}"
+
+
+# typed circles retain the same identity in their outline and dimension references
+def CircleProfileId(
+    NativeId: int, Profile: NativeProfile, ProfileIndex: int
+) -> str:
+    if Profile.EntityMarkerOffset is not None:
+        return MarkerId(NativeId, Profile.EntityMarkerOffset)
+    return ProfileId(NativeId, ProfileIndex)
 
 
 # this definition exists because focused behavior needs one stable owner

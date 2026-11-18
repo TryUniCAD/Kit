@@ -131,10 +131,13 @@ KResolvedVirtuals = MappingProxyType(
         ("moSurfaceBodyFolder_c", 1216): "moConcept_c.SerializeResolvedData",
         ("moDisplayAngularDim_c", 2216): 0,
         ("moDisplayDistanceDim_c", 2216): 0,
+        ("moDisplayRadialDim_c", 2216): 0,
         ("moDisplayAngularDim_c", 2264): 0,
         ("moDisplayDistanceDim_c", 2264): 0,
+        ("moDisplayRadialDim_c", 2264): 1,
         ("moNotesAreaFtrFolder_c", 2624): True,
         ("moDisplayAngularDim_c", 2680): 1,
         ("moDisplayDistanceDim_c", 2680): 1,
+        ("moDisplayRadialDim_c", 2680): 1,
     }
 )

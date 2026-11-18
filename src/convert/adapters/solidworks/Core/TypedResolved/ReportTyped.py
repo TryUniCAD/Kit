@@ -13,6 +13,7 @@ def ReportTyped(
     LinkValue: NativeLink,
     Features: Mapping[int, ArchiveNode],
     OwnersValue: Mapping[int, ExtrudeOwner],
+    CircleIds: tuple[int, ...],
 ) -> Mapping[str, object]:
     LegacyIds = {Feature.object_id for Feature in Model.features}
     return {
@@ -39,10 +40,16 @@ def ReportTyped(
             for NativeId, OwnerValue in OwnersValue.items()
         ),
         "semantic_fields": ("feature_id", "feature_name", "feature_class")
-        + (("blind_profile", "blind_depth") if OwnersValue else ()),
+        + (("blind_profile", "blind_depth") if OwnersValue else ())
+        + (
+            ("closed_circle", "radial_dimension", "fixed_circle_center")
+            if CircleIds
+            else ()
+        ),
+        **({"circle_profiles": CircleIds} if CircleIds else {}),
         "usage": LinkValue.ResolvedValue.ReportValue,
         "full_linked_graph": False,
-        "typed_geometry_projection": False,
+        "typed_geometry_projection": bool(CircleIds),
         "typed_assembly_mates": False,
         "public_writer_qualified": False,
     }

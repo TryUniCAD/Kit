@@ -24,7 +24,11 @@ def CheckPacked(
         or WidthValue != 8
         or RuleValue.TypeValue != "f64"
         or NodeValue.ClassValue.NameValue
-        not in ("moDisplayDistanceDim_c", "moDisplayAngularDim_c")
+        not in (
+            "moDisplayAngularDim_c",
+            "moDisplayDistanceDim_c",
+            "moDisplayRadialDim_c",
+        )
     ):
         raise BodyUnsupported(
             "packed native values require the proven ordinary display binary64 owner"

@@ -1,0 +1,259 @@
+{
+  "schema": "kit.sw2026.sdk-saved-radial.v1",
+  "archive_version": 19000,
+  "source_closure": {
+    "base": "3aa8ad299",
+    "files": 4481,
+    "sha256": "ad2b96db5e2a3a60ac1199c66c2917281f6f53ffcd2db7443d2ce5dbb4599a24"
+  },
+  "files": [
+    {
+      "file": "CircleDiameterBoss-edited-fresh-reopen.SLDPRT",
+      "source_sha256": "d4375a1e2ee594077e3450f0d436cf056f87a4a352fcd5b0e98e93eb0a16d49c",
+      "resolved_sha256": "5f204c834280f91e10a7593e75b11a3c9fdbe7e375428cd5c821e9b94ea90bd9",
+      "resolved_bytes": 17220,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 279,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "supplemented",
+        "typed_circle": true,
+        "dimension_kind": "diameter",
+        "value_mm": 17.61226,
+        "entity_id": "sldprt:sketch:18:native:6443",
+        "shape_radius_mm": 8.80613,
+        "center_entity": "sldprt:sketch:18:native:6118",
+        "centres_linked": true
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "CircleDiameterBoss-fresh-reopen.SLDPRT",
+      "source_sha256": "0e71a264d4182386dae17f494d78db397c84622675bcf35a629f59ac512de7a8",
+      "resolved_sha256": "a783525153a1538a46a725882570660855b70d427b278753f75987ba24669b76",
+      "resolved_bytes": 17214,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 279,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "supplemented",
+        "typed_circle": true,
+        "dimension_kind": "diameter",
+        "value_mm": 17.61226,
+        "entity_id": "sldprt:sketch:18:native:6443",
+        "shape_radius_mm": 8.80613,
+        "center_entity": "sldprt:sketch:18:native:6118",
+        "centres_linked": true
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "CircleDiameterBoss-open-save.SLDPRT",
+      "source_sha256": "553dc621b49512d22b2aab565bbdb0c0247a2be6f8c02bc32ebcf4a41db2fb55",
+      "resolved_sha256": "89e78e8e989a1b1bee685953c9680ce5fc4248d7bd338cf3b9a78deb9e737feb",
+      "resolved_bytes": 17126,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 279,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "supplemented",
+        "typed_circle": true,
+        "dimension_kind": "diameter",
+        "value_mm": 22.293999999999997,
+        "entity_id": "sldprt:sketch:18:profile:0",
+        "shape_radius_mm": 11.146999999999998,
+        "center_entity": "sldprt:sketch:18:native:6104",
+        "centres_linked": true
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "CircleRadiusBoss-edited-fresh-reopen.SLDPRT",
+      "source_sha256": "ec3fb50e8e68ee40df50128e425f3f73df8b532379bc51917eb918b023c63172",
+      "resolved_sha256": "3d78304104ce2de483c69fe1bd70359e9ddcd68edebccb850cd834b41c91c2ee",
+      "resolved_bytes": 17190,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 279,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "supplemented",
+        "typed_circle": true,
+        "dimension_kind": "radius",
+        "value_mm": 9.24319,
+        "entity_id": "sldprt:sketch:18:native:6443",
+        "shape_radius_mm": 9.24319,
+        "center_entity": "sldprt:sketch:18:native:6118",
+        "centres_linked": true
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "CircleRadiusBoss-fresh-reopen.SLDPRT",
+      "source_sha256": "8437bd6f8ef0ee25910bcad6cc5fac58d482d2f29f1c796c39966fe2ceb0d95e",
+      "resolved_sha256": "38e44e18248df90c55980b876d727cf39e524695d3ff461d938f81f581dba16b",
+      "resolved_bytes": 17184,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 279,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "supplemented",
+        "typed_circle": true,
+        "dimension_kind": "radius",
+        "value_mm": 9.24319,
+        "entity_id": "sldprt:sketch:18:native:6443",
+        "shape_radius_mm": 9.24319,
+        "center_entity": "sldprt:sketch:18:native:6118",
+        "centres_linked": true
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "CircleRadiusBoss-open-save.SLDPRT",
+      "source_sha256": "2be24e233fb210e575c411ed7665d715036844859a86833bd025317c05edfee0",
+      "resolved_sha256": "bc92d4b684a798e07f6204dd3cb640bc8d00f25ca5f05b57de92f4215459a986",
+      "resolved_bytes": 17100,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 279,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "supplemented",
+        "typed_circle": true,
+        "dimension_kind": "radius",
+        "value_mm": 7.639,
+        "entity_id": "sldprt:sketch:18:profile:0",
+        "shape_radius_mm": 7.639,
+        "center_entity": "sldprt:sketch:18:native:6104",
+        "centres_linked": true
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "P03FrontFolders-edit-save.SLDPRT",
+      "source_sha256": "c8de640769ce42e54eaba4d26f01ff7c994f00f3682799559139c4378a768c14",
+      "resolved_sha256": "265f95d5bec488ebde0d2a5bd46509b613f57f8edbd467782ef76e1d467df3b5",
+      "resolved_bytes": 16873,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 277,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "supplemented",
+        "typed_circle": true,
+        "dimension_kind": "diameter",
+        "value_mm": 11.113019999999999,
+        "entity_id": "sldprt:sketch:18:native:6104",
+        "shape_radius_mm": 5.556509999999999,
+        "center_entity": "sldprt:sketch:18:native:5779",
+        "centres_linked": true
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "P03FrontFolders-edited-fresh.SLDPRT",
+      "source_sha256": "faf4f9f1de4e6cdb7bd8e458e0def7603cd6c1fe9d0f7195ca3bfea765ad1260",
+      "resolved_sha256": "4c1757b5ea6b01ca4b4f72de171234fc40c18843d95e4c2490638ebb8957ca70",
+      "resolved_bytes": 16873,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 277,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "supplemented",
+        "typed_circle": true,
+        "dimension_kind": "diameter",
+        "value_mm": 11.113019999999999,
+        "entity_id": "sldprt:sketch:18:native:6104",
+        "shape_radius_mm": 5.556509999999999,
+        "center_entity": "sldprt:sketch:18:native:5779",
+        "centres_linked": true
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "P03FrontFolders-open-save.SLDPRT",
+      "source_sha256": "54d5eec9303e2a85b234bc1b41b6518a180a86c5d95d2601c3899b0459048fe5",
+      "resolved_sha256": "5aa4e2b15580dd667d86384c3b6f3191e9a73de3d227c3a44eb46542e7087e62",
+      "resolved_bytes": 16769,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 277,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "supplemented",
+        "typed_circle": true,
+        "dimension_kind": "diameter",
+        "value_mm": 10.386,
+        "entity_id": "sldprt:sketch:18:profile:0",
+        "shape_radius_mm": 5.193,
+        "center_entity": "sldprt:sketch:18:native:5779",
+        "centres_linked": true
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "P04RightFolders-edit-save.SLDPRT",
+      "source_sha256": "63ef29a1c59d8641f78348dc63f916ce9fae84709a141eec910c2baf6c0d3f7f",
+      "resolved_sha256": "cb8622ebf6ba35a89a19ca420f26c447f4a9a34a8cdcc41941c365d8487c04ea",
+      "resolved_bytes": 16999,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 277,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "unsupported",
+        "typed_circle": false,
+        "diagnostic": "reversed extrusion is outside typed forward blind semantics"
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "P04RightFolders-edited-fresh.SLDPRT",
+      "source_sha256": "b108c14b0f478d9fdcb795b838e9b55c37a3fbafe68b68cf2081f5b72d31620d",
+      "resolved_sha256": "244172396ebaf3e57d2fbdd1ec6287a50b52d6537d577af18309a5960da82e0b",
+      "resolved_bytes": 16999,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 277,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "unsupported",
+        "typed_circle": false,
+        "diagnostic": "reversed extrusion is outside typed forward blind semantics"
+      },
+      "source_unchanged": true
+    },
+    {
+      "file": "P04RightFolders-open-save.SLDPRT",
+      "source_sha256": "9de5ac4bd09b5dd57c3898afe2240cfd8433fc9872086872e6ff77e1f3134570",
+      "resolved_sha256": "2a8679cd5331d524046732a53b48f4dd37cf67b9d7fe26cf8d6d5682e086f368",
+      "resolved_bytes": 16895,
+      "resolved_map_base": 121,
+      "resolved_map_terminal": 277,
+      "all_map_slots_preserved": true,
+      "radial_packed_count": 1,
+      "public": {
+        "status": "unsupported",
+        "typed_circle": false,
+        "diagnostic": "reversed extrusion is outside typed forward blind semantics"
+      },
+      "source_unchanged": true
+    }
+  ],
+  "exact_resolved_streams": 12,
+  "public_typed_radial_reads": 9,
+  "targeted_process_integrations": [
+    "TestSavedRadialRead",
+    "TestSavedPartConfig",
+    "TestPublicCombinedMates"
+  ],
+  "native_launches": 0,
+  "heldout_inputs_read": 0,
+  "public_writer_enabled": false,
+  "passed": true
+}

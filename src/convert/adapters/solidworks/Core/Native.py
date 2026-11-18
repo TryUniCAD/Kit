@@ -1063,6 +1063,7 @@ class NativeProfile:
     parameter_name: str | None = None
     dimension_kind: str | None = None
     start_angle_degrees: float | None = None
+    EntityMarkerOffset: int | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
