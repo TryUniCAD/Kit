@@ -1,0 +1,97 @@
+{
+  "delta_from_first_classification": "clarifies proven cold constructor seed versus unqualified optional runtime help branches; no source field values become emitted constants",
+  "fields": [
+    {
+      "confidence": "confirmed",
+      "evidence": "PerpendicularMateNativeSource2026.json; PerpendicularMateReadBindings2026.json",
+      "kind": "constant",
+      "owner": "moMatePerpendicular runtime class and shared base",
+      "rule": "schema one moMate2Geoms_c serialization and bound inherited virtuals"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "derived",
+      "owner": "mate f08, wrapper f74/f78/f7c, map counters, lengths",
+      "rule": "actual persistent allocator, shared assembly wrapper counter and object map; never use observed native ids or map168"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "constant",
+      "native_edge": "sldasmu 0x3f989b90 to0x3f989b99; model constructor0x4bc2db40",
+      "owner": "mate f3b4",
+      "rule": "ordinary perpendicular command passes zero; no explicit alignment setter; other families retain internal one"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "volatile",
+      "native_edge": "0x4bc37875 and0x4bc6b44c",
+      "owner": "mate f3b8",
+      "rule": "cold common constructor zero; observed native solver writes one; do not synthesize source saved solver result"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "derived",
+      "owner": "feature f0c",
+      "rule": "shared fresh node state one; solved saved bit256 is measured lifecycle, not a copied cold default"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "volatile",
+      "owner": "wrapper f50; occurrence f400",
+      "rule": "shared fresh wrapper zero and occurrence solve3; fixed flag authored separately; source rigid2/1 and solve4/3 retained only as observations"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "input",
+      "owner": "occurrence f408",
+      "rule": "one actual explicitly chosen fixed occurrence; source D02 proves it can be second"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "derived",
+      "owner": "resolved datum and child owner",
+      "rule": "actual generated child datum, its header creation log and selected configuration plus actual occurrence chain/backlink"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "derived",
+      "owner": "wrapper f08/f0c",
+      "rule": "resolved from actual generated child header/config; detached from actual generated parent header/config"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "derived",
+      "owner": "wrapper point normal f10 f18 f100 and borders",
+      "rule": "reuse actual datum frame/child borders and assigned rigid transform through MakeEndpoint/MakeResolved/MakeDetached; no saved matrix words"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "derived",
+      "owner": "detached plane ff0 and f9c",
+      "rule": "unallocated id minus1 and independently mapped unset creation epoch2592000; retain actual generated datum id at f9c"
+    },
+    {
+      "confidence": "confirmed",
+      "kind": "constant",
+      "owner": "mate auxiliaries and help owners",
+      "rule": "cold common constructor explicitly clears these owners at0x4bc2dca9 through0x4bc2dd10; canonical principal-only inputs have no supplied help; all six disclosed native saves retain empty help; optional post-construction branches remain unqualified"
+    },
+    {
+      "confidence": "not found",
+      "kind": "derived",
+      "owner": "native endpoint ordering from UI selections",
+      "rule": "D02 native order differs from selection call order; preserve explicit semantic endpoint order; do not invent a sort from ids"
+    },
+    {
+      "confidence": "not found",
+      "kind": "derived",
+      "owner": "perpendicular exact native cold load and persistence",
+      "rule": "requires generated native trial; source codec roundtrip does not qualify a generator"
+    }
+  ],
+  "heldout_contents_read": false,
+  "prewriter_lock_sha256": "614c05ee076b728018e2371fa0d992ab59e379afc625eec22aa699dd16729aee",
+  "schema": "kit.sw2026.perpendicular-generation-classification.v1",
+  "scope": "one satisfied perpendicular between two repeated ordinary part occurrences; actual canonical principal datums and proper rigid transforms; no scalar distance or explicit alignment; no mixed group",
+  "writer_code_started": true
+}

@@ -512,6 +512,11 @@ principal-plane mates. Its process checks cover preserved part output,
 native Windows path selection, controlled publication failure and a
 concurrently created companion. Original FCStd qualification remains open.
 
+The [generated perpendicular mate trial](records/SdkPerpendicularMateNative2026.md)
+passes native open, rebuild, pose and child depth edits, synchronized save
+and fresh reopen with healthy controls. Its saved links and drivers pass
+the normal SDK reader. This is a disclosed SOLIDWORKS self-lifecycle.
+
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
 identities with successful Document.xml discovery. The inventory includes 56

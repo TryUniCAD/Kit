@@ -28,6 +28,9 @@ from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.GroupMateIn
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
+from convert.adapters.solidworks.Archive.Construction.Perpendicular.CheckPerpGroup import (
+    CheckPerpGroup,
+)
 
 
 # complete group admission must validate every actual component endpoint and relationship before allocating any model object or emitting partial output
@@ -58,6 +61,7 @@ def CheckGroupIn(
         )
     if type(FixedIndex) is not int or not 0 <= FixedIndex < len(Occurrences):
         raise ValueError("planar groups require one actual fixed occurrence index")
+    CheckPerpGroup(Occurrences, MateValues)
     CheckGroupNames(InputValue, Occurrences, MateValues)
     for Value in Occurrences:
         _ = MakePlacement(Value.FrameValue)

@@ -19,12 +19,13 @@ class GroupMateIn:
     EndValues: tuple[PlaneEndIn, PlaneEndIn]
     DistanceValue: DistanceInput | None
 
-    # the current group profile remains aligned and keeps cross datum and unmeasured dimension variants outside its construction admission
+    # aligned kinds retain their shared datum guard while perpendicular preserves both actual principal selections without a scalar dimension
     def __post_init__(self) -> None:
         if self.KindValue not in (
             "coincident",
             "parallel",
             "distance",
+            "perpendicular",
         ) or not ReadStyleText(self.NameValue, "planar group mate name"):
             raise ValueError(
                 "planar groups require named qualified ordinary mate kinds"
@@ -38,9 +39,8 @@ class GroupMateIn:
                 "a planar mate requires two explicitly owned principal endpoints"
             )
         First, Second = self.EndValues
-        if (
-            First.OccurrenceIndex == Second.OccurrenceIndex
-            or First.AxisValue != Second.AxisValue
+        if First.OccurrenceIndex == Second.OccurrenceIndex or (
+            self.KindValue != "perpendicular" and First.AxisValue != Second.AxisValue
         ):
             raise ValueError(
                 "the measured group profile requires distinct occurrences and the same principal datum axis"

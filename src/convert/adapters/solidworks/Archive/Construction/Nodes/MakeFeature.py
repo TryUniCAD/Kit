@@ -19,7 +19,12 @@ def MakeFeature(
     TargetValue: FeatureTarget,
     Allocator: PersistentIds | None = None,
 ) -> ArchiveNode:
-    if ClassName not in ("moMateCoincident", "moMateParallel", "moRefPlane_c"):
+    if ClassName not in (
+        "moMateCoincident",
+        "moMateParallel",
+        "moMatePerpendicular",
+        "moRefPlane_c",
+    ):
         raise ValueError(
             "fresh feature requires a qualified concrete class owner and release target"
         )

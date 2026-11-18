@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.OccurrenceIn impo
 from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.GroupMateIn import (
     GroupMateIn,
 )
+from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.CheckGroupAxes import (
+    CheckGroupAxes,
+)
 
 
 # the first complete multi component group admits already satisfied aligned planes while preserving the signed positive no flip distance branch
@@ -14,20 +17,9 @@ def CheckGroupGeom(
     First, Second = (
         Occurrences[Value.OccurrenceIndex].FrameValue for Value in MateValue.EndValues
     )
-    AxisIndex = "xyz".index(MateValue.EndValues[0].AxisValue)
-    NormalValue = (First.AxisU, First.AxisV, First.NormalValue)[AxisIndex]
-    OtherNormal = (Second.AxisU, Second.AxisV, Second.NormalValue)[AxisIndex]
-    if not IsClose(
-        SumValues(
-            Value * Other for Value, Other in zip(NormalValue, OtherNormal, strict=True)
-        ),
-        1.0,
-        rel_tol=0.0,
-        abs_tol=1e-10,
-    ):
-        raise ValueError(
-            "planar group endpoint normals must have the same measured orientation"
-        )
+    NormalValue = CheckGroupAxes(First, Second, MateValue)
+    if MateValue.KindValue == "perpendicular":
+        return
     Separation = SumValues(
         (Other - Value) * Normal
         for Value, Other, Normal in zip(

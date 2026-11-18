@@ -16,6 +16,9 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.PlanarMateIn i
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.ReadMateOccs import (
     ReadMateOccs,
 )
+from convert.adapters.solidworks.Archive.Construction.Perpendicular.CheckPerpScope import (
+    CheckPerpScope,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
@@ -50,13 +53,14 @@ def CheckMateCtx(
             "mate group wire children must stay separate from the mate stream"
         )
     if (
-        InputValue.KindValue not in ("coincident", "parallel")
+        InputValue.KindValue not in ("coincident", "parallel", "perpendicular")
         or len(InputValue.Selections) != 2
     ):
         raise ValueError(
-            "mate factory admits coincident or parallel with two selected principal planes"
+            "mate factory admits ordinary nondimensional planar kinds with two selected principal planes"
         )
     Occurrences = ReadMateOccs(Assembly)
+    CheckPerpScope(Context, InputValue, Occurrences)
     CheckMateIds(Context, Occurrences)
     if not any(InputValue.FixedValue is Value for Value in Occurrences):
         raise ValueError("mate fixed input or occurrence identities are ambiguous")

@@ -22,6 +22,12 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.MateContext im
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.PlanarMateIn import (
     PlanarMateIn,
 )
+from convert.adapters.solidworks.Archive.Construction.PlanarMates.ReadMateClass import (
+    ReadMateClass,
+)
+from convert.adapters.solidworks.Archive.Construction.Perpendicular.CheckPerpEnds import (
+    CheckPerpEnds,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 
@@ -32,14 +38,13 @@ def MakeMateMut(Context: MateContext, InputValue: PlanarMateIn) -> ArchiveNode:
     Endpoints = tuple(
         MakeEndpoint(Context.AssemblyValue, Value) for Value in InputValue.Selections
     )
+    CheckPerpEnds(InputValue, Endpoints)
     Resolved = tuple(MakeResolved(Value) for Value in Endpoints)
     Detached = [
         {"k": Index, "o": MakeDetached(Value, Context)}
         for Index, Value in enumerate(Endpoints)
     ]
-    ClassName = (
-        "moMateCoincident" if InputValue.KindValue == "coincident" else "moMateParallel"
-    )
+    ClassName = ReadMateClass(InputValue.KindValue)
     MateValue = MakeModelFeat(
         ClassName, InputValue.NameValue, Context.GroupValue, Context.TargetValue
     )
@@ -52,7 +57,7 @@ def MakeMateMut(Context: MateContext, InputValue: PlanarMateIn) -> ArchiveNode:
     Fields.update(
         {
             "f370": [],
-            "f3b4": 1,
+            "f3b4": 0 if InputValue.KindValue == "perpendicular" else 1,
             "f3c8": Detached,
             "f410": [{"o": Value} for Value in Resolved],
             "f448": [],
