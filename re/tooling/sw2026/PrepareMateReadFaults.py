@@ -36,8 +36,8 @@ def main():
         "DistanceOption": "distance mate mode",
         "ConfigTail": "configuration has",
         "UnassignedMateId": "no assigned persistent identity",
-        "MateIdCollision": "mate persistent identity collides",
-        "DimensionIdCollision": "dimension identity collides",
+        "MateIdCollision": "typed mate or dimension identity collides",
+        "DimensionIdCollision": "typed mate or dimension identity collides",
         "NonlocalDistanceHandle": "expected concrete ParallelPlaneDistanceDim_c",
     }
     if args.wrong_child is not None:

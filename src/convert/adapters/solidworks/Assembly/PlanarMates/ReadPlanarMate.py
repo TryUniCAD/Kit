@@ -14,11 +14,12 @@ from convert.adapters.solidworks.Assembly.PlanarMates.ReadEndpoint import ReadEn
 # the resolved wrapper contract is grounded in the current archive version
 KPlanarVersion = 19000
 
-# only the three proven concrete planar mate classes share this projection
+# concrete ordinary planar descriptors share endpoint ownership while each semantic mode retains its separate guards
 KPlanarKinds = {
     "moMateCoincident": "coincident",
     "moMateParallel": "parallel",
     "moMateDistanceDim_c": "distance",
+    "moMatePerpendicular": "perpendicular",
 }
 
 

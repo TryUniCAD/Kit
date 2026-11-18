@@ -8,7 +8,11 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 # optional mate states must not be silently represented as an ordinary active aligned relationship
 def CheckMateMode(NodeValue: ArchiveNode) -> None:
     Fields = NodeValue.FieldsValue
-    if FieldInt(Fields, "f3b4") != 1 or FieldInt(Fields, "f0c") not in (1, 0x100):
+    ExpectedCode = 0 if NodeValue.ClassValue.NameValue == "moMatePerpendicular" else 1
+    if FieldInt(Fields, "f3b4") != ExpectedCode or FieldInt(Fields, "f0c") not in (
+        1,
+        0x100,
+    ):
         raise ValueError(
             "typed mate alignment or node update word is outside the qualified profile"
         )

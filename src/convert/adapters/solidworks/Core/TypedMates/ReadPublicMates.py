@@ -5,11 +5,13 @@ from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteMatesMu
 from convert.adapters.solidworks.Assembly.PlanarMates.PlanarContext import PlanarContext
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 from convert.adapters.solidworks.Core.TypedMates.CheckMateIds import CheckMateIds
+from convert.adapters.solidworks.Core.TypedMates.CheckPerpEpoch import CheckPerpEpoch
 from convert.adapters.solidworks.Core.TypedMates.CheckMateWrappers import (
     CheckMateWrappers,
 )
 from convert.adapters.solidworks.Core.TypedMates.ReadMateKids import ReadMateKids
 from convert.adapters.solidworks.Core.TypedMates.ReadMateRows import ReadMateRows
+from convert.adapters.solidworks.Core.TypedMates.ReadMateScope import ReadMateScope
 from convert.adapters.solidworks.Core.TypedMates.ReadFixedFlags import ReadFixedFlags
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from interchange import MateConstraint, MateEntity
@@ -43,14 +45,11 @@ def ReadPublicMates(
     )
     CheckMateIds(GraphValue.RootsValue, LinkValue)
     CheckMateWrappers(GraphValue.RootsValue)
+    CheckPerpEpoch(GraphValue.RootsValue, LinkValue.ConfigValue.HeaderValue)
     Entities, Rules = ReadMateRows(
         GraphValue.RootsValue, Context, EnvValue, LegacyRules, LegacyEntities
     )
-    ScopeValue = (
-        "ordinary_aligned_single_mate_two_direct_part_occurrences"
-        if len(Rules) == 1 and len(Items) == 2
-        else "ordinary_aligned_mates_direct_part_occurrences"
-    )
+    ScopeValue = ReadMateScope(GraphValue.RootsValue, len(Items))
     return (
         Entities,
         Rules,

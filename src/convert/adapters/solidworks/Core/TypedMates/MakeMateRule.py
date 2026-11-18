@@ -2,8 +2,9 @@ from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.PlanarMate import PlanarMate
+from convert.adapters.solidworks.Core.TypedMates.ReadMateAlign import ReadMateAlign
+from convert.adapters.solidworks.Core.TypedMates.ReadMateState import ReadMateState
 from interchange import (
-    MateAlignment,
     MateConstraint,
     MateEntity,
     MateKind,
@@ -33,11 +34,12 @@ def MakeMateRule(
             if LengthValue is not None
             else None
         ),
-        alignment=MateAlignment.ALIGNED,
+        alignment=ReadMateAlign(PlanValue),
         provenance=ProvenanceValue,
         attributes=FrozenMapping(
             {
                 **LegacyValue.attributes,
+                **ReadMateState(NodeValue),
                 "native_value_m": LengthValue,
                 "typed_archive_owner": {
                     "stream": "Contents/Config-0-MatesList",

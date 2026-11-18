@@ -48,3 +48,7 @@ The initial packet is `PerpendicularMateSourcePacket01` outside the checkout. So
 ## Verification performed here
 
 The numeric source collector reproduced receipt SHA-256 `732bc0ebe712a0ab43c45aca062f52fa30731ee6e58f06b9f4a990f8f86cf1d2`. All six new Python files parse. A separate Python 3.11 host process verified the immutable tool/spec/control fingerprints without importing COM or the CAD runtime. Independently predicted baseline/edited orthogonality residuals are `[0,0]`, `[0,0]`, and approximately `[5.47e-17,2.08e-17]` for the three disclosed designs. No native launch, source authoring, held-out payload read, generated writer or acceptance claim occurred.
+
+## Completed pre-writer source locks
+
+The [Packet05 source receipt](../measurements/2026/PerpendicularMateSourcePosition05.json) records five fresh native phases for each of D02, D03, H01 and H02, plus its terminal source lock. All before and after controls pass. The earlier successful D01 packet remains in its separate receipt. H01 and H02 are locked before any perpendicular writer output. Their sealed geometry and authored design details remain private during writer derivation.

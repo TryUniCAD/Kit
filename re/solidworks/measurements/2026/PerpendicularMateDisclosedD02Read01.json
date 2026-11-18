@@ -1,0 +1,351 @@
+{
+  "baseline_D01_proof_sha256": "8727d29c62ce4e092a6ba924ef561ef6edae60a584855e48b6d95ce5eb594d63",
+  "cases": [
+    {
+      "byte_identity": true,
+      "case": "Source",
+      "child_sha256": "f75b96f94ead2d64c583a36d71fc92292ddea4532a6243b6fa23a86e04c33525",
+      "codec_negative_count": 14,
+      "inherited_map_aliases": 167,
+      "inherited_objects_unchanged": true,
+      "map_base": 168,
+      "map_terminal": 196,
+      "missing_schemas": [],
+      "native_byte_fields": [],
+      "parent_sha256": "c927beae3b044a44de860d6ac046f8c2347d3485f72e3946fd0c5f4b2b734d6f",
+      "provisional_schemas": [],
+      "public": {
+        "actual_child_drivers_equal": true,
+        "alignment": "unknown",
+        "child_driver_count": 3,
+        "entity_count": 2,
+        "instance_count": 2,
+        "internal_alignment": 0,
+        "kind": "perpendicular",
+        "map_base": 168,
+        "map_terminal": 196,
+        "mate_count": 1,
+        "mate_name": "Perpendicular1",
+        "native_api_alignment_observed": 2,
+        "native_occurrence_poses_equal": true,
+        "ordered_native_endpoints_equal": true,
+        "scope": "ordinary_perpendicular_single_mate_two_direct_part_occurrences",
+        "status": "admitted",
+        "writer_qualified": false
+      },
+      "stream_bytes": 3589,
+      "stream_sha256": "04667bf015365fbc0fa2b4efe583a9242ce7951abeb5def77e4a3d34676f575c",
+      "typed_owners": {
+        "auxiliary_help_count": 0,
+        "internal_alignment": 0,
+        "mate_id": 26,
+        "node_flags": 256,
+        "ordered_owners": [
+          {
+            "actual_model_owner_alias": true,
+            "actual_occurrence_backlink_alias": true,
+            "detached_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "detached_inline_plane_id": -1,
+            "occurrence_fixed_word": 0,
+            "occurrence_id": 24,
+            "occurrence_solve_word": 3,
+            "order": 0,
+            "principal_kind": 2,
+            "resolved_datum": {
+              "f00": 3,
+              "f08": 1794529625
+            },
+            "resolved_wrapper": {
+              "f08": 166,
+              "f0c": 0,
+              "f50": 1,
+              "f68": 1,
+              "f70": 19000,
+              "f74": 26,
+              "f78": 0,
+              "f7c": 0
+            },
+            "selected_key": 0,
+            "selected_original_datum_id": 3,
+            "selected_wrapper": {
+              "f08": 105,
+              "f0c": 0,
+              "f50": 0,
+              "f68": 1,
+              "f70": 19000,
+              "f74": -12345,
+              "f78": -12345,
+              "f7c": -12345
+            }
+          },
+          {
+            "actual_model_owner_alias": true,
+            "actual_occurrence_backlink_alias": true,
+            "detached_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "detached_inline_plane_id": -1,
+            "occurrence_fixed_word": 1,
+            "occurrence_id": 25,
+            "occurrence_solve_word": 4,
+            "order": 1,
+            "principal_kind": 1,
+            "resolved_datum": {
+              "f00": 4,
+              "f08": 1794529625
+            },
+            "resolved_wrapper": {
+              "f08": 166,
+              "f0c": 0,
+              "f50": 2,
+              "f68": 1,
+              "f70": 19000,
+              "f74": 26,
+              "f78": 1,
+              "f7c": 1
+            },
+            "selected_key": 1,
+            "selected_original_datum_id": 4,
+            "selected_wrapper": {
+              "f08": 105,
+              "f0c": 0,
+              "f50": 0,
+              "f68": 1,
+              "f70": 19000,
+              "f74": -12345,
+              "f78": -12345,
+              "f7c": -12345
+            }
+          }
+        ],
+        "parent_update_stamp": 105,
+        "solved_state": 1
+      },
+      "typed_readback_identity": true
+    },
+    {
+      "byte_identity": true,
+      "case": "Edited",
+      "child_sha256": "a5601d6727a454132e35e50ba04c4c737b8c99fb294b40d24f0c539decbf71c6",
+      "codec_negative_count": 14,
+      "inherited_map_aliases": 167,
+      "inherited_objects_unchanged": true,
+      "map_base": 168,
+      "map_terminal": 196,
+      "missing_schemas": [],
+      "native_byte_fields": [],
+      "parent_sha256": "73436909259b03251bad3e0a49a95f282aeb8f6e0e5fea8608917d3d71ec116d",
+      "provisional_schemas": [],
+      "public": {
+        "actual_child_drivers_equal": true,
+        "alignment": "unknown",
+        "child_driver_count": 3,
+        "entity_count": 2,
+        "instance_count": 2,
+        "internal_alignment": 0,
+        "kind": "perpendicular",
+        "map_base": 168,
+        "map_terminal": 196,
+        "mate_count": 1,
+        "mate_name": "Perpendicular1",
+        "native_api_alignment_observed": 2,
+        "native_occurrence_poses_equal": true,
+        "ordered_native_endpoints_equal": true,
+        "scope": "ordinary_perpendicular_single_mate_two_direct_part_occurrences",
+        "status": "admitted",
+        "writer_qualified": false
+      },
+      "stream_bytes": 3757,
+      "stream_sha256": "05b51f6f6335dde347b219b31690d9f91fdd405dcb7057d85dd064990cc77191",
+      "typed_owners": {
+        "auxiliary_help_count": 0,
+        "internal_alignment": 0,
+        "mate_id": 26,
+        "node_flags": 256,
+        "ordered_owners": [
+          {
+            "actual_model_owner_alias": true,
+            "actual_occurrence_backlink_alias": true,
+            "detached_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "detached_inline_plane_id": -1,
+            "occurrence_fixed_word": 0,
+            "occurrence_id": 24,
+            "occurrence_solve_word": 3,
+            "order": 0,
+            "principal_kind": 2,
+            "resolved_datum": {
+              "f00": 3,
+              "f08": 1794529625
+            },
+            "resolved_wrapper": {
+              "f08": 194,
+              "f0c": 0,
+              "f50": 1,
+              "f68": 1,
+              "f70": 19000,
+              "f74": 26,
+              "f78": 0,
+              "f7c": 0
+            },
+            "selected_key": 0,
+            "selected_original_datum_id": 3,
+            "selected_wrapper": {
+              "f08": 106,
+              "f0c": 0,
+              "f50": 0,
+              "f68": 1,
+              "f70": 19000,
+              "f74": -12345,
+              "f78": -12345,
+              "f7c": -12345
+            }
+          },
+          {
+            "actual_model_owner_alias": true,
+            "actual_occurrence_backlink_alias": true,
+            "detached_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "detached_inline_plane_id": -1,
+            "occurrence_fixed_word": 1,
+            "occurrence_id": 25,
+            "occurrence_solve_word": 4,
+            "order": 1,
+            "principal_kind": 1,
+            "resolved_datum": {
+              "f00": 4,
+              "f08": 1794529625
+            },
+            "resolved_wrapper": {
+              "f08": 194,
+              "f0c": 0,
+              "f50": 2,
+              "f68": 1,
+              "f70": 19000,
+              "f74": 26,
+              "f78": 1,
+              "f7c": 1
+            },
+            "selected_key": 1,
+            "selected_original_datum_id": 4,
+            "selected_wrapper": {
+              "f08": 106,
+              "f0c": 0,
+              "f50": 0,
+              "f68": 1,
+              "f70": 19000,
+              "f74": -12345,
+              "f78": -12345,
+              "f7c": -12345
+            }
+          }
+        ],
+        "parent_update_stamp": 106,
+        "solved_state": 1
+      },
+      "typed_readback_identity": true
+    }
+  ],
+  "code_freeze_sha256": "47aa5d22d3a158653f8b3e8bff35c28a9e2dcd8b44286713028504e8217bfa1d",
+  "frozen_implementation_unchanged": true,
+  "full_family_coverage": false,
+  "heldout_inputs_read": false,
+  "limitations": [
+    "a second disclosed design with two saved states is additional source reader evidence rather than sealed qualification",
+    "actual native endpoint order is compared independently from authored selection order",
+    "no SDK source or frozen auditor changed for this regression",
+    "no perpendicular generator or native generated acceptance"
+  ],
+  "local_worker_processes": 2,
+  "native_generated_perpendicular_acceptance": false,
+  "native_processes_started": 0,
+  "native_source": {
+    "files": {
+      "edited": {
+        "child": {
+          "bytes": 62255,
+          "sha256": "a5601d6727a454132e35e50ba04c4c737b8c99fb294b40d24f0c539decbf71c6"
+        },
+        "parent": {
+          "bytes": 50402,
+          "sha256": "73436909259b03251bad3e0a49a95f282aeb8f6e0e5fea8608917d3d71ec116d"
+        }
+      },
+      "source": {
+        "child": {
+          "bytes": 60333,
+          "sha256": "f75b96f94ead2d64c583a36d71fc92292ddea4532a6243b6fa23a86e04c33525"
+        },
+        "parent": {
+          "bytes": 49739,
+          "sha256": "c927beae3b044a44de860d6ac046f8c2347d3485f72e3946fd0c5f4b2b734d6f"
+        }
+      }
+    },
+    "lock_sha256": "bf16c18d8224dd2b03ffa9f484d6b7130ef33f3fe12ba21f3f7698f01d08e105",
+    "native_creation_identities": [
+      [
+        5448,
+        134394742663320520
+      ],
+      [
+        4288,
+        134394743461126377
+      ],
+      [
+        3232,
+        134394744436645241
+      ],
+      [
+        7848,
+        134394744860185851
+      ],
+      [
+        6384,
+        134394745905171697
+      ]
+    ],
+    "packet_sha256": "de5f421da1caae884565329c2d99bfbd4d9c262ccdda92b74eea71df05394b3c",
+    "phases": [
+      {
+        "phase": "before",
+        "sha256": "6d0a0a2162cfca34c26f6f75edbb46c364a573b98aadf363addfd79b781b6803"
+      },
+      {
+        "phase": "author",
+        "sha256": "d66fd093818f133698e04ed5c1fe2718eb1a60b26ab951a4c88a7effce134594"
+      },
+      {
+        "phase": "reopen-source",
+        "sha256": "cb82a18c66d03ea85fce9682ff4d66736237fc92a1a5ffdc8f27175cf9d66e10"
+      },
+      {
+        "phase": "reopen-edited",
+        "sha256": "688e36ea77d582cb6738e291bec03d786d7626edf3203d1d214223b1386c7ef6"
+      },
+      {
+        "phase": "after",
+        "sha256": "3ab99d6613592878d21a405a10eb729d6ca2ea009e72fcbea61bdc7f4d27b01a"
+      }
+    ],
+    "saved_native_observation_sha256": "3ac958f4c1f8c1a7062b7e3750f2fea651da46c0762f585f6a4baca418c27d74"
+  },
+  "passed": true,
+  "publisher_sha256": "6d7ca6103b6fcf52438184121562d546aa2267aca97ae80c24d8e9f1be0e6df8",
+  "raw_regression_sha256": "9aade77d515551ccdb2d1d286524895e1d3a2a44e8dec74b3d40eca1814f7d74",
+  "regression_tool_sha256": "64982aca45b22d7f4fdb12125b74e8ffb6b56656a2529885da80eb59b75d1947",
+  "schema": "kit.sw2026.perpendicular-reader-disclosed-D02-regression.v1",
+  "scope": "separate positive disclosed regression after D01 rule freeze",
+  "source_manifest_sha256": "2cc14a36c08b397ceca2e45c529fa11ae513fa69d48d38a6456868d4a06abdda",
+  "source_native_processes": 5,
+  "task_id": "B04-SW2026-MATES-PERPENDICULAR",
+  "writer_output_count": 0
+}

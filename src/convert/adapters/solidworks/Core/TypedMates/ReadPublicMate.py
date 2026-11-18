@@ -8,6 +8,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.ReadPlanarMate import (
 from convert.adapters.solidworks.Core.TypedMates.CheckMateDatum import CheckMateDatum
 from convert.adapters.solidworks.Core.TypedMates.CheckMateMode import CheckMateMode
 from convert.adapters.solidworks.Core.TypedMates.CheckMatePoint import CheckMatePoint
+from convert.adapters.solidworks.Core.TypedMates.CheckPerpMate import CheckPerpMate
 from convert.adapters.solidworks.Core.TypedMates.MakeMateEntity import MakeMateEntity
 from convert.adapters.solidworks.Core.TypedMates.MakeMateRule import MakeMateRule
 from convert.adapters.solidworks.Core.TypedMates.MateProvenance import MateProvenance
@@ -32,6 +33,7 @@ def ReadPublicMate(
     for Endpoint in PlanValue.Endpoints:
         CheckMateDatum(Endpoint, EnvValue)
         CheckMatePoint(Endpoint, Context)
+    CheckPerpMate(PlanValue, NodeValue, Context)
     ProvenanceValue = MateProvenance(NodeValue)
     Entities = tuple(
         MakeMateEntity(Value, LegacyRule, Index, ProvenanceValue, LegacyEntities)

@@ -3,7 +3,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 # ordinary planar roots are the only mate families qualified by this codec
 KPlanarClasses = frozenset(
-    ("moMateCoincident", "moMateParallel", "moMateDistanceDim_c")
+    ("moMateCoincident", "moMateParallel", "moMateDistanceDim_c", "moMatePerpendicular")
 )
 
 
