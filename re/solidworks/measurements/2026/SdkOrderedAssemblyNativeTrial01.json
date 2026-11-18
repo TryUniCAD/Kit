@@ -1,0 +1,88 @@
+{
+  "comparison_boundaries": {
+    "first_ordered_a22_specific_plane_equality_checked": false,
+    "observer_assumption_or_writer_defect": "unresolved",
+    "prior_sdk_single_result_sha256": "ed621974bed1acc4976318e3615fd7410e1d8e4d3e410c482ffdc372261c6301",
+    "prior_sdk_single_specific_plane_equality_checked": false
+  },
+  "controls_healthy": true,
+  "delivery_pr": 121,
+  "distinct_processes": 3,
+  "fixture_sha256": "916924328bef48c5923a83ae34d6af685550a596e4757906129b6119cd7190d2",
+  "frozen_inputs_unchanged": true,
+  "generated": {
+    "actual_equality_code_recorded": false,
+    "edit_attempted": false,
+    "failed_predicate_endpoint_inferred_from_frozen_control_flow": {
+      "datum": "Top Plane",
+      "index": 1,
+      "mate": "CoincidentY",
+      "occurrence": "SdkDatumPlateBeta-2"
+    },
+    "failure": "EvidenceFailure(\"the native mate reference differs from the exact occurrence's specific principal plane\")",
+    "fresh_reopen_attempted": false,
+    "independent_initial_tree_geometry_and_ordered_constraint_prediction_matches": true,
+    "initial_body_count": 2,
+    "initial_child_tree_rows": 25,
+    "initial_parent_tree_rows": 27,
+    "native_save_attempted": false,
+    "opened": true,
+    "rebuild_attempted": false
+  },
+  "heldout_inputs_read": 0,
+  "matched_probe": {
+    "host_verify": {
+      "com_imports": [],
+      "native_processes_started": 0,
+      "passed": true
+    },
+    "host_verify_stdout_sha256": "3967cacd93926b53a59306d36e478927275f94bde34d0569bf237a9965acdc85",
+    "native_results_pending": true,
+    "native_storage_writes": false,
+    "observer_sha256": "f947591fd534f18b5e83854bc61b8ee58f6231db2431e9098b04775daf1e5f06",
+    "packet_sha256": "e05bd22ff715c41c1c6de1e71448cfa368bd2dc84441075657ec9569dc85d9f2"
+  },
+  "native_acceptance": false,
+  "oracle": {
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version": "34.5.2.0604"
+  },
+  "owner": "assembly_occurrence",
+  "packet_sha256": "c2f397de848cc8f1df65dfed15362758570b6b0476895efa3fdeea9be374e525",
+  "passed": false,
+  "phases": [
+    {
+      "numeric_checks": 74,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394452177535028,
+      "record_sha256": "fd8396d24e1df6350bd47e09ab1d97290f406c508ba5f2148381307cd84107a1",
+      "role": "ControlBefore"
+    },
+    {
+      "numeric_checks": 38,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": false,
+      "process_creation_filetime": 134394452677067006,
+      "record_sha256": "50887615bdbb8f4359ced66baf8e90b2288107fe2da05871002b8ebbf398671d",
+      "role": "Generated"
+    },
+    {
+      "numeric_checks": 74,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "process_creation_filetime": 134394453040621291,
+      "record_sha256": "5b91c99df0901171bc18d2be8f2dd12eeba1594a81386c7e814ff06c6acbb033",
+      "role": "ControlAfter"
+    }
+  ],
+  "public_writer_qualified": false,
+  "raw_generated_record_sha256": "50887615bdbb8f4359ced66baf8e90b2288107fe2da05871002b8ebbf398671d",
+  "raw_result_sha256": "8abadd004aa22b987987a55d025a9fd3fe86f48ec26c7436da6b2b43f68760e3",
+  "schema": "kit.sw2026.sdk-ordered-assembly-first-native-trial.v1",
+  "source_bracket_identity": true,
+  "task": "B04-SW2026-MATES"
+}
