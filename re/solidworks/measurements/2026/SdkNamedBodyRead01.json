@@ -1,0 +1,1788 @@
+{
+  "heldout_evaluations": 0,
+  "named_body_writer_qualification": false,
+  "native_processes": 0,
+  "observer_tool_manifest_sha256": "cd66021dcccaf90937d980d9c9e9ac9323dbff62058206a9219d211b0dbb02fb",
+  "paired_mode_comparisons": 55,
+  "passed": true,
+  "process_count": 22,
+  "processes": [
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineCornerBase",
+      "positive_modes": [
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Default",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "7cc8f1a7a358c48c9843ea9691166529956cb8c39fa076faade1bb337e813cae"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "a5baf175e169ebcf7fc292fe23bee83faff03706cc207f2c7644f707930368fc"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Repeat",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "7cc8f1a7a358c48c9843ea9691166529956cb8c39fa076faade1bb337e813cae"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "a5baf175e169ebcf7fc292fe23bee83faff03706cc207f2c7644f707930368fc"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "NoTess",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "7cc8f1a7a358c48c9843ea9691166529956cb8c39fa076faade1bb337e813cae"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "a5baf175e169ebcf7fc292fe23bee83faff03706cc207f2c7644f707930368fc"
+        },
+        {
+          "bindings": [],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": false,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "History",
+          "passed": true,
+          "payloads": [],
+          "unrelated_semantics_sha256": "09ed8d35cc38a8a6a2cb634747ec658ad0051419aeafff9d019e09d299b6f4d1"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Lenient",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "7cc8f1a7a358c48c9843ea9691166529956cb8c39fa076faade1bb337e813cae"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "a5baf175e169ebcf7fc292fe23bee83faff03706cc207f2c7644f707930368fc"
+        }
+      ],
+      "run_result_sha256": "1ba02c4375f5fd7ad2e87a826ed130bf9f88c99daec59e3ddc9cea0be3e927f3",
+      "source_sha256": "a441e79bc94219c4c0bb4390cc6d13643ca8c56cb0ff69abdb1fa694e82d2778"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateCornerBase",
+      "positive_modes": [
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "AnchorBoss"
+          ],
+          "mode": "Default",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "7cc8f1a7a358c48c9843ea9691166529956cb8c39fa076faade1bb337e813cae"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "a5baf175e169ebcf7fc292fe23bee83faff03706cc207f2c7644f707930368fc"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "AnchorBoss"
+          ],
+          "mode": "Repeat",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "7cc8f1a7a358c48c9843ea9691166529956cb8c39fa076faade1bb337e813cae"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "a5baf175e169ebcf7fc292fe23bee83faff03706cc207f2c7644f707930368fc"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "AnchorBoss"
+          ],
+          "mode": "NoTess",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "7cc8f1a7a358c48c9843ea9691166529956cb8c39fa076faade1bb337e813cae"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "a5baf175e169ebcf7fc292fe23bee83faff03706cc207f2c7644f707930368fc"
+        },
+        {
+          "bindings": [],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": false,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "History",
+          "passed": true,
+          "payloads": [],
+          "unrelated_semantics_sha256": "09ed8d35cc38a8a6a2cb634747ec658ad0051419aeafff9d019e09d299b6f4d1"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "AnchorBoss"
+          ],
+          "mode": "Lenient",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "7cc8f1a7a358c48c9843ea9691166529956cb8c39fa076faade1bb337e813cae"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "a5baf175e169ebcf7fc292fe23bee83faff03706cc207f2c7644f707930368fc"
+        }
+      ],
+      "run_result_sha256": "0b6339100e45647388f84734f3aabbd2aceeccdfdaeef90decf523134d8f1312",
+      "source_sha256": "a441e79bc94219c4c0bb4390cc6d13643ca8c56cb0ff69abdb1fa694e82d2778"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineCornerNamed",
+      "positive_modes": [
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Default",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "29d83bcd37fd7223f77d95f9208689738aab12856229f95a4da3407e9e19f8a2"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "ee9d7ec9709e357595be4b3af72f3f8ad874384775d02e2922bd286c7793a872"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Repeat",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "29d83bcd37fd7223f77d95f9208689738aab12856229f95a4da3407e9e19f8a2"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "ee9d7ec9709e357595be4b3af72f3f8ad874384775d02e2922bd286c7793a872"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "NoTess",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "29d83bcd37fd7223f77d95f9208689738aab12856229f95a4da3407e9e19f8a2"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "ee9d7ec9709e357595be4b3af72f3f8ad874384775d02e2922bd286c7793a872"
+        },
+        {
+          "bindings": [],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": false,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "History",
+          "passed": true,
+          "payloads": [],
+          "unrelated_semantics_sha256": "9e3ab302ca22777b71a8213487ad28eeb94ee630f2d4b947c49c3a21b0193205"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Lenient",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "29d83bcd37fd7223f77d95f9208689738aab12856229f95a4da3407e9e19f8a2"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "ee9d7ec9709e357595be4b3af72f3f8ad874384775d02e2922bd286c7793a872"
+        }
+      ],
+      "run_result_sha256": "5f486352f8d994c324091c366a04b9b4da01f3d72ade73e3859f6c92aa637ad9",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateCornerNamed",
+      "positive_modes": [
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Body"
+          ],
+          "mode": "Default",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "29d83bcd37fd7223f77d95f9208689738aab12856229f95a4da3407e9e19f8a2"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "ee9d7ec9709e357595be4b3af72f3f8ad874384775d02e2922bd286c7793a872"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Body"
+          ],
+          "mode": "Repeat",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "29d83bcd37fd7223f77d95f9208689738aab12856229f95a4da3407e9e19f8a2"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "ee9d7ec9709e357595be4b3af72f3f8ad874384775d02e2922bd286c7793a872"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Body"
+          ],
+          "mode": "NoTess",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "29d83bcd37fd7223f77d95f9208689738aab12856229f95a4da3407e9e19f8a2"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "ee9d7ec9709e357595be4b3af72f3f8ad874384775d02e2922bd286c7793a872"
+        },
+        {
+          "bindings": [],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": false,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "History",
+          "passed": true,
+          "payloads": [],
+          "unrelated_semantics_sha256": "9e3ab302ca22777b71a8213487ad28eeb94ee630f2d4b947c49c3a21b0193205"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Body"
+          ],
+          "mode": "Lenient",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "29d83bcd37fd7223f77d95f9208689738aab12856229f95a4da3407e9e19f8a2"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "ee9d7ec9709e357595be4b3af72f3f8ad874384775d02e2922bd286c7793a872"
+        }
+      ],
+      "run_result_sha256": "8d9c1f651b806c6132d135d016b2b873fb2ea35fd8883e82aca77debea555664",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineCenterBase",
+      "positive_modes": [
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Default",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "5137af8d429cf2be5faed39b2581f37e5186ea672556a304c2d4c9ee0c6095fc"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "acfb9677f44d5b9218d595b4e7c9b679a7ed788e52ae4927d53818ff2f88bf96"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Repeat",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "5137af8d429cf2be5faed39b2581f37e5186ea672556a304c2d4c9ee0c6095fc"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "acfb9677f44d5b9218d595b4e7c9b679a7ed788e52ae4927d53818ff2f88bf96"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "NoTess",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "5137af8d429cf2be5faed39b2581f37e5186ea672556a304c2d4c9ee0c6095fc"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "acfb9677f44d5b9218d595b4e7c9b679a7ed788e52ae4927d53818ff2f88bf96"
+        },
+        {
+          "bindings": [],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": false,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "History",
+          "passed": true,
+          "payloads": [],
+          "unrelated_semantics_sha256": "e9ecb211056ee410ff0f77d8b1156da3aefd17bb0c947cdd35463c3de23599ea"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Lenient",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "5137af8d429cf2be5faed39b2581f37e5186ea672556a304c2d4c9ee0c6095fc"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "acfb9677f44d5b9218d595b4e7c9b679a7ed788e52ae4927d53818ff2f88bf96"
+        }
+      ],
+      "run_result_sha256": "92275215cca6690640d7bdb70e3983e6ef40f3202e9856c7bb13a61b6b965a87",
+      "source_sha256": "9a619f233088d4c26d767642b02ec6dfbdfd25baad7686cd2265210da78f0f00"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateCenterBase",
+      "positive_modes": [
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "AnchorBoss"
+          ],
+          "mode": "Default",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "5137af8d429cf2be5faed39b2581f37e5186ea672556a304c2d4c9ee0c6095fc"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "acfb9677f44d5b9218d595b4e7c9b679a7ed788e52ae4927d53818ff2f88bf96"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "AnchorBoss"
+          ],
+          "mode": "Repeat",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "5137af8d429cf2be5faed39b2581f37e5186ea672556a304c2d4c9ee0c6095fc"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "acfb9677f44d5b9218d595b4e7c9b679a7ed788e52ae4927d53818ff2f88bf96"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "AnchorBoss"
+          ],
+          "mode": "NoTess",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "5137af8d429cf2be5faed39b2581f37e5186ea672556a304c2d4c9ee0c6095fc"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "acfb9677f44d5b9218d595b4e7c9b679a7ed788e52ae4927d53818ff2f88bf96"
+        },
+        {
+          "bindings": [],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": false,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "History",
+          "passed": true,
+          "payloads": [],
+          "unrelated_semantics_sha256": "e9ecb211056ee410ff0f77d8b1156da3aefd17bb0c947cdd35463c3de23599ea"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "AnchorBoss"
+          ],
+          "mode": "Lenient",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "5f10b9354a3da3a6cd3cced4e1e835a6509b49bf49c725d9d4074214634143d7"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "5137af8d429cf2be5faed39b2581f37e5186ea672556a304c2d4c9ee0c6095fc"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "834137e83590fefa5955cab73a19b4654b0e7239b26236340e78956113b79f85"
+            ]
+          ],
+          "unrelated_semantics_sha256": "acfb9677f44d5b9218d595b4e7c9b679a7ed788e52ae4927d53818ff2f88bf96"
+        }
+      ],
+      "run_result_sha256": "13bf4967d295727f8c1de42590d9f6eb4ba0cae2d73c37175fece98b0d6b8ec1",
+      "source_sha256": "9a619f233088d4c26d767642b02ec6dfbdfd25baad7686cd2265210da78f0f00"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineCenterNamed",
+      "positive_modes": [
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Default",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "702e75d621c393bbaf1b9e0b506f34f063621f1c68d1b24c88edf560a05219a3"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "09221578a26e96d935430fafbadff63adce33f56e17a27a9ebed1a4ee84b5003"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Repeat",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "702e75d621c393bbaf1b9e0b506f34f063621f1c68d1b24c88edf560a05219a3"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "09221578a26e96d935430fafbadff63adce33f56e17a27a9ebed1a4ee84b5003"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "NoTess",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "702e75d621c393bbaf1b9e0b506f34f063621f1c68d1b24c88edf560a05219a3"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "09221578a26e96d935430fafbadff63adce33f56e17a27a9ebed1a4ee84b5003"
+        },
+        {
+          "bindings": [],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": false,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "History",
+          "passed": true,
+          "payloads": [],
+          "unrelated_semantics_sha256": "9526b2d71be8165386edae8f3c6a5393caf2a477930acabbbe99247aa0d2b25a"
+        },
+        {
+          "bindings": [
+            ""
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "Lenient",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "702e75d621c393bbaf1b9e0b506f34f063621f1c68d1b24c88edf560a05219a3"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "09221578a26e96d935430fafbadff63adce33f56e17a27a9ebed1a4ee84b5003"
+        }
+      ],
+      "run_result_sha256": "df06684294bcaca4012333f25f33ce4dd835c3bc21bdeb15bb101e92eb64baba",
+      "source_sha256": "03f6756e214fd2a96975030143590d8e14643147470df86ee21123c59afd503b"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateCenterNamed",
+      "positive_modes": [
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Centered Solid"
+          ],
+          "mode": "Default",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "702e75d621c393bbaf1b9e0b506f34f063621f1c68d1b24c88edf560a05219a3"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "09221578a26e96d935430fafbadff63adce33f56e17a27a9ebed1a4ee84b5003"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Centered Solid"
+          ],
+          "mode": "Repeat",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "702e75d621c393bbaf1b9e0b506f34f063621f1c68d1b24c88edf560a05219a3"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "09221578a26e96d935430fafbadff63adce33f56e17a27a9ebed1a4ee84b5003"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Centered Solid"
+          ],
+          "mode": "NoTess",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "702e75d621c393bbaf1b9e0b506f34f063621f1c68d1b24c88edf560a05219a3"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "09221578a26e96d935430fafbadff63adce33f56e17a27a9ebed1a4ee84b5003"
+        },
+        {
+          "bindings": [],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": false,
+          "labels": [
+            "Solid Bodies"
+          ],
+          "mode": "History",
+          "passed": true,
+          "payloads": [],
+          "unrelated_semantics_sha256": "9526b2d71be8165386edae8f3c6a5393caf2a477930acabbbe99247aa0d2b25a"
+        },
+        {
+          "bindings": [
+            "sldprt:body:1"
+          ],
+          "body_ids": [
+            "sldprt:body:1"
+          ],
+          "brep_present": true,
+          "labels": [
+            "Centered Solid"
+          ],
+          "mode": "Lenient",
+          "passed": true,
+          "payloads": [
+            [
+              "Contents/Config-0-GhostPartition",
+              "partition",
+              "a55fbc7913a9e26eae32be692f115eb108f4daa40ad375e37b5a4fdcc9167d69"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "partition",
+              "702e75d621c393bbaf1b9e0b506f34f063621f1c68d1b24c88edf560a05219a3"
+            ],
+            [
+              "Contents/Config-0-Partition",
+              "deltas",
+              "082019ba463b31108ca322263192f297ba9173c2c318e17f3ea207d9d82c1875"
+            ]
+          ],
+          "unrelated_semantics_sha256": "09221578a26e96d935430fafbadff63adce33f56e17a27a9ebed1a4ee84b5003"
+        }
+      ],
+      "run_result_sha256": "03e5e025abfedb6941676e9d53c21b4079d0a95c0685afbf928bdcef3791bcb3",
+      "source_sha256": "03f6756e214fd2a96975030143590d8e14643147470df86ee21123c59afd503b"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineMissingOutput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "b48e435c9b54c2a140321598ff63e58f32822c0d2778c24057d597e190d0a8b1",
+          "modified_resolved_sha256": "6e4801d2368f63287496489789189f3dd7ba39b4d52d2239ab7ea2382596ccdc",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "variant": "MissingOutput"
+      },
+      "run_result_sha256": "0e9a777936ade40e6fe4d657beb583b0b504e6d0d1656f5a84c9f21affe1a05d",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateMissingOutput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "b48e435c9b54c2a140321598ff63e58f32822c0d2778c24057d597e190d0a8b1",
+          "modified_resolved_sha256": "6e4801d2368f63287496489789189f3dd7ba39b4d52d2239ab7ea2382596ccdc",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          },
+          null,
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          }
+        ],
+        "variant": "MissingOutput"
+      },
+      "run_result_sha256": "127cb7544aef8ee839b691b68bddb492b5b078158e568dae507e4ccb771a91d2",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineEmptyOutput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "278b11b78e807789c6f1a60a9b229b4628c0a01aec691a55b1001d01b388d4ec",
+          "modified_resolved_sha256": "407788eb2b4f49abf29d6542d11b728ed5665b815141b2f9255f88a17b713c29",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "variant": "EmptyOutput"
+      },
+      "run_result_sha256": "800fd00443930990a4dd426322bb0f2d4ef715459670493c0db401337b08a823",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateEmptyOutput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "278b11b78e807789c6f1a60a9b229b4628c0a01aec691a55b1001d01b388d4ec",
+          "modified_resolved_sha256": "407788eb2b4f49abf29d6542d11b728ed5665b815141b2f9255f88a17b713c29",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          {
+            "class": "ValueError",
+            "message": "named body output array is not the witnessed single atom"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body output array is not the witnessed single atom"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body output array is not the witnessed single atom"
+          },
+          null,
+          {
+            "class": "ValueError",
+            "message": "named body output array is not the witnessed single atom"
+          }
+        ],
+        "variant": "EmptyOutput"
+      },
+      "run_result_sha256": "e12dfb763b47c81a356b8506298edfbc40c2936025027c074dbb38642d6a9d80",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineDuplicateOutput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "0e709790f9bea9b2a6a9f5a6cee34c0e828d0bc5aa8c622c65e65fe6b409243c",
+          "modified_resolved_sha256": "574231a9b8e304472f18e1eb2a600799db1c135f5459b157301339700ed9c629",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "variant": "DuplicateOutput"
+      },
+      "run_result_sha256": "53cf8181d98892caee76a62064d60d43fc6bc75879f4f604be30cae064240978",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateDuplicateOutput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "0e709790f9bea9b2a6a9f5a6cee34c0e828d0bc5aa8c622c65e65fe6b409243c",
+          "modified_resolved_sha256": "574231a9b8e304472f18e1eb2a600799db1c135f5459b157301339700ed9c629",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          {
+            "class": "ValueError",
+            "message": "named body output array is not the witnessed single atom"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body output array is not the witnessed single atom"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body output array is not the witnessed single atom"
+          },
+          null,
+          {
+            "class": "ValueError",
+            "message": "named body output array is not the witnessed single atom"
+          }
+        ],
+        "variant": "DuplicateOutput"
+      },
+      "run_result_sha256": "7e60b1f1891c21afdd7e62983b52164138d13ba99b007cee80d385b90dd03545",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineWrongOutputClass",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "bc2ebfad8180a1b6b8401f3d9e410edcfcfec9dc9ec08b2fcf67a3d36475459b",
+          "modified_resolved_sha256": "9eb5c034bb986fdc28c8c7b6957e6cdd6ef3721bdc90cdc920f8b68f7fd19e2d",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "variant": "WrongOutputClass"
+      },
+      "run_result_sha256": "ee88763c90855fda69127ac8f58373fff473ec65955247a11ac603e516dc0a2f",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateWrongOutputClass",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "bc2ebfad8180a1b6b8401f3d9e410edcfcfec9dc9ec08b2fcf67a3d36475459b",
+          "modified_resolved_sha256": "9eb5c034bb986fdc28c8c7b6957e6cdd6ef3721bdc90cdc920f8b68f7fd19e2d",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          {
+            "class": "ValueError",
+            "message": "typed model expected concrete schema one moAtom_c"
+          },
+          {
+            "class": "ValueError",
+            "message": "typed model expected concrete schema one moAtom_c"
+          },
+          {
+            "class": "ValueError",
+            "message": "typed model expected concrete schema one moAtom_c"
+          },
+          null,
+          {
+            "class": "ValueError",
+            "message": "typed model expected concrete schema one moAtom_c"
+          }
+        ],
+        "variant": "WrongOutputClass"
+      },
+      "run_result_sha256": "19c844493d3f3ecea2416869bc2b6fbabd0b660cd2e4842f82b9b076eaa267e4",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineForeignAtom",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "c8e9206b1103a91359faa72e5553868b7f409e3dbe8b1d35136b5e4a0752b9b3",
+          "modified_resolved_sha256": "e27f2da8faf6cb9e07b9f01155d9c14ba2987f8427b9caa5aafe13c2aecaf11e",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "variant": "ForeignAtom"
+      },
+      "run_result_sha256": "0feef5df69dae21dbafb264f64a6d6855e428e8165f3a966eac8802a211c214b",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateForeignAtom",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "c8e9206b1103a91359faa72e5553868b7f409e3dbe8b1d35136b5e4a0752b9b3",
+          "modified_resolved_sha256": "e27f2da8faf6cb9e07b9f01155d9c14ba2987f8427b9caa5aafe13c2aecaf11e",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          {
+            "class": "ValueError",
+            "message": "named body has alternate archive atom ownership"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body has alternate archive atom ownership"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body has alternate archive atom ownership"
+          },
+          null,
+          {
+            "class": "ValueError",
+            "message": "named body has alternate archive atom ownership"
+          }
+        ],
+        "variant": "ForeignAtom"
+      },
+      "run_result_sha256": "2b2e900a2061b21d8b516562323e3e310d9bfb89876188d8e601647eb1d8d764",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineAlternateInput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "7f8327299f65f4aa22e2f4dd75f2280b16f3d39775d3778518c13f2514758582",
+          "modified_resolved_sha256": "02b612b394a38cbbdc3dca22036d224266541b68f8b9b7e957e70311e243c507",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "variant": "AlternateInput"
+      },
+      "run_result_sha256": "633d4d6aa645e0197f10afafcec890686e0f1b4f8aa34e9b6ead3daff2d93cbd",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateAlternateInput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "7f8327299f65f4aa22e2f4dd75f2280b16f3d39775d3778518c13f2514758582",
+          "modified_resolved_sha256": "02b612b394a38cbbdc3dca22036d224266541b68f8b9b7e957e70311e243c507",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          },
+          null,
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          }
+        ],
+        "variant": "AlternateInput"
+      },
+      "run_result_sha256": "a51e9dfb2d7f3adf2e0ab95bcd9ba4d2f21e953770cbaf2bb7bd8bbd7dd7b5fd",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "BaselineDedicatedOutput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "a48c3f4c426475bbc550d6f675f87f503256b3475cc3a14cbace1fc4b54260eb",
+          "modified_resolved_sha256": "619978a2e14fec243706a9f363a5febbe4de4a68f2c5eac5d77bf52f75fda232",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "variant": "DedicatedOutput"
+      },
+      "run_result_sha256": "80b88bb188a6ffafca3613062834e47bbd17081fdf42dc42b2fdadd19a99e7f9",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "modes": [
+        "Default",
+        "Repeat",
+        "NoTess",
+        "History",
+        "Lenient"
+      ],
+      "name": "CandidateDedicatedOutput",
+      "negative": {
+        "mutation": {
+          "changed_streams": [
+            "Contents/Config-0-ResolvedFeatures"
+          ],
+          "modified_archive_sha256": "a48c3f4c426475bbc550d6f675f87f503256b3475cc3a14cbace1fc4b54260eb",
+          "modified_resolved_sha256": "619978a2e14fec243706a9f363a5febbe4de4a68f2c5eac5d77bf52f75fda232",
+          "original_resolved_sha256": "bb767764bc6926b1794a19cfdfe15fa0156b5344a8ba591c79862d019db19eeb",
+          "typed_roundtrip_exact": true
+        },
+        "owner_rejections": [
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          },
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          },
+          null,
+          {
+            "class": "ValueError",
+            "message": "named body requires the witnessed single output atom path"
+          }
+        ],
+        "variant": "DedicatedOutput"
+      },
+      "run_result_sha256": "39efe2d160c74946a5c39eb5d415c8772012859c4d341b92fd38bb3817dbfbfb",
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    }
+  ],
+  "public_research_imports": 0,
+  "public_runtime_additional_file_reads": 0,
+  "raw_replay_sha256": "ac0aeaebb22b8f0d2e3b32c288f230ba73f5db3122889200d5df83b3aa85033e",
+  "schema": "kit.sw2026.sdk-named-body-reader-receipt.v1",
+  "sdk_owned_path_count": 48,
+  "sdk_source_closure_sha256": "cc8c4550aa01afebd5bca64de7b6f94ff429e92e97fa51aa1cc91abc240fe1a7",
+  "sdk_source_file_count": 4329,
+  "sdk_source_manifest_sha256": "e5db79bc2a5cceb67c08b791b1b2f4f9b84acb5ba2ab05eced191a3da3452213",
+  "source_negative_count": 7,
+  "source_positive_count": 4,
+  "sources_immutable": true
+}

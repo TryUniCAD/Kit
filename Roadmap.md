@@ -35,6 +35,7 @@ The [SOLIDWORKS guide](Documentation/Reference/Adapters/Solidworks.md) documents
 PR #121 adds normal writer support for two independently qualified fixed-centre circle profiles. [Circle writer evidence](Documentation/Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md)
 PR #121 also registers a bounded native assembly writer for two or three direct occurrences of one dimensioned rectangular part and ordinary principal-plane mates. [Assembly writer evidence](Documentation/Changes/Solidworks/Construction/Assembly/SolidworksPublicAssemblyWriting.md)
 It adds a narrow perpendicular assembly read profile, native part property readback with a verified empty advanced owner, and guarded typed prism geometry recovery. [Perpendicular read](Documentation/Changes/Solidworks/Archive/Assembly/SolidworksPerpendicularReaderOwnership.md) [Empty property owner](Documentation/Changes/Solidworks/Inspection/Properties/SolidworksEmptyAdvancedPropertyRead.md) [Typed prism read](Documentation/Changes/Solidworks/Inspection/Parts/Geometry/SolidworksTypedPrismReconstruction.md)
+The scoped native part reader also binds one cache-backed solid to its actual name and design-body identity. [Native body read](Documentation/Changes/Solidworks/Reading/Names/SolidworksNativeBodyNames.md)
 
 ## Destination
 

@@ -19,6 +19,11 @@ The independent research composer generates fresh native containers and streams
 from neutral polygon, circle, radial-dimension and depth inputs without saved-stream inputs.
 Its research results remain separate from public SDK and FCStd acceptance.
 
+The [native single-solid body reader](measurements/2026/SdkNamedBodyRead01.json)
+preserves the actual name and B-rep design-body link in four disclosed native
+saves. All 22 process checks pass. These are reader inputs and add zero generated
+FCStd conversions.
+
 The [property-section drawing comparison](measurements/2026/DrawingBlankPropertySectionsNative01.json)
 generates the native text-section and name-dictionary framing from neutral
 sheet values. Two guarded builds agree with zero runtime input reads. The
