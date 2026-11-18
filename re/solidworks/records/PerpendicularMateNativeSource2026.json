@@ -1,0 +1,291 @@
+{
+  "alignment_binding": {
+    "command_alignment_offset": "0xe8",
+    "command_constructor_call_va": "0x3f989b99",
+    "ignored_api_selection": true,
+    "model_alignment_offset": "0x3b4",
+    "no_assumed_post_solve_or_com_alignment_value": true,
+    "zero_argument_va": "0x3f989b90"
+  },
+  "api_enum_switch": {
+    "case_va": "0x3f989b74",
+    "perpendicular_api_value": 2,
+    "table_va": "0x3f98aac8"
+  },
+  "command_vtable": {
+    "rtti_class": ".?AVuiAssemblyMatePerpendicularCmd_c@@",
+    "rtti_locator_va": "0x3fd45190",
+    "slots": {
+      "0x988": "0x3f815fb0",
+      "0xb8": "0x3f8267f0"
+    },
+    "va": "0x3fc7f4e8"
+  },
+  "document_version": 19000,
+  "factory_binding": {
+    "descriptor_getter_call_va": "0x3f815fd9",
+    "model_factory_call_va": "0x3f816004",
+    "model_initializer_call_va": "0x4bc4209d",
+    "model_initializer_slot": "0x23d0"
+  },
+  "heldout_inputs_read": 0,
+  "imports": {
+    "0x3fbe8ec0": {
+      "module": "SLDMODU.dll",
+      "symbol": "?GetThisClass@moMatePerpendicular@@SAPEAUCRuntimeClass@@XZ"
+    },
+    "0x3fbea690": {
+      "module": "SLDMODU.dll",
+      "symbol": "?createMate@moMate@@SAPEAVmoMate2Geoms_c@@PEAVmoAssembly_c@@PEAUCRuntimeClass@@PEAPEAVmoRefWrapper_c@@PEAPEAVmoMateEntityHelpData_c@@H@Z"
+    }
+  },
+  "limitations": [
+    "Unwind entries describe fragments, not an asserted whole multi-fragment serializer body",
+    "The shared archive grammar does not qualify all eleven changed perpendicular virtual slots",
+    "Plane-only help-data and final solver state require independent authored controls",
+    "No new writer, vendor execution or native acceptance is established"
+  ],
+  "model_vtable": {
+    "rtti_class": ".?AVmoMatePerpendicular@@",
+    "rtti_locator_va": "0x4d338bf0",
+    "slots": {
+      "0x0": "0x4b6601c0",
+      "0x21f0": "0x4b2cfe10",
+      "0x2258": "0x4bc3d4d0",
+      "0x22c8": "0x4bc60d40",
+      "0x23b0": "0x4b27e120",
+      "0x23d0": "0x4bc5d920",
+      "0x28": "0x4b668a60"
+    },
+    "va": "0x4cfa2278"
+  },
+  "modules": {
+    "sldasmu.dll": {
+      "bytes": 10863704,
+      "image_base": "0x3f570000",
+      "machine": "0x8664",
+      "name": "sldasmu.dll",
+      "sha256": "05ab90ee7380335088505c47202137c63dbce18d7d516e7fd6703aee31d70390"
+    },
+    "sldmodu.dll": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  },
+  "native_build": "34.5.2.0604",
+  "native_processes_started": 0,
+  "perpendicular_vs_parallel_primary_slot_differences": [
+    {
+      "parallel": "0x4b6601a0",
+      "perpendicular": "0x4b6601c0",
+      "slot": "0x0"
+    },
+    {
+      "parallel": "0x4bc47250",
+      "perpendicular": "0x4bc472b0",
+      "slot": "0x4a8"
+    },
+    {
+      "parallel": "0x4bc47620",
+      "perpendicular": "0x4bc47640",
+      "slot": "0x1568"
+    },
+    {
+      "parallel": "0x4bc3be20",
+      "perpendicular": "0x4b27cbe0",
+      "slot": "0x1ff8"
+    },
+    {
+      "parallel": "0x4bc64730",
+      "perpendicular": "0x4bc651c0",
+      "slot": "0x2020"
+    },
+    {
+      "parallel": "0x4bc47af0",
+      "perpendicular": "0x4bc47b70",
+      "slot": "0x20a0"
+    },
+    {
+      "parallel": "0x4bc42b70",
+      "perpendicular": "0x4bc433e0",
+      "slot": "0x2230"
+    },
+    {
+      "parallel": "0x4bc60cc0",
+      "perpendicular": "0x4bc60d40",
+      "slot": "0x22c8"
+    },
+    {
+      "parallel": "0x4bc5a760",
+      "perpendicular": "0x4bc5a7f0",
+      "slot": "0x22e8"
+    },
+    {
+      "parallel": "0x4bc3e500",
+      "perpendicular": "0x4bc3e730",
+      "slot": "0x22f8"
+    },
+    {
+      "parallel": "0x4b285e40",
+      "perpendicular": "0x4b285e60",
+      "slot": "0x23b8"
+    }
+  ],
+  "routines": {
+    "sldasmu.dll": {
+      "api_command_factory": {
+        "code_sha256": "cf691530aaae8810df530b557579c4a5970606ba09b6d7aa8ebcb5848ef60a42",
+        "end_rva_exclusive": "0x41ab2c",
+        "end_va_exclusive": "0x3f98ab2c",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x419a10",
+        "start_va": "0x3f989a10",
+        "unwind_rva": "0x86df08"
+      },
+      "ordinary_command_constructor": {
+        "code_sha256": "dc414407cac972940cf4ad1d35460c3a7a17394290bd09cd62e5e28fbc8b7772",
+        "end_rva_exclusive": "0x28568c",
+        "end_va_exclusive": "0x3f7f568c",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x285550",
+        "start_va": "0x3f7f5550",
+        "unwind_rva": "0x83a148"
+      },
+      "ordinary_command_runner": {
+        "code_sha256": "669ce092d61447d649cc41dc448c7529dee37ee7a216b0dd575f02f2952561b2",
+        "end_rva_exclusive": "0x2b6e76",
+        "end_va_exclusive": "0x3f826e76",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x2b67f0",
+        "start_va": "0x3f8267f0",
+        "unwind_rva": "0x83a1d0"
+      },
+      "perpendicular_model_creation": {
+        "code_sha256": "7d21f4880d16e6c5cd08567269496570a97d4210a6c1a9faef68a7975e82f60d",
+        "end_rva_exclusive": "0x2a6018",
+        "end_va_exclusive": "0x3f816018",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x2a5fb0",
+        "start_va": "0x3f815fb0",
+        "unwind_rva": "0x7efbb0"
+      }
+    },
+    "sldmodu.dll": {
+      "common_help_query": {
+        "code_sha256": "8f46480e547d1a2a3b8f934b3ca44c022cd18ad08febc83865125f03cfa96cb4",
+        "end_rva_exclusive": "0xb20d3f",
+        "end_va_exclusive": "0x4bc60d3f",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?isHelpDataUsedForMate@moMateNGeoms_c@@UEBAHXZ"
+        ],
+        "start_rva": "0xb20cc0",
+        "start_va": "0x4bc60cc0",
+        "unwind_rva": "0x22477f0"
+      },
+      "concrete_constructor": {
+        "code_sha256": "41df35fa7a0a0b6ae1a32a82492cd9725f1763cbd06602441edd80f1d2ac81d2",
+        "end_rva_exclusive": "0xaee261",
+        "end_va_exclusive": "0x4bc2e261",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0xaee210",
+        "start_va": "0x4bc2e210",
+        "unwind_rva": "0x23ad198"
+      },
+      "ordinary_two_geometry_factory": {
+        "code_sha256": "01927b7ffdd2d22af763f4b2d1d1bca653694504dc381d7ac29504e7b9c5766f",
+        "end_rva_exclusive": "0xb020cc",
+        "end_va_exclusive": "0x4bc420cc",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?createMate@moMate@@SAPEAVmoMate2Geoms_c@@PEAVmoAssembly_c@@PEAUCRuntimeClass@@PEAPEAVmoRefWrapper_c@@PEAPEAVmoMateEntityHelpData_c@@H@Z"
+        ],
+        "start_rva": "0xb02030",
+        "start_va": "0x4bc42030",
+        "unwind_rva": "0x2257360"
+      },
+      "ordinary_two_geometry_initializer": {
+        "code_sha256": "fcb0862607458d390a8f354cbaf01e6b0a156af5fea471ce719f003f9e89ff32",
+        "end_rva_exclusive": "0xb1ddbe",
+        "end_va_exclusive": "0x4bc5ddbe",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0xb1d920",
+        "start_va": "0x4bc5d920",
+        "unwind_rva": "0x23ac700"
+      },
+      "perpendicular_help_query": {
+        "code_sha256": "34f6114ae51a5c406907e658cf6f726fb388f7b8bed8cb178b2b66a544884d7a",
+        "end_rva_exclusive": "0xb20d7a",
+        "end_va_exclusive": "0x4bc60d7a",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?isHelpDataUsedForMate@moMatePerpendicular@@UEBAHXZ"
+        ],
+        "start_rva": "0xb20d40",
+        "start_va": "0x4bc60d40",
+        "unwind_rva": "0x2245b40"
+      },
+      "runtime_class_allocator": {
+        "code_sha256": "9be3e02c42981ddffb9faff647e4a561ccd698fb03002faed97e8b02ba67341f",
+        "end_rva_exclusive": "0x513cee",
+        "end_va_exclusive": "0x4b653cee",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x513cc0",
+        "start_va": "0x4b653cc0",
+        "unwind_rva": "0x224969c"
+      },
+      "runtime_class_getter": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "1f5fcd1e0fb32a3cf3fe91dc074c88ae06ffa003bf744e0482e99a5c544775e7",
+        "exact_export_alias_count": 2,
+        "exact_exports": [
+          "?GetRuntimeClass@moMatePerpendicular@@UEBAPEAUCRuntimeClass@@XZ",
+          "?GetThisClass@moMatePerpendicular@@SAPEAUCRuntimeClass@@XZ"
+        ],
+        "requested_va": "0x4b6601c0",
+        "unwind_entry_found": false
+      },
+      "shared_serializer_entry_fragment": {
+        "code_sha256": "200c39d173ea0079388980fa3635255f6a3e8abc554fb8f1ae2e309d7c33a450",
+        "end_rva_exclusive": "0x528a9c",
+        "end_va_exclusive": "0x4b668a9c",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x528a60",
+        "start_va": "0x4b668a60",
+        "unwind_rva": "0x22d5df0"
+      },
+      "shared_serializer_store_return_fragment": {
+        "code_sha256": "e7da2ce42a8ce5dcd5299938d27cc76cc1f45ed27334c1c7f4eb43f6359ae122",
+        "end_rva_exclusive": "0x528d62",
+        "end_va_exclusive": "0x4b668d62",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x528d59",
+        "start_va": "0x4b668d59",
+        "unwind_rva": "0x22d5e3c"
+      }
+    }
+  },
+  "runtime_class": {
+    "allocator": "0x4b653cc0",
+    "base_class_getter": "0x4b653b70",
+    "name": "moMatePerpendicular",
+    "object_bytes": 1208,
+    "schema": "0x80000001",
+    "va": "0x4dac9be0"
+  },
+  "schema": "kit.sw2026.perpendicular-mate-native-source.v1",
+  "script_sha256": "3e77d0308073401ef6093dbb2fbfb16903e717c14430da8a7e7a49c9edebb396",
+  "writer_output_count": 0
+}
