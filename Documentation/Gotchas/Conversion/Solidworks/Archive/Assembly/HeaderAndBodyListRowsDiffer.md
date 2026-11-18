@@ -23,3 +23,8 @@ view difference, not a reason to add a different native field layout.
 [current mate epoch helper](../../../../../../src/convert/adapters/solidworks/Archive/Construction/PlanarMates/DatumTime.py)
 and the [distance composition boundary](../../../../../../re/solidworks/records/SdkDrivingDistanceConstruction2026.md#header-api-composition-boundary)
 record the exact scope.
+
+The scoped [`ReadLogItems` projection](../../../../../../src/convert/adapters/solidworks/Archive/Construction/PlanarMates/ReadLogItems.py)
+now lets `DatumTime` consume both views while retaining actual nodes and
+strict class/schema/count checks. The [source-only integration proof](../../../../../../re/solidworks/records/SdkHeaderEpochIntegration2026.md)
+preserves the earlier diagnostic and qualifies the new boundary separately.

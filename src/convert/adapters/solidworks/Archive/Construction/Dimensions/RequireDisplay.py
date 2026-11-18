@@ -1,0 +1,58 @@
+from typing import cast as CastValue
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
+    FieldInt,
+    RequireNode,
+)
+
+
+# common display reuse must verify the actual owner dimension kind release and authored presentation instead of widening a mate guard blindly
+def RequireDisplay(
+    HandleValue: ArchiveNode, DesignIntent: bool, SelectedLeader: int, TextKind: int
+) -> ArchiveNode:
+    _ = RequireNode(HandleValue, "moFeatureDimHandle_c")
+    OwnerValue = ArchiveNode.RequireNode(HandleValue.FieldsValue.get("owner"))
+    if (
+        OwnerValue.ClassValue
+        not in (
+            RuntimeClass("moMateDistanceDim_c", 1),
+            RuntimeClass("moExtrusion_c", 1),
+        )
+        or FieldInt(OwnerValue.FieldsValue, "f2b0") != 19000
+    ):
+        raise ValueError(
+            "display reuse requires a verified current mate distance or ordinary extrusion owner"
+        )
+    Dimension = ArchiveNode.RequireNode(HandleValue.FieldsValue.get("ff0"))
+    IsAngular = Dimension.ClassValue == RuntimeClass("AngleDim_c", 1)
+    if Dimension.ClassValue not in (
+        RuntimeClass("ParallelPlaneDistanceDim_c", 1),
+        RuntimeClass("AngleDim_c", 1),
+    ):
+        raise ValueError(
+            "display reuse requires its actual local distance or angle dimension"
+        )
+    ExpectedKind = (
+        18
+        if OwnerValue.ClassValue.NameValue == "moMateDistanceDim_c"
+        else 13 if IsAngular else 2
+    )
+    if (
+        type(CastValue(object, TextKind)) is not int
+        or TextKind != ExpectedKind
+        or IsAngular
+        and ExpectedKind == 18
+    ):
+        raise ValueError(
+            "display text kind disagrees with its verified native factory and dimension owner"
+        )
+    if (
+        type(CastValue(object, DesignIntent)) is not bool
+        or type(CastValue(object, SelectedLeader)) is not int
+        or not -(1 << 31) <= SelectedLeader < (1 << 31)
+    ):
+        raise ValueError(
+            "display presentation requires an authored boolean and signed leader value"
+        )
+    return OwnerValue
