@@ -127,3 +127,7 @@ The frozen disclosed packet hash is
 This is a disclosed source-only measurement. Production construction, the
 generated FreeCAD body's source label and held-out name qualification remain
 open.
+
+## Named part pre-writer source locks
+
+The [body ownership investigation](NamedBodyOwnership2026.md) joins the active partition, atom and actual feature for each disclosed control. The explicit atom name owner and derived-name flag transition agree across both rename operations. Both kernel name attributes remain independent records. The [new sealed cohort](../measurements/2026/NamedPartPrewriterSources01.json) has two independent authored parts. Both pass the original and all three independent dimension edits through fresh native reopening with healthy controls. Their source specifications remain sealed throughout implementation and the separate prediction freeze.
