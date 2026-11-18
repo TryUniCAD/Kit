@@ -87,7 +87,7 @@ def prediction(spec):
     def prism(length):
         return {'body_count': 1, 'volume_m3': width * height * length,
             'area_m2': 2 * (width * height + (width + height) * length),
-            'mass_kg': 1000.0 * width * height * length,
+            'mass_kg': width * height * length,
             'centre_of_mass_m': [x, y, length / 2]}
 
     points = [[x - width / 2, y - height / 2, 0.0], [x + width / 2, y - height / 2, 0.0],

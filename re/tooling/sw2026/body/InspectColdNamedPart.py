@@ -31,7 +31,12 @@ def snapshot(author, case):
 
 
 def verify_state(recorder, value, case, expected_tree, *, edited):
-    BASE_VERIFY(recorder, value, case, expected_tree, edited=edited)
+    intent = case['intent']
+    vertices = intent['vertices_m']
+    curves.require(all(len(point) == 3 and point[2] == 0.0 for point in vertices),
+                   'the neutral corner prediction must be on its exact local XY plane')
+    planar_case = {**case, 'intent': {**intent, 'vertices_m': [point[:2] for point in vertices]}}
+    BASE_VERIFY(recorder, value, planar_case, expected_tree, edited=edited)
     target = case['edit']['expected'] if edited else case['expected_initial']
     recorder.close_number('cold analytic solid mass', value['mass']['mass'],
                           target['mass_kg'], absolute=1e-12)
@@ -90,7 +95,10 @@ def stage(source, target, expected, replace_hash=None):
     curves.require(curves.digest(source) == expected, 'cold staging source changed')
     target.parent.mkdir(parents=True, exist_ok=True)
     if target.exists():
-        curves.require(replace_hash is not None and curves.digest(target) == replace_hash,
+        existing = curves.digest(target)
+        if existing == expected:
+            return
+        curves.require(replace_hash is not None and existing == replace_hash,
                        'cold staging path has unrelated preexisting bytes')
     copyfile(source, target)
     curves.require(curves.digest(target) == expected, 'cold staged bytes differ')
