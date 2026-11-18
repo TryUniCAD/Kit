@@ -1,0 +1,11 @@
+# Internal SDK blank drawing files
+
+The SDK can construct a complete ordinary blank drawing file from portable drawing semantics and explicit native presentation and provenance. The public SOLIDWORKS adapter remains read-only. This internal construction boundary has offline evidence and no new native acceptance claim.
+
+Use `MakeBlankFile` under `convert.adapters.solidworks.Drawing.Construction.Portable`. Supply `BlankDrawInput` with an actual `DrawingData`, `DrawDocOptions`, shared UI settings, header/history provenance and an explicit output identity. The portable sheet supplies its active identity, name, dimensions and scale. The function returns the actual model/UI/header graphs, an immutable mapping of seven generated logical streams and the native container bytes. It reads no file and starts no CAD runtime.
+
+The current scope is one unformatted ANSI A landscape sheet with no views or model references. Sheet scale terms must be positive integers no greater than 999999. Presentation and target versions use the measured current profile. Invalid or unsupported inputs reject before an artifact is returned. An explicit save path must match the drawing kind; its basename can differ from the modeled document name.
+
+The constructor reuses the SDK sheet/model factories, shared UI settings, typed Definition/header/history codecs, self-file constructor and container emitter. It derives indexes from the actual constructed sheet. The information-property document computes its six values and fresh dictionary IDs, retains the literal `vt` prefix and does not change global XML namespace settings.
+
+Four distinct designs each pass two fresh SDK processes and an independent research construction, with identical full containers and all seven streams. Thirty-one malformed or out-of-scope jobs reject. All 43 processes have zero runtime input reads. Typed stream readback and public sheet projection pass. See the [source ledger](../../../../re/solidworks/records/SdkBlankDrawingFile2026.md), [receipt](../../../../re/solidworks/measurements/2026/SdkBlankDrawingFile01.json), [model factory](DrawingModelConstruction.md) and [namespace gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Drawings/DrawingPropertyValuePrefixMustRemainBound.md).
