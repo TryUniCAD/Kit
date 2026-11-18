@@ -70,7 +70,7 @@ Two standalone parts also pass the same native lifecycle from a UNC location out
 
 The internal preparation boundary uses normal write options and the final destination with an explicit construction recipe. A qualified standalone POSIX path retains the neutral basename in the measured Windows self locator. Staging and a caller-owned stream preserve the same bytes. [Write preparation](../../Changes/Solidworks/Construction/SolidworksPlainPartPreparation.md) [Standalone host preparation](../../Changes/Solidworks/Construction/SolidworksStandaloneHostPreparation.md)
 
-A separate SDK constructor admits a simple closed line loop for the ordinary forward blind boss. A triangle and a concave polygon generate ten streams each, and both original rectangle containers remain byte-identical. [Complete polygon part](../../Changes/Solidworks/Construction/SolidworksSdkPolygonBlindPart.md)
+A separate SDK constructor admits a simple closed line loop for the ordinary forward blind boss. A triangle and a concave polygon generate ten streams each, and both original rectangle containers remain byte-identical. The three original native polygon sources match the generated trees and geometry and pass edits and fresh reopen. [Complete polygon part](../../Changes/Solidworks/Construction/SolidworksSdkPolygonBlindPart.md) [Original polygon qualification](../../Changes/Solidworks/Construction/SolidworksSdkOriginalPolygonQualification.md)
 
 ## Read flow
 

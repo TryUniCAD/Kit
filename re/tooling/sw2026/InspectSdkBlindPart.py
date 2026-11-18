@@ -145,7 +145,7 @@ def verify_state(recorder, state, case, expected_tree, *, edited):
                 recorder.close_number("native rectangle endpoint", coordinate, expected_coordinate)
 
 
-def phase(root, role, source, digest, case, expected_tree, *, edited_tree=None):
+def phase(root, role, source, digest, case, expected_tree, *, edited_tree=None, measure_only=False):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -166,7 +166,8 @@ def phase(root, role, source, digest, case, expected_tree, *, edited_tree=None):
                            "wrong SOLIDWORKS build for the part lifecycle")
             author = curves.CurveAuthor(controller.app, rec, Swapp)
             reopening = edited_tree is not None
-            author.model, errors, warnings = rec.call("open the exact part path", controller.open, source, read_only=reopening)
+            author.model, errors, warnings = rec.call("open the exact part path", controller.open, source,
+                                                      read_only=reopening or measure_only)
             result.update(open_errors=errors, open_warnings=warnings)
             curves.require(author.model is not None and errors == warnings == 0
                            and Path(author.get(author.model, "GetPathName")).samefile(source),
@@ -181,7 +182,7 @@ def phase(root, role, source, digest, case, expected_tree, *, edited_tree=None):
             tree = result["states"]["Initial"]["tree"]
             curves.require(tree == result["states"]["Rebuilt"]["tree"] and (not reopening or tree == edited_tree),
                            "the complete native feature tree changed")
-            if not reopening:
+            if not reopening and not measure_only:
                 parameter = author.get(author.model, "Parameter", case["edit"]["dimension"])
                 status = int(author.get(parameter, "SetSystemValue3", case["edit"]["new_depth_m"], 1, Swapp.nothing()))
                 result["edit_status"] = status

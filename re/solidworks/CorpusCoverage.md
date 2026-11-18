@@ -457,6 +457,14 @@ verified an 8.31 mm driving depth after fresh reopen with the canonical
 material caption, all 28 tree rows and correct geometry. Independent
 held-out qualification remains open.
 
+The [complete SDK polygon held-outs](measurements/2026/SdkOriginalPolygonNative01.json)
+pass for the original three-line, five-line and seven-line SOLIDWORKS
+sources. Each generated part matches the native source tree and measured
+geometry, retains an editable blind depth and opens cleanly after the
+native edit and save. Eleven fresh processes and 546 checks pass with
+healthy controls. These three cases qualify the scoped SDK construction.
+The FCStd production count remains 0 of 165 parts and 0 of 5 assemblies.
+
 ## Last audit of the removed writer
 
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11
