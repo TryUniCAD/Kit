@@ -34,7 +34,7 @@ def malformed(document, settings, presentation):
         ("inactive_configuration", replace(document, configurations=(replace(document.configurations[0], active=False),)), presentation),
         ("wrong_parameter_value", changed_parameter(value=replace(width.value, value=float(width.value.value) + 1.0)), presentation),
         ("wrong_parameter_owner", changed_parameter(owner_id=feature.id), presentation),
-        ("wrong_parameter_name", changed_parameter(name="D7"), presentation),
+        ("unowned_parameter_label", changed_parameter(name="D7@ForeignSketch"), presentation),
         ("missing_axis", replace(document, sketches=(replace(sketch, constraints=rules[1:]),)), presentation),
         ("duplicate_axis", replace(document, sketches=(replace(sketch, constraints=(rules[0], *rules[1:3], replace(rules[0], id=rules[3].id), *rules[4:])),)), presentation),
         ("swapped_axis", changed_relation(0, kind="vertical"), presentation),

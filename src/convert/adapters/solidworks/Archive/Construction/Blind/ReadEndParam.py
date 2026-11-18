@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Archive.Construction.Blind.ReadEndHandle import
 from convert.adapters.solidworks.Archive.Construction.Blind.RequireEndNode import (
     RequireEndNode,
 )
+from convert.adapters.solidworks.Archive.Construction.Blind.SelectEndName import (
+    SelectEndName,
+)
 from convert.adapters.solidworks.Archive.Construction.Blind.SelectEndValue import (
     SelectEndValue,
 )
@@ -29,7 +32,7 @@ def ReadEndParam(
         "moAngleParameter_c" if IsAngular else "moLengthParameter_c",
     )
     NameValue = RequireEndNode(ParamValue.FieldsValue["f18"], "moNodeName_c")
-    if NameValue.FieldsValue["f08"] != f"D{OrdinalValue}":
+    if NameValue.FieldsValue["f08"] != SelectEndName(InputValue, OrdinalValue):
         raise ValueError("blind dimension name does not match its constructor role")
     ExpectedValue = SelectEndValue(InputValue, OrdinalValue)
     NativeValue = ParamValue.FieldsValue["f58"]

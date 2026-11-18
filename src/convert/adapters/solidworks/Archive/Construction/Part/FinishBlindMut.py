@@ -54,8 +54,8 @@ def FinishBlindMut(
 ) -> PartCandidate:
     EndInput = (
         PlanValue.EndValue
-        if type(PlanValue) is CirclePlan
-        else BlindEndInput(PlanValue.DepthValue, False, 19000)
+        if isinstance(PlanValue, CirclePlan)
+        else BlindEndInput(PlanValue.DepthValue, False, 19000, PlanValue.DepthName)
     )
     BossValue = MakeBlindMut(
         PlanValue.FeatureName,

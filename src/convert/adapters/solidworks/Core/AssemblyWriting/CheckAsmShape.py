@@ -31,7 +31,9 @@ def CheckAsmShape(DocumentValue: CadDocument) -> str:
         ModelValue.ChildDocument, support_planes=(PlaneValues["z"],)
     )
     CheckPlainScope(ChildValue)
-    _ = ProjectRectDims(ChildValue)
+    PlanValue = ProjectRectDims(ChildValue)
+    if (PlanValue.SketchDriverNames, PlanValue.DepthName) != (("D1", "D2"), "D1"):
+        raise ValueError("public assembly writing requires its qualified child driver names")
     Placements = tuple(ReadAsmPlace(Value) for Value in ModelValue.Occurrences)
     MateValues = ReadAsmRules(DocumentValue, ModelValue, PlaneValues)
     for MateValue in MateValues:

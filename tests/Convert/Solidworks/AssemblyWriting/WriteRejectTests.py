@@ -20,6 +20,7 @@ KRejectCases = (
     "unqualified-option",
     "unsupported-mate",
     "unqualified-child",
+    "named-child",
     "commit-failure",
 )
 

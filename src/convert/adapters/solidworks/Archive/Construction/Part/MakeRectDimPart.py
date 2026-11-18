@@ -43,7 +43,9 @@ def MakeRectDimPart(
     Allocator = PersistentIds()
     SystemValue = MakePartBaseMut(InputValue, PlanValue, Allocator)
     ProfileValue = MakePartProfMut(SystemValue, InputValue, PlanValue, Allocator)
-    Dimensions = MakeRectDimsMut(ProfileValue, DimensionInput, Allocator)
+    Dimensions = MakeRectDimsMut(
+        ProfileValue, DimensionInput, Allocator, PlanValue.SketchDriverNames
+    )
     return FinishBlindMut(
         SystemValue,
         ProfileValue,

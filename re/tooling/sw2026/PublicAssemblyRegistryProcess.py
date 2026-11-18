@@ -96,6 +96,12 @@ def run(mode, count, output, incoming):
     elif mode == "unsupported-mate":
         graph = document.assembly
         document = replace(document, assembly=replace(graph, mates=(replace(graph.mates[0], kind="perpendicular"), *graph.mates[1:])))
+    elif mode == "named-child":
+        graph = document.assembly
+        actual = graph.documents[0]
+        parameters = actual.document.parameters
+        renamed = replace(actual.document, parameters=(replace(parameters[0], name="FrameWidth"), *parameters[1:]))
+        document = replace(document, assembly=replace(graph, documents=(replace(actual, document=renamed),)))
     elif mode == "unqualified-child":
         graph = document.assembly
         actual = graph.documents[0]

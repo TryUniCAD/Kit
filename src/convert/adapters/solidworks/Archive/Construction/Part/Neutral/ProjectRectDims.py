@@ -7,8 +7,11 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan imp
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CheckRectRules import (
     CheckRectRules,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectPlain import (
-    ProjectPlain,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectBlind import (
+    ProjectBlind,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadRectSketch import (
+    ReadRectSketch,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadLength import (
     ReadLength,
@@ -40,7 +43,7 @@ def ProjectRectDims(DocumentValue: CadDocument) -> BlindPlan:
     BareDocument = ReplaceValue(
         DocumentValue, parameters=(DepthParam,), sketches=(BareSketch,)
     )
-    PlanValue = ProjectPlain(BareDocument)
+    PlanValue = ProjectBlind(BareDocument, ReadRectSketch, DepthParam.name)
     VerticesValue = PlanValue.VerticesValue
     LeftValue, BottomValue = VerticesValue[0]
     RightValue, TopValue = VerticesValue[2]
@@ -63,4 +66,6 @@ def ProjectRectDims(DocumentValue: CadDocument) -> BlindPlan:
             raise ValueError(
                 "rectangle driving parameters disagree with their authored endpoint distances"
             )
-    return PlanValue
+    return ReplaceValue(
+        PlanValue, SketchDriverNames=(WidthParam.name, HeightParam.name)
+    )

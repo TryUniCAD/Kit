@@ -26,10 +26,11 @@ from interchange.geometry.Models.Sketch import Sketch
 def ProjectBlind(
     DocumentValue: CadDocument,
     ReadSketch: Callable[[Sketch, float], tuple[tuple[float, float], ...]],
+    DepthName: str = "D1",
 ) -> BlindPlan:
     RequirePlainDoc(DocumentValue)
     Definition = RequireBossDef(DocumentValue.feature_timeline[0])
-    CheckPlainLinks(DocumentValue, Definition)
+    CheckPlainLinks(DocumentValue, Definition, DepthName)
     ScaleValue = {"mm": 0.001, "m": 1.0, "in": 0.0254}.get(DocumentValue.units)
     if ScaleValue is None:
         raise ValueError(
@@ -63,4 +64,5 @@ def ProjectBlind(
         ReadLength(Definition.length),
         WidthValue,
         HeightValue,
+        DepthName=DepthName,
     )

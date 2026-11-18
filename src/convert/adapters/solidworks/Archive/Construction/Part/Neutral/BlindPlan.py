@@ -17,6 +17,8 @@ class BlindPlan:
     DepthValue: float
     WidthValue: float
     HeightValue: float
+    DepthName: str = "D1"
+    SketchDriverNames: tuple[str, str] = ("D1", "D2")
 
     # ordinary line loop parts use the canonical front support
     @property

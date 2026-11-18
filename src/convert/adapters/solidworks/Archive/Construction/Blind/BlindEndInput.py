@@ -5,6 +5,10 @@ from convert.adapters.solidworks.Archive.Construction.Blind.ReadEndDepth import 
     ReadEndDepth,
 )
 
+from convert.adapters.solidworks.Archive.Construction.Dimensions.ReadDriverName import (
+    ReadDriverName,
+)
+
 
 # blind construction needs authored depth direction and target version before any archive node exists
 @DataClass(frozen=True, slots=True)
@@ -12,6 +16,7 @@ class BlindEndInput:
     DepthValue: float
     IsReversed: bool
     VersionValue: int
+    DepthName: str = "D1"
 
     # invalid dimensions must fail before constructor state can be mistaken for native output
     def __post_init__(self) -> None:
@@ -25,3 +30,4 @@ class BlindEndInput:
                 "blind construction currently requires the forward direction"
             )
         _ = ReadEndDepth(self.DepthValue)
+        _ = ReadDriverName(self.DepthName)

@@ -196,6 +196,8 @@ reach the strict annotation and display check.
 
 ## Feature history
 
+The internal dimensioned rectangle constructor now binds authored driver labels to the actual sketch and boss parameter IDs. It emits the same names in the typed ResolvedFeatures owners and KeyWords. The registered public assembly profile requires its measured default child names. [Named rectangle drivers](../../Changes/Solidworks/Construction/SolidworksNamedRectangleDrivers.md)
+
 The resolved-feature grammar includes class definitions and object references.
 The archive map changes as records are read.
 Structural edits require consistent identifiers and map indices.

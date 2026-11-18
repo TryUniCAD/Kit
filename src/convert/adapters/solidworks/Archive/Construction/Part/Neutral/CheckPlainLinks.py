@@ -10,7 +10,9 @@ from interchange.Features.FeatureExtrude import ExtrudeFeature
 
 
 # a native driving dimension must preserve the actual neutral parameter sketch support configuration and body owners before synthesis
-def CheckPlainLinks(DocumentValue: CadDocument, Definition: ExtrudeFeature) -> None:
+def CheckPlainLinks(
+    DocumentValue: CadDocument, Definition: ExtrudeFeature, DepthName: str = "D1"
+) -> None:
     PlaneValue = CheckPartLinks(DocumentValue)
     Parameter, FeatureValue = (
         DocumentValue.parameters[0],
@@ -20,11 +22,11 @@ def CheckPlainLinks(DocumentValue: CadDocument, Definition: ExtrudeFeature) -> N
         Parameter.role != ParameterRole.KDriving
         or Parameter.expression is not None
         or Parameter.owner_id != FeatureValue.id
-        or Parameter.name != "D1"
+        or Parameter.name != DepthName
         or Parameter.attributes
     ):
         raise ValueError(
-            "plain boss requires its actual unexpressed driving D1 parameter"
+            f"plain boss requires its actual unexpressed driving {DepthName} parameter"
         )
     if (
         FeatureValue.parameter_ids != (Parameter.id,)

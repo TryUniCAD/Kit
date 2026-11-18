@@ -1,9 +1,12 @@
+from convert.adapters.solidworks.Archive.Construction.Dimensions.ReadDriverName import (
+    ReadDriverName,
+)
 from interchange.Enums.EnumValues import ParameterRole
 from interchange.Records.RecordParameter import Parameter
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# the three real driving lengths must preserve their sketch and boss ownership without relying on input parameter order
+# actual ordered owner identifiers determine rectangle driver roles independently of their authored names
 def ReadRectParams(
     DocumentValue: CadDocument,
 ) -> tuple[Parameter, Parameter, Parameter]:
@@ -11,23 +14,18 @@ def ReadRectParams(
         DocumentValue.sketches[0],
         DocumentValue.feature_timeline[0],
     )
-    OwnersValue = (
-        (SketchValue.id, "D1"),
-        (SketchValue.id, "D2"),
-        (FeatureValue.id, "D1"),
-    )
+    if len(SketchValue.parameter_ids) != 2 or len(FeatureValue.parameter_ids) != 1:
+        raise ValueError("rectangle requires two sketch drivers and one boss driver")
+    IdValues = (*SketchValue.parameter_ids, *FeatureValue.parameter_ids)
+    if len(set(IdValues)) != len(IdValues):
+        raise ValueError("rectangle parameter roles must have unique identities")
+    OwnersValue = (SketchValue.id, SketchValue.id, FeatureValue.id)
+    Indexed = {ParamValue.id: ParamValue for ParamValue in DocumentValue.parameters}
     Parameters: list[Parameter] = []
-    for OwnerId, NameValue in OwnersValue:
-        Matches = tuple(
-            ParamValue
-            for ParamValue in DocumentValue.parameters
-            if (ParamValue.owner_id, ParamValue.name) == (OwnerId, NameValue)
-        )
-        if len(Matches) != 1:
-            raise ValueError(
-                "dimensioned rectangle requires unique owned sketch D1 D2 and boss D1 parameters"
-            )
-        ParamValue = Matches[0]
+    for IdentityValue, OwnerId in zip(IdValues, OwnersValue, strict=True):
+        ParamValue = Indexed.get(IdentityValue)
+        if ParamValue is None or ParamValue.owner_id != OwnerId:
+            raise ValueError("rectangle parameter is missing its actual feature owner")
         if (
             ParamValue.role != ParameterRole.KDriving
             or ParamValue.expression is not None
@@ -36,13 +34,11 @@ def ReadRectParams(
             raise ValueError(
                 "rectangle lengths require unexpressed unextended driving parameters"
             )
+        _ = ReadDriverName(ParamValue.name)
         Parameters.append(ParamValue)
     WidthParam, HeightParam, DepthParam = Parameters
-    if SketchValue.parameter_ids != (
-        WidthParam.id,
-        HeightParam.id,
-    ) or FeatureValue.parameter_ids != (DepthParam.id,):
+    if WidthParam.name.casefold() == HeightParam.name.casefold():
         raise ValueError(
-            "rectangle parameter collections must preserve the actual ordered owners"
+            "rectangle sketch requires two distinct driving parameter names"
         )
     return WidthParam, HeightParam, DepthParam

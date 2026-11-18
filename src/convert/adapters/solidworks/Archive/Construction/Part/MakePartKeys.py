@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature im
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeywords import (
     MakeKeywords,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
+    BlindPlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
     KPartPlan,
 )
@@ -45,8 +48,9 @@ def MakePartKeys(
         InputValue.DocumentUnits.LengthUnit
     ]
     SecondDepth = PlanValue.SecondDepth
+    DepthName = PlanValue.DepthName if type(PlanValue) is BlindPlan else "D1"
     DepthDims: tuple[KeywordDim, ...] = (
-        KeywordDim("D1", PlanValue.DepthValue / ScaleValue, None),
+        KeywordDim(DepthName, PlanValue.DepthValue / ScaleValue, None),
     )
     if SecondDepth is not None:
         DepthDims += (KeywordDim("D2", SecondDepth / ScaleValue, None),)

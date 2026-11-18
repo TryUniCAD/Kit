@@ -550,6 +550,15 @@ The FCStd production count remains 0 of 165 parts and 0 of 5 assemblies.
 
 ## Last audit of the removed writer
 
+The historical discovery in `tools/audit/FcstdDiscovery.py` at revision
+`48ff095c9` counts resolved filesystem paths under the supplied recursive
+roots. It defaults to the repository root in `FcstdArgs.py`. The Git tree
+at that revision and both current checkouts contain zero FCStd paths.
+The historical file roster remains unavailable. The later 162-count
+inventory groups its available input paths by content hash. Reconcile
+the original roster before using those two counts as a coverage comparison.
+[Audit inventory counting](../../Documentation/Gotchas/Conversion/Freecad/AuditCountsResolvedPaths.md)
+
 The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11
 recursive result was:
 

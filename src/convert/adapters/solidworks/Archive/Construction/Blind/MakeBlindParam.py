@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Archive.Construction.Blind.BossEndInput import 
     BossEndInput,
 )
 from convert.adapters.solidworks.Archive.Construction.Blind.EndInput import KEndInput
+from convert.adapters.solidworks.Archive.Construction.Blind.SelectEndName import (
+    SelectEndName,
+)
 from convert.adapters.solidworks.Archive.Construction.Blind.SelectEndValue import (
     SelectEndValue,
 )
@@ -31,7 +34,8 @@ def MakeBlindParam(InputValue: KEndInput, OrdinalValue: int) -> ArchiveNode:
     )
     NativeValue = SelectEndValue(InputValue, OrdinalValue)
     NameValue = ArchiveNode(
-        RuntimeClass("moNodeName_c", 1), {"f08": f"D{OrdinalValue}"}
+        RuntimeClass("moNodeName_c", 1),
+        {"f08": SelectEndName(InputValue, OrdinalValue)},
     )
     return ArchiveNode(
         RuntimeClass(ClassName, 1),

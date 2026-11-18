@@ -19,13 +19,10 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 # each fresh length driver must own its named parameter and two actual point references before persistent allocation
 def MakeRectValue(
-    GraphValue: ProfileGraph, IndexValue: int, LengthValue: float
+    GraphValue: ProfileGraph, IndexValue: int, LengthValue: float, NameValue: str
 ) -> ArchiveNode:
     GeometryValue = GraphValue.GeometryValue
-    Parameter = MakeLengthParam(GraphValue.ProfileValue, LengthValue)
-    ArchiveNode.RequireNode(Parameter.FieldsValue["f18"]).FieldsValue[
-        "f08"
-    ] = f"D{IndexValue + 1}"
+    Parameter = MakeLengthParam(GraphValue.ProfileValue, LengthValue, NameValue)
     FieldsValue = DimBaseFields()
     FieldsValue.update(
         {

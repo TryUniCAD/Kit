@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Construction.Sketch.RequirePolygon impo
 from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph import (
     DimensionGraph,
 )
+from convert.adapters.solidworks.Archive.Construction.Dimensions.ReadDriverName import (
+    ReadDriverName,
+)
 from convert.adapters.solidworks.Archive.Construction.Dimensions.ReadModelLinear import (
     ReadModelLinear,
 )
@@ -46,11 +49,22 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 
 # real editable rectangle lengths require the complete value handle display and unary relation graph before its single owned publication
 def MakeRectDimsMut(
-    GraphValue: ProfileGraph, InputValue: RectDimInput, Allocator: PersistentIds
+    GraphValue: ProfileGraph,
+    InputValue: RectDimInput,
+    Allocator: PersistentIds,
+    DriverNames: tuple[str, str] = ("D1", "D2"),
 ) -> tuple[DimensionGraph, ...]:
     if type(InputValue) is not RectDimInput:
         raise TypeError(
             "rectangle dimensions require typed explicit presentation inputs"
+        )
+    NamesValue = tuple(ReadDriverName(NameValue) for NameValue in DriverNames)
+    if (
+        len(NamesValue) != 2
+        or len({NameValue.casefold() for NameValue in NamesValue}) != 2
+    ):
+        raise ValueError(
+            "rectangle sketch requires two distinct driving parameter names"
         )
     LengthValues = ReadRectLengths(GraphValue)
     CheckRectAlloc(Allocator)
@@ -63,7 +77,7 @@ def MakeRectDimsMut(
             "model annotation counter cannot allocate both rectangle displays"
         )
     ValueNodes = tuple(
-        MakeRectValue(GraphValue, IndexValue, LengthValue)
+        MakeRectValue(GraphValue, IndexValue, LengthValue, NamesValue[IndexValue])
         for IndexValue, LengthValue in enumerate(LengthValues)
     )
     ResultValues: list[DimensionGraph] = []
