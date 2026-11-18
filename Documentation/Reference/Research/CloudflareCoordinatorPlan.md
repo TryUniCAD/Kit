@@ -47,6 +47,10 @@ Nodes initiate outbound HTTPS connections and need no public inbound endpoint.
 Private R2 objects carry inputs, outputs, logs, and immutable receipts.
 The API transports small metadata records and issues narrowly scoped transfer authorization.
 
+Reuse each node's existing SQLite and immutable artifact-storage foundation for a durable delivery outbox.
+Do not add local PostgreSQL or an independent local scheduler.
+The [delivery and recovery specification](CloudflareDeliveryRecovery.md) defines commit ordering, acknowledgements, offline execution, backup, and restoration.
+
 Use one project, one Worker service, one D1 database, and one private Standard-class R2 bucket for the pilot.
 Use Python for the API and desktop adapter, following the repository's backend standard.
 Cloudflare supports [Python Workers and service bindings](https://developers.cloudflare.com/workers/languages/python/).
@@ -62,7 +66,7 @@ Store bulk JSON documents and binary data in R2 instead of D1 rows.
 
 | Record         | Essential fields and constraints                                                                                           |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Projects       | Project identity, enabled state, running-job limit, quota policy, schema version                                           |
+| Projects       | Project identity, enabled state, running-job limit, quota policy, schema version, coordinator recovery epoch               |
 | Runs           | Project and run identity, lifecycle state, immutable manifest digest, final export digest, cleanup policy                  |
 | Nodes          | Project and node identity, credential digest, allowed job kinds, OS, approved worker revision, enabled state               |
 | NodeSessions   | Node identity, random session identity, increasing session generation, lease expiry, available local slots                 |
@@ -72,7 +76,7 @@ Store bulk JSON documents and binary data in R2 instead of D1 rows.
 | Resources      | Installation identity, project, owning node, exact application build, capacity, available or quarantined state             |
 | ResourceClaims | Resource, attempt, reserved quantity; uniqueness and capacity enforced with the job claim                                  |
 | Artifacts      | Run, role, declared SHA-256, size, private sealed object key, verification state, verifier receipt digest                  |
-| Mutations      | Project, actor session, operation and idempotency key, request digest, bounded response reference                          |
+| Mutations      | Project, recovery epoch, actor session, operation and idempotency key, request digest, bounded response reference          |
 | Events         | Run, monotonic event sequence, actor, transition type, observed timestamp, small payload digest                            |
 
 Index ready-job selection by project, state, kind, priority, and stable enqueue order.
@@ -129,6 +133,10 @@ Only a matching owned-process recovery receipt can release or rearm that install
 Keep one active operation per registered installation, as required by the existing application-worker contract.
 Model execution stays disabled.
 
+The remote protocol must also carry a coordinator recovery epoch and expose authenticated completion-receipt lookup.
+The [delivery state table](CloudflareDeliveryRecovery.md#delivery-states-and-acknowledgements) defines accepted, unknown, stale, and locally retained outcomes.
+Outbox replay cannot extend an expired lease or silently repeat a native application operation.
+
 ## Artifact transfer and integrity
 
 1. Authorize an upload for one run, role, maximum size, and unique staging key.
@@ -153,17 +161,18 @@ Deduplication is limited to a run initially, so deleting one run cannot remove a
 
 ## API and trust boundary
 
-| Operation                  | Contract                                                                                         |
-| -------------------------- | ------------------------------------------------------------------------------------------------ |
-| Register or disable node   | Operator-only enrollment, approved capabilities, scoped credential issuance and revocation       |
-| Submit run or jobs         | Operator-authorized immutable definitions, bounded dependency graph, explicit software revisions |
-| Begin session or claim     | Authenticated compatible node, current generation, project and resource capacity checks          |
-| Heartbeat                  | Current session only, bounded progress summary, fixed attempt deadlines preserved                |
-| Authorize transfer         | Current run and attempt, exact object operation, short expiry and size policy                    |
-| Verify artifact            | Separate verifier scope, sealed object identity, measured digest and size                        |
-| Complete or reject attempt | Current ownership, idempotent outcome, verified artifacts, dependency snapshot validation        |
-| Read status                | Project-scoped pagination, bounded event ranges, no secret or signed-URL disclosure              |
-| Export and clean run       | Verified final delivery acknowledgement, lifecycle fences, resumable cleanup status              |
+| Operation                  | Contract                                                                                             |
+| -------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Register or disable node   | Operator-only enrollment, approved capabilities, scoped credential issuance and revocation           |
+| Submit run or jobs         | Operator-authorized immutable definitions, bounded dependency graph, explicit software revisions     |
+| Begin session or claim     | Authenticated compatible node, current generation, project and resource capacity checks              |
+| Heartbeat                  | Current session only, bounded progress summary, fixed attempt deadlines preserved                    |
+| Authorize transfer         | Current run and attempt, exact object operation, short expiry and size policy                        |
+| Verify artifact            | Separate verifier scope, sealed object identity, measured digest and size                            |
+| Complete or reject attempt | Current ownership, idempotent outcome, verified artifacts, dependency snapshot validation            |
+| Resolve completion receipt | Authenticated node lookup by immutable mutation identity; accepted, rejected, or unknown disposition |
+| Read status                | Project-scoped pagination, bounded event ranges, no secret or signed-URL disclosure                  |
+| Export and clean run       | Verified final delivery acknowledgement, lifecycle fences, resumable cleanup status                  |
 
 Use separate operator, worker, and verifier credentials.
 Workers receive no Cloudflare account token, database administration access, or general R2 secret.
@@ -209,6 +218,8 @@ Entering `cleaning` blocks new submissions, claims, renewals, transfer grants, a
 Wait for outstanding transfer URLs to expire before removing their staging objects.
 Drain copy and verification operations before deletion; an unresolved storage operation blocks the final wipe acknowledgement.
 Clear local worker caches and sessions through explicit acknowledgements; report an offline node as outstanding cleanup.
+Cloudflare acceptance alone cannot erase the last local recovery copy; require the separate verified final export acknowledgement.
+Purge temporary run backups under the same policy and preserve final export/deletion acknowledgements outside Cloudflare for future restore reconciliation.
 Remote deletion cannot prove a powered-off computer erased its local copy.
 
 List and delete run-scoped R2 staging, sealed objects, multipart uploads, exports, and logs in resumable bounded pages.
@@ -262,20 +273,21 @@ Automatic paid-plan changes are outside scope.
 The parent backlog entry is B15, separate from PR #158's existing A01-A16 scope.
 This document completes the proposed design artifact only; implementation acceptance remains open.
 
-| Task                                       | Owner      | Dependency                               | Exit condition                                                                                                    |
-| ------------------------------------------ | ---------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| C01: define remote protocol and migrations | Unassigned | This plan and refreshed PR #158 contract | Versioned requests, states, constraints, indexes, and upgrade/rollback behavior reviewed                          |
-| C02: implement D1 coordination             | Unassigned | C01                                      | Competing hosted requests preserve ownership, dependency, capacity, and idempotency invariants                    |
-| C03: implement private artifact transport  | Unassigned | C01                                      | Changed staging objects, wrong digests, stale attempts, interrupted copies, and orphan recovery handled correctly |
-| C04: connect local supervisors             | Unassigned | C02-C03 and PR #158                      | Two nodes use the remote adapter while retaining local process and resource safeguards                            |
-| C05: implement export and cleanup          | Unassigned | C02-C04 and approved export destinations | Verified GitHub or download delivery precedes resumable deletion; late callbacks cannot recreate a cleaned run    |
-| C06: measure offline pilot                 | Unassigned | C04-C05                                  | Matching result digests, node failure/recovery, quota accounting, and measured multi-node throughput recorded     |
-| C07: qualify native workers                | Unassigned | C06 and licensed hosts                   | Partitioned sessions quarantine installations and owned-process recovery safely restores availability             |
+| Task                                       | Owner      | Dependency                               | Exit condition                                                                                                        |
+| ------------------------------------------ | ---------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| C01: define remote protocol and migrations | Unassigned | This plan and refreshed PR #158 contract | Versioned requests, states, constraints, indexes, and upgrade/rollback behavior reviewed                              |
+| C02: implement D1 coordination             | Unassigned | C01                                      | Competing hosted requests preserve ownership, dependency, capacity, and idempotency invariants                        |
+| C03: implement private artifact transport  | Unassigned | C01                                      | Changed staging objects, wrong digests, stale attempts, interrupted copies, and orphan recovery handled correctly     |
+| C04: connect local supervisors             | Unassigned | C02-C03 and PR #158                      | Two nodes use the remote adapter and durable SQLite/file outbox while retaining local process and resource safeguards |
+| C05: implement export and cleanup          | Unassigned | C02-C04 and approved export destinations | Verified GitHub or download delivery precedes resumable deletion; late callbacks cannot recreate a cleaned run        |
+| C06: measure offline pilot                 | Unassigned | C04-C05                                  | Matching result digests, node failure/recovery, quota accounting, and measured multi-node throughput recorded         |
+| C07: qualify native workers                | Unassigned | C06 and licensed hosts                   | Partitioned sessions quarantine installations and owned-process recovery safely restores availability                 |
 
 Use integration, process, compatibility, and end-to-end coverage through the repository's existing CI and merge-queue paths.
 Test competing claims, expired leases, changed dependencies, duplicate completions, response loss, revocation, and partial storage failures.
 Test cleanup interruption, repeated deletion, undelivered exports, live native sessions, expired transfer grants, and provider restore reconciliation.
 Require real D1/R2 observations alongside local emulation before declaring Cloudflare compatibility.
+The [interruption matrix](CloudflareDeliveryRecovery.md#interruption-acceptance-matrix) adds power loss, lost acknowledgements, full disks, stale backups, and restoration scenarios.
 Record exact software revisions, selected free/paid plans, query metrics, resource measurements, and total run cost.
 Do not extrapolate the historical single-machine sixteen-worker benchmark into demonstrated cluster throughput.
 
@@ -295,6 +307,8 @@ Retain the last compatible deployment until active attempts drain before applyin
 Monitor queue age, accepted throughput, retries, expired sessions, quarantined installations, API latency, D1 row usage, and R2 storage/operations.
 Expose cleanup progress and outstanding local-node acknowledgements without retaining deleted run content in logs.
 Keep backup, restore, credential rotation, quota exhaustion, and deployment procedures in the implementation's operator guide.
+Use the [checkpoint and restore contract](CloudflareDeliveryRecovery.md#backup-contract-and-recovery-targets) before enrolling remote workers.
+The pilot pauses new admission when its independent backup is stale and provides no automatic second-cloud failover.
 
 ## Planning verification
 

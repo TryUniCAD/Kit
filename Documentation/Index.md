@@ -67,6 +67,7 @@ Use the result procedure before making a product acceptance claim.
 - [Research tools](Reference/Research/Tooling.md)
 - [Oracle evidence and fixtures](Reference/Research/Oracles.md)
 - [Cloudflare coordination plan](Reference/Research/CloudflareCoordinatorPlan.md)
+- [Cloudflare delivery and recovery](Reference/Research/CloudflareDeliveryRecovery.md)
 
 ## Documentation standards
 

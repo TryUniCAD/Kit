@@ -20,6 +20,7 @@ It separates live coordination from PR #158's existing research and native accep
 It also defines an ephemeral run lifecycle, verified final delivery, resumable cleanup, and provider recovery-history limits.
 The user selected deletion of all cloud run data after verified final delivery.
 Reviewed source, documentation, and selected evidence go to GitHub; other required artifacts need explicit verified export destinations.
+The [delivery recovery extension](CloudflareDeliveryRecovery.md) specifies reuse of local SQLite/files, acknowledgement recovery, independent backups, and interruption acceptance.
 
 Use the plan's C01-C07 task register for later implementation claims.
 The conversion backlog tracks the parent B15 delivery boundary.
