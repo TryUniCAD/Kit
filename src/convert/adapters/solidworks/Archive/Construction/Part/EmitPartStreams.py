@@ -15,8 +15,8 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.MakeFreshHist imp
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartKeys import (
     MakePartKeys,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
-    BlindPlan,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
+    KPartPlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
@@ -40,7 +40,7 @@ def EmitPartStreams(
     HeadersValue: tuple[ArchiveNode, ArchiveNode, ArchiveNode],
     DefinitionValue: ModelDefGraph,
     InputValue: PartBuildInput,
-    PlanValue: BlindPlan,
+    PlanValue: KPartPlan,
     SketchDims: tuple[KeywordDim, ...] = (),
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue

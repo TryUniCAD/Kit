@@ -1,7 +1,7 @@
 from ntpath import basename as BaseName, splitext as SplitExt
 from typing import cast as CastValue
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
-    BlindPlan,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
+    KPartPlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
@@ -17,7 +17,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # modeled presentation and provenance must agree with the supported neutral graph before construction can consume any persistent identity
 def CheckPartInput(
-    DocumentValue: CadDocument, InputValue: PartBuildInput, PlanValue: BlindPlan
+    DocumentValue: CadDocument, InputValue: PartBuildInput, PlanValue: KPartPlan
 ) -> None:
     if type(InputValue) is not PartBuildInput:
         raise TypeError(

@@ -100,6 +100,21 @@ def end_inputs(document):
     return condition, reverse, second
 
 
+def check_density(author, properties, document, measured, expected):
+    volume = measured["volume"]
+    AuthorCurves.require(volume > 0.0, "native body volume must be positive before measuring density")
+    mass = float(author.get(properties, "Mass"))
+    extension = author.get(author.model, "Extension")
+    preference = float(author.get(extension, "GetUserPreferenceDouble", 7, 0))
+    expected_mass = expected["volume"] * document["expected_body_density_kg_m3"]
+    author.rec.close_number("native mass", mass, expected_mass, absolute=1e-22)
+    author.rec.close_number("effective body density", mass / volume, document["expected_body_density_kg_m3"])
+    author.rec.close_number("document material density preference", preference, document["document_density_kg_m3"])
+    measured.update(mass_kg=mass, effective_density_kg_m3=mass / volume, document_density_kg_m3=preference)
+    expected.update(mass_kg=expected_mass, effective_density_kg_m3=document["expected_body_density_kg_m3"],
+                    document_density_kg_m3=document["document_density_kg_m3"])
+
+
 def body_snapshot(author, document, radius_factor, depth_factor, reverse_depth_factor=1.0):
     require = AuthorCurves.require
     u, v = frame_basis(document["plane_axis"])
@@ -148,6 +163,8 @@ def body_snapshot(author, document, radius_factor, depth_factor, reverse_depth_f
     require(len(measured["com"]) == 3, "solid mass center has wrong cardinality")
     for axis in range(3):
         author.rec.close_number(f"solid center of mass {axis}", measured["com"][axis], expected["com"][axis])
+    if "expected_body_density_kg_m3" in document:
+        check_density(author, properties, document, measured, expected)
     return {"feature_type": "Extrusion", "end_condition": end, "condition": condition, "reverse": reverse, "depth_parameter": name, "depth": depth, "second_dimension": second_dimension, "radius": radius, "mass": measured, "expected_mass": expected}
 
 

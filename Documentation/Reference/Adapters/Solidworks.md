@@ -76,6 +76,8 @@ The internal preparation boundary uses normal write options and the final destin
 
 A separate SDK constructor admits a simple closed line loop for the ordinary forward blind boss. A triangle and a concave polygon generate ten streams each, and both original rectangle containers remain byte-identical. The three original native polygon sources match the generated trees and geometry and pass edits and fresh reopen. [Complete polygon part](../../Changes/Solidworks/Construction/SolidworksSdkPolygonBlindPart.md) [Original polygon qualification](../../Changes/Solidworks/Construction/SolidworksSdkOriginalPolygonQualification.md)
 
+An internal SDK constructor generates a complete fixed-centre circle boss with an editable radius or diameter and independent blind depth. Both disclosed files pass first-load body checks, edit, save and fresh reopen in SOLIDWORKS 2026 SP05.2. Public writing of this profile requires held-out qualification. [Circle boss construction](../../Changes/Solidworks/Construction/SolidworksSdkCircleBoss.md)
+
 The internal SDK rectangle composer also owns two driving sketch dimensions and four horizontal or vertical relations. Two independent neutral requests preserve all ten streams, real point and segment handles, displays and parameter ownership through typed preparation. [Rectangle driving dimensions](../../Changes/Solidworks/Construction/SolidworksRectangleDrivingDimensions.md)
 
 ## Read flow

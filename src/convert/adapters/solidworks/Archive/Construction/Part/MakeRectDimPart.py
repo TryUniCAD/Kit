@@ -25,8 +25,8 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeRectDimsMut import (
     MakeRectDimsMut,
 )
-from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeRectKeys import (
-    MakeRectKeys,
+from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeSketchKeys import (
+    MakeSketchKeys,
 )
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RectDimInput import (
     RectDimInput,
@@ -50,5 +50,5 @@ def MakeRectDimPart(
         InputValue,
         PlanValue,
         Allocator,
-        MakeRectKeys(Dimensions, InputValue.DocumentUnits.LengthUnit),
+        MakeSketchKeys(Dimensions, InputValue.DocumentUnits.LengthUnit),
     )

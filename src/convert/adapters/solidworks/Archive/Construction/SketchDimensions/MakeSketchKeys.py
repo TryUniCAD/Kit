@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNode
 
 
 # editable sketch keyword dimensions must project their real parameter names and lengths in the actual document presentation units
-def MakeRectKeys(
+def MakeSketchKeys(
     ResultValues: tuple[DimensionGraph, ...], UnitText: str
 ) -> tuple[KeywordDim, ...]:
     ScaleValue = {"mm": 0.001, "m": 1.0, "in": 0.0254}[UnitText]
