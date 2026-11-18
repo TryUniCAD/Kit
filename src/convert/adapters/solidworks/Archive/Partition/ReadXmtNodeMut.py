@@ -36,9 +36,12 @@ def ReadXmtNodeMut(
     for FieldValue in ShapeValue.FieldsValue:
         CountValue = ArrayCount if FieldValue.CountValue == 1 else FieldValue.CountValue
         if FieldValue.EncodingValue == "c":
-            FieldsValue[FieldValue.NameValue] = CursorValue.TakeBytes(
+            BytesValue = CursorValue.TakeBytes(
                 CountValue if FieldValue.CountValue else 1
-            ).decode("ascii")
+            )
+            FieldsValue[FieldValue.NameValue] = (
+                BytesValue if KindValue == 84 else BytesValue.decode("ascii")
+            )
         elif FieldValue.CountValue:
             FieldsValue[FieldValue.NameValue] = ReadXmtArrayMut(
                 CursorValue, FieldValue, CountValue, PreviousWorld

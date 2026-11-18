@@ -1,0 +1,413 @@
+{
+  "actual_carrier_capabilities": [],
+  "actual_registry_bundle": {
+    "NeutralPerpPair.SLDASM": {
+      "bytes": 10021,
+      "encoded_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PublicPerpendicularRegistry01\\GeneratedInput\\NeutralPerpPair.SLDASM",
+      "sha256": "0a740c7a632ad769174c3d145710ca68502c33d07f575ac02ccb583363293187"
+    },
+    "NeutralPerpPrism.SLDPRT": {
+      "bytes": 8694,
+      "encoded_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PublicPerpendicularRegistry01\\GeneratedInput\\NeutralPerpPrism.SLDPRT",
+      "sha256": "86b6987dd8cd647e8c07067433ad41d08a7d7d0a257f2fc8956f4a747d4ed7e6"
+    }
+  },
+  "additional_geometry_guard_process_count": 8,
+  "agent_native_processes_started": 0,
+  "baseline_python_sources": 5999,
+  "black_ruff_mypy_steering_six_files": true,
+  "candidate_python_sources": 6000,
+  "common_strict_policy_changed": false,
+  "default_and_explicit_registry_output_equal": true,
+  "delivery_pr": 121,
+  "donor_scan": "no recorded payloads in 4369 files",
+  "explicit_primary_geometry_order_preserved": true,
+  "geometry_guard_cases": [
+    {
+      "case": "NonOrthogonal",
+      "pid": 30173,
+      "request_sha256": "96bfb347150a8e3fedac496702655c5b6de38e7cac838bebca324afe2a16165c",
+      "stdout_sha256": "9f7f72fda9c1a179f535dec9d98fbcdcdcd11fad7ad6458161ada09888c255a6"
+    },
+    {
+      "case": "UniformScale",
+      "pid": 30172,
+      "request_sha256": "5e5327922b581f89f77071e4259f2aa2978b9a64d774db5cfe21cafa144e8aa0",
+      "stdout_sha256": "5fc19289857073927e896be76dcb96cc609924f372935c2f7164b9080d0c52f5"
+    },
+    {
+      "case": "MovedPrincipal",
+      "pid": 30174,
+      "request_sha256": "480fc8b8827e343ae716b65a466cd16cc747add1c926dd9e241943def96c8a8a",
+      "stdout_sha256": "2d11569c86a089ffdd067841583822d38c432ed92d7695538c0d93f052ec3028"
+    },
+    {
+      "case": "SlantedDatum",
+      "pid": 30175,
+      "request_sha256": "94ca93c55ab8a6a602ac4675f878ba443251d2ce8a19b8f74e92106b0bf7259a",
+      "stdout_sha256": "5204f89aa16412fd91de9772096e4ab077d78031be5705779fb247a8a4d110a5"
+    },
+    {
+      "case": "SameOccurrence",
+      "pid": 30177,
+      "request_sha256": "64e4dae876ada05e86129d488e73ca0260fde73acad6a91f18bfd880c1d2b577",
+      "stdout_sha256": "25fd15d314f9988ad5f0d9c42c03f8da801352bc77ba4f699941ba6244b8eba9"
+    },
+    {
+      "case": "SuppressedMate",
+      "pid": 30176,
+      "request_sha256": "cdc8806c814e3057d764e4dc04ffd283832e300a93322f759de54e983dd1b95b",
+      "stdout_sha256": "c12fe4833783985774c7407b8929ced69ad0a342beb23049dafb7c8226742fea"
+    },
+    {
+      "case": "FlexibleOccurrence",
+      "pid": 30180,
+      "request_sha256": "e1befbccc0920994f5096337f346b819534d25623f402ebcbf0e4e21e4e3acbc",
+      "stdout_sha256": "051f44ffb14b3f1a1ce369cc67e9ba989818c4cc3238fe45c95781bc432c2098"
+    },
+    {
+      "case": "SuppressedOccurrence",
+      "pid": 30181,
+      "request_sha256": "0a3dabb4b668673dade5f2a7876dc2ceb5ace7fb0d8555609167f216a91b14c9",
+      "stdout_sha256": "b214c33753cd91d250428465a4f5ed42c9df63bdfb7abee409561019f7a96e1c"
+    }
+  ],
+  "geometry_guard_receipt_sha256": "82992e321fa9aba46c6b8414863c06500b0a8ba47a30a4077ac4a6416dca3c9b",
+  "hidden_payloads_read": 0,
+  "independent_prediction_from_actual_portable_input": true,
+  "limits": [
+    "No new native or held-out credit is claimed by this source-only receipt",
+    "The existing strict API rejects false native flags and removes the staged files",
+    "The research opt-in changes policy permission only; both actual files are native and there is no carrier payload",
+    "The internal perpendicular held-out proof remains a separate immutable artifact",
+    "Shared registry, SDK source, public guides and frozen native packet were not modified by this delivery"
+  ],
+  "native_observer_sha256": "a36dac1103e94e6dc233bba8e6f96a710155b5ed4299f5cefa7218ab7a87dec5",
+  "native_packet_sha256": "a719214c4e12170239a22a07598039d62c15ab176583871ce639f745eaddc42b",
+  "native_recipe_sha256": "1589e42113d9223371395f12900c32080be82c72e0418a67ed5c368fcbb76b63",
+  "native_trial_status": "Pending the independent final control and summary; phase progress is not acceptance",
+  "new_profile_admission_rejections": 25,
+  "new_profile_positive_outputs": 5,
+  "new_profile_result_native_flags": false,
+  "new_profile_typed_stream_round_trips": 110,
+  "owner": "assembly_occurrence",
+  "predicted_native_tree_rows": {
+    "child": 25,
+    "parent": 25
+  },
+  "prior_public_2_and_3_occurrence_bundles_byte_identical": true,
+  "prior_public_qualification_metadata_preserved": true,
+  "projection_classification_sha256": "8678e5b2c21789f48e9750a7227a4c687bef56e5144340abb0bcc0ae7be67411",
+  "projection_field_differences": 76,
+  "public_writer_qualified": false,
+  "pyright_log_sha256": "4a082e2f2004f688f18ab9ddd55f5b96969e06da472b98fb28a5d5879b76a291",
+  "pyright_result": "0 errors, 0 warnings, 0 informations",
+  "quality_receipt_sha256": "9c9bf46ee030689086948bc58d3b5498e1657e4ad792c0807d11b2faccf27f9d",
+  "registry_cases": [
+    {
+      "admitted": true,
+      "case": "G01Default",
+      "output_count": 2,
+      "passed": true,
+      "pid": 181,
+      "policy_rejected": false,
+      "rejected": false,
+      "round_trips": 22,
+      "stdout_sha256": "7f9551f6ab8169f8ea9063e88fa1f9d5eddaa90f3ab84a6eba6406ff7274bc9c"
+    },
+    {
+      "admitted": true,
+      "case": "G01Explicit",
+      "output_count": 2,
+      "passed": true,
+      "pid": 180,
+      "policy_rejected": false,
+      "rejected": false,
+      "round_trips": 22,
+      "stdout_sha256": "a41f894399751064b5045719f4718a7ffc67d210080b96ad6608d713584f8c60"
+    },
+    {
+      "admitted": true,
+      "case": "G04Default",
+      "output_count": 2,
+      "passed": true,
+      "pid": 182,
+      "policy_rejected": false,
+      "rejected": false,
+      "round_trips": 22,
+      "stdout_sha256": "9535e51e07df3629c566fe160ea0841c54aff109e215aedc32dd17ca6eabd17a"
+    },
+    {
+      "admitted": true,
+      "case": "G04Explicit",
+      "output_count": 2,
+      "passed": true,
+      "pid": 183,
+      "policy_rejected": false,
+      "rejected": false,
+      "round_trips": 22,
+      "stdout_sha256": "f7b4af6d217a9af79bbd62dfd9423b07b2c5dca883f7c05e2e71709acf6b9eb5"
+    },
+    {
+      "admitted": true,
+      "case": "ReorderedEntitiesDefault",
+      "output_count": 2,
+      "passed": true,
+      "pid": 184,
+      "policy_rejected": false,
+      "rejected": false,
+      "round_trips": 22,
+      "stdout_sha256": "1368d3e4fe390e550522845d8de709d29f67038e76c901e197f80711213c8a04"
+    },
+    {
+      "admitted": false,
+      "case": "AlignedDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 185,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "8d283278f227daaae2a286586fb192049bd5b4c08b5f8d926a87da2f6c22c8d7"
+    },
+    {
+      "admitted": false,
+      "case": "OpposedDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 188,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "aad108c7209f482a6aaff8de5f0f948f0b1dc5269489445b74e08322880fd028"
+    },
+    {
+      "admitted": false,
+      "case": "OneParallelDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 189,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "7460fa0d3cdfd31bcc4b78523e14650fb5b4562b17043f66081c3abc23760461"
+    },
+    {
+      "admitted": false,
+      "case": "OneCoincidentDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 190,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "80403da9a3416521c2cd392315f86e25e9ed7c77627ba1a624d14740de2fb7ba"
+    },
+    {
+      "admitted": false,
+      "case": "ExtraRootMetaDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 193,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "40985b85073c0e9a04a3cf11b95ef76d79e828ca4f9292cd44146834c338bf38"
+    },
+    {
+      "admitted": false,
+      "case": "ChildCaptionDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 194,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "59d7e9b381b14ef1bad185acf2b6eff198ed37f77d7565981c832c4390daa5fb"
+    },
+    {
+      "admitted": false,
+      "case": "MateMetadataDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 195,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "46e1dc9f9cf045d299d1f193d0635634f1f3cf6123d3a3f98c418ca78b779fb2"
+    },
+    {
+      "admitted": false,
+      "case": "ScalarValueDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 196,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "26678132c9c3fa1084820253eed86cfc27eb67c7ae35c2d6107f82ea2db48476"
+    },
+    {
+      "admitted": false,
+      "case": "RootParameterDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 197,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "4f317bd6b2616ad713839ca8d4206825426d029b08d309b4c9126540fdec09e6"
+    },
+    {
+      "admitted": false,
+      "case": "ChildParameterDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 198,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "73967be77556c52f9b99029edf9f7d06ae6f730c9f45e407a94800590649f921"
+    },
+    {
+      "admitted": false,
+      "case": "ThirdOccurrenceDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 199,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "f06e13106d1a3f1496a2d5a702d7841c40782a4b94705118d35107b4e73cec8c"
+    },
+    {
+      "admitted": false,
+      "case": "UnfixedDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 200,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "5196cf1af53ccda88ff1599ee4e8367715970c70606ed10a48c75760999ca3ac"
+    },
+    {
+      "admitted": false,
+      "case": "TwoFixedDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 201,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "da56d5a3ff2dc7c04b346ba5fd0e8fa7aa0743db154344bbeaa6cd8d517b5b93"
+    },
+    {
+      "admitted": false,
+      "case": "HiddenDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 203,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "af527786e334edb99f835ed02a6b2853cc8917317983b1dd8d64fa3b6ecf959b"
+    },
+    {
+      "admitted": false,
+      "case": "ExtraEndpointDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 204,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "7ec7187e8f6a518600fb19d26c6d35f5d95cc4d56514e3699ad495dcfbbd7ff7"
+    },
+    {
+      "admitted": false,
+      "case": "SecondPerpDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 211,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "acca779d46e1688e0ff33a29faf4c0b0bcdd2483fe7bf0d48a979637db0a9bc9"
+    },
+    {
+      "admitted": false,
+      "case": "MixedPerpDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 214,
+      "policy_rejected": false,
+      "rejected": true,
+      "round_trips": 0,
+      "stdout_sha256": "38e5319a3427c5ea0988c0bbbcc9f4d3057a899e2d8cdcf4c45ccb23d1bdc3b9"
+    },
+    {
+      "admitted": true,
+      "case": "StrictDefault",
+      "output_count": 0,
+      "passed": true,
+      "pid": 215,
+      "policy_rejected": true,
+      "rejected": false,
+      "round_trips": 0,
+      "stdout_sha256": "0d038abd8c6d1b76825602e5ccbf243440147f373ba19ab48286fd382666598b"
+    }
+  ],
+  "registry_process_count": 27,
+  "registry_source_proof_sha256": "dac307b3371f6102aa036684a60f9b6613c0e425bab2aa591a984aa14e360539",
+  "research_unqualified_publication_opt_in": true,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.private-public-perpendicular-preparation.v1",
+  "scope": "Private ordinary two-direct-rigid-occurrence one-perpendicular unknown-alignment candidate preserving the existing public recipe and actual child owners",
+  "sdk_delta_files": [
+    {
+      "baseline_sha256": "2e164459a0693f678fd33d3bae0551a4655c945fc32265b5ca0fdd3c1e65e6d3",
+      "bytes": 1221,
+      "path": "src/convert/adapters/solidworks/Core/AssemblyPreparation/Mates/CheckAsmMate.py",
+      "sha256": "d4699a02f04e39ff45a91f9d4e393d9f5c21a115dd971c24e88e9013b84e36bd"
+    },
+    {
+      "baseline_sha256": "f8e734d75fb8a9d8fd887ecb8ad15fbf416f9533a1f32014a8dc240266bec55e",
+      "bytes": 2547,
+      "path": "src/convert/adapters/solidworks/Core/AssemblyPreparation/Mates/ReadAsmRules.py",
+      "sha256": "82c52030d9f7e1d18793c33c51a6d141ff789cc5e2c0a412df51d3d8e828bb24"
+    },
+    {
+      "baseline_sha256": "9b5429785e0379c88e968f57340a6f58029e5b06bc546f4ac0e9ab69c7f701ce",
+      "bytes": 3065,
+      "path": "src/convert/adapters/solidworks/Core/AssemblyPreparation/PlanAsmWrite.py",
+      "sha256": "17ab87e735cc640fc87af759b6148b21884fc7c1d80998680e864ba7aae37f6a"
+    },
+    {
+      "baseline_sha256": "b270d39fac899bb237768226956a28bad4caf1fbcb3a5b2ade08bcf59356d1cb",
+      "bytes": 1985,
+      "path": "src/convert/adapters/solidworks/Core/AssemblyWriting/CheckAsmShape.py",
+      "sha256": "9bb9025351715f4ec26ed88d7529749fbef226dd8c9c6275f4d9ff7de1a8f17b"
+    },
+    {
+      "baseline_sha256": "4f184b5cab9bf957b7e65323c137a204ea9471f5a425e34a1102d629e4ab8a91",
+      "bytes": 2118,
+      "path": "src/convert/adapters/solidworks/Core/AssemblyWriting/EmitAsmMut.py",
+      "sha256": "536c27833918cbdc2aec4da00e0afbed52798a8c2cef45e12863caa346a0b629"
+    },
+    {
+      "baseline_sha256": null,
+      "bytes": 974,
+      "path": "src/convert/adapters/solidworks/Core/AssemblyWriting/QualifyPerpAsm.py",
+      "sha256": "f3c19fff871e6cc189db733a300ddcea9b05b5fb9f0c9cf55922246e1ae4794e"
+    }
+  ],
+  "sdk_delta_sha256": "2c93582030453197d8e71d6ab413aa5d9c5065441d92fe15cb65c305dc70a19d",
+  "shared_registry_changed": false,
+  "source_manifest_sha256": "68f3acd0d0a65f25783dd31def611c63b8651163497bed9c8abb129f2bbf26c1",
+  "strict_unqualified_policy_rejection": true,
+  "task": "B04-SW2026-MATES-PERPENDICULAR/public",
+  "total_registry_process_count": 35,
+  "typed_cold_linked_readback_sha256": "7837961cd689e7eaf028708cfe033f7136be7b2f3200d14da723e61a60647d4b",
+  "unchanged_reused_native_observer_sha256": "943db8da0c9fc58d2857b1c23b08391d29bd8b1bf8e2cef6a648f01830ab6e07"
+}

@@ -4,11 +4,13 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import Requ
 from interchange.assembly.MateConstraint import MateConstraint
 
 
-# unmeasured relationship modes must reject before their names or values can masquerade as ordinary aligned mates
+# ordinary perpendiculars retain unknown alignment while previously qualified planar kinds preserve their exact aligned requirement
 def CheckAsmMate(Value: MateConstraint, RootId: str) -> None:
     RequireAsm(
-        Value.owner_definition_id == RootId and str(Value.alignment) == "aligned",
-        "mate requires its actual root owner and aligned mode",
+        Value.owner_definition_id == RootId
+        and str(Value.alignment)
+        == ("unknown" if str(Value.kind) == "perpendicular" else "aligned"),
+        "mate requires its actual owner and qualified relationship alignment",
     )
     RequireAsm(
         type(CastValue(object, Value.suppressed)) is bool
@@ -22,7 +24,7 @@ def CheckAsmMate(Value: MateConstraint, RootId: str) -> None:
         "mate has unprojected extensions",
     )
     RequireAsm(
-        str(Value.kind) in ("coincident", "parallel", "distance")
+        str(Value.kind) in ("coincident", "parallel", "distance", "perpendicular")
         and len(Value.entity_ids) == 2,
         "mate kind or endpoint arity is unqualified",
     )

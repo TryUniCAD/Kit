@@ -25,9 +25,12 @@ def ReadAsmRules(
 ) -> tuple[GroupMateIn, ...]:
     RulesValue = tuple(sorted(ModelValue.GraphValue.mates, key=ReadAsmOrder))
     RequireAsm(
-        len(RulesValue) in (2, 3)
+        (
+            len(RulesValue) in (2, 3)
+            or (len(RulesValue) == 1 and str(RulesValue[0].kind) == "perpendicular")
+        )
         and tuple(Value.order for Value in RulesValue) == tuple(range(len(RulesValue))),
-        "ordinary public qualification requires an explicit ordered two or three mate group",
+        "assembly requires an ordered qualified planar group or one perpendicular",
     )
     RequireAsm(
         ModelValue.GroupValue.mate_ids == tuple(Value.id for Value in RulesValue),

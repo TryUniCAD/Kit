@@ -16,7 +16,9 @@ from convert.adapters.solidworks.Core.AssemblyWriting.CheckFreshAsm import (
     CheckFreshAsm,
 )
 from convert.adapters.solidworks.Core.AssemblyWriting.FinalAsmPath import FinalAsmPath
-from convert.adapters.solidworks.Core.AssemblyWriting.QualifyAsm import QualifyAsm
+from convert.adapters.solidworks.Core.AssemblyWriting.QualifyPerpAsm import (
+    QualifyPerpAsm,
+)
 from convert.adapters.solidworks.Core.AssemblyWriting.WriteAsmBundle import (
     WriteAsmBundle,
 )
@@ -42,4 +44,4 @@ def EmitAsmMut(
     )
     CheckFreshAsm(FinalPath, ModelValue.ChildValue.name)
     Candidate = PrepareAssembly(DocumentValue, NativePath, int(ReadTime()))
-    return QualifyAsm(WriteAsmBundle(Candidate, OutputPath))
+    return QualifyPerpAsm(DocumentValue, WriteAsmBundle(Candidate, OutputPath))

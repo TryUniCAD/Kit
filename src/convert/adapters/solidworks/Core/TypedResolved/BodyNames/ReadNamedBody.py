@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.BodyNameGraph impo
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyAtom import (
     ReadBodyAtom,
 )
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyAuthor import (
+    ReadBodyAuthor,
+)
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyAttrs import (
     ReadBodyAttrs,
 )
@@ -49,7 +52,9 @@ def ReadNamedBody(
     BodyValue = NodesValue[TreeValue.BodyIndex]
     CheckXmtAttrs(NodesValue, BodyValue)
     Attributes = ReadBodyAttrs(NodesValue, BodyValue)
-    LabelValue, ExplicitLabel = ReadKernelName(NodesValue, Attributes)
+    LabelValue, ExplicitLabel = ReadKernelName(
+        NodesValue, Attributes, ReadBodyAuthor(LinkValue)
+    )
     AtomValue, FeatureId = ReadBodyAtom(
         LinkValue, NodesValue, Attributes, LabelValue, ExplicitLabel
     )

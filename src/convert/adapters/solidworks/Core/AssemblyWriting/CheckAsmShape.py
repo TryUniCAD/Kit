@@ -3,6 +3,9 @@ from dataclasses import replace as ReplaceValue
 from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.CheckGroupGeom import (
     CheckGroupGeom,
 )
+from convert.adapters.solidworks.Archive.Construction.Perpendicular.CheckPerpGroup import (
+    CheckPerpGroup,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectRectDims import (
     ProjectRectDims,
 )
@@ -33,9 +36,12 @@ def CheckAsmShape(DocumentValue: CadDocument) -> str:
     CheckPlainScope(ChildValue)
     PlanValue = ProjectRectDims(ChildValue)
     if (PlanValue.SketchDriverNames, PlanValue.DepthName) != (("D1", "D2"), "D1"):
-        raise ValueError("public assembly writing requires its qualified child driver names")
+        raise ValueError(
+            "public assembly writing requires its qualified child driver names"
+        )
     Placements = tuple(ReadAsmPlace(Value) for Value in ModelValue.Occurrences)
     MateValues = ReadAsmRules(DocumentValue, ModelValue, PlaneValues)
+    CheckPerpGroup(Placements, MateValues)
     for MateValue in MateValues:
         CheckGroupGeom(Placements, MateValue)
     return ModelValue.RootValue.name

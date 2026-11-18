@@ -26,6 +26,10 @@ def BodyNameProof(GraphValue: BodyNameGraph) -> Mapping[str, object]:
             ),
             "body_count": 1,
             "complete_brep_binding": True,
-            "qualified_encoding": "printable_ascii",
+            "qualified_encoding": (
+                "printable_ascii"
+                if GraphValue.NameValue.isascii()
+                else "agreeing_archive_and_implicit_utf16"
+            ),
         }
     )

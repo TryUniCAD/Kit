@@ -1,0 +1,15 @@
+# Qualifying an ordinary perpendicular registry output
+
+The public assembly writer currently supports its established aligned planar groups. A private source overlay now prepares an ordinary one-perpendicular route for qualification. This page describes that research boundary; it does not enable the route or claim full-format support.
+
+The neutral input owns one centered dimensioned rectangular part, its actual three principal datums and active configuration, two direct rigid occurrences, one fixed owner and one ordered perpendicular mate. Alignment is explicitly `unknown`. The complete graph must account for every parameter, entity and supported metadata field. Initial orthogonality is required; invalid-angle correction, mixed groups, arbitrary planes and nested components are excluded.
+
+The isolated process uses the real `convert.write_document` registry/path flow, both extension selection and explicit `solidworks.sldasm`. Existing Windows path mapping, no-overwrite, companion publication and rollback rules remain unchanged. The private candidate keeps false vendor/application flags; the common strict policy therefore rejects it before publication. Research preparation uses the existing explicit unqualified-write permission and verifies that no actual carrier payload or capability is emitted.
+
+`MakePublicPerpInputs.py` authors the disclosed portable inputs. `CheckPublicPerp.py` runs twenty-seven independent registry processes against the frozen full source/baseline closure. `CheckPublicPerpGuards.py` adds eight genuine geometry/ownership negatives. `PreparePublicPerpNative.py` freezes the actual normal-registry files, independently derived geometry, actual default tree roles, typed linked owner readback and the controlled native observer. `InspectPublicPerpNative.py verify` checks that packet without COM or a native launch; root-owned `run` phases require independent leading/generated/reopen/trailing processes.
+
+The private fixture's source manifest, registry/guard receipts, packet and recipe hashes are recorded in the [construction record](../../../../re/solidworks/records/PerpendicularRegistryPreparation2026.md) and [sanitized receipt](../../../../re/solidworks/measurements/2026/SdkPerpendicularRegistryPreparation01.json). The exact native flags remain false until actual output qualifies. Preserve a failed phase and its final control separately; do not change the writer or measured input to obtain a verdict.
+
+The [complete projection audit](../../../../re/solidworks/records/PerpendicularPublicProjection2026.json) distinguishes presentation, tree captions, timestamps, provenance, preferences, annotation positions and unit-conversion rounding. Public defaults stay intact. Native qualification of another input recipe does not waive this separate complete-file trial.
+
+[Established public assembly writing](../../Adapters/SolidworksAssemblyWriting.md) · [Change entry](../../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryCandidate.md)

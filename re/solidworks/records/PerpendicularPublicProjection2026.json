@@ -1,0 +1,757 @@
+{
+  "difference_count": 76,
+  "differences": [
+    {
+      "existing_public_projection": "Century Gothic",
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/FontName",
+      "public_default_changed": false,
+      "qualified_fixture": "Arial",
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": "Continuous",
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/LineStyleName",
+      "public_default_changed": false,
+      "qualified_fixture": "sdk plain NeutralPerpPrism continuous",
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.00018,
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/0",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0001,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.00025,
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/1",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0002,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.00035,
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/2",
+      "public_default_changed": false,
+      "qualified_fixture": 0.00030000000000000003,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.0005,
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/3",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0004,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.0007,
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/4",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0005,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.001,
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/5",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0006000000000000001,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.0014,
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/6",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0007,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.002,
+      "group": "child_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/7",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0008,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": "Description",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/0",
+      "public_default_changed": false,
+      "qualified_fixture": "sdk plain NeutralPerpPrism description",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "High Priority",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/1",
+      "public_default_changed": false,
+      "qualified_fixture": "sdk plain NeutralPerpPrism high",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "Low Priority",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/2",
+      "public_default_changed": false,
+      "qualified_fixture": "sdk plain NeutralPerpPrism low",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "Complete",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/3",
+      "public_default_changed": false,
+      "qualified_fixture": "sdk plain NeutralPerpPrism complete",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "Reminder",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/4",
+      "public_default_changed": false,
+      "qualified_fixture": "sdk plain NeutralPerpPrism reminder",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "",
+      "group": "child_recipe_differences",
+      "meaning": "Empty public cut-list expression defaults",
+      "path": "/StyleValue/CutlistExpressions/0",
+      "public_default_changed": false,
+      "qualified_fixture": "item",
+      "semantic_role": "cutlist_preferences"
+    },
+    {
+      "existing_public_projection": "",
+      "group": "child_recipe_differences",
+      "meaning": "Empty public cut-list expression defaults",
+      "path": "/StyleValue/CutlistExpressions/1",
+      "public_default_changed": false,
+      "qualified_fixture": "description",
+      "semantic_role": "cutlist_preferences"
+    },
+    {
+      "existing_public_projection": "",
+      "group": "child_recipe_differences",
+      "meaning": "Empty public cut-list expression defaults",
+      "path": "/StyleValue/CutlistExpressions/2",
+      "public_default_changed": false,
+      "qualified_fixture": "stock",
+      "semantic_role": "cutlist_preferences"
+    },
+    {
+      "existing_public_projection": "Lights and Cameras",
+      "group": "child_recipe_differences",
+      "meaning": "The visible child environment-folder name",
+      "path": "/SystemValue/FolderValues/8/1",
+      "public_default_changed": false,
+      "qualified_fixture": "Environment",
+      "semantic_role": "system_tree_caption"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "child_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/SystemValue/CreatedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794000100,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": "Kit",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document attribution and history text",
+      "path": "/HeaderValue/AuthorName",
+      "public_default_changed": false,
+      "qualified_fixture": "Kit authored neutral input",
+      "semantic_role": "generated_provenance"
+    },
+    {
+      "existing_public_projection": "",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document attribution and history text",
+      "path": "/HeaderValue/CompanyName",
+      "public_default_changed": false,
+      "qualified_fixture": "SDK interoperability research",
+      "semantic_role": "generated_provenance"
+    },
+    {
+      "existing_public_projection": "Generated by Kit for SOLIDWORKS 2026 SP05.2",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document attribution and history text",
+      "path": "/HeaderValue/CommentText",
+      "public_default_changed": false,
+      "qualified_fixture": "independent plain rectangular boss",
+      "semantic_role": "generated_provenance"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "child_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/HeaderValue/CreatedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794000100,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "child_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/HeaderValue/ModifiedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794000110,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "child_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/HeaderValue/UpdatedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794000110,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "child_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/HistoryValue/CreatedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794000100,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": "Generated by Kit for SOLIDWORKS 2026 SP05.2",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document attribution and history text",
+      "path": "/HistoryValue/CommentText",
+      "public_default_changed": false,
+      "qualified_fixture": "independent plain rectangular boss",
+      "semantic_role": "generated_provenance"
+    },
+    {
+      "existing_public_projection": 2026306,
+      "group": "child_recipe_differences",
+      "meaning": "Public target date code from FeatureTarget",
+      "path": "/HistoryValue/BuildCode",
+      "public_default_changed": false,
+      "qualified_fixture": 2026001,
+      "semantic_role": "release_identity"
+    },
+    {
+      "existing_public_projection": 26,
+      "group": "child_recipe_differences",
+      "meaning": "Document display/tessellation preference fields",
+      "path": "/DefinitionValue/Tessellation/0",
+      "public_default_changed": false,
+      "qualified_fixture": 20,
+      "semantic_role": "tessellation_preferences"
+    },
+    {
+      "existing_public_projection": 4,
+      "group": "child_recipe_differences",
+      "meaning": "Document display/tessellation preference fields",
+      "path": "/DefinitionValue/Tessellation/1",
+      "public_default_changed": false,
+      "qualified_fixture": 15,
+      "semantic_role": "tessellation_preferences"
+    },
+    {
+      "existing_public_projection": 25,
+      "group": "child_recipe_differences",
+      "meaning": "Document display/tessellation preference fields",
+      "path": "/DefinitionValue/Tessellation/2",
+      "public_default_changed": false,
+      "qualified_fixture": 3,
+      "semantic_role": "tessellation_preferences"
+    },
+    {
+      "existing_public_projection": true,
+      "group": "child_recipe_differences",
+      "meaning": "Document display/tessellation preference fields",
+      "path": "/DefinitionValue/Tessellation/3",
+      "public_default_changed": false,
+      "qualified_fixture": false,
+      "semantic_role": "tessellation_preferences"
+    },
+    {
+      "existing_public_projection": "Journal",
+      "group": "child_recipe_differences",
+      "meaning": "Generated document journal name",
+      "path": "/DefinitionValue/JournalName",
+      "public_default_changed": false,
+      "qualified_fixture": "authored journal",
+      "semantic_role": "journal_caption"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "child_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/OutputValue/SavedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794000120,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": "ANSI31 (Iron BrickStone)",
+      "group": "child_recipe_differences",
+      "meaning": "Public hatch presentation name",
+      "path": "/HatchName",
+      "public_default_changed": false,
+      "qualified_fixture": "authored hatch",
+      "semantic_role": "hatch_preferences"
+    },
+    {
+      "existing_public_projection": 1000.0,
+      "group": "child_recipe_differences",
+      "meaning": "Stored document material-density preference, separately measured from effective COM mass density",
+      "path": "/DensityValue",
+      "public_default_changed": false,
+      "qualified_fixture": 1.0,
+      "semantic_role": "density_preference"
+    },
+    {
+      "existing_public_projection": "Century Gothic",
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/FontName",
+      "public_default_changed": false,
+      "qualified_fixture": "Arial",
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": "Continuous",
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/LineStyleName",
+      "public_default_changed": false,
+      "qualified_fixture": "authored continuous",
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.00018,
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/0",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0001,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.00025,
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/1",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0002,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.00035,
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/2",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0003,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.0005,
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/3",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0004,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.0007,
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/4",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0005,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.001,
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/5",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0006,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.0014,
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/6",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0007,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": 0.002,
+      "group": "root_recipe_differences",
+      "meaning": "Document annotation font, line label or print width",
+      "path": "/StyleValue/PrintWidths/7",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0008,
+      "semantic_role": "annotation_style"
+    },
+    {
+      "existing_public_projection": "Description",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/0",
+      "public_default_changed": false,
+      "qualified_fixture": "description",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "High Priority",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/1",
+      "public_default_changed": false,
+      "qualified_fixture": "high",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "Low Priority",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/2",
+      "public_default_changed": false,
+      "qualified_fixture": "low",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "Complete",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/3",
+      "public_default_changed": false,
+      "qualified_fixture": "complete",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "Reminder",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document task labels",
+      "path": "/StyleValue/TaskLabels/4",
+      "public_default_changed": false,
+      "qualified_fixture": "reminder",
+      "semantic_role": "task_vocabulary"
+    },
+    {
+      "existing_public_projection": "",
+      "group": "root_recipe_differences",
+      "meaning": "Empty public cut-list expression defaults",
+      "path": "/StyleValue/CutlistExpressions/0",
+      "public_default_changed": false,
+      "qualified_fixture": "item",
+      "semantic_role": "cutlist_preferences"
+    },
+    {
+      "existing_public_projection": "",
+      "group": "root_recipe_differences",
+      "meaning": "Empty public cut-list expression defaults",
+      "path": "/StyleValue/CutlistExpressions/1",
+      "public_default_changed": false,
+      "qualified_fixture": "description",
+      "semantic_role": "cutlist_preferences"
+    },
+    {
+      "existing_public_projection": "",
+      "group": "root_recipe_differences",
+      "meaning": "Empty public cut-list expression defaults",
+      "path": "/StyleValue/CutlistExpressions/2",
+      "public_default_changed": false,
+      "qualified_fixture": "stock",
+      "semantic_role": "cutlist_preferences"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "root_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/SystemValue/CreatedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794700000,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": "Kit",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document attribution and history text",
+      "path": "/HeaderValue/AuthorName",
+      "public_default_changed": false,
+      "qualified_fixture": "Kit research",
+      "semantic_role": "generated_provenance"
+    },
+    {
+      "existing_public_projection": "",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document attribution and history text",
+      "path": "/HeaderValue/CompanyName",
+      "public_default_changed": false,
+      "qualified_fixture": "authored compatibility experiment",
+      "semantic_role": "generated_provenance"
+    },
+    {
+      "existing_public_projection": "Generated by Kit for SOLIDWORKS 2026 SP05.2",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document attribution and history text",
+      "path": "/HeaderValue/CommentText",
+      "public_default_changed": false,
+      "qualified_fixture": "generated from neutral geometry",
+      "semantic_role": "generated_provenance"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "root_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/HeaderValue/CreatedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794700000,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "root_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/HeaderValue/ModifiedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794700000,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "root_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/HeaderValue/UpdatedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794700000,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": 1794700075,
+      "group": "root_recipe_differences",
+      "meaning": "One explicit public construction/save epoch rather than separate research times",
+      "path": "/HistoryValue/CreatedAt",
+      "public_default_changed": false,
+      "qualified_fixture": 1794700000,
+      "semantic_role": "lifecycle_time"
+    },
+    {
+      "existing_public_projection": "Generated by Kit for SOLIDWORKS 2026 SP05.2",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document attribution and history text",
+      "path": "/HistoryValue/CommentText",
+      "public_default_changed": false,
+      "qualified_fixture": "generated from neutral geometry",
+      "semantic_role": "generated_provenance"
+    },
+    {
+      "existing_public_projection": 2026306,
+      "group": "root_recipe_differences",
+      "meaning": "Public target date code from FeatureTarget",
+      "path": "/HistoryValue/BuildCode",
+      "public_default_changed": false,
+      "qualified_fixture": 2026001,
+      "semantic_role": "release_identity"
+    },
+    {
+      "existing_public_projection": 26,
+      "group": "root_recipe_differences",
+      "meaning": "Document display/tessellation preference fields",
+      "path": "/DefinitionValue/Tessellation/0",
+      "public_default_changed": false,
+      "qualified_fixture": 20,
+      "semantic_role": "tessellation_preferences"
+    },
+    {
+      "existing_public_projection": 4,
+      "group": "root_recipe_differences",
+      "meaning": "Document display/tessellation preference fields",
+      "path": "/DefinitionValue/Tessellation/1",
+      "public_default_changed": false,
+      "qualified_fixture": 15,
+      "semantic_role": "tessellation_preferences"
+    },
+    {
+      "existing_public_projection": 25,
+      "group": "root_recipe_differences",
+      "meaning": "Document display/tessellation preference fields",
+      "path": "/DefinitionValue/Tessellation/2",
+      "public_default_changed": false,
+      "qualified_fixture": 3,
+      "semantic_role": "tessellation_preferences"
+    },
+    {
+      "existing_public_projection": true,
+      "group": "root_recipe_differences",
+      "meaning": "Document display/tessellation preference fields",
+      "path": "/DefinitionValue/Tessellation/3",
+      "public_default_changed": false,
+      "qualified_fixture": false,
+      "semantic_role": "tessellation_preferences"
+    },
+    {
+      "existing_public_projection": "Journal",
+      "group": "root_recipe_differences",
+      "meaning": "Generated document journal name",
+      "path": "/DefinitionValue/JournalName",
+      "public_default_changed": false,
+      "qualified_fixture": "NeutralPerpPair",
+      "semantic_role": "journal_caption"
+    },
+    {
+      "existing_public_projection": 0.0,
+      "group": "root_recipe_differences",
+      "meaning": "Explicit save-as-part preference; not a mate scalar or current body geometry input",
+      "path": "/SavePartValues/5fd",
+      "public_default_changed": false,
+      "qualified_fixture": 0.25,
+      "semantic_role": "save_as_part_preferences"
+    },
+    {
+      "existing_public_projection": 0.0,
+      "group": "dimension_placement_differences",
+      "meaning": "Analytical dimension annotation position from actual rectangle extrema; scalar drivers unchanged",
+      "path": "/WidthText/0",
+      "public_default_changed": false,
+      "qualified_fixture": -0.006481499999999999,
+      "semantic_role": "dimension_text_position"
+    },
+    {
+      "existing_public_projection": -0.014047500000000001,
+      "group": "dimension_placement_differences",
+      "meaning": "Analytical dimension annotation position from actual rectangle extrema; scalar drivers unchanged",
+      "path": "/WidthText/1",
+      "public_default_changed": false,
+      "qualified_fixture": -0.016065,
+      "semantic_role": "dimension_text_position"
+    },
+    {
+      "existing_public_projection": 0.0324075,
+      "group": "dimension_placement_differences",
+      "meaning": "Analytical dimension annotation position from actual rectangle extrema; scalar drivers unchanged",
+      "path": "/HeightText/0",
+      "public_default_changed": false,
+      "qualified_fixture": 0.029804999999999998,
+      "semantic_role": "dimension_text_position"
+    },
+    {
+      "existing_public_projection": 0.0,
+      "group": "dimension_placement_differences",
+      "meaning": "Analytical dimension annotation position from actual rectangle extrema; scalar drivers unchanged",
+      "path": "/HeightText/1",
+      "public_default_changed": false,
+      "qualified_fixture": 0.0020603,
+      "semantic_role": "dimension_text_position"
+    },
+    {
+      "existing_public_projection": -0.017230000000000002,
+      "group": "occurrence_projection_differences",
+      "meaning": "Metres to portable millimetres to native metres differs by one ULP",
+      "path": "/1/FrameValue/OriginValue/2",
+      "public_default_changed": false,
+      "qualified_fixture": -0.01723,
+      "semantic_role": "unit_conversion_roundoff"
+    }
+  ],
+  "group_counts": {
+    "child_recipe_differences": 37,
+    "dimension_placement_differences": 4,
+    "occurrence_projection_differences": 1,
+    "root_recipe_differences": 34
+  },
+  "hidden_payloads_read": 0,
+  "limits": [
+    "Semantic roles explain typed source projections; they do not alone prove native acceptance of the changed complete public recipe",
+    "The actual trial uses a new declared final path; its path-derived lengths and complete hashes are separately frozen",
+    "Stored density preference and effective mass API density must not be equated without native measurement"
+  ],
+  "native_saved_values_used": false,
+  "new_public_perpendicular_native_acceptance": false,
+  "production_defaults_preserved": true,
+  "projection_values_came_from": "independently authored G01 recipe and the existing public source constructors",
+  "same_path_projection_changed_logical_streams": {
+    "child": [
+      "Header2",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0",
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/Definition",
+      "_MO_VERSION_19000/History",
+      "swXmlContents/KeyWords"
+    ],
+    "parent": [
+      "Header2",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Definition",
+      "_MO_VERSION_19000/History",
+      "swXmlContents/KeyWords",
+      "swXmlContents/COMPINSTANCETREE",
+      "Contents/Config-0",
+      "Contents/Config-0-ResolvedFeatures",
+      "Contents/Config-0-MatesList",
+      "Contents/CMgr"
+    ]
+  },
+  "schema": "kit.sw2026.perpendicular-public-projection-classification.v1",
+  "semantic_role_counts": {
+    "annotation_style": 20,
+    "cutlist_preferences": 6,
+    "density_preference": 1,
+    "dimension_text_position": 4,
+    "generated_provenance": 8,
+    "hatch_preferences": 1,
+    "journal_caption": 2,
+    "lifecycle_time": 11,
+    "release_identity": 2,
+    "save_as_part_preferences": 1,
+    "system_tree_caption": 1,
+    "task_vocabulary": 10,
+    "tessellation_preferences": 8,
+    "unit_conversion_roundoff": 1
+  },
+  "source_audit_sha256": "69760b1e8252894e4a9dfcaa162346c8ebe36c90b8b99be79609a11f65a58b8a",
+  "source_rules": [
+    "src/convert/adapters/solidworks/Core/Preparation/MakePartRecipe.py",
+    "src/convert/adapters/solidworks/Core/Preparation/MakePartStyle.py",
+    "src/convert/adapters/solidworks/Core/Preparation/DefaultPartTree.py",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Recipe/DefaultAsmTree.py",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Recipe/AsmSavePolicy.py",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Children/ReadRectDisplay.py",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Placements/ReadAsmPlace.py"
+  ]
+}

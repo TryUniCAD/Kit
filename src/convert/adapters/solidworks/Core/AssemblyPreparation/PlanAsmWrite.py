@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.CheckGroupG
 from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.CheckGroupNames import (
     CheckGroupNames,
 )
+from convert.adapters.solidworks.Archive.Construction.Perpendicular.CheckPerpGroup import (
+    CheckPerpGroup,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectRectDims import (
     ProjectRectDims,
 )
@@ -63,6 +66,7 @@ def PlanAsmWrite(
     )
     Occurrences = tuple(ReadAsmPlace(Value) for Value in ModelValue.Occurrences)
     MateValues = ReadAsmRules(Document, ModelValue, ChildPlanes)
+    CheckPerpGroup(Occurrences, MateValues)
     CheckGroupNames(RootRecipe, Occurrences, MateValues)
     for Value in MateValues:
         CheckGroupGeom(Occurrences, Value)
