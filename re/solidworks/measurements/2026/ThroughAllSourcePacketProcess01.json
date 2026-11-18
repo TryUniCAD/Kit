@@ -1,0 +1,49 @@
+{
+  "schema": "kit.sw2026.through-all-packet-process-proof.v1",
+  "packet_sha256": "a4ea8279760fece8255b645cc20c2f41d855bb306506a38ebc8787764acf7df3",
+  "tool_sha256": "b914dbdd72cc239f9dda6cda3dc360b6a91617cf17fe91f90f181a8e7a3b06b5",
+  "python_version": "3.11.16 (main, Sep  1 2026, 14:08:22) [Clang 22.1.3 ]",
+  "workers": 5,
+  "results": {
+    "positive": {
+      "returncode": 0,
+      "result": {
+        "native_processes_started": 0,
+        "new_heldout_inputs_read": 0,
+        "passed": true
+      }
+    },
+    "wrong-packet-hash": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "missing-control": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "changed-disclosed": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "changed-tool": {
+      "returncode": 3,
+      "result": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    }
+  },
+  "passed": true,
+  "native_processes_started": 0,
+  "new_heldout_inputs_read": 0,
+  "writer_output_count": 0
+}
