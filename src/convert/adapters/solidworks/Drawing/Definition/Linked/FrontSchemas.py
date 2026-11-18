@@ -15,6 +15,7 @@ KFrontSchemas = MappingProxyType(
                 "moCompProfile_c",
                 "moEdgeRef_c",
                 "moFromSktEntSurfIdRep_c",
+                "moEndFaceSurfIdRep_c",
                 "moFR_c",
                 "moChainComponent_c",
                 "moReferenceChain_c",
