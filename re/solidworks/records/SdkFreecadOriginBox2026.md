@@ -51,3 +51,33 @@ establishes the separate checks. The corrected observer measures both and
 requires the same immutable candidate. The failed first attempt is retained
 under raw result SHA-256
 `e67edbfededf32690b5c96661b545c52a5fbaf1d309c19dae701e3a3b5494c2b`.
+
+## Native target lifecycle
+
+The corrected observer passes on the same 9,971-byte model across four
+fresh SOLIDWORKS 2026 SP05.2 processes. They open pristine control,
+generated part, edited save and pristine control in that order. The
+controlled run verifies all 25 native tree rows, one solid, real origin
+coincidence, positive volume, area and centroid, all thirteen source text
+properties and the two independent density owners. All 162 recorded
+numerical checks pass.
+
+The three native lengths are 20, 30 and 10 mm initially. Length and width
+independently rebuild at 25 and 36 mm, then restore to the source sizes.
+The last depth edit persists at 14 mm after a clean save and fresh reopen.
+The native body retains eight vertices, twelve edges and six faces. The
+anchor points stay at the model origin through every edit.
+
+Both the initial generation and the native save preserve the three live
+drivers, seven constraints and thirteen file properties in the Kit
+history read. Both scoped Config and Resolved streams round-trip exactly
+on each file. The native-saved derivative contains the readable Parasolid
+records that the initial generated file lacks.
+
+The native body name is `AdditiveBox`, and the source body label `Body`
+is retained as literal file text. The three original parameter identities
+are bound to the actual native D1/D2 owners. Direct preservation of those
+source labels and confirmation of original corpus membership remain open.
+The [sanitized receipt](../measurements/2026/SdkFreecadOriginBoxNative01.json)
+records this verified target lifecycle and explicitly retains zero
+complete FCStd conversions.

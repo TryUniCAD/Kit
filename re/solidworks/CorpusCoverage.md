@@ -346,8 +346,10 @@ establishes the editable geometry needed for the scoped FreeCAD primitive.
 The [disclosed FreeCAD origin box](records/SdkFreecadOriginBox2026.md) enters
 the shared constructors through the actual strictly decoded neutral source.
 Four guarded builds yield identical native bytes with three live drivers
-and source text. Native acceptance and original benchmark membership remain
-open, so this adds zero corpus passes.
+and source text. The generated box passes the disclosed native edit, save
+and reopen lifecycle with 162 analytical checks. Native direct body and
+driver names and original benchmark membership remain open, so this adds
+zero corpus passes.
 
 The two [original SDK circle parts](records/SdkOriginalCircleNative2026.md)
 pass native source parity for translated Front-plane diameter and reversed
