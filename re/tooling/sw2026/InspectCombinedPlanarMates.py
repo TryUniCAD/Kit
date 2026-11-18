@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import argparse
-from copy import deepcopy
 import json
 import math
 import os
@@ -11,13 +10,14 @@ from shutil import copyfile
 import time
 
 from AuthorCurves import digest, require, write_json
+from PlanarMateEdit import driving_request, predict_edit, verify_case
 
 
 SCHEMA = "kit.sw2026.combined-planar-mate-discovery.v1"
 ORACLE = "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
 SCRIPT = Path(__file__).resolve()
 TOOLS = ("AssemblyMateEvidence.py", "AuthorAssemblySources.py", "AuthorCurves.py", "InspectCircleSketch.py",
-         "InspectFresh.py", "ObserveAssemblyLoad.py", "OracleIdentity.py", "Swapp.py", SCRIPT.name)
+         "InspectFresh.py", "ObserveAssemblyLoad.py", "OracleIdentity.py", "PlanarMateEdit.py", "Swapp.py", SCRIPT.name)
 ROLES = ("ControlBefore", "Generated", "Reopen", "ControlAfter")
 
 
@@ -39,8 +39,8 @@ def verify(path, sha):
             "the observer accepts the disclosed pinned plane-mate profile")
     require(set(job["tool_hashes"]) == set(TOOLS)
             and all(digest(tools / name) == job["tool_hashes"][name] for name in TOOLS), "an observer tool changed")
-    require(set(job["inputs"]) == {"source_parent", "source_child", "generated_parent", "generated_child"}
-            and type(job["fixed_occurrence"]) is int and job["fixed_occurrence"] == 0, "unexpected paired input ownership")
+    require(set(job["inputs"]) == {"source_parent", "source_child", "generated_parent", "generated_child"},
+            "unexpected paired input ownership")
     paths = {role: check_file(root, row) for role, row in job["inputs"].items()}
     freeze = root / ("GenerationFreeze" + attempt + ".json")
     require(digest(freeze) == job["generation_freeze_sha256"], "generated comparison custody changed")
@@ -55,19 +55,8 @@ def verify(path, sha):
     require(paths["source_parent"].name == paths["generated_parent"].name and
             paths["source_child"].name == paths["generated_child"].name and
             len(set(paths.values())) == 4, "source and generated lanes must use matching identities and separate paths")
-    require(job["case"]["split"] == "discovery" and job["case"]["fixed_occurrence"] == job["fixed_occurrence"]
-            and len(job["case"]["mates"]) == len(job["case"]["placements"]) == 2, "expected the orthogonal two-mate discovery design")
-    first, second = job["case"]["placements"]
-    distance, coincident = job["case"]["mates"]
-    require(first["translation_m"] == [0, 0, 0]
-            and first["angle_deg"] == second["angle_deg"] == 0
-            and second["translation_m"][1] == 0
-            and distance["kind"] == "distance" and distance["planes"] == [[0, "Right Plane"], [1, "Right Plane"]]
-            and distance["distance_m"] == second["translation_m"][0]
-            and coincident["kind"] == "coincident" and coincident["planes"] == [[0, "Top Plane"], [1, "Top Plane"]],
-            "the discovery edit requires the measured orthogonal plane configuration")
-    require(math.isfinite(job["edit_distance_m"]) and job["edit_distance_m"] > 0
-            and job["edit_distance_m"] != distance["distance_m"], "expected a changed positive driving distance")
+    require(job["case"]["split"] == "discovery", "expected a disclosed group")
+    verify_case(job["case"], job["fixed_occurrence"], job["edit_distance_m"])
     require(len(job["child_size_m"]) == 3 and all(math.isfinite(v) and v > 0 for v in job["child_size_m"]),
             "the part prediction requires its authored dimensions")
     return job, paths
@@ -77,13 +66,6 @@ def mass_prediction(job):
     width, height, depth = job["child_size_m"]
     return {"volume": width * height * depth, "area": 2 * (width * height + height * depth + width * depth),
             "com": (0.0, 0.0, depth / 2)}
-
-
-def edited_case(job):
-    case = deepcopy(job["case"])
-    case["placements"][1]["translation_m"][0] = job["edit_distance_m"]
-    case["mates"][0]["distance_m"] = job["edit_distance_m"]
-    return case
 
 
 def capture(author, model, assembly, child_path, case, mass, label):
@@ -107,11 +89,11 @@ def capture(author, model, assembly, child_path, case, mass, label):
     return observed
 
 
-def native_save(author, model, assembly, parent, child, recorder):
+def native_save(author, model, assembly, parent, child, count, recorder):
     import Swapp
     from AuthorAssemblySources import save_owned_child
 
-    owned = save_owned_child(author, assembly, child, 2, recorder, parent.parent, basename=child.name)
+    owned = save_owned_child(author, assembly, child, count, recorder, parent.parent, basename=child.name)
     errors, warnings = Swapp.byref_long(), Swapp.byref_long()
     saved = recorder.call("persist generated parent after its child", Swapp.invoke, model, "Save3", Swapp.SAVE_SILENT, errors, warnings)
     status = [bool(saved), int(errors.value), int(warnings.value)]
@@ -119,7 +101,7 @@ def native_save(author, model, assembly, parent, child, recorder):
     return {"parent": digest(parent), "child": owned, "parent_status": status}
 
 
-def phase(job, role, parent, child, target, *, editing=False, reopened=None):
+def phase(job, edit, role, parent, child, target, *, editing=False, reopened=None):
     import Swapp
     from AssemblyMateEvidence import mate_features
     from AuthorAssemblySources import bound_child
@@ -131,7 +113,8 @@ def phase(job, role, parent, child, target, *, editing=False, reopened=None):
     recorder = Recorder(target / "Record.json", {"role": role, "input": {"parent": digest(parent), "child": digest(child)}})
     result = {"role": role, "started_at": time.time(), "passed": False}
     controller = None
-    case = edited_case(job) if reopened else job["case"]
+    case = edit if reopened else job["case"]
+    count = len(case["placements"])
     mass = mass_prediction(job)
     with AssemblyLoadMonitor() as monitor:
         try:
@@ -147,25 +130,25 @@ def phase(job, role, parent, child, target, *, editing=False, reopened=None):
             require(model is not None and errors == warnings == 0 and Path(author.get(model, "GetPathName")).samefile(parent),
                     "native combined assembly failed, warned or resolved another path")
             assembly = author.typed(model, "AssemblyDoc")
-            loaded_child = bound_child(author, assembly, child, 2)
+            loaded_child = bound_child(author, assembly, child, count)
             result["child_stamp_on_open"] = int(author.get(loaded_child, "GetUpdateStamp"))
             result["initial"] = capture(author, model, assembly, child, case, mass, "initial")
             require(author.get(model, "ForceRebuild3", False), "native assembly rebuild failed")
             result["rebuilt"] = capture(author, model, assembly, child, case, mass, "rebuilt")
             if editing:
-                first = case["mates"][0]["name"]
-                feature, = [value for value in mate_features(author, model) if author.get(value, "Name") == first]
+                drive = driving_request(case)["name"]
+                feature, = [value for value in mate_features(author, model) if author.get(value, "Name") == drive]
                 display = author.get(feature, "GetFirstDisplayDimension")
                 require(display is not None, "the native distance mate has no display")
                 parameter = author.get(display, "GetDimension2", 0)
                 status = int(author.get(parameter, "SetSystemValue3", job["edit_distance_m"], 1, author.sw.nothing()))
                 require(status == 0 and author.get(model, "ForceRebuild3", False), "the live distance edit failed")
                 result["edit_status"] = status
-                result["edited"] = capture(author, model, assembly, child, edited_case(job), mass, "edited")
+                result["edited"] = capture(author, model, assembly, child, edit, mass, "edited")
                 require(result["edited"]["mass"]["com"] != result["rebuilt"]["mass"]["com"], "the distance edit did not move the solid")
-                result["saved"] = native_save(author, model, assembly, parent, child, recorder)
+                result["saved"] = native_save(author, model, assembly, parent, child, count, recorder)
             if reopened is not None:
-                loaded_child = bound_child(author, assembly, child, 2)
+                loaded_child = bound_child(author, assembly, child, count)
                 result["child_stamp_after_rebuild"] = int(author.get(loaded_child, "GetUpdateStamp"))
                 require(result["child_stamp_on_open"] == reopened["child"]["update_stamp"]
                         and digest(parent) == reopened["parent"] and digest(child) == reopened["child"]["native_sha256"],
@@ -204,6 +187,8 @@ def signature(row):
 def run(packet, sha):
     require(os.name == "nt", "combined native observation requires the Windows guest")
     job, paths = verify(packet, sha)
+    from AuthorAssemblySources import placement_transform
+    edit = predict_edit(job["case"], job["edit_distance_m"], placement_transform)
     root = packet.parent
     attempt = job.get("attempt", "")
     output = root / ("Inspection" + attempt)
@@ -220,7 +205,7 @@ def run(packet, sha):
                "heldout_inputs_read": 0, "passed": False}
 
     def capture_phase(role, parent_value, child_value, **extra):
-        row = phase(job, role, parent_value, child_value, output / role, **extra)
+        row = phase(job, edit, role, parent_value, child_value, output / role, **extra)
         stages.append(row)
         write_json(output / "Result.json", summary)
         return row
