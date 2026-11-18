@@ -1,0 +1,296 @@
+{
+  "cold_atom_reuse_dependency": "NamedBodyColdReuse2026.md",
+  "derived_selection_snapshot_tail": {
+    "f100": 0,
+    "f104": 0,
+    "f108": "actual base boss feature f08",
+    "f110": "actual base atom f140 values",
+    "ff0": null,
+    "n110": "length of actual base atom walk"
+  },
+  "document_version": 19000,
+  "first_boss_lineage_rule": {
+    "atom_id": "actual fresh manager counter + 1",
+    "base_feature": "actual sole boss output owner f08",
+    "lineage": [
+      "same actual sole boss atom f140"
+    ],
+    "termination": "the producing boss has no consumed atom array",
+    "values_from_saved_documents": false
+  },
+  "fresh_wrapper_tail": {
+    "f100": 0,
+    "f104": 0,
+    "f108": -1,
+    "f110": [],
+    "ff0": null,
+    "n110": 0
+  },
+  "heldout_payloads_read": 0,
+  "image_base": "0x4b140000",
+  "independently_checked_sites": {
+    "absent_list_skips": {
+      "instruction": "0x4b706fe1",
+      "range": "selected_regen",
+      "target": "0x4b70729e"
+    },
+    "actual_atom_id_match": {
+      "instruction": "0x4b707111",
+      "offset": "0x18",
+      "range": "selected_regen"
+    },
+    "actual_manager_atom_lookup": {
+      "instruction": "0x4b7e8a9b",
+      "range": "selected_body_constructor",
+      "target": "0x4bcf2ea0"
+    },
+    "at_most_one_solid_guard": {
+      "instruction": "0x4b70705b",
+      "range": "selected_regen",
+      "target": "0x4bcf7eb0"
+    },
+    "base_feature_source": {
+      "instruction": "0x4bcf2fee",
+      "offset": "0x150",
+      "range": "base_atom_walk"
+    },
+    "base_owner_feature_id": {
+      "instruction": "0x4b7e8c0a",
+      "offset": "0x108",
+      "range": "selected_body_constructor"
+    },
+    "base_walk": {
+      "instruction": "0x4b7e8d90",
+      "range": "selected_body_constructor",
+      "target": "0x4bcf2f80"
+    },
+    "chosen_body_append": {
+      "instruction": "0x4b70711c",
+      "range": "selected_regen"
+    },
+    "constructor_empty_cache_words": {
+      "instruction": "0x4b278751",
+      "offset": "0x100",
+      "range": "component_atom_base_constructor"
+    },
+    "constructor_empty_face": {
+      "instruction": "0x4b278743",
+      "offset": "0xf0",
+      "range": "component_atom_base_constructor"
+    },
+    "constructor_unresolved_base_id": {
+      "constant": 4294967295,
+      "instruction": "0x4b278758",
+      "offset": "0x108",
+      "range": "component_atom_base_constructor"
+    },
+    "count_actual_solids": {
+      "instruction": "0x4bcf8083",
+      "range": "count_more_than_n_solids"
+    },
+    "count_limit_is_strict": {
+      "instruction": "0x4bcf8091",
+      "range": "count_more_than_n_solids",
+      "target": "0x4bcf80f3"
+    },
+    "empty_runtime_entity_cache": {
+      "constant": 0,
+      "instruction": "0x4b7070e2",
+      "offset": "0x78",
+      "range": "selected_regen"
+    },
+    "first_feature_without_consumed_atoms": {
+      "instruction": "0x4bcf303b",
+      "offset": "0x530",
+      "range": "base_atom_walk"
+    },
+    "lineage_reads_actual_atom_id": {
+      "instruction": "0x4b7e8db8",
+      "offset": "0x140",
+      "range": "selected_body_constructor"
+    },
+    "lineage_requires_live_body": {
+      "constant": 0,
+      "instruction": "0x4b7e8bbd",
+      "offset": "0x160",
+      "range": "selected_body_constructor"
+    },
+    "lineage_starts_with_actual_atom": {
+      "instruction": "0x4bcf2fe8",
+      "range": "base_atom_walk"
+    },
+    "merge_auto_snapshot": {
+      "instruction": "0x4b70e5b4",
+      "range": "body_merge"
+    },
+    "merge_clears_runtime_auto": {
+      "instruction": "0x4b70e611",
+      "offset": "0x558",
+      "range": "body_merge"
+    },
+    "merge_reaches_selected_lookup": {
+      "instruction": "0x4b70cb1b",
+      "range": "body_merge",
+      "target": "0x4b706f00"
+    },
+    "one_regenerated_body": {
+      "constant": 1,
+      "instruction": "0x4b7070ac",
+      "range": "selected_regen"
+    },
+    "one_selected_wrapper": {
+      "constant": 1,
+      "instruction": "0x4b706fe7",
+      "offset": "0x10",
+      "range": "selected_regen"
+    },
+    "persisted_scope": {
+      "instruction": "0x4b706fb5",
+      "offset": "0x544",
+      "range": "selected_regen"
+    },
+    "scope_loaded": {
+      "instruction": "0x4bb0b8f1",
+      "offset": "0x544",
+      "range": "atom_feature_serializer"
+    },
+    "scope_written": {
+      "instruction": "0x4bb0b8e2",
+      "offset": "0x544",
+      "range": "atom_feature_serializer"
+    },
+    "selected_list_load": {
+      "instruction": "0x4b706fd7",
+      "offset": "0x548",
+      "range": "selected_regen"
+    },
+    "selected_wrapper_written": {
+      "instruction": "0x4bb0b8c2",
+      "offset": "0x548",
+      "range": "atom_feature_serializer"
+    },
+    "separate_runtime_auto": {
+      "instruction": "0x4b706fc2",
+      "offset": "0x558",
+      "range": "selected_regen"
+    },
+    "unit_component_virtual": {
+      "instruction": "0x4b707106",
+      "offset": "0x260",
+      "range": "selected_regen"
+    },
+    "wire_face_cache_read_guard": {
+      "instruction": "0x4bba4494",
+      "offset": "0xf8",
+      "range": "selected_body_serializer"
+    },
+    "wire_face_cache_reset": {
+      "instruction": "0x4bba444f",
+      "offset": "0x100",
+      "range": "selected_body_serializer"
+    },
+    "wrapper_actual_id": {
+      "instruction": "0x4b7e8a36",
+      "offset": "0x18",
+      "range": "selected_body_constructor"
+    },
+    "wrapper_original_id": {
+      "instruction": "0x4b7e8a3a",
+      "offset": "0x1c",
+      "range": "selected_body_constructor"
+    }
+  },
+  "limits": [
+    "no general multiple body chooser algorithm",
+    "no serializable continuously automatic-selection flag established",
+    "no scope-1 cold native acceptance",
+    "no full source or original held-out qualification",
+    "no public writer registration"
+  ],
+  "module": "sldmodu.dll",
+  "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "native_processes_started": 0,
+  "native_ranges": {
+    "atom_feature_serializer": {
+      "bytes": 7362,
+      "end_exclusive": "0x4bb0cd82",
+      "sha256": "73fc5118ed366b226491bdfd3b064c5c1a8bff8f74456bdcce47449cc24b41c3",
+      "start": "0x4bb0b0c0"
+    },
+    "base_atom_walk": {
+      "bytes": 496,
+      "end_exclusive": "0x4bcf3170",
+      "sha256": "13cc81fee4e41b65fb74cc17336ee1e26c36e5349aa8a490f8d144a6c806a22f",
+      "start": "0x4bcf2f80"
+    },
+    "body_merge": {
+      "bytes": 17687,
+      "end_exclusive": "0x4b710cd7",
+      "sha256": "bc1063f80e2b3fadb964d6b45975759a1e91112e3818aa177c01558043d2704c",
+      "start": "0x4b70c7c0"
+    },
+    "component_atom_base_constructor": {
+      "bytes": 239,
+      "end_exclusive": "0x4b2787af",
+      "sha256": "f64697feba8bef0885c2a7650d69d4efe9d0b2de2ed28c928b8e5ef311ebb92f",
+      "start": "0x4b2786c0"
+    },
+    "component_reference_constructor": {
+      "bytes": 310,
+      "end_exclusive": "0x4b7e8386",
+      "sha256": "d22db22d6408ae1b4cb6638678e1fe5ccbbbd260a2ba28555042068e2d3b7f6c",
+      "start": "0x4b7e8250"
+    },
+    "count_more_than_n_solids": {
+      "bytes": 597,
+      "end_exclusive": "0x4bcf8105",
+      "sha256": "bab9e9fc05b767b325d747b1b794e7ced8a1cc5746ce432a4de75c9c388164f2",
+      "start": "0x4bcf7eb0"
+    },
+    "selected_body_constructor": {
+      "bytes": 1202,
+      "end_exclusive": "0x4b7e8e32",
+      "sha256": "75ff8caaa1e2563fce09b057422cba3d9e96260be5087c0f74175853c57acd12",
+      "start": "0x4b7e8980"
+    },
+    "selected_body_serializer": {
+      "bytes": 807,
+      "end_exclusive": "0x4bba46b7",
+      "sha256": "ecfa22d8123b4b926cc1834d3e59919db33f14e6e979b2c88de0be3f7c1f1cac",
+      "start": "0x4bba4390"
+    },
+    "selected_regen": {
+      "bytes": 1047,
+      "end_exclusive": "0x4b707317",
+      "sha256": "2781cb199fe88a53351db50ca3219048c4d47a3ffa74888e58314181be67f4a4",
+      "start": "0x4b706f00"
+    }
+  },
+  "one_body_route": {
+    "does_not_require_saved_face_reference": true,
+    "native_execution_proven": false,
+    "requires": [
+      "ordinary rigid part",
+      "selected scope",
+      "runtime auto zero",
+      "one selected wrapper",
+      "one actual regenerated solid",
+      "wrapper owned by model unit component",
+      "positive wrapper f18 equals actual regenerated body atom id",
+      "empty runtime wrapper entity cache"
+    ]
+  },
+  "runtime_auto_select": {
+    "native_offset": "0x558",
+    "serialized_by_reached_owner": false,
+    "writer_input": false
+  },
+  "schema": "kit.sw2026.cold-selected-body-construction.v1",
+  "scope_word": {
+    "all_bodies": 0,
+    "selected": 1,
+    "wire_owner": "moAtomFeature_c.f544"
+  },
+  "tool_sha256": "c942b5764b8733f7de78f1e85930b69e4283aac5096e2c0f95b0f6df96130383",
+  "vendor_listing_included": false
+}

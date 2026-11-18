@@ -1,0 +1,26 @@
+{
+  "all_constructor_controls_prediction_and_native_observer_bytes_unchanged": true,
+  "all_seven_command_packet_tool_and_digest_bindings_match": true,
+  "candidate_sha256": "339b4a635c9695306bcc8be512ba21f1473d97201a63b4ac668132ba7ef777a4",
+  "canonical_unc_arguments": true,
+  "earlier_root_preflight_observation": "root reported digest mismatch before any VM operation; this receipt independently verifies the successor files and command bindings",
+  "earlier_root_preflight_stopped_before_vm": true,
+  "heldout_payloads_read": 0,
+  "host_verify_exit": 0,
+  "host_verify_sha256": "3d43e26a51099942252c6acdfee8baf3e97c64be3f1c1f3c05813e754233fd3a",
+  "native_processes_started": 0,
+  "observer_sha256": "09538f13bdcd0abd7e55a9821042c5357c841ee444b0c07d98b25c3a997830d3",
+  "old_files_retained_unchanged": true,
+  "old_packet_sha256": "28065094bf0b510c6e9e5f8d945e62354ee47a69b319906ba34abb2651022bc5",
+  "old_recipe_sha256": "117acee680f184e24860be2fa9c70cabf5c8316648029c352f0f8d50b1d47ad8",
+  "old_trial_changed_keys": [
+    "scope"
+  ],
+  "packet_file": "Trial02.json",
+  "packet_sha256": "2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a",
+  "passed": true,
+  "recipe_file": "Recipe02.json",
+  "recipe_sha256": "7d69bc957aeab4bbeb135c71bec6b7446f65ec037a2d09c22423fd7b5014c475",
+  "recipe_top_level_digest_matches": true,
+  "schema": "kit.sw2026.selected-body-packet-metadata-retry.v1"
+}

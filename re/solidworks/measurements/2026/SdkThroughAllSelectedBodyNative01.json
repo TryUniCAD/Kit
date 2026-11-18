@@ -1,0 +1,87 @@
+{
+  "candidate_native_result_sha256": "f95b0c5e647d2312d483da7a0e95c4444d551705127ddea1978e9c6c405ceeeb",
+  "generated_input_sha256": "339b4a635c9695306bcc8be512ba21f1473d97201a63b4ac668132ba7ef777a4",
+  "healthy_controls": 2,
+  "heldout_payloads_read": 0,
+  "native_processes": 4,
+  "native_trial_sha256": "2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a",
+  "numeric_checks": 72,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "public_writer_qualified": false,
+  "saved_typed_result_sha256": "10141630ce384c68aa91f206edcd1814ab80f253ba7c3f279f317f53a16a4038",
+  "schema": "kit.sw2026.selected-body-scope-native.v1",
+  "scope": "disclosed Front single selected stock body",
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "typed_saved_audit": {
+    "actual_base_feature_lineage": true,
+    "actual_body_manager_aliases": true,
+    "actual_selected_wrapper_owner": true,
+    "bytes": 63363,
+    "consumed_boss_atom_id": 101,
+    "continuous_automatic_selection_proven": false,
+    "cut_end": {
+      "f08": 1,
+      "f0c": 1,
+      "f10": 0,
+      "f148": 0,
+      "f14c": 0,
+      "f150": 0,
+      "f154": 0,
+      "f158": 0,
+      "f88": 0,
+      "f8c": 1
+    },
+    "cut_has_saved_chooser": 1,
+    "cut_has_saved_wrapper": 1,
+    "cut_scope": 1,
+    "heldout_payloads_read": 0,
+    "input_sha256": "3a6543999c248eda54ca1eb790ec2bde7802b5cb5138921494e605fd503d162a",
+    "native_packet_sha256": "2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a",
+    "native_result_sha256": "f95b0c5e647d2312d483da7a0e95c4444d551705127ddea1978e9c6c405ceeeb",
+    "original_source_equivalence": false,
+    "passed": true,
+    "produced_cut_atom_id": 102,
+    "public_read_qualified": false,
+    "public_writer_qualified": false,
+    "schema": "kit.sw2026.selected-through-all-saved-typed.v1",
+    "scope_preserved_after_edit_save_and_fresh_reopen": true,
+    "sdk_source_manifest_sha256": "7ff3eacf713c39e109c09bb786f521c9f97df3413c1224a5e7278438d4a4639e",
+    "stock_depth_m": 0.04739,
+    "stock_scope": 1,
+    "stream_roundtrips": {
+      "Contents/CMgr": {
+        "byte_identity": true,
+        "bytes": 2603,
+        "sha256": "3b5fe92861941608e8f4941279fef30fe3329dc3add7b42f88ae7527e2ef0bc1"
+      },
+      "Contents/CMgrHdr2": {
+        "byte_identity": true,
+        "bytes": 137,
+        "sha256": "ba3dea34df569d4098d8f2b54308a9bc296fbec243dff09c22d6d2bf9cf48ccc"
+      },
+      "Contents/Config-0": {
+        "byte_identity": true,
+        "bytes": 26163,
+        "sha256": "15213345edaf020e2aa53d39887e75c258bd6df237a406e96d8ca74484c1d0fd"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "byte_identity": true,
+        "bytes": 1277,
+        "sha256": "6cbfee68f750234b1509106bd84529ede7bc05a23a88c607724a665fd5c7473b"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "byte_identity": true,
+        "bytes": 18336,
+        "sha256": "7980ef4f98fb3c4b07f2b9926eebe54f1231c2335704cb0a4725b26027435763"
+      },
+      "Header2": {
+        "byte_identity": true,
+        "bytes": 1277,
+        "sha256": "6cbfee68f750234b1509106bd84529ede7bc05a23a88c607724a665fd5c7473b"
+      }
+    },
+    "tool_sha256": "568ed778d702f5d08238d19dc49230d4cdb5a0ca6a76b5b1be47df425522102a"
+  }
+}
