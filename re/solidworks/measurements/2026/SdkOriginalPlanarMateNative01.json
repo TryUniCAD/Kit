@@ -1,0 +1,744 @@
+{
+  "author_specs_sha256": "642066a5493d58c09e68e5965b315c741c56be75541e53d17f66077a5d0909d8",
+  "cases": [
+    {
+      "application_usable": true,
+      "assembly_tree_rows": 26,
+      "case": "A20HeldoutPlaneCoincidentDistance",
+      "child_parameters_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.04,
+        "D2@Sketch1": 0.02
+      },
+      "child_tree_rows": 25,
+      "controls_healthy": true,
+      "frozen_scoped_archive_streams": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2428,
+            "sha256": "c56e5c75f4df37ddea4fc2d4986f0abc1939274860fc38cbd5a772c880899c52"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 21463,
+            "sha256": "e59073f3e4a3fca2020ab38f9192941c14017b0c38e3a2a46800f18d26d85a01"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 7161,
+            "sha256": "7014d37a8d9e9fadb9d262e1f9a95c89a4f9f24024fc96e9aac86c21c41033f6"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1321,
+            "sha256": "d7a142835da09e8cd703006060cef7110e4c752cdfcb843d5d86e28f2a155ba8"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1321,
+            "sha256": "8dd4f27f85084de7ac15940e26024a71a30f091dcfbc4a6e699f59bfcd696446"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1129,
+            "sha256": "67e7a9ef1e6d81ae3083dcbce7a6108905a3e1095099c13fd0ad3afeee9cacce"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "273bb177500136f5b67b0b22ba3d339aeac743d41c13f45221f3189f77ac552d"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 21882,
+            "sha256": "94d1ffe4059ae19d9855f835c1432ce267432d76ceea9c655823a2f4be3946db"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 749,
+            "sha256": "720b8b5aebe44a4ec2e1ae0c3ccf9caf39687021a81fec8f1fa5ffd30174f926"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "0e09e97722fdbab67402e79423d9f68eade1e19178d3e303d1f0c49d96003d00"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 749,
+            "sha256": "50b3d6bf4c10aa8c3a6b04a43eb02bcb5a32e87b5c192aeedc31080e7b233de4"
+          }
+        }
+      },
+      "generated": {
+        "assembly": {
+          "bytes": 10087,
+          "sha256": "c974d9948207fb805ee17eec4289e6b6e106cddd37b2bcdfc7ae444b9d771e8a"
+        },
+        "child": {
+          "bytes": 8686,
+          "sha256": "3d7aa86b186657c5b4ec037fad65358a92c5e581358444a9fefd4997b8a2fd2d"
+        }
+      },
+      "generated_public": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 4,
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "mates": 2,
+        "occurrences": 2,
+        "passed": true
+      },
+      "guarded_build_stream_comparisons": 44,
+      "heldout_source_exposed": true,
+      "initial_distance_m": 0.10237,
+      "mate_endpoints": 4,
+      "mate_kinds": [
+        "coincident",
+        "distance"
+      ],
+      "native_saved_scoped_archive_streams": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2877,
+            "sha256": "c704aaba1770eb744a3ea8848c8871dc3f0295b619bb7ecb714bc634d7db7c4c"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "6bba68682cd117809d4b5e523fe77e64d2fc8d5a970764cabca0eff24c5fe361"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 24230,
+            "sha256": "ec79b170cd35feca3f75654e0f3fd9fb5d056c7af8b75ea28c94f5f7d7a904cb"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 8263,
+            "sha256": "e1e5f53901e31bf959bf571d38dad1fbb8e8aa44f54fc856d8627a5e635cd57e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1835,
+            "sha256": "9afc5fd8620a6e68e6ee550b1ff22f994a2770fbf1b2c7a91ba5f70d25e008b7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 5295,
+            "sha256": "a8d62c9db5d29f2e761597bf50cc667167314ff2635af67c77291dfffe859b2d"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1835,
+            "sha256": "0a9838e066f5a39f54d0e338910b0c4e8b99decbd43dbc49b16762a02ec2b071"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2401,
+            "sha256": "7d8736e85679b2b2620317c1c84857b108068eee7faf968e11336c16f3cefd15"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "b3d5af2b826e6b01183a9d8dee43a099346b591ffac33dd02ea32653ec3794ca"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 25615,
+            "sha256": "eaada7baa285d247926c65ffd61b565ae43e0591390dbefb0f1a2f4496dee4d1"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1229,
+            "sha256": "1d9bde61f59ba5df49a4498a6669999da319565e7a4039f116f970c7a36375d2"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 19053,
+            "sha256": "8c348601853e6208cd26de3407162e4e0189867bd64e3101b16bcbb53597b5db"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1229,
+            "sha256": "1d9bde61f59ba5df49a4498a6669999da319565e7a4039f116f970c7a36375d2"
+          }
+        }
+      },
+      "numeric_checks": 440,
+      "occurrence_count": 2,
+      "original_public": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 4,
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "mates": 2,
+        "occurrences": 2,
+        "passed": true
+      },
+      "packet": {
+        "names_sha256": "a0ccec27caa7dd2551bb0df8a2978790b45c38b5ef4debb99fe52852d0d2ae45",
+        "native_progress_sha256": "9cc4b2553d3bee760b84cd2e5228302e26782b1cc08161fff458ecc49f6ef451",
+        "native_transport_sha256": "eec80a7c6d080d467854e5adc0cb32bee5d39e890a58c711649cb4e2451d69fc",
+        "prediction_sha256": "677d0cc429bd6f5d66eeeaf25ca4fa9d1a23a57d131f6d0caf7e2cbc474b65f2",
+        "prepare_progress_sha256": "c36bcde405b78f63809f3cba48ac4fc1c240aa92eae94f25b358f10e30068d1f",
+        "prepare_transport_sha256": "c93e3fda8c069ccf4fde33cbcfb010c9a3c33715fc89e7003758165fab379dc8",
+        "raw_native_result_sha256": "a83818ef668a9f863666f1ee743f2ffa862da5aedaeb3933b7fedaf54844b813",
+        "request_freeze_sha256": "d2c19c335c823d1d99b188e5f989b2a9d7cc9154045eead2d2f54db0c88dd9cb",
+        "request_sha256": "74700563717760a5fb2504e404c0899a08fd70c378ee5425bdd47805adbd3dea",
+        "stage_sha256": "46d744b499ac05019e34bb7370ca978f3ab0877bffd5218cfb468acfaed7b6b0"
+      },
+      "passed": true,
+      "phases": [
+        {
+          "creation_filetime": 134394603784910020,
+          "numeric_checks": 80,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 2360,
+          "record_sha256": "f622992582e730b7e1275cc58289f39f23d291d008e26c8500231a897657770f",
+          "role": "ControlBefore"
+        },
+        {
+          "creation_filetime": 134394604371189156,
+          "numeric_checks": 80,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 4940,
+          "record_sha256": "cec2bd60f6ef4b79450ae9ee5b4cbc62b47f590e735b22575996a6240fe26b10",
+          "role": "Original"
+        },
+        {
+          "creation_filetime": 134394604855965636,
+          "numeric_checks": 120,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 1956,
+          "record_sha256": "26462ede0f985bb4cbc6377ca024a443e917721d5f5003799c333a81ee1bf181",
+          "role": "Generated"
+        },
+        {
+          "creation_filetime": 134394605616992278,
+          "numeric_checks": 80,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 6344,
+          "record_sha256": "d2f08129f51404a5102a369fc60892befdd6395b76ea344d90721446e46ce0e4",
+          "role": "FreshReopen"
+        },
+        {
+          "creation_filetime": 134394606441076775,
+          "numeric_checks": 80,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 8940,
+          "record_sha256": "eac6b6a8651886add198f1f02ccebc2745cc215edaf8ab21eecd1fc53ff92716",
+          "role": "ControlAfter"
+        }
+      ],
+      "reopened_distance_m": 0.11810000000000001,
+      "reopened_geometry": {
+        "body_count": 2,
+        "child_mass": {
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06,
+          "volume": 8.000000000000001e-06
+        },
+        "mass": {
+          "area": 0.0056,
+          "com": [
+            0.08015,
+            -0.01233,
+            0.02381
+          ],
+          "mass": 0.016000000000000004,
+          "volume": 1.6000000000000003e-05
+        }
+      },
+      "requested_part_and_assembly_configuration": [
+        "Default",
+        "Default"
+      ],
+      "runtime_input_file_reads_during_projection_and_construction": 0,
+      "same_source_mass_properties": {
+        "child_mass": true,
+        "mass": true
+      },
+      "same_source_tree_and_ownership": {
+        "child_tree": true,
+        "mates": true,
+        "occurrences": true,
+        "tree": true
+      },
+      "saved_child_update_stamp": 144,
+      "saved_files_immutable_during_readback": true,
+      "saved_public": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 4,
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "mates": 2,
+        "occurrences": 2,
+        "passed": true
+      },
+      "saved_sha256": {
+        "assembly": "0ba0def25c6469a0294e664e6be5339c157fc49b53c699730a1a5275fc8ea8da",
+        "child": "4c699f0fbce168b1680dea2a5c4fb9d45b252cf4a89eb3a55e44bc09bce4093b"
+      },
+      "slot": "Slot01",
+      "source_and_generated_immutable": true,
+      "source_geometry": {
+        "body_count": 2,
+        "child_mass": {
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06,
+          "volume": 8.000000000000001e-06
+        },
+        "mass": {
+          "area": 0.0056,
+          "com": [
+            0.072285,
+            -0.01233,
+            0.02381
+          ],
+          "mass": 0.016000000000000004,
+          "volume": 1.6000000000000003e-05
+        }
+      },
+      "source_sha256": {
+        "assembly": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd",
+        "child": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115"
+      },
+      "vendor_loadable": true
+    },
+    {
+      "application_usable": true,
+      "assembly_tree_rows": 27,
+      "case": "A21HeldoutPlaneParallelDistance",
+      "child_parameters_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.04,
+        "D2@Sketch1": 0.02
+      },
+      "child_tree_rows": 25,
+      "controls_healthy": true,
+      "frozen_scoped_archive_streams": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2758,
+            "sha256": "88adb7ab16b62ea4277cec4dafadf96223c1e791c8e07358b4724ad78c50019e"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "798bf19ec9f923e5b94d42c2c591f1fb608d9bb2c7239daeb0aa7ee858cf7b91"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22117,
+            "sha256": "0c58c71643fb825b27991236bde7eef487d2c019fc3068614782e3f5862a814f"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 7443,
+            "sha256": "5901aa53d0aabe5284ff8cb8fda6e9ca1cdb1da64fb7e6e255a89c10f6e5600f"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1305,
+            "sha256": "2396361da9386ebda33b89d0b4e608e45b687d05ca4d81db46b79b395422a5ea"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "d8f901093be978e775b88ae225e7e95c630b70c7a137aa46cdace6d230258ca0"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1305,
+            "sha256": "4b628085053ca739467df94fac2aa8f4031c03ebc4296f27fb2df13af9f17551"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1129,
+            "sha256": "67e7a9ef1e6d81ae3083dcbce7a6108905a3e1095099c13fd0ad3afeee9cacce"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "273bb177500136f5b67b0b22ba3d339aeac743d41c13f45221f3189f77ac552d"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 21882,
+            "sha256": "94d1ffe4059ae19d9855f835c1432ce267432d76ceea9c655823a2f4be3946db"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 749,
+            "sha256": "f6abb71c47c48230dc645bce554479ffbd3bd5f29095751fd43972285fabb5ba"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "0e09e97722fdbab67402e79423d9f68eade1e19178d3e303d1f0c49d96003d00"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 749,
+            "sha256": "1d1ea377e3390be70c2b0fb73202674f2f624f242898ac140544e96562aad2ae"
+          }
+        }
+      },
+      "generated": {
+        "assembly": {
+          "bytes": 10493,
+          "sha256": "7241179dc1af1424bdddcfda311ef7f54c0b11307bb2e4449be1bd0675828af1"
+        },
+        "child": {
+          "bytes": 8688,
+          "sha256": "752f442a0cac4957a701088fb3ef79ce0e2d1d18e3987b7cb53739f9b11b4dc3"
+        }
+      },
+      "generated_public": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 4,
+        "fixed_flags": [
+          true,
+          false,
+          false
+        ],
+        "mates": 2,
+        "occurrences": 3,
+        "passed": true
+      },
+      "guarded_build_stream_comparisons": 44,
+      "heldout_source_exposed": true,
+      "initial_distance_m": 0.08317,
+      "mate_endpoints": 4,
+      "mate_kinds": [
+        "parallel",
+        "distance"
+      ],
+      "native_saved_scoped_archive_streams": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 3257,
+            "sha256": "4a4450af5b3e3ddbf479e7e3dc301ab394d4e769e6214b9a5723bf5b860ce685"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "738a95201fd32a17720081078a6ac672fee7cc58a084acde833ef4d2454a88de"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 24884,
+            "sha256": "b557db47deef698ebe2cf9f9847b569e25a1cea991b37fbf58fd9c6c436a702d"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 8679,
+            "sha256": "b20bd171ec956b4478a583e09641aa204bf03d7514ed383b201351715b00e287"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1819,
+            "sha256": "15f53f3319d9ddd210576fbe082b57e04c377822a61e8c5b76b1bc11713a1808"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 5295,
+            "sha256": "434de96729a2ab939d2a2952a9392d4f9404dbeb6068764679bd043c32a4ae22"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1819,
+            "sha256": "8f5eb968d3c69c217f293c34a67ef3b7a578d832405e2760482a66244e017f63"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2401,
+            "sha256": "ca6161a6ca23eee51aafcbc728dc58439078a7d39f6c600d6f8407ec9f6da7dd"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "738e4894664fe0bf384bc818a855327bc8a8cc5f2cb30cb4f7eedc5d4bd2c45b"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 25615,
+            "sha256": "d4038dd60aea490cb3c85702eee043ab3226e0fb45538401b2c280ca762008e0"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1229,
+            "sha256": "1f342f77e7709f339d074e9008459615e5e0482f53195f166be8a2bb4b6f32cd"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 19053,
+            "sha256": "3abd029608168d8cea254e111c8ce5f014c852fa7c3e72d3bdb3135fe8e84a94"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1229,
+            "sha256": "1f342f77e7709f339d074e9008459615e5e0482f53195f166be8a2bb4b6f32cd"
+          }
+        }
+      },
+      "numeric_checks": 552,
+      "occurrence_count": 3,
+      "original_public": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 4,
+        "fixed_flags": [
+          true,
+          false,
+          false
+        ],
+        "mates": 2,
+        "occurrences": 3,
+        "passed": true
+      },
+      "packet": {
+        "names_sha256": "22f0f83ac45b07ba49ac72a8b52928320912679d9805a4150010245fb959da72",
+        "native_progress_sha256": "4343f52f4359d8d7230893cbecc09f347f8496a48c1b959e3b43ce32b42165b7",
+        "native_transport_sha256": "db088396fe08a055cf2f3b374c078d92ff6c3bf99bb1951096cbdcc9ff3d1523",
+        "prediction_sha256": "b0260b049f664e5663e13260c235f06778fb19fc395828e036f7810192fdc4df",
+        "prepare_progress_sha256": "6bc268aa17c51019657770177ac94f7243a8a7b379bc9e758f1a914531f5867d",
+        "prepare_transport_sha256": "a613d6cdc0eb566ccabb97a1fdd8880dfbe5eac2d35f6172e6dea019ed6abcb4",
+        "raw_native_result_sha256": "c0d0e1c4fe36d63f42feef11fe0c7271b5441602d230e766c53292d9fd19e9cb",
+        "request_freeze_sha256": "af627dd48d0bfffb98375954066a66cdbaf575a963cf37679e5c46c2353cc76c",
+        "request_sha256": "59b04f98190cf3e1567ae03e458a33025c5e5ce09a67bc1fd355a0a70300f077",
+        "stage_sha256": "579112c81025c88b65991074ce5e9d9f4799235023fee572dac8fbf7149e9c6e"
+      },
+      "passed": true,
+      "phases": [
+        {
+          "creation_filetime": 134394613302140099,
+          "numeric_checks": 80,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 10356,
+          "record_sha256": "23045ba3c81a2a9c355797b1716af128cb92e2012c9789df153fb6b0a8e0fffc",
+          "role": "ControlBefore"
+        },
+        {
+          "creation_filetime": 134394613861165353,
+          "numeric_checks": 112,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 10132,
+          "record_sha256": "167594926967c1a60460b6e4cc6769f7ca2a14d7f1b0ce52b9acd5c81f111a1b",
+          "role": "Original"
+        },
+        {
+          "creation_filetime": 134394614470973691,
+          "numeric_checks": 168,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 6952,
+          "record_sha256": "1570a55e4b892856ed2b481d3d7d6baafbe90613a68a2d1be73b2e37cfd27c11",
+          "role": "Generated"
+        },
+        {
+          "creation_filetime": 134394615458149819,
+          "numeric_checks": 112,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 10420,
+          "record_sha256": "b750480d8c555646c8e9da60129cde5d2cb3b27fac2e258361ac44102088876e",
+          "role": "FreshReopen"
+        },
+        {
+          "creation_filetime": 134394616273915332,
+          "numeric_checks": 80,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "pid": 6136,
+          "record_sha256": "6beb8415c0b42fd5e8b623ae54e489c173cb7022530752cb89eef2fc45c4e3bf",
+          "role": "ControlAfter"
+        }
+      ],
+      "reopened_distance_m": 0.09889999999999999,
+      "reopened_geometry": {
+        "body_count": 3,
+        "child_mass": {
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06,
+          "volume": 8.000000000000001e-06
+        },
+        "mass": {
+          "area": 0.0084,
+          "com": [
+            0.0027489969810826635,
+            -0.00038986149602384567,
+            0.02161407896208442
+          ],
+          "mass": 0.024000000000000007,
+          "volume": 2.4000000000000004e-05
+        }
+      },
+      "requested_part_and_assembly_configuration": [
+        "Default",
+        "Default"
+      ],
+      "runtime_input_file_reads_during_projection_and_construction": 0,
+      "same_source_mass_properties": {
+        "child_mass": true,
+        "mass": true
+      },
+      "same_source_tree_and_ownership": {
+        "child_tree": true,
+        "mates": true,
+        "occurrences": true,
+        "tree": true
+      },
+      "saved_child_update_stamp": 144,
+      "saved_files_immutable_during_readback": true,
+      "saved_public": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 4,
+        "fixed_flags": [
+          true,
+          false,
+          false
+        ],
+        "mates": 2,
+        "occurrences": 3,
+        "passed": true
+      },
+      "saved_sha256": {
+        "assembly": "ff133964d65bae09483af3b0ee9ebbd94ab5a3bc16e894a52b66dc4249fc58e1",
+        "child": "8ed68801ac917657c8a47a8dff1e97bc7326043f693c641905efa87df0e6aab7"
+      },
+      "slot": "Slot02",
+      "source_and_generated_immutable": true,
+      "source_geometry": {
+        "body_count": 3,
+        "child_mass": {
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06,
+          "volume": 8.000000000000001e-06
+        },
+        "mass": {
+          "area": 0.0084,
+          "com": [
+            -0.002494336352250664,
+            -0.00038986149602384567,
+            0.02161407896208442
+          ],
+          "mass": 0.024000000000000007,
+          "volume": 2.4000000000000004e-05
+        }
+      },
+      "source_sha256": {
+        "assembly": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0",
+        "child": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff"
+      },
+      "vendor_loadable": true
+    }
+  ],
+  "code_manifest_sha256": "69ab52d693ffcf2eb8fb7318c4a228e60d3b33fa04bc99334df9e2665213330e",
+  "delivery_pr": 121,
+  "disclosed_method_result_sha256": "73f0a0588d92db4385bcc04f214f69ab1f438182a18316c86515f2d5eb4c0d55",
+  "fcstd_assemblies_counted": 0,
+  "fcstd_parts_counted": 0,
+  "fresh_native_processes": 10,
+  "guarded_build_stream_comparisons": 88,
+  "native_saved_scoped_stream_round_trips": 26,
+  "numeric_checks": 992,
+  "oracle": {
+    "com_progid": "SldWorks.Application.34",
+    "file_version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "transport": "macOS prlctl exec --current-user Windows 11"
+  },
+  "passed": true,
+  "pre_exposure_evaluation_sha256": "5f272f21111e28015729017c214c192635fea0d355fe54b8f0096957a7d944bc",
+  "public_assembly_writer_enabled": false,
+  "schema": "kit.sw2026.sdk-original-planar-native-receipt.v1",
+  "scope": "Two pre-writer locked native assemblies of two or three rigid direct occurrences of one dimensioned child with an aligned coincident or parallel mate and one aligned positive driving distance mate.",
+  "scoped_sdk_heldout_acceptance": true,
+  "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "source_payload_or_cache_forwarded": false,
+  "task": "B04-SW2026-ASSEMBLIES-C10"
+}

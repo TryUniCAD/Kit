@@ -6,11 +6,10 @@ expose the original sealed inputs. This protocol is separate from the generated
 SDK nested assembly packets. No A20/A21 specification, native payload or
 detailed observation has been read while preparing it.
 
-Status: the [executable method and disclosed rehearsal](SdkOriginalPlanarMethodFreeze2026.md)
-are frozen. Root independently verified source custody, assumptions and guest
-dependencies, then released Slot01 preparation only. Slot02 remains sealed.
-Neither that rehearsal nor the older source lock establishes held-out writer
-acceptance. No original native verdict is available yet.
+The [executable method and disclosed rehearsal](SdkOriginalPlanarMethodFreeze2026.md)
+were frozen before release. Root independently verified source custody,
+assumptions and guest dependencies, then released each slot separately.
+Both slots passed the [original native comparison](SdkOriginalPlanarMateNative2026.md).
 
 ## Permitted evidence before exposure
 

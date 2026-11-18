@@ -42,6 +42,8 @@ A valid feature record does not establish a successful vendor rebuild.
 
 For ordinary version-19000 parts and assemblies, the SDK decodes `Contents/CMgr` as a typed graph with its own map starting at 1. Read `metadata["solidworks.typed_configuration_manager"]` for the stored configuration names, comments, IDs, actual selected pointer identities and grammar coverage. Unsupported manager profiles report a diagnostic alongside the existing portable projection. Config, resolved-feature and mate streams retain their separate admission requirements. [Typed configuration managers](../../Changes/Solidworks/Archive/SolidworksTypedConfigurationManager.md)
 
+For the compatible ordinary part text profile, the normal reader preserves authored summary fields in `metadata["document_summary"]`, file custom text in `metadata["custom_properties"]`, and configuration custom text in that actual configuration's attributes. Require `metadata["solidworks.part_text_properties"]["status"] == "complete"` when qualifying property support. Unsupported optional properties add an information diagnostic and withhold the text projection while preserving ordinary geometry/history reads. Configuration IDs and names must match the typed manager; its binary value cache can retain earlier text after native save. Advanced property managers, links and other value types remain guarded. [Part text property reader](../../Changes/Solidworks/Inspection/Properties/SolidworksPartTextPropertyRead.md)
+
 For the measured ordinary single-configuration profile, `metadata["solidworks.typed_configuration_graph"]` reports the typed Config-0 stream, its inherited header aliases and map boundaries. The SDK decodes and serializes the same object graph. Twelve disclosed streams round-trip exactly with an independent CMgr context. The typed metadata preserves the strict linked-body boundary. [Typed configuration graph](../../Changes/Solidworks/Archive/SolidworksTypedConfigurationGraph.md)
 
 The internal SDK `ResolvedFeatures` codec extends the actual Config map and reads the separate CMgr context. Twelve disclosed parts and assemblies pass exact stream and object identity checks. Its research bridge passes the guarded construction regression and 42 linked comparisons, including six mate lists. [Typed resolved graph](../../Changes/Solidworks/Archive/SolidworksTypedResolvedGraph.md)
@@ -67,6 +69,14 @@ The SDK also attaches ordered coincident, distance and parallel groups to the sa
 The internal explicit group constructor selects actual occurrence and plane endpoints from one shared generated child. Six dimensioned-child layouts with two, three and five components pass 1,740 typed stream round trips across 142 workers. Eight invalid graphs reject before output. [Explicit planar groups](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksExplicitPlanarGroups.md)
 
 A disclosed three-component group with six ordered mates passes a native driving edit, synchronized save and fresh reopen. The normal SDK reads all twelve datum endpoints and all three child drivers from the generated and saved states. The 26 scoped parent and child streams round-trip exactly. [Native explicit group verification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksExplicitPlanarGroupNative.md)
+
+Both pre-writer locked assemblies also pass the internal SDK comparison for
+one aligned coincident or parallel mate paired with a positive driving
+distance. The two or three direct occurrences of one dimensioned child
+retain the complete measured native trees and actual datum ownership.
+The two distance edits pass synchronized save and fresh reopen. Public
+assembly writing remains disabled.
+[Original planar groups](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksOriginalPlanarMateNative.md)
 
 The internal recursive composer attaches actual generated part and subassembly targets to fully resolved rigid occurrences. It derives expanded activity and world bounds from the dependency graph. A three-definition hierarchy and four-definition repeated hierarchy pass 156 typed stream comparisons. Thirty earlier single- and ordered-mate bundles retain exact bytes. [Generated assembly targets](../../Changes/Solidworks/Archive/Assembly/SolidworksGeneratedAssemblyTargets.md)
 

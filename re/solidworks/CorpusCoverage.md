@@ -453,7 +453,14 @@ The [disclosed native group](records/SdkExplicitPlanarGroupNative2026.md)
 passes 440 numerical checks across four processes through a live driving edit,
 synchronized save and fresh reopen. The public reader retains all twelve
 endpoint links and 26 scoped archive streams serialize byte-for-byte.
-Original source-lock qualification remains open.
+
+Both [original planar mate groups](records/SdkOriginalPlanarMateNative2026.md)
+qualify this internal SDK profile. A20 has two direct occurrences with
+coincident and distance mates. A21 has three with parallel and distance.
+All ten native phases and 992 numerical checks pass, including each
+generated distance edit, synchronized save and fresh reopen. The 26 scoped
+native-saved stream comparisons pass. The public writer and FCStd conversion
+counts are unaffected.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

@@ -166,17 +166,17 @@ fields are not used as an aggregate claim that the sealed recipe was unopened.
 No original source is saved, no previous packet or result is overwritten, and
 there is no automatic VM reset or fallback writer.
 
-## Remaining acceptance
+## Subsequent original comparison
 
 The pre-release rehearsal and host checks above accessed neither original case.
 After independently verifying the complete packet, projection invariants and
-guest dependency preflight without source access or CAD, the root explicitly
-released Slot01 preparation only. Slot02 remains sealed. No original native
-verdict is available in this tranche. All executable packet and constructor
-sources remain unchanged after that release.
+guest dependency preflight without source access or CAD, the root released
+each slot separately. Both pass the independent
+[original native comparison](SdkOriginalPlanarMateNative2026.md) with the
+unchanged executable packet and constructor sources.
 
-Both original native slot evaluations remain pending. This method adds no
-production constructor changes and enables no public assembly writer. A failed
+This method adds no production constructor changes and enables no public
+assembly writer. A failed
 or unsupported original case remains an
 unfinished requirement; its values cannot be used to fit a writer and then
 counted as an independent held-out pass.

@@ -24,9 +24,9 @@ process identity, verdicts, check counts and hashes; detailed source content
 stays guest-local.
 
 Host preflight verifies code/dependencies and rejects both unreleased commands
-with zero attempted original-specification or native CAD file opens. Original
-A20/A21 native evaluation remains pending. Public assembly writing remains
-disabled, and no production constructor is changed by this workflow.
+with zero attempted original-specification or native CAD file opens. The
+separately recorded [original A20/A21 evaluations](SolidworksOriginalPlanarMateNative.md)
+subsequently passed. Public assembly writing remains disabled.
 
 [Exact protocol, hashes, scope and remaining acceptance](../../../../../../re/solidworks/records/SdkOriginalPlanarMethodFreeze2026.md)
 
