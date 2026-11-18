@@ -15,7 +15,7 @@ from tests.Convert.Solidworks.Research.Construction.Part.MakePolygonCase import 
 
 
 # the real reader must preserve the generated line loop and its driving feature dimension through its normal entry point
-def CheckWriteRead(
+def VerifyPart(
     TargetValue: FilePath | bytes, LineCount: int, DepthValue: float
 ) -> None:
     ReadValue = OpenDoc(
@@ -39,7 +39,7 @@ def CheckWriteRead(
 
 
 # public output must reject unmodeled documents and assembly or drawing destinations without publishing bytes
-def CheckRejections(DocumentValue: CadDocument, TargetPath: FilePath) -> None:
+def VerifyRejects(DocumentValue: CadDocument, TargetPath: FilePath) -> None:
     ExtraValue = ReplaceValue(
         DocumentValue, metadata={"name": TargetPath.stem, "unmapped": 1}
     )
@@ -111,6 +111,6 @@ def TestPartWriter() -> None:
             assert StreamResult.bytes_written == len(StreamValue.getvalue())
             assert StreamResult.native_capabilities == PathResult.native_capabilities
             DepthValue = CastValue(float, DocumentValue.parameters[0].value.value)
-            CheckWriteRead(TargetPath, len(VerticesValue), DepthValue)
-            CheckWriteRead(StreamValue.getvalue(), len(VerticesValue), DepthValue)
-            CheckRejections(DocumentValue, TargetPath)
+            VerifyPart(TargetPath, len(VerticesValue), DepthValue)
+            VerifyPart(StreamValue.getvalue(), len(VerticesValue), DepthValue)
+            VerifyRejects(DocumentValue, TargetPath)
