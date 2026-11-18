@@ -1,5 +1,8 @@
 from typing import cast as CastValue
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Container.Format import (
+    KPartSuffix,
+)
 
 
 # internal preparation must preserve standard option semantics without introducing a public switch that enables unqualified native writing
@@ -26,7 +29,7 @@ def CheckPartOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
     if DestinationFormat is not None and (
         type(CastValue(object, DestinationFormat)) is not str
         or DestinationFormat.casefold()
-        not in ("solidworks.sldprt", "sldprt", ".sldprt")
+        not in ("solidworks.sldprt", "sldprt", KPartSuffix)
     ):
         raise ValueError("plain part preparation requires a part destination format")
     AllowedNames = {

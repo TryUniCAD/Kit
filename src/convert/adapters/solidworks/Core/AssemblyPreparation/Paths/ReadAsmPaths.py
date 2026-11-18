@@ -11,6 +11,9 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.Paths.CheckNativePath 
     CheckNativePath,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
+from convert.adapters.solidworks.Container.Format import (
+    KAsmSuffix,
+)
 
 
 # one explicit native parent path must determine both actual sibling identities without consulting any source file
@@ -19,7 +22,7 @@ def ReadAsmPaths(
 ) -> AsmPathData:
     ParentPath = CheckNativePath(NativePath)
     RequireAsm(
-        ParentPath.stem == NameValue and ParentPath.suffix.casefold() == ".sldasm",
+        ParentPath.stem == NameValue and ParentPath.suffix.casefold() == KAsmSuffix,
         "assembly final filename must match its actual neutral name",
     )
     ChildPath = JoinPath(DirName(NativePath), ChildName + ".SLDPRT")

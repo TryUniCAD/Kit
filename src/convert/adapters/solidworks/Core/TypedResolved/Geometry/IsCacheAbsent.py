@@ -1,5 +1,9 @@
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Parasolid import HasPayload
+from convert.adapters.solidworks.Container.Format import (
+    KResolvedFeaturesStream,
+    KeywordsStream,
+)
 
 # reconstruction must never replace a present geometry stream or an unrecognized source role
 KPrismStreams = frozenset(
@@ -9,11 +13,11 @@ KPrismStreams = frozenset(
         "Contents/Config-0",
         "Contents/CMgr",
         "Contents/CMgrHdr2",
-        "Contents/Config-0-ResolvedFeatures",
+        KResolvedFeaturesStream,
         "Contents/Definition",
         "_MO_VERSION_19000/Biography",
         "_MO_VERSION_19000/History",
-        "swXmlContents/KeyWords",
+        KeywordsStream,
         "docProps/core.xml",
         "docProps/custom.xml",
         "docProps/ISolidWorksInformation.xml",

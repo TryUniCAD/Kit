@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyInput imp
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
+from convert.adapters.solidworks.Container.Format import (
+    KAsmSuffix,
+)
 
 
 # flat and recursive assembly construction need identical supported release style file identity and explicit provenance admission
@@ -14,7 +17,7 @@ def CheckAsmMeta(InputValue: AssemblyInput) -> None:
     StemValue, Extension = SplitExt(BaseName(InputValue.OutputValue.PathName))
     if (
         StemValue.casefold() != InputValue.NameValue.casefold()
-        or Extension.casefold() != ".sldasm"
+        or Extension.casefold() != KAsmSuffix
     ):
         raise ValueError(
             "assembly self filename must match its actual authored name and assembly kind"

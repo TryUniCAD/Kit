@@ -8,13 +8,17 @@ from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText impor
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
+from convert.adapters.solidworks.Container.Format import (
+    KAsmSuffix,
+    KPartSuffix,
+)
 
 
 # native shared file identity derives handle text and kind from the modeled document while retaining explicit creation provenance
 def MakeFileDef(
     InputValue: SelfFileInput, NameValue: str, KindValue: int, CreatedAt: int
 ) -> dict[str, object]:
-    Extension = {2: ".sldprt", 3: ".sldasm", 4: ".slddrw"}.get(KindValue)
+    Extension = {2: KPartSuffix, 3: KAsmSuffix, 4: ".slddrw"}.get(KindValue)
     if (
         Extension is None
         or SplitExt(BaseName(InputValue.PathName))[1].casefold() != Extension

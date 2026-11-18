@@ -8,6 +8,10 @@ from ntpath import (
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
+from convert.adapters.solidworks.Container.Format import (
+    KAsmSuffix,
+    KPartSuffix,
+)
 
 
 # generated native identity must use an explicit absolute target path and save event without resolving or reading any filesystem state
@@ -28,8 +32,8 @@ class SelfFileInput:
             )
         NameValue, Extension = SplitExt(BaseName(self.PathName))
         if not NameValue or Extension.casefold() not in (
-            ".sldprt",
-            ".sldasm",
+            KPartSuffix,
+            KAsmSuffix,
             ".slddrw",
         ):
             raise ValueError(

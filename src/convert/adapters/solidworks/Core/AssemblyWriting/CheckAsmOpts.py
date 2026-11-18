@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import Requ
 from convert.adapters.solidworks.Core.AssemblyWriting.AsmOptionNames import (
     KAsmOptionNames,
 )
+from convert.adapters.solidworks.Container.Format import (
+    KAsmSuffix,
+)
 
 
 # existing companion backup limitations require assembly replacement to stay closed while all admitted options retain exact domains
@@ -28,7 +31,7 @@ def CheckAsmOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
     FormatValue = SettingsValue.destination_format
     RequireAsm(
         FormatValue is None
-        or FormatValue.casefold() in ("solidworks.sldasm", "sldasm", ".sldasm"),
+        or FormatValue.casefold() in ("solidworks.sldasm", "sldasm", KAsmSuffix),
         "assembly writing requires an assembly destination format",
     )
     RequireAsm(

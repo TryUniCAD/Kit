@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState imp
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyStreams import (
     AssemblyStreams,
 )
+from convert.adapters.solidworks.Container.Format import (
+    KResolvedFeaturesStream,
+)
 
 
 # assembly layouts must preserve native serialization order and original graph identities while adding their independently generated metadata streams
@@ -19,7 +22,7 @@ def JoinAsmMut(
     StreamsValue.update(
         {
             "Contents/Config-0": GraphValue.ConfigBytes,
-            "Contents/Config-0-ResolvedFeatures": GraphValue.ResolvedBytes,
+            KResolvedFeaturesStream: GraphValue.ResolvedBytes,
             "Contents/Config-0-MatesList": GraphValue.MatesBytes,
             "Contents/CMgr": WriteCmgrMut(StateValue.ManagerValue, 19000),
         }

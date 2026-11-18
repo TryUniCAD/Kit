@@ -18,6 +18,10 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 )
 from convert.adapters.solidworks.Archive.Definition.ModelDefGraph import ModelDefGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Container.Format import (
+    KComponentTreeStream,
+    KeywordsStream,
+)
 
 
 # flat assembly indexes must retain their existing wire namespace while sharing independently rooted headers definition and history with recursive layouts
@@ -35,10 +39,10 @@ def MakeAsmAux(
     )
     StreamsValue.update(
         {
-            "swXmlContents/KeyWords": MakeAsmKeys(
+            KeywordsStream: MakeAsmKeys(
                 StateValue, HeadersValue[0], ChildValue, References
             ),
-            "swXmlContents/COMPINSTANCETREE": MakeAsmTree(
+            KComponentTreeStream: MakeAsmTree(
                 StateValue, HeadersValue[0], ChildValue, References
             ),
         }

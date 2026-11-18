@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import
 from convert.adapters.solidworks.Core.Preparation.RequirePartPath import (
     RequirePartPath,
 )
+from convert.adapters.solidworks.Container.Format import (
+    KPartSuffix,
+)
 
 # only the explicitly authored namespace with absent locator evidence may support standalone host preparation without claiming a real drive mapping
 KNeutralRoot = r"C:\KitSdkCandidates"
@@ -25,7 +28,7 @@ def SelectPartSelf(
         Value in (".", "..") for Value in FinalText.split("/")
     ):
         raise ValueError("standalone host output requires an absolute ordinary path")
-    if PathValue.stem != NameValue or PathValue.suffix.casefold() != ".sldprt":
+    if PathValue.stem != NameValue or PathValue.suffix.casefold() != KPartSuffix:
         raise ValueError(
             "standalone host output must retain the exact neutral basename"
         )
@@ -33,7 +36,7 @@ def SelectPartSelf(
     if (
         RecipeValue.PathName != JoinPath(KNeutralRoot, RecipePath.name)
         or RecipePath.stem != NameValue
-        or RecipePath.suffix.casefold() != ".sldprt"
+        or RecipePath.suffix.casefold() != KPartSuffix
     ):
         raise ValueError(
             "standalone host output requires the measured authored locator"

@@ -26,6 +26,10 @@ from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.MakeNeste
     MakeNestedTree,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Container.Format import (
+    KComponentTreeStream,
+    KeywordsStream,
+)
 
 
 # recursive assembly serialization must share proven binary header and history emission while deriving its own complete document index closure
@@ -41,8 +45,8 @@ def EmitNestedAsm(
     )
     StreamsValue.update(
         {
-            "swXmlContents/KeyWords": MakeNestedKeys(TargetValue),
-            "swXmlContents/COMPINSTANCETREE": MakeNestedTree(TargetValue),
+            KeywordsStream: MakeNestedKeys(TargetValue),
+            KComponentTreeStream: MakeNestedTree(TargetValue),
         }
     )
     return JoinAsmMut(StateValue, GraphValue, StreamsValue)
