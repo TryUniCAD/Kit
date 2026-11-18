@@ -26,6 +26,7 @@ from FusionPhasePlan import (
     phase_paths,
 )
 from OutputManifest import output_manifest
+from InferenceGrid.PhaseWitness import CheckPhaseLife, CheckSavedPair
 
 # the fixed parked hypothesis has one licensed distinguishing recipe
 KScopeGap = "p04-through-all-body-selection"
@@ -157,6 +158,7 @@ def GridPhase(session, packet, queue, plan, phase, staged):
         and "fixture_only" not in report,
         "scope grid dispatch identity differs or belongs to a disposable fixture",
     )
+    CheckPhaseLife(dispatch, report, records, queue, phase)
     expected = phase_paths(queue, phase)
     files = output_manifest(dispatch["files"])
     require(
@@ -221,6 +223,7 @@ def ObserveGrid(session, packet, report):
             and second["application_build"] == first["application_build"],
             "scope grid measurements do not establish the exact fresh process pair",
         )
+        CheckSavedPair(first, second)
         native, _ = read_report(
             staged / "report.json", second_pin, "fusion", GitSnapshot(ROOT)
         )
