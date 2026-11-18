@@ -12,6 +12,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeFreshHist import (
     MakeFreshHist,
 )
+from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.MakePartProps import (
+    MakePartProps,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartKeys import (
     MakePartKeys,
 )
@@ -68,5 +71,6 @@ def EmitPartStreams(
         "swXmlContents/KeyWords": MakePartKeys(
             SystemValue, FeatureValues, InputValue, PlanValue, SketchDims
         ),
+        **MakePartProps(InputValue.PropertiesValue),
     }
     return StreamsValue, ConfigValue, ResolvedValue

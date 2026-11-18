@@ -90,6 +90,8 @@ The internal circle composer also applies the actual Front, Right or Top support
 
 The internal SDK rectangle composer also owns two driving sketch dimensions and four horizontal or vertical relations. Two independent neutral requests preserve all ten streams, real point and segment handles, displays and parameter ownership through typed preparation. [Rectangle driving dimensions](../../Changes/Solidworks/Construction/SolidworksRectangleDrivingDimensions.md)
 
+The internal part composer can generate summary, document and active-configuration text properties through separate native XML owners. A triangle and a circle preserve independently edited values in both custom scopes through native save and fresh reopen. [Part text properties](../../Changes/Solidworks/Construction/SolidworksPartTextProperties.md)
+
 The internal corner-anchored rectangle keeps the actual native origin coincidence through independent edits of both sketch lengths and the boss depth. All three native saves reopen with a fully constrained sketch and one solid, across eight processes and 255 numerical comparisons. [Native origin-anchored rectangle](../../Changes/Solidworks/Inspection/Profiles/SolidworksSdkCornerNativeEdits.md)
 
 ## Read flow
@@ -129,6 +131,8 @@ The internal SDK writer can serialize ordinary 2026 sheet fields with the caller
 The complete linked SDK constructor builds the drawing from one external generated part and a single authored named view. Six designs pass exact stream and independent corner comparisons. One Front view and its generated part pass a native move, save and fresh reopen with exact native feature rows, resolved part geometry and live child depth. [Complete linked SDK drawing](../../Changes/Solidworks/Inspection/Drawings/Portable/SolidworksSdkLinkedDrawingFile.md) [Native lifecycle](../../Changes/Solidworks/Inspection/Drawings/Portable/SolidworksSdkLinkedDrawingNativeTrial.md)
 
 Two original Right and Top drawing pairs pass a geometry comparison through native view movement, save and fresh reopen. Each drawing retains differences in 13 feature names. The generated child also differs in its notes area and feature rows. The strict source-semantic and held-out acceptance gates remain open. [Original drawing comparison](../../Changes/Solidworks/Inspection/Drawings/Qualification/SolidworksOriginalDrawingGeometryComparison.md)
+
+The strict linked Definition reader recognizes the version-19000 system-scale object as an empty serialized body with an actual archive identity. Both original samples advance to the next unsupported profile component. All 43 prior-profile workers pass. [System scale archive](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksSystemScaleArchive.md)
 
 ## Feature history
 

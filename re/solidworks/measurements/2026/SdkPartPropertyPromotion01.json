@@ -1,0 +1,148 @@
+{
+  "checks": [
+    {
+      "base_file_identical_with_empty_input": true,
+      "base_file_sha256": "89679717c816d2859ab12abe60a5b8e4dac64b41a5e280cbe3c9548639f151f1",
+      "file_bytes": 9646,
+      "file_sha256": "0d3ec3a66fa50793bc54f18d2b9b16cf5aef7a58545f2cd527b2c1a240922062",
+      "input_profile": "polygon",
+      "input_sha256": "9129993976bd060e0cbea10c0ba0e837334d68964daf65bc4e8f091f69e84bf2",
+      "native_output_stream_count": 13,
+      "passed": true,
+      "rejections": [
+        {
+          "case": "unbound_summary",
+          "error": "part summary contains an unsupported field"
+        },
+        {
+          "case": "duplicate_name",
+          "error": "custom property names must be distinct within a scope"
+        },
+        {
+          "case": "non_text",
+          "error": "drawing metadata requires explicit xml text"
+        },
+        {
+          "case": "linked_text",
+          "error": "ordinary text properties require literal unlinked values"
+        },
+        {
+          "case": "equation",
+          "error": "ordinary text properties require literal unlinked values"
+        },
+        {
+          "case": "invalid_xml",
+          "error": "drawing metadata text contains an invalid xml character"
+        },
+        {
+          "case": "multiline",
+          "error": "ordinary part properties require single-line text"
+        },
+        {
+          "case": "unsupported_name",
+          "error": "custom property name lies outside the ordinary text profile"
+        }
+      ],
+      "runtime_input_file_reads": 0,
+      "schema": "kit.sw2026.sdk-part-property-promotion.v1",
+      "stream_sha256": {
+        "Contents/CMgr": "4311827a4ead991852d6771d99aa4ccc82c7ce78d53f4b3a16621e213caef088",
+        "Contents/CMgrHdr2": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+        "Contents/Config-0": "3231a5ea6ec809caa713c359f985e38181d8343e29b4ce74cd74e67b5d2e1928",
+        "Contents/Config-0-ModelHeader": "45611ca3218f787d9b616e990ed45ae591b131e8573d1c9b3d5a12d7b1bffb3a",
+        "Contents/Config-0-ResolvedFeatures": "89875af5abb0217c19e1a574b3c6f6ca33fe393ed5336e9bfb7092431da221b2",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "36a15b6d8a899c56afeccbe680ae8a35cfc71d488c8d7ca33f0dd7e19fc6e35d",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56",
+        "docProps/Config-0-Properties.xml": "624c177eadbe94b3ec312a560e1e24738f0e60785bfbb564aae350696c335dcd",
+        "docProps/core.xml": "c133adfa22b8e752a3b33a5d48b111bbdf74033e5b62bffde1758d81c3f82df8",
+        "docProps/custom.xml": "2386f188fb7f14b7d93553ab20b5c48dd290f06641d7c1adb66c1dcbc1437a7e",
+        "swXmlContents/KeyWords": "a9c2ff1e1e03ccc210b429c584d156e07ca96f05bce16ddb379dd228eb52e399"
+      }
+    },
+    {
+      "base_file_identical_with_empty_input": true,
+      "base_file_sha256": "93bca02e749002a87d07257b2b15e0c49c6804279fd22d4e95dcac61891848f7",
+      "file_bytes": 10050,
+      "file_sha256": "392c5b51b63761f4bba2baf6dc0715de4af8d3e5036b83a42e0f388031cc6edd",
+      "input_profile": "circle",
+      "input_sha256": "ef966168c7f3fa7765ba0ab88a0f716778c785ddc55be80ed5a035c3897cc125",
+      "native_output_stream_count": 13,
+      "passed": true,
+      "rejections": [
+        {
+          "case": "unbound_summary",
+          "error": "part summary contains an unsupported field"
+        },
+        {
+          "case": "duplicate_name",
+          "error": "custom property names must be distinct within a scope"
+        },
+        {
+          "case": "non_text",
+          "error": "drawing metadata requires explicit xml text"
+        },
+        {
+          "case": "linked_text",
+          "error": "ordinary text properties require literal unlinked values"
+        },
+        {
+          "case": "equation",
+          "error": "ordinary text properties require literal unlinked values"
+        },
+        {
+          "case": "invalid_xml",
+          "error": "drawing metadata text contains an invalid xml character"
+        },
+        {
+          "case": "multiline",
+          "error": "ordinary part properties require single-line text"
+        },
+        {
+          "case": "unsupported_name",
+          "error": "custom property name lies outside the ordinary text profile"
+        }
+      ],
+      "runtime_input_file_reads": 0,
+      "schema": "kit.sw2026.sdk-part-property-promotion.v1",
+      "stream_sha256": {
+        "Contents/CMgr": "97db742b2b04306cfd7bee1e8fb5b90e14c2cd5bd168c11f1a2a697967131e51",
+        "Contents/CMgrHdr2": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+        "Contents/Config-0": "d3bc824822d48148f077c51dc18607d49b2538a8a4a6590858045f6ae112456d",
+        "Contents/Config-0-ModelHeader": "088f242a8702951a75d2d82f9ab7e4982671845e181c9dd3c8e4140994344120",
+        "Contents/Config-0-ResolvedFeatures": "f69a102bdcf0df37b5b076354698d4b11722802f0c8638a18b3c319ad77c99c2",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "9b5589d147392a2d59e44618f4549399a64137304c316743b2335238f27ebd5a",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56",
+        "docProps/Config-0-Properties.xml": "4849ef982a8d752eb8873f12887894632f1358bab314e3e4a9b38c01bc4b3972",
+        "docProps/core.xml": "cf35efb1218db6197c1e6c28c41f585a50421dcb4e15f1b5bde70b5101a5bd07",
+        "docProps/custom.xml": "0a9b762273102e18e6235dc8e78b9b9ca5a365b210833890c9e8c72a4072b4ce",
+        "swXmlContents/KeyWords": "e0e9786e88caef97eaaa54b3630c3423ddc985a5f46a396f62b63f4078384f35"
+      }
+    }
+  ],
+  "construction_tool_sha256": "235b671fefa9bad43f831333fdb87cd99f3dfa003279825905f6cd300eb9f98b",
+  "input_packet_sha256": "b50bf3403ef52b1e43c60664c6ba4ce993530c52ccabaa256dbf45638e7cacfd",
+  "isolated_build_processes": 4,
+  "passed": true,
+  "schema": "kit.sw2026.sdk-part-property-promotion.v1",
+  "source_base_revision": "b236828b34046acb9b195052010ad4a4626aee53",
+  "source_manifest_sha256": "8a51708b0364249ac7edb8ecda3e17d9d207e6bfd803a7d8f97f273ab031b032",
+  "staged_source_sha256": {
+    "re/tooling/sw2026/CheckSdkPartProperties.py": "235b671fefa9bad43f831333fdb87cd99f3dfa003279825905f6cd300eb9f98b",
+    "re/tooling/sw2026/builders/PartTextProperties.py": "8e5ddce7ee840824662ad62b3ccf74189c86ba57689acd019885d0e9f60ba88c",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/CheckPropText.py": "c04af1b7a8a87f858f23c59eddeb58b75c20b04b0944cb1990062339777d7fa4",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/MakeCoreProps.py": "5b5512522460087beed876a84423b8b3334c2cda5e8edaba74b1529642dc11e9",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/MakeCustomProps.py": "47f1252b16dcf7a1caf489c9a5715a4e9627dbd5aab6380032f9d98d67a186f4",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/MakePartProps.py": "69a354cfea17218ad5cc57aff8b5c15da60d38effb434c09b346ae42ce7f5542",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/MakePropSection.py": "bbd295f29d045228417a77f8ee9cb09626248649ea4c1aef2e704c4d5d181faa",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/PartTextInput.py": "04138bd83094419f34274f4f65d450d4833344662189b80f279c1afac9a7ea77",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/PropertyNames.py": "ba489dba55c32f592a44c55fb67081ce4f47d01e4cf1b9c54851e52b5ef66bc1",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/ReadPropRows.py": "2f6dfac36acf76964965cc1b44c5aad3300f9f5110f9cc13ced4aa76babe59fb",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/WritePropXml.py": "24add5b1e178e22fce23cfa7c7aa594f6b95d630adf0dadd9fc653df16dbce75",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartStreams.py": "cd8491881a25fa11ce42e9ecea05295e31fb2aaa5a9cc215f7b076b835ba4877",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/PartBuildInput.py": "646de6878af2e671eba9d7606d3b969a36b0a5f7a215016c17f38897fcea67e4"
+  }
+}

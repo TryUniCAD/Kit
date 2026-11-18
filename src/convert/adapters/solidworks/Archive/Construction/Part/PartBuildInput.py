@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Archive.Construction.Header.HeaderInput import 
 from convert.adapters.solidworks.Archive.Construction.Metadata.HistoryInput import (
     HistoryInput,
 )
+from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTextInput import (
+    PartTextInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import (
     FeatureTarget,
 )
@@ -40,3 +43,4 @@ class PartBuildInput:
     DensityValue: float
     DesignIntent: bool
     SelectedLeader: int
+    PropertiesValue: PartTextInput | None = None
