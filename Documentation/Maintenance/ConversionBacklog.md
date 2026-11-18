@@ -58,6 +58,17 @@ B14 can qualify earlier subsets while B06–B09 continue.
 B03's parent is not complete merely because its deterministic scheduler has process evidence.
 B04's parent is not complete merely because controlled constructor probes exist.
 
+### Hosted coordination planning
+
+| ID  | Deliverable                             | Status  | Owner and delivery                                                                                                                                    | Depends on                                                                               | Exit condition                                                                                                                                   |
+| --- | --------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| B15 | Cloudflare-hosted research coordination | Planned | Codex owns the [design plan](../Reference/Research/CloudflareCoordinatorPlan.md) on `codex/plan-cloudflare-coordinator`; implementation is unassigned | [PR #158](https://github.com/TryUniCAD/Kit/pull/158) controller and supervisor contracts | Multi-node claims, recovery, private artifacts, quota limits, verified delivery and cleanup pass revision-bound integration and operating checks |
+
+The user requested B15 as a separate planning PR on 2026-11-18.
+Its C01-C07 implementation tasks do not replace the A01-A16 programme or claim its unfinished native acceptance.
+The inspected dependency head is `0b66cc014bac58e5171585c926b0773a9cdd570e`.
+The design adds no supported CAD route and changes no production completion milestone.
+
 ## Important gap boundaries
 
 ### Fusion schemas
