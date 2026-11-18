@@ -101,7 +101,7 @@ def native_save(author, model, assembly, parent, child, count, recorder):
     return {"parent": digest(parent), "child": owned, "parent_status": status}
 
 
-def phase(job, edit, role, parent, child, target, *, editing=False, reopened=None):
+def phase(job, edit, role, parent, child, target, *, editing=False, reopened=None, observe=None):
     import Swapp
     from AssemblyMateEvidence import mate_features
     from AuthorAssemblySources import bound_child
@@ -133,8 +133,12 @@ def phase(job, edit, role, parent, child, target, *, editing=False, reopened=Non
             loaded_child = bound_child(author, assembly, child, count)
             result["child_stamp_on_open"] = int(author.get(loaded_child, "GetUpdateStamp"))
             result["initial"] = capture(author, model, assembly, child, case, mass, "initial")
+            if observe is not None:
+                result["initial_options"] = observe(author, model, loaded_child)
             require(author.get(model, "ForceRebuild3", False), "native assembly rebuild failed")
             result["rebuilt"] = capture(author, model, assembly, child, case, mass, "rebuilt")
+            if observe is not None:
+                result["rebuilt_options"] = observe(author, model, loaded_child)
             if editing:
                 drive = driving_request(case)["name"]
                 feature, = [value for value in mate_features(author, model) if author.get(value, "Name") == drive]
@@ -145,6 +149,8 @@ def phase(job, edit, role, parent, child, target, *, editing=False, reopened=Non
                 require(status == 0 and author.get(model, "ForceRebuild3", False), "the live distance edit failed")
                 result["edit_status"] = status
                 result["edited"] = capture(author, model, assembly, child, edit, mass, "edited")
+                if observe is not None:
+                    result["edited_options"] = observe(author, model, loaded_child)
                 require(result["edited"]["mass"]["com"] != result["rebuilt"]["mass"]["com"], "the distance edit did not move the solid")
                 result["saved"] = native_save(author, model, assembly, parent, child, count, recorder)
             if reopened is not None:
