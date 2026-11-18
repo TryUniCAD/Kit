@@ -19,6 +19,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Presentation.NativeRow impor
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.OwnedRows import (
     ReadOwnedRows,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Presentation.ProjectThruTree import (
+    ProjectThruTree,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.RootOrder import (
     ReadRootOrder,
 )
@@ -47,6 +50,16 @@ def ProjectTree(
                 MembersValue += ChildNodes
         HelpersValue = ReadConfigHelp(LinkValue)
         CheckExtras(Model, RootsValue, MembersValue, HelpersValue)
+        if RootsValue[-1].ClassValue.NameValue == "moICE_c":
+            return ProjectThruTree(
+                Model,
+                LinkValue,
+                Features,
+                RootsValue,
+                tuple(RowsValue),
+                MembersValue,
+                HelpersValue,
+            )
     except (ValueError, TypeError, KeyError) as ErrorValue:
         return TreeProjection(
             Original,
