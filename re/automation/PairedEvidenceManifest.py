@@ -8,6 +8,8 @@ import subprocess
 import sys
 from pathlib import Path, PurePosixPath
 
+from Corpus import git_environment
+
 ROOT = Path(__file__).resolve().parents[2]
 SPEC = "re/automation/PairSpecs.json"
 MAX_MANIFEST = 1024 * 1024
@@ -17,6 +19,11 @@ PUBLIC = {
     "P02": "re/automation/CircleReadbackEvidence.py",
     "P03": "re/automation/PrincipalReadbackEvidence.py",
 }
+FUSION_VERIFIERS = (
+    "re/automation/PairedCaptures/FusionRunEvidence.py",
+    "re/automation/PairedCaptures/FusionRunReadbacks.py",
+    "re/automation/PairedCaptures/FusionSupplement.py",
+)
 
 
 class Refused(ValueError):
@@ -96,10 +103,11 @@ def read_sealed(path, expected, limit):
 
 def git(*args):
     result = subprocess.run(
-        ["git", "--no-replace-objects", "-C", str(ROOT), *args],
+        ["git", "--no-replace-objects", "--no-optional-locks", "-C", str(ROOT), *args],
         check=True,
         capture_output=True,
         timeout=30,
+        env=git_environment(),
     )
     require(
         len(result.stdout) <= 16 * 1024 * 1024, "Git metadata exceeds its byte limit"
@@ -203,13 +211,16 @@ def checked_entry(entry, recipes):
     )
     common = {"application", "recipe", "source_revision"}
     checksum(entry["source_revision"], 40)
-    if entry["application"] == "fusion" or entry["recipe"] == "P04":
+    fusion_replay = entry["application"] == "fusion" and "input_directory" in entry
+    if (entry["application"] == "fusion" and not fusion_replay) or (
+        entry["application"] == "solidworks" and entry["recipe"] == "P04"
+    ):
         exact(entry, common | {"handoff_revision"})
         checksum(entry["handoff_revision"], 40)
         return
     exact(
         entry,
-        common
+        common | ({"handoff_revision"} if fusion_replay else set())
         | {
             "verifier_revision",
             "verifier_sha256",
@@ -221,6 +232,8 @@ def checked_entry(entry, recipes):
     for key in ("verifier_sha256", "input_sha256", "report_sha256"):
         checksum(entry[key])
     checksum(entry["verifier_revision"], 40)
+    if fusion_replay:
+        checksum(entry["handoff_revision"], 40)
     relative = entry["input_directory"]
     require(
         isinstance(relative, str)
@@ -241,7 +254,11 @@ def checked_entry(entry, recipes):
 def checked_source(entry):
     commit(entry["source_revision"])
     commit(entry["verifier_revision"])
-    relative = PUBLIC[entry["recipe"]]
+    relative = (
+        FUSION_VERIFIERS[0]
+        if entry["application"] == "fusion"
+        else PUBLIC[entry["recipe"]]
+    )
     raw = source_bytes(entry["verifier_revision"], relative)
     require(
         hashlib.sha256(raw).hexdigest() == entry["verifier_sha256"],
@@ -249,6 +266,11 @@ def checked_source(entry):
     )
     local = ROOT / relative
     read_sealed(local, entry["verifier_sha256"], MAX_RECORD)
+    if entry["application"] == "fusion":
+        commit(entry["handoff_revision"])
+        for dependency in FUSION_VERIFIERS[1:]:
+            original = source_bytes(entry["verifier_revision"], dependency)
+            read_sealed(ROOT / dependency, hashlib.sha256(original).hexdigest(), MAX_RECORD)
     changes = git(
         "status", "--porcelain", "--untracked-files=no", "--", "src", "re/automation"
     )
@@ -340,8 +362,8 @@ def replay(entry, selected):
     return observations
 
 
-def bind_capture(revision, recipe, observations):
-    prefix = f"re/automation/PairedCaptures/{recipe}/solidworks-"
+def bind_capture(revision, recipe, observations, application="solidworks"):
+    prefix = f"re/automation/PairedCaptures/{recipe}/{application}-"
     names = (
         git(
             "ls-tree",
@@ -350,7 +372,7 @@ def bind_capture(revision, recipe, observations):
             "-z",
             revision,
             "--",
-            prefix.rsplit("/solidworks-", 1)[0],
+            prefix.rsplit(f"/{application}-", 1)[0],
         )
         .decode("utf-8")
         .split("\0")
@@ -360,7 +382,7 @@ def bind_capture(revision, recipe, observations):
         for name in names
         if name.startswith(prefix) and name.endswith("/receipt.json")
     ]
-    require(len(receipts) == 1, "target lacks one exact SOLIDWORKS capture receipt")
+    require(len(receipts) == 1, f"target lacks one exact {application} capture receipt")
     receipt = json.loads(source_bytes(revision, receipts[0]), object_pairs_hook=unique)
     require(
         receipt["recipe_id"] == recipe and receipt["errors"] == 0,
@@ -409,7 +431,10 @@ def preflight(manifest, root, expected):
     values = []
     for entry in manifest["evidence"]:
         identity = {"application": entry["application"], "recipe": entry["recipe"]}
-        if entry["application"] == "fusion" or entry["recipe"] == "P04":
+        fusion_replay = entry["application"] == "fusion" and "input_directory" in entry
+        if (entry["application"] == "fusion" and not fusion_replay) or (
+            entry["application"] == "solidworks" and entry["recipe"] == "P04"
+        ):
             values.append({**identity, **handoff(entry)})
             continue
         source = checked_source(entry)
@@ -419,9 +444,15 @@ def preflight(manifest, root, expected):
                 {**identity, "status": "waiting_private_evidence", "verifier": source}
             )
             continue
-        observations = replay(entry, selected)
-        bind_capture(manifest["capture_revision"], entry["recipe"], observations)
-        bind_capture(manifest["target_revision"], entry["recipe"], observations)
+        details = {}
+        if fusion_replay:
+            from PairedCaptures.FusionSupplement import ReplayFusion
+
+            observations, details = ReplayFusion(ROOT, entry, selected)
+        else:
+            observations = replay(entry, selected)
+        bind_capture(manifest["capture_revision"], entry["recipe"], observations, entry["application"])
+        bind_capture(manifest["target_revision"], entry["recipe"], observations, entry["application"])
         values.append(
             {
                 **identity,
@@ -429,6 +460,7 @@ def preflight(manifest, root, expected):
                 "verifier": source,
                 "input_sha256": entry["input_sha256"],
                 "report_sha256": entry["report_sha256"],
+                **({"observations": details} if fusion_replay else {}),
             }
         )
     return {

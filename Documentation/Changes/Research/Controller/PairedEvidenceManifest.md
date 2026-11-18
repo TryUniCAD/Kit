@@ -4,7 +4,8 @@
 
 `re/automation/PairedEvidenceManifest.py` validates a sealed supplemental-evidence request before coordinated admission.
 It preserves the original captures, receipts, measurements and family splits.
-It does not replace `PairedCaptureIntake.py` or the privately retained Fusion intake implementation.
+It does not replace `PairedCaptureIntake.py`.
+The optional Fusion replay uses the recovered original intake implementation.
 It never qualifies a pair or changes a reader's frozen rules.
 
 The command replays the existing public SOLIDWORKS principal and circle verifiers against owner-local raw receipt chains.
@@ -12,9 +13,10 @@ A copied normalized report cannot substitute for those inputs.
 The replay must reproduce the independently supplied normalized-report digest.
 Its exact native roster must also match both the selected historical capture and target Git revisions.
 
-The public adapters cover P01/P03 principal observations and P02 circle observations.
-Fusion and original P04 supplemental verification require their existing owners' source handoffs.
-The command records those dependencies and returns blocked readiness, including when the referenced commits exist without an integrated verifier contract.
+The SOLIDWORKS adapters cover P01/P03 principal observations and P02 circle observations.
+Fusion P01–P04 can replay an independently sealed original Phase A/B run.
+Legacy Fusion handoff-only records and original SOLIDWORKS P04 records retain their existing source-handoff dependency.
+Every report still returns blocked readiness without evaluating paired qualification.
 P05 and its descendants remain outside this command.
 
 ## Before you start
@@ -46,11 +48,12 @@ Duplicate keys and unknown fields are refused.
 | `evidence`              | Exactly one SOLIDWORKS and one Fusion record for every selected recipe         |
 
 Every evidence record contains `application`, `recipe` and the full native collector `source_revision`.
-Fusion records and P04 records additionally contain only `handoff_revision`, a full source-only handoff commit SHA.
+Legacy Fusion records and SOLIDWORKS P04 records additionally contain only `handoff_revision`, a full source-only handoff commit SHA.
 Their output identifies whether both source commits are locally available.
 Availability alone does not establish the missing verifier contract.
 
 The public SOLIDWORKS P01, P02 and P03 records instead require these fields.
+An optional Fusion replay record uses these same fields plus `handoff_revision`.
 
 | Field               | Required value                                                                                      |
 | ------------------- | --------------------------------------------------------------------------------------------------- |
@@ -59,6 +62,20 @@ The public SOLIDWORKS P01, P02 and P03 records instead require these fields.
 | `input_directory`   | Relative directory beneath the private evidence root, with no absolute path or parent traversal     |
 | `input_sha256`      | Principal dispatch SHA-256, or P02 receipt SHA-256                                                  |
 | `report_sha256`     | SHA-256 of the exact normalized JSON emitted by the public verifier, including its terminal newline |
+
+For Fusion, `input_sha256` is the independently recorded Phase B measurements digest.
+Its private directory contains the original plan, both phase receipts, both measurements, and every fresh archive named by that plan.
+`source_revision` identifies the original collector; `handoff_revision` identifies its retained authoring graph.
+`verifier_revision` identifies the integrated verifier source used for this replay.
+The command checks all three Fusion verifier files against that exact revision.
+It never executes a manifest-selected program.
+
+The recovered verifier checks the original source pins, historical archive roster, healthy controls, restart identity, and constraint/dimension targets.
+Both historical and current native archive rosters must match the selected recipe.
+The normalized replay digest covers the complete original run, including recipes outside the selected lane.
+P02 retains its qualification reservation; replay does not fit or evaluate frozen reader rules.
+P05 is refused.
+The [recovery change](Admission/RecoveredFusionEvidence.md) records the evidence and remaining limits.
 
 P01/P03 use `PrincipalReadbackEvidence.report` and its documented dispatch, plan, measurements and receipt layout.
 P02 uses `CircleReadbackEvidence.verify` and its documented plan, measurements and receipt layout.
@@ -88,7 +105,9 @@ Every report retains `qualified_pairs: 0` and `qualification: not_evaluated`.
 The requested frozen-rule revision is recorded without executing it or consuming holdout files.
 A successfully replayed public lane reports `verified_same_format_observations`.
 A missing private directory reports `waiting_private_evidence`.
-Fusion and P04 lanes report `waiting_source_handoff` until their owning contracts are integrated.
+Legacy Fusion and SOLIDWORKS P04 lanes report `waiting_source_handoff` until their owning contracts are integrated.
+An admitted Fusion raw-chain replay reports `verified_same_format_observations` and retains per-recipe binding counts.
+This observation does not remove the original capture blockers or qualify a native pair.
 
 | Exit | Meaning                                                                         | Required action                                                                       |
 | ---- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |

@@ -221,6 +221,14 @@ The [guide](SemanticComparison.md) defines its input seals, bounds and research-
 | A06b     | Independently qualified equal, different and ambiguous native pairs | jdharcourt | blocked  | A02d evidence admission, frozen rules and A04/A05 source inventories remain required; zero pairs qualified                                                                                                 |
 | A06c     | Controller comparison worker and immutable report artifacts         | jdharcourt | checking | The [worker](../../Changes/Research/Controller/SemanticComparisonWorker.md) implements the existing protocol; hosted controller process execution remains required                                         |
 | A06d     | Native reader artifacts chained into comparison jobs                | jdharcourt | checking | The [reader bridge](../../Changes/Research/Readers/Comparison/NeutralReaderWorker.md) preserves full codec documents and source evidence; hosted native-file/controller process execution remains required |
+| A06e     | Recovered Fusion raw-chain supplemental admission                   | Codex      | complete | Original sealed Phase A/B replay passed through the public preflight; missing SOLIDWORKS custody and zero qualified pairs remain explicit                                                                  |
+
+The local A06b follow-up starts from PR #158 head `5018f106b8287c83756233c677cc155e8b963357` on `codex/pr158-pair-qualification`.
+The original Fusion source handoff and corrected private run were recovered from their existing task custody.
+The [recovered admission change](../../Changes/Research/Controller/Admission/RecoveredFusionEvidence.md) records replay scope and the public verifier contract.
+The SOLIDWORKS raw chains, coordinated manifest, frozen-rule evaluation, and independent equal/different/ambiguous case adjudication remain required.
+Native ambiguous evidence cannot be replaced by synthetic duplicated graph candidates.
+The source recovery and supplemental observation do not complete A06b or qualify a conversion.
 
 Observed graph equality does not qualify a reader, writer or native conversion.
 The [sketch-reference repair](../../Changes/Research/Readers/Comparison/SemanticSketchReferences.md) recognizes a definition-free reference to a unique declared sketch in both graph projection and reader inventory, retaining operation-definition and unresolved-target findings.
