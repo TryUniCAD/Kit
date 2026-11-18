@@ -13,6 +13,9 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.CheckMateIds i
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.PlanarMateIn import (
     PlanarMateIn,
 )
+from convert.adapters.solidworks.Archive.Construction.PlanarMates.ReadMateOccs import (
+    ReadMateOccs,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
@@ -22,7 +25,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 )
 
 
-# native construction needs a fresh owned two occurrence assembly and an explicit supported authored relationship
+# native construction needs a fresh owned component graph and an explicit supported relationship between two actual selected principal planes
 def CheckMateCtx(
     Context: MateContext, InputValue: PlanarMateIn
 ) -> tuple[ArchiveNode, ArchiveNode]:
@@ -53,25 +56,14 @@ def CheckMateCtx(
         raise ValueError(
             "mate factory admits coincident or parallel with two selected principal planes"
         )
-    Items = ReadRows(
-        RequireRecord(RequireRecord(Assembly.FieldsValue.get("f68")).get("list")).get(
-            "items"
-        )
-    )
-    if len(Items) != 2:
-        raise ValueError("ordinary mate construction requires two direct occurrences")
-    First, Second = (RequireNode(Value.get("o"), "moReference_c") for Value in Items)
-    CheckMateIds(Context, (First, Second))
-    if (
-        First is Second
-        or FieldInt(First.FieldsValue, "f08") == FieldInt(Second.FieldsValue, "f08")
-        or not any(InputValue.FixedValue is Value for Value in (First, Second))
-    ):
+    Occurrences = ReadMateOccs(Assembly)
+    CheckMateIds(Context, Occurrences)
+    if not any(InputValue.FixedValue is Value for Value in Occurrences):
         raise ValueError("mate fixed input or occurrence identities are ambiguous")
-    CheckMateState(Context, InputValue, (First, Second))
-    if (
-        InputValue.Selections[0].OccurrenceValue
-        is InputValue.Selections[1].OccurrenceValue
+    CheckMateState(Context, InputValue, Occurrences)
+    First, Second = (Value.OccurrenceValue for Value in InputValue.Selections)
+    if First is Second or any(
+        not any(Value is Member for Member in Occurrences) for Value in (First, Second)
     ):
         raise ValueError("mate selections require distinct actual occurrences")
     Counter = FieldInt(Assembly.FieldsValue, "fd48")

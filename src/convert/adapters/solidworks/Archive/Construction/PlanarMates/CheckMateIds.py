@@ -7,9 +7,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 
 
 # persistent allocation must agree with the actual parent publication boundary before any mate state changes
-def CheckMateIds(
-    Context: MateContext, Occurrences: tuple[ArchiveNode, ArchiveNode]
-) -> None:
+def CheckMateIds(Context: MateContext, Occurrences: tuple[ArchiveNode, ...]) -> None:
     NodesValue = (
         Context.AssemblyValue,
         Context.GroupValue,
@@ -32,7 +30,7 @@ def CheckMateIds(
         NextValue != FieldInt(Context.HeaderValue.FieldsValue, "f08")
         or any(not 0 <= Value < NextValue for Value in Identifiers)
         or len(set(Identifiers)) != len(Identifiers)
-        or FieldInt(Context.HeaderValue.FieldsValue, "fc4") != 2
-        or FieldInt(Context.ConfigValue.FieldsValue, "f4b0") != 2
+        or FieldInt(Context.HeaderValue.FieldsValue, "fc4") != len(Occurrences)
+        or FieldInt(Context.ConfigValue.FieldsValue, "f4b0") != len(Occurrences)
     ):
         raise ValueError("mate allocator and parent occurrence publication differ")

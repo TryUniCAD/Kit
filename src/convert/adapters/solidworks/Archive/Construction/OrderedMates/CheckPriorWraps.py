@@ -14,7 +14,7 @@ def CheckPriorWraps(
     Context: MateContext,
     MateValue: ArchiveNode,
     MateIndex: int,
-    Occurrences: tuple[ArchiveNode, ArchiveNode],
+    Occurrences: tuple[ArchiveNode, ...],
 ) -> None:
     Wrappers = ReadRows(MateValue.FieldsValue.get("f410"))
     if len(Wrappers) != 2:

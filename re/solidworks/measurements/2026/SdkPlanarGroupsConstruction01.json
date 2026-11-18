@@ -1,0 +1,3890 @@
+{
+  "application_usable": false,
+  "compatibility": {
+    "complete_flat_and_nested_files_byte_identical": true,
+    "flat_outputs": [
+      {
+        "assembly": {
+          "bytes": 10144,
+          "sha256": "bb6f3062820e1cd80ce6a4ebe41e937795f768a159d357570d0d51b710eab9a3",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCPDAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10238,
+          "sha256": "b355769a747e41b1dbeed2595e92f50fc74f6ea0181e041eb6ed20b3de98bd69",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCPDBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10180,
+          "sha256": "1ca5360c4064d16e303cde653ef7cbbe734915fe5128128c7a7c8549115e7b70",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCDPAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10257,
+          "sha256": "7c3f7674b418d5c67abad553d84f345b3846523a16b54e19a0c6226b161471a9",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCDPBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10141,
+          "sha256": "1369be263fb2bf19cd79547b047328b7496f1ccc2b05e504d9e47b5caefe6353",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorPCDAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10236,
+          "sha256": "a42c2313d034295001191c7074d4762344862718f5711945923552b331cce99e",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorPCDBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10162,
+          "sha256": "942fb22032fbdc1f0361891a6cef697e76156eaf48aa8faef932a4e69ec9cc6b",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorPDCAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10253,
+          "sha256": "96c98105f3a87a0fe0a90047d7cf984b9f60d398b0ceb8fa205aeca511dc0528",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorPDCBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10154,
+          "sha256": "87db184dd09e464245dcab816414da8666b775118e81d220f6490aff599c9704",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDCPAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10245,
+          "sha256": "d36927dd3a25856347699fe73d640f573de97145f66cbc3e4fa7ebe86c49bca9",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDCPBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10170,
+          "sha256": "2534f391035eca3362fe5bb091f387cd23f7b5194483224f711d76ae6125bdea",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDPCAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 10230,
+          "sha256": "5145830ca71f46c249350382ed1b7d7ba475ee00b842995f64ef3983750c19d6",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDPCBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 23,
+        "wrapper_next_id": 6
+      },
+      {
+        "assembly": {
+          "bytes": 9300,
+          "sha256": "6d0c5e52433843437b65152be1b40d81c6a9bf4d1da4932ccdfbfa3ace787eea",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCoincidentXAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9339,
+          "sha256": "00b02dc2bbd28f1804551c79ebaf9e17c6fd8f25fe7fea2a574422ff8ef67082",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCoincidentXBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9290,
+          "sha256": "dbd7b441df5a29666836e697c3d0407ddf75f36893344f6bdeddaf9e61959b56",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCoincidentYAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9345,
+          "sha256": "40a1aad16ea507d010cb4f2e23f65e02cda9e0de92be4ce636f9363f4b3154b4",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCoincidentYBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9256,
+          "sha256": "05d2bf24b30beec18463651d462536a1e0cdfbf0db8136eede515bf6a196abd8",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCoincidentZAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9354,
+          "sha256": "c8bec6229542374eb7cc475de9dec377016797323adfe9ba7d64dfd79ddc1d83",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorCoincidentZBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9295,
+          "sha256": "467c4b4a133a83175db0385178d2628e28ef7413cc56a084e9df67f53cbff630",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorParallelXAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9333,
+          "sha256": "b7a095f854b2c9337091a6b2698f5f6cb9e857a3ad8993a4d4da31ebaa5fdedc",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorParallelXBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9284,
+          "sha256": "327c9d2285d2ce2ef6704dfca5db8349eec9f01078f9303b2d7cfe3f4e2f5721",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorParallelYAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9325,
+          "sha256": "779e9dd4ed82bbcab6cd389a798cc862a80beb97993b5218eb4d9361fe80515c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorParallelYBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9251,
+          "sha256": "4c159ee17b94fa4f0315ef5a7ea50ced3f1eff337abb112c78eeba95e99ef1f1",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorParallelZAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9340,
+          "sha256": "b91d428a19d1e0064fdfe6ec859a349de039be00f05ffa04b5e0a7369de009e2",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorParallelZBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 20,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9637,
+          "sha256": "521d576eaf1f7c46a48ecd5cd701a410b67c957c20ab1ee9eb95ad5fec38ce29",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDistanceXAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 21,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9665,
+          "sha256": "fbc68bb51d1fe1fc573ea1666d1d38047c3b0da9cf461f06a08ea676a2b36f2a",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDistanceXBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 21,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9635,
+          "sha256": "5c69819e1dc193d6b86b1f1124a3a5fb4c5949e1cf35426de07dbc02d3dc07c1",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDistanceYAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 21,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9673,
+          "sha256": "d21abc17efd8b0f50e2dfd282d32f91bcdb373426b13c8ca97069d69b372b70e",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDistanceYBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 21,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9611,
+          "sha256": "0e4777c09ca49c8ea63e34c81c04c8a17f9b24a5001d48e028d1cdcbab9ca519",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDistanceZAlpha",
+        "child": {
+          "bytes": 8197,
+          "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 21,
+        "wrapper_next_id": 2
+      },
+      {
+        "assembly": {
+          "bytes": 9685,
+          "sha256": "dc4f946d31637463dce85921374048320d1b3a397a8cc8e51f4bafbeb2681d69",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/CMgrHdr2",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords",
+            "swXmlContents/COMPINSTANCETREE",
+            "Contents/Config-0",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Config-0-MatesList",
+            "Contents/CMgr"
+          ]
+        },
+        "case": "PriorDistanceZBeta",
+        "child": {
+          "bytes": 8192,
+          "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+          "stream_order": [
+            "Header2",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0",
+            "Contents/CMgr",
+            "Contents/CMgrHdr2",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History",
+            "swXmlContents/KeyWords"
+          ]
+        },
+        "next_id": 21,
+        "wrapper_next_id": 2
+      }
+    ],
+    "group_pair_interface_matches_all_thirty_prior_complete_bundles": true,
+    "nested_outputs": [
+      {
+        "case": "PriorNestedSingle",
+        "definition_count": 3,
+        "documents": {
+          "frame": {
+            "activity": 2,
+            "bytes": 8733,
+            "direct_references": 1,
+            "kind": "assembly",
+            "path": "C:\\KitSdkNested\\Single\\SdkFrame.SLDASM",
+            "sha256": "5f9b2d3f660acf95a0203bc632177fc63dcd3a31e1cd6ba5adcea04c4023bc70",
+            "streams": {
+              "Contents/CMgr": {
+                "byte_identity": true,
+                "bytes": 1938,
+                "sha256": "c751a9b988b503bc4560432f927d6b168aa71a7e5f99b86da988dd02d14aa265"
+              },
+              "Contents/CMgrHdr2": {
+                "byte_identity": true,
+                "bytes": 137,
+                "sha256": "e7508b07e0e767994f7798f254df40eb7e5f27e10ff6d0cf434cdcb67587b8b2"
+              },
+              "Contents/Config-0": {
+                "byte_identity": true,
+                "bytes": 20807,
+                "sha256": "9b8ea2018369fd8876a0eaf49509a93ec744a08eb08cf7c8c7d9f1985064b67f"
+              },
+              "Contents/Config-0-MatesList": {
+                "byte_identity": true,
+                "bytes": 6,
+                "sha256": "e1d131531841a908f0352901dd090e7448edb2e39d3ae222b75db442165135cb"
+              },
+              "Contents/Config-0-ModelHeader": {
+                "byte_identity": true,
+                "bytes": 847,
+                "sha256": "9d1c7b0e8a2147a5f87298986fe1ad7084ce44de6876a6ead2f2f904820cc551"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "byte_identity": true,
+                "bytes": 4839,
+                "sha256": "9e29848bb7787c98609a22f80cf299d5b2285b9d86e2dee0b6df4e6ade9283cc"
+              },
+              "Contents/Definition": {
+                "byte_identity": true,
+                "bytes": 545,
+                "sha256": "ca180957aa5241f6d9849d782f4ac65332504c6badaa3067091e4c9f7fdfc300"
+              },
+              "Header2": {
+                "byte_identity": true,
+                "bytes": 847,
+                "sha256": "f4cb6cc4580ab5a905fc1b4a22d8c43b881d36f92204ef730fcf1c5f7b26773d"
+              },
+              "_MO_VERSION_19000/Biography": {
+                "byte_identity": true,
+                "bytes": 23,
+                "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+              },
+              "_MO_VERSION_19000/History": {
+                "byte_identity": true,
+                "bytes": 163,
+                "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+              },
+              "swXmlContents/COMPINSTANCETREE": {
+                "byte_identity": true,
+                "bytes": 2646,
+                "sha256": "a42024f238791cb3d3f00694e7f5e465cc4ab1d220ed10d299c85067fee637c5"
+              },
+              "swXmlContents/KeyWords": {
+                "byte_identity": true,
+                "bytes": 1065,
+                "sha256": "d6b9f1dcf021ec538334fc8d368b2740745566588cdfd2e4f6f03c2ae2c17937"
+              }
+            },
+            "target_ids": [
+              "module"
+            ]
+          },
+          "module": {
+            "activity": 1,
+            "bytes": 8549,
+            "direct_references": 1,
+            "kind": "assembly",
+            "path": "C:\\KitSdkNested\\Single\\SdkModule.SLDASM",
+            "sha256": "cdfa4b39868e71c0bedcf93d72c570014bad1d1046ccbded582281c2103909c8",
+            "streams": {
+              "Contents/CMgr": {
+                "byte_identity": true,
+                "bytes": 1968,
+                "sha256": "80f69258f0524dd0f1020e7b6d7190aa242060e5925ca4868ce8fe890f3970ed"
+              },
+              "Contents/CMgrHdr2": {
+                "byte_identity": true,
+                "bytes": 137,
+                "sha256": "1c7305a206b454b08f4a2c34fd72eaeeb9fd1e5246ba7685bbb74a81bcca0eb3"
+              },
+              "Contents/Config-0": {
+                "byte_identity": true,
+                "bytes": 20849,
+                "sha256": "c425d33c4b2076ac9ad72908a3fe10c91fd18a98423d9e6a5dfa324860dceb8f"
+              },
+              "Contents/Config-0-MatesList": {
+                "byte_identity": true,
+                "bytes": 6,
+                "sha256": "e1d131531841a908f0352901dd090e7448edb2e39d3ae222b75db442165135cb"
+              },
+              "Contents/Config-0-ModelHeader": {
+                "byte_identity": true,
+                "bytes": 873,
+                "sha256": "a1c4fe932d61579e493a76314822b7e161fdb12759d0330ec69e1248e71a1f71"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "byte_identity": true,
+                "bytes": 4839,
+                "sha256": "9e29848bb7787c98609a22f80cf299d5b2285b9d86e2dee0b6df4e6ade9283cc"
+              },
+              "Contents/Definition": {
+                "byte_identity": true,
+                "bytes": 547,
+                "sha256": "33835fc5b73d54dea770c131f5c63b65fd2d638104c7e13d86a5f25089a38bb0"
+              },
+              "Header2": {
+                "byte_identity": true,
+                "bytes": 873,
+                "sha256": "b57f93f5dfeda3222dc797f4dc73855fa236a75aa349d9810fba9a44050c0a9e"
+              },
+              "_MO_VERSION_19000/Biography": {
+                "byte_identity": true,
+                "bytes": 23,
+                "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+              },
+              "_MO_VERSION_19000/History": {
+                "byte_identity": true,
+                "bytes": 163,
+                "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+              },
+              "swXmlContents/COMPINSTANCETREE": {
+                "byte_identity": true,
+                "bytes": 1745,
+                "sha256": "e6be3a787f11cb4a051ade0038e646bd8264ee16056152212bd61d64aead8fd2"
+              },
+              "swXmlContents/KeyWords": {
+                "byte_identity": true,
+                "bytes": 1076,
+                "sha256": "abb913805e47ea2d6a9c3da2ebb8abd7b5977de7b4a7068bee9e3fec6de85da3"
+              }
+            },
+            "target_ids": [
+              "plate"
+            ]
+          },
+          "plate": {
+            "activity": 0,
+            "bytes": 8174,
+            "direct_references": 0,
+            "kind": "part",
+            "path": "C:\\KitSdkNested\\Single\\SdkNestedPlate.SLDPRT",
+            "sha256": "bda65b845fee92788536fd7cb624e5a424cee0c5d77ef6779819c6b7b0ab0989",
+            "streams": {
+              "Contents/CMgr": {
+                "byte_identity": true,
+                "bytes": 1145,
+                "sha256": "234ebaa6c37c30b055838a5b9874e0f3664fd28ed8f025f2d98ea7e8fca2c32c"
+              },
+              "Contents/CMgrHdr2": {
+                "byte_identity": true,
+                "bytes": 169,
+                "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+              },
+              "Contents/Config-0": {
+                "byte_identity": true,
+                "bytes": 22024,
+                "sha256": "a6d6f66fa0339c092fc12775ade8101bdbeeb32e1f843b776d184058ae1ca107"
+              },
+              "Contents/Config-0-ModelHeader": {
+                "byte_identity": true,
+                "bytes": 735,
+                "sha256": "d00870667ec934e8405a2875dacf17574e9621f868154dee11c57a07389c7b96"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "byte_identity": true,
+                "bytes": 13867,
+                "sha256": "ee36f9b2abbf553052f28a0712620bc193783c9d69c01aee3d65093cc49599d4"
+              },
+              "Contents/Definition": {
+                "byte_identity": true,
+                "bytes": 477,
+                "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+              },
+              "Header2": {
+                "byte_identity": true,
+                "bytes": 735,
+                "sha256": "10665648f1fa021e11579972fc2581a2ec904e793722d4f7a3c56b784686e9d5"
+              },
+              "_MO_VERSION_19000/Biography": {
+                "byte_identity": true,
+                "bytes": 23,
+                "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+              },
+              "_MO_VERSION_19000/History": {
+                "byte_identity": true,
+                "bytes": 169,
+                "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+              },
+              "swXmlContents/KeyWords": {
+                "byte_identity": true,
+                "bytes": 1432,
+                "sha256": "4ac1b6586c8315c0c7f8b66dfd25aad94cc8a7123bcb272cc5a0bac435a49e51"
+              }
+            },
+            "target_ids": []
+          }
+        },
+        "expanded_root_occurrences": 2
+      },
+      {
+        "case": "PriorNestedRepeated",
+        "definition_count": 4,
+        "documents": {
+          "frame": {
+            "activity": 7,
+            "bytes": 9544,
+            "direct_references": 3,
+            "kind": "assembly",
+            "path": "C:\\KitSdkNested\\Repeated\\SdkFrame.SLDASM",
+            "sha256": "b21a2ecd86f43997508773aa38fec5907240c11fabadafb904d455110933d70f",
+            "streams": {
+              "Contents/CMgr": {
+                "byte_identity": true,
+                "bytes": 2634,
+                "sha256": "14d6c2f5137652e51fbf0d3fe3ad71b7f2b3a3b268ec852831d6f8951fbee949"
+              },
+              "Contents/CMgrHdr2": {
+                "byte_identity": true,
+                "bytes": 137,
+                "sha256": "300105f0b7570d049d15d905eb7dfb5a0d54e78c682291ec74e430517416b3d1"
+              },
+              "Contents/Config-0": {
+                "byte_identity": true,
+                "bytes": 22015,
+                "sha256": "25702e442f0761966e485de2070a8f3ce0e3f20a2ad3e94d2e15f7562624bcc0"
+              },
+              "Contents/Config-0-MatesList": {
+                "byte_identity": true,
+                "bytes": 6,
+                "sha256": "e2d03b127d64eb09ce26fbb841bad9960407d05676461515b26fcd9f3fc0cd07"
+              },
+              "Contents/Config-0-ModelHeader": {
+                "byte_identity": true,
+                "bytes": 1042,
+                "sha256": "614775ea02b3e5b14138eaadbcfcbe5a5c14f5f63ae98a5682ab94fe4e148b40"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "byte_identity": true,
+                "bytes": 4839,
+                "sha256": "dea8d10d240341f4e2b542da11250f5dd44b59aae4c48ca701b1e78a3356d4ce"
+              },
+              "Contents/Definition": {
+                "byte_identity": true,
+                "bytes": 545,
+                "sha256": "ca180957aa5241f6d9849d782f4ac65332504c6badaa3067091e4c9f7fdfc300"
+              },
+              "Header2": {
+                "byte_identity": true,
+                "bytes": 1042,
+                "sha256": "56af3b44cece15f1e67e72b18c659e3a48311b18bb2f4ce5327df648ddea752a"
+              },
+              "_MO_VERSION_19000/Biography": {
+                "byte_identity": true,
+                "bytes": 23,
+                "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+              },
+              "_MO_VERSION_19000/History": {
+                "byte_identity": true,
+                "bytes": 163,
+                "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+              },
+              "swXmlContents/COMPINSTANCETREE": {
+                "byte_identity": true,
+                "bytes": 4343,
+                "sha256": "24ce6407b70b3722c8cc41e9f77f2c878ecef274d31e48a651df769bb26f53c3"
+              },
+              "swXmlContents/KeyWords": {
+                "byte_identity": true,
+                "bytes": 1187,
+                "sha256": "98f366d89c648ad9374b13741033b850c9f74b10ca90483cf6e08ed23ff05386"
+              }
+            },
+            "target_ids": [
+              "module",
+              "module",
+              "gauge"
+            ]
+          },
+          "gauge": {
+            "activity": 0,
+            "bytes": 8176,
+            "direct_references": 0,
+            "kind": "part",
+            "path": "C:\\KitSdkNested\\Repeated\\SdkGaugePlate.SLDPRT",
+            "sha256": "4ae9655560ba18709c6826c34078090dd9b81bafeee14f87f2c78740773d0a4e",
+            "streams": {
+              "Contents/CMgr": {
+                "byte_identity": true,
+                "bytes": 1145,
+                "sha256": "234ebaa6c37c30b055838a5b9874e0f3664fd28ed8f025f2d98ea7e8fca2c32c"
+              },
+              "Contents/CMgrHdr2": {
+                "byte_identity": true,
+                "bytes": 169,
+                "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+              },
+              "Contents/Config-0": {
+                "byte_identity": true,
+                "bytes": 21972,
+                "sha256": "7b69447f3c6a7e40d38ed49a0389ea49410fd70a6fefa00f2e546c339b8221e7"
+              },
+              "Contents/Config-0-ModelHeader": {
+                "byte_identity": true,
+                "bytes": 733,
+                "sha256": "f8de6109363593eccf937293b9155d8fd663ab09c58fc217a8d1680bbae1b337"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "byte_identity": true,
+                "bytes": 13867,
+                "sha256": "399fae9ef992e2691dedd785e3494c608e049483825b4cc928c646a12f43d7e6"
+              },
+              "Contents/Definition": {
+                "byte_identity": true,
+                "bytes": 477,
+                "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+              },
+              "Header2": {
+                "byte_identity": true,
+                "bytes": 733,
+                "sha256": "8d7ed6cee65fdf8db32cde44373dd77a2833aed774fdc84f9003893d15ee354b"
+              },
+              "_MO_VERSION_19000/Biography": {
+                "byte_identity": true,
+                "bytes": 23,
+                "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+              },
+              "_MO_VERSION_19000/History": {
+                "byte_identity": true,
+                "bytes": 169,
+                "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+              },
+              "swXmlContents/KeyWords": {
+                "byte_identity": true,
+                "bytes": 1418,
+                "sha256": "4a6bcd5d1d7fdaef25e0e12b02b33f95cee11b4c6c43c6247ab2db1c09fda73c"
+              }
+            },
+            "target_ids": []
+          },
+          "module": {
+            "activity": 2,
+            "bytes": 8803,
+            "direct_references": 2,
+            "kind": "assembly",
+            "path": "C:\\KitSdkNested\\Repeated\\SdkModule.SLDASM",
+            "sha256": "675842aeca1eda329bc92bc852794af46471dfd306757d4824c2b9348ebf2485",
+            "streams": {
+              "Contents/CMgr": {
+                "byte_identity": true,
+                "bytes": 2332,
+                "sha256": "651e6d38dc435b2dda7ad39f0d4146d95109dc82be9333ceeb9c70fe10cae91a"
+              },
+              "Contents/CMgrHdr2": {
+                "byte_identity": true,
+                "bytes": 137,
+                "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+              },
+              "Contents/Config-0": {
+                "byte_identity": true,
+                "bytes": 21475,
+                "sha256": "0dd93a736ab4d96a96524ae440a388f7b40078938c1c8867137d4654377bda21"
+              },
+              "Contents/Config-0-MatesList": {
+                "byte_identity": true,
+                "bytes": 6,
+                "sha256": "a539923cc9592b1ad23e790f82b9a15dc8c85ea216b89a5e1e9998fb3e030979"
+              },
+              "Contents/Config-0-ModelHeader": {
+                "byte_identity": true,
+                "bytes": 881,
+                "sha256": "77e7c9fb3739ffdce485a013edd22faa05ed0fd3806f514ecf71fd7d0e934389"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "byte_identity": true,
+                "bytes": 4839,
+                "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+              },
+              "Contents/Definition": {
+                "byte_identity": true,
+                "bytes": 547,
+                "sha256": "33835fc5b73d54dea770c131f5c63b65fd2d638104c7e13d86a5f25089a38bb0"
+              },
+              "Header2": {
+                "byte_identity": true,
+                "bytes": 881,
+                "sha256": "2235f88d5a452611bf21c3accf8724474d1bc43dc2ea79456213657b4d136baa"
+              },
+              "_MO_VERSION_19000/Biography": {
+                "byte_identity": true,
+                "bytes": 23,
+                "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+              },
+              "_MO_VERSION_19000/History": {
+                "byte_identity": true,
+                "bytes": 163,
+                "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+              },
+              "swXmlContents/COMPINSTANCETREE": {
+                "byte_identity": true,
+                "bytes": 2205,
+                "sha256": "d9202b52ad97b2778c6d87d781a66d491a92b85e0a21c967cfd75c156a504b17"
+              },
+              "swXmlContents/KeyWords": {
+                "byte_identity": true,
+                "bytes": 1143,
+                "sha256": "ccdaabac0c62d8f77c78ad8b14831d93bc9b087889af200d4199f4afa7e2cea9"
+              }
+            },
+            "target_ids": [
+              "plate",
+              "plate"
+            ]
+          },
+          "plate": {
+            "activity": 0,
+            "bytes": 8177,
+            "direct_references": 0,
+            "kind": "part",
+            "path": "C:\\KitSdkNested\\Repeated\\SdkNestedPlate.SLDPRT",
+            "sha256": "706ff39aa39b6a3f6d0099bcaf5546fc68eb946357f3df99f8a9feebdb477b9c",
+            "streams": {
+              "Contents/CMgr": {
+                "byte_identity": true,
+                "bytes": 1145,
+                "sha256": "234ebaa6c37c30b055838a5b9874e0f3664fd28ed8f025f2d98ea7e8fca2c32c"
+              },
+              "Contents/CMgrHdr2": {
+                "byte_identity": true,
+                "bytes": 169,
+                "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+              },
+              "Contents/Config-0": {
+                "byte_identity": true,
+                "bytes": 22024,
+                "sha256": "a6d6f66fa0339c092fc12775ade8101bdbeeb32e1f843b776d184058ae1ca107"
+              },
+              "Contents/Config-0-ModelHeader": {
+                "byte_identity": true,
+                "bytes": 739,
+                "sha256": "0d25bf46f491ad857b5ea0201b9a2bcca7869b8da7ff4031fcc8ba9b12dcec50"
+              },
+              "Contents/Config-0-ResolvedFeatures": {
+                "byte_identity": true,
+                "bytes": 13867,
+                "sha256": "ee36f9b2abbf553052f28a0712620bc193783c9d69c01aee3d65093cc49599d4"
+              },
+              "Contents/Definition": {
+                "byte_identity": true,
+                "bytes": 477,
+                "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+              },
+              "Header2": {
+                "byte_identity": true,
+                "bytes": 739,
+                "sha256": "1ce31e7f7ee5ae5088d72539e1bdf3854b2e9f5ca3ac5f7e0df5c7b5337f7a5a"
+              },
+              "_MO_VERSION_19000/Biography": {
+                "byte_identity": true,
+                "bytes": 23,
+                "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+              },
+              "_MO_VERSION_19000/History": {
+                "byte_identity": true,
+                "bytes": 169,
+                "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+              },
+              "swXmlContents/KeyWords": {
+                "byte_identity": true,
+                "bytes": 1432,
+                "sha256": "4ac1b6586c8315c0c7f8b66dfd25aad94cc8a7123bcb272cc5a0bac435a49e51"
+              }
+            },
+            "target_ids": []
+          }
+        },
+        "expanded_root_occurrences": 7
+      }
+    ],
+    "prior_flat_bundles": 30,
+    "prior_nested_bundles": 2
+  },
+  "delivery_pr": 121,
+  "distinct_identified_workers": 142,
+  "heldout_cases_tested": 0,
+  "heldout_inputs_read": 0,
+  "limits": [
+    "No sealed specification native file or detailed observation was opened",
+    "Native acceptance of the new multi component SDK composition is pending",
+    "Cross axis datum pairs nonaligned relations flipped or limited distance and additional child profiles are closed",
+    "The complete executable original locked case evaluator is not yet frozen or authorized to read sealed inputs"
+  ],
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "negative_cases": [
+    {
+      "case": "missing_endpoint",
+      "exit_code": 1,
+      "passed": true,
+      "stderr_sha256": "2a8008785fa7eb8fef6cc81de17a49cf1eb2886ec8a424c5e478cae2f9364e3a",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "writer_output_count": 0
+    },
+    {
+      "case": "same_occurrence",
+      "exit_code": 1,
+      "passed": true,
+      "stderr_sha256": "8070e18e4a9d5ab3e37dcdfa69dd8ee47709b5cfda30a9c1b4535eb3accb0c21",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "writer_output_count": 0
+    },
+    {
+      "case": "cross_axis",
+      "exit_code": 1,
+      "passed": true,
+      "stderr_sha256": "8070e18e4a9d5ab3e37dcdfa69dd8ee47709b5cfda30a9c1b4535eb3accb0c21",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "writer_output_count": 0
+    },
+    {
+      "case": "same_name",
+      "exit_code": 1,
+      "passed": true,
+      "stderr_sha256": "3c4a6ea0bd092b7a44f435f0a8ee2163dcfd7fbaf46ceabbc821d62e5ede9693",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "writer_output_count": 0
+    },
+    {
+      "case": "zero_distance",
+      "exit_code": 1,
+      "passed": true,
+      "stderr_sha256": "6a0d086de2f4e8c2117c375207739c24fe8ace46705bb3ad54ea3dd35f7b561d",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "writer_output_count": 0
+    },
+    {
+      "case": "wrong_distance",
+      "exit_code": 1,
+      "passed": true,
+      "stderr_sha256": "9e3d07e97898daf89a919a4a488ca12a120c80306a4bb2d935897a3278a33de1",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "writer_output_count": 0
+    },
+    {
+      "case": "fixed_missing",
+      "exit_code": 1,
+      "passed": true,
+      "stderr_sha256": "cd76c368175b70fc394617fb1b0e86a2c2f1376c8ea9207c5a3d48b815dffba9",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "writer_output_count": 0
+    },
+    {
+      "case": "extra_state",
+      "exit_code": 1,
+      "passed": true,
+      "stderr_sha256": "7797de97ee48f55dcbbb61a50b7867ee42f11c6762126e2fe694368ffab2ad92",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "writer_output_count": 0
+    }
+  ],
+  "negative_worker_invocations": 8,
+  "passed": true,
+  "positive_cases": [
+    {
+      "assembly": {
+        "bytes": 10416,
+        "sha256": "b755ddb6c62c5d3750f00db40fb928144c88c155f67e5277ec2cb5e7b294e85e",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "builds": [
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "78c7aeb4623d6bd29ecce20fff64a5cb8701df92876d42eeea24a1c4128dd92d",
+          "exit_code": 0,
+          "request_bytes": 11375,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "52ecb1a5ad18291934c75d0a2653b6bd24fec48d624ed90e87c2114622e25e29",
+          "worker_pid": 22455
+        },
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "78c7aeb4623d6bd29ecce20fff64a5cb8701df92876d42eeea24a1c4128dd92d",
+          "exit_code": 0,
+          "request_bytes": 11375,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "e5b6462ad044d06769fcd3bcbe19dab736a6dc28ec34717b230dd9506a9cb5e3",
+          "worker_pid": 22460
+        },
+        {
+          "entrypoint": "SdkAssemblyCounterpart.py",
+          "exact_stdin_sha256": "5d311eba451b7fef1a4f4ceefd65ff03a8514b17931c99fb911b401ee3f43a5a",
+          "exit_code": 0,
+          "request_bytes": 165455,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "32637255b918740dd9fb44e8f28c1ec4fab7e48628f3e55a2d1c92e7074a2fc2",
+          "worker_pid": 22461
+        }
+      ],
+      "case": "Group2Alpha",
+      "child": {
+        "bytes": 8726,
+        "sha256": "88ab81e4b9a61a31704624682a2ddecd1d9d30f5ebef17b88b845602f573954f",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                19,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 1,
+              "selection": [
+                19,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 19,
+          "name": "Coincident2"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 16,
+              "occurrence": 0,
+              "selection": [
+                21,
+                2,
+                0
+              ]
+            },
+            {
+              "datum_id": 16,
+              "occurrence": 1,
+              "selection": [
+                21,
+                3,
+                1
+              ]
+            }
+          ],
+          "kind": "distance",
+          "mate_id": 21,
+          "name": "Distance1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                22,
+                4,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                22,
+                5,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 22,
+          "name": "Parallel2"
+        }
+      ],
+      "fixed_indices": [
+        0
+      ],
+      "mate_count": 3,
+      "next_id": 23,
+      "occurrence_count": 2,
+      "passed": true,
+      "proofs": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2362,
+            "sha256": "123bbe7044c161d5788bddc0d52861cd9c69e19c3b14d0443a70c181619a77a2"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 21523,
+            "sha256": "c4828a418042c219a06b5446c0d829a6eb84082a2dea4c6680d86eb9ffe39992"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 10681,
+            "sha256": "e320d613d327c7c15f969b3ea499718532efae43f340e2ef73e961a2842b633c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1271,
+            "sha256": "716eaf779b4df769560aa8a4719bbeea0f238ad8b1840813589c8bfac8411ea2"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 569,
+            "sha256": "2f6bfb26dad958d7af7510e05290e624e41082419ba73f0768a05c5e19e4cc59"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1271,
+            "sha256": "dc16323993815c8d077ddd65e28ef5a352138743d25dc27a9ccbaf7009c3d704"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "byte_identity": true,
+            "bytes": 2263,
+            "sha256": "31013cb78548565ac98f5225420f8fd20268fd153af96d931cf4bedabb837a6b"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1160,
+            "sha256": "7be0758fe0e31805ff4ad59b41c9681171a93ebef926d6ec5541e9186f77ba40"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22232,
+            "sha256": "fe12e8300d44a064628994cf20cebfa905fef03fd3ef9977b55027022cf54e6f"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 753,
+            "sha256": "b199a973cec8a7ba50d3d9db6374929f7e33723e6d4f6e54804b9c22aa17ccbf"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "4c970c389a875ce9c25019baa15793fed660ecdc5fd7cda6ec1aa4bbd6891005"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 753,
+            "sha256": "cb087436bbd8b30837d02c542dd0b00144d5b0767e98633d67a65ff5584e7ea8"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1499,
+            "sha256": "e8509f8f73998d0b4d48763ee0a2fe13b13c5b79fffa49b332d83a3a91747923"
+          }
+        }
+      },
+      "round_trips": 44,
+      "same_as_independent_research": true,
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10432,
+        "sha256": "68457620ecae1b5e240e7a4c28e8f1b8ba68ac31a6314b9ca27dff86371470b6",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "builds": [
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "3077afaca3fdfd5cee5f025592e18fafc2c0ed9ba22b3ba518cf320899d2790c",
+          "exit_code": 0,
+          "request_bytes": 11409,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "d14954923b18859e519c246ffc2de172bde4a75e83765c3d0d0d91a7161f9524",
+          "worker_pid": 22463
+        },
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "3077afaca3fdfd5cee5f025592e18fafc2c0ed9ba22b3ba518cf320899d2790c",
+          "exit_code": 0,
+          "request_bytes": 11409,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "a3f9591dbaaf43fdfbb1826498975937efaa90d4c25e843ee6c978a0bcba7783",
+          "worker_pid": 22464
+        },
+        {
+          "entrypoint": "SdkAssemblyCounterpart.py",
+          "exact_stdin_sha256": "eaf3747dd5bad4f9a6f96e3e232ac102f1cbe9547a3c50d0b95abdc0274537de",
+          "exit_code": 0,
+          "request_bytes": 165469,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "1d638eb8463f15722fcb848438d33d326e3922cd43b8b2e467b979edc2763572",
+          "worker_pid": 23029
+        }
+      ],
+      "case": "Group2Beta",
+      "child": {
+        "bytes": 8777,
+        "sha256": "d134250de71bb14fee21df235c43957a13e697db1b64dd94f87acc540a6dccac",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 1,
+              "selection": [
+                19,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                19,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 19,
+          "name": "Coincident1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 16,
+              "occurrence": 0,
+              "selection": [
+                21,
+                2,
+                0
+              ]
+            },
+            {
+              "datum_id": 16,
+              "occurrence": 1,
+              "selection": [
+                21,
+                3,
+                1
+              ]
+            }
+          ],
+          "kind": "distance",
+          "mate_id": 21,
+          "name": "Distance1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                22,
+                4,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                22,
+                5,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 22,
+          "name": "Parallel1"
+        }
+      ],
+      "fixed_indices": [
+        1
+      ],
+      "mate_count": 3,
+      "next_id": 23,
+      "occurrence_count": 2,
+      "passed": true,
+      "proofs": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2358,
+            "sha256": "e23c14999996bbbd6866db9d19ce99df3e6ec6a3b52ad779cffab9a2420091cf"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 21517,
+            "sha256": "b45cb5e0c90c505b81768b7a57e17c8387542489b032449b78fdac8827cd9e25"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 10681,
+            "sha256": "041362cc291052de69d5f69275071f4b2ee74ffa3b42e095894a825e963b8c59"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1261,
+            "sha256": "582b40a0eb8a8edb17639cb3dc383b15bf082dd31594271862b379d15b06c639"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 567,
+            "sha256": "490257f1d1784b3235f025edd57076a0b251e6d5c160e6a55967a183f8b0a3bb"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1261,
+            "sha256": "9efa6a2a1dca3275b13d4f40512005f52782e77ad8e634fd3f4f0da9e93cf271"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "byte_identity": true,
+            "bytes": 2263,
+            "sha256": "0261e7c179f511129e8153f14093b25bd9a72fd4880d01f73747ab0f4e515688"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1157,
+            "sha256": "b26b4864e36d80bda4c114b56572f4ed16ff61268b4ffe577c103c7d03a0e2f0"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "053fd3cf9bf90a3d36a29b13b3248043ba5ce79075d152b91322e221893e9329"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22180,
+            "sha256": "6f6fa6e9c51850faba387173d71d77721723eafe96f0e8859c0e7ea39b1cf2ad"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 747,
+            "sha256": "792fb6ec92cb4acd676b9f31288d4f2f494dd784cfd1a45c81f1fd14a6c01a09"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "67127435f74f5f29ac4951bd7cd7b7310b1e2d92557710359026ad4d5144ef5e"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 747,
+            "sha256": "9f460475bcec13121dd6ecbdeac833dac5ab1e51993e55798d7d34ffc12d1b1a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1514,
+            "sha256": "115648380345022a8d0aabfab1e787faef9f2c4d367d8c413dbc61d322e55d09"
+          }
+        }
+      },
+      "round_trips": 44,
+      "same_as_independent_research": true,
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 11186,
+        "sha256": "35684b612bc37c426294b81b74fc6571ccf76b8a91363362a7b8fd267b5fb9b0",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "builds": [
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "377a26369c8486600ffcf117d72a50dc7bf2a55cf5b7c5b3c6059703886c3984",
+          "exit_code": 0,
+          "request_bytes": 11894,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "09147f0bddf13975e67fcdf7bcf0c234aa4f2d374f863ee2823033c964de4930",
+          "worker_pid": 23268
+        },
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "377a26369c8486600ffcf117d72a50dc7bf2a55cf5b7c5b3c6059703886c3984",
+          "exit_code": 0,
+          "request_bytes": 11894,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "98a1ebedcb3276a5585c3302a22cd2e0003a15190eeb1f4bd9df3ca201553b9c",
+          "worker_pid": 23275
+        },
+        {
+          "entrypoint": "SdkAssemblyCounterpart.py",
+          "exact_stdin_sha256": "752f5c5beceb696c282d5b1e9adaad02a4531107442695a96ff82ce86b2763ac",
+          "exit_code": 0,
+          "request_bytes": 182178,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "08549ae8f897795e69d70517e3f023df57795c59b260612717f4a77df5cc5b9a",
+          "worker_pid": 23276
+        }
+      ],
+      "case": "Group3Alpha",
+      "child": {
+        "bytes": 8726,
+        "sha256": "88ab81e4b9a61a31704624682a2ddecd1d9d30f5ebef17b88b845602f573954f",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 2,
+              "selection": [
+                20,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                20,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 20,
+          "name": "FreeParallel"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 16,
+              "occurrence": 0,
+              "selection": [
+                22,
+                2,
+                0
+              ]
+            },
+            {
+              "datum_id": 16,
+              "occurrence": 2,
+              "selection": [
+                22,
+                3,
+                1
+              ]
+            }
+          ],
+          "kind": "distance",
+          "mate_id": 22,
+          "name": "Distance1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                23,
+                4,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 1,
+              "selection": [
+                23,
+                5,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 23,
+          "name": "Coincident2"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                24,
+                6,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                24,
+                7,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 24,
+          "name": "Parallel2"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                25,
+                8,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 2,
+              "selection": [
+                25,
+                9,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 25,
+          "name": "Coincident3"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 2,
+              "selection": [
+                26,
+                10,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                26,
+                11,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 26,
+          "name": "Parallel3"
+        }
+      ],
+      "fixed_indices": [
+        0
+      ],
+      "mate_count": 6,
+      "next_id": 27,
+      "occurrence_count": 3,
+      "passed": true,
+      "proofs": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2720,
+            "sha256": "67571dc02f3be5cf02f1ea75e16abc8b89802841003162fdd50c84d961aae081"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "798bf19ec9f923e5b94d42c2c591f1fb608d9bb2c7239daeb0aa7ee858cf7b91"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22141,
+            "sha256": "beeac5a6f343cdc8aca812380a141ab6cc20c02105256ac6c680c1da58fc13bf"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 19469,
+            "sha256": "234b154a3fe6d06a5e7af5de3dff3709fbfbc6048ffb6a358af39727a627eaa7"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1605,
+            "sha256": "9b1bb11830b651c2d27df601a817cdf7f28dc305933a65aa009e89d3fbb2582f"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "d8f901093be978e775b88ae225e7e95c630b70c7a137aa46cdace6d230258ca0"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 569,
+            "sha256": "b8f158a101acd227c076e03f59da6245d8e66a51f60cb6a3e9134ab64c0db48d"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1605,
+            "sha256": "2109f54be05d4b8004a97b29d36c099f7fa8b1b0d02261c8afc0160b7fc59e51"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "byte_identity": true,
+            "bytes": 2758,
+            "sha256": "075a51d9f42e342c214dbbfef5667dc653e4b64c684ff85d0bbaef7bb21b4442"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1230,
+            "sha256": "7780df946302f9d8edeca9a0dd8b259ac418c8e44a6f08b3dd5c89f4f5c79330"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22232,
+            "sha256": "fe12e8300d44a064628994cf20cebfa905fef03fd3ef9977b55027022cf54e6f"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 753,
+            "sha256": "b199a973cec8a7ba50d3d9db6374929f7e33723e6d4f6e54804b9c22aa17ccbf"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "4c970c389a875ce9c25019baa15793fed660ecdc5fd7cda6ec1aa4bbd6891005"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 753,
+            "sha256": "cb087436bbd8b30837d02c542dd0b00144d5b0767e98633d67a65ff5584e7ea8"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1499,
+            "sha256": "e8509f8f73998d0b4d48763ee0a2fe13b13c5b79fffa49b332d83a3a91747923"
+          }
+        }
+      },
+      "round_trips": 44,
+      "same_as_independent_research": true,
+      "wrapper_next_id": 12
+    },
+    {
+      "assembly": {
+        "bytes": 11197,
+        "sha256": "7b70514f8b4fdb9bbe628b4eef2ec3e4da9674499889692b9cb5c4fe4b274593",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "builds": [
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "306d21e9d70ae631df35c91853a6373c4a7401a191caec784af5d59c89d8e410",
+          "exit_code": 0,
+          "request_bytes": 11929,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "caa71f738e1e6dfb67c517f46301e91ac55683c14b450659e5d6fa94832ed9d4",
+          "worker_pid": 23278
+        },
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "306d21e9d70ae631df35c91853a6373c4a7401a191caec784af5d59c89d8e410",
+          "exit_code": 0,
+          "request_bytes": 11929,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "a019204adf4ee32cdb12e81a881058a0d4a3bd53b51c3725a85fdc3f3332e70e",
+          "worker_pid": 23279
+        },
+        {
+          "entrypoint": "SdkAssemblyCounterpart.py",
+          "exact_stdin_sha256": "75ab7ddf55bbb4462bb722ef50de951fb13908c85922cf15c98b4b3fe65601e6",
+          "exit_code": 0,
+          "request_bytes": 182185,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "f5c8beef10a47f7f87f58dcbc6cf0d71ee4b2ac3eeca202ba868750c4e80b942",
+          "worker_pid": 23280
+        }
+      ],
+      "case": "Group3Beta",
+      "child": {
+        "bytes": 8777,
+        "sha256": "d134250de71bb14fee21df235c43957a13e697db1b64dd94f87acc540a6dccac",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                20,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                20,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 20,
+          "name": "FreeParallel"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 16,
+              "occurrence": 0,
+              "selection": [
+                22,
+                2,
+                0
+              ]
+            },
+            {
+              "datum_id": 16,
+              "occurrence": 2,
+              "selection": [
+                22,
+                3,
+                1
+              ]
+            }
+          ],
+          "kind": "distance",
+          "mate_id": 22,
+          "name": "Distance1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 2,
+              "selection": [
+                23,
+                4,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                23,
+                5,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 23,
+          "name": "Coincident1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                24,
+                6,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 2,
+              "selection": [
+                24,
+                7,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 24,
+          "name": "Parallel1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 2,
+              "selection": [
+                25,
+                8,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 1,
+              "selection": [
+                25,
+                9,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 25,
+          "name": "Coincident2"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                26,
+                10,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 2,
+              "selection": [
+                26,
+                11,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 26,
+          "name": "Parallel2"
+        }
+      ],
+      "fixed_indices": [
+        2
+      ],
+      "mate_count": 6,
+      "next_id": 27,
+      "occurrence_count": 3,
+      "passed": true,
+      "proofs": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2716,
+            "sha256": "4f529d82713cd668415aa52799b6ec36d362954a4564f86dab09477cff5c8eb3"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "798bf19ec9f923e5b94d42c2c591f1fb608d9bb2c7239daeb0aa7ee858cf7b91"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22135,
+            "sha256": "630350aad1a0aa774c9d349e0d9306c54a314759fa74d129bbd6112ffa5e5011"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 19469,
+            "sha256": "0655ba12ef50289c14fe5bf5f868b4de46473706ec707018fa43b91979bd222e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1595,
+            "sha256": "157ca56bdf7e2d0140f19e001075d7724d1478cea9a04b5e33f4cf03417f7703"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "d8f901093be978e775b88ae225e7e95c630b70c7a137aa46cdace6d230258ca0"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 567,
+            "sha256": "f125618cf34dbfba2aac6bd3943e6ed495cd9aa1da7ef1b90c880a63cb6b4e62"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1595,
+            "sha256": "b19aeac62535f81d2e9f87614d49c83ee5b2f981e30f78fdf26ab0b9171f899c"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "byte_identity": true,
+            "bytes": 2757,
+            "sha256": "ee93a6eca5ebffd6b9ee00d9f020bb080d9b0972f8685101b187798ef3ca3b60"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1226,
+            "sha256": "c7921788c0daa2558340d04f517607c2760b93496aaca5fdb83df06a3012b6ce"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "053fd3cf9bf90a3d36a29b13b3248043ba5ce79075d152b91322e221893e9329"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22180,
+            "sha256": "6f6fa6e9c51850faba387173d71d77721723eafe96f0e8859c0e7ea39b1cf2ad"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 747,
+            "sha256": "792fb6ec92cb4acd676b9f31288d4f2f494dd784cfd1a45c81f1fd14a6c01a09"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "67127435f74f5f29ac4951bd7cd7b7310b1e2d92557710359026ad4d5144ef5e"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 747,
+            "sha256": "9f460475bcec13121dd6ecbdeac833dac5ab1e51993e55798d7d34ffc12d1b1a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1514,
+            "sha256": "115648380345022a8d0aabfab1e787faef9f2c4d367d8c413dbc61d322e55d09"
+          }
+        }
+      },
+      "round_trips": 44,
+      "same_as_independent_research": true,
+      "wrapper_next_id": 12
+    },
+    {
+      "assembly": {
+        "bytes": 12246,
+        "sha256": "7645211d781508994a196112184555a2f5d537eaa70f7e298867c01cb405b1a1",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "builds": [
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "6899e3e6947c93f46043acf47a1faa761c924c48076217a1c7071359ac76c3fc",
+          "exit_code": 0,
+          "request_bytes": 12721,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "5b05ea9a5668890f9c30e323eca2cc41c6c8133b1f221e4a6f75548dff445330",
+          "worker_pid": 23281
+        },
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "6899e3e6947c93f46043acf47a1faa761c924c48076217a1c7071359ac76c3fc",
+          "exit_code": 0,
+          "request_bytes": 12721,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "1ae97a720a1bb764659e47c590bfa7e3a0e7058c5e1c4997f0e5eff1bc192908",
+          "worker_pid": 23282
+        },
+        {
+          "entrypoint": "SdkAssemblyCounterpart.py",
+          "exact_stdin_sha256": "4f8557141af73f64bb530d793eec2dffcd3d3a50408f95550ab46f3c54cde0cf",
+          "exit_code": 0,
+          "request_bytes": 206034,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "97f997c89f61154a70818ad9d730ae42f3bc5d5f39a1601ac432f3a7d3adc4cd",
+          "worker_pid": 23283
+        }
+      ],
+      "case": "Group5Alpha",
+      "child": {
+        "bytes": 8726,
+        "sha256": "88ab81e4b9a61a31704624682a2ddecd1d9d30f5ebef17b88b845602f573954f",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 2,
+              "selection": [
+                22,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                22,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 22,
+          "name": "FreeParallel"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 16,
+              "occurrence": 0,
+              "selection": [
+                24,
+                2,
+                0
+              ]
+            },
+            {
+              "datum_id": 16,
+              "occurrence": 4,
+              "selection": [
+                24,
+                3,
+                1
+              ]
+            }
+          ],
+          "kind": "distance",
+          "mate_id": 24,
+          "name": "Distance1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                25,
+                4,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 1,
+              "selection": [
+                25,
+                5,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 25,
+          "name": "Coincident2"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                26,
+                6,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                26,
+                7,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 26,
+          "name": "Parallel2"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                27,
+                8,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 2,
+              "selection": [
+                27,
+                9,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 27,
+          "name": "Coincident3"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 2,
+              "selection": [
+                28,
+                10,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                28,
+                11,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 28,
+          "name": "Parallel3"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                29,
+                12,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 3,
+              "selection": [
+                29,
+                13,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 29,
+          "name": "Coincident4"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 3,
+              "selection": [
+                30,
+                14,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                30,
+                15,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 30,
+          "name": "Parallel4"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                31,
+                16,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 4,
+              "selection": [
+                31,
+                17,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 31,
+          "name": "Coincident5"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 4,
+              "selection": [
+                32,
+                18,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                32,
+                19,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 32,
+          "name": "Parallel5"
+        }
+      ],
+      "fixed_indices": [
+        0
+      ],
+      "mate_count": 10,
+      "next_id": 33,
+      "occurrence_count": 5,
+      "passed": true,
+      "proofs": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 3436,
+            "sha256": "7d0e66c0c93f7fce52568aaba7864a056a2c8d1b06916536cfa8673483d9377b"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "841f229c971ba1c21c9263f12306b4cc26d6f0b8affaf8fa2ba33c3518119e6a"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 23377,
+            "sha256": "fdb9af8722cf40432f1ad4e6ecc1b74d7261accdd35c7d7e1f0955f162259bc7"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 31181,
+            "sha256": "c9163f4fd28cf096e90804834641e294dddb9b9092873738aa7d03744b19b7db"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 2045,
+            "sha256": "f02c686d4edb85490e704b2b617d05a09508e6d12e2c7727264d6ba75bd2d60a"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "3866140be8522d968a055f584aca4e470ace58a0f0b2a3b36a0f0d29eae249a2"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 569,
+            "sha256": "29247adece488f8fa977ec4e92f97c8189f6b798927a44541dd8866ab3a414bd"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 2045,
+            "sha256": "eaf8e025508a6360c1615112602d0a6d2559c65c29051b1058eaeb153e10b04c"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "byte_identity": true,
+            "bytes": 3761,
+            "sha256": "abe6279632971efc96f7580da7e0a1c7d923e33c25164577fcdcf4f29e1df147"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1370,
+            "sha256": "7a7734ddc2a18fe31c51aae7f112c6f080507ecec8c1862824791db9055a3110"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22232,
+            "sha256": "fe12e8300d44a064628994cf20cebfa905fef03fd3ef9977b55027022cf54e6f"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 753,
+            "sha256": "b199a973cec8a7ba50d3d9db6374929f7e33723e6d4f6e54804b9c22aa17ccbf"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "4c970c389a875ce9c25019baa15793fed660ecdc5fd7cda6ec1aa4bbd6891005"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 753,
+            "sha256": "cb087436bbd8b30837d02c542dd0b00144d5b0767e98633d67a65ff5584e7ea8"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1499,
+            "sha256": "e8509f8f73998d0b4d48763ee0a2fe13b13c5b79fffa49b332d83a3a91747923"
+          }
+        }
+      },
+      "round_trips": 44,
+      "same_as_independent_research": true,
+      "wrapper_next_id": 20
+    },
+    {
+      "assembly": {
+        "bytes": 12275,
+        "sha256": "33d0215f2f14a691121f5f6b18e07751f67f42522a7cce649b8ff0e96f745d4d",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "builds": [
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "12fedce5b5f886d8190e3a78de41a46b5affe97330f19e5c2ccec21453e2550f",
+          "exit_code": 0,
+          "request_bytes": 12758,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "acefc85a7486c462d6cfde0281822f4710ea6b158ead6bcae130f20b91821b23",
+          "worker_pid": 23284
+        },
+        {
+          "entrypoint": "SdkPlanarGroupProcess.py",
+          "exact_stdin_sha256": "12fedce5b5f886d8190e3a78de41a46b5affe97330f19e5c2ccec21453e2550f",
+          "exit_code": 0,
+          "request_bytes": 12758,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "f15d1e66589471af7e7ab7b3ba734e76c747e34b01a35abc1ac4d34692a32c13",
+          "worker_pid": 24039
+        },
+        {
+          "entrypoint": "SdkAssemblyCounterpart.py",
+          "exact_stdin_sha256": "21e0774769bfcd88c373eaeeaee932c5ea302fdf542074c2c2e0af66dfa5b831",
+          "exit_code": 0,
+          "request_bytes": 206079,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "6424922f735f520e57b74358f98eb88b8d830aa3e2eed68dc929f6f0ab29dfd8",
+          "worker_pid": 24873
+        }
+      ],
+      "case": "Group5Beta",
+      "child": {
+        "bytes": 8777,
+        "sha256": "d134250de71bb14fee21df235c43957a13e697db1b64dd94f87acc540a6dccac",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                22,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                22,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 22,
+          "name": "FreeParallel"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 16,
+              "occurrence": 0,
+              "selection": [
+                24,
+                2,
+                0
+              ]
+            },
+            {
+              "datum_id": 16,
+              "occurrence": 4,
+              "selection": [
+                24,
+                3,
+                1
+              ]
+            }
+          ],
+          "kind": "distance",
+          "mate_id": 24,
+          "name": "Distance1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 4,
+              "selection": [
+                25,
+                4,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 0,
+              "selection": [
+                25,
+                5,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 25,
+          "name": "Coincident1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                26,
+                6,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 4,
+              "selection": [
+                26,
+                7,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 26,
+          "name": "Parallel1"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 4,
+              "selection": [
+                27,
+                8,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 1,
+              "selection": [
+                27,
+                9,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 27,
+          "name": "Coincident2"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                28,
+                10,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 4,
+              "selection": [
+                28,
+                11,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 28,
+          "name": "Parallel2"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 4,
+              "selection": [
+                29,
+                12,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 2,
+              "selection": [
+                29,
+                13,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 29,
+          "name": "Coincident3"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 2,
+              "selection": [
+                30,
+                14,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 4,
+              "selection": [
+                30,
+                15,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 30,
+          "name": "Parallel3"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 4,
+              "selection": [
+                31,
+                16,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 3,
+              "selection": [
+                31,
+                17,
+                1
+              ]
+            }
+          ],
+          "kind": "coincident",
+          "mate_id": 31,
+          "name": "Coincident4"
+        },
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 3,
+              "selection": [
+                32,
+                18,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 4,
+              "selection": [
+                32,
+                19,
+                1
+              ]
+            }
+          ],
+          "kind": "parallel",
+          "mate_id": 32,
+          "name": "Parallel4"
+        }
+      ],
+      "fixed_indices": [
+        4
+      ],
+      "mate_count": 10,
+      "next_id": 33,
+      "occurrence_count": 5,
+      "passed": true,
+      "proofs": {
+        "assembly": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 3432,
+            "sha256": "b7c188e4e9c54ee6cc4555453d9e9c6326909c5e481387b0b3ea0f77b3797ca7"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "841f229c971ba1c21c9263f12306b4cc26d6f0b8affaf8fa2ba33c3518119e6a"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 23371,
+            "sha256": "9117c094475efdc88b57a3b2375f1591ad4af3b38afc6fca683909a8cc6204a8"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 31181,
+            "sha256": "667e6c9d5a3a6dc99855f447a43ce47e87c09832fdf564e68e73f7fbe95359a8"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 2035,
+            "sha256": "caf82f21069b44f65cee3d556c7b86720a62923d47bcf1c04976729fdf3aca21"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "3866140be8522d968a055f584aca4e470ace58a0f0b2a3b36a0f0d29eae249a2"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 567,
+            "sha256": "8dfd745265b31343a29d8b0c47a90c8d9218d3dfd7cca83fdd35439af19616ac"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 2035,
+            "sha256": "d173b9adde3d819e5aa962ec288ff1557feeb600ab83d1a04695afecb1cdf528"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "byte_identity": true,
+            "bytes": 3772,
+            "sha256": "91e4f042ba0606fa15a449eca6a2547d245fbd82aa3506bf79f0b5f9e1c3e639"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1364,
+            "sha256": "9e6276a03d7d0e8eeea04b2d8912263d5b26490801360aab6e036661a1368216"
+          }
+        },
+        "child": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "053fd3cf9bf90a3d36a29b13b3248043ba5ce79075d152b91322e221893e9329"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22180,
+            "sha256": "6f6fa6e9c51850faba387173d71d77721723eafe96f0e8859c0e7ea39b1cf2ad"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 747,
+            "sha256": "792fb6ec92cb4acd676b9f31288d4f2f494dd784cfd1a45c81f1fd14a6c01a09"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "67127435f74f5f29ac4951bd7cd7b7310b1e2d92557710359026ad4d5144ef5e"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 747,
+            "sha256": "9f460475bcec13121dd6ecbdeac833dac5ab1e51993e55798d7d34ffc12d1b1a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1514,
+            "sha256": "115648380345022a8d0aabfab1e787faef9f2c4d367d8c413dbc61d322e55d09"
+          }
+        }
+      },
+      "round_trips": 44,
+      "same_as_independent_research": true,
+      "wrapper_next_id": 20
+    }
+  ],
+  "pre_writer_source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "public_writer_enabled": false,
+  "raw_result_sha256": "e2f664a081f6219678a6311001b0853f2702393ade63bb7f8ce5e52cfb099c2e",
+  "reference_adapter_boundary": {
+    "native_acceptance_inferred_from_comparison": false,
+    "old_comparison_failures_preserved": true,
+    "product_writer_changed_to_resolve_comparison": false,
+    "retains_normalized_third_basis": true
+  },
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.sdk-planar-groups-construction-receipt.v1",
+  "scope": "internal complete ordinary aligned same-child planar mate groups with explicit direct occurrence and principal datum ownership",
+  "source_files": 5021,
+  "source_locked_before_generation": true,
+  "source_manifest_sha256": "753f64e4222ee9172b24d65abd02cbd2469254b5bf865f1a085c39276791f162",
+  "source_unchanged": true,
+  "task": "B04-SW2026-ASSEMBLIES-C10",
+  "typed_stream_round_trips": 1740,
+  "vendor_loadable": false
+}

@@ -13,6 +13,9 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.MateContext im
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.PlanarMateIn import (
     PlanarMateIn,
 )
+from convert.adapters.solidworks.Archive.Construction.PlanarMates.ReadMateOccs import (
+    ReadMateOccs,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
@@ -50,28 +53,16 @@ def CheckDistCtx(
         raise ValueError(
             "distance factory requires two explicit selected principal planes"
         )
-    ItemsValue = ReadRows(
-        RequireRecord(RequireRecord(Assembly.FieldsValue.get("f68")).get("list")).get(
-            "items"
-        )
-    )
-    if len(ItemsValue) != 2:
-        raise ValueError("distance factory requires two direct part occurrences")
-    Occurrences = tuple(
-        RequireNode(Value.get("o"), "moReference_c") for Value in ItemsValue
-    )
-    First, Second = Occurrences
-    CheckMateIds(Context, (First, Second))
-    if First is Second or not any(
-        InputValue.FixedValue is Value for Value in Occurrences
-    ):
+    Occurrences = ReadMateOccs(Assembly)
+    CheckMateIds(Context, Occurrences)
+    if not any(InputValue.FixedValue is Value for Value in Occurrences):
         raise ValueError(
             "distance fixed input and occurrence identities must be actual distinct parent members"
         )
-    CheckMateState(Context, InputValue, (First, Second))
-    if (
-        InputValue.Selections[0].OccurrenceValue
-        is InputValue.Selections[1].OccurrenceValue
+    CheckMateState(Context, InputValue, Occurrences)
+    First, Second = (Value.OccurrenceValue for Value in InputValue.Selections)
+    if First is Second or any(
+        not any(Value is Member for Member in Occurrences) for Value in (First, Second)
     ):
         raise ValueError("distance selections require two distinct actual occurrences")
     if not 0 <= FieldInt(Assembly.FieldsValue, "fd48") <= 0x7FFFFFFD:

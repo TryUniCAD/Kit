@@ -7,8 +7,8 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyMateIn im
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState import (
     AssemblyState,
 )
-from convert.adapters.solidworks.Archive.Construction.Header.MakeRootLog import (
-    MakeRootLog,
+from convert.adapters.solidworks.Archive.Construction.Assembly.RecordMateMut import (
+    RecordMateMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
@@ -76,17 +76,5 @@ def MakeAsmMateMut(
         NodeValue = MakeMateMut(Context, NativeInput)
     else:
         NodeValue = MakeDistMateMut(Context, NativeInput, MateValue.DistanceValue)
-    StateValue.CurrentConfig.FieldsValue["f85c"] = StateValue.Allocator.NextValue - 1
-    for HeaderValue in HeadersValue:
-        LogsValue = ArchiveNode.RequireNode(HeaderValue.FieldsValue["f20"])
-        ItemsValue = LogsValue.FieldsValue["items"]
-        if not isinstance(ItemsValue, tuple):
-            raise ValueError(
-                "assembly header lost its actual ordered revision log collection"
-            )
-        LogsValue.FieldsValue["items"] = (
-            *ItemsValue,
-            MakeRootLog(NodeValue, InputValue.HeaderValue),
-        )
-        HeaderValue.FieldsValue["f08"] = StateValue.Allocator.NextValue
+    RecordMateMut(StateValue, InputValue, NodeValue, HeadersValue)
     return NodeValue

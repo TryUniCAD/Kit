@@ -431,6 +431,12 @@ across eight controlled native processes. It checks live depth edits,
 rebuild, synchronized save, geometry and fresh reopen. The family
 qualification adds zero completed FCStd conversions to the production audit.
 
+The [explicit SDK planar group constructor](records/SdkPlanarGroupConstruction2026.md)
+generates six disclosed groups of two, three and five direct occurrences of one
+dimensioned part. Its 1,740 exact typed stream comparisons and eight atomic
+rejections pass. Existing flat and recursive bundles retain exact bytes.
+Native and original source-lock qualification remain open.
+
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
 identities with successful Document.xml discovery. The inventory includes 56

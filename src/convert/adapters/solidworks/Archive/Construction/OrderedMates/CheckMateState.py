@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 def CheckMateState(
     Context: MateContext,
     InputValue: PlanarMateIn,
-    Occurrences: tuple[ArchiveNode, ArchiveNode],
+    Occurrences: tuple[ArchiveNode, ...],
 ) -> None:
     if type(Context.PreviousValues) is not tuple:
         raise ValueError(

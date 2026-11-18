@@ -25,7 +25,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 def CheckPriorState(
     Context: MateContext,
     InputValue: PlanarMateIn,
-    Occurrences: tuple[ArchiveNode, ArchiveNode],
+    Occurrences: tuple[ArchiveNode, ...],
 ) -> None:
     if type(Context.PreviousValues) is not tuple:
         raise ValueError("ordered prior mates require their actual immutable sequence")

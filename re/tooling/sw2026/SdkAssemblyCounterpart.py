@@ -17,9 +17,10 @@ sys.addaudithook(AUDIT.InspectEvent)
 from Classes import registry
 from Core import Obj
 import builders.AssemblyDocument as AssemblyDocument
+import builders.AssemblyMateEndpoint as MateEndpointBuilder
 from builders.ConfigurationHeader import configuration_manager_header, configuration_manager_header_stream
 from builders.Part import construct_part
-from builders.Sketch import PlaneFrame
+from SdkReferenceFrame import ReferenceFrame
 from defs.ConfigPart import direct_list_items
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
@@ -47,6 +48,8 @@ def construct_child(inputs):
                 "sketch_name": sketch.name, "origin_name": system["origin_name"], "plane_axis": "z",
                 "extrusion_name": feature.name, "vertices_m": vertices,
                 "depth_m": feature.definition.length.value * 0.001, "density_kg_m3": values["density_kg_m3"]}
+    if "rectangle_dimensions" in inputs:
+        authored["rectangle_dimensions"] = inputs["rectangle_dimensions"]
     source = {name: provenance[name] for name in ("author", "company", "created_at", "modified_at", "comment", "originating_build_code", "license_origin")}
     presentation = {"plane_names": system["planes"], "units": values["document_units"], "styles": values["styles"],
                     "hatch_name": values["hatch_name"], "drafting_standard": definition["drafting_standard"], "journal_name": definition["journal_name"],
@@ -78,12 +81,15 @@ def construct_parent(request, child):
                 "provenance": source, "presentation": presentation, "target": value["target"], "output": value["output"]}
     mates = []
     for spec in specs:
-        mate = {"kind": spec["kind"], "name": spec["name"], "alignment": "aligned", "fixed_occurrence": spec["fixed_occurrence"], "created_at": provenance["created_at"],
-                "endpoints": [{"occurrence": index, "datum": child_system["planes"][spec["axis"]]} for index in range(2)]}
+        endpoints = ([{"occurrence": row["occurrence"], "datum": child_system["planes"][row["axis"]]} for row in spec["endpoints"]]
+                     if "endpoints" in spec else [{"occurrence": index, "datum": child_system["planes"][spec["axis"]]} for index in range(2)])
+        fixed = request["fixed_occurrence"] if "endpoints" in spec else spec["fixed_occurrence"]
+        mate = {"kind": spec["kind"], "name": spec["name"], "alignment": "aligned", "fixed_occurrence": fixed, "created_at": provenance["created_at"],
+                "endpoints": endpoints}
         if spec["kind"] == "distance":
             mate["distance_m"] = spec["distance_m"]
         mates.append(mate)
-    occurrences = tuple((row["name"], PlaneFrame(origin=tuple(row["origin"]), u=tuple(row["u"]), v=tuple(row["v"]))) for row in request["occurrences"])
+    occurrences = tuple((row["name"], ReferenceFrame(origin=tuple(row["origin"]), u=tuple(row["u"]), v=tuple(row["v"]))) for row in request["occurrences"])
     original = AssemblyDocument.configuration_manager
     captured = []
 
@@ -93,10 +99,13 @@ def construct_parent(request, child):
         return result
 
     AssemblyDocument.configuration_manager = manager
+    prior_frame = MateEndpointBuilder.PlaneFrame
+    MateEndpointBuilder.PlaneFrame = ReferenceFrame
     try:
         result = AssemblyDocument._construct_assembly(registry=REGISTRY, request=authored, child=child, occurrences=occurrences, mate_requests=tuple(mates), include_xml_metadata=True)
     finally:
         AssemblyDocument.configuration_manager = original
+        MateEndpointBuilder.PlaneFrame = prior_frame
     manager_header = configuration_manager_header(manager=captured[0], saved_at=value["output"]["saved_at"])
     streams = dict(result.streams)
     streams["Contents/CMgrHdr2"] = configuration_manager_header_stream(registry=REGISTRY, header=manager_header)
