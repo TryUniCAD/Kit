@@ -1,0 +1,272 @@
+{
+  "application_usable": null,
+  "attachment_sha256": "1427398c296323308acdc644fb3a0add1245b679afde140bd68ad8965f821e9c",
+  "comparison": {
+    "body": "one real visible solid, independent volume/area/CoM/bounds, paired mass/density and leaf end ownership",
+    "configurations": "all named configurations and active configuration, source intended Default",
+    "controls": "pristine matching before and after, discard qualification if either fails",
+    "edits": "preserve source edit target/factor plus predetermined changes to other active radial/depth drivers",
+    "failure_policy": "retain failure and missing owner, never repair this freeze by fitting opened cases",
+    "geometry": "actual fixed local centre, one real circle, two native relations, radial/diameter intent, support frame",
+    "input_custody": "all originals and generated candidates immutable, no copied source bytes in generated archive",
+    "save": "clean first save, fresh reopen, sequential driving edits, clean edited save and another fresh reopen",
+    "tolerance": {
+      "coordinate_absolute_m": 1e-10,
+      "relative": 2e-07,
+      "scalar_absolute": 1e-12
+    },
+    "tree": "complete ordered name/type/parent/suppression/error/warning rows at every observed state"
+  },
+  "full_native_metadata_roundtrip_qualified": false,
+  "generated_freeze_sha256": "106a33bdcbb1d03fb332cd13e90bc90d48dc5c01691b200a956bc3e92660c652",
+  "generation_evidence_order": [
+    "freeze method and both SDK closures",
+    "qualify independent fresh neutral inputs",
+    "freeze successful source qualification",
+    "open locked independent scalar specifications only",
+    "strictly admit whole intended circle job or report unsupported owner",
+    "generate twice with no input-file reads",
+    "freeze request, candidate, expectation and job hashes",
+    "attach original native payload by pre-writer hash",
+    "strict original SDK source read or explicit unsupported owner outcome",
+    "root-only paired controlled native lifecycle",
+    "separate fresh SDK readback of saved outputs"
+  ],
+  "historical_independence": "Original sources were locked before the research writer. This is a separate SDK requalification of that original cohort, not a claim that no earlier project lane ever evaluated it. This lane has not opened original scalar recipes, native payloads or old observations before this method.",
+  "host_verification_sha256": "1b85d0b620e9e43044f678fa4d945936d502d97befb6f5dd1a0bf4b513689a8c",
+  "method_sha256": "4b05b8cd582c4d7f7e65b52c5bb2741e2f8df6b4efb30d488acc53fb4391365c",
+  "native_acceptance": false,
+  "native_originals_attached_only_after_generated_freeze": true,
+  "native_packet_sha256": "5e3ae02edc96d6a4fbbccc6ed226f76e92e721e57ada2816bc153b78db145977",
+  "native_processes_executed": 0,
+  "native_processes_planned": 14,
+  "native_tools_verified": 8,
+  "new_hopper_documents_opened": 0,
+  "old_native_measurements_opened": false,
+  "original_source_exact_config_resolved_streams": 4,
+  "original_source_sdk_processes": 2,
+  "other_original_native_payloads_opened": 0,
+  "packet_files_verified": 19,
+  "prewriter_scalar_spec_sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0",
+  "prewriter_source_freezes": {
+    "CurveCircleWriterFreeze.json": "4a6cb20e311fa1572b234f12b4fb3dfdd672b5095ca147268bb410d76c5694f7",
+    "CurveSourceLock.json": "7773c393e60696c12a7a7202d294762dc5a7e35c25d1ea364201f59a8ee04c24",
+    "EndConditionSourceLock.json": "4df0938264f7761ada1f6fbc10f2335227459e6f03960ab1baa27a0395d395fe",
+    "EndConditionWriterFreeze.json": "fb208a5b8dd8cf9e033ad8450fd466e9754cf6374dc88bce68ee1bcd709a2918"
+  },
+  "public_family_registration_added": false,
+  "reader_source": {
+    "file_count": 4962,
+    "manifest_sha256": "ac563524dec83d8ad6673890047ebc8a68d7227d9dbb13d39492b7e78f228b94",
+    "source_revision": "533f2245e1dbfa59daf4918efbadc1689d6280b6"
+  },
+  "schema": "kit.sw2026.sdk-circle-original-heldout-method.v1",
+  "selected_originals": [
+    {
+      "candidate_sha256": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+      "complete_generated_streams": 10,
+      "name": "H01TranslatedDiameter",
+      "native_acceptance": false,
+      "original_reader_passed": true,
+      "original_sha256": "16837814717ae5a5c2a815b42afda8583b2cc51db4411b5837ca904ee8d5dddc",
+      "request_sha256": "2cc48a79c623959cfd0d42e5fe382f92c72947e6eecaf1b7763572286f453736",
+      "source_spec_sha256": "de67ddc1605a9e80c3ef723a8981eb08cad38cf34c564f3ab0371d5b9a8b1e70",
+      "typed_streams_exact": 2
+    },
+    {
+      "candidate_sha256": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+      "complete_generated_streams": 10,
+      "name": "H02ReverseTopCircle",
+      "native_acceptance": false,
+      "original_reader_passed": true,
+      "original_sha256": "236c9191b5b0cab47ff43398d66ec9c984b7c3d6b11c76b600b00303e4dba200",
+      "request_sha256": "d432eeb04259d1fbb5d315eb7503798fe8fdff60be5adb0273e685426219629b",
+      "source_spec_sha256": "e59ffb433546e4c6570162d5eb419eb2c5500dcfb7ce26fe1770a9f6322bdbcf",
+      "typed_streams_exact": 2
+    }
+  ],
+  "source_only_passed": true,
+  "source_qualification_cases": [
+    {
+      "analytic": {
+        "area_m2": 0.0007209955139988576,
+        "axial_interval_m": [
+          -0.0,
+          0.011625
+        ],
+        "bounds_m": [
+          [
+            -0.016218,
+            -0.003467999999999999
+          ],
+          [
+            -0.0027580000000000005,
+            0.009992000000000001
+          ],
+          [
+            0.0,
+            0.011625
+          ]
+        ],
+        "com_m": [
+          -0.009843,
+          0.003617,
+          0.0058125
+        ],
+        "volume_m3": 1.4842368588960857e-06
+      },
+      "build_sha256": "bad62b9637f776b9fa32c36a118357f017782858ff2d6dccb9fac39e4f0d4069",
+      "candidate_sha256": "07b5985f11012057bd62e1de90e2c27103245ee4a93c523d3724a5f21f986e17",
+      "complete_logical_streams": 10,
+      "fresh_processes": 4,
+      "guarded_runtime_input_reads": 0,
+      "name": "IndependentTranslatedDiameter",
+      "passed": true,
+      "prepare_sha256": "a9366d4be61d38df233acc3a709de08bd63d4f76de494f5230c7c197a1aedf72",
+      "read_sha256": "6d61f4f463b6a229459600e044b2a4faae3d3b71904c6d00cde3677360b89515",
+      "repeat_sha256": "bad62b9637f776b9fa32c36a118357f017782858ff2d6dccb9fac39e4f0d4069",
+      "request_sha256": "62e72362853d891048f74626c433dbc38a996cab0fb01f718e0f75f2f0bee86c",
+      "sdk_research_imports": 0
+    },
+    {
+      "analytic": {
+        "area_m2": 0.0015046265315286616,
+        "axial_interval_m": [
+          -0.014375,
+          0.0
+        ],
+        "bounds_m": [
+          [
+            -0.0046559999999999995,
+            0.015094
+          ],
+          [
+            -0.014375,
+            0.0
+          ],
+          [
+            -0.0014619999999999998,
+            0.018288
+          ]
+        ],
+        "com_m": [
+          0.0052190000000000005,
+          -0.0071875,
+          0.008413
+        ],
+        "volume_m3": 4.403844084709372e-06
+      },
+      "build_sha256": "b4971ac7d89167e4f10c412761389b53ab42b5aa9ef83acfefa004ee4833ac7d",
+      "candidate_sha256": "70d908184324185c2f12cdf9d27f93f34534decfbc2f2e4b5d47a2bff0cf1cba",
+      "complete_logical_streams": 10,
+      "fresh_processes": 4,
+      "guarded_runtime_input_reads": 0,
+      "name": "IndependentReverseTopRadius",
+      "passed": true,
+      "prepare_sha256": "8fe0fc8650d54e62ae3b0023aca19831135bd38ee83d9a64d76ef6c4adeb8788",
+      "read_sha256": "568d80162e7ce8f848d1e06b84bd96cada1aeb56ab3a93edd9f314bb915163cb",
+      "repeat_sha256": "b4971ac7d89167e4f10c412761389b53ab42b5aa9ef83acfefa004ee4833ac7d",
+      "request_sha256": "fc2e6632632d5ec2c90c1497d01787d9ed61b9007d2373cbffb3c85eb1143998",
+      "sdk_research_imports": 0
+    },
+    {
+      "analytic": {
+        "area_m2": 0.002285508655486575,
+        "axial_interval_m": [
+          -0.008937500000000001,
+          0.008937500000000001
+        ],
+        "bounds_m": [
+          [
+            -0.008937500000000001,
+            0.008937500000000001
+          ],
+          [
+            -0.004806,
+            0.019444
+          ],
+          [
+            -0.007512,
+            0.016738000000000003
+          ]
+        ],
+        "com_m": [
+          0.0,
+          0.007319,
+          0.004613000000000001
+        ],
+        "volume_m3": 8.255804833399553e-06
+      },
+      "build_sha256": "6b70782d04d260ce4b67f6a77d90658c411f200943f9b4cf2b9e8a62fc0140db",
+      "candidate_sha256": "d94b1a4a41bc15b401dd4c757c10dbf0b08a8134c68f77449134a1db9606780f",
+      "complete_logical_streams": 10,
+      "fresh_processes": 4,
+      "guarded_runtime_input_reads": 0,
+      "name": "IndependentMidRightDiameter",
+      "passed": true,
+      "prepare_sha256": "a471f2238629c06aa42b76d11f7253757c89221e2e8f60ef2dc3954366dd8035",
+      "read_sha256": "583b3edfb86b6591e28d7d9b9545842108fb4b482d2c2cda1753de91eba5dc8f",
+      "repeat_sha256": "6b70782d04d260ce4b67f6a77d90658c411f200943f9b4cf2b9e8a62fc0140db",
+      "request_sha256": "e2b7c6a78ddc8c658b9ea5a931f865b532f233360085373c780c764929fc7d15",
+      "sdk_research_imports": 0
+    },
+    {
+      "analytic": {
+        "area_m2": 0.000788245231739764,
+        "axial_interval_m": [
+          -0.009375,
+          0.013125
+        ],
+        "bounds_m": [
+          [
+            -0.0019059999999999997,
+            0.007344
+          ],
+          [
+            -0.009375,
+            0.013125
+          ],
+          [
+            -0.009762,
+            -0.0005120000000000003
+          ]
+        ],
+        "com_m": [
+          0.002719,
+          0.001875,
+          -0.005137
+        ],
+        "volume_m3": 1.5120141830031185e-06
+      },
+      "build_sha256": "9fc6aecc6fd0b0c754568d9fcad4ab80804600e9f40551e8fa49571430f81cdf",
+      "candidate_sha256": "b41b429642c928fc01eba21e5a8a193641403b048832c3d78dcbfb41d6c6c939",
+      "complete_logical_streams": 10,
+      "fresh_processes": 4,
+      "guarded_runtime_input_reads": 0,
+      "name": "IndependentTwoReverseTop",
+      "passed": true,
+      "prepare_sha256": "78bf129021b8fb35b4b2a5b564b1c62d2cc1f08eb2df568495d1afe715ec6b12",
+      "read_sha256": "c8396ad89a589d53c1a8662d77509766465adec4ff31bb11c59ed0bad7797a6b",
+      "repeat_sha256": "9fc6aecc6fd0b0c754568d9fcad4ab80804600e9f40551e8fa49571430f81cdf",
+      "request_sha256": "438224e6429e7200ad60a0448928a549ff2cf1e7eb63ac96f2569a298a5ffa07",
+      "sdk_research_imports": 0
+    }
+  ],
+  "source_qualification_processes": 16,
+  "source_qualification_sha256": "456b9703d0cd2555a892f2a04db35e81bfed39a2adf1059140393b48e5fbf671",
+  "source_specs_selected_only_after_method_qualification": true,
+  "status": "native acceptance unmeasured, immutable paired packet ready",
+  "tools": {
+    "re/tooling/sw2026/BuildSdkCircleHeldouts.py": "835e25245a0a3b63aea40cb7f0ad7e19d75dbd6ada21112d08507fd0cf697d14",
+    "re/tooling/sw2026/CompareSdkCircleHeldouts.py": "b28b9958a262a254cc518cb700269d390794347c1e11e0575016cb1f9982d660",
+    "re/tooling/sw2026/InspectSdkCircleHeldouts.py": "6fcc55382c753bea8bd9bef3da601449d894651bcd82eb0d69c35b1688f66480",
+    "re/tooling/sw2026/PrepareSdkCircleHeldoutMethod.py": "1a158c2ea0ff72de894d1e7b14333a02a4d176db68e9a5e14d27fd0f88088225",
+    "re/tooling/sw2026/SdkCircleHeldoutRules.py": "d841fb7e212909709e6aad5a9c8c0a04f59e434404ec3fccab87156fdcceacb3"
+  },
+  "vendor_loadable": null,
+  "writer_source": {
+    "file_count": 4877,
+    "manifest_sha256": "ba81c1a26e3a2e350994d4626c9652ad1a14c7d85d6ec5b3687ce317e1bdb2e4",
+    "source_revision": "82f093bf390df5b68c5159d8277eb24acbb6d311"
+  }
+}
