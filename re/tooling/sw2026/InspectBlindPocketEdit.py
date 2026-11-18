@@ -111,7 +111,8 @@ def phase(job, path, sha256, folder, *, edit_to=None):
     result["dialogs"] = monitor.log
     result["passed"] = bool(result["passed"] and result["input_immutable"] and not result["dialogs"]
                             and not result.get("controller_diagnostics") and not recorder.data["cleanup_errors"])
-    recorder.data.update(result=result, finished_at=time.time())
+    recorder.data.update(result=result, passed=result["passed"],
+                         stage="passed" if result["passed"] else "failed", finished_at=time.time())
     recorder.flush()
     return result
 

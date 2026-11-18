@@ -18,4 +18,12 @@ The [neutral fixture author](../../tooling/sw2026/AuthorSdkPocketInputs.py) supp
 | SdkPocketWideBeta | Diameter | 13,865 | 18,787 | 235 |
 | SdkPocketFree | Free circle | 13,865 | 16,976 | 222 |
 
-The three builds repeat exactly, 30 stream comparisons pass, and six malformed or unprojected inputs reject. Both earlier dimensioned requests reproduce their original bytes after adding the free-circle path. The process receipt binds input, output and source hashes. The vendor edit and reopen pass and the two original held-outs are separate acceptance work. [Process receipt](../measurements/2026/SdkBlindPocketProcess01.json) [Original source locks](../v2026/heldout/OrdinaryBlindCutSourceLock.json)
+The three builds repeat exactly, 30 stream comparisons pass, and six malformed or unprojected inputs reject. Both earlier dimensioned requests reproduce their original bytes after adding the free-circle path. The process receipt binds input, output and source hashes. [Process receipt](../measurements/2026/SdkBlindPocketProcess01.json)
+
+## Disclosed native lifecycle
+
+Each generated part opened with one solid before explicit rebuild, with zero open errors and warnings. The cut reported the actual preceding boss as a parent. Each of the three cut-depth edits rebuilt with zero native errors or warnings and survived a save and fresh reopen. The radius and diameter edits rebuilt independently and preserved the live drivers after restoration. The free circle retained an undimensioned sketch. The observer compares native geometry to the rectangle-minus-cylinder prediction.
+
+All three batches pass 275 numeric checks across 12 fresh processes with six healthy controls. Config-0 and ResolvedFeatures re-emit exactly from each native-edited file. The receipts bind the original measured tooling. In those raw per-phase files the terminal outcome is `result.passed`. The recorder now mirrors that value at the top level for subsequent runs.
+
+The public portable read still reports the multi-operation typed projection boundary on these histories. The two earlier locked source parts remain reserved for the original held-out comparison after semantic projection. [Native receipt](../measurements/2026/SdkBlindPocketNative01.json) [Original source locks](../v2026/heldout/OrdinaryBlindCutSourceLock.json)
