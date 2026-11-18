@@ -24,12 +24,19 @@ def BindPartIntent(
         raise TypeError("plain part preparation requires an explicit typed recipe")
     UnitName = str(DocumentValue.units)
     SystemsValue = {"mm": "mmgs", "m": "mks", "in": "ips"}
-    DocumentUnits = UnitInput(
-        UnitName,
-        RecipeValue.DocumentUnits.AngleUnit,
-        SystemsValue[UnitName],
-        RecipeValue.DocumentUnits.DecimalPlaces,
-    )
+    DocumentUnits = RecipeValue.DocumentUnits
+    if DocumentUnits.UnitSystem == "custom":
+        if DocumentUnits.LengthUnit != UnitName:
+            raise ValueError(
+                "custom display length must match the actual neutral units"
+            )
+    else:
+        DocumentUnits = UnitInput(
+            UnitName,
+            DocumentUnits.AngleUnit,
+            SystemsValue[UnitName],
+            DocumentUnits.DecimalPlaces,
+        )
     SystemValue = ReplaceValue(
         RecipeValue.SystemValue,
         PlaneNames=tuple(

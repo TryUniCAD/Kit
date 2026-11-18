@@ -64,3 +64,29 @@ keeps all three observer identities and normalized native evidence.
 This qualifies the disclosed source setting and ownership map. Generated
 native verification, original-corpus admission and additional custom
 units remain open.
+
+## Shared writer construction
+
+The internal unit recipe accepts millimetres, degrees, the custom system,
+an explicit decimal count and either grams or kilograms. The ordinary
+part preparation validates that the custom length agrees with the neutral
+document. The shared unit table attaches an independent length node with
+the primary format, no dual child and a zero display value. The density
+wire values use their own semantic mass codes. The analysis table and
+existing preset recipes continue through their ordinary construction.
+
+The guarded build runs six positive constructions and six explicit
+refusals. It creates both mass choices for two independent ordinary
+rectangles. All output has zero runtime file reads. Each custom Config-0
+adds 68 uncompressed bytes to its corresponding preset. Switching mass
+within custom changes only Config-0 while preserving its uncompressed
+length. The original proof expected compressed container lengths to
+match as well. The corrected comparison uses the actual uncompressed
+stream and reproduces all six prior worker outputs exactly.
+
+The independent FreeCAD box replay reproduces both previous
+native-tested outputs and all nine guarded outcomes byte for byte. The
+[shared construction receipt](../measurements/2026/SdkCustomMassUnitConstruction01.json)
+binds both experiments. `InspectGeneratedCustomMassUnits.py` brackets
+the four custom candidates through native edit, save and fresh reopen.
+Generated acceptance and public registration remain pending.

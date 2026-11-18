@@ -46,5 +46,8 @@ KLengthCodes = {
 # explicit angular names avoid borrowing application preference state during synthesis
 KAngleCodes = {"degree": 0, "arcminute": 1, "arcsecond": 2, "radian": 3}
 
-# the named systems exclude the separate unnamed native constructor code three
-KSystemCodes = {"cgs": 0, "mks": 1, "ips": 2, "mmgs": 4}
+# document system names follow the preset map and the native custom preference binding
+KSystemCodes = {"cgs": 0, "mks": 1, "ips": 2, "custom": 3, "mmgs": 4}
+
+# explicit custom mass choices use their verified density codes independently of the api enumeration
+KMassCodes = {"g": 1, "kg": 2}
