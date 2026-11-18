@@ -1,0 +1,591 @@
+{
+  "audit": {
+    "Frozen": {
+      "child": {
+        "configuration": "modeled default",
+        "configuration_state": {
+          "f08": 0,
+          "f4b0": -1,
+          "f85c": 26,
+          "f860": 101
+        },
+        "headers": {
+          "model": {
+            "f08": 27,
+            "f40": 101,
+            "f48": 1794000110,
+            "fc4": 0,
+            "fec": 1
+          },
+          "top": {
+            "f08": 27,
+            "f40": 101,
+            "f48": 1794000110,
+            "fc4": 0,
+            "fec": 0
+          }
+        },
+        "input_sha256": "1d158e0f67507587a2cb5056f103f34dbc930138b4f43ee5d20359c6329dbfcc",
+        "manager_header": {
+          "class": "dmConfigMgrHeader_c",
+          "fields": {
+            "f08": {
+              "items": [
+                {
+                  "o": {
+                    "class": "dmConfigHeader_c",
+                    "fields": {
+                      "f08": 1,
+                      "f10": "modeled default",
+                      "f18": "modeled default",
+                      "f20": "",
+                      "f28": "",
+                      "f30": 0,
+                      "f40": 0,
+                      "f48": 0,
+                      "f4c": 101,
+                      "f50": 101
+                    }
+                  }
+                }
+              ],
+              "n": 1
+            },
+            "f60": 1794000120
+          }
+        },
+        "model_class": "moPart_c",
+        "model_state": {
+          "f08": 0,
+          "f1300": 101,
+          "fd44": 12,
+          "fd48": 0
+        },
+        "typed_stream_round_trips": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22232,
+            "sha256": "fe12e8300d44a064628994cf20cebfa905fef03fd3ef9977b55027022cf54e6f"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 897,
+            "sha256": "be6ba0467e89cc16d1a42cc4ef1b96b8945b9bea6a43526b30f1cfdc53054c8b"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 17289,
+            "sha256": "4c970c389a875ce9c25019baa15793fed660ecdc5fd7cda6ec1aa4bbd6891005"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 897,
+            "sha256": "7f16ecbb075bec9d90e7c09d43a8bb24c2d6e09e6e208bab8ee754d911295b00"
+          }
+        }
+      },
+      "parent": {
+        "configuration": "Default",
+        "configuration_state": {
+          "f08": 0,
+          "f4b0": 3,
+          "f85c": 26,
+          "f860": 101
+        },
+        "headers": {
+          "model": {
+            "f08": 27,
+            "f40": 101,
+            "f48": 1794700000,
+            "fc4": 3,
+            "fec": 1
+          },
+          "top": {
+            "f08": 27,
+            "f40": 101,
+            "f48": 1794700000,
+            "fc4": 3,
+            "fec": 0
+          }
+        },
+        "input_sha256": "1522aa21cb3f39db16a6b082088fef0a0063acf6a53df6cb31c479137761eda3",
+        "manager_header": {
+          "class": "dmConfigMgrHeader_c",
+          "fields": {
+            "f08": {
+              "items": [
+                {
+                  "o": {
+                    "class": "dmConfigHeader_c",
+                    "fields": {
+                      "f08": 1,
+                      "f10": "Default",
+                      "f18": "Default",
+                      "f20": "",
+                      "f28": "",
+                      "f30": 0,
+                      "f40": 0,
+                      "f48": 0,
+                      "f4c": 306,
+                      "f50": 404
+                    }
+                  }
+                }
+              ],
+              "n": 1
+            },
+            "f60": 1794700075
+          }
+        },
+        "mates": [
+          {
+            "class": "moMateParallel",
+            "id": 20,
+            "name": "FreeParallel"
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension": {
+              "id": 21,
+              "metres": 0.13438,
+              "name": "D1"
+            },
+            "id": 22,
+            "name": "Distance1"
+          },
+          {
+            "class": "moMateCoincident",
+            "id": 23,
+            "name": "Coincident2"
+          },
+          {
+            "class": "moMateParallel",
+            "id": 24,
+            "name": "Parallel2"
+          },
+          {
+            "class": "moMateCoincident",
+            "id": 25,
+            "name": "Coincident3"
+          },
+          {
+            "class": "moMateParallel",
+            "id": 26,
+            "name": "Parallel3"
+          }
+        ],
+        "model_class": "moAssembly_c",
+        "model_state": {
+          "f08": 0,
+          "f1300": 101,
+          "f1560": 3,
+          "f1a18": {
+            "b0": 0.08254822653472924,
+            "b1": 0.025237525551666643,
+            "b2": 0.017255,
+            "b3": 0.1752539168413922,
+            "b4": 0.06138275922316854,
+            "b5": 0.03451,
+            "b6": -0.010157463771933719,
+            "b7": -0.010907708119835258,
+            "b8": 0.0,
+            "b9": 0.09721876599845339
+          },
+          "f1a20": {
+            "b0": 0.08254822653472924,
+            "b1": 0.025237525551666643,
+            "b2": 0.017255,
+            "b3": 0.1752539168413922,
+            "b4": 0.06138275922316854,
+            "b5": 0.03451,
+            "b6": -0.010157463771933719,
+            "b7": -0.010907708119835258,
+            "b8": 0.0,
+            "b9": 0.09721876599845339
+          },
+          "fd44": 10,
+          "fd48": 12
+        },
+        "occurrence_count": 3,
+        "reference_config_row_count": 4,
+        "typed_stream_round_trips": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2894,
+            "sha256": "1ce4415e213b2108067dcad43bedc20a84367cb11f405992baa787d4b71e4aa1"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "798bf19ec9f923e5b94d42c2c591f1fb608d9bb2c7239daeb0aa7ee858cf7b91"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22345,
+            "sha256": "ce2b609e162e683a987e91a71068568ce6dc2cb01cb2d60d2e9e0d50b54cd366"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 19469,
+            "sha256": "234b154a3fe6d06a5e7af5de3dff3709fbfbc6048ffb6a358af39727a627eaa7"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1893,
+            "sha256": "462f0bcba2c5e6215ef4bb6ffd1bf8f5ca96b82114debf5029b2a9ed4df16539"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 4839,
+            "sha256": "d8f901093be978e775b88ae225e7e95c630b70c7a137aa46cdace6d230258ca0"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1893,
+            "sha256": "1395f02820891b99cf80cf58c44d60208f991b317019201880d5ee5e5794a8a3"
+          }
+        }
+      }
+    },
+    "Saved": {
+      "child": {
+        "configuration": "modeled default",
+        "configuration_state": {
+          "f08": 0,
+          "f4b0": -1,
+          "f85c": 30,
+          "f860": 144
+        },
+        "headers": {
+          "model": {
+            "f08": 35,
+            "f40": 144,
+            "f48": 1794981952,
+            "fc4": 0,
+            "fec": 1
+          },
+          "top": {
+            "f08": 35,
+            "f40": 144,
+            "f48": 1794981952,
+            "fc4": 0,
+            "fec": 1
+          }
+        },
+        "input_sha256": "0a1af095e9bffdba6aa1dc5eba61670bd309fa4bf7c0ebdd9ce0a6540369b09d",
+        "manager_header": {
+          "class": "dmConfigMgrHeader_c",
+          "fields": {
+            "f08": {
+              "items": [
+                {
+                  "o": {
+                    "class": "dmConfigHeader_c",
+                    "fields": {
+                      "f08": 1,
+                      "f10": "modeled default",
+                      "f18": "modeled default",
+                      "f20": "",
+                      "f28": "",
+                      "f30": 0,
+                      "f40": 0,
+                      "f48": 0,
+                      "f4c": 101,
+                      "f50": 103
+                    }
+                  }
+                }
+              ],
+              "n": 1
+            },
+            "f60": 1794982023
+          }
+        },
+        "model_class": "moPart_c",
+        "model_state": {
+          "f08": 0,
+          "f1300": 103,
+          "f7f8": {
+            "b0": 0.0,
+            "b1": 0.0,
+            "b2": 0.004125,
+            "b3": 0.027,
+            "b4": 0.009000000000000001,
+            "b5": 0.00825,
+            "b6": -0.027,
+            "b7": -0.009000000000000001,
+            "b8": 0.0,
+            "b9": 0.028757879355056762
+          },
+          "fd44": 12,
+          "fd48": 0
+        },
+        "typed_stream_round_trips": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 2549,
+            "sha256": "b54c77ae278122d58103e7d0cce92b0d4461fff76009cee986fb438d017210d2"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "a5a3615aebcd865646fbd6ae7acf25fe9f0c5ef4fce03a345cee2de074b8615e"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 25965,
+            "sha256": "a60ef56c02aeabc66101dd629e9c172dce43f69abea269dfbbd96cac61e7ce50"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 1361,
+            "sha256": "03a327f7fd7681bc85e93605bdc5d3cd215fb6afeb162e6dcbe22f641d965897"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 19171,
+            "sha256": "6789ec7e4474ebe7cf96ea523cd5739e4cb917c3e23e86449488706c7e31cde7"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 1361,
+            "sha256": "03a327f7fd7681bc85e93605bdc5d3cd215fb6afeb162e6dcbe22f641d965897"
+          }
+        }
+      },
+      "parent": {
+        "configuration": "Default",
+        "configuration_state": {
+          "f08": 0,
+          "f4b0": 3,
+          "f85c": 30,
+          "f860": 105
+        },
+        "headers": {
+          "model": {
+            "f08": 34,
+            "f40": 105,
+            "f48": 1794981952,
+            "fc4": 3,
+            "fec": 1
+          },
+          "top": {
+            "f08": 34,
+            "f40": 105,
+            "f48": 1794981952,
+            "fc4": 4,
+            "fec": 1
+          }
+        },
+        "input_sha256": "9fb699429dd5d25400bd225451f5f48aaa83793edf171ac924d7d985a9bc39d9",
+        "manager_header": {
+          "class": "dmConfigMgrHeader_c",
+          "fields": {
+            "f08": {
+              "items": [
+                {
+                  "o": {
+                    "class": "dmConfigHeader_c",
+                    "fields": {
+                      "f08": 1,
+                      "f10": "Default",
+                      "f18": "Default",
+                      "f20": "",
+                      "f28": "",
+                      "f30": 0,
+                      "f40": 0,
+                      "f48": 0,
+                      "f4c": 307,
+                      "f50": 412
+                    }
+                  }
+                }
+              ],
+              "n": 1
+            },
+            "f60": 1794982024
+          }
+        },
+        "mates": [
+          {
+            "class": "moMateParallel",
+            "id": 20,
+            "name": "FreeParallel"
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension": {
+              "id": 21,
+              "metres": 0.15011,
+              "name": "D1"
+            },
+            "id": 22,
+            "name": "Distance1"
+          },
+          {
+            "class": "moMateCoincident",
+            "id": 23,
+            "name": "Coincident2"
+          },
+          {
+            "class": "moMateParallel",
+            "id": 24,
+            "name": "Parallel2"
+          },
+          {
+            "class": "moMateCoincident",
+            "id": 25,
+            "name": "Coincident3"
+          },
+          {
+            "class": "moMateParallel",
+            "id": 26,
+            "name": "Parallel3"
+          }
+        ],
+        "model_class": "moAssembly_c",
+        "model_state": {
+          "f08": 0,
+          "f1300": 103,
+          "f1560": 3,
+          "f1a18": {
+            "b0": 0.08999465864655802,
+            "b1": 0.027514128315651705,
+            "b2": 0.017684910898389597,
+            "b3": 0.19029659065269072,
+            "b4": 0.06598176613845717,
+            "b5": 0.03451,
+            "b6": -0.01015746377193372,
+            "b7": -0.01090770811983526,
+            "b8": 0.0,
+            "b9": 0.10495702067684243
+          },
+          "f1a20": {
+            "b0": 0.08999465864655802,
+            "b1": 0.027514128315651705,
+            "b2": 0.017684910898389597,
+            "b3": 0.19029659065269072,
+            "b4": 0.06598176613845717,
+            "b5": 0.03451,
+            "b6": -0.01015746377193372,
+            "b7": -0.01090770811983526,
+            "b8": 0.0,
+            "b9": 0.10495702067684243
+          },
+          "fd44": 10,
+          "fd48": 12
+        },
+        "occurrence_count": 3,
+        "reference_config_row_count": 4,
+        "typed_stream_round_trips": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 3455,
+            "sha256": "53df07bf08c4ef767331777f4b1e14159d22c7016bf1333bfd642aba29d1408d"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "a410938418538b008c6909b2517801efaeef24a713bda350300e503c0517bf13"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 25112,
+            "sha256": "d7f0aea3c09d85da4d2912da7a22c4cff03b55da970fac3498a4354032f34613"
+          },
+          "Contents/Config-0-MatesList": {
+            "byte_identity": true,
+            "bytes": 23129,
+            "sha256": "d26455e8335eec71d56d23872174efa78e63d40671000442b34db52d3408e883"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 2391,
+            "sha256": "ce9ddc1161cc9e912207a8277d144fb0e1793140138a197aea4a5f35bc1efaab"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 5295,
+            "sha256": "0afb27fcf446082fd4846078938d0d9be3350e9c46706ffb0ab6952143f1138e"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 2391,
+            "sha256": "4ffccb799db7655fce486e40d872b5f2c004912b17afa860723c4102416399a0"
+          }
+        }
+      }
+    }
+  },
+  "delivery_pr": 121,
+  "heldout_inputs_read": 0,
+  "limits": [
+    "Strict normal public reads are valid for the complete admitted typed planar group and linked child",
+    "Both reads retain informational sldasm.native_record_unresolved from the legacy native-name scanner",
+    "Typed saved-file audit covers exactly seven parent and six child roles for each original/saved state, excluding Definition, History, XML, B-rep and independent caches",
+    "Saved parent model-header fc4 is 3 while Header2 fc4 is 4; fresh both are 3, and configuration f4b0 remains 3",
+    "No new construction rule is inferred from native-saved stamp or count changes; no CAD process or sealed input was accessed"
+  ],
+  "native_processes_started": 0,
+  "native_result_sha256": "333574efef8ac855ccb4b2a4a933b48e386ccbb03aa995d9c975e9a3c2c5198b",
+  "passed": true,
+  "raw_result_sha256": "035c1c2d8b9ea86b624649ae54ce7230a41d500cfbd4807ebeb4b92f64ccc7c7",
+  "rows": [
+    {
+      "com_imports": [],
+      "comparison": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 12,
+        "fixed_flags": [
+          true,
+          false,
+          false
+        ],
+        "mates": 6,
+        "occurrences": 3,
+        "passed": true
+      },
+      "input_sha256": "1522aa21cb3f39db16a6b082088fef0a0063acf6a53df6cb31c479137761eda3",
+      "role": "Frozen",
+      "worker_pid": 88404
+    },
+    {
+      "com_imports": [],
+      "comparison": {
+        "diagnostic_codes": [
+          "sldasm.native_record_unresolved"
+        ],
+        "driver_count": 3,
+        "entities": 12,
+        "fixed_flags": [
+          true,
+          false,
+          false
+        ],
+        "mates": 6,
+        "occurrences": 3,
+        "passed": true
+      },
+      "input_sha256": "9fb699429dd5d25400bd225451f5f48aaa83793edf171ac924d7d985a9bc39d9",
+      "role": "Saved",
+      "worker_pid": 88416
+    }
+  ],
+  "schema": "kit.sw2026.sdk-planar-group-native-public-readback.v1",
+  "source_manifest_sha256": "6674ba350f02d53c1d29d3608bb65429112f35ae20c28389d3551c3efed609cd",
+  "task": "B04-SW2026-ASSEMBLIES-C10",
+  "typed_stream_round_trips": 26
+}

@@ -330,6 +330,13 @@ first candidates pass. The centered model keeps both construction diagonals
 in its saved files. These are research cases from independently authored
 neutral specifications.
 
+The [SDK origin-anchored experiment](records/SdkRectangleCornerNative2026.md)
+passes all three independent width, height and depth edits from the same
+generated part. The corner remains at the model origin in every native state.
+Both controls and all eight processes pass. The resulting synthetic shape
+establishes the editable geometry needed for the scoped FreeCAD primitive.
+Complete source property and semantic mapping remains open.
+
 The [dimensioned assembly trials](measurements/2026/GeneratedDimensionedAssembliesNative04.json)
 verified independent width, height and depth edits in generated single- and repeated-occurrence
 bundles. All six trials matched their independent native geometry and exact recursive part and
@@ -435,7 +442,11 @@ The [explicit SDK planar group constructor](records/SdkPlanarGroupConstruction20
 generates six disclosed groups of two, three and five direct occurrences of one
 dimensioned part. Its 1,740 exact typed stream comparisons and eight atomic
 rejections pass. Existing flat and recursive bundles retain exact bytes.
-Native and original source-lock qualification remain open.
+The [disclosed native group](records/SdkExplicitPlanarGroupNative2026.md)
+passes 440 numerical checks across four processes through a live driving edit,
+synchronized save and fresh reopen. The public reader retains all twelve
+endpoint links and 26 scoped archive streams serialize byte-for-byte.
+Original source-lock qualification remains open.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

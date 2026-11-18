@@ -64,6 +64,8 @@ The SDK also attaches ordered coincident, distance and parallel groups to the sa
 
 The internal explicit group constructor selects actual occurrence and plane endpoints from one shared generated child. Six dimensioned-child layouts with two, three and five components pass 1,740 typed stream round trips across 142 workers. Eight invalid graphs reject before output. [Explicit planar groups](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksExplicitPlanarGroups.md)
 
+A disclosed three-component group with six ordered mates passes a native driving edit, synchronized save and fresh reopen. The normal SDK reads all twelve datum endpoints and all three child drivers from the generated and saved states. The 26 scoped parent and child streams round-trip exactly. [Native explicit group verification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksExplicitPlanarGroupNative.md)
+
 The internal recursive composer attaches actual generated part and subassembly targets to fully resolved rigid occurrences. It derives expanded activity and world bounds from the dependency graph. A three-definition hierarchy and four-definition repeated hierarchy pass 156 typed stream comparisons. Thirty earlier single- and ordered-mate bundles retain exact bytes. [Generated assembly targets](../../Changes/Solidworks/Archive/Assembly/SolidworksGeneratedAssemblyTargets.md)
 
 The SDK reads and writes the complete ordinary 2026 part and assembly Definition stream. The constructors accept explicit presentation settings, part density and assembly save-as-part preferences. All 84 disclosed native Definitions retain their exact bytes and archive map. The research document composers use the same writer. [Model Definition codec](../../Changes/Solidworks/Construction/SolidworksModelDefinitionCodec.md)
@@ -85,6 +87,8 @@ An internal SDK constructor generates a complete fixed-centre circle boss with a
 The internal circle composer also applies the actual Front, Right or Top support and either reversed blind, total mid-plane or two independent blind ends. Four disclosed files pass 40 complete stream comparisons and 530 native geometry and edit checks. Their original generated, first-save and edited states retain the radial and depth drivers through the public reader. [Circle end measurements](../../Changes/Solidworks/Construction/SolidworksSdkCircleEndConditions.md)
 
 The internal SDK rectangle composer also owns two driving sketch dimensions and four horizontal or vertical relations. Two independent neutral requests preserve all ten streams, real point and segment handles, displays and parameter ownership through typed preparation. [Rectangle driving dimensions](../../Changes/Solidworks/Construction/SolidworksRectangleDrivingDimensions.md)
+
+The internal corner-anchored rectangle keeps the actual native origin coincidence through independent edits of both sketch lengths and the boss depth. All three native saves reopen with a fully constrained sketch and one solid, across eight processes and 255 numerical comparisons. [Native origin-anchored rectangle](../../Changes/Solidworks/Inspection/Profiles/SolidworksSdkCornerNativeEdits.md)
 
 ## Read flow
 
