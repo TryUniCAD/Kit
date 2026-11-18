@@ -12,6 +12,9 @@ from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.CompFields imp
 from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.DownstreamFields import (
     KDownstreamFields,
 )
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.EnvironmentFields import (
+    KDrawingEnvironmentFields,
+)
 from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.EdgeFields import (
     KEdgeFields,
 )
@@ -31,6 +34,7 @@ KFrontLayouts = MappingProxyType(
         **KCompFields,
         **KEdgeFields,
         **KDownstreamFields,
+        **KDrawingEnvironmentFields,
         "moScaleSysScale_c": (),
         "moLineStyle_c": KDocStyleFields["moLineStyle_c"],
     }
