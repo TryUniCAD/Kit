@@ -12,4 +12,4 @@ ordinary literal text in the compatible layout. Follow its actual
 document/configuration scope and compare the resolved value through a
 native edit and fresh reopen when testing generated properties.
 
-[Disclosed native evidence and bounds](../../../../../re/solidworks/records/PartPropertySources2026.md)
+[Disclosed native evidence and bounds](../../../../../../re/solidworks/records/PartPropertySources2026.md)
