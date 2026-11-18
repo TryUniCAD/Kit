@@ -310,6 +310,13 @@ trees, edited view state, linked child geometry, save and fresh reopen.
 Both controls pass across twelve distinct native processes. This research
 measurement adds no qualified production conversion.
 
+The [original SDK drawing comparison](records/SdkOriginalDrawingNativeComparison2026.md)
+matches geometry for both source pairs through native view movement, save
+and fresh reopen across twelve processes and 1,704 comparisons. Both cases
+retain 13 differing drawing feature names and a linked child with a distinct
+notes folder class and feature row count. These two pairs do not pass
+source-semantic acceptance.
+
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
 passed both native save modes under the original and Kit containers.
 The paired controls retain the same seven streams and compressed bytes.

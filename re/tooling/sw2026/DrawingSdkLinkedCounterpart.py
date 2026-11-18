@@ -11,7 +11,8 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[3]
 TOOLS = Path(__file__).resolve().parent
-sys.path[:0] = [str(ROOT), str(ROOT / "src"), str(TOOLS), str(TOOLS / "serial")]
+sys.path[:0] = [str(ROOT / "src"), str(ROOT)]
+sys.path.extend((str(TOOLS), str(TOOLS / "serial")))
 
 from tests.Convert.Solidworks.Research.ConstructionGuard import BuildAudit
 from Classes import registry

@@ -126,6 +126,8 @@ The internal SDK writer can serialize ordinary 2026 sheet fields with the caller
 
 The complete linked SDK constructor builds the drawing from one external generated part and a single authored named view. Six designs pass exact stream and independent corner comparisons. One Front view and its generated part pass a native move, save and fresh reopen with exact native feature rows, resolved part geometry and live child depth. [Complete linked SDK drawing](../../Changes/Solidworks/Inspection/Drawings/Portable/SolidworksSdkLinkedDrawingFile.md) [Native lifecycle](../../Changes/Solidworks/Inspection/Drawings/Portable/SolidworksSdkLinkedDrawingNativeTrial.md)
 
+Two original Right and Top drawing pairs pass a geometry comparison through native view movement, save and fresh reopen. Each drawing retains differences in 13 feature names. The generated child also differs in its notes area and feature rows. The strict source-semantic and held-out acceptance gates remain open. [Original drawing comparison](../../Changes/Solidworks/Inspection/Drawings/Qualification/SolidworksOriginalDrawingGeometryComparison.md)
+
 ## Feature history
 
 The resolved-feature grammar includes class definitions and object references.
