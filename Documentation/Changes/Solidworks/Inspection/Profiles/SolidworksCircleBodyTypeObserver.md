@@ -7,6 +7,11 @@ exposes both methods. The earlier observer stopped on the first original
 reference because its assumed `IsSolidBody` method was unavailable. Both
 controls passed, and the generated lanes never launched.
 
+The corrected API on an independent disclosed cylinder reports three faces,
+two closed circular edges and zero vertices. The topology check now
+requires those exact counts and still compares every native topology value
+across both lanes and all lifecycle stages.
+
 Use the new runner with a frozen packet and `--packet-sha256`. The disclosed
 probe exercises the complete observer using an independent generated circle.
 The original comparison uses the exact pre-existing source, predictions and
@@ -22,3 +27,5 @@ Corrected runner
 [Original circle method](../../../../../re/solidworks/records/SdkCircleOriginalHeldoutProtocol2026.md)
 
 [Actual COM body type](../../../../Gotchas/Conversion/Solidworks/Oracle/Parts/BodyTypeUsesGetType.md)
+
+[Closed circular edge topology](../../../../Gotchas/Conversion/Solidworks/Oracle/Parts/ClosedCircleEdgesHaveNoVertices.md)

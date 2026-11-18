@@ -36,9 +36,10 @@ def check_extra(state, spec, expected_rows, factors):
     for actual, expected in zip(state["extreme_bounds_m"], model["bounds_m"], strict=True):
         for value, wanted in zip(actual, expected, strict=True):
             close(value, wanted, "body extreme", 1e-10)
-    require(set(state["body_topology"]) == {"faces", "edges", "vertices"} and
-            all(type(value) is int and value > 0 for value in state["body_topology"].values()),
-            "native B-rep topology was not actually observed")
+    counts = state["body_topology"]
+    require(counts == {"faces": 3, "edges": 2, "vertices": 0} and
+            all(type(value) is int for value in counts.values()),
+            "closed circular prism topology must have three faces two circular edges and no end vertices")
 
 
 def compare_extra(actual, expected):
