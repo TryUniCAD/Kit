@@ -1,0 +1,658 @@
+{
+  "application_usable": false,
+  "cases": [
+    {
+      "input_sha256": "0004a7e5cc1a327ad4323d369d94bc725ed584bc4843d9b5b2ce69019aa90e02",
+      "name": "ModelAlpha",
+      "result": {
+        "active_sheet_identity": true,
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 5884,
+        "artifact_sha256": "af8c52defc31d28635b001b51221df28afcedc3af89ee494ac5e5cab7e78bff1",
+        "auxiliary_lists": 3,
+        "canonical_view_count": 10,
+        "complete_sdk_only_drawing_factory": false,
+        "complete_sdk_read_write_identical": true,
+        "definition_bytes": 23953,
+        "definition_map_next_index": 131,
+        "definition_sha256": "6e2d7fe5c09b755df7c772e0bf04bb88b24db5bd7882182303f030f07384408d",
+        "heldout_inputs_read": 0,
+        "inspection": {
+          "sheet": "ModelAlpha paper"
+        },
+        "manager_backlinks": true,
+        "mode": "blank",
+        "native_acceptance": false,
+        "ordered_child_ids": [
+          3,
+          -1,
+          2,
+          1,
+          8,
+          -1,
+          4
+        ],
+        "passed": true,
+        "plain_sdk_model": true,
+        "public_writer_enabled": false,
+        "relation_runtime_owner": true,
+        "research_parent_factory_retained": false,
+        "research_ui_metadata_retained": true,
+        "root_id": 0,
+        "root_next_id": 9,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-drawing-model-result.v1",
+        "sdk_model_factory": true,
+        "self_component_owner": true,
+        "shared_owner_guard_rejections": 3,
+        "vendor_runtime_executed": false
+      },
+      "stdout_sha256": "1bea14f9e291a8bbef8ef2be13c3e7c8278ef8fd4aa229907540c7a432ba5e4b"
+    },
+    {
+      "input_sha256": "46e8c8c757a2c8bcd1e95ca346fa5f1e982151062b6ce985463221f1e058b10e",
+      "name": "ModelBeta",
+      "result": {
+        "active_sheet_identity": true,
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 5921,
+        "artifact_sha256": "3107bd401e9f1dca59a657f41806df5cf65f5653fb9433b7f9877adacabd990b",
+        "auxiliary_lists": 3,
+        "canonical_view_count": 10,
+        "complete_sdk_only_drawing_factory": false,
+        "complete_sdk_read_write_identical": true,
+        "definition_bytes": 24645,
+        "definition_map_next_index": 131,
+        "definition_sha256": "447f95b81a94117c29980f934663f1468fefd6db1616c1e782af12dc8cfae0a2",
+        "heldout_inputs_read": 0,
+        "inspection": {
+          "sheet": "ModelBeta paper"
+        },
+        "manager_backlinks": true,
+        "mode": "blank",
+        "native_acceptance": false,
+        "ordered_child_ids": [
+          3,
+          -1,
+          2,
+          1,
+          8,
+          -1,
+          4
+        ],
+        "passed": true,
+        "plain_sdk_model": true,
+        "public_writer_enabled": false,
+        "relation_runtime_owner": true,
+        "research_parent_factory_retained": false,
+        "research_ui_metadata_retained": true,
+        "root_id": 0,
+        "root_next_id": 9,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-drawing-model-result.v1",
+        "sdk_model_factory": true,
+        "self_component_owner": true,
+        "shared_owner_guard_rejections": 3,
+        "vendor_runtime_executed": false
+      },
+      "stdout_sha256": "3359b0b0bbaf4de60ec3a10700e72f0b4cc932c27c3229a3db7b2774ecc8536a"
+    },
+    {
+      "input_sha256": "dcfc8cf1701558f114990c4272304662fa989fa3abe22adf972dd1b5dafaa451",
+      "name": "ModelGamma",
+      "result": {
+        "active_sheet_identity": true,
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 5915,
+        "artifact_sha256": "b32245fd40c9948ad7e10abe84d8fd253d482abe88bb24ae0fc35f53e8ada96e",
+        "auxiliary_lists": 3,
+        "canonical_view_count": 10,
+        "complete_sdk_only_drawing_factory": false,
+        "complete_sdk_read_write_identical": true,
+        "definition_bytes": 23953,
+        "definition_map_next_index": 131,
+        "definition_sha256": "4b9f3aa6a8ee4abac55c94cc598c8f64e742c3c6511b3d8542381412a3eb7d86",
+        "heldout_inputs_read": 0,
+        "inspection": {
+          "sheet": "ModelGamma paper"
+        },
+        "manager_backlinks": true,
+        "mode": "blank",
+        "native_acceptance": false,
+        "ordered_child_ids": [
+          3,
+          -1,
+          2,
+          1,
+          8,
+          -1,
+          4
+        ],
+        "passed": true,
+        "plain_sdk_model": true,
+        "public_writer_enabled": false,
+        "relation_runtime_owner": true,
+        "research_parent_factory_retained": false,
+        "research_ui_metadata_retained": true,
+        "root_id": 0,
+        "root_next_id": 9,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-drawing-model-result.v1",
+        "sdk_model_factory": true,
+        "self_component_owner": true,
+        "shared_owner_guard_rejections": 3,
+        "vendor_runtime_executed": false
+      },
+      "stdout_sha256": "9dab8e0abfc4749fd0616e0bcf0532bd1d15f28bfff4f8bf56dc73b82cb19e60"
+    },
+    {
+      "input_sha256": "92ac7f0c73b7c60ec84f5e7935dd95bfa42f0843f527b4eea0808f09b53297cf",
+      "name": "ModelDelta",
+      "result": {
+        "active_sheet_identity": true,
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 5917,
+        "artifact_sha256": "eb8616e13179e0a803547914a960c0a4a4ee9c77611cccb79fabb80f6826af79",
+        "auxiliary_lists": 3,
+        "canonical_view_count": 10,
+        "complete_sdk_only_drawing_factory": false,
+        "complete_sdk_read_write_identical": true,
+        "definition_bytes": 25572,
+        "definition_map_next_index": 131,
+        "definition_sha256": "7b177f6cc45646cabf706ad42e00ca255c5c2ce69248644805c66b9766c36bac",
+        "heldout_inputs_read": 0,
+        "inspection": {
+          "sheet": "ModelDelta paper"
+        },
+        "manager_backlinks": true,
+        "mode": "blank",
+        "native_acceptance": false,
+        "ordered_child_ids": [
+          3,
+          -1,
+          2,
+          1,
+          8,
+          -1,
+          4
+        ],
+        "passed": true,
+        "plain_sdk_model": true,
+        "public_writer_enabled": false,
+        "relation_runtime_owner": true,
+        "research_parent_factory_retained": false,
+        "research_ui_metadata_retained": true,
+        "root_id": 0,
+        "root_next_id": 9,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-drawing-model-result.v1",
+        "sdk_model_factory": true,
+        "self_component_owner": true,
+        "shared_owner_guard_rejections": 3,
+        "vendor_runtime_executed": false
+      },
+      "stdout_sha256": "7770e74a1ee82a2b7acb4796e04b5e0b01a6c3675ebbbf362bb7efffe9171b97"
+    },
+    {
+      "input_sha256": "e24cd33f202bb2259e911eb3f6731b7109aec7f0f5d4716ceda56e84a8d6fa34",
+      "name": "ModelLinkedAlpha",
+      "result": {
+        "active_sheet_identity": true,
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 7154,
+        "artifact_sha256": "67ec0833d1151fd6351bfed704497b038e6aef1ea0454cdaeeb07eed2fc85d71",
+        "auxiliary_lists": 3,
+        "canonical_view_count": 10,
+        "complete_sdk_only_drawing_factory": false,
+        "complete_sdk_read_write_identical": true,
+        "definition_bytes": 29312,
+        "definition_map_next_index": 172,
+        "definition_sha256": "40db53d4f12b355bd3443a65c7c85db795dc4d789381b8d358081617e0c8ffb8",
+        "heldout_inputs_read": 0,
+        "inspection": {
+          "child_configuration_id": 0,
+          "definition_map_next_index": 172,
+          "detailing_bucket_count": 0,
+          "header_map_next_index": 22,
+          "model_to_sheet": [
+            1.0,
+            0.0,
+            0.0,
+            0.10448,
+            0.0,
+            1.0,
+            0.0,
+            0.08042,
+            0.0,
+            0.0,
+            1.0,
+            -0.00635,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "next_persistent_id": 16,
+          "outline_m": [
+            0.102162,
+            0.073102,
+            0.146098,
+            0.10963800000000001
+          ],
+          "position_m": [
+            0.12413,
+            0.09137
+          ],
+          "readback_exact": true,
+          "scale_ratio": [
+            1.0,
+            1.0
+          ],
+          "sheet": "ModelLinkedAlpha paper",
+          "view": "ModelLinkedAlpha front",
+          "view_persistent_id": 11
+        },
+        "manager_backlinks": true,
+        "mode": "front",
+        "native_acceptance": false,
+        "ordered_child_ids": [
+          3,
+          -1,
+          2,
+          1,
+          8,
+          -1,
+          4
+        ],
+        "passed": true,
+        "plain_sdk_model": true,
+        "public_writer_enabled": false,
+        "relation_runtime_owner": true,
+        "research_parent_factory_retained": false,
+        "research_ui_metadata_retained": true,
+        "root_id": 0,
+        "root_next_id": 9,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-drawing-model-result.v1",
+        "sdk_model_factory": true,
+        "self_component_owner": true,
+        "shared_owner_guard_rejections": 3,
+        "vendor_runtime_executed": false
+      },
+      "stdout_sha256": "0d2a9ed37ccbd3542d47473fd1b4c710314cbf14d9ba2f97922e2ecf417cce72"
+    },
+    {
+      "input_sha256": "231c7c306c22f0fb84df62958fa64b46e2a0272fe2808d237cd133179b731a8f",
+      "name": "ModelLinkedBeta",
+      "result": {
+        "active_sheet_identity": true,
+        "all_logical_streams_identical": true,
+        "artifact_bytes": 7144,
+        "artifact_sha256": "f64919f434b39928c902fc3d639b884a95b09ae700fba1b7b022367cc83a9b37",
+        "auxiliary_lists": 3,
+        "canonical_view_count": 10,
+        "complete_sdk_only_drawing_factory": false,
+        "complete_sdk_read_write_identical": true,
+        "definition_bytes": 29256,
+        "definition_map_next_index": 172,
+        "definition_sha256": "7224b28b5f670a8601070fe1748e91fe3e31206884f91ecc5df654a631eee7dd",
+        "heldout_inputs_read": 0,
+        "inspection": {
+          "child_configuration_id": 0,
+          "definition_map_next_index": 172,
+          "detailing_bucket_count": 0,
+          "header_map_next_index": 22,
+          "model_to_sheet": [
+            1.0,
+            0.0,
+            0.0,
+            0.11008000000000001,
+            0.0,
+            1.0,
+            0.0,
+            0.07792,
+            0.0,
+            0.0,
+            1.0,
+            -0.00855,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "next_persistent_id": 16,
+          "outline_m": [
+            0.10776200000000001,
+            0.07060200000000001,
+            0.14049799999999998,
+            0.112138
+          ],
+          "position_m": [
+            0.12413,
+            0.09137
+          ],
+          "readback_exact": true,
+          "scale_ratio": [
+            1.0,
+            1.0
+          ],
+          "sheet": "ModelLinkedBeta paper",
+          "view": "ModelLinkedBeta front",
+          "view_persistent_id": 11
+        },
+        "manager_backlinks": true,
+        "mode": "front",
+        "native_acceptance": false,
+        "ordered_child_ids": [
+          3,
+          -1,
+          2,
+          1,
+          8,
+          -1,
+          4
+        ],
+        "passed": true,
+        "plain_sdk_model": true,
+        "public_writer_enabled": false,
+        "relation_runtime_owner": true,
+        "research_parent_factory_retained": false,
+        "research_ui_metadata_retained": true,
+        "root_id": 0,
+        "root_next_id": 9,
+        "runtime_input_file_access_attempts": 0,
+        "schema": "kit.sw2026.sdk-drawing-model-result.v1",
+        "sdk_model_factory": true,
+        "self_component_owner": true,
+        "shared_owner_guard_rejections": 3,
+        "vendor_runtime_executed": false
+      },
+      "stdout_sha256": "f3094b0167872b4edca7f425c25a2ab62dff742a8b9c7eb6bd202055b156b178"
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "f6fc89a6b7d7a06bd46d3e9c0d231497890bb6e913fe87608a6ea3a1c15a948d",
+      "name": "Rejectmodel_name",
+      "passed": true,
+      "probe": "model_name",
+      "stderr_sha256": "ca6a56da495dd589f239fd7dac5bc45c44a03ab7f318d83c0e7cf1ff61288f45",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "1c63909195211d0b5b2b83e87cee9bc64493a4e5bd14be1a1f4c35ec63202d0e",
+      "name": "Rejectfolder_name",
+      "passed": true,
+      "probe": "folder_name",
+      "stderr_sha256": "40a00ca0c9e1eb01570729d2b06383cc00d2d9625408c4a0faabfc7b76da3240",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "f1a37492ddb692d98a9b65047f9a0fc964fc48f31e1b3fff736fb8b599415cdb",
+      "name": "Rejectfolder_contract",
+      "passed": true,
+      "probe": "folder_contract",
+      "stderr_sha256": "97a693fe9aeed0e77f160e6194cafdd7c5c42177b163c79d797b6b3633b6dddf",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "deda02f2544a0e6f65ae5750f059974e6f3f94206e2330a0deb44e68250c1fd1",
+      "name": "Rejectsheet_scale",
+      "passed": true,
+      "probe": "sheet_scale",
+      "stderr_sha256": "25f5e1b0c785c33f6191f1da2d066b1abfa8c54a2a885f1453f04817b9b5f4e9",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "14401c77690a315678f5842190de59ee677673fe5fcaf4a0d037f01048f166a0",
+      "name": "Rejectsheet_format",
+      "passed": true,
+      "probe": "sheet_format",
+      "stderr_sha256": "89d2e1f7c075e37475cb0338d2b423059bcf3885050c74ad083754e1706875b5",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "98b4d93fee673ac8c28e514c3fa2a336ed02e9ce6a5140d4efaea7a4128d0904",
+      "name": "Rejectsheet_unit",
+      "passed": true,
+      "probe": "sheet_unit",
+      "stderr_sha256": "65b60badb14476818d9af2abe252cab2ebf972496e78309607bd6d384632036e",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "8c81c57ed5d4cb6d0f290f5296bd026ed894a6bb82597cb849374bf30363e7b8",
+      "name": "Rejectcreation_time",
+      "passed": true,
+      "probe": "creation_time",
+      "stderr_sha256": "f51ae242955764bb6950b60a9878ed721bf4e4ab4fc935bf54f91ad6e0451ff1",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "8b05054c3f3e7bbe5b9a9737b907ff8a6ecd775beee5cd69e3f7893b6bb85e7b",
+      "name": "Rejectblock_identity",
+      "passed": true,
+      "probe": "block_identity",
+      "stderr_sha256": "d943b2718dd01622b78b2d1a365fa5b72a40f5d73d745b98218a5d8769f2e89d",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "9c763c88699e27da1dd071ecedd6374972146311229f97887d06a91e4aaeadbe",
+      "name": "Rejectblock_type",
+      "passed": true,
+      "probe": "block_type",
+      "stderr_sha256": "d943b2718dd01622b78b2d1a365fa5b72a40f5d73d745b98218a5d8769f2e89d",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "cb03e5a81ae780ca0cd48ea9e592c3302ec311c50d4aaea69a30edf057308b3a",
+      "name": "Rejectdimension_link",
+      "passed": true,
+      "probe": "dimension_link",
+      "stderr_sha256": "1e1219ceb608b644fd9bafb9dd5ccd97798e3e771071e0d057b7224e9ad32bf6",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "79f43e7acfdc5a74e3a49bd43af664c927dc38e8b931734d13fa05268f01f90f",
+      "name": "Rejectstyle_contract",
+      "passed": true,
+      "probe": "style_contract",
+      "stderr_sha256": "daf919263179d96987bebfc80932d9ddd068078e2ec072b0fbcaa13168af9f42",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "8bc40f3f87ca1ca545a68344e81b453b812d475658404f4b7729f74bb60a630e",
+      "name": "Rejectstyle_standard",
+      "passed": true,
+      "probe": "style_standard",
+      "stderr_sha256": "19c224bf3cfe73a4da6838f8ea7a609e37a4e87d9e05ac8aa23e9024567d3ecb",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "b8bde2c3e8a0e30761ad010318ce186abce3c456edaef1319a1decbd62dd7f39",
+      "name": "Rejectstyle_tasks",
+      "passed": true,
+      "probe": "style_tasks",
+      "stderr_sha256": "490ef1f26318886f578bb5310b3d8d1725cc72fd8b1cf3be8a2bc3e149aefe0b",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "464e93cfa431ffe502b6325b2c636c393fc5073caf681b0dbb54825ad8512fdd",
+      "name": "Rejectstyle_font",
+      "passed": true,
+      "probe": "style_font",
+      "stderr_sha256": "4b4e3808f646f89349af4a8a043a65b55a6b25f01f90e371efafd18e76078ef1",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "aef40fed6168e3fdda373da68f5ff09f1f580d9ba193da8b7769094210b3fc9f",
+      "name": "Rejectunit_contract",
+      "passed": true,
+      "probe": "unit_contract",
+      "stderr_sha256": "daf919263179d96987bebfc80932d9ddd068078e2ec072b0fbcaa13168af9f42",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "504d4ce445988595df2bed4340ee7bb718b554feb397087586398187f88a5250",
+      "name": "Rejecttarget_contract",
+      "passed": true,
+      "probe": "target_contract",
+      "stderr_sha256": "1e1219ceb608b644fd9bafb9dd5ccd97798e3e771071e0d057b7224e9ad32bf6",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "9aa463cd3a4f1d333fca7578093f86db0330daa267d9370d796db93bbaadc914",
+      "name": "Rejectservice_pack",
+      "passed": true,
+      "probe": "service_pack",
+      "stderr_sha256": "c9c0027940c5f5f380a8d082bbdecb501fe9570a548f5a731e6c25db1a714711",
+      "stdout_bytes": 0
+    },
+    {
+      "exit_code": 1,
+      "input_sha256": "bf84a4971f05621ca8d8ca03bb3205bb9ec1e64bdae1622b6748b9d0f42b9e91",
+      "name": "Rejectbuild_contract",
+      "passed": true,
+      "probe": "build_contract",
+      "stderr_sha256": "97a693fe9aeed0e77f160e6194cafdd7c5c42177b163c79d797b6b3633b6dddf",
+      "stdout_bytes": 0
+    }
+  ],
+  "complete_sdk_only_drawing_factory": false,
+  "delivery_pr": 121,
+  "drawing_processes": 30,
+  "files_sha256": {
+    "re/tooling/sw2026/DrawingModelBridge.py": "c50d01c47078e92fa809d02132a354bff15dd93d4c5f918a79097cb6ef42c427",
+    "re/tooling/sw2026/DrawingModelInput.py": "7cc832f8f851253bc4db1ceea3c7be3f4f3356fcfa2546a2fd4aa101935297cc",
+    "re/tooling/sw2026/DrawingModelProcess.py": "7b53019378012bb79e34c639cbb37e7f2de9582372a3f96c402cfc19b4dfb1a6",
+    "src/convert/adapters/solidworks/Archive/Construction/Model/RequireModel.py": "33f1f4dbd20c19ef61dbfddab7ff1992154ba33281ee3f280664c6c984cf2d63",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/BindSheetIdsMut.py": "a39e15c3e3a084d5e397f44ed3f6da24768af541a2be528759b51a8aff2a0a15",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/CheckDrawBuild.py": "9e5a28cfa3c243c030b60a58870bf1189771d4ef27ac64ca267ff7ce5a2e145c",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/DrawBuild.py": "ba1b4d599a7a2697dbe5503850cb11fec5b66145bce599434ac24284f7ff48eb",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/DrawFolders.py": "ded98981a21aaeac59b438b325690872a7000c751aeb9384202d66a598c5a79e",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/DrawRootGraph.py": "a49bdf7485b5c71d166fae47bb9d1774470f396862064660b5d001189098f0ea",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/DrawRootRefs.py": "0079cf7f273e7ce8478afd21ae9b6092320e4da1f897b48b54763a19d948f6cb",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/InitDrawMut.py": "101877b66b790d7ae6cb08565d6eeeda8d07bd106e6cc1266f45a4d30cce4741",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawBlocks.py": "264c43656e67224cbac67f50acc929ac2c7be8e36fe346cecf2097411d42aaac",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawCabinet.py": "e007664c504a98ee1525b696149438d67d409da01c7b68701d0bf59d29c8639e",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawFolder.py": "978a751d9f590b54803a76ae81a5db1d19d2e820abea6e278e72887146417694",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawLayers.py": "24d36042975089b3ac8266ace830cf366f0f72b2e30bf24dc43371816b43c0f0",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawRefs.py": "81c59835a556226e9348b979cfccf58fb2f4fefd665d706395be2d2e49a775cd",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawRoot.py": "d4f8ced9eaf0331fc52e9fd5c07feebdb24c6caf80e0403f8315cef89557761a",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawTail.py": "6e4c98279baaf117ddb31fd6668b0a88860ebaa4806e2e095519979cd522247d",
+    "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeSheetBuild.py": "6674319f6bf78887052af8ca4a58cf7590b0b4675e15d59a86a9fc76441e9637",
+    "tests/Convert/Solidworks/Research/Drawing/Model/AssertModel.py": "104c95f5467eb79723b53b477e6b020165066c2d54bbeeeaa14c1a5e0b149680",
+    "tests/Convert/Solidworks/Research/Drawing/Model/MakeModelInput.py": "4f31f539f4391cfab1e4ce72157ea01d1e9bc053b91420e494646545c4e77e27",
+    "tests/Convert/Solidworks/Research/Drawing/Model/ModelGuardTests.py": "3f14858d547a1316f2f04d7ca5badee53db82b920ead2c5a629eb9ee2b376349",
+    "tests/Convert/Solidworks/Research/Drawing/Model/ModelLinkTests.py": "40cddb04685d5f3c7e3b53168a292d94ab09736bc0d0407f87e055363d4731b9",
+    "tests/Convert/Solidworks/Research/Drawing/Model/ModelRootTests.py": "5bc7fc8bdc6911aa097f2dbd3c9ec44bafce8e539c4d7104fb5d8686addf092e",
+    "tests/Convert/Solidworks/Research/Drawing/Model/RunModelCase.py": "aa4cc16f809592a763eddf420dffcc824bcb86a2e892a7e8b6a3cb625771178b",
+    "tests/Convert/Solidworks/Research/Drawing/Model/RunModelReject.py": "84e57bdd87b9872ddd5af451ecbbfaeeaa5b13b4fe845cfec4c7231e917e5582"
+  },
+  "fresh_processes": 34,
+  "heldout_inputs_read": 0,
+  "named_predecessor_immutable": true,
+  "native_acceptance": false,
+  "native_measurement_scope": "not run in this constructor tranche",
+  "owned_sources_immutable": true,
+  "owner": "configuration_header",
+  "part_regression_processes": 4,
+  "part_root_regression": [
+    {
+      "build_input_sha256": "70997a4388de20e619642385487891de871f6b3548a227db2e28bf3bd6eebe05",
+      "build_stdout_sha256": "e866c8d94a776363f9c9749eb77f8ba942c89560aab7904e907c9873680c8bb3",
+      "config_bytes": 23608,
+      "config_map_counter": 83,
+      "name": "PartAlpha",
+      "next_id": 2,
+      "passed": true,
+      "prepare_input_sha256": "b91bd8c48e2d2773a8b9cf567cd29b06b19ae6cfea69bcfb14eb916714572453",
+      "prepare_stdout_sha256": "a7870469278ef935eecae6242cec7cf60e11700868abbe19b4057d5711be04c2",
+      "prepared_runtime_input_file_reads": 0,
+      "root_id": 1,
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 23608,
+          "sha256": "59b02a6eb851c4780b14481fab52608ecd749d8aff2469d5f33d4868e9527293"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 438,
+          "sha256": "34b43f8360cd5efd3ea96fcef281317d78f2d88acf1daa123de1cb1a06c7f6bc"
+        }
+      }
+    },
+    {
+      "build_input_sha256": "5a70698c60498e7a4f121eb8ef820f2adc16539d7ba38f60c23c146d7a62017d",
+      "build_stdout_sha256": "cb162639015d14e2cfa3eed5086a9de41bbf8e05839757bb147ac55f33e4a68a",
+      "config_bytes": 24040,
+      "config_map_counter": 83,
+      "name": "PartBeta",
+      "next_id": 20,
+      "passed": true,
+      "prepare_input_sha256": "bef45c0bee62948f2328b1da4bd085527acc30932640e4363fe27b05c2b1c1a0",
+      "prepare_stdout_sha256": "f5dc24d2e3ea0c02690a1679c0b244274f1a9fd0d1627eef57c85d467bfeea9b",
+      "prepared_runtime_input_file_reads": 0,
+      "root_id": 19,
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 24040,
+          "sha256": "1a282192eb973d9ad940d599761106945d69e8efcb63049341d57478dfd3d32d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 442,
+          "sha256": "91b966486a0839b24e0de4a74a9523736928763e978fd521dee6d1aa664404fe"
+        }
+      }
+    }
+  ],
+  "passed": true,
+  "positive_designs": 6,
+  "predecessors": [
+    "re/solidworks/records/DrawingSheetConstruction2026.md",
+    "re/solidworks/records/DrawingEmptyManagers2026.md",
+    "re/solidworks/records/DrawingLinkedDefinition2026.md",
+    "re/solidworks/records/SdkPartRootConstruction2026.md"
+  ],
+  "private_process_proof_sha256": "315db6d5c0555703628183926239fc0aa0c9a3db54011146e8c8b0e91c8ab058",
+  "public_writer_enabled": false,
+  "rejected_jobs": 18,
+  "remaining_dependencies": [
+    "SDK UI graph",
+    "SDK drawing metadata and container composition",
+    "revision-bound native and held-out acceptance"
+  ],
+  "research_parent_factory_retained": false,
+  "research_ui_metadata_retained": true,
+  "runtime_input_file_access_attempts": 0,
+  "schema": "kit.sw2026.sdk-drawing-model-receipt.v1",
+  "sdk_model_factory": true,
+  "source_files": 26,
+  "source_manifest_sha256": "bc4845f524651186209af23919d4df598f7c523e59d33bb2957a99fce797ecf9",
+  "task": "B04-SW2026-DRAWPROPS / SDK drawing model",
+  "vendor_loadable": false,
+  "vendor_runtime_executed": false,
+  "verification": {
+    "black_modules": 23,
+    "donor_files_scanned": 3788,
+    "mypy_modules": 23,
+    "pyright_existing_unrecognized_settings": 3,
+    "pyright_modules": 23,
+    "steering_modules": 23
+  }
+}
