@@ -1,0 +1,3645 @@
+{
+  "schema": "kit.sw2026.ordinary-revolve-source-preparation-process.v1",
+  "component_validation_passed": true,
+  "complete_original_source_preparation_admitted": false,
+  "public_registration_enabled": false,
+  "original_heldout_acceptance": false,
+  "new_native_execution": false,
+  "heldout_inputs_read": 0,
+  "fresh_host_processes": 28,
+  "scope": "three disclosed ordinary Front revolve controls plus independently generated neutral regressions",
+  "base_revision": "e4fba3ddcccb4aff99c44f85727820b92b4e268a",
+  "source_manifest_sha256": "ce549bdb7486717dc9b0e9d423a0f76b4905d91854a7d6e343e74b339a2f8be0",
+  "source_layer_sha256": "9e8ce1415875ae4a03189310a43158befec592815430ef1869b4891fe86455cc",
+  "baseline_manifest_sha256": "5b2863df9bd813b48443b851cb433c90a71eb5b9e4d2cfa6fdcdfd2bad9a35ad",
+  "input_manifest_sha256": "1c9c8b737e5514ad140973c51aedaefc9d7d5d0e4c388ed0b8290af4c24e05d9",
+  "source_tools_manifest_sha256": "582dbc7d126f3719b3830969de59f9fa6f0f2d53a4fc9bf595d79ff7e14acea0",
+  "fresh_tools_manifest_sha256": "7dbfe4ab9a6bd3dfe0657deee56f9afd8ce21fba1050d516f7137bb3119d89f2",
+  "source_raw_report_sha256": "6e86419bfc7fa13c70768e3f64d041bde3249c158055ee1a15053baeb9f149ca",
+  "fresh_raw_report_sha256": "830db498a6653a4ca709ddc5a1c634700f8b66140efc73a616a5176c9952aef8",
+  "source_checks": {
+    "processes": 20,
+    "paired_original_modes": 15,
+    "independent_recorded_native_numeric_checks": 30,
+    "source_inputs_immutable": true,
+    "per_source_recorded_native_root_rows": 19,
+    "per_source_retained_typed_root_and_member_rows": 25,
+    "full_nested_native_ui_measurement_claimed": false,
+    "all_ten_streams_reemit_exactly": true,
+    "positive_sources": [
+      {
+        "name": "control-RevolveFull",
+        "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+        "native_observation_sha256": "35795ccd5a42ad297a187d516e6a36c9d4e089a6eabce1558b6c669c505908bc",
+        "passed": true,
+        "heldout_inputs_read": 0,
+        "native_processes": 0,
+        "source_plan": {
+          "schema": "kit.sw2026.ordinary-revolve-source-preparation.v1",
+          "model_name": "Part1",
+          "configuration": {
+            "id": 0,
+            "name": "Default",
+            "manager_name_present": false
+          },
+          "geometry": {
+            "live_lines": [
+              {
+                "id": "sldprt:sketch:26:line:2",
+                "start_mm": [
+                  13.0,
+                  -13.0
+                ],
+                "end_mm": [
+                  31.0,
+                  -13.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:5",
+                "start_mm": [
+                  13.0,
+                  -13.0
+                ],
+                "end_mm": [
+                  13.0,
+                  21.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:4",
+                "start_mm": [
+                  13.0,
+                  21.0
+                ],
+                "end_mm": [
+                  31.0,
+                  21.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:3",
+                "start_mm": [
+                  31.0,
+                  -13.0
+                ],
+                "end_mm": [
+                  31.0,
+                  21.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:1",
+                "start_mm": [
+                  2.0,
+                  -26.0
+                ],
+                "end_mm": [
+                  2.0,
+                  37.0
+                ],
+                "construction": true,
+                "fixed": false
+              }
+            ],
+            "closed_profile_entity_ids": [
+              [
+                "sldprt:sketch:26:line:2",
+                "sldprt:sketch:26:line:3",
+                "sldprt:sketch:26:line:4",
+                "sldprt:sketch:26:line:5"
+              ]
+            ],
+            "feature_id": "sldprt:feature:31",
+            "feature_name": "OrdinaryBossRevolve",
+            "sketch_id": "sldprt:sketch:26",
+            "sketch_name": "RevolveSketch",
+            "parameter_id": "sldprt:parameter:31:D1",
+            "parameter_name": "D1",
+            "positive_angle_rad": 6.283185307179586,
+            "reverse": false,
+            "contour_points_mm": [
+              [
+                13.0,
+                -13.0
+              ],
+              [
+                31.0,
+                21.0
+              ],
+              [
+                13.0,
+                21.0
+              ],
+              [
+                31.0,
+                -13.0
+              ]
+            ],
+            "axis_start_mm": [
+              2.0,
+              -26.0
+            ],
+            "axis_end_mm": [
+              2.0,
+              37.0
+            ],
+            "selected_axis_array_index": 5,
+            "selected_axis_permanent_mark": 1,
+            "axis_constraints": 0,
+            "planar_constraints": [
+              "vertical",
+              "horizontal",
+              "vertical",
+              "horizontal"
+            ]
+          },
+          "ui_preferences": {
+            "SettingsValue": {
+              "DraftingStandard": "moANSI_c",
+              "DisplayBits": [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7,
+                10,
+                11,
+                15,
+                17,
+                18,
+                21,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                32,
+                35,
+                42,
+                44,
+                61,
+                62
+              ],
+              "Tessellation": [
+                80,
+                6,
+                50,
+                true
+              ],
+              "Preference7a": false,
+              "JournalName": "Design Journal.doc",
+              "VersionValue": 19000
+            },
+            "DensityValue": 1000.0
+          },
+          "ui_generated_projection_fields": [
+            "fa58",
+            "fa5c",
+            "fa60",
+            "fa64",
+            "fad8_0",
+            "fad8_1",
+            "fa90",
+            "f1688",
+            "fba8",
+            "ffd8.f18.f08"
+          ],
+          "complete_definition_reproduced": false,
+          "complete_definition_difference_paths": [
+            "uiPartDoc_c.fields.basedoc.ole.n",
+            "uiPartDoc_c.fields.expand_keys.n",
+            "uiPartDoc_c.fields.expand_vals.n",
+            "uiPartDoc_c.fields.f1110",
+            "uiPartDoc_c.fields.f1158.n",
+            "uiPartDoc_c.fields.f13d0.n",
+            "uiPartDoc_c.fields.f870.fields.f10",
+            "uiPartDoc_c.fields.f870.fields.n",
+            "uiPartDoc_c.fields.f878.n",
+            "uiPartDoc_c.fields.f878.styles",
+            "uiPartDoc_c.fields.fab8",
+            "uiPartDoc_c.fields.fad0",
+            "uiPartDoc_c.fields.fad4",
+            "uiPartDoc_c.fields.faf0.f58",
+            "uiPartDoc_c.fields.faf0.f70",
+            "uiPartDoc_c.fields.faf8",
+            "uiPartDoc_c.fields.fb00",
+            "uiPartDoc_c.fields.fb04",
+            "uiPartDoc_c.fields.ff40.n",
+            "uiPartDoc_c.fields.ff88.n",
+            "uiPartDoc_c.fields.ffb0.n",
+            "uiPartDoc_c.fields.ffd8.f10.n",
+            "uiPartDoc_c.fields.ffd8.f20.n",
+            "uiPartDoc_c.fields.ffd8.f30.n",
+            "uiPartDoc_c.fields.ffd8.pending.n",
+            "uiPartDoc_c.fields.has_pwmaterial",
+            "uiPartDoc_c.fields.nenv",
+            "uiPartDoc_c.fields.nvar"
+          ],
+          "styles": {
+            "standard": 0,
+            "font_name": "Century Gothic",
+            "font_height_m": 0.003175,
+            "line_style_name": "CONTINUOUS",
+            "print_widths_m": [
+              0.00018000000272877514,
+              0.0002500000118743628,
+              0.0003499999875202775,
+              0.0005000000237487257,
+              0.000699999975040555,
+              0.0010000000474974513,
+              0.00139999995008111,
+              0.0020000000949949026
+            ],
+            "exclusion_names": [
+              "m",
+              "mm",
+              "cm",
+              "km",
+              "um",
+              "\u00b5m",
+              "nm",
+              "s",
+              "Hz",
+              "Pa"
+            ],
+            "task_labels": [
+              "Description",
+              "High Priority",
+              "Low Priority",
+              "Complete",
+              "Reminder"
+            ],
+            "cutlist_expressions": [
+              "%Description%, %MATERIAL%, %LENGTH%, %ANGLE1%, %ANGLE2%, %Angle Direction%, %Angle Rotation%",
+              "%Description%, %MATERIAL%, %Bounding Box Length%, %Bounding Box Width%, %Sheet Metal Thickness%, %Bounding Box Area%, %Bends%, %Bend Radius%",
+              "%Description%, %MATERIAL%"
+            ],
+            "complete_embedded_graph_sha256": "7c2cbe4e4eb6e6f027533ffcb14b82dd552af3af426fffaa3c1f6b1444927979",
+            "complete_graph_preserved_as_writer_input": false,
+            "complete_graph_generation_qualified": false
+          },
+          "document_units": {
+            "present": true,
+            "class_order": [
+              "moLengthUserUnits_c",
+              "moAngleUserUnits_c",
+              "moNumberUserUnits_c",
+              "moDensityUnits_c",
+              "moFloatNumberUserUnits_c",
+              "moSpringConstantUnits_c",
+              "moUnitSysUnits_c",
+              "moForceUnits_c",
+              "moStressUnits_c",
+              "moGravityUnits_c",
+              "moLinearMotorUnits_c",
+              "moRotaryMotorUnits_c",
+              "moPowerUnits_c",
+              "moEnergyUnits_c",
+              "moTimeUnits_c",
+              "moFrequencyUserUnits_c"
+            ],
+            "precision_values": [
+              2
+            ],
+            "source_sha256": "d3bc7bb2af34797d8c90a5c8167de12a79653afbec80a89b7641a5490788a900",
+            "semantic_input": {
+              "LengthUnit": "mm",
+              "AngleUnit": "degree",
+              "UnitSystem": "mmgs",
+              "DecimalPlaces": 2
+            },
+            "minimal_constructor_exact": false,
+            "minimal_constructor_differences": [
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f18",
+                "source": 0.1,
+                "constructed": 0.01
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f20",
+                "source": 4,
+                "constructed": 10
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f28",
+                "source": 8,
+                "constructed": 1
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f88",
+                "source": -13.0,
+                "constructed": 0.0
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.fb8",
+                "source": {
+                  "class": "moLengthUserUnits_c",
+                  "schema": 1,
+                  "fields": {
+                    "f0c": 2,
+                    "f10": 1,
+                    "f18": 1.0,
+                    "f20": 1,
+                    "f24": 1,
+                    "f30": 0.78539816339745,
+                    "f28": 2,
+                    "f6c": 0,
+                    "f70": 1,
+                    "f74": 1,
+                    "f88": 0.0,
+                    "f7c": 0,
+                    "f08": 0,
+                    "fb0": 3,
+                    "fb8": null
+                  }
+                },
+                "constructed": null
+              },
+              {
+                "path": "moPart.f9b8.fields.items[3].o.fields.fb8",
+                "source": "__absent__",
+                "constructed": null
+              },
+              {
+                "path": "moPart.f9b8.fields.items[3].o.fields.fcc",
+                "source": 0,
+                "constructed": 1
+              }
+            ]
+          },
+          "analysis_units": {
+            "present": false
+          },
+          "chronology": {
+            "header_f50": 1794529625,
+            "header_f70": 1794894338,
+            "header_f48": 1794894348,
+            "root_history_states": 1,
+            "roots": [
+              {
+                "class": "moCommentsFolder_c",
+                "name": "Comments",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moFavoriteFolder_c",
+                "name": "Favorites",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moHistoryFolder_c",
+                "name": "History",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moSelectionSetFolder_c",
+                "name": "Selection Sets",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moSensorFolder_c",
+                "name": "Sensors",
+                "time": {
+                  "filetime_ticks": 134393679386878873,
+                  "unix_seconds": 1794894338,
+                  "subsecond_ticks": 6878873
+                }
+              },
+              {
+                "class": "moDocsFolder_c",
+                "name": "Design Binder",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moDetailCabinet_c",
+                "name": "Annotations",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moSurfaceBodyFolder_c",
+                "name": "Surface Bodies",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moSolidBodyFolder_c",
+                "name": "Solid Bodies",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moEnvFolder_c",
+                "name": "Lights and Cameras",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moInkMarkupFolder_c",
+                "name": "Markups",
+                "time": {
+                  "filetime_ticks": 134393679386878873,
+                  "unix_seconds": 1794894338,
+                  "subsecond_ticks": 6878873
+                }
+              },
+              {
+                "class": "moEqnFolder_c",
+                "name": "Equations",
+                "time": {
+                  "filetime_ticks": 134390032255628407,
+                  "unix_seconds": 1794529625,
+                  "subsecond_ticks": 5628407
+                }
+              },
+              {
+                "class": "moMaterialFolder_c",
+                "name": "Material <not specified>",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moRefPlane_c",
+                "name": "Front Plane",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moRefPlane_c",
+                "name": "Top Plane",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moRefPlane_c",
+                "name": "Right Plane",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moOriginProfileFeature_c",
+                "name": "Origin",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moProfileFeature_c",
+                "name": "RevolveSketch",
+                "time": {
+                  "filetime_ticks": 134393679467700973,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7700973
+                }
+              },
+              {
+                "class": "moRevolution_c",
+                "name": "OrdinaryBossRevolve",
+                "time": {
+                  "filetime_ticks": 134393679467868019,
+                  "unix_seconds": 1794894346,
+                  "subsecond_ticks": 7868019
+                }
+              }
+            ],
+            "model_log_owners": 26
+          },
+          "tree": [
+            {
+              "id": 8,
+              "name": "Comments",
+              "class": "moCommentsFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 23,
+              "name": "Favorites",
+              "class": "moFavoriteFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 24,
+              "name": "History",
+              "class": "moHistoryFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 25,
+              "name": "Selection Sets",
+              "class": "moSelectionSetFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 22,
+              "name": "Sensors",
+              "class": "moSensorFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 7,
+              "name": "Design Binder",
+              "class": "moDocsFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 1,
+              "name": "Annotations",
+              "class": "moDetailCabinet_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 17,
+              "name": "Notes",
+              "class": "moNotesAreaFtrFolder_c",
+              "parent": "Annotations",
+              "role": "notes.head"
+            },
+            {
+              "id": 18,
+              "name": "Notes1___EndTag___",
+              "class": "moNotesAreaFtrFolder_c",
+              "parent": "Annotations",
+              "role": "notes.end"
+            },
+            {
+              "id": 10,
+              "name": "Surface Bodies",
+              "class": "moSurfaceBodyFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 9,
+              "name": "Solid Bodies",
+              "class": "moSolidBodyFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 6,
+              "name": "Lights and Cameras",
+              "class": "moEnvFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 12,
+              "name": "Ambient",
+              "class": "moAmbientLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.ambient"
+            },
+            {
+              "id": 13,
+              "name": "Directional1",
+              "class": "moDirectionLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.directional.1"
+            },
+            {
+              "id": 14,
+              "name": "Directional2",
+              "class": "moDirectionLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.directional.2"
+            },
+            {
+              "id": 15,
+              "name": "Directional3",
+              "class": "moDirectionLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.directional.3"
+            },
+            {
+              "id": 21,
+              "name": "Markups",
+              "class": "moInkMarkupFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 16,
+              "name": "Equations",
+              "class": "moEqnFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 11,
+              "name": "Material <not specified>",
+              "class": "moMaterialFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 2,
+              "name": "Front Plane",
+              "class": "moRefPlane_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 3,
+              "name": "Top Plane",
+              "class": "moRefPlane_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 4,
+              "name": "Right Plane",
+              "class": "moRefPlane_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 5,
+              "name": "Origin",
+              "class": "moOriginProfileFeature_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 26,
+              "name": "RevolveSketch",
+              "class": "moProfileFeature_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 31,
+              "name": "OrdinaryBossRevolve",
+              "class": "moRevolution_c",
+              "parent": null,
+              "role": null
+            }
+          ],
+          "configuration_helpers": [
+            {
+              "id": 19,
+              "class": "moPrtExplViewManager_c",
+              "owner_field": "f13f8"
+            }
+          ],
+          "metadata_observation": {
+            "version_states": 1,
+            "originating_codes": [
+              18803522
+            ],
+            "biography_records": 2,
+            "biography_is_readback_only": true,
+            "fresh_generation_uses_empty_biography": true,
+            "source_history_re_emission_is_readback_only": true
+          },
+          "constructor_gaps": [
+            {
+              "owner": "uiPartDoc_c",
+              "reason": "complete source Definition contains additional presentation owners or state beyond the explicit preference projection"
+            },
+            {
+              "owner": "moPart_c.fae0",
+              "reason": "complete source standard-zero detail graph exceeds the standard-one constructor; changing f10 alone is insufficient"
+            },
+            {
+              "owner": "moPart_c.f9b8",
+              "reason": "source unit-format rows differ beyond semantic unit codes and common precision"
+            },
+            {
+              "owner": "moPart_c.f9c0",
+              "reason": "source analysis-unit owner is absent; current part composition always constructs one"
+            },
+            {
+              "owner": "moConfigurationMgr_c.f18",
+              "reason": "source manager is anonymous; current manager constructor requires a nonempty authored name"
+            },
+            {
+              "owner": "moHeader_c.f50/f70 and moVersionHistory_c.states",
+              "reason": "actual template, creation and history epochs cannot be conflated by the current fresh recipe"
+            },
+            {
+              "owner": "moHeader_c.f20",
+              "reason": "source has per-feature chronology; current fresh header emits one model log"
+            },
+            {
+              "owner": "moVersionHistory_c.states.f38",
+              "reason": "source save-history flag bits exceed the fresh low twenty four bit profile and their complete semantics remain unqualified"
+            },
+            {
+              "owner": "CadDocument.bodies[0].name",
+              "reason": "current public body label is a legacy projection; actual original native body-name equivalence is not independently recorded by this method"
+            }
+          ],
+          "full_source_preparation_admitted": false,
+          "public_revolve_registration": false,
+          "heldout_inputs_read": 0
+        },
+        "source_refusal": {
+          "refused": true,
+          "diagnostic": "ordinary revolve source preparation refuses: uiPartDoc_c, moPart_c.fae0, moPart_c.f9b8, moPart_c.f9c0, moConfigurationMgr_c.f18, moHeader_c.f50/f70 and moVersionHistory_c.states, moHeader_c.f20, moVersionHistory_c.states.f38, CadDocument.bodies[0].name"
+        },
+        "native_numeric_comparison": [
+          {
+            "state": "reopened",
+            "numeric_checks": 5,
+            "expected": {
+              "volume_m3": 7.690618815987813e-05,
+              "area_m2": 0.013069025438933539,
+              "com_m": [
+                0.001999999999999999,
+                0.004,
+                -0.0
+              ]
+            },
+            "recorded_native": {
+              "volume": 7.690618815987813e-05,
+              "area": 0.013069025438933537,
+              "com": [
+                0.0020000000000000005,
+                0.004000000000000001,
+                1.5610629066404477e-19
+              ],
+              "mass": 7.690618815987813e-05
+            },
+            "passed": true
+          },
+          {
+            "state": "edited",
+            "numeric_checks": 5,
+            "expected": {
+              "volume_m3": 4.7639110999035615e-05,
+              "area_m2": 0.009319535202450496,
+              "com_m": [
+                -0.001741097088242897,
+                0.004,
+                -0.009497328250543701
+              ]
+            },
+            "recorded_native": {
+              "volume": 4.763911099903561e-05,
+              "area": 0.009319535202450496,
+              "com": [
+                -0.0017410970882428957,
+                0.004000000000000003,
+                -0.0094973282505437
+              ],
+              "mass": 4.763911099903561e-05
+            },
+            "passed": true
+          }
+        ],
+        "dual_unit_construction": {
+          "source_fields_identical": true,
+          "fresh_object": true,
+          "config_byte_identity": true,
+          "resolved_byte_identity": true,
+          "primary_unit": "mm",
+          "generated_secondary_unit": "in"
+        },
+        "streams": {
+          "Contents/Config-0": {
+            "bytes": 25476,
+            "sha256": "d5148de01dba03ef6ed203bf4d44cfb67044a69bb26367621319ef31d3260793",
+            "byte_identity": true
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 12345,
+            "sha256": "bc11aac1af0a62306f3abec9ea05b99de7b5e30f7d1e63eb9dfa4d9d4f76ebb2",
+            "byte_identity": true
+          },
+          "Header2": {
+            "bytes": 2371,
+            "sha256": "72b8894ac20f17fca966b1a4b6106027ee1a28a7b8bfeaa4be80809aa710bae6",
+            "byte_identity": true
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2371,
+            "sha256": "72b8894ac20f17fca966b1a4b6106027ee1a28a7b8bfeaa4be80809aa710bae6",
+            "byte_identity": true
+          },
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "7554382552fe45055073aff95e499abb74a9db17fedde925efb366de64825342",
+            "byte_identity": true
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "8fc8a5d15c0b405bde0ec62dee31eae9ec8050eeee872c0477dcaa875ad57f7e",
+            "byte_identity": true
+          },
+          "Contents/Definition": {
+            "bytes": 3672,
+            "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d",
+            "byte_identity": true
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1667,
+            "sha256": "8ff4f012b66f8a40c0b81be158eef8d9b4bfa3fb44c405791a0d053e94e16c64",
+            "byte_identity": true
+          }
+        },
+        "metadata": {
+          "_MO_VERSION_19000/Biography": {
+            "qualified": true,
+            "byte_identity": true,
+            "bytes": 1603,
+            "sha256": "11655cae923e0cc6cc29eb382a825169bc0f8f31615e127e5b6eb513af42ca26"
+          },
+          "_MO_VERSION_19000/History": {
+            "qualified": true,
+            "byte_identity": true,
+            "bytes": 101,
+            "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+          }
+        },
+        "modes": {
+          "no_geometry": {
+            "document_sha256": "c688a9cace7fd3fdb9bdd57d28b3e4e31bb771a7f6a62ba82ae2e5427e315b2c",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "brep_only": {
+            "document_sha256": "3c1e77f1ffe5a1777c3eeb6d9c88e3c8b48b5282113282b655c740c03e649f91",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "tessellation_only": {
+            "document_sha256": "c688a9cace7fd3fdb9bdd57d28b3e4e31bb771a7f6a62ba82ae2e5427e315b2c",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "both": {
+            "document_sha256": "3c1e77f1ffe5a1777c3eeb6d9c88e3c8b48b5282113282b655c740c03e649f91",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "defaults": {
+            "document_sha256": "3c1e77f1ffe5a1777c3eeb6d9c88e3c8b48b5282113282b655c740c03e649f91",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 1,
+            "payloads": 2
+          }
+        },
+        "variant": null,
+        "research_repack_sha256": null,
+        "runtime_external_attempts": []
+      },
+      {
+        "name": "control-RevolvePartialForward",
+        "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+        "native_observation_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85",
+        "passed": true,
+        "heldout_inputs_read": 0,
+        "native_processes": 0,
+        "source_plan": {
+          "schema": "kit.sw2026.ordinary-revolve-source-preparation.v1",
+          "model_name": "Part1",
+          "configuration": {
+            "id": 0,
+            "name": "Default",
+            "manager_name_present": false
+          },
+          "geometry": {
+            "live_lines": [
+              {
+                "id": "sldprt:sketch:26:line:2",
+                "start_mm": [
+                  4.0,
+                  -16.0
+                ],
+                "end_mm": [
+                  18.0,
+                  -16.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:5",
+                "start_mm": [
+                  4.0,
+                  -16.0
+                ],
+                "end_mm": [
+                  4.0,
+                  11.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:4",
+                "start_mm": [
+                  4.0,
+                  11.0
+                ],
+                "end_mm": [
+                  18.0,
+                  11.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:3",
+                "start_mm": [
+                  18.0,
+                  -16.0
+                ],
+                "end_mm": [
+                  18.0,
+                  11.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:1",
+                "start_mm": [
+                  -4.0,
+                  -31.0
+                ],
+                "end_mm": [
+                  -4.0,
+                  23.0
+                ],
+                "construction": true,
+                "fixed": false
+              }
+            ],
+            "closed_profile_entity_ids": [
+              [
+                "sldprt:sketch:26:line:2",
+                "sldprt:sketch:26:line:3",
+                "sldprt:sketch:26:line:4",
+                "sldprt:sketch:26:line:5"
+              ]
+            ],
+            "feature_id": "sldprt:feature:31",
+            "feature_name": "OrdinaryBossRevolve",
+            "sketch_id": "sldprt:sketch:26",
+            "sketch_name": "RevolveSketch",
+            "parameter_id": "sldprt:parameter:31:D1",
+            "parameter_name": "D1",
+            "positive_angle_rad": 1.9722220547535925,
+            "reverse": false,
+            "contour_points_mm": [
+              [
+                4.0,
+                -16.0
+              ],
+              [
+                18.0,
+                11.0
+              ],
+              [
+                4.0,
+                11.0
+              ],
+              [
+                18.0,
+                -16.0
+              ]
+            ],
+            "axis_start_mm": [
+              -4.0,
+              -31.0
+            ],
+            "axis_end_mm": [
+              -4.0,
+              23.0
+            ],
+            "selected_axis_array_index": 5,
+            "selected_axis_permanent_mark": 1,
+            "axis_constraints": 0,
+            "planar_constraints": [
+              "vertical",
+              "horizontal",
+              "vertical",
+              "horizontal"
+            ]
+          },
+          "ui_preferences": {
+            "SettingsValue": {
+              "DraftingStandard": "moANSI_c",
+              "DisplayBits": [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7,
+                10,
+                11,
+                15,
+                17,
+                18,
+                21,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                32,
+                35,
+                42,
+                44,
+                61,
+                62
+              ],
+              "Tessellation": [
+                80,
+                6,
+                50,
+                true
+              ],
+              "Preference7a": false,
+              "JournalName": "Design Journal.doc",
+              "VersionValue": 19000
+            },
+            "DensityValue": 1000.0
+          },
+          "ui_generated_projection_fields": [
+            "fa58",
+            "fa5c",
+            "fa60",
+            "fa64",
+            "fad8_0",
+            "fad8_1",
+            "fa90",
+            "f1688",
+            "fba8",
+            "ffd8.f18.f08"
+          ],
+          "complete_definition_reproduced": false,
+          "complete_definition_difference_paths": [
+            "uiPartDoc_c.fields.basedoc.ole.n",
+            "uiPartDoc_c.fields.expand_keys.n",
+            "uiPartDoc_c.fields.expand_vals.n",
+            "uiPartDoc_c.fields.f1110",
+            "uiPartDoc_c.fields.f1158.n",
+            "uiPartDoc_c.fields.f13d0.n",
+            "uiPartDoc_c.fields.f870.fields.f10",
+            "uiPartDoc_c.fields.f870.fields.n",
+            "uiPartDoc_c.fields.f878.n",
+            "uiPartDoc_c.fields.f878.styles",
+            "uiPartDoc_c.fields.fab8",
+            "uiPartDoc_c.fields.fad0",
+            "uiPartDoc_c.fields.fad4",
+            "uiPartDoc_c.fields.faf0.f58",
+            "uiPartDoc_c.fields.faf0.f70",
+            "uiPartDoc_c.fields.faf8",
+            "uiPartDoc_c.fields.fb00",
+            "uiPartDoc_c.fields.fb04",
+            "uiPartDoc_c.fields.ff40.n",
+            "uiPartDoc_c.fields.ff88.n",
+            "uiPartDoc_c.fields.ffb0.n",
+            "uiPartDoc_c.fields.ffd8.f10.n",
+            "uiPartDoc_c.fields.ffd8.f20.n",
+            "uiPartDoc_c.fields.ffd8.f30.n",
+            "uiPartDoc_c.fields.ffd8.pending.n",
+            "uiPartDoc_c.fields.has_pwmaterial",
+            "uiPartDoc_c.fields.nenv",
+            "uiPartDoc_c.fields.nvar"
+          ],
+          "styles": {
+            "standard": 0,
+            "font_name": "Century Gothic",
+            "font_height_m": 0.003175,
+            "line_style_name": "CONTINUOUS",
+            "print_widths_m": [
+              0.00018000000272877514,
+              0.0002500000118743628,
+              0.0003499999875202775,
+              0.0005000000237487257,
+              0.000699999975040555,
+              0.0010000000474974513,
+              0.00139999995008111,
+              0.0020000000949949026
+            ],
+            "exclusion_names": [
+              "m",
+              "mm",
+              "cm",
+              "km",
+              "um",
+              "\u00b5m",
+              "nm",
+              "s",
+              "Hz",
+              "Pa"
+            ],
+            "task_labels": [
+              "Description",
+              "High Priority",
+              "Low Priority",
+              "Complete",
+              "Reminder"
+            ],
+            "cutlist_expressions": [
+              "%Description%, %MATERIAL%, %LENGTH%, %ANGLE1%, %ANGLE2%, %Angle Direction%, %Angle Rotation%",
+              "%Description%, %MATERIAL%, %Bounding Box Length%, %Bounding Box Width%, %Sheet Metal Thickness%, %Bounding Box Area%, %Bends%, %Bend Radius%",
+              "%Description%, %MATERIAL%"
+            ],
+            "complete_embedded_graph_sha256": "7c2cbe4e4eb6e6f027533ffcb14b82dd552af3af426fffaa3c1f6b1444927979",
+            "complete_graph_preserved_as_writer_input": false,
+            "complete_graph_generation_qualified": false
+          },
+          "document_units": {
+            "present": true,
+            "class_order": [
+              "moLengthUserUnits_c",
+              "moAngleUserUnits_c",
+              "moNumberUserUnits_c",
+              "moDensityUnits_c",
+              "moFloatNumberUserUnits_c",
+              "moSpringConstantUnits_c",
+              "moUnitSysUnits_c",
+              "moForceUnits_c",
+              "moStressUnits_c",
+              "moGravityUnits_c",
+              "moLinearMotorUnits_c",
+              "moRotaryMotorUnits_c",
+              "moPowerUnits_c",
+              "moEnergyUnits_c",
+              "moTimeUnits_c",
+              "moFrequencyUserUnits_c"
+            ],
+            "precision_values": [
+              2
+            ],
+            "source_sha256": "0f435772ded2c7bd60203ed5a5f92ac4c8aca27e0319e29680cd8a85fc714934",
+            "semantic_input": {
+              "LengthUnit": "mm",
+              "AngleUnit": "degree",
+              "UnitSystem": "mmgs",
+              "DecimalPlaces": 2
+            },
+            "minimal_constructor_exact": false,
+            "minimal_constructor_differences": [
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f18",
+                "source": 0.1,
+                "constructed": 0.01
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f20",
+                "source": 4,
+                "constructed": 10
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f28",
+                "source": 8,
+                "constructed": 1
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f88",
+                "source": -16.0,
+                "constructed": 0.0
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.fb8",
+                "source": {
+                  "class": "moLengthUserUnits_c",
+                  "schema": 1,
+                  "fields": {
+                    "f0c": 2,
+                    "f10": 1,
+                    "f18": 1.0,
+                    "f20": 1,
+                    "f24": 1,
+                    "f30": 0.78539816339745,
+                    "f28": 2,
+                    "f6c": 0,
+                    "f70": 1,
+                    "f74": 1,
+                    "f88": 0.0,
+                    "f7c": 0,
+                    "f08": 0,
+                    "fb0": 3,
+                    "fb8": null
+                  }
+                },
+                "constructed": null
+              },
+              {
+                "path": "moPart.f9b8.fields.items[3].o.fields.fb8",
+                "source": "__absent__",
+                "constructed": null
+              },
+              {
+                "path": "moPart.f9b8.fields.items[3].o.fields.fcc",
+                "source": 0,
+                "constructed": 1
+              }
+            ]
+          },
+          "analysis_units": {
+            "present": false
+          },
+          "chronology": {
+            "header_f50": 1794529625,
+            "header_f70": 1794894388,
+            "header_f48": 1794894398,
+            "root_history_states": 1,
+            "roots": [
+              {
+                "class": "moCommentsFolder_c",
+                "name": "Comments",
+                "time": {
+                  "filetime_ticks": 134393679965666538,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5666538
+                }
+              },
+              {
+                "class": "moFavoriteFolder_c",
+                "name": "Favorites",
+                "time": {
+                  "filetime_ticks": 134393679965666538,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5666538
+                }
+              },
+              {
+                "class": "moHistoryFolder_c",
+                "name": "History",
+                "time": {
+                  "filetime_ticks": 134393679965666538,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5666538
+                }
+              },
+              {
+                "class": "moSelectionSetFolder_c",
+                "name": "Selection Sets",
+                "time": {
+                  "filetime_ticks": 134393679965666538,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5666538
+                }
+              },
+              {
+                "class": "moSensorFolder_c",
+                "name": "Sensors",
+                "time": {
+                  "filetime_ticks": 134393679881434363,
+                  "unix_seconds": 1794894388,
+                  "subsecond_ticks": 1434363
+                }
+              },
+              {
+                "class": "moDocsFolder_c",
+                "name": "Design Binder",
+                "time": {
+                  "filetime_ticks": 134393679965666538,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5666538
+                }
+              },
+              {
+                "class": "moDetailCabinet_c",
+                "name": "Annotations",
+                "time": {
+                  "filetime_ticks": 134393679965666538,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5666538
+                }
+              },
+              {
+                "class": "moSurfaceBodyFolder_c",
+                "name": "Surface Bodies",
+                "time": {
+                  "filetime_ticks": 134393679965666538,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5666538
+                }
+              },
+              {
+                "class": "moSolidBodyFolder_c",
+                "name": "Solid Bodies",
+                "time": {
+                  "filetime_ticks": 134393679965686593,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5686593
+                }
+              },
+              {
+                "class": "moEnvFolder_c",
+                "name": "Lights and Cameras",
+                "time": {
+                  "filetime_ticks": 134393679965686593,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5686593
+                }
+              },
+              {
+                "class": "moInkMarkupFolder_c",
+                "name": "Markups",
+                "time": {
+                  "filetime_ticks": 134393679881434363,
+                  "unix_seconds": 1794894388,
+                  "subsecond_ticks": 1434363
+                }
+              },
+              {
+                "class": "moEqnFolder_c",
+                "name": "Equations",
+                "time": {
+                  "filetime_ticks": 134390032255628407,
+                  "unix_seconds": 1794529625,
+                  "subsecond_ticks": 5628407
+                }
+              },
+              {
+                "class": "moMaterialFolder_c",
+                "name": "Material <not specified>",
+                "time": {
+                  "filetime_ticks": 134393679965686593,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5686593
+                }
+              },
+              {
+                "class": "moRefPlane_c",
+                "name": "Front Plane",
+                "time": {
+                  "filetime_ticks": 134393679965686593,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5686593
+                }
+              },
+              {
+                "class": "moRefPlane_c",
+                "name": "Top Plane",
+                "time": {
+                  "filetime_ticks": 134393679965686593,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5686593
+                }
+              },
+              {
+                "class": "moRefPlane_c",
+                "name": "Right Plane",
+                "time": {
+                  "filetime_ticks": 134393679965686593,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5686593
+                }
+              },
+              {
+                "class": "moOriginProfileFeature_c",
+                "name": "Origin",
+                "time": {
+                  "filetime_ticks": 134393679965706650,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5706650
+                }
+              },
+              {
+                "class": "moProfileFeature_c",
+                "name": "RevolveSketch",
+                "time": {
+                  "filetime_ticks": 134393679965726719,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5726719
+                }
+              },
+              {
+                "class": "moRevolution_c",
+                "name": "OrdinaryBossRevolve",
+                "time": {
+                  "filetime_ticks": 134393679965746784,
+                  "unix_seconds": 1794894396,
+                  "subsecond_ticks": 5746784
+                }
+              }
+            ],
+            "model_log_owners": 26
+          },
+          "tree": [
+            {
+              "id": 8,
+              "name": "Comments",
+              "class": "moCommentsFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 23,
+              "name": "Favorites",
+              "class": "moFavoriteFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 24,
+              "name": "History",
+              "class": "moHistoryFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 25,
+              "name": "Selection Sets",
+              "class": "moSelectionSetFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 22,
+              "name": "Sensors",
+              "class": "moSensorFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 7,
+              "name": "Design Binder",
+              "class": "moDocsFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 1,
+              "name": "Annotations",
+              "class": "moDetailCabinet_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 17,
+              "name": "Notes",
+              "class": "moNotesAreaFtrFolder_c",
+              "parent": "Annotations",
+              "role": "notes.head"
+            },
+            {
+              "id": 18,
+              "name": "Notes1___EndTag___",
+              "class": "moNotesAreaFtrFolder_c",
+              "parent": "Annotations",
+              "role": "notes.end"
+            },
+            {
+              "id": 10,
+              "name": "Surface Bodies",
+              "class": "moSurfaceBodyFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 9,
+              "name": "Solid Bodies",
+              "class": "moSolidBodyFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 6,
+              "name": "Lights and Cameras",
+              "class": "moEnvFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 12,
+              "name": "Ambient",
+              "class": "moAmbientLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.ambient"
+            },
+            {
+              "id": 13,
+              "name": "Directional1",
+              "class": "moDirectionLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.directional.1"
+            },
+            {
+              "id": 14,
+              "name": "Directional2",
+              "class": "moDirectionLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.directional.2"
+            },
+            {
+              "id": 15,
+              "name": "Directional3",
+              "class": "moDirectionLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.directional.3"
+            },
+            {
+              "id": 21,
+              "name": "Markups",
+              "class": "moInkMarkupFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 16,
+              "name": "Equations",
+              "class": "moEqnFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 11,
+              "name": "Material <not specified>",
+              "class": "moMaterialFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 2,
+              "name": "Front Plane",
+              "class": "moRefPlane_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 3,
+              "name": "Top Plane",
+              "class": "moRefPlane_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 4,
+              "name": "Right Plane",
+              "class": "moRefPlane_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 5,
+              "name": "Origin",
+              "class": "moOriginProfileFeature_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 26,
+              "name": "RevolveSketch",
+              "class": "moProfileFeature_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 31,
+              "name": "OrdinaryBossRevolve",
+              "class": "moRevolution_c",
+              "parent": null,
+              "role": null
+            }
+          ],
+          "configuration_helpers": [
+            {
+              "id": 19,
+              "class": "moPrtExplViewManager_c",
+              "owner_field": "f13f8"
+            }
+          ],
+          "metadata_observation": {
+            "version_states": 1,
+            "originating_codes": [
+              18803522
+            ],
+            "biography_records": 2,
+            "biography_is_readback_only": true,
+            "fresh_generation_uses_empty_biography": true,
+            "source_history_re_emission_is_readback_only": true
+          },
+          "constructor_gaps": [
+            {
+              "owner": "uiPartDoc_c",
+              "reason": "complete source Definition contains additional presentation owners or state beyond the explicit preference projection"
+            },
+            {
+              "owner": "moPart_c.fae0",
+              "reason": "complete source standard-zero detail graph exceeds the standard-one constructor; changing f10 alone is insufficient"
+            },
+            {
+              "owner": "moPart_c.f9b8",
+              "reason": "source unit-format rows differ beyond semantic unit codes and common precision"
+            },
+            {
+              "owner": "moPart_c.f9c0",
+              "reason": "source analysis-unit owner is absent; current part composition always constructs one"
+            },
+            {
+              "owner": "moConfigurationMgr_c.f18",
+              "reason": "source manager is anonymous; current manager constructor requires a nonempty authored name"
+            },
+            {
+              "owner": "moHeader_c.f50/f70 and moVersionHistory_c.states",
+              "reason": "actual template, creation and history epochs cannot be conflated by the current fresh recipe"
+            },
+            {
+              "owner": "moHeader_c.f20",
+              "reason": "source has per-feature chronology; current fresh header emits one model log"
+            },
+            {
+              "owner": "moVersionHistory_c.states.f38",
+              "reason": "source save-history flag bits exceed the fresh low twenty four bit profile and their complete semantics remain unqualified"
+            },
+            {
+              "owner": "CadDocument.bodies[0].name",
+              "reason": "current public body label is a legacy projection; actual original native body-name equivalence is not independently recorded by this method"
+            }
+          ],
+          "full_source_preparation_admitted": false,
+          "public_revolve_registration": false,
+          "heldout_inputs_read": 0
+        },
+        "source_refusal": {
+          "refused": true,
+          "diagnostic": "ordinary revolve source preparation refuses: uiPartDoc_c, moPart_c.fae0, moPart_c.f9b8, moPart_c.f9c0, moConfigurationMgr_c.f18, moHeader_c.f50/f70 and moVersionHistory_c.states, moHeader_c.f20, moVersionHistory_c.states.f38, CadDocument.bodies[0].name"
+        },
+        "native_numeric_comparison": [
+          {
+            "state": "reopened",
+            "numeric_checks": 5,
+            "expected": {
+              "volume_m3": 1.1182499050452873e-05,
+              "area_m2": 0.0031818331273469193,
+              "com_m": [
+                0.003509245864675009,
+                -0.0025000000000000005,
+                -0.011345232929858163
+              ]
+            },
+            "recorded_native": {
+              "volume": 1.118249905045287e-05,
+              "area": 0.003181833127346918,
+              "com": [
+                0.0035092458646750063,
+                -0.0025,
+                -0.01134523292985816
+              ],
+              "mass": 1.118249905045287e-05
+            },
+            "passed": true
+          },
+          {
+            "state": "edited",
+            "numeric_checks": 5,
+            "expected": {
+              "volume_m3": 7.026171969753574e-06,
+              "area_m2": 0.0022801960357666483,
+              "com_m": [
+                0.008276099547773702,
+                -0.0025000000000000005,
+                -0.008756456708240545
+              ]
+            },
+            "recorded_native": {
+              "volume": 7.026171969753567e-06,
+              "area": 0.002280196035766647,
+              "com": [
+                0.0082760995477737,
+                -0.0024999999999999996,
+                -0.008756456708240542
+              ],
+              "mass": 7.026171969753567e-06
+            },
+            "passed": true
+          }
+        ],
+        "dual_unit_construction": {
+          "source_fields_identical": true,
+          "fresh_object": true,
+          "config_byte_identity": true,
+          "resolved_byte_identity": true,
+          "primary_unit": "mm",
+          "generated_secondary_unit": "in"
+        },
+        "streams": {
+          "Contents/Config-0": {
+            "bytes": 25476,
+            "sha256": "b853b0865bf6b92587969c9cdcb80068a3f4c5e8e9c2c1eb8fb0db0596e2f8c3",
+            "byte_identity": true
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 12465,
+            "sha256": "9eb4b47c1f8906c1eae5e2b218152fac2b18310957a2edc6f4b7dff6847142be",
+            "byte_identity": true
+          },
+          "Header2": {
+            "bytes": 2371,
+            "sha256": "72c48ef1db988a75351bb2513a1d00ec6d8a12d56d9fc3ef1a01e5d17f4c6918",
+            "byte_identity": true
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2371,
+            "sha256": "72c48ef1db988a75351bb2513a1d00ec6d8a12d56d9fc3ef1a01e5d17f4c6918",
+            "byte_identity": true
+          },
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "d6c3371c33b4be612eb29e5190658e2ab843b9fcd3750d29eb6e7a24ae4f10b6",
+            "byte_identity": true
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "cc92bb29a5abf78b274ea7aaedc83d3d5635f0eefe74aeda3b9d4d960d04fde5",
+            "byte_identity": true
+          },
+          "Contents/Definition": {
+            "bytes": 3672,
+            "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d",
+            "byte_identity": true
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1667,
+            "sha256": "e133a3fd3192c755c0c8a9f82874890879bca45c57e3935b09d5771bda4d4cce",
+            "byte_identity": true
+          }
+        },
+        "metadata": {
+          "_MO_VERSION_19000/Biography": {
+            "qualified": true,
+            "byte_identity": true,
+            "bytes": 1643,
+            "sha256": "8d94837a1cfbbd5eca56c3412a363f5cb1c0eb2ca9fb929bbe1f8e0c2049a36a"
+          },
+          "_MO_VERSION_19000/History": {
+            "qualified": true,
+            "byte_identity": true,
+            "bytes": 101,
+            "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+          }
+        },
+        "modes": {
+          "no_geometry": {
+            "document_sha256": "02fee2eda44f033f986d0bf19503dc956a735869aaba977ccad4a5aa6205989a",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "brep_only": {
+            "document_sha256": "9b1893d8116705f577834c4306211abf4800979368b8fed2404e8776ec0054c6",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "tessellation_only": {
+            "document_sha256": "02fee2eda44f033f986d0bf19503dc956a735869aaba977ccad4a5aa6205989a",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "both": {
+            "document_sha256": "9b1893d8116705f577834c4306211abf4800979368b8fed2404e8776ec0054c6",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "defaults": {
+            "document_sha256": "9b1893d8116705f577834c4306211abf4800979368b8fed2404e8776ec0054c6",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 1,
+            "payloads": 2
+          }
+        },
+        "variant": null,
+        "research_repack_sha256": null,
+        "runtime_external_attempts": []
+      },
+      {
+        "name": "control-RevolvePartialReverse",
+        "source_sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+        "native_observation_sha256": "27c5496ffd5f0ed868fe1d043a2e3e7a63bfe82652f64490ad08122dc8da591c",
+        "passed": true,
+        "heldout_inputs_read": 0,
+        "native_processes": 0,
+        "source_plan": {
+          "schema": "kit.sw2026.ordinary-revolve-source-preparation.v1",
+          "model_name": "Part1",
+          "configuration": {
+            "id": 0,
+            "name": "Default",
+            "manager_name_present": false
+          },
+          "geometry": {
+            "live_lines": [
+              {
+                "id": "sldprt:sketch:26:line:2",
+                "start_mm": [
+                  4.0,
+                  -16.0
+                ],
+                "end_mm": [
+                  18.0,
+                  -16.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:5",
+                "start_mm": [
+                  4.0,
+                  -16.0
+                ],
+                "end_mm": [
+                  4.0,
+                  11.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:4",
+                "start_mm": [
+                  4.0,
+                  11.0
+                ],
+                "end_mm": [
+                  18.0,
+                  11.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:3",
+                "start_mm": [
+                  18.0,
+                  -16.0
+                ],
+                "end_mm": [
+                  18.0,
+                  11.0
+                ],
+                "construction": false,
+                "fixed": false
+              },
+              {
+                "id": "sldprt:sketch:26:line:1",
+                "start_mm": [
+                  -4.0,
+                  -31.0
+                ],
+                "end_mm": [
+                  -4.0,
+                  23.0
+                ],
+                "construction": true,
+                "fixed": false
+              }
+            ],
+            "closed_profile_entity_ids": [
+              [
+                "sldprt:sketch:26:line:2",
+                "sldprt:sketch:26:line:3",
+                "sldprt:sketch:26:line:4",
+                "sldprt:sketch:26:line:5"
+              ]
+            ],
+            "feature_id": "sldprt:feature:31",
+            "feature_name": "OrdinaryBossRevolve",
+            "sketch_id": "sldprt:sketch:26",
+            "sketch_name": "RevolveSketch",
+            "parameter_id": "sldprt:parameter:31:D1",
+            "parameter_name": "D1",
+            "positive_angle_rad": 1.9722220547535925,
+            "reverse": true,
+            "contour_points_mm": [
+              [
+                4.0,
+                -16.0
+              ],
+              [
+                18.0,
+                11.0
+              ],
+              [
+                4.0,
+                11.0
+              ],
+              [
+                18.0,
+                -16.0
+              ]
+            ],
+            "axis_start_mm": [
+              -4.0,
+              -31.0
+            ],
+            "axis_end_mm": [
+              -4.0,
+              23.0
+            ],
+            "selected_axis_array_index": 5,
+            "selected_axis_permanent_mark": 1,
+            "axis_constraints": 0,
+            "planar_constraints": [
+              "vertical",
+              "horizontal",
+              "vertical",
+              "horizontal"
+            ]
+          },
+          "ui_preferences": {
+            "SettingsValue": {
+              "DraftingStandard": "moANSI_c",
+              "DisplayBits": [
+                1,
+                3,
+                4,
+                5,
+                6,
+                7,
+                10,
+                11,
+                15,
+                17,
+                18,
+                21,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                32,
+                35,
+                42,
+                44,
+                61,
+                62
+              ],
+              "Tessellation": [
+                80,
+                6,
+                50,
+                true
+              ],
+              "Preference7a": false,
+              "JournalName": "Design Journal.doc",
+              "VersionValue": 19000
+            },
+            "DensityValue": 1000.0
+          },
+          "ui_generated_projection_fields": [
+            "fa58",
+            "fa5c",
+            "fa60",
+            "fa64",
+            "fad8_0",
+            "fad8_1",
+            "fa90",
+            "f1688",
+            "fba8",
+            "ffd8.f18.f08"
+          ],
+          "complete_definition_reproduced": false,
+          "complete_definition_difference_paths": [
+            "uiPartDoc_c.fields.basedoc.ole.n",
+            "uiPartDoc_c.fields.expand_keys.n",
+            "uiPartDoc_c.fields.expand_vals.n",
+            "uiPartDoc_c.fields.f1110",
+            "uiPartDoc_c.fields.f1158.n",
+            "uiPartDoc_c.fields.f13d0.n",
+            "uiPartDoc_c.fields.f870.fields.f10",
+            "uiPartDoc_c.fields.f870.fields.n",
+            "uiPartDoc_c.fields.f878.n",
+            "uiPartDoc_c.fields.f878.styles",
+            "uiPartDoc_c.fields.fab8",
+            "uiPartDoc_c.fields.fad0",
+            "uiPartDoc_c.fields.fad4",
+            "uiPartDoc_c.fields.faf0.f58",
+            "uiPartDoc_c.fields.faf0.f70",
+            "uiPartDoc_c.fields.faf8",
+            "uiPartDoc_c.fields.fb00",
+            "uiPartDoc_c.fields.fb04",
+            "uiPartDoc_c.fields.ff40.n",
+            "uiPartDoc_c.fields.ff88.n",
+            "uiPartDoc_c.fields.ffb0.n",
+            "uiPartDoc_c.fields.ffd8.f10.n",
+            "uiPartDoc_c.fields.ffd8.f20.n",
+            "uiPartDoc_c.fields.ffd8.f30.n",
+            "uiPartDoc_c.fields.ffd8.pending.n",
+            "uiPartDoc_c.fields.has_pwmaterial",
+            "uiPartDoc_c.fields.nenv",
+            "uiPartDoc_c.fields.nvar"
+          ],
+          "styles": {
+            "standard": 0,
+            "font_name": "Century Gothic",
+            "font_height_m": 0.003175,
+            "line_style_name": "CONTINUOUS",
+            "print_widths_m": [
+              0.00018000000272877514,
+              0.0002500000118743628,
+              0.0003499999875202775,
+              0.0005000000237487257,
+              0.000699999975040555,
+              0.0010000000474974513,
+              0.00139999995008111,
+              0.0020000000949949026
+            ],
+            "exclusion_names": [
+              "m",
+              "mm",
+              "cm",
+              "km",
+              "um",
+              "\u00b5m",
+              "nm",
+              "s",
+              "Hz",
+              "Pa"
+            ],
+            "task_labels": [
+              "Description",
+              "High Priority",
+              "Low Priority",
+              "Complete",
+              "Reminder"
+            ],
+            "cutlist_expressions": [
+              "%Description%, %MATERIAL%, %LENGTH%, %ANGLE1%, %ANGLE2%, %Angle Direction%, %Angle Rotation%",
+              "%Description%, %MATERIAL%, %Bounding Box Length%, %Bounding Box Width%, %Sheet Metal Thickness%, %Bounding Box Area%, %Bends%, %Bend Radius%",
+              "%Description%, %MATERIAL%"
+            ],
+            "complete_embedded_graph_sha256": "7c2cbe4e4eb6e6f027533ffcb14b82dd552af3af426fffaa3c1f6b1444927979",
+            "complete_graph_preserved_as_writer_input": false,
+            "complete_graph_generation_qualified": false
+          },
+          "document_units": {
+            "present": true,
+            "class_order": [
+              "moLengthUserUnits_c",
+              "moAngleUserUnits_c",
+              "moNumberUserUnits_c",
+              "moDensityUnits_c",
+              "moFloatNumberUserUnits_c",
+              "moSpringConstantUnits_c",
+              "moUnitSysUnits_c",
+              "moForceUnits_c",
+              "moStressUnits_c",
+              "moGravityUnits_c",
+              "moLinearMotorUnits_c",
+              "moRotaryMotorUnits_c",
+              "moPowerUnits_c",
+              "moEnergyUnits_c",
+              "moTimeUnits_c",
+              "moFrequencyUserUnits_c"
+            ],
+            "precision_values": [
+              2
+            ],
+            "source_sha256": "0f435772ded2c7bd60203ed5a5f92ac4c8aca27e0319e29680cd8a85fc714934",
+            "semantic_input": {
+              "LengthUnit": "mm",
+              "AngleUnit": "degree",
+              "UnitSystem": "mmgs",
+              "DecimalPlaces": 2
+            },
+            "minimal_constructor_exact": false,
+            "minimal_constructor_differences": [
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f18",
+                "source": 0.1,
+                "constructed": 0.01
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f20",
+                "source": 4,
+                "constructed": 10
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f28",
+                "source": 8,
+                "constructed": 1
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.f88",
+                "source": -16.0,
+                "constructed": 0.0
+              },
+              {
+                "path": "moPart.f9b8.fields.items[0].o.fields.fb8",
+                "source": {
+                  "class": "moLengthUserUnits_c",
+                  "schema": 1,
+                  "fields": {
+                    "f0c": 2,
+                    "f10": 1,
+                    "f18": 1.0,
+                    "f20": 1,
+                    "f24": 1,
+                    "f30": 0.78539816339745,
+                    "f28": 2,
+                    "f6c": 0,
+                    "f70": 1,
+                    "f74": 1,
+                    "f88": 0.0,
+                    "f7c": 0,
+                    "f08": 0,
+                    "fb0": 3,
+                    "fb8": null
+                  }
+                },
+                "constructed": null
+              },
+              {
+                "path": "moPart.f9b8.fields.items[3].o.fields.fb8",
+                "source": "__absent__",
+                "constructed": null
+              },
+              {
+                "path": "moPart.f9b8.fields.items[3].o.fields.fcc",
+                "source": 0,
+                "constructed": 1
+              }
+            ]
+          },
+          "analysis_units": {
+            "present": false
+          },
+          "chronology": {
+            "header_f50": 1794529625,
+            "header_f70": 1794894436,
+            "header_f48": 1794894446,
+            "root_history_states": 1,
+            "roots": [
+              {
+                "class": "moCommentsFolder_c",
+                "name": "Comments",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moFavoriteFolder_c",
+                "name": "Favorites",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moHistoryFolder_c",
+                "name": "History",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moSelectionSetFolder_c",
+                "name": "Selection Sets",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moSensorFolder_c",
+                "name": "Sensors",
+                "time": {
+                  "filetime_ticks": 134393680364487019,
+                  "unix_seconds": 1794894436,
+                  "subsecond_ticks": 4487019
+                }
+              },
+              {
+                "class": "moDocsFolder_c",
+                "name": "Design Binder",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moDetailCabinet_c",
+                "name": "Annotations",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moSurfaceBodyFolder_c",
+                "name": "Surface Bodies",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moSolidBodyFolder_c",
+                "name": "Solid Bodies",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moEnvFolder_c",
+                "name": "Lights and Cameras",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moInkMarkupFolder_c",
+                "name": "Markups",
+                "time": {
+                  "filetime_ticks": 134393680364487019,
+                  "unix_seconds": 1794894436,
+                  "subsecond_ticks": 4487019
+                }
+              },
+              {
+                "class": "moEqnFolder_c",
+                "name": "Equations",
+                "time": {
+                  "filetime_ticks": 134390032255628407,
+                  "unix_seconds": 1794529625,
+                  "subsecond_ticks": 5628407
+                }
+              },
+              {
+                "class": "moMaterialFolder_c",
+                "name": "Material <not specified>",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moRefPlane_c",
+                "name": "Front Plane",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moRefPlane_c",
+                "name": "Top Plane",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moRefPlane_c",
+                "name": "Right Plane",
+                "time": {
+                  "filetime_ticks": 134393680440575952,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 575952
+                }
+              },
+              {
+                "class": "moOriginProfileFeature_c",
+                "name": "Origin",
+                "time": {
+                  "filetime_ticks": 134393680440596017,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 596017
+                }
+              },
+              {
+                "class": "moProfileFeature_c",
+                "name": "RevolveSketch",
+                "time": {
+                  "filetime_ticks": 134393680440616075,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 616075
+                }
+              },
+              {
+                "class": "moRevolution_c",
+                "name": "OrdinaryBossRevolve",
+                "time": {
+                  "filetime_ticks": 134393680440656203,
+                  "unix_seconds": 1794894444,
+                  "subsecond_ticks": 656203
+                }
+              }
+            ],
+            "model_log_owners": 26
+          },
+          "tree": [
+            {
+              "id": 8,
+              "name": "Comments",
+              "class": "moCommentsFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 23,
+              "name": "Favorites",
+              "class": "moFavoriteFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 24,
+              "name": "History",
+              "class": "moHistoryFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 25,
+              "name": "Selection Sets",
+              "class": "moSelectionSetFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 22,
+              "name": "Sensors",
+              "class": "moSensorFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 7,
+              "name": "Design Binder",
+              "class": "moDocsFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 1,
+              "name": "Annotations",
+              "class": "moDetailCabinet_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 17,
+              "name": "Notes",
+              "class": "moNotesAreaFtrFolder_c",
+              "parent": "Annotations",
+              "role": "notes.head"
+            },
+            {
+              "id": 18,
+              "name": "Notes1___EndTag___",
+              "class": "moNotesAreaFtrFolder_c",
+              "parent": "Annotations",
+              "role": "notes.end"
+            },
+            {
+              "id": 10,
+              "name": "Surface Bodies",
+              "class": "moSurfaceBodyFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 9,
+              "name": "Solid Bodies",
+              "class": "moSolidBodyFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 6,
+              "name": "Lights and Cameras",
+              "class": "moEnvFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 12,
+              "name": "Ambient",
+              "class": "moAmbientLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.ambient"
+            },
+            {
+              "id": 13,
+              "name": "Directional1",
+              "class": "moDirectionLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.directional.1"
+            },
+            {
+              "id": 14,
+              "name": "Directional2",
+              "class": "moDirectionLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.directional.2"
+            },
+            {
+              "id": 15,
+              "name": "Directional3",
+              "class": "moDirectionLight_c",
+              "parent": "Lights and Cameras",
+              "role": "light.directional.3"
+            },
+            {
+              "id": 21,
+              "name": "Markups",
+              "class": "moInkMarkupFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 16,
+              "name": "Equations",
+              "class": "moEqnFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 11,
+              "name": "Material <not specified>",
+              "class": "moMaterialFolder_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 2,
+              "name": "Front Plane",
+              "class": "moRefPlane_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 3,
+              "name": "Top Plane",
+              "class": "moRefPlane_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 4,
+              "name": "Right Plane",
+              "class": "moRefPlane_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 5,
+              "name": "Origin",
+              "class": "moOriginProfileFeature_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 26,
+              "name": "RevolveSketch",
+              "class": "moProfileFeature_c",
+              "parent": null,
+              "role": null
+            },
+            {
+              "id": 31,
+              "name": "OrdinaryBossRevolve",
+              "class": "moRevolution_c",
+              "parent": null,
+              "role": null
+            }
+          ],
+          "configuration_helpers": [
+            {
+              "id": 19,
+              "class": "moPrtExplViewManager_c",
+              "owner_field": "f13f8"
+            }
+          ],
+          "metadata_observation": {
+            "version_states": 1,
+            "originating_codes": [
+              18803522
+            ],
+            "biography_records": 2,
+            "biography_is_readback_only": true,
+            "fresh_generation_uses_empty_biography": true,
+            "source_history_re_emission_is_readback_only": true
+          },
+          "constructor_gaps": [
+            {
+              "owner": "uiPartDoc_c",
+              "reason": "complete source Definition contains additional presentation owners or state beyond the explicit preference projection"
+            },
+            {
+              "owner": "moPart_c.fae0",
+              "reason": "complete source standard-zero detail graph exceeds the standard-one constructor; changing f10 alone is insufficient"
+            },
+            {
+              "owner": "moPart_c.f9b8",
+              "reason": "source unit-format rows differ beyond semantic unit codes and common precision"
+            },
+            {
+              "owner": "moPart_c.f9c0",
+              "reason": "source analysis-unit owner is absent; current part composition always constructs one"
+            },
+            {
+              "owner": "moConfigurationMgr_c.f18",
+              "reason": "source manager is anonymous; current manager constructor requires a nonempty authored name"
+            },
+            {
+              "owner": "moHeader_c.f50/f70 and moVersionHistory_c.states",
+              "reason": "actual template, creation and history epochs cannot be conflated by the current fresh recipe"
+            },
+            {
+              "owner": "moHeader_c.f20",
+              "reason": "source has per-feature chronology; current fresh header emits one model log"
+            },
+            {
+              "owner": "moVersionHistory_c.states.f38",
+              "reason": "source save-history flag bits exceed the fresh low twenty four bit profile and their complete semantics remain unqualified"
+            },
+            {
+              "owner": "CadDocument.bodies[0].name",
+              "reason": "current public body label is a legacy projection; actual original native body-name equivalence is not independently recorded by this method"
+            }
+          ],
+          "full_source_preparation_admitted": false,
+          "public_revolve_registration": false,
+          "heldout_inputs_read": 0
+        },
+        "source_refusal": {
+          "refused": true,
+          "diagnostic": "ordinary revolve source preparation refuses: uiPartDoc_c, moPart_c.fae0, moPart_c.f9b8, moPart_c.f9c0, moConfigurationMgr_c.f18, moHeader_c.f50/f70 and moVersionHistory_c.states, moHeader_c.f20, moVersionHistory_c.states.f38, CadDocument.bodies[0].name"
+        },
+        "native_numeric_comparison": [
+          {
+            "state": "reopened",
+            "numeric_checks": 5,
+            "expected": {
+              "volume_m3": 1.1182499050452873e-05,
+              "area_m2": 0.0031818331273469193,
+              "com_m": [
+                0.003509245864675009,
+                -0.0025000000000000005,
+                0.011345232929858163
+              ]
+            },
+            "recorded_native": {
+              "volume": 1.1182499050452868e-05,
+              "area": 0.003181833127346918,
+              "com": [
+                0.0035092458646750076,
+                -0.0025000000000000005,
+                0.01134523292985816
+              ],
+              "mass": 1.1182499050452868e-05
+            },
+            "passed": true
+          },
+          {
+            "state": "edited",
+            "numeric_checks": 5,
+            "expected": {
+              "volume_m3": 7.026171969753574e-06,
+              "area_m2": 0.0022801960357666483,
+              "com_m": [
+                0.008276099547773702,
+                -0.0025000000000000005,
+                0.008756456708240545
+              ]
+            },
+            "recorded_native": {
+              "volume": 7.026171969753568e-06,
+              "area": 0.002280196035766647,
+              "com": [
+                0.008276099547773698,
+                -0.0024999999999999996,
+                0.00875645670824054
+              ],
+              "mass": 7.026171969753568e-06
+            },
+            "passed": true
+          }
+        ],
+        "dual_unit_construction": {
+          "source_fields_identical": true,
+          "fresh_object": true,
+          "config_byte_identity": true,
+          "resolved_byte_identity": true,
+          "primary_unit": "mm",
+          "generated_secondary_unit": "in"
+        },
+        "streams": {
+          "Contents/Config-0": {
+            "bytes": 25482,
+            "sha256": "e1fbcfe71b5972443928e33e3595b1ee04db30c047fc4ade52d2fbaa7a47e1a8",
+            "byte_identity": true
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 12465,
+            "sha256": "de224a0d463df78e174e9da1493251862a2ab686e80f48c0f0812be3266968ef",
+            "byte_identity": true
+          },
+          "Header2": {
+            "bytes": 2371,
+            "sha256": "96f6edd990df11b54d3c49ac28da8cf76a55e1baad21b02bb935c9050867dd29",
+            "byte_identity": true
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 2371,
+            "sha256": "96f6edd990df11b54d3c49ac28da8cf76a55e1baad21b02bb935c9050867dd29",
+            "byte_identity": true
+          },
+          "Contents/CMgr": {
+            "bytes": 2159,
+            "sha256": "d988c5b59ac3d4add7b07588bdebe89569d8b6d46918f2580faa3f230bfec3c5",
+            "byte_identity": true
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "e09afcbbdbed823b416c7afe48a53ac9ed0e0216e770f9f5d89fb7023b20cd11",
+            "byte_identity": true
+          },
+          "Contents/Definition": {
+            "bytes": 3672,
+            "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d",
+            "byte_identity": true
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1667,
+            "sha256": "a2e66be36baec686bee6870b665be0236396529ecd0b2b05522141d7f5435256",
+            "byte_identity": true
+          }
+        },
+        "metadata": {
+          "_MO_VERSION_19000/Biography": {
+            "qualified": true,
+            "byte_identity": true,
+            "bytes": 1643,
+            "sha256": "bff5957ce37661cb3cfb99766642fbbdb41e9c51d8f87b15d1d513db2ee917c5"
+          },
+          "_MO_VERSION_19000/History": {
+            "qualified": true,
+            "byte_identity": true,
+            "bytes": 101,
+            "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+          }
+        },
+        "modes": {
+          "no_geometry": {
+            "document_sha256": "eb6c48ec723cc8f737abaf0902db8e356721370b595f93b11560f1e16889f410",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "brep_only": {
+            "document_sha256": "bcac11d2e389c9a817f4ff8123230bd71f3f60e0d786487f04a84e8c39d34134",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "tessellation_only": {
+            "document_sha256": "eb6c48ec723cc8f737abaf0902db8e356721370b595f93b11560f1e16889f410",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "both": {
+            "document_sha256": "bcac11d2e389c9a817f4ff8123230bd71f3f60e0d786487f04a84e8c39d34134",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "defaults": {
+            "document_sha256": "bcac11d2e389c9a817f4ff8123230bd71f3f60e0d786487f04a84e8c39d34134",
+            "timeline_count": 19,
+            "native_tree_status": "ordinary_default_profile",
+            "native_tree_rows": 25,
+            "brep_bodies": 1,
+            "payloads": 2
+          }
+        },
+        "variant": null,
+        "research_repack_sha256": null,
+        "runtime_external_attempts": []
+      }
+    ],
+    "wire_reparsed_negatives": [
+      {
+        "variant": "custom_note",
+        "repacked_sha256": "87b5461a810623f1496ae3f61b27584bff08285243f15596dd9f2a4b20980bef",
+        "source_preserved": true,
+        "modes": {
+          "no_geometry": {
+            "document_sha256": "705a510f7056e4dd4b1d9e0708d16a9c071e9335abde53619d5584325488789a",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "brep_only": {
+            "document_sha256": "3b24b95fc6026c1efc758055fe4a96938f870c7e52c036188b09b6289d711b31",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "tessellation_only": {
+            "document_sha256": "705a510f7056e4dd4b1d9e0708d16a9c071e9335abde53619d5584325488789a",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "both": {
+            "document_sha256": "3b24b95fc6026c1efc758055fe4a96938f870c7e52c036188b09b6289d711b31",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "defaults": {
+            "document_sha256": "3b24b95fc6026c1efc758055fe4a96938f870c7e52c036188b09b6289d711b31",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 1,
+            "payloads": 2
+          }
+        }
+      },
+      {
+        "variant": "root_order",
+        "repacked_sha256": "a7bc91e74bcbd0520cb414b2f1fda185bd0c720731e4914ca1380075a9b32ee5",
+        "source_preserved": true,
+        "modes": {
+          "no_geometry": {
+            "document_sha256": "df912b86e64b7162e2b2314d5ff3de994a1f8059927135a5c2d0153c549b1ac8",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "brep_only": {
+            "document_sha256": "4e6ae5c9f7cef9c4c4b5710208fc156d7227032db53727542d12c9999e8d2c8f",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "tessellation_only": {
+            "document_sha256": "df912b86e64b7162e2b2314d5ff3de994a1f8059927135a5c2d0153c549b1ac8",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "both": {
+            "document_sha256": "4e6ae5c9f7cef9c4c4b5710208fc156d7227032db53727542d12c9999e8d2c8f",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "defaults": {
+            "document_sha256": "4e6ae5c9f7cef9c4c4b5710208fc156d7227032db53727542d12c9999e8d2c8f",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 1,
+            "payloads": 2
+          }
+        }
+      },
+      {
+        "variant": "extra_axis_relation",
+        "repacked_sha256": "560f579aa7d0ef4ea39b51f6db4e7986cc07b0da010b387d21f9b84f3cbfff81",
+        "source_preserved": true,
+        "modes": {
+          "no_geometry": {
+            "document_sha256": "5b5fac81c6c93b57569df528d47fb148a9813ec9e2aacf6428c8c2964b5949b6",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "brep_only": {
+            "document_sha256": "814ed3ab87704abe8062141e07aadb246fb7b0aafeb98dfe49bbfdabf2537758",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "tessellation_only": {
+            "document_sha256": "5b5fac81c6c93b57569df528d47fb148a9813ec9e2aacf6428c8c2964b5949b6",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 0,
+            "payloads": 0
+          },
+          "both": {
+            "document_sha256": "814ed3ab87704abe8062141e07aadb246fb7b0aafeb98dfe49bbfdabf2537758",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 1,
+            "payloads": 2
+          },
+          "defaults": {
+            "document_sha256": "814ed3ab87704abe8062141e07aadb246fb7b0aafeb98dfe49bbfdabf2537758",
+            "timeline_count": 26,
+            "native_tree_status": "unqualified",
+            "native_tree_rows": 0,
+            "brep_bodies": 1,
+            "payloads": 2
+          }
+        }
+      }
+    ],
+    "existing_generated_hash_replays": [
+      {
+        "sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+        "graph": {
+          "resolved_roots": 19,
+          "model_id": 0,
+          "profile_id": 18,
+          "feature_id": 19,
+          "angle_dimension_id": 20,
+          "selected_axis_index": 4,
+          "axis_mark": 5,
+          "axis_profile_time": 2592000,
+          "point_rows": 6,
+          "line_rows": 5,
+          "axis_relations": 0,
+          "contour_relations": 4,
+          "angle_rad": 6.283185307179586,
+          "reverse": false
+        },
+        "streams": {
+          "Header2": {
+            "bytes": 789,
+            "sha256": "cb168b45c48485e04d5f5689452c8e157abfa4b25149176f1bb21a2dcbcf7295",
+            "roundtrip": true
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 789,
+            "sha256": "4f04e4d3ac9653f897e4f6a831c4dfb3e562317316658100e2340a77dd4f1d64",
+            "roundtrip": true
+          },
+          "Contents/Config-0": {
+            "bytes": 22272,
+            "sha256": "b5f531b8f0c4b7c046e10d8fa17719a8f27fd4c399ec73721c97a3e234354299",
+            "roundtrip": true
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "5cf3a4eda361b3a3bf16f9e7eac0cccfe0b72dcc9a14413f5968e5d060a0be4c",
+            "roundtrip": true
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "26bb31e33ef0c37d36e507fa74b517a932e3950be50ff2d9fb7a1ac5034fd135",
+            "roundtrip": true
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 9859,
+            "sha256": "0f05375a3b379c345600223891f3a47e7d78a71acb3c9f7e3ddb189afe375097",
+            "roundtrip": true
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+            "roundtrip": true
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+            "roundtrip": true
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73",
+            "roundtrip": true
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1399,
+            "sha256": "48ace6ff1046ca4880d93a9ef64c0def490419220bfd8d99daa93c9a22bea82f",
+            "roundtrip": true
+          }
+        }
+      },
+      {
+        "sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+        "graph": {
+          "resolved_roots": 19,
+          "model_id": 0,
+          "profile_id": 18,
+          "feature_id": 19,
+          "angle_dimension_id": 20,
+          "selected_axis_index": 4,
+          "axis_mark": 5,
+          "axis_profile_time": 2592000,
+          "point_rows": 6,
+          "line_rows": 5,
+          "axis_relations": 0,
+          "contour_relations": 4,
+          "angle_rad": 2.2471114119426994,
+          "reverse": false
+        },
+        "streams": {
+          "Header2": {
+            "bytes": 801,
+            "sha256": "ae1b5d0a1f8a0e978a83e32fc3ec7cef465fbfd3a79fb6d93a9687a897dfa906",
+            "roundtrip": true
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 801,
+            "sha256": "7a42efb050d649be541d7610bac4778ac006a0b2f6fb301bd3357cf8ce5524b5",
+            "roundtrip": true
+          },
+          "Contents/Config-0": {
+            "bytes": 22276,
+            "sha256": "c9f8d310bbbe65ede56d71abe73093b91df60976770b2f3b9b01e566ccc0e1a3",
+            "roundtrip": true
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "a799a477e7c7088cc782beda69e2125401e709bf0eb180d4fb8f4f9a38e4a5d7",
+            "roundtrip": true
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "a9a31979e6b2f2d155043441224a69f4ac12f6b42048378c889bd0dae3971b5a",
+            "roundtrip": true
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 9859,
+            "sha256": "85abf2087dcc26d03eb684aab9f6315035cde431f854144ae471dfb2b32c80dd",
+            "roundtrip": true
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+            "roundtrip": true
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+            "roundtrip": true
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "12f118f456beaeef37b7b84514198ecd331ca18582970b1962bfbb12cd0c6781",
+            "roundtrip": true
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1404,
+            "sha256": "4d77e59e2616673b814ea508ed920fc48aa89d6d21992a34b89646099681a90f",
+            "roundtrip": true
+          }
+        }
+      },
+      {
+        "sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+        "graph": {
+          "resolved_roots": 19,
+          "model_id": 0,
+          "profile_id": 18,
+          "feature_id": 19,
+          "angle_dimension_id": 20,
+          "selected_axis_index": 4,
+          "axis_mark": 5,
+          "axis_profile_time": 2592000,
+          "point_rows": 6,
+          "line_rows": 5,
+          "axis_relations": 0,
+          "contour_relations": 4,
+          "angle_rad": 2.2471114119426994,
+          "reverse": true
+        },
+        "streams": {
+          "Header2": {
+            "bytes": 801,
+            "sha256": "3956beaf5fbb07d687149d56554f0ed7c9505c32208b176f7d744d731d1ef702",
+            "roundtrip": true
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 801,
+            "sha256": "c679c10f041f2a47e5de712d5be6627fd27957d97e4c5a34fde0357ec17a2b7a",
+            "roundtrip": true
+          },
+          "Contents/Config-0": {
+            "bytes": 22276,
+            "sha256": "094efdfc8af684aa3f4ed2bbd4720fffe145bb74550852905b863b4ac4654f20",
+            "roundtrip": true
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "57a5c03a57f60181dfe01f1b8ec4c12d261121027416fd8efaab83f5edba03ab",
+            "roundtrip": true
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "5b4ce1a259b177f2a586df9b42c97f1b2e4caa9e75621ecef04e9ff888abca0b",
+            "roundtrip": true
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 9859,
+            "sha256": "767c51d1633c5a0dd9e4c68c14f75c65f307ae16cbbb8593e5001012d94549be",
+            "roundtrip": true
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+            "roundtrip": true
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+            "roundtrip": true
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "b471c334f2dfcbef2cba9574eebced928461660e9a6ade352c945f30c900ac58",
+            "roundtrip": true
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1404,
+            "sha256": "71ed907ee2f9ad10159f2f269c6537f8ba882bdaa2768abb0a5f94a506e2b705",
+            "roundtrip": true
+          }
+        }
+      },
+      {
+        "sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+        "graph": {
+          "resolved_roots": 19,
+          "model_id": 0,
+          "profile_id": 18,
+          "feature_id": 19,
+          "angle_dimension_id": 20,
+          "selected_axis_index": 4,
+          "axis_mark": 5,
+          "axis_profile_time": 2592000,
+          "point_rows": 6,
+          "line_rows": 5,
+          "axis_relations": 0,
+          "contour_relations": 4,
+          "angle_rad": 4.391684730330732,
+          "reverse": true
+        },
+        "streams": {
+          "Header2": {
+            "bytes": 807,
+            "sha256": "1c13598a312220190f370a58c2f0937eb54688e5bd07ff7da324e6ddd5eefa0c",
+            "roundtrip": true
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 807,
+            "sha256": "85c60f411057e6c238beb7bfc39f43ce5e50e5f497b27b937a1f3913d853d4ed",
+            "roundtrip": true
+          },
+          "Contents/Config-0": {
+            "bytes": 22278,
+            "sha256": "0a3c3fffa8208c659fc4d5ff9754cf7b7c5ff5c0f3bd6f626ff59d0b266502c1",
+            "roundtrip": true
+          },
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "de49bddd73f30520d8da90f9501d82a1850822a4f53a71f13bf59f52dc2dced6",
+            "roundtrip": true
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "0a3fdf1a2a8f3473cfe5bc371ac8068548f7211a4d865b3e6b56fbe66fa587de",
+            "roundtrip": true
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 9859,
+            "sha256": "51873f6dfc519d70d51c6e0101ea457045f4a4a4b7c22a97c3238a857d1bcbed",
+            "roundtrip": true
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+            "roundtrip": true
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+            "roundtrip": true
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a",
+            "roundtrip": true
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1406,
+            "sha256": "0ac12ebec4908115e8adf980b004d52fb4ec472c6c131ccf85f60e29e9a8da21",
+            "roundtrip": true
+          }
+        }
+      }
+    ],
+    "bare_boss_regressions": [
+      {
+        "passed": true,
+        "sha256": "354f21b8394022e3407ee0861c8745c42707eca15b6e0f8da412ccdf46e0acb8",
+        "bytes": 8080,
+        "lines": 4,
+        "streams": {
+          "Header2": "779e7e913f2e1d6c6577356b5f3fcfa53cec2ecdcceddbdde77201d468bbf578",
+          "Contents/Config-0-ModelHeader": "f26ec57f7944564455d8836d3123fcadfd1f310dd65e39865544688f663cf8ed",
+          "Contents/Config-0": "b5f531b8f0c4b7c046e10d8fa17719a8f27fd4c399ec73721c97a3e234354299",
+          "Contents/CMgr": "57e6bb206a3c85144a3345f92ace33033c62a44d03a9d4fc9fac7ef5e1f3acb6",
+          "Contents/CMgrHdr2": "26bb31e33ef0c37d36e507fa74b517a932e3950be50ff2d9fb7a1ac5034fd135",
+          "Contents/Config-0-ResolvedFeatures": "4ff52603e666fe560187dc72f9daa20405937caa53860d9551b4f363e1d3707b",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73",
+          "swXmlContents/KeyWords": "50acc6b3d8a2c4b4b8929e2cd06e96cf3580dc1e2099c0c2970328d4ff86c144"
+        },
+        "runtime_external_attempts": []
+      },
+      {
+        "passed": true,
+        "sha256": "383a54e78d279b72fadb5ac6e44667a20aca20a3a4c64ccf93ac950d65433fbf",
+        "bytes": 8102,
+        "lines": 4,
+        "streams": {
+          "Header2": "2ad6b62316c867c2b80231a64819f772d8727f6a41dfb28e81234e31f174125e",
+          "Contents/Config-0-ModelHeader": "7796770b4ea12071e3fbf8b9639f89bac0ce201a29014113ca8285e2db3a94b2",
+          "Contents/Config-0": "0a3c3fffa8208c659fc4d5ff9754cf7b7c5ff5c0f3bd6f626ff59d0b266502c1",
+          "Contents/CMgr": "8fbcccbaf8eb70bcbf8ff92175b8cddd51bc9f728f6d30ce0ca2acd64539a629",
+          "Contents/CMgrHdr2": "0a3fdf1a2a8f3473cfe5bc371ac8068548f7211a4d865b3e6b56fbe66fa587de",
+          "Contents/Config-0-ResolvedFeatures": "3cc965d01bd911e38a4f4e9b398b095eaa1da115f4481e73d979b463e0cac59f",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a",
+          "swXmlContents/KeyWords": "fa6450d7953da886a5945448898c6f0f0609013579e1400073179103a4276176"
+        },
+        "runtime_external_attempts": []
+      }
+    ]
+  },
+  "fresh_cachefree_checks": {
+    "processes": 8,
+    "paired_modes": 20,
+    "cases": [
+      {
+        "passed": true,
+        "heldout_inputs_read": 0,
+        "native_processes": 0,
+        "sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+        "modes": {
+          "no_geometry": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 0,
+            "payloads": 0,
+            "faces": 0,
+            "volume_mm3": null,
+            "area_mm2": null,
+            "document_sha256": "95dc73beff6b600da4666cdb782ef6a065b4e73637035cbdbbfc0fde1847ea7f"
+          },
+          "brep_only": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 4,
+            "volume_mm3": 62429.72921213637,
+            "area_mm2": 10706.547763434015,
+            "document_sha256": "517852268bed40ce8a1ed00ebd1b6642048ff137e3ecfe720f67f7cafceb7be6"
+          },
+          "tessellation_only": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 0,
+            "payloads": 0,
+            "faces": 0,
+            "volume_mm3": null,
+            "area_mm2": null,
+            "document_sha256": "95dc73beff6b600da4666cdb782ef6a065b4e73637035cbdbbfc0fde1847ea7f"
+          },
+          "both": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 4,
+            "volume_mm3": 62429.72921213637,
+            "area_mm2": 10706.547763434015,
+            "document_sha256": "517852268bed40ce8a1ed00ebd1b6642048ff137e3ecfe720f67f7cafceb7be6"
+          },
+          "defaults": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 4,
+            "volume_mm3": 62429.72921213637,
+            "area_mm2": 10706.547763434015,
+            "document_sha256": "517852268bed40ce8a1ed00ebd1b6642048ff137e3ecfe720f67f7cafceb7be6"
+          }
+        },
+        "expected": {
+          "volume_m3": 6.242972921213637e-05,
+          "area_m2": 0.010706547763434016,
+          "com_m": [
+            -0.003125000000000001,
+            0.009375,
+            -0.0
+          ]
+        },
+        "runtime_external_attempts": []
+      },
+      {
+        "passed": true,
+        "heldout_inputs_read": 0,
+        "native_processes": 0,
+        "sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+        "modes": {
+          "no_geometry": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 0,
+            "payloads": 0,
+            "faces": 0,
+            "volume_mm3": null,
+            "area_mm2": null,
+            "document_sha256": "f3e8959df4d16d5db0f756f63109a766ca76f7bf32a0ef466062968caf7162c5"
+          },
+          "brep_only": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 6,
+            "volume_mm3": 14182.08189862336,
+            "area_mm2": 3840.741714975807,
+            "document_sha256": "9d9d72f8e48df19d804fe691590cc2ee42d25133e04828fb610231abf82092dd"
+          },
+          "tessellation_only": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 0,
+            "payloads": 0,
+            "faces": 0,
+            "volume_mm3": null,
+            "area_mm2": null,
+            "document_sha256": "f3e8959df4d16d5db0f756f63109a766ca76f7bf32a0ef466062968caf7162c5"
+          },
+          "both": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 6,
+            "volume_mm3": 14182.08189862336,
+            "area_mm2": 3840.741714975807,
+            "document_sha256": "9d9d72f8e48df19d804fe691590cc2ee42d25133e04828fb610231abf82092dd"
+          },
+          "defaults": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 6,
+            "volume_mm3": 14182.08189862336,
+            "area_mm2": 3840.741714975807,
+            "document_sha256": "9d9d72f8e48df19d804fe691590cc2ee42d25133e04828fb610231abf82092dd"
+          }
+        },
+        "expected": {
+          "volume_m3": 1.4182081898623362e-05,
+          "area_m2": 0.003840741714975807,
+          "com_m": [
+            0.007728890375055391,
+            0.004625,
+            -0.010119517009637603
+          ]
+        },
+        "runtime_external_attempts": []
+      },
+      {
+        "passed": true,
+        "heldout_inputs_read": 0,
+        "native_processes": 0,
+        "sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+        "modes": {
+          "no_geometry": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 0,
+            "payloads": 0,
+            "faces": 0,
+            "volume_mm3": null,
+            "area_mm2": null,
+            "document_sha256": "458a66145a783c0a3b43c97f4e4a46e913225f45063b176d375c75660edec854"
+          },
+          "brep_only": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 6,
+            "volume_mm3": 14182.08189862336,
+            "area_mm2": 3840.741714975807,
+            "document_sha256": "2e5a6daa797ac268ebe6828bb532a797be7143babd1d5780783b547a9834eb97"
+          },
+          "tessellation_only": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 0,
+            "payloads": 0,
+            "faces": 0,
+            "volume_mm3": null,
+            "area_mm2": null,
+            "document_sha256": "458a66145a783c0a3b43c97f4e4a46e913225f45063b176d375c75660edec854"
+          },
+          "both": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 6,
+            "volume_mm3": 14182.08189862336,
+            "area_mm2": 3840.741714975807,
+            "document_sha256": "2e5a6daa797ac268ebe6828bb532a797be7143babd1d5780783b547a9834eb97"
+          },
+          "defaults": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 6,
+            "volume_mm3": 14182.08189862336,
+            "area_mm2": 3840.741714975807,
+            "document_sha256": "2e5a6daa797ac268ebe6828bb532a797be7143babd1d5780783b547a9834eb97"
+          }
+        },
+        "expected": {
+          "volume_m3": 1.4182081898623362e-05,
+          "area_m2": 0.003840741714975807,
+          "com_m": [
+            0.007728890375055391,
+            0.004625,
+            0.010119517009637603
+          ]
+        },
+        "runtime_external_attempts": []
+      },
+      {
+        "passed": true,
+        "heldout_inputs_read": 0,
+        "native_processes": 0,
+        "sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+        "modes": {
+          "no_geometry": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 0,
+            "payloads": 0,
+            "faces": 0,
+            "volume_mm3": null,
+            "area_mm2": null,
+            "document_sha256": "8ec4a2bf320ee89c5191fc59b517d3bf19fc5f559c26ac48cdd4f67fc84bdd9b"
+          },
+          "brep_only": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 6,
+            "volume_mm3": 77481.67025633816,
+            "area_mm2": 12814.486165755066,
+            "document_sha256": "f5097cd91d5343abe8ea0e8499b1c700721557da2fd8f3442a192a44f743ccc4"
+          },
+          "tessellation_only": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 0,
+            "payloads": 0,
+            "faces": 0,
+            "volume_mm3": null,
+            "area_mm2": null,
+            "document_sha256": "8ec4a2bf320ee89c5191fc59b517d3bf19fc5f559c26ac48cdd4f67fc84bdd9b"
+          },
+          "both": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 6,
+            "volume_mm3": 77481.67025633816,
+            "area_mm2": 12814.486165755066,
+            "document_sha256": "f5097cd91d5343abe8ea0e8499b1c700721557da2fd8f3442a192a44f743ccc4"
+          },
+          "defaults": {
+            "body_name": "Body 1",
+            "final_feature_id": "sldprt:feature:19",
+            "brep_bodies": 1,
+            "payloads": 0,
+            "faces": 6,
+            "volume_mm3": 77481.67025633816,
+            "area_mm2": 12814.486165755066,
+            "document_sha256": "f5097cd91d5343abe8ea0e8499b1c700721557da2fd8f3442a192a44f743ccc4"
+          }
+        },
+        "expected": {
+          "volume_m3": 7.748167025633817e-05,
+          "area_m2": 0.012814486165755064,
+          "com_m": [
+            -0.012402451607957636,
+            -0.0036249999999999998,
+            0.006621054906101879
+          ]
+        },
+        "runtime_external_attempts": []
+      }
+    ],
+    "existing_body_labels_preserved": true,
+    "complete_validated_brep_in_default_modes": true,
+    "native_cache_payloads_manufactured": false
+  },
+  "body_name_boundary": {
+    "native_source_receipts_record_body_labels": false,
+    "typed_partition_name_probe": "current parser rejected an unmapped kernel class before actual name ownership could qualify",
+    "public_label_policy": "preserve existing native feature discriminators for the qualified revolve family; do not infer a new body label from normalized class strings",
+    "actual_final_feature_association_preserved": true,
+    "source_body_name_native_equivalence_qualified": false,
+    "probe_raw_sha256": "0184f32bb88d408697ed5cba0446781fe246ed2c7de137c94fb10df493d8d35c"
+  },
+  "static": {
+    "black": true,
+    "ruff": true,
+    "steering": true,
+    "strict_mypy": true,
+    "strict_pyright": true,
+    "donor_scan": {
+      "passed": true,
+      "python_files": 4534,
+      "recorded_payloads": 0,
+      "exit_code": 0,
+      "stdout": "no recorded payloads in 4534 files"
+    }
+  },
+  "prior_false_reports": [
+    {
+      "sha256": "5ce3bcbb8ae1b7c164e2333a7ace48f14a793c3f97de2d837fbf1cec02ec37ed",
+      "processes": 2,
+      "cause": "private first projection changed body labeling through the generic feature discriminator",
+      "scope": "product draft caught before integration",
+      "code_preserved": true
+    },
+    {
+      "sha256": "d55975c48cd8e3ea352e1d4ead60d057653817e1fed421d6c59bb144fd064e47",
+      "processes": 7,
+      "cause": "negative observer passed a parsed archive where BuildSldprt requires source bytes",
+      "scope": "observer envelope only",
+      "source_code_changed": false
+    },
+    {
+      "sha256": "ef49c72650aee010b4db9e44fb028dd1fb2a750d896e813cb9cd315dfe3f41ec",
+      "processes": 8,
+      "cause": "negative observer compared a derived semantic digest while allowing the measured diagnostic to change",
+      "scope": "observer comparison only; final worker independently recomputes each digest",
+      "source_code_changed": false
+    }
+  ],
+  "unit_native_facts_sha256": "7fce6aaa09be074035ad9d8ec86ee698504d4d8fdc4319175da76c067ab81356",
+  "known_source_gaps_preserved": true,
+  "audit_event_classes": [
+    "open",
+    "subprocess.*",
+    "socket.*",
+    "os.system",
+    "os.fork",
+    "os.posix_spawn",
+    "ctypes.dlopen"
+  ],
+  "directory_metadata_events_separately_audited": false,
+  "chronology_supplement_sha256": "2e79480389eec333f602f72babf30736b3d0c3f800726a6c0d41d228788d8ebf"
+}

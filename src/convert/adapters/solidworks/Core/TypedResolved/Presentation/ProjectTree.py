@@ -67,7 +67,11 @@ def ProjectTree(
         )
     return TreeProjection(
         tuple(
-            BindTreeRoot(Features[NativeNodeId(NodeValue)], NodeValue)
+            (
+                Features[NativeNodeId(NodeValue)]
+                if RootsValue[-1].ClassValue.NameValue == "moRevolution_c"
+                else BindTreeRoot(Features[NativeNodeId(NodeValue)], NodeValue)
+            )
             for NodeValue in RootsValue
         ),
         {

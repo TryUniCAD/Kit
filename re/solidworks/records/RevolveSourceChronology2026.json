@@ -1,0 +1,79 @@
+{
+  "schema": "kit.sw2026.disclosed-revolve-source-chronology-observation.v1",
+  "source_inventory_sha256": "215ea702e6b8a9205c4d958d0e62e7b32707cc9f785253fff5842119c4d95699",
+  "source_input_manifest_sha256": "1c9c8b737e5514ad140973c51aedaefc9d7d5d0e4c388ed0b8290af4c24e05d9",
+  "cases": [
+    {
+      "case": "RevolveFull",
+      "model_name": "Part1",
+      "header_clocks": {
+        "f50": 1794529625,
+        "f70": 1794894338,
+        "f48": 1794894348
+      },
+      "history_language_id": 0,
+      "history_license_origin": 0,
+      "history_cjk_saved_flag": 0,
+      "history_f40": 0,
+      "history_stamp_times": [
+        1794529625
+      ],
+      "biography_language_ids": [
+        1033,
+        1033
+      ],
+      "biography_telemetry_is_observation_only": true,
+      "physical_source_basename_differs_from_model_name": true,
+      "source_native_labels_not_writer_defaults": true
+    },
+    {
+      "case": "RevolvePartialForward",
+      "model_name": "Part1",
+      "header_clocks": {
+        "f50": 1794529625,
+        "f70": 1794894388,
+        "f48": 1794894398
+      },
+      "history_language_id": 0,
+      "history_license_origin": 0,
+      "history_cjk_saved_flag": 0,
+      "history_f40": 0,
+      "history_stamp_times": [
+        1794529625
+      ],
+      "biography_language_ids": [
+        1033,
+        1033
+      ],
+      "biography_telemetry_is_observation_only": true,
+      "physical_source_basename_differs_from_model_name": true,
+      "source_native_labels_not_writer_defaults": true
+    },
+    {
+      "case": "RevolvePartialReverse",
+      "model_name": "Part1",
+      "header_clocks": {
+        "f50": 1794529625,
+        "f70": 1794894436,
+        "f48": 1794894446
+      },
+      "history_language_id": 0,
+      "history_license_origin": 0,
+      "history_cjk_saved_flag": 0,
+      "history_f40": 0,
+      "history_stamp_times": [
+        1794529625
+      ],
+      "biography_language_ids": [
+        1033,
+        1033
+      ],
+      "biography_telemetry_is_observation_only": true,
+      "physical_source_basename_differs_from_model_name": true,
+      "source_native_labels_not_writer_defaults": true
+    }
+  ],
+  "interpretation": "distinct actually stored owner values are retained; no equality or temporal ordering across the independent owners is imposed",
+  "heldout_inputs_read": 0,
+  "writer_defaults_added": false
+}

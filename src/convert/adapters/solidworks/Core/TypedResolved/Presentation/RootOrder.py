@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckThruRoots import (
     CheckThruRoots,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckRevRoots import (
+    CheckRevRoots,
+)
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 
 # presentation normalization is restricted to the measured ordinary single profile part ownership sequence
@@ -48,7 +51,10 @@ def ReadRootOrder(
         tuple(NodeValue.ClassValue.NameValue for NodeValue in Ordinary)
         != KOrdinaryRoots
     ):
-        CheckThruRoots(LinkValue, NodesValue, Ordinary, KOrdinaryRoots)
+        if Ordinary and Ordinary[-1].ClassValue.NameValue == "moRevolution_c":
+            CheckRevRoots(LinkValue, Ordinary, KOrdinaryRoots)
+        else:
+            CheckThruRoots(LinkValue, NodesValue, Ordinary, KOrdinaryRoots)
     if RootsValue.index(Cabinets[0]) not in (6, 12):
         raise ValueError("authored cabinet placement is outside the ordinary profile")
     if ModelValue.FieldsValue.get("f1e0") is not Ordinary[8]:
