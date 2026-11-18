@@ -75,7 +75,7 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
         if LineValue is not None:
             Lines[Sketch.object_id] = LineValue
             Features[Sketch.object_id] = ReplaceValue(
-                Features[Sketch.object_id], dimensions=()
+                Features[Sketch.object_id], dimensions=LineValue.dimensions
             )
             continue
         Circle = BindCircle(Sketch, NodeValue, LinkValue)
@@ -105,5 +105,16 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
                 Model, LinkValue, NodesValue, OwnersValue, tuple(Circles), tuple(Lines)
             ),
             "native_tree": TreeValue.EvidenceValue,
+            **(
+                {
+                    "line_dimension_profiles": tuple(
+                        SketchId
+                        for SketchId, SketchValue in Lines.items()
+                        if SketchValue.dimensions
+                    )
+                }
+                if any(SketchValue.dimensions for SketchValue in Lines.values())
+                else {}
+            ),
         },
     )
