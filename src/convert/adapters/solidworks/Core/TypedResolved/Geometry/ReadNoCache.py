@@ -13,13 +13,16 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.IsCacheAbsent impor
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismScope import (
     CheckPrismScope,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismGeometry import (
-    PrismGeometry,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
+    PartGeometry,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismPlan import (
     ReadPrismPlan,
 )
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Geometry.ReadRevGeom import (
+    ReadRevGeom,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ReadColdOutput import (
     ReadColdOutput,
 )
@@ -28,7 +31,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ReadCold
 # unsupported no cache documents must retain the existing strict payload error while proven ordinary prisms gain computed neutral geometry
 def ReadNoCache(
     Archive: SldprtArchive, ModelValue: NativeModel, BodyId: str
-) -> PrismGeometry | None:
+) -> PartGeometry | None:
     if not IsCacheAbsent(Archive):
         return None
     try:
@@ -36,6 +39,8 @@ def ReadNoCache(
         ManagerValue = ReadCmgrMut(Archive.require("Contents/CMgr"), 19000)
         if ModelValue.TypedGraph.get("cut_body_dependency") is not None:
             return ReadPocketGeom(LinkValue, ManagerValue, ModelValue, BodyId)
+        if any(Feature.class_name == "moRevolution_c" for Feature in ModelValue.features):
+            return ReadRevGeom(LinkValue, ManagerValue, ModelValue, BodyId)
         ColdValue = ReadColdOutput(LinkValue)
         Features = CheckPrismScope(LinkValue, ManagerValue, ModelValue, ColdValue)
         return BuildPrismGeom(

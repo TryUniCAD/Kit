@@ -9,8 +9,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdName
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdNameSource import (
     ColdNameSource,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismGeometry import (
-    PrismGeometry,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
+    PartGeometry,
 )
 from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
@@ -18,7 +18,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # only a fully proved cold output may replace the folder caption while all existing geometry and payload semantics remain intact
 def WithColdName(
-    Document: CadDocument, GeometryValue: PrismGeometry | None
+    Document: CadDocument, GeometryValue: PartGeometry | None
 ) -> CadDocument:
     if GeometryValue is None or GeometryValue.ColdValue is None:
         return Document

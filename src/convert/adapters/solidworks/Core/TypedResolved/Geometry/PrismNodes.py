@@ -9,7 +9,11 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # all allocated native owners must be inspected so detached or extra geometry cannot hide behind the visible feature roots
 def PrismNodes(
-    LinkValue: NativeLink, ManagerValue: CmgrGraph, ColdAtom: ArchiveNode | None = None
+    LinkValue: NativeLink,
+    ManagerValue: CmgrGraph,
+    ColdAtom: ArchiveNode | None = None,
+    *,
+    AllowedClasses: frozenset[str] = KPrismClasses,
 ) -> tuple[ArchiveNode, ...]:
     Entries = (
         *LinkValue.ResolvedValue.MapValue.EntriesValue,
@@ -23,7 +27,7 @@ def PrismNodes(
     for NodeValue in NodesValue:
         _ = RequireNative(NodeValue)
         if (
-            NodeValue.ClassValue.NameValue not in KPrismClasses
+            NodeValue.ClassValue.NameValue not in AllowedClasses
             and NodeValue is not ColdAtom
         ):
             raise ValueError("cache free prism has an unsupported native owner")

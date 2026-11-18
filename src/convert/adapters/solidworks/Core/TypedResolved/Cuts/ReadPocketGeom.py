@@ -11,8 +11,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.CheckPublicPocket impor
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismMgr import (
     CheckPrismMgr,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismGeometry import (
-    PrismGeometry,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
+    PartGeometry,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismPlan import (
     ReadPrismPlan,
@@ -27,7 +27,7 @@ from interchange.Features.FeatureExtrude import ExtrudeEnd
 # body geometry and history must refer to the same native owners before a cache free document can supply a pocket solid
 def ReadPocketGeom(
     LinkValue: NativeLink, Manager: CmgrGraph, ModelValue: NativeModel, BodyId: str
-) -> PrismGeometry:
+) -> PartGeometry:
     Report = Manager.ReportValue
     if (
         not Report.get("completed")

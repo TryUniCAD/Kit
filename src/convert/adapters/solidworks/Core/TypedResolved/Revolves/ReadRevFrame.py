@@ -49,4 +49,5 @@ def ReadRevFrame(
             RawValue.x * Multiplier, RawValue.y * Multiplier, RawValue.z * Multiplier
         ),
         RawValue,
+        FrameValue,
     )

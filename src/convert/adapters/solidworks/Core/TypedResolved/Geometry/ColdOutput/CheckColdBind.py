@@ -4,8 +4,8 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.CheckBrepOwners im
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutput import (
     ColdOutput,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismGeometry import (
-    PrismGeometry,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
+    PartGeometry,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from interchange.document.Models.DocumentModel import CadDocument
@@ -13,7 +13,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # labels cannot substitute for the complete independently validated body and its actual final feature ownership
 def CheckColdBind(
-    Document: CadDocument, GeometryValue: PrismGeometry, OutputValue: ColdOutput
+    Document: CadDocument, GeometryValue: PartGeometry, OutputValue: ColdOutput
 ) -> None:
     ModelValue = Document.brep
     if (

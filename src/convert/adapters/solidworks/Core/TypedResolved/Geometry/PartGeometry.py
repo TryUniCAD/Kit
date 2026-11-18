@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutp
 
 # generated neutral geometry must remain distinct from absent native payload bytes and persisted kernel identities
 @DataClass(frozen=True, slots=True)
-class PrismGeometry:
+class PartGeometry:
     BrepValue: BrepModel
     TopologyValue: TopologyCounts
     EvidenceValue: Mapping[str, object]

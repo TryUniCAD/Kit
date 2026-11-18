@@ -8,8 +8,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.BuildPocketShell import (
     BuildPocketShell,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismGeometry import (
-    PrismGeometry,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
+    PartGeometry,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismPlan import PrismPlan
 from interchange.geometry.Models.GeometryCurves import CircleGeometry
@@ -25,7 +25,7 @@ def BuildCircularCut(
     CutBounds: tuple[float, float],
     BodyId: str,
     PrefixValue: str,
-) -> PrismGeometry:
+) -> PartGeometry:
     OpenCaps = tuple(
         IndexValue
         for IndexValue, (StockCap, ToolCap) in enumerate(
@@ -72,4 +72,4 @@ def BuildCircularCut(
         bounding_box=Bounds,
         valid=True,
     )
-    return PrismGeometry(ModelValue, Topology, PlanValue.EvidenceValue)
+    return PartGeometry(ModelValue, Topology, PlanValue.EvidenceValue)

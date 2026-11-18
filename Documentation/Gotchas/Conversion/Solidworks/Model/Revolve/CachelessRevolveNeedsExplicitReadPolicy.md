@@ -1,9 +1,7 @@
-# A cache-free revolve semantic read does not establish default geometry support
+# A cache-free revolve needs a qualified geometry path
 
-The generated rectangular revolve contains its complete typed feature, angle and selected sketch-axis owners, but no transmitted Parasolid partition. A normal strict read with `include_brep=False` and `include_tessellation=False` exposes the linked `AngularRevolve` correctly. A default strict read still raises `SldprtFormat: SLDPRT contains no readable Parasolid payload`.
+The first generated rectangular revolve carried complete typed feature, angle and sketch-axis ownership and omitted the Parasolid cache. The strict semantic-only reader exposed the live angle and axis. The default geometry route still failed on the missing stored payload.
 
-The separate analytic sweep used in the source-only proof is a validated neutral B-rep. It is not a stored native payload and is not attached to the generated file. Do not claim native geometry acceptance from that detached solid, and do not add an experimental generic partition to silence the reader error. The independently measured partition attachment still has a distinct warning-32 admission failure.
+The current default reader reconstructs the measured closed solid after the linked graph proves a single ordinary rectangular revolve, the actual selected line and a valid one-sided angular interval. A recognized stored payload takes the ordinary cache reader. The normal geometry option can also be disabled to return the portable feature history alone. [Cache-free geometry change](../../../../../Changes/Solidworks/Reading/Parts/SolidworksCacheFreeRevolveGeometry.md)
 
-Keep the geometry policy explicit while examining the typed semantic construction. Qualify any future strict cache-free revolve reconstruction separately, using complete owner and feature inventory guards. Let the native oracle independently measure load, body geometry, driving edit and save/reopen before writer promotion.
-
-[SDK revolve prototype and exact source-only evidence](../../../../../../re/solidworks/records/SdkRevolveConstruction2026.md) · [Prior partition-open diagnosis](../../../../../../re/solidworks/records/PrismPartitionOpen2026.md)
+The earlier generated partition attachment exhibited warning 32 on native open. Keep native cache attachment qualification separate from analytic reconstruction of an absent cache. [Prior partition-open diagnosis](../../../../../../re/solidworks/records/PrismPartitionOpen2026.md)

@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPublicGeom imp
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckGeometryState import (
+    CheckGeometryState,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismMgr import (
     CheckPrismMgr,
 )
@@ -34,28 +37,7 @@ def CheckPrismScope(
     ModelValue: NativeModel,
     ColdValue: ColdOutput | None = None,
 ) -> Mapping[int, ArchiveNode]:
-    Reports = (
-        LinkValue.ConfigValue.ReportValue,
-        LinkValue.ResolvedValue.ReportValue,
-        ManagerValue.ReportValue,
-    )
-    if any(
-        not Report.get("completed")
-        or Report.get("missing_schemas")
-        or Report.get("provisional_schemas")
-        for Report in Reports
-    ):
-        raise ValueError(
-            "cache free prism requires complete nonprovisional native grammar"
-        )
-    if (
-        ModelValue.active_configuration_id != 0
-        or len(ModelValue.configurations) != 1
-        or ModelValue.equations
-    ):
-        raise ValueError(
-            "cache free prism has unsupported configuration or equation intent"
-        )
+    CheckGeometryState(LinkValue, ManagerValue, ModelValue)
     ColdAtom = None if ColdValue is None else ColdValue.AtomValue
     NodesValue = PrismNodes(LinkValue, ManagerValue, ColdAtom)
     Features = IndexFeatures(LinkValue)

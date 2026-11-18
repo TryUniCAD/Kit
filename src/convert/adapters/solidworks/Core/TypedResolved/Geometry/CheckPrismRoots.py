@@ -9,7 +9,11 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsL
 
 # a single visible extrusion is insufficient unless the complete resolved inventory contains only the ordinary system and its one profile
 def CheckPrismRoots(
-    Features: Mapping[int, ArchiveNode], NodesValue: tuple[ArchiveNode, ...]
+    Features: Mapping[int, ArchiveNode],
+    NodesValue: tuple[ArchiveNode, ...],
+    *,
+    SolidClass: str = "moExtrusion_c",
+    RequiredClasses: tuple[str, ...] = ("moEndSpec_c", "moFromEndSpec_c"),
 ) -> None:
     CountsValue = Counter(
         NodeValue.ClassValue.NameValue for NodeValue in Features.values()
@@ -20,7 +24,7 @@ def CheckPrismRoots(
             "moDetailCabinet_c",
             "moOriginProfileFeature_c",
             "moProfileFeature_c",
-            "moExtrusion_c",
+            SolidClass,
         },
         1,
     )
@@ -32,10 +36,9 @@ def CheckPrismRoots(
     for ClassName in (
         "moPart_c",
         "moProfileFeature_c",
-        "moExtrusion_c",
+        SolidClass,
         "moOriginProfileFeature_c",
-        "moEndSpec_c",
-        "moFromEndSpec_c",
+        *RequiredClasses,
     ):
         if (
             sum(NodeValue.ClassValue.NameValue == ClassName for NodeValue in NodesValue)
@@ -71,11 +74,11 @@ def CheckPrismRoots(
         if Fields.get("has_list68") != 0 or Fields.get("f78") is not None:
             raise ValueError("cache free prism has extra concept ownership")
         if (
-            NodeValue.ClassValue.NameValue != "moExtrusion_c"
+            NodeValue.ClassValue.NameValue != SolidClass
             and Fields.get("f28") != 0x40000000
         ):
             raise ValueError("cache free prism has alternate feature flags")
-        if NodeValue.ClassValue.NameValue != "moExtrusion_c" and not IsLineState(
+        if NodeValue.ClassValue.NameValue != SolidClass and not IsLineState(
             Fields.get("f60")
         ):
             raise ValueError("cache free prism has additional feature dependencies")

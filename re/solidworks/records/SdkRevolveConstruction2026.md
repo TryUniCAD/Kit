@@ -62,7 +62,7 @@ The parent-run protocol expects ten distinct native processes: a healthy control
 
 1. These four exact SDK-generated files pass the controlled disclosed native batch. Original-source equivalence requires separate evidence.
 2. Original held-out inputs and observations remain sealed. No held-out or full-document conversion credit is claimed.
-3. Default strict SDK geometry reads still reject the absent Parasolid payload with `SLDPRT contains no readable Parasolid payload`. The typed no-geometry semantic path succeeds. A detached validation B-rep does not change this production boundary.
+3. The four exact generated files now read with their validated analytic B-rep by default. Other cache-free profiles still require separate geometry qualification. [Strict geometry evidence](../measurements/2026/SdkColdRevolveGeometry01.json)
 4. Arbitrary profiles, arbitrary/skew/cross-sketch axes, non-Front supports, two-direction/other end conditions, cuts/thin mode, additional features, tolerances, appearance parity, explicit body naming and solver-status parity remain unqualified.
 5. Public writer selection stays closed and is verified to reject this neutral revolve before publishing bytes.
 
@@ -70,8 +70,8 @@ The [CAD success criteria](../../../Documentation/Reference/Operations/CadSucces
 
 ## Measured native edit and save
 
-The [native lifecycle receipt](../measurements/2026/SdkOrdinaryRevolveNative01.json) records 340 candidate comparisons, four angle edits, four saves and four fresh reopens. All ten processes use SOLIDWORKS \`34.5.2.0604\` and the recorded executable hash. The original full-turn and partial-direction designs are independently generated. Each checked state has one solid, a clean 25-row tree, the live angle, the distinct construction axis and four contour relations.
+The [native lifecycle receipt](../measurements/2026/SdkOrdinaryRevolveNative01.json) records 340 candidate comparisons, four angle edits, four saves and four fresh reopens. All ten processes use SOLIDWORKS `34.5.2.0604` and the recorded executable hash. The original full-turn and partial-direction designs are independently generated. Each checked state has one solid, a clean 25-row tree, the live angle, the distinct construction axis and four contour relations.
 
-[QualifyRevolveLifecycle01](../../tooling/sw2026/revolve/Construction/QualifyRevolveLifecycle01.py) validates the 40 immutable packet files, eight exact persisted native phase records and four saved artifacts. It compares volume and area at relative tolerance \`1e-6\` and centre coordinates at the same relative tolerance with \`1e-12 m\` absolute tolerance.
+[QualifyRevolveLifecycle01](../../tooling/sw2026/revolve/Construction/QualifyRevolveLifecycle01.py) validates the 40 immutable packet files, eight exact persisted native phase records and four saved artifacts. It compares volume and area at relative tolerance `1e-6` and centre coordinates at the same relative tolerance with `1e-12 m` absolute tolerance.
 
 The host transport reached its no-progress timeout while monitoring the wrong basename. Its terminal host status and the later passing native report retain separate hashes. The recovery inventory confirms that the VM is idle with the original license processes. Future batches can explicitly select their checkpoint filename. [Watchdog configuration](../../../Documentation/Changes/Solidworks/Inspection/Oracle/SolidworksOracleProgressNames.md)

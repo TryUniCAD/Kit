@@ -372,6 +372,7 @@ def ReadNativePart(
         Messages = {
             "typed_parametric_blind_circular_pocket": "B-rep reconstructed from the typed rectangular boss and blind circular cut",
             "typed_parametric_through_all_circular_cut": "B-rep reconstructed from the typed rectangular stock and through-all circular cut",
+            "typed_parametric_ordinary_revolve": "B-rep reconstructed from the typed rectangle, selected revolve axis and live angle",
         }
         PayloadDiags = (
             DiagValue(
@@ -474,6 +475,15 @@ def ReadNativePart(
     DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive), Archive)
     DocValue = WithCutSelection(DocValue)
     DocValue = WithRevolveDoc(DocValue, Archive, Model.active_configuration_id)
+    if (
+        DerivedValue is not None
+        and DerivedValue.EvidenceValue.get("method")
+        == "typed_parametric_ordinary_revolve"
+        and "solidworks.typed_revolve_semantics" not in DocValue.metadata
+    ):
+        raise SldprtFormatError(
+            "reconstructed revolve lacks its complete parametric projection"
+        )
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(DocValue, DataValue)

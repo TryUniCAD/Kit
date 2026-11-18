@@ -1,5 +1,6 @@
 from dataclasses import dataclass as Dataclass
 
+from interchange.geometry.Models.Transform import Transform
 from interchange.geometry.Models.VectorSpace import SpaceVector
 
 
@@ -10,3 +11,4 @@ class RevolveAxis:
     EndValue: SpaceVector
     DirectionValue: SpaceVector
     RawDirection: SpaceVector
+    SupportValue: Transform

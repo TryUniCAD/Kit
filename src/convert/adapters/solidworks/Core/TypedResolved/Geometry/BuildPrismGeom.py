@@ -1,6 +1,6 @@
 from convert.Geometry.Extrude.Polygon.PolygonExtrude import BuildPrism
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismGeometry import (
-    PrismGeometry,
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
+    PartGeometry,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismPlan import PrismPlan
 from interchange.Records.RecordTopology import TopologyCounts
@@ -12,7 +12,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutp
 # an existing analytic topology builder supplies validated solid geometry without emitting or attaching a native cache
 def BuildPrismGeom(
     PlanValue: PrismPlan, BodyId: str, ColdValue: ColdOutput | None = None
-) -> PrismGeometry:
+) -> PartGeometry:
     ModelValue, VolumeValue, AreaValue, BoundsValue = BuildPrism(
         BodyId, PlanValue.FrameValue, PlanValue.LinesValue, 0.0, PlanValue.DepthValue
     )
@@ -29,4 +29,4 @@ def BuildPrismGeom(
         bounding_box=BoundsValue,
         valid=True,
     )
-    return PrismGeometry(ModelValue, TopologyValue, PlanValue.EvidenceValue, ColdValue)
+    return PartGeometry(ModelValue, TopologyValue, PlanValue.EvidenceValue, ColdValue)

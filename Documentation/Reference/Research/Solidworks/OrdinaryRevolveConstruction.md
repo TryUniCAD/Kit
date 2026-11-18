@@ -14,7 +14,7 @@ Use the frozen source snapshot and tool manifests for an independent process rep
 
 The private freeze must contain `Code01`, `Baseline01`, `Tools02`, `CodeSource01.json`, `Baseline01Source.json`, `ToolsSourceFinal02.json` and `Specs01.json`. The runner verifies complete membership and hashes before starting. It builds four designs in paired fresh processes, rejects 18 unsupported neutral inputs and compares two existing polygon outputs with the unchanged published base. It publishes `BuildProof.json`, generated files, individual stream receipts and independent source predictions. It performs no CAD automation and reads no original held-out input.
 
-For semantic inspection, use the normal SDK reader with `source_format='solidworks.sldprt'`, `strict=True`, `include_brep=False` and `include_tessellation=False`. Default strict geometry reads still require a readable Parasolid payload for this family. The independent closed analytic B-rep used in validation is not a transmitted payload.
+The normal strict SDK reader builds a closed neutral solid from the verified typed sketch and live angle on the measured cache-free profile. For semantic inspection use `include_brep=False` and `include_tessellation=False`. [Default readback evidence](../../../../re/solidworks/measurements/2026/SdkColdRevolveGeometry01.json)
 
 The separately frozen native packet passes ten processes with healthy controls. Its saved files retain the full tree, selected construction axis and edited angle across fresh reopens. The host lifecycle adjudicator verifies the exact packet, native phases and later idle inventory. The original-source comparison remains open. [Native receipt](../../../../re/solidworks/measurements/2026/SdkOrdinaryRevolveNative01.json)
 
