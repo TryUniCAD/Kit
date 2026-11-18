@@ -47,6 +47,7 @@ def ReadPrismLoop(ProfileValue: ArchiveNode, LinkValue: NativeLink) -> LineLoop:
         len(LoopValue.PointsValue) != 4
         or len(LoopValue.LinesValue) != 4
         or LoopValue.RetiredRows
+        or LoopValue.RetiredPointRows
         or LoopValue.RegionValues
     ):
         raise ValueError("cache free prism requires one fresh four line contour")

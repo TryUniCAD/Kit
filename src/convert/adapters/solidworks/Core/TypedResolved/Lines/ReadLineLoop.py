@@ -39,15 +39,23 @@ def ReadLineLoop(
                 "typed origin point must remain outside the four vertex contour"
             )
         PointRows = PointRows[:4]
-    PointsValue = tuple(
+    ParsedPoints = tuple(
         ReadLinePoint(RowValue, Index, References.get(("point", Index), 0))
         for Index, RowValue in enumerate(PointRows)
+    )
+    PointsValue = {
+        Point.IndexValue: Point for Point in ParsedPoints if Point.CreationId > 0
+    }
+    RetiredPointRows = tuple(
+        {"array_index": Point.IndexValue, "native_fields": Point.FieldsValue}
+        for Point in ParsedPoints
+        if Point.CreationId == -1
     )
     LineRows = NativeRows(FieldsValue.get("lines"))
     LinesValue, RetiredRows = ReadLiveLines(LineRows, References)
     Regions = ReadLineRegions(SketchValue, LinesValue, LinkValue)
     CheckLineScope(FieldsValue, DimsValue is not None, bool(Regions))
-    if FieldsValue.get("npoints") != len(PointsValue) + ExtraCount or FieldsValue.get(
+    if FieldsValue.get("npoints") != len(PointRows) + ExtraCount or FieldsValue.get(
         "nlines"
     ) != len(LineRows):
         raise ValueError("typed line ring counts disagree with owned rows")
@@ -59,4 +67,5 @@ def ReadLineLoop(
         DimsValue,
         RetiredRows,
         Regions,
+        RetiredPointRows,
     )

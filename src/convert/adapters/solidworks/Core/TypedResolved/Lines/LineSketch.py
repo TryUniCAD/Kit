@@ -68,6 +68,11 @@ def LineSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
                     else {}
                 ),
                 **(
+                    {"native_retired_point_rows": LoopValue.RetiredPointRows}
+                    if LoopValue.RetiredPointRows
+                    else {}
+                ),
+                **(
                     {"native_line_regions": LoopValue.RegionValues}
                     if LoopValue.RegionValues
                     else {}
@@ -91,7 +96,7 @@ def LineSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
                             for Handle in Point.HandlesValue
                         ),
                     }
-                    for Point in LoopValue.PointsValue
+                    for Point in LoopValue.PointsValue.values()
                 ),
             }
         ),

@@ -1,3 +1,5 @@
+from collections.abc import Mapping
+
 from convert.adapters.solidworks.Core.TypedResolved.Lines.CheckHandles import (
     CheckHandles,
 )
@@ -10,7 +12,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSegment import Lin
 
 # exact degree and handle joins must establish one closed ring before public loop identities are emitted
 def LineOrder(
-    PointsValue: tuple[LinePoint, ...], LinesValue: tuple[LineSegment, ...]
+    PointsValue: Mapping[int, LinePoint], LinesValue: tuple[LineSegment, ...]
 ) -> tuple[int, ...]:
     Incident = LineIncidence(PointsValue, LinesValue)
     CheckHandles(PointsValue, Incident)

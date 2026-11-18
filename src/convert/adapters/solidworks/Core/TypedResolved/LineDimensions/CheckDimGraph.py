@@ -38,6 +38,8 @@ def CheckDimGraph(LoopValue: LineLoop, DimsValue: LineDims) -> None:
         raise ValueError(
             "typed origin coincidence does not meet its actual contour corner"
         )
+    if not Drivers:
+        return
     if (
         len({Driver.NameValue for Driver in Drivers}) != 2
         or len({Driver.NodeValue.FieldsValue["f50"] for Driver in Drivers}) != 2

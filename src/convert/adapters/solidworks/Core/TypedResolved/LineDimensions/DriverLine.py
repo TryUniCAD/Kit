@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSegment import Lin
 def DriverLine(DriverValue: LineDriver, LoopValue: LineLoop) -> LineSegment:
     PointValues = DriverValue.PointValues
     if len(set(PointValues)) != 2 or any(
-        not 0 <= Index < len(LoopValue.PointsValue) for Index in PointValues
+        Index not in LoopValue.PointsValue for Index in PointValues
     ):
         raise ValueError("typed rectangle distance has invalid point references")
     Matches = tuple(

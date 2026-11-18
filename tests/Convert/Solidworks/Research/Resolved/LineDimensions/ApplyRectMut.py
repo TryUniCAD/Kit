@@ -10,6 +10,9 @@ from tests.Convert.Solidworks.Research.Resolved.LineDimensions.AlterDimOwner imp
 from tests.Convert.Solidworks.Research.Resolved.LineDimensions.ExtendDimsMut import (
     ExtendDimsMut,
 )
+from tests.Convert.Solidworks.Research.Resolved.LineDimensions.StockSlotMut import (
+    StockSlotMut,
+)
 
 
 # generated archive variants isolate actual owner failures from stale searchable keyword values and conditional handle encodings
@@ -35,5 +38,7 @@ def ApplyRectMut(
         )
     elif ModeValue == "extended-handles":
         ExtendDimsMut(SketchValue)
+    elif ModeValue.startswith("stock-"):
+        StockSlotMut(SketchValue, ModeValue)
     else:
         AlterDimOwner(SketchValue, OtherSketch, ModeValue)

@@ -34,13 +34,15 @@ def ReadLineDims(SketchValue: ArchiveNode, LinkValue: NativeLink) -> LineDims:
     AxesValue = ReadDimRows(FieldsValue, "nlog1", "log_g1")
     DisplayList = RequireNative(FieldsValue.get("f118"), "suObList")
     Displays = NativeRows(DisplayList.FieldsValue.get("items"))
+    DriverCount = len(Values)
     if (
-        len(Values) != 2
+        DriverCount not in (0, 2)
+        or (OriginValue is not None and DriverCount != 2)
         or len(AxesValue) != 4
-        or len(Displays) != 2
-        or DisplayList.FieldsValue.get("n") != 2
+        or len(Displays) != DriverCount
+        or DisplayList.FieldsValue.get("n") != DriverCount
     ):
-        raise ValueError("typed rectangle requires two drivers and four owned axes")
+        raise ValueError("typed rectangle has unqualified drivers or owned axes")
     DriverValues = tuple(
         ReadLineDriver(
             RowValue,

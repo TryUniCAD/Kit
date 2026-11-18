@@ -48,7 +48,7 @@ def BindLineLoop(
                 "line-loop",
                 tuple(
                     Coordinate
-                    for Point in LoopValue.PointsValue
+                    for Point in LoopValue.PointsValue.values()
                     for Coordinate in Point.PositionValue
                 ),
                 (),
