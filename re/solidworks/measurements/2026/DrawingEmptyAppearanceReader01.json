@@ -367,5 +367,26 @@
   "stopping_conditions": [
     "The first is success under every criterion on this page.",
     "The second is the end of the available context."
-  ]
+  ],
+  "appearance_shape_validation_replay": {
+    "prior_receipt_sha256": "a58b19b581326e1e45dabd6b0f35e5ec6b3155a17d8800348913a3736f47ced0",
+    "reader_manifest_sha256": "f2ed9763541e932998a0f6f1fd44631e707267b1af3edf9c4f7e519e1ff737de",
+    "integration_boundary": "present appearance flag without a manager fails with a typed unsupported result",
+    "source_file_sha256": {
+      "src/convert/adapters/solidworks/Drawing/Definition/Appearance/NeedAppearEmpty.py": "58be3f79aec72e35e3d568a6d217917fd253d28d89f1c76f0e63c6be41b98726",
+      "src/convert/adapters/solidworks/Drawing/Definition/Appearance/ReadAppearCount.py": "87baf7ca85d6cade17e968c55e259adfb47e207778c55a1191d05c94a8aa0fce",
+      "src/convert/adapters/solidworks/Drawing/Definition/Appearance/ReadAppearState.py": "6ffdc469f165dd2ed515d89fcf7f98ac915dd1227e3ffe73b1b6a853e9562b9b",
+      "tests/Convert/Solidworks/Research/Drawing/Definition/RunDefReject.py": "ab7e7159157ce50d2146268bd1ad91f240e62e575290961e260668288ae770ab"
+    },
+    "counter_process": {
+      "report_sha256": "bc76842299dcbc66ed0ec1d24397fab72e61a7345564eafa781b465708a4a366",
+      "counter_cases": 4,
+      "rejected_cases": 15
+    },
+    "original_root_process": {
+      "report_sha256": "89063a943ff99b9ece6b4efc811e96c534ada9119dcd39e25b3b28284b5a69b7",
+      "source_byte_round_trips": 2,
+      "retained_strict_source_rejections": 2
+    }
+  }
 }

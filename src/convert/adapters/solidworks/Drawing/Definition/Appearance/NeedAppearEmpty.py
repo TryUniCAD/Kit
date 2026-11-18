@@ -6,8 +6,8 @@ from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsup
 
 # populated or inconsistent appearance references need projection before they can be admitted
 def NeedAppearEmpty(FieldsValue: Mapping[str, object]) -> None:
-    CountValue = FieldsValue["n"]
-    RowsValue = FieldsValue["items"]
+    CountValue = FieldsValue.get("n")
+    RowsValue = FieldsValue.get("items")
     if (
         type(CountValue) is not int
         or CountValue != 0

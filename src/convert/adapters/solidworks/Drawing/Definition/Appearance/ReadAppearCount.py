@@ -12,6 +12,6 @@ def NeedAppearLong(Value: object) -> int:
 
 # allocation history survives semantic reading without replacement by a fresh constructor seed
 def ReadAppearCount(FieldsValue: Mapping[str, object]) -> int:
-    LowValue = NeedAppearLong(FieldsValue["f08"])
-    HighValue = NeedAppearLong(FieldsValue["f0c"])
+    LowValue = NeedAppearLong(FieldsValue.get("f08"))
+    HighValue = NeedAppearLong(FieldsValue.get("f0c"))
     return (LowValue & 0xFFFFFFFF) | ((HighValue & 0xFFFFFFFF) << 32)

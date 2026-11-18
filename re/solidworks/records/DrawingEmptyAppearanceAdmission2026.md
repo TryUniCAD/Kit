@@ -36,6 +36,8 @@ The [sanitized receipt](../measurements/2026/DrawingEmptyAppearanceReader01.json
 
 AST, Black, Ruff, strict Mypy, strict Pyright, steering, and donor checks pass on the six SDK paths. The worker performed static checks only; root ran the actual SDK processes. No VM, CAD application, service, license process, source CAD file mutation, saved-file fallback, or new public mode is involved.
 
+The integrated appearance guard also rejects missing manager fields, missing reference rows and missing counter halves with a typed unsupported result. The public-process definition test retains the missing-manager rejection. The subsequent candidate04 replay preserves all four counter cases, fifteen rejected cases and both original raw streams. Both original normal reads still reach the root and link-cache guard. Its exact source and report hashes are recorded in the receipt.
+
 The reused original-context inspector's raw `reader_delta_paths` list is historical instrumentation metadata, not this tranche's complete inventory. The frozen source manifest and delivery manifest establish the actual five new modules plus one changed checker. The raw report is preserved unchanged.
 
 ## Remaining work and stopping conditions

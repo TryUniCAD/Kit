@@ -32,6 +32,7 @@ def RunDefReject(ProbeName: str) -> None:
         ErrorText in Outcome.stderr
         for ErrorText in (
             "blank drawing Definition",
+            "drawing appearance state requires an embedded mapping",
             "unsupported SOLIDWORKS body class",
             "sheet body",
         )

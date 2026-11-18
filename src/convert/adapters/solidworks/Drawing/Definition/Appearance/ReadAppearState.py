@@ -25,12 +25,12 @@ def ReadAppearState(Document: ArchiveNode, VersionValue: int) -> AppearanceState
     ):
         raise BodyUnsupported("drawing appearance state requires current ui ownership")
     FieldsValue = Document.FieldsValue
-    PresenceValue = FieldsValue["has_pwmaterial"]
+    PresenceValue = FieldsValue.get("has_pwmaterial")
+    if type(PresenceValue) is not int or PresenceValue not in (0, 1):
+        raise BodyUnsupported("drawing appearance presence is outside the profile")
     if PresenceValue == 0:
         return AppearanceState(False, 1)
-    if not isinstance(PresenceValue, int) or PresenceValue != 1:
-        raise BodyUnsupported("drawing appearance presence is outside the profile")
-    ManagerValue = NeedAppearMap(FieldsValue["f1110"])
-    References = NeedAppearMap(ManagerValue["list"])
+    ManagerValue = NeedAppearMap(FieldsValue.get("f1110"))
+    References = NeedAppearMap(ManagerValue.get("list"))
     NeedAppearEmpty(References)
     return AppearanceState(True, ReadAppearCount(ManagerValue))
