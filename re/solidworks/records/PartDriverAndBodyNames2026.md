@@ -6,7 +6,36 @@ trial, the generated body uses the creating feature's implicit label
 currently retained in literal text and typed parameter bindings. The exact
 2026 bodies below identify where direct names belong.
 
-## Kernel body name
+## Native saved body name
+
+Both independently authored source files preserve their explicit body label,
+three actual driver names and an unrelated depth edit after fresh reopen.
+The corner rectangle uses `Body` and `Length`, `Width`, `Height`. The
+centered rectangle uses `Centered Solid` and `Span`, `Rise`, `Thickness`.
+The six native processes include two healthy controls. All four baseline and
+named Config-0 partitions decode and re-emit with exact byte identity.
+
+Both named partitions attach `SDL/TYSA_NAME` to the actual kind-12 body.
+The attribute uses a kind-80 definition with type ID 8017 and a single
+kind-3 field. Its value is a kind-84 character vector whose byte count follows
+the name. The current partition rollback deletes the character value when
+the body is removed. The four additional active nodes are the identifier,
+definition, attribute and character value. The baseline uses the feature's
+implicit body label.
+
+The named `gcBody_w::setName` export is the same entry as
+`gcTopEnt_w::setName` at `0x438a43b0`. The complete range
+`[0x438a43b0,0x438a4482)` hashes to
+`18da9acd71b2d65a5cb33ed928a837a1dd3026752fb8dabdcc9a31dadee647c3`.
+Its attribute definition lookup points at the `SDL/TYSA_NAME` literal at
+`0x43f69488`. It converts the input through `WideCharToMultiByte` using
+thread code page 3 and writes field zero. The decoded and observed text here
+is ASCII. Wider name encoding needs further qualification.
+
+[Name ownership receipt](../measurements/2026/SdkPartNamingArchive01.json)
+[Independent typed partition inspection](../../tooling/sw2026/InspectPartNamedArchive.py)
+
+## Separate internal name setter
 
 In `sldgcu.dll` the explicit `gcBody_w::setSWBodyName` export shares the
 name-writing entry at `0x438a4490` with a face wrapper. Its complete range
@@ -27,8 +56,8 @@ literal at `0x330b85f8` with three zero option arguments. The ordinary
 constructor `0x32f9cb60` passes five owner classes
 `5006, 5004, 5003, 5002, 2003` and two character fields to its
 attribute-definition builder. The measured setter addresses field zero.
-Observed serialized use of the second field and the full persisted body
-relationship remain to be checked on independently renamed native inputs.
+The two disclosed `IBody2.Name` saves carry the separate native saved body
+name above. The internal setter's persistence semantics remain unqualified.
 
 The exact bridge digests are
 `77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594`
@@ -45,8 +74,11 @@ The pinned `sldmodu.dll` export `Dimension_c::setParameterName` at
 `moParameter_c::setName` at `0x4c19c9b0`. The latter delegates the
 string assignment to `0x4b555250`, which constructs or updates the actual
 name-holder pointer at object offset `0x18`. The setter also checks a
-resource-derived special name before applying a flag. The ordinary custom
-name proof still needs the two native-save differentials.
+resource-derived special name before applying a flag. Both save differentials
+bind each ordinary custom name to its `moLengthParameter_c.f18`
+`moNodeName_c` holder. The first two parameters are owned by the sketch
+dimensions. The third belongs to the extrusion's primary end. The lengths,
+unset alternate references and scalar flags retain their measured values.
 
 The module SHA-256 is
 `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`.
@@ -66,6 +98,6 @@ and the exact frozen source hashes are mandatory.
 
 The frozen disclosed packet hash is
 `8d87b77a9cfddf4fd286c0d32626a886f27f332287e7008679641399be63bcc7`.
-This records static ownership and a source-only experiment. Production
-construction, the generated FreeCAD body's source label and held-out name
-qualification remain open.
+This is a disclosed source-only measurement. Production construction, the
+generated FreeCAD body's source label and held-out name qualification remain
+open.

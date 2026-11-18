@@ -138,6 +138,7 @@ SCHEMAS = {
     ),
     82: schema("INT_VALUES", "values:d*1"),
     83: schema("REAL_VALUES", "values:f*1"),
+    84: schema("CHAR_VALUES", "values:c*1"),
     98: schema("UNICODE_VALUES", "values:w*1"),
     101: Schema("WORLD", shared_fields(BASE_WORLD), shared_fields(WORLD)),
 }
