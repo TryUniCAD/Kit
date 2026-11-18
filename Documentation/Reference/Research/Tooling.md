@@ -15,6 +15,10 @@ Use the tools below for new format discovery, decompilation, tracing, and contro
 
 ## Tool map
 
+The [Fusion planner catalogue](FusionPlannerCatalog.md) supplies indexed API, command, native-schema and recipe inventories.
+Its SQLite bundle can be read without Fusion or a vendor runtime.
+Inventory presence does not establish authoring or conversion support.
+
 | Location              | Purpose                                | Required context                       |
 | --------------------- | -------------------------------------- | -------------------------------------- |
 | `re/tooling/ghidra/`  | Static analysis and decompilation      | Exact binary hash and analysis project |
