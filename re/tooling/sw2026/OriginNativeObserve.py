@@ -158,6 +158,13 @@ def observe(author, model, case, native_path, edited, moved, initial=False):
     wanted = predict(case, edited, moved)
     request = {"orientation": wanted["view"]["orientation"], "position_m": wanted["view"]["position_m"], "scale": wanted["view"]["scale"]}
     state = drawing_snapshot(author, model, drawing, request, Path(case["paths"]["child"]), 0)
+    author.rec.data.setdefault("origin_drawing_observations", []).append({
+        "native_path": str(native_path), "edited_child": edited, "moved_view": moved, "initial_observation": initial,
+        "actual": state, "expected": wanted,
+        "projection_policy": "preserve the constructed model-to-view frame; project the actual edited child bounds; translate the frame only by the declared view move",
+        "post_rebuild_frame_preservation_previously_qualified": False,
+    })
+    author.rec.flush()
     compare_states(author, state, wanted)
     require(state["view"]["name"] == wanted["view"]["name"], "native view changed its authored feature identity")
     tree = author.feature_tree(required_names=())

@@ -38,12 +38,14 @@ def predict(case, edited=False, moved=False):
     width, height, depth = (part[name] for name in ("width_m", "height_m", "depth_m"))
     xs, ys = zip(*points, strict=True)
     center = [(min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2, depth / 2]
+    original_x, original_y = zip(*vertices(case, False), strict=True)
+    frame_center = [(min(original_x) + max(original_x)) / 2, (min(original_y) + max(original_y)) / 2, case["part"]["depth_m"] / 2]
     matrix = rotation(case["view"]["orientation"])
     scale = case["view"]["scale"]
     position = list(case["view"]["position_m"])
     if moved:
         position = [value + delta for value, delta in zip(position, case["edit"]["view_move_m"], strict=True)]
-    translation = [value - scale * transformed for value, transformed in zip([*position, 0.], rotate(matrix, center), strict=True)]
+    translation = [value - scale * transformed for value, transformed in zip([*position, 0.], rotate(matrix, frame_center), strict=True)]
     projected = [[scale * value + offset for value, offset in zip(rotate(matrix, corner), translation, strict=True)]
                  for corner in product((min(xs), max(xs)), (min(ys), max(ys)), (0., depth))]
     margin = min(case["sheet"]["width_m"], case["sheet"]["height_m"]) * .02
