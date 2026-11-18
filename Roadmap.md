@@ -6,7 +6,7 @@ The next product milestone is a measured, editable SOLIDWORKS ↔ Fusion convers
 
 Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) for task IDs, ownership, dependencies, open PRs and completion evidence.
 That register is the entry point for available work.
-PR #94's step register remains authoritative for its research programme.
+[PR #158](https://github.com/TryUniCAD/Kit/pull/158) supersedes PR #94 and maintains the research step register.
 Read the linked PR and its current head before claiming a task.
 
 ## Current position
@@ -57,7 +57,7 @@ Choosing that matrix is backlog task B01, not permission to discard required sou
 | Milestone                                 | Work and dependencies                                                                                                | Evidence required to finish                                                                                                               |
 | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | M0: establish the baseline                | B01 records file types, versions, features, fixtures and directional routes. Maintain this roadmap and PR ownership. | Every family and intended route has a supported, unsupported or unverified entry with evidence and an owner.                              |
-| M1: qualify the first paired designs      | B02 closes PR #94's independent source evidence and semantic qualification.                                          | Qualified initial sketches, bosses and cuts preserve every required relation. Reserved holdouts remain independent.                       |
+| M1: qualify the first paired designs      | B02 qualifies the paired designs using independent source evidence on PR #158.                                          | Qualified initial sketches, bosses and cuts preserve every required relation. Reserved holdouts remain independent.                       |
 | M2: deliver the first editable conversion | B03–B05 compare graphs, prove field rules, build portable writers and validate both directions.                      | SOLIDWORKS → neutral → Fusion and Fusion → neutral → SOLIDWORKS pass the public SDK and all applicable CAD criteria.                      |
 | M3: cover ordinary part histories         | B06 expands sketches, references, operations, geometry and historical schemas. Integrate B08's existing format work. | Each feature/version extension has held-out, editable target acceptance. No required native semantics remain opaque on a supported route. |
 | M4: cover complete documents              | B07 adds assemblies, mates, configurations, external references and drawings.                                        | Component resolution, placements, constraints, variants, dimensions and model links survive conversion and edits.                         |
@@ -72,13 +72,11 @@ Label each release with its actual supported matrix and remaining roadmap gaps.
 
 ## Next action
 
-Continue **B02 on PR #94**, rather than starting another Fusion decoder PR.
-Its inspected register still requires fresh native Fusion readback for the pinned P01, P03 and P04 discovery captures.
-The captures cover rectangular sketches, blind bosses and cuts.
-Record exact source hashes, native observations, load/rebuild errors and the control results.
-Use the observations to address the remaining A02d, A04c and A05c requirements before qualifying A06 graph comparisons.
-P05 remains reserved for independent holdout acceptance.
-Licensed application access is a prerequisite for this evidence, not a production conversion dependency.
+Continue **B02** using the [step register on PR #158](https://github.com/TryUniCAD/Kit/blob/8509332301a665bf0e618f00089e185c8c3c7cd3/Documentation/Reference/Research/AutomationSteps.md).
+PR #94 reported native Fusion observations for P01–P04.
+Check those observations against the pinned source captures before accepting them as independent evidence for A02d.
+Use the accepted evidence to qualify the sketches, bosses and cuts in A04c and A05c before comparing graphs in A06.
+Keep P05 reserved for independent validation.
 
 The next independent task outside that programme is **B01: publish the supported version and route matrix**.
 It can proceed while native evidence is unavailable.
