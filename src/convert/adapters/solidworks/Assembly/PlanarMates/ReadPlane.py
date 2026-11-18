@@ -18,11 +18,13 @@ def ReadVector(VectorValue: object) -> tuple[float, float, float]:
 
 
 # detached fallback geometry must not stand in for the actual selected child plane
-def ReadPlane(Wrapper: ArchiveNode, MateId: int, OrderValue: int) -> ArchiveNode:
+def ReadPlane(
+    Wrapper: ArchiveNode, MateId: int, OrderValue: int, NextWrapperId: int
+) -> ArchiveNode:
     Fields = Wrapper.FieldsValue
     if (
         FieldInt(Fields, "f74") != MateId
-        or FieldInt(Fields, "f78") != OrderValue
+        or not 0 <= FieldInt(Fields, "f78") < NextWrapperId
         or FieldInt(Fields, "f7c") != OrderValue
     ):
         raise ValueError("the resolved plane wrapper has inconsistent ownership")

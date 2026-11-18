@@ -25,7 +25,8 @@ def ReadEndpoint(
     Context: PlanarContext, WrapperValue: object, MateId: int, OrderValue: int
 ) -> PlanarEndpoint:
     Wrapper = RequireNode(WrapperValue, "moPlaneRef_w")
-    Plane = ReadPlane(Wrapper, MateId, OrderValue)
+    NextWrapperId = FieldInt(Context.ModelNode.FieldsValue, "fd48")
+    Plane = ReadPlane(Wrapper, MateId, OrderValue, NextWrapperId)
     Occurrence = ReadChain(Context.ModelNode, Plane)
     FeatureId = FieldInt(Occurrence.FieldsValue, "f08")
     ItemValue = Context.OccurrenceMap.get(FeatureId)

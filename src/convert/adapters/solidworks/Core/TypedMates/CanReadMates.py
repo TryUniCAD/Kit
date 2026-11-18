@@ -14,7 +14,7 @@ def CanReadMates(EnvValue: PublicMateEnv) -> bool:
     if (
         len(Native.configurations) != 1
         or len(Native.mate_lists) != 1
-        or len(Native.occurrences) != 2
+        or len(Native.occurrences) < 2
     ):
         return False
     ConfigValue, ListValue = Native.configurations[0], Native.mate_lists[0]
@@ -29,9 +29,9 @@ def CanReadMates(EnvValue: PublicMateEnv) -> bool:
     ):
         return False
     if (
-        ListValue.declared_count != 1
-        or len(ListValue.mates) != 1
-        or ListValue.mates[0].class_name not in KPlanarClasses
+        not ListValue.mates
+        or ListValue.declared_count != len(ListValue.mates)
+        or any(Value.class_name not in KPlanarClasses for Value in ListValue.mates)
     ):
         return False
     Definitions = {Value.object_id: Value for Value in Native.definitions}
