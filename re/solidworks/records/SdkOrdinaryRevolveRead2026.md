@@ -1,0 +1,51 @@
+# Typed ordinary revolve on the public SDK read path
+
+The private production-style SDK overlay passes 56 fresh Python workers and 140 paired public read-mode comparisons. The three disclosed native revolves and two presentation variants expose the actual positive angular parameter, selected construction line and neutral `AngularRevolve`. Six non-revolve controls and seventeen unsupported variants retain the exact baseline outcomes. Shared-tree integration, remote CI/review and original held-out qualification remain open.
+
+Task `B04-SW2026-REVOLVE-PUBLIC-READ`, owner PR #121 configuration/header lane, delivery PR #121. Root owns final integration, product verification and the vendor VM. This lane changes no shared source, registry, writing path, branch or native document. Dependencies are [the exact semantic ownership proof](OrdinaryRevolveSemanticOwnership2026.md), current typed archive codecs and existing sparse line/point/region/unary readers. Exit for this tranche is the reviewed checksum-bound SDK overlay and normal public-path comparison. The overall CAD programme remains unfinished.
+
+## Exact construction boundary
+
+Twenty-seven new focused modules live under `Core/TypedResolved/Revolves/`, with cohesive `Profile` and `Projection` subdirectories. Only the existing `Core/Adapter.py` changes: one exact-symbol import and one call in `ReadNativePart` before final validation. `NativeModel`, `NativeSketch`, `ProjectTyped`, format registration and every writer remain unchanged.
+
+The hook enters the same ordinary linked Header/Config/CMgr/Resolved graph. It admits one actual modern `moRevolution_c` boss with one consumed rectangular profile, canonical Front datum, an upward construction axis on its left and ordinary one-direction blind flags. All other producers, profiles, cross-sketch/component axes, modes, expressions, tolerance/alternate states and configurations outside Config-0 retain the prior reader representation. No broader profile acquires the new projection metadata.
+
+The reader follows the real end/display/feature-handle/angular-dimension/parameter chain. The parameter keeps its actual owner/name and positive radian value. Its provenance identifies the actual typed parameter object, marks `f58` as the value field and does not manufacture a scalar byte offset. Presentation `fad0`, cached arrays and KeyWords degree strings do not supply the driver.
+
+The axis wrapper resolves the actual self component, profile identity, local line index and separate permanent mark. Actual construction geometry stays outside the four-edge contour. The contour's four real horizontal/vertical records become four neutral relations; the axis receives no inferred vertical/fixed/origin relation. Four retired points, one retired line, actual adjacency handles and the single true contour-region boundary remain metadata. Wider deletion or relation history fails this admission.
+
+The public sketch has five line entities and one four-edge loop. Its real `Selection` path points through that sketch to the construction entity. `AngularRevolve` uses the positive owned parameter and effective axis direction: forward preserves ordered direction and reverse negates it. Actual raw endpoint order and the native reversal flag remain source attributes. No negative angle or reversed construction entity is invented.
+
+Neutral sketch, parameter, selection and feature updates are built together. The composed document validates inside the existing guarded hook before it is published. A below-tolerance angular span that cannot satisfy the neutral model therefore keeps the original fallback rather than introducing a new late read failure. Unrelated feature rows, body structure, native B-rep, payloads and tessellation policy are unchanged. The old 26-row public tree remains; this tranche does not remove unknown helper rows or claim COM tree parity.
+
+## Frozen source and repeatable public proof
+
+The 4,454-file baseline manifest is `b5dc0473fea525022b2d4492432fce48e979dd6cba6f1f834c2dbbb0014b311a`. The final 4,481-file SDK source manifest is `77a6b4f490860cd4f9b973e614140112adc744273cc50e95f1b626625727ae01`, with a 28-path delta `f55d20531dbda41047a8ed70fd421667c8cf4675de1c64382711fe98b7cdcf73`. [The machine-readable record](SdkOrdinaryRevolveRead2026.json) pins each path and replacement base. No runtime source comes from the mutable checkout or research tools.
+
+[The process receipt](../measurements/2026/SdkOrdinaryRevolveRead01.json) binds exact raw replay `990b5c9f73c5988896e7f987e5a2bc1e376099bb7218986bf045e78297d24456`. It contains 28 groups, each with separate baseline/candidate processes, and five normal strict `open_document` modes: no geometry, B-rep only, tessellation only, both and defaults. There are 280 attempted public reads: 268 succeed and twelve preserve the exact pre-existing missing-geometry-cache error for the generated skew/step controls in B-rep-required modes. Every disclosed revolve succeeds in every mode. These expected control errors are not reported as successful geometry reads.
+
+Three immutable disclosed sources are the full turn and the direction-only partial pair. One variant changes display placement cache and one changes only the KeyWords stream's angle presentation. Seventeen unsupported variants exercise real wire-reparsed records, including invalid direction/type, missing/second angle, negative/nonfinite/excess angle, expression, wrong axis owner/mark/index, contour selected as axis, degenerate geometry, extra/mismatched relations, region selecting the axis and below-neutral-tolerance angle. They never acquire the new projection. The six non-revolve controls are the earlier generated/native-saved F14a box, two generated polygons and disclosed blind/through-all cuts. These are regression controls only, with no new corpus conversion credit.
+
+Every successful document round-trips through normal neutral JSON serialization/validation. Public parameter edits are performed on the real linked angular parameter and consumed through the neutral angular validator. The independent annular-sector predictor matches all six existing original native initial/edited states. There are 250 comparison visits from repeated modes and presentation variants, representing thirty distinct numeric fields in those six source states. No native application runs here.
+
+For qualified revolves, exact comparison preserves B-rep, meshes, bodies and every unrelated source record. The comparison excludes the replaced feature/sketch/owned parameter/axis selection, the added method metadata and the normal derived source-semantic fingerprint; capabilities are recomputed for the same reduced comparison document. The actual capability difference is only `selections`, corresponding to the new real linked axis. Non-revolve and unsupported outcomes use whole-document hashes or exact unchanged exception records.
+
+All 56 processes deny additional runtime file/process/network access during public decoding, model serialization, validation and angular edits. SDK origins match the frozen private source tree; research runtime imports and held-out accesses are zero. Fixture containers are controlled repackings of their own native source for reader investigation, never generated writer output or shipping payloads. Inputs and both source closures remain immutable.
+
+Run `RunPublicRevolve02.py --root PRIVATE_PACKET --output UNUSED_DIRECTORY` using the existing repository Python environment. The private packet supplies `Baseline01`, `Code02`, their complete manifests, the frozen `Fixtures03.json` input deck, immutable fixtures and `AuditPublicRevolve01.py`. The runner verifies every source/input pin before starting workers. No source/oracle directory discovery or hidden input access is performed.
+
+## Preserved predecessor and static scope
+
+The earlier 54-process replay `dc3e60c3c794e16e708cefc590bc314f05ec96594e274cedeaa6ebcdbece81b3` passed on source closure `1ec1a413336a5e9f60e39104c5f91a176053ca4cc58cd2483a335a04240004c6` and remains intact. The final closure adds only in-guard composed-document validation; its separate added rejection verifies the neutral span boundary. Neither earlier result is relabelled.
+
+[The exact static receipt](../measurements/2026/SdkOrdinaryRevolveReadStatic01.json) records Black/Ruff across all 28 paths, steering and strict Mypy across the 27 new modules, strict Pyright `1.1.414`, and a clean donor scan across 4,464 Python sources. Pyright also reports three pre-existing unrecognized root settings while analysis returns zero errors/warnings; those exact diagnostics are retained and no shared configuration is changed. Remote CI and review remain root-owned, unclaimed gates.
+
+No proprietary code/binary, captured writer program, template or saved value table is added to `src`. This reader projects values from the very document being read and uses declared type/field vocabulary. Original revolve held-out specifications, files and observations remain sealed. No new writer/native or held-out qualification is assigned. [The reading guide](../../../Documentation/Reference/Research/Solidworks/OrdinaryRevolveReading.md), [change entry](../../../Documentation/Changes/Solidworks/Inspection/Revolve/SolidworksTypedRevolveRead.md) and [selection gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Model/Revolve/AngularParameterNeedsOwnedAxisSelection.md) describe the public boundary.
+
+## Integrated reader replay
+
+The root-owned rerun of the intact baseline and candidate reproduced the frozen 56-worker result exactly. All 28 candidate workers then reproduced all 140 modes against the shared normal reader. The [integrated receipt](../measurements/2026/SdkOrdinaryRevolveIntegratedRead01.json) binds every affected production source file and the exact mode results.
+
+A separate Python 3.11 harness initially trapped lazy initialization of the standard-library `utf-8-sig` codec while reading core properties. The observer now initializes that codec with its existing codec set before enabling the same guard. The first run's false result SHA-256 is `0c7dd16166a57f5915951818bf13e69d09cb8a19c66757b1a5d6225b26771172`.
+
+The corrected Python 3.11 harness passes all 56 workers and 140 read-mode comparisons. The SDK and fixture inputs are the same.

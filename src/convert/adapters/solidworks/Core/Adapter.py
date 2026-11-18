@@ -140,6 +140,9 @@ from convert.adapters.solidworks.Container.Format import (
 from convert.adapters.solidworks.Core.FeatureKindByNative import KFeatureKindByNative
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.Core.BuildRevolve import BuildRevolve as BuildRevolve
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.WithRevolveDoc import (
+    WithRevolveDoc,
+)
 from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
@@ -466,6 +469,7 @@ def ReadNativePart(
     DocValue = WithColdName(DocValue, DerivedValue)
     DocValue = WithBodyNames(DocValue, Archive, Model.active_configuration_id)
     DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive), Archive)
+    DocValue = WithRevolveDoc(DocValue, Archive, Model.active_configuration_id)
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(DocValue, DataValue)

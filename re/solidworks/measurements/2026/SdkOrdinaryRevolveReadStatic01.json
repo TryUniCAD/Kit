@@ -1,0 +1,67 @@
+{
+  "black_and_ruff_paths": 28,
+  "checks": [
+    {
+      "chunk_id": "dde7dc",
+      "exit_code": 0,
+      "label": "black",
+      "original_token_count": 15,
+      "output": "All done! \u2728 \ud83c\udf70 \u2728\n28 files would be left unchanged.\n",
+      "wall_time_seconds": 0.347936583
+    },
+    {
+      "chunk_id": "bf0918",
+      "exit_code": 0,
+      "label": "ruff",
+      "original_token_count": 5,
+      "output": "All checks passed!\n",
+      "wall_time_seconds": 7.625e-06
+    },
+    {
+      "chunk_id": "5d9438",
+      "exit_code": 0,
+      "label": "steering",
+      "original_token_count": 12,
+      "output": "steering compliance passed for 27 python files\n",
+      "wall_time_seconds": 7.375e-06
+    },
+    {
+      "chunk_id": "d6c334",
+      "exit_code": 0,
+      "label": "mypy",
+      "original_token_count": 11,
+      "output": "Success: no issues found in 27 source files\n",
+      "wall_time_seconds": 0.31013725
+    },
+    {
+      "chunk_id": "c0abe1",
+      "exit_code": 0,
+      "label": "pyright",
+      "original_token_count": 61,
+      "output": "Config contains unrecognized setting \"reportImplicitAbstractClass\".\nConfig contains unrecognized setting \"reportIncompleteStubValue\".\nConfig contains unrecognized setting \"reportUnsafeMultipleInheritance\".\n0 errors, 0 warnings, 0 informations\n",
+      "wall_time_seconds": 0.830379792
+    },
+    {
+      "chunk_id": "892734",
+      "exit_code": 0,
+      "label": "donor",
+      "original_token_count": 9,
+      "output": "no recorded payloads in 4464 files\n",
+      "wall_time_seconds": 7.25e-06
+    }
+  ],
+  "delivery_pr": 121,
+  "donor_scan_python_paths": 4464,
+  "mypy_and_steering_paths": 27,
+  "new_modules": 27,
+  "preexisting_unrecognized_pyright_settings": [
+    "reportImplicitAbstractClass",
+    "reportIncompleteStubValue",
+    "reportUnsafeMultipleInheritance"
+  ],
+  "pyright_profile": "strict_root_settings_with_scoped_relative_include",
+  "pyright_version": "1.1.414",
+  "remote_ci_claimed": false,
+  "schema": "kit.sw2026.public-revolve-reader-static.v1",
+  "source_manifest_sha256": "77a6b4f490860cd4f9b973e614140112adc744273cc50e95f1b626625727ae01"
+}

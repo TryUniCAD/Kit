@@ -61,6 +61,12 @@ The study recorded axis references at `token - 145` and `token - 131` for differ
 Those locations depend on the documented family and token boundary.
 See [revolution research](../../../re/solidworks/features/Revolve.md).
 
+## Typed ordinary 2026 revolve supplement
+
+For the measured modern version-19000 one-direction blind boss, the normal reader can project the actual positive radian parameter and selected construction axis as `AngularRevolve`. The supported contour is a four-line rectangle on the canonical Front datum with an upward construction axis to its left. The axis remains outside the contour and receives no invented anchor; only the four actual horizontal/vertical relations are projected.
+
+The selected axis uses its real sketch-entity path and preserves raw endpoint order, while native reversal controls the effective unit direction. Display caches and KeyWords angle text are presentation rather than driver owners. Other modes and owner families retain the earlier representation. This supplement adds no writer, native cache or full-tree/held-out qualification. See [the reading guide](../Research/Solidworks/OrdinaryRevolveReading.md) and [exact public-path evidence](../../../re/solidworks/records/SdkOrdinaryRevolveRead2026.md).
+
 ## Trace calibration
 
 The historical trace study recorded these archive fields:

@@ -1,0 +1,11 @@
+# Ordinary SOLIDWORKS revolve reading
+
+The typed reader supplement exposes one ordinary SOLIDWORKS 2026 version-19000 revolved boss through the normal `open_document` path. It requires Config-0, one rectangular four-line contour on the canonical Front datum and one upward selected construction axis to its left, with one modern blind angular owner. The supplement reads source records directly and requires no CAD application, service or proprietary kernel.
+
+The public feature definition is `AngularRevolve`. Its `AlongParameterId` refers to the actual positive radian parameter owned by that feature. `AxisSelectionId` refers to a real `Selection` path through the source sketch to its actual construction entity. A reverse sweep negates the effective unit axis, preserving positive angle and the original selected line order in attributes. Editing the linked parameter updates the neutral angular definition; output to any other CAD format still needs that target's complete admission and qualification.
+
+The sketch has four contour lines, one construction line and exactly its four authored horizontal/vertical relations. No axis anchor or fixed/vertical relation is inferred from initial coordinates. Retired rows, actual point/line identities and region ownership remain metadata. Source body/B-rep/mesh handling and unrelated feature rows retain the existing reader policy.
+
+Look for `solidworks.typed_revolve_semantics` metadata with status `projected` and the explicit scope. Outside the measured profile, prior reader behavior is retained and this supplement does not advertise qualification. Other planes, cross-sketch/component/reference axes, curved profiles, cuts, thin/two-direction/symmetric/offset modes, expressions and alternate/tolerance states require separate work. Native solver-status and complete COM tree parity remain unmeasured here. This read supplement enables no writer family.
+
+[Exact source, static and 56-process public-path evidence](../../../../re/solidworks/records/SdkOrdinaryRevolveRead2026.md) retains the earlier successful closure and the original-source boundary. All original revolve held-outs remain sealed; the disclosed reader proof is not fresh held-out or generated/native acceptance.
