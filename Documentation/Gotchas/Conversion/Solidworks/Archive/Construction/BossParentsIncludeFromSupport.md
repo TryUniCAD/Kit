@@ -8,4 +8,4 @@ as a direct parent in ordinary COM inspection.
 Check the complete dependencies when comparing the native tree with a
 generated candidate. The neutral SDK projects the typed profile input
 for this boss and keeps the separate From support in the native graph.
-[Native trial receipt](../../../../../re/solidworks/measurements/2026/SdkBlindPartNative01.json)
+[Native trial receipt](../../../../../../re/solidworks/measurements/2026/SdkBlindPartNative01.json)

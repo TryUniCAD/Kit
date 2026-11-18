@@ -9,4 +9,4 @@ native tree parent.
 Build the expected feature order and parent captions from the actual
 neutral presentation settings. The first observer borrowed the control's
 caption and stopped before the edit despite a healthy candidate.
-[Native trial receipt](../../../../../re/solidworks/measurements/2026/SdkBlindPartNative01.json)
+[Native trial receipt](../../../../../../re/solidworks/measurements/2026/SdkBlindPartNative01.json)

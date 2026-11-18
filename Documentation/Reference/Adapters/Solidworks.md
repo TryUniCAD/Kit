@@ -62,6 +62,8 @@ The SDK constructs the local sketch graph for an ordinary closed polygon from or
 
 The internal SDK part composer now builds the full ten-stream container for one neutral rectangular sketch and a forward blind boss. It supplies the actual configuration, model and manager header nodes to linked-document builders. Two independent inputs preserve every stream through the typed prepare path and a separate mathematical comparison. One disclosed candidate passes native open, rebuild, depth edit, save and fresh reopen with all 25 native rows. The public writer needs held-out qualification and the public feature timeline still differs after the native save. [Complete blind-boss construction](../../Changes/Solidworks/Construction/SolidworksBlindPartConstruction.md) [Native lifecycle](../../Changes/Solidworks/Construction/SolidworksSdkBlindPartNativeTrial.md)
 
+Two standalone parts also pass the same native lifecycle from a UNC location outside the encoded self drive. The Unicode-named case has an absent archived self path. [Standalone relocation](../../Changes/Solidworks/Construction/SolidworksStandalonePartRelocation.md)
+
 ## Read flow
 
 ```mermaid
