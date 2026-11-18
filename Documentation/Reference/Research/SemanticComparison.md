@@ -136,6 +136,8 @@ Submit this job with your actual immutable rule and worker versions:
 ```
 
 The worker verifies the controller fingerprint and all three byte seals.
+It checks the exact declared dependency roster, receipt fields, digest syntax, and direct result selectors before evaluating documents.
+The [session binding change](../../Changes/Research/Controller/SemanticSessionBinding.md) records this shared validation boundary and its process controls.
 It publishes the bounded graph report as the immutable `semantic-report` artifact.
 The small records receipt retains the report hash, input hashes and observation status.
 This preserves reports above the controller's 1 MiB metadata limit.

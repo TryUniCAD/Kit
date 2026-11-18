@@ -6,14 +6,15 @@ import secrets
 from pathlib import Path
 
 from InferenceInputs import checksum
-from Records import canonical, digest, label, specification
+from InferenceSession import read_session
+from Records import canonical, label
 from SemanticComparison import (
     DOCUMENT_BYTES,
     compare_documents,
     document_input,
     tolerance_input,
 )
-from Sessions import read_bounded, write_private
+from Sessions import write_private
 
 KIND = "semantic.compare"
 UNITS = {"mm", "cm", "m", "in", "ft"}
@@ -71,17 +72,9 @@ def write_report(work, report):
 
 def run(session):
     session = session.resolve()
-    packet = read_bounded(session / "job.json")
-    if (
-        not isinstance(packet, dict)
-        or type(packet.get("session_version")) is not int
-        or packet["session_version"] != 1
-        or packet.get("work") != "work"
-        or packet.get("result") != "result.json"
-    ):
-        raise ValueError("unsupported semantic comparison session contract")
+    packet, execution = read_session(session)
     job, inputs = packet["job"], packet["inputs"]
-    if canonical(specification(job)) != canonical(job) or job["kind"] != KIND:
+    if job["kind"] != KIND:
         raise ValueError("semantic session must contain its normalized registered job")
     options = job["options"]
     if (
@@ -102,24 +95,7 @@ def run(session):
     paths = {
         role: input_path(session, descriptor) for role, descriptor in inputs.items()
     }
-    if any(
-        descriptor["binding"] != job["inputs"][role]
-        for role, descriptor in inputs.items()
-    ):
-        raise ValueError("semantic input bindings differ from the scheduled job")
-    snapshot = {
-        "definition_hash": digest(job),
-        "dependencies": packet["dependencies"],
-        "inputs": {
-            role: {"binding": descriptor["binding"], "sha256": descriptor["sha256"]}
-            for role, descriptor in inputs.items()
-        },
-    }
-    fingerprint = checksum(packet["fingerprint"])
-    if digest(snapshot) != fingerprint:
-        raise ValueError(
-            "semantic session inputs differ from the controller fingerprint"
-        )
+    fingerprint = execution["fingerprint"]
     pins = {role: descriptor["sha256"] for role, descriptor in inputs.items()}
     first = document_input(paths["first"], pins["first"])
     second = document_input(paths["second"], pins["second"])
@@ -140,7 +116,7 @@ def run(session):
     report["execution"] = {
         "kind": KIND,
         "scope": scope,
-        "definition_sha256": snapshot["definition_hash"],
+        "definition_sha256": execution["definition_sha256"],
         "fingerprint": fingerprint,
         "rule_version": job["rule_version"],
         "tool_version": job["tool_version"],
@@ -162,7 +138,7 @@ def run(session):
                 "independent_source_inventory": "not_supplied",
                 "input_sha256": report["input_sha256"],
                 "fingerprint": fingerprint,
-                "definition_sha256": snapshot["definition_hash"],
+                "definition_sha256": execution["definition_sha256"],
                 "report_sha256": artifact["sha256"],
                 "report_size_bytes": artifact["size_bytes"],
             },
