@@ -1,0 +1,514 @@
+{
+  "asserted_process_results": {
+    "actual_config_resolved_map_prefix_aliases": true,
+    "all_load_store_usage_complete": true,
+    "compact_origin_index_extension_absent": true,
+    "complete_stream_comparisons": 10,
+    "configuration_counts": [1, 3],
+    "exclusive_origin_component": true,
+    "global_allocations_per_model": 18,
+    "guarded_build_phases": 2,
+    "independent_guarded_prepare_phases": 2,
+    "independent_manager_local_namespace": true,
+    "input_dependent_manager_stream_length": true,
+    "malformed_complete_requests_rejected": 28,
+    "missing_schemas": [],
+    "neutral_models": 2,
+    "origin_fixed_relations_per_model": 1,
+    "origin_points_per_model": 1,
+    "pending_constructor_origin_update_preserved": true,
+    "provisional_schemas": [],
+    "raw_backlink_absence_preserved": true,
+    "research_runtime_imports_in_construction": 0,
+    "resolved_system_feature_count_per_model": 17,
+    "runtime_folder_cache_bindings_per_model": 9,
+    "runtime_input_file_reads": 0,
+    "shared_environment_folder": true,
+    "streams_per_model": [
+      "Header2",
+      "Contents/Config-0-ModelHeader",
+      "Contents/Config-0",
+      "Contents/CMgr",
+      "Contents/Config-0-ResolvedFeatures"
+    ]
+  },
+  "delivery_pr": 121,
+  "full_part_factory": false,
+  "independent_root_execution": {
+    "detailed_child_json_retained": false,
+    "evidence_limit": "the frozen permanent process test passed; detailed stream bytes sizes hashes exact map counters and schema counts are not invented from its summary output",
+    "exit_code": 0,
+    "frozen_source": {
+      "artifact": "FrozenSource.json",
+      "base_commit": "f178387d2759b0b658091f4004f2ef95f279660c",
+      "file_count": 4393,
+      "sha256": "058045b1ec1611fc834026a02df18dabe48fd67d64bce283e46166a2af5bc731"
+    },
+    "process_target": "tests.Convert.Solidworks.Research.Construction.PartSystemFlowTests.TestPartSystem",
+    "retained_output": {
+      "artifact": "ProcessResult.txt",
+      "bytes": 24,
+      "sha256": "eb7a2f56718a934bf73bde3d221efa905b85b441ad0f1323f9ab302c90b707b6",
+      "text": "part system flow passed\n"
+    },
+    "source_binding_checks": 85,
+    "source_binding_mismatches": 0,
+    "source_bundle": "SdkPartSystemRootVerify01",
+    "stderr": {
+      "artifact": "Process.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "native_acceptance": false,
+  "owner": "/root/flag_ownership",
+  "public_writer_qualified": false,
+  "remaining": [
+    "complete feature geometry and operation attachment",
+    "Definition container keyword history and external file identity composition",
+    "complete native tree geometry driving edit save and fresh reopen measurement with controls",
+    "held-out generalization and public writer admission",
+    "material-folder reopen caption normalization"
+  ],
+  "scope": "fresh ordinary version-19000 part configuration and system archive subgraph; no complete part output or public writer",
+  "source": {
+    "executable_manifest_sha256": "0b2a234184302a9403df158ff507c04e96ae7c5bdd55a805351d16ba39c68e55",
+    "executable_paths": 81,
+    "files": [
+      {
+        "bytes": 11581,
+        "path": "re/tooling/sw2026/SdkPartSystemPrepare.py",
+        "sha256": "c6b0a8661f56b6b54569fad5c487702b84592bf461107103e344415a85fa61b8"
+      },
+      {
+        "bytes": 11804,
+        "path": "re/tooling/sw2026/SdkPartSystemProcess.py",
+        "sha256": "c05c173f87c939acf9db898a920ed12d9f0d7d4e5ea778af8aba6ee3ce86f9cd"
+      },
+      {
+        "bytes": 1249,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/ConfigFieldSets.py",
+        "sha256": "049dbaf3c00448cfc583b8833c9309c8c2e080bfacfbea9b489ae8e64e0abcb7"
+      },
+      {
+        "bytes": 936,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/ConfigSpec.py",
+        "sha256": "45d999031a8c92f040d81685f481a072f2fbe7e3ecb59b8faa5ae2db6e5beafa"
+      },
+      {
+        "bytes": 1647,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/MakeCfgSeeds.py",
+        "sha256": "b8030cf01d759cbc502736dd1679af5293f44011adde0ee708a25fd1d5e6ce09"
+      },
+      {
+        "bytes": 2665,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/MakeConfigMgr.py",
+        "sha256": "5b7a4abf49212bd630235216cf448a52b21539286597e4f413e95d86803a98b8"
+      },
+      {
+        "bytes": 1110,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/MakeMassProps.py",
+        "sha256": "252ae42b9da210a1019224d5a7178018373ab178563b6319a75838829959cfbd"
+      },
+      {
+        "bytes": 2355,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/MakePartConfig.py",
+        "sha256": "72a9a7ae47b1b10dd210433497c19ac795e578e79faae76f998802ef67edc051"
+      },
+      {
+        "bytes": 1597,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/ManagerInput.py",
+        "sha256": "9162ddc85a16501707861379f665bbb2a2162bb55503149ff7a7263e7782f991"
+      },
+      {
+        "bytes": 696,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/PartCfgObject.py",
+        "sha256": "91e1e4a37942c8d9498859adcc4e1bd9bcd93b26527f6da68a1e89fbd86eabf6"
+      },
+      {
+        "bytes": 731,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Configuration/SetCfgStampMut.py",
+        "sha256": "65d179929483029a8336b8957269d098aeedd27e16f847dd731d6ab1d757acf5"
+      },
+      {
+        "bytes": 1201,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Header/HeaderInput.py",
+        "sha256": "b0bbac75a8a7a1c2ce6350160424e562f485f31faed529e1540ef478b2fafd74"
+      },
+      {
+        "bytes": 407,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Header/HeaderZeroes.py",
+        "sha256": "10f32a5d6ee74a30e3f24cc2825b823dd9d6bda397168b84afa90d058bde4f45"
+      },
+      {
+        "bytes": 2777,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Header/MakePartHeader.py",
+        "sha256": "1845f38d976406e970e068abbdf683f41a526ae7961b08ee4b27e45f7613f173"
+      },
+      {
+        "bytes": 1259,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Header/MakeRootLog.py",
+        "sha256": "cafe2d2b9c07b9103933590b20dcc9b96fed507c3e0b9218745be757c281c2bc"
+      },
+      {
+        "bytes": 1185,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Origin/MakeOriginFix.py",
+        "sha256": "ec789ff3de7e19e23cd554365d833c3667e64d29a1f59c039c5d3b25a6a03fc8"
+      },
+      {
+        "bytes": 2198,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Origin/MakeOriginMut.py",
+        "sha256": "e69b3ede20523cc417eb358499b59c7daa83065e3414ddce9d8dcd3623ee1b0a"
+      },
+      {
+        "bytes": 2037,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Origin/MakeOriginRef.py",
+        "sha256": "bbc09c381cbc57e012a79723fb380d4b4b9de0b1fb89afd27e54660e2d4e9ab4"
+      },
+      {
+        "bytes": 1383,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Origin/MakeOriginSeed.py",
+        "sha256": "21754308f9958f29e3ac13abfb8c7f4bbd0bcce8e1762bff529affc0899becd8"
+      },
+      {
+        "bytes": 469,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Origin/OriginGraph.py",
+        "sha256": "4893d9eecc1bb3878207162526e97b465b776a374e7fea9cd96934d00f3db5da"
+      },
+      {
+        "bytes": 1052,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Origin/WireOriginMut.py",
+        "sha256": "0ecccfd5911efb1aa6837f600c31fc27d1fbd470f1241cdee512df3d6c4be6ab"
+      },
+      {
+        "bytes": 592,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Presentation/MakeMaterial.py",
+        "sha256": "fbb08b477ce67106068230dd13e953f298162a9f0308c8b3860500644426cbe3"
+      },
+      {
+        "bytes": 881,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Presentation/MakeModelVisual.py",
+        "sha256": "1b95492ef4584e8c45d446a242c764e898bbfc5e9de9651e16e93dbe24a57da4"
+      },
+      {
+        "bytes": 1713,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Presentation/MakePartRefs.py",
+        "sha256": "e9c2e6d7c69e6a38b039a38d38d5d7a0ec81cfbccf2f8e866f1a76c771377397"
+      },
+      {
+        "bytes": 477,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Presentation/StyleInput.py",
+        "sha256": "79c8f85cf4e8f7a85c04d7d545f2c02870dd8025616ae6c184f754deb47d72ab"
+      },
+      {
+        "bytes": 599,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeAnnoData.py",
+        "sha256": "cd0194e9c38c0f61bfe37fde9d6650c2dc4eafc716d096490cb1773669d54b25"
+      },
+      {
+        "bytes": 1051,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeAnnoDefs.py",
+        "sha256": "61c4ce34bd070f8a1e552e51f10e38139c38c786ab767c9fe25e8f4e2b3a2176"
+      },
+      {
+        "bytes": 3214,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeAnnoStyle.py",
+        "sha256": "574a33c958e57a087d134649b64579810c5b198f9528ccd37235ad0d42a48c04"
+      },
+      {
+        "bytes": 651,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeCenterData.py",
+        "sha256": "95dc8e87b9836039c583cd3b625877c0d75f026b8dc8f7ecdb0c7aec8a249d07"
+      },
+      {
+        "bytes": 1737,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeCharFormat.py",
+        "sha256": "2f3ac8ef5d8b293d3214b0879ef7a254f1e4bb7cbe2a6a6be02722f757896c79"
+      },
+      {
+        "bytes": 535,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeDatumData.py",
+        "sha256": "02a145754289641b43e722f81f7be4f6df1c7e260f58112489f3ecfcda018064"
+      },
+      {
+        "bytes": 6926,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeDetails.py",
+        "sha256": "21c370f333e45c7a2da57eb6fac90652d8bc4747e578c38ae44b6bfa07c13352"
+      },
+      {
+        "bytes": 1547,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeDimDefs.py",
+        "sha256": "8a629921f5f1c7511f94b30e55aa5b03fbe19750aee3cc0cac258680879c4a98"
+      },
+      {
+        "bytes": 2911,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeDimStyle.py",
+        "sha256": "e3ca6d74fb3ebe8252938cb40f63645ef2963488ccaeabc9363fdb16f4c6b6e8"
+      },
+      {
+        "bytes": 1059,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeFinishData.py",
+        "sha256": "9cf3b3b51e6bf09b03f13e71e9f2cca303182ddf232de49f597c1274ba79617f"
+      },
+      {
+        "bytes": 1177,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeGtolData.py",
+        "sha256": "4388b54bb019a0232a69290b05092fbd270043b7aa9f8de518009cc0980d9fea"
+      },
+      {
+        "bytes": 783,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeGtolFrame.py",
+        "sha256": "094e51236ec24f47bf4f6457b2202c08ac8f9825d885ff197695dda3f20fcb92"
+      },
+      {
+        "bytes": 402,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeHelperFont.py",
+        "sha256": "090e28b228713caabf64a0c45cffda2c99607d568384f96b2ac218731ae021b0"
+      },
+      {
+        "bytes": 871,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeLabelDefs.py",
+        "sha256": "4a2d1b969249dac37c423d480b6ad1acf88458dc9464d604fc7391a910539f32"
+      },
+      {
+        "bytes": 2050,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeLabelStyle.py",
+        "sha256": "90ab1191065a48beb7897cff6550e46012f7bad2609dfdd70642dad078930b6a"
+      },
+      {
+        "bytes": 554,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeLineFont.py",
+        "sha256": "c65bbf3df64b2205aa6832bbb1aa04cc2ce72464a0831a1b6b05d38fe97462f9"
+      },
+      {
+        "bytes": 796,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeLineWidth.py",
+        "sha256": "22016dc8bf771af2166a83b2465e8142ab1b8b7c7a065c725d7271073bb22895"
+      },
+      {
+        "bytes": 1656,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeNoteData.py",
+        "sha256": "72c15d4eeb817d12118ada35202a78daf5b1c9a98f4d6eb0fc076eacd9ab8a71"
+      },
+      {
+        "bytes": 849,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakePrintWidths.py",
+        "sha256": "fae7a260a99e117f5d90b3556dc3825de6d168189049eca1843b22db812c7517"
+      },
+      {
+        "bytes": 3431,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeSwiftOpts.py",
+        "sha256": "b787a3725c452ba4174fad4ce725589327fe49d3a1c351316d18edba911c5315"
+      },
+      {
+        "bytes": 994,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeTableDefs.py",
+        "sha256": "5d02ffb544a21f80914b42747374bc0ea90688e00d1626ab648ab4e09ca750c9"
+      },
+      {
+        "bytes": 2194,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeTableStyle.py",
+        "sha256": "71ab99055a380ea12125229dabfedafd36ffab27155f3745fdd2c438508ee1d2"
+      },
+      {
+        "bytes": 795,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeTargetData.py",
+        "sha256": "4c0c1bd9d59829e182ae63582f44e98afe782563c0b40300223bc8e60e482bc3"
+      },
+      {
+        "bytes": 773,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeTextArray.py",
+        "sha256": "9a1f5c63f3e751c1d60afa79acac4fd11ddd7e0df19c94cd8b7d6b1341098172"
+      },
+      {
+        "bytes": 1757,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/MakeWeldData.py",
+        "sha256": "ab621ce361c911756adf9608a3117105abdcc253327291454938882b9bf44d76"
+      },
+      {
+        "bytes": 868,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/ReadStyleNum.py",
+        "sha256": "82ac3ecee9e860536d20fff81b3a0f271779d0a9941b8efc44d6163a0cd21f3d"
+      },
+      {
+        "bytes": 357,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Styles/ReadStyleText.py",
+        "sha256": "a23237a809b1bc7e582ce9653c530a46a7a6405bab735b88c9ad1db8903c9867"
+      },
+      {
+        "bytes": 2972,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/AttachSystemMut.py",
+        "sha256": "c48e000970be908a6be913434263d97129bd71862d64f6866a349a85319e6a31"
+      },
+      {
+        "bytes": 538,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/ClearSystemMut.py",
+        "sha256": "2167246055cb800bec66a2d26a31a2e15bc944cc57a1bbfc8f58f57099779b8c"
+      },
+      {
+        "bytes": 1197,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/MakeCabinet.py",
+        "sha256": "a68c5ffddc7a7045fda3bfcdcb9d3ff9240bc958aefd56d26e10c8e2708a3723"
+      },
+      {
+        "bytes": 1681,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/MakeDefaultData.py",
+        "sha256": "a4502d50ae17e9fdcea5f541e39150f847641666b541bfe3821f40f1097c8bc0"
+      },
+      {
+        "bytes": 2993,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/MakePartSysMut.py",
+        "sha256": "e1391ae7b6f64b20d707244fd4627f03bc0fe07927264edc8fab9f284969e95f"
+      },
+      {
+        "bytes": 2069,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/MakePrincipal.py",
+        "sha256": "81635e576443d15d7c6b9d91a778da403499b5f3d8e8d97aa58bbac1d5293d9b"
+      },
+      {
+        "bytes": 2393,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/MakeSysFolder.py",
+        "sha256": "5aa3f9768eaa5c8e7fc679d05abd7263f5f6de6399165783426268899dbb3f53"
+      },
+      {
+        "bytes": 1482,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/MakeSystemNode.py",
+        "sha256": "dffc379126ab7ad9e53ea12c56e1911e91a8031da2b789f597f0bf10c4134e71"
+      },
+      {
+        "bytes": 715,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/PartSystem.py",
+        "sha256": "3b58d8b77595bc6d32f3ba0f3beb55d477a1326f6e64a930179cf126d707959b"
+      },
+      {
+        "bytes": 976,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/PrincipalFrame.py",
+        "sha256": "fdc5d4b9fd007452eabdd3d807ec23e48b2d16db88dca78381906ca4d79f0860"
+      },
+      {
+        "bytes": 1197,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/SystemClasses.py",
+        "sha256": "100e1547301e1a8b53df8cd182a4bc9e69c2e10dfd63296c71a2d4c3c5e0d921"
+      },
+      {
+        "bytes": 2779,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/SystemInput.py",
+        "sha256": "e4211b786dd651e5f794034874221dbfab740924dce92789eb99a23344f2212e"
+      },
+      {
+        "bytes": 500,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/System/SystemNodes.py",
+        "sha256": "e1014bc6b8584ce6969505eefeeb460f2a7de3807197d57ed1e348a1da2d4b8c"
+      },
+      {
+        "bytes": 1311,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Units/MakeUnitFields.py",
+        "sha256": "94e316fe32afd37aeb2b831a8bcd0a6d6b302901eb7669fff3720f7255f5347f"
+      },
+      {
+        "bytes": 728,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Units/MakeUnitFormat.py",
+        "sha256": "3cc794a620e7cbf21777017415a4fc6302a4cd1fa24ab26260d7ebe2ef1c960b"
+      },
+      {
+        "bytes": 735,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Units/MakeUnitNode.py",
+        "sha256": "79dd07cdadcb18c5e6e2410f13c43afaff41714d14a554ea4f40ac94b359f005"
+      },
+      {
+        "bytes": 1464,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Units/MakeUnitTable.py",
+        "sha256": "f425721a4f8278116dd7bd73e4274685466219f49899b1facd9e8178adfbac2f"
+      },
+      {
+        "bytes": 1249,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Units/UnitInput.py",
+        "sha256": "5f7d80da2fcb9e17e68ec4c59eac2cb9efb051a8cdf0bf53d07957e12deba4ef"
+      },
+      {
+        "bytes": 1621,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Units/UnitVocabulary.py",
+        "sha256": "5e9051abe6da8266e79aba52a078ec88713cb2c9527cae9cd0b37875b3b7549e"
+      },
+      {
+        "bytes": 2758,
+        "path": "tests/Convert/Solidworks/Research/Construction/AssertSystem.py",
+        "sha256": "8838015346e779453f7a12254a85179eee171a48132cb8d2cb8b74200c274b2b"
+      },
+      {
+        "bytes": 1034,
+        "path": "tests/Convert/Solidworks/Research/Construction/PartSystemFlowTests.py",
+        "sha256": "2710752f47563c8de3e4f0b0e63f8b7dee3c826edb75eaa323a2fa7b508e52e6"
+      },
+      {
+        "bytes": 1297,
+        "path": "tests/Convert/Solidworks/Research/Construction/RunSystemPhase.py",
+        "sha256": "75cd4b0b14f7771343709cb7c56c5fe61ba9e6d72752971b18c9e37b203b5611"
+      },
+      {
+        "bytes": 2592,
+        "path": "tests/Convert/Solidworks/Research/Construction/SystemCaseInput.py",
+        "sha256": "45a7eb0086f417a5a602eb6043dd22614f77cbf13af066aade9b51ee67035550"
+      }
+    ],
+    "owned_stageable_executable_paths": 75,
+    "shared_node_dependencies": [
+      {
+        "bytes": 2271,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Nodes/PersistentIds.py",
+        "sha256": "1ceff807e1f749498984af1749f77f93a1d19aef3261229b72da3dee3662dd60"
+      },
+      {
+        "bytes": 1824,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitNodeMut.py",
+        "sha256": "669b06946bddad5c50fdb28390b9492c2ed83efacbbc8b2daa16552628dd5613"
+      },
+      {
+        "bytes": 742,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitConceptMut.py",
+        "sha256": "8d0eaaeca75c72c9dfa2d0e11ed78e32191a72073ef10153f5e87d075d1653c5"
+      },
+      {
+        "bytes": 2022,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitFeatureMut.py",
+        "sha256": "40cf0e9ec106523121772a7aea145849d98535bcfde0ed09316cea04173e68f7"
+      }
+    ],
+    "shared_view_paths": 6,
+    "shared_views": [
+      {
+        "bytes": 1277,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Views/MakeStdViews.py",
+        "sha256": "1c54f492f6ff4515ce0e3309e583a5a7991b75f15427ada7777b934ab7df2490"
+      },
+      {
+        "bytes": 1221,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Views/MakeViewNode.py",
+        "sha256": "cfbfeaf707bc42f8287663c205d794907b3ba5511264f72bd8491fd38cd803a5"
+      },
+      {
+        "bytes": 711,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Views/MultiplyQuat.py",
+        "sha256": "47fd714b3f75d01233ec6f74b333fa56f9df36f4e4f1fe18499ef578391ca954"
+      },
+      {
+        "bytes": 1411,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Views/ViewMatrix.py",
+        "sha256": "91b4b93113d6e9f01a3fcada3b84b8f80f8519091ed7a6800bef30d1d7f43dbc"
+      },
+      {
+        "bytes": 623,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Views/ViewPlans.py",
+        "sha256": "001c3fa0b6f2c31841e4abec88f46a9ecc2d8fd39c0628e6561fe2d13e2a93c1"
+      },
+      {
+        "bytes": 603,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Views/ViewRotation.py",
+        "sha256": "74a1e96ea562825508692c3ff74ed71fda9bc9942c7edaa6000a3e99b975a64d"
+      }
+    ]
+  },
+  "status": "passed scoped process proof",
+  "task": "B04-SW2026-PARTROOT",
+  "worker_execution": "static checks only; no constructors codecs schemas process tests CAD or VM operations executed by worker"
+}
