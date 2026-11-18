@@ -11,6 +11,9 @@ from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.CompFields imp
 # drawing contexts omit the primary splitter while retaining the exact shared secondary grid and all presentation words
 KDrawingEnvironmentFields = MappingProxyType(
     {
+        "uiSplitterInfo_c.Serialize": KDocEnvironmentFields[
+            "uiSplitterInfo_c.Serialize"
+        ],
         "uiUserModelEnv_c": (
             NativeField(
                 "Branch",

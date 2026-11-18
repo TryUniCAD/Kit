@@ -162,8 +162,9 @@ The linked Definition reader also preserves the native drawing profile base and
 its three shared reference-chain classes. That subtree decodes fully in both
 disclosed original source drawings. The root map reads the ordinary edge
 reference through its shared base, sketch-entity and end-face surface
-identities, line style and line-font configuration. The user model
-environment is the next unsupported owner in both files.
+identities, line style and line-font configuration. Both reads also decode
+the drawing user model environment and its embedded splitter. The
+bill-of-materials manager is the next unsupported owner in both files.
 Complete original Definition reads remain open.
 [Drawing component profile](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksComponentProfileArchive.md)
 [Drawing reference chains](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingReferenceChains.md)
@@ -172,6 +173,8 @@ Complete original Definition reads remain open.
 [Drawing end-face IDs](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingEndFaceIds.md)
 [Drawing line styles](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingLineStyles.md)
 [Drawing line fonts](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingLineFonts.md)
+[Drawing user environment](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingUserEnvironments.md)
+[Drawing splitter bodies](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingSplitterBodies.md)
 
 ## Feature history
 

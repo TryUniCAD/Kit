@@ -1,0 +1,100 @@
+{
+  "schema": "kit.sw2026.drawing-splitter-body-reader-custody.v1",
+  "task": "PR121 drawing embedded splitter method linkage",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "status": "independent43 worker prior pass; both originals advance beyond environment and embedded splitter to BOM manager class",
+  "candidate_manifest_sha256": "43c1fc7f49f8b697022a9f48c8678d03d6554cb2e4de7e8c8991926bf07229a3",
+  "source_files": 4351,
+  "sdk_deltas": [
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/EnvironmentFields.py"
+  ],
+  "native_proof_sha256": "6b6e479e06fb4afba1d540ab99f90edec69508c213725d84e890f278de5505fc",
+  "environment_parent_manifest_sha256": "cb21e16ccab1d2790462f01daf3c84711e9c2c86d69ac6b77a5a1d937fd5398a",
+  "concrete_classes_added": [],
+  "embedded_method_linked": "uiSplitterInfo_c.Serialize",
+  "shared_field_layouts_changed": [],
+  "actual_previous_failures": {
+    "raw_sha256": "5fc09d7ea35e2b58b9df2555bbc641a4d6719170bde6c77be4aa6bf039338c86",
+    "both_failed": true,
+    "next_boundary": "uiSplitterInfo_c.Serialize missing embedded method layout",
+    "environment_and_splitter_bodies_incomplete": true
+  },
+  "new_prior_replay": {
+    "status": "passed",
+    "passed": true,
+    "workers": 43,
+    "source_immutable": true,
+    "report_name": "SdkDrawingSplitterBodyPrior01.json",
+    "raw_sha256": "95f95069ea2689333190b2d5129e5b376019920c8c5f546027ac9590d96079cf",
+    "source_manifest_sha256": "43c1fc7f49f8b697022a9f48c8678d03d6554cb2e4de7e8c8991926bf07229a3"
+  },
+  "new_original_probe": {
+    "status": "both fail closed at next runtime class",
+    "raw_sha256": "d795686e707ddfbdcc88b0735682857c1b5d0327e06f89d0fc49cec3bc98538d",
+    "source_immutable": true,
+    "full_stream_parity": false,
+    "completed_edge_bodies": 8,
+    "next_boundary": "moBomInfoMgr_c schema1",
+    "advances_past_preceding_embedded_layout_failure": true,
+    "per_environment_completion_counter_exposed": false,
+    "cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37612,
+        "stream_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class moBomInfoMgr_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37608,
+        "stream_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class moBomInfoMgr_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      }
+    ]
+  },
+  "static_checks": {
+    "ast": true,
+    "black": "26.10.1 passed on corrected02",
+    "ruff": "0.17.4 passed",
+    "mypy": "2.4.1 strict passed",
+    "pyright": "1.1.414 strict passed; three inherited unrecognized options retained",
+    "steering": true,
+    "donor_scan": "no recorded payloads in1file"
+  },
+  "first_candidate_retained": {
+    "manifest_sha256": "2f2f911e02b9da04d42ee6b3df0571eff1bc5659223cd744578bbc11cee20c27",
+    "black_line_wrap_only": true,
+    "ast_identical": true
+  },
+  "worker_product_execution": false,
+  "worker_test_suite_execution": false,
+  "native_execution": false,
+  "vm_access": false,
+  "repo_or_git_mutations": false,
+  "fresh_constructor_added": false,
+  "saved_defaults_added": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "public_strict_drawing_admission": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false
+}
