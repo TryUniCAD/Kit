@@ -1,0 +1,191 @@
+{
+  "comparisons": [
+    {
+      "case": "AsciiOriginal1",
+      "default_original_path_exact": true,
+      "native_trial": false,
+      "passed": true,
+      "two_build_deterministic": true
+    },
+    {
+      "case": "AsciiOriginal2",
+      "default_original_path_exact": true,
+      "native_trial": false,
+      "passed": true,
+      "two_build_deterministic": true
+    },
+    {
+      "case": "Accent",
+      "default_original_path_exact": true,
+      "native_trial": true,
+      "passed": true,
+      "two_build_deterministic": true
+    },
+    {
+      "case": "Bmp",
+      "default_original_path_exact": true,
+      "native_trial": true,
+      "passed": true,
+      "two_build_deterministic": true
+    },
+    {
+      "case": "Pair",
+      "default_original_path_exact": true,
+      "native_trial": true,
+      "passed": true,
+      "two_build_deterministic": true
+    },
+    {
+      "case": "Drivers",
+      "default_original_path_exact": true,
+      "native_trial": true,
+      "passed": true,
+      "two_build_deterministic": true
+    },
+    {
+      "case": "WideDrivers",
+      "default_original_path_exact": true,
+      "native_trial": true,
+      "passed": true,
+      "two_build_deterministic": true
+    }
+  ],
+  "default_body_path_exact": true,
+  "heldout_inputs_read": 0,
+  "named_repeat_and_default_processes": 21,
+  "native_new_cohort_acceptance": false,
+  "neutral_cases_sha256": "a7571e8000ca2528d1e578113820e165a2e715c37878c2011cc772d4d57ca532",
+  "original_ascii_native_qualified_bytes_exact": true,
+  "original_named_source_qualification": false,
+  "passed": true,
+  "portable_inputs_unchanged": true,
+  "public_named_registry_rejected": true,
+  "python_processes": 44,
+  "rejection_processes": 23,
+  "rejections": [
+    {
+      "passed": true,
+      "report_sha256": "e842b427d8d9c7d38db439fe2a9cfd13ca7259637bcfed7659ebeba11012f4f8",
+      "variant": "EmptyName"
+    },
+    {
+      "passed": true,
+      "report_sha256": "638eec95fc7156b5389290ce62b9c068c5bfe6bace9e625cd27e9d3518c1d817",
+      "variant": "OuterWhitespace"
+    },
+    {
+      "passed": true,
+      "report_sha256": "1347202fe230e5c5f40feedb34af55206fd728f56039e64315344fb174805ae0",
+      "variant": "OverlongName"
+    },
+    {
+      "passed": true,
+      "report_sha256": "c477dd3d1253ba455270806cc7359d063ac14987c2b2edb3e3057df10ff061b7",
+      "variant": "WideUnitOverflow"
+    },
+    {
+      "passed": true,
+      "report_sha256": "2cc0b4f7e3e1e9a2d27f89b8743a29d7365a86c419bbf3ad88c4f30c61f8a565",
+      "variant": "UnpairedSurrogate"
+    },
+    {
+      "passed": true,
+      "report_sha256": "0eea57d752799977a8a66f3d42852a37a5cf67b87fb6a38c44ee1638a29e5176",
+      "variant": "EmbeddedNull"
+    },
+    {
+      "passed": true,
+      "report_sha256": "b3d8c529c1276f2b267fb84cdc8a742d1242ff96a76d66b16333175ab959c1ca",
+      "variant": "ControlCharacter"
+    },
+    {
+      "passed": true,
+      "report_sha256": "19d22fd9c6dba28fbffe04008949186ad535e7f2620129a23f664c6b5759792b",
+      "variant": "UnownedBody"
+    },
+    {
+      "passed": true,
+      "report_sha256": "2fde7f98458ebd62e223af798a6a121329ff0cf4bc708f35562a29d67890f211",
+      "variant": "SecondBody"
+    },
+    {
+      "passed": true,
+      "report_sha256": "5323496e70559d654eb0d52a757c140affe82343e535ea0e4de33e6f5973c464",
+      "variant": "BodyAttributes"
+    },
+    {
+      "passed": true,
+      "report_sha256": "1b377d252cd3acf6fd5ebd667b392460397e68182d241d6a7d32335180592e7e",
+      "variant": "ExtraMetadata"
+    },
+    {
+      "passed": true,
+      "report_sha256": "8a8bfb0a2df33102601dca58bb9d16d9a3ba1abc3d2eed4322a8dda575724107",
+      "variant": "ExtraFeature"
+    },
+    {
+      "passed": true,
+      "report_sha256": "6331f2c901a23f5b73965fb08373bb4943b906bcd19c6c43d9b8d5ebd6da9198",
+      "variant": "ReversedEnd"
+    },
+    {
+      "passed": true,
+      "report_sha256": "dc1891f685b5d5f96783ff2f535dfe17e27d61fa60ff5cc5788dba9bd0cec107",
+      "variant": "CircleProfile"
+    },
+    {
+      "passed": true,
+      "report_sha256": "7be6e703a58892cdf3b3931a842d173b85e9d6829d5c11002a132bb1a58f59e5",
+      "variant": "WrongDriverOwner"
+    },
+    {
+      "passed": true,
+      "report_sha256": "cc6ff234e1f1d8c857d450ab082cd16f8741fe7d0e2eeada3adae8bc85962610",
+      "variant": "DuplicateDriverName"
+    },
+    {
+      "passed": true,
+      "report_sha256": "003680d67efb5d88d325abb53594883c5d659605c70d292e1f6b14464b0ee561",
+      "variant": "GraphRepeatedOutput"
+    },
+    {
+      "passed": true,
+      "report_sha256": "62358f59be8aba3987a5f46efccad82457e85b29e5c39f20bfe333626365f5d9",
+      "variant": "GraphOldManager"
+    },
+    {
+      "passed": true,
+      "report_sha256": "14b94c97e20982bc3b3eb5b4100f18d24de9e277019c34df9f3f522214699948",
+      "variant": "GraphCounterOverflow"
+    },
+    {
+      "passed": true,
+      "report_sha256": "e3b9b72b7ad39f492497ef12541ef4c510c7cba590d2ace866c3f20ca7ded485",
+      "variant": "GraphExistingOutput"
+    },
+    {
+      "passed": true,
+      "report_sha256": "f0a613d8104807bf449f54ebebfcc069592900eb34e276dc8c9ab709f2776101",
+      "variant": "GraphGhostBody"
+    },
+    {
+      "passed": true,
+      "report_sha256": "d5c95772318f8862cdac3658b2df90b636e918a00fab61d43e66595444e73002",
+      "variant": "GraphPresentPartition"
+    },
+    {
+      "passed": true,
+      "report_sha256": "6a02662a518e7490e8b872b0a73a474ff48ee5beb45aec6d0eb90e7d8e04bc1c",
+      "variant": "GraphForeignHistory"
+    }
+  ],
+  "root_process_result_sha256": "fc6880017dafd45667a1825cab5b24b98e5d2de6aaf32fb8990cf62a4d5600ba",
+  "runtime_file_process_network_access_attempts": 0,
+  "runtime_research_imports": 0,
+  "schema": "kit.sw2026.typed-named-output-process.v1",
+  "source_closure_unchanged": true,
+  "source_manifest_sha256": "9f82dc175f68a8b9f72595f29f7afae10e01523bb263d9646bcbe38397af13ef",
+  "tools_manifest_sha256": "0ec3ea8d7a8753672cf9d49640f02820f7e3e30d87d29cb39098de3df5d856cc",
+  "unexpected_sdk_origins": 0,
+  "unit_tests_run": 0
+}
