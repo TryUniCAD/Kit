@@ -1,0 +1,57 @@
+from collections.abc import Mapping
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismBoss import (
+    CheckPrismBoss,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismEnd import (
+    CheckPrismEnd,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismPlane import (
+    CheckPrismPlane,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.MakePrismLines import (
+    MakePrismLines,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismPlan import PrismPlan
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
+    ReadPrismFrame,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismLoop import (
+    ReadPrismLoop,
+)
+from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
+from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
+from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
+
+
+# only actual linked feature and dimension owners may determine the reconstructed body and its provenance
+def ReadPrismPlan(
+    LinkValue: NativeLink, Features: Mapping[int, ArchiveNode]
+) -> PrismPlan:
+    (BossValue,) = (
+        NodeValue
+        for NodeValue in Features.values()
+        if NodeValue.ClassValue.NameValue == "moExtrusion_c"
+    )
+    OwnerValue = ReadExtrude(LinkValue, BossValue, Features)
+    CheckPrismBoss(OwnerValue)
+    CheckPrismEnd(OwnerValue)
+    CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
+    LoopValue = ReadPrismLoop(OwnerValue.ProfileValue, LinkValue)
+    FrameValue = ReadPrismFrame(
+        OwnerValue.ProfileValue, LinkValue.ConfigValue.RootValue, Features
+    )
+    EvidenceValue = {
+        "method": "typed_parametric_rectangular_prism",
+        "model_version": 19000,
+        "profile_owner": NativeNodeSpan(LinkValue, OwnerValue.ProfileValue),
+        "boss_owner": NativeNodeSpan(LinkValue, BossValue),
+        "depth_owner": OwnerValue.DepthValue.DepthValue.TypedOwner,
+        "native_kernel_identity": False,
+    }
+    return PrismPlan(
+        FrameValue,
+        MakePrismLines(LoopValue),
+        OwnerValue.DepthValue.DepthValue.value_mm,
+        EvidenceValue,
+    )

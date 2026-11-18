@@ -359,7 +359,9 @@ Four guarded builds yield identical native bytes with three live drivers
 and source text. The generated box passes the disclosed native edit, save
 and reopen lifecycle with 162 analytical checks. Native direct body and
 driver names and original benchmark membership remain open, so this adds
-zero corpus passes.
+zero corpus passes. The [strict cache-free readback](records/SdkNoCachePrismRead2026.md)
+recovers one solid with eight vertices, twelve edges and six faces, and
+retains all three drivers, seven relations and thirteen text properties.
 
 The two [original SDK circle parts](records/SdkOriginalCircleNative2026.md)
 pass native source parity for translated Front-plane diameter and reversed

@@ -163,6 +163,9 @@ from convert.adapters.solidworks.Core.TypedMates.WithTypedMates import WithTyped
 from convert.adapters.solidworks.Core.TypedMates.WithTypedFixed import WithTypedFixed
 from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import HasDrawingClsid
 from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadNoCache import (
+    ReadNoCache,
+)
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -345,8 +348,23 @@ def ReadNativePart(
     SketchValues = Sketches(Model, ParamIds)
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
-    BrepValue = TypedBrep(Payloads)
+    DerivedValue = (
+        ReadNoCache(Archive, Model, "sldprt:body:1") if Settings.include_brep else None
+    )
+    if DerivedValue is None:
+        Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
+        BrepValue = TypedBrep(Payloads)
+    else:
+        Payloads = ()
+        PayloadDiags = (
+            DiagValue(
+                code="sldprt.brep_reconstructed",
+                message="B-rep reconstructed from the complete typed ordinary rectangular prism history",
+                severity=Severity.INFO,
+                attributes=FrozenMapping(DerivedValue.EvidenceValue),
+            ),
+        )
+        BrepValue = DerivedValue.BrepValue
     SolidOpIds = frozenset(
         (
             FeatureId(Operation.object_id)
@@ -361,8 +379,12 @@ def ReadNativePart(
             id="sldprt:body:1",
             name=BodyFeature.name if BodyFeature is not None else "Body 1",
             final_feature_id=FinalFeature,
-            topology=TopologySummary(
-                solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
+            topology=(
+                DerivedValue.TopologyValue
+                if DerivedValue is not None
+                else TopologySummary(
+                    solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
+                )
             ),
             provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
             attributes=FrozenMapping(
@@ -3450,9 +3472,11 @@ def OperationAttrs(Operation: NativeOperation) -> dict[str, object]:
                 "end_condition": (
                     Operation.extrusion_end.value
                     if Operation.extrusion_end is not None
-                    else "blind"
-                    if Operation.termination_code == 0
-                    else f"native:{Operation.termination_code}"
+                    else (
+                        "blind"
+                        if Operation.termination_code == 0
+                        else f"native:{Operation.termination_code}"
+                    )
                 ),
             }
         )
@@ -3933,9 +3957,7 @@ def SelectionId(
 
 
 # typed circles retain the same identity in their outline and dimension references
-def CircleProfileId(
-    NativeId: int, Profile: NativeProfile, ProfileIndex: int
-) -> str:
+def CircleProfileId(NativeId: int, Profile: NativeProfile, ProfileIndex: int) -> str:
     if Profile.EntityMarkerOffset is not None:
         return MarkerId(NativeId, Profile.EntityMarkerOffset)
     return ProfileId(NativeId, ProfileIndex)
