@@ -138,10 +138,11 @@ assert (
     == prep["writer_source_sha256"]
     == digest(repo / archive_source)
 )
-assert not subprocess.check_output(
+source_diff = subprocess.check_output(
     ["rtk", "proxy", "git", "diff", revision, "--", "src"], cwd=repo, timeout=30
 )
-assert (
+assert not source_diff
+source_tree = (
     subprocess.check_output(
         ["rtk", "proxy", "git", "rev-parse", f"{revision}^{{tree}}"],
         cwd=repo,
@@ -149,8 +150,8 @@ assert (
     )
     .decode()
     .strip()
-    == prep["tree"]
 )
+assert source_tree == prep["tree"]
 for name, expected_hash in prep.get("sdk_source_hashes", {}).items():
     assert digest(repo / name) == expected_hash
 edit = load(root / "Native-edit.json")

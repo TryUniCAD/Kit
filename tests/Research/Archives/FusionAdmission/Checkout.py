@@ -9,10 +9,11 @@
 from collections.abc import Iterator
 from pathlib import Path as FilePath
 from shutil import copyfile as CopyFile
-from shutil import rmtree as RemoveTree
 from subprocess import run as RunProcess
 
 from pytest import fixture as Fixture
+
+from tests.Research.Archives.FusionAdmission.CleanCheckout import CleanCheckout
 
 
 # private source commits let the real command enforce clean committed verifier identities
@@ -81,4 +82,4 @@ def ReplayRepo(TmpPath: FilePath) -> Iterator[FilePath]:
     try:
         yield TargetRoot
     finally:
-        RemoveTree(TargetRoot)
+        CleanCheckout(TargetRoot, TmpPath)
