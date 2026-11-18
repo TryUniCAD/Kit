@@ -415,8 +415,11 @@ The [release-specific FreeCAD box proof](measurements/2026/SdkFreecadBoxReleaseC
 audits twelve schema-four inputs. Three disclosed origin-box forms
 build with exact driver and text recovery, and nine attached or
 multi-feature variants reject. Four targeted mutations also reject.
-The newer source forms use native custom kilograms. Their fresh native
-lifecycles and historical-original membership remain open.
+The two newer-release [native lifecycles](measurements/2026/SdkFreecadBoxReleaseNative01.json)
+pass all driving edits, clean saves and fresh reopens with the actual
+kilogram setting, body name and literal text. Four strict readbacks
+pass forty complete stream comparisons. Historical-original membership
+remains unverified.
 
 The two [original SDK circle parts](records/SdkOriginalCircleNative2026.md)
 pass native source parity for translated Front-plane diameter and reversed

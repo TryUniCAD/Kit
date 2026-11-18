@@ -55,6 +55,31 @@ The exact newer-release native packet is frozen at SHA-256
 to the complete guarded build record. The two independent fresh
 lifecycles measure Length, Width and Height editing, native kilogram
 preferences, actual origin ownership, named body, mass and text
-properties through controls, rebuild, save and reopen. Native
-execution and whole-corpus qualification remain pending for this
-packet.
+properties through controls, rebuild, save and reopen.
+
+## Native persistence
+
+Both controls and all four candidate processes pass on SOLIDWORKS
+2026 SP05.2. Each of the six driving edits rebuilds the same native
+parametric owners. Length and Width are restored before the final
+Height edit and save. The fresh native reopens recover heights
+`15.87 mm` and `16.19 mm`. All eighteen candidate observations retain
+the one-solid topology, the named Body, origin constraints, expected
+geometry, text and the custom millimetre/kilogram setting. Observed
+mass divided by volume is `1 kg/m³` in all eighteen states. The
+license processes remain unchanged across the batch.
+
+The host verifier reads both fresh files and both edited derivatives
+through the normal strict reader. All four retain the actual named
+drivers and source properties. Forty stream comparisons include
+Definition, CMgr, CMgrHdr2, both headers, Config-0, ResolvedFeatures,
+KeyWords, Biography and History. The initial observer used the native
+compact KeyWords spelling for all four. The fresh constructor uses
+spaced empty elements, and the native save uses compact empty
+elements. Selecting the corresponding documented frame reproduces
+all four KeyWords streams exactly.
+[Native measurement](../measurements/2026/SdkFreecadBoxReleaseNative01.json)
+[KeyWords spelling](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Revolve/KeywordEmptyElementSpelling.md)
+
+Native assigned material, appearance and full original-corpus
+qualification remain open.

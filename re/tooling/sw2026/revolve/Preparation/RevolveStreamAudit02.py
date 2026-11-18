@@ -17,7 +17,7 @@ from convert.adapters.solidworks.Archive.History.WriteHistMut import WriteHistMu
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 
 
-def stream_audit(archive, link):
+def stream_audit(archive, link, *, compact_keywords=True):
     config_bytes, config = WriteConfigMut(link.ConfigValue.RootValue,19000,link.ConfigValue.HeaderValue)
     resolved_bytes, resolved = WriteResolMut(link.ResolvedValue.RootsValue,link.ResolvedValue.ExtraFields,
         19000,config.MapValue,link.ResolvedValue.ContextValue)
@@ -38,7 +38,9 @@ def stream_audit(archive, link):
         except BodyUnsupported as error:
             metadata[name] = {'qualified': False, 'byte_identity': False,
                 'error_class': type(error).__name__, 'error_message': str(error)}
-    emitted['swXmlContents/KeyWords'] = FrameKeywords(fromstring(archive.require('swXmlContents/KeyWords')[1:]),True)
+    emitted['swXmlContents/KeyWords'] = FrameKeywords(
+        fromstring(archive.require('swXmlContents/KeyWords')[1:]), compact_keywords,
+    )
     for graph in (config,resolved):
         if not graph.ReportValue['completed'] or graph.ReportValue['missing_schemas'] or graph.ReportValue['provisional_schemas']:
             raise ValueError('critical native graph reaches unqualified schema')
