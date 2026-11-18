@@ -38,11 +38,12 @@ def index(fields, short_name, long_name, marker, expected):
 
 def geometry(sketch, vertices):
     fields = node(sketch, "sgSketch").FieldsValue
-    require(fields["npoints"] == fields["nlines"] == len(fields["points"]) == len(fields["lines"]) == 4,
-            "prepared rectangle does not have four actual points and lines")
+    count = len(vertices)
+    require(count >= 3 and fields["npoints"] == fields["nlines"] == len(fields["points"]) == len(fields["lines"]) == count,
+            "prepared profile does not have the modeled points and lines")
     require("f138" not in fields and fields["f128"] == fields["f12c"] == 1,
             "ordinary rectangle acquired runtime-only profile state or changed constructor solver words")
-    require(fields["f130"] == fields["f56c"] == fields["f140"]["f08"] == fields["f140"]["f0c"] == 5,
+    require(fields["f130"] == fields["f56c"] == fields["f140"]["f08"] == fields["f140"]["f0c"] == count + 1,
             "prepared rectangle allocation counters differ")
     handles = []
     for ordinal, (row, position) in enumerate(zip(fields["points"], vertices, strict=True)):
@@ -51,7 +52,7 @@ def geometry(sketch, vertices):
                 "prepared rectangle position differs from neutral input")
         require(point["pflags"] == 0x1E and point["fe8"] == 2 and point["f0c"] == ordinal + 1,
                 "prepared rectangle marker namespace or adjacency degree differs")
-        expected = (0, 3) if ordinal == 0 else (ordinal - 1, ordinal)
+        expected = (0, count - 1) if ordinal == 0 else (ordinal - 1, ordinal)
         for key, target in zip(("h1", "h2"), expected, strict=True):
             handle = node(point[key], "sgLineHandle")
             index(handle.FieldsValue, "idx", "f18", 0x777F, target)
@@ -61,9 +62,9 @@ def geometry(sketch, vertices):
         require(row["flags"] == 0 and line["f08"] == line["f0c"] == ordinal + 1,
                 "prepared rectangle line identities differ")
         index(line, "fc8_s", "fc8", 0xFFFF, ordinal)
-        index(line, "fcc_s", "fcc", 0xFFFF, (ordinal + 1) % 4)
-    require(len({id(handle) for handle in handles}) == 8, "endpoint handles lost their exclusive native identities")
-    return {"point_count": 4, "line_count": 4, "endpoint_handles": 8,
+        index(line, "fcc_s", "fcc", 0xFFFF, (ordinal + 1) % count)
+    require(len({id(handle) for handle in handles}) == 2 * count, "endpoint handles lost their exclusive native identities")
+    return {"point_count": count, "line_count": count, "endpoint_handles": 2 * count,
             "positions": True, "ordered_endpoints": True, "creation_counters": True,
             "conditional_wire_fields": True, "runtime_profile_backlink_absent": True}
 

@@ -5,6 +5,7 @@ from codecs import lookup
 from dataclasses import replace
 from hashlib import sha256
 import json
+from math import fsum, hypot
 from pathlib import Path
 import sys
 
@@ -18,6 +19,7 @@ sys.addaudithook(AUDIT.InspectEvent)
 
 from SdkBlindPartSettings import settings
 from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import MakeBlindPart
+from convert.adapters.solidworks.Archive.Construction.Part.MakePolygonBlindPart import MakePolygonBlindPart
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from interchange.document.Models.DocumentModel import CadDocument
@@ -29,6 +31,8 @@ from interchange.serialization.Deserialize import FromData
 
 CODECS = tuple(lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
 REQUEST = json.load(sys.stdin)
+PROFILE = sys.argv[2] if len(sys.argv) == 3 else "rectangle"
+BUILD = {"rectangle": MakeBlindPart, "polygon": MakePolygonBlindPart}[PROFILE]
 AUDIT.BeginBuild()
 
 
@@ -58,10 +62,21 @@ def malformed(document, inputs):
         ("negative_density", document, replace(inputs, DensityValue=-1.0)),
         ("wrong_front_support", document, replace(inputs, SystemValue=replace(inputs.SystemValue, OriginAxis="x"))),
     )
+    if PROFILE == "polygon":
+        sketch = document.sketches[0]
+        first = sketch.entities[0]
+        reversed_line = replace(first.geometry, start=first.geometry.end, end=first.geometry.start)
+        for name, line in (
+            ("broken_ordered_endpoint", replace(first, geometry=reversed_line)),
+            ("construction_loop_edge", replace(first, construction=True)),
+            ("fixed_loop_edge", replace(first, fixed=True)),
+        ):
+            candidate = replace(document, sketches=(replace(sketch, entities=(line, *sketch.entities[1:])),))
+            candidates += ((name, candidate, inputs),)
     result = []
     for name, candidate, values in candidates:
         try:
-            MakeBlindPart(candidate, values)
+            BUILD(candidate, values)
         except (ValueError, TypeError, KeyError) as error:
             result.append({"case": name, "rejected": True, "exception": type(error).__name__, "diagnostic": str(error)})
         else:
@@ -69,11 +84,24 @@ def malformed(document, inputs):
     return result
 
 
+def prism(vertices, depth):
+    following = (*vertices[1:], vertices[0])
+    edges = tuple(zip(vertices, following, strict=True))
+    cross = tuple(x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in edges)
+    double_area = fsum(cross)
+    area = abs(double_area) / 2
+    perimeter = fsum(hypot(x2 - x1, y2 - y1) for (x1, y1), (x2, y2) in edges)
+    center = [fsum((start[axis] + end[axis]) * weight for (start, end), weight in zip(edges, cross, strict=True))
+              / (3 * double_area) for axis in (0, 1)]
+    return {"body_count": 1, "volume_m3": area * depth, "area_m2": 2 * area + perimeter * depth,
+            "com_m": [*center, depth / 2]}
+
+
 def main():
     document = FromData(REQUEST["document"])
     require(type(document) is CadDocument, "process must receive a real serialized neutral cad document")
     inputs = settings(REQUEST["settings"])
-    candidate = MakeBlindPart(document, inputs)
+    candidate = BUILD(document, inputs)
     require(candidate.ConfigValue.RootValue is candidate.SystemValue.RootValue, "candidate lost its actual configuration model alias")
     require(candidate.HeaderValue.FieldsValue["f38"] is candidate.TopHeader.FieldsValue["f38"], "headers must share the actual self file node")
     require(candidate.CurrentConfig is candidate.SystemValue.ManagerValue.FieldsValue["f360"], "candidate lost its actual active configuration")
@@ -95,11 +123,15 @@ def main():
     volume = width * height * depth
     bounds = {"body_count": 1, "volume_m3": volume, "area_m2": 2 * (width * height + width * depth + height * depth),
               "com_m": [sum(point[0] for point in plan.VerticesValue) / 4, sum(point[1] for point in plan.VerticesValue) / 4, depth / 2]}
+    if PROFILE == "polygon":
+        bounds = prism(plan.VerticesValue, depth)
     imports = sorted(name for name, module in tuple(sys.modules.items())
                      if str(getattr(module, "__file__", "")).startswith(str(ROOT / "re") + "/")
                      and name not in ("__main__", "SdkBlindPartSettings"))
     require(not imports, "SDK-only construction imported research implementation: " + repr(imports))
-    return {"passed": True, "scope": "complete SDK-only plain forward blind boss candidate from a real neutral document",
+    scope = ("complete SDK-only plain forward blind boss candidate from a real neutral document" if PROFILE == "rectangle"
+             else "complete SDK-only straight polygon and forward blind boss from a real neutral document")
+    return {"passed": True, "scope": scope,
             "name": plan.NameValue, "native_path": inputs.OutputValue.PathName, "root_id": candidate.SystemValue.RootValue.FieldsValue["f08"],
             "next_id": candidate.HeaderValue.FieldsValue["f08"], "feature_count": len(candidate.ResolvedValue.RootsValue),
             "configuration_count": len(candidate.SystemValue.ConfigValues), "dimension_ids": identifiers,

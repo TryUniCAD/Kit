@@ -10,6 +10,7 @@ def AssertPartFlow(
     BuildValue: dict[str, object],
     Prepared: dict[str, object],
     Counterpart: dict[str, object],
+    RejectionCount: int = 12,
 ) -> int:
     AssertPartBytes(BuildValue, Prepared, Counterpart)
     assert (
@@ -39,9 +40,10 @@ def AssertPartFlow(
         is True
     )
     Geometry = CastValue(dict[str, object], Prepared["geometry"])
+    PointCount = len(CastValue(list[object], BuildValue["vertices_m"]))
     assert (
-        Geometry["point_count"] == Geometry["line_count"] == 4
-        and Geometry["endpoint_handles"] == 8
+        Geometry["point_count"] == Geometry["line_count"] == PointCount
+        and Geometry["endpoint_handles"] == 2 * PointCount
     )
     DepthValue = CastValue(dict[str, object], Prepared["driving_depth"])
     assert (
@@ -53,7 +55,9 @@ def AssertPartFlow(
         and DepthValue["actual_handle"] is True
     )
     Failures = CastValue(list[dict[str, object]], BuildValue["malformed"])
-    assert len(Failures) == 12 and all(RowValue["rejected"] for RowValue in Failures)
+    assert len(Failures) == RejectionCount and all(
+        RowValue["rejected"] for RowValue in Failures
+    )
     for ReportValue in (BuildValue, Prepared):
         UsageValue = CastValue(dict[str, dict[str, object]], ReportValue["usage"])
         assert all(

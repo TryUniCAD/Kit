@@ -7,7 +7,9 @@ from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 
 
 # full candidate evidence must cross fresh guarded interpreter boundaries without retaining modeled nodes between construction preparation and independent comparison
-def RunPartPhase(Request: dict[str, object], PhaseValue: str) -> dict[str, object]:
+def RunPartPhase(
+    Request: dict[str, object], PhaseValue: str, ProfileValue: str = "rectangle"
+) -> dict[str, object]:
     ScriptsValue = {
         "build": "SdkBlindPartProcess.py",
         "prepare": "SdkBlindPartPrepare.py",
@@ -20,6 +22,7 @@ def RunPartPhase(Request: dict[str, object], PhaseValue: str) -> dict[str, objec
             "-B",
             str(KRepoRoot / "re/tooling/sw2026" / ScriptsValue[PhaseValue]),
             str(KRepoRoot),
+            *(("polygon",) if ProfileValue == "polygon" else ()),
         ),
         cwd=KRepoRoot,
         input=DumpJson(Request),

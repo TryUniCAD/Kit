@@ -27,7 +27,9 @@ from convert.adapters.solidworks.Archive.Config.MakeLinkContext import MakeLinkC
 from convert.adapters.solidworks.Archive.Config.ReadConfigMut import ReadConfigMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.Metadata.FrameKeywords import FrameKeywords
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectBlind import ProjectBlind
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectPlain import ProjectPlain
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadLineLoop import ReadLineLoop
 from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
 from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
@@ -44,6 +46,7 @@ from interchange.serialization.Deserialize import FromData
 
 CODECS = tuple(lookup(value) for value in ("utf-16-le", "utf-8", "latin-1"))
 REQUEST = json.load(sys.stdin)
+PROFILE = sys.argv[2] if len(sys.argv) == 3 else "rectangle"
 AUDIT.BeginBuild()
 
 
@@ -72,7 +75,9 @@ def keyword_graph(data, built, request, features, configuration):
 
 def main():
     built, request = REQUEST["build"], REQUEST["request"]["settings"]
-    plan = ProjectPlain(FromData(REQUEST["request"]["document"]))
+    document = FromData(REQUEST["request"]["document"])
+    require(PROFILE in ("rectangle", "polygon"), "unknown complete part profile")
+    plan = ProjectBlind(document, ReadLineLoop) if PROFILE == "polygon" else ProjectPlain(document)
     require(plan.NameValue == built["name"] and plan.DepthValue == built["depth_m"] and
             list(map(list, plan.VerticesValue)) == built["vertices_m"], "prepared geometry was not derived from the actual neutral input")
     blob = b64decode(built["blob"], validate=True)

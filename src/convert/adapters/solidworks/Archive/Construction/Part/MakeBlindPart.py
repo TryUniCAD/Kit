@@ -22,6 +22,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.MakePartBaseMut impor
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartHeaders import (
     MakePartHeaders,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
+    BlindPlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectPlain import (
     ProjectPlain,
 )
@@ -48,7 +51,13 @@ from interchange.document.Models.DocumentModel import CadDocument
 def MakeBlindPart(
     DocumentValue: CadDocument, InputValue: PartBuildInput
 ) -> PartCandidate:
-    PlanValue = ProjectPlain(DocumentValue)
+    return MakeBlindPartFromPlan(DocumentValue, InputValue, ProjectPlain(DocumentValue))
+
+
+# an admitted closed profile must use the same graph allocation linked stream writers and container path
+def MakeBlindPartFromPlan(
+    DocumentValue: CadDocument, InputValue: PartBuildInput, PlanValue: BlindPlan
+) -> PartCandidate:
     CheckPartInput(DocumentValue, InputValue, PlanValue)
     Allocator = PersistentIds()
     SystemValue = MakePartBaseMut(InputValue, PlanValue, Allocator)
