@@ -6,6 +6,8 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Generated ordinary revolves](../measurements/2026/SdkOrdinaryRevolveNative01.json) | Four neutral parts pass 340 native geometry and angle checks through edit, save and fresh reopen, with two healthy controls. |
+| [Drawing epoch lifecycles](../measurements/2026/DrawingSourceEpochNative01.json) | Four generated pairs pass 18 native phases and 20 typed joins. The independently modeled clocks and actual origin identity persist across fresh reopens. |
 | [Default SDK standalone part recipe](SdkDefaultPartRecipe2026.md) and [controlled native evidence](../measurements/2026/SdkDefaultPartNative01.json) | Four guarded writers reproduce the ten streams from two models. Both parts pass 240 native checks with the document density preference and effective unassigned body density measured separately. |
 | [Current planar mate reference chains](../measurements/2026/AssemblyPlanarMateArchive01.json) and [class rules](PlanarMateReferenceChains2026.md) | 51 exact stream comparisons across three disclosed mate pairs. All three MatesList serializations resolve without provisional reference-chain classes. |
 | [Generated planar mate endpoints](../measurements/2026/GeneratedPlanarMateEndpoint01.json) | Two authored occurrence and datum references round-trip with zero runtime file reads. |

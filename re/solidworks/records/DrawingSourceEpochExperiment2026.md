@@ -1,6 +1,6 @@
 # Fresh drawing epoch experiment in SOLIDWORKS 2026
 
-**Native qualification is pending.** The private source-only factory and independent typed readback passed 26 root-run processes. The published constructor policy and all original-source refusals remain in force.
+The independent construction and typed readback pass 26 host processes. The four generated pairs also pass 18 controlled native phases and 20 typed origin joins. [Native lifecycle and clock readback](DrawingSourceEpochNativeLifecycle2026.md)
 
 | Item | Boundary |
 | --- | --- |
@@ -80,6 +80,6 @@ The packet prescribes 18 fresh native processes: leading control, four phases pe
 
 ## Limits
 
-No native epoch batch has yet qualified the split inputs. Helper mode selection and every upstream writer of the archive-time slot remain separate native questions. Byte identity and process isolation do not prove native acceptance. The original drawings still exceed the published constructor in metadata, presentation and other independent fields. No hidden payload was read, no public writing was enabled, no shared file was changed, and no task-owned or foreign Hopper/REA session was used.
+The controlled batch verifies the three modeled clock variations through native edit, save and fresh reopen. It measures the resulting header, root-log, history, and save times in the archive. Live helper-mode attribution and earlier upstream setters remain open. The original drawings still require complete neutral projection of their metadata, presentation and additional fields.
 
 The CAD stopping conditions remain: “The first is success under every criterion on this page.” and “The second is the end of the available context.” This research process result does not complete the broader CAD goal.
