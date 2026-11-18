@@ -34,12 +34,24 @@ def TestRectOpen() -> None:
     assert CountKinds(str(Entity.kind) for Entity in Sketch.entities) == {"line": 4}
     assert [len(LoopValue) for LoopValue in Sketch.closed_profile_entity_ids] == [4]
     assert {
-        Relation.parameter_id: Relation.kind
+        Relation.parameter_id: (
+            Relation.kind,
+            Relation.driving,
+            tuple((Ref.entity_id, Ref.point) for Ref in Relation.references),
+        )
         for Relation in Sketch.constraints
         if Relation.parameter_id
     } == {
-        "sldprt:parameter:26:D1": "distance_x",
-        "sldprt:parameter:26:D2": "distance_y",
+        "sldprt:parameter:26:D1": (
+            "distance",
+            True,
+            ((f"{Sketch.id}:line:1", "start"), (f"{Sketch.id}:line:1", "end")),
+        ),
+        "sldprt:parameter:26:D2": (
+            "distance",
+            True,
+            ((f"{Sketch.id}:line:2", "start"), (f"{Sketch.id}:line:2", "end")),
+        ),
     }
     Bounds = Document.bodies[0].topology.bounding_box
     assert Bounds is not None

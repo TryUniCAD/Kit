@@ -173,6 +173,11 @@ def read_history(child, before, expected, dimensions, child_path):
     archive = SldprtArchive.open(child_path)
     native, = NativePartModel(archive, "Default").sketches
     constraints = {c.parameter_id: str(c.kind) for c in sketch.constraints if c.parameter_id}
+    endpoints = {c.parameter_id: [(ref.entity_id, ref.point) for ref in c.references]
+                 for c in sketch.constraints if c.parameter_id and c.driving and not c.suppressed}
+    expected_endpoints = {f"sldprt:parameter:{sketch_id}:D{index}":
+                          [(f"{sketch.id}:line:{index}", "start"), (f"{sketch.id}:line:{index}", "end")]
+                          for index in (1, 2)}
     profile_sizes = [len(loop) for loop in sketch.closed_profile_entity_ids]
     return {
         "unchanged_by_cache": True, "sketch_id": sketch.id, "support_plane_id": sketch.support_plane_id,
@@ -180,10 +185,11 @@ def read_history(child, before, expected, dimensions, child_path):
         "sketch_profiles": [{"kind": p.kind, "coordinates_mm": p.coordinates, "marker_offsets": p.marker_offsets,
                              "parameter": p.parameter_name, "dimension_kind": p.dimension_kind} for p in native.profiles],
         "sdk_entities": [str(entity.kind) for entity in sketch.entities], "closed_profile_sizes": profile_sizes,
-        "dimension_constraints": constraints, "summary_bounds_mm": (vector(summary_box.minimum), vector(summary_box.maximum)),
+        "dimension_constraints": constraints, "dimension_endpoints": endpoints,
+        "summary_bounds_mm": (vector(summary_box.minimum), vector(summary_box.maximum)),
         "strict_sketch_semantics": len(sketch.entities) == 4 and profile_sizes == [4] and constraints == {
-            f"sldprt:parameter:{sketch_id}:D1": "distance_x", f"sldprt:parameter:{sketch_id}:D2": "distance_y",
-        },
+            f"sldprt:parameter:{sketch_id}:D1": "distance", f"sldprt:parameter:{sketch_id}:D2": "distance",
+        } and endpoints == expected_endpoints,
         "strict_summary_bounds": match(vector(summary_box.minimum), (left,bottom,0.0)) and match(vector(summary_box.maximum), (right,top,depth)),
     }
 
