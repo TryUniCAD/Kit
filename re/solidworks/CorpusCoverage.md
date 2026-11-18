@@ -527,6 +527,13 @@ passes native open, rebuild, pose and child depth edits, synchronized save
 and fresh reopen with healthy controls. Its saved links and drivers pass
 the normal SDK reader. This is a disclosed SOLIDWORKS self-lifecycle.
 
+The [paired perpendicular assessment](measurements/2026/SdkPerpendicularHeldoutNative01.json)
+passes both pre-writer locked SOLIDWORKS assemblies and their child parts.
+All 484 native numeric checks, twelve source-to-generated comparisons and six
+normal SDK source and saved-file audits pass. Four controls bracket the runs.
+Both candidates come from the frozen neutral-only internal writer. These
+SOLIDWORKS cases add zero FCStd corpus conversions.
+
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
 identities with successful Document.xml discovery. The inventory includes 56
