@@ -1,11 +1,12 @@
 # FCStd to SOLIDWORKS corpus coverage
 
 Status: **0 of 165 FCStd parts and 0 of five FCStd assemblies qualified**.
-Kit's generative public writer accepts the scoped ordinary neutral line-loop
-blind boss. Its held-out native SOLIDWORKS examples are separate from the
-FCStd benchmark. The earlier writer measured below re-emitted a recorded
+Kit's generative public writer accepts the scoped neutral line-loop and the
+two qualified fixed-centre circle blind bosses. Its held-out native
+SOLIDWORKS examples are separate from the FCStd benchmark. The earlier writer measured below re-emitted a recorded
 vendor stream per family, so it was removed from production.
 See the [native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md).
+See the [circle writer registration](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md).
 See `Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md`.
 
 The figures below are the last audit of that removed writer. They record which source histories it

@@ -5,7 +5,11 @@ from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
+    KPartPlan,
+)
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.Preparation.Circle.PlanCircle import PlanCircle
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
@@ -24,7 +28,11 @@ class SldprtWriter(PairProtocol):
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         try:
-            PlanValue = PlanPartWrite(DocValue)
+            PlanValue: KPartPlan
+            try:
+                PlanValue = PlanPartWrite(DocValue)
+            except (TypeError, ValueError):
+                PlanValue = PlanCircle(DocValue)
         except (TypeError, ValueError):
             return False
         if isinstance(Target, (str, FilePath)):

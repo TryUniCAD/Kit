@@ -44,5 +44,6 @@ direction and edited length owners. Their 32 Config and Resolved stream
 round trips pass byte-for-byte. The
 [sanitized result](../measurements/2026/SdkOriginalCircleNative01.json)
 binds the immutable candidate hashes, raw native and transport receipts and
-normal-reader result. Public writer integration, other circle feature
-combinations and the separate FCStd corpus remain outside this result.
+normal-reader result. The subsequent [public writer replay](SdkCirclePublicRegistration2026.md)
+preserves both exact initial files through normal SDK calls. Other circle
+combinations and the separate FCStd corpus remain open.

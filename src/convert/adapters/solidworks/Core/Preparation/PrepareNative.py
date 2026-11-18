@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
     PartCandidate,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
+    PrepareCircle,
+)
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.RunPartPrep import RunPartPrep
@@ -18,7 +21,10 @@ def PrepareNative(
     OptionsValue: WriteOptions | None = None,
 ) -> PartCandidate:
     SettingsValue = CheckPartOpts(OptionsValue)
-    PlanValue = PlanPartWrite(DocumentValue)
+    try:
+        PlanValue = PlanPartWrite(DocumentValue)
+    except (TypeError, ValueError):
+        return PrepareCircle(DocumentValue, TargetValue, WrittenAt, SettingsValue)
     RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
     return RunPartPrep(
         DocumentValue, TargetValue, PlanValue, RecipeValue, SettingsValue

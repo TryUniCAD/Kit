@@ -32,6 +32,7 @@ No replacement percentage is claimed without a complete acceptance matrix.
 Registration, same-format reconstruction and retained native bytes do not establish cross-format editability.
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
 The [SOLIDWORKS guide](Documentation/Reference/Adapters/Solidworks.md) documents the production write restriction.
+PR #121 adds normal writer support for two independently qualified fixed-centre circle profiles. [Circle writer evidence](Documentation/Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md)
 
 ## Destination
 

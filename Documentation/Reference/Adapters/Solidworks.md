@@ -94,7 +94,7 @@ The internal preparation boundary uses normal write options and the final destin
 
 A separate SDK constructor admits a simple closed line loop for the ordinary forward blind boss. A triangle and a concave polygon generate ten streams each, and both original rectangle containers remain byte-identical. The three original native polygon sources match the generated trees and geometry and pass edits and fresh reopen. [Complete polygon part](../../Changes/Solidworks/Construction/SolidworksSdkPolygonBlindPart.md) [Original polygon qualification](../../Changes/Solidworks/Construction/SolidworksSdkOriginalPolygonQualification.md)
 
-An internal SDK constructor generates a complete fixed-centre circle boss with an editable radius or diameter and independent blind depth. Both disclosed files pass first-load body checks, edit, save and fresh reopen in SOLIDWORKS 2026 SP05.2. Public writing of this profile requires held-out qualification. [Circle boss construction](../../Changes/Solidworks/Construction/SolidworksSdkCircleBoss.md)
+The circle constructor generates a complete fixed-centre circle boss with an editable radius or diameter and independent blind depth. Both disclosed files pass first-load body checks, edit, save and fresh reopen in SOLIDWORKS 2026 SP05.2. [Circle boss construction](../../Changes/Solidworks/Construction/SolidworksSdkCircleBoss.md)
 
 The original Front-plane forward diameter and Top-plane reversed radius
 parts now pass the internal SDK held-out comparison. Both source and
@@ -187,9 +187,18 @@ A single flag change is not a general operation converter.
 ## Writing
 
 The public writer accepts a neutral millimetre document with one active
-configuration, the canonical Front Plane, one closed loop of ordinary sketch
-lines, one forward blind boss and one solid. It preserves the actual
-neutral sketch, boss and configuration names and the driving `D1` depth.
+configuration, one sketch, one blind boss and one solid. It admits these
+three profiles:
+
+- An ordinary closed line loop on the canonical Front Plane with a forward boss
+- One fixed-centre analytic circle on the canonical Front Plane with a driving diameter and a forward boss
+- One fixed-centre analytic circle on the canonical Top Plane with a driving radius and a reversed boss
+
+Circle centres can be translated within their support plane. The writer
+preserves the neutral sketch, boss and configuration names and the
+actual driving radial and depth owners. The public circle route reproduces
+both exact first-generation files from the held-out native comparison.
+[Circle writer registration](../../Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md)
 
 Call `write_document(document, path)` with a `.SLDPRT` path whose basename
 matches the document name. Set `overwrite=True` to replace an existing
@@ -200,7 +209,7 @@ locator with the same basename. The generated document opens independently
 of that locator.
 
 The `kit convert` command applies its separate portable-geometry gate.
-Use the SDK call above for the initial SOLIDWORKS write profile.
+Use the SDK call above for the qualified SOLIDWORKS write profiles.
 
 The writer rejects other feature combinations, material assignments,
 unmapped source state, assemblies and drawings before publishing a file.
