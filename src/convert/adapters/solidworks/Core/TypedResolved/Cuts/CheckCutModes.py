@@ -3,15 +3,24 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsL
 from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
-# one blind solid boss and a reversed blind solid cut define the proven body producing operations
+# saved cut relationships require the measured solid mode and independent active owners where a length exists
 def CheckCutModes(BossValue: ExtrudeOwner, CutValue: ExtrudeOwner) -> None:
+    Through = CutValue.ModeValue == ExtrudeEnd.KThroughAll
+    BossMode = ExtrudeEnd.KMidPlane if Through else ExtrudeEnd.KBlind
+    if (
+        BossValue.ModeValue != BossMode
+        or BossValue.IsReversed
+        or (
+            not Through
+            and (CutValue.ModeValue != ExtrudeEnd.KBlind or not CutValue.IsReversed)
+        )
+    ):
+        raise ValueError("cut history has an unsupported solid termination")
     for OwnerValue, IsCut in ((BossValue, False), (CutValue, True)):
         Fields = OwnerValue.NodeValue.FieldsValue
         Flags = Fields.get("f28")
         if (
-            OwnerValue.ModeValue != ExtrudeEnd.KBlind
-            or OwnerValue.IsReversed is not IsCut
-            or OwnerValue.ParentsValue != (OwnerValue.ProfileValue,)
+            OwnerValue.ParentsValue != (OwnerValue.ProfileValue,)
             or Fields.get("f810") != (1 if IsCut else -1)
             or type(Flags) is not int
             or Flags & 0x7FFFFFFF != (0x400201CA if IsCut else 0x40000140)
@@ -22,11 +31,15 @@ def CheckCutModes(BossValue: ExtrudeOwner, CutValue: ExtrudeOwner) -> None:
             or not IsLineState(Fields.get("f780"))
         ):
             raise ValueError("cut history has an unsupported solid extrusion mode")
+    if Through:
+        return
+    BossDepth = BossValue.RequireDepth()
+    CutDepth = CutValue.RequireDepth()
     if (
-        BossValue.DepthValue.Parameter is CutValue.DepthValue.Parameter
-        or BossValue.DepthValue.Dimension is CutValue.DepthValue.Dimension
-        or BossValue.DepthValue.Dimension.FieldsValue.get("f50")
-        == CutValue.DepthValue.Dimension.FieldsValue.get("f50")
+        BossDepth.Parameter is CutDepth.Parameter
+        or BossDepth.Dimension is CutDepth.Dimension
+        or BossDepth.Dimension.FieldsValue.get("f50")
+        == CutDepth.Dimension.FieldsValue.get("f50")
     ):
         raise ValueError("boss and cut require distinct driving depth owners")
     if any(

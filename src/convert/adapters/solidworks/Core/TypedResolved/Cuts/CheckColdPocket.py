@@ -72,8 +72,8 @@ def CheckColdPocket(
         not min(XValues) < XValue - Radius < XValue + Radius < max(XValues)
         or not min(YValues) < YValue - Radius < YValue + Radius < max(YValues)
         or not 0.0
-        < CutValue.DepthValue.DepthValue.value_mm
-        < BossValue.DepthValue.DepthValue.value_mm
+        < CutValue.RequireDepth().DepthValue.value_mm
+        < BossValue.RequireDepth().DepthValue.value_mm
     ):
         raise ValueError(
             "cold blind pocket must leave the actual rectangular solid intact"

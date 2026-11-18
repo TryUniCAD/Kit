@@ -43,7 +43,7 @@ class ExtrudeEnd(WireEnum):
 # extrusions retain directional and termination choices needed for reconstruction
 @MakeDataClass(frozen=True, slots=True)
 class ExtrudeFeature(ExtrudeShape, ExtrudeSecond, FeatureDef):
-    length: ParameterValue
+    length: ParameterValue | None = None
     end_condition: ExtrudeEnd | str = ExtrudeEnd.KBlind
     reversed: bool = False
     symmetric: bool = False
@@ -56,3 +56,12 @@ class ExtrudeFeature(ExtrudeShape, ExtrudeSecond, FeatureDef):
     second_draft_angle: ParameterValue | None = None
     up_to_reference: str = ""
     second_up_to_reference: str = ""
+
+    # finite termination modes must keep their actual driving length through portable serialization
+    def __post_init__(self) -> None:
+        if self.length is None and self.end_condition in (
+            ExtrudeEnd.KBlind,
+            ExtrudeEnd.KMidPlane,
+            ExtrudeEnd.KTwoLengths,
+        ):
+            raise ValueError("finite extrusion termination requires a primary length")

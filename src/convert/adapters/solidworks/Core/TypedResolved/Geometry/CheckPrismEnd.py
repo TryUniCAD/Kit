@@ -55,7 +55,7 @@ def CheckPrismEnd(OwnerValue: ExtrudeOwner) -> None:
         )
     if len({Dimension.FieldsValue.get("f50") for Dimension, _, _ in Values}) != 4:
         raise ValueError("cache free prism has duplicated end dimension identities")
-    if Values[0][1] is not OwnerValue.DepthValue.Parameter:
+    if Values[0][1] is not OwnerValue.RequireDepth().Parameter:
         raise ValueError(
             "cache free prism active depth does not alias its selected live owner"
         )

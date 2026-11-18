@@ -3567,14 +3567,12 @@ def NativeFallback(
 
 # this definition exists because focused behavior needs one stable owner
 def BuildExtrude(Operation: NativeOperation | None) -> ExtrusionFeature | None:
-    if (
-        Operation is None
-        or Operation.kind not in {"join", "cut", "surface"}
-        or Operation.length_mm is None
-    ):
+    if Operation is None or Operation.kind not in {"join", "cut", "surface"}:
         return None
     if Operation.extrusion_end is not None:
         return BuildTypedEnd(Operation, Operation.extrusion_end, Operation.length_mm)
+    if Operation.length_mm is None:
+        return None
     return ExtrusionFeature(
         length=ParamValue(Operation.length_mm, ValueKind.LENGTH, "mm"),
         end_condition=(

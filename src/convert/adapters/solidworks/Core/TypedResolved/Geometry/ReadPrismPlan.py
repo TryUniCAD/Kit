@@ -41,6 +41,7 @@ def ReadPrismPlan(
     OwnerValue = ReadExtrude(LinkValue, BossValue, Features)
     CheckPrismBoss(OwnerValue, ColdValue)
     CheckPrismEnd(OwnerValue)
+    Depth = OwnerValue.RequireDepth().DepthValue
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
     LoopValue = ReadPrismLoop(OwnerValue.ProfileValue, LinkValue)
     FrameValue = ReadPrismFrame(
@@ -51,12 +52,12 @@ def ReadPrismPlan(
         "model_version": 19000,
         "profile_owner": NativeNodeSpan(LinkValue, OwnerValue.ProfileValue),
         "boss_owner": NativeNodeSpan(LinkValue, BossValue),
-        "depth_owner": OwnerValue.DepthValue.DepthValue.TypedOwner,
+        "depth_owner": Depth.TypedOwner,
         "native_kernel_identity": False,
     }
     return PrismPlan(
         FrameValue,
         MakePrismLines(LoopValue),
-        OwnerValue.DepthValue.DepthValue.value_mm,
+        Depth.value_mm,
         EvidenceValue,
     )

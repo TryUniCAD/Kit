@@ -61,6 +61,10 @@ KPythonCompatFacades = (
         (
             "CadDocument",
             "CadDocumentValidationError",
+            "DrawingData",
+            "DrawingModelRef",
+            "DrawingSheet",
+            "DrawingView",
             "filter_document",
             "infer_capabilities",
             "retained_capabilities",

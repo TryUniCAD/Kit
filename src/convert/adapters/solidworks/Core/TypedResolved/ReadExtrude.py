@@ -34,13 +34,35 @@ def ReadExtrude(
         raise ValueError("ordinary extrusion requires one retained profile")
     EndValue = RequireNative(NodeValue.FieldsValue.get("f818"), "moEndSpec_c")
     FieldsValue = EndValue.FieldsValue
-    ModeValue = ReadEndMode(FieldsValue)
+    ModeValue = ReadEndMode(FieldsValue, AllowThroughAll=IsCut)
     FromValue = RequireNative(FieldsValue.get("f140"), "moFromEndSpec_c")
     if (
         type(FromValue.FieldsValue.get("t")) is not int
         or FromValue.FieldsValue["t"] != 0
     ):
         raise ValueError("offset extrusion starts are outside typed blind semantics")
+    if ModeValue == ExtrudeEnd.KThroughAll:
+        if (
+            NodeValue.ClassValue.SchemaValue != 1
+            or EndValue.ClassValue.SchemaValue != 1
+            or FromValue.ClassValue.SchemaValue != 1
+            or FromValue.FieldsValue != {"t": 0}
+        ):
+            raise ValueError(
+                "typed through all cut requires the ordinary start grammar"
+            )
+        return ExtrudeOwner(
+            NodeValue,
+            ProfilesValue[0],
+            ParentsValue,
+            EndValue,
+            None,
+            bool(FieldsValue["f8c"]),
+            ModeValue,
+            SecondModeValue=(
+                ExtrudeEnd.KThroughAll if FieldsValue["f10"] == 1 else None
+            ),
+        )
     DepthValue = ReadDepthOwner(LinkValue, RequireNative(FieldsValue.get("f18")))
     SecondValue = None
     if ModeValue == ExtrudeEnd.KTwoLengths:
@@ -65,4 +87,5 @@ def ReadExtrude(
         bool(FieldsValue["f8c"]),
         ModeValue,
         SecondValue,
+        ExtrudeEnd.KBlind if SecondValue is not None else None,
     )

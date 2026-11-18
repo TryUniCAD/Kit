@@ -8,6 +8,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Ends.ReportEndFields import 
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
+from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
 
 
 # semantic evidence must distinguish owned fields from unpromoted geometry tree rows and mate streams
@@ -40,6 +41,11 @@ def ReportTyped(
                     NativeNodeId(NodeValue) for NodeValue in OwnerValue.ParentsValue
                 ),
                 **ReportEndFields(OwnerValue),
+                **(
+                    {"end_owner": NativeNodeSpan(LinkValue, OwnerValue.EndValue)}
+                    if OwnerValue.DepthValue is None
+                    else {}
+                ),
             }
             for NativeId, OwnerValue in OwnersValue.items()
         ),
@@ -47,6 +53,11 @@ def ReportTyped(
         + (
             ("extrusion_profile", "extrusion_end", "driving_depth")
             if OwnersValue
+            else ()
+        )
+        + (
+            ("depthless_extrusion_end",)
+            if any(Owner.DepthValue is None for Owner in OwnersValue.values())
             else ()
         )
         + (("closed_circle",) if CircleIds or FreeCircleIds else ())

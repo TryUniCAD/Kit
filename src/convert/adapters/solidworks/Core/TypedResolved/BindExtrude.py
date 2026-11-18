@@ -12,7 +12,9 @@ from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 # actual active end depths replace same named keyword values while preserving other unrelated dimensions
 def BindDepth(Feature: NativeFeature, OwnerValue: ExtrudeOwner) -> NativeFeature:
-    DepthValues: tuple[NativeDimension, ...] = (OwnerValue.DepthValue.DepthValue,)
+    if OwnerValue.ModeValue == ExtrudeEnd.KThroughAll:
+        return ReplaceValue(Feature, dimensions=())
+    DepthValues: tuple[NativeDimension, ...] = (OwnerValue.RequireDepth().DepthValue,)
     if OwnerValue.SecondValue is not None:
         DepthValues = (*DepthValues, OwnerValue.SecondValue.DepthValue)
     NamesValue = {Dimension.name for Dimension in DepthValues}
@@ -30,17 +32,23 @@ def BindExtrude(
 ) -> NativeOperation:
     ProfileId = NativeNodeId(OwnerValue.ProfileValue)
     ParentIds = tuple(NativeNodeId(NodeValue) for NodeValue in OwnerValue.ParentsValue)
+    Termination = {ExtrudeEnd.KThroughAll: 1, ExtrudeEnd.KMidPlane: 6}
     return ReplaceValue(
         Operation,
         profile_id=ProfileId,
         dependencies=ParentIds,
-        length_mm=OwnerValue.DepthValue.DepthValue.value_mm,
+        length_mm=(
+            None
+            if OwnerValue.DepthValue is None
+            else OwnerValue.DepthValue.DepthValue.value_mm
+        ),
         direction_code=int(OwnerValue.IsReversed),
-        termination_code=6 if OwnerValue.ModeValue == ExtrudeEnd.KMidPlane else 0,
+        termination_code=Termination.get(OwnerValue.ModeValue, 0),
         second_length_mm=(
             None
             if OwnerValue.SecondValue is None
             else OwnerValue.SecondValue.DepthValue.value_mm
         ),
         extrusion_end=OwnerValue.ModeValue,
+        second_extrusion_end=OwnerValue.SecondModeValue,
     )

@@ -16,10 +16,10 @@ if IsTypeCheck:
 class ExtrudeShape:
     __slots__: tuple[str, ...] = ()
 
-    # extrusion length defines prism height without evaluating geometry
+    # finite bounds expose a driver while geometric bounds can finish on actual model geometry
     @property
-    def Length(self) -> ParameterValue:
-        return CastValue(ParameterValue, getattr(self, "length"))
+    def Length(self) -> ParameterValue | None:
+        return CastValue(ParameterValue | None, getattr(self, "length"))
 
     # end condition captures blind through all and up to semantics in one field
     @property

@@ -1,0 +1,185 @@
+{
+  "heldout_inputs_read": 0,
+  "new_native_processes": 0,
+  "passed": true,
+  "physical_diagnostic_faults": {
+    "active-distance": {
+      "rejected": true,
+      "typed_diagnostic": "typed through all cut carries active distance or draft state"
+    },
+    "chooser-owner": {
+      "rejected": true,
+      "typed_diagnostic": "cut body chooser does not alias its owning feature"
+    },
+    "consumes-output": {
+      "rejected": true,
+      "typed_diagnostic": "cut body dependency does not alias its managed boss output"
+    },
+    "second-distance": {
+      "rejected": true,
+      "typed_diagnostic": "typed through all cut carries active distance or draft state"
+    },
+    "second-end": {
+      "rejected": true,
+      "typed_diagnostic": "extrusion end mode is outside ordinary boss semantics"
+    },
+    "wrapper-atom": {
+      "rejected": true,
+      "typed_diagnostic": "cut selection wrapper differs from the consumed boss atom"
+    }
+  },
+  "schema": "kit.sw2026.disclosed-public-through-all-read.v1",
+  "sdk_processes": 18,
+  "source_fingerprint": {
+    "manifest_sha256": "2605553249cf686bede3d3668488cfb56c3ca27673ac062f58713c3304b2c18c",
+    "python_source_files": 4436
+  },
+  "states": {
+    "D01/edited": {
+      "body_aliases": {
+        "binding": "saved_configuration_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 40,
+        "feature_scope_code": 1,
+        "producer_feature_id": 32,
+        "result_atom_id": 102
+      },
+      "cut_parameters": 0,
+      "end_condition": "through_all",
+      "exact_neutral_cut_wire": true,
+      "native_phase_sha256": "0b6174c28f7ae4643f00330a68d57c1d28f6b13e9435361bbc529ef7bf736ba1",
+      "oracle_file_version": "34.5.2.0604",
+      "profile_center_radius_mm": [
+        -6.7299999999999995,
+        4.19,
+        8.229999999999999
+      ],
+      "reverse_direction": true,
+      "second_end_condition": null,
+      "source_sha256": "5127ba1d0360ff7e2a9137d6c2b50b3456fa91a3b2fb52fecc78ae00dedbe144",
+      "stock_depth_mm": 41.529999999999994
+    },
+    "D01/source": {
+      "body_aliases": {
+        "binding": "saved_configuration_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 40,
+        "feature_scope_code": 1,
+        "producer_feature_id": 32,
+        "result_atom_id": 102
+      },
+      "cut_parameters": 0,
+      "end_condition": "through_all",
+      "exact_neutral_cut_wire": true,
+      "native_phase_sha256": "cea1fabe7366d73f3ba8708cd2bee4afdd0b67d8d22fbfe5d79061b7d541ff1e",
+      "oracle_file_version": "34.5.2.0604",
+      "profile_center_radius_mm": [
+        -6.7299999999999995,
+        4.19,
+        8.229999999999999
+      ],
+      "reverse_direction": true,
+      "second_end_condition": null,
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "stock_depth_mm": 27.91
+    },
+    "D02/edited": {
+      "body_aliases": {
+        "binding": "saved_configuration_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 40,
+        "feature_scope_code": 1,
+        "producer_feature_id": 32,
+        "result_atom_id": 102
+      },
+      "cut_parameters": 0,
+      "end_condition": "through_all",
+      "exact_neutral_cut_wire": true,
+      "native_phase_sha256": "4408efc5e92dabdd55bd5f2e4639dfe3a996a588689e4fdd3e67b5c66dff97d6",
+      "oracle_file_version": "34.5.2.0604",
+      "profile_center_radius_mm": [
+        7.19,
+        -5.83,
+        9.610000000000003
+      ],
+      "reverse_direction": false,
+      "second_end_condition": null,
+      "source_sha256": "b7be92611a06555870b2779e31df2f8e3c9d8967450a9a9326faba4295f6feda",
+      "stock_depth_mm": 46.370000000000005
+    },
+    "D02/source": {
+      "body_aliases": {
+        "binding": "saved_configuration_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 40,
+        "feature_scope_code": 1,
+        "producer_feature_id": 32,
+        "result_atom_id": 102
+      },
+      "cut_parameters": 0,
+      "end_condition": "through_all",
+      "exact_neutral_cut_wire": true,
+      "native_phase_sha256": "c9efea3fd11a3d7020040bb8b45b6fa15090df8c6f41f4040aa49567a4bcfb1c",
+      "oracle_file_version": "34.5.2.0604",
+      "profile_center_radius_mm": [
+        7.19,
+        -5.83,
+        9.610000000000003
+      ],
+      "reverse_direction": false,
+      "second_end_condition": null,
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "stock_depth_mm": 32.47
+    },
+    "D03/edited": {
+      "body_aliases": {
+        "binding": "saved_configuration_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 40,
+        "feature_scope_code": 1,
+        "producer_feature_id": 32,
+        "result_atom_id": 102
+      },
+      "cut_parameters": 0,
+      "end_condition": "through_all",
+      "exact_neutral_cut_wire": true,
+      "native_phase_sha256": "a30aa244c954e55c71a3f8ee4cb69fdd2712e7589698f7e88e57d637313ec465",
+      "oracle_file_version": "34.5.2.0604",
+      "profile_center_radius_mm": [
+        -5.29,
+        3.17,
+        7.43
+      ],
+      "reverse_direction": true,
+      "second_end_condition": "through_all",
+      "source_sha256": "074bf01c6b349eb0f48162c51409ab2e1a688ca6240d0b626cf96ba96fea8f82",
+      "stock_depth_mm": 38.71
+    },
+    "D03/source": {
+      "body_aliases": {
+        "binding": "saved_configuration_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 40,
+        "feature_scope_code": 1,
+        "producer_feature_id": 32,
+        "result_atom_id": 102
+      },
+      "cut_parameters": 0,
+      "end_condition": "through_all",
+      "exact_neutral_cut_wire": true,
+      "native_phase_sha256": "0fa99a0c6742ef964d432eb7b89d598b4ed0e5fcb3fc8f8dfe4c3dd5c73214e5",
+      "oracle_file_version": "34.5.2.0604",
+      "profile_center_radius_mm": [
+        -5.29,
+        3.17,
+        7.43
+      ],
+      "reverse_direction": true,
+      "second_end_condition": "through_all",
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+      "stock_depth_mm": 24.830000000000002
+    }
+  },
+  "tool_sha256": "ba7c41e653c74845749c83da64f0e0b234e3f8a8a9cc5d0a2034f8e8b32d3cee",
+  "writer_outputs": 0
+}

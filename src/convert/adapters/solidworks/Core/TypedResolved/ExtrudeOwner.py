@@ -12,7 +12,14 @@ class ExtrudeOwner:
     ProfileValue: ArchiveNode
     ParentsValue: tuple[ArchiveNode, ...]
     EndValue: ArchiveNode
-    DepthValue: DepthOwner
+    DepthValue: DepthOwner | None
     IsReversed: bool
     ModeValue: ExtrudeEnd
     SecondValue: DepthOwner | None = None
+    SecondModeValue: ExtrudeEnd | None = None
+
+    # finite geometric reconstruction needs an actual measured driver to establish its extent
+    def RequireDepth(self) -> DepthOwner:
+        if self.DepthValue is None:
+            raise ValueError("finite extrusion requires an active native depth owner")
+        return self.DepthValue

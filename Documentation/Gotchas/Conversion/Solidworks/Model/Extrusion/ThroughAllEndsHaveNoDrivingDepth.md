@@ -8,10 +8,10 @@ A through-all cut can reuse a blind cut's active depth graph, with its enum chan
 
 The disclosed 2026 forward through-all source has native type 1, null `f18/f20` distance owners, no feature-owned displays and native forward/reverse depth queries of zero. Its mid-plane stock has a separate real driving length. Editing that stock depth changes the cut's extent automatically while the cut remains distance-less.
 
-The existing `ReadExtrude` always requires `f18`, the internal `ExtrudeOwner` requires a `DepthOwner`, and the neutral extrusion definition requires `length`. Those contracts cannot be bypassed by attributing the stock parameter or an API placeholder depth to the cut.
+The original typed reader required `f18` and a `DepthOwner` for every extrusion. The neutral definition also required a primary length. The stock driver has its own feature owner.
 
 ## Workaround
 
-Use an explicit depth-less end branch and retain no cut driving parameter. Preserve the actual end type, direction, profile/support and consumed body aliases. Keep the public projection unsupported until its neutral definition can express the absent length and its complete profile qualifies.
+Use the explicit depthless end and preserve the actual end type, direction, sketch support and consumed body aliases. The current public reader uses this projection for three disclosed through-all directions on the measured single mid-plane stock.
 
-The [typed source record](../../../../../../re/solidworks/records/ThroughAllD01TypedRead2026.md) and [receipt](../../../../../../re/solidworks/measurements/2026/ThroughAllD01TypedSource01.json) bind the exact original and edited saves. This is one disclosed forward profile, not a qualification of other end modes or generated output.
+The [typed source record](../../../../../../re/solidworks/records/ThroughAllD01TypedRead2026.md) binds the exact forward original and edited saves. The [public read receipt](../../../../../../re/solidworks/measurements/2026/PublicThroughAllEndRead01.json) also covers the reverse and two-direction disclosed designs.

@@ -1201,6 +1201,7 @@ class NativeOperation(NativeOpFrame):
     instance_count: int | None = None
     spacing_mm: float | None = None
     extrusion_end: ExtrudeEnd | None = None
+    second_extrusion_end: ExtrudeEnd | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

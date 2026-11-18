@@ -1,29 +1,40 @@
 from collections.abc import Mapping
 
+from convert.adapters.solidworks.Core.TypedResolved.Ends.CheckThroughEnd import (
+    CheckThroughEnd,
+)
 from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # actual end specification flags distinguish a blind direction a midpoint total and two independently driving directions
-def ReadEndMode(FieldsValue: Mapping[str, object]) -> ExtrudeEnd:
+def ReadEndMode(
+    FieldsValue: Mapping[str, object], AllowThroughAll: bool = False
+) -> ExtrudeEnd:
     SingleValue, TypeValue = FieldsValue.get("f08"), FieldsValue.get("f0c")
-    ReverseValue = FieldsValue.get("f8c")
+    ReverseValue, SecondType = FieldsValue.get("f8c"), FieldsValue.get("f10")
     if (
         type(SingleValue) is not int
         or type(TypeValue) is not int
         or type(ReverseValue) is not int
         or ReverseValue not in (0, 1)
-        or any(
-            type(FieldsValue.get(NameValue)) is not int or FieldsValue[NameValue] != 0
-            for NameValue in ("f10", "f88")
-        )
+        or type(SecondType) is not int
+        or type(FieldsValue.get("f88")) is not int
+        or FieldsValue["f88"] != 0
     ):
         raise ValueError("extrusion direction and termination flags are unsupported")
     ModesValue = {
-        (1, 0): ExtrudeEnd.KBlind,
-        (1, 6): ExtrudeEnd.KMidPlane,
-        (0, 0): ExtrudeEnd.KTwoLengths,
+        (1, 0, 0): ExtrudeEnd.KBlind,
+        (1, 6, 0): ExtrudeEnd.KMidPlane,
+        (0, 0, 0): ExtrudeEnd.KTwoLengths,
     }
-    ModeValue = ModesValue.get((SingleValue, TypeValue))
+    if AllowThroughAll:
+        ModesValue.update(
+            {
+                (1, 1, 0): ExtrudeEnd.KThroughAll,
+                (0, 1, 1): ExtrudeEnd.KThroughAll,
+            }
+        )
+    ModeValue = ModesValue.get((SingleValue, TypeValue, SecondType))
     if ModeValue is None:
         raise ValueError("extrusion end mode is outside ordinary boss semantics")
     if (ModeValue != ExtrudeEnd.KBlind or ReverseValue) and (
@@ -40,6 +51,8 @@ def ReadEndMode(FieldsValue: Mapping[str, object]) -> ExtrudeEnd:
         raise ValueError(
             "advanced extrusion direction carries unsupported draft or reference state"
         )
+    if ModeValue == ExtrudeEnd.KThroughAll:
+        CheckThroughEnd(FieldsValue)
     return ModeValue
 
 
