@@ -1,0 +1,135 @@
+{
+  "schema": "kit.sw2026.scale-system-zero-wire-native-proof.v1",
+  "module": {
+    "filename": "sldmfcu.dll",
+    "bytes": 8274520,
+    "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "preferred_base": "0x3c720000",
+    "machine": "0x8664",
+    "file_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "version_resource": {
+      "address": "0x3cf5c060",
+      "file_offset": 8152160,
+      "bytes": 816,
+      "sha256": "83e8b5efef9b14cb1536126ff3aafb31f65148e1d7dc2bf577fa3d0170edf591"
+    }
+  },
+  "concrete_class": {
+    "name": "moScaleSysScale_c",
+    "vtable": "0x3cc8c4e0",
+    "serializer_slot": "0x28",
+    "pointer_table": {
+      "address": "0x3cc8c4e0",
+      "file_offset": 5671648,
+      "bytes": 48,
+      "sha256": "5a344a22d9afa07192e6894972aa7c8914e9c0a6ee8d47ab81a263e02fc8d2fa"
+    },
+    "complete_object_locator": {
+      "address": "0x3ccda3c8",
+      "file_offset": 5990856,
+      "bytes": 24,
+      "sha256": "3420c5687d126491f9c4624bb2f6fac5f7bc6cf05aff76f73bcb1794e6e3440f"
+    },
+    "rtti_parent_chain": [
+      ".?AVmoScaleSysScale_c@@",
+      ".?AVsu_CObject@@",
+      ".?AVCObject@@"
+    ],
+    "rtti_type_descriptor": {
+      "address": "0x3ce949a0",
+      "file_offset": 7799200,
+      "bytes": 40,
+      "sha256": "15b47f06ba1a31a51ddc96c6632d87c9821ad02bc3043bc5bc1287e789ac0d94"
+    }
+  },
+  "runtime_class": {
+    "getter": {
+      "address": "0x3c90ca90",
+      "file_offset": 2015376,
+      "bytes": 8,
+      "sha256": "e4eed782dbe12f87085316ad395fb71c5ad3740cca518793c06921142e78d8b4"
+    },
+    "descriptor": {
+      "address": "0x3ce6f760",
+      "file_offset": 7647072,
+      "bytes": 48,
+      "sha256": "ad244b8bc997a79a149bc6073c98d83a780591fe8fb59fed060edcb9213fdc7b"
+    },
+    "object_size": 32,
+    "versioned_schema_word": "0x80000001",
+    "wire_schema": 1,
+    "versionable_bit": true,
+    "factory_target_recorded_but_not_analyzed": "0x3c904bd0"
+  },
+  "serializer": {
+    "range": [
+      "0x3c74caa0",
+      "0x3c74caa3"
+    ],
+    "address": "0x3c74caa0",
+    "file_offset": 180384,
+    "bytes": 3,
+    "sha256": "b6cbececf1b07e74f37d57710c68c31f0b92cb08d51093252b321b07542e177b",
+    "entry_reachable_instruction_count": 1,
+    "behavior": "returns immediately with zero stack adjustment",
+    "archive_access": false,
+    "receiver_access": false,
+    "base_calls": false,
+    "version_conditions": [],
+    "load_store_conditions": [],
+    "context_conditions": [],
+    "additional_body_bytes": 0,
+    "field_order": [],
+    "extent_basis": "actual vtable entry immediately returns; following alignment is not included"
+  },
+  "exception_directory": {
+    "rva": "0x7e6000",
+    "bytes": 222504,
+    "records": 18542,
+    "directory_size_used_instead_of_raw_section_padding": true,
+    "covering_records": {
+      "0x3c74caa0": [],
+      "0x3c90ca90": []
+    }
+  },
+  "corroboration": {
+    "decoder": "/usr/bin/objdump",
+    "version": "Apple LLVM version 21.0.0",
+    "decoder_sha256": "b8763cf250e607a778bb4603cecb5b90338814d0a3dfcba0d57b1de242f610e9",
+    "native_function_symbol_aliases_are_not_class_identity": true,
+    "recorded_class_map_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+    "recorded_class_map_row": {
+      "dll": "sldmfcu",
+      "serialize_addr": "3c74caa0",
+      "serialize_name": "CInteractionContextOutputData::~CInteractionContextOutputData",
+      "vtable": "3cc8c4e0",
+      "vtable_slots": 18
+    },
+    "rea": {
+      "operation": "binary_session",
+      "version": "6.7.0",
+      "open": false,
+      "cleanup_pending": true,
+      "target_opened_or_closed_by_worker": false,
+      "native_provider_corroboration": "not available without resolving unowned cleanup"
+    }
+  },
+  "confidence": "confirmed direct original-image serialization rule, not constructor or application acceptance",
+  "ordinary_version_scope": 19000,
+  "supported_runtime_schema": 1,
+  "remaining": [
+    "factory constructor and implicit scale lookup intent",
+    "surrounding drawing/context admission",
+    "new disclosed controls and future independently frozen held-outs"
+  ],
+  "frozen_writer_changed": false,
+  "heldout_values_used_to_derive_rule": false,
+  "original_heldout_admission_revised": false,
+  "native_execution": false,
+  "vendor_payload_or_listing_in_report": false
+}

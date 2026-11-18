@@ -11,4 +11,6 @@ from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.ViewFields imp
 )
 
 # a linked profile must preserve the exact blank layout while adding independently proved view owners
-KFrontLayouts = MappingProxyType({**KBlankLayouts, **KViewFields, **KSupportFields})
+KFrontLayouts = MappingProxyType(
+    {**KBlankLayouts, **KViewFields, **KSupportFields, "moScaleSysScale_c": ()}
+)
