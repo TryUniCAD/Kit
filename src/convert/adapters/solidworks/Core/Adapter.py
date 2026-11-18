@@ -3821,6 +3821,10 @@ def BoundingBoxA(Model: NativeModel) -> BoundingBox | None:
             Plane.normal[1] * Operation.length_mm,
             Plane.normal[2] * Operation.length_mm,
         )
+        StartFraction = (
+            -0.5 if Operation.extrusion_end == ExtrusionEndCondition.MID_PLANE else 0.0
+        )
+        EndFraction = 1.0 + StartFraction
         for Profile in Sketch.profiles:
             for Local in ProfileExtrema(Profile):
                 BaseValue = (
@@ -3834,14 +3838,16 @@ def BoundingBoxA(Model: NativeModel) -> BoundingBox | None:
                     + Plane.u_axis[2] * Local[0]
                     + Plane.v_axis[2] * Local[1],
                 )
-                Points.append(BaseValue)
-                Points.append(
-                    (
-                        BaseValue[0] + Direction[0],
-                        BaseValue[1] + Direction[1],
-                        BaseValue[2] + Direction[2],
+                for Fraction in (StartFraction, EndFraction):
+                    Points.append(
+                        BaseValue
+                        if Fraction == 0.0
+                        else (
+                            BaseValue[0] + Direction[0] * Fraction,
+                            BaseValue[1] + Direction[1] * Fraction,
+                            BaseValue[2] + Direction[2] * Fraction,
+                        )
                     )
-                )
     if not Points:
         return None
     return BoundingBox(

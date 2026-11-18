@@ -48,6 +48,8 @@ For the cache-free versions of that stock and cut on a principal datum, the defa
 
 For the measured single selected stock, the normal reader also exposes the stock producer as an explicit portable body selection. It checks actual managed atom, wrapper and lineage before admitting cache-free geometry. Saved semantic reads retain the separate consumed and result atom identities. [Selected stock](../../Changes/Solidworks/Reading/Parts/SolidworksSelectedThroughAllStockRead.md)
 
+With geometry disabled, the body summary accounts for both halves of a typed mid-plane stock extrusion. [Mid-plane stock bounds](../../Changes/Solidworks/Reading/Parts/SolidworksMidPlaneStockBounds.md)
+
 The shared archive codec preserves an ordinary version-19000 revolve's actual axis, end specification, angular display and live parameter. A full turn and both measured partial directions re-emit the six linked streams exactly. [Typed ordinary revolve archive](../../Changes/Solidworks/Archive/SolidworksOrdinaryRevolveArchive.md)
 
 The internal pocket composer builds a Front-plane rectangular blind boss followed by a reversed circular blind cut from neutral history. It preserves a free circle or the actual fixed-centre radius or diameter. Three disclosed designs pass 30 exact generated stream comparisons and 275 native open, edit, save and reopen checks. Held-out comparison and public admission remain open. [SDK blind pocket](../../Changes/Solidworks/Construction/SolidworksSdkBlindPocket.md)

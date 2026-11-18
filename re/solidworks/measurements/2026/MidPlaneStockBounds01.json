@@ -1,0 +1,138 @@
+{
+  "baseline_sha256": "f420c2b6072f5cbe3864673227d1ff193c4603bc942f419115088da921af3bb8",
+  "corrected_sha256": "815a5e16d059497d65abb359489438876f1bc83798a00441689ddedfd1fe0078",
+  "heldout_inputs_read": 0,
+  "passed": true,
+  "rows": [
+    {
+      "baseline_parametric_bounds_mm": [
+        [
+          -32.480000000000004,
+          -25.74,
+          0.0
+        ],
+        [
+          38.82,
+          20.96,
+          27.91
+        ]
+      ],
+      "name": "ThroughAllD01CutForward",
+      "parametric_bounds_mm": [
+        [
+          -32.480000000000004,
+          -25.74,
+          -13.955
+        ],
+        [
+          38.82,
+          20.96,
+          13.955
+        ]
+      ],
+      "path_and_bytes_equal": true,
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "station_axis": "z",
+      "stock_bounds_match": true,
+      "typed_solid_bounds_mm": [
+        [
+          -32.480000000000004,
+          -25.74,
+          -13.955
+        ],
+        [
+          38.82,
+          20.959999999999997,
+          13.955
+        ]
+      ]
+    },
+    {
+      "baseline_parametric_bounds_mm": [
+        [
+          -46.36,
+          0.0,
+          -30.680000000000003
+        ],
+        [
+          37.739999999999995,
+          32.47,
+          23.220000000000002
+        ]
+      ],
+      "name": "ThroughAllD02CutReverse",
+      "parametric_bounds_mm": [
+        [
+          -46.36,
+          -16.235,
+          -30.680000000000003
+        ],
+        [
+          37.739999999999995,
+          16.235,
+          23.220000000000002
+        ]
+      ],
+      "path_and_bytes_equal": true,
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "station_axis": "y",
+      "stock_bounds_match": true,
+      "typed_solid_bounds_mm": [
+        [
+          -46.36,
+          -16.235,
+          -30.680000000000003
+        ],
+        [
+          37.739999999999995,
+          16.235,
+          23.22
+        ]
+      ]
+    },
+    {
+      "baseline_parametric_bounds_mm": [
+        [
+          0.0,
+          -28.78,
+          -34.56
+        ],
+        [
+          24.830000000000002,
+          20.519999999999996,
+          29.140000000000004
+        ]
+      ],
+      "name": "ThroughAllD03CutBoth",
+      "parametric_bounds_mm": [
+        [
+          -12.415000000000001,
+          -28.78,
+          -34.56
+        ],
+        [
+          12.415000000000001,
+          20.519999999999996,
+          29.140000000000004
+        ]
+      ],
+      "path_and_bytes_equal": true,
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+      "station_axis": "x",
+      "stock_bounds_match": true,
+      "typed_solid_bounds_mm": [
+        [
+          -12.415000000000001,
+          -28.78,
+          -34.56
+        ],
+        [
+          12.415000000000001,
+          20.519999999999996,
+          29.14
+        ]
+      ]
+    }
+  ],
+  "schema": "kit.sw2026.mid-plane-stock-reader-regression.v1"
+}
