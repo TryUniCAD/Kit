@@ -108,3 +108,19 @@ one-solid rectangular topology and the real original or edited
 driving depth in every state. The [generated native receipt](../measurements/2026/SdkCustomMassUnitsNative01.json)
 binds the guarded generation, oracle and readback. Public registration,
 original feature parity and held-out qualification remain open.
+
+## Public reader
+
+The ordinary version-19000 part reader projects the known custom choices
+from the typed Config-0 user table. It identifies each of the sixteen
+entries by class and validates the independent nested density length
+format. The primary length, angle and density owners each supply their
+own display precision. Existing preset reads omit the optional report.
+
+Seventeen fresh processes compare strict path and bytes reads. Four
+native-authored custom states report precision two, and the eight generated
+and native-edited states and two newer FreeCAD-origin boxes report
+precision four. Three preset inputs omit the report. Six additional byte
+inputs exercise the mass, volume, angle, length and isolated density
+length boundaries. Each retains the ordinary feature timeline and
+one-solid topology. [Public read receipt](../measurements/2026/PublicDocumentUnitsRead01.json)

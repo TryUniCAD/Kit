@@ -398,6 +398,11 @@ body mass and geometry. Eight normal SDK reads retain the modeled
 solid and driving depth. This setting qualification adds zero original
 FCStd corpus passes.
 
+The [public document unit read](measurements/2026/PublicDocumentUnitsRead01.json)
+preserves the scoped custom mass choice and native precision in fourteen
+disclosed states. Three preset states and six unqualified custom records
+omit the optional metadata while their strict model reads pass.
+
 The [release-specific FreeCAD box proof](measurements/2026/SdkFreecadBoxReleaseConstruction01.json)
 audits twelve schema-four inputs. Three disclosed origin-box forms
 build with exact driver and text recovery, and nine attached or

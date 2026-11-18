@@ -9,6 +9,9 @@ from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeO
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
+from convert.adapters.solidworks.Core.TypedResolved.Units.ReportPartUnits import (
+    ReportPartUnits,
+)
 
 
 # semantic evidence must distinguish owned fields from unpromoted geometry tree rows and mate streams
@@ -24,6 +27,7 @@ def ReportTyped(
 ) -> Mapping[str, object]:
     LegacyIds = {Feature.object_id for Feature in Model.features}
     return {
+        **ReportPartUnits(LinkValue.ConfigValue.RootValue),
         "status": "supplemented",
         "archive_version": LinkValue.ResolvedValue.VersionValue,
         "configuration_id": 0,
