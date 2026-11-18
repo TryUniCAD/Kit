@@ -1,0 +1,9 @@
+# Private spatial dimension-text construction
+
+The SOLIDWORKS research tools can now compose an explicit three-coordinate rectangle dimension text point into a complete generated origin-linked drawing and child pair. The existing SDK raw grammar already preserves X/Y/Z; the narrower prior rectangle constructor accepted only two text coordinates. The new private operation follows the actual native whole-point setter and preserves the qualified planar placement, dimensions and actual graph owners.
+
+Run `SpatialTextFlow.py CANDIDATE NEW_OUTPUT --manifest-sha256 SHA` from its frozen source closure. It uses two independently authored corner/center designs, zero and signed nonzero height-text depths, unchanged-origin references, complete Config/Resolved/Definition replay and six malformed-input processes. No saved CAD data or research implementation is read by the SDK build.
+
+Root independently ran all 26 fresh processes on the exact 5,041-file closure. Both zero-depth cases preserve prior pair bytes; all twelve guarded builds report zero runtime input-file reads and no SDK research imports. The separate preparations retain the actual profile, parameter, dimension, display and drawing-child aliases. See the [sanitized proof](../../../../../../re/solidworks/measurements/2026/DrawingSpatialTextConstruction01.json) and [field/native ownership ledger](../../../../../../re/solidworks/records/DrawingSpatialTextConstruction2026.md).
+
+The drawing sheet property-view caption is also bound to its actual CString field and conditional getter. It remains separate from the selected child's configuration identity. The original standard-zero detail graph and other source constructor refusals remain explicit. Native save/reopen text-depth preservation, original drawing conversion and held-out acceptance are pending. No public writer or reader admission changes.

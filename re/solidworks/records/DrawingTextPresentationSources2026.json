@@ -1,0 +1,1740 @@
+{
+  "cases": [
+    {
+      "case": "D01",
+      "child": {
+        "bytes": 58847,
+        "sha256": "766f0fdb58957721301ea9b9f9a56315d8ab6ff80e119ede10152cf626213054"
+      },
+      "drawing": {
+        "bytes": 22147,
+        "sha256": "056254fe9883d4d21d89a7bdf0cd022e27468eb82dc3ca582b97c436bb878794"
+      },
+      "drawing_properties": {
+        "actual_child_configuration_selector": {
+          "f08": "Default",
+          "f10": 0
+        },
+        "captions": {
+          "drawing": "Draw1",
+          "sheet": "Sheet1",
+          "view": "Drawing View1"
+        },
+        "captions_preserved_as_independent_inputs": true,
+        "effective_getter_branch": "stored f3d0 because receiver is the preference-selected sheet",
+        "preference_owner": "moDrawing_c.fae0",
+        "property_view_has_native_setter_owner": true,
+        "sheet_f4dc_is_wire_field": false,
+        "sheet_f4e0": 1,
+        "sheet_owner": {
+          "class": "moDrSheet",
+          "concrete_runtime_class": true,
+          "object_index": 115,
+          "observation_key": "observed-node:377",
+          "schema": 1
+        },
+        "sheet_selection": {
+          "actual_selected_sheet_is_receiver": true,
+          "actual_sheet_count": 1,
+          "one_based_sheet_index": 1,
+          "preference_enabled": 1
+        },
+        "stored_property_view": "Default",
+        "stored_property_view_is_config_identity": false
+      },
+      "drivers": [
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 206,
+            "observation_key": "observed-node:171",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 225,
+            "observation_key": "observed-node:233",
+            "schema": 1
+          },
+          "length_m": 0.033719,
+          "normal_depth_discarded": false,
+          "parameter_name": "D1",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 208,
+            "observation_key": "observed-node:227",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 6.123233995736766e-17,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.005529299999999999,
+            "f958": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.033719,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.033719,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fad0": 0.033719
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.0168595,
+            -0.005529299999999999,
+            0.0
+          ]
+        },
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 212,
+            "observation_key": "observed-node:172",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 230,
+            "observation_key": "observed-node:234",
+            "schema": 1
+          },
+          "length_m": 0.018431,
+          "normal_depth_discarded": false,
+          "parameter_name": "D2",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 213,
+            "observation_key": "observed-node:230",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 1.0,
+              "y": 6.123233995736766e-17,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.010115699999999998,
+            "f958": {
+              "x": 0.033719,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.033719,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.033719,
+              "y": 0.018431,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.033719,
+              "y": 0.018431,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "fad0": 0.018431
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.0438347,
+            0.0092155,
+            0.0001
+          ]
+        }
+      ],
+      "heldout_acceptance": false,
+      "native_acceptance": false,
+      "other_exact_constructor_boundaries": {
+        "child_analysis_units_present": false,
+        "child_manager_name_present": false
+      },
+      "presentation": {
+        "all_custom_property_streams_inspected_here": false,
+        "child_detail_standard": 0,
+        "complete_detail_graph_sha256": {
+          "child": "a0172167a33c53f2e786bba5f7426698d678259df6712b1b83cb0ec0fba44150",
+          "drawing": "d074d7459c480ae43b721fee03fdfe679969715de7f0056b4d221cf834590252"
+        },
+        "detail_standard_native_subtype_rules_admitted": false,
+        "drawing_detail_standard": 0,
+        "drawing_ui_standard_owner": {
+          "class": "moANSI_c",
+          "concrete_runtime_class": true,
+          "object_index": 273,
+          "observation_key": "observed-node:347",
+          "schema": 1
+        },
+        "public_neutral_drawing_metadata_keys": [],
+        "rendering_unprojected_keys": [
+          "has_fb50",
+          "fb50",
+          "ff60"
+        ],
+        "view_ff60_count": 1,
+        "view_has_fb50": 1
+      },
+      "role": "disclosed",
+      "source_semantic_admission": false
+    },
+    {
+      "case": "D02",
+      "child": {
+        "bytes": 58037,
+        "sha256": "08071cb3cd3ad816a41f3f67bc0e5575a6cd6d8fcb4443ccfd10f50f62dec58a"
+      },
+      "drawing": {
+        "bytes": 22856,
+        "sha256": "78b8d21336d73fef2b724bc4b1afa91b23305322c2e8cbc4b220f036a81f7d6b"
+      },
+      "drawing_properties": {
+        "actual_child_configuration_selector": {
+          "f08": "Default",
+          "f10": 0
+        },
+        "captions": {
+          "drawing": "Draw1",
+          "sheet": "Sheet1",
+          "view": "Drawing View1"
+        },
+        "captions_preserved_as_independent_inputs": true,
+        "effective_getter_branch": "stored f3d0 because receiver is the preference-selected sheet",
+        "preference_owner": "moDrawing_c.fae0",
+        "property_view_has_native_setter_owner": true,
+        "sheet_f4dc_is_wire_field": false,
+        "sheet_f4e0": 1,
+        "sheet_owner": {
+          "class": "moDrSheet",
+          "concrete_runtime_class": true,
+          "object_index": 115,
+          "observation_key": "observed-node:382",
+          "schema": 1
+        },
+        "sheet_selection": {
+          "actual_selected_sheet_is_receiver": true,
+          "actual_sheet_count": 1,
+          "one_based_sheet_index": 1,
+          "preference_enabled": 1
+        },
+        "stored_property_view": "Default",
+        "stored_property_view_is_config_identity": false
+      },
+      "drivers": [
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 206,
+            "observation_key": "observed-node:172",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 229,
+            "observation_key": "observed-node:238",
+            "schema": 1
+          },
+          "length_m": 0.046783,
+          "normal_depth_discarded": false,
+          "parameter_name": "D1",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 208,
+            "observation_key": "observed-node:232",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 6.123233995736766e-17,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.0064976999999999995,
+            "f958": {
+              "x": -0.0233915,
+              "y": -0.0108295,
+              "z": 0.0
+            },
+            "f970": {
+              "x": -0.0233915,
+              "y": -0.0108295,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.0233915,
+              "y": -0.0108295,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.0233915,
+              "y": -0.0108295,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fad0": 0.046783
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            3.978693753409878e-19,
+            -0.0173272,
+            0.0
+          ]
+        },
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 212,
+            "observation_key": "observed-node:173",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 234,
+            "observation_key": "observed-node:239",
+            "schema": 1
+          },
+          "length_m": 0.021659,
+          "normal_depth_discarded": false,
+          "parameter_name": "D2",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 213,
+            "observation_key": "observed-node:235",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 1.0,
+              "y": 6.123233995736766e-17,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.0140349,
+            "f958": {
+              "x": 0.0233915,
+              "y": -0.0108295,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.0233915,
+              "y": -0.0108295,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.0233915,
+              "y": 0.0108295,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.0233915,
+              "y": 0.0108295,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "fad0": 0.021659
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.0374264,
+            8.593897680676593e-19,
+            0.0001
+          ]
+        }
+      ],
+      "heldout_acceptance": false,
+      "native_acceptance": false,
+      "other_exact_constructor_boundaries": {
+        "child_analysis_units_present": false,
+        "child_manager_name_present": false
+      },
+      "presentation": {
+        "all_custom_property_streams_inspected_here": false,
+        "child_detail_standard": 0,
+        "complete_detail_graph_sha256": {
+          "child": "7238828fadc5cf5d88fe3c84b6015a4eeb3e53dd333d3f6ed1e537cf133dce6e",
+          "drawing": "4f4f5d5a4e7c256f9824f722be2c42656d0a8db2c8708f09408218eab461fd80"
+        },
+        "detail_standard_native_subtype_rules_admitted": false,
+        "drawing_detail_standard": 0,
+        "drawing_ui_standard_owner": {
+          "class": "moANSI_c",
+          "concrete_runtime_class": true,
+          "object_index": 273,
+          "observation_key": "observed-node:352",
+          "schema": 1
+        },
+        "public_neutral_drawing_metadata_keys": [],
+        "rendering_unprojected_keys": [
+          "has_fb50",
+          "fb50",
+          "ff60"
+        ],
+        "view_ff60_count": 1,
+        "view_has_fb50": 1
+      },
+      "role": "disclosed",
+      "source_semantic_admission": false
+    },
+    {
+      "case": "D03",
+      "child": {
+        "bytes": 51719,
+        "sha256": "cc1d256a76f250347a1cca03c774af1e4b8e0c24aacd4cd4400fd7caea62f2e8"
+      },
+      "drawing": {
+        "bytes": 23018,
+        "sha256": "291be2e3936c8003319cc721cea6d69ef197447b6f10c2cefa1044e6fae64370"
+      },
+      "drawing_properties": {
+        "actual_child_configuration_selector": {
+          "f08": "Default",
+          "f10": 0
+        },
+        "captions": {
+          "drawing": "Draw1",
+          "sheet": "Sheet1",
+          "view": "Drawing View1"
+        },
+        "captions_preserved_as_independent_inputs": true,
+        "effective_getter_branch": "stored f3d0 because receiver is the preference-selected sheet",
+        "preference_owner": "moDrawing_c.fae0",
+        "property_view_has_native_setter_owner": true,
+        "sheet_f4dc_is_wire_field": false,
+        "sheet_f4e0": 1,
+        "sheet_owner": {
+          "class": "moDrSheet",
+          "concrete_runtime_class": true,
+          "object_index": 115,
+          "observation_key": "observed-node:377",
+          "schema": 1
+        },
+        "sheet_selection": {
+          "actual_selected_sheet_is_receiver": true,
+          "actual_sheet_count": 1,
+          "one_based_sheet_index": 1,
+          "preference_enabled": 1
+        },
+        "stored_property_view": "Default",
+        "stored_property_view_is_config_identity": false
+      },
+      "drivers": [
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 206,
+            "observation_key": "observed-node:171",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 225,
+            "observation_key": "observed-node:233",
+            "schema": 1
+          },
+          "length_m": 0.028417,
+          "normal_depth_discarded": false,
+          "parameter_name": "D1",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 208,
+            "observation_key": "observed-node:227",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 6.123233995736766e-17,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.011187299999999999,
+            "f958": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.028417,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.028417,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fad0": 0.028417
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.0142085,
+            -0.011187299999999999,
+            0.0
+          ]
+        },
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 212,
+            "observation_key": "observed-node:172",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 230,
+            "observation_key": "observed-node:234",
+            "schema": 1
+          },
+          "length_m": 0.037291,
+          "normal_depth_discarded": false,
+          "parameter_name": "D2",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 213,
+            "observation_key": "observed-node:230",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 1.0,
+              "y": 6.123233995736766e-17,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.008525100000000004,
+            "f958": {
+              "x": 0.028417,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.028417,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.028417,
+              "y": 0.037291,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.028417,
+              "y": 0.037291,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "fad0": 0.037291
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.036942100000000005,
+            0.0186455,
+            0.0001
+          ]
+        }
+      ],
+      "heldout_acceptance": false,
+      "native_acceptance": false,
+      "other_exact_constructor_boundaries": {
+        "child_analysis_units_present": false,
+        "child_manager_name_present": false
+      },
+      "presentation": {
+        "all_custom_property_streams_inspected_here": false,
+        "child_detail_standard": 0,
+        "complete_detail_graph_sha256": {
+          "child": "c7a490bf23e3898834820158fd6a6d302d8f1d15ecce8b2180bd150cc50be7e3",
+          "drawing": "d074d7459c480ae43b721fee03fdfe679969715de7f0056b4d221cf834590252"
+        },
+        "detail_standard_native_subtype_rules_admitted": false,
+        "drawing_detail_standard": 0,
+        "drawing_ui_standard_owner": {
+          "class": "moANSI_c",
+          "concrete_runtime_class": true,
+          "object_index": 273,
+          "observation_key": "observed-node:347",
+          "schema": 1
+        },
+        "public_neutral_drawing_metadata_keys": [],
+        "rendering_unprojected_keys": [
+          "has_fb50",
+          "fb50",
+          "ff60"
+        ],
+        "view_ff60_count": 1,
+        "view_has_fb50": 1
+      },
+      "role": "disclosed",
+      "source_semantic_admission": false
+    },
+    {
+      "case": "D04",
+      "child": {
+        "bytes": 59634,
+        "sha256": "dca66f67b577bb5e71141ab178d6c7e9de2c73096508ed573cd99fc75dcbaaa7"
+      },
+      "drawing": {
+        "bytes": 22563,
+        "sha256": "bad252733a4d585bea0d11d4e7fcb17ca6f4f8ddd336bec9b0bd3d2638b85992"
+      },
+      "drawing_properties": {
+        "actual_child_configuration_selector": {
+          "f08": "Default",
+          "f10": 0
+        },
+        "captions": {
+          "drawing": "Draw1",
+          "sheet": "Sheet1",
+          "view": "Drawing View1"
+        },
+        "captions_preserved_as_independent_inputs": true,
+        "effective_getter_branch": "stored f3d0 because receiver is the preference-selected sheet",
+        "preference_owner": "moDrawing_c.fae0",
+        "property_view_has_native_setter_owner": true,
+        "sheet_f4dc_is_wire_field": false,
+        "sheet_f4e0": 1,
+        "sheet_owner": {
+          "class": "moDrSheet",
+          "concrete_runtime_class": true,
+          "object_index": 115,
+          "observation_key": "observed-node:382",
+          "schema": 1
+        },
+        "sheet_selection": {
+          "actual_selected_sheet_is_receiver": true,
+          "actual_sheet_count": 1,
+          "one_based_sheet_index": 1,
+          "preference_enabled": 1
+        },
+        "stored_property_view": "Default",
+        "stored_property_view_is_config_identity": false
+      },
+      "drivers": [
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 206,
+            "observation_key": "observed-node:172",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 229,
+            "observation_key": "observed-node:238",
+            "schema": 1
+          },
+          "length_m": 0.052913,
+          "normal_depth_discarded": false,
+          "parameter_name": "D1",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 208,
+            "observation_key": "observed-node:232",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 6.123233995736766e-17,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.007448100000000001,
+            "f958": {
+              "x": -0.0264565,
+              "y": -0.0124135,
+              "z": 0.0
+            },
+            "f970": {
+              "x": -0.0264565,
+              "y": -0.0124135,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.0264565,
+              "y": -0.0124135,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.0264565,
+              "y": -0.0124135,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fad0": 0.052913
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            4.560645912364701e-19,
+            -0.0198616,
+            0.0
+          ]
+        },
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 212,
+            "observation_key": "observed-node:173",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 234,
+            "observation_key": "observed-node:239",
+            "schema": 1
+          },
+          "length_m": 0.024827,
+          "normal_depth_discarded": false,
+          "parameter_name": "D2",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 213,
+            "observation_key": "observed-node:235",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 1.0,
+              "y": 6.123233995736766e-17,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.015873900000000003,
+            "f958": {
+              "x": 0.0264565,
+              "y": -0.0124135,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.0264565,
+              "y": -0.0124135,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.0264565,
+              "y": 0.0124135,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.0264565,
+              "y": 0.0124135,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "fad0": 0.024827
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.042330400000000004,
+            9.719960412492588e-19,
+            0.0001
+          ]
+        }
+      ],
+      "heldout_acceptance": false,
+      "native_acceptance": false,
+      "other_exact_constructor_boundaries": {
+        "child_analysis_units_present": false,
+        "child_manager_name_present": false
+      },
+      "presentation": {
+        "all_custom_property_streams_inspected_here": false,
+        "child_detail_standard": 0,
+        "complete_detail_graph_sha256": {
+          "child": "0cad1c137fb4af5a13e67fa419d9bfc36da599aeb9ae5a474413569edaf2232e",
+          "drawing": "4f4f5d5a4e7c256f9824f722be2c42656d0a8db2c8708f09408218eab461fd80"
+        },
+        "detail_standard_native_subtype_rules_admitted": false,
+        "drawing_detail_standard": 0,
+        "drawing_ui_standard_owner": {
+          "class": "moANSI_c",
+          "concrete_runtime_class": true,
+          "object_index": 273,
+          "observation_key": "observed-node:352",
+          "schema": 1
+        },
+        "public_neutral_drawing_metadata_keys": [],
+        "rendering_unprojected_keys": [
+          "has_fb50",
+          "fb50",
+          "ff60"
+        ],
+        "view_ff60_count": 1,
+        "view_has_fb50": 1
+      },
+      "role": "disclosed",
+      "source_semantic_admission": false
+    },
+    {
+      "case": "OriginConstructorAlpha",
+      "child": {
+        "bytes": 8910,
+        "sha256": "55f4b4be5a308d5592e8120031b2cc3918967cf1fabae8b41a10be5c88e5d9c3"
+      },
+      "drawing": {
+        "bytes": 7335,
+        "sha256": "3712197b18310c873c64601bd0ca6399240fa1fe5a3d39c82627caa310aeae8b"
+      },
+      "drawing_properties": {
+        "actual_child_configuration_selector": {
+          "f08": "modeled default",
+          "f10": 0
+        },
+        "captions": {
+          "drawing": "OriginConstructorAlpha",
+          "sheet": "OriginConstructorAlpha paper",
+          "view": "OriginConstructorAlpha model view"
+        },
+        "captions_preserved_as_independent_inputs": true,
+        "effective_getter_branch": "stored f3d0 because receiver is the preference-selected sheet",
+        "preference_owner": "moDrawing_c.fae0",
+        "property_view_has_native_setter_owner": true,
+        "sheet_f4dc_is_wire_field": false,
+        "sheet_f4e0": 1,
+        "sheet_owner": {
+          "class": "moDrSheet",
+          "concrete_runtime_class": true,
+          "object_index": 83,
+          "observation_key": "observed-node:213",
+          "schema": 1
+        },
+        "sheet_selection": {
+          "actual_selected_sheet_is_receiver": true,
+          "actual_sheet_count": 1,
+          "one_based_sheet_index": 1,
+          "preference_enabled": 1
+        },
+        "stored_property_view": "authored OriginConstructorAlpha",
+        "stored_property_view_is_config_identity": false
+      },
+      "drivers": [
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 170,
+            "observation_key": "observed-node:123",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 189,
+            "observation_key": "observed-node:147",
+            "schema": 1
+          },
+          "length_m": 0.035731000000000006,
+          "normal_depth_discarded": false,
+          "parameter_name": "D1",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 172,
+            "observation_key": "observed-node:141",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 0.0,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "f8a8": 0.4999999999999999,
+            "f8b0": 0.0064257,
+            "f958": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.035731000000000006,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.035731000000000006,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fad0": 0.035731000000000006
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.0178655,
+            -0.0064257,
+            0.0
+          ]
+        },
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 176,
+            "observation_key": "observed-node:124",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 194,
+            "observation_key": "observed-node:148",
+            "schema": 1
+          },
+          "length_m": 0.021419,
+          "normal_depth_discarded": false,
+          "parameter_name": "D2",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 177,
+            "observation_key": "observed-node:144",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.010719299999999994,
+            "f958": {
+              "x": 0.035731000000000006,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.035731000000000006,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.035731000000000006,
+              "y": 0.021419,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.035731000000000006,
+              "y": 0.021419,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "fad0": 0.021419
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.0464503,
+            0.0107095,
+            0.0
+          ]
+        }
+      ],
+      "heldout_acceptance": false,
+      "native_acceptance": false,
+      "other_exact_constructor_boundaries": {
+        "child_analysis_units_present": true,
+        "child_manager_name_present": true
+      },
+      "presentation": {
+        "all_custom_property_streams_inspected_here": false,
+        "child_detail_standard": 1,
+        "complete_detail_graph_sha256": {
+          "child": "b7154bb29d54be77593c37467bc80d7a5223545bc417bb593ad161937c05bf57",
+          "drawing": "707855ed562684675e6b40f4d00bab6c04f810794be46899c374535daf59d67d"
+        },
+        "detail_standard_native_subtype_rules_admitted": false,
+        "drawing_detail_standard": 1,
+        "drawing_ui_standard_owner": {
+          "class": "moANSI_c",
+          "concrete_runtime_class": true,
+          "object_index": 177,
+          "observation_key": "observed-node:193",
+          "schema": 1
+        },
+        "public_neutral_drawing_metadata_keys": [],
+        "rendering_unprojected_keys": [
+          "has_fb50",
+          "ff60"
+        ],
+        "view_ff60_count": 0,
+        "view_has_fb50": 0
+      },
+      "role": "generated-replay06",
+      "source_semantic_admission": false
+    },
+    {
+      "case": "OriginConstructorBetaΩ",
+      "child": {
+        "bytes": 8914,
+        "sha256": "7189a6832077e99601d7d4d6b769d17959fa1c8a35d7658fc480c306ed4b9304"
+      },
+      "drawing": {
+        "bytes": 7403,
+        "sha256": "f316361bea226564d906113910a50a5ff416393b6f70f88582608d418b25fa99"
+      },
+      "drawing_properties": {
+        "actual_child_configuration_selector": {
+          "f08": "modeled default",
+          "f10": 0
+        },
+        "captions": {
+          "drawing": "OriginConstructorBetaΩ",
+          "sheet": "OriginConstructorBetaΩ paper",
+          "view": "OriginConstructorBetaΩ model view"
+        },
+        "captions_preserved_as_independent_inputs": true,
+        "effective_getter_branch": "stored f3d0 because receiver is the preference-selected sheet",
+        "preference_owner": "moDrawing_c.fae0",
+        "property_view_has_native_setter_owner": true,
+        "sheet_f4dc_is_wire_field": false,
+        "sheet_f4e0": 1,
+        "sheet_owner": {
+          "class": "moDrSheet",
+          "concrete_runtime_class": true,
+          "object_index": 83,
+          "observation_key": "observed-node:213",
+          "schema": 1
+        },
+        "sheet_selection": {
+          "actual_selected_sheet_is_receiver": true,
+          "actual_sheet_count": 1,
+          "one_based_sheet_index": 1,
+          "preference_enabled": 1
+        },
+        "stored_property_view": "authored OriginConstructorBetaΩ",
+        "stored_property_view_is_config_identity": false
+      },
+      "drivers": [
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 170,
+            "observation_key": "observed-node:123",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 189,
+            "observation_key": "observed-node:147",
+            "schema": 1
+          },
+          "length_m": 0.029173,
+          "normal_depth_discarded": false,
+          "parameter_name": "D1",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 172,
+            "observation_key": "observed-node:141",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 0.0,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.0128049,
+            "f958": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.029173,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.029173,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fad0": 0.029173
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.0145865,
+            -0.0128049,
+            0.0
+          ]
+        },
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 176,
+            "observation_key": "observed-node:124",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 194,
+            "observation_key": "observed-node:148",
+            "schema": 1
+          },
+          "length_m": 0.042683,
+          "normal_depth_discarded": false,
+          "parameter_name": "D2",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 177,
+            "observation_key": "observed-node:144",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.008751900000000003,
+            "f958": {
+              "x": 0.029173,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.029173,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.029173,
+              "y": 0.042683,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.029173,
+              "y": 0.042683,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "fad0": 0.042683
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.037924900000000004,
+            0.0213415,
+            0.0
+          ]
+        }
+      ],
+      "heldout_acceptance": false,
+      "native_acceptance": false,
+      "other_exact_constructor_boundaries": {
+        "child_analysis_units_present": true,
+        "child_manager_name_present": true
+      },
+      "presentation": {
+        "all_custom_property_streams_inspected_here": false,
+        "child_detail_standard": 1,
+        "complete_detail_graph_sha256": {
+          "child": "399451fb82b9460ab9db576b51cbaf5475f7435704cc8f140dbbd950ffb38c91",
+          "drawing": "707855ed562684675e6b40f4d00bab6c04f810794be46899c374535daf59d67d"
+        },
+        "detail_standard_native_subtype_rules_admitted": false,
+        "drawing_detail_standard": 1,
+        "drawing_ui_standard_owner": {
+          "class": "moANSI_c",
+          "concrete_runtime_class": true,
+          "object_index": 177,
+          "observation_key": "observed-node:193",
+          "schema": 1
+        },
+        "public_neutral_drawing_metadata_keys": [],
+        "rendering_unprojected_keys": [
+          "has_fb50",
+          "ff60"
+        ],
+        "view_ff60_count": 0,
+        "view_has_fb50": 0
+      },
+      "role": "generated-replay06",
+      "source_semantic_admission": false
+    },
+    {
+      "case": "OriginCenterGamma",
+      "child": {
+        "bytes": 8989,
+        "sha256": "030447a1501cefd2f7b28c0dc324c0869872f22c2cd17f0085ada2b56315e882"
+      },
+      "drawing": {
+        "bytes": 7331,
+        "sha256": "8593da8c3b87f537ab7d7463a00f382addb8e964c6447b445b8a7cd1a068caad"
+      },
+      "drawing_properties": {
+        "actual_child_configuration_selector": {
+          "f08": "modeled default",
+          "f10": 0
+        },
+        "captions": {
+          "drawing": "OriginCenterGamma",
+          "sheet": "OriginCenterGamma paper",
+          "view": "OriginCenterGamma model view"
+        },
+        "captions_preserved_as_independent_inputs": true,
+        "effective_getter_branch": "stored f3d0 because receiver is the preference-selected sheet",
+        "preference_owner": "moDrawing_c.fae0",
+        "property_view_has_native_setter_owner": true,
+        "sheet_f4dc_is_wire_field": false,
+        "sheet_f4e0": 1,
+        "sheet_owner": {
+          "class": "moDrSheet",
+          "concrete_runtime_class": true,
+          "object_index": 83,
+          "observation_key": "observed-node:217",
+          "schema": 1
+        },
+        "sheet_selection": {
+          "actual_selected_sheet_is_receiver": true,
+          "actual_sheet_count": 1,
+          "one_based_sheet_index": 1,
+          "preference_enabled": 1
+        },
+        "stored_property_view": "authored OriginCenterGamma",
+        "stored_property_view_is_config_identity": false
+      },
+      "drivers": [
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 170,
+            "observation_key": "observed-node:123",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 193,
+            "observation_key": "observed-node:151",
+            "schema": 1
+          },
+          "length_m": 0.041731,
+          "normal_depth_discarded": false,
+          "parameter_name": "D1",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 172,
+            "observation_key": "observed-node:145",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 0.0,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.008216699999999999,
+            "f958": {
+              "x": -0.0208655,
+              "y": -0.0136945,
+              "z": 0.0
+            },
+            "f970": {
+              "x": -0.0208655,
+              "y": -0.0136945,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.0208655,
+              "y": -0.0136945,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.0208655,
+              "y": -0.0136945,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fad0": 0.041731
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.0,
+            -0.0219112,
+            0.0
+          ]
+        },
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 176,
+            "observation_key": "observed-node:124",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 198,
+            "observation_key": "observed-node:152",
+            "schema": 1
+          },
+          "length_m": 0.027389,
+          "normal_depth_discarded": false,
+          "parameter_name": "D2",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 177,
+            "observation_key": "observed-node:148",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.012519300000000008,
+            "f958": {
+              "x": 0.0208655,
+              "y": -0.0136945,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.0208655,
+              "y": -0.0136945,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.0208655,
+              "y": 0.0136945,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.0208655,
+              "y": 0.0136945,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "fad0": 0.027389
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.033384800000000006,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "heldout_acceptance": false,
+      "native_acceptance": false,
+      "other_exact_constructor_boundaries": {
+        "child_analysis_units_present": true,
+        "child_manager_name_present": true
+      },
+      "presentation": {
+        "all_custom_property_streams_inspected_here": false,
+        "child_detail_standard": 1,
+        "complete_detail_graph_sha256": {
+          "child": "d77a664d234d8cbddb505dd5ec2577ace210c165bf0e6f74b0a0e39d76ac5f71",
+          "drawing": "707855ed562684675e6b40f4d00bab6c04f810794be46899c374535daf59d67d"
+        },
+        "detail_standard_native_subtype_rules_admitted": false,
+        "drawing_detail_standard": 1,
+        "drawing_ui_standard_owner": {
+          "class": "moANSI_c",
+          "concrete_runtime_class": true,
+          "object_index": 177,
+          "observation_key": "observed-node:197",
+          "schema": 1
+        },
+        "public_neutral_drawing_metadata_keys": [],
+        "rendering_unprojected_keys": [
+          "has_fb50",
+          "ff60"
+        ],
+        "view_ff60_count": 0,
+        "view_has_fb50": 0
+      },
+      "role": "generated-replay06",
+      "source_semantic_admission": false
+    },
+    {
+      "case": "OriginCenterDeltaΩ",
+      "child": {
+        "bytes": 9010,
+        "sha256": "f3d81cd6955a6e4f83f64bb0b533627c6593f9120c58aa3c6d3fd51d48c12075"
+      },
+      "drawing": {
+        "bytes": 7314,
+        "sha256": "b52f33629e0e0879d26f36f105f8c27cd6043694c104736b30434d06da73375a"
+      },
+      "drawing_properties": {
+        "actual_child_configuration_selector": {
+          "f08": "modeled default",
+          "f10": 0
+        },
+        "captions": {
+          "drawing": "OriginCenterDeltaΩ",
+          "sheet": "OriginCenterDeltaΩ paper",
+          "view": "OriginCenterDeltaΩ model view"
+        },
+        "captions_preserved_as_independent_inputs": true,
+        "effective_getter_branch": "stored f3d0 because receiver is the preference-selected sheet",
+        "preference_owner": "moDrawing_c.fae0",
+        "property_view_has_native_setter_owner": true,
+        "sheet_f4dc_is_wire_field": false,
+        "sheet_f4e0": 1,
+        "sheet_owner": {
+          "class": "moDrSheet",
+          "concrete_runtime_class": true,
+          "object_index": 83,
+          "observation_key": "observed-node:217",
+          "schema": 1
+        },
+        "sheet_selection": {
+          "actual_selected_sheet_is_receiver": true,
+          "actual_sheet_count": 1,
+          "one_based_sheet_index": 1,
+          "preference_enabled": 1
+        },
+        "stored_property_view": "authored OriginCenterDeltaΩ",
+        "stored_property_view_is_config_identity": false
+      },
+      "drivers": [
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 170,
+            "observation_key": "observed-node:123",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 193,
+            "observation_key": "observed-node:151",
+            "schema": 1
+          },
+          "length_m": 0.052193,
+          "normal_depth_discarded": false,
+          "parameter_name": "D1",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 172,
+            "observation_key": "observed-node:145",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 0.0,
+              "y": -1.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.005919299999999999,
+            "f958": {
+              "x": -0.0260965,
+              "y": -0.0098655,
+              "z": 0.0
+            },
+            "f970": {
+              "x": -0.0260965,
+              "y": -0.0098655,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.0260965,
+              "y": -0.0098655,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.0260965,
+              "y": -0.0098655,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "fad0": 0.052193
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.0,
+            -0.015784799999999998,
+            0.0
+          ]
+        },
+        {
+          "dimension_owner": {
+            "class": "sgPntPntDist",
+            "concrete_runtime_class": true,
+            "object_index": 176,
+            "observation_key": "observed-node:124",
+            "schema": 1
+          },
+          "display_owner": {
+            "class": "moDisplayDistanceDim_c",
+            "concrete_runtime_class": true,
+            "object_index": 198,
+            "observation_key": "observed-node:152",
+            "schema": 1
+          },
+          "length_m": 0.019731,
+          "normal_depth_discarded": false,
+          "parameter_name": "D2",
+          "parameter_owner": {
+            "class": "moLengthParameter_c",
+            "concrete_runtime_class": true,
+            "object_index": 177,
+            "observation_key": "observed-node:148",
+            "schema": 1
+          },
+          "placement": {
+            "f880": {
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "f8a8": 0.5,
+            "f8b0": 0.015657900000000002,
+            "f958": {
+              "x": 0.0260965,
+              "y": -0.0098655,
+              "z": 0.0
+            },
+            "f970": {
+              "x": 0.0260965,
+              "y": -0.0098655,
+              "z": 0.0
+            },
+            "f988": {
+              "x": 0.0260965,
+              "y": 0.0098655,
+              "z": 0.0
+            },
+            "f9a0": {
+              "x": 0.0260965,
+              "y": 0.0098655,
+              "z": 0.0
+            },
+            "fa38": {
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "fad0": 0.019731
+          },
+          "point_owner": "mgPoint_c at embedded text +0x38",
+          "text_kind": 18,
+          "text_owner": "embedded moDimText_c at display +0x6a0",
+          "xyz_m": [
+            0.041754400000000004,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "heldout_acceptance": false,
+      "native_acceptance": false,
+      "other_exact_constructor_boundaries": {
+        "child_analysis_units_present": true,
+        "child_manager_name_present": true
+      },
+      "presentation": {
+        "all_custom_property_streams_inspected_here": false,
+        "child_detail_standard": 1,
+        "complete_detail_graph_sha256": {
+          "child": "eda8c34be682669a52293cff8fe57e8d2acc9cee54cfe53b031bde28ef75b937",
+          "drawing": "707855ed562684675e6b40f4d00bab6c04f810794be46899c374535daf59d67d"
+        },
+        "detail_standard_native_subtype_rules_admitted": false,
+        "drawing_detail_standard": 1,
+        "drawing_ui_standard_owner": {
+          "class": "moANSI_c",
+          "concrete_runtime_class": true,
+          "object_index": 177,
+          "observation_key": "observed-node:197",
+          "schema": 1
+        },
+        "public_neutral_drawing_metadata_keys": [],
+        "rendering_unprojected_keys": [
+          "has_fb50",
+          "ff60"
+        ],
+        "view_ff60_count": 0,
+        "view_has_fb50": 0
+      },
+      "role": "generated-replay06",
+      "source_semantic_admission": false
+    }
+  ],
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "intake_sha256": "a25475ec393ded731ec197a03db54863973841230be0c870b862753d5fa807df",
+  "method_sha256": "db225b7eaf1606ca4697328f524f266fa19c9dc271796570a1e126ca54b73e35",
+  "native_acceptance": false,
+  "native_execution": false,
+  "observed_cases": 8,
+  "raw_private_report_sha256": "87d31c8aca22e04772a16754e9d9f4d68f5c04d18e4c0eacd8524a619b67f20e",
+  "schema": "kit.sw2026.drawing-text-presentation-observation.v1",
+  "sdk_execution": false,
+  "source_semantic_admission": false,
+  "writer_changed": false
+}
