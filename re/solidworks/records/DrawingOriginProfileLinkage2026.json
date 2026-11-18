@@ -1,0 +1,1113 @@
+{
+  "functions": {
+    "actual_feature_creation_time": {
+      "entry": "0x4c03e070",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 117,
+          "end": "0x4c03e0e5",
+          "sha256": "660f840de109ca764acabe864e258442278e36c2534357b2c16b23852dbc3991",
+          "start": "0x4c03e070"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c03e070",
+          "end": "0x4c03e0e5",
+          "unwind": "0x4d385bd8"
+        }
+      ]
+    },
+    "actual_node_id_getter": {
+      "entry": "0x4b283ba0",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 4,
+          "end": "0x4b283ba4",
+          "sha256": "916ae10aa3fd76a4d5b25b2fb66e9df0fd04957c7ab10930268d1ed7808be689",
+          "start": "0x4b283ba0"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "chain_tail_reference": {
+      "entry": "0x4c291a10",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 430,
+          "end": "0x4c291bbe",
+          "sha256": "b300ce964d69e62cce4c880d26c7b6774d94f1c4c1092377a4e614569aeda7bc",
+          "start": "0x4c291a10"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c291a10",
+          "end": "0x4c291bbe",
+          "unwind": "0x4d3d3ce0"
+        }
+      ]
+    },
+    "component_feature_resolver": {
+      "entry": "0x4b818420",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 478,
+          "end": "0x4b8185fe",
+          "sha256": "051cadd3f35ba8ed6eeffbe2f262d27cb047d77d4546ebdfa3aa0de9e9c04a46",
+          "start": "0x4b818420"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4b818420",
+          "end": "0x4b8185fe",
+          "unwind": "0x4d456e54"
+        }
+      ]
+    },
+    "component_model_getter": {
+      "entry": "0x4b82e340",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 55,
+          "end": "0x4b82e377",
+          "sha256": "28a25cb29c470f50f09163a4e386006237efaee52e2d9df4fb71c087971fa2d6",
+          "start": "0x4b82e340"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4b82e340",
+          "end": "0x4b82e377",
+          "unwind": "0x4d385a70"
+        }
+      ]
+    },
+    "creation_time_gate": {
+      "entry": "0x4bb3ce00",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 144,
+          "end": "0x4bb3ce90",
+          "sha256": "4dbb4da1a37616f856175ec2a59e58abd2e7c36d2aeade6e038907df006501ca",
+          "start": "0x4bb3ce00"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb3ce00",
+          "end": "0x4bb3ce90",
+          "unwind": "0x4d3e0f54"
+        }
+      ]
+    },
+    "display_component_resolver": {
+      "entry": "0x4be75480",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 79,
+          "end": "0x4be754cf",
+          "sha256": "8e896a544c31f666435838d62e859dae7d9d646e286bc0119c09738731990a59",
+          "start": "0x4be75480"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be75480",
+          "end": "0x4be754cf",
+          "unwind": "0x4d385bd8"
+        }
+      ]
+    },
+    "display_profile_getter": {
+      "entry": "0x4be754d0",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 62,
+          "end": "0x4be7550e",
+          "sha256": "5db08955db044f0799e630573b4383f8bc43f453111065c8221523d850f64621",
+          "start": "0x4be754d0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be754d0",
+          "end": "0x4be7550e",
+          "unwind": "0x4d385b40"
+        }
+      ]
+    },
+    "extfeature_actual_reference": {
+      "entry": "0x4b2859c0",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 5,
+          "end": "0x4b2859c5",
+          "sha256": "348f66ab6477e09117e6c12cb0678a98b055b77b3de62353f9326ab99e0c27f9",
+          "start": "0x4b2859c0"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "filed_feature_id_lookup": {
+      "entry": "0x4bdaa940",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 318,
+          "end": "0x4bdaaa7e",
+          "sha256": "cc2c826ff0bb8cea874c4fca8e6b40d3aeb8faf1e6adc58d59ee75f8642ed355",
+          "start": "0x4bdaa940"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bdaa940",
+          "end": "0x4bdaaa7e",
+          "unwind": "0x4d521064"
+        }
+      ]
+    },
+    "frdata_feature_lookup": {
+      "entry": "0x4bb352d0",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 661,
+          "end": "0x4bb35565",
+          "sha256": "af852ff8c4768718bdc1aaeac6a39eaccf7c802e8cf898f6111d0d5394183654",
+          "start": "0x4bb352d0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb352d0",
+          "end": "0x4bb35565",
+          "unwind": "0x4d4c95e8"
+        }
+      ]
+    },
+    "frdata_from_feature": {
+      "entry": "0x4bb34370",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 63,
+          "end": "0x4bb343af",
+          "sha256": "3a74b61026073712a34a414ca08b5e7fa5693139ad3d6a290a33f5fa249bc311",
+          "start": "0x4bb34370"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb34370",
+          "end": "0x4bb343af",
+          "unwind": "0x4d385bd8"
+        }
+      ]
+    },
+    "modelhandle_actual_model": {
+      "entry": "0x4be69f90",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 15,
+          "end": "0x4be69f9f",
+          "sha256": "9b170a418604b4bf0a9ee7e5b0d2a5ef1d51932576e4da9af896b9878d2a6da7",
+          "start": "0x4be69f90"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "part_special_feature_fallback": {
+      "entry": "0x4c1b5bd0",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 331,
+          "end": "0x4c1b5d1b",
+          "sha256": "3c399c0fd0d4bc0ae725fa6780ae1cb173b7cdf6a0e56c645747313d36f6868b",
+          "start": "0x4c1b5bd0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c1b5bd0",
+          "end": "0x4c1b5d1b",
+          "unwind": "0x4d5b7264"
+        }
+      ]
+    },
+    "positive_id_preserving_prelookup": {
+      "entry": "0x4bb35a70",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 31,
+          "end": "0x4bb35a8f",
+          "sha256": "4b8c9a5b8f33eb96b1f18a19664c662de58ba05d23dff4b9c422a0528aec8840",
+          "start": "0x4bb35a70"
+        },
+        {
+          "bytes": 132,
+          "end": "0x4bb35b13",
+          "sha256": "ab8648def43b54fa50d0b4bf10265895a7fcafb0917647fe382ba228bd7852f7",
+          "start": "0x4bb35a8f"
+        },
+        {
+          "bytes": 6,
+          "end": "0x4bb35b19",
+          "sha256": "4eeabf8bcdc796d3a19ec782d70470e18a3a52ddfa5cfed7abe03e359a03625d",
+          "start": "0x4bb35b13"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb35a70",
+          "end": "0x4bb35a8f",
+          "unwind": "0x4d388900"
+        },
+        {
+          "begin": "0x4bb35a8f",
+          "end": "0x4bb35b13",
+          "unwind": "0x4d4c9670"
+        },
+        {
+          "begin": "0x4bb35b13",
+          "end": "0x4bb35b19",
+          "unwind": "0x4d4c9684"
+        }
+      ]
+    },
+    "recursive_feature_id_lookup": {
+      "entry": "0x4bdaa760",
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 52,
+          "end": "0x4bdaa794",
+          "sha256": "1f13235ab884376a911a8ad5763fdc2fae89709efb39d1f183f8595229760f82",
+          "start": "0x4bdaa760"
+        },
+        {
+          "bytes": 85,
+          "end": "0x4bdaa7e9",
+          "sha256": "5431ddc665cc65df06d199a4258e6e5ab6d2e19055fffb4f00c89d3e22475b39",
+          "start": "0x4bdaa794"
+        },
+        {
+          "bytes": 22,
+          "end": "0x4bdaa7ff",
+          "sha256": "7e8be58fd0f3c7ce3575c72c46fe786185e63f8b9f9be655476c6ca096d2b45c",
+          "start": "0x4bdaa7e9"
+        },
+        {
+          "bytes": 5,
+          "end": "0x4bdaa804",
+          "sha256": "a4da938985d69052d8eb75094236a87dcf8bfa187c198825f3bee1271cc0a556",
+          "start": "0x4bdaa7ff"
+        },
+        {
+          "bytes": 4,
+          "end": "0x4bdaa808",
+          "sha256": "effe8a4d5a47073357339de79f78f8145563e75e162490f76ac405c2f401b7a4",
+          "start": "0x4bdaa804"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bdaa760",
+          "end": "0x4bdaa794",
+          "unwind": "0x4d393194"
+        },
+        {
+          "begin": "0x4bdaa794",
+          "end": "0x4bdaa7e9",
+          "unwind": "0x4d52051c"
+        },
+        {
+          "begin": "0x4bdaa7e9",
+          "end": "0x4bdaa7ff",
+          "unwind": "0x4d520530"
+        },
+        {
+          "begin": "0x4bdaa7ff",
+          "end": "0x4bdaa804",
+          "unwind": "0x4d520540"
+        },
+        {
+          "begin": "0x4bdaa804",
+          "end": "0x4bdaa808",
+          "unwind": "0x4d520530"
+        }
+      ]
+    },
+    "reference_model_getter": {
+      "entry": "0x4bbc04e0",
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 19,
+          "end": "0x4bbc04f3",
+          "sha256": "f738f4028029df512b61bf3d90ff8782f2bf43de8817c8d18dca5dfb6618ee8d",
+          "start": "0x4bbc04e0"
+        }
+      ],
+      "unwind_rows": []
+    }
+  },
+  "heldout_acceptance": false,
+  "module": {
+    "base": "0x4b140000",
+    "bytes": 46536280,
+    "exception_directory": {
+      "bytes": 988296,
+      "records": 82358,
+      "rva": "0x2a6a000"
+    },
+    "name": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_acceptance": false,
+  "native_execution": false,
+  "portable_rule": {
+    "class_boundary": "only exact schema-one ordinary profile and origin classes are established here, no arbitrary class-name or nonconcrete descriptor admission",
+    "names": "diagnostic only, never selection",
+    "negative_id_remap": "not applied to these positive input ids; separate native global remap remains unsupported",
+    "profile_inheritance": "moOriginProfileFeature_c is a native moProfileFeature_c subclass and is accepted by the actual IsKindOf profile getter",
+    "saved_wholeword_defaults": false,
+    "selection": "bind actual view/folder/component/reference aliases to an explicitly resolved child/configuration; compare positive FRData id against actual profile-derived feature id and creation-log epoch"
+  },
+  "rtti": [
+    {
+      "base_array": {
+        "bytes": 44,
+        "end": "0x4d34ed9c",
+        "sha256": "186827c9bd39cbf49c3aa8d1a145ea9b541503ed199639cb8d5d36997e88bcbd",
+        "start": "0x4d34ed70"
+      },
+      "base_descriptors": [
+        {
+          "bytes": 28,
+          "end": "0x4d34edec",
+          "sha256": "ef9cb7126d479b0317f8156ce837825464e649f9d0db6f8600d120461d7e7c67",
+          "start": "0x4d34edd0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2f6bdc",
+          "sha256": "efc997f49cf82aa1340070b6c99ac0d87f83068741cc47f6946c09e4075dbc31",
+          "start": "0x4d2f6bc0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ec9e4",
+          "sha256": "80c2c3fca46b9dd404a82a305444c012e6e9df64a281892cd47ffbeafb5ac342",
+          "start": "0x4d2ec9c8"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2eca74",
+          "sha256": "cbb3df79e643feb781e46482a5c5f14376fb2fa3afd560378f5b6ccd0b5c6830",
+          "start": "0x4d2eca58"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecaf4",
+          "sha256": "fa778c1d29caf5abc519a6b32390224516570080f86990837071f8945a239137",
+          "start": "0x4d2ecad8"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecb64",
+          "sha256": "120f2919c40f484216b3c9b87d5f016fc71cfa81ed46de92a12c97f057199d52",
+          "start": "0x4d2ecb48"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecbcc",
+          "sha256": "b03ca9b26d378fc890bab180c492d3b958f25966b64369fce495c76596165576",
+          "start": "0x4d2ecbb0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea39c",
+          "sha256": "d7147f6fefca90447072f105a6d960cb271a92a5da797dd908409b90329ca636",
+          "start": "0x4d2ea380"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea374",
+          "sha256": "57b10edd4e469659c009b38cd621e54d29ded810261dec1fadaa490f817c6d81",
+          "start": "0x4d2ea358"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecc2c",
+          "sha256": "af9f1e19011d8481132fdf818c058b614b5b3c442e22aea82138a3d9ed441763",
+          "start": "0x4d2ecc10"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2f6c74",
+          "sha256": "bab2248def3afeee39bdf4328f6696f33ef39546e750e5abdfb5a5058f585e75",
+          "start": "0x4d2f6c58"
+        }
+      ],
+      "bases": [
+        ".?AVmoOriginProfileFeature_c@@",
+        ".?AVmoProfileFeature_c@@",
+        ".?AVmoModelFeature_c@@",
+        ".?AVmoFeature_c@@",
+        ".?AVmoConcept_c@@",
+        ".?AVmoLoggedNode_c@@",
+        ".?AVmoNode_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@",
+        ".?AVutDisplayedEntity_c@@",
+        ".?AVmoProfileFeatureInterface_i@@"
+      ],
+      "class": "moOriginProfileFeature_c",
+      "class_hierarchy": {
+        "bytes": 16,
+        "end": "0x4d34ed68",
+        "sha256": "66ca38bd7d315a7a559295a48b3722408b79b3e69cfa7f025f1a150570835266",
+        "start": "0x4d34ed58"
+      },
+      "complete_object_locator": {
+        "bytes": 24,
+        "end": "0x4d34ed48",
+        "sha256": "ba65f46930432aed8a7e104ad525453fadd70994813d5d21f4ec69ce0ea9cbbf",
+        "start": "0x4d34ed30"
+      },
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0ef6a0",
+            "sha256": "07507ac110dc8671c782a98915557194ceedc0363c545c3ca4b2373d5bc5a18a",
+            "start": "0x4d0ef698"
+          },
+          "offset": "0x188",
+          "target": "0x4b283ba0"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0efa10",
+            "sha256": "dd4867395c901c852fbcaf46775953eafb2dd90bd2d664cc3e8323359dedb2e5",
+            "start": "0x4d0efa08"
+          },
+          "offset": "0x4f8",
+          "target": "0x4bb466a0"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0efa18",
+            "sha256": "1521539b06ba82c3b9851ed134209715059e8f1f3c5568b9542ad8e7b93f4a66",
+            "start": "0x4d0efa10"
+          },
+          "offset": "0x500",
+          "target": "0x4b27e150"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0f14b0",
+            "sha256": "5fff404592f5f1857866af1a60fd9c1710082c68b95dff1ceedb719e1adf9341",
+            "start": "0x4d0f14a8"
+          },
+          "offset": "0x1f98",
+          "target": "0x4c0de640"
+        }
+      ],
+      "vtable": "0x4d0ef510"
+    },
+    {
+      "base_array": {
+        "bytes": 40,
+        "end": "0x4d2f6c28",
+        "sha256": "1946433b29f67c40fdb0fe810db4b8bad569e328a20f685df93a496cfa35387d",
+        "start": "0x4d2f6c00"
+      },
+      "base_descriptors": [
+        {
+          "bytes": 28,
+          "end": "0x4d2f6bdc",
+          "sha256": "efc997f49cf82aa1340070b6c99ac0d87f83068741cc47f6946c09e4075dbc31",
+          "start": "0x4d2f6bc0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ec9e4",
+          "sha256": "80c2c3fca46b9dd404a82a305444c012e6e9df64a281892cd47ffbeafb5ac342",
+          "start": "0x4d2ec9c8"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2eca74",
+          "sha256": "cbb3df79e643feb781e46482a5c5f14376fb2fa3afd560378f5b6ccd0b5c6830",
+          "start": "0x4d2eca58"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecaf4",
+          "sha256": "fa778c1d29caf5abc519a6b32390224516570080f86990837071f8945a239137",
+          "start": "0x4d2ecad8"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecb64",
+          "sha256": "120f2919c40f484216b3c9b87d5f016fc71cfa81ed46de92a12c97f057199d52",
+          "start": "0x4d2ecb48"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecbcc",
+          "sha256": "b03ca9b26d378fc890bab180c492d3b958f25966b64369fce495c76596165576",
+          "start": "0x4d2ecbb0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea39c",
+          "sha256": "d7147f6fefca90447072f105a6d960cb271a92a5da797dd908409b90329ca636",
+          "start": "0x4d2ea380"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea374",
+          "sha256": "57b10edd4e469659c009b38cd621e54d29ded810261dec1fadaa490f817c6d81",
+          "start": "0x4d2ea358"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecc2c",
+          "sha256": "af9f1e19011d8481132fdf818c058b614b5b3c442e22aea82138a3d9ed441763",
+          "start": "0x4d2ecc10"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2f6c74",
+          "sha256": "bab2248def3afeee39bdf4328f6696f33ef39546e750e5abdfb5a5058f585e75",
+          "start": "0x4d2f6c58"
+        }
+      ],
+      "bases": [
+        ".?AVmoProfileFeature_c@@",
+        ".?AVmoModelFeature_c@@",
+        ".?AVmoFeature_c@@",
+        ".?AVmoConcept_c@@",
+        ".?AVmoLoggedNode_c@@",
+        ".?AVmoNode_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@",
+        ".?AVutDisplayedEntity_c@@",
+        ".?AVmoProfileFeatureInterface_i@@"
+      ],
+      "class": "moProfileFeature_c",
+      "class_hierarchy": {
+        "bytes": 16,
+        "end": "0x4d2f6bf8",
+        "sha256": "471236d5ba63ff65806773696b9d847f19148ae9ef8b412d44772d8977e9f201",
+        "start": "0x4d2f6be8"
+      },
+      "complete_object_locator": {
+        "bytes": 24,
+        "end": "0x4d34eb40",
+        "sha256": "7f295e63026d5305fe8fb7dac179562882848b68cc9b9feb851415f37ec3d8ed",
+        "start": "0x4d34eb28"
+      },
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0e9010",
+            "sha256": "07507ac110dc8671c782a98915557194ceedc0363c545c3ca4b2373d5bc5a18a",
+            "start": "0x4d0e9008"
+          },
+          "offset": "0x188",
+          "target": "0x4b283ba0"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0e9380",
+            "sha256": "dd4867395c901c852fbcaf46775953eafb2dd90bd2d664cc3e8323359dedb2e5",
+            "start": "0x4d0e9378"
+          },
+          "offset": "0x4f8",
+          "target": "0x4bb466a0"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0e9388",
+            "sha256": "1521539b06ba82c3b9851ed134209715059e8f1f3c5568b9542ad8e7b93f4a66",
+            "start": "0x4d0e9380"
+          },
+          "offset": "0x500",
+          "target": "0x4b27e150"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d0eae20",
+            "sha256": "5fff404592f5f1857866af1a60fd9c1710082c68b95dff1ceedb719e1adf9341",
+            "start": "0x4d0eae18"
+          },
+          "offset": "0x1f98",
+          "target": "0x4c0de640"
+        }
+      ],
+      "vtable": "0x4d0e8e80"
+    },
+    {
+      "base_array": {
+        "bytes": 20,
+        "end": "0x4d342eb4",
+        "sha256": "eeb27773b642ea2a443cb4f32c01ed5ef32ac7846e6553ee4985187401ab75d0",
+        "start": "0x4d342ea0"
+      },
+      "base_descriptors": [
+        {
+          "bytes": 28,
+          "end": "0x4d342eec",
+          "sha256": "87a6213eeee94d29d034b20703bfafc5643dd356a3c052f78a00fd6a2708c59a",
+          "start": "0x4d342ed0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d3424f4",
+          "sha256": "b660e2afa286f3c5332719ca15388388e8a1a81bd7b93c3087615104e7662e60",
+          "start": "0x4d3424d8"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2f50cc",
+          "sha256": "8a7272e5003ca1560489e24676b7c6e5f59b8cf74fe5b8be80081aeb094fa79b",
+          "start": "0x4d2f50b0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea39c",
+          "sha256": "d7147f6fefca90447072f105a6d960cb271a92a5da797dd908409b90329ca636",
+          "start": "0x4d2ea380"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea374",
+          "sha256": "57b10edd4e469659c009b38cd621e54d29ded810261dec1fadaa490f817c6d81",
+          "start": "0x4d2ea358"
+        }
+      ],
+      "bases": [
+        ".?AVmoDisplayProfileFeature_c@@",
+        ".?AVmoDisplayFeature_c@@",
+        ".?AVmoDisplayObject_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@"
+      ],
+      "class": "moDisplayProfileFeature_c",
+      "class_hierarchy": {
+        "bytes": 16,
+        "end": "0x4d342e98",
+        "sha256": "9cfb1e2b0498266a59048095416d73cf1ab85b543abc2271c41676b196a93931",
+        "start": "0x4d342e88"
+      },
+      "complete_object_locator": {
+        "bytes": 24,
+        "end": "0x4d342e78",
+        "sha256": "76c704f8307b9749fb893631db88aa6f0c6f33efe8f37a78aec1331462dc7d94",
+        "start": "0x4d342e60"
+      },
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d03a158",
+            "sha256": "82b43adb1fa4c7203c6f7ea7b466d7813c3f2b8017bd505c174fa7fdfe9acef6",
+            "start": "0x4d03a150"
+          },
+          "offset": "0x310",
+          "target": "0x4be75480"
+        }
+      ],
+      "vtable": "0x4d039e40"
+    },
+    {
+      "base_array": {
+        "bytes": 24,
+        "end": "0x4d318b38",
+        "sha256": "bce71b86907e0552eef68b0176b4096e7694ebf4a0b2ba65b5204f5051f0daa4",
+        "start": "0x4d318b20"
+      },
+      "base_descriptors": [
+        {
+          "bytes": 28,
+          "end": "0x4d318b74",
+          "sha256": "ef7f17527a5ea69d7a9cf70102042a3bf8c337f4f2e8e0068a46397635fd89f8",
+          "start": "0x4d318b58"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2eb3b4",
+          "sha256": "f72ec69a8fee1139cc3c32d672c44ea995b51bd7847663eef417cd6b6c2b617a",
+          "start": "0x4d2eb398"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea8cc",
+          "sha256": "7628796faf08297a3fe763472f642f927967785ff886a31da06cf95ad26cfa7f",
+          "start": "0x4d2ea8b0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea39c",
+          "sha256": "d7147f6fefca90447072f105a6d960cb271a92a5da797dd908409b90329ca636",
+          "start": "0x4d2ea380"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea374",
+          "sha256": "57b10edd4e469659c009b38cd621e54d29ded810261dec1fadaa490f817c6d81",
+          "start": "0x4d2ea358"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2eb1b4",
+          "sha256": "8f27e00b0e05a1b551134be431391835a2c8a339b2d9a01cf4009a1dc2d359be",
+          "start": "0x4d2eb198"
+        }
+      ],
+      "bases": [
+        ".?AVmoCompProfile_c@@",
+        ".?AVmoCompFeature_c@@",
+        ".?AVmoCompRef_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@",
+        ".?AVutDisplayedEntity_c@@"
+      ],
+      "class": "moCompProfile_c",
+      "class_hierarchy": {
+        "bytes": 16,
+        "end": "0x4d318b18",
+        "sha256": "b89818bb8f823d4f2bb4ba08cc5b5fd4937d0abfc58f7d25dee155de0e988139",
+        "start": "0x4d318b08"
+      },
+      "complete_object_locator": {
+        "bytes": 24,
+        "end": "0x4d318af8",
+        "sha256": "97b8d08d5c1a947b96644c19d2ecca25f8447ee68fd3110d9a98fc98e2756834",
+        "start": "0x4d318ae0"
+      },
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4ce97258",
+            "sha256": "d286115e318ede636b8ee691b4f29f9b2aeb1733ec57c86e11cf435d972e1d7f",
+            "start": "0x4ce97250"
+          },
+          "offset": "0x3e8",
+          "target": "0x4b818420"
+        }
+      ],
+      "vtable": "0x4ce96e68"
+    },
+    {
+      "base_array": {
+        "bytes": 16,
+        "end": "0x4d302408",
+        "sha256": "51660494d6deef25abc7c158efd8fbc940898b751f2299cf0d6d421522744d2c",
+        "start": "0x4d3023f8"
+      },
+      "base_descriptors": [
+        {
+          "bytes": 28,
+          "end": "0x4d3023d4",
+          "sha256": "89c658f271b9406f2b39867e57834f0ccc59526517576f789260015b02cfe172",
+          "start": "0x4d3023b8"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d30233c",
+          "sha256": "6901440c13b764118ba0cd0768e18b566fa561850fe4cf4eb77e2ddebf088097",
+          "start": "0x4d302320"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea39c",
+          "sha256": "d7147f6fefca90447072f105a6d960cb271a92a5da797dd908409b90329ca636",
+          "start": "0x4d2ea380"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea374",
+          "sha256": "57b10edd4e469659c009b38cd621e54d29ded810261dec1fadaa490f817c6d81",
+          "start": "0x4d2ea358"
+        }
+      ],
+      "bases": [
+        ".?AVmoChainComponent_c@@",
+        ".?AVmoComponent_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@"
+      ],
+      "class": "moChainComponent_c",
+      "class_hierarchy": {
+        "bytes": 16,
+        "end": "0x4d3023f0",
+        "sha256": "fe361d8eba0644d9648045fac595b56deccc10849a1200bfb156fd5a530dd54b",
+        "start": "0x4d3023e0"
+      },
+      "complete_object_locator": {
+        "bytes": 24,
+        "end": "0x4d319b48",
+        "sha256": "746a26806ae94c71054d7ce765493bfd5d4db6625ce9a8648734e14a73993358",
+        "start": "0x4d319b30"
+      },
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4ce9c8b8",
+            "sha256": "fd4201931d1068234d37f2817dce46eded253108cfc40c6266aa72934563462c",
+            "start": "0x4ce9c8b0"
+          },
+          "offset": "0xa8",
+          "target": "0x4b82e340"
+        }
+      ],
+      "vtable": "0x4ce9c808"
+    },
+    {
+      "base_array": {
+        "bytes": 36,
+        "end": "0x4d335c74",
+        "sha256": "09f13684f9683c2889a8390de6712be97d45ee432e07f9688fb0fcc3ba89fc17",
+        "start": "0x4d335c50"
+      },
+      "base_descriptors": [
+        {
+          "bytes": 28,
+          "end": "0x4d335cbc",
+          "sha256": "bb299e9ab0510e9099e2cd47460662dff2c312c3cd545279664923ad1a043156",
+          "start": "0x4d335ca0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d303904",
+          "sha256": "772be37a51d8f7a3c4a4175e6c466ebce263ac3b94c3e0cdf236523fd1d8da94",
+          "start": "0x4d3038e8"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2eca74",
+          "sha256": "cbb3df79e643feb781e46482a5c5f14376fb2fa3afd560378f5b6ccd0b5c6830",
+          "start": "0x4d2eca58"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecaf4",
+          "sha256": "fa778c1d29caf5abc519a6b32390224516570080f86990837071f8945a239137",
+          "start": "0x4d2ecad8"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecb64",
+          "sha256": "120f2919c40f484216b3c9b87d5f016fc71cfa81ed46de92a12c97f057199d52",
+          "start": "0x4d2ecb48"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecbcc",
+          "sha256": "b03ca9b26d378fc890bab180c492d3b958f25966b64369fce495c76596165576",
+          "start": "0x4d2ecbb0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea39c",
+          "sha256": "d7147f6fefca90447072f105a6d960cb271a92a5da797dd908409b90329ca636",
+          "start": "0x4d2ea380"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea374",
+          "sha256": "57b10edd4e469659c009b38cd621e54d29ded810261dec1fadaa490f817c6d81",
+          "start": "0x4d2ea358"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecc2c",
+          "sha256": "af9f1e19011d8481132fdf818c058b614b5b3c442e22aea82138a3d9ed441763",
+          "start": "0x4d2ecc10"
+        }
+      ],
+      "bases": [
+        ".?AVmoReferenceInternal_c@@",
+        ".?AVmoReference_c@@",
+        ".?AVmoFeature_c@@",
+        ".?AVmoConcept_c@@",
+        ".?AVmoLoggedNode_c@@",
+        ".?AVmoNode_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@",
+        ".?AVutDisplayedEntity_c@@"
+      ],
+      "class": "moReferenceInternal_c",
+      "class_hierarchy": {
+        "bytes": 16,
+        "end": "0x4d335c48",
+        "sha256": "49da742836939e697f93eb0eb3cf59d039b744ff12e87a8a2ad017112598b7ff",
+        "start": "0x4d335c38"
+      },
+      "complete_object_locator": {
+        "bytes": 24,
+        "end": "0x4d335c28",
+        "sha256": "53229246da141c65af767ac3f82a52ecd25820fde0d7874cce25facac35145bf",
+        "start": "0x4d335c10"
+      },
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4cf800f8",
+            "sha256": "468184477341c56d241bebf3788d363db34c51635f36bab473f2c06a5b04b179",
+            "start": "0x4cf800f0"
+          },
+          "offset": "0x1cc0",
+          "target": "0x4bbc04e0"
+        }
+      ],
+      "vtable": "0x4cf7e430"
+    },
+    {
+      "base_array": {
+        "bytes": 36,
+        "end": "0x4d2eceb4",
+        "sha256": "b4b4ec5ddc5d8ecd40d84d800b4655939e4e30ae14ce27914c66aed996227dcd",
+        "start": "0x4d2ece90"
+      },
+      "base_descriptors": [
+        {
+          "bytes": 28,
+          "end": "0x4d2ece6c",
+          "sha256": "6f619c54d13cc7179e67bcf3d2de35ff1ce46cc024ddda9a4fb11618bddb0bd5",
+          "start": "0x4d2ece50"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecefc",
+          "sha256": "ec424f4dc7ef15d0668235c54dac44dfdd51266ba9e1228613c87a04de91f5fd",
+          "start": "0x4d2ecee0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecf84",
+          "sha256": "8007c8885b312c95a3fc0419180dd14fe20b43cd6de05bd7c70e0e081a20efcc",
+          "start": "0x4d2ecf68"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecaf4",
+          "sha256": "fa778c1d29caf5abc519a6b32390224516570080f86990837071f8945a239137",
+          "start": "0x4d2ecad8"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecb64",
+          "sha256": "120f2919c40f484216b3c9b87d5f016fc71cfa81ed46de92a12c97f057199d52",
+          "start": "0x4d2ecb48"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecbcc",
+          "sha256": "b03ca9b26d378fc890bab180c492d3b958f25966b64369fce495c76596165576",
+          "start": "0x4d2ecbb0"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea39c",
+          "sha256": "d7147f6fefca90447072f105a6d960cb271a92a5da797dd908409b90329ca636",
+          "start": "0x4d2ea380"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ea374",
+          "sha256": "57b10edd4e469659c009b38cd621e54d29ded810261dec1fadaa490f817c6d81",
+          "start": "0x4d2ea358"
+        },
+        {
+          "bytes": 28,
+          "end": "0x4d2ecffc",
+          "sha256": "8cc8ff9932b9640210f64760b155300be5603c5eced21251417485d03e1bed4e",
+          "start": "0x4d2ecfe0"
+        }
+      ],
+      "bases": [
+        ".?AVmoPart_c@@",
+        ".?AVmoModel_c@@",
+        ".?AVmoFiledConcept_c@@",
+        ".?AVmoConcept_c@@",
+        ".?AVmoLoggedNode_c@@",
+        ".?AVmoNode_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@",
+        ".?AVutDisplayedEntity_c@@"
+      ],
+      "class": "moPart_c",
+      "class_hierarchy": {
+        "bytes": 16,
+        "end": "0x4d2ece88",
+        "sha256": "4c43e203403f7338b2fd3557368ad545cbb5bb91e02310959dc3f19ced51c9ef",
+        "start": "0x4d2ece78"
+      },
+      "complete_object_locator": {
+        "bytes": 24,
+        "end": "0x4d352fd8",
+        "sha256": "c55ca4e4a0c0af7c95dec1401abe98d4376a9c538461632b833b5d1ed4592567",
+        "start": "0x4d352fc0"
+      },
+      "slots": [
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d126290",
+            "sha256": "bb0d53c8c08915bc7b863d20808aec169f87cf8542e182226839d3475c897ee9",
+            "start": "0x4d126288"
+          },
+          "offset": "0xfb0",
+          "target": "0x4bdaa940"
+        },
+        {
+          "cell": {
+            "bytes": 8,
+            "end": "0x4d1264a8",
+            "sha256": "cd3fb631b4bc40f8a5615a415cbca43f05bae0f5a5c57dbe9bc768b7e83f0eed",
+            "start": "0x4d1264a0"
+          },
+          "offset": "0x11c8",
+          "target": "0x4c1b5bd0"
+        }
+      ],
+      "vtable": "0x4d1252d8"
+    }
+  ],
+  "schema": "kit.sw2026.drawing-profile-child-native-lookup.v1",
+  "sdk_changed": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}
