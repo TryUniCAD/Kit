@@ -1,0 +1,50 @@
+{
+  "schema": "kit.sw2026.through-all-end-wire-evidence.v1",
+  "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "serializer_entry": "0x4bb10250",
+  "primary_range": {
+    "start_inclusive": "0x4bb10250",
+    "end_exclusive": "0x4bb11067"
+  },
+  "primary_code_sha256": "2882e070d6591524c117ebd39879e49b07167a8cc4b250e9e0e33086b0f3d9aa",
+  "class_schema": 1,
+  "current_document_version": 19000,
+  "field_authorities": {
+    "f148_f14c_f150_f154": {
+      "encoding": "four little-endian signed 32-bit integers",
+      "store_instructions": {
+        "start": "0x4bb105a1",
+        "end": "0x4bb105d7"
+      },
+      "load_compare": "0x4bb10f85",
+      "minimum_version": 4460,
+      "load_instructions": {
+        "start": "0x4bb10f8c",
+        "end": "0x4bb10fc6"
+      },
+      "older_load_rule": "clear the four words",
+      "meaning": "not found"
+    },
+    "f158": {
+      "encoding": "little-endian signed 32-bit integer",
+      "minimum_version": 15105,
+      "store_compare": "0x4bb10600",
+      "store_value_load": "0x4bb10607",
+      "load_compare": "0x4bb11003",
+      "load_address": "0x4bb1100a",
+      "older_load_default_address": "0x4bb1101f",
+      "older_load_default": 1,
+      "meaning": "not found",
+      "current_constructor_neutral_not_inferred": true
+    }
+  },
+  "native_disclosed_source_receipt_sha256": "0fb082b90227b823b54cb11dfb2cf84c341bf744b7d8d7028f0d1b19c1e4c406",
+  "confidence": {
+    "forward_type1_and_null_drivers": "confirmed for the single disclosed profile, not heldout-qualified",
+    "tail_encoding_and_version_branches": "partial static ownership with reproduced decoded words; semantic meaning remains unbound"
+  },
+  "runtime_oracle_executed_by_auditor": false,
+  "hidden_inputs_read": 0,
+  "writer_output_count": 0,
+  "vendor_listings_included": false
+}
