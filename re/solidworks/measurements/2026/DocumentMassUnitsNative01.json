@@ -1,0 +1,277 @@
+{
+  "archived_source_files": 6,
+  "cases": {
+    "center": {
+      "mass_delta": {
+        "added": {},
+        "changed": {
+          "moDensityUnits_c.fc4": [
+            1,
+            2
+          ]
+        },
+        "removed": {}
+      },
+      "states": {
+        "CustomGram": {
+          "bytes": 61835,
+          "sha256": "cb96f6085b89252564bb10a7d932e3104e7bffecbe28d9e79b420de03fc1d656"
+        },
+        "CustomKilogram": {
+          "bytes": 63428,
+          "sha256": "abce0b27f4a0ba6022faf291aa1cf620b9809973871a06c0a7398e02073e800e"
+        },
+        "MillimeterGram": {
+          "bytes": 62429,
+          "sha256": "e5d4de7f58d6c87f9580b46633a1755ffca61afed82e881114c0d07626de0bde"
+        }
+      },
+      "system_delta": {
+        "added": {
+          "moDensityUnits_c.fb8.class": "moLengthUserUnits_c",
+          "moDensityUnits_c.fb8.f08": 0,
+          "moDensityUnits_c.fb8.f0c": 2,
+          "moDensityUnits_c.fb8.f10": 1,
+          "moDensityUnits_c.fb8.f18": 0.1,
+          "moDensityUnits_c.fb8.f20": 4,
+          "moDensityUnits_c.fb8.f24": 1,
+          "moDensityUnits_c.fb8.f28": 8,
+          "moDensityUnits_c.fb8.f30": 0.78539816339745,
+          "moDensityUnits_c.fb8.f6c": 0,
+          "moDensityUnits_c.fb8.f70": 1,
+          "moDensityUnits_c.fb8.f74": 1,
+          "moDensityUnits_c.fb8.f7c": 0,
+          "moDensityUnits_c.fb8.f88": 0.0,
+          "moDensityUnits_c.fb8.fb0": 0,
+          "moDensityUnits_c.fb8.fb8": null,
+          "moDensityUnits_c.fb8.schema": 1
+        },
+        "changed": {
+          "moDensityUnits_c.has_fb8": [
+            0,
+            1
+          ],
+          "moLengthUserUnits_c.f88": [
+            17.62,
+            9.22
+          ],
+          "moUnitSysUnits_c.fb0": [
+            4,
+            3
+          ]
+        },
+        "removed": {}
+      },
+      "user_table_field_count": 286
+    },
+    "corner": {
+      "mass_delta": {
+        "added": {},
+        "changed": {
+          "moDensityUnits_c.fc4": [
+            1,
+            2
+          ]
+        },
+        "removed": {}
+      },
+      "states": {
+        "CustomGram": {
+          "bytes": 55931,
+          "sha256": "93444d4df9c5e52d2800f7ce91d33fe469fa622bd8b31b61e287447ef5e3b757"
+        },
+        "CustomKilogram": {
+          "bytes": 56044,
+          "sha256": "0f409d1bd3fefc67a5eb85335c7a34876f8458ab1c625fcadfbb45e4fe5782db"
+        },
+        "MillimeterGram": {
+          "bytes": 55042,
+          "sha256": "a77b749e885d7d3f70ce7a6f633c54f30d6ee3efbcc6e5e50c1699a2206890d5"
+        }
+      },
+      "system_delta": {
+        "added": {
+          "moDensityUnits_c.fb8.class": "moLengthUserUnits_c",
+          "moDensityUnits_c.fb8.f08": 0,
+          "moDensityUnits_c.fb8.f0c": 2,
+          "moDensityUnits_c.fb8.f10": 1,
+          "moDensityUnits_c.fb8.f18": 0.1,
+          "moDensityUnits_c.fb8.f20": 4,
+          "moDensityUnits_c.fb8.f24": 1,
+          "moDensityUnits_c.fb8.f28": 8,
+          "moDensityUnits_c.fb8.f30": 0.78539816339745,
+          "moDensityUnits_c.fb8.f6c": 0,
+          "moDensityUnits_c.fb8.f70": 1,
+          "moDensityUnits_c.fb8.f74": 1,
+          "moDensityUnits_c.fb8.f7c": 0,
+          "moDensityUnits_c.fb8.f88": 0.0,
+          "moDensityUnits_c.fb8.fb0": 0,
+          "moDensityUnits_c.fb8.fb8": null,
+          "moDensityUnits_c.fb8.schema": 1
+        },
+        "changed": {
+          "moDensityUnits_c.has_fb8": [
+            0,
+            1
+          ],
+          "moLengthUserUnits_c.f88": [
+            23.82,
+            6.12
+          ],
+          "moUnitSysUnits_c.fb0": [
+            4,
+            3
+          ]
+        },
+        "removed": {}
+      },
+      "user_table_field_count": 286
+    }
+  },
+  "exact_typed_stream_replays": 24,
+  "files_sha256": {
+    "re/tooling/sw2026/units/AuthorDocumentMassUnits.py": "1aaf1da19cd50561c2f67ad5da7257d3e22b0c818d3d560565b818c33e4eef8e",
+    "re/tooling/sw2026/units/DocumentUnitApi.py": "f72d95025c66aa43428adeee8d1278c09e96851b485a5ca775c81490f7c52cc2",
+    "re/tooling/sw2026/units/QualifyDocumentMassUnits.py": "7387c250361539169a089b5ac7960481e495cc3fcc25a0942e5c4469d14a2615"
+  },
+  "flexnet_inventory_unchanged": true,
+  "healthy_controls": 2,
+  "heldout_inputs_read": 0,
+  "input_designs": [
+    {
+      "depth_m": 0.006117,
+      "height_m": 0.023819,
+      "kind": "corner",
+      "width_m": 0.03137
+    },
+    {
+      "depth_m": 0.009217,
+      "height_m": 0.017623,
+      "kind": "center",
+      "width_m": 0.048656
+    }
+  ],
+  "native_api": {
+    "mass": {
+      "swUnitsMassPropMass_Grams": 2,
+      "swUnitsMassPropMass_Kilograms": 3,
+      "swUnitsMassPropMass_Milligrams": 1,
+      "swUnitsMassPropMass_Pounds": 4
+    },
+    "unit_system": {
+      "swUnitSystem_CGS": 1,
+      "swUnitSystem_Custom": 4,
+      "swUnitSystem_IPS": 3,
+      "swUnitSystem_MKS": 2,
+      "swUnitSystem_MMGS": 5
+    }
+  },
+  "native_archive": {
+    "analysis_table_absent": true,
+    "custom_system": 3,
+    "density_length_owner": "moDensityUnits_c.fb8",
+    "document_table_owner": "moPart_c.f9b8",
+    "grams": 1,
+    "kilograms": 2,
+    "mass_owner": "moDensityUnits_c.fc4",
+    "mmgs_system": 4
+  },
+  "native_bindings": {
+    "default_density_function": {
+      "body_sha256": "af1de15490a8747740850c097ca746a76c3506523b92568d4102ed3522a0eff4",
+      "end": "0x4c01f360",
+      "imagebase": "0x4b140000",
+      "listing_sha256": "52483258477b06d2d95abf02d7c991b4e9f34b7d2656108b08eb5049cfe2817f",
+      "start": "0x4c01f240",
+      "unwind_rva": "0x24372b0"
+    },
+    "default_density_iat": {
+      "0x4cd32480": {
+        "dll": "SLDMFCU.dll",
+        "import": "?setLengthUnit@moDensityUnits_c@@QEAAXPEAVmoLengthUserUnits_c@@@Z"
+      },
+      "0x4cd324d0": {
+        "dll": "SLDMFCU.dll",
+        "import": "?iAddUserUnits@moUnitsTable_c@@QEAAHPEAVmoUserUnits_c@@@Z"
+      },
+      "0x4cd339f0": {
+        "dll": "SLDMFCU.dll",
+        "import": "??0moDensityUnits_c@@QEAA@PEAVmoLengthUserUnits_c@@@Z"
+      },
+      "0x4cd33b50": {
+        "dll": "SLDMFCU.dll",
+        "import": "?GetThisClass@moDensityUnits_c@@SAPEAUCRuntimeClass@@XZ"
+      },
+      "0x4cd33b68": {
+        "dll": "SLDMFCU.dll",
+        "import": "?getLengthUnit@moDensityUnits_c@@QEBAPEAVmoLengthUserUnits_c@@XZ"
+      },
+      "0x4cd33b80": {
+        "dll": "SLDMFCU.dll",
+        "import": "?getUserUnits@moUnitsTable_c@@QEBAPEAVmoUserUnits_c@@PEAUCRuntimeClass@@@Z"
+      },
+      "0x4cd33b90": {
+        "dll": "SLDMFCU.dll",
+        "import": "?GetThisClass@moLengthUserUnits_c@@SAPEAUCRuntimeClass@@XZ"
+      }
+    },
+    "provider": "hopper",
+    "hopper_instruction_summaries": [
+      {
+        "address": "0x3c7da1a0",
+        "effect": "returns the density mass selection at fc4",
+        "instructions": 2,
+        "method": "getMassUnitEnum",
+        "private_hopper_evidence_sha256": "439195ef8d16f2c47cc3439aa93a7c74321ace06aee3f29b1e11255e5d26f8b5"
+      },
+      {
+        "address": "0x3c7dc2d0",
+        "effect": "stores the explicit density mass selection at fc4",
+        "instructions": 2,
+        "method": "setMassUnitEnum",
+        "private_hopper_evidence_sha256": "e25be3e33e660f7cfd94a0ecf86eca61337a63cfa25e20dbf9195cf53512e301"
+      },
+      {
+        "address": "0x3c754580",
+        "effect": "returns the system selection at fb0",
+        "instructions": 2,
+        "method": "getUnitSysUnitEnum",
+        "private_hopper_evidence_sha256": "e668786ccd28477cd8180ee4bcc6bfc28265089993256bd27ec916fe37f464e6"
+      },
+      {
+        "address": "0x3c755b20",
+        "effect": "stores the system selection at fb0",
+        "instructions": 2,
+        "method": "setUnitSysUnitEnum",
+        "private_hopper_evidence_sha256": "e806371e7855290ba246913f4b9ac6460f0df25e686d0bcae7cb0e6706ac7808"
+      },
+      {
+        "address": "0x3c918060",
+        "effect": "chooses fc8 when fcc is nonzero and otherwise fc0",
+        "instructions": 6,
+        "method": "getVolumeUnitEnum",
+        "private_hopper_evidence_sha256": "ed46f78efae98aa183c55874b2fc1b4e366c3b9f5ff0f87c74f2c413e1835e28"
+      }
+    ],
+    "sldmfcu_sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "sldmodu_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "native_executable_version": "34.5.2.0604",
+  "native_processes": 10,
+  "oracle_numeric_checks": 292,
+  "passed": true,
+  "public_writer_qualified": false,
+  "raw_sha256": {
+    "host_transport": "b6ce0c5198cfb2c2075d91b343c68f6c55cce3ec5ceb9d78bbb813674814a2eb",
+    "initial_observer_failure": "433dea4f8929542346144816892c953cc5872f80368844d7536b35e782f3fc2d",
+    "native_packet": "2005149fd115df6a7b536081581d0dac738284ba54943ac04fbea13fe9148f63",
+    "native_result": "b25b62283bc15d247aa20ef96e5c57f97e4b7f17eaaa04c6a632227525acc48f",
+    "registered_type_libraries": "be67dbe9728a78f64bed7f88f0e7fefaf01d33a132efc51729fd4674b6b1b8b1",
+    "second_observer_failure": "b500d4f68e1c7157714083aaf848dc0a674ec9e7b7a60e6c954d93f457486a3b",
+    "typed_proof": "5da881a1251d2ad87b48e01a262d4aa875fb4e75f0606af80f50484335d0a1cd"
+  },
+  "schema": "kit.sw2026.document-mass-units-source-receipt.v1",
+  "task": "B04-SW2026-UNITS",
+  "writer_outputs": 0
+}

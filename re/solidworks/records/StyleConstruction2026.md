@@ -93,7 +93,9 @@ vocabulary rules without relying on a public-API analogy or a saved control:
 
 Length code 5 shares the inch conversion factor but its composite display
 semantics remain outside the semantic-name API. Native constructor system code
-3 is not one of the four named map entries; it is not labelled MKS or MMGS.
+3 is outside the four preset entries in the abbreviation initializer. The
+[paired document-unit measurement](DocumentMassUnits2026.md) separately
+binds code 3 to the actual custom system and resolves the density mass owner.
 The primitive `unit_record` exposes only recovered constructor/map code domains.
 `unit_table_profile` builds sixteen fresh records in the native factory's class
 order while taking explicit length, angle, system and precision inputs. The
