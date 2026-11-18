@@ -9,6 +9,7 @@ import re
 import sys
 
 from PairedCaptureIntake import GitSnapshot, require, sha256
+from PairedCaptures.ScopeControl.FusionScopeModel import HasInwardCut
 
 ROOT = Path(__file__).resolve().parents[2]
 SCOPE_FOLDER = "re/automation/PairedCaptures/ScopeControl"
@@ -62,7 +63,10 @@ def geometry_diff(first, second, tolerances):
             tolerances["volume_mm3_absolute"],
             tolerances["volume_relative"],
         ),
-        **{key: type(first[key]) is int and first[key] == second[key] for key in TOPOLOGY},
+        **{
+            key: type(first[key]) is int and first[key] == second[key]
+            for key in TOPOLOGY
+        },
     }
     return [key for key, equal in fields.items() if not equal]
 
@@ -75,8 +79,14 @@ def expected_body(bounds, profile=None):
     topology = (6, 12, 8)
     if profile is not None:
         section_low, section_high = profile
-        removed = (section_high[0] - section_low[0]) * (section_high[1] - section_low[1]) * sizes[2]
-        hole_centre = [(section_low[i] + section_high[i]) / 2 for i in (0, 1)] + [centre[2]]
+        removed = (
+            (section_high[0] - section_low[0])
+            * (section_high[1] - section_low[1])
+            * sizes[2]
+        )
+        hole_centre = [(section_low[i] + section_high[i]) / 2 for i in (0, 1)] + [
+            centre[2]
+        ]
         centre = [
             (a * volume - b * removed) / (volume - removed)
             for a, b in zip(centre, hole_centre, strict=True)
@@ -93,9 +103,15 @@ def expected_body(bounds, profile=None):
 
 def read_spec(snapshot, report):
     revision = report["source_revision"]
-    require(re.fullmatch(r"[0-9a-f]{40}", revision), "report source revision is not a full Git SHA")
+    require(
+        re.fullmatch(r"[0-9a-f]{40}", revision),
+        "report source revision is not a full Git SHA",
+    )
     raw = snapshot.blob(revision, SPEC_PATH)
-    require(sha256(raw) == report["specification_sha256"], "report specification differs from Git")
+    require(
+        sha256(raw) == report["specification_sha256"],
+        "report specification differs from Git",
+    )
     value = snapshot.parse_document(raw, "scope specification")
     require(
         value["schema"] == 1
@@ -116,7 +132,8 @@ def read_spec(snapshot, report):
     body_a = value["bodies"]["A"]["bounds_mm"]
     body_b = value["bodies"]["B"]["bounds_mm"]
     require(
-        profile_low[2] == profile_high[2] == body_a[1][2] and body_b[1][2] < body_a[0][2],
+        profile_low[2] == profile_high[2] == body_a[1][2]
+        and body_b[1][2] < body_a[0][2],
         "cut profile and both source solids are not in the witnessed stack",
     )
     for bounds in (body_a, body_b):
@@ -124,7 +141,9 @@ def read_spec(snapshot, report):
         require(
             len(low) == len(high) == 3
             and low[2] < high[2]
-            and all(low[i] < profile_low[i] < profile_high[i] < high[i] for i in (0, 1)),
+            and all(
+                low[i] < profile_low[i] < profile_high[i] < high[i] for i in (0, 1)
+            ),
             "through-all profile must be strictly inside both source bodies",
         )
     cases = exact_keys(value["cases"], "mode", MODES, "unsupported scope case roster")
@@ -135,7 +154,8 @@ def read_spec(snapshot, report):
     }
     require(
         all(
-            (case["input_body_ids"], case["expected_affected_body_ids"]) == expected[mode]
+            (case["input_body_ids"], case["expected_affected_body_ids"])
+            == expected[mode]
             for mode, case in cases.items()
         ),
         "unsupported authored scope controls",
@@ -151,7 +171,9 @@ def verify_archive(directory, record, application):
         "native archive must be a sibling leaf with the application extension",
     )
     path = directory / name
-    require(not path.is_symlink() and path.is_file(), "native archive is not a regular file")
+    require(
+        not path.is_symlink() and path.is_file(), "native archive is not a regular file"
+    )
     with path.open("rb") as stream:
         size = stream.seek(0, 2)
         stream.seek(0)
@@ -166,7 +188,9 @@ def verify_archive(directory, record, application):
 
 def producer(row, expected):
     require(
-        row["name"] == expected and type(row["native_id"]) is int and row["native_id"] >= 0,
+        row["name"] == expected
+        and type(row["native_id"]) is int
+        and row["native_id"] >= 0,
         "native producer identity differs or is unavailable",
     )
     result = {key: row[key] for key in ("name", "native_id")}
@@ -180,7 +204,9 @@ def producer(row, expected):
 
 
 def check_bodies(measured, spec, affected):
-    require(measured.keys() == set(BODY_IDS), "exactly two named solid bodies are required")
+    require(
+        measured.keys() == set(BODY_IDS), "exactly two named solid bodies are required"
+    )
     values = {}
     for identity, row in measured.items():
         target = spec["bodies"][identity]
@@ -204,7 +230,10 @@ def check_bodies(measured, spec, affected):
 
 def body_ids(ids, label):
     require(
-        isinstance(ids, list) and len(ids) == len(set(ids)) and set(ids) <= set(BODY_IDS), label
+        isinstance(ids, list)
+        and len(ids) == len(set(ids))
+        and set(ids) <= set(BODY_IDS),
+        label,
     )
     return set(ids)
 
@@ -217,7 +246,9 @@ def solidworks_scope(native, policy, target, cut, tolerances):
         "scope flags must retain native Boolean values",
     )
     resolved = (
-        set() if raw_ids is None else body_ids(raw_ids, "unresolved native scope body reference")
+        set()
+        if raw_ids is None
+        else body_ids(raw_ids, "unresolved native scope body reference")
     )
     require(
         type(native["feature_scope_body_count"]) is int
@@ -234,7 +265,9 @@ def solidworks_scope(native, policy, target, cut, tolerances):
         and type(native["reverse_direction"]) is bool
         and native["both_directions"] is False
         and native["support_body_id"] == cut["support_body"]
-        and (native["raw_blind_depth_m"] is None or finite(native["raw_blind_depth_m"])),
+        and (
+            native["raw_blind_depth_m"] is None or finite(native["raw_blind_depth_m"])
+        ),
         "native Cut-Extrude extent, support or depth observation differs",
     )
     keep = (
@@ -269,12 +302,14 @@ def solidworks_scope(native, policy, target, cut, tolerances):
 
 
 def fusion_scope(native, policy, target, source, tolerance):
-    require(policy is None, "Fusion scope intent requires distinct native mode evidence")
+    require(
+        policy is None, "Fusion scope intent requires distinct native mode evidence"
+    )
     require(
         native["operation"] == 1
         and native["extent_type"] == "adsk::fusion::ThroughAllExtentDefinition"
         and native["start_type"] == "adsk::fusion::ProfilePlaneStartDefinition"
-        and native["is_positive_direction"] is False
+        and type(native["is_positive_direction"]) is bool
         and native["has_two_extents"] is False
         and type(native["participant_marker"]) is int
         and native["participant_marker"] >= 0
@@ -284,6 +319,8 @@ def fusion_scope(native, policy, target, source, tolerance):
     support = native["support_cap"]
     require(
         support["status"] == "verified"
+        and type(support["marker"]) is int
+        and 0 <= support["marker"] < native["participant_marker"]
         and (
             support["boss_start_face_matches"],
             support["boss_end_face_matches"],
@@ -291,7 +328,9 @@ def fusion_scope(native, policy, target, source, tolerance):
         )
         == (0, 1, 1)
         and vector_near(support["normal_world"], [0, 0, 1], 1e-9)
-        and near(support["signed_offset_mm"], source["profile_bounds_mm"][0][2], tolerance),
+        and near(
+            support["signed_offset_mm"], source["profile_bounds_mm"][0][2], tolerance
+        ),
         "Fusion Cut does not resolve to the upper end cap of body A",
     )
     return {
@@ -326,9 +365,15 @@ def check_stage(stage, before, spec, case, application):
         for identity in BODY_IDS
         if geometry_diff(values[identity], before[identity], spec["tolerances"])
     ]
-    require(changed == sorted(target), "effective target bodies differ from measured body changes")
     require(
-        all(values[identity]["producer"] == before[identity]["producer"] for identity in BODY_IDS),
+        changed == sorted(target),
+        "effective target bodies differ from measured body changes",
+    )
+    require(
+        all(
+            values[identity]["producer"] == before[identity]["producer"]
+            for identity in BODY_IDS
+        ),
         "cut body does not resolve to the same original native producer",
     )
     policy = cut["observed_policy"]
@@ -336,9 +381,16 @@ def check_stage(stage, before, spec, case, application):
     if application == "solidworks":
         native = solidworks_scope(details, policy, target, source, spec["tolerances"])
     else:
-        require(cut["status"] == "verified", "Fusion Cut archive relationships are unresolved")
+        require(
+            cut["status"] == "verified",
+            "Fusion Cut archive relationships are unresolved",
+        )
         native = fusion_scope(
             details, policy, target, source, spec["tolerances"]["length_mm_absolute"]
+        )
+        require(
+            HasInwardCut(native["support_cap"], before, values, spec["tolerances"]),
+            "Fusion body bounds and material removal do not establish the inward direction",
         )
     return {
         "cut": {
@@ -359,7 +411,10 @@ def check_stage(stage, before, spec, case, application):
         "requested_policy_observed": (
             None
             if policy is None
-            else (policy == ("automatic" if case["input_body_ids"] is None else "explicit"))
+            else (
+                policy
+                == ("automatic" if case["input_body_ids"] is None else "explicit")
+            )
         ),
     }
 
@@ -370,14 +425,18 @@ def compare_bodies(first, second, tolerances):
         for identity in BODY_IDS
         if (fields := geometry_diff(first[identity], second[identity], tolerances))
     }
-    return {"status": "different" if different else "equal", "different_body_fields": different}
+    return {
+        "status": "different" if different else "equal",
+        "different_body_fields": different,
+    }
 
 
 def observe_case(record, spec, case, application, directory):
     archive = verify_archive(directory, record["archive"], application)
     before = check_bodies(record["before_cut"]["bodies"], spec, ())
     stages = {
-        stage: check_stage(record[stage], before, spec, case, application) for stage in STAGES
+        stage: check_stage(record[stage], before, spec, case, application)
+        for stage in STAGES
     }
     if application == "fusion":
         require(
@@ -391,7 +450,9 @@ def observe_case(record, spec, case, application, directory):
     for stage in STAGES[1:]:
         current = stages[stage]
         require(
-            compare_bodies(first["bodies"], current["bodies"], spec["tolerances"])["status"]
+            compare_bodies(first["bodies"], current["bodies"], spec["tolerances"])[
+                "status"
+            ]
             == "equal",
             f"{stage} changes the saved body geometry",
         )
@@ -412,11 +473,15 @@ def observe_case(record, spec, case, application, directory):
             if any(left[key] != right[key] for key in ("feature_scope", "auto_select")):
                 policy_changes.append(stage)
         else:
-            repeated_before = check_bodies(record[stage]["before_cut"]["bodies"], spec, ())
+            repeated_before = check_bodies(
+                record[stage]["before_cut"]["bodies"], spec, ()
+            )
             require(
-                compare_bodies(before, repeated_before, spec["tolerances"])["status"] == "equal"
+                compare_bodies(before, repeated_before, spec["tolerances"])["status"]
+                == "equal"
                 and all(
-                    before[identity]["producer"] == repeated_before[identity]["producer"]
+                    before[identity]["producer"]
+                    == repeated_before[identity]["producer"]
                     for identity in BODY_IDS
                 ),
                 f"{stage} changes the two reopened pre-cut bodies",
@@ -426,7 +491,9 @@ def observe_case(record, spec, case, application, directory):
         "archive": archive,
         "requested_body_ids": case["input_body_ids"],
         "before_cut": {"bodies": before},
-        "native_policy_changes_from_save": policy_changes if application == "solidworks" else None,
+        "native_policy_changes_from_save": (
+            policy_changes if application == "solidworks" else None
+        ),
         **stages,
     }
 
@@ -438,10 +505,14 @@ def control_comparison(cases, tolerances):
         nominal = compare_bodies(automatic["bodies"], both["bodies"], tolerances)
         narrowed = compare_bodies(one["bodies"], both["bodies"], tolerances)
         require(
-            nominal["status"] == "equal" and narrowed["different_body_fields"].keys() == {"B"},
+            nominal["status"] == "equal"
+            and narrowed["different_body_fields"].keys() == {"B"},
             f"{stage} controls do not isolate body B while preserving body A",
         )
-        first, second = automatic["cut"]["observed_policy"], both["cut"]["observed_policy"]
+        first, second = (
+            automatic["cut"]["observed_policy"],
+            both["cut"]["observed_policy"],
+        )
         rows[stage] = {
             "automatic_vs_explicit_ab": nominal,
             "explicit_a_vs_explicit_ab": narrowed,
@@ -460,7 +531,10 @@ def reopen_provenance(report, application):
         first, second = recorded["authoring"], recorded["reopen"]
         start_field = "started_utc"
         require(
-            all(isinstance(row[start_field], str) and row[start_field] for row in (first, second)),
+            all(
+                isinstance(row[start_field], str) and row[start_field]
+                for row in (first, second)
+            ),
             "SOLIDWORKS process start times are unavailable",
         )
         require(
@@ -480,12 +554,19 @@ def reopen_provenance(report, application):
         )
         start_field = "start_unix_seconds"
         require(
-            all(finite(row[start_field]) and row[start_field] > 0 for row in (first, second)),
+            all(
+                finite(row[start_field]) and row[start_field] > 0
+                for row in (first, second)
+            ),
             "Fusion process start times are unavailable",
         )
-        provenance = {key: report[key] for key in ("previous_phase_report_sha256", "plan_sha256")}
+        provenance = {
+            key: report[key] for key in ("previous_phase_report_sha256", "plan_sha256")
+        }
         require(
-            all(re.fullmatch(r"[0-9a-f]{64}", digest) for digest in provenance.values()),
+            all(
+                re.fullmatch(r"[0-9a-f]{64}", digest) for digest in provenance.values()
+            ),
             "Fusion report lacks exact previous-phase and plan pins",
         )
     require(
@@ -504,7 +585,9 @@ def solidworks_sources(snapshot, report):
         "collector": f"{SCOPE_FOLDER}/SolidWorksScopeControl.cs",
         "specification": SPEC_PATH,
     }
-    require(reported.keys() == paths.keys(), "SOLIDWORKS producer source roster differs")
+    require(
+        reported.keys() == paths.keys(), "SOLIDWORKS producer source roster differs"
+    )
     for role, path in paths.items():
         data = snapshot.blob(revision, path)
         require(
@@ -554,18 +637,23 @@ def fusion_sources(snapshot, report, directory, digest):
     for role, path in paths.items():
         data = snapshot.blob(revision, path)
         require(
-            reported[role] == {"path": path, "sha256": sha256(data), "size_bytes": len(data)},
+            reported[role]
+            == {"path": path, "sha256": sha256(data), "size_bytes": len(data)},
             f"Fusion {role} does not match its Git source",
         )
     return {"source_pins": reported, "receipt_sha256": sha256(raw)}
 
 
 def read_report(path, expected_digest, application, snapshot):
-    require(re.fullmatch(r"[0-9a-f]{64}", expected_digest), "expected a trusted report SHA-256")
+    require(
+        re.fullmatch(r"[0-9a-f]{64}", expected_digest),
+        "expected a trusted report SHA-256",
+    )
     with path.open("rb") as stream:
         raw = stream.read(4 * 1024 * 1024 + 1)
     require(
-        len(raw) <= 4 * 1024 * 1024 and sha256(raw) == expected_digest, "native report pin mismatch"
+        len(raw) <= 4 * 1024 * 1024 and sha256(raw) == expected_digest,
+        "native report pin mismatch",
     )
     report = snapshot.parse_document(raw, "native scope report")
     require(
@@ -578,15 +666,24 @@ def read_report(path, expected_digest, application, snapshot):
     spec, expected = read_spec(snapshot, report)
     provenance = reopen_provenance(report, application)
     if application == "solidworks":
-        require(report["application_build"] == "34.4.1.1011", "unsupported SOLIDWORKS scope build")
+        require(
+            report["application_build"] == "34.4.1.1011",
+            "unsupported SOLIDWORKS scope build",
+        )
         provenance.update(solidworks_sources(snapshot, report))
     else:
-        provenance.update(fusion_sources(snapshot, report, path.parent, expected_digest))
-    records = exact_keys(report["cases"], "mode", MODES, "native scope case roster differs")
+        provenance.update(
+            fusion_sources(snapshot, report, path.parent, expected_digest)
+        )
+    records = exact_keys(
+        report["cases"], "mode", MODES, "native scope case roster differs"
+    )
     cases = {}
     for mode, record in records.items():
         try:
-            cases[mode] = observe_case(record, spec, expected[mode], application, path.parent)
+            cases[mode] = observe_case(
+                record, spec, expected[mode], application, path.parent
+            )
         except (LookupError, TypeError, ValueError) as error:
             raise ValueError(f"{application} {mode}: {error}") from error
     require(
@@ -616,7 +713,12 @@ def compare(inputs):
         for application, (path, digest) in inputs.items()
     }
     reports = {application: evidence for application, (evidence, _) in values.items()}
-    result = {"schema": 1, "scope": SCOPE, "qualification": False, "native_reports": reports}
+    result = {
+        "schema": 1,
+        "scope": SCOPE,
+        "qualification": False,
+        "native_reports": reports,
+    }
     if reports.keys() == APPLICATIONS.keys():
         solidworks, fusion = (reports[application] for application in APPLICATIONS)
         require(
@@ -648,7 +750,9 @@ def main():
     for application in APPLICATIONS:
         path, digest = args[application], args[f"{application}_sha256"]
         if bool(path) != bool(digest):
-            parser.error(f"--{application} and --{application}-sha256 must be supplied together")
+            parser.error(
+                f"--{application} and --{application}-sha256 must be supplied together"
+            )
         if path:
             inputs[application] = (path, digest)
     if not inputs:

@@ -88,10 +88,11 @@ def scope_case(mode, archive):
                 "start_type": "adsk::fusion::ProfilePlaneStartDefinition",
                 "is_positive_direction": False,
                 "has_two_extents": False,
-                "participant_marker": 4,
+                "participant_marker": 5,
                 "participant_count": len(targets),
                 "support_cap": {
                     "status": "verified",
+                    "marker": 4,
                     "boss_start_face_matches": 0,
                     "boss_end_face_matches": 1,
                     "boss_body_matches": 1,
@@ -171,6 +172,24 @@ def phase_packet(queue, plan, phase, previous, variant):
         "previous_process": None if previous is None else previous[0]["process"],
         "previous_phase_report_sha256": None if previous is None else previous[1],
     }
+    if phase == "b":
+        native = cases[0]["before_save"]["cut"]["native"]
+        if variant == "raw-positive":
+            for row in cases:
+                for stage in ("before_save", "after_reopen", "after_rebuild"):
+                    row[stage]["cut"]["native"]["is_positive_direction"] = True
+        elif variant == "flag-integer":
+            native["is_positive_direction"] = 1
+        elif variant == "support-late":
+            native["support_cap"]["marker"] = native["participant_marker"]
+        elif variant == "support-boolean":
+            native["support_cap"]["marker"] = True
+        elif variant == "support-normal":
+            native["support_cap"]["normal_world"] = [0, 0, -1]
+        elif variant == "support-offset":
+            native["support_cap"]["signed_offset_mm"] = 0
+        elif variant == "no-removal":
+            cases[0]["before_save"]["bodies"]["A"] = body("A", False)
     if phase == "a" and variant.startswith("start-"):
         field = variant.removeprefix("start-")
         if field == "missing":

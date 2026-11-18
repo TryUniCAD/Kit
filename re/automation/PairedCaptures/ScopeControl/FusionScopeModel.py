@@ -343,7 +343,7 @@ def verify_roster(bodies, current):
     )
 
 
-def cut_before(helper, fresh, design, spec, actors_value, pre_tokens, before_cut):
+def cut_before(helper, design, spec, actors_value, support, pre_tokens, before_cut):
     bosses, sketch, cut = actors_value
     bodies = {}
     for role, boss in bosses.items():
@@ -361,7 +361,8 @@ def cut_before(helper, fresh, design, spec, actors_value, pre_tokens, before_cut
     require(
         extent is not None and not cut.hasTwoExtents, "Cut is not one-sided through-all"
     )
-    require(not extent.isPositiveDirection, "Saved Cut points the wrong way")
+    raw_direction = extent.isPositiveDirection
+    require(type(raw_direction) is bool, "Fusion did not report the raw extent flag")
     start = cut.startExtent
     require(
         start is not None
@@ -375,8 +376,6 @@ def cut_before(helper, fresh, design, spec, actors_value, pre_tokens, before_cut
     )
     expected_profile = select_profile(helper, sketch, spec["cut"], spec["tolerances"])
     require(profile == expected_profile, "Saved Cut does not use the witnessed loop")
-    support = fresh["cut_support"](helper, design, sketch, bosses["A"])
-    require(support["status"] == "verified", "Cut support did not reach A's end cap")
     normal = xyz(sketch.xDirection.crossProduct(sketch.yDirection))
     require(
         near(normal, support["normal_world"], 1e-9)
@@ -404,7 +403,6 @@ def cut_before(helper, fresh, design, spec, actors_value, pre_tokens, before_cut
     return {
         "status": "verified",
         "end_condition": "through_all",
-        "direction_world": [-value for value in normal],
         "depth_mm": None,
         "target_body_ids": sorted(participants),
         "observed_policy": None,
@@ -412,7 +410,7 @@ def cut_before(helper, fresh, design, spec, actors_value, pre_tokens, before_cut
             "operation": int(cut.operation),
             "extent_type": extent.objectType,
             "start_type": start.objectType,
-            "is_positive_direction": bool(extent.isPositiveDirection),
+            "is_positive_direction": raw_direction,
             "has_two_extents": bool(cut.hasTwoExtents),
             "participant_marker": design.timeline.markerPosition,
             "participant_count": len(participants),
@@ -465,11 +463,24 @@ def compare_body(first, second, tolerance, label):
     )
 
 
+# measured material loss settles the direction when the outer half space is empty
+def HasInwardCut(support, before, after, tolerances):
+    height = support["signed_offset_mm"]
+    return all(
+        body["bounds_mm"][1][2] <= height + tolerances["length_mm_absolute"]
+        for body in before.values()
+    ) and any(
+        initial["volume_mm3"] - after[role]["volume_mm3"]
+        > volume_limit(initial["volume_mm3"], after[role]["volume_mm3"], tolerances)
+        for role, initial in before.items()
+    )
+
+
 # the first sample precedes any rollback so it measures the actual reopened result
 def observe(helper, fresh, document, spec, case, stage, before_cut):
     design = helper["design_of"](document)
     assembly = actors(helper, design, spec)
-    bosses, _, cut = assembly
+    bosses, sketch, cut = assembly
     root = design.rootComponent
     samples = [
         (body.entityToken, body_row(helper, body))
@@ -477,13 +488,24 @@ def observe(helper, fresh, document, spec, case, stage, before_cut):
     ]
     stage["unattributed_bodies_before_rollback"] = [row for _, row in samples]
     require(len(samples) == 2, "Expected two solids before any rollback")
+    support = fresh["measure_at_marker"](
+        design.timeline,
+        sketch.timelineObject,
+        True,
+        lambda: fresh["cut_support"](helper, design, sketch, bosses["A"]),
+    )
+    require(
+        support["status"] == "verified"
+        and support["marker"] < cut.timelineObject.index,
+        f"Cut support did not reach A's end cap before the sketch: {support}",
+    )
     pre_tokens = {}
     cut_probe = fresh["measure_at_marker"](
         design.timeline,
         cut.timelineObject,
         True,
         lambda: cut_before(
-            helper, fresh, design, spec, assembly, pre_tokens, before_cut
+            helper, design, spec, assembly, support, pre_tokens, before_cut
         ),
     )
     stage["cut"] = cut_probe
@@ -530,4 +552,9 @@ def observe(helper, fresh, document, spec, case, stage, before_cut):
             role + " after Cut",
         )
     stage["bodies"] = rows
+    require(
+        HasInwardCut(support, before_cut, rows, spec["tolerances"]),
+        "Measured through-all removal does not establish the inward direction",
+    )
+    cut_probe["direction_world"] = [-value for value in support["normal_world"]]
     stage.pop("unattributed_bodies_before_rollback")

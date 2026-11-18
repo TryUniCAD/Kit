@@ -17,7 +17,7 @@ from tests.Research.Inference.Scope.WriteFixture import WriteFixture
 
 
 # coherent protocol observations stay parked until independent saved policy evidence exists
-@MarkValue.parametrize("Variant", ("positive", "windows-positive"))
+@MarkValue.parametrize("Variant", ("positive", "windows-positive", "raw-positive"))
 def CheckParkedGrid(TmpPath: FilePath, Variant: str) -> None:
     Originals = WriteFixture(TmpPath, Variant)
     Result = AssertReceipt(TmpPath, InvokeWorker(TmpPath))
@@ -37,6 +37,12 @@ def CheckParkedGrid(TmpPath: FilePath, Variant: str) -> None:
 @MarkValue.parametrize(
     "Variant,Diagnostic",
     (
+        ("flag-integer", "native extent or resolved participant count differs"),
+        ("support-late", "upper end cap of body A"),
+        ("support-boolean", "upper end cap of body A"),
+        ("support-normal", "upper end cap of body A"),
+        ("support-offset", "upper end cap of body A"),
+        ("no-removal", "body A differs from bounded box witness"),
         ("birth-substitution", "process birth differs"),
         ("windows-birth", "process birth differs"),
         ("start-missing", "phase start differs"),
