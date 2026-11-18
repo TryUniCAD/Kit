@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineParamIds 
 from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineRules import (
     LineRules,
 )
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.Origin.OriginEntity import (
+    OriginEntity,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineEntity import LineEntity
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
@@ -23,11 +26,19 @@ def LineSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
         LineEntity(SketchValue.object_id, LoopValue, LineValue)
         for LineValue in LoopValue.LinesValue
     )
+    OriginValue = (
+        None if LoopValue.DimsValue is None else LoopValue.DimsValue.OriginValue
+    )
     return Sketch(
         id=f"sldprt:sketch:{SketchValue.object_id}",
         name=SketchValue.name,
         support_plane_id=f"sldprt:plane:{SketchValue.support_plane_id}",
-        entities=Entities,
+        entities=Entities
+        + (
+            ()
+            if OriginValue is None
+            else (OriginEntity(SketchValue.object_id, OriginValue),)
+        ),
         constraints=LineRules(
             SketchValue.object_id, LoopValue, tuple(Entity.id for Entity in Entities)
         ),
@@ -51,6 +62,21 @@ def LineSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
                     else {}
                 ),
                 "typed_archive_owner": LoopValue.OwnerValue,
+                **(
+                    {"native_retired_line_rows": LoopValue.RetiredRows}
+                    if LoopValue.RetiredRows
+                    else {}
+                ),
+                **(
+                    {"native_line_regions": LoopValue.RegionValues}
+                    if LoopValue.RegionValues
+                    else {}
+                ),
+                **(
+                    {"typed_origin_coincidence": True}
+                    if OriginValue is not None
+                    else {}
+                ),
                 "native_point_rows": tuple(
                     {
                         "array_index": Point.IndexValue,

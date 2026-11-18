@@ -6,7 +6,11 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import (
 
 
 # mixed curves and unqualified managers remain excluded while a separately validated dimension graph supplies its own admission
-def CheckLineScope(FieldsValue: Mapping[str, object], HasDrivers: bool = False) -> None:
+def CheckLineScope(
+    FieldsValue: Mapping[str, object],
+    HasDrivers: bool = False,
+    HasRegions: bool = False,
+) -> None:
     OtherArrays = (
         "texts",
         "hatches",
@@ -39,10 +43,11 @@ def CheckLineScope(FieldsValue: Mapping[str, object], HasDrivers: bool = False) 
         for NameValue in (
             "f590",
             "coinc",
-            "f5d8",
             "f580",
             "f598",
             "f588",
         )
     ):
         raise ValueError("typed line ring contains unqualified relation state")
+    if not HasRegions and not IsLineState(FieldsValue["f5d8"]):
+        raise ValueError("typed line ring contains unqualified region state")

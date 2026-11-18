@@ -16,3 +16,5 @@ class LineLoop:
     OrderValue: tuple[int, ...]
     OwnerValue: Mapping[str, object]
     DimsValue: LineDims | None = None
+    RetiredRows: tuple[Mapping[str, object], ...] = ()
+    RegionValues: tuple[Mapping[str, object], ...] = ()

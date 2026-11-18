@@ -2,6 +2,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineDims import (
     LineDims,
 )
+from collections.abc import Mapping
 from convert.adapters.solidworks.Core.TypedResolved.Lines.CheckLineScope import (
     CheckLineScope,
 )
@@ -10,8 +11,11 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.LineOrder import LineO
 from convert.adapters.solidworks.Core.TypedResolved.Lines.ReadLinePoint import (
     ReadLinePoint,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Lines.ReadLineSegment import (
-    ReadLineSegment,
+from convert.adapters.solidworks.Core.TypedResolved.Lines.ReadLiveLines import (
+    ReadLiveLines,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Lines.ReadLineRegions import (
+    ReadLineRegions,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
@@ -23,21 +27,29 @@ def ReadLineLoop(
     SketchValue: ArchiveNode, LinkValue: NativeLink, DimsValue: LineDims | None = None
 ) -> LineLoop:
     FieldsValue = SketchValue.FieldsValue
-    CheckLineScope(FieldsValue, DimsValue is not None)
     References: Mapping[tuple[str, int], int] = (
         DimsValue.ReferencesValue if DimsValue is not None else {}
     )
+    PointRows = NativeRows(FieldsValue.get("points"))
+    OriginValue = None if DimsValue is None else DimsValue.OriginValue
+    ExtraCount = int(OriginValue is not None)
+    if OriginValue is not None:
+        if len(PointRows) != 5 or OriginValue.ExternalIndex != 4:
+            raise ValueError(
+                "typed origin point must remain outside the four vertex contour"
+            )
+        PointRows = PointRows[:4]
     PointsValue = tuple(
         ReadLinePoint(RowValue, Index, References.get(("point", Index), 0))
-        for Index, RowValue in enumerate(NativeRows(FieldsValue.get("points")))
+        for Index, RowValue in enumerate(PointRows)
     )
-    LinesValue = tuple(
-        ReadLineSegment(RowValue, Index, References.get(("line", Index), 0))
-        for Index, RowValue in enumerate(NativeRows(FieldsValue.get("lines")))
-    )
-    if FieldsValue.get("npoints") != len(PointsValue) or FieldsValue.get(
+    LineRows = NativeRows(FieldsValue.get("lines"))
+    LinesValue, RetiredRows = ReadLiveLines(LineRows, References)
+    Regions = ReadLineRegions(SketchValue, LinesValue, LinkValue)
+    CheckLineScope(FieldsValue, DimsValue is not None, bool(Regions))
+    if FieldsValue.get("npoints") != len(PointsValue) + ExtraCount or FieldsValue.get(
         "nlines"
-    ) != len(LinesValue):
+    ) != len(LineRows):
         raise ValueError("typed line ring counts disagree with owned rows")
     return LineLoop(
         PointsValue,
@@ -45,7 +57,6 @@ def ReadLineLoop(
         LineOrder(PointsValue, LinesValue),
         NativeNodeSpan(LinkValue, SketchValue),
         DimsValue,
+        RetiredRows,
+        Regions,
     )
-
-
-from collections.abc import Mapping

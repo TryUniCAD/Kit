@@ -30,7 +30,7 @@ def LineValueRule(
         kind="distance",
         references=tuple(
             ConstraintRef(
-                EntityIds[LineValue.IndexValue],
+                EntityIds[LoopValue.LinesValue.index(LineValue)],
                 "start" if Index == LineValue.StartValue else "end",
             )
             for Index in DriverValue.PointValues

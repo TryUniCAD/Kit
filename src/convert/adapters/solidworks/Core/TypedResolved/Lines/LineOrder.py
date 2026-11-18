@@ -15,18 +15,25 @@ def LineOrder(
     Incident = LineIncidence(PointsValue, LinesValue)
     CheckHandles(PointsValue, Incident)
     OrderValue = [0]
-    SeenValues = {0}
+    Indices = {
+        LineValue.IndexValue: Index for Index, LineValue in enumerate(LinesValue)
+    }
+    if len(Indices) != len(LinesValue):
+        raise ValueError("typed line ring has duplicate actual line slots")
+    CurrentIndex = LinesValue[0].IndexValue
+    SeenValues = {CurrentIndex}
     StartValue, CurrentValue = LinesValue[0].StartValue, LinesValue[0].EndValue
     while CurrentValue != StartValue:
-        NextValues = Incident[CurrentValue].difference(OrderValue[-1:])
+        NextValues = Incident[CurrentValue].difference((CurrentIndex,))
         if len(NextValues) != 1:
             raise ValueError("typed line ring traversal is ambiguous")
         NextValue = next(iter(NextValues))
         if NextValue in SeenValues:
             raise ValueError("typed line ring traversal repeats an edge")
-        OrderValue.append(NextValue)
+        OrderValue.append(Indices[NextValue])
         SeenValues.add(NextValue)
-        LineValue = LinesValue[NextValue]
+        CurrentIndex = NextValue
+        LineValue = LinesValue[Indices[NextValue]]
         CurrentValue = (
             LineValue.EndValue
             if LineValue.StartValue == CurrentValue

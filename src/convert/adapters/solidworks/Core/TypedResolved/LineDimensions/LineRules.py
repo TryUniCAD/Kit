@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineAxisRule 
 from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineValueRule import (
     LineValueRule,
 )
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.Origin.OriginRule import (
+    OriginRule,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
 
 
@@ -18,11 +21,21 @@ def LineRules(
         return ()
     return (
         *(
-            LineAxisRule(ProfileId, AxisValue, EntityIds)
+            LineAxisRule(
+                ProfileId,
+                AxisValue,
+                EntityIds,
+                tuple(LineValue.IndexValue for LineValue in LoopValue.LinesValue),
+            )
             for AxisValue in DimsValue.AxisValues
         ),
         *(
             LineValueRule(ProfileId, Driver, LoopValue, EntityIds)
             for Driver in DimsValue.DriverValues
+        ),
+        *(
+            (OriginRule(ProfileId, DimsValue.OriginValue, LoopValue, EntityIds),)
+            if DimsValue.OriginValue is not None
+            else ()
         ),
     )

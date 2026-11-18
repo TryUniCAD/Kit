@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.CheckDimGroup
 from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineDims import (
     LineDims,
 )
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.Origin.ReadOriginDim import (
+    ReadOriginDim,
+)
 from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.ReadAxisDim import (
     ReadAxisDim,
 )
@@ -25,7 +28,8 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 # complete dimension managers derive entity reference counts from their actual local handle occurrences
 def ReadLineDims(SketchValue: ArchiveNode, LinkValue: NativeLink) -> LineDims:
     FieldsValue = NativeRecord(SketchValue.FieldsValue.get("dims"))
-    CheckDimGroups(FieldsValue)
+    OriginValue = ReadOriginDim(SketchValue, LinkValue)
+    CheckDimGroups(FieldsValue, OriginValue is not None)
     Values = ReadDimRows(FieldsValue, "ng2", "val_g2")
     AxesValue = ReadDimRows(FieldsValue, "nlog1", "log_g1")
     DisplayList = RequireNative(FieldsValue.get("f118"), "suObList")
@@ -56,4 +60,9 @@ def ReadLineDims(SketchValue: ArchiveNode, LinkValue: NativeLink) -> LineDims:
         ("point", Point) for Driver in DriverValues for Point in Driver.PointValues
     )
     References.update(("line", AxisValue.LineValue) for AxisValue in AxisValues)
-    return LineDims(DriverValues, AxisValues, dict(References))
+    if OriginValue is not None:
+        References.update(
+            ("point", Index)
+            for Index in (OriginValue.ExternalIndex, OriginValue.LocalIndex)
+        )
+    return LineDims(DriverValues, AxisValues, dict(References), OriginValue)

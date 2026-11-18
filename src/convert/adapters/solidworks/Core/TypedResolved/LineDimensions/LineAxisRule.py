@@ -11,13 +11,16 @@ from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
 
 # unary axis rules refer to their actual indexed line rather than an inferred rectangle side
 def LineAxisRule(
-    ProfileId: int, AxisValue: LineAxis, EntityIds: tuple[str, ...]
+    ProfileId: int,
+    AxisValue: LineAxis,
+    EntityIds: tuple[str, ...],
+    LineIndices: tuple[int, ...],
 ) -> SketchRelation:
     NativeId = f"{ProfileId}:log_g1:{AxisValue.IndexValue}"
     return SketchRelation(
         id=f"sldprt:constraint:{NativeId}",
         kind="horizontal" if AxisValue.CodeValue == 4 else "vertical",
-        references=(ConstraintRef(EntityIds[AxisValue.LineValue]),),
+        references=(ConstraintRef(EntityIds[LineIndices.index(AxisValue.LineValue)]),),
         provenance=TypedProvenance(AxisValue.OwnerValue, NativeId),
         attributes=FreezeMapping(
             {

@@ -6,12 +6,11 @@ from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.ReadDimRows i
 
 
 # other native dimension families cannot silently disappear when this bounded rectangle profile is selected
-def CheckDimGroups(FieldsValue: Mapping[str, object]) -> None:
+def CheckDimGroups(FieldsValue: Mapping[str, object], HasOrigin: bool = False) -> None:
     for CountName, ArrayName in (
         ("ng1", "val_g1"),
         ("ng3", "val_g3"),
         ("noffset", "offset_dims"),
-        ("nlog2", "log_g2"),
         ("nlog3", "log_g3"),
         ("niso", "iso"),
         ("nlinpatt", "linear_patterns"),
@@ -24,3 +23,5 @@ def CheckDimGroups(FieldsValue: Mapping[str, object]) -> None:
     ):
         if ReadDimRows(FieldsValue, CountName, ArrayName):
             raise ValueError("typed rectangle contains another native dimension group")
+    if not HasOrigin and ReadDimRows(FieldsValue, "nlog2", "log_g2"):
+        raise ValueError("typed rectangle contains an unqualified binary relation")
