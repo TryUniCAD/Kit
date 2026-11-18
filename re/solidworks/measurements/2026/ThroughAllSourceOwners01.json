@@ -1,0 +1,829 @@
+{
+  "status": "passed_source_owners_only",
+  "task_id": "B04-SW2026-EXTRUDE-THROUGHALL/source-owners",
+  "owner": "/root/assembly_occurrence",
+  "delivery_pr": 121,
+  "baseline_revision": "e4fba3ddcccb4aff99c44f85727820b92b4e268a",
+  "source_manifest_sha256": "baa70e79e7be45035fb015ec3bb30e16561e00b3fa84e874fe95e3cad278d43b",
+  "raw_process_result_sha256": "aca6b7fd1801d0feddb1d14719b965e4f85c8d112b6b7ad1702c0748d8f82773",
+  "static_result_sha256": "819e754692b94ec1173308b1c14eac6a4402b0658aa67f9e8c362ccc6c861c34",
+  "cohort_sha256": "fa1295bc40ccc75221aa226ba66f58c95d12de140501a1e120e75d7d9decff5a",
+  "source_closure": {
+    "baseline_files": 4552,
+    "candidate_files": 4589,
+    "new_sdk_files": 37,
+    "new_research_tools": 10,
+    "existing_sdk_files_unchanged": true
+  },
+  "process_scope": {
+    "fresh_process_count": 68,
+    "full_source_reads": 3,
+    "guarded_owner_builds": 6,
+    "independent_fragment_reads": 3,
+    "negative_source_projections": 31,
+    "negative_input_builds": 17,
+    "negative_fragment_reads": 4,
+    "old_caller_comparisons": 4,
+    "fragment_round_trips": 18,
+    "native_component_documents_emitted": 0,
+    "legacy_in_memory_compatibility_containers": 4
+  },
+  "source_cases": [
+    {
+      "id": "D01",
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "input_sha256": "f3fddf5c34d63d97275836b26714b3d23a8fdc5f562dae917c70e752f165f3af",
+      "complete_document_sha256": "dfd07599ee9045af62cfe8d5b57613d8c961c928e04c3fb1a18f701a9a8485a9",
+      "original_metadata_sha256": "cb90ebe2888b60d91116547690ffc9d7290cffe38d404c8041693957f1868ad2",
+      "history_count": 28,
+      "binding_count": 27,
+      "source_prediction_sha256": "ac4951032160df4c9e5446aae871f41f08c605250364b681176ff505f285b148",
+      "source_wire_observation": {
+        "archive_version": 19000,
+        "is_generation_input": false,
+        "observation_only": true,
+        "rows": [
+          {
+            "class": "moProfileFeature_c",
+            "name": "StockProfile",
+            "native_id": 26,
+            "native_parent_ids": [],
+            "native_parent_names": [],
+            "support_datum_native_id": 2,
+            "support_reference_class": "moCompRefPlane_c"
+          },
+          {
+            "class": "moExtrusion_c",
+            "name": "StockBoss",
+            "native_id": 32,
+            "native_parent_ids": [
+              26
+            ],
+            "native_parent_names": [
+              "StockProfile"
+            ],
+            "operation_code": -1
+          },
+          {
+            "class": "moProfileFeature_c",
+            "name": "ThroughProfile",
+            "native_id": 33,
+            "native_parent_ids": [],
+            "native_parent_names": [],
+            "support_datum_native_id": 2,
+            "support_reference_class": "moCompRefPlane_c"
+          },
+          {
+            "class": "moICE_c",
+            "name": "ThroughFeature",
+            "native_id": 40,
+            "native_parent_ids": [
+              33
+            ],
+            "native_parent_names": [
+              "ThroughProfile"
+            ],
+            "operation_code": 1
+          }
+        ]
+      },
+      "fragments": {
+        "config": {
+          "bytes": 22370,
+          "sha256": "7606cb2e5d0c7cb3d9a51b090f3dce8737af0fc530c7bea9e0a04401975cfe55"
+        },
+        "header2": {
+          "bytes": 651,
+          "sha256": "2083cad014ee1156d5c2619224fc77179f2ab033312f2cae946c97ace086ea4a"
+        },
+        "manager": {
+          "bytes": 1129,
+          "sha256": "36771d60ca9d807fd4d1797c526ea32c3fdabd3b95a0adf14c89ea7e7249ec65"
+        },
+        "manager_header": {
+          "bytes": 137,
+          "sha256": "5a5ca84258d1ea500ce1272380d5d0834d66b46ef0fe1985ce98bf9d1d764dc2"
+        },
+        "model_header": {
+          "bytes": 651,
+          "sha256": "017214a7bd2b07bde837d5e2a02cc7bcddb0984058dfcf8d3ed94da7aa21cc30"
+        },
+        "resolved": {
+          "bytes": 15769,
+          "sha256": "81e37a19e2e32c68e484f84ad21a15ff314a391b05ae74d14edd269db5706899"
+        }
+      },
+      "unrepresented_fields": [
+        "source:header_author_biography_and_history_not_projected",
+        "metadata/solidworks.typed_configuration_graph:source_style_units_and_scene_not_constructed",
+        "metadata/solidworks.typed_configuration_manager:source_configuration_settings_not_constructed",
+        "metadata/solidworks.typed_resolved_semantics/native_tree:owned_system_state_not_constructed",
+        "metadata/solidworks.typed_resolved_semantics/native_tree:full_native_presentation_unqualified",
+        "metadata:source_wrapper_payload_and_unclassified_metadata_observation_only",
+        "feature_timeline:source_attributes_and_provenance_not_constructed",
+        "selections:continuous_automatic_scope_not_encoded_or_qualified",
+        "sketches/sldprt:sketch:26/attributes:native_sketch_state_not_constructed",
+        "sketches/sldprt:sketch:33/attributes:native_sketch_state_not_constructed",
+        "bodies/sldprt:body:1/name:caption_authority_unqualified"
+      ],
+      "record_sha256": {
+        "Source": "e86934d81b2409b5730d4c6720f341cdbf29957d25c2506d2bda56541cd050d3",
+        "BuildA": "8d94b112de35660473c171f32f8d41a64b3ff8709e9451cff349d3c84b068c88",
+        "BuildB": "8d94b112de35660473c171f32f8d41a64b3ff8709e9451cff349d3c84b068c88",
+        "Readback": "fa08c6fc5fbac0515bef55b627248ca3af9734a587c2450cf31dfc41116ef47a"
+      }
+    },
+    {
+      "id": "D02",
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "input_sha256": "58e62d3bca3b206d89bdf48c654c7468e5e9a1daa53f0863e9e1c979b869fc6d",
+      "complete_document_sha256": "4382362446f437bc0711bc06391144c269f306a4a1393158e4b7814c7c409000",
+      "original_metadata_sha256": "48d9ac7dfbf3157f571713ade5329510dbb9841fd33af38b87de311dd35024a0",
+      "history_count": 28,
+      "binding_count": 27,
+      "source_prediction_sha256": "7995c6b3687dfb9671f150da2ce5ccd87bd578f1025a06b08ba94d80b3595dff",
+      "source_wire_observation": {
+        "archive_version": 19000,
+        "is_generation_input": false,
+        "observation_only": true,
+        "rows": [
+          {
+            "class": "moProfileFeature_c",
+            "name": "StockProfile",
+            "native_id": 26,
+            "native_parent_ids": [],
+            "native_parent_names": [],
+            "support_datum_native_id": 3,
+            "support_reference_class": "moCompRefPlane_c"
+          },
+          {
+            "class": "moExtrusion_c",
+            "name": "StockBoss",
+            "native_id": 32,
+            "native_parent_ids": [
+              26
+            ],
+            "native_parent_names": [
+              "StockProfile"
+            ],
+            "operation_code": -1
+          },
+          {
+            "class": "moProfileFeature_c",
+            "name": "ThroughProfile",
+            "native_id": 33,
+            "native_parent_ids": [],
+            "native_parent_names": [],
+            "support_datum_native_id": 3,
+            "support_reference_class": "moCompRefPlane_c"
+          },
+          {
+            "class": "moICE_c",
+            "name": "ThroughFeature",
+            "native_id": 40,
+            "native_parent_ids": [
+              33
+            ],
+            "native_parent_names": [
+              "ThroughProfile"
+            ],
+            "operation_code": 1
+          }
+        ]
+      },
+      "fragments": {
+        "config": {
+          "bytes": 22370,
+          "sha256": "e4ef9f30f7d3aabdfe9746a78fac894d4480caceb93b86f42f9b70f3c4045d7c"
+        },
+        "header2": {
+          "bytes": 651,
+          "sha256": "c34d8d69293b282dcb40055c41448d280642f39670699ea6f2c87cd66c7c59c7"
+        },
+        "manager": {
+          "bytes": 1129,
+          "sha256": "36771d60ca9d807fd4d1797c526ea32c3fdabd3b95a0adf14c89ea7e7249ec65"
+        },
+        "manager_header": {
+          "bytes": 137,
+          "sha256": "5a5ca84258d1ea500ce1272380d5d0834d66b46ef0fe1985ce98bf9d1d764dc2"
+        },
+        "model_header": {
+          "bytes": 651,
+          "sha256": "025c2a248661e4ed2d01189a61628a1c02a3ac52c1b347752f67d710585393ed"
+        },
+        "resolved": {
+          "bytes": 15913,
+          "sha256": "7a5ed2ca8f4e52f0a083129e4adcf8e67a07e3d19ac03aa75fcbd5e65c70192e"
+        }
+      },
+      "unrepresented_fields": [
+        "source:header_author_biography_and_history_not_projected",
+        "metadata/solidworks.typed_configuration_graph:source_style_units_and_scene_not_constructed",
+        "metadata/solidworks.typed_configuration_manager:source_configuration_settings_not_constructed",
+        "metadata/solidworks.typed_resolved_semantics/native_tree:owned_system_state_not_constructed",
+        "metadata/solidworks.typed_resolved_semantics/native_tree:full_native_presentation_unqualified",
+        "metadata:source_wrapper_payload_and_unclassified_metadata_observation_only",
+        "feature_timeline:source_attributes_and_provenance_not_constructed",
+        "selections:continuous_automatic_scope_not_encoded_or_qualified",
+        "sketches/sldprt:sketch:26/attributes:native_sketch_state_not_constructed",
+        "sketches/sldprt:sketch:33/attributes:native_sketch_state_not_constructed",
+        "bodies/sldprt:body:1/name:caption_authority_unqualified"
+      ],
+      "record_sha256": {
+        "Source": "3117eaa98a755010b14d2e123269f2e4e6a94f838f584cc75b9dcaaac92d5f95",
+        "BuildA": "da8e2931eb567b681b610037493390e719df6eb823572dbf720616bb83677e53",
+        "BuildB": "da8e2931eb567b681b610037493390e719df6eb823572dbf720616bb83677e53",
+        "Readback": "c607469d15b8626413ac3de8158e5484da2956e0ce2a05e5604cdb3621bcb634"
+      }
+    },
+    {
+      "id": "D03",
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+      "input_sha256": "fa322f2d85c7370122dc9c5fee3a7471a208aa8a1f25bd1f89cbc314ff210cce",
+      "complete_document_sha256": "f89048699f0dc78b17c8554d9a0576e9dac535712257ae6dc6ef81fcaa41ad87",
+      "original_metadata_sha256": "c4a76b2ceaca652f2b96ce8c38d03f7188489cfdf6364014feec5c41e6197188",
+      "history_count": 28,
+      "binding_count": 27,
+      "source_prediction_sha256": "41e5dd35e52c41bbb6a8e7711e75ec9661d6ef725c2c34c61dac537a811a4489",
+      "source_wire_observation": {
+        "archive_version": 19000,
+        "is_generation_input": false,
+        "observation_only": true,
+        "rows": [
+          {
+            "class": "moProfileFeature_c",
+            "name": "StockProfile",
+            "native_id": 26,
+            "native_parent_ids": [],
+            "native_parent_names": [],
+            "support_datum_native_id": 4,
+            "support_reference_class": "moCompRefPlane_c"
+          },
+          {
+            "class": "moExtrusion_c",
+            "name": "StockBoss",
+            "native_id": 32,
+            "native_parent_ids": [
+              26
+            ],
+            "native_parent_names": [
+              "StockProfile"
+            ],
+            "operation_code": -1
+          },
+          {
+            "class": "moProfileFeature_c",
+            "name": "ThroughProfile",
+            "native_id": 33,
+            "native_parent_ids": [],
+            "native_parent_names": [],
+            "support_datum_native_id": 4,
+            "support_reference_class": "moCompRefPlane_c"
+          },
+          {
+            "class": "moICE_c",
+            "name": "ThroughFeature",
+            "native_id": 40,
+            "native_parent_ids": [
+              33
+            ],
+            "native_parent_names": [
+              "ThroughProfile"
+            ],
+            "operation_code": 1
+          }
+        ]
+      },
+      "fragments": {
+        "config": {
+          "bytes": 22370,
+          "sha256": "fe22b33409bcc70b4d764ba938d9edc6ac4712a9e252f5d6bbc353817ffed184"
+        },
+        "header2": {
+          "bytes": 651,
+          "sha256": "192fda04d7981397b9688a58e6a4627ff35e5d91c1c8f31027ebee3c280a184f"
+        },
+        "manager": {
+          "bytes": 1129,
+          "sha256": "36771d60ca9d807fd4d1797c526ea32c3fdabd3b95a0adf14c89ea7e7249ec65"
+        },
+        "manager_header": {
+          "bytes": 137,
+          "sha256": "5a5ca84258d1ea500ce1272380d5d0834d66b46ef0fe1985ce98bf9d1d764dc2"
+        },
+        "model_header": {
+          "bytes": 651,
+          "sha256": "0ee1cb0c8cd751f0bc365d2aafa3e67173f305cb513d78974bdad3dfd9c9e434"
+        },
+        "resolved": {
+          "bytes": 15913,
+          "sha256": "7e95be6eccc91bda8382844eb5b6de4acc977714870580e83985d3c5ce9a764c"
+        }
+      },
+      "unrepresented_fields": [
+        "source:header_author_biography_and_history_not_projected",
+        "metadata/solidworks.typed_configuration_graph:source_style_units_and_scene_not_constructed",
+        "metadata/solidworks.typed_configuration_manager:source_configuration_settings_not_constructed",
+        "metadata/solidworks.typed_resolved_semantics/native_tree:owned_system_state_not_constructed",
+        "metadata/solidworks.typed_resolved_semantics/native_tree:full_native_presentation_unqualified",
+        "metadata:source_wrapper_payload_and_unclassified_metadata_observation_only",
+        "feature_timeline:source_attributes_and_provenance_not_constructed",
+        "selections:continuous_automatic_scope_not_encoded_or_qualified",
+        "sketches/sldprt:sketch:26/attributes:native_sketch_state_not_constructed",
+        "sketches/sldprt:sketch:33/attributes:native_sketch_state_not_constructed",
+        "bodies/sldprt:body:1/name:caption_authority_unqualified"
+      ],
+      "record_sha256": {
+        "Source": "3bbdb5fec938e9068912deb848630b843db2da688416cc784f5f89a82f6b134b",
+        "BuildA": "e0b6cca48dad82ac8ab9ccbe66c4c5d2ed73868f5a4af97baa92d1dd73d81342",
+        "BuildB": "e0b6cca48dad82ac8ab9ccbe66c4c5d2ed73868f5a4af97baa92d1dd73d81342",
+        "Readback": "050891c6df73fabc03f1f6301ab50e44ad829624825852102b4cdc90ebb52021"
+      }
+    }
+  ],
+  "negative_count": 52,
+  "negative_results": [
+    {
+      "name": "D01/SourceNegatives/missing_center",
+      "error_type": "ValueError",
+      "error": "source cut requires its actual free circle and distinct centre",
+      "record_sha256": "e257bb47000066b6ee64d80695aa10eebc72edc0c33f45c8faa06a2bde98b51b"
+    },
+    {
+      "name": "D01/SourceNegatives/extra_center",
+      "error_type": "ValueError",
+      "error": "source cut requires its actual free circle and distinct centre",
+      "record_sha256": "e257bb47000066b6ee64d80695aa10eebc72edc0c33f45c8faa06a2bde98b51b"
+    },
+    {
+      "name": "D01/SourceNegatives/independent_center",
+      "error_type": "ValueError",
+      "error": "source circle centre or contour ownership differs",
+      "record_sha256": "a19021a1f7c11b92379ea6b55387d3d1b49f6c0abae55e9ee9d24964f12fd36c"
+    },
+    {
+      "name": "D01/SourceNegatives/fixed_circle",
+      "error_type": "ValueError",
+      "error": "source circle centre or contour ownership differs",
+      "record_sha256": "a19021a1f7c11b92379ea6b55387d3d1b49f6c0abae55e9ee9d24964f12fd36c"
+    },
+    {
+      "name": "D01/SourceNegatives/missing_normal",
+      "error_type": "ValueError",
+      "error": "source operation lacks its one actual sketch normal",
+      "record_sha256": "d61c80b9623a9e94bc45d4789a00b328b87de0b9b8bab31db3ac92e813320dbe"
+    },
+    {
+      "name": "D01/SourceNegatives/stale_normal_target",
+      "error_type": "ValueError",
+      "error": "source direction axis belongs to a different sketch",
+      "record_sha256": "084046f6c78366316d7f43f26d2f10240cbd7dda4ae76bcfb4b01701ea2fb024"
+    },
+    {
+      "name": "D01/SourceNegatives/extra_normal_query",
+      "error_type": "ValueError",
+      "error": "source direction axis belongs to a different sketch",
+      "record_sha256": "084046f6c78366316d7f43f26d2f10240cbd7dda4ae76bcfb4b01701ea2fb024"
+    },
+    {
+      "name": "D01/SourceNegatives/foreign_scope",
+      "error_type": "ValueError",
+      "error": "source selection does not identify its actual stock producer",
+      "record_sha256": "3a3cd7bc91e8adfc7b903af1b95f7dfc472c95a74f09b598a1c3eee25a97c116"
+    },
+    {
+      "name": "D01/SourceNegatives/automatic_scope",
+      "error_type": "ValueError",
+      "error": "source selection does not identify its actual stock producer",
+      "record_sha256": "3a3cd7bc91e8adfc7b903af1b95f7dfc472c95a74f09b598a1c3eee25a97c116"
+    },
+    {
+      "name": "D01/SourceNegatives/lost_stock_parent",
+      "error_type": "ValueError",
+      "error": "source operation dropped or changed its real profile and producer parents",
+      "record_sha256": "6932e45fa3039ee19ae021d21f6553e162701ea675fbec0ed93b47b230d3e705"
+    },
+    {
+      "name": "D01/SourceNegatives/lost_cut_profile",
+      "error_type": "ValueError",
+      "error": "source operation dropped or changed its real profile and producer parents",
+      "record_sha256": "6932e45fa3039ee19ae021d21f6553e162701ea675fbec0ed93b47b230d3e705"
+    },
+    {
+      "name": "D01/SourceNegatives/new_body_stock",
+      "error_type": "ValueError",
+      "error": "source requires its actual stock join followed by one cut",
+      "record_sha256": "5977df52441329f387a09b9721993fbc7279083babba0be18147ffb8f2fc583f"
+    },
+    {
+      "name": "D01/SourceNegatives/reverse_stock",
+      "error_type": "ValueError",
+      "error": "source stock is outside the actual forward mid-plane profile",
+      "record_sha256": "8e7ab1aebfd910f46c1130a3e09dc132d2d0bf28e4bc416661223e8cc7c20ea7"
+    },
+    {
+      "name": "D01/SourceNegatives/cut_distance",
+      "error_type": "ValueError",
+      "error": "source cut has unrepresented termination or dimension owners",
+      "record_sha256": "d5d337e0972c947bfd1956de213bc2fa6e98a84bc0b7c81e16c3813d049b5a20"
+    },
+    {
+      "name": "D01/SourceNegatives/missing_scope",
+      "error_type": "ValueError",
+      "error": "source cut requires one explicit stock selection",
+      "record_sha256": "fa29e7002c82f609327f38ae50302cdd203bc48c7ab72443f2f56af21356b9a4"
+    },
+    {
+      "name": "D01/SourceNegatives/foreign_profile_datum",
+      "error_type": "ValueError",
+      "error": "source profile parents do not identify their actual common datum",
+      "record_sha256": "e4fd8d29b84a6811d92b09869dbf26d44f538cdaca21e55fa6255ea819be2f95"
+    },
+    {
+      "name": "D01/SourceNegatives/missing_datum",
+      "error_type": "ValueError",
+      "error": "source owners require all three real principal datums",
+      "record_sha256": "8c63a64cf672ed39f8b25c96139b9ff50bb7805e9a1e02886d61cbd0902e26a5"
+    },
+    {
+      "name": "D01/SourceNegatives/moved_datum",
+      "error_type": "ValueError",
+      "error": "boss support must be a canonical principal frame at origin",
+      "record_sha256": "45a52134fc82d554e411847e97a05a5f9be19faad9d349e5f9617218ff2321bd"
+    },
+    {
+      "name": "D01/SourceNegatives/stale_datum_name",
+      "error_type": "ValueError",
+      "error": "source datum lacks its actual presentation feature",
+      "record_sha256": "043fc4664dacea3c90acf1633b78a7fd39eee1f71334a3895c23f83b7079c625"
+    },
+    {
+      "name": "D01/SourceNegatives/stale_driver",
+      "error_type": "ValueError",
+      "error": "source stock driver is stale or has unrepresented intent",
+      "record_sha256": "34f28c0b5fa5ba7e8d57e70e2de34e92473970cfec509f05fa2ef83c57014c0f"
+    },
+    {
+      "name": "D01/SourceNegatives/extra_driver",
+      "error_type": "ValueError",
+      "error": "source stock has unrepresented parameter owners",
+      "record_sha256": "19d76d25f343bf719f2a49b2b25d9d2d6ac038f8ae4141215a3c1419cc4bb18e"
+    },
+    {
+      "name": "D01/SourceNegatives/stripped_history",
+      "error_type": "CadDocumentValidationError",
+      "error": "feature sldprt:feature:26 references missing input sldprt:feature:2; feature sldprt:feature:33 references missing input sldprt:feature:2",
+      "record_sha256": "3e2baf838fc233c6ba75fb7e9f785e3b4dc70d63d860c0bfb36572c1d930dda4"
+    },
+    {
+      "name": "D01/SourceNegatives/stale_light_name",
+      "error_type": "ValueError",
+      "error": "source presentation names are stale or foreign",
+      "record_sha256": "a61fd71763a9f99b7ee8158bca4409fafb02223c6e0657d2da3fc53cced81289"
+    },
+    {
+      "name": "D01/SourceNegatives/stale_scope",
+      "error_type": "ValueError",
+      "error": "source body scope evidence is stale or unsupported",
+      "record_sha256": "61350ef6e2041377d3f669ce6125d8cf86545dbf275bdaa676ff0c57b9c0b690"
+    },
+    {
+      "name": "D01/SourceNegatives/stripped_tree",
+      "error_type": "ValueError",
+      "error": "source presentation lacks its actual retained identities",
+      "record_sha256": "484f5440789f57d437837154435b204d8d86438ad1d63b63ae8d0b769b429998"
+    },
+    {
+      "name": "D02/SourceNegatives/independent_center",
+      "error_type": "ValueError",
+      "error": "source circle centre or contour ownership differs",
+      "record_sha256": "a19021a1f7c11b92379ea6b55387d3d1b49f6c0abae55e9ee9d24964f12fd36c"
+    },
+    {
+      "name": "D02/SourceNegatives/stale_normal_target",
+      "error_type": "ValueError",
+      "error": "source direction axis belongs to a different sketch",
+      "record_sha256": "084046f6c78366316d7f43f26d2f10240cbd7dda4ae76bcfb4b01701ea2fb024"
+    },
+    {
+      "name": "D02/SourceNegatives/foreign_scope",
+      "error_type": "ValueError",
+      "error": "source selection does not identify its actual stock producer",
+      "record_sha256": "3a3cd7bc91e8adfc7b903af1b95f7dfc472c95a74f09b598a1c3eee25a97c116"
+    },
+    {
+      "name": "D03/SourceNegatives/independent_center",
+      "error_type": "ValueError",
+      "error": "source circle centre or contour ownership differs",
+      "record_sha256": "a19021a1f7c11b92379ea6b55387d3d1b49f6c0abae55e9ee9d24964f12fd36c"
+    },
+    {
+      "name": "D03/SourceNegatives/stale_normal_target",
+      "error_type": "ValueError",
+      "error": "source direction axis belongs to a different sketch",
+      "record_sha256": "084046f6c78366316d7f43f26d2f10240cbd7dda4ae76bcfb4b01701ea2fb024"
+    },
+    {
+      "name": "D03/SourceNegatives/foreign_scope",
+      "error_type": "ValueError",
+      "error": "source selection does not identify its actual stock producer",
+      "record_sha256": "3a3cd7bc91e8adfc7b903af1b95f7dfc472c95a74f09b598a1c3eee25a97c116"
+    },
+    {
+      "name": "InputNegatives/lost_stock_parent",
+      "error_type": "ValueError",
+      "error": "source owner input lost actual join or profile dependency semantics",
+      "record_sha256": "59790d6282fd2d9d56a919657800f0a6e441e987122eade1668d5e6214717001"
+    },
+    {
+      "name": "InputNegatives/lost_cut_producer",
+      "error_type": "ValueError",
+      "error": "source owner input lost actual join or profile dependency semantics",
+      "record_sha256": "59790d6282fd2d9d56a919657800f0a6e441e987122eade1668d5e6214717001"
+    },
+    {
+      "name": "InputNegatives/missing_datum",
+      "error_type": "ValueError",
+      "error": "principal planes require explicit axis and name pairs",
+      "record_sha256": "edf1c42943f29def36f5376545e80724d480b59f115ed7a6ad0117dec07e3365"
+    },
+    {
+      "name": "InputNegatives/boolean_line_index",
+      "error_type": "ValueError",
+      "error": "source lines lack a complete fresh contour correspondence",
+      "record_sha256": "0334c447bee09e154ba6a255ec3070435a8d19e8f6a8fa87bf778d9bab325649"
+    },
+    {
+      "name": "InputNegatives/lost_line",
+      "error_type": "ValueError",
+      "error": "source lines lack a complete fresh contour correspondence",
+      "record_sha256": "0334c447bee09e154ba6a255ec3070435a8d19e8f6a8fa87bf778d9bab325649"
+    },
+    {
+      "name": "InputNegatives/wrong_axis_relation",
+      "error_type": "ValueError",
+      "error": "source line orientation or axis relation is unsupported",
+      "record_sha256": "384a4346a348da43f7fdfbd40a6e1a0948f79df5a3367a98ae851f2dea42f2c2"
+    },
+    {
+      "name": "InputNegatives/wrong_normal_owner",
+      "error_type": "ValueError",
+      "error": "source sketch normal ownership is missing or ambiguous",
+      "record_sha256": "14a39911078fa50628d80e14609d024ae74aa7aba455c4608fbc9853276db0da"
+    },
+    {
+      "name": "InputNegatives/wrong_normal_sketch",
+      "error_type": "ValueError",
+      "error": "source normal selection lost its actual sketch or datum",
+      "record_sha256": "257e00e61cd6c0f754b896e8c4f302dc4214110097da2657aecb824d5eab2e91"
+    },
+    {
+      "name": "InputNegatives/duplicate_identity",
+      "error_type": "ValueError",
+      "error": "source owner correspondence has duplicate or empty identities",
+      "record_sha256": "fc1ef7cfe841871dbb18ddf4a8fad8f05c5927f8a54f425091190ab8f89026fd"
+    },
+    {
+      "name": "InputNegatives/foreign_scope_reference",
+      "error_type": "ValueError",
+      "error": "selected stock transport lost its actual producer",
+      "record_sha256": "02d13156addc931869cf6e3f3a05202c92d84962c24aefd81ad3cbe2115ccc6a"
+    },
+    {
+      "name": "InputNegatives/automatic_scope",
+      "error_type": "ValueError",
+      "error": "continuous automatic selection is outside the selected stock constructor",
+      "record_sha256": "f1215cb4191b0fda45806bf7a84a0c61efb75104a5f02217d659fb5c37f8a217"
+    },
+    {
+      "name": "InputNegatives/wrong_version",
+      "error_type": "ValueError",
+      "error": "selected stock is qualified only for archive version 19000",
+      "record_sha256": "98bfe981f6b121fc163456b6943721f1c25683baee121a6bfe1b435c792a825a"
+    },
+    {
+      "name": "InputNegatives/recorded_input_field",
+      "error_type": "ValueError",
+      "error": "source observation reached generation input",
+      "record_sha256": "8ac1740f7df678afa4f7fb39b0ecb6dfde80ca3c72d8de171c23aa6c801830dc"
+    },
+    {
+      "name": "InputNegatives/empty_center_identity",
+      "error_type": "ValueError",
+      "error": "source owner correspondence has duplicate or empty identities",
+      "record_sha256": "fc1ef7cfe841871dbb18ddf4a8fad8f05c5927f8a54f425091190ab8f89026fd"
+    },
+    {
+      "name": "InputNegatives/foreign_selected_owner",
+      "error_type": "ValueError",
+      "error": "source owners require the actual explicit selected stock",
+      "record_sha256": "2db14a4f921335d47477ef8e287d68cc8677295473542a5697ad9adea8a52860"
+    },
+    {
+      "name": "InputNegatives/target_unit_mismatch",
+      "error_type": "ValueError",
+      "error": "target document units differ from source owner units",
+      "record_sha256": "eac7e1dec3d5804abc5e3a00acfa80bcb93a2b3d4c173d6e2e5683ddbebeb4ac"
+    },
+    {
+      "name": "InputNegatives/target_datum_mismatch",
+      "error_type": "ValueError",
+      "error": "generated system does not preserve all actual source datum names",
+      "record_sha256": "7fe4e2adbcbaaff9284cbaa535bb423f1a3c04f0cffa73e9e54a23d422627581"
+    },
+    {
+      "name": "ReadbackNegatives/config_trailer",
+      "error_type": "BodyUnsupported",
+      "error": "SOLIDWORKS configuration has 1 trailing bytes",
+      "record_sha256": "65344afadd41b3656d95ed5560df9a09a0b72366504c318fe1504ae5b1d4fe92"
+    },
+    {
+      "name": "ReadbackNegatives/resolved_map_mismatch",
+      "error_type": "BodyUnsupported",
+      "error": "resolved archive base differs from its actual configuration snapshot",
+      "record_sha256": "44386e9c9dff7d710dc3a3e203b8ba9a68b805b63bb85b5c8db934a61e7fd6b6"
+    },
+    {
+      "name": "ReadbackNegatives/header_truncation",
+      "error_type": "ValueError",
+      "error": "truncated SOLIDWORKS archive field at 647",
+      "record_sha256": "9141afbb4d9c46e191fa17d818702a1fe71bfd4f2583abd9f732dfccd9944e44"
+    },
+    {
+      "name": "ReadbackNegatives/wrong_signed_prediction",
+      "error_type": "ValueError",
+      "error": "cut termination or signed direction differs",
+      "record_sha256": "c4551db6717ec6a5ce5b6e107677055cfa32e3bb4b5af85d549804fcdffcf11f"
+    }
+  ],
+  "legacy_compatibility": [
+    {
+      "status": "ordinary_default_profile",
+      "variant": 0,
+      "generated_sha256": "ee3e99bf4df1ba04ea00a209c504213920a90fe4ddc8785c28977001f20a8407",
+      "public_document_sha256": "171408ed875c63162bd894d9fa113f210c3ed9a35e0cfb3d5a577e88caace9d1",
+      "ordered_root_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "two_argument_caller_passed": true,
+      "native_oracle_used": false
+    },
+    {
+      "status": "ordinary_default_profile",
+      "variant": 1,
+      "generated_sha256": "a41e5c28b97461685a834dd764b16e6afc9f8959471ce77559dda9660453216a",
+      "public_document_sha256": "42d380cad8ec2754351a6a68be587d95e366e721b8ef7bda64c388d8af4b87d6",
+      "ordered_root_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "two_argument_caller_passed": true,
+      "native_oracle_used": false
+    }
+  ],
+  "runtime_input_file_reads": 0,
+  "sdk_runtime_research_imports": 0,
+  "guards": {
+    "full_container_constructor_calls_blocked": true,
+    "recorded_metadata_excluded_from_generator_input": true,
+    "original_document_identity_retained": true,
+    "all_28_source_timeline_ids_retained": true,
+    "original_metadata_unchanged": true,
+    "three_source_datums_bound": true,
+    "two_actual_sketch_normals_bound": true,
+    "distinct_actual_circle_center_bound": true,
+    "both_profile_dependencies_preserved": true,
+    "stock_join_preserved": true,
+    "one_actual_selected_stock_wrapper": true,
+    "final_body_not_aliased_to_stock_atom": true,
+    "complete_source_gate_recomputed_and_refused": true,
+    "caller_cleared_gate_still_refused": true
+  },
+  "qualification": {
+    "source_conversion": false,
+    "native_acceptance": false,
+    "vendor_loadable": false,
+    "application_usable": false,
+    "public_writer_promoted": false,
+    "continuous_automatic_scope": false,
+    "full_native_presentation": false,
+    "source_provenance_construction": false,
+    "held_out_accessed": false,
+    "oracle_used": false
+  },
+  "static_checks": [
+    {
+      "tool": "ruff",
+      "returncode": 0
+    },
+    {
+      "tool": "tools.Steering.SteeringCompliance",
+      "returncode": 0
+    },
+    {
+      "tool": "mypy",
+      "returncode": 0
+    },
+    {
+      "tool": "pyright",
+      "returncode": 0
+    },
+    {
+      "tool": "tools.Donors.CheckReplays",
+      "returncode": 0
+    }
+  ],
+  "pyright_configuration_notes": [
+    "reportImplicitAbstractClass",
+    "reportIncompleteStubValue",
+    "reportUnsafeMultipleInheritance"
+  ],
+  "scope": "Three previously disclosed version-19000 native controls only. The source envelope is complete; generated graph owners and six partial archive roles are not a complete native document or source conversion.",
+  "sdk_files_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceInputs/SourceAxis.py": "da3af89628d9993a2cee1f3826b731514c16d1355abb9754d02269f95d275f76",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceInputs/SourceLine.py": "d3ca74ee694276cfd93b25c30801bfb501ec898ec0c2052f0bbec81b616bf73a",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceInputs/SourcePlane.py": "6465d17d376557f53f9d7b9b2882aab0f90e048da9b368059311504c6b94ef30",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceInputs/SourceRefs.py": "bab0eddfbca7e83e533607a74c7e5bc4763fe208860c2a09640ed147d250e491",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceInputs/ThruOwnerInput.py": "31582fb4b694900208522fe46c90a3305a9ba7dc38d9b9e5c148504fb254201c",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceOwners/BindScopeMut.py": "8a0f3017a0500a0bbd2683985b04c8506368a0f40a363466182889cd53d94655",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceOwners/CheckThruInput.py": "d6726a4f4988ad37fad34769cb129cc1b8cd1bec87b08b08aef5daa610cbe027",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceOwners/MakeThruOwners.py": "eb7eb63929bc4e3999c7d008ae5ee8719e9335b41addd5257db85de4c119795a",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceOwners/MapThruAxes.py": "2a7c03c8de9cfa24e671ba9ff23ccf1007af0d81074cfd04f285bd0ed92ead03",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceOwners/MapThruBases.py": "c2b76d2f2e21bedd48dd49e04d0d960a6eb6a6c7a1d290819e1134ff3116e863",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceOwners/MapThruLines.py": "23c823765fc57636e2c912034b4d22f79057d23d721c9be5555eef94323bfce3",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceOwners/MapThruOwners.py": "1fd238e311f6186f1eeae80fd5794913749d4a157bccdf1149d634e200ebeef6",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceOwners/OwnerBind.py": "ed55441cf129c07246fb2680b4dda6c3f7bc98b5fd8ca6085485c12781326998",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceOwners/ThruOwnerGraph.py": "e2681c7ec6748210b62be74820f132d0b6389a8bc3cddc5830503d42142d564f",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/CheckSourceEnv.py": "50a1c1084a67f88f3dd1bd9f252a48488087f97ece9a17a2da5dc06a1612715e",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/CheckSrcNames.py": "4a0861f4e33a28a7ed9225054012cbc15f570e740e524dab76e0182472126990",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ListSourceGaps.py": "d0f453c266cf9124c229e65740cdea7487b1de3b6969814fed2718d85319f548",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/MakeSourceStock.py": "ed3c0cf5d607361cbd02fdf18914f32329e537fd9c2174d4cb79ee1e99cb151a",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/MapSourceLines.py": "ae3a5b80b226b25923d6281804cb4780866e909d634c08b32a1e934eeecc7e88",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ProjectSrcShape.py": "cc13dcaaaf2e8f2e06ed372a5a4cdee50bf2b368054bd7b2138c340ccb416ea8",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ProjectThruSrc.py": "5cb12b118c290f2e6bdb1378e977ca487321ada79866e2b25bcca6ed6b6e75b2",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceAxes.py": "d74526d4fec24d9679f44ecaaddd5b7d9a0ddde5972029a762da945c02b0039a",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceCirc.py": "03856e5b6a4975b83edd2a84b7fc1cd878b23cb77c449f237646bbaa65fb5332",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceDepth.py": "507645055e7ac682e3d9c120d1131ad7e7426faa3ca9556ba45a2ab92926ea62",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceEnd.py": "7a630d1353a4599a1ac981f34f399642d2812609b0b7f22b51274792d0e8a09f",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceLine.py": "5c350b57c67a11d4c0ac1395b2ae3dfedd1e28c1c37403bfe70f053cfb52ac43",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceOps.py": "ce64c182613bf38e2f431a609688041f5ed55abc320e85089a4cfcd03f5fee59",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourcePlane.py": "60b3b3fcb35ddb92f69fe8d4df40b1f41ccd1560ab240c8f3b22849089086eee",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceRing.py": "8c4ecdfdc6120430ffc5403ae62de3dbda47b9c11a85a9314a9f52f30b9ad0e5",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceRules.py": "b57069538b87f701afe7205f64ae49fb6cb320c221ea0cfd7ad433c9cecdccbc",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceScale.py": "f98d506a47517a07d0feebb7c5f07340d549bd7134f92276cebf4a4e5bc8418b",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceScope.py": "407d42e1ab5a8d8e9b8d778cbf6e66776c0b836d26b3d409ac825d763ba5ffdf",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ReadSourceTree.py": "a02cde83195ed129960dd4b76ae63d73cc1385d5a78bfa26203c3ee0f8e961ae",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/RequireThruFull.py": "f96a7f6699e829428d584be67734dea4943833eb71f5b55035cde24ff8a93482",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/SourceOps.py": "0954ef46795fdf314bfb15ba83235e369c526fae9ba0fe175c474f394cdb7bc7",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ThruSourceEnv.py": "d0fa44ae7093a0fb3aba95e667ba0728888e29fb654e63e4054a45ba7893ed2e",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/Source/ThruSourcePlan.py": "0bb98730704e99a366fa598b024a78fff33be030c545749185e6861f2e102cb6"
+  },
+  "research_tools_sha256": {
+    "AuditThroughOwners.py": "6196f3c479dc19af880298bdd0feb7a175191c1cd9a5f27ac6b766999bfecb1b",
+    "throughowners/OwnerBuild.py": "8dc822ef8e4027408f6e370d508aa78dc9721dcc8a27e2052a5be6360449ff6d",
+    "throughowners/OwnerDto.py": "c28527c9ce2662e33da4cd06638a9ed11863aa1368481a18ff2f282d211ecb48",
+    "throughowners/OwnerFragments.py": "2a33a58ae0be654a22c8c5d6aa267a63faa25996800fedaddb6053b50dad4e92",
+    "throughowners/OwnerGuard.py": "5bf4c59d78d7ef0ff5b7f7fbea43743ee49a02257f6656ca8a3b30bb83d53902",
+    "throughowners/OwnerInspect.py": "2be92e3713585ef8654f4349309b05c818cad291ceab084d3adf6154448e0d7d",
+    "throughowners/OwnerMutations.py": "475f6737b3f070feed475772851ef277bd010108c0dc4e27c2e70e2b9fda3d88",
+    "throughowners/OwnerProcess.py": "df95c182dff4ad9870af2f0d9bd0ae8d300af4c9da1906b5b03223d5d5c29bf1",
+    "throughowners/OwnerSource.py": "fee2488b0b86f71980fa8a38acfca41cd7549fa43e594066cfd1da0f0934920a",
+    "throughowners/OwnerSourceWire.py": "4c2b668c4bb39776bfb6f634366304ef8eb2ef066d0fd91065fa74688e804a71"
+  }
+}
