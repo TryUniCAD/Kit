@@ -28,3 +28,10 @@ and child trees match the disclosed native control. The
 [measurement](../../../../re/solidworks/measurements/2026/GeneratedCombinedMateNative01.json)
 records the exact source, builder and file hashes. Held-out qualification and
 the public SDK writer remain open.
+
+The [rotated three-mate measurement](../../../../re/solidworks/measurements/2026/GeneratedRotatedMateNative01.json)
+extends this comparison to a parallel, a driving distance and a coincident
+mate, in that order. Both occurrences have a 30-degree rotation. The edit
+predictor follows the actual distance normal and preserves the other mates.
+The 91.125 mm edit and six datum links survive native save, fresh reopen and
+public SDK readback.

@@ -40,5 +40,25 @@ phase. The same packet later ran after an independent idle and license process
 check.
 
 The source and generated files are disclosed research checks. They add zero
-production corpus outputs. Broader axes, rotations, mate sequences, multiple
-distinct children and the locked held-outs need separate verification.
+production corpus outputs. Multiple distinct children and the locked held-outs
+need separate verification.
+
+## Rotated three-mate comparison
+
+A22 places both occurrences in the same 30-degree rotation about the assembly
+Z axis. The first mate keeps the Front planes parallel across an authored gap.
+The second owns the Top-plane driving length and the third keeps the Right
+planes coincident. The frozen [edit predictor](../../tooling/sw2026/PlanarMateEdit.py)
+computes the global signed distance from each occurrence's actual plane frame.
+It projects the length change onto that normal, retains the other constraints
+and selects the driving mate by the authored name.
+
+The [rotated comparison](../measurements/2026/GeneratedRotatedMateNative01.json)
+matches the native source's full 27-row assembly and 25-row child trees,
+two resolved occurrences and three ordered mates. All 333 numeric comparisons
+pass across four fresh processes, including both controls. The 63.5 mm drive
+edits to 91.125 mm. The floating occurrence moves along the rotated Top
+normal with its rotation, parallel offset and coincidence preserved. Both
+files save without warnings and fresh reopen retains both body instances,
+all three mates and the edited geometry. Kit's normal reader resolves all
+six actual datum links and the edited distance from the saved files.
