@@ -1,0 +1,128 @@
+{
+  "heldout_payloads_read": 0,
+  "native_processes_started": 0,
+  "observer_sha256": "7119d2a9f9bf14c67c0ef15712a8e72d1d294ae5d83d82949e20e969b18234be",
+  "packet_sha256": "b390c68864a8508316d7badd4b43c7643c3dffbcac9ba797fac21a4eb417ab3b",
+  "passed": true,
+  "prior_packet_sha256": "e4933c6d20d4ca4aa597512a850197b05dc2b15677d21de6cbdb2b755941a839",
+  "processes": [
+    {
+      "label": "Positive",
+      "result": {
+        "generated_sha256": "5cefc9124919cb2d75a141610fa40a23c328d41297eba6aefe4bcb9f185a3115",
+        "heldout_payloads_read": 0,
+        "native_processes_started": 0,
+        "passed": true,
+        "tools": 8
+      },
+      "returncode": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6f6092b4f5e7c8379e20803b2443e7f24ee39b3ccb51678ec8ed12814a5eeaa6"
+    },
+    {
+      "label": "CapturedPartialAndMissing",
+      "result": {
+        "all_inputs_immutable": true,
+        "all_numeric_checks_passed": false,
+        "controls_healthy": false,
+        "distinct_native_processes": 0,
+        "heldout_payloads_read": 0,
+        "malformed_phases": [],
+        "missing_phases": [
+          "Generated",
+          "Reopen"
+        ],
+        "native_generated_discovery_only": true,
+        "numeric_check_status": "not_run",
+        "numeric_checks": 0,
+        "partial_phases": [
+          "ControlBefore",
+          "ControlAfter"
+        ],
+        "passed": false,
+        "phases": {
+          "ControlAfter": {
+            "oracle_identity": null,
+            "passed": false,
+            "record_sha256": "25d075dff17b1e3068aeb3b007d21a48c5095565b7b530cca298f5d00e2e4b46"
+          },
+          "ControlBefore": {
+            "oracle_identity": null,
+            "passed": false,
+            "record_sha256": "758a81b1c1a0ea846c31e008effa1f434dc10e5db3856c25d6802e9ae6d1afa4"
+          },
+          "Generated": {
+            "oracle_identity": null,
+            "passed": false,
+            "record_sha256": null
+          },
+          "Reopen": {
+            "oracle_identity": null,
+            "passed": false,
+            "record_sha256": null
+          }
+        },
+        "public_writer_qualified": false,
+        "schema": "kit.sw2026.generated-through-all-native.v1",
+        "stock_relations_match_disclosed_control": false
+      },
+      "returncode": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "eb48411b178f2127001b32abd75569094a2064293c5b01d418b6b25793af754f"
+    },
+    {
+      "label": "MalformedAndMissing",
+      "result": {
+        "all_inputs_immutable": true,
+        "all_numeric_checks_passed": false,
+        "controls_healthy": false,
+        "distinct_native_processes": 0,
+        "heldout_payloads_read": 0,
+        "malformed_phases": [
+          "Generated"
+        ],
+        "missing_phases": [
+          "Reopen"
+        ],
+        "native_generated_discovery_only": true,
+        "numeric_check_status": "not_run",
+        "numeric_checks": 0,
+        "partial_phases": [
+          "ControlBefore",
+          "ControlAfter"
+        ],
+        "passed": false,
+        "phases": {
+          "ControlAfter": {
+            "oracle_identity": null,
+            "passed": false,
+            "record_sha256": "25d075dff17b1e3068aeb3b007d21a48c5095565b7b530cca298f5d00e2e4b46"
+          },
+          "ControlBefore": {
+            "oracle_identity": null,
+            "passed": false,
+            "record_sha256": "758a81b1c1a0ea846c31e008effa1f434dc10e5db3856c25d6802e9ae6d1afa4"
+          },
+          "Generated": {
+            "oracle_identity": null,
+            "passed": false,
+            "record_sha256": "a6fb08fda1acb957b6116bd37811a1fe41a01611c0631edbf786d6889a27a55c"
+          },
+          "Reopen": {
+            "oracle_identity": null,
+            "passed": false,
+            "record_sha256": null
+          }
+        },
+        "public_writer_qualified": false,
+        "schema": "kit.sw2026.generated-through-all-native.v1",
+        "stock_relations_match_disclosed_control": false
+      },
+      "returncode": 1,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5c11c194778ef348a02c0d54a92b73a850bca2050cb9d3176a01a4aa54bea07b"
+    }
+  ],
+  "recipe_sha256": "65c768b6d0d41375adcafb7004a1a2494ea135e432a4346ad10258d195e9cd26",
+  "schema": "kit.sw2026.through-all-native-host-retry-preflight.v1"
+}

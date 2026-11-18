@@ -1,34 +1,49 @@
-from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
-from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
-from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
-from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
-from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
+from convert.adapters.solidworks.Archive.Construction.Circles.CircleInput import (
+    CircleInput,
+)
+from convert.adapters.solidworks.Archive.Construction.ThroughAll.MakeThroughPart import (
+    MakeThroughPart,
+)
+from convert.adapters.solidworks.Archive.Construction.ThroughAll.ThroughEndInput import (
+    ThroughEndInput,
+)
+from convert.adapters.solidworks.Archive.Construction.ThroughAll.ThroughPartSpec import (
+    ThroughPartSpec,
+)
+from convert.adapters.solidworks.Archive.Construction.ThroughAll.ThroughStock import (
+    ThroughStock,
+)
+from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 
 
-# independently authored test archives exercise both physical cut directions through the full public reader
-def MakeThroughCutArchive(Payload: bytes, Reverse: bool, Both: bool) -> bytes:
-    Archive = SldprtArchive.from_bytes(Payload)
-    LinkValue = ReadNativeLink(Archive, 0)
-    Features = IndexFeatures(LinkValue)
-    (Boss,) = (
-        Node
-        for Node in Features.values()
-        if Node.ClassValue.NameValue == "moExtrusion_c"
+# the complete constructor emits each test part from independently specified stock circle and through termination inputs
+def MakeThroughCutArchive(AxisValue: str, Reverse: bool, Both: bool) -> bytes:
+    Stock = ThroughStock(
+        NameValue="GeneratedThroughCut",
+        ConfigName="Default",
+        PlaneName={"x": "Right Plane", "y": "Top Plane", "z": "Front Plane"}[AxisValue],
+        SketchId="stock-sketch",
+        SketchName="StockProfile",
+        FeatureId="stock-boss",
+        FeatureName="StockBoss",
+        ParameterId="stock-depth",
+        BodyId="cut-body",
+        VerticesValue=(
+            (-0.028, -0.018),
+            (0.033, -0.018),
+            (0.033, 0.021),
+            (-0.028, 0.021),
+        ),
+        DepthValue=0.0143,
+        WidthValue=0.061,
+        HeightValue=0.039,
+        AxisValue=AxisValue,
     )
-    (Cut,) = (
-        Node for Node in Features.values() if Node.ClassValue.NameValue == "moICE_c"
+    Inputs = ThroughPartSpec(
+        Stock,
+        CircleInput((0.0118, 0.0057), 0.0031, 19000),
+        "ThroughProfile",
+        "ThroughFeature",
+        ThroughEndInput("through_all_both" if Both else "through_all", Reverse, 19000),
     )
-    RequireNative(Boss.FieldsValue["f818"], "moEndSpec_c").FieldsValue["f0c"] = 6
-    End = RequireNative(Cut.FieldsValue["f818"], "moEndSpec_c").FieldsValue
-    End.update(f08=int(not Both), f0c=1, f10=int(Both), f8c=int(Reverse))
-    for NameValue in ("f18", "f20", "fc8", "fd0"):
-        End[NameValue] = None
-    Streams = dict(Archive.streams)
-    Streams[LinkValue.StreamName], _ = WriteResolMut(
-        LinkValue.ResolvedValue.RootsValue,
-        LinkValue.ResolvedValue.ExtraFields,
-        19000,
-        LinkValue.ConfigValue.MapValue,
-        LinkValue.ResolvedValue.ContextValue,
-    )
-    return BuildSldprt(Streams, FormatVersion=4)
+    return MakeThroughPart(Inputs, MakePartRecipe(Stock, 1794001000)).BytesValue

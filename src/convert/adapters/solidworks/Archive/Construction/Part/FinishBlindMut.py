@@ -1,3 +1,12 @@
+from convert.adapters.solidworks.Archive.Construction.Blind.BossEndInput import (
+    BossEndInput,
+)
+from convert.adapters.solidworks.Archive.Construction.ThroughAll.ThroughPartSpec import (
+    ThroughPartSpec,
+)
+from convert.adapters.solidworks.Archive.Construction.ThroughAll.MakeThruCutPart import (
+    MakeThruCutPart,
+)
 from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndInput import (
     BlindEndInput,
 )
@@ -60,12 +69,19 @@ def FinishBlindMut(
     SketchDims: tuple[KeywordDim, ...] = (),
     *,
     PocketValue: PocketPlan | None = None,
+    ThroughValue: ThroughPartSpec | None = None,
 ) -> PartCandidate:
     EndInput = (
         PlanValue.EndValue
         if isinstance(PlanValue, CirclePlan)
         else BlindEndInput(PlanValue.DepthValue, False, 19000, PlanValue.DepthName)
     )
+    if ThroughValue is not None:
+        if PocketValue is not None or ThroughValue.StockValue is not PlanValue:
+            raise ValueError(
+                "through all composition requires its actual sole stock plan"
+            )
+        EndInput = BossEndInput(PlanValue.DepthValue, False, 19000, "mid_plane")
     BossValue = MakeBlindMut(
         PlanValue.FeatureName,
         SystemValue.RootValue,
@@ -82,6 +98,8 @@ def FinishBlindMut(
         CutValue, CutSketchDims = MakePartCutMut(
             SystemValue, InputValue, PocketValue, Allocator
         )
+    if ThroughValue is not None:
+        CutValue = MakeThruCutPart(SystemValue, InputValue, ThroughValue, Allocator)
     SetCfgStampMut(SystemValue.ConfigValues[0], Allocator)
     HeadersValue = MakePartHeaders(SystemValue, InputValue, Allocator)
     DefinitionValue = MakePartDef(InputValue.DefinitionValue, InputValue.DensityValue)

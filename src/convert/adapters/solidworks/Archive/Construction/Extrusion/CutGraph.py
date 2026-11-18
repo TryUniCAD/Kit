@@ -15,4 +15,4 @@ class CutGraph:
     FeatureValue: ArchiveNode
     ProfileValue: ProfileGraph
     EndValue: ArchiveNode
-    DepthValue: DimensionGraph
+    DepthValue: DimensionGraph | None

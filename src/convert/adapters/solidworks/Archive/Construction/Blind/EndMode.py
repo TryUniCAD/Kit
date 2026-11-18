@@ -1,4 +1,6 @@
 from typing import Literal, TypeAlias
 
-# the ordinary solid boss constructor admits three distinct forms of its owned end specification
-KEndMode: TypeAlias = Literal["blind", "mid_plane", "two_directions"]
+# one shared end serializer retains dimensional boss modes and separately admitted depthless through all termination
+KEndMode: TypeAlias = Literal[
+    "blind", "mid_plane", "two_directions", "through_all", "through_all_both"
+]

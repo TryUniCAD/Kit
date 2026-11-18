@@ -13,18 +13,25 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 def MakeEndSpec(
     ModeValue: KEndMode,
     IsReversed: bool,
-    ForwardValue: ArchiveNode,
+    ForwardValue: ArchiveNode | None,
     ReverseValue: ArchiveNode | None,
     ForwardDraft: ArchiveNode | None,
     ReverseDraft: ArchiveNode | None,
     FromEndValue: ArchiveNode,
 ) -> ArchiveNode:
+    IsThrough = ModeValue in ("through_all", "through_all_both")
+    if IsThrough and any(
+        Value is not None
+        for Value in (ForwardValue, ReverseValue, ForwardDraft, ReverseDraft)
+    ):
+        raise ValueError("through all ends have no active distance or draft owners")
     FieldsValue: dict[str, object] = {FieldName: 0 for FieldName in KBlindZeroFields}
     FieldsValue.update(
         {
             "f138": None,
-            "f08": int(ModeValue != "two_directions"),
-            "f0c": 6 if ModeValue == "mid_plane" else 0,
+            "f08": int(ModeValue not in ("two_directions", "through_all_both")),
+            "f0c": 1 if IsThrough else 6 if ModeValue == "mid_plane" else 0,
+            "f10": int(ModeValue == "through_all_both"),
             "f8c": int(IsReversed),
             "f90": None,
             "f18": ForwardValue,

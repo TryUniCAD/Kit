@@ -37,7 +37,11 @@ def MakeCutKeys(
             ReadNodeName(FeatureValue),
             None,
             "Extrusion",
-            MakeSketchKeys((CutValue.DepthValue,), UnitValue),
+            (
+                ()
+                if CutValue.DepthValue is None
+                else MakeSketchKeys((CutValue.DepthValue,), UnitValue)
+            ),
             (ProfileId,),
             None,
             None,

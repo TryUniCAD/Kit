@@ -32,9 +32,12 @@ def MakeKeyFeatMut(RootValue: Element, InputValue: KeywordFeature) -> None:
     if (
         InputValue.TagValue == "Extrusion"
         and InputValue.KindValue is None
+        and InputValue.DimensionValues
         and {DimValue.NameValue for DimValue in InputValue.DimensionValues} != {"D1"}
     ):
-        raise ValueError("ordinary cut keyword requires its single driving dimension")
+        raise ValueError(
+            "ordinary cut keyword permits no driver or its actual single D1 dimension"
+        )
     FeatureValue = SubElement(RootValue, InputValue.TagValue, Attributes)
     for DimValue in InputValue.DimensionValues:
         if DimValue.UnitValue is not None and (
