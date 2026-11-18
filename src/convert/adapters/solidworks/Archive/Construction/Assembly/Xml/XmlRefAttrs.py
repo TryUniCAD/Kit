@@ -12,7 +12,9 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNode
 
 
 # reference xml retains actual occurrence identity and selected child configuration while reporting only the qualified ordinary resolved visible rigid profile
-def XmlRefAttrs(Reference: ArchiveNode, ObjectId: int) -> dict[str, str]:
+def XmlRefAttrs(
+    Reference: ArchiveNode, ObjectId: int, ModelId: int = 5
+) -> dict[str, str]:
     BaseValue, NumberValue = ReadOccName(ReadNodeName(Reference))
     ConfigValue = FieldRecord(Reference.FieldsValue["f3c0"])
     return {
@@ -30,7 +32,7 @@ def XmlRefAttrs(Reference: ArchiveNode, ObjectId: int) -> dict[str, str]:
         "swFlexible": "NO",
         "swExcludeFromBOM": "NO",
         "swZone": "NO",
-        "swModelRef": "5",
+        "swModelRef": str(ModelId),
         "swTransform": XmlPoseText(Reference),
         "swTransformStamp": str(Reference.FieldsValue["f3f0"]),
     }

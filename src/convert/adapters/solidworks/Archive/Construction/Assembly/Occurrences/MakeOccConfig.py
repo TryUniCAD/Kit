@@ -12,6 +12,7 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.FieldRecord im
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import ReadFileKey
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
     ReadNodeName,
@@ -51,7 +52,15 @@ def MakeOccConfig(Reference: ArchiveNode, ConfigValue: ArchiveNode) -> ArchiveNo
             "f48": 0,
         },
     )
-    OptionsValue = ArchiveNode.RequireNode(ConfigValue.FieldsValue["fc50"])
+    Directory = ArchiveNode.RequireNode(Reference.FieldsValue["f3b0"])
+    ChildKind = ReadFileKey(Directory)[2]
+    if ChildKind not in (2, 3):
+        raise ValueError(
+            "ordinary occurrence options require a part or assembly target"
+        )
+    OptionsValue = ArchiveNode.RequireNode(
+        ConfigValue.FieldsValue["fc48" if ChildKind == 3 else "fc50"]
+    )
     OptionsCopy = ArchiveNode(
         RuntimeClass("moConfig_c", 1), dict(OptionsValue.FieldsValue)
     )

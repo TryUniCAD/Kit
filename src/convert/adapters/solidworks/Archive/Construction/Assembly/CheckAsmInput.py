@@ -1,8 +1,6 @@
 from ntpath import (
-    basename as BaseName,
     normcase as NormCase,
     normpath as NormPath,
-    splitext as SplitExt,
 )
 from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyInput import (
@@ -16,6 +14,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.CheckAsmChild imp
 )
 from convert.adapters.solidworks.Archive.Construction.Assembly.CheckAsmNames import (
     CheckAsmNames,
+)
+from convert.adapters.solidworks.Archive.Construction.Assembly.CheckAsmMeta import (
+    CheckAsmMeta,
 )
 from convert.adapters.solidworks.Archive.Construction.Assembly.OccurrenceIn import (
     OccurrenceIn,
@@ -31,9 +32,6 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 )
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.FieldRecord import (
     FieldRecord,
-)
-from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
-    ReadStyleText,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import ReadFileKey
@@ -86,37 +84,6 @@ def CheckAsmInput(
         raise ValueError(
             "assembly and generated child must retain different ordinary file identities"
         )
-    StemValue, Extension = SplitExt(BaseName(InputValue.OutputValue.PathName))
-    if (
-        StemValue.casefold() != InputValue.NameValue.casefold()
-        or Extension.casefold() != ".sldasm"
-    ):
-        raise ValueError(
-            "assembly self filename must match its actual authored name and assembly kind"
-        )
-    if (
-        InputValue.StyleValue.StandardValue != 1
-        or InputValue.DefinitionValue.DraftingStandard != "moISO_c"
-        or InputValue.TargetValue.FileVersion != 19000
-    ):
-        raise ValueError(
-            "first complete assembly requires effective iso standard one and archive version 19000"
-        )
-    if (
-        InputValue.HeaderValue.CreatedAt != InputValue.SystemValue.CreatedAt
-        or InputValue.HeaderValue.CreatedAt != InputValue.HistoryValue.CreatedAt
-        or InputValue.HeaderValue.CommentText != InputValue.HistoryValue.CommentText
-        or InputValue.StyleValue.LanguageId != InputValue.HistoryValue.LanguageId
-    ):
-        raise ValueError(
-            "assembly provenance differs across system header history or presentation owners"
-        )
-    for NameValue in (
-        InputValue.NameValue,
-        InputValue.ConfigName,
-        InputValue.ManagerName,
-    ):
-        if not ReadStyleText(NameValue, "assembly document identity"):
-            raise ValueError("assembly document identity names must not be empty")
+    CheckAsmMeta(InputValue)
     if FieldRecord(ChildFile.FieldsValue["shared"])["f08"] != 0:
         raise ValueError("complete assembly does not admit a virtual child definition")
