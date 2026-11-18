@@ -68,3 +68,31 @@ extent `[0x4b713150,0x4b713692)`. The constructor has both chooser
 pointers and both body arrays absent. The direct ICE loading path still
 needs a cause for runtime auto-scope activation before resolving a cold
 part with no selected wrappers.
+
+## Linked SDK archive
+
+The version-19000 linked SDK codec verifies the shared `moICE_c` and
+`moExtrusion_c` serializer at `0x4bb11640` and their matching
+ResolvedFeatures callbacks at vtable offsets `0x3e8`, `0x3f8`, `0x4b8`
+and `0x4c0`. Its schema-one entries preserve the two actual class tags.
+
+The affected-body wrapper reads the current `moCompSolidBody_c` layout.
+Its shared component-reference base is followed by the nullable face at
+`ff0`, a signed element count and that many signed `f110` elements when
+the count is positive, then signed `f108`, `f104` and `f100` words.
+The historical members are gated at `0x49b`, `0x865`, `0x94e` and
+`0x1040` respectively. Archive version 19000 reaches each group.
+
+The two surface-identifier classes use `0x4bba41f0` through slot
+`0x28` of their concrete vtables. Both preserve the common reference
+base and the ordered signed `f38`, `f3c`, `f40` tail. The concrete
+tail implementations are `0x4bbab920` for `moEndFace3IntSurfIdRep_c`
+and `0x4bbab5b0` for `moFromSktEnt3IntSurfIdRep_c`.
+
+Four fresh SDK processes re-emit Config-0 and ResolvedFeatures with
+complete field coverage and exact byte identity. The three disclosed vendor
+saves each advance map counters from 110 to 332 and contain one affected-body
+wrapper and two of each surface identifier. The independently generated
+discovery part advances from 82 to 231 with the modeled cut and empty saved
+body lists. The archive receipt binds all four input hashes and the observed
+source files. [SDK round-trip receipt](../measurements/2026/SdkOrdinaryBlindCutArchive01.json)

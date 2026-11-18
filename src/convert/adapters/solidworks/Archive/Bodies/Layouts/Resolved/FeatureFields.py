@@ -125,6 +125,7 @@ KFeatureFields = MappingProxyType(
             NativeField("Scalar", "f838", "f64"),
             NativeField("Scalar", "f810", "i32"),
         ),
+        "moICE_c": (NativeField("Base", "moExtrusion_c"),),
         "moFR_c": (
             NativeField("Node", "f08", "moExtObject_c"),
             NativeField("Embed", "f10", "moFRData_c"),

@@ -2,6 +2,14 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
+# surface identifiers with three integers preserve their class tags and share this field order
+KTripleSurfaceFields = (
+    NativeField("Base", "er.FUN_4bba8790"),
+    NativeField("Scalar", "f38", "i32"),
+    NativeField("Scalar", "f3c", "i32"),
+    NativeField("Scalar", "f40", "i32"),
+)
+
 # current resolved owner field order comes from proven serializer rules rather than saved programs
 KReferenceFields = MappingProxyType(
     {
@@ -85,6 +93,7 @@ KReferenceFields = MappingProxyType(
                 ),
             ),
         ),
+        "moEndFace3IntSurfIdRep_c": KTripleSurfaceFields,
         "moEndFaceSurfIdRep_c": (NativeField("Base", "er.FUN_4bba41f0.FUN_4bbabca0"),),
         "moEntityIdRep_c.FUN_4bba8de0": (
             NativeField("Node", "f08"),
@@ -298,6 +307,7 @@ KReferenceFields = MappingProxyType(
                 ),
             ),
         ),
+        "moFromSktEnt3IntSurfIdRep_c": KTripleSurfaceFields,
         "moFromSktEntSurfIdRep_c": (NativeField("Base", "er.FUN_4bbaa6a0"),),
     }
 )
