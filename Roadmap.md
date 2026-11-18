@@ -33,6 +33,7 @@ Registration, same-format reconstruction and retained native bytes do not establ
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
 The [SOLIDWORKS guide](Documentation/Reference/Adapters/Solidworks.md) documents the production write restriction.
 PR #121 adds normal writer support for two independently qualified fixed-centre circle profiles. [Circle writer evidence](Documentation/Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md)
+PR #121 also registers a bounded native assembly writer for two or three direct occurrences of one dimensioned rectangular part and ordinary principal-plane mates. [Assembly writer evidence](Documentation/Changes/Solidworks/Construction/Assembly/SolidworksPublicAssemblyWriting.md)
 
 ## Destination
 

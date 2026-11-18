@@ -21,9 +21,7 @@ from tests.Convert.Solidworks.Research.AdapterBridge.Circles.MakeWriteCircle imp
 def TestCircleWrite() -> None:
     RegistryValue = GetRegistry()
     WriterValue = RegistryValue.GetWriter("SOLIDWORKS.SLDPRT")
-    assert WriterValue.info.Extensions == (".sldprt",)
-    assert not WriterValue.info.AliasNames
-    assert len(WriterValue.info.NativeCaps) == 6
+    assert WriterValue.info.part_extensions == (".sldprt",)
     with TempDirectory() as RootValue:
         for IsTop in (False, True):
             NameValue = (

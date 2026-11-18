@@ -481,8 +481,8 @@ qualify this internal SDK profile. A20 has two direct occurrences with
 coincident and distance mates. A21 has three with parallel and distance.
 All ten native phases and 992 numerical checks pass, including each
 generated distance edit, synchronized save and fresh reopen. The 26 scoped
-native-saved stream comparisons pass. The public writer and FCStd conversion
-counts are unaffected.
+native-saved stream comparisons pass. These internal cases add zero
+qualified FCStd conversions.
 
 The [portable registry assembly trial](records/SdkPortableAssemblyRegistryNative2026.md)
 generates a three-occurrence parent and a shared dimensioned child through an
@@ -490,6 +490,13 @@ explicit writer registry. Four native processes pass 440 comparisons and
 retain all six endpoints and three child drivers through a driving edit,
 synchronized save and fresh reopen. The 26 scoped archive streams round-trip
 exactly. This disclosed trial adds zero qualified FCStd conversions.
+
+The [normal assembly writer](records/SdkAssemblyPublicRegistration2026.md)
+reproduces both exact files from that registry trial and supports two or
+three direct occurrences of one dimensioned rectangular child with ordinary
+principal-plane mates. Its process checks cover preserved part output,
+native Windows path selection, controlled publication failure and a
+concurrently created companion. Original FCStd qualification remains open.
 
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256

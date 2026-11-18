@@ -9,24 +9,28 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan impo
     KPartPlan,
 )
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.AssemblyWriting.CanWriteAsm import CanWriteAsm
+from convert.adapters.solidworks.Core.AssemblyWriting.EmitAsmMut import EmitAsmMut
 from convert.adapters.solidworks.Core.Preparation.Circle.PlanCircle import PlanCircle
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
-from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
+from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# the bounded native writer reports only the standalone part formats and neutral feature combinations it can synthesize
+# the bounded native writer keeps standalone parts and complete owned planar assemblies in the existing canonical format domain
 class SldprtWriter(PairProtocol):
     __slots__ = ()
 
     # the registry needs independent write metadata to retain the existing assembly and drawing reader aliases
     @property
     def info(self) -> AdapterInfo:
-        return KPartWriteInfo
+        return KSldWriteInfo
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
+        if DocValue.assembly is not None:
+            return CanWriteAsm(DocValue, Target)
         try:
             PlanValue: KPartPlan
             try:
@@ -50,4 +54,6 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        if document.assembly is not None:
+            return EmitAsmMut(document, destination, options)
         return EmitNativeMut(document, destination, options)

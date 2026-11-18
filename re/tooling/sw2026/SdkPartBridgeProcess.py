@@ -136,7 +136,7 @@ def main():
                 "the unbound binary destination failed for the wrong reason")
     else:
         raise ValueError("normal public save admitted an unqualified writer")
-    require(destination.getvalue() == b"" and REGISTRY.GetWriter("solidworks.sldprt").info.extensions == (".sldprt",),
+    require(destination.getvalue() == b"" and REGISTRY.GetWriter("solidworks.sldprt").info.part_extensions == (".sldprt",),
             "part writer discovery or unbound stream atomicity differs")
     readback = public_reader(candidate)
     rejections = malformed(document, recipe, final_path, options)

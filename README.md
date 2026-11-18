@@ -26,7 +26,7 @@ Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) to 
 | Format               | Suffixes                  | Registration      |
 | -------------------- | ------------------------- | ----------------- |
 | SOLIDWORKS part      | `.SLDPRT`                 | Reader and bounded writer |
-| SOLIDWORKS assembly  | `.SLDASM`                 | Reader            |
+| SOLIDWORKS assembly  | `.SLDASM`                 | Reader and bounded writer |
 | SOLIDWORKS drawing   | `.SLDDRW`                 | Partial reader    |
 | FreeCAD              | `.FCStd`                  | Reader and writer |
 | CATIA V5             | `.CATPart`, `.CATProduct` | Reader and writer |

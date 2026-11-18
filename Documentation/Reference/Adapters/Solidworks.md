@@ -74,16 +74,21 @@ Both pre-writer locked assemblies also pass the internal SDK comparison for
 one aligned coincident or parallel mate paired with a positive driving
 distance. The two or three direct occurrences of one dimensioned child
 retain the complete measured native trees and actual datum ownership.
-The two distance edits pass synchronized save and fresh reopen. Public
-assembly writing remains disabled.
+The two distance edits pass synchronized save and fresh reopen.
 [Original planar groups](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksOriginalPlanarMateNative.md)
 
 An explicitly supplied writer registry also builds the parent and shared
 child from a portable document. A disclosed ordered distance, coincident and
 parallel group passes four native processes, a 42 to 57.73 mm driving edit,
 child-first save, and fresh reopen. Kit preserves all six mate endpoints and
-26 scoped archive streams. Default assembly registration remains open.
+26 scoped archive streams.
 [Portable registry native trial](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPortableAssemblyRegistryNative.md)
+
+The normal writer accepts this bounded assembly profile through an
+`.SLDASM` filesystem destination and generates its shared child beside it.
+The initial group uses two or three direct occurrences and aligned
+coincident, parallel and positive driving distance mates on principal
+planes. [Assembly writing profile](SolidworksAssemblyWriting.md)
 
 The internal recursive composer attaches actual generated part and subassembly targets to fully resolved rigid occurrences. It derives expanded activity and world bounds from the dependency graph. A three-definition hierarchy and four-definition repeated hierarchy pass 156 typed stream comparisons. Thirty earlier single- and ordered-mate bundles retain exact bytes. [Generated assembly targets](../../Changes/Solidworks/Archive/Assembly/SolidworksGeneratedAssemblyTargets.md)
 

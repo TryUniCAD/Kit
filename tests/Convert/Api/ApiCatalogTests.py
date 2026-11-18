@@ -36,7 +36,7 @@ def CheckDiscovery() -> None:
     assert WriterIds == tuple(sorted(set(WriterIds)))
     assert FirstIds == SecondIds == tuple(sorted(set(ReaderIds) | set(WriterIds)))
     assert KLegacyFormats <= set(ReaderIds) & set(WriterIds)
-    CheckSwWriter(FirstRegistry)
+    AssertSwWriter(FirstRegistry)
     assert "fusion.f3d" in ReaderIds
     for FormatId in ("f3d", "fusion.f3d"):
         assert FirstRegistry.reader(FormatId).info.format_id == "fusion.f3d"
@@ -54,15 +54,17 @@ def CheckDiscovery() -> None:
     AssertCaps((*ReaderValues, *WriterValues))
 
 
-# discovery must bind the proven part writer without routing the existing reader aliases to it
-def CheckSwWriter(RegistryData: AdapterRegistry) -> None:
+# both writer extensions must share the canonical registration while the drawing alias remains read only
+def AssertSwWriter(RegistryData: AdapterRegistry) -> None:
     PartWriter = RegistryData.writer("solidworks.sldprt")
-    assert PartWriter.info.extensions == (".sldprt",)
-    assert not PartWriter.info.aliases
+    assert PartWriter.info.extensions == (".sldprt", ".sldasm")
+    assert PartWriter.info.part_extensions == (".sldprt",)
+    assert PartWriter.info.assembly_extensions == (".sldasm",)
+    assert RegistryData.writer("solidworks.sldasm") is PartWriter
     for FormatId in ("solidworks.sldasm", "solidworks.slddrw"):
         assert RegistryData.reader(FormatId).info.format_id == "solidworks.sldprt"
-        with Pytest.raises(NotFoundError):
-            _ = RegistryData.writer(FormatId)
+    with Pytest.raises(NotFoundError):
+        _ = RegistryData.writer("solidworks.slddrw")
 
 
 # the registry advertises capabilities consistently across discovered adapter families
