@@ -53,6 +53,6 @@ The [audit tool](../../tooling/sw2026/AuditThroughSaved.py) verifies the termina
 
 ## Remaining boundary
 
-Reverse/Top and both/Right have cold generated proofs but no native verdict in this receipt. Independent discovery packets use their already frozen authored geometry and predictions. Only destination metadata may change for a fresh packet, and the logical stream difference must be measured.
+The separate [directional lifecycle receipt](SdkThroughAllDirectionalNative2026.md) now gives native results for reverse Top and dual Right. Those trials retain their already frozen authored geometry and predictions and measure the stream changes caused by destination metadata.
 
 Keep both analytic held-out cuts sealed until the complete translator, predictor, comparator, runtime and writer method is frozen. Through-all boss extent, selected-body semantics and normal public registration remain unfinished scope. No held-out corpus credit follows from this G01 self-lifecycle result.

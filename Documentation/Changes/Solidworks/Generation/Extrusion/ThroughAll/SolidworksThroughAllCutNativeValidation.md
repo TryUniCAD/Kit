@@ -17,3 +17,5 @@ The candidate and predictions remained unchanged.
 
 This qualifies the measured disclosed artifact only.
 Original held-out comparison, selected-body equivalence, boss extent and public writer registration remain pending.
+
+The reverse Top and dual Right follow-up candidates also pass rebuild, controlled stock-depth edits, clean saves and fresh reopens. Their two derivatives pass twelve exact linked stream comparisons. [Directional native lifecycle](../../../../../../re/solidworks/records/SdkThroughAllDirectionalNative2026.md)
