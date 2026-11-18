@@ -215,13 +215,14 @@ It compares typed fields and dependency roles, normalizes explicitly declared qu
 Unclassified references, unsupported domains and exhausted budgets cannot produce equality.
 The [guide](SemanticComparison.md) defines its input seals, bounds and research-only result scope.
 
-| Child ID | Deliverable                                                         | Owner      | Status   | Remaining evidence                                                                                                                                                                                         |
-| -------- | ------------------------------------------------------------------- | ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A06a     | Bounded portable graph projection, matching and process command     | jdharcourt | checking | Static checks passed; hosted process execution remains required                                                                                                                                            |
-| A06b     | Independently qualified equal, different and ambiguous native pairs | jdharcourt | blocked  | A02d evidence admission, frozen rules and A04/A05 source inventories remain required; zero pairs qualified                                                                                                 |
-| A06c     | Controller comparison worker and immutable report artifacts         | jdharcourt | checking | The [worker](../../Changes/Research/Controller/SemanticComparisonWorker.md) implements the existing protocol; hosted controller process execution remains required                                         |
-| A06d     | Native reader artifacts chained into comparison jobs                | jdharcourt | checking | The [reader bridge](../../Changes/Research/Readers/Comparison/NeutralReaderWorker.md) preserves full codec documents and source evidence; hosted native-file/controller process execution remains required |
-| A06e     | Recovered Fusion raw-chain supplemental admission                   | Codex      | complete | Original sealed Phase A/B replay passed through the public preflight; missing SOLIDWORKS custody and zero qualified pairs remain explicit                                                                  |
+| Child ID | Deliverable                                                          | Owner      | Status   | Remaining evidence                                                                                                                                                                                         |
+| -------- | -------------------------------------------------------------------- | ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A06a     | Bounded portable graph projection, matching and process command      | jdharcourt | checking | Static checks passed; hosted process execution remains required                                                                                                                                            |
+| A06b     | Independently qualified equal, different and ambiguous native pairs  | jdharcourt | blocked  | A02d evidence admission, frozen rules and A04/A05 source inventories remain required; zero pairs qualified                                                                                                 |
+| A06c     | Controller comparison worker and immutable report artifacts          | jdharcourt | checking | The [worker](../../Changes/Research/Controller/SemanticComparisonWorker.md) implements the existing protocol; hosted controller process execution remains required                                         |
+| A06d     | Native reader artifacts chained into comparison jobs                 | jdharcourt | checking | The [reader bridge](../../Changes/Research/Readers/Comparison/NeutralReaderWorker.md) preserves full codec documents and source evidence; hosted native-file/controller process execution remains required |
+| A06e     | Recovered Fusion raw-chain supplemental admission                    | Codex      | complete | Original sealed Phase A/B replay passed through the public preflight; missing SOLIDWORKS custody and zero qualified pairs remain explicit                                                                  |
+| A06f     | Typed native driving roles and value-preserving graph correspondence | Codex      | complete | Local decoder/codec and process corrections verified at the commit containing this entry; A06b remains blocked with zero qualified pairs                                                                   |
 
 The local A06b follow-up starts from PR #158 head `5018f106b8287c83756233c677cc155e8b963357` on `codex/pr158-pair-qualification`.
 The original Fusion source handoff and corrected private run were recovered from their existing task custody.
@@ -229,6 +230,16 @@ The [recovered admission change](../../Changes/Research/Controller/Admission/Rec
 The SOLIDWORKS raw chains, coordinated manifest, frozen-rule evaluation, and independent equal/different/ambiguous case adjudication remain required.
 Native ambiguous evidence cannot be replaced by synthetic duplicated graph candidates.
 The source recovery and supplemental observation do not complete A06b or qualify a conversion.
+
+A06f is the bounded implementation in the commit containing this entry, delivered through PR #158.
+The [typed dimension-role correction](../../Changes/Fusion/Adapter/FusionLinearDrivingRoles.md) promotes only uniquely bound, validated native driving dimensions; the [correspondence correction](../../Changes/Research/Readers/Comparison/NativeDirectionMatching.md) preserves unique equal line fields before neighborhood preferences.
+An independent local replay of the sealed Fusion Phase B observations checked 28 native driving dimensions and 56 ordered targets across fourteen P01/P03 discovery archives.
+The final local 151-case process sweep passed decoder/codec, role safety, radial compatibility, public rectangle, semantic comparison, worker, and native-reader bridge controls.
+The direct P03 direction comparison retains all eight loop-reference differences, signed depth and body-bound differences, and all seventy unresolved source issues.
+These are local results, not a fresh native application run or hosted acceptance.
+A06f depends on the recovered A06e evidence and existing typed decoders; its exit condition is the bounded corrections and focused local verification recorded above.
+The SOLIDWORKS raw chains remain unavailable within the searched repository, reachable-history, compressed-asset, and linked Windows CI artifact scope; this is not a claim of global nonexistence.
+A06b remains blocked with zero qualified pairs, and its profile semantics, coordinated manifest, frozen-rule evaluation, genuine native ambiguity, hosted checks, target acceptance, and held-out requirements remain open.
 
 Observed graph equality does not qualify a reader, writer or native conversion.
 The [sketch-reference repair](../../Changes/Research/Readers/Comparison/SemanticSketchReferences.md) recognizes a definition-free reference to a unique declared sketch in both graph projection and reader inventory, retaining operation-definition and unresolved-target findings.
