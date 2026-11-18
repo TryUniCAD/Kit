@@ -334,8 +334,11 @@ typed graph. Both maps and object identities survive. That proof records an
 initial UI state rejection for the present PW material owner. The later
 [typed detailing verification](records/DrawingDetailingIndexRead2026.md)
 reaches the view rendering check. The [rendering-state verification](records/DrawingViewRendering2026.md)
-advances both originals to sheet annotations. Other stream parity and complete
-drawing admission remain open.
+exposes an annotation guard triggered by a view-owned profile display. The
+[typed profile display check](measurements/2026/DrawingProfileDisplayRead01.json)
+then completes both internal named Definition round trips with identical bytes,
+map slots and actual aliases. Portable display, colour and edge links and full
+drawing conversion remain open.
 
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
 passed both native save modes under the original and Kit containers.

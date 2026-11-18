@@ -1,3 +1,9 @@
+from convert.adapters.solidworks.Drawing.Definition.Profiles.ProfileSet import (
+    ProfileSet,
+)
+from convert.adapters.solidworks.Drawing.Definition.Profiles.ReadAllProfiles import (
+    ReadAllProfiles,
+)
 from convert.adapters.solidworks.Drawing.Definition.Rendering.ReadGraphRender import (
     ReadGraphRender,
 )
@@ -39,7 +45,22 @@ class FrontRead:
             self.GraphValue.DocumentValue, self.GraphValue.VersionValue
         )
 
+    # profile display references require their actual owners before portable sketch resolution exists
+    @property
+    def ProfileDisplays(self) -> tuple[ProfileSet, ...]:
+        return ReadAllProfiles(
+            self.GraphValue.DocumentValue, self.GraphValue.VersionValue
+        )
+
     # complete byte grammar cannot silently imply projection of native model edge identities
     @property
     def Unprojected(self) -> tuple[str, ...]:
-        return self.DetailingMap.Unprojected + self.Rendering.Unprojected
+        return (
+            self.DetailingMap.Unprojected
+            + self.Rendering.Unprojected
+            + (
+                ("drawing.profile_displays",)
+                if any(Value.ItemsValue for Value in self.ProfileDisplays)
+                else ()
+            )
+        )

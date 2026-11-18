@@ -1,0 +1,352 @@
+{
+  "component_profile_dependency": {
+    "current_ordinary_nonDB_body_required": true,
+    "portable_child_profile_resolution_admitted": false,
+    "record": "re/solidworks/records/DrawingComponentProfileArchive2026.json",
+    "sha256": "c2fbab148e1502e5f3ca93b5f4415af6f08cd6774d1de354ffe0bf98b83eee04"
+  },
+  "functions": {
+    "can_hide_suppressed_getter": {
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 10,
+          "end": "0x4be7547a",
+          "sha256": "f7708e1ad66ad8b8e1a929fe7b301b0cc8aba4abc1ff62843862876fc931ea64",
+          "start": "0x4be75470"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "can_hide_suppressed_setter": {
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 31,
+          "end": "0x4be7553f",
+          "sha256": "01e57e65d234c6402c7378c0764bf175415c0d4822f0e52687c4c44bdca55b8e",
+          "start": "0x4be75520"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "component_feature_resolver": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 79,
+          "end": "0x4be754cf",
+          "sha256": "8e896a544c31f666435838d62e859dae7d9d646e286bc0119c09738731990a59",
+          "start": "0x4be75480"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be75480",
+          "end": "0x4be754cf",
+          "unwind": "0x4d385bd8"
+        }
+      ]
+    },
+    "detail_folder_serialize": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 2065,
+          "end": "0x4ba4ad31",
+          "sha256": "61fcfccf508015bf754e7b663c1b80c60280c07d2841c9254e6a5131927a2e13",
+          "start": "0x4ba4a520"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4ba4a520",
+          "end": "0x4ba4ad31",
+          "unwind": "0x4d4a9940"
+        }
+      ]
+    },
+    "display_object_serialize": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 2776,
+          "end": "0x4ba4de98",
+          "sha256": "536c87e8149609edafca6c1f173d23f0fe9df700acfd02b9a157d0ce530f470d",
+          "start": "0x4ba4d3c0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4ba4d3c0",
+          "end": "0x4ba4de98",
+          "unwind": "0x4d4a95b8"
+        }
+      ]
+    },
+    "drview_getter": {
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 5,
+          "end": "0x4b285fe5",
+          "sha256": "c0151d9feab268cccf5281f8b14121f2c8f7d02892d3177cc3efa49b031e22ec",
+          "start": "0x4b285fe0"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "owner_getter": {
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 5,
+          "end": "0x4b289d35",
+          "sha256": "efbd103662ccda4c0f468ab461257f1b371879ef59acc4189da3ceb1394859cc",
+          "start": "0x4b289d30"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "profile_collection_getter": {
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM",
+      "ranges": [
+        {
+          "bytes": 8,
+          "end": "0x4b288ab8",
+          "sha256": "a48fdfedf79c3216d3b818b5e10d0d07569e8add70b9d0d73333ca08fef78f2a",
+          "start": "0x4b288ab0"
+        }
+      ],
+      "unwind_rows": []
+    },
+    "profile_display_default_constructor": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 162,
+          "end": "0x4be74f02",
+          "sha256": "e40e8f4e9dbdd3673cc8b5355367ff7265942e50167168e06ef9e1a501de3449",
+          "start": "0x4be74e60"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be74e60",
+          "end": "0x4be74f02",
+          "unwind": "0x4d53ca98"
+        }
+      ]
+    },
+    "profile_display_runtime_factory": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 46,
+          "end": "0x4ba453be",
+          "sha256": "ebc9355b8a76a1ae8acddb0d2e258eeb1cc97df883d77405026d60393b82f8e8",
+          "start": "0x4ba45390"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4ba45390",
+          "end": "0x4ba453be",
+          "unwind": "0x4d38969c"
+        }
+      ]
+    },
+    "profile_display_serialize": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 793,
+          "end": "0x4ba4e1b9",
+          "sha256": "0be8f85a39a463a5d1f3c454617c2b5fc9367bd206832f2a8e7dd40afb8faeed",
+          "start": "0x4ba4dea0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4ba4dea0",
+          "end": "0x4ba4e1b9",
+          "unwind": "0x4d4aa1bc"
+        }
+      ]
+    },
+    "profile_feature_getter": {
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure",
+      "ranges": [
+        {
+          "bytes": 62,
+          "end": "0x4be7550e",
+          "sha256": "5db08955db044f0799e630573b4383f8bc43f453111065c8221523d850f64621",
+          "start": "0x4be754d0"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4be754d0",
+          "end": "0x4be7550e",
+          "unwind": "0x4d385b40"
+        }
+      ]
+    }
+  },
+  "heldout_acceptance": false,
+  "module": {
+    "base": "0x4b140000",
+    "bytes": 46536280,
+    "file_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "name": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_acceptance": false,
+  "native_execution": false,
+  "native_fields": {
+    "display.f1e0": {
+      "constructor_empty_site": "0x4be74e97..0x4be74eb9",
+      "count_read_site": "0x4ba4dfba",
+      "count_store_site": "0x4ba4e0fa",
+      "key_read_site": "0x4ba4dfe7",
+      "key_store_site": "0x4ba4e116",
+      "read_version_min": "0x105f",
+      "selected_admission": "exact empty set; nonempty semantics remain excluded",
+      "wire": "signed32 native set size and signed32 integer keys"
+    },
+    "display.f200": {
+      "getter_formula": "flags & 1",
+      "native_bit0": "getCanHideSuppressedSketch",
+      "native_factory_assignment_site": "0x4be74eed",
+      "native_factory_initial_word": 1,
+      "read_site": "0x4ba4e0d9",
+      "read_version_min": "0x371a",
+      "reader_uses_factory_word_as_input_default": false,
+      "selected_admission": "only known bit0, exact integer0 or1; no saved default",
+      "setter_formula": "nonzero input sets bit0, zero input clears bit0; other bits retained",
+      "store_site": "0x4ba4e182",
+      "wire": "signed32 flag word"
+    },
+    "display.f30": {
+      "getter": "0x4b289d30",
+      "meaning": "actual owner CObject; selected source is its actual detail folder",
+      "native_name": "getOwner",
+      "wire": "archive object reference"
+    },
+    "display.f40": {
+      "getter": "0x4b285fe0",
+      "meaning": "actual drawing view",
+      "native_name": "getDrView",
+      "wire": "archive object reference"
+    },
+    "display.f48": {
+      "meaning": "component-feature reference used by actual virtual+0x310 resolver; selected concrete class moCompProfile_c",
+      "portable_child_profile_join": "unprojected",
+      "wire": "archive object reference"
+    },
+    "folder.f8f8": {
+      "getter": "0x4b288ab0",
+      "member": "moDetailFolder_c+0x8f8",
+      "native_name": "getProfileFeatures",
+      "read_version_min": "0x459",
+      "serialize_site": "0x4ba4a881",
+      "wire": "embedded suObList of actual display-profile feature references"
+    }
+  },
+  "normal_context": {
+    "archive_version": 19000,
+    "common_display_special_condition_mask_excluded": "0x10000001",
+    "database_or_filtered_raw_normalization_added": false,
+    "schema": 1
+  },
+  "observation": {
+    "candidate_manifest_sha256": "0864aa1eea2352baba379a7f5acb1f0a45be0db63531aa1cd79e4e149990bbe3",
+    "normal_sheet_annotation_rejections_retained": true,
+    "report_sha256": "931ddb3d646bfeeb85a41381a537aed5ccc9e6af0b78eefc1916f882c499d5a7",
+    "rows": [
+      {
+        "active_sheet_collections_empty": true,
+        "active_sheet_detail_folder_index": 133,
+        "actual_rows": 1,
+        "captured_values_used_as_defaults": false,
+        "case": "H01SheetA",
+        "item_class": "moDisplayProfileFeature_c",
+        "item_owner_view_and_component_reference_retained": true,
+        "item_schema": 1,
+        "occupied_folder_index": 138,
+        "occupied_list": "f8f8"
+      },
+      {
+        "active_sheet_collections_empty": true,
+        "active_sheet_detail_folder_index": 133,
+        "actual_rows": 1,
+        "captured_values_used_as_defaults": false,
+        "case": "H02SheetB",
+        "item_class": "moDisplayProfileFeature_c",
+        "item_owner_view_and_component_reference_retained": true,
+        "item_schema": 1,
+        "occupied_folder_index": 138,
+        "occupied_list": "f8f8"
+      }
+    ]
+  },
+  "original_heldout_verdict_changed": false,
+  "original_writer_changed": false,
+  "proposed_selected_retention": {
+    "aliases": "display f30 is actual folder; f40 is actual owning view; view f630 is actual folder",
+    "annotation_bucket": "remains absent under existing guard",
+    "auxiliary_and_linked_lists": "empty only with exact counts; optional ff8 null and linked0",
+    "can_hide_suppressed_flag": "known bit0 only",
+    "collection": "view-owned f8f8 only",
+    "fresh_constructor_added": false,
+    "item": "concrete moDisplayProfileFeature_c schema1",
+    "native_integer_set": "empty only",
+    "other_detail_collections": "remain empty under existing guard",
+    "reference": "concrete moCompProfile_c schema1",
+    "unprojected_marker": "drawing.profile_displays"
+  },
+  "public_adapter_changed": false,
+  "remaining_boundaries": [
+    "external component-profile to actual child profile semantic resolution",
+    "nonempty native integer set semantics",
+    "other profile flag bits",
+    "actual annotations and other33 detail-folder collection families"
+  ],
+  "rtti": [
+    {
+      "class": "moDisplayProfileFeature_c",
+      "rtti_base_names": [
+        ".?AVmoDisplayProfileFeature_c@@",
+        ".?AVmoDisplayFeature_c@@",
+        ".?AVmoDisplayObject_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@"
+      ],
+      "serialize_target": "0x4ba4dea0",
+      "vtable": "0x4d039e40"
+    },
+    {
+      "class": "moDisplayFeature_c",
+      "rtti_base_names": [
+        ".?AVmoDisplayFeature_c@@",
+        ".?AVmoDisplayObject_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@"
+      ],
+      "serialize_target": "0x4ba4bbd0",
+      "vtable": "0x4d039b20"
+    }
+  ],
+  "schema": "kit.sw2026.drawing-profile-display-retention-proof.v1",
+  "source_saved_defaults": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "vm_access": false
+}

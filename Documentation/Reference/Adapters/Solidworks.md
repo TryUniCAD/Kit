@@ -183,7 +183,7 @@ component keys, downstream identifiers and reference aliases. A populated
 index records `drawing.detailing_edges` as unprojected. The typed view
 state preserves an absent or present empty sketch cache and actual native
 occurrence colour rows. The component-colour association remains unprojected.
-Both originals reach the strict sheet annotation check.
+The internal Definition codec also preserves the view-owned profile display and its actual folder, view and component-profile aliases. Both disclosed Right and Top Definitions now pass the complete named read and store byte for byte. Portable detailing, occurrence colours and profile display associations remain open.
 [Drawing component profile](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksComponentProfileArchive.md)
 [Drawing reference chains](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingReferenceChains.md)
 [Drawing edge references](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingEdgeReferences.md)
@@ -198,6 +198,7 @@ Both originals reach the strict sheet annotation check.
 [Empty drawing appearance state](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingEmptyAppearanceState.md)
 [Drawing detailing index](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingDetailingIndex.md)
 [Drawing view rendering state](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingViewRendering.md)
+[Drawing profile displays](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingProfileDisplays.md)
 
 ## Feature history
 

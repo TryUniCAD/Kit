@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Drawing.Definition.Profiles.ReadProfileSet import (
+    ReadProfileSet,
+)
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Drawing.Definition.Emission.CheckEmptyRows import (
@@ -30,9 +33,11 @@ def CheckBlankNode(NodeValue: ArchiveNode) -> None:
             raise BodyUnsupported(
                 "blank drawing Definition excludes annotation buckets"
             )
+        _ = ReadProfileSet(NodeValue, 19000)
         for RuleValue in KDetailFields[ClassName]:
             if (
                 RuleValue.TypeValue == "rf.suObList"
+                and RuleValue.NameValue != "f8f8"
                 and NeedConceptMap(FieldsValue[RuleValue.NameValue])["items"]
             ):
                 raise BodyUnsupported(
