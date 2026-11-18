@@ -21,6 +21,9 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.GeometryFields import (
 from convert.adapters.solidworks.Archive.Bodies.Layouts.MaterialFields import (
     KMaterialFields,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.PropertyFields import (
+    KPropertyFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.Layouts.ReferenceFields import (
     KReferenceFields,
 )
@@ -35,6 +38,7 @@ KBodyLayouts = MappingProxyType(
         **KFeatureFields,
         **KGeometryFields,
         **KMaterialFields,
+        **KPropertyFields,
         **KReferenceFields,
     }
 )

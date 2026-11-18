@@ -145,6 +145,7 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
 from convert.adapters.solidworks.Core.ConfigurationInfo import WithCmgrInfo
+from convert.adapters.solidworks.Core.Properties.WithPartProps import WithPartProps
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
 )
@@ -426,7 +427,7 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
-    DocValue = WithCmgrInfo(DocValue, Archive)
+    DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive), Archive)
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(DocValue, DataValue)

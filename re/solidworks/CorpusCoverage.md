@@ -342,6 +342,12 @@ passes all three independent width, height and depth edits from the same
 generated part. The corner remains at the model origin in every native state.
 Both controls and all eight processes pass. The resulting synthetic shape
 establishes the editable geometry needed for the scoped FreeCAD primitive.
+
+The [normal part text reader](records/PartTextPropertyRead2026.md) recovers
+the current compatible summary, file and configuration text with the actual
+configuration owner on five files. The advanced property manager case keeps
+its model read and reports its unsupported property scope. The six CMgr
+streams re-emit exactly.
 Complete source property and semantic mapping remains open.
 
 The [dimensioned assembly trials](measurements/2026/GeneratedDimensionedAssembliesNative04.json)
