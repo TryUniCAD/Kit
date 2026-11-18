@@ -19,3 +19,10 @@ separately before broadening path admission. The public writer remains disabled.
 
 The [bridge record](../../../../../../re/solidworks/records/SdkPlainPartAdapterBridge2026.md)
 records the source contract, process proof and acceptance boundary.
+
+The later narrow [standalone host policy](../../../../../../re/solidworks/records/SdkStandaloneHostPath2026.md)
+can keep an explicitly authored neutral self locator for an absolute POSIX final
+destination. The actual final basename still governs selection and must match the
+neutral model. This exception claims no drive mapping and cannot supply linked
+child-reference identity. The original Windows bridge proof remains bound to its
+original snapshot.

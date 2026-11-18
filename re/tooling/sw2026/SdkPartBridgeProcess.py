@@ -62,7 +62,7 @@ def malformed(document, recipe, target, options):
         ("unnamed_stream", document, BytesIO(), recipe, WriteOptions()),
         ("text_stream", document, StringIO(), recipe, options),
         ("relative_path", document, name, recipe, WriteOptions()),
-        ("unmapped_host_path", document, "/tmp/" + name, recipe, WriteOptions()),
+        ("unproven_host_locator", document, "/tmp/" + name, replace(recipe, OutputValue=SelfFileInput(r"C:\unproved namespace" + "\\" + name, recipe.OutputValue.SavedAt)), WriteOptions()),
         ("drive_relative_path", document, "C:" + name, recipe, WriteOptions()),
         ("assembly_suffix", document, target[:-7] + ".SLDASM", recipe, WriteOptions()),
         ("different_final_name", document, target, recipe, replace(options, values={"final_destination": r"C:\KitBridge\different.SLDPRT"})),

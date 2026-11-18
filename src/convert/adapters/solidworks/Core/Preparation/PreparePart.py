@@ -40,7 +40,7 @@ def PreparePart(
     ):
         raise ValueError("requested write configuration is unavailable")
     OutputValue = FinalPartPath(
-        TargetValue, SettingsValue, RecipeValue.OutputValue.SavedAt
+        TargetValue, SettingsValue, RecipeValue.OutputValue, PlanValue.NameValue
     )
     InputValue = BindPartIntent(DocumentValue, PlanValue, RecipeValue, OutputValue)
     return MakeBlindPart(DocumentValue, InputValue)
