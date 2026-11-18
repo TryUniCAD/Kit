@@ -11,8 +11,13 @@ MEMBERS = {
     "IComponent2": ("GetID", "Name2", "Transform2", "SetTransformAndSolve2", "FeatureByName", "GetModelDoc2", "GetPathName", "ReferencedConfiguration", "IsFixed", "IsSuppressed"),
     "IMate2": ("Type", "Alignment", "GetMateEntityCount", "MateEntity"),
     "IMateEntity2": ("ReferenceComponent", "ReferenceType2", "Reference", "EntityParams"),
-    "IFeature": ("GetID", "Name", "GetTypeName2", "GetSpecificFeature2", "GetFirstDisplayDimension"),
-    "IModelDoc2": ("Parameter", "ForceRebuild3", "SetSaveFlag", "Save3", "GetUpdateStamp"),
+    "IFeature": ("GetID", "Name", "GetTypeName2", "GetSpecificFeature2", "GetFirstDisplayDimension", "Select2"),
+    "IModelDoc2": ("Parameter", "ForceRebuild3", "SetSaveFlag", "Save3", "GetUpdateStamp", "EditSketch"),
+    "IPartDoc": ("FeatureByName",),
+    "ISketchManager": ("ActiveSketch", "InsertSketch"),
+    "ISketch": ("GetSketchSegments", "GetConstrainedStatus"),
+    "ISketchLine": ("GetStartPoint2", "GetEndPoint2"),
+    "ISketchPoint": ("GetID", "X", "Y", "Z", "SetCoords"),
     "IDimension": ("SystemValue", "SetSystemValue3", "DrivenState", "ReadOnly", "FullName"),
     "IMathUtility": ("CreateTransform",),
     "IMathTransform": ("ArrayData",),
@@ -64,6 +69,9 @@ def metadata():
         signatures = {row["names"][0]: row for row in interfaces["IAssemblyDoc"]["members"]}
         require(len(signatures["AddMate5"]["names"]) == 16 and len(signatures["AddComponents3"]["names"]) == 4,
                 "the native author method argument counts differ")
+        setter, = [row for row in interfaces["ISketchPoint"]["members"] if row["names"][0] == "SetCoords"]
+        require(len(setter["names"]) == 4 and setter["return_type"].startswith("(11,"),
+                "the point placement prerequisite must expose three coordinates and a boolean result")
         return {"schema": "kit.sw2026.perpendicular-api-metadata.v1", "interfaces": interfaces, "enums": enums,
                 "libraries": {name: {"guid": str(value.GetLibAttr()[0]), "major": value.GetLibAttr()[3], "minor": value.GetLibAttr()[4]}
                               for name, value in libraries.items()}, "native_processes_started": 0, "passed": True}

@@ -42,11 +42,22 @@ def prepare(args):
     copyfile(seed, root / "Control.SLDPRT")
     copyfile(source, root / "NativeBinding.json")
     write_json(root / "Disclosed.json", {"schema": SPEC_SCHEMA, "cases": disclosed_cases()})
+    sealed_source = None
+    if args.previous_packet is not None:
+        prior_file = checked(args.previous_packet.resolve(strict=True), args.previous_packet_sha256)
+        prior_job = json.loads(prior_file.read_bytes())
+        progress = json.loads((prior_file.parent / "Progress/D00/seal/Record.json").read_bytes())
+        require(prior_job["schema"] == SCHEMA and prior_job["guest_private_base"] == str(base)
+                and progress["packet_sha256"] == args.previous_packet_sha256 and progress["passed"] is True,
+                "the prior opaque sealed specification lock differs")
+        sealed_source = {"windows_path": str(base / args.previous_packet_sha256 / "D00" / "SealedSpecs.json"),
+                         "sha256": progress["sealed_spec_sha256"]}
     packet = root / "Source.json"
     write_json(packet, {"schema": SCHEMA, "oracle_sha256": ORACLE, "control_sha256": CONTROL,
                         "native_binding_sha256": digest(root / "NativeBinding.json"), "tools_sha256": hashes,
                         "disclosed_sha256": digest(root / "Disclosed.json"), "guest_private_base": str(base),
                         "heldout_designs_guest_private": True, "writer_output_count": 0, "native_acceptance": False,
+                        "sealed_source": sealed_source,
                         "scope": "ordinary single perpendicular datum-plane source construction and valid live reorientation plus child-depth persistence"})
     expected = digest(packet)
     command = [sys.executable, "-B", str(tools / "AuthorPerpendicularMateSources.py"), "verify", str(packet), "--packet-sha256", expected]
@@ -87,6 +98,8 @@ def main():
     parser.add_argument("--native-evidence", required=True, type=Path)
     parser.add_argument("--guest-private-base", default=r"C:\KitPerpendicularSource121")
     parser.add_argument("--guest-python", default="-3.12", choices=("-3.11", "-3.12"))
+    parser.add_argument("--previous-packet", type=Path)
+    parser.add_argument("--previous-packet-sha256")
     args = parser.parse_args()
     print(json.dumps(prepare(args), sort_keys=True))
 

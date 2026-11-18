@@ -20,6 +20,7 @@ CONTROL = "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
 SCRIPT = Path(__file__).resolve()
 TOOLS = ("AuthorPerpendicularMateSources.py", "PerpendicularSourcePlan.py", "PerpendicularApiMetadata.py", "PerpendicularMateEvidence.py",
          "PreparePerpendicularMateSources.py",
+         "PositionPerpendicularChild.py",
          "AuthorCurves.py", "AuthorAssemblySources.py", "AssemblyMateEvidence.py", "InspectFresh.py", "InspectCircleSketch.py", "ObserveAssemblyLoad.py", "OracleIdentity.py", "Swapp.py")
 PHASES = ("metadata", "seal", "before", "author", "reopen-source", "reopen-edited", "after", "lock")
 
@@ -144,6 +145,9 @@ def make_sources(author, controller, case, base, seed):
         require(parameter is not None and int(author.get(parameter, "SetSystemValue3", value, 1, Swapp.nothing())) == 0,
                 "an independently authored source dimension was rejected")
     require(bool(author.get(child, "ForceRebuild3", False)), "the authored child did not rebuild")
+    from PositionPerpendicularChild import position_child
+
+    position_child(author, child, case)
     template = Path(author.rec.call("resolve registered native assembly template", controller.template, "assembly"))
     require(template.is_absolute() and template.suffix.lower() == ".asmdot" and template.is_file(), "the registered native assembly template is unavailable")
     model = author.get(controller.app, "NewDocument", str(template), 0, 0.0, 0.0)
@@ -300,7 +304,14 @@ def run(args, path, job):
                 previous(root, "D00", "metadata", args.packet_sha256)
                 file = private / "SealedSpecs.json"
                 require(not file.exists(), "sealed source specifications are immutable")
-                write_json(file, {"schema": SPEC_SCHEMA, "cases": heldout_cases()})
+                source = job.get("sealed_source")
+                if source is None:
+                    write_json(file, {"schema": SPEC_SCHEMA, "cases": heldout_cases()})
+                else:
+                    prior_file = Path(source["windows_path"])
+                    checked(prior_file, source["sha256"], Path(job["guest_private_base"]))
+                    copyfile(prior_file, file)
+                    checked(file, source["sha256"], private)
                 result = {"sealed_spec_sha256": digest(file)}
             elif phase in ("before", "after"):
                 previous(root, "D00", "metadata", args.packet_sha256)
