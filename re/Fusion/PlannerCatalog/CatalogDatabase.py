@@ -1,8 +1,6 @@
 from collections import Counter
 from csv import writer
 from hashlib import sha256
-from json import loads
-from pathlib import Path
 from sqlite3 import connect, sqlite_version
 
 from CatalogRows import JsonText

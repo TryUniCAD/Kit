@@ -3,7 +3,7 @@ from hashlib import sha256
 from pathlib import Path
 from uuid import UUID
 
-from CatalogRows import JsonText, ReadSource
+from CatalogRows import JsonText
 
 
 # guid normalization joins captured identities without corrupting symbolic metatype identifiers

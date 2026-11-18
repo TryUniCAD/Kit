@@ -1,6 +1,5 @@
 from hashlib import sha256
 from json import dumps, loads
-from pathlib import Path
 
 
 # canonical metadata keeps inventories reproducible without retaining executable vendor source
@@ -19,13 +18,13 @@ def ReadSource(SourcePath):
 
 # shared records enforce identity and provenance before any catalogue files are published
 class CatalogRows:
-    def __init__(Self):
-        Self.Sources = {}
-        Self.Items = {}
-        Self.Relations = {}
-        Self.Gaps = {}
+    def __init__(self):
+        self.Sources = {}
+        self.Items = {}
+        self.Relations = {}
+        self.Gaps = {}
 
-    def AddSource(Self, SourceId, Kind, Label, SourcePath, Version="", Details=None):
+    def AddSource(self, SourceId, Kind, Label, SourcePath, Version="", Details=None):
         Content = ReadSource(SourcePath)
         Row = (
             SourceId,
@@ -35,54 +34,54 @@ class CatalogRows:
             Version,
             JsonText(Details or {}),
         )
-        if SourceId in Self.Sources and Self.Sources[SourceId] != Row:
+        if SourceId in self.Sources and self.Sources[SourceId] != Row:
             raise ValueError("Conflicting source identity: " + SourceId)
-        Self.Sources[SourceId] = Row
+        self.Sources[SourceId] = Row
         return Content
 
-    def AddItem(Self, ItemId, Kind, Name, SourceId, ParentId=None, Details=None):
+    def AddItem(self, ItemId, Kind, Name, SourceId, ParentId=None, Details=None):
         Row = (ItemId, Kind, Name, ParentId, SourceId, JsonText(Details or {}))
-        if ItemId in Self.Items and Self.Items[ItemId] != Row:
+        if ItemId in self.Items and self.Items[ItemId] != Row:
             raise ValueError("Conflicting item identity: " + ItemId)
-        Self.Items[ItemId] = Row
+        self.Items[ItemId] = Row
         return ItemId
 
-    def AddRelation(Self, OwnerId, TargetId, Relation, SourceId, Details=None):
+    def AddRelation(self, OwnerId, TargetId, Relation, SourceId, Details=None):
         Row = (OwnerId, TargetId, Relation, SourceId, JsonText(Details or {}))
-        Self.Relations[Row] = Row
+        self.Relations[Row] = Row
 
-    def AddGap(Self, Code, SourceId, ItemId=None, Details=None):
+    def AddGap(self, Code, SourceId, ItemId=None, Details=None):
         Body = (Code, ItemId, SourceId, JsonText(Details or {}))
         GapId = sha256(JsonText(Body).encode()).hexdigest()
-        Self.Gaps[GapId] = (GapId, *Body)
+        self.Gaps[GapId] = (GapId, *Body)
 
-    def ReadJson(Self, SourceId, Kind, SourcePath, RootPath, Version="", Details=None):
+    def ReadJson(self, SourceId, Kind, SourcePath, RootPath, Version="", Details=None):
         Label = SourcePath.resolve().relative_to(RootPath.resolve()).as_posix()
-        Content = Self.AddSource(SourceId, Kind, Label, SourcePath, Version, Details)
+        Content = self.AddSource(SourceId, Kind, Label, SourcePath, Version, Details)
         Value = loads(Content)
         if not isinstance(Value, dict):
             raise ValueError("Metadata root must be an object: " + Label)
         return Value
 
-    def Validate(Self):
-        for ItemId, Kind, Name, ParentId, SourceId, Details in Self.Items.values():
-            if SourceId not in Self.Sources or (
-                ParentId and ParentId not in Self.Items
+    def Validate(self):
+        for ItemId, Kind, Name, ParentId, SourceId, Details in self.Items.values():
+            if SourceId not in self.Sources or (
+                ParentId and ParentId not in self.Items
             ):
                 raise ValueError("Dangling item provenance or parent: " + ItemId)
-        for OwnerId, TargetId, Relation, SourceId, Details in Self.Relations.values():
+        for OwnerId, TargetId, Relation, SourceId, Details in self.Relations.values():
             if (
-                OwnerId not in Self.Items
-                or TargetId not in Self.Items
-                or SourceId not in Self.Sources
+                OwnerId not in self.Items
+                or TargetId not in self.Items
+                or SourceId not in self.Sources
             ):
                 raise ValueError("Dangling relation: " + Relation)
-        for GapId, Code, ItemId, SourceId, Details in Self.Gaps.values():
-            if SourceId not in Self.Sources or (ItemId and ItemId not in Self.Items):
+        for GapId, Code, ItemId, SourceId, Details in self.Gaps.values():
+            if SourceId not in self.Sources or (ItemId and ItemId not in self.Items):
                 raise ValueError("Dangling gap: " + Code)
         Dependencies = {}
         Children = {}
-        for OwnerId, TargetId, Relation, SourceId, Details in Self.Relations.values():
+        for OwnerId, TargetId, Relation, SourceId, Details in self.Relations.values():
             if Relation == "inherits":
                 Dependencies.setdefault(OwnerId, set()).add(TargetId)
                 Dependencies.setdefault(TargetId, set())

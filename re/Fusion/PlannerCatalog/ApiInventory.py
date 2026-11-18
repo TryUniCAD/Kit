@@ -1,7 +1,6 @@
 import ast
 import re
 import warnings
-from pathlib import Path
 from plistlib import loads as LoadPlist
 
 from CatalogRows import ReadSource
