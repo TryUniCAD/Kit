@@ -1,0 +1,311 @@
+{
+  "atomic_rejections": [
+    {
+      "diagnostic": "epoch discovery clock must be explicit integer wall seconds in the modern non-sentinel experiment range: ModifiedAt",
+      "name": "boolean_clock",
+      "rejected": true
+    },
+    {
+      "diagnostic": "epoch discovery requires the complete explicit clock model",
+      "name": "missing_root_event",
+      "rejected": true
+    },
+    {
+      "diagnostic": "epoch discovery requires the complete explicit clock model",
+      "name": "unknown_clock_field",
+      "rejected": true
+    },
+    {
+      "diagnostic": "epoch discovery clock must be explicit integer wall seconds in the modern non-sentinel experiment range: ModifiedAt",
+      "name": "unqualified_sentinel_year",
+      "rejected": true
+    },
+    {
+      "diagnostic": "epoch discovery preserves header and self creation identity",
+      "name": "wrong_self_creation",
+      "rejected": true
+    },
+    {
+      "diagnostic": "epoch experiment only varies archive time and initial root or history event",
+      "name": "clock_model_disagrees_with_neutral_creation",
+      "rejected": true
+    },
+    {
+      "diagnostic": "drawing clock model must omit the nonexistent independent manager header",
+      "name": "unused_drawing_manager_clock",
+      "rejected": true
+    },
+    {
+      "diagnostic": "epoch experiment preserves the existing actual-origin population route",
+      "name": "root_clock_substituted_for_origin_event",
+      "rejected": true
+    }
+  ],
+  "attestation": {
+    "clock_expansion_qualified": false,
+    "heldout_acceptance": false,
+    "hidden_inputs_read": false,
+    "native_acceptance": false,
+    "original_source_refusals_changed": false,
+    "process_proof_passed": true,
+    "production_guards_changed": false,
+    "sdk_research_imports": [],
+    "shared_worktree_edits": false,
+    "vm_access_by_worker": false,
+    "worker_product_or_test_execution": false,
+    "zero_runtime_input_file_reads_in_guarded_builds": true
+  },
+  "cases": [
+    {
+      "actual_origin_and_aliases_verified": true,
+      "artifacts": {
+        "child": {
+          "bytes": 8852,
+          "sha256": "2ce01e16219dde5a0bdc5136fae6b79e831da70cffbd69a97f6d3a74ce7fefef"
+        },
+        "drawing": {
+          "bytes": 7222,
+          "sha256": "fe8f9f260c91bac179a64bd1ecb2fcfa2c4cbb1463afd001d31d6462ef6cd0f8"
+        }
+      },
+      "changed_axis": "none",
+      "clock_plan": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1760000220,
+        "RootFirstEventAt": 1760000123,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000123
+      },
+      "default_comparison": {
+        "actual_origin_and_geometry_unchanged": true,
+        "changed_child_streams": [],
+        "drawing_bytes_unchanged": true,
+        "other_child_streams_unchanged": true
+      },
+      "drawing_clock_plan": {
+        "CreatedAt": 1761000247,
+        "ModifiedAt": 1761000344,
+        "RootFirstEventAt": 1761000247,
+        "SelfCreatedAt": 1761000247,
+        "SelfSavedAt": 1761001447,
+        "UpdatedAt": 1761000276,
+        "VersionHistoryFirstEventAt": 1761000247
+      },
+      "independent_preparation_stdout_sha256": "6d7163bbee19e3d20500fe9407bb81fd77d3d5b8a9c8c4740a8deacd807e6f0f",
+      "name": "ClockBaseline",
+      "passed": true,
+      "repeat_build_stdout_sha256": [
+        "9f915e7170a753cb8811959a32e9d4a0408fdc30c5180b99a12e0ca913166ee8",
+        "9f915e7170a753cb8811959a32e9d4a0408fdc30c5180b99a12e0ca913166ee8"
+      ],
+      "request_sha256": "6060d755377e69354017d82c7360aa9b8fa80f30cc11be9af41dda326c8f3b0e",
+      "typed_clocks_equal_request": true,
+      "unchanged_constructor_stdout_sha256": "17b6bb9825822235196f7b46b2d4f76458456b0ecbab50842197b2ec25ca2372"
+    },
+    {
+      "actual_origin_and_aliases_verified": true,
+      "artifacts": {
+        "child": {
+          "bytes": 8872,
+          "sha256": "e0d5aa937306ad1a3ed47ed21356fe968f711e7b249f921a4aab2e8ab4f34eb7"
+        },
+        "drawing": {
+          "bytes": 7227,
+          "sha256": "1d74e255dca31317b6e1b9d1df8596c63c58f6aaa93a7e3f4df1880b0ada0e76"
+        }
+      },
+      "changed_axis": "ModifiedAt",
+      "clock_plan": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1759956906,
+        "RootFirstEventAt": 1760000123,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000123
+      },
+      "default_comparison": {
+        "actual_origin_and_geometry_unchanged": true,
+        "changed_child_streams": [
+          "Contents/Config-0-ModelHeader",
+          "Header2"
+        ],
+        "drawing_bytes_unchanged": true,
+        "other_child_streams_unchanged": true
+      },
+      "drawing_clock_plan": {
+        "CreatedAt": 1761000247,
+        "ModifiedAt": 1761000344,
+        "RootFirstEventAt": 1761000247,
+        "SelfCreatedAt": 1761000247,
+        "SelfSavedAt": 1761001447,
+        "UpdatedAt": 1761000276,
+        "VersionHistoryFirstEventAt": 1761000247
+      },
+      "independent_preparation_stdout_sha256": "e104db2ea2fb7ca773e972a1b05d0b150416743b530c116f82d871df5ba9182f",
+      "name": "EarlierArchiveTime",
+      "passed": true,
+      "repeat_build_stdout_sha256": [
+        "b2979cfe88462a353d90ebd7a588146e4c2b96ac36ecb88a61e91033557dcaac",
+        "b2979cfe88462a353d90ebd7a588146e4c2b96ac36ecb88a61e91033557dcaac"
+      ],
+      "request_sha256": "89d1d550eb08f39815a1eea1a554408ed029d42d06d39cc2860cdcfbb0fb1693",
+      "typed_clocks_equal_request": true,
+      "unchanged_constructor_stdout_sha256": "d7830a038f9088814c57e0b54cd49c18b0684b13be10d2be5c4efa44b65b1822"
+    },
+    {
+      "actual_origin_and_aliases_verified": true,
+      "artifacts": {
+        "child": {
+          "bytes": 8875,
+          "sha256": "53478b13add7f711529aa70a1809aa01b6ba312aba4481de96f628b3f0ec6296"
+        },
+        "drawing": {
+          "bytes": 7219,
+          "sha256": "ea3e6b182bb5ac4be2063b0f64c8045b024c2b50ddae51a649efdbd0dd3ab66a"
+        }
+      },
+      "changed_axis": "RootFirstEventAt",
+      "clock_plan": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1760000220,
+        "RootFirstEventAt": 1759913710,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000123
+      },
+      "default_comparison": {
+        "actual_origin_and_geometry_unchanged": true,
+        "changed_child_streams": [
+          "Contents/Config-0-ModelHeader",
+          "Header2"
+        ],
+        "drawing_bytes_unchanged": true,
+        "other_child_streams_unchanged": true
+      },
+      "drawing_clock_plan": {
+        "CreatedAt": 1761000247,
+        "ModifiedAt": 1761000344,
+        "RootFirstEventAt": 1761000247,
+        "SelfCreatedAt": 1761000247,
+        "SelfSavedAt": 1761001447,
+        "UpdatedAt": 1761000276,
+        "VersionHistoryFirstEventAt": 1761000247
+      },
+      "independent_preparation_stdout_sha256": "23e2d2b7d85c7c29d07f54a1e59bb2b083f990a2f30b04e84f1d260882dcec7c",
+      "name": "EarlierRootEvent",
+      "passed": true,
+      "repeat_build_stdout_sha256": [
+        "f72fab0e3543cb3ab18fd4ff14f1cae51106483b6eb711b5270cfc9e1f1dffca",
+        "f72fab0e3543cb3ab18fd4ff14f1cae51106483b6eb711b5270cfc9e1f1dffca"
+      ],
+      "request_sha256": "1867fdf2225fb5d0c89807d1d3df54019dade2ad2c5d4d07765c0fcdccd7a148",
+      "typed_clocks_equal_request": true,
+      "unchanged_constructor_stdout_sha256": "83e107474a0e11666d5dc3cc837a599e4e06f2a925326a9c7d134a6f660c496d"
+    },
+    {
+      "actual_origin_and_aliases_verified": true,
+      "artifacts": {
+        "child": {
+          "bytes": 8858,
+          "sha256": "19b693acb41d1d7b454bc35c28a6dbb81cb5a4137da8e8c60638dc18bfd0c15e"
+        },
+        "drawing": {
+          "bytes": 7221,
+          "sha256": "1f1d4ae2d31e3c250eed0243f36cc155b65bc1a449fc1e94120f7561b2e7bb3c"
+        }
+      },
+      "changed_axis": "VersionHistoryFirstEventAt",
+      "clock_plan": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1760000220,
+        "RootFirstEventAt": 1760000123,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000382
+      },
+      "default_comparison": {
+        "actual_origin_and_geometry_unchanged": true,
+        "changed_child_streams": [
+          "_MO_VERSION_19000/History"
+        ],
+        "drawing_bytes_unchanged": true,
+        "other_child_streams_unchanged": true
+      },
+      "drawing_clock_plan": {
+        "CreatedAt": 1761000247,
+        "ModifiedAt": 1761000344,
+        "RootFirstEventAt": 1761000247,
+        "SelfCreatedAt": 1761000247,
+        "SelfSavedAt": 1761001447,
+        "UpdatedAt": 1761000276,
+        "VersionHistoryFirstEventAt": 1761000247
+      },
+      "independent_preparation_stdout_sha256": "22b24e9576b67443512dd081ca47c085638813e2690d3d53498e163816d5610a",
+      "name": "LaterHistoryEvent",
+      "passed": true,
+      "repeat_build_stdout_sha256": [
+        "592791d9db5fe031b5053834354240309e2126bbf210e03787088ba4d7435571",
+        "592791d9db5fe031b5053834354240309e2126bbf210e03787088ba4d7435571"
+      ],
+      "request_sha256": "ec677b7d43afd3cefa785534b41dd283f8271f8f7cc23d4bcc1ddc2b92d12026",
+      "typed_clocks_equal_request": true,
+      "unchanged_constructor_stdout_sha256": "f248d170f05c25aa489006756d8c81427b08cf83ba091ab3a262bd8d6ec40477"
+    }
+  ],
+  "delivery_pr": 121,
+  "frozen_probe_proposal_sha256": "04e0161d7f240ac654ba42a198564f3bf8c6797ed5146ca6602eb05668fa029a",
+  "host_tools_manifest_sha256": "97b2d322fe91958214fb954a331b34dc16a4fc80eed28f117788fd19e664fb9a",
+  "independent_data_audit_sha256": "d3d29fcfaee51f48bde0a7227d3548b578b2994e3ed4515252f2c07a4f553179",
+  "new_research_source_file_count": 10,
+  "previous_attempt": {
+    "cause": "The private construction observer passed moLogs_c.f50 CStringValue through a plain-str nonempty datum-name accessor; no native launch or codec failure occurred",
+    "completed_guarded_workers": 1,
+    "correction": "Read only actual CStringValue or decoded str for owned log names and comments; preserve the native values and encoding owners",
+    "diagnostic": "planar mate graph expected text f50",
+    "passed": false,
+    "root_result_sha256": "c5d0a8878986e07844fce9e7c6560e09a4b7939995c4e5558d47b7f7673f8105",
+    "source_manifest_sha256": "aa4927bdaf9ea440b5e8fd079f006add32c9141dfd20eba8b2090a3b5ebf13a7"
+  },
+  "process_counts": {
+    "atomic_invalid_request_rejections": 8,
+    "guarded_builds": 8,
+    "independent_preparations": 4,
+    "published_constructor_refusals": 2,
+    "total": 26,
+    "unchanged_constructor_counterparts": 4
+  },
+  "published_refusals": [
+    {
+      "diagnostic": "header modification time precedes document creation",
+      "mode": "published-earlier-modified",
+      "passed": true,
+      "runtime_input_file_access_attempts": 0
+    },
+    {
+      "diagnostic": "part provenance must agree across folders header and history",
+      "mode": "published-independent-history",
+      "passed": true,
+      "runtime_input_file_access_attempts": 0
+    }
+  ],
+  "root_process_result_sha256": "2ba35c5237cd84576e234aaba3bb60d043147b11224b2175ebc8c31d5019a83f",
+  "schema": "kit.sw2026.epoch-construction-process-receipt.v1",
+  "scope": "Private fresh clock composition and independent typed readback only",
+  "scope_correction": {
+    "drawing_manager_clock_in_initial_proposal": "no serialized independent owner exists in this frozen drawing family",
+    "executable_request": "omits that unused drawing-only input; retains actual child manager-header f60"
+  },
+  "source_file_count": 5047,
+  "source_manifest_sha256": "7e0b70e7d1cf2933641d99214a9919601f9aabae3f3c8c3246c7668fcd5bfcf2",
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "unchanged_base_source_file_count": 5037
+}
