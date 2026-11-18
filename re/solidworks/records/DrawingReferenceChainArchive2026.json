@@ -1,0 +1,604 @@
+{
+  "schema": "kit.sw2026.drawing-reference-chain-raw-schema-proof.v1",
+  "scope": "ordinary non-database archive19000 drawing Definition at effective conditions0 or0x40; concrete schema1 only; raw read/store, no semantic constructor or original writer fitting",
+  "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "prior_reference_proof": {
+    "path": "re/solidworks/records/PlanarMateReferenceChains2026.json",
+    "sha256": "2c838c0e96f994dce8b0c4806459632d6d7a184d5cb164302050b5c09ed5fa46"
+  },
+  "profile_proof_sha256": "c2fbab148e1502e5f3ca93b5f4415af6f08cd6774d1de354ffe0bf98b83eee04",
+  "native_identity": {
+    "moChainComponent_c": {
+      "table": {
+        "start": "0x4ce9c808",
+        "end": "0x4ce9c838",
+        "bytes": 48,
+        "sha256": "5a021bb9328e3685c254ae1efb1c8a2b122354a946eb5d1d87fbfabc80258db1"
+      },
+      "locator": {
+        "start": "0x4d319b30",
+        "end": "0x4d319b48",
+        "bytes": 24,
+        "sha256": "746a26806ae94c71054d7ce765493bfd5d4db6625ce9a8648734e14a73993358"
+      },
+      "serialize": {
+        "ranges": [
+          {
+            "start": "0x4c21b8c0",
+            "end": "0x4c21bfac",
+            "bytes": 1772,
+            "sha256": "2168c75b8e3f00d0bc3200969a5e1af384d0aa48040c052725256fd6587758eb"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4c21b8c0",
+            "end": "0x4c21bfac",
+            "unwind": "0x4d5c191c"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "runtime_descriptor": {
+        "address": "0x4daf0fa8",
+        "name": "moChainComponent_c",
+        "schema": "0x80000001",
+        "native_size": 64,
+        "getter": {
+          "start": "0x4c20e740",
+          "end": "0x4c20e748",
+          "bytes": 8,
+          "sha256": "a784947397368c6aaae3453d75f0645b4d8a3f9c34f61127e044be189bd0e4bb"
+        },
+        "descriptor": {
+          "start": "0x4daf0fa8",
+          "end": "0x4daf0fd8",
+          "bytes": 48,
+          "sha256": "92edd0375c1c3dc12e8e16f8b963ca9ad0a7a9a5763a7c418fb34d3be0b27a84"
+        }
+      },
+      "getter_address": "0x4c20e740"
+    },
+    "moComponent_c": {
+      "table": {
+        "start": "0x4ce9c1a8",
+        "end": "0x4ce9c1d8",
+        "bytes": 48,
+        "sha256": "1cc9ef0688fb02563183f5efb75029fdb02016ba27528697f0751b699ee289d6"
+      },
+      "locator": {
+        "start": "0x4d319b58",
+        "end": "0x4d319b70",
+        "bytes": 24,
+        "sha256": "850d649daa10ca0cb26f20bfe8acc11d9e7a0ea3a1875778d90cd0db784129de"
+      },
+      "serialize": {
+        "ranges": [
+          {
+            "start": "0x4c21cac0",
+            "end": "0x4c21d271",
+            "bytes": 1969,
+            "sha256": "1c0667b25d0693208ffa6e93843aba8a10984c12fd259f51644ba70e140d9f4c"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4c21cac0",
+            "end": "0x4c21d271",
+            "unwind": "0x4d5c1764"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "runtime_descriptor": {
+        "address": "0x4d130a58",
+        "name": "moComponent_c",
+        "schema": "0xffff",
+        "native_size": 32,
+        "getter": {
+          "start": "0x4c20e6c0",
+          "end": "0x4c20e6c8",
+          "bytes": 8,
+          "sha256": "2c7405e28da0501042c000c2df322d5f7d2289b9fd160aa1c2bcd07e229d6cd5"
+        },
+        "descriptor": {
+          "start": "0x4d130a58",
+          "end": "0x4d130a88",
+          "bytes": 48,
+          "sha256": "407d3e9fff450549529d0ab876fd90d04c11357e0ba1ff712f2e43fa224b024f"
+        }
+      },
+      "getter_address": "0x4c20e6c0"
+    },
+    "moReferenceChain_c": {
+      "table": {
+        "start": "0x4d162b98",
+        "end": "0x4d162bc8",
+        "bytes": 48,
+        "sha256": "06511bae832e6636c438e42f5eba50e168e02de83191646f4a6fd88c2b942945"
+      },
+      "locator": {
+        "start": "0x4d358cc8",
+        "end": "0x4d358ce0",
+        "bytes": 24,
+        "sha256": "0735d93c522ff8fd04a0a93e0c053e8631ef9c79ff95bcea172b305e97b31d39"
+      },
+      "serialize": {
+        "ranges": [
+          {
+            "start": "0x4b66e370",
+            "end": "0x4b66e4d3",
+            "bytes": 355,
+            "sha256": "aa15ffbca554734e040e73daeadf776ce732485359ccb68a3edf3bdf1f9b331d"
+          },
+          {
+            "start": "0x4b66e4d3",
+            "end": "0x4b66e621",
+            "bytes": 334,
+            "sha256": "b3772228ef1dea4e5d3deadf6f0bcd568d8d220c45d154c612b139730a617bae"
+          },
+          {
+            "start": "0x4b66e621",
+            "end": "0x4b66e77b",
+            "bytes": 346,
+            "sha256": "d1ca4417d276c5f253c4ef06b9b855b0917f1146441021aac798360434e1bfe3"
+          },
+          {
+            "start": "0x4b66e77b",
+            "end": "0x4b66e956",
+            "bytes": 475,
+            "sha256": "e25078a9cef7fb7d17e487f93ae649015509deb8c908e37163e007fb93e8eba5"
+          },
+          {
+            "start": "0x4b66e956",
+            "end": "0x4b66e969",
+            "bytes": 19,
+            "sha256": "45f6ec39876e77fc07f14491940bb2ebd35a5305c8e7d4822e64e4feb7a1c971"
+          },
+          {
+            "start": "0x4b66e969",
+            "end": "0x4b66e97c",
+            "bytes": 19,
+            "sha256": "ceddc5428bb6a925286ac31f9483a3357f118015448a0ae58af705f777d1ae3c"
+          },
+          {
+            "start": "0x4b66e97c",
+            "end": "0x4b66e98f",
+            "bytes": 19,
+            "sha256": "5de29b53a11279f8180b1d4f7d59457fb8a8596f93bc1d2dc506085909670e4a"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4b66e370",
+            "end": "0x4b66e4d3",
+            "unwind": "0x4d415cac"
+          },
+          {
+            "begin": "0x4b66e4d3",
+            "end": "0x4b66e621",
+            "unwind": "0x4d415cbc"
+          },
+          {
+            "begin": "0x4b66e621",
+            "end": "0x4b66e77b",
+            "unwind": "0x4d415cd4"
+          },
+          {
+            "begin": "0x4b66e77b",
+            "end": "0x4b66e956",
+            "unwind": "0x4d415ce8"
+          },
+          {
+            "begin": "0x4b66e956",
+            "end": "0x4b66e969",
+            "unwind": "0x4d415cf8"
+          },
+          {
+            "begin": "0x4b66e969",
+            "end": "0x4b66e97c",
+            "unwind": "0x4d415d10"
+          },
+          {
+            "begin": "0x4b66e97c",
+            "end": "0x4b66e98f",
+            "unwind": "0x4d415cf8"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "runtime_descriptor": {
+        "address": "0x4dac9cd0",
+        "name": "moReferenceChain_c",
+        "schema": "0x80000001",
+        "native_size": 144,
+        "getter": {
+          "start": "0x4b6603a0",
+          "end": "0x4b6603a8",
+          "bytes": 8,
+          "sha256": "d529ea1b284e07712c07a02de302d78cb6b1b34a69e346feed68e78e4b1406c9"
+        },
+        "descriptor": {
+          "start": "0x4dac9cd0",
+          "end": "0x4dac9d00",
+          "bytes": 48,
+          "sha256": "fe663c800090f804560da22f4d2efadcaaa2f1d7547ece5f8bf5676ceb7c64cb"
+        }
+      },
+      "getter_address": "0x4b6603a0"
+    },
+    "moExtFeatureList_c": {
+      "table": {
+        "start": "0x4cf35ce0",
+        "end": "0x4cf35d10",
+        "bytes": 48,
+        "sha256": "fd9ac0e40bbca0113b637809d4048982471a511355f995a5a6024ad916e5384c"
+      },
+      "locator": {
+        "start": "0x4d32d108",
+        "end": "0x4d32d120",
+        "bytes": 24,
+        "sha256": "f290365dcca0c5526cfec22897a6d331477b005d5f700998491a26ac9ba5ccb5"
+      },
+      "serialize": {
+        "ranges": [
+          {
+            "start": "0x4c1784f0",
+            "end": "0x4c178a22",
+            "bytes": 1330,
+            "sha256": "2d846240cb81af7be17ad3858f88954ae91b955161a03eefa31c81c92774b358"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4c1784f0",
+            "end": "0x4c178a22",
+            "unwind": "0x4d5ad630"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "runtime_descriptor": {
+        "address": "0x4daefc90",
+        "name": "moExtFeatureList_c",
+        "schema": "0x80000001",
+        "native_size": 48,
+        "getter": {
+          "start": "0x4c177860",
+          "end": "0x4c177868",
+          "bytes": 8,
+          "sha256": "8986aa5c22d4a7c589ef67a9fdd5e76aa40dbcc5fcd36211c30b464ad6f54a14"
+        },
+        "descriptor": {
+          "start": "0x4daefc90",
+          "end": "0x4daefcc0",
+          "bytes": 48,
+          "sha256": "ea20d43c1760d25266b0b14315df8ed048d8ef9c11645c79ac3970ca5daf81fb"
+        }
+      },
+      "getter_address": "0x4c177860"
+    }
+  },
+  "native_helpers": {
+    "sldmfcu.dll": {
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "span": {
+        "start": "0x3c7ac130",
+        "end": "0x3c7ac14f",
+        "bytes": 31,
+        "sha256": "ea728873d513548b902ca54e5a252aa1311be923d158ba9154b5c45383ae3818"
+      }
+    },
+    "swccu.dll": {
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+      "span": {
+        "start": "0x31a36400",
+        "end": "0x31a3640a",
+        "bytes": 10,
+        "sha256": "f0e5be5599a8ec005a1ee36afb7cd3b77a056322c534c06d7dfdaba1dfe5fd69"
+      }
+    }
+  },
+  "referenced_configuration": {
+    "module": "sldarchiveu.dll",
+    "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+    "serialize": {
+      "ranges": [
+        {
+          "start": "0x31a081b0",
+          "end": "0x31a08224",
+          "bytes": 116,
+          "sha256": "4491752d4b541ad6486d435484b49e458ab35613c4dedf85cb04f6ab81c1193e"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x31a081b0",
+          "end": "0x31a08224",
+          "unwind": "0x31a13a38"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "ordinary_fields": [
+      "f08 CString",
+      "f10 i32"
+    ],
+    "conditions_do_not_change_its_wire_order": true
+  },
+  "condition_inventory": {
+    "schema": "kit.sw2026.drawing-chain-condition-inventory.v2",
+    "scope": "static helper-call immediate masks in complete original native function spans; independently interpreted against native helper AND behavior",
+    "helper_iat": "0x4cd33300",
+    "helper_native": "sldmfcu!0x3c7ac130",
+    "condition_masks": {
+      "moChainComponent_c": [
+        {
+          "callsite": "0x4c21b957",
+          "mask": "0x6000",
+          "mask_assignment": "0x4c21b94e",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21b96a",
+          "mask": "0x20000000",
+          "mask_assignment": "0x4c21b961",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21bcad",
+          "mask": "0x6000",
+          "mask_assignment": "0x4c21bca4",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21bcd6",
+          "mask": "0x1",
+          "mask_assignment": "0x4c21bccd",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21bd0a",
+          "mask": "0x1",
+          "mask_assignment": "0x4c21bd01",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21bd36",
+          "mask": "0x2000000",
+          "mask_assignment": "0x4c21bd2d",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21bd97",
+          "mask": "0x1",
+          "mask_assignment": "0x4c21bd8e",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21be8a",
+          "mask": "0x1",
+          "mask_assignment": "0x4c21be81",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21be9d",
+          "mask": "0x200",
+          "mask_assignment": "0x4c21be94",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21bf08",
+          "mask": "0x6000",
+          "mask_assignment": "0x4c21beff",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21bf1f",
+          "mask": "0x20000000",
+          "mask_assignment": "0x4c21bf16",
+          "C0_result": 0,
+          "C40_result": 0
+        }
+      ],
+      "moComponent_c": [
+        {
+          "callsite": "0x4c21cb56",
+          "mask": "0x1",
+          "mask_assignment": "0x4c21cb4a",
+          "C0_result": 0,
+          "C40_result": 0,
+          "argument_transfer": "ESI assigned1 at0x4c21cb4a; ESI copied toEDX at0x4c21cb4f or0x4c21cc27; no intervening write on the store path; RSI is nonvolatile across the native Windows x64 calls"
+        },
+        {
+          "callsite": "0x4c21cb7e",
+          "mask": "0x80006200",
+          "mask_assignment": "0x4c21cb74",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21cbf2",
+          "mask": "0x82006000",
+          "mask_assignment": "0x4c21cbe8",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4c21cc2e",
+          "mask": "0x1",
+          "mask_assignment": "0x4c21cb4a",
+          "C0_result": 0,
+          "C40_result": 0,
+          "argument_transfer": "ESI assigned1 at0x4c21cb4a; ESI copied toEDX at0x4c21cb4f or0x4c21cc27; no intervening write on the store path; RSI is nonvolatile across the native Windows x64 calls"
+        },
+        {
+          "callsite": "0x4c21d162",
+          "mask": "0x8003",
+          "mask_assignment": "0x4c21d158",
+          "C0_result": 0,
+          "C40_result": 0
+        }
+      ],
+      "moExtFeatureList_c": [],
+      "moReferenceChain_c": [
+        {
+          "callsite": "0x4b66e3c9",
+          "mask": "0x1",
+          "mask_assignment": "0x4b66e3c0",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e3e3",
+          "mask": "0x6000",
+          "mask_assignment": "0x4b66e3da",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e438",
+          "mask": "0x80000001",
+          "mask_assignment": "0x4b66e42f",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e46c",
+          "mask": "0x6000",
+          "mask_assignment": "0x4b66e463",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e4e9",
+          "mask": "0x80000001",
+          "mask_assignment": "0x4b66e4df",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e5b9",
+          "mask": "0x80000001",
+          "mask_assignment": "0x4b66e5a9",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e5f3",
+          "mask": "0x1",
+          "mask_assignment": "0x4b66e5ea",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e6b3",
+          "mask": "0x1",
+          "mask_assignment": "0x4b66e6aa",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e6d4",
+          "mask": "0x10000000",
+          "mask_assignment": "0x4b66e6cb",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e870",
+          "mask": "0x200",
+          "mask_assignment": "0x4b66e868",
+          "C0_result": 0,
+          "C40_result": 0
+        },
+        {
+          "callsite": "0x4b66e883",
+          "mask": "0x1",
+          "mask_assignment": "0x4b66e87a",
+          "C0_result": 0,
+          "C40_result": 0
+        }
+      ]
+    },
+    "unresolved_immediate_masks": false,
+    "vendor_execution": false,
+    "sdk_execution": false,
+    "previous_static_inventory_sha256": "fb064c64a9b6e73d4be80fdc45edc3078646a16bc63afbeae60e6cdaa3d63ac4",
+    "semantic_window": [
+      {
+        "start": "0x4c21cb4a",
+        "end": "0x4c21cb5c",
+        "bytes": 18,
+        "sha256": "3ba661bb0b83fa6a9e0bf776fff3518e6f3ed1ccbff38bf89eab90731bcfc37b"
+      },
+      {
+        "start": "0x4c21cc27",
+        "end": "0x4c21cc34",
+        "bytes": 13,
+        "sha256": "3251aabbb8723abb64a588ccf360ceb079bc07b5bb27f813a0e258a0d64eadde"
+      }
+    ],
+    "all_listed_native_condition_masks_ignore0x40": true
+  },
+  "rules": {
+    "moChainComponent_c": [
+      "Base moComponent_c",
+      "f20 object reference",
+      "f30 u32"
+    ],
+    "moComponent_c": [
+      "owner object reference"
+    ],
+    "moReferenceChain_c": [
+      "f24 u16",
+      "has_f18 i32 only if conditions intersect0x80000001; absent for0 or0x40",
+      "f08 object reference",
+      "f20 i32",
+      "f40 embedded moReferencedConfiguration_c"
+    ],
+    "moExtFeatureList_c": [
+      "n i32 wire word with unsigned low32 iteration semantics",
+      "f08 ordered rows; each row is one object reference o"
+    ]
+  },
+  "version_boundaries": {
+    "moChainComponent_stamp_load": "since0x837",
+    "moComponent_legacy_name": "only before0x144; excluded by19000",
+    "moReferenceChain_mode": "since0x76",
+    "moReferenceChain_configuration": "since0x8d2",
+    "moExtFeatureList_current_count": "since0xf21; older framework CObList excluded"
+  },
+  "non_database_base": "the existing ordinary object grammar does not use the separate database mode; swccu su_CObject base stays wire-empty under that ordinary archive flag",
+  "abstract_base_not_concrete_admission": {
+    "class": "moComponent_c",
+    "actual_native_schema": "0xffff",
+    "sdk_body_used_as_base_only": true
+  },
+  "raw_runtime_boundary": [
+    "native owner resolution and chain-manager canonicalization do not supply SDK constructor defaults",
+    "preserve raw object-map identities and f20/f24/f30 values, rather than applying native post-read fixups",
+    "no mode0, lifetime count, stamp, path or configuration values copied from source rows",
+    "no database modes, legacy versions or universal context admission"
+  ],
+  "existing_sdk_dependencies": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ReferenceFields.py": "670a8aecf7daf7c765bee1c54be03167a04ee439416e20e6fdca89d236fb8835",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ExternalFields.py": "292738d8a389ecfcf5b73648841ad52b34746c04252ec046318683c02c293ddb",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/Layouts/BlankLayouts.py": "e822a0f04c5e4927ddfd75c11807222f5e7c8c0ad5269874a165c7248f7a9042",
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/SupportFields.py": "16349d8aa336f154d3b9a3b041883beea6014a58ee4d9c4a986fbab385f4fa93"
+  },
+  "smallest_delta": "FrontSchemas.py adds the three concrete schema1 classes; unchanged shared ReferenceFields already owns the complete selected field grammar",
+  "native_execution": false,
+  "heldout_writer_verdict_changed": false,
+  "complete_original_stream_parity": false
+}

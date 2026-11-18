@@ -144,6 +144,13 @@ Two original Right and Top drawing pairs pass a geometry comparison through nati
 
 The strict linked Definition reader recognizes the version-19000 system-scale object as an empty serialized body with an actual archive identity. Both original samples advance to the next unsupported profile component. All 43 prior-profile workers pass. [System scale archive](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksSystemScaleArchive.md)
 
+The linked Definition reader also preserves the native drawing profile base and
+its three shared reference-chain classes. That subtree decodes fully in both
+disclosed original source drawings, which now report the later unsupported
+edge reference in the root map. Complete original Definition reads remain open.
+[Drawing component profile](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksComponentProfileArchive.md)
+[Drawing reference chains](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingReferenceChains.md)
+
 ## Feature history
 
 The resolved-feature grammar includes class definitions and object references.

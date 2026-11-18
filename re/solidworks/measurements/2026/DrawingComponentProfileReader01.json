@@ -1,0 +1,131 @@
+{
+  "schema": "kit.sw2026.drawing-component-profile-reader-diagnostics.v1",
+  "outcome": "concrete profile wrapper is admitted; both original streams stop inside the inherited component dependency at moChainComponent_c schema1",
+  "task": "B04-SW2026-DRAWPROPS",
+  "delivery_pr": 121,
+  "reader_source_manifest_sha256": "bf4647e6019784b8a9c0bd0fbc5c2f8cc6e9bff40a5d782e3a8834a74273f723",
+  "reader_source_files": 4348,
+  "reader_delta_paths": [
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/CompFields.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontLayouts.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontSchemas.py"
+  ],
+  "native_rule_evidence": "re/solidworks/records/DrawingComponentProfileArchive2026.json",
+  "native_rule_evidence_sha256": "c2fbab148e1502e5f3ca93b5f4415af6f08cd6774d1de354ffe0bf98b83eee04",
+  "private_originals_read_report_sha256": "7a88d1cc037fc5eb600c1ca1ee82680fc6d6523ccd43f9029a828523bfb48f3a",
+  "actual_context_report_sha256": "9ec14b60c1f2ba19d5d88454482bbb731fc5bafbf9460e64ce4a29361d80e587",
+  "actual_context": {
+    "outer_conditions": 0,
+    "effective_conditions": 64,
+    "owner_is_drawing": 1,
+    "ctx874": 0,
+    "ctx894": 0,
+    "kind": "SDK decoder state from both original inputs, not vendor runtime execution"
+  },
+  "accepted_context": {
+    "conditions": [
+      0,
+      64
+    ],
+    "owner_is_drawing": 1,
+    "ctx874": 0,
+    "ctx894": 0,
+    "special_FRData_contexts_rejected": true
+  },
+  "cases": [
+    {
+      "case": "H01SheetA",
+      "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "stream": "Contents/Definition",
+      "stream_bytes": 37612,
+      "stream_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+      "codec_round_trip_passed": false,
+      "typed_stream_complete": false,
+      "next_boundary": {
+        "type": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body class moChainComponent_c schema 1",
+        "cursor_not_exposed_by_reader": true
+      },
+      "input_unchanged": true
+    },
+    {
+      "case": "H02SheetB",
+      "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "stream": "Contents/Definition",
+      "stream_bytes": 37608,
+      "stream_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+      "codec_round_trip_passed": false,
+      "typed_stream_complete": false,
+      "next_boundary": {
+        "type": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body class moChainComponent_c schema 1",
+        "cursor_not_exposed_by_reader": true
+      },
+      "input_unchanged": true
+    }
+  ],
+  "profile_body_completed": false,
+  "complete_original_stream_parity": false,
+  "next_boundary": "moChainComponent_c schema1 through the inherited moCompRef_c.f58 object dependency",
+  "prior_disclosed_profiles": {
+    "passed": true,
+    "real_workers": 43,
+    "phases": [
+      {
+        "name": "six-disclosed-independent-pairs",
+        "passed": true,
+        "real_workers": 18
+      },
+      {
+        "name": "unsupported-disclosed-jobs",
+        "passed": true,
+        "real_workers": 25
+      }
+    ],
+    "source_immutable": true,
+    "source_manifest_sha256": "bf4647e6019784b8a9c0bd0fbc5c2f8cc6e9bff40a5d782e3a8834a74273f723",
+    "private_report_sha256": "31f0c10957c233fdf9540f0f67178325da8f1f23a62d592683dc7115aeb9f39d",
+    "executor": "independent root process replay",
+    "native_execution": false,
+    "heldout_acceptance": false
+  },
+  "retained_history": [
+    {
+      "reader_manifest_sha256": "0d8344c3100260070b010a765b854968a9c80b1e115deb876d07663fa8a59393",
+      "source_revision": "candidate01; original rationale case",
+      "original_read_report_sha256": "943fa3ea23f193bbcbddca05ed80a12de03de7c3d583595f806fcf5032bfcf0d",
+      "prior_process_result_sha256": "eb6629b6a9e13317ee0dd11e1c9268898231eccb6018c6f10320722669e0d97e",
+      "real_workers": 43,
+      "passed": true
+    },
+    {
+      "reader_manifest_sha256": "bf4647e6019784b8a9c0bd0fbc5c2f8cc6e9bff40a5d782e3a8834a74273f723",
+      "source_revision": "candidate02; one lowercase rationale correction only, identical AST; corrected native context proof",
+      "original_read_report_sha256": "7a88d1cc037fc5eb600c1ca1ee82680fc6d6523ccd43f9029a828523bfb48f3a",
+      "prior_process_result_sha256": "31f0c10957c233fdf9540f0f67178325da8f1f23a62d592683dc7115aeb9f39d",
+      "real_workers": 43,
+      "passed": true
+    }
+  ],
+  "verification_by_worker": {
+    "unique_disclosed_original_sources_read": 2,
+    "test_suite_execution": false,
+    "native_execution": false,
+    "vm_access": false,
+    "ast": true,
+    "black": true,
+    "ruff": true,
+    "strict_mypy": true,
+    "strict_pyright": true,
+    "steering": true
+  },
+  "source_immutable": true,
+  "original_frozen_writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "original_heldout_verdict_changed": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "complete_source_semantics_admitted": false,
+  "fresh_constructor_added": false,
+  "saved_file_fallback": false,
+  "public_drawing_strict_read_admitted": false
+}
