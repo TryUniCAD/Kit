@@ -44,6 +44,8 @@ For ordinary version-19000 blind-cut files, the codec retains the native cut cla
 
 For the measured single-stock version-19000 through-all cuts, the public reader preserves the native single or dual end selection, independent reversal, free circle, saved body scope and actual mid-plane stock driver. The neutral cut has no active length parameter. [Through-all cut history](../../Changes/Solidworks/Reading/Parts/SolidworksThroughAllCutHistory.md)
 
+For the cache-free versions of that stock and cut on a principal datum, the default reader reconstructs one open cap or a complete tunnel. It checks the actual body producer, contour and direction before building the closed solid. [Cache-free through-all geometry](../../Changes/Solidworks/Reading/Parts/SolidworksCacheFreeThroughAllGeometry.md)
+
 The shared archive codec preserves an ordinary version-19000 revolve's actual axis, end specification, angular display and live parameter. A full turn and both measured partial directions re-emit the six linked streams exactly. [Typed ordinary revolve archive](../../Changes/Solidworks/Archive/SolidworksOrdinaryRevolveArchive.md)
 
 The internal pocket composer builds a Front-plane rectangular blind boss followed by a reversed circular blind cut from neutral history. It preserves a free circle or the actual fixed-centre radius or diameter. Three disclosed designs pass 30 exact generated stream comparisons and 275 native open, edit, save and reopen checks. Held-out comparison and public admission remain open. [SDK blind pocket](../../Changes/Solidworks/Construction/SolidworksSdkBlindPocket.md)

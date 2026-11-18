@@ -1,0 +1,105 @@
+{
+  "cases": {
+    "G01": {
+      "area_m2": 0.01897372009982562,
+      "com_m": [
+        0.0014804889430259423,
+        -0.0022446324958918496,
+        -0.00013674580138999838
+      ],
+      "frozen_analytic_prediction_matched": true,
+      "native_geometry_payloads": 0,
+      "native_result_sha256": "a7a14451eb72a459aa70ff9937c996880cc3a8427ac90dcd6d49245187215dff",
+      "prediction_sha256": "ab1af759bc64fef7228c6dfbf529e6e0a7dece925aa6c1edfb04419bb912dc4d",
+      "reconstructed_rim_centers_mm": [
+        [
+          -9.17,
+          6.289999999999999,
+          0.0
+        ],
+        [
+          -9.17,
+          6.289999999999999,
+          15.865
+        ]
+      ],
+      "source_sha256": "5cefc9124919cb2d75a141610fa40a23c328d41297eba6aefe4bcb9f185a3115",
+      "topology": [
+        8,
+        14,
+        10
+      ],
+      "volume_m3": 0.00014698231687812168
+    },
+    "G02": {
+      "area_m2": 0.021825315288701887,
+      "com_m": [
+        -0.003914060650577833,
+        0.00011088612877319502,
+        -0.004273045070657135
+      ],
+      "frozen_analytic_prediction_matched": true,
+      "native_geometry_payloads": 0,
+      "prediction_sha256": "76924d11a97cdd27410a989b1554e998f2e4e9b24dde6dc39469c1d968aa1ab5",
+      "reconstructed_rim_centers_mm": [
+        [
+          8.93,
+          -13.084999999999999,
+          6.11
+        ],
+        [
+          8.93,
+          0.0,
+          6.11
+        ]
+      ],
+      "source_sha256": "b8e8c47f01777ece61ae07476aa4e0fe3796483eb8a50340624037d2c05b7452",
+      "topology": [
+        8,
+        14,
+        10
+      ],
+      "volume_m3": 0.0001634844397918787
+    },
+    "G03": {
+      "area_m2": 0.018220019031961122,
+      "com_m": [
+        0.0,
+        -0.001902773250380993,
+        -0.00461083617707714
+      ],
+      "frozen_analytic_prediction_matched": true,
+      "native_geometry_payloads": 0,
+      "prediction_sha256": "edaa96554afd2296f087c974db3307af5299ea2b3492c4e673e9b154aa97eaae",
+      "reconstructed_rim_centers_mm": [
+        [
+          -14.194999999999999,
+          4.83,
+          5.71
+        ],
+        [
+          14.194999999999999,
+          4.83,
+          5.71
+        ]
+      ],
+      "source_sha256": "eef937299332a0aadfe88793c3c1e7c78f52a47c23b95da2605a3f660bf1deb3",
+      "topology": [
+        7,
+        14,
+        10
+      ],
+      "volume_m3": 0.00013009119771546535
+    }
+  },
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "passed": true,
+  "schema": "kit.sw2026.cold-through-all-geometry-read.v1",
+  "sdk_processes": 6,
+  "source_fingerprint": {
+    "manifest_sha256": "5e620d26dbb06a3b54833a913b7034dc2608bce0020923cc23beff3f279860cf",
+    "python_source_files": 4437
+  },
+  "tool_sha256": "ac4b999791d5368245674ee24599249ba551a4b99c58f35a06c54ba2710bbb65"
+}

@@ -25,6 +25,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismLoop impor
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
+from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # only actual linked feature and dimension owners may determine the reconstructed body and its provenance
@@ -32,6 +33,8 @@ def ReadPrismPlan(
     LinkValue: NativeLink,
     Features: Mapping[int, ArchiveNode],
     ColdValue: ColdOutput | None = None,
+    *,
+    ModeValue: ExtrudeEnd = ExtrudeEnd.KBlind,
 ) -> PrismPlan:
     (BossValue,) = (
         NodeValue
@@ -39,13 +42,16 @@ def ReadPrismPlan(
         if NodeValue.ClassValue.NameValue == "moExtrusion_c"
     )
     OwnerValue = ReadExtrude(LinkValue, BossValue, Features)
-    CheckPrismBoss(OwnerValue, ColdValue)
+    CheckPrismBoss(OwnerValue, ColdValue, ModeValue=ModeValue)
     CheckPrismEnd(OwnerValue)
     Depth = OwnerValue.RequireDepth().DepthValue
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
     LoopValue = ReadPrismLoop(OwnerValue.ProfileValue, LinkValue)
     FrameValue = ReadPrismFrame(
-        OwnerValue.ProfileValue, LinkValue.ConfigValue.RootValue, Features
+        OwnerValue.ProfileValue,
+        LinkValue.ConfigValue.RootValue,
+        Features,
+        FrontOnly=ModeValue == ExtrudeEnd.KBlind,
     )
     EvidenceValue = {
         "method": "typed_parametric_rectangular_prism",

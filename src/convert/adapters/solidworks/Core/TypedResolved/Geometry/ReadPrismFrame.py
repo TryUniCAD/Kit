@@ -20,6 +20,8 @@ def ReadPrismFrame(
     ProfileValue: ArchiveNode,
     RootValue: ArchiveNode,
     Features: Mapping[int, ArchiveNode],
+    *,
+    FrontOnly: bool = True,
 ) -> Transform:
     Reference = RequireNative(
         ProfileValue.FieldsValue.get("pd_f78"), "moCompRefPlane_c"
@@ -36,11 +38,11 @@ def ReadPrismFrame(
     )
     Component = RequireNative(Fields.get("f58"), "moUnitComponent_c")
     if (
-        AxisValue != 3
+        (FrontOnly and AxisValue != 3)
         or Fields.get("f100") != AxisValue
         or Fields.get("ff8") is not None
     ):
-        raise ValueError("cache free prism requires the actual canonical Front datum")
+        raise ValueError("cache free prism requires its actual canonical support datum")
     if (
         Component.FieldsValue.get("owner") is not RootValue
         or Component.FieldsValue.get("has_ext") != 0

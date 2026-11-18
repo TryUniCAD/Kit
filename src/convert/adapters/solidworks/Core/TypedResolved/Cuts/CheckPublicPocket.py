@@ -1,7 +1,7 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.Native import NativeModel, NativeOperation
 from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
     LocalCircle,
 )
@@ -10,12 +10,13 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPublicPlanes i
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
+from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # a pocket solid is reconstructed only when the public history exposes both complete typed profiles and their actual support
 def CheckPublicPocket(
     ModelValue: NativeModel, Features: Mapping[int, ArchiveNode]
-) -> tuple[LocalCircle, float]:
+) -> tuple[LocalCircle, NativeOperation]:
     Evidence = NativeRecord(ModelValue.TypedGraph.get("cut_body_dependency"))
     if (
         Evidence.get("binding") != "cold_all_bodies_intersection"
@@ -36,7 +37,7 @@ def CheckPublicPocket(
         or Cut.profile_id != Cavity.object_id
         or Stock.TypedLines is None
         or Cavity.TypedCircle is None
-        or Cut.length_mm is None
+        or (Cut.length_mm is None and Cut.extrusion_end != ExtrudeEnd.KThroughAll)
     ):
         raise ValueError(
             "cache free pocket lacks its actual public contour and depth owners"
@@ -51,4 +52,4 @@ def CheckPublicPocket(
                 "cache free pocket public support differs from its native datum"
             )
     CheckPublicPlanes(ModelValue, Features)
-    return Cavity.TypedCircle, Cut.length_mm
+    return Cavity.TypedCircle, Cut

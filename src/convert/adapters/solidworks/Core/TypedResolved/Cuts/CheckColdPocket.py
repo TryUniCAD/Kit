@@ -37,6 +37,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismLoop impor
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
+from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # a cold all bodies cut can infer its producer only when exact local geometry proves the sole intersection
@@ -50,12 +51,19 @@ def CheckColdPocket(
     CheckColdCutRoots(Features)
     CheckPrismRoot(RootValue)
     CheckPrismRels(RootValue)
-    CheckPrismBoss(BossValue)
+    Through = CutValue.ModeValue == ExtrudeEnd.KThroughAll
+    CheckPrismBoss(
+        BossValue, ModeValue=ExtrudeEnd.KMidPlane if Through else ExtrudeEnd.KBlind
+    )
     CheckPrismEnd(BossValue)
     CheckPrismAtom(CutValue.NodeValue)
     CheckPrismProf(CutValue.ProfileValue)
-    BossFrame = ReadPrismFrame(BossValue.ProfileValue, RootValue, Features)
-    CutFrame = ReadPrismFrame(CutValue.ProfileValue, RootValue, Features)
+    BossFrame = ReadPrismFrame(
+        BossValue.ProfileValue, RootValue, Features, FrontOnly=not Through
+    )
+    CutFrame = ReadPrismFrame(
+        CutValue.ProfileValue, RootValue, Features, FrontOnly=not Through
+    )
     if BossFrame != CutFrame:
         raise ValueError("cold cut requires one exact shared datum")
     Lines = MakePrismLines(ReadPrismLoop(BossValue.ProfileValue, LinkValue))
@@ -68,13 +76,15 @@ def CheckColdPocket(
     Radius = CircleValue.RadiusValue
     XValues = tuple(Line.start.x for Line in Lines)
     YValues = tuple(Line.start.y for Line in Lines)
-    if (
-        not min(XValues) < XValue - Radius < XValue + Radius < max(XValues)
-        or not min(YValues) < YValue - Radius < YValue + Radius < max(YValues)
-        or not 0.0
+    if not min(XValues) < XValue - Radius < XValue + Radius < max(XValues) or not min(
+        YValues
+    ) < YValue - Radius < YValue + Radius < max(YValues):
+        raise ValueError(
+            "cold circular cut must stay inside the actual rectangular sides"
+        )
+    if not Through and not (
+        0.0
         < CutValue.RequireDepth().DepthValue.value_mm
         < BossValue.RequireDepth().DepthValue.value_mm
     ):
-        raise ValueError(
-            "cold blind pocket must leave the actual rectangular solid intact"
-        )
+        raise ValueError("cold blind pocket must terminate inside its stock")

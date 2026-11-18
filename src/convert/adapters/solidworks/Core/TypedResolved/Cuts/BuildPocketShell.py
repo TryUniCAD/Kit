@@ -6,15 +6,28 @@ from interchange.brep.Topology.BrepModel import BrepModel
 
 # the inlet becomes an inner loop on the stock cap and the remaining cylindrical faces become inward cavity walls
 def BuildPocketShell(
-    StockValue: BrepModel, ToolValue: BrepModel, BodyId: str
+    StockValue: BrepModel,
+    ToolValue: BrepModel,
+    BodyId: str,
+    PrefixValue: str,
+    OpenCaps: tuple[int, ...],
 ) -> BrepModel:
-    Entrance, *StockFaces = StockValue.faces
-    Rim, *CavityFaces = ToolValue.faces
-    (RimLoop,) = Rim.loop_ids
-    Faces = (
-        ReplaceValue(Entrance, loop_ids=(*Entrance.loop_ids, RimLoop)),
-        *StockFaces,
-        *(ReplaceValue(Face, same_sense=not Face.same_sense) for Face in CavityFaces),
+    CapFaces = ToolValue.faces[0], ToolValue.faces[-1]
+    Entrances = {IndexValue: CapFaces[IndexValue] for IndexValue in OpenCaps}
+    RimLoops = {LoopId for Face in Entrances.values() for LoopId in Face.loop_ids}
+    RimFaces = {Face.id for Face in Entrances.values()}
+    RimSurfaces = {Face.surface_id for Face in Entrances.values()}
+    Faces = tuple(
+        (
+            ReplaceValue(Face, loop_ids=(*Face.loop_ids, *Entrances[Index].loop_ids))
+            if Index in Entrances
+            else Face
+        )
+        for Index, Face in enumerate(StockValue.faces)
+    ) + tuple(
+        ReplaceValue(Face, same_sense=not Face.same_sense)
+        for Face in ToolValue.faces
+        if Face.id not in RimFaces
     )
     Loops = (
         *StockValue.loops,
@@ -22,7 +35,7 @@ def BuildPocketShell(
             ReplaceValue(
                 Loop,
                 coedge_ids=Loop.coedge_ids[::-1],
-                outer=Loop.outer and Loop.id != RimLoop,
+                outer=Loop.outer and Loop.id not in RimLoops,
             )
             for Loop in ToolValue.loops
         ),
@@ -33,14 +46,14 @@ def BuildPocketShell(
     )
     return BuildSweepModel(
         BodyId,
-        f"{BodyId}-blind-pocket",
+        PrefixValue,
         (*StockValue.curves, *ToolValue.curves),
         (
             *StockValue.surfaces,
             *(
                 Surface
                 for Surface in ToolValue.surfaces
-                if Surface.id != Rim.surface_id
+                if Surface.id not in RimSurfaces
             ),
         ),
         (*StockValue.vertices, *ToolValue.vertices),

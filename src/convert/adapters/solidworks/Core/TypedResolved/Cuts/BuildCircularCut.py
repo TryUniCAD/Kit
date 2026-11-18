@@ -17,26 +17,48 @@ from interchange.geometry.Models.VectorPlane import PlaneVector
 from interchange.Records.RecordTopology import TopologyCounts
 
 
-# the validated pocket subtracts actual circular volume and adds the analytic wall without creating a native cache
-def BuildPocketGeom(
-    PlanValue: PrismPlan, CircleValue: LocalCircle, CutDepth: float, BodyId: str
+# clipped cylinder stations preserve exact cavity geometry independently of the presence of a driving cut distance
+def BuildCircularCut(
+    PlanValue: PrismPlan,
+    CircleValue: LocalCircle,
+    StockBounds: tuple[float, float],
+    CutBounds: tuple[float, float],
+    BodyId: str,
+    PrefixValue: str,
 ) -> PrismGeometry:
+    OpenCaps = tuple(
+        IndexValue
+        for IndexValue, (StockCap, ToolCap) in enumerate(
+            zip(StockBounds, CutBounds, strict=True)
+        )
+        if StockCap == ToolCap
+    )
+    if not OpenCaps or not (
+        StockBounds[0] <= CutBounds[0] < CutBounds[1] <= StockBounds[1]
+    ):
+        raise ValueError(
+            "circular cut must intersect a cap and remain within the stock"
+        )
     Stock, StockVolume, StockArea, Bounds = BuildPrism(
-        BodyId, PlanValue.FrameValue, PlanValue.LinesValue, 0.0, PlanValue.DepthValue
+        BodyId, PlanValue.FrameValue, PlanValue.LinesValue, *StockBounds
     )
     Radius = CircleValue.RadiusValue
     ToolValue, ToolVolume, _, _ = BuildCircular(
         f"{BodyId}-cavity",
         PlanValue.FrameValue,
         CircleGeometry(PlaneVector(*CircleValue.CenterValue), Radius),
-        0.0,
-        CutDepth,
+        *CutBounds,
         Radius,
         Radius,
     )
-    ModelValue = BuildPocketShell(Stock, ToolValue, BodyId)
+    ModelValue = BuildPocketShell(Stock, ToolValue, BodyId, PrefixValue, OpenCaps)
     Volume = StockVolume - ToolVolume
-    Area = StockArea + 2.0 * PiValue * Radius * CutDepth
+    Height = CutBounds[1] - CutBounds[0]
+    Area = (
+        StockArea
+        + 2.0 * PiValue * Radius * Height
+        + (2 - 2 * len(OpenCaps)) * PiValue * Radius**2
+    )
     if not (IsFinite(Volume) and Volume > 0.0 and IsFinite(Area)):
         raise ValueError("cache free pocket measures exceed floating range")
     Topology = TopologyCounts(

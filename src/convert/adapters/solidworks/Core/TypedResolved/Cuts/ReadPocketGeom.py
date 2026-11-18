@@ -2,8 +2,8 @@ from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Core.Native import NativeModel
-from convert.adapters.solidworks.Core.TypedResolved.Cuts.BuildPocketGeom import (
-    BuildPocketGeom,
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.BuildCircularCut import (
+    BuildCircularCut,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.CheckPublicPocket import (
     CheckPublicPocket,
@@ -20,6 +20,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismPlan impor
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
+from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # body geometry and history must refer to the same native owners before a cache free document can supply a pocket solid
@@ -37,17 +38,46 @@ def ReadPocketGeom(
         )
     CheckPrismMgr(Manager)
     Features = IndexFeatures(LinkValue)
-    CircleValue, CutDepth = CheckPublicPocket(ModelValue, Features)
-    Stock = ReadPrismPlan(LinkValue, Features)
-    CutNode = Features[ModelValue.operations[1].object_id]
+    CircleValue, Cut = CheckPublicPocket(ModelValue, Features)
+    Through = Cut.extrusion_end == ExtrudeEnd.KThroughAll
+    Stock = ReadPrismPlan(
+        LinkValue,
+        Features,
+        ModeValue=ExtrudeEnd.KMidPlane if Through else ExtrudeEnd.KBlind,
+    )
+    if Through:
+        HalfDepth = Stock.DepthValue * 0.5
+        StockBounds = (-HalfDepth, HalfDepth)
+        if Cut.second_extrusion_end == ExtrudeEnd.KThroughAll:
+            CutBounds = StockBounds
+        elif Cut.direction_code == 1:
+            CutBounds = (0.0, HalfDepth)
+        else:
+            CutBounds = (-HalfDepth, 0.0)
+        MethodValue = "typed_parametric_through_all_circular_cut"
+        CutEvidence: dict[str, object] = {
+            "stock_interval_mm": StockBounds,
+            "cut_interval_mm": CutBounds,
+        }
+        PrefixValue = f"{BodyId}-through-all-cut"
+    else:
+        if Cut.length_mm is None:
+            raise ValueError("cache free blind cut requires an active length")
+        StockBounds, CutBounds = (0.0, Stock.DepthValue), (0.0, Cut.length_mm)
+        MethodValue = "typed_parametric_blind_circular_pocket"
+        CutEvidence = {"cut_depth_mm": Cut.length_mm}
+        PrefixValue = f"{BodyId}-blind-pocket"
+    CutNode = Features[Cut.object_id]
     PlanValue = ReplaceValue(
         Stock,
         EvidenceValue={
             **Stock.EvidenceValue,
-            "method": "typed_parametric_blind_circular_pocket",
+            "method": MethodValue,
             "cut_owner": NativeNodeSpan(LinkValue, CutNode),
             "cut_circle_owner": CircleValue.OwnerValue,
-            "cut_depth_mm": CutDepth,
+            **CutEvidence,
         },
     )
-    return BuildPocketGeom(PlanValue, CircleValue, CutDepth, BodyId)
+    return BuildCircularCut(
+        PlanValue, CircleValue, StockBounds, CutBounds, BodyId, PrefixValue
+    )

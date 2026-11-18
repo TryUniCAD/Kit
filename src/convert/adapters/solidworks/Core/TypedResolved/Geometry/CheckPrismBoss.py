@@ -11,7 +11,10 @@ from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 # the analytic boss cannot stand in for cuts thin surfaces stored bodies selected merges or additional body modifiers
 def CheckPrismBoss(
-    OwnerValue: ExtrudeOwner, ColdValue: ColdOutput | None = None
+    OwnerValue: ExtrudeOwner,
+    ColdValue: ColdOutput | None = None,
+    *,
+    ModeValue: ExtrudeEnd = ExtrudeEnd.KBlind,
 ) -> None:
     CheckPrismAtom(
         OwnerValue.NodeValue,
@@ -19,11 +22,11 @@ def CheckPrismBoss(
     )
     Fields = OwnerValue.NodeValue.FieldsValue
     if (
-        OwnerValue.ModeValue != ExtrudeEnd.KBlind
+        OwnerValue.ModeValue != ModeValue
         or OwnerValue.IsReversed
         or OwnerValue.SecondValue is not None
     ):
-        raise ValueError("cache free prism requires one forward blind direction")
+        raise ValueError(f"cache free prism requires one forward {ModeValue} direction")
     if (
         Fields.get("f28") != 0x40000000 | 0x140
         or Fields.get("f810") != -1
