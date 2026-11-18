@@ -91,3 +91,9 @@ The supported internal profile has one first rectangular mid-plane stock and one
 Continuous automatic selection, through-all bosses, additional releases and public registry promotion remain unqualified. The pre-writer [H sources](../v2026/heldout/ThroughAllSourceLock01.json) remain sealed. H03/H04 retain their source-only finite-extent restrictions.
 
 The [constructor guide](../../../Documentation/Reference/Research/Solidworks/Construction/SelectedStock.md) gives the exact API contract and replay procedure.
+
+## Portable preparation
+
+The internal neutral route projects the actual \`CadDocument\` stock boss, principal sketch plane, D1 owner and one optional cut-owned body selection. It passes the very same projected stock object into the selected constructor and retains the prior all-body route for zero selections.
+
+Four selected models build twice in fresh guarded workers and pass the strict default reader with the explicit stock path and exact analytical solid. Their paired all-body outputs match the existing hashes. Four plain builds and nine negative selection cases bring the total to 21 processes. [Portable process receipt](../measurements/2026/SdkNeutralSelectedThroughAll01.json)

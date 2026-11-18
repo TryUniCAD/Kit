@@ -13,6 +13,8 @@ def CheckPartScope(
     DocumentValue: CadDocument,
     ParameterCounts: tuple[int, ...],
     HistoryCount: int = 1,
+    *,
+    SelectionCounts: tuple[int, ...] = (0,),
 ) -> None:
     if not isinstance(CastValue(object, DocumentValue), CadDocument):
         raise TypeError("plain boss candidate requires a real neutral cad document")
@@ -29,7 +31,7 @@ def CheckPartScope(
         DocumentValue.meshes
         or DocumentValue.brep_payloads
         or DocumentValue.materials
-        or DocumentValue.selections
+        or len(DocumentValue.selections) not in SelectionCounts
     ):
         raise ValueError(
             "plain boss candidate does not admit extra mesh payload material or selection semantics"

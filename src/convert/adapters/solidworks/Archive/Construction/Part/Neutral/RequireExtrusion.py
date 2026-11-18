@@ -8,6 +8,8 @@ def RequireExtrusion(
     FeatureValue: FeatureStep,
     OperationValue: BooleanOp = BooleanOp.KCreate,
     PreviousIds: tuple[str, ...] = (),
+    *,
+    ExpectedSelections: tuple[str, ...] = (),
 ) -> ExtrudeFeature:
     Definition = FeatureValue.definition
     if (
@@ -19,7 +21,7 @@ def RequireExtrusion(
     if (
         FeatureValue.suppressed
         or FeatureValue.configuration_states
-        or FeatureValue.selection_ids
+        or FeatureValue.selection_ids != ExpectedSelections
         or FeatureValue.input_feature_ids != PreviousIds
         or FeatureValue.attributes
     ):

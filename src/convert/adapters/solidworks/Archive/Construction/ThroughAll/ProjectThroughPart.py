@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.BodyScope.SelectedStock import (
+    SelectedStock,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CheckPartLinks import (
     CheckPartLinks,
 )
@@ -40,12 +43,15 @@ from convert.adapters.solidworks.Archive.Construction.ThroughAll.ThroughStock im
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp
 from interchange.Features.FeatureExtrude import ExtrudeEnd
+from interchange.geometry.Models.Selection import SelectPathElem
 from interchange.geometry.Models.VectorSpace import SpaceVector
 
 
 # the through cut consumes its actual stock sketch and sole depth driver independently of its depthless termination
-def ProjectThroughPart(DocumentValue: CadDocument) -> ThroughPartSpec:
-    CheckPartScope(DocumentValue, (1,), HistoryCount=2)
+def ProjectThroughPart(
+    DocumentValue: CadDocument,
+) -> tuple[ThroughPartSpec, SelectedStock | None]:
+    CheckPartScope(DocumentValue, (1,), HistoryCount=2, SelectionCounts=(0, 1))
     Plane = CheckPartLinks(DocumentValue)
     Axis = ReadPrincAxis(Plane.transform)
     Scale = {"mm": 0.001, "m": 1.0, "in": 0.0254}.get(DocumentValue.units)
@@ -55,7 +61,22 @@ def ProjectThroughPart(DocumentValue: CadDocument) -> ThroughPartSpec:
     StockSketch, CutSketch = DocumentValue.sketches
     Driver = DocumentValue.parameters[0]
     BossDef = RequireExtrusion(Boss)
-    CutDef = RequireExtrusion(Cut, BooleanOp.KCutOperation, (Boss.id,))
+    SelectionValue = DocumentValue.selections[0] if DocumentValue.selections else None
+    if SelectionValue is not None and (
+        SelectionValue.path != (SelectPathElem("feature", Boss.id, "body"),)
+        or SelectionValue.name != Boss.name + " body"
+        or SelectionValue.query
+        or SelectionValue.point is not None
+        or SelectionValue.provenance is not None
+        or SelectionValue.attributes
+    ):
+        raise ValueError("through-all selection must describe the actual stock body")
+    CutDef = RequireExtrusion(
+        Cut,
+        BooleanOp.KCutOperation,
+        (Boss.id,),
+        ExpectedSelections=(SelectionValue.id,) if SelectionValue is not None else (),
+    )
     BossEnd = ReadBossEnd(BossDef, Axis)
     CheckCircDrive(Driver, Boss.id, "D1")
     if (
@@ -98,7 +119,7 @@ def ProjectThroughPart(DocumentValue: CadDocument) -> ThroughPartSpec:
         HeightValue=Vertices[2][1] - Vertices[0][1],
         AxisValue=Axis,
     )
-    return ThroughPartSpec(
+    PlanValue = ThroughPartSpec(
         Stock,
         ReadCircGeom(CutSketch, Scale),
         CutSketch.name,
@@ -109,3 +130,9 @@ def ProjectThroughPart(DocumentValue: CadDocument) -> ThroughPartSpec:
             BossEnd.VersionValue,
         ),
     )
+    ScopeValue = (
+        SelectedStock((Stock,), "selected", BossEnd.VersionValue)
+        if SelectionValue is not None
+        else None
+    )
+    return PlanValue, ScopeValue

@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.CheckPartInput import
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
+from convert.adapters.solidworks.Archive.Construction.ThroughAll.MakeScopedThru import (
+    MakeScopedThru,
+)
 from convert.adapters.solidworks.Archive.Construction.ThroughAll.MakeThroughPart import (
     MakeThroughPart,
 )
@@ -19,6 +22,7 @@ from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPart
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.PartCaps import KPartWriteCaps
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Enums.EnumDocument import Capability
 
 
 # the internal through cut entry builds only from neutral feature intent the final locator and the supplied writer event
@@ -30,9 +34,12 @@ def PrepareThroughPart(
 ) -> PartCandidate:
     Settings = CheckPartOpts(OptionsValue)
     CheckPlainScope(DocumentValue)
-    if not DocumentValue.capabilities <= KPartWriteCaps:
+    CapabilityValues = KPartWriteCaps
+    if DocumentValue.selections:
+        CapabilityValues |= {Capability.KSelections}
+    if not DocumentValue.capabilities <= CapabilityValues:
         raise ValueError("through-all preparation has unrepresented capabilities")
-    Plan = ProjectThroughPart(DocumentValue)
+    Plan, Scope = ProjectThroughPart(DocumentValue)
     Config = DocumentValue.configurations[0]
     if Settings.configuration not in (None, Config.id, Config.name):
         raise ValueError("requested through-all write configuration is unavailable")
@@ -41,4 +48,6 @@ def PrepareThroughPart(
     Output = FinalPartPath(TargetValue, Settings, Recipe.OutputValue, Stock.NameValue)
     Inputs = BindPartIntent(DocumentValue, Stock, Recipe, Output)
     CheckPartInput(DocumentValue, Inputs, Stock, (Plan.SketchName, Plan.FeatureName))
-    return MakeThroughPart(Plan, Inputs)
+    if Scope is None:
+        return MakeThroughPart(Plan, Inputs)
+    return MakeScopedThru(Plan, Inputs, Scope).PartValue
