@@ -13,6 +13,7 @@ KFrontSchemas = MappingProxyType(
             for ClassName in (
                 "moScaleSysScale_c",
                 "moLineStyle_c",
+                "uiLFConfig_c",
                 "moCompProfile_c",
                 "moEdgeRef_c",
                 "moFromSktEntSurfIdRep_c",
