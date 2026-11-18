@@ -1,0 +1,610 @@
+{
+  "application_usable": false,
+  "classification": {
+    "constructor_defaults": "external point kind6/permanence and wrapper/binary relation initial scalar null negative states from pinned implementation",
+    "creation_time": "2592000 is the native empty creation-log sentinel, not a saved feature or document timestamp",
+    "derived": "actual origin/model/point owners, cloned component ownership, selected handles, world backup, label, insertion slot/counters and actual relation use counts",
+    "remaining": "SDK native edit/save/reopen, full original FCStd source admission and semantics beyond canonical Front Plane origin rectangles remain unqualified"
+  },
+  "delivery_pr": 121,
+  "fcstd_conversion_accepted": false,
+  "generated_proof": {
+    "designs": [
+      {
+        "anchor": {
+          "actual_owner_aliases": true,
+          "axis_relations": 4,
+          "contour_points": 4,
+          "external_points": 1,
+          "line_use_counts": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "lines": 4,
+          "origin_creation_time": 2592000,
+          "origin_feature_id": 17,
+          "origin_point_mark": 1,
+          "origin_relations": 1,
+          "point_creation_next": 6,
+          "point_use_counts": [
+            2,
+            2,
+            1,
+            0,
+            1
+          ],
+          "prepared": true,
+          "value_dimensions": 2
+        },
+        "build_sha256": "605ae676fb7bb17653da12ad9619beba7d3db4618fc34d43b091d8da295266e9",
+        "candidate_bytes": 8879,
+        "candidate_sha256": "ad927ed0084f76df5d46039ebdd2e6a39c261c5c0053458fab7ab6cc367b7f98",
+        "counterpart_sha256": "5bca62f400af43333e4402c82e9e8f0e31ecc8a6bcadffc072ac223989c1a7eb",
+        "deterministic": true,
+        "dimensions_mm": [
+          31.75,
+          18.125,
+          9.625
+        ],
+        "logical_streams_compared": 10,
+        "name": "OriginSyntheticAlpha",
+        "prepare_sha256": "50889960395b802057cee3a1fc986205218f6920ce56ee11cd5adcd4367ab244",
+        "rejections_per_build": 14,
+        "repeat_sha256": "605ae676fb7bb17653da12ad9619beba7d3db4618fc34d43b091d8da295266e9",
+        "request_sha256": "2e6937de7a3adc997b4cd2d317a625c0b43e12ce581f374b296bf9a8beb233ca",
+        "runtime_input_file_reads": 0
+      },
+      {
+        "anchor": {
+          "actual_owner_aliases": true,
+          "axis_relations": 4,
+          "contour_points": 4,
+          "external_points": 1,
+          "line_use_counts": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "lines": 4,
+          "origin_creation_time": 2592000,
+          "origin_feature_id": 17,
+          "origin_point_mark": 1,
+          "origin_relations": 1,
+          "point_creation_next": 6,
+          "point_use_counts": [
+            2,
+            2,
+            1,
+            0,
+            1
+          ],
+          "prepared": true,
+          "value_dimensions": 2
+        },
+        "build_sha256": "1ae7e1f55bb5e32a2d1320bc4df9a534df6f118d8c4c1c180f6e9eba96117d1f",
+        "candidate_bytes": 8879,
+        "candidate_sha256": "09a1de4e7143dccbd975a35e1bd6adae216b8cf02edf679680a1523e1fcfaef6",
+        "counterpart_sha256": "2b7798a0748ab3ecb2fc3702d8581e6cb4698166415bf2889692c7cc1c115d09",
+        "deterministic": true,
+        "dimensions_mm": [
+          14.375,
+          27.625,
+          6.875
+        ],
+        "logical_streams_compared": 10,
+        "name": "OriginSyntheticBeta",
+        "prepare_sha256": "72ac1d7da64323f624707ff6794a15499d7e0447bb4ac91d0f667f4a75eed00a",
+        "rejections_per_build": 14,
+        "repeat_sha256": "1ae7e1f55bb5e32a2d1320bc4df9a534df6f118d8c4c1c180f6e9eba96117d1f",
+        "request_sha256": "ea4cf0a2e004c497307a9a0b977566e37b58fc424aa03d92d87d6f78998feefa",
+        "runtime_input_file_reads": 0
+      },
+      {
+        "anchor": {
+          "actual_owner_aliases": true,
+          "axis_relations": 4,
+          "contour_points": 4,
+          "external_points": 1,
+          "line_use_counts": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "lines": 4,
+          "origin_creation_time": 2592000,
+          "origin_feature_id": 17,
+          "origin_point_mark": 1,
+          "origin_relations": 1,
+          "point_creation_next": 6,
+          "point_use_counts": [
+            2,
+            2,
+            1,
+            0,
+            1
+          ],
+          "prepared": true,
+          "value_dimensions": 2
+        },
+        "build_sha256": "03b29b86fb1c98e72bdec6745fa1bfa16f3635575a142a237391488ab2ea7d94",
+        "candidate_bytes": 8863,
+        "candidate_sha256": "4a11a1d135dace17b34d854f2f57b501f74e3ba8ba778f4de6a318891de4428e",
+        "counterpart_sha256": "9bccdeaf7b263ed1112f001255990df5b7c2cc25eabb33ea4231f8c8c5616040",
+        "deterministic": true,
+        "dimensions_mm": [
+          20.0,
+          30.0,
+          10.0
+        ],
+        "logical_streams_compared": 10,
+        "name": "F14aSizedDiscovery",
+        "prepare_sha256": "ba3104ada9dc0338b09bb8d83b69d8edeb2765e657b6c00bdf2541c09746e04e",
+        "rejections_per_build": 14,
+        "repeat_sha256": "03b29b86fb1c98e72bdec6745fa1bfa16f3635575a142a237391488ab2ea7d94",
+        "request_sha256": "19e7a8fdd0522c6569007c5968ed030896e29216f290e766fd595568275b8caa",
+        "runtime_input_file_reads": 0
+      }
+    ],
+    "native_input_used_for_generation": false,
+    "processes": 12,
+    "result_sha256": "9c9d1e6d760400c77048ef24f850e923ebd3b616559a0fbc4393d1efcd5bf10d",
+    "sdk_runtime_research_imports": 0,
+    "zero_runtime_input_file_reads": true
+  },
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_codec_regression": {
+    "native_oracle_execution": false,
+    "observations": [
+      {
+        "exit": 0,
+        "input_bytes": 55222,
+        "input_sha256": "7cbc61613416c5080af5549f97be8cccd9b6855b4e5e0ba08b2008643082f7ec",
+        "input_unchanged": true,
+        "name": "SkewNativeSaved",
+        "result": {
+          "byte_identity": {
+            "Contents/Config-0": true,
+            "Contents/Config-0-ResolvedFeatures": true
+          },
+          "config_map_counter": 122,
+          "input_sha256": "7cbc61613416c5080af5549f97be8cccd9b6855b4e5e0ba08b2008643082f7ec",
+          "native_acceptance": false,
+          "passed": true,
+          "public_writer_qualified": false,
+          "resolved_map_counter": 278,
+          "runtime_input_file_reads": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 26069,
+              "sha256": "f9cba92a330c1676931afdda058195d5984d9cfe376996b219b36260379c577c"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 15419,
+              "sha256": "5505b029d0feac36f853a58dfe914037c9dc3c181bf866ac43e48c8224ce9427"
+            }
+          }
+        },
+        "script": "SdkAnchorRegression.py"
+      },
+      {
+        "exit": 0,
+        "input_bytes": 58368,
+        "input_sha256": "0d4086ee2194b8d2f3fc1a0cff3d651b2e40fe4b494ff8399cb4e6cc72db287d",
+        "input_unchanged": true,
+        "name": "StepNativeSaved",
+        "result": {
+          "byte_identity": {
+            "Contents/Config-0": true,
+            "Contents/Config-0-ResolvedFeatures": true
+          },
+          "config_map_counter": 122,
+          "input_sha256": "0d4086ee2194b8d2f3fc1a0cff3d651b2e40fe4b494ff8399cb4e6cc72db287d",
+          "native_acceptance": false,
+          "passed": true,
+          "public_writer_qualified": false,
+          "resolved_map_counter": 296,
+          "runtime_input_file_reads": 0,
+          "streams": {
+            "Contents/Config-0": {
+              "bytes": 26065,
+              "sha256": "05b87ee70edd44a9669e7ad22ec157e34eb59acd5bf1ccda989c50d37d8116b8"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 16317,
+              "sha256": "1bdb003f3767cc47762fe6b764a8d7680568a155382075da78e56f3786e63819"
+            }
+          }
+        },
+        "script": "SdkAnchorRegression.py"
+      },
+      {
+        "exit": 0,
+        "input_bytes": 58262,
+        "input_sha256": "7dc2a38554ccdbdd0ec56cf9bdf22d67f789a2922760c2d3cdc82a8d442ffefe",
+        "input_unchanged": true,
+        "name": "DisclosedCornerOriginal",
+        "result": {
+          "byte_identity": true,
+          "config_sdk_qualified": false,
+          "config_seed_counter": 110,
+          "input_sha256": "7dc2a38554ccdbdd0ec56cf9bdf22d67f789a2922760c2d3cdc82a8d442ffefe",
+          "native_acceptance": false,
+          "passed": true,
+          "public_writer_qualified": false,
+          "resolved_map_counter": 300,
+          "runtime_input_file_reads": 0,
+          "schema_calls": {
+            "moCompSketchEntHandle_c": 1,
+            "moPointBackedUpData_c": 1,
+            "moSketchExtRef_w": 1,
+            "sgExtEnt_c": 1,
+            "sk.sgLogG2Dim.FUN_4c58b970": 1
+          },
+          "scope": "sdk resolved codec only, explicitly seeded by research parsed native configuration map",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "stream_bytes": 15079,
+          "stream_sha256": "300db6fd4d1bc705639ba4398035678970ec1741dc8b8c9b5eeea85128839a27"
+        },
+        "script": "SdkAnchorSeeded.py"
+      },
+      {
+        "anchor_schema_reached": false,
+        "exit": 1,
+        "expected_preexisting_boundary": true,
+        "input_bytes": 58262,
+        "input_sha256": "7dc2a38554ccdbdd0ec56cf9bdf22d67f789a2922760c2d3cdc82a8d442ffefe",
+        "input_unchanged": true,
+        "missing_schema": "moGhostBodyObject_c.FUN_4bf05390",
+        "name": "DisclosedCornerOriginal",
+        "script": "SdkAnchorRegression.py"
+      },
+      {
+        "exit": 0,
+        "input_bytes": 60604,
+        "input_sha256": "48c16a740ae9dcd42639b007d3924c0e0158f499527fbb11168716e7eae5b381",
+        "input_unchanged": true,
+        "name": "DisclosedCornerWidthEdit",
+        "result": {
+          "byte_identity": true,
+          "config_sdk_qualified": false,
+          "config_seed_counter": 110,
+          "input_sha256": "48c16a740ae9dcd42639b007d3924c0e0158f499527fbb11168716e7eae5b381",
+          "native_acceptance": false,
+          "passed": true,
+          "public_writer_qualified": false,
+          "resolved_map_counter": 300,
+          "runtime_input_file_reads": 0,
+          "schema_calls": {
+            "moCompSketchEntHandle_c": 1,
+            "moPointBackedUpData_c": 1,
+            "moSketchExtRef_w": 1,
+            "sgExtEnt_c": 1,
+            "sk.sgLogG2Dim.FUN_4c58b970": 1
+          },
+          "scope": "sdk resolved codec only, explicitly seeded by research parsed native configuration map",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "stream_bytes": 15329,
+          "stream_sha256": "1bfdbb3411161a02ccf5df35591d0e5ce9fdc5b2aa4382fe1d0be922517d593c"
+        },
+        "script": "SdkAnchorSeeded.py"
+      },
+      {
+        "anchor_schema_reached": false,
+        "exit": 1,
+        "expected_preexisting_boundary": true,
+        "input_bytes": 60604,
+        "input_sha256": "48c16a740ae9dcd42639b007d3924c0e0158f499527fbb11168716e7eae5b381",
+        "input_unchanged": true,
+        "missing_schema": "moGhostBodyObject_c.FUN_4bf05390",
+        "name": "DisclosedCornerWidthEdit",
+        "script": "SdkAnchorRegression.py"
+      },
+      {
+        "exit": 0,
+        "input_bytes": 63394,
+        "input_sha256": "fa3d44ebd5cca6e8a4783542adb8ddaffe2c8f055d2f6cbcf73ee4e490fa8162",
+        "input_unchanged": true,
+        "name": "DisclosedCornerHeightEdit",
+        "result": {
+          "byte_identity": true,
+          "config_sdk_qualified": false,
+          "config_seed_counter": 110,
+          "input_sha256": "fa3d44ebd5cca6e8a4783542adb8ddaffe2c8f055d2f6cbcf73ee4e490fa8162",
+          "native_acceptance": false,
+          "passed": true,
+          "public_writer_qualified": false,
+          "resolved_map_counter": 300,
+          "runtime_input_file_reads": 0,
+          "schema_calls": {
+            "moCompSketchEntHandle_c": 1,
+            "moPointBackedUpData_c": 1,
+            "moSketchExtRef_w": 1,
+            "sgExtEnt_c": 1,
+            "sk.sgLogG2Dim.FUN_4c58b970": 1
+          },
+          "scope": "sdk resolved codec only, explicitly seeded by research parsed native configuration map",
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "stream_bytes": 15333,
+          "stream_sha256": "236393a123618e735833a961010f7a0130e6f613f1fd929783c2e19ac15d024c"
+        },
+        "script": "SdkAnchorSeeded.py"
+      },
+      {
+        "anchor_schema_reached": false,
+        "exit": 1,
+        "expected_preexisting_boundary": true,
+        "input_bytes": 63394,
+        "input_sha256": "fa3d44ebd5cca6e8a4783542adb8ddaffe2c8f055d2f6cbcf73ee4e490fa8162",
+        "input_unchanged": true,
+        "missing_schema": "moGhostBodyObject_c.FUN_4bf05390",
+        "name": "DisclosedCornerHeightEdit",
+        "script": "SdkAnchorRegression.py"
+      }
+    ],
+    "processes": 8,
+    "result_sha256": "c7befbbf0fa1949d9d2ea1cdae811ade15d8133117bf2d6583fca758a86d7f3c"
+  },
+  "native_packet": {
+    "candidate_sha256": "4a11a1d135dace17b34d854f2f57b501f74e3ba8ba778f4de6a318891de4428e",
+    "case_sha256": "dd628207cf7294e0f9b356588098211a3a7a39fb622318871b0b185effb73181",
+    "expected_processes": 8,
+    "processes_started": 0,
+    "scope": "synthetic source-only 20 x 30 x 10 mm rectangle; independent width height and leaf depth edits with real origin corner",
+    "sha256": "5ce406c9957056cdfa1cd97f8ed0f36cf27ed38e86ce71facf063eed82202086",
+    "status": "prepared and host verified; no native result yet",
+    "tools_sha256": {
+      "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+      "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+      "InspectSdkBlindPart.py": "86a3ef7c8a74b778800f83e6e920ab33f18ddb3363774ac29dad7b43858fbaa5",
+      "InspectSdkCorner.py": "a93f4432c92ebd0881aaa37a577b248242d2dbcbabc90f55bef6d0aabc1408f8",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "SdkCornerNativeGraph.py": "1e7fef5b3412ac8dc896a448e219148f603ce36fe1dafff23f8dc0f978ab23b6",
+      "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    }
+  },
+  "pinned_module": {
+    "build": "34.5.2.0604",
+    "constructor_range_receipt_sha256": "257ca5df3f60b28ef25c39d161720af75c1d6d9ff2cbf8ca228a341b1c4af10c",
+    "inline_relation_range": [
+      "0x4c58b970",
+      "0x4c58c699"
+    ],
+    "inline_relation_range_sha256": "ea09f6703dd6890985ce8de4b1e70a21393aefebf70919dc6ba7572cefd086e3",
+    "machine": "0x8664",
+    "name": "sldmodu.dll",
+    "preferred_base": "0x4b140000",
+    "runtime_descriptor_receipt_sha256": "6c3080d6afc67538b6b932d536749e46d44b17d145c93d69924a73e64fb37671",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.sdk-corner-construction-source-only.v1",
+  "source_closure": {
+    "file_count": 5618,
+    "sha256": "38e4193c5bc0fd4c6ef4c2d2a20e2251e6d883f82c0abdb93c70e3b9afd3fa18",
+    "writer_files": [
+      {
+        "path": "re/tooling/sw2026/InspectSdkCorner.py",
+        "sha256": "a93f4432c92ebd0881aaa37a577b248242d2dbcbabc90f55bef6d0aabc1408f8"
+      },
+      {
+        "path": "re/tooling/sw2026/PrepareSdkCornerOracle.py",
+        "sha256": "64cfee82641007e3059b2fa17c32e3edc7012c0eba19f539d49a29b241fa0fe6"
+      },
+      {
+        "path": "re/tooling/sw2026/ReplaySdkCorner.py",
+        "sha256": "b004247076dda31d7c705a78b677663f078c9c33b4d9598e07218de8ab9b8822"
+      },
+      {
+        "path": "re/tooling/sw2026/SdkAnchorRegression.py",
+        "sha256": "23ae0dfa0b30e7e88530537886d4bba2fd1709f0089202bdee1725a7889caa80"
+      },
+      {
+        "path": "re/tooling/sw2026/SdkAnchorSeeded.py",
+        "sha256": "851e78796a9396a11a6bf1940060b0a66471b7e8a9a368f40c3b830e9801ff96"
+      },
+      {
+        "path": "re/tooling/sw2026/SdkCornerChecks.py",
+        "sha256": "22a9c3658712ca009402dae5eafe2bf25b67df05a6ce75a49d8c7d2380d51dde"
+      },
+      {
+        "path": "re/tooling/sw2026/SdkCornerCounterpart.py",
+        "sha256": "7461374cb5cd85525c2360b3a6031ba030be4ae368221fc36303b2856f4a1620"
+      },
+      {
+        "path": "re/tooling/sw2026/SdkCornerNativeGraph.py",
+        "sha256": "1e7fef5b3412ac8dc896a448e219148f603ce36fe1dafff23f8dc0f978ab23b6"
+      },
+      {
+        "path": "re/tooling/sw2026/SdkCornerPrepare.py",
+        "sha256": "1c8ba9045844b1e627cf088e33357d2dc622399f211328527df7b44018c9911c"
+      },
+      {
+        "path": "re/tooling/sw2026/SdkCornerProcess.py",
+        "sha256": "8eca5a001d8734542374833641b12c2f3e6d85274ee7c7775ecc90b79ed1ab83"
+      },
+      {
+        "path": "re/tooling/sw2026/SdkCornerRejects.py",
+        "sha256": "bd63cd55f14eaa08ed8151022b9859962bf744f9a8c69b236570db7fdf0d1aff"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/AnchorFields.py",
+        "sha256": "2f7812c1f553c6551f1dfc7a777f20e69872f5eaf78b8b049ced7910e6c9ca18"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedLayouts.py",
+        "sha256": "c66c54f3441debe7bb44992cd7e95b25e82a967d4da67ed21c3ae5e3307695df"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedSchemas.py",
+        "sha256": "b30a1823f4a1997d606d2cf03f1113582958d07822091db188d2e9f032a3dc31"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/CheckAnchorDims.py",
+        "sha256": "6b9937ea224a07c4b3db1e65857660394e225c78231d2154a7fa592ae23d4dcf"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/CheckAnchorRef.py",
+        "sha256": "58341c9bbf6da21b7f49bb0716075a206ec65251654220f291c679a876721028"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/CheckCornerGeom.py",
+        "sha256": "c28e612d0bd1d65fac19a551f30b3e4ef5b65ac7ade753e1f9f223f5389cd29d"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/CornerGraph.py",
+        "sha256": "0e4ada7fb515364ffa70bf777f6eaba8fcee2a0ec470334a21335697a5ff7d57"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/MakeCornerMut.py",
+        "sha256": "612dd50c30a9b899b183295c827461b79315cd6c933e9633c6081ea10b920639"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/MakeCornerRel.py",
+        "sha256": "90453f7c572ad777465b65080f957a9b5db483739cce936cac29d620ae0019bb"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/MakeExtPoint.py",
+        "sha256": "b61aa8c4fe5bb71ce27337fbaa9052a6d483c63f539a2a699f5abdfa3c403ff6"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/MakeExternalEnt.py",
+        "sha256": "cdcc4a30de87a77ad9d3ac884f79791c7f3943cfd3a0852951b3e3ccbfdf5ef8"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/MakeOriginRef.py",
+        "sha256": "9d950f91c8dd94bbe24a9a2581e393724911f671dc1881c49027848fe9ca6874"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/MakeOriginWrap.py",
+        "sha256": "2a44e9b3c5a8d8a9dec2f9a53fafafde55e3ca941bfb23b8951543fececcf663"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/RequireCorner.py",
+        "sha256": "2941e070839b782ca2f72f41ec6c3048fcfcf688a1217e163c1c979da4e9a53d"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/RequireOrigin.py",
+        "sha256": "666ad1ba9090a48941b96f30508b93280bdd0373362762a00a23fc68beab612e"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/WireCornerMut.py",
+        "sha256": "4649efbd3c51e9dd7bc2173402280c06f3bdc949d15a000f2a29ff8037983e16"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Construction/RectangleAnchors/CornerFlowTests.py",
+        "sha256": "8bd13b0d4812966efbc3a6a25668f085647c23aeb622082d5a8484a83ac4bf5d"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Construction/RectangleAnchors/CornerRequest.py",
+        "sha256": "7c4d83f62987dae6e3dfe876681e33d37a50f0b85b784c28c9ab20128efdc46a"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Construction/RectangleAnchors/MakeCornerDoc.py",
+        "sha256": "ca3b3e8502c23df73a64cac0757d512bbfa6ed1a375866d6402de6825eeba508"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Construction/RectangleAnchors/RunCornerPhase.py",
+        "sha256": "d6285549508ff9f553a5a1ea65027c8ffe2a0b8c494bd7a3f8eff2d72497de16"
+      }
+    ],
+    "writer_manifest_sha256": "d409ab9da52c95177b8834d04eb39a4bc6b65e45aa8775c986912dc8fba8980a"
+  },
+  "source_only_checks_passed": true,
+  "static_checks": {
+    "approved_registry_diff_whitespace": true,
+    "black": {
+      "files": 20,
+      "passed": true
+    },
+    "donor_scan": {
+      "files": 4132,
+      "recorded_payloads": 0
+    },
+    "owned_new_source_ast_and_eof": {
+      "files": 29,
+      "passed": true
+    },
+    "ruff": {
+      "files": 20,
+      "passed": true
+    },
+    "steering": {
+      "files": 20,
+      "passed": true
+    },
+    "strict_mypy": {
+      "errors": 0,
+      "files": 20
+    },
+    "strict_pyright": {
+      "errors": 0,
+      "files": 20,
+      "preexisting_unrecognized_config_notices": 3,
+      "warnings": 0
+    }
+  },
+  "task_id": "B04-SW2026-RECTANGLE-ANCHOR",
+  "unanchored_regression": {
+    "designs": [
+      {
+        "artifact_sha256": "cc397bb629edc2fa41b656b5ce1395e344663ef43bcbd54ea5c706174ee24124",
+        "bytes": 8713,
+        "name": "sdk dimension alpha",
+        "runtime_input_file_reads": 0,
+        "same_build_report": true,
+        "streams": {
+          "Contents/CMgr": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79",
+          "Contents/CMgrHdr2": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8",
+          "Contents/Config-0": "c0a1127c592268172f81529f8e5468804f0077441debd9570daa97c119f70982",
+          "Contents/Config-0-ModelHeader": "f80354cad3a75b5e8a9620f31bd8c0713cfbe30d6178afbe57ae2d4bc2b47428",
+          "Contents/Config-0-ResolvedFeatures": "4c970c389a875ce9c25019baa15793fed660ecdc5fd7cda6ec1aa4bbd6891005",
+          "Contents/Definition": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "Header2": "b835e73a83069fe9bf2244be1a3d7730f307ac455b67f408f934a3b4493d6362",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63",
+          "swXmlContents/KeyWords": "866cb789a3ee8e0e24af7ba56b1f898c72422c00e7979d7980f8fec00699fc56"
+        }
+      },
+      {
+        "artifact_sha256": "3a7ee12bd0f046dcd7a4f973f8190ee77106e743ff147b7257b8baf6191ced57",
+        "bytes": 8816,
+        "name": "sdk \u5bf8\u6cd5 beta translated",
+        "runtime_input_file_reads": 0,
+        "same_build_report": true,
+        "streams": {
+          "Contents/CMgr": "053fd3cf9bf90a3d36a29b13b3248043ba5ce79075d152b91322e221893e9329",
+          "Contents/CMgrHdr2": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d",
+          "Contents/Config-0": "504cb09709d7d199902ac2e68f4200b002fb03a95e1b829139808ec9265f3986",
+          "Contents/Config-0-ModelHeader": "3387207724169e0367f7b6b695ef9ac1fa0345a58aa73341496586dc71c09189",
+          "Contents/Config-0-ResolvedFeatures": "67127435f74f5f29ac4951bd7cd7b7310b1e2d92557710359026ad4d5144ef5e",
+          "Contents/Definition": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "Header2": "8b031b4518c08e932c464d889efb18bb5060371840e818bcbccb9ab538cd452f",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc",
+          "swXmlContents/KeyWords": "d4c77e779abb26d6f7820587d86ffb62e0d9c6b1bdf882f737606f994e63dbdf"
+        }
+      }
+    ],
+    "processes": 4,
+    "result_sha256": "ab295a63a957a8c0ca1ce5bb0c550fe2fa2e6e1863396618c37b75504d0e8fcf",
+    "two_registry_replacements": [
+      {
+        "new_sha256": "c66c54f3441debe7bb44992cd7e95b25e82a967d4da67ed21c3ae5e3307695df",
+        "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedLayouts.py",
+        "prior_sha256": "b65a26a121ded13b2753818b7009f8e52a3eb2ab9b0432bb6801555b2490c413"
+      },
+      {
+        "new_sha256": "b30a1823f4a1997d606d2cf03f1113582958d07822091db188d2e9f032a3dc31",
+        "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedSchemas.py",
+        "prior_sha256": "c5c278b06daaae3f894355b5ccf3aaa083231c014975dff2901e994d7cbe6c88"
+      }
+    ]
+  },
+  "vendor_loadable": false
+}

@@ -1,5 +1,9 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AnchorFields import (
+    KAnchorFields,
+)
+
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ConfigLayouts import (
     KConfigLayouts,
 )
@@ -44,6 +48,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.SketchFields im
 KResolvedLayouts = MappingProxyType(
     {
         **KConfigLayouts,
+        **KAnchorFields,
         **KAssemblyFields,
         **KBodyFields,
         **KComponentFields,
