@@ -21,6 +21,10 @@ remain zero.
 The [native author](../../../../re/tooling/sw2026/AuthorCombinedPlanarMates.py)
 created and reopened a disclosed two-mate source with healthy controls.
 The [paired observer](../../../../re/tooling/sw2026/InspectCombinedPlanarMates.py)
-compares a generated candidate through the distance edit, synchronized save
-and fresh reopen. These research entry points leave the public SDK writer
-closed.
+verified a generated pair through the distance edit from 71.375 mm to
+88.625 mm, synchronized save and fresh reopen. Four distinct native processes
+passed with healthy controls and 333 numeric comparisons. The complete parent
+and child trees match the disclosed native control. The
+[measurement](../../../../re/solidworks/measurements/2026/GeneratedCombinedMateNative01.json)
+records the exact source, builder and file hashes. Held-out qualification and
+the public SDK writer remain open.
