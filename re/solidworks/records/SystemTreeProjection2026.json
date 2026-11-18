@@ -1,0 +1,190 @@
+{
+  "bounded_leaf_ranges": {
+    "ambient_base_name": {
+      "code_sha256": "00c384c506b062e6c11c8d5c669cd25b77ec39ab24e898a88d215428e5d0c59f",
+      "end_va_exclusive": "0x4bc0cbbf",
+      "scope": "bounded instructions only; not an inferred unwind extent",
+      "start_va": "0x4bc0cbb0"
+    },
+    "directional_base_name": {
+      "code_sha256": "0a77dd7c5bc89ef7765cdf153ef8de3c2b63c7cf3908f052c3e1d49ebd774481",
+      "end_va_exclusive": "0x4bc0cbcf",
+      "scope": "bounded instructions only; not an inferred unwind extent",
+      "start_va": "0x4bc0cbc0"
+    },
+    "model_environment_pointer": {
+      "code_sha256": "99df28ee12560ae02740fde419db27ee134a079d1a52b87be7d0b74ade356434",
+      "end_va_exclusive": "0x4b2863b8",
+      "scope": "bounded instructions only; not an inferred unwind extent",
+      "start_va": "0x4b2863b0"
+    },
+    "notes_base_name": {
+      "code_sha256": "1eeb02524eff73ad2be2835325d27ea964d361e79e5db7323732da36435e85ec",
+      "end_va_exclusive": "0x4bec5f85",
+      "scope": "bounded instructions only; not an inferred unwind extent",
+      "start_va": "0x4bec5f40"
+    }
+  },
+  "english_resource_vocabulary": [
+    {
+      "block_bytes": 2048,
+      "block_id": 1851,
+      "data_rva": "0x1da958",
+      "language_id": 1033,
+      "resource_id": "0x73a9",
+      "text": "Notes"
+    },
+    {
+      "block_bytes": 1596,
+      "block_id": 789,
+      "data_rva": "0x2cd478",
+      "language_id": 1033,
+      "resource_id": "0x3142",
+      "text": "Ambient"
+    },
+    {
+      "block_bytes": 1596,
+      "block_id": 789,
+      "data_rva": "0x2cd478",
+      "language_id": 1033,
+      "resource_id": "0x3140",
+      "text": "Directional"
+    }
+  ],
+  "folder_end_name_formats": [
+    {
+      "text": "%s___EndTag___",
+      "va": "0x4d0941b0"
+    },
+    {
+      "text": "%s___EndTag___%d",
+      "va": "0x4d0941d0"
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "imports": {
+    "0x4cd34e48": {
+      "module": "mfc140u.dll",
+      "symbol": "#4656"
+    },
+    "0x4cd34e70": {
+      "module": "mfc140u.dll",
+      "symbol": "#8161"
+    },
+    "0x4cd3c498": {
+      "module": "sldsessionu.dll",
+      "symbol": "?Environment@SldSession_c@@SAPEAVSldEnvironment_c@@XZ"
+    }
+  },
+  "modules": [
+    {
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "image_base": "0x404e0000",
+      "machine": "0x8664",
+      "name": "sldresu.dll",
+      "sha256": "531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111"
+    }
+  ],
+  "routines": {
+    "add_folder_pair": {
+      "code_sha256": "f8a53f9a0620ad9fb99697099d489785ef88e69b86d02bbbf84f68c75f0ecdf9",
+      "end_rva_exclusive": "0xd7fea6",
+      "end_va_exclusive": "0x4bebfea6",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?AddFolder@moFtrFolder_c@@SAPEAV1@PEAV1@PEAVmoFeature_c@@1PEAH@Z"
+      ],
+      "start_rva": "0xd7fc20",
+      "start_va": "0x4bebfc20",
+      "unwind_rva": "0x2407d80"
+    },
+    "add_notes_folder": {
+      "code_sha256": "5f67ecb432666fced15d42785e74db44b826d4d1999689ba48b04415c94526e7",
+      "end_rva_exclusive": "0xd80a11",
+      "end_va_exclusive": "0x4bec0a11",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?AddFolder@moNotesAreaFtrFolder_c@@SAPEAVmoFtrFolder_c@@PEAVmoConcept_c@@PEAVmoFeature_c@@1PEAH@Z"
+      ],
+      "start_rva": "0xd80970",
+      "start_va": "0x4bec0970",
+      "unwind_rva": "0x2409714"
+    },
+    "create_default_lights": {
+      "code_sha256": "4d4726fcc4730c1e02a2585dc8b66e7a5a3f7ee4b3c57c708d702df2dd3b054f",
+      "end_rva_exclusive": "0xeda036",
+      "end_va_exclusive": "0x4c01a036",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?createDefaultLights@moModel_c@@QEAAXXZ"
+      ],
+      "start_rva": "0xed9c60",
+      "start_va": "0x4c019c60",
+      "unwind_rva": "0x24394f8"
+    },
+    "create_light_by_type": {
+      "code_sha256": "2a95adb4d6f9d26b7c12124a2412b44ee7d13a4ea47813caafee004c4d8ac421",
+      "end_rva_exclusive": "0xacca24",
+      "end_va_exclusive": "0x4bc0ca24",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?createByType@moLightFeature_c@@SAPEAV1@PEAVmoConcept_c@@W4LIGHT_TYPE@@@Z"
+      ],
+      "start_rva": "0xacc800",
+      "start_va": "0x4bc0c800",
+      "unwind_rva": "0x23a4b44"
+    },
+    "make_notes_area_if_needed": {
+      "code_sha256": "7b5e68d5ba9231b46ab497338da972b927dad40911140bf949a2f2a0b6c2e2a4",
+      "end_rva_exclusive": "0xed3ee6",
+      "end_va_exclusive": "0x4c013ee6",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?MakeNotesAreaAnnotationViewIfNeeded@moModel_c@@QEAA_NAEAVsu_CArchive@@@Z"
+      ],
+      "start_rva": "0xed3af0",
+      "start_va": "0x4c013af0",
+      "unwind_rva": "0x243918c"
+    },
+    "make_notes_partner": {
+      "code_sha256": "6dc03a8c0e7e0a97f2655c95c8377f54579d3be396d180bb8212b88f66eb5aff",
+      "end_rva_exclusive": "0xd89eeb",
+      "end_va_exclusive": "0x4bec9eeb",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?makePartner@moNotesAreaFtrFolder_c@@UEAAXXZ"
+      ],
+      "start_rva": "0xd89e10",
+      "start_va": "0x4bec9e10",
+      "unwind_rva": "0x2409754"
+    },
+    "register_folder_to_model": {
+      "code_sha256": "c4cad5b1b2cc475fb4fc335ba2174e1fcc1e16ec19f086de9cc639fab91e1563",
+      "end_rva_exclusive": "0xd8c52c",
+      "end_va_exclusive": "0x4becc52c",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?registerToModel@moFtrFolder_c@@QEAAHH@Z"
+      ],
+      "start_rva": "0xd8c360",
+      "start_va": "0x4becc360",
+      "unwind_rva": "0x2407c68"
+    }
+  },
+  "rules": {
+    "cabinet_placement": "The observed ordinary profile places the cabinet after the document folder; no universal insertion-order claim",
+    "default_lights": "Session Environment virtual 0x188 returns the named Default settings collection; the model constructs and attaches one light per actual entry, not a fixed four-light array",
+    "implicit_labels": "The English resource vocabulary and unique-name format support the measured empty-owner profile, with no persisted default scalar state inferred",
+    "note_owner": "MakeNotesAreaAnnotationViewIfNeeded finds the actual cabinet then searches and inserts NotesAreaFtrFolder nodes in that cabinet",
+    "note_pair": "makePartner stores reciprocal f388 pointers and clears partner f37c; AddFolder marks the head and registers both nodes"
+  },
+  "schema": "kit.sw2026.system-presentation-source.v1",
+  "script_sha256": "8d37e58db2760cf92b434a7dc9ec8837f776321d747ff5869af2f852555a5555",
+  "source_only": true,
+  "vendor_runtime_executed": false
+}

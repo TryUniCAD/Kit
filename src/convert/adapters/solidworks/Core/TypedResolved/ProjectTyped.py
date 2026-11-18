@@ -1,6 +1,6 @@
 from dataclasses import replace as ReplaceValue
 
-from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.Native import NativeModel, NativeSketch
 from convert.adapters.solidworks.Core.TypedResolved.BindCircle import BindCircle
 from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
     BindDepth,
@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BindFeature import BindFeatu
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
+from convert.adapters.solidworks.Core.TypedResolved.Presentation.ProjectTree import (
+    ProjectTree,
+)
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
 from convert.adapters.solidworks.Core.TypedResolved.ReportTyped import ReportTyped
 
@@ -59,7 +62,7 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
         )
         for Operation in Model.operations
     )
-    Circles = {}
+    Circles: dict[int, NativeSketch] = {}
     for Sketch in Model.sketches:
         NodeValue = NodesValue.get(Sketch.object_id)
         if NodeValue is None or NodeValue.ClassValue.NameValue != "moProfileFeature_c":
@@ -70,9 +73,10 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
             Features[Sketch.object_id] = ReplaceValue(
                 Features[Sketch.object_id], dimensions=Circle.dimensions
             )
+    TreeValue = ProjectTree(Model, LinkValue, NodesValue, Features)
     return ReplaceValue(
         Model,
-        features=tuple(Features[Feature.object_id] for Feature in Model.features),
+        features=TreeValue.FeaturesValue,
         operations=Operations,
         sketches=tuple(
             ReplaceValue(
@@ -85,7 +89,8 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
             ReplaceValue(Plane, name=Features[Plane.object_id].name)
             for Plane in Model.planes
         ),
-        TypedGraph=ReportTyped(
-            Model, LinkValue, NodesValue, OwnersValue, tuple(Circles)
-        ),
+        TypedGraph={
+            **ReportTyped(Model, LinkValue, NodesValue, OwnersValue, tuple(Circles)),
+            "native_tree": TreeValue.EvidenceValue,
+        },
     )
