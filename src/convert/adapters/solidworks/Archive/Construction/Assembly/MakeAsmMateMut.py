@@ -42,6 +42,7 @@ def MakeAsmMateMut(
     MateValue: AssemblyMateIn,
     Occurrences: tuple[ArchiveNode, ArchiveNode],
     HeadersValue: tuple[ArchiveNode, ArchiveNode],
+    PreviousValues: tuple[ArchiveNode, ...] = (),
 ) -> ArchiveNode:
     ChildGraph = MateChild(
         ChildValue.SystemValue.RootValue,
@@ -62,6 +63,7 @@ def MakeAsmMateMut(
         StateValue.CurrentConfig,
         InputValue.TargetValue,
         StateValue.Allocator,
+        PreviousValues,
     )
     NativeInput = PlanarMateIn(
         MateValue.KindValue,

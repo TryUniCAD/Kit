@@ -18,3 +18,4 @@ class MateContext:
     ConfigValue: ArchiveNode
     TargetValue: FeatureTarget
     Allocator: PersistentIds
+    PreviousValues: tuple[ArchiveNode, ...] = ()

@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTime import (
     FeatureTime,
 )
+from convert.adapters.solidworks.Archive.Construction.OrderedMates.CheckMateState import (
+    CheckMateState,
+)
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.CheckMateIds import (
     CheckMateIds,
 )
@@ -65,12 +68,7 @@ def CheckDistCtx(
         raise ValueError(
             "distance fixed input and occurrence identities must be actual distinct parent members"
         )
-    if any(
-        FieldInt(Value.FieldsValue, "f400") != 3
-        or FieldInt(Value.FieldsValue, "f408") != 0
-        for Value in Occurrences
-    ):
-        raise ValueError("distance factory requires fresh solve and fixed states")
+    CheckMateState(Context, InputValue, (First, Second))
     if (
         InputValue.Selections[0].OccurrenceValue
         is InputValue.Selections[1].OccurrenceValue

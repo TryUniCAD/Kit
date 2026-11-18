@@ -67,18 +67,22 @@ def construct_parent(request, child):
     value = request["assembly"]
     system, provenance = value["system"], value["provenance"]
     child_system = request["child"]["settings"]["system"]
-    spec = request["mate"]
+    specs = request["mates"] if "mates" in request else (request["mate"],)
     source = {name: provenance[name] for name in ("author", "company", "created_at", "modified_at", "comment", "originating_build_code", "license_origin")}
     presentation = {"styles": value["styles"], "units": value["units"], "definition": value["definition"], "language_id": value["styles"]["language_id"],
                     "cjk_saved": provenance["cjk_saved"], "assembly_features": {"plane_names": system["planes"], "cabinet_name": system["cabinet_name"], "folder_names": dict(system["folders"])}}
-    if spec["kind"] == "distance":
-        presentation.update(design_intent=spec["design_intent"], selected_leader=spec["selected_leader"])
+    for spec in specs:
+        if spec["kind"] == "distance":
+            presentation.update(design_intent=spec["design_intent"], selected_leader=spec["selected_leader"])
     authored = {"name": value["name"], "configuration_name": value["configuration_name"], "origin_name": system["origin_name"], "mate_group_name": system["mate_group_name"],
                 "provenance": source, "presentation": presentation, "target": value["target"], "output": value["output"]}
-    mate = {"kind": spec["kind"], "name": spec["name"], "alignment": "aligned", "fixed_occurrence": spec["fixed_occurrence"], "created_at": provenance["created_at"],
-            "endpoints": [{"occurrence": index, "datum": child_system["planes"][spec["axis"]]} for index in range(2)]}
-    if spec["kind"] == "distance":
-        mate["distance_m"] = spec["distance_m"]
+    mates = []
+    for spec in specs:
+        mate = {"kind": spec["kind"], "name": spec["name"], "alignment": "aligned", "fixed_occurrence": spec["fixed_occurrence"], "created_at": provenance["created_at"],
+                "endpoints": [{"occurrence": index, "datum": child_system["planes"][spec["axis"]]} for index in range(2)]}
+        if spec["kind"] == "distance":
+            mate["distance_m"] = spec["distance_m"]
+        mates.append(mate)
     occurrences = tuple((row["name"], PlaneFrame(origin=tuple(row["origin"]), u=tuple(row["u"]), v=tuple(row["v"]))) for row in request["occurrences"])
     original = AssemblyDocument.configuration_manager
     captured = []
@@ -90,14 +94,13 @@ def construct_parent(request, child):
 
     AssemblyDocument.configuration_manager = manager
     try:
-        result = AssemblyDocument._construct_assembly(registry=REGISTRY, request=authored, child=child, occurrences=occurrences, mate_requests=(mate,), include_xml_metadata=True)
+        result = AssemblyDocument._construct_assembly(registry=REGISTRY, request=authored, child=child, occurrences=occurrences, mate_requests=tuple(mates), include_xml_metadata=True)
     finally:
         AssemblyDocument.configuration_manager = original
     manager_header = configuration_manager_header(manager=captured[0], saved_at=value["output"]["saved_at"])
     streams = dict(result.streams)
     streams["Contents/CMgrHdr2"] = configuration_manager_header_stream(registry=REGISTRY, header=manager_header)
     return streams
-
 
 def main():
     request, built = REQUEST["request"], REQUEST["build"]

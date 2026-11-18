@@ -110,20 +110,33 @@ def inspect(parent, mates, mgr_header, manager, child, built, request):
         target = component.FieldsValue["f20"].FieldsValue["f08"].FieldsValue["f08"][0]["o"]
         require(target.FieldsValue["f44"] == reference.FieldsValue["f08"] and target.FieldsValue["f50"] is None and component.FieldsValue["f30"] == 203,
                 "reverse configuration insertion context or chain stamp differs")
-    mate, = mates.RootsValue
-    wrappers = tuple(row["o"] for row in mate.FieldsValue["f410"])
-    for wrapper, occurrence in zip(wrappers, occurrences, strict=True):
-        chain = wrapper.FieldsValue["f58"].FieldsValue["f58"]
-        target = chain.FieldsValue["f20"].FieldsValue["f08"].FieldsValue["f08"][0]["o"]
-        require(chain.FieldsValue["owner"] is model and target is occurrence.FieldsValue["f4f8"], "ordered mate wrapper lost actual containing occurrence identity")
-    require([reference.FieldsValue["f408"] for reference in occurrences] == [int(index == request["mate"]["fixed_occurrence"]) for index in range(2)], "actual fixed anchor differs")
-    require([wrapper.FieldsValue["f78"] for wrapper in wrappers] == [0, 1] and all(wrapper.FieldsValue["f74"] == mate.FieldsValue["f08"] for wrapper in wrappers), "wrapper ids or mate publication differ")
+    specs = request["mates"] if "mates" in request else (request["mate"],)
+    require(len(mates.RootsValue) == len(specs), "ordered authored mate count differs")
+    ordered = []
+    for index, (mate, spec) in enumerate(zip(mates.RootsValue, specs, strict=True)):
+        wrappers = tuple(row["o"] for row in mate.FieldsValue["f410"])
+        for wrapper, occurrence in zip(wrappers, occurrences, strict=True):
+            chain = wrapper.FieldsValue["f58"].FieldsValue["f58"]
+            target = chain.FieldsValue["f20"].FieldsValue["f08"].FieldsValue["f08"][0]["o"]
+            require(chain.FieldsValue["owner"] is model and target is occurrence.FieldsValue["f4f8"], "ordered mate wrapper lost actual containing occurrence identity")
+        require([reference.FieldsValue["f408"] for reference in occurrences] == [int(ordinal == spec["fixed_occurrence"]) for ordinal in range(2)], "actual fixed anchor differs")
+        require([wrapper.FieldsValue["f78"] for wrapper in wrappers] == [2 * index, 2 * index + 1] and all(wrapper.FieldsValue["f74"] == mate.FieldsValue["f08"] for wrapper in wrappers), "wrapper ids or mate publication differ")
+        row = {"class": mate.ClassValue.NameValue, "mate_id": mate.FieldsValue["f08"], "wrapper_ids": [wrapper.FieldsValue["f78"] for wrapper in wrappers]}
+        if spec["kind"] == "distance":
+            handle, = (value["o"] for value in mate.FieldsValue["f4b8"].FieldsValue["f850"])
+            dimension = handle.FieldsValue["ff0"]
+            require(dimension.FieldsValue["f50"] < mate.FieldsValue["f08"] and dimension.FieldsValue["f28"].FieldsValue["f58"] == spec["distance_m"], "ordered live distance dimension value or allocation differs")
+            row["dimension_id"] = dimension.FieldsValue["f50"]
+        ordered.append(row)
     entry, = (row["o"] for row in mgr_header.RootValue.FieldsValue["f08"]["items"])
     require(entry.FieldsValue["f50"] == model.FieldsValue["f1300"] + sum(reference.FieldsValue["f3f4"] for reference in occurrences) and entry.FieldsValue["f4c"] == sum(reference.FieldsValue["f3f0"] for reference in occurrences), "folded manager header target stamps differ")
-    return {"actual_occurrence_and_directory_aliases": True, "ordered_mate_occurrence_backlinks": True, "reverse_configuration_insertion": True,
-            "separate_componentless_state": True, "fixed_anchor": request["mate"]["fixed_occurrence"], "manager_geometry_stamp": entry.FieldsValue["f50"], "manager_transform_stamp": entry.FieldsValue["f4c"],
+    checks = {"actual_occurrence_and_directory_aliases": True, "ordered_mate_occurrence_backlinks": True, "reverse_configuration_insertion": True,
+            "separate_componentless_state": True, "fixed_anchor": specs[0]["fixed_occurrence"], "manager_geometry_stamp": entry.FieldsValue["f50"], "manager_transform_stamp": entry.FieldsValue["f4c"],
             "direct_directory_slot": 4, "config_states": len(states), "config_map_counter": parent.ConfigValue.MapValue.CounterValue,
             "resolved_map_counter": parent.ResolvedValue.MapValue.CounterValue, "mates_map_base": mates.MapBase, "mates_map_terminal": mates.MapValue.CounterValue}
+    if "mates" in request:
+        checks["ordered_mates"] = ordered
+    return checks
 
 
 def main():

@@ -34,7 +34,7 @@ def EmitAsmStreams(
     InputValue: AssemblyInput,
     HeadersValue: tuple[ArchiveNode, ArchiveNode],
     References: tuple[ArchiveNode, ...],
-    MateValue: ArchiveNode,
+    MateValue: ArchiveNode | tuple[ArchiveNode, ...],
 ) -> AssemblyStreams:
     HeaderValue = HeadersValue[0]
     ConfigBytes, ConfigValue = WriteConfigMut(StateValue.RootValue, 19000, HeaderValue)
@@ -46,7 +46,8 @@ def EmitAsmStreams(
     ResolvedBytes, ResolvedValue = WriteResolMut(
         StateValue.FeatureValues, None, 19000, ConfigValue.MapValue, ContextValue
     )
-    MatesBytes, MatesValue = WriteMatesMut((MateValue,), ResolvedValue)
+    MateRoots = (MateValue,) if isinstance(MateValue, ArchiveNode) else MateValue
+    MatesBytes, MatesValue = WriteMatesMut(MateRoots, ResolvedValue)
     ManagerHeader = MakeAsmMgrHdr(StateValue, InputValue.OutputValue.SavedAt)
     DefinitionValue = MakeAssemblyDef(
         InputValue.DefinitionValue, InputValue.SavePartValues

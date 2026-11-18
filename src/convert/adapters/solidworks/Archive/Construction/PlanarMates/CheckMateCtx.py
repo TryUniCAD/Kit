@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTime import (
     FeatureTime,
 )
+from convert.adapters.solidworks.Archive.Construction.OrderedMates.CheckMateState import (
+    CheckMateState,
+)
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.MateContext import (
     MateContext,
 )
@@ -65,14 +68,7 @@ def CheckMateCtx(
         or not any(InputValue.FixedValue is Value for Value in (First, Second))
     ):
         raise ValueError("mate fixed input or occurrence identities are ambiguous")
-    if any(
-        FieldInt(Value.FieldsValue, "f400") != 3
-        or FieldInt(Value.FieldsValue, "f408") != 0
-        for Value in (First, Second)
-    ):
-        raise ValueError(
-            "mate construction requires fresh unresolved solver and unfixed occurrence state"
-        )
+    CheckMateState(Context, InputValue, (First, Second))
     if (
         InputValue.Selections[0].OccurrenceValue
         is InputValue.Selections[1].OccurrenceValue
