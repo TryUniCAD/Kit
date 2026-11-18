@@ -40,6 +40,17 @@ def absolute_host_path(value):
     return result
 
 
+def progress_basename(value):
+    if (
+        Path(value).name != value
+        or PureWindowsPath(value).name != value
+        or Path(value).suffix != ".json"
+        or "\x00" in value
+    ):
+        raise argparse.ArgumentTypeError("a progress file must be an exact JSON basename")
+    return value
+
+
 def reject_constant(value):
     raise ValueError(f"nonfinite JSON number: {value}")
 
@@ -69,7 +80,7 @@ def record_state(data):
     }
 
 
-def observe_progress(root, interval, events, stop):
+def observe_progress(root, basenames, interval, events, stop):
     known = {}
     while not stop.is_set():
         changes, errors, present = [], [], []
@@ -92,40 +103,39 @@ def observe_progress(root, interval, events, stop):
                 ]
                 if stop.is_set():
                     return
-                if "Record.json" not in names:
-                    continue
-                path = Path(directory) / "Record.json"
-                relative = str(path.relative_to(root))
-                try:
-                    metadata = path.lstat()
-                    if not stat.S_ISREG(metadata.st_mode):
-                        raise ValueError("a progress record is not a regular file")
-                    raw = path.read_bytes()
-                    digest = hashlib.sha256(raw).hexdigest()
-                    present.append(relative)
-                    if known.get(relative) == digest:
-                        continue
-                    observation = {
-                        "path": relative,
-                        "sha256": digest,
-                        "bytes": len(raw),
-                        "mtime_ns": metadata.st_mtime_ns,
-                        "observed_monotonic_ns": time.monotonic_ns(),
-                        "observed_at": utc_now(),
-                    }
+                for name in sorted(basenames.intersection(names)):
+                    path = Path(directory) / name
+                    relative = str(path.relative_to(root))
                     try:
-                        observation["record"] = record_state(
-                            json.loads(raw, parse_constant=reject_constant)
-                        )
-                        observation["json_status"] = "parsed"
-                    except (ValueError, TypeError, UnicodeError) as error:
-                        observation.update(
-                            json_status="unavailable", json_error=repr(error)
-                        )
-                    known[relative] = digest
-                    changes.append(observation)
-                except (OSError, ValueError) as error:
-                    errors.append({"path": relative, "error": repr(error)})
+                        metadata = path.lstat()
+                        if not stat.S_ISREG(metadata.st_mode):
+                            raise ValueError("a progress record is not a regular file")
+                        raw = path.read_bytes()
+                        digest = hashlib.sha256(raw).hexdigest()
+                        present.append(relative)
+                        if known.get(relative) == digest:
+                            continue
+                        observation = {
+                            "path": relative,
+                            "sha256": digest,
+                            "bytes": len(raw),
+                            "mtime_ns": metadata.st_mtime_ns,
+                            "observed_monotonic_ns": time.monotonic_ns(),
+                            "observed_at": utc_now(),
+                        }
+                        try:
+                            observation["record"] = record_state(
+                                json.loads(raw, parse_constant=reject_constant)
+                            )
+                            observation["json_status"] = "parsed"
+                        except (ValueError, TypeError, UnicodeError) as error:
+                            observation.update(
+                                json_status="unavailable", json_error=repr(error)
+                            )
+                        known[relative] = digest
+                        changes.append(observation)
+                    except (OSError, ValueError) as error:
+                        errors.append({"path": relative, "error": repr(error)})
         except Exception as error:
             errors.append({"error": repr(error)})
         events.put(
@@ -216,6 +226,13 @@ def parse_arguments():
     )
     parser.add_argument("--vm", required=True)
     parser.add_argument("--progress-root", required=True, type=absolute_host_path)
+    parser.add_argument(
+        "--progress-file",
+        action="append",
+        type=progress_basename,
+        metavar="BASENAME",
+        help="watch this exact JSON basename within the progress root; repeat for multiple names",
+    )
     parser.add_argument("--report", type=absolute_host_path)
     parser.add_argument("--prlctl", default="prlctl")
     parser.add_argument("--no-progress-seconds", type=positive_seconds, default=360.0)
@@ -226,6 +243,7 @@ def parse_arguments():
     supplied = sys.argv[1:]
     separator = supplied.index("--") if "--" in supplied else len(supplied)
     args = parser.parse_args(supplied[:separator])
+    args.progress_files = frozenset(args.progress_file or ("Record.json",))
     guest = supplied[separator + 1 :]
     if not guest:
         parser.error("supply the guest executable and arguments after --")
@@ -295,6 +313,7 @@ def run(args):
         "vm": args.vm,
         "current_user": True,
         "progress_root": str(args.progress_root),
+        "progress_files": sorted(args.progress_files),
         "report_path": str(args.report),
         "stdout_path": str(stdout),
         "stderr_path": str(stderr),
@@ -346,7 +365,13 @@ def run(args):
             report.update(status="running", transport_pid=process.pid)
             observer = threading.Thread(
                 target=observe_progress,
-                args=(args.progress_root, args.poll_seconds, events, stop),
+                args=(
+                    args.progress_root,
+                    args.progress_files,
+                    args.poll_seconds,
+                    events,
+                    stop,
+                ),
                 daemon=True,
                 name="oracle-record-observer",
             )
