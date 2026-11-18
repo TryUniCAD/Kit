@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadPocketGeom import (
+    ReadPocketGeom,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.BuildPrismGeom import (
     BuildPrismGeom,
 )
@@ -31,6 +34,8 @@ def ReadNoCache(
     try:
         LinkValue = ReadNativeLink(Archive, ModelValue.active_configuration_id)
         ManagerValue = ReadCmgrMut(Archive.require("Contents/CMgr"), 19000)
+        if ModelValue.TypedGraph.get("cut_body_dependency") is not None:
+            return ReadPocketGeom(LinkValue, ManagerValue, ModelValue, BodyId)
         ColdValue = ReadColdOutput(LinkValue)
         Features = CheckPrismScope(LinkValue, ManagerValue, ModelValue, ColdValue)
         return BuildPrismGeom(

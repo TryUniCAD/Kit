@@ -38,4 +38,12 @@ The normal reader preserves the two independent length parameter owners, the cut
 
 Three disclosed source files, three generated originals and three native-edited saves pass in both strict path and byte modes with B-rep excluded. Re-serialized research copies with a self-consuming result, foreign chooser, unsupported scope, mismatched selected atom, cold scope override or alternate end all reject the typed ownership claim. The first checker expected a sketch geometry ID for the radial driver. Its corrected check uses the actual feature-timeline sketch ID and independently checks the circle and centre references.
 
-The two original held-out payloads remain sealed. The analytic cold B-rep and public writer qualification are open. [Public read receipt](../measurements/2026/SdkBlindPocketTypedRead01.json) · [Change entry](../../../Documentation/Changes/Solidworks/Reading/Parts/SolidworksTypedBlindPocketHistory.md)
+The two original held-out payloads remain sealed. Public writer qualification is open. [Public history read receipt](../measurements/2026/SdkBlindPocketTypedRead01.json) · [Change entry](../../../Documentation/Changes/Solidworks/Reading/Parts/SolidworksTypedBlindPocketHistory.md)
+
+## Cache-free solid
+
+The default path reconstructs the typed rectangular stock and the circular cavity from the same model and selected configuration. It verifies the ordinary CMgr context, complete feature inventory, actual support references, checked public datum frames and both typed profile owners. The stock cap receives one inner circular loop. The two remaining cavity faces use inward material orientation and share opposite coedge uses. The cylindrical wall and planar floor give one valid closed solid, eight faces, fourteen edges and ten vertices. The measured native boundary has the same inventory and face loop counts.
+
+The stock bounds stay fixed. Subtract the circular column volume from the stock and add its cylindrical wall area. The removed planar entrance area and added floor area are equal. The independent checker derives centre of mass from the actual circular boundary centres and the computed stock bounds.
+
+The three cache-free outputs pass both normal path and byte reads. The geometry agrees with the pinned native observations for volume, area and centre of mass, with relative tolerance `1e-10` and absolute tolerance `1e-12 m` for centroid coordinates. Twelve reads of six stored-partition files continue to use their native geometry. The generated integration test verifies the default entry point without a saved model fixture. [B-rep receipt](../measurements/2026/SdkBlindPocketBrepRead01.json) · [Change entry](../../../Documentation/Changes/Solidworks/Reading/Parts/SolidworksCacheFreePocketGeometry.md)

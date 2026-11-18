@@ -4,6 +4,6 @@ The SOLIDWORKS 2026 part reader binds a supported blind cut to its actual sketch
 
 Use the ordinary `convert.open_document` entry point. The `solidworks.typed_resolved_semantics` metadata records the feature IDs, the measured scope code and the ownership evidence. Saved parts bind the consumed and new body identities through Config-0. The cache-free rectangular profile derives the producer from its sole in-bounds intersection on the actual Front Plane.
 
-Eighteen strict path and byte reads agreed on nine disclosed files. Six altered copies rejected typed ownership. The verified scope covers history reads with `include_brep=False`. Cache-free pocket B-rep and public pocket writing remain open.
+Eighteen strict path and byte reads agreed on nine disclosed files. Six altered copies rejected typed ownership. The original history proof used `include_brep=False`. The [cache-free geometry reader](SolidworksCacheFreePocketGeometry.md) adds an analytic B-rep on the default path. Public pocket writing remains open.
 
 [Adapter guide](../../../../Reference/Adapters/Solidworks.md) · [Field ownership](../../../../../re/solidworks/records/SdkBlindPocket2026.md#typed-portable-history) · [Process receipt](../../../../../re/solidworks/measurements/2026/SdkBlindPocketTypedRead01.json)

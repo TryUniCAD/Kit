@@ -365,7 +365,12 @@ def ReadNativePart(
         PayloadDiags = (
             DiagValue(
                 code="sldprt.brep_reconstructed",
-                message="B-rep reconstructed from the complete typed ordinary rectangular prism history",
+                message=(
+                    "B-rep reconstructed from the typed rectangular boss and blind circular cut"
+                    if DerivedValue.EvidenceValue.get("method")
+                    == "typed_parametric_blind_circular_pocket"
+                    else "B-rep reconstructed from the complete typed ordinary rectangular prism history"
+                ),
                 severity=Severity.INFO,
                 attributes=FrozenMapping(DerivedValue.EvidenceValue),
             ),
