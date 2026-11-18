@@ -87,6 +87,32 @@ The two complete setter ranges hash to
 and `a2b861de02ee0d3bb4e235a5d2257ca2b507e81558ac3ad2406ecb08c5b4c48b`
 respectively. [Registered dimension name API](https://help.solidworks.com/2025/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IDimension~Name.html)
 
+## Keyword and SDK projections
+
+All four captured files preserve both sketch lengths and the boss depth in
+`KeyWords`. The native rename updates the dimension name under its original
+feature ID. The strict SDK read agrees with each of the three native driver
+names, their actual feature owners and their lengths in millimetres.
+
+| Owner | Classification | Evidence |
+| --- | --- | --- |
+| `moLengthParameter_c.f18` to `moNodeName_c.f08` | Input | Three authored parameter labels and their actual solver owners |
+| `KeyWords` feature dimension name | Derived | The same label under the owner feature in both baseline and renamed cases |
+| `KeyWords` dimension value | Derived | The live length in metres multiplied by 1000 for these millimetre documents |
+| `SDL/TYSA_NAME` character value | Input | The explicit native body label, reached through the body-owned attribute |
+
+The current part reader projects the folder label `Solid Bodies` into the
+neutral design body in all four files. Its B-rep has one body and no explicit
+name attribute. The two renamed files carry `Body` and `Centered Solid` in
+their kernel attributes. A body-label projection needs the actual kernel
+body owner.
+
+The sketch keyword builder already reads the bound parameter's name.
+The extrusion builder currently assigns `D1` and `D2` directly. A named
+extrusion needs its live parameter name in both archive owners.
+
+[Keyword, typed parameter and strict SDK receipt](../measurements/2026/SdkPartNamingArchive02.json)
+
 ## Disclosed authoring protocol
 
 `AuthorPartDriverNames.py` uses the registered 2026 name setters on two

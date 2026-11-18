@@ -1,9 +1,13 @@
 from argparse import ArgumentParser
 from hashlib import sha256
 from json import dumps, loads
+from math import isclose
 from pathlib import Path
 
+from convert import open_document
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Container.Format import KEYWORDS_STREAM
+from convert.adapters.solidworks.Core.Native import ParseKeywords
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from para.Partition import frame_payloads, read_partition, write_payloads
 
@@ -88,6 +92,51 @@ def read_body_name(partition):
     }
 
 
+def read_keyword_names(archive, expected):
+    data = archive.require(KEYWORDS_STREAM)
+    configurations, features = ParseKeywords(data)
+    owners = {qualified.split("@", 1)[1] for qualified in expected}
+    rows = {}
+    for feature in features:
+        if feature.name not in owners:
+            continue
+        if feature.name in rows:
+            raise ValueError("keyword feature ownership is ambiguous")
+        rows[feature.name] = {dimension.name: dimension.value_mm for dimension in feature.dimensions}
+    actual = {f"{name}@{owner}": value for owner, dims in rows.items() for name, value in dims.items()}
+    if len(configurations) != 1 or actual.keys() != expected.keys():
+        raise ValueError("keyword dimensions differ from their actual native owners")
+    if any(not isclose(value, expected[name] * 1000, rel_tol=1e-12) for name, value in actual.items()):
+        raise ValueError("keyword dimension length differs from the native driver")
+    return {"stream_sha256": sha256(data).hexdigest(), "stream_bytes": len(data), "dimensions_mm": actual}
+
+
+def read_public_names(path, expected):
+    document = open_document(path, strict=True, include_brep=True, include_tessellation=False)
+    owners = {feature.id: feature.name for feature in document.feature_timeline}
+    actual = {
+        name: parameter.value.value
+        for parameter in document.parameters
+        if (name := f"{parameter.name}@{owners.get(parameter.owner_id)}") in expected["drivers_m"]
+        and parameter.role.value == "driving"
+        and parameter.value.unit == "mm"
+    }
+    if actual.keys() != expected["drivers_m"].keys():
+        raise ValueError("strict SDK reading did not preserve every named driving parameter")
+    if any(not isclose(value, expected["drivers_m"][name] * 1000, rel_tol=1e-12) for name, value in actual.items()):
+        raise ValueError("strict SDK parameter length differs from the native driver")
+    if len(document.bodies) != 1 or document.brep is None or len(document.brep.bodies) != 1:
+        raise ValueError("strict SDK result lacks the single measured native body")
+    body, = document.bodies
+    return {
+        "driver_dimensions_mm": actual,
+        "design_body_label": body.name,
+        "design_body_final_feature": owners.get(body.final_feature_id),
+        "body_label_matches_native": body.name == expected["body_name"],
+        "diagnostics": [diagnostic.code for diagnostic in document.diagnostics],
+    }
+
+
 def inspect(path, checksum, expected):
     data = read_locked(path, checksum)
     archive = SldprtArchive.from_bytes(data, path)
@@ -113,6 +162,8 @@ def inspect(path, checksum, expected):
         "actual_native_body_label": expected["body_name"],
         "body_name_attribute": body_name,
         "driver_owners": drivers,
+        "keywords": read_keyword_names(archive, expected["drivers_m"]),
+        "strict_sdk": read_public_names(path, expected),
     }
 
 
@@ -156,7 +207,7 @@ def main():
             }
         )
     receipt = {
-        "schema": "kit.sw2026.part-name-archive-disclosure.v1",
+        "schema": "kit.sw2026.part-name-archive-disclosure.v2",
         "packet_sha256": args.packet_sha256,
         "native_result_sha256": args.native_sha256,
         "native_processes": native_result["distinct_processes"],

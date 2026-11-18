@@ -1,0 +1,262 @@
+{
+  "cases": [
+    {
+      "author_record_sha256": "179b2e7b2888743e00da688920763597bbb0336a1e0facc783a55f112df14b25",
+      "baseline": {
+        "actual_native_body_label": "AnchorBoss",
+        "body_name_attribute": null,
+        "driver_owners": [
+          {
+            "length_m": 0.03173,
+            "name": "D1",
+            "owner": "17.pd_f80.dims.val_g2.0.d.f28"
+          },
+          {
+            "length_m": 0.01827,
+            "name": "D2",
+            "owner": "17.pd_f80.dims.val_g2.1.d.f28"
+          },
+          {
+            "length_m": 0.00741,
+            "name": "D1",
+            "owner": "18.f818.f18.f850.0.o.ff0.f28"
+          }
+        ],
+        "file_sha256": "a441e79bc94219c4c0bb4390cc6d13643ca8c56cb0ff69abdb1fa694e82d2778",
+        "keywords": {
+          "dimensions_mm": {
+            "D1@AnchorBoss": 7.41,
+            "D1@AnchorSketch": 31.73,
+            "D2@AnchorSketch": 18.27
+          },
+          "stream_bytes": 1755,
+          "stream_sha256": "1ba4307b0e993572afd457469157550808e265f2f13c740e2484818f08baa08b"
+        },
+        "partition_bytes": 3740,
+        "partition_nodes": 177,
+        "partition_round_trip_exact": true,
+        "partition_sha256": "dcabaaccd9926de6cc290a6b9b313a559c18eca2d0c64de397a2ed1cca11a8b9",
+        "strict_sdk": {
+          "body_label_matches_native": false,
+          "design_body_final_feature": "AnchorBoss",
+          "design_body_label": "Solid Bodies",
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "driver_dimensions_mm": {
+            "D1@AnchorBoss": 7.41,
+            "D1@AnchorSketch": 31.73,
+            "D2@AnchorSketch": 18.270000000000003
+          }
+        }
+      },
+      "case": "NamedCorner",
+      "fresh_body_label": "Body",
+      "fresh_edited_parameters_m": {
+        "Height@AnchorBoss": 0.0092625,
+        "Length@AnchorSketch": 0.03173,
+        "Width@AnchorSketch": 0.01827
+      },
+      "fresh_parameters_m": {
+        "Height@AnchorBoss": 0.00741,
+        "Length@AnchorSketch": 0.03173,
+        "Width@AnchorSketch": 0.01827
+      },
+      "renamed": {
+        "actual_native_body_label": "Body",
+        "body_name_attribute": {
+          "body_node_kind": 12,
+          "definition": "SDL/TYSA_NAME",
+          "definition_type_id": 8017,
+          "field_types": [
+            3
+          ],
+          "rollback_mark_ids": [
+            11
+          ],
+          "value": "Body",
+          "value_kind": 84
+        },
+        "driver_owners": [
+          {
+            "length_m": 0.03173,
+            "name": "Length",
+            "owner": "17.pd_f80.dims.val_g2.0.d.f28"
+          },
+          {
+            "length_m": 0.01827,
+            "name": "Width",
+            "owner": "17.pd_f80.dims.val_g2.1.d.f28"
+          },
+          {
+            "length_m": 0.00741,
+            "name": "Height",
+            "owner": "18.f818.f18.f850.0.o.ff0.f28"
+          }
+        ],
+        "file_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774",
+        "keywords": {
+          "dimensions_mm": {
+            "Height@AnchorBoss": 7.41,
+            "Length@AnchorSketch": 31.73,
+            "Width@AnchorSketch": 18.27
+          },
+          "stream_bytes": 1763,
+          "stream_sha256": "aab87d1ed65cbabdeb1b8e0c17d27a964a4fc2c93b27ed40938a9a0c039a17ae"
+        },
+        "partition_bytes": 3786,
+        "partition_nodes": 181,
+        "partition_round_trip_exact": true,
+        "partition_sha256": "d543c0c3a140457311881710c90184e1d709c14fe7d6b6420cf207f942d11faf",
+        "strict_sdk": {
+          "body_label_matches_native": false,
+          "design_body_final_feature": "AnchorBoss",
+          "design_body_label": "Solid Bodies",
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "driver_dimensions_mm": {
+            "Height@AnchorBoss": 7.41,
+            "Length@AnchorSketch": 31.73,
+            "Width@AnchorSketch": 18.270000000000003
+          }
+        }
+      },
+      "reopen_record_sha256": "1c59e1d5c925bd0866802c0dd7a62f166c4fedf874e79037642a33fca91958b7"
+    },
+    {
+      "author_record_sha256": "b35698ddfce3712dd758541003be5730b580a3a522d9f3f21db3188ba911dc98",
+      "baseline": {
+        "actual_native_body_label": "AnchorBoss",
+        "body_name_attribute": null,
+        "driver_owners": [
+          {
+            "length_m": 0.04319,
+            "name": "D1",
+            "owner": "17.pd_f80.dims.val_g2.0.d.f28"
+          },
+          {
+            "length_m": 0.02563,
+            "name": "D2",
+            "owner": "17.pd_f80.dims.val_g2.1.d.f28"
+          },
+          {
+            "length_m": 0.00683,
+            "name": "D1",
+            "owner": "18.f818.f18.f850.0.o.ff0.f28"
+          }
+        ],
+        "file_sha256": "9a619f233088d4c26d767642b02ec6dfbdfd25baad7686cd2265210da78f0f00",
+        "keywords": {
+          "dimensions_mm": {
+            "D1@AnchorBoss": 6.83,
+            "D1@AnchorSketch": 43.19,
+            "D2@AnchorSketch": 25.63
+          },
+          "stream_bytes": 1755,
+          "stream_sha256": "d58897225cbef4663049fd52e723a85776bd07704fca0ffcf12319e35400919d"
+        },
+        "partition_bytes": 3747,
+        "partition_nodes": 177,
+        "partition_round_trip_exact": true,
+        "partition_sha256": "15734d5edd25d3e75bcc41c3735f44244b8eaecb5db5f051bf04202ae6fb7da4",
+        "strict_sdk": {
+          "body_label_matches_native": false,
+          "design_body_final_feature": "AnchorBoss",
+          "design_body_label": "Solid Bodies",
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "driver_dimensions_mm": {
+            "D1@AnchorBoss": 6.83,
+            "D1@AnchorSketch": 43.19,
+            "D2@AnchorSketch": 25.63
+          }
+        }
+      },
+      "case": "NamedCenter",
+      "fresh_body_label": "Centered Solid",
+      "fresh_edited_parameters_m": {
+        "Rise@AnchorSketch": 0.02563,
+        "Span@AnchorSketch": 0.04319,
+        "Thickness@AnchorBoss": 0.0085375
+      },
+      "fresh_parameters_m": {
+        "Rise@AnchorSketch": 0.02563,
+        "Span@AnchorSketch": 0.04319,
+        "Thickness@AnchorBoss": 0.00683
+      },
+      "renamed": {
+        "actual_native_body_label": "Centered Solid",
+        "body_name_attribute": {
+          "body_node_kind": 12,
+          "definition": "SDL/TYSA_NAME",
+          "definition_type_id": 8017,
+          "field_types": [
+            3
+          ],
+          "rollback_mark_ids": [
+            11
+          ],
+          "value": "Centered Solid",
+          "value_kind": 84
+        },
+        "driver_owners": [
+          {
+            "length_m": 0.04319,
+            "name": "Span",
+            "owner": "17.pd_f80.dims.val_g2.0.d.f28"
+          },
+          {
+            "length_m": 0.02563,
+            "name": "Rise",
+            "owner": "17.pd_f80.dims.val_g2.1.d.f28"
+          },
+          {
+            "length_m": 0.00683,
+            "name": "Thickness",
+            "owner": "18.f818.f18.f850.0.o.ff0.f28"
+          }
+        ],
+        "file_sha256": "03f6756e214fd2a96975030143590d8e14643147470df86ee21123c59afd503b",
+        "keywords": {
+          "dimensions_mm": {
+            "Rise@AnchorSketch": 25.63,
+            "Span@AnchorSketch": 43.19,
+            "Thickness@AnchorBoss": 6.83
+          },
+          "stream_bytes": 1763,
+          "stream_sha256": "b35cabbb91a05c19dc47667164a12198c30905c65c5ec5891147fb3041fefd51"
+        },
+        "partition_bytes": 3821,
+        "partition_nodes": 181,
+        "partition_round_trip_exact": true,
+        "partition_sha256": "666cf9ecf1a5db9e72b3a66c7b4cbaeb8399a7974526fe29f20705255c2e9f15",
+        "strict_sdk": {
+          "body_label_matches_native": false,
+          "design_body_final_feature": "AnchorBoss",
+          "design_body_label": "Solid Bodies",
+          "diagnostics": [
+            "solidworks.part_text_properties_unavailable"
+          ],
+          "driver_dimensions_mm": {
+            "Rise@AnchorSketch": 25.63,
+            "Span@AnchorSketch": 43.19,
+            "Thickness@AnchorBoss": 6.83
+          }
+        }
+      },
+      "reopen_record_sha256": "c27cb2a741afa7940bf6988175f494a09e3623f517cceb8c3d8eb492a077b112"
+    }
+  ],
+  "controls_healthy": true,
+  "heldout_inputs_read": 0,
+  "native_processes": 6,
+  "native_result_sha256": "a8a771d358638de18cafdc1b34d78bb627acf2b0c1692e8be2133335268b9ab3",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "8d87b77a9cfddf4fd286c0d32626a886f27f332287e7008679641399be63bcc7",
+  "partition_round_trips": 4,
+  "schema": "kit.sw2026.part-name-archive-disclosure.v2",
+  "writer_output_count": 0
+}
