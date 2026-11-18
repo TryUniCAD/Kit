@@ -479,7 +479,7 @@ def VerifyBatch(OutputRoot):
     Context = MakeContext()
     if Prepared["source"] != Context["source"] or Prepared["baseline_graphs"] != Context["graphs"]:
         raise ValueError("immutable native source graph or prepared manifest changed")
-    if Prepared["source_streams"] != StreamProof(Context["archive"]) or Prepared["baseline"] != Context["baseline"]:
+    if Prepared["source_streams"] != StreamProof(Context["archive"]) or JsonBytes(Prepared["baseline"]) != JsonBytes(Context["baseline"]):
         raise ValueError("fresh interpreter baseline evidence differs from preparation")
     if Prepared["emitted_modeled_streams"] != Context["order"]:
         raise ValueError("modeled archive membership changed between actual processes")
