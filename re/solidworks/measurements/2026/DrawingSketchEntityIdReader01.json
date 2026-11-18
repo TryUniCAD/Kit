@@ -1,0 +1,157 @@
+{
+  "schema": "kit.sw2026.drawing-sketch-entity-id-reader-custody.v1",
+  "task": "PR121 ordinary drawing concrete surface ID dependency",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "status": "independent43-worker prior pass; both exact originals still reject next concrete end-face schema",
+  "candidate_manifest_sha256": "6adc183b2305f6cc181e65b59a452b1c1ba8ef0f94e32864d970dc98ac0decfc",
+  "source_files": 4350,
+  "one_sdk_delta": "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontSchemas.py",
+  "native_proof_sha256": "22314e49af8c301db43d4eb61c7e121523b267a5738bf3e9f243e3b386e4c479",
+  "immediate_parent_manifest_sha256": "e54a34a27e6354404e0341d74156730a53978b48f4b1887744703c0a294a1428",
+  "concrete_classes_added": [
+    "moFromSktEntSurfIdRep_c schema1",
+    "moFR_c schema1"
+  ],
+  "field_layouts_changed": [],
+  "actual_prior_rejections": {
+    "raw_report_sha256": "31383dc208a4235c8dba88ad0d77611bb352d51e1199d13b6e53c3c3c1e23eef",
+    "reader_manifest_sha256": "e54a34a27e6354404e0341d74156730a53978b48f4b1887744703c0a294a1428",
+    "both_failed": true,
+    "next_boundary": "moFromSktEntSurfIdRep_c schema1 in first edge entity id",
+    "edge_body_complete": false
+  },
+  "new_prior_replay": {
+    "status": "passed",
+    "passed": true,
+    "workers": 43,
+    "source_immutable": true,
+    "report_name": "SdkDrawingSketchEntityIdPrior01.json",
+    "raw_sha256": "d530f7fab189c2f1fc2d827f61ac8fba853ed4eb4949450b8873018423f9bab1",
+    "source_manifest_sha256": "6adc183b2305f6cc181e65b59a452b1c1ba8ef0f94e32864d970dc98ac0decfc"
+  },
+  "new_original_probe": {
+    "status": "both fail closed at next schema",
+    "raw_sha256": "8b1fe6f14ee95b032b4c13f388b17a58d7d22033fa9aa5dbcdf95f15dbf691c4",
+    "source_immutable": true,
+    "full_stream_parity": false,
+    "edge_body_complete": false,
+    "populated_downstream_branch_reached": false,
+    "cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37612,
+        "stream_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class moEndFaceSurfIdRep_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true,
+        "actual_edge_owner_events": [
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 215,
+            "cursor_before": 31569,
+            "map_counter_before": 216,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": false,
+            "error": {
+              "type": "BodyUnsupported",
+              "message": "unsupported SOLIDWORKS body class moEndFaceSurfIdRep_c schema 1"
+            },
+            "cursor_after": 31920,
+            "map_counter_after": 226
+          }
+        ]
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37608,
+        "stream_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class moEndFaceSurfIdRep_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true,
+        "actual_edge_owner_events": [
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 215,
+            "cursor_before": 31565,
+            "map_counter_before": 216,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": false,
+            "error": {
+              "type": "BodyUnsupported",
+              "message": "unsupported SOLIDWORKS body class moEndFaceSurfIdRep_c schema 1"
+            },
+            "cursor_after": 31916,
+            "map_counter_after": 226
+          }
+        ]
+      }
+    ]
+  },
+  "static_checks": {
+    "ast": true,
+    "black": "26.10.1 passed",
+    "ruff": "0.17.4 passed",
+    "mypy": "2.4.1 strict passed",
+    "pyright": "1.1.414 strict passed; three inherited unrecognized options retained",
+    "steering": true,
+    "donor_scan": "no recorded payloads in1file"
+  },
+  "worker_product_execution": false,
+  "worker_test_suite_execution": false,
+  "native_execution": false,
+  "vm_access": false,
+  "repo_or_git_mutations": false,
+  "fresh_constructor_added": false,
+  "saved_defaults_added": false,
+  "original_frozen_writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "public_strict_drawing_admission": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false
+}

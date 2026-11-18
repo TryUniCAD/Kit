@@ -154,11 +154,13 @@ The strict linked Definition reader recognizes the version-19000 system-scale ob
 The linked Definition reader also preserves the native drawing profile base and
 its three shared reference-chain classes. That subtree decodes fully in both
 disclosed original source drawings. The root map reads the ordinary edge
-reference through its shared base and reaches the next unsupported
-sketch-entity surface-identity record. Complete original Definition reads remain open.
+reference through its shared base and the actual sketch-entity surface
+identity. The end-face surface identity is the next unsupported owner.
+Complete original Definition reads remain open.
 [Drawing component profile](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksComponentProfileArchive.md)
 [Drawing reference chains](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingReferenceChains.md)
 [Drawing edge references](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingEdgeReferences.md)
+[Drawing sketch-entity IDs](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingSketchEntityIds.md)
 
 ## Feature history
 

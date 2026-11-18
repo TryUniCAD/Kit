@@ -1,0 +1,482 @@
+{
+  "schema": "kit.sw2026.drawing-sketch-entity-id-static-proof.v1",
+  "scope": "ordinary version19000 drawing raw-wire concrete class admission only",
+  "module": {
+    "name": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "bytes": 46536280,
+    "base": "0x4b140000",
+    "file_version": [
+      34,
+      5,
+      2,
+      604
+    ]
+  },
+  "surface_id_identity": {
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "tables": [
+      {
+        "vtable": "0x4cf6ab10",
+        "offset": 0,
+        "serializer": "0x4bbaa6a0",
+        "rtti": [
+          ".?AVmoFromSktEntSurfIdRep_c@@",
+          ".?AVmoSingleSurfIdRep_c@@",
+          ".?AVmoSurfaceIdRep_c@@",
+          ".?AVmoEntityIdRep_c@@",
+          ".?AVgcEntityIdRep_c@@",
+          ".?AVsu_CObject@@",
+          ".?AVCObject@@"
+        ],
+        "table_span": {
+          "start": "0x4cf6ab10",
+          "end": "0x4cf6ab40",
+          "bytes": 48,
+          "sha256": "2f5e45505b3ea6e3254853e8cd81567ddfe96da5d59f06ef8ae5632c11985b20"
+        },
+        "locator_span": {
+          "start": "0x4d333090",
+          "end": "0x4d3330a8",
+          "bytes": 24,
+          "sha256": "f5f587b2acb375924db00ce94ce0eb56d0f38fc090b6f72f130d9e3fc0ef7b8e"
+        }
+      }
+    ],
+    "runtime_getter": {
+      "start": "0x4bba3170",
+      "end": "0x4bba3178",
+      "bytes": 8,
+      "sha256": "75ec3c4e7b50531348f58b0a25b6c75695653145fbe16ad1d311b219613c41a9"
+    },
+    "runtime_descriptor": {
+      "start": "0x4dadd3f0",
+      "end": "0x4dadd420",
+      "bytes": 48,
+      "sha256": "b4c67ea56c78850a5ef80a8841554b36e16b64fd0cd3c1f026f2b29c073b1685"
+    },
+    "schema": "0x80000001",
+    "object_size": 64,
+    "map_interior_entry_not_actual_primary": "0x4bc267a0"
+  },
+  "feature_reference_identity": {
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "tables": [
+      {
+        "vtable": "0x4cf5ade0",
+        "offset": 0,
+        "serializer": "0x4bb34e90",
+        "rtti": [
+          ".?AVmoFR_c@@",
+          ".?AVsu_CObject@@",
+          ".?AVCObject@@"
+        ],
+        "table_span": {
+          "start": "0x4cf5ade0",
+          "end": "0x4cf5ae10",
+          "bytes": 48,
+          "sha256": "0326856957af05fc5a72720911c0ae5eb188efb577305d363a15fbe4ac60c031"
+        },
+        "locator_span": {
+          "start": "0x4d330370",
+          "end": "0x4d330388",
+          "bytes": 24,
+          "sha256": "9e1bd2b32a3aa7af000fbf55c7a06251400508afae685bab75ef0ff92e4d47e1"
+        }
+      }
+    ],
+    "runtime_getter": {
+      "start": "0x4bb34b40",
+      "end": "0x4bb34b48",
+      "bytes": 8,
+      "sha256": "a79f32c5624d1620c9c9e839b62bc81fe436a05f15c2586a94bdabf245642979"
+    },
+    "runtime_descriptor": {
+      "start": "0x4dadabd0",
+      "end": "0x4dadac00",
+      "bytes": 48,
+      "sha256": "106fba1cd27bdbd1fe80f51942a7968ce0e4f2afb5840a8d297288e56fab986c"
+    },
+    "schema": "0x80000001",
+    "object_size": 40,
+    "functions": {
+      "0x4bb34e90": {
+        "ranges": [
+          {
+            "start": "0x4bb34e90",
+            "end": "0x4bb35214",
+            "bytes": 900,
+            "sha256": "b702cd6b5495acd4b4c291f759cff84e1330a333d0a8f8b38941746dd8da89c7"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4bb34e90",
+            "end": "0x4bb35214",
+            "unwind": "0x4d4c9888"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x4bb34b60": {
+        "ranges": [
+          {
+            "start": "0x4bb34b60",
+            "end": "0x4bb34e82",
+            "bytes": 802,
+            "sha256": "ced5415c3962d6c81ef561fe83f61b9417f458c5eebcb108832b354186efd19d"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4bb34b60",
+            "end": "0x4bb34e82",
+            "unwind": "0x4d4c95b4"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x4bb34810": {
+        "ranges": [
+          {
+            "start": "0x4bb34810",
+            "end": "0x4bb34862",
+            "bytes": 82,
+            "sha256": "77e1153a572f33447746fd79f1904bedb557acc7ce2773324db1c40450036cb5"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4bb34810",
+            "end": "0x4bb34862",
+            "unwind": "0x4d385bd8"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x4bb348d0": {
+        "ranges": [
+          {
+            "start": "0x4bb348d0",
+            "end": "0x4bb3491f",
+            "bytes": 79,
+            "sha256": "42645772ef5402cb341f346ce0eea07ce2881f6a1ab00af1154f6e5fd56b2cdf"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x4bb348d0",
+            "end": "0x4bb3491f",
+            "unwind": "0x4d385bd8"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      }
+    }
+  },
+  "complete_functions": {
+    "surface_id_factory": {
+      "ranges": [
+        {
+          "start": "0x4bb95d00",
+          "end": "0x4bb95d83",
+          "bytes": 131,
+          "sha256": "f274e212307ad0c3017077bd3dc471cf873fdba8ebeae8b5f0261b849e707242"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb95d00",
+          "end": "0x4bb95d83",
+          "unwind": "0x4d4d5274"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "surface_id_serializer": {
+      "ranges": [
+        {
+          "start": "0x4bbaa6a0",
+          "end": "0x4bbaa6ee",
+          "bytes": 78,
+          "sha256": "e957dd0dbbb720aeb20df845f106cfee9c335b47eec6f70276111fb780f7fb30"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bbaa6a0",
+          "end": "0x4bbaa6ee",
+          "unwind": "0x4d385bd8"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "entity_id_rep_base": {
+      "ranges": [
+        {
+          "start": "0x4bba8790",
+          "end": "0x4bba8bb2",
+          "bytes": 1058,
+          "sha256": "d0f445160a0fdf2f602735dbe3f76421054a8d4e7ea0e674f805f6e6f51a25cc"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bba8790",
+          "end": "0x4bba8bb2",
+          "unwind": "0x4d4d5170"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "embedded_fr_keeper_constructor": {
+      "ranges": [
+        {
+          "start": "0x4bb5d2a0",
+          "end": "0x4bb5d31f",
+          "bytes": 127,
+          "sha256": "4e83a57ceacaafd8899982196ecdfe1bb4fad0cf593c60d104f38868ef4f6bd6"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb5d2a0",
+          "end": "0x4bb5d31f",
+          "unwind": "0x4d4ce7c8"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "embedded_fr_keeper_serializer": {
+      "ranges": [
+        {
+          "start": "0x4bba8de0",
+          "end": "0x4bba9632",
+          "bytes": 2130,
+          "sha256": "8e9458bdc861730155a43ea0c8fa1819c7f69376f2de0ed8fb7726a595c95348"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bba8de0",
+          "end": "0x4bba9632",
+          "unwind": "0x4d4d50c8"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "fr_object_serializer": {
+      "ranges": [
+        {
+          "start": "0x4bb34e90",
+          "end": "0x4bb35214",
+          "bytes": 900,
+          "sha256": "b702cd6b5495acd4b4c291f759cff84e1330a333d0a8f8b38941746dd8da89c7"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb34e90",
+          "end": "0x4bb35214",
+          "unwind": "0x4d4c9888"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "fr_data_serializer": {
+      "ranges": [
+        {
+          "start": "0x4bb34b60",
+          "end": "0x4bb34e82",
+          "bytes": 802,
+          "sha256": "ced5415c3962d6c81ef561fe83f61b9417f458c5eebcb108832b354186efd19d"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb34b60",
+          "end": "0x4bb34e82",
+          "unwind": "0x4d4c95b4"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "fr_read_operator": {
+      "ranges": [
+        {
+          "start": "0x4bb34810",
+          "end": "0x4bb34862",
+          "bytes": 82,
+          "sha256": "77e1153a572f33447746fd79f1904bedb557acc7ce2773324db1c40450036cb5"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb34810",
+          "end": "0x4bb34862",
+          "unwind": "0x4d385bd8"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "fr_store_operator": {
+      "ranges": [
+        {
+          "start": "0x4bb348d0",
+          "end": "0x4bb3491f",
+          "bytes": 79,
+          "sha256": "42645772ef5402cb341f346ce0eea07ce2881f6a1ab00af1154f6e5fd56b2cdf"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb348d0",
+          "end": "0x4bb3491f",
+          "unwind": "0x4d385bd8"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    }
+  },
+  "dispatch_windows": {
+    "factory_installs_actual_primary_table": {
+      "start": "0x4bb95d6a",
+      "end": "0x4bb95d74",
+      "bytes": 10,
+      "sha256": "909eef0ef7bf887b552dde3472a456b5ea0959196115db0c816303d22a90933b"
+    },
+    "factory_constructs_embedded_keeper_at_plus10": {
+      "start": "0x4bb95d32",
+      "end": "0x4bb95d3d",
+      "bytes": 11,
+      "sha256": "1c52257d1ebeee23e919faeb9507098b4f8b3453e6ee65c991402e6ec7649809"
+    },
+    "keeper_constructor_sets_table": {
+      "start": "0x4bb5d2b5",
+      "end": "0x4bb5d2bf",
+      "bytes": 10,
+      "sha256": "be0f2b536d21ceb1aeeae6e416e929c07acbbf9f9401e6a8451665e49f55ddc1"
+    },
+    "keeper_vtable_slot0": {
+      "start": "0x4cf60db8",
+      "end": "0x4cf60dc0",
+      "bytes": 8,
+      "sha256": "5d5ab5c2c6d10e45e379b1a7cfa2ec176cbfd072ed0d37461277af30eb131bcd"
+    },
+    "modern_base_embedded_virtual_call": {
+      "start": "0x4bba87ea",
+      "end": "0x4bba87f6",
+      "bytes": 12,
+      "sha256": "4607858b5886349d0cef12d4a4656c2cefffd1c106d95c115c144e1135d5bdea"
+    },
+    "surface_wrapper_direct_base_call": {
+      "start": "0x4bbaa6b0",
+      "end": "0x4bbaa6b5",
+      "bytes": 5,
+      "sha256": "febcb700008313846bacbf85bf885643035326cba8014bb6fdf061c1f7b1e2f8"
+    },
+    "surface_field_store_tail": {
+      "start": "0x4bbaa6c5",
+      "end": "0x4bbaa6d9",
+      "bytes": 20,
+      "sha256": "7e7f66188152355e46f5ba5bb11d7dc826da47b623fae331134dc279f8c27e1f"
+    },
+    "surface_field_read_tail": {
+      "start": "0x4bbaa6d9",
+      "end": "0x4bbaa6ee",
+      "bytes": 21,
+      "sha256": "a132b0c09e2025e3998b30684f4069f3fc9f070a824c3c1c6124ae44a34234f0"
+    }
+  },
+  "wire_order": {
+    "moFromSktEntSurfIdRep_c": [
+      "embed f10:FRKeeper",
+      "f38:i32"
+    ],
+    "embedded_FRKeeper": [
+      "f08:object reference",
+      "f10:moFR_c object reference"
+    ],
+    "moFR_c": [
+      "f08:moExtObject_c object reference",
+      "embed f10:moFRData_c"
+    ],
+    "moFRData_c": [
+      "f00:i32",
+      "f08:raw time32/u32"
+    ]
+  },
+  "actual_native_receiver_roles": {
+    "surface_base": "0x4bba8790 receives original surface-id object; at version>=0x21b invokes actual member at this+0x10 through its virtual0",
+    "embedded_member": "factory4bb95d00 calls4bb5d2a0 with original this+0x10; that constructor installs4cf60db8 whose virtual0 is4bba8de0",
+    "field_f38": "native wrapper4bbaa6a0 always appends one signed32-bit long to both read/store branches",
+    "fr_read": "operator4bb34810 asks vendor ReadObject for descriptor4dadabd0 in the nonDB branch",
+    "fr_store": "operator4bb348d0 asks vendor WriteObject with descriptor4dadabd0 in the nonDB branch"
+  },
+  "version_context": {
+    "admitted_version": 19000,
+    "admitted_conditions": [
+      0,
+      64
+    ],
+    "database_supported": false,
+    "base_legacy_encoding": "version<0x21b; excluded",
+    "legacy_retention_maps": "version<0x3ad; excluded",
+    "conditional_retention_registry": "condition0x200000 on load or0x8000000 on store; no additional wire bytes and excluded under ordinary context",
+    "fr_legacy_extra_words": "moFR versions<0x2cb; moFRData name string before0x4a5, extra ulong before0xd7b, additional long only0xa64..0xc76; excluded at19000",
+    "special_runtime_repairs": "native can remap/share/delete feature references or timestamps using its model and condition maps; the generic codec retains raw wire identity and values"
+  },
+  "existing_sdk_reuse": {
+    "surface_layout": "Archive/Bodies/Layouts/Resolved/ReferenceFields.py moFromSktEntSurfIdRep_c→er.FUN_4bbaa6a0→er.FUN_4bba8790→moEntityIdRep_c.FUN_4bba8de0",
+    "feature_reference_layout": "Archive/Bodies/Layouts/Resolved/FeatureFields.py moFR_c",
+    "fr_data_layout": "Archive/Bodies/Layouts/Resolved/ComponentFields.py moFRData_c",
+    "field_or_layout_changes_required": [],
+    "concrete_schema_admissions": [
+      "moFromSktEntSurfIdRep_c schema1",
+      "moFR_c schema1"
+    ]
+  },
+  "serialize_map_discrepancy": {
+    "surface_map_address": "0x4bc267a0",
+    "surface_actual_primary_serializer": "0x4bbaa6a0",
+    "map_address_owner": {
+      "ranges": [
+        {
+          "start": "0x4bc260a0",
+          "end": "0x4bc268bc",
+          "bytes": 2076,
+          "sha256": "5ed4e3c03e9093faf6396cef325a4de46ad0d743346a642663548b5472cb9516"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bc260a0",
+          "end": "0x4bc268bc",
+          "unwind": "0x4d4e8d18"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "feature_reference_map_address": "0x4bbb1a00",
+    "feature_reference_actual_primary_serializer": "0x4bb34e90",
+    "map_is_not_dispatch_authority": true,
+    "global_map_not_modified": true
+  },
+  "remaining": [
+    "reachable external-reference concrete classes must still pass their own drawing admission",
+    "complete actual original edge bodies and Definition streams still require the exact frozen parser probe",
+    "native runtime repair semantics and a generative surface-ID constructor are not admitted by a raw codec"
+  ],
+  "source_values_added": false,
+  "fresh_defaults_added": false,
+  "native_execution": false,
+  "vm_access": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}
