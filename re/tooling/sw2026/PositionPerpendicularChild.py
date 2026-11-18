@@ -24,8 +24,17 @@ def position_child(author, model, case):
             point = author.typed(author.get(line, field), "SketchPoint")
             points[tuple(author.get(point, "GetID"))] = point
     require(len(points) == 4, "the ordinary rectangle has ambiguous native point ownership")
-    before = {str(key): author.point(point) for key, point in points.items()}
-    key, point = min(points.items(), key=lambda row: tuple(author.point(row[1])[:2]))
+    before = {key: author.point(point) for key, point in points.items()}
+    left = min(position[0] for position in before.values())
+    bottom = min(position[1] for position in before.values())
+    corners = [
+        key for key, position in before.items()
+        if isclose(position[0], left, rel_tol=0.0, abs_tol=1e-10)
+        and isclose(position[1], bottom, rel_tol=0.0, abs_tol=1e-10)
+    ]
+    require(len(corners) == 1, "the native rectangle has no unique lower-left point")
+    key, = corners
+    point = points[key]
     target = [-width / 2, -height / 2, 0.0]
     require(bool(author.get(point, "SetCoords", *target)), "the native point setter refused the authored sketch location")
     expected = [(-width / 2, -height / 2, 0.0), (width / 2, -height / 2, 0.0),
@@ -36,7 +45,8 @@ def position_child(author, model, case):
         require(len(matches) == 1, "the positioned native sketch differs from its independently authored rectangle")
         expected.remove(matches[0])
     author.rec.data["explicit_child_sketch_position"] = {"selected_native_point_id": list(key), "requested_local_m": target,
-                                                         "before": before, "after": after, "empirical_centroid_correction": False}
+                                                         "before": {str(index): value for index, value in before.items()},
+                                                         "after": after, "empirical_centroid_correction": False}
     author.rec.flush()
     author.get(model, "ClearSelection2", True)
     author.get(manager, "InsertSketch", True)

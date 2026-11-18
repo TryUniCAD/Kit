@@ -35,3 +35,32 @@ Packet02's host fingerprint check passed, but its registered guest metadata prer
 Packet03 changes only that metadata interface ownership. The actual part lookup, point operation, original disclosed design, independent predictor and strict observer remain byte-identical to Packet02. All fourteen tools remain pinned, with only `PerpendicularApiMetadata.py` changing to SHA-256 `425cf27d81227ecbf97c6efcc3da1de83fc8952856f38f3f7c08eb5a249bcf70`. The original sealed specification hash remains `c86195e3ebd547b562d847218ee55ada42acb86e31b67ef451c02a67cf80b0e4`, copied guest-side by hash without host payload access.
 
 The external Packet03 source SHA-256 is `9fdfff4ee0fc960dbb70ec3058d4ac6652ba5413caf7171aa119d5b4500b4a41`; recipe SHA-256 is `60258bb60b01fd7134fa85aada4b0b6fe62bab7c5ad843ae96abd0ed6c43c4d0`. Host verification passed with zero native launches or sealed design reads. Root retains both earlier pre-CAD metadata failure attempts and all frozen packets. Registered preflight and controlled native source acceptance are separate gates and remain root-owned. [Declaring-interface gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Assembly/FeatureByNameBelongsToPartDoc.md)
+
+## Measured source results and stable corner identity
+
+Packet03 D01 passed all five native phases and the source lock. Both
+pristine controls, native authoring, and both fresh reopens passed.
+The sealed D01 source manifest hash is
+`0d0783ba55f61d192e30b317a54def4784a0941ed4e6e63561e6f9e92bf9fbcd`.
+
+Packet03 D02 failed its corner check with healthy controls. Its two
+left-side points had X coordinates `-0.0287` and
+`-0.028700000000000003` m. A lexicographic minimum selected
+the second coordinate, on the upper edge. The native setter moved
+that point to the requested coordinate and visibly shifted the entire
+rectangle one height below the target.
+
+Packet04 changes only the corner selector. It finds the two axis
+minima and matches both within the existing geometric tolerance. The
+native retry selects point ID `[0,1]`, verifies all four corners, and
+matches the independent child and assembly geometry. The source
+observer then fails at the first mate endpoint's ordering check.
+The first returned endpoint is the second selected occurrence and its
+actual Top Plane, verified by its independent point and normal.
+Both controls passed on each D02 attempt.
+
+Packet04 is pinned as `0b69d31fb7d18f09bb38e3fd1e103cc032830ae59fccf48b50bb171297baf30d`.
+It copies the same sealed specification hash. The D02 source lock
+remains incomplete.
+
+[Measured controls, coordinates and endpoint receipt](../measurements/2026/PerpendicularMateSourcePosition04.json)
