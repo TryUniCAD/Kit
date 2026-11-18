@@ -19,7 +19,8 @@ def CheckPublicPocket(
 ) -> tuple[LocalCircle, NativeOperation]:
     Evidence = NativeRecord(ModelValue.TypedGraph.get("cut_body_dependency"))
     if (
-        Evidence.get("binding") != "cold_all_bodies_intersection"
+        Evidence.get("binding")
+        not in ("cold_all_bodies_intersection", "cold_selected_stock_atom")
         or ModelValue.active_configuration_id != 0
         or len(ModelValue.configurations) != 1
         or ModelValue.equations

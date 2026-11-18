@@ -35,6 +35,7 @@ def ReadPrismPlan(
     ColdValue: ColdOutput | None = None,
     *,
     ModeValue: ExtrudeEnd = ExtrudeEnd.KBlind,
+    SelectedStock: bool = False,
 ) -> PrismPlan:
     (BossValue,) = (
         NodeValue
@@ -42,7 +43,9 @@ def ReadPrismPlan(
         if NodeValue.ClassValue.NameValue == "moExtrusion_c"
     )
     OwnerValue = ReadExtrude(LinkValue, BossValue, Features)
-    CheckPrismBoss(OwnerValue, ColdValue, ModeValue=ModeValue)
+    CheckPrismBoss(
+        OwnerValue, ColdValue, ModeValue=ModeValue, SelectedStock=SelectedStock
+    )
     CheckPrismEnd(OwnerValue)
     Depth = OwnerValue.RequireDepth().DepthValue
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)

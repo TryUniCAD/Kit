@@ -15,10 +15,12 @@ def CheckPrismBoss(
     ColdValue: ColdOutput | None = None,
     *,
     ModeValue: ExtrudeEnd = ExtrudeEnd.KBlind,
+    SelectedStock: bool = False,
 ) -> None:
     CheckPrismAtom(
         OwnerValue.NodeValue,
         ColdValue is not None and ColdValue.BossValue is OwnerValue.NodeValue,
+        SelectedScope="stock" if SelectedStock else None,
     )
     Fields = OwnerValue.NodeValue.FieldsValue
     if (

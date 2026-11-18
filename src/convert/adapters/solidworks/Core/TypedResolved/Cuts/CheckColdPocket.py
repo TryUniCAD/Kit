@@ -46,17 +46,22 @@ def CheckColdPocket(
     Features: Mapping[int, ArchiveNode],
     BossValue: ExtrudeOwner,
     CutValue: ExtrudeOwner,
+    SelectedStock: ArchiveNode | None = None,
 ) -> None:
     RootValue = LinkValue.ConfigValue.RootValue
     CheckColdCutRoots(Features)
-    CheckPrismRoot(RootValue)
+    CheckPrismRoot(RootValue, SelectedStock)
     CheckPrismRels(RootValue)
     Through = CutValue.ModeValue == ExtrudeEnd.KThroughAll
     CheckPrismBoss(
-        BossValue, ModeValue=ExtrudeEnd.KMidPlane if Through else ExtrudeEnd.KBlind
+        BossValue,
+        ModeValue=ExtrudeEnd.KMidPlane if Through else ExtrudeEnd.KBlind,
+        SelectedStock=SelectedStock is not None,
     )
     CheckPrismEnd(BossValue)
-    CheckPrismAtom(CutValue.NodeValue)
+    CheckPrismAtom(
+        CutValue.NodeValue, SelectedScope="cut" if SelectedStock is not None else None
+    )
     CheckPrismProf(CutValue.ProfileValue)
     BossFrame = ReadPrismFrame(
         BossValue.ProfileValue, RootValue, Features, FrontOnly=not Through

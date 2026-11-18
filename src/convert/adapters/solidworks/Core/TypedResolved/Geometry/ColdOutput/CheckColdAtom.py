@@ -3,7 +3,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsL
 
 
 # constructor body free state must remain explicit so stale kernel ownership cannot gain inferred geometry
-def CheckColdAtom(AtomValue: ArchiveNode) -> None:
+def CheckColdAtom(AtomValue: ArchiveNode, *, ImplicitName: bool = False) -> None:
     FieldsValue = AtomValue.FieldsValue
     Expected = {
         "f08": -1,
@@ -17,7 +17,7 @@ def CheckColdAtom(AtomValue: ArchiveNode) -> None:
         "f158": 0,
         "body_kind": 0,
         "f170": 0,
-        "f18c": 0,
+        "f18c": int(ImplicitName),
         "f198": -1,
         "f180": 0,
         "f188": 0,
@@ -32,6 +32,7 @@ def CheckColdAtom(AtomValue: ArchiveNode) -> None:
     if (
         "f160" in FieldsValue
         or "f120" in FieldsValue
+        or (ImplicitName and FieldsValue.get("f18") is not None)
         or not IsLineState(FieldsValue.get("f60"))
     ):
         raise ValueError(

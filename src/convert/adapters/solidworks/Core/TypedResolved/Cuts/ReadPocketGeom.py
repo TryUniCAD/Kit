@@ -20,6 +20,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismPlan impor
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
+from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
@@ -40,10 +41,12 @@ def ReadPocketGeom(
     Features = IndexFeatures(LinkValue)
     CircleValue, Cut = CheckPublicPocket(ModelValue, Features)
     Through = Cut.extrusion_end == ExtrudeEnd.KThroughAll
+    Evidence = NativeRecord(ModelValue.TypedGraph.get("cut_body_dependency"))
     Stock = ReadPrismPlan(
         LinkValue,
         Features,
         ModeValue=ExtrudeEnd.KMidPlane if Through else ExtrudeEnd.KBlind,
+        SelectedStock=Evidence.get("binding") == "cold_selected_stock_atom",
     )
     if Through:
         HalfDepth = Stock.DepthValue * 0.5

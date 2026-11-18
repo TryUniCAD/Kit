@@ -2,10 +2,10 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadSingleNode import (
     ReadSingleNode,
 )
-from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.CheckCutWrapper import (
+    CheckCutWrapper,
+)
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
-from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
-from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 
 
 # a saved body selection must agree with the consumed atom without inferring an unstored selection mode
@@ -27,18 +27,5 @@ def CheckSavedCutScope(
     if Chooser.get("f68") is not CutValue:
         raise ValueError("cut body chooser does not alias its owning feature")
     if ScopeValue:
-        Wrapper = ReadSingleNode(Fields.get("f548"), "moCompSolidBody_c").FieldsValue
-        Component = RequireNative(Wrapper.get("f58"), "moUnitComponent_c")
-        Lineage = NativeRows(Wrapper.get("f110"))
-        if (
-            Wrapper.get("f108") != NativeNodeId(BossValue)
-            or Wrapper.get("f18") != AtomId
-            or Wrapper.get("f1c") != AtomId
-            or Wrapper.get("n110") != 1
-            or tuple(Row.get("v") for Row in Lineage) != (AtomId,)
-            or Component.FieldsValue.get("owner") is not RootValue
-        ):
-            raise ValueError(
-                "cut selection wrapper differs from the consumed boss atom"
-            )
+        CheckCutWrapper(RootValue, BossValue, CutValue, AtomId)
     return ScopeValue

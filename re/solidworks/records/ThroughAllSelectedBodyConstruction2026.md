@@ -80,3 +80,11 @@ The exact corrected front-plane packet passes 72 numeric checks across four fres
 The separate typed audit confirms `f544=1` on stock and cut in the native edited derivative. Its actual selected wrapper retains the stock body atom, owning component, base feature and lineage. The consumed stock and produced cut atoms remain distinct. All six linked streams re-emit exactly. The cut still has no active depth or draft drivers. [Native and saved proof](../measurements/2026/SdkThroughAllSelectedBodyNative01.json)
 
 This scope covers one explicit selected stock body in the disclosed generated file. Continuous automatic selection, other body scopes, original held-outs and normal writer registration remain open.
+
+## Ordinary SDK reader
+
+The strict reader accepts the generated cut only when its one managed bodyless stock atom aliases the actual boss, both scope words are one, and the single wrapper names the actual model, atom, producing feature and one-member lineage. It requires the fresh implicit atom name and empty topology slots. The usual rectangular-stock geometry path then uses the circle and signed through-all end to reconstruct the cut.
+
+A native-saved graph uses the measured consumed and result atom path instead. Both routes attach a normal neutral selection to the actual cut feature with path \`("feature", stock feature ID, "body")\`. The neutral selection names the portable stock producer. The saved and cold evidence distinguish whether a result atom is present.
+
+The [reader proof](../measurements/2026/SdkSelectedThroughAllStockRead01.json) covers six default cache-free geometry reads on generated cases and six no-geometry reads on disclosed saves. The three generated graphs reproduce eighteen exact linked streams. Seven corrupted candidates reserialize complete payloads and reject through the normal reader. The generated Front input has the same SHA-256 as the disclosed native success. The original held-out files remain sealed.
