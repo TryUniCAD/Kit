@@ -1,0 +1,499 @@
+{
+  "candidate_numeric_checks": 340,
+  "cases": [
+    {
+      "candidate_states": [
+        {
+          "actual": {
+            "area_m2": 0.010706547763434016,
+            "centre_m": [
+              -0.0031250000000000006,
+              0.009375000000000001,
+              5.741461755929069e-19
+            ],
+            "volume_m3": 6.242972921213639e-05
+          },
+          "angle_radians": 6.283185307179586,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.010706547763434018,
+            "centre_m": [
+              -0.003125,
+              0.009375,
+              0.0
+            ],
+            "volume_m3": 6.242972921213639e-05
+          },
+          "reversed": false,
+          "signed_sweep_handedness": null,
+          "sketch_relations": 4,
+          "state": "reopened"
+        },
+        {
+          "actual": {
+            "area_m2": 0.005323871334809219,
+            "centre_m": [
+              0.0018480734942157037,
+              0.009374999999999998,
+              -0.01270610463947659
+            ],
+            "volume_m3": 2.3801334262127002e-05
+          },
+          "angle_radians": 2.3954643983622175,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.005323871334809219,
+            "centre_m": [
+              0.0018480734942157052,
+              0.009375,
+              -0.012706104639476586
+            ],
+            "volume_m3": 2.3801334262127e-05
+          },
+          "reversed": false,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "edited"
+        }
+      ],
+      "case": "SdkRevolveFullAlpha",
+      "clean_save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_saved_states": [
+        {
+          "actual": {
+            "area_m2": 0.005323871334809219,
+            "centre_m": [
+              0.0018480734942157035,
+              0.009374999999999998,
+              -0.01270610463947659
+            ],
+            "volume_m3": 2.3801334262127002e-05
+          },
+          "angle_radians": 2.3954643983622175,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.005323871334809219,
+            "centre_m": [
+              0.0018480734942157052,
+              0.009375,
+              -0.012706104639476586
+            ],
+            "volume_m3": 2.3801334262127e-05
+          },
+          "reversed": false,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "reopened"
+        }
+      ],
+      "input_sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+      "live_driver": "D1@OrdinaryBossRevolve@SdkRevolveFullAlpha.Part",
+      "numeric_checks": 85,
+      "raw_phase_sha256": [
+        "3c015617bb72ca33954afa1de78eed6e99a3a69ddf604bf0273b6bca07db489f",
+        "7bf147a1ef5f4d48e438d203c7ca82836eeb1734b94515a22a9b24260178b59b"
+      ],
+      "saved_sha256": "963dce1db82760fc1941d9ce6b41410ee5b1b4b3c563594900cb30b12a635e6e"
+    },
+    {
+      "candidate_states": [
+        {
+          "actual": {
+            "area_m2": 0.003840741714975805,
+            "centre_m": [
+              0.007728890375055392,
+              0.004625,
+              -0.010119517009637601
+            ],
+            "volume_m3": 1.4182081898623351e-05
+          },
+          "angle_radians": 2.2471114119426994,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.003840741714975807,
+            "centre_m": [
+              0.007728890375055391,
+              0.004625,
+              -0.010119517009637603
+            ],
+            "volume_m3": 1.418208189862336e-05
+          },
+          "reversed": false,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "reopened"
+        },
+        {
+          "actual": {
+            "area_m2": 0.0026146460064959205,
+            "centre_m": [
+              0.013339391748513766,
+              0.004625000000000001,
+              -0.007796366432814022
+            ],
+            "volume_m3": 8.08240978106011e-06
+          },
+          "angle_radians": 1.2806353386508393,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.002614646006495921,
+            "centre_m": [
+              0.013339391748513767,
+              0.004625,
+              -0.007796366432814022
+            ],
+            "volume_m3": 8.08240978106011e-06
+          },
+          "reversed": false,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "edited"
+        }
+      ],
+      "case": "SdkRevolveForwardBeta",
+      "clean_save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_saved_states": [
+        {
+          "actual": {
+            "area_m2": 0.0026146460064959205,
+            "centre_m": [
+              0.013339391748513766,
+              0.004625,
+              -0.007796366432814024
+            ],
+            "volume_m3": 8.082409781060111e-06
+          },
+          "angle_radians": 1.2806353386508393,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.002614646006495921,
+            "centre_m": [
+              0.013339391748513767,
+              0.004625,
+              -0.007796366432814022
+            ],
+            "volume_m3": 8.08240978106011e-06
+          },
+          "reversed": false,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "reopened"
+        }
+      ],
+      "input_sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+      "live_driver": "D1@OrdinaryBossRevolve@SdkRevolveForwardBeta.Part",
+      "numeric_checks": 85,
+      "raw_phase_sha256": [
+        "a34ed887451fe1474ab892ba1119610c969b36d88af52d568de36fd18d82ff64",
+        "2249f3637d0390ca7be586609ce8b8ef605a12ef93ddbc87971879b2f588b7fd"
+      ],
+      "saved_sha256": "36667ae4b8ad9d0853af4b43a5d7386dd146b00e424bfe3760b9a7aab1c4a62b"
+    },
+    {
+      "candidate_states": [
+        {
+          "actual": {
+            "area_m2": 0.003840741714975805,
+            "centre_m": [
+              0.0077288903750553925,
+              0.004625000000000001,
+              0.010119517009637601
+            ],
+            "volume_m3": 1.4182081898623351e-05
+          },
+          "angle_radians": 2.2471114119426994,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.003840741714975807,
+            "centre_m": [
+              0.007728890375055391,
+              0.004625,
+              0.010119517009637603
+            ],
+            "volume_m3": 1.418208189862336e-05
+          },
+          "reversed": true,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "reopened"
+        },
+        {
+          "actual": {
+            "area_m2": 0.0026146460064959205,
+            "centre_m": [
+              0.013339391748513766,
+              0.004625,
+              0.007796366432814022
+            ],
+            "volume_m3": 8.08240978106011e-06
+          },
+          "angle_radians": 1.2806353386508393,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.002614646006495921,
+            "centre_m": [
+              0.013339391748513767,
+              0.004625,
+              0.007796366432814022
+            ],
+            "volume_m3": 8.08240978106011e-06
+          },
+          "reversed": true,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "edited"
+        }
+      ],
+      "case": "SdkRevolveReverseBeta",
+      "clean_save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_saved_states": [
+        {
+          "actual": {
+            "area_m2": 0.0026146460064959205,
+            "centre_m": [
+              0.013339391748513766,
+              0.004625,
+              0.007796366432814024
+            ],
+            "volume_m3": 8.082409781060111e-06
+          },
+          "angle_radians": 1.2806353386508393,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.002614646006495921,
+            "centre_m": [
+              0.013339391748513767,
+              0.004625,
+              0.007796366432814022
+            ],
+            "volume_m3": 8.08240978106011e-06
+          },
+          "reversed": true,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "reopened"
+        }
+      ],
+      "input_sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+      "live_driver": "D1@OrdinaryBossRevolve@SdkRevolveReverseBeta.Part",
+      "numeric_checks": 85,
+      "raw_phase_sha256": [
+        "26e5e5b2df342610012897cbf5cebb40a410a2a998be94be70e4826b2dab471e",
+        "9de15363fb8d07c8c522765de974ce7025c13310d6accb7f273c2e71520287b1"
+      ],
+      "saved_sha256": "451a54e66ed9f97cbf5bfc752cb59306f4fb7eb3f2be5fcbec70d3a33b3d699d"
+    },
+    {
+      "candidate_states": [
+        {
+          "actual": {
+            "area_m2": 0.01281448616575507,
+            "centre_m": [
+              -0.012402451607957637,
+              -0.0036250000000000024,
+              0.006621054906101878
+            ],
+            "volume_m3": 7.748167025633818e-05
+          },
+          "angle_radians": 4.391684730330732,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.012814486165755066,
+            "centre_m": [
+              -0.012402451607957634,
+              -0.0036249999999999998,
+              0.006621054906101878
+            ],
+            "volume_m3": 7.748167025633817e-05
+          },
+          "reversed": true,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "reopened"
+        },
+        {
+          "actual": {
+            "area_m2": 0.017544693866971838,
+            "centre_m": [
+              -0.00767886423870825,
+              -0.0036249999999999976,
+              4.1130538145345244e-07
+            ],
+            "volume_m3": 0.00011058362575581696
+          },
+          "angle_radians": 6.267913676224636,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.017544693866971838,
+            "centre_m": [
+              -0.00767886423870825,
+              -0.0036249999999999998,
+              4.1130538145479033e-07
+            ],
+            "volume_m3": 0.00011058362575581698
+          },
+          "reversed": true,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "edited"
+        }
+      ],
+      "case": "SdkRevolvePartialGamma",
+      "clean_save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_saved_states": [
+        {
+          "actual": {
+            "area_m2": 0.017544693866971838,
+            "centre_m": [
+              -0.00767886423870825,
+              -0.0036249999999999976,
+              4.1130538145345244e-07
+            ],
+            "volume_m3": 0.00011058362575581696
+          },
+          "angle_radians": 6.267913676224636,
+          "bodies": 1,
+          "feature_rows": 25,
+          "independent_prediction": {
+            "area_m2": 0.017544693866971838,
+            "centre_m": [
+              -0.00767886423870825,
+              -0.0036249999999999998,
+              4.1130538145479033e-07
+            ],
+            "volume_m3": 0.00011058362575581698
+          },
+          "reversed": true,
+          "signed_sweep_handedness": -1,
+          "sketch_relations": 4,
+          "state": "reopened"
+        }
+      ],
+      "input_sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+      "live_driver": "D1@OrdinaryBossRevolve@SdkRevolvePartialGamma.Part",
+      "numeric_checks": 85,
+      "raw_phase_sha256": [
+        "1d3375e870494d41ea995c9f9adeb2fa0afc3e7b574809798c9931e5a16aa75b",
+        "fa609c56652c5fc532ff1eb7aa1eea597b2d93d944edff39a1e10817ff961ffd"
+      ],
+      "saved_sha256": "50cebaee7eb8dfd8c3f903af7db0e7bd78098935561fddcbc0ccaaaf370dbe57"
+    }
+  ],
+  "constructor_source_manifest_sha256": "ead445cfd87f174fcc3e62e48883aa3e6e7a823c0dd3fba8c8b5ec98677993c5",
+  "controls": [
+    {
+      "com_revision": "34.5.2",
+      "file_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "healthy": true,
+      "phase": "control_before"
+    },
+    {
+      "com_revision": "34.5.2",
+      "file_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "healthy": true,
+      "phase": "control_after"
+    }
+  ],
+  "distinct_native_processes": 10,
+  "frozen_input_files_reverified": 40,
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "host": {
+    "guest_kill": false,
+    "idle_inventory_sha256": "b1e0ba3c6511b893c2f990cc610a8ca80ee5db5b9f1b3c8a7cbd8e2f2bdd9123",
+    "initial_inventory_sha256": "7fa3d45e5db331cbb26f2c2bce8fd8550b752cfef73885c1615b14808b72733d",
+    "intermediate_inventory_sha256": "341c571d0e3e46716d0536b822ef21a3a186c63d3bbbcae0289f21a37ce5b55e",
+    "license_pids": [
+      4256,
+      4644,
+      4988
+    ],
+    "native_aggregate_basename": "Inspection.json",
+    "one_interim_cad_pid": 6028,
+    "progress_basename_used": "Record.json",
+    "recovery_confirmed_idle": true,
+    "transport_returncode": -15,
+    "transport_sha256": "6f804d6c153449911b7b2ec4ef635c3205fa85d21e606f8b9e53df0b4141eb27",
+    "transport_status": "host_deadline",
+    "vm_reset": false
+  },
+  "native_lifecycle_passed": true,
+  "native_receipt_sha256": "52833c66d1dd3f279d518217f6796f0df9338ebac565e9b5fd85d5c7a3433c51",
+  "oracle": {
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version": "34.5.2.0604"
+  },
+  "packet_sha256": "d16de9429e638f9dea4ad5e3027c98da13bfd019565746af676c37a7dd852a45",
+  "processes": [
+    {
+      "birth_filetime": 134395063607471102,
+      "pid": 9884
+    },
+    {
+      "birth_filetime": 134395063893981894,
+      "pid": 4668
+    },
+    {
+      "birth_filetime": 134395064782993411,
+      "pid": 6568
+    },
+    {
+      "birth_filetime": 134395065308691854,
+      "pid": 11056
+    },
+    {
+      "birth_filetime": 134395066032580886,
+      "pid": 11064
+    },
+    {
+      "birth_filetime": 134395066486971041,
+      "pid": 4636
+    },
+    {
+      "birth_filetime": 134395067215983843,
+      "pid": 9800
+    },
+    {
+      "birth_filetime": 134395067649611228,
+      "pid": 6028
+    },
+    {
+      "birth_filetime": 134395068351084703,
+      "pid": 5024
+    },
+    {
+      "birth_filetime": 134395068775044959,
+      "pid": 6772
+    }
+  ],
+  "public_writer_qualified": false,
+  "saved_typed_join_pending": true,
+  "schema": "kit.sw2026.disclosed-generated-revolve-native.v1"
+}
