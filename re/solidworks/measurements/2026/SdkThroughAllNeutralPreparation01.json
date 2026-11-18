@@ -1,0 +1,268 @@
+{
+  "atomic_rejections": [
+    {
+      "case": "missing-axis-relation",
+      "diagnostic": "ValueError: through-all stock axis relations must match its four lines",
+      "returncode": 1
+    },
+    {
+      "case": "duplicate-axis-owner",
+      "diagnostic": "ValueError: through-all stock has a duplicate line relation",
+      "returncode": 1
+    },
+    {
+      "case": "fake-cut-depth",
+      "diagnostic": "ValueError: through-all cut requires depthless ends and one free circle",
+      "returncode": 1
+    },
+    {
+      "case": "foreign-direction",
+      "diagnostic": "ValueError: through-all cut requires depthless ends and one free circle",
+      "returncode": 1
+    },
+    {
+      "case": "unsupported-dual-reversal",
+      "diagnostic": "ValueError: the measured both direction profile requires its actual first direction reversal",
+      "returncode": 1
+    },
+    {
+      "case": "unrepresented-metadata",
+      "diagnostic": "ValueError: plain boss candidate does not admit unprojected document metadata",
+      "returncode": 1
+    }
+  ],
+  "guarded_workers": 14,
+  "heldout_inputs_read": 0,
+  "native_oracle_run": false,
+  "passed": true,
+  "public_writer_qualified": false,
+  "repeat_build_cases": [
+    {
+      "bytes": 8391,
+      "case": "Front",
+      "faces": 8,
+      "normal_reader_matches": true,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "sha256": "9f73bf90e4d13e995ed4d74185ba0b198a8e2f9b83423f524f6b35e45e080225",
+      "stock_feature": "StockBoss",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "0c6d5423169d32bf95057c427fcc04729bcab5c595bd35a94fa60cefd1d39621"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9a63194ed7d6d296dee1360f5ab5407d41f6c8b11791036ab2b729015df34899"
+        },
+        "Contents/Config-0": {
+          "bytes": 22272,
+          "sha256": "d684f26a7a4d8d05b5f55ca7c7beb9d97fd4802954893cbda5fe4bf5b1d2db23"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 657,
+          "sha256": "0cb740885175849d430857970015e7b4481a353b20e27fdbfef9235bb5c7bd18"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15629,
+          "sha256": "21ab8bdb90c259c69e615e2137ac87a273150ef61ea1e771962394f4ce52c2b3"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 657,
+          "sha256": "335259a3b3001c321684a2dba5b2b836eba350275b92b5b62a32cdb5dad4fce1"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "f8d7f0587369d541febf89720ab904f537dfc36ab0ab30bb4496f211b65165d7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1571,
+          "sha256": "2c083f529ee563954c36f0c8bee0a498f7f257cf63f5b051837fe32bec48cb90"
+        }
+      }
+    },
+    {
+      "bytes": 8418,
+      "case": "Top",
+      "faces": 8,
+      "normal_reader_matches": true,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "sha256": "bd5d4fd4f89a9e9d9fcd362e5c45d7fd8a40b1bf5d0db7c29506769dfc7afdf5",
+      "stock_feature": "StockBoss",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "0c6d5423169d32bf95057c427fcc04729bcab5c595bd35a94fa60cefd1d39621"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9a63194ed7d6d296dee1360f5ab5407d41f6c8b11791036ab2b729015df34899"
+        },
+        "Contents/Config-0": {
+          "bytes": 22272,
+          "sha256": "d684f26a7a4d8d05b5f55ca7c7beb9d97fd4802954893cbda5fe4bf5b1d2db23"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 657,
+          "sha256": "0cb740885175849d430857970015e7b4481a353b20e27fdbfef9235bb5c7bd18"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15773,
+          "sha256": "dee7ca15dcabb688f5616b0a151f1afe57a24ee29bd9db5c04ed368450ef787b"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 657,
+          "sha256": "335259a3b3001c321684a2dba5b2b836eba350275b92b5b62a32cdb5dad4fce1"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "f8d7f0587369d541febf89720ab904f537dfc36ab0ab30bb4496f211b65165d7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1571,
+          "sha256": "2c083f529ee563954c36f0c8bee0a498f7f257cf63f5b051837fe32bec48cb90"
+        }
+      }
+    },
+    {
+      "bytes": 8415,
+      "case": "Right",
+      "faces": 7,
+      "normal_reader_matches": true,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "sha256": "4dab76b9e1bb3ba571452e0f058ec69d3797d343bf05d92872fc3cef658609a2",
+      "stock_feature": "StockBoss",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "0c6d5423169d32bf95057c427fcc04729bcab5c595bd35a94fa60cefd1d39621"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9a63194ed7d6d296dee1360f5ab5407d41f6c8b11791036ab2b729015df34899"
+        },
+        "Contents/Config-0": {
+          "bytes": 22272,
+          "sha256": "d684f26a7a4d8d05b5f55ca7c7beb9d97fd4802954893cbda5fe4bf5b1d2db23"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 657,
+          "sha256": "0cb740885175849d430857970015e7b4481a353b20e27fdbfef9235bb5c7bd18"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15773,
+          "sha256": "f092fb9705294cac98a3d0d4d9f8a476b1737c06e71ebc3ab88b9366a1a9f172"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 657,
+          "sha256": "335259a3b3001c321684a2dba5b2b836eba350275b92b5b62a32cdb5dad4fce1"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "f8d7f0587369d541febf89720ab904f537dfc36ab0ab30bb4496f211b65165d7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1571,
+          "sha256": "2c083f529ee563954c36f0c8bee0a498f7f257cf63f5b051837fe32bec48cb90"
+        }
+      }
+    },
+    {
+      "bytes": 8452,
+      "case": "LongLabels",
+      "faces": 8,
+      "normal_reader_matches": true,
+      "passed": true,
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "sha256": "d3ca20ce6176409e1fcd63b35712cfe23d46dd729a5243eb2996cb3a6cce31d8",
+      "stock_feature": "StockBoss",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "0c6d5423169d32bf95057c427fcc04729bcab5c595bd35a94fa60cefd1d39621"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "9a63194ed7d6d296dee1360f5ab5407d41f6c8b11791036ab2b729015df34899"
+        },
+        "Contents/Config-0": {
+          "bytes": 22272,
+          "sha256": "d684f26a7a4d8d05b5f55ca7c7beb9d97fd4802954893cbda5fe4bf5b1d2db23"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 657,
+          "sha256": "0cb740885175849d430857970015e7b4481a353b20e27fdbfef9235bb5c7bd18"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15725,
+          "sha256": "c9dd60ad53aa72755acc69bbac812a1ee60c633f66b7a96c02827a94b2374cb0"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 657,
+          "sha256": "335259a3b3001c321684a2dba5b2b836eba350275b92b5b62a32cdb5dad4fce1"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "f8d7f0587369d541febf89720ab904f537dfc36ab0ab30bb4496f211b65165d7"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1619,
+          "sha256": "70d881239523f204f6f1033fd66794228a83439110d124947f1a31ec71d0686f"
+        }
+      }
+    }
+  ],
+  "result_sha256": "130e70131b94102b1c67b01f565a189a6b9eee2fe577c50a692a36d7e0c6e3f1",
+  "schema": "kit.sw2026.through-all-neutral-process.v1",
+  "sealed_native_sources_compared": false,
+  "source_files_sha256": {
+    "re/tooling/sw2026/ThroughAllNeutralProcess.py": "840b1f98a1cdb8a5ff9e44457f98db5861f40c671d9039925a816b992747e6f8",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/ProjectThroughPart.py": "92d7cb4db2e891408ffe9ddc2e6954a1e22150258fb9178e8fd0dea2c274363d",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/ReadStockRectangle.py": "ed0a3c532a7e8f10ac9d858dd6652e7261a0dbf2e2fe4aa8325a93b8b0ec6e8b",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/PrepareThroughPart.py": "9d5306f29c6c2b5212b72f75f42c455821b283491ca12461239d23b31f5dc512",
+    "tests/Convert/Solidworks/Research/Cut/MakeThroughCutArchive.py": "7f3dbadd24348b64424987284767f669a6c6994cfd410872e4ff4d5c8a41701e",
+    "tests/Convert/Solidworks/Research/Cut/MakeThroughCutDoc.py": "6c40cea01b8892b8b92512c4333846a5fef5528f138571ea9af8692886dee870"
+  },
+  "streams_with_authored_length_changes": [
+    "Contents/Config-0-ResolvedFeatures",
+    "swXmlContents/KeyWords"
+  ]
+}
