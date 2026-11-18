@@ -99,6 +99,9 @@ held-out input reads are zero. Scoped static checks pass. The permanent tests
 exercise complete stdin/file generation in fresh interpreters; they are not
 constructor mocks or unit tests.
 
-No public writer is enabled and no new native or held-out acceptance is inferred
-from these process checks. A controlled disclosed generated multi-component
-native replay and the fully frozen original-case evaluator remain required.
+No public writer is enabled and no native or held-out acceptance is inferred
+from these process checks. The separate [controlled disclosed native replay](SdkExplicitPlanarGroupNative2026.md)
+now passes edit/save/reopen and exact saved readback. The [original-case evaluator](SdkOriginalPlanarMethodFreeze2026.md)
+is frozen; root custody and guest dependency checks have passed, Slot01
+preparation is released, and both original native slot evaluations remain
+required. Slot02 stays sealed.

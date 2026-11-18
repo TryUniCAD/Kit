@@ -6,9 +6,11 @@ expose the original sealed inputs. This protocol is separate from the generated
 SDK nested assembly packets. No A20/A21 specification, native payload or
 detailed observation has been read while preparing it.
 
-Status: method preparation. Executable source and assumptions must be frozen
-and independently verified before the root authorizes exposure. Neither a
-protocol nor the older source lock establishes held-out writer acceptance.
+Status: the [executable method and disclosed rehearsal](SdkOriginalPlanarMethodFreeze2026.md)
+are frozen. Root independently verified source custody, assumptions and guest
+dependencies, then released Slot01 preparation only. Slot02 remains sealed.
+Neither that rehearsal nor the older source lock establishes held-out writer
+acceptance. No original native verdict is available yet.
 
 ## Permitted evidence before exposure
 
@@ -54,6 +56,11 @@ case fits the old pair-only API. No arity, axis, endpoint or design value is
 deduced from held-out file size or numeric-check counts. Disclosed synthetic
 groups must exercise the new ownership logic and retain exact previous flat
 and recursive output before the method is frozen.
+
+The [explicit group constructor](SdkPlanarGroupConstruction2026.md) now supplies
+that complete direct occurrence and endpoint model. Its independent process
+proof preserves all prior flat and recursive output; a disclosed three-member
+group also passes [native edit/save/reopen and strict saved readback](SdkExplicitPlanarGroupNative2026.md).
 
 ## Frozen input and prediction stages
 
@@ -136,9 +143,10 @@ their own evidence and constructor rules exist. Exact ordered source/generated
 tree and semantic comparison remains mandatory; no informational diagnostic,
 extra system row or omitted relation is discarded to force acceptance.
 
-The neutral recipe schema, absent-name policy, exact original source custody,
-phase hashes and passed disclosed replay are still to be bound in the executable
-freeze. Root must verify that complete closure before either sealed case is
-opened. If a sealed case exceeds the frozen profile, record it as unsupported
+The [executable freeze](SdkOriginalPlanarMethodFreeze2026.md) binds the neutral
+recipe schema, actual-name projection, original source custody, phase hashes
+and passed disclosed replay. Root must verify that complete closure and the
+guest dependencies before either sealed case is opened. If a sealed case
+exceeds the frozen profile, record it as unsupported
 and retain the unfinished requirement; do not fit a new writer to that case or
 count it as C10 acceptance.
