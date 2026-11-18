@@ -391,6 +391,13 @@ this adds zero corpus passes. The [strict cache-free readback](records/SdkNoCach
 recovers one solid with eight vertices, twelve edges and six faces, and
 retains all three drivers, seven relations and thirteen text properties.
 
+The [custom mass-unit lifecycle](measurements/2026/SdkCustomMassUnitsNative01.json)
+passes four generated parts through native depth edit, save and fresh
+reopen. Both mass choices remain independent of the correct effective
+body mass and geometry. Eight normal SDK reads retain the modeled
+solid and driving depth. This setting qualification adds zero original
+FCStd corpus passes.
+
 The two [original SDK circle parts](records/SdkOriginalCircleNative2026.md)
 pass native source parity for translated Front-plane diameter and reversed
 Top-plane radius. All 14 controlled phases and 400 recorded numerical checks

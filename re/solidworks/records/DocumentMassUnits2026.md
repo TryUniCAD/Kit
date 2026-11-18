@@ -61,9 +61,8 @@ primary format. All 24 stream checks and both complete paired table
 comparisons pass. The [measurement receipt](../measurements/2026/DocumentMassUnitsNative01.json)
 keeps all three observer identities and normalized native evidence.
 
-This qualifies the disclosed source setting and ownership map. Generated
-native verification, original-corpus admission and additional custom
-units remain open.
+This qualifies the disclosed source setting and ownership map.
+Original-corpus admission and additional custom units remain open.
 
 ## Shared writer construction
 
@@ -89,4 +88,23 @@ native-tested outputs and all nine guarded outcomes byte for byte. The
 [shared construction receipt](../measurements/2026/SdkCustomMassUnitConstruction01.json)
 binds both experiments. `InspectGeneratedCustomMassUnits.py` brackets
 the four custom candidates through native edit, save and fresh reopen.
-Generated acceptance and public registration remain pending.
+
+## Generated native verification
+
+The two independently authored neutral shapes each build with
+explicit grams and kilograms. All ten native processes pass, including
+both pristine controls. Each candidate rebuilds cleanly, accepts a
+driving depth edit and preserves both the new depth and unit choice
+on a clean save and fresh reopen. The four candidate pairs pass 72
+checks of their editable depth, solid count, volume, area and centroid.
+All twelve native mass-to-volume observations give `1 kg/m³`.
+
+The independent host proof joins all eight generated and saved
+archives to their exact frozen files. All 32 linked stream re-emissions
+match. The explicit mass code and separately derived density length
+retain their actual document owner. The separate analysis table is
+also present in all eight files. Normal SDK reads recover a complete
+one-solid rectangular topology and the real original or edited
+driving depth in every state. The [generated native receipt](../measurements/2026/SdkCustomMassUnitsNative01.json)
+binds the guarded generation, oracle and readback. Public registration,
+original feature parity and held-out qualification remain open.
