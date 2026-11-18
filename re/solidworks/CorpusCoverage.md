@@ -215,7 +215,8 @@ single external part view layout. The [raw Definition proof](measurements/2026/D
 re-emits both original streams byte for byte. The [empty appearance-manager receipt](measurements/2026/DrawingEmptyAppearanceReader01.json)
 advances both original reads to the root guard. The [typed detailing index proof](measurements/2026/DrawingDetailingIndexRead01.json)
 keeps the actual edge-reference graph and marks its portable edge projection open. Both originals
-reach the annotation and display check. Strict drawing reads and production writing await further qualification.
+retain their [typed view rendering state](measurements/2026/DrawingViewRenderingRead01.json)
+and reach the sheet annotation check. Strict drawing reads and production writing await further qualification.
 The [drawing concept prefix check](measurements/2026/DrawingConceptPrefixCheck01.json)
 round-trips the ordered sheet and complete view records before the resolved model tail. The
 research reader extracts model orientation, scale and the view transform and compares them
@@ -327,7 +328,8 @@ reads and writes every byte of the two original Definition streams through the
 typed graph. Both maps and object identities survive. That proof records an
 initial UI state rejection for the present PW material owner. The later
 [typed detailing verification](records/DrawingDetailingIndexRead2026.md)
-reaches the annotation and display check. Other stream parity and complete
+reaches the view rendering check. The [rendering-state verification](records/DrawingViewRendering2026.md)
+advances both originals to sheet annotations. Other stream parity and complete
 drawing admission remain open.
 
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)

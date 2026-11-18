@@ -1,0 +1,178 @@
+{
+  "all_source_file_rows_identical_between_manifests": true,
+  "cases": [
+    {
+      "actual_view_index": 136,
+      "all_malformed_results_absent": true,
+      "cache_present": true,
+      "case": "H01SheetA",
+      "colour_rgb_encoding_claimed": false,
+      "component_colour_join_projected": false,
+      "definition_bytes": 37612,
+      "definition_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+      "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "malformed_full_store_rejections": 30,
+      "map_next_value": 331,
+      "map_slots_equal": true,
+      "native_colour_rows_preserved": true,
+      "native_occurrence_colour_rows": 1,
+      "normal_definition_admitted": false,
+      "normal_rejection": {
+        "message": "blank drawing Definition excludes sheet annotations",
+        "type": "BodyUnsupported"
+      },
+      "output_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+      "raw_byte_identity_passed": true,
+      "raw_load_complete": true,
+      "raw_store_complete": true,
+      "same_object_identities": true,
+      "saved_cache_record_count": 0,
+      "source_immutable": true,
+      "unprojected_rendering": [
+        "drawing.occurrence_colours"
+      ],
+      "unread_tail_bytes": 0
+    },
+    {
+      "actual_view_index": 136,
+      "all_malformed_results_absent": true,
+      "cache_present": true,
+      "case": "H02SheetB",
+      "colour_rgb_encoding_claimed": false,
+      "component_colour_join_projected": false,
+      "definition_bytes": 37608,
+      "definition_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+      "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "malformed_full_store_rejections": 30,
+      "map_next_value": 331,
+      "map_slots_equal": true,
+      "native_colour_rows_preserved": true,
+      "native_occurrence_colour_rows": 1,
+      "normal_definition_admitted": false,
+      "normal_rejection": {
+        "message": "blank drawing Definition excludes sheet annotations",
+        "type": "BodyUnsupported"
+      },
+      "output_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+      "raw_byte_identity_passed": true,
+      "raw_load_complete": true,
+      "raw_store_complete": true,
+      "same_object_identities": true,
+      "saved_cache_record_count": 0,
+      "source_immutable": true,
+      "unprojected_rendering": [
+        "drawing.occurrence_colours"
+      ],
+      "unread_tail_bytes": 0
+    }
+  ],
+  "class_schema_or_wire_layout_added": false,
+  "complete_source_semantics_admitted": false,
+  "corrected_metadata_manifest_sha256": "0864aa1eea2352baba379a7f5acb1f0a45be0db63531aa1cd79e4e149990bbe3",
+  "executed_runner_sha256": "aaf1cb629f58836245c927f4d3b2f48443dfe9f62040334f75770b679aa15eba",
+  "executed_source_manifest_sha256": "5f6b43a082bf80a60914d5a0b5c3b8f85fcc67c2348d33bd7120f54e421f607c",
+  "generated_control": {
+    "alias_owner_is_actual_model": true,
+    "definition_sha256": "29cb5d23bd6269a57bf237f48b9d0ea71630af5864c6f89ad860d1b47304d178",
+    "graph_fields_restored_after_variants": true,
+    "input_producer": "SDK generated disclosed Front control",
+    "input_sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee",
+    "normal_read_passed": true,
+    "normal_store_byte_identical": true,
+    "result_property_uses_actual_view": true,
+    "typed_sections": 0,
+    "unprojected": []
+  },
+  "heldout_acceptance": false,
+  "metadata_correction": "reader_delta_paths corrected from inherited16 detailing paths to actual15 rendering paths; no code changed and no distinct product run is claimed",
+  "modeled_control_cases": [
+    {
+      "authored_variant_not_native_measurement": true,
+      "cache_count_preserved": true,
+      "cache_presence_preserved": true,
+      "case": "explicit absent empty cache",
+      "native_colour_rows_preserved": true,
+      "native_occurrence_colour_rows": 0,
+      "output_bytes": 29408,
+      "output_sha256": "29cb5d23bd6269a57bf237f48b9d0ea71630af5864c6f89ad860d1b47304d178",
+      "read_store_byte_identical": true,
+      "unprojected": []
+    },
+    {
+      "authored_variant_not_native_measurement": true,
+      "cache_count_preserved": true,
+      "cache_presence_preserved": true,
+      "case": "explicit present empty cache",
+      "native_colour_rows_preserved": true,
+      "native_occurrence_colour_rows": 0,
+      "output_bytes": 29412,
+      "output_sha256": "5734a1200f82ea159f35e490107ef84b7adfe93e9c5f33d776e24943ca628993",
+      "read_store_byte_identical": true,
+      "unprojected": []
+    },
+    {
+      "authored_variant_not_native_measurement": true,
+      "cache_count_preserved": true,
+      "cache_presence_preserved": true,
+      "case": "authored signed keys and unsigned words",
+      "native_colour_rows_preserved": true,
+      "native_occurrence_colour_rows": 3,
+      "output_bytes": 29436,
+      "output_sha256": "74cdd84d3ad95e6c77062f3f9ee1fa94d8bd97fb0722963ccbe5ea3bbd35d031",
+      "read_store_byte_identical": true,
+      "unprojected": [
+        "drawing.occurrence_colours"
+      ]
+    }
+  ],
+  "native_acceptance": false,
+  "native_execution": false,
+  "native_proof_sha256": "3d6bb961d1155342d16e7e5d294a3bccaca71855d7188ad8d1f5872327183ef7",
+  "new_public_adapter_mode": false,
+  "original_heldout_verdict_changed": false,
+  "original_writer_changed": false,
+  "portable_component_colour_join_projected": false,
+  "prior_processes": {
+    "disclosed_positive_workers": 18,
+    "passed": true,
+    "real_workers": 43,
+    "unsupported_job_workers": 25
+  },
+  "raw_reports": {
+    "bounded_process": {
+      "bytes": 343808,
+      "name": "ViewRenderProcessResults01.json",
+      "sha256": "f8aff7fe71fec95d5dde4deeab8d18f91c10b719a233bbd5d4b8cc0c83f53ef0"
+    },
+    "exact_original_boundary": {
+      "name": "ViewRenderOriginals01.json",
+      "sha256": "01c1e1c4d664990ad916d9bd266d91b119cd91d33f7297dce135f81c6d0c2044"
+    },
+    "field_state_observer": {
+      "name": "ViewStateOriginals02.json",
+      "sha256": "9c09cb3f183a5d95c4f80016c470241f99c50aa513c3e46a4e8e360ebd614f6b"
+    },
+    "prior43": {
+      "name": "SdkDrawingViewRenderPrior01.json",
+      "sha256": "8b84da1ecc5c090c595e07ae30bb48d545e048686a2ee9bef612ea63c1501268"
+    }
+  },
+  "remaining_view_predicates_unchanged": 29,
+  "schema": "kit.sw2026.drawing-view-render-state-read-receipt.v1",
+  "sdk_runtime_research_imports": false,
+  "source_file_count": 4379,
+  "source_saved_byte_fallback": false,
+  "source_saved_defaults": false,
+  "status": "scoped typed rendering retention and prior processes passed; both complete original Definition profiles remain rejected",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "total_malformed_full_store_rejections": 60,
+  "two_replaced_predicates": [
+    "has_fb50_equals_zero",
+    "ff60_empty"
+  ],
+  "vm_access": false,
+  "worker_product_execution": false
+}

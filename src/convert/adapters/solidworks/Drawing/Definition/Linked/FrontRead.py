@@ -1,3 +1,9 @@
+from convert.adapters.solidworks.Drawing.Definition.Rendering.ReadGraphRender import (
+    ReadGraphRender,
+)
+from convert.adapters.solidworks.Drawing.Definition.Rendering.RenderState import (
+    RenderState,
+)
 from convert.adapters.solidworks.Drawing.Definition.Detailing.DetailMap import DetailMap
 from convert.adapters.solidworks.Drawing.Definition.Detailing.ReadDetailMap import (
     ReadDetailMap,
@@ -26,7 +32,14 @@ class FrontRead:
         ModelValue = NeedDetailNode(FieldsValue.get("model"), "moDrawing_c")
         return ReadDetailMap(ModelValue, self.GraphValue.VersionValue)
 
+    # cache presence and native colours must remain visible on the actual owned view
+    @property
+    def Rendering(self) -> RenderState:
+        return ReadGraphRender(
+            self.GraphValue.DocumentValue, self.GraphValue.VersionValue
+        )
+
     # complete byte grammar cannot silently imply projection of native model edge identities
     @property
     def Unprojected(self) -> tuple[str, ...]:
-        return self.DetailingMap.Unprojected
+        return self.DetailingMap.Unprojected + self.Rendering.Unprojected

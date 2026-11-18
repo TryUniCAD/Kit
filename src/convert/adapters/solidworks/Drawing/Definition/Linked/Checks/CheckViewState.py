@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Drawing.Definition.Rendering.ReadRenderState import (
+    ReadRenderState,
+)
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Drawing.Definition.Linked.Checks.CheckViewFrame import (
@@ -11,6 +14,7 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
 # one qualified front view must reject other view families and every unproved annotation or display payload
 def CheckViewState(ViewValue: ArchiveNode) -> None:
     CheckViewFrame(ViewValue)
+    _ = ReadRenderState(ViewValue, 19000)
     FieldsValue = ViewValue.FieldsValue
     if (
         FieldsValue["f1018"] != "*Front"
@@ -24,13 +28,12 @@ def CheckViewState(ViewValue: ArchiveNode) -> None:
                 "has_f6c8",
                 "has_f8e0",
                 "has_f9d8",
-                "has_fb50",
                 "na10",
                 "na18",
                 "has_fe78",
             )
         )
-        or any(FieldsValue[FieldName] for FieldName in ("f858", "ff48", "ff60"))
+        or any(FieldsValue[FieldName] for FieldName in ("f858", "ff48"))
         or any(
             NeedConceptMap(FieldsValue[FieldName])["items"]
             for FieldName in (
