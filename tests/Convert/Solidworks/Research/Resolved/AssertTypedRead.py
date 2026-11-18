@@ -9,14 +9,11 @@ def AssertTypedRead(Document: CadDocument, DepthValue: float) -> None:
         dict[str, object], Document.metadata["solidworks.typed_resolved_semantics"]
     )
     assert Evidence["status"] == "supplemented" and Evidence["archive_version"] == 19000
-    assert (
-        Evidence["full_linked_graph"]
-        is Evidence["typed_geometry_projection"]
-        is Evidence["typed_assembly_mates"]
-        is False
-    )
+    assert Evidence["full_linked_graph"] is Evidence["typed_assembly_mates"] is False
+    assert Evidence["typed_geometry_projection"] is True
     (OwnerValue,) = CastValue(tuple[dict[str, object], ...], Evidence["extrusions"])
     NativeId, ProfileId = OwnerValue["feature_id"], OwnerValue["profile_id"]
+    assert Evidence["line_loop_profiles"] == (ProfileId,)
     (Feature,) = tuple(
         ItemValue
         for ItemValue in Document.feature_timeline

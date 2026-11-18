@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
 )
 from convert.adapters.solidworks.Core.TypedResolved.BindFeature import BindFeature
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
+from convert.adapters.solidworks.Core.TypedResolved.Lines.BindLineLoop import (
+    BindLineLoop,
+)
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.ProjectTree import (
@@ -63,9 +66,17 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
         for Operation in Model.operations
     )
     Circles: dict[int, NativeSketch] = {}
+    Lines: dict[int, NativeSketch] = {}
     for Sketch in Model.sketches:
         NodeValue = NodesValue.get(Sketch.object_id)
         if NodeValue is None or NodeValue.ClassValue.NameValue != "moProfileFeature_c":
+            continue
+        LineValue = BindLineLoop(Sketch, NodeValue, LinkValue)
+        if LineValue is not None:
+            Lines[Sketch.object_id] = LineValue
+            Features[Sketch.object_id] = ReplaceValue(
+                Features[Sketch.object_id], dimensions=()
+            )
             continue
         Circle = BindCircle(Sketch, NodeValue, LinkValue)
         if Circle is not None:
@@ -80,7 +91,7 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
         operations=Operations,
         sketches=tuple(
             ReplaceValue(
-                Circles.get(Sketch.object_id, Sketch),
+                Lines.get(Sketch.object_id, Circles.get(Sketch.object_id, Sketch)),
                 name=Features[Sketch.object_id].name,
             )
             for Sketch in Model.sketches
@@ -90,7 +101,9 @@ def ProjectTyped(Model: NativeModel, LinkValue: NativeLink) -> NativeModel:
             for Plane in Model.planes
         ),
         TypedGraph={
-            **ReportTyped(Model, LinkValue, NodesValue, OwnersValue, tuple(Circles)),
+            **ReportTyped(
+                Model, LinkValue, NodesValue, OwnersValue, tuple(Circles), tuple(Lines)
+            ),
             "native_tree": TreeValue.EvidenceValue,
         },
     )

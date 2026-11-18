@@ -14,6 +14,7 @@ def ReportTyped(
     Features: Mapping[int, ArchiveNode],
     OwnersValue: Mapping[int, ExtrudeOwner],
     CircleIds: tuple[int, ...],
+    LineIds: tuple[int, ...] = (),
 ) -> Mapping[str, object]:
     LegacyIds = {Feature.object_id for Feature in Model.features}
     return {
@@ -45,11 +46,13 @@ def ReportTyped(
             ("closed_circle", "radial_dimension", "fixed_circle_center")
             if CircleIds
             else ()
-        ),
+        )
+        + (("closed_line_loop", "line_endpoints", "line_handles") if LineIds else ()),
+        **({"line_loop_profiles": LineIds} if LineIds else {}),
         **({"circle_profiles": CircleIds} if CircleIds else {}),
         "usage": LinkValue.ResolvedValue.ReportValue,
         "full_linked_graph": False,
-        "typed_geometry_projection": bool(CircleIds),
+        "typed_geometry_projection": bool(CircleIds or LineIds),
         "typed_assembly_mates": False,
         "public_writer_qualified": False,
     }

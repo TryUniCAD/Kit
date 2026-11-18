@@ -5,9 +5,12 @@ from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteMatesMu
 from convert.adapters.solidworks.Assembly.PlanarMates.PlanarContext import PlanarContext
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 from convert.adapters.solidworks.Core.TypedMates.CheckMateIds import CheckMateIds
-from convert.adapters.solidworks.Core.TypedMates.CheckMateWrappers import CheckMateWrappers
+from convert.adapters.solidworks.Core.TypedMates.CheckMateWrappers import (
+    CheckMateWrappers,
+)
 from convert.adapters.solidworks.Core.TypedMates.ReadMateKids import ReadMateKids
 from convert.adapters.solidworks.Core.TypedMates.ReadMateRows import ReadMateRows
+from convert.adapters.solidworks.Core.TypedMates.ReadFixedFlags import ReadFixedFlags
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from interchange import MateConstraint, MateEntity
 
@@ -59,6 +62,7 @@ def ReadPublicMates(
             "map_base": GraphValue.MapBase,
             "map_terminal": GraphValue.MapValue.CounterValue,
             "typed_occurrence_and_child_datum_identity": True,
+            "occurrence_fixed_flags": ReadFixedFlags(Context),
             "full_selected_mate_graph": True,
             "public_writer_qualified": False,
             "grammar_coverage": dict(GraphValue.ReportValue),

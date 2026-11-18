@@ -39,6 +39,7 @@ from convert.adapters.solidworks.Core.LinearSketchOwner import (
 from convert.adapters.solidworks.Core.PlaneRefRecord import FindPlaneRef, KHandleVersion
 from convert.adapters.solidworks.Core.HeaderActions import ReadHdrAction
 from convert.adapters.solidworks.Core.RadialValue import MatchRadialVal
+from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
 from convert.adapters.solidworks.Core.SketchRelations.CircleCenterRule import (
     ReadCenterFix,
 )
@@ -1127,6 +1128,7 @@ class NativeSketch:
     support_plane: NativeSketchPlane | None = None
     support_source: str = KRefSupportSource
     unframed_support_plane_id: int | None = None
+    TypedLines: LineLoop | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

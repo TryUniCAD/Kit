@@ -1,0 +1,244 @@
+{
+  "cases": [
+    {
+      "child_sha256": "bf85ac5555a0b52db82f7d2862aedd940f7fc57ecd99a4f929b350b58e1b9fbe",
+      "com_imports": [],
+      "comparison": {
+        "actual_child_configuration": "modeled default",
+        "child_d1_mm": 18.625,
+        "entity_count": 6,
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "full_selected_mate_graph": true,
+        "independent_geometry_and_reference_prediction_matches": true,
+        "mate_count": 3,
+        "mates": [
+          {
+            "distance_mm": null,
+            "entity_ids": [
+              "sldasm:mate:2:0:0:entity:0",
+              "sldasm:mate:2:0:0:entity:1"
+            ],
+            "instance_paths": [
+              [
+                "sldasm:instance:4"
+              ],
+              [
+                "sldasm:instance:7"
+              ]
+            ],
+            "kind": "coincident",
+            "name": "CoincidentY",
+            "source_entity_ids": [
+              "sldprt:plane:15",
+              "sldprt:plane:15"
+            ]
+          },
+          {
+            "distance_mm": 47.35,
+            "entity_ids": [
+              "sldasm:mate:2:0:1:entity:0",
+              "sldasm:mate:2:0:1:entity:1"
+            ],
+            "instance_paths": [
+              [
+                "sldasm:instance:4"
+              ],
+              [
+                "sldasm:instance:7"
+              ]
+            ],
+            "kind": "distance",
+            "name": "DistanceX",
+            "source_entity_ids": [
+              "sldprt:plane:16",
+              "sldprt:plane:16"
+            ]
+          },
+          {
+            "distance_mm": null,
+            "entity_ids": [
+              "sldasm:mate:2:0:2:entity:0",
+              "sldasm:mate:2:0:2:entity:1"
+            ],
+            "instance_paths": [
+              [
+                "sldasm:instance:4"
+              ],
+              [
+                "sldasm:instance:7"
+              ]
+            ],
+            "kind": "parallel",
+            "name": "ParallelZ",
+            "source_entity_ids": [
+              "sldprt:plane:14",
+              "sldprt:plane:14"
+            ]
+          }
+        ],
+        "valid": true
+      },
+      "exit_code": 0,
+      "parent_sha256": "dd2b35ffe310799b822cd0286718d1d619c21cee99f1585428ade66ab9caec0b",
+      "role": "Frozen",
+      "stdout_sha256": "2859950915de0cdad6b127836c272c8577523e84704f837617d6fe3c7f4256c8",
+      "worker_pid": 36258
+    },
+    {
+      "child_sha256": "33d2a77fda0a55fa008884297cf9e7dd5b57d96ec0cc6acbff9efdf25701b304",
+      "com_imports": [],
+      "comparison": {
+        "actual_child_configuration": "modeled default",
+        "child_d1_mm": 18.625,
+        "entity_count": 6,
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "full_selected_mate_graph": true,
+        "independent_geometry_and_reference_prediction_matches": true,
+        "mate_count": 3,
+        "mates": [
+          {
+            "distance_mm": null,
+            "entity_ids": [
+              "sldasm:mate:2:0:0:entity:0",
+              "sldasm:mate:2:0:0:entity:1"
+            ],
+            "instance_paths": [
+              [
+                "sldasm:instance:4"
+              ],
+              [
+                "sldasm:instance:7"
+              ]
+            ],
+            "kind": "coincident",
+            "name": "CoincidentY",
+            "source_entity_ids": [
+              "sldprt:plane:15",
+              "sldprt:plane:15"
+            ]
+          },
+          {
+            "distance_mm": 63.21,
+            "entity_ids": [
+              "sldasm:mate:2:0:1:entity:0",
+              "sldasm:mate:2:0:1:entity:1"
+            ],
+            "instance_paths": [
+              [
+                "sldasm:instance:4"
+              ],
+              [
+                "sldasm:instance:7"
+              ]
+            ],
+            "kind": "distance",
+            "name": "DistanceX",
+            "source_entity_ids": [
+              "sldprt:plane:16",
+              "sldprt:plane:16"
+            ]
+          },
+          {
+            "distance_mm": null,
+            "entity_ids": [
+              "sldasm:mate:2:0:2:entity:0",
+              "sldasm:mate:2:0:2:entity:1"
+            ],
+            "instance_paths": [
+              [
+                "sldasm:instance:4"
+              ],
+              [
+                "sldasm:instance:7"
+              ]
+            ],
+            "kind": "parallel",
+            "name": "ParallelZ",
+            "source_entity_ids": [
+              "sldprt:plane:14",
+              "sldprt:plane:14"
+            ]
+          }
+        ],
+        "valid": true
+      },
+      "exit_code": 0,
+      "parent_sha256": "c539569c308d0aee6330823e5dff7be68aaba12614e873c4bb3771d8c114863a",
+      "role": "Saved",
+      "stdout_sha256": "3d2420ca8c06593821215ca96dc9fc59841cd625ea5841ee48816d40a81761af",
+      "worker_pid": 36260
+    }
+  ],
+  "combined_reader_hooks": {
+    "adapter_sha256": "37da57dce498e401f7b00861fadce8f50f01f581616ef7d6792a49888466e42f",
+    "both_original_and_native_saved_pair_passed": true,
+    "native_sha256": "f621262a33f6b483da0ee6691b1bacc5d07b21008e774d0b0bc51b6f592ac1e4",
+    "other_scoped_owner": "configuration_header"
+  },
+  "delivery_pr": 121,
+  "heldout_inputs_read": 0,
+  "helper_sha256": "3b808a43e62c691197b386bd8e46f2631553ae746352d6748e9e7ba8906df46d",
+  "integration": {
+    "authored_anchor_choices": [
+      0,
+      1
+    ],
+    "command": "python -m pytest tests/Convert/Solidworks/Research/Assembly/TypedMates/FixedFlagTests.py -q",
+    "deferred_rejections_preserved": 2,
+    "fresh_worker_invocations": 6,
+    "passed": 1
+  },
+  "native_processes_started": 0,
+  "native_result_sha256": "c68e41c49f1aa6977205d39b6c0b175a8211cfc09f95fb959810d402c87e9dcc",
+  "owner": "assembly_occurrence",
+  "passed": true,
+  "prior_public_fixed_flag_gap": {
+    "cause": "legacy AsmInstances supplied fixed=False instead of the independently stored moReference_c.f408 boolean",
+    "expected_flags": [
+      true,
+      false
+    ],
+    "observations": [
+      {
+        "document_json_sha256": "48b848f0bf99ceffb8cba90ce8140d373527613acfb274f9b3c2ad4a0775465b",
+        "fixed_flags": [
+          false,
+          false
+        ],
+        "role": "Frozen"
+      },
+      {
+        "document_json_sha256": "b1850f27c190add6300a34297216e01bed5408cd1b09c6c7dfba81495fd4dbc5",
+        "fixed_flags": [
+          false,
+          false
+        ],
+        "role": "Saved"
+      }
+    ],
+    "preserved_before_repair": true
+  },
+  "prior_readback_raw_result_sha256": "df0416a4247fffea2883853cf374b1a57aea51f1950cf356259ebe74535062c1",
+  "public_writer_qualified": false,
+  "raw_result_sha256": "f130f75e2b68ac085cf39c775187de747c2eb4aaea0ddecbf50ceb4d351eff85",
+  "reader_source_manifest_sha256": "262999396c734f2f9611a1323483c12bd28cc9c57147e5fb43bc2c9eaef9f158",
+  "schema": "kit.sw2026.sdk-ordered-public-readback.v1",
+  "static": {
+    "black": true,
+    "donor_scan": "clean",
+    "pyright_errors": 0,
+    "pyright_preexisting_unrecognized_settings": 3,
+    "ruff": true,
+    "source_and_test_paths": 6,
+    "steering": true,
+    "strict_mypy": true
+  },
+  "task": "B04-SW2026-MATES",
+  "writer_output_count": 0
+}

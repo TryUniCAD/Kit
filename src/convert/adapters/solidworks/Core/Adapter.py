@@ -148,10 +148,12 @@ from convert.adapters.solidworks.Core.ConfigurationInfo import WithCmgrInfo
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
     WithTypedNative,
 )
 from convert.adapters.solidworks.Core.TypedMates.WithTypedMates import WithTypedMates
+from convert.adapters.solidworks.Core.TypedMates.WithTypedFixed import WithTypedFixed
 from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import HasDrawingClsid
 from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
 from convert.adapters.solidworks.Core.Native import (
@@ -741,6 +743,7 @@ def AsmDoc(
     MateEntities, Mates, TypedMates = WithTypedMates(
         Native, Archive, ResolvedPaths, DocIds, Documents, MateEntities, Mates
     )
+    Instances = WithTypedFixed(Instances, TypedMates)
     FlatMateValues = FlattenedMates(Native, Mates)
     PayloadSettings = ReadOptions(
         configuration=Settings.configuration,
@@ -2547,6 +2550,8 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
+    if Sketch.TypedLines is not None:
+        return LineSketch(Sketch)
     Entities, RefMap, ProfileEntities, ProfileOffsets = ProfileSketch(Sketch)
     MarkerValues, MarkerEntities = SketchMarkers(
         Sketch, ProfileOffsets, ProfileEntities
@@ -3786,6 +3791,10 @@ def BoundingBoxA(Model: NativeModel) -> BoundingBox | None:
 
 # this definition exists because focused behavior needs one stable owner
 def ProfileExtrema(Profile: NativeProfile) -> tuple[tuple[float, float], ...]:
+    if Profile.kind == "line-loop":
+        return tuple(
+            zip(Profile.coordinates[::2], Profile.coordinates[1::2], strict=True)
+        )
     if Profile.kind == "rectangle":
         XZero, YZero, XOneValue, YOneValue = Profile.coordinates
         return (
