@@ -360,19 +360,66 @@ def windows_git():
     raise ValueError("Windows dispatch requires trusted Git on an absolute PATH entry")
 
 
+# verified application helpers need the same git isolation as the initial bootstrap
+def git_environment():
+    environment = {
+        key: value
+        for key, value in os.environ.items()
+        if not key.upper().startswith("GIT_")
+    }
+    environment.update(
+        GIT_CONFIG_NOSYSTEM="1",
+        GIT_CONFIG_GLOBAL=os.devnull,
+        GIT_GRAFT_FILE=os.devnull,
+        GIT_NO_LAZY_FETCH="1",
+        LC_ALL="C",
+    )
+    return environment
+
+
+# later helper loads must retain the installed revision despite inherited git overrides
 def committed_bytes(config, relative):
     require(
         relative
-        in {PROTOCOL, COUNTERPART, TOOL, SCOPE_TOOL, BOOTSTRAP, RESTART_GRANT, MAC_REPLACEMENT_LAUNCH,
-            MAC_STARTUP_EVIDENCE, MAC_ARCHIVE_CONTROL, STARTUP_MANIFEST, *MAC_QUIT_HELPERS, *WINDOWS_HELPERS.values(), *INPUTS, *SCOPE_INPUTS},
+        in {
+            PROTOCOL,
+            COUNTERPART,
+            TOOL,
+            SCOPE_TOOL,
+            BOOTSTRAP,
+            RESTART_GRANT,
+            MAC_REPLACEMENT_LAUNCH,
+            MAC_STARTUP_EVIDENCE,
+            MAC_ARCHIVE_CONTROL,
+            STARTUP_MANIFEST,
+            *MAC_QUIT_HELPERS,
+            *WINDOWS_HELPERS.values(),
+            *INPUTS,
+            *SCOPE_INPUTS,
+        },
         "unapproved application source path",
     )
     root = Path(config["source_root"])
-    git = [windows_git() if windows_phase_a(config) else "git", "--no-replace-objects"]
-    source = subprocess.run([*git, "-C", str(root), "show", f"{config['source_revision']}:{relative}"],
-                            capture_output=True, check=False, timeout=15)
-    require(source.returncode == 0 and 0 < len(source.stdout) <= MAX_BYTES, "pinned application input is unavailable")
-    require(file_bytes(root / relative, MAX_BYTES) == source.stdout, "application input differs from the installed trusted revision")
+    git = [
+        windows_git() if windows_phase_a(config) else "git",
+        "--no-replace-objects",
+        "--no-optional-locks",
+    ]
+    source = subprocess.run(
+        [*git, "-C", str(root), "show", f"{config['source_revision']}:{relative}"],
+        capture_output=True,
+        check=False,
+        timeout=15,
+        env=git_environment(),
+    )
+    require(
+        source.returncode == 0 and 0 < len(source.stdout) <= MAX_BYTES,
+        "pinned application input is unavailable",
+    )
+    require(
+        file_bytes(root / relative, MAX_BYTES) == source.stdout,
+        "application input differs from the installed trusted revision",
+    )
     return source.stdout
 
 

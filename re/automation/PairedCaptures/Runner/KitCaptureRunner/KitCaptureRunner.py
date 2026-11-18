@@ -160,6 +160,23 @@ def startup_git():
     )
 
 
+# ambient git settings cannot select source authority before verified helpers are loaded
+def startup_git_env():
+    environment = {
+        key: value
+        for key, value in os.environ.items()
+        if not key.upper().startswith("GIT_")
+    }
+    environment.update(
+        GIT_CONFIG_NOSYSTEM="1",
+        GIT_CONFIG_GLOBAL=os.devnull,
+        GIT_GRAFT_FILE=os.devnull,
+        GIT_NO_LAZY_FETCH="1",
+        LC_ALL="C",
+    )
+    return environment
+
+
 # the installed addin may only execute helpers from its configured git checkout
 def windows_sources(config, installation):
     allowed = startup_path(config["allowed_root"])
@@ -172,12 +189,20 @@ def windows_sources(config, installation):
     ):
         raise ValueError("dispatch installation must pin this configured repository")
     git_executable = startup_git()
-    git = [git_executable, "--no-replace-objects", "-C", str(root)]
+    git = [
+        git_executable,
+        "--no-replace-objects",
+        "--no-optional-locks",
+        "-C",
+        str(root),
+    ]
     checkout = subprocess.check_output(
-        [*git, "rev-parse", "--show-toplevel"], timeout=15
+        [*git, "rev-parse", "--show-toplevel"], timeout=15, env=startup_git_env()
     )
     commit = subprocess.check_output(
-        [*git, "rev-parse", "--verify", f"{revision}^{{commit}}"], timeout=15
+        [*git, "rev-parse", "--verify", f"{revision}^{{commit}}"],
+        timeout=15,
+        env=startup_git_env(),
     )
     if (
         Path(os.fsdecode(checkout.strip())).resolve(strict=True) != root
@@ -195,7 +220,7 @@ def windows_sources(config, installation):
     sources = {}
     for role, relative in paths.items():
         raw = subprocess.check_output(
-            [*git, "show", f"{revision}:{relative}"], timeout=15
+            [*git, "show", f"{revision}:{relative}"], timeout=15, env=startup_git_env()
         )
         if not 0 < len(raw) <= 1024 * 1024:
             raise ValueError("pinned add-in source is outside its byte limit")
@@ -472,6 +497,8 @@ def run(context):
         source = subprocess.run(
             [
                 "git",
+                "--no-replace-objects",
+                "--no-optional-locks",
                 "-C",
                 str(root),
                 "show",
@@ -480,6 +507,7 @@ def run(context):
             capture_output=True,
             check=False,
             timeout=15,
+            env=startup_git_env(),
         )
         if (
             source.returncode != 0
