@@ -8,31 +8,50 @@
   "center_constructor_root_proof_sha256": "23314e11d78d40d95477828d95855b74d923ce679201ddefec0b0d279bed93c5",
   "default_body_bytes_match_prior_frozen_reference": true,
   "delivery_pr": 121,
+  "earlier_native_failure": {
+    "cause": "observer_omitted_actual_origin_dependency",
+    "controls_healthy": true,
+    "passed": false,
+    "processes": 4,
+    "sdk_or_input_bytes_changed_for_retry": false,
+    "sha256": "e402c2967320c0309e8d02b0eb90a290e3220c17c429e633b43429b35b185895"
+  },
   "existing_sdk_files_changed": 0,
   "expanded_neutral_origin_reference_admission_added": false,
   "heldout_inputs_read": 0,
   "input_anchor_policy_is_authored_intent_not_inferred_from_solid_placement": true,
   "input_contract": "complete_base_CadDocument_PartBuildInput_and_explicit_AnchorPartInput_kind_and_dimension_presentation",
-  "native_acceptance": false,
+  "native_acceptance": true,
+  "native_acceptance_scope": "two_disclosed_composed_corner_center_named_rectangles_only",
   "native_method": {
     "baseline_policy": "same_immutable_named_input_each_edit",
+    "clean_saves": 6,
     "cohort": [
       "CornerAscii",
       "CenterWide"
     ],
     "controls": "pristine_before_after_and_each_same_path_default_body",
-    "current_native_acceptance": false,
+    "current_native_acceptance": true,
     "expected_processes": 16,
+    "fresh_reopens": 6,
     "host_verified": true,
     "independent_edit_roles": [
       "width",
       "height",
       "depth"
     ],
+    "initial_failed_trial_sha256": "e7c0cdf57d3bfbc7b8c2bd18a7e78e4e2de1cd0c3127c4d99c6395de254b74cb",
+    "measured_states": 34,
+    "native_processes": 16,
+    "numeric_checks": 1088,
+    "observer": "InspectAnchorBody02.py",
+    "passed_native_report_sha256": "458374829202dbb1b298c0948e9e5308a69aa72618d8c9b6dab808c922eb89ae",
+    "passed_retry_trial_sha256": "542de0e34ace2fb574d112302fb57c71302781fcbb81fb39f1ef9be2812af9fc",
     "processes_started_by_worker": 0,
     "source_original_qualification": false,
-    "trial_sha256": "e7c0cdf57d3bfbc7b8c2bd18a7e78e4e2de1cd0c3127c4d99c6395de254b74cb"
+    "trial_sha256": "542de0e34ace2fb574d112302fb57c71302781fcbb81fb39f1ef9be2812af9fc"
   },
+  "native_receipt": "re/solidworks/measurements/2026/SdkAnchoredNamedPartNative02.json",
   "negative_processes": 39,
   "new_body_name_changes_only_config_and_resolved": true,
   "original_source_qualification": false,
@@ -50,7 +69,6 @@
   "processes": 55,
   "public_writer_registration_changed": false,
   "remaining": [
-    "controlled_native_three_driver_anchor_and_label_lifecycle",
     "expanded_normal_neutral_origin_admission_if_needed_by_original_mapper",
     "source_complete_original_evaluation_and_comparison",
     "public_registration",
