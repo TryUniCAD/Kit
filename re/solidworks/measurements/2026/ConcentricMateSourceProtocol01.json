@@ -1,0 +1,117 @@
+{
+  "canonical_guest_commands": 33,
+  "checked_sources": 16,
+  "checker_sha256": "49c0d5ef75ea54684dd459553324c8e57009a7d7adc395c34da2060950ab294b",
+  "frozen_inputs_unchanged": true,
+  "heldout_designs_created": 0,
+  "heldout_inputs_read": 0,
+  "host_preflight_sha256": "15eaf2a701e933b9c067dbe2a412e165b7d348f3bf07da3ccf3c594dfa768848",
+  "native_binding_sha256": "e8b60198f38b12eeb3be410db0267abec13291dd0e395eac09ba41a314180bc2",
+  "native_processes_started": 0,
+  "packet_sha256": "9dc5e68cfadfb12de623a2b9ff1efddb4f2ecfaf184e53a5ac6b9070abb03bc7",
+  "passed": true,
+  "process_count": 11,
+  "python_version": "3.11.16 (main, Sep  1 2026, 14:08:22) [Clang 22.1.3 ]",
+  "recipe_sha256": "5bae23b7123e10637aa31b72e23545656bb197515546a2d36bac55be7e42f513",
+  "refusals": 10,
+  "results": {
+    "acceptance": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "binding": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "control": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "disclosed": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "host_hidden_phase": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "schema": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "sealed_visibility": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "tool": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "unchanged": {
+      "exit_code": 0,
+      "stdout": {
+        "heldout_inputs_read": 0,
+        "native_processes_started": 0,
+        "passed": true
+      }
+    },
+    "writer_count": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    },
+    "wrong_packet_digest": {
+      "exit_code": 3,
+      "stdout": {
+        "passed": false,
+        "stage": "preflight_failed"
+      }
+    }
+  },
+  "schema": "kit.sw2026.concentric-source-host-protocol-check.v1",
+  "tool_hashes": {
+    "AssemblyMateEvidence.py": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorConcentricMateSources.py": "78e1b0e2416c0aefc35dcbc553e259b008e2f23224733211fb56b97a981ded54",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "CollectConcentricEvidence.py": "07ccaa77885d098746ea3482287a5659e28ca936ad870f709efc34d8bc798ac2",
+    "CollectDrawingViewSupportEvidence.py": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+    "ConcentricApiMetadata.py": "74795188d8ad340a47a82b302e42a47ba37cf75549be7b537214fb9fc042e567",
+    "ConcentricMateEvidence.py": "adc261d3de35c8ee1ca13d7051d5e2fd69ee8aac3953bf7feec4a3763caca717",
+    "ConcentricSourcePlan.py": "09a05288fcd5f857453021f58e7920c8c84125b8a9534e29769e8b5c95d08a10",
+    "ConcentricSourceRuntime.py": "b3fbc4f80b5867c9d9cee9322426fa416ec992ce0ed36bfb8806e588ac7fcb94",
+    "InspectCircleSketch.py": "deffc8fb5522b0d75b082345b14ed2e92528bac184997af011f186a43e02d6e4",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "PrepareConcentricMateSources.py": "9ce19bef6b53495e8dc1eeccabeec0fe5d8d07869f769c92fb309854fdb11210",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "writer_output_count": 0
+}
