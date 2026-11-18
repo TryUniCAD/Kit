@@ -66,4 +66,9 @@ Root executed exact source manifest `69b7098e0e64d320364d218bf7cc1a8ba21eab7d2b1
 
 The worker independently rehashed every source, all twenty-six stdin/stdout/stderr capture sets and all twelve generated CAD files. The [sanitized receipt](../measurements/2026/DrawingSpatialTextConstruction01.json) binds actual source/result/evidence hashes. No local product, codec or test execution was performed by this worker.
 
+The subsequent [controlled native lifecycle](DrawingSpatialTextLifecycleProtocol2026.md#measured-lifecycle)
+qualifies the two disclosed signed depths after child edit, view move,
+save and fresh reopen. The saved text coordinates and COM annotation
+coordinates have distinct observations.
+
 No new native acceptance, original-source semantic admission, hidden generalization, public drawing writing or glyph-layout parity is claimed. A COM annotation origin is a separately measured API value; it must not be silently substituted for the exact stored text point. Native controls, save/fresh reopen, exact typed post-save Z and actual profile/configuration aliases remain the next independent gate.

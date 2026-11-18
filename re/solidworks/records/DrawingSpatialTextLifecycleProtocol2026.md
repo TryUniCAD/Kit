@@ -34,3 +34,31 @@ After a terminal native pass, the separately frozen `HostTools/QualifySpatialTex
 Before the dimension edit, all stored XYZ values must match their explicit request to six significant figures, with `1e-12 m` tolerance for mathematical zero. After the edit, stored Z must still match the explicit authored normal coordinate. Planar X/Y values remain retained observations in the edited states because solving a changed driver may reposition text. Actual persistent value/display IDs must survive. Native IFeature IDs are joined to the actual typed child. The host result keeps both full raw coordinates and each exact failed predicate.
 
 If either signed Z is normalized, overwritten, omitted, associated with another driver, or preserved only until save, the hypothesis fails. Keep that result and trace the native lifecycle owner; do not fit a replacement offset, flatten the point or relax original-source admission. A successful disclosed field experiment still supplies no full original drawing parity, hidden generalization or public drawing writer admission.
+
+## Measured lifecycle
+
+The immutable packet passed all ten fresh SOLIDWORKS 2026 SP05.2 processes
+on executable build `34.5.2.0604`. Both controls passed. The eight
+candidate phases passed 1,850 numeric checks and all linked native
+open, rebuild, child edit, view move, save and fresh reopen observations.
+The four target paths were unused before the run. The postflight found
+no running SOLIDWORKS process and the same license inventory.
+
+The first host qualifier found the correct signed points in all ten
+typed snapshots and refused the child selector because it treated both
+configuration name fields as plain text. The drawing Definition view
+selector exposes a `str`, the child Config-0 self selector retains a
+Unicode `CStringValue`, and the independent CMgr supplies the actual
+active node name and ID. The corrected qualifier accepts an explicit
+`--qualifier-sha256` and verifies every original packet artifact before
+replaying the native results. The first result remains in custody.
+
+Ten corrected joins reproduce the entire drawing Definition and the
+child Config-0, CMgr and ResolvedFeatures. Both signs persist at
+`+0.000237 m` and `-0.000419 m` with the same value/display identities
+and original origin link through every save. Before edit the stored XY
+coordinates also match the authored values. All sixteen separate COM
+annotation positions report `0.0001 m` for Z regardless of the stored
+text depth. The [lifecycle receipt](../measurements/2026/DrawingSpatialTextNative01.json)
+retains the corrected and original observer hashes, every snapshot
+identity, both coordinate owners and process counts.

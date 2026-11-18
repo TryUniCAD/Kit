@@ -56,6 +56,7 @@ def typed_join(root, drawing_path, child_path, case, phase, native):
     from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
     from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import DatumTime
     from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
+    from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
     from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import ReadFileKey
     from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, FieldText
     from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -135,16 +136,22 @@ def typed_join(root, drawing_path, child_path, case, phase, native):
         require(config is manager.RootValue.FieldsValue["f368"], "spatial text native manager selection aliases differ")
         config_name = FieldText(concrete(config.FieldsValue["f18"], "moNodeName_c").FieldsValue, "f08")
         config_id = FieldInt(config.FieldsValue, "f08")
-        for selector in (reference.FieldsValue["f3c0"], own.FieldsValue["refcfg"]):
-            require(FieldText(selector, "f08") == config_name == case["configuration"]
-                    and FieldInt(selector, "f10") == config_id,
-                    "spatial text native selected child configuration differs")
+        selected = reference.FieldsValue["f3c0"]
+        child_selected = own.FieldsValue["refcfg"]
+        child_selected_name = child_selected["f08"]
+        require(config_name == case["configuration"] == FieldText(selected, "f08")
+                and type(child_selected_name) is CStringValue
+                and child_selected_name.IsUnicode and child_selected_name.TextValue == config_name
+                and FieldInt(selected, "f10") == FieldInt(child_selected, "f10") == config_id,
+                "spatial text native selected child configuration differs")
         if native is not None:
             require(native["child"]["profile_ids"] == {"origin": origin_id, "ordinary_profile": FieldInt(profile.FieldsValue, "f08")},
                     "spatial text native API profile IDs differ from actual typed child owners")
             row["annotation_api_coordinates"] = native["child"]["annotation_coordinates"]
         row.update(passed=True, complete_definition_byte_identity=True, complete_child_byte_identity=True,
                    actual_child_file_alias=True, actual_configuration_selection=True,
+                   child_configuration={"name": config_name, "id": config_id,
+                                        "view_text_type": "str", "self_text_type": "unicode CStringValue"},
                    actual_origin_profile_link={"id": origin_id, "creation_time": origin_time},
                    actual_display_folder_view_aliases=True, stored_normal_coordinate_preserved=True,
                    annotation_api_position_is_stored_text_point=False,
@@ -163,15 +170,16 @@ def main():
     parser.add_argument("--manifest-sha256", required=True)
     parser.add_argument("--packet-sha256", required=True)
     parser.add_argument("--native-result-sha256", required=True)
+    parser.add_argument("--qualifier-sha256", required=True)
     args = parser.parse_args()
     require(not args.output.exists(), "spatial text host proof directory must be unused")
     source_root, source_manifest = verify_source(args.candidate, args.manifest_sha256)
+    require(digest(Path(__file__)) == args.qualifier_sha256, "spatial text host qualifier differs")
     require(digest(args.packet) == args.packet_sha256, "spatial text native packet differs")
     packet = json.loads(args.packet.read_bytes())
     root = args.packet.parent.resolve(strict=True)
     require(packet["schema"] == "kit.sw2026.spatial-text-native-lifecycle-packet.v1"
-            and packet["source_manifest_sha256"] == args.manifest_sha256
-            and Path(__file__).resolve().parent == root / "HostTools", "spatial text host method scope differs")
+            and packet["source_manifest_sha256"] == args.manifest_sha256, "spatial text host method scope differs")
     for row in [*packet["tools"].values(), *packet["host_tools"].values(), *packet["custody"], packet["control"]]:
         checked(root, row)
     native_path = root / "Inspection/Result.json"
@@ -186,9 +194,10 @@ def main():
     import inspect
     sys.path.append(str(source_root / "re/tooling/sw2026"))
     args.output.mkdir(parents=True, exist_ok=False)
-    report = {"schema": "kit.sw2026.spatial-text-native-typed-join.v1", "source_manifest_sha256": args.manifest_sha256,
+    report = {"schema": "kit.sw2026.spatial-text-native-typed-join.v2", "source_manifest_sha256": args.manifest_sha256,
               "source_file_count": source_manifest["file_count"], "packet_sha256": args.packet_sha256,
-              "native_result_sha256": args.native_result_sha256, "cases": [], "passed": False,
+              "native_result_sha256": args.native_result_sha256, "qualifier_sha256": args.qualifier_sha256,
+              "cases": [], "passed": False,
               "native_acceptance": False, "heldout_acceptance": False, "source_original_admission": False,
               "hidden_inputs_read": 0, "public_drawing_writer_changed": False}
     for case in packet["cases"]:
