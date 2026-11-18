@@ -96,6 +96,13 @@ A separate SDK constructor admits a simple closed line loop for the ordinary for
 
 An internal SDK constructor generates a complete fixed-centre circle boss with an editable radius or diameter and independent blind depth. Both disclosed files pass first-load body checks, edit, save and fresh reopen in SOLIDWORKS 2026 SP05.2. Public writing of this profile requires held-out qualification. [Circle boss construction](../../Changes/Solidworks/Construction/SolidworksSdkCircleBoss.md)
 
+The original Front-plane forward diameter and Top-plane reversed radius
+parts now pass the internal SDK held-out comparison. Both source and
+generated files preserve 25 ordered native tree rows, actual radial and
+depth drivers, topology and geometry across native edits, saves and
+fresh reopen. The 16 strict normal SDK reads retain all scoped owners.
+[Original circle qualification](../../Changes/Solidworks/Inspection/Profiles/SolidworksOriginalCircleNative.md)
+
 The internal circle composer also applies the actual Front, Right or Top support and either reversed blind, total mid-plane or two independent blind ends. Four disclosed files pass 40 complete stream comparisons and 530 native geometry and edit checks. Their original generated, first-save and edited states retain the radial and depth drivers through the public reader. [Circle end measurements](../../Changes/Solidworks/Construction/SolidworksSdkCircleEndConditions.md)
 
 The internal SDK rectangle composer also owns two driving sketch dimensions and four horizontal or vertical relations. Two independent neutral requests preserve all ten streams, real point and segment handles, displays and parameter ownership through typed preparation. [Rectangle driving dimensions](../../Changes/Solidworks/Construction/SolidworksRectangleDrivingDimensions.md)

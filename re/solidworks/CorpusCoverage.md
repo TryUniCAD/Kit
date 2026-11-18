@@ -349,6 +349,13 @@ Four guarded builds yield identical native bytes with three live drivers
 and source text. Native acceptance and original benchmark membership remain
 open, so this adds zero corpus passes.
 
+The two [original SDK circle parts](records/SdkOriginalCircleNative2026.md)
+pass native source parity for translated Front-plane diameter and reversed
+Top-plane radius. All 14 controlled phases and 400 recorded numerical checks
+pass, including edits to the radial size and depth and a clean fresh reopen.
+All sixteen normal SDK reads preserve both driving owners. These sources
+are native SOLIDWORKS and add zero FCStd conversions.
+
 The [normal part text reader](records/PartTextPropertyRead2026.md) recovers
 the current compatible summary, file and configuration text with the actual
 configuration owner on five files. The advanced property manager case keeps

@@ -1,0 +1,504 @@
+{
+  "all_generated_and_source_inputs_immutable": true,
+  "build": {
+    "com_progid": "SldWorks.Application.34",
+    "drive": "macOS prlctl exec --current-user Windows 11",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version": "34.5.2.0604"
+  },
+  "cases": [
+    {
+      "lanes": {
+        "generated": {
+          "input_sha256": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+          "phases": [
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 20,
+              "depth_driver_m": 0.017293,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.00121554844757977,
+                "com": [
+                  -0.013719,
+                  0.029113,
+                  0.0086465
+                ],
+                "mass": 3.247069323433514e-06,
+                "volume": 3.247069323433514e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "open-save",
+              "process": {
+                "creation_filetime": 134394669094436055,
+                "pid": 3260
+              },
+              "radial_driver_m": 0.015462,
+              "record_sha256": "5a16202f3964b6d3a9f947c0712bc7e7dedc39bb01602de78fd6b70e87911774",
+              "saved_sha256": "6c466511638778b18264c13032070d4710724b65349077d1f526b845a8a94e28",
+              "solid_count": 1
+            },
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 60,
+              "depth_driver_m": 0.017293,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.00121554844757977,
+                "com": [
+                  -0.013719,
+                  0.029113,
+                  0.0086465
+                ],
+                "mass": 3.247069323433514e-06,
+                "volume": 3.247069323433514e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "fresh-reopen",
+              "process": {
+                "creation_filetime": 134394669385273605,
+                "pid": 8960
+              },
+              "radial_driver_m": 0.015462,
+              "record_sha256": "078cc1daff9fd5e06d9b333144e69f27be5e122db48fc0ac42776eb0b11a6ab2",
+              "saved_sha256": "51a468986098ac16d03b47af2af75e853b3fbae2477919e29f1bd64de59aa4c9",
+              "solid_count": 1
+            },
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 20,
+              "depth_driver_m": 0.014232138999999998,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.0013229274894959377,
+                "com": [
+                  -0.013719,
+                  0.029113,
+                  0.007116069499999999
+                ],
+                "mass": 3.658163561006015e-06,
+                "volume": 3.658163561006015e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "edited-fresh-reopen",
+              "process": {
+                "creation_filetime": 134394669833745087,
+                "pid": 3888
+              },
+              "radial_driver_m": 0.01809054,
+              "record_sha256": "9c9ca4d6d2a66fcb51995e10c23d7c3f587726df1aee2d4c0e48b0bcbc489dc5",
+              "saved_sha256": "a5ce95d70c4df18823aaac41b3749323bea7088eb10c0ceb9a3971139a4dfc08",
+              "solid_count": 1
+            }
+          ]
+        },
+        "reference": {
+          "input_sha256": "16837814717ae5a5c2a815b42afda8583b2cc51db4411b5837ca904ee8d5dddc",
+          "phases": [
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 20,
+              "depth_driver_m": 0.017293,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.00121554844757977,
+                "com": [
+                  -0.013718999999999999,
+                  0.029113,
+                  0.0086465
+                ],
+                "mass": 3.247069323433514e-06,
+                "volume": 3.247069323433514e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "open-save",
+              "process": {
+                "creation_filetime": 134394668065874782,
+                "pid": 9480
+              },
+              "radial_driver_m": 0.015462,
+              "record_sha256": "8139a09894e339a374ed61eb906d0ce814d2b19304f04866aa3014d172bf2d37",
+              "saved_sha256": "50c838ef0e43d7e8b4b4de98796ee8800583d0a0c661a85a4ff24d0730d35e9a",
+              "solid_count": 1
+            },
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 60,
+              "depth_driver_m": 0.017293,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.00121554844757977,
+                "com": [
+                  -0.013718999999999999,
+                  0.029113,
+                  0.0086465
+                ],
+                "mass": 3.247069323433514e-06,
+                "volume": 3.247069323433514e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "fresh-reopen",
+              "process": {
+                "creation_filetime": 134394668346706896,
+                "pid": 4196
+              },
+              "radial_driver_m": 0.015462,
+              "record_sha256": "891deb97227e8cc3c3acddc2c06d2c74e29f99f962a2e1041b7fdf415f0b6ce7",
+              "saved_sha256": "291d0f497fdc10714170bea19eea5968b36e9b0d459d70e13c6160b4bd425e70",
+              "solid_count": 1
+            },
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 20,
+              "depth_driver_m": 0.014232138999999998,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.0013229274894959377,
+                "com": [
+                  -0.013718999999999999,
+                  0.029113,
+                  0.007116069499999999
+                ],
+                "mass": 3.658163561006015e-06,
+                "volume": 3.658163561006015e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "edited-fresh-reopen",
+              "process": {
+                "creation_filetime": 134394668811335443,
+                "pid": 2472
+              },
+              "radial_driver_m": 0.01809054,
+              "record_sha256": "5fc59f896d55d99fc994e59da0181bcd4aeae4a3fd426589616703746dd9eeb3",
+              "saved_sha256": "dbd12e77c4d27995e71c8d18b8ef022123a83bed87f731879d34b2fefc46ae22",
+              "solid_count": 1
+            }
+          ]
+        }
+      },
+      "name": "H01TranslatedDiameter",
+      "scope": {
+        "configuration": "Default",
+        "driver": "diameter",
+        "end": "blind",
+        "plane": "front",
+        "reversed": false
+      }
+    },
+    {
+      "lanes": {
+        "generated": {
+          "input_sha256": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+          "phases": [
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 20,
+              "depth_driver_m": 0.002173,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.003818910755722239,
+                "com": [
+                  0.029379000000000002,
+                  -0.0010865000000000002,
+                  0.013730999999999998
+                ],
+                "mass": 3.7992887375000547e-06,
+                "volume": 3.7992887375000547e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "open-save",
+              "process": {
+                "creation_filetime": 134394671153785468,
+                "pid": 8556
+              },
+              "radial_driver_m": 0.023591,
+              "record_sha256": "0c3b440b596dfa2451bd5e039b8892681650f0cf49dbfdf630576c13e964bbdf",
+              "saved_sha256": "e16f2feecce9c86b76131a23b1c039d8d1973759390b7ba880dae87d12bbda9a",
+              "solid_count": 1
+            },
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 60,
+              "depth_driver_m": 0.002173,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.003818910755722239,
+                "com": [
+                  0.029379000000000002,
+                  -0.0010865000000000002,
+                  0.013730999999999998
+                ],
+                "mass": 3.7992887375000547e-06,
+                "volume": 3.7992887375000547e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "fresh-reopen",
+              "process": {
+                "creation_filetime": 134394671465244217,
+                "pid": 4660
+              },
+              "radial_driver_m": 0.023591,
+              "record_sha256": "4e449f3aaa44511d4e55a1ed14d995afdf9348a58e3d8ddfb8f141659d0aa067",
+              "saved_sha256": "267b66af05fcdba229e819cf904ccfca7b9a65a2b110620ff013de1a12c7d854",
+              "solid_count": 1
+            },
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 20,
+              "depth_driver_m": 0.00267279,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.004971028240035278,
+                "com": [
+                  0.029379000000000002,
+                  -0.0013363950000000002,
+                  0.013731
+                ],
+                "mass": 6.041271323323726e-06,
+                "volume": 6.041271323323726e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "edited-fresh-reopen",
+              "process": {
+                "creation_filetime": 134394671918290914,
+                "pid": 2072
+              },
+              "radial_driver_m": 0.026822967,
+              "record_sha256": "ac11cfc465cbe8ddf04b08ccfe4986c36b0bdb6fecaf6c993af5075f0f8f2131",
+              "saved_sha256": "05af4bbaf25040baa9bef7a9ea48b38d2c81780e4486fcaaf55e2e71c56a6244",
+              "solid_count": 1
+            }
+          ]
+        },
+        "reference": {
+          "input_sha256": "236c9191b5b0cab47ff43398d66ec9c984b7c3d6b11c76b600b00303e4dba200",
+          "phases": [
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 20,
+              "depth_driver_m": 0.002173,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.003818910755722239,
+                "com": [
+                  0.029379000000000002,
+                  -0.0010865000000000002,
+                  0.013730999999999998
+                ],
+                "mass": 3.7992887375000547e-06,
+                "volume": 3.7992887375000547e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "open-save",
+              "process": {
+                "creation_filetime": 134394670125190459,
+                "pid": 4748
+              },
+              "radial_driver_m": 0.023591,
+              "record_sha256": "eed95f9fe59c360ef6bce2096190228de25d0531cde80b50665540f67d5bb103",
+              "saved_sha256": "a92c5d01148ea99c911fcbe8d169fe14f04c0009718bf0a019fcb62489700a4b",
+              "solid_count": 1
+            },
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 60,
+              "depth_driver_m": 0.002173,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.003818910755722239,
+                "com": [
+                  0.029379000000000002,
+                  -0.0010865000000000002,
+                  0.013730999999999998
+                ],
+                "mass": 3.7992887375000547e-06,
+                "volume": 3.7992887375000547e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "fresh-reopen",
+              "process": {
+                "creation_filetime": 134394670412607312,
+                "pid": 11236
+              },
+              "radial_driver_m": 0.023591,
+              "record_sha256": "25f349dde663fbfb7ce0aeed7e5eaec6b34e150ce724cb894dfa343c7662c400",
+              "saved_sha256": "1708edc87ffed240447f3a1ce96b9917f764a3c740ae874a1a17d8072ec350a8",
+              "solid_count": 1
+            },
+            {
+              "body_topology": {
+                "edges": 2,
+                "faces": 3,
+                "vertices": 0
+              },
+              "checked_numeric_values": 20,
+              "depth_driver_m": 0.00267279,
+              "document_density_preference_kg_m3": 1000.0,
+              "geometry_and_mass": {
+                "area": 0.004971028240035278,
+                "com": [
+                  0.029379000000000002,
+                  -0.0013363950000000002,
+                  0.013731
+                ],
+                "mass": 6.041271323323726e-06,
+                "volume": 6.041271323323726e-06
+              },
+              "open_errors": 0,
+              "open_warnings": 0,
+              "ordered_tree_rows": 25,
+              "passed": true,
+              "phase": "edited-fresh-reopen",
+              "process": {
+                "creation_filetime": 134394670861512369,
+                "pid": 3076
+              },
+              "radial_driver_m": 0.026822967,
+              "record_sha256": "9897179f13ad4000ae335dfeaf111449e1b18121e9bc0fe4bf2b12a664ff6a8c",
+              "saved_sha256": "15d97ba70f72bc4813e0f87bf0ce22bc3f44e034da8ea69663401b6c71d575f0",
+              "solid_count": 1
+            }
+          ]
+        }
+      },
+      "name": "H02ReverseTopCircle",
+      "scope": {
+        "configuration": "Default",
+        "driver": "radius",
+        "end": "blind",
+        "plane": "top",
+        "reversed": true
+      }
+    }
+  ],
+  "delivery_pr": 121,
+  "fcstd_qualified_parts_added": 0,
+  "native": {
+    "accepted_packet_sha256": "6e2c1880ae289d82492e005bb508f9b04c699b776c953a44af7e211380b2cfbe",
+    "distinct_fresh_processes": 14,
+    "failed_first_observer_result_sha256": "bb42f6bbdcf07831cd73d4c548b0813cc8074c2fc7197c919fc0035b6469a2d4",
+    "first_packet_sha256": "5e3ae02edc96d6a4fbbccc6ed226f76e92e721e57ada2816bc153b78db145977",
+    "independent_probe_processes": 8,
+    "independent_probe_sha256": "3c7b80df3cdbe57039fa173ea3f3bb85a386dde7afd53d33e7a0c10c2e280901",
+    "independent_probe_transport_sha256": "b0f2e50da1548ddc65b9ced180d2f509accb50262e08f2f4ccb315a1b78a9710",
+    "passed_controls": [
+      {
+        "healthy": true,
+        "process": {
+          "creation_filetime": 134394667847449745,
+          "pid": 8456
+        },
+        "role": "control_before"
+      },
+      {
+        "healthy": true,
+        "process": {
+          "creation_filetime": 134394672218336202,
+          "pid": 9832
+        },
+        "role": "control_after"
+      }
+    ],
+    "recorded_numeric_checks": 400,
+    "result_sha256": "aa4de54d15eba568e66dd6158cdfddcf83872f6ae0d50a2a36a9841a9648c61b",
+    "transport_sha256": "ee2aa0fc3fd76a52baed0d86f4d03812fecef752b7325f893f89093a8fc7856c"
+  },
+  "passed": true,
+  "public_reads": {
+    "all": 16,
+    "result_sha256": "0951f999b2f84c7c2f6a95399dfcc896b5a6d40a98cc5fb45a4e7235eed8ec0e",
+    "same_circle_driver_and_end_owner": true,
+    "same_config_and_resolved_streams": 32,
+    "source_generated_and_saved_inputs": true
+  },
+  "public_writer_registration_verified": false,
+  "schema": "kit.sw2026.sdk-circle-original-native-receipt.v1",
+  "scoped_sdk_heldout_acceptance": true,
+  "source_freeze": {
+    "generated_freeze_sha256": "106a33bdcbb1d03fb332cd13e90bc90d48dc5c01691b200a956bc3e92660c652",
+    "generator_frozen_before_original_attachment": true,
+    "method_sha256": "4b05b8cd582c4d7f7e65b52c5bb2741e2f8df6b4efb30d488acc53fb4391365c",
+    "reader_source_manifest_sha256": "ac563524dec83d8ad6673890047ebc8a68d7227d9dbb13d39492b7e78f228b94",
+    "source_qualification_sha256": "456b9703d0cd2555a892f2a04db35e81bfed39a2adf1059140393b48e5fbf671",
+    "writer_source_manifest_sha256": "ba81c1a26e3a2e350994d4626c9652ad1a14c7d85d6ec5b3687ce317e1bdb2e4"
+  },
+  "task": "B04-SW2026-CIRCLES-C10",
+  "vendor_payloads_emitted": false
+}
