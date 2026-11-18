@@ -60,6 +60,8 @@ The internal SDK construction layer can build the ordinary blind boss's typed le
 
 The SDK constructs the local sketch graph for an ordinary closed polygon from ordered vertices and an allocated profile. It derives point, line, and incident-handle identities and preserves the actual model and support references in linked stream readback. This profile covers unconstrained rings. [Polygon geometry construction](../../Changes/Solidworks/Construction/SolidworksPolygonGeometryConstruction.md) The SDK can also initialize the ordinary part's own model, self-component and relation manager with its allocated IDs. The system factory attaches actual configuration owners, system folders, principal planes and the fixed origin. Two neutral designs preserve five complete archive streams and their map aliases in fresh processes. Body geometry and the normal writer require additional construction. [Part root construction](../../Changes/Solidworks/Construction/SolidworksPartRootConstruction.md) [Part system construction](../../Changes/Solidworks/Construction/SolidworksPartSystemConstruction.md)
 
+The internal SDK part composer now builds the full ten-stream container for one neutral rectangular sketch and a forward blind boss. It supplies the actual configuration, model and manager header nodes to linked-document builders. Two independent inputs preserve every stream through the typed prepare path and a separate mathematical comparison. The normal writer still requires native qualification. [Complete blind-boss construction](../../Changes/Solidworks/Construction/SolidworksBlindPartConstruction.md)
+
 ## Read flow
 
 ```mermaid
