@@ -80,7 +80,8 @@ def translated(expected, edited):
                                  "model_to_view": model_to_view}}
 
 
-def phase(sw, identify, *, directory, native, sha256, expected, child, original_child, child_hash, oracle, tree, edit):
+def phase(sw, identify, *, directory, native, sha256, expected, child, original_child, child_hash, oracle, tree, edit,
+          observe=None, expected_edit=None):
     directory.mkdir(parents=True, exist_ok=False)
     rec = curves.Recorder(directory / "Record.json", {"drawing": native.name, "edit_position": edit})
     result = {"passed": False}
@@ -99,17 +100,23 @@ def phase(sw, identify, *, directory, native, sha256, expected, child, original_
             curves.require(author.model is not None and errors == warnings == 0, "front drawing failed to open cleanly")
             drawing = author.typed(author.model, "DrawingDoc")
             result["initial"], _, actual_child, _ = project(author, drawing, expected, child, original_child, child_hash)
+            if observe is not None:
+                result["initial_link"] = observe(author, drawing, native)
             result["tree"] = drawing_tree(author)
             curves.require(tree is None or tree == result["tree"], "front drawing tree differs from the pristine control")
             curves.require(bool(author.get(author.model, "ForceRebuild3", False)), "front drawing rebuild failed")
             rebuilt, request, actual_child, paper = project(author, drawing, expected, child, original_child, child_hash)
             result["rebuilt"] = rebuilt
+            if observe is not None:
+                result["rebuilt_link"] = observe(author, drawing, native)
             curves.require(drawing_tree(author) == result["tree"], "front drawing rebuild changed its feature tree")
             if edit:
                 edited = edit_position(author, author.model, drawing, request, actual_child, paper, rebuilt)
-                compare_states(author, edited, translated(rebuilt, edited))
+                compare_states(author, edited, translated(rebuilt, edited) if expected_edit is None else expected_edit)
                 curves.require(drawing_tree(author) == result["tree"], "view movement changed its drawing feature tree")
                 result["edited"] = edited
+                if observe is not None:
+                    result["edited_link"] = observe(author, drawing, native)
                 target = directory / "EditedDrawing.SLDDRW"
                 result["save_status"] = rec.call("save front drawing position edit", controller.save_as, author.model, target)
                 curves.require(result["save_status"] == (True, 0, 0), "front drawing save failed or warned")

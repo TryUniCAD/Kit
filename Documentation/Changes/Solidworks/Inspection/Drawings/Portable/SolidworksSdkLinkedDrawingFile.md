@@ -1,0 +1,9 @@
+# Internal SDK linked drawing construction
+
+Add `MakeLinkedFile(LinkedDrawInput, PartCandidate)` for a complete ordinary SDK drawing with an actual SDK-generated rectangular child. The constructor binds real neutral drawing/model/view identities, computes projection and support frames, installs shared external references and emits all seven native streams plus the container. It preserves the original child object and every child stream on reemission.
+
+Admission is one unformatted ANSI A landscape sheet, one nonvirtual XY rectangular forward prism and one explicit Front, Top, Right or Isometric view. Positive scalar view scale uses denominator one. Unsupported content, unresolved links and contradictory geometric caches fail explicitly. The public adapter remains read-only; native and held-out acceptance are separate work.
+
+Six independent designs each pass two SDK builds and a separate exact research/mathematical comparison, including Isometric, Unicode names and near-unity scale. Twenty-five rejection jobs pass, for 43 fresh processes with zero runtime reads. Full drawing/header readback, portable view semantics and unchanged child reemission pass. Preserve native addition order for bounding spheres; a generic floating sum caused a one-unit exact-byte mismatch in a new Isometric design and was corrected from the pinned helper rule.
+
+See the [guide](../../../../../Reference/Research/Solidworks/SdkLinkedDrawingFile.md), [source ledger](../../../../../../re/solidworks/records/SdkLinkedDrawingFile2026.md), [process receipt](../../../../../../re/solidworks/measurements/2026/SdkLinkedDrawingFile01.json) and [precision gotcha](../../../../../Gotchas/Conversion/Solidworks/Archive/Drawings/BoundingSphereUsesNativeAdditionOrder.md). A separate frozen fixture supplies exact paths, strict trees, child geometry and view-edit/save/reopen predictions for root-owned native qualification.
