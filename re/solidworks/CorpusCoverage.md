@@ -340,6 +340,20 @@ then completes both internal named Definition round trips with identical bytes,
 map slots and actual aliases. Portable display, colour and edge links and full
 drawing conversion remain open.
 
+The [signed linked text-depth trial](measurements/2026/DrawingSpatialTextNative01.json)
+passes two disclosed native edit, view move, save and reopen lifecycles
+in ten processes with both controls healthy. The corrected archive
+observer passes ten exact joins across Definition and the three child
+streams. The observed positive and negative stored depths survive the
+edits. Full drawing source and public writer acceptance stay open.
+
+The [fresh ANSI detail graph](measurements/2026/DrawingAnsiStyleConstruction01.json)
+passes 26 guarded codec workers and ten typed comparisons. It preserves
+the known constructor state through the native standard default
+operation. The disclosed original graphs retain separate source fonts,
+nested units and other unqualified fields. Native acceptance of the
+fresh ANSI operation remains open.
+
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
 passed both native save modes under the original and Kit containers.
 The paired controls retain the same seven streams and compressed bytes.
@@ -368,11 +382,12 @@ establishes the editable geometry needed for the scoped FreeCAD primitive.
 
 The [disclosed FreeCAD origin box](records/SdkFreecadOriginBox2026.md) enters
 the shared constructors through the actual strictly decoded neutral source.
-Four guarded builds yield identical native bytes with three live drivers
-and source text. The generated box passes the disclosed native edit, save
-and reopen lifecycle with 162 analytical checks. Native direct body and
-driver names and original benchmark membership remain open, so this adds
-zero corpus passes. The [strict cache-free readback](records/SdkNoCachePrismRead2026.md)
+The [shared SDK proof](measurements/2026/SdkFreecadBoxSharedBuild01.json)
+reproduces both native-tested files in six guarded builds, including
+two with the source cache and stored payloads removed. The named box
+retains its actual body and three editable driver names through 162
+native checks. Original benchmark membership remains unverified, so
+this adds zero corpus passes. The [strict cache-free readback](records/SdkNoCachePrismRead2026.md)
 recovers one solid with eight vertices, twelve edges and six faces, and
 retains all three drivers, seven relations and thirteen text properties.
 
