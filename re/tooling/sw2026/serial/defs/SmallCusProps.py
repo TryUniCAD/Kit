@@ -26,6 +26,7 @@ def define(reg):
     ])
     reg.define("moFilePropContainer_c", [obj("f08"), obj("f10")])
     reg.define("moAdvCusPropList_c", [base("suObList")])
+    reg.define("moCusPropStringElem_c", [cstr("f08")])
     reg.define("moAdvCusProp_c", [
         emb("f10", "suObList"),
         i32("f08"),
