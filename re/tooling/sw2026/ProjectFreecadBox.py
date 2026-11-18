@@ -1,15 +1,15 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 from datetime import datetime
 from itertools import product
 from math import isclose, isfinite
 from uuid import UUID
 
 from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTextInput import PartTextInput
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.LowerBoxModel import LowerBoxModel
 from interchange import CadDocument, NativeFeatureDefinition
 from interchange.document.Validation.DocumentValidate import AssertValid
-from tests.Convert.Solidworks.Research.Construction.RectangleAnchors.MakeCornerDoc import MakeCornerDoc
 
 
 FEATURE_PROPERTIES = {
@@ -210,43 +210,8 @@ def source_text(document, body, feature, dimensions):
     return raw["Label"], PartTextInput(summary, extra, {}), int(creation.timestamp())
 
 
-def lower_box(document, name, feature, body, config, parameters, sizes, source_labels=False):
-    draft = MakeCornerDoc(name, *sizes)
-    source_sketch, source_feature = draft.sketches[0], draft.feature_timeline[0]
-    sketch_name = feature.name + " Profile"
-    sketch_id = feature.id + ":profile"
-    source_param_ids = {role: owner.id for role, owner in zip(("parameter/width", "parameter/height", "parameter/depth"), parameters, strict=True)}
-    plane = next(plane for plane in document.support_planes if plane.name == "XY-plane")
-    support = replace(draft.support_planes[0], id=plane.id)
-    relations = tuple(replace(item, parameter_id=source_param_ids[item.parameter_id]) if item.parameter_id else item
-                      for item in source_sketch.constraints)
-    sketch = replace(source_sketch, id=sketch_id, name=sketch_name, support_plane_id=support.id,
-                     constraints=relations, parameter_ids=tuple(source_param_ids[key] for key in source_sketch.parameter_ids))
-    source_driver_names = {item.id: item.attributes["freecad_path"] for item in parameters} if source_labels else {}
-    native_parameters = tuple(
-        replace(
-            item,
-            id=source_param_ids[item.id],
-            owner_id=sketch.id if item.owner_id == source_sketch.id else feature.id,
-            name=source_driver_names.get(source_param_ids[item.id], item.name),
-        )
-        for item in draft.parameters
-    )
-    operation = replace(source_feature, id=feature.id, name=feature.name, sketch_id=sketch.id,
-                        parameter_ids=(source_param_ids["parameter/depth"],))
-    solid = replace(
-        draft.bodies[0], id=body.id, name=body.name if source_labels else operation.name, final_feature_id=operation.id
-    )
-    lowered = replace(draft, source=document.source, configurations=(config,), support_planes=(support,),
-                      sketches=(sketch,), feature_timeline=(operation,), parameters=native_parameters, bodies=(solid,))
-    owner_names = {sketch.id: sketch.name, operation.id: operation.name}
-    bindings = {item.id: item.name + "@" + owner_names[item.owner_id] for item in native_parameters}
-    AssertValid(lowered)
-    return lowered, bindings
-
-
 def project(document, *, source_labels=False):
-    feature, body, config = box_semantics(document)
+    feature, body, _ = box_semantics(document)
     data = feature.definition.object_data
     part = data["name"]
     properties = data["properties"]
@@ -276,5 +241,11 @@ def project(document, *, source_labels=False):
     owners, sizes = box_dimensions(document, feature, properties)
     geometry = check_geometry(document, sizes)
     name, text, creation = source_text(document, body, feature, owners)
-    lowered, bindings = lower_box(document, name, feature, body, config, owners, sizes, source_labels)
+    lowered = LowerBoxModel(
+        document, name, tuple(item.id for item in owners), sizes,
+        DIMENSIONS if source_labels else ("D1", "D2", "D1"),
+        body.name if source_labels else feature.name,
+    )
+    owner_names = {item.id: item.name for item in (*lowered.sketches, *lowered.feature_timeline)}
+    bindings = {item.id: item.name + "@" + owner_names[item.owner_id] for item in lowered.parameters}
     return BoxProjection(lowered, text, sizes, creation, bindings, body.name, feature.name, geometry)

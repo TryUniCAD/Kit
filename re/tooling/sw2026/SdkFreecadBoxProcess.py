@@ -1,6 +1,5 @@
 from base64 import b64encode
 from codecs import lookup
-from dataclasses import replace
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -16,14 +15,8 @@ sys.addaudithook(AUDIT.InspectEvent)
 
 from ProjectFreecadBox import project
 from SdkCornerChecks import corner
-from convert.adapters.solidworks.Archive.Construction.BodyNames.AnchorPartInput import AnchorPartInput
-from convert.adapters.solidworks.Archive.Construction.BodyNames.MakeAnchorNamed import MakeAnchorNamed
-from convert.adapters.solidworks.Archive.Construction.BodyNames.PlainBodyView import PlainBodyView
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectRectDims import ProjectRectDims
-from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RectDimInput import RectDimInput
-from convert.adapters.solidworks.Core.Preparation.BindPartIntent import BindPartIntent
-from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
-from convert.adapters.solidworks.Core.Preparation.RequirePartPath import RequirePartPath
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import BlindPlan
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.MakeOriginBoxPart import MakeOriginBoxPart
 from interchange import CadDocument
 from interchange.brep.Validation.BrepValidate import GetBrepErrors
 from interchange.document.Validation.DocumentAssemblyValidate import GetAssemblyErrs
@@ -43,15 +36,12 @@ def build(request):
         raise TypeError("FreeCAD box construction requires an actual neutral document")
     projected = project(document, source_labels=source_labels)
     part = projected.model
-    plain = PlainBodyView(part)
-    plan = ProjectRectDims(plain)
-    output = RequirePartPath(request["native_path"], projected.creation_epoch)
-    recipe = MakePartRecipe(plan, projected.creation_epoch)
-    settings = replace(BindPartIntent(plain, plan, recipe, output), PropertiesValue=projected.properties)
-    margin = min(plan.WidthValue, plan.HeightValue) / 4
-    placement = RectDimInput((plan.WidthValue / 2, -margin),
-                             (plan.WidthValue + margin, plan.HeightValue / 2), False, 1, False)
-    part_file = MakeAnchorNamed(part, settings, AnchorPartInput("corner", placement))
+    part_file = MakeOriginBoxPart(
+        part, request["native_path"], projected.creation_epoch, projected.properties,
+    )
+    plan = part_file.PlanValue
+    if type(plan) is not BlindPlan:
+        raise TypeError("origin box requires its actual rectangle plan")
     anchor = corner(
         part_file.ProfileValue.ProfileValue,
         part_file.SystemValue.OriginValue.ProfileValue,
@@ -74,7 +64,7 @@ def build(request):
         "source_text": {"summary": projected.properties.SummaryFields, "file": projected.properties.DocumentFields},
         "geometry": projected.geometry,
         "origin_coincidence": anchor,
-        "native_path": output.PathName,
+        "native_path": request["native_path"],
         "bytes": len(part_file.BytesValue),
         "sha256": sha256(part_file.BytesValue).hexdigest(),
         "streams": {name: {"bytes": len(data), "sha256": sha256(data).hexdigest()}
