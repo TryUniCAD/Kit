@@ -1,0 +1,4785 @@
+{
+  "distinct_worker_processes": 44,
+  "full_document_sdk_writer": false,
+  "heldout_inputs_read": 0,
+  "limits": [
+    "one positive aligned no flip planar distance with two fresh direct resolved part occurrences",
+    "actual local driving D1 length and ordinary linear display style only",
+    "successful proof uses object-body header view from unchanged research composer",
+    "direct SDK Header log-list projection remains an explicit integration requirement",
+    "other geometry annotation styles mate counts and native release profiles remain unqualified",
+    "public writer disabled and no new native or held-out acceptance"
+  ],
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "negative_cases": [
+    {
+      "fault": "foreign_occurrence",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "cf94d8b03c9f7f3b4eba800d616edbd5356cc0712e3ed5ea2b1a4792fb255ac6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "5edc4eb4432347b8c07fe9821594095fe66bc6c1771d9872bc41c3144964c664",
+        "worker_pid": 14257
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate occurrence must belong to the actual containing assembly",
+        "error_type": "ValueError",
+        "fault": "foreign_occurrence",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrong_external_backlink",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "9fb8ab61859308f1ff7c1c06ab7c2acfa77fbe53045ee67dd61a6054a2430b6c",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "bcea5838585138480ff522a7863697924a693ed6622a2e294d1c9f18361f3cd6",
+        "worker_pid": 14258
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate occurrence external entry lost its actual backlink",
+        "error_type": "ValueError",
+        "fault": "wrong_external_backlink",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrong_child_configuration",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "748e08a0a96034526ee2aaf959f44fab49f9b77499acaab124525f6d0e0901cb",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6f31eeaf50ec1341a5d84d5c0328159d84666fc0a5ab4259e3af972047ebcf73",
+        "worker_pid": 14260
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate occurrence child configuration or update differs",
+        "error_type": "ValueError",
+        "fault": "wrong_child_configuration",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "stale_child_update",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "d5de7e3625faabed3fed2fb9c9980ba34ae4fcebb5be6591b2cffc587d6c89ae",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "411ac396471e9f25ab515d6e846770b2526cbbf325e43d78ca8ffc2442cbeae5",
+        "worker_pid": 14261
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate occurrence child configuration or update differs",
+        "error_type": "ValueError",
+        "fault": "stale_child_update",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrong_datum_owner",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "715dc8613a2c06556f30151dc539d124e2ea2ce21ce9aeea272c80de390dac92",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9616343d73be769ba85fb7de36f48f04709a3fa7ac0531230fd278f4307b050b",
+        "worker_pid": 14262
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate datum and configuration must belong to the actual child part",
+        "error_type": "ValueError",
+        "fault": "wrong_datum_owner",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unregistered_datum",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "38818a5fe4a00ac616a4e6032b663d0b72da0810bd3d8bb66173a5b466897553",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "dac54a0feb5ef7819c9169e8840f494b62de1e0a07636d21f8a603b8ad828d55",
+        "worker_pid": 14267
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate construction requires a registered ordinary principal datum",
+        "error_type": "ValueError",
+        "fault": "unregistered_datum",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "bad_datum_bounds",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "d5d2bd240ae281e6fdcfef38cff7069a8525e7500e73d25779595daf326c1ce3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "88575299b9c6e1b12ee646f7268285fce57bf257ce8ddf5a5252f9c71ebf11e3",
+        "worker_pid": 14271
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "view coordinate or scale must be finite",
+        "error_type": "ValueError",
+        "fault": "bad_datum_bounds",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "scaled_placement",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "edff023f929e32034b00de0907941a61cfc2a8abf54fe61ef9b8f95a70f5c933",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3e4e4e7722379197e8d6ca3dd2fc6430f0d4131b2e0a55b7f526ca5021b13a1",
+        "worker_pid": 14273
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate construction requires an ordinary rigid native transform",
+        "error_type": "ValueError",
+        "fault": "scaled_placement",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "reflected_placement",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "8f8d57cf25045394a7d3015b99a3f542b29398a8e5ed9e500add49c2357762bc",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8ce3fa103c551ec9cf0a58082a775ec98f13b892dfc4d9fcf3b0b159692c158d",
+        "worker_pid": 14274
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate placement matrix must be proper and orthonormal",
+        "error_type": "ValueError",
+        "fault": "reflected_placement",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "repeated_selection",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "b0d732ac4645d4ebc62a9ae7b899a33ca7bc8836ef3ab7c24d16015eb314c387",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "41dd76d6e3af0b49a755df0532de97da69a769ab96dce9b60c2f4f8cf06c9b85",
+        "worker_pid": 14275
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            18
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            18
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "distance selections require two distinct actual occurrences",
+        "error_type": "ValueError",
+        "fault": "repeated_selection",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "foreign_fixed_input",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "3d1793f799927b7b29254adbe61ce72c711ec25c60beba1f42837e0132cf6472",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7417e40765c69defa5a813db40c38c76f9560e0717646746e826adc31b29acb9",
+        "worker_pid": 14276
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "distance fixed input and occurrence identities must be actual distinct parent members",
+        "error_type": "ValueError",
+        "fault": "foreign_fixed_input",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrong_allocator_boundary",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "0ae24952bd3d1d30971acda6fbaab28a7c32b85158ca3ed9084c836b11bc9a48",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8eb15d8d0101188eaaba3379e8085282247a98530b10098ae988252cd06b046a",
+        "worker_pid": 14277
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 20,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 20,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate allocator and parent occurrence publication differ",
+        "error_type": "ValueError",
+        "fault": "wrong_allocator_boundary",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrapper_counter_exhausted",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "c9dfeb60e0be7b240fa119e6f5aa5edb80f659a74722d9dbbe321e113b9c2d75",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b89fce1029a83c0c1d78cd713271766b32f1c7406e954262a6ed8b616971c610",
+        "worker_pid": 14278
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 2147483646
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 2147483646
+        },
+        "error": "distance wrapper counter cannot allocate two references",
+        "error_type": "ValueError",
+        "fault": "wrapper_counter_exhausted",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unsupported_kind",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "f90c2a02fadc1fc89c8019c8222146895142f7d3da2f89c2a0795c4337694e44",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ec65c2936df98b5775e19f5069bc711dadcadd0d8ae4a2b776a043b065f84786",
+        "worker_pid": 14279
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "distance factory requires two explicit selected principal planes",
+        "error_type": "ValueError",
+        "fault": "unsupported_kind",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "invalid_mate_name",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "c7c50ac5722167b20242887be98f9d81743c9a5646b9a91ecdabef64756ea6a2",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a4798ad515a237b106b5c5e3cdf0a925e95bf256d3a6445a51f9ae35017bc35a",
+        "worker_pid": 14280
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "node names must be nonempty strings without null characters",
+        "error_type": "ValueError",
+        "fault": "invalid_mate_name",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "invalid_creation_epoch",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "fb1b944c566beca5b8fcd749db47757b0ed6f660b41850ec913bd1e9bd801eb1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d05de985319340208769f69861e329c7c2f3b980eea813962ea557f04047eeff",
+        "worker_pid": 14281
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "feature creation time must fit unsigned unix seconds",
+        "error_type": "ValueError",
+        "fault": "invalid_creation_epoch",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unsupported_parent_schema",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "04b34ea93f1ff80b4598db052a052f1f5e80dac07815dafd8b924a2c4c8af566",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "44bfc27e3dd6f1170737b51dc6d4c9e68f5e5e3c236ab93c5d0f6183a92a2952",
+        "worker_pid": 14282
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate construction requires schema one owned graph roots",
+        "error_type": "ValueError",
+        "fault": "unsupported_parent_schema",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unsupported_child_schema",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "c6b5c074bd5cca20113a495e02966d5382276251cde0266b7f17973237e449dc",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "f7584d5dac4274a6135b4746aa2d55064cd1c53d3b5d75c283bd525d04589341",
+        "worker_pid": 16353
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate child construction requires schema one graph roots",
+        "error_type": "ValueError",
+        "fault": "unsupported_child_schema",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unsupported_datum_version",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "e554c4ae32dc13618e1b746305c149603d50001b7b8b49cb4135b00bb4f5a916",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9283c1c77ee79574b140e1d2156650708c7435fada73ef0617d21a5fe08a33a9",
+        "worker_pid": 17013
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate child datum requires native feature version 19000",
+        "error_type": "ValueError",
+        "fault": "unsupported_datum_version",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "overflowing_inverse_frame",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "ce9a0abacdbbdf5d5c655289ff9bba49adab3ab00a326dfac9e15e5a405b5def",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ec0b9a845a4950244f86fd220dd282fe40045dfd2468bb67ae80d58e0fd5c42c",
+        "worker_pid": 17014
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "view coordinate or scale must be finite",
+        "error_type": "ValueError",
+        "fault": "overflowing_inverse_frame",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "zero_length",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "931efeb5069255614d012e0139baf2d2d760375fb514c3172d125a87870b2dde",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a79a8fb5d849917d3a4df20b46e2461d21594d4858264c4401db8cf1d1f2b7b4",
+        "worker_pid": 17015
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "driving distance must be at least one e minus fourteen metres",
+        "error_type": "ValueError",
+        "fault": "zero_length",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "negative_length",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "34dc6890fadcd6b90386ced1a82467d2d0a93474fcf8efacd73c0929878c6374",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a4cdfd4b0c9c4a241eb656877aef3a01f7e90c5108d7840a81a27f4cbcba70b3",
+        "worker_pid": 17016
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "driving distance must be at least one e minus fourteen metres",
+        "error_type": "ValueError",
+        "fault": "negative_length",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "short_length",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "580af2f938e79eaa1ecf60d721b099e4f44c66a95fd2274a0ae054a2ccbf0682",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "acbedd3de18123c386888747308ccc4e471f250fa96b6f55e00802c7598da825",
+        "worker_pid": 17017
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "driving distance must be at least one e minus fourteen metres",
+        "error_type": "ValueError",
+        "fault": "short_length",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "nonfinite_length",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "894d1b9dbc0908c145d550f0344e0cd107fd3c4162db9b27dc4e884f0c54d5c3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "afff8dc483ba335c76b61c47bb863ffc0328af83663c7a716c89b7282e53ca7f",
+        "worker_pid": 17023
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "view coordinate or scale must be finite",
+        "error_type": "ValueError",
+        "fault": "nonfinite_length",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "boolean_length",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "9cd70e73cfc7926b1ff91474379394955ce755bb129738e75c717b9ae85c0931",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "238bcadd677d9b1605cc14ad603d8234b36925e0da29b4efabef97e6be55cdf9",
+        "worker_pid": 17024
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "view coordinate or scale must be a real numeric value",
+        "error_type": "TypeError",
+        "fault": "boolean_length",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "invalid_design_intent",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "a343d5e19868b1060e0ebbba3b00f931901ea68c512a2118937e8bc01fe40203",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c9b7b95e906f73d9cc44aba6fb50c89fed576547ba9d2a40f5ba42ef9ac23f2e",
+        "worker_pid": 17025
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "distance design intent must be an authored boolean",
+        "error_type": "TypeError",
+        "fault": "invalid_design_intent",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "invalid_leader",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "7fedf6c29572e03577f94edd86761ca3e397e53d5fdee633bba84517c78adfdd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8d0b0db00557ea302e3aa74a11dfa542c5dd48564371a477184d5db7dfc3d791",
+        "worker_pid": 17026
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "distance leader must be an authored signed integer",
+        "error_type": "ValueError",
+        "fault": "invalid_leader",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "nonpositive_separation",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "1655f24d7dc927f119532c5fbc74f021975530bbeb5745ebee5826bbb9e04937",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c2ce7bb99a81e3aee1dc884bdb3ff011faf424b8e7e27b82c7559a4bb279c47d",
+        "worker_pid": 17027
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "distance principal planes require positive signed separation",
+        "error_type": "ValueError",
+        "fault": "nonpositive_separation",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "opposite_normals",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "fa89b72ec27346216d43bb448c3f1d399f0f774f36efc29d671a7141b2438684",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c02221f224df88aca4ef101a83abe376927c8fb28bb7571a503ded08e667b984",
+        "worker_pid": 17028
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "distance principal planes must have the same orientation",
+        "error_type": "ValueError",
+        "fault": "opposite_normals",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unsupported_tolerance",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "947083930c5c3a58acf9e3077a7e1e51642edf90baa63af46c61dde29e7ea985",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1bced12b54dcb4e86b13f5f6f7ec0d2ab2ee13da85655576e05c1baae3e6b0b7",
+        "worker_pid": 17029
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "planar distance display requires zero tolerance and freely placed text",
+        "error_type": "ValueError",
+        "fault": "unsupported_tolerance",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "centered_text",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "76d3e0778bdfbee897465ee29f8b46ff9598c3da67835a9fbb7755e0806584c8",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "050cae33d8b9ac1cc27f2c30c0c15250c0699a1fc6e4420da2beeeb5eb36e8ba",
+        "worker_pid": 17030
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "planar distance display requires zero tolerance and freely placed text",
+        "error_type": "ValueError",
+        "fault": "centered_text",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "insufficient_id_room",
+      "identity": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "2e0572a4c780a255937601f39048f974cb797aa38247824ade51a84bf76465f6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "00133f5a777b89d6464d543c9ad887ad08e9b1f89d67cb7135347fce47398554",
+        "worker_pid": 18842
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 2147483646,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 2147483646,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 2147483646,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 2147483646,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "distance dimension and mate exceed persistent id capacity",
+        "error_type": "ValueError",
+        "fault": "insufficient_id_room",
+        "parent_state_unchanged": true
+      }
+    }
+  ],
+  "passed": true,
+  "positive_cases": [
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9559,
+        "sha256": "dfd14a1eb017d4b31ae758511482b23231fafc08185018e415a2944d47a27f0e",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2406,
+            "sha256": "04c14722c610f2b5a4c9b0d1d1c73604f645573721e4a03d3b3d5963acd8cbd3"
+          },
+          "Contents/Config-0": {
+            "bytes": 21423,
+            "sha256": "3bbe9b3e95ff6547cc86cfd66d3abebe2b7616557811a9e05699734150d3946c"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 4511,
+            "sha256": "e59f869708824ff223d82888be21d440f56d26daa997aa846e92446f9baf5d77"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1081,
+            "sha256": "9f8674273169b693ac5bd48704e0fd9f7be7ea3f4349936dc7d8f45463cdf9ec"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 553,
+            "sha256": "355dd0a724663d8f30d89944706fd0c1939628759b224cbf6846c9e75e70bb74"
+          },
+          "Header2": {
+            "bytes": 1081,
+            "sha256": "2c10a6e981b6dbbc19e4737c0fb108a60a5e7acd94beade48a87034919d96d29"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2085,
+            "sha256": "1216674a4a3432f783a6c3e492f3c369503343b3d30e9782ae8eaa3d92042f59"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1160,
+            "sha256": "623350bbe85247bb95e2d06e68d35bc9e21b01cee6d1e7559c980104037dfc14"
+          }
+        }
+      },
+      "case": "DistanceX0",
+      "child": {
+        "bytes": 8156,
+        "sha256": "1037b63a9c7d009d5d1a0dfca68c2273462c8d75afa85c1f56873f4f97e5197a"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "driving_distance": {
+          "actual_feature_owners": true,
+          "actual_local_dimension": true,
+          "actual_retaining_handle": true,
+          "constructor_value_cache": 0.0,
+          "design_intent": false,
+          "dimension_id": 19,
+          "mate_id": 20,
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "selected_leader": 0,
+          "text_kind": 18,
+          "value_metres": 0.071375
+        },
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 172,
+        "mate_stream_bytes": 4511,
+        "native_class": "moMateDistanceDim_c",
+        "next_persistent_id": 21,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          16,
+          16
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 20,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "mate_stream": {
+        "bytes": 4511,
+        "map_base": 133,
+        "map_terminal": 172,
+        "read_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 92,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 775,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 2,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "sha256": "e59f869708824ff223d82888be21d440f56d26daa997aa846e92446f9baf5d77",
+        "write_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 92,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 775,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 2,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "driving_distance": {
+          "constructor_value_cache": 0.0,
+          "dimension_id": 19,
+          "dimension_log_absent": true,
+          "header_next_id": 21,
+          "mate_id": 20,
+          "options": [
+            1,
+            1,
+            1,
+            3,
+            3,
+            0
+          ],
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "text_kind": 18,
+          "value_metres": 0.071375
+        },
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 20,
+        "ordered_datum_ids": [
+          16,
+          16
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "d083f8f36a83a0adfb47ef86805ac4ba16450183a1253887d862bd9496476d29",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c692bd8a804e869a6e610ef7d8909adae72ff1ddfba5ab9818d708e47dc1ed1d",
+        "worker_pid": 14242
+      },
+      "sdk": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "a9948c92e6530cf300840c7bf8a659e745b366178cc9afcf95de2bfd3682bbbc",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8f1834d955b774c3a2f97a07e760993a3847074605f2956977598a274b822ef3",
+        "worker_pid": 14241
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9559,
+        "sha256": "0b5ea75ff0e77cdbb6d8440edecc747ccff8b345ea92fd3ba3e9a777d93a29ea",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2406,
+            "sha256": "04c14722c610f2b5a4c9b0d1d1c73604f645573721e4a03d3b3d5963acd8cbd3"
+          },
+          "Contents/Config-0": {
+            "bytes": 21423,
+            "sha256": "3bbe9b3e95ff6547cc86cfd66d3abebe2b7616557811a9e05699734150d3946c"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 4511,
+            "sha256": "c4015bed13c511a75e3ef0e278e6614ebff7e1fffe8fdc01c000b2dd500c291a"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1081,
+            "sha256": "9f8674273169b693ac5bd48704e0fd9f7be7ea3f4349936dc7d8f45463cdf9ec"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 553,
+            "sha256": "355dd0a724663d8f30d89944706fd0c1939628759b224cbf6846c9e75e70bb74"
+          },
+          "Header2": {
+            "bytes": 1081,
+            "sha256": "2c10a6e981b6dbbc19e4737c0fb108a60a5e7acd94beade48a87034919d96d29"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2085,
+            "sha256": "1216674a4a3432f783a6c3e492f3c369503343b3d30e9782ae8eaa3d92042f59"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1160,
+            "sha256": "623350bbe85247bb95e2d06e68d35bc9e21b01cee6d1e7559c980104037dfc14"
+          }
+        }
+      },
+      "case": "DistanceX1",
+      "child": {
+        "bytes": 8156,
+        "sha256": "1037b63a9c7d009d5d1a0dfca68c2273462c8d75afa85c1f56873f4f97e5197a"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "driving_distance": {
+          "actual_feature_owners": true,
+          "actual_local_dimension": true,
+          "actual_retaining_handle": true,
+          "constructor_value_cache": 0.0,
+          "design_intent": false,
+          "dimension_id": 19,
+          "mate_id": 20,
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "selected_leader": 0,
+          "text_kind": 18,
+          "value_metres": 0.093625
+        },
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 172,
+        "mate_stream_bytes": 4511,
+        "native_class": "moMateDistanceDim_c",
+        "next_persistent_id": 21,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          16,
+          16
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 20,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "mate_stream": {
+        "bytes": 4511,
+        "map_base": 133,
+        "map_terminal": 172,
+        "read_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 92,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 775,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 2,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "sha256": "c4015bed13c511a75e3ef0e278e6614ebff7e1fffe8fdc01c000b2dd500c291a",
+        "write_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 92,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 775,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 2,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "driving_distance": {
+          "constructor_value_cache": 0.0,
+          "dimension_id": 19,
+          "dimension_log_absent": true,
+          "header_next_id": 21,
+          "mate_id": 20,
+          "options": [
+            1,
+            1,
+            1,
+            3,
+            3,
+            0
+          ],
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "text_kind": 18,
+          "value_metres": 0.093625
+        },
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 20,
+        "ordered_datum_ids": [
+          16,
+          16
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "830c883888ddbca48ed4451663069843671c7d768c1341e65bdabc2a9cbb9383",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "f721f6a57c577cd5ae6e65d834adbe831aa2f8ac5dba40d0d2e8660f5175ebae",
+        "worker_pid": 14245
+      },
+      "sdk": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "f4cf1318e8442abbab23f5f62032cd718ec75a299123873f9384de18f009d2d2",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e1e87dc850dc8f5f29343a1bf3d798e5f4ca6eaca28bae35325275877a458c4c",
+        "worker_pid": 14244
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9694,
+        "sha256": "5d39e67f7fcf9c29a53d12bfacf7b76118ce6df867c53ee0213754d0d66d49ae",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2406,
+            "sha256": "e9280ee0b1fd6183cbd557d4d0f022ecf09ae3af9c135367037dd66c67c13e6f"
+          },
+          "Contents/Config-0": {
+            "bytes": 21567,
+            "sha256": "7290f8f1b086aa75f9cd19ae73c24c5f4434e0e1a464e45a54a7226b3027988f"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 4799,
+            "sha256": "e0633c65295e906133fc7694d3dd1ff9555bcc3b3f95301a1917e7f911f70e17"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1081,
+            "sha256": "7287e2f0c36463694218d44ab615204593921d13d64c456a1bdb94defe81155f"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 553,
+            "sha256": "6319cb70a9ec82e21dff46ee5e653a4fe9f814361e8579038b19368c27f877f6"
+          },
+          "Header2": {
+            "bytes": 1081,
+            "sha256": "85007c4d32426b682beb78c97ea252d79b9bf3d3f9d0bcb8c4c34905a5aa3757"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2105,
+            "sha256": "ca982f4f9a8a69952a5ace7012992818251fb23b05fdaac755e097afd18af6c4"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1160,
+            "sha256": "a0e0a5a7370ebcd6412d86a699ab62bc61b9bad02d2d4fe055a9ce883829451d"
+          }
+        }
+      },
+      "case": "DistanceY0",
+      "child": {
+        "bytes": 8132,
+        "sha256": "63013aa584a2344fa74a01c7c2f4af4d75681940cefcb966b7b0757d3269b53e"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "driving_distance": {
+          "actual_feature_owners": true,
+          "actual_local_dimension": true,
+          "actual_retaining_handle": true,
+          "constructor_value_cache": 0.0,
+          "design_intent": false,
+          "dimension_id": 19,
+          "mate_id": 20,
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "selected_leader": 1,
+          "text_kind": 18,
+          "value_metres": 0.071375
+        },
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 172,
+        "mate_stream_bytes": 4799,
+        "native_class": "moMateDistanceDim_c",
+        "next_persistent_id": 21,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          15,
+          15
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 20,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "mate_stream": {
+        "bytes": 4799,
+        "map_base": 133,
+        "map_terminal": 172,
+        "read_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 96,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 811,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "sha256": "e0633c65295e906133fc7694d3dd1ff9555bcc3b3f95301a1917e7f911f70e17",
+        "write_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 96,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 811,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "driving_distance": {
+          "constructor_value_cache": 0.0,
+          "dimension_id": 19,
+          "dimension_log_absent": true,
+          "header_next_id": 21,
+          "mate_id": 20,
+          "options": [
+            1,
+            1,
+            1,
+            3,
+            3,
+            0
+          ],
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "text_kind": 18,
+          "value_metres": 0.071375
+        },
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 20,
+        "ordered_datum_ids": [
+          15,
+          15
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "c256826404dabe1f155fe4e3cbbb63f209c81772d26accbc29029e4786116ed8",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1ee6240bdf056e41d8ad51438d28973c17e00767b759c255d0af163d02196522",
+        "worker_pid": 14248
+      },
+      "sdk": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "93f23a5b9c9ac7b90464a39e42aec4ae4f50343ee0b764e664ca0df53610d940",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6f8be7dff53e11db55e4ca8182e32b8c0392e1e4599d247ab12ab4126fd4040e",
+        "worker_pid": 14247
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9694,
+        "sha256": "63436bb516d5b2cbe1b4fa7aa3143c354dec13e7dfc503ab8789e1a563ae4fdb",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2406,
+            "sha256": "e9280ee0b1fd6183cbd557d4d0f022ecf09ae3af9c135367037dd66c67c13e6f"
+          },
+          "Contents/Config-0": {
+            "bytes": 21567,
+            "sha256": "7290f8f1b086aa75f9cd19ae73c24c5f4434e0e1a464e45a54a7226b3027988f"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 4799,
+            "sha256": "751bd52ebfcd7d2f763a8cbf595c39f9625b7f63a973230539787eecdd6b0ca7"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1081,
+            "sha256": "7287e2f0c36463694218d44ab615204593921d13d64c456a1bdb94defe81155f"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 553,
+            "sha256": "6319cb70a9ec82e21dff46ee5e653a4fe9f814361e8579038b19368c27f877f6"
+          },
+          "Header2": {
+            "bytes": 1081,
+            "sha256": "85007c4d32426b682beb78c97ea252d79b9bf3d3f9d0bcb8c4c34905a5aa3757"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2105,
+            "sha256": "ca982f4f9a8a69952a5ace7012992818251fb23b05fdaac755e097afd18af6c4"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1160,
+            "sha256": "a0e0a5a7370ebcd6412d86a699ab62bc61b9bad02d2d4fe055a9ce883829451d"
+          }
+        }
+      },
+      "case": "DistanceY1",
+      "child": {
+        "bytes": 8132,
+        "sha256": "63013aa584a2344fa74a01c7c2f4af4d75681940cefcb966b7b0757d3269b53e"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "driving_distance": {
+          "actual_feature_owners": true,
+          "actual_local_dimension": true,
+          "actual_retaining_handle": true,
+          "constructor_value_cache": 0.0,
+          "design_intent": false,
+          "dimension_id": 19,
+          "mate_id": 20,
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "selected_leader": 1,
+          "text_kind": 18,
+          "value_metres": 0.093625
+        },
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 172,
+        "mate_stream_bytes": 4799,
+        "native_class": "moMateDistanceDim_c",
+        "next_persistent_id": 21,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          15,
+          15
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 20,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "mate_stream": {
+        "bytes": 4799,
+        "map_base": 133,
+        "map_terminal": 172,
+        "read_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 96,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 811,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "sha256": "751bd52ebfcd7d2f763a8cbf595c39f9625b7f63a973230539787eecdd6b0ca7",
+        "write_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 96,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 811,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "driving_distance": {
+          "constructor_value_cache": 0.0,
+          "dimension_id": 19,
+          "dimension_log_absent": true,
+          "header_next_id": 21,
+          "mate_id": 20,
+          "options": [
+            1,
+            1,
+            1,
+            3,
+            3,
+            0
+          ],
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "text_kind": 18,
+          "value_metres": 0.093625
+        },
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 20,
+        "ordered_datum_ids": [
+          15,
+          15
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "a02b5fa3daf14fea0d37e71fce45690b75dcf405ee13387b6214cfcc49ad85d4",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "37c8b6426c0aee702ffa6fa9b10eab05bb838998d37833da803d95346f173982",
+        "worker_pid": 14252
+      },
+      "sdk": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "45ca4006dd23048a27d928e39c2d24ce55ddda013e2a9ebbb2cd0f9b7f8ea32e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "38c8242c195c7d17535f7cca83b4073411d19cc680f15ce289db9ea11289af15",
+        "worker_pid": 14251
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9667,
+        "sha256": "cb52edd17a02007f70d6c59baad1ea6bf4c2855c54b632a57066cb2808345174",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2406,
+            "sha256": "1875b64ef4adaea4acd303011c370ead97ec08e09f510e5d45c6d191f9a3b1f1"
+          },
+          "Contents/Config-0": {
+            "bytes": 21567,
+            "sha256": "7b00dc3c0dfb0f2fae4ee3e6efdbd7c36fc8292cc84d6275e777512e14beb2b6"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 4799,
+            "sha256": "f80d01eab1dd5f2562dc578a5a9f276ed5effbc473f25cbe14e4ef03f9bbec53"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1081,
+            "sha256": "5c880fb253abb6a2a8eab1346f7bb10d8576a399f76981f36bdbe4a3c38d74e7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 553,
+            "sha256": "5f6f0e16bb0fe0371f173982795c77205559b2916eef9c620913459be7b7a665"
+          },
+          "Header2": {
+            "bytes": 1081,
+            "sha256": "17a8740cb239d18dbdcadf4f99d72589490f77392afb9292fb44975c6634056a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2093,
+            "sha256": "a8fc0988f11ac9ed3aa7d934ba053a969995e27e2d6e121374c595a433249e94"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1160,
+            "sha256": "d45a82f3226d42b6bbf5cf656668ab58f4e71b296f93bd915427e63b2f5eac33"
+          }
+        }
+      },
+      "case": "DistanceZ0",
+      "child": {
+        "bytes": 8202,
+        "sha256": "8529ee7ad955e05b20231eafdeb50eb41f2b922d9eef41de13e118bb8dcc9507"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "driving_distance": {
+          "actual_feature_owners": true,
+          "actual_local_dimension": true,
+          "actual_retaining_handle": true,
+          "constructor_value_cache": 0.0,
+          "design_intent": true,
+          "dimension_id": 19,
+          "mate_id": 20,
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "selected_leader": 0,
+          "text_kind": 18,
+          "value_metres": 0.071375
+        },
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 172,
+        "mate_stream_bytes": 4799,
+        "native_class": "moMateDistanceDim_c",
+        "next_persistent_id": 21,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          14,
+          14
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 20,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "mate_stream": {
+        "bytes": 4799,
+        "map_base": 133,
+        "map_terminal": 172,
+        "read_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 96,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 811,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "sha256": "f80d01eab1dd5f2562dc578a5a9f276ed5effbc473f25cbe14e4ef03f9bbec53",
+        "write_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 96,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 811,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "driving_distance": {
+          "constructor_value_cache": 0.0,
+          "dimension_id": 19,
+          "dimension_log_absent": true,
+          "header_next_id": 21,
+          "mate_id": 20,
+          "options": [
+            1,
+            1,
+            1,
+            3,
+            3,
+            0
+          ],
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "text_kind": 18,
+          "value_metres": 0.071375
+        },
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 20,
+        "ordered_datum_ids": [
+          14,
+          14
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "77d0fccddf7855a12da2e3bb6fd0c6df28209a61da05680927547c0e4bc44ecd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "36504a5e49863372f006f164fc97281c89367dc658bf3c5beb9b8913014fcc00",
+        "worker_pid": 14254
+      },
+      "sdk": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "cc5f6e5e631c2689261959c8b89621b008d9f0c795f91f9c9d1f967302ef8a98",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "752a010765ad5c117d7231494d528a15199adf69cbff1772fed1634d50c4195a",
+        "worker_pid": 14253
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9668,
+        "sha256": "3093dd421a21f8bcef4e139722a521796e1581812cbf685ab36f3dde940d0d02",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2406,
+            "sha256": "1875b64ef4adaea4acd303011c370ead97ec08e09f510e5d45c6d191f9a3b1f1"
+          },
+          "Contents/Config-0": {
+            "bytes": 21567,
+            "sha256": "7b00dc3c0dfb0f2fae4ee3e6efdbd7c36fc8292cc84d6275e777512e14beb2b6"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 4799,
+            "sha256": "583a13aff085bb156be7726c389fc7d2c6768f922576606aea362e3be0a52f15"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1081,
+            "sha256": "5c880fb253abb6a2a8eab1346f7bb10d8576a399f76981f36bdbe4a3c38d74e7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 553,
+            "sha256": "5f6f0e16bb0fe0371f173982795c77205559b2916eef9c620913459be7b7a665"
+          },
+          "Header2": {
+            "bytes": 1081,
+            "sha256": "17a8740cb239d18dbdcadf4f99d72589490f77392afb9292fb44975c6634056a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2093,
+            "sha256": "a8fc0988f11ac9ed3aa7d934ba053a969995e27e2d6e121374c595a433249e94"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1160,
+            "sha256": "d45a82f3226d42b6bbf5cf656668ab58f4e71b296f93bd915427e63b2f5eac33"
+          }
+        }
+      },
+      "case": "DistanceZ1",
+      "child": {
+        "bytes": 8202,
+        "sha256": "8529ee7ad955e05b20231eafdeb50eb41f2b922d9eef41de13e118bb8dcc9507"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "driving_distance": {
+          "actual_feature_owners": true,
+          "actual_local_dimension": true,
+          "actual_retaining_handle": true,
+          "constructor_value_cache": 0.0,
+          "design_intent": true,
+          "dimension_id": 19,
+          "mate_id": 20,
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "selected_leader": 0,
+          "text_kind": 18,
+          "value_metres": 0.093625
+        },
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 172,
+        "mate_stream_bytes": 4799,
+        "native_class": "moMateDistanceDim_c",
+        "next_persistent_id": 21,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          14,
+          14
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 20,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "mate_stream": {
+        "bytes": 4799,
+        "map_base": 133,
+        "map_terminal": 172,
+        "read_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 96,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 811,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "sha256": "583a13aff085bb156be7726c389fc7d2c6768f922576606aea362e3be0a52f15",
+        "write_coverage": {
+          "completed": true,
+          "field_calls": {
+            "Array": 37,
+            "Base": 57,
+            "Boolean": 1,
+            "Branch": 193,
+            "Embed": 96,
+            "Node": 94,
+            "Packed": 1,
+            "Present": 9,
+            "Repeat": 3,
+            "Scalar": 811,
+            "Text": 28,
+            "Virtual": 14
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [
+            {
+              "completed": true,
+              "declared_length": 8,
+              "element_count": 1,
+              "element_type": "f64",
+              "field": "data",
+              "length_rule": "count_times_native_binary64_width",
+              "object_class": "moDisplayDistanceDim_c",
+              "observed_length": 8,
+              "schema": "dm.FUN_4bd03960",
+              "typed_values": [
+                0.0
+              ]
+            }
+          ],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "Dimension_c.Serialize": 1,
+            "ParallelPlaneDistanceDim_c": 1,
+            "dm.FUN_4bd03960": 1,
+            "dm.moDoubleParameter_c.FUN_4c177fe0": 1,
+            "dm.moParameter_c.FUN_4c17a330": 1,
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.operator>>": 2,
+            "mgPoint_c.restore": 27,
+            "mgVector_c.restore": 11,
+            "mgXform_c.operator>>": 1,
+            "mgXform_c.restore": 11,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 5,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moDimHandle_c.FUN_4c82a810": 1,
+            "moDimText_c": 1,
+            "moDisplayDim_c.FUN_4c82c3d0": 1,
+            "moDisplayDistanceDim_c": 1,
+            "moDisplayItem_c.Serialize": 1,
+            "moDisplayObject_c.FUN_4ba4d3c0": 1,
+            "moEntVisProp_c": 4,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFeatureDimHandle_c": 1,
+            "moFeatureDim_c.FUN_4c833f00": 1,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moLengthParameter_c": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateDim_c": 1,
+            "moMateDistanceDim_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModDimHandle_c.Serialize": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 2,
+            "moNode_c": 1,
+            "moNode_c.SerializeLWData": 4,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 4,
+            "rf.suObArray": 5,
+            "rf.suObList": 6,
+            "su_CStringArray": 1,
+            "utLineWidth_c.Serialize.3.0": 2,
+            "utLineWidth_c.Serialize0": 1,
+            "utLineWidth_c.Serialize2": 4
+          },
+          "used_schemas": [
+            "Dimension_c.Serialize",
+            "ParallelPlaneDistanceDim_c",
+            "dm.FUN_4bd03960",
+            "dm.moDoubleParameter_c.FUN_4c177fe0",
+            "dm.moParameter_c.FUN_4c17a330",
+            "mgMatrix_c.restore",
+            "mgPoint_c.operator>>",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.operator>>",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moDimHandle_c.FUN_4c82a810",
+            "moDimText_c",
+            "moDisplayDim_c.FUN_4c82c3d0",
+            "moDisplayDistanceDim_c",
+            "moDisplayItem_c.Serialize",
+            "moDisplayObject_c.FUN_4ba4d3c0",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFavoriteHandle_c",
+            "moFeatureDimHandle_c",
+            "moFeatureDim_c.FUN_4c833f00",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moLengthParameter_c",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateDim_c",
+            "moMateDistanceDim_c",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModDimHandle_c.Serialize",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "su_CStringArray",
+            "utLineWidth_c.Serialize.3.0",
+            "utLineWidth_c.Serialize0",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "driving_distance": {
+          "constructor_value_cache": 0.0,
+          "dimension_id": 19,
+          "dimension_log_absent": true,
+          "header_next_id": 21,
+          "mate_id": 20,
+          "options": [
+            1,
+            1,
+            1,
+            3,
+            3,
+            0
+          ],
+          "parameter_id": -1,
+          "parameter_name": "D1",
+          "retaining_handle_count": 1,
+          "text_kind": 18,
+          "value_metres": 0.093625
+        },
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 20,
+        "ordered_datum_ids": [
+          14,
+          14
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "7c9e9002bfacca0cfb69143ea5ec4280a3fb4dd1c36049846cad1f073a898c5e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9c3d8f5e8ed2582c9e6fc15c837bf4b11f0f98abf5cc1e94f0c94ecf134fe204",
+        "worker_pid": 14256
+      },
+      "sdk": {
+        "entrypoint": "re/tooling/sw2026/SdkDistanceMateProcess.py",
+        "exit_code": 0,
+        "request_sha256": "9d84248c91bfe18c0e57b37f8bb62748dafd0a9e70b9cf95dc6d4d7ed4628328",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b80737e606f4e81a496df171631a16d3f72bd6dcee524d3e6a27a581c9c29a09",
+        "worker_pid": 14255
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    }
+  ],
+  "prior_planar_tranche": {
+    "changed_paths": [],
+    "manifest_sha256": "851c64e766184f28bc038e8e7d240f29af0c578f2dc9ba7174e6a8ad5ffc47e0",
+    "paths": 56
+  },
+  "proof_identity": {
+    "native_inputs_read": 0,
+    "python_version": "3.11",
+    "raw_sha256": "91ef6b7c59fb761113ca4bea4395ab8136d1d1be0f570a1ef261085737b93a8f",
+    "source_locked_before_generation": true,
+    "source_manifest_sha256": "1c479987d6cf90128ddf398afd31118fb0297e166f281fddca18a30e648c9324"
+  },
+  "public_writer_enabled": false,
+  "runtime_input_file_read_attempts": 0,
+  "schema": "kit.sw2026.sdk-distance-construction.v1",
+  "sdk_header_boundary_diagnostic": {
+    "actual_direct_header_log_nodes": 1,
+    "actual_item_type": "ArchiveNode",
+    "authored_request_sha256": "99c866822079b8d22c580fc83cc55b5ce33da623a3ffb71851ce391b9a755221",
+    "distance_or_mate_allocations_before_failure": 0,
+    "exception": "planar mate graph expected an embedded record",
+    "exception_type": "ValueError",
+    "expected_failure": true,
+    "failing_helper": "DatumTime.ReadRows",
+    "header_source": "freshly generated child ModelHeader decoded by standalone SDK Header codec",
+    "native_inputs_read": 0,
+    "probe_sha256": "bd285d421f4574348bba03c943bb2495ef25c848543bcd0f571ce30894f894bc",
+    "qualified_constructor_case": false,
+    "shared_frozen_helper_modified": false,
+    "writer_output_count": 0
+  },
+  "source": {
+    "full_frozen_python_count": 4464,
+    "owned_python_count": 32,
+    "owned_python_files": {
+      "re/tooling/sw2026/CheckSdkDistance.py": {
+        "bytes": 5678,
+        "sha256": "86d4c64eac7b27fca9b05d50cf7e8f99d882f4b5bfde493111d8e0ed6c0173ef"
+      },
+      "re/tooling/sw2026/SdkDistanceBridge.py": {
+        "bytes": 5561,
+        "sha256": "ad8ce44032d8f78f1c4747389da077441cc06954e02b7d1be506ce41098afe18"
+      },
+      "re/tooling/sw2026/SdkDistanceMateProcess.py": {
+        "bytes": 5072,
+        "sha256": "c76d8aca3e9e883d94216edbac89b1e1f49236d21cbb15493bc768915f034a14"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/DimensionGraph.py": {
+        "bytes": 421,
+        "sha256": "89fa2da60e35388439e01004fa89f6e24076a6c8b2270f6175dccda57cadd3bb"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/DistanceInput.py": {
+        "bytes": 1118,
+        "sha256": "574a5957e9f2e886e6fe716db4ef9561ecfb563f16a6652a529403c2c2a218d2"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/LinearStyle.py": {
+        "bytes": 348,
+        "sha256": "60b11947e77e09da6df5d772652b3b13b10cfc68ec28a56f24ecabb53057ae29"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDimText.py": {
+        "bytes": 836,
+        "sha256": "a30fa63b9ba94e188bec071766700b8fe3271d79af5fe59d4670ea0792a97d9f"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDimValue.py": {
+        "bytes": 1022,
+        "sha256": "f3967d22ea2f2ad23a37731e7c7ce0f35f0c686456815ff97e1b21cb7d85bc2f"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDisplayCore.py": {
+        "bytes": 5997,
+        "sha256": "7157b3628cd791a9ac06b997db2b796b6fe8730af46ee3f8561587ca052438ff"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDistDisplay.py": {
+        "bytes": 1302,
+        "sha256": "a2cf241f631fd11f05934fbb00d77f919541ceb09e86380c9416fcad6fa18e9e"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDistance.py": {
+        "bytes": 1742,
+        "sha256": "9aa1be00fcab82e2cb1ce06806a87673751fca04b3cfe8f3a2d651a5fe98e929"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeFavorite.py": {
+        "bytes": 431,
+        "sha256": "9ee01de2c6b5b3d8bd78a996123d389ddef334209aa63fe1f0148db7b9bff0cd"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeHandleMut.py": {
+        "bytes": 1275,
+        "sha256": "6187c66a1e7e9839a8a8b964d0c8a43e85127ea61a99e3fb39f623af37d82f74"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeLengthParam.py": {
+        "bytes": 998,
+        "sha256": "82d3c607a9c7fa5ba7dba3477c7f6f679f729d2ef38cf3156f88e3e7f5de2690"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeLocalRef.py": {
+        "bytes": 733,
+        "sha256": "6f3826fd7329696531a4aa82bfb2f019a81f7c764bde4ec31a640a3f0e94354b"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeObList.py": {
+        "bytes": 192,
+        "sha256": "699708df5e7edb93b8035f34dec8814d1655a94e3e102ea5269f66202c61bc5d"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakePoint.py": {
+        "bytes": 265,
+        "sha256": "2080128edca023525370ea71b791a0e849cbcecd2056dbc089b7307dfce53e79"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeRawIdentity.py": {
+        "bytes": 574,
+        "sha256": "fd8edfc07b4aec760f72d4f1a5173f0af263fc07ff2a86f46ffefd0f9d315d1f"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/ReadLinearStyle.py": {
+        "bytes": 2118,
+        "sha256": "be9c4d12b9e79e18251680c03f0ff804ffe6ecd8bcfeb97013ac2825adaa42f5"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/StyleInteger.py": {
+        "bytes": 580,
+        "sha256": "319c472664746257ed0c3d6d91ae8b5cc994970fbfc8f5d0d1054f5c1d16101b"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarDistance/CheckDistCtx.py": {
+        "bytes": 3287,
+        "sha256": "47f3daaf9fb726cae4db337f093f5f82d741dcb5464bbbc287930b229ea6c6c3"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarDistance/CheckDistPlanes.py": {
+        "bytes": 1206,
+        "sha256": "ae88a7e006b8b68766fee8e89af50e0bffeddc05d818a2a3044eed1267efd031"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarDistance/MakeDistBase.py": {
+        "bytes": 1628,
+        "sha256": "7b28e74adc01fc40ed5d29d14c72b0615589935031b41d0c6021f9059df61450"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarDistance/MakeDistMateMut.py": {
+        "bytes": 3033,
+        "sha256": "3b4d90af3655c2bfb91df5806b400e4558a8fab31e828a59d1e3f56b6a9c46f2"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarDistance/RequireIdRoom.py": {
+        "bytes": 590,
+        "sha256": "36a27ef8381e5fcb92ef7cfef3b050ef11a61f8206a2fb80502101aa2ca785d7"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Distance/AssertDistGraph.py": {
+        "bytes": 1913,
+        "sha256": "b5fbdc573bf09ea35d23c3d29a5354f05535e559c4816dea1cd4e75dbb494f5f"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Distance/AssertDistWire.py": {
+        "bytes": 1181,
+        "sha256": "cc190fb17e0e5b61e432bd46aedd2ceeca2f1108fdbe3b8bc3450e51e27e8ba2"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Distance/DistanceCtorTests.py": {
+        "bytes": 742,
+        "sha256": "0f6e1b4dcc9f6ba81d03b6f300f504fefd3f005144bcff5641f75c7e16e6e266"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Distance/DistanceEditTests.py": {
+        "bytes": 1385,
+        "sha256": "f39c48690a4cdeb971899404d728128044b0b535a60c03f59d84e3bb224cae89"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Distance/DistanceFaultTests.py": {
+        "bytes": 1913,
+        "sha256": "34aca5a78cf0c617c71cbce3358509f1af6228eab3a35dc418940b45b7d6d7a2"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Distance/MakeDistInput.py": {
+        "bytes": 2159,
+        "sha256": "1f78349ea8ad8ea727de938993f6abd64460f61c6a75c5461b9cb62fe0ae5190"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Distance/RunSdkDistance.py": {
+        "bytes": 1049,
+        "sha256": "f52c286bb791589472d49a6f1b0e1e5a73b49d8ecdaa8d47c7c62fc7edaf3a14"
+      }
+    }
+  },
+  "source_files": 4464,
+  "source_locked_before_generation": true,
+  "source_manifest_sha256": "1c479987d6cf90128ddf398afd31118fb0297e166f281fddca18a30e648c9324",
+  "source_unchanged": true,
+  "value_changes": [
+    {
+      "after_metres": 0.093625,
+      "axis": "x",
+      "before_metres": 0.071375,
+      "changed_parent_streams": [
+        "Contents/Config-0-MatesList"
+      ],
+      "child_unchanged": true
+    },
+    {
+      "after_metres": 0.093625,
+      "axis": "y",
+      "before_metres": 0.071375,
+      "changed_parent_streams": [
+        "Contents/Config-0-MatesList"
+      ],
+      "child_unchanged": true
+    },
+    {
+      "after_metres": 0.093625,
+      "axis": "z",
+      "before_metres": 0.071375,
+      "changed_parent_streams": [
+        "Contents/Config-0-MatesList"
+      ],
+      "child_unchanged": true
+    }
+  ],
+  "verification": {
+    "black": {
+      "passed": true
+    },
+    "donor_scan": {
+      "files": 3788,
+      "recorded_payloads": 0
+    },
+    "permanent_process_integrations": {
+      "failed": 0,
+      "passed": 36
+    },
+    "pyright": {
+      "existing_unknown_configuration_keys": 3,
+      "source_errors": 0,
+      "source_warnings": 0
+    },
+    "ruff": {
+      "passed": true
+    },
+    "steering": {
+      "files": 29,
+      "passed": true
+    },
+    "strict_mypy": {
+      "files": 29,
+      "passed": true
+    }
+  }
+}
