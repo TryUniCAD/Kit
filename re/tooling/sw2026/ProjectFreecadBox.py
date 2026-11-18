@@ -7,7 +7,10 @@ from math import isclose, isfinite
 from uuid import UUID
 
 from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTextInput import PartTextInput
+from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.LowerBoxModel import LowerBoxModel
+import FreecadBoxRelease as release_fields
+from FreecadBoxRelease import child, require, value
 from interchange import CadDocument, NativeFeatureDefinition
 from interchange.document.Validation.DocumentValidate import AssertValid
 
@@ -42,23 +45,7 @@ class BoxProjection:
     source_body_label: str
     source_feature_label: str
     geometry: dict
-
-
-def require(value, message):
-    if not value:
-        raise ValueError(message)
-
-
-def child(prop, kind, tag):
-    require(prop["tag"] == "Property" and prop["attributes"]["type"] == "App::Property" + kind,
-            f"FreeCAD property has a different type for {prop['attributes']['name']}")
-    values = prop["children"]
-    require(len(values) == 1 and values[0]["tag"] == tag, "FreeCAD property shape differs from the documented object")
-    return values[0]
-
-
-def value(properties, name, kind, tag):
-    return child(properties[name], kind, tag)["attributes"]["value"]
+    unit_recipe: UnitInput | None
 
 
 def default(properties, name, kind, tag, expected):
@@ -80,23 +67,36 @@ def identity(properties, name):
             f"FreeCAD {name} requires explicit support placement")
 
 
-def geo_properties(properties):
+def geo_properties(properties, version):
     for name in ("AttachmentOffset", "Placement"):
         identity(properties, name)
     default(properties, "BaseFeature", "Link", "Link", "")
     default(properties, "AttacherType", "String", "String", "Attacher::AttachEngine3D")
     default(properties, "MapMode", "Enumeration", "Integer", "0")
     default(properties, "MapReversed", "Bool", "Bool", "false")
-    default(properties, "Refine", "Bool", "Bool", "false")
+    refine = value(properties, "Refine", "Bool", "Bool")
+    require(refine in (("false",) if version == "0.21" else ("false", "true")),
+            "FreeCAD box has an unqualified refinement state")
     default(properties, "Visibility", "Bool", "Bool", "true")
     default(properties, "Label2", "String", "String", "")
-    empty(properties, "Support", "LinkSubList", "LinkSubList")
+    empty(properties, "Support" if version == "0.21" else "AttachmentSupport", "LinkSubList", "LinkSubList")
     empty(properties, "ExpressionEngine", "ExpressionEngine", "ExpressionEngine")
     require(float(value(properties, "MapPathParameter", "Float", "Float")) == 0,
             "FreeCAD attachment has an active path coordinate")
+    if version != "0.21":
+        require(release_fields.caption(properties, "AttacherEngine") == "Engine 3D",
+                "FreeCAD box has an unqualified named attachment engine")
+        default(properties, "Suppressed", "Bool", "Bool", "false")
+        suppressed_shape = properties["SuppressedShape"]
+        require(suppressed_shape["tag"] == "Property"
+                and suppressed_shape["attributes"]["type"] == "Part::PropertyPartShape",
+                "FreeCAD suppression cache has an unqualified property type")
+    if version == "1.1":
+        require(float(value(properties, "FuzzyTolerance", "FloatConstraint", "Float")) == -1.0,
+                "FreeCAD box has an active fuzzy tolerance")
 
 
-def box_dimensions(document, feature, properties):
+def box_dimensions(document, feature, properties, version):
     scalars = {}
     for item in document.parameters:
         key = item.attributes.get("freecad_path")
@@ -115,15 +115,26 @@ def box_dimensions(document, feature, properties):
             "FreeCAD box does not carry three positive independent source dimensions")
     known_scalars = {"AttacherType", "Height", "Label", "Label2", "Length", "MapMode", "MapPathParameter",
                      "MapReversed", "Refine", "Visibility", "Width"}
+    if version != "0.21":
+        known_scalars |= release_fields.FEATURE_SCALARS
+    if version == "1.1":
+        known_scalars.add("FuzzyTolerance")
     require(set(scalars) == known_scalars and {x.id for x in document.parameters} == set(feature.parameter_ids),
             "FreeCAD box contains a foreign driving property")
+    if version != "0.21":
+        require(scalars["AttacherEngine"].value.value == "Engine 3D" and scalars["Suppressed"].value.value is False
+                and scalars["Refine"].value.value == (value(properties, "Refine", "Bool", "Bool") == "true"),
+                "FreeCAD box carries an inconsistent attachment, refinement or suppression owner")
+    if version == "1.1":
+        require(scalars["FuzzyTolerance"].value.value == -1.0,
+                "FreeCAD box carries an inconsistent neutral tolerance owner")
     return bound, measures
 
 
-def box_semantics(document):
+def box_semantics(document, version):
     AssertValid(document)
     require(document.source.format_id == "freecad.fcstd" and document.source.container_version == "1"
-            and document.source.application_version.startswith("0.21") and document.source.attributes == {"freecad_schema_version": "4"}
+            and version is not None and document.source.attributes == {"freecad_schema_version": "4"}
             and str(document.units) == "mm", "expected the measured FreeCAD schema-four primitive source")
     require(set(document.metadata) == {"freecad"} and not (document.materials or document.sketches or document.selections
             or document.assembly or document.DrawingValue or document.meshes),
@@ -140,8 +151,9 @@ def box_semantics(document):
     return feature, body, config
 
 
-def check_body(body, part, properties):
-    require(set(properties) == BODY_PROPERTIES, "FreeCAD Body property set differs")
+def check_body(body, part, properties, version):
+    expected = BODY_PROPERTIES if version == "0.21" else BODY_PROPERTIES | release_fields.BODY_PROPERTIES
+    require(set(properties) == expected, "FreeCAD Body property set differs")
     identity(properties, "Placement")
     default(properties, "BaseFeature", "Link", "Link", "")
     default(properties, "Label", "String", "String", body.name)
@@ -154,6 +166,11 @@ def check_body(body, part, properties):
     require(links["attributes"]["count"] == "1" and len(links["children"]) == 1
             and links["children"][0]["tag"] == "Link" and links["children"][0]["attributes"]["value"] == part,
             "FreeCAD Body group owns another source feature")
+    if version != "0.21":
+        compound = value(properties, "AllowCompound", "Bool", "Bool")
+        require(compound in ("false", "true"), "FreeCAD Body has a malformed compound setting")
+        return {"FreeCAD Body Allows Compound": compound, "FreeCAD Body Material UUID": release_fields.material_id(properties)}
+    return {}
 
 
 def check_geometry(document, sizes):
@@ -172,9 +189,12 @@ def check_geometry(document, sizes):
             "source_cache_compared": document.brep is not None}
 
 
-def source_text(document, body, feature, dimensions):
+def source_text(document, body, feature, dimensions, version, flags):
     original = document.metadata["freecad"]
-    require(set(original) == {"document_properties", "entry_order", "file_version", "objects", "program_version", "schema_version"},
+    schema = {"document_properties", "entry_order", "file_version", "objects", "program_version", "schema_version"}
+    if version != "0.21":
+        schema.add("string_hasher")
+    require(set(original) == schema,
             "FreeCAD document carries a different source state inventory")
     require(original["program_version"] == document.source.application_version
             and original["file_version"] == document.source.container_version
@@ -182,7 +202,8 @@ def source_text(document, body, feature, dimensions):
             "FreeCAD document and source version owners disagree")
     records = original["document_properties"]["children"]
     properties = {row["attributes"]["name"]: row for row in records}
-    require(len(properties) == len(records) and set(properties) == DOCUMENT_PROPERTIES,
+    expected = DOCUMENT_PROPERTIES if version == "0.21" else DOCUMENT_PROPERTIES | release_fields.DOCUMENT_PROPERTIES
+    require(len(properties) == len(records) and set(properties) == expected,
             "FreeCAD source document contains an unqualified property set")
     for name in ("FileName", "Tip", "TransientDir"):
         require(properties[name]["tag"] == "_Property" and "children" not in properties[name],
@@ -207,17 +228,58 @@ def source_text(document, body, feature, dimensions):
                   "FreeCAD Source Version": document.source.application_version,
                   "FreeCAD Source Schema": original["schema_version"], "FreeCAD Show Hidden": "false"})
     extra.update({"FreeCAD " + name + " Parameter": item.id for name, item in zip(DIMENSIONS, dimensions, strict=True)})
-    return raw["Label"], PartTextInput(summary, extra, {}), int(creation.timestamp())
+    units = None
+    if version != "0.21":
+        release_fields.cache_document(original)
+        units, preferences = release_fields.document_units(properties)
+        extra.update(preferences)
+        extra.update(flags)
+    return raw["Label"], PartTextInput(summary, extra, {}), int(creation.timestamp()), units
+
+
+def source_origin(objects, expected, version):
+    known = {row["name"]: row for row in objects}
+    if version == "1.1":
+        expected = expected | {"Origin001": "App::Point"}
+    require({name: row["type_id"] for name, row in known.items()} == expected and len(objects) == len(expected),
+            "FreeCAD source includes another modeled object")
+    if version != "1.1":
+        return {}
+    origin = known["Origin"]
+    owned = tuple(name for name, kind in expected.items() if kind in ("App::Line", "App::Plane", "App::Point"))
+    children = child(origin["properties"]["OriginFeatures"], "LinkList", "LinkList")
+    require(children["attributes"]["count"] == str(len(owned))
+            and tuple(row["attributes"]["value"] for row in children["children"] if row["tag"] == "Link") == owned
+            and origin["dependencies"] == list(owned) and not origin["touched"],
+            "FreeCAD origin has another owned source datum")
+    identity(origin["properties"], "Placement")
+    row = known["Origin001"]
+    point = row["properties"]
+    require(set(point) == {"ExpressionEngine", "Label", "Label2", "Placement", "Role", "Visibility"}
+            and not (row["touched"] or row["dependencies"] or row["extensions"]),
+            "FreeCAD origin point has an unqualified property or owner")
+    identity(point, "Placement")
+    empty(point, "ExpressionEngine", "ExpressionEngine", "ExpressionEngine")
+    default(point, "Role", "String", "String", "Origin")
+    default(point, "Label2", "String", "String", "")
+    default(point, "Visibility", "Bool", "Bool", "true")
+    return {"FreeCAD Origin Point Id": row["name"], "FreeCAD Origin Point Label": value(point, "Label", "String", "String")}
 
 
 def project(document, *, source_labels=False):
-    feature, body, _ = box_semantics(document)
+    version = release_fields.release(document.source.application_version)
+    feature, body, _ = box_semantics(document, version)
     data = feature.definition.object_data
     part = data["name"]
     properties = data["properties"]
-    require(set(properties) == FEATURE_PROPERTIES and data["type_id"] == "PartDesign::AdditiveBox" and not data["touched"],
+    expected_properties = FEATURE_PROPERTIES
+    if version != "0.21":
+        expected_properties = (FEATURE_PROPERTIES - {"Support"}) | release_fields.FEATURE_PROPERTIES
+    if version == "1.1":
+        expected_properties |= {"FuzzyTolerance"}
+    require(set(properties) == expected_properties and data["type_id"] == "PartDesign::AdditiveBox" and not data["touched"],
             "FreeCAD primitive property layout differs from the documented profile")
-    require(data["extensions"] == [{"attributes": {"name": "AttachExtension", "type": "Part::AttachExtension"}, "tag": "Extension"}]
+    require(data["extensions"] == release_fields.extensions(version)
             and data["dependencies"] == [body.attributes["freecad"]["name"]],
             "FreeCAD primitive uses another attachment engine or owner")
     require({plane.name for plane in document.support_planes} == set(AXIS_ROLES)
@@ -233,14 +295,19 @@ def project(document, *, source_labels=False):
     expected = {body.attributes["freecad"]["name"]: "PartDesign::Body", part: "PartDesign::AdditiveBox", "Origin": "App::Origin",
                 **{axis + "_Axis": "App::Line" for axis in ("X", "Y", "Z")},
                 **{plane + "_Plane": "App::Plane" for plane in ("XY", "XZ", "YZ")}}
-    require({row["name"]: row["type_id"] for row in objects} == expected and len(objects) == len(expected),
-            "FreeCAD source includes another modeled object")
+    origin_properties = source_origin(objects, expected, version)
     default(properties, "Label", "String", "String", feature.name)
-    geo_properties(properties)
-    check_body(body, part, body.attributes["freecad"]["properties"])
-    owners, sizes = box_dimensions(document, feature, properties)
+    geo_properties(properties, version)
+    body_properties = check_body(body, part, body.attributes["freecad"]["properties"], version)
+    flags = body_properties | origin_properties
+    if version != "0.21":
+        flags.update({"FreeCAD Feature Material UUID": release_fields.material_id(properties),
+                      "FreeCAD Feature Refine": value(properties, "Refine", "Bool", "Bool")})
+    if version == "1.1":
+        flags["FreeCAD Feature Fuzzy Tolerance"] = value(properties, "FuzzyTolerance", "FloatConstraint", "Float")
+    owners, sizes = box_dimensions(document, feature, properties, version)
     geometry = check_geometry(document, sizes)
-    name, text, creation = source_text(document, body, feature, owners)
+    name, text, creation, units = source_text(document, body, feature, owners, version, flags)
     lowered = LowerBoxModel(
         document, name, tuple(item.id for item in owners), sizes,
         DIMENSIONS if source_labels else ("D1", "D2", "D1"),
@@ -248,4 +315,4 @@ def project(document, *, source_labels=False):
     )
     owner_names = {item.id: item.name for item in (*lowered.sketches, *lowered.feature_timeline)}
     bindings = {item.id: item.name + "@" + owner_names[item.owner_id] for item in lowered.parameters}
-    return BoxProjection(lowered, text, sizes, creation, bindings, body.name, feature.name, geometry)
+    return BoxProjection(lowered, text, sizes, creation, bindings, body.name, feature.name, geometry, units)

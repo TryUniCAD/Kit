@@ -31,7 +31,7 @@ drivers and the 13 literal file properties. The default strict Parasolid
 request reports a missing readable payload on the freshly generated file.
 The history check explicitly disables B-rep and tessellation requests.
 
-Eleven additional F14 inputs reject outside the scoped projection due to
+The first build rejects eleven additional F14 inputs outside the scoped projection due to
 active attachment, other authored entities or a different schema version.
 The build verifies one disclosed source.
 `InspectFreecadBoxNative.py` is prepared to measure the exact generated file,
@@ -108,3 +108,7 @@ The first cached source geometry check stays in the FreeCAD research
 admission layer. The [shared build receipt](../measurements/2026/SdkFreecadBoxSharedBuild01.json)
 binds the current builder to these disclosed files. Public registration and
 qualification against the original corpus remain open.
+
+The later [release-specific profile work](FreecadOriginBoxReleases2026.md)
+admits the two newer disclosed origin boxes while maintaining byte
+identity for both legacy native-tested files.

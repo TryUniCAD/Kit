@@ -111,7 +111,7 @@ def snapshot(author, case):
     return state
 
 
-def phase(output, role, source, digest, case, prior=None):
+def phase(output, role, source, digest, case, prior=None, *, observe_snapshot=snapshot):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -144,7 +144,7 @@ def phase(output, role, source, digest, case, prior=None):
                 nonlocal roles, signature
                 if rebuild:
                     curves.require(author.get(author.model, "ForceRebuild3", False), "FreeCAD box target did not rebuild")
-                state = result["states"][label] = snapshot(author, case)
+                state = result["states"][label] = observe_snapshot(author, case)
                 rec.flush()
                 if roles is None:
                     roles = geometry_roles(state["geometry"], case["vertices_m"])

@@ -38,6 +38,7 @@ def build(request):
     part = projected.model
     part_file = MakeOriginBoxPart(
         part, request["native_path"], projected.creation_epoch, projected.properties,
+        UnitsValue=projected.unit_recipe,
     )
     plan = part_file.PlanValue
     if type(plan) is not BlindPlan:

@@ -398,6 +398,13 @@ body mass and geometry. Eight normal SDK reads retain the modeled
 solid and driving depth. This setting qualification adds zero original
 FCStd corpus passes.
 
+The [release-specific FreeCAD box proof](measurements/2026/SdkFreecadBoxReleaseConstruction01.json)
+audits twelve schema-four inputs. Three disclosed origin-box forms
+build with exact driver and text recovery, and nine attached or
+multi-feature variants reject. Four targeted mutations also reject.
+The newer source forms use native custom kilograms. Their fresh native
+lifecycles and historical-original membership remain open.
+
 The two [original SDK circle parts](records/SdkOriginalCircleNative2026.md)
 pass native source parity for translated Front-plane diameter and reversed
 Top-plane radius. All 14 controlled phases and 400 recorded numerical checks
