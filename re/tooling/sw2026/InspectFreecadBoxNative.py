@@ -54,8 +54,15 @@ def verify(packet, expected):
                    and [case["dimensions_m"][name] * 1000 for name in names] == build["source_dimensions_mm"]
                    and case["source_text"] == build["source_text"] and len(build["streams"]) == 12,
                    "FreeCAD box candidate does not bind its actual source and guarded build")
+    source_labels = job.get("preserve_source_labels", False)
+    curves.require(type(source_labels) is bool, "FreeCAD box trial requires an explicit label policy")
+    if source_labels:
+        curves.require(build["actual_native_body_label_plan"] == case["source_body_label"],
+                       "guarded FreeCAD box build changed the authored body label")
+        case["required_native_body_label"] = case["source_body_label"]
     location = PureWindowsPath(build["native_path"])
-    curves.require(location.parent == PureWindowsPath(r"C:\KitFreecadBox121") and location.name == case["name"] + ".SLDPRT",
+    expected_directory = r"C:\KitFreecadBoxNames121" if source_labels else r"C:\KitFreecadBox121"
+    curves.require(location.parent == PureWindowsPath(expected_directory) and location.name == case["name"] + ".SLDPRT",
                    "FreeCAD box candidate lacks its exact isolated native identity")
     curves.require(case["density_kg_m3"] == 1 and case["document_preference_density_kg_m3"] == 1000,
                    "this unassigned part profile requires the separately measured density owners")
@@ -79,6 +86,8 @@ def snapshot(author, case):
     curves.require(len(bodies) == 1, "FreeCAD box target must have one actual solid")
     body = author.typed(bodies[0], "Body2")
     state["body_name"] = str(author.get(body, "Name"))
+    if "required_native_body_label" in case:
+        curves.require(state["body_name"] == case["required_native_body_label"], "FreeCAD authored body label differs")
     state["body_type"] = int(author.get(body, "GetType"))
     state["body_topology"] = [int(author.get(body, method)) for method in ("GetVertexCount", "GetEdgeCount", "GetFaceCount")]
     file_owner = manager(author, model, "")

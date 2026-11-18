@@ -5,7 +5,7 @@ from collections import Counter
 from SdkBlindPartChecks import index, name, node, require
 
 
-def corner(profile, origin, model, vertices, prepared):
+def corner(profile, origin, model, vertices, prepared, driver_names=("D1", "D2")):
     sketch = node(profile.FieldsValue["pd_f80"], "sgSketch")
     origin_sketch = node(origin.FieldsValue["pd_f80"], "sgSketch")
     fields = sketch.FieldsValue
@@ -65,7 +65,7 @@ def corner(profile, origin, model, vertices, prepared):
         value = node(row["d"], "sgPntPntDist")
         parameter = node(value.FieldsValue["f28"], "moLengthParameter_c")
         length = vertices[ordinal + 1][ordinal] - vertices[ordinal][ordinal]
-        require(name(parameter) == f"D{ordinal + 1}" and parameter.FieldsValue["f58"] == length and
+        require(name(parameter) == driver_names[ordinal] and parameter.FieldsValue["f58"] == length and
                 value.FieldsValue["f50"] == 19 + ordinal, "anchor changed actual named length drivers")
         for handle_name, expected in (("h1", ordinal), ("h2", ordinal + 1)):
             handle = node(value.FieldsValue[handle_name], "sgPointHandle")

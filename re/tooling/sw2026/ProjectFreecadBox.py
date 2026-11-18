@@ -210,7 +210,7 @@ def source_text(document, body, feature, dimensions):
     return raw["Label"], PartTextInput(summary, extra, {}), int(creation.timestamp())
 
 
-def lower_box(document, name, feature, body, config, parameters, sizes):
+def lower_box(document, name, feature, body, config, parameters, sizes, source_labels=False):
     draft = MakeCornerDoc(name, *sizes)
     source_sketch, source_feature = draft.sketches[0], draft.feature_timeline[0]
     sketch_name = feature.name + " Profile"
@@ -222,20 +222,30 @@ def lower_box(document, name, feature, body, config, parameters, sizes):
                       for item in source_sketch.constraints)
     sketch = replace(source_sketch, id=sketch_id, name=sketch_name, support_plane_id=support.id,
                      constraints=relations, parameter_ids=tuple(source_param_ids[key] for key in source_sketch.parameter_ids))
-    native_parameters = tuple(replace(item, id=source_param_ids[item.id], owner_id=sketch.id if item.owner_id == source_sketch.id else feature.id)
-                              for item in draft.parameters)
+    source_driver_names = {item.id: item.attributes["freecad_path"] for item in parameters} if source_labels else {}
+    native_parameters = tuple(
+        replace(
+            item,
+            id=source_param_ids[item.id],
+            owner_id=sketch.id if item.owner_id == source_sketch.id else feature.id,
+            name=source_driver_names.get(source_param_ids[item.id], item.name),
+        )
+        for item in draft.parameters
+    )
     operation = replace(source_feature, id=feature.id, name=feature.name, sketch_id=sketch.id,
                         parameter_ids=(source_param_ids["parameter/depth"],))
-    solid = replace(draft.bodies[0], id=body.id, name=operation.name, final_feature_id=operation.id)
+    solid = replace(
+        draft.bodies[0], id=body.id, name=body.name if source_labels else operation.name, final_feature_id=operation.id
+    )
     lowered = replace(draft, source=document.source, configurations=(config,), support_planes=(support,),
                       sketches=(sketch,), feature_timeline=(operation,), parameters=native_parameters, bodies=(solid,))
-    bindings = {parameters[0].id: "D1@" + sketch.name, parameters[1].id: "D2@" + sketch.name,
-                parameters[2].id: "D1@" + operation.name}
+    owner_names = {sketch.id: sketch.name, operation.id: operation.name}
+    bindings = {item.id: item.name + "@" + owner_names[item.owner_id] for item in native_parameters}
     AssertValid(lowered)
     return lowered, bindings
 
 
-def project(document):
+def project(document, *, source_labels=False):
     feature, body, config = box_semantics(document)
     data = feature.definition.object_data
     part = data["name"]
@@ -266,5 +276,5 @@ def project(document):
     owners, sizes = box_dimensions(document, feature, properties)
     geometry = check_geometry(document, sizes)
     name, text, creation = source_text(document, body, feature, owners)
-    lowered, bindings = lower_box(document, name, feature, body, config, owners, sizes)
+    lowered, bindings = lower_box(document, name, feature, body, config, owners, sizes, source_labels)
     return BoxProjection(lowered, text, sizes, creation, bindings, body.name, feature.name, geometry)

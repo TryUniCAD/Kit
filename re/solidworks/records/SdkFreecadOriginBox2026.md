@@ -81,3 +81,11 @@ source labels and confirmation of original corpus membership remain open.
 The [sanitized receipt](../measurements/2026/SdkFreecadOriginBoxNative01.json)
 records this verified target lifecycle and explicitly retains zero
 complete FCStd conversions.
+
+## Source label lifecycle
+
+A second generated candidate uses the actual neutral body label and the source `Length`, `Width` and `Height` property names. `MakeAnchorNamed` supplies the linked body atom and the same origin-anchored stock. The neutral request explicitly opts into source labels. The shipped internal research worker reproduces both the original candidate and the labelled candidate byte-for-byte with zero input reads during construction.
+
+The labelled candidate passes four SOLIDWORKS 2026 SP05.2 processes and 162 candidate checks. Both controls pass. The three independent edit and restoration paths retain the real names, origin, one solid, the 25-row native tree and 13 file properties. The final height is 14 mm through native SaveAs and a separate fresh reopen. The normal reader preserves all three driver owners, the body label and complete geometry on both the first generated file and the saved derivative. Both files re-emit six exact linked archive streams.
+
+The [source label receipt](../measurements/2026/SdkFreecadBoxSourceNames01.json) records the exact specialized native observer and newer reusable worker results separately. This disclosed measurement keeps original corpus qualification open.
