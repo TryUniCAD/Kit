@@ -1,8 +1,11 @@
 from types import MappingProxyType
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Header.HeaderFields import KStampFields
+from convert.adapters.solidworks.Archive.History.BiographyLayouts import (
+    KBiographyLayouts,
+)
 
-# ordinary fresh history owns current version states and only empty biography data without silently admitting legacy or populated records
+# ordinary version history and biography share the same typed metadata executor and independent stream maps
 KHistoryLayouts = MappingProxyType(
     {
         "moStamp_c": tuple(
@@ -15,20 +18,7 @@ KHistoryLayouts = MappingProxyType(
             )
             for NameValue, WireName in KStampFields
         ),
-        "moBiography_c": (
-            NativeField(
-                "Array",
-                "records",
-                "i32",
-                CountValue="n",
-                ModeValue="Positive",
-                BodyValue=(
-                    NativeField(
-                        "Fail", "populated biography is outside fresh history admission"
-                    ),
-                ),
-            ),
-        ),
+        **KBiographyLayouts,
         "moDateCodeState_c": (NativeField("Scalar", "f08", "i32"),),
         "moDateCodeHistory_c": (
             NativeField(

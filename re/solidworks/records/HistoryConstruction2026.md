@@ -1,7 +1,6 @@
 # SOLIDWORKS 2026 biography and history construction
 
-Status: **partial rules; generated metadata has no target acceptance**.
-Byte identity on saved controls does not establish fresh metadata or a writer.
+The ordinary fresh zero-record biography passes within multiple controlled part, assembly and drawing lifecycles. The shared SDK also decodes and exactly re-emits the measured saved record families. Full provenance and historical version coverage remain open.
 
 ## Binary evidence
 
@@ -23,8 +22,7 @@ The [2026 binary manifest](../v2026/Manifest2026.json) binds these addresses:
 The loader reads signed count `n`, reads saved records while `n > 0`, then
 unconditionally creates and appends a new initialized record.
 An empty persisted record list is therefore a binary-supported construction
-candidate. It emits no fabricated machine telemetry. It remains unaccepted
-until the complete generated document passes the oracle.
+candidate. Native lifecycles now verify that constructor state in the measured generated documents. The application writes its own populated record on save.
 
 | Field                             | Role               | Rule or unresolved obligation                                                    |
 | --------------------------------- | ------------------ | -------------------------------------------------------------------------------- |
@@ -51,6 +49,14 @@ for its string, `0x20 + 0x18k` for drive type and `0x28 + 0x18k` for
 the free-space pair. The initializer calls helper `0x4c721f30` for free space.
 The constructor zeroes start/end scalars and empties strings, but this does not
 prove that fabricated telemetry is an accepted saved record.
+
+## Saved biography in the shared SDK
+
+The exact 2026 model image confirms the standalone serializer at `0x4c71ec40`, the embedded record at `0x4c71ea50` and the embedded start/end record at `0x4c71f700`. Independently resolved exception-directory ranges and their byte hashes are recorded with the measurements. The shared codec reads the signed record count, the ordered scalar and CString fields, then the two embedded records. Each start/end record writes three 32-bit words followed by six path, drive-type and low/high free-space tuples. Embedded rows retain field order without growing the class/object map.
+
+The [source replay](../measurements/2026/SdkSavedBiography01.json) binds a pre-change disclosed cohort of four native parts, an assembly, a drawing and a fresh part. All fourteen Biography and History streams reproduce their exact original bytes and map entries. Six biographies in that cohort are populated, with one record on the parts and assembly and two on the drawing. A changed graph count is derived again from its actual array length. The receipt reports record counts and hashes. The normal fresh constructor still emits an empty array, and the prior 21-worker preparation result remains byte-identical.
+
+[Saved biography usage](../../../Documentation/Changes/Solidworks/Archive/Metadata/SolidworksSavedBiographyRecords.md) · [Embedded record gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Metadata/SavedBiographyUsesEmbeddedTelemetry.md)
 
 ## History
 

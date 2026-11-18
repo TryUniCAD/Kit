@@ -21,10 +21,4 @@ def CheckHistRoot(NodeValue: ArchiveNode | None) -> ArchiveNode:
         raise BodyUnsupported(
             "ordinary history requires a nonempty current version sequence"
         )
-    if NodeValue.ClassValue.NameValue == "moBiography_c" and (
-        NodeValue.FieldsValue.get("n", 0) != 0 or NodeValue.FieldsValue.get("records")
-    ):
-        raise BodyUnsupported(
-            "populated biography is outside the fresh metadata codec profile"
-        )
     return NodeValue

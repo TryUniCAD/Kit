@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Saved Biography and History](../measurements/2026/SdkSavedBiography01.json) | Six populated native saves and one fresh control re-emit fourteen metadata streams exactly. Through-all generation retains its prior full output hashes. |
 | [Generated ordinary revolves](../measurements/2026/SdkOrdinaryRevolveNative01.json) | Four neutral parts pass 340 native geometry and angle checks through edit, save and fresh reopen, with two healthy controls. |
 | [Drawing epoch lifecycles](../measurements/2026/DrawingSourceEpochNative01.json) | Four generated pairs pass 18 native phases and 20 typed joins. The independently modeled clocks and actual origin identity persist across fresh reopens. |
 | [Default SDK standalone part recipe](SdkDefaultPartRecipe2026.md) and [controlled native evidence](../measurements/2026/SdkDefaultPartNative01.json) | Four guarded writers reproduce the ten streams from two models. Both parts pass 240 native checks with the document density preference and effective unassigned body density measured separately. |
