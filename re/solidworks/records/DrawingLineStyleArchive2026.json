@@ -1,0 +1,120 @@
+{
+  "schema": "kit.sw2026.drawing-line-style-static-proof.v1",
+  "scope": "current drawing raw-wire line-style class reuse only",
+  "module": {
+    "name": "sldmfcu.dll",
+    "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "bytes": 8274520,
+    "base": "0x3c720000",
+    "file_version": [
+      34,
+      5,
+      2,
+      604
+    ]
+  },
+  "class": {
+    "name": "moLineStyle_c",
+    "rtti": [
+      ".?AVmoLineStyle_c@@",
+      ".?AVsu_CObject@@",
+      ".?AVCObject@@"
+    ],
+    "vtable": "0x3cc758e8",
+    "vtable_span": {
+      "start": "0x3cc758e8",
+      "end": "0x3cc75918",
+      "bytes": 48,
+      "sha256": "b3e0810a133342c374fa12d905d16f438f207a422a744033a0ceba775132ec86"
+    },
+    "locator_span": {
+      "start": "0x3ccd4648",
+      "end": "0x3ccd4660",
+      "bytes": 24,
+      "sha256": "ee9fa0301d882c5fd8cc74e1d81f72213c2255d4a3761ae2fe529b24b1bc8be0"
+    },
+    "serializer_slot": "0x28",
+    "serializer_target": "0x3c7fa820",
+    "runtime_getter": {
+      "start": "0x3c7fa810",
+      "end": "0x3c7fa818",
+      "bytes": 8,
+      "sha256": "eb8ed22ab07e0c138876ed3cd8acb3ea520ac9436a14b10661152fc2451ff946"
+    },
+    "runtime_descriptor": {
+      "start": "0x3ce6d4d0",
+      "end": "0x3ce6d500",
+      "bytes": 48,
+      "sha256": "e7f6441e16dbdb5f04f73db7e37b8846f4cd2d3175d9123197c19f6efb9f5d82"
+    },
+    "schema_word": "0x80000001",
+    "object_size": 48
+  },
+  "complete_serializer": {
+    "ranges": [
+      {
+        "start": "0x3c7fa820",
+        "end": "0x3c7fa934",
+        "bytes": 276,
+        "sha256": "23a24b72a2f549ebb8cfb0b0cfa4650e7de5ca88c4d388ddc73715091589252c"
+      }
+    ],
+    "unwind_rows": [
+      {
+        "begin": "0x3c7fa820",
+        "end": "0x3c7fa934",
+        "unwind": "0x3ccf9600"
+      }
+    ],
+    "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+  },
+  "published_proof": {
+    "record": "RadialPatternSemantics2026.json",
+    "whole_file_sha256": "c202ef94bb5919f2abd1f4751583a2a8e2a0814ea83b7426ca1f3598c2f08ee0",
+    "same_complete_native_serializer": true,
+    "constructor_defaults_not_transferred": true
+  },
+  "wire_order": [
+    "f08:CString",
+    "f10:CString",
+    "nseg:u16",
+    "f18: nseg ordered f64 seg words",
+    "f20:u8"
+  ],
+  "version_context": {
+    "admitted_version": 19000,
+    "database_supported": false,
+    "own_version_gates": [],
+    "own_context_selected_wire_fields": [],
+    "base": "su_CObject::Serialize; ordinary nonDB adds no fields"
+  },
+  "sdk_reuse": {
+    "path": "src/convert/adapters/solidworks/Archive/Definition/Fields/DocStyleFields.py",
+    "key": "moLineStyle_c",
+    "rule_sha256": "ca34220edd97dbe7f7a7647e79a06ebecb214b6000137f0381d9a1514cdbaae4",
+    "select_only_this_rule": true,
+    "other_bom_rule_admitted": false,
+    "existing_shared_field_layout_changed": false
+  },
+  "value_provenance": {
+    "strings": "preserved source wire inputs; no UI vocabulary defaults",
+    "ordered_segments": "preserved source f64 values; no pattern inference or reordering",
+    "flags": "preserved raw low byte; no dimension/display constructor state inferred"
+  },
+  "limits": [
+    "SDK u16 count writing rejects more than65535 modeled rows; pathological native oversized segment lists are not qualified",
+    "line-style semantic meaning and display constructors remain separate",
+    "full Definition and native writer acceptance not established by a class codec"
+  ],
+  "native_execution": false,
+  "vm_access": false,
+  "fresh_defaults_added": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}
