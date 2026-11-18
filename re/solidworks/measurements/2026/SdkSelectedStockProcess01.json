@@ -1,0 +1,544 @@
+{
+  "added_sdk_files": {
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/BindStockMut.py": {
+      "bytes": 944,
+      "sha256": "01147f29354710fef844b66bd8e3fcde71924cd2cf938854a47ea353ecaa17fd"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/CheckScopeFresh.py": {
+      "bytes": 2203,
+      "sha256": "a5d607823469d280d8edf36e6611c31b3e4d0b82eb87ed584d138d5ef8aea5ac"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/CheckScopeOwner.py": {
+      "bytes": 2269,
+      "sha256": "9b2301dc9bb5725e6c50b14434a43ab387302d3b6c45782174c434644dbea3e5"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/FinishScopePart.py": {
+      "bytes": 1660,
+      "sha256": "551bd25c89d4562e29946033dcb120d9a929c5b7bc473137ccda2593443b57bf"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/MakeBodyRef.py": {
+      "bytes": 1141,
+      "sha256": "a678238fc47f41c656bfa56516e2890df2b7cadbaa6da7e0e7f37f4d0bd06006"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/MakeStockAtom.py": {
+      "bytes": 607,
+      "sha256": "9f2a9d04c271a82d87257def1e958d3b35b38bca51f770c719da2385f43720c1"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/RequireStock.py": {
+      "bytes": 946,
+      "sha256": "7c5d48a42580ef9cf4cf2d7ea3e8d97c96290149ee665eb11a871638fc6f57d8"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/ScopedPart.py": {
+      "bytes": 485,
+      "sha256": "bff00141f7ebf93df02b7b56dadb9540066f63adb6b48223161f78e727e08f9d"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/SelectStockMut.py": {
+      "bytes": 1808,
+      "sha256": "d7f30a1778a6bb32613a64e1b2b43029e8b83f75efd4fbd0675a826b517fc055"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/SelectedStock.py": {
+      "bytes": 1595,
+      "sha256": "21ae387f90cb915eee7a01b315ba701e63da987b4b9d4fe45052c44b8dceb1a1"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/StockBodyGraph.py": {
+      "bytes": 589,
+      "sha256": "ea7ef925f24654ec2ef038696f8f78053d3508c0ae51c26aebca3cb5155740c8"
+    },
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/MakeScopedThru.py": {
+      "bytes": 1397,
+      "sha256": "b0103c3e8a1cf2978269fdebcc828257ad07865091550f97b4289a23c91c91a4"
+    }
+  },
+  "baseline_sdk_manifest_sha256": "7ff3eacf713c39e109c09bb786f521c9f97df3413c1224a5e7278438d4a4639e",
+  "changed_existing_sdk_files": [],
+  "compatibility_rejections": [
+    "depth-owner",
+    "draft-owner",
+    "metadata-loss",
+    "boss-operation",
+    "invalid-direction",
+    "nonprincipal-plane",
+    "wrong-destination",
+    "outside-circle",
+    "zero-stock-depth",
+    "negative-radius"
+  ],
+  "compatibility_result_sha256": "03975150bb694e8c18eec7877332fe3c4f2ba71a2738191e6697692545ca02f8",
+  "compatibility_workers": 31,
+  "continuous_automatic_selection_proven": false,
+  "heldout_payloads_read": 0,
+  "input_scope": "one actual first stock owner explicitly selected; ordinary same-principal-datum through-all circular cut",
+  "legacy_output_equivalence": [
+    {
+      "bytes": 8332,
+      "case": "blind",
+      "complete_output_unchanged": true,
+      "sha256": "a89a2b017290d0a9c7d5eb182433482cd4d5a60a7c15e8757a33acc770bd50dd"
+    },
+    {
+      "bytes": 8344,
+      "case": "mid_plane",
+      "complete_output_unchanged": true,
+      "sha256": "c8d227b1308276ac09516e502b98d972c00aa03cbef3dd106aaca4fb4ff63e2e"
+    },
+    {
+      "bytes": 8389,
+      "case": "two_directions",
+      "complete_output_unchanged": true,
+      "sha256": "7506c96a695e62d5dcdf4976c62821853b372aa316b664fce4f5d06d224f3b70"
+    },
+    {
+      "bytes": 8763,
+      "case": "SdkPocketA",
+      "complete_output_unchanged": true,
+      "sha256": "3481ad54c1f8e1659832ba8d3a48a9af9af8b000b9549e1987e130ff00442a59"
+    },
+    {
+      "bytes": 8467,
+      "case": "SdkPocketFree",
+      "complete_output_unchanged": true,
+      "sha256": "83365af8228dd7b172c5c61ede437d02009ef4d4d226144137ec78c2fe8d268f"
+    },
+    {
+      "bytes": 8807,
+      "case": "SdkPocketWideBeta",
+      "complete_output_unchanged": true,
+      "sha256": "03e87259a718e211fd948e581ca779d73372bc28e5a12ffd611f7092844b534e"
+    }
+  ],
+  "native_reference": {
+    "artifact_bytes": 8593,
+    "artifact_sha256": "339b4a635c9695306bcc8be512ba21f1473d97201a63b4ac668132ba7ef777a4",
+    "case": "G01FrontSelectedStock",
+    "new_native_processes_started": 0,
+    "persisted_cut_scope": 1,
+    "prior_native_checks": 72,
+    "prior_native_processes": 4,
+    "prior_native_result_sha256": "f95b0c5e647d2312d483da7a0e95c4444d551705127ddea1978e9c6c405ceeeb",
+    "prior_saved_audit_sha256": "10141630ce384c68aa91f206edcd1814ab80f253ba7c3f279f317f53a16a4038",
+    "prior_saved_stream_roundtrips": 6,
+    "sdk_output_identical": true
+  },
+  "new_native_processes_started": 0,
+  "original_source_equivalence": false,
+  "passed": true,
+  "public_writer_qualified": false,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.selected-stock-sdk-receipt.v1",
+  "scope_zero_outputs": [
+    {
+      "artifact_sha256": "5cefc9124919cb2d75a141610fa40a23c328d41297eba6aefe4bcb9f185a3115",
+      "bytes": 8497,
+      "case": "G01",
+      "grammar": {
+        "cut_depth_owners": 0,
+        "cut_draft_owners": 0,
+        "end_tuple": [
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        "feature_ids": {
+          "StockBoss": 19,
+          "StockProfile": 18,
+          "ThroughFeature": 26,
+          "ThroughProfile": 25
+        },
+        "saved_tail_values_used": false,
+        "stock_depth": {
+          "id": 20,
+          "name": "D1",
+          "value": 0.03173
+        }
+      },
+      "stream_comparisons": 30
+    },
+    {
+      "artifact_sha256": "b8e8c47f01777ece61ae07476aa4e0fe3796483eb8a50340624037d2c05b7452",
+      "bytes": 8532,
+      "case": "G02",
+      "grammar": {
+        "cut_depth_owners": 0,
+        "cut_draft_owners": 0,
+        "end_tuple": [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "feature_ids": {
+          "StockBoss": 19,
+          "StockProfile": 18,
+          "ThroughFeature": 26,
+          "ThroughProfile": 25
+        },
+        "saved_tail_values_used": false,
+        "stock_depth": {
+          "id": 20,
+          "name": "D1",
+          "value": 0.02617
+        }
+      },
+      "stream_comparisons": 30
+    },
+    {
+      "artifact_sha256": "eef937299332a0aadfe88793c3c1e7c78f52a47c23b95da2605a3f660bf1deb3",
+      "bytes": 8519,
+      "case": "G03",
+      "grammar": {
+        "cut_depth_owners": 0,
+        "cut_draft_owners": 0,
+        "end_tuple": [
+          0,
+          1,
+          1,
+          0,
+          1
+        ],
+        "feature_ids": {
+          "StockBoss": 19,
+          "StockProfile": 18,
+          "ThroughFeature": 26,
+          "ThroughProfile": 25
+        },
+        "saved_tail_values_used": false,
+        "stock_depth": {
+          "id": 20,
+          "name": "D1",
+          "value": 0.02839
+        }
+      },
+      "stream_comparisons": 30
+    }
+  ],
+  "sdk_family_qualified": false,
+  "sdk_runtime_research_imports": 0,
+  "sdk_source_files": 4483,
+  "selected_cases": [
+    {
+      "actual_stock_owner_retained": true,
+      "bytes": 8593,
+      "case": "G01",
+      "exact_prior_research_output": true,
+      "explicit_selection": {
+        "body_ids": [
+          "cut-body"
+        ],
+        "mode": "selected",
+        "version": 19000
+      },
+      "grammar": {
+        "actual_manager_boss_alias": true,
+        "actual_wrapper_base_and_lineage": true,
+        "actual_wrapper_self_owner": true,
+        "cut_output_atoms_precomputed": 0,
+        "end_tuple": [
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        "feature_ids": {
+          "StockBoss": 19,
+          "StockProfile": 18,
+          "ThroughFeature": 26,
+          "ThroughProfile": 25
+        },
+        "generated_stock_atom_id": 101,
+        "kernel_bodies_transmitted": 0,
+        "runtime_auto_word_emitted": false,
+        "selected_scope": 1
+      },
+      "only_changed_logical_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "scope_zero_sha256": "ad458bfdeb583a908a2772a643527db8a6c6c880da39129935af2147a719c2e0",
+      "sha256": "339b4a635c9695306bcc8be512ba21f1473d97201a63b4ac668132ba7ef777a4",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "0157c7e646f87a89bd82f4efdfb681b48d151bb4d7477761738743dad3c0cf31"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "22ce7462d92af360452f48ca31bfecbcaeb375a898f343fe62838460b633db41"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22372,
+          "sha256": "6e3fdb5d1e814a5ce584e655a38ad55a379c766e48e9e235dfb1af5ff81c68e7"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 799,
+          "sha256": "41c6876b468b1bb43a2f18f772418914c77bbdb7c8c5194cbc9970ba43da3365"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 15769,
+          "sha256": "7f011270b2a6555f9dc541f2d96155d4626bb07105223682325a82440bd98269"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 799,
+          "sha256": "096c9e63f380b3a4775caa93a21fd75ae1a6c4e549421591e973dc02224cf132"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "5b178f8a6849f8ccbab5f9cbe5a8c4cecb8b73d4e48340801be14d0e510433b4"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1558,
+          "sha256": "546222296771bf9fddb6b0aac582b8f1e2da4142130994c1655563eb01b1df43"
+        }
+      }
+    },
+    {
+      "actual_stock_owner_retained": true,
+      "bytes": 8636,
+      "case": "G02",
+      "exact_prior_research_output": true,
+      "explicit_selection": {
+        "body_ids": [
+          "cut-body"
+        ],
+        "mode": "selected",
+        "version": 19000
+      },
+      "grammar": {
+        "actual_manager_boss_alias": true,
+        "actual_wrapper_base_and_lineage": true,
+        "actual_wrapper_self_owner": true,
+        "cut_output_atoms_precomputed": 0,
+        "end_tuple": [
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "feature_ids": {
+          "StockBoss": 19,
+          "StockProfile": 18,
+          "ThroughFeature": 26,
+          "ThroughProfile": 25
+        },
+        "generated_stock_atom_id": 101,
+        "kernel_bodies_transmitted": 0,
+        "runtime_auto_word_emitted": false,
+        "selected_scope": 1
+      },
+      "only_changed_logical_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "scope_zero_sha256": "2b4a503728e3dd69faa56a22a84c4b4621b4bde47c04f4bb5f905e0945334bf6",
+      "sha256": "198d28a3ea3f347e8ef2ea5c5b327d86f015eabf0ffe044a7d0effa08749c340",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "0157c7e646f87a89bd82f4efdfb681b48d151bb4d7477761738743dad3c0cf31"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "22ce7462d92af360452f48ca31bfecbcaeb375a898f343fe62838460b633db41"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22372,
+          "sha256": "1a9fa3f846502d97585dd8cbab1ff3519e4d13d234f9f8bbd9a63496aa5e5b89"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 799,
+          "sha256": "cf5030b516e3e2e926a0ad065085ad0152db0cba4c0b9f11114def236c3abd2a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 15913,
+          "sha256": "aa9f49c1c799f5a1a71d8e5a7122762e4cba835764a164a270853bf8f4764899"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 799,
+          "sha256": "a39a3cb81cab562c3e951b2fef9545e27d2a747d3dd0a746694d0e6f117de3e4"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "5b178f8a6849f8ccbab5f9cbe5a8c4cecb8b73d4e48340801be14d0e510433b4"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1571,
+          "sha256": "d354e3443e9a9c5a48a2fa7ccec25439ef234bbc2c0c8e4b5d6d29d5abf642cc"
+        }
+      }
+    },
+    {
+      "actual_stock_owner_retained": true,
+      "bytes": 8615,
+      "case": "G03",
+      "exact_prior_research_output": true,
+      "explicit_selection": {
+        "body_ids": [
+          "cut-body"
+        ],
+        "mode": "selected",
+        "version": 19000
+      },
+      "grammar": {
+        "actual_manager_boss_alias": true,
+        "actual_wrapper_base_and_lineage": true,
+        "actual_wrapper_self_owner": true,
+        "cut_output_atoms_precomputed": 0,
+        "end_tuple": [
+          0,
+          1,
+          1,
+          0,
+          1
+        ],
+        "feature_ids": {
+          "StockBoss": 19,
+          "StockProfile": 18,
+          "ThroughFeature": 26,
+          "ThroughProfile": 25
+        },
+        "generated_stock_atom_id": 101,
+        "kernel_bodies_transmitted": 0,
+        "runtime_auto_word_emitted": false,
+        "selected_scope": 1
+      },
+      "only_changed_logical_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "scope_zero_sha256": "7bcce42f15186c2e7eb1f254894988d53905cd54bba4bda143c08f5ea4a7810d",
+      "sha256": "a728e68e5078343d010f3398e67406a1d25308b0d24a9a8ed4a14989e37e4921",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 1129,
+          "sha256": "0157c7e646f87a89bd82f4efdfb681b48d151bb4d7477761738743dad3c0cf31"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "22ce7462d92af360452f48ca31bfecbcaeb375a898f343fe62838460b633db41"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 22372,
+          "sha256": "5387bceb2739c7a832b2b421d2ab72315bd2b219ef96d3a47bd449bfb867752d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 799,
+          "sha256": "df1cc225224f7ed8f0abdc96efd414dc0dfed00b6465d14d374b8e97df5ca91d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 15913,
+          "sha256": "fa7bc92c5bec96608d4669d19f7eada4f08e3254f0fd008b444b9883ea620a17"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 799,
+          "sha256": "c305e10ce7ce36a0492aa71a2b4a3037e6f752474642903742e453252a069002"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "5b178f8a6849f8ccbab5f9cbe5a8c4cecb8b73d4e48340801be14d0e510433b4"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1571,
+          "sha256": "9f68980369efec4804ff1024c57137f8942212f749da4eb69bee4299a78f295f"
+        }
+      }
+    }
+  ],
+  "selected_exact_stream_roundtrips": 90,
+  "selected_process_result_sha256": "7688640bd5ce6d9d8390f21c0dec31be5436d7fba208734da54374f6f3febc0b",
+  "selected_workers": 31,
+  "selection_rejections": [
+    "missing-selection",
+    "null-selection",
+    "empty-selection",
+    "duplicate-selection",
+    "foreign-body-reference",
+    "continuous-automatic",
+    "all-bodies-fallback",
+    "unsupported-release",
+    "boolean-release",
+    "extra-scope-intent",
+    "foreign-stock-object",
+    "missing-typed-scope",
+    "unnamed-stock-owner",
+    "prior-scope-state",
+    "prior-stock-output",
+    "prior-manager-state",
+    "retained-ghost-state",
+    "foreign-feature-owner",
+    "unlisted-history-entry"
+  ],
+  "source_manifest_sha256": "8043e3ca0da63637ad83da326fcf6c02df34f0c3735d0f629e9c83642f419697",
+  "source_unchanged": true,
+  "static_verification_sha256": "d834c11b9130e1eed0db23246f31d37a65eccbc60d51f96abcc4fe2ef77ca201",
+  "strict_static_checks": {
+    "black": true,
+    "mypy_errors": 0,
+    "pyright_errors": 0,
+    "pyright_warnings": 0,
+    "recorded_payload_scan_clean": true,
+    "recorded_payload_scan_files": 4456,
+    "ruff": true,
+    "sdk_files": 12,
+    "steering": true
+  },
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "total_workers": 62
+}
