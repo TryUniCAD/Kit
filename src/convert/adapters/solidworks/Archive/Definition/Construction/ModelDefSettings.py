@@ -54,7 +54,7 @@ class ModelDefSettings:
         if (
             type(CastValue(object, self.JournalName)) is not str
             or not self.JournalName
-            or "\\x00" in self.JournalName
+            or "\x00" in self.JournalName
         ):
             raise ValueError(
                 "SOLIDWORKS journal name must be nonempty text without nulls"

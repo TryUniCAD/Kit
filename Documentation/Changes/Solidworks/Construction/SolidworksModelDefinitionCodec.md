@@ -25,3 +25,6 @@ files retain exact Definition bytes and matching map counts. Four generated
 designs pass independent construction and preparation, and nine malformed
 input cases fail closed. The disclosed D03 complete part is byte-identical
 to the preceding research emitter's result on the same runtime.
+
+The guarded constructor also rejects a journal name containing an actual NUL
+character. This keeps the typed text input within the supported persisted domain.

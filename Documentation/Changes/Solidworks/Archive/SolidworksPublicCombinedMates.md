@@ -17,3 +17,8 @@ reads the independently native-authored disclosed assembly and two generated
 candidates with complete endpoints. All three retain exact MatesList
 round-trip bytes. The [receipt](../../../../re/solidworks/measurements/2026/PublicCombinedMates01.json)
 records each archive map and allocator relationship.
+
+The later [saved part metadata reader](SolidworksSavedPartMetadataRead.md)
+also resolves both native-edited mates through the saved child Config-0 and
+manager streams. The public read retains all four datum references and the
+edited driving length.

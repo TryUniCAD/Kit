@@ -24,6 +24,37 @@ KFeatureFields = MappingProxyType(
             NativeField("Base", "moFeature_c.FUN_4bb2b240"),
             NativeField("Scalar", "f35c", "i32"),
         ),
+        "moMassPropCache_c.Serialize": (
+            NativeField("Length", "n10", "i32", CountValue="f08"),
+            NativeField(
+                "Repeat",
+                "f08",
+                BodyValue=(
+                    NativeField("Scalar", "atom", "i32"),
+                    NativeField("Scalar", "v", "i32"),
+                    NativeField("Scalar", "d", "f64"),
+                ),
+                CountValue="n10",
+            ),
+            NativeField(
+                "Branch",
+                "n10",
+                BodyValue=(NativeField("Embed", "f18", "moMassProp_c"),),
+                ModeValue="NotEquals",
+            ),
+        ),
+        "moSheetMetalMaster_c": (
+            NativeField("Base", "moFeature_c"),
+            NativeField("Length", "n370", "i32", CountValue="f358"),
+            NativeField(
+                "Branch",
+                "n370",
+                BodyValue=(
+                    NativeField("Fail", "nonempty sheet metal master body list"),
+                ),
+                ModeValue="NotEquals",
+            ),
+        ),
         "moNodeList_c.Serialize": (
             NativeField("Embed", "list", "rf.suObList"),
             NativeField("Scalar", "tail", "i32"),

@@ -10,6 +10,7 @@ KBodySchemas = MappingProxyType(
         "moConfigurationMgr_c": (1,),
         "moConfiguration_c": (1,),
         "moContextChainComponent_c": (1,),
+        "moCustomPropertyList": (1,),
         "moExtFeatureList_c": (1,),
         "moExtFeature_c": (1,),
         "moExtObject_c": (1,),

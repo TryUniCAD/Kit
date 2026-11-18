@@ -27,11 +27,12 @@ def CheckModelDefRejection(BuiltValue: dict[str, object]) -> None:
             Part | {"density_kg_m3": 0.0},
             Part | {"presentation": Presentation | {"detail_flags": [64]}},
             Part | {"presentation": Presentation | {"journal_name": ""}},
+            Part | {"presentation": Presentation | {"journal_name": "part\x00name"}},
             Assembly | {"save_as_part_preferences": EmptyPreferences},
         )
     )
     Reports = RunModelDefProcess(Cases)
-    assert len(Reports) == 9
+    assert len(Reports) == 10
     assert all(
         Value["passed"] is False and Value["runtime_input_reads"] == 0
         for Value in Reports

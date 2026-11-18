@@ -10,6 +10,7 @@ KConfigVirtuals = MappingProxyType(
         ("moExplViewManager_c", 1000): "moFeature_c.SerializeXmlData",
         ("moPrtExplViewManager_c", 1000): "moFeature_c.SerializeXmlData",
         ("moReference_c", 1000): "moFeature_c.SerializeXmlData",
+        ("moSheetMetalMaster_c", 1000): "moFeature_c.SerializeXmlData",
         ("moSketchBlockMgr_c", 1000): None,
         ("moAmbientLight_c", 1016): True,
         ("moAssembly_c", 1016): False,
@@ -18,6 +19,7 @@ KConfigVirtuals = MappingProxyType(
         ("moExplViewManager_c", 1016): True,
         ("moPrtExplViewManager_c", 1016): True,
         ("moReference_c", 1016): True,
+        ("moSheetMetalMaster_c", 1016): True,
         ("moSketchBlockMgr_c", 1016): True,
         ("moAmbientLight_c", 1208): "moConcept_c.SerializeLWData",
         ("moAssembly_c", 1208): "moAssembly_c.SerializeLWData",
@@ -27,6 +29,7 @@ KConfigVirtuals = MappingProxyType(
         ("moExplViewManager_c", 1208): "moConcept_c.SerializeLWData",
         ("moPrtExplViewManager_c", 1208): "moConcept_c.SerializeLWData",
         ("moReference_c", 1208): "moConcept_c.SerializeLWData",
+        ("moSheetMetalMaster_c", 1208): "moConcept_c.SerializeLWData",
         ("moSketchBlockMgr_c", 1208): "moConcept_c.SerializeLWData",
         ("moAmbientLight_c", 1216): "moConcept_c.SerializeResolvedData",
         ("moAssembly_c", 1216): "moAssembly_c.SerializeResolvedData",
@@ -36,6 +39,7 @@ KConfigVirtuals = MappingProxyType(
         ("moExplViewManager_c", 1216): "moConcept_c.SerializeResolvedData",
         ("moPrtExplViewManager_c", 1216): "moConcept_c.SerializeResolvedData",
         ("moReference_c", 1216): "moConcept_c.SerializeResolvedData",
+        ("moSheetMetalMaster_c", 1216): "moConcept_c.SerializeResolvedData",
         ("moSketchBlockMgr_c", 1216): "moConcept_c.SerializeResolvedData",
     }
 )
