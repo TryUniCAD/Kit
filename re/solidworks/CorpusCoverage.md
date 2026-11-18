@@ -484,6 +484,13 @@ generated distance edit, synchronized save and fresh reopen. The 26 scoped
 native-saved stream comparisons pass. The public writer and FCStd conversion
 counts are unaffected.
 
+The [portable registry assembly trial](records/SdkPortableAssemblyRegistryNative2026.md)
+generates a three-occurrence parent and a shared dimensioned child through an
+explicit writer registry. Four native processes pass 440 comparisons and
+retain all six endpoints and three child drivers through a driving edit,
+synchronized save and fresh reopen. The 26 scoped archive streams round-trip
+exactly. This disclosed trial adds zero qualified FCStd conversions.
+
 The local FCStd inventory found 171 candidate paths across the retained FreeCAD,
 public acceptance and CADMPEG source collections. These span 162 distinct SHA-256
 identities with successful Document.xml discovery. The inventory includes 56

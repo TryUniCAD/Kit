@@ -78,6 +78,13 @@ The two distance edits pass synchronized save and fresh reopen. Public
 assembly writing remains disabled.
 [Original planar groups](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksOriginalPlanarMateNative.md)
 
+An explicitly supplied writer registry also builds the parent and shared
+child from a portable document. A disclosed ordered distance, coincident and
+parallel group passes four native processes, a 42 to 57.73 mm driving edit,
+child-first save, and fresh reopen. Kit preserves all six mate endpoints and
+26 scoped archive streams. Default assembly registration remains open.
+[Portable registry native trial](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPortableAssemblyRegistryNative.md)
+
 The internal recursive composer attaches actual generated part and subassembly targets to fully resolved rigid occurrences. It derives expanded activity and world bounds from the dependency graph. A three-definition hierarchy and four-definition repeated hierarchy pass 156 typed stream comparisons. Thirty earlier single- and ordered-mate bundles retain exact bytes. [Generated assembly targets](../../Changes/Solidworks/Archive/Assembly/SolidworksGeneratedAssemblyTargets.md)
 
 The SDK reads and writes the complete ordinary 2026 part and assembly Definition stream. The constructors accept explicit presentation settings, part density and assembly save-as-part preferences. All 84 disclosed native Definitions retain their exact bytes and archive map. The research document composers use the same writer. [Model Definition codec](../../Changes/Solidworks/Construction/SolidworksModelDefinitionCodec.md)
