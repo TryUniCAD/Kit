@@ -154,6 +154,8 @@ The internal selected-stock constructor builds the actual atom, manager membersh
 
 The internal neutral entry also takes one explicit portable stock selection on the actual cut. It derives scope from the feature/body path and rejects selections with unrepresented targets or query semantics. Four selected models pass guarded builds and strict default reads. [Neutral selected-stock construction](../../Changes/Solidworks/Generation/Extrusion/ThroughAll/SolidworksNeutralSelectedThroughAll.md)
 
+The internal ordinary revolve entry builds from one Front rectangle, the actual selected construction axis and a live radian driver. The final pathname is bound before generation. All four generated containers match the native-tested files byte for byte. [Ordinary revolve preparation](../../Changes/Solidworks/Construction/Revolve/SolidworksRevolvePreparation.md)
+
 The internal SDK rectangle composer also owns two driving sketch dimensions and four horizontal or vertical relations. Two independent neutral requests preserve all ten streams, real point and segment handles, displays and parameter ownership through typed preparation. [Rectangle driving dimensions](../../Changes/Solidworks/Construction/SolidworksRectangleDrivingDimensions.md)
 
 The internal part composer can generate summary, document and active-configuration text properties through separate native XML owners. A triangle and a circle preserve independently edited values in both custom scopes through native save and fresh reopen. [Part text properties](../../Changes/Solidworks/Construction/SolidworksPartTextProperties.md)

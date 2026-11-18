@@ -1,8 +1,6 @@
 from ntpath import basename as BaseName, splitext as SplitExt
 from typing import cast as CastValue
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
-    KPartPlan,
-)
+from convert.adapters.solidworks.Archive.Construction.Part.PartLabels import PartLabels
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
 )
@@ -19,7 +17,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 def CheckPartInput(
     DocumentValue: CadDocument,
     InputValue: PartBuildInput,
-    PlanValue: KPartPlan,
+    PlanValue: PartLabels,
     AdditionalNames: tuple[str, ...] = (),
 ) -> None:
     if type(InputValue) is not PartBuildInput:
