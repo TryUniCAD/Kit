@@ -1,6 +1,6 @@
 # SOLIDWORKS 2026 complete ANSI pair discovery
 
-Status: **the independent guarded host proof passed; native execution and complete presentation retention remain pending. Original-source and held-out admission remain false.**
+Status: **the guarded host proof, native edits and geometric persistence passed. Complete style retention failed. Original-source and held-out admission remain open.**
 
 Task `PR121-ANSI-PAIR-DISCOVERY`, owner `/root/flag_ownership`, delivery PR #121. Scope is two newly authored complete part/drawing geometries with matching ISO controls, actual detail/UI owners and a frozen ordinary COM lifecycle packet. Dependencies are the [ANSI default operation](DrawingAnsiStyleConstruction2026.md), the qualified rectangular driver/anchor factories and the origin-linked drawing constructor. `/root` owns native execution and publication. The exit condition is controlled native lifecycle plus complete typed origin/presentation readback, followed separately by any original-source and held-out admission.
 
@@ -57,6 +57,31 @@ Run the copied packet's `Tools/InspectAnsiDrawingLifecycle.py` with the establis
 The separately frozen host qualifier requires all eighteen native processes, both healthy controls and twenty complete typed joins: constructed plus four lifecycle snapshots for each case. It checks actual child/file/configuration/origin/component ownership, complete Definition and linked child replay, both matching UI classes/detail selectors and the **entire generated presentation field tree**. Any unexplained native style rewrite remains a recorded failed retention gate. The Definition view configuration text remains decoded `str`; the child self-reference configuration remains actual Unicode `CStringValue`.
 
 Native geometry success, complete style retention, original-source conversion and held-out qualification remain separate facts. The native runner does not claim the host result in advance. No execution of this packet occurred in the worker lane.
+
+## Controlled native result
+
+On SOLIDWORKS 2026 SP05.2, both controls and all sixteen candidate phases
+pass. The four pairs pass 3,700 numeric checks over their load, rebuild,
+driving dimension edits, view moves, saves and fresh reopens. Annotation
+placement is measured after those operations.
+The original packet hashes and license process inventory stay unchanged.
+The host records an idle SOLIDWORKS postflight.
+
+All twenty constructed and native snapshots preserve actual origin, file,
+configuration and shared view aliases. Complete typed drawing Definition
+and linked child re-emission match in every snapshot. The ISO and ANSI
+owners and the separate detail selectors persist. The stored text normal
+coordinate also persists through the native edits.
+
+The strict complete style comparison returns a failure. Each first
+save rewrites 92 paths in the referenced part and 92 in the drawing.
+An ANSI drawing also sets `0x100000` in detail field `f20`. The first
+save, both fresh reopens and the edited save have the same rewrite set
+in each case. Dimension unit formats, Swift state and exclusion-list
+defaults account for the common changes. The [native receipt](../measurements/2026/DrawingAnsiPairNative01.json)
+binds the sixteen native phases and twenty typed snapshots. The
+[save behavior](../../../Documentation/Gotchas/Conversion/Solidworks/Model/Styles/FirstDrawingSaveNormalizesDetailState.md)
+records the remaining retention requirement.
 
 ## Remaining original-source boundary
 

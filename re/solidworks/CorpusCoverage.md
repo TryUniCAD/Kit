@@ -354,6 +354,14 @@ operation. The disclosed original graphs retain separate source fonts,
 nested units and other unqualified fields. Native acceptance of the
 fresh ANSI operation remains open.
 
+The [paired ISO and ANSI native trial](measurements/2026/DrawingAnsiPairNative01.json)
+passes both controls, 3,700 numeric comparisons and the native
+edit/save/reopen lifecycles of both shapes under both standards. All
+twenty snapshots preserve the actual links and re-emit the complete
+linked archive streams. The full style check fails on 184 ISO and 185
+ANSI first-save differences. Original-source and held-out qualification
+remain open.
+
 The [matched blank framing trial](measurements/2026/DrawingBlankFramingNative01.json)
 passed both native save modes under the original and Kit containers.
 The paired controls retain the same seven streams and compressed bytes.
