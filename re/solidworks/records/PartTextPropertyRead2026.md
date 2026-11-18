@@ -38,7 +38,9 @@ empty manager has its own ordinary map starting at 1, concrete schema-one
 `moCusPropMgr_c` root, `i32 f0c`, `i32 f08`, keyed `u32 n20` rows and current
 `u8 f54`. The measured empty policy tuple is `(-1, 0, 0)` for
 `(f0c, f08, f54)`. This is a narrow read-admission profile, not a universal
-constructor constant. Populated or different policy owners remain guarded.
+constructor constant. The [empty advanced owner profile](PartEmptyAdvancedProperties2026.md)
+extends admission to the verified keyed file and cut-list owners with no
+values. Populated or different policy owners remain guarded.
 
 Unsupported optional properties withhold all three new text scopes and add
 the information diagnostic `solidworks.part_text_properties_unavailable`.

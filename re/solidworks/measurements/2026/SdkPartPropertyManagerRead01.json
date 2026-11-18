@@ -1,0 +1,151 @@
+{
+  "archive_version": 19000,
+  "cases": [
+    {
+      "case": "circle",
+      "exact_roundtrip": true,
+      "file_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "input_unchanged": true,
+      "keys_count": 0,
+      "public_projection": {
+        "advanced_property_owners": false,
+        "archive_version": 19000,
+        "binary_configuration_values": "non_authoritative_cache",
+        "configuration_ids": [
+          0
+        ],
+        "profile": "compatible_literal_text",
+        "status": "complete"
+      },
+      "stream_bytes": 33,
+      "stream_map_base": 1,
+      "stream_map_counter": 3,
+      "stream_sha256": "becd5b67dff32e75102e20443e9e3a3f3def6896ebf05ae7dc188bcaae57ff58"
+    },
+    {
+      "case": "rectangle_advanced",
+      "exact_roundtrip": true,
+      "file_sha256": "4377bf5680f30d1c9de52227928911e55604a75d30ceb987240df00d6b1b1805",
+      "input_unchanged": true,
+      "keys_count": 1,
+      "public_projection": {
+        "diagnostic": "unsupported SOLIDWORKS native field path populated advanced property manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      },
+      "stream_bytes": 697,
+      "stream_map_base": 1,
+      "stream_map_counter": 23,
+      "stream_sha256": "d3c0e5375aa456e6c3908c147a2b1aa399fabea13cd504f22183734b1987f5ed"
+    },
+    {
+      "case": "namedcenter_baseline",
+      "exact_roundtrip": true,
+      "file_sha256": "9a619f233088d4c26d767642b02ec6dfbdfd25baad7686cd2265210da78f0f00",
+      "input_unchanged": true,
+      "keys_count": 1,
+      "public_projection": {
+        "advanced_property_owners": false,
+        "archive_version": 19000,
+        "binary_configuration_values": "non_authoritative_cache",
+        "configuration_ids": [
+          0
+        ],
+        "profile": "compatible_literal_text",
+        "status": "complete"
+      },
+      "stream_bytes": 138,
+      "stream_map_base": 1,
+      "stream_map_counter": 9,
+      "stream_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+    },
+    {
+      "case": "namedcenter_renamed",
+      "exact_roundtrip": true,
+      "file_sha256": "03f6756e214fd2a96975030143590d8e14643147470df86ee21123c59afd503b",
+      "input_unchanged": true,
+      "keys_count": 1,
+      "public_projection": {
+        "advanced_property_owners": false,
+        "archive_version": 19000,
+        "binary_configuration_values": "non_authoritative_cache",
+        "configuration_ids": [
+          0
+        ],
+        "profile": "compatible_literal_text",
+        "status": "complete"
+      },
+      "stream_bytes": 138,
+      "stream_map_base": 1,
+      "stream_map_counter": 9,
+      "stream_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+    },
+    {
+      "case": "namedcorner_baseline",
+      "exact_roundtrip": true,
+      "file_sha256": "a441e79bc94219c4c0bb4390cc6d13643ca8c56cb0ff69abdb1fa694e82d2778",
+      "input_unchanged": true,
+      "keys_count": 1,
+      "public_projection": {
+        "advanced_property_owners": false,
+        "archive_version": 19000,
+        "binary_configuration_values": "non_authoritative_cache",
+        "configuration_ids": [
+          0
+        ],
+        "profile": "compatible_literal_text",
+        "status": "complete"
+      },
+      "stream_bytes": 138,
+      "stream_map_base": 1,
+      "stream_map_counter": 9,
+      "stream_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+    },
+    {
+      "case": "namedcorner_renamed",
+      "exact_roundtrip": true,
+      "file_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774",
+      "input_unchanged": true,
+      "keys_count": 1,
+      "public_projection": {
+        "advanced_property_owners": false,
+        "archive_version": 19000,
+        "binary_configuration_values": "non_authoritative_cache",
+        "configuration_ids": [
+          0
+        ],
+        "profile": "compatible_literal_text",
+        "status": "complete"
+      },
+      "stream_bytes": 138,
+      "stream_map_base": 1,
+      "stream_map_counter": 9,
+      "stream_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+    }
+  ],
+  "delivery_pr": 121,
+  "fcstd_conversions": 0,
+  "full_file_round_trips": 0,
+  "held_out_writer_passes": 0,
+  "input_provenance": [
+    "re/solidworks/measurements/2026/PartPropertySources01.json",
+    "re/solidworks/measurements/2026/SdkPartNamingArchive02.json"
+  ],
+  "map_base": 1,
+  "new_native_processes": 0,
+  "oracle_build": "34.5.2.0604",
+  "python": "3.13.15",
+  "schema": "kit.sw2026.sdk-part-property-manager-read.v1",
+  "scope": "disclosed source builds, typed Contents/CusProps round trips and native adapter open_document readback",
+  "source_sha256": {
+    "re/tooling/sw2026/ObservePartPropertyManager.py": "9ca9ea9ae266b3dbd7a82fabee69d44be25b7fbb90ea0db7392fc33f8cb6a4f1",
+    "src/convert/adapters/solidworks/Archive/Properties/CheckEmptyProps.py": "70d0a1e13f5faf8fb7954e32e588f3081306d56b56a6f6ce0059ca82d17815d2",
+    "src/convert/adapters/solidworks/Archive/Properties/ManagerFields.py": "38ba2686c9171f2642025c3c319c60ec852318bebe362a21fbc2a03bb9993cc0",
+    "src/convert/adapters/solidworks/Archive/Properties/ReadPropManager.py": "c859a2ba193dbecf27f632161c41a59fdce6cba78aae0ff15f928cae87cd2641",
+    "tests/Convert/Solidworks/Properties/ChangeTextPart.py": "2da813fb7097245198bee63ac660e7771019882fa64ad63cb52e2100efe8c9d1",
+    "tests/Convert/Solidworks/Properties/MakeAdvPropManager.py": "82ec7f18157a147683b1d91bb1d329cc3427a72d995c150e8e92e01667b4016f",
+    "tests/Convert/Solidworks/Properties/TextReadTests.py": "952f1b246ebc98ea04c075194a6593990aff76525e31584847dee8ce67273e42",
+    "tests/Convert/Solidworks/Properties/TextScopeTests.py": "cbd2d7694697b41e21365223e4998858bf2db2f23adeebe8102b846cd8bd67bf"
+  },
+  "worker_count": 6
+}

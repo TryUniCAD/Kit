@@ -24,6 +24,7 @@ def TestTextScope(TmpPath: FilePath) -> None:
         "doctype",
         "utf16-doctype",
         "advanced-manager",
+        "unknown-advanced-policy",
     )
     for FaultValue in FaultValues:
         Document = RunPublicRead(ChangeTextPart(SourcePath, FaultValue))

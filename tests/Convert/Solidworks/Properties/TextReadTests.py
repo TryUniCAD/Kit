@@ -11,6 +11,7 @@ def TestTextRead(TmpPath: FilePath) -> None:
     SourcePath = MakeTextPart(TmpPath / "FreshText.SLDPRT")
     CheckTextPart(RunPublicRead(SourcePath))
     CheckTextPart(RunPublicRead(ChangeTextPart(SourcePath, "stale-cache")))
+    CheckTextPart(RunPublicRead(ChangeTextPart(SourcePath, "empty-advanced-manager")))
 
 
 # property free native files must preserve their existing geometry path without adding a property qualification claim

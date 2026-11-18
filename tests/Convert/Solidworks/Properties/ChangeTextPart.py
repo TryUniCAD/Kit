@@ -3,6 +3,7 @@ from pathlib import Path as FilePath
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from tests.Convert.Solidworks.Properties.ChangeTextCmgr import ChangeTextCmgr
 from tests.Convert.Solidworks.Properties.ChangeTextXml import ChangeTextXml
+from tests.Convert.Solidworks.Properties.MakeAdvPropManager import MakeAdvPropManager
 
 
 # every negative keeps an actual readable geometry archive and changes only its declared optional property boundary
@@ -23,6 +24,10 @@ def ChangeTextPart(SourcePath: FilePath, FaultValue: str) -> FilePath:
         TextValue = '<!DOCTYPE Properties [<!ENTITY text "unqualified">]><Properties>&text;</Properties>'
         StreamsValue["docProps/custom.xml"] = TextValue.encode(
             "utf-16" if FaultValue == "utf16-doctype" else "utf-8"
+        )
+    elif FaultValue in ("empty-advanced-manager", "unknown-advanced-policy"):
+        StreamsValue["Contents/CusProps"] = MakeAdvPropManager(
+            1 if FaultValue == "empty-advanced-manager" else 2
         )
     elif FaultValue == "advanced-manager":
         StreamsValue["Contents/CusProps"] = b"unclassified advanced property owner"
