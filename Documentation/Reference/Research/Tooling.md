@@ -67,6 +67,11 @@ Production promotion still requires the repository's validation and acceptance g
 
 ## Prepare a research task
 
+For the proposed hybrid workflow, read the [planner decision](Planner/Decision.md),
+[execution contracts](Planner/Contracts.md) and [whole build plan](Planner/BuildPlan.md).
+They combine required deterministic coverage with optional validated model proposals.
+These pages describe planned extensions, not an additional implemented controller.
+
 1. Identify the unanswered format question.
 2. Select the smallest controlled sample family.
 3. Record the vendor and tool versions.
