@@ -10,7 +10,9 @@ def RequirePlainDoc(DocumentValue: CadDocument) -> None:
 
 # all ordinary boss profiles enforce common document loss guards before consulting their own driving parameter owners
 def CheckPartScope(
-    DocumentValue: CadDocument, ParameterCounts: tuple[int, ...]
+    DocumentValue: CadDocument,
+    ParameterCounts: tuple[int, ...],
+    HistoryCount: int = 1,
 ) -> None:
     if not isinstance(CastValue(object, DocumentValue), CadDocument):
         raise TypeError("plain boss candidate requires a real neutral cad document")
@@ -38,7 +40,9 @@ def CheckPartScope(
         len(DocumentValue.sketches),
         len(DocumentValue.feature_timeline),
         len(DocumentValue.bodies),
-    ) != (1, 1, 1, 1, 1) or len(DocumentValue.parameters) not in ParameterCounts:
+    ) != (1, 1, HistoryCount, HistoryCount, 1) or len(
+        DocumentValue.parameters
+    ) not in ParameterCounts:
         raise ValueError(
             "plain boss candidate requires one configuration length support sketch operation and body"
         )

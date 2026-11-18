@@ -18,7 +18,7 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # constructor neutral model collections exclude hidden bodies transforms shrinkwrap and shape modifiers before geometry is reconstructed
-def CheckPrismRoot(RootValue: ArchiveNode) -> None:
+def CheckPrismRoot(RootValue: ArchiveNode, ColdAtom: ArchiveNode | None = None) -> None:
     Fields = RequireNative(RootValue, "moPart_c").FieldsValue
     if Fields.get("f2c") != 0x100 or any(
         Fields.get(FieldName) != 0 for FieldName in (*KModelZeroes, *KPartZeroes)
@@ -50,9 +50,9 @@ def CheckPrismRoot(RootValue: ArchiveNode) -> None:
     AtomsValue = NativeRecord(Fields.get("fd88"))
     GhostValue = NativeRecord(Fields.get("fd90"))
     if (
-        AtomsValue.get("n6c") != 0
+        AtomsValue.get("n6c") != (0 if ColdAtom is None else 1)
         or AtomsValue.get("fa8") != 0
-        or AtomsValue.get("atoms")
+        or (ColdAtom is None and AtomsValue.get("atoms"))
         or GhostValue.get("n") != 0
         or GhostValue.get("objects")
     ):

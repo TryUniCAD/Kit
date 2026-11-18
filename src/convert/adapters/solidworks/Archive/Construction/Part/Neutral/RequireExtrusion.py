@@ -3,24 +3,28 @@ from interchange.Features.FeatureExtrude import ExtrudeFeature
 from interchange.Features.FeatureStep import FeatureStep
 
 
-# supported boss variants share their actual create operation ownership and simple through section profile state
-def RequireBossBase(FeatureValue: FeatureStep) -> ExtrudeFeature:
+# the extrusion definition must retain its actual operation and ordered dependencies
+def RequireExtrusion(
+    FeatureValue: FeatureStep,
+    OperationValue: BooleanOp = BooleanOp.KCreate,
+    PreviousIds: tuple[str, ...] = (),
+) -> ExtrudeFeature:
     Definition = FeatureValue.definition
     if (
         FeatureValue.kind != FeatureKind.KExtrusion
         or type(Definition) is not ExtrudeFeature
-        or FeatureValue.operation != BooleanOp.KCreate
+        or FeatureValue.operation != OperationValue
     ):
-        raise ValueError("ordinary boss requires an actual create extrusion definition")
+        raise ValueError("ordinary extrusion requires its actual operation definition")
     if (
         FeatureValue.suppressed
         or FeatureValue.configuration_states
         or FeatureValue.selection_ids
-        or FeatureValue.input_feature_ids
+        or FeatureValue.input_feature_ids != PreviousIds
         or FeatureValue.attributes
     ):
         raise ValueError(
-            "ordinary boss does not admit suppressed configured selected dependent or extended feature state"
+            "ordinary extrusion requires active unextended features with the admitted dependency order"
         )
     if (
         any(
@@ -36,6 +40,6 @@ def RequireBossBase(FeatureValue: FeatureStep) -> ExtrudeFeature:
         or Definition.second_up_to_reference
     ):
         raise ValueError(
-            "ordinary boss does not admit offset draft or target references"
+            "ordinary extrusion requires its simple start and end definitions"
         )
     return Definition

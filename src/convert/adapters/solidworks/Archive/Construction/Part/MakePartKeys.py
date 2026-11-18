@@ -1,3 +1,4 @@
+from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import CutGraph
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordConfig import (
     KeywordConfig,
 )
@@ -9,6 +10,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature im
 )
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeywords import (
     MakeKeywords,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.MakeCutKeys import (
+    MakeCutKeys,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
@@ -36,6 +40,9 @@ def MakePartKeys(
     InputValue: PartBuildInput,
     PlanValue: KPartPlan,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    CutValue: CutGraph | None = None,
+    CutSketchDims: tuple[KeywordDim, ...] = (),
 ) -> bytes:
     ConfigValues = tuple(
         KeywordConfig(
@@ -54,11 +61,19 @@ def MakePartKeys(
     )
     if SecondDepth is not None:
         DepthDims += (KeywordDim("D2", SecondDepth / ScaleValue, None),)
-    for IndexValue, NodeValue in enumerate(FeatureValues):
+    PlainValues = FeatureValues
+    if CutValue is not None:
+        if (
+            FeatureValues[-2] is not CutValue.ProfileValue.ProfileValue
+            or FeatureValues[-1] is not CutValue.FeatureValue
+        ):
+            raise ValueError("cut keywords must refer to the actual emitted history")
+        PlainValues = FeatureValues[:-2]
+    for IndexValue, NodeValue in enumerate(PlainValues):
         TagValue = (
             "Sketch"
-            if IndexValue == len(FeatureValues) - 2
-            else "Extrusion" if IndexValue == len(FeatureValues) - 1 else "Feature"
+            if IndexValue == len(PlainValues) - 2
+            else "Extrusion" if IndexValue == len(PlainValues) - 1 else "Feature"
         )
         Dimensions = (
             DepthDims
@@ -76,6 +91,10 @@ def MakePartKeys(
                 None,
                 None,
             )
+        )
+    if CutValue is not None:
+        RowsValue.extend(
+            MakeCutKeys(CutValue, CutSketchDims, InputValue.DocumentUnits.LengthUnit)
         )
     return MakeKeywords(
         PlanValue.NameValue,

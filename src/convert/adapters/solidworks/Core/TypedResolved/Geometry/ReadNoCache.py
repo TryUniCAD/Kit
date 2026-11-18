@@ -17,6 +17,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismPlan impor
     ReadPrismPlan,
 )
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ReadColdOutput import (
+    ReadColdOutput,
+)
 
 
 # unsupported no cache documents must retain the existing strict payload error while proven ordinary prisms gain computed neutral geometry
@@ -28,7 +31,10 @@ def ReadNoCache(
     try:
         LinkValue = ReadNativeLink(Archive, ModelValue.active_configuration_id)
         ManagerValue = ReadCmgrMut(Archive.require("Contents/CMgr"), 19000)
-        Features = CheckPrismScope(LinkValue, ManagerValue, ModelValue)
-        return BuildPrismGeom(ReadPrismPlan(LinkValue, Features), BodyId)
+        ColdValue = ReadColdOutput(LinkValue)
+        Features = CheckPrismScope(LinkValue, ManagerValue, ModelValue, ColdValue)
+        return BuildPrismGeom(
+            ReadPrismPlan(LinkValue, Features, ColdValue), BodyId, ColdValue
+        )
     except (ValueError, TypeError, KeyError):
         return None

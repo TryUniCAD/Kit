@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # ordinary feature dimensions retain their verified native text kinds and angle or distance tails instead of mate presentation defaults
-def MakeBossView(
+def MakeExtrusionView(
     OwnerValue: ArchiveNode,
     HandleValue: ArchiveNode,
     IsAngular: bool,
@@ -25,7 +25,7 @@ def MakeBossView(
         or HandleValue.FieldsValue.get("owner") is not OwnerValue
     ):
         raise ValueError(
-            "boss display must retain its actual dimension owner and explicit kind"
+            "extrusion display must retain its actual dimension owner and explicit kind"
         )
     FieldsValue = MakeCommonView(
         HandleValue, DesignIntent, SelectedLeader, 13 if IsAngular else 2

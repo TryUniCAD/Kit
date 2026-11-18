@@ -20,13 +20,19 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismRels impo
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismNodes import (
     PrismNodes,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutput import (
+    ColdOutput,
+)
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 
 
 # strict reconstruction needs the complete linked grammar and whole model inventory before any shape can be inferred
 def CheckPrismScope(
-    LinkValue: NativeLink, ManagerValue: CmgrGraph, ModelValue: NativeModel
+    LinkValue: NativeLink,
+    ManagerValue: CmgrGraph,
+    ModelValue: NativeModel,
+    ColdValue: ColdOutput | None = None,
 ) -> Mapping[int, ArchiveNode]:
     Reports = (
         LinkValue.ConfigValue.ReportValue,
@@ -50,10 +56,11 @@ def CheckPrismScope(
         raise ValueError(
             "cache free prism has unsupported configuration or equation intent"
         )
-    NodesValue = PrismNodes(LinkValue, ManagerValue)
+    ColdAtom = None if ColdValue is None else ColdValue.AtomValue
+    NodesValue = PrismNodes(LinkValue, ManagerValue, ColdAtom)
     Features = IndexFeatures(LinkValue)
     CheckPrismRoots(Features, NodesValue)
-    CheckPrismRoot(LinkValue.ConfigValue.RootValue)
+    CheckPrismRoot(LinkValue.ConfigValue.RootValue, ColdAtom)
     CheckPrismMgr(ManagerValue)
     CheckPrismRels(LinkValue.ConfigValue.RootValue)
     CheckPublicGeom(ModelValue, Features)

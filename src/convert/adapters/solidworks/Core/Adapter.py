@@ -169,6 +169,9 @@ from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadNoCache import (
     ReadNoCache,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.WithColdName import (
+    WithColdName,
+)
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -452,6 +455,7 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
+    DocValue = WithColdName(DocValue, DerivedValue)
     DocValue = WithBodyNames(DocValue, Archive, Model.active_configuration_id)
     DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive), Archive)
     DocValue.assert_valid()

@@ -1,6 +1,7 @@
 from collections.abc import Mapping
 from dataclasses import dataclass as DataClass
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
+from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import CutGraph
 from convert.adapters.solidworks.Archive.Construction.Extrusion.ExtrusionGraph import (
     ExtrusionGraph,
 )
@@ -33,6 +34,7 @@ class PartCandidate:
     StreamsValue: Mapping[str, bytes]
     BytesValue: bytes
     PlanValue: KPartPlan
+    CutValue: CutGraph | None = None
 
     # active configuration access must retain the actual independent manager node rather than invent a part configuration pointer
     @property

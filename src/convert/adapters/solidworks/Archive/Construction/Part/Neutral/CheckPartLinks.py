@@ -5,8 +5,8 @@ from interchange.geometry.Models.SupportPlane import SupportPlane
 # each admitted boss requires one active configuration and actual sketch plane and body owners
 def CheckPartLinks(DocumentValue: CadDocument) -> SupportPlane:
     ConfigValue = DocumentValue.configurations[0]
-    PlaneValue, SketchValue = DocumentValue.support_planes[0], DocumentValue.sketches[0]
-    FeatureValue, BodyValue = DocumentValue.feature_timeline[0], DocumentValue.bodies[0]
+    PlaneValue = DocumentValue.support_planes[0]
+    BodyValue = DocumentValue.bodies[0]
     if (
         not ConfigValue.active
         or ConfigValue.parent_id is not None
@@ -15,14 +15,19 @@ def CheckPartLinks(DocumentValue: CadDocument) -> SupportPlane:
         or ConfigValue.attributes
     ):
         raise ValueError("ordinary boss requires one active independent configuration")
-    if (
-        FeatureValue.sketch_id != SketchValue.id
-        or SketchValue.support_plane_id != PlaneValue.id
+    for FeatureValue, SketchValue in zip(
+        DocumentValue.feature_timeline, DocumentValue.sketches, strict=True
     ):
-        raise ValueError("ordinary boss requires its actual sketch and support owners")
+        if (
+            FeatureValue.sketch_id != SketchValue.id
+            or SketchValue.support_plane_id != PlaneValue.id
+        ):
+            raise ValueError(
+                "ordinary extrusion requires its actual sketch and support owners"
+            )
     if (
-        BodyValue.final_feature_id != FeatureValue.id
-        or BodyValue.name != FeatureValue.name
+        BodyValue.final_feature_id != DocumentValue.feature_timeline[-1].id
+        or BodyValue.name != DocumentValue.feature_timeline[0].name
         or BodyValue.material_id is not None
         or BodyValue.attributes
     ):

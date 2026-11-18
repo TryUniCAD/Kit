@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from math import isfinite
 import re
 import sys
 import time
@@ -12,6 +13,40 @@ from AuthorBlindCutSources import BlindCutAuthor
 from AuthorCurves import Recorder, digest, require, write_json
 from InspectFresh import healthy, inspect
 from OracleIdentity import application_identity
+
+
+def check_radial(job, author, case, roles, *, edit):
+    mode = job["radial_mode"]
+    require(mode in (None, "radius", "diameter"), "unknown authored circle driver mode")
+    handle = author.get(author.model, "Parameter", f"D1@{roles[2]}")
+    if mode is None:
+        require(handle is None, "free circle acquired an authored driving dimension")
+        return {"mode": None, "dimension_absent": True}
+    require(handle is not None and not author.get(handle, "ReadOnly")
+            and int(author.get(handle, "DrivenState")) == 2,
+            "circle driver is missing or no longer editable")
+    name = str(author.get(handle, "FullName"))
+    require(name.split("@")[1:2] == [roles[2]], "circle driver lost actual sketch ownership")
+    scale = 0.002 if mode == "diameter" else 0.001
+    before = case["cut_profile"]["radius_mm"] * scale
+    author.rec.close_number("initial circle driving parameter", author.get(handle, "SystemValue"), before)
+    result = {"mode": mode, "name": name, "system_value": before}
+    if edit:
+        radius = job["radial_probe_mm"]
+        require(type(radius) in (float, int) and isfinite(radius) and radius > 0
+                and radius != case["cut_profile"]["radius_mm"], "circle edit requires an independent positive radius")
+        target = radius * scale
+        status = int(author.get(handle, "SetSystemValue3", target, 1, Swapp.nothing()))
+        require(status == 0, "circle driving dimension edit failed")
+        try:
+            author.rec.close_number("edited circle driving parameter", author.get(handle, "SystemValue"), target)
+            altered = {**case, "cut_profile": {**case["cut_profile"], "radius_mm": radius}}
+            result["edited"] = author.snapshot(altered, "radial_edited", case["cut_depth_mm"], roles=roles)
+        finally:
+            status = int(author.get(handle, "SetSystemValue3", before, 1, Swapp.nothing()))
+            require(status == 0, "restoring original circle driving dimension failed")
+        result["restored"] = author.snapshot(case, "radial_restored", case["cut_depth_mm"], roles=roles)
+    return result
 
 
 def phase(job, path, sha256, folder, *, edit_to=None):
@@ -35,7 +70,14 @@ def phase(job, path, sha256, folder, *, edit_to=None):
             require(result["open"] == [True, 0, 0], "the pocket part failed to open cleanly")
             author.model = model
             depth = case["cut_depth_mm"] if edit_to is not None else case["edit_depth_mm"]
+            if "radial_mode" in job:
+                result["body_count_before_rebuild"] = recorder.call("solid body count on initial load", Swapp.bodies, model)
             result["opened"] = author.snapshot(case, "opened", depth, roles=roles)
+            if "radial_mode" in job:
+                require(not result["opened"]["boss"]["reverse"] and result["opened"]["cut"]["reverse"]
+                        and roles[1] in result["opened"]["cut"]["parents"],
+                        "native pocket lost its direction or actual preceding boss dependency")
+                result["radial_driver"] = check_radial(job, author, case, roles, edit=edit_to is not None)
             if edit_to is not None:
                 author.edit_depth(case, roles=roles)
                 result["edited"] = recorder.data["edited"]

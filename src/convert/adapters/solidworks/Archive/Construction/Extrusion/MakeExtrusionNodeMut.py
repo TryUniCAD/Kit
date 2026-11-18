@@ -1,3 +1,5 @@
+from typing import Literal
+
 from convert.adapters.solidworks.Archive.Construction.Model.RequireRootNode import (
     RequireRootNode,
 )
@@ -18,15 +20,16 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
 
-# the ordinary boss needs its actual generic model atom and body feature state before termination or profile references are attached
-def MakeBossNodeMut(
+# each extrusion uses its concrete runtime class and the common empty atom constructor
+def MakeExtrusionNodeMut(
+    ClassName: Literal["moExtrusion_c", "moICE_c"],
     NameValue: str,
     OwnerValue: ArchiveNode,
     TargetValue: FeatureTarget,
     Allocator: PersistentIds,
 ) -> ArchiveNode:
     RequireRootNode(OwnerValue, "moPart_c")
-    NodeValue = ArchiveNode(RuntimeClass("moExtrusion_c", 1), {})
+    NodeValue = ArchiveNode(RuntimeClass(ClassName, 1), {})
     InitFeatureMut(NodeValue, NameValue, OwnerValue, TargetValue, Allocator)
     FieldsValue = NodeValue.FieldsValue
     FieldsValue.update(dict.fromkeys(KAtomWords, 0))

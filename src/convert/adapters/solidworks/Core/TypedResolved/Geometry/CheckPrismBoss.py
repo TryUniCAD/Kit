@@ -2,13 +2,21 @@ from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeO
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismAtom import (
     CheckPrismAtom,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutput import (
+    ColdOutput,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsLineState
 from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # the analytic boss cannot stand in for cuts thin surfaces stored bodies selected merges or additional body modifiers
-def CheckPrismBoss(OwnerValue: ExtrudeOwner) -> None:
-    CheckPrismAtom(OwnerValue.NodeValue)
+def CheckPrismBoss(
+    OwnerValue: ExtrudeOwner, ColdValue: ColdOutput | None = None
+) -> None:
+    CheckPrismAtom(
+        OwnerValue.NodeValue,
+        ColdValue is not None and ColdValue.BossValue is OwnerValue.NodeValue,
+    )
     Fields = OwnerValue.NodeValue.FieldsValue
     if (
         OwnerValue.ModeValue != ExtrudeEnd.KBlind

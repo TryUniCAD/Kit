@@ -4,6 +4,7 @@ from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndInput import
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import (
     SetCfgStampMut,
 )
+from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import CutGraph
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeBlindMut import (
     MakeBlindMut,
 )
@@ -19,11 +20,17 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan im
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartStreams import (
     EmitPartStreams,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.MakePartCutMut import (
+    MakePartCutMut,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartHeaders import (
     MakePartHeaders,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
     KPartPlan,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PocketPlan import (
+    PocketPlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
@@ -51,6 +58,8 @@ def FinishBlindMut(
     PlanValue: KPartPlan,
     Allocator: PersistentIds,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    PocketValue: PocketPlan | None = None,
 ) -> PartCandidate:
     EndInput = (
         PlanValue.EndValue
@@ -67,6 +76,12 @@ def FinishBlindMut(
         InputValue.DesignIntent,
         InputValue.SelectedLeader,
     )
+    CutValue: CutGraph | None = None
+    CutSketchDims: tuple[KeywordDim, ...] = ()
+    if PocketValue is not None:
+        CutValue, CutSketchDims = MakePartCutMut(
+            SystemValue, InputValue, PocketValue, Allocator
+        )
     SetCfgStampMut(SystemValue.ConfigValues[0], Allocator)
     HeadersValue = MakePartHeaders(SystemValue, InputValue, Allocator)
     DefinitionValue = MakePartDef(InputValue.DefinitionValue, InputValue.DensityValue)
@@ -75,6 +90,8 @@ def FinishBlindMut(
         ProfileValue.ProfileValue,
         BossValue.FeatureValue,
     )
+    if CutValue is not None:
+        FeatureValues += (CutValue.ProfileValue.ProfileValue, CutValue.FeatureValue)
     StreamsValue, ConfigValue, ResolvedValue = EmitPartStreams(
         SystemValue,
         FeatureValues,
@@ -83,6 +100,8 @@ def FinishBlindMut(
         InputValue,
         PlanValue,
         SketchDims,
+        CutValue=CutValue,
+        CutSketchDims=CutSketchDims,
     )
     BytesValue = BuildSldprt(StreamsValue, FormatVersion=4)
     return PartCandidate(
@@ -98,4 +117,5 @@ def FinishBlindMut(
         StreamsValue,
         BytesValue,
         PlanValue,
+        CutValue,
     )

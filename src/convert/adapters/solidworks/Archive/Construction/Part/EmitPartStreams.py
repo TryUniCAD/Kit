@@ -3,6 +3,7 @@ from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
 from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
+from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import CutGraph
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeBiography import (
     MakeBiography,
 )
@@ -45,6 +46,9 @@ def EmitPartStreams(
     InputValue: PartBuildInput,
     PlanValue: KPartPlan,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    CutValue: CutGraph | None = None,
+    CutSketchDims: tuple[KeywordDim, ...] = (),
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
     ConfigBytes, ConfigValue = WriteConfigMut(SystemValue.RootValue, 19000, HeaderValue)
@@ -69,7 +73,13 @@ def EmitPartStreams(
             MakeFreshHist(InputValue.HistoryValue), 19000
         )[0],
         "swXmlContents/KeyWords": MakePartKeys(
-            SystemValue, FeatureValues, InputValue, PlanValue, SketchDims
+            SystemValue,
+            FeatureValues,
+            InputValue,
+            PlanValue,
+            SketchDims,
+            CutValue=CutValue,
+            CutSketchDims=CutSketchDims,
         ),
         **MakePartProps(InputValue.PropertiesValue),
     }

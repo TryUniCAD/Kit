@@ -13,6 +13,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.MakePrismLines impo
     MakePrismLines,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismPlan import PrismPlan
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutput import (
+    ColdOutput,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
     ReadPrismFrame,
 )
@@ -26,7 +29,9 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtru
 
 # only actual linked feature and dimension owners may determine the reconstructed body and its provenance
 def ReadPrismPlan(
-    LinkValue: NativeLink, Features: Mapping[int, ArchiveNode]
+    LinkValue: NativeLink,
+    Features: Mapping[int, ArchiveNode],
+    ColdValue: ColdOutput | None = None,
 ) -> PrismPlan:
     (BossValue,) = (
         NodeValue
@@ -34,7 +39,7 @@ def ReadPrismPlan(
         if NodeValue.ClassValue.NameValue == "moExtrusion_c"
     )
     OwnerValue = ReadExtrude(LinkValue, BossValue, Features)
-    CheckPrismBoss(OwnerValue)
+    CheckPrismBoss(OwnerValue, ColdValue)
     CheckPrismEnd(OwnerValue)
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
     LoopValue = ReadPrismLoop(OwnerValue.ProfileValue, LinkValue)

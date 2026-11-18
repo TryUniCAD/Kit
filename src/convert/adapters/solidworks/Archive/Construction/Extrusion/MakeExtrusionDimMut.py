@@ -14,8 +14,8 @@ from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeHandleMut i
 from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeAngleValue import (
     MakeAngleValue,
 )
-from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeBossView import (
-    MakeBossView,
+from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionView import (
+    MakeExtrusionView,
 )
 from convert.adapters.solidworks.Archive.Construction.Model.RequireRootNode import (
     RequireRootNode,
@@ -27,7 +27,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
 # every constructed feature dimension consumes its own real persistent identifier including the conditionally omitted from offset dimension
-def MakeBossDimMut(
+def MakeExtrusionDimMut(
     OwnerValue: ArchiveNode,
     InputValue: KEndInput,
     OrdinalValue: int,
@@ -35,7 +35,10 @@ def MakeBossDimMut(
     SelectedLeader: int,
     Allocator: PersistentIds,
 ) -> DimensionGraph:
-    RequireRootNode(OwnerValue, "moExtrusion_c")
+    if OwnerValue.ClassValue.NameValue == "moICE_c" and OrdinalValue == 1:
+        RequireRootNode(OwnerValue, "moICE_c")
+    else:
+        RequireRootNode(OwnerValue, "moExtrusion_c")
     Parameter = MakeBlindParam(InputValue, OrdinalValue)
     Parameter.FieldsValue["owner"] = OwnerValue
     IsAngular = OrdinalValue in (3, 4)
@@ -46,7 +49,7 @@ def MakeBossDimMut(
     )
     _ = Allocator.AllocateMut(Dimension, "f50")
     HandleValue = MakeHandleMut(OwnerValue, Dimension)
-    DisplayValue = MakeBossView(
+    DisplayValue = MakeExtrusionView(
         OwnerValue, HandleValue, IsAngular, DesignIntent, SelectedLeader
     )
     return DimensionGraph(Parameter, Dimension, HandleValue, DisplayValue)

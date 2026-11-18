@@ -17,7 +17,10 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # modeled presentation and provenance must agree with the supported neutral graph before construction can consume any persistent identity
 def CheckPartInput(
-    DocumentValue: CadDocument, InputValue: PartBuildInput, PlanValue: KPartPlan
+    DocumentValue: CadDocument,
+    InputValue: PartBuildInput,
+    PlanValue: KPartPlan,
+    AdditionalNames: tuple[str, ...] = (),
 ) -> None:
     if type(InputValue) is not PartBuildInput:
         raise TypeError(
@@ -74,6 +77,7 @@ def CheckPartInput(
         InputValue.SystemValue.OriginName,
         PlanValue.SketchName,
         PlanValue.FeatureName,
+        *AdditionalNames,
     )
     if len(set(NamesValue)) != len(NamesValue):
         raise ValueError("native part features require distinct authored names")

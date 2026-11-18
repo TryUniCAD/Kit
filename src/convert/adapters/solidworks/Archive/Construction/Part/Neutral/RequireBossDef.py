@@ -1,5 +1,5 @@
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.RequireBossBase import (
-    RequireBossBase,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.RequireExtrusion import (
+    RequireExtrusion,
 )
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
 from interchange.Features.FeatureStep import FeatureStep
@@ -7,7 +7,7 @@ from interchange.Features.FeatureStep import FeatureStep
 
 # only the complete ordinary forward blind create operation is proven by the first part construction profile
 def RequireBossDef(FeatureValue: FeatureStep) -> ExtrudeFeature:
-    Definition = RequireBossBase(FeatureValue)
+    Definition = RequireExtrusion(FeatureValue)
     if (
         Definition.end_condition != ExtrudeEnd.KBlind
         or Definition.reversed

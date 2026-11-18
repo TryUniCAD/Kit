@@ -1,4 +1,3 @@
-from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Construction.Blind.EndInput import KEndInput
 from convert.adapters.solidworks.Archive.Construction.Blind.BlindEndRefs import (
     BlindEndRefs,
@@ -9,11 +8,14 @@ from convert.adapters.solidworks.Archive.Construction.Blind.MakeBlindEnd import 
 from convert.adapters.solidworks.Archive.Construction.Extrusion.ExtrusionGraph import (
     ExtrusionGraph,
 )
-from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeBossDimMut import (
-    MakeBossDimMut,
+from convert.adapters.solidworks.Archive.Construction.Extrusion.BindExtrusionMut import (
+    BindExtrusionMut,
 )
-from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeBossNodeMut import (
-    MakeBossNodeMut,
+from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionDimMut import (
+    MakeExtrusionDimMut,
+)
+from convert.adapters.solidworks.Archive.Construction.Extrusion.MakeExtrusionNodeMut import (
+    MakeExtrusionNodeMut,
 )
 from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import (
     FeatureTarget,
@@ -46,9 +48,11 @@ def MakeBlindMut(
         raise ValueError(
             "blind boss requires its actual generated profile in the owning part"
         )
-    FeatureValue = MakeBossNodeMut(NameValue, OwnerValue, TargetValue, Allocator)
+    FeatureValue = MakeExtrusionNodeMut(
+        "moExtrusion_c", NameValue, OwnerValue, TargetValue, Allocator
+    )
     DimensionsValue = tuple(
-        MakeBossDimMut(
+        MakeExtrusionDimMut(
             FeatureValue,
             InputValue,
             OrdinalValue,
@@ -58,7 +62,7 @@ def MakeBlindMut(
         )
         for OrdinalValue in (1, 2, 3, 4)
     )
-    FromValue = MakeBossDimMut(
+    FromValue = MakeExtrusionDimMut(
         FeatureValue, InputValue, 19, DesignIntent, SelectedLeader, Allocator
     )
     FromEnd = ArchiveNode(
@@ -74,18 +78,7 @@ def MakeBlindMut(
             FromEnd,
         ),
     )
-    FeatureValue.FieldsValue.update(
-        {
-            "f60": {
-                "list": {"n": 1, "items": [{"o": ProfileValue.ProfileValue}]},
-                "tail": 0,
-            },
-            "f28": CastValue(int, FeatureValue.FieldsValue["f28"]) | 0x140,
-            "f810": -1,
-            "f818": EndValue,
-            "f838": 0.0,
-        }
-    )
+    BindExtrusionMut(FeatureValue, ProfileValue, EndValue)
     return ExtrusionGraph(
         FeatureValue, ProfileValue, EndValue, DimensionsValue, FromValue
     )
