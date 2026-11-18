@@ -7,7 +7,7 @@
 # to you under it immediately and permanently.
 
 from hashlib import sha256 as DigestBytes
-from json import dumps as EncodeJson
+from json import dumps as EncodeJson, loads as ParseJson
 from pathlib import Path as FilePath
 from typing import cast as CastValue
 
@@ -20,6 +20,8 @@ from tests.Research.Inference.InferenceBoundaryTests import (
     WriteInput,
 )
 from tests.Research.Inference.InferenceSession import WriteSession
+from tests.Research.Inference.InferenceHost import PrepareWorker
+from tests.Research.SupervisorClient import FixtureJob
 
 
 # mutations must fail through the same command that accepts independently sealed inference observations
@@ -100,7 +102,7 @@ def CheckMetadata(TmpPath: FilePath, CaseName: str) -> None:
     elif CaseName == "depth":
         Nested: dict[str, object] = {"evidence": "authored"}
         for LevelIndex in range(66):
-            Nested = {"nested": Nested}
+            Nested = {f"nested{LevelIndex}": Nested}
         Report["corroboration"] = Nested
     Content = EncodeJson(Report).encode()
     if CaseName == "duplicate-plan":
@@ -137,7 +139,7 @@ def CheckPlainInput(TmpPath: FilePath, CaseName: str) -> None:
         ReplacePath = (
             TmpPath / "job.json" if CaseName == "linked-session" else InputPath
         )
-        ReplacePath.rename(TargetPath)
+        _ = ReplacePath.rename(TargetPath)
         ReplacePath.symlink_to(TargetPath)
     Process = InvokeWorker(TmpPath)
     assert Process.returncode == 1 and "inference refused:" in Process.stderr
@@ -145,8 +147,8 @@ def CheckPlainInput(TmpPath: FilePath, CaseName: str) -> None:
 
 
 # dependency selectors and their accepted receipts remain valid when the complete snapshot agrees
-@MarkValue.parametrize("Changed", (False, True))
-def CheckDependency(TmpPath: FilePath, Changed: bool) -> None:
+@MarkValue.parametrize("CaseName", ("matching", "receipt", "result"))
+def CheckDependency(TmpPath: FilePath, CaseName: str) -> None:
     Scope = "authored-dependency-integrity"
     Content = EncodeJson(GapReport(Scope, "corroborated")).encode()
     Descriptor = WriteInput(TmpPath, "plan", Content)
@@ -158,7 +160,10 @@ def CheckDependency(TmpPath: FilePath, Changed: bool) -> None:
     JobValue["inputs"] = {"plan": Selector}
     JobValue["depends_on"] = ["authored:parent"]
     Packet["dependencies"] = {
-        "authored:parent": {"receipt": "1" * 64, "result": Descriptor["sha256"]}
+        "authored:parent": {
+            "receipt": "1" * 64,
+            "result": "3" * 64 if CaseName == "result" else Descriptor["sha256"],
+        }
     }
     Snapshot = {
         "definition_hash": DigestBytes(
@@ -174,14 +179,71 @@ def CheckDependency(TmpPath: FilePath, Changed: bool) -> None:
             Snapshot, sort_keys=True, separators=(",", ":"), ensure_ascii=False
         ).encode()
     ).hexdigest()
-    if Changed:
+    if CaseName == "receipt":
         Packet["dependencies"] = {
             "authored:parent": {"receipt": "2" * 64, "result": Descriptor["sha256"]}
         }
     _ = (TmpPath / "job.json").write_text(EncodeJson(Packet), encoding="utf-8")
     Process = InvokeWorker(TmpPath)
-    if Changed:
-        assert Process.returncode == 1 and "controller fingerprint" in Process.stderr
+    if CaseName != "matching":
+        ReasonText = (
+            "controller fingerprint" if CaseName == "receipt" else "dependency result"
+        )
+        assert Process.returncode == 1 and ReasonText in Process.stderr
         assert not (TmpPath / "result.json").exists()
     else:
         _ = AssertReceipt(TmpPath, Process)
+
+
+# genuine controller dependencies must remain executable after contradictory packet inputs are refused
+def CheckDepChain(TmpPath: FilePath) -> None:
+    Harness = PrepareWorker(TmpPath)
+    RegistryPath = FilePath(ParseJson(Harness.ConfigFile.read_bytes())["registry"])
+    Registry = ParseJson(RegistryPath.read_bytes())
+    Registry["runners"]["inference.rescan"] = dict(
+        Registry["runners"]["inference.paired-gap"]
+    )
+    _ = RegistryPath.write_text(EncodeJson(Registry), encoding="utf-8")
+    ScopeName = "authored-controller-dependency"
+    SourceBytes = b"authored source no longer included in the assessed scope"
+    SourcePin = DigestBytes(SourceBytes).hexdigest()
+    Harness.BindBytes(
+        "gap-plan", EncodeJson(GapReport(ScopeName, "corroborated")).encode()
+    )
+    Harness.BindBytes("source", SourceBytes)
+    Harness.SubmitJobs(
+        [
+            FixtureJob(
+                "parent",
+                "inference.paired-gap",
+                inputs={"plan": "gap-plan"},
+                options={"scope": ScopeName},
+            ),
+            FixtureJob(
+                "child",
+                "inference.rescan",
+                inputs={"assessment": {"dependency": "parent"}, "source": "source"},
+                depends_on=["parent"],
+                options={
+                    "scope": ScopeName,
+                    "source_format": "solidworks.sldprt",
+                    "source_sha256": SourcePin,
+                },
+            ),
+        ]
+    )
+    _ = Harness.RunIdle()
+    ParentJob = Harness.ReadJob("parent")
+    ChildJob = Harness.ReadJob("child")
+    assert ParentJob["state"] == ChildJob["state"] == "completed"
+    ParentData = ParseJson(EncodeJson(Harness.ReadResult("parent")))
+    ChildData = ParseJson(EncodeJson(Harness.ReadResult("child")))
+    assert ParentData["result"]["records"]["kind"] == "inference.paired-gap"
+    Records = ChildData["result"]["records"]
+    assert Records["status"] == "no_longer_affected"
+    assert Records["execution"]["input_sha256"]["assessment"] == ParentJob["result"]
+    assert Records["source_sha256"] == SourcePin
+    assert (
+        Records["native_acceptance"] == "not_established"
+        and Records["portable_complete"] is False
+    )

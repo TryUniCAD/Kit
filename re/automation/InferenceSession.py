@@ -48,6 +48,14 @@ def read_session(session):
             )
         for pin in dependency.values():
             checksum(pin)
+    for descriptor in inputs.values():
+        binding = descriptor["binding"]
+        if (
+            isinstance(binding, dict)
+            and set(binding) == {"dependency"}
+            and descriptor["sha256"] != dependencies[binding["dependency"]]["result"]
+        ):
+            raise ValueError("inference input differs from its dependency result")
     snapshot = {
         "definition_hash": digest(job),
         "dependencies": dependencies,
