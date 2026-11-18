@@ -159,8 +159,27 @@ The no-COM host verifier passed. No native result is available in this record
 yet; the generated packet remains discovery, and both hidden designs remain
 sealed.
 
-No public writer registration or native acceptance claim is made for this
-lane. The exit condition is independently predicted generated nested files
-passing full native open, leaf parameter edit, rebuild, deepest-first save and
-fresh reopen with healthy controls, followed by the appropriately locked
-hidden-case comparison and production admission.
+The internal constructor reached its disclosed native persistence milestone.
+Original held-out comparison and public writer admission remain open.
+
+## Native persistence after SDK construction
+
+The [disclosed native receipt](../measurements/2026/SdkNestedAssemblyNative01.json)
+binds the same frozen SDK source, complete generated bundles, independently
+computed predictions, both sets of native controls and four phases per
+hierarchy. Each native phase uses a different SOLIDWORKS 2026 SP05.2 process.
+
+The first hierarchy retains one direct occurrence, two expanded occurrence
+paths and one solid. The repeated hierarchy retains three direct occurrences,
+seven expanded paths and five solids. A live leaf edit changes its driving
+boss depth from 7.45 to 11.375 mm, updates all of its repeated occurrences
+and preserves the independent gauge depth at 10.85 mm. Both hierarchies
+save deepest-first and reopen with the same resolved configuration, occurrence
+transforms, feature trees and measured geometry. All generated originals
+retain their immutable hashes.
+
+An earlier transport attempt returned 255 before the first native control
+started. It contributes no candidate measurement. The successful first
+replay and repeated trial each contain both passing controls in chronological
+order and all expected derivative hashes. The independent VM postflight checks
+preserve the licensed processes and verify application exit.

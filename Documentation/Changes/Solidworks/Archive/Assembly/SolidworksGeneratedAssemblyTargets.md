@@ -23,12 +23,15 @@ repeated hierarchy, 156 typed stream round trips, seven rejected malformed
 DAGs and zero runtime input reads or SDK research imports. All 12 ordered and
 18 single-mate baseline bundles retain exact container and stream bytes.
 
-`PrepareSdkNestedTrial.py` freezes an independent geometry/tree prediction and
-the separate native observer. Its serial recipe checks disclosed N01 controls,
-open/rebuild, a live leaf-depth edit, deepest-first synchronized save and fresh
-reopen. Host verification starts no CAD process. This constructor tranche does
-not enable public writing or claim new native or held-out acceptance.
+`PrepareSdkNestedTrial.py` freezes an independent geometry and feature-tree
+prediction and the native observer. Both disclosed generated hierarchies
+pass controlled native open, rebuild, a live leaf-depth edit, deepest-first
+synchronized save and fresh reopen. The repeated hierarchy retains seven
+expanded paths and five solids. Eight fresh SOLIDWORKS processes pass.
+Public writing and held-out qualification remain open.
 
 [Frozen process evidence](../../../../../re/solidworks/measurements/2026/SdkNestedAssemblyConstruction01.json)
+
+[Native assembly measurements](../../../../../re/solidworks/measurements/2026/SdkNestedAssemblyNative01.json)
 
 [Scope, native evidence and current verification](../../../../../re/solidworks/records/SdkNestedAssemblyConstruction2026.md)
