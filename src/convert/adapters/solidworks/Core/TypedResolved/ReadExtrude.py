@@ -1,6 +1,7 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Core.TypedResolved.Ends.ReadEndMode import ReadEndMode
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
@@ -43,9 +44,9 @@ def ReadExtrude(
         raise ValueError("offset extrusion starts are outside typed blind semantics")
     if ModeValue == ExtrudeEnd.KThroughAll:
         if (
-            NodeValue.ClassValue.SchemaValue != 1
-            or EndValue.ClassValue.SchemaValue != 1
-            or FromValue.ClassValue.SchemaValue != 1
+            NodeValue.ClassValue != RuntimeClass("moICE_c", 1)
+            or EndValue.ClassValue != RuntimeClass("moEndSpec_c", 1)
+            or FromValue.ClassValue != RuntimeClass("moFromEndSpec_c", 1)
             or FromValue.FieldsValue != {"t": 0}
         ):
             raise ValueError(

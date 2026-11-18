@@ -31,7 +31,7 @@
   "schema": "kit.sw2026.disclosed-public-through-all-read.v1",
   "sdk_processes": 18,
   "source_fingerprint": {
-    "manifest_sha256": "2605553249cf686bede3d3668488cfb56c3ca27673ac062f58713c3304b2c18c",
+    "manifest_sha256": "e755b2dc11ebcbcd020917d19c9d8a7e929828656a05738439eb4c4a62311113",
     "python_source_files": 4436
   },
   "states": {
