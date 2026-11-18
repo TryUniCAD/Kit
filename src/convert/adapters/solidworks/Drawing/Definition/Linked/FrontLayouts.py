@@ -6,6 +6,12 @@ from convert.adapters.solidworks.Drawing.Definition.Emission.Layouts.BlankLayout
 from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.CompFields import (
     KCompFields,
 )
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.DownstreamFields import (
+    KDownstreamFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.EdgeFields import (
+    KEdgeFields,
+)
 from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.SupportFields import (
     KSupportFields,
 )
@@ -20,6 +26,8 @@ KFrontLayouts = MappingProxyType(
         **KViewFields,
         **KSupportFields,
         **KCompFields,
+        **KEdgeFields,
+        **KDownstreamFields,
         "moScaleSysScale_c": (),
     }
 )
