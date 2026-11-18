@@ -1,0 +1,320 @@
+{
+  "all_nine_sdk_writer_sources_unchanged_by_guard_repair": true,
+  "atomic_rejections": 8,
+  "cases": [
+    {
+      "builds": [
+        {
+          "request_sha256": "a86799ada7cf3aa211ad9ec449cec1844a6557838f07a852133b99a2852f959e",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "41bc62ee0071f14b45bb45b23a27158918d027e86e43f16eb1ea69439ba45b90",
+          "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+        },
+        {
+          "request_sha256": "a86799ada7cf3aa211ad9ec449cec1844a6557838f07a852133b99a2852f959e",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "41bc62ee0071f14b45bb45b23a27158918d027e86e43f16eb1ea69439ba45b90",
+          "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+        }
+      ],
+      "changed_default_streams": [
+        "Contents/Definition"
+      ],
+      "child_neutral": {
+        "configuration_name": "modeled default",
+        "depth_m": 0.006983,
+        "depth_name": "D1",
+        "driver_names": [
+          "D1",
+          "D2"
+        ],
+        "feature_name": "Boss-Extrude1",
+        "name": "OriginConstructorAlphaChild",
+        "sketch_name": "Sketch1",
+        "vertices_m": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.035731000000000006,
+            0.0
+          ],
+          [
+            0.035731000000000006,
+            0.021419
+          ],
+          [
+            0.0,
+            0.021419
+          ]
+        ]
+      },
+      "child_sha256": "55f4b4be5a308d5592e8120031b2cc3918967cf1fabae8b41a10be5c88e5d9c3",
+      "drawing_sha256": "3712197b18310c873c64601bd0ca6399240fa1fe5a3d39c82627caa310aeae8b",
+      "name": "OriginConstructorAlpha",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "207d7a8804efb059e5aa25779c1e383d934724cead7788d4ed5b03ec8993a5ba",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "062175ea102ded9c4b6221aade8aafaa4116cff5684a8b559848b9f7ed3793a7",
+        "worker_sha256": "befe4af86a296948028fbb06ba9be735fa3d9d0c4eae12f1aec1ce53813d342f"
+      },
+      "prepared": {
+        "child_sha256": "55f4b4be5a308d5592e8120031b2cc3918967cf1fabae8b41a10be5c88e5d9c3",
+        "complete_definition_byte_identity": true,
+        "config_map_next": 87,
+        "datum_time_is_native_unset_when_no_creation_event": true,
+        "drawing_sha256": "3712197b18310c873c64601bd0ca6399240fa1fe5a3d39c82627caa310aeae8b",
+        "heldout_acceptance": false,
+        "native_acceptance": false,
+        "origin_creation_log_count": 0,
+        "passed": true,
+        "profile": {
+          "actual_folder_and_view_aliases": true,
+          "actual_origin_and_component_aliases": true,
+          "bitmaps_empty": true,
+          "child_origin_id": 17,
+          "component_acquisition_count": 0,
+          "component_stamp": 203,
+          "creation_epoch": 2592000,
+          "display_id": 10,
+          "model_next_display_id": 11,
+          "native_lifecycle_acceptance": false,
+          "ordinary_profile_id": 18
+        },
+        "public_drawing_writer_enabled": false,
+        "resolved_map_next": 236,
+        "schema": "kit.sw2026.sdk-origin-drawing-preparation.v1",
+        "typed_linked_child_complete": true,
+        "unprojected": [
+          "drawing.profile_displays"
+        ]
+      },
+      "profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      },
+      "runtime_input_file_access_attempts": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "builds": [
+        {
+          "request_sha256": "f3c0b1242e787571a6dd36a72e15f71d6d20dc37fc97728b429347e377d44de7",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "9504ab4d9de45efffedf2d0d6af2003a7db2cddc6253c08877cf013f63a50fc0",
+          "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+        },
+        {
+          "request_sha256": "f3c0b1242e787571a6dd36a72e15f71d6d20dc37fc97728b429347e377d44de7",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "9504ab4d9de45efffedf2d0d6af2003a7db2cddc6253c08877cf013f63a50fc0",
+          "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+        }
+      ],
+      "changed_default_streams": [
+        "Contents/Definition"
+      ],
+      "child_neutral": {
+        "configuration_name": "modeled default",
+        "depth_m": 0.009527,
+        "depth_name": "D1",
+        "driver_names": [
+          "D1",
+          "D2"
+        ],
+        "feature_name": "Boss-Extrude1",
+        "name": "OriginConstructorBetaΩChild",
+        "sketch_name": "Sketch1",
+        "vertices_m": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.029173,
+            0.0
+          ],
+          [
+            0.029173,
+            0.042683
+          ],
+          [
+            0.0,
+            0.042683
+          ]
+        ]
+      },
+      "child_sha256": "7189a6832077e99601d7d4d6b769d17959fa1c8a35d7658fc480c306ed4b9304",
+      "drawing_sha256": "f316361bea226564d906113910a50a5ff416393b6f70f88582608d418b25fa99",
+      "name": "OriginConstructorBetaΩ",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "17cf27abd72ee22807739d936117e65a2983cc9f790d6d969da9ef14d31d99e0",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1303ab0436ed0f96328b522d52938f20a02ebe59d10bf531ef7e1e3c1e764a1f",
+        "worker_sha256": "befe4af86a296948028fbb06ba9be735fa3d9d0c4eae12f1aec1ce53813d342f"
+      },
+      "prepared": {
+        "child_sha256": "7189a6832077e99601d7d4d6b769d17959fa1c8a35d7658fc480c306ed4b9304",
+        "complete_definition_byte_identity": true,
+        "config_map_next": 87,
+        "datum_time_is_native_unset_when_no_creation_event": true,
+        "drawing_sha256": "f316361bea226564d906113910a50a5ff416393b6f70f88582608d418b25fa99",
+        "heldout_acceptance": false,
+        "native_acceptance": false,
+        "origin_creation_log_count": 0,
+        "passed": true,
+        "profile": {
+          "actual_folder_and_view_aliases": true,
+          "actual_origin_and_component_aliases": true,
+          "bitmaps_empty": true,
+          "child_origin_id": 17,
+          "component_acquisition_count": 0,
+          "component_stamp": 203,
+          "creation_epoch": 2592000,
+          "display_id": 10,
+          "model_next_display_id": 11,
+          "native_lifecycle_acceptance": false,
+          "ordinary_profile_id": 18
+        },
+        "public_drawing_writer_enabled": false,
+        "resolved_map_next": 236,
+        "schema": "kit.sw2026.sdk-origin-drawing-preparation.v1",
+        "typed_linked_child_complete": true,
+        "unprojected": [
+          "drawing.profile_displays"
+        ]
+      },
+      "profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      },
+      "runtime_input_file_access_attempts": 0,
+      "sdk_research_imports": []
+    }
+  ],
+  "guarded_builds": 4,
+  "heldout_acceptance": false,
+  "hidden_input_values_read": 0,
+  "independent_preparations": 2,
+  "method_sha256": "fd1d0c2af9f58340c98f59230022f6461100822faaeaecc582eae1891dc9bad3",
+  "native_acceptance": false,
+  "passed": true,
+  "prior_failed_guard_result_sha256": "5d565b2300f5241078ea65b1563535a364392964f67fb25f26557dcbe9a1bc8f",
+  "prior_failure": "two builds stopped on a neutral validation lazy import at the unchanged no input read guard; no candidate success credited",
+  "process_count": 14,
+  "public_drawing_writer_enabled": false,
+  "rejections": [
+    {
+      "case": "origin_selection_ordinary-child-sketch",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "3838631412dbd3ac4624fe576b35194e6bac4895156f2f5bb5635feb2371e83c",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+    },
+    {
+      "case": "origin_population_argument_1",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "4cac58d97ffb7eaa12acace9876903b4f280f078626e5beb57350ce25cb15c22",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+    },
+    {
+      "case": "origin_population_argument_False",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "4f1f8f82111d5fbc2d14b5e777238d34c97d4d4aa27e8f750be37225710d56da",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+    },
+    {
+      "case": "origin_feature_id_17",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "a4a96cf9701f088c4564b7fc711779e6feb904ec2d6dc688453b022cb73ccd91",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+    },
+    {
+      "case": "origin_creation_time_2592000",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "f6daf309b2c3000521663612bfa5685157aa3ffc1bb1d2bb02e507b245a28719",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+    },
+    {
+      "case": "unsupported_center_child",
+      "diagnostic": "origin pair child construction admits only the complete corner anchor family",
+      "rejected": true,
+      "request_sha256": "7d91a39c0e0a5e2c1ce5bac9f4b2f00b5a9748bc0ab4a658e60c4d8bfd8e10fa",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ed22f390b64a38e82589f49e88ae9f5a9dbc01605e8aa0e31b830956c0382ae5",
+      "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+    },
+    {
+      "case": "wrong_child_path",
+      "diagnostic": "linked drawing path model or configuration differs from its actual generated child",
+      "rejected": true,
+      "request_sha256": "732ea6010fd698f054e84888d1867b39b17e918c677d79fff764d33aa49cbefb",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "97e6e989e5a4c23b4b4973d87235c4bf595ed1fa3a266c76af2d411ee4af4ab7",
+      "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+    },
+    {
+      "case": "wrong_child_configuration",
+      "diagnostic": "linked drawing path model or configuration differs from its actual generated child",
+      "rejected": true,
+      "request_sha256": "232d9d117b62f70aacea9f3c0029e38e59ac7be05873c995e52bd4ff9e5161d4",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "97e6e989e5a4c23b4b4973d87235c4bf595ed1fa3a266c76af2d411ee4af4ab7",
+      "worker_sha256": "9fa045fcbc2a5e8ff6c1098ad0b60d94f3427d91c893c743a873c6a674378a1b"
+    }
+  ],
+  "repair": "preload DocumentAssemblyValidate DocumentFeatureValidate DocumentReferenceValidate before BeginBuild without changing writer sources",
+  "result_sha256": "ce8c3c44e75e5b2921f592ca4cb2aaa6c0e1f2034debe41cb4fe3fe51dd138f1",
+  "schema": "kit.sw2026.sdk-origin-construction-process-receipt.v1",
+  "source_lock_sha256": "bff16200c2870b4ed45f1bbc01e5f9d05b602677e56aa84114f262db87e860ef",
+  "source_manifest_sha256": "fcf0a8a86a585eb04cc479fada53a27266ab1204d08012d24270fc46f37178fc"
+}
