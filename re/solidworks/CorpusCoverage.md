@@ -343,6 +343,12 @@ generated part. The corner remains at the model origin in every native state.
 Both controls and all eight processes pass. The resulting synthetic shape
 establishes the editable geometry needed for the scoped FreeCAD primitive.
 
+The [disclosed FreeCAD origin box](records/SdkFreecadOriginBox2026.md) enters
+the shared constructors through the actual strictly decoded neutral source.
+Four guarded builds yield identical native bytes with three live drivers
+and source text. Native acceptance and original benchmark membership remain
+open, so this adds zero corpus passes.
+
 The [normal part text reader](records/PartTextPropertyRead2026.md) recovers
 the current compatible summary, file and configuration text with the actual
 configuration owner on five files. The advanced property manager case keeps
