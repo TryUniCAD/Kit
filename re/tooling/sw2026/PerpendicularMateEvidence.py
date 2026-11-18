@@ -89,17 +89,22 @@ def mate_state(author, model, child, components, rows, case):
             and not author.get(feature, "IsSuppressed") and int(author.get(mate, "Type")) == 2
             and int(author.get(mate, "GetMateEntityCount")) == 2, "the native perpendicular feature identity differs")
     require(author.get(feature, "GetFirstDisplayDimension") is None, "the ordinary perpendicular mate unexpectedly owns a driving scalar display")
+    expected_owners = {rows[index]["name"]: (index, plane) for index, plane in case["mate"]["planes"]}
+    require(len(expected_owners) == 2, "the authored mate endpoints must select distinct occurrences")
     endpoints = []
-    for ordinal, (index, plane) in enumerate(case["mate"]["planes"]):
+    for ordinal in range(2):
         entity = author.typed(author.get(mate, "MateEntity", ordinal), "MateEntity2")
         component = author.typed(author.get(entity, "ReferenceComponent"), "Component2")
+        component_name = str(author.get(component, "Name2"))
+        require(component_name in expected_owners, "the native mate returned an unexpected or repeated occurrence")
+        index, plane = expected_owners.pop(component_name)
         selected = author.get(component, "FeatureByName", plane)
         original = author.get(child, "FeatureByName", plane)
         values = [float(value) for value in author.get(entity, "EntityParams") or ()]
         require(len(values) == 8 and all(map(isfinite, values)) and int(author.get(entity, "ReferenceType2")) == 4,
                 "the mate endpoint is not an ordinary finite datum plane")
-        require(str(author.get(component, "Name2")) == rows[index]["name"] and int(author.get(component, "GetID")) == rows[index]["native_id"],
-                "the ordered mate endpoint lost its exact occurrence")
+        require(int(author.get(component, "GetID")) == rows[index]["native_id"],
+                "the mate endpoint lost its exact occurrence identity")
         require(selected is not None and original is not None and author.get(selected, "GetTypeName2") == "RefPlane"
                 and int(author.get(selected, "GetID")) == int(author.get(original, "GetID")), "the component datum does not belong to its actual loaded child")
         row = {"occurrence": rows[index]["name"], "occurrence_native_id": rows[index]["native_id"],

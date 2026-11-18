@@ -64,3 +64,27 @@ It copies the same sealed specification hash. The D02 source lock
 remains incomplete.
 
 [Measured controls, coordinates and endpoint receipt](../measurements/2026/PerpendicularMateSourcePosition04.json)
+
+## Native endpoint ordering
+
+The D02 source selected the second occurrence's Right Plane before
+the first occurrence's Top Plane. `MateEntity(0)` returned the first
+occurrence. Its point and normal match that occurrence's authored
+translation and Top Plane under the measured rotation. The selection
+requests, native return order and independent plane prediction are
+bound by the position receipt.
+
+Packet05 changes the observer to resolve each returned endpoint against
+the unique authored occurrence and datum. It validates the native
+occurrence ID, the original child plane ID and the model-space point
+and normal for both endpoints. It retains the returned order for the
+existing save and fresh-reopen comparisons. The authored placements,
+dimensions, selection requests and sealed specifications are the same.
+
+The Packet05 source hash is
+`de5f421da1caae884565329c2d99bfbd4d9c262ccdda92b74eea71df05394b3c`.
+The only source tool changed since Packet04 is
+`PerpendicularMateEvidence.py`, at
+`d07cb7026088daa024ebe3c933236f658a28f4d0d4446f0cc60c58018c07f042`.
+
+[Endpoint readback gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Assembly/MateEndpointOrderComesFromReadback.md)
