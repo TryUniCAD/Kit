@@ -1,0 +1,76 @@
+{
+  "schema": "kit.sw2026.part-chronology-owner-classification.v1",
+  "task": "B04-SW2026-PART-CHRONOLOGY",
+  "owner": "/root/configuration_header",
+  "integration_owner": "/root",
+  "delivery_pr": 121,
+  "base_revision": "48122d40b3930e2c011135f30f1c2f46a9bec045",
+  "measurement": "../measurements/2026/PartChronologyConstruction01.json",
+  "measurement_sha256": "b69ac7049dc1b095cd8086a9df53e0ab801833671601d286edfd4ac033a69dc8",
+  "native_ledger": "PartChronologyNative2026.json",
+  "native_ledger_sha256": "19752d058b4a4a95defde8887e3ff1a1ec3ae718193ab3cca2777b3f5e7ed509",
+  "native_evidence_reused": [
+    "DrawingSourceEpochOwnership2026.md",
+    "DrawingSourceEpochNative2026.json",
+    "DrawingSourceEpochNativeLifecycle2026.md",
+    "HeaderConstruction2026.md",
+    "HistoryConstruction2026.md",
+    "AssemblyConstruction2026.md#ordinary-self-reference-construction",
+    "ModelConstruction2026.md#feature-reference-creation-time"
+  ],
+  "confidence": {
+    "wire_owners_and_layouts": "confirmed for pinned 2026 build and selected version-19000 paths",
+    "new_constructor_host_boundary": "confirmed by guarded process execution",
+    "new_native_lifecycle": "partial; not run",
+    "complete_original_source_preparation": "partial; refused",
+    "historical_high_flag_and_telemetry_construction": "not found or deliberately unrepresented"
+  },
+  "classification": {
+    "inputs": [
+      "header creation/archive/update wall seconds",
+      "ordered attribution names",
+      "log captions",
+      "created/modified event meanings, authors, companies, comments and wall seconds",
+      "explicit feature seconds and fractional ticks",
+      "modeled actual root and feature objects",
+      "output target and save event through existing self-file input"
+    ],
+    "derived": [
+      "persistent log IDs from actual owner nodes",
+      "attribution indices from explicit tables",
+      "array lengths and fresh map allocation",
+      "signed native FILETIME words from explicit instant",
+      "self model name and creation identity from actual generated owners"
+    ],
+    "format_vocabulary": [
+      "schema-one Header/log/stamp classes and schema-zero string arrays",
+      "ordinary created/modified codes 0/1",
+      "native time widths and FILETIME epoch/scale"
+    ],
+    "runtime_or_unresolved_not_generated": [
+      "populated Biography telemetry",
+      "native History high flag",
+      "source Header flags outside the fresh initializer",
+      "registration/update scheduling",
+      "source empty-path/persisted self-state transition",
+      "flat public model-name projection",
+      "complete source properties/presentation and primary/density units"
+    ]
+  },
+  "known_refusals": [
+    "unknown operation codes",
+    "duplicate attribution names",
+    "foreign or duplicate owner identities",
+    "missing actual model creation event",
+    "unsupported owner class/schema",
+    "unnamed owner",
+    "invalid or sentinel calendar event values",
+    "invalid precise tick domain",
+    "ordinary source model/output basename mismatch",
+    "unrepresented complete original state"
+  ],
+  "existing_defaults_preserved": true,
+  "new_public_registration": false,
+  "new_native_qualification": false,
+  "heldout_inputs_read": 0
+}
