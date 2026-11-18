@@ -211,7 +211,10 @@ records six byte-exact archive comparisons and 78 native semantic observations f
 SOLIDWORKS 2026 drawings from the [drawing source lock](v2026/heldout/DrawingSourceLock01.json).
 The [SDK drawing layout receipt](measurements/2026/DrawingSdkLayoutCheck01.json) verifies a
 partial reader in the public adapter for those three native drawings. It supports the sheet and
-single external part view layout. Strict drawing reads and production writing await further qualification.
+single external part view layout. The [raw Definition proof](measurements/2026/DrawingRawGrammar01.json)
+re-emits both original streams byte for byte. The [empty appearance-manager receipt](measurements/2026/DrawingEmptyAppearanceReader01.json)
+advances those originals to the strict root ownership and model link cache check. Strict drawing reads
+and production writing await further qualification.
 The [drawing concept prefix check](measurements/2026/DrawingConceptPrefixCheck01.json)
 round-trips the ordered sheet and complete view records before the resolved model tail. The
 research reader extracts model orientation, scale and the view transform and compares them

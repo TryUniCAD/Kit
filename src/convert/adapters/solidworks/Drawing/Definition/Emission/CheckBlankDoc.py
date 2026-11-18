@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
+from convert.adapters.solidworks.Drawing.Definition.Appearance.ReadAppearState import (
+    ReadAppearState,
+)
 from convert.adapters.solidworks.Drawing.Definition.Emission.BlankGraph import (
     BlankGraph,
 )
@@ -17,7 +20,8 @@ def CheckBlankDoc(GraphValue: BlankGraph) -> None:
             "blank drawing Definition requires current ui drawing ownership"
         )
     FieldsValue = Document.FieldsValue
-    if FieldsValue["has_pwmaterial"] != 0 or FieldsValue["drawing_end_marker"] != 3503:
+    _ = ReadAppearState(Document, GraphValue.VersionValue)
+    if FieldsValue["drawing_end_marker"] != 3503:
         raise BodyUnsupported("blank drawing Definition has unqualified ui state")
     ClsidTail = FieldsValue["clsid_d"]
     if not isinstance(ClsidTail, bytes):

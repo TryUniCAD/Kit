@@ -170,9 +170,9 @@ reference through its shared base, sketch-entity and end-face surface
 identities, line style and line-font configuration. Both reads also decode
 the drawing user model environment, its embedded splitter and the
 bill-of-materials manager. The complete Definition streams round-trip
-byte for byte through the raw typed research path. Both original
-drawings still trigger the strict UI state guard with a present
-PW material owner.
+byte for byte through the raw typed research path. Both originals pass the
+empty appearance-manager check with the saved allocator counter intact.
+They reach the strict root ownership and model link cache check.
 [Drawing component profile](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksComponentProfileArchive.md)
 [Drawing reference chains](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingReferenceChains.md)
 [Drawing edge references](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingEdgeReferences.md)
@@ -184,6 +184,7 @@ PW material owner.
 [Drawing splitter bodies](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingSplitterBodies.md)
 [Drawing BOM managers](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingBomManagers.md)
 [Complete raw drawing Definition checks](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingRawGrammarChecks.md)
+[Empty drawing appearance state](../../Changes/Solidworks/Inspection/Drawings/Archive/SolidworksDrawingEmptyAppearanceState.md)
 
 ## Feature history
 
