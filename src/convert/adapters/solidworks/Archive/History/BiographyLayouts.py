@@ -2,7 +2,6 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-
 # saved biography embeds ordered native telemetry records without allocating extra archive map entries
 KBiographyLayouts = MappingProxyType(
     {
