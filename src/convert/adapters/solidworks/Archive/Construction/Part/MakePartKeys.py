@@ -32,6 +32,7 @@ def MakePartKeys(
     FeatureValues: tuple[ArchiveNode, ...],
     InputValue: PartBuildInput,
     PlanValue: BlindPlan,
+    SketchDims: tuple[KeywordDim, ...] = (),
 ) -> bytes:
     ConfigValues = tuple(
         KeywordConfig(
@@ -52,7 +53,7 @@ def MakePartKeys(
         Dimensions = (
             (KeywordDim("D1", PlanValue.DepthValue / ScaleValue, None),)
             if TagValue == "Extrusion"
-            else ()
+            else SketchDims if TagValue == "Sketch" else ()
         )
         RowsValue.append(
             KeywordFeature(

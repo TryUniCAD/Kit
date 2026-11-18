@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfi
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeBiography import (
     MakeBiography,
 )
+from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import (
+    KeywordDim,
+)
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeFreshHist import (
     MakeFreshHist,
 )
@@ -38,6 +41,7 @@ def EmitPartStreams(
     DefinitionValue: ModelDefGraph,
     InputValue: PartBuildInput,
     PlanValue: BlindPlan,
+    SketchDims: tuple[KeywordDim, ...] = (),
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
     ConfigBytes, ConfigValue = WriteConfigMut(SystemValue.RootValue, 19000, HeaderValue)
@@ -62,7 +66,7 @@ def EmitPartStreams(
             MakeFreshHist(InputValue.HistoryValue), 19000
         )[0],
         "swXmlContents/KeyWords": MakePartKeys(
-            SystemValue, FeatureValues, InputValue, PlanValue
+            SystemValue, FeatureValues, InputValue, PlanValue, SketchDims
         ),
     }
     return StreamsValue, ConfigValue, ResolvedValue

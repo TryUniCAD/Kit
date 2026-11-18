@@ -1,0 +1,33 @@
+from dataclasses import dataclass as DataClass
+from typing import cast as CastValue
+
+from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
+
+
+# sketch dimension placement and presentation must be authored independently of solved geometry and stored display caches
+@DataClass(frozen=True, slots=True)
+class RectDimInput:
+    WidthText: tuple[float, float]
+    HeightText: tuple[float, float]
+    DesignIntent: bool
+    SelectedLeader: int
+    RouteCenter: bool
+
+    # malformed presentation must fail before either persistent identities or the existing sketch graph can change
+    def __post_init__(self) -> None:
+        for PointValue in (self.WidthText, self.HeightText):
+            if type(PointValue) is not tuple or len(PointValue) != 2:
+                raise TypeError(
+                    "rectangle dimension text requires two planar coordinates"
+                )
+            for Coordinate in PointValue:
+                _ = RequireScalar(Coordinate)
+        if (
+            type(CastValue(object, self.DesignIntent)) is not bool
+            or type(CastValue(object, self.RouteCenter)) is not bool
+        ):
+            raise TypeError("rectangle dimension preferences require explicit booleans")
+        if type(CastValue(object, self.SelectedLeader)) is not int or not -(
+            1 << 31
+        ) <= self.SelectedLeader < (1 << 31):
+            raise ValueError("rectangle dimension leader requires a signed integer")

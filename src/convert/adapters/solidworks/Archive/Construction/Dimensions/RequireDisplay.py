@@ -1,6 +1,12 @@
 from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.Construction.SketchDimensions.CheckViewArgs import (
+    CheckViewArgs,
+)
+from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RequireSketch import (
+    RequireSketch,
+)
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
     RequireNode,
@@ -11,6 +17,12 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 def RequireDisplay(
     HandleValue: ArchiveNode, DesignIntent: bool, SelectedLeader: int, TextKind: int
 ) -> ArchiveNode:
+    if isinstance(
+        CastValue(object, HandleValue), ArchiveNode
+    ) and HandleValue.ClassValue == RuntimeClass("moSkDimHandleValG2_c", 1):
+        OwnerValue = RequireSketch(HandleValue, TextKind)
+        CheckViewArgs(DesignIntent, SelectedLeader)
+        return OwnerValue
     _ = RequireNode(HandleValue, "moFeatureDimHandle_c")
     OwnerValue = ArchiveNode.RequireNode(HandleValue.FieldsValue.get("owner"))
     if (
@@ -47,12 +59,5 @@ def RequireDisplay(
         raise ValueError(
             "display text kind disagrees with its verified native factory and dimension owner"
         )
-    if (
-        type(CastValue(object, DesignIntent)) is not bool
-        or type(CastValue(object, SelectedLeader)) is not int
-        or not -(1 << 31) <= SelectedLeader < (1 << 31)
-    ):
-        raise ValueError(
-            "display presentation requires an authored boolean and signed leader value"
-        )
+    CheckViewArgs(DesignIntent, SelectedLeader)
     return OwnerValue
