@@ -1,0 +1,265 @@
+{
+  "acceptance": {
+    "heldout_accepted": false,
+    "native_target_not_yet_observed": true,
+    "writer_qualified": false
+  },
+  "build": {
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "machine": "0x8664",
+    "year": 2026
+  },
+  "confidence": "partial; exact static route, runtime installed implementation not yet observed",
+  "data_windows": [],
+  "delivery_pr": 121,
+  "execution": {
+    "cad_calls": 0,
+    "static_original_pe_only": true,
+    "tests": false,
+    "vm_calls": 0
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 235,
+      "end_exclusive": "0x45677d1b",
+      "module": "sldappu.dll",
+      "name": "ApiForceRebuild301",
+      "sha256": "d9f1c21b273b8d9e961f128c8e57c7c5c646c213141be77a4bb421513f1a7e2e",
+      "start": "0x45677c30",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 235,
+          "end_exclusive": "0x45677d1b",
+          "sha256": "d9f1c21b273b8d9e961f128c8e57c7c5c646c213141be77a4bb421513f1a7e2e",
+          "start": "0x45677c30",
+          "unwind_rva": "0xc6e068"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 233,
+      "end_exclusive": "0x491c17e9",
+      "module": "slduiu.dll",
+      "name": "ModelDocForceRebuild301",
+      "sha256": "808bb5bf297d3b3d12bed357f2345b5b20247aeb4b6b4153a3fef0789c0481a1",
+      "start": "0x491c1700",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 233,
+          "end_exclusive": "0x491c17e9",
+          "sha256": "808bb5bf297d3b3d12bed357f2345b5b20247aeb4b6b4153a3fef0789c0481a1",
+          "start": "0x491c1700",
+          "unwind_rva": "0x1b1afd0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 313,
+      "end_exclusive": "0x3df9ca39",
+      "module": "slddrwu.dll",
+      "name": "DrawingForceRebuildDelegate01",
+      "sha256": "33fb124694bf2bbb359e8e955c51f06898b979e7aa769b677f1e70f265e11ea8",
+      "start": "0x3df9c900",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 313,
+          "end_exclusive": "0x3df9ca39",
+          "sha256": "33fb124694bf2bbb359e8e955c51f06898b979e7aa769b677f1e70f265e11ea8",
+          "start": "0x3df9c900",
+          "unwind_rva": "0x6f2dfc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1611,
+      "end_exclusive": "0x3df429fb",
+      "module": "slddrwu.dll",
+      "name": "DrawingRebuildAllViews01",
+      "sha256": "7995490b93ef8c810b9e95c6019aadff0bcea722d1c75884a92e4a72d977e582",
+      "start": "0x3df423b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1611,
+          "end_exclusive": "0x3df429fb",
+          "sha256": "7995490b93ef8c810b9e95c6019aadff0bcea722d1c75884a92e4a72d977e582",
+          "start": "0x3df423b0",
+          "unwind_rva": "0x6e3598"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2141,
+      "end_exclusive": "0x3df43f2d",
+      "module": "slddrwu.dll",
+      "name": "DrawingRebuildDispatch01",
+      "sha256": "65d444a3f58ce37433ce7acd1dbfe86a138069cd7aef42d071132c7a16058527",
+      "start": "0x3df436d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2141,
+          "end_exclusive": "0x3df43f2d",
+          "sha256": "65d444a3f58ce37433ce7acd1dbfe86a138069cd7aef42d071132c7a16058527",
+          "start": "0x3df436d0",
+          "unwind_rva": "0x6e3314"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x3198a1d8",
+      "module": "sldsessionu.dll",
+      "name": "GrMessengerGet01",
+      "sha256": "0ccfb663a8914c9372ba3b7371e0f880084e9de9a874e2b1d2f0bfeeaf1cc157",
+      "start": "0x3198a1d0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 22,
+      "end_exclusive": "0x3198a9e6",
+      "module": "sldsessionu.dll",
+      "name": "SetSldGrMessenger",
+      "sha256": "9df745b33fa09a37a83232aba545d4e1e3172ace4381a6d239d875a312e7fb2b",
+      "start": "0x3198a9d0",
+      "unwind_fragments": []
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "imports": [
+    {
+      "iat": "0x3e138618",
+      "module": "sldsessionu.dll",
+      "name": "?SldGrMessenger@SldSession_c@@SAPEAVSldGrMessenger_c@@XZ",
+      "source_module": "slddrwu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "instruction-boundary window inside complete function",
+      "bytes": 16,
+      "end_exclusive": "0x3df427d6",
+      "module": "slddrwu.dll",
+      "name": "ordinary drawing rebuild passes render-refresh selection",
+      "sha256": "9a9531266bf467661d68e594819776c2e07145465acdfa8864de8f6b9fb12c78",
+      "start": "0x3df427c6"
+    },
+    {
+      "bound": "instruction-boundary window inside complete function",
+      "bytes": 22,
+      "end_exclusive": "0x3df43e92",
+      "module": "slddrwu.dll",
+      "name": "selected messenger call and alternative branch guard",
+      "sha256": "20f4a962733c0b954ee2937f85bf7428381c716ff67a0f1ef47d420cef3901f9",
+      "start": "0x3df43e7c"
+    }
+  ],
+  "limits": [
+    "runtime installation and actual callback execution remain unobserved before root run",
+    "equal target ownership does not establish renderer state equality or diagnose missing note raster",
+    "do not treat the separate detail interface or a task-pane callback as this messenger target"
+  ],
+  "metadata_correction": "packet01 function row correctly named sldappu; module list omitted its pin and included unused sldapiu; no observer source changes",
+  "modules": [
+    {
+      "bytes": 229464,
+      "machine": "0x8664",
+      "name": "sldsessionu.dll",
+      "preferred_base": "0x31980000",
+      "sha256": "c53d42d0b7bcfd9abf78cfd71ca6f71645cb8da16ea29c155f63172eaa17f421"
+    },
+    {
+      "bytes": 36036696,
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "bytes": 8949848,
+      "machine": "0x8664",
+      "name": "slddrwu.dll",
+      "preferred_base": "0x3dbc0000",
+      "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47"
+    },
+    {
+      "bytes": 16519768,
+      "machine": "0x8664",
+      "name": "sldappu.dll",
+      "preferred_base": "0x453f0000",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    }
+  ],
+  "owner": "flag_ownership; root owns native oracle, integration and publication",
+  "rebuild_route": {
+    "alternate_branch": "r12d == 0 uses the separate detail-items interface and slot 0x30; not the ordinary selected route",
+    "dispatch_preserves_r9d": "r12d",
+    "drawing_owner_calls_dispatch": {
+      "call": "0x3df427d1",
+      "r8d": 1,
+      "r9d": 1
+    },
+    "getter_iat": "0x3e138618",
+    "getter_import_call": "0x3df43e81",
+    "selected_condition": "r12d != 0",
+    "target_indirect_call": "0x3df43e8d",
+    "target_receiver": "actual getter return",
+    "vtable_slot": "0x10"
+  },
+  "runtime_plan": {
+    "access_mask": "0x410",
+    "access_names": [
+      "PROCESS_QUERY_INFORMATION",
+      "PROCESS_VM_READ"
+    ],
+    "consistency": "reread all three pointer cells and require equality; observations are not atomic",
+    "fallback_object_rva": "0x31028",
+    "getter_bytes": 8,
+    "getter_export": "?SldGrMessenger@SldSession_c@@SAPEAVSldGrMessenger_c@@XZ",
+    "getter_or_target_invoked_by_observer": false,
+    "getter_rva": "0xa1d0",
+    "getter_sha256": "0ccfb663a8914c9372ba3b7371e0f880084e9de9a874e2b1d2f0bfeeaf1cc157",
+    "global_derivation": "loaded getter VA + 7 + signed little-endian rel32 at getter VA + 3",
+    "global_rva": "0x32a30",
+    "module": "sldsessionu.dll",
+    "module_disk_hash_is_not_remote_image_hash": true,
+    "private_runtime_addresses_only": true,
+    "reads": [
+      "p = qword(global)",
+      "v = qword(p)",
+      "target = qword(v + 0x10)"
+    ],
+    "target_identity": "unique actual loaded module, executable section, target RVA and complete on-disk module SHA-256"
+  },
+  "schema": "kit.sw2026.drawing-rebuild-messenger-native.v1",
+  "task": "DRAWING-NOTES-C10: disclosed renderer runtime ownership aperture",
+  "vendor_bytes_or_listings_included": false,
+  "vm_calls": 0,
+  "vtable_cells": [
+    {
+      "cell": "0x4a554fd8",
+      "module": "slduiu.dll",
+      "target": "0x491c1700"
+    },
+    {
+      "cell": "0x3e18f9b8",
+      "module": "slddrwu.dll",
+      "target": "0x3df9c900"
+    }
+  ]
+}
