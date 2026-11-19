@@ -248,3 +248,12 @@ native-saved hashes. All source, candidate and saved files remain within
 the guest. The result qualifies the measured construction and editing
 behavior. Public writer registration, broader presentation parity and
 original FCStd benchmark membership remain open.
+
+The native-source projector verifies the actual external origin relation
+before constructing the lower-dimensional neutral request. The request
+contains the four axis relations and two distance drivers. The measured
+constructor adds the external coincidence for the verified origin.
+An arbitrary neutral request can give a free corner the same coordinates.
+Public registration needs that source anchor dependency before it can
+publish the native-origin relation.
+[Neutral anchor gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/CornerCoordinatesDoNotOwnOrigin.md)

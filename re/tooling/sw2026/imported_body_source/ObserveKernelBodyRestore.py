@@ -31,13 +31,14 @@ def checked(path, checksum):
     return path
 
 
-def verify_job(path, checksum):
+def verify_job(path, checksum, extra_tools):
     require(os.name == "nt", "run the kernel observation in the Windows guest")
     job = json.loads(checked(path, checksum).read_bytes())
     require(job["schema"] == SCHEMA and job["executable_sha256"] == ORACLE
             and job["file_version"] == VERSION and re.fullmatch(r"[0-9a-f]{40}", job["tool_revision"]),
             "kernel restore job identity differs")
-    require(job["restore_binding"] in ("dynamic", "typed_unknown"), "invalid native Restore binding")
+    valid_bindings = ("exchange",) if extra_tools else ("dynamic", "typed_unknown")
+    require(job["restore_binding"] in valid_bindings, "invalid native restoration path")
     destination = Path(job["guest_directory"])
     require(destination.parent == Path("C:\\") and re.fullmatch(r"KitKernelRestore[0-9]{2}", destination.name),
             "use a fresh guest-local kernel observation directory")
@@ -45,6 +46,7 @@ def verify_job(path, checksum):
     require(Path(__file__).resolve().parent == tools and set(job["tools_sha256"]) == {
         "AuthorCurves.py", "AuthorImportedBody.py", "AuthorRectangleAnchors.py", "InspectFresh.py",
         "ObserveKernelBodyRestore.py", "OracleIdentity.py", "RunImportedBodySources.py", "Swapp.py",
+        *extra_tools,
     }, "use the complete measured oracle source")
     for name, expected in job["tools_sha256"].items():
         checked(tools / name, expected)
@@ -183,8 +185,8 @@ def phase(directory, label, expected, candidate, binding):
     return result | {"record_sha256": digest(rec.path)}
 
 
-def run(path, checksum):
-    job, directory = verify_job(path, checksum)
+def run(path, checksum, *, native_phase=phase, extra_tools=()):
+    job, directory = verify_job(path, checksum, extra_tools)
     public = path.parent / "Result.json"
     require(not public.exists(), "kernel observation receipt already exists")
     directory.mkdir()
@@ -210,17 +212,17 @@ def run(path, checksum):
     with (directory / "Oracle.log").open("x", encoding="utf-8") as log, redirect_stdout(log), redirect_stderr(log):
         binding = job["restore_binding"]
         initial_app = record("ApplicationBefore", "native_application_control", control, directory, "ApplicationBefore", pristine)
-        initial_body = initial_app and record("Before", "native_stream_control", phase, directory, "Before", expected_box(), None, binding)
+        initial_body = initial_app and record("Before", "native_stream_control", native_phase, directory, "Before", expected_box(), None, binding)
         try:
             if initial_body:
                 for name, case in job["cases"].items():
                     raw = checked(path.parent / (name + ".x_b"), case["sha256"]).read_bytes()
-                    record(name, case["role"], phase, directory, name, case["expected"], raw, binding)
+                    record(name, case["role"], native_phase, directory, name, case["expected"], raw, binding)
         except Exception as error:
             receipt["input_error"] = type(error).__name__
             print(repr(error))
         finally:
-            final_body = record("After", "native_stream_control", phase, directory, "After", expected_box(), None, binding)
+            final_body = record("After", "native_stream_control", native_phase, directory, "After", expected_box(), None, binding)
             final_app = record("ApplicationAfter", "native_application_control", control, directory, "ApplicationAfter", pristine)
     identities = [entry.get("oracle_identity") or {} for entry in receipt["phases"]]
     unique = {(item.get("process_id"), item.get("process_creation_filetime")) for item in identities}
@@ -229,7 +231,7 @@ def run(path, checksum):
     receipt["passed"] = (receipt["controls_healthy"] and receipt["distinct_exact_processes"] == len(job["cases"]) + 4
                          and all(entry["passed"] for entry in receipt["phases"]))
     receipt["stage"] = "passed" if receipt["passed"] else "failed"
-    verify_job(path, checksum)
+    verify_job(path, checksum, extra_tools)
     write_json(public, receipt)
     print(json.dumps({name: receipt[name] for name in ("stage", "passed", "controls_healthy", "distinct_exact_processes")}))
     return 0 if receipt["passed"] else 3

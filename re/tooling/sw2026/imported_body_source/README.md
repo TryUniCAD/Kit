@@ -123,6 +123,15 @@ controls. Candidate acceptance requires successful bracketing controls.
 [Native restore interface](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IModeler~IRestore2.html)
 · [Temporary solid measurement](https://help.solidworks.com/2024/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IBody2~GetMassProperties.html)
 
+The dynamic and typed out-of-process restore controls return the same
+interface error on the native stream. Use
+[ObserveKernelExchange.py](ObserveKernelExchange.py) with the packet's
+exchange binding and that additional tool digest to compare binary
+Parasolid exchange in a fresh guest directory. Both ordinary controls
+export the native box as `.x_b` before the import. The original
+3D Interconnect setting is recorded and restored in each phase.
+[Binary Parasolid translator](https://help.solidworks.com/2026/english/SolidWorks/sldworks/c_parasolid_files.htm)
+
 The packet authors source fixtures through SOLIDWORKS. It records zero Kit
 writer outputs and zero native writer acceptance. The public conversion route
 and any opt-in capability-loss behavior require separate implementation and
