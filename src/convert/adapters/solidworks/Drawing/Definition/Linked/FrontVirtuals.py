@@ -1,5 +1,9 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.NoteVirtuals import (
+    KNoteVirtuals,
+)
+
 from convert.adapters.solidworks.Drawing.Definition.Emission.BlankVirtuals import (
     KBlankVirtuals,
 )
@@ -8,6 +12,7 @@ from convert.adapters.solidworks.Drawing.Definition.Emission.BlankVirtuals impor
 KFrontVirtuals = MappingProxyType(
     {
         **KBlankVirtuals,
+        **KNoteVirtuals,
         **{
             (ClassName, SlotValue): TargetValue
             for ClassName in (

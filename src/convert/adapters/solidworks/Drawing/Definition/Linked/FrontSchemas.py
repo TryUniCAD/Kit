@@ -1,5 +1,9 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.NoteSchemas import (
+    KNoteSchemas,
+)
+
 from convert.adapters.solidworks.Drawing.Definition.Emission.BlankSchemas import (
     KBlankSchemas,
 )
@@ -7,6 +11,7 @@ from convert.adapters.solidworks.Drawing.Definition.Emission.BlankSchemas import
 # concrete linked owners need explicit runtime schemas without widening the existing blank admission
 KFrontSchemas = MappingProxyType(
     {
+        **KNoteSchemas,
         **KBlankSchemas,
         **{
             ClassName: (1,)

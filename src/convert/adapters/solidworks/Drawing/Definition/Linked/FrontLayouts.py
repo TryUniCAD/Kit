@@ -1,5 +1,15 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.AttachFields import (
+    KNoteAttachFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.DetailFields import (
+    KNoteDetailFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.NoteFields import (
+    KNoteFields,
+)
+
 from convert.adapters.solidworks.Archive.Definition.Fields.DocStyleFields import (
     KDocStyleFields,
 )
@@ -28,6 +38,9 @@ from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.ViewFields imp
 # a linked profile must preserve the exact blank layout while adding independently proved view owners
 KFrontLayouts = MappingProxyType(
     {
+        **KNoteAttachFields,
+        **KNoteDetailFields,
+        **KNoteFields,
         **KBlankLayouts,
         **KViewFields,
         **KSupportFields,
