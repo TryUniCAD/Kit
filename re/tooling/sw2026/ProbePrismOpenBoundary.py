@@ -43,9 +43,11 @@ SITES = (
     ("part_first_dirty_store", "sldmodu", 0x4c03ee0e),
     ("public_solid_owner_return", "sldprtu", 0x33418f07),
     ("atom_inventory_call", "sldmodu", 0x4c1aba65),
+    ("selected_atom_inventory_lookup", "sldmodu", 0x4bcf466c),
 )
 
-POST_OPEN_SITES = {"public_solid_owner_return", "atom_inventory_call"}
+INVENTORY_CALL_SITES = {"public_solid_owner_return", "atom_inventory_call"}
+POST_OPEN_SITES = INVENTORY_CALL_SITES | {"selected_atom_inventory_lookup"}
 
 
 CALLERS = {
@@ -73,11 +75,12 @@ def read_int(data, address, size, *, signed=False):
 
 
 class ColdAdmissionTrace(debug.SaveAggregateTrace):
-    def __init__(self, engine, identity, terminal_site, resume):
+    def __init__(self, engine, identity, terminal_site, resume, expected_atom_id=None):
         super().__init__(Swapp, engine, identity)
         self.opening = Event()
         self.breakpoints = []
         self.terminal_site = terminal_site
+        self.expected_atom_id = expected_atom_id
         self.resume = resume
         self.result["hits"] = []
         self.result["breakpoint_kind"] = "amd64_execute" if terminal_site != "attach_only" else None
@@ -165,6 +168,21 @@ class ColdAdmissionTrace(debug.SaveAggregateTrace):
             control.call(73, "remove stopped hardware breakpoint", (debug.PTR,), breakpoint.pointer)
             self.breakpoints.pop()
 
+    def manager_state(self, data, manager, expected_part=None):
+        base = self.live_bases["sldmodu"] - MODULES["sldmodu"][0]
+        debug.require(manager and read_int(data, manager, 8) == base + 0x4cff3a00,
+                      "solid enumeration did not reach the actual moAtomManager receiver")
+        owner = read_int(data, manager + 0x258, 8)
+        node = read_int(data, manager + 0x88, 8)
+        return {
+            "manager_owner_present": bool(owner),
+            "manager_owner_is_current_part": None if expected_part is None else owner == expected_part,
+            "manager_owner_is_part_class": bool(owner and read_int(data, owner, 8) == base + 0x4d1252d8),
+            "manager_tree_head_present": bool(node),
+            "manager_tree_head_has_member": bool(node and read_int(data, node, 8) != node),
+            "manager_tree_count": read_int(data, manager + 0x90, 8),
+        }
+
     def _capture(self, client, interfaces, handle, state):
         control, system = interfaces["control"], interfaces["system"]
         data, registers = interfaces["data"], interfaces["registers"]
@@ -191,7 +209,7 @@ class ColdAdmissionTrace(debug.SaveAggregateTrace):
             if self.opening.is_set():
                 record = {"site": name, "source_address": hex(address), "thread": thread.value}
                 stack = registers.value(12, "AMD64 stack", debug.U64)
-                if name in POST_OPEN_SITES:
+                if name in INVENTORY_CALL_SITES:
                     part = register(registers, "rbx" if name == "public_solid_owner_return" else "rsi")
                     output = register(registers, "rdi" if name == "public_solid_owner_return" else "rdx")
                     expected = self.live_bases["sldmodu"] + 0x4d1252d8 - MODULES["sldmodu"][0]
@@ -206,12 +224,36 @@ class ColdAdmissionTrace(debug.SaveAggregateTrace):
                                   atom_manager_present=bool(manager))
                     if name == "atom_inventory_call":
                         debug.require(manager == register(registers, "rcx"), "actual atom manager receiver differs")
+                        record.update(part_model_runtime_flags=read_int(data, part + 0x2b0, 4),
+                                      **self.manager_state(data, manager, part))
                         record.update(visibility_filter=register(registers, "r8") & 0xffffffff,
                                       body_type_filter=register(registers, "r9") & 0xffffffff,
                                       feature_filter_present=bool(read_int(data, stack + 0x20, 8)),
                                       option_6=read_int(data, stack + 0x28, 4, signed=True),
                                       id_filter=read_int(data, stack + 0x30, 4, signed=True),
                                       option_8=read_int(data, stack + 0x38, 4, signed=True))
+                if name == "selected_atom_inventory_lookup":
+                    atom_key = read_int(data, register(registers, "rbx") + 0x1c, 4, signed=True)
+                    debug.require(register(registers, "r15") == (atom_key & ((1 << 64) - 1)),
+                                  "resolved tree key differs from the actual map key")
+                    if atom_key != self.expected_atom_id:
+                        skipped = self.result.get("unselected_atom_lookup_stops", 0) + 1
+                        self.result["unselected_atom_lookup_stops"] = skipped
+                        debug.require(skipped < 32, "selected body atom was not reached within the lookup bound")
+                        control.call(50, "continue to the independently selected atom", (debug.U32,), debug.DEBUG_STATUS_GO)
+                        continue
+                    manager = register(registers, "r13")
+                    atom = register(registers, "rdi")
+                    debug.require(atom == read_int(data, stack + 0x38, 8), "actual lookup result differs")
+                    record.update(atom_key=atom_key, mapped_atom_present=bool(atom), **self.manager_state(data, manager))
+                    if atom:
+                        expected_atom = self.live_bases["sldmodu"] + 0x4cff1620 - MODULES["sldmodu"][0]
+                        debug.require(read_int(data, atom, 8) == expected_atom, "selected lookup did not resolve an actual moAtom")
+                        record.update(runtime_atom_id=read_int(data, atom + 0x140, 4, signed=True),
+                                      runtime_atom_queue_state=read_int(data, atom + 0x144, 4),
+                                      runtime_atom_feature_present=bool(read_int(data, atom + 0x148, 8)),
+                                      runtime_atom_body_present=bool(read_int(data, atom + 0x160, 8)))
+                        debug.require(record["runtime_atom_id"] == atom_key, "atom object has a foreign identity")
                 if name == "part_first_dirty_store":
                     part = register(registers, "rbx")
                     expected_vtable = self.live_bases["sldmodu"] + (0x4d1252d8 - MODULES["sldmodu"][0])
@@ -374,7 +416,11 @@ def main():
     cli.add_argument("--continue-after-hit", action="store_true")
     cli.add_argument("--writable", action="store_true")
     cli.add_argument("--open-delay", type=int, choices=(0, 5, 15), default=0)
+    cli.add_argument("--expected-atom-id", type=int)
     args = cli.parse_args()
+    if (args.terminal_site == "selected_atom_inventory_lookup") != (
+            args.expected_atom_id is not None and 0 < args.expected_atom_id < (1 << 31)):
+        raise ValueError("selected native map lookup requires one independently identified positive atom ID")
     post_open = args.terminal_site in POST_OPEN_SITES
     if post_open and (not args.cold or not args.continue_after_hit):
         raise ValueError("post-open probes require a cold independently loaded document and normal continuation")
@@ -424,7 +470,8 @@ def main():
             debug.require(model is not None and errors == 0, "post-open body probe requires a live ordinary part")
             report["stage"] = "ordinary open completed before debugger attach"
             report["debugger_armed_after_open"] = True
-            tracer = ColdAdmissionTrace(args.engine, identity, args.terminal_site, True)
+            tracer = ColdAdmissionTrace(args.engine, identity, args.terminal_site, True, args.expected_atom_id)
+            report["requested_lookup_atom_id"] = args.expected_atom_id
             tracer.thread.start()
             debug.require(tracer.ready.wait(26) and tracer.result["armed"], "post-open debugger failed to arm")
             tracer.opening.set()

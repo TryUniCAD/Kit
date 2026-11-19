@@ -1,0 +1,284 @@
+{
+  "archive_typed_comparison": {
+    "generated": {
+      "active_output_alias_present": false,
+      "active_partition": {
+        "body_attributes": {
+          "ATOM_ID_2001": 101,
+          "BODY_MATCH": 1810,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 21
+        },
+        "body_index": 2,
+        "marks": [
+          4,
+          1,
+          3
+        ],
+        "selected_mark_index": 205,
+        "sha256": "ba1637b078981f7c1605f876ce79c4042832b5ecd367a75034a83bd4e5525f17"
+      },
+      "atom_manager_fields": {
+        "f260": 101,
+        "fa8": 19000,
+        "n6c": 1
+      },
+      "atoms": [
+        {
+          "class": "moAtom_c",
+          "fields": {
+            "body_kind": 0,
+            "f08": -1,
+            "f12c": 21,
+            "f130": 21,
+            "f140": 101,
+            "f144": 0,
+            "f158": 0,
+            "f170": 0,
+            "f180": 1810,
+            "f18c": 1,
+            "f198": -1
+          },
+          "matches_extrude_atom": false
+        }
+      ],
+      "class": "moPart_c",
+      "extrude_output_atom_collection_present": false,
+      "extrude_output_ids": [],
+      "file_sha256": "b1cb16c72923b2f8b898dcdf7167ba5c9f67348aa9aeb7efcd51ef1986c2d97a",
+      "producer_node_id": 21
+    },
+    "native": {
+      "active_output_alias_present": true,
+      "active_partition": {
+        "body_attributes": {
+          "ATOM_ID_2001": 102,
+          "BODY_MATCH": 1069,
+          "LAST_BODY_MODIFYING_FEATURE_ID": 21
+        },
+        "body_index": 2,
+        "marks": [
+          8,
+          1,
+          3
+        ],
+        "selected_mark_index": 182,
+        "sha256": "b3ab585f676f4ccb8b0747075328637f186cc8d2f388ec99b85e49d1531c815a"
+      },
+      "atom_manager_fields": {
+        "f260": 102,
+        "fa8": 19000,
+        "n6c": 2
+      },
+      "atoms": [
+        {
+          "class": "moAtom_c",
+          "fields": {
+            "body_kind": 0,
+            "f08": -1,
+            "f12c": 21,
+            "f130": 21,
+            "f140": 102,
+            "f144": 0,
+            "f158": 0,
+            "f170": 0,
+            "f180": 1069,
+            "f18c": 1,
+            "f198": -1
+          },
+          "matches_extrude_atom": true
+        },
+        {
+          "class": "moAtom_c",
+          "fields": {
+            "body_kind": 0,
+            "f08": -1,
+            "f12c": 21,
+            "f130": 21,
+            "f140": 101,
+            "f144": 0,
+            "f158": 0,
+            "f170": 0,
+            "f180": 1810,
+            "f18c": 1,
+            "f198": -1
+          },
+          "matches_extrude_atom": false
+        }
+      ],
+      "class": "moPart_c",
+      "extrude_output_atom_collection_present": true,
+      "extrude_output_ids": [
+        {
+          "v": 102
+        }
+      ],
+      "file_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "producer_node_id": 21
+    }
+  },
+  "archive_typed_comparison_sha256": "e1ff01c28ff466e0a94038eb91aea28f495fd61436885337d29e8c008896559b",
+  "distinct_process_receipts": 6,
+  "healthy_uninstrumented_controls": 2,
+  "heldout_inputs_read": 0,
+  "manager_operand_successes": 2,
+  "native_acceptance": false,
+  "no_receipt_transport_attempt": {
+    "stderr_sha256": "55d9d8d810f971073dbdcb34d7b3a17467111ba0c0d707e9da57ca752e8ad232",
+    "transport_exit": 255,
+    "worker_label": "NativeHistoryAtom"
+  },
+  "oracle_build": "34.5.2.0604",
+  "phases": {
+    "ControlAfter": {
+      "body_count_before_rebuild": 1,
+      "incomplete_lookup": null,
+      "measured_operands": null,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "passed_own_probe_gate": true,
+      "process_creation_filetime": 134395676920694243,
+      "raw_sha256": "c072763ee9d88395025bddccb12c691122160634a63e5e0265b553e3a67db8db",
+      "site": "no_debugger"
+    },
+    "ControlBefore": {
+      "body_count_before_rebuild": 1,
+      "incomplete_lookup": null,
+      "measured_operands": null,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "passed_own_probe_gate": true,
+      "process_creation_filetime": 134395675726125127,
+      "raw_sha256": "352b128d1d8f655fbdf4e849330001fa1c88be5fc91bcf8be4b8260d8a4b72d9",
+      "site": "no_debugger"
+    },
+    "GeneratedManagerState": {
+      "body_count_before_rebuild": 0,
+      "incomplete_lookup": null,
+      "measured_operands": {
+        "atom_manager_present": true,
+        "body_type_filter": 3,
+        "feature_filter_present": false,
+        "id_filter": 0,
+        "manager_owner_is_current_part": true,
+        "manager_owner_is_part_class": true,
+        "manager_owner_present": true,
+        "manager_tree_count": 1,
+        "manager_tree_head_has_member": true,
+        "manager_tree_head_present": true,
+        "option_6": 1,
+        "option_8": 0,
+        "part_dirty_word": 0,
+        "part_model_runtime_flags": 12,
+        "part_ordered_body_cache_enabled": false,
+        "part_special_body_context_present": false,
+        "public_solid_array_count": 0,
+        "public_solid_array_storage_present": false,
+        "site": "atom_inventory_call",
+        "source_address": "0x4c1aba65",
+        "thread": 0,
+        "visibility_filter": 0
+      },
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "part_sha256": "b1cb16c72923b2f8b898dcdf7167ba5c9f67348aa9aeb7efcd51ef1986c2d97a",
+      "passed_own_probe_gate": true,
+      "process_creation_filetime": 134395676191963319,
+      "raw_sha256": "5fc8c4388940388288c59338dbfa4b4dc2de7524c9ab65be80b77b3283e90d99",
+      "site": "atom_inventory_call"
+    },
+    "GeneratedPartitionAtom": {
+      "body_count_before_rebuild": 0,
+      "incomplete_lookup": {
+        "explicit_removal_error": "RuntimeError('remove owned hardware breakpoint returned HRESULT 0x8000ffff')",
+        "fallback_detach_method": "DetachProcesses",
+        "owned_debugger_absent": true,
+        "requested_atom_id": 101,
+        "scope": "selected lookup unobserved"
+      },
+      "measured_operands": null,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "part_sha256": "b1cb16c72923b2f8b898dcdf7167ba5c9f67348aa9aeb7efcd51ef1986c2d97a",
+      "passed_own_probe_gate": false,
+      "process_creation_filetime": 134395676661534636,
+      "raw_sha256": "a9c618c9d7b4fe17270539b8334dce3c4589de29f18d7cf75f168064a4c2af05",
+      "site": "selected_atom_inventory_lookup"
+    },
+    "NativeActiveAtom": {
+      "body_count_before_rebuild": 1,
+      "incomplete_lookup": {
+        "explicit_removal_error": "RuntimeError('remove owned hardware breakpoint returned HRESULT 0x8000ffff')",
+        "fallback_detach_method": "DetachProcesses",
+        "owned_debugger_absent": true,
+        "requested_atom_id": 102,
+        "scope": "selected lookup unobserved"
+      },
+      "measured_operands": null,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "passed_own_probe_gate": false,
+      "process_creation_filetime": 134395676425713027,
+      "raw_sha256": "f6c224fb3d26eb75be2d30d83ab8e779f48f7f81e85ded0afc9caa5fe1a2239c",
+      "site": "selected_atom_inventory_lookup"
+    },
+    "NativeManagerState": {
+      "body_count_before_rebuild": 1,
+      "incomplete_lookup": null,
+      "measured_operands": {
+        "atom_manager_present": true,
+        "body_type_filter": 3,
+        "feature_filter_present": false,
+        "id_filter": 0,
+        "manager_owner_is_current_part": true,
+        "manager_owner_is_part_class": true,
+        "manager_owner_present": true,
+        "manager_tree_count": 2,
+        "manager_tree_head_has_member": true,
+        "manager_tree_head_present": true,
+        "option_6": 1,
+        "option_8": 0,
+        "part_dirty_word": 0,
+        "part_model_runtime_flags": 12,
+        "part_ordered_body_cache_enabled": false,
+        "part_special_body_context_present": false,
+        "public_solid_array_count": 0,
+        "public_solid_array_storage_present": false,
+        "site": "atom_inventory_call",
+        "source_address": "0x4c1aba65",
+        "thread": 0,
+        "visibility_filter": 0
+      },
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "passed_own_probe_gate": true,
+      "process_creation_filetime": 134395675947458260,
+      "raw_sha256": "d0d2cf352fff4bb547d341fc3b04789e9629461703effbea873087ef5797f8cf",
+      "site": "atom_inventory_call"
+    }
+  },
+  "probe_sha256": "44f1d3871a8f26ef7d244a11b467ea391b1c9d83108e2f671d57e1f3b3f801c2",
+  "schema": "kit.sw2026.prism-post-open-atom-manager-native.v1",
+  "selected_lookup_successes": 0
+}

@@ -23,6 +23,7 @@ from para.Partition import read_partition
 from para.Tracking import filetime_ticks
 from para.concentric.CylinderFace import words
 from downstream.lighting.PrismAmbientGraph import add_authored_ambient
+from downstream.lighting.PrismExtrusionOutput import link_prism_output, verify_prism_output
 
 
 def main():
@@ -36,6 +37,7 @@ def main():
     cli.add_argument("--record-rebuild-completion", action="store_true")
     cli.add_argument("--include-cache", action="store_true")
     cli.add_argument("--with-authored-ambient", action="store_true")
+    cli.add_argument("--link-extrusion-output", action="store_true")
     cli.add_argument("--specification", required=True, type=Path)
     cli.add_argument("--artifact", required=True, type=Path)
     args = cli.parse_args()
@@ -65,6 +67,10 @@ def main():
         partition_bytes = archive.require(KPartitionStream)
         streams, evidence = add_authored_ambient(archive, specification, args.model_second, args.with_authored_ambient)
         modeled = SldprtArchive.from_bytes(BuildSldprt(streams, FormatVersion=4))
+        partition = read_partition(partition_bytes)
+        if args.link_extrusion_output:
+            streams, active_index = link_prism_output(modeled, partition)
+            modeled = SldprtArchive.from_bytes(BuildSldprt(streams, FormatVersion=4))
         clock = filetime_ticks(args.model_second + 1, 0)
         streams = candidate_streams(modeled, allocation, clock) if args.include_cache else modeled.streams
         output = BuildSldprt(streams, FormatVersion=4)
@@ -75,7 +81,8 @@ def main():
         members = linked.ConfigValue.RootValue.FieldsValue["f1e0"].FieldsValue["f60"]["list"]["items"]
         if len(members) != int(args.with_authored_ambient):
             raise ValueError("linked part lost the authored environment member")
-        partition = read_partition(partition_bytes)
+        if args.link_extrusion_output:
+            evidence["extrusion_output"] = verify_prism_output(restored, partition, active_index)
         body, = (value for value in partition.nodes if value.kind == 12)
         nodes = {value.index: value for value in partition.nodes}
         body_time, = words(nodes, body, "ENT_TIME_STAMP_2001", 1)
