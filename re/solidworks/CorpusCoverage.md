@@ -162,6 +162,14 @@ passes ten phases, 900 numeric comparisons and zero reopen warnings between
 healthy controls. These five files are oracle-authored sources and are
 excluded from generated coverage.
 
+The [concentric source lock and linked archive trial](measurements/2026/ConcentricMateSourceArchive01.json)
+passes twenty-five native processes for three disclosed and two
+guest-private source cases. Both actual persistent cylindrical faces
+resolve to their owning inherited occurrences. The six disclosed
+states re-emit eighteen complete linked streams and preserve their
+measured alignment and rotation-lock choices. The source locks add
+zero generated conversions.
+
 Two [generated empty research assemblies](measurements/2026/EmptyAssemblyNative01.json)
 now match the native discovery control through open, rebuild, save and fresh
 reopen, with all ten candidate observations and four controls passing.

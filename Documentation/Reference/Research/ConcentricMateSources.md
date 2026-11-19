@@ -20,4 +20,9 @@ The author creates a real radial-driven circle boss, two occurrences, one cylind
 
 The final source lock requires all five distinct native process identities, clean open/rebuild/save/reopen statuses, both healthy controls, immutable native and STEP siblings, exact parameters and reference/geometry agreement. Keep detailed H files in the guest. Only opaque identity, progress, status and artifact digests may cross to the host. A healthy source corpus enables subsequent writer research; it does not itself count as generated output acceptance.
 
-The exact [change entry](../../Changes/Solidworks/Construction/Assembly/SolidworksConcentricMateSources.md) records the actual host verification and outstanding native work.
+The first native pilot stops on the registered size method. Use the
+returned eight-value `EntityParams` array and retain the independent
+geometry checks. The corrected cohort passes all twenty-five native
+processes and locks the two guest-private originals. Run
+`VerifyConcentricMateStreams.py PACKET OUTPUT --packet-sha256 SHA256`
+for the six disclosed archive states. [Source change](../../Changes/Solidworks/Construction/Assembly/SolidworksConcentricMateSources.md) [Archive field and evidence record](../../../re/solidworks/records/ConcentricMateArchive2026.md)

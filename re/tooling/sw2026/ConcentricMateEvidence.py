@@ -133,7 +133,7 @@ def mate_state(author,model,assembly,child,components,rows,case):
         require(isclose(norm(axis),1.0,abs_tol=1e-10) and norm(cross(axis,expected_axis))<1e-10 and norm(cross([point[j]-expected_point[j] for j in range(3)],expected_axis))<1e-10,"native mate cylinder axis differs from independently placed child")
         author.rec.close_number("native endpoint cylinder radius",values[6],case["radius_m"],absolute=1e-12)
         expected=author.get(components[index],"GetCorrespondingEntity",local_face)
-        endpoints.append({"occurrence":name,"occurrence_native_id":rows[index]["native_id"],"selection_type":2,"surface_kind":"cylinder","point":point,"axis":axis,"radius_m":values[6],"reserved_radius2_observed":values[7],"declared_entity_parameter_count":int(author.get(entity,"GetEntityParamsSize")),"object_evidence":object_evidence(author,model,reference,expected)})
+        endpoints.append({"occurrence":name,"occurrence_native_id":rows[index]["native_id"],"selection_type":2,"surface_kind":"cylinder","point":point,"axis":axis,"radius_m":values[6],"reserved_radius2_observed":values[7],"observed_entity_parameter_count":len(values),"object_evidence":object_evidence(author,model,reference,expected)})
     parallel=norm(cross(endpoints[0]["axis"],endpoints[1]["axis"]))
     separation=norm(cross([endpoints[1]["point"][j]-endpoints[0]["point"][j] for j in range(3)],endpoints[0]["axis"]))
     require(parallel<1e-10 and separation<1e-10,"the actual native mate references are not coaxial")

@@ -1,6 +1,9 @@
 # Ordinary concentric mate construction sources, SOLIDWORKS 2026
 
-Status: source method and exact-build static evidence only. No concentric source has yet been authored by this packet, no held-out design has been created or opened on the host, and no concentric writer exists in this tranche. Vendor loadability and application usability are unmeasured.
+Status: the corrected packet passes five native source lifecycles,
+including the two guest-private locks. The disclosed archive proof
+passes eighteen exact linked stream comparisons. Generated native
+concentric writing remains open. [Archive result](ConcentricMateArchive2026.md)
 
 ## Ownership and next exit
 
@@ -9,7 +12,7 @@ Status: source method and exact-build static evidence only. No concentric source
 - Delivery: PR #121, additive research tooling from baseline `7d5207f039d01788ff44f0df564fa50b485a9b0d`
 - Scope: one ordinary concentric mate between the actual cylindrical faces of two rigid direct occurrences of one independently API-authored circle-boss part, including alignment and rotation-lock readback
 - Dependencies: registered 34.0 API metadata, fresh source controls, actual component-specific face publication, shared two-geometry ownership, and a separately proved generated circular-child assembly bound before writer work
-- Next exit: the native author packet passes its metadata prerequisite and independently locks all disclosed and guest-private source/edited pairs with healthy controls before any new writer constructor
+- Reached exit: the corrected native packet passes its metadata prerequisite and locks all five original and edited source pairs with healthy controls before the generative writer
 - Product exit remains C1–C11, including independent original-source native open/edit/rebuild/save/reopen and complete SDK semantics; this source packet does not meet that exit
 
 The checked-in 2026 records, source receipts, class map and ordinary author tools were searched before this work. They exposed the enum and a generic author hook, but no verified disclosed 2026 concentric native corpus. The older `AuthorAsm.py` selection routine uses planes; an enum entry is not evidence of a successful cylinder mate.
@@ -27,13 +30,16 @@ The model allocator `0x4b653d80` calls the concrete constructor `0x4bc2d720`. It
 
 ## Concrete archive tail
 
-Confidence for the full class is **partial**: the native store/load framing and constructor sites are bound, but source correlation, all semantic domains and generated native acceptance are pending. The ordinary class is distinct from `moConstructionMateConcentric_c`.
+The native store/load framing, constructor and the disclosed ordinary
+source state are bound. Broader semantic domains and native acceptance
+of generated output remain open. The ordinary class has a separate
+runtime descriptor from `moConstructionMateConcentric_c`.
 
 The concrete serializer at `0x4b669080` calls the shared two-geometry serializer `0x4b668a60` at `0x4b6690ac`. The current storing branch then emits:
 
 | Order | Member | Wire type | Current constructor | Load gate | Classification and evidence limit |
 | --- | --- | --- | --- | --- | --- |
-| 1 | `f4b8` | little-endian i32 | zero | version ≥ 6197 (`0x1835`) | Concentric-specific option; its actual API rotation-lock binding is **not found** yet |
+| 1 | `f4b8` | little-endian i32 | zero | version ≥ 6197 (`0x1835`) | The measured aligned pair isolates API rotation lock. Its first word is 0 unlocked and 1 locked in both original and edited saves. |
 | 2 | `f4c4` | little-endian i32 | -1 | version ≥ 9129 (`0x23a9`) | Concentric position enum, exported getter `0x4b28b0d0`; legal nonordinary domain still partial |
 | 3 | `f4c8` | little-endian i32 | 1 | only when `f4c4 != -1` | Tolerance-check member, omitted by the ordinary -1 branch |
 | 4 | `f4d0` | little-endian f64 | initialized by native constructor | same | Tolerance value; no saved value becomes a writer default |
@@ -69,6 +75,26 @@ The private packet is identified by source SHA-256 `9dc5e68cfadfb12de623a2b9ff1e
 [Host protocol receipt](../measurements/2026/ConcentricMateSourceProtocol01.json), SHA-256 `2057d4a67ca87edd712831e7166538c1663ea31b233fa503681e1f0755235b83`, records 11 real verifier processes: one unchanged pass and ten refusals for a wrong packet digest, altered tool/control/native-binding/disclosed input, schema, claimed native acceptance, nonzero writer count, nonprivate hidden designs, and attempted host execution of a hidden source phase. All 16 author tools parse and all 33 guest commands have canonical Windows locators and the exact packet digest. The host creates zero held-out designs, starts zero native processes and writes zero CAD files.
 
 The host comparison used the pinned Python 3.11 interpreter. An earlier ad hoc invocation used the host's Python 3.9 and rejected `zip(strict=True)` before the geometry check; it is not included in the passing protocol receipt. The frozen recipe requests guest Python 3.12. Cross-runtime byte equality is not a source-corpus claim; the actual native phases will record the runtime and original build.
+
+## Corrected native source run
+
+The initial native author trial passes both controls but stops on the
+registered `GetEntityParamsSize` method. The actual
+`EntityParams` array yields all eight required values. The new packet
+validates that returned array and preserves every geometry, reference
+and ownership check. The preflight copies the same sealed guest
+designs by their unchanged hash without exposing their payloads.
+[COM size method behavior](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Assembly/ConcentricParameterCountFromArray.md)
+
+The corrected packet has SHA-256
+`3591046cb2c02624285664057daafb361e7dd1650e19aebcc3556f5754278df8`.
+It passes the revised host proof and all twenty-five distinct native
+processes. Both controls pass independently for each of the three
+disclosed and two guest-private cases. The actual assemblies, child
+parts and independent STEP siblings are locked for the original and
+edited states. Each native group ends idle with its license inventory
+preserved. The [receipt](../measurements/2026/ConcentricMateSourceArchive01.json)
+binds every phase and lock and retains the predecessor failure.
 
 ## Analysis-tool custody
 
