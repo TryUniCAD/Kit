@@ -19,9 +19,20 @@ def ReadDrawing(
     if PureWindowsPath(Label).suffix.casefold() in KFormatIdBySuffix:
         raise SldprtFormat("SOLIDWORKS drawing content requires a .SLDDRW source")
     if Settings.strict:
-        raise SldprtFormat(
-            "strict SOLIDWORKS drawing reading is unavailable. Use strict=False for layout inspection."
+        from convert.adapters.solidworks.Drawing.Reading.ReadGeneratedBlank import (
+            ReadGeneratedBlank,
         )
+
+        if Settings.configuration is not None:
+            raise SldprtFormat(
+                "drawing configuration selection belongs to the linked model view"
+            )
+        try:
+            return ReadGeneratedBlank(Archive, DataValue, Label)
+        except (KeyError, TypeError, ValueError, IndexError) as ErrorValue:
+            raise SldprtFormat(
+                "strict generated blank drawing is unsupported: " + str(ErrorValue)
+            ) from ErrorValue
     if Settings.configuration is not None:
         raise SldprtFormat(
             "drawing configuration selection belongs to the linked model view"

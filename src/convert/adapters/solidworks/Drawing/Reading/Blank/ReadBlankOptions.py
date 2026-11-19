@@ -1,0 +1,107 @@
+from uuid import UUID
+from typing import cast as CastValue
+from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import (
+    FeatureTarget,
+)
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Drawing.Construction.Model.DrawFolders import (
+    DrawFolders,
+)
+from convert.adapters.solidworks.Drawing.Construction.Portable.DrawDocOptions import (
+    DrawDocOptions,
+)
+from convert.adapters.solidworks.Drawing.Construction.Sheet.SheetNames import SheetNames
+from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields import (
+    NeedConceptNode as Node,
+)
+from convert.adapters.solidworks.Drawing.Definition.Projection.ReadConceptName import (
+    ReadConceptName as Name,
+)
+from convert.adapters.solidworks.Drawing.Definition.Detailing.NeedDetailText import (
+    NeedDetailText as Text,
+)
+from convert.adapters.solidworks.Drawing.Definition.Emission.ReadBlankKids import (
+    ReadBlankKids as Children,
+)
+from convert.adapters.solidworks.Drawing.Reading.Blank.Fields import Fields
+from convert.adapters.solidworks.Drawing.Reading.Blank.Integer import Integer
+from convert.adapters.solidworks.Drawing.Reading.Blank.One import One
+from convert.adapters.solidworks.Drawing.Reading.Blank.Require import Require
+from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankStyle import (
+    ReadBlankStyle,
+)
+from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankUnits import (
+    ReadBlankUnits,
+)
+
+
+# drawing presentation and independent block identity must come from their actual modeled owners
+def ReadBlankOptions(
+    Model: ArchiveNode, CreatedAt: int, Language: int
+) -> DrawDocOptions:
+    Value = Fields(Model)
+    Sheet = Node(Value["f1430"], "moDrSheet")
+    SheetFields = Sheet.FieldsValue
+    Members = Children(Model)
+    Names: dict[str, str] = {}
+    for Kind in (
+        "moDetailCabinet_c",
+        "moDocsFolder_c",
+        "moCommentsFolder_c",
+        "moBlockFolder_c",
+        "moInkMarkupFolder_c",
+        "moMarkupCommentFolder_c",
+    ):
+        Names[Kind] = Name(
+            One(
+                tuple(
+                    Member for Member in Members if Member.ClassValue.NameValue == Kind
+                )
+            )
+        )
+    Supports = Children(Sheet)
+    Require(
+        tuple(Item.ClassValue.NameValue for Item in Supports)
+        == ("moRefPlane_c", "moProfileFeature_c", "moDetailFolder_c"),
+        "blank sheet support order differs",
+    )
+    Target = FeatureTarget(
+        Integer(SheetFields["f2b4"]),
+        Integer(SheetFields["f2ac"]),
+        Integer(SheetFields["f2b0"]),
+        Integer(SheetFields["f300"]),
+        Integer(SheetFields["f301"]),
+    )
+    Identity = Node(Value["fe80"], "moSketchBlockMgr_c").FieldsValue["f380"]
+    Require(
+        type(Identity) is bytes and len(Identity) == 16,
+        "blank block identity is invalid",
+    )
+    Require(
+        Integer(Value["f1444"]) in (256, 257),
+        "blank auto dimension text state has extra flags",
+    )
+    return DrawDocOptions(
+        Name(Model),
+        Text(SheetFields["f3d0"]),
+        SheetNames(*(Name(Item) for Item in Supports)),
+        DrawFolders(
+            *(
+                Names[Kind]
+                for Kind in (
+                    "moDetailCabinet_c",
+                    "moDocsFolder_c",
+                    "moCommentsFolder_c",
+                    "moBlockFolder_c",
+                    "moInkMarkupFolder_c",
+                    "moMarkupCommentFolder_c",
+                )
+            )
+        ),
+        ReadBlankStyle(Model, Language),
+        ReadBlankUnits(Model),
+        Target,
+        CreatedAt,
+        UUID(bytes_le=CastValue(bytes, Identity)),
+        bool(Integer(Value["f1444"]) & 1),
+    )

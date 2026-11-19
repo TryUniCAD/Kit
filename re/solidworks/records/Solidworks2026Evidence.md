@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Strict generated blank drawing read](../measurements/2026/SdkGeneratedBlankStrictRead01.json) | Six generated drawings reconstruct the exact typed inputs, seven logical streams, and complete container. Eighteen unsupported cases refuse, and all 72 guarded SDK processes retain prior partial results. |
 | [Linked prism extrusion output](../measurements/2026/PrismExtrusionOutputNative01.json) | Both linked prisms expose a correct solid before rebuild. Both unlinked counterparts initially expose zero. The linked pair accepts depth changes, saves, and freshly reopens across eight processes with two clean controls. |
 | [Native part solid inventory](../measurements/2026/PrismPublicBodyInventoryNative01.json) | The native backing array contains one solid for the same-shape native part and zero for the generated part. The two ordinary opens and both manager calls use matching query state. |
 | [Attached drawing edge lifecycle](../measurements/2026/DrawingAttachedEdgeNative01.json) | Both controls and the generated linked pair preserve the computed plane depth and same persistent edge through six native phases. The application adds the attached note after opening the drawing. |

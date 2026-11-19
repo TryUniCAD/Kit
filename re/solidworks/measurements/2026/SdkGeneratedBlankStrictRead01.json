@@ -1,0 +1,204 @@
+{
+  "schema": "kit.sw2026.generated-blank-strict-reader-evidence.v1",
+  "task": "B04-SW2026-DRAWPROPS/strict-generated-blank-read",
+  "owner": "configuration_header",
+  "delivery_pr": 121,
+  "outcome": "source-bound private strict reader passes the generated canonical blank profile; no new native or original-source acceptance",
+  "passed": true,
+  "execution": {
+    "python_processes": 72,
+    "paired_groups": 36,
+    "strict_positive_source_files": 6,
+    "positive_candidate_modes": 18,
+    "strict_rejection_source_files": 18,
+    "negative_candidate_modes": 18,
+    "partial_outputs_identical": true,
+    "denied_runtime_accesses": 0,
+    "allowed_explicit_source_opens": 24,
+    "unit_tests": false,
+    "native_app_launches": 0,
+    "private_slot_reads": 0,
+    "original_heldout_credit": 0,
+    "source_and_inputs_immutable": true
+  },
+  "custody": {
+    "baseline_source_manifest_sha256": "5344870ae24d250a823cef305ddd1cbebbcb7b8cb9e7a985b48262541ce01aff",
+    "candidate_source_manifest_sha256": "2a2de793f43b3cbca7c301fb526686f15c1bca4b7bceb564460fcb005b00dac0",
+    "candidate_source_files": 4701,
+    "source_delta_paths": 18,
+    "method_sha256": "44a26757e1dff641daf8216a6084e72ccb9ac11a87536ce73ef34dd077f9ab3f",
+    "probe_sha256": "30f528171d3bc66339fb4bc1629de9d9cf71e7df6832b7c281dabbc86778e1ee",
+    "raw_replay_sha256": "d664df3daffb937f036d741c937f4d1380f0e2483909c76465bcdf3741f72629"
+  },
+  "positives": [
+    {
+      "name": "SdkAlpha",
+      "sha256": "c059b19358b09b09ec538c939cf2a19ee9c409b6f779319b866a28286b4f10e8",
+      "origin": "explicitly disclosed generated SDK file"
+    },
+    {
+      "name": "PublicAlpha",
+      "sha256": "64ce7aa78ea6efc2bea775682755a18eb909e5cad2403ec8cd259b51b15fc4a5",
+      "origin": "explicitly disclosed generated SDK file"
+    },
+    {
+      "name": "Kappa",
+      "sha256": "e848aba9579ead98d1f46c98a312d70d3d9f4c0ce5e05bcc64e1cda56f1e529b",
+      "origin": "new independent neutral SDK fixture"
+    },
+    {
+      "name": "Lambda",
+      "sha256": "3bb33fffe7413b50dc2954bebfecc7303a31c42cd2c948490127482101ba3bb2",
+      "origin": "new independent neutral SDK fixture"
+    },
+    {
+      "name": "Mu",
+      "sha256": "5d6ed21225fcca4f55da92c815007b6c39e9a40d01b8c4b9dc54f13b60e907ae",
+      "origin": "new independent neutral SDK fixture"
+    },
+    {
+      "name": "Nu",
+      "sha256": "46dd836e0439f3da9d9156ca7d7cc4e07e26109a1e3eac2db74235aa0795e1c4",
+      "origin": "new independent neutral SDK fixture"
+    }
+  ],
+  "rejections": [
+    {
+      "name": "ExtraSemanticStream",
+      "sha256": "3ca78c183dda7412450c6f7ab01fe15486e0302fd30d8b11ad433708725ff173",
+      "scope": "unmodeled source stream"
+    },
+    {
+      "name": "ConflictingStamps",
+      "sha256": "e0bbd600b97dabce1d1983e106ff0574389307cd9ed5a1939e4cb141a16a3d58",
+      "scope": "model stamps conflict with the actual header owners"
+    },
+    {
+      "name": "TrailingStampByte",
+      "sha256": "c8f989dc348b9f98277df95f7b968084386bd1727aa35cc87dbe86b2974b74d6",
+      "scope": "unconsumed scalar stream byte"
+    },
+    {
+      "name": "UnknownKeywordOwner",
+      "sha256": "cfc4622d0f5855f72249e13760a189ce00bc32fb47c569efde2bff72f3b0aa5e",
+      "scope": "keyword metadata not represented by the fresh sheet recipe"
+    },
+    {
+      "name": "ExtraCustomProperty",
+      "sha256": "0af29a2235c7dc6902623fac4f24c6295370135aec036906be33e3b09b5da513",
+      "scope": "real additional text property with generated ID and dictionary"
+    },
+    {
+      "name": "DifferentHeaderCopies",
+      "sha256": "4c2a23afa100fbbe4f0b9da34c764e5736aded5ff845d46dccb3c0a138a50cf3",
+      "scope": "independent Header2 and inline model header disagree"
+    },
+    {
+      "name": "ExtraPersistentCounter",
+      "sha256": "2c4fe024ac9b26b8ad33c613534011b097187a2510526375be94362ab5935d07",
+      "scope": "unrepresented noncanonical persistent counter"
+    },
+    {
+      "name": "MultipleBuildHistory",
+      "sha256": "e6f8f55e9696bd7d11f82943d5adf58069e6f56f645ccf3fd89b9931e412a89b",
+      "scope": "history authoring scope exceeds one originating build"
+    },
+    {
+      "name": "DifferentCreationOwners",
+      "sha256": "375a0a7e26b0052375d03a473cb1300c3e5006c0f6d356e8a844508097fc7254",
+      "scope": "history and header creation owners differ"
+    },
+    {
+      "name": "TrailingBiographyByte",
+      "sha256": "c8e984e5876a58a58b2186886c7c71ec3b88f6c665df38530f70ed803565c2ae",
+      "scope": "unconsumed biography owner data"
+    },
+    {
+      "name": "UnrepresentedUiState",
+      "sha256": "358f22a3c5b2f88bb36010d94bee66c61455a4aa4ef27d6d6e0ed5ab8e0b1f11",
+      "scope": "typed UI scalar outside the fresh settings profile"
+    },
+    {
+      "name": "NonemptyAnnotationMarker",
+      "sha256": "d2e2f3f2cf6aac2388ee88e86f3a4a7cecbe50919effb0e72ff9c3ef39e6d4db",
+      "scope": "structural annotation-bucket marker only; no claim of a vendor-authored annotation"
+    },
+    {
+      "name": "NonemptyNoteCollection",
+      "sha256": "3af16f0dd489af202a06dda190e06f9cee39deffa85ebe95a9fceac0e0b741a6",
+      "scope": "syntactically typed note-collection incidence with deliberately unsupported object; no native note validity claim"
+    },
+    {
+      "name": "TrailingContainerOwner",
+      "sha256": "e5ad00875103e72725be6ad82ca25f93398a0eaf8c0e4fe00777194e0a915bba",
+      "scope": "unrepresented trailing container bytes"
+    },
+    {
+      "name": "MissingHistory",
+      "sha256": "4329b77229beed07b81406fe6d0a60fbb38fbbe8a0bbdff2cf40edfde72564dd",
+      "scope": "missing load-critical chronology stream"
+    },
+    {
+      "name": "LinkedModel",
+      "sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee",
+      "scope": "previously disclosed source or saved derivative"
+    },
+    {
+      "name": "NativeD00",
+      "sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "scope": "previously disclosed source or saved derivative"
+    },
+    {
+      "name": "NativeSavedSdkAlpha",
+      "sha256": "3407eebcf113d89d265bc93ae78ec5f491d28320acad2f47b7c0ebecc76c1860",
+      "scope": "previously disclosed source or saved derivative"
+    }
+  ],
+  "guarded_positive_contract": {
+    "public_open_document_strict": true,
+    "source_formats": [
+      "solidworks.slddrw"
+    ],
+    "routes": [
+      "bytes",
+      "path"
+    ],
+    "options": [
+      "default",
+      "metadata-only flags"
+    ],
+    "exact_logical_stream_regeneration": 7,
+    "whole_container_regeneration": true,
+    "metadata_json_survival": true,
+    "official_typed_input_owners": true,
+    "new_destination_and_save_event_preserve_other_owners": true,
+    "repeat_changed_streams": [
+      "Header2",
+      "Contents/Definition"
+    ],
+    "public_writer_still_refuses_unconsumed_source_attributes": true
+  },
+  "static_checks": {
+    "black": true,
+    "ruff_F401_F821": true,
+    "strict_mypy": true,
+    "strict_pyright": true,
+    "donor_scan": {
+      "passed": true,
+      "python_sources_scanned": 4684,
+      "command": "python -B -m tools.Donors.CheckReplays <private candidate>/src",
+      "recorded_payloads": 0
+    }
+  },
+  "limitations": [
+    "canonical generated seven-stream archive 19000 profile only",
+    "not a general native drawing reader",
+    "native D00 and native-saved SDK derivative remain refused",
+    "linked model drawing remains refused",
+    "annotation negatives are structural markers and collection incidence, not a newly authored valid native note",
+    "style language selector is a derived representative of stored annotation effects; actual history locale is separately preserved",
+    "alternate compression or noncanonical container framing refuses",
+    "public read to public write remains closed until structured source owners are explicitly consumed",
+    "no new vendor measurement or hidden source access"
+  ]
+}

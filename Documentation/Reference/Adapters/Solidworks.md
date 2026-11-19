@@ -196,6 +196,13 @@ solids retain outward face loops and positive signed volume in
 
 ### Drawing layout inspection
 
+Use the ordinary strict reader for the canonical SDK-generated blank ANSI A
+landscape sheet. `open_document(source, strict=True)` preserves the typed sheet
+and native settings and checks that the whole container can be generated from
+those values. `kit decode SOURCE` uses this path for the supported profile.
+The supported metadata and native source boundaries are documented in the
+strict reader profile. [Strict reader profile](../Research/Solidworks/Reading/GeneratedBlankStrictReader.md)
+
 For an ordinary SOLIDWORKS 2026 drawing, pass `strict=False` to `open_document()` or run `kit decode SOURCE --partial`. The returned `CadDocument.drawing` includes the active sheet, paper dimensions and scale. A sheet can have one external part view in Front, Top, Right or Isometric orientation with its position, outline, saved model path and selected configuration. View position, orientation, scale ratio and model-to-sheet transform come from the native Definition view. The independently stored Header2 bounds corroborate the outline. Distances are in metres. The standard interchange JSON path preserves these records. [Edited view positions](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksEditedDrawingViewPosition.md)
 
 The opt-in route supports a single unformatted sheet and verifies that Definition and the sheet and reference indexes agree. The `slddrw.layout_inspection` diagnostic identifies annotations, styles and graphics as outside this profile. Use the standalone blank drawing writer below for authored layouts. Strict reads of existing native drawings remain open. [Drawing view properties](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingViewProperties.md) [Scaled named views](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksScaledNamedDrawingViews.md)
