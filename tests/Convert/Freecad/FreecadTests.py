@@ -3599,6 +3599,10 @@ def TestOldDimEdit(Visible: bool) -> None:
         if Param.id == SketchValue.constraints[0].parameter_id
     )
     assert Driver.value.value == 14.0
+    Second = IoStream.BytesIO()
+    Edited = Replace(Rebuilt, sketches=(Replace(SketchValue, suppressed=not Visible),))
+    _ = Adapter.write(Edited, Second)
+    assert Adapter.read(Second.getvalue()).sketches[0].suppressed is (not Visible)
 
 
 # a legacy parent fingerprint must also verify native sketches from linked child documents
@@ -3634,6 +3638,11 @@ def TestOldLinked(TmpPath: FilePath) -> None:
     Result = FreeCadAdapter().write(Legacy, Output, Options)
     assert Result.metadata["mode"] == "exact_native_roundtrip"
     assert Output.getvalue() == Original
+    Portable = TmpPath / "portable.FCStd"
+    Result = FreeCadAdapter().write(Legacy, Portable)
+    assert Result.metadata["external_document_file_count"] == 1
+    (Copied,) = tuple(Portable.with_suffix("").glob("*.FCStd"))
+    assert Copied.read_bytes() == Child.read_bytes()
 
 
 # this definition exists because focused behavior needs one stable owner

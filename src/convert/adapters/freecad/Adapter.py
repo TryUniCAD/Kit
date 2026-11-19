@@ -105,8 +105,7 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.ReconcileEdit import ReconcileEdit
-from convert.adapters.freecad.Replay.ApplyFlags import ApplyFlags
-from convert.adapters.freecad.Replay.ReplayFlags import ReplayFlags
+from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
 from interchange.Features.FeatureBoundPlane import BoundDatum
 
 # shared empty set keeps parameter defaults free of repeated constructor calls
@@ -344,7 +343,10 @@ def NativeDocPair(DocValue: CadDocument) -> tuple[BrepPayload, BrepPayload] | No
 
 # this definition exists because focused behavior needs one stable owner
 def MappedOuter(
-    MetaValue: Mapping[str, object], Transform: Callable[[CadDocument], CadDocument]
+    MetaValue: Mapping[str, object],
+    Transform: Callable[[CadDocument], CadDocument] | None = None,
+    *,
+    ByReference: Mapping[str, Callable[[CadDocument], CadDocument]] | None = None,
 ) -> Mapping[str, object]:
     Freecad = MetaValue.get("freecad", {})
     if not IsPayloadMap(Freecad):
@@ -359,11 +361,16 @@ def MappedOuter(
             Mapped.append(Value)
             continue
         Linked = Value.get("document")
-        if not isinstance(Linked, CadDoc):
+        MapValue = (
+            Transform
+            if ByReference is None
+            else ByReference.get(str(Value.get("file", "")))
+        )
+        if MapValue is None or not isinstance(Linked, CadDoc):
             Mapped.append(Value)
             continue
         ItemValue = dict(Value)
-        ItemValue["document"] = Transform(Linked)
+        ItemValue["document"] = MapValue(Linked)
         Mapped.append(ItemValue)
         Changed = True
     if not Changed:
@@ -469,38 +476,6 @@ def AnnotateNative(DocValue: CadDocument) -> CadDoc:
         )
     )
     return Replace(Annotated, brep_payloads=Payloads)
-
-
-# write requests share archive verification between exact replay and legacy sketch migration
-def PrepareReplay(
-    DocValue: CadDocument, *, Migrate: bool
-) -> tuple[CadDoc, bytes | None]:
-    PairValue = NativeDocPair(DocValue)
-    if PairValue is None:
-        return DocValue, None
-    NativeDoc, _ = PairValue
-    Expected = NativeDoc.attributes.get(KReplaySemanticAttr)
-    DataValue = NativeDoc.data
-    if not isinstance(Expected, str) or DataValue is None:
-        return DocValue, None
-    IsUnchanged = SemanticDigest(DocValue) == Expected
-    if not IsUnchanged and not Migrate:
-        return DocValue, None
-    ReplayBytes = DataValue if IsUnchanged else None
-    try:
-        Archive, _ = ValidatedArchiveMembers(DataValue)
-        Archive.close()
-        Current = ReadNativeFcstd(DataValue, DocValue.source.path)
-        if SemanticDigest(Current) == Expected:
-            return DocValue, ReplayBytes
-        Legacy = ReadNativeFcstd(DataValue, DocValue.source.path, LegacyVisibility=True)
-    except (NativeFreeCadError, OSError, TypeError, ValueError, Zipfile.BadZipFile):
-        return DocValue, None
-    if SemanticDigest(Legacy) != Expected:
-        return DocValue, None
-    if Migrate:
-        DocValue = ApplyFlags(DocValue, ReplayFlags(Legacy), ReplayFlags(Current))
-    return DocValue, ReplayBytes
 
 
 # unchanged replay requires an independent archive parse against the carried digest

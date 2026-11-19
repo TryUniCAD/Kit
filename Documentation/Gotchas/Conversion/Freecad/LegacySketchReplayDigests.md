@@ -11,5 +11,7 @@ An edit changes the carried model digest and uses the normal rebuild path.
 For a verified older carrier, Kit compares each unchanged sketch flag with the original native archive.
 The rebuilt sketch uses the original explicit suppression state for an inherited flag.
 Kit preserves suppression edits that differ from the older carried value.
+Kit records the independently parsed current digest on the carried archive after migrating its sketch flags.
+An unchanged linked child keeps exact replay when a portable export writes it beside the rebuilt parent.
 
 [FreeCAD adapter guide](../../../Reference/Adapters/Freecad.md) and [restore integration cases](../../../../tests/Convert/Freecad/FreecadTests.py)
