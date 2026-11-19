@@ -1,0 +1,695 @@
+{
+  "build": "34.5.2.0604",
+  "delivery_pr": 121,
+  "effective_document_version": 19000,
+  "facts": [
+    {
+      "confidence": "confirmed statically",
+      "current_version_fields": [
+        "base moParameter",
+        "f58 f64",
+        "if not archive Condition(0x80): f68 u8; if f68 nonzero: f60 f64"
+      ],
+      "id": "part-density-owner",
+      "meaning_limit": "complete parameter-state construction and source assignment have not been measured",
+      "owner": "moPart_c.f1420 -> moMaterial_c.f08 -> moDensityParameter_c"
+    },
+    {
+      "confidence": "confirmed statically",
+      "id": "config-density-copy",
+      "native_sites": [
+        "sldmatu 0x3c3c799b",
+        "sldmatu 0x3c3c79c7",
+        "sldmatu 0x3c3c79e2",
+        "sldmodu 0x4b5a0160"
+      ],
+      "owner": "moPartConfiguration_c.fc50",
+      "rule": "ApplyDensity2Config takes sldMatDef_c+0xa8 and calls moDoubleParameter.setValue(density,0), then part-config slot 0x1db8 stores the same value at +0xc50"
+    },
+    {
+      "confidence": "confirmed statically",
+      "id": "material-identity",
+      "limit": "identity storage is proved; all appearance-field fresh values and complete material assignment are not",
+      "native_sites": [
+        "sldmodu 0x4c022be0",
+        "sldmfcu 0x3c850ea0",
+        "sldmatu 0x3c3c817e",
+        "sldmatu 0x3c3c8191",
+        "sldmatu 0x3c3c81c8"
+      ],
+      "owner": "selected configuration.f78 visual properties -> f20 material-properties receiver -> f20 IdName CString",
+      "rule": "ordinary assignment formats database|material or database|material|integer; parser splits at pipes and optionally parses trailing integer; missing-name and legacy steel branches are distinct"
+    },
+    {
+      "confidence": "confirmed statically with unresolved alternate branches",
+      "id": "atom-material-association",
+      "limit": "getMatIdFromAtomId also has fb00 and parent-atom fallback; this is not a general multibody precedence model",
+      "owner": "actual atom.f140 id, active configuration.f430/fb00 assignment maps and f420 visual-property records",
+      "rule": "atom owner+0x138 -> model+0x258 -> active config+0xd78 -> getMatIdFromAtomId(atom+0x140); body full-name getter searches config+0x420 and accepts parsed IdName integer equal to resolved material id"
+    },
+    {
+      "confidence": "confirmed statically",
+      "constructor": {
+        "f08": "empty CString",
+        "f10": 0.0,
+        "f18": 1.0,
+        "f20": 0,
+        "f28": 0.0
+      },
+      "id": "custom-density-map",
+      "limit": "f28 is density; other property meanings and id-allocation rules remain partial; nonempty map class is not admitted by current SDK ConfigSchemas",
+      "owner": "moConfigurationMgr_c.f600 keyed object map -> moCustomDefinedMaterialProperty_c.f28",
+      "record_wire": [
+        "f08 CString",
+        "f10 f64",
+        "f18 f64",
+        "f20 i32",
+        "f28 f64"
+      ],
+      "rule": "moAtom.getDensityValue sends ids strictly below -9 to the manager lookup; ids at least -9 take a separate built-in lookup; missing custom entry returns 0"
+    },
+    {
+      "confidence": "confirmed statically",
+      "id": "density-load-normalization",
+      "limit": "preserved wire state and normalized runtime state differ; no writer default inferred",
+      "native_sites": [
+        "sldmodu 0x4c17812d",
+        "sldmodu 0x4c178154",
+        "sldmodu 0x4c17815c"
+      ],
+      "rule": "ordinary current density load consumes f68 and optional f60; when f68 is nonzero it copies f60 to runtime f58 and resets runtime f68 to zero"
+    },
+    {
+      "confidence": "partial",
+      "facts": [
+        "pinned material engine exports XML database parse and validation operations",
+        "schema path getter appends declared vocabulary \\xmlschema\\sldmaterials.xsd to data directory",
+        "iDumpMaterialStream looks up swXmlContents and MATERIALTREE through current SolidStorage, reads an archive and exports a diagnostic file"
+      ],
+      "id": "database-and-stored-xml",
+      "limit": "mandatory presence, exact schema, read/save regeneration and cold external-database dependency are unmeasured"
+    },
+    {
+      "confidence": "confirmed exact wrapper forwarding; inner validation remains partial",
+      "id": "api-boundary",
+      "limit": "set method has no documented Boolean success; exact registered Python wrapper shape must be captured before any new native author run",
+      "rule": "auPartDocWrapper delegates SetMaterialPropertyName2 to inner part slot 0x4c0 and getter to 0x4b8, preserving string/out arguments; empty inner pointer returns failure HRESULT"
+    },
+    {
+      "confidence": "confirmed prior sanitized native receipt",
+      "does_not_prove": [
+        "explicit assigned material",
+        "database lookup",
+        "part/body material precedence",
+        "stored material XML",
+        "material change/save/reopen"
+      ],
+      "id": "existing-evidence",
+      "observations": "four generated custom mass-unit variants; eight generated native phases, two healthy controls, ten distinct processes; every effective mass/volume density remains 1 kg/m^3",
+      "record": "re/solidworks/measurements/2026/SdkCustomMassUnitsNative01.json"
+    }
+  ],
+  "functions": [
+    {
+      "bytes": 8,
+      "end_exclusive": "0x4b2879e8",
+      "file_offset": 1338848,
+      "module": "sldmodu.dll",
+      "name": "moPart_c::getMaterial",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "6b5105935d4ae84d33869757c3d7304a5bac3404f94afa47ccb6057335453723",
+      "start": "0x4b2879e0"
+    },
+    {
+      "bytes": 5,
+      "end_exclusive": "0x4b285145",
+      "file_offset": 1328448,
+      "module": "sldmodu.dll",
+      "name": "moMaterial_c::getDensity",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "fc46ea8acdf166d47f2230b3d3975fbd0a4a0f5c898b7c2b2ec854359cb94b85",
+      "start": "0x4b285140"
+    },
+    {
+      "bytes": 302,
+      "end_exclusive": "0x4c224d8e",
+      "file_offset": 17711200,
+      "module": "sldmodu.dll",
+      "name": "moMaterial_c::Serialize",
+      "scope": "complete PE runtime-function range",
+      "sha256": "1252b6c35ccc0bd9e4bb363b76e936d29934451aac3b81db251df8c9699ed17e",
+      "start": "0x4c224c60"
+    },
+    {
+      "bytes": 420,
+      "end_exclusive": "0x4c178184",
+      "file_offset": 17003488,
+      "module": "sldmodu.dll",
+      "name": "moDensityParameter_c::Serialize",
+      "scope": "complete PE runtime-function range",
+      "sha256": "3a3ee2166a7847e93efff0ff9306354dd0ce278b59903bee5b57e89d7666fa6c",
+      "start": "0x4c177fe0"
+    },
+    {
+      "bytes": 79,
+      "end_exclusive": "0x4c1773ff",
+      "file_offset": 17000368,
+      "module": "sldmodu.dll",
+      "name": "moDensityParameter_c pointer store",
+      "scope": "complete PE runtime-function range",
+      "sha256": "b38f9062c822429f3057f95d9e71017532430cd38785d9cb1ff3086b173764b4",
+      "start": "0x4c1773b0"
+    },
+    {
+      "bytes": 82,
+      "end_exclusive": "0x4c176dd2",
+      "file_offset": 16998784,
+      "module": "sldmodu.dll",
+      "name": "moDensityParameter_c pointer load",
+      "scope": "complete PE runtime-function range",
+      "sha256": "dfcf85b6a0bb2a269d1affdaf7b58fa30206af457b7d57510d0e362b880fef3f",
+      "start": "0x4c176d80"
+    },
+    {
+      "bytes": 502,
+      "end_exclusive": "0x4c022dd6",
+      "file_offset": 15605728,
+      "module": "sldmodu.dll",
+      "name": "moModel_c::getMaterialName",
+      "scope": "complete PE runtime-function range",
+      "sha256": "98b8e76787144048c5e14584bd5d1c5dde01308876ddbcafc702e4d88667c130",
+      "start": "0x4c022be0"
+    },
+    {
+      "bytes": 5,
+      "end_exclusive": "0x4b289be5",
+      "file_offset": 1347552,
+      "module": "sldmodu.dll",
+      "name": "moPartConfiguration_c viz getter",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "479188a34dc7b0a45c10e45d7407899e7c2b877e629cb2aa7a809ed3a0a45e33",
+      "start": "0x4b289be0"
+    },
+    {
+      "bytes": 9,
+      "end_exclusive": "0x4b5a0169",
+      "file_offset": 4584800,
+      "module": "sldmodu.dll",
+      "name": "moPartConfiguration_c density setter",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "15976dbdb67d9d99afbc7112085648df82ddbd15c7e4794d1548ed232a1d61c8",
+      "start": "0x4b5a0160"
+    },
+    {
+      "bytes": 8,
+      "end_exclusive": "0x4b2879f8",
+      "file_offset": 1338864,
+      "module": "sldmodu.dll",
+      "name": "moAtom_c::getMaterialNode",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "a69b332e6ad1ce4e83bd0a95f4b933261d2fcf168247af7e71e14aad86ce4d2b",
+      "start": "0x4b2879f0"
+    },
+    {
+      "bytes": 58,
+      "end_exclusive": "0x4bcf793a",
+      "file_offset": 12283136,
+      "module": "sldmodu.dll",
+      "name": "moAtom_c::getMaterialId",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "4792665cac56ebb11e81998e8ac5bac11cbc5031bbf45783d683720387b42bde",
+      "start": "0x4bcf7900"
+    },
+    {
+      "bytes": 533,
+      "end_exclusive": "0x4bcf6135",
+      "file_offset": 12276512,
+      "module": "sldmodu.dll",
+      "name": "moAtom_c::getFullMaterialName",
+      "scope": "complete PE runtime-function range",
+      "sha256": "3491bc01b4a0a0226a3bc4a7dcfeda00efb4533762a51b3ffab39b6b6c4ea4a3",
+      "start": "0x4bcf5f20"
+    },
+    {
+      "bytes": 78,
+      "end_exclusive": "0x4bcf56be",
+      "file_offset": 12274288,
+      "module": "sldmodu.dll",
+      "name": "moAtom_c::getDensityValue",
+      "scope": "complete PE runtime-function range",
+      "sha256": "bea9ac76878b9780a88c49e6bac0f0cdac670c955e2e46702697c70ffd636717",
+      "start": "0x4bcf5670"
+    },
+    {
+      "bytes": 668,
+      "end_exclusive": "0x4bdd950c",
+      "file_offset": 13207152,
+      "module": "sldmodu.dll",
+      "name": "moBaseConfiguration_c::getMatIdFromAtomId",
+      "scope": "complete PE runtime-function range",
+      "sha256": "3ca5d6c3db52e762b501381b332626f843f5029882a4423241394ebe2de8afab",
+      "start": "0x4bdd9270"
+    },
+    {
+      "bytes": 80,
+      "end_exclusive": "0x4b8947e0",
+      "file_offset": 7682960,
+      "module": "sldmodu.dll",
+      "name": "moConfigurationMgr_c::getCustomDefinedMatDensity",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "4b4159eb44c508c2fa477176bbf42dc68caa92741bc6c755f3edb023587e24c9",
+      "start": "0x4b894790"
+    },
+    {
+      "bytes": 77,
+      "end_exclusive": "0x4b88164d",
+      "file_offset": 7604736,
+      "module": "sldmodu.dll",
+      "name": "moCustomDefinedMaterialProperty_c constructor",
+      "scope": "complete PE runtime-function range",
+      "sha256": "cfb3dfecfd7f524ed48d5c4cd073b84a1bd5648221eb6ab5ba31a0bb7eb9c13d",
+      "start": "0x4b881600"
+    },
+    {
+      "bytes": 201,
+      "end_exclusive": "0x4b88a9d9",
+      "file_offset": 7642384,
+      "module": "sldmodu.dll",
+      "name": "moCustomDefinedMaterialProperty_c::Serialize",
+      "scope": "complete PE runtime-function range",
+      "sha256": "157ede78596112b48187d7cafe42341997e9e913d18aee317094ab6fc899193a",
+      "start": "0x4b88a910"
+    },
+    {
+      "bytes": 260,
+      "end_exclusive": "0x4b89f474",
+      "file_offset": 7726960,
+      "module": "sldmodu.dll",
+      "name": "moConfigurationMgr_c::setCustomDefinedMatPropMap",
+      "scope": "complete PE runtime-function range",
+      "sha256": "f837eb48d4a564b5697b3c11159dcd41f1a42d8ac0259b0a36cd8ed1b126131c",
+      "start": "0x4b89f370"
+    },
+    {
+      "bytes": 45,
+      "end_exclusive": "0x4bdf20cd",
+      "file_offset": 13309088,
+      "module": "sldmodu.dll",
+      "name": "moBaseConfiguration_c::setMaterialApplied",
+      "scope": "complete PE runtime-function range",
+      "sha256": "d5ea2d2180a184b957acea82c2c33884d966475361485254f9dde242a1f407db",
+      "start": "0x4bdf20a0"
+    },
+    {
+      "bytes": 70,
+      "end_exclusive": "0x3c922046",
+      "file_offset": 2102784,
+      "module": "sldmfcu.dll",
+      "name": "moVisualProperties_c::getMatProps",
+      "scope": "complete PE runtime-function range",
+      "sha256": "2c8e18187de3f760590714691d2de27f45296801ad637b2dfb6c3954349c8b44",
+      "start": "0x3c922000"
+    },
+    {
+      "bytes": 5,
+      "end_exclusive": "0x3c7de635",
+      "file_offset": 777264,
+      "module": "sldmfcu.dll",
+      "name": "uoMaterialProperties::getIdName",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "a8adead0a89e8bcc0f6079669194e35b31c483df478a1515e46c55a9cf74fb51",
+      "start": "0x3c7de630"
+    },
+    {
+      "bytes": 495,
+      "end_exclusive": "0x3c85108f",
+      "file_offset": 1246368,
+      "module": "sldmfcu.dll",
+      "name": "uoMaterialProperties::parseIDNameForMaterialInfo",
+      "scope": "complete PE runtime-function range",
+      "sha256": "14d621e01290264290883baa07e3fd6c1c73b0afb30b48c9cd0d567f67b4dc9f",
+      "start": "0x3c850ea0"
+    },
+    {
+      "bytes": 164,
+      "end_exclusive": "0x3c3c7a04",
+      "file_offset": 2321760,
+      "module": "sldmatu.dll",
+      "name": "dlgMaterialEditor_c::ApplyDensity2Config",
+      "scope": "complete PE runtime-function range",
+      "sha256": "8a431099099680b511a42b6732d230c5692eb98e669a5385a3c1d2066917030c",
+      "start": "0x3c3c7960"
+    },
+    {
+      "bytes": 5524,
+      "end_exclusive": "0x3c3c8fa4",
+      "file_offset": 2321936,
+      "module": "sldmatu.dll",
+      "name": "dlgMaterialEditor_c::ApplyMatToConfigs",
+      "scope": "complete PE runtime-function range",
+      "sha256": "257845f75c52b0779bc8f69ed0c6ce05b78b1d452cc713c39713001110473371",
+      "start": "0x3c3c7a10"
+    },
+    {
+      "bytes": 9,
+      "end_exclusive": "0x3c2c7fd9",
+      "file_offset": 1274832,
+      "module": "sldmatu.dll",
+      "name": "sldMatDef_c::getDensity",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "652d2efb4e8e364d8364be3e1d26b3818176cba9a0b797462d88361e8e104d31",
+      "start": "0x3c2c7fd0"
+    },
+    {
+      "bytes": 9,
+      "end_exclusive": "0x3c2c7829",
+      "file_offset": 1272864,
+      "module": "sldmatu.dll",
+      "name": "sldMatDef_c::addDensity",
+      "scope": "complete statically inspected leaf or getter range",
+      "sha256": "1c2b6144a25b2f8d4ca10280e5806bc564863ee0245b895ed985b70fc87e90ef",
+      "start": "0x3c2c7820"
+    },
+    {
+      "bytes": 3717,
+      "end_exclusive": "0x3c3ea655",
+      "file_offset": 2460624,
+      "module": "sldmatu.dll",
+      "name": "ApplyMaterialByAPI",
+      "scope": "complete PE runtime-function range",
+      "sha256": "2a85bd0689baf938ce49c43f8d0b6ab6ab4207d3f0c668ad0f6623abafb1585d",
+      "start": "0x3c3e97d0"
+    },
+    {
+      "bytes": 1915,
+      "end_exclusive": "0x3c3cf0bb",
+      "file_offset": 2350400,
+      "module": "sldmatu.dll",
+      "name": "dlgMaterialEditor_c::LoadPHYMATFiles",
+      "scope": "complete PE runtime-function range",
+      "sha256": "61f98b4aa2f10b380adc76e7d942b80c5c1e8b38bc2934bdfde062e8300b5c73",
+      "start": "0x3c3ce940"
+    },
+    {
+      "bytes": 3072,
+      "end_exclusive": "0x3c4051d0",
+      "file_offset": 2570704,
+      "module": "sldmatu.dll",
+      "name": "materialsEditorDlg_c::xmlParseDatabase",
+      "scope": "complete PE runtime-function range",
+      "sha256": "cf754d9a634211fa82f687be6134696fa633d1401cdccd645b16479074bdb54b",
+      "start": "0x3c4045d0"
+    },
+    {
+      "bytes": 343,
+      "end_exclusive": "0x3c405327",
+      "file_offset": 2573776,
+      "module": "sldmatu.dll",
+      "name": "materialsEditorDlg_c::xmlValidateDOC",
+      "scope": "complete PE runtime-function range",
+      "sha256": "888729f22bf2b5f7254fd5b44804e7366f522eb8ff7409661604bc4d78ba40ac",
+      "start": "0x3c4051d0"
+    },
+    {
+      "bytes": 150,
+      "end_exclusive": "0x3c3fa726",
+      "file_offset": 2529936,
+      "module": "sldmatu.dll",
+      "name": "materialsEditorDlg_c::apiGetMaterialSchemaPathName",
+      "scope": "complete PE runtime-function range",
+      "sha256": "e3b3cb2fdc1955625d2833be421318f683fb42b6c42b9171611108bf912ec0e0",
+      "start": "0x3c3fa690"
+    },
+    {
+      "bytes": 797,
+      "end_exclusive": "0x3c3e19bd",
+      "file_offset": 2427552,
+      "module": "sldmatu.dll",
+      "name": "dlgMaterialEditor_c::iDumpMaterialStream",
+      "scope": "complete PE runtime-function range",
+      "sha256": "d33950fae38f4cd73e7001ca3455a75ad96e88f81857b063c0ad61d7be0f7297",
+      "start": "0x3c3e16a0"
+    },
+    {
+      "bytes": 746,
+      "end_exclusive": "0x4996c83a",
+      "file_offset": 11319632,
+      "module": "slduiu.dll",
+      "name": "uiModelDoc::ApplyMaterialByName",
+      "scope": "complete PE runtime-function range",
+      "sha256": "cc63d663dbda7b61e22d3bd51c30cf3859e65b5eb86ce00c0ba2a367f574dc8e",
+      "start": "0x4996c550"
+    },
+    {
+      "bytes": 261,
+      "end_exclusive": "0x456d8885",
+      "file_offset": 3046784,
+      "module": "sldappu.dll",
+      "name": "auPartDocWrapper_c::SetMaterialPropertyName2",
+      "scope": "complete PE runtime-function range",
+      "sha256": "2710b5adbca9921f19afd9f3f7d46a63602ec33fcbcf88299dc0df6624bacbec",
+      "start": "0x456d8780"
+    },
+    {
+      "bytes": 261,
+      "end_exclusive": "0x456d2a05",
+      "file_offset": 3022592,
+      "module": "sldappu.dll",
+      "name": "auPartDocWrapper_c::GetMaterialPropertyName2",
+      "scope": "complete PE runtime-function range",
+      "sha256": "b8d1aa336795dfb74930f35f80a844463c8f09fd9e68113e5063d55f751371a0",
+      "start": "0x456d2900"
+    }
+  ],
+  "guest_private_files_opened": 0,
+  "heldout_inputs_read": 0,
+  "import_bindings": [
+    {
+      "iat_address": "0x4cd338c0",
+      "module": "sldmodu.dll",
+      "target": {
+        "module": "SLDMFCU.dll",
+        "name": "?getMatProps@moVisualProperties_c@@QEAAPEAVuoMaterialProperties@@XZ"
+      }
+    },
+    {
+      "iat_address": "0x3c524948",
+      "module": "sldmatu.dll",
+      "target": {
+        "module": "SLDMODU.dll",
+        "name": "?getDensity@moMaterial_c@@QEBAPEAVmoDensityParameter_c@@XZ"
+      }
+    },
+    {
+      "iat_address": "0x3c524950",
+      "module": "sldmatu.dll",
+      "target": {
+        "module": "SLDMODU.dll",
+        "name": "?setValue@moDoubleParameter_c@@QEAAXNH@Z"
+      }
+    }
+  ],
+  "literal_vocabulary": [
+    {
+      "address": "0x3cc724bc",
+      "bytes_with_terminator": 4,
+      "module": "sldmfcu.dll",
+      "sha256": "041f8c928efceefce56b2faccc0c0067fe7f247dcb297fb6972c27c932c7c8f1",
+      "value": "|"
+    },
+    {
+      "address": "0x3cc724c0",
+      "bytes_with_terminator": 12,
+      "module": "sldmfcu.dll",
+      "sha256": "c0cae2df2a5af26c513453412669af5be2aafba4e68dc0baa188be6a4c418128",
+      "value": "steel"
+    },
+    {
+      "address": "0x3cb2df54",
+      "bytes_with_terminator": 6,
+      "module": "sldmfcu.dll",
+      "sha256": "a9edba2fc4741e8db1282ca45156f8cd7d91ab8ab4b6598a1dabd673c17986e1",
+      "value": "%d"
+    },
+    {
+      "address": "0x3c5818a0",
+      "bytes_with_terminator": 18,
+      "module": "sldmatu.dll",
+      "sha256": "71aa7f6b775f9bc243dbaedeeb034dc1eb48c7be3c56602114ea9dbd98e2d1ee",
+      "value": "%s|%s|%d"
+    },
+    {
+      "address": "0x3c5818b8",
+      "bytes_with_terminator": 12,
+      "module": "sldmatu.dll",
+      "sha256": "f7154f536fc3179a96d4c7037a1fea0e8fdd527fb9e6b969d97bdf83bd1ee75f",
+      "value": "%s|%s"
+    },
+    {
+      "address": "0x3c576818",
+      "bytes_with_terminator": 56,
+      "module": "sldmatu.dll",
+      "sha256": "b08b40f903ba497b7783cd463e7c6bd4973d7aa81ee21122dc318c5c5e197fb6",
+      "value": "\\xmlschema\\sldmaterials.xsd"
+    },
+    {
+      "address": "0x3c581ac0",
+      "bytes_with_terminator": 28,
+      "module": "sldmatu.dll",
+      "sha256": "7a5cd95fce196661f8fdfcf9d91180fdf3cff45e6c04dbbecd0000c4afd856be",
+      "value": "swXmlContents"
+    },
+    {
+      "address": "0x3c581ae0",
+      "bytes_with_terminator": 26,
+      "module": "sldmatu.dll",
+      "sha256": "88447ee02c8393e90e7325f86570530bb2e1bb907de02cffb2a42f5ef41a0682",
+      "value": "MATERIALTREE"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 8274520,
+      "name": "sldmfcu.dll",
+      "preferred_base": "0x3c720000",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    },
+    {
+      "bytes": 5517400,
+      "name": "sldmatu.dll",
+      "preferred_base": "0x3c190000",
+      "sha256": "8a07d6b5d8d7d4f9f064b28e1d60f853fd754caa6d507db28b06031f287e051e"
+    },
+    {
+      "bytes": 36036696,
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "bytes": 16519768,
+      "name": "sldappu.dll",
+      "preferred_base": "0x453f0000",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    }
+  ],
+  "native_runs": 0,
+  "new_native_assignment_observations": 0,
+  "open_questions": [
+    "full fresh assigned-property graph and legal nondefault fields",
+    "native id allocation and all configuration/atom association domains",
+    "exact MATERIALTREE/swXmlContents presence and serialization rules",
+    "live assignment/removal and body override precedence",
+    "external database required at API assignment versus at cold reopen",
+    "strict public neutral material projection and source-preserving refusal boundary"
+  ],
+  "owner": "PR121 configuration_header lane",
+  "qualified_writer": false,
+  "rea_evidence": [
+    "ev_9751b9d3c2e5a8e99c0c2c4bd1ead36b0671f506f7b16881d17190112e843cd3",
+    "ev_c5682cf720cdec9eec91dce42c3f9388e4f352bfac3186e56b841a66df289a9f"
+  ],
+  "schema": "kit.sw2026.assigned-material-owner-analysis.v1",
+  "shared_target_sessions_opened": 0,
+  "source_cad_files_opened": 0,
+  "source_dependencies": [
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ModelFields.py",
+      "sha256": "fb679705fcb9ae37b7de314d9c12bd2433d444dce3e928fe7d8d3469116247c7"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ConfigurationFields.py",
+      "sha256": "06f005cde3edd32c4890635d752e90ea100c9a611b839983f3d1eb3cd48d2e3f"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ConfigSchemas.py",
+      "sha256": "f512b5b797e46e7f0ccad220054d0dd563fb9d122bfe08d2105a7efd4d2cd566"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/MaterialFields.py",
+      "sha256": "82283bd6a47ea47829858b732db8751cfff312752fe210859bdde88b19bf0d99"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Presentation/MakeMaterial.py",
+      "sha256": "fbb08b477ce67106068230dd13e953f298162a9f0308c8b3860500644426cbe3"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Units/BindCustomDensityMut.py",
+      "sha256": "31bf7c6bad2359197f0bed15a7282d556bb57c56c1a2bdc03add9ba0272cd9a5"
+    },
+    {
+      "path": "re/data/Serialization/SerializeMap2026.json",
+      "sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4"
+    },
+    {
+      "path": "re/solidworks/records/SdkDefaultPartRecipe2026.md",
+      "sha256": "f4206371a1d7ad76b8a0af438e94ea1afc84db309e951a29f76b85606bb71a37"
+    },
+    {
+      "path": "re/solidworks/records/MaterialDisplayArchive2026.md",
+      "sha256": "1b7af9670c02b9bc7d768c4e4422f38ae90003853090e82290b0593d677025cc"
+    },
+    {
+      "path": "re/solidworks/records/MaterialFolderConstruction2026.md",
+      "sha256": "ee5688d6a0666a85b24fe94f89705730cc44096f6c4c84dc3c61ecfefda27877"
+    },
+    {
+      "path": "re/solidworks/measurements/2026/SdkCustomMassUnitsNative01.json",
+      "sha256": "a06d753b20adc1d056c448acd12a5eacc1fcdbe39abcc40624033c90472bdc66"
+    },
+    {
+      "path": "re/tooling/sw2026/AuthorRectangleAnchors.py",
+      "sha256": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6"
+    },
+    {
+      "path": "re/tooling/sw2026/units/AuthorDocumentMassUnits.py",
+      "sha256": "1aaf1da19cd50561c2f67ad5da7257d3e22b0c818d3d560565b818c33e4eef8e"
+    }
+  ],
+  "status": "static mapping only; no new native material assignment measured",
+  "task": "B04-SW2026-NAMED-MATERIAL",
+  "vtable_slots": [
+    {
+      "module": "sldmodu.dll",
+      "sha256": "4660a072e4bbbdcfe2cae147efc529876a967c9a96ced19a5a486ba3111d1706",
+      "slot": "0x1040",
+      "target": "0x4b289be0",
+      "vtable": "0x4ce2d008"
+    },
+    {
+      "module": "sldmodu.dll",
+      "sha256": "693745bd04276bad9beddebd8c10be3fa48f977de3e77c7ac477636b7209c31b",
+      "slot": "0x1db8",
+      "target": "0x4b5a0160",
+      "vtable": "0x4ce2d008"
+    },
+    {
+      "module": "sldmodu.dll",
+      "sha256": "1e65e9d10106a515f041b9660ece821444b15ad7c3602fe7edf760948a937fb6",
+      "slot": "0x28",
+      "target": "0x4c224c60",
+      "vtable": "0x4cfe9890"
+    },
+    {
+      "module": "sldmodu.dll",
+      "sha256": "fffd29644c9eaea02b2e7ea04bd4c3218ede03f6a5557210278642bcebccf3d3",
+      "slot": "0x28",
+      "target": "0x4c177fd0",
+      "vtable": "0x4d124660"
+    },
+    {
+      "module": "sldmodu.dll",
+      "sha256": "37b72f6bd81f435dbb00463be09c8f89180b62bb262ac36f36e0a7ee536679a0",
+      "slot": "0x28",
+      "target": "0x4b88a910",
+      "vtable": "0x4cec88d8"
+    }
+  ],
+  "writer_outputs": 0
+}

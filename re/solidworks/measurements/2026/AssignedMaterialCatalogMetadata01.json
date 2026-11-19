@@ -1,0 +1,83 @@
+{
+  "application": {
+    "build": "34.5.2.0604",
+    "license_inventory_unchanged": true,
+    "native_processes_started": 1,
+    "owned_exit_confirmed": true,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "capture_tool_sha256": {
+    "CaptureMaterialCatalog.py": "4c84dc492a80b3cfe6403d2e90c7f0e372aba4c33d21c323c92228c82bde61ae",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+  },
+  "configured_catalogs": [
+    {
+      "density_attributes": {
+        "value_observed": true
+      },
+      "material_count": 207,
+      "metadata_xml_parsed": true,
+      "name": "solidworks din materials.sldmat",
+      "sample_density_values_have_unit_field": false,
+      "sha256": "1290afbb47e04e9900337722f8aa09eccdf5152288e66c101129f0a47aa0fff8",
+      "size": 1027850
+    },
+    {
+      "density_attributes": {
+        "value_observed": true
+      },
+      "material_count": 259,
+      "metadata_xml_parsed": true,
+      "name": "solidworks materials.sldmat",
+      "sample_density_values_have_unit_field": false,
+      "sha256": "636ef75ffb10e8abf7529c910a50dc2cb0d73ce5112c9721e7e4de1824cf57c5",
+      "size": 895550
+    },
+    {
+      "density_attributes": {
+        "value_observed": true
+      },
+      "material_count": 8,
+      "metadata_xml_parsed": true,
+      "name": "sustainability extras.sldmat",
+      "sample_density_values_have_unit_field": false,
+      "sha256": "d2507b47ee22b62ec8001cf2e61e6fd68b1149d9a3f13b2688874aa725070cfb",
+      "size": 12804
+    }
+  ],
+  "generated_wrapper_call_shapes": [
+    {
+      "generated_annotations": {},
+      "has_return_annotation": false,
+      "interface": "IPartDoc",
+      "method": "GetMaterialPropertyName2",
+      "parameter_count_excluding_self": 2,
+      "signature": "(self, ConfigName=<PyOleEmpty>, Database=<PyOleMissing>)"
+    },
+    {
+      "generated_annotations": {},
+      "has_return_annotation": false,
+      "interface": "IBody2",
+      "method": "GetMaterialPropertyName",
+      "parameter_count_excluding_self": 2,
+      "signature": "(self, ConfigName=<PyOleEmpty>, Database=<PyOleMissing>)"
+    }
+  ],
+  "generated_wrapper_sha256": "d8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959",
+  "heldout_inputs_read": 0,
+  "host_transport_sha256": "03753354b7cb197e51f38885b412fafc870aee734097e03e5443b2492306da7d",
+  "model_documents_opened": 0,
+  "model_free_capture_sha256": "9598ba4c5e9d103f4af11b802bc12c49a0160495e2fd3f184376e7d9b81d74b7",
+  "physical_material_assignment_observed": false,
+  "public_writer_qualified": false,
+  "required_api_members_present": true,
+  "schema": "kit.sw2026.assigned-material-catalog-metadata-receipt.v1",
+  "schema_identity": {
+    "error": "ParseError('not well-formed (invalid token): line 75, column 2')",
+    "name": "sldmaterials.xsd",
+    "sha256": "2afeff3c0983fc895ec724a20a84a96991f795f032e2d6ba73179ddfbaac7657",
+    "size": 20930,
+    "strict_xml_parse_completed": false
+  },
+  "wrapper_signature_capture_sha256": "04c5eb971a5fb7b1616b7d9f7ecab195fe037431999533b6cacae2cd761e7ce4"
+}

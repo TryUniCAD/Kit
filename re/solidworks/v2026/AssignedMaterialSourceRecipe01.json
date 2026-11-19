@@ -1,0 +1,155 @@
+{
+  "acceptance": "research source qualification only; no writer or full material conversion claim",
+  "after_source_lock": [
+    "typed exact Config/CMgr/Definition/Resolved/Header/History inventories",
+    "all logical-stream/container paths including material-specific XML",
+    "separate profile for disposable body assignment/override/removal contrast",
+    "optional external-database absence test only with isolated author-owned copy and no installed-data mutation"
+  ],
+  "baseline": {
+    "density": "measure actual baseline; prior default evidence predicts 1 kg/m^3",
+    "geometry_from": "independent analytic rectangle recipe",
+    "material_getter_expected": "unassigned before appearance contrast",
+    "ui_density_preference": "record separately; do not substitute for effective density"
+  },
+  "before_writer": [
+    "root locks independent hidden originals and sidecars before writer code",
+    "new native observer/tool/source/request manifests are committed before run",
+    "first-writer generator/equivalence method frozen before hidden access"
+  ],
+  "cases": [
+    {
+      "anchor": "corner",
+      "depth_m": 0.008625,
+      "edited_depth_m": 0.011375,
+      "expected_edited_geometry": {
+        "area_m2": 0.00174334375,
+        "center_of_mass_m": [
+          0.0085625,
+          0.011875,
+          0.0056875
+        ],
+        "solid_body_count": 1,
+        "volume_m3": 4.62642578125e-06
+      },
+      "expected_geometry": {
+        "area_m2": 0.0015185312500000001,
+        "center_of_mass_m": [
+          0.0085625,
+          0.011875,
+          0.0043125
+        ],
+        "solid_body_count": 1,
+        "volume_m3": 3.5079492187500006e-06
+      },
+      "first_material_key": "A",
+      "height_m": 0.02375,
+      "id": "D01Corner",
+      "second_material_key": "B",
+      "width_m": 0.017125
+    },
+    {
+      "anchor": "center",
+      "depth_m": 0.01175,
+      "edited_depth_m": 0.007625,
+      "expected_edited_geometry": {
+        "area_m2": 0.00141371875,
+        "center_of_mass_m": [
+          0.0,
+          0.0,
+          0.0038125
+        ],
+        "solid_body_count": 1,
+        "volume_m3": 2.9478964843750003e-06
+      },
+      "expected_geometry": {
+        "area_m2": 0.0017602187499999998,
+        "center_of_mass_m": [
+          0.0,
+          0.0,
+          0.005875
+        ],
+        "solid_body_count": 1,
+        "volume_m3": 4.5426601562500005e-06
+      },
+      "first_material_key": "B",
+      "height_m": 0.013625,
+      "id": "D02Center",
+      "second_material_key": "A",
+      "width_m": 0.028375
+    }
+  ],
+  "catalog_database_fields": [
+    "name",
+    "guest_path",
+    "sha256",
+    "bytes",
+    "configured_location",
+    "schema_guest_path",
+    "schema_sha256"
+  ],
+  "catalog_material_fields": [
+    "key:A-or-B",
+    "name",
+    "density_kg_m3",
+    "density_source_selector",
+    "density_source_unit",
+    "density_si_conversion"
+  ],
+  "catalog_required_schema": "kit.sw2026.assigned-material-catalog.v1",
+  "catalog_required_top_level": [
+    "origin",
+    "oracle_sha256",
+    "oracle_revision",
+    "read_only_inventory",
+    "heldout_inputs_read",
+    "type_library",
+    "database",
+    "materials"
+  ],
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "heldout_credit": 0,
+  "heldout_inputs_read": 0,
+  "native_processes": 10,
+  "native_requirements": [
+    "actual one visible solid, GetType=0",
+    "zero open/rebuild/save warnings and errors",
+    "same complete feature tree and real three driving dimensions",
+    "assigned material name/database getter matches explicit request",
+    "all body getters retained, without assuming they equal part assignment",
+    "mass equals analytic volume times independent installed-database density",
+    "appearance-only edit leaves material identity and mass unchanged",
+    "material swap changes mass at fixed volume, area and center of mass",
+    "depth edit scales volume and mass, retains identity/density/origin anchor",
+    "all three saved states fresh reopened, immutable source/control hashes",
+    "explicit process ownership and unchanged license services"
+  ],
+  "new_com_shapes_to_capture": [
+    "SldWorks.GetMaterialDatabases",
+    "SldWorks.GetMaterialSchemaPathName",
+    "PartDoc.SetMaterialPropertyName2",
+    "PartDoc.GetMaterialPropertyName2",
+    "PartDoc.MaterialPropertyValues",
+    "Body2.GetMaterialPropertyName",
+    "Body2.GetMaterialIdName2",
+    "Body2.GetMaterialUserName2",
+    "PartDoc.GetBodies2",
+    "Body2.GetType",
+    "Dimension.SetSystemValue3"
+  ],
+  "new_native_runs_completed": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "schema": "kit.sw2026.assigned-material-source-protocol.v1",
+  "source_steps": [
+    "pristine existing control before",
+    "case1 author baseline, appearance contrast, assign first material, save Original",
+    "case1 fresh reopen Original, swap material, save Swapped",
+    "case1 fresh reopen Swapped, edit boss depth, save DepthEdit",
+    "case1 fresh reopen DepthEdit read-only",
+    "repeat all four case phases for case2 with material keys reversed",
+    "same pristine existing control after"
+  ],
+  "status": "frozen proposed source recipe; catalog/API metadata and native execution pending",
+  "task": "B04-SW2026-NAMED-MATERIAL",
+  "writer_outputs": 0
+}
