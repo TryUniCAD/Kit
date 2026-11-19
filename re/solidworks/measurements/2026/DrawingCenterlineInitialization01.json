@@ -1,0 +1,436 @@
+{
+  "evidence": "exact-build static load rule and disclosed guarded host construction",
+  "heldout_inputs_read": 0,
+  "method_sha256": "1e4b1a0732068bec0aabd2d516dcd83cba32be153074bcc44893eb5946613270",
+  "prior_process_result_sha256": "9820b4ec37403bcc1e67333e160a026fb2465c8c3e403a89d0b05111f6b61410",
+  "prior_source_manifest_sha256": "8a72047d19750a4b9230de23a440b1c7280736c6b1b691b2945083dac58b5b19",
+  "process_result_sha256": "1f454ea0e62f128e052af6e44e77d8d8e7a00db29a3c477cfa4d41b813676799",
+  "publication_manifest_sha256": "eb9d663cea1c0778a08e0ebcfec399a2e88daa7d6b3588361a675cb60bf8c9cf",
+  "result": {
+    "cases": [
+      {
+        "child_bytes": 9042,
+        "child_sha256": "ea0d058aca2c556ac2b61de4d26d8bd6b810abd6604f63d5bd3905b5e36188d5",
+        "constructor_build": {
+          "request_sha256": "25c0234263fe5dc9d4634faa7f920186371a853546734fdf4fae0891bbb3e69f",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "b2071e9480a8852b332959c54937fe620cadd637b75988221da2ec4a75141cf6"
+        },
+        "constructor_preparation": {
+          "request_sha256": "fec98ca03c3091e2e4498ccd4e78a418039409a5eb4e852c14b8d049a93612e1",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "c28989e78e4caa068af3072c05e3b0d67a32850763bc185c525557fdec77549d"
+        },
+        "drawing_bytes": 7386,
+        "drawing_load_operation": {
+          "actual_ui_model_alias": true,
+          "after": 1327104,
+          "before": 1327104,
+          "changed": false,
+          "file_version": 19000,
+          "mask": 1048576,
+          "native_acceptance": false,
+          "operation": "native-19000",
+          "owner": "uiDrawingDoc_c.model.fae0.f20",
+          "primary_detail_distinct_from_child": true,
+          "scope": "fresh generated drawing only; no runtime override APIs"
+        },
+        "drawing_sha256": "177bdf3dc3ab5a91c34eb9effd88667800abc9b3bf20c10f299a3bbaf936796c",
+        "exact_prior_constructor_output": true,
+        "load_builds": [
+          {
+            "request_sha256": "3b773a31eb7825e11a43ef1a63f8c4a0dcf4e9dc645634de9eb66c5376d03bc4",
+            "returncode": 0,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "af6a79b68fb08929412f55a215f9027e78680a8b32278635587fc74ba7ac3e7d"
+          },
+          {
+            "request_sha256": "3b773a31eb7825e11a43ef1a63f8c4a0dcf4e9dc645634de9eb66c5376d03bc4",
+            "returncode": 0,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "af6a79b68fb08929412f55a215f9027e78680a8b32278635587fc74ba7ac3e7d"
+          }
+        ],
+        "load_preparation": {
+          "request_sha256": "35107edee118a4f1b40432a94cb052483b227d5e724d7b04350d68e912680ea9",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "deb38d44f8ba84db52cf16a50e62414c6568ccbe1fc97cdab628ce0b6416b69d"
+        },
+        "mode": "iso",
+        "name": "AnsiNormalizedCornerPrecisionThreeIso",
+        "prior_build": {
+          "request_sha256": "304a5a830d051f8eb9d9b6047fbd36d6b4f697d16971f6b07087e6532f098705",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "62ceeb313d89dbce05de422a6e71750d1bb21dd9d8c7376cdc9ef194fe78865d"
+        }
+      },
+      {
+        "child_bytes": 9057,
+        "child_sha256": "c02bdea5f848f09127964da5bd2094d9d1055b87896cb4b9eb43c7fc085014e4",
+        "constructor_build": {
+          "request_sha256": "8d8de00fda320ed99abac30797c9eedb0a433908e1e2fcbb1393f8fe644de14f",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "47f931ec4c27fe77c3f06c9828d6417c2685a3613ef7ff2c32246634fa1af494"
+        },
+        "constructor_preparation": {
+          "request_sha256": "5214142a74406eb9fe86953ccaeac317d67384da05f3ac05e1cd28c50dcace23",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "202f0cb7e324908888bc1a24ed626b93258ba7c8575e82a82eb8eec4e71566da"
+        },
+        "drawing_bytes": 7406,
+        "drawing_load_operation": {
+          "actual_ui_model_alias": true,
+          "after": 1327104,
+          "before": 278528,
+          "changed": true,
+          "file_version": 19000,
+          "mask": 1048576,
+          "native_acceptance": false,
+          "operation": "native-19000",
+          "owner": "uiDrawingDoc_c.model.fae0.f20",
+          "primary_detail_distinct_from_child": true,
+          "scope": "fresh generated drawing only; no runtime override APIs"
+        },
+        "drawing_sha256": "4cebdc9eb79d50e061e441e047957eace61372ba4c00ae512b7b8c50d2f9321f",
+        "exact_prior_constructor_output": true,
+        "load_builds": [
+          {
+            "request_sha256": "56e93e397a446a5dec8ce46404127d597c0e227fe535e36dcc16349225f1790f",
+            "returncode": 0,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "764c96945ec5686b8f7724e20fc02454c424b61a9279c2d0f9df27be08d20838"
+          },
+          {
+            "request_sha256": "56e93e397a446a5dec8ce46404127d597c0e227fe535e36dcc16349225f1790f",
+            "returncode": 0,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "764c96945ec5686b8f7724e20fc02454c424b61a9279c2d0f9df27be08d20838"
+          }
+        ],
+        "load_preparation": {
+          "request_sha256": "d1cdb795134db4a680f58f56371d2444e42e6114979ce858172eb76f1a5dc710",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "6bf29144fde6cb658ebe4467a2cd3e4067056447a7df969f4438a618e2bba96e"
+        },
+        "mode": "ansi",
+        "name": "AnsiNormalizedCornerPrecisionThreeAnsi",
+        "prior_build": {
+          "request_sha256": "419270d8cd789ca9feb71e42b9d3c21f320255d079cf4b5203aa0bca90f0d207",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "bc4da23876d9e2185a0ce6271c3b226289c8bd16be83d4da88e0a956d95407f1"
+        }
+      },
+      {
+        "child_bytes": 9159,
+        "child_sha256": "472566d1a191547ff8f80384be2df471e91bbc06844703d363c79735c9243fbc",
+        "constructor_build": {
+          "request_sha256": "3a104cb2546a07f3da1e07e1cea44e2bcfab5decfc487052512e6067b468b920",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "6449668d30a0192cc8b2a0b2d8845852298f7082470e0660cc717dad3fcc70de"
+        },
+        "constructor_preparation": {
+          "request_sha256": "51cd2cf8b259e883028a45753dbfbfdf0b9d1d492c0d1793e09b757fce384aaa",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "0272db0ae3aeb1ed6683df5054e1c7a1b82cfab29aab86d4e92fc72734aa5973"
+        },
+        "drawing_bytes": 7441,
+        "drawing_load_operation": {
+          "actual_ui_model_alias": true,
+          "after": 1327104,
+          "before": 1327104,
+          "changed": false,
+          "file_version": 19000,
+          "mask": 1048576,
+          "native_acceptance": false,
+          "operation": "native-19000",
+          "owner": "uiDrawingDoc_c.model.fae0.f20",
+          "primary_detail_distinct_from_child": true,
+          "scope": "fresh generated drawing only; no runtime override APIs"
+        },
+        "drawing_sha256": "d395e24ef41fd65478ef7fc3fd3fc91225a4f43a85e9aab4afb300ec516ca6e3",
+        "exact_prior_constructor_output": true,
+        "load_builds": [
+          {
+            "request_sha256": "4cfdd4e7c21f8a08b184586fed5c40fd0134cfebad32600414d2bf25553244e9",
+            "returncode": 0,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "5d6201cf3f437fc3a62c9be3ef3f980d4c8d68d73bcfbd751ffb1873e2b408e6"
+          },
+          {
+            "request_sha256": "4cfdd4e7c21f8a08b184586fed5c40fd0134cfebad32600414d2bf25553244e9",
+            "returncode": 0,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "5d6201cf3f437fc3a62c9be3ef3f980d4c8d68d73bcfbd751ffb1873e2b408e6"
+          }
+        ],
+        "load_preparation": {
+          "request_sha256": "04c79a5db9d198a8ae15559f9522a40100a3730ebf1246c1ad9e2cc96cbd9a61",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "50952eeb5bce0bfe50b9e8e0810a02bdd6b69a3912d7559d0f60fbea6aa9d07f"
+        },
+        "mode": "iso",
+        "name": "AnsiNormalizedCenteredPrecisionFiveIso",
+        "prior_build": {
+          "request_sha256": "b7f583130a55de92b5856fa0ba056fe15ab93438132f89284cdf30b2975bf753",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "a24e0c80f523af5fd65c302067785c4d61c482d41af86b425a98099e1ea6f43d"
+        }
+      },
+      {
+        "child_bytes": 9191,
+        "child_sha256": "8a29a576ad4bf9f6699cab9c86a4d71d482854eac7232c4534eb7cc7d8640f09",
+        "constructor_build": {
+          "request_sha256": "c671ca92e1155f8e334efd5650122b30d0d7bd894302a5b1ce82195fa3f6c99c",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "fa586e25459ae46a6a47c5a4fee18e1a4f8394e6670ffc55f32b8a1b3c0eb483"
+        },
+        "constructor_preparation": {
+          "request_sha256": "cfb78af7bc2b827546483d27faa427f25e0794fc92864726281eab0c784c1eb1",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "eb3a73288111af89053ebde803f561f5ef8a66b8bb73a8aa380b9db2346fab6f"
+        },
+        "drawing_bytes": 7467,
+        "drawing_load_operation": {
+          "actual_ui_model_alias": true,
+          "after": 1327104,
+          "before": 278528,
+          "changed": true,
+          "file_version": 19000,
+          "mask": 1048576,
+          "native_acceptance": false,
+          "operation": "native-19000",
+          "owner": "uiDrawingDoc_c.model.fae0.f20",
+          "primary_detail_distinct_from_child": true,
+          "scope": "fresh generated drawing only; no runtime override APIs"
+        },
+        "drawing_sha256": "00941cca93735b06eb603a6ff62d1d8a2e1f93c0c6ea3621cd4f147e45aebdbe",
+        "exact_prior_constructor_output": true,
+        "load_builds": [
+          {
+            "request_sha256": "3f4140ebe8c4ccd610bd900c030ee231eca3626cf89660399e23b55d8696f3df",
+            "returncode": 0,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "d55e804878164ddf90fe84161bfc9ec25b917082151cc19f5f63101eb39365ce"
+          },
+          {
+            "request_sha256": "3f4140ebe8c4ccd610bd900c030ee231eca3626cf89660399e23b55d8696f3df",
+            "returncode": 0,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stdout_sha256": "d55e804878164ddf90fe84161bfc9ec25b917082151cc19f5f63101eb39365ce"
+          }
+        ],
+        "load_preparation": {
+          "request_sha256": "58a380ced4a635979a70677c269d92dfec389fcc56ee8b504f2b6170134f02eb",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "404eecc1c52678cb3fd6bede736d1d1eb7dd333fa3fd8952c7bdfd266ae9acf4"
+        },
+        "mode": "ansi",
+        "name": "AnsiNormalizedCenteredPrecisionFiveAnsi",
+        "prior_build": {
+          "request_sha256": "e7a33989d0577da2e44e1249e62d82b8d2a69b47c192f1fd9d36bbcc4eb8cfa6",
+          "returncode": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "adbb3ab67189ad781cb425f8dbf17f66dd02d8d0dfa3eeaf1ee181f74b2f2bf8"
+        }
+      }
+    ],
+    "comparisons": [
+      {
+        "changed_drawing_streams": [],
+        "child_container_and_all_streams_identical": true,
+        "complete_child_linked_fields_and_aliases_identical": true,
+        "complete_presentation_differences": [],
+        "full_presentation_retention_required": true,
+        "iso_container_identical": true,
+        "mode": "iso",
+        "name": "AnsiNormalizedCornerPrecisionThreeIso"
+      },
+      {
+        "changed_drawing_streams": [
+          "Contents/Definition"
+        ],
+        "child_container_and_all_streams_identical": true,
+        "complete_child_linked_fields_and_aliases_identical": true,
+        "complete_presentation_differences": [
+          {
+            "left": 278528,
+            "path": "/drawing_details/f20",
+            "right": 1327104
+          }
+        ],
+        "full_presentation_retention_required": true,
+        "iso_container_identical": false,
+        "mode": "ansi",
+        "name": "AnsiNormalizedCornerPrecisionThreeAnsi"
+      },
+      {
+        "changed_drawing_streams": [],
+        "child_container_and_all_streams_identical": true,
+        "complete_child_linked_fields_and_aliases_identical": true,
+        "complete_presentation_differences": [],
+        "full_presentation_retention_required": true,
+        "iso_container_identical": true,
+        "mode": "iso",
+        "name": "AnsiNormalizedCenteredPrecisionFiveIso"
+      },
+      {
+        "changed_drawing_streams": [
+          "Contents/Definition"
+        ],
+        "child_container_and_all_streams_identical": true,
+        "complete_child_linked_fields_and_aliases_identical": true,
+        "complete_presentation_differences": [
+          {
+            "left": 278528,
+            "path": "/drawing_details/f20",
+            "right": 1327104
+          }
+        ],
+        "full_presentation_retention_required": true,
+        "iso_container_identical": false,
+        "mode": "ansi",
+        "name": "AnsiNormalizedCenteredPrecisionFiveAnsi"
+      }
+    ],
+    "explicit_true_cases": [
+      {
+        "mode": "iso",
+        "request_sha256": "7efcd177a7094c503bd2d3632e0135a2a677319a60ba56fb8472feb0473f3d4b",
+        "returncode": 0,
+        "same_complete_pair": true,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a83b9211b9ece73877e0453831e425952ee0fbeb980e3bf6952361d8c1a3a03b"
+      },
+      {
+        "mode": "ansi",
+        "request_sha256": "8b31529c4f099753047bfd7a194691476d5c83e8a115a1da2b590fd693657d6a",
+        "returncode": 0,
+        "same_complete_pair": true,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3f1bd8af85dfa1ea18a23d50b6a774c2e19c2c45545538875226568c493b7d3b"
+      }
+    ],
+    "full_presentation_retention_required": true,
+    "heldout_acceptance": false,
+    "native_acceptance": false,
+    "passed": true,
+    "process_count": 34,
+    "public_drawing_writer_changed": false,
+    "rejections": [
+      {
+        "diagnostic": "explicit false centreline intent cannot be preserved by the19000 drawing loader",
+        "name": "false_ansi",
+        "request_sha256": "e0d51b5ad02aac0649214a36ea89b6827ea9c2b804ddd9f78d3b3d670cd65abb",
+        "returncode": 3,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d49e0db6118b35da9c32193edce2a4d05f56a60ffacace6c8187e01e7bd38464"
+      },
+      {
+        "diagnostic": "explicit false centreline intent cannot be preserved by the19000 drawing loader",
+        "name": "false_iso",
+        "request_sha256": "a4e3e7b730278374697cee46fa91e9a9a0a7739ccf906f65fbf5bad687505ccd",
+        "returncode": 3,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d49e0db6118b35da9c32193edce2a4d05f56a60ffacace6c8187e01e7bd38464"
+      },
+      {
+        "diagnostic": "centreline intent requires an explicit Boolean or no independent intent",
+        "name": "integer_intent_zero",
+        "request_sha256": "5637758de95cf3c4297da78610274eeb34579298193902aca574ebc6c93e2f31",
+        "returncode": 3,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d851416b0c9608947a55e5289029a90268d2ae7b76615aab82bb46f83aac696b"
+      },
+      {
+        "diagnostic": "centreline intent requires an explicit Boolean or no independent intent",
+        "name": "integer_intent_one",
+        "request_sha256": "d41a03f483b1ede4cba07291a863f4208c8bc9376f0c7b26225ff4e428f6d533",
+        "returncode": 3,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "d851416b0c9608947a55e5289029a90268d2ae7b76615aab82bb46f83aac696b"
+      },
+      {
+        "diagnostic": "drawing load initialization only proves ordinary version19000",
+        "name": "boolean_version",
+        "request_sha256": "1a20129e4fb2cbe97a3892eb63130970a6ef06944b0c8dc1b349f2ed3f6774cb",
+        "returncode": 3,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "cfea9e123fee770781403e553053a4b014e4903811f42d9e1eed1918e8c6dbb6"
+      },
+      {
+        "diagnostic": "drawing load initialization only proves ordinary version19000",
+        "name": "future_version",
+        "request_sha256": "42dfd66b9f8cdaf02a3fcba5d85ee85dda1fd7643ba0060b7c0ebb1e369a8639",
+        "returncode": 3,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "cfea9e123fee770781403e553053a4b014e4903811f42d9e1eed1918e8c6dbb6"
+      },
+      {
+        "diagnostic": "unknown drawing load initialization operation",
+        "name": "unknown_policy",
+        "request_sha256": "7ba818c755f2af22887f25b6bff9b5ad573dd00bad31239614bd1d1ce8d095de",
+        "returncode": 3,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4141e0656ad00b0c7386db7acf009f89fa9fdb25d9d7356373d3b97941f42124"
+      },
+      {
+        "diagnostic": "drawing load initialization requires its exact neutral policy",
+        "name": "extra_override_request",
+        "request_sha256": "7677a37822c16bbdb88cbc0c8df92599d462c29851a729dcf8f36986ecbefe72",
+        "returncode": 3,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "cabd8c2dc3160bbe2720adcf7792eca363684b8d7fc5c5fc811af47532cddcf5"
+      }
+    ],
+    "schema": "kit.sw2026.ansi-load-flow.v1",
+    "source_manifest_sha256": "e001a47895ab3a76f5d6bfc8fad38cbecb9aab2871fb601fcef19f9b0efb390d",
+    "source_original_admission": false
+  },
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.drawing-centerline-initialization-receipt.v1",
+  "source_file_count": 5812,
+  "source_files": [
+    {
+      "bytes": 10958,
+      "path": "re/tooling/sw2026/AnsiLoadInitFlow.py",
+      "sha256": "a8b63670f202ad92ec5f7d4cb90a9f5c4d598bb557c780c50c8ad34c0bac2903"
+    },
+    {
+      "bytes": 4405,
+      "path": "re/tooling/sw2026/AnsiLoadInitPrepare.py",
+      "sha256": "5d22a19d5cc2b2fe6acdbfd1acdb9db1214df14cc7d571f00e499f0320c02b39"
+    },
+    {
+      "bytes": 7338,
+      "path": "re/tooling/sw2026/AnsiLoadInitProcess.py",
+      "sha256": "187b7f29bd1d4176f46c5c006fdb4579bd5d6d39c81b969385a6b9e75ce02db9"
+    },
+    {
+      "bytes": 126506,
+      "path": "re/tooling/sw2026/AnsiLoadInitRequests01.json",
+      "sha256": "5202b8fb642f20d8f48a931682fdf2bbae2913cb8eedd6c6b93502c1796cb569"
+    },
+    {
+      "bytes": 4304,
+      "path": "re/tooling/sw2026/ansi_load_init/Apply.py",
+      "sha256": "eddf15aa89db510d0be7ab4efe964a5c0d1f95f9366fcbcfd9c2049ca75d0b67"
+    }
+  ],
+  "source_manifest_sha256": "e001a47895ab3a76f5d6bfc8fad38cbecb9aab2871fb601fcef19f9b0efb390d",
+  "strict_comparison": "complete typed drawing and child style, origin, independent owners, unmodified field values and aliased archive graph"
+}

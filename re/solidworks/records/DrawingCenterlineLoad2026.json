@@ -1,0 +1,774 @@
+{
+  "attestation": {
+    "application_usable": false,
+    "heldout_acceptance": false,
+    "interpretation": "no new candidate has been run for this native-rule delivery",
+    "native_acceptance": false,
+    "original_source_admission": false,
+    "public_writer_qualification": false,
+    "vendor_loadable": false
+  },
+  "constructor_relation": {
+    "ansi": "native standard-zero defaults clear only mask0x100000",
+    "classification": "fresh standard initialization and later drawing load fixup are separate operations; no universal saved whole-word default",
+    "iso": "the proven fresh standard-one branch already sets this mask"
+  },
+  "disclosed_data_only_observation": {
+    "bytes": 243354,
+    "filename": "AnsiDrawingRuntimeEarlyStyle01.json",
+    "raw_acceptance_field": false,
+    "rows": [
+      {
+        "all_detail_difference_count": 184,
+        "case": "AnsiDetailCornerAlphaNativeIso",
+        "centreline_differences": [],
+        "phase": "open-save",
+        "typed_join_passed": true
+      },
+      {
+        "all_detail_difference_count": 184,
+        "case": "AnsiDetailCornerAlphaNativeIso",
+        "centreline_differences": [],
+        "phase": "reopen",
+        "typed_join_passed": true
+      },
+      {
+        "all_detail_difference_count": 184,
+        "case": "AnsiDetailCornerAlphaNativeIso",
+        "centreline_differences": [],
+        "phase": "edit-move-save",
+        "typed_join_passed": true
+      },
+      {
+        "all_detail_difference_count": 184,
+        "case": "AnsiDetailCornerAlphaNativeIso",
+        "centreline_differences": [],
+        "phase": "reopen-edited",
+        "typed_join_passed": true
+      },
+      {
+        "all_detail_difference_count": 185,
+        "case": "AnsiDetailCornerAlphaNativeAnsi",
+        "centreline_differences": [
+          {
+            "left": 278528,
+            "path": "/drawing_details/f20",
+            "right": 1327104
+          }
+        ],
+        "phase": "open-save",
+        "typed_join_passed": true
+      },
+      {
+        "all_detail_difference_count": 185,
+        "case": "AnsiDetailCornerAlphaNativeAnsi",
+        "centreline_differences": [
+          {
+            "left": 278528,
+            "path": "/drawing_details/f20",
+            "right": 1327104
+          }
+        ],
+        "phase": "reopen",
+        "typed_join_passed": true
+      },
+      {
+        "all_detail_difference_count": 185,
+        "case": "AnsiDetailCornerAlphaNativeAnsi",
+        "centreline_differences": [
+          {
+            "left": 278528,
+            "path": "/drawing_details/f20",
+            "right": 1327104
+          }
+        ],
+        "phase": "edit-move-save",
+        "typed_join_passed": true
+      },
+      {
+        "all_detail_difference_count": 185,
+        "case": "AnsiDetailCornerAlphaNativeAnsi",
+        "centreline_differences": [
+          {
+            "left": 278528,
+            "path": "/drawing_details/f20",
+            "right": 1327104
+          }
+        ],
+        "phase": "reopen-edited",
+        "typed_join_passed": true
+      }
+    ],
+    "sha256": "dca701a7caebdd06bcf9a4c76fbcc9a2d0fd8c6ec8a5d0041c60b49d3a76a1d0",
+    "use": "corroboration only; not a construction input or proof that this branch dynamically executed"
+  },
+  "field": {
+    "field": "f20",
+    "mask": "0x100000",
+    "name": "CLUseCenterline",
+    "owner": "moDetailDefs_c",
+    "raw_store": "store the current unsigned word; no centreline normalization in this store window",
+    "setter": "(old_word & ~0x100000) | (0x100000 if bool_argument else 0)",
+    "wire_type": "u32"
+  },
+  "functions": [
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 27,
+      "end_exclusive": "0x3c7db8db",
+      "module": "sldmfcu.dll",
+      "name": "moDetailDefs_c::setCLUseCenterline",
+      "sha256": "75ac76728686a6d9be2e24b2ffd316c02a79f4214761dda7bf3544233e2d1d13",
+      "start": "0x3c7db8c0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 16616,
+      "end_exclusive": "0x3c85bb28",
+      "module": "sldmfcu.dll",
+      "name": "moDetailDefs_c::Serialize",
+      "sha256": "232dd7e45de22ef186be2e532f71eae26dc3cb5a14244962c7589463df145807",
+      "start": "0x3c857a40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 16616,
+          "end_exclusive": "0x3c85bb28",
+          "sha256": "232dd7e45de22ef186be2e532f71eae26dc3cb5a14244962c7589463df145807",
+          "start": "0x3c857a40",
+          "unwind_rva": "0x5e3dbc"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 20,
+      "end_exclusive": "0x4c01ffb4",
+      "module": "sldmodu.dll",
+      "name": "moModel_c::getDetailDefs",
+      "sha256": "5825d2b136b560d6a61f0472c097ea400e132a28f7b13655b97bd6254f775e10",
+      "start": "0x4c01ffa0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 10,
+      "end_exclusive": "0x497011da",
+      "module": "slduiu.dll",
+      "name": "uiModelDoc_c::Serialize(CArchive&) bridge",
+      "sha256": "6896a83afd4fe57ad075d52d7296b7657aa901fc231bf2095e293954f2d3c344",
+      "start": "0x497011d0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 14435,
+      "end_exclusive": "0x49704a43",
+      "module": "slduiu.dll",
+      "name": "uiModelDoc_c::Serialize(su_CArchive&)",
+      "sha256": "005891cd89400858a8a72b7dcdb21fad4b68e430a71ce5bbb19d798fcad28c5e",
+      "start": "0x497011e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 14435,
+          "end_exclusive": "0x49704a43",
+          "sha256": "005891cd89400858a8a72b7dcdb21fad4b68e430a71ce5bbb19d798fcad28c5e",
+          "start": "0x497011e0",
+          "unwind_rva": "0x1bbc7d4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 7361,
+      "end_exclusive": "0x4974a371",
+      "module": "slduiu.dll",
+      "name": "uiModelDoc_c constructor",
+      "sha256": "bf5c4e74fb9831332234ac17884d67d733990bdc38fe933eb1240314a06d90b0",
+      "start": "0x497486b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 7361,
+          "end_exclusive": "0x4974a371",
+          "sha256": "bf5c4e74fb9831332234ac17884d67d733990bdc38fe933eb1240314a06d90b0",
+          "start": "0x497486b0",
+          "unwind_rva": "0x1bc1728"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x48ee4c03",
+      "module": "slduiu.dll",
+      "name": "uiModelDoc_c::isDrawingDoc folded leaf",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x48ee4c00",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 85,
+      "end_exclusive": "0x49789585",
+      "module": "slduiu.dll",
+      "name": "uiModelDoc_c::getModel",
+      "sha256": "0c4380a8444b5f293bebed05d3f5b95a49b537197af95b63a186a39568af804f",
+      "start": "0x49789530",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 85,
+          "end_exclusive": "0x49789585",
+          "sha256": "0c4380a8444b5f293bebed05d3f5b95a49b537197af95b63a186a39568af804f",
+          "start": "0x49789530",
+          "unwind_rva": "0x1ab4c00"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x3ded6278",
+      "module": "slddrwu.dll",
+      "name": "uiDrawingDoc_c::GetThisClass",
+      "sha256": "62ee799592c5b1ce0dbc7b75ad5b503bea06753d9ec1ab35e46846c7373701df",
+      "start": "0x3ded6270",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 45,
+      "end_exclusive": "0x3decd5ed",
+      "module": "slddrwu.dll",
+      "name": "uiDrawingDoc_c runtime-class factory",
+      "sha256": "3090fd6462821048be66829a41ed032256f4f7fa9b723e5ffc76bea2bc738850",
+      "start": "0x3decd5c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 45,
+          "end_exclusive": "0x3decd5ed",
+          "sha256": "3090fd6462821048be66829a41ed032256f4f7fa9b723e5ffc76bea2bc738850",
+          "start": "0x3decd5c0",
+          "unwind_rva": "0x6d45b8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1239,
+      "end_exclusive": "0x3ded0917",
+      "module": "slddrwu.dll",
+      "name": "uiDrawingDoc_c constructor",
+      "sha256": "b8cb552affcfb72e635933026b062391dc1546e2559bf46d50b50291f14a089f",
+      "start": "0x3ded0440",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1239,
+          "end_exclusive": "0x3ded0917",
+          "sha256": "b8cb552affcfb72e635933026b062391dc1546e2559bf46d50b50291f14a089f",
+          "start": "0x3ded0440",
+          "unwind_rva": "0x6d45e0"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 6,
+      "end_exclusive": "0x3e0b0f78",
+      "module": "slddrwu.dll",
+      "name": "uiDrawingDoc_c CArchive bridge import thunk",
+      "sha256": "4c8f667e349fa93f9b671c94ea4133807b02a84dcb2ad88fc82100254170cd38",
+      "start": "0x3e0b0f72",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2058,
+      "end_exclusive": "0x3debcc5a",
+      "module": "slddrwu.dll",
+      "name": "uiDrawingDoc_c concrete su_CArchive serializer",
+      "sha256": "3392f1113c73afcf24e6fd2d90d1d0fb21c29e0429948aab66c22b58794a05c7",
+      "start": "0x3debc450",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2058,
+          "end_exclusive": "0x3debcc5a",
+          "sha256": "3392f1113c73afcf24e6fd2d90d1d0fb21c29e0429948aab66c22b58794a05c7",
+          "start": "0x3debc450",
+          "unwind_rva": "0x6d1810"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 6,
+      "end_exclusive": "0x3dd588c6",
+      "module": "slddrwu.dll",
+      "name": "uiDrawingDoc_c isDrawingDoc slot folded leaf",
+      "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+      "start": "0x3dd588c0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 47,
+      "end_exclusive": "0x3dee7abf",
+      "module": "slddrwu.dll",
+      "name": "uiDrawingDoc_c getModel slot",
+      "sha256": "bd81468320459ba4528c69cba77b146f71a6912a62283668550d095296f9b5a0",
+      "start": "0x3dee7a90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 47,
+          "end_exclusive": "0x3dee7abf",
+          "sha256": "bd81468320459ba4528c69cba77b146f71a6912a62283668550d095296f9b5a0",
+          "start": "0x3dee7a90",
+          "unwind_rva": "0x69ac2c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 14382,
+      "end_exclusive": "0x45bfc35e",
+      "module": "sldappu.dll",
+      "name": "unnamed application preference helper containing centreline setter call",
+      "sha256": "ef8e1e144aa87a986695116810c7bd3f6d5ee1ee21c1ce4f9ae5542efa664279",
+      "start": "0x45bf8b30",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 14382,
+          "end_exclusive": "0x45bfc35e",
+          "sha256": "ef8e1e144aa87a986695116810c7bd3f6d5ee1ee21c1ce4f9ae5542efa664279",
+          "start": "0x45bf8b30",
+          "unwind_rva": "0xd342a4"
+        }
+      ]
+    }
+  ],
+  "imports": {
+    "sldappu.dll": [
+      {
+        "iat": "0x45e525a0",
+        "module": "SLDMFCU.dll",
+        "name": "?setCLUseCenterline@moDetailDefs_c@@QEAAX_N@Z"
+      },
+      {
+        "iat": "0x45e5a5e8",
+        "module": "sldutu.dll",
+        "name": "?regGetUserValue@@YAHAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0W4valueTypes@SldSettingsUtils@@AEAV12@PEAHPEANHHPEAV12@HHHH@Z"
+      }
+    ],
+    "slddrwu.dll": [
+      {
+        "iat": "0x3e139b98",
+        "module": "slduiu.dll",
+        "name": "?Serialize@uiModelDoc_c@@UEAAXAEAVsu_CArchive@@@Z"
+      },
+      {
+        "iat": "0x3e139e10",
+        "module": "slduiu.dll",
+        "name": "?iUseViewerModel@uiModelDoc_c@@QEBAHXZ"
+      },
+      {
+        "iat": "0x3e139e98",
+        "module": "slduiu.dll",
+        "name": "?getModel@uiModelDoc_c@@UEBAPEAVmoModel_c@@XZ"
+      },
+      {
+        "iat": "0x3e13bcf0",
+        "module": "slduiu.dll",
+        "name": "?Serialize@uiModelDoc_c@@UEAAXAEAVCArchive@@@Z"
+      }
+    ],
+    "sldmfcu.dll": [
+      {
+        "iat": "0x3cb1d418",
+        "module": "swccu.dll",
+        "name": "??5su_CArchive@@QEAAAEAV0@AEAI@Z"
+      },
+      {
+        "iat": "0x3cb1d420",
+        "module": "swccu.dll",
+        "name": "??6su_CArchive@@QEAAAEAV0@I@Z"
+      }
+    ],
+    "slduiu.dll": [
+      {
+        "iat": "0x4a448a78",
+        "module": "SLDMFCU.dll",
+        "name": "?setCLUseCenterline@moDetailDefs_c@@QEAAX_N@Z"
+      },
+      {
+        "iat": "0x4a44b498",
+        "module": "SLDMFCU.dll",
+        "name": "??0moArchiveHelper_c@@QEAA@PEAVsu_CArchive@@@Z"
+      },
+      {
+        "iat": "0x4a44b4a0",
+        "module": "SLDMFCU.dll",
+        "name": "?getCurrentFileVerion@moVersionManager_c@@CAKXZ"
+      },
+      {
+        "iat": "0x4a44b4a8",
+        "module": "SLDMFCU.dll",
+        "name": "?get@moVersionManager_c@@SAAEAV1@XZ"
+      },
+      {
+        "iat": "0x4a459628",
+        "module": "SLDMODU.dll",
+        "name": "?getOpenedModel@moBaseConfiguration_c@@QEBAPEAVmoModel_c@@XZ"
+      },
+      {
+        "iat": "0x4a459ab8",
+        "module": "SLDMODU.dll",
+        "name": "?getDetailDefs@moModel_c@@QEAAPEAVmoDetailDefs_c@@XZ"
+      },
+      {
+        "iat": "0x4a474598",
+        "module": "swccu.dll",
+        "name": "?IsStoring@su_CArchive@@QEBAHXZ"
+      }
+    ]
+  },
+  "instruction_windows": [
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 12,
+      "end_exclusive": "0x3c857ae3",
+      "module": "sldmfcu.dll",
+      "name": "raw f20 u32 store",
+      "sha256": "e9ae6996c18fecb458b1a2330f3f24c335a9d99426b2e08b7c3026ee16eb467e",
+      "start": "0x3c857ad7"
+    },
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 13,
+      "end_exclusive": "0x3c857fe8",
+      "module": "sldmfcu.dll",
+      "name": "raw f20 u32 load",
+      "sha256": "68530ece15f21ea1b7452dcd056459732b65c897d557f25d5c8c30d80458c9f6",
+      "start": "0x3c857fdb"
+    },
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 33,
+      "end_exclusive": "0x49704792",
+      "module": "slduiu.dll",
+      "name": "model/detail receiver selection",
+      "sha256": "c03cb247fbf2fc5a24d87dd4d357eee7237c402ad70ebacb051b696b630cf1f9",
+      "start": "0x49704771"
+    },
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 88,
+      "end_exclusive": "0x497048af",
+      "module": "slduiu.dll",
+      "name": "non-storing drawing/version gate and true setter argument",
+      "sha256": "2a5ff3264e6417731031d87129b8ee446ad3c16d354e2fde24d85663395545e3",
+      "start": "0x49704857"
+    },
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 27,
+      "end_exclusive": "0x49701233",
+      "module": "slduiu.dll",
+      "name": "archive helper ownership initialization",
+      "sha256": "cf44aa674e9f1a82c2b08e2cb02ec2a448593ac19f2c210c303ced7e21b02b73",
+      "start": "0x49701218"
+    },
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 10,
+      "end_exclusive": "0x497486e1",
+      "module": "slduiu.dll",
+      "name": "UI base primary vtable installation",
+      "sha256": "f2b3e560c6595ad6c6b8fc656bbc8dada03388984e89a71001d33b2dd725b71e",
+      "start": "0x497486d7"
+    },
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 10,
+      "end_exclusive": "0x3ded0460",
+      "module": "slddrwu.dll",
+      "name": "drawing primary vtable installation",
+      "sha256": "68fd925a1333adf200d60edd07110e4022e30fc97e9936ba098fbb1fa14ffa3b",
+      "start": "0x3ded0456"
+    },
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 12,
+      "end_exclusive": "0x3debc563",
+      "module": "slddrwu.dll",
+      "name": "actual drawing-to-base su_CArchive call",
+      "sha256": "b3e1d36aaacbaef5b6271fcb276bc6fe8a0028749b24f79033b21c4f1787b81d",
+      "start": "0x3debc557"
+    },
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 26,
+      "end_exclusive": "0x45bfb08a",
+      "module": "sldappu.dll",
+      "name": "preference key selection",
+      "sha256": "4116a8e2b63cf43e6fc28824391ed2c47d14f0be085046a9beb2ac84f0685543",
+      "start": "0x45bfb070"
+    },
+    {
+      "bound": "checked original instruction boundaries within the complete enclosing function",
+      "bytes": 45,
+      "end_exclusive": "0x45bfb101",
+      "module": "sldappu.dll",
+      "name": "preference successful-read guard and Boolean argument",
+      "sha256": "05e36c2a30a9673aac296214ce60c9b098694654d561a93d360e7f0b9003755d",
+      "start": "0x45bfb0d4"
+    }
+  ],
+  "load_fixup": {
+    "dynamic_execution_attribution": "not instrumented; the static branch and disclosed saved value agree",
+    "enclosing_owner": "uiModelDoc_c::Serialize(su_CArchive&)",
+    "guards": [
+      "a model is returned by actual virtual +0x1300",
+      "its effective getDetailDefs result is nonnull",
+      "su_CArchive::IsStoring returns zero",
+      "actual isDrawingDoc virtual +0x1260 returns nonzero",
+      "effective unsigned file version is at most 19000"
+    ],
+    "not_a_guard": [
+      "detail standard f10",
+      "moANSI_c or moISO_c UI-standard class",
+      "save phase",
+      "registry preference value"
+    ],
+    "operation": "effective_detail.f20 := effective_detail.f20 | 0x100000",
+    "selected_concrete_class": "uiDrawingDoc_c",
+    "version_source": "first pointer of the constructed moArchiveHelper_c; pointed owner +0x7c0, falling back to moVersionManager_c::getCurrentFileVerion when zero"
+  },
+  "method_tools": {
+    "decoder": "Apple LLVM21 llvm-objdump on unchanged original PE files",
+    "evidence_extractor_sha256": "05d692fe70a7933687d0b07b058947b8262a62ede81942c5ae0aecce80bb1fae",
+    "metadata_helper_sha256": "6969b1cd7790860159e098d3aab5efe8644bd7984a06ede661879e8a463542ad",
+    "rea_route": "stateless original PE inspection retained because Hopper GUI is excluded by the parent scope; no analysis target opened"
+  },
+  "model_detail_selection": {
+    "getter": "moModel_c::getDetailDefs",
+    "limit": "No claim that an arbitrary override aliases the serialized primary detail owner; bind that identity before applying a constructor operation",
+    "rule": "runtime pointer +0xae8 when nonnull, otherwise runtime pointer +0xae0"
+  },
+  "modules": [
+    {
+      "bytes": 8274520,
+      "exception_directory_bytes": 222504,
+      "exception_directory_rva": "0x7e6000",
+      "machine": "0x8664",
+      "name": "sldmfcu.dll",
+      "preferred_base": "0x3c720000",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    },
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 36036696,
+      "exception_directory_bytes": 880608,
+      "exception_directory_rva": "0x20bf000",
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "bytes": 8949848,
+      "exception_directory_bytes": 283308,
+      "exception_directory_rva": "0x85d000",
+      "machine": "0x8664",
+      "name": "slddrwu.dll",
+      "preferred_base": "0x3dbc0000",
+      "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47"
+    },
+    {
+      "bytes": 16519768,
+      "exception_directory_bytes": 567636,
+      "exception_directory_rva": "0xf4e000",
+      "machine": "0x8664",
+      "name": "sldappu.dll",
+      "preferred_base": "0x453f0000",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    }
+  ],
+  "next_controlled_prediction": {
+    "explicit_false_semantics": "an independently requested false centreline setting cannot be advertised as preserved by the current <=19000 drawing load path without separate proof; do not hide that loss",
+    "new_candidate_only_after_separate_freeze": "if the actual primary drawing detail is the effective receiver, a separately requested native-load-normal-form operation that sets this single mask before serialization predicts no centreline-only difference; preserve every other flag and style field",
+    "unchanged_frozen_packet": "retain all style equality predicates; an ANSI drawing loaded with this mask clear is predicted to change it even after unit/Swift/exclusion initialization"
+  },
+  "preference_caller": {
+    "boolean_argument": "local integer at rbp+0x90 != 0",
+    "callsite": "0x45bfb0fb",
+    "condition": "successful read only",
+    "detail_receiver": "pointer at incoming helper receiver +0x70",
+    "function_start": "0x45bf8b30",
+    "key": "Centerline Use Center Line",
+    "key_address": "0x45fef108",
+    "limit": "helper is not named by an exact exported entry; no proved join from that pointer to the selected drawing or part detail in the observed batch",
+    "module": "sldappu.dll",
+    "native_value_reader": "sldutu!regGetUserValue"
+  },
+  "retained_boundaries": [
+    "runtime override +0xae8 identity in arbitrary documents",
+    "dynamic attribution of this static call to the prior observed saves",
+    "future versions greater than19000",
+    "all other style and unit ownership not covered by this mask",
+    "full original-source conversion",
+    "held-out and public drawing writer qualification"
+  ],
+  "schema": "solidworks-drawing-centreline-load-rule-2026-v1",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "target": {
+    "file_version_profile": 19000,
+    "product": "SOLIDWORKS 2026 SP05.2"
+  },
+  "task": {
+    "delivery_pr": 121,
+    "dependencies": [
+      "DrawingAnsiStyleConstruction2026",
+      "DrawingDetailNormalization2026"
+    ],
+    "exit_condition": "native branch ownership and complete byte fingerprints recorded without changing the frozen writer or strict style gate",
+    "id": "PR121-ANSI-DRAWING-CENTRELINE",
+    "owner": "flag_ownership",
+    "scope": "exact-build static load/setter/store rule and previously disclosed data-only comparison"
+  },
+  "verification": {
+    "all_full_function_hashes_original_bytes": true,
+    "all_instruction_windows_boundaries_checked": true,
+    "all_module_hashes_rechecked": true,
+    "analysis_view_header_modified": false,
+    "h_or_sealed_inputs_read": false,
+    "native_runtime_calls_or_hooks": false,
+    "product_or_schema_execution": false,
+    "shared_worktree_mutated": false,
+    "static_original_pe_only": true,
+    "vendor_code_or_listings_in_delivery": false,
+    "vm_cad_com_or_license_access": false
+  },
+  "vtable_bindings": [
+    {
+      "address": "0x4a645b78",
+      "complete_object_locator": {
+        "bound": "MSVC x64 complete object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4a90e730",
+        "sha256": "01524206d67e839db03dfa06a995a205c59d1a67f5ea19ae642698d05cf7c861",
+        "start": "0x4a90e718"
+      },
+      "module": "slduiu.dll",
+      "rtti_name": ".?AVuiModelDoc_c@@",
+      "slots": [
+        {
+          "bound": "one original x64 vtable pointer",
+          "bytes": 8,
+          "end_exclusive": "0x4a645b90",
+          "offset": "0x10",
+          "sha256": "12e332a5dc5b21b0e7864072849d8d63ece7be00a5ab3ce5193fa71b97a6c811",
+          "start": "0x4a645b88",
+          "target": "0x497011d0"
+        },
+        {
+          "bound": "one original x64 vtable pointer",
+          "bytes": 8,
+          "end_exclusive": "0x4a646b88",
+          "offset": "0x1008",
+          "sha256": "4111e2cedf4273ea53162ea2b2770c3c2e5b57f1b5614be1c4a1b1642cfbef53",
+          "start": "0x4a646b80",
+          "target": "0x497011e0"
+        },
+        {
+          "bound": "one original x64 vtable pointer",
+          "bytes": 8,
+          "end_exclusive": "0x4a646de0",
+          "offset": "0x1260",
+          "sha256": "a530704d8561df8eb7b0e1f54f418e9de9620f99ee44840a7aa8b3afa974def6",
+          "start": "0x4a646dd8",
+          "target": "0x48ee4c00"
+        },
+        {
+          "bound": "one original x64 vtable pointer",
+          "bytes": 8,
+          "end_exclusive": "0x4a646e80",
+          "offset": "0x1300",
+          "sha256": "e126e9b154f682663045ce2288bbe158489d909017dabf864e0b10f27b17721a",
+          "start": "0x4a646e78",
+          "target": "0x49789530"
+        }
+      ],
+      "type_descriptor": "0x4aefc738"
+    },
+    {
+      "address": "0x3e1d6b78",
+      "complete_object_locator": {
+        "bound": "MSVC x64 complete object locator",
+        "bytes": 24,
+        "end_exclusive": "0x3e24c558",
+        "sha256": "615f4955b304d2df5e5df8072ed637178cf107aca8153fddfcba7a87def9f78e",
+        "start": "0x3e24c540"
+      },
+      "module": "slddrwu.dll",
+      "rtti_name": ".?AVuiDrawingDoc_c@@",
+      "slots": [
+        {
+          "bound": "one original x64 vtable pointer",
+          "bytes": 8,
+          "end_exclusive": "0x3e1d6b90",
+          "offset": "0x10",
+          "sha256": "95b9c01ee341915ca91afcc10015eece2cc9b89e8c6f0484ff781cdab34f1378",
+          "start": "0x3e1d6b88",
+          "target": "0x3e0b0f72"
+        },
+        {
+          "bound": "one original x64 vtable pointer",
+          "bytes": 8,
+          "end_exclusive": "0x3e1d7b88",
+          "offset": "0x1008",
+          "sha256": "df061344d6c81e1ecdcecbccc7da0457cb0e514f988bff8c243f12e2437fd874",
+          "start": "0x3e1d7b80",
+          "target": "0x3debc450"
+        },
+        {
+          "bound": "one original x64 vtable pointer",
+          "bytes": 8,
+          "end_exclusive": "0x3e1d7de0",
+          "offset": "0x1260",
+          "sha256": "eb40fcfc41a943c94d136c95a32d812f7d5ab88d42d146ed0d6bf03bc36339df",
+          "start": "0x3e1d7dd8",
+          "target": "0x3dd588c0"
+        },
+        {
+          "bound": "one original x64 vtable pointer",
+          "bytes": 8,
+          "end_exclusive": "0x3e1d7e80",
+          "offset": "0x1300",
+          "sha256": "29238aceadd35d1a275c75be76b192c5422422c959f6ada20d8bad64e965782b",
+          "start": "0x3e1d7e78",
+          "target": "0x3dee7a90"
+        }
+      ],
+      "type_descriptor": "0x3e3c0dc0"
+    }
+  ]
+}
