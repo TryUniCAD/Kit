@@ -39,6 +39,7 @@ def read_packet(packet, expected):
     require(target.drive.casefold() == "c:" and target.is_absolute() and len(target.parts) == 2
             and re.fullmatch(r"KitAttachedTopBoxGenerated[0-9]{2}", target.name),
             "choose an unused Windows-local generated box directory")
+    require(re.fullmatch(r"Trial[0-9]{2}", plan["trial"]), "choose a fresh native measurement trial")
     lanes = {}
     for name, row in plan["cases"].items():
         require(re.fullmatch(r"[a-zA-Z0-9.-]+", name) and name not in (".", ".."),
@@ -74,7 +75,14 @@ def run(packet, expected):
     require(os.name == "nt", "generated attached boxes must be observed in the Windows guest")
     plan, control_file, lanes = read_packet(packet, expected)
     target = Path(plan["target"])
-    target.mkdir()
+    require(all(not Path(native).parent.exists() for _, native, _ in lanes.values()),
+            "a generated candidate destination is already occupied")
+    target.mkdir(exist_ok=True)
+    trial = target / plan["trial"]
+    trial.mkdir()
+    local_control = trial / control_file.name
+    copyfile(control_file, local_control)
+    require(digest(local_control) == CONTROL, "the guest-local control copy changed")
     result_path = packet.parent / "Result.json"
     require(not result_path.exists(), "generated observation result is already occupied")
     result = {
@@ -93,9 +101,9 @@ def run(packet, expected):
         require(observed["passed"], f"native attached-box phase failed: {label}")
         return observed
 
-    with (target / "Oracle.log").open("x", encoding="utf-8") as log, redirect_stdout(log), redirect_stderr(log):
+    with (trial / "Oracle.log").open("x", encoding="utf-8") as log, redirect_stdout(log), redirect_stderr(log):
         try:
-            measure("ControlBefore", control, target, "ControlBefore", control_file)
+            measure("ControlBefore", control, trial, "ControlBefore", local_control)
             for name, (model, native, case) in lanes.items():
                 native = Path(native)
                 native.parent.mkdir()
@@ -115,7 +123,7 @@ def run(packet, expected):
             result["first_failure"] = {"phase": result["stage"], "type": type(error).__name__, "error": str(error)}
         finally:
             try:
-                measure("ControlAfter", control, target, "ControlAfter", control_file)
+                measure("ControlAfter", control, trial, "ControlAfter", local_control)
             except Exception as error:
                 result["final_control_failure"] = str(error)
     read_packet(packet, expected)
