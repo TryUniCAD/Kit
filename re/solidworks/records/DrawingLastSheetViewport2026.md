@@ -12,7 +12,7 @@ The [guarded construction receipt](../measurements/2026/DrawingSheetViewportCons
 
 The [readonly viewport observer](../../tooling/sw2026/drawing_notes/ObserveNoteViewportInput01.py) freezes the two authored poses, identity default and three native control phases at `b775d4b86642c2544e6a963278556ec48e5b8fbd432a759e13afb556b3fada52`. The recipe checks the actual camera and note geometry before and after rebuild. The construction check qualifies the archive fields. Rendered parity still requires its own native evidence.
 
-[Change entry](../../../Documentation/Changes/Solidworks/Construction/Drawings/SolidworksDrawingSheetViewport.md) · [Gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/SheetLastOrientationOwnsPanZoom.md)
+[Change entry](../../../Documentation/Changes/Solidworks/Construction/Drawings/SolidworksDrawingSheetViewport.md) · [Gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/Sheet/SheetLastOrientationOwnsPanZoom.md)
 
 ## Interrupted first native trial
 
