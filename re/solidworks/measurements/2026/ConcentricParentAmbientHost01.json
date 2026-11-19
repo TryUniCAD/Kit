@@ -1,0 +1,180 @@
+{
+  "child_changes": [
+    "Contents/CMgr",
+    "Contents/Config-0",
+    "Contents/Config-0-ModelHeader",
+    "Contents/Config-0-ResolvedFeatures",
+    "Header2"
+  ],
+  "complete_pair_replays_exact": 3,
+  "constructor_runtime_io_attempts": 0,
+  "default_regressions": {
+    "Brep": {
+      "child": "438d18c98855653620ad54a914356767994d128249253b85dd2a0d56616ac8f8",
+      "exact": true,
+      "parent": "0295b17d99658a7baec144f1ac9688a5c4e63d540b858fd36dc28e6884370bc5"
+    },
+    "Feature": {
+      "child": "64e1568c00763e734a00bf1f1778357b1864ca79abc30ec2b7f996bc3e20d845",
+      "exact": true,
+      "parent": "e07d04635daf7a8b9ee5790dc34e7876c555b12690d36b9ff0cc6138a7222a59"
+    }
+  },
+  "delivery_pr": 121,
+  "final_source_pair_replay_exact": true,
+  "frozen_native_diagnostic": {
+    "file_saves": 0,
+    "frozen_files": 47,
+    "generated_occurrence_ids": [17, 18],
+    "global_preference_changes": 0,
+    "host_verify": true,
+    "independent_trailing_control_required": true,
+    "native_acceptance": false,
+    "native_processes_started": 0,
+    "native_reference_name_precondition_sha256": "fcb613c3aa4c6006b4647572ba35a81dba12b5c94e0e4a5cccfe9fb09161b157",
+    "parameter_edits": 0,
+    "parent_bytes_identical": true,
+    "recipe_sha256": "f967f6e2ec2ee849549d7b04ae1960277cae4cc22b7a0d571a708664b12276bc",
+    "roles": ["ControlBefore", "ParentOff", "ParentOn", "ControlAfter"],
+    "same_encoded_locator": true,
+    "source_commit_before_native_required": true,
+    "source_name_normalization_preserved_as_failure": true,
+    "strict_authored_name_gate_retained": true,
+    "tools_sha256": {
+      "FreezeConcentricParentAmbient01.py": "31b5ce898a463dfdd75110d6760e06688972c85ea020a00e39948b56e60f2245",
+      "InspectConcentricParentAmbient01.py": "73b2ce157be413be5014e537db21f9d70ab45f1d00c528878c910c57a03f3abc"
+    },
+    "trial_sha256": "01b767e56dd5f8dd2f1a2c5218a0003b98654f7b9f4eea27369464575172fcd8"
+  },
+  "full_pair_generation_sha256": "a4170d4896d4ec514feba15e6d79c3d2e63a0a2bd61ca5f829defe81e57c2756",
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_child_precondition": {
+    "Off": [0, 32],
+    "On": [0, 0],
+    "controls_healthy": true,
+    "distinct_processes": 4,
+    "numeric_checks": 84,
+    "raw_result_sha256": "a959d6f3127b4d8ee2fb7279d312b538a2ad4dfd6ab52fa4838b4e66f145ad3b",
+    "scope": "child-only immutable open/rebuild diagnostic; no parent or persistence acceptance"
+  },
+  "native_measured_children_exact": true,
+  "native_name_preservation_pending": true,
+  "native_parent_measured": false,
+  "owner": "/root/assembly_occurrence",
+  "parent_stream_changes": [],
+  "parents_byte_identical": true,
+  "public_writer_qualified": false,
+  "round_tripped_parent_streams_per_pair_replay": 6,
+  "schema": "kit.sw2026.concentric-parent-ambient-host.v1",
+  "shared_source_edits": false,
+  "source_delta": {
+    "re/tooling/sw2026/para/EmitAttachedPart.py": {
+      "base_sha256": null,
+      "sha256": "c465526d4b892bb148930aae893df7123eaa5e2ff67bab4448b83cfe29d10ac6"
+    },
+    "re/tooling/sw2026/para/concentric/ConcentricAssembly.py": {
+      "base_sha256": "7664b162dc08556ac57bba9b687452c649767d3ee0ae8027f952c7cedad30ce5",
+      "sha256": "f02bd38257344fed32c3d66c885304a04bba57e1f7dd652fb5de389d427294c6"
+    },
+    "re/tooling/sw2026/para/cylinder/CylinderAttachment.py": {
+      "base_sha256": "40146d0aead91f8a294cf7269658fce7c371c3c26948d37990ef0abc9a853c4f",
+      "sha256": "ee7b6e15276048962b8b45cd0bc8c2f17ac4f0af1a2aa77e72163e7a683eaede"
+    }
+  },
+  "source_files": 5708,
+  "source_manifest_sha256": "83f825765eb6c8955818b1ace84b309e9ba25210e565320ec94daf0d01745f7c",
+  "source_names_retained_on_disk": ["Cylinder-1", "Cylinder-2"],
+  "syntax_verified_python_files": 6,
+  "task_id": "B04-SW2026-MATES-CONCENTRIC",
+  "undefined_name_check": "ruff 0.17.3 F821 passed",
+  "variants": {
+    "Off": {
+      "files": {
+        "ConcentricNeutralAlphaDerived.SLDASM": {
+          "bytes": 10895,
+          "sha256": "f857cf633fb9aedcd6baa369725d71d7d8738ad687ccadf912bedf3542a5afb9"
+        },
+        "NeutralCylinderAlphaDerived.SLDPRT": {
+          "bytes": 10801,
+          "sha256": "6fa75f03fc6e201e29dfc65e90b20a773ca8212568b8a9dae0fb9601116ef785"
+        }
+      },
+      "linked_sdk": {
+        "active_intervals": [
+          [0.0, 0.022819],
+          [0.0, 0.022819]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "6fa75f03fc6e201e29dfc65e90b20a773ca8212568b8a9dae0fb9601116ef785",
+        "detached_defaults_preserved": true,
+        "face_tags": [2290, 2290],
+        "fixed_flags": [true, false],
+        "kernel_node_id": 5,
+        "maps": [133, 186],
+        "mate_bytes": 3984,
+        "mate_sha256": "3bd563c43616d9bd8c362b20daf1efb95e54fd8d6a124071dfc444178dbb19f1",
+        "occurrence_names": ["Cylinder-1", "Cylinder-2"],
+        "occurrences": [17, 18],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [-0.18065529823420398, -0.5144806193887359, 0.8382561395500145],
+          [-0.18065529823420404, -0.5144806193887359, 0.8382561395500145]
+        ],
+        "world_origins": [
+          [-0.015460606420462484, 0.014658111018034136, 0.007964246252471139],
+          [-0.025165228386305687, -0.012979273374909369, 0.052994527812958374]
+        ]
+      }
+    },
+    "On": {
+      "files": {
+        "ConcentricNeutralAlphaDerived.SLDASM": {
+          "bytes": 10895,
+          "sha256": "f857cf633fb9aedcd6baa369725d71d7d8738ad687ccadf912bedf3542a5afb9"
+        },
+        "NeutralCylinderAlphaDerived.SLDPRT": {
+          "bytes": 10915,
+          "sha256": "6569127deb36821679c7b425b65e0bfffbd2c3f9d3fa68777baa3a6f507d1129"
+        }
+      },
+      "linked_sdk": {
+        "active_intervals": [
+          [0.0, 0.022819],
+          [0.0, 0.022819]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "6569127deb36821679c7b425b65e0bfffbd2c3f9d3fa68777baa3a6f507d1129",
+        "detached_defaults_preserved": true,
+        "face_tags": [2290, 2290],
+        "fixed_flags": [true, false],
+        "kernel_node_id": 5,
+        "maps": [133, 186],
+        "mate_bytes": 3984,
+        "mate_sha256": "3bd563c43616d9bd8c362b20daf1efb95e54fd8d6a124071dfc444178dbb19f1",
+        "occurrence_names": ["Cylinder-1", "Cylinder-2"],
+        "occurrences": [17, 18],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [-0.18065529823420398, -0.5144806193887359, 0.8382561395500145],
+          [-0.18065529823420404, -0.5144806193887359, 0.8382561395500145]
+        ],
+        "world_origins": [
+          [-0.015460606420462484, 0.014658111018034136, 0.007964246252471139],
+          [-0.025165228386305687, -0.012979273374909369, 0.052994527812958374]
+        ]
+      }
+    }
+  },
+  "worker_vm_calls": 0
+}

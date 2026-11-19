@@ -1,3 +1,5 @@
+from para.EmitAttachedPart import emit_attached_part
+from para.prism.SdkPrismAttachment import install_light
 from dataclasses import dataclass, replace
 from io import BytesIO
 
@@ -43,7 +45,7 @@ def principal_planes(document, written_at):
     return result
 
 
-def prepare_concentric(document, destination, written_at, session, updates, preceding_faces):
+def prepare_concentric(document, destination, written_at, session, updates, preceding_faces, *, ambient=None):
     model = ReadAsmModel(document)
     planes = principal_planes(document, written_at)
     paths = ReadAsmPaths(model.RootValue.name, model.ChildValue.name, destination, written_at)
@@ -59,6 +61,9 @@ def prepare_concentric(document, destination, written_at, session, updates, prec
     attached = attach_cylinder_mut(
         child_before_attachment, session, updates, preceding_faces, tessellated_faces=True,
     )
+    if ambient is not None:
+        install_light(attached.candidate, ambient, session.update_second)
+        attached = replace(attached, candidate=emit_attached_part(attached.candidate))
     nodes = {item.index: XmtNode(item.index, item.kind, item.fields) for item in attached.projection.partition.nodes}
     binding = bind_cylinder(actual_child, attached.candidate, nodes, profile=profile)
     intent = project_concentric(document, {model.ChildValue.id: binding})

@@ -1,3 +1,4 @@
+from para.EmitAttachedPart import emit_attached_part
 from dataclasses import dataclass, field, replace
 
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
@@ -104,25 +105,6 @@ def attach_cylinder_mut(candidate, session, feature_events, previous_face_alloca
         owner.FieldsValue.update(f40=updates.saved_update, f44=updates.saved_body, f48=session.update_second)
     config = candidate.CurrentConfig
     config.FieldsValue["f860"] = updates.saved_update
-    cmgr = candidate.SystemValue.ManagerValue
-    cmgr_header = MakeMgrHeader(cmgr, candidate.ManagerHeader.FieldsValue["f60"])
-    config_bytes, model_graph = WriteConfigMut(root, VERSION, header)
-    resolved_bytes, resolved_graph = WriteResolMut(
-        candidate.ResolvedValue.RootsValue, None, VERSION, model_graph.MapValue,
-        {"model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": cmgr.FieldsValue["f658"]},
-    )
-    streams = candidate.StreamsValue | {
-        CONFIG: config_bytes,
-        KResolvedFeaturesStream: resolved_bytes,
-        CONFIG + "-ModelHeader": WriteHeadGraph(header, VERSION),
-        "Header2": WriteHeadGraph(candidate.TopHeader, VERSION),
-        "Contents/CMgr": WriteCmgrMut(cmgr, VERSION),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(cmgr_header, VERSION)[0],
-        KPartitionStream: projection.stream(),
-    }
-    attached = replace(
-        candidate, ManagerHeader=cmgr_header, ConfigValue=model_graph, ResolvedValue=resolved_graph,
-        StreamsValue=streams, BytesValue=BuildSldprt(streams, FormatVersion=4),
-    )
+    attached = emit_attached_part(candidate, projection.stream())
     return GeneratedAttachment(attached, projection, atom_id, body_tag,
                                marks.selected.mark_id, marks.activation.mark_id, projection.lateral_face_node_id)
