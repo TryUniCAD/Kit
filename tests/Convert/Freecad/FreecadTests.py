@@ -3687,7 +3687,7 @@ def ReadLinkBundle(Portable: FilePath, ChildBytes: bytes) -> CadDocument:
 
 
 # embedded and separately saved children must carry the same deliberate suppression edit
-def CheckLinkedMut(
+def VerifyLinkedMut(
     Adapter: FreeCadAdapter,
     Reopened: CadDocument,
     Options: WriteOptions,
@@ -3744,7 +3744,7 @@ def TestOldLinked(TmpPath: FilePath, Scenario: str) -> None:
     Reopened = ReadLinkBundle(Portable, ChildBytes)
     if Scenario == "restored":
         _ = Child.write_bytes(ChildBytes)
-        CheckLinkedMut(Adapter, Reopened, Options, TmpPath)
+        VerifyLinkedMut(Adapter, Reopened, Options, TmpPath)
 
 
 # a historical linked manifest retains its prior sketch semantics until export
@@ -3850,7 +3850,7 @@ def TestLinkedReads(
 
 
 # the archived sketch must be active in a native parse and hidden in the emitted property
-def CheckRawHidden(Rebuilt: bytes) -> None:
+def VerifyRawHidden(Rebuilt: bytes) -> None:
     assert ReadNativeFcstd(Rebuilt).sketches[0].suppressed is False
     with Zipfile.ZipFile(IoStream.BytesIO(Rebuilt)) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
@@ -3897,7 +3897,7 @@ def TestReplayDepth(TmpPath: FilePath) -> None:
     Rebuilt = Output.getvalue()
     assert Rebuilt != Original
     assert Adapter.read(Rebuilt).sketches[0].suppressed is False
-    CheckRawHidden(Rebuilt)
+    VerifyRawHidden(Rebuilt)
 
 
 # assembly component writes must also use independently verified carried sketch state
