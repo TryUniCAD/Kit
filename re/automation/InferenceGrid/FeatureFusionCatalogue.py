@@ -10,6 +10,7 @@ from contextlib import closing
 import hashlib
 import sqlite3
 
+from InferenceGrid.FeatureCatalogue import WrittenBlockers
 from InferenceGrid.FeatureRoutes import DescribeRecipe, FeatureRecipes
 from Records import digest, label
 
@@ -83,5 +84,6 @@ def FusionEntries(Database):
                 )
             ),
         }
+        WrittenBlockers(Plan, Key, Recipe)
         Features[Key] = {**Plan, "plan_id": digest(Plan)}
     return dict(sorted(Features.items()))

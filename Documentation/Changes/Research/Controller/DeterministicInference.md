@@ -120,7 +120,9 @@ The run saves `CataloguePlan.json`, each submission, the controller store,
 and `CatalogueResult.json`. The plan has a row for every feature or API
 entry. It submits a shared assessment once even if multiple rows use it.
 An entry without a reviewed recipe is recorded as unavailable without
-submitting decoder work. Exit status 2 indicates incomplete coverage or
+submitting decoder work. An entry with a
+[written recipe](FeatureRecipeSpecs.md) but no captured native files is
+recorded as `awaiting_capture`. Exit status 2 indicates incomplete coverage or
 waiting evidence, and exit status 1 indicates a run failure.
 
 For the P04 native evidence step on a configured Fusion host, supply
