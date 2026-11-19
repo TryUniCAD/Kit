@@ -1,9 +1,8 @@
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 from math import isfinite
 
 from .Allocate import Ref, positive_i32, require
-from .AttributeChains import Install, attach_attributes
-from .Attributes import Field, RECTANGLE_DEFINITION_BY_NAME, build_definitions
+from .AttributeChains import Install, register_attributes
 from builders.Model import logged_creation_time
 from para.Tracking import signed_dword
 
@@ -84,21 +83,4 @@ def rectangle_installs(child, plan, appearance, previous_face_allocations):
 def append_rectangle_attributes(child, plan, topology, appearance, first_node_identifier, previous_face_allocations=0):
     body = Ref(plan.brep.bodies[0].id)
     installations = tuple(rectangle_installs(child, plan, appearance, previous_face_allocations))
-    graph = attach_attributes(topology, body, installations, first_node_identifier)
-    names = tuple(dict.fromkeys(installation.definition for installation in installations))
-    definition_head, declarations = build_definitions(tuple(reversed(names)))
-    world, *owners = graph.owners
-    require(world.ref == Ref("world"), "attribute declarations belong to the active world")
-    active = (
-        replace(world, fields={**world.fields, "attrib_def": definition_head}),
-        *owners,
-        *declarations,
-        *graph.chains,
-    )
-    pointer_allocations = tuple(
-        Ref(f"{op.reference.name}:pointer-field:{index}")
-        for op in installations
-        for index, field in enumerate(RECTANGLE_DEFINITION_BY_NAME[op.definition].fields)
-        if field is Field.POINTER
-    )
-    return active, pointer_allocations, graph.next_identifier
+    return register_attributes(topology, body, installations, first_node_identifier)

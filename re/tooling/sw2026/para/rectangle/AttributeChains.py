@@ -2,7 +2,7 @@ from dataclasses import dataclass, replace
 from math import isfinite
 
 from .Allocate import DraftNode, Ref, positive_i32, require
-from .Attributes import Field, Owner, RECTANGLE_DEFINITION_BY_NAME
+from .Attributes import Field, Owner, RECTANGLE_DEFINITION_BY_NAME, build_definitions
 
 
 BLOCK_CAPACITY = 20
@@ -106,3 +106,24 @@ def attach_attributes(owners, body, installations, first_identifier):
     require(not body_node.fields.get("attribute_chains"), "cannot replace a populated body attribute chain")
     by_ref[body] = replace(body_node, fields={**body_node.fields, "attribute_chains": list_ref})
     return AttributeGraph(tuple(by_ref.values()), tuple(nodes), identifier)
+
+
+def register_attributes(topology, body, installations, first_identifier):
+    graph = attach_attributes(topology, body, installations, first_identifier)
+    names = tuple(dict.fromkeys(installation.definition for installation in installations))
+    definition_head, declarations = build_definitions(tuple(reversed(names)))
+    world, *owners = graph.owners
+    require(world.ref == Ref("world"), "attribute declarations belong to the active world")
+    active = (
+        replace(world, fields={**world.fields, "attrib_def": definition_head}),
+        *owners,
+        *declarations,
+        *graph.chains,
+    )
+    pointer_allocations = tuple(
+        Ref(f"{op.reference.name}:pointer-field:{index}")
+        for op in installations
+        for index, field in enumerate(RECTANGLE_DEFINITION_BY_NAME[op.definition].fields)
+        if field is Field.POINTER
+    )
+    return active, pointer_allocations, graph.next_identifier

@@ -26,10 +26,10 @@ BODY_AUXILIARY = (
     "boundary_lattice", "boundary_mesh", "boundary_polyline", "child", "index_map_offset", "index_map",
     "node_id_index_map", "schema_embedding_map", "mesh_offset_data",
 )
-NODE_IDS = (13, 14, 15, 16, 18, 19, 29, 30, 50)
-NO_ATTRIBUTES = (13, 14, 15, 16, 17, 18, 19, 29, 30, 50)
+NODE_IDS = (13, 14, 15, 16, 18, 19, 29, 30, 31, 50, 51)
+NO_ATTRIBUTES = (*NODE_IDS, 17)
 LOCAL_TOLERANCE = (14, 16, 18)
-BODY_CHAIN_KINDS = (16, 18, 29, 30, 50)
+BODY_CHAIN_KINDS = {16: 16, 18: 18, 29: 29, 30: 30, 31: 30, 50: 50, 51: 50}
 
 
 @dataclass(frozen=True)
@@ -54,7 +54,8 @@ def vertex_fins(nodes):
     fins = {node.ref: node.fields for node in nodes if node.kind == 17}
     vertices = {}
     for ref, fields in fins.items():
-        vertices.setdefault(fields["vertex"], []).append(ref)
+        if fields["vertex"]:
+            vertices.setdefault(fields["vertex"], []).append(ref)
     heads, links = {}, {}
     for vertex, incident in vertices.items():
         first, *_ = incident
@@ -73,11 +74,13 @@ def vertex_fins(nodes):
     return heads, links
 
 
-def complete_topology(plan):
-    nodes = plan.topology
+def complete_topology(nodes):
     next_id = FIRST_BODY_ENTITY_ID
     heads, radial = vertex_fins(nodes)
-    groups = {kind: chain(node.ref.name for node in nodes if node.kind == kind) for kind in BODY_CHAIN_KINDS}
+    groups = {
+        kind: chain(node.ref.name for node in nodes if BODY_CHAIN_KINDS.get(node.kind) == kind)
+        for kind in set(BODY_CHAIN_KINDS.values())
+    }
     complete = []
     for node in nodes:
         fields = {}
@@ -96,13 +99,13 @@ def complete_topology(plan):
         if kind in LOCAL_TOLERANCE:
             fields["tolerance"] = KMissingParam
         if kind in BODY_CHAIN_KINDS:
-            fields["previous"], fields["next"] = groups[kind][node.ref.name]
-        if kind in (30, 50):
+            fields["previous"], fields["next"] = groups[BODY_CHAIN_KINDS[kind]][node.ref.name]
+        if kind in (30, 31, 50, 51):
             fields["geometric_owner"] = 0
         if kind == 13:
             fields.update(absent("next", "edge", "vertex"))
         elif kind == 17:
-            fields["next_at_vx"] = radial[node.ref]
+            fields["next_at_vx"] = radial[node.ref] if node.fields["vertex"] else 0
         elif kind == 18:
             fields["halfedge"] = heads[node.ref]
         elif kind == 19:
@@ -137,7 +140,7 @@ def add_counts(mark, new=0):
 
 
 def project_rectangle(child, plan, appearance, previous_face_allocations=0):
-    partial, next_id = complete_topology(plan)
+    partial, next_id = complete_topology(plan.topology)
     active, nontransmitted, next_id = append_rectangle_attributes(
         child, plan, partial, appearance, next_id, previous_face_allocations,
     )

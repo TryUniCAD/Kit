@@ -1,0 +1,370 @@
+{
+  "base_revision": "a27e5eff3fa9d87f9ca56c5b07ba57661ae1bcc7",
+  "concentric_mate_output_count": 0,
+  "delivery_pr": 121,
+  "earlier_observer_attempts": [
+    {
+      "aggregate_passed": false,
+      "attempt": 1,
+      "inputs_changed": false,
+      "outcome_sha256": "c88812a6778e8fa9f1110a9705be98d35136e4b0a1268afa94ad9de83d7d468d",
+      "reason": "the public convert package does not export the private api _build_registry name",
+      "sdk_changed": false,
+      "source_before_sha256": "ffd5fcf67d57baa75d4e4290fb0fa8f97241ff8a4a1b8d99d889eec59fc5ee3f"
+    },
+    {
+      "aggregate_passed": false,
+      "attempt": 2,
+      "inputs_changed": false,
+      "outcome_sha256": "04b6939bef45340295a1ef13ad5973e4fd2672ac1f98adeb7e534861b311eddf",
+      "reason": "first UTF-16-LE encode attempted to load the standard-library codec after the guard was armed",
+      "sdk_changed": false,
+      "source_before_sha256": "47eeb5ac40d753ea333a846394d38dcc23aa4efe6913ef4d8558a8a6580f84b2"
+    },
+    {
+      "aggregate_passed": false,
+      "attempt": 3,
+      "inputs_changed": false,
+      "outcome_sha256": "627d39877d79160d724844ec287df1393d01f192f03a8ad023d5f6e380f8e7c4",
+      "reason": "the public capability walker imported its source module after the strict guard was armed",
+      "sdk_changed": false,
+      "source_before_sha256": "252a4457961e0d24c3c8e8a9b1058597a5ad46deac36750365fc9b893b1c79bc"
+    },
+    {
+      "aggregate_passed": false,
+      "attempt": 4,
+      "inputs_changed": false,
+      "outcome_sha256": "b514a2e698ecf06842d86d2cdb470143d77645be645a02a38f8bb5963eef1b76",
+      "reason": "the observer used reversed intent as the positional symmetric argument",
+      "sdk_changed": false,
+      "source_before_sha256": "8c57606ee85b7000c2021a5b337a1a0ad4d9ebf44a4b54c39db89f775ac828b0"
+    },
+    {
+      "aggregate_passed": false,
+      "attempt": 5,
+      "inputs_changed": false,
+      "outcome_sha256": "1fcec243ff09dc27b0226c09769a793ca201ddd28d38f3f3966cf781e5cce7c2",
+      "reason": "the observer counted all native system history rows as though only the authored extrusion should be present",
+      "sdk_changed": false,
+      "source_before_sha256": "1d50c8bf6694882d532242698224aeb16272ce431b66d254c7d0bdc43d5d94e6"
+    }
+  ],
+  "fresh_concentric_endpoint_qualified": false,
+  "generation_processes": 4,
+  "heldout_qualification": false,
+  "hidden_inputs_read": 0,
+  "hopper_sessions_opened": 0,
+  "host_audit_passed": true,
+  "independent_cases": 2,
+  "input_sha256": "f092c58a526e3d830ad42c73bfd51423294027b6e9c6587f9054061960f535cc",
+  "inputs_unchanged": true,
+  "integrated_sdk_replay": {
+    "inputs_unchanged": true,
+    "passed": true,
+    "result_sha256": "8886f9937e70e02fc57a11aadc7220ddd7a308b405f6c8afd308723d06e33445",
+    "sdk_processes": 12,
+    "source_revision": "46f5562987bdb8203d7f36e6ba5acbf52bdd4e92",
+    "source_unchanged": true
+  },
+  "native_acceptance_measured": false,
+  "native_processes": 0,
+  "normal_public_read_processes": 8,
+  "normal_registry_part_files": 4,
+  "owner": "assembly_occurrence",
+  "part_candidate_files": 4,
+  "prediction_sha256": "e32833f270ad5ba0f5049bbe65d43f444e74c2cadd4d19ac70171fba5e7cfff2",
+  "public_writer_changes": 0,
+  "raw_result_sha256": "92f29c74cc18902fd13ea25ad7654152bfab6caaaab7d771c0251d0e21f3bad6",
+  "refusal_kinds_per_case": 3,
+  "rows": [
+    {
+      "candidate_and_public_feature_epoch_agree": true,
+      "candidate_identities": {
+        "actual_profile_parent": true,
+        "actual_sketch_owner": true,
+        "arc_creation_id": 1,
+        "arc_permanent_marker": 1,
+        "boss_output_presence": {
+          "has_f528": 0,
+          "has_f530": 0,
+          "n494": 0
+        },
+        "extrusion_id": 20,
+        "feature_epoch": 2592000,
+        "feature_log_ids": [
+          0
+        ],
+        "formula_is_an_emitted_face_attribute": false,
+        "manager_atom_count": 0,
+        "manager_id_counter": 100,
+        "model_id": 0,
+        "model_update_stamp": 101,
+        "partition_stream_present": false,
+        "profile_id": 18,
+        "surface_identity_formula_inputs": [
+          74,
+          20,
+          2592000,
+          0,
+          1
+        ]
+      },
+      "candidate_read_sha256": "c2cb9b98fba642ffe37fe39d985f741411432963274703ada29b724ad89be580",
+      "case": "F01",
+      "files": {
+        "Candidate": {
+          "bytes": 8466,
+          "sha256": "cb42ab1709be4d67dd37edb8d972c79966734512ee6a62d50d7b69f270e92efa"
+        },
+        "Public": {
+          "bytes": 8448,
+          "sha256": "25de1d1ec7b6a562de36371878bc02dea00f4f8778f327f572269b7899b7155f"
+        }
+      },
+      "generation_runtime_file_io_attempts": 0,
+      "generator_record_sha256": "c24eb0a9076559c52d22534d20fdc2ece1eff6ca79d3615f35c0e34b670cdf36",
+      "generic_analytic_encoding": {
+        "attached_to_native_document": false,
+        "cad_runtime": false,
+        "calls": {
+          "EmitVendorMut": 1,
+          "EncodeBlankApi": 0,
+          "EncodeBlankPart": 0,
+          "EncodeBrepBody": 1,
+          "EncodeBrepModel": 1,
+          "EncodePartData": 1,
+          "WriteBodySuffix": 0,
+          "WriteSolidAttrs": 0
+        },
+        "counts_preserved": true,
+        "decoded_body_attribute_names": [],
+        "decoded_face_attribute_names": [
+          [
+            "parasolid.face_order",
+            "parasolid.front_face_order",
+            "parasolid.surface_face_order"
+          ],
+          [
+            "parasolid.face_order",
+            "parasolid.front_face_order",
+            "parasolid.surface_face_order"
+          ],
+          [
+            "parasolid.face_order",
+            "parasolid.front_face_order",
+            "parasolid.surface_face_order"
+          ]
+        ],
+        "partition_bytes": 616,
+        "partition_sha256": "d34fd1cba07712efffaf266cc60a74f73b1da60d575366f6ee6dc24ac4efd3f1",
+        "passed": true,
+        "payload_bytes": 1226,
+        "payload_sha256": "d5be2d13a01e6aee8ee193083e16d3f9c6c7f93ae7d095d69df6bd1e4e2ac667",
+        "runtime_file_io_attempts": 0,
+        "saved_face_and_atom_attributes_present": false,
+        "schema": "SCH_1200000_12006"
+      },
+      "normal_public_geometry": {
+        "area_mm2": 697.5179522756094,
+        "axis": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "body_attribute_names": [],
+        "body_id": "sldprt:body:1-sweep-body",
+        "edges": 2,
+        "expected_area_mm2": 697.5179522756096,
+        "expected_volume_mm3": 1324.3576065356497,
+        "faces": 3,
+        "identity_status_basis": "absent partition plus the existing ReadCircPlan constructor native_kernel_identity=False rule",
+        "method": "typed_parametric_circular_boss",
+        "native_kernel_identity": false,
+        "origin_mm": [
+          3.46,
+          -6.91,
+          0.0
+        ],
+        "radius_mm": 4.783,
+        "side_attribute_names": [],
+        "side_face_id": "sldprt:body:1-sweep-side-1-face",
+        "side_surface_id": "sldprt:body:1-sweep-side-1-surface",
+        "vertices": 2,
+        "volume_mm3": 1324.3576065356494
+      },
+      "ordered_history_rows": 19,
+      "public_read_sha256": "b03ce32f65b88a883a42db3a21e2018fbe8a9883ea9edc2f11812eaa41e709ef",
+      "refusals": {
+        "archive_output_atom": {
+          "error": "named body requires the witnessed single output atom path",
+          "error_type": "ValueError",
+          "refused": true
+        },
+        "rectangular_cold_atom_helper_on_circle": {
+          "error": "cold naming requires the ordinary rectangular boss plan",
+          "error_type": "ValueError",
+          "refused": true
+        },
+        "saved_kernel_identity": {
+          "error": "required stream is missing: Contents/Config-0-Partition",
+          "error_type": "SldprtFormat",
+          "refused": true
+        }
+      }
+    },
+    {
+      "candidate_and_public_feature_epoch_agree": true,
+      "candidate_identities": {
+        "actual_profile_parent": true,
+        "actual_sketch_owner": true,
+        "arc_creation_id": 1,
+        "arc_permanent_marker": 1,
+        "boss_output_presence": {
+          "has_f528": 0,
+          "has_f530": 0,
+          "n494": 0
+        },
+        "extrusion_id": 20,
+        "feature_epoch": 2592000,
+        "feature_log_ids": [
+          0
+        ],
+        "formula_is_an_emitted_face_attribute": false,
+        "manager_atom_count": 0,
+        "manager_id_counter": 100,
+        "model_id": 0,
+        "model_update_stamp": 101,
+        "partition_stream_present": false,
+        "profile_id": 18,
+        "surface_identity_formula_inputs": [
+          74,
+          20,
+          2592000,
+          0,
+          1
+        ]
+      },
+      "candidate_read_sha256": "65f56670df5bda596184779bd763f10734377b809a716b75290c39cd20132027",
+      "case": "F02",
+      "files": {
+        "Candidate": {
+          "bytes": 8477,
+          "sha256": "663c6b0907793f3acc5be98aca48cb2c47a588ab2a31bfa8edb280bf211d7d52"
+        },
+        "Public": {
+          "bytes": 8459,
+          "sha256": "1e72c76cd10d5cacb1a5bbcc35b559c73a9e4d73508f645d3968cfd93473ebdd"
+        }
+      },
+      "generation_runtime_file_io_attempts": 0,
+      "generator_record_sha256": "9fe3f025c5bc9a7cb3cde1186bf1b50db6165f92a78f1e28e6373d1fbd43db10",
+      "generic_analytic_encoding": {
+        "attached_to_native_document": false,
+        "cad_runtime": false,
+        "calls": {
+          "EmitVendorMut": 1,
+          "EncodeBlankApi": 0,
+          "EncodeBlankPart": 0,
+          "EncodeBrepBody": 1,
+          "EncodeBrepModel": 1,
+          "EncodePartData": 1,
+          "WriteBodySuffix": 0,
+          "WriteSolidAttrs": 0
+        },
+        "counts_preserved": true,
+        "decoded_body_attribute_names": [],
+        "decoded_face_attribute_names": [
+          [
+            "parasolid.face_order",
+            "parasolid.front_face_order",
+            "parasolid.surface_face_order"
+          ],
+          [
+            "parasolid.face_order",
+            "parasolid.front_face_order",
+            "parasolid.surface_face_order"
+          ],
+          [
+            "parasolid.face_order",
+            "parasolid.front_face_order",
+            "parasolid.surface_face_order"
+          ]
+        ],
+        "partition_bytes": 619,
+        "partition_sha256": "d56a1ad454fc36730df0be0333b4d92fae36b2b482fdb953bfa783f3c5f8011c",
+        "passed": true,
+        "payload_bytes": 1226,
+        "payload_sha256": "ff40dc306ae938122528ee401ba74e36efe3feb42244646b7ccfe86fe74bd9bc",
+        "runtime_file_io_attempts": 0,
+        "saved_face_and_atom_attributes_present": false,
+        "schema": "SCH_1200000_12006"
+      },
+      "normal_public_geometry": {
+        "area_mm2": 1119.892183600525,
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "body_attribute_names": [],
+        "body_id": "sldprt:body:1-sweep-body",
+        "edges": 2,
+        "expected_area_mm2": 1119.892183600525,
+        "expected_volume_mm3": 2765.6931906159557,
+        "faces": 3,
+        "identity_status_basis": "absent partition plus the existing ReadCircPlan constructor native_kernel_identity=False rule",
+        "method": "typed_parametric_circular_boss",
+        "native_kernel_identity": false,
+        "origin_mm": [
+          -9.283,
+          -11.073,
+          -2.467
+        ],
+        "radius_mm": 8.9165,
+        "side_attribute_names": [],
+        "side_face_id": "sldprt:body:1-sweep-side-1-face",
+        "side_surface_id": "sldprt:body:1-sweep-side-1-surface",
+        "vertices": 2,
+        "volume_mm3": 2765.693190615956
+      },
+      "ordered_history_rows": 19,
+      "public_read_sha256": "5d87f165d4a4008ac82fc8c907e60c4009bed72b0cd662c4b207dd9fcf4fb927",
+      "refusals": {
+        "archive_output_atom": {
+          "error": "named body requires the witnessed single output atom path",
+          "error_type": "ValueError",
+          "refused": true
+        },
+        "rectangular_cold_atom_helper_on_circle": {
+          "error": "cold naming requires the ordinary rectangular boss plan",
+          "error_type": "ValueError",
+          "refused": true
+        },
+        "saved_kernel_identity": {
+          "error": "required stream is missing: Contents/Config-0-Partition",
+          "error_type": "SldprtFormat",
+          "refused": true
+        }
+      }
+    }
+  ],
+  "same_input_candidate_bytes_exact_across_processes": true,
+  "schema": "kit.sw2026.fresh-cylinder-identity-receipt.v1",
+  "scope": "two independently authored ordinary circle bosses through normal part preparation and the public registry; no concentric endpoint generation",
+  "sdk_processes": 12,
+  "sdk_source_changes": 0,
+  "sdk_source_manifest_sha256": "9b66c25208b4bbe8e73d603d046c4523002204190edbdca0b15633d0276b7540",
+  "source_before_sha256": "8623c57476ff236e90120fa03533313e98ad8acfb7b69039c403a54d188aace5",
+  "source_files": 4668,
+  "source_unchanged": true,
+  "task": "B04-SW2026-MATES-CONCENTRIC/fresh-child-identity",
+  "tools_sha256": {
+    "AuditFreshCylinderIds.py": "3b29cca6e63b57169c52c23125759d5160d3bb78445c9dc53abfdac6ba88f8a6",
+    "FreshCylinderInput.py": "27780e62925ce9724e01e85192fab2120fc9793f226ed42c6188555d5c099f8d",
+    "ReadFreshCylinderIds.py": "d4e5295e6282adc0cece2d5cac7a09f739354515a9f638b3df748f109751fab1",
+    "RunFreshCylinderIds.py": "7de545d74a3f8e06472245826abe10c0158ed889aea98a39357cb0bbd0885c6e"
+  },
+  "tools_unchanged": true,
+  "unattached_generic_analytic_encodes": 4,
+  "vendor_saved_inputs_read": 0
+}

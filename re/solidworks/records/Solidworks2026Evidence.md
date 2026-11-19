@@ -6,6 +6,8 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Generated cylinder partition](../measurements/2026/GeneratedCylinderPartition01.json) | Two independently authored Front cylinders produce typed active and rollback streams with zero runtime reads and distinct persistent face IDs and wire indexes within each stream. Six disclosed source states give twelve exact payload comparisons. Attachment and native acceptance remain open. |
+| [Fresh cylinder identity audit](../measurements/2026/FreshCylinderEndpointIdentity01.json) | Twelve processes show that the fresh normal SDK route preserves the model, feature, arc, and geometry owners. Its kernel partition and atom output are absent. |
 | [Saved drawing configuration index text](../measurements/2026/DrawingViewIndexTextProcess01.json) | Six disclosed drawings index the plain-text configuration from the actual Definition. The 56-process replay preserves the raw stream, map counters and public partial reads and refuses 11 malformed variants. |
 | [Linear pattern store geometry](LocalLinearPatternStoreLifecycle2026.md) | Twenty native functions bind the independent local vector and point defaults, null-reference preservation, and concrete component dispatch. The selected source receiver still needs native confirmation. |
 | [Public concentric mate reader](../measurements/2026/PublicConcentricMateRead01.json) | Both default and metadata-only reads preserve all twelve measured native endpoints. The integrated 76-process replay covers 22 malformed cases, four existing planar families and unchanged disabled resolution. |
