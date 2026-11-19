@@ -1,0 +1,230 @@
+{
+  "expected_bounds_m": [
+    [
+      -0.0025,
+      -0.0245,
+      0.004
+    ],
+    [
+      0.0165,
+      0.0025,
+      0.017
+    ]
+  ],
+  "graph": {
+    "attributes": {
+      "attribute_count": 27,
+      "attribute_count_by_owner_kind": {
+        "BODY": 9,
+        "FACE": 18
+      },
+      "declared_attribute_count": 12,
+      "owner_chain_count": 7,
+      "shared_declaration_matches": 12,
+      "slot_profiles": [
+        {
+          "attribute": "ATOM_ID_2001",
+          "count": 1,
+          "owner_kind": "BODY",
+          "slot_kinds": [
+            "null",
+            "INT_VALUES"
+          ]
+        },
+        {
+          "attribute": "BODY_IN_LIGHTWEIGHT_PERM",
+          "count": 1,
+          "owner_kind": "BODY",
+          "slot_kinds": [
+            "null",
+            "INT_VALUES"
+          ]
+        },
+        {
+          "attribute": "BODY_RECIPE_2001",
+          "count": 1,
+          "owner_kind": "BODY",
+          "slot_kinds": [
+            "null",
+            "null"
+          ]
+        },
+        {
+          "attribute": "DOWNSTREAM_FACE_ID",
+          "count": 6,
+          "owner_kind": "FACE",
+          "slot_kinds": [
+            "INT_VALUES",
+            "null",
+            "null"
+          ]
+        },
+        {
+          "attribute": "ENT_TIME_STAMP_2001",
+          "count": 1,
+          "owner_kind": "BODY",
+          "slot_kinds": [
+            "null",
+            "INT_VALUES"
+          ]
+        },
+        {
+          "attribute": "FACE_ID_2001",
+          "count": 6,
+          "owner_kind": "FACE",
+          "slot_kinds": [
+            "null",
+            "null",
+            "INT_VALUES",
+            "INT_VALUES"
+          ]
+        },
+        {
+          "attribute": "LAST_BODY_MODIFYING_FEATURE_ID",
+          "count": 1,
+          "owner_kind": "BODY",
+          "slot_kinds": [
+            "null",
+            "INT_VALUES"
+          ]
+        },
+        {
+          "attribute": "SDL/TYSA_COLOUR_2",
+          "count": 1,
+          "owner_kind": "BODY",
+          "slot_kinds": [
+            "REAL_VALUES"
+          ]
+        },
+        {
+          "attribute": "SDL/TYSA_DENSITY",
+          "count": 1,
+          "owner_kind": "BODY",
+          "slot_kinds": [
+            "REAL_VALUES",
+            "null"
+          ]
+        },
+        {
+          "attribute": "SDL/TYSA_TRANSLUCENCY_2",
+          "count": 1,
+          "owner_kind": "BODY",
+          "slot_kinds": [
+            "REAL_VALUES"
+          ]
+        },
+        {
+          "attribute": "SWEntUnchanged",
+          "count": 6,
+          "owner_kind": "FACE",
+          "slot_kinds": [
+            "INT_VALUES"
+          ]
+        },
+        {
+          "attribute": "SWIMPLICITBODYNAME_ID_U",
+          "count": 1,
+          "owner_kind": "BODY",
+          "slot_kinds": [
+            "UNICODE_VALUES",
+            "null"
+          ]
+        }
+      ],
+      "type_chain_count": 12
+    },
+    "body_index": 1,
+    "body_owner": 0,
+    "body_type": 1,
+    "node_kinds": {
+      "ATTRIBUTE": 27,
+      "ATTRIB_DEF": 12,
+      "ATT_DEF_ID": 12,
+      "BODY": 1,
+      "EDGE": 12,
+      "FACE": 6,
+      "HALFEDGE": 24,
+      "INT_VALUES": 28,
+      "LINE": 12,
+      "LIST": 1,
+      "LOOP": 6,
+      "PLANE": 6,
+      "POINT": 8,
+      "POINTER_LIS_BLOCK": 1,
+      "REAL_VALUES": 3,
+      "REGION": 2,
+      "SHELL": 2,
+      "UNICODE_VALUES": 1,
+      "VERTEX": 8
+    },
+    "nonresident_pointer_counts": {
+      "ATTRIB_DEF.next": 12
+    },
+    "resident_nodes": 172,
+    "resident_nodes_reachable_from_body": 172
+  },
+  "kit_writer_outputs": 0,
+  "native_writer_acceptance": false,
+  "owning_sources_sha256": {
+    "re/tooling/sw2026/imported_body_source/LocalBodyKernel.py": "e1a9bb70e0cbf76ff13327574e713e03e4a2701f782ce48cb0f5f9241cff46d6",
+    "re/tooling/sw2026/para/Partition.py": "26117abf2342c0b5b720d7acb3d450c24d3d40d9c73514e35c1b0f2ceefed89d",
+    "re/tooling/sw2026/para/Schema.py": "c68cf9c1f10fbf45c4d88a4add7c26602b5924b3d540190936134685d1f0219d",
+    "re/tooling/sw2026/para/rectangle/Attributes.py": "e6542d06b0498eb1263da2cae4a937effcd69fe6ef53588cec58fd816c5ef3ba",
+    "src/convert/Geometry/Parasolid.py": "0dbe22a69f954fabc945f46931757e99179d1f562487f7b534da3cc6e796e2d9",
+    "src/convert/adapters/solidworks/Container/Container.py": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81"
+  },
+  "point_bounds_m": [
+    [
+      -0.0024999999999999996,
+      -0.0245,
+      0.004
+    ],
+    [
+      0.0165,
+      0.0025000000000000005,
+      0.017
+    ]
+  ],
+  "runtime": {
+    "python": "3.13.15",
+    "zlib": "1.2.12"
+  },
+  "sample_byte_offsets": {
+    "compressed": 72,
+    "magic": 48,
+    "wrapper": 44,
+    "wrapper_end": 3050
+  },
+  "schema": "kit.sw2026.imported-local-body-kernel.v1",
+  "scope": "Disclosed native file. In-memory typed replay and ownership audit, with no writer acceptance.",
+  "source": {
+    "bytes": 49188,
+    "sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325"
+  },
+  "source_build_reported_by_oracle_owner": "SOLIDWORKS 2026 SP05.2 34.5.2.0604",
+  "stream": {
+    "bytes": 3050,
+    "name": "Config-0-FeatureBodies/LocalBodies",
+    "sha256": "b3f47085497853e38407e11c53deb429916e2955f97472dc9103c762d695782f"
+  },
+  "transmit": {
+    "active_body": {
+      "bytes": 6214,
+      "sha256": "9a73c63d1daf74dc1549e7eef3a87d7f0fc48c98461c95854f16393c554e8051"
+    },
+    "compressed_wrapper_byte_exact": true,
+    "description": ": TRANSMIT FILE created by modeller version 3701250",
+    "header_bytes": 84,
+    "raw": {
+      "bytes": 6298,
+      "sha256": "ffc52d3cd19c4cba65fa798df5ffa0e45b3c85120fbd139e96092da292e836b0"
+    },
+    "raw_byte_exact": true,
+    "schema": "SCH_3701250_37102_13006",
+    "wrapper": {
+      "bytes": 3006,
+      "sha256": "059616a6df73a274dc12ce6b50534e7762b72061cecc53b06574d84dd6312b0f"
+    },
+    "zlib_bytes": 2970
+  }
+}
