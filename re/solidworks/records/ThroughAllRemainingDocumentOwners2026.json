@@ -1,0 +1,469 @@
+{
+  "comparison": "encoded native graphs; each actual composite identity pair compared once; repeated scalar occurrences are independently counted; unequal arrays use one length frontier plus separate stored count fields",
+  "delivery_pr": 121,
+  "full_source_admission": false,
+  "heldout_inputs_read": 0,
+  "historical_comparison_correction": {
+    "before_definition_counts": [
+      13,
+      14,
+      14
+    ],
+    "before_manager_counts": [
+      20,
+      20,
+      20
+    ],
+    "old_receipts_preserved": true,
+    "product_source_or_output_changed_by_counter_correction": false,
+    "reason": "earlier diagnostic memoized scalar object identity as though it were an archive alias; repeated small integer pairs hid distinct field differences"
+  },
+  "native_execution": false,
+  "public_activation": false,
+  "remaining_cmgr_owners": {
+    "configuration_atom_and_history_maps": {
+      "frontiers": 10,
+      "paths": [
+        "f360/f450/@length",
+        "f360/n450",
+        "f360/f460/@length",
+        "f360/n460",
+        "f360/fb00/@length",
+        "f360/nb00",
+        "f360/fb98/@length",
+        "f360/nb98",
+        "f360/fce8/@length",
+        "f360/nce8"
+      ]
+    },
+    "configuration_feature_time_status": {
+      "frontiers": 3,
+      "paths": [
+        "f360/f2a0",
+        "f360/f2a4",
+        "f360/f301"
+      ]
+    },
+    "configuration_node_flags": {
+      "frontiers": 1,
+      "paths": [
+        "f360/f2c"
+      ]
+    },
+    "configuration_scalar_state": {
+      "frontiers": 5,
+      "note": "actual feature cursor f85c is computed by the existing allocator; this summary does not classify every remaining scalar as authored",
+      "paths": [
+        "f360/f4c4",
+        "f360/f4c8",
+        "f360/f6f8",
+        "f360/f85c",
+        "f360/f860"
+      ]
+    },
+    "configuration_visual_properties": {
+      "frontiers": 1,
+      "paths": [
+        "f360/f78"
+      ]
+    },
+    "manager_external_reference_list": {
+      "frontiers": 2,
+      "paths": [
+        "ext/@length",
+        "n_ext"
+      ]
+    },
+    "manager_feature_time_status": {
+      "frontiers": 3,
+      "paths": [
+        "f2a0",
+        "f2a4",
+        "f301"
+      ]
+    },
+    "manager_history_tuples": {
+      "frontiers": 2,
+      "paths": [
+        "f5b8/@length",
+        "n5b8"
+      ]
+    },
+    "manager_optional_state": {
+      "frontiers": 2,
+      "paths": [
+        "f658",
+        "f6d0"
+      ]
+    }
+  },
+  "remaining_definition_owners": {
+    "bom_manager": {
+      "frontiers": 1,
+      "paths": [
+        "fab8"
+      ],
+      "status": "actual allocated empty manager remains separate from fresh null owner"
+    },
+    "line_font_manager": {
+      "frontiers": 2,
+      "paths": [
+        "f870/f10/@length",
+        "f870/n"
+      ],
+      "status": "source 40-entry actual category/font table is retained, not reconstructed by this component"
+    },
+    "line_styles": {
+      "frontiers": 2,
+      "paths": [
+        "f878/styles/@length",
+        "f878/n"
+      ],
+      "status": "source seven-style ordered dash vocabulary is retained, not a saved writer table"
+    },
+    "per_user_environment": {
+      "frontiers": 2,
+      "paths": [
+        "faf8/@length",
+        "nenv"
+      ],
+      "status": "actual per-user dual splitter/window state remains unrepresented, not dropped"
+    },
+    "rendering_material_manager": {
+      "frontiers": 2,
+      "paths": [
+        "f1110",
+        "has_pwmaterial"
+      ],
+      "status": "actual optional manager body and presence remain separate from the fresh absent branch"
+    },
+    "ui_scalar_state": {
+      "frontiers": 4,
+      "paths": [
+        "fad0",
+        "fad4",
+        "fb00",
+        "fb04"
+      ],
+      "status": "native meaning or source-intent construction remains unresolved; no saved words seeded into the writer"
+    }
+  },
+  "schema": "kit.sw2026.throughall-remaining-document-owner-summary.v1",
+  "sources": [
+    {
+      "after": {
+        "definition_frontiers": 13,
+        "definition_owner_counts": {
+          "Definition/f1110": 1,
+          "Definition/f870": 2,
+          "Definition/f878": 2,
+          "Definition/fab8": 1,
+          "Definition/fad0": 1,
+          "Definition/fad4": 1,
+          "Definition/faf8": 1,
+          "Definition/fb00": 1,
+          "Definition/fb04": 1,
+          "Definition/has_pwmaterial": 1,
+          "Definition/nenv": 1
+        },
+        "manager_frontiers": 29,
+        "manager_owner_counts": {
+          "CMgr/ext": 1,
+          "CMgr/f2a0": 1,
+          "CMgr/f2a4": 1,
+          "CMgr/f301": 1,
+          "CMgr/f360/f2a0": 1,
+          "CMgr/f360/f2a4": 1,
+          "CMgr/f360/f2c": 1,
+          "CMgr/f360/f301": 1,
+          "CMgr/f360/f450": 1,
+          "CMgr/f360/f460": 1,
+          "CMgr/f360/f4c4": 1,
+          "CMgr/f360/f4c8": 1,
+          "CMgr/f360/f6f8": 1,
+          "CMgr/f360/f78": 1,
+          "CMgr/f360/f85c": 1,
+          "CMgr/f360/f860": 1,
+          "CMgr/f360/fb00": 1,
+          "CMgr/f360/fb98": 1,
+          "CMgr/f360/fce8": 1,
+          "CMgr/f360/n450": 1,
+          "CMgr/f360/n460": 1,
+          "CMgr/f360/nb00": 1,
+          "CMgr/f360/nb98": 1,
+          "CMgr/f360/nce8": 1,
+          "CMgr/f5b8": 1,
+          "CMgr/f658": 1,
+          "CMgr/f6d0": 1,
+          "CMgr/n5b8": 1,
+          "CMgr/n_ext": 1
+        },
+        "receipt_sha256": "d0430b65afa744495a4f9b085cb3a827475005602d54d0429535d726c45025ba"
+      },
+      "before": {
+        "definition_frontiers": 16,
+        "definition_owner_counts": {
+          "Definition/f1110": 1,
+          "Definition/f870": 2,
+          "Definition/f878": 2,
+          "Definition/fab8": 1,
+          "Definition/fad0": 1,
+          "Definition/fad4": 1,
+          "Definition/faf0": 3,
+          "Definition/faf8": 1,
+          "Definition/fb00": 1,
+          "Definition/fb04": 1,
+          "Definition/has_pwmaterial": 1,
+          "Definition/nenv": 1
+        },
+        "manager_frontiers": 29,
+        "manager_owner_counts": {
+          "CMgr/ext": 1,
+          "CMgr/f2a0": 1,
+          "CMgr/f2a4": 1,
+          "CMgr/f301": 1,
+          "CMgr/f360/f2a0": 1,
+          "CMgr/f360/f2a4": 1,
+          "CMgr/f360/f2c": 1,
+          "CMgr/f360/f301": 1,
+          "CMgr/f360/f450": 1,
+          "CMgr/f360/f460": 1,
+          "CMgr/f360/f4c4": 1,
+          "CMgr/f360/f4c8": 1,
+          "CMgr/f360/f6f8": 1,
+          "CMgr/f360/f78": 1,
+          "CMgr/f360/f85c": 1,
+          "CMgr/f360/f860": 1,
+          "CMgr/f360/fb00": 1,
+          "CMgr/f360/fb98": 1,
+          "CMgr/f360/fce8": 1,
+          "CMgr/f360/n450": 1,
+          "CMgr/f360/n460": 1,
+          "CMgr/f360/nb00": 1,
+          "CMgr/f360/nb98": 1,
+          "CMgr/f360/nce8": 1,
+          "CMgr/f5b8": 1,
+          "CMgr/f658": 1,
+          "CMgr/f6d0": 1,
+          "CMgr/n5b8": 1,
+          "CMgr/n_ext": 1
+        },
+        "receipt_sha256": "1bc9ccb7cdd0121936023c0c3ee8d702a2f914774dae8eb0a6c70d8f2146007d"
+      },
+      "case": "D01",
+      "inventory_stream_round_trips": 4,
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d"
+    },
+    {
+      "after": {
+        "definition_frontiers": 13,
+        "definition_owner_counts": {
+          "Definition/f1110": 1,
+          "Definition/f870": 2,
+          "Definition/f878": 2,
+          "Definition/fab8": 1,
+          "Definition/fad0": 1,
+          "Definition/fad4": 1,
+          "Definition/faf8": 1,
+          "Definition/fb00": 1,
+          "Definition/fb04": 1,
+          "Definition/has_pwmaterial": 1,
+          "Definition/nenv": 1
+        },
+        "manager_frontiers": 29,
+        "manager_owner_counts": {
+          "CMgr/ext": 1,
+          "CMgr/f2a0": 1,
+          "CMgr/f2a4": 1,
+          "CMgr/f301": 1,
+          "CMgr/f360/f2a0": 1,
+          "CMgr/f360/f2a4": 1,
+          "CMgr/f360/f2c": 1,
+          "CMgr/f360/f301": 1,
+          "CMgr/f360/f450": 1,
+          "CMgr/f360/f460": 1,
+          "CMgr/f360/f4c4": 1,
+          "CMgr/f360/f4c8": 1,
+          "CMgr/f360/f6f8": 1,
+          "CMgr/f360/f78": 1,
+          "CMgr/f360/f85c": 1,
+          "CMgr/f360/f860": 1,
+          "CMgr/f360/fb00": 1,
+          "CMgr/f360/fb98": 1,
+          "CMgr/f360/fce8": 1,
+          "CMgr/f360/n450": 1,
+          "CMgr/f360/n460": 1,
+          "CMgr/f360/nb00": 1,
+          "CMgr/f360/nb98": 1,
+          "CMgr/f360/nce8": 1,
+          "CMgr/f5b8": 1,
+          "CMgr/f658": 1,
+          "CMgr/f6d0": 1,
+          "CMgr/n5b8": 1,
+          "CMgr/n_ext": 1
+        },
+        "receipt_sha256": "e06c5b130df8b1e63d3f2d6a0bcc5f03ac73bbda3fb88ee3f8c3605a0163bb0c"
+      },
+      "before": {
+        "definition_frontiers": 18,
+        "definition_owner_counts": {
+          "Definition/f1110": 1,
+          "Definition/f870": 2,
+          "Definition/f878": 2,
+          "Definition/fab8": 1,
+          "Definition/fad0": 1,
+          "Definition/fad4": 1,
+          "Definition/fae8": 2,
+          "Definition/faf0": 3,
+          "Definition/faf8": 1,
+          "Definition/fb00": 1,
+          "Definition/fb04": 1,
+          "Definition/has_pwmaterial": 1,
+          "Definition/nenv": 1
+        },
+        "manager_frontiers": 29,
+        "manager_owner_counts": {
+          "CMgr/ext": 1,
+          "CMgr/f2a0": 1,
+          "CMgr/f2a4": 1,
+          "CMgr/f301": 1,
+          "CMgr/f360/f2a0": 1,
+          "CMgr/f360/f2a4": 1,
+          "CMgr/f360/f2c": 1,
+          "CMgr/f360/f301": 1,
+          "CMgr/f360/f450": 1,
+          "CMgr/f360/f460": 1,
+          "CMgr/f360/f4c4": 1,
+          "CMgr/f360/f4c8": 1,
+          "CMgr/f360/f6f8": 1,
+          "CMgr/f360/f78": 1,
+          "CMgr/f360/f85c": 1,
+          "CMgr/f360/f860": 1,
+          "CMgr/f360/fb00": 1,
+          "CMgr/f360/fb98": 1,
+          "CMgr/f360/fce8": 1,
+          "CMgr/f360/n450": 1,
+          "CMgr/f360/n460": 1,
+          "CMgr/f360/nb00": 1,
+          "CMgr/f360/nb98": 1,
+          "CMgr/f360/nce8": 1,
+          "CMgr/f5b8": 1,
+          "CMgr/f658": 1,
+          "CMgr/f6d0": 1,
+          "CMgr/n5b8": 1,
+          "CMgr/n_ext": 1
+        },
+        "receipt_sha256": "978c1f52cd6af9a08193e1a67c3b1cf9cfb9d15f9c37afa5ea5feca5f951964d"
+      },
+      "case": "D02",
+      "inventory_stream_round_trips": 4,
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431"
+    },
+    {
+      "after": {
+        "definition_frontiers": 13,
+        "definition_owner_counts": {
+          "Definition/f1110": 1,
+          "Definition/f870": 2,
+          "Definition/f878": 2,
+          "Definition/fab8": 1,
+          "Definition/fad0": 1,
+          "Definition/fad4": 1,
+          "Definition/faf8": 1,
+          "Definition/fb00": 1,
+          "Definition/fb04": 1,
+          "Definition/has_pwmaterial": 1,
+          "Definition/nenv": 1
+        },
+        "manager_frontiers": 29,
+        "manager_owner_counts": {
+          "CMgr/ext": 1,
+          "CMgr/f2a0": 1,
+          "CMgr/f2a4": 1,
+          "CMgr/f301": 1,
+          "CMgr/f360/f2a0": 1,
+          "CMgr/f360/f2a4": 1,
+          "CMgr/f360/f2c": 1,
+          "CMgr/f360/f301": 1,
+          "CMgr/f360/f450": 1,
+          "CMgr/f360/f460": 1,
+          "CMgr/f360/f4c4": 1,
+          "CMgr/f360/f4c8": 1,
+          "CMgr/f360/f6f8": 1,
+          "CMgr/f360/f78": 1,
+          "CMgr/f360/f85c": 1,
+          "CMgr/f360/f860": 1,
+          "CMgr/f360/fb00": 1,
+          "CMgr/f360/fb98": 1,
+          "CMgr/f360/fce8": 1,
+          "CMgr/f360/n450": 1,
+          "CMgr/f360/n460": 1,
+          "CMgr/f360/nb00": 1,
+          "CMgr/f360/nb98": 1,
+          "CMgr/f360/nce8": 1,
+          "CMgr/f5b8": 1,
+          "CMgr/f658": 1,
+          "CMgr/f6d0": 1,
+          "CMgr/n5b8": 1,
+          "CMgr/n_ext": 1
+        },
+        "receipt_sha256": "5008a1dc103a738c7992d0ce017bb928763ba7bbb5077400c33c476cd170c879"
+      },
+      "before": {
+        "definition_frontiers": 18,
+        "definition_owner_counts": {
+          "Definition/f1110": 1,
+          "Definition/f870": 2,
+          "Definition/f878": 2,
+          "Definition/fab8": 1,
+          "Definition/fad0": 1,
+          "Definition/fad4": 1,
+          "Definition/fae8": 2,
+          "Definition/faf0": 3,
+          "Definition/faf8": 1,
+          "Definition/fb00": 1,
+          "Definition/fb04": 1,
+          "Definition/has_pwmaterial": 1,
+          "Definition/nenv": 1
+        },
+        "manager_frontiers": 29,
+        "manager_owner_counts": {
+          "CMgr/ext": 1,
+          "CMgr/f2a0": 1,
+          "CMgr/f2a4": 1,
+          "CMgr/f301": 1,
+          "CMgr/f360/f2a0": 1,
+          "CMgr/f360/f2a4": 1,
+          "CMgr/f360/f2c": 1,
+          "CMgr/f360/f301": 1,
+          "CMgr/f360/f450": 1,
+          "CMgr/f360/f460": 1,
+          "CMgr/f360/f4c4": 1,
+          "CMgr/f360/f4c8": 1,
+          "CMgr/f360/f6f8": 1,
+          "CMgr/f360/f78": 1,
+          "CMgr/f360/f85c": 1,
+          "CMgr/f360/f860": 1,
+          "CMgr/f360/fb00": 1,
+          "CMgr/f360/fb98": 1,
+          "CMgr/f360/fce8": 1,
+          "CMgr/f360/n450": 1,
+          "CMgr/f360/n460": 1,
+          "CMgr/f360/nb00": 1,
+          "CMgr/f360/nb98": 1,
+          "CMgr/f360/nce8": 1,
+          "CMgr/f5b8": 1,
+          "CMgr/f658": 1,
+          "CMgr/f6d0": 1,
+          "CMgr/n5b8": 1,
+          "CMgr/n_ext": 1
+        },
+        "receipt_sha256": "1e4a64e21abfd386e978a6ede6fdc18c1551bfbc8cc93e4323e3d57ec4231061"
+      },
+      "case": "D03",
+      "inventory_stream_round_trips": 4,
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712"
+    }
+  ],
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL/source-definition-view"
+}
