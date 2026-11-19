@@ -19,8 +19,15 @@ def CheckCliCatalog(TmpPath: FilePath) -> None:
     Formats = {Value["format"]: Value for Value in LoadJson(Result.stdout)}
     assert Formats["solidworks.sldprt"]["read"] is True
     assert Formats["solidworks.sldprt"]["write"] is True
-    assert Formats["solidworks.sldprt"]["write_extensions"] == [".sldprt", ".sldasm"]
-    assert Formats["solidworks.sldprt"]["write_aliases"] == ["solidworks.sldasm"]
+    assert Formats["solidworks.sldprt"]["write_extensions"] == [
+        ".sldprt",
+        ".sldasm",
+        ".slddrw",
+    ]
+    assert Formats["solidworks.sldprt"]["write_aliases"] == [
+        "solidworks.sldasm",
+        "solidworks.slddrw",
+    ]
     assert Formats["fusion.f3d"]["write"] is True
     assert Formats["interchange.json"]["write"] is True
     Console = FindProgram("kit")

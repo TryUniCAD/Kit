@@ -119,5 +119,5 @@ def CheckPortable(Document: CadDocument) -> None:
     for PartValue in WalkDocuments(Document):
         if PartValue.assembly is not None and PartValue.assembly.instances:
             raise ValueError("UnqualifiedAssembly" + KInspectText)
-        if not PartValue.feature_timeline:
+        if not PartValue.feature_timeline and PartValue.DrawingValue is None:
             raise ValueError("MissingFeatureHistory" + KInspectText)

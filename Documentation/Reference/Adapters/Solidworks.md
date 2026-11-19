@@ -319,6 +319,9 @@ drawing must contain one active ANSI A landscape sheet with a name and positive
 integral scale terms. An explicit document name must match the destination
 basename.
 
+For an authored Kit JSON layout, run `kit convert layout.json layout.SLDDRW`.
+Use `--to solidworks.slddrw` to select the drawing format explicitly.
+
 The SDK generates the seven native streams and the stock English presentation.
 Model views, linked references, additional sheets, annotations and preserved
 source metadata require broader support. The SDK rejects unsupported layouts
