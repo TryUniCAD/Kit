@@ -3728,7 +3728,7 @@ def TestOldLinked(TmpPath: FilePath, Scenario: str) -> None:
         assert OpenDoc(SavedChild).sketches[0].suppressed
 
 
-# a linked historical FCStd manifest keeps its own prior sketch semantics until export
+# a historical linked manifest retains its prior sketch semantics until export
 def TestOldLinkFile(TmpPath: FilePath) -> None:
     Child = TmpPath / "original.FCStd"
     ChildBytes = HiddenPart()

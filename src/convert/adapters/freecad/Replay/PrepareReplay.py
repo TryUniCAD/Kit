@@ -23,7 +23,7 @@ def PrepareChild(DocValue: CadDocument) -> CadDocument:
     return PrepareReplay(DocValue, Migrate=True)[0]
 
 
-# an independently repaired child invalidates a parent's previous semantic baseline
+# an independent child repair invalidates the previous semantic baseline of the parent
 def PrepareLinked(
     DocValue: CadDocument,
     InitialDigest: str,
