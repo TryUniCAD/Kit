@@ -6,6 +6,8 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Generated concentric edit and persistence](../measurements/2026/ConcentricPersistenceNative01.json) | Four fresh SP05.2 processes pass 140 numeric checks. The generated pair opens, preserves both authored occurrence names and live mate references, edits depth, saves both files and reopens at the edited depth. |
+| [Build-bound count and map re-verification](../measurements/2026/ReverificationCountOwners01.json) | Eight licensed images and all 1,000 signature entries match. Thirteen controls retain the measured framing. Five complete linked reads identify the actual configuration and history count owners. |
 | [Linked equation configuration and feature streams](../measurements/2026/PartEquationConfigReplay02.json) | Both disclosed saves preserve all 83,664 bytes across both streams and the actual inherited maps. The two cached dimension wrappers in each save match the native document update stamp. |
 | [Drawing scene-view retry](../measurements/2026/DrawingSceneViewRuntime01.json) | All four fresh processes and 16 independent memory snapshots pass. Eight stage and role matches identify the same actual engine and invalidation target, with each process's two role keys aliasing one view and engine. |
 | [Through-all configuration feature events](../measurements/2026/ThroughAllCmgrFeatureEvents01.json) | Independent 110-process replays preserve the two actual event owners and change only their intended fields. The CMgr frontier moves from 29 to 23 for both disclosed designs. |
