@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Drawing projection occurrence](DrawingProjectionOccurrence2026.md) | The exact visible-components factory wraps the child in a drawing-owned component chain. Both native controls report false for IsRoot on that occurrence. The revised probe leaves the actual child, parent, view and authored configuration gates active. |
 | [Drawing root occurrence configuration](DrawingRootComponentConfiguration2026.md) | Both native controls report an empty part-root occurrence configuration while the view and actual child agree. Exact native source and API metadata support a narrower root-owner check for the frozen retry. |
 | [Part rebuild warning sources](PartRebuildWarning2026.md) | Exact source maps the ordinary part configuration publisher of internal status 128 and its translation into warning 32. The part update or error predicate and later native body exposure remain separate from successful kernel enumeration. |
 | [Oblique cylinder hinge signs and native comparison](FreecadObliqueCylinderSign2026.md#native-disclosed-comparison) | Both disclosed cases pass hinge, plane and extrusion-reference checks between four passing controls. Initial measured volumes miss the independent targets by 31.4 and 85.3 ppm. Driver edits, save and fresh reopen remain open. |

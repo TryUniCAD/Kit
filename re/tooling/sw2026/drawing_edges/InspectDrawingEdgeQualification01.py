@@ -83,9 +83,11 @@ def verify(packet, expected):
             selected = [row for row in observed['members'] if row['names'][0] == member and row['invoke_kind'] == 1]
             require(len(selected) == 1 and selected[0]['vtable_offset_bytes'] == slot and selected[0]['arguments'] == [],
                     'exact zero-argument component/root-model API shape differs: ' + member)
-    require(request['component_api_metadata_sha256'] == COMPONENT_METADATA and request['observer_revision'] == 'part-root-owner-02'
-            and request['previous_trial_sha256'] == '36143744fc79f19fb60434d24884288f72733e764ed9fd8a8138aff4233d0872'
-            and request['previous_failed_result_sha256'] == '1056bde8473497d695c89276812fab2db2a66136c9c7351e8ddac40af47c6eb0',
+    require(request['component_api_metadata_sha256'] == COMPONENT_METADATA and request['observer_revision'] == 'drawing-projection-owner-03'
+            and request['previous_trial_sha256'] == '90f6ddf5543712f32a6d93ffe997872d9be1c76e480497715fd1db1ea3334a40'
+            and request['previous_failed_result_sha256'] == 'ec4fb7e13afe41bb7906c28973f699be380f67fac17c7d6b59dabbaab6caadb3'
+            and request['original_trial_sha256'] == '36143744fc79f19fb60434d24884288f72733e764ed9fd8a8138aff4233d0872'
+            and request['original_failed_result_sha256'] == '1056bde8473497d695c89276812fab2db2a66136c9c7351e8ddac40af47c6eb0',
             'the observer-only retry must preserve its exact predecessor')
 
     tools = root / 'Tools'

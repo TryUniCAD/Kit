@@ -72,15 +72,15 @@ def select_edge(author, drawing, case):
     component = author.typed(components[0], 'Component2')
     same_file(author.get(component, 'GetPathName'), case['approved_child_paths'], case['part_sha256'])
     component_configuration = str(author.get(component, 'ReferencedConfiguration'))
-    require(author.get(component, 'IsRoot') is True and author.get(component, 'GetParent') is None, 'visible component must be the actual standalone part root')
-    require(component_configuration == '', 'standalone drawing part root unexpectedly owns an occurrence configuration')
+    require(author.get(component, 'IsRoot') is False and author.get(component, 'GetParent') is None, 'visible component must be the drawing-projected part occurrence without an assembly parent')
+    require(component_configuration == '', 'drawing-projected part occurrence unexpectedly owns an assembly configuration')
     component_model = author.get(component, 'GetModelDoc2')
     require(component_model is not None, 'visible component model is unavailable')
-    require(author.get(component_model, 'GetType') == author.get(child, 'GetType') == 1, 'visible root model must be the ordinary part child')
+    require(author.get(component_model, 'GetType') == author.get(child, 'GetType') == 1, 'visible projection model must be the ordinary part child')
     require(author.get(author.app, 'IsSame', component_model, child) == 1, 'visible component belongs to a different model')
     component_active = author.get(author.get(component_model, 'ConfigurationManager'), 'ActiveConfiguration')
     actual_configuration = str(author.get(component_active, 'Name'))
-    require(actual_configuration == case['expected']['view']['configuration'], 'actual part-root model active configuration differs from view')
+    require(actual_configuration == case['expected']['view']['configuration'], 'actual projected-part model active configuration differs from view')
     edges = list(author.get(view, 'GetVisibleEntities2', component, 1) or ())
     require(0 < len(edges) <= 256, 'visible ordinary edge inventory is empty or exceeds the bound')
     selected = []
@@ -97,7 +97,7 @@ def select_edge(author, drawing, case):
     return view, child, edge, {'visible_edge_count': len(edges), 'visible_edge_endpoints_m': inventory,
                               'selected_endpoints_m': case['edge_endpoints_m'], 'actual_child_path': str(child_path),
                               'configuration': case['expected']['view']['configuration'], 'component_occurrence_configuration_observed': component_configuration,
-                              'actual_component_model_configuration': actual_configuration, 'actual_part_root': True, 'actual_parent_null': True}
+                              'actual_component_model_configuration': actual_configuration, 'component_is_root_observed': False, 'actual_parent_null': True, 'drawing_projected_occurrence': True}
 
 
 def persist_id(author, extension, entity):
