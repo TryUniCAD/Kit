@@ -102,9 +102,10 @@ def topology_nodes(geometry, marks):
     first_face = Ref(geometry.faces[0].id)
     curve_owners = {edge.curve_id: Ref(edge.id) for edge in geometry.edges}
     surface_owners = {face.surface_id: Ref(face.id) for face in geometry.faces}
+    owner = Ref("world") if marks is not None else 0
     nodes = [
-        world(marks, body),
-        DraftNode(body, 12, {"owner": Ref("world"), "shell": solid_shell, "region": exterior,
+        *((world(marks, body),) if marks is not None else ()),
+        DraftNode(body, 12, {"owner": owner, "shell": solid_shell, "region": exterior,
                              "edge": Ref(geometry.edges[0].id), "vertex": Ref(geometry.vertices[0].id),
                              "boundary_point": points[geometry.vertices[0].id], "boundary_curve": Ref(geometry.curves[0].id),
                              "boundary_surface": Ref(geometry.surfaces[0].id)}),
