@@ -41,8 +41,10 @@ from convert.adapters.freecad.Adapter import (
 )
 from convert.adapters.freecad.Native import KMaxOuterDepth
 from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
-from convert.adapters.freecad.Replay.NativeIdentity import KReplaySketchAttr
+from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
+from convert.adapters.freecad.Replay.NativeIdentity import IsNative, KReplaySketchAttr
 from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
+from convert.adapters.freecad.Replay.SetReplayDigest import SetReplayDigest
 from convert.adapters.freecad.Format import (
     CAPABILITY_CARRIER_REASONS as CapabilityCarrierReasons,
     CAPABILITY_WRITE_TYPE_IDS as CapabilityWriteTypeIds,
@@ -3839,8 +3841,13 @@ def TestReplayDepth(TmpPath: FilePath) -> None:
     _ = Sources[-1].write_bytes(NativePart())
     for Parent, Child in zip(Sources[:-1], Sources[1:], strict=True):
         _ = Parent.write_bytes(NativeLinkOnly(Child.name))
-    Original = Sources[0].read_bytes()
-    Legacy = AnnotateOld(OpenDoc(Sources[0]))
+    Original = HiddenPart(FileValue=Sources[1].name)
+    _ = Sources[0].write_bytes(Original)
+    Current = OpenDoc(Sources[0])
+    assert Current.sketches[0].suppressed is False
+    Legacy = AnnotateOld(
+        Replace(Current, sketches=(Replace(Current.sketches[0], suppressed=True),))
+    )
     Options = WriteOptions(values={"portable": False, "require_self_contained": False})
     Adapter = FreeCadAdapter()
     Output = IoStream.BytesIO()
@@ -3861,10 +3868,12 @@ def TestReplayDepth(TmpPath: FilePath) -> None:
     Result = Adapter.write(Legacy, Output, Options)
     assert Result.metadata.get("mode") != "exact_native_roundtrip"
     assert Output.getvalue() != Original
+    assert Adapter.read(Output.getvalue()).sketches[0].suppressed is False
 
 
 # assembly component writes must also use independently verified carried sketch state
-def TestOldAsmLink(TmpPath: FilePath) -> None:
+@Pytest.mark.parametrize("ParentProof", ("complete", "no_digest", "no_pair"))
+def TestOldAsmLink(TmpPath: FilePath, ParentProof: str) -> None:
     Child = TmpPath / "child.FCStd"
     _ = Child.write_bytes(HiddenPart())
     Source = TmpPath / "assembly.FCStd"
@@ -3887,9 +3896,21 @@ def TestOldAsmLink(TmpPath: FilePath) -> None:
             ),
         )
     )
+    if ParentProof == "no_digest":
+        PairValue = NativeDocPair(Legacy)
+        assert PairValue is not None
+        Legacy = SetReplayDigest(Legacy, PairValue[0], None)
+    elif ParentProof == "no_pair":
+        Legacy = Replace(
+            Legacy,
+            brep_payloads=tuple(
+                Payload for Payload in Legacy.brep_payloads if not IsNative(Payload)
+            ),
+        )
     Child.unlink()
     Portable = TmpPath / "portable.FCStd"
     Result = FreeCadAdapter().write(Legacy, Portable)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
     assert Result.metadata["component_file_count"] == 1
     with Zipfile.ZipFile(Portable) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))

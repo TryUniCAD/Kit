@@ -27,7 +27,7 @@ def PrepareChild(DocValue: CadDocument, ReplayReads: ReplayReadCache) -> CadDocu
 # an independent child repair invalidates the previous semantic baseline of the parent
 def PrepareLinked(
     DocValue: CadDocument,
-    InitialDigest: str,
+    InitialDigest: str | None,
     Migrate: bool,
     ReplayReads: ReplayReadCache,
     ReplayBytes: bytes | None = None,
@@ -35,7 +35,7 @@ def PrepareLinked(
     if not Migrate:
         return DocValue, ReplayBytes
     Prepared = PrepareChildren(DocValue, Partial(PrepareChild, ReplayReads=ReplayReads))
-    if SemanticDigest(Prepared) == InitialDigest:
+    if InitialDigest is None or SemanticDigest(Prepared) == InitialDigest:
         return Prepared, ReplayBytes
     PairValue = NativeDocPair(Prepared)
     if PairValue is not None:
@@ -51,12 +51,12 @@ def PrepareReplay(
         ReplayReads = {}
     PairValue = NativeDocPair(DocValue)
     if PairValue is None:
-        return DocValue, None
+        return PrepareLinked(DocValue, None, Migrate, ReplayReads)
     NativeDoc, _ = PairValue
     Expected = NativeDoc.attributes.get(KReplaySemanticAttr)
     DataValue = NativeDoc.data
     if not isinstance(Expected, str) or DataValue is None:
-        return DocValue, None
+        return PrepareLinked(DocValue, None, Migrate, ReplayReads)
     InitialDigest = SemanticDigest(DocValue)
     IsUnchanged = InitialDigest == Expected
     if not IsUnchanged and not Migrate:

@@ -14,6 +14,7 @@ Kit preserves suppression edits that differ from the older carried value.
 Kit records the independently parsed current digest on the carried archive after migrating its sketch flags.
 An unchanged linked child keeps exact replay when a portable export writes it beside the rebuilt parent.
 A parent rebuild verifies each carried child independently when its original external file is unavailable.
+This also applies to assembly parents without their own replay envelope or digest.
 If a parent or child correction changes the carried model without verifying the full migrated baseline, Kit clears the parent digest and retains independently verified child digests.
 When the carried model is unchanged, the saved digest can be verified again after the link returns.
 A raw native parse records the explicit sketch suppression profile for that model.
