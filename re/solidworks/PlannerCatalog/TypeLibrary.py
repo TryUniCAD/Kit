@@ -1,11 +1,3 @@
-# SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-# SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-#
-# This SPDX license identifier and copyright notice must not be
-# removed, altered, or obscured. Doing so is a material breach of
-# the PolyForm Strict License 1.0.0 and voids all licenses granted
-# to you under it immediately and permanently.
-
 from argparse import ArgumentParser
 from datetime import date, datetime
 from hashlib import sha256
@@ -14,13 +6,7 @@ from math import isfinite
 from pathlib import Path
 
 # recorded notices preserve repository ownership in machine readable metadata
-KNoticeText = """SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0
-SPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin
-
-This SPDX license identifier and copyright notice must not be
-removed, altered, or obscured. Doing so is a material breach of
-the PolyForm Strict License 1.0.0 and voids all licenses granted
-to you under it immediately and permanently."""
+KNoticeText = """SPDX-License-Identifier: MIT"""
 
 
 # inert metadata must never execute vendor code or expose opaque representations

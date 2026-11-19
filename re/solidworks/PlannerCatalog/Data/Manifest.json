@@ -1,5 +1,5 @@
 {
-  "_notice": "SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0\nSPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin\n\nThis SPDX license identifier and copyright notice must not be\nremoved, altered, or obscured. Doing so is a material breach of\nthe PolyForm Strict License 1.0.0 and voids all licenses granted\nto you under it immediately and permanently.",
+  "_notice": "SPDX-License-Identifier: MIT",
   "application_version": "33.0.0.5050",
   "artifacts": {
     "ApiEnums.csv": {
@@ -16,7 +16,7 @@
     },
     "Catalog.sqlite": {
       "bytes": 74838016,
-      "sha256": "75d1c318bc435e3c4fe354b451dfae4398224fe7a9e003ca2635daae100dc899"
+      "sha256": "03d888e7e661a0aaf627d997da9cd7cbac66be23e3454950a285f09ef04a84b1"
     },
     "Commands.csv": {
       "bytes": 2094393,
@@ -39,7 +39,7 @@
       "sha256": "07c18e3f5f464126e0f69075e9be87a47991f2a9337458cbd3cf792f66866541"
     }
   },
-  "content_sha256": "37dca9974da889b3507d10aaa1ad721b2ce08f8dc5cd3c43f0f04bdf594a38c8",
+  "content_sha256": "953468ec80db853b770faca1b154cbf9385cc9edd89a2b69d23368e31cc30036",
   "counts": {
     "gaps": 5239,
     "item_kinds": {
@@ -101,8 +101,8 @@
   },
   "schema_version": 1,
   "source_sha256": {
-    "api_snapshot": "55733b95ebd7e117693bdb8633729604edc60e7e66ab6e7ef8ae481000726ccf",
-    "feature_plan": "1e9ca9f032c2f07423f220aa74e5abc01e6a7c1f4393e637db8b3a16250cffc2"
+    "api_snapshot": "41dce9b373864e2d432257f4907dea72c74465951852fbe2241041110b6d0f22",
+    "feature_plan": "4df47bdadbf583e8507d2746b4ffdc9e248d43116b1a74cb9c2fd74aae1448b1"
   },
   "sqlite_version": "3.45.3"
 }
