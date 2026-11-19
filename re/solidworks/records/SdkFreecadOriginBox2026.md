@@ -112,3 +112,44 @@ qualification against the original corpus remain open.
 The later [release-specific profile work](FreecadOriginBoxReleases2026.md)
 admits the two newer disclosed origin boxes while maintaining byte
 identity for both legacy native-tested files.
+
+## Retained FreeCAD source inventory
+
+An independent scan verified all 33 box-bearing identities in the retained
+162-identity inventory at `b679eb1092620911bcee6dd3d22eb5971f34913c`. Each exact
+original passed the strict SDK read with B-rep enabled and tessellation disabled.
+The origin-box projection ran on each unchanged neutral document with source
+labels enabled. All three matches are the already measured F14a sources under
+FreeCAD 0.21.2, 1.0.2 and 1.1.4. They each retain the three positive drivers
+20, 30 and 10 mm. The [admission receipt](../measurements/2026/DisclosedFcstdBoxAdmission01.json)
+binds every source digest and observed first outcome.
+
+| First refusal | Source identities |
+| --- | ---: |
+| Release or source profile outside the admitted schema | 12 |
+| Feature, body or configuration count outside the single-box profile | 7 |
+| Other authored model domain | 6 |
+| Additional attachment owner | 3 |
+| Different primitive kind | 2 |
+
+The three F14c sources each have one AdditiveBox and a live whole-plane link to
+`freecad:plane:XZ_Plane`. The source dependencies include the actual Body and
+that plane. The link is in `Support` under 0.21.2 and `AttachmentSupport` in the
+newer files. `MapMode` is 5. The typed plane origin is zero with basis
+`(+X, -Z, +Y)`. The feature's attachment offset is identity. Its resolved
+`Placement` rotates +90 degrees about X with zero translation, so the local
+box basis is `(+X, +Z, -Y)`. The source B-rep verifies world bounds of
+`(0, -10, 0)` to `(20, 0, 30)` mm within 1.5e-14 mm.
+
+The [shared offset-plane constructor](../../tooling/sw2026/builders/ReferencePlane.py#L51)
+binds a live selected principal plane and translates its unchanged basis by
+an authored distance of at least 1e-14 m. The attached box has a zero-offset
+principal support and a different local basis. The current
+[box lowering](../../../src/convert/adapters/solidworks/Core/Preparation/FreecadBox/LowerBoxModel.py#L25)
+selects XY and creates a forward boss. A projection through the existing
+Top frame would bind its actual plane identity, place the width along negative
+local V and reverse the boss depth. Those owners still require native qualification.
+
+The scan generated zero native files and ran zero native application processes.
+It adds zero conversion credits. Historical benchmark membership and public
+writer admission remain open.

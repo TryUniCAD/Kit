@@ -6,6 +6,9 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Radial child and four-light native lifecycle](../measurements/2026/ConcentricRadialSceneNative01.json) | Four process phases pass 100 checks. The generated standalone part retains a driving radius and four ordered lights through a depth edit, save and reopen. Both files reproduce five linked streams exactly. |
+| [Same-model plain width controls](../measurements/2026/WidthDepthPlainEditControls01.json) | The same ordinary file opens with one solid in both attempts. With direct edit, rebuild returns true and zero diagnostics before the typed feature lookup loses its COM interface. The fresh recovery control passes. |
+| [Disclosed FCStd box admission](../measurements/2026/DisclosedFcstdBoxAdmission01.json) | Three known origin boxes pass the scoped projection across 33 box-bearing identities. The three closest attached cases retain a live XZ support and rotated placement. |
 | [Generated local equation references](../measurements/2026/WidthDepthLocalReferenceNative01.json) | Four guarded builds generate two ten-stream parts. One opens and rebuilds with a solid and the live equation. Its post-edit rebuild fails. A fresh recovery control passes. |
 | [Generated concentric edit and persistence](../measurements/2026/ConcentricPersistenceNative01.json) | Four fresh SP05.2 processes pass 140 numeric checks. The generated pair opens, preserves both authored occurrence names and live mate references, edits depth, saves both files and reopens at the edited depth. |
 | [Build-bound count and map re-verification](../measurements/2026/ReverificationCountOwners01.json) | Eight licensed images and all 1,000 signature entries match. Thirteen controls retain the measured framing. Five complete linked reads identify the actual configuration and history count owners. |

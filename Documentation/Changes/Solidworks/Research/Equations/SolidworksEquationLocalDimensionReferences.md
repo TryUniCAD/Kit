@@ -13,5 +13,6 @@ Four guarded builds reproduce two ten-stream files with zero input reads after i
 Both Config-0 and ResolvedFeatures round-trip exactly with their linked map.
 One candidate opens and rebuilds with one solid and an enabled equation.
 The rebuild after the live width edit fails, and the recovery control passes.
+The same-model plain part also loses its COM interface during post-edit observation.
 The [research record](../../../../../re/solidworks/records/PartEquationConfig2026.md#local-dimension-reference-handles) links the constructor and native evidence.
 The edit lifecycle, public equation writing and held-out acceptance remain open.

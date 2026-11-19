@@ -12,4 +12,8 @@ The remaining source owners and assembly admission require separate validation.
 Five linked archive streams re-emit exactly.
 The independent build reads zero input files after it receives the neutral request.
 Typed readback recovers the radius driver and the four ordered lights.
-Native persistence and independent held-out acceptance remain open.
+Four fresh native processes pass 100 checks through depth edit, save and reopen.
+Both control phases pass. The fresh reopen retains the radius and all four lights.
+The same five archive streams also re-emit exactly from the native save.
+The [native receipt](../../../../re/solidworks/measurements/2026/ConcentricRadialSceneNative01.json) records the actual outcomes.
+The assembly source bridge and independent held-out acceptance remain open.

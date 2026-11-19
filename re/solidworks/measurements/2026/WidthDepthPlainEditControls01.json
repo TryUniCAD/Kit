@@ -1,0 +1,69 @@
+{
+  "completed_qualified_cases": 0,
+  "direct_edit_recovery_control": {
+    "numeric_checks": 9,
+    "passed": true,
+    "result_sha256": "782efe2468302b183d3777d7182d8a68607e7223675a4e14937c0cdb85f484db"
+  },
+  "direct_equation_trial_started": false,
+  "initial_direct_transport_attempt_started_native_processes": false,
+  "lanes": {
+    "direct_edit": {
+      "candidate_input_sha256": "f4ed24c02d51db070cfa1ee87c05944ecbf7adb8cda95fbc11198bab77042c83",
+      "candidate_record_sha256": "55028e315dd560ce3fc7a5660e5e206ec09a59ee45d6c65be8fcdb1cc789f2d0",
+      "completed_save": false,
+      "failure_hresult": -2147023179,
+      "first_failure_stage": "FeatureByName",
+      "initial_body_count": 1,
+      "initial_numeric_checks": 9,
+      "leading_control_sha256": "8407ba81dbee4e69cd7609f0a857d0c2f217122156d9d6a8682d5dcaebc5888a",
+      "observer_commit": "b679eb109",
+      "open_status": [
+        0,
+        0
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "planned_trailing_result_sha256": "aaa9fd22b7c2f85a1bc4a437691e1f6a2547c9d086d5807e4b802c8f03e1bb1d",
+      "post_edit_calls": [
+        {
+          "method": "ForceRebuild3",
+          "result": true
+        },
+        {
+          "method": "GetWhatsWrongCount",
+          "result": 0
+        },
+        {
+          "method": "FeatureByName"
+        }
+      ]
+    },
+    "explicit_evaluation": {
+      "candidate_input_sha256": "f4ed24c02d51db070cfa1ee87c05944ecbf7adb8cda95fbc11198bab77042c83",
+      "candidate_record_sha256": "eff763f5d4cb6790762c4bd72c38f7e629762c7fc03001181b2258c6d092d7d6",
+      "completed_save": false,
+      "failure_hresult": -2147023179,
+      "first_failure_stage": "ForceRebuild3",
+      "initial_body_count": 1,
+      "initial_numeric_checks": 9,
+      "leading_control_sha256": "e0de19005d5585e7314ae88cfbb97c5094af4f9ed6f33b5e7fdf47b8d47c600f",
+      "observer_commit": "a24c6837b",
+      "open_status": [
+        0,
+        0
+      ],
+      "oracle_file_version": "34.5.2.0604",
+      "planned_trailing_result_sha256": "87780bff575a14e2effa898487940e6058752e97c5171596c3db07ef0e5fe920",
+      "post_edit_calls": [
+        {
+          "method": "IEquationMgr.EvaluateAll",
+          "result": -1
+        },
+        {
+          "method": "ForceRebuild3"
+        }
+      ]
+    }
+  },
+  "schema": "kit.sw2026.width-depth-plain-edit-control.v1"
+}
