@@ -1,0 +1,85 @@
+{
+  "assembly_and_child_tree_row_counts": [
+    25,
+    25
+  ],
+  "bodies": 2,
+  "checks_by_phase": {
+    "ControlAfter": 28,
+    "ControlBefore": 28,
+    "ReopenFalse": 28
+  },
+  "distinct_processes": 3,
+  "document_setters": 0,
+  "earlier_true_reopen_names": [
+    {
+      "id": 24,
+      "reopened_name": "IndependentNameCylinder-1",
+      "setter_base": "AuthoredAxisA",
+      "state_before_save": "AuthoredAxisA-1"
+    },
+    {
+      "id": 25,
+      "reopened_name": "IndependentNameCylinder-2",
+      "setter_base": "AuthoredAxisB",
+      "state_before_save": "AuthoredAxisB-2"
+    }
+  ],
+  "healthy_controls": true,
+  "heldout_inputs_read": 0,
+  "mate_name": "Concentric1",
+  "mate_owner_ids": [
+    24,
+    25
+  ],
+  "native_saves": 0,
+  "native_source_files": {
+    "child": {
+      "bytes": 70908,
+      "sha256": "3a39ac65c61cad230c36b27d53f7179813e68afabff2090e1ca98bdd08b2d16f",
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "update_stamp": 134
+    },
+    "parent": {
+      "bytes": 62759,
+      "sha256": "481a13c6f3c068d6df56521b7b0bb31c63f13404dbc0e2f469b0ca6d4034c83c",
+      "status": [
+        true,
+        0,
+        0
+      ]
+    }
+  },
+  "observer_trace_sha256": "9740f68d316698fe17598ebf3f8d57c766d400c33f005be667fd7134c79ff5a8",
+  "oracle_build": "34.5.2.0604",
+  "passed_disclosed_readonly_comparison": true,
+  "preference": {
+    "initial_true": true,
+    "reopen_false": true,
+    "restoration_sha256": "41e21378ce67f0a87fddd138c1a29a38a6bf8b7bba191afdc45b735e5a4b1581",
+    "restored_true": true,
+    "setter_calls": 2
+  },
+  "previous_true_setting_receipt_sha256": "adc31ae255bdd6bac8d3ab1e975b431ab1146bc68a6f3a47e13c87ad84b6f9a9",
+  "public_writer_qualified": false,
+  "raw_guest_result_sha256": "43e841e9f1d627e3ad077629ec8ffbd931ada6acb3b442e229f6a371303a5780",
+  "read_only_false_names": [
+    {
+      "id": 24,
+      "name": "AuthoredAxisA-1"
+    },
+    {
+      "id": 25,
+      "name": "AuthoredAxisB-2"
+    }
+  ],
+  "rebuild_observation_equal_to_initial": true,
+  "schema": "kit.sw2026.component-name-readonly-native.v1",
+  "trial_sha256": "a1dd46620b5ba350eccead37510ac103343167a2dfd426b4fde541ee53e5682c",
+  "unchanged_source_pair": true,
+  "writer_outputs": 0
+}
