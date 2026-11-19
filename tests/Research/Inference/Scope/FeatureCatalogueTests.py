@@ -172,5 +172,5 @@ def CheckRunUnmappedCatalogue(TmpPath: Path):
     )
     Report = json.loads((Run / "CatalogueResult.json").read_bytes())
     assert Report["status"] == "coverage_incomplete"
-    assert Report["features"] == {"solidworks": {"recipe_unavailable": 1}}
+    assert Report["features"] == {"solidworks": {"awaiting_capture": 1}}
     assert Report["scopes"] == {} and not (Run / "OfflineSupervisor.log").exists()
