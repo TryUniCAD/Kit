@@ -8,6 +8,10 @@ from AuthorCurves import Recorder, digest, require
 
 
 class LiveWidthObserver(equations.EquationAuthor):
+    def get(self, value, name, *arguments):
+        receiver = self.model if name == "FeatureByName" else value
+        return super().get(receiver, name, *arguments)
+
     def edit_source(self, case):
         name = equations.PARAMETERS[0]
         dimension = self.get(self.model, "Parameter", name)
