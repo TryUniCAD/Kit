@@ -46,3 +46,19 @@ The separate model flags are set by the native force-rebuild path and its ordina
 Eight freshly generated files cover all combinations of both changes across two ordinary prism shapes. The guarded constructor records zero runtime input reads, and a separate typed read confirms the intended count and flags for each file. Two additional guarded builds, using the earlier matching-clock recipe with downstream ID allocation omitted, reproduce its original files byte for byte.
 
 Ten fresh native processes include two passing bracketing controls. All eight generated combinations still return warning 32 and zero bodies before rebuild, then rebuild to one correct solid with zero feature problems. The count and flags preserve their independent format rules. The missing condition remains in the ordinary body and feature publication path. [Controlled native comparison](../measurements/2026/PrismSavedBodyBookkeeping01.json) · [Count and update-state source](PartBodyAdmissionState2026.md)
+
+## Live part update operands
+
+Separate controlled opens of the same generated input establish three positive runtime facts. The ordinary `replaceBody` call receives a real body and feature map. Its internal `getAtomId` returns 101 with the actual feature list and map present. The later part update call reads live node `f0c=1` for the generated file and `f0c=0` for the same-shape native save. Both use mode 1 and have cached update mode, cached flags and part recovery flags equal to zero. Their persisted part `f0c` is zero.
+
+The six measured processes include three clean controls. Every generated probe continues with the debugger attached after the capture and returns warning 32 and zero public bodies. The later gate-return trial received transport exit 255 with no guest receipt. The individual stops establish the native operands and one measured state difference. [Native operand receipt](../measurements/2026/PartBodyAdmissionOperandsNative01.json) · [Atom selection and getter source](PartBodyAtomBinding2026.md)
+
+## Environment insertion and the first measured part dirty write
+
+Two new single-site batches stop on the first relevant transition from clear to set at the real part node's dirty store `sldmodu 0x4c03ee0e`. The filters verify the actual `moPart_c` table and require the old and pending words to differ in bit 0. Both runs capture old word 0, pending word 1, requested state 11 and `moFeature::setNeedsUpdate` return `0x4bb516e5`. The actual feature receiver is environment folder ID 9. The caller is `moConcept::addFeature`, return `0x4bda6384`.
+
+The expanded run reaches the same store through environment insertion return `0x4b493612`. Its actual dirty-enable and name-registration arguments are respectively 1 and 0. The inserted member has ID 27 and a vtable at preferred address `0x4cda45d0`. Original RTTI and the current serialize map identify that concrete table as `moAmbientLight_c`. These IDs belong to this observed file.
+
+All four ordinary bracketing controls open cleanly with one body. Both generated cases continue the original open with the debugger attached until open returns and reproduce warning 32 and zero bodies. The two new batches measure six separate processes. These are separate processes from the replacement, atom ID and late gate probes. The initial dirty-stop attempt had no guest receipt and is excluded. [Native dirty-store receipt](../measurements/2026/PrismFirstPartUpdateNative01.json)
+
+The default-light source and its native callers are being checked independently. The measured insertion gives a narrower discriminator for normal open. A complete lamp object and its live owner relationship must be generated from authored or documented presentation values, with a normal uninstrumented open for acceptance.

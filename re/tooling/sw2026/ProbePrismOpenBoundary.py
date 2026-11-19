@@ -18,6 +18,7 @@ APP_SHA256 = "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
 ENGINE_SHA256 = "5a2a515f6263c66b0323d8707abf4b64511a9a34f1f1d3fb1f3c4c17f0bf9cad"
 MODULES = {
     "sldgciParau": (0x32f70000, "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"),
+    "sldprtu": (0x332a0000, "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494"),
     "sldappu": (0x453f0000, "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"),
     "sldmodu": (0x4b140000, "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"),
 }
@@ -30,10 +31,21 @@ SITES = (
     ("model_body_inventory", "sldmodu", 0x4c23edeb),
     ("model_body_replace_return", "sldmodu", 0x4c23f182),
     ("api_error_128", "sldappu", 0x458a1760),
+    ("part_update_gate", "sldprtu", 0x3339215c),
+    ("part_update_result", "sldprtu", 0x3339215f),
+    ("part_update_error_result", "sldprtu", 0x3339217d),
+    ("first_output_atom", "sldmodu", 0x4c1cf9f8),
+    ("atom_set_body_call", "sldmodu", 0x4c1cfa1f),
+    ("atom_set_body_return", "sldmodu", 0x4c1cfa24),
+    ("compare_saved_body_count", "sldmodu", 0x4c23f589),
+    ("replace_body_call", "sldmodu", 0x4c23f17d),
+    ("get_body_atom_id_return", "sldmodu", 0x4c1cf4da),
+    ("part_first_dirty_store", "sldmodu", 0x4c03ee0e),
 )
 
 
 CALLERS = {
+    "sldmodu": MODULES["sldmodu"],
     "slduiu": (0x48ea0000, "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"),
     "sldprtu": (0x332a0000, "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494"),
 }
@@ -107,6 +119,7 @@ class ColdAdmissionTrace(debug.SaveAggregateTrace):
             debug.require(source.stem.casefold() == module.casefold(), "loaded module name differs")
             debug.check_amd64_image(source, digest)
             bases[module] = base.value
+        self.live_bases = bases
         self.result["stage"] = "arm selected restore sites"
         site_ids = {}
         if self.terminal_site == "attach_only":
@@ -172,6 +185,84 @@ class ColdAdmissionTrace(debug.SaveAggregateTrace):
             if self.opening.is_set():
                 record = {"site": name, "source_address": hex(address), "thread": thread.value}
                 stack = registers.value(12, "AMD64 stack", debug.U64)
+                if name == "part_first_dirty_store":
+                    part = register(registers, "rbx")
+                    expected_vtable = self.live_bases["sldmodu"] + (0x4d1252d8 - MODULES["sldmodu"][0])
+                    found_vtable = read_int(data, part, 8) if part else 0
+                    new_state = register(registers, "rax") & 0xffffffff
+                    prior_state = read_int(data, part + 0x0c, 4) if found_vtable == expected_vtable else 0
+                    if found_vtable != expected_vtable or prior_state & 1 or not new_state & 1:
+                        self.result["other_dirty_store_stops"] = self.result.get("other_dirty_store_stops", 0) + 1
+                        debug.require(self.result["other_dirty_store_stops"] < 160, "dirty-store sampling limit reached")
+                        control.call(50, "continue another node's store", (debug.U32,), debug.DEBUG_STATUS_GO)
+                        continue
+                    record["old_node_flags"] = prior_state
+                    record["computed_node_flags"] = new_state
+                    record["requested_state"] = register(registers, "rsi") & 0xffffffff
+                    record["notifier_present"] = bool(register(registers, "rdi"))
+                    caller = self._caller(interfaces["symbols"], handle, read_int(data, stack + 0x28, 8))
+                    record["caller"] = caller
+                    if caller["module"] == "sldmodu" and caller["return_rva"] == 0x4bb516e5 - MODULES["sldmodu"][0]:
+                        record["upstream_caller"] = self._caller(interfaces["symbols"], handle, read_int(data, stack + 0xc8, 8))
+                        feature = read_int(data, stack + 0x30, 8)
+                        record["feature_receiver_present"] = bool(feature)
+                        if (record["upstream_caller"]["module"] == "sldmodu"
+                                and record["upstream_caller"]["return_rva"] == 0x4bda6384 - MODULES["sldmodu"][0]):
+                            record["insertion_caller"] = self._caller(
+                                interfaces["symbols"], handle, read_int(data, stack + 0xf8, 8))
+                            record["insertion_requests_update"] = read_int(data, stack + 0x120, 4, signed=True)
+                            record["insertion_registers_name"] = read_int(data, stack + 0x128, 4, signed=True)
+                            notifier = register(registers, "rdi")
+                            if notifier:
+                                record["added_member_vtable"] = self._caller(
+                                    interfaces["symbols"], handle, read_int(data, notifier, 8))
+                                record["added_member_feature_id"] = read_int(data, notifier + 0x08, 4, signed=True)
+                        if feature:
+                            record["feature_id"] = read_int(data, feature + 0x08, 4, signed=True)
+                            feature_table = read_int(data, feature, 8)
+                            record["feature_table_is_extrusion"] = (
+                                feature_table == self.live_bases["sldmodu"] + (0x4cf3d488 - MODULES["sldmodu"][0])
+                            )
+                elif name == "compare_saved_body_count":
+                    record["saved_body_count"] = read_int(data, stack + 0x80, 4, signed=True)
+                    expected = register(registers, "rbx") & 0xffffffff
+                    debug.require(expected == record["saved_body_count"] & 0xffffffff,
+                                  "ordinary saved-body count register differs from its recorded local")
+                    record["actual_body_sum"] = register(registers, "rax") & 0xffffffff
+                elif name == "replace_body_call":
+                    record["body_argument_present"] = bool(register(registers, "rdx"))
+                    record["r8d_argument"] = register(registers, "r8") & 0xffffffff
+                    record["r9d_argument"] = register(registers, "r9") & 0xffffffff
+                    record["map_argument_present"] = bool(read_int(data, stack + 0x20, 8))
+                elif name == "get_body_atom_id_return":
+                    value = register(registers, "rax") & 0xffffffff
+                    record["actual_body_atom_id"] = value if value < 0x80000000 else value - 0x100000000
+                    record["feature_list_link_present"] = bool(register(registers, "r13"))
+                    record["actual_feature_map_present"] = bool(read_int(data, stack + 0xf0, 8))
+                elif name == "part_update_gate":
+                    part = register(registers, "rcx")
+                    mode = register(registers, "rdx") & 0xffffffff
+                    debug.require(bool(part), "part update receiver is null")
+                    record["mode"] = mode
+                    record["node_state"] = read_int(data, part + 0x0c, 4)
+                    record["cached_update_mode"] = read_int(data, part + 0x2b4, 4)
+                    record["cached_update_flags"] = read_int(data, part + 0x2b8, 4)
+                    record["part_recovery_flags"] = read_int(data, part + 0xd3c, 4)
+                elif name in ("part_update_result", "part_update_error_result"):
+                    record["eax"] = register(registers, "rax") & 0xffffffff
+                    record["mode"] = register(registers, "r12") & 0xffffffff
+                elif name == "first_output_atom":
+                    atom = register(registers, "rax")
+                    record["first_output_atom_present"] = bool(atom)
+                    if atom:
+                        record["atom_id"] = read_int(data, atom + 0x140, 4, signed=True)
+                elif name in ("atom_set_body_call", "atom_set_body_return"):
+                    atom = register(registers, "rcx" if name == "atom_set_body_call" else "rbp")
+                    debug.require(bool(atom), "modeled atom receiver is null")
+                    record["atom_id"] = read_int(data, atom + 0x140, 4, signed=True)
+                    record["runtime_body_present"] = bool(read_int(data, atom + 0x160, 8))
+                    record["restored_body_argument_present"] = bool(register(registers, "rdx")) if name == "atom_set_body_call" else None
+                    record["alternate_body_slot_present"] = bool(read_int(data, atom + 0x180, 8))
                 if name == "api_error_128":
                     value = register(registers, "r8") & 0xffffffff
                     if value != 128:
@@ -207,11 +298,25 @@ class ColdAdmissionTrace(debug.SaveAggregateTrace):
 
     def _cleanup(self, client, interfaces, state, handle):
         failures = []
-        for breakpoint in reversed(self.breakpoints):
+        control = interfaces.get("control")
+        may_remove = False
+        if self.breakpoints and control is not None:
+            try:
+                status = control.value(49, "read execution status before cleanup")
+                if status != 6:
+                    control.call(6, "bound owned-process interrupt", (debug.U32,), 2)
+                    control.call(4, "request an owned cleanup stop", (debug.U32,), 0)
+                    self.wait_event(control, monotonic() + 4, honor_cancel=False)
+                may_remove = control.value(49, "verify owned process stopped before cleanup") == 6
+            except Exception as error:
+                failures.append(repr(error))
+        for breakpoint in reversed(self.breakpoints if may_remove else []):
             try:
                 interfaces["control"].call(73, "remove owned hardware breakpoint", (debug.PTR,), breakpoint.pointer)
             except Exception as error:
                 failures.append(repr(error))
+        if self.breakpoints and not may_remove and not failures:
+            failures.append("unobserved stop prevented direct hardware breakpoint removal")
         super()._cleanup(client, interfaces, state, handle)
         if failures:
             self.result["breakpoint_cleanup_failures"] = failures
@@ -251,6 +356,8 @@ def main():
         identity = application_identity(app.app)
         debug.require(identity["version_matches"] and identity["sha256"] == APP_SHA256, "wrong CAD executable")
         report["oracle"] = identity
+        report["stage"] = "owned native process verified"
+        args.output.write_text(dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         if not args.cold:
             model, errors, warnings = app.open(args.control, read_only=True)
             debug.require(model is not None and errors == 0 and warnings in (0, 2) and Swapp.bodies(model) == 1,
@@ -267,7 +374,12 @@ def main():
         if tracer is not None:
             tracer.opening.set()
         report["post_warmup_seconds"] = monotonic() - started
+        report["stage"] = "native open entered"
+        args.output.write_text(dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         model, errors, warnings = app.open(args.part, read_only=not args.writable)
+        report["stage"] = "public open returned"
+        report["open"] = {"opened": model is not None, "errors": errors, "warnings": warnings}
+        args.output.write_text(dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         if tracer is not None:
             tracer.opening.clear()
             report["trace"] = tracer.finish()
