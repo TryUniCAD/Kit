@@ -45,3 +45,8 @@ The source author never consumes the failed generated assembly or saved rows to 
 [The host receipt](../measurements/2026/CustomComponentNameControlHost01.json) binds the tool packet, independent prediction, input intent and actual metadata. All 41 frozen files verify in a fresh host process; the analytic shape, both 25-row role trees and explicit distinct names are checked without COM. Syntax and undefined-name checks pass. A mismatched host command digest was rejected before any native observation; the correct frozen digest verifies. The earlier host-only packet stays unchanged; the ready successor uses the exact registered selection interface explicitly.
 
 Native authoring, current application preference, setter string behavior, save/reopen and the resulting separate override database are unmeasured. The author control will expose those results rather than fitting its expected names. It does not construct an UnQLite stream, change shared SDK source, activate a public writer or access either sealed concentric sample.
+
+
+## Measured precondition
+
+The frozen verification and both pristine controls passed. The dedicated author process read the current registered setting at enum 18 as true. It stopped at that precondition before source creation and read the same value during cleanup. The fresh-reopen phase requires a completed source, so it did not launch. The first native run preserves this precondition outcome. The next trial uses a temporary authoring setting with verified restoration and measures the fresh reopen under the original setting. [Controlled precondition receipt](../measurements/2026/CustomComponentNameControlPreferenceGate01.json)
