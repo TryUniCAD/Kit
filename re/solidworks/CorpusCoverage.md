@@ -27,7 +27,11 @@ four guarded workers. Its first exact container passed the disclosed note text
 and position lifecycle. Five further generated cases exercise the
 [document display controls](measurements/2026/DrawingPlainNoteDisplayFlags01.json).
 They retain the actual note data and ordered tree while the viewport still
-omits the note. Original source admission and held-out note acceptance remain
+omits the note. The [native edit diagnostic](measurements/2026/DrawingPlainNoteMemoryChanges01.json)
+measures temporary redraw pixels followed by an identical blank image after rebuilding.
+A separate [nine-process omission comparison](measurements/2026/DrawingNoteViewportCache01.json)
+retains identical presentation when all three saved graphics streams are omitted
+from the disclosed native drawing. Original source admission and held-out note acceptance remain
 open. These drawing samples add zero generated FCStd conversions.
 
 The independent research composer generates fresh native containers and streams

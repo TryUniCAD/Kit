@@ -1,0 +1,320 @@
+{
+  "all_diagnostic_copies_match": true,
+  "annotated_before_after": {
+    "all_exact": true,
+    "stages": {
+      "Initial": {
+        "actual_note_sheet_tree_exact": true,
+        "full_bitmap_sha256_exact": true,
+        "pose_exact": true,
+        "preferences_exact": true
+      },
+      "Rebuilt": {
+        "actual_note_sheet_tree_exact": true,
+        "full_bitmap_sha256_exact": true,
+        "pose_exact": true,
+        "preferences_exact": true
+      },
+      "SheetFit": {
+        "actual_note_sheet_tree_exact": true,
+        "full_bitmap_sha256_exact": true,
+        "pose_exact": true,
+        "preferences_exact": true
+      }
+    }
+  },
+  "controls_healthy": true,
+  "diagnostic_completed": true,
+  "distinct_processes": 9,
+  "document_saves": 0,
+  "heldout_inputs_read": 0,
+  "matches_unchanged_annotated_source": {
+    "OmitAllThree": {
+      "all_exact": true,
+      "stages": {
+        "Initial": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "Rebuilt": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "SheetFit": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        }
+      }
+    },
+    "OmitDisplayLists": {
+      "all_exact": true,
+      "stages": {
+        "Initial": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "Rebuilt": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "SheetFit": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        }
+      }
+    },
+    "OmitDisplayStamp": {
+      "all_exact": true,
+      "stages": {
+        "Initial": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "Rebuilt": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "SheetFit": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        }
+      }
+    },
+    "OmitViewBucketLists": {
+      "all_exact": true,
+      "stages": {
+        "Initial": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "Rebuilt": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "SheetFit": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        }
+      }
+    },
+    "Repacked": {
+      "all_exact": true,
+      "stages": {
+        "Initial": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "Rebuilt": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        },
+        "SheetFit": {
+          "actual_note_sheet_tree_exact": true,
+          "full_bitmap_sha256_exact": true,
+          "pose_exact": true,
+          "preferences_exact": true
+        }
+      }
+    }
+  },
+  "native_acceptance": false,
+  "oracle_build": "34.5.2.0604",
+  "packet_sha256": "507c1f99a6a8125e0cf9154a6114eb5f5b44a78abe394d512dcd2d68e8c6d527",
+  "parameter_edits": 0,
+  "phases": {
+    "ControlAfter": {
+      "bitmap_hashes": {
+        "Initial": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+        "Rebuilt": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+        "SheetFit": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20"
+      },
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open": [
+        0,
+        0
+      ],
+      "receipt_sha256": "be8b8a32f24cea68f718e746948a2a8f99e30f3309f96fcf42bc9c21866c03e3"
+    },
+    "ControlBefore": {
+      "bitmap_hashes": {
+        "Initial": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+        "Rebuilt": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+        "SheetFit": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20"
+      },
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open": [
+        0,
+        0
+      ],
+      "receipt_sha256": "f171e5d44e0150abbc5cc1217ef22b40599b799810437c2db8482a0902b915cb"
+    },
+    "OmitAllThree": {
+      "bitmap_hashes": {
+        "Initial": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "Rebuilt": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "SheetFit": "b14a52cddd11add23f41d0b8f8f4f3a7122039d61cb45ddba391f0c262223a97"
+      },
+      "input_sha256": "d4ea12f4de6c890286e85a52ea91f4ca890ccec1a55811ec2bc2f255693c207d",
+      "omitted_streams": [
+        "Contents/DisplayLists",
+        "Contents/VBLists",
+        "_DL_VERSION_19000/DLUpdateStamp"
+      ],
+      "open": [
+        0,
+        0
+      ],
+      "receipt_sha256": "21ff2326254dcb0c5a744dd0446b8e0cca2c576085b49b2ae189b1be6ac4c746",
+      "retained_streams": 26
+    },
+    "OmitDisplayLists": {
+      "bitmap_hashes": {
+        "Initial": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "Rebuilt": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "SheetFit": "b14a52cddd11add23f41d0b8f8f4f3a7122039d61cb45ddba391f0c262223a97"
+      },
+      "input_sha256": "4c425234e4ef5f7786fb70799f65449ce868fd5e633d8aad33057da0d449dcac",
+      "omitted_streams": [
+        "Contents/DisplayLists"
+      ],
+      "open": [
+        0,
+        0
+      ],
+      "receipt_sha256": "6e3b89309948065f96afcad4c7fd40206d2406e060a75207c53af2ef112c6746",
+      "retained_streams": 28
+    },
+    "OmitDisplayStamp": {
+      "bitmap_hashes": {
+        "Initial": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "Rebuilt": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "SheetFit": "b14a52cddd11add23f41d0b8f8f4f3a7122039d61cb45ddba391f0c262223a97"
+      },
+      "input_sha256": "744a7e3d9ff7e6238a06507cef8935d09d35d92d08f98c644a20449ad8ebbd89",
+      "omitted_streams": [
+        "_DL_VERSION_19000/DLUpdateStamp"
+      ],
+      "open": [
+        0,
+        0
+      ],
+      "receipt_sha256": "bf2f872479bf0947fec6e9a7fbf9f2cd3c367deec3ea55c0128c8c473a574e74",
+      "retained_streams": 28
+    },
+    "OmitViewBucketLists": {
+      "bitmap_hashes": {
+        "Initial": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "Rebuilt": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "SheetFit": "b14a52cddd11add23f41d0b8f8f4f3a7122039d61cb45ddba391f0c262223a97"
+      },
+      "input_sha256": "eac8f93d621e43c115d8c5ddacee66b8b115540dec0785a31550736addd9a81d",
+      "omitted_streams": [
+        "Contents/VBLists"
+      ],
+      "open": [
+        0,
+        0
+      ],
+      "receipt_sha256": "bde53e8a0119a7381860498061a8df531dd27bebb6b2b5803b42b64b3f1cbf38",
+      "retained_streams": 28
+    },
+    "Repacked": {
+      "bitmap_hashes": {
+        "Initial": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "Rebuilt": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "SheetFit": "b14a52cddd11add23f41d0b8f8f4f3a7122039d61cb45ddba391f0c262223a97"
+      },
+      "input_sha256": "b7eef2f3eb69f3332603deafa3751288d086a8024a3a310121715da9a782f4f1",
+      "omitted_streams": [],
+      "open": [
+        0,
+        0
+      ],
+      "receipt_sha256": "c224118d74d3b562015c678f08cacba78c28441cdd0a5d0e933801c72176c573",
+      "retained_streams": 29
+    },
+    "SourceAfter": {
+      "bitmap_hashes": {
+        "Initial": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "Rebuilt": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "SheetFit": "b14a52cddd11add23f41d0b8f8f4f3a7122039d61cb45ddba391f0c262223a97"
+      },
+      "input_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "open": [
+        0,
+        0
+      ],
+      "receipt_sha256": "a384fee7c53fa5b7b0b5f6e47eaa5aa60bcc5707b75eb89c2a60393ed6a7dd81"
+    },
+    "SourceBefore": {
+      "bitmap_hashes": {
+        "Initial": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "Rebuilt": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "SheetFit": "b14a52cddd11add23f41d0b8f8f4f3a7122039d61cb45ddba391f0c262223a97"
+      },
+      "input_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "open": [
+        0,
+        0
+      ],
+      "receipt_sha256": "e82f2d78bc55ac1c0723cfc8948c5d4adbf84733f78647a3609693f55d4b09bf"
+    }
+  },
+  "preference_writes": 0,
+  "pristine_before_after": {
+    "all_exact": true,
+    "stages": {
+      "Initial": {
+        "actual_note_sheet_tree_exact": true,
+        "full_bitmap_sha256_exact": true,
+        "pose_exact": true,
+        "preferences_exact": true
+      },
+      "Rebuilt": {
+        "actual_note_sheet_tree_exact": true,
+        "full_bitmap_sha256_exact": true,
+        "pose_exact": true,
+        "preferences_exact": true
+      },
+      "SheetFit": {
+        "actual_note_sheet_tree_exact": true,
+        "full_bitmap_sha256_exact": true,
+        "pose_exact": true,
+        "preferences_exact": true
+      }
+    }
+  },
+  "production_cache_omission_qualified": false,
+  "raw_guest_result_sha256": "d7c37d23a656c4df88bfe48446aee578d98c208f95d06fc01d035d010879e588",
+  "recipe_sha256": "0a087457d5d961ae75b0a7f1de0aaf8d94805a6d53465ab8e8c45f185f8c29a2",
+  "schema": "kit.sw2026.disclosed-note-viewport-cache-result.v1",
+  "writer_output_count": 0
+}

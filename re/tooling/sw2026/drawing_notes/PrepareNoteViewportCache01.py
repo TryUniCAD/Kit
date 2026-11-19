@@ -7,17 +7,7 @@ from shutil import copyfile
 import sys
 import zlib
 
-OMISSIONS = {
-    "Repacked": (),
-    "OmitDisplayLists": ("Contents/DisplayLists",),
-    "OmitViewBucketLists": ("Contents/VBLists",),
-    "OmitDisplayStamp": ("_DL_VERSION_19000/DLUpdateStamp",),
-    "OmitAllThree": (
-        "Contents/DisplayLists",
-        "Contents/VBLists",
-        "_DL_VERSION_19000/DLUpdateStamp",
-    ),
-}
+from NoteViewportCacheCases import CORE_BASIS_SHA256, cache_basis_passed, omission_cases
 
 
 def require(value, message):
@@ -100,8 +90,17 @@ def prepare(args):
     )
     signatures, type_ids = TemplateFields(native, archive)
     streams = archive.streams
+    source_order = [record.name for record in archive.records]
+    omissions = omission_cases(args.profile, source_order)
+    if args.profile == "seven":
+        require(args.cache_basis is not None and digest(args.cache_basis) == CORE_BASIS_SHA256,
+                "the complete earlier native graphics omission receipt is required")
+        require(cache_basis_passed(json.loads(args.cache_basis.read_bytes())),
+                "the earlier graphics omission comparison was incomplete")
+    else:
+        require(args.cache_basis is None, "a cache basis applies to the seven-stream comparison")
     require(
-        set(key for keys in OMISSIONS.values() for key in keys) <= streams.keys(),
+        set(key for keys in omissions.values() for key in keys) <= streams.keys(),
         "a requested viewport cache stream is absent",
     )
     output.mkdir(parents=True)
@@ -115,9 +114,10 @@ def prepare(args):
         (source / "SheetFitDiagnostic02/Result.json", "Evidence/SheetFitResult.json"),
     ):
         copy_checked(source_path, output / target, digest(source_path))
+    if args.cache_basis is not None:
+        copy_checked(args.cache_basis, output / "Evidence/ViewportCachesResult.json", CORE_BASIS_SHA256)
     variants = {}
-    source_order = [record.name for record in archive.records]
-    for name, omitted in OMISSIONS.items():
+    for name, omitted in omissions.items():
         retained = {key: value for key, value in streams.items() if key not in omitted}
         encoded = EmitSldprt(
             list(retained.items()),
@@ -127,10 +127,13 @@ def prepare(args):
             type_ids,
         )
         decoded = SldprtArchive.from_bytes(encoded)
+        retained_signatures, retained_types = TemplateFields(encoded, decoded)
         require(
             decoded.file_id == archive.file_id
             and decoded.format_version == archive.format_version
             and decoded.streams == retained
+            and retained_signatures == signatures
+            and retained_types == {name: type_ids[name] for name in retained}
             and [record.name for record in decoded.records]
             == [name for name in source_order if name not in omitted],
             "repacking changed a retained stream or directory order",
@@ -158,7 +161,7 @@ def prepare(args):
         output / "Tools" / viewport.name,
         "0abf5d3b3072b6b1d881dd51e646217848d246726e9f5281130e26320de6edeb",
     )
-    for name in ("InspectNoteViewportCache01.py", Path(__file__).name):
+    for name in ("InspectNoteViewportCache01.py", "NoteViewportCacheCases.py", Path(__file__).name):
         own = Path(__file__).resolve().parent / name
         copy_checked(own, output / "Tools" / name, digest(own))
     closure = {}
@@ -188,7 +191,7 @@ def prepare(args):
             },
             "sdk_source_sha256": closure,
             "variants": variants,
-            "seven_role_reduction_included": False,
+            "seven_role_reduction_included": args.profile == "seven",
             "writer_output_count": 0,
             "native_acceptance": False,
         },
@@ -204,6 +207,8 @@ def prepare(args):
     )
     job = {
         "schema": "kit.sw2026.disclosed-note-viewport-cache.v1",
+        "profile": args.profile,
+        "source_stream_order": source_order,
         "oracle_sha256": prior_job["oracle_sha256"],
         "source_sha256": digest(source_file),
         "control_sha256": digest(control),
@@ -212,7 +217,7 @@ def prepare(args):
         "roles": [
             "ControlBefore",
             "SourceBefore",
-            *OMISSIONS,
+            *omissions,
             "SourceAfter",
             "ControlAfter",
         ],
@@ -265,7 +270,8 @@ def prepare(args):
     recipe = {
         "schema": "kit.sw2026.note-viewport-cache-recipe.v1",
         "packet_sha256": trial_sha,
-        "scope": "read-only diagnostic native copies, separate three caches and combined omission, no design edit/save or writer output",
+        "scope": "read-only diagnostic native copies, no design edit/save or writer output",
+        "profile": args.profile,
         "host_verify_argv": [
             "uv",
             "run",
@@ -323,6 +329,8 @@ def main():
     parser.add_argument("--source-guest-root", required=True)
     parser.add_argument("--guest-root", required=True)
     parser.add_argument("--guest-python", required=True)
+    parser.add_argument("--profile", choices=("graphics", "seven"), default="graphics")
+    parser.add_argument("--cache-basis", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     print(json.dumps(prepare(parser.parse_args()), indent=2, sort_keys=True))
 

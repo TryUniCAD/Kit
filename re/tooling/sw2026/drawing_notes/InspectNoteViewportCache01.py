@@ -1,4 +1,5 @@
 import argparse
+from hashlib import sha256
 import json
 import os
 from pathlib import Path
@@ -18,21 +19,10 @@ from ObservePlainNotePresentation01 import (
 )
 from InspectNoteGrid01 import preferences
 from InspectNoteViewport02 import pose
+from NoteViewportCacheCases import CORE_BASIS_SHA256, cache_basis_passed, omission_cases
 
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA = "kit.sw2026.disclosed-note-viewport-cache.v1"
-OMISSIONS = {
-    "Repacked": (),
-    "OmitDisplayLists": ("Contents/DisplayLists",),
-    "OmitViewBucketLists": ("Contents/VBLists",),
-    "OmitDisplayStamp": ("_DL_VERSION_19000/DLUpdateStamp",),
-    "OmitAllThree": (
-        "Contents/DisplayLists",
-        "Contents/VBLists",
-        "_DL_VERSION_19000/DLUpdateStamp",
-    ),
-}
-ROLES = ("ControlBefore", "SourceBefore", *OMISSIONS, "SourceAfter", "ControlAfter")
 STAGES = ("Initial", "Rebuilt", "SheetFit")
 
 
@@ -44,10 +34,12 @@ def verify(path, expected):
         "run the exact frozen viewport cache packet",
     )
     job = json.loads(path.read_bytes())
+    omissions = omission_cases(job["profile"], job["source_stream_order"])
+    roles = ("ControlBefore", "SourceBefore", *omissions, "SourceAfter", "ControlAfter")
     require(
         job["schema"] == SCHEMA
         and job["oracle_sha256"] == ORACLE
-        and job["roles"] == list(ROLES)
+        and job["roles"] == list(roles)
         and job["writer_output_count"]
         == job["heldout_inputs_read"]
         == job["document_saves"]
@@ -72,10 +64,10 @@ def verify(path, expected):
         "the exact declared disclosed source, intent or pristine control changed",
     )
     require(
-        set(job["variants"]) == set(OMISSIONS)
+        set(job["variants"]) == set(omissions)
         and all(
             job["variants"][name]["omitted"] == list(keys)
-            for name, keys in OMISSIONS.items()
+            for name, keys in omissions.items()
         ),
         "the individual or combined omission changed",
     )
@@ -100,6 +92,10 @@ def verify(path, expected):
         and prior["phases"]["Source"]["passed"] is True,
         "the disclosed native note/render observation no longer matches",
     )
+    if job["profile"] == "seven":
+        basis = (ROOT / "Evidence/ViewportCachesResult.json").read_bytes()
+        require(sha256(basis).hexdigest() == CORE_BASIS_SHA256
+                and cache_basis_passed(json.loads(basis)), "the earlier graphics omission proof changed")
     api = json.loads((ROOT / "GridApi01.json").read_bytes())
     require(
         api["version"] == [34, 0] and api["cad_processes_started"] == 0,
@@ -133,8 +129,9 @@ def observe(author, drawing, extension, api, intent, directory, label):
 
 
 def phase(path, expected, role):
-    require(os.name == "nt" and role in ROLES, "root owns native viewport cache phases")
+    require(os.name == "nt", "root owns native viewport cache phases")
     job = verify(path, expected)
+    require(role in job["roles"], "unexpected native viewport cache phase")
     runtime = job["guest_runtime"]
     require(
         tuple(sys.version_info[:3]) == tuple(map(int, runtime["version"].split(".")))
@@ -142,19 +139,19 @@ def phase(path, expected, role):
         and Path(sys.executable).samefile(runtime["executable"]),
         "the native observer runtime changed",
     )
-    if role == "SourceBefore" or role in OMISSIONS:
+    if role == "SourceBefore" or role in job["variants"]:
         before = json.loads(
             (ROOT / "Inspection/ControlBefore/Result.json").read_bytes()
         )
         require(
             before["passed"] is True, "a healthy pristine leading control is required"
         )
-    if role in OMISSIONS:
+    if role in job["variants"]:
         before = json.loads((ROOT / "Inspection/SourceBefore/Result.json").read_bytes())
         require(
             before["passed"] is True, "the unchanged annotated source must pass first"
         )
-    if role in OMISSIONS and role != "Repacked":
+    if role in job["variants"] and role != "Repacked":
         before = json.loads((ROOT / "Inspection/Repacked/Result.json").read_bytes())
         require(
             before["passed"] is True, "the full repack must pass before an omission"
@@ -322,9 +319,9 @@ def compare(first, second):
 
 
 def summarize(path, expected):
-    verify(path, expected)
+    job = verify(path, expected)
     rows = {}
-    for role in ROLES:
+    for role in job["roles"]:
         source = ROOT / "Inspection" / role / "Result.json"
         if source.is_file():
             rows[role] = json.loads(source.read_bytes())
@@ -337,16 +334,17 @@ def summarize(path, expected):
     healthy = pristine["all_exact"] and annotated["all_exact"]
     matches = {
         role: compare(rows.get("SourceBefore", {}), rows.get(role, {}))
-        for role in OMISSIONS
+        for role in job["variants"]
     }
     complete = bool(
         healthy
-        and len(identities) == len(rows) == len(ROLES)
+        and len(identities) == len(rows) == len(job["roles"])
         and all(row.get("passed") is True for row in rows.values())
     )
     result = {
         "schema": "kit.sw2026.disclosed-note-viewport-cache-result.v1",
         "packet_sha256": expected,
+        "profile": job["profile"],
         "diagnostic_completed": complete,
         "controls_healthy": healthy,
         "distinct_processes": len(identities),
@@ -374,7 +372,7 @@ def main():
     parser.add_argument("command", choices=("verify", "phase", "summary"))
     parser.add_argument("trial", type=Path)
     parser.add_argument("--trial-sha256", required=True)
-    parser.add_argument("--phase", choices=ROLES)
+    parser.add_argument("--phase")
     args = parser.parse_args()
     if args.command == "verify":
         verify(args.trial.resolve(strict=True), args.trial_sha256)
