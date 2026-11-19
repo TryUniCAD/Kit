@@ -29,4 +29,4 @@ def CheckVersion(TmpPath: FilePath) -> None:
     ManifestPath.write_text(DumpJson(ManifestData), encoding="utf-8")
     Result = RunCatalog("VerifyCatalog.py", str(OutputPath))
     assert Result.returncode != 0
-    assert "version" in Result.stderr.lower()
+    assert "Application version differs from source provenance" in Result.stderr

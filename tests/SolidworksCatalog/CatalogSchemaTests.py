@@ -39,4 +39,4 @@ def CheckSchemaData(TmpPath: FilePath) -> None:
     ManifestPath.write_text(DumpJson(ManifestData), encoding="utf-8")
     Result = RunCatalog("VerifyCatalog.py", str(OutputPath))
     assert Result.returncode != 0
-    assert "schema" in Result.stderr.lower()
+    assert "Database schema or planner query views differ" in Result.stderr

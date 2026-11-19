@@ -34,15 +34,15 @@ explains why declarations and command enums cannot qualify authorability.
 
 ## Ownership and exit condition
 
-| Field          | Record                                                                                                          |
-| -------------- | --------------------------------------------------------------------------------------------------------------- |
-| Task           | `SW-CATALOG`                                                                                                    |
-| Owner          | Current catalogue PR coordinator                                                                                |
-| Scope          | Installed declaration inventory and explicit feature planning taxonomy                                          |
-| Research lanes | API inventory; catalogue/database verification; feature plan and documentation                                  |
-| Dependencies   | A03/A07/A08/A09/A10 programme boundaries in PR #158; planner integration in PR #162                             |
-| Delivery       | This separate catalogue PR; PR #163 remains the format reference                                                |
-| Exit           | Source-bound saved inventory, independently verified deterministic bundle, documented gaps and scoped PR review |
+| Field          | Record                                                                                                                           |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Task           | `SW-CATALOG`                                                                                                                     |
+| Owner          | Current catalogue PR coordinator                                                                                                 |
+| Scope          | Installed declaration inventory and explicit feature planning taxonomy                                                           |
+| Research lanes | API inventory; catalogue/database verification; feature plan and documentation                                                   |
+| Dependencies   | A03/A07/A08/A09/A10 programme boundaries in PR #158; planner integration in PR #162                                              |
+| Delivery       | [PR #164](https://github.com/TryUniCAD/Kit/pull/164), branch `codex/solidworks-planner-catalog`; PR #163 is the format reference |
+| Exit           | Source-bound saved inventory, independently verified deterministic bundle, documented gaps and scoped PR review                  |
 
 The catalogue supplies research inputs. It does not implement scheduler execution,
 transfer programme ownership, change campaign ledgers or promote any existing
