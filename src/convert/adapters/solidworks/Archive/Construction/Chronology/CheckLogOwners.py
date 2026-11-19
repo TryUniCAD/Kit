@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Chronology.CheckLogParent import (
+    CheckLogParent,
+)
 from convert.adapters.solidworks.Archive.Construction.Chronology.RevisionBook import (
     RevisionBook,
 )
@@ -26,11 +29,8 @@ def CheckLogOwners(ModelValue: ArchiveNode, InputValue: RevisionBook) -> None:
         SeenValues.add(Identifier)
         NameValue = ArchiveNode.RequireNode(OwnerValue.FieldsValue["f18"])
         RequireRootNode(NameValue, "moNodeName_c")
-        if (
-            OwnerValue is not ModelValue
-            and OwnerValue.FieldsValue.get("owner") is not ModelValue
-        ):
-            raise ValueError("revision feature must belong to the actual modeled part")
+        if OwnerValue is not ModelValue:
+            CheckLogParent(ModelValue, OwnerValue, InputValue)
     RootValues = tuple(
         LogValue
         for LogValue in InputValue.LogsValue

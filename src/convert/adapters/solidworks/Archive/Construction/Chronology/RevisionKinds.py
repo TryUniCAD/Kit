@@ -12,6 +12,7 @@ KRevisionKinds = (
             "moPart_c",
             "moProfileFeature_c",
             "moExtrusion_c",
+            "moICE_c",
             "moRevolution_c",
             "moNotesAreaFtrFolder_c",
             "moAmbientLight_c",
