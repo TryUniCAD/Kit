@@ -208,8 +208,8 @@ def freeze(args):
     prefix = [
         "prlctl",
         "exec",
-        "--current-user",
         "Windows 11",
+        "--current-user",
         str(interpreter),
         "-B",
         script,
