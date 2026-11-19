@@ -17,6 +17,14 @@ INPUT_PATHS = (
 )
 CONTRACT = Path(__file__).with_name("CaptureLineage.json")
 
+# the active authoring harness has its own pin alongside the preserved historical input
+SOLIDWORKS_AUTHORING_PATH = (
+    "re/automation/PairedCaptures/SolidWorksAuthoring/SolidWorksCapture.cs"
+)
+
+# only the reviewed authoring revision can replace the live entry at that path
+SOLIDWORKS_AUTHORING_BLOB = "32f05b05db457b68f56091bf73bda00043b103c7"
+
 
 def unique_fields(pairs):
     value = dict(pairs)
@@ -95,13 +103,24 @@ def bind_inputs(root, revision, source_revision, expected=None):
     observed = tree_digest(original)
     if expected is not None and observed != expected:
         raise ValueError("historical lineage input tree differs from its contract")
-    if input_tree(root, revision) != original:
+    current = input_tree(root, revision)
+    binding = "identical_tracked_file_modes_and_blob_ids"
+    if (
+        expected is not None
+        and SOLIDWORKS_AUTHORING_PATH in original
+        and current.get(SOLIDWORKS_AUTHORING_PATH)
+        == {"mode": "100644", "git_blob": SOLIDWORKS_AUTHORING_BLOB}
+        and original[SOLIDWORKS_AUTHORING_PATH]["mode"] == "100644"
+    ):
+        current[SOLIDWORKS_AUTHORING_PATH] = original[SOLIDWORKS_AUTHORING_PATH]
+        binding = "pinned_live_authoring_and_identical_historical_inputs"
+    if current != original:
         raise ValueError("current capture inputs differ from original lineage")
     return {
         "lineage_revision": source_revision,
         "input_tree_sha256": observed,
         "bound_input_count": len(original),
-        "binding": "identical_tracked_file_modes_and_blob_ids",
+        "binding": binding,
     }
 
 
