@@ -76,6 +76,16 @@ def TestXmlAssembly(TmpPath: FilePath) -> None:
     Assembly = Document.assembly
     assert Document.validate() == () and Assembly is not None
     assert len(Assembly.definitions) == 2 and len(Assembly.documents) == 1
+    RootDefinition = Assembly.definition(Assembly.root_definition_id)
+    ChildDefinition = Assembly.definition(Assembly.instances[0].definition_id)
+    assert (
+        RootDefinition.name == ParentPath.stem
+        and ChildDefinition.name == ChildPath.stem
+    )
+    RawAttributes = CastValue(
+        tuple[tuple[str, str], ...], ChildDefinition.attributes["native_attributes"]
+    )
+    assert dict(RawAttributes)["swName"] == ParentPath.stem
     assert len(Assembly.instances) == 3
     assert len({Instance.definition_id for Instance in Assembly.instances}) == 1
     assert [

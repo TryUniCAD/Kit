@@ -1,0 +1,713 @@
+{
+  "after_sdk_file": "c1f1e7e999e926e5e8ce0189bfbef0fa1eccfc730b0db8b8b3976436b506262d",
+  "before_revision": "862d575c82d325c27b345456ecc4ec45e807455f",
+  "before_sdk_file": "361348adf4c1d149065094be6fcbbbf8433d0ce330befed16f1ee035c0c8d4e7",
+  "fresh_host_sdk_processes": 16,
+  "heldout_inputs_read": 0,
+  "input_hashes": {
+    "AuthoredLabelDiagnostic": {
+      "child_sha": "6f1c33af64a074b2927abbd9019f839bac32db5b52f307a66646695f4485f69a",
+      "parent_sha": "eb37e2808b41c05fa721923ec8089ae243c52732879efa941510cc5c30d016f5"
+    },
+    "D01": {
+      "child_sha": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "parent_sha": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2"
+    },
+    "GuardedGenerated": {
+      "child_sha": "6f1c33af64a074b2927abbd9019f839bac32db5b52f307a66646695f4485f69a",
+      "parent_sha": "8d37dcbacf3833af28975ce45be7767b996929d44d16037578e83639e24c6786"
+    },
+    "NativeSaved": {
+      "child_sha": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416",
+      "parent_sha": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3"
+    }
+  },
+  "inputs_unchanged": true,
+  "native_processes_started": 0,
+  "process_cases": {
+    "D01Default": {
+      "after": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:92b83376b42ca55aa3b3",
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01Child",
+            "sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa"
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.sldasm",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "mate_scope": "admitted",
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "8e851e537a3c28f7008a39f643adb7d31953cc9930acec7f1a4da3d5ef876dd5",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "before": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:92b83376b42ca55aa3b3",
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa"
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.sldasm",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "mate_scope": "admitted",
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "8e851e537a3c28f7008a39f643adb7d31953cc9930acec7f1a4da3d5ef876dd5",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "expected_name_only_change": true
+    },
+    "D01Metadata": {
+      "after": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:92b83376b42ca55aa3b3",
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01Child",
+            "sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa"
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.sldasm",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "mate_scope": "admitted",
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "bd0069f309c77e7fd623c7baaf44ade296ce4e79918a0da637e972b6692694af",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "before": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:92b83376b42ca55aa3b3",
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa"
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.sldasm",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "mate_scope": "admitted",
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "bd0069f309c77e7fd623c7baaf44ade296ce4e79918a0da637e972b6692694af",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "expected_name_only_change": true
+    },
+    "ExplicitLabel": {
+      "after": {
+        "definitions": [
+          {
+            "component_index_name": "Explicit Child Label",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:6f1c33af64a074b2927a",
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "Explicit Child Label",
+            "sha256": "6f1c33af64a074b2927abbd9019f839bac32db5b52f307a66646695f4485f69a"
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.SLDASM",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "mate_scope": "unsupported",
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "eccb13b8178d2e76eeee298735c319c1531cc470e94cc72e8834450b688c70ec",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "before": {
+        "definitions": [
+          {
+            "component_index_name": "Explicit Child Label",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:6f1c33af64a074b2927a",
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "Explicit Child Label",
+            "sha256": "6f1c33af64a074b2927abbd9019f839bac32db5b52f307a66646695f4485f69a"
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.SLDASM",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "mate_scope": "unsupported",
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "eccb13b8178d2e76eeee298735c319c1531cc470e94cc72e8834450b688c70ec",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "expected_name_only_change": false
+    },
+    "GeneratedDefault": {
+      "after": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:6f1c33af64a074b2927a",
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01Child",
+            "sha256": "6f1c33af64a074b2927abbd9019f839bac32db5b52f307a66646695f4485f69a"
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.SLDASM",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "mate_scope": "unsupported",
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "774263ede5afb277934156e6e20507792f919622ee9cebef479ebbba32e6f269",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "before": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:6f1c33af64a074b2927a",
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": "6f1c33af64a074b2927abbd9019f839bac32db5b52f307a66646695f4485f69a"
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.SLDASM",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM",
+          "ConcentricD01Child.SLDPRT"
+        ],
+        "mate_scope": "unsupported",
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "774263ede5afb277934156e6e20507792f919622ee9cebef479ebbba32e6f269",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "expected_name_only_change": true
+    },
+    "MissingDiagnostic": {
+      "after": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": null,
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.SLDASM",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM"
+        ],
+        "mate_scope": null,
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "76959560e65914448a0133e6c0daa978ca8c4cc707e2f733f8aa41082047d972",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved",
+          "sldasm.component_source_missing"
+        ]
+      },
+      "before": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": null,
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.SLDASM",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM"
+        ],
+        "mate_scope": null,
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "76959560e65914448a0133e6c0daa978ca8c4cc707e2f733f8aa41082047d972",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved",
+          "sldasm.component_source_missing"
+        ]
+      },
+      "expected_name_only_change": false
+    },
+    "MissingStrict": {
+      "after": {
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM"
+        ],
+        "read_refusal": "assembly component sources and tessellation are unavailable: ConcentricD01AlignedFree"
+      },
+      "before": {
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM"
+        ],
+        "read_refusal": "assembly component sources and tessellation are unavailable: ConcentricD01AlignedFree"
+      },
+      "expected_name_only_change": false
+    },
+    "NativeSavedDefault": {
+      "after": {
+        "definitions": [
+          {
+            "component_index_name": "DisclosedRadialSceneProbe",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:d39693d2617c0900a607",
+            "linked_file": "DisclosedRadialSceneProbe.SLDPRT",
+            "name": "DisclosedRadialSceneProbe",
+            "sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416"
+          },
+          {
+            "component_index_name": "RadialConcentricProbe",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "RadialConcentricProbe.SLDASM",
+            "name": "RadialConcentricProbe",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "DisclosedRadialSceneProbe.SLDPRT",
+          "RadialConcentricProbe.SLDASM"
+        ],
+        "mate_scope": "admitted",
+        "occurrences": [
+          [
+            "DisclosedRadialSceneProbe-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "DisclosedRadialSceneProbe-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "60a385d434b4a82dbf58c683aebdb0d4f3945fd96647f8bd48366fdc1d14d770",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "before": {
+        "definitions": [
+          {
+            "component_index_name": "DisclosedRadialSceneProbe",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": "sldasm:document:d39693d2617c0900a607",
+            "linked_file": "DisclosedRadialSceneProbe.SLDPRT",
+            "name": "DisclosedRadialSceneProbe",
+            "sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416"
+          },
+          {
+            "component_index_name": "RadialConcentricProbe",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "RadialConcentricProbe.SLDASM",
+            "name": "RadialConcentricProbe",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "DisclosedRadialSceneProbe.SLDPRT",
+          "RadialConcentricProbe.SLDASM"
+        ],
+        "mate_scope": "admitted",
+        "occurrences": [
+          [
+            "DisclosedRadialSceneProbe-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "DisclosedRadialSceneProbe-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "60a385d434b4a82dbf58c683aebdb0d4f3945fd96647f8bd48366fdc1d14d770",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "expected_name_only_change": false
+    },
+    "ResolutionDisabled": {
+      "after": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": null,
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.sldasm",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM"
+        ],
+        "mate_scope": null,
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "777166c315073b6ef7457b8b0acc3434eea666f53da73347c3abd0bf02bab84e",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "before": {
+        "definitions": [
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:5",
+            "kind": "part",
+            "linked_document": null,
+            "linked_file": "ConcentricD01Child.SLDPRT",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          },
+          {
+            "component_index_name": "ConcentricD01AlignedFree",
+            "id": "sldasm:definition:2",
+            "kind": "assembly",
+            "linked_document": null,
+            "linked_file": "ConcentricD01AlignedFree.sldasm",
+            "name": "ConcentricD01AlignedFree",
+            "sha256": null
+          }
+        ],
+        "forbidden_events": [],
+        "guarded_input_reads": [
+          "ConcentricD01AlignedFree.SLDASM"
+        ],
+        "mate_scope": null,
+        "occurrences": [
+          [
+            "ConcentricD01Child-1",
+            "1",
+            "sldasm:definition:5"
+          ],
+          [
+            "ConcentricD01Child-2",
+            "2",
+            "sldasm:definition:5"
+          ]
+        ],
+        "public_projection_without_names_or_derived_seal_sha256": "777166c315073b6ef7457b8b0acc3434eea666f53da73347c3abd0bf02bab84e",
+        "read_diagnostics": [
+          "sldasm.native_record_unresolved"
+        ]
+      },
+      "expected_name_only_change": false
+    }
+  },
+  "read_side_diagnostic_outputs": 1,
+  "schema": "kit.sw2026.linked-definition-names.v1",
+  "source_delta": "src/convert/adapters/solidworks/Core/Adapter.py",
+  "typed_file_ownership": {
+    "D01": {
+      "assembly_native_model_name": "Assem1",
+      "child_file": "ConcentricD01Child.SLDPRT",
+      "child_file_bindings": 2,
+      "child_file_reference": 6,
+      "child_index_label": "ConcentricD01AlignedFree",
+      "child_native_model_name": "ConcentricD01Child",
+      "root_index_label": "ConcentricD01AlignedFree"
+    },
+    "GuardedGenerated": {
+      "assembly_native_model_name": "ConcentricD01AlignedFree",
+      "child_file": "ConcentricD01Child.SLDPRT",
+      "child_file_bindings": 2,
+      "child_file_reference": 6,
+      "child_index_label": "ConcentricD01AlignedFree",
+      "child_native_model_name": "ConcentricD01Child",
+      "root_index_label": "ConcentricD01AlignedFree"
+    },
+    "NativeSaved": {
+      "assembly_native_model_name": "RadialConcentricProbe",
+      "child_file": "DisclosedRadialSceneProbe.SLDPRT",
+      "child_file_bindings": 2,
+      "child_file_reference": 6,
+      "child_index_label": "DisclosedRadialSceneProbe",
+      "child_native_model_name": "DisclosedRadialSceneProbe",
+      "root_index_label": "RadialConcentricProbe"
+    }
+  }
+}

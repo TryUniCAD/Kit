@@ -128,6 +128,7 @@ from convert.adapters.solidworks.Container.Format import (
     KIT_DOCUMENT_STREAM as KitDocStream,
     KIT_RESOLVED_STREAM as KitResolvedStream,
     KDrawingFormatId,
+    KPartSuffix,
     IsDrawingPath,
     MATES_STREAM_NAME as MatesStreamName,
     MATES_STREAM_SUFFIX as MatesStreamSuffix,
@@ -1211,7 +1212,7 @@ def AsmMeshes(Native: NativeAssembly) -> tuple[tuple[MeshValue, ...], dict[int, 
     return (tuple(Result), MeshIds)
 
 
-# this definition exists because focused behavior needs one stable owner
+# portable definitions need the owned part identity even when the index mirrors the assembly name
 def AsmDefinitions(
     Native: NativeAssembly,
     DocIds: dict[int, str],
@@ -1222,6 +1223,25 @@ def AsmDefinitions(
     ResolveComponents: bool = True,
 ) -> tuple[ComponentDefinition, ...]:
     Result: list[ComponentDefinition] = []
+    RootDefinition = next(
+        Value
+        for Value in Native.definitions
+        if Value.object_id == Native.root_definition_id
+    )
+    MirroredIndex = (
+        Native.application_version == 19000
+        and RootDefinition.document_type == "ASSEMBLY"
+        and len(Native.definitions) == 2
+        and bool(Native.occurrences)
+        and all(
+            Value.owner_definition_id == Native.root_definition_id
+            and Value.definition_id != Native.root_definition_id
+            and not Value.virtual
+            for Value in Native.occurrences
+        )
+        and bool(Native.name)
+        and Native.name == PureWindowsPath(RootDefinition.source_path).stem
+    )
     for Definition in Native.definitions:
         DocId = DocIds.get(Definition.object_id, "")
         DocValue = Documents.get(DocId)
@@ -1240,10 +1260,25 @@ def AsmDefinitions(
                 else ComponentKind.NATIVE
             )
         )
+        NameValue = Definition.name
+        if (
+            MirroredIndex
+            and KindValue == ComponentKind.PART
+            and DocValue is not None
+            and DocValue.source.format_id == KFormatId
+            and SourcePath is not None
+            and NameValue == Native.name
+        ):
+            FileValue = PureWindowsPath(Definition.source_path)
+            if (
+                FileValue.suffix.casefold() == KPartSuffix
+                and SourcePath.name.casefold() == FileValue.name.casefold()
+            ):
+                NameValue = FileValue.stem
         Result.append(
             ComponentDefinition(
                 id=AsmDefinitionId(Definition.object_id),
-                name=Definition.name,
+                name=NameValue,
                 kind=KindValue,
                 document_id=DocId,
                 configuration_name=Definition.configuration_name,
