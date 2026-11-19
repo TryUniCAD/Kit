@@ -126,6 +126,9 @@ from convert.adapters.freecad.Protocol import (
     SUPPORT_PLANE_TYPE_IDS as SupportPlaneTypeIds,
     XML_TRUE_VALUES as XmlTrueValues,
 )
+from convert.adapters.freecad.Replay.OuterState import OuterState as OuterState
+from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
+from convert.adapters.freecad.Replay.ReadNativeArc import ReadNativeArc
 
 # this binding exists because shared behavior needs one stable value
 KMaxOuterDepth = 16
@@ -170,16 +173,6 @@ class NativeArchive:
     entries: dict[str, bytes]
     document_xml: bytes
     entry_order: tuple[str, ...]
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(slots=True)
-class OuterState:
-    root: FilePath
-    cache: dict[FilePath, CadDoc]
-    active: set[FilePath]
-    FileCount: int
-    TotalBytes: int
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1824,6 +1817,7 @@ def NativeSketchMut(
     PlaneTransforms: Mapping[str, Transform],
     Parameters: list[Parameter],
     Consumed: set[tuple[str, str]],
+    LegacyVisibility: bool,
 ) -> Sketch:
     SketchId = f"freecad:sketch:{ObjValue.name}"
     SupportName, SupportId = AddSupportMut(ObjValue, PlaneIds, Planes)
@@ -1858,8 +1852,12 @@ def NativeSketchMut(
         constraints=tuple(Constraints),
         parameter_ids=tuple(ParamIds),
         closed_profile_entity_ids=ClosedProfile(EntityValues),
-        suppressed=IsBoolValue(
-            ObjValue, "SourceSuppressed", IsBoolValue(ObjValue, "Suppressed")
+        suppressed=(
+            not IsBoolValue(ObjValue, "Visibility", True)
+            if LegacyVisibility
+            else IsBoolValue(
+                ObjValue, "SourceSuppressed", IsBoolValue(ObjValue, "Suppressed")
+            )
         ),
         attributes={
             "freecad": NativeObjectA(ObjValue),
@@ -1874,6 +1872,7 @@ def ParseSketchMut(
     Objects: tuple[NativeObject, ...],
     Parameters: list[Parameter],
     ConsumedExpressions: set[tuple[str, str]],
+    LegacyVisibility: bool,
 ) -> tuple[tuple[SupportPlane, ...], tuple[Sketch, ...]]:
     SupportTargets = {
         Target
@@ -1894,6 +1893,7 @@ def ParseSketchMut(
             PlaneTransforms,
             Parameters,
             ConsumedExpressions,
+            LegacyVisibility,
         )
         for ObjValue in Objects
         if ObjValue.type_id == SketchTypeId
@@ -2955,6 +2955,8 @@ def OuterDocsMut(
         Identity = Choice.relative_to(State.root).as_posix()
         Cached = State.cache.get(Choice)
         if Cached is not None:
+            if State.ReplayScope is not None:
+                State.ReplayScope.ReusedReads += 1
             Resolved[FileName] = (Identity, Cached)
             continue
         try:
@@ -3838,25 +3840,26 @@ def MakeNativeDoc(
     return DocValue
 
 
-# this definition coordinates complete native archive decoding
-def ReadNativeFcstd(
+# native model decoding uses guarded links from the enclosing archive read
+def DecodeNativeDoc(
     DataValue: bytes,
-    SourcePath: str = "",
-    *,
-    StateValue: OuterState | None = None,
-    OuterDepth: int = 0,
-) -> CadDoc:
+    SourcePath: str,
+    ActiveState: OuterState | None,
+    OuterDepth: int,
+    LegacyVisibility: bool,
+) -> tuple[CadDoc, tuple[CadDoc, ...], bool]:
     Native = LoadNative(DataValue)
-    SourceFile = ResolvedSource(SourcePath)
-    ActiveState = StateValue
-    if ActiveState is None and SourceFile is not None:
-        ActiveState = OuterState(SourceFile.parent, {}, {SourceFile}, 1, len(DataValue))
     ResolvedOuter, UnresolvedOuter = OuterDocsMut(
         Native, SourcePath, ActiveState, OuterDepth
     )
     Parameters: list[Param] = []
     Consumed: set[tuple[str, str]] = set()
-    SupportPlanes, Sketches = ParseSketchMut(Native.objects, Parameters, Consumed)
+    SupportPlanes, Sketches = ParseSketchMut(
+        Native.objects,
+        Parameters,
+        Consumed,
+        LegacyVisibility,
+    )
     SketchIds = {
         ObjValue.name: f"freecad:sketch:{ObjValue.name}"
         for ObjValue in Native.objects
@@ -3900,7 +3903,7 @@ def ReadNativeFcstd(
     Diagnostics = NativeDiags(Native, FeatureObjects, Meshes, UnresolvedOuter)
     MetaValue = NativeMeta(Native, AsmValue, ResolvedOuter)
     Configurations = BuildConfigs(Native.objects, FeatureIds)
-    return MakeNativeDoc(
+    DocValue = MakeNativeDoc(
         NativeSource(DataValue, SourcePath, Native),
         Configurations,
         Parameters,
@@ -3916,6 +3919,32 @@ def ReadNativeFcstd(
         MetaValue,
         AsmValue,
         bool(ResolvedOuter or UnresolvedOuter),
+    )
+    Children = tuple(Child for _, Child in ResolvedOuter.values())
+    return DocValue, Children, bool(UnresolvedOuter)
+
+
+# this definition coordinates complete native archive decoding
+def ReadNativeFcstd(
+    DataValue: bytes,
+    SourcePath: str = "",
+    *,
+    StateValue: OuterState | None = None,
+    OuterDepth: int = 0,
+    LegacyVisibility: bool = False,
+    RecordReplay: bool = False,
+    ReplayReads: KReplayReadCache | None = None,
+) -> CadDoc:
+    return ReadNativeArc(
+        DataValue,
+        SourcePath,
+        ResolvedSource(SourcePath),
+        StateValue,
+        OuterDepth,
+        LegacyVisibility,
+        RecordReplay,
+        ReplayReads,
+        DecodeNativeDoc,
     )
 
 

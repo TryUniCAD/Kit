@@ -1,13 +1,24 @@
 # FreeCAD hidden sketches stay active
 
 The native FCStd reader preserves hidden sketches as active profile drivers when the source has no explicit suppression.
-`SourceSuppressed` and `Suppressed` still control sketch suppression, and native archive edits preserve the existing `Visibility` property.
-The fix applies on the ordinary strict read path and needs no adapter option.
+A boolean `SourceSuppressed` property takes precedence over `Suppressed`.
+Kit writes explicit suppression edits to the native sketch record and retains the source visibility property.
 
-The [integration suite](../../../tests/Convert/Freecad/FreecadTests.py) exercises hidden active profiles and both explicit suppression properties through read, edit and archive write.
-The combined FreeCAD integration run passed 144 tests with ten skips for unavailable bundled examples.
-In the [FCStd replay](../../../re/solidworks/measurements/2026/FreecadSketchVisibility01.json), all 171 available paths read strictly.
-The correction changes 318 sketch states in 94 paths, with associated derived digest updates and zero other field differences.
+Kit can restore an unchanged archive carried by an older version that interpreted visibility as suppression.
+The carried model and an independent parse of the archive must both match the stored semantic digest.
+The compatibility check follows the normal archive validation and external reference limits.
+For an edited older carrier, the verified archive supplies the actual suppression state for unchanged inherited flags.
 
-SOLIDWORKS conversion of these original FCStd documents remains open under the [corpus coverage register](../../../re/solidworks/CorpusCoverage.md).
-[Adapter guide](../../Reference/Adapters/Freecad.md) and [native property gotcha](../../Gotchas/Conversion/Freecad/HiddenSketchesCanDriveActiveFeatures.md)
+The integration cases cover suppression priority, driving diameter edits, and exact restoration of old carriers and linked profiles. [Integration cases](../../../tests/Convert/Freecad/FreecadTests.py)
+
+The initial reader correction was measured on 171 path reads, with 318 sketch states corrected in 94 paths.
+The earlier research run reported 144 integration passes and 10 skips and records the tested adapter hashes. [Initial replay](../../../re/solidworks/measurements/2026/FreecadSketchVisibility01.json)
+
+The first queue candidate passed all test shards. Its Python CodeQL gate found cyclic imports in replay preparation.
+The replay modules use shared metadata and digest helpers through one-way imports. [Test suite](https://github.com/TryUniCAD/Kit/actions/runs/44616619145/job/135890337639) · [CodeQL diagnostic](https://github.com/TryUniCAD/Kit/actions/runs/44616619145/job/135886919702)
+
+The corrected merge-queue revision passed every acceptance check. [Accepted queue run](https://github.com/TryUniCAD/Kit/actions/runs/44637839002)
+
+SOLIDWORKS conversion of these original FCStd documents remains open in the [corpus coverage register](../../../re/solidworks/CorpusCoverage.md).
+
+[Adapter guide](../../Reference/Adapters/Freecad.md), [visibility gotcha](../../Gotchas/Conversion/Freecad/HiddenSketchesCanDriveActiveFeatures.md), and [legacy replay digest gotcha](../../Gotchas/Conversion/Freecad/LegacySketchReplayDigests.md)

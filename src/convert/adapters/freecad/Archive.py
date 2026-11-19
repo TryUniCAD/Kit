@@ -85,6 +85,7 @@ from convert.adapters.freecad.Protocol import (
     MIDPOINT_REFERENCE_POINT_NAMES as MidpointRefPointNames,
     NEUTRAL_GEOMETRY_TYPE_BY_KIND as NeutralGeomTypeByKind,
     NEUTRAL_GEOMETRY_TYPE_ID_BY_KIND as NeutralGeomTypeIdByKind,
+    PERMISSIVE_TRUE_VALUES as PermissiveTrueValues,
     SKETCH_TYPE_ID as SketchTypeId,
     SPLINE_GEOMETRY_KINDS as SplineGeomKinds,
     SPLINE_CONTROL_TAGS as SplineControlTags,
@@ -2767,6 +2768,24 @@ def SketchLinks(Properties: list[XmlTree.Element], PlaneName: str) -> list[str]:
     return Dependencies
 
 
+# explicit suppression needs its own property so sketch edits preserve display state
+def SetSuppressMut(Properties: list[XmlTree.Element], Suppressed: bool) -> None:
+    Entries = {Value.get("name"): Value.find("./Bool") for Value in Properties}
+    Record = Entries.get("SourceSuppressed")
+    if Record is None:
+        Record = Entries.get("Suppressed")
+    if Record is not None:
+        Previous = Record.get("value", "false").casefold() in PermissiveTrueValues
+        if Previous != Suppressed:
+            Record.set("value", "true" if Suppressed else "false")
+        return
+    if Suppressed:
+        PropName = "SourceSuppressed" if "Suppressed" in Entries else "Suppressed"
+        if PropName in Entries:
+            raise ValueError("native sketch suppression properties are not boolean")
+        Properties.append(BoolProp(PropName, True, Dynamic=True))
+
+
 # this definition exists because native sketch properties need selective semantic replacement
 def PatchSketchMut(
     Sketch: Mapping[str, object],
@@ -2787,7 +2806,8 @@ def PatchSketchMut(
         ShapeProp(),
     ]
     if not any(Value.get("name") == "Visibility" for Value in Properties):
-        Replacements.append(BoolProp("Visibility", not bool(Sketch.get("suppressed"))))
+        Replacements.append(BoolProp("Visibility", True))
+    SetSuppressMut(Properties, bool(Sketch.get("suppressed")))
     if DiagnosticsProp is not None:
         Replacements.append(DiagnosticsProp)
     if not PreserveNative:
@@ -2834,6 +2854,7 @@ def NeutralSketch(
         JsonProp("SourceSketchJSON", Sketch),
         BoolProp("Visibility", False),
     ]
+    SetSuppressMut(Properties, bool(Sketch.get("suppressed")))
     if DiagnosticsProp is not None:
         Properties.append(DiagnosticsProp)
     return Properties
