@@ -28,11 +28,13 @@ from para.rectangle.RectangleAttributes import Appearance
 from para.rectangle.RectanglePartition import complete_topology, project_rectangle
 
 
-def authored_prism(variant, classes):
+def authored_prism(variant, classes, *, model_path=None, model_second=None, allocate_downstream=True):
     name = f"PrismFaceConstructors{variant}"
-    path = PureWindowsPath(f"C:/KitResearch/{name}.SLDPRT")
+    path = PureWindowsPath(f"C:/KitResearch/{name}.SLDPRT" if model_path is None else model_path)
+    if not path.is_absolute() or path.suffix.casefold() != ".sldprt":
+        raise ValueError("native prism construction needs an actual absolute part path")
     limits = (2.375 * variant, -7.125, 32.25 + variant, 11.875, 6.25 + 1.75 * variant)
-    second = 1818197000 + 243 * variant
+    second = 1818197000 + 243 * variant if model_second is None else model_second
     fraction = 833710 * variant
     request = neutral_request(path, limits, modified_at=second)
     session = schedule(1492 + 318 * variant, 24, 1, 0, 5, 2, 1, second, fraction)
@@ -44,10 +46,12 @@ def authored_prism(variant, classes):
     child = construct_part(registry=classes, native_plane_roles=True, **request)
     plan = plan_rectangle(child, session)
     appearance = Appearance((113, 54, 192), 0.125, request["document"]["density_kg_m3"])
-    topology, _ = complete_topology(plan.topology)
-    faces, edges = owned_solid_chains(topology)
-    owner = uuid5(NAMESPACE_URL, "urn:kit:solidworks:downstream:face-constructor:" + name)
-    allocation = allocate_fresh_downstream(faces, edges, owner, second, fraction, is_assembly=False)
+    allocation = None
+    if allocate_downstream:
+        topology, _ = complete_topology(plan.topology)
+        faces, edges = owned_solid_chains(topology)
+        owner = uuid5(NAMESPACE_URL, "urn:kit:solidworks:downstream:face-constructor:" + name)
+        allocation = allocate_fresh_downstream(faces, edges, owner, second, fraction, is_assembly=False)
     projection = project_rectangle(child, plan, appearance, downstream=allocation)
     streams = archive_for_oracle(registry=classes, child=child, plan=plan, projection=projection,
                                  session=session, feature_updates=events)
