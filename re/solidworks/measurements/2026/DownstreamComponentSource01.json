@@ -1,0 +1,24 @@
+{
+  "actual_runtime_class_records": 5,
+  "actual_serialize_cells": 5,
+  "cad_inputs_opened": 0,
+  "complete_function_or_leaf_entries": 34,
+  "heldout_inputs_opened": 0,
+  "kernel_receive_predecessor_unchanged": true,
+  "modules": 4,
+  "native_runs": 0,
+  "schema": "kit.sw2026.downstream-component-source-receipt.v1",
+  "selected_model_imports": 28,
+  "source_record": "re/solidworks/records/DownstreamComponentWire2026.json",
+  "source_record_sha256": "ef49fca627c7f85bf65b41b261e4b96813c5291dbe49d3e63522d410587c02ca",
+  "task_id": "B04-SW2026-DOWNSTREAM-COMPONENT-WIRE",
+  "unqualified": [
+    "initial standalone archive map",
+    "reached dynamic class closure",
+    "full native save/reopen replay",
+    "fresh generated downstream acceptance",
+    "historical/special/DB profiles"
+  ],
+  "vendor_bytes_or_listings_published": false,
+  "verified_claim": "ordinary19000 component body order, eligibility gate, constructor literals and edge node-id argument flow"
+}

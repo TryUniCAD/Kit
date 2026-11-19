@@ -1,0 +1,853 @@
+{
+  "application_usable_qualified": false,
+  "cases": [
+    {
+      "attachment_offset": {
+        "axis_angle_degrees": {
+          "A": 0.0,
+          "Ox": 0.0,
+          "Oy": 0.0,
+          "Oz": 1.0
+        },
+        "position_mm": [0.0, 0.0, 0.0],
+        "quaternion_xyzw": [0.0, 0.0, 0.0, 1.0]
+      },
+      "blocked_native_owners": [
+        "primitive_to_derived_sketch_support_history",
+        "full_source_metadata_and_provenance",
+        "native_shape_material_reference",
+        "body_caption",
+        "all_other_source_parameter_roles"
+      ],
+      "body_identity_origin": "strict_reader_synthesized_default_body_not_an_authored_container",
+      "case": "CylinderA",
+      "current_brep_counts": {
+        "bodies": 1,
+        "coedges": 6,
+        "curves": 3,
+        "edges": 3,
+        "face_uses": 3,
+        "faces": 3,
+        "loops": 3,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 3,
+        "vertices": 2,
+        "wires": 0
+      },
+      "current_brep_sha256": "d6df9993b0d7ebc21f9988f0be5c10c81cbc659d2c4c6eb55bb9417736306040",
+      "current_native_payload_count": 3,
+      "custody": {
+        "case": "CylinderA",
+        "current_source_document_sha256": "22e209a66fd6eac231d2ff0e56cb5ea50ea6aae067b0a6f341491dcf79d90acc",
+        "current_strict_json_sha256": "b4e645ed21b3ae02d82f6fd6b0bec2d339ff548cedf6b1158e9fbeb31e9335fc",
+        "historical_strict_json_sha256": "d57ced05cf769cf3b3054238342c5a2d9f131060d677f18cbbfdb12bca60106a",
+        "prediction_sha256": "d8ad98645aef9aeac0aa262f3a02e1dad2aebea115f872424f4f72f5e29ce0a0",
+        "source_sha256": "dae320f82c08ccb47056aaafb31f46ac0c7136c3024ed0dc2b1484825df02faa"
+      },
+      "explicit_absences": {
+        "assembly": true,
+        "attachment_support": true,
+        "authored_boolean_operation": true,
+        "authored_sketch": true,
+        "authored_support_datum": true,
+        "configuration_overrides": true,
+        "drawing": true,
+        "expressions": true,
+        "portable_brep": false,
+        "portable_material": true
+      },
+      "historical_native_payload_count": 2,
+      "identities": {
+        "body": "freecad:body:default",
+        "configuration": "freecad:configuration:default",
+        "feature": "freecad:feature:Cylinder",
+        "height_parameter": "freecad:parameter:Cylinder:Height",
+        "native_object": "Cylinder",
+        "radius_parameter": "freecad:parameter:Cylinder:Radius"
+      },
+      "names": {
+        "body": "Body",
+        "configuration": "Default",
+        "document": "CylinderA",
+        "feature": "CylinderA feature"
+      },
+      "parameter_order": [
+        "freecad:parameter:Cylinder:Angle",
+        "freecad:parameter:Cylinder:AttacherEngine",
+        "freecad:parameter:Cylinder:AttacherType",
+        "freecad:parameter:Cylinder:FirstAngle",
+        "freecad:parameter:Cylinder:Height",
+        "freecad:parameter:Cylinder:Label",
+        "freecad:parameter:Cylinder:Label2",
+        "freecad:parameter:Cylinder:MapMode",
+        "freecad:parameter:Cylinder:MapPathParameter",
+        "freecad:parameter:Cylinder:MapReversed",
+        "freecad:parameter:Cylinder:Radius",
+        "freecad:parameter:Cylinder:SecondAngle",
+        "freecad:parameter:Cylinder:Visibility"
+      ],
+      "parameters": [
+        {
+          "id": "freecad:parameter:Cylinder:Angle",
+          "kind": "angle",
+          "name": "CylinderA feature.Angle",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "a77ddc5a37f8d8a0fe7efbbf9f1072dc1a33c71d68f8bc7d245322e2541e9d5b",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Angle",
+          "role": "driving",
+          "unit": "deg",
+          "value": 360.0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:AttacherEngine",
+          "kind": "string",
+          "name": "CylinderA feature.AttacherEngine",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "c2efabec670e960980a714502f82be3f74f7855aa4ffa5422e31188fbc599e12",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "AttacherEngine",
+          "role": "driving",
+          "unit": "",
+          "value": "Engine 3D"
+        },
+        {
+          "id": "freecad:parameter:Cylinder:AttacherType",
+          "kind": "string",
+          "name": "CylinderA feature.AttacherType",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "0753ddfd143227e4e2f79ac90822109e181674aa820fc73792998fbb9d92ba52",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "AttacherType",
+          "role": "driving",
+          "unit": "",
+          "value": "Attacher::AttachEngine3D"
+        },
+        {
+          "id": "freecad:parameter:Cylinder:FirstAngle",
+          "kind": "angle",
+          "name": "CylinderA feature.FirstAngle",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "2c53df2df887b5588e73084081a55bd6e97ecfe2c4d21137a338298bd7c5c425",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "FirstAngle",
+          "role": "driving",
+          "unit": "deg",
+          "value": 0.0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Height",
+          "kind": "length",
+          "name": "CylinderA feature.Height",
+          "native_mapping": "geometry_input",
+          "native_property_sha256": "cb800597707730f7e0358042f37e99480e05617fe6415eedddfa8020e7f5c1e0",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Height",
+          "role": "driving",
+          "unit": "mm",
+          "value": 24.619
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Label",
+          "kind": "string",
+          "name": "CylinderA feature.Label",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "322b214718662e2ea5c0b1765a9e6b13d9cdadc49e503cb8c996a9871a0719e8",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Label",
+          "role": "driving",
+          "unit": "",
+          "value": "CylinderA feature"
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Label2",
+          "kind": "string",
+          "name": "CylinderA feature.Label2",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "34eb4986ae103b667a8395e15e75de11ceb4398d5c683563f8a92c48756d261c",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Label2",
+          "role": "driving",
+          "unit": "",
+          "value": ""
+        },
+        {
+          "id": "freecad:parameter:Cylinder:MapMode",
+          "kind": "integer",
+          "name": "CylinderA feature.MapMode",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "14db0aaf29997bc145230b93a93b04a190291d5b44527bc33d959e01925e2e23",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "MapMode",
+          "role": "driving",
+          "unit": "",
+          "value": 0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:MapPathParameter",
+          "kind": "number",
+          "name": "CylinderA feature.MapPathParameter",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "85e3b4d8e60d5158ff6557cddaa6aa3f42fea3934fbecc602f441ccbdec8c1e2",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "MapPathParameter",
+          "role": "driving",
+          "unit": "",
+          "value": 0.0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:MapReversed",
+          "kind": "boolean",
+          "name": "CylinderA feature.MapReversed",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "0c3335472d6c8e265069d155c524c40d1bf4943f80d01ee2f4c03546a813247c",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "MapReversed",
+          "role": "driving",
+          "unit": "",
+          "value": false
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Radius",
+          "kind": "length",
+          "name": "CylinderA feature.Radius",
+          "native_mapping": "geometry_input",
+          "native_property_sha256": "b5d2ebc22198fb36ceaf8d5fc350c909b04826f0a7f6556d96f62f98105052bf",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Radius",
+          "role": "driving",
+          "unit": "mm",
+          "value": 7.277
+        },
+        {
+          "id": "freecad:parameter:Cylinder:SecondAngle",
+          "kind": "angle",
+          "name": "CylinderA feature.SecondAngle",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "a50b47f4cea8b91c8cacd4c5f11a78e6d04c1a764be308985c781c4ab59cd310",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "SecondAngle",
+          "role": "driving",
+          "unit": "deg",
+          "value": 0.0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Visibility",
+          "kind": "boolean",
+          "name": "CylinderA feature.Visibility",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "6a545b431894105459a830af8ab023bbac3b5f2b73afa97c5a956b63d8f733e0",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Visibility",
+          "role": "driving",
+          "unit": "",
+          "value": true
+        }
+      ],
+      "placement": {
+        "axis_angle_degrees": {
+          "A": 0.0,
+          "Ox": 0.0,
+          "Oy": 0.0,
+          "Oz": 1.0
+        },
+        "position_mm": [0.0, 0.0, 0.0],
+        "quaternion_xyzw": [0.0, 0.0, 0.0, 1.0]
+      },
+      "predicted_pristine": {
+        "area_mm2": 1458.3724984651112,
+        "bodies": 1,
+        "bounds_mm": [
+          [-7.277, -7.277, 0.0],
+          [7.277, 7.277, 24.619]
+        ],
+        "center_mm": [0.0, 0.0, 12.3095],
+        "depth_mm": 24.619,
+        "frame_kind": "derived_analysis_frame_not_an_authored_support",
+        "radius_mm": 7.277,
+        "shared_geometry": {
+          "area_mm2": 1458.3724984651112,
+          "body_ids": ["freecad:body:default-sweep-body"],
+          "bounds": {
+            "$type": "BoundingBox",
+            "maximum": {
+              "$type": "Vector3",
+              "x": 7.277,
+              "y": 7.277,
+              "z": 24.619
+            },
+            "minimum": {
+              "$type": "Vector3",
+              "x": -7.277,
+              "y": -7.277,
+              "z": 0.0
+            }
+          },
+          "faces": 3,
+          "model_sha256": "03ab1e5178090063a594c35409f22c96b4c11a051e9c430730e1d1a37330079f",
+          "volume_mm3": 4095.67069650565
+        },
+        "volume_mm3": 4095.6706965056496
+      },
+      "shape_material_reference_present": true,
+      "unrepresented_parameter_paths": [
+        "Angle",
+        "AttacherEngine",
+        "AttacherType",
+        "FirstAngle",
+        "Label",
+        "Label2",
+        "MapMode",
+        "MapPathParameter",
+        "MapReversed",
+        "SecondAngle",
+        "Visibility"
+      ]
+    },
+    {
+      "attachment_offset": {
+        "axis_angle_degrees": {
+          "A": 0.0,
+          "Ox": 0.0,
+          "Oy": 0.0,
+          "Oz": 1.0
+        },
+        "position_mm": [0.0, 0.0, 0.0],
+        "quaternion_xyzw": [0.0, 0.0, 0.0, 1.0]
+      },
+      "blocked_native_owners": [
+        "primitive_to_derived_sketch_support_history",
+        "full_source_metadata_and_provenance",
+        "native_shape_material_reference",
+        "body_caption",
+        "all_other_source_parameter_roles"
+      ],
+      "body_identity_origin": "strict_reader_synthesized_default_body_not_an_authored_container",
+      "case": "CylinderB",
+      "current_brep_counts": {
+        "bodies": 1,
+        "coedges": 6,
+        "curves": 3,
+        "edges": 3,
+        "face_uses": 3,
+        "faces": 3,
+        "loops": 3,
+        "pcurves": 0,
+        "regions": 1,
+        "shell_uses": 1,
+        "shells": 1,
+        "surfaces": 3,
+        "vertices": 2,
+        "wires": 0
+      },
+      "current_brep_sha256": "3a9c0356c4257c28834c82936d625d12a26a638f3172f424b1c65824cf77c6b4",
+      "current_native_payload_count": 3,
+      "custody": {
+        "case": "CylinderB",
+        "current_source_document_sha256": "e7b61da16d74cf72e8c7e9ba3861456f28a5647674e27c159febc86cffcad57e",
+        "current_strict_json_sha256": "362c141a119dc2872c4215b1b9eada0645a6938ff37a93b0acd612b93889ed0f",
+        "historical_strict_json_sha256": "e96966ed288a56d47b15725447fff72d1adc9941af9fbb651f84b0d20c62747d",
+        "prediction_sha256": "8763b4492033ed0cca9551f4d58cbdefb5550a9d2097d95dfc876694580e9611",
+        "source_sha256": "ea39285f9b32d6f173eed57ccdeb8182d3ac1c0e7b7f13516f4f53635061891a"
+      },
+      "explicit_absences": {
+        "assembly": true,
+        "attachment_support": true,
+        "authored_boolean_operation": true,
+        "authored_sketch": true,
+        "authored_support_datum": true,
+        "configuration_overrides": true,
+        "drawing": true,
+        "expressions": true,
+        "portable_brep": false,
+        "portable_material": true
+      },
+      "historical_native_payload_count": 2,
+      "identities": {
+        "body": "freecad:body:default",
+        "configuration": "freecad:configuration:default",
+        "feature": "freecad:feature:Cylinder",
+        "height_parameter": "freecad:parameter:Cylinder:Height",
+        "native_object": "Cylinder",
+        "radius_parameter": "freecad:parameter:Cylinder:Radius"
+      },
+      "names": {
+        "body": "Body",
+        "configuration": "Default",
+        "document": "CylinderB",
+        "feature": "CylinderB feature"
+      },
+      "parameter_order": [
+        "freecad:parameter:Cylinder:Angle",
+        "freecad:parameter:Cylinder:AttacherEngine",
+        "freecad:parameter:Cylinder:AttacherType",
+        "freecad:parameter:Cylinder:FirstAngle",
+        "freecad:parameter:Cylinder:Height",
+        "freecad:parameter:Cylinder:Label",
+        "freecad:parameter:Cylinder:Label2",
+        "freecad:parameter:Cylinder:MapMode",
+        "freecad:parameter:Cylinder:MapPathParameter",
+        "freecad:parameter:Cylinder:MapReversed",
+        "freecad:parameter:Cylinder:Radius",
+        "freecad:parameter:Cylinder:SecondAngle",
+        "freecad:parameter:Cylinder:Visibility"
+      ],
+      "parameters": [
+        {
+          "id": "freecad:parameter:Cylinder:Angle",
+          "kind": "angle",
+          "name": "CylinderB feature.Angle",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "a77ddc5a37f8d8a0fe7efbbf9f1072dc1a33c71d68f8bc7d245322e2541e9d5b",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Angle",
+          "role": "driving",
+          "unit": "deg",
+          "value": 360.0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:AttacherEngine",
+          "kind": "string",
+          "name": "CylinderB feature.AttacherEngine",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "c2efabec670e960980a714502f82be3f74f7855aa4ffa5422e31188fbc599e12",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "AttacherEngine",
+          "role": "driving",
+          "unit": "",
+          "value": "Engine 3D"
+        },
+        {
+          "id": "freecad:parameter:Cylinder:AttacherType",
+          "kind": "string",
+          "name": "CylinderB feature.AttacherType",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "0753ddfd143227e4e2f79ac90822109e181674aa820fc73792998fbb9d92ba52",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "AttacherType",
+          "role": "driving",
+          "unit": "",
+          "value": "Attacher::AttachEngine3D"
+        },
+        {
+          "id": "freecad:parameter:Cylinder:FirstAngle",
+          "kind": "angle",
+          "name": "CylinderB feature.FirstAngle",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "2c53df2df887b5588e73084081a55bd6e97ecfe2c4d21137a338298bd7c5c425",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "FirstAngle",
+          "role": "driving",
+          "unit": "deg",
+          "value": 0.0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Height",
+          "kind": "length",
+          "name": "CylinderB feature.Height",
+          "native_mapping": "geometry_input",
+          "native_property_sha256": "29732f4610de2f4ce717b2aa0b3d89e8138dbfe4ab63be5a780668efe14de424",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Height",
+          "role": "driving",
+          "unit": "mm",
+          "value": 6.413
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Label",
+          "kind": "string",
+          "name": "CylinderB feature.Label",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "cde04399dcd0677104d9fed334edd5fc9f1858606a7bb5b8f854f22e605e4297",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Label",
+          "role": "driving",
+          "unit": "",
+          "value": "CylinderB feature"
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Label2",
+          "kind": "string",
+          "name": "CylinderB feature.Label2",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "34eb4986ae103b667a8395e15e75de11ceb4398d5c683563f8a92c48756d261c",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Label2",
+          "role": "driving",
+          "unit": "",
+          "value": ""
+        },
+        {
+          "id": "freecad:parameter:Cylinder:MapMode",
+          "kind": "integer",
+          "name": "CylinderB feature.MapMode",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "14db0aaf29997bc145230b93a93b04a190291d5b44527bc33d959e01925e2e23",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "MapMode",
+          "role": "driving",
+          "unit": "",
+          "value": 0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:MapPathParameter",
+          "kind": "number",
+          "name": "CylinderB feature.MapPathParameter",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "85e3b4d8e60d5158ff6557cddaa6aa3f42fea3934fbecc602f441ccbdec8c1e2",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "MapPathParameter",
+          "role": "driving",
+          "unit": "",
+          "value": 0.0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:MapReversed",
+          "kind": "boolean",
+          "name": "CylinderB feature.MapReversed",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "0c3335472d6c8e265069d155c524c40d1bf4943f80d01ee2f4c03546a813247c",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "MapReversed",
+          "role": "driving",
+          "unit": "",
+          "value": false
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Radius",
+          "kind": "length",
+          "name": "CylinderB feature.Radius",
+          "native_mapping": "geometry_input",
+          "native_property_sha256": "c94563732f34db3c992e2a15c1c6173965990ec2c0912c9aa66960beaac910ba",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Radius",
+          "role": "driving",
+          "unit": "mm",
+          "value": 11.831
+        },
+        {
+          "id": "freecad:parameter:Cylinder:SecondAngle",
+          "kind": "angle",
+          "name": "CylinderB feature.SecondAngle",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "a50b47f4cea8b91c8cacd4c5f11a78e6d04c1a764be308985c781c4ab59cd310",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "SecondAngle",
+          "role": "driving",
+          "unit": "deg",
+          "value": 0.0
+        },
+        {
+          "id": "freecad:parameter:Cylinder:Visibility",
+          "kind": "boolean",
+          "name": "CylinderB feature.Visibility",
+          "native_mapping": "unrepresented",
+          "native_property_sha256": "6a545b431894105459a830af8ab023bbac3b5f2b73afa97c5a956b63d8f733e0",
+          "owner_id": "freecad:feature:Cylinder",
+          "path": "Visibility",
+          "role": "driving",
+          "unit": "",
+          "value": true
+        }
+      ],
+      "placement": {
+        "axis_angle_degrees": {
+          "A": 0.0,
+          "Ox": 0.0,
+          "Oy": 0.0,
+          "Oz": 1.0
+        },
+        "position_mm": [0.0, 0.0, 0.0],
+        "quaternion_xyzw": [0.0, 0.0, 0.0, 1.0]
+      },
+      "predicted_pristine": {
+        "area_mm2": 1356.192649796445,
+        "bodies": 1,
+        "bounds_mm": [
+          [-11.831, -11.831, 0.0],
+          [11.831, 11.831, 6.413]
+        ],
+        "center_mm": [0.0, 0.0, 3.2065],
+        "depth_mm": 6.413,
+        "frame_kind": "derived_analysis_frame_not_an_authored_support",
+        "radius_mm": 11.831,
+        "shared_geometry": {
+          "area_mm2": 1356.1926497964453,
+          "body_ids": ["freecad:body:default-sweep-body"],
+          "bounds": {
+            "$type": "BoundingBox",
+            "maximum": {
+              "$type": "Vector3",
+              "x": 11.831,
+              "y": 11.831,
+              "z": 6.413
+            },
+            "minimum": {
+              "$type": "Vector3",
+              "x": -11.831,
+              "y": -11.831,
+              "z": 0.0
+            }
+          },
+          "faces": 3,
+          "model_sha256": "559d8b3b95852314b26023bfe0c0e5e44b3134aae12c2fc6e34d1b1cd81af176",
+          "volume_mm3": 2820.0319017886377
+        },
+        "volume_mm3": 2820.0319017886372
+      },
+      "shape_material_reference_present": true,
+      "unrepresented_parameter_paths": [
+        "Angle",
+        "AttacherEngine",
+        "AttacherType",
+        "FirstAngle",
+        "Label",
+        "Label2",
+        "MapMode",
+        "MapPathParameter",
+        "MapReversed",
+        "SecondAngle",
+        "Visibility"
+      ]
+    }
+  ],
+  "code_base_revision": "47dd6ab67598eb7cdafe8b6595ba19ba2f7da355",
+  "code_manifest_sha256": "cf56b79d355d87863a445d57ca8886e4b6da8a95a124e1f7ac691319970858d9",
+  "delivery_pr": 121,
+  "disclosed_native_source_receipt_sha256": "38d513e7616611280f38c181a476af9bbc6c0f0693b025f505b5a062c096d20f",
+  "disclosed_source_deck_sha256": "97a20ff36c7b4383117c139dd65b34eed862f1aeb4e0d32ccb005913d379b9d4",
+  "exact_source_inventory_verified": true,
+  "existing_boundary_refusals": [
+    {
+      "case": "CylinderA",
+      "kind": "preparation-refusal",
+      "refusal": {
+        "reason": "plain part preparation does not admit unresolved or extended source state",
+        "type": "ValueError"
+      },
+      "sha256": "1c8dd66c1374842365974e66dd1789ed78c55bd18f9db21580569229ed72322d"
+    },
+    {
+      "case": "CylinderA",
+      "kind": "public-refusal",
+      "refusal": {
+        "reason": "solidworks.sldprt does not support the destination",
+        "type": "AdapterNotFoundError"
+      },
+      "sha256": "6aaa8cee25fc99732a85e9b057f46a9796adb75f9b9a96aaa7e8992494de7145"
+    },
+    {
+      "case": "CylinderB",
+      "kind": "preparation-refusal",
+      "refusal": {
+        "reason": "plain part preparation does not admit unresolved or extended source state",
+        "type": "ValueError"
+      },
+      "sha256": "b440c2230ad81b1aa7ba855cbc4250dd06e060c9c9c045f3e987021137c61ee2"
+    },
+    {
+      "case": "CylinderB",
+      "kind": "public-refusal",
+      "refusal": {
+        "reason": "solidworks.sldprt does not support the destination",
+        "type": "AdapterNotFoundError"
+      },
+      "sha256": "790c61f51ee7236f64d6235d4a4540c3d3ce46e1b7ccffe9926e72e1fe24e083"
+    }
+  ],
+  "frozen_source_files": 4675,
+  "generated_native_bytes": 0,
+  "generated_writer_outputs": 0,
+  "heldout_inputs_read": 0,
+  "heldout_source_locks_present": false,
+  "limitations": [
+    "eleven additional driving parameter owners have no admitted native mapping",
+    "authored sketch and support datum are absent from the source",
+    "portable Body is synthesized by the FreeCAD reader",
+    "current strict source B-rep and native material reference are retained without claiming a new native mapping",
+    "public Front Plane radius forward-blind preparation remains outside its qualified circle profiles",
+    "no new writer or generated-output vendor acceptance is claimed"
+  ],
+  "negative_cases": [
+    {
+      "kind": "missing_radius_parameter",
+      "refusal": {
+        "reason": "source scalar parameters were stripped or reordered",
+        "type": "ValueError"
+      },
+      "sha256": "1154b6ae67ec1cc2bf8128f8f8c0415f5e2266fb310460b0c8055b9b7e810338"
+    },
+    {
+      "kind": "stale_height_property",
+      "refusal": {
+        "reason": "source parameter value differs from its native property: Height",
+        "type": "ValueError"
+      },
+      "sha256": "5d381f540c8e44f9e68130bfd514cd00e5fa778a245b8c3a6acc8ad84770a54a"
+    },
+    {
+      "kind": "foreign_parameter_owner",
+      "refusal": {
+        "reason": "source parameter lost its driving owner: Radius",
+        "type": "ValueError"
+      },
+      "sha256": "5e107a1b336d7d759ebfee61b76b1ccecbbfa75ffcd23b922aec8123337c9f37"
+    },
+    {
+      "kind": "radius_unit_changed",
+      "refusal": {
+        "reason": "source parameter value differs from its native property: Radius",
+        "type": "ValueError"
+      },
+      "sha256": "fdf79e879f134a9f8639128ab81cd2e533f1f6cce4e161ba9a217024fb10aa9e"
+    },
+    {
+      "kind": "reordered_parameter_owners",
+      "refusal": {
+        "reason": "source scalar parameters were stripped or reordered",
+        "type": "ValueError"
+      },
+      "sha256": "2fa93c74a5973eadd4a67627b8851099ef0c61a4a94c85088fe4f704cc7f9678"
+    },
+    {
+      "kind": "feature_label_changed",
+      "refusal": {
+        "reason": "source parameter identity or name differs from its actual primitive owner: Angle",
+        "type": "ValueError"
+      },
+      "sha256": "06563b79cfbdd58fe7ed159ed639ecfa00db5108b3b57e1c954b9b00a2724985"
+    },
+    {
+      "kind": "metadata_stripped",
+      "refusal": {
+        "reason": "source metadata has foreign owners",
+        "type": "ValueError"
+      },
+      "sha256": "8e55928b8bd69e33c655ef11981d3a8f2d44ae9aec0f5d9103357494801e9809"
+    },
+    {
+      "kind": "copied_native_object",
+      "refusal": {
+        "reason": "source native object copies disagree or were stripped",
+        "type": "ValueError"
+      },
+      "sha256": "836fba7876c956f1a868298283dda09533bcb1e95f827cc8b0d2006f97a4476c"
+    },
+    {
+      "kind": "provenance_stripped",
+      "refusal": {
+        "reason": "source feature provenance no longer identifies its native object",
+        "type": "ValueError"
+      },
+      "sha256": "219148be30aa54afc2a3c3118dd18d22ebe8eb94f8f1cea5d7efd9146ab6434a"
+    },
+    {
+      "kind": "translated_placement",
+      "refusal": {
+        "reason": "source Placement is outside the origin-aligned profile",
+        "type": "ValueError"
+      },
+      "sha256": "6d67254694d2f52019173849df03fcc793596c5bacd1acb2f37a48e8e7b2740c"
+    },
+    {
+      "kind": "partial_sweep",
+      "refusal": {
+        "reason": "source cylinder is outside the declared full-sweep profile",
+        "type": "ValueError"
+      },
+      "sha256": "844bd5d2f1936d594fd08f1106bce994486ab441637cabd9089483650b75ed05"
+    },
+    {
+      "kind": "active_attachment",
+      "refusal": {
+        "reason": "source cylinder has unsupported AttachmentSupport",
+        "type": "ValueError"
+      },
+      "sha256": "ddf2670fe116a687df4e21e4cc353731efe9bc717f98ba4d2e64cda2a19b143d"
+    },
+    {
+      "kind": "suppressed_primitive",
+      "refusal": {
+        "reason": "source primitive has unsupported history or optional state",
+        "type": "ValueError"
+      },
+      "sha256": "fcb4b555065882d45c98d487c6a6bc987414b26a921aa94e829566a9587332e7"
+    },
+    {
+      "kind": "shape_payload_stripped",
+      "refusal": {
+        "reason": "source document payload binding is absent or differs",
+        "type": "ValueError"
+      },
+      "sha256": "937c6d4f03b79cc5e8c0df40a8d7a145c0fffebd738d32278e8a3f925dde877b"
+    },
+    {
+      "kind": "brep_radius_changed",
+      "refusal": {
+        "reason": "source cylinder surface disagrees with the actual Radius or Placement",
+        "type": "ValueError"
+      },
+      "sha256": "5170874c5a2e9d17b4e52a7dc25a73e6a4b9a8227cbe7f136504abbffc67976f"
+    },
+    {
+      "kind": "brep_cap_height_changed",
+      "refusal": {
+        "reason": "source cylinder cap planes disagree with the actual Height or Placement",
+        "type": "ValueError"
+      },
+      "sha256": "92c1cc9ce4c72339f71858f33d5999c82e97e21de5980408235ddb93fcaa33a0"
+    },
+    {
+      "kind": "formula_added",
+      "refusal": {
+        "reason": "source parameter lost its driving owner: Radius",
+        "type": "ValueError"
+      },
+      "sha256": "0e72b5660d7b1bf25956bda4cfbc452ff48be695c0e854abe2dd3b2acf322fa8"
+    },
+    {
+      "kind": "body_caption_changed",
+      "refusal": {
+        "reason": "source primitive or synthesized default body identity differs from its strict reader owner",
+        "type": "ValueError"
+      },
+      "sha256": "3792a737c6559206d09635d37cd46b5dbed81f9c91822aeabb6eb3dc96bf9546"
+    }
+  ],
+  "new_native_processes_started": 0,
+  "owner": "/root/assembly_occurrence",
+  "passed": true,
+  "prediction_lock_sha256": "0b04b8d7b4757802b86f98f2fd04af8499da1dd703c7b09d6d1ccd77dedbf9c8",
+  "prediction_locked_before_native_observation_receipt_read": true,
+  "primitive_lowering_implemented": false,
+  "prior_native_source_processes": 8,
+  "process_inventory": {
+    "existing_preparation_refusals": 2,
+    "fresh_exact_repeats": 2,
+    "historical_and_current_typed_intents": 4,
+    "malformed_source_refusals": 18,
+    "normal_strict_fcstd_reads": 2,
+    "ordinary_registry_refusals": 2
+  },
+  "public_writer_qualified": false,
+  "raw_result_sha256": "57a1798176a3e3d8ce0a27d26138f757a4d33f79a419a526b7140b95fe8ecc08",
+  "runtime_code_imports": "permitted only from the hash-bound SDK source root",
+  "runtime_input_file_reads_after_loaded_document": 0,
+  "schema": "kit.sw2026.freecad-cylinder-admission-receipt.v1",
+  "sdk_processes": 30,
+  "source_analytic_comparisons": 50,
+  "source_before_after_hashes_unchanged": true,
+  "source_equivalence_qualified": false,
+  "status": "source envelope and independent prediction only",
+  "task": "B04-SW2026-FREECAD-CYLINDER",
+  "tools_sha256": {
+    "CheckCylinderAdmission.py": "ca91c730fb3305698fe46773ffa760452c731120d9e880571642c2994b0a7eaa",
+    "CorrelateCylinderBrep.py": "bdfce99cc7d3921ed4d8447f1761a99144018bfaf3532617baa23237faaf3db1",
+    "CylinderIntentProcess.py": "1b8cd2503752fc2179d60b5fb5628194a4b780530bebb093dd5d376c2b8bbcf1",
+    "CylinderSourceIntent.py": "969e48952204dd6a05548e16a5a0662a9cedd6427943c6bbf936f9c55bbd58cf"
+  },
+  "vendor_loadable_qualified": false
+}

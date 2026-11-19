@@ -1,0 +1,5 @@
+# SOLIDWORKS standalone downstream body codec
+
+The research tooling now reads and emits all 18 counted sections of the ordinary SOLIDWORKS 2026 standalone downstream archive body through the shared Kit field and object-map codecs. The direct root adds no map entry. Both processes reproduce three byte-exact modeled payloads and eight refusals. The populated cases retain both string frames and a repeated unique-info pointer with exact class and object slots. All three payloads repeat with zero runtime I/O attempts.
+
+Run `PYTHONPATH=src:.:re/tooling/sw2026 python -B -m downstream.CheckBody` from the checkout. The [field and component source record](../../../../../re/solidworks/records/DownstreamStandaloneBodyCodec2026.md) and [measurement receipt](../../../../../re/solidworks/measurements/2026/DownstreamStandaloneBodyCodec01.json) describe the isolated context and the guarded results. Actual saved-cache replay, the reached concrete component layouts and native drawing qualification remain open.
