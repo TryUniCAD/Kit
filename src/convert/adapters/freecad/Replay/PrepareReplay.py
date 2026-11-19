@@ -2,9 +2,13 @@ from __future__ import annotations
 
 from zipfile import BadZipFile
 
-from convert.adapters.freecad.Archive import validated_archive_members
+from convert.adapters.freecad.AdapterError import FreeCadAdapterA
+from convert.adapters.freecad.Archive import Validated as ValidatedArchiveMembers
 from convert.adapters.freecad.Native import NativeFreeCad, ReadNativeFcstd
 from convert.adapters.freecad.Replay.ApplyFlags import ApplyFlags
+from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
+from convert.adapters.freecad.Replay.NativeIdentity import KReplaySemanticAttr
+from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -12,13 +16,6 @@ from interchange.document.Models.DocumentModel import CadDocument
 def PrepareReplay(
     DocValue: CadDocument, *, Migrate: bool
 ) -> tuple[CadDocument, bytes | None]:
-    from convert.adapters.freecad.Adapter import (
-        FreeCadAdapterA,
-        KReplaySemanticAttr,
-        NativeDocPair,
-        SemanticDigest,
-    )
-
     PairValue = NativeDocPair(DocValue)
     if PairValue is None:
         return DocValue, None
@@ -32,7 +29,7 @@ def PrepareReplay(
         return DocValue, None
     ReplayBytes = DataValue if IsUnchanged else None
     try:
-        Archive, _ = validated_archive_members(DataValue)
+        Archive, _ = ValidatedArchiveMembers(DataValue)
         Archive.close()
         Current = ReadNativeFcstd(DataValue, DocValue.source.path)
         if SemanticDigest(Current) == Expected:
@@ -41,7 +38,7 @@ def PrepareReplay(
         if SemanticDigest(Legacy) != Expected:
             return DocValue, None
         if Migrate:
-            DocValue = ApplyFlags(DocValue, Legacy, Current)
+            DocValue = ApplyFlags(Legacy, Current, DocValue)
     except (NativeFreeCad, FreeCadAdapterA, OSError, TypeError, ValueError, BadZipFile):
         return DocValue, None
     return DocValue, ReplayBytes

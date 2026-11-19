@@ -3,19 +3,16 @@ from __future__ import annotations
 from dataclasses import replace as Replace
 
 from convert.adapters.freecad.Replay.ApplyChildren import ApplyChildren
+from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
+from convert.adapters.freecad.Replay.NativeIdentity import KReplaySemanticAttr
+from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # advance only a proven historical baseline so reopened edits keep their intended suppression
 def ApplyFlags(
-    DocValue: CadDocument, Before: CadDocument, After: CadDocument
+    Before: CadDocument, After: CadDocument, DocValue: CadDocument
 ) -> CadDocument:
-    from convert.adapters.freecad.Adapter import (
-        KReplaySemanticAttr,
-        NativeDocPair,
-        SemanticDigest,
-    )
-
     PairValue = NativeDocPair(DocValue)
     if PairValue is None:
         return DocValue
@@ -46,5 +43,8 @@ def ApplyFlags(
         for Payload in DocValue.brep_payloads
     )
     return ApplyChildren(
-        Replace(DocValue, sketches=Sketches, brep_payloads=Payloads), Before, After
+        Replace(DocValue, sketches=Sketches, brep_payloads=Payloads),
+        Before,
+        After,
+        ApplyFlags,
     )

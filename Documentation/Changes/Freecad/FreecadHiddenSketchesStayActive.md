@@ -14,4 +14,7 @@ The integration cases cover suppression priority, driving diameter edits, and ex
 The initial reader correction was measured on 171 path reads, with 318 sketch states corrected in 94 paths.
 The earlier research run reported 144 integration passes and 10 skips and records the tested adapter hashes. [Initial replay](../../../re/solidworks/measurements/2026/FreecadSketchVisibility01.json)
 
+The first queue candidate passed all test shards. Its Python CodeQL gate found cyclic imports in replay preparation.
+The replay modules use shared metadata and digest helpers through one-way imports. [Test suite](https://github.com/TryUniCAD/Kit/actions/runs/44616619145/job/135890337639) · [CodeQL diagnostic](https://github.com/TryUniCAD/Kit/actions/runs/44616619145/job/135886919702)
+
 [Adapter guide](../../Reference/Adapters/Freecad.md), [visibility gotcha](../../Gotchas/Conversion/Freecad/HiddenSketchesCanDriveActiveFeatures.md), and [legacy replay digest gotcha](../../Gotchas/Conversion/Freecad/LegacySketchReplayDigests.md)

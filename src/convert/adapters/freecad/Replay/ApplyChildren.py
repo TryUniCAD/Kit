@@ -1,26 +1,27 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import replace as Replace
 from functools import partial as Partial
 
+from convert.adapters.freecad.Replay.MappedOuter import MappedOuter
+from convert.adapters.freecad.Replay.NativeOuter import NativeOuter
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # outgoing child models match the native and historical parses through their own references
 def ApplyChildren(
-    DocValue: CadDocument, Before: CadDocument, After: CadDocument
+    DocValue: CadDocument,
+    Before: CadDocument,
+    After: CadDocument,
+    ApplyModel: Callable[[CadDocument, CadDocument, CadDocument], CadDocument],
 ) -> CadDocument:
-    from convert.adapters.freecad.Adapter import MappedOuter, NativeOuter
-    from convert.adapters.freecad.Replay.ApplyFlags import ApplyFlags
-
     OldOuters = dict(NativeOuter(Before))
     NewOuters = dict(NativeOuter(After))
     Metadata = MappedOuter(
         DocValue.metadata,
         ByReference={
-            NameValue: Partial(
-                ApplyFlags, Before=OldOuters[NameValue], After=NewOuters[NameValue]
-            )
+            NameValue: Partial(ApplyModel, OldOuters[NameValue], NewOuters[NameValue])
             for NameValue in OldOuters.keys() & NewOuters.keys()
         },
     )
@@ -37,8 +38,8 @@ def ApplyChildren(
         (
             Replace(
                 ItemValue,
-                document=ApplyFlags(
-                    ItemValue.document, OldDocs[ItemValue.id], NewDocs[ItemValue.id]
+                document=ApplyModel(
+                    OldDocs[ItemValue.id], NewDocs[ItemValue.id], ItemValue.document
                 ),
             )
             if ItemValue.id in OldDocs and ItemValue.id in NewDocs
