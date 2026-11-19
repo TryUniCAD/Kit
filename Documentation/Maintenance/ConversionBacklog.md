@@ -62,7 +62,7 @@ B04's parent is not complete merely because controlled constructor probes exist.
 
 ### B03-SW2026-ARCHIVE
 
-Active in the [archive evidence PR](https://github.com/TryUniCAD/Kit/pulls?q=is%3Apr+head%3Acodex%2Fsolidworks-2026-archive-evidence).
+Active in the [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167).
 Its author owns the [exact-build research record](../../re/solidworks/records/Solidworks2026ArchiveCompatibility.md)
 for the observed signature table, map handoff and count fields.
 The record depends on the build manifest and typed traces from
