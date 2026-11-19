@@ -1,0 +1,76 @@
+{
+  "authored_occurrence_names": ["Cylinder-1", "Cylinder-2"],
+  "checks": {
+    "ast": 2,
+    "global_preference_changes": 0,
+    "heldout_inputs_read": 0,
+    "native_acceptance": false,
+    "native_calls": 0,
+    "tests": false,
+    "undefined_names": "ruff0.17.3 F821 passed",
+    "vm_calls": 0,
+    "writer_outputs": 0
+  },
+  "delivery_pr": 121,
+  "generated_feature_parent": {
+    "runtime_reference_f540_is_not_a_current_wire_field": true,
+    "sha256": "e07d04635daf7a8b9ee5790dc34e7876c555b12690d36b9ff0cc6138a7222a59",
+    "typed_references": [
+      {
+        "f400": 3,
+        "f4b4": 15,
+        "fixed": true,
+        "id": 17,
+        "name": "Cylinder-1"
+      },
+      {
+        "f400": 3,
+        "f4b4": 16,
+        "fixed": false,
+        "id": 18,
+        "name": "Cylinder-2"
+      }
+    ]
+  },
+  "limits": [
+    "actual IFeature names in the generated native parent remain unmeasured",
+    "the public IComponent2.Name2 implementation is not yet bound to a complete exact native dispatch owner",
+    "the observed native label does not authorize replacing the authored neutral name or relaxing the old acceptance gate",
+    "no persistent override constructor or new name-preserving writer is qualified"
+  ],
+  "neutral_inputs": {
+    "Brep": "2b00d988374d26b39d6edfd2752fe488d7ad9a527a3d1913bdd384ee614fbf63",
+    "Feature": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3"
+  },
+  "owner": "/root/assembly_occurrence",
+  "packet": {
+    "frozen_files": 37,
+    "host_verify": true,
+    "native_processes_started": 0,
+    "original_inputs_and_tools_unchanged": true,
+    "recipe_sha256": "ab9f05fd54454ab742165a11c41526c2ab97f0038ef4bb835c13393fac71b25c",
+    "trial_sha256": "a6014ebd881f872de70711d1993fc2027dcddd59b32a770dfd3d06f2f43fb325"
+  },
+  "preparation_failure_preserved": {
+    "exception": "FileExistsError",
+    "packet": "01",
+    "reason": "the frozen source closure already contained an old Recipe.json; successor excludes that replaced recipe from copy and preserves packet01",
+    "stage": "host preparation before native"
+  },
+  "prior_native_diagnostic": {
+    "actual_component_name2": [
+      "NeutralCylinderAlphaDerived-1",
+      "NeutralCylinderAlphaDerived-2"
+    ],
+    "ifeature_name_unmeasured": true,
+    "native_ids": [17, 18],
+    "sha256": "4adb114b31c981c7cb484b71897948f7d85c7c72feb16414138dfc078ec87f6d",
+    "strict_capture_passed": false
+  },
+  "schema": "kit.sw2026.concentric-reference-name-host.v1",
+  "separate_child_definition_names": [
+    "NeutralCylinderAlphaDerived",
+    "NeutralCylinderBetaAuthored"
+  ],
+  "task_id": "B04-SW2026-MATES-CONCENTRIC"
+}
