@@ -1,0 +1,85 @@
+{
+  "bound_receipts": {
+    "phase_identity": {
+      "Author": {
+        "process_creation_filetime": 134395806366433652,
+        "record_sha256": "db589f84fda7cb47c70278bd79195317b7d74282f4bd458c1f536c395e67c570"
+      },
+      "ControlAfter": {
+        "process_creation_filetime": 134395807418319959,
+        "record_sha256": "3d747385f426f3eadaa484676c73d50020f45a471ae3278d11860b22f3fc0867"
+      },
+      "ControlBefore": {
+        "process_creation_filetime": 134395805867609701,
+        "record_sha256": "b5e5236e95bb711fc3bd5b264e7c2fdf178a5ea7b13928aa66e1721a8b87719a"
+      },
+      "Reopen": {
+        "process_creation_filetime": 134395807174779860,
+        "record_sha256": "d8ab1c772c2146b36d126c01b8dbaaead961c4894471cd5b713b3e0c73a3423b"
+      }
+    },
+    "raw_guest_summary_sha256": "9ce16e3107f58a0262a26447ec1d882ed86449ac245151c49ee70335e757f251",
+    "reopen_before_strict_record_sha256": "666431530b0115a66a18fc850a33b7060f6caddb0fbb7a5593848fc0301bada8",
+    "restoration_sha256": "247483fcefc96b061b776c33cf8e41cd0a3f50f2304b833dce2afa217c7adc7e",
+    "saved_author_receipt_sha256": "6359a688f86552c95f8934f6106a406d200fc3b025cf649038dcec3b168527d0"
+  },
+  "controls_healthy": true,
+  "distinct_processes": 4,
+  "fresh_reopen_name_predicate_passed": false,
+  "heldout_inputs_read": 0,
+  "observations": {
+    "fresh_failure": "Name2",
+    "named_occurrences": [
+      {
+        "id": 24,
+        "reopened_name": "IndependentNameCylinder-1",
+        "setter_base": "AuthoredAxisA",
+        "state_before_save": "AuthoredAxisA-1"
+      },
+      {
+        "id": 25,
+        "reopened_name": "IndependentNameCylinder-2",
+        "setter_base": "AuthoredAxisB",
+        "state_before_save": "AuthoredAxisB-2"
+      }
+    ],
+    "numeric_checks_by_phase": {
+      "Author": 30,
+      "ControlAfter": 28,
+      "ControlBefore": 28,
+      "Reopen": 0
+    },
+    "ordinary_preference_after_restore": true,
+    "preference_setter_calls": 2,
+    "reopen_preference_setter_calls": 0,
+    "reopen_under_original": true,
+    "saved_files": {
+      "child": {
+        "bytes": 70908,
+        "sha256": "3a39ac65c61cad230c36b27d53f7179813e68afabff2090e1ca98bdd08b2d16f",
+        "status": [
+          true,
+          0,
+          0
+        ],
+        "update_stamp": 134
+      },
+      "parent": {
+        "bytes": 62759,
+        "sha256": "481a13c6f3c068d6df56521b7b0bb31c63f13404dbc0e2f469b0ca6d4034c83c",
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    },
+    "temporary_preference": false
+  },
+  "oracle_build": "34.5.2.0604",
+  "schema": "kit.sw2026.component-base-name-native.v1",
+  "source_authoring_and_save_passed": true,
+  "source_control_qualified": false,
+  "trial_sha256": "944ff0fb4eb3a4d58ce560975e155ca212238960ff77d59c8ac3c2c496052ade",
+  "writer_outputs": 0
+}
