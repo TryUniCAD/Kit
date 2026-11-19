@@ -6,6 +6,8 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Downstream cache wire grammar](DownstreamIdArchiveGrammar2026.md) | The native serializer binds all 18 counted sections, typed object gates, the four-byte time field and the standalone and embedded contexts. A native saved-stream witness and the recursive archive closure remain open. |
+| [Concentric native observer contract](../measurements/2026/GeneratedConcentricObserverContract01.json) | Two disclosed native records satisfy the host contract, and 20 altered observations refuse. The generated cold-open, relocation, edit and reopen phases are staged for the exact-build oracle. |
 | [Generated downstream partition attributes](../measurements/2026/GeneratedDownstreamPartition01.json) | Eight guarded processes generate and round-trip actual face and edge attributes from two rectangular and two cylindrical bosses. Independent word checks and eight previous-profile compatibility processes pass. The complete model cache and native drawing tests remain open. |
 | [Parasolid body traversal](ParasolidBodyTraversal2026.md) | The pinned kernel follows body, region and shell links. Three disclosed save contexts reconstruct those linked orders and re-emit their complete partitions byte for byte. |
 | [Downstream identity source](DrawingDownstreamIdentity2026.md) | The exact native source binds the shared counter, both owner-key wire orders and the rebuild reuse path. A root replay verifies the same five modules and 35 source ranges. |

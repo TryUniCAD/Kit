@@ -22,3 +22,5 @@ The separate neutral admission replay covers 45 fresh processes, with seven exac
 [Guarded construction receipt](../measurements/2026/GeneratedConcentricAssembly01.json) · [Native records index](Solidworks2026Evidence.md)
 
 Native cold open, solve, driving edit, save and fresh reopen remain pending. The writer and reader qualification gates for broader model and mate combinations remain in force. This tranche contributes zero native or held-out acceptance credits.
+
+The staged native observer binds the two generated pairs and their neutral geometry predictions to separate before-control, edit/save, fresh-reopen and after-control phases. Host contract replay verifies the disclosed reference and rejection paths. [Observer and native phase boundaries](GeneratedConcentricObserver2026.md)

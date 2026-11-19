@@ -70,3 +70,5 @@ The smallest next native discriminator is a passive, root-owned same-input trace
 [Shared-counter gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/DownstreamKeysAreSharedModelIds.md) · [Change](../../../Documentation/Changes/Solidworks/Inspection/Drawings/Downstream/SolidworksDrawingDownstreamIdentity.md)
 
 The generated partition projection now follows the single-solid topology links and assigns the actual face and edge attributes. Its guarded host replay is recorded separately. [Generated attributes](GeneratedDownstreamPartition2026.md)
+
+The complete ordinary direct-body field order and its separate embedded context are now mapped from source. Recursive archive admission and byte-exact saved-stream replay remain open. [Per-configuration downstream grammar](DownstreamIdArchiveGrammar2026.md)
