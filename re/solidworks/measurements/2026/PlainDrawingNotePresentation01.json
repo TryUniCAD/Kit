@@ -1,0 +1,210 @@
+{
+  "bitmap_pixel_format": "960x720 BGR8 bottom-up",
+  "distinct_processes": 4,
+  "exercised_reference_method": "ISldWorks.GetDocumentDependencies2",
+  "generated_note": {
+    "attachment_count": 0,
+    "dangling": false,
+    "display_pieces": [
+      {
+        "angle": 0.0,
+        "font": "Century Gothic",
+        "height": 0.0035,
+        "position": [
+          0.0671,
+          0.08807430546954274,
+          0.0
+        ],
+        "text": "inspection datum"
+      }
+    ],
+    "extent": [
+      0.06709646017699115,
+      0.08812732300884954,
+      -6.153898074551988e-16,
+      0.10674181415929206,
+      0.0926650442477876,
+      -6.470765455084474e-16
+    ],
+    "name": "DetailItem1",
+    "note_name": "DetailItem1",
+    "note_text_point": [
+      0.0671,
+      0.0926,
+      0.0
+    ],
+    "position": [
+      0.0671,
+      0.0926,
+      0.0
+    ],
+    "text": "inspection datum",
+    "visible": 1
+  },
+  "healthy_controls": true,
+  "heldout_source_reads": 0,
+  "identical_pristine_viewports": true,
+  "job_sha256": "6c36f7ec20a441fe28263ecde2affa92f387f58f7b85d4de98c42fb81db2a169",
+  "manual_viewport_observation": {
+    "generated": "dashed grid and no legible note",
+    "source": "note visibly rendered on plain sheet"
+  },
+  "no_model_dependencies": true,
+  "note_live_owner_equal": true,
+  "note_presentation_exact": false,
+  "observer_sha256": "2e8790979d2aa2ba99b272d1f9b9986f1cddcfa3ed21e78451577ee70bb71b92",
+  "oracle_build": "34.5.2.0604",
+  "ordered_tree": [
+    [
+      "Comments",
+      "CommentsFolder",
+      null
+    ],
+    [
+      "Blocks",
+      "BlockFolder",
+      null
+    ],
+    [
+      "Design Binder",
+      "DocsFolder",
+      null
+    ],
+    [
+      "Annotations",
+      "DetailCabinet",
+      null
+    ],
+    [
+      "Markups",
+      "InkMarkupFolder",
+      null
+    ],
+    [
+      "eDrawings Markups",
+      "MarkupCommentFolder",
+      null
+    ],
+    [
+      "Sheet1",
+      "DrSheet",
+      null
+    ],
+    [
+      "Plane1",
+      "RefPlane",
+      "Sheet1"
+    ],
+    [
+      "Sketch1",
+      "ProfileFeature",
+      "Sheet1"
+    ],
+    [
+      "Detail Folder1",
+      "DetailFolder",
+      "Sheet1"
+    ]
+  ],
+  "ordered_tree_exact": true,
+  "phases": {
+    "ControlAfter": {
+      "bitmap_sha256": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+      "process_birth": 134395816288117207,
+      "record_sha256": "5bf73a0ac6e4a64b7bff1fd1a1261e8bb0b0e9d85c1cb93edc20125018c7d814",
+      "source_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b"
+    },
+    "ControlBefore": {
+      "bitmap_sha256": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+      "process_birth": 134395815568256249,
+      "record_sha256": "bd2810451fa6da692200e83535a64bebc3d1dc8334e73d3b7baf9c2bb2df4798",
+      "source_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b"
+    },
+    "NativeSource": {
+      "bitmap_sha256": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+      "process_birth": 134395815828458167,
+      "record_sha256": "0bb31a50b70e8302c2e6f6769702b8efad17836162477f5060cf7a92504e2a1f",
+      "source_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad"
+    },
+    "SdkCandidate": {
+      "bitmap_sha256": "8214a40bf79054ed85dec1f0f1d8797bb8a56c13ceba442a5f236cd9d2dad967",
+      "process_birth": 134395816056516635,
+      "record_sha256": "dac2691f371ae00ce7278c0cbfab145b68272c535b125930eb9abfb4f27f6c36",
+      "source_sha256": "f82e9ead463624ca8d44e029e61c4ba5af2cf67b37975416307f73bb67bd4bad"
+    }
+  },
+  "pixel_differences": {
+    "blank_to_generated": {
+      "changed_pixels": 77213,
+      "extent_pixels": [
+        14,
+        1,
+        944,
+        719
+      ]
+    },
+    "blank_to_source": {
+      "changed_pixels": 603,
+      "extent_pixels": [
+        308,
+        409,
+        423,
+        421
+      ]
+    },
+    "source_to_generated": {
+      "changed_pixels": 77785,
+      "extent_pixels": [
+        14,
+        1,
+        944,
+        719
+      ]
+    }
+  },
+  "prior_observer_interruption_sha256": "6afb78e0f9917e503200d1a4a0c6a095a1755e1938e2e5e4e65da15d1fded569",
+  "public_output_qualified": false,
+  "raw_native_result_sha256": "5a5b8840e2b84ff7d91d5db89371d8055e0e49505ee387ff5946fea97efa7ef3",
+  "schema": "kit.sw2026.disclosed-drawing-note-presentation-result.v1",
+  "sheet_and_views_exact": true,
+  "source_immutable": true,
+  "source_note": {
+    "attachment_count": 0,
+    "dangling": false,
+    "display_pieces": [
+      {
+        "angle": 0.0,
+        "font": "Century Gothic",
+        "height": 0.003175,
+        "position": [
+          0.0671,
+          0.0884250000490807,
+          0.0
+        ],
+        "text": "inspection datum"
+      }
+    ],
+    "extent": [
+      0.06707199875524707,
+      0.0884616814159292,
+      -6.328008361539309e-16,
+      0.10312538813577803,
+      0.09260294911504424,
+      -6.617191539351591e-16
+    ],
+    "name": "DetailItem1",
+    "note_name": "DetailItem1",
+    "note_text_point": [
+      0.0671,
+      0.0926,
+      0.0
+    ],
+    "position": [
+      0.0671,
+      0.0926,
+      0.0
+    ],
+    "text": "inspection datum",
+    "visible": 1
+  }
+}

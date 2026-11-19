@@ -36,7 +36,10 @@ def MakePlainNoteFile(InputValue: BlankDrawInput) -> DrawingFile:
     BlankValue = ReplaceValue(
         InputValue.DrawingValue, Sheets=(ReplaceValue(SheetValue, Notes=None),)
     )
-    GraphValue = MakeDrawRoot(MakeBlankBuild(BlankValue, InputValue.OptionsValue))
+    GraphValue = MakeDrawRoot(
+        MakeBlankBuild(BlankValue, InputValue.OptionsValue),
+        UseDrawingAnsi=InputValue.OptionsValue.StyleValue.StandardValue == 0,
+    )
     PutPlainNoteMut(
         GraphValue,
         NoteValue,

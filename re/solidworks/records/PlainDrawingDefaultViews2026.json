@@ -1,0 +1,250 @@
+{
+  "cad_executed": false,
+  "data_windows": [
+    {
+      "bytes": 24,
+      "end_exclusive": "0x4d376d18",
+      "module": "sldmodu.dll",
+      "name": "DrawingCompleteObjectLocator",
+      "sha256": "886baf560a340a0a2068e7e35e5f0b9bb8d48f1ce271bad2be7f47f08d249a27",
+      "start": "0x4d376d00"
+    },
+    {
+      "bytes": 18,
+      "end_exclusive": "0x4db0ee22",
+      "module": "sldmodu.dll",
+      "name": "DrawingRttiName",
+      "sha256": "bffc47dbc5553cb902d8a1cbb2cbed85520ebe2442d010a5ae2014a6025b889f",
+      "start": "0x4db0ee10"
+    },
+    {
+      "bytes": 14,
+      "end_exclusive": "0x4d26c9d6",
+      "module": "sldmodu.dll",
+      "name": "UnusedLiteral",
+      "sha256": "48f870c5907a3aa1aca2d36bdebb2cac3f3a613d49f9ea9d7f2b2ded43547644",
+      "start": "0x4d26c9c8"
+    }
+  ],
+  "functions": [
+    {
+      "bytes": 1427,
+      "end_exclusive": "0x4c96ba13",
+      "module": "sldmodu.dll",
+      "name": "DrawingConstructor",
+      "sha256": "f138b2fcc5c781010fe8b3a2972c963e2ef6e1600949794061a13a1cbbf41c4d",
+      "start": "0x4c96b480",
+      "unwind_fragments": [
+        {
+          "bytes": 1427,
+          "end_exclusive": "0x4c96ba13",
+          "module": "sldmodu.dll",
+          "name": "DrawingConstructor",
+          "sha256": "f138b2fcc5c781010fe8b3a2972c963e2ef6e1600949794061a13a1cbbf41c4d",
+          "start": "0x4c96b480",
+          "unwind_rva": "0x2585b40"
+        }
+      ]
+    },
+    {
+      "bytes": 149,
+      "end_exclusive": "0x4c97aee5",
+      "module": "sldmodu.dll",
+      "name": "DrawingRefreshViewNames",
+      "sha256": "7e15a72817edf2b8f6120a300e2e12645d51bbcae16b67e52c2ac41af990843c",
+      "start": "0x4c97ae50",
+      "unwind_fragments": [
+        {
+          "bytes": 149,
+          "end_exclusive": "0x4c97aee5",
+          "module": "sldmodu.dll",
+          "name": "DrawingRefreshViewNames",
+          "sha256": "7e15a72817edf2b8f6120a300e2e12645d51bbcae16b67e52c2ac41af990843c",
+          "start": "0x4c97ae50",
+          "unwind_rva": "0x25869c0"
+        }
+      ]
+    },
+    {
+      "bytes": 113,
+      "end_exclusive": "0x4c97af61",
+      "module": "sldmodu.dll",
+      "name": "DrawingRefreshFirstViewTransforms",
+      "sha256": "02f003daa077e5d9fe0b698cbd7c5f000271e43e839079fbaf8c9d9939d22491",
+      "start": "0x4c97aef0",
+      "unwind_fragments": [
+        {
+          "bytes": 113,
+          "end_exclusive": "0x4c97af61",
+          "module": "sldmodu.dll",
+          "name": "DrawingRefreshFirstViewTransforms",
+          "sha256": "02f003daa077e5d9fe0b698cbd7c5f000271e43e839079fbaf8c9d9939d22491",
+          "start": "0x4c97aef0",
+          "unwind_rva": "0x2586998"
+        }
+      ]
+    },
+    {
+      "bytes": 327,
+      "end_exclusive": "0x4c14fcd7",
+      "module": "sldmodu.dll",
+      "name": "IndexedViewConstructor",
+      "sha256": "c190109ccf11364497744fc07c353b063596310dacf0ef75c2d83e180609b777",
+      "start": "0x4c14fb90",
+      "unwind_fragments": [
+        {
+          "bytes": 327,
+          "end_exclusive": "0x4c14fcd7",
+          "module": "sldmodu.dll",
+          "name": "IndexedViewConstructor",
+          "sha256": "c190109ccf11364497744fc07c353b063596310dacf0ef75c2d83e180609b777",
+          "start": "0x4c14fb90",
+          "unwind_rva": "0x2467074"
+        }
+      ]
+    },
+    {
+      "bytes": 778,
+      "end_exclusive": "0x4c0355ca",
+      "module": "sldmodu.dll",
+      "name": "ModelDefaultViewsDispatch",
+      "sha256": "b72967a76879592dfba1c87fa28402ea59085467a91aa103780c568e50b2c50c",
+      "start": "0x4c0352c0",
+      "unwind_fragments": [
+        {
+          "bytes": 778,
+          "end_exclusive": "0x4c0355ca",
+          "module": "sldmodu.dll",
+          "name": "ModelDefaultViewsDispatch",
+          "sha256": "b72967a76879592dfba1c87fa28402ea59085467a91aa103780c568e50b2c50c",
+          "start": "0x4c0352c0",
+          "unwind_rva": "0x243ab18"
+        }
+      ]
+    },
+    {
+      "bytes": 14161,
+      "end_exclusive": "0x4c2378a1",
+      "module": "sldmodu.dll",
+      "name": "ModelSerializer",
+      "sha256": "0b4ce1209e7d6151cd603478ab9b7b2090526a20024c756a35937d6e39a12b4e",
+      "start": "0x4c234150",
+      "unwind_fragments": [
+        {
+          "bytes": 14161,
+          "end_exclusive": "0x4c2378a1",
+          "module": "sldmodu.dll",
+          "name": "ModelSerializer",
+          "sha256": "0b4ce1209e7d6151cd603478ab9b7b2090526a20024c756a35937d6e39a12b4e",
+          "start": "0x4c234150",
+          "unwind_rva": "0x2482acc"
+        }
+      ]
+    },
+    {
+      "bytes": 14,
+      "end_exclusive": "0x4c150c7e",
+      "module": "sldmodu.dll",
+      "name": "SetModelToViewTransform",
+      "sha256": "ef976c558123a95c115b811ac1c9bbe7ae5251a78880cc38ea694f1708cc9ba0",
+      "start": "0x4c150c70",
+      "unwind_fragments": []
+    },
+    {
+      "bytes": 14,
+      "end_exclusive": "0x4c150c8e",
+      "module": "sldmodu.dll",
+      "name": "SetPanZoomTransform",
+      "sha256": "04b761515d1fd5bb8683c7e0f8aedd9e3de3e2264a5d0d98dcc1eabc3c3e94fd",
+      "start": "0x4c150c80",
+      "unwind_fragments": []
+    }
+  ],
+  "heldout_source_reads": 0,
+  "imports": [
+    {
+      "iat": "0x4cd34e70",
+      "module": "mfc140u.dll",
+      "name": "ordinal:8161",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd34ea0",
+      "module": "mfc140u.dll",
+      "name": "ordinal:1503",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd34ea8",
+      "module": "mfc140u.dll",
+      "name": "ordinal:1501",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a658",
+      "module": "sldmgu.dll",
+      "name": "??0mgXform_c@@QEAA@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a668",
+      "module": "sldmgu.dll",
+      "name": "??4mgXform_c@@QEAAAEBV0@AEBV0@@Z",
+      "source_module": "sldmodu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bytes": 193,
+      "end_exclusive": "0x4c96b9dc",
+      "module": "sldmodu.dll",
+      "name": "ConstructNamedDrawingViews",
+      "sha256": "7fe3d55f63937c8c47af0e200ecd1494f74c0e8e2570a5399deea294cd2b25d7",
+      "start": "0x4c96b91b"
+    },
+    {
+      "bytes": 10,
+      "end_exclusive": "0x4c96b508",
+      "module": "sldmodu.dll",
+      "name": "InstallActualDrawingVtable",
+      "sha256": "54281e86d1a2155426364a84ba2c822091dfe413d0c19c46102cf9c3c666c372",
+      "start": "0x4c96b4fe"
+    }
+  ],
+  "modules": [
+    {
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  ],
+  "oracle_build": "34.5.2.0604",
+  "resource": {
+    "block_id": 684,
+    "code_page": 0,
+    "language_id": 1033,
+    "module": "sldresu.dll",
+    "payload_bytes": 1260,
+    "payload_rva": 2588144,
+    "payload_sha256": "b4f1e073b210d171d4e623f0150c7ce7596a6b487243428088aba56c7c7c6a54",
+    "rea_evidence": "ev_0eeec8d0a893cc07b7a6d87c44e6d2ff034d00c266fbc6b4ef1de3c92f4a9a75",
+    "sha256": "531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111",
+    "slot": 12,
+    "value": "*Full Sheet"
+  },
+  "schema": "kit.sw2026.drawing-default-view-native.v1",
+  "verified": true,
+  "vtable_cells": [
+    {
+      "cell": "0x4d26c7e8",
+      "module": "sldmodu.dll",
+      "offset": "0x1880",
+      "target": "0x4c97ae50"
+    },
+    {
+      "cell": "0x4d26c538",
+      "module": "sldmodu.dll",
+      "offset": "0x15d0",
+      "target": "0x4c97aef0"
+    }
+  ]
+}

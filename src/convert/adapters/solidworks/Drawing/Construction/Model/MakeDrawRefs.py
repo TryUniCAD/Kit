@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Styles.Ansi.MakeAnsiDetails import (
+    MakeAnsiDetails,
+)
 from convert.adapters.solidworks.Archive.Construction.Styles.MakeDetails import (
     MakeDetails,
 )
@@ -11,11 +14,22 @@ from convert.adapters.solidworks.Drawing.Construction.Model.DrawBuild import Dra
 from convert.adapters.solidworks.Drawing.Construction.Model.DrawRootRefs import (
     DrawRootRefs,
 )
+from convert.adapters.solidworks.Drawing.Construction.Model.MakeDrawViews import (
+    MakeDrawViews,
+)
 
 
 # shared style unit and view constructors must supply drawing dependencies directly from neutral presentation intent
-def MakeDrawRefs(BuildValue: DrawBuild) -> DrawRootRefs:
+def MakeDrawRefs(
+    BuildValue: DrawBuild, *, UseDrawingAnsi: bool = False
+) -> DrawRootRefs:
     StyleValue = BuildValue.StyleValue
+    if UseDrawingAnsi:
+        return DrawRootRefs(
+            MakeAnsiDetails(StyleValue),
+            MakeUnitTable(BuildValue.UnitValue),
+            MakeDrawViews(StyleValue.LanguageId),
+        )
     DetailFields = MakeDetails(
         StandardValue=StyleValue.StandardValue,
         FontName=StyleValue.FontName,

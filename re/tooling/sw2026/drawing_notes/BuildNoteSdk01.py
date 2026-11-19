@@ -31,11 +31,18 @@ def make_input(record):
         "plain-note-surface", record["sheet"], 0.2794, 0.2159, tuple(record["scale"]),
         Notes=(annotation,),
     )
-    return MakeBlankWriteRecipe(
+    recipe = MakeBlankWriteRecipe(
         DrawingData(sheet.EntityId, (sheet,)),
         SelfFileInput(str(locator), record["epoch"]),
         UUID(record["block_id"]),
     )
+    standard = record.get("detailing_standard", 1)
+    if type(standard) is not int or standard not in (0, 1):
+        raise ValueError("unsupported drawing note detailing standard")
+    options = recipe.OptionsValue
+    return replace(recipe, OptionsValue=replace(
+        options, StyleValue=replace(options.StyleValue, StandardValue=standard),
+    ))
 
 
 def verify(value, record):

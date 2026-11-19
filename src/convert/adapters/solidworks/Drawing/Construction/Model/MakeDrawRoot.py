@@ -46,9 +46,11 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
 
 
 # a fresh blank drawing must construct its entire owned model and sheet graph from neutral inputs before serialization
-def MakeDrawRoot(BuildValue: DrawBuild) -> DrawRootGraph:
+def MakeDrawRoot(
+    BuildValue: DrawBuild, *, UseDrawingAnsi: bool = False
+) -> DrawRootGraph:
     CheckDrawBuild(BuildValue)
-    RefsValue = MakeDrawRefs(BuildValue)
+    RefsValue = MakeDrawRefs(BuildValue, UseDrawingAnsi=UseDrawingAnsi)
     Allocator = PersistentIds()
     ModelValue = ArchiveNode(RuntimeClass("moDrawing_c", 1), {})
     InitConceptMut(ModelValue, BuildValue.NameValue, Allocator)

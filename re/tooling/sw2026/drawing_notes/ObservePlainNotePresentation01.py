@@ -13,7 +13,8 @@ from AuthorPlainDrawingNotes import CONTROL, ORACLE, note_state, one_note, publi
 from InspectDrawingCache import drawing_tree
 
 
-SCHEMA = "kit.sw2026.disclosed-plain-note-presentation.v1"
+SCHEMA = "kit.sw2026.disclosed-plain-note-presentation.v2"
+ATTEMPT = "02"
 ROLES = ("ControlBefore", "NativeSource", "SdkCandidate", "ControlAfter")
 CASES = {
     "NativeSource": "NativeSource/Disclosed01.SLDDRW",
@@ -37,10 +38,11 @@ def check_job(path, expected):
     require(row["schema"] == SCHEMA and row["roles"] == list(ROLES)
             and row["oracle_sha256"] == ORACLE and row["heldout_inputs_read"] == 0,
             "unexpected disclosed presentation scope")
-    require(Path(__file__).resolve().parent == root / "Tools" and row["tools"].keys() == TOOLS,
+    tool_directory = root / ("Tools" + ATTEMPT)
+    require(Path(__file__).resolve().parent == tool_directory and row["tools"].keys() == TOOLS,
             "presentation tool closure differs")
     for name, value in row["tools"].items():
-        require(digest(root / "Tools" / name) == value, "presentation tool hash differs")
+        require(digest(tool_directory / name) == value, "presentation tool hash differs")
     require(row["files"].keys() == {"Control.SLDDRW", *CASES.values(), "Intent.json"}
             and row["files"]["Control.SLDDRW"] == CONTROL, "presentation archive closure differs")
     for name, value in row["files"].items():
@@ -93,8 +95,8 @@ def drawing_state(author, drawing, intent):
     layout = snapshot(author, author.model, drawing, None, None, 0)
     tree = drawing_tree(author)
     require(any(row[0] == layout["sheet"] for row in tree), "native feature tree lacks the actual active sheet")
-    extension = author.typed(author.get(author.model, "Extension"), "ModelDocExtension")
-    references = list(author.get(extension, "GetDependencies", True, False, False, True, True) or ())
+    file_name = str(author.get(author.model, "GetPathName"))
+    references = list(author.get(author.app, "GetDocumentDependencies2", file_name, True, False, False) or ())
     require(not references, "drawing contains unexpected external references")
     sheet_view = author.typed(author.get(drawing, "GetFirstView"), "View")
     count = len(author.get(sheet_view, "GetAnnotations") or ())
@@ -175,7 +177,7 @@ def phase(directory, source, expected, intent):
 def run(path, expected):
     require(os.name == "nt", "presentation observation requires the reserved Windows guest")
     root, job = check_job(path, expected)
-    output = root / "Inspection"
+    output = root / ("Inspection" + ATTEMPT)
     output.mkdir()
     intent = loads((root / "Intent.json").read_bytes())
     require((root / CASES["SdkCandidate"]).samefile(intent["locator"]), "candidate locator differs from the native file")
