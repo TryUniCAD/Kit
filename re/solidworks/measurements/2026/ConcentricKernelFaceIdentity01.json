@@ -1,0 +1,437 @@
+{
+  "active_nodes_per_positive": 564,
+  "analytic_grammar_provenance": {
+    "only_sdk_delta": true,
+    "path": "src/convert/adapters/solidworks/Archive/Partition/Fields/AnalyticShapes.py",
+    "sha256": "5c5fbbcab060e8c4a4d035adc429afc7649f27e663d653959de0e9609c490979",
+    "source_stageable_sha256": "64e185c02e680a277e1ced16cae0fc8691b0f0d76e512db9bccd50199ec1d8ba"
+  },
+  "archive_version": 19000,
+  "delivery_pr": 121,
+  "disclosed_children": 6,
+  "endpoints_per_positive": 12,
+  "hidden_inputs_read": 0,
+  "hopper_sessions_opened": 0,
+  "host_processes": 8,
+  "independent_root_replay": {
+    "delivery_manifest_sha256": "4f95785e190d422c03c806c540bee81e8e8ee7a91a30c6062a630e7042776a5c",
+    "exact_module_bindings_sha256": "bd161cffff60744c6a52dcb90ea54c5e03474ac7f93a93bcdacb80bf128e066a",
+    "process_result_sha256": "b58a8469cf999079557a88050049ff3e2187178708738f95c2e9fa1568832784"
+  },
+  "mate_graph_sha256": "5a28338afa61c3b71daa0059970321e8134b3ace275ebc6f3f36dac0fef8ce4b",
+  "native_bindings_sha256": "bd161cffff60744c6a52dcb90ea54c5e03474ac7f93a93bcdacb80bf128e066a",
+  "native_processes_started": 0,
+  "negative_owner_processes": 5,
+  "negative_probes": [
+    {
+      "exit_code": 3,
+      "name": "RejectTransmitIndex",
+      "result": {
+        "error": "snapshot face id differs from actual kernel face node id",
+        "passed": false
+      },
+      "stdout_sha256": "bd8c5e63bab3fbd2e6477a5515cf9bf2d15ebb864bb8ee72cfcfd7790fd03928"
+    },
+    {
+      "exit_code": 3,
+      "name": "RejectCapFace",
+      "result": {
+        "error": "snapshot face id differs from actual kernel face node id",
+        "passed": false
+      },
+      "stdout_sha256": "bd8c5e63bab3fbd2e6477a5515cf9bf2d15ebb864bb8ee72cfcfd7790fd03928"
+    },
+    {
+      "exit_code": 3,
+      "name": "RejectMarker",
+      "result": {
+        "error": "active surface reference differs from actual cylinder id",
+        "passed": false
+      },
+      "stdout_sha256": "3f609a8a15f544da76dd28bbdc07dc673f8647405c1a03c82114ee9e25309ad7"
+    },
+    {
+      "exit_code": 3,
+      "name": "RejectAtom",
+      "result": {
+        "error": "snapshot body id differs from actual body atom",
+        "passed": false
+      },
+      "stdout_sha256": "97a7b7155c5ff20e3fdb632ce15e7a316999274e60ffbd76b2451a7c937f245d"
+    },
+    {
+      "exit_code": 3,
+      "name": "RejectLocalAxis",
+      "result": {
+        "error": "optional vector differs from actual child-local cylinder axis",
+        "passed": false
+      },
+      "stdout_sha256": "4f9fe68f4f246bf8102843ca966da84c5c7778be2778f49734387d8e29359e60"
+    }
+  ],
+  "oracle_build": "34.5.2.0604",
+  "owner": "assembly_occurrence",
+  "positive_owner_processes": 2,
+  "prior_face_owner_receipt_sha256": "e4138e3beccbcccabcf776586e5affdb89ada97278f9fc22b131ce92af700a18",
+  "qualification": {
+    "concentric_writer_native_accepted": false,
+    "fresh_kernel_face_numbering": false,
+    "optional_axis_constructor": false,
+    "saved_owner_consistency": true,
+    "upstream_marker_publication_complete": false
+  },
+  "raw_owner_sha256": "2bd548351cdcb9ac1a3a4fe533a7184d63862a7f2b5954e82a2d1e2195cce80a",
+  "raw_process_sha256": "b58a8469cf999079557a88050049ff3e2187178708738f95c2e9fa1568832784",
+  "rows": [
+    {
+      "active_node_count": 96,
+      "active_payload_sha256": "83c310859d83de7b23a08c26ca0dd1c8aa5eead7dd6e9a4e6afe081c6ac26102",
+      "body_atom_id": 101,
+      "cap_id_words": [
+        [
+          40,
+          33,
+          1795044309,
+          0,
+          0,
+          0
+        ],
+        [
+          40,
+          33,
+          1795044309,
+          0,
+          1,
+          0
+        ]
+      ],
+      "case": "D01",
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "endpoints": [
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 0
+        },
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 1
+        }
+      ],
+      "face_node_id": 27,
+      "face_transmit_index": 41,
+      "faces": 3,
+      "history_payload_sha256": "a5fbd94fa2462eb45854b99bd05210c1d19ffa1758044241b20ba4638abc87e4",
+      "lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "phase": "source",
+      "surface_id_words": [
+        74,
+        33,
+        1795044309,
+        0,
+        1
+      ]
+    },
+    {
+      "active_node_count": 92,
+      "active_payload_sha256": "e5069bfe9aa1fb8afdaa08dd5a8e09838b196a74ddc7697194e329981f7c96fb",
+      "body_atom_id": 101,
+      "cap_id_words": [
+        [
+          40,
+          33,
+          1795044309,
+          0,
+          0,
+          0
+        ],
+        [
+          40,
+          33,
+          1795044309,
+          0,
+          1,
+          0
+        ]
+      ],
+      "case": "D01",
+      "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "endpoints": [
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 0
+        },
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 1
+        }
+      ],
+      "face_node_id": 27,
+      "face_transmit_index": 39,
+      "faces": 3,
+      "history_payload_sha256": "c8cf71c6ef4176db3729b801db8baf75334834a37a72deb3b9f8d2474f875700",
+      "lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+      "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "phase": "edited",
+      "surface_id_words": [
+        74,
+        33,
+        1795044309,
+        0,
+        1
+      ]
+    },
+    {
+      "active_node_count": 96,
+      "active_payload_sha256": "71102434bdd1c2c4a7b8d7210f66b7e86e745fe4801420814ba19576ab4636a1",
+      "body_atom_id": 101,
+      "cap_id_words": [
+        [
+          40,
+          33,
+          1795044655,
+          0,
+          0,
+          0
+        ],
+        [
+          40,
+          33,
+          1795044655,
+          0,
+          1,
+          0
+        ]
+      ],
+      "case": "D02",
+      "child_sha256": "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9",
+      "endpoints": [
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 0
+        },
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 1
+        }
+      ],
+      "face_node_id": 27,
+      "face_transmit_index": 41,
+      "faces": 3,
+      "history_payload_sha256": "a5fbd94fa2462eb45854b99bd05210c1d19ffa1758044241b20ba4638abc87e4",
+      "lock_sha256": "60c1b370eeb763bde246710402453fae52ff34de2bb5c16b9be74ade9d028b70",
+      "parent_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+      "phase": "source",
+      "surface_id_words": [
+        74,
+        33,
+        1795044655,
+        0,
+        1
+      ]
+    },
+    {
+      "active_node_count": 92,
+      "active_payload_sha256": "5cb33313cb8ef7516839dfabba53c61dd325cc4a4e466204cf62bd2a85678d2a",
+      "body_atom_id": 101,
+      "cap_id_words": [
+        [
+          40,
+          33,
+          1795044655,
+          0,
+          0,
+          0
+        ],
+        [
+          40,
+          33,
+          1795044655,
+          0,
+          1,
+          0
+        ]
+      ],
+      "case": "D02",
+      "child_sha256": "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527",
+      "endpoints": [
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 0
+        },
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 1
+        }
+      ],
+      "face_node_id": 27,
+      "face_transmit_index": 39,
+      "faces": 3,
+      "history_payload_sha256": "c8cf71c6ef4176db3729b801db8baf75334834a37a72deb3b9f8d2474f875700",
+      "lock_sha256": "60c1b370eeb763bde246710402453fae52ff34de2bb5c16b9be74ade9d028b70",
+      "parent_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+      "phase": "edited",
+      "surface_id_words": [
+        74,
+        33,
+        1795044655,
+        0,
+        1
+      ]
+    },
+    {
+      "active_node_count": 96,
+      "active_payload_sha256": "1765af202b84f0442ac8d8e5141057efd97bbecd2bf8ca5a1c75d8ba4432fde0",
+      "body_atom_id": 101,
+      "cap_id_words": [
+        [
+          40,
+          33,
+          1795044948,
+          0,
+          0,
+          0
+        ],
+        [
+          40,
+          33,
+          1795044948,
+          0,
+          1,
+          0
+        ]
+      ],
+      "case": "D03",
+      "child_sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
+      "endpoints": [
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 0
+        },
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 1
+        }
+      ],
+      "face_node_id": 27,
+      "face_transmit_index": 41,
+      "faces": 3,
+      "history_payload_sha256": "a5fbd94fa2462eb45854b99bd05210c1d19ffa1758044241b20ba4638abc87e4",
+      "lock_sha256": "acb688e75a817c29d38b95f2d985b8371701e4a106313f711217101ed911c1ee",
+      "parent_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+      "phase": "source",
+      "surface_id_words": [
+        74,
+        33,
+        1795044948,
+        0,
+        1
+      ]
+    },
+    {
+      "active_node_count": 92,
+      "active_payload_sha256": "a635b8431e93711de792a3d6eb82c542a44ef1d5fa8e4678951a5a594d3796a5",
+      "body_atom_id": 101,
+      "cap_id_words": [
+        [
+          40,
+          33,
+          1795044948,
+          0,
+          0,
+          0
+        ],
+        [
+          40,
+          33,
+          1795044948,
+          0,
+          1,
+          0
+        ]
+      ],
+      "case": "D03",
+      "child_sha256": "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f",
+      "endpoints": [
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 0
+        },
+        {
+          "active_surface_id_matched": true,
+          "adjacent_cap_ids_matched": true,
+          "body_atom_id_matched": true,
+          "face_node_id_matched": true,
+          "local_axis_matched": true,
+          "ordinal": 1
+        }
+      ],
+      "face_node_id": 27,
+      "face_transmit_index": 39,
+      "faces": 3,
+      "history_payload_sha256": "c8cf71c6ef4176db3729b801db8baf75334834a37a72deb3b9f8d2474f875700",
+      "lock_sha256": "acb688e75a817c29d38b95f2d985b8371701e4a106313f711217101ed911c1ee",
+      "parent_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+      "phase": "edited",
+      "surface_id_words": [
+        74,
+        33,
+        1795044948,
+        0,
+        1
+      ]
+    }
+  ],
+  "schema": "kit.sw2026.concentric-kernel-face-identity-receipt.v1",
+  "scope": "disclosed saved kernel identity read correlation; no generated endpoint or native qualification",
+  "source_before_sha256": "762c83a6cd47922fe0a8d1e505edd256cf945d6c222cfa37180702c711877686",
+  "source_manifest_sha256": "c225fc9a4575b3b8d65a68f3db4182877009018b6796f3d8ed6546e519bc54bf",
+  "source_unchanged": true,
+  "static_native_processes": 1,
+  "task": "B04-SW2026-MATES-CONCENTRIC",
+  "writer_outputs": 0
+}
