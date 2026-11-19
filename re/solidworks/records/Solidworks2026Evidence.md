@@ -6,6 +6,8 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Attached Top-plane box source locks](../measurements/2026/AttachedTopBoxSourcesNative01.json) | Ten distinct native processes pass, including four controls. The disclosed signed profile retains all three named drivers through independent edits and reopens. Two original writer holdouts are locked by hash. The disclosed original re-emits five linked streams exactly. |
+| [FreeCAD benchmark path audit](../measurements/2026/ReFcstdRosterAudit01.json) | The VM share and active research tree contain no FCStd files. All 53 distinct identities found in older local research trees already belong to the 162-file disclosed inventory. The original benchmark roster is still unverified. |
 | [Radial concentric assembly persistence](../measurements/2026/ConcentricRadialAssemblyNative01.json) | Four fresh processes pass 140 checks. The paired edit/save/reopen preserves the true driving radius, four lights and live mate. Sixteen linked-stream comparisons are byte-exact. |
 | [Radial child and four-light native lifecycle](../measurements/2026/ConcentricRadialSceneNative01.json) | Four process phases pass 100 checks. The generated standalone part retains a driving radius and four ordered lights through a depth edit, save and reopen. Both files reproduce five linked streams exactly. |
 | [Same-model plain width controls](../measurements/2026/WidthDepthPlainEditControls01.json) | The same ordinary file opens with one solid in both attempts. With direct edit, rebuild returns true and zero diagnostics before the typed feature lookup loses its COM interface. The fresh recovery control passes. |

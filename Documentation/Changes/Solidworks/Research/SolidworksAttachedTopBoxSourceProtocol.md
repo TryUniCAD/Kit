@@ -11,5 +11,4 @@ The scoped native application and the two healthy controls identify the measured
 Use the [packet tool](../../../../re/tooling/sw2026/attached_top_box_source/RunAttachedTopBoxSources.py) in the exact SOLIDWORKS 2026 SP05.2 guest.
 The disclosed mode measures the observed attached-box geometry.
 The sealed mode creates two independent writer holdouts in guest-private storage.
-Those samples and their intent stay sealed, with only their hashes and verdicts published.
-Native source measurements remain pending.
+The two samples and their intent stay sealed. The [native receipt](../../../../re/solidworks/measurements/2026/AttachedTopBoxSourcesNative01.json) records their hashes, all ten fresh process verdicts and four healthy controls. The disclosed original also re-emits five linked streams byte for byte. These measurements establish the source fixtures. Writer acceptance remains open.

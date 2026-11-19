@@ -708,6 +708,16 @@ The [disclosed source inventory](measurements/2026/DisclosedFcstdSourceInventory
 records every input hash and anonymized path alias. These four collections have
 unverified historical membership. This inventory adds zero generated conversions.
 
+The requested `re/` path was checked in the Windows VM's repository share and
+across 70 local Git worktrees, including ignored files and archive candidates.
+The VM checkout and the active worktree contain zero FCStd files. Three older
+worktrees contain 63 FCStd paths with 53 distinct hashes. All 53 identities are
+already in the 162-identity inventory. The historical ignored
+`re/solidworks/examples/Random/` directory is absent from the inspected roots.
+The [path audit](measurements/2026/ReFcstdRosterAudit01.json) retains the checked
+scope and the exact overlap. The requested 165-part and five-assembly roster
+still needs authoritative source files or an original inventory.
+
 The original recursive result was:
 
 | measurement              | count |

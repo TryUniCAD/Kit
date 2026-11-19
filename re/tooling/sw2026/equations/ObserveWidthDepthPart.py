@@ -28,8 +28,7 @@ class PlainPartObserver(LiveWidthObserver):
         return []
 
     def source_snapshot(self, case, edited):
-        fixed_depth = {**case, "width_mm": case["edit_width_mm"]} if edited else case
-        return super().source_snapshot(fixed_depth, False)
+        return super().source_snapshot({**case, "family": "plain"}, edited)
 
 def load_job(path, expected):
     require(digest(path) == expected, "the frozen width/depth job changed")

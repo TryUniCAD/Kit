@@ -153,3 +153,23 @@ local V and reverse the boss depth. Those owners still require native qualificat
 The scan generated zero native files and ran zero native application processes.
 It adds zero conversion credits. Historical benchmark membership and public
 writer admission remain open.
+
+## Native control for signed Top-plane placement
+
+The [source protocol](../../tooling/sw2026/attached_top_box_source/README.md)
+authored one disclosed SOLIDWORKS part with the signed F14c placement and
+locked two independent writer holdouts before implementation. SOLIDWORKS 2026
+SP05.2 passed all ten fresh phases with four healthy controls. The disclosed
+part keeps Top Plane as its parent, a coincident external model-origin proxy,
+the ordinary four-edge contour and a reversed blind boss. Independent edits
+change Length to 27 mm, Width to 37 mm, and Height to 15 mm in separate saves.
+Each save reopens with the edited driver and the matching solid.
+
+The strict Kit read of the disclosed original reports 19 feature rows and the
+three positive dimensions of 20, 30 and 10 mm. The four local vertices are
+`(0, 0)`, `(20, -30)`, `(0, -30)` and `(20, 0)` mm, alongside a separate
+external origin point. All five linked Config-0, ResolvedFeatures, CMgr,
+ModelHeader and Header2 streams re-emit their original bytes. The two final
+maps have 111 and 301 slots. The [source receipt](../measurements/2026/AttachedTopBoxSourcesNative01.json)
+records the disclosed outcomes and opaque holdout hashes. This source run adds
+zero generated outputs or conversion credits.
