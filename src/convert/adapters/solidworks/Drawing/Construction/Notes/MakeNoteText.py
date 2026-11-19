@@ -29,7 +29,7 @@ def MakeNoteText(
             "f20": StyleValue["f1c"],
             "f38": MakePoint(XValue=Position.x, YValue=Position.y, ZValue=Position.z),
             "f158": MakeNoteTokens(NoteValue.TextValue, StyleValue),
-            "f160": (1 << 0) | (1 << 16) | (1 << 17) | (1 << 18),
+            "f160": (1 << 0) | (1 << 10) | (1 << 16) | (1 << 17) | (1 << 18),
             "f170": None,
             "f188": MakeNoteParagraph(StyleValue, False),
         }
