@@ -50,3 +50,9 @@ The [runner](../../tooling/sw2026/drawing_edges/RunDrawingPreparationGate01.py) 
 | Complete packet manifest | `5b67fe12710767d07ff1a38f204a304577ec927f4c5a555f454413f71d8afc48` |
 
 The recipe uses explicit Windows paths and places the VM name before `--current-user`. Root captures the source before running its verify and run argument arrays. Host verification and static checks pass. No VM, COM, held-out input, shared source, or Hopper target was used by this preparation.
+
+## Measured ordinary saves
+
+Three fresh SOLIDWORKS processes complete the selected control, observed save and trailing control. The three opens and three saves return zero errors and warnings. The middle save already has Save Model Data enabled and emits events 7, 9 and 28 in order. The observer arms, restores the original instruction and detaches cleanly. It records no target view or other view at the prepared site during the observed save interval.
+
+The run preserves a useful upper bound on this route. The per-view branch remains unobserved, so it supplies no measured Boolean predicate or cache-lookup result. [Native receipt](../measurements/2026/DrawingPreparationGateNative01.json)

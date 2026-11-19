@@ -1,0 +1,1418 @@
+{
+  "claims": {
+    "cad_or_com_execution": false,
+    "heldout_access": false,
+    "instruction_boundaries_checked": true,
+    "native_execution": false,
+    "native_or_heldout_acceptance": false,
+    "schema_or_codec_execution": false,
+    "shared_edits": false,
+    "static_metadata_only": true,
+    "tests": false,
+    "vm_execution": false,
+    "writer_changes": false
+  },
+  "data_windows": [
+    {
+      "bound": "original concrete RTTI identity",
+      "bytes": 8,
+      "end_exclusive": "0x4cf3d488",
+      "module": "sldmodu.dll",
+      "name": "moExtrusion_c vtable locator",
+      "sha256": "ed69e4eed145ba152a87617f64029ab85861b9f0e8bce81560c23bebe557e5c3",
+      "start": "0x4cf3d480"
+    },
+    {
+      "bound": "original concrete RTTI identity",
+      "bytes": 24,
+      "end_exclusive": "0x4d32da40",
+      "module": "sldmodu.dll",
+      "name": "moExtrusion_c complete object locator",
+      "sha256": "a2e123def2cc9c0bc0e0d174f4920a57e4159247e752c45881fd1aece1083a17",
+      "start": "0x4d32da28"
+    },
+    {
+      "bound": "original concrete RTTI identity",
+      "bytes": 36,
+      "end_exclusive": "0x4db0eb4c",
+      "module": "sldmodu.dll",
+      "name": "moExtrusion_c type descriptor",
+      "sha256": "8f5601aac596a052b27d737839e1c19ebb0fc8f874c280116b888385709165d5",
+      "start": "0x4db0eb28"
+    },
+    {
+      "bound": "original concrete RTTI identity",
+      "bytes": 8,
+      "end_exclusive": "0x4cff1620",
+      "module": "sldmodu.dll",
+      "name": "moAtom_c vtable locator",
+      "sha256": "a15d5a0e3d3dbc34feea96f8d14c9a749417f976410e9de03914d519365d60af",
+      "start": "0x4cff1618"
+    },
+    {
+      "bound": "original concrete RTTI identity",
+      "bytes": 24,
+      "end_exclusive": "0x4d33c0c0",
+      "module": "sldmodu.dll",
+      "name": "moAtom_c complete object locator",
+      "sha256": "b6b00029c012d44feb690e2b7f1265ba8a76f8d718f006663ff8e0637570621d",
+      "start": "0x4d33c0a8"
+    },
+    {
+      "bound": "original concrete RTTI identity",
+      "bytes": 31,
+      "end_exclusive": "0x4db0f5cf",
+      "module": "sldmodu.dll",
+      "name": "moAtom_c type descriptor",
+      "sha256": "5c70815bc2f1dd47055718b81259bc701f70b777eab4366491711ab41df04bcc",
+      "start": "0x4db0f5b0"
+    },
+    {
+      "bound": "actual exported runtime class used by typed atom pointer operators",
+      "bytes": 48,
+      "end_exclusive": "0x4dae27e0",
+      "module": "sldmodu.dll",
+      "name": "moAtom runtime class",
+      "sha256": "47b1ca446f0e67e1b629723bdcd012881cecd3553a0bd4853c7945fc88a222e4",
+      "start": "0x4dae27b0"
+    }
+  ],
+  "delivery_pr": 121,
+  "field_rules": [
+    {
+      "confidence": "static-confirmed",
+      "field": "f528",
+      "meaning": "nullable actual created-atom object array",
+      "owner": "moAtomFeature_c",
+      "runtime": "actual +528 array pointer; data+8; signed count+10",
+      "wire": "canonical signed i32 presence 0 or1; if nonzero actual custom suObArray Serialize"
+    },
+    {
+      "confidence": "static-confirmed",
+      "field": "f530",
+      "meaning": "nullable actual consumed-atom object array",
+      "owner": "moAtomFeature_c",
+      "runtime": "actual +530 array pointer",
+      "wire": "same pointer framing after f528"
+    },
+    {
+      "confidence": "static-confirmed",
+      "field": "f538",
+      "meaning": "actual modified single atom",
+      "owner": "moAtomFeature_c",
+      "runtime": "nonnull value has output-count and output-object precedence over f528",
+      "wire": "typed moAtom object pointer grammar after f530"
+    },
+    {
+      "confidence": "static-confirmed",
+      "field": "n494/f498",
+      "meaning": "retained signed atom-ID slots, distinct from live created-object membership",
+      "owner": "moAtomFeature_c",
+      "runtime": "actual count+494 and int32 array pointer+498",
+      "wire": "signed i32 count followed by that many signed i32 IDs; present in selected C0 current profile"
+    },
+    {
+      "confidence": "static-confirmed",
+      "field": "f260",
+      "meaning": "manager atom-allocation counter",
+      "owner": "moAtomManager_c",
+      "runtime": "fresh allocation increments actual +260 and passes result into actual atom+140",
+      "wire": "shared manager serializer; independent of persistent feature f08"
+    },
+    {
+      "confidence": "static-confirmed",
+      "field": "f130/f12c",
+      "meaning": "current saved last-modifier/creator feature identities",
+      "owner": "moAtom_c",
+      "runtime": "current store obtains identities from actual +148 then +150 feature slot188; same concrete extrusion slot188 reads f08; f528 alias is not inferred from these IDs",
+      "wire": "current load reads f130 then f12c as signed i32 instead of legacy direct feature references"
+    },
+    {
+      "confidence": "static-confirmed",
+      "field": "f160",
+      "meaning": "runtime body publication, separate from wire body_kind",
+      "owner": "moAtom_c",
+      "runtime": "actual setBody publishes body+160 and last-modifying feature+148 only after its nonnull guards and cache/attribute work",
+      "wire": "body_kind0 does not carry the actual current solid body"
+    }
+  ],
+  "fresh_producer": {
+    "counter_domain": "manager atom allocation is separate from node persistent IDs and from kernel process IDs; no fixed101/102 or fixed number of old atoms is proved",
+    "existing_id_branch": "when prior n494 is positive, the alternative branch can reuse ID slots; range helper4bcf9230 is only requestedID<=manager+260, followed by actual getAtomFromId; it is not a membership predicate by itself",
+    "modified_branch": "setModifiedAtom4b7173b0 publishes through distinct +538 lane; do not use it to stand in for ordinary created output",
+    "selected_inputs": "actual manager exists; +528 null; actual n494==0; one nonnull actual body; no preexisting created-output slots",
+    "sequence": [
+      "allocate fresh suObArray and install feature+528",
+      "count actual nonnull body inputs and set feature+494; allocate signed ID slots",
+      "manager4bcf0ca0 increments +260 and constructs actual moAtom(manager,newID)",
+      "store same atom+140 into selected feature f498 slot",
+      "request actual atom state0 and set creator/base feature+150 to actual feature",
+      "setBody actual atom/body/feature; setBody publishes runtime+160/+148",
+      "append same actual atom object to created-array+528"
+    ]
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 584,
+      "end_exclusive": "0x4bb11888",
+      "module": "sldmodu.dll",
+      "name": "ActualExtrusionSerialize01",
+      "sha256": "c5a878eddfee6d1a099f896cb01229c738f9dca684a60d8428ab115ef171d2ef",
+      "start": "0x4bb11640",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 584,
+          "end_exclusive": "0x4bb11888",
+          "sha256": "c5a878eddfee6d1a099f896cb01229c738f9dca684a60d8428ab115ef171d2ef",
+          "start": "0x4bb11640",
+          "unwind_rva": "0x23881f8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 766,
+      "end_exclusive": "0x4bb0d75e",
+      "module": "sldmodu.dll",
+      "name": "BodyFeatureSerialize01",
+      "sha256": "861ce9c48b1961cd00f7fffd965d155702af48af9b37f70390d0037eb6772beb",
+      "start": "0x4bb0d460",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 221,
+          "end_exclusive": "0x4bb0d53d",
+          "sha256": "7e931ccc1f9c48d5b8f5b4de5c8211551e7f6af6417f26bf1c130739ec5c3085",
+          "start": "0x4bb0d460",
+          "unwind_rva": "0x23861c4"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 325,
+          "end_exclusive": "0x4bb0d682",
+          "sha256": "8ff1a2411e138ce575d95469e3c49b403cecde11473351e83f011cd06130f38f",
+          "start": "0x4bb0d53d",
+          "unwind_rva": "0x23861d0"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 33,
+          "end_exclusive": "0x4bb0d6a3",
+          "sha256": "9c41f44be484c8cb280400116ea555ad353937daa837b41dd27008dc44352638",
+          "start": "0x4bb0d682",
+          "unwind_rva": "0x23861e4"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 115,
+          "end_exclusive": "0x4bb0d716",
+          "sha256": "18f3f7db4773da67481c718ba6fc8b3dacd518886bdd8c994000593592aecb2d",
+          "start": "0x4bb0d6a3",
+          "unwind_rva": "0x23861fc"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 13,
+          "end_exclusive": "0x4bb0d723",
+          "sha256": "b66bddc8290da0c6a9d014e47f0d0c5a497e60c32ecfeb5b495f3ecc402255c5",
+          "start": "0x4bb0d716",
+          "unwind_rva": "0x2386210"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 16,
+          "end_exclusive": "0x4bb0d733",
+          "sha256": "3f72f921b3412db7d29231a0899a91a4f3f58282e99a26fa72440a4a3af517ce",
+          "start": "0x4bb0d723",
+          "unwind_rva": "0x2386220"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 43,
+          "end_exclusive": "0x4bb0d75e",
+          "sha256": "f384dfeb5197f304efa3efbe4eecab09d6ca165bb9a433df9e5fc7d4cbfe701b",
+          "start": "0x4bb0d733",
+          "unwind_rva": "0x2386230"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 7362,
+      "end_exclusive": "0x4bb0cd82",
+      "module": "sldmodu.dll",
+      "name": "AtomFeatureSerialize01",
+      "sha256": "73fc5118ed366b226491bdfd3b064c5c1a8bff8f74456bdcce47449cc24b41c3",
+      "start": "0x4bb0b0c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 7362,
+          "end_exclusive": "0x4bb0cd82",
+          "sha256": "73fc5118ed366b226491bdfd3b064c5c1a8bff8f74456bdcce47449cc24b41c3",
+          "start": "0x4bb0b0c0",
+          "unwind_rva": "0x2385fd0"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 33,
+      "end_exclusive": "0x4b706181",
+      "module": "sldmodu.dll",
+      "name": "GetNumberOutputAtoms01",
+      "sha256": "568bc4f4e88c9179ef8ed0ab344179b7ac83f2d648f73b80715b78fb57028d36",
+      "start": "0x4b706160",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 334,
+      "end_exclusive": "0x4b70674e",
+      "module": "sldmodu.dll",
+      "name": "GetOutputAtoms01",
+      "sha256": "3dcc7bcb2d7dcdcadd69164bd62f63bef46237f82e208fae20c248835858cf7e",
+      "start": "0x4b706600",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 334,
+          "end_exclusive": "0x4b70674e",
+          "sha256": "3dcc7bcb2d7dcdcadd69164bd62f63bef46237f82e208fae20c248835858cf7e",
+          "start": "0x4b706600",
+          "unwind_rva": "0x2245b80"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 82,
+      "end_exclusive": "0x4b705692",
+      "module": "sldmodu.dll",
+      "name": "GetFirstOutputAtom01",
+      "sha256": "face0d536f350f895c3393c4e807e97a880b74ada6e2927647f430462faee8b1",
+      "start": "0x4b705640",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 82,
+          "end_exclusive": "0x4b705692",
+          "sha256": "face0d536f350f895c3393c4e807e97a880b74ada6e2927647f430462faee8b1",
+          "start": "0x4b705640",
+          "unwind_rva": "0x22ed868"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4b2852d8",
+      "module": "sldmodu.dll",
+      "name": "GetCreatedAtoms01",
+      "sha256": "f28ab0fb559ff99d63a6bca43aac5128ec9d847a9d465c6ad703b2bef7cc4753",
+      "start": "0x4b2852d0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4b285218",
+      "module": "sldmodu.dll",
+      "name": "GetConsumedAtoms01",
+      "sha256": "3a8499acf30b2f3413b7ac5ad085eeb9e069391643d90f79738af6c267c950ed",
+      "start": "0x4b285210",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 98,
+      "end_exclusive": "0x4b7179a2",
+      "module": "sldmodu.dll",
+      "name": "SetOneCreatedAtom01",
+      "sha256": "312e548dc75bc3257e9092b097a082b435d283e42f36317abd50731adee242eb",
+      "start": "0x4b717940",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 98,
+          "end_exclusive": "0x4b7179a2",
+          "sha256": "312e548dc75bc3257e9092b097a082b435d283e42f36317abd50731adee242eb",
+          "start": "0x4b717940",
+          "unwind_rva": "0x22ed6e4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1216,
+      "end_exclusive": "0x4b717930",
+      "module": "sldmodu.dll",
+      "name": "SetMultipleCreatedAtoms01",
+      "sha256": "1cf2a56efa6300b8c07baccc4a5238be0d4926f6b996e2f3c395b227c6ed8bc3",
+      "start": "0x4b717470",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1216,
+          "end_exclusive": "0x4b717930",
+          "sha256": "1cf2a56efa6300b8c07baccc4a5238be0d4926f6b996e2f3c395b227c6ed8bc3",
+          "start": "0x4b717470",
+          "unwind_rva": "0x22ed70c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 178,
+      "end_exclusive": "0x4b717462",
+      "module": "sldmodu.dll",
+      "name": "SetModifiedBodyAtom01",
+      "sha256": "a53e7a9d7bbc8ed93e16733259a8bdaf3525416c8ac540e8ef774c01e22e70da",
+      "start": "0x4b7173b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 178,
+          "end_exclusive": "0x4b717462",
+          "sha256": "a53e7a9d7bbc8ed93e16733259a8bdaf3525416c8ac540e8ef774c01e22e70da",
+          "start": "0x4b7173b0",
+          "unwind_rva": "0x224be14"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 135,
+      "end_exclusive": "0x4bcf0d27",
+      "module": "sldmodu.dll",
+      "name": "ManagerAllocateAtom01",
+      "sha256": "80e2bd8381dde98ff2f4c42b50cf79cc05619b68e58cf705314688e150efda9d",
+      "start": "0x4bcf0ca0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 135,
+          "end_exclusive": "0x4bcf0d27",
+          "sha256": "80e2bd8381dde98ff2f4c42b50cf79cc05619b68e58cf705314688e150efda9d",
+          "start": "0x4bcf0ca0",
+          "unwind_rva": "0x23c897c"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 12,
+      "end_exclusive": "0x4bcf923c",
+      "module": "sldmodu.dll",
+      "name": "ManagerAllocatedRange01",
+      "sha256": "259828f99447842e802f0e1af7673678da0b0c3e13c863bb56a2a9379d3bb08a",
+      "start": "0x4bcf9230",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 436,
+      "end_exclusive": "0x4bcee024",
+      "module": "sldmodu.dll",
+      "name": "AtomOwnerConstructor01",
+      "sha256": "c14db58f3b7acd07a7154a57c2aa5a995b4938569ae99a9828ac72764159a76a",
+      "start": "0x4bcede70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 436,
+          "end_exclusive": "0x4bcee024",
+          "sha256": "c14db58f3b7acd07a7154a57c2aa5a995b4938569ae99a9828ac72764159a76a",
+          "start": "0x4bcede70",
+          "unwind_rva": "0x23c7594"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 658,
+      "end_exclusive": "0x4bcfbd52",
+      "module": "sldmodu.dll",
+      "name": "AtomStateSetter01",
+      "sha256": "6d8aa78f2275acb756d8c9e9aaed7078be23533b53104216430dfc14b1d0decb",
+      "start": "0x4bcfbac0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 658,
+          "end_exclusive": "0x4bcfbd52",
+          "sha256": "6d8aa78f2275acb756d8c9e9aaed7078be23533b53104216430dfc14b1d0decb",
+          "start": "0x4bcfbac0",
+          "unwind_rva": "0x23c7a18"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4b2c6d18",
+      "module": "sldmodu.dll",
+      "name": "AtomCreatedFeatureSetter01",
+      "sha256": "f3f924147b4c0188275057411487ffcdbbea3b0d29344dd6401bdc6c313fe14d",
+      "start": "0x4b2c6d10",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4b2841c8",
+      "module": "sldmodu.dll",
+      "name": "AtomBaseFeatureGetter01",
+      "sha256": "888332a99c4749e874b9a1bfc35fbe3b52e39fa15c3540d6d08800845c3d5246",
+      "start": "0x4b2841c0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4b2875d8",
+      "module": "sldmodu.dll",
+      "name": "AtomLastFeatureGetter01",
+      "sha256": "63fb7a16952265c2f121170b4d1bcaf818295178dd1d839f957793af5ec479dc",
+      "start": "0x4b2875d0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 509,
+      "end_exclusive": "0x4bb2bb3d",
+      "module": "sldmodu.dll",
+      "name": "AtomFeatureLoadReset01",
+      "sha256": "96bc116afde7e5f0c5bf14328fde4c4075296f0a24f139653cb7dbed31a750d7",
+      "start": "0x4bb2b940",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 509,
+          "end_exclusive": "0x4bb2bb3d",
+          "sha256": "96bc116afde7e5f0c5bf14328fde4c4075296f0a24f139653cb7dbed31a750d7",
+          "start": "0x4bb2b940",
+          "unwind_rva": "0x2385f90"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 624,
+      "end_exclusive": "0x4bb2bec0",
+      "module": "sldmodu.dll",
+      "name": "AtomFeatureModelBind01",
+      "sha256": "63590496abd640394a8ebe0c12f8301dae5068356286d29bce81ce4a73a00076",
+      "start": "0x4bb2bc50",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 624,
+          "end_exclusive": "0x4bb2bec0",
+          "sha256": "63590496abd640394a8ebe0c12f8301dae5068356286d29bce81ce4a73a00076",
+          "start": "0x4bb2bc50",
+          "unwind_rva": "0x2385f4c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 188,
+      "end_exclusive": "0x3c8cfe5c",
+      "module": "sldmfcu.dll",
+      "name": "SuObArrayPointerSerialize01",
+      "sha256": "5eb00ac0ee3f3f3b747c4ad2fed37d4423f595265d70061327adbc3091a218f8",
+      "start": "0x3c8cfda0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 188,
+          "end_exclusive": "0x3c8cfe5c",
+          "sha256": "5eb00ac0ee3f3f3b747c4ad2fed37d4423f595265d70061327adbc3091a218f8",
+          "start": "0x3c8cfda0",
+          "unwind_rva": "0x5f3f70"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x3c8cd957",
+      "module": "sldmfcu.dll",
+      "name": "SuObArraySerialize01",
+      "sha256": "0aacf73ccc23fa17463fd98670923fbf94aa8aaf0644dd36eb5ed6e09cf9ad70",
+      "start": "0x3c8cd950",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 549,
+      "end_exclusive": "0x31a3d2e5",
+      "module": "swccu.dll",
+      "name": "CustomObjectArraySerialize01",
+      "sha256": "8662c9324005727475bdcd1486c2d5ed9e4df6b1cd0d591f26413e3749d81157",
+      "start": "0x31a3d0c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 549,
+          "end_exclusive": "0x31a3d2e5",
+          "sha256": "8662c9324005727475bdcd1486c2d5ed9e4df6b1cd0d591f26413e3749d81157",
+          "start": "0x31a3d0c0",
+          "unwind_rva": "0x269e8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 82,
+      "end_exclusive": "0x4bcee8b2",
+      "module": "sldmodu.dll",
+      "name": "ReadAtomPointer01",
+      "sha256": "63f80b4db8e3aa0c5f1500cccfc201374ef5ea9a6c471cb5157f1207bc1996d9",
+      "start": "0x4bcee860",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 82,
+          "end_exclusive": "0x4bcee8b2",
+          "sha256": "63f80b4db8e3aa0c5f1500cccfc201374ef5ea9a6c471cb5157f1207bc1996d9",
+          "start": "0x4bcee860",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 79,
+      "end_exclusive": "0x4bcee95f",
+      "module": "sldmodu.dll",
+      "name": "WriteAtomPointer01",
+      "sha256": "1c6a7052b6b4bdd1bb3e48eb617d4642c1e9e39dd876e50ca67befd4e0ee5cef",
+      "start": "0x4bcee910",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 79,
+          "end_exclusive": "0x4bcee95f",
+          "sha256": "1c6a7052b6b4bdd1bb3e48eb617d4642c1e9e39dd876e50ca67befd4e0ee5cef",
+          "start": "0x4bcee910",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 48,
+      "end_exclusive": "0x4bad6d30",
+      "module": "sldmodu.dll",
+      "name": "ExtrusionCurrentOutputGate01",
+      "sha256": "e2af2a917672e1b3dc3e5a0fe1527e87ee03bb975ed49a53182dd0ded768e070",
+      "start": "0x4bad6d00",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 48,
+          "end_exclusive": "0x4bad6d30",
+          "sha256": "e2af2a917672e1b3dc3e5a0fe1527e87ee03bb975ed49a53182dd0ded768e070",
+          "start": "0x4bad6d00",
+          "unwind_rva": "0x2245bc8"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 68,
+      "end_exclusive": "0x4bb42a84",
+      "module": "sldmodu.dll",
+      "name": "FeatureCreateVersion01",
+      "sha256": "d58071b1416b0f412f3c8bb316acf9f1057c1cc90678f874473fb11f15960fc9",
+      "start": "0x4bb42a40",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 4,
+      "end_exclusive": "0x4b283ba4",
+      "module": "sldmodu.dll",
+      "name": "PersistentNodeIdSlot01",
+      "sha256": "916ae10aa3fd76a4d5b25b2fb66e9df0fd04957c7ab10930268d1ed7808be689",
+      "start": "0x4b283ba0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1925,
+      "end_exclusive": "0x4c1cfbb5",
+      "module": "sldmodu.dll",
+      "name": "PartReplaceBody01",
+      "sha256": "81009598c2fe358f74c53c8fe28ffd241a8780ac47c7eefe2e68467a63a2fc05",
+      "start": "0x4c1cf430",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1925,
+          "end_exclusive": "0x4c1cfbb5",
+          "sha256": "81009598c2fe358f74c53c8fe28ffd241a8780ac47c7eefe2e68467a63a2fc05",
+          "start": "0x4c1cf430",
+          "unwind_rva": "0x2478720"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 731,
+      "end_exclusive": "0x4bcfb63b",
+      "module": "sldmodu.dll",
+      "name": "AtomSetBody01",
+      "sha256": "aced2594e89a888f36911f9ed3518603d7d6d3d498c83256505715bbb4f43c18",
+      "start": "0x4bcfb360",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 731,
+          "end_exclusive": "0x4bcfb63b",
+          "sha256": "aced2594e89a888f36911f9ed3518603d7d6d3d498c83256505715bbb4f43c18",
+          "start": "0x4bcfb360",
+          "unwind_rva": "0x23c765c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1841,
+      "end_exclusive": "0x4bcf02e1",
+      "module": "sldmodu.dll",
+      "name": "AtomSerialize01",
+      "sha256": "e3cb61c2a22a231a8d9b05b36e6dd1ec52a4ecf2de76c4ac012d605c2a888974",
+      "start": "0x4bcefbb0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1841,
+          "end_exclusive": "0x4bcf02e1",
+          "sha256": "e3cb61c2a22a231a8d9b05b36e6dd1ec52a4ecf2de76c4ac012d605c2a888974",
+          "start": "0x4bcefbb0",
+          "unwind_rva": "0x23c8574"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 41,
+      "end_exclusive": "0x4bcf2ec9",
+      "module": "sldmodu.dll",
+      "name": "ManagerGetAtomFromId01",
+      "sha256": "c0095c2f3ea1cacec61bec30eef4f8f6633700aa15e811f4f2a55c9632944a49",
+      "start": "0x4bcf2ea0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 41,
+          "end_exclusive": "0x4bcf2ec9",
+          "sha256": "c0095c2f3ea1cacec61bec30eef4f8f6633700aa15e811f4f2a55c9632944a49",
+          "start": "0x4bcf2ea0",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 731,
+      "end_exclusive": "0x4bcefbab",
+      "module": "sldmodu.dll",
+      "name": "ManagerSerialize01",
+      "sha256": "760c62cb464604f94675e1806a61e63b65f9f2125f4dbe1a9890f7696007664b",
+      "start": "0x4bcef8d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 731,
+          "end_exclusive": "0x4bcefbab",
+          "sha256": "760c62cb464604f94675e1806a61e63b65f9f2125f4dbe1a9890f7696007664b",
+          "start": "0x4bcef8d0",
+          "unwind_rva": "0x23c92b4"
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4cd38788",
+      "module": "sldgcu.dll",
+      "name": "?getAtomId@gcBody_w@@QEAAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd33300",
+      "module": "SLDMFCU.dll",
+      "name": "?hasCondition@moArchiveHelper_c@@QEAAHH@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd33510",
+      "module": "SLDMFCU.dll",
+      "name": "?serializePtr@suObArray@@SAXAEAVsu_CArchive@@AEAPEAV1@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd33d48",
+      "module": "SLDMFCU.dll",
+      "name": "?find@suObArray@@QEBAHPEBVCObject@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d870",
+      "module": "swccu.dll",
+      "name": "?IsStoring@su_CArchive@@QEBAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d878",
+      "module": "swccu.dll",
+      "name": "?IsDBStream@su_CArchive@@QEBAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d880",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@J@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d888",
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d890",
+      "module": "swccu.dll",
+      "name": "?ReadObject@su_CArchive@@QEAAPEAVCObject@@PEBUCRuntimeClass@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d898",
+      "module": "swccu.dll",
+      "name": "?WriteObject@su_CArchive@@QEAAXPEBVCObject@@PEBUCRuntimeClass@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d918",
+      "module": "swccu.dll",
+      "name": "?SetAtGrow@su_CObArray@@QEAAXHPEAVCObject@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d970",
+      "module": "swccu.dll",
+      "name": "?WriteObject@su_CDBArchive@@QEAAXPEBVCObject@@PEBUCRuntimeClass@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d978",
+      "module": "swccu.dll",
+      "name": "?ReadObject@su_CDBArchive@@QEAAPEAVCObject@@PEAUCRuntimeClass@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3db00",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@H@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3db10",
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAH@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3dcc0",
+      "module": "swccu.dll",
+      "name": "?IsLoading@su_CArchive@@QEBAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3dd48",
+      "module": "swccu.dll",
+      "name": "?GetSize@su_CObArray@@QEBAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3dd98",
+      "module": "swccu.dll",
+      "name": "??Asu_CObArray@@QEAAAEAPEAVCObject@@H@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x3cb1d238",
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z",
+      "source_module": "sldmfcu.dll"
+    },
+    {
+      "iat": "0x3cb1d248",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@J@Z",
+      "source_module": "sldmfcu.dll"
+    },
+    {
+      "iat": "0x3cb1d268",
+      "module": "swccu.dll",
+      "name": "?Serialize@su_CObArray@@UEAAXAEAVsu_CArchive@@@Z",
+      "source_module": "sldmfcu.dll"
+    },
+    {
+      "iat": "0x3cb1d3d0",
+      "module": "swccu.dll",
+      "name": "?IsStoring@su_CArchive@@QEBAHXZ",
+      "source_module": "sldmfcu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 11,
+      "end_exclusive": "0x4bb116c7",
+      "module": "sldmodu.dll",
+      "name": "concrete extrusion calls body-feature serializer",
+      "parent": "0x4bb11640",
+      "sha256": "239cff396edb04392dbfba31b7af4f7e29f3a0b73026a493c9d88bd9c1898969",
+      "start": "0x4bb116bc"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 19,
+      "end_exclusive": "0x4bb0d473",
+      "module": "sldmodu.dll",
+      "name": "body-feature calls atom-feature serializer",
+      "parent": "0x4bb0d460",
+      "sha256": "6c5817cb5fe36cba373d73bdf72f19de68c76f50af3b923f95cd838c7dfffa41",
+      "start": "0x4bb0d460"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 90,
+      "end_exclusive": "0x4bb0b271",
+      "module": "sldmodu.dll",
+      "name": "ordinary pointer-trio version and helper gate",
+      "parent": "0x4bb0b0c0",
+      "sha256": "67806fa9944e7c9d564ee9f49f7624ac020ab64fd316b24684595d41b811956a",
+      "start": "0x4bb0b217"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 69,
+      "end_exclusive": "0x4bb0b2b6",
+      "module": "sldmodu.dll",
+      "name": "created consumed and modified pointer order",
+      "parent": "0x4bb0b0c0",
+      "sha256": "4e43fc398bd920f750282c922adf9cfa1981a8826a1750b8b47faabf6c3e2b00",
+      "start": "0x4bb0b271"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 54,
+      "end_exclusive": "0x4bb0b44c",
+      "module": "sldmodu.dll",
+      "name": "modified atom load and conditional object rebinding",
+      "parent": "0x4bb0b0c0",
+      "sha256": "818de739ca75561a3b958971dcb848c7b2e6cacc9ac0b5373a4145a2dd01e249",
+      "start": "0x4bb0b416"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 123,
+      "end_exclusive": "0x4bb0b4c7",
+      "module": "sldmodu.dll",
+      "name": "signed ID array store and context exclusion",
+      "parent": "0x4bb0b0c0",
+      "sha256": "7c2fc298282d0053913d0a77042173f906711684879170022089995f7730c561",
+      "start": "0x4bb0b44c"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 148,
+      "end_exclusive": "0x4bb0b57f",
+      "module": "sldmodu.dll",
+      "name": "signed ID array read and version threshold",
+      "parent": "0x4bb0b0c0",
+      "sha256": "6940cb6d82f69970fa61697977f28d1341ebc3eb0c359c9f5751a51b2913dc37",
+      "start": "0x4bb0b4eb"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 221,
+      "end_exclusive": "0x4bb0b65c",
+      "module": "sldmodu.dll",
+      "name": "created-object IDs are checked against loaded IDs",
+      "parent": "0x4bb0b0c0",
+      "sha256": "294efe73aaceae179ec9cf24493b4c96e15e9e0d1b5b5040df0821e692397f4c",
+      "start": "0x4bb0b57f"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 265,
+      "end_exclusive": "0x4bb0b81d",
+      "module": "sldmodu.dll",
+      "name": "missing created-object IDs extend only the ID array",
+      "parent": "0x4bb0b0c0",
+      "sha256": "965d2d25a408242a474aa426a63fdac30192dba46b2f8e8f485fb5be201323f0",
+      "start": "0x4bb0b714"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 122,
+      "end_exclusive": "0x4b70668e",
+      "module": "sldmodu.dll",
+      "name": "output object precedence and created-array copy",
+      "parent": "0x4b706600",
+      "sha256": "ba70248477abc82861b789fb04d23be6ae20f43f0e94d77c177f63d0201fb9eb",
+      "start": "0x4b706614"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 89,
+      "end_exclusive": "0x4b717502",
+      "module": "sldmodu.dll",
+      "name": "fresh created-array allocation prerequisites",
+      "parent": "0x4b717470",
+      "sha256": "898a9c6dc74cb63959e7ded4e49bd4534847a4df5f2ad15a2428292f5ccc811a",
+      "start": "0x4b7174a9"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 55,
+      "end_exclusive": "0x4b717539",
+      "module": "sldmodu.dll",
+      "name": "fresh input nonnull body count",
+      "parent": "0x4b717470",
+      "sha256": "54b7f18f8031775316c7bafb39ec7a0110bbc33f593424af315830b8a743e2b0",
+      "start": "0x4b717502"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 43,
+      "end_exclusive": "0x4b7175c1",
+      "module": "sldmodu.dll",
+      "name": "fresh signed ID array allocation",
+      "parent": "0x4b717470",
+      "sha256": "fa7058f6cb19cbe1e2fb4e3454c8fc68ec83c8a3ba8bf2be60093def606dfd40",
+      "start": "0x4b717596"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 102,
+      "end_exclusive": "0x4b71764c",
+      "module": "sldmodu.dll",
+      "name": "fresh allocated ID body feature and actual object publication",
+      "parent": "0x4b717470",
+      "sha256": "a3f48fea5d7488f8ccc400a801efdbfdb7f01d7c8256c412355f79d748539604",
+      "start": "0x4b7175e6"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 42,
+      "end_exclusive": "0x4b71784a",
+      "module": "sldmodu.dll",
+      "name": "existing-ID reuse requires actual manager lookup",
+      "parent": "0x4b717470",
+      "sha256": "a0d72ef5329acf8d438068a5ca502d90493ce25999fb79fd283cfc95c39b86c9",
+      "start": "0x4b717820"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 135,
+      "end_exclusive": "0x4bcf0d27",
+      "module": "sldmodu.dll",
+      "name": "manager next ID and atom constructor",
+      "parent": "0x4bcf0ca0",
+      "sha256": "80e2bd8381dde98ff2f4c42b50cf79cc05619b68e58cf705314688e150efda9d",
+      "start": "0x4bcf0ca0"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 58,
+      "end_exclusive": "0x4c1cf85f",
+      "module": "sldmodu.dll",
+      "name": "current zero-output branch does not synthesize output",
+      "parent": "0x4c1cf430",
+      "sha256": "1b63cf254f751d67be1809bdac18aa382a245862a4259ad431e2af502702c99a",
+      "start": "0x4c1cf825"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 63,
+      "end_exclusive": "0x4c1cf825",
+      "module": "sldmodu.dll",
+      "name": "legacy-only implicit output creation",
+      "parent": "0x4c1cf430",
+      "sha256": "dabf24f64e6a8211376a00c5ee5cb15b5030bd5546e39608f8704eb2de41164b",
+      "start": "0x4c1cf7e6"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 69,
+      "end_exclusive": "0x4c1cf8a4",
+      "module": "sldmodu.dll",
+      "name": "ordinary mode and body ID select actual manager atom",
+      "parent": "0x4c1cf430",
+      "sha256": "d898d11eaa133cc70691eaf9111a6619a2a5baf21ba8142342683a1c2b36e675",
+      "start": "0x4c1cf85f"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 64,
+      "end_exclusive": "0x4c1cf8e4",
+      "module": "sldmodu.dll",
+      "name": "actual object membership determines selected output",
+      "parent": "0x4c1cf430",
+      "sha256": "ac5b488c946397a5953fc2773d1972a45161c4dc67b40ef188b2b2e75428214b",
+      "start": "0x4c1cf8a4"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 29,
+      "end_exclusive": "0x4c1cf92e",
+      "module": "sldmodu.dll",
+      "name": "successful output membership selects actual atom",
+      "parent": "0x4c1cf430",
+      "sha256": "a9b9bda2864f718d19cb843145f929ca6b9d42f8bacc4a6bc3fe7ba3b7649ab8",
+      "start": "0x4c1cf911"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 44,
+      "end_exclusive": "0x4c1cfa30",
+      "module": "sldmodu.dll",
+      "name": "existing atom body publication call",
+      "parent": "0x4c1cf430",
+      "sha256": "cb11aa2d8f5aad50cb647fd48736306504626a321059cf942cff242a74af1622",
+      "start": "0x4c1cfa04"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 14,
+      "end_exclusive": "0x4bcfb625",
+      "module": "sldmodu.dll",
+      "name": "atom body and last-modifying feature stores",
+      "parent": "0x4bcfb360",
+      "sha256": "7b1ea1a556ec8945bc4cff4baee8ab5eaca0964bde2715ca83c51489fcf9aaec",
+      "start": "0x4bcfb617"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 74,
+      "end_exclusive": "0x4bcefc9b",
+      "module": "sldmodu.dll",
+      "name": "current atom stored feature identities",
+      "parent": "0x4bcefbb0",
+      "sha256": "12967776a1691d231e7606467c91e91def4347495e01bb7b453a6416a5a26a00",
+      "start": "0x4bcefc51"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 117,
+      "end_exclusive": "0x4bcf0076",
+      "module": "sldmodu.dll",
+      "name": "current atom loaded feature identities",
+      "parent": "0x4bcefbb0",
+      "sha256": "ab8e8592335545bc2eeb9cc3eca988bd663381714bec4cc51a3fbe4b112876a7",
+      "start": "0x4bcf0001"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 25,
+      "end_exclusive": "0x4bceffce",
+      "module": "sldmodu.dll",
+      "name": "current kind-zero atom starts with null runtime body",
+      "parent": "0x4bcefbb0",
+      "sha256": "7fb80e713adcd8b5f68a5e487466a02288e6e151891863de4b490e4093b82f58",
+      "start": "0x4bceffb5"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 56,
+      "end_exclusive": "0x3c8cfdf3",
+      "module": "sldmfcu.dll",
+      "name": "created-array pointer store framing",
+      "parent": "0x3c8cfda0",
+      "sha256": "ecbe9a02fcac0909f102c7a9a8cf9b60521bd39473ef7c1edbf5fd371f95e599",
+      "start": "0x3c8cfdbb"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 89,
+      "end_exclusive": "0x3c8cfe4c",
+      "module": "sldmfcu.dll",
+      "name": "created-array pointer load framing",
+      "parent": "0x3c8cfda0",
+      "sha256": "4e651e7a2a9035101c75eda685c69e82c39e2f4fa151712811e21b74d2825129",
+      "start": "0x3c8cfdf3"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 40,
+      "end_exclusive": "0x31a3d0f9",
+      "module": "swccu.dll",
+      "name": "custom array base and archive mode gate",
+      "parent": "0x31a3d0c0",
+      "sha256": "a14ec4813ddc699cc384bbeabcddc04c338a835eaccd12e42a6629a2082f7641",
+      "start": "0x31a3d0d1"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 25,
+      "end_exclusive": "0x31a3d210",
+      "module": "swccu.dll",
+      "name": "custom array count store",
+      "parent": "0x31a3d0c0",
+      "sha256": "486f884eb8f5ad0ccd0fc4136c6409f3df65ebea7c01cbda754a0b9aef07b4ac",
+      "start": "0x31a3d1f7"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 16,
+      "end_exclusive": "0x31a3d27c",
+      "module": "swccu.dll",
+      "name": "ordinary array object-tag store",
+      "parent": "0x31a3d0c0",
+      "sha256": "b60340eccdb8ca7879525c0669f414debc751c1d3353b1430d6453f5fe28d14d",
+      "start": "0x31a3d26c"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 72,
+      "end_exclusive": "0x31a3d2da",
+      "module": "swccu.dll",
+      "name": "custom array count and object-tag load",
+      "parent": "0x31a3d0c0",
+      "sha256": "e87606a36576ebe326fe58c4653ce0e68c42caf47a618f384417c5d1f5191048",
+      "start": "0x31a3d292"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 55,
+      "end_exclusive": "0x4bb2bcc4",
+      "module": "sldmodu.dll",
+      "name": "optional manager object rebinding prerequisites",
+      "parent": "0x4bb2bc50",
+      "sha256": "3a029d50f2288a7e99492c7261533e414f648d5f49fda4d52c93ef76c7ae38af",
+      "start": "0x4bb2bc8d"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 126,
+      "end_exclusive": "0x4bb2bd8e",
+      "module": "sldmodu.dll",
+      "name": "optional existing object ID lookup and alias replacement",
+      "parent": "0x4bb2bc50",
+      "sha256": "42c653bcfb1afdab7ec54ae2bb4f9f5405f551a3b624262985e9df913f0eee25",
+      "start": "0x4bb2bd10"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 52,
+      "end_exclusive": "0x4bcee8a4",
+      "module": "sldmodu.dll",
+      "name": "typed atom-pointer archive read",
+      "parent": "0x4bcee860",
+      "sha256": "5a94f9439007718c8527c56302deb21b6806e7fafe9b3824bf816ca66742ffe6",
+      "start": "0x4bcee870"
+    },
+    {
+      "bound": "LLVM decoded instruction boundaries within complete original function",
+      "bytes": 49,
+      "end_exclusive": "0x4bcee951",
+      "module": "sldmodu.dll",
+      "name": "typed atom-pointer archive write",
+      "parent": "0x4bcee910",
+      "sha256": "a2bd10fcf1d9ec2afec9fe73c95472cae622d4dbaaa7ae957d2c6af3668449d0",
+      "start": "0x4bcee920"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 8274520,
+      "exception_directory_bytes": 222504,
+      "exception_directory_rva": "0x7e6000",
+      "machine": "0x8664",
+      "name": "sldmfcu.dll",
+      "preferred_base": "0x3c720000",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    },
+    {
+      "bytes": 252504,
+      "exception_directory_bytes": 11748,
+      "exception_directory_rva": "0x3a000",
+      "machine": "0x8664",
+      "name": "swccu.dll",
+      "preferred_base": "0x31a30000",
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c"
+    }
+  ],
+  "observation_apertures": [
+    {
+      "registers": {
+        "EAX": "actual output count",
+        "RBX": "actual selected feature",
+        "qword[RBX+528]": "actual created array ornull",
+        "qword[RBX+538]": "actual modified atom ornull",
+        "u32[RBX+2b0]": "actual create version"
+      },
+      "role": "after actual output-count return, before zero branch",
+      "site": "0x4c1cf82d"
+    },
+    {
+      "registers": {
+        "RAX": "actual manager atom ornull",
+        "RBX": "actual selected feature",
+        "RSI": "actual incoming gcBody"
+      },
+      "role": "after actual manager lookup in positive-output mode",
+      "site": "0x4c1cf8a4"
+    },
+    {
+      "registers": {
+        "EAX": "signed index ornegative",
+        "RBX": "actual selected feature",
+        "RDI": "actual manager atom",
+        "i32[RSP+58]": "actual output count",
+        "qword[RSP+50]": "temporary actual output object array"
+      },
+      "role": "after actual object membership search",
+      "site": "0x4c1cf8da"
+    },
+    {
+      "registers": {
+        "R8": "actual feature",
+        "R9D": "0",
+        "RCX": "selected actual atom",
+        "RDX": "incoming actual body",
+        "u32[RSP+20]": "0"
+      },
+      "role": "before existing selected-atom setBody call",
+      "site": "0x4c1cfa1f"
+    }
+  ],
+  "ordinary_profile": {
+    "archive_db_mode_bit_0x10": false,
+    "archive_helper_874": 0,
+    "archive_version": 19000,
+    "concrete_feature": "moExtrusion_c",
+    "context_conditions": 0
+  },
+  "owner": "/root/flag_ownership",
+  "precise_remaining": [
+    "same-invocation cold-open output count, lookup result, object membership and actual publication have not been measured by this static pass",
+    "the minimum source-backed correction cannot be selected from partial archive hashes alone; the root owns typed composition and native measurement",
+    "complete current modern feature-ID to runtime-pointer rebinding outside this serializer is not traced here",
+    "no kernel history-mark allocation, live-body-count outcome, native qualification or public writer admission follows from this packet"
+  ],
+  "prior_packet": {
+    "immutable": true,
+    "path": "re/solidworks/records/AtomManagerBodyEnumeration2026.json",
+    "sha256": "5ddd972529b4aa811e6c0fb0f40e21f7afe540f9aaba2585a96037fdccb7b14f"
+  },
+  "release": "SOLIDWORKS 2026 SP05.2 / 34.5.2.0604",
+  "reload_lookup": {
+    "count": "getNumberOfOutputAtoms4b706160: if +538!=null return1, else if +528!=null return signed array+10 count, else0; never reads f498",
+    "current_zero_output": "at4c1cf82d zero count invokes concrete extrusion+1cf8 ->4bad6d00, returning signed getCreateVersion>=0xd7a; true skips to4c1cf8fb before current body publication; getCreateVersion4bb42a40 returns actual feature+2b0",
+    "legacy_creation": "replaceBody4c1cf7e6..4c1cf825 can call setOneCreatedAtom only for its selected feature class, null+528 and actual getCreateVersion<0x7d0 plus mode guards",
+    "objects": "getOutputAtoms4b706600 has the same modified/created priority and copies actual object identities; only absent arrays reach distinct delegated feature branches; getNumberOfOutputAtoms does not apply those fallbacks",
+    "optional_bind": "helper874 nonzero object rebinding works from existing f528/f530/f538 object IDs to actual manager objects; missing manager row may register existing object; it does not synthesize created-array objects from f498",
+    "positive_output": "getFirstOutputAtom supplies initial object; in selected mode1 or multiple outputs, actual gcBody::getAtomId and manager getAtomFromId select actual manager object; indexOf that actual object in actual feature output array must be nonnegative and within count; otherwise skips",
+    "publication": "selected output atom then reaches4c1cfa1f setBody only under the remaining actual feature/body guards; current zero output is a distinct earlier reason to skip"
+  },
+  "schema": "ordinary-feature-output-atom-ownership-source-v1",
+  "serialization": {
+    "alias_requirement": "reuse the existing shared archive object/class maps and actual ArchiveNode object references; manager membership and created-array membership must retain the same modeled atom identity rather than separate equal-looking nodes",
+    "array_primitive": "suObArray::Serialize3c8cd950 tail-jumps imported custom su_CObArray::Serialize31a3d0c0; ordinary non-DB path calls inherited Serialize, WriteCount31a37d70, and ordinary object-pointer store31a346f0 for each actual element; load calls ReadCount31a36ad0 and object-pointer reader31a340d0 into each actual slot",
+    "concrete_route": "moExtrusion_c4cf3d488+28 ->4bb11640; direct call4bb116c2 ->moBodyFeature4bb0d460; direct call4bb0d46e ->moAtomFeature4bb0b0c0",
+    "excluded": "legacy versions, context-bit1 model-dependent pointer override, DB archive/deferred object modes and helper874 nonzero lifecycle do not inherit the selected C0 admission",
+    "id_gate": "current ID-array load requires archive version>=0x491; both store/load omit it when context bit1 is set or context bit0x2000 is set at version>=0x10bb; neither is set in selected C0",
+    "load_fixup": "after actual f528 objects load, inspect each nonnull object dynamically cast to moAtom with positive actual +140; append its ID if absent from f498, preserving existing slots; never create f528 from f498 in this fixup",
+    "pointer_gate": "archive version>=0x488 and the computed pointer-trio gate; C0 makes gate true; nonzero helper+874 on loading reaches reset4bb2b940 before reading and object rebinding4bb2bc50 afterward",
+    "pointer_order": "after inherited and prior fields: f528 pointer; f530 pointer; f538 typed atom pointer; then separately count n494 and signed f498 IDs in selected current C0 profile; then f540",
+    "pointer_presence": "store emits signed i32 0 for null or1 for nonnull; load treats any nonzero as present and allocates an array; absent pointer and allocated empty array remain distinct"
+  },
+  "source_bindings": [
+    {
+      "bytes": 17070,
+      "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/BodyFields.py",
+      "sha256": "17c8390e04526711406924878d8542b811dd17a46d94b38670ec5187cfab33bb"
+    },
+    {
+      "bytes": 6449,
+      "path": "re/tooling/sw2026/InspectPartEnvironmentSource.py",
+      "sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9"
+    }
+  ],
+  "source_verifier": {
+    "path": "re/tooling/sw2026/InspectPartEnvironmentSource.py",
+    "sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9"
+  },
+  "task_id": "B04-SW2026-ORDINARY-PART-PARTITION-LOAD",
+  "vtable_cells": [
+    {
+      "cell": "0x4cf3d4b0",
+      "class": "moExtrusion_c",
+      "module": "sldmodu.dll",
+      "slot": "0x28",
+      "target": "0x4bb11640",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3d610",
+      "class": "moExtrusion_c",
+      "module": "sldmodu.dll",
+      "slot": "0x188",
+      "target": "0x4b283ba0",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3d940",
+      "class": "moExtrusion_c",
+      "module": "sldmodu.dll",
+      "slot": "0x4b8",
+      "target": "0x4c17a7b0",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3d948",
+      "class": "moExtrusion_c",
+      "module": "sldmodu.dll",
+      "slot": "0x4c0",
+      "target": "0x4c17b570",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3f180",
+      "class": "moExtrusion_c",
+      "module": "sldmodu.dll",
+      "slot": "0x1cf8",
+      "target": "0x4bad6d00",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cff1648",
+      "class": "moAtom_c",
+      "module": "sldmodu.dll",
+      "slot": "0x28",
+      "target": "0x4bcefbb0",
+      "vtable": "0x4cff1620"
+    }
+  ]
+}
