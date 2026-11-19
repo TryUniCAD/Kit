@@ -76,4 +76,10 @@ has exactly one difference at `/drawing_details/f20`.
 
 A separately frozen candidate applies the operation to the proved primary detail owner before serialization. Thirty-four guarded host processes compared all four previously initialized drawings to the new outputs. The two ISO containers and all four child containers match byte for byte. Each ANSI drawing changes only the centreline mask in the complete presentation. Repeated builds, separate typed replay and explicit-true requests pass. Explicit false and unqualified callers fail closed. [Construction receipt](../measurements/2026/DrawingCenterlineInitialization01.json)
 
-The guarded host process runs from the frozen source tree. It requires the exact source manifest and an unused external output directory. Native persistence with the new candidates, runtime overrides, future versions and full source and held-out qualification remain open. [Host runner](../../tooling/sw2026/AnsiLoadInitFlow.py)
+The guarded host process runs from the frozen source tree. The two
+generated ANSI cases passed native open, save, edit and fresh reopen
+under the stricter initialization. All ten exact linked archive
+joins preserve every presentation field. Both native controls pass.
+Runtime overrides, future versions and full source and held-out
+qualification remain open. [Native persistence receipt](../measurements/2026/DrawingCenterlineNative01.json)
+[Host runner](../../tooling/sw2026/AnsiLoadInitFlow.py)

@@ -483,9 +483,11 @@
   ],
   "centreline_followup": {
     "cases": 2,
+    "exact_presentation_joins": 10,
     "expected_phases": 10,
     "packet_sha256": "ba0c52215d5eaa82f2eccc18490ac494cb2ded12dad6060f5bbb076f8a773b63",
-    "status": "pending_native_results",
+    "receipt_sha256": "eeca7ff8e4d75c6dcafa7afef0709679b89ae6204220052cc23577a38d45267a",
+    "status": "disclosed_native_persistence_passed",
     "tool_sha256": {
       "guest_observer": [
         "re/tooling/sw2026/InspectAnsiDrawingLifecycle.py",
