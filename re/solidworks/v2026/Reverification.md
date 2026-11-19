@@ -66,7 +66,7 @@ for the `fb00` row count and the typed
 [history-folder field](../../../src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/FolderFields.py#L49)
 and [array count operation](../../../src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/CoreFields.py#L24)
 for the history item count. The history field uses the vendor archive count width
-rule. See the [count gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/FeatureLadderCountsDependOnOwners.md).
+rule. See the [count gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Configuration/FeatureLadderCountsDependOnOwners.md).
 
 The five typed cursor traces consumed their CMgr, Config-0 and ResolvedFeatures
 streams without a remainder. The probe observed existing schemas and disclosed

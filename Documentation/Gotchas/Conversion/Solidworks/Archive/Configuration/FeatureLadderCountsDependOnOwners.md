@@ -21,4 +21,4 @@ Use the actual row count for its `u32` prefix.
 Use the vendor archive count for the actual `moHistoryFolder_c.f3c8` items.
 Use the offset observations during research and derive each count from its own collection.
 
-[2026 re-verification](../../../../../re/solidworks/v2026/Reverification.md) · [count-owner receipt](../../../../../re/solidworks/measurements/2026/ReverificationCountOwners01.json)
+[2026 re-verification](../../../../../../re/solidworks/v2026/Reverification.md) · [count-owner receipt](../../../../../../re/solidworks/measurements/2026/ReverificationCountOwners01.json)

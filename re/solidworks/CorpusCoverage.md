@@ -674,17 +674,36 @@ The FCStd production count remains 0 of 165 parts and 0 of 5 assemblies.
 
 ## Last audit of the removed writer
 
-The historical discovery in `tools/audit/FcstdDiscovery.py` at revision
-`48ff095c9` counts resolved filesystem paths under the supplied recursive
-roots. It defaults to the repository root in `FcstdArgs.py`. The Git tree
-at that revision and both current checkouts contain zero FCStd paths.
-The historical file roster remains unavailable. The later 162-count
-inventory groups its available input paths by content hash. Reconcile
-the original roster before using those two counts as a coverage comparison.
+The 2026-08-11 audit ran recursively from the repository root with this historical command.
+The audit tool and recorded-payload writer were later removed. [Original audit record](https://github.com/TryUniCAD/Kit/blob/2ac05f439476115605ee911cf6eef6fc4221129e/re/solidworks/CorpusCoverage.md#L18-L36)
+
+```powershell
+uv run python tools/audit/AuditFcstdSolidworks.py . --require-vendor-loadable
+```
+
+Discovery counted distinct resolved file paths. Separate files could have identical bytes.
+The summary counted every discovered result in `files`, including parts and assemblies.
+The assembly record identifies five assembly paths in the same run. The recorded total
+of 165 FCStd paths therefore comprises 160 part paths and five assembly paths.
+[Historical discovery](https://github.com/TryUniCAD/Kit/blob/48ff095c940efb439c5aea674484bff1522412b6/tools/audit/FcstdDiscovery.py)
+· [historical summary](https://github.com/TryUniCAD/Kit/blob/2ac05f439476115605ee911cf6eef6fc4221129e/tools/audit/FcstdSummary.py)
+· [same-run assembly record](records/AssemblyClosure.md#recursive-corpus-boundary)
+
+The requested benchmark of 165 part inputs plus five assembly inputs remains
+unverified. The original per-file report and source hashes are unavailable. The
+Git trees at `2ac05f439` and `48ff095c9` have zero tracked FCStd paths. The assembly
+section below retains the five documented historical path names. An exact match
+requires the original file hash, including for the old Windows AssemblyExample.
 [Audit inventory counting](../../Documentation/Gotchas/Conversion/Freecad/AuditCountsResolvedPaths.md)
 
-The audit tool, `tools/audit/AuditFcstdSolidworks.py`, was deleted with the writer. Its 2026-08-11
-recursive result was:
+A fresh host inventory recovered 171 resolved paths across CADMPEG (57), FreeCAD
+1.1.4 resources (45), GA3D BasicBot (68), and LulzBot TAZ6 (1). Its 162 SHA-256
+identities and Document.xml object type counts match the retained inventory.
+The [disclosed source inventory](measurements/2026/DisclosedFcstdSourceInventory01.json)
+records every input hash and anonymized path alias. These four collections have
+unverified historical membership. This inventory adds zero generated conversions.
+
+The original recursive result was:
 
 | measurement              | count |
 | ------------------------ | ----: |
