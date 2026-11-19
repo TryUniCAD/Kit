@@ -1,0 +1,914 @@
+{
+  "classes": [
+    {
+      "base_getter": "0x4bb73ce0",
+      "class": "moDisplayNote_c",
+      "create_object": "0x4c945120",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4db07780",
+        "file_offset": 43799904,
+        "name": "moDisplayNote_c_runtime_descriptor",
+        "sha256": "662cbfa1259add2ab42bd5914dca3f467174df44c4370a95e9ad4bfcfb71663c",
+        "start": "0x4db07760"
+      },
+      "object_size": 1952,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4c945338",
+        "file_offset": 25184048,
+        "name": "moDisplayNote_c_runtime_getter",
+        "sha256": "22d32456123152042a14715dea252148a646892b7107f72d289204e483f2d249",
+        "start": "0x4c945330"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4c9540e0",
+      "vtable": "0x4d22f060"
+    },
+    {
+      "base_getter": "0x4c945b40",
+      "class": "moCompNote_c",
+      "create_object": "0x4c945b50",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4db07e10",
+        "file_offset": 43801584,
+        "name": "moCompNote_c_runtime_descriptor",
+        "sha256": "2cd820d4e35e0a7e9adc4a624a8d9fbd675c9c7f93b2927132f2fee5422a8578",
+        "start": "0x4db07df0"
+      },
+      "object_size": 264,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4c94bb08",
+        "file_offset": 25210624,
+        "name": "moCompNote_c_runtime_getter",
+        "sha256": "a2047783a0ccaf053d249441b7d49e9f2d22e5bd2d49be38db6c6477d6724590",
+        "start": "0x4c94bb00"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4c94e4c0",
+      "vtable": "0x4cef40d0"
+    },
+    {
+      "base_getter": "0x4b4f9aa0",
+      "class": "moCompDetailItem_c",
+      "create_object": "0x4c945a30",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4db07db0",
+        "file_offset": 43801488,
+        "name": "moCompDetailItem_c_runtime_descriptor",
+        "sha256": "e1cc75bd0214df5440f3974eb152e31f9894d386560fe30e657ebd7306378a7b",
+        "start": "0x4db07d90"
+      },
+      "object_size": 264,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4c945b48",
+        "file_offset": 25186112,
+        "name": "moCompDetailItem_c_runtime_getter",
+        "sha256": "9a12817a5b991ec67ef49de5f995e48c95c2e1db70ac336e7417585a07410d6e",
+        "start": "0x4c945b40"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4c94df30",
+      "vtable": "0x4cef3c90"
+    },
+    {
+      "base_getter": "0x4bb74a10",
+      "class": "moNoteData_c",
+      "create_object": "0x4c944f40",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4db075d0",
+        "file_offset": 43799472,
+        "name": "moNoteData_c_runtime_descriptor",
+        "sha256": "64a9df21c89400513193f75534902499cc6547bfe456add97b1da17e1e698126",
+        "start": "0x4db075b0"
+      },
+      "object_size": 160,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4c944fa8",
+        "file_offset": 25183136,
+        "name": "moNoteData_c_runtime_getter",
+        "sha256": "902fe89b17fdcf3bcc9c833ef3f2e5567c5a315c070aad6d9b48e67cffe84e68",
+        "start": "0x4c944fa0"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4c9619b0",
+      "vtable": "0x4d22e360"
+    },
+    {
+      "base_getter": "0x4b545800",
+      "class": "moDetailItem_c",
+      "create_object": "0x4ba45590",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4dad67d0",
+        "file_offset": 43599280,
+        "name": "moDetailItem_c_runtime_descriptor",
+        "sha256": "d31af6738849b8ce0178645afccffd1d7cf57d936f506250d61f603bc8bcae10",
+        "start": "0x4dad67b0"
+      },
+      "object_size": 144,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4ba453c8",
+        "file_offset": 9455552,
+        "name": "moDetailItem_c_runtime_getter",
+        "sha256": "6494feb4c15950229ed76efc931b44d4885f817e76613c10b141290a4396df42",
+        "start": "0x4ba453c0"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4ba4ad40",
+      "vtable": "0x4cef85f8"
+    },
+    {
+      "base_getter": "0x4b295a30",
+      "class": "moAttachPoint_c",
+      "create_object": "0x0",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4d137610",
+        "file_offset": 33513456,
+        "name": "moAttachPoint_c_runtime_descriptor",
+        "sha256": "2b4af8899894631f9e6891e2713f591d01f34bd1d7e25e0437d42bca12ffb502",
+        "start": "0x4d1375f0"
+      },
+      "object_size": 264,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4c262db8",
+        "file_offset": 17965488,
+        "name": "moAttachPoint_c_runtime_getter",
+        "sha256": "b8aee443059120cd3228d2c0505e42a17c683fc6cd58d8d42c747660bb65defc",
+        "start": "0x4c262db0"
+      },
+      "schema_word": "0xffff",
+      "serializer": "0x4c26d730",
+      "vtable": "0x4ce7bb50"
+    },
+    {
+      "base_getter": "0x4c262db0",
+      "class": "moParametricPoint_c",
+      "create_object": "0x4c262fb0",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4daf3db0",
+        "file_offset": 43719568,
+        "name": "moParametricPoint_c_runtime_descriptor",
+        "sha256": "c5505984f38a47bb8ec0784a5cebe18c5e21644fb005e7b8f44eecce17a4c8f5",
+        "start": "0x4daf3d90"
+      },
+      "object_size": 432,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4c263278",
+        "file_offset": 17966704,
+        "name": "moParametricPoint_c_runtime_getter",
+        "sha256": "91adf86443721f5c1ac3a14299208fb942353d13f426883e6151c427e6d2224a",
+        "start": "0x4c263270"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4c273b70",
+      "vtable": "0x4ce7c378"
+    },
+    {
+      "base_getter": "0x4b295a30",
+      "class": "moAttachPointData_c",
+      "create_object": "0x4c262880",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4daf3990",
+        "file_offset": 43718512,
+        "name": "moAttachPointData_c_runtime_descriptor",
+        "sha256": "a451075b39908ea6e865809635c93a5d69ca3354d6f4d9a5de4ed960ce91f79d",
+        "start": "0x4daf3970"
+      },
+      "object_size": 80,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4c26c448",
+        "file_offset": 18004032,
+        "name": "moAttachPointData_c_runtime_getter",
+        "sha256": "8a33e5b8cdc13e42684ffff9f7d92feac0bd8709500123ba2738a1d868d260ab",
+        "start": "0x4c26c440"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4c26d520",
+      "vtable": "0x4ce7bac0"
+    },
+    {
+      "base_getter": "0x4c261930",
+      "class": "moCurveRef_w",
+      "create_object": "0x4c261940",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4daf2fd0",
+        "file_offset": 43716016,
+        "name": "moCurveRef_w_runtime_descriptor",
+        "sha256": "bd23a31bde0e8268905f83388177c571fe3b5ae94b94ceb76a4e2c1a8a80ee3c",
+        "start": "0x4daf2fb0"
+      },
+      "object_size": 200,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4c262088",
+        "file_offset": 17962112,
+        "name": "moCurveRef_w_runtime_getter",
+        "sha256": "fb21370bbbe89d8b267a395f0498e848ef5c4fcc869415ac11f384f04fa1f233",
+        "start": "0x4c262080"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4c26f6e0",
+      "vtable": "0x4ce5c920"
+    },
+    {
+      "base_getter": "0x4b295a30",
+      "class": "moRefWrapper_c",
+      "create_object": "0x4c261800",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4daf2f10",
+        "file_offset": 43715824,
+        "name": "moRefWrapper_c_runtime_descriptor",
+        "sha256": "f732390bfff3b625d3a1dc53bf837fe506d976cc57b5d5b446af4acb39d0ce6b",
+        "start": "0x4daf2ef0"
+      },
+      "object_size": 176,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4c261938",
+        "file_offset": 17960240,
+        "name": "moRefWrapper_c_runtime_getter",
+        "sha256": "a4ff2ec84183c16235a833472422c4ade666ec004be6915527086ad2775f7a73",
+        "start": "0x4c261930"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4c2773d0",
+      "vtable": "0x4d17ad90"
+    },
+    {
+      "base_getter": "0x4bb96750",
+      "class": "moCompEdge_c",
+      "create_object": "0x4bb97750",
+      "descriptor": {
+        "bytes": 32,
+        "end_exclusive": "0x4dade010",
+        "file_offset": 43630064,
+        "name": "moCompEdge_c_runtime_descriptor",
+        "sha256": "e8222e9ad9ec699384fa71c0d859b32b2c7e8ad2ea83b608ec5ce0c8b447f023",
+        "start": "0x4daddff0"
+      },
+      "object_size": 464,
+      "runtime_getter": {
+        "bytes": 8,
+        "end_exclusive": "0x4bb98c18",
+        "file_offset": 10846224,
+        "name": "moCompEdge_c_runtime_getter",
+        "sha256": "8869bb9ec7dfab95f73f502d2c340f06f936c63e48cc59bed714a91345ee7873",
+        "start": "0x4bb98c10"
+      },
+      "schema_word": "0x80000001",
+      "serializer": "0x4bba5b20",
+      "vtable": "0x4ce8f370"
+    }
+  ],
+  "functions": [
+    {
+      "entry": "0x4c9540e0",
+      "fragments": [
+        {
+          "bytes": 6367,
+          "end_exclusive": "0x4c9559bf",
+          "file_offset": 25244896,
+          "name": "unwind_fragment",
+          "sha256": "2865a45bba0451ca9a5ed7687e0757177cf5520c61c4eba2274f486428e7537c",
+          "start": "0x4c9540e0"
+        }
+      ],
+      "name": "moDisplayNote_c_serialize"
+    },
+    {
+      "entry": "0x4c9619b0",
+      "fragments": [
+        {
+          "bytes": 352,
+          "end_exclusive": "0x4c961b10",
+          "file_offset": 25300400,
+          "name": "unwind_fragment",
+          "sha256": "79783ae7870932eaab09699b54b3f5c765bc96453825f4d11ed7f68aaa753a5e",
+          "start": "0x4c9619b0"
+        }
+      ],
+      "name": "moNoteData_c_serialize"
+    },
+    {
+      "entry": "0x4b285b30",
+      "fragments": [
+        {
+          "bytes": 8,
+          "end_exclusive": "0x4b285b38",
+          "file_offset": 1330992,
+          "name": "complete_leaf",
+          "sha256": "7100ff5f1e05116b197be1251d4c2dae3f4d9ed066432c6cb372522ca8ee26fa",
+          "start": "0x4b285b30"
+        }
+      ],
+      "name": "folder_notes_accessor"
+    },
+    {
+      "entry": "0x4b285770",
+      "fragments": [
+        {
+          "bytes": 5,
+          "end_exclusive": "0x4b285775",
+          "file_offset": 1330032,
+          "name": "display_note_compnote_accessor",
+          "sha256": "96e0564330ddde703ca5de78f0c14ebad0d07f89bcc64eff5c4a8642c00177f9",
+          "start": "0x4b285770"
+        }
+      ],
+      "name": "display_note_compnote_accessor"
+    },
+    {
+      "entry": "0x4b2880a0",
+      "fragments": [
+        {
+          "bytes": 36,
+          "end_exclusive": "0x4b2880c4",
+          "file_offset": 1340576,
+          "name": "complete_leaf",
+          "sha256": "031de17feb8fe4c10a662fcb96359c4d8d4a3484dd902c753472b9c14eaa7f7d",
+          "start": "0x4b2880a0"
+        }
+      ],
+      "name": "display_note_attachdata_accessor"
+    },
+    {
+      "entry": "0x4ba4ad40",
+      "fragments": [
+        {
+          "bytes": 1160,
+          "end_exclusive": "0x4ba4b1c8",
+          "file_offset": 9478464,
+          "name": "unwind_fragment",
+          "sha256": "859b1f49f54194c5f6422719fc7e9556c2e4410ef8b3b4d419e0ffd5ce285f82",
+          "start": "0x4ba4ad40"
+        }
+      ],
+      "name": "moDetailItem_c_serialize"
+    },
+    {
+      "entry": "0x4ba4bc10",
+      "fragments": [
+        {
+          "bytes": 5992,
+          "end_exclusive": "0x4ba4d378",
+          "file_offset": 9482256,
+          "name": "unwind_fragment",
+          "sha256": "4f043e49506db3c40cd82dac43509b0f5ad8c839854ce778710461b0c3c8ef8a",
+          "start": "0x4ba4bc10"
+        }
+      ],
+      "name": "moDisplayItem_c_serialize"
+    },
+    {
+      "entry": "0x4c94e4c0",
+      "fragments": [
+        {
+          "bytes": 49,
+          "end_exclusive": "0x4c94e4f1",
+          "file_offset": 25221312,
+          "name": "unwind_fragment",
+          "sha256": "38678ea0003f169dff17c1b219635165c7b5d7a2579242723cbe2c4360dceb24",
+          "start": "0x4c94e4c0"
+        }
+      ],
+      "name": "moCompNote_c_serialize"
+    },
+    {
+      "entry": "0x4c26d730",
+      "fragments": [
+        {
+          "bytes": 934,
+          "end_exclusive": "0x4c26dad6",
+          "file_offset": 18008880,
+          "name": "unwind_fragment",
+          "sha256": "71e930a7bf9732714e8527928f1480b3d87788981a90092161cc9655c64c2b71",
+          "start": "0x4c26d730"
+        }
+      ],
+      "name": "moAttachPoint_c_serialize"
+    },
+    {
+      "entry": "0x4c273b70",
+      "fragments": [
+        {
+          "bytes": 1171,
+          "end_exclusive": "0x4c274003",
+          "file_offset": 18034544,
+          "name": "unwind_fragment",
+          "sha256": "720028878b8a7c6b6affaaca82f93ae3ac0483fa7b4a2f0c9920296364a4bd02",
+          "start": "0x4c273b70"
+        }
+      ],
+      "name": "moParametricPoint_c_serialize"
+    },
+    {
+      "entry": "0x4c94df30",
+      "fragments": [
+        {
+          "bytes": 723,
+          "end_exclusive": "0x4c94e203",
+          "file_offset": 25219888,
+          "name": "unwind_fragment",
+          "sha256": "532c3099bce66339f520cb29bb1475bedc52ce30db7a58afdb94a18f86d7d781",
+          "start": "0x4c94df30"
+        }
+      ],
+      "name": "moCompDetailItem_c_serialize"
+    },
+    {
+      "entry": "0x4c98c180",
+      "fragments": [
+        {
+          "bytes": 15,
+          "end_exclusive": "0x4c98c18f",
+          "file_offset": 25474432,
+          "name": "complete_leaf",
+          "sha256": "78d96b2dc22dc66d1a5fb264f816e6f4a99d8222f88fa3da070d1f6768e9f8df",
+          "start": "0x4c98c180"
+        }
+      ],
+      "name": "view_add_note_display"
+    },
+    {
+      "entry": "0x4b2b1a30",
+      "fragments": [
+        {
+          "bytes": 5,
+          "end_exclusive": "0x4b2b1a35",
+          "file_offset": 1510960,
+          "name": "complete_leaf",
+          "sha256": "3503f0b217f403dcd06872a7cbe08c31b99297e536b2cfab27fe45c62c815dc0",
+          "start": "0x4b2b1a30"
+        }
+      ],
+      "name": "parametric_edge_export"
+    },
+    {
+      "entry": "0x4b72a650",
+      "fragments": [
+        {
+          "bytes": 742,
+          "end_exclusive": "0x4b72a936",
+          "file_offset": 6199888,
+          "name": "unwind_fragment",
+          "sha256": "82dbd7f0ab4f5de3259362229689bacda4ab59a14a4f45d781fc1c05a2e9e9d4",
+          "start": "0x4b72a650"
+        }
+      ],
+      "name": "parametric_edge_resolver"
+    },
+    {
+      "entry": "0x4c32b6b0",
+      "fragments": [
+        {
+          "bytes": 42,
+          "end_exclusive": "0x4c32b6da",
+          "file_offset": 18786992,
+          "name": "unwind_fragment",
+          "sha256": "b70b7437b13e54929b91935e3d0eb4ad75652d7f9bfa01f66ed76eeb3366ab55",
+          "start": "0x4c32b6b0"
+        }
+      ],
+      "name": "wrapper_curve_predicate"
+    },
+    {
+      "entry": "0x4c32b6e0",
+      "fragments": [
+        {
+          "bytes": 65,
+          "end_exclusive": "0x4c32b721",
+          "file_offset": 18787040,
+          "name": "unwind_fragment",
+          "sha256": "3fc5391b85a4b4d3503a101fba36fa82b209bbe163b0406752d820ef9089c07f",
+          "start": "0x4c32b6e0"
+        }
+      ],
+      "name": "curve_edge_predicate"
+    },
+    {
+      "entry": "0x4b2841b0",
+      "fragments": [
+        {
+          "bytes": 8,
+          "end_exclusive": "0x4b2841b8",
+          "file_offset": 1324464,
+          "name": "complete_leaf",
+          "sha256": "e01c88480b56d05a62fd41326537df405a74ae44c04ae50a9647d45afc242106",
+          "start": "0x4b2841b0"
+        }
+      ],
+      "name": "parametric_wrapper_accessor"
+    },
+    {
+      "entry": "0x4b284d80",
+      "fragments": [
+        {
+          "bytes": 5,
+          "end_exclusive": "0x4b284d85",
+          "file_offset": 1327488,
+          "name": "complete_leaf",
+          "sha256": "091f5e45f0be74d7ee4478154027e057c5c9d8b9d8f3ce62e44700ee355c23de",
+          "start": "0x4b284d80"
+        }
+      ],
+      "name": "detail_attach_list_accessor"
+    },
+    {
+      "entry": "0x4ba38240",
+      "fragments": [
+        {
+          "bytes": 42,
+          "end_exclusive": "0x4ba3826a",
+          "file_offset": 9401920,
+          "name": "complete_leaf",
+          "sha256": "8feb58037c6e487b2090433b2ef1cf219f205574b95af9b4d67fbc98bc5a7119",
+          "start": "0x4ba38240"
+        }
+      ],
+      "name": "detail_get_attach_point"
+    },
+    {
+      "entry": "0x4ba40300",
+      "fragments": [
+        {
+          "bytes": 25,
+          "end_exclusive": "0x4ba40319",
+          "file_offset": 9434880,
+          "name": "complete_leaf",
+          "sha256": "50b8f35d906ca9c6e67cee6cc7db817e3f89b170698ba049d23af59d723d4edf",
+          "start": "0x4ba40300"
+        }
+      ],
+      "name": "detail_set_attach_point"
+    },
+    {
+      "entry": "0x4b2ad850",
+      "fragments": [
+        {
+          "bytes": 9,
+          "end_exclusive": "0x4b2ad859",
+          "file_offset": 1494096,
+          "name": "complete_leaf",
+          "sha256": "6c4d3c9cbec90c6e4a687d54b51e68bec995595692447a874b61a8ba3877b1b3",
+          "start": "0x4b2ad850"
+        }
+      ],
+      "name": "parametric_set_parameter"
+    },
+    {
+      "entry": "0x4ba69ae0",
+      "fragments": [
+        {
+          "bytes": 82,
+          "end_exclusive": "0x4ba69b32",
+          "file_offset": 9604832,
+          "name": "unwind_fragment",
+          "sha256": "a6393537d649ee3eb87d34d1436135850354b909337ff3f3516af037b2886787",
+          "start": "0x4ba69ae0"
+        }
+      ],
+      "name": "display_get_attach_point"
+    },
+    {
+      "entry": "0x4ba69600",
+      "fragments": [
+        {
+          "bytes": 64,
+          "end_exclusive": "0x4ba69640",
+          "file_offset": 9603584,
+          "name": "unwind_fragment",
+          "sha256": "fa91f4352c1af59c517beb9cd98a259fefd81bc6527e11e3fd32ca6cdc67653e",
+          "start": "0x4ba69600"
+        }
+      ],
+      "name": "display_get_all_attach_points"
+    },
+    {
+      "entry": "0x4ba6c100",
+      "fragments": [
+        {
+          "bytes": 201,
+          "end_exclusive": "0x4ba6c1c9",
+          "file_offset": 9614592,
+          "name": "unwind_fragment",
+          "sha256": "f821593b32e898f2bf7be4a73490429bf5ec6d11730683fccb69d0446c3d3236",
+          "start": "0x4ba6c100"
+        }
+      ],
+      "name": "display_get_detail_item"
+    },
+    {
+      "entry": "0x4ba2a880",
+      "fragments": [
+        {
+          "bytes": 680,
+          "end_exclusive": "0x4ba2ab28",
+          "file_offset": 9346176,
+          "name": "unwind_fragment",
+          "sha256": "a4c2221cb2adce01b432012388e94fe357e02cc355be61e125105dd7ddc7a532",
+          "start": "0x4ba2a880"
+        }
+      ],
+      "name": "component_get_detail_item"
+    },
+    {
+      "entry": "0x4c813110",
+      "fragments": [
+        {
+          "bytes": 223,
+          "end_exclusive": "0x4c8131ef",
+          "file_offset": 23930128,
+          "name": "unwind_fragment",
+          "sha256": "b3598219cd9aca6ab068119b9de18de9fb8180e09cffda170aa29767325b567e",
+          "start": "0x4c813110"
+        }
+      ],
+      "name": "note_default_constructor"
+    },
+    {
+      "entry": "0x4c7f9e10",
+      "fragments": [
+        {
+          "bytes": 75,
+          "end_exclusive": "0x4c7f9e5b",
+          "file_offset": 23826960,
+          "name": "unwind_fragment",
+          "sha256": "95a06c813c12fc320dedf11a6ac408145697a34826b18cd2b4582b20e3d2bd2c",
+          "start": "0x4c7f9e10"
+        }
+      ],
+      "name": "display_get_dimtext"
+    },
+    {
+      "entry": "0x4c26d520",
+      "fragments": [
+        {
+          "bytes": 514,
+          "end_exclusive": "0x4c26d722",
+          "file_offset": 18008352,
+          "name": "unwind_fragment",
+          "sha256": "31a93c3b8a4542e4e00916fe9002906384e7b241da792b11ff8f293508f3707f",
+          "start": "0x4c26d520"
+        }
+      ],
+      "name": "attachment_data_serializer"
+    },
+    {
+      "entry": "0x4b72fe50",
+      "fragments": [
+        {
+          "bytes": 85,
+          "end_exclusive": "0x4b72fea5",
+          "file_offset": 6222416,
+          "name": "unwind_fragment",
+          "sha256": "f9314b24caee8d92244838d11cde520e6b1f933b11a74d29764464661b837586",
+          "start": "0x4b72fe50"
+        }
+      ],
+      "name": "parametric_load_from_data"
+    },
+    {
+      "entry": "0x4c26aaa0",
+      "fragments": [
+        {
+          "bytes": 79,
+          "end_exclusive": "0x4c26aaef",
+          "file_offset": 17997472,
+          "name": "unwind_fragment",
+          "sha256": "df7254694bc293ca17c17ccf485c34ffb3eac5be9a15c82c3ce9c8f1a2e68f21",
+          "start": "0x4c26aaa0"
+        }
+      ],
+      "name": "wrapper_typed_store"
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "metadata_sources": {
+    "private_pin_record02_sha256": "aa1deae277cb492105dd583b56620c0e9dc3a103c6b0422c5d5bdfab1aa755ce",
+    "private_pin_record06_sha256": "738eb922cfbd7bb163ee3050c4f1c34056c642a6a6abe0f286febd13fad1c769",
+    "range_helper_sha256": "80501e7595ca7afa102ea9a847355fd514087ee34164e3bd781cdf05b8eb687d"
+  },
+  "module": {
+    "bytes": 46536280,
+    "name": "sldmodu.dll",
+    "preferred_base": "0x4b140000",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_files_decoded_by_author": 0,
+  "open_boundaries": [
+    "No successful native note derivative exists in the current edge trial evidence; note type, actual cache class, aliases and full native note load/store remain unmeasured.",
+    "Complete moDisplayNote/DimText/style serialization exceeds this bounded attachment mapping; this is not a new reader or writer admission.",
+    "Exact normal child-edge binding must join the actual component/file/config owner, CompEdge reference and independently resolved child complete topology; transient f70 or enumeration ordinals cannot substitute.",
+    "Default schema/version-dependent values are not inferred from native saved rows."
+  ],
+  "primitive_imports": {
+    "0x4cd33510": {
+      "module": "SLDMFCU.dll",
+      "name": "?serializePtr@suObArray@@SAXAEAVsu_CArchive@@AEAPEAV1@@Z"
+    },
+    "0x4cd33c90": {
+      "module": "SLDMFCU.dll",
+      "name": "?Serialize@suObArray@@UEAAXAEAVsu_CArchive@@@Z"
+    },
+    "0x4cd3a968": {
+      "module": "sldmgu.dll",
+      "name": "?save@mgPoint_c@@QEBAXAEAVsu_CArchive@@@Z"
+    },
+    "0x4cd3a970": {
+      "module": "sldmgu.dll",
+      "name": "?restore@mgPoint_c@@QEAAXAEAVsu_CArchive@@@Z"
+    },
+    "0x4cd3d990": {
+      "module": "swccu.dll",
+      "name": "?Serialize@su_CObject@@UEAAXAEAVsu_CArchive@@@Z"
+    },
+    "0x4cd3da08": {
+      "module": "swccu.dll",
+      "name": "??5@YAAEAVsu_CArchive@@AEAV0@AEAPEAVCObject@@@Z"
+    },
+    "0x4cd3da10": {
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@N@Z"
+    },
+    "0x4cd3da18": {
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAN@Z"
+    },
+    "0x4cd3da38": {
+      "module": "swccu.dll",
+      "name": "??6@YAAEAVsu_CArchive@@AEAV0@PEBVCObject@@@Z"
+    }
+  },
+  "proprietary_listings_or_bytes_included": false,
+  "refuted_inferences": [
+    "IsRoot=true is not a valid predicate for the actual GetVisibleComponents projection; separate source/negative receipts preserve this independently.",
+    "The pre-store sync is not proved live-to-cache; the concrete parametric point reads data into the live attachment.",
+    "A folded export name or declared return spelling does not establish every actual generic array element class.",
+    "An annotation display-object ID or list ordinal is not a child edge identity."
+  ],
+  "schema": "kit.sw2026.drawing-note-attachment-source.v1",
+  "serialize_map_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+  "task": "B04-SW2026-DRAWING-NOTE-ATTACHMENT",
+  "vendor_code_executed": false,
+  "virtual_bindings": [
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4d22f1a8",
+        "file_offset": 34528160,
+        "name": "moDisplayNote_c_slot",
+        "sha256": "275d01565cc9db7ded00eba7774d0a8a7829ab042d3492b310e839ff9920b370",
+        "start": "0x4d22f1a0"
+      },
+      "class": "moDisplayNote_c",
+      "offset": "0x140",
+      "target": "0x4b285770"
+    },
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4d22f3c0",
+        "file_offset": 34528696,
+        "name": "moDisplayNote_c_slot",
+        "sha256": "85251dfe8aaa61a95d89f9b2636608b18dc6ab6eef66954424f37befe5f9ba12",
+        "start": "0x4d22f3b8"
+      },
+      "class": "moDisplayNote_c",
+      "offset": "0x358",
+      "target": "0x4ba69ae0"
+    },
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4d22f3c8",
+        "file_offset": 34528704,
+        "name": "moDisplayNote_c_slot",
+        "sha256": "a254786c542ac8d0eba5c105ed555e481c378c41e6dee998a8d0bedc4026a3f9",
+        "start": "0x4d22f3c0"
+      },
+      "class": "moDisplayNote_c",
+      "offset": "0x360",
+      "target": "0x4ba69600"
+    },
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4d22f718",
+        "file_offset": 34529552,
+        "name": "moDisplayNote_c_slot",
+        "sha256": "860768598ec04e1e28e7e6d7775133d4f9df3f8cb0a97526d97738b7892a4dee",
+        "start": "0x4d22f710"
+      },
+      "class": "moDisplayNote_c",
+      "offset": "0x6b0",
+      "target": "0x4ba6c100"
+    },
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4ce7c458",
+        "file_offset": 30649936,
+        "name": "moParametricPoint_c_slot",
+        "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+        "start": "0x4ce7c450"
+      },
+      "class": "moParametricPoint_c",
+      "offset": "0xd8",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4ce7c598",
+        "file_offset": 30650256,
+        "name": "moParametricPoint_c_slot",
+        "sha256": "b840fa440bbab1f843cc472e00de72920c09e7212d5a1c280d987a7f153a0265",
+        "start": "0x4ce7c590"
+      },
+      "class": "moParametricPoint_c",
+      "offset": "0x218",
+      "target": "0x4b72fe50"
+    }
+  ],
+  "wire_rules": [
+    {
+      "confidence": "confirmed-source",
+      "field": "f48",
+      "meaning": "component/detail-item identity; not the child geometric edge itself",
+      "owner": "moDisplayNote_c",
+      "type": "moCompNote_c reference inherited from moDisplayObject_c"
+    },
+    {
+      "confidence": "confirmed-source",
+      "field": "base",
+      "meaning": "base serializer 4c94df30, then no new moCompNote wire fields",
+      "owner": "moCompNote_c",
+      "type": "moCompDetailItem_c"
+    },
+    {
+      "confidence": "confirmed-source",
+      "field": "fe8/ff8/f100",
+      "meaning": "live detail item versus fallback detail item, selected through native loading/detailing state; alternate external-name mode not qualified",
+      "owner": "moCompDetailItem_c",
+      "type": "detail-item object refs / i32"
+    },
+    {
+      "confidence": "confirmed-source",
+      "field": "f58",
+      "meaning": "actual attachment list used by display virtual attachment getters; store filters through actual attachment predicates",
+      "owner": "moDetailItem_c",
+      "type": "inline suObArray of attachment points after node/owner fields"
+    },
+    {
+      "confidence": "confirmed-source",
+      "field": "f118",
+      "meaning": "actual selected geometry reference; getEdge requires curve wrapper and actual moCompEdge at wrapper f58 before resolving a native edge",
+      "owner": "moParametricPoint_c",
+      "type": "typed moRefWrapper_c reference"
+    },
+    {
+      "confidence": "confirmed-source",
+      "field": "f50",
+      "meaning": "actual view context, separately serialized from wrapper/component identity; alternate conditions1/2 can substitute null/name framing",
+      "owner": "moAttachPoint_c",
+      "type": "drawing-view object reference"
+    },
+    {
+      "confidence": "confirmed-source",
+      "field": "f298",
+      "meaning": "cached per-attachment data, with runtime classes still to be observed; parametric-point pre-store slot218 loads cached points/view/parameters into the live point",
+      "owner": "moDisplayItem_c",
+      "type": "optional generic suObArray"
+    },
+    {
+      "confidence": "confirmed-source",
+      "field": "f98",
+      "meaning": "separate note text/data owner, not inferred to be the runtime type of every generic f298 entry",
+      "owner": "moNoteData_c",
+      "type": "typed moDimText_c reference after moDetailItem base"
+    },
+    {
+      "confidence": "confirmed-source",
+      "field": "f08,f20,f38,f40,f48",
+      "meaning": "complete ordinary data record has the field prefix consumed by the parametric slot218; actual f298 class membership remains unmeasured",
+      "owner": "moAttachPointData_c",
+      "type": "point,point,view ref,f64,f64"
+    }
+  ]
+}
