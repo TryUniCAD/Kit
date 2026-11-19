@@ -1,5 +1,8 @@
 from typing import cast as CastValue
 
+from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.ReadOccName import (
+    ReadOccName,
+)
 from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
 from interchange.assembly.ComponentDefinition import ComponentDef
 from interchange.assembly.ComponentInstance import ComponentInst
@@ -38,8 +41,17 @@ def CheckAsmOcc(
         "occurrence requires exact visible rigid unsuppressed boolean state",
     )
     RequireAsm(
-        not Value.reference_number
-        and Value.provenance is None
-        and not Value.attributes,
+        Value.provenance is None and not Value.attributes,
         "occurrence has unsupported reference or extension state",
     )
+    ReferenceNumber = Value.reference_number
+    RequireAsm(
+        type(CastValue(object, ReferenceNumber)) is str,
+        "occurrence reference number requires its exact string domain",
+    )
+    if ReferenceNumber:
+        _, NameNumber = ReadOccName(Value.name)
+        RequireAsm(
+            ReferenceNumber == NameNumber,
+            "occurrence reference number differs from its canonical name suffix",
+        )

@@ -4,6 +4,8 @@ The bounded assembly writer accepts a complete neutral `CadDocument.assembly` wi
 
 The supported group contains aligned ordinary coincident/parallel and positive driving distance mates between actual principal planes. It preserves the authored names, active configurations, ordered occurrence/plane references, fixed anchor, rigid placements and rectangular child dimensions. The initial placements must satisfy every mate. Unsupported features, mates, child shapes, nested components, suppressed/hidden/flexible instances, unresolved references, extra metadata and incomplete ownership fail closed.
 
+An occurrence may carry an explicit `reference_number` such as `"2"` for `SharedPart-2`. It must match the canonical positive decimal suffix of the occurrence name. Leave the field empty to derive the same native number from the name. [Occurrence reference numbers](../../Changes/Solidworks/Construction/Assembly/SolidworksOccurrenceReferenceNumbers.md)
+
 For two direct occurrences, the writer also accepts one ordinary perpendicular mate between principal planes. Use one fixed occurrence, unknown alignment and an initially orthogonal placement. This profile excludes other mates in the same group and active correction from an invalid angle. The normal mate reader preserves the ordered references in native saves. [Perpendicular qualification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
 
 `convert.write_document` selects the writer by `.SLDASM` destination
