@@ -60,6 +60,20 @@ B04's parent is not complete merely because controlled constructor probes exist.
 
 ## Important gap boundaries
 
+### B03-SW2026-ARCHIVE
+
+Active in the [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167).
+Its author owns the [exact-build research record](../../re/solidworks/records/Solidworks2026ArchiveCompatibility.md)
+for the observed signature table, map handoff and count fields.
+The record depends on the build manifest and typed traces from
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+The evidence delivery exits when the published revision preserves the
+receipt and its pinned source links and passes the PR checks and configured review.
+
+B03's qualified comparisons and codecs and B04's portable writer remain
+separate programme milestones. [PR #158](https://github.com/TryUniCAD/Kit/pull/158)
+continues the programme scope defined in [PR #94](https://github.com/TryUniCAD/Kit/pull/94).
+
 ### Fusion schemas
 
 The [saved-document coverage record](../Changes/Fusion/Records/FusionSavedDocumentCoverage.md#remaining-boundaries)
