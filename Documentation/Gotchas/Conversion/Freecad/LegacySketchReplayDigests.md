@@ -20,5 +20,7 @@ A raw native parse records the explicit sketch suppression profile for that mode
 A linked model opened from an embedded manifest retains its own profile and replay proof.
 When a historical carrier lacks a complete parent replay match, Kit can recover inherited parent flags from its validated native archive.
 The fallback can rebuild the parent with corrected values while exact replay still requires the complete digest match.
+A portable export reuses complete linked parses under the same native source root and sketch profile.
+Each recursive source read still enforces its own reference bounds.
 
 [FreeCAD adapter guide](../../../Reference/Adapters/Freecad.md) and [restore integration cases](../../../../tests/Convert/Freecad/FreecadTests.py)

@@ -109,6 +109,7 @@ from convert.adapters.freecad.Replay.MetadataTypes import IsPayloadMap, IsPayloa
 from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
 from convert.adapters.freecad.Replay.NativeOuter import NativeOuter
 from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
+from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache
 from interchange.Features.FeatureBoundPlane import BoundDatum
 
 # shared empty set keeps parameter defaults free of repeated constructor calls
@@ -262,8 +263,10 @@ def FilteredDoc(DocValue: CadDocument, Settings: ReadOptions) -> CadDoc:
 
 
 # unchanged replay requires an independent archive parse against the carried digest
-def UnchangedNative(DocValue: CadDocument) -> bytes | None:
-    return PrepareReplay(DocValue, Migrate=False)[1]
+def UnchangedNative(
+    DocValue: CadDocument, ReplayReads: ReplayReadCache | None = None
+) -> bytes | None:
+    return PrepareReplay(DocValue, Migrate=False, ReplayReads=ReplayReads)[1]
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -763,12 +766,14 @@ def IsPayloadMatch(
 
 # this definition exists because focused behavior needs one stable owner
 def TrustedNative(
-    DocValue: CadDocument, RootReplay: bytes | None
+    DocValue: CadDocument, RootReplay: bytes | None, ReplayReads: ReplayReadCache
 ) -> frozenset[NativeBrepKey]:
     Trusted: set[NativeBrepKey] = set()
     for ItemValue in DocTree(DocValue):
         NativeSource = (
-            RootReplay if ItemValue is DocValue else UnchangedNative(ItemValue)
+            RootReplay
+            if ItemValue is DocValue
+            else UnchangedNative(ItemValue, ReplayReads)
         )
         MappedPayloads = ManifestBrep(ItemValue)
         if NativeSource is None or not MappedPayloads:
@@ -1945,7 +1950,11 @@ def WriteComponents(
 
 # this definition exists because focused behavior needs one stable owner
 def WriteNative(
-    DocValue: CadDocument, Target: FilePath, Overwrite: bool, Validate: bool
+    DocValue: CadDocument,
+    Target: FilePath,
+    Overwrite: bool,
+    Validate: bool,
+    ReplayReads: ReplayReadCache,
 ) -> tuple[dict[str, str], int]:
     Records = NativeOuter(DocValue)
     Folder = Target.parent / Target.stem
@@ -1965,7 +1974,8 @@ def WriteNative(
         FileName = Choice + FileSuffix
         UsedValue.add(FileName.casefold())
         Output = Folder / FileName
-        Result = FreeCadAdapter().write(
+        Result = WriteTarget(
+            FreeCadAdapter(),
             Linked,
             Output,
             WriteOptions(
@@ -1973,6 +1983,8 @@ def WriteNative(
                 Validate=Validate,
                 OptionValues={"portable": True},
             ),
+            None,
+            ReplayReads,
         )
         if Result.ByteCount > MaxEntrySize:
             raise FreeCadAdapterA(
@@ -2161,6 +2173,7 @@ def BundleArtifacts(
     Portable: bool,
     NativeOuters: Sequence[tuple[str, CadDoc]],
     TrustedBreps: frozenset[NativeBrepKey],
+    ReplayReads: ReplayReadCache,
 ) -> tuple[
     dict[str, dict[str, object]],
     dict[str, str],
@@ -2194,7 +2207,7 @@ def BundleArtifacts(
         )
     if TargetPath is not None and NativeOuters and Portable:
         NativeLinks, NativeBytes = WriteNative(
-            DocValue, TargetPath, Overwrite, Validate
+            DocValue, TargetPath, Overwrite, Validate, ReplayReads
         )
     return (
         OuterLinks,
@@ -2267,6 +2280,7 @@ def RebuildResult(
     Portable: bool,
     NativeOuters: Sequence[tuple[str, CadDoc]],
     TrustedBreps: frozenset[NativeBrepKey],
+    ReplayReads: ReplayReadCache,
 ) -> WriteResult:
     (
         OuterLinks,
@@ -2284,6 +2298,7 @@ def RebuildResult(
         Portable,
         NativeOuters,
         TrustedBreps,
+        ReplayReads,
     )
     EditableFeatures: set[str] = set()
     DataValue = BuildFcstdArchive(
@@ -2330,6 +2345,7 @@ def WriteTarget(
     Target: Destination,
     Options: WriteOptions | None,
     Overwrite: bool | None,
+    ReplayReads: ReplayReadCache | None = None,
 ) -> WriteResult:
     Selected = Options or WriteOptions()
     ShouldOverwrite = Selected.Overwrite if Overwrite is None else Overwrite
@@ -2344,7 +2360,11 @@ def WriteTarget(
         raise FileExistsError(TargetPath)
     Portable = Selected.OptionValues.get("portable", True) is True
     Original = DocValue
-    DocValue, NativeSource = PrepareReplay(Original, Migrate=True)
+    if ReplayReads is None:
+        ReplayReads = {}
+    DocValue, NativeSource = PrepareReplay(
+        Original, Migrate=True, ReplayReads=ReplayReads
+    )
     NativeOuters = NativeOuter(DocValue)
     if (
         NativeSource is not None
@@ -2370,7 +2390,8 @@ def WriteTarget(
         ShouldOverwrite,
         Portable,
         NativeOuters,
-        TrustedNative(Original, NativeSource),
+        TrustedNative(Original, NativeSource, ReplayReads),
+        ReplayReads,
     )
 
 

@@ -1,6 +1,6 @@
 from __future__ import annotations as Annotations
 from collections.abc import Mapping, Sequence
-from dataclasses import dataclass as Dataclass, replace as Replace
+from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
 import hashlib as Hashlib
 import json as JsonValue
 import math as MathValue
@@ -127,6 +127,7 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
+from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache
 
 # this binding exists because shared behavior needs one stable value
 KMaxOuterDepth = 16
@@ -183,6 +184,8 @@ class OuterState:
     TotalBytes: int
     LegacyVisibility: bool = False
     RecordReplay: bool = False
+    ReplayReads: ReplayReadCache | None = None
+    IncompleteModels: set[int] = Field(default_factory=set)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3857,8 +3860,8 @@ def ReadNativeFcstd(
     OuterDepth: int = 0,
     LegacyVisibility: bool = False,
     RecordReplay: bool = False,
+    ReplayReads: ReplayReadCache | None = None,
 ) -> CadDoc:
-    Native = LoadNative(DataValue)
     SourceFile = ResolvedSource(SourcePath)
     ActiveState = StateValue
     if ActiveState is None and SourceFile is not None:
@@ -3870,10 +3873,25 @@ def ReadNativeFcstd(
             len(DataValue),
             LegacyVisibility,
             RecordReplay,
+            ReplayReads,
         )
     if ActiveState is not None:
         LegacyVisibility = ActiveState.LegacyVisibility
         RecordReplay = ActiveState.RecordReplay
+        ReplayReads = ActiveState.ReplayReads
+    ReadKey = None
+    CanReadStandalone = StateValue is None and OuterDepth == 0
+    if ReplayReads is not None and not RecordReplay and CanReadStandalone:
+        ReadKey = (
+            ActiveState.root if ActiveState is not None else None,
+            SourcePath,
+            Hashlib.sha256(DataValue).hexdigest(),
+            LegacyVisibility,
+        )
+        Cached = ReplayReads.get(ReadKey)
+        if Cached is not None:
+            return Cached
+    Native = LoadNative(DataValue)
     ResolvedOuter, UnresolvedOuter = OuterDocsMut(
         Native, SourcePath, ActiveState, OuterDepth
     )
@@ -3945,9 +3963,30 @@ def ReadNativeFcstd(
         AsmValue,
         bool(ResolvedOuter or UnresolvedOuter),
     )
-    return (
-        AnnotateNative(DocValue) if RecordReplay and not LegacyVisibility else DocValue
-    )
+    if RecordReplay and not LegacyVisibility:
+        return AnnotateNative(DocValue)
+    if ReplayReads is not None and not RecordReplay:
+        Incomplete = bool(UnresolvedOuter) or (
+            ActiveState is not None
+            and any(
+                id(Child) in ActiveState.IncompleteModels
+                for _, Child in ResolvedOuter.values()
+            )
+        )
+        if Incomplete:
+            if ActiveState is not None:
+                ActiveState.IncompleteModels.add(id(DocValue))
+        elif ReadKey is not None:
+            ReplayReads[ReadKey] = DocValue
+        elif (
+            SourceFile is not None
+            and ActiveState is not None
+            and ActiveState.root == SourceFile.parent
+        ):
+            ReplayReads[
+                (ActiveState.root, SourcePath, DocValue.source.sha256, LegacyVisibility)
+            ] = DocValue
+    return DocValue
 
 
 # this binding exists because shared behavior needs one stable value

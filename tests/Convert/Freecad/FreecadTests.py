@@ -3775,6 +3775,31 @@ def TestRestoreLink(TmpPath: FilePath) -> None:
     assert Output.getvalue() == Original
 
 
+# portable writes reuse each complete linked parse across verification and physical output
+def TestLinkedReads(TmpPath: FilePath, MonkeyPatch: Pytest.MonkeyPatch) -> None:
+    Sources = tuple(TmpPath / f"linked{Index}.FCStd" for Index in range(5))
+    _ = Sources[-1].write_bytes(NativePart())
+    for Parent, Child in zip(Sources[:-1], Sources[1:], strict=True):
+        _ = Parent.write_bytes(NativeLinkOnly(Child.name))
+    Legacy = AnnotateOld(OpenDoc(Sources[0]))
+    Watched = frozenset(Source.resolve() for Source in Sources[1:])
+    Observed: list[FilePath] = []
+    ReadBytes = FilePath.read_bytes
+
+    # delegated file reads count linked decoding while leaving the full export path active
+    def ReadWatched(PathValue: FilePath) -> bytes:
+        if PathValue in Watched:
+            Observed.append(PathValue)
+        return ReadBytes(PathValue)
+
+    MonkeyPatch.setattr(FilePath, "read_bytes", ReadWatched)
+    Portable = TmpPath / "portable.FCStd"
+    Result = WriteDoc(Legacy, Portable)
+    assert Result.metadata["external_document_file_count"] == 1
+    assert sorted(Observed) == sorted(Watched)
+    assert len(tuple(Portable.with_suffix("").rglob("*.FCStd"))) == len(Sources) - 1
+
+
 # assembly component writes must also use independently verified carried sketch state
 def TestOldAsmLink(TmpPath: FilePath) -> None:
     Child = TmpPath / "child.FCStd"
