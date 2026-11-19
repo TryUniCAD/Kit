@@ -22,6 +22,7 @@ def InstallReadback(TmpPath: FilePath) -> tuple[FilePath, FilePath]:
     for RelativePath in (
         "ApplicationWorkers/SolidWorksReadbackWorker.py",
         "ApplicationWorkers/SolidWorksProgress.py",
+        "ApplicationWorkers/SolidWorksAvailability.py",
         "ApplicationWorkers/ApplicationProtocol.py",
         "ApplicationWorkers/WindowsIdentity.py",
         "ApplicationWorkers/WindowsRecords.py",

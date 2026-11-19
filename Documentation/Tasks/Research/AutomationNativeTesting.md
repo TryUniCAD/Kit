@@ -229,6 +229,34 @@ P05 remains reserved for frozen-rule holdout acceptance.
 
 ## Check native exit, restart, and recovery
 
+### Optional combined discovery observation
+
+Use the combined operation for routine discovery observation when one fresh native process is sufficient.
+It observes six P01, eight P03, and eleven P04 files between two healthy controls.
+The collector closes each document and verifies an empty session before it opens the next one.
+It excludes P02 and the P05 holdouts.
+
+1. Select a new private evidence location and installation identity.
+2. Retain the exact reviewed source SHA in the installation and job options.
+3. Add `--readback-operation p01-p03-p04-readback` before `listen` in the owner command.
+4. Add the same arguments before `dispatch` in the runner registry.
+5. Add `"readback_operation": "p01-p03-p04-readback"` to the job options.
+6. Keep the job inputs empty and the application resource capacity at one.
+7. Use the normal submission, acceptance, artifact verification, and acknowledgement procedure.
+
+Expected result: the receipt records `observed_files` and `discovery_files_observed` as `25`.
+The plan uses recipe `P01-P03-P04`.
+Every P04 supporting face must be verified before and after rebuild.
+Check the final control's visibility and the restored command state in the retained evidence.
+On a missing observation or failed control, retain the failure and stop the batch.
+
+This mode does not prove two independent native process observations or restart behavior.
+Its combined artifacts cannot replace the separate principal and cut inputs required by `StageEleven.py`.
+Keep the existing P01/P03 and P04 operations for that paired replay.
+See the [readback performance entry](../../Changes/Research/Workers/SolidWorks/ReadbackPerformance.md) for the exact operation and limits.
+
+### Separate fresh-process observations
+
 The listener directly launches the registered executable and retains its process handle.
 The collector verifies the COM PID, creation FILETIME, canonical executable, desktop session, build, and initially empty document set.
 Successful readback requires the ticketed native process to exit through that retained handle.

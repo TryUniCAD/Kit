@@ -19,14 +19,16 @@ import win32process
 
 sys.path.insert(0, sys.argv[1])
 from ApplicationProtocol import configuration, encoded, pin, sha256, write_record
-from SolidWorksReadbackWorker import BUILD, CIRCULAR, OUTPUTS, PROVIDER, ReadbackQueue, native_identity, native_result, phase_request
+from SolidWorksReadbackWorker import BUILD, DISCOVERY, OUTPUTS, PROVIDER, READBACK_SCOPES, ReadbackQueue, native_identity, native_result, phase_request
 
 config = configuration(Path(sys.argv[2]))
 fault = sys.argv[3]
-host = ReadbackQueue(config, PROVIDER, CIRCULAR)
+operation = sys.argv[4]
+scope, count_field, count = READBACK_SCOPES[operation]
+host = ReadbackQueue(config, PROVIDER, operation)
 
 def observe(request, work):
-    assert request['body'] == phase_request(config, CIRCULAR)
+    assert request['body'] == phase_request(config, operation)
     output = work / 'readback'
     output.mkdir()
     executable = sys.executable
@@ -47,8 +49,15 @@ def observe(request, work):
             win32process.TerminateProcess(handle, 1)
             assert win32event.WaitForSingleObject(handle, 5000) == win32event.WAIT_OBJECT_0
         handle.Close()
-    names = [f'fixture-circle-{index}.SLDPRT' for index in range(5)]
-    plan = {'source_revision': config['source_revision'], 'recipe': 'P02',
+    names = ([f'{recipe}-solidworks-fixture-{index}.SLDPRT'
+              for recipe, size in (('P01', 6), ('P03', 8), ('P04', 11)) for index in range(size)]
+             if operation == DISCOVERY else
+             [f'fixture-circle-{index}.SLDPRT' for index in range(count)])
+    if fault == 'scope':
+        names[-1] = 'P03-solidworks-unrelated.SLDPRT'
+    if fault == 'duplicate':
+        names[-1] = names[-2]
+    plan = {'source_revision': config['source_revision'], 'recipe': scope,
             'native_files': dict.fromkeys(names), 'fixture_only': True}
     write_record(output / 'plan.json', plan)
     plan_hash = sha256((output / 'plan.json').read_bytes())
@@ -68,6 +77,17 @@ def observe(request, work):
                       'status': 'observed', 'close_operand': 'control.SLDPRT', 'close_method': 'quit_document',
                       'document_visible_at_close': fault == 'visible',
                       'close_state': {'save_flag': True, 'read_only': fault != 'discard', 'document_count': 1}}}}
+    if operation == DISCOVERY:
+        report['run']['readback_options'] = {
+            'command_in_progress_before': False,
+            'command_in_progress_during': True, 'command_in_progress_restored': fault != 'restore'}
+        for item in observations:
+            if item['file'].startswith('P04-'):
+                item['face_verified_before_and_after_rebuild'] = True
+        if fault == 'cut':
+            observations[-1]['face_verified_before_and_after_rebuild'] = False
+        if fault == 'command_inactive':
+            report['run']['readback_options']['command_in_progress_during'] = False
     owner_path = output / 'fixture-owner.json'
     write_record(owner_path, owner)
     powershell = Path(os.environ['SystemRoot']) / 'System32/WindowsPowerShell/v1.0/powershell.exe'
@@ -124,12 +144,12 @@ def observe(request, work):
                                       'sha256': sha256(journal), 'events': len(progress), 'write_error': None}
     write_record(output / 'measurements.json', report)
     write_record(output / 'receipt.json', {
-        'schema': 1, 'status': 'observed', 'observed_files': 5, 'circle_bindings_verified': 5,
+        'schema': 1, 'status': 'observed', 'observed_files': count, count_field: count,
         'plan_sha256': plan_hash, 'measurements_sha256': sha256((output / 'measurements.json').read_bytes())})
-    proof = native_result(work, config, CIRCULAR, progress_required=True, local_progress=True)
+    proof = native_result(work, config, operation, progress_required=True, local_progress=True)
     files = {role: pin(work / relative, relative) for role, relative in OUTPUTS.items()}
     return 'completed', 'disposable process transport fixture only', {
-        **phase_request(config, CIRCULAR), **proof,
+        **phase_request(config, operation), **proof,
         'claim': 'unqualified_application_observation', 'fixture_only': True}, files
 
 try:

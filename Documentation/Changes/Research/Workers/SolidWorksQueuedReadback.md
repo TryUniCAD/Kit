@@ -22,6 +22,24 @@ An unavailable listener, stuck COM call or failed native control parks the job b
 
 The readback records its source and native executable hashes. Broader native Windows dispatch, failed COM recovery and paired conversion qualification remain open.
 
+## Readback settings and combined discovery
+
+After the initial healthy control, the collector enables `CommandInProgress` for the readback sequence and restores the previous value during cleanup.
+Measurements retain the applied command state and the existing document visibility observations.
+The controls, rebuild checks, input hashes, owned-process identity, and exit checks remain required.
+
+The optional `p01-p03-p04-readback` operation observes six P01, eight P03, and eleven P04 files in one owned process.
+Set that operation before both `listen` and `dispatch`.
+Include `"readback_operation": "p01-p03-p04-readback"` beside the exact `source_revision` in the job options.
+Use empty inputs and the existing capacity-one application resource.
+The receipt requires `discovery_files_observed` and `observed_files` to equal `25`.
+All P04 files must retain verified supporting-face observations.
+
+Use this operation for routine supplemental observation batches.
+It excludes P02 and P05.
+Keep the separate operations for independent fresh-process evidence and the existing `StageEleven.py` input contract.
+See the [performance change entry](SolidWorks/ReadbackPerformance.md) for commands, evidence fields, and acceptance limits.
+
 ## P01 and P03 rectangle readback
 
 For this discovery set, add `--readback-operation p01-p03-readback` before `listen` in the owner command and before `dispatch` in the runner command. The job has empty inputs and options for the same `source_revision` and `"readback_operation": "p01-p03-readback"`. The fixed roster comes from the six P01 and eight P03 receipt entries. The collector records the principal datum, native sketch transform, four world edges, dimensions and constraint operands. For P03 it also records the selected Boss profile, blind length and direction, and solid measurements. Both before- and after-rebuild observations come from read-only copies.
@@ -40,9 +58,9 @@ The run at `60fb1c73d83fdd62cd93f1e8271a94fb2ea55c02` repeated that sequence wit
 
 Two Windows runs used source revision `195d45c7a6a0660dbd633e85872988171f32fd8d` and licensed SOLIDWORKS `34.4.1.1011`. Each run verified both healthy controls, unchanged source bytes and supporting-face identity before and after rebuild for all eleven discovery captures. Each observed its owned SOLIDWORKS process exit. A03 accepted all four output roles and the verification driver read every artifact back from the controller by SHA-256 and size.
 
-| Run | Accepted A03 result SHA-256 | Native measurements SHA-256 |
-| --- | --- | --- |
-| Uninterrupted | `0118bbe8c36e9e6c063fce955c5f56050c56ce47745237ddcda1026d2d6728c5` | `9c13a5017d39e073266662391c657eaba9a8d70ceb8ec710066ac150e6361f31` |
+| Run                                         | Accepted A03 result SHA-256                                        | Native measurements SHA-256                                        |
+| ------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| Uninterrupted                               | `0118bbe8c36e9e6c063fce955c5f56050c56ce47745237ddcda1026d2d6728c5` | `9c13a5017d39e073266662391c657eaba9a8d70ceb8ec710066ac150e6361f31` |
 | Supervisor interrupted after durable finish | `6fb3373a27b793ebdc5f66056a4cff93761ac31d77d522d7dc0b93e963fdc059` | `68a072c111f9a2e5d3334766fdaac7b3a0a3d1e43477f37325177bbeffc0e55c` |
 
 The uninterrupted run acknowledged the spool automatically after controller acceptance. In the interruption run, the initial supervisor exited after the real `FinishJob` accepted the job and before acknowledgement began. The private intent and acceptance fence remained present. The replacement supervisor reported `recovered: true` and `status: acknowledged`, cleared the spool and left the accepted receipt, result, generation, fingerprint and attempt unchanged. It issued zero additional claims. [Restart recovery contract](ApplicationAckRecovery.md)

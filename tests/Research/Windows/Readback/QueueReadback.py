@@ -16,9 +16,13 @@ from tests.Research.Windows.Readback.WaitReadback import WaitReadback
 
 # completed readback must cross actual listener and dispatch processes with durable copied artifacts
 def QueueReadback(
-    TmpPath: FilePath, RootPath: FilePath, ConfigPath: FilePath, FaultName: str
+    TmpPath: FilePath,
+    RootPath: FilePath,
+    ConfigPath: FilePath,
+    FaultName: str,
+    Operation: str = "p02-readback",
 ) -> dict[str, object]:
-    ProgramPath = PrepareReadback(TmpPath, ConfigPath)
+    ProgramPath = PrepareReadback(TmpPath, ConfigPath, Operation)
     SessionPath = TmpPath / "Session"
     WorkerRoot = RootPath / "re/automation/ApplicationWorkers"
     Listener = OpenProcess(
@@ -29,6 +33,7 @@ def QueueReadback(
             str(WorkerRoot),
             str(ConfigPath),
             FaultName,
+            Operation,
         ],
         stdout=PipeOutput,
         stderr=PipeOutput,
@@ -44,7 +49,7 @@ def QueueReadback(
                 "--installation",
                 str(ConfigPath),
                 "--readback-operation",
-                "p02-readback",
+                Operation,
                 "dispatch",
                 str(SessionPath),
             ],

@@ -15,7 +15,9 @@ from tests.Research.Windows.Readback.ProgressProgram import KProgressScript
 
 
 # dispatch must consume an explicit operation and the same source snapshot as its listener
-def PrepareReadback(TmpPath: FilePath, ConfigPath: FilePath) -> FilePath:
+def PrepareReadback(
+    TmpPath: FilePath, ConfigPath: FilePath, Operation: str
+) -> FilePath:
     ProgramPath = TmpPath / "ReadbackHost.py"
     _ = ProgramPath.write_text(KReadbackScript, encoding="utf-8")
     _ = (TmpPath / "Progress.ps1").write_text(KProgressScript, encoding="utf-8")
@@ -31,7 +33,7 @@ def PrepareReadback(TmpPath: FilePath, ConfigPath: FilePath) -> FilePath:
                 "job": {
                     "options": {
                         "source_revision": Revision,
-                        "readback_operation": "p02-readback",
+                        "readback_operation": Operation,
                     }
                 },
             }

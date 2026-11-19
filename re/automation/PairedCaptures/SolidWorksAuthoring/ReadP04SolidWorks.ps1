@@ -8,7 +8,7 @@ param(
     [string]$SourceRevision,
     [ValidatePattern('^[a-f0-9]{64}$')]
     [string]$QueuedRequestSha256,
-    [ValidateSet('P04', 'P01-P03', 'P02')]
+    [ValidateSet('P04', 'P01-P03', 'P02', 'P01-P03-P04')]
     [string]$ReadbackScope = 'P04'
 )
 
@@ -90,11 +90,10 @@ function Write-NewJson([string]$Path, $Value) {
 }
 
 $authoringRoot = 're/automation/PairedCaptures/SolidWorksAuthoring'
+$cutCapture = @{ recipe = 'P04'; capture = 'c1986308375a'; count = 11;
+                 sha256 = '7fd2fffa3c690998753a80cab81da2f1c2446c9fcec39574e3983a7f4345cae5' }
 if ($ReadbackScope -eq 'P04') {
-    $captureSets = @(
-        @{ recipe = 'P04'; capture = 'c1986308375a'; count = 11;
-           sha256 = '7fd2fffa3c690998753a80cab81da2f1c2446c9fcec39574e3983a7f4345cae5' }
-    )
+    $captureSets = @($cutCapture)
 } elseif ($ReadbackScope -eq 'P02') {
     $captureSets = @(
         @{ recipe = 'P02'; capture = '4a9e35f34a39'; count = 5;
@@ -107,6 +106,9 @@ if ($ReadbackScope -eq 'P04') {
         @{ recipe = 'P03'; capture = 'db1390476325'; count = 8;
            sha256 = 'f2308ae749f3d739746301873a49e997e2cf494f9d459e954403b66b17e22a94' }
     )
+    if ($ReadbackScope -eq 'P01-P03-P04') {
+        $captureSets += $cutCapture
+    }
 }
 $spec = Get-Pin 're/automation/PairSpecs.json'
 $control = Get-Pin 're/solidworks/examples/.SLDPRT/example.SLDPRT'
@@ -277,6 +279,10 @@ $verified = if ($ReadbackScope -eq 'P04') {
     @($observed | Where-Object { $_.face_verified_before_and_after_rebuild })
 } elseif ($ReadbackScope -eq 'P02') {
     @($observed | Where-Object { $_.circle_verified_before_and_after_rebuild })
+} elseif ($ReadbackScope -eq 'P01-P03-P04') {
+    @($observed | Where-Object {
+        $_.file -cnotlike 'P04-*' -or $_.face_verified_before_and_after_rebuild
+    })
 } else {
     @($observed)
 }
@@ -294,11 +300,18 @@ $receiptValue = [ordered]@{
 $countField = switch ($ReadbackScope) {
     'P04' { 'supporting_faces_verified' }
     'P02' { 'circle_bindings_verified' }
+    'P01-P03-P04' { 'discovery_files_observed' }
     'P01-P03' { 'principal_profiles_observed' }
 }
 $receiptValue.Add($countField, @($verified).Count)
 Write-NewJson (Join-Path $output 'receipt.json') $receiptValue
 if ($status -cne 'observed') {
     throw "Readback verification is incomplete. Inspect $reportPath"
+}
+if ($QueuedRequestSha256 -and $ReadbackScope -eq 'P01-P03-P04') {
+    foreach ($name in $files.Keys) {
+        [IO.File]::Delete((Join-Path $inputs $name))
+    }
+    [IO.File]::Delete($controlCopy)
 }
 Write-Output $output

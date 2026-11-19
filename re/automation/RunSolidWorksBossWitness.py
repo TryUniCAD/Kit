@@ -52,6 +52,7 @@ PinnedSources = (
     Path("re/automation/ApplicationWorkers/ApplicationProtocol.py"),
     Path("re/automation/ApplicationWorkers/SolidWorksReadbackWorker.py"),
     Path("re/automation/ApplicationWorkers/SolidWorksProgress.py"),
+    Path("re/automation/ApplicationWorkers/SolidWorksAvailability.py"),
     Path("re/automation/ApplicationWorkers/WindowsIdentity.py"),
     Path("re/automation/ApplicationWorkers/WindowsRecords.py"),
     LauncherPath,
@@ -79,6 +80,7 @@ if sys.platform == "win32":
         write_record,
     )
     from ApplicationWorkers.WindowsIdentity import GET_PROCESS_TIMES, peer_matches
+    from SolidWorksAvailability import HoldEarlierStage, IsSolidWorksRunning
     from SolidWorksReadbackWorker import native_identity, registered_executable
     from WindowsJobMembers import has_job_members
     from WindowsProcess import WindowsProcess
@@ -111,16 +113,9 @@ def SourcePins(Revision):
 # the same oracle lease serializes this standalone capture with existing research hosts
 @contextmanager
 def OracleLease():
-    Mutex = win32event.CreateMutex(None, False, r"Local\KitResearchControllerOracle")
-    try:
-        Acquired = win32event.WaitForSingleObject(Mutex, 0)
-        RequireProof(Acquired in (0, 128), "the shared application oracle is busy")
-        try:
-            yield
-        finally:
-            win32event.ReleaseMutex(Mutex)
-    finally:
-        Mutex.Close()
+    with HoldEarlierStage(win32event.INFINITE) as Acquired:
+        RequireProof(Acquired, "the shared application oracle is busy")
+        yield
 
 
 # phase argv binds each collector to its measured private inputs
@@ -168,16 +163,8 @@ def PhaseEnv():
 
 # check again immediately before direct launch to preserve any unrelated cad session
 def CheckStopped():
-    TaskList = Path(os.environ["SystemRoot"]) / "System32/tasklist.exe"
-    Running = subprocess.check_output(
-        [str(TaskList), "/FI", "IMAGENAME eq SLDWORKS.exe", "/FO", "CSV", "/NH"],
-        timeout=10,
-        creationflags=subprocess.CREATE_NO_WINDOW,
-    )
     RequireProof(
-        not any(
-            Line.lower().startswith(b'"sldworks.exe",') for Line in Running.splitlines()
-        ),
+        not IsSolidWorksRunning(),
         "a preexisting SOLIDWORKS process is not owned by this witness",
     )
 

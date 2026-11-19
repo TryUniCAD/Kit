@@ -10,6 +10,7 @@ import time
 
 from FusionRestartPairs import excludes_claim, installed as fusion_reservations
 from FusionColdStartAdmission import excludes_claim as excludes_cold_claim, installed as cold_reservations
+from SolidWorksBatchAdmission import ClaimExclusion, IsAdmissionInstalled
 
 
 # Version checks keep old controller stores on their original claim path.
@@ -41,6 +42,7 @@ def runnable_jobs(ledger, pool, *, grouped=False):
         predicate for active, predicate in (
             (fusion_reservations(ledger), excludes_claim),
             (cold_reservations(ledger), excludes_cold_claim),
+            (IsAdmissionInstalled(ledger), ClaimExclusion),
         ) if active
     ]
     where += "".join(f" AND NOT {predicate('j')} " for predicate in reservations)

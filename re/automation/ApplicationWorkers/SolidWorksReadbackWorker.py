@@ -14,17 +14,22 @@ from ApplicationProtocol import (
     committed_bytes, configuration, encoded, file_bytes, pin, record, request_link, require, sha256, write_new, write_record,
 )
 from SolidWorksProgress import PROGRESS, recovery_progress, require_final_discard, require_progress
+from SolidWorksAvailability import HoldMutex, IsSolidWorksRunning, OracleMutex
 
 WORKER = "re/automation/ApplicationWorkers/SolidWorksReadbackWorker.py"
+# the listener must use the same reviewed admission code as the batch watcher
+AVAILABILITY = "re/automation/ApplicationWorkers/SolidWorksAvailability.py"
 LAUNCHER = "re/automation/PairedCaptures/SolidWorksAuthoring/ReadP04SolidWorks.ps1"
 PROVIDER = "dassault.solidworks.com"
 OPERATION = "p04-readback"
 PRINCIPAL = "p01-p03-readback"
 CIRCULAR = "p02-readback"
+DISCOVERY = "p01-p03-p04-readback"
 READBACK_SCOPES = {
     OPERATION: ("P04", "supporting_faces_verified", 11),
     PRINCIPAL: ("P01-P03", "principal_profiles_observed", 14),
     CIRCULAR: ("P02", "circle_bindings_verified", 5),
+    DISCOVERY: ("P01-P03-P04", "discovery_files_observed", 25),
 }
 BUILD = "34.4.1.1011"
 OUTPUTS = {
@@ -51,9 +56,10 @@ def phase_request(config, operation):
     return {"phase": operation, "plan_sha256": plan_hash(config, operation)}
 
 
+# slot checks are pinned alongside the native launcher so installed listeners enforce the same ownership rules
 def verify_sources(config):
     root = Path(__file__).resolve().parent
-    for relative in (WORKER, PROTOCOL, PROGRESS, *WINDOWS_HELPERS.values()):
+    for relative in (WORKER, PROTOCOL, PROGRESS, AVAILABILITY, *WINDOWS_HELPERS.values()):
         require(file_bytes(root / Path(relative).name) == committed_bytes(config, relative),
                 "running SolidWorks worker source differs from its installed revision")
 
@@ -72,7 +78,7 @@ def native_result(work, config, operation=OPERATION, progress_required=False, lo
     require(plan["source_revision"] == config["source_revision"] and plan["recipe"] == scope
             and receipt["schema"] == 1 and receipt["status"] == "observed"
             and receipt["observed_files"] == receipt[count_field] == count
-            and len(run["observations"]) == count
+            and len(run["observations"]) == len(plan["native_files"]) == count
             and set(plan["native_files"]) == {item["file"] for item in run["observations"]}
             and all(item["status"] == "observed" for item in run["observations"])
             and (operation != CIRCULAR or all(
@@ -86,6 +92,20 @@ def native_result(work, config, operation=OPERATION, progress_required=False, lo
             and application["build"] == owner["build"] == BUILD
             and owner["source_revision"] == config["source_revision"] and owner["initial_documents"] == 0,
             "SOLIDWORKS readback lacks complete source, control, profile or process-exit evidence")
+    if operation == DISCOVERY:
+        require(all(
+            sum(item["file"].startswith(recipe + "-solidworks-") for item in run["observations"]) == expected
+            for recipe, expected in (("P01", 6), ("P03", 8), ("P04", 11))
+        ) and all(item.get("face_verified_before_and_after_rebuild") is True
+                  for item in run["observations"] if item["file"].startswith("P04-")),
+                "combined discovery readback lacks its exact profile and verified cut rosters")
+    if operation == DISCOVERY or "readback_options" in run:
+        options = run.get("readback_options")
+        require(isinstance(options, dict) and set(options) == {
+            "command_in_progress_before", "command_in_progress_during", "command_in_progress_restored",
+        } and all(type(value) is bool for value in options.values())
+                and options["command_in_progress_during"] and options["command_in_progress_restored"],
+                "SOLIDWORKS readback lacks verified and restored command batching state")
     progress = {}
     if progress_required or "native_progress" in run:
         progress = require_progress(run.get("native_progress"), owner, work if local_progress else None)
@@ -347,6 +367,7 @@ def perform_readback(host, request, work, interop, launcher, recovery_enabled, r
     }, files
 
 
+# the native lease closes the gap between controller admission and the process launch
 def listen(config, interop, recovery_enabled, recover_failure, operation=OPERATION):
     require(os.name == "nt" and config["application"] == "solidworks", "SOLIDWORKS readback host requires Windows")
     verify_sources(config)
@@ -358,9 +379,13 @@ def listen(config, interop, recovery_enabled, recover_failure, operation=OPERATI
             if request is None:
                 time.sleep(0.05)
                 continue
-            host.perform(request, lambda value, work: perform_readback(
-                host, value, work, interop, launcher, recovery_enabled, recover_failure,
-            ))
+            with HoldMutex(OracleMutex) as ready:
+                if ready and not IsSolidWorksRunning():
+                    host.perform(request, lambda value, work: perform_readback(
+                        host, value, work, interop, launcher, recovery_enabled, recover_failure,
+                    ))
+                    continue
+            time.sleep(0.5)
     finally:
         host.close()
 

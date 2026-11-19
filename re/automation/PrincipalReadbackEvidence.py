@@ -34,6 +34,14 @@ BUILD = "34.4.1.1011"
 
 # principal field coverage depends on the exact sources compiled for the readback
 COLLECTORS = {
+    "1484fb4f69303e33108fe2a84c28be3ec0df33ef76629f5ffd1590707191be5f": (
+        True,
+        {
+            "launcher": "41d0ba0b876ccb8f2efd9e558c84a0fbdb89fb6cb159c2212b031a7a09a50b04",
+            "circle_collector": "b674dd765c133a53efd87da406ce9ec6cbcf218b25a2ee3329228eeee61a5023",
+            "progress_collector": "9df818ab40763ab97253ed247565c5e5117235c3bf16538cba550d4ec30fc765",
+        },
+    ),
     "1c58fcdec0b20e4a2fac86564466a735f2abb81654090bee381a62c43553aa21": (False, None),
     "16e4f1331adaba840dcfe57f81f5614ddff726c9505f1d281a706f56a2845c95": (True, None),
     "82f988d46f463963cd2ec377966dcdcd268c1b699a7d6e24246ab525a086dd9d": (

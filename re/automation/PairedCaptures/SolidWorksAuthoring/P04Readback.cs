@@ -604,6 +604,9 @@ public sealed partial class P04Readback
         ISldWorks application = null;
         Process process = null;
         bool owned = false;
+        bool commandStateCaptured = false;
+        bool previousCommandInProgress = false;
+        Dictionary<string, object> readbackOptions = null;
         try
         {
             if (launch == null)
@@ -667,6 +670,18 @@ public sealed partial class P04Readback
             var before = progress.Invoke("control_before", "control.SLDPRT", () => worker.Read(Path.Combine(workspace, "control.SLDPRT"), true));
             result["control_before"] = before;
             Require((string)before["status"] == "observed", "Pre-run control did not pass");
+            readbackOptions = Row("command_in_progress_before", false,
+                "command_in_progress_during", false, "command_in_progress_restored", false);
+            result["readback_options"] = readbackOptions;
+            progress.Invoke("readback_options", null, () =>
+            {
+                previousCommandInProgress = application.CommandInProgress;
+                commandStateCaptured = true;
+                readbackOptions["command_in_progress_before"] = previousCommandInProgress;
+                application.CommandInProgress = true;
+                readbackOptions["command_in_progress_during"] = application.CommandInProgress;
+                Require((bool)readbackOptions["command_in_progress_during"], "SOLIDWORKS did not enable command batching");
+            }, readbackOptions);
             foreach (var file in files)
             {
                 var reading = progress.Invoke("capture", file, () => worker.Read(Path.Combine(workspace, file), false));
@@ -689,6 +704,22 @@ public sealed partial class P04Readback
         {
             if (owned)
             {
+                try
+                {
+                    if (commandStateCaptured)
+                        progress.Invoke("command_state_restore", null, () =>
+                        {
+                            application.CommandInProgress = previousCommandInProgress;
+                            bool restored = application.CommandInProgress == previousCommandInProgress;
+                            readbackOptions["command_in_progress_restored"] = restored;
+                            Require(restored, "SOLIDWORKS command state was not restored");
+                        }, readbackOptions);
+                }
+                catch (Exception error)
+                {
+                    result["status"] = "failed";
+                    result["command_restore_diagnostic"] = Error(error);
+                }
                 try
                 {
                     Require(application.GetDocumentCount() == 0, "The owned SOLIDWORKS process still has open documents");
