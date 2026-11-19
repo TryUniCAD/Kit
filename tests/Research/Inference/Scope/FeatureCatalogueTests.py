@@ -9,6 +9,7 @@
 import hashlib
 import json
 from pathlib import Path
+import sqlite3
 
 from pytest import mark
 
@@ -108,3 +109,68 @@ def CheckInvalidCatalogue(TmpPath: Path, Fault: str):
     assert "catalogue feature dispatch refused" in Generate(
         Catalogue, "manifest", Expected=1
     )
+
+
+# the fusion snapshot includes timeline features and reviewed sketch methods
+def CheckFusionCatalogue(TmpPath: Path):
+    Catalogue = TmpPath / "Catalogue.sqlite"
+    Status = ("unverified",) * 4
+    Rows = [
+        ("api:adsk.fusion.ExtrudeFeature", "api_type", "ExtrudeFeature", *Status),
+        (
+            "api:adsk.fusion.SketchLines.addTwoPointRectangle",
+            "api_method",
+            "addTwoPointRectangle",
+            *Status,
+        ),
+        ("api:adsk.fusion.ArrangeFeature", "api_type", "ArrangeFeature", *Status),
+    ]
+    with sqlite3.connect(Catalogue) as Database:
+        Database.execute(
+            "CREATE TABLE items (id TEXT, kind TEXT, name TEXT, authoring_status TEXT, "
+            "decoding_status TEXT, writing_status TEXT, verification_status TEXT)"
+        )
+        Database.executemany("INSERT INTO items VALUES (?, ?, ?, ?, ?, ?, ?)", Rows)
+        Database.execute(
+            "CREATE VIEW api_feature_types AS SELECT * FROM items WHERE kind='api_type'"
+        )
+    Previous = Catalogue.read_bytes()
+    Pin = hashlib.sha256(Previous).hexdigest()
+    Args = ("--fusion-catalogue", Catalogue, "--catalogue-sha256", Pin)
+    Command = "InferenceGrid/FeatureDispatch.py"
+    Output = InvokeAutomation(Command, *Args, "manifest")
+    assert Output == InvokeAutomation(Command, *Args, "manifest")
+    assert Catalogue.read_bytes() == Previous
+    Features = json.loads(Output)["features"]
+    assert Features[Rows[0][0]]["route"]["scope"] == "p03-blind-boss.fusion"
+    assert Features[Rows[1][0]]["route"]["scope"] == "p01-corner-rectangle"
+    assert Features[Rows[1][0]]["qualification"]["decoding"] == "unverified"
+    Store = TmpPath / "UnopenedStore"
+    Blocked = json.loads(
+        InvokeAutomation(
+            Command, *Args, "--feature", Rows[2][0], "--store", Store, "submit"
+        )
+    )
+    assert Blocked["status"] == "blocked" and not Store.exists()
+
+
+# the batch visits even a catalogue whose only feature has no reviewed route
+def CheckRunUnmappedCatalogue(TmpPath: Path):
+    Catalogue = TmpPath / "Catalogue.json"
+    Plan = CatalogueFixture()
+    Family = Plan["families"][0]
+    Family["subfeatures"] = [Family["subfeatures"][-1]]
+    Catalogue.write_text(json.dumps(Plan), encoding="utf-8")
+    Run = TmpPath / "Run"
+    InvokeAutomation(
+        "InferenceGrid/RunFeatureCatalogue.py",
+        "--directory",
+        Run,
+        "--solidworks-catalogue",
+        Catalogue,
+        Expected=2,
+    )
+    Report = json.loads((Run / "CatalogueResult.json").read_bytes())
+    assert Report["status"] == "coverage_incomplete"
+    assert Report["features"] == {"solidworks": {"recipe_unavailable": 1}}
+    assert Report["scopes"] == {} and not (Run / "OfflineSupervisor.log").exists()
