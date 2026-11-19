@@ -1,0 +1,108 @@
+{
+  "_notice": "SPDX-License-Identifier: LicenseRef-PolyForm-Strict-1.0.0\nSPDX-FileCopyrightText: Copyright (c) 2026 Parashell, Odin Glynn-Martin\n\nThis SPDX license identifier and copyright notice must not be\nremoved, altered, or obscured. Doing so is a material breach of\nthe PolyForm Strict License 1.0.0 and voids all licenses granted\nto you under it immediately and permanently.",
+  "application_version": "33.0.0.5050",
+  "artifacts": {
+    "ApiEnums.csv": {
+      "bytes": 9200634,
+      "sha256": "a2c80768856ef798d5fc316a717b9d12134dc8ca29c3ecae7eba121c0c670b3a"
+    },
+    "ApiOptions.csv": {
+      "bytes": 32694758,
+      "sha256": "6a87e9150139cbdc0e50163eae31fab21f30d015f8f8fa3e9243b393a077c8e2"
+    },
+    "ApiTypes.csv": {
+      "bytes": 1222400,
+      "sha256": "de45395905bef3cd4c40f19cecc694997870b9ec93e1944d2e9ccc38147f8b82"
+    },
+    "Catalog.sqlite": {
+      "bytes": 74838016,
+      "sha256": "75d1c318bc435e3c4fe354b451dfae4398224fe7a9e003ca2635daae100dc899"
+    },
+    "Commands.csv": {
+      "bytes": 2094393,
+      "sha256": "7d43a6ac83955abd6444821b7288ebc2203eaaea36720f5d9e2fc8f50954381a"
+    },
+    "Features.csv": {
+      "bytes": 1597350,
+      "sha256": "36a763d8b8ced3e225cbfe30851590e2388cc441904e71bbabd64f90818c1140"
+    },
+    "Gaps.csv": {
+      "bytes": 2036693,
+      "sha256": "ca348fa355797f1c449336f7f3d71a468eee969e8cc33ecb1f0f116e53fdf82e"
+    },
+    "NativeSchemas.csv": {
+      "bytes": 49,
+      "sha256": "748d0fd4b740d75e563689e1b3f9c905de6505b20160b94c4e20068a0e0d32f6"
+    },
+    "Relations.csv": {
+      "bytes": 1463779,
+      "sha256": "07c18e3f5f464126e0f69075e9be87a47991f2a9337458cbd3cf792f66866541"
+    }
+  },
+  "content_sha256": "37dca9974da889b3507d10aaa1ad721b2ce08f8dc5cd3c43f0f04bdf594a38c8",
+  "counts": {
+    "gaps": 5239,
+    "item_kinds": {
+      "api_constant": 15277,
+      "api_method": 18946,
+      "api_parameter": 43084,
+      "api_property_get": 5099,
+      "api_property_put": 4042,
+      "api_type": 3282,
+      "api_variable": 7,
+      "feature_family": 68,
+      "feature_option": 3900,
+      "feature_subfeature": 585,
+      "plan_wave": 9
+    },
+    "items": 94299,
+    "relations": 5345,
+    "sources": 60
+  },
+  "csv_exports": {
+    "ApiEnums.csv": {
+      "rows": 15277,
+      "view": "api_enums"
+    },
+    "ApiOptions.csv": {
+      "rows": 71171,
+      "view": "api_options"
+    },
+    "ApiTypes.csv": {
+      "rows": 3282,
+      "view": "api_types"
+    },
+    "Commands.csv": {
+      "rows": 3657,
+      "view": "command_candidates"
+    },
+    "Features.csv": {
+      "rows": 4562,
+      "view": "feature_plan"
+    },
+    "Gaps.csv": {
+      "rows": 5239,
+      "view": "gaps"
+    },
+    "NativeSchemas.csv": {
+      "rows": 0,
+      "view": "native_schemas"
+    },
+    "Relations.csv": {
+      "rows": 5345,
+      "view": "relations"
+    }
+  },
+  "qualification": {
+    "authoring": "unverified",
+    "decoding": "unverified",
+    "verification": "unverified",
+    "writing": "unverified"
+  },
+  "schema_version": 1,
+  "source_sha256": {
+    "api_snapshot": "55733b95ebd7e117693bdb8633729604edc60e7e66ab6e7ef8ae481000726ccf",
+    "feature_plan": "1e9ca9f032c2f07423f220aa74e5abc01e6a7c1f4393e637db8b3a16250cffc2"
+  },
+  "sqlite_version": "3.45.3"
+}
