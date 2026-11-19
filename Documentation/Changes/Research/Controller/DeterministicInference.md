@@ -72,17 +72,33 @@ dependents, distinct representative archives and distinguishing evidence.
 
 ### Dispatch a SOLIDWORKS catalogue feature
 
-The SOLIDWORKS catalogue's `family:extrude:cut-extrude` ID selects the pinned
-P04 through-all body-selection assessment and its two affected archive rescans.
-From a clean checkout, submit it to an initialized A03 store used by the
-inference supervisor.
+Read the existing [SOLIDWORKS planning catalogue](https://github.com/TryUniCAD/Kit/blob/f8cf67043e4f64c363dbe2add2128f1a58e99ab6/re/solidworks/PlannerCatalog/Sources/FeaturePlan.json).
+Generate plans without a controller store. Keep the catalogue's SHA-256 from
+the output or supply it with `--catalogue-sha256` to require that exact input.
 
 ```shell
-python re/automation/InferenceGrid/FeatureDispatch.py --store STORE \
+python re/automation/InferenceGrid/FeatureDispatch.py --catalogue FeaturePlan.json manifest
+python re/automation/InferenceGrid/FeatureDispatch.py --catalogue FeaturePlan.json \
+  --feature family:extrude:boss-base-extrude plan
+```
+
+Plans have stable feature identities, dependencies, option axes, and recipe
+readiness. An unmapped feature reports its missing recipe and pinned evidence.
+The option axes identify research questions. They carry no claims about native
+option combinations or qualification.
+
+The two mapped scopes are the P03 one-sided blind boss signed-depth assessment
+with its SOLIDWORKS archive rescans and the P04 through-all body-selection
+assessment with its two affected archive rescans. From a clean checkout,
+submit either feature to an initialized A03 store used by the inference
+supervisor. The executable routes can also be selected without a catalogue.
+
+```shell
+python re/automation/InferenceGrid/FeatureDispatch.py --catalogue FeaturePlan.json --store STORE \
   --feature family:extrude:cut-extrude submit
 ```
 
-On the configured Fusion owner host, point the following command at a
+For P04 evidence, point the following command at a
 supervisor registry with the Fusion worker and its capacity-one installation.
 Use the same A03 store and source revision as the assessment. The command
 waits for the assessment to park, prepares the pinned two-body study, and
