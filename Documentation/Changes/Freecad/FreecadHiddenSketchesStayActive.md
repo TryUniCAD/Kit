@@ -7,6 +7,7 @@ Kit writes explicit suppression edits to the native sketch record and retains th
 Kit can restore an unchanged archive carried by an older version that interpreted visibility as suppression.
 The carried model and an independent parse of the archive must both match the stored semantic digest.
 The compatibility check follows the normal archive validation and external reference limits.
+For an edited older carrier, the verified archive supplies the actual suppression state for unchanged inherited flags.
 
 The integration cases cover suppression priority, driving diameter edits, and exact restoration of old carriers and linked profiles. [Integration cases](../../../tests/Convert/Freecad/FreecadTests.py)
 

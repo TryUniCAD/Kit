@@ -8,5 +8,8 @@ Use the ordinary FCStd write route to restore the carried archive.
 Kit checks the carried model, validates the original archive, and compares a fresh native parse with the stored digest.
 If the current parse differs, Kit reparses with the older visibility interpretation, including sketches in linked native documents.
 An edit changes the carried model digest and uses the normal rebuild path.
+For a verified older carrier, Kit compares each unchanged sketch flag with the original native archive.
+The rebuilt sketch uses the original explicit suppression state for an inherited flag.
+Kit preserves suppression edits that differ from the older carried value.
 
 [FreeCAD adapter guide](../../../Reference/Adapters/Freecad.md) and [restore integration cases](../../../../tests/Convert/Freecad/FreecadTests.py)

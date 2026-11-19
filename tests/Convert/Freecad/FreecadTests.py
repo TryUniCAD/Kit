@@ -3478,6 +3478,22 @@ def HiddenPart(Flags: tuple[tuple[str, str], ...] = ()) -> bytes:
     )
 
 
+# parameter edits exercise the driving constraint instead of changing only display geometry
+def EditDiameter(Document: CadDocument) -> CadDocument:
+    ParamId = Document.sketches[0].constraints[0].parameter_id
+    return Replace(
+        Document,
+        parameters=tuple(
+            (
+                Replace(Param, value=Replace(Param.value, value=14.0))
+                if Param.id == ParamId
+                else Param
+            )
+            for Param in Document.parameters
+        ),
+    )
+
+
 # a hidden profile still drives its pad while explicit suppression remains independent
 @Pytest.mark.parametrize(
     ("Flags", "Suppressed"),
@@ -3497,16 +3513,8 @@ def TestSketchState(Flags: tuple[tuple[str, str], ...], Suppressed: bool) -> Non
     assert FeatureValue.sketch_id == SketchValue.id
     assert not FeatureValue.suppressed
     Changed = Replace(
-        Document,
+        EditDiameter(Document),
         sketches=(Replace(SketchValue, suppressed=not Suppressed),),
-        parameters=tuple(
-            (
-                Replace(Param, value=Replace(Param.value, value=14.0))
-                if Param.id == SketchValue.constraints[0].parameter_id
-                else Param
-            )
-            for Param in Document.parameters
-        ),
     )
     Output = IoStream.BytesIO()
     _ = Adapter.write(Changed, Output)
@@ -3550,6 +3558,47 @@ def TestOldReplay(TmpPath: FilePath) -> None:
     Update = FreeCadAdapter().write(Edited, Rebuilt)
     assert Update.metadata.get("mode") != "exact_native_roundtrip"
     assert Rebuilt.getvalue() != Source
+
+
+# dimension edits must preserve active hidden sketches and explicit suppression on visible ones
+@Pytest.mark.parametrize("Visible", (False, True))
+def TestOldDimEdit(Visible: bool) -> None:
+    State = (
+        NativeProp(
+            "Visibility",
+            "App::PropertyBool",
+            "Bool",
+            {"value": "true" if Visible else "false"},
+        ),
+    )
+    if Visible:
+        State += (
+            NativeProp(
+                "SourceSuppressed", "App::PropertyBool", "Bool", {"value": "true"}
+            ),
+        )
+    Adapter = FreeCadAdapter()
+    Source = NativePart(SketchState=State)
+    Document = Adapter.read(Source)
+    assert Document.sketches[0].suppressed is Visible
+    Legacy = AnnotateNative(
+        Replace(
+            Document,
+            sketches=(Replace(Document.sketches[0], suppressed=not Visible),),
+        )
+    )
+    Output = IoStream.BytesIO()
+    Result = Adapter.write(EditDiameter(Legacy), Output)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
+    Rebuilt = Adapter.read(Output.getvalue())
+    SketchValue = Rebuilt.sketches[0]
+    assert SketchValue.suppressed is Visible
+    Driver = next(
+        Param
+        for Param in Rebuilt.parameters
+        if Param.id == SketchValue.constraints[0].parameter_id
+    )
+    assert Driver.value.value == 14.0
 
 
 # a legacy parent fingerprint must also verify native sketches from linked child documents

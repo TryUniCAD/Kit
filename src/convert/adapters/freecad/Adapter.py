@@ -105,6 +105,8 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.ReconcileEdit import ReconcileEdit
+from convert.adapters.freecad.Replay.ApplyFlags import ApplyFlags
+from convert.adapters.freecad.Replay.ReplayFlags import ReplayFlags
 from interchange.Features.FeatureBoundPlane import BoundDatum
 
 # shared empty set keeps parameter defaults free of repeated constructor calls
@@ -469,33 +471,41 @@ def AnnotateNative(DocValue: CadDocument) -> CadDoc:
     return Replace(Annotated, brep_payloads=Payloads)
 
 
-# this definition exists because focused behavior needs one stable owner
-def UnchangedNative(DocValue: CadDocument) -> bytes | None:
+# write requests share archive verification between exact replay and legacy sketch migration
+def PrepareReplay(
+    DocValue: CadDocument, *, Migrate: bool
+) -> tuple[CadDoc, bytes | None]:
     PairValue = NativeDocPair(DocValue)
     if PairValue is None:
-        return None
+        return DocValue, None
     NativeDoc, _ = PairValue
     Expected = NativeDoc.attributes.get(KReplaySemanticAttr)
-    if not isinstance(Expected, str) or Expected != SemanticDigest(DocValue):
-        return None
     DataValue = NativeDoc.data
-    if DataValue is None:
-        return None
+    if not isinstance(Expected, str) or DataValue is None:
+        return DocValue, None
+    IsUnchanged = SemanticDigest(DocValue) == Expected
+    if not IsUnchanged and not Migrate:
+        return DocValue, None
+    ReplayBytes = DataValue if IsUnchanged else None
     try:
         Archive, _ = ValidatedArchiveMembers(DataValue)
         Archive.close()
-    except (OSError, ValueError, Zipfile.BadZipFile):
-        return None
-    try:
-        Reparsed = ReadNativeFcstd(DataValue, DocValue.source.path)
-        if SemanticDigest(Reparsed) == Expected:
-            return DataValue
-        LegacyDoc = ReadNativeFcstd(
-            DataValue, DocValue.source.path, LegacyVisibility=True
-        )
-    except (NativeFreeCadError, OSError, TypeError, ValueError):
-        return None
-    return DataValue if SemanticDigest(LegacyDoc) == Expected else None
+        Current = ReadNativeFcstd(DataValue, DocValue.source.path)
+        if SemanticDigest(Current) == Expected:
+            return DocValue, ReplayBytes
+        Legacy = ReadNativeFcstd(DataValue, DocValue.source.path, LegacyVisibility=True)
+    except (NativeFreeCadError, OSError, TypeError, ValueError, Zipfile.BadZipFile):
+        return DocValue, None
+    if SemanticDigest(Legacy) != Expected:
+        return DocValue, None
+    if Migrate:
+        DocValue = ApplyFlags(DocValue, ReplayFlags(Legacy), ReplayFlags(Current))
+    return DocValue, ReplayBytes
+
+
+# unchanged replay requires an independent archive parse against the carried digest
+def UnchangedNative(DocValue: CadDocument) -> bytes | None:
+    return PrepareReplay(DocValue, Migrate=False)[1]
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -994,10 +1004,14 @@ def IsPayloadMatch(
 
 
 # this definition exists because focused behavior needs one stable owner
-def TrustedNative(DocValue: CadDocument) -> frozenset[NativeBrepKey]:
+def TrustedNative(
+    DocValue: CadDocument, RootReplay: bytes | None
+) -> frozenset[NativeBrepKey]:
     Trusted: set[NativeBrepKey] = set()
     for ItemValue in DocTree(DocValue):
-        NativeSource = UnchangedNative(ItemValue)
+        NativeSource = (
+            RootReplay if ItemValue is DocValue else UnchangedNative(ItemValue)
+        )
         MappedPayloads = ManifestBrep(ItemValue)
         if NativeSource is None or not MappedPayloads:
             continue
@@ -2404,20 +2418,6 @@ def CanWriteTarget(Target: Destination) -> bool:
     return True
 
 
-# this definition chooses whether an unchanged native archive remains safe to replay
-def SelectNative(
-    DocValue: CadDocument,
-    Selected: WriteOptions,
-    Portable: bool,
-    NativeOuters: Sequence[tuple[str, CadDoc]],
-) -> bytes | None:
-    if Selected.OptionValues.get("rebuild", False) is True:
-        return None
-    if Portable and (DocValue.assembly is not None or bool(NativeOuters)):
-        return None
-    return UnchangedNative(DocValue)
-
-
 # this definition returns the exact native replay result and its reference contract
 def ExactResult(
     Instance: FreeCadAdapter,
@@ -2644,10 +2644,14 @@ def WriteTarget(
     if TargetPath is not None and TargetPath.exists() and not ShouldOverwrite:
         raise FileExistsError(TargetPath)
     Portable = Selected.OptionValues.get("portable", True) is True
+    Original = DocValue
+    DocValue, NativeSource = PrepareReplay(Original, Migrate=True)
     NativeOuters = NativeOuter(DocValue)
-    TrustedBreps = TrustedNative(DocValue)
-    NativeSource = SelectNative(DocValue, Selected, Portable, NativeOuters)
-    if NativeSource is not None:
+    if (
+        NativeSource is not None
+        and Selected.OptionValues.get("rebuild", False) is not True
+        and not (Portable and (DocValue.assembly is not None or NativeOuters))
+    ):
         return ExactResult(
             Instance,
             DocValue,
@@ -2667,7 +2671,7 @@ def WriteTarget(
         ShouldOverwrite,
         Portable,
         NativeOuters,
-        TrustedBreps,
+        TrustedNative(Original, NativeSource),
     )
 
 
