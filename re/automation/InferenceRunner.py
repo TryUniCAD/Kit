@@ -23,6 +23,7 @@ from InferenceInputs import (
 from ReaderEvidence import reader_evidence
 from Records import canonical, digest, label
 from InferenceSession import read_session
+from InferenceGroup import run_rescans
 from Sessions import write_private
 
 FIELD_KIND = "inference.fields"
@@ -120,7 +121,9 @@ def scan_archive(scope, assessment, content, source_format):
         sources = assessment["assessment"]["affected_archives"]
         if not isinstance(sources, dict) or sources.get(source_hash) != source_format:
             raise ValueError("rescan source format differs from its paired assessment")
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+    source = str(Path(__file__).resolve().parents[2] / "src")
+    if source not in sys.path:
+        sys.path.insert(0, source)
     from convert import open_document
 
     document = open_document(
@@ -147,7 +150,14 @@ def scan_archive(scope, assessment, content, source_format):
 
 def run(session):
     session = session.resolve()
-    packet, execution = read_session(session)
+    group = session / "group.json"
+    if group.exists() or group.is_symlink():
+        run_rescans(session, RESCAN_KIND, run_member)
+    else:
+        run_member(session, *read_session(session))
+
+
+def run_member(session, packet, execution):
     job = packet["job"]
     inputs = packet["inputs"]
     options = job["options"]

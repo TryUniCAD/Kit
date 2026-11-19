@@ -19,7 +19,11 @@ def PrepareWorker(RootPath: FilePath) -> SessionHost:
     Harness = SessionHost(
         RootPath,
         {"inference": 1},
-        {"inference.fields": "inference", "inference.paired-gap": "inference"},
+        {
+            "inference.fields": "inference",
+            "inference.paired-gap": "inference",
+            "inference.rescan": "inference",
+        },
     )
     WorkerPath = (
         FilePath(__file__).resolve().parents[3] / "re/automation/InferenceRunner.py"

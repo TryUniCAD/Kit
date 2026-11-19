@@ -10,8 +10,15 @@ from InferenceInputs import checksum, parse_metadata, read_file
 from Records import canonical, digest, specification
 
 
+def read_packet(path):
+    return parse_metadata(read_file(path, 1024 * 1024))
+
+
 def read_session(session):
-    packet = parse_metadata(read_file(session / "job.json", 1024 * 1024))
+    return check_session(read_packet(session / "job.json"))
+
+
+def check_session(packet):
     if (
         type(packet.get("session_version")) is not int
         or packet["session_version"] != 1

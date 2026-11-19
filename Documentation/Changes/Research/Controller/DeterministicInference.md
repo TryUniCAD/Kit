@@ -79,6 +79,23 @@ production reader.
 For paired assessments, the source hash and requested native format must match
 the same entry in the accepted report before the reader runs.
 
+### Reuse the SDK across rescans
+
+The offline pilot enables grouped rescans by default. Use `--sessions 1` to
+run one Python worker at a time. That worker loads the SDK when its first
+archive needs decoding and reuses it while processing the group serially.
+Each archive keeps its own input pins, result and receipt. If an archive fails
+inside a group, it can retry individually under its usual attempt limit.
+
+For a custom supervisor registry, set `group_protocol` to `1`,
+`group_limit_bytes` to `16777216` and `group_peak_memory_mib` to `256` on
+`inference.rescan`. Set its `max_memory_mib` to at least `256`. Keep the
+pool at `max_sessions: 1` for one physical worker and initialize the controller
+with `--max-running 20` to allow up to 20 logical claims in the group.
+The controller batches eligible rescans in the same scheduling lane and
+family that share their kind, rule and tool revisions. Each group starts
+a fresh worker.
+
 ## Archive verification
 
 The Workflow quality inference job runs `InferenceArchiveGate.py` through the real

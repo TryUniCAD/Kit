@@ -28,9 +28,15 @@ def PilotConfig(Directory, SourceRoot, Sessions):
         "initial_peak_memory_mib": 128,
         "max_memory_mib": 768,
     }
+    Rescan = {
+        **Entry,
+        "group_protocol": 1,
+        "group_limit_bytes": 16 * 1024 * 1024,
+        "group_peak_memory_mib": 256,
+    }
     Registry = WriteRecord(
         Directory / "Registry.json",
-        {"runners": {Kind: Entry for Kind in (FIELD_KIND, GAP_KIND, RESCAN_KIND)}},
+        {"runners": {FIELD_KIND: Entry, GAP_KIND: Entry, RESCAN_KIND: Rescan}},
     )
     Config = WriteRecord(
         Directory / "Supervisor.json",

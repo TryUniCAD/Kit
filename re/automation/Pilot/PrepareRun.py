@@ -44,8 +44,9 @@ def PrepareRun(Directory, SourceRoot, Revision, Sessions):
         "--store",
         str(Directory / "Store"),
     ]
+    # A physical worker can hold up to 20 logical rescan claims while processing them serially.
     subprocess.run(
-        [*BaseArgv, "init", "--max-running", str(Sessions)],
+        [*BaseArgv, "init", "--max-running", str(20 * Sessions)],
         cwd=SourceRoot,
         capture_output=True,
         check=True,
