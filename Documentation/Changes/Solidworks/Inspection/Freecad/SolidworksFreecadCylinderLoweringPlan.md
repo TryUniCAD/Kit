@@ -1,0 +1,5 @@
+# Map a five-driver native cylinder lowering
+
+The private research [record](../../../../../re/solidworks/records/FreecadCylinderFiveDriverLowering2026.md) maps all five actual FreeCAD cylinder geometry inputs to explicit native target owners. It derives an oblique direction from two angular planes and retains vertical height through a selected limit plane. A compact blind alternative retains its unresolved oblique depth metric and live-expression requirements.
+
+The [source-bound evidence](../../../../../re/solidworks/records/FreecadCylinderFiveDriverLowering2026.json) pins current neutral/compiler boundaries, eight exact-build native code windows and public 2026 API references. Seven independently authored host mathematics cases pass 63 analytic comparisons. This is data-only source analysis: no new writer, CAD process, sealed input, generated native artifact or public coverage. Angled datums, intersection axes, non-null direction graphs, selected ends, full/partial sector transitions and primitive metadata remain explicit dependencies.

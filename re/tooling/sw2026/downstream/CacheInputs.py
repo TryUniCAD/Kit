@@ -2,7 +2,12 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 
 from para.DownstreamIds import DownstreamIds, allocate_fresh_downstream, owned_solid_chains
+from para.Tracking import unsigned
 from para.rectangle.Allocate import Ref
+
+
+ARCHIVE_VERSION = 19000
+BUILD_DATE_CODE = 2026306
 
 
 @dataclass(frozen=True)
@@ -12,6 +17,7 @@ class EdgeIncidence:
     faces: tuple[Ref, Ref]
     face_ids: tuple[int, int]
     face_role_ids: tuple[tuple[int, int], tuple[int, int]]
+    positive_fin: Ref
 
 
 @dataclass(frozen=True)
@@ -27,8 +33,25 @@ def initial_prefix(offset_minutes):
     sentinel = datetime(1990, 1, 1, tzinfo=local)
     delta = sentinel - datetime(1970, 1, 1, tzinfo=timezone.utc)
     return {
-        "f08": 1, "f0c": 19000, "f10": 2026306, "f14": 0, "f18": 0,
+        "f08": 1, "f0c": ARCHIVE_VERSION, "f10": BUILD_DATE_CODE, "f14": 0, "f18": 0,
         "f1c": 101, "f20": 101, "f28": delta.days * 86400 + delta.seconds,
+    }
+
+
+def finalized_part_prefix(part, next_id):
+    header = part.HeaderValue
+    if (part.SystemValue.RootValue.ClassValue.NameValue != "moPart_c"
+            or header.ClassValue.NameValue != "moHeader_c" or header.FieldsValue["fec"] != 1):
+        raise ValueError("populated part cache requires the actual configuration model header")
+    if unsigned(next_id, 32, "next downstream ID") == 0:
+        raise ValueError("the next downstream ID cannot use the reserved null ID")
+    fields = header.FieldsValue
+    return {
+        "f08": next_id, "f0c": ARCHIVE_VERSION, "f10": BUILD_DATE_CODE,
+        "f14": ARCHIVE_VERSION, "f18": BUILD_DATE_CODE,
+        "f1c": unsigned(fields["f40"], 32, "model update counter"),
+        "f20": unsigned(fields["f44"], 32, "model body counter"),
+        "f28": unsigned(fields["f48"], 32, "model header update time"),
     }
 
 
@@ -95,8 +118,9 @@ def prepare_part_cache_inputs(topology, owner, updated_at, subsecond_ticks):
             raise ValueError("downstream face roles require opposite fin senses")
         ids = face_ids[first_face], face_ids[second_face]
         left, right = ids if sense[0] == "+" else ids[::-1]
+        positive_fin = first.ref if sense[0] == "+" else second.ref
         rows.append(EdgeIncidence(
-            edge_ref, edge_id, (first_face, second_face), ids, ((0, left), (1, right)),
+            edge_ref, edge_id, (first_face, second_face), ids, ((0, left), (1, right)), positive_fin,
         ))
         occurrences.update((first.ref, second.ref))
     if occurrences != fin_faces.keys() or occurrences != {node.ref for node in topology if node.kind == 17}:

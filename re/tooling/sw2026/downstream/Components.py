@@ -1,12 +1,14 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ModelFields import KModelFields
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ComponentFields import KComponentFields
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from downstream.Body import (
     DOWNSTREAM_CONTEXT, LAYOUTS, collection, read_standalone_body, scalar, write_standalone_body,
 )
 from downstream.References import (
-    DRAWING_MODEL, ENTITY_REPRESENTATIONS, REFERENCE_CLASSES, REFERENCE_LAYOUTS,
+    DRAWING_MODEL, ENTITY_REPRESENTATIONS, FEATURE_REFERENCE_CLASSES, REFERENCE_CLASSES, REFERENCE_LAYOUTS,
     VERTEX_DRAWING_FIELDS, drawing_words,
 )
 
@@ -40,6 +42,7 @@ COMPOSITE = (
 EDGE_DRAWING_FIELDS = ("f1b4", "f1b8", "f1bc", "f1c0")
 ATOM_CLASSES = ("moCompSolidBody_c", "moCompSurfaceBody_c")
 EDGE_CLASSES = ("moCompCompositeEdge_c", "moCompEdge_c")
+UNIT_COMPONENT_CLASS = "moUnitComponent_c"
 COMPONENT_REFERENCES = {
     "moCompFace_c": "moFaceRef_c",
     "moCompVertex_c": "moVertexRef_c",
@@ -58,9 +61,16 @@ COMPONENT_LAYOUTS = {
     **REFERENCE_LAYOUTS,
     "moCompRef_c": KComponentFields["moCompRef_c"],
     "moCompBEntRef_c": COMMON,
+    "moComponent_c": (NativeField("Node", "owner"),),
+    UNIT_COMPONENT_CLASS: KModelFields[UNIT_COMPONENT_CLASS],
     **CONCRETE_COMPONENTS,
 }
-SCHEMAS = {name: (1,) for name in (*LAYOUTS, *CONCRETE_COMPONENTS, *REFERENCE_CLASSES, *ENTITY_REPRESENTATIONS)}
+SCHEMAS = {
+    name: (1,) for name in (
+        *LAYOUTS, *CONCRETE_COMPONENTS, *REFERENCE_CLASSES, *ENTITY_REPRESENTATIONS,
+        *FEATURE_REFERENCE_CLASSES, UNIT_COMPONENT_CLASS,
+    )
+}
 
 
 def component_context(drawing):
@@ -94,8 +104,7 @@ def validate_reference(name, fields, drawing):
 
 
 def validate_component(name, fields, drawing):
-    if fields["f58"] is not None:
-        raise ValueError("downstream component pointer needs an admitted owning component")
+    assert_pointer(fields["f58"], (UNIT_COMPONENT_CLASS,), "owning component f58")
     if name in ATOM_CLASSES:
         assert_pointer(fields["ff0"], ("moFaceRef_c",), "atom ff0")
         if fields["n110"] != len(fields["f110"]):
@@ -127,7 +136,23 @@ def validate_graph(snapshot, drawing):
         elif name in ENTITY_REPRESENTATIONS:
             fields = value.FieldsValue["f10"]
             assert_pointer(fields["f08"], ENTITY_REPRESENTATIONS, "nested entity ID")
-            assert_pointer(fields["f10"], (), "feature reference")
+            assert_pointer(fields["f10"], ("moFR_c",), "feature reference")
+        elif name == "moFR_c":
+            assert_pointer(value.FieldsValue["f08"], ("moExtObject_c",), "feature reference file")
+        elif name == UNIT_COMPONENT_CLASS:
+            fields = value.FieldsValue
+            if fields.keys() != {"owner", "has_ext"} or fields["owner"] is not None or fields["has_ext"] != 0:
+                raise ValueError("standalone local unit component requires its implicit filed owner")
+
+
+def make_local_unit_component(part):
+    model = part.SystemValue.RootValue
+    config = part.CurrentConfig
+    if model.ClassValue.NameValue != "moPart_c" or config.ClassValue.NameValue != "moPartConfiguration_c":
+        raise ValueError("local unit component requires its actual ordinary part configuration")
+    if config.FieldsValue.get("owner") is not model:
+        raise ValueError("local unit component belongs to a different part model")
+    return ArchiveNode(RuntimeClass(UNIT_COMPONENT_CLASS, 1), {"owner": None, "has_ext": 0})
 
 
 def read_component_body(raw, *, drawing=False):

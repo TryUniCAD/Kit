@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Bodies.Layouts.ExternalFields import KExternalFields
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ComponentFields import KComponentFields
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.FeatureFields import KFeatureFields
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.GeometryFields import KGeometryFields
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ReferenceFields import KReferenceFields
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
@@ -7,6 +10,7 @@ from downstream.Body import scalar
 DRAWING_MODEL = "drawing_model"
 REFERENCE_CLASSES = ("moFaceRef_c", "moEdgeRef_c", "moVertexRef_c")
 ENTITY_REPRESENTATIONS = ("moEndFaceSurfIdRep_c", "moFromSktEntSurfIdRep_c")
+FEATURE_REFERENCE_CLASSES = ("moFR_c", "moExtObject_c", "moCStringHandle_c")
 VERTEX_DRAWING_FIELDS = ("ff8", "ffc", "f100", "f104")
 
 
@@ -31,6 +35,9 @@ _REFERENCE_DEPENDENCIES = (
 )
 REFERENCE_LAYOUTS = {
     **{name: KReferenceFields[name] for name in _REFERENCE_DEPENDENCIES},
+    **KExternalFields,
+    "moFR_c": KFeatureFields["moFR_c"],
+    "moFRData_c": KComponentFields["moFRData_c"],
     "mgPoint_c.operator>>": KGeometryFields["mgPoint_c.operator>>"],
     "moEdgeRef_c": (NativeField("Base", "moBEntRef_c"),),
     "moVertexRef_c": (

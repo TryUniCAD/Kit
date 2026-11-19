@@ -1,0 +1,107 @@
+{
+  "audit_a_sha256": "d9faea03cc07a67adb8c482283f164401edb3d7f10aacb720b4d1a3409891023",
+  "audit_b_sha256": "d9faea03cc07a67adb8c482283f164401edb3d7f10aacb720b4d1a3409891023",
+  "audit_tool_sha256": "e012af2ff06d382659b1f00edc2f11e354486b133c70e8c59be061f5d273f1d0",
+  "authority_revision": "4fd3bf320d9566a27e60069fc8387448aaa3a094",
+  "cases": [
+    {
+      "case_id": "CylinderA",
+      "full_document_sha256": "22e209a66fd6eac231d2ff0e56cb5ea50ea6aae067b0a6f341491dcf79d90acc",
+      "native_object_sha256": "5279c22de872316011310177d0c7933b879cdccd3e58bf7816feb5731388eb2a",
+      "neutral_sha256": "b4e645ed21b3ae02d82f6fd6b0bec2d339ff548cedf6b1158e9fbeb31e9335fc",
+      "nonscalar_envelope_sha256": "51f7347838112dd87bf8660823b6b802962eaf6b09858a0c88099465b5d90719",
+      "parameter_ids": [
+        "freecad:parameter:Cylinder:Angle",
+        "freecad:parameter:Cylinder:AttacherEngine",
+        "freecad:parameter:Cylinder:AttacherType",
+        "freecad:parameter:Cylinder:FirstAngle",
+        "freecad:parameter:Cylinder:Height",
+        "freecad:parameter:Cylinder:Label",
+        "freecad:parameter:Cylinder:Label2",
+        "freecad:parameter:Cylinder:MapMode",
+        "freecad:parameter:Cylinder:MapPathParameter",
+        "freecad:parameter:Cylinder:MapReversed",
+        "freecad:parameter:Cylinder:Radius",
+        "freecad:parameter:Cylinder:SecondAngle",
+        "freecad:parameter:Cylinder:Visibility"
+      ],
+      "retained_property_count": 19,
+      "semantic_class_counts": {
+        "attachment_input": 2,
+        "attachment_restore_mirror": 1,
+        "attachment_selector": 2,
+        "geometric_input": 5,
+        "identity_metadata": 2,
+        "presentation_metadata": 1
+      },
+      "source_sha256": "dae320f82c08ccb47056aaafb31f46ac0c7136c3024ed0dc2b1484825df02faa"
+    },
+    {
+      "case_id": "CylinderB",
+      "full_document_sha256": "e7b61da16d74cf72e8c7e9ba3861456f28a5647674e27c159febc86cffcad57e",
+      "native_object_sha256": "94d072c1623c0e6cc42e796f26834d30d15cc9c5994e5291b71387aca679134d",
+      "neutral_sha256": "362c141a119dc2872c4215b1b9eada0645a6938ff37a93b0acd612b93889ed0f",
+      "nonscalar_envelope_sha256": "51f7347838112dd87bf8660823b6b802962eaf6b09858a0c88099465b5d90719",
+      "parameter_ids": [
+        "freecad:parameter:Cylinder:Angle",
+        "freecad:parameter:Cylinder:AttacherEngine",
+        "freecad:parameter:Cylinder:AttacherType",
+        "freecad:parameter:Cylinder:FirstAngle",
+        "freecad:parameter:Cylinder:Height",
+        "freecad:parameter:Cylinder:Label",
+        "freecad:parameter:Cylinder:Label2",
+        "freecad:parameter:Cylinder:MapMode",
+        "freecad:parameter:Cylinder:MapPathParameter",
+        "freecad:parameter:Cylinder:MapReversed",
+        "freecad:parameter:Cylinder:Radius",
+        "freecad:parameter:Cylinder:SecondAngle",
+        "freecad:parameter:Cylinder:Visibility"
+      ],
+      "retained_property_count": 19,
+      "semantic_class_counts": {
+        "attachment_input": 2,
+        "attachment_restore_mirror": 1,
+        "attachment_selector": 2,
+        "geometric_input": 5,
+        "identity_metadata": 2,
+        "presentation_metadata": 1
+      },
+      "source_sha256": "ea39285f9b32d6f173eed57ccdeb8182d3ac1c0e7b7f13516f4f53635061891a"
+    }
+  ],
+  "classified_scalar_owners": 26,
+  "confidence_limits": {
+    "active_attachment": "partial: exact source lifecycle, no active-attachment corpus in this tranche",
+    "actual_defaults_and_source_owners": "confirmed on the two disclosed strict neutral envelopes",
+    "heldout_generalization": "not found: no primitive heldout lock or input access",
+    "nonzero_prism_angles": "partial: exact source branch, no new author/edit measurement",
+    "partial_sector": "partial: exact source call path, no partial-sector corpus in this tranche",
+    "radius_height_ordinary_geometry": "confirmed by the previously published fifty native companion comparisons",
+    "target_native_lowering": "not found: no target mapping or new writer/native acceptance"
+  },
+  "exact_repeat": true,
+  "generated_writer_outputs": 0,
+  "geometric_input_paths": [
+    "Radius",
+    "Height",
+    "Angle",
+    "FirstAngle",
+    "SecondAngle"
+  ],
+  "heldout_inputs_read": 0,
+  "independent_audit_processes": 2,
+  "knowledge_sha256": "f5d44c29244b4ca06f218fa2af2fbd28e88ed5ad37fe8f0abaf5a7fbed56eca1",
+  "native_processes_started": 0,
+  "new_native_acceptance": false,
+  "pinned_source_count": 13,
+  "pinned_source_manifest_sha256": "d7d79efe44cde2525a793aa9c63f5fd9a257c87da837c3c16be80525bd7c6b5b",
+  "public_writer_changes": 0,
+  "retained_nonscalar_owners": 12,
+  "schema": "kit.sw2026.freecad-cylinder-property-semantics-receipt.v1",
+  "scope": "Pinned public FreeCAD 1.1.4 source semantics and exact two-disclosed-source envelope correlation only",
+  "shared_checkout_edits": 0,
+  "source_deck_receipt_sha256": "97a20ff36c7b4383117c139dd65b34eed862f1aeb4e0d32ccb005913d379b9d4",
+  "source_envelope_correlation_passed": true,
+  "target_native_lowering_qualified": false,
+  "task_id": "B04-SW2026-FREECAD-CYLINDER"
+}
