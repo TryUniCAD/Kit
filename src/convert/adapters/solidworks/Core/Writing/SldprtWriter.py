@@ -11,6 +11,12 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan impo
 from convert.adapters.solidworks.Container.Format import KPartSuffix
 from convert.adapters.solidworks.Core.AssemblyWriting.CanWriteAsm import CanWriteAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.EmitAsmMut import EmitAsmMut
+from convert.adapters.solidworks.Core.DrawingWriting.CanWriteBlankDrawing import (
+    CanWriteBlankDrawing,
+)
+from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import (
+    EmitBlankDrawingMut,
+)
 from convert.adapters.solidworks.Core.Preparation.Circle.PlanCircle import PlanCircle
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
@@ -18,9 +24,12 @@ from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# the bounded native writer keeps standalone parts and complete owned planar assemblies in the existing canonical format domain
+# the canonical writer admits the modeled part, owned assembly and authored blank drawing profiles
 class SldprtWriter(PairProtocol):
     __slots__ = ()
+
+    # the drawing guard is backed by explicit admission of complete blank layouts
+    KTypedDrawings = True
 
     # the registry needs independent write metadata to retain the existing assembly and drawing reader aliases
     @property
@@ -29,6 +38,8 @@ class SldprtWriter(PairProtocol):
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
+        if DocValue.DrawingValue is not None:
+            return CanWriteBlankDrawing(DocValue, Target)
         if DocValue.assembly is not None:
             return CanWriteAsm(DocValue, Target)
         try:
@@ -54,6 +65,8 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        if document.DrawingValue is not None:
+            return EmitBlankDrawingMut(document, destination, options)
         if document.assembly is not None:
             return EmitAsmMut(document, destination, options)
         return EmitNativeMut(document, destination, options)

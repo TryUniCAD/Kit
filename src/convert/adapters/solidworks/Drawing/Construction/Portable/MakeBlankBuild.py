@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Drawing.Construction.Portable.DrawDocOptions im
 from convert.adapters.solidworks.Drawing.Construction.Portable.ReadSheetRatio import (
     ReadSheetRatio,
 )
+from convert.adapters.solidworks.Drawing.Construction.Sheet.IsAnsiLandscapeSize import (
+    IsAnsiLandscapeSize,
+)
 from convert.adapters.solidworks.Drawing.Construction.Sheet.SheetInput import SheetInput
 from interchange.document.Models.Drawing.DrawingData import DrawingData
 from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
@@ -28,8 +31,7 @@ def MakeBlankBuild(DrawingValue: DrawingData, Options: DrawDocOptions) -> DrawBu
         or not SheetValue.EntityId
         or type(DrawingValue.ActiveSheetId) is not str
         or DrawingValue.ActiveSheetId != SheetValue.EntityId
-        or SheetValue.SheetWidth != 11 * 0.0254
-        or SheetValue.SheetHeight != 8.5 * 0.0254
+        or not IsAnsiLandscapeSize(SheetValue.SheetWidth, SheetValue.SheetHeight)
     ):
         raise ValueError(
             "neutral blank drawing has an unsupported active sheet paper or view content"

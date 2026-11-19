@@ -176,9 +176,11 @@ def run(mode, count, output, incoming):
     if stream is not None:
         require(stream.getvalue() == b"unchanged caller stream", "stream rejection changed caller bytes")
     info = GetRegistry().writer("solidworks.sldasm").info
-    require(info.format_id == "solidworks.sldprt" and info.extensions == (".sldprt", ".sldasm") and info.aliases == ("solidworks.sldasm",)
+    require(info.format_id == "solidworks.sldprt" and info.extensions == (".sldprt", ".sldasm", ".slddrw")
+            and info.aliases == ("solidworks.sldasm", "solidworks.slddrw")
             and info.part_extensions == (".sldprt",) and info.assembly_extensions == (".sldasm",), "normal writer metadata changed format ownership")
-    require(not GetRegistry().writer("solidworks.sldprt").supports(document, output / "anything.SLDDRW"), "drawing writing was enabled")
+    require(not GetRegistry().writer("solidworks.slddrw").supports(document, output / "anything.SLDDRW"),
+            "the assembly graph was accepted for a drawing destination")
     return {"passed": True, "mode": mode, "worker_pid": os.getpid(), "occurrences": count, "before": before, "after": after,
             "error": error, "runtime_input_file_reads": 0, "native_processes_started": 0, "writer_native_flags": result is not None and result.vendor_loadable,
             "native_qualification_is_prior_measured_profile": True, "whole_bundle_matches_native_input": incoming is not None,
