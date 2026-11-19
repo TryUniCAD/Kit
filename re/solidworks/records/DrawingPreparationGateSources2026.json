@@ -1,0 +1,278 @@
+{
+  "activity": {
+    "held_out_inputs_read": 0,
+    "provider_or_hopper_targets_opened": 0,
+    "shared_checkout_writes": 0,
+    "vendor_code_executed": false,
+    "vm_calls": 0
+  },
+  "delivery_pr": 121,
+  "direct_calls": [
+    {
+      "kind": "rel32_call",
+      "module": "slddrwu.dll",
+      "site": "0x3df085af",
+      "target": "0x3df07aa0"
+    },
+    {
+      "kind": "rel32_call",
+      "module": "slddrwu.dll",
+      "site": "0x3df08613",
+      "target": "0x3df07aa0"
+    },
+    {
+      "kind": "rel32_call",
+      "module": "slduiu.dll",
+      "site": "0x4a24aed7",
+      "target": "0x4a248fd0"
+    },
+    {
+      "kind": "rel32_call",
+      "module": "sldmodu.dll",
+      "site": "0x4c98d30d",
+      "target": "0x4c9ae490"
+    }
+  ],
+  "evidence": "confirmed static conditional routes; new per-view probe not yet executed",
+  "functions": [
+    {
+      "entry": "0x3df07aa0",
+      "fragments": [
+        {
+          "bytes": 2227,
+          "end_exclusive": "0x3df08353",
+          "file_offset": 3436192,
+          "name": "unwind_fragment",
+          "sha256": "74b943f42d9870c0ef28d4fc91ff2f9b234f1ff04fab0f1d8b45169f0014363d",
+          "start": "0x3df07aa0"
+        }
+      ],
+      "module": "slddrwu.dll",
+      "name": "prepare_detailing_buckets",
+      "source_listing_private_sha256": "89fef39a29ae119826c1b7d10fdeae4202d48469436493f1b5971263f8631117"
+    },
+    {
+      "entry": "0x3df08360",
+      "fragments": [
+        {
+          "bytes": 1097,
+          "end_exclusive": "0x3df087a9",
+          "file_offset": 3438432,
+          "name": "unwind_fragment",
+          "sha256": "70b9a6b897fe150bebd06ad6245b4c2bb6d02c713993688fc590c59008b2097c",
+          "start": "0x3df08360"
+        }
+      ],
+      "module": "slddrwu.dll",
+      "name": "prepare_detailing_views",
+      "source_listing_private_sha256": "97c78c49e65d181d6e5cbc6671710c5f93de88596e7bf93296b1510863f15d05"
+    },
+    {
+      "entry": "0x4a246400",
+      "fragments": [
+        {
+          "bytes": 2613,
+          "end_exclusive": "0x4a246e35",
+          "file_offset": 20600832,
+          "name": "unwind_fragment",
+          "sha256": "8144564f038cc2f5a2195863b8a5ee10fb684dd85cc3aeac8569b5112b8b551e",
+          "start": "0x4a246400"
+        }
+      ],
+      "module": "slduiu.dll",
+      "name": "ui_postprocess_detailing_buckets",
+      "source_listing_private_sha256": "82da8511e50684df28bafd8f24b1227a5083192db33a528a0828c890ac1b5cd0"
+    },
+    {
+      "entry": "0x4a24aa40",
+      "fragments": [
+        {
+          "bytes": 1859,
+          "end_exclusive": "0x4a24b183",
+          "file_offset": 20618816,
+          "name": "unwind_fragment",
+          "sha256": "4076f43ea66dc67c466118f59a44ac2a72f66d6a4916c030b4bd92a95c6849b4",
+          "start": "0x4a24aa40"
+        }
+      ],
+      "module": "slduiu.dll",
+      "name": "ui_edge_caller_b",
+      "source_listing_private_sha256": "53c7f6d18a04d93818fcd736a91689b95fa3551144f647db98c999952e8c0084"
+    },
+    {
+      "entry": "0x4c98d300",
+      "fragments": [
+        {
+          "bytes": 332,
+          "end_exclusive": "0x4c98d44c",
+          "file_offset": 25478912,
+          "name": "unwind_fragment",
+          "sha256": "60b5ad004d3e32a86b71cf8279bb2600db2808fe4b14aadee1dbc71ac5754a10",
+          "start": "0x4c98d300"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "allow_view_detailing"
+    },
+    {
+      "entry": "0x4c9ae490",
+      "fragments": [
+        {
+          "bytes": 101,
+          "end_exclusive": "0x4c9ae4f5",
+          "file_offset": 25614480,
+          "name": "unwind_fragment",
+          "sha256": "5778a995074903e45bd87773a0ab3daf2d2750eb689eae49069efe5138058994",
+          "start": "0x4c9ae490"
+        }
+      ],
+      "module": "sldmodu.dll",
+      "name": "is_view_in_detailing"
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x3e130710",
+      "module": "slddrwu.dll",
+      "target_module": "SLDMODU.dll",
+      "target_name": "?getDetailDefs@moModel_c@@QEAAPEAVmoDetailDefs_c@@XZ"
+    },
+    {
+      "iat": "0x3e12e6d0",
+      "module": "slddrwu.dll",
+      "target_module": "SLDMODU.dll",
+      "target_name": "?allowDrViewInDetailingMode@moDrView@@QEAAHXZ"
+    },
+    {
+      "iat": "0x3e140f38",
+      "module": "slddrwu.dll",
+      "target_module": "slduiu.dll",
+      "target_name": "?getViewBucket@uiModelView_c@@QEAAPEAVuiViewBucket_c@@PEAVuiViewId_c@@H@Z"
+    },
+    {
+      "iat": "0x3e139fd8",
+      "module": "slddrwu.dll",
+      "target_module": "slduiu.dll",
+      "target_name": "?postProcessBucketDataforDetailingMode@uiViewBucket_c@@SAXPEAVuiModelView_c@@PEAVmoDrView@@@Z"
+    },
+    {
+      "iat": "0x4a46d038",
+      "module": "slduiu.dll",
+      "target_module": "sldgcu.dll",
+      "target_name": "?getDownstreamIdFromEdgeAttr@gcEnvironment_c@@QEAAIPEAVgcEdge_w@@@Z"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bytes": 235,
+      "end_exclusive": "0x3df07be5",
+      "file_offset": 3436282,
+      "module": "slddrwu.dll",
+      "name": "model_view_eligibility_and_next_branch",
+      "sha256": "564e1481f4ce7b19fc776428b3f5176dcc481df520197ddea634bcdd3a9e5217",
+      "start": "0x3df07afa"
+    },
+    {
+      "bytes": 140,
+      "end_exclusive": "0x3df07d85",
+      "file_offset": 3436793,
+      "module": "slddrwu.dll",
+      "name": "ordinary_bucket_dirty_gate",
+      "sha256": "3931e82a077e939216194428a1663577e8371f50e3e6a25a5f4e7f9db8c396a1",
+      "start": "0x3df07cf9"
+    },
+    {
+      "bytes": 57,
+      "end_exclusive": "0x4a24aedc",
+      "file_offset": 20619939,
+      "module": "slduiu.dll",
+      "name": "edge_attribute_and_nonempty_text_guards",
+      "sha256": "3f0c0426e820fb39ca1487479226daf9c1b14a3c02f0abcd1cda9e68cfc8fd79",
+      "start": "0x4a24aea3"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 36036696,
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "bytes": 8949848,
+      "name": "slddrwu.dll",
+      "preferred_base": "0x3dbc0000",
+      "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47"
+    }
+  ],
+  "original_source_identity_verified": true,
+  "owner": "/root/assembly_occurrence",
+  "remaining": [
+    "actual per-view eligibility and sixth caller argument values",
+    "actual later bucket bit0x200 and source edge downstream attachment",
+    "selected child-cache pointer and exact requested edge identity",
+    "generic public names of detail f224 and UI document virtual+0x1150 remain unbound"
+  ],
+  "repository_inputs": [
+    {
+      "bytes": 3372,
+      "path": "re/tooling/sw2026/materials/MaterialPe.py",
+      "sha256": "11e173fb6682ffcfc6bd7a0a58085ad9695fe176b0088ea8b46924a4742672c7"
+    }
+  ],
+  "rules": [
+    {
+      "rule": "next detailing branch requires computed eligibility !=0 and actual sixth native argument !=0",
+      "status": "confirmed static conditional"
+    },
+    {
+      "rule": "ordinary bucket must exist, have nonnull +0x10 data with +0x760 nonzero, and its f70 &0x200 before postprocessor call at0x3df07d7f",
+      "status": "confirmed static conditional"
+    },
+    {
+      "rule": "selected UI edge lookup requires nonzero actual edge downstream attribute and nonempty local CString before0x4a24aed7; the local CString is populated from the actual component map, not a generated default",
+      "status": "confirmed static conditional"
+    },
+    {
+      "rule": "the missed call alone does not select any one of these upstream gates, establish cache absence or demonstrate fallback",
+      "status": "not measured"
+    }
+  ],
+  "schema": 1,
+  "stop": {
+    "module": "slddrwu.dll",
+    "preferred_va": "0x3df07bce",
+    "reads": [
+      {
+        "bytes": 4,
+        "offset": 8,
+        "owner": "actual view",
+        "role": "serialized moFeature f08 used only to filter exact disclosed control view"
+      },
+      {
+        "bytes": 4,
+        "offset": 744,
+        "owner": "current verified source stack frame",
+        "role": "sixth native i32 argument"
+      }
+    ],
+    "registers": {
+      "r13_low32": "detail definitions f224 i32, semantic name not bound",
+      "r14_low32": "computed per-view eligibility 0 or1",
+      "r15_low32": "actual view.f614 &0x40",
+      "rbp+0x2e8": "actual sixth native i32 argument controlling next detailing branch",
+      "rbx_low32": "actual SaveModelData i32 or native fallback1 when no active recipe doc",
+      "rdi": "actual moDrView owner"
+    },
+    "rva": 3439566
+  },
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "version_scope": "SOLIDWORKS 2026 SP05.2 34.5.2.0604, ordinary archive 19000",
+  "virtual_cells": []
+}
