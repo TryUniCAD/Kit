@@ -35,7 +35,8 @@ through Parallels. Choose a new Windows-local
 `C:\KitImportedBodySourcesNN` folder for the private evidence.
 
 ```sh
-python3 -B "$KIT/re/tooling/sw2026/imported_body_source/RunImportedBodySources.py" \
+PYTHONPATH="$KIT/re/tooling/sw2026" python3 -B \
+  "$KIT/re/tooling/sw2026/imported_body_source/RunImportedBodySources.py" \
   prepare "$CONTROL" "$PACKET" --guest-private-root 'C:\KitImportedBodySources01' \
   --cohort disclosed --revision "$COMMITTED_SHA"
 ```
