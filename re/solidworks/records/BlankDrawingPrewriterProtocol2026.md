@@ -1,5 +1,7 @@
 # Blind source slots for one blank ANSI A drawing sheet
 
+The reserved native oracle completed both source slots. All ten processes were distinct and all four pristine controls passed. Both independently authored blank drawings saved, accepted a scale edit and reopened cleanly in a fresh process. Original, edited and intent bytes remain guest-private, and their distinct hashes were recorded before public writer implementation. The internal constructor predates this lock. [Hash-only source receipt](../measurements/2026/BlankDrawingBlindSourceLock01.json)
+
 Task `B04-SW2026-DRAWPROPS/blank-public-qualification`, owner `assembly_occurrence`, delivery PR #121. Root alone owns the native oracle. This protocol authors two independent vendor source slots before future public blank-writer promotion. It neither calls a writer nor enables public registration. The existing internal [MakeBlankFile](SdkBlankDrawingFile2026.md) predates these sources; they must not be described as locks preceding that constructor's original implementation.
 
 The complete [SDK blank lifecycle](SdkBlankDrawingNative2026.md) already has disclosed native evidence. The new scope is independent blind source custody, actual source edits and exact persistence, followed later by a separately frozen ordinary-registry equivalence method.

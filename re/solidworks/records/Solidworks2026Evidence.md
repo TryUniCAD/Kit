@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Blank drawing blind source locks](BlankDrawingPrewriterProtocol2026.md) | Both independent vendor-authored blank sheets pass native scale edit, save and fresh reopen. Ten processes and four pristine controls establish the hash-only source baseline for public writer promotion. |
 | [Saved prism body bookkeeping](PrismOpenBodyAdmission2026.md#persisted-body-bookkeeping) and [count/update-state source](PartBodyAdmissionState2026.md) | Ten fresh processes show that changing the stored count and rebuild flags independently and together leaves the same first-open warning for both shapes. All eight generated variants rebuild to the correct solid. |
 | [Drawing note attachment owners](DrawingNoteAttachmentOwners2026.md) | The exact scene and annotation serializers distinguish the live component detail item and attachment wrapper from the cached note data. Native cache element classes and first successful edge persistence remain open. |
 | [Drawing projection occurrence](DrawingProjectionOccurrence2026.md) | The exact visible-components factory wraps the child in a drawing-owned component chain. Both native controls report false for IsRoot on that occurrence. The revised probe leaves the actual child, parent, view and authored configuration gates active. |

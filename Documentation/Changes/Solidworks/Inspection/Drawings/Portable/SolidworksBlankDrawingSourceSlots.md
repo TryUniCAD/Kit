@@ -7,3 +7,5 @@ The tool reuses the existing native drawing author, sheet/tree observations and 
 Two host verifies pass. Changed packet/tool/control identities and host sealing refuse. Three scoped Python files pass AST/compile; no native execution ran at this freeze. Existing internal blank construction predates the new source cohort. The protocol reserves these cases for a later frozen public-writer equivalence method and enables no public writer or held-out acceptance.
 
 See the [source protocol](../../../../../../re/solidworks/records/BlankDrawingPrewriterProtocol2026.md), [SDK blank construction](../../../../../../re/solidworks/records/SdkBlankDrawingFile2026.md) and [existing disclosed native proof](../../../../../../re/solidworks/records/SdkBlankDrawingNative2026.md) for ownership, commands, full comparison gates and remaining limitations.
+
+Both native source slots passed the complete ten-process run on SOLIDWORKS 2026 SP05.2 with four pristine controls. The public receipt publishes only source, intent and edited hashes. [Native source lock](../../../../../../re/solidworks/measurements/2026/BlankDrawingBlindSourceLock01.json)

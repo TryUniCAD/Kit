@@ -1,0 +1,70 @@
+{
+  "delivery_pr": 121,
+  "guest_only_private_intent": true,
+  "internal_constructor_predates_lock": true,
+  "metadata_sha256": "0113d4355b4ce635df3cf89412384e7c0b4c350661738cc0d28b6bc9ffd15d52",
+  "native_summary": {
+    "distinct_native_processes": 10,
+    "evaluation_enabled": false,
+    "healthy_controls": 4,
+    "passed": true,
+    "slot_lock_sha256": {
+      "Slot01": "689a69e3e3eb54f388867abade57a8c32c88cb6f87c2adb0e82d348632d03e8d",
+      "Slot02": "9a224b422eec7e0e8bf13a4bc048480a9c181bfbd464102b28bf47d1f8b39362"
+    },
+    "source_slots_locked": 2,
+    "writer_output_count": 0
+  },
+  "oracle_build": "34.5.2.0604",
+  "oracle_tool_revision": "ec0afdaf75661a7b58b40c767ae4ae557bf2eded",
+  "protocol_sha256": "2f1cf6fd51b4dfc128340b16955071f25dc967149b1589e6780d6f39e83601d2",
+  "public_promotion_source_lock": true,
+  "recipe_sha256": "a7e0c969bc0b7181f16eac8c880c712e1e94abbf61330fc343865fce40673b1f",
+  "schema": "kit.sw2026.blank-drawing-native-blind-source-lock.v1",
+  "slots": {
+    "Slot01": {
+      "edited_sha256": "49ac279d38cfc02c12cc7927ba28fa481b14933c6796fecfe2185c453224e503",
+      "healthy_controls": 2,
+      "heldout_source_locked": true,
+      "intent_sha256": "a59297068e3602776d6448d81349a23e7a28c819cf57381d22443ec5f39447c3",
+      "lock_public_receipt_sha256": "3c97ba038d5b3b66bcad424c59ebb54c2bc0be33f8e1f154fefd7ac281bc0be0",
+      "native_processes": 5,
+      "packet_sha256": "2f1cf6fd51b4dfc128340b16955071f25dc967149b1589e6780d6f39e83601d2",
+      "passed": true,
+      "phase": "lock",
+      "phase_sha256": {
+        "after": "0af2273019d5e71b8cfabd3dbf331b79600be72b58549e94ab52819ba383374a",
+        "author": "2253b60ee2210bc0e90ddf326d203476b349da5d98015f93ac2d3be3f89b6545",
+        "before": "17ef485a686edbb790a0127a310f88166c5361093aace4f90c78b73dbd663c61",
+        "edit": "fb21626aa3194a5a1327b1633cfef2e52ab7faad5d5086fa0807461bbde3a8fd",
+        "reopen": "652bf60dcb8a8c36c9ff118f6898a49fa0822e52575995d85abb1ead656c1f62"
+      },
+      "slot": "Slot01",
+      "source_sha256": "34e612f69ab4834b91a16fe99a6d828c6eccf97b98f5614f0ef2ae2096af4c6f",
+      "writer_output_count": 0
+    },
+    "Slot02": {
+      "edited_sha256": "cd1b12f078e72754e62785d208b3da19181f784fe4d70dfc67857ab7efaf1056",
+      "healthy_controls": 2,
+      "heldout_source_locked": true,
+      "intent_sha256": "c0c1bfd175130f006eae5506f38d4fc681b33728a60456bf51bb7700bc845c11",
+      "lock_public_receipt_sha256": "99d24ec2e12835de522661dee5852e7bc21475132d17121ed5e47c57feba60e5",
+      "native_processes": 5,
+      "packet_sha256": "2f1cf6fd51b4dfc128340b16955071f25dc967149b1589e6780d6f39e83601d2",
+      "passed": true,
+      "phase": "lock",
+      "phase_sha256": {
+        "after": "d9d2ba35e6802161855024b77e770140b07f77ab12f5e48f58f40b9cebddcc8c",
+        "author": "9071c4d1d6846f3c8e7a077d40309f188035fce66cac073ae8ce707905d7cfa4",
+        "before": "137c6d4475a49f56528e4960f68a32e01703f1b0da4c06ca445995ef60e4fa19",
+        "edit": "944208ca6c412b1aa14604d924fbfa66345ed3bbef5377813efa59e450692826",
+        "reopen": "b51a85dad797171a579be0d290cfb6b0f324a9004949ea4d6cb5066f6eedb727"
+      },
+      "slot": "Slot02",
+      "source_sha256": "c2d1b053a719c7eecc6e49cdbeef4ac49c9aab81fb1ccd715d5c307d4866def6",
+      "writer_output_count": 0
+    }
+  },
+  "summary_sha256": "d05291878a573371880fdd4848de8910aed8598d15ca7ec1d74662f15adf41f7",
+  "transport_sha256": "1b0c15a82fabbc2aaed13e870a2f8ab0981f58007143dd93a8b580915b2de733"
+}
