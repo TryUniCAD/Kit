@@ -98,7 +98,8 @@ Supervisor contention retains status `4`.
 
 No production decode runner or model-provider registry is supplied by this bridge.
 Models remain disabled by default.
-Optional Codex/Claude runners, escalation, budgets, and private-data controls remain A10 work under the plan's authorization rules.
+The separate [Codex advice command](../Changes/Research/Advice/CodexFallback.md) can watch an approved parked inference job.
+It uses the local Codex login and writes proposals for independent verification.
 Application workers remain separate isolated research oracles.
 See [session output lifetime](../Gotchas/Research/SupervisorSessionOutputLifetime.md) before implementing a persistent decode runner.
 
