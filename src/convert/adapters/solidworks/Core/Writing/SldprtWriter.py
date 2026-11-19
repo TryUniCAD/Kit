@@ -24,11 +24,10 @@ from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# the canonical writer admits the modeled part, owned assembly and authored blank drawing profiles
+# the canonical writer admits the modeled part owned assembly and authored blank drawing profiles
 class SldprtWriter(PairProtocol):
     __slots__ = ()
 
-    # the drawing guard is backed by explicit admission of complete blank layouts
     KTypedDrawings = True
 
     # the registry needs independent write metadata to retain the existing assembly and drawing reader aliases

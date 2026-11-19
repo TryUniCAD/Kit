@@ -29,7 +29,7 @@ from convert.adapters.solidworks.Drawing.Construction.Sheet.SheetNames import Sh
 from interchange.document.Models.Drawing.DrawingData import DrawingData
 
 
-# an authored blank sheet supplies layout while this recipe supplies the ordinary English 2026 drawing presentation and one save event
+# the recipe fills the native presentation and save event from authored drawing intent
 def MakeBlankWriteRecipe(DrawingValue: DrawingData, FileValue: SelfFileInput, BlockValue: UuidValue) -> BlankDrawInput:
     NameValue = PureWindowsPath(FileValue.PathName).stem
     WrittenAt = FileValue.SavedAt

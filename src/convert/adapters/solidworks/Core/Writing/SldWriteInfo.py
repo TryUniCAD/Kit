@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.AsmWriteCaps import (
 )
 from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
 
-# the canonical format dispatches admitted part, assembly and blank drawing destinations through one native writer
+# the canonical format dispatches admitted part assembly and blank drawing destinations through one native writer
 KSldWriteInfo = ReplaceValue(
     KPartWriteInfo,
     extensions=(*KPartWriteInfo.extensions, KAsmSuffix, KDrawingSuffix),

@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Core.DrawingWriting.PrepareBlankDrawing import 
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# the registry can stage a complete generated blank drawing using its existing single-file transaction
+# the registry stages a complete drawing through its existing transaction for one output file
 def EmitBlankDrawingMut(
     DocumentValue: CadDocument, TargetValue: KTargetType, OptionsValue: WriteOptions | None
 ) -> WriteResult:

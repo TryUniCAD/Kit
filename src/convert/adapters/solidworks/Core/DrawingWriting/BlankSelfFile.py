@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import
 from convert.adapters.solidworks.Core.Preparation.SelectPartSelf import KNeutralRoot
 
 
-# a standalone blank drawing can use the authored native namespace on hosts without a Windows drive mapping
+# a standalone blank drawing needs a native locator when the host has no windows drive mapping
 def BlankSelfFile(TargetValue: FilePath, FinalValue: object, WrittenAt: int) -> SelfFileInput:
     Destination = TargetValue if FinalValue is None else FinalValue
     if not isinstance(Destination, (str, FilePath)):

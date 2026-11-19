@@ -1,0 +1,57 @@
+{
+  "guards": {
+    "Slot01": {
+      "byte_identical_to_native_measured_file": true,
+      "guard_receipt_sha256": "b74e05da702ed954144702ad17e278c19e5d8ce43b75329632c9f35fa0ef5111",
+      "output_sha256": "0b2ab21af0a495bd3efbf423b33aa85a496ca1be5a2c1000bf7298e8c0713c56",
+      "runtime_data_reads": 0
+    },
+    "Slot02": {
+      "byte_identical_to_native_measured_file": true,
+      "guard_receipt_sha256": "16866bfaa1c299d97b0f49a4b7fabc42f244867acde351f8ae72659db26209cd",
+      "output_sha256": "f50438ffda2d0fa6698ce6628952bca2cdb0ed713638a5597231b3c1feb7b91c",
+      "runtime_data_reads": 0
+    }
+  },
+  "native_generation_sha256": "8ef2fa34d4facecd328178ab0cd106215047b3d097e69b305a36e6d913c695d9",
+  "native_launches": 0,
+  "passed": true,
+  "previous_heldout_receipt_sha256": "2004c80805ef54e3c539506c12c3e9f9704f0a6438122bbd1c6dbe20aadf3c19",
+  "replay_tool_sha256": "cb78b955edc4334896689af927ad6f8915cb3c72e13fdc6ff3d55e476780bf76",
+  "schema": "kit.sw2026.blank-drawing-source-style-replay.v1",
+  "source_manifest_sha256": "c973938b4a7a6fe1e28df4c328fefa097855ec7244b0cbd1da613bb24ade62be",
+  "source_style_changes": {
+    "src/convert/adapters/solidworks/Core/DrawingWriting/BlankSelfFile.py": {
+      "after_sha256": "747934817a2af82ba90e28f56b80108e30f033a751845dfde2f94fa0e937f314",
+      "before_sha256": "130e7adfc7cfe3171b1e6d74f22cb0bbb56b60de033653ac355144e824477955",
+      "exact_ast_sha256": "d75d75aa0c5337c1fe778771cd96b1f8a43c4bcf8e07988489af0ab677a2cf71"
+    },
+    "src/convert/adapters/solidworks/Core/DrawingWriting/EmitBlankDrawingMut.py": {
+      "after_sha256": "55b3c5f7cbeebd7ee5950c7520cb2ede636e95b8063cc8f31b5a31d530763eba",
+      "before_sha256": "27d7c2ca787356dafbf94fed7f7d072c78ce4fd09d9d8db621ddccfeea612401",
+      "exact_ast_sha256": "96e27e694f7e8068e9575cc32f2627c0cf7e51de18348f08dbbaabca40147e56"
+    },
+    "src/convert/adapters/solidworks/Core/DrawingWriting/MakeBlankWriteRecipe.py": {
+      "after_sha256": "b0c48e0dc1001ca58729530a1c9fc231aa4ae9a40440c0f07bfda2b893087a9c",
+      "before_sha256": "ff8fc47289d8bede6f201383ada2e5bf948544f20d8a9bdbf2cc2f62d02e6ae3",
+      "exact_ast_sha256": "5834e880d2ee0d31c147cc50eb188a49336defb4bcd076699209ca8b411940ab"
+    },
+    "src/convert/adapters/solidworks/Core/Writing/SldWriteInfo.py": {
+      "after_sha256": "f8aeb0b35533393f51a97b65b2946f2510885f7ec5d4713f03710ea557f6b9c5",
+      "before_sha256": "9612921139c89474c81cd1f131032c6cb2dc6c75cb4ffd77307a42f2894d43b3",
+      "exact_ast_sha256": "2cbedfb7fe44c0e739a51a9c2ee6c414c2c8db30292d978ab822dcd2571b4c34"
+    },
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": {
+      "after_sha256": "d9c768703e538d9957dd5e4e19906de7a5e568ddcc5c9d6eb74cc68e5ceeae50",
+      "before_sha256": "b4381891498298e85e9183fa1ef0b64bbdf59f681469f579a7626a6d4da3ccce",
+      "exact_ast_sha256": "2207bafe32ef6e059603c7c05cc1e6cadfc191ae2fbd34533a860b023a4d925b"
+    },
+    "src/convert/adapters/solidworks/Drawing/Construction/Sheet/IsAnsiLandscapeSize.py": {
+      "after_sha256": "e4c22ebc7b0faf1ba0eabf55d13998b1adfad167563df8c2cec133ef9f3b45ff",
+      "before_sha256": "12130b30421448fbdcab033688b5bf087da5df95de8e425e86272f560ce995cc",
+      "exact_ast_sha256": "b447b006cef450de3a054d6ec90694a90a5dda11d301223c1fd1c28194f92784"
+    }
+  },
+  "verified_manifest_entries": 4690,
+  "verified_raw_summary_sha256": "47877e932d6b399c5bc9307535cbbb74ec6b8d73822cd7acc08c4e767e291163"
+}
