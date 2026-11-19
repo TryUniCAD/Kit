@@ -184,7 +184,7 @@ def author_states(author, controller, directory, case, generated_input=None):
         observations[state] = state_observation
         if state != "Original":
             author.edit(PARAMETERS[index], case["original_m"][index])
-            require_same_history(original, snapshot(author, case, "Original")))
+            require_same_history(original, snapshot(author, case, "Original"))
     return files, observations
 
 
