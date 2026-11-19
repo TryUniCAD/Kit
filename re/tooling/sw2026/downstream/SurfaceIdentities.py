@@ -14,6 +14,29 @@ class SurfaceIdentity:
     representation: ArchiveNode
 
 
+def clone_collected_surface(identity):
+    representation = identity.representation
+    fields = representation.FieldsValue
+    base = fields["f10"]
+    keeper = base["f10"]
+    owner = keeper.FieldsValue["f08"]
+    file_fields = owner.FieldsValue
+    copied_owner = ArchiveNode(owner.ClassValue, {
+        **file_fields,
+        "f60": 0,
+        "f78": -1,
+        "refcfg": dict(file_fields["refcfg"]),
+    })
+    copied_keeper = ArchiveNode(keeper.ClassValue, {
+        "f08": copied_owner,
+        "f10": dict(keeper.FieldsValue["f10"]),
+    })
+    return ArchiveNode(representation.ClassValue, {
+        **fields,
+        "f10": {**base, "f10": copied_keeper},
+    })
+
+
 def cylinder_surface_identities(attachment, feature_file):
     candidate = attachment.candidate
     source_file = candidate.HeaderValue.FieldsValue["f38"]

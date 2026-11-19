@@ -6,6 +6,9 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Collected surface clones](DownstreamCollectedSurfaceClones2026.md) | Six guarded processes verify the per-copy file objects and preserved shared name and path handles. The original surface witnesses reproduce exactly. |
+| [Downstream identity membership](DownstreamIdentityMembership2026.md) | Pinned source binds the cache GUID and hash, first-seen semantic keys, face-before-edge traversal and collector transfer. Full native population stays dependent on actual geometry and the post-conversion path. |
+| [Fresh downstream face rows](DownstreamFreshFaceRows2026.md) | Pinned source binds the one-loop face's six inline IDs, loop separator, selected mode, helper reconstruction and the alternate-key collision branch. |
 | [Generated standalone part cache projection](DownstreamPartCacheProjection2026.md) | Twenty-two guarded processes reproduce configuration-bound stream placement, all four ordinary face roles, header-derived populated prefixes, file-owned cylinder surfaces and separate local unit object slots. The populated native reference graph and qualification remain open. |
 | [Standalone part save dispatch](DownstreamStandaloneStore2026.md) and [assembly attachment dispatch](DownstreamAttachmentStore2026.md) | Exact-build source binds separate eligibility branches, configuration names, fresh archive maps and the shared direct body call. |
 | [Local downstream owners](DownstreamLocalOwnerContext2026.md) | Sixty-seven source functions bind the standalone unit load reattachment and fresh local file/configuration ownership. The local external index and active configuration have independent producers. |
