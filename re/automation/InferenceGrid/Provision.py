@@ -7,6 +7,7 @@
 # to you under it immediately and permanently.
 
 import argparse
+import json
 from pathlib import Path
 import re
 import sqlite3
@@ -19,14 +20,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from Corpus import git
 from InferenceArchives import REVISION, ROOT, archive_gaps
 from InferenceGrid.Evidence import KScopeGap, KScopeSpecPin
-from InferenceGrid.Resume import BindGrid
+from InferenceGrid.Resume import BindGrid, GridSuccessor, ReadAttachedGrid
 from InferenceRunner import FORMATS, GAP_KIND
 from InferenceSchedule import build_schedule
 from Ledger import Ledger
 from PairedCaptureIntake import require, sha256
 from PriorityPlan import schedule_plan
 from PrioritySchedule import schedule
-from Records import canonical, digest
+from Records import canonical, digest, specification
 
 # the portable store must assess the same frozen discovery hypothesis
 KScopeReportPin = "557028a830ea0fa5e55bb0ebf797e657f8be3b4e06046937bb1b7cb787c48818"
@@ -103,7 +104,7 @@ def HasScopePlan(ledger, batch):
     present = 0
     for job_id, spec in jobs.items():
         row = ledger.db.execute(
-            "SELECT definition_hash FROM jobs WHERE id=?", (job_id,)
+            "SELECT definition_hash,definition FROM jobs WHERE id=?", (job_id,)
         ).fetchone()
         if row is None:
             continue
@@ -114,8 +115,13 @@ def HasScopePlan(ledger, batch):
             (job_id,),
         ).fetchone()
         lane, family, documents, evidence, installation = priorities[job_id]
+        definition = specification(json.loads(row["definition"]))
+        if spec["kind"] == GAP_KIND and "grid_from_receipt" in definition["options"]:
+            queue, origin = ReadAttachedGrid(ledger, definition)
+            spec = specification(GridSuccessor(spec, queue, origin))
         require(
-            row[0] == digest(spec)
+            definition == spec
+            and row[0] == digest(spec)
             and priority is not None
             and tuple(priority)
             == (

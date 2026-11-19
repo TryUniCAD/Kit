@@ -111,49 +111,77 @@ def BindGrid(ledger, name, pin):
         ledger.set_binding(name, pin)
 
 
+# the same successor shape is used for admission and idempotent resubmission
+def GridSuccessor(spec, queue, pin):
+    return {
+        **spec,
+        "depends_on": sorted(set(spec["depends_on"]) | set(queue["jobs"].values())),
+        "inputs": {**spec["inputs"], **GridInputs(queue, pin)},
+        "options": {**spec["options"], "grid_from_receipt": pin},
+    }
+
+
+# only the controller stored queue can identify an already attached experiment
+def ReadAttachedGrid(ledger, definition):
+    origin = definition["options"]["grid_from_receipt"]
+    binding = definition["inputs"]["grid-queue"]
+    pin = ledger.db.execute(
+        "SELECT sha256 FROM bindings WHERE name=?", (binding,)
+    ).fetchone()
+    require(pin is not None, "attached evidence queue is missing")
+    ledger.verify_object(pin[0])
+    queue = read_record(ledger.objects.path(pin[0]))
+    require(
+        binding == "inference-grid:" + digest(queue)
+        and all(
+            definition["inputs"].get(role) == value
+            for role, value in GridInputs(queue, origin).items()
+        ),
+        "attached evidence queue differs from the controller definition",
+    )
+    return queue, origin
+
+
 # the controller wakes the same assessment only when the queued native artifacts exist
-def AttachGrid(store, queue, pin):
+def AttachQueuedGrid(ledger, store, queue, pin, scratch):
     checksum(pin)
     selectors = GridInputs(queue, pin)
     job_id = "inference:" + digest(KScopeGap)
-    with (
-        Ledger(store) as ledger,
-        TemporaryDirectory(prefix="kit-grid-attach-") as scratch,
-    ):
-        current = ledger.status(job_id)["jobs"]
-        require(len(current) == 1, "the fixed A07 scope assessment is not scheduled")
-        job = ledger.db.execute("SELECT * FROM jobs WHERE id=?", (job_id,)).fetchone()
-        existing = specification(json.loads(job["definition"]))
-        previous = {
-            role: value for role, value in existing["inputs"].items() if role != "plan"
-        }
-        if previous:
-            require(
-                previous == selectors
-                and existing["options"]
-                == {"scope": KScopeGap, "grid_from_receipt": pin},
-                "a different grid or parked attempt is already attached",
-            )
-            return current[0]
-        spec, report = ParkedGrid(ledger, job, pin)
-        owner = StoreSnapshot(ledger.db, store)
-        plan = verify_binding(owner, queue, Path(scratch))
-        CheckGridPlan(report, plan)
-        first, second = [phase_row(owner, queue, phase) for phase in ("a", "b")]
+    current = ledger.status(job_id)["jobs"]
+    require(len(current) == 1, "the fixed A07 scope assessment is not scheduled")
+    job = ledger.db.execute("SELECT * FROM jobs WHERE id=?", (job_id,)).fetchone()
+    existing = specification(json.loads(job["definition"]))
+    previous = {
+        role: value for role, value in existing["inputs"].items() if role != "plan"
+    }
+    if previous:
         require(
-            first["kind"] == second["kind"], "queued Fusion grid phase kinds differ"
+            previous == selectors
+            and existing["options"] == {"scope": KScopeGap, "grid_from_receipt": pin},
+            "a different grid or parked attempt is already attached",
         )
-        queue_pin = ledger.objects.put_record(queue)
-        BindGrid(ledger, selectors["grid-queue"], queue_pin)
-        BindGrid(ledger, selectors["grid-previous"], pin)
-        successor = {
-            **spec,
-            "depends_on": sorted(set(spec["depends_on"]) | set(queue["jobs"].values())),
-            "inputs": {**spec["inputs"], **selectors},
-            "options": {**spec["options"], "grid_from_receipt": pin},
-        }
-        GridSchedule(ledger, spec, successor)
-        return ledger.status(job_id)["jobs"][0]
+        return current[0]
+    spec, report = ParkedGrid(ledger, job, pin)
+    owner = StoreSnapshot(ledger.db, store)
+    plan = verify_binding(owner, queue, Path(scratch))
+    CheckGridPlan(report, plan)
+    first, second = [phase_row(owner, queue, phase) for phase in ("a", "b")]
+    require(first["kind"] == second["kind"], "queued Fusion grid phase kinds differ")
+    queue_pin = ledger.objects.put_record(queue)
+    BindGrid(ledger, selectors["grid-queue"], queue_pin)
+    BindGrid(ledger, selectors["grid-previous"], pin)
+    successor = GridSuccessor(spec, queue, pin)
+    GridSchedule(ledger, spec, successor)
+    return ledger.status(job_id)["jobs"][0]
+
+
+# explicit receipt attachments use their own store transaction
+def AttachGrid(store, queue, pin):
+    with (
+        TemporaryDirectory(prefix="kit-grid-attach-") as scratch,
+        Ledger(store) as ledger,
+    ):
+        return AttachQueuedGrid(ledger, store, queue, pin, Path(scratch))
 
 
 # explicit pin arguments keep manual report files outside the admission boundary

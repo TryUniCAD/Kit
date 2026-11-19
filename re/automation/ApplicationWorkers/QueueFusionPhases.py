@@ -161,47 +161,52 @@ def prepare_pair(installation, acknowledgement, kind, resource, run, staged, raw
     return receipt, jobs
 
 
-def submit_pair(store, staged, receipt, jobs, *, durable, reservation=None):
+# a feature handoff can bind the phases and their dependent assessment in one transaction
+def bind_pair(ledger, staged, receipt, jobs, *, durable, reservation=None):
     binding, plan_hash = receipt["plan_binding"], receipt["plan_sha256"]
-    with Ledger(store) as ledger:
-        existing = exact_jobs(ledger.db, jobs) if durable else []
-        if durable:
+    existing = exact_jobs(ledger.db, jobs) if durable else []
+    if durable:
+        require(
+            len(existing) in (0, 2),
+            "existing Fusion submission contains only one phase",
+        )
+    else:
+        for job in jobs:
+            current = ledger.db.execute(
+                "SELECT definition_hash FROM jobs WHERE id=?", (job["id"],)
+            ).fetchone()
             require(
-                len(existing) in (0, 2),
-                "existing Fusion submission contains only one phase",
+                current is None
+                or current["definition_hash"] == digest(specification(job)),
+                "existing generated phase job has a different definition",
             )
-        else:
-            for job in jobs:
-                current = ledger.db.execute(
-                    "SELECT definition_hash FROM jobs WHERE id=?", (job["id"],)
-                ).fetchone()
-                require(
-                    current is None
-                    or current["definition_hash"] == digest(specification(job)),
-                    "existing generated phase job has a different definition",
-                )
-        old = ledger.db.execute(
-            "SELECT sha256 FROM bindings WHERE name=?", (binding,)
-        ).fetchone()
-        if old is None:
-            require(
-                not durable or not existing, "existing Fusion pair has no plan binding"
-            )
-            require(
-                ledger.bind(binding, staged)["sha256"] == plan_hash,
-                "issued plan binding differs from the validated bytes",
-            )
-        else:
-            require(
-                old["sha256"] == plan_hash,
-                "content-addressed plan label is already bound to different bytes",
-            )
-            ledger.verify_object(plan_hash)
-        if not durable or not existing:
-            ledger.submit_many(jobs)
-        if reservation is not None:
-            register_pair(ledger, receipt, jobs, sha256(receipt_bytes(receipt)), reservation)
+    old = ledger.db.execute(
+        "SELECT sha256 FROM bindings WHERE name=?", (binding,)
+    ).fetchone()
+    if old is None:
+        require(
+            not durable or not existing, "existing Fusion pair has no plan binding"
+        )
+        require(
+            ledger.bind(binding, staged)["sha256"] == plan_hash,
+            "issued plan binding differs from the validated bytes",
+        )
+    else:
+        require(
+            old["sha256"] == plan_hash,
+            "content-addressed plan label is already bound to different bytes",
+        )
+        ledger.verify_object(plan_hash)
+    if not durable or not existing:
+        ledger.submit_many(jobs)
+    if reservation is not None:
+        register_pair(ledger, receipt, jobs, sha256(receipt_bytes(receipt)), reservation)
 
+
+# standalone queue submissions own their transaction and receipt lifecycle
+def submit_pair(store, staged, receipt, jobs, *, durable, reservation=None):
+    with Ledger(store) as ledger:
+        bind_pair(ledger, staged, receipt, jobs, durable=durable, reservation=reservation)
 
 def queue_phases(
     config, source_plan, kind, resource, run, *, receipt_path=None, owner_lifecycle=False

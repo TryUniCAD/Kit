@@ -70,6 +70,36 @@ installation from eligible supplied standard work, within store limits.
 The scheduler rotates feature families within each lane and ranks jobs by open
 dependents, distinct representative archives and distinguishing evidence.
 
+### Dispatch a SOLIDWORKS catalogue feature
+
+The SOLIDWORKS catalogue's `family:extrude:cut-extrude` ID selects the pinned
+P04 through-all body-selection assessment and its two affected archive rescans.
+From a clean checkout, submit it to an initialized A03 store used by the
+inference supervisor.
+
+```shell
+python re/automation/InferenceGrid/FeatureDispatch.py --store STORE \
+  --feature family:extrude:cut-extrude submit
+```
+
+On the configured Fusion owner host, point the following command at a
+supervisor registry with the Fusion worker and its capacity-one installation.
+Use the same A03 store and source revision as the assessment. The command
+waits for the assessment to park, prepares the pinned two-body study, and
+commits both native phase jobs and the dependent assessment in one controller
+transaction. The existing Fusion owner restart procedure applies between phases.
+
+```shell
+python re/automation/InferenceGrid/FeatureDispatch.py --store STORE \
+  --feature family:extrude:cut-extrude advance --config SUPERVISOR.json \
+  --kind capture.fusion --resource application:fusion:owner --wait-seconds 120
+```
+
+Use `status` to inspect the assessment and the attached phase IDs. Repeating
+`submit` or `advance` reuses the scheduled work. The original parked receipt is
+retained, and only its two affected rescans depend on the successor. Accepted
+native observations can still leave the saved target-policy field unresolved.
+
 Each rescan depends on its assessment's accepted controller result. An
 unchanged fingerprint reuses the assessment and its counterexamples. Changed
 rules and evidence invalidate only declared dependent jobs. Each rescan reads
