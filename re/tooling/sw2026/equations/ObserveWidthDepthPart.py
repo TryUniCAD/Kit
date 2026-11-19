@@ -7,7 +7,18 @@ import AuthorEquationSources01 as equations
 from AuthorCurves import Recorder, digest, require
 
 
-class PlainPartObserver(equations.EquationAuthor):
+class LiveWidthObserver(equations.EquationAuthor):
+    def edit_source(self, case):
+        name = equations.PARAMETERS[0]
+        dimension = self.get(self.model, "Parameter", name)
+        require(
+            self.get(dimension, "DrivenState") == 2 and not self.get(dimension, "ReadOnly"),
+            "the width must be a writable driving dimension",
+        )
+        self.edit(name, case["edit_width_mm"] / 1000)
+
+
+class PlainPartObserver(LiveWidthObserver):
     def read_equations(self, case, edited):
         require(self.eq(self.manager(), "GetCount", 1) == 0, "the plain control owns an equation")
         return []
@@ -15,10 +26,6 @@ class PlainPartObserver(equations.EquationAuthor):
     def source_snapshot(self, case, edited):
         fixed_depth = {**case, "width_mm": case["edit_width_mm"]} if edited else case
         return super().source_snapshot(fixed_depth, False)
-
-    def edit_source(self, case):
-        self.edit(equations.PARAMETERS[0], case["edit_width_mm"] / 1000)
-
 
 def load_job(path, expected):
     require(digest(path) == expected, "the frozen width/depth job changed")
@@ -102,7 +109,7 @@ def inspect(path, job, role, reopen=False, prior=None):
             result["oracle_identity"] = identity
             record.data["oracle_identity"] = identity
             record.flush()
-            observer_kind = PlainPartObserver if plain_control else equations.EquationAuthor
+            observer_kind = PlainPartObserver if plain_control else LiveWidthObserver
             author = observer_kind(controller.app, record, Swapp, metadata)
             model, error, warning = record.call(
                 "open the frozen native part",
