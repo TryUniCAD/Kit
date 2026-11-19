@@ -39,3 +39,10 @@ The generated identity survives cold open and rebuild, with the expected DetailI
 The ordinary display position in this sheet frame is its cached anchor f290 plus direction f628 multiplied by distance f630. Four disclosed native originals and edited saves reconstruct their independently observed points with zero measured residual. Their distances equal the norms of the text-point offsets from their anchors. For the generated origin case, the point geometry supplies both direction and distance. The shared archive round-trip verifies that f630 is retained. [Disclosed field measurements](../measurements/2026/FreshPlainDrawingNotePositionFields01.json)
 
 The placed candidate has four passing guarded builds and a new frozen first-open, edit/save and fresh-reopen method. That trial binds the exact expected note name to both captures during each generated phase. Its job SHA-256 is ed89303077cc38bcc36775a32b56d0fce7f944bc3ad9690c5b5e5fed28e1d2d7. [Placed candidate generation](../measurements/2026/FreshPlainDrawingNotePositionHost01.json)
+
+
+## Disclosed native lifecycle
+
+Six distinct SOLIDWORKS 2026 SP05.2 processes passed. Two pristine blank controls and one vendor-authored note control bracketed the generated work. The generated drawing opened cleanly, exposed its expected DetailItem1 name and authored Unicode text at (0.0937, 0.1029, 0) metres, and rebuilt without changing its sheet or tree.
+
+The edit process replaced the text and moved the note to (0.1049, 0.0972, 0) metres. Native SaveAs returned [true, 0, 0]. A fresh process reopened the saved file and preserved the same edited content, position and name through rebuild. The partial SDK reader independently recovered the saved text and position. The generated input was immutable. This run used one disclosed note and added no held-out or public writer credit. [Native lifecycle receipt](../measurements/2026/FreshPlainDrawingNotePositionNative01.json) · [Source position owners](DrawingPlainNotePositionOwners2026.md)

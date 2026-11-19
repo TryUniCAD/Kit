@@ -1,0 +1,1094 @@
+{
+  "data_windows": [],
+  "disclosed_data_observations": [
+    {
+      "bytes": 1268,
+      "cad_payload_read": false,
+      "logical_name": "PlainNoteBuild01/PlainPositionFields01.json",
+      "reported_native_calls": 0,
+      "reported_private_inputs": 0,
+      "rows": [
+        {
+          "case": "Disclosed01",
+          "computed_position_matches_intent": true,
+          "derived_distance_m": 0.10667466278912806,
+          "distance_m": 0.10667466278912806,
+          "file_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+          "residual_m": 0.0
+        },
+        {
+          "case": "Disclosed01Edit",
+          "computed_position_matches_intent": true,
+          "derived_distance_m": 0.1128176154031641,
+          "distance_m": 0.11281761540316408,
+          "file_sha256": "8739b677a5b4ab018054987821b1ba721ec73e0c5094fa44ee3d05de92c0d15d",
+          "residual_m": 0.0
+        },
+        {
+          "case": "Disclosed02",
+          "computed_position_matches_intent": true,
+          "derived_distance_m": 0.11374421610765413,
+          "distance_m": 0.11374421610765413,
+          "file_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575",
+          "residual_m": 0.0
+        },
+        {
+          "case": "Disclosed02Edit",
+          "computed_position_matches_intent": true,
+          "derived_distance_m": 0.09972288432335474,
+          "distance_m": 0.09972288432335474,
+          "file_sha256": "32987b7a8a0fb75517a59ac2559099d229dcac8f78c74e29a1e385023d1628d6",
+          "residual_m": 0.0
+        }
+      ],
+      "sha256": "2a75bde32506c30d0ae51211844cc89b0d502a32ac5ad5e5a9d65b6902525fe4"
+    },
+    {
+      "bytes": 6301,
+      "cad_payload_read": false,
+      "controls_healthy": true,
+      "diagnostic_completed": true,
+      "file_saves": 0,
+      "fresh_processes": 4,
+      "generated_after": {
+        "name_nonempty": false,
+        "passed": false,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "position_matches": false,
+        "text_matches": true
+      },
+      "generated_before": {
+        "name_nonempty": false,
+        "passed": false,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "position_matches": false,
+        "text_matches": true
+      },
+      "logical_name": "PlainNoteBuild01/ObserverState02/Inspection/Result.json",
+      "native_acceptance": false,
+      "sha256": "82ee562bea717a6997bdf81fe19dabe7eac291d9cb0eccae7451a70995202505",
+      "source_immutable": true
+    },
+    {
+      "bytes": 6946,
+      "cad_payload_read": false,
+      "controls_healthy": true,
+      "diagnostic_completed": true,
+      "file_saves": 0,
+      "fresh_processes": 4,
+      "generated_after": {
+        "name_nonempty": true,
+        "passed": false,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "position_matches": false,
+        "text_matches": true
+      },
+      "generated_before": {
+        "name_nonempty": true,
+        "passed": false,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "position_matches": false,
+        "text_matches": true
+      },
+      "logical_name": "PlainNoteBuild01/ObserverState03/Inspection/Result.json",
+      "native_acceptance": false,
+      "sha256": "6992c7c11202be1cf8e1dcad78dc3f480b06620cd73b1c56dac22a33d24d63d5",
+      "source_immutable": true
+    }
+  ],
+  "execution": {
+    "cad_calls": false,
+    "git_mutations": false,
+    "held_out_acceptance": false,
+    "hopper_open_or_close": false,
+    "native_acceptance": false,
+    "public_admission": false,
+    "saved_cad_payloads_read": false,
+    "sdk_schema_or_codec_execution": false,
+    "sealed_inputs_read": false,
+    "shared_source_changed": false,
+    "tests": false,
+    "vendor_bytes_or_listings_in_delivery": false,
+    "vm_calls": false
+  },
+  "fields": [
+    {
+      "classification": "derived cache with explicit coordinate input to selected setter",
+      "confidence": "partial",
+      "field": "f290",
+      "owner": "moDisplayNote_c inherited moDisplayItem_c",
+      "role": "fallback cached attachment location A; copied by getAttachLocation(0) unless a valid multirow array entry0 is selected"
+    },
+    {
+      "classification": "derived optional cache",
+      "confidence": "partial",
+      "field": "f298",
+      "owner": "moDisplayNote_c inherited moDisplayItem_c",
+      "role": "runtime cache-array owner; row0 is used only when actual count>1 and row0 exists; it is not the absolute attachment object"
+    },
+    {
+      "classification": "explicit frame or derived presentation",
+      "confidence": "partial",
+      "field": "f2a0",
+      "owner": "moDisplayNote_c inherited moDisplayItem_c",
+      "role": "base transform copied by ordinary +370; optional active annotation-view rotation may modify returned F"
+    },
+    {
+      "classification": "derived from actual requested point, cached attachment and frame",
+      "confidence": "partial",
+      "field": "f628",
+      "owner": "moDisplayNote_c",
+      "role": "local direction V used by point getter; +4c8 normalizes the selected nonzero local displacement into this object",
+      "wire": "embedded vector, three f64, current read>=509"
+    },
+    {
+      "classification": "derived nonnegative distance for this setter; low-level setter itself does not clamp",
+      "confidence": "partial",
+      "field": "f630",
+      "owner": "moDisplayNote_c",
+      "role": "distance d used by point getter; +4c8 computes sqrt(local displacement sqlen) and +3f8 stores it",
+      "wire": "f64, current read>=509"
+    },
+    {
+      "classification": "constructor/attachment-dependent state; no guessed semantic label",
+      "confidence": "partial",
+      "field": "f644",
+      "owner": "moDisplayNote_c",
+      "role": "actual +868 returns this integer; +380 is true for stacked-note predicate or f644==0, controlling local displacement z=0"
+    },
+    {
+      "classification": "derived presentation mode transition",
+      "confidence": "partial",
+      "field": "f64c",
+      "owner": "moDisplayNote_c",
+      "role": "both selected placement routes change actual value1 to2; other values unchanged"
+    },
+    {
+      "classification": "authored or layout-updated point, independently retained",
+      "confidence": "partial",
+      "field": "f38",
+      "owner": "moDimText_c reached through actual note data",
+      "role": "separate stored text geometry point; the public position getter selected here does not consult it"
+    }
+  ],
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 548,
+      "end_exclusive": "0x42aaf1a4",
+      "module": "sldapiu.dll",
+      "name": "AnnotationGetPositionDispatch01",
+      "sha256": "68292aebaf7ea14703df106eed6147c944bc7e1703ef46dbb787719c5c830d15",
+      "start": "0x42aaef80",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 548,
+          "end_exclusive": "0x42aaf1a4",
+          "sha256": "68292aebaf7ea14703df106eed6147c944bc7e1703ef46dbb787719c5c830d15",
+          "start": "0x42aaef80",
+          "unwind_rva": "0xf87d1c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 273,
+      "end_exclusive": "0x42ab5d41",
+      "module": "sldapiu.dll",
+      "name": "AnnotationSetPosition2Dispatch01",
+      "sha256": "96171a0ce74c4616142f7c0f3c4c3e433af4facae38c4973ff1fbe8a90e82282",
+      "start": "0x42ab5c30",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 273,
+          "end_exclusive": "0x42ab5d41",
+          "sha256": "96171a0ce74c4616142f7c0f3c4c3e433af4facae38c4973ff1fbe8a90e82282",
+          "start": "0x42ab5c30",
+          "unwind_rva": "0xf87df8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 478,
+      "end_exclusive": "0x42d856de",
+      "module": "sldapiu.dll",
+      "name": "NoteGetTextPoint2Dispatch01",
+      "sha256": "29139e30db0cf8eec8983e4bf8aa55be9fd54afbcdbaba56459d702b491a1e42",
+      "start": "0x42d85500",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 478,
+          "end_exclusive": "0x42d856de",
+          "sha256": "29139e30db0cf8eec8983e4bf8aa55be9fd54afbcdbaba56459d702b491a1e42",
+          "start": "0x42d85500",
+          "unwind_rva": "0xfede6c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 581,
+      "end_exclusive": "0x42abad35",
+      "module": "sldapiu.dll",
+      "name": "AnnotationGetPositionCore01",
+      "sha256": "309b5affb0c6adee001dc80394fcdebe31a559d140b10c5c6b2e57a37cc80814",
+      "start": "0x42abaaf0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 581,
+          "end_exclusive": "0x42abad35",
+          "sha256": "309b5affb0c6adee001dc80394fcdebe31a559d140b10c5c6b2e57a37cc80814",
+          "start": "0x42abaaf0",
+          "unwind_rva": "0xf863ac"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 826,
+      "end_exclusive": "0x42abddfa",
+      "module": "sldapiu.dll",
+      "name": "AnnotationSetPositionCore01",
+      "sha256": "e653e1daee297364cc088b9f23bf8aa9b437952c0fa953cf1c18012d68871ba3",
+      "start": "0x42abdac0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 826,
+          "end_exclusive": "0x42abddfa",
+          "sha256": "e653e1daee297364cc088b9f23bf8aa9b437952c0fa953cf1c18012d68871ba3",
+          "start": "0x42abdac0",
+          "unwind_rva": "0xf862d0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 111,
+      "end_exclusive": "0x42d923bf",
+      "module": "sldapiu.dll",
+      "name": "NoteGetTextPoint2Core01",
+      "sha256": "2407c0237f0bf47cf0c2a9e52d1c7f367d17f904d79f2326716d331daec76984",
+      "start": "0x42d92350",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 111,
+          "end_exclusive": "0x42d923bf",
+          "sha256": "2407c0237f0bf47cf0c2a9e52d1c7f367d17f904d79f2326716d331daec76984",
+          "start": "0x42d92350",
+          "unwind_rva": "0xfeb964"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 87,
+      "end_exclusive": "0x4be6d447",
+      "module": "sldmodu.dll",
+      "name": "NoteAnnotationPositionVirtual01",
+      "sha256": "cca977390e34ad63e1ff6e773aa720fd83cefaec1f82c6b733c010fa4a0462e2",
+      "start": "0x4be6d3f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 87,
+          "end_exclusive": "0x4be6d447",
+          "sha256": "cca977390e34ad63e1ff6e773aa720fd83cefaec1f82c6b733c010fa4a0462e2",
+          "start": "0x4be6d3f0",
+          "unwind_rva": "0x23fb284"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 10,
+      "end_exclusive": "0x4b347fba",
+      "module": "sldmodu.dll",
+      "name": "NoteAnnotationPositionSetVirtual01",
+      "sha256": "12bb355eaa6c0d34e7ef463433388008180ad4e6049d6491f4d8651de73dab5c",
+      "start": "0x4b347fb0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 120,
+      "end_exclusive": "0x4ba69a58",
+      "module": "sldmodu.dll",
+      "name": "DisplayAttachLocation01",
+      "sha256": "3cdbd261103499fd6fc8a2de918ea457fb76e6ac2ec58f7078b0ad015079abcd",
+      "start": "0x4ba699e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 120,
+          "end_exclusive": "0x4ba69a58",
+          "sha256": "3cdbd261103499fd6fc8a2de918ea457fb76e6ac2ec58f7078b0ad015079abcd",
+          "start": "0x4ba699e0",
+          "unwind_rva": "0x236dfd4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 416,
+      "end_exclusive": "0x4c7fb480",
+      "module": "sldmodu.dll",
+      "name": "NoteFrameGetVirtual01",
+      "sha256": "e78ae1245e985bf7fa3237347da9599d6bdc1beba84baa56e0c796662459e71e",
+      "start": "0x4c7fb2e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 416,
+          "end_exclusive": "0x4c7fb480",
+          "sha256": "e78ae1245e985bf7fa3237347da9599d6bdc1beba84baa56e0c796662459e71e",
+          "start": "0x4c7fb2e0",
+          "unwind_rva": "0x2557e5c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 283,
+      "end_exclusive": "0x4c80d08b",
+      "module": "sldmodu.dll",
+      "name": "NoteAnnotationPositionSetConcrete01",
+      "sha256": "af1db8fde107d15222fcbbd565a163bb994ebd6abc11078a6d451e7cb91379eb",
+      "start": "0x4c80cf70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 283,
+          "end_exclusive": "0x4c80d08b",
+          "sha256": "af1db8fde107d15222fcbbd565a163bb994ebd6abc11078a6d451e7cb91379eb",
+          "start": "0x4c80cf70",
+          "unwind_rva": "0x25571b0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 175,
+      "end_exclusive": "0x42abadef",
+      "module": "sldapiu.dll",
+      "name": "NotePositionTransformContext01",
+      "sha256": "134f33d929655bfd018dc56f62fd57eacce8dd6ae145b5402b19fc43e06d24c7",
+      "start": "0x42abad40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 175,
+          "end_exclusive": "0x42abadef",
+          "sha256": "134f33d929655bfd018dc56f62fd57eacce8dd6ae145b5402b19fc43e06d24c7",
+          "start": "0x42abad40",
+          "unwind_rva": "0xf331f4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 60,
+      "end_exclusive": "0x4c807e3c",
+      "module": "sldmodu.dll",
+      "name": "NotePlanarPositionPredicate01",
+      "sha256": "92a564980786f100b1dc34a699683071d6e9340fb3462f327efdb85c8236496a",
+      "start": "0x4c807e00",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 60,
+          "end_exclusive": "0x4c807e3c",
+          "sha256": "92a564980786f100b1dc34a699683071d6e9340fb3462f327efdb85c8236496a",
+          "start": "0x4c807e00",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 131,
+      "end_exclusive": "0x4c80a5a3",
+      "module": "sldmodu.dll",
+      "name": "NoteApplyTransformVirtual01",
+      "sha256": "45ada189292e928bd7449e39a10eb3535cdf7445d902475e71c09806a0cfd14c",
+      "start": "0x4c80a520",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 131,
+          "end_exclusive": "0x4c80a5a3",
+          "sha256": "45ada189292e928bd7449e39a10eb3535cdf7445d902475e71c09806a0cfd14c",
+          "start": "0x4c80a520",
+          "unwind_rva": "0x2557188"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 9,
+      "end_exclusive": "0x4c80e489",
+      "module": "sldmodu.dll",
+      "name": "NoteTextDistanceSetter01",
+      "sha256": "be530c49ab01e6deb99122c2d644472acdd24423211583bbfef971143f0dfcc7",
+      "start": "0x4c80e480",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x4b27cbe3",
+      "module": "sldmodu.dll",
+      "name": "NoteOrdinaryFalsePredicate01",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x4b27cbe0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 141,
+      "end_exclusive": "0x4ba695fd",
+      "module": "sldmodu.dll",
+      "name": "DisplayAnnotationViewRotation01",
+      "sha256": "5f3d14d3426d478b7a793d589d595c1db96599504fd7b27450f73484fd92e079",
+      "start": "0x4ba69570",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 141,
+          "end_exclusive": "0x4ba695fd",
+          "sha256": "5f3d14d3426d478b7a793d589d595c1db96599504fd7b27450f73484fd92e079",
+          "start": "0x4ba69570",
+          "unwind_rva": "0x22477f0"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x4b35cf27",
+      "module": "sldmodu.dll",
+      "name": "NoteCoordinateModePredicate01",
+      "sha256": "14e49805d603a4bc5e7f6c770220871bb3e5039fdf113ba76f041be910aaed56",
+      "start": "0x4b35cf20",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 452,
+      "end_exclusive": "0x4c7fb644",
+      "module": "sldmodu.dll",
+      "name": "NoteTextPointGetter01",
+      "sha256": "f1973aaef3e286806fe3486fc5f713c70bd6b5f0bf6c7437ad99b7dba178eda1",
+      "start": "0x4c7fb480",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 452,
+          "end_exclusive": "0x4c7fb644",
+          "sha256": "f1973aaef3e286806fe3486fc5f713c70bd6b5f0bf6c7437ad99b7dba178eda1",
+          "start": "0x4c7fb480",
+          "unwind_rva": "0x2556e40"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 426,
+      "end_exclusive": "0x4c80e9da",
+      "module": "sldmodu.dll",
+      "name": "NoteDataPosition01",
+      "sha256": "16678a35ada2139787e1641074a4395de116f07973eae1d1b0df2f93c5d98688",
+      "start": "0x4c80e830",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 426,
+          "end_exclusive": "0x4c80e9da",
+          "sha256": "16678a35ada2139787e1641074a4395de116f07973eae1d1b0df2f93c5d98688",
+          "start": "0x4c80e830",
+          "unwind_rva": "0x2556de8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 6367,
+      "end_exclusive": "0x4c9559bf",
+      "module": "sldmodu.dll",
+      "name": "DisplayNoteSerialize01",
+      "sha256": "2865a45bba0451ca9a5ed7687e0757177cf5520c61c4eba2274f486428e7537c",
+      "start": "0x4c9540e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 6367,
+          "end_exclusive": "0x4c9559bf",
+          "sha256": "2865a45bba0451ca9a5ed7687e0757177cf5520c61c4eba2274f486428e7537c",
+          "start": "0x4c9540e0",
+          "unwind_rva": "0x2583534"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1783,
+      "end_exclusive": "0x4c7f1287",
+      "module": "sldmodu.dll",
+      "name": "FreshDisplayNoteCtor01",
+      "sha256": "09570f712c2be19016113058c4fd9e307b4d5c502cca53f6e9cdd4bf04dd37c1",
+      "start": "0x4c7f0b90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1783,
+          "end_exclusive": "0x4c7f1287",
+          "sha256": "09570f712c2be19016113058c4fd9e307b4d5c502cca53f6e9cdd4bf04dd37c1",
+          "start": "0x4c7f0b90",
+          "unwind_rva": "0x2556a24"
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x430315e0",
+      "module": "sldmgu.dll",
+      "name": "??0mgPoint_c@@QEAA@NNN@Z",
+      "source_module": "sldapiu.dll"
+    },
+    {
+      "iat": "0x43031610",
+      "module": "sldmgu.dll",
+      "name": "??0mgPoint_c@@QEAA@XZ",
+      "source_module": "sldapiu.dll"
+    },
+    {
+      "iat": "0x43028310",
+      "module": "SLDMODU.dll",
+      "name": "?GetThisClass@moDisplayDim_c@@SAPEAUCRuntimeClass@@XZ",
+      "source_module": "sldapiu.dll"
+    },
+    {
+      "iat": "0x430283d8",
+      "module": "SLDMODU.dll",
+      "name": "?GetThisClass@moDisplayNote_c@@SAPEAUCRuntimeClass@@XZ",
+      "source_module": "sldapiu.dll"
+    },
+    {
+      "iat": "0x4cd3a578",
+      "module": "sldmgu.dll",
+      "name": "??0mgPoint_c@@QEAA@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a588",
+      "module": "sldmgu.dll",
+      "name": "??0mgPoint_c@@QEAA@AEBV0@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a590",
+      "module": "sldmgu.dll",
+      "name": "??4mgPoint_c@@QEAAAEBV0@AEBV0@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a5a0",
+      "module": "sldmgu.dll",
+      "name": "??XmgPoint_c@@QEAAAEBV0@AEBVmgXform_c@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a5a8",
+      "module": "sldmgu.dll",
+      "name": "??D@YA?AVmgPoint_c@@AEBV0@AEBVmgXform_c@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a5b0",
+      "module": "sldmgu.dll",
+      "name": "??H@YA?AVmgPoint_c@@AEBV0@AEBVmgVector_c@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a5c0",
+      "module": "sldmgu.dll",
+      "name": "??G@YA?AVmgVector_c@@AEBVmgPoint_c@@0@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a5f8",
+      "module": "sldmgu.dll",
+      "name": "??D@YA?AVmgVector_c@@AEBV0@N@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a608",
+      "module": "sldmgu.dll",
+      "name": "?isNotNull@mgVector_c@@QEBAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a630",
+      "module": "sldmgu.dll",
+      "name": "??4mgUnitVector_c@@QEAAAEBV0@AEBV0@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a668",
+      "module": "sldmgu.dll",
+      "name": "??4mgXform_c@@QEAAAEBV0@AEBV0@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a680",
+      "module": "sldmgu.dll",
+      "name": "?inverse@mgXform_c@@QEBA?AV1@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a8f0",
+      "module": "sldmgu.dll",
+      "name": "?sqlen@mgVector_c@@QEBANXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a908",
+      "module": "sldmgu.dll",
+      "name": "?mg_TranslateXform@@YA?AVmgXform_c@@AEBVmgVector_c@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3aa90",
+      "module": "sldmgu.dll",
+      "name": "?set_z@mgVector_c@@QEAAXN@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3aaa0",
+      "module": "sldmgu.dll",
+      "name": "?mg_Normalise@@YA?AVmgUnitVector_c@@AEBVmgVector_c@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3aaf0",
+      "module": "sldmgu.dll",
+      "name": "??XmgVector_c@@QEAAAEBV0@AEBVmgXform_c@@@Z",
+      "source_module": "sldmodu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 18,
+      "end_exclusive": "0x42abace7",
+      "module": "sldapiu.dll",
+      "name": "annotation non-dimension branch queries actual note position",
+      "sha256": "a29036a51443d9afe66529e521c27280e7f7cbb6398eeb556f6e85da3c0e1e21",
+      "start": "0x42abacd5"
+    },
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 14,
+      "end_exclusive": "0x42d9238b",
+      "module": "sldapiu.dll",
+      "name": "note text-point API queries same virtual",
+      "sha256": "22b5a7fe8b334474cbbc0fef9e5adc236e24819d8dda2667e9e5a26799be75f1",
+      "start": "0x42d9237d"
+    },
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 27,
+      "end_exclusive": "0x4be6d423",
+      "module": "sldmodu.dll",
+      "name": "annotation position delegates to actual text-point virtual",
+      "sha256": "695347697696938a349add5853e6c2b3bd88e8652791137021cba19115e11193",
+      "start": "0x4be6d408"
+    },
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 78,
+      "end_exclusive": "0x4ba69a46",
+      "module": "sldmodu.dll",
+      "name": "actual attachment cache branch and fallback",
+      "sha256": "6cb31ac902b7cd1f86e19480284972e739dd063f85f71236d8e00ce1fd49b19e",
+      "start": "0x4ba699f8"
+    },
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 59,
+      "end_exclusive": "0x4c7fb5b6",
+      "module": "sldmodu.dll",
+      "name": "ordinary position direction and distance",
+      "sha256": "2223e435547660df12d7a53498290ef8c845cefe31d1846778bb68cce840f1fb",
+      "start": "0x4c7fb57b"
+    },
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 33,
+      "end_exclusive": "0x4c80e983",
+      "module": "sldmodu.dll",
+      "name": "point setter produces actual distance",
+      "sha256": "ebaf3fb132701d5acd86f3955b07e5496a0219f2b31e45cc571522e172032be4",
+      "start": "0x4c80e962"
+    },
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 46,
+      "end_exclusive": "0x4c80a56d",
+      "module": "sldmodu.dll",
+      "name": "position transform delegates back into actual point setter",
+      "sha256": "f8941254feed2200950b8c3f667e047139dec41f176e26899e6aceba84517fe2",
+      "start": "0x4c80a53f"
+    },
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 40,
+      "end_exclusive": "0x4c80cfce",
+      "module": "sldmodu.dll",
+      "name": "public placement calculates requested-minus-current translation",
+      "sha256": "0612c5db0024b54fbebf6ea51783cf99fb7bd99c1ad7bd9f3db250f20f1dd347",
+      "start": "0x4c80cfa6"
+    },
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 22,
+      "end_exclusive": "0x4c80d01f",
+      "module": "sldmodu.dll",
+      "name": "public placement applies actual note transform",
+      "sha256": "1f36665eeabb6844095af16c2e45a4639e8b3c7bf455984e8bafa135f59adb80",
+      "start": "0x4c80d009"
+    },
+    {
+      "bound": "decoded instruction range within complete owner",
+      "bytes": 30,
+      "end_exclusive": "0x4c80e8ca",
+      "module": "sldmodu.dll",
+      "name": "actual conditional local z rewrite",
+      "sha256": "c4a8c46291862c2c75e6b1f10dcacb9ec2a87b67d746013767418fd670860b9b",
+      "start": "0x4c80e8ac"
+    },
+    {
+      "bound": "one decoded original instruction within complete owner",
+      "bytes": 6,
+      "end_exclusive": "0x4c95418e",
+      "module": "sldmodu.dll",
+      "name": "f628 store",
+      "sha256": "39aeb417d863446e745905fdf4537234bf9e900c80286f45bce4cbac93054047",
+      "start": "0x4c954188"
+    },
+    {
+      "bound": "one decoded original instruction within complete owner",
+      "bytes": 6,
+      "end_exclusive": "0x4c9547ba",
+      "module": "sldmodu.dll",
+      "name": "f628 load",
+      "sha256": "a6b041a83a1dc2d613e1b9953a4277960229f83e6933b89960140f99dd3a67e8",
+      "start": "0x4c9547b4"
+    },
+    {
+      "bound": "one decoded original instruction within complete owner",
+      "bytes": 6,
+      "end_exclusive": "0x4c95419f",
+      "module": "sldmodu.dll",
+      "name": "f630 store",
+      "sha256": "4a2c6c7ab0a429c9129ec47892aafe592765df0efab32d71efdb848d9cd5c303",
+      "start": "0x4c954199"
+    },
+    {
+      "bound": "one decoded original instruction within complete owner",
+      "bytes": 6,
+      "end_exclusive": "0x4c954874",
+      "module": "sldmodu.dll",
+      "name": "f630 load",
+      "sha256": "84d6e39c9e6426ab6f16cbe754e0fa74215bf2c6cf887bed0c11ad69785e327d",
+      "start": "0x4c95486e"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 19441752,
+      "exception_directory_bytes": 818916,
+      "exception_directory_rva": "0x121f000",
+      "machine": "0x8664",
+      "name": "sldapiu.dll",
+      "preferred_base": "0x423f0000",
+      "sha256": "97bc3d859637c8b420108a1a3ebd4262580fa45d05c761874df7658fad49b6c2"
+    },
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  ],
+  "registered_api": {
+    "capture_native_processes_started": 0,
+    "members": {
+      "IAnnotation": {
+        "GetPosition": {
+          "arguments": "()",
+          "interface_guid": "{83A33DA9-27C5-11CE-BFD4-00400513BB57}",
+          "invocation_kind": 1,
+          "member_id": 8,
+          "return_type": "(12, 0, None)",
+          "vtable_offset": 112
+        },
+        "SetPosition2": {
+          "arguments": "((5, 1, None), (5, 1, None), (5, 1, None))",
+          "interface_guid": "{83A33DA9-27C5-11CE-BFD4-00400513BB57}",
+          "invocation_kind": 1,
+          "member_id": 91,
+          "return_type": "(11, 0, None)",
+          "vtable_offset": 904
+        }
+      },
+      "INote": {
+        "GetTextPoint": {
+          "arguments": "()",
+          "interface_guid": "{83A33D55-27C5-11CE-BFD4-00400513BB57}",
+          "invocation_kind": 1,
+          "member_id": 11,
+          "return_type": "(12, 0, None)",
+          "vtable_offset": 144
+        },
+        "GetTextPoint2": {
+          "arguments": "()",
+          "interface_guid": "{83A33D55-27C5-11CE-BFD4-00400513BB57}",
+          "invocation_kind": 1,
+          "member_id": 107,
+          "return_type": "(12, 0, None)",
+          "vtable_offset": 952
+        }
+      }
+    },
+    "metadata_name": "AnnotationPlacementApi.json",
+    "sha256": "5b6457113837dd7acbf4fa2c6edbb7aac8479f05d05a811244883e05db318b74",
+    "type_library_version": [
+      34,
+      0
+    ]
+  },
+  "rules": [
+    {
+      "confidence": "partial",
+      "id": "POSITION-01",
+      "rule": "Registered IAnnotation.GetPosition slot70 ->42aaef80 ->42abaaf0 obtains the actual modeled display. Actual notes exclude the moDisplayDim-only branch and invoke display+3b0 ->4be6d3f0, which calls actual note+4c0 ->4c7fb480. Registered INote.GetTextPoint2 slot3b8 ->42d85500 ->42d92350 invokes the same +4c0."
+    },
+    {
+      "confidence": "partial",
+      "id": "POSITION-02",
+      "rule": "For actual ordinary moDisplayNote, +9a0 and +9b0 resolve to the same concrete false leaf4b27cbe0. The +4c0 getter obtains actual F from+370 and actual A from getAttachLocation(0), then returns ((A*F)+(V*d))*inverse(F), with V=f628,d=f630. It does not read the text object f38. Stacked-note alternate output is excluded by the actual concrete predicate."
+    },
+    {
+      "confidence": "partial",
+      "id": "POSITION-03",
+      "rule": "getAttachLocation(0) reads actual display.f290 when f298 is null, its count<=1, or row0 is absent. With count>1 and actual row0, it copies row0.f08. It does not dereference an absolute-point attachment for this operation."
+    },
+    {
+      "confidence": "partial",
+      "id": "POSITION-04",
+      "rule": "Actual note+370 returns identity when display.f3e0&0x1000000. Otherwise ordinary +9a0=false selects stored display.f2a0. If actual model resolves and actual current view is a visible moAnnotationView rather than view id199, nonzero view rotation adjusts that returned frame. General annotation-view transformation policy is not a zero default."
+    },
+    {
+      "confidence": "partial",
+      "id": "POSITION-05",
+      "rule": "Actual point setter+4c8 computes local displacement Q=(requested-A)*F using the vector transform. +380 may force local Q.z=0; actual plain note predicate is !f644. A nonzero eligible Q is normalized and written into f628. The distance is sqrt(Q.sqlen()), stored through actual +3f8 leaf4c80e480. Zero Q keeps existing direction and stores distance0; mirrored-view branches remain explicit."
+    },
+    {
+      "confidence": "partial",
+      "id": "POSITION-06",
+      "rule": "Registered SetPosition2 slot388 ->42ab5c30 ->42abdac0 passes flag1. The DisplayDim-only transform helper42abad40 returns0 for actual notes. The selected note path dispatches +3b8 ->4b347fb0 tail+3c0 ->4c80cf70, which reads current+3b0, derives requested-minus-current translation, gets actual F and calls +340. Actual +340 at4c80a520 reads+4c0, applies the supplied transform, and calls+4c8. This is not a direct write to text.f38."
+    },
+    {
+      "confidence": "confirmed",
+      "id": "POSITION-07",
+      "rule": "The root-supplied typed differential reports exactly zero position residual in all four disclosed source rows and f630 equal to the norm from actual cached attachment to intended text point within floating representation. This corroborates the selected formula only; fields are not fed from those rows into a generator.",
+      "scope": "four disclosed original/edited planar source rows, identity presentation as reported"
+    }
+  ],
+  "schema": "drawing-plain-note-position-ownership-v1",
+  "source_references": [
+    {
+      "path": "re/solidworks/records/DrawingPlainNoteApiOwnership2026.json",
+      "sha256": "629504b7fb7cede78cc3d708a0728f4b7e40e5e8e5e397aa5cce3c41b8c9accc"
+    },
+    {
+      "path": "re/solidworks/records/DrawingDisplayNoteGrammar2026.json",
+      "sha256": "3fe09127bf0b63f5809bf868c860ac9d8d213760ecf7d75c4d85d834a8ffdf89"
+    },
+    {
+      "path": "re/solidworks/records/DrawingPlainNoteConstruction2026.json",
+      "sha256": "626424128239d6234d59aa80ff738fa5a2d7730f5cdd8f5de6c59d1a703fbbae"
+    }
+  ],
+  "task": {
+    "delivery_pr": 121,
+    "exit": "pinned source rules, independent numeric metadata replay and disclosed diagnostic comparison; no new product admission",
+    "id": "B04-SW2026-DRAWING-PLAIN-NOTE-CONSTRUCTION",
+    "owner": "flag_ownership",
+    "scope": "registered ordinary plain-note position getter and selected setter ownership"
+  },
+  "unresolved": [
+    "No new generated positioned-note native acceptance; root owns f630 candidate lifecycle",
+    "General nonfinite runtime vector/distance fixups remain in the prior complete grammar record; no relaxed domain",
+    "General attached, stacked, balloon, annotation-view and mirrored view policies are outside the selected ordinary construction",
+    "Ordinary GenericText.f170 backlink producer and post-layout glyph metrics remain separate",
+    "API transaction helper side effects outside the exact modeled position mutation are not generalized"
+  ],
+  "vtable_cells": [
+    {
+      "cell": "0x4321b648",
+      "class": "auAnnotation_c::XDispatch",
+      "module": "sldapiu.dll",
+      "slot": "0x70",
+      "table": "0x4321b5d8",
+      "target": "0x42aaef80"
+    },
+    {
+      "cell": "0x4321b960",
+      "class": "auAnnotation_c::XDispatch",
+      "module": "sldapiu.dll",
+      "slot": "0x388",
+      "table": "0x4321b5d8",
+      "target": "0x42ab5c30"
+    },
+    {
+      "cell": "0x43278a00",
+      "class": "auNote_c::XDispatch",
+      "module": "sldapiu.dll",
+      "slot": "0x3b8",
+      "table": "0x43278648",
+      "target": "0x42d85500"
+    },
+    {
+      "cell": "0x4d22f088",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x28",
+      "table": "0x4d22f060",
+      "target": "0x4c9540e0"
+    },
+    {
+      "cell": "0x4d22f3a0",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x340",
+      "table": "0x4d22f060",
+      "target": "0x4c80a520"
+    },
+    {
+      "cell": "0x4d22f3d0",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x370",
+      "table": "0x4d22f060",
+      "target": "0x4c7fb2e0"
+    },
+    {
+      "cell": "0x4d22f3e0",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x380",
+      "table": "0x4d22f060",
+      "target": "0x4c807e00"
+    },
+    {
+      "cell": "0x4d22f410",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x3b0",
+      "table": "0x4d22f060",
+      "target": "0x4be6d3f0"
+    },
+    {
+      "cell": "0x4d22f418",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x3b8",
+      "table": "0x4d22f060",
+      "target": "0x4b347fb0"
+    },
+    {
+      "cell": "0x4d22f420",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x3c0",
+      "table": "0x4d22f060",
+      "target": "0x4c80cf70"
+    },
+    {
+      "cell": "0x4d22f458",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x3f8",
+      "table": "0x4d22f060",
+      "target": "0x4c80e480"
+    },
+    {
+      "cell": "0x4d22f520",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x4c0",
+      "table": "0x4d22f060",
+      "target": "0x4c7fb480"
+    },
+    {
+      "cell": "0x4d22f528",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x4c8",
+      "table": "0x4d22f060",
+      "target": "0x4c80e830"
+    },
+    {
+      "cell": "0x4d22f8c8",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x868",
+      "table": "0x4d22f060",
+      "target": "0x4b35cf20"
+    },
+    {
+      "cell": "0x4d22fa00",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x9a0",
+      "table": "0x4d22f060",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d22fa10",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x9b0",
+      "table": "0x4d22f060",
+      "target": "0x4b27cbe0"
+    }
+  ]
+}
