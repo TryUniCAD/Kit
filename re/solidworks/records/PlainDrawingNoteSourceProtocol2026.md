@@ -26,3 +26,13 @@ pass.
 
 The initial packet records source chronology. Native note decoding, neutral
 construction and qualification of generated notes are subsequent work.
+
+## Native source lock
+
+All fourteen fresh SOLIDWORKS processes pass, including both pristine controls
+and three phases for each of the two disclosed and two private notes. The
+notes retain their text, sheet position and identity through the independent
+edit, save and reopen. Both private authored drawings, edited derivatives and
+intents are now hash-locked before any plain-note writer implementation.
+The first transport failed before guest process or private directory creation.
+The successful retry used the exact same frozen tool and job. [Source lock](../measurements/2026/PlainDrawingNoteSourceLock01.json)

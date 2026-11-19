@@ -1,0 +1,69 @@
+{
+  "controls": {
+    "ControlAfter": 134395698358357745,
+    "ControlBefore": 134395695480831397
+  },
+  "distinct_passing_processes": 14,
+  "failure": [],
+  "first_dispatch_transport": {
+    "exit_status": 255,
+    "guest_private_root_created": false,
+    "native_processes_started": 0,
+    "stderr_sha256": "50201bdc18a90ce0d1625f353b857ebf76d8110a827e45c0314f8722d6fcdfb7"
+  },
+  "job_sha256": "fd8eebd00cc42e30d98f52de8d7b95519a0e6db9f53efc7a87f2265555c6ddc6",
+  "native_generated_writer_qualified": false,
+  "oracle_build": "34.5.2.0604",
+  "passed": true,
+  "prewriter_revision": "fad81501377e21c66a905b91f533bd9b120d557b",
+  "private_source_values_disclosed": false,
+  "raw_guest_receipt_sha256": "695b5732d6869ec4f73379642385f083a616592dc6809a63f55ba4318ebb8824",
+  "schema": "kit.sw2026.drawing-plain-note-source.v1",
+  "source_cases": {
+    "Disclosed01": {
+      "edited_sha256": "8739b677a5b4ab018054987821b1ba721ec73e0c5094fa44ee3d05de92c0d15d",
+      "intent_sha256": "d24d51b0b04cf3b8e9168682b68055147fa04958714638a80e591c3d19302215",
+      "original_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "private": false,
+      "process_births": [
+        134395695709036012,
+        134395695925743034,
+        134395696147593897
+      ]
+    },
+    "Disclosed02": {
+      "edited_sha256": "32987b7a8a0fb75517a59ac2559099d229dcac8f78c74e29a1e385023d1628d6",
+      "intent_sha256": "ee6c3b03c9fcef1f95248e978fca971e79a591d985ed83607fb69fd45cf15222",
+      "original_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575",
+      "private": false,
+      "process_births": [
+        134395696360138267,
+        134395696580268492,
+        134395696804096541
+      ]
+    },
+    "Slot01": {
+      "edited_sha256": "286fa51df6017ffadf9450d82e58466662237b18ea9425d95f224384833b98a7",
+      "intent_sha256": "9202b71835f2e3fe42408e692c2814edc8c54d9ca766cd703e8464f6500c3e4d",
+      "original_sha256": "c9ff246430b82518e6f2671738be5c142fa3ea7c5a0425dc6bdf9e7914a5b7c0",
+      "private": true,
+      "process_births": [
+        134395697025920884,
+        134395697246452678,
+        134395697474491827
+      ]
+    },
+    "Slot02": {
+      "edited_sha256": "6edb84ed1e063f2fca35b7e1e2a33d3533a328fee906a22720217b3fa9ef2a62",
+      "intent_sha256": "03c077735d51deb792d238995e9e144782120987984597627b056c96d6a2f29e",
+      "original_sha256": "c9782dec871377f62dd7044528fed480ce21b78717a2ce2b05d47d71c47f7d88",
+      "private": true,
+      "process_births": [
+        134395697691645710,
+        134395697910162538,
+        134395698133225501
+      ]
+    }
+  },
+  "writer_generated_cases": 0
+}
