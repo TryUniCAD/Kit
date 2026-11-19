@@ -2,7 +2,11 @@ from __future__ import annotations
 
 from dataclasses import replace as Replace
 
-from convert.adapters.freecad.Replay.NativeIdentity import KReplaySemanticAttr
+from convert.adapters.freecad.Replay.NativeIdentity import (
+    KExplicitSketchProfile,
+    KReplaySemanticAttr,
+    KReplaySketchAttr,
+)
 from interchange.Payloads.PayloadRecord import BrepPayload
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -11,7 +15,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 def SetReplayDigest(
     DocValue: CadDocument, NativeDoc: BrepPayload, Digest: str | None
 ) -> CadDocument:
-    Attributes = dict(NativeDoc.attributes)
+    Attributes = {**NativeDoc.attributes, KReplaySketchAttr: KExplicitSketchProfile}
     if Digest is None:
         Attributes.pop(KReplaySemanticAttr, None)
     else:

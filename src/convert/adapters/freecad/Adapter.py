@@ -108,13 +108,10 @@ from convert.adapters.freecad.ReconcileEdit import ReconcileEdit
 from convert.adapters.freecad.Replay.MappedOuter import MappedOuter
 from convert.adapters.freecad.Replay.MetadataTypes import IsPayloadMap, IsPayloadSeq
 from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
-from convert.adapters.freecad.Replay.NativeIdentity import (
-    IsNativeDoc,
-    KReplaySemanticAttr,
-)
 from convert.adapters.freecad.Replay.NativeOuter import NativeOuter
 from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
 from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
+from convert.adapters.freecad.Replay.SetReplayDigest import SetReplayDigest
 from interchange.Features.FeatureBoundPlane import BoundDatum
 
 # shared empty set keeps parameter defaults free of repeated constructor calls
@@ -289,23 +286,7 @@ def AnnotateNative(DocValue: CadDocument) -> CadDoc:
     if PairValue is None:
         return Annotated
     NativeDoc, _ = PairValue
-    Digest = SemanticDigest(Annotated)
-    Payloads = tuple(
-        (
-            (
-                Replace(
-                    Payload,
-                    attributes=FrozenMapping(
-                        {**Payload.attributes, KReplaySemanticAttr: Digest}
-                    ),
-                )
-                if Payload.id == NativeDoc.id and IsNativeDoc(Payload)
-                else Payload
-            )
-            for Payload in Annotated.brep_payloads
-        )
-    )
-    return Replace(Annotated, brep_payloads=Payloads)
+    return SetReplayDigest(Annotated, NativeDoc, SemanticDigest(Annotated))
 
 
 # unchanged replay requires an independent archive parse against the carried digest

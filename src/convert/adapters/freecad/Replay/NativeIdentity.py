@@ -13,6 +13,12 @@ KNativeDocBindingId = "freecad:native-document-binding"
 # this binding exists because shared behavior needs one stable value
 KReplaySemanticAttr = "freecad.replay_semantic_sha256"
 
+# projection identity separates newly authored flags from historical visibility defaults
+KReplaySketchAttr = "freecad.replay_sketch_profile"
+
+# the current profile records explicit native suppression separately from display visibility
+KExplicitSketchProfile = "explicit-suppression"
+
 
 # this definition exists because focused behavior needs one stable owner
 def IsNativeDoc(Payload: BrepPayload) -> bool:

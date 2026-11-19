@@ -40,6 +40,8 @@ from convert.adapters.freecad.Adapter import (
     FilteredDoc,
     UnchangedNative,
 )
+from convert.adapters.freecad.Replay.NativeIdentity import KReplaySketchAttr
+from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
 from convert.adapters.freecad.Format import (
     CAPABILITY_CARRIER_REASONS as CapabilityCarrierReasons,
     CAPABILITY_WRITE_TYPE_IDS as CapabilityWriteTypeIds,
@@ -750,7 +752,10 @@ def NativeSketch() -> tuple[ET.Element, ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def NativePart(
-    BrepData: bytes | None = None, *, SketchState: tuple[ET.Element, ...] = ()
+    BrepData: bytes | None = None,
+    *,
+    SketchState: tuple[ET.Element, ...] = (),
+    FileValue: str | None = None,
 ) -> bytes:
     PlaneProperties = (
         NativeProp("Label", "App::PropertyString", "String", {"value": "XY"}),
@@ -799,15 +804,17 @@ def NativePart(
         if BrepData is None
         else BrepData
     )
-    return NativeArchive(
-        (
-            ("Body", "PartDesign::Body", ("Sketch", "Pad"), BodyProperties),
-            ("XY_Plane", "App::Plane", (), PlaneProperties),
-            ("Sketch", "Sketcher::SketchObject", ("XY_Plane",), SketchProperties),
-            ("Pad", "PartDesign::Pad", ("Sketch", "Body"), PadProperties),
-        ),
-        {"Pad.Shape.brp": BrepValue},
-    )
+    Objects = [
+        ("Body", "PartDesign::Body", ("Sketch", "Pad"), BodyProperties),
+        ("XY_Plane", "App::Plane", (), PlaneProperties),
+        ("Sketch", "Sketcher::SketchObject", ("XY_Plane",), SketchProperties),
+        ("Pad", "PartDesign::Pad", ("Sketch", "Body"), PadProperties),
+    ]
+    if FileValue is not None:
+        Objects.append(
+            ("PartLink", "App::Link", (), NativeLinkProps(FileValue, "Body"))
+        )
+    return NativeArchive(tuple(Objects), {"Pad.Shape.brp": BrepValue})
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -950,9 +957,9 @@ def NativeOuterAsm(
     return NativeArchive(tuple(Objects), {})
 
 
-# this definition exists because focused behavior needs one stable owner
-def NativeLinkOnly(FileValue: str, Target: str = "Body") -> bytes:
-    Properties = (
+# part fixtures share the same native link state whether they own local geometry
+def NativeLinkProps(FileValue: str, Target: str) -> tuple[ET.Element, ...]:
+    return (
         NativeProp(
             "Label", "App::PropertyString", "String", {"value": "External Part"}
         ),
@@ -961,7 +968,13 @@ def NativeLinkOnly(FileValue: str, Target: str = "Body") -> bytes:
         NativePlacement("LinkPlacement"),
         NativeProp("Visibility", "App::PropertyBool", "Bool", {"value": "true"}),
     )
-    return NativeArchive((("PartLink", "App::Link", (), Properties),), {})
+
+
+# the link only fixture isolates external native source handling
+def NativeLinkOnly(FileValue: str, Target: str = "Body") -> bytes:
+    return NativeArchive(
+        (("PartLink", "App::Link", (), NativeLinkProps(FileValue, Target)),), {}
+    )
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3469,12 +3482,15 @@ def TestSelfPart() -> None:
 
 
 # shared fixture keeps native sketch visibility independent of explicit suppression flags
-def HiddenPart(Flags: tuple[tuple[str, str], ...] = ()) -> bytes:
+def HiddenPart(
+    Flags: tuple[tuple[str, str], ...] = (), *, FileValue: str | None = None
+) -> bytes:
     return NativePart(
         SketchState=tuple(
             NativeProp(NameValue, "App::PropertyBool", "Bool", {"value": Value})
             for NameValue, Value in (("Visibility", "false"), *Flags)
-        )
+        ),
+        FileValue=FileValue,
     )
 
 
@@ -3537,11 +3553,36 @@ def TestSketchState(Flags: tuple[tuple[str, str], ...], Suppressed: bool) -> Non
     )
 
 
+# historical replay fixtures predate the explicit sketch profile and retain their saved digest
+def DropProfile(Document: CadDocument) -> CadDocument:
+    Payloads = tuple(
+        (
+            Replace(
+                Payload,
+                attributes={
+                    KeyValue: Value
+                    for KeyValue, Value in Payload.attributes.items()
+                    if KeyValue != KReplaySketchAttr
+                },
+            )
+            if KReplaySketchAttr in Payload.attributes
+            else Payload
+        )
+        for Payload in Document.brep_payloads
+    )
+    return PrepareChildren(Replace(Document, brep_payloads=Payloads), DropProfile)
+
+
+# old carrier fixtures retain the historical sketch values and the corresponding digest
+def AnnotateOld(Document: CadDocument) -> CadDocument:
+    return DropProfile(AnnotateNative(Document))
+
+
 # older carriers must restore the original archive while edits still bypass exact replay
 def TestOldReplay(TmpPath: FilePath) -> None:
     Source = HiddenPart()
     Document = FreeCadAdapter().read(Source)
-    Legacy = AnnotateNative(
+    Legacy = AnnotateOld(
         Replace(Document, sketches=(Replace(Document.sketches[0], suppressed=True),))
     )
     Carrier = TmpPath / "source.CATPart"
@@ -3581,7 +3622,7 @@ def TestOldDimEdit(Visible: bool) -> None:
     Source = NativePart(SketchState=State)
     Document = Adapter.read(Source)
     assert Document.sketches[0].suppressed is Visible
-    Legacy = AnnotateNative(
+    Legacy = AnnotateOld(
         Replace(
             Document,
             sketches=(Replace(Document.sketches[0], suppressed=not Visible),),
@@ -3606,7 +3647,7 @@ def TestOldDimEdit(Visible: bool) -> None:
 
 
 # linked fixture extraction anchors suppression checks to the carried child
-def LinkedChild(
+def ReadLinkedChild(
     Document: CadDocument,
 ) -> tuple[Mapping[str, object], Mapping[str, object], CadDocument]:
     Freecad = MetaMap(Document.metadata["freecad"])
@@ -3619,7 +3660,7 @@ def LinkedChild(
 
 # suppression edits keep the original relative reference and archive binding
 def EditLinkedFlag(Document: CadDocument, Suppressed: bool) -> CadDocument:
-    Freecad, LinkMeta, ChildDoc = LinkedChild(Document)
+    Freecad, LinkMeta, ChildDoc = ReadLinkedChild(Document)
     Changed = Replace(
         ChildDoc, sketches=(Replace(ChildDoc.sketches[0], suppressed=Suppressed),)
     )
@@ -3642,9 +3683,12 @@ def TestOldLinked(TmpPath: FilePath, Scenario: str) -> None:
     ChildBytes = HiddenPart()
     _ = Child.write_bytes(ChildBytes)
     Source = TmpPath / "parent.FCStd"
-    Original = NativeLinkOnly(Child.name)
+    Original = HiddenPart(FileValue=Child.name)
     _ = Source.write_bytes(Original)
-    Legacy = AnnotateNative(EditLinkedFlag(OpenDoc(Source), True))
+    Document = EditLinkedFlag(OpenDoc(Source), True)
+    Legacy = AnnotateOld(
+        Replace(Document, sketches=(Replace(Document.sketches[0], suppressed=True),))
+    )
     Adapter = FreeCadAdapter()
     Options = WriteOptions(values={"portable": False, "require_self_contained": False})
     if Scenario == "present":
@@ -3667,14 +3711,25 @@ def TestOldLinked(TmpPath: FilePath, Scenario: str) -> None:
     (Copied,) = tuple(Portable.with_suffix("").glob("*.FCStd"))
     assert Copied.read_bytes() == ChildBytes
     Reopened = OpenDoc(Portable)
-    assert LinkedChild(Reopened)[2].sketches[0].suppressed is False
+    assert ReadLinkedChild(Reopened)[2].sketches[0].suppressed is False
+    assert Reopened.sketches[0].suppressed is False
+    assert Reopened.feature_timeline[0].sketch_id == Reopened.sketches[0].id
     if Scenario == "restored":
         _ = Child.write_bytes(ChildBytes)
-        Edited = EditLinkedFlag(Reopened, True)
+        Edited = Replace(
+            EditLinkedFlag(Reopened, True),
+            sketches=(Replace(Reopened.sketches[0], suppressed=True),),
+        )
         Output = IoStream.BytesIO()
         Result = Adapter.write(Edited, Output, Options)
         assert Result.metadata.get("mode") != "exact_native_roundtrip"
-        assert LinkedChild(Adapter.read(Output.getvalue()))[2].sketches[0].suppressed
+        Resaved = Adapter.read(Output.getvalue())
+        assert ReadLinkedChild(Resaved)[2].sketches[0].suppressed
+        assert Resaved.sketches[0].suppressed
+        EditedPath = TmpPath / "edited.FCStd"
+        _ = Adapter.write(Edited, EditedPath)
+        (SavedChild,) = tuple(EditedPath.with_suffix("").glob("*.FCStd"))
+        assert OpenDoc(SavedChild).sketches[0].suppressed
 
 
 # assembly component writes must also use independently verified carried sketch state
@@ -3693,7 +3748,7 @@ def TestOldAsmLink(TmpPath: FilePath) -> None:
     LegacyPart = Replace(
         PartValue, sketches=(Replace(PartValue.sketches[0], suppressed=True),)
     )
-    Legacy = AnnotateNative(
+    Legacy = AnnotateOld(
         Replace(
             Document,
             assembly=Replace(
