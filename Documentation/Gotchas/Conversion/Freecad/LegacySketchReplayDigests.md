@@ -22,5 +22,6 @@ When a historical carrier lacks a complete parent replay match, Kit can recover 
 The fallback can rebuild the parent with corrected values while exact replay still requires the complete digest match.
 A portable export reuses complete linked parses under the same native source root and sketch profile.
 Each recursive source read still enforces its own reference bounds.
+A subtree that used an earlier sibling read gets an independent verification before standalone replay.
 
 [FreeCAD adapter guide](../../../Reference/Adapters/Freecad.md) and [restore integration cases](../../../../tests/Convert/Freecad/FreecadTests.py)

@@ -1,6 +1,6 @@
 from __future__ import annotations as Annotations
 from collections.abc import Mapping, Sequence
-from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
+from dataclasses import dataclass as Dataclass, replace as Replace
 import hashlib as Hashlib
 import json as JsonValue
 import math as MathValue
@@ -127,7 +127,7 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
-from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache
+from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache, ReplayReadScope
 
 # this binding exists because shared behavior needs one stable value
 KMaxOuterDepth = 16
@@ -184,8 +184,7 @@ class OuterState:
     TotalBytes: int
     LegacyVisibility: bool = False
     RecordReplay: bool = False
-    ReplayReads: ReplayReadCache | None = None
-    IncompleteModels: set[int] = Field(default_factory=set)
+    ReplayScope: ReplayReadScope | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2968,6 +2967,8 @@ def OuterDocsMut(
         Identity = Choice.relative_to(State.root).as_posix()
         Cached = State.cache.get(Choice)
         if Cached is not None:
+            if State.ReplayScope is not None:
+                State.ReplayScope.ReusedReads += 1
             Resolved[FileName] = (Identity, Cached)
             continue
         try:
@@ -3864,6 +3865,15 @@ def ReadNativeFcstd(
 ) -> CadDoc:
     SourceFile = ResolvedSource(SourcePath)
     ActiveState = StateValue
+    ReadScope = (
+        ReplayReadScope(
+            ReplayReads,
+            SourceFile.parent if SourceFile is not None else None,
+            LegacyVisibility,
+        )
+        if StateValue is None and ReplayReads is not None and not RecordReplay
+        else None
+    )
     if ActiveState is None and SourceFile is not None:
         ActiveState = OuterState(
             SourceFile.parent,
@@ -3873,22 +3883,16 @@ def ReadNativeFcstd(
             len(DataValue),
             LegacyVisibility,
             RecordReplay,
-            ReplayReads,
+            ReadScope,
         )
     if ActiveState is not None:
         LegacyVisibility = ActiveState.LegacyVisibility
         RecordReplay = ActiveState.RecordReplay
-        ReplayReads = ActiveState.ReplayReads
-    ReadKey = None
-    CanReadStandalone = StateValue is None and OuterDepth == 0
-    if ReplayReads is not None and not RecordReplay and CanReadStandalone:
-        ReadKey = (
-            ActiveState.root if ActiveState is not None else None,
-            SourcePath,
-            Hashlib.sha256(DataValue).hexdigest(),
-            LegacyVisibility,
-        )
-        Cached = ReplayReads.get(ReadKey)
+        ReadScope = ActiveState.ReplayScope
+    IsNested = StateValue is not None or OuterDepth != 0
+    InitialReuse = ReadScope.ReusedReads if ReadScope is not None else 0
+    if ReadScope is not None and not IsNested:
+        Cached = ReadScope.FindRead(SourcePath, DataValue)
         if Cached is not None:
             return Cached
     Native = LoadNative(DataValue)
@@ -3965,27 +3969,15 @@ def ReadNativeFcstd(
     )
     if RecordReplay and not LegacyVisibility:
         return AnnotateNative(DocValue)
-    if ReplayReads is not None and not RecordReplay:
-        Incomplete = bool(UnresolvedOuter) or (
-            ActiveState is not None
-            and any(
-                id(Child) in ActiveState.IncompleteModels
-                for _, Child in ResolvedOuter.values()
-            )
+    if ReadScope is not None:
+        ReadScope.RememberRead(
+            DocValue,
+            SourceFile,
+            (Child for _, Child in ResolvedOuter.values()),
+            HasUnresolved=bool(UnresolvedOuter),
+            Nested=IsNested,
+            InitialReuse=InitialReuse,
         )
-        if Incomplete:
-            if ActiveState is not None:
-                ActiveState.IncompleteModels.add(id(DocValue))
-        elif ReadKey is not None:
-            ReplayReads[ReadKey] = DocValue
-        elif (
-            SourceFile is not None
-            and ActiveState is not None
-            and ActiveState.root == SourceFile.parent
-        ):
-            ReplayReads[
-                (ActiveState.root, SourcePath, DocValue.source.sha256, LegacyVisibility)
-            ] = DocValue
     return DocValue
 
 

@@ -3776,11 +3776,38 @@ def TestRestoreLink(TmpPath: FilePath) -> None:
 
 
 # portable writes reuse each complete linked parse across verification and physical output
-def TestLinkedReads(TmpPath: FilePath, MonkeyPatch: Pytest.MonkeyPatch) -> None:
-    Sources = tuple(TmpPath / f"linked{Index}.FCStd" for Index in range(5))
+@Pytest.mark.parametrize("SharedChild", (False, True))
+def TestLinkedReads(
+    TmpPath: FilePath, MonkeyPatch: Pytest.MonkeyPatch, SharedChild: bool
+) -> None:
+    Sources = (
+        TmpPath / "root.FCStd",
+        *(TmpPath / f"linked{Index}.FCStd" for Index in range(3)),
+        TmpPath / "child.FCStd",
+    )
     _ = Sources[-1].write_bytes(NativePart())
     for Parent, Child in zip(Sources[:-1], Sources[1:], strict=True):
         _ = Parent.write_bytes(NativeLinkOnly(Child.name))
+    if SharedChild:
+        _ = Sources[0].write_bytes(
+            NativeArchive(
+                (
+                    (
+                        "Branch",
+                        "App::Link",
+                        (),
+                        NativeLinkProps(Sources[1].name, "Body"),
+                    ),
+                    (
+                        "Shared",
+                        "App::Link",
+                        (),
+                        NativeLinkProps(Sources[-1].name, "Body"),
+                    ),
+                ),
+                {},
+            )
+        )
     Legacy = AnnotateOld(OpenDoc(Sources[0]))
     Watched = frozenset(Source.resolve() for Source in Sources[1:])
     Observed: list[FilePath] = []
@@ -3795,9 +3822,12 @@ def TestLinkedReads(TmpPath: FilePath, MonkeyPatch: Pytest.MonkeyPatch) -> None:
     MonkeyPatch.setattr(FilePath, "read_bytes", ReadWatched)
     Portable = TmpPath / "portable.FCStd"
     Result = WriteDoc(Legacy, Portable)
-    assert Result.metadata["external_document_file_count"] == 1
-    assert sorted(Observed) == sorted(Watched)
-    assert len(tuple(Portable.with_suffix("").rglob("*.FCStd"))) == len(Sources) - 1
+    Extra = tuple(Source.resolve() for Source in Sources[2:]) if SharedChild else ()
+    assert Result.metadata["external_document_file_count"] == 1 + SharedChild
+    assert sorted(Observed) == sorted((*Watched, *Extra))
+    assert len(tuple(Portable.with_suffix("").rglob("*.FCStd"))) == (
+        len(Sources) - 1 + SharedChild
+    )
 
 
 # assembly component writes must also use independently verified carried sketch state
