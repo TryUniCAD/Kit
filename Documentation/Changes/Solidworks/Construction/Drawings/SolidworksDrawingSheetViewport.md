@@ -7,3 +7,5 @@ Three guarded worker outputs pass complete Definition re-emission and map checks
 [Source ownership and verification](../../../../../re/solidworks/records/DrawingLastSheetViewport2026.md) · [Process receipt](../../../../../re/solidworks/measurements/2026/DrawingSheetViewportConstruction01.json) · [Gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Drawings/Sheet/SheetLastOrientationOwnsPanZoom.md)
 
 The first native camera batch stopped after loss of the drawing COM interface. The positive native brackets and both authored-camera observations remain incomplete. [Interruption receipt](../../../../../re/solidworks/measurements/2026/DrawingSheetViewportInterrupted01.json)
+
+The exact retry passes all six fresh native phases. SolidWorks restores the two authored planar camera values before and after rebuild. The generated drawing's note still fails viewport rendering. [Native measurement](../../../../../re/solidworks/measurements/2026/DrawingSheetViewportNative01.json)

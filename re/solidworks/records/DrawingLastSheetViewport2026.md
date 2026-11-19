@@ -21,3 +21,9 @@ The [interruption receipt](../measurements/2026/DrawingSheetViewportInterrupted0
 The incomplete bracket establishes no native verdict for either authored camera. The guarded archive construction and prior complete viewport comparisons retain their own separate evidence. The existing [drawing COM gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Drawings/DrawingActiveViewProbeCanLoseCom.md) describes controlled recovery.
 
 The retry freezes the exact same three generated files at trial SHA-256 `14120a7c97cad5c110c3ade56a0a3ed3712b0f5305949f9b0780f7249f2410d7`. Its observer reads the initial live camera before drawing traversal or redraw. Each `phase --role` invocation starts and closes one owned application. The second authored camera goes first so the first interrupted input cannot hide it. A separate two-process readback verifies that integer and floating-point spellings of an equal zoom produce identical archives.
+
+## Measured native camera restoration
+
+The [retry](../measurements/2026/DrawingSheetViewportNative01.json) completes all six fresh guest processes. There are zero open errors or warnings, three healthy controls, and no recovery or settings writes. The generated identity view and both independently authored pan and zoom values are exact on initial open and survive rebuild. The note and all measured sheet/tree fields stay intact. Both generated authored-camera images equal the pristine blank frame byte for byte. The native note source has a distinct rendered image.
+
+This establishes scoped native camera restoration and leaves source/presentation acceptance open. The native verdict attaches to the exact two generated camera forms and unchanged note state. Raw invocation SHA-256 `8fc9038c44d00739ed8e80a1032cf59fcdde81c819c874a06c94dd913d0e0f20`.
