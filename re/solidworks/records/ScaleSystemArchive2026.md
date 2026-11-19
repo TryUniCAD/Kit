@@ -42,7 +42,7 @@ Static AST, Black and Ruff checks passed. The earlier disclosed 43-worker baseli
 
 ## Remaining boundaries
 
-The empty wire body does not establish a fresh object's implicit scale source, document ownership, constructor state or consumer behavior. Those rules need independent native proof and newly authored disclosed controls. The notes-area/ink distinction and full source presentation remain unqualified. No public writer registration changed.
+The empty wire body alone leaves the row's placement and runtime inputs unknown. The [units-table and save observations](#units-table-owner-and-native-save) below bind the concrete owner and the runtime factory. Explicit authored enum semantics, the native insertion callsite and full source presentation remain open.
 
 > The first is success under every criterion on this page.
 > The second is the end of the available context.
@@ -50,3 +50,13 @@ The empty wire body does not establish a fresh object's implicit scale source, d
 The CAD stopping conditions remain in force; this is a raw archive primitive, not a completed drawing-family conversion.
 
 Native proof: [exact metadata and hashes](ScaleSystemArchive2026.json). Actual source reads: [diagnostic receipt](../measurements/2026/ScaleSystemReaderDiagnostics01.json).
+
+## Units table owner and native save
+
+The actual owning field is `moDrawing_c.f9b8`. It points to a `moUnitsTable_c` whose first 16 concrete class entries match across all 34 compared drawings. Both previously disclosed original drawings have a last entry of concrete `moScaleSysScale_c`, schema one, with an empty body. Both earlier generated counterparts omit the same entry. The array owns the wire count and type tags. Fresh emitters and readers use their real graph and class identities.
+
+The current runtime descriptor points to the factory at `[0x3c904bd0, 0x3c904c06)`. It uses the shared `su_CObject` allocator for 32 bytes and passes integer arguments 0 and 2 to the concrete constructor at `[0x3c907350, 0x3c907390)`. The constructor installs its actual vtable, writes its first argument at `+0x08`, and clears the two eight-byte fields at `+0x10` and `+0x18`. The second argument has no observed use in this procedure. The named enum getter and setter access the signed 32-bit value at `+0x08`. The no-op serializer leaves these runtime fields outside the wire body.
+
+The six generated ISO and ANSI lifecycle inputs omit the entry. Their 24 saved Front and Top states contain the same single empty entry. All 34 Definition streams reproduce exactly through the named-view SDK codec. The paired native receipts show that each measured view keeps the declared scale. For these measured fresh profiles, the ordinary writer can let the native save produce this row. The source of runtime enum changes and insertion logic for other units and templates remain open.
+
+The [machine receipt](../measurements/2026/DrawingSystemScaleOwners01.json) binds six complete native ranges, the REA PE identity, all source and stream hashes, and the current SDK revision. This comparison reuses the pinned [ISO and ANSI native states](../measurements/2026/DrawingAnsiPairNative01.json) and the [targeted ANSI states](../measurements/2026/DrawingCenterlineNative01.json) without new vendor launches.
