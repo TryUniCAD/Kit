@@ -13,3 +13,9 @@ The [guarded construction receipt](../measurements/2026/DrawingSheetViewportCons
 The [readonly viewport observer](../../tooling/sw2026/drawing_notes/ObserveNoteViewportInput01.py) freezes the two authored poses, identity default and three native control phases at `b775d4b86642c2544e6a963278556ec48e5b8fbd432a759e13afb556b3fada52`. The recipe checks the actual camera and note geometry before and after rebuild. The construction check qualifies the archive fields. Rendered parity still requires its own native evidence.
 
 [Change entry](../../../Documentation/Changes/Solidworks/Construction/Drawings/SolidworksDrawingSheetViewport.md) · [Gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/SheetLastOrientationOwnsPanZoom.md)
+
+## Interrupted first native trial
+
+The [interruption receipt](../measurements/2026/DrawingSheetViewportInterrupted01.json) records clean pristine, disclosed native and default generated phases. The first authored camera candidate opens with status `[0,0]`. Automation loses the drawing interface at `GetFirstView` before measuring the camera. Its owned process remains alive and prevents the second candidate and trailing pristine control from starting. The exact process is verified by executable digest and creation identity before being stopped. No SOLIDWORKS process remains afterward.
+
+The incomplete bracket establishes no native verdict for either authored camera. The guarded archive construction and prior complete viewport comparisons retain their own separate evidence. The existing [drawing COM gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Drawings/DrawingActiveViewProbeCanLoseCom.md) describes controlled recovery.
