@@ -126,9 +126,9 @@ from convert.adapters.freecad.Protocol import (
     SUPPORT_PLANE_TYPE_IDS as SupportPlaneTypeIds,
     XML_TRUE_VALUES as XmlTrueValues,
 )
-from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
+from convert.adapters.freecad.Replay.OuterState import OuterState as OuterState
 from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
-from convert.adapters.freecad.Replay.ReplayReadScope import ReplayReadScope
+from convert.adapters.freecad.Replay.ReadNativeArc import ReadNativeArc
 
 # this binding exists because shared behavior needs one stable value
 KMaxOuterDepth = 16
@@ -173,19 +173,6 @@ class NativeArchive:
     entries: dict[str, bytes]
     document_xml: bytes
     entry_order: tuple[str, ...]
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(slots=True)
-class OuterState:
-    root: FilePath
-    cache: dict[FilePath, CadDoc]
-    active: set[FilePath]
-    FileCount: int
-    TotalBytes: int
-    LegacyVisibility: bool = False
-    RecordReplay: bool = False
-    ReplayScope: ReplayReadScope | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3853,15 +3840,18 @@ def MakeNativeDoc(
     return DocValue
 
 
-# native archive model decoding consumes the already guarded external references
+# native model decoding uses guarded links from the enclosing archive read
 def DecodeNativeDoc(
-    Native: NativeArchive,
     DataValue: bytes,
     SourcePath: str,
+    ActiveState: OuterState | None,
+    OuterDepth: int,
     LegacyVisibility: bool,
-    ResolvedOuter: dict[str, tuple[str, CadDoc]],
-    UnresolvedOuter: list[dict[str, str]],
-) -> CadDoc:
+) -> tuple[CadDoc, tuple[CadDoc, ...], bool]:
+    Native = LoadNative(DataValue)
+    ResolvedOuter, UnresolvedOuter = OuterDocsMut(
+        Native, SourcePath, ActiveState, OuterDepth
+    )
     Parameters: list[Param] = []
     Consumed: set[tuple[str, str]] = set()
     SupportPlanes, Sketches = ParseSketchMut(
@@ -3913,7 +3903,7 @@ def DecodeNativeDoc(
     Diagnostics = NativeDiags(Native, FeatureObjects, Meshes, UnresolvedOuter)
     MetaValue = NativeMeta(Native, AsmValue, ResolvedOuter)
     Configurations = BuildConfigs(Native.objects, FeatureIds)
-    return MakeNativeDoc(
+    DocValue = MakeNativeDoc(
         NativeSource(DataValue, SourcePath, Native),
         Configurations,
         Parameters,
@@ -3930,6 +3920,8 @@ def DecodeNativeDoc(
         AsmValue,
         bool(ResolvedOuter or UnresolvedOuter),
     )
+    Children = tuple(Child for _, Child in ResolvedOuter.values())
+    return DocValue, Children, bool(UnresolvedOuter)
 
 
 # this definition coordinates complete native archive decoding
@@ -3943,57 +3935,17 @@ def ReadNativeFcstd(
     RecordReplay: bool = False,
     ReplayReads: KReplayReadCache | None = None,
 ) -> CadDoc:
-    SourceFile = ResolvedSource(SourcePath)
-    ActiveState = StateValue
-    ReadScope = (
-        ReplayReadScope(
-            ReplayReads,
-            SourceFile.parent if SourceFile is not None else None,
-            LegacyVisibility,
-        )
-        if StateValue is None and ReplayReads is not None and not RecordReplay
-        else None
+    return ReadNativeArc(
+        DataValue,
+        SourcePath,
+        ResolvedSource(SourcePath),
+        StateValue,
+        OuterDepth,
+        LegacyVisibility,
+        RecordReplay,
+        ReplayReads,
+        DecodeNativeDoc,
     )
-    if ActiveState is None and SourceFile is not None:
-        ActiveState = OuterState(
-            SourceFile.parent,
-            {},
-            {SourceFile},
-            1,
-            len(DataValue),
-            LegacyVisibility,
-            RecordReplay,
-            ReadScope,
-        )
-    if ActiveState is not None:
-        LegacyVisibility = ActiveState.LegacyVisibility
-        RecordReplay = ActiveState.RecordReplay
-        ReadScope = ActiveState.ReplayScope
-    IsNested = StateValue is not None or OuterDepth != 0
-    InitialReuse = ReadScope.ReusedReads if ReadScope is not None else 0
-    if ReadScope is not None and not IsNested:
-        Cached = ReadScope.FindRead(SourcePath, DataValue)
-        if Cached is not None:
-            return Cached
-    Native = LoadNative(DataValue)
-    ResolvedOuter, UnresolvedOuter = OuterDocsMut(
-        Native, SourcePath, ActiveState, OuterDepth
-    )
-    DocValue = DecodeNativeDoc(
-        Native, DataValue, SourcePath, LegacyVisibility, ResolvedOuter, UnresolvedOuter
-    )
-    if RecordReplay and not LegacyVisibility:
-        return AnnotateNative(DocValue)
-    if ReadScope is not None:
-        ReadScope.RememberRead(
-            DocValue,
-            SourceFile,
-            (Child for _, Child in ResolvedOuter.values()),
-            HasUnresolved=bool(UnresolvedOuter),
-            Nested=IsNested,
-            InitialReuse=InitialReuse,
-        )
-    return DocValue
 
 
 # this binding exists because shared behavior needs one stable value
