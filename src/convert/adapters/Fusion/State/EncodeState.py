@@ -3,30 +3,43 @@ from collections.abc import Mapping
 from dataclasses import fields as DataFields
 from dataclasses import is_dataclass as IsDataClass
 from enum import Enum as EnumBase
+from functools import lru_cache as CacheValues
 from math import isfinite as IsFinite
 from typing import cast as CastValue
 
 from convert.adapters.Fusion.State.StateTypes import KStateTypes
+
+# fixed supported classes need constant time membership checks during recursive encoding
+KEncodeTypes = frozenset(KStateTypes)
+
+
+# registered classes reuse their declared field order throughout the same process
+@CacheValues(maxsize=len(KEncodeTypes))
+def GetStateFields(ValueType: type[object]) -> tuple[str, ...]:
+    if not IsDataClass(ValueType):
+        raise TypeError("Fusion semantic-state records must be dataclasses")
+    return tuple(Field.name for Field in DataFields(ValueType))
 
 
 # the state operation needs a consistent construction rule so public document claims remain grounded in native records
 def EncodeState(Value: object, Depth: int = 0) -> object:
     if Depth > 64:
         raise ValueError("Fusion semantic state exceeds nesting limit")
-    if Value is None or type(Value) in (str, int, bool):
+    ValueType = type(Value)
+    if Value is None or ValueType in (str, int, bool):
         return Value
-    if type(Value) is float and IsFinite(Value):
+    if ValueType is float and IsFinite(Value):
         return Value
-    if type(Value) in KStateTypes:
-        ClassName = f"{type(Value).__module__}.{type(Value).__name__}"
+    if ValueType in KEncodeTypes:
+        ClassName = f"{ValueType.__module__}.{ValueType.__name__}"
         if isinstance(Value, EnumBase):
             return {"enum": ClassName, "value": Value.value}
         if IsDataClass(Value) and not isinstance(Value, type):
             return {
                 "record": ClassName,
                 "fields": {
-                    Field.name: EncodeState(getattr(Value, Field.name), Depth + 1)
-                    for Field in DataFields(Value)
+                    FieldName: EncodeState(getattr(Value, FieldName), Depth + 1)
+                    for FieldName in GetStateFields(ValueType)
                 },
             }
     if isinstance(Value, bytes) and len(Value) <= 2000000:

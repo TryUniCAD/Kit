@@ -304,6 +304,9 @@ The supervisor calls only these adapter operations: `LockPath`, `DefinePool`, `D
 `RenewLease` and `FinishJob` return `{"stale": true}` for a stale lease instead of raising an error.
 `ClaimJob` writes the lease to the claim file and returns the claim without its token.
 The `a03` adapter calls the [controller commands](ResearchController.md#commands) as argument lists.
+After installing its owner, the adapter resolves artifacts through a read-only store transaction.
+It verifies the owner and copies each artifact to the private session under its input digest.
+See [decoder performance](../../Changes/Research/Supervisor/DeterministicDecoderPerformance.md#stage-inputs-and-read-fusion-files).
 Another adapter is a Python class loaded from `module` and `class`, with `options` passed to its constructor.
 Load only an adapter module that you trust, because the supervisor executes it.
 

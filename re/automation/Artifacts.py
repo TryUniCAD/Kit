@@ -1,10 +1,40 @@
 import hashlib
 import os
 import re
+import stat
 import tempfile
+from contextlib import contextmanager
 from pathlib import Path
 
 from Records import canonical
+
+ARTIFACT_BYTES = 256 * 1024 * 1024
+
+
+@contextmanager
+def open_artifact(path):
+    before = Path(path).lstat()
+    if (
+        not stat.S_ISREG(before.st_mode)
+        or getattr(before, "st_file_attributes", 0)
+        & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+    ):
+        raise ValueError("stored artifact must be a plain regular file")
+    descriptor = os.open(
+        path,
+        os.O_RDONLY
+        | getattr(os, "O_BINARY", 0)
+        | getattr(os, "O_NOFOLLOW", 0)
+        | getattr(os, "O_NONBLOCK", 0),
+    )
+    with os.fdopen(descriptor, "rb") as source:
+        opened = os.fstat(source.fileno())
+        if (
+            not stat.S_ISREG(opened.st_mode)
+            or (opened.st_dev, opened.st_ino) != (before.st_dev, before.st_ino)
+        ):
+            raise ValueError("stored artifact changed before reading")
+        yield source
 
 
 class Artifacts:
@@ -30,10 +60,10 @@ class Artifacts:
         path = self.path(sha256)
         hasher = hashlib.sha256()
         count = 0
-        with path.open("rb") as source:
+        with open_artifact(path) as source:
             while chunk := source.read(1024 * 1024):
                 count += len(chunk)
-                if count > 256 * 1024 * 1024:
+                if count > ARTIFACT_BYTES:
                     raise ValueError("artifact exceeds 256 MiB")
                 hasher.update(chunk)
         if hasher.hexdigest() != sha256:
@@ -57,6 +87,9 @@ class Artifacts:
         return sha256
 
     def put_file(self, path):
+        return self.put_input(path, ARTIFACT_BYTES)[0]
+
+    def put_input(self, path, limit):
         path = Path(path)
         if not path.is_file():
             raise ValueError("artifact input must be a regular file")
@@ -68,13 +101,17 @@ class Artifacts:
                 count = 0
                 while chunk := source.read(1024 * 1024):
                     count += len(chunk)
-                    if count > 256 * 1024 * 1024:
-                        raise ValueError("artifact exceeds 256 MiB")
+                    if count > limit:
+                        raise ValueError(
+                            "artifact exceeds 256 MiB"
+                            if limit == ARTIFACT_BYTES
+                            else "artifact exceeds remaining input byte budget"
+                        )
                     hasher.update(chunk)
                     output.write(chunk)
                 output.flush()
                 os.fsync(output.fileno())
-            return self.publish(staged, hasher.hexdigest())
+            return self.publish(staged, hasher.hexdigest()), count
         finally:
             if staged is not None:
                 staged.unlink(missing_ok=True)

@@ -4,6 +4,7 @@ import sqlite3
 import sys
 from pathlib import Path
 
+from BindingBatch import bind_batch
 from EventHistory import event_window
 from GroupClaims import claim_group, read_group, renew_group, write_group
 from GroupFinish import finish_group
@@ -28,6 +29,8 @@ def main():
     binding = commands.add_parser("bind")
     binding.add_argument("name")
     binding.add_argument("file", type=Path)
+    bindings = commands.add_parser("bind-batch")
+    bindings.add_argument("manifest", type=Path)
     submit = commands.add_parser("submit")
     submit.add_argument("file", type=Path)
     batch = commands.add_parser("submit-batch")
@@ -89,6 +92,8 @@ def main():
                 response = {"store_version": 4, "max_running": ledger.db.execute("SELECT value FROM settings WHERE key='max_running'").fetchone()[0]}
             elif args.command == "bind":
                 response = ledger.bind(args.name, args.file)
+            elif args.command == "bind-batch":
+                response = bind_batch(ledger, args.manifest)
             elif args.command == "submit":
                 response = ledger.submit(read_record(args.file))
             elif args.command == "submit-batch":

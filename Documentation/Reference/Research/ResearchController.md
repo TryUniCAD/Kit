@@ -156,6 +156,16 @@ Existing claim files are not overwritten.
 Lease secrets are written to the private claim file and omitted from status, events and command arguments.
 Do not publish claim files or reuse one for a different execution.
 
+## Bind inputs in a batch
+
+Use `bind-batch <manifest>` to publish up to 256 named inputs in one transaction.
+The total input size cannot exceed 256 MiB.
+Each entry supplies a unique binding name and a file path relative to the manifest directory.
+Absolute paths are also accepted.
+The command reconciles affected jobs after it installs every binding.
+
+See the [manifest example](../../Changes/Research/Supervisor/DeterministicDecoderPerformance.md#bind-a-batch-of-evidence).
+
 ## Pools and counted resources
 
 Schema version 4 adds pools and counted resources for the [session supervisor](ResearchSupervisor.md).

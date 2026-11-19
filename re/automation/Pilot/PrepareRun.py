@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+import hashlib
 import json
 import os
 import subprocess
@@ -54,20 +55,33 @@ def PrepareRun(Directory, SourceRoot, Revision, Sessions):
     )
     Inputs = {}
     for Binding, Content in sorted(Bindings.items()):
-        import hashlib
-
         PinValue = hashlib.sha256(Content).hexdigest()
         InputPath = Directory / "Inputs" / PinValue
         if not InputPath.exists():
             InputPath.write_bytes(Content)
-        subprocess.run(
-            [*BaseArgv, "bind", Binding, str(InputPath)],
-            cwd=SourceRoot,
-            capture_output=True,
-            check=True,
-            timeout=120,
-        )
         Inputs[Binding] = {"path": str(InputPath), "sha256": PinValue}
+    IntakePath = WriteRecord(
+        Directory / "Bindings.json",
+        {
+            "bindings": [
+                {"name": Binding, "file": Details["path"]}
+                for Binding, Details in Inputs.items()
+            ]
+        },
+    )
+    Intake = subprocess.run(
+        [*BaseArgv, "bind-batch", str(IntakePath)],
+        cwd=SourceRoot,
+        capture_output=True,
+        check=True,
+        timeout=120,
+    )
+    Published = json.loads(Intake.stdout)["bindings"]
+    if Published != [
+        {"name": Binding, "sha256": Details["sha256"]}
+        for Binding, Details in Inputs.items()
+    ]:
+        raise ValueError("offline pilot bindings differ from pinned input files")
     Manifest = {
         "version": 1,
         "run_id": "a15a-" + uuid.uuid4().hex,

@@ -10,7 +10,7 @@ import sys
 import time
 from pathlib import Path
 
-from Artifacts import Artifacts
+from Artifacts import ARTIFACT_BYTES, Artifacts, open_artifact
 from ClaimWire import ClaimExchangeLost
 from GroupClaims import read_group
 from Records import bounded, canonical, label, read_record
@@ -26,16 +26,17 @@ A03_CAPACITY_REFUSAL = "concurrency limit"
 def copy_verified(source, destination, sha256):
     hasher = hashlib.sha256()
     count = 0
-    descriptor = os.open(destination, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-    with Path(source).open("rb") as reader, os.fdopen(descriptor, "wb") as writer:
-        while chunk := reader.read(1024 * 1024):
-            count += len(chunk)
-            if count > 256 * 1024 * 1024:
-                raise ValueError("input artifact exceeds 256 MiB")
-            hasher.update(chunk)
-            writer.write(chunk)
-        writer.flush()
-        os.fsync(writer.fileno())
+    with open_artifact(source) as reader:
+        descriptor = os.open(destination, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        with os.fdopen(descriptor, "wb") as writer:
+            while chunk := reader.read(1024 * 1024):
+                count += len(chunk)
+                if count > ARTIFACT_BYTES:
+                    raise ValueError("input artifact exceeds 256 MiB")
+                hasher.update(chunk)
+                writer.write(chunk)
+            writer.flush()
+            os.fsync(writer.fileno())
     if hasher.hexdigest() != sha256:
         raise ValueError("input copy does not match its digest")
     return count
@@ -240,7 +241,7 @@ def load_adapter(config, root):
     if config.get("adapter") == "a03":
         return A03Adapter(
             {key: value for key, value in config.items() if key != "adapter"},
-            local_staging=sys.platform == "win32",
+            local_staging=True,
         )
     if set(config) != {"module", "class", "options"} or not isinstance(config["options"], dict):
         raise ValueError("controller needs adapter a03, or a module, class and options")
