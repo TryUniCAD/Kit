@@ -21,6 +21,7 @@ from Corpus import git
 from InferenceGrid.FeatureCatalogue import ReadCatalogue
 from InferenceGrid.FeatureFusionCatalogue import ReadFusionCatalogue
 from InferenceGrid.FeatureRoutes import FeatureRecipes
+from InferenceGrid.FeatureSpecs import DescribeSpec
 from Records import bounded, canonical, label
 
 # executable recipe provenance is tied to the current checkout
@@ -41,6 +42,7 @@ def DispatchParser():
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("manifest")
     commands.add_parser("plan")
+    commands.add_parser("recipe")
     commands.add_parser("submit")
     commands.add_parser("status")
     advance = commands.add_parser("advance")
@@ -60,6 +62,11 @@ def DispatchFeature(parser, args):
         return catalogue
     if args.feature is None:
         parser.error(f"{args.command} requires --feature")
+    if args.command == "recipe":
+        written = DescribeSpec(args.feature)
+        if written is None:
+            parser.error(f"{args.feature!r} has no written recipe")
+        return written
     recipe = FeatureRecipes.get(args.feature)
     plan = None if catalogue is None else catalogue["features"].get(args.feature)
     if (catalogue is not None and plan is None) or (

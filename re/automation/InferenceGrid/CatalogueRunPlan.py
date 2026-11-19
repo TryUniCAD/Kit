@@ -20,8 +20,14 @@ def BuildRunPlan(Catalogues, Revision):
         for Identity, Plan in sorted(Catalogue["features"].items()):
             Entry = {"plan_id": Plan["plan_id"]}
             Recipe = FeatureRecipes.get(Identity)
+            if "recipe_spec" in Plan:
+                Entry["recipe_spec"] = Plan["recipe_spec"]
             if Recipe is None:
-                Entry.update(status="recipe_unavailable", blockers=Plan["blockers"])
+                Waiting = Plan["blockers"] == ["pinned_native_evidence_required"]
+                Entry.update(
+                    status="awaiting_capture" if Waiting else "recipe_unavailable",
+                    blockers=Plan["blockers"],
+                )
                 if "available_evidence" in Plan:
                     Entry["available_evidence"] = Plan["available_evidence"]
             else:

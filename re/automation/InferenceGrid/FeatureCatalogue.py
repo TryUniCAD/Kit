@@ -11,6 +11,7 @@ import json
 from graphlib import TopologicalSorter
 
 from InferenceGrid.FeatureRoutes import DescribeRecipe, FeatureRecipes
+from InferenceGrid.FeatureSpecs import SpecFor
 from Records import digest, label
 
 # the published planning export fits inside an explicit read boundary
@@ -120,6 +121,16 @@ def ValidateDependencies(Families, Features):
     ).prepare()
 
 
+# a written recipe narrows an unmapped entry's blocker to the missing native capture
+def WrittenBlockers(Plan, Key, Recipe):
+    Spec = SpecFor(Key)
+    if Spec is None:
+        return
+    Plan["recipe_spec"] = Spec["id"]
+    if Recipe is None:
+        Plan["blockers"] = ["pinned_native_evidence_required"]
+
+
 # each entry gets a stable plan while only reviewed recipes get executable work
 def FeaturePlan(Identity, Wave, FamilyDependencies, Feature):
     Key = Feature["id"]
@@ -142,6 +153,7 @@ def FeaturePlan(Identity, Wave, FamilyDependencies, Feature):
         "route": DescribeRecipe(Recipe) if Recipe else None,
         "blockers": [] if Recipe else ["reviewed_recipe_and_pinned_evidence_required"],
     }
+    WrittenBlockers(Plan, Key, Recipe)
     if Recipe is None and Key in RetainedReadbacks:
         Plan["available_evidence"] = RetainedReadbacks[Key]
         Plan["blockers"] = ["reviewed_decoder_route_for_readback_required"]
