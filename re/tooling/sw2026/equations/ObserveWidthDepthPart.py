@@ -137,12 +137,18 @@ def run(path, expected, job):
     equations.guest_only(job)
     (path.parent / "Inspection").mkdir(exist_ok=False)
     phases = {"ControlBefore": inspect(path, job, "ControlBefore")}
-    if phases["ControlBefore"]["passed"]:
-        for role in ("Alpha", "Beta"):
-            phases[role] = inspect(path, job, role)
-            if phases[role]["passed"]:
-                phases[role + "Reopen"] = inspect(path, job, role, reopen=True, prior=phases[role])
-    phases["ControlAfter"] = inspect(path, job, "ControlAfter")
+    try:
+        if phases["ControlBefore"]["passed"]:
+            for role in ("Alpha", "Beta"):
+                phases[role] = inspect(path, job, role)
+                if not phases[role]["passed"]:
+                    break
+                reopen_role = role + "Reopen"
+                phases[reopen_role] = inspect(path, job, role, reopen=True, prior=phases[role])
+                if not phases[reopen_role]["passed"]:
+                    break
+    finally:
+        phases["ControlAfter"] = inspect(path, job, "ControlAfter")
     load_job(path, expected)
     identities = {
         (data["oracle_identity"]["process_id"], data["oracle_identity"]["process_creation_filetime"])
@@ -161,12 +167,17 @@ def run(path, expected, job):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument("mode", choices=("verify", "run"))
+    parser.add_argument("mode", choices=("verify", "run", "control-after"))
     parser.add_argument("job", type=Path)
     parser.add_argument("sha256")
     args = parser.parse_args()
     job = load_job(args.job, args.sha256)
-    passed = args.mode == "verify" or run(args.job, args.sha256, job)
+    if args.mode == "control-after":
+        equations.guest_only(job)
+        (args.job.parent / "Inspection").mkdir(exist_ok=False)
+        passed = inspect(args.job, job, "ControlAfter")["passed"]
+    else:
+        passed = args.mode == "verify" or run(args.job, args.sha256, job)
     print(json.dumps({"passed": passed}))
     return 0 if passed else 1
 
