@@ -2,9 +2,9 @@ from dataclasses import dataclass
 
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import DatumTime
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import PartCandidate
-from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, RequireNode, RequireRecord
+from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, ReadNodeName, RequireNode, RequireRecord
 from para.Partition import Partition, frame_payloads, write_payloads
-from para.Tracking import signed_dword
+from para.Tracking import body_match_tag, signed_dword, unsigned
 from para.cylinder.CylinderTopology import generated_cylinder
 from para.rectangle.Allocate import allocate_marks, index_draft, positive_i32, require
 from para.rectangle.AttributeChains import Install, register_attributes
@@ -22,7 +22,27 @@ class CylinderProjection:
         return frame_payloads(write_payloads(self.partition))
 
 
-def project_cylinder(candidate, session, earlier_face_count=0):
+@dataclass(frozen=True)
+class CylinderBodyTracking:
+    body_tag: int
+    body_stamp: int
+
+
+def tracking_installs(body, boss, tracking):
+    tag = body_match_tag(positive_i32(tracking.body_tag, "body allocation tag"))
+    stamp = signed_dword(unsigned(tracking.body_stamp, 32, "attached body stamp"))
+    name = ReadNodeName(boss).encode("utf-16-le")
+    name_words = tuple(int.from_bytes(name[index:index + 2], "little") for index in range(0, len(name), 2))
+    return (
+        Install(body, "BODY_MATCH", ((tag,),)),
+        Install(body, "BODY_RECIPE_2001", (None, None)),
+        Install(body, "ENT_TIME_STAMP_2001", (None, (stamp,))),
+        Install(body, "SWIMPLICITBODYNAME_ID_U", (name_words, None)),
+        Install(body, "BODY_IN_LIGHTWEIGHT_PERM", (None, (1,))),
+    )
+
+
+def project_cylinder(candidate, session, earlier_face_count=0, *, tracking=None):
     require(type(candidate) is PartCandidate and candidate.CutValue is None,
             "the cylinder cache requires an actual generated ordinary part")
     require(type(earlier_face_count) is int and earlier_face_count >= 0,
@@ -41,17 +61,20 @@ def project_cylinder(candidate, session, earlier_face_count=0):
     marker = FieldInt(candidate.ProfileValue.GeometryValue.ArcValue.FieldsValue, "f08")
     atom_id = positive_i32(FieldInt(manager, "f260") + 1, "next body atom in the part")
     partial, first_id = complete_topology(topology.nodes)
+    side, start, end = topology.face_roles(marker)
     faces = tuple(
         Install(owner, "FACE_ID_2001", face_payload(role, feature_id, epoch, ordinal))
-        for ordinal, (owner, role) in enumerate(topology.face_roles(marker), FIRST_PROCESS_FACE_ID + earlier_face_count)
+        for ordinal, (owner, role) in enumerate((start, end, side), FIRST_PROCESS_FACE_ID + earlier_face_count)
     )
+    tracking_rows = () if tracking is None else tracking_installs(topology.body, boss, tracking)
     installs = (
         *faces,
+        *tracking_rows,
         Install(topology.body, "ATOM_ID_2001", (None, (atom_id,))),
         Install(topology.body, "LAST_BODY_MODIFYING_FEATURE_ID", (None, (feature_id,))),
     )
     active, pointers, next_id = register_attributes(partial, topology.body, installs, first_id)
     complete = tuple(augment(node, highest_node_id=next_id - 1) if node.kind == 12 else node for node in active)
     partition = collect_state(index_draft(complete, marks), pointers)
-    side, = (node for node in complete if node.ref == topology.side)
-    return CylinderProjection(partition, atom_id, side.fields["node_id"])
+    lateral, = (node for node in complete if node.ref == topology.side)
+    return CylinderProjection(partition, atom_id, lateral.fields["node_id"])

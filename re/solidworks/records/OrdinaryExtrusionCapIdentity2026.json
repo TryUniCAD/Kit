@@ -1,0 +1,934 @@
+{
+  "acceptance": {
+    "application_usable": false,
+    "heldout_acceptance": false,
+    "new_native_measurement": false,
+    "vendor_loadable": false
+  },
+  "confirmed_static_rules": [
+    {
+      "rule": "makeEndFaceSurfId(feature, selector, contour) initializes rep.f38=selector and rep.f3c=contour; selector is never inferred from geometry in this constructor",
+      "sites": [
+        "0x4c6d2672",
+        "0x4c6c0a18",
+        "0x4c6c0a1b"
+      ]
+    },
+    {
+      "rule": "one-integer overload uses the supplied selector and contour=-1",
+      "sites": [
+        "0x4c6d25c5",
+        "0x4c6d25d4"
+      ]
+    },
+    {
+      "rule": "ordinary two-slot pregeometry initializer creates consecutive entity IDs with selectors 0 then 1, one pair per actual input wire, contour=-1",
+      "sites": [
+        "0x4baeaba0",
+        "0x4baeaba9",
+        "0x4baeabb4"
+      ]
+    },
+    {
+      "rule": "modern iAssignFaceIds cap callback takes selector from actual end-face representation virtual+0x260 and each contour from findLoopOrContourId output; it does not invert selector",
+      "sites": [
+        "0x4b790434",
+        "0x4b7904d7",
+        "0x4b7904eb"
+      ]
+    },
+    {
+      "rule": "non-null FR cap primary representation = [40, FR.feature_id, FR.creation_epoch, FR.flags & ~0x10, rep.f38, rep.f3c if nonnegative else -1]; negative contour canonicalization also writes rep.f3c=-1",
+      "sites": [
+        "0x4c6c78ed",
+        "0x4c6c7948",
+        "0x4c6c797b",
+        "0x4c6c7985",
+        "0x4c6c7996"
+      ]
+    },
+    {
+      "rule": "assignNewPermId passes unsigned auxiliary request zero; makeFaceIdAttribute uses its actual shared module counter then postincrements in both enabled-new-ID and legacy pointer branches. An explicit nonzero request bypasses counter allocation",
+      "sites": [
+        "0x4be97a34",
+        "0x43b39c52",
+        "0x43b39c56",
+        "0x43b39c63",
+        "0x43b39df7",
+        "0x43b39e05"
+      ]
+    },
+    {
+      "rule": "new-ID field3 integer mirror starts with allocated auxiliary ID, followed by converted external model references; local null reference contributes zero",
+      "sites": [
+        "0x43b39cb7",
+        "0x43b39cbb",
+        "0x43b39d00",
+        "0x43b39d27"
+      ]
+    },
+    {
+      "rule": "ordinary kernel dispatcher negates direction when EndSpec.f8c nonzero and translates end-state through genGcEndSpec before ram_MakeExtrudedBody; no selector mutation is proved at these sites",
+      "sites": [
+        "0x4baedd54",
+        "0x4baedd65",
+        "0x4baeddd1",
+        "0x4baee306"
+      ]
+    }
+  ],
+  "counter_image_seed": {
+    "bound": "original image initializer; later process lifetime not exhaustively proved",
+    "bytes": 4,
+    "end_exclusive": "0x4415bc14",
+    "module": "sldgcu.dll",
+    "sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450",
+    "start": "0x4415bc10",
+    "value_u32": 1
+  },
+  "decoder": "Apple LLVM 21.0.0 llvm-objdump on unchanged original PE instruction bytes",
+  "delivery_pr": 121,
+  "execution": {
+    "cad": false,
+    "com": false,
+    "native_payload_reads": false,
+    "native_vendor_function_calls": false,
+    "repository_mutations": false,
+    "sealed_payloads": false,
+    "tests_or_codecs": false,
+    "vm": false,
+    "writer_implementation": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 485,
+      "end_exclusive": "0x4b784db5",
+      "module": "sldmodu.dll",
+      "name": "AssignFaceIds",
+      "sha256": "8d434a0805cce0e12c7c72d58dc2f27cfcbfea86cd5ba6f886bcbb8fc75f696b",
+      "start": "0x4b784bd0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 485,
+          "end_exclusive": "0x4b784db5",
+          "sha256": "8d434a0805cce0e12c7c72d58dc2f27cfcbfea86cd5ba6f886bcbb8fc75f696b",
+          "start": "0x4b784bd0",
+          "unwind_rva": "0x23023e4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 548,
+      "end_exclusive": "0x4b790594",
+      "module": "sldmodu.dll",
+      "name": "EndCallback",
+      "sha256": "19efdb903c3b1ea65f3567e1afbf4c476f6296ab758d68e79b282c0cdf29bf43",
+      "start": "0x4b790370",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 548,
+          "end_exclusive": "0x4b790594",
+          "sha256": "19efdb903c3b1ea65f3567e1afbf4c476f6296ab758d68e79b282c0cdf29bf43",
+          "start": "0x4b790370",
+          "unwind_rva": "0x2302f58"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 6752,
+      "end_exclusive": "0x4baea190",
+      "module": "sldmodu.dll",
+      "name": "ExtrusionOtherGeneration",
+      "sha256": "6d120af8f306185a4ff5fcc6625497f90958fb0b8911796b1db0d03fb187c856",
+      "start": "0x4bae8730",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 6752,
+          "end_exclusive": "0x4baea190",
+          "sha256": "6d120af8f306185a4ff5fcc6625497f90958fb0b8911796b1db0d03fb187c856",
+          "start": "0x4bae8730",
+          "unwind_rva": "0x2382e94"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 298,
+      "end_exclusive": "0x4baeabea",
+      "module": "sldmodu.dll",
+      "name": "ExtrusionCapLegacy",
+      "sha256": "f09d26f379ed5368eafed77cfcd7aa12923bc1f2e64d5257337192e50ae0f437",
+      "start": "0x4baeaac0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 298,
+          "end_exclusive": "0x4baeabea",
+          "sha256": "f09d26f379ed5368eafed77cfcd7aa12923bc1f2e64d5257337192e50ae0f437",
+          "start": "0x4baeaac0",
+          "unwind_rva": "0x2382a0c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 155,
+      "end_exclusive": "0x4c6d262b",
+      "module": "sldmodu.dll",
+      "name": "EndFaceOneArg",
+      "sha256": "a7bc36abcc41c3c60dc6a5db2c7ee8fec7b36eb4078a07474758037c831af14e",
+      "start": "0x4c6d2590",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 155,
+          "end_exclusive": "0x4c6d262b",
+          "sha256": "a7bc36abcc41c3c60dc6a5db2c7ee8fec7b36eb4078a07474758037c831af14e",
+          "start": "0x4c6d2590",
+          "unwind_rva": "0x252998c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 225,
+      "end_exclusive": "0x4c6d2711",
+      "module": "sldmodu.dll",
+      "name": "EndFaceCtor",
+      "sha256": "e7a51c6dac0d4f992a0c9f4f214469c69c99cc5fdc7658a3c61c3766e69e95e7",
+      "start": "0x4c6d2630",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 225,
+          "end_exclusive": "0x4c6d2711",
+          "sha256": "e7a51c6dac0d4f992a0c9f4f214469c69c99cc5fdc7658a3c61c3766e69e95e7",
+          "start": "0x4c6d2630",
+          "unwind_rva": "0x252994c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 134,
+      "end_exclusive": "0x4c6c0a36",
+      "module": "sldmodu.dll",
+      "name": "EndFaceBaseCtor",
+      "sha256": "37798621131ce188721143adf6cdf9264e7618db42eb7bbaa3ec365f4d8c68cb",
+      "start": "0x4c6c09b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 134,
+          "end_exclusive": "0x4c6c0a36",
+          "sha256": "37798621131ce188721143adf6cdf9264e7618db42eb7bbaa3ec365f4d8c68cb",
+          "start": "0x4c6c09b0",
+          "unwind_rva": "0x2371348"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 127,
+      "end_exclusive": "0x4bb5d31f",
+      "module": "sldmodu.dll",
+      "name": "CommonFeatureRef",
+      "sha256": "4e83a57ceacaafd8899982196ecdfe1bb4fad0cf593c60d104f38868ef4f6bd6",
+      "start": "0x4bb5d2a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 127,
+          "end_exclusive": "0x4bb5d31f",
+          "sha256": "4e83a57ceacaafd8899982196ecdfe1bb4fad0cf593c60d104f38868ef4f6bd6",
+          "start": "0x4bb5d2a0",
+          "unwind_rva": "0x238e7c8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 257,
+      "end_exclusive": "0x4c6c79a1",
+      "module": "sldmodu.dll",
+      "name": "CapRepresentation",
+      "sha256": "2e5675c0ae7d8502ec752af3c8284ca871bfaee5f2aa4ab3704c0560ce30e50a",
+      "start": "0x4c6c78a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 39,
+          "end_exclusive": "0x4c6c78c7",
+          "sha256": "cf9d2db3847d586a882297d001c2c4743603f0ef2c2b92ccded1b03c80e3f31d",
+          "start": "0x4c6c78a0",
+          "unwind_rva": "0x22ef2a8"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 190,
+          "end_exclusive": "0x4c6c7985",
+          "sha256": "f142f382715f68e131961d40472af56a7533dd01ed34fdb8e90af972c05dd8c7",
+          "start": "0x4c6c78c7",
+          "unwind_rva": "0x252ae4c"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 28,
+          "end_exclusive": "0x4c6c79a1",
+          "sha256": "0c8bbf8d2d35878f9c91474ad6736a707af52aa140549c266e95be9167de9d36",
+          "start": "0x4c6c7985",
+          "unwind_rva": "0x252ae6c"
+        }
+      ]
+    },
+    {
+      "bound": "actual bound entry; decoded complete leaf through all returns or final unconditional tail jump",
+      "bytes": 4,
+      "end_exclusive": "0x4b2864d4",
+      "module": "sldmodu.dll",
+      "name": "CapSelectorGetter",
+      "sha256": "7e6bda0a031f94dbe8477fe3ce3ba2b7e3d761a050d55625bc7d92212670e60c",
+      "start": "0x4b2864d0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "actual bound entry; decoded complete leaf through all returns or final unconditional tail jump",
+      "bytes": 27,
+      "end_exclusive": "0x4c6c32fb",
+      "module": "sldmodu.dll",
+      "name": "EntityHelperPack",
+      "sha256": "88c7f0355649a1b86c1fceffdf42d714bbad8d41592bbbbf7434e0e7c0c388ce",
+      "start": "0x4c6c32e0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 120,
+      "end_exclusive": "0x4be979b8",
+      "module": "sldmodu.dll",
+      "name": "AssignId",
+      "sha256": "c3688d7bea0146d657a4d0cfa8c7f792b5295125469f6819f2db53600d5cd25e",
+      "start": "0x4be97940",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 120,
+          "end_exclusive": "0x4be979b8",
+          "sha256": "c3688d7bea0146d657a4d0cfa8c7f792b5295125469f6819f2db53600d5cd25e",
+          "start": "0x4be97940",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 75,
+      "end_exclusive": "0x4be97a4b",
+      "module": "sldmodu.dll",
+      "name": "AssignNewPermId",
+      "sha256": "75c8d2f20b8f727b2af753ce71c76fcde13791c76dfda4afeba501cd047b28c7",
+      "start": "0x4be97a00",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 75,
+          "end_exclusive": "0x4be97a4b",
+          "sha256": "75c8d2f20b8f727b2af753ce71c76fcde13791c76dfda4afeba501cd047b28c7",
+          "start": "0x4be97a00",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 683,
+      "end_exclusive": "0x43b39e5b",
+      "module": "sldgcu.dll",
+      "name": "MakeFaceIdAttribute",
+      "sha256": "42a9be36ddd82c56294365d6c6bc308aff93cccd680a1fcc56c76d619285c855",
+      "start": "0x43b39bb0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 683,
+          "end_exclusive": "0x43b39e5b",
+          "sha256": "42a9be36ddd82c56294365d6c6bc308aff93cccd680a1fcc56c76d619285c855",
+          "start": "0x43b39bb0",
+          "unwind_rva": "0x8bedd8"
+        }
+      ]
+    },
+    {
+      "bound": "actual bound entry; decoded complete leaf through all returns or final unconditional tail jump",
+      "bytes": 5,
+      "end_exclusive": "0x4baedb05",
+      "module": "sldmodu.dll",
+      "name": "OrdinaryKernelThunk",
+      "sha256": "d1bfbd69bdc6037791543016f1e7962bfa2d43190af15ee49ce3ca56841ad5b9",
+      "start": "0x4baedb00",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2078,
+      "end_exclusive": "0x4baee3de",
+      "module": "sldmodu.dll",
+      "name": "OrdinaryKernelDispatcher",
+      "sha256": "cce4911e28b6468b5ec70b8d1de613c7206622cc899d70a510cb4bd95311b2ee",
+      "start": "0x4baedbc0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2078,
+          "end_exclusive": "0x4baee3de",
+          "sha256": "cce4911e28b6468b5ec70b8d1de613c7206622cc899d70a510cb4bd95311b2ee",
+          "start": "0x4baedbc0",
+          "unwind_rva": "0x2380f30"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2250,
+      "end_exclusive": "0x4badf01a",
+      "module": "sldmodu.dll",
+      "name": "GenerateGcEndSpec",
+      "sha256": "7ce104388df456cb7d5bc7bc5a4490cc952a22334c91ae4b79a21d2ca89fb2f7",
+      "start": "0x4bade750",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2250,
+          "end_exclusive": "0x4badf01a",
+          "sha256": "7ce104388df456cb7d5bc7bc5a4490cc952a22334c91ae4b79a21d2ca89fb2f7",
+          "start": "0x4bade750",
+          "unwind_rva": "0x237f6a0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1323,
+      "end_exclusive": "0x4b78816b",
+      "module": "sldmodu.dll",
+      "name": "PublishFaceIds",
+      "sha256": "f1dd958129c068cc42dfaf0d782bf003458131ff47073059eb1082bad659abdd",
+      "start": "0x4b787c40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1323,
+          "end_exclusive": "0x4b78816b",
+          "sha256": "f1dd958129c068cc42dfaf0d782bf003458131ff47073059eb1082bad659abdd",
+          "start": "0x4b787c40",
+          "unwind_rva": "0x22fea08"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 47,
+      "end_exclusive": "0x4bba421f",
+      "module": "sldmodu.dll",
+      "name": "EndFaceSerializer",
+      "sha256": "ebfc877dc8888646c253cbae52aaaf7e3e099d0bc92796b081bce9c8094593ec",
+      "start": "0x4bba41f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 47,
+          "end_exclusive": "0x4bba421f",
+          "sha256": "ebfc877dc8888646c253cbae52aaaf7e3e099d0bc92796b081bce9c8094593ec",
+          "start": "0x4bba41f0",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 183,
+      "end_exclusive": "0x4bbabd57",
+      "module": "sldmodu.dll",
+      "name": "EndFaceSerializerTail",
+      "sha256": "6f8c40fada4b15bf78ad589cebe0ac07fb4d4a72bfb7e813d746a327c99cb655",
+      "start": "0x4bbabca0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 183,
+          "end_exclusive": "0x4bbabd57",
+          "sha256": "6f8c40fada4b15bf78ad589cebe0ac07fb4d4a72bfb7e813d746a327c99cb655",
+          "start": "0x4bbabca0",
+          "unwind_rva": "0x22d7124"
+        }
+      ]
+    },
+    {
+      "bound": "actual bound entry; decoded complete leaf through all returns or final unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x4b27cbe3",
+      "module": "sldmodu.dll",
+      "name": "ExtrusionSpecialFlagFalse",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x4b27cbe0",
+      "unwind_fragments": []
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 33,
+      "end_exclusive": "0x4baeabb9",
+      "module": "sldmodu.dll",
+      "name": "ordinary pregeometry selector loop",
+      "sha256": "72534309f47c01260e917dff7982227aa9141fafe39fb97c7c904fc7a479b1eb",
+      "start": "0x4baeab98"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 94,
+      "end_exclusive": "0x4bae9740",
+      "module": "sldmodu.dll",
+      "name": "ordinary pregeometry caller",
+      "sha256": "64ff5b560375a3a1379255bb4b11eec13003505c8e80a8c45665f08d8841b46d",
+      "start": "0x4bae96e2"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 40,
+      "end_exclusive": "0x4b7904f0",
+      "module": "sldmodu.dll",
+      "name": "ordinary temporary cap selector reuse",
+      "sha256": "54ed0377860b40816ba4ff2a7621d92bbc4ca999983ff9898d030e3e3ed66c6b",
+      "start": "0x4b7904c8"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 16,
+      "end_exclusive": "0x4c6c0a1e",
+      "module": "sldmodu.dll",
+      "name": "exact representation member initialization",
+      "sha256": "57f2e339abd32dce793e126422a14400f33c95bbf2fe2897fd7d091062d1143f",
+      "start": "0x4c6c0a0e"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 88,
+      "end_exclusive": "0x4c6c7999",
+      "module": "sldmodu.dll",
+      "name": "cap primary six-word packing",
+      "sha256": "5284362c23955277c9e76ac10831b23774b7131fc14c1c9c6ff2a02140dbcd09",
+      "start": "0x4c6c7941"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 27,
+      "end_exclusive": "0x4be97a4b",
+      "module": "sldmodu.dll",
+      "name": "cap persistent auxiliary allocator request",
+      "sha256": "edc965d2212f8a17b2bb8cc6f7c36b91cb0909b08e6dd28e480deec663cd483c",
+      "start": "0x4be97a30"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 28,
+      "end_exclusive": "0x43b39c69",
+      "module": "sldgcu.dll",
+      "name": "nonzero explicit versus zero automatic auxiliary id",
+      "sha256": "0f56484eb46c9f74edcdd28958a2df29c4c16f98887275baa459ba295ae82495",
+      "start": "0x43b39c4d"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 35,
+      "end_exclusive": "0x43b39e10",
+      "module": "sldgcu.dll",
+      "name": "legacy pointer counter branch",
+      "sha256": "ff10fc501432585e12674a83f7f711ae81b5437c084b2b2799c0ac5b09c24fd8",
+      "start": "0x43b39ded"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 15,
+      "end_exclusive": "0x43b39cc6",
+      "module": "sldgcu.dll",
+      "name": "auxiliary integer mirror",
+      "sha256": "e475ff251162830d5e2ddc87f283e674595d323dba0163f566c9c7edfc27fb1d",
+      "start": "0x43b39cb7"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 48,
+      "end_exclusive": "0x4baedd84",
+      "module": "sldmodu.dll",
+      "name": "ordinary reversal negates direction",
+      "sha256": "07e2a93991da29ac4fe951e35825582ef70511fab53563288488ac05f0bc8586",
+      "start": "0x4baedd54"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 57,
+      "end_exclusive": "0x4baeddd6",
+      "module": "sldmodu.dll",
+      "name": "end-condition translation call",
+      "sha256": "237c6ab7ed7752b876a50db8b9f4d86596bfc42ec440e311227c6dc8148eb899",
+      "start": "0x4baedd9d"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 71,
+      "end_exclusive": "0x4baee30c",
+      "module": "sldmodu.dll",
+      "name": "translated end and arrays sent to geometry bridge",
+      "sha256": "a2bac3f8ff861aee2d3bc8f643af0741f8b59f188c47ff6eae2156a5f2644da7",
+      "start": "0x4baee2c5"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 134,
+      "end_exclusive": "0x4badef02",
+      "module": "sldmodu.dll",
+      "name": "end type and single-end state sent to gc end-spec setter",
+      "sha256": "b5fe1a5cd8d20c46caf89265ed6d56045846eff391ab2335032223dc7e852afd",
+      "start": "0x4badee7c"
+    },
+    {
+      "bound": "bounded original instruction window within complete function",
+      "bytes": 46,
+      "end_exclusive": "0x4bbabd04",
+      "module": "sldmodu.dll",
+      "name": "raw selector and contour store/read",
+      "sha256": "7bc610749c9755d3be68ff7b407000cb401f0886299b20e8f372a590a67c2c06",
+      "start": "0x4bbabcd6"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 10893912,
+      "exception_directory_bytes": 244812,
+      "exception_directory_rva": "0xa28000",
+      "machine": "0x8664",
+      "name": "sldgcu.dll",
+      "preferred_base": "0x43740000",
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    }
+  ],
+  "native_imports": [
+    {
+      "iat": "0x4cd367d8",
+      "module": "sldgcu.dll",
+      "name": "?gc_AssignTempId@@YAPEAVgcFaceIdAttrib_w@@PEAVgcFace_w@@PEAVgcEntityIdRep_c@@H@Z"
+    },
+    {
+      "iat": "0x4cd36890",
+      "module": "sldgcu.dll",
+      "name": "?ram_MakeExtrudedBody@@YA?AVutStatus_c@@PEAVsuPtrArray@@PEAVgcEntityList_c@@PEAVmgUnitVector_c@@PEAVgcEndSpec_c@@HPEAN1AEAPEAHAEAVsuObArray@@HW4gcBodyType@@HKHHHHH4PEAVmgXform_c@@HHHH@Z"
+    },
+    {
+      "iat": "0x4cd368a0",
+      "module": "sldgcu.dll",
+      "name": "?setEndSpecData@gcEndSpec_c@@QEAA?AVutStatus_c@@HQEAW4gcEndSpecType_e@@QEANPEAVgcEntityList_c@@QEAH3133HH3QEAV4@@Z"
+    },
+    {
+      "iat": "0x4cd36fd8",
+      "module": "sldgcu.dll",
+      "name": "?getTempFromEntity@gcFaceIdAttrib_w@@SAPEAV1@PEAVgcFace_w@@@Z"
+    },
+    {
+      "iat": "0x4cd37010",
+      "module": "sldgcu.dll",
+      "name": "?doForAllFacesIf@gcBody_w@@QEAAXP6AXPEAVgcFace_w@@PEAX@Z1P6AH011@Z1@Z"
+    },
+    {
+      "iat": "0x4cd37330",
+      "module": "sldgcu.dll",
+      "name": "?tempSurfId_ad@gcFaceIdAttrib_w@@2PEAVgcAttribDef_w@@EA"
+    },
+    {
+      "iat": "0x4cd379c8",
+      "module": "sldgcu.dll",
+      "name": "?getSurfaceIdRep@gcIdAttrib_w@@QEBAPEAVmoEntityIdRep_c@@XZ"
+    },
+    {
+      "iat": "0x4cd38000",
+      "module": "sldgcu.dll",
+      "name": "?getAllFromEntity@gcAttrib_w@@SAHPEAVgcTopEnt_w@@PEAVgcAttribDef_w@@PEAPEAPEAV1@H@Z"
+    },
+    {
+      "iat": "0x4cd3a268",
+      "module": "sldgcu.dll",
+      "name": "?makeFaceIdAttribute@gcFaceIdAttrib_w@@SAPEAV1@PEAVgcFace_w@@PEAVgcEntityIdRep_c@@K@Z"
+    },
+    {
+      "iat": "0x4cd3a630",
+      "module": "sldmgu.dll",
+      "name": "??4mgUnitVector_c@@QEAAAEBV0@AEBV0@@Z"
+    },
+    {
+      "iat": "0x4cd3a980",
+      "module": "sldmgu.dll",
+      "name": "??G@YA?AVmgUnitVector_c@@AEBV0@@Z"
+    }
+  ],
+  "open_boundaries": [
+    "Physical cap-list/end-point mapping through actual selected ram_MakeExtrudedBody and lower kernel sweep branches is not fully closed here; do not assert a universal world-coordinate selector rule",
+    "Model-reference creation epochs and FR flags reuse prior independently documented constructors; no new constructor/default rule is proposed",
+    "Auxiliary counter previous consumption/order/reset/overflow and explicit-argument callsites outside the bound function are not exhaustively traced; no fresh whole-file allocation sequence is qualified",
+    "Known raw load repair applies to contour under the actual global/feature/version guards and is separate from the generic raw codec",
+    "Full publication callback invocation and all downstream native update/save preservation remain outside the static path conclusions"
+  ],
+  "owner": "/root/flag_ownership",
+  "parent_observation": {
+    "cases": 6,
+    "contour": 0,
+    "far_cap_selector": 0,
+    "generalization": "Only this selected ordinary blind source cohort; not all reversed/two-direction/midplane/draft/thin/cut/end-condition cases",
+    "independently_reread_by_worker": false,
+    "provenance": "root task brief, six already disclosed D01-D03 original/edited circular-child saves; worker opened no native CAD payload in this task",
+    "sketch_plane_selector": 1
+  },
+  "proprietary_listings_in_delivery": false,
+  "rea": {
+    "evidence_id": "ev_7fc3ecfa02cbbd7d6067ca5c370b778582e5ddc85ae1940285a50b90bfc6ceec",
+    "operation": "inspect_pe_resources",
+    "scope": "stateless identity/resource inspection only; no active target opened",
+    "target": "sldmodu.dll"
+  },
+  "schema": "ordinary-extrusion-cap-identity-static-v1",
+  "scope": "Exact native selector preservation and auxiliary face-ID allocation; physical cap mapping only the six disclosed parent-supplied observations",
+  "source_files": [
+    {
+      "bytes": 9091,
+      "path": "re/tooling/sw2026/para/rectangle/Geometry.py",
+      "sha256": "3579a804dc9d996f8bb0d5292daa35338d95797dd62e7981f7913877a1965cfa"
+    },
+    {
+      "bytes": 4396,
+      "path": "re/tooling/sw2026/para/rectangle/RectangleAttributes.py",
+      "sha256": "90e97d846a7779c3dccb0ded8eb6ff94c4ab3a4be56a91424efbaefbc59e956b"
+    },
+    {
+      "bytes": 13116,
+      "path": "re/tooling/sw2026/para/rectangle/CheckProjection.py",
+      "sha256": "4f3e4b737ad9261b2c04139a68dd0731b55a042580d607ce9eb0eb22d9caacf4"
+    },
+    {
+      "bytes": 16583,
+      "path": "re/solidworks/records/PopulatedPrismPartition2026.md",
+      "sha256": "4d05094e832cdaac6e4d20c7d807c1369487abc957eb15b0e5a14f13e100380a"
+    },
+    {
+      "bytes": 16783,
+      "path": "re/solidworks/records/GeneratedRectanglePartition2026.md",
+      "sha256": "819ee64a8dc3bbd4a23a4e5b9b586054dd32cbaa42039959d90bc34e8c282ab0"
+    },
+    {
+      "bytes": 8835,
+      "path": "re/solidworks/records/ConcentricKernelFaceIdentity2026.md",
+      "sha256": "0a10a2e58a706abde3160ff62c396409d66d4690e123b1a8af865ac9c4ec0197"
+    },
+    {
+      "bytes": 5437,
+      "path": "re/solidworks/records/ConcentricKernelFaceIdentity2026.json",
+      "sha256": "bd161cffff60744c6a52dcb90ea54c5e03474ac7f93a93bcdacb80bf128e066a"
+    },
+    {
+      "bytes": 5856,
+      "path": "re/solidworks/records/DrawingEndFaceIdArchive2026.md",
+      "sha256": "647280ea1398671e9cd80cfaa215a4b29e985887d0a5cdff0ca2f683c24c4821"
+    },
+    {
+      "bytes": 554068,
+      "path": "re/data/Serialization/SerializeMap2026.json",
+      "sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4"
+    }
+  ],
+  "static_helper": {
+    "kind": "independently authored PE metadata and LLVM extraction orchestration only",
+    "sha256": "a793bfc824e30376677fdc32044763d80c3b0c537afdf09af015564eced3193e"
+  },
+  "static_validation": {
+    "all_function_hashes_recomputed": true,
+    "all_selected_window_boundaries_verified_in_full_parent_disassembly": true,
+    "schema_product_tests_executed": false
+  },
+  "task": "B04-SW2026-END-FACE-SELECTOR",
+  "version": "SOLIDWORKS 2026 SP05.2 34.5.2.0604",
+  "vtable_slots": [
+    {
+      "class": ".?AVmoEndFaceSurfIdRep_c@@",
+      "fingerprint": {
+        "bound": "actual concrete primary virtual slot",
+        "bytes": 8,
+        "end_exclusive": "0x4cf705d8",
+        "sha256": "c3ffc4cbc330e101b291fbb12d97259543d14006ac784b452d7441dba31bd8ab",
+        "start": "0x4cf705d0"
+      },
+      "locator": {
+        "bound": "MSVC primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d333cf8",
+        "sha256": "fa933252acb8977939bb36299411115c0cbfe6941eae6ba9dde43756c8614722",
+        "start": "0x4d333ce0"
+      },
+      "slot": "0x28",
+      "target": "0x4bba41f0",
+      "vtable": "0x4cf705a8"
+    },
+    {
+      "class": ".?AVmoEndFaceSurfIdRep_c@@",
+      "fingerprint": {
+        "bound": "actual concrete primary virtual slot",
+        "bytes": 8,
+        "end_exclusive": "0x4cf70680",
+        "sha256": "70d84d7581f71225f48d8853f4eaac48eebbdd1a78725309581e552f8996153d",
+        "start": "0x4cf70678"
+      },
+      "locator": {
+        "bound": "MSVC primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d333cf8",
+        "sha256": "fa933252acb8977939bb36299411115c0cbfe6941eae6ba9dde43756c8614722",
+        "start": "0x4d333ce0"
+      },
+      "slot": "0xd0",
+      "target": "0x4c6c78a0",
+      "vtable": "0x4cf705a8"
+    },
+    {
+      "class": ".?AVmoEndFaceSurfIdRep_c@@",
+      "fingerprint": {
+        "bound": "actual concrete primary virtual slot",
+        "bytes": 8,
+        "end_exclusive": "0x4cf70810",
+        "sha256": "8769cff4f470567f3c8636fd28c77331d16387c42eed54b59c1b60005ed6c50c",
+        "start": "0x4cf70808"
+      },
+      "locator": {
+        "bound": "MSVC primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d333cf8",
+        "sha256": "fa933252acb8977939bb36299411115c0cbfe6941eae6ba9dde43756c8614722",
+        "start": "0x4d333ce0"
+      },
+      "slot": "0x260",
+      "target": "0x4b2864d0",
+      "vtable": "0x4cf705a8"
+    },
+    {
+      "class": ".?AVmoEndFaceSurfIdRep_c@@",
+      "fingerprint": {
+        "bound": "actual concrete primary virtual slot",
+        "bytes": 8,
+        "end_exclusive": "0x4cf70850",
+        "sha256": "8f3db2380ad6dd772d00caab9396234c724531b67af770c7a72383347932c983",
+        "start": "0x4cf70848"
+      },
+      "locator": {
+        "bound": "MSVC primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d333cf8",
+        "sha256": "fa933252acb8977939bb36299411115c0cbfe6941eae6ba9dde43756c8614722",
+        "start": "0x4d333ce0"
+      },
+      "slot": "0x2a0",
+      "target": "0x4bbabca0",
+      "vtable": "0x4cf705a8"
+    },
+    {
+      "class": ".?AVmoExtrusion_c@@",
+      "fingerprint": {
+        "bound": "actual concrete primary virtual slot",
+        "bytes": 8,
+        "end_exclusive": "0x4cf3dbd0",
+        "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+        "start": "0x4cf3dbc8"
+      },
+      "locator": {
+        "bound": "MSVC primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d32da40",
+        "sha256": "a2e123def2cc9c0bc0e0d174f4920a57e4159247e752c45881fd1aece1083a17",
+        "start": "0x4d32da28"
+      },
+      "slot": "0x740",
+      "target": "0x4b27cbe0",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "class": ".?AVmoExtrusion_c@@",
+      "fingerprint": {
+        "bound": "actual concrete primary virtual slot",
+        "bytes": 8,
+        "end_exclusive": "0x4cf3fa78",
+        "sha256": "e0d64b2dedc5a3e587ce13c2152d99a53e594f12b71ceb04c0721c4297b40d58",
+        "start": "0x4cf3fa70"
+      },
+      "locator": {
+        "bound": "MSVC primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d32da40",
+        "sha256": "a2e123def2cc9c0bc0e0d174f4920a57e4159247e752c45881fd1aece1083a17",
+        "start": "0x4d32da28"
+      },
+      "slot": "0x25e8",
+      "target": "0x4b784bd0",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "class": ".?AVmoExtrusion_c@@",
+      "fingerprint": {
+        "bound": "actual concrete primary virtual slot",
+        "bytes": 8,
+        "end_exclusive": "0x4cf3fae8",
+        "sha256": "8d27c7461cbfbd4cf909ebf75ab1f9e6d586406f57f7f72d8ec33d91437729a2",
+        "start": "0x4cf3fae0"
+      },
+      "locator": {
+        "bound": "MSVC primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d32da40",
+        "sha256": "a2e123def2cc9c0bc0e0d174f4920a57e4159247e752c45881fd1aece1083a17",
+        "start": "0x4d32da28"
+      },
+      "slot": "0x2658",
+      "target": "0x4baedb00",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "class": ".?AVmoExtrusion_c@@",
+      "fingerprint": {
+        "bound": "actual concrete primary virtual slot",
+        "bytes": 8,
+        "end_exclusive": "0x4cf3fb30",
+        "sha256": "503c511538b62c2dfa0346e05f0da6178ec8a34e2fa42a1965f80b26f5fe457b",
+        "start": "0x4cf3fb28"
+      },
+      "locator": {
+        "bound": "MSVC primary complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d32da40",
+        "sha256": "a2e123def2cc9c0bc0e0d174f4920a57e4159247e752c45881fd1aece1083a17",
+        "start": "0x4d32da28"
+      },
+      "slot": "0x26a0",
+      "target": "0x4bae8730",
+      "vtable": "0x4cf3d488"
+    }
+  ]
+}

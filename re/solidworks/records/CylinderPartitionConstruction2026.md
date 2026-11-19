@@ -14,8 +14,8 @@ The `FACE_ID_2001` cap's primary lane has kind 40, cap selector 1 on the sketch 
 | Boundary and surface graph | The neutral circle and its generated arc, sketch, and profile determine the world-space axis, radial basis, centre and blind extent. Cap faces use the same carrier plane normal with opposite face senses. The allocator links the two periodic rings and both shells. |
 | Persistent face `node_id` | The generated topology allocator assigns an entity identifier. The actual active-payload reader returns it independently of the wire index. |
 | `FACE_ID_2001` primary lane | The producing feature supplies the native feature ID and first creation epoch. The side supplies the actual sketch arc's permanent marker. The two caps supply their source-verified selectors. |
-| `FACE_ID_2001` auxiliary lane | Explicit experiment session input gives the number of earlier allocation events. The shared process-counter model allocates one number per face. Exact native creation order requires further evidence. |
-| `ATOM_ID_2001` and last modifier | The model's empty atom manager supplies the next possible atom ID. The feature ID supplies the last modifier. The body attribute thus records a proposed binding. Archive registration and body tracking are still pending. |
+| `FACE_ID_2001` auxiliary lane | Explicit experiment session input gives the number of earlier allocation events. The shared process-counter model allocates one number per face. The six saved forward cylinder states preserve sketch-plane cap, far cap, and side order. |
+| `ATOM_ID_2001` and last modifier | The model's empty atom manager supplies the next possible atom ID. The feature ID supplies the last modifier. The body attribute thus records a proposed binding that the separate attachment experiment consumes. |
 | Mark graph | The caller supplies geometry and activation allocation events as explicit construction inputs. The shared mark and rollback code accounts for runtime pointer arrays separately from the transmitted graph. |
 
 ## Guarded construction and replay
@@ -29,4 +29,4 @@ PYTHONPATH=src:re/tooling/sw2026:re/tooling/sw2026/serial:. python -B -m para.cy
 PYTHONPATH=src:re/tooling/sw2026:re/tooling/sw2026/serial:. python -B -m para.cylinder.CompareSaved /absolute/path/to/source-packet/Disclosed
 ```
 
-Real registration of the atom in Config-0 and the feature output, native body tracking, complete archive attachment, the occurrence snapshot, and SOLIDWORKS open/edit/reopen acceptance remain open. These runs credit zero native conversions and zero held-outs.
+[Generated archive attachment](CylinderArchiveAttachment2026.md) exercises the actual archive atom, mark, and body tracking relationships at the SDK boundary. Native body and occurrence acceptance remain open. These runs credit zero native conversions and zero held-outs.

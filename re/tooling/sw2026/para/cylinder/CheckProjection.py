@@ -108,7 +108,7 @@ def inspect(candidate, projection, stream, spec, earlier_face_count):
     faces = (side, start, end)
     assert tuple(ReadCylWords(nodes, face) for face in faces) == expected_words
     auxiliaries = tuple(ReadCylWords(nodes, face, 3) for face in faces)
-    assert auxiliaries == tuple((earlier_face_count + offset, 0) for offset in (1, 2, 3))
+    assert auxiliaries == tuple((earlier_face_count + offset, 0) for offset in (3, 1, 2))
     face_id = side.Integer("node_id")
     assert face_id == projection.lateral_face_node_id and face_id != side.IndexValue
     attributes = {name: ReadCylAttr(nodes, body, name)

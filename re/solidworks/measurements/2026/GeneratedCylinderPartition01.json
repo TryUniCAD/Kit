@@ -1,5 +1,7 @@
 {
   "archive_written_with_projection": false,
+  "earlier_projection_receipt_sha256": "4f097812c68492445ce8f92295d3aca50ba05fdd13a250efd34f549f754d6ed3",
+  "earlier_projection_revision": "ca75eee6ccc17ff2a4288481973ba7544a851699",
   "fresh_processes": 6,
   "generated_partition_sizes_differ": true,
   "generated_projections": [
@@ -28,15 +30,15 @@
       "case": "FrontDiameter",
       "face_auxiliary_words": [
         [
+          3,
+          0
+        ],
+        [
           1,
           0
         ],
         [
           2,
-          0
-        ],
-        [
-          3,
           0
         ]
       ],
@@ -94,11 +96,11 @@
       "history_mark_count": 3,
       "neutral_document_sha256": "e1ef9259b0cdd127eb78735353b2b53a5ec257b5bb248a83e718fa58bf80ac23",
       "ordinary_candidate_sha256": "a4fb2516f5a85d290cb1c0ff4838e9375c0590fb0e3eb065bfee7c886b590929",
-      "partition_bytes": 1604,
-      "partition_sha256": "2c21dd25b926c050f229230f233316d2841b53f2c37777f9e809c9105cb94c14",
+      "partition_bytes": 1601,
+      "partition_sha256": "04ac4d0555d447adeea6dbc4de7ca9e1892fcee1e541f012e6d9dfe79ed98adc",
       "persistent_face_node_id": 5,
       "public_brep_vertex_count": 2,
-      "repeat_receipt_sha256": "6133ec9021e8a84ff9e7980c58ac6df7f9a5b418440e77c3e544ad62aff275f7",
+      "repeat_receipt_sha256": "ecb86f2731ccfcc9fc6633c9c990aa290db4a0b5eb420120f40b034a9d740b9c",
       "reserved_body_atom_id": 101,
       "runtime_file_process_network_attempts": 0,
       "same_process_repeat_exact": true,
@@ -130,15 +132,15 @@
       "case": "OffsetFrontDiameter",
       "face_auxiliary_words": [
         [
+          14,
+          0
+        ],
+        [
           12,
           0
         ],
         [
           13,
-          0
-        ],
-        [
-          14,
           0
         ]
       ],
@@ -196,11 +198,11 @@
       "history_mark_count": 3,
       "neutral_document_sha256": "d89b867e5046825b9415eb0b5f8c20a720d38b43e8297eaa4da12dacb52f81f8",
       "ordinary_candidate_sha256": "b9851213c5595be74c60dab0b435592e9a2943dc12254f26a4a67fb5520dd788",
-      "partition_bytes": 1609,
-      "partition_sha256": "1f2602738dda69a8ef79e83c996de41a489bfc8fe9510e8f2a46189140f8d492",
+      "partition_bytes": 1606,
+      "partition_sha256": "eed3527eae1fbb95dd6749f815d7f8f590091b329a81e0c0cfe0ad2c79377f3f",
       "persistent_face_node_id": 5,
       "public_brep_vertex_count": 2,
-      "repeat_receipt_sha256": "d3a2de8e67ff7c75331a56ff2247c204fbb3ced6d32af9a296a9458d735704aa",
+      "repeat_receipt_sha256": "1d3e80710995f6e3bf0287f160f257b77e61708f7c8987fb45ab7b50462f43d4",
       "reserved_body_atom_id": 101,
       "runtime_file_process_network_attempts": 0,
       "same_process_repeat_exact": true,
@@ -243,7 +245,7 @@
   "limitations": [
     "The constructed history models the stated experiment allocation events.",
     "The persistent body attribute records a reservation for later archive registration.",
-    "The actual SOLIDWORKS save order of process face allocations remains unqualified.",
+    "The relative face allocation order is measured for the disclosed profile. Complete native session chronology remains unqualified.",
     "Cold native body loading, attachment and mates remain unmeasured."
   ],
   "native_oracle_launches_for_projection": 0,
@@ -255,9 +257,19 @@
   "runtime_file_process_network_attempts": 0,
   "saved_input_for_generation": false,
   "schema": "kit.sw2026.standalone-cylinder-partition.v1",
-  "source_readback_receipt_sha256": "96101ad95544d6d1df5d2c94900bc52954514d4352057c794b8ef6640891598b",
+  "source_readback_receipt_sha256": "507363ada98ca7a960bc1b9f1963675d3da054b4ad48efd58405d3312fd12836",
   "source_readbacks": [
     {
+      "body_attachment": {
+        "atom_id": 101,
+        "body_match": 703,
+        "body_stamp": 107,
+        "manager_output_visibility_same_object": true,
+        "marks": [
+          3,
+          9
+        ]
+      },
       "cap_offset_and_selector": [
         [
           0.0,
@@ -269,6 +281,16 @@
         ]
       ],
       "case": "D01",
+      "face_allocation_order": [
+        "sketch_plane",
+        "far_plane",
+        "lateral"
+      ],
+      "observed_auxiliary_ids_in_order": [
+        13,
+        14,
+        15
+      ],
       "phase": "source",
       "sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
       "topology_counts": {
@@ -288,6 +310,16 @@
       "typed_payloads_exact": 2
     },
     {
+      "body_attachment": {
+        "atom_id": 101,
+        "body_match": 1473,
+        "body_stamp": 111,
+        "manager_output_visibility_same_object": true,
+        "marks": [
+          3,
+          13
+        ]
+      },
       "cap_offset_and_selector": [
         [
           0.0,
@@ -299,6 +331,16 @@
         ]
       ],
       "case": "D01",
+      "face_allocation_order": [
+        "sketch_plane",
+        "far_plane",
+        "lateral"
+      ],
+      "observed_auxiliary_ids_in_order": [
+        23,
+        24,
+        25
+      ],
       "phase": "edited",
       "sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
       "topology_counts": {
@@ -318,6 +360,16 @@
       "typed_payloads_exact": 2
     },
     {
+      "body_attachment": {
+        "atom_id": 101,
+        "body_match": 703,
+        "body_stamp": 107,
+        "manager_output_visibility_same_object": true,
+        "marks": [
+          3,
+          9
+        ]
+      },
       "cap_offset_and_selector": [
         [
           0.0,
@@ -329,6 +381,16 @@
         ]
       ],
       "case": "D02",
+      "face_allocation_order": [
+        "sketch_plane",
+        "far_plane",
+        "lateral"
+      ],
+      "observed_auxiliary_ids_in_order": [
+        13,
+        14,
+        15
+      ],
       "phase": "source",
       "sha256": "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9",
       "topology_counts": {
@@ -348,6 +410,16 @@
       "typed_payloads_exact": 2
     },
     {
+      "body_attachment": {
+        "atom_id": 101,
+        "body_match": 1473,
+        "body_stamp": 111,
+        "manager_output_visibility_same_object": true,
+        "marks": [
+          3,
+          13
+        ]
+      },
       "cap_offset_and_selector": [
         [
           0.0,
@@ -359,6 +431,16 @@
         ]
       ],
       "case": "D02",
+      "face_allocation_order": [
+        "sketch_plane",
+        "far_plane",
+        "lateral"
+      ],
+      "observed_auxiliary_ids_in_order": [
+        23,
+        24,
+        25
+      ],
       "phase": "edited",
       "sha256": "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527",
       "topology_counts": {
@@ -378,6 +460,16 @@
       "typed_payloads_exact": 2
     },
     {
+      "body_attachment": {
+        "atom_id": 101,
+        "body_match": 703,
+        "body_stamp": 107,
+        "manager_output_visibility_same_object": true,
+        "marks": [
+          3,
+          9
+        ]
+      },
       "cap_offset_and_selector": [
         [
           0.0,
@@ -389,6 +481,16 @@
         ]
       ],
       "case": "D03",
+      "face_allocation_order": [
+        "sketch_plane",
+        "far_plane",
+        "lateral"
+      ],
+      "observed_auxiliary_ids_in_order": [
+        13,
+        14,
+        15
+      ],
       "phase": "source",
       "sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
       "topology_counts": {
@@ -408,6 +510,16 @@
       "typed_payloads_exact": 2
     },
     {
+      "body_attachment": {
+        "atom_id": 101,
+        "body_match": 1473,
+        "body_stamp": 111,
+        "manager_output_visibility_same_object": true,
+        "marks": [
+          3,
+          13
+        ]
+      },
       "cap_offset_and_selector": [
         [
           0.0,
@@ -419,6 +531,16 @@
         ]
       ],
       "case": "D03",
+      "face_allocation_order": [
+        "sketch_plane",
+        "far_plane",
+        "lateral"
+      ],
+      "observed_auxiliary_ids_in_order": [
+        23,
+        24,
+        25
+      ],
       "phase": "edited",
       "sha256": "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f",
       "topology_counts": {
@@ -438,14 +560,14 @@
       "typed_payloads_exact": 2
     }
   ],
-  "source_revision": "46f5562987bdb8203d7f36e6ba5acbf52bdd4e92",
+  "source_revision": "ca75eee6ccc17ff2a4288481973ba7544a851699",
   "tool_sha256": {
     "FreshCylinderInput.py": "27780e62925ce9724e01e85192fab2120fc9793f226ed42c6188555d5c099f8d",
     "para/Schema.py": "c68cf9c1f10fbf45c4d88a4add7c26602b5924b3d540190936134685d1f0219d",
-    "para/cylinder/CheckProjection.py": "81363c3cf752fa01b9beebdee8342e66a375bbd7e1f63be68705f0e5ece1642f",
-    "para/cylinder/CompareSaved.py": "a10391162e4650d53d3ce33d1dc375672b0c0546ee750055b0337705e8cdde89",
+    "para/cylinder/CheckProjection.py": "bafb64713f63bcce64ccb6f0a41478cf9e0b35cdd6a2f744328ddcb10272203c",
+    "para/cylinder/CompareSaved.py": "c907656039b222080a2559bce8bd954ef24ed2242a5b879efc363e5f26a84772",
     "para/cylinder/CylinderTopology.py": "391009bf83356d191f10c680ce9066ef4dc4e400865e38edef81e13b0ce5aafd",
-    "para/cylinder/ProjectCylinder.py": "305d94315cecdbd49296b2d5a4b60f98ad51b6e8236f79f821a922f0205432f9",
+    "para/cylinder/ProjectCylinder.py": "1657d6594a3c77b4b74c2b6ab6daf1ebf7087f86a3ab80139b38367b52d6739f",
     "para/rectangle/AttributeChains.py": "f3f324fddb491f1cd4ef8b53499a0bfd77a49d107674e7dccbaf528dc254971e",
     "para/rectangle/RectangleAttributes.py": "90e97d846a7779c3dccb0ded8eb6ff94c4ab3a4be56a91424efbaefbc59e956b",
     "para/rectangle/RectanglePartition.py": "751860853a8b20d32c580baf220d1f22bc10d280cb92aeb68110c152dc63066b"
