@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Native imported-body name ownership](../measurements/2026/ImportedBodyNamesContrast01.json) | Three native variants pass all eight phases. Two host processes reproduce 21 linked streams. The feature key and body atom own independent names, and the explicit kernel compatibility label has reduced characters. |
 | [Imported local body envelope](../measurements/2026/ImportedLocalBodyEnvelope01.json) | Two independent processes re-emit the body-free configuration partition and local-body envelope. The disclosed resolved atom and selected mark agree with the two separate owners. |
 | [Held-out signed Top-plane boxes](../measurements/2026/AttachedTopBoxHeldoutNative01.json) | Both original native source hashes precede the frozen writer. Four guarded builds and six fresh native processes pass, with 726 candidate comparisons through independent edits and eight saved variants reopened. |
 | [Imported base-body witness replay](../measurements/2026/ImportedBaseBodyWitnessReplay01.json) | Two independent processes re-emit all five linked streams exactly from the disclosed typed schema 1 witness. The suffix producer fields and kernel publication remain open. |

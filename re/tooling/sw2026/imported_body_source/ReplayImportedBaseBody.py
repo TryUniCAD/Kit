@@ -64,9 +64,9 @@ def witness_grammar(module_name):
         module.MakeResolvedCtx = ordinary
 
 
-def measure(path):
+def measure(path, expected_sha256=SOURCE):
     raw = path.read_bytes()
-    require(sha256(raw).hexdigest() == SOURCE, "use the exact disclosed imported source witness")
+    require(sha256(raw).hexdigest() == expected_sha256, "use the exact disclosed imported source witness")
     archive = SldprtArchive.from_bytes(raw)
     with witness_grammar("ReadResolvedMut"):
         link = ReadNativeLink(archive, 0)
@@ -87,15 +87,17 @@ def measure(path):
             "a linked witness stream changed on typed re-emission")
     imported, = (node for node in graph.RootsValue if node.ClassValue.NameValue == CLASS)
     fields = imported.FieldsValue
+    atom, = (row["o"] for row in fields["f528"]["items"])
     text = [fields[f"import_suffix_{index}_text"] for index in ("first", "second")]
     words = [fields[f"import_suffix_{index}_word"] for index in ("first", "second")]
     return {
         "schema": "kit.sw2026.imported-base-body-witness-replay.v1",
-        "source_sha256": SOURCE, "feature_id": fields["f08"], "feature_name": ReadNativeName(imported),
+        "source_sha256": expected_sha256, "feature_id": fields["f08"], "feature_name": ReadNativeName(imported),
         "model_version": link.ConfigValue.VersionValue, "config_map": seed.MapValue.CounterValue,
         "resolved_map": graph.MapValue.CounterValue, "resolved_base": graph.MapBase,
         "class": CLASS, "runtime_schema": imported.ClassValue.SchemaValue,
         "observed_suffix_text": text, "observed_suffix_words": words,
+        "atom_body_name": None if atom.FieldsValue["f18"] is None else ReadNativeName(atom),
         "matched_streams": {name: {"bytes": len(data), "sha256": sha256(data).hexdigest()} for name, data in matched.items()},
         "suffix_producer_fields_classified": False, "heldout_payloads_read": 0, "native_writer_outputs": 0,
     }

@@ -99,6 +99,11 @@ and their checked public observations. The sealed cohort remains private.
 [Feature name API](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IFeature_members.html)
 · [Body name API](https://help.solidworks.com/2024/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IBody2~Name.html)
 
+Use [InspectImportedBodyContrast.py](InspectImportedBodyContrast.py) with
+the completed packet and `--native-receipt-sha256`. It checks all three
+disclosed source identities, the field and attribute owners, and exact
+re-emission of the seven measured streams for each case.
+
 ## Observe a standalone body in the native kernel
 
 Run [ObserveKernelBodyRestore.py](ObserveKernelBodyRestore.py) from a

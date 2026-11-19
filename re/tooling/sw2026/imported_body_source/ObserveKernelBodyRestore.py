@@ -37,6 +37,7 @@ def verify_job(path, checksum):
     require(job["schema"] == SCHEMA and job["executable_sha256"] == ORACLE
             and job["file_version"] == VERSION and re.fullmatch(r"[0-9a-f]{40}", job["tool_revision"]),
             "kernel restore job identity differs")
+    require(job["restore_binding"] in ("dynamic", "typed_unknown"), "invalid native Restore binding")
     destination = Path(job["guest_directory"])
     require(destination.parent == Path("C:\\") and re.fullmatch(r"KitKernelRestore[0-9]{2}", destination.name),
             "use a fresh guest-local kernel observation directory")
@@ -125,7 +126,7 @@ def prepare_stream(observer, modeler, candidate):
     return stream, raw
 
 
-def phase(directory, label, expected, candidate=None):
+def phase(directory, label, expected, candidate, binding):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -141,7 +142,11 @@ def phase(directory, label, expected, candidate=None):
             modeler = observer.typed(observer.get(controller.app, "GetModeler"), "Modeler")
             stream, raw = prepare_stream(observer, modeler, candidate)
             result["payload"] = {"bytes": len(raw), "sha256": sha256(raw).hexdigest()}
-            body = observer.get(modeler, "Restore", stream)
+            if binding == "typed_unknown":
+                interface = stream.QueryInterface(Swapp.pythoncom.IID_IUnknown)
+                body = rec.call("typed IModeler.Restore(IUnknown)", modeler.Restore, interface)
+            else:
+                body = observer.get(modeler, "Restore", stream)
             require(body is not None, "IModeler.Restore returned no body")
             body = observer.typed(body, "Body2")
             result["restored"] = measure_body(observer, body, expected, temporary=True)
@@ -187,7 +192,8 @@ def run(path, checksum):
     copyfile(path.parent / pristine.name, pristine)
     checked(pristine, CONTROL)
     receipt = {"schema": SCHEMA, "job_sha256": checksum, "tool_revision": job["tool_revision"], "oracle_file_version": VERSION,
-               "oracle_sha256": ORACLE, "passed": False, "phases": [], "native_writer_outputs": 0}
+               "oracle_sha256": ORACLE, "restore_binding": job["restore_binding"],
+               "passed": False, "phases": [], "native_writer_outputs": 0}
 
     def record(name, role, method, *args):
         receipt["stage"] = name
@@ -202,18 +208,19 @@ def run(path, checksum):
         return result["passed"]
 
     with (directory / "Oracle.log").open("x", encoding="utf-8") as log, redirect_stdout(log), redirect_stderr(log):
+        binding = job["restore_binding"]
         initial_app = record("ApplicationBefore", "native_application_control", control, directory, "ApplicationBefore", pristine)
-        initial_body = initial_app and record("Before", "native_stream_control", phase, directory, "Before", expected_box())
+        initial_body = initial_app and record("Before", "native_stream_control", phase, directory, "Before", expected_box(), None, binding)
         try:
             if initial_body:
                 for name, case in job["cases"].items():
                     raw = checked(path.parent / (name + ".x_b"), case["sha256"]).read_bytes()
-                    record(name, case["role"], phase, directory, name, case["expected"], raw)
+                    record(name, case["role"], phase, directory, name, case["expected"], raw, binding)
         except Exception as error:
             receipt["input_error"] = type(error).__name__
             print(repr(error))
         finally:
-            final_body = record("After", "native_stream_control", phase, directory, "After", expected_box())
+            final_body = record("After", "native_stream_control", phase, directory, "After", expected_box(), None, binding)
             final_app = record("ApplicationAfter", "native_application_control", control, directory, "ApplicationAfter", pristine)
     identities = [entry.get("oracle_identity") or {} for entry in receipt["phases"]]
     unique = {(item.get("process_id"), item.get("process_creation_filetime")) for item in identities}

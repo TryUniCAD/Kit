@@ -7,6 +7,10 @@ and a pristine part open bracket the run. The packet declares the file
 hash, topology, vertex coordinates and mass properties of each supplied
 body. The observer uses a fresh exact-build process for each lane.
 
-This probe measures kernel reception and attachment through COM. Native
-writer and archive acceptance require their own cold open, save and
-fresh-reopen procedures. The first kernel observation is pending.
+The [first binding receipt](../../../../../re/solidworks/measurements/2026/LocalKernelDynamicRestore01.json)
+records two successful pristine application controls and two failed native
+stream controls. Both same-method native streams reach
+`IModeler::Restore`, which returns `0x80004002` before a body is returned.
+The packet opens no candidate. The generated IUnknown binding has a separate
+control lane. Native writer and archive acceptance require their own cold
+open, save and fresh-reopen procedures.

@@ -85,9 +85,9 @@ Header2 from typed objects. The final Config-0 and ResolvedFeatures map
 counts are 107 and 180. The codec requires the exact disclosed source
 hash and the measured context. The
 [replay receipt](../measurements/2026/ImportedBaseBodyWitnessReplay01.json)
-records hashes and lengths for all five streams. Source classification
-for the four subclass fields and the other version and mode branches
-remain open.
+records hashes and lengths for all five streams. The subclass fields
+are classified below for the ordinary local-body branch. Other
+version and mode branches remain open.
 
 ## Separate local body storage
 
@@ -122,8 +122,34 @@ before calling the body loader at `0x4c253660`.
 Two [independent envelope probes](../measurements/2026/ImportedLocalBodyEnvelope01.json)
 reconstruct both streams byte-for-byte from their measured fields. The
 [local body storage gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/ImportedBodyOwnsLocalStorage.md)
-records the separate partition and payload locations. The native name
-contrast and fresh geometry generation remain separate tasks.
+records the separate partition and payload locations.
+
+## Ordinary subclass producer fields and name owners
+
+Three [disclosed native contrasts](../measurements/2026/ImportedBodyNamesContrast01.json)
+cover a different translated solid, a renamed import feature and an
+explicitly named body under the same renamed feature. Each is authored
+and reopened in a separate process. Both controls pass. Two independent
+host readers reproduce seven complete streams per part.
+
+| Wire field | Role in the observed branch | Exact-build evidence |
+| --- | --- | --- |
+| First CString | Optional source filename. Empty for the measured direct modeler import. | Shared import save at `0x1802fd108` passes the CString at object offset `0x808`. The exported filename getter at `0x1800fc940` reads the same owner. |
+| First i32 | Local-body route switch. One for the exercised stored local body. | The writer at `0x1802fd267–0x1802fd289` derives the switch from the available body and the local-storage predicate. The zero branch has separate inline-body behavior. |
+| Second CString | Local feature storage key. The measured ordinary import uses the actual feature label. | The shared serializer writes the local key after the route switch. In every disclosed source the UTF-16 key matches its LocalBodies group and changes with the feature label. |
+| Final i32 and elements | Count and ordered IDs of segment-mesh features. A plain solid has no IDs. | The wrapper at `0x1802fcba0–0x1802fcbdd` computes the count as the difference of the two vector pointers divided by four, then writes each i32. The exported add method at `0x1802fe4e0` updates that vector. |
+
+The feature-only rename uses `Transfer Δ17` as both its actual feature
+label and its local group key. The cold default body label follows it.
+An explicit body rename to `Casting Ω72` leaves both feature fields
+unchanged. Its authoritative Unicode value is the actual resolved
+atom's `moNodeName_c`. The payload's `SDL/TYSA_NAME` attribute stores
+`Casting O72` in the same save. The native reader returns the original
+Unicode label. This agrees with the ordinary part
+[Unicode body-name ownership](NamedBodyUnicodeRead2026.md).
+
+The compatibility-name projection, full generated body tracking and
+public writer qualification remain open.
 
 The source protocol writes vendor-authored control and source files.
 The Kit writer, generated native fallback and public capability-loss
