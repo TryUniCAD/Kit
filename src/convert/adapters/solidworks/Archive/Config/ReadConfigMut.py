@@ -28,15 +28,18 @@ def ReadConfigMut(
     UsageValue: BodyUsage | None = None,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
     ReadItems: Callable[[ArchiveNode], tuple[ArchiveNode, ...]] = ReadHeadItems,
+    PartRelations: bool = False,
 ) -> ConfigGraph:
-    ContextValue = MakeConfigCtx(VersionValue, HeaderValue, UsageValue, ReadItems)
+    ContextValue = MakeConfigCtx(
+        VersionValue, HeaderValue, UsageValue, ReadItems, PartRelations=PartRelations
+    )
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
         ArchiveMaps(1),
         PartialValue(ReadBodyMut, ContextValue),
         NodeFactory=NodeMaker,
     )
-    RootValue = RequireConfig(ReadNodeMut(ReaderValue))
+    RootValue = RequireConfig(ReadNodeMut(ReaderValue), PartRelations=PartRelations)
     if ReaderValue.Cursor.GetRemaining() != 0:
         raise BodyUnsupported(
             f"SOLIDWORKS configuration has {ReaderValue.Cursor.GetRemaining()} trailing bytes"

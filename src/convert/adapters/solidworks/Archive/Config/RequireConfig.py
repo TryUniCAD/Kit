@@ -4,7 +4,9 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # complete configuration admission excludes drawing headers and unrelated rooted archive objects
-def RequireConfig(NodeValue: ArchiveNode | None) -> ArchiveNode:
+def RequireConfig(
+    NodeValue: ArchiveNode | None, *, PartRelations: bool = False
+) -> ArchiveNode:
     if NodeValue is None or not isinstance(NodeValue.ClassValue, RuntimeClass):
         raise BodyUnsupported(
             "ordinary configuration requires a concrete part or assembly root"
@@ -16,4 +18,6 @@ def RequireConfig(NodeValue: ArchiveNode | None) -> ArchiveNode:
         raise BodyUnsupported(
             "ordinary configuration requires a current part or assembly root"
         )
+    if PartRelations and NodeValue.ClassValue.NameValue != "moPart_c":
+        raise BodyUnsupported("part equation archive requires a current part root")
     return NodeValue

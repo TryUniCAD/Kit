@@ -12,6 +12,9 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ConfigVirtuals im
     KConfigVirtuals,
 )
 from convert.adapters.solidworks.Archive.Bodies.NewBodyUsage import NewBodyUsage
+from convert.adapters.solidworks.Archive.Config.UsePartRelationsMut import (
+    UsePartRelationsMut,
+)
 from convert.adapters.solidworks.Archive.Header.HeaderRefNodes import HeaderRefNodes
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
@@ -22,10 +25,12 @@ def MakeConfigCtx(
     HeaderValue: ArchiveNode,
     UsageValue: BodyUsage | None,
     ReadItems: Callable[[ArchiveNode], tuple[ArchiveNode, ...]],
+    *,
+    PartRelations: bool = False,
 ) -> BodyContext:
     UsageValue = NewBodyUsage(VersionValue, UsageValue)
     DirectNodes = HeaderRefNodes(HeaderValue, VersionValue, ReadItems)
-    return BodyContext(
+    ContextValue = BodyContext(
         VersionValue,
         KConfigLayouts,
         KConfigVirtuals,
@@ -33,3 +38,6 @@ def MakeConfigCtx(
         UsageValue,
         DirectNodes=DirectNodes,
     )
+    if PartRelations:
+        UsePartRelationsMut(ContextValue)
+    return ContextValue

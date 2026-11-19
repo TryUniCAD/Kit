@@ -22,9 +22,12 @@ def WriteConfigMut(
     *,
     UsageValue: BodyUsage | None = None,
     ReadItems: Callable[[ArchiveNode], tuple[ArchiveNode, ...]] = ReadHeadItems,
+    PartRelations: bool = False,
 ) -> tuple[bytes, ConfigGraph]:
-    RootValue = RequireConfig(RootValue)
-    ContextValue = MakeConfigCtx(VersionValue, HeaderValue, UsageValue, ReadItems)
+    RootValue = RequireConfig(RootValue, PartRelations=PartRelations)
+    ContextValue = MakeConfigCtx(
+        VersionValue, HeaderValue, UsageValue, ReadItems, PartRelations=PartRelations
+    )
     WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteBodyMut)
     WriteNodeMut(WriterValue, RootValue)
     CheckConfigLink(ContextValue)
