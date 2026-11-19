@@ -221,6 +221,30 @@ records those 60 additional byte-exact comparisons.
 The first generated packet reached a healthy geometric rebuild of the
 pristine control and failed to confirm that its process exited. It
 opened zero candidates. The accepted batch uses the same three generated
-files and a guest-local copy of the immutable control. Held-out source
-evaluation, public writer registration and original benchmark membership
-remain open.
+files and a guest-local copy of the immutable control.
+
+## Locked native Top-plane boxes
+
+The two original native source hashes were committed in `e7bedf0df`, an
+ancestor of writer revision `46f2463df`. The guest verified both source
+hashes before projection and rechecked every original source and edited
+control afterward. The projector at `5879f1749` fed the frozen writer a
+neutral-only request. Four guarded builds reproduce each of the two new
+parts twice with zero runtime input reads. Both outputs have ten streams
+and their container sizes differ.
+
+Six fresh SP05.2 processes passed, including the two pristine controls.
+The four candidate phases pass 726 numeric comparisons at relative
+tolerance `2e-7` and the observer's per-quantity absolute tolerances.
+Each candidate retains its signed rectangle and actual Top-plane and
+model-origin owners, reversed blind boss, three driving dimensions and
+one solid. The observer checks topology, volume, area and centre of mass.
+Both generated originals and all six independent parameter edits save
+and reopen with zero rebuild diagnostics.
+
+The [held-out receipt](../measurements/2026/AttachedTopBoxHeldoutNative01.json)
+links the frozen revisions, every observed phase and the generated and
+native-saved hashes. All source, candidate and saved files remain within
+the guest. The result qualifies the measured construction and editing
+behavior. Public writer registration, broader presentation parity and
+original FCStd benchmark membership remain open.

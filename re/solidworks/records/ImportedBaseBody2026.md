@@ -58,6 +58,37 @@ shared. REA evidence ID
 identifies the exact-image analysis. The linked body, marks and
 partition publication still need correlation with the disclosed native save.
 
+## Schema 1 witness replay
+
+The measured class uses the shared `moBodyFeature_c` trunk. The primary
+vtable at `0x180492e28` binds `SerializeLWData` through slot `0x4b8`,
+`SerializeResolvedData` through `0x4c0`, the node's XML ID extraction
+through `0x3f8`, and `SerializeXmlData` through `0x3e8`. In the exact
+`sldmodu.dll` image (SHA-256
+`569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e`),
+the imported `moNode_c::getIdForXmlDataExtracter` at `0x4c03e170` publishes
+the actual node key and returns true.
+
+The disclosed part uses model version 19000 and all three archive
+context flags set to one (`model_is_part`, `model_compressed_stream`
+and `cmgr_f658`). The base consumes 305 bytes and advances the inherited
+object map from 178 to 180. Its position in this file is 5,737 through
+6,041 inclusive. The subclass then consumes a 34-byte suffix consisting
+of CString, signed i32, CString and signed i32, in that order. The
+observations are the empty string, 1, `Imported1` and 0. The four-byte
+resolved trailer belongs to the shared stream framing.
+
+Two independent runs of the
+[witness codec](../../tooling/sw2026/imported_body_source/ReplayImportedBaseBody.py)
+re-emit all bytes of Config-0, ResolvedFeatures, CMgr, ModelHeader and
+Header2 from typed objects. The final Config-0 and ResolvedFeatures map
+counts are 107 and 180. The codec requires the exact disclosed source
+hash and the measured context. The
+[replay receipt](../measurements/2026/ImportedBaseBodyWitnessReplay01.json)
+records hashes and lengths for all five streams. Source classification
+for the four subclass fields, populated kernel attachment and the
+other version and mode branches remain open.
+
 The source protocol writes vendor-authored control and source files.
 The Kit writer, generated native fallback and public capability-loss
 report remain open.

@@ -81,8 +81,11 @@ The [source receipt](../../../solidworks/measurements/2026/ImportedBaseBodySourc
 binds four disclosed and six sealed phases with healthy controls. The
 [archive record](../../../solidworks/records/ImportedBaseBody2026.md)
 identifies the serialized `moBaseBody_c` schema 1 wrapper and its shared
-import serializer. Its body, atom and partition ownership remain to be
-correlated. The two sealed sources remain private during that work.
+import serializer. Invoke `python3 -B ReplayImportedBaseBody.py DISCLOSED_SOURCE`
+with the exact disclosed hash to measure five byte-exact linked streams
+through the schema 1 archive trunk. The script reports hashes and measured
+field order. Its body, atom and partition ownership remain to be correlated.
+The two sealed sources remain private during that work.
 
 The packet authors source fixtures through SOLIDWORKS. It records zero Kit
 writer outputs and zero native writer acceptance. The public conversion route

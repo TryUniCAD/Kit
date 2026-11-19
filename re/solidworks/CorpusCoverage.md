@@ -30,8 +30,12 @@ derives three editable SOLIDWORKS parts from the disclosed F14c inputs
 under three FreeCAD releases. Eight native processes pass all 1,089 candidate
 comparisons through independent edits, native saves and fresh reopens.
 The initial files read strictly back to their signed geometry in Kit.
-Public writer registration, held-out acceptance and the original benchmark
-membership remain open. The trial adds zero benchmark conversion credits.
+The [locked native-source evaluation](measurements/2026/AttachedTopBoxHeldoutNative01.json)
+passes two independent signed boxes and both controls in six fresh processes.
+Both articles retain three independently editable dimensions, the signed
+solid and the feature history through save and reopen. Public writer
+registration and original FCStd benchmark membership remain open. The native
+holdouts and disclosed trials add zero benchmark conversion credits.
 
 The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
 preserve a live sketch-dimension dependency across edits, saves and fresh reopens.

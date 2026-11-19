@@ -11,4 +11,9 @@ three driving dimensions, reversed blind boss and solid geometry. The original
 and edited native source models stay inside the guest. The
 [source receipt](../../../../../re/solidworks/measurements/2026/AttachedTopBoxSourcesNative01.json)
 binds the pre-writer hashes. See the [packet procedure](../../../../../re/tooling/sw2026/attached_top_box_source/README.md#evaluate-the-locked-sources).
-Native held-out observations are pending.
+The [held-out native receipt](../../../../../re/solidworks/measurements/2026/AttachedTopBoxHeldoutNative01.json)
+records two accepted cases across six fresh processes with both controls
+healthy. The four candidate phases pass 726 comparisons and reopen eight
+native-saved variants. All four guarded builds record zero runtime input
+reads. The evaluator covers the described construction. Public writer
+registration and FCStd benchmark membership remain open.
