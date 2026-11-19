@@ -59,7 +59,7 @@ PowerShell command. Use absolute guest paths and the preparer's exact job digest
 ```
 
 The disclosed batch uses four distinct SOLIDWORKS processes. The sealed batch
-uses six. The fixed pristine control brackets each batch, using the same
+uses six. A guest-local copy of the fixed pristine control brackets each batch, using the same
 [control function](../AuthorRectangleAnchors.py#L279) and
 [versioned COM session](../Swapp.py#L214) as existing source probes.
 Each sample has one process for native authoring, rebuild and save and

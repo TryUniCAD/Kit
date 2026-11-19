@@ -194,6 +194,9 @@ def run(job_path, expected):
     public = job_path.parent / "Result.json"
     require(not public.exists(), "source receipt already exists")
     root.mkdir()
+    seed = root / "Control.SLDPRT"
+    copyfile(job_path.parent / seed.name, seed)
+    require(digest(seed) == CONTROL, "the guest-local pristine control changed")
     private_cases = cases(job["cohort"])
     specifications = root / "SourceSpecifications.json"
     write_json(specifications, private_cases)
@@ -222,7 +225,6 @@ def run(job_path, expected):
         require(result["passed"] and identity is not None, "native source phase failed")
         return result
 
-    seed = job_path.parent / "Control.SLDPRT"
     with (root / "Oracle.log").open("x", encoding="utf-8") as log, redirect_stdout(log), redirect_stderr(log):
         try:
             measure("ControlBefore", control, root, "ControlBefore", seed)
