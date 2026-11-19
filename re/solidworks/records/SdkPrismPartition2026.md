@@ -17,3 +17,18 @@ Run [the preparation tool](../../tooling/sw2026/PrepareSdkPrismAttachment.py) wi
 Four independent regression workers also reproduce the two measured cache-bearing prism pairs at their exact prior byte hashes. The first new guard attempt encountered a lazy validator import before construction. The successful runs warm the actual neutral validator before activating the data audit. [Host replay](../measurements/2026/SdkPrismAttachmentHost01.json)
 
 Native comparison requires cold exposure of a correct solid, exact editable depth, ordinary rebuild, save and a fresh reopen alongside passing controls. This tranche keeps public registration and held-out qualification separate.
+
+## Native result
+
+Both SDK-generated parts expose one correct solid before any explicit rebuild,
+with zero errors or warnings and a clear rebuild state. First-open volume,
+surface area and centre of mass match the independent neutral calculations.
+The rectangle's depth changes from 12.75 to 10.24 mm. The concave prism's
+depth changes from 18.625 to 22.125 mm. Both changes survive clean rebuild,
+save and fresh reopen. All six processes pass, including two pristine native
+controls. [Native lifecycle](../measurements/2026/SdkPrismAttachmentNative01.json)
+
+The normal Kit reader recovers one body and nineteen feature rows from each
+output. Its informational name diagnostic still identifies the environment
+owner. Source-preserved lighting semantics and public partition emission
+remain open.
