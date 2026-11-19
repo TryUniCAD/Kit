@@ -1,0 +1,5 @@
+# Adjacent-unit native equation source cohort
+
+Records the exact native global-assignment matrix: adjacent explicit units publish while the otherwise identical spaced unit form is rejected. Adds an immutable source-only lifecycle retry that changes that lexical boundary and preserves all original geometry, owners, edits, controls, save/reopen and preference restoration checks.
+
+The disclosed matrix passes 414 numeric comparisons across three fresh applications. The new two-case lifecycle has six passing host process gates and no native result at its freeze. Guest-only preparation retains any existing private intent unchanged and never exposes private values on the host. See the [finding and protocol](../../../../../re/solidworks/records/EquationGlobalUnitAdjacency2026.md), [native matrix receipt](../../../../../re/solidworks/measurements/2026/EquationGlobalSyntaxNative01.json) and [unit-suffix gotcha](../../../../Gotchas/Conversion/Solidworks/Oracle/Equations/GlobalUnitSuffixRejectsInternalSpace.md).
