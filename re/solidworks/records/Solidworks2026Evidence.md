@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Saved drawing configuration index text](../measurements/2026/DrawingViewIndexTextProcess01.json) | Six disclosed drawings index the plain-text configuration from the actual Definition. The 56-process replay preserves the raw stream, map counters and public partial reads and refuses 11 malformed variants. |
 | [Linear pattern store geometry](LocalLinearPatternStoreLifecycle2026.md) | Twenty native functions bind the independent local vector and point defaults, null-reference preservation, and concrete component dispatch. The selected source receiver still needs native confirmation. |
 | [Public concentric mate reader](../measurements/2026/PublicConcentricMateRead01.json) | Both default and metadata-only reads preserve all twelve measured native endpoints. The integrated 76-process replay covers 22 malformed cases, four existing planar families and unchanged disabled resolution. |
 | [Drawing system-scale owner](../measurements/2026/DrawingSystemScaleOwners01.json) | Thirty-four exact Definition checks locate the empty schema-one row in the drawing's units table. All 24 measured saved states contain it. Six fresh inputs omit it while retaining their measured view scales. |

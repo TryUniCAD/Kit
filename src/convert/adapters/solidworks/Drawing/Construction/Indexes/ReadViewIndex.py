@@ -32,10 +32,12 @@ def ReadViewIndex(ViewValue: ArchiveNode) -> DrawViewIndex:
         "value"
     ]
     ConfigName = ConfigValue["f08"]
+    if isinstance(ConfigName, CStringValue):
+        ConfigName = ConfigName.TextValue
     if (
         not isinstance(PathText, CStringValue)
         or not isinstance(ModelName, CStringValue)
-        or not isinstance(ConfigName, CStringValue)
+        or type(ConfigName) is not str
     ):
         raise ValueError("drawing indexes require actual typed generated child strings")
     PathValue = PureWindowsPath(PathText.TextValue)
@@ -52,10 +54,10 @@ def ReadViewIndex(ViewValue: ArchiveNode) -> DrawViewIndex:
         NeedConceptNode(ViewValue.FieldsValue["f18"], "moNodeName_c").FieldsValue, "f08"
     )
     CheckDrawText(NameValue, True)
-    CheckDrawText(ConfigName.TextValue, True)
+    CheckDrawText(ConfigName, True)
     ConfigId = FieldInt(ConfigValue, "f10")
     if not 0 <= ConfigId < 2147483647:
         raise ValueError(
             "drawing view index requires an actual allocated configuration id"
         )
-    return DrawViewIndex(NameValue, PathValue, ConfigName.TextValue, ConfigId)
+    return DrawViewIndex(NameValue, PathValue, ConfigName, ConfigId)

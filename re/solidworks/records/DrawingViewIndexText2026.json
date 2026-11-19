@@ -1,0 +1,76 @@
+{
+  "constructor_representation": "MakeFileConfig creates f08 as CStringValue(actual configuration name, True)",
+  "decoded_schema": {
+    "class": "moReferencedConfiguration_c",
+    "fields": [
+      [
+        "text",
+        "f08"
+      ],
+      [
+        "i32",
+        "f10"
+      ]
+    ]
+  },
+  "delivery_pr": 121,
+  "dependencies": [
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Construction/Indexes/ReadViewIndex.py",
+      "sha256": "03969f0bad9bf1d36e55a23725ad1d7af1b5f1ce657edbf866ad0bb4d1dbcc78"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/ConceptShapes.py",
+      "sha256": "462ab9381615e49ea7ef715b8e9591a62cd04552d46e03af9b1e6fa5b5eb355f"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Files/MakeFileConfig.py",
+      "sha256": "953cf773e15b30d2d80c347cff312ac9a53750a802d948449eaf7c3d02d10037"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Construction/Sheet/CheckDrawText.py",
+      "sha256": "305ef4cf79453671e03d55906b921b22d4d0ed2daf28224fddbedfcc7d981608"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Metadata/JoinModelRef.py",
+      "sha256": "a3d13492506d10d4bb40b2a3cc084b95d0ef6a8489b24dd75e6f49c5d2ebebb2"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Drawing/Construction/Profiles/CheckOriginLink.py",
+      "sha256": "4d2b0175c325e0ad327e5c2a3b86ce632eeaf2b03641022dfa3f3ba70131e7b7"
+    }
+  ],
+  "existing_records": [
+    "re/solidworks/records/DrawingProfileDisplayRetention2026.md",
+    "re/solidworks/records/DrawingReferenceChainArchive2026.md",
+    "re/solidworks/records/DrawingComponentProfileArchive2026.md",
+    "re/solidworks/records/DrawingOriginProfileLinkage2026.md",
+    "re/solidworks/records/DrawingOriginPortableProjection2026.md"
+  ],
+  "field_chain": [
+    "moAbsoluteView.f5d8 -> moReferenceInternal_c",
+    "moReferenceInternal_c.f3c0 -> embedded moReferencedConfiguration_c",
+    "moReferencedConfiguration_c.f08 -> native text -> decoded str",
+    "moReferencedConfiguration_c.f10 -> signed selected configuration local ID",
+    "moReferenceInternal_c.f3b0 -> moExtObject_c.shared -> child name/path handles"
+  ],
+  "graph_mutation": false,
+  "measured_receipt": "re/solidworks/measurements/2026/DrawingViewIndexTextProcess01.json",
+  "measured_receipt_sha256": "e78ee10f335495d672d62d9fa3bbe9dbf7e957819933aaf7629c8e8b6d7967d4",
+  "native_evidence_scope": "The existing reference-chain and origin-linkage records supply the native field ownership. This tranche does not claim a newly discovered f48 target or infer ownership from aliases.",
+  "native_module": {
+    "build": "SOLIDWORKS 2026 SP05.2",
+    "bytes": 46536280,
+    "name": "sldmodu.dll",
+    "preferred_base": "0x4b140000",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "next_acceptance": "Root independently replays before applying the delta, verifies exact base/result hashes, then performs normal repository static/CI checks. No public strict-admission change is requested.",
+  "normalization_rule": "Read-only unwrap of CStringValue.TextValue if present; then require exact str and retain the existing text, file identity and local-ID guards",
+  "original_drawing_common_child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+  "owner": "configuration_header",
+  "schema": "kit.sw2026.drawing-view-index-text-evidence.v1",
+  "scope": "One typed read-helper representation boundary after decoding an ordinary external child configuration selector",
+  "task_id": "PR121-DRAWING-VIEW-INDEX-TEXT",
+  "wire_layout_change": false
+}
