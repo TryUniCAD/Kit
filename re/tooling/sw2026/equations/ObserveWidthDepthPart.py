@@ -7,6 +7,16 @@ import AuthorEquationSources01 as equations
 from AuthorCurves import Recorder, digest, require
 
 
+class PlainPartObserver(equations.EquationAuthor):
+    def read_equations(self, case, edited):
+        require(self.eq(self.manager(), "GetCount", 1) == 0, "the plain control owns an equation")
+        return []
+
+    def source_snapshot(self, case, edited):
+        fixed_depth = {**case, "width_mm": case["edit_width_mm"]} if edited else case
+        return super().source_snapshot(fixed_depth, False)
+
+
 def load_job(path, expected):
     require(digest(path) == expected, "the frozen width/depth job changed")
     job = json.loads(path.read_bytes())
@@ -30,8 +40,13 @@ def load_job(path, expected):
         Path(__file__).resolve().parent == path.resolve().parent / "Tools",
         "run the observer from the verified packet",
     )
-    for entry in job["cases"].values():
+    for role, entry in job["cases"].items():
         require(entry["path"] in job["files"], "undeclared native part input")
+        if "plain_control" in entry:
+            require(
+                type(entry["plain_control"]) is bool and role in ("Alpha", "Beta"),
+                "the plain-control lane must use a declared candidate role",
+            )
     return job
 
 
@@ -64,7 +79,11 @@ def inspect(path, job, role, reopen=False, prior=None):
     record = Recorder(output / "Record.json", {"role": phase, "input_sha256": checksum})
     case = spec["case"]
     metadata = json.loads((root / "ApiMetadata01.json").read_bytes())
-    result = {"open_status": None, "passed": False, "input_sha256": checksum}
+    plain_control = spec.get("plain_control", False)
+    result = {
+        "open_status": None, "passed": False, "input_sha256": checksum,
+        "plain_control": plain_control,
+    }
     controller = None
     with Swapp.Dismisser() as dialogs:
         try:
@@ -80,7 +99,8 @@ def inspect(path, job, role, reopen=False, prior=None):
             result["oracle_identity"] = identity
             record.data["oracle_identity"] = identity
             record.flush()
-            author = equations.EquationAuthor(controller.app, record, Swapp, metadata)
+            observer_kind = PlainPartObserver if plain_control else equations.EquationAuthor
+            author = observer_kind(controller.app, record, Swapp, metadata)
             model, error, warning = record.call(
                 "open the frozen native part",
                 controller.open, input_path, read_only=not edit,
