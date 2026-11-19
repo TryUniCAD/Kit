@@ -11,3 +11,5 @@ Original PE metadata replay passed three module pins, 17 complete functions, fiv
 [Exact source rules and limits](../../../../../../re/solidworks/records/DrawingRebuildClearQueue2026.md)
 
 [Preparation receipt](../../../../../../re/solidworks/measurements/2026/DrawingRebuildClearQueuePreparation01.json)
+
+Four clean native phases pass. The generated and native drawings both have the expected handler and an empty clear-all queue at every sampled point. [Native snapshots](../../../../../../re/solidworks/measurements/2026/DrawingRebuildClearQueueNative01.json)

@@ -51,3 +51,7 @@ At open, pre-rebuild, post-rebuild and redraw, it reads handler `+0x28`, recheck
 The same query/read `0x410` process rights, PID/FILETIME ownership checks, fresh COM lifecycle and healthy controls are retained. All 11 earlier tools and disclosed CAD inputs are byte-identical. The two added tools contain no save, bitmap, text, preference, debug or remote-code operation. Runtime pointers remain in the private raw reports only. Native collection and full source/held-out acceptance remain pending.
 
 [Preparation and custody receipt](../measurements/2026/DrawingRebuildClearQueuePreparation01.json)
+
+## Native snapshots
+
+The [native result](../measurements/2026/DrawingRebuildClearQueueNative01.json) completes four fresh processes with two healthy pristine brackets. A valid source-bound handler is present in all 16 snapshots. Its clear-all queue is empty after open, just before rebuild, just after rebuild and after redraw. The native source and generated drawing agree at all measured points. The reads are stable on the first bounded attempt. An entire in-call queue transition can fall between snapshots. The next scope is the active drawing's layer-zero invalidation and actual annotation publication. Raw result SHA-256 `6ccbd78f169b48cf169eb7f7be66759ce9802beef25c406aa679fd4db8e23a8d`.
