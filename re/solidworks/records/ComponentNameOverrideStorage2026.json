@@ -1,0 +1,546 @@
+{
+  "archive_version": 19000,
+  "build": "34.5.2.0604",
+  "confidence": "confirmed exact-build static ownership; native effect unqualified",
+  "data_windows": [
+    {
+      "bytes": 23,
+      "end_exclusive": "0x31a0ff07",
+      "module": "sldarchiveu.dll",
+      "name": "overridden reference ID key",
+      "sha256": "19f01f7d07edfebf8c66862fc1dadcfbab2bbfa67f9b10652d2fec66e4a20f34",
+      "start": "0x31a0fef0"
+    },
+    {
+      "bytes": 68,
+      "end_exclusive": "0x31a0fe74",
+      "module": "sldarchiveu.dll",
+      "name": "separate configuration database stream",
+      "sha256": "994e3936ca8daac14222622e2f1a6a9c461fe85ecaac865f809e896b59f2da52",
+      "start": "0x31a0fe30"
+    },
+    {
+      "bytes": 18,
+      "end_exclusive": "0x31a0feb2",
+      "module": "sldarchiveu.dll",
+      "name": "ordinary manager header stream",
+      "sha256": "03e53e170075be4d54ebe33c3c0ab02cdbabc1dc08f04525ce416ded05ee6dab",
+      "start": "0x31a0fea0"
+    },
+    {
+      "bytes": 8,
+      "end_exclusive": "0x4cf7a8b0",
+      "module": "sldmodu.dll",
+      "name": "moReference_c primary locator",
+      "sha256": "bb1b6989721614c29e835d05671b75126bd76b3610429a6719ba25a757d6c297",
+      "start": "0x4cf7a8a8"
+    },
+    {
+      "bytes": 24,
+      "end_exclusive": "0x4d335bd8",
+      "module": "sldmodu.dll",
+      "name": "moReference_c complete object locator",
+      "sha256": "41514fdecd675f48ed27dc239694d02b2fb79e0dea290940e6613c84ea72807d",
+      "start": "0x4d335bc0"
+    },
+    {
+      "bytes": 20,
+      "end_exclusive": "0x4db0ea2c",
+      "module": "sldmodu.dll",
+      "name": "moReference_c RTTI owner",
+      "sha256": "345fae0ad4620cc23fd42dbc8c4c5ba5e0370a20b596c17b55f18f13ca3465a0",
+      "start": "0x4db0ea18"
+    },
+    {
+      "bytes": 8,
+      "end_exclusive": "0x4ce69b30",
+      "module": "sldmodu.dll",
+      "name": "moAssembly_c primary locator",
+      "sha256": "610efd661b874a1e0d41a1589db952a73414e71ea2ae00bc8a5bfbc84e835d9d",
+      "start": "0x4ce69b28"
+    },
+    {
+      "bytes": 24,
+      "end_exclusive": "0x4d30ec30",
+      "module": "sldmodu.dll",
+      "name": "moAssembly_c complete object locator",
+      "sha256": "77b2004ca6f0d86017d772fe8f40415b2af12e1cd93c7390019d8b541b564caa",
+      "start": "0x4d30ec18"
+    },
+    {
+      "bytes": 19,
+      "end_exclusive": "0x4db11fa3",
+      "module": "sldmodu.dll",
+      "name": "moAssembly_c RTTI owner",
+      "sha256": "871bd8fb89470523b614b5cf1dbbc70e326f88b1e20c17f65bcd286b0604cc41",
+      "start": "0x4db11f90"
+    }
+  ],
+  "functions": [
+    {
+      "bytes": 575,
+      "end_exclusive": "0x4b67758f",
+      "module": "sldmodu.dll",
+      "name": "ordinary reference SerializePass2 virtual owner",
+      "sha256": "39e307f275589e169d151ae6802a568bf9c306b7e80233a6919b2785ecdeb2e2",
+      "start": "0x4b677350",
+      "unwind_fragments": [
+        {
+          "bytes": 575,
+          "end_exclusive": "0x4b67758f",
+          "sha256": "39e307f275589e169d151ae6802a568bf9c306b7e80233a6919b2785ecdeb2e2",
+          "start": "0x4b677350",
+          "unwind_rva": "0x22d76e0"
+        }
+      ]
+    },
+    {
+      "bytes": 1262,
+      "end_exclusive": "0x4b8a2e8e",
+      "module": "sldmodu.dll",
+      "name": "?updateConfigs@moConfigurationMgr_c@@QEAAXPEAVdmConfigMgrHeader_c@@K@Z",
+      "sha256": "7fe9df58a0de0c7e8e40bf54ea2a622165334b89e0aa699455d6f335ec7a5dcf",
+      "start": "0x4b8a29a0",
+      "unwind_fragments": [
+        {
+          "bytes": 1262,
+          "end_exclusive": "0x4b8a2e8e",
+          "sha256": "7fe9df58a0de0c7e8e40bf54ea2a622165334b89e0aa699455d6f335ec7a5dcf",
+          "start": "0x4b8a29a0",
+          "unwind_rva": "0x2328fe0"
+        }
+      ]
+    },
+    {
+      "bytes": 379,
+      "end_exclusive": "0x4b8a0f8b",
+      "module": "sldmodu.dll",
+      "name": "?setUserNameOverridenRefIDs@moConfigurationMgr_c@@QEAAXAEAV?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@@Z",
+      "sha256": "73dea27adeeb59129a52c9d17cd11075377e80a3abe100d9314be29afa30cd7a",
+      "start": "0x4b8a0e10",
+      "unwind_fragments": [
+        {
+          "bytes": 379,
+          "end_exclusive": "0x4b8a0f8b",
+          "sha256": "73dea27adeeb59129a52c9d17cd11075377e80a3abe100d9314be29afa30cd7a",
+          "start": "0x4b8a0e10",
+          "unwind_rva": "0x232ae48"
+        }
+      ]
+    },
+    {
+      "bytes": 390,
+      "end_exclusive": "0x4b894756",
+      "module": "sldmodu.dll",
+      "name": "?getCopyOfUserNameOverridenRefIDs@moConfigurationMgr_c@@QEAAHAEAV?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@@Z",
+      "sha256": "1ebff851032386645e3f765be96d801e7768ddeb86842b0c25ac57673f9d9317",
+      "start": "0x4b8945d0",
+      "unwind_fragments": [
+        {
+          "bytes": 390,
+          "end_exclusive": "0x4b894756",
+          "sha256": "1ebff851032386645e3f765be96d801e7768ddeb86842b0c25ac57673f9d9317",
+          "start": "0x4b8945d0",
+          "unwind_rva": "0x232ae48"
+        }
+      ]
+    },
+    {
+      "bytes": 201,
+      "end_exclusive": "0x4bbc8b99",
+      "module": "sldmodu.dll",
+      "name": "?needsSyncNameWithXModel@moReference_c@@QEBAHXZ",
+      "sha256": "45b4e722e392cb20a91c5b0ee06bd4abe00c5a9dd887fe00eb1a38f8a666c957",
+      "start": "0x4bbc8ad0",
+      "unwind_fragments": [
+        {
+          "bytes": 201,
+          "end_exclusive": "0x4bbc8b99",
+          "sha256": "45b4e722e392cb20a91c5b0ee06bd4abe00c5a9dd887fe00eb1a38f8a666c957",
+          "start": "0x4bbc8ad0",
+          "unwind_rva": "0x2399eb4"
+        }
+      ]
+    },
+    {
+      "bytes": 3191,
+      "end_exclusive": "0x4b6b94f7",
+      "module": "sldmodu.dll",
+      "name": "?syncRefNamesWithXModel@moAssembly_c@@UEAAHPEAVmoModel_c@@PEAX@Z",
+      "sha256": "86200eddc3f55d382537e27749e59a868216d66c993afd0e7c1b07b6cc400e58",
+      "start": "0x4b6b8880",
+      "unwind_fragments": [
+        {
+          "bytes": 3191,
+          "end_exclusive": "0x4b6b94f7",
+          "sha256": "86200eddc3f55d382537e27749e59a868216d66c993afd0e7c1b07b6cc400e58",
+          "start": "0x4b6b8880",
+          "unwind_rva": "0x22db258"
+        }
+      ]
+    },
+    {
+      "bytes": 806,
+      "end_exclusive": "0x319f7596",
+      "module": "sldarchiveu.dll",
+      "name": "?Serialize@dmConfigMgrHeader_c@@UEAAXAEAVsu_CArchive@@@Z",
+      "sha256": "8859356c13c1c478bc9c6adf16aa630f9b34beaf62583f519b219873b949d52e",
+      "start": "0x319f7270",
+      "unwind_fragments": [
+        {
+          "bytes": 806,
+          "end_exclusive": "0x319f7596",
+          "sha256": "8859356c13c1c478bc9c6adf16aa630f9b34beaf62583f519b219873b949d52e",
+          "start": "0x319f7270",
+          "unwind_rva": "0x23bcc"
+        }
+      ]
+    },
+    {
+      "bytes": 463,
+      "end_exclusive": "0x319f99ef",
+      "module": "sldarchiveu.dll",
+      "name": "?saveToStorage@dmConfigMgrHeader_c@@QEAAXAEAVsuFileStorage@@@Z",
+      "sha256": "d068549ac33c24040ae71dba8d96dd77406a2e461e1859edda4d1350f8aa9de5",
+      "start": "0x319f9820",
+      "unwind_fragments": [
+        {
+          "bytes": 463,
+          "end_exclusive": "0x319f99ef",
+          "sha256": "d068549ac33c24040ae71dba8d96dd77406a2e461e1859edda4d1350f8aa9de5",
+          "start": "0x319f9820",
+          "unwind_rva": "0x23b54"
+        }
+      ]
+    },
+    {
+      "bytes": 1118,
+      "end_exclusive": "0x319faade",
+      "module": "sldarchiveu.dll",
+      "name": "?to_msgpack@dmConfigMgrHeader_c@@UEAA?AVMsgPack@msgpack11@@XZ",
+      "sha256": "119b25b00f799cca11701ef152f1968c2601f8bb04a9bf05175e2b032447bd02",
+      "start": "0x319fa680",
+      "unwind_fragments": [
+        {
+          "bytes": 1118,
+          "end_exclusive": "0x319faade",
+          "sha256": "119b25b00f799cca11701ef152f1968c2601f8bb04a9bf05175e2b032447bd02",
+          "start": "0x319fa680",
+          "unwind_rva": "0x23cd0"
+        }
+      ]
+    },
+    {
+      "bytes": 1188,
+      "end_exclusive": "0x319f8774",
+      "module": "sldarchiveu.dll",
+      "name": "?from_msgpack@dmConfigMgrHeader_c@@UEAAXAEAVMsgPack@msgpack11@@@Z",
+      "sha256": "95e7eb677689156bfa2eefc09b44933beb6c7e114c909f9c80c256dfe1d0ace3",
+      "start": "0x319f82d0",
+      "unwind_fragments": [
+        {
+          "bytes": 1188,
+          "end_exclusive": "0x319f8774",
+          "sha256": "95e7eb677689156bfa2eefc09b44933beb6c7e114c909f9c80c256dfe1d0ace3",
+          "start": "0x319f82d0",
+          "unwind_rva": "0x23db4"
+        }
+      ]
+    },
+    {
+      "bytes": 427,
+      "end_exclusive": "0x319f9deb",
+      "module": "sldarchiveu.dll",
+      "name": "?setUserNameOverridenRefIDs@dmConfigMgrHeader_c@@QEAAXAEAV?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@@Z",
+      "sha256": "152b676cfaa62d12f815c2c0bb42abe05ff0c29a05fbc2d44051309526d84179",
+      "start": "0x319f9c40",
+      "unwind_fragments": [
+        {
+          "bytes": 427,
+          "end_exclusive": "0x319f9deb",
+          "sha256": "152b676cfaa62d12f815c2c0bb42abe05ff0c29a05fbc2d44051309526d84179",
+          "start": "0x319f9c40",
+          "unwind_rva": "0x23c88"
+        }
+      ]
+    },
+    {
+      "bytes": 4216,
+      "end_exclusive": "0x18003f078",
+      "module": "doccplu.dll",
+      "name": "SolidStorage SaveConfigMgr",
+      "sha256": "e8b000a62b3e620abb04be9fcff4924e5ffb9b8503125e91cc689f655bffb021",
+      "start": "0x18003e000",
+      "unwind_fragments": [
+        {
+          "bytes": 4216,
+          "end_exclusive": "0x18003f078",
+          "sha256": "e8b000a62b3e620abb04be9fcff4924e5ffb9b8503125e91cc689f655bffb021",
+          "start": "0x18003e000",
+          "unwind_rva": "0xdc438"
+        }
+      ]
+    },
+    {
+      "bytes": 591,
+      "end_exclusive": "0x319f94cf",
+      "module": "sldarchiveu.dll",
+      "name": "manager header database save helper",
+      "sha256": "62351913b640949acb881e7107b38886eeb1bad74ce2bec0a3be1f9356dee542",
+      "start": "0x319f9280",
+      "unwind_fragments": [
+        {
+          "bytes": 591,
+          "end_exclusive": "0x319f94cf",
+          "sha256": "62351913b640949acb881e7107b38886eeb1bad74ce2bec0a3be1f9356dee542",
+          "start": "0x319f9280",
+          "unwind_rva": "0x23ed4"
+        }
+      ]
+    },
+    {
+      "bytes": 714,
+      "end_exclusive": "0x319f980a",
+      "module": "sldarchiveu.dll",
+      "name": "?loadFromStorage@dmConfigMgrHeader_c@@SAPEAV1@AEAVsuFileStorage@@PEAH@Z",
+      "sha256": "ee74c7d99546e13d937c86cf2e599f14f45c3f370d4f48e688874a24d885d905",
+      "start": "0x319f9540",
+      "unwind_fragments": [
+        {
+          "bytes": 714,
+          "end_exclusive": "0x319f980a",
+          "sha256": "ee74c7d99546e13d937c86cf2e599f14f45c3f370d4f48e688874a24d885d905",
+          "start": "0x319f9540",
+          "unwind_rva": "0x23ab8"
+        }
+      ]
+    },
+    {
+      "bytes": 40,
+      "end_exclusive": "0x319f88d8",
+      "module": "sldarchiveu.dll",
+      "name": "?getDBKey@dmConfigMgrHeader_c@@UEAAPEBDXZ",
+      "sha256": "b3cdcaea9aa8d7e1377a558b41f24eca49f0111da873961281932c4d2f2313f7",
+      "start": "0x319f88b0",
+      "unwind_fragments": [
+        {
+          "bytes": 40,
+          "end_exclusive": "0x319f88d8",
+          "sha256": "b3cdcaea9aa8d7e1377a558b41f24eca49f0111da873961281932c4d2f2313f7",
+          "start": "0x319f88b0",
+          "unwind_rva": "0x2334c"
+        }
+      ]
+    },
+    {
+      "bytes": 217,
+      "end_exclusive": "0x319f89b9",
+      "module": "sldarchiveu.dll",
+      "name": "?getDBPath@dmConfigMgrHeader_c@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ",
+      "sha256": "5a9ff2b27fd8de2a71f4a21618f20a99502c5fb3e01149861e27524b49df1cd4",
+      "start": "0x319f88e0",
+      "unwind_fragments": [
+        {
+          "bytes": 217,
+          "end_exclusive": "0x319f89b9",
+          "sha256": "5a9ff2b27fd8de2a71f4a21618f20a99502c5fb3e01149861e27524b49df1cd4",
+          "start": "0x319f88e0",
+          "unwind_rva": "0x23c00"
+        }
+      ]
+    },
+    {
+      "bytes": 1078,
+      "end_exclusive": "0x319f9096",
+      "module": "sldarchiveu.dll",
+      "name": "manager header database load helper",
+      "sha256": "5fad2187fc89806a3b5fe537d194a935a701b3bd11af31cb4110ddaf0283008d",
+      "start": "0x319f8c60",
+      "unwind_fragments": [
+        {
+          "bytes": 1078,
+          "end_exclusive": "0x319f9096",
+          "sha256": "5fad2187fc89806a3b5fe537d194a935a701b3bd11af31cb4110ddaf0283008d",
+          "start": "0x319f8c60",
+          "unwind_rva": "0x23e4c"
+        }
+      ]
+    },
+    {
+      "bytes": 469,
+      "end_exclusive": "0x319f9275",
+      "module": "sldarchiveu.dll",
+      "name": "actual owner messagepack database save helper",
+      "sha256": "3c6e705b1fcaf663b46328f2546976583027f0d1457b1b1052994620cb3f0f48",
+      "start": "0x319f90a0",
+      "unwind_fragments": [
+        {
+          "bytes": 469,
+          "end_exclusive": "0x319f9275",
+          "sha256": "3c6e705b1fcaf663b46328f2546976583027f0d1457b1b1052994620cb3f0f48",
+          "start": "0x319f90a0",
+          "unwind_rva": "0x23950"
+        }
+      ]
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "imports": [
+    {
+      "iat": "0x180051f50",
+      "module": "SLDMODU.dll",
+      "name": "?getCopyOfUserNameOverridenRefIDs@moConfigurationMgr_c@@QEAAHAEAV?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051f58",
+      "module": "SLDMODU.dll",
+      "name": "?removeNotNeededOverridenIDs@moConfigurationMgr_c@@QEAAXPEAVmoModel_c@@@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051f80",
+      "module": "SLDMODU.dll",
+      "name": "?getUserNameOverridenRefIDs@moConfigurationMgr_c@@QEAAAEAV?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@XZ",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180053090",
+      "module": "sldarchiveu.dll",
+      "name": "?setUserNameOverridenRefIDs@dmConfigMgrHeader_c@@QEAAXAEAV?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051fa0",
+      "module": "SLDMODU.dll",
+      "name": "?setUserNameOverridenRefIDs@moConfigurationMgr_c@@QEAAXAEAV?$set@HU?$less@H@std@@V?$allocator@H@2@@std@@@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x1800530a8",
+      "module": "sldarchiveu.dll",
+      "name": "?saveToStorage@dmConfigMgrHeader_c@@QEAAXAEAVsuFileStorage@@@Z",
+      "source_module": "doccplu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bytes": 12,
+      "end_exclusive": "0x4b8a2ae3",
+      "module": "sldmodu.dll",
+      "name": "header override ID set passed to actual manager",
+      "sha256": "ab7f59db8b8d122950974ee3976bfede3a65439e901eeac54311f37e42c34865",
+      "start": "0x4b8a2ad7"
+    },
+    {
+      "bytes": 46,
+      "end_exclusive": "0x4b67754d",
+      "module": "sldmodu.dll",
+      "name": "conditional actual reference ID membership",
+      "sha256": "c36fc3d8e0cf94ae29ff34f9805bc20aa2a975f31d29c28486bb060d96c4636c",
+      "start": "0x4b67751f"
+    },
+    {
+      "bytes": 67,
+      "end_exclusive": "0x4b6b8b4f",
+      "module": "sldmodu.dll",
+      "name": "ordinary name synchronization preference branch",
+      "sha256": "39ad0b679d5c54118b380386a1376b56d21a7be6ab5d20e1126d064d7c0d502a",
+      "start": "0x4b6b8b0c"
+    },
+    {
+      "bytes": 28,
+      "end_exclusive": "0x319f99b5",
+      "module": "sldarchiveu.dll",
+      "name": "new database save version gate",
+      "sha256": "fa65656599a416c08d093171401f38bb3458f298d29368ade3f78bb73f5e65ae",
+      "start": "0x319f9999"
+    },
+    {
+      "bytes": 29,
+      "end_exclusive": "0x319f9798",
+      "module": "sldarchiveu.dll",
+      "name": "new database load version gate",
+      "sha256": "99c0c3dd9b00d524c6766932cff1496eb025b421be6f478101d69e8f2715b7ef",
+      "start": "0x319f977b"
+    },
+    {
+      "bytes": 55,
+      "end_exclusive": "0x319fa70d",
+      "module": "sldarchiveu.dll",
+      "name": "manager overridden IDs as signed messagepack integers",
+      "sha256": "9fc8ca9ea87ff0584bb965bc880635bd87b38b8c3da48572f7954bae1a85d758",
+      "start": "0x319fa6d6"
+    },
+    {
+      "bytes": 29,
+      "end_exclusive": "0x319f8deb",
+      "module": "sldarchiveu.dll",
+      "name": "actual database extraction uses header set owner",
+      "sha256": "8f51af18fe823252417e8ff6d52c51f728b1f8fea06393970a4419cc7a9f89dc",
+      "start": "0x319f8dce"
+    },
+    {
+      "bytes": 21,
+      "end_exclusive": "0x18003ead9",
+      "module": "doccplu.dll",
+      "name": "header copies actual manager overridden ID set",
+      "sha256": "89bb5df8908502bb1252cd24b446b0e2241a84b57962391253e230bd36280e3a",
+      "start": "0x18003eac4"
+    }
+  ],
+  "limits": [
+    "the exact public Name2 dispatch-to-concrete mutation remains unjoined",
+    "the ordinary current rename cause and a generated override fix are not natively qualified",
+    "the reference pass2 recalculation is DotWorks-mode gated; ordinary mode skips it",
+    "the assembly synchronization also depends on actual environment option 0x72 and external-object override state",
+    "no database codec or writer is constructed here",
+    "no native or held-out file is used to derive constants or construction values"
+  ],
+  "modules": [
+    {
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "name": "sldarchiveu.dll",
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48"
+    },
+    {
+      "name": "doccplu.dll",
+      "sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8"
+    }
+  ],
+  "native_execution": false,
+  "schema": "kit.sw2026.component-name-override-storage-source.v1",
+  "shared_source_mutations": false,
+  "task_id": "B04-SW2026-MATES-CONCENTRIC",
+  "vtable_cells": [
+    {
+      "cell": "0x4cf7ba68",
+      "module": "sldmodu.dll",
+      "name": "actual reference pass2 virtual",
+      "target": "0x4b677350"
+    },
+    {
+      "cell": "0x4ce6b020",
+      "module": "sldmodu.dll",
+      "name": "actual assembly reference name synchronization virtual",
+      "target": "0x4b6b8880"
+    }
+  ],
+  "wire": {
+    "database_api": "sldunqliteDBUtils",
+    "database_branch_minimum_version": 13000,
+    "database_branch_requires_global_zero": true,
+    "header_runtime_set_offset": 120,
+    "key_value": "ascending signed integer set of actual user-overridden occurrence IDs; key omitted by to_msgpack when empty",
+    "manager_runtime_set_offset": 1824,
+    "messagepack_key": "overriddenReferenceIDs",
+    "ordinary_header": "Contents/CMgrHdr2",
+    "ordinary_header_contains_override_set": false,
+    "reference_runtime_override_flag_offset": 1344,
+    "separate_database": "Contents/3DExperienceExchange_ConfigHeader"
+  },
+  "writer_outputs": 0
+}
