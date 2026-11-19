@@ -67,3 +67,34 @@ A failed phase records its status and preserves the private diagnostic.
 This prepares a source fixture and an independent observer.
 The healthy-control result comes from the actual native run.
 The protocol generates zero Kit-written files and grants zero FCStd conversion credits.
+
+## Evaluate the locked sources
+
+The held-out evaluator uses the two private source slots already recorded in
+the [source lock receipt](../../../solidworks/measurements/2026/AttachedTopBoxSourcesNative01.json).
+It binds the frozen constructor at `46f2463dfae91263143b24fb98531e610d929f63`
+and a separately committed source projector. The projector decodes the
+original in its own process. The writer receives the clean neutral request
+on stdin. Two guarded runs must generate identical results per slot.
+
+Prepare the packet in a new Mac directory accessible to Parallels. Use the
+original pristine control and a new Windows-local destination.
+
+```sh
+PYTHONPATH="$KIT/re/tooling/sw2026" python3 -B \
+  "$KIT/re/tooling/sw2026/attached_top_box_source/EvaluateAttachedTopBoxHoldouts.py" \
+  prepare "$CONTROL" "$PACKET" --revision "$PROJECTOR_SHA" \
+  --target 'C:\KitAttachedTopBoxHoldouts01' --creation-epoch "$EPOCH"
+```
+
+Use the guest Python and the same Parallels current-user transport.
+
+```powershell
+& $GuestPython -B "$GuestPacket\Tools\EvaluateAttachedTopBoxHoldouts.py" run "$GuestPacket\Job.json" $JobSha
+```
+
+The validator compares clean open, rebuild, independent dimension edits,
+native saves and fresh reopen with the guest-private original specifications.
+It requires six distinct SOLIDWORKS processes and both healthy controls.
+Only hashes, counts and verdicts are published. The source files, actual
+dimensions, diagnostics and generated files stay inside the guest.
