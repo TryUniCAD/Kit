@@ -64,3 +64,9 @@ The same-model file with no equation opens and completes its unchanged rebuild i
 Without explicit evaluation, `ForceRebuild3` returns true and the rebuild diagnostic count is zero. The subsequent typed `IPartDoc.FeatureByName` call loses its COM interface with the same HRESULT. The same immutable native control passes again after exact-process recovery. The [plain edit receipt](../measurements/2026/WidthDepthPlainEditControls01.json) leaves both attempted edit lifecycles unqualified.
 
 Both the plain and equation inputs lose their interface under the original observer. The direct lane moves the first reported failure past rebuild. Edited geometry remains unmeasured. Keep the two edit protocols and the observer's interface lifetime distinct before changing serialized relation fields.
+
+### Model dispatch observation
+
+The unchanged plain candidate passes the sketch feature lookup after the observer switches to the original live model dispatch. The first attempt reaches the dimension reads under both healthy controls. Its prediction still computes depth from the new width and fails on the plain part's unchanged 19.5625 mm depth. The corrected observer treats that depth as independent.
+
+With the corrected prediction, both the typed body lookup and a direct lookup on the original model report HRESULT `-2147023179` at `GetBodies2` after 13 checks. Each observes the edited width, unchanged depth and fully constrained sketch following the successful rebuild. The surviving process prevents the scheduled trailing control from running. A separate trailing control passes after verifying the owned process identity and restarting. Neither attempt saves an edited part. The [dispatch receipt](../measurements/2026/WidthDepthModelDispatchControls01.json) preserves all three runs. These observations leave equation propagation, edited mass properties and native persistence open.

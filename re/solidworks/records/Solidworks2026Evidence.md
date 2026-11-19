@@ -6,6 +6,8 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Native concentric parent root owners](ConcentricParentRootAudit2026.md) | Typed reads account for 25 D01 history rows and recover the authored display-state name through the public reader. Whole-source admission remains closed, including the signed cylinder direction comparison. |
+| [Plain width edit under the live model dispatch](../measurements/2026/WidthDepthModelDispatchControls01.json) | The corrected observer reaches 13 checks, including edited width and unchanged depth. Both body lookup routes lose their live interface. A fresh recovery control passes in each run. |
 | [Attached Top-plane box source locks](../measurements/2026/AttachedTopBoxSourcesNative01.json) | Ten distinct native processes pass, including four controls. The disclosed signed profile retains all three named drivers through independent edits and reopens. Two original writer holdouts are locked by hash. The disclosed original re-emits five linked streams exactly. |
 | [FreeCAD benchmark path audit](../measurements/2026/ReFcstdRosterAudit01.json) | The VM share and active research tree contain no FCStd files. All 53 distinct identities found in older local research trees already belong to the 162-file disclosed inventory. The original benchmark roster is still unverified. |
 | [Radial concentric assembly persistence](../measurements/2026/ConcentricRadialAssemblyNative01.json) | Four fresh processes pass 140 checks. The paired edit/save/reopen preserves the true driving radius, four lights and live mate. Sixteen linked-stream comparisons are byte-exact. |
