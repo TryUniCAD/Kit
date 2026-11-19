@@ -7,3 +7,6 @@ Use [the record](../../../../../re/solidworks/records/ConcentricParentAmbient202
 The [freezer](../../../../../re/tooling/sw2026/FreezeConcentricParentAmbient01.py) and [observer](../../../../../re/tooling/sw2026/InspectConcentricParentAmbient01.py) prepare a checksum-bound, four-process read-only comparison with healthy source brackets. The observer preserves the strict authored-name gate while independently querying actual occurrence IDs, child geometry, editable dimensions, transforms and cylindrical mate references. Observation completion and native acceptance remain distinct. Host verification passes for all 47 frozen files and both prediction modes without CAD.
 
 The new parent has no native acceptance, persistence or held-out result. The original name gate remains unresolved and separate from child lighting. No shared production SDK or public writer registration changes. Root alone runs any native comparison.
+
+
+In the frozen native comparison, both controls passed and both byte-identical parents rebuilt with two bodies and the intended concentric mate. The child with authored ambient light changed the parent warning from 32 to 0. Both candidates still failed the authored occurrence-name check. [Native comparison](../../../../../re/solidworks/measurements/2026/ConcentricParentAmbientNative01.json)

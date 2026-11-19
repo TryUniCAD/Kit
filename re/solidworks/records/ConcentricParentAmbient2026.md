@@ -1,6 +1,6 @@
 # Generated concentric parent with the measured ambient child
 
-Native parent acceptance remains unmeasured. This source-only composition links the exact two child files from the passed disclosed ambient diagnostic into a regenerated same-locator parent comparison. It preserves the occurrence-name failure as an independent question.
+The same generated parent opened at the same locator with warning 32 when its child used the default environment and warning 0 when the child had the authored ambient light. Both applications measured the intended concentric mate and two bodies before and after rebuild. Both retained the previously observed native occurrence-name divergence. [Native comparison](../measurements/2026/ConcentricParentAmbientNative01.json)
 
 Task `B04-SW2026-MATES-CONCENTRIC`; owner `/root/assembly_occurrence`; delivery PR #121. Dependencies are [the child ambient method](ConcentricCylinderAmbient2026.md), [actual reference-name observation](ConcentricReferenceNames2026.md), and the existing shared cylinder and concentric graph constructors. Exit here is an independently generated linked pair, exact default compatibility and frozen source/artifact custody. The [CAD criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) and [RE playbook](../../Playbook/README.md) still apply.
 
@@ -28,6 +28,13 @@ A parent comparison can now replace only its owned working pair between fresh ru
 
 The [passed child-only native receipt](../measurements/2026/ConcentricAmbientNative01.json) is a prerequisite, not parent acceptance. The independent [reference-name receipt](../measurements/2026/ConcentricReferenceNamesNative01.json) establishes that both live generic feature and component names normalize to the dependency filename on the original parent before and after rebuild. The new observer does not fit its expectations to that result.
 
-Host verification checks all frozen files and both prediction modes without importing COM or starting CAD. Syntax and undefined-name checks pass for all six owned Python files. The packet retains zero parameter edits, saves, preference changes and held-out reads. Native parent comparison and its warning effect are still unmeasured when this tranche is frozen.
+Host verification checks all frozen files and both prediction modes without importing COM or starting CAD. Syntax and undefined-name checks pass for all six owned Python files. The packet retains zero parameter edits, saves, preference changes and held-out reads. The freeze precedes the native comparison below.
 
-The actual parent and child locators are already encoded into each generated definition. Frozen inputs are separate from the working copies. No source input, old packet, global preference or shared SDK source changes. This tranche contains no new native observer run, parent save/reopen, held-out evaluation or public writer activation. The part-only ambient helper does not claim support for an assembly environment or session defaults.
+The actual parent and child locators are already encoded into each generated definition. Frozen inputs are separate from the working copies. No source input, old packet, global preference or shared SDK source changes. The committed source freeze contains tooling, receipts and format rules. The part-only ambient helper does not claim support for an assembly environment or session defaults.
+
+
+## Native comparison result
+
+The exact frozen observer ran four fresh SOLIDWORKS 2026 SP05.2 processes. Both pristine controls and both instrumented parent phases completed. The off/on parent pairs returned error 0 and warning 32/0 respectively. Each contained two solids, both independent component/assembly geometry checks passed, and rebuild succeeded. The observed ordered cylindrical mate endpoints retained native IDs 17 and 18, and the mate feature retained ID 19. Both parent and child reported zero What's Wrong entries before and after rebuild.
+
+The original strict capture still failed all four snapshots because both loaded occurrence names derived from the child basename. The measured warning and geometry results retain that failure. The comparison ran without saves, dimension edits or a held-out source. [Native comparison](../measurements/2026/ConcentricParentAmbientNative01.json) · [Parent warning gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Assembly/Opening/ParentLoadWarningCanComeFromItsChild.md)
