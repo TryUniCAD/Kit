@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
-from convert.adapters.freecad.AdapterError import FreeCadAdapterA
+from convert.adapters.freecad.Errors.AdapterError import FreeCadAdapterA
 from convert.adapters.freecad.Archive import (
     KMaxOuterFiles as MaxOuterFiles,
     KMaxTotalSize as MaxTotalSize,

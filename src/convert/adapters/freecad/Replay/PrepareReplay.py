@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from zipfile import BadZipFile
 
-from convert.adapters.freecad.AdapterError import FreeCadAdapterA
+from convert.adapters.freecad.Errors.AdapterError import FreeCadAdapterA
 from convert.adapters.freecad.Archive import Validated as ValidatedArchiveMembers
 from convert.adapters.freecad.Native import NativeFreeCad, ReadNativeFcstd
 from convert.adapters.freecad.Replay.ApplyFlags import ApplyFlags

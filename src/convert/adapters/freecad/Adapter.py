@@ -58,7 +58,7 @@ from interchange import (
 )
 from interchange.serialization.EncodeData import ToData
 from interchange.serialization.WireData import ValidateWireMap
-from convert.adapters.freecad.AdapterError import FreeCadAdapterA
+from convert.adapters.freecad.Errors.AdapterError import FreeCadAdapterA
 from convert.adapters.freecad.Archive import (
     DOCUMENT_ENTRY as DocEntry,
     MANIFEST_ENTRY as ManifestEntry,
