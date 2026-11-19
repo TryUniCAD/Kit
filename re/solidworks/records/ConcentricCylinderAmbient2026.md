@@ -33,3 +33,9 @@ Packet01 host verification failed before any CAD process because its metric-dict
 ## Remaining boundaries
 
 The ambient effect on this actual cylinder has not been measured. Neither the earlier prism success nor this source-only construction identifies the publisher during a concentric assembly open. Parent occurrence naming, solved endpoint identity, alignment/rotation lock, synchronized edit/save/reopen and held-out qualification remain separate. No source document is certified from a changed presentation or a stripped semantic model.
+
+## Native same-locator result
+
+Both pristine controls pass in separate native processes. The generated cylinder with an empty environment opens with error 0 and warning 32. Its same-locator counterpart with one newly generated ambient light opens with error 0 and warning 0. Before any explicit rebuild, both expose the same single solid, preserve the cylinder axis and radius, and return the same two driving dimensions and analytic mass properties. The stored update stamp starts at 104 for both. Only the empty environment sets the save flag on first open.
+
+Both variants explicitly rebuild and reach stamp 118 without document errors. The shared locked geometry and exact five-stream difference localize the warning intervention to the authored environment. This evidence covers the standalone child in this comparator. It does not measure the parent assembly, mate solve, name preservation, native save or held-out designs. [Native comparison](../measurements/2026/ConcentricAmbientNative01.json)

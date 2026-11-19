@@ -7,3 +7,5 @@ Use [the construction and diagnostic record](../../../../../re/solidworks/record
 The [host proof](../../../../../re/solidworks/measurements/2026/ConcentricAmbientHost01.json) records exact reproduction of the old parent/child and two separate guarded same-locator build processes. Both ambient variants retain identical geometry owners, flags, partition and all unchanged streams. Host verification, static syntax and undefined-name checks pass. The first pre-CAD metric-container mismatch is preserved separately from its observer-only correction.
 
 No native run, save/reopen, parent mate/name acceptance, hidden-input access or public writer support is added by this tranche. The native job reports warning effect as a diagnostic and keeps target-application acceptance false.
+
+The same-locator native comparison passed all four controlled phases. Empty environment opens with warning 32. A generated ambient light clears that warning and the first-open save flag while retaining the exact cylinder and both dimensions. The standalone test ends after rebuild. [Native result](../../../../../re/solidworks/measurements/2026/ConcentricAmbientNative01.json)
