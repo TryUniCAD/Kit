@@ -42,3 +42,12 @@ The observer checks real occurrence names, IDs, fixed anchor, placement, actual 
 Cold generated load, exact transient kernel tags and face resolution, optional orientation state after native solve, real warning status, read-only relocation, endpoint-order preservation, live depth edit, synchronized persistence and fresh reopen remain pending. Generated slide/spin behavior and viewport rendering beyond visible-body checks are also outside the existing observer. Native mass is retained but material-density parity is not newly qualified.
 
 The original two held-out source cases remain sealed. This queue work supplies no C10, public writer, or new native acceptance credit. Root must preserve any actual failure and its healthy controls before making a source-backed construction or observer change.
+
+## First generated native opens
+
+All four native controls pass. Fresh opens of both generated parents return
+a COM model and load error 0 with warning 32. The strict open gate rejects
+each before the loaded-path check, mate and geometry inspection, or native
+edit. Both dependent reopens are skipped. Six distinct processes complete
+this comparison. The two earlier source locks remain sealed. The existing
+observer preserves its strict warning gate. [Native open result](../measurements/2026/GeneratedConcentricNativeOpen01.json)

@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [First generated concentric opens](../measurements/2026/GeneratedConcentricNativeOpen01.json) | Both generated parents return a COM model with error 0 and warning 32. All four native controls pass and the strict gate skips both reopens. |
 | [Plain drawing note source lock](../measurements/2026/PlainDrawingNoteSourceLock01.json) | Two disclosed and two guest-private plain notes pass text and position edits, saves and fresh reopens. Fourteen distinct processes include both pristine controls. Both private inputs precede note writer implementation. |
 | [Strict generated blank drawing read](../measurements/2026/SdkGeneratedBlankStrictRead01.json) | Six generated drawings reconstruct the exact typed inputs, seven logical streams, and complete container. Eighteen unsupported cases refuse, and all 72 guarded SDK processes retain prior partial results. |
 | [Link with complete generated prism cache](../measurements/2026/PrismExtrusionOutputFullCacheNative01.json) | The linked prisms expose correct first-open bodies, retain their depth edits and reopen cleanly with generated caches present. The specific downstream cache-consumer call remains unmeasured. |
