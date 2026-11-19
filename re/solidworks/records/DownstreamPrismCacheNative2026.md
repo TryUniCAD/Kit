@@ -25,6 +25,8 @@ A separate native save retains the original depth and geometry. It reopens with 
 
 The ordinary part loader selects its partition through `SolidStorage_c::LoadModel` and `moPart_c::loadExternalBodies`. It resolves model and feature marks in the actual returned partition. The compiled path identifies distinct checkpoints for receive, the body inventory, and publication into a model atom. This source boundary narrows the next runtime observation. [Ordinary partition load](OrdinaryPartPartitionLoad2026.md)
 
+The separate runtime matrix confirms warning 32 and zero live bodies in all four uninstrumented cold/warmed and writable/read-only modes. During the same warning-producing open, the kernel enumeration returns status zero and one body. A separately instrumented open captures internal error 128 from ordinary part configuration. Detaching from an earlier restore breakpoint changes the apparent behaviour and remains a diagnostic intervention. [Body admission evidence](PrismOpenBodyAdmission2026.md)
+
 ## Replay
 
 Prepare each case with [the in-memory generator](../../tooling/sw2026/downstream/PreparePrismCacheNative.py). Give it variant 1 or 2, the actual absolute Windows part path, the document's integral model-time input, and an unused artefact output path. Select `--include-cache` for the populated case or `--omit-downstream-allocation` for the comparison with only local tracking. The generator rejects runtime file/process operations while it constructs the part and serializes its cache.
