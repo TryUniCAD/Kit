@@ -45,8 +45,8 @@ def prism(case):
     sizes = [b - a for a, b in zip(lower, upper, strict=True)]
     width, height, depth = sizes
     points = [vector(item, 3) for item in case['edge_endpoints_m']]
-    require(len(points) == 2 and all(math.isclose(point[0], lower[0], abs_tol=1e-12) and point[2] == 0 for point in points)
-            and sorted(point[1] for point in points) == [lower[1], upper[1]], 'select only the actual z=0 left boundary rail')
+    require(len(points) == 2 and all(math.isclose(point[0], lower[0], abs_tol=1e-12) and point[2] == upper[2] for point in points)
+            and sorted(point[1] for point in points) == [lower[1], upper[1]], 'select only the camera-facing Front cap left boundary rail derived from actual prism bounds')
     expected = case['expected']
     view = expected['view']
     require(view['orientation'] == '*Front' and view['scale'] == 1 and view['configuration']
@@ -83,9 +83,10 @@ def verify(packet, expected):
             selected = [row for row in observed['members'] if row['names'][0] == member and row['invoke_kind'] == 1]
             require(len(selected) == 1 and selected[0]['vtable_offset_bytes'] == slot and selected[0]['arguments'] == [],
                     'exact zero-argument component/root-model API shape differs: ' + member)
-    require(request['component_api_metadata_sha256'] == COMPONENT_METADATA and request['observer_revision'] == 'drawing-projection-owner-03'
-            and request['previous_trial_sha256'] == '90f6ddf5543712f32a6d93ffe997872d9be1c76e480497715fd1db1ea3334a40'
-            and request['previous_failed_result_sha256'] == 'ec4fb7e13afe41bb7906c28973f699be380f67fac17c7d6b59dabbaab6caadb3'
+    require(request['component_api_metadata_sha256'] == COMPONENT_METADATA and request['observer_revision'] == 'visible-front-cap-04'
+            and request['previous_trial_sha256'] == '3224ebc2de12538b843206675b3dbad38791300b02dc2e995bc155c0c79d737c'
+            and request['previous_failed_result_sha256'] == '839bcbd4a5dfd89cfae2879ba9e2932d3b7dc71b2a02e7f2d8303bf46905a9fb'
+            and request['visible_edge_selection_rule'] == 'positive-view-normal-outer-cap-left-rail-v1'
             and request['original_trial_sha256'] == '36143744fc79f19fb60434d24884288f72733e764ed9fd8a8138aff4233d0872'
             and request['original_failed_result_sha256'] == '1056bde8473497d695c89276812fab2db2a66136c9c7351e8ddac40af47c6eb0',
             'the observer-only retry must preserve its exact predecessor')

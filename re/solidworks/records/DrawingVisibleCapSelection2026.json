@@ -1,0 +1,296 @@
+{
+  "confidence": {
+    "canonical_frame_and_normal": "confirmed-source and prior disclosed frame measurements",
+    "second_independent_generated_pair": "prediction frozen; native selection and annotation lifecycle still unmeasured",
+    "visible_cap_polarity": "mathematical orthographic convex-prism prediction corroborated by both packet05 pristine controls on one native design"
+  },
+  "formula": {
+    "left_rail": "the unique cap edge whose two model x values equal minimum x; endpoint order is irrelevant",
+    "normal": "(m2,m5,m8) from fixed model-to-view rotation",
+    "visible_cap": "convex support plane maximizing dot(normal,p) over the eight independent neutral prism corners"
+  },
+  "heldout_inputs_read": 0,
+  "native_execution_by_author": false,
+  "predictions": [
+    {
+      "all_other_case_fields_identical": true,
+      "camera_facing_cap_corners_m": [
+        [
+          0,
+          0,
+          0.007
+        ],
+        [
+          0,
+          0.01,
+          0.007
+        ],
+        [
+          0.02,
+          0,
+          0.007
+        ],
+        [
+          0.02,
+          0.01,
+          0.007
+        ]
+      ],
+      "normal_in_model": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "predicted_visible_cap_edges_m": [
+        [
+          [
+            0.0,
+            0.0,
+            0.007
+          ],
+          [
+            0.0,
+            0.01,
+            0.007
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.007
+          ],
+          [
+            0.02,
+            0.0,
+            0.007
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.01,
+            0.007
+          ],
+          [
+            0.02,
+            0.01,
+            0.007
+          ]
+        ],
+        [
+          [
+            0.02,
+            0.0,
+            0.007
+          ],
+          [
+            0.02,
+            0.01,
+            0.007
+          ]
+        ]
+      ],
+      "previous_requested_endpoints_m": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0.01,
+          0
+        ]
+      ],
+      "prism_bounds_m": {
+        "maximum": [
+          0.02,
+          0.01,
+          0.007
+        ],
+        "minimum": [
+          0,
+          0,
+          0
+        ]
+      },
+      "role": "Control",
+      "selected_left_rail_m": [
+        [
+          0,
+          0,
+          0.007
+        ],
+        [
+          0,
+          0.01,
+          0.007
+        ]
+      ],
+      "support_dot_max": 0.007
+    },
+    {
+      "all_other_case_fields_identical": true,
+      "camera_facing_cap_corners_m": [
+        [
+          -0.018949999999999998,
+          -0.011349999999999999,
+          0.0143
+        ],
+        [
+          -0.018949999999999998,
+          0.011349999999999999,
+          0.0143
+        ],
+        [
+          0.018949999999999998,
+          -0.011349999999999999,
+          0.0143
+        ],
+        [
+          0.018949999999999998,
+          0.011349999999999999,
+          0.0143
+        ]
+      ],
+      "normal_in_model": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "predicted_visible_cap_edges_m": [
+        [
+          [
+            -0.018949999999999998,
+            -0.011349999999999999,
+            0.0143
+          ],
+          [
+            -0.018949999999999998,
+            0.011349999999999999,
+            0.0143
+          ]
+        ],
+        [
+          [
+            -0.018949999999999998,
+            -0.011349999999999999,
+            0.0143
+          ],
+          [
+            0.018949999999999998,
+            -0.011349999999999999,
+            0.0143
+          ]
+        ],
+        [
+          [
+            -0.018949999999999998,
+            0.011349999999999999,
+            0.0143
+          ],
+          [
+            0.018949999999999998,
+            0.011349999999999999,
+            0.0143
+          ]
+        ],
+        [
+          [
+            0.018949999999999998,
+            -0.011349999999999999,
+            0.0143
+          ],
+          [
+            0.018949999999999998,
+            0.011349999999999999,
+            0.0143
+          ]
+        ]
+      ],
+      "previous_requested_endpoints_m": [
+        [
+          -0.018949999999999998,
+          -0.011349999999999999,
+          0
+        ],
+        [
+          -0.018949999999999998,
+          0.011349999999999999,
+          0
+        ]
+      ],
+      "prism_bounds_m": {
+        "maximum": [
+          0.018949999999999998,
+          0.011349999999999999,
+          0.0143
+        ],
+        "minimum": [
+          -0.018949999999999998,
+          -0.011349999999999999,
+          0
+        ]
+      },
+      "role": "Generated",
+      "selected_left_rail_m": [
+        [
+          -0.018949999999999998,
+          -0.011349999999999999,
+          0.0143
+        ],
+        [
+          -0.018949999999999998,
+          0.011349999999999999,
+          0.0143
+        ]
+      ],
+      "support_dot_max": 0.0143
+    }
+  ],
+  "proprietary_listings_or_bytes_included": false,
+  "rule": "positive-view-normal-outer-cap-left-rail-v1",
+  "schema": "kit.sw2026.drawing-visible-cap-selection.v1",
+  "scope": "one canonical Front unit-scale view of a positive XY rectangular prism with no additional occluders",
+  "source_bindings": {
+    "canonical_views": {
+      "bytes": 1687,
+      "end_exclusive": "0x4c033887",
+      "file_offset": 15672816,
+      "name": "canonical_view_construction",
+      "sha256": "233e880efb362aad6ad2a092b90b9adfeeefe22883a217ab4a7ae1cb8509af64",
+      "start": "0x4c0331f0"
+    },
+    "model_support_normal_owner": {
+      "bytes": 464,
+      "end_exclusive": "0x4c9b4910",
+      "file_offset": 25639744,
+      "name": "model_support_frame",
+      "sha256": "1136f87bef03f7bae805c35cf8edc8b568dd3a15204184aec8b75311df6afcc0",
+      "start": "0x4c9b4740"
+    },
+    "native_module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "normal_window": {
+      "bytes": 51,
+      "end_exclusive": "0x4c9b4878",
+      "file_offset": 25640005,
+      "name": "inverse_frame_positive_z_normal_window",
+      "sha256": "f73d38d4578a0bc8e1b2a04d5957e0a94300528ddb7934e22dba500a62bb849f",
+      "start": "0x4c9b4845"
+    },
+    "record_sha256": {
+      "DrawingScaledSupports2026.md": "69ed06563d4a7fbc202d7bb8f8019a985ae8426e9fbd1e7f841f4125ed1414ee",
+      "DrawingScaledViewProjection2026.md": "ee38c55500e26767fd0aa7de5f7b6465c341e9f995e8d48d6f29157ff7ed1ffb",
+      "StandardViewsConstruction2026.md": "da823dd4f641ec2392aeeaf3ddcbd9c8c47bbbd1579daebe1bbfd1f1e297efef"
+    }
+  },
+  "task": "B04-SW2026-DRAWING-EDGE-QUALIFICATION",
+  "unchanged": {
+    "all_lifecycle_and_bracket_requirements": true,
+    "endpoint_matcher_and_tolerances": true,
+    "four_cad_input_hashes": true,
+    "projected_occurrence_and_child_identity_gates": true,
+    "seven_helper_hashes": true
+  }
+}
