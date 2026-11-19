@@ -1,0 +1,139 @@
+{
+  "schema": "kit.sw2026.canonical-blank-rewrite-integration-review.v1",
+  "task_id": "B04-SW2026-DRAWPROPS/generated-blank-rewrite",
+  "owner": "configuration_header",
+  "delivery_pr": 121,
+  "reviewed_head": "dd3d8321124c558b569d1386d5326d03808ae05a",
+  "original_stageable_sha256": "eaf31a12020603d475637b85368318f32e1b41b833d18c8ed748062c6c750f68",
+  "frozen_measured_sdk_manifest_sha256": "80f5dda735c24c24240e6c4e9465669b228ccc6d15e1b5a74d68e7d0fb1abf80",
+  "source_files": [
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/CanWriteBlankDrawing.py",
+      "sha256": "147525b603f3748ecc6bd41c6f893343a208f65337e6ae97dc8da894a698deb5",
+      "bytes": 950,
+      "head_sha256": "7671f80f24f4ff6e0508cc7de1657a3584f749212d126039e8798b89a3a50e02"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/EmitBlankDrawingMut.py",
+      "sha256": "499e5c511685898a382cc738a7d25d8df8781dc945f606b1c0c2c11e397f63d2",
+      "bytes": 1733,
+      "head_sha256": "55b3c5f7cbeebd7ee5950c7520cb2ede636e95b8063cc8f31b5a31d530763eba"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/PrepareBlankDrawing.py",
+      "sha256": "f76a9e98e59f3ef776009e937da863f449a5431424545c7cc06a248a205ad0f2",
+      "bytes": 1671,
+      "head_sha256": "21180ae6d36ca188951ce6e95119b1db7d25f164d071bc2cb259dcf45163fe25"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/BlankMetadataTypes.py",
+      "sha256": "885742051daaab45ee4d7148b6f02caed4ecf3712c592d5bfda25861d2d251a3",
+      "bytes": 1705,
+      "head_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/BlankOwnerCtor.py",
+      "sha256": "1b708375480fb0f321ae3d86984b24a18fc6be3fa88262dd16c3c72265aae94f",
+      "bytes": 313,
+      "head_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/NeedDrawPath.py",
+      "sha256": "d4d1c1aa49911bbbce238f7a54fe6b18215aa58141d1de9fb9926c9955d10b7c",
+      "bytes": 979,
+      "head_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/NeedRewrite.py",
+      "sha256": "9a07abcbceaef029b446af0ff17610925ae8771a0c24a7bf8741eeca91d99fb7",
+      "bytes": 4253,
+      "head_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/PrepareRewrite.py",
+      "sha256": "7c50f30b931f96f644e7f43f48e32b7e425e962b4bb6f190a9ee2865ab8a06f7",
+      "bytes": 1089,
+      "head_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/ReadBlankInput.py",
+      "sha256": "bd23ce06573896e5efb08e5e529a9ba7db58863c74c65e9e177f87b6a084e474",
+      "bytes": 604,
+      "head_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/ReadBlankOwner.py",
+      "sha256": "1e886c90fbd8cbbf4b2f62e655c37bb52672a70440e98837cad708d5db9eb6cb",
+      "bytes": 1311,
+      "head_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/ReadBlankScalar.py",
+      "sha256": "f38015de53a7aa9b5e1f24a1a30000a4ffd44d376b68ac4e82c518f5859d2001",
+      "bytes": 1308,
+      "head_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/ReadBlankTuple.py",
+      "sha256": "b02a3bf3f6ea375725ad268f2853950b0634568eda66f3641e14770078d456f1",
+      "bytes": 867,
+      "head_sha256": null
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/DrawingWriting/Rewrite/ReadBlankValue.py",
+      "sha256": "740358aa9b9fee1c7b46347eec50738ec771fb7fabe100cf0eb8a51f98faf735",
+      "bytes": 1748,
+      "head_sha256": null
+    }
+  ],
+  "product_source_identical_to_disclosed_stageable": false,
+  "new_source_modules": 10,
+  "existing_hooks": 3,
+  "existing_hook_head_ast_matches_frozen_base": true,
+  "attestation_patch_applied": true,
+  "prospective_attestation_patch_sha256": "d016a6492c535fe540a578231e440832995eb290b44c9dbd9bd1cd45ec5248d8",
+  "root_native_qualification": {
+    "source": "root-adjudicated privacy-safe guest export",
+    "public_export_sha256": "50005895ce50f7e6cbb845ae41f36e2a2a767fd4daa2d581e86a42448024766d",
+    "private_result_sha256": "2c7f712b1c367b1700f28968134bc26590966bf68cd97aeec55a6bd93c45641b",
+    "native_processes": 12,
+    "controls_passed": [
+      true,
+      true
+    ],
+    "sheet_states": 30,
+    "ordered_tree_rows": 120,
+    "reused_pairs": 2,
+    "new_sdk_builds": 0,
+    "inputs_immutable": true,
+    "writer_runtime_input_reads": 0
+  },
+  "scope": "exact canonical SDK blank subtype only; original native and saved-native sources stay refused",
+  "notes_safety": [
+    "complete strict blank stream/graph reconstruction excludes annotation or note owners",
+    "closed metadata type universe excludes nonempty DrawingNote witnesses",
+    "current layout must exactly equal complete source witness",
+    "root-owned NeedBlankDrawing and MakeBlankBuild no-note-content guards must remain unchanged"
+  ],
+  "shared_source_edits_by_this_lane": 0,
+  "private_source_reads_by_this_lane": 0,
+  "product_source_manifest_sha256": "d1addd2bdfe276b9c72ae63bc121f40f537c7e26e0d6151c7cdc376519282acb",
+  "product_source_manifest_paths": 4744,
+  "product_public_process_receipt_sha256": "e81446fadb57bb8b2e70e016c351f62cb80d123ace1d2933dc9600e820941116",
+  "product_public_processes_passed": 8,
+  "integration_changes": [
+    "preserve original plain blank guards and apply native result flags after complete canonical admission",
+    "omit null optional sheet notes in reconstructed intent and restore their schema-declared default for older mappings"
+  ],
+  "disclosed_pre_attestation_replay": {
+    "workers": 8,
+    "passed": true,
+    "sha256": "233459b48ba626a5a43b052ec673fe9534c23432885d106b1736380f435a129a",
+    "sdk_native_flags": [
+      false,
+      false
+    ],
+    "cli_unqualified_refusal_and_rollback": true,
+    "four_routes_construct_identical_bytes": true
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "actual_outputs_published": 8,
+  "controls": [
+    {
+      "name": "PublicAlpha",
+      "passed": true
+    },
+    {
+      "name": "SdkAlpha",
+      "passed": true
+    }
+  ],
+  "heldout_2026_native_receipt": "BlankRewriteHeldoutNative01.json",
+  "native_flags": {
+    "application_usable": true,
+    "vendor_loadable": true
+  },
+  "native_launches_in_public_process_replay": 0,
+  "outcomes": [
+    {
+      "changed_streams": [
+        "Header2",
+        "Contents/Definition"
+      ],
+      "lane": "PublicAlpha",
+      "output_sha256": "3cf7e0e7e5708635217f281d12888bd4998f05450d21958175e50bffc60199e4",
+      "output_size": 5945,
+      "route": "api",
+      "source_sha256": "64ce7aa78ea6efc2bea775682755a18eb909e5cad2403ec8cd259b51b15fc4a5",
+      "writer_prepare_calls": 1
+    },
+    {
+      "changed_streams": [
+        "Header2",
+        "Contents/Definition"
+      ],
+      "lane": "PublicAlpha",
+      "output_sha256": "3cf7e0e7e5708635217f281d12888bd4998f05450d21958175e50bffc60199e4",
+      "output_size": 5945,
+      "route": "api-json",
+      "source_sha256": "64ce7aa78ea6efc2bea775682755a18eb909e5cad2403ec8cd259b51b15fc4a5",
+      "writer_prepare_calls": 1
+    },
+    {
+      "changed_streams": [
+        "Header2",
+        "Contents/Definition"
+      ],
+      "lane": "PublicAlpha",
+      "output_sha256": "3cf7e0e7e5708635217f281d12888bd4998f05450d21958175e50bffc60199e4",
+      "output_size": 5945,
+      "route": "cli",
+      "source_sha256": "64ce7aa78ea6efc2bea775682755a18eb909e5cad2403ec8cd259b51b15fc4a5",
+      "writer_prepare_calls": 1
+    },
+    {
+      "changed_streams": [
+        "Header2",
+        "Contents/Definition"
+      ],
+      "lane": "PublicAlpha",
+      "output_sha256": "3cf7e0e7e5708635217f281d12888bd4998f05450d21958175e50bffc60199e4",
+      "output_size": 5945,
+      "route": "cli-explicit",
+      "source_sha256": "64ce7aa78ea6efc2bea775682755a18eb909e5cad2403ec8cd259b51b15fc4a5",
+      "writer_prepare_calls": 1
+    },
+    {
+      "changed_streams": [
+        "Header2",
+        "Contents/Definition"
+      ],
+      "lane": "SdkAlpha",
+      "output_sha256": "6794749a4fef8dab5d3ef148b27c3496c55d7d0705abe36d976877512026eca0",
+      "output_size": 5888,
+      "route": "api",
+      "source_sha256": "c059b19358b09b09ec538c939cf2a19ee9c409b6f779319b866a28286b4f10e8",
+      "writer_prepare_calls": 1
+    },
+    {
+      "changed_streams": [
+        "Header2",
+        "Contents/Definition"
+      ],
+      "lane": "SdkAlpha",
+      "output_sha256": "6794749a4fef8dab5d3ef148b27c3496c55d7d0705abe36d976877512026eca0",
+      "output_size": 5888,
+      "route": "api-json",
+      "source_sha256": "c059b19358b09b09ec538c939cf2a19ee9c409b6f779319b866a28286b4f10e8",
+      "writer_prepare_calls": 1
+    },
+    {
+      "changed_streams": [
+        "Header2",
+        "Contents/Definition"
+      ],
+      "lane": "SdkAlpha",
+      "output_sha256": "6794749a4fef8dab5d3ef148b27c3496c55d7d0705abe36d976877512026eca0",
+      "output_size": 5888,
+      "route": "cli",
+      "source_sha256": "c059b19358b09b09ec538c939cf2a19ee9c409b6f779319b866a28286b4f10e8",
+      "writer_prepare_calls": 1
+    },
+    {
+      "changed_streams": [
+        "Header2",
+        "Contents/Definition"
+      ],
+      "lane": "SdkAlpha",
+      "output_sha256": "6794749a4fef8dab5d3ef148b27c3496c55d7d0705abe36d976877512026eca0",
+      "output_size": 5888,
+      "route": "cli-explicit",
+      "source_sha256": "c059b19358b09b09ec538c939cf2a19ee9c409b6f779319b866a28286b4f10e8",
+      "writer_prepare_calls": 1
+    }
+  ],
+  "passed": true,
+  "private_inputs_read": 0,
+  "raw_process_report_sha256": "898a71fb9434934e24c971a42c6cf968f20f2db94f6e79852b6349df003fc61b",
+  "runner_sha256": {
+    "BlankRewriteGuard.py": "e5b7147ccef4fd148b90fb0aec50900f5a73cf6f9f8c3894bd90caffadedceb7",
+    "FreezePublicFlowSource01.py": "9706f263fa5599c0d781cd6f36a6d25043384e83874aa1368d53b9f5ce7f8c96",
+    "ProbeCanonicalNoteGuard01.py": "35ee99a666d7aecef3a1fbf55a3272aeb12e395668b37d4537d053f14b79dfca",
+    "ProbePublicFlow03.py": "d44937da7d768b350c5aeb78d1c397869435b6aaaefae5acd1b9eddccea63328",
+    "ReplayPublicFlow02.py": "5fb1a3c367c247a40339efd18141e13518129f961d8abc64580c0cfe53219884"
+  },
+  "schema": "kit.sw2026.canonical-blank-rewrite-public-process.v1",
+  "source_immutable": true,
+  "source_manifest_paths": 4744,
+  "source_manifest_sha256": "d1addd2bdfe276b9c72ae63bc121f40f537c7e26e0d6151c7cdc376519282acb",
+  "structural_note_refusal_sha256": "1c746a910dcde22dfbdde4eb7c56fc2a5c021e2408b0cc3d773d66049dd0748d",
+  "workers": 8,
+  "writer_runtime_input_reads": 0
+}

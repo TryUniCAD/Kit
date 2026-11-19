@@ -15,16 +15,26 @@ from convert.adapters.solidworks.Core.DrawingWriting.PrepareBlankDrawing import 
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# the registry stages a complete drawing through its existing transaction for one output file
+# the registry can stage a complete generated blank drawing using its existing single file transaction
 def EmitBlankDrawingMut(
-    DocumentValue: CadDocument, TargetValue: KTargetType, OptionsValue: WriteOptions | None
+    DocumentValue: CadDocument,
+    TargetValue: KTargetType,
+    OptionsValue: WriteOptions | None,
 ) -> WriteResult:
     Settings = CheckBlankWriteOpts(OptionsValue)
     if not isinstance(TargetValue, (str, FilePath)):
         raise TypeError("native blank drawing output requires a filesystem path")
     OutputPath = FilePath(TargetValue).expanduser().resolve()
-    Payload = PrepareBlankDrawing(DocumentValue, OutputPath, int(ReadTime()), AllocateBlockId(), Settings).BytesValue
+    Payload = PrepareBlankDrawing(
+        DocumentValue, OutputPath, int(ReadTime()), AllocateBlockId(), Settings
+    ).BytesValue
     with OutputPath.open("wb" if Settings.overwrite else "xb") as OutputFile:
         if OutputFile.write(Payload) != len(Payload):
             raise OSError("short native drawing write")
-    return WriteResult(OutputPath, KDrawingFormatId, len(Payload), application_usable=True, vendor_loadable=True)
+    return WriteResult(
+        OutputPath,
+        KDrawingFormatId,
+        len(Payload),
+        application_usable=True,
+        vendor_loadable=True,
+    )

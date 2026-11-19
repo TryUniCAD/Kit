@@ -332,10 +332,24 @@ For an authored Kit JSON layout, run `kit convert layout.json layout.SLDDRW`.
 Use `--to solidworks.slddrw` to select the drawing format explicitly.
 
 The SDK generates the seven native streams and the stock English presentation.
-Model views, linked references, additional sheets, annotations and preserved
-source metadata require broader support. The SDK rejects unsupported layouts
+Model views, linked references, additional sheets and annotations require
+broader support. The SDK rejects unsupported layouts
 before publication. Two source-locked layouts passed native open, rebuild,
 scale edit, save and fresh reopen against pristine controls. [Public blank writer](../../Changes/Solidworks/Construction/SolidworksPublicBlankDrawingWriter.md)
+
+### Rewriting canonical generated blank drawings
+
+Run `kit convert source.SLDDRW destination.SLDDRW` on a strictly readable
+Kit-generated blank drawing. The SDK supports the same operation through
+`write_document(open_document(source), destination)`. A Kit JSON document
+from the strict reader also works.
+
+The writer reconstructs the original typed source and verifies its SHA-256,
+complete sheet layout and native sheet identity before publishing. It
+preserves the title, native presentation and history, and computes the
+destination locator and save event. An edited layout and an ordinary
+vendor-authored or vendor-saved drawing remain outside this profile.
+[Canonical rewrite evidence](../../Changes/Solidworks/Inspection/Drawings/Portable/SolidworksCanonicalBlankRewriteIntegration.md)
 
 ### Writing assemblies
 

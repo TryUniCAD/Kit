@@ -5,14 +5,20 @@ from convert.adapters.solidworks.Core.DrawingWriting.BlankTargetName import (
 from convert.adapters.solidworks.Core.DrawingWriting.NeedBlankDrawing import (
     NeedBlankDrawing,
 )
+from convert.adapters.solidworks.Core.DrawingWriting.Rewrite.NeedRewrite import (
+    NeedRewrite,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # unsupported drawing intent should leave the registry before it creates a staging destination
 def CanWriteBlankDrawing(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     try:
-        _ = BlankTargetName(DocumentValue, TargetValue)
-        _ = NeedBlankDrawing(DocumentValue)
+        if "solidworks.blank.profile" in DocumentValue.source.attributes:
+            _ = NeedRewrite(DocumentValue, TargetValue)
+        else:
+            _ = BlankTargetName(DocumentValue, TargetValue)
+            _ = NeedBlankDrawing(DocumentValue)
     except (TypeError, ValueError):
         return False
     return True

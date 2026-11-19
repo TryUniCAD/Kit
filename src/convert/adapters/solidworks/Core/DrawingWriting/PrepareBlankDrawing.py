@@ -18,6 +18,9 @@ from convert.adapters.solidworks.Drawing.Construction.Portable.DrawingFile impor
 from convert.adapters.solidworks.Drawing.Construction.Portable.MakeBlankFile import (
     MakeBlankFile,
 )
+from convert.adapters.solidworks.Core.DrawingWriting.Rewrite.PrepareRewrite import (
+    PrepareRewrite,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -29,7 +32,11 @@ def PrepareBlankDrawing(
     BlockValue: UuidValue,
     OptionsValue: WriteOptions,
 ) -> DrawingFile:
+    if "solidworks.blank.profile" in DocumentValue.source.attributes:
+        return PrepareRewrite(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     _ = BlankTargetName(DocumentValue, TargetValue)
     Drawing = NeedBlankDrawing(DocumentValue)
-    FileValue = BlankSelfFile(TargetValue, OptionsValue.values.get("final_destination"), WrittenAt)
+    FileValue = BlankSelfFile(
+        TargetValue, OptionsValue.values.get("final_destination"), WrittenAt
+    )
     return MakeBlankFile(MakeBlankWriteRecipe(Drawing, FileValue, BlockValue))

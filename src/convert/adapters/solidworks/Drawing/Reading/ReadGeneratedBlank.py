@@ -1,4 +1,4 @@
-from dataclasses import asdict, replace
+from dataclasses import replace
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Drawing.Layout.MakeDrawDoc import MakeDrawDoc
 from convert.adapters.solidworks.Drawing.Reading.Blank.ReadBlankIntent import (
@@ -23,7 +23,7 @@ def ReadGeneratedBlank(
         {
             "solidworks.blank.profile": "fresh-v19000-seven-stream-v1",
             "solidworks.blank.native_sheet_id": Value.NativeSheetId,
-            "solidworks.blank.intent": Plain(asdict(Input)),
+            "solidworks.blank.intent": Plain(Input),
             "solidworks.blank.style_language_selector_is_representative": True,
             "solidworks.blank.complete_stream_reconstruction": True,
             "solidworks.blank.complete_container_reconstruction": True,
