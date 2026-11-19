@@ -28,7 +28,8 @@ from para.rectangle.RectangleAttributes import Appearance
 from para.rectangle.RectanglePartition import complete_topology, project_rectangle
 
 
-def authored_prism(variant, classes, *, model_path=None, model_second=None, allocate_downstream=True):
+def authored_prism(variant, classes, *, model_path=None, model_second=None, allocate_downstream=True,
+                   later_body_updates=1):
     name = f"PrismFaceConstructors{variant}"
     path = PureWindowsPath(f"C:/KitResearch/{name}.SLDPRT" if model_path is None else model_path)
     if not path.is_absolute() or path.suffix.casefold() != ".sldprt":
@@ -37,7 +38,7 @@ def authored_prism(variant, classes, *, model_path=None, model_second=None, allo
     second = 1818197000 + 243 * variant if model_second is None else model_second
     fraction = 833710 * variant
     request = neutral_request(path, limits, modified_at=second)
-    session = schedule(1492 + 318 * variant, 24, 1, 0, 5, 2, 1, second, fraction)
+    session = schedule(1492 + 318 * variant, 24, 1, 0, 5, 2, later_body_updates, second, fraction)
     events = (
         FeatureUpdate(1, second, fraction // 5, False),
         FeatureUpdate(4, second, fraction // 3, True),

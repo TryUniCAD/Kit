@@ -35,6 +35,7 @@ def main():
     parser.add_argument("--variant", type=int, choices=(1, 2), required=True)
     parser.add_argument("--part-path", type=PureWindowsPath, required=True)
     parser.add_argument("--model-second", type=int, required=True)
+    parser.add_argument("--later-body-updates", type=int, choices=(0, 1), default=1)
     parser.add_argument("--artifact", type=Path, required=True)
     projection = parser.add_mutually_exclusive_group()
     projection.add_argument("--include-cache", action="store_true")
@@ -55,7 +56,8 @@ def main():
     try:
         owner, archive, allocation = authored_prism(args.variant, classes, model_path=args.part_path,
                                                    model_second=args.model_second,
-                                                   allocate_downstream=not args.omit_downstream_allocation)
+                                                   allocate_downstream=not args.omit_downstream_allocation,
+                                                   later_body_updates=args.later_body_updates)
         clock = filetime_ticks(args.model_second + 1, 0)
         streams = candidate_streams(archive, allocation, clock) if args.include_cache else archive.streams
         output = BuildSldprt(streams, FormatVersion=4)

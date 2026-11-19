@@ -1,0 +1,2348 @@
+{
+  "cad_objects_created": 0,
+  "enums": {
+    "swAnnotationType_e": {
+      "swBlock": 12,
+      "swCThread": 1,
+      "swCenterLine": 15,
+      "swCenterMarkSym": 13,
+      "swCustomSymbol": 9,
+      "swDatumOrigin": 16,
+      "swDatumTag": 2,
+      "swDatumTargetSym": 3,
+      "swDisplayDimension": 4,
+      "swDowelSym": 10,
+      "swGTol": 5,
+      "swLeader": 11,
+      "swNote": 6,
+      "swPMIOnly": 19,
+      "swRevisionCloud": 18,
+      "swSFSymbol": 7,
+      "swTableAnnotation": 14,
+      "swWeldBeadSymbol": 17,
+      "swWeldSymbol": 8
+    },
+    "swLeaderStyle_e": {
+      "swAlwaysAttachToBalloon": 4100,
+      "swAttachLeaderBottom": 1024,
+      "swAttachLeaderCenter": 512,
+      "swAttachLeaderNearest": 2048,
+      "swAttachLeaderTop": 256,
+      "swBENT": 2,
+      "swNO_LEADER": 0,
+      "swSPLINE": 4,
+      "swSTRAIGHT": 1,
+      "swUNDERLINED": 3,
+      "swVDA": 8
+    },
+    "swObjectEquality": {
+      "swObjectNotSame": 0,
+      "swObjectSame": 1,
+      "swObjectUnsupported": 2
+    },
+    "swSelectType_e": {
+      "swSelEDGES": 1,
+      "swSelNOTHING": 0
+    },
+    "swUserPreferenceOption_e": {
+      "swDetailingNoOptionSpecified": 0
+    },
+    "swUserPreferenceToggle_e": {
+      "swDetailingModeIncludeStandardViewsInViewPalette": 780,
+      "swDetailingModeSaveModelData": 779
+    },
+    "swViewEntityType_e": {
+      "swViewEntityType_Edge": 1,
+      "swViewEntityType_Face": 3,
+      "swViewEntityType_SilhouetteEdge": 4,
+      "swViewEntityType_Vertex": 2
+    }
+  },
+  "interfaces": {
+    "IAnnotation": {
+      "guid": "{83A33DA9-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 5,
+          "names": [
+            "GetType"
+          ],
+          "return_type": [
+            3,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 6,
+          "names": [
+            "GetSpecificAnnotation"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 8,
+          "names": [
+            "GetPosition"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 21,
+          "names": [
+            "GetName"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 22,
+          "names": [
+            "SetName",
+            "NameIn"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "NameIn"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 33,
+          "names": [
+            "GetAttachedEntityTypes"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 56,
+          "names": [
+            "GetNext3"
+          ],
+          "return_type": [
+            [
+              26,
+              [
+                29,
+                50335872
+              ]
+            ],
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              3,
+              1,
+              null
+            ],
+            [
+              3,
+              1,
+              null
+            ],
+            [
+              11,
+              1,
+              null
+            ],
+            [
+              11,
+              1,
+              null
+            ],
+            [
+              11,
+              1,
+              null
+            ],
+            [
+              11,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 59,
+          "names": [
+            "SetLeader3",
+            "LeaderStyle",
+            "LeaderSide",
+            "SmartArrowHeadStyle",
+            "Perpendicular",
+            "AllAround",
+            "Dashed"
+          ],
+          "return_type": [
+            3,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "LeaderStyle"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "LeaderSide"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "SmartArrowHeadStyle"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Perpendicular"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "AllAround"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Dashed"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              12,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 60,
+          "names": [
+            "SetAttachedEntities",
+            "AttachedEnts"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "AttachedEnts"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 66,
+          "names": [
+            "GetAttachedEntities3"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 81,
+          "names": [
+            "IsDangling"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              5,
+              1,
+              null
+            ],
+            [
+              5,
+              1,
+              null
+            ],
+            [
+              5,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 91,
+          "names": [
+            "SetPosition2",
+            "X",
+            "Y",
+            "Z"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "X"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Y"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Z"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "IComponent2": {
+      "guid": "{655D6F2A-5441-45D1-8CBA-D35FB26988E4}",
+      "members": [
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 4,
+          "member_id": 30,
+          "names": [
+            "ReferencedConfiguration"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 2,
+          "member_id": 30,
+          "names": [
+            "ReferencedConfiguration"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 34,
+          "names": [
+            "GetPathName"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 122,
+          "names": [
+            "GetModelDoc2"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "ICurve": {
+      "guid": "{83A33D44-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 5,
+          "names": [
+            "IsLine"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "IDrawingDoc": {
+      "guid": "{83A33D33-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 10,
+          "names": [
+            "ActivateView",
+            "ViewName"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "ViewName"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 34,
+          "names": [
+            "GetFirstView"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 70,
+          "names": [
+            "GetCurrentSheet"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 244,
+          "names": [
+            "GetViews"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "IEdge": {
+      "guid": "{83A33D42-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 1,
+          "names": [
+            "GetCurve"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 11,
+          "names": [
+            "GetStartVertex"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 13,
+          "names": [
+            "GetEndVertex"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 47,
+          "names": [
+            "GetCurveParams3"
+          ],
+          "return_type": [
+            [
+              26,
+              [
+                29,
+                50352128
+              ]
+            ],
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "IEntity": {
+      "guid": "{83A33D65-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 65545,
+          "names": [
+            "GetComponent"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              11,
+              1,
+              null
+            ],
+            [
+              [
+                26,
+                [
+                  29,
+                  50335488
+                ]
+              ],
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 65556,
+          "names": [
+            "Select4",
+            "Append",
+            "Data"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Append"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Data"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "IMathTransform": {
+      "guid": "{F7D97F82-162E-11D4-AEAB-00C04FA0AC51}",
+      "members": [
+        {
+          "arguments": [],
+          "invoke_kind": 2,
+          "member_id": 3,
+          "names": [
+            "ArrayData"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [
+            [
+              12,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 4,
+          "member_id": 3,
+          "names": [
+            "ArrayData"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        }
+      ],
+      "missing": []
+    },
+    "IModelDoc2": {
+      "guid": "{B90793FB-EF3D-4B80-A5C4-99959CDB6CEB}",
+      "members": [
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 65607,
+          "names": [
+            "GetTitle"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 65608,
+          "names": [
+            "GetPathName"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 65609,
+          "names": [
+            "GetType"
+          ],
+          "return_type": [
+            3,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 65707,
+          "names": [
+            "Parameter",
+            "StringIn"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "StringIn"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 65873,
+          "names": [
+            "SetSaveFlag"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 65986,
+          "names": [
+            "GetSaveFlag"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 66159,
+          "names": [
+            "InsertNote",
+            "Text"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Text"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              11,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 66227,
+          "names": [
+            "ForceRebuild3",
+            "TopOnly"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "TopOnly"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              11,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 66263,
+          "names": [
+            "ClearSelection2",
+            "All"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "All"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 2,
+          "member_id": 66306,
+          "names": [
+            "Extension"
+          ],
+          "return_type": [
+            [
+              26,
+              [
+                29,
+                50349568
+              ]
+            ],
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": false
+        }
+      ],
+      "missing": []
+    },
+    "IModelDocExtension": {
+      "guid": "{99F4D4AF-F268-4EE1-8C55-041F7BECF879}",
+      "members": [
+        {
+          "arguments": [
+            [
+              9,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 98,
+          "names": [
+            "GetPersistReference3",
+            "DispObj"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "DispObj"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              12,
+              1,
+              null
+            ],
+            [
+              [
+                26,
+                3
+              ],
+              2,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 101,
+          "names": [
+            "GetObjectByPersistReference3",
+            "PersistId",
+            "ErrorCode"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "PersistId"
+            },
+            {
+              "default": {
+                "type": "PyOleMissing"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "ErrorCode"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              3,
+              1,
+              null
+            ],
+            [
+              3,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 158,
+          "names": [
+            "GetUserPreferenceToggle",
+            "UserPref",
+            "UserPrefOption"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "UserPref"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "UserPrefOption"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              3,
+              1,
+              null
+            ],
+            [
+              3,
+              1,
+              null
+            ],
+            [
+              11,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 159,
+          "names": [
+            "SetUserPreferenceToggle",
+            "UserPref",
+            "UserPrefOption",
+            "Value"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "UserPref"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "UserPrefOption"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Value"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 185,
+          "names": [
+            "GetWhatsWrongCount"
+          ],
+          "return_type": [
+            3,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ],
+            [
+              3,
+              1,
+              null
+            ],
+            [
+              3,
+              1,
+              null
+            ],
+            [
+              9,
+              1,
+              null
+            ],
+            [
+              9,
+              1,
+              null
+            ],
+            [
+              [
+                26,
+                3
+              ],
+              3,
+              null
+            ],
+            [
+              [
+                26,
+                3
+              ],
+              3,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 315,
+          "names": [
+            "SaveAs3",
+            "Name",
+            "Version",
+            "Options",
+            "ExportData",
+            "AdvancedSaveAsOptions",
+            "Errors",
+            "Warnings"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Name"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Version"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Options"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "ExportData"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "AdvancedSaveAsOptions"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Errors"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Warnings"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "INote": {
+      "guid": "{83A33D55-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 2,
+          "names": [
+            "GetText"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 26,
+          "names": [
+            "GetTextCount"
+          ],
+          "return_type": [
+            3,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 39,
+          "names": [
+            "SetText",
+            "Txt"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Txt"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 44,
+          "names": [
+            "GetName"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              5,
+              1,
+              null
+            ],
+            [
+              5,
+              1,
+              null
+            ],
+            [
+              5,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 65,
+          "names": [
+            "SetTextPoint",
+            "X",
+            "Y",
+            "Z"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "X"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Y"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Z"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 85,
+          "names": [
+            "GetAnnotation"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "ISldWorks": {
+      "guid": "{83A33D22-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 132,
+          "names": [
+            "GetMathUtility"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              9,
+              1,
+              null
+            ],
+            [
+              9,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 283,
+          "names": [
+            "IsSame",
+            "Object1",
+            "Object2"
+          ],
+          "return_type": [
+            3,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Object1"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Object2"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "IVertex": {
+      "guid": "{83A33D63-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 1,
+          "names": [
+            "GetPoint"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "IView": {
+      "guid": "{83A33D50-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 4,
+          "member_id": 87,
+          "names": [
+            "ReferencedConfiguration"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 2,
+          "member_id": 87,
+          "names": [
+            "ReferencedConfiguration"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 2,
+          "member_id": 111,
+          "names": [
+            "ScaleDecimal"
+          ],
+          "return_type": [
+            5,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [
+            [
+              5,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 4,
+          "member_id": 111,
+          "names": [
+            "ScaleDecimal"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 2,
+          "member_id": 114,
+          "names": [
+            "Position"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [
+            [
+              12,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 4,
+          "member_id": 114,
+          "names": [
+            "Position"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 2,
+          "member_id": 147,
+          "names": [
+            "Name"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": false
+        },
+        {
+          "arguments": [
+            [
+              9,
+              1,
+              null
+            ],
+            [
+              11,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 218,
+          "names": [
+            "SelectEntity",
+            "Entity",
+            "AppendFlag"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "Entity"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "AppendFlag"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 2,
+          "member_id": 221,
+          "names": [
+            "ModelToViewTransform"
+          ],
+          "return_type": [
+            [
+              26,
+              [
+                29,
+                50334080
+              ]
+            ],
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [
+            [
+              [
+                26,
+                [
+                  29,
+                  50334080
+                ]
+              ],
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 4,
+          "member_id": 221,
+          "names": [
+            "ModelToViewTransform"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 2,
+          "member_id": 261,
+          "names": [
+            "ReferencedDocument"
+          ],
+          "return_type": [
+            [
+              26,
+              [
+                29,
+                50333824
+              ]
+            ],
+            0,
+            null
+          ],
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": false
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 272,
+          "names": [
+            "GetAnnotations"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 287,
+          "names": [
+            "GetFirstAnnotation3"
+          ],
+          "return_type": [
+            [
+              26,
+              [
+                29,
+                50335872
+              ]
+            ],
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "invoke_kind": 1,
+          "member_id": 300,
+          "names": [
+            "GetVisibleComponents"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [
+            [
+              [
+                26,
+                [
+                  29,
+                  50337792
+                ]
+              ],
+              1,
+              null
+            ],
+            [
+              3,
+              1,
+              null
+            ]
+          ],
+          "invoke_kind": 1,
+          "member_id": 427,
+          "names": [
+            "GetVisibleEntities2",
+            "LpViewComponent",
+            "EntityType"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "LpViewComponent"
+            },
+            {
+              "default": {
+                "type": "PyOleEmpty"
+              },
+              "has_default": true,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "EntityType"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    }
+  },
+  "libraries": {
+    "sldworks": {
+      "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+      "locale": 0,
+      "major": 34,
+      "minor": 0
+    },
+    "swconst": {
+      "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+      "locale": 0,
+      "major": 34,
+      "minor": 0
+    }
+  },
+  "model_documents_opened": 0,
+  "native_processes_started_by_tool": 0,
+  "schema": 1,
+  "tool_sha256": "d476fbe104c1c5545c6b65e03ee079b9708789c69a7f7e4b8289bc70f9f383a4",
+  "wrapper_sha256": "d8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959"
+}

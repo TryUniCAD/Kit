@@ -1,0 +1,43 @@
+{
+  "acceptance": false,
+  "cad_execution": false,
+  "complete_functions": 20,
+  "data_windows": 7,
+  "delivery_pr": 121,
+  "heldout_inputs_read": 0,
+  "imports": 25,
+  "instruction_windows": 15,
+  "modules": 6,
+  "native_execution": false,
+  "native_measurement_performed_by_worker": false,
+  "owner": "flag_ownership",
+  "raw_receipts": [
+    {
+      "file": "Result.json",
+      "sha256": "9050f43ef2c4bf0e90933797733b7155b9bd6016cffbfb21abdd9ff6c0427153"
+    },
+    {
+      "file": "EditResult01.json",
+      "sha256": "4c8acad55123d7d8e24fbebcf182f953f56daf086c36c131dfb1f33d6fb3a5ed"
+    },
+    {
+      "file": "Job.json",
+      "sha256": "9da4efc46c6a798a138f07964360a571e926542635abd580307a643046fa93c1"
+    },
+    {
+      "file": "EditJob01.json",
+      "sha256": "e1479d8955f1eb886373322bd64af7902e1c68786dd08c9c8f7aff07ad53ae27"
+    }
+  ],
+  "record_sha256": "74a39331b491000f1e8574745a68ce2cde9a10e839bcbe6fef671dc75d3f4994",
+  "schema": "ordinary-part-partition-load-source-replay-v1",
+  "schema_or_codec_execution": false,
+  "source_only": true,
+  "task": "B04-SW2026-DOWNSTREAM-ID-DATA / ordinary prism partition admission",
+  "tests": false,
+  "unwind_fragments": 13,
+  "vendor_bytes_or_listings": false,
+  "verified": true,
+  "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+  "vtable_cells": 12
+}

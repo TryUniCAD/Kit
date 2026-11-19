@@ -17,8 +17,18 @@ The exact-build packets record 16 distinct native processes, including four heal
 
 Two more generated files omit downstream ID allocation and the cache stream. Their six local face tracking attributes each retain the timestamp with zero ID, type and owner key. Both still open with warning 32 and zero live bodies, then rebuild to the same one-body geometry. Two native controls pass around those measurements. The remaining first-open gate lies in the model and active partition path shared by the cohorts. [Unallocated partition receipt](../measurements/2026/DownstreamPrismUnallocatedNative01.json)
 
+## Body clock and ordinary load route
+
+Each of two shape pairs uses the same generated partition bytes and kernel body stamp of 102. A single later body event sets the model header counter to 103 in the comparison. Omitting that event leaves the header at 102 in the matching-clock input. Both variants of each shape still open with warning 32 and zero live bodies. The bracketed comparison therefore eliminates this one-tick mismatch as a sufficient explanation for the observed first-open failure.
+
+A separate native save retains the original depth and geometry. It reopens with one body and zero diagnostics, with kernel and header body stamps of 107. The native active body uses a new atom, while the original generated atom remains in the saved atom table. These are observations of the native rebuild and save lifecycle. [Body clock and unchanged-shape receipt](../measurements/2026/DownstreamPrismBodyClockNative01.json)
+
+The ordinary part loader selects its partition through `SolidStorage_c::LoadModel` and `moPart_c::loadExternalBodies`. It resolves model and feature marks in the actual returned partition. The compiled path identifies distinct checkpoints for receive, the body inventory, and publication into a model atom. This source boundary narrows the next runtime observation. [Ordinary partition load](OrdinaryPartPartitionLoad2026.md)
+
 ## Replay
 
 Prepare each case with [the in-memory generator](../../tooling/sw2026/downstream/PreparePrismCacheNative.py). Give it variant 1 or 2, the actual absolute Windows part path, the document's integral model-time input, and an unused artefact output path. Select `--include-cache` for the populated case or `--omit-downstream-allocation` for the comparison with only local tracking. The generator rejects runtime file/process operations while it constructs the part and serializes its cache.
+
+For the body clock comparison, pass `--later-body-updates 0` for the matching clock and `1` for the split clock. The added event advances the header body counter after the body and face assignments.
 
 Run [the native measurement](../../tooling/sw2026/InspectPrismCacheEdit.py) through `prlctl exec --current-user` in the original VM with a job JSON and distinct receipt path. The job names the hashed bracketing control and each generated input and digest. Each case specifies the analytic initial and target depth, volume, area and centre, plus a separate native output path. The tool records the original open status before rebuild, then verifies the parameter edit and reads the edited file in a fresh process. The two disclosed variants are outside the held-out acceptance count.

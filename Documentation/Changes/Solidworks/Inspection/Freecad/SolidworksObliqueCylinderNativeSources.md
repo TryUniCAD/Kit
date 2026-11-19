@@ -1,0 +1,7 @@
+# Prepare native oblique circular extrusion sources
+
+PR #121 adds a frozen disclosed source-author protocol for two independent oblique circular solids. It creates real hinge axes, two editable angular planes, their intersection direction, a height-limit plane and a radial-driven circle, then uses selected-plane extrusion end `4` with explicit selected direction ownership. Each native source must pass four independent driver edits, original/edited saves, separate fresh reopens and healthy brackets before its source lock exists.
+
+Use the [authoring record](../../../../../re/solidworks/records/FreecadObliqueCylinderAuthoring2026.md) and its `ObliqueCylinderSources.py` freezer/phase recipe. The [host boundary receipt](../../../../../re/solidworks/measurements/2026/FreecadObliqueCylinderAuthoring01.json) records immutable tool/input verification and five process refusals. The [length-owner gotcha](../../../../Gotchas/Conversion/Solidworks/Model/ReferencePlanes/ObliqueCylinderLengthIsTheLimitPlaneDriver.md) preserves the height parameter's actual owner, and a [separate preregistration](../../../../../re/solidworks/records/FreecadObliqueCylinderSealedProtocol2026.json) leaves later unseen sources disabled.
+
+No native phase has run in the recorded host result. Native sign conventions, typed reference getter return representations and selected-plane end behavior remain measured-source gates. This adds no production writer, held-out support or completed FreeCAD primitive conversion. No existing frozen packet or shared source was changed.
