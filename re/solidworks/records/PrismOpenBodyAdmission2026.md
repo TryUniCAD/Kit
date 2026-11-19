@@ -1,6 +1,6 @@
 # Ordinary prism body admission on SOLIDWORKS 2026
 
-The generated prism still opens normally with warning 32 and zero exposed solids. A separate single-stop probe returns one body from the kernel during the same warning-producing open. The error publisher is the ordinary part configuration path. [Controlled native receipt](../measurements/2026/PrismOpenBodyAdmission01.json)
+The first cache-bearing generated prisms opened with warning 32 and zero exposed solids. The later disclosed authored-light and linked-output comparison reaches a clean first solid. A separate single-stop probe returns one body from the kernel during the same warning-producing open. The error publisher is the ordinary part configuration path. [Controlled native receipt](../measurements/2026/PrismOpenBodyAdmission01.json)
 
 Task `B04-SW2026-DRAWING-DOWNSTREAM-ID`, [PR #121](https://github.com/TryUniCAD/Kit/pull/121). Root ran the disclosed diagnostic on SOLIDWORKS 2026 SP05.2 build 34.5.2.0604 in the reserved Windows 11 ARM64 guest. The generated input was the matching-clock prism, SHA-256 `3c6e2216c9ecaff27c8a5897b87653cffa5681df71940c9b7104d27a9eaddd03`. All three batches have separate healthy starting and trailing controls. No batch invokes rebuild or save. [Generated input and prior clock comparison](DownstreamPrismCacheNative2026.md#body-clock-and-ordinary-load-route)
 
@@ -78,3 +78,11 @@ A second post-open comparison checks the live manager's part pointer, type and o
 Independently, the exact file graphs tie active body 102 to the native control's extrusion 21. Its other atom, 101, shares the generated file's atom ID and body-match tag. The generated active partition references its atom 101 through the manager. Its extrusion 21 lacks the output object array and corresponding ID list. The records show the actual owner IDs of these two files.
 
 The prior source comparison binds the live output count and object membership checks that precede publication. The diagnostic writer now joins the existing generated atom to the creating extrusion. The same actual atom object appears in the config manager and the resolved output array. The signed output ID derives from that atom. Two pairs of same-locator builds change only ResolvedFeatures and retain the exact partition bytes. Six guarded generations read no data during model or stream construction. [Attachment and publication source](PartBodyAtomBinding2026.md) · [Preparation receipt](../measurements/2026/PrismExtrusionOutputPreparation01.json)
+
+### Cold body admission through the resolved extrusion output
+
+Both generated linked prisms expose one solid on their first ordinary open, before any rebuild. Both unlinked counterparts open with zero warnings and expose zero solids. Every part has a clear initial rebuild state and save flag. The six guarded source builds retain identical partition bytes for each shape, and the two same-locator comparisons differ only in ResolvedFeatures. The two normal native inputs for each shape use distinct self locators.
+
+On clean cold open, both linked bodies match the independently calculated volume, surface area and centre of mass within the recorded tolerance. Depth changes from 8 to 10.31 mm and from 9.75 to 6.45 mm both rebuild, save and freshly reopen with the expected solid and retained driving dimension. Eight distinct SOLIDWORKS processes complete the comparison, including both clean native controls. The ordinary cases use no debugger and capture the first body count before rebuilding. [Controlled native receipt](../measurements/2026/PrismExtrusionOutputNative01.json)
+
+This demonstrates source-saved body admission for the two disclosed no-cache, authored-light prisms. Full cache consumption, generalized neutral lowering and held-out qualification remain open.
