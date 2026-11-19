@@ -1,6 +1,6 @@
 # Concentric occurrence names: authored node versus native label
 
-The original generated parent still fails the strict native occurrence-name gate. The actual loaded `IFeature.Name` remains unmeasured; changing the expected name to the observed child filename is not justified.
+The original generated parent still fails the strict native occurrence-name gate. The loaded `IFeature.Name` and `IComponent2.Name2` both take the same child-file-derived labels. Their persisted input occurrence names have independent typed witnesses.
 
 Task `B04-SW2026-MATES-CONCENTRIC`; owner `/root/assembly_occurrence`; delivery PR #121. Dependencies are the [original open failure](GeneratedConcentricOpenFailure2026.md), shared ordinary occurrence construction and the frozen disclosed Feature neutral/generated pair. This tranche ends at immutable host custody and a narrow matched native observation. It does not qualify a name-preserving writer. The [CAD criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) and [RE playbook](../../Playbook/README.md) apply.
 
@@ -29,3 +29,9 @@ A literal `Name2` MFC descriptor in original `sldapiu.dll` is surrounded by rout
 If the new observation shows a real stored-name refresh, the next source control independently authors a cylinder whose component names deliberately differ from its child file. It must select each actual component, verify current `swExtRefUpdateCompNames` is false, set the requested `Name2`, save child then parent, and compare both API names through a fresh reopen and archive projections. The preference is never changed. The installed exact enum/signatures must be captured first. The official older [rename example](https://help.solidworks.com/2025/english/api/sldworksapi/Change_Name_of_Component_Example_CSharp.htm) supplies API context only, not an exact-build implementation proof. No new override constructor is written before that ownership is understood.
 
 No sealed source, VM, COM or retained Hopper session is used by this host work. No source-equivalence or public writer claim follows from these diagnostic steps.
+
+## Native result
+
+Both pristine controls pass. The generated parent returns error 0 and warning 32. Each of its two actual top-level Reference features supplies the corresponding Component2. The feature ID and component ID agree at 17 and 18, both child file identities match, and repeated reads are stable. Both APIs return the child-file-based names on native open and after the explicit rebuild. The archive input retains the authored names Cylinder-1 and Cylinder-2. This places the divergence in shared loaded reference naming. The exact update that produces the live name remains open.
+
+The result retains the prior strict mismatch. Both interface identity comparisons and the actual child path prove useful evidence independently of this refusal. No names, global preferences, parameters or saved files changed. Three fresh native processes and healthy controls pass the diagnostic. [Native receipt](../measurements/2026/ConcentricReferenceNamesNative01.json)
