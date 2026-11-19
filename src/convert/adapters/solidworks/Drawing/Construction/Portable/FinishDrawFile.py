@@ -34,13 +34,15 @@ def FinishDrawFile(
     InputValue: BlankDrawInput,
     GraphValue: DrawRootGraph,
     EncodeDefinition: Callable[[BlankGraph], DefinitionWire],
+    *,
+    DisplayGrid: bool = True,
 ) -> DrawingFile:
     HeaderValue = MakeDrawHeader(GraphValue, InputValue.HeaderValue)
     HeaderValue.FieldsValue["f38"] = MakeSelfFile(
         GraphValue.ModelValue, HeaderValue, None, InputValue.FileValue
     )
     GraphValue.ModelValue.FieldsValue["fa8"] = HeaderValue
-    UiValue = MakeDrawDef(InputValue.UiSettings, GraphValue)
+    UiValue = MakeDrawDef(InputValue.UiSettings, GraphValue, DisplayGrid=DisplayGrid)
     StreamsValue = MakeDrawStreams(
         InputValue,
         HeaderValue,

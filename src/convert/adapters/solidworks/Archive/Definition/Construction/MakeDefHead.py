@@ -15,7 +15,9 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # authored presentation and shared ui constructor state supply the head of a fresh model definition
-def MakeDefHead(Settings: ModelDefSettings) -> dict[str, object]:
+def MakeDefHead(
+    Settings: ModelDefSettings, *, DisplayGrid: bool = True
+) -> dict[str, object]:
     Low, High = DefDisplayWords(Settings.DisplayBits)
     Fa58Value, Fa5cValue, Fa60Value, Fa64Value = Settings.Tessellation
     return {
@@ -30,7 +32,7 @@ def MakeDefHead(Settings: ModelDefSettings) -> dict[str, object]:
         "faf0": IdentityXform(),
         "facc": 3,
         "fad0": 0,
-        "fad4": 3,
+        "fad4": 2 | int(DisplayGrid),
         "fad8_0": Low,
         "fad8_1": High,
         "fba8": ArchiveNode(RuntimeClass(Settings.DraftingStandard, 1), {}),

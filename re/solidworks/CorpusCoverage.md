@@ -24,8 +24,11 @@ layout acceptance cases outside the FCStd part and assembly benchmark.
 The [internal SDK plain note](measurements/2026/SdkPlainDrawingNoteConstruction01.json)
 reproduces two disclosed note containers and fourteen logical streams across
 four guarded workers. Its first exact container passed the disclosed note text
-and position lifecycle. Original source admission and held-out note acceptance
-remain open. These drawing samples add zero generated FCStd conversions.
+and position lifecycle. Five further generated cases exercise the
+[document display controls](measurements/2026/DrawingPlainNoteDisplayFlags01.json).
+They retain the actual note data and ordered tree while the viewport still
+omits the note. Original source admission and held-out note acceptance remain
+open. These drawing samples add zero generated FCStd conversions.
 
 The independent research composer generates fresh native containers and streams
 from neutral polygon, circle, radial-dimension and depth inputs without saved-stream inputs.

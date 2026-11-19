@@ -22,7 +22,9 @@ from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import KDrawCl
 
 
 # drawing ui construction must reuse shared native settings while retaining its real model and sheet sketch owners
-def MakeDrawDef(Settings: ModelDefSettings, GraphValue: DrawRootGraph) -> BlankGraph:
+def MakeDrawDef(
+    Settings: ModelDefSettings, GraphValue: DrawRootGraph, *, DisplayGrid: bool = True
+) -> BlankGraph:
     if type(Settings) is not ModelDefSettings or type(GraphValue) is not DrawRootGraph:
         raise TypeError(
             "drawing ui construction requires typed settings and an actual model graph"
@@ -40,7 +42,7 @@ def MakeDrawDef(Settings: ModelDefSettings, GraphValue: DrawRootGraph) -> BlankG
             "drawing ui construction has an unrelated active sheet or sketch"
         )
     FieldsValue = (
-        MakeDefHead(Settings)
+        MakeDefHead(Settings, DisplayGrid=DisplayGrid)
         | MakeDefTail()
         | {
             "clsid_a": int.from_bytes(KDrawClsid[:4], "little"),

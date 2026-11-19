@@ -39,10 +39,18 @@ def make_input(record):
     standard = record.get("detailing_standard", 1)
     if type(standard) is not int or standard not in (0, 1):
         raise ValueError("unsupported drawing note detailing standard")
+    switches = (
+        (0, record.get("display_annotations", False)),
+        (29, record.get("display_all_annotations", False)),
+    )
+    if any(type(action) is not bool for _, action in switches):
+        raise TypeError("drawing annotation visibility requires explicit booleans")
     options = recipe.OptionsValue
-    return replace(recipe, OptionsValue=replace(
-        options, StyleValue=replace(options.StyleValue, StandardValue=standard),
-    ))
+    return replace(
+        recipe,
+        OptionsValue=replace(options, StyleValue=replace(options.StyleValue, StandardValue=standard)),
+        UiSettings=replace(recipe.UiSettings, DisplayBits=tuple(index for index, action in switches if action)),
+    )
 
 
 def verify(value, record):
@@ -99,7 +107,7 @@ def main():
     sys.addaudithook(guard.event)
     guard.active = True
     try:
-        value = MakePlainNoteFile(make_input(record))
+        value = MakePlainNoteFile(make_input(record), DisplayGrid=record.get("display_grid", True))
         with args.target.open("xb") as target:
             if target.write(value.BytesValue) != len(value.BytesValue):
                 raise OSError("short generated SDK note write")

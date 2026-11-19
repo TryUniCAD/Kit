@@ -1,4 +1,5 @@
 from dataclasses import replace as ReplaceValue
+from typing import cast as CastValue
 
 from convert.adapters.solidworks.Drawing.Construction.Model.MakeDrawRoot import (
     MakeDrawRoot,
@@ -30,8 +31,12 @@ from convert.adapters.solidworks.Drawing.Definition.PlainNotes.WritePlainNoteDef
 
 
 # a standalone note extends the same drawing model and container generation used for an empty sheet
-def MakePlainNoteFile(InputValue: BlankDrawInput) -> DrawingFile:
+def MakePlainNoteFile(
+    InputValue: BlankDrawInput, *, DisplayGrid: bool = True
+) -> DrawingFile:
     CheckBlankInput(InputValue)
+    if type(CastValue(object, DisplayGrid)) is not bool:
+        raise TypeError("drawing grid display requires an explicit boolean")
     SheetValue, NoteValue = NeedPlainNote(InputValue.DrawingValue)
     BlankValue = ReplaceValue(
         InputValue.DrawingValue, Sheets=(ReplaceValue(SheetValue, Notes=None),)
@@ -46,4 +51,6 @@ def MakePlainNoteFile(InputValue: BlankDrawInput) -> DrawingFile:
         InputValue.UiSettings.VersionValue,
         InputValue.OptionsValue.StyleValue.LanguageId,
     )
-    return FinishDrawFile(InputValue, GraphValue, WritePlainNoteDef)
+    return FinishDrawFile(
+        InputValue, GraphValue, WritePlainNoteDef, DisplayGrid=DisplayGrid
+    )

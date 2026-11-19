@@ -1,0 +1,148 @@
+{
+  "cad_processes_started": 0,
+  "enums": {
+    "swUserPreferenceOption_e": {
+      "swDetailingAnnotation": 100,
+      "swDetailingNoOptionSpecified": 0,
+      "swDetailingTableAnnotation": 150
+    },
+    "swUserPreferenceToggle_e": {
+      "swAnnotationDisplayHideDanglingDim": 154,
+      "swDetailingAnnotationApplyNewCTDepthArchForToNewParts": 782,
+      "swDetailingAnnotationShowTypeInThreadCallouts": 751,
+      "swDetailingAnnotationUseBentLeaders": 375,
+      "swDetailingDimsSnapTextToGrid": 49,
+      "swDetailingImportEntireAssemblyAnnotations": 362,
+      "swDetailingShowHaloAroundAnnotation": 361,
+      "swDisplayAllAnnotations": 197,
+      "swDisplayAnnotations": 31,
+      "swDisplayAnnotationsUseAssemblySettings": 34,
+      "swDisplayCompAnnotations": 575,
+      "swDisplayComponentDimXpertAnnotations": 685,
+      "swGridAutomaticScaling": 59,
+      "swGridDisplay": 57,
+      "swGridDisplayDashed": 58,
+      "swPrintGrid": 610,
+      "swShowAnnotationInAnnotationViews": 609,
+      "swSketchSnapToGridIfDisplayed": 279,
+      "swSketchSnapsGrid": 278,
+      "swSnapOnlyIfGridDisplayed": 142,
+      "swViewShowAnnotationLinkErrors": 347,
+      "swViewShowAnnotationLinkVariables": 348,
+      "swViewShowAnnotationTextExpression": 835
+    }
+  },
+  "interfaces": {
+    "IAnnotation": {
+      "GetDisplayData": [
+        {
+          "arguments": "()",
+          "invoke_kind": 1,
+          "member_id": 3,
+          "return": "(9, 0, None)",
+          "vt_offset": 72
+        }
+      ],
+      "Visible": [
+        {
+          "arguments": "()",
+          "invoke_kind": 2,
+          "member_id": 37,
+          "return": "(3, 0, None)",
+          "vt_offset": 384
+        },
+        {
+          "arguments": "((3, 1, None),)",
+          "invoke_kind": 4,
+          "member_id": 37,
+          "return": "(24, 0, None)",
+          "vt_offset": 392
+        }
+      ]
+    },
+    "IModelDoc2": {
+      "GetDisplayWhenAdded": [
+        {
+          "arguments": "()",
+          "invoke_kind": 1,
+          "member_id": 65756,
+          "return": "(11, 0, None)",
+          "vt_offset": 1872
+        }
+      ],
+      "GetGridSettings": [
+        {
+          "arguments": "()",
+          "invoke_kind": 1,
+          "member_id": 65730,
+          "return": "(12, 0, None)",
+          "vt_offset": 1656
+        }
+      ],
+      "SetDisplayWhenAdded": [
+        {
+          "arguments": "((11, 1, None),)",
+          "invoke_kind": 1,
+          "member_id": 65757,
+          "return": "(24, 0, None)",
+          "vt_offset": 1880
+        }
+      ]
+    },
+    "IModelDocExtension": {
+      "GetUserPreferenceToggle": [
+        {
+          "arguments": "((3, 1, None), (3, 1, None))",
+          "invoke_kind": 1,
+          "member_id": 158,
+          "return": "(11, 0, None)",
+          "vt_offset": 1336
+        }
+      ],
+      "SetUserPreferenceToggle": [
+        {
+          "arguments": "((3, 1, None), (3, 1, None), (11, 1, None))",
+          "invoke_kind": 1,
+          "member_id": 159,
+          "return": "(11, 0, None)",
+          "vt_offset": 1344
+        }
+      ],
+      "ViewZoomToSheet": [
+        {
+          "arguments": "()",
+          "invoke_kind": 1,
+          "member_id": 291,
+          "return": "(24, 0, None)",
+          "vt_offset": 2504
+        }
+      ]
+    },
+    "INote": {
+      "GetExtent": [
+        {
+          "arguments": "()",
+          "invoke_kind": 1,
+          "member_id": 22,
+          "return": "(12, 0, None)",
+          "vt_offset": 224
+        }
+      ]
+    },
+    "IView": {
+      "GetVisible": [
+        {
+          "arguments": "()",
+          "invoke_kind": 1,
+          "member_id": 212,
+          "return": "(11, 0, None)",
+          "vt_offset": 1824
+        }
+      ]
+    }
+  },
+  "version": [
+    34,
+    0
+  ]
+}

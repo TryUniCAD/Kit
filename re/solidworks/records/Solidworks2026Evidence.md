@@ -6,6 +6,11 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Drawing display controls](../measurements/2026/DrawingPlainNoteDisplayFlags01.json) | Five generated ANSI notes reproduce all three authored display switches. Eight clean processes include three controls. The grid follows its switch, but every grid-off generated viewport is byte-identical to the empty control. |
+| [Drawing ANSI note presentation](../measurements/2026/AnsiDrawingNotePresentation01.json) | The generated note matches the source text height and ten-row tree. The displayed baseline and actual viewport still differ. |
+| [Native component name update policy](../measurements/2026/ComponentNameReadOnlyPolicyNative01.json) | The same two native source files retain both saved custom names when opened read-only under the false policy. Three fresh phases pass and the original true setting is restored. Their earlier true-policy reopen normalized both names. |
+| [Through-all source view](../measurements/2026/ThroughAllSourceView01.json) | Three disclosed camera states regenerate bit for bit in 65 processes. The latest inventory retains 13 Definition and 29 configuration-manager differences per source. |
+| [Through-all system members](../measurements/2026/ThroughAllSystemMembers01.json) | The internal member constructor rebuilds actual cabinet and environment children, preserving their log ownership in 74 fresh processes. |
 | [SDK attached prism lifecycle](../measurements/2026/SdkPrismAttachmentNative01.json) | A rectangle and a clockwise concave six-sided loop open with a correct saved solid. Both driving depth edits persist through six clean phases, including two native controls. |
 | [Linked SDK drawing with a generated child cache](../measurements/2026/SdkCachedChildDrawingNative01.json) | The true paired output opens with the saved child solid, accepts a view edit, saves and freshly reopens. Four controlled phases and both generated phases pass. The specific cache lookup remains unobserved. |
 | [Assembly regeneration publisher](AssemblyNeedsRegen2026.md) | Twelve complete native functions prove the assembly-specific warning publisher. The exact predicate taken by the existing diagnostic remains unobserved. |
