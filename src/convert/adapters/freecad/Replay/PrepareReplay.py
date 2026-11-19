@@ -10,6 +10,8 @@ from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
 from convert.adapters.freecad.Replay.NativeIdentity import KReplaySemanticAttr
 from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
 from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
+from convert.adapters.freecad.Replay.SetReplayDigest import SetReplayDigest
+from interchange.Payloads.PayloadRecord import BrepPayload
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -19,8 +21,15 @@ def PrepareChild(DocValue: CadDocument) -> CadDocument:
 
 
 # failed parent verification leaves child verification independent of exact parent replay
-def RebuildReplay(DocValue: CadDocument, Migrate: bool) -> tuple[CadDocument, None]:
-    return (PrepareChildren(DocValue, PrepareChild) if Migrate else DocValue, None)
+def RebuildReplay(
+    DocValue: CadDocument, NativeDoc: BrepPayload, InitialDigest: str, Migrate: bool
+) -> tuple[CadDocument, None]:
+    if not Migrate:
+        return DocValue, None
+    Prepared = PrepareChildren(DocValue, PrepareChild)
+    if SemanticDigest(Prepared) != InitialDigest:
+        Prepared = SetReplayDigest(Prepared, NativeDoc, None)
+    return Prepared, None
 
 
 # write requests share archive verification between exact replay and legacy sketch migration
@@ -35,7 +44,8 @@ def PrepareReplay(
     DataValue = NativeDoc.data
     if not isinstance(Expected, str) or DataValue is None:
         return DocValue, None
-    IsUnchanged = SemanticDigest(DocValue) == Expected
+    InitialDigest = SemanticDigest(DocValue)
+    IsUnchanged = InitialDigest == Expected
     if not IsUnchanged and not Migrate:
         return DocValue, None
     ReplayBytes = DataValue if IsUnchanged else None
@@ -51,5 +61,5 @@ def PrepareReplay(
                 DocValue = ApplyFlags(Legacy, Current, DocValue)
             return DocValue, ReplayBytes
     except (NativeFreeCad, FreeCadAdapterA, OSError, TypeError, ValueError, BadZipFile):
-        return RebuildReplay(DocValue, Migrate)
-    return RebuildReplay(DocValue, Migrate)
+        return RebuildReplay(DocValue, NativeDoc, InitialDigest, Migrate)
+    return RebuildReplay(DocValue, NativeDoc, InitialDigest, Migrate)

@@ -6,6 +6,7 @@ from convert.adapters.freecad.Replay.ApplyChildren import ApplyChildren
 from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
 from convert.adapters.freecad.Replay.NativeIdentity import KReplaySemanticAttr
 from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
+from convert.adapters.freecad.Replay.SetReplayDigest import SetReplayDigest
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -35,16 +36,5 @@ def ApplyFlags(
         )
         for Sketch in DocValue.sketches
     )
-    Updated = Replace(
-        NativeDoc, attributes={**NativeDoc.attributes, KReplaySemanticAttr: Current}
-    )
-    Payloads = tuple(
-        Updated if Payload is NativeDoc else Payload
-        for Payload in DocValue.brep_payloads
-    )
-    return ApplyChildren(
-        Replace(DocValue, sketches=Sketches, brep_payloads=Payloads),
-        Before,
-        After,
-        ApplyFlags,
-    )
+    Updated = SetReplayDigest(Replace(DocValue, sketches=Sketches), NativeDoc, Current)
+    return ApplyChildren(Updated, Before, After, ApplyFlags)

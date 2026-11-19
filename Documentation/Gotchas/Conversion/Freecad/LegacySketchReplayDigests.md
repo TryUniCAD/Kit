@@ -14,5 +14,6 @@ Kit preserves suppression edits that differ from the older carried value.
 Kit records the independently parsed current digest on the carried archive after migrating its sketch flags.
 An unchanged linked child keeps exact replay when a portable export writes it beside the rebuilt parent.
 A parent rebuild verifies each carried child independently when its original external file is unavailable.
+If a child correction changes the carried model, Kit clears the unverified parent digest and retains independently verified child digests.
 
 [FreeCAD adapter guide](../../../Reference/Adapters/Freecad.md) and [restore integration cases](../../../../tests/Convert/Freecad/FreecadTests.py)
