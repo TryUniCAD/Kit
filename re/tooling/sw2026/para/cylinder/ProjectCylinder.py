@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import DatumTime
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import PartCandidate
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, ReadNodeName, RequireNode, RequireRecord
+from para.DownstreamIds import install_part_downstream
 from para.Partition import Partition, frame_payloads, write_payloads
 from para.Tracking import body_match_tag, signed_dword, unchanged_face_stamp, unsigned
 from para.cylinder.CylinderTopology import generated_cylinder
@@ -56,7 +57,7 @@ def face_tracking_installs(topology, faces, tracking):
     )
 
 
-def project_cylinder(candidate, session, earlier_face_count=0, *, tracking=None):
+def project_cylinder(candidate, session, earlier_face_count=0, *, tracking=None, downstream=None):
     require(type(candidate) is PartCandidate and candidate.CutValue is None,
             "the cylinder cache requires an actual generated ordinary part")
     require(type(earlier_face_count) is int and earlier_face_count >= 0,
@@ -94,6 +95,8 @@ def project_cylinder(candidate, session, earlier_face_count=0, *, tracking=None)
         Install(topology.body, "ATOM_ID_2001", (None, (atom_id,))),
         Install(topology.body, "LAST_BODY_MODIFYING_FEATURE_ID", (None, (feature_id,))),
     )
+    if downstream is not None:
+        installs = install_part_downstream(partial, installs, downstream)
     active, pointers, next_id = register_attributes(partial, topology.body, installs, first_id)
     complete = tuple(augment(node, highest_node_id=next_id - 1) if node.kind == 12 else node for node in active)
     partition = collect_state(index_draft(complete, marks), pointers)

@@ -22,11 +22,15 @@ def unchanged_face_stamp(face_tag, update_stamp):
     return signed_dword(((face & 0xffff) << 16) | (update & 0xffff))
 
 
-def local_downstream_face_words(updated_at, subsecond_ticks):
+def filetime_ticks(updated_at, subsecond_ticks):
     if type(updated_at) is not int:
         raise ValueError("update time must be an integer UTC Unix second")
     if type(subsecond_ticks) is not int or not 0 <= subsecond_ticks < FILETIME_TICKS_PER_SECOND:
         raise ValueError("update fraction must be in 100 ns ticks within one second")
     ticks = FILETIME_UNIX_EPOCH + FILETIME_TICKS_PER_SECOND * updated_at + subsecond_ticks
-    unsigned(ticks, 64, "update FILETIME")
+    return unsigned(ticks, 64, "update FILETIME")
+
+
+def local_downstream_face_words(updated_at, subsecond_ticks):
+    ticks = filetime_ticks(updated_at, subsecond_ticks)
     return 0, signed_dword(ticks & 0xffffffff), signed_dword(ticks >> 32), 0, 0, 0

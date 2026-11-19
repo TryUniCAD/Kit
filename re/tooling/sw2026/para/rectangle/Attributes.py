@@ -78,6 +78,7 @@ RECTANGLE_DEFINITIONS = (
     sw("BODY_MATCH", BODY, (Field.INT,), Action.PROPAGATE),
     sw("SWEntUnchanged", (Owner.FACE, Owner.EDGE), (Field.INT,), Action.PROPAGATE),
     sw("DOWNSTREAM_FACE_ID", FACE, (Field.INT,) * 3),
+    sw("DOWNSTREAM_EDGE_ID", (Owner.EDGE,), (Field.INT,) * 3),
     sw("LAST_BODY_MODIFYING_FEATURE_ID", BODY, POINTER_INT),
     sw("BODY_IN_LIGHTWEIGHT_PERM", BODY, POINTER_INT),
     sw("BODY_RECIPE_2001", BODY, POINTER_INT),

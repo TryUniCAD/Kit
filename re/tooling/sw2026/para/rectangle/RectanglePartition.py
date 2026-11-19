@@ -139,10 +139,10 @@ def add_counts(mark, new=0):
     return Node(mark.index, mark.kind, {**mark.fields, "n_new_nodes": new, "n_del_nodes": 0, "n_copy_mod_nodes": 0})
 
 
-def project_rectangle(child, plan, appearance, previous_face_allocations=0):
+def project_rectangle(child, plan, appearance, previous_face_allocations=0, *, downstream=None):
     partial, next_id = complete_topology(plan.topology)
     active, nontransmitted, next_id = append_rectangle_attributes(
-        child, plan, partial, appearance, next_id, previous_face_allocations,
+        child, plan, partial, appearance, next_id, previous_face_allocations, downstream=downstream,
     )
     complete = tuple(augment(node, highest_node_id=next_id - 1) if node.kind == 12 else node for node in active)
     for node in complete:

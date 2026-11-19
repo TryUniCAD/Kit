@@ -11,7 +11,7 @@ Both original x64 PE images are release `34.5.2.0604`:
 | Module | Preferred base | Bytes | SHA-256 |
 | --- | --- | --- | --- |
 | `sldmodu.dll` | `0x4b140000` | 46,536,280 | `569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e` |
-| `slduiu.dll` | `0x48df0000` | 36,036,696 | `025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7` |
+| `slduiu.dll` | `0x48ea0000` | 36,036,696 | `025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7` |
 
 The [numeric evidence](ConcentricOrientationEnable2026.json) records original-byte SHA-256 values for 14 complete native functions or leaves, all 12 applicable chained unwind fragments, 12 call instructions, 14 instruction windows, two concrete primary RTTI tables and seven virtual cells. Named callers are bound to exact export entries, not the nearest disassembler label. The private replay reads only the pinned original DLLs and emits metadata. Original binaries and listings remain outside the checkout.
 

@@ -1,0 +1,413 @@
+{
+  "disclosed_inspection": {
+    "claim": "typed saved topology walks and byte-exact re-emission, not new native iterator measurement",
+    "new_native_api_observations": 0,
+    "report_names": [
+      "L1Order01.json",
+      "A13Order01.json",
+      "A14Order01.json"
+    ],
+    "save_contexts": 3,
+    "shape_designs": 1,
+    "tool_name": "InspectKernelTopology.py",
+    "tool_sha256": "2aa46c7371d8a3941f1c093443975cd5815efc6634d5aedf2f565fd5f9cb6825"
+  },
+  "field_descriptor_runtime_offset_member": "+0x28",
+  "kernel": {
+    "bytes": 72681488,
+    "licensed_original_external_to_checkout": true,
+    "name": "PSKERNEL.dll",
+    "preferred_base": "0x180000000",
+    "sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
+    "version": "37.01.250"
+  },
+  "kernel_functions": [
+    {
+      "entry": "0x1800f2050",
+      "fragments": [
+        {
+          "bytes": 2876,
+          "end_exclusive": "0x1800f2b8c",
+          "file_offset": 988240,
+          "name": "unwind_fragment",
+          "sha256": "b9fd560d57eaef0b0f6c6881ed24924c76a02fadf1d5e0d655356c035b4390c5",
+          "start": "0x1800f2050"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "PK_BODY_ask_edges"
+    },
+    {
+      "entry": "0x1800f2b90",
+      "fragments": [
+        {
+          "bytes": 2786,
+          "end_exclusive": "0x1800f3672",
+          "file_offset": 991120,
+          "name": "unwind_fragment",
+          "sha256": "2577b4f9dd08a615e919f9783902100ab3fe31e25c8279c38937a9f32936c130",
+          "start": "0x1800f2b90"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "PK_BODY_ask_faces"
+    },
+    {
+      "entry": "0x1800f42b0",
+      "fragments": [
+        {
+          "bytes": 2350,
+          "end_exclusive": "0x1800f4bde",
+          "file_offset": 997040,
+          "name": "unwind_fragment",
+          "sha256": "ee28fd8070bd65a41cd739f7a3ea1df3eca708e02643384a034e7c3ff6c89487",
+          "start": "0x1800f42b0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "PK_BODY_ask_first_edge"
+    },
+    {
+      "entry": "0x1800f4be0",
+      "fragments": [
+        {
+          "bytes": 2297,
+          "end_exclusive": "0x1800f54d9",
+          "file_offset": 999392,
+          "name": "unwind_fragment",
+          "sha256": "ed58177d374a47e6bcb39798633ba7c94b5c90e33f7a2d49f1505c78a0b9eaf1",
+          "start": "0x1800f4be0"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "PK_BODY_ask_first_face"
+    },
+    {
+      "entry": "0x1802101c0",
+      "fragments": [
+        {
+          "bytes": 475,
+          "end_exclusive": "0x18021039b",
+          "file_offset": 2160064,
+          "name": "unwind_fragment",
+          "sha256": "8e9e9fe8527bb7fa4f5e9ded96810ed378f957b1ddd53f3e7adc1fa21c9ce457",
+          "start": "0x1802101c0"
+        },
+        {
+          "bytes": 322,
+          "end_exclusive": "0x1802104dd",
+          "file_offset": 2160539,
+          "name": "unwind_fragment",
+          "sha256": "e41f0ba465c646e3778c85e20bbdb171084f2da5d18b0978794f9e2c54fb50db",
+          "start": "0x18021039b"
+        },
+        {
+          "bytes": 562,
+          "end_exclusive": "0x18021070f",
+          "file_offset": 2160861,
+          "name": "unwind_fragment",
+          "sha256": "625ac28a9a69a424341089820bbac48f5bf206dd96bdb3f5671c4d8abd7b00b1",
+          "start": "0x1802104dd"
+        },
+        {
+          "bytes": 8,
+          "end_exclusive": "0x180210717",
+          "file_offset": 2161423,
+          "name": "unwind_fragment",
+          "sha256": "bb8e5f7fa4676f7a73afc88f852428631efc86730f9957eae9d5887822dc9ce4",
+          "start": "0x18021070f"
+        },
+        {
+          "bytes": 30,
+          "end_exclusive": "0x180210735",
+          "file_offset": 2161431,
+          "name": "unwind_fragment",
+          "sha256": "6f7a0a52389e3f9c145e596b9b08fb74b4436e30253d21c6708714ea1d77489c",
+          "start": "0x180210717"
+        },
+        {
+          "bytes": 815,
+          "end_exclusive": "0x180210a64",
+          "file_offset": 2161461,
+          "name": "unwind_fragment",
+          "sha256": "9f7c0eb733d48c1ea81a978426149ec06f2340f454083874f75c583cc877c27f",
+          "start": "0x180210735"
+        },
+        {
+          "bytes": 15,
+          "end_exclusive": "0x180210a73",
+          "file_offset": 2162276,
+          "name": "unwind_fragment",
+          "sha256": "9dcbe43336345351726e3b06363aeed6b1e170c6b7325960666fb78c9b4a5097",
+          "start": "0x180210a64"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "PK_EDGE_ask_next_in_body"
+    },
+    {
+      "entry": "0x18025a280",
+      "fragments": [
+        {
+          "bytes": 773,
+          "end_exclusive": "0x18025a585",
+          "file_offset": 2463360,
+          "name": "unwind_fragment",
+          "sha256": "d27c37e514dc435a508bfab6e61b864eb8f40d54e6c98921da38473c6854b688",
+          "start": "0x18025a280"
+        },
+        {
+          "bytes": 891,
+          "end_exclusive": "0x18025a900",
+          "file_offset": 2464133,
+          "name": "unwind_fragment",
+          "sha256": "ea740a6c9cd625ee62b008376ff85bddf810829c61e89bca15753a29af10fbdb",
+          "start": "0x18025a585"
+        },
+        {
+          "bytes": 28,
+          "end_exclusive": "0x18025a91c",
+          "file_offset": 2465024,
+          "name": "unwind_fragment",
+          "sha256": "7dbb93f64c274a31e0d6159e86e4733b2effb0a9b549c342e02961c4eb7fe69e",
+          "start": "0x18025a900"
+        }
+      ],
+      "module": "PSKERNEL.dll",
+      "name": "PK_FACE_ask_next_in_body"
+    }
+  ],
+  "registration_range_rule": "independently decoded straight-line leaf through first ret; no call or branch in any retained registration body",
+  "runtime_field_registrations": [
+    {
+      "bytes": 3029,
+      "end_exclusive": "0x181433465",
+      "file_offset": 21175440,
+      "name": "body_field_registration",
+      "sha256": "54d01aefb1a861cef73d7234b5b3005c147ad45ab3497bdfc2c7998e85a343e4",
+      "start": "0x181432890"
+    },
+    {
+      "bytes": 716,
+      "end_exclusive": "0x18144b2cc",
+      "file_offset": 21275648,
+      "name": "region_field_registration",
+      "sha256": "d57fa37ce6bb190dd24db7f562a9ff0c656b8c7a6732e864b39727de97d14407",
+      "start": "0x18144b000"
+    },
+    {
+      "bytes": 1022,
+      "end_exclusive": "0x18143e8be",
+      "file_offset": 21223616,
+      "name": "edge_field_registration",
+      "sha256": "e99dc494e0d98ea220fc7142a995ee12eed82be03f459fdd423d38c47530e5cf",
+      "start": "0x18143e4c0"
+    },
+    {
+      "bytes": 1463,
+      "end_exclusive": "0x18143f947",
+      "file_offset": 21227408,
+      "name": "face_field_registration",
+      "sha256": "9f48e7f4db21d3278abc4e475763d39c8a0d82c7dda17b181599b3d363d2459d",
+      "start": "0x18143f390"
+    },
+    {
+      "bytes": 713,
+      "end_exclusive": "0x181453799",
+      "file_offset": 21309648,
+      "name": "shell_field_registration",
+      "sha256": "2e0b74a00206bffbcd74384f56bd08b22be8490e8eb2fe9d3c61c696108a1cf1",
+      "start": "0x1814534d0"
+    }
+  ],
+  "runtime_fields": [
+    {
+      "fields": [
+        {
+          "field_descriptor_offset": "0x3b0",
+          "name": "owner",
+          "name_assignment": "0x181432e31",
+          "runtime_offset": "0xb8",
+          "runtime_offset_assignment": "0x181432e72"
+        },
+        {
+          "field_descriptor_offset": "0x440",
+          "name": "shell",
+          "name_assignment": "0x181432f0a",
+          "runtime_offset": "0xc8",
+          "runtime_offset_assignment": "0x181432f4b"
+        },
+        {
+          "field_descriptor_offset": "0x590",
+          "name": "region",
+          "name_assignment": "0x181433117",
+          "runtime_offset": "0x100",
+          "runtime_offset_assignment": "0x181433158"
+        },
+        {
+          "field_descriptor_offset": "0x5c0",
+          "name": "edge",
+          "name_assignment": "0x181433162",
+          "runtime_offset": "0x108",
+          "runtime_offset_assignment": "0x1814331a3"
+        },
+        {
+          "field_descriptor_offset": "0x6e0",
+          "name": "child",
+          "name_assignment": "0x181433320",
+          "runtime_offset": "0x138",
+          "runtime_offset_assignment": "0x181433361"
+        }
+      ],
+      "name": "BODY"
+    },
+    {
+      "fields": [
+        {
+          "field_descriptor_offset": "0xb0",
+          "name": "next",
+          "name_assignment": "0x18144b0ea",
+          "runtime_offset": "0x18",
+          "runtime_offset_assignment": "0x18144b12b"
+        },
+        {
+          "field_descriptor_offset": "0x110",
+          "name": "shell",
+          "name_assignment": "0x18144b180",
+          "runtime_offset": "0x28",
+          "runtime_offset_assignment": "0x18144b1c1"
+        }
+      ],
+      "name": "REGION"
+    },
+    {
+      "fields": [
+        {
+          "field_descriptor_offset": "0xb0",
+          "name": "next",
+          "name_assignment": "0x1814535ba",
+          "runtime_offset": "0x18",
+          "runtime_offset_assignment": "0x1814535fb"
+        },
+        {
+          "field_descriptor_offset": "0xe0",
+          "name": "face",
+          "name_assignment": "0x181453605",
+          "runtime_offset": "0x20",
+          "runtime_offset_assignment": "0x181453646"
+        },
+        {
+          "field_descriptor_offset": "0x110",
+          "name": "edge",
+          "name_assignment": "0x181453650",
+          "runtime_offset": "0x28",
+          "runtime_offset_assignment": "0x181453691"
+        },
+        {
+          "field_descriptor_offset": "0x170",
+          "name": "region",
+          "name_assignment": "0x1814536e6",
+          "runtime_offset": "0x38",
+          "runtime_offset_assignment": "0x181453720"
+        }
+      ],
+      "name": "SHELL"
+    },
+    {
+      "fields": [
+        {
+          "field_descriptor_offset": "0x170",
+          "name": "next",
+          "name_assignment": "0x18143e6df",
+          "runtime_offset": "0x60",
+          "runtime_offset_assignment": "0x18143e720"
+        }
+      ],
+      "name": "EDGE"
+    },
+    {
+      "fields": [
+        {
+          "field_descriptor_offset": "0xe0",
+          "name": "next",
+          "name_assignment": "0x18143f4cb",
+          "runtime_offset": "0x48",
+          "runtime_offset_assignment": "0x18143f50c"
+        }
+      ],
+      "name": "FACE"
+    }
+  ],
+  "schema": "kit.sw2026.parasolid-body-traversal-source.v1",
+  "scope_limits": {
+    "fresh_writer_native_acceptance_claimed": false,
+    "native_runs": 0,
+    "new_generated_native_files": 0,
+    "new_heldout_credit": 0,
+    "public_behavior_changed": false,
+    "source_neutral_geometry_changed": false,
+    "vendor_listings_or_bytes_published": false
+  },
+  "source_rule": {
+    "array_count_and_fill_use_same_walk": true,
+    "body_shell_head_is_not_the_region_iteration_head": true,
+    "edge_order": [
+      "walk BODY.edge through EDGE.next",
+      "walk BODY.region through REGION.next",
+      "for each region walk REGION.shell through SHELL.next",
+      "for each shell append SHELL.edge through EDGE.next"
+    ],
+    "face_order": [
+      "walk BODY.region through REGION.next",
+      "for each region walk REGION.shell through SHELL.next",
+      "for each shell append SHELL.face through FACE.next"
+    ],
+    "first_edge_and_face_use_same_walk": true,
+    "front_face_chain_is_not_appended": true,
+    "head_and_link_initial_construction_order_not_derived_here": true,
+    "no_separate_order_table_in_demonstrated_walk": true,
+    "not_face_loop_first_encounter_order": true,
+    "not_numeric_tag_sort": true,
+    "not_transmit_record_order": true,
+    "optional_filters": "arrays and iterators contain linked-body-owner and entity-exclusion branches; preserve their relative eligible order; no general policy, compound, framed, lattice, mesh, visibility or suppression admission",
+    "ordinary_next_iterators_follow_links_and_advance_owner_shell_region": true,
+    "scope": "plain one-solid BODY owned by WORLD, no compound body/ref-instance semantics or changed entity-exclusion policy"
+  },
+  "task": {
+    "base_revision": "54dc3c273cf4887961596be7405da36154eb5f58",
+    "delivery_pr": 121,
+    "exit": "exact kernel traversal, field-name bindings and supported ordinary boundary",
+    "id": "B04-SW2026-DRAWING-KERNEL-ORDER",
+    "owner": "configuration_header"
+  },
+  "tool_hygiene": {
+    "authenticated_native_document_closure": false,
+    "cleanup_pending": true,
+    "foreign_document_closed": false,
+    "logical_close_attempted": true,
+    "owned_runtime": "/tmp/rea-yXJDCS",
+    "rea_kernel_query": "timed out after120000ms initial analysis; no dossier or runtime result was obtained",
+    "stateless_pe_claims_independent_of_hopper": true,
+    "unrelated_processes_or_license_services_touched": false
+  },
+  "watchpoints": {
+    "edge_array_count_begin": "0x1800f2641",
+    "edge_array_emit_tag": "0x1800f29bf",
+    "edge_array_unfiltered_fill_begin": "0x1800f290f",
+    "edge_first_begin": "0x1800f48e7",
+    "face_array_emit_tag": "0x1800f349f",
+    "face_array_unfiltered_count_begin": "0x1800f3322",
+    "face_array_unfiltered_fill_begin": "0x1800f33fd",
+    "face_first_begin": "0x1800f5211"
+  },
+  "wrapper_authority": {
+    "PK_BODY_ask_edges_call": "0x32fd8f33",
+    "PK_BODY_ask_faces_call": "0x32fd910d",
+    "edge_array": "0x32fd8ed0",
+    "existing_downstream_record_sha256": "b748b5d4146891d30b743e77d7044aee7de9405300f1a4101600fe2f9d783bf1",
+    "face_array": "0x32fd90b0",
+    "module": "sldgciParau.dll",
+    "order_preserving_tag_widening": true,
+    "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+  }
+}

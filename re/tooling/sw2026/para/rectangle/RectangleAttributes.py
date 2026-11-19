@@ -3,6 +3,7 @@ from math import isfinite
 
 from .Allocate import Ref, positive_i32, require
 from .AttributeChains import Install, register_attributes
+from para.DownstreamIds import install_part_downstream
 from builders.Model import logged_creation_time
 from para.Tracking import signed_dword
 
@@ -80,7 +81,9 @@ def rectangle_installs(child, plan, appearance, previous_face_allocations):
     yield Install(body, "BODY_IN_LIGHTWEIGHT_PERM", (None, (1,)))
 
 
-def append_rectangle_attributes(child, plan, topology, appearance, first_node_identifier, previous_face_allocations=0):
+def append_rectangle_attributes(child, plan, topology, appearance, first_node_identifier, previous_face_allocations=0, *, downstream=None):
     body = Ref(plan.brep.bodies[0].id)
     installations = tuple(rectangle_installs(child, plan, appearance, previous_face_allocations))
+    if downstream is not None:
+        installations = install_part_downstream(topology, installations, downstream)
     return register_attributes(topology, body, installations, first_node_identifier)
