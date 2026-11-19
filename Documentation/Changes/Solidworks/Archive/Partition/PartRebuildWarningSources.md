@@ -1,0 +1,7 @@
+# Part rebuild warning sources
+
+Records the exact SOLIDWORKS 2026 path translating internal load error 128 into public rebuild-warning bit 32, and the actual part configuration override observed publishing that error. The source ledger separates part need-update and update-error state, configuration rebuild state, ordinary body inventory and feature/atom publication.
+
+Use the [knowledge record](../../../../../re/solidworks/records/PartRebuildWarning2026.md) and its numeric ledger to diagnose the disclosed generated prism first-open failure. The unchanged original-byte verifier checks five pinned images, 24 complete functions, eight instruction windows, six data ranges, six virtual cells and 22 imports. Disclosed root observations include an accepted one-body kernel enumeration in an open that still ends with warning 32 and zero public bodies.
+
+No production behavior, writer value, setting or previous packet changes. Actual part decision operands, complete atom publication, registry writers and broader timing behavior remain unqualified. The new [load-error translation](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/RebuildWarningCanOriginateFromLoadError.md) and [policy-read notification](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/RebuildPolicyReadCanSendUiNotifications.md) gotchas retain those distinctions. No VM, product, codec or test was executed by this source worker.

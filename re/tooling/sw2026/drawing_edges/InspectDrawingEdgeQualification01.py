@@ -17,6 +17,7 @@ SCHEMA = 'kit.sw2026.drawing-edge-qualification.v1'
 ORACLE = '3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe'
 WRAPPER = 'd8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959'
 API_METADATA = '92235db40b63b95246f2479a9166ecaa12c242d3f96d149e13827d1e92b756f5'
+COMPONENT_METADATA = 'bd66c956040c0547d1f0b7f5bd35e80681e9910542ccf0e9a61dcd79d34daa24'
 TOOLS = {'InspectDrawingEdgeQualification01.py', 'DrawingEdgeState01.py', 'AuthorCurves.py', 'AuthorDrawingSources.py',
          'InspectDrawingCache.py', 'DrawingCacheCases.py', 'Swapp.py', 'OracleIdentity.py'}
 
@@ -70,6 +71,23 @@ def verify(packet, expected):
     require(request['schema'] == SCHEMA and request['oracle_sha256'] == ORACLE and request['heldout_inputs_read'] == 0,
             'unexpected disclosed edge qualification packet')
     require(request['source_scope'] == 'disclosed-only' and request['native_acceptance'] is False, 'this is a measurement protocol, not acceptance')
+    component_metadata = json.loads(checked(root, 'ComponentApiMetadata.json', COMPONENT_METADATA).read_bytes())
+    require(component_metadata['wrapper_sha256'] == WRAPPER and component_metadata['cad_objects_created'] == 0
+            and component_metadata['native_processes_started_by_tool'] == 0 and component_metadata['model_documents_opened'] == 0,
+            'exact root-component API metadata is required')
+    expected_component_slots = {'GetParent': 664, 'IsRoot': 1096, 'GetModelDoc2': 1104}
+    for interface, values in [('IComponent2', expected_component_slots), ('IModelDoc2', {'GetType': 736})]:
+        observed = component_metadata['interfaces'][interface]
+        require(observed['missing'] == [], 'exact component/root-model interface metadata is incomplete')
+        for member, slot in values.items():
+            selected = [row for row in observed['members'] if row['names'][0] == member and row['invoke_kind'] == 1]
+            require(len(selected) == 1 and selected[0]['vtable_offset_bytes'] == slot and selected[0]['arguments'] == [],
+                    'exact zero-argument component/root-model API shape differs: ' + member)
+    require(request['component_api_metadata_sha256'] == COMPONENT_METADATA and request['observer_revision'] == 'part-root-owner-02'
+            and request['previous_trial_sha256'] == '36143744fc79f19fb60434d24884288f72733e764ed9fd8a8138aff4233d0872'
+            and request['previous_failed_result_sha256'] == '1056bde8473497d695c89276812fab2db2a66136c9c7351e8ddac40af47c6eb0',
+            'the observer-only retry must preserve its exact predecessor')
+
     tools = root / 'Tools'
     require(Path(__file__).resolve().parent == tools and set(request['tools_sha256']) == TOOLS, 'run only the complete frozen observer')
     for name, expected_tool in request['tools_sha256'].items():

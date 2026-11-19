@@ -1,0 +1,1090 @@
+{
+  "acceptance": false,
+  "authored_source_inspection": [
+    {
+      "declaration": "authored_prism",
+      "declaration_sha256": "e3b3e93d69fe137c17e2d5cf1f207be49041947e5c60d74559bf1a7e9d702d09",
+      "execution": false,
+      "file_sha256": "af38ce83add05b3fcc539d2f309d087f032a444060e501efd324574d1158c788",
+      "path": "re/tooling/sw2026/downstream/CheckPrismFaceConstructors.py"
+    },
+    {
+      "declaration": "archive_for_oracle",
+      "declaration_sha256": "2529c3447986f92c1c89cf861b0da7a1e7192f7f423d50a7f5a202f703304b50",
+      "execution": false,
+      "file_sha256": "207fa77b40973a6def0139bc6a259e03b397884582c8f63594e8eeb5a1608da4",
+      "path": "re/tooling/sw2026/para/rectangle/ArchiveAttachment.py"
+    },
+    {
+      "declaration": "allocate_tracking",
+      "declaration_sha256": "db6cfa35d9d27e94986242ff9409fc07a21442004d8b3a5bd91d595d688bc970",
+      "execution": false,
+      "file_sha256": "03264e0f230225544ba0dface553dbd986e603d82fe497ec1dfdfb87a361719a",
+      "path": "re/tooling/sw2026/para/rectangle/Allocate.py"
+    }
+  ],
+  "data_windows": [
+    {
+      "bound": "complete original switch RVA table",
+      "bytes": 28,
+      "end_exclusive": "0x458a4248",
+      "module": "sldappu.dll",
+      "name": "ApiCompiledSwitchRvas",
+      "sha256": "c2f6945b754101f15b01a9a3a71d3a3ef0cfa390c99756a8b9656629d31da92d",
+      "start": "0x458a422c"
+    },
+    {
+      "bound": "complete original switch byte table",
+      "bytes": 125,
+      "end_exclusive": "0x458a42c5",
+      "module": "sldappu.dll",
+      "name": "ApiCompiledSwitchSelectors",
+      "sha256": "5f81c2dd1d29cbc03e8afa15de81301046c4985d92ce51e7f244281bdcb6c8f8",
+      "start": "0x458a4248"
+    },
+    {
+      "bound": "complete zero-terminated original setting name",
+      "bytes": 50,
+      "end_exclusive": "0x45f595ea",
+      "module": "sldappu.dll",
+      "name": "AskOptionName",
+      "sha256": "5e3f6784327473e27f8a940aa89eb59fc2bfb59d97e32ea39f2d096d8211fafd",
+      "start": "0x45f595b8"
+    },
+    {
+      "bound": "original candidate message-map entry; live receiver join remains conditional",
+      "bytes": 32,
+      "end_exclusive": "0x45f71180",
+      "module": "sldappu.dll",
+      "name": "DontAskMessageMapRow",
+      "sha256": "bf6d957861a85b3d66ffbe19e6e3160a64976a2565862138f8b4f888b1ceb371",
+      "start": "0x45f71160"
+    },
+    {
+      "bound": "complete original AMD64 complete-object locator",
+      "bytes": 24,
+      "end_exclusive": "0x334d4c70",
+      "module": "sldprtu.dll",
+      "name": "PartDocCol",
+      "sha256": "3eb7f8ee8b52460ef2e820de26a48f48560fb9021df2ef5e3b347c3d765bd1f9",
+      "start": "0x334d4c58"
+    },
+    {
+      "bound": "complete original AMD64 complete-object locator",
+      "bytes": 24,
+      "end_exclusive": "0x4a90e730",
+      "module": "slduiu.dll",
+      "name": "ModelDocCol",
+      "sha256": "01524206d67e839db03dfa06a995a205c59d1a67f5ea19ae642698d05cf7c861",
+      "start": "0x4a90e718"
+    }
+  ],
+  "delivery_pr": 121,
+  "exact_build": "SOLIDWORKS 2026 34.5.2.0604",
+  "execution": {
+    "cad": false,
+    "data_only_native_receipt_read": true,
+    "heldout_inputs_read": 0,
+    "native": false,
+    "rea_or_hopper_open": false,
+    "schema_or_codec": false,
+    "source_only": true,
+    "tests": false,
+    "vm": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 8917,
+      "end_exclusive": "0x458a42c5",
+      "module": "sldappu.dll",
+      "name": "ApiOpenDocument01",
+      "sha256": "7ec79022168a37364c59b2eb8a73b2f71b9bda09ca6e4f08ea7780d8266b36c7",
+      "start": "0x458a1ff0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 8917,
+          "end_exclusive": "0x458a42c5",
+          "sha256": "7ec79022168a37364c59b2eb8a73b2f71b9bda09ca6e4f08ea7780d8266b36c7",
+          "start": "0x458a1ff0",
+          "unwind_rva": "0xcb276c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 142,
+      "end_exclusive": "0x458a17ee",
+      "module": "sldappu.dll",
+      "name": "ApiAddLoadError01",
+      "sha256": "32b6262a5e780366187de8eb774b8499c0dc93e1351c4d9850a5e279343f9062",
+      "start": "0x458a1760",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 142,
+          "end_exclusive": "0x458a17ee",
+          "sha256": "32b6262a5e780366187de8eb774b8499c0dc93e1351c4d9850a5e279343f9062",
+          "start": "0x458a1760",
+          "unwind_rva": "0xcbdb88"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 309,
+      "end_exclusive": "0x4976db15",
+      "module": "slduiu.dll",
+      "name": "UiAskToRegen01",
+      "sha256": "4f30db9c34fc32d337697a32740ee832d3f2c8612a89e5087fa3d06327920360",
+      "start": "0x4976d9e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 309,
+          "end_exclusive": "0x4976db15",
+          "sha256": "4f30db9c34fc32d337697a32740ee832d3f2c8612a89e5087fa3d06327920360",
+          "start": "0x4976d9e0",
+          "unwind_rva": "0x1bc5fa0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 123,
+      "end_exclusive": "0x45a2961b",
+      "module": "sldappu.dll",
+      "name": "EnvironmentAskRegen01",
+      "sha256": "ded4ba1a7c57717b001d1ffc683c591fa890f459f51a334ef78f4338df2d2648",
+      "start": "0x45a295a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 123,
+          "end_exclusive": "0x45a2961b",
+          "sha256": "ded4ba1a7c57717b001d1ffc683c591fa890f459f51a334ef78f4338df2d2648",
+          "start": "0x45a295a0",
+          "unwind_rva": "0xc6cd0c"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x45bf59e7",
+      "module": "sldappu.dll",
+      "name": "AskRegistryCacheLeaf01",
+      "sha256": "8f8365994bd563498dd745ece637ba6803181914504cabbabb0bf6045f0170a1",
+      "start": "0x45bf59e0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 32,
+      "end_exclusive": "0x3c8bfd00",
+      "module": "sldmfcu.dll",
+      "name": "DontAskEquals01",
+      "sha256": "9b7bc52ca22515955e4678e37fed5d303c9693d1b8167662030ae796b6732aab",
+      "start": "0x3c8bfce0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 32,
+          "end_exclusive": "0x3c8bfd00",
+          "sha256": "9b7bc52ca22515955e4678e37fed5d303c9693d1b8167662030ae796b6732aab",
+          "start": "0x3c8bfce0",
+          "unwind_rva": "0x5c3074"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 35,
+      "end_exclusive": "0x3c8c2d93",
+      "module": "sldmfcu.dll",
+      "name": "DontAskValue01",
+      "sha256": "5fd87504536f5e0e0cc5af0e91e8a95352a591c685310373181123a02975af34",
+      "start": "0x3c8c2d70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 35,
+          "end_exclusive": "0x3c8c2d93",
+          "sha256": "5fd87504536f5e0e0cc5af0e91e8a95352a591c685310373181123a02975af34",
+          "start": "0x3c8c2d70",
+          "unwind_rva": "0x5c2fd4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 256,
+      "end_exclusive": "0x3c8a7830",
+      "module": "sldmfcu.dll",
+      "name": "DontAskHasValue01",
+      "sha256": "02ba1561b0d5cf069d20fd43ae265aa776da870a2cfb7f57b7d229228b045996",
+      "start": "0x3c8a7730",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 97,
+          "end_exclusive": "0x3c8a7791",
+          "sha256": "5ee40c5519f5eb62e46a8070c7157e9966265d8ce6e338e9d028d0a817ca16d9",
+          "start": "0x3c8a7730",
+          "unwind_rva": "0x5ed5c0"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 140,
+          "end_exclusive": "0x3c8a781d",
+          "sha256": "9e24282e79b27e299ad824f76ae72104500ae8bfcb7be9bece7f00dd1436e4b2",
+          "start": "0x3c8a7791",
+          "unwind_rva": "0x5ed5d0"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 19,
+          "end_exclusive": "0x3c8a7830",
+          "sha256": "79327818e64398f4346024e81680cdfebcd82cc18f79389247d401fe626bb730",
+          "start": "0x3c8a781d",
+          "unwind_rva": "0x5ed5e4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 158,
+      "end_exclusive": "0x3338fc3e",
+      "module": "sldprtu.dll",
+      "name": "PartAskCaller01",
+      "sha256": "089cb6edd54283c4063067a36e8681e9df349ed3e2ad8ee5e1a007d050b70338",
+      "start": "0x3338fba0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 158,
+          "end_exclusive": "0x3338fc3e",
+          "sha256": "089cb6edd54283c4063067a36e8681e9df349ed3e2ad8ee5e1a007d050b70338",
+          "start": "0x3338fba0",
+          "unwind_rva": "0x24ba84"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1301,
+      "end_exclusive": "0x333908e5",
+      "module": "sldprtu.dll",
+      "name": "PartAskCaller02",
+      "sha256": "6fe7c2095800ac34b0ac89022d1655a37a3820697462ce760074622b82a7c23c",
+      "start": "0x333903d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1301,
+          "end_exclusive": "0x333908e5",
+          "sha256": "6fe7c2095800ac34b0ac89022d1655a37a3820697462ce760074622b82a7c23c",
+          "start": "0x333903d0",
+          "unwind_rva": "0x24b9cc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2621,
+      "end_exclusive": "0x3339255d",
+      "module": "sldprtu.dll",
+      "name": "PartError128Caller01",
+      "native_identity": "uiPartDoc_c override at actual slot +0xde8 of uiBaseDoc_c::iiConfigureMAIN; preceding LLVM label is not its identity",
+      "sha256": "ed1b5f35b209615c27673f810d4e426fdc089c58b54f90d00b3cef588fb48ab3",
+      "start": "0x33391b20",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2621,
+          "end_exclusive": "0x3339255d",
+          "sha256": "ed1b5f35b209615c27673f810d4e426fdc089c58b54f90d00b3cef588fb48ab3",
+          "start": "0x33391b20",
+          "unwind_rva": "0x24ac00"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x4c03e577",
+      "module": "sldmodu.dll",
+      "name": "IsUpdateError01",
+      "sha256": "82196714c3b7d92114009e3939451a1ef323545606f4914fd5a7eec45e2a97a0",
+      "start": "0x4c03e570",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 290,
+      "end_exclusive": "0x4bddb652",
+      "module": "sldmodu.dll",
+      "name": "ResetD3c01",
+      "native_identity": "moBaseConfiguration_c::getUpdateStatus, exact export entry",
+      "sha256": "e10800eab0ee84127ef07a6b3372c41821519f6821b7f6141ddae59001b2675b",
+      "start": "0x4bddb530",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 210,
+          "end_exclusive": "0x4bddb602",
+          "sha256": "7b84f979485173a56693a2509cabddcedceca05b58b3596859beb221117d016a",
+          "start": "0x4bddb530",
+          "unwind_rva": "0x2248900"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 50,
+          "end_exclusive": "0x4bddb634",
+          "sha256": "954cb585541beefa77c36bb71ec303337632dd00346567def93e529b784e2dad",
+          "start": "0x4bddb602",
+          "unwind_rva": "0x23e3de8"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 30,
+          "end_exclusive": "0x4bddb652",
+          "sha256": "270cb54024afee242659cb9420a9acc48723dc7372bf65e061b0b82c623e4291",
+          "start": "0x4bddb634",
+          "unwind_rva": "0x23e3dfc"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 80,
+      "end_exclusive": "0x4bde3fa0",
+      "module": "sldmodu.dll",
+      "name": "ConfigNeedsRebuild02",
+      "sha256": "09f81ab10ff95bae726c1644d6f32fa51067a895563e82c59904de9d1fe28b45",
+      "start": "0x4bde3f50",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 215,
+      "end_exclusive": "0x4c1b8b37",
+      "module": "sldmodu.dll",
+      "name": "PartNeedUpdateVirtual01",
+      "sha256": "263205bf5f0e534cc1c0a55ede4d42cb5a6ef2923ed5be24e5887e04e06638dd",
+      "start": "0x4c1b8a60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 215,
+          "end_exclusive": "0x4c1b8b37",
+          "sha256": "263205bf5f0e534cc1c0a55ede4d42cb5a6ef2923ed5be24e5887e04e06638dd",
+          "start": "0x4c1b8a60",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 58,
+      "end_exclusive": "0x4c03e61a",
+      "module": "sldmodu.dll",
+      "name": "NodeNeedsUpdate01",
+      "sha256": "f7349a19481472f0a172a40b46588c165080456ef2fc2470e5894d9336321446",
+      "start": "0x4c03e5e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 58,
+          "end_exclusive": "0x4c03e61a",
+          "sha256": "f7349a19481472f0a172a40b46588c165080456ef2fc2470e5894d9336321446",
+          "start": "0x4c03e5e0",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 167,
+      "end_exclusive": "0x4c1b8d77",
+      "module": "sldmodu.dll",
+      "name": "PartSecondaryUpdateVirtual01",
+      "sha256": "43f862585ef8ef5a978cdf68cd3b324048c46d4ef6d067735755d252234770a2",
+      "start": "0x4c1b8cd0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 167,
+          "end_exclusive": "0x4c1b8d77",
+          "sha256": "43f862585ef8ef5a978cdf68cd3b324048c46d4ef6d067735755d252234770a2",
+          "start": "0x4c1b8cd0",
+          "unwind_rva": "0x2473aac"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 10,
+      "end_exclusive": "0x4c0232ca",
+      "module": "sldmodu.dll",
+      "name": "CachedUpdateGetter01",
+      "sha256": "8c51e6d1d9ad9338d31732feb9fa3f83d0dd8ab23bd34a610371d9c35bf7b36f",
+      "start": "0x4c0232c0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 52,
+      "end_exclusive": "0x455264f4",
+      "module": "sldappu.dll",
+      "name": "AskSettingInitializer01",
+      "sha256": "5c33e7a012917edfc1e8a1fdd67511d8e552e220183ecc8a9291c105af40993d",
+      "start": "0x455264c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 52,
+          "end_exclusive": "0x455264f4",
+          "sha256": "5c33e7a012917edfc1e8a1fdd67511d8e552e220183ecc8a9291c105af40993d",
+          "start": "0x455264c0",
+          "unwind_rva": "0xc6cb44"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 233,
+      "end_exclusive": "0x45a9ce09",
+      "module": "sldappu.dll",
+      "name": "DontAskMessageHandler01",
+      "sha256": "5f6cc76d5feb8f37f81177ac1dbd3e95a49282d635c776c9a6e1e1da42005def",
+      "start": "0x45a9cd20",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 233,
+          "end_exclusive": "0x45a9ce09",
+          "sha256": "5f6cc76d5feb8f37f81177ac1dbd3e95a49282d635c776c9a6e1e1da42005def",
+          "start": "0x45a9cd20",
+          "unwind_rva": "0xd05714"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 85,
+      "end_exclusive": "0x49789585",
+      "module": "slduiu.dll",
+      "name": "UiActualModelGetter01",
+      "sha256": "0c4380a8444b5f293bebed05d3f5b95a49b537197af95b63a186a39568af804f",
+      "start": "0x49789530",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 85,
+          "end_exclusive": "0x49789585",
+          "sha256": "0c4380a8444b5f293bebed05d3f5b95a49b537197af95b63a186a39568af804f",
+          "start": "0x49789530",
+          "unwind_rva": "0x1ab4c00"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x456fa027",
+      "module": "sldappu.dll",
+      "name": "PaletteDragGetter01",
+      "sha256": "5dab826e294f52b1cc85e02e007434fc0cda436477f3db22da94d6d0108ce87d",
+      "start": "0x456fa020",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 4744,
+      "end_exclusive": "0x4c23f778",
+      "module": "sldmodu.dll",
+      "name": "moPart_c::loadExternalBodies",
+      "sha256": "c1182102c7c3336019c2945f76cf1d350ae1c3df0a4649e89583ceecdf4ace8f",
+      "start": "0x4c23e4f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 4744,
+          "end_exclusive": "0x4c23f778",
+          "sha256": "c1182102c7c3336019c2945f76cf1d350ae1c3df0a4649e89583ceecdf4ace8f",
+          "start": "0x4c23e4f0",
+          "unwind_rva": "0x248319c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1925,
+      "end_exclusive": "0x4c1cfbb5",
+      "module": "sldmodu.dll",
+      "name": "moPart_c::replaceBody",
+      "sha256": "81009598c2fe358f74c53c8fe28ffd241a8780ac47c7eefe2e68467a63a2fc05",
+      "start": "0x4c1cf430",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1925,
+          "end_exclusive": "0x4c1cfbb5",
+          "sha256": "81009598c2fe358f74c53c8fe28ffd241a8780ac47c7eefe2e68467a63a2fc05",
+          "start": "0x4c1cf430",
+          "unwind_rva": "0x2478720"
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4a4655e8",
+      "module": "sldappu.dll",
+      "name": "?am_GetApp@@YAPEAVCAmApp@@XZ",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a465608",
+      "module": "sldappu.dll",
+      "name": "?isRegressionTestOn@CAmApp@@QEAAHXZ",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a465668",
+      "module": "sldappu.dll",
+      "name": "?get@uiEnvironment_c@@SAPEAV1@XZ",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a467308",
+      "module": "sldappu.dll",
+      "name": "?iiConfigureMAIN@uiBaseDoc_c@@MEAAHHHAEAH0HPEAVmoUpdateEngine_c@@@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a467a20",
+      "module": "sldappu.dll",
+      "name": "?app_displayAskRegenMessageBox@@YAHAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAVuiModelDoc_c@@@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a467f30",
+      "module": "sldappu.dll",
+      "name": "?addApiFileError@auAm_c@@QEAAXAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@W4swFileLoadError_e@@@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a468bf0",
+      "module": "sldappu.dll",
+      "name": "?getAskRegen@uiEnvironment_c@@QEBAH_N@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a4695d0",
+      "module": "sldappu.dll",
+      "name": "?isPlayBackOn@CAmApp@@QEAAH_N@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x3346d660",
+      "module": "sldappu.dll",
+      "name": "?get@uiEnvironment_c@@SAPEAV1@XZ",
+      "source_module": "sldprtu.dll"
+    },
+    {
+      "iat": "0x3346e1d8",
+      "module": "sldappu.dll",
+      "name": "?addApiFileError@auAm_c@@QEAAXAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@W4swFileLoadError_e@@@Z",
+      "source_module": "sldprtu.dll"
+    },
+    {
+      "iat": "0x3346e5f8",
+      "module": "sldappu.dll",
+      "name": "?_runAsServer@CAmApp@@QEBAHXZ",
+      "source_module": "sldprtu.dll"
+    },
+    {
+      "iat": "0x3346aec0",
+      "module": "SLDMODU.dll",
+      "name": "?isShrinkWrap@moModel_c@@QEBAHXZ",
+      "source_module": "sldprtu.dll"
+    },
+    {
+      "iat": "0x3346b698",
+      "module": "SLDMODU.dll",
+      "name": "?isUpdateError@moNode_c@@QEBAHXZ",
+      "source_module": "sldprtu.dll"
+    },
+    {
+      "iat": "0x33473e90",
+      "module": "slduiu.dll",
+      "name": "?getModel@uiModelDoc_c@@UEBAPEAVmoModel_c@@XZ",
+      "source_module": "sldprtu.dll"
+    },
+    {
+      "iat": "0x33476bc0",
+      "module": "slduiu.dll",
+      "name": "?askToRegen@uiModelDoc_c@@QEAAHXZ",
+      "source_module": "sldprtu.dll"
+    },
+    {
+      "iat": "0x45e529f8",
+      "module": "USER32.dll",
+      "name": "UpdateWindow",
+      "source_module": "sldappu.dll"
+    },
+    {
+      "iat": "0x45e52a18",
+      "module": "USER32.dll",
+      "name": "InvalidateRect",
+      "source_module": "sldappu.dll"
+    },
+    {
+      "iat": "0x45e50ad0",
+      "module": "SLDMFCU.dll",
+      "name": "?equals@SWX_DECLARE_DONT_ASK_AGAIN_VARIABLE_CLASS@@QEAAHH_N@Z",
+      "source_module": "sldappu.dll"
+    },
+    {
+      "iat": "0x45e51d08",
+      "module": "SLDMFCU.dll",
+      "name": "?value@SWX_DECLARE_DONT_ASK_AGAIN_VARIABLE_CLASS@@QEAAH_N@Z",
+      "source_module": "sldappu.dll"
+    },
+    {
+      "iat": "0x45e51f50",
+      "module": "SLDMFCU.dll",
+      "name": "??0SWX_DECLARE_DONT_ASK_AGAIN_VARIABLE_CLASS@@QEAA@PEB_WHH@Z",
+      "source_module": "sldappu.dll"
+    },
+    {
+      "iat": "0x3cb193f8",
+      "module": "USER32.dll",
+      "name": "SendMessageW",
+      "source_module": "sldmfcu.dll"
+    },
+    {
+      "iat": "0x3cb194d0",
+      "module": "USER32.dll",
+      "name": "IsWindow",
+      "source_module": "sldmfcu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "independently decoded original instruction window",
+      "bytes": 47,
+      "end_exclusive": "0x458a3cbe",
+      "module": "sldappu.dll",
+      "name": "ApiErrorToWarningGate",
+      "sha256": "c38cf59066a84ac408207276dbc54a7de3757ed36e37db1e5d23cb546c0f1ff7",
+      "start": "0x458a3c8f"
+    },
+    {
+      "bound": "independently decoded original instruction window",
+      "bytes": 6,
+      "end_exclusive": "0x458a3cf8",
+      "module": "sldappu.dll",
+      "name": "ApiNeedsRegenWarningArm",
+      "sha256": "d5e5209a1b8f5d22d42d1b44685336b7c110b800161e7de3d209755a55bb6f6c",
+      "start": "0x458a3cf2"
+    },
+    {
+      "bound": "independently decoded original instruction window",
+      "bytes": 33,
+      "end_exclusive": "0x458a3de2",
+      "module": "sldappu.dll",
+      "name": "ApiWarningOutput",
+      "sha256": "08c6e1c914a78d648546802fee3883bb9ab362c8a8992d397525fc76283da77b",
+      "start": "0x458a3dc1"
+    },
+    {
+      "bound": "independently decoded original instruction window",
+      "bytes": 228,
+      "end_exclusive": "0x333921f5",
+      "module": "sldprtu.dll",
+      "name": "PartMeasuredErrorDecision",
+      "sha256": "4f446e3731973ba258fb2798453fbbacf4e7e9c5ad4f3fb26cb9b3af14454a35",
+      "start": "0x33392111"
+    },
+    {
+      "bound": "independently decoded original instruction window",
+      "bytes": 33,
+      "end_exclusive": "0x333920c9",
+      "module": "sldprtu.dll",
+      "name": "PartRefusalRejoin",
+      "sha256": "b25fdd9b9336b7915766b92f6858f102dcbc076cc100666e7b1c54108d7c95d1",
+      "start": "0x333920a8"
+    },
+    {
+      "bound": "independently decoded original instruction window",
+      "bytes": 98,
+      "end_exclusive": "0x4c23f345",
+      "module": "sldmodu.dll",
+      "name": "PartTransientLoadFlag",
+      "sha256": "4a47788342a2f72bd3d2dd11362c35c79252361b20b70968270ad52fdba319d4",
+      "start": "0x4c23f2e3"
+    },
+    {
+      "bound": "independently decoded original instruction window",
+      "bytes": 169,
+      "end_exclusive": "0x4c1cf92e",
+      "module": "sldmodu.dll",
+      "name": "PartOutputAtomMapMembership",
+      "sha256": "b4097bc90b2c1458fd5d7972a1ebd67da14c07e8dc00225857039ee6411ae844",
+      "start": "0x4c1cf885"
+    },
+    {
+      "bound": "independently decoded original instruction window",
+      "bytes": 91,
+      "end_exclusive": "0x4c1cfa4b",
+      "module": "sldmodu.dll",
+      "name": "PartActualBodyAssignment",
+      "sha256": "150c4b539d6eb7bbccdea1f621c6bf5986a36e272e98041e28da9ffbce5dd7fb",
+      "start": "0x4c1cf9f0"
+    }
+  ],
+  "metadata_revision": {
+    "changes": [
+      "Use explicit hexadecimal flag masks to avoid bit-index ambiguity",
+      "Include both unchanged prior complete loader/replaceBody parent records directly, selected by source address rather than private label"
+    ],
+    "instruction_or_semantic_change": false,
+    "prior_record_sha256": "81254eaa6d255092c5b7ba10195a4236a477d56ebef0dd038557c982bb23cf52"
+  },
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 16519768,
+      "exception_directory_bytes": 567636,
+      "exception_directory_rva": "0xf4e000",
+      "machine": "0x8664",
+      "name": "sldappu.dll",
+      "preferred_base": "0x453f0000",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "bytes": 36036696,
+      "exception_directory_bytes": 880608,
+      "exception_directory_rva": "0x20bf000",
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "bytes": 3340888,
+      "exception_directory_bytes": 110988,
+      "exception_directory_rva": "0x322000",
+      "machine": "0x8664",
+      "name": "sldprtu.dll",
+      "preferred_base": "0x332a0000",
+      "sha256": "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494"
+    },
+    {
+      "bytes": 8274520,
+      "exception_directory_bytes": 222504,
+      "exception_directory_rva": "0x7e6000",
+      "machine": "0x8664",
+      "name": "sldmfcu.dll",
+      "preferred_base": "0x3c720000",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    }
+  ],
+  "native_context_receipts": [
+    {
+      "bytes": 7379,
+      "candidate_acceptance": false,
+      "cases": {
+        "after": {
+          "bodies": 1,
+          "errors": 0,
+          "needs_rebuild": 0,
+          "warnings": 0
+        },
+        "before": {
+          "bodies": 1,
+          "errors": 0,
+          "needs_rebuild": 0,
+          "warnings": 0
+        },
+        "cold_read_only": {
+          "bodies": 0,
+          "errors": 0,
+          "needs_rebuild": 0,
+          "warnings": 32
+        },
+        "cold_writable": {
+          "bodies": 0,
+          "errors": 0,
+          "needs_rebuild": 0,
+          "warnings": 32
+        },
+        "warm_read_only": {
+          "bodies": 0,
+          "errors": 0,
+          "needs_rebuild": 0,
+          "warnings": 32
+        },
+        "warm_writable": {
+          "bodies": 0,
+          "errors": 0,
+          "needs_rebuild": 0,
+          "warnings": 32
+        }
+      },
+      "controls_healthy": true,
+      "distinct_processes": 6,
+      "file": "AdmissionMatrix01.json",
+      "instrumented": false,
+      "raw_passed": true,
+      "rebuild_calls": 0,
+      "save_calls": 0,
+      "sha256": "f70156b289191f3aae426ba9d9785f9e765bbb23fcafdc27d179708ef21950f5"
+    },
+    {
+      "bodies_before_rebuild": 1,
+      "bytes": 1336,
+      "candidate_acceptance": false,
+      "controller_diagnostics_count": 0,
+      "file": "GeneratedReceive02.json",
+      "hits": [
+        {
+          "eax": 0,
+          "returned_partition_tag": 569,
+          "site": "receive_return",
+          "source_address": "0x3305aeac",
+          "thread": 0
+        }
+      ],
+      "instrumented": true,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "raw_passed": true,
+      "sha256": "065fc3ac0ca26de019f33be8239296ea327e48126fbe719a59d0eba9176c985a"
+    },
+    {
+      "bodies_before_rebuild": 1,
+      "bytes": 1337,
+      "candidate_acceptance": false,
+      "controller_diagnostics_count": 0,
+      "file": "NativeControlReceive02.json",
+      "hits": [
+        {
+          "eax": 0,
+          "returned_partition_tag": 581,
+          "site": "receive_return",
+          "source_address": "0x3305aeac",
+          "thread": 69
+        }
+      ],
+      "instrumented": true,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "raw_passed": true,
+      "sha256": "d4fa0636954c6a93b80372eb361c7b7ef7dad2cf233db9e465648310d9ef2da9"
+    },
+    {
+      "bytes": 2088,
+      "candidate_acceptance": false,
+      "controller_diagnostics_count": 2,
+      "file": "ApiWarningBoundary01.json",
+      "hits": [
+        {
+          "caller": {
+            "image_sha256": "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494",
+            "module": "sldprtu",
+            "return_rva": 991721
+          },
+          "internal_error": 128,
+          "site": "api_error_128",
+          "source_address": "0x458a1760",
+          "thread": 0
+        }
+      ],
+      "instrumented": true,
+      "raw_passed": false,
+      "sha256": "54ac38cb1f9589f771cbcbddcd263988856e56834c7b95adaff37926fece165c"
+    },
+    {
+      "bytes": 1897,
+      "candidate_acceptance": false,
+      "controller_diagnostics_count": 2,
+      "file": "ActiveBodyInventoryBoundary01.json",
+      "hits": [
+        {
+          "eax": 1,
+          "site": "model_body_inventory",
+          "source_address": "0x4c23edeb",
+          "thread": 0
+        }
+      ],
+      "instrumented": true,
+      "raw_passed": false,
+      "sha256": "e30da89e2c5d8a34e1c235e1aab6b374e31106af9dc5f1e845571b0fb5734b00"
+    },
+    {
+      "bodies_before_rebuild": 0,
+      "bytes": 1760,
+      "candidate_acceptance": false,
+      "controller_diagnostics_count": 0,
+      "file": "KernelAskBodiesBoundary01.json",
+      "hits": [
+        {
+          "eax": 0,
+          "returned_body_tag_count": 1,
+          "site": "ask_bodies_return",
+          "source_address": "0x3305af1c",
+          "tag_array_present": true,
+          "thread": 0
+        }
+      ],
+      "instrumented": true,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "raw_passed": true,
+      "sha256": "a3add91a7e7080cb48bfd56d2774f9341e36fe3e96cd0901e53b9b84613c36b5"
+    }
+  ],
+  "owner": "flag_ownership",
+  "prior_source_record_sha256": "74a39331b491000f1e8574745a68ce2cde9a10e839bcbe6fef671dc75d3f4994",
+  "remaining": [
+    "No ordinary failed kernel receive is inferred after the same-phase kernel rc0,count1/warning32/public0 observation",
+    "Actual operand values selecting part+c0 versus update-error fallback and earliest failed atom/feature publication remain to be measured",
+    "Part+2b4/+2b8 cached-mode archive producers and registry+604 writers are not newly mapped here",
+    "The source-field rules do not prove debugger/timing independence; message-map receiver and all setting helper side effects are not universally admitted",
+    "The two askToRegen helper vtable bindings do not establish their invocation during ordinary open",
+    "No active snapshot default, captured atom id, timestamp, setting or writer adjustment follows from this packet"
+  ],
+  "runtime_owner_metadata": {
+    "api_warning_arm": "0x458a3cf2: r13d warning accumulator; rbx actual load-error record; i32[rbx+0x10]=128; edx128; esi saved first API long argument. rbp=rsp+0x100; saved auAm qword[rsp+0x78]; warning output pointer qword[rbp+0x118]",
+    "part_iiconfigure_frame": "rbp=rsp+0x100; saved original entry r8d is i32[rbp+0x460]; at measured error-call return0x333921e9 rbx is actual uiPartDoc,r12d is that incoming flag,rdi7,r15actualauAm"
+  },
+  "schema": "kit.sw2026.part-rebuild-warning-source.v1",
+  "source_rules": [
+    {
+      "owner": "auAm_c::apiOpenDoc",
+      "rule": "The saved first non-this API long argument gates the old-error translation at >=5. Original appApiFileLoadError value128 uniquely selects warning bit32 through the independently decoded compiled tables. Other actual load-warning records are ORed afterward. This is not an archive-version check",
+      "sites": [
+        "0x458a2032",
+        "0x458a3c9a",
+        "0x458a3cf2",
+        "0x458a3da6",
+        "0x458a3ddf"
+      ]
+    },
+    {
+      "owner": "uiPartDoc_c::iiConfigureMAIN override",
+      "rule": "Actual part primary vtable+0xde8 resolves the separate complete function0x33391b20. Actual base uiModelDoc+0xde8 resolves an import whose symbol is uiBaseDoc_c::iiConfigureMAIN. The complete part override calls neither askToRegen nor getAskRegen"
+    },
+    {
+      "owner": "measured direct part128 producer",
+      "rule": "For the reviewed branch, environment PaletteDrag at+e4 is zero and actual part is not shrink-wrap. Actual part+c0(incoming second integer flag) nonzero enters the API/server decision; otherwise second integer flag must be nonzero and part.f0c&2 must be nonzero. Actual auAm+388 nonzero or CAmApp::_runAsServer nonzero selects local result7; a present actual auAm receives addApiFileError128. Other earlier mode/version/configuration branches remain applicable",
+      "sites": [
+        "0x33392111",
+        "0x3339212f",
+        "0x3339215c",
+        "0x33392177",
+        "0x33392197",
+        "0x333921aa",
+        "0x333921e3"
+      ]
+    },
+    {
+      "owner": "part update status",
+      "rule": "Actual part+c0 is0x4c1b8a60. Nonzero part+2b4 uses getNeedsCachedUpdate (part+2b8&1). Otherwise moNode::needsUpdate uses f0c mask0x1, with argument1 additionally dispatching actual part+168 external-context update. Dependent-derived-part branches remain separate. No direct body timestamp/headerf44 comparison occurs in this complete predicate"
+    },
+    {
+      "owner": "configuration status",
+      "rule": "moBaseConfiguration::needsRebuild separately reads config.f0c mask0x8 and override+968/current-config counters. getUpdateStatus also consults actual part need-update, part update-error and transient part+d3c. The public warning is not equivalent to needsRebuild"
+    },
+    {
+      "owner": "uiModelDoc_c::askToRegen",
+      "rule": "Separate API error128 producer at0x4976da59. getAskRegen(true)==2 exits. Otherwise an actual auAm+388 nonzero records128 and bypasses its later automatic regen dispatch. Non-API playback/regression/prompt paths remain distinct"
+    },
+    {
+      "owner": "uiEnvironment_c::getAskRegen",
+      "rule": "Cached registry+604 nonzero returns0. Otherwise reads actual MSG_NEEDS_UPDATE_ON_OPEN dont-ask option. equals(-1,false) returns0; value(false) is sampled, then value(true) is requested only for nonzero value and true caller argument. Static initializer supplies name,1,and0x2a14; option-map/runtime value is not inferred from that argument"
+    },
+    {
+      "owner": "dont-ask option read",
+      "rule": "value(bool) calls actual suSolidworksDAApOptions::hasValue. Reads case-insensitive map and returns the selected integer or initial-1. notify=true with value!=-1 and a valid reached window synchronously calls SendMessageW(message0x8160,wparam0,lparam option text). A matching original message-map row points to0x45a9cd20, whose reviewed writes append option text to its receiver vector and invalidate/update another window; actual live receiver equality remains conditional"
+    },
+    {
+      "owner": "ordinary body publication",
+      "rule": "Accepted kernel receive and body enumeration remain distinct from replaceBody/output-atom binding. Positive-ID lookup must resolve to an atom in the candidate actual feature output collection in the selected branch. Void replaceBody/setBody have no success value. A separate direct output atom+180 assignment and alternate setters exist; lack of one setter event is not proof of no publication"
+    }
+  ],
+  "task": "B04-SW2026-ORDINARY-PART-PARTITION-LOAD / warning publication",
+  "vendor_bytes_or_listings_distributed": false,
+  "vtable_cells": [
+    {
+      "cell": "0x3349ee50",
+      "module": "sldprtu.dll",
+      "role": "actual uiPartDoc primary iiConfigureMAIN override",
+      "slot": "0xde8",
+      "target": "0x33391b20",
+      "vtable": "0x3349e068"
+    },
+    {
+      "cell": "0x334a0f80",
+      "module": "sldprtu.dll",
+      "role": "first retained import-command helper",
+      "slot": "0x2f18",
+      "target": "0x333903d0",
+      "vtable": "0x3349e068"
+    },
+    {
+      "cell": "0x334a0f88",
+      "module": "sldprtu.dll",
+      "role": "second retained import-command helper",
+      "slot": "0x2f20",
+      "target": "0x3338fba0",
+      "vtable": "0x3349e068"
+    },
+    {
+      "cell": "0x4a646960",
+      "module": "slduiu.dll",
+      "role": "uiModelDoc inherited base iiConfigureMAIN import",
+      "slot": "0xde8",
+      "target": "0x4a31adc5",
+      "vtable": "0x4a645b78"
+    },
+    {
+      "cell": "0x4d125398",
+      "module": "sldmodu.dll",
+      "role": "actual moPart need-update predicate",
+      "slot": "0xc0",
+      "target": "0x4c1b8a60",
+      "vtable": "0x4d1252d8"
+    },
+    {
+      "cell": "0x4d125440",
+      "module": "sldmodu.dll",
+      "role": "actual moPart secondary external-context predicate",
+      "slot": "0x168",
+      "target": "0x4c1b8cd0",
+      "vtable": "0x4d1252d8"
+    }
+  ]
+}

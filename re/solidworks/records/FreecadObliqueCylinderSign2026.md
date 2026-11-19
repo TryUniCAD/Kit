@@ -64,3 +64,14 @@ python -B re/tooling/sw2026/oblique/ReplayObliqueCylinderSign.py --disclosed-aut
 Both commands require Python 3.11 or newer. The numeric replay checks exact input hashes and refuses changed evidence. Source preparation uses `ObliqueFlipSources.py prepare` with the existing exact control, prior API manifest, unused private output, explicit guest root and verified guest Python. Root alone runs the generated serial recipe. Preserve a terminal failure and always execute its independent trailing control.
 
 Two independent static-pin processes and two independent numeric-replay processes produced byte-identical receipts. The frozen source packet passed two real host verifies and refused four independently tampered packets. Six owned Python sources pass AST/compile and contain no comments or docstrings. Legacy default argument delegation was verified as the exact narrow delta; both predecessor tool and input identities remained intact. These are host/static facts. The new pair has zero native launches, zero writer outputs and zero held-out reads at this freeze.
+
+## Native disclosed comparison
+
+Six distinct SOLIDWORKS 2026 SP05.2 processes ran the frozen signing and source tools, with four healthy pristine controls. The two new authors passed strict directed hinges, plane signs, live circle/axis/limit ownership and typed extrusion output queries. Both produced one solid and reached the initial independent volume comparison.
+
+| Case | Predicted volume, m³ | Observed volume, m³ | Relative deficit |
+| --- | ---: | ---: | ---: |
+| F01 | 0.000005611250704191777 | 0.000005611074280887201 | 31.4 ppm |
+| F02 | 0.000009542463809139074 | 0.000009541649491561081 | 85.3 ppm |
+
+Both runs stopped before driver edits, save and fresh reopen. The original analytic targets and tolerances remain in the receipt. The observer uses the default mass-property calculation. A separate accuracy-controlled comparison on the same authored geometry is needed to distinguish property evaluation precision from a solid geometry difference. [Native receipt](../measurements/2026/FreecadObliqueCylinderFlipNative01.json) · [Vendor accuracy enum](https://help.solidworks.com/2026/english/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swMassPropertyAccuracyLevel_e.html?id=2.10.1.507)
