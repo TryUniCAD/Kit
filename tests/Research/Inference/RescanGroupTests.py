@@ -15,7 +15,7 @@ from tests.Research.Supervisor.Grouping.BatchRecords import BatchEvents, ReadTry
 from tests.Research.SupervisorClient import FixtureJob, SessionHost
 
 
-# the real registry must enable grouping only for the worker's rescan job kind
+# the real registry must enable grouping only for the worker rescan job kind
 def EnableGrouping(Harness: SessionHost) -> None:
     RegistryPath = FilePath(ParseJson(Harness.ConfigFile.read_bytes())["registry"])
     Registry = ParseJson(RegistryPath.read_bytes())
@@ -25,7 +25,7 @@ def EnableGrouping(Harness: SessionHost) -> None:
     _ = RegistryPath.write_text(EncodeJson(Registry), encoding="utf-8")
 
 
-# committed native captures exercise both SDK decoders inside one child process
+# committed native captures exercise both sdk decoders inside one child process
 def BindCaptures(Harness: SessionHost) -> dict[str, tuple[str, str]]:
     ArchiveRoot = (
         FilePath(__file__).resolve().parents[3] / "re/automation/PairedCaptures/P03"

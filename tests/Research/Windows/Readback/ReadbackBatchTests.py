@@ -268,6 +268,8 @@ def CheckBacklogReservesNextSlot(TmpPath: FilePath) -> None:
         InvokeReadbackCommand(
             BatchTool, StorePath, *QueueArgs, "enqueue", "second", "cut"
         )
+
+        # the watcher reserves the fixture once the queued cut becomes eligible
         AwaitBatchCondition(Watcher, lambda: HasFixtureReservation(StorePath))
         assert WaitForSingleObject(Priority, 0) == 258
         FinishFixture(StorePath, TmpPath, ActiveClaim)
@@ -300,6 +302,8 @@ def CheckBacklogReservesNextSlot(TmpPath: FilePath) -> None:
 
         ReleaseMutex(Oracle)
         OracleHeld = False
+
+        # releasing the oracle returns every batch check to the queued state
         AwaitBatchCondition(
             Watcher,
             lambda: all(
