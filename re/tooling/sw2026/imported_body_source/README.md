@@ -77,12 +77,12 @@ additionally exposes its modeler inputs and cold geometry observations.
 
 ## Use the results
 
-A healthy disclosed source can identify the actual native serialization owner.
-The [2026 class map](https://github.com/TryUniCAD/Kit/blob/5747ddc4c0d66082798449399abd9fcca064dfdf/re/data/Serialization/SerializeMap2026.json#L10730)
-locates the candidate `moImported_c` serializer at preferred address
-`sldmopartu.dll!0x1802fd060`. Confirm the class from the disclosed native
-archive and correlate its body, atom and partition ownership before modeling
-its writer. The two sealed sources remain private during that work.
+The [source receipt](../../../solidworks/measurements/2026/ImportedBaseBodySourcesNative01.json)
+binds four disclosed and six sealed phases with healthy controls. The
+[archive record](../../../solidworks/records/ImportedBaseBody2026.md)
+identifies the serialized `moBaseBody_c` schema 1 wrapper and its shared
+import serializer. Its body, atom and partition ownership remain to be
+correlated. The two sealed sources remain private during that work.
 
 The packet authors source fixtures through SOLIDWORKS. It records zero Kit
 writer outputs and zero native writer acceptance. The public conversion route
