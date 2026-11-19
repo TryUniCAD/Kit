@@ -1,0 +1,190 @@
+{
+  "cases": [
+    {
+      "actual_attachment_count": 1,
+      "actual_text_utf8_sha256": "07645b4b7b67403032961596c1684702b6d491b0dea2c79b4be06743eff49412",
+      "arrowhead_first_getter_result_from_source_rule": 1,
+      "arrowhead_stored_count": 1,
+      "arrowhead_values": [
+        1
+      ],
+      "box_style_change": true,
+      "cache_empty": false,
+      "cache_equals_actual_text": true,
+      "cache_utf8_sha256": "07645b4b7b67403032961596c1684702b6d491b0dea2c79b4be06743eff49412",
+      "case": "Disclosed01",
+      "definition_bytes": 31197,
+      "definition_sha256": "811a56f2e202281c30cb1dfaf0b78acde3da80cc6dcbcbd1cd49332c4cecd173",
+      "display_kind": 0,
+      "f768_ordered_u32_chunks": [
+        0,
+        940572737
+      ],
+      "file_bytes": 20332,
+      "file_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "generic_text_flags_observed_only": "0x70402",
+      "graph_sha256": "da0725fa2640d9f2f6ea332752f8365b5c298b87b4056f558c1e5fbfe369391c",
+      "typed_complete": true
+    },
+    {
+      "actual_attachment_count": 1,
+      "actual_text_utf8_sha256": "c71396dfe499953e12675648ad07e91857b2fe1f4074b006e35c18ca2a1afc91",
+      "arrowhead_first_getter_result_from_source_rule": 1,
+      "arrowhead_stored_count": 1,
+      "arrowhead_values": [
+        1
+      ],
+      "box_style_change": true,
+      "cache_empty": false,
+      "cache_equals_actual_text": true,
+      "cache_utf8_sha256": "c71396dfe499953e12675648ad07e91857b2fe1f4074b006e35c18ca2a1afc91",
+      "case": "Disclosed01Edit",
+      "definition_bytes": 31777,
+      "definition_sha256": "9a0013038b96178e9528d7a71f64ed2fdce218c3a5b53a002fb938a1bed7468f",
+      "display_kind": 0,
+      "f768_ordered_u32_chunks": [
+        0,
+        940572737
+      ],
+      "file_bytes": 22098,
+      "file_sha256": "8739b677a5b4ab018054987821b1ba721ec73e0c5094fa44ee3d05de92c0d15d",
+      "generic_text_flags_observed_only": "0x70402",
+      "graph_sha256": "a110c6979a9499c42e986195bc522e3b96053ea091f16fc93292c0696ff9b058",
+      "typed_complete": true
+    },
+    {
+      "actual_attachment_count": 1,
+      "actual_text_utf8_sha256": "5bdfdde5b5e303f7373e09a27bea81f030a2d68b909370b7a962d9c6fa1b0b8b",
+      "arrowhead_first_getter_result_from_source_rule": 1,
+      "arrowhead_stored_count": 1,
+      "arrowhead_values": [
+        1
+      ],
+      "box_style_change": true,
+      "cache_empty": false,
+      "cache_equals_actual_text": true,
+      "cache_utf8_sha256": "5bdfdde5b5e303f7373e09a27bea81f030a2d68b909370b7a962d9c6fa1b0b8b",
+      "case": "Disclosed02",
+      "definition_bytes": 31153,
+      "definition_sha256": "1471abf3f32fc003e6903aa8f195c6d4754bd397e73cb6a23ba308b8f2791131",
+      "display_kind": 0,
+      "f768_ordered_u32_chunks": [
+        0,
+        940572737
+      ],
+      "file_bytes": 21007,
+      "file_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575",
+      "generic_text_flags_observed_only": "0x70402",
+      "graph_sha256": "596b8819baded43dce9b2672b9704259633f3a89a2d3e2149a0a1ed7b7db23c7",
+      "typed_complete": true
+    },
+    {
+      "actual_attachment_count": 1,
+      "actual_text_utf8_sha256": "1fbd91fe0f9becf120d37993f123a63c6ad552937a43dbd190485a158d163b8e",
+      "arrowhead_first_getter_result_from_source_rule": 1,
+      "arrowhead_stored_count": 1,
+      "arrowhead_values": [
+        1
+      ],
+      "box_style_change": true,
+      "cache_empty": false,
+      "cache_equals_actual_text": true,
+      "cache_utf8_sha256": "1fbd91fe0f9becf120d37993f123a63c6ad552937a43dbd190485a158d163b8e",
+      "case": "Disclosed02Edit",
+      "definition_bytes": 31777,
+      "definition_sha256": "77ec2f6127c7424d2658356174a347f5e20edaa1c80a188e9476ccb79dbf1104",
+      "display_kind": 0,
+      "f768_ordered_u32_chunks": [
+        0,
+        940572737
+      ],
+      "file_bytes": 21602,
+      "file_sha256": "32987b7a8a0fb75517a59ac2559099d229dcac8f78c74e29a1e385023d1628d6",
+      "generic_text_flags_observed_only": "0x70402",
+      "graph_sha256": "9d83b4ba227e58157ecb4d4a8be17abfa57ec9c45bfa8261821992504f6403ee",
+      "typed_complete": true
+    },
+    {
+      "actual_attachment_count": 1,
+      "actual_text_utf8_sha256": "fde20eb06cebf05b512ab7c5c6a55f0256e2ad7305b0d0fc63742d0a34d1fcf1",
+      "arrowhead_first_getter_result_from_source_rule": 1,
+      "arrowhead_stored_count": 0,
+      "arrowhead_values": [],
+      "box_style_change": false,
+      "cache_empty": true,
+      "cache_equals_actual_text": false,
+      "cache_utf8_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "case": "GeneratedInitial",
+      "definition_bytes": 27770,
+      "definition_sha256": "7729bd5111673547ecc0892ce864bbf51e671fd4804f2045198354b97601e65b",
+      "display_kind": 0,
+      "f768_ordered_u32_chunks": [
+        0,
+        940572673
+      ],
+      "file_bytes": 6651,
+      "file_sha256": "00e0175943682a25ffa6045b7a7f60189015a185dabf53f63ea127e28dc550ff",
+      "generic_text_flags_observed_only": "0x70001",
+      "graph_sha256": "0418fe7663fb6fcc83f0127719c58d5729a1a6d1824bf9e32fe7a4202cbcb62c",
+      "typed_complete": true
+    },
+    {
+      "actual_attachment_count": 1,
+      "actual_text_utf8_sha256": "503750fe7ad7077e84ffd5e0ce2536430fe5f7a942c0e74ea081473f2f0bb175",
+      "arrowhead_first_getter_result_from_source_rule": 1,
+      "arrowhead_stored_count": 0,
+      "arrowhead_values": [],
+      "box_style_change": false,
+      "cache_empty": false,
+      "cache_equals_actual_text": true,
+      "cache_utf8_sha256": "503750fe7ad7077e84ffd5e0ce2536430fe5f7a942c0e74ea081473f2f0bb175",
+      "case": "GeneratedEditedSaved",
+      "definition_bytes": 29248,
+      "definition_sha256": "c37060e2803243f7d4155820ec8eeeb86e85859b2bcaf78a77f71353f6f527a9",
+      "display_kind": 0,
+      "f768_ordered_u32_chunks": [
+        0,
+        940572673
+      ],
+      "file_bytes": 17842,
+      "file_sha256": "ebad7af6a83b6ff671ea6038032984ef821059ee6788cbf6c82dfc9fbac5d443",
+      "generic_text_flags_observed_only": "0x70002",
+      "graph_sha256": "4488a7bb572482a62ca5607dbca2e76f9071beaf396bcf056f41c665d99d0431",
+      "typed_complete": true
+    }
+  ],
+  "execution": {
+    "data_only_graph_read": true,
+    "hidden_inputs": false,
+    "native_calls": false,
+    "new_cad_decode": false,
+    "shared_writes": false,
+    "tests": false
+  },
+  "input_scope": "six already disclosed note states, no new CAD parsing in this tranche",
+  "interpretation": "all six ordinary first arrowhead getters select 1 despite stored array differences; bit6 and display cache remain actual distinct owners",
+  "native_or_full_source_acceptance": false,
+  "same_note_matrix_status": "parent reports all grid-off generated variants still have the empty pristine bitmap; not independently hash-bound by this packet",
+  "schema": "drawing-plain-note-render-owner-census-v1",
+  "static_verification": {
+    "report_basename": "RenderOwnersReplay01.json",
+    "result": {
+      "acceptance": false,
+      "cad_execution": false,
+      "complete_functions": 19,
+      "data_windows": 1,
+      "imports": 12,
+      "instruction_windows": 13,
+      "modules": 3,
+      "native_execution": false,
+      "record_sha256": "06567b8a7ee8bd74e955391defc8f86637969289d7189cc71e8768ada178f065",
+      "schema_or_codec_execution": false,
+      "tests": false,
+      "verified": true,
+      "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+      "vtable_cells": 3
+    },
+    "sha256": "dcaca0a316c190198b0aaffe75c4ef70f036a141a69799959b8b733977dbeaec"
+  },
+  "task": "DRAWING-NOTES-C10"
+}
