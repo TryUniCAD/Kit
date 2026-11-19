@@ -1,6 +1,6 @@
 from __future__ import annotations as Annotations
 from collections import Counter as CountValues
-from collections.abc import Callable, Collection, Iterable, Mapping, Sequence
+from collections.abc import Collection, Iterable, Mapping, Sequence
 from contextlib import suppress as Suppress
 from dataclasses import replace as Replace
 from datetime import datetime as Datetime, timezone as Timezone
@@ -58,6 +58,9 @@ from interchange import (
 )
 from interchange.serialization.EncodeData import ToData
 from interchange.serialization.WireData import ValidateWireMap
+from convert.adapters.freecad.Errors.AdapterError import (
+    FreeCadAdapterA as FreeCadAdapterA,
+)
 from convert.adapters.freecad.Archive import (
     DOCUMENT_ENTRY as DocEntry,
     MANIFEST_ENTRY as ManifestEntry,
@@ -65,7 +68,6 @@ from convert.adapters.freecad.Archive import (
     NativeBrepKey,
     ReadZipManifest,
     MAX_ENTRY_SIZE as MaxEntrySize,
-    MAX_EXTERNAL_FILES as MaxOuterFiles,
     MAX_TOTAL_SIZE as MaxTotalSize,
     native_brep_key as ManifestNativeBrepKey,
     validated_archive_members as ValidatedArchiveMembers,
@@ -105,32 +107,19 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.ReconcileEdit import ReconcileEdit
+from convert.adapters.freecad.Replay.MetadataTypes import (
+    IsPayloadMap as IsPayloadMap,
+    IsPayloadSeq as IsPayloadSeq,
+)
+from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
+from convert.adapters.freecad.Replay.NativeOuter import NativeOuter
+from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
+from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from interchange.Features.FeatureBoundPlane import BoundDatum
 
 # shared empty set keeps parameter defaults free of repeated constructor calls
 KNoNativeBreps: frozenset[NativeBrepKey] = frozenset()
 
-
-# mapping payload checks need a shared guard so archive readers narrow safely
-def IsPayloadMap(Value: object) -> TypeGuard[Mapping[str, object]]:
-    return isinstance(Value, Mapping)
-
-
-# sequence payloads require a concrete element contract before archive fields are traversed
-def IsPayloadSeq(Value: object) -> TypeGuard[Sequence[object]]:
-    return isinstance(Value, Sequence) and not isinstance(
-        Value, (str, bytes, bytearray)
-    )
-
-
-# this binding exists because shared behavior needs one stable value
-KNativeDocId = "freecad:native-document"
-
-# this binding exists because shared behavior needs one stable value
-KNativeDocBindingId = "freecad:native-document-binding"
-
-# this binding exists because shared behavior needs one stable value
-KReplaySemanticAttr = "freecad.replay_semantic_sha256"
 
 # this binding exists because shared behavior needs one stable value
 KNativeExtrusionEnd = frozenset(
@@ -157,14 +146,6 @@ KSketchRelIssues = frozenset(
         "fusion.sketch.dimension.unsupported",
     }
 )
-
-
-# this definition exists because focused behavior needs one stable owner
-class FreeCadAdapterA(RuntimeError):
-
-    # this definition exists because focused behavior needs one stable owner
-    def __init__(self, Message: str) -> None:
-        super().__init__(Message)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -286,213 +267,11 @@ def FilteredDoc(DocValue: CadDocument, Settings: ReadOptions) -> CadDoc:
     return Replace(Filtered, metadata=MetaValue)
 
 
-# this definition exists because focused behavior needs one stable owner
-def IsNativeDoc(Payload: BrepPayload) -> bool:
-    return (
-        Payload.id == KNativeDocId
-        and Payload.format_id == InfoValue.format_id
-        and (Payload.kind == "native_document")
-        and (Payload.role == PayloadRole.DOCUMENT)
-    )
-
-
-# this definition exists because focused behavior needs one stable owner
-def IsNativeDocA(Payload: BrepPayload) -> bool:
-    return (
-        Payload.id == KNativeDocBindingId
-        and Payload.format_id == f"{InfoValue.format_id}.sha256"
-        and (Payload.kind == "native_document_binding")
-        and (Payload.schema == "sha256")
-        and (Payload.role == PayloadRole.VERIFICATION)
-    )
-
-
-# this definition exists because focused behavior needs one stable owner
-def IsNative(Payload: BrepPayload) -> bool:
-    return IsNativeDoc(Payload) or IsNativeDocA(Payload)
-
-
-# this definition exists because focused behavior needs one stable owner
-def NativeDocPair(DocValue: CadDocument) -> tuple[BrepPayload, BrepPayload] | None:
-    Documents = tuple(
-        (Payload for Payload in DocValue.brep_payloads if IsNativeDoc(Payload))
-    )
-    Bindings = tuple(
-        (Payload for Payload in DocValue.brep_payloads if IsNativeDocA(Payload))
-    )
-    if len(Documents) != 1 or len(Bindings) != 1:
-        return None
-    NativeDoc = Documents[0]
-    Binding = Bindings[0]
-    try:
-        NativeDigest = bytes.fromhex(NativeDoc.sha256)
-    except ValueError:
-        return None
-    if len(NativeDigest) != Hashlib.sha256().digest_size:
-        return None
-    if (
-        NativeDoc.data is None
-        or Hashlib.sha256(NativeDoc.data).digest() != NativeDigest
-        or Binding.data != NativeDigest
-        or (Binding.sha256 != Hashlib.sha256(NativeDigest).hexdigest())
-    ):
-        return None
-    return (NativeDoc, Binding)
-
-
-# this definition exists because focused behavior needs one stable owner
-def MappedOuter(
-    MetaValue: Mapping[str, object], Transform: Callable[[CadDocument], CadDocument]
-) -> Mapping[str, object]:
-    Freecad = MetaValue.get("freecad", {})
-    if not IsPayloadMap(Freecad):
-        return MetaValue
-    Values = Freecad.get("external_documents", [])
-    if not IsPayloadSeq(Values):
-        return MetaValue
-    Changed = False
-    Mapped: list[object] = []
-    for Value in Values:
-        if not IsPayloadMap(Value):
-            Mapped.append(Value)
-            continue
-        Linked = Value.get("document")
-        if not isinstance(Linked, CadDoc):
-            Mapped.append(Value)
-            continue
-        ItemValue = dict(Value)
-        ItemValue["document"] = Transform(Linked)
-        Mapped.append(ItemValue)
-        Changed = True
-    if not Changed:
-        return MetaValue
-    FreecadCopy = dict(Freecad)
-    FreecadCopy["external_documents"] = Mapped
-    Result = dict(MetaValue)
-    Result["freecad"] = FreecadCopy
-    return FrozenMapping(Result)
-
-
-# this definition exists because focused behavior needs one stable owner
-def SemanticDoc(DocValue: CadDocument) -> CadDoc:
-    EnvelopeIndexes = SourcePayloadIndexes(DocValue)
-    AsmValue = DocValue.assembly
-    if AsmValue is not None:
-        AsmValue = Replace(
-            AsmValue,
-            documents=tuple(
-                (
-                    Replace(
-                        ItemValue,
-                        document=SemanticDoc(ItemValue.document),
-                    )
-                    for ItemValue in AsmValue.documents
-                )
-            ),
-        )
-    Payloads = tuple(
-        (
-            Replace(
-                Payload,
-                data=None,
-                sha256=(
-                    Hashlib.sha256(Payload.data).hexdigest()
-                    if Payload.data is not None
-                    else Payload.sha256
-                ),
-                attributes=FrozenMapping(
-                    {
-                        KeyValue: Value
-                        for KeyValue, Value in Payload.attributes.items()
-                        if KeyValue != KReplaySemanticAttr
-                    }
-                ),
-            )
-            for Index, Payload in enumerate(DocValue.brep_payloads)
-            if Index not in EnvelopeIndexes and (not IsNative(Payload))
-        )
-    )
-    MetaValue = MappedOuter(DocValue.metadata, SemanticDoc)
-    return Replace(
-        DocValue,
-        source=CadSource("", "", ""),
-        brep_payloads=Payloads,
-        metadata=SemanticMeta(MetaValue),
-        assembly=AsmValue,
-    )
-
-
-# this definition exists because focused behavior needs one stable owner
-def SemanticDigest(DocValue: CadDocument) -> str:
-    DataValue = SemanticDoc(DocValue).to_json(indent=None).encode("utf-8")
-    return Hashlib.sha256(DataValue).hexdigest()
-
-
-# this definition exists because focused behavior needs one stable owner
-def AnnotateNative(DocValue: CadDocument) -> CadDoc:
-    AsmValue = DocValue.assembly
-    if AsmValue is not None:
-        AsmValue = Replace(
-            AsmValue,
-            documents=tuple(
-                (
-                    Replace(
-                        ItemValue,
-                        document=AnnotateNative(ItemValue.document),
-                    )
-                    for ItemValue in AsmValue.documents
-                )
-            ),
-        )
-    MetaValue = MappedOuter(DocValue.metadata, AnnotateNative)
-    Annotated = Replace(DocValue, metadata=MetaValue, assembly=AsmValue)
-    PairValue = NativeDocPair(Annotated)
-    if PairValue is None:
-        return Annotated
-    NativeDoc, _ = PairValue
-    Digest = SemanticDigest(Annotated)
-    Payloads = tuple(
-        (
-            (
-                Replace(
-                    Payload,
-                    attributes=FrozenMapping(
-                        {**Payload.attributes, KReplaySemanticAttr: Digest}
-                    ),
-                )
-                if Payload.id == NativeDoc.id and IsNativeDoc(Payload)
-                else Payload
-            )
-            for Payload in Annotated.brep_payloads
-        )
-    )
-    return Replace(Annotated, brep_payloads=Payloads)
-
-
-# this definition exists because focused behavior needs one stable owner
-def UnchangedNative(DocValue: CadDocument) -> bytes | None:
-    PairValue = NativeDocPair(DocValue)
-    if PairValue is None:
-        return None
-    NativeDoc, _ = PairValue
-    Expected = NativeDoc.attributes.get(KReplaySemanticAttr)
-    if not isinstance(Expected, str) or Expected != SemanticDigest(DocValue):
-        return None
-    DataValue = NativeDoc.data
-    if DataValue is None:
-        return None
-    try:
-        Archive, _ = ValidatedArchiveMembers(DataValue)
-        Archive.close()
-    except (OSError, ValueError, Zipfile.BadZipFile):
-        return None
-    try:
-        Reparsed = ReadNativeFcstd(DataValue, DocValue.source.path)
-    except (NativeFreeCadError, OSError, TypeError, ValueError):
-        return None
-    if SemanticDigest(Reparsed) != Expected:
-        return None
-    return DataValue
+# unchanged replay requires an independent archive parse against the carried digest
+def UnchangedNative(
+    DocValue: CadDocument, ReplayReads: KReplayReadCache | None = None
+) -> bytes | None:
+    return PrepareReplay(DocValue, Migrate=False, ReplayReads=ReplayReads)[1]
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -991,10 +770,16 @@ def IsPayloadMatch(
 
 
 # this definition exists because focused behavior needs one stable owner
-def TrustedNative(DocValue: CadDocument) -> frozenset[NativeBrepKey]:
+def TrustedNative(
+    DocValue: CadDocument, RootReplay: bytes | None, ReplayReads: KReplayReadCache
+) -> frozenset[NativeBrepKey]:
     Trusted: set[NativeBrepKey] = set()
     for ItemValue in DocTree(DocValue):
-        NativeSource = UnchangedNative(ItemValue)
+        NativeSource = (
+            RootReplay
+            if ItemValue is DocValue
+            else UnchangedNative(ItemValue, ReplayReads)
+        )
         MappedPayloads = ManifestBrep(ItemValue)
         if NativeSource is None or not MappedPayloads:
             continue
@@ -2169,63 +1954,12 @@ def WriteComponents(
 
 
 # this definition exists because focused behavior needs one stable owner
-def PayloadSize(DocValue: CadDoc) -> int:
-    Total = 0
-    for Payload in DocValue.BrepPayloads:
-        DataValue = Payload.PayloadData
-        if Payload.ValueRole == PayloadRole.DOCUMENT and DataValue is not None:
-            Total += len(DataValue)
-    return Total
-
-
-# this definition exists because focused behavior needs one stable owner
-def NativeOuter(DocValue: CadDocument) -> list[tuple[str, CadDoc]]:
-    MetaValue = DocValue.metadata
-    FreecadValue: object = MetaValue.get("freecad")
-    Freecad: Mapping[str, object] = FreecadValue if IsPayloadMap(FreecadValue) else {}
-    Values: object = Freecad.get("external_documents")
-    if Values is None:
-        Values = []
-    if not IsPayloadSeq(Values):
-        raise FreeCadAdapterA("native FreeCAD external document metadata is invalid")
-    Result: list[tuple[str, CadDoc]] = []
-    SeenValue: set[str] = set()
-    Total = 0
-    for Value in Values:
-        if not IsPayloadMap(Value):
-            raise FreeCadAdapterA(
-                "native FreeCAD external document metadata is invalid"
-            )
-        SourceFile = str(Value.get("file", ""))
-        Linked: object = Value.get("document")
-        if IsPayloadMap(Linked):
-            try:
-                Linked = CadDoc.from_dict(ValidateWireMap(Linked))
-            except (TypeError, ValueError, RecursionError) as ErrorInfo:
-                raise FreeCadAdapterA(
-                    "native FreeCAD external document metadata is invalid"
-                ) from ErrorInfo
-        if not SourceFile or not isinstance(Linked, CadDoc):
-            raise FreeCadAdapterA(
-                "native FreeCAD external document metadata is invalid"
-            )
-        if SourceFile in SeenValue:
-            raise FreeCadAdapterA(
-                "native FreeCAD external document metadata contains duplicates"
-            )
-        SeenValue.add(SourceFile)
-        Total += PayloadSize(Linked)
-        if len(Result) >= MaxOuterFiles or Total > MaxTotalSize:
-            raise FreeCadAdapterA(
-                "native FreeCAD external documents exceed safe limits"
-            )
-        Result.append((SourceFile, Linked))
-    return Result
-
-
-# this definition exists because focused behavior needs one stable owner
 def WriteNative(
-    DocValue: CadDocument, Target: FilePath, Overwrite: bool, Validate: bool
+    DocValue: CadDocument,
+    Target: FilePath,
+    Overwrite: bool,
+    Validate: bool,
+    ReplayReads: KReplayReadCache,
 ) -> tuple[dict[str, str], int]:
     Records = NativeOuter(DocValue)
     Folder = Target.parent / Target.stem
@@ -2245,7 +1979,8 @@ def WriteNative(
         FileName = Choice + FileSuffix
         UsedValue.add(FileName.casefold())
         Output = Folder / FileName
-        Result = FreeCadAdapter().write(
+        Result = WriteTarget(
+            FreeCadAdapter(),
             Linked,
             Output,
             WriteOptions(
@@ -2253,6 +1988,8 @@ def WriteNative(
                 Validate=Validate,
                 OptionValues={"portable": True},
             ),
+            None,
+            ReplayReads,
         )
         if Result.ByteCount > MaxEntrySize:
             raise FreeCadAdapterA(
@@ -2338,7 +2075,6 @@ def ProbeSource(Instance: FreeCadAdapter, Source: Source) -> ProbeResult:
 def ReadSource(Source: Source, Options: ReadOptions | None = None) -> CadDoc:
     Settings = Options or ReadOptions(include_tessellation=True)
     DataValue = SourceBytes(Source)
-    Native = False
     try:
         Archive, Members = ValidatedArchiveMembers(DataValue)
         with Archive:
@@ -2348,12 +2084,9 @@ def ReadSource(Source: Source, Options: ReadOptions | None = None) -> CadDoc:
         if str(ErrorInfo) != "FCStd archive has no embedded Kit interchange document":
             raise FreeCadAdapterA(str(ErrorInfo)) from ErrorInfo
         try:
-            DocValue = ReadNativeFcstd(DataValue, SourcePath(Source))
+            DocValue = ReadNativeFcstd(DataValue, SourcePath(Source), RecordReplay=True)
         except (NativeFreeCadError, TypeError, ValueError) as NativeError:
             raise FreeCadAdapterA(str(NativeError)) from NativeError
-        Native = True
-    if Native:
-        DocValue = AnnotateNative(DocValue)
     DocValue = Replace(
         DocValue,
         configurations=Selected(DocValue.configurations, Settings.ConfigName),
@@ -2401,20 +2134,6 @@ def CanWriteTarget(Target: Destination) -> bool:
     return True
 
 
-# this definition chooses whether an unchanged native archive remains safe to replay
-def SelectNative(
-    DocValue: CadDocument,
-    Selected: WriteOptions,
-    Portable: bool,
-    NativeOuters: Sequence[tuple[str, CadDoc]],
-) -> bytes | None:
-    if Selected.OptionValues.get("rebuild", False) is True:
-        return None
-    if Portable and (DocValue.assembly is not None or bool(NativeOuters)):
-        return None
-    return UnchangedNative(DocValue)
-
-
 # this definition returns the exact native replay result and its reference contract
 def ExactResult(
     Instance: FreeCadAdapter,
@@ -2459,6 +2178,7 @@ def BundleArtifacts(
     Portable: bool,
     NativeOuters: Sequence[tuple[str, CadDoc]],
     TrustedBreps: frozenset[NativeBrepKey],
+    ReplayReads: KReplayReadCache,
 ) -> tuple[
     dict[str, dict[str, object]],
     dict[str, str],
@@ -2492,7 +2212,7 @@ def BundleArtifacts(
         )
     if TargetPath is not None and NativeOuters and Portable:
         NativeLinks, NativeBytes = WriteNative(
-            DocValue, TargetPath, Overwrite, Validate
+            DocValue, TargetPath, Overwrite, Validate, ReplayReads
         )
     return (
         OuterLinks,
@@ -2565,6 +2285,7 @@ def RebuildResult(
     Portable: bool,
     NativeOuters: Sequence[tuple[str, CadDoc]],
     TrustedBreps: frozenset[NativeBrepKey],
+    ReplayReads: KReplayReadCache,
 ) -> WriteResult:
     (
         OuterLinks,
@@ -2582,6 +2303,7 @@ def RebuildResult(
         Portable,
         NativeOuters,
         TrustedBreps,
+        ReplayReads,
     )
     EditableFeatures: set[str] = set()
     DataValue = BuildFcstdArchive(
@@ -2628,6 +2350,7 @@ def WriteTarget(
     Target: Destination,
     Options: WriteOptions | None,
     Overwrite: bool | None,
+    ReplayReads: KReplayReadCache | None = None,
 ) -> WriteResult:
     Selected = Options or WriteOptions()
     ShouldOverwrite = Selected.Overwrite if Overwrite is None else Overwrite
@@ -2641,10 +2364,18 @@ def WriteTarget(
     if TargetPath is not None and TargetPath.exists() and not ShouldOverwrite:
         raise FileExistsError(TargetPath)
     Portable = Selected.OptionValues.get("portable", True) is True
+    Original = DocValue
+    if ReplayReads is None:
+        ReplayReads = {}
+    DocValue, NativeSource = PrepareReplay(
+        Original, Migrate=True, ReplayReads=ReplayReads
+    )
     NativeOuters = NativeOuter(DocValue)
-    TrustedBreps = TrustedNative(DocValue)
-    NativeSource = SelectNative(DocValue, Selected, Portable, NativeOuters)
-    if NativeSource is not None:
+    if (
+        NativeSource is not None
+        and Selected.OptionValues.get("rebuild", False) is not True
+        and not (Portable and (DocValue.assembly is not None or NativeOuters))
+    ):
         return ExactResult(
             Instance,
             DocValue,
@@ -2664,7 +2395,8 @@ def WriteTarget(
         ShouldOverwrite,
         Portable,
         NativeOuters,
-        TrustedBreps,
+        TrustedNative(Original, NativeSource, ReplayReads),
+        ReplayReads,
     )
 
 
