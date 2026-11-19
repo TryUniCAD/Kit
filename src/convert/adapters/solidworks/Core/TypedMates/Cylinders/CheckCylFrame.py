@@ -1,9 +1,10 @@
 from math import isclose as IsClose
 
+from convert.adapters.solidworks.Archive.Construction.Geometry.DotVector import (
+    DotVector,
+)
 from convert.adapters.solidworks.Archive.Partition.ReadXmtVector import ReadXmtVector
 from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
-from convert.adapters.solidworks.Assembly.PlanarMates.ReadPlane import ReadVector
-from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.CylChild import CylChild
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.CylEndpoint import (
     CylEndpoint,
@@ -11,13 +12,13 @@ from convert.adapters.solidworks.Core.TypedMates.Cylinders.CylEndpoint import (
 from convert.adapters.solidworks.Core.TypedMates.ReadMateFrame import ReadMateFrame
 
 
-# source cylinder geometry must agree with its actual child and independently rigid occurrence placement
-def CheckCylFrame(
-    Endpoint: CylEndpoint, Wrapper: ArchiveNode, ChildValue: CylChild
-) -> None:
+# the actual cylinder fixes the carrier line while the selected wrapper owns its signed direction
+def CheckCylFrame(Endpoint: CylEndpoint, ChildValue: CylChild) -> None:
     Matrix = ReadMateFrame(Endpoint.ItemValue.transform)
     LocalPoint = ReadXmtVector(ChildValue.SurfaceValue, "pvec")
-    LocalAxis = ReadXmtVector(ChildValue.SurfaceValue, "axis")
+    CarrierAxis = ReadXmtVector(ChildValue.SurfaceValue, "axis")
+    LocalAxis = Endpoint.LocalAxisValue
+    AxisSign = -1.0 if DotVector(LocalAxis, CarrierAxis) < 0.0 else 1.0
     Expected = tuple(
         sum(
             LocalPoint[AxisIndex] * Matrix[AxisIndex * 4 + Index]
@@ -42,9 +43,13 @@ def CheckCylFrame(
             IsClose(LeftValue, RightValue, rel_tol=1e-10, abs_tol=1e-12)
             for LeftValue, RightValue in zip(Actual, Expected, strict=True)
         )
-        or ReadVector(Wrapper.FieldsValue.get("f108")) != LocalAxis
-        or not IsClose(
-            sum(Value * Value for Value in LocalAxis), 1.0, rel_tol=1e-10, abs_tol=1e-12
+        or not all(
+            IsClose(LocalValue, AxisSign * CarrierValue, rel_tol=1e-10, abs_tol=1e-12)
+            for LocalValue, CarrierValue in zip(LocalAxis, CarrierAxis, strict=True)
+        )
+        or not all(
+            IsClose(DotVector(Value, Value), 1.0, rel_tol=1e-10, abs_tol=1e-12)
+            for Value in (LocalAxis, CarrierAxis)
         )
     ):
         raise ValueError(

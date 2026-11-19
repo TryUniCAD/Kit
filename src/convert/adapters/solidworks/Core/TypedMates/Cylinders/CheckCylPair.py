@@ -18,6 +18,10 @@ def CheckCylPair(Endpoints: tuple[CylEndpoint, ...], AlignCode: int) -> None:
         raise ValueError(
             "concentric mate requires distinct occurrences of the same actual child"
         )
+    if DotVector(FirstValue.LocalAxisValue, SecondValue.LocalAxisValue) <= 0.0:
+        raise ValueError(
+            "concentric wrappers disagree on the direction of the same child cylinder"
+        )
     ProductValue = DotVector(FirstValue.AxisValue, SecondValue.AxisValue)
     OffsetValue = tuple(
         SecondValue.OriginValue[Index] - FirstValue.OriginValue[Index]

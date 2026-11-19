@@ -8,6 +8,8 @@ The mate entities have `kind == "cylinder"`, a radius in millimetres, their actu
 
 The entity frame remains absent. Actual stored world points in metres and unit axes are available as `stored_origin_m` and `stored_axis` attributes. No unproved reference-direction convention is introduced.
 
+The signed direction belongs to the selected mate wrapper. Its child-local direction must be collinear with the actual kernel cylinder axis and must transform to the stored world direction. A native save can store the kernel axis in the opposite direction. The reader uses the ordered wrapper directions to validate the authored alignment. [Saved orientation evidence](../../../re/solidworks/records/ConcentricSavedAxis2026.md)
+
 Set `include_brep=False` and `include_tessellation=False` for metadata-only output. No child B-rep is returned; the verified mate identity still addresses the saved child face. Source face IDs are document-specific wire identities and can change after a native edit. The separate native face-node and body-atom IDs remain available for audit, rather than being confused with a neutral face-array position.
 
 Disabling `resolve_components` through `ReadOptions.values` preserves the existing legacy read behavior. Unsupported or contradictory profiles retain a precise unsupported typed status where the narrow route is attempted. Do not qualify their complete mate semantics from the legacy face text.

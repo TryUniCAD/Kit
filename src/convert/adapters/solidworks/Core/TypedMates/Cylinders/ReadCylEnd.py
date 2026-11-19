@@ -53,6 +53,7 @@ def ReadCylEnd(
         ItemValue,
         ReadVector(FieldsValue.get("fd0")),
         ReadVector(FieldsValue.get("fe8")),
+        ReadVector(FieldsValue.get("f108")),
         RequireScalar(FieldsValue.get("f100")),
         StampValue,
     )
@@ -65,5 +66,5 @@ def ReadCylEnd(
     if FieldInt(SideValue.FieldsValue, "f38") != ChildValue.ArcMarker:
         raise ValueError("concentric selected arc permanent marker differs")
     CheckCylCaps(ChildValue, FaceValue.FieldsValue)
-    CheckCylFrame(Endpoint, Wrapper, ChildValue)
+    CheckCylFrame(Endpoint, ChildValue)
     return Endpoint

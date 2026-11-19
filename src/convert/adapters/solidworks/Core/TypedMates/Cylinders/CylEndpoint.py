@@ -9,5 +9,6 @@ class CylEndpoint:
     ItemValue: NativeAsmItem
     OriginValue: tuple[float, float, float]
     AxisValue: tuple[float, float, float]
+    LocalAxisValue: tuple[float, float, float]
     RadiusValue: float
     StampValue: int
