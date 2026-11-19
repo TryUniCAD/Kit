@@ -7,7 +7,7 @@ from interchange.document.Models.Drawing.DrawingView import DrawingView
 from interchange.geometry.Models.VectorPlane import PlaneVector
 
 
-# the single view profile uses native header bounds for paper position and outline
+# the native header provides the outline and a provisional position until definition is joined
 def ReadViewLayout(
     Header: NativeHeader, Sheet: SavedSheet, ModelId: str
 ) -> DrawingView:

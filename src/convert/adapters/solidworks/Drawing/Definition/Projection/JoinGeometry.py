@@ -12,7 +12,7 @@ from interchange.document.Models.Drawing.DrawingView import DrawingView
 from interchange.geometry.Models.VectorPlane import PlaneVector
 
 
-# the authored view placement must agree with the independently serialized header bounds
+# view position has an independent definition owner while the header corroborates its outline
 def JoinGeometry(NodeValue: ArchiveNode, ViewValue: DrawingView) -> DrawingView:
     Point = NeedConceptMap(NodeValue.FieldsValue.get("f778"))
     Position = PlaneVector(
@@ -31,15 +31,13 @@ def JoinGeometry(NodeValue: ArchiveNode, ViewValue: DrawingView) -> DrawingView:
         or not all(
             IsClose(Actual, Expected, rel_tol=1e-9, abs_tol=1e-12)
             for Actual, Expected in zip(
-                (Position.XCoord, Position.YCoord, *Outline),
-                (
-                    ViewValue.PositionValue.XCoord,
-                    ViewValue.PositionValue.YCoord,
-                    *ViewValue.OutlineValues,
-                ),
+                Outline,
+                ViewValue.OutlineValues,
                 strict=True,
             )
         )
     ):
-        raise ValueError("drawing Definition and header placement disagree")
+        raise ValueError(
+            "drawing Definition has a nonplanar position or mismatched outline"
+        )
     return ReplaceValue(ViewValue, PositionValue=Position, OutlineValues=Outline)
