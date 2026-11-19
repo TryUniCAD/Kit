@@ -20,6 +20,11 @@ passes clean open, live depth editing, paired save and fresh reopen under the or
 preference. Both controls pass across four distinct processes and the generated parent retains
 two solids with their live mate. This disclosed neutral assembly adds zero FCStd corpus cases.
 
+The [disclosed radial concentric assembly](measurements/2026/ConcentricRadialAssemblyNative01.json)
+meets the same native lifecycle with the true driving radius and four lights. Both controls pass.
+The two initial and two native-saved files reproduce all 16 measured linked streams exactly.
+The held-out source bridge remains open and the FCStd conversion counts remain zero.
+
 The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
 preserve a live sketch-dimension dependency across edits, saves and fresh reopens.
 The original and edited guest-only inputs are locked before writer implementation.

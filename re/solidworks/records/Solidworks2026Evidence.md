@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Radial concentric assembly persistence](../measurements/2026/ConcentricRadialAssemblyNative01.json) | Four fresh processes pass 140 checks. The paired edit/save/reopen preserves the true driving radius, four lights and live mate. Sixteen linked-stream comparisons are byte-exact. |
 | [Radial child and four-light native lifecycle](../measurements/2026/ConcentricRadialSceneNative01.json) | Four process phases pass 100 checks. The generated standalone part retains a driving radius and four ordered lights through a depth edit, save and reopen. Both files reproduce five linked streams exactly. |
 | [Same-model plain width controls](../measurements/2026/WidthDepthPlainEditControls01.json) | The same ordinary file opens with one solid in both attempts. With direct edit, rebuild returns true and zero diagnostics before the typed feature lookup loses its COM interface. The fresh recovery control passes. |
 | [Disclosed FCStd box admission](../measurements/2026/DisclosedFcstdBoxAdmission01.json) | Three known origin boxes pass the scoped projection across 33 box-bearing identities. The three closest attached cases retain a live XZ support and rotated placement. |

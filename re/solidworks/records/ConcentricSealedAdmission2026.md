@@ -40,7 +40,7 @@ Four fresh SOLIDWORKS 2026 SP05.2 processes pass all 100 comparisons. Open and r
 
 The reopened volume is `5.976132037453096e-6 m³`. Its area is `0.0019871616662096954 m²` and centroid is `(0.00263, -0.00417, 0.018398505) m`. The independent typed readback re-emits CMgr, Config-0, ModelHeader, ResolvedFeatures and Header2 byte for byte on both files. The underlying light graph resolves to four actual nodes on both. The summary command needed a transport retry after the four native phases finished. It used their original records. [Native receipt](../measurements/2026/ConcentricRadialSceneNative01.json)
 
-The standalone result proves the disclosed radial child and the ordered scene. The source-to-assembly bridge, other source owners and the sealed evaluation remain open.
+The standalone result proves the disclosed radial child and the ordered scene. The [synthetic radial assembly](ConcentricRadialAssembly2026.md) passes the same child profile inside an aligned/free mate lifecycle. Actual source-to-assembly admission, other source owners and sealed evaluation remain open.
 
 ## Next disclosed experiment
 
