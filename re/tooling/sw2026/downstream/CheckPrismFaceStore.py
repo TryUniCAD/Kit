@@ -50,7 +50,7 @@ def swapped_copy(row):
     return row | {"object": ArchiveNode(new.ClassValue, new.FieldsValue | {"fe8": ref})}
 
 
-def check_clones(decoded, descriptions):
+def check_collected_surfaces(decoded, descriptions):
     fields = decoded.FieldsValue
     reps = tuple(member["object"] for member in fields["f40"])
     assert [ordinary_surface_description(rep) for rep in reps] == [descriptions[key] for key in sorted(descriptions)]
@@ -58,12 +58,18 @@ def check_clones(decoded, descriptions):
     owners = tuple(surface_owner(rep) for rep in reps)
     assert len({id(owner) for owner in owners}) == 6
     assert all(owner.FieldsValue["f78"] == -1 and owner.FieldsValue["f60"] == 0 for owner in owners)
-    local = fields["f48"][0]["object"].FieldsValue["fe8"].FieldsValue["f10"][0]["f08"]
-    local_owner = surface_owner(local)
-    for rep, owner in zip(reps, owners, strict=True):
-        assert rep is not local and owner is not local_owner
-        for handle in ("h10", "h18"):
-            assert owner.FieldsValue["shared"][handle] is local_owner.FieldsValue["shared"][handle]
+    for handle in ("h10", "h18"):
+        assert len({id(owner.FieldsValue["shared"][handle]) for owner in owners}) == 1
+    by_description = dict(zip(map(ordinary_surface_description, reps), reps, strict=True))
+    shared_slots = 0
+    for row in fields["f48"]:
+        reference = row["object"].FieldsValue["fe8"].FieldsValue
+        for slot in reference["f10"]:
+            representation = slot["f08"]
+            if representation is not None:
+                assert representation is by_description[ordinary_surface_description(representation)]
+                shared_slots += 1
+    return shared_slots
 
 
 def main():
@@ -99,7 +105,7 @@ def main():
         assert write_component_body(decoded)[0] == raw and serialized_map.CounterValue == mapped.CounterValue
         assert prism_face_keys(decoded.FieldsValue["f48"]) == keys
         atom, rows, reps = check_graph(decoded, archive, path)
-        check_clones(decoded, available)
+        shared_slots = check_collected_surfaces(decoded, available)
         original = fields["f48"][0]
         refused = 0
         for copy in (original, swapped_copy(original)):
@@ -114,7 +120,8 @@ def main():
     print(dumps({
         "passed": True, "variant": args.variant, "atom": atom, "native_runs": 0,
         "scope": "generated prism collector and face rows in the scoped no-collision path",
-        "rows": rows, "representations": reps, "collector_members": len(available), "collision_refusals": refused,
+        "rows": rows, "surface_slots": reps, "collector_members": len(available), "collision_refusals": refused,
+        "collector_backed_slots": shared_slots,
         "map_counter": mapped.CounterValue, "preserved_part_streams": len(archive.streams),
         "keys": expected, "body_sha256": sha256(raw).hexdigest(), "part_sha256": sha256(output).hexdigest(),
         "runtime_io_attempts": len(attempted),

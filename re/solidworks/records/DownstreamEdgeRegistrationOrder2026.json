@@ -1,0 +1,464 @@
+{
+  "archive_version": 19000,
+  "build": "34.5.2.0604",
+  "cad_inputs_read": 0,
+  "delivery_pr": 121,
+  "dependency_path": "re/tooling/sw2026/downstream/VerifyRuntimeOwnerSources.py",
+  "dependency_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+  "evidence_kind": "original-source branches and bounded independent numeric list/order replay; no native acceptance",
+  "functions": [
+    {
+      "bytes": 1289,
+      "end_exclusive": "0x4b51d979",
+      "module": "sldmodu.dll",
+      "name": "separate downstream identity tables",
+      "sha256": "fd224a6416e02509930606bfb89c7838c18f8ee7c039632158b216240ba30f2f",
+      "start": "0x4b51d470",
+      "unwind_fragments": [
+        {
+          "bytes": 1289,
+          "end_exclusive": "0x4b51d979",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "fd224a6416e02509930606bfb89c7838c18f8ee7c039632158b216240ba30f2f",
+          "start": "0x4b51d470",
+          "unwind_rva": "0x22abdc8"
+        }
+      ]
+    },
+    {
+      "bytes": 117,
+      "end_exclusive": "0x4b2dc2b5",
+      "module": "sldmodu.dll",
+      "name": "shared fresh identity-table constructor",
+      "sha256": "87bd1e96fd2b7d8c0052680a719ab22c5f79366ac62a9ec6b416971435e785c8",
+      "start": "0x4b2dc240",
+      "unwind_fragments": [
+        {
+          "bytes": 117,
+          "end_exclusive": "0x4b2dc2b5",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "87bd1e96fd2b7d8c0052680a719ab22c5f79366ac62a9ec6b416971435e785c8",
+          "start": "0x4b2dc240",
+          "unwind_rva": "0x2255874"
+        }
+      ]
+    },
+    {
+      "bytes": 1009,
+      "end_exclusive": "0x4b5297c1",
+      "module": "sldmodu.dll",
+      "name": "type-selected common identity registration",
+      "sha256": "884cf4d721649fc0108495035bbad69858b76773b95f6f281f3dcfca040991a2",
+      "start": "0x4b5293d0",
+      "unwind_fragments": [
+        {
+          "bytes": 1009,
+          "end_exclusive": "0x4b5297c1",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "884cf4d721649fc0108495035bbad69858b76773b95f6f281f3dcfca040991a2",
+          "start": "0x4b5293d0",
+          "unwind_rva": "0x22ad790"
+        }
+      ]
+    },
+    {
+      "bytes": 726,
+      "end_exclusive": "0x4b51aad6",
+      "module": "sldmodu.dll",
+      "name": "shared raw-four-byte-key identity insertion",
+      "sha256": "c94977d3bb59f809d5f665aa52f693ffa1b7f506c93b06273731caa52aaa85ab",
+      "start": "0x4b51a800",
+      "unwind_fragments": [
+        {
+          "bytes": 726,
+          "end_exclusive": "0x4b51aad6",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "c94977d3bb59f809d5f665aa52f693ffa1b7f506c93b06273731caa52aaa85ab",
+          "start": "0x4b51a800",
+          "unwind_rva": "0x226e720"
+        }
+      ]
+    },
+    {
+      "bytes": 448,
+      "end_exclusive": "0x4b4c8670",
+      "module": "sldmodu.dll",
+      "name": "shared identity-table rehash",
+      "sha256": "af6a628ded9d4a02448c0be4d4d1cc38269b88cf08fd127caa4b21feeeb60116",
+      "start": "0x4b4c84b0",
+      "unwind_fragments": [
+        {
+          "bytes": 448,
+          "end_exclusive": "0x4b4c8670",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "af6a628ded9d4a02448c0be4d4d1cc38269b88cf08fd127caa4b21feeeb60116",
+          "start": "0x4b4c84b0",
+          "unwind_rva": "0x229f274"
+        }
+      ]
+    },
+    {
+      "bytes": 8614,
+      "end_exclusive": "0x4b522086",
+      "module": "sldmodu.dll",
+      "name": "complete downstream serializer",
+      "sha256": "977c09d21a6eb6da82d60df71897d6c229edeba4126fd85f62ac1ff56e36e261",
+      "start": "0x4b51fee0",
+      "unwind_fragments": [
+        {
+          "bytes": 8614,
+          "end_exclusive": "0x4b522086",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "977c09d21a6eb6da82d60df71897d6c229edeba4126fd85f62ac1ff56e36e261",
+          "start": "0x4b51fee0",
+          "unwind_rva": "0x22ac91c"
+        }
+      ]
+    },
+    {
+      "bytes": 1477,
+      "end_exclusive": "0x4b52b125",
+      "module": "sldmodu.dll",
+      "name": "fresh edge row registration",
+      "sha256": "0f106cf41e688652d6d00731d5535dd8987e52f66097b973c02d5aaf82f543d1",
+      "start": "0x4b52ab60",
+      "unwind_fragments": [
+        {
+          "bytes": 1477,
+          "end_exclusive": "0x4b52b125",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "0f106cf41e688652d6d00731d5535dd8987e52f66097b973c02d5aaf82f543d1",
+          "start": "0x4b52ab60",
+          "unwind_rva": "0x22acce4"
+        }
+      ]
+    },
+    {
+      "bytes": 315,
+      "end_exclusive": "0x4b27f64b",
+      "module": "sldmodu.dll",
+      "name": "bucket boundary vector initialization",
+      "sha256": "929df9a3ea3a176ac4b2d2a6e3616f99d573cea0358099642acf34ec0cec6e6d",
+      "start": "0x4b27f510",
+      "unwind_fragments": [
+        {
+          "bytes": 58,
+          "end_exclusive": "0x4b27f54a",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "75c7675e44c35a8d9fc5894fb45a325beebd1462704dd46ba15fd80f017956bc",
+          "start": "0x4b27f510",
+          "unwind_rva": "0x2247a90"
+        },
+        {
+          "bytes": 216,
+          "end_exclusive": "0x4b27f622",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "38481e633e00cae7413a395bf46ea98d8f7b87f741ae61f61ba3eb3d1224ae88",
+          "start": "0x4b27f54a",
+          "unwind_rva": "0x2247a9c"
+        },
+        {
+          "bytes": 7,
+          "end_exclusive": "0x4b27f629",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "1d303371ad703a167b8d6bad1ffdeb208bb0752f57672d7b560e9180d03d60b4",
+          "start": "0x4b27f622",
+          "unwind_rva": "0x2247ab4"
+        },
+        {
+          "bytes": 28,
+          "end_exclusive": "0x4b27f645",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "dc864b03fdeb59458b16687be9f1bb9ee6fd8e1d691328277ad742d461b077f9",
+          "start": "0x4b27f629",
+          "unwind_rva": "0x2247acc"
+        },
+        {
+          "bytes": 6,
+          "end_exclusive": "0x4b27f64b",
+          "module": "sldmodu.dll",
+          "name": "complete unwind fragment",
+          "sha256": "fd8ef62f474f6969062188c4282600b2e00da35149309cc0f49a1b3e95c8eaee",
+          "start": "0x4b27f645",
+          "unwind_rva": "0x2247ab4"
+        }
+      ]
+    },
+    {
+      "bytes": 283,
+      "end_exclusive": "0x4b5371cb",
+      "module": "sldmodu.dll",
+      "name": "separate load-side reserve leaf",
+      "sha256": "8410d045ee052eb52f7c44933ff79208528ff1083021a0de6c21aac6e93c711a",
+      "start": "0x4b5370b0",
+      "unwind_fragments": []
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "immediates": [
+    {
+      "address": "0x4b51a82b",
+      "bytes": 8,
+      "format": "<Q",
+      "name": "fnv_offset_basis",
+      "value": 14695981039346656037
+    },
+    {
+      "address": "0x4b51a838",
+      "bytes": 8,
+      "format": "<Q",
+      "name": "fnv_prime",
+      "value": 1099511628211
+    },
+    {
+      "address": "0x4b2dc286",
+      "bytes": 4,
+      "format": "<I",
+      "name": "initial_mask",
+      "value": 7
+    },
+    {
+      "address": "0x4b2dc28e",
+      "bytes": 4,
+      "format": "<I",
+      "name": "initial_bucket_count",
+      "value": 8
+    },
+    {
+      "address": "0x4b2dc294",
+      "bytes": 4,
+      "format": "<f",
+      "name": "maximum_load_factor",
+      "value": 1.0
+    },
+    {
+      "address": "0x4cdb0790",
+      "bytes": 4,
+      "format": "<f",
+      "name": "reserve_unit",
+      "value": 1.0
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4cd3db00",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@H@Z"
+    },
+    {
+      "iat": "0x4cd3db08",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@I@Z"
+    },
+    {
+      "iat": "0x4cd3d880",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@J@Z"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bytes": 25,
+      "end_exclusive": "0x4b51d5b1",
+      "module": "sldmodu.dll",
+      "name": "separate f340 and f380 constructor invocations",
+      "sha256": "e8c33e05162fb5d5db3a2a7f70a4e6369de819773384cb941aa611460e0f0a0c",
+      "start": "0x4b51d598"
+    },
+    {
+      "bytes": 37,
+      "end_exclusive": "0x4b2dc2a7",
+      "module": "sldmodu.dll",
+      "name": "initial mask bucket count and maximum binary32 load",
+      "sha256": "febb8659d738e18aed1d51b5a76a171fc819fa46671c0aeb25c3e99ad3b51cfa",
+      "start": "0x4b2dc282"
+    },
+    {
+      "bytes": 32,
+      "end_exclusive": "0x4b27f60c",
+      "module": "sldmodu.dll",
+      "name": "bucket boundary cells filled with actual sentinel",
+      "sha256": "60036ca254fead71939fdf4ddf192ba5f7e1fb21e68ee64982f4b0385140c8e7",
+      "start": "0x4b27f5ec"
+    },
+    {
+      "bytes": 31,
+      "end_exclusive": "0x4b529428",
+      "module": "sldmodu.dll",
+      "name": "edge type selects its own f380 table",
+      "sha256": "4e3c61cf3826a7c70b62737075610d688f2cd0507b971c91c3312cb8423f77df",
+      "start": "0x4b529409"
+    },
+    {
+      "bytes": 23,
+      "end_exclusive": "0x4b5295c5",
+      "module": "sldmodu.dll",
+      "name": "both selected identity tables use the same insertion helper",
+      "sha256": "c0e36d87818cf7f393b39243f87cae3855debe09f63a3841cc3b42a83805c12d",
+      "start": "0x4b5295ae"
+    },
+    {
+      "bytes": 67,
+      "end_exclusive": "0x4b51a868",
+      "module": "sldmodu.dll",
+      "name": "FNV-1a over exactly four zero-extended bytes",
+      "sha256": "1710e7e38e2fe899586276ce2b7b4d65df82fac768d7285c6f812942500d631d",
+      "start": "0x4b51a825"
+    },
+    {
+      "bytes": 8,
+      "end_exclusive": "0x4b51a88f",
+      "module": "sldmodu.dll",
+      "name": "empty lookup bucket selects shared list sentinel",
+      "sha256": "33193820538b62ac4a96f5816d6a9540f4afd342180b75dc2e39a90ebac8cf3e",
+      "start": "0x4b51a887"
+    },
+    {
+      "bytes": 104,
+      "end_exclusive": "0x4b51a98c",
+      "module": "sldmodu.dll",
+      "name": "unsigned prospective count and binary32 load comparison",
+      "sha256": "b7ffe25da24dee1babdcac44868cceba888da06273e83904e1cc1f448dd8a336",
+      "start": "0x4b51a924"
+    },
+    {
+      "bytes": 144,
+      "end_exclusive": "0x4b51aa1c",
+      "module": "sldmodu.dll",
+      "name": "ceil minimum and small-table eightfold growth",
+      "sha256": "5b09625b4e4e6e4c5c93ee61bf5eba1b0c4416aa50588a12ca644f9240b04e56",
+      "start": "0x4b51a98c"
+    },
+    {
+      "bytes": 73,
+      "end_exclusive": "0x4b51aa65",
+      "module": "sldmodu.dll",
+      "name": "new bucket lookup after growth replaces stale insertion position",
+      "sha256": "60722a9f9f727f4f25a1b212c600061e49a0dd9de36d00173d92bf7df6b97db2",
+      "start": "0x4b51aa1c"
+    },
+    {
+      "bytes": 27,
+      "end_exclusive": "0x4b51aa80",
+      "module": "sldmodu.dll",
+      "name": "insert before selected position in global forward list",
+      "sha256": "c3a0493c49568cd955a07810040653b2c719f68c3a60aaa06be5353229fcecf2",
+      "start": "0x4b51aa65"
+    },
+    {
+      "bytes": 48,
+      "end_exclusive": "0x4b4c8516",
+      "module": "sldmodu.dll",
+      "name": "bucket count rounds to power of two and installs new mask",
+      "sha256": "c30ce94eaa11182969d7b53dd262054431a951c1fd235e1ec2029afe2bfcbcd3",
+      "start": "0x4b4c84e6"
+    },
+    {
+      "bytes": 116,
+      "end_exclusive": "0x4b4c858f",
+      "module": "sldmodu.dll",
+      "name": "rehash retains saved next pointer and hash loop",
+      "sha256": "709cd6933548e5803caaf2c3e6047a8beae80585da53ad842037e25c2d9489a4",
+      "start": "0x4b4c851b"
+    },
+    {
+      "bytes": 17,
+      "end_exclusive": "0x4b4c85a0",
+      "module": "sldmodu.dll",
+      "name": "rehash empty bucket stores bounds without a list splice",
+      "sha256": "6c2e0e5799c1ee49c3c04ea4b74c960452d522ef29589ddda6e5dba970212fa0",
+      "start": "0x4b4c858f"
+    },
+    {
+      "bytes": 12,
+      "end_exclusive": "0x4b4c8621",
+      "module": "sldmodu.dll",
+      "name": "rehash proceeds along original saved next pointer",
+      "sha256": "a069c7472da46c1677153d0c399379938d6b0e7771621947808e90e51c72f74c",
+      "start": "0x4b4c8615"
+    },
+    {
+      "bytes": 120,
+      "end_exclusive": "0x4b520170",
+      "module": "sldmodu.dll",
+      "name": "unsigned face keys serialize in forward list order",
+      "sha256": "d27f78cf886ea55c4c7401dd50a48d5e78e32e10706baf108b3b1aa72c6dd817",
+      "start": "0x4b5200f8"
+    },
+    {
+      "bytes": 112,
+      "end_exclusive": "0x4b5201e0",
+      "module": "sldmodu.dll",
+      "name": "signed-long edge keys serialize in forward list order",
+      "sha256": "8a1e29bc9e6788e8ce21725bf43fdf17a25b01992bbfd06352f07510adb3f7fb",
+      "start": "0x4b520170"
+    },
+    {
+      "bytes": 101,
+      "end_exclusive": "0x4b520ea2",
+      "module": "sldmodu.dll",
+      "name": "edge load has a distinct count-reserve path",
+      "sha256": "06dd93b5259987572cc6bd083c736ec3ff4ad7e46a5fbb6cb4a9cea9f4e7fa79",
+      "start": "0x4b520e3d"
+    },
+    {
+      "bytes": 116,
+      "end_exclusive": "0x4b520f24",
+      "module": "sldmodu.dll",
+      "name": "edge load zero-check is unsigned before reconstruction",
+      "sha256": "f8a903fca78d55dec48c118c36964651eb67db4ebb59c1a8a6aaca4e91136b5c",
+      "start": "0x4b520eb0"
+    }
+  ],
+  "module": {
+    "base": "0x4b140000",
+    "bytes": 46536280,
+    "name": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_processes_started": 0,
+  "owner": "/root/assembly_occurrence",
+  "private_starting_trace_identities": [
+    {
+      "name": "UniqueEdgeRegistration01.Private.txt",
+      "sha256": "a9c6ef975bbbed117b0475828ed2a61d1411ed106da1208fc7a0f286480f4b5b"
+    },
+    {
+      "name": "UniqueFaceMapInit01.Private.txt",
+      "sha256": "707bf1d7bada9e1d8ee1fe3c77e241e22fa5aba4872b88c05f68c59a8dca5b35"
+    },
+    {
+      "name": "UniqueInsert01.Private.txt",
+      "sha256": "e8c227ef939a8e4d9259662ff41779def464931b841e12c14390b730e15bad05"
+    },
+    {
+      "name": "UniqueFullStore01.Private.txt",
+      "sha256": "0213db74ad770d3975c57c3aa439f575d80057330367cc299989a706dcec7514"
+    }
+  ],
+  "proprietary_listings_included": false,
+  "rules": {
+    "fresh_growth": "Compare binary32 prospective_count/bucket_count to max_load; when exceeded, choose ceil(prospective_count/max_load), at least 8; if old bucket count <512 and old*8 meets the minimum choose old*8; rehash rounds the requested count to a power of two",
+    "fresh_prism12": "Keys 7..14 fill distinct old buckets; before key 15 links, count 9 requires growth 8->64; retained/new keys have distinct final buckets; no rehash collision splice or final occupied-bucket insertion is reached",
+    "initial_state": "Each separately constructed table has its own global list sentinel, zero count, 8 buckets, mask 7, binary32 maximum load 1",
+    "key_hash": "64-bit FNV-1a over exactly four little-endian key bytes, zero-extended individually; integer equality compares all 32 key bits",
+    "scope": "Numeric helper admits at most12 unique nonzero wire keys and refuses any actual occupied-bucket insertion or rehash collision; duplicate/update, general collision order, other STL releases, native cache acceptance and all endpoint/body identities remain outside this tranche",
+    "separate_loaded_state": "The native read branch clears and reserves from the incoming table count before reconstruction. With count12 and max_load1 its leaf requests12 and rehash rounds to16, unlike fresh incremental growth to64. This is distinct from the fresh model covered here",
+    "store_order": "Follow sentinel.next through node.next; no bucket-number walk, signed sort or geometric sort. f380 count and keys use signed 32-bit native long primitive; f340 uses unsigned key primitive",
+    "table_selection": "type 0x138c -> f340; type 0x138a -> f380; both call insertion 0x4b51a800"
+  },
+  "schema": "kit.sw2026.downstream-edge-order-sources.v1",
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "writer_output_count": 0
+}

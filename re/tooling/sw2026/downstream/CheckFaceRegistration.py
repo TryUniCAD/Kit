@@ -20,10 +20,10 @@ from para.Tracking import filetime_ticks
 from para.concentric.CylinderFace import words
 
 
-def read_identity_rows(cache):
+def read_identity_rows(cache, table="f340"):
     return [
         (entry["key"], *(entry["object"].FieldsValue[k] for k in ("f08", "f0c", "f10", "high", "low")))
-        for entry in cache.FieldsValue["f340"]
+        for entry in cache.FieldsValue[table]
     ]
 
 

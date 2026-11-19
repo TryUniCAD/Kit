@@ -5,6 +5,13 @@ from para.Tracking import unsigned
 from para.concentric.CylinderFace import words
 
 
+def cache_identity_info(ordinal, body_atom, node_id, identifier_time):
+    return ArchiveNode(UNIQUE, {
+        "f08": ordinal, "f0c": body_atom, "f10": node_id,
+        "high": identifier_time >> 32, "low": identifier_time & 0xffffffff,
+    })
+
+
 def fresh_face_registration(partition, allocation, cache_fields, cache_filetime):
     nodes, faces, _ = attached_part_chains(partition, allocation, cache_fields["f28"])
     if len(faces) != 6:
@@ -20,9 +27,6 @@ def fresh_face_registration(partition, allocation, cache_fields, cache_filetime)
         if (row["word"] != downstream_id or fields["f18"] != body_atom or fields["f1c"] != body_atom
                 or row["object"].ClassValue.NameValue != "moCompFace_c"):
             raise ValueError("face lookup registration requires the actual retained body and face row")
-        info = ArchiveNode(UNIQUE, {
-            "f08": ordinal, "f0c": body_atom, "f10": face.fields["node_id"],
-            "high": identifier_time >> 32, "low": identifier_time & 0xffffffff,
-        })
+        info = cache_identity_info(ordinal, body_atom, face.fields["node_id"], identifier_time)
         rows.append({"key": downstream_id, "object": info})
     return rows

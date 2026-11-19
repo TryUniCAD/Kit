@@ -103,6 +103,17 @@ def make_surface_representation(key, owners, file):
     return node("moFromSktEntSurfIdRep_c", fields)
 
 
+def ordinary_prism_component_fields(owners, reference):
+    fields = dict.fromkeys(
+        ("f68", "f20", "f30", "f70", "f84", "fa0", "f34", "f48",
+         "has_fb0", "has_fb8", "has_fc0", "has_fc8", "has_fd0", "alias_present"), 0,
+    )
+    fields.update(dict.fromkeys(("f90", "f94", "f98", "f9c"), -1))
+    fields.update(f58=make_local_unit_component(owners), f18=owners.atom_id, f1c=owners.atom_id,
+                  f4c=ARCHIVE_VERSION, fe8=reference, ff0=None)
+    return fields
+
+
 def make_prism_face_constructor(operand, keys, owners, feature_file):
     inline_keys = tuple(keys[face.index] for face in operand.inline_faces[:-1])
     if (len(inline_keys) != 5 or len(set(inline_keys)) != 5 or operand.inline_faces[0] is not operand.face
@@ -121,13 +132,7 @@ def make_prism_face_constructor(operand, keys, owners, feature_file):
         "f48": 0, "nd0": 0, "fd0": [], "fec": ARCHIVE_VERSION,
         "has_f18": 1, "f18": data, "nf0": 0, "ff0": [],
     })
-    fields = dict.fromkeys(
-        ("f68", "f20", "f30", "f70", "f84", "fa0", "f34", "f48",
-         "has_fb0", "has_fb8", "has_fc0", "has_fc8", "has_fd0", "alias_present"), 0,
-    )
-    fields.update(dict.fromkeys(("f90", "f94", "f98", "f9c"), -1))
-    fields.update(f58=make_local_unit_component(owners), f18=owners.atom_id, f1c=owners.atom_id,
-                  f4c=ARCHIVE_VERSION, fe8=face, ff0=None)
+    fields = ordinary_prism_component_fields(owners, face)
     return {"object": node("moCompFace_c", fields), "word": operand.downstream_id}
 
 

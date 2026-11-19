@@ -28,4 +28,6 @@ Repeat with variant `2`. Two fresh processes per design reproduce the complete w
 
 The combined typed body retains six collector members and six face rows per design and round-trips with archive map counter 108. It preserves all eleven earlier generated part streams. Six additional processes reproduce their prior constructor, cylinder collector and cylinder clone receipts byte-for-byte. The guards recorded zero external operations after Python and field registry initialization. [Process receipt](../measurements/2026/DownstreamPrismFaceStore01.json)
 
+That receipt records the earlier separately constructed surface graph. The current command reuses the actual collector objects in all face slots and reads back map counter 47. [Batch alias source and replay](DownstreamCollectedSurfaceOwnership2026.md)
+
 Full cache population, native collision and replacement paths outside this scope, and native linked drawing load, rebuild, edit, save and reopen remain open.

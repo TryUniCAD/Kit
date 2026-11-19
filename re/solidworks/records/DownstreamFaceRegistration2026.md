@@ -24,6 +24,8 @@ The fresh `f340` initializer creates eight buckets with mask seven and maximum l
 
 The projection takes the six retained typed face rows from the existing no-collision replay and checks them against the actual partition chain and body atom. It adds their `f340` table to that cache witness. Edge registration field ownership is mapped in source. Edge wrappers, edge-map growth and complete cache qualification remain separate steps. [Generated face validator](DownstreamPrismFaceStore2026.md)
 
+The later registered prism witness includes both lookup tables and the actual edge wrappers. It binds the separate edge map order to the same cache construction clock. [Combined registration](DownstreamPrismCacheRegistration2026.md)
+
 ```sh
 PYTHONPATH=src:.:re/tooling/sw2026:re/tooling/sw2026/serial \
   python -B -m downstream.CheckFaceRegistration 1

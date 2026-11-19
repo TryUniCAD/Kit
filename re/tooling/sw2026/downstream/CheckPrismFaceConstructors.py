@@ -94,8 +94,13 @@ def check_graph(readback, archive, path):
                 key += (fields["f3c"],)
             assert key == kernel_keys[source]
     assert len({id(owner) for owner in units}) == len(rows)
-    assert len({id(rep) for rep in representations}) == len(representations)
-    assert len({id(owner) for owner in file_owners}) == 1
+    collected = tuple(member["object"] for member in readback.FieldsValue["f40"])
+    if collected:
+        assert {id(rep) for rep in representations} == {id(rep) for rep in collected}
+        assert len({id(owner) for owner in file_owners}) == len(collected)
+    else:
+        assert len({id(rep) for rep in representations}) == len(representations)
+        assert len({id(owner) for owner in file_owners}) == 1
     actual_file = file_owners[0].FieldsValue
     assert ReadFileText(actual_file["shared"]["h18"]) == str(path)
     assert actual_file["refcfg"] == {"f08": "Default", "f10": 0}
