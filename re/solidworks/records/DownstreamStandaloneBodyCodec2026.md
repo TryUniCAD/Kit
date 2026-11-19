@@ -26,7 +26,7 @@ At ordinary version 19000, the shared serializer calls `moCompRef_c::Serialize` 
 | `+0x104` | i32 body atom ID |
 | `+0x100` | i32 face node ID |
 
-On ordinary store, the serializer first clears `+0x100`. With condition `0x80` clear and a valid runtime face at `+0xf8`, it takes the node ID from that face. If the face also has a valid body, it takes the atom ID from that body. The native calls source these values from the kernel graph. The production read/write and their ID lifecycle require a saved control for the reached context. The [process and native source receipt](../measurements/2026/DownstreamStandaloneBodyCodec01.json) records the exact module and complete dependency hashes.
+On ordinary store the serializer clears both `+0x100` and `+0x104` in one qword. With condition `0x80` clear and a valid runtime face at `+0xf8`, it refills the face node ID. A valid body of that face supplies the atom ID. Native application qualification remains open. [Representative source](DownstreamBodyRepresentative2026.md) · [Prior codec receipt](../measurements/2026/DownstreamStandaloneBodyCodec01.json)
 
 ## Replay
 

@@ -40,7 +40,7 @@ Mirror zero is a valid indexed lookup. At `0x4c6cdb11`, the model resolver calls
 
 The resolver first constructs and shares the local file/configuration owner. When the indexed owner compares equal, the result can canonicalize to that local object. An existing different owner is returned from the index. A failed lookup falls back to the local owner under the mirror-normalization conditions in the pointer record.
 
-A generated local mirror zero requires a matching indexed owner or the missing-index fallback. The ordinary manager's encoded external list, runtime initialization and first local registration determine which branch it takes.
+A generated local mirror zero requires a matching indexed owner or the missing-index fallback. The ordinary manager's encoded external list, runtime initialization and first local registration determine which branch it takes. The separate source record binds the empty encoded prism list and the first-local allocation rule. [Local owner index](DownstreamLocalOwnerIndex2026.md)
 
 ## Replay and limitations
 

@@ -1,0 +1,154 @@
+{
+  "archive_version": 19000,
+  "delivery_pr": 121,
+  "guarded_processes": 4,
+  "heldout_inputs_read": 0,
+  "parent_revision": "a65ebcec9184d9dde2aeb9de807ce5ab0c217bb3",
+  "qualified_corpus_assemblies": 0,
+  "qualified_corpus_parts": 0,
+  "results": [
+    {
+      "fresh_processes": 2,
+      "result": {
+        "allocation_filetime": 134626708430833710,
+        "cache_filetime": 134644916313864305,
+        "cache_sha256": "bcc89d869f07a2aa7a965ffe086272109d3a30b9475f5ea5f96da70918e50da6",
+        "container_sha256": "54e4e41bf12f0a36810b820cce82e81400756456854bad616629f2452d0c1867",
+        "face_identity_rows": [
+          [
+            1,
+            0,
+            101,
+            5,
+            31349462,
+            2276669553
+          ],
+          [
+            2,
+            1,
+            101,
+            7,
+            31349462,
+            2276669553
+          ],
+          [
+            3,
+            2,
+            101,
+            9,
+            31349462,
+            2276669553
+          ],
+          [
+            4,
+            3,
+            101,
+            11,
+            31349462,
+            2276669553
+          ],
+          [
+            5,
+            4,
+            101,
+            13,
+            31349462,
+            2276669553
+          ],
+          [
+            6,
+            5,
+            101,
+            15,
+            31349462,
+            2276669553
+          ]
+        ],
+        "map_counter": 115,
+        "native_runs": 0,
+        "passed": true,
+        "runtime_io_attempts": 0,
+        "scope": "generated face lookup table and separate cache clock",
+        "variant": 1
+      },
+      "stdout_sha256": "bc44221cb9742134c23bd8228e3e83a7b3e3108e776a96aa8b350660784c211c"
+    },
+    {
+      "fresh_processes": 2,
+      "result": {
+        "allocation_filetime": 134626710861667420,
+        "cache_filetime": 134644916623864305,
+        "cache_sha256": "27f57f877bdb6fc5c86d163e25e0d214f1d6424495ff5244873c4417f06a4941",
+        "container_sha256": "ca249cff88ebbb8fde094be8462ce7770aca534bb9994c9f87aaef175278d4f0",
+        "face_identity_rows": [
+          [
+            1,
+            0,
+            101,
+            5,
+            31349462,
+            2586669553
+          ],
+          [
+            2,
+            1,
+            101,
+            7,
+            31349462,
+            2586669553
+          ],
+          [
+            3,
+            2,
+            101,
+            9,
+            31349462,
+            2586669553
+          ],
+          [
+            4,
+            3,
+            101,
+            11,
+            31349462,
+            2586669553
+          ],
+          [
+            5,
+            4,
+            101,
+            13,
+            31349462,
+            2586669553
+          ],
+          [
+            6,
+            5,
+            101,
+            15,
+            31349462,
+            2586669553
+          ]
+        ],
+        "map_counter": 115,
+        "native_runs": 0,
+        "passed": true,
+        "runtime_io_attempts": 0,
+        "scope": "generated face lookup table and separate cache clock",
+        "variant": 2
+      },
+      "stdout_sha256": "f9ddec419a8770a81199ad0a3c34ed0f08f947b18792fa0c3ce1657628fce8c3"
+    }
+  ],
+  "schema": "kit.sw2026.downstream-generated-face-registration.v1",
+  "source_files_sha256": {
+    "CheckFaceRegistration.py": "08c330b8aaaffab0711af40e7fa591f3f22c7c9818943cbe55c2436b02bf045f",
+    "FaceRegistration.py": "e96b739d893ef38edbe7e58f642464b5ad1ca0d28a8ad516bc843976ff8755d6",
+    "VerifyFaceRegistrationSources.py": "506594455ff92483f2f7ef924929073095dfa4e7b20fb1c02061059bcd20d7a8"
+  },
+  "source_receipt_sha256": "504b3bd29b3e6c18bfb45b146c13e3ebd85f944eba69950362503013f82f7566",
+  "task": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "vendor_build": "34.5.2.0604",
+  "vendor_runs": 0,
+  "writer_input_file_reads": 0
+}

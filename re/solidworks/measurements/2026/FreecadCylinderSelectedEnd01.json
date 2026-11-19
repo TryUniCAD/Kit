@@ -1,0 +1,156 @@
+{
+  "delivery_pr": 121,
+  "derived_managed_rules": {
+    "base_direct_calls_set_distance": false,
+    "current_packet_by_native_type": {
+      "0": "BlindEndSpec_c",
+      "1": null,
+      "2": null,
+      "3": "ToPointEndSpec_c",
+      "4": "ToSurfaceEndSpec_c",
+      "5": "OffsetFromSurfaceEndSpec_c",
+      "6": "MidPlaneEndSpec_c",
+      "7": "UpToBodyEndSpec_c"
+    },
+    "end_index_order": [0, 1],
+    "native_type_by_concrete_packet": {
+      "BlindEndSpec_c": 0,
+      "MidPlaneEndSpec_c": 6,
+      "OffsetFromSurfaceEndSpec_c": 5,
+      "ToPointEndSpec_c": 3,
+      "ToSurfaceEndSpec_c": 4,
+      "UpToBodyEndSpec_c": 7
+    },
+    "selected_line_direction_mode": 3,
+    "selected_surface_clear": 1,
+    "surface_direct_calls_set_distance": false,
+    "surface_release_removes_reference": true
+  },
+  "document_version": 19000,
+  "knowledge_sha256": "7e9352865be32bf0de9cd1ba37c10fef1c5406d0e917ee6f1d6264e67a7de514",
+  "limits": {
+    "application_usable": false,
+    "freecad_five_driver_lowering_qualified": false,
+    "fresh_selected_surface_distance_state_qualified": false,
+    "generated_native_files": 0,
+    "heldout_inputs_read": 0,
+    "hopper_documents_opened": 0,
+    "native_processes_started": 0,
+    "public_writer_enabled": false,
+    "scope": "exact static construction and lifecycle evidence only; no new native acceptance or conversion coverage",
+    "selected_end_source_lock_qualified": false,
+    "shared_checkout_edits": 0,
+    "vendor_code_or_bodies_emitted": false,
+    "vendor_loadable": false
+  },
+  "managed_identity": {
+    "cli_flags": "0x18",
+    "mvid": "3f9c2ded-9024-4b12-ac82-deb36cae1451"
+  },
+  "modules": [
+    {
+      "base": "0x453f0000",
+      "bytes": 16519768,
+      "name": "sldappu.dll",
+      "parsed_export_count": 15103,
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "base": "0x32850000",
+      "bytes": 2186840,
+      "name": "sldbasegeomu.dll",
+      "parsed_export_count": 450,
+      "sha256": "206430acc09197ae9416446d56156f79fdb3aae9d615f32b771314a92a0ad36a"
+    },
+    {
+      "base": "0x180000000",
+      "bytes": 5416536,
+      "name": "sldcoreu.dll",
+      "parsed_export_count": 1,
+      "sha256": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3"
+    },
+    {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "name": "sldmodu.dll",
+      "parsed_export_count": 45857,
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "base": "0x48ea0000",
+      "bytes": 36036696,
+      "name": "slduiu.dll",
+      "parsed_export_count": 21497,
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    }
+  ],
+  "numeric_counts": {
+    "macro_data_map_rows": 23,
+    "managed_cil_code_bytes": 1980,
+    "managed_cil_instructions": 788,
+    "managed_cil_methods": 18,
+    "native_call_edges": 14,
+    "native_function_bytes": 15382,
+    "native_function_fragments": 23,
+    "native_functions": 19,
+    "native_import_boundaries": 11,
+    "native_virtual_slots": 3,
+    "projected_macro_end_rows": 2
+  },
+  "parser_versions": {
+    "dncil": "1.0.2",
+    "dnfile": "0.18.0",
+    "pefile": "2024.8.26"
+  },
+  "prior_frozen_wire": {
+    "all_files_preserved": true,
+    "file_count": 7,
+    "handoff_sha256": "8c53bb121cec35a66cc7a12b8a48fa6c64db0da14db6d67f3783993f8089eaae",
+    "manifest_sha256": "185e9cd4f06f9d425257d43e161384cdd957135743ef39495932a98005571529",
+    "receipt_sha256": "81b3518b79610a1baf8105ca528329fa5daabe0bbecb862a8919243d565ceefa"
+  },
+  "process_verification": {
+    "identical_source_pin_outputs": true,
+    "independent_refusal_process_count": 2,
+    "negative_outputs_emitted": 0,
+    "passed": true,
+    "private_process_receipt_sha256": "e731ad0316f3de81aaf7c6f2d503ddcaf3eb17968abce82d8e553f7a19a94900",
+    "source_pin_process_count": 2,
+    "wrong_document_version_rejected": true,
+    "wrong_original_hash_rejected": true
+  },
+  "schema": "kit.sw2026.cylinder-selected-end-checkpoint.v1",
+  "shared_dependencies": {
+    "re/tooling/sw2026/ManagedConstructionIndex.py": "47c6c797931804b3d0012217ee718a4fc94f3c1b6667cc6f8e06fd638960c30c",
+    "re/tooling/sw2026/freecad_cylinder/NativeNamePe.py": "e07df1c6b1b16fa3958f1db4adac95b16ebc30888340b33238e4a9703d8a89c7",
+    "re/tooling/sw2026/freecad_cylinder/PinCylinderDirectionWire.py": "8e212ceb466a119e5b8445b814221cde8f81c4632f0bc7ce23d7bf420d9434d7"
+  },
+  "source_pin_processes": [
+    {
+      "bytes": 101728,
+      "name": "FinalReplay01",
+      "sha256": "4162dcbb2002e0b24ec16a6e6967d233e683429f21c4af81fcf4eb85f5f4da8e"
+    },
+    {
+      "bytes": 101728,
+      "name": "FinalReplay02",
+      "sha256": "4162dcbb2002e0b24ec16a6e6967d233e683429f21c4af81fcf4eb85f5f4da8e"
+    }
+  ],
+  "static_lifecycle": {
+    "current_version_19000_load_cleanup_qualified": false,
+    "environment_selector": 51,
+    "environment_selector_semantics_bound": false,
+    "managed_surface_directly_prunes_displays": false,
+    "native_dialog_apply_reaches_display_recreation": true,
+    "native_recreation_type_4_pruning_is_environment_guarded": true,
+    "native_set_type_allocates_or_deletes_displays": false,
+    "native_surface_type": 4,
+    "old_version_load_cleanup_version_exclusive": 451,
+    "public_up_to_selection_10_translation": "not found in the reached exact-build code"
+  },
+  "status": "source_pin_passed_native_unqualified",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "tool_sha256": "da2dda738a96054b038bf4929c2b61886c2f62c1c44bf74337e7cf783b9831cd",
+  "vendor_build": "34.5.2.0604"
+}

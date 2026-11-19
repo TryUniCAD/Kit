@@ -62,7 +62,7 @@ For a plane direction or limit, use `moPlaneRef_w.f58` to select a `moCompRefPla
 
 `setISurfRef` at `0x4baf92d0` selects `f28` or `f48`, optionally clears it and appends the supplied wrapper uniquely. Termination, direction and display come from separate setters. Serializer `0x4bb10250` writes the direction and displays and uses individual conditions for point references and surface arrays. A zero array gate skips its field on load. Ordinary store derives the gates from archive and model context.
 
-The public `swEndCondUpToSelection=10` mapping to native `f0c` and the selected-plane factory's inactive distance display state remain open.
+The follow-up source record binds internal end type 4 and the conditions for display pruning during native dialog application. The public `swEndCondUpToSelection=10` mapping and the native saved display lifecycle remain open. [Selected-end lifecycle](FreecadCylinderSelectedEnd2026.md)
 
 ## Concrete construction sequence and remaining gate
 

@@ -1,0 +1,690 @@
+{
+  "calls": [
+    {
+      "iat": "0x4a469720",
+      "key": "native_api_macro_load",
+      "kind": "import",
+      "module": "slduiu.dll",
+      "site": "0x49254a33",
+      "symbol": "?loadFromMacro@uoDData_c@@QEAAXHZZ"
+    },
+    {
+      "key": "native_api_selected_data",
+      "kind": "direct",
+      "module": "slduiu.dll",
+      "site": "0x49254b04",
+      "target": "0x493e6470"
+    },
+    {
+      "iat": "0x4a45ef68",
+      "key": "dialog_forward_surface",
+      "kind": "import",
+      "module": "slduiu.dll",
+      "site": "0x493e5c1f",
+      "symbol": "?setISurfRef@moEndSpec_c@@QEAAXPEAVmoRefWrapper_c@@HH@Z"
+    },
+    {
+      "iat": "0x4a45efa8",
+      "key": "dialog_display_recreation",
+      "kind": "import",
+      "module": "slduiu.dll",
+      "site": "0x493e5f7e",
+      "symbol": "?recreateNecessaryDisplayDims@moEndSpec_c@@QEAAHPEAVmoModel_c@@PEAVmoModelFeature_c@@PEANH@Z"
+    },
+    {
+      "iat": "0x32977a78",
+      "key": "command_display_recreation",
+      "kind": "import",
+      "module": "sldbasegeomu.dll",
+      "site": "0x32942d54",
+      "symbol": "?recreateNecessaryDisplayDims@moEndSpec_c@@QEAAHPEAVmoModel_c@@PEAVmoModelFeature_c@@PEANH@Z"
+    },
+    {
+      "key": "forward_dimension_config_cleanup",
+      "kind": "direct",
+      "module": "sldmodu.dll",
+      "site": "0x4bada5ee",
+      "target": "0x4c892570"
+    },
+    {
+      "key": "reverse_dimension_config_cleanup",
+      "kind": "direct",
+      "module": "sldmodu.dll",
+      "site": "0x4bada676",
+      "target": "0x4c892570"
+    },
+    {
+      "iat": "0x4cd3c498",
+      "key": "delete_environment",
+      "kind": "import",
+      "module": "sldmodu.dll",
+      "site": "0x4bada5c9",
+      "symbol": "?Environment@SldSession_c@@SAPEAVSldEnvironment_c@@XZ"
+    },
+    {
+      "iat": "0x4cd3c498",
+      "key": "recreate_environment",
+      "kind": "import",
+      "module": "sldmodu.dll",
+      "site": "0x4baf415a",
+      "symbol": "?Environment@SldSession_c@@SAPEAVSldEnvironment_c@@XZ"
+    },
+    {
+      "key": "recreate_distance_constructor",
+      "kind": "direct",
+      "module": "sldmodu.dll",
+      "site": "0x4baf41d8",
+      "target": "0x4c8a4840"
+    },
+    {
+      "key": "recreate_existing_value",
+      "kind": "direct",
+      "module": "sldmodu.dll",
+      "site": "0x4baf4201",
+      "target": "0x4baf91b0"
+    },
+    {
+      "key": "pass_two_base",
+      "kind": "direct",
+      "module": "sldmodu.dll",
+      "site": "0x4bb24207",
+      "target": "0x4bb23a90"
+    },
+    {
+      "iat": "0x4cd3d870",
+      "key": "pass_two_store_guard",
+      "kind": "import",
+      "module": "sldmodu.dll",
+      "site": "0x4bb24346",
+      "symbol": "?IsStoring@su_CArchive@@QEBAHXZ"
+    },
+    {
+      "key": "legacy_load_cleanup",
+      "kind": "direct",
+      "module": "sldmodu.dll",
+      "site": "0x4bb243f6",
+      "target": "0x4bada5b0"
+    }
+  ],
+  "dependencies": {
+    "re/tooling/sw2026/ManagedConstructionIndex.py": "47c6c797931804b3d0012217ee718a4fc94f3c1b6667cc6f8e06fd638960c30c",
+    "re/tooling/sw2026/freecad_cylinder/NativeNamePe.py": "e07df1c6b1b16fa3958f1db4adac95b16ebc30888340b33238e4a9703d8a89c7",
+    "re/tooling/sw2026/freecad_cylinder/PinCylinderDirectionWire.py": "8e212ceb466a119e5b8445b814221cde8f81c4632f0bc7ce23d7bf420d9434d7"
+  },
+  "document_version": 19000,
+  "functions": [
+    {
+      "entry": "0x4b30d800",
+      "expected_bytes": 8,
+      "expected_fragment_count": 1,
+      "expected_sha256": "5a6c30eec05ba24c7edad2d82fbda93828a0450556b250949e96cebe96840819",
+      "key": "get_type",
+      "leaf_bytes": 8,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4b3100b0",
+      "expected_bytes": 8,
+      "expected_fragment_count": 1,
+      "expected_sha256": "f34494651ee66a910f21a2cac9cc5f43b7bf754eab01c9e0657afd7e59c885c9",
+      "key": "set_type",
+      "leaf_bytes": 8,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4baf91b0",
+      "expected_bytes": 269,
+      "expected_fragment_count": 3,
+      "expected_sha256": "8eaf3820c1a93f66756afc7cc44746bc6508c37f41e4b361951bf01758cc083e",
+      "key": "set_distance",
+      "leaf_bytes": null,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4baf6f10",
+      "expected_bytes": 46,
+      "expected_fragment_count": 1,
+      "expected_sha256": "1a470aae1db895931ea43795298bebe1f9104cc1801145b7dfc71ec488507ddf",
+      "key": "remove_surface_reference",
+      "leaf_bytes": 46,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4badf660",
+      "expected_bytes": 49,
+      "expected_fragment_count": 1,
+      "expected_sha256": "8b8ad6c5f3f8269d5e84f2eb78ffc66205980a1bba55fff3b92e2b606ac3bf27",
+      "key": "get_distance",
+      "leaf_bytes": null,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4bad35c0",
+      "expected_bytes": 491,
+      "expected_fragment_count": 1,
+      "expected_sha256": "2381b4bc954966eb050b1df99deeb2fe46ef3f0db943aa498db4c22819a0e82b",
+      "key": "end_constructor",
+      "leaf_bytes": null,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4bad3ab0",
+      "expected_bytes": 680,
+      "expected_fragment_count": 1,
+      "expected_sha256": "f09b6dfc22a5903d2bdcee527715d0d8f48690718aab9036dba773a92eb39c1e",
+      "key": "extrusion_constructor",
+      "leaf_bytes": null,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4bada5b0",
+      "expected_bytes": 298,
+      "expected_fragment_count": 1,
+      "expected_sha256": "e7cca85a1268e358689476cd08d8e424fdcc6ca4e58056b01c90425c1eaf789a",
+      "key": "delete_unused",
+      "leaf_bytes": null,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4baf4100",
+      "expected_bytes": 706,
+      "expected_fragment_count": 1,
+      "expected_sha256": "caae7595497a7864e9b2a8a114867ae8873590f9d78c25d678dc9acf8e7ee09c",
+      "key": "recreate_displays",
+      "leaf_bytes": null,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4c3032a0",
+      "expected_bytes": 1853,
+      "expected_fragment_count": 1,
+      "expected_sha256": "b671da06e99d81c899214a0d58e6c303bbf6c9ae2e0dd15730ef234747285105",
+      "key": "direction_update",
+      "leaf_bytes": null,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x4bb241e0",
+      "expected_bytes": 733,
+      "expected_fragment_count": 1,
+      "expected_sha256": "41dd322e784f0d813458df027c78da68860c9fbd45cc25c9aadcdd0895c894a9",
+      "key": "extrusion_pass_two",
+      "leaf_bytes": null,
+      "module": "sldmodu.dll"
+    },
+    {
+      "entry": "0x493e3640",
+      "expected_bytes": 670,
+      "expected_fragment_count": 1,
+      "expected_sha256": "2008394d6fdfa1dd900eb7c90ef0ae57f1d8c5b01c3de575a40730d522cf99ea",
+      "key": "dialog_constructor",
+      "leaf_bytes": null,
+      "module": "slduiu.dll"
+    },
+    {
+      "entry": "0x493e5a80",
+      "expected_bytes": 2314,
+      "expected_fragment_count": 1,
+      "expected_sha256": "f4e5053b4a3f8c4edefae0b7dd8c62cb70e42ec2cf8c37cbd545cf71d594e244",
+      "key": "dialog_apply",
+      "leaf_bytes": null,
+      "module": "slduiu.dll"
+    },
+    {
+      "entry": "0x493e6470",
+      "expected_bytes": 2071,
+      "expected_fragment_count": 1,
+      "expected_sha256": "a937487a46fb86513e4b1d3760f1934ddcccaa42eb22ca272419bf78ba633ac6",
+      "key": "dialog_additional",
+      "leaf_bytes": null,
+      "module": "slduiu.dll"
+    },
+    {
+      "entry": "0x493e42a0",
+      "expected_bytes": 8,
+      "expected_fragment_count": 1,
+      "expected_sha256": "4b1b20247653a27f031bd383ddbb8b6f52a64bf9cb251fe1795c80e5e8e14e35",
+      "key": "dialog_data_map",
+      "leaf_bytes": 8,
+      "module": "slduiu.dll"
+    },
+    {
+      "entry": "0x492546e0",
+      "expected_bytes": 1357,
+      "expected_fragment_count": 1,
+      "expected_sha256": "9940db5b115830cc04371946ca825a7a33089cd3a9f788e6d5c94f6f22dd6e12",
+      "key": "native_api_extrusion",
+      "leaf_bytes": null,
+      "module": "slduiu.dll"
+    },
+    {
+      "entry": "0x459ee330",
+      "expected_bytes": 212,
+      "expected_fragment_count": 3,
+      "expected_sha256": "a0694abd72ba38b1eb353dfcd700edfee14328a0d46414781b9c473edb27f2e7",
+      "key": "macro_data_load",
+      "leaf_bytes": null,
+      "module": "sldappu.dll"
+    },
+    {
+      "entry": "0x4564bf70",
+      "expected_bytes": 617,
+      "expected_fragment_count": 1,
+      "expected_sha256": "7b4ee9544f34f25034e189dbca89f733ea354dbd4912c0f0fdaaf2cb48a8d787",
+      "key": "api_interception_wrapper",
+      "leaf_bytes": null,
+      "module": "sldappu.dll"
+    },
+    {
+      "entry": "0x329423a0",
+      "expected_bytes": 2992,
+      "expected_fragment_count": 1,
+      "expected_sha256": "17f8fcf9dca3082401e746b18aec7aabea20f7706459719872c7ea5d06b8057e",
+      "key": "native_command_dimension_apply",
+      "leaf_bytes": null,
+      "module": "sldbasegeomu.dll"
+    }
+  ],
+  "macro_map": {
+    "expected_count": 23,
+    "module": "slduiu.dll",
+    "pointer_site": "0x4a59fcb0",
+    "row_bytes": 40,
+    "selected_rows": [
+      {
+        "kind": 4,
+        "ordinal": 3,
+        "owner_offset": "0x84"
+      },
+      {
+        "kind": 4,
+        "ordinal": 4,
+        "owner_offset": "0xb8"
+      }
+    ]
+  },
+  "managed": {
+    "cli_flags": "0x18",
+    "methods": [
+      {
+        "code_bytes": 188,
+        "code_sha256": "c93d95989b1ffadd59a9c06935a7790171820b3b60b97ae05ce16bf9e1fe8e97",
+        "complete_body_bytes": 200,
+        "complete_body_sha256": "e96043c5581806a06528f471a17879b7757d346ece2bd463e492b5f76a36ca6b",
+        "implementation_flags": "0x0",
+        "instruction_count": 80,
+        "method_flags": "0xc6",
+        "name": "Apply",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x1429f4",
+        "token": "0x06005037"
+      },
+      {
+        "code_bytes": 492,
+        "code_sha256": "9eed7013d927a99c80d179eb26c6f7ff16f27554b2e9458ccfdbbd54fa43cdc2",
+        "complete_body_bytes": 504,
+        "complete_body_sha256": "1bab26ce78aa8c3ed160636652d64405ed43d2adf9dc669d27a3a4b7e8546bae",
+        "implementation_flags": "0x0",
+        "instruction_count": 161,
+        "method_flags": "0xc6",
+        "name": "Initialize",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x1427fc",
+        "token": "0x06005038"
+      },
+      {
+        "code_bytes": 122,
+        "code_sha256": "3e3d54d49e181dfd88d6e978993462197c3ea64b415bb1ac5f2c1f0554857dd5",
+        "complete_body_bytes": 164,
+        "complete_body_sha256": "8af8217bb43fd6102456e694c270f9c3fd4fc6254812fae2e1025a0a45f278d5",
+        "implementation_flags": "0x0",
+        "instruction_count": 49,
+        "method_flags": "0xc6",
+        "name": "CreateFeature",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x141d9c",
+        "token": "0x06005039"
+      },
+      {
+        "code_bytes": 144,
+        "code_sha256": "7a7f1a88631b01dc344c78015bc8cc07126f9de38dd64cd49b719f6389dbbeb9",
+        "complete_body_bytes": 156,
+        "complete_body_sha256": "b3c8df85d5f117ed7eaab7f16c39a070d709feb586203326b6c9759e6603d13f",
+        "implementation_flags": "0x0",
+        "instruction_count": 43,
+        "method_flags": "0x81",
+        "name": "CurrentEndSpec",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x141848",
+        "token": "0x0600503a"
+      },
+      {
+        "code_bytes": 21,
+        "code_sha256": "8c2a0568f1cd23bae75229e2c32f12504e1fa10a72db0a2e47ba322c47fcaa1e",
+        "complete_body_bytes": 33,
+        "complete_body_sha256": "5adc815d53d56558266cb4a4fee276a7d75c2b8f79b0e7358fac1d656696d308",
+        "implementation_flags": "0x0",
+        "instruction_count": 9,
+        "method_flags": "0x886",
+        "name": "set_EndSpecification1",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x14190c",
+        "token": "0x0600503d"
+      },
+      {
+        "code_bytes": 21,
+        "code_sha256": "b172014703088b90b7fffa5c0a8ea263c3b3ab2aabd937c61c0bae53c0963e0d",
+        "complete_body_bytes": 33,
+        "complete_body_sha256": "464d063ab8ecc0e8141aa6bb0ba3b736198eabd2b8f0edcd7893d48c27303e01",
+        "implementation_flags": "0x0",
+        "instruction_count": 9,
+        "method_flags": "0x886",
+        "name": "set_EndSpecification2",
+        "owner": "ExtrusionPacket_c",
+        "rva": "0x141944",
+        "token": "0x0600503f"
+      },
+      {
+        "code_bytes": 14,
+        "code_sha256": "9bd39be0f0974881c5d04c11cc93f495e7ab1cd046e4fb4df150480019016d6b",
+        "complete_body_bytes": 26,
+        "complete_body_sha256": "91d6f4f4940c18b50806e638ec8c30febbb7bb876ef616e8fa8fc91dd937dc26",
+        "implementation_flags": "0x0",
+        "instruction_count": 6,
+        "method_flags": "0x886",
+        "name": "set_DirectionGeometry",
+        "owner": "EndSpecification_c",
+        "rva": "0x14208c",
+        "token": "0x06005063"
+      },
+      {
+        "code_bytes": 82,
+        "code_sha256": "11ddf675ac8702957f68c98e981c5cc1af465809ada99161fc6c47604bf39ef7",
+        "complete_body_bytes": 94,
+        "complete_body_sha256": "9c19e79613dc5efb56d2dc0a60dc9e1baa97832c39fed6b2f4ff728bc15b61ca",
+        "implementation_flags": "0x0",
+        "instruction_count": 38,
+        "method_flags": "0x3c3",
+        "name": "LoadFromModel",
+        "owner": "EndSpecification_c",
+        "rva": "0x142364",
+        "token": "0x06005069"
+      },
+      {
+        "code_bytes": 216,
+        "code_sha256": "d16810b2d89c969a24b98478139b58d50a31f056545e3a5ee70a686cb436eb15",
+        "complete_body_bytes": 256,
+        "complete_body_sha256": "20c353639be361c1f055fefb30ea8d143e5096e1e75d1b83c28e05137e405d18",
+        "implementation_flags": "0x0",
+        "instruction_count": 102,
+        "method_flags": "0x3c3",
+        "name": "ApplyToModel",
+        "owner": "EndSpecification_c",
+        "rva": "0x1423c4",
+        "token": "0x0600506a"
+      },
+      {
+        "code_bytes": 149,
+        "code_sha256": "f4f7df7ee1d7826d91cbd65c37b2798c821df6001b2d558e2e5aa902b5346e29",
+        "complete_body_bytes": 192,
+        "complete_body_sha256": "395ef3cc8b41594f2bd24aba8a23f51eb4380d5db1d2860d11e3e3940426a362",
+        "implementation_flags": "0x0",
+        "instruction_count": 54,
+        "method_flags": "0x84",
+        "name": "setDirectionFromGeometry",
+        "owner": "EndSpecification_c",
+        "rva": "0x141c14",
+        "token": "0x0600506b"
+      },
+      {
+        "code_bytes": 58,
+        "code_sha256": "1d062a354837a9441304fb75946b2e50ff1e0c443d9653c424dac09ff1e5ed67",
+        "complete_body_bytes": 70,
+        "complete_body_sha256": "da1a4885528ffe4284bde5fe00e465201c047ca7016a699b57180326d0a06d9e",
+        "implementation_flags": "0x0",
+        "instruction_count": 26,
+        "method_flags": "0x2c3",
+        "name": "ApplyToModel",
+        "owner": "BlindEndSpec_c",
+        "rva": "0x142508",
+        "token": "0x06005072"
+      },
+      {
+        "code_bytes": 91,
+        "code_sha256": "bbad4988574e4c59d8f933fd8578c663a5a62a38835ec66ead267d07c97e54d5",
+        "complete_body_bytes": 103,
+        "complete_body_sha256": "1cf918a592fa37c1b1d75514dea181d74cc8705d838239c4370860d23f0ed4e8",
+        "implementation_flags": "0x0",
+        "instruction_count": 42,
+        "method_flags": "0x2c3",
+        "name": "ApplyToModel",
+        "owner": "ToPointEndSpec_c",
+        "rva": "0x142588",
+        "token": "0x06005078"
+      },
+      {
+        "code_bytes": 52,
+        "code_sha256": "c93d4bc837207cd14cab46647bb0be3d19d95d563e9fd72c4151976a2b86d22a",
+        "complete_body_bytes": 64,
+        "complete_body_sha256": "7a076051b830e6b1522afc6cda3d4e6b6531c88dececaad5c06810aea1ef89e4",
+        "implementation_flags": "0x0",
+        "instruction_count": 19,
+        "method_flags": "0xc6",
+        "name": "ReleaseData",
+        "owner": "ToSurfaceEndSpec_c",
+        "rva": "0x141d18",
+        "token": "0x0600507c"
+      },
+      {
+        "code_bytes": 44,
+        "code_sha256": "49787d5347a75d99ba702eb99a500f61de6326168229f590ab6e1eb62581a4a9",
+        "complete_body_bytes": 56,
+        "complete_body_sha256": "187dcba2cb5257778894240aafac06b321c4784be69d64971c1effa78d305e20",
+        "implementation_flags": "0x0",
+        "instruction_count": 19,
+        "method_flags": "0x2c3",
+        "name": "LoadFromModel",
+        "owner": "ToSurfaceEndSpec_c",
+        "rva": "0x1425f0",
+        "token": "0x0600507d"
+      },
+      {
+        "code_bytes": 92,
+        "code_sha256": "c4955847686b9ff71787da1d75382dbcb4e6ef2aec1addf498f600315eaefdfb",
+        "complete_body_bytes": 104,
+        "complete_body_sha256": "1cbe8d2c51b819e749d9f6a1d1ba3df4f262e5aa023aac2f97c30c22524fcda4",
+        "implementation_flags": "0x0",
+        "instruction_count": 43,
+        "method_flags": "0x2c3",
+        "name": "ApplyToModel",
+        "owner": "ToSurfaceEndSpec_c",
+        "rva": "0x142628",
+        "token": "0x0600507e"
+      },
+      {
+        "code_bytes": 68,
+        "code_sha256": "d0d350f0d96005ba4e4805b998bcff73e73909f357ea8983da59746cca216c31",
+        "complete_body_bytes": 80,
+        "complete_body_sha256": "cba21c71a731fd7def4c4f98856ed443a9bfa40519cfd5da1cf6419bb1acb915",
+        "implementation_flags": "0x0",
+        "instruction_count": 31,
+        "method_flags": "0x2c3",
+        "name": "ApplyToModel",
+        "owner": "OffsetFromSurfaceEndSpec_c",
+        "rva": "0x1426c8",
+        "token": "0x06005083"
+      },
+      {
+        "code_bytes": 91,
+        "code_sha256": "0e70ecf66ab2def0dc72dd34e044e364e45fac166c63387ffea1d52308efb36c",
+        "complete_body_bytes": 103,
+        "complete_body_sha256": "35e012a08aa17be52ffa32c7cd6031a524eb5797d0528666d2f11e36cf654bca",
+        "implementation_flags": "0x0",
+        "instruction_count": 42,
+        "method_flags": "0x2c3",
+        "name": "ApplyToModel",
+        "owner": "UpToBodyEndSpec_c",
+        "rva": "0x142750",
+        "token": "0x06005089"
+      },
+      {
+        "code_bytes": 35,
+        "code_sha256": "c051bb088a05b4a016ea69e601fbd663eb1bb790e5278fd2887537695941a85f",
+        "complete_body_bytes": 47,
+        "complete_body_sha256": "92489941c5b8e36c612128e3e9ba7bdd40083b4880bcf3dd181b273a92f6b972",
+        "implementation_flags": "0x0",
+        "instruction_count": 15,
+        "method_flags": "0x2c3",
+        "name": "ApplyToModel",
+        "owner": "MidPlaneEndSpec_c",
+        "rva": "0x1427cc",
+        "token": "0x0600508c"
+      }
+    ],
+    "mvid": "3f9c2ded-9024-4b12-ac82-deb36cae1451",
+    "native_tokens": [
+      "0x060044d7",
+      "0x060044d8",
+      "0x060044d9",
+      "0x060044da",
+      "0x060044de",
+      "0x060044df",
+      "0x060044e6",
+      "0x060044e7",
+      "0x060044e8",
+      "0x060044e9",
+      "0x060044ea"
+    ]
+  },
+  "modules": {
+    "sldappu.dll": {
+      "base": "0x453f0000",
+      "bytes": 16519768,
+      "machine": "0x8664",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    "sldbasegeomu.dll": {
+      "base": "0x32850000",
+      "bytes": 2186840,
+      "machine": "0x8664",
+      "sha256": "206430acc09197ae9416446d56156f79fdb3aae9d615f32b771314a92a0ad36a"
+    },
+    "sldcoreu.dll": {
+      "base": "0x180000000",
+      "bytes": 5416536,
+      "machine": "0x8664",
+      "sha256": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3"
+    },
+    "sldmodu.dll": {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "machine": "0x8664",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "slduiu.dll": {
+      "base": "0x48ea0000",
+      "bytes": 36036696,
+      "machine": "0x8664",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    }
+  },
+  "prior_frozen_wire": {
+    "handoff_sha256": "8c53bb121cec35a66cc7a12b8a48fa6c64db0da14db6d67f3783993f8089eaae",
+    "manifest_sha256": "185e9cd4f06f9d425257d43e161384cdd957135743ef39495932a98005571529",
+    "receipt_sha256": "81b3518b79610a1baf8105ca528329fa5daabe0bbecb862a8919243d565ceefa"
+  },
+  "rules": {
+    "lifecycle": {
+      "fresh_extrusion_has_angular_roles": [3, 4],
+      "fresh_extrusion_has_distance_roles": [1, 2],
+      "fresh_from_offset_role": 19,
+      "managed_surface_apply_directly_prunes_displays": false,
+      "modern_load_repair_from_pass_two_cleanup": false,
+      "native_command_also_calls_recreation": true,
+      "native_dialog_apply_recreates_or_prunes_displays": true,
+      "pass_two_cleanup_load_version_exclusive": 451
+    },
+    "macro_bridge": {
+      "additional_data_handles_native_modes": [3, 4, 5, 7],
+      "end_type_rows_copied_without_enum_translation": true
+    },
+    "managed_other_modes": {
+      "BlindEndSpec_c": 0,
+      "MidPlaneEndSpec_c": 6,
+      "OffsetFromSurfaceEndSpec_c": 5,
+      "ToPointEndSpec_c": 3,
+      "UpToBodyEndSpec_c": 7
+    },
+    "managed_selected_line_direction": {
+      "flip_from_authored_field": true,
+      "literal_direction_vector_persisted": false,
+      "mode": 3,
+      "native_normalized_primary_modes": [3, 7]
+    },
+    "managed_surface": {
+      "base_calls_set_distance": false,
+      "calls_set_distance": false,
+      "clones_actual_wrapper": true,
+      "native_type": 4,
+      "reference_clear": 1,
+      "release_clears_surface_reference_only": true,
+      "wrapper_clone_virtual_bytes": 600
+    },
+    "native_distance_cleanup": {
+      "distance_fields": ["f18", "f20"],
+      "environment_selector": 51,
+      "environment_semantic_name": "not found",
+      "environment_virtual_bytes": 120,
+      "first_predicate": "1 <= unsigned(type[0]) <= 4 and environment(0x33) == 0",
+      "prune_action": "destroy actual display and null the owning pointer; deleteNotUsedDims also removes dimension configuration data",
+      "recreate_predicate": "((single_end != 0 and end == 1) or 1 <= unsigned(type[end]) <= 4) and environment(0x33) == 0",
+      "retained_branch": "retain or allocate a real distance display with role end + 1",
+      "second_predicate": "(single_end != 0 or 1 <= unsigned(type[1]) <= 4) and environment(0x33) == 0"
+    },
+    "native_set_type": {
+      "allocates_or_deletes_displays": false,
+      "first_field": "f0c",
+      "second_field": "f10",
+      "storage": "i32",
+      "stride_bytes": 4
+    },
+    "public_selected_end": {
+      "actual_public_implementation_edge": "IFeatureManager target virtual +0x7a8 behind the interception wrapper is not bound",
+      "public_symbol": "swEndCondUpToSelection",
+      "public_value_from_prior_published_contract": 10,
+      "translation_to_internal_type": "not found in the reached exact-build code",
+      "writer_admission": false
+    },
+    "scope": {
+      "confidence": "partial: exact static ownership and lifecycle; no new selected-end native source or generated acceptance",
+      "freecad_five_driver_lowering_qualified": false,
+      "fresh_current_surface_display_state_qualified": false
+    }
+  },
+  "schema": "kit.sw2026.cylinder-selected-end.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "vendor_build": "34.5.2.0604",
+  "virtual_slots": [
+    {
+      "key": "dialog_apply",
+      "module": "slduiu.dll",
+      "slot_bytes": 312,
+      "target": "0x493e5a80",
+      "vtable": "0x4a59fee8"
+    },
+    {
+      "key": "dialog_map",
+      "module": "slduiu.dll",
+      "slot_bytes": 320,
+      "target": "0x493e42a0",
+      "vtable": "0x4a59fee8"
+    },
+    {
+      "key": "extrusion_pass_two",
+      "module": "sldmodu.dll",
+      "slot_bytes": 4536,
+      "target": "0x4bb241e0",
+      "vtable": "0x4cf3d488"
+    }
+  ]
+}

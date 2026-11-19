@@ -1,0 +1,908 @@
+{
+  "authored_source_inputs": [
+    {
+      "bytes": 7903,
+      "declarations": [
+        {
+          "end_line": 54,
+          "line": 31,
+          "name": "authored_prism"
+        }
+      ],
+      "path": "re/tooling/sw2026/downstream/CheckPrismFaceConstructors.py",
+      "sha256": "921f52a0ae7e93ccc351ff52346a3b9b896b13c604cc2566346451bcf9e843d4"
+    },
+    {
+      "bytes": 22632,
+      "declarations": [
+        {
+          "end_line": 129,
+          "line": 66,
+          "name": "_metadata"
+        },
+        {
+          "end_line": 354,
+          "line": 168,
+          "name": "construct_part"
+        }
+      ],
+      "path": "re/tooling/sw2026/builders/Part.py",
+      "sha256": "f349ee8aac7a8ca452ae60193f61d7128b75cfce3e3c964270ab53faf6872580"
+    },
+    {
+      "bytes": 38822,
+      "declarations": [
+        {
+          "end_line": 766,
+          "line": 701,
+          "name": "configuration_manager"
+        },
+        {
+          "end_line": 1036,
+          "line": 959,
+          "name": "part_graph"
+        }
+      ],
+      "path": "re/tooling/sw2026/builders/Model.py",
+      "sha256": "4bdd7397c1e7ba639fdb322a4b997c66ec0fc434341e830ac5adc274b0d4220e"
+    },
+    {
+      "bytes": 17055,
+      "declarations": [
+        {
+          "end_line": 148,
+          "line": 98,
+          "name": "header"
+        }
+      ],
+      "path": "re/tooling/sw2026/builders/Metadata.py",
+      "sha256": "93b719a1802ef05826ceb24f88b1cd92b60e6ce551b358c07fbf3395bc620260"
+    },
+    {
+      "bytes": 3604,
+      "declarations": [
+        {
+          "end_line": 74,
+          "line": 44,
+          "name": "ordinary_self_reference"
+        }
+      ],
+      "path": "re/tooling/sw2026/builders/ExternalFiles.py",
+      "sha256": "7308eb99692a17f5c354eacbf4b663a252baf056402381a4b0bae424fbcb6562"
+    },
+    {
+      "bytes": 6177,
+      "declarations": [
+        {
+          "end_line": 102,
+          "line": 56,
+          "name": "archive_for_oracle"
+        }
+      ],
+      "path": "re/tooling/sw2026/para/rectangle/ArchiveAttachment.py",
+      "sha256": "207fa77b40973a6def0139bc6a259e03b397884582c8f63594e8eeb5a1608da4"
+    },
+    {
+      "bytes": 6252,
+      "declarations": [
+        {
+          "end_line": 106,
+          "line": 100,
+          "name": "make_feature_file"
+        }
+      ],
+      "path": "re/tooling/sw2026/para/concentric/CylinderFace.py",
+      "sha256": "7dd7bdf7c5287eda305606e2f5052127a623d1c37046e268f6d6dc6faed01092"
+    },
+    {
+      "bytes": 7765,
+      "declarations": [
+        {
+          "end_line": 71,
+          "line": 36,
+          "name": "read_prism_face_owners"
+        },
+        {
+          "end_line": 147,
+          "line": 134,
+          "name": "prism_face_constructor_fields"
+        }
+      ],
+      "path": "re/tooling/sw2026/downstream/PrismFaceConstructors.py",
+      "sha256": "72448280c4f7a5ab292730d509aa74c645e407d1093e9bd0744573bfe1a7bac1"
+    },
+    {
+      "bytes": 2199,
+      "declarations": [
+        {
+          "end_line": 43,
+          "line": 15,
+          "name": "CheckPrismMgr"
+        }
+      ],
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismMgr.py",
+      "sha256": "c9b76f9c3aebd51c142b52b8fdbeaa131f0df719bdcb4e62857f823e34d14281"
+    },
+    {
+      "bytes": 21627,
+      "declarations": [
+        {
+          "end_line": 509,
+          "line": 91,
+          "name": "define"
+        }
+      ],
+      "path": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+      "sha256": "76c46ab9d70235fa5346e449a34df0850484cfeb9ad10553bd5f54ff811db11d"
+    }
+  ],
+  "cases": [
+    {
+      "result": "first successfully shared local owner receives index0; lookup0 returns actual local canonical pointer",
+      "state": "actual empty list with maximum -1 and no intervening insertion",
+      "status": "confirmed conditional source rule"
+    },
+    {
+      "result": "resolver can return local canonical pointer and normalize mirror to local index; embedded configuration is not part of operator==",
+      "state": "actual indexed object at0 passes ordinary native operator== against local owner",
+      "status": "confirmed conditional source rule"
+    },
+    {
+      "result": "resolver returns indexed object, which can be a foreign owner; no blanket local override",
+      "state": "actual indexed object at0 fails native operator== against local owner",
+      "status": "confirmed conditional source rule"
+    },
+    {
+      "result": "fallback selects local; mirror writeback further requires selected configuration, isViewerModel(0)==false and nonnegative local index",
+      "state": "index0 absent after constructing/sharing local owner",
+      "status": "confirmed conditional source rule"
+    }
+  ],
+  "data_windows": [
+    {
+      "bound": "original RTTI locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d330498",
+      "module": "sldmodu.dll",
+      "name": "moFeatureRefMgr_c complete-object locator",
+      "sha256": "bb2a457fa9f5ee4a80afb260e39e9d186b2588ee070c2201bbdfb52498af5d14",
+      "start": "0x4d330480"
+    },
+    {
+      "bound": "original RTTI descriptor including independently checked class name",
+      "bytes": 40,
+      "end_exclusive": "0x4db35250",
+      "module": "sldmodu.dll",
+      "name": "moFeatureRefMgr_c type descriptor",
+      "sha256": "f6d53ea2966a323ed5601c2f39e5ec30795a275cbab976c489dd7585f9117426",
+      "start": "0x4db35228"
+    }
+  ],
+  "delivery_pr": 121,
+  "encoded_state": {
+    "archive_attachment": "changes stamps and body attachment; does not add incoming manager external rows",
+    "cache_wrapper_owner": {
+      "f78": 0,
+      "factory": "make_feature_file",
+      "refcfg": "actual selected generated configuration",
+      "reference_definition": "shared copy of actual generated self-file definition",
+      "this_is_native_table_registration": false
+    },
+    "configuration_manager": {
+      "ext": [],
+      "n_ext": 0
+    },
+    "executed_in_this_lane": false,
+    "header": {
+      "f30": null,
+      "f38": "separate generated self file",
+      "self_f78": -1
+    },
+    "source_level_only": true
+  },
+  "equality_domains": {
+    "actual_virtual": "moExtObject_c+e0 ->319fc210",
+    "configuration_match": "shareXModel separately checks configuration id and name under its selected argument; do not merge that predicate into operator==",
+    "not_compared_by_this_operator": [
+      "refcfg",
+      "f78",
+      "save timestamp",
+      "connection counters"
+    ],
+    "ordinary_branch": "matching graphics/non-graphics type, shared definition kind+20, creation identity+28, getRuntimeName comparison through actual imported string operation"
+  },
+  "execution": {
+    "acceptance": false,
+    "cad_calls": false,
+    "heldout_inputs": false,
+    "native_calls": false,
+    "rea_or_hopper_opened": false,
+    "schema_or_codec_execution": false,
+    "shared_writes": false,
+    "tests": false,
+    "vm_access": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 4896,
+      "end_exclusive": "0x4c0100d0",
+      "module": "sldmodu.dll",
+      "name": "model construction: per-model FR manager allocation window",
+      "review_scope": "FR manager allocation and current external-list ownership windows only; complete hash is not a complete method semantic audit",
+      "sha256": "1ba0a395d5baca2539c862dbfe46f9fd8876757e03585a613c79a03c4e553831",
+      "start": "0x4c00edb0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 4896,
+          "end_exclusive": "0x4c0100d0",
+          "sha256": "1ba0a395d5baca2539c862dbfe46f9fd8876757e03585a613c79a03c4e553831",
+          "start": "0x4c00edb0",
+          "unwind_rva": "0x243ab88"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 158,
+      "end_exclusive": "0x4bb3673e",
+      "module": "sldmodu.dll",
+      "name": "moFeatureRefMgr_c constructor with actual filed model",
+      "sha256": "613fe485d3fdd93e8ebf4a7e5e5acc3f58b831214529c979ac87c2f3663d454c",
+      "start": "0x4bb366a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 158,
+          "end_exclusive": "0x4bb3673e",
+          "sha256": "613fe485d3fdd93e8ebf4a7e5e5acc3f58b831214529c979ac87c2f3663d454c",
+          "start": "0x4bb366a0",
+          "unwind_rva": "0x2389c18"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1990,
+      "end_exclusive": "0x4b881596",
+      "module": "sldmodu.dll",
+      "name": "moConfigurationMgr_c default constructor",
+      "review_scope": "FR manager allocation and current external-list ownership windows only; complete hash is not a complete method semantic audit",
+      "sha256": "e9de94cd56b279f0c77117f9442aff79a9bd1da1f33158ce571fd2f412d6acf1",
+      "start": "0x4b880dd0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1990,
+          "end_exclusive": "0x4b881596",
+          "sha256": "e9de94cd56b279f0c77117f9442aff79a9bd1da1f33158ce571fd2f412d6acf1",
+          "start": "0x4b880dd0",
+          "unwind_rva": "0x23278b8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 158,
+      "end_exclusive": "0x4bb3669e",
+      "module": "sldmodu.dll",
+      "name": "moFeatureRefMgr_c constructor with actual configuration manager",
+      "sha256": "6ef50da0b56f8fa009cb2535480327cb5d6f4bce61850301d9125f6bae3accc3",
+      "start": "0x4bb36600",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 158,
+          "end_exclusive": "0x4bb3669e",
+          "sha256": "6ef50da0b56f8fa009cb2535480327cb5d6f4bce61850301d9125f6bae3accc3",
+          "start": "0x4bb36600",
+          "unwind_rva": "0x2389c18"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 35,
+      "end_exclusive": "0x4c020f43",
+      "module": "sldmodu.dll",
+      "name": "model actual FR manager getter",
+      "sha256": "95489d05a51ad17d6c1e2610ca73f10be68a00604980f032f6c4781714247a8d",
+      "start": "0x4c020f20",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 35,
+          "end_exclusive": "0x4c020f43",
+          "sha256": "95489d05a51ad17d6c1e2610ca73f10be68a00604980f032f6c4781714247a8d",
+          "start": "0x4c020f20",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 10,
+      "end_exclusive": "0x4b28630a",
+      "module": "sldmodu.dll",
+      "name": "actual model name-scope forwarding target",
+      "sha256": "ab14962c9a20ef576c84088f13c9b313e87df231578b60095e05d6de48a29e86",
+      "start": "0x4b286300",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 4,
+      "end_exclusive": "0x4b27c914",
+      "module": "sldmodu.dll",
+      "name": "actual part filed-owner self target",
+      "sha256": "cbc18d5e3d66ae414162c4a417b073a375f2804b50567d073ef1c62e50d8d523",
+      "start": "0x4b27c910",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4b289538",
+      "module": "sldmodu.dll",
+      "name": "actual CMgr FR manager getter",
+      "sha256": "b2d4940285be77f9d224207448f8bd4aba5619f7238fa5e5e4149cfbabae22ce",
+      "start": "0x4b289530",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 21,
+      "end_exclusive": "0x4c019735",
+      "module": "sldmodu.dll",
+      "name": "moModel_c::configurationMgr",
+      "sha256": "7fc2a7a2246c16b4ddc94c7324e543e03c3b81d24a8cc4489a518a4b1da29397",
+      "start": "0x4c019720",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 10968,
+      "end_exclusive": "0x4c221a18",
+      "module": "sldmodu.dll",
+      "name": "moConfigurationMgr_c::Serialize current external-list branch",
+      "review_scope": "FR manager allocation and current external-list ownership windows only; complete hash is not a complete method semantic audit",
+      "sha256": "f0ab61b4bde3f6387bec85ecb2a460607f1007045c1a5b6e18754be56cb589e6",
+      "start": "0x4c21ef40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 10968,
+          "end_exclusive": "0x4c221a18",
+          "sha256": "f0ab61b4bde3f6387bec85ecb2a460607f1007045c1a5b6e18754be56cb589e6",
+          "start": "0x4c21ef40",
+          "unwind_rva": "0x2483f60"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 145,
+      "end_exclusive": "0x4bb37211",
+      "module": "sldmodu.dll",
+      "name": "moFeatureRefMgr_c list initialization helper",
+      "sha256": "77b40536c77262ac087a6b285ce8b79ae0a24477568c135570b4eb7c05bdff58",
+      "start": "0x4bb37180",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 145,
+          "end_exclusive": "0x4bb37211",
+          "sha256": "77b40536c77262ac087a6b285ce8b79ae0a24477568c135570b4eb7c05bdff58",
+          "start": "0x4bb37180",
+          "unwind_rva": "0x2389db4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 602,
+      "end_exclusive": "0x4bb3765a",
+      "module": "sldmodu.dll",
+      "name": "moFeatureRefMgr_c::shareXModel",
+      "sha256": "d22345607fbd741cd71e0fd7740e8eb542963c1886065cef1aa63edc7b5f7bd6",
+      "start": "0x4bb37400",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 602,
+          "end_exclusive": "0x4bb3765a",
+          "sha256": "d22345607fbd741cd71e0fd7740e8eb542963c1886065cef1aa63edc7b5f7bd6",
+          "start": "0x4bb37400",
+          "unwind_rva": "0x2389cac"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 770,
+      "end_exclusive": "0x4c6cdb92",
+      "module": "sldmodu.dll",
+      "name": "model mirror resolver",
+      "sha256": "1a94db7e2ddfeb18919feb8809c7ccc8e1f5e8c99b5d0989a8a51105314be049",
+      "start": "0x4c6cd890",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 770,
+          "end_exclusive": "0x4c6cdb92",
+          "sha256": "1a94db7e2ddfeb18919feb8809c7ccc8e1f5e8c99b5d0989a8a51105314be049",
+          "start": "0x4c6cd890",
+          "unwind_rva": "0x252a49c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 609,
+      "end_exclusive": "0x4be8bf31",
+      "module": "sldmodu.dll",
+      "name": "moExtObjHelper_c::createExtObject",
+      "sha256": "627fce7ffa4a10762c36cee3ff114f383b8be4c594c25839faf77aa9840b3aa6",
+      "start": "0x4be8bcd0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 609,
+          "end_exclusive": "0x4be8bf31",
+          "sha256": "627fce7ffa4a10762c36cee3ff114f383b8be4c594c25839faf77aa9840b3aa6",
+          "start": "0x4be8bcd0",
+          "unwind_rva": "0x2400a28"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 11,
+      "end_exclusive": "0x4bb3705b",
+      "module": "sldmodu.dll",
+      "name": "FR manager indexed lookup bridge",
+      "sha256": "49621c00c9800bcd0b3e61e44e01a1910add48e223622fd5a1e7a26c190bc06d",
+      "start": "0x4bb37050",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 74,
+      "end_exclusive": "0x319fb0da",
+      "module": "sldarchiveu.dll",
+      "name": "moExtObjectList_c constructor",
+      "sha256": "84f1488059328bd5450ac841859e1a6d9fe5b049149cf3604716b190aa47f498",
+      "start": "0x319fb090",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 74,
+          "end_exclusive": "0x319fb0da",
+          "sha256": "84f1488059328bd5450ac841859e1a6d9fe5b049149cf3604716b190aa47f498",
+          "start": "0x319fb090",
+          "unwind_rva": "0x24854"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 112,
+      "end_exclusive": "0x31a00200",
+      "module": "sldarchiveu.dll",
+      "name": "moExtObjectList_c::getExtObjFromIndex",
+      "sha256": "789afedad29d421d7b42fb80276f2f4868ed727e44302fdcbec770eb1908ff8f",
+      "start": "0x31a00190",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 112,
+          "end_exclusive": "0x31a00200",
+          "sha256": "789afedad29d421d7b42fb80276f2f4868ed727e44302fdcbec770eb1908ff8f",
+          "start": "0x31a00190",
+          "unwind_rva": "0x24968"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 32,
+      "end_exclusive": "0x31a016b0",
+      "module": "sldarchiveu.dll",
+      "name": "moExtObjectList_c::setExtObjToIndex",
+      "sha256": "9058ce3e2f4b82c267da850aef5ad78f836392ff8561352ef82abc14a54974c9",
+      "start": "0x31a01690",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 331,
+      "end_exclusive": "0x319fb4cb",
+      "module": "sldarchiveu.dll",
+      "name": "ordinary named moExtObject_c constructor",
+      "sha256": "3b851372837d3420cd88d7e9f6b2437544cfc9ce99226d5ca46c3eb090f6aff9",
+      "start": "0x319fb380",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 331,
+          "end_exclusive": "0x319fb4cb",
+          "sha256": "3b851372837d3420cd88d7e9f6b2437544cfc9ce99226d5ca46c3eb090f6aff9",
+          "start": "0x319fb380",
+          "unwind_rva": "0x25268"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 309,
+      "end_exclusive": "0x319fc345",
+      "module": "sldarchiveu.dll",
+      "name": "moExtObject_c::operator==",
+      "sha256": "a2175eadc57796219397e6754972380638d752cdb95336f3828b71145d9a8094",
+      "start": "0x319fc210",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 309,
+          "end_exclusive": "0x319fc345",
+          "sha256": "a2175eadc57796219397e6754972380638d752cdb95336f3828b71145d9a8094",
+          "start": "0x319fc210",
+          "unwind_rva": "0x23318"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x319f9503",
+      "module": "sldarchiveu.dll",
+      "name": "moExtObject_c::isGfxExtObj",
+      "sha256": "01cb47d078b4841b8408ec4fe278efa83115c6f6e101972987507d2b2b57dcf0",
+      "start": "0x319f9500",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 56,
+      "end_exclusive": "0x319ff848",
+      "module": "sldarchiveu.dll",
+      "name": "moExtObject_c::compareType",
+      "sha256": "e63c2e256ef3d8127c0f1df2cc4636b1ba29e02daa7f7fb8bf955afbedcfede6",
+      "start": "0x319ff810",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 56,
+          "end_exclusive": "0x319ff848",
+          "sha256": "e63c2e256ef3d8127c0f1df2cc4636b1ba29e02daa7f7fb8bf955afbedcfede6",
+          "start": "0x319ff810",
+          "unwind_rva": "0x23318"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 9,
+      "end_exclusive": "0x31a008b9",
+      "module": "sldarchiveu.dll",
+      "name": "moExtObjectInterface_c::getRuntimeName",
+      "sha256": "ed126f61198d36a56e3dde91ad996e71de936fb1c6bbf7c210a8bb8a1be482d8",
+      "start": "0x31a008b0",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4cd35240",
+      "module": "sldarchiveu.dll",
+      "name": "??5@YAAEAVsu_CArchive@@AEAV0@AEAPEAVmoExtObject_c@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd354c0",
+      "module": "sldarchiveu.dll",
+      "name": "?getConfigurationToLoad@moExtObject_c@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd354c8",
+      "module": "sldarchiveu.dll",
+      "name": "?getConfigurationIDToLoad@moExtObject_c@@QEAAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd355e0",
+      "module": "sldarchiveu.dll",
+      "name": "??0moExtObjectList_c@@QEAA@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd355f0",
+      "module": "sldarchiveu.dll",
+      "name": "?setExtObjToIndex@moExtObjectList_c@@QEAAXPEAVmoExtObject_c@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd355f8",
+      "module": "sldarchiveu.dll",
+      "name": "?getExtObjFromIndex@moExtObjectList_c@@QEAAPEAVmoExtObject_c@@H@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd35728",
+      "module": "sldarchiveu.dll",
+      "name": "??0moExtObject_c@@QEAA@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@W4moObjectType_e@@PEBV12@_NPEAVmoFiledConcept_c@@PEAVsu_CTime@@PEAVmoModelHelper_c@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3db68",
+      "module": "swccu.dll",
+      "name": "?Find@su_CObList@@QEBAPEAU__POSITION@@PEAVCObject@@PEAU2@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x31a0e248",
+      "module": "SLDMFCU.dll",
+      "name": "??0suObList@@QEAA@H@Z",
+      "source_module": "sldarchiveu.dll"
+    },
+    {
+      "iat": "0x31a0e7f0",
+      "module": "swccu.dll",
+      "name": "?Lookup@su_CMapWordToPtr@@QEBAHGAEAPEAX@Z",
+      "source_module": "sldarchiveu.dll"
+    },
+    {
+      "iat": "0x31a0e7f8",
+      "module": "swccu.dll",
+      "name": "??0su_CMapWordToPtr@@QEAA@H@Z",
+      "source_module": "sldarchiveu.dll"
+    },
+    {
+      "iat": "0x31a0e510",
+      "module": "mfc140u.dll",
+      "name": "ordinal:2909",
+      "source_module": "sldarchiveu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 43,
+      "end_exclusive": "0x4c00fc38",
+      "module": "sldmodu.dll",
+      "name": "model installs actual per-model FR manager",
+      "sha256": "a57ba69d694c85715222604975bd0383dda080b0824bfb4bb17256ee072d4824",
+      "start": "0x4c00fc0d"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 38,
+      "end_exclusive": "0x4bb366df",
+      "module": "sldmodu.dll",
+      "name": "model FR manager keeps actual model and null list",
+      "sha256": "8210907d7ffd12f3ea64e8d62d418781a19596dfdd43acba28a262d055da9297",
+      "start": "0x4bb366b9"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 43,
+      "end_exclusive": "0x4b8814f8",
+      "module": "sldmodu.dll",
+      "name": "CMgr default constructor installs its distinct FR manager",
+      "sha256": "9d0cbf7afc8f50a39d2ae753a9328282bae2bc8c7514b3efa6efd9efc97f31eb",
+      "start": "0x4b8814cd"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 38,
+      "end_exclusive": "0x4bb3663f",
+      "module": "sldmodu.dll",
+      "name": "CMgr FR manager keeps actual CMgr and null list",
+      "sha256": "60393dcbb9b2f95a728d9e67acc79bfb68efae388d6b0bfa3949bc9118788c4e",
+      "start": "0x4bb36619"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 187,
+      "end_exclusive": "0x4c2200d8",
+      "module": "sldmodu.dll",
+      "name": "CMgr current load reads count then only shares actual incoming objects",
+      "sha256": "4d6a2f4b4d99593f944e7a14a0c62e42480d09d90547111ad5306d1a4e7babbe",
+      "start": "0x4c22001d"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 111,
+      "end_exclusive": "0x4bb37493",
+      "module": "sldmodu.dll",
+      "name": "actual model sharing reuses CMgr list or constructs fresh list",
+      "sha256": "4d1638ac6ae5d5be91cc9ce1112c24f26f8a9f7aa3677c7c125b72b741d12fba",
+      "start": "0x4bb37424"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 32,
+      "end_exclusive": "0x4bb37642",
+      "module": "sldmodu.dll",
+      "name": "shared local pointer appends and receives actual list index",
+      "sha256": "3d77f586fb744cd8efccc9d2a3747f38c393c7b5f6bf8b2ac5751d3e28ad8d55",
+      "start": "0x4bb37622"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 14,
+      "end_exclusive": "0x319fb0c1",
+      "module": "sldarchiveu.dll",
+      "name": "fresh external list maximum is minus one",
+      "sha256": "f170ff51762e8c00c5ffdd6c82ab33f6e3109bc21f00ad87e61df9f2b05ad575",
+      "start": "0x319fb0b3"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 40,
+      "end_exclusive": "0x319fb3f0",
+      "module": "sldarchiveu.dll",
+      "name": "new named external owner starts unindexed",
+      "sha256": "066bece5943fbb12422898461f14d1f0f378d0c5652eb071d03825c744038053",
+      "start": "0x319fb3c8"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 102,
+      "end_exclusive": "0x31a00200",
+      "module": "sldarchiveu.dll",
+      "name": "index lookup tests keyed map then actual f78 values",
+      "sha256": "f540a7cea85d53184f09dbbdfaf25f53e5eaaaa6a1845732e4aa56755b12e6e7",
+      "start": "0x31a0019a"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 80,
+      "end_exclusive": "0x4c6cdb56",
+      "module": "sldmodu.dll",
+      "name": "actual local canonicalization and indexed-owner choice",
+      "sha256": "9433011adb974310bde0f9bd384594cb338500665734bd3d6187a244c67442ce",
+      "start": "0x4c6cdb06"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 60,
+      "end_exclusive": "0x4c6cdb92",
+      "module": "sldmodu.dll",
+      "name": "actual missing-index fallback and mirror-normalization guards",
+      "sha256": "e22e6f5f2c326b4385fa14749251919bbf47962718c4005b12067b1993ae619a",
+      "start": "0x4c6cdb56"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 173,
+      "end_exclusive": "0x4bb375c6",
+      "module": "sldmodu.dll",
+      "name": "sharing separately compares configuration id and name",
+      "sha256": "80acee4acdccf2a318a52914a75f17910b0cf89cdcfbb9e4f72d537950d4aafc",
+      "start": "0x4bb37519"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent above",
+      "bytes": 117,
+      "end_exclusive": "0x319fc338",
+      "module": "sldarchiveu.dll",
+      "name": "ordinary equality compares type creation and runtime-name owners",
+      "sha256": "e37d374454960491ba3fc5e19a4cb30ee07220a61d7c5e4970b1d6d1da74ff59",
+      "start": "0x319fc2c3"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "file_version": "34.5.2.604",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 231512,
+      "exception_directory_bytes": 9000,
+      "exception_directory_rva": "0x37000",
+      "file_version": "34.5.2.604",
+      "machine": "0x8664",
+      "name": "sldarchiveu.dll",
+      "preferred_base": "0x319f0000",
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48"
+    }
+  ],
+  "native_table": {
+    "cmgr_current_load": "version>=0x959 reads count then shares each actual incoming external object; count0 runs no loop",
+    "cmgr_manager": "CMgr+4b0 created with actual CMgr at helper+10 and null list+20",
+    "fresh_index_allocation": "fresh list max=-1; local named owner index=-1; append then setExtObjToIndex increments max and writes0",
+    "indexed_lookup": "keyed lookup and actual f78 comparison; not positional list index",
+    "list_sharing": "model manager shares actual CMgr manager list when available; otherwise creates fresh list",
+    "model_manager": "model+aa0 created with actual model at helper+8 and null list+20"
+  },
+  "not_proved": {
+    "actual_native_run_observed": false,
+    "cache_acceptance": false,
+    "encoded_empty_list_implies_no_runtime_foreign_insertion": false,
+    "entire_interval_before_partition_repair_audited": false
+  },
+  "owner": "flag_ownership",
+  "precise_remaining_boundary": "Exclude or measure any runtime insertion of a non-equivalent owner at index0 between fresh manager setup/current empty incoming-list load and the actual repair call. Source-level encoded emptiness alone does not prove this lifetime property.",
+  "prior_packets_unchanged": {
+    "part_reload_delivery_sha256": "a2c7e6cf72b64cab7399b968a0b3e82a441ba4ce09ee1915a2b0a01d75d67c70",
+    "runtime_owner_delivery_sha256": "14da4045018de9fa59a39a84c91710841dfbcd24f5a30b7edcb1d90214d16d80"
+  },
+  "schema": "solidworks-local-owner-index-source-v1",
+  "task": "B04-SW2026-DOWNSTREAM-RUNTIME-OWNER",
+  "vendor_bytes_or_listings_distributed": false,
+  "vtable_cells": [
+    {
+      "cell": "0x4d1262e8",
+      "class": "moPart_c",
+      "module": "sldmodu.dll",
+      "slot": "0x1010",
+      "table": "0x4d1252d8",
+      "target": "0x4b286300"
+    },
+    {
+      "cell": "0x4d125770",
+      "class": "moPart_c",
+      "module": "sldmodu.dll",
+      "slot": "0x498",
+      "table": "0x4d1252d8",
+      "target": "0x4b27c910"
+    },
+    {
+      "cell": "0x4d126310",
+      "class": "moPart_c",
+      "module": "sldmodu.dll",
+      "slot": "0x1038",
+      "table": "0x4d1252d8",
+      "target": "0x4c020f20"
+    },
+    {
+      "cell": "0x4cec7be8",
+      "class": "moConfigurationMgr_c",
+      "module": "sldmodu.dll",
+      "slot": "0x1038",
+      "table": "0x4cec6bb0",
+      "target": "0x4b289530"
+    },
+    {
+      "cell": "0x31a103f8",
+      "class": "moExtObject_c",
+      "module": "sldarchiveu.dll",
+      "slot": "0xe0",
+      "table": "0x31a10318",
+      "target": "0x319fc210"
+    },
+    {
+      "cell": "0x31a103e8",
+      "class": "moExtObject_c",
+      "module": "sldarchiveu.dll",
+      "slot": "0xd0",
+      "table": "0x31a10318",
+      "target": "0x319f9500"
+    },
+    {
+      "cell": "0x31a103f0",
+      "class": "moExtObject_c",
+      "module": "sldarchiveu.dll",
+      "slot": "0xd8",
+      "table": "0x31a10318",
+      "target": "0x319ff810"
+    },
+    {
+      "cell": "0x31a103a8",
+      "class": "moExtObject_c",
+      "module": "sldarchiveu.dll",
+      "slot": "0x90",
+      "table": "0x31a10318",
+      "target": "0x31a008b0"
+    }
+  ]
+}
