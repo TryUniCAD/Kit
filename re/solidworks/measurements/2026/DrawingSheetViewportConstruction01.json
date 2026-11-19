@@ -1,0 +1,105 @@
+{
+  "default_exact_prior_candidate": true,
+  "expected_refusal_cases": {
+    "Depth": [
+      "ValueError: plain note drawing viewport requires planar pan and zoom"
+    ],
+    "Unknown": [
+      "ValueError: drawing viewport requires authored pan and zoom"
+    ],
+    "ZeroZoom": [
+      "ValueError: view scale must be positive"
+    ]
+  },
+  "expected_refusals": 3,
+  "fresh_workers": 6,
+  "guarded_generated_recipes": 3,
+  "job_sha256": "6d6750ac570b3b52f17332941b8608fc5bf2c92ecdc13ca13bb4a9af10eb4bf4",
+  "native_processes": 0,
+  "non_definition_streams_byte_identical": 6,
+  "outputs": {
+    "Default": {
+      "container_bytes": 6107,
+      "container_sha256": "c2084be7ae0982aaf9340785e9cd64e59255dff3ac2716a3e242ca811f4eca8e",
+      "definition_length": 26810,
+      "definition_reemit_exact": true,
+      "intent_sha256": "1697fa59813ec16acd89e61066e6037aa77e01c89905f7a11fda0df368bbd950",
+      "logical_streams": {
+        "Contents/Definition": "a2afbcfde542287fafd4f8b685ef6b7d42969d5f25590df26d14b462ffeb89ed",
+        "Header2": "b6a6bc92ec15936e1b523f38ccab68aa4125fa6e21f110f89f224379973cf13a",
+        "ModelStamps": "0235f94a472bafe0f2eb29c0e035d508434fbfeafdcfd274e25c6762d20c756e",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3996624db308be8c1246e5e99c9b7f93c9ac29e81ee182cecc236af8ab6337d7",
+        "docProps/ISolidWorksInformation.xml": "313a441d2e612b05eb8603b3ab1d255a37833d76c885cc7806e4807683ab5bf3",
+        "swXmlContents/KeyWords": "dcb800a5c03f5d1d2cb33328c15ec848e44c865a8990828a922af4e6cffd842b"
+      },
+      "map_counter": 169,
+      "native_qualified": false,
+      "output_operations": [
+        "output_write"
+      ],
+      "passed": true,
+      "public_output_qualified": false,
+      "runtime_input_reads": 0,
+      "schema": "kit.sw2026.sdk-plain-note-worker.v1",
+      "sdk_partial_note_visible": true
+    },
+    "PanA": {
+      "container_bytes": 6137,
+      "container_sha256": "f5c6d0f530bb360d9e1191c25b5d485d99ea2e08abb70702ae03796e3b6d10cc",
+      "definition_length": 26844,
+      "definition_reemit_exact": true,
+      "intent_sha256": "193f03b9f692fb47ed22030992919504700f23c57f228c82ccce550af7544450",
+      "logical_streams": {
+        "Contents/Definition": "597df75ffac1303501ac742f8ee4af0e2ac6514a3cd1d6387b3f1ff0c146d2da",
+        "Header2": "b6a6bc92ec15936e1b523f38ccab68aa4125fa6e21f110f89f224379973cf13a",
+        "ModelStamps": "0235f94a472bafe0f2eb29c0e035d508434fbfeafdcfd274e25c6762d20c756e",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3996624db308be8c1246e5e99c9b7f93c9ac29e81ee182cecc236af8ab6337d7",
+        "docProps/ISolidWorksInformation.xml": "313a441d2e612b05eb8603b3ab1d255a37833d76c885cc7806e4807683ab5bf3",
+        "swXmlContents/KeyWords": "dcb800a5c03f5d1d2cb33328c15ec848e44c865a8990828a922af4e6cffd842b"
+      },
+      "map_counter": 169,
+      "native_qualified": false,
+      "output_operations": [
+        "output_write"
+      ],
+      "passed": true,
+      "public_output_qualified": false,
+      "runtime_input_reads": 0,
+      "schema": "kit.sw2026.sdk-plain-note-worker.v1",
+      "sdk_partial_note_visible": true
+    },
+    "PanB": {
+      "container_bytes": 6133,
+      "container_sha256": "59769193ab51fb2d04f34bc0405495b8922c8393b617cbf6b76520c57e925f93",
+      "definition_length": 26844,
+      "definition_reemit_exact": true,
+      "intent_sha256": "3869541485c9c3a7fc283c862374488c95bb8b04a1b677d72ca9483d113ef62b",
+      "logical_streams": {
+        "Contents/Definition": "c045e553b1fd0962fd18796a7c8c37b1a1e6ff907ed58319593aaca73dd4f7ed",
+        "Header2": "b6a6bc92ec15936e1b523f38ccab68aa4125fa6e21f110f89f224379973cf13a",
+        "ModelStamps": "0235f94a472bafe0f2eb29c0e035d508434fbfeafdcfd274e25c6762d20c756e",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3996624db308be8c1246e5e99c9b7f93c9ac29e81ee182cecc236af8ab6337d7",
+        "docProps/ISolidWorksInformation.xml": "313a441d2e612b05eb8603b3ab1d255a37833d76c885cc7806e4807683ab5bf3",
+        "swXmlContents/KeyWords": "dcb800a5c03f5d1d2cb33328c15ec848e44c865a8990828a922af4e6cffd842b"
+      },
+      "map_counter": 169,
+      "native_qualified": false,
+      "output_operations": [
+        "output_write"
+      ],
+      "passed": true,
+      "public_output_qualified": false,
+      "runtime_input_reads": 0,
+      "schema": "kit.sw2026.sdk-plain-note-worker.v1",
+      "sdk_partial_note_visible": true
+    }
+  },
+  "proof_sha256": "06d50320607f936a42e7070a69010a2e285d22d3eec312ce98e63909b8d54eea",
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.drawing-sheet-viewport-construction-process.v1",
+  "source_rule_sha256": "120de8689b1bd51579eb180d0d7e57dbd202096c547be5d30598a1a09b6419ae",
+  "typed_definition_reemit_and_maps_exact": true
+}

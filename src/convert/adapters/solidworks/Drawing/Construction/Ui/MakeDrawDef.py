@@ -18,6 +18,9 @@ from convert.adapters.solidworks.Drawing.Construction.Model.DrawRootGraph import
 from convert.adapters.solidworks.Drawing.Definition.Emission.BlankGraph import (
     BlankGraph,
 )
+from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields import (
+    NeedConceptMap,
+)
 from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import KDrawClsid
 
 
@@ -57,6 +60,9 @@ def MakeDrawDef(
             "f16dc": 0,
         }
     )
+    SheetFields = SheetValue.SheetValue.FieldsValue
+    if SheetFields["has_f430"] == 1:
+        FieldsValue["faf0"] = dict(NeedConceptMap(SheetFields["f430"]))
     return BlankGraph(
         ArchiveNode(RuntimeClass("uiDrawingDoc_c", 1), FieldsValue),
         Settings.VersionValue,

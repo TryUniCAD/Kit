@@ -1,6 +1,8 @@
 from dataclasses import replace as ReplaceValue
 from typing import cast as CastValue
 
+from convert.adapters.solidworks.Archive.Views.MakeViewPair import MakeViewPair
+from convert.adapters.solidworks.Archive.Views.ViewInput import ViewInput
 from convert.adapters.solidworks.Drawing.Construction.Model.MakeDrawRoot import (
     MakeDrawRoot,
 )
@@ -32,7 +34,10 @@ from convert.adapters.solidworks.Drawing.Definition.PlainNotes.WritePlainNoteDef
 
 # a standalone note extends the same drawing model and container generation used for an empty sheet
 def MakePlainNoteFile(
-    InputValue: BlankDrawInput, *, DisplayGrid: bool = True
+    InputValue: BlankDrawInput,
+    *,
+    DisplayGrid: bool = True,
+    ViewValue: ViewInput | None = None,
 ) -> DrawingFile:
     CheckBlankInput(InputValue)
     if type(CastValue(object, DisplayGrid)) is not bool:
@@ -45,6 +50,13 @@ def MakePlainNoteFile(
         MakeBlankBuild(BlankValue, InputValue.OptionsValue),
         UseDrawingAnsi=InputValue.OptionsValue.StyleValue.StandardValue == 0,
     )
+    if ViewValue is not None:
+        OrientationValue, PanValue = MakeViewPair(ViewValue)
+        if OrientationValue["has_matrix"] or PanValue["f68"] != 0.0:
+            raise ValueError("plain note drawing viewport requires planar pan and zoom")
+        GraphValue.SheetValue.SheetValue.FieldsValue.update(
+            {"has_f430": 1, "f430": PanValue}
+        )
     PutPlainNoteMut(
         GraphValue,
         NoteValue,

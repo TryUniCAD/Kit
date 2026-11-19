@@ -10,6 +10,7 @@ from uuid import UUID
 
 from convert import open_document
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
+from convert.adapters.solidworks.Archive.Views.ViewInput import ViewInput
 from convert.adapters.solidworks.Core.DrawingWriting.MakeBlankWriteRecipe import MakeBlankWriteRecipe
 from convert.adapters.solidworks.Drawing.Construction.Notes.MakePlainNoteFile import MakePlainNoteFile
 from convert.adapters.solidworks.Drawing.Definition.Linked.ReadLinkedBody import ReadLinkedBody
@@ -65,6 +66,17 @@ def verify(value, record):
         or not rewritten.UsageValue.IsComplete
     ):
         raise ValueError("SDK note Definition did not retain exact bytes and archive maps")
+    requested = viewport(record)
+    model = raw.FieldsValue["model"]
+    paper = model.FieldsValue["f1430"].FieldsValue
+    if requested is not None:
+        if paper["has_f430"] != 1 or paper["f430"] != raw.FieldsValue["faf0"]:
+            raise ValueError("drawing viewport owner readback differs")
+        actual = paper["f430"]
+        known = (*requested.ShiftValues, requested.ScaleValue)
+        seen = tuple(actual[key] for key in ("f58", "f60", "f68", "f70"))
+        if actual["has_matrix"] or actual["f78"] or tuple(map(float.hex, seen)) != tuple(map(float.hex, known)):
+            raise ValueError("drawing viewport transform differs from the authored input")
     document = open_document(value.BytesValue, source_format="solidworks.slddrw", strict=False)
     sheet, = document.DrawingValue.Sheets
     annotation, = sheet.Notes or ()
@@ -79,6 +91,15 @@ def verify(value, record):
     ):
         raise ValueError("partial SDK note read changed authored drawing semantics")
     return maps.CounterValue
+
+
+def viewport(record):
+    raw = record.get("viewport")
+    if raw is None:
+        return None
+    if type(raw) is not dict or set(raw) != {"pan", "zoom"}:
+        raise ValueError("drawing viewport requires authored pan and zoom")
+    return ViewInput((1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0), tuple(raw["pan"]), raw["zoom"])
 
 
 def main():
@@ -107,7 +128,9 @@ def main():
     sys.addaudithook(guard.event)
     guard.active = True
     try:
-        value = MakePlainNoteFile(make_input(record), DisplayGrid=record.get("display_grid", True))
+        value = MakePlainNoteFile(
+            make_input(record), DisplayGrid=record.get("display_grid", True), ViewValue=viewport(record),
+        )
         with args.target.open("xb") as target:
             if target.write(value.BytesValue) != len(value.BytesValue):
                 raise OSError("short generated SDK note write")

@@ -119,7 +119,7 @@ def capture(author, path):
     return {"sha256": sha256(raw).hexdigest(), "bytes": len(raw), "width": width, "height": abs(height)}
 
 
-def phase(directory, source, expected, intent):
+def phase(directory, source, expected, intent, *, observe=None):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -143,10 +143,14 @@ def phase(directory, source, expected, intent):
             drawing = author.typed(model, "DrawingDoc")
             author.get(model, "GraphicsRedraw2")
             row["initial"] = drawing_state(author, drawing, intent)
+            if observe is not None:
+                row["initial_observation"] = observe(author)
             row["rebuild"] = bool(author.get(model, "ForceRebuild3", False))
             require(row["rebuild"], "presentation drawing rebuild failed")
             author.get(model, "GraphicsRedraw2")
             row["rebuilt"] = drawing_state(author, drawing, intent)
+            if observe is not None:
+                row["rebuilt_observation"] = observe(author)
             require(row["initial"] == row["rebuilt"], "note presentation changed on rebuild")
             row["bitmap"] = capture(author, directory / "Viewport.bmp")
             row["passed"] = True

@@ -1,0 +1,15 @@
+# Drawing sheet pan and zoom ownership
+
+Task `B04-SW2026-DRAWING-NOTES-C10`, root-owned oracle and integration, delivery PR #121. This construction component supplies the planar viewport on an ordinary unlinked drawing with one plain note. It uses the already validated [shared view input](ThroughAllSourceView2026.md) and typed drawing graph.
+
+The [native ledger](DrawingLastSheetViewport2026.json) binds exact SP05.2 images, six function spans and ten import cells. `moDrSheet::getLastOrientation` returns zero for an absent pointer at `+0x430` and copies the actual transform when present. The setter allocates then assigns that transform. The 2026 serializer writes one presence byte and the embedded transform when present. The current load uses the same owner. `uiDrawingView::updateToNewSheet` calls that getter and then `uiModelView::setPanZoomXform` at `0x3df62c6f` when the getter succeeds. The separate `+0x418` slot is the border profile and carries the profile operator. It is absent in all six inspected disclosed states.
+
+All five inspected states with an owned last orientation store the same transform in the active sheet and Definition UI `faf0`. Four native original and edited states retain the same installation pan and zoom. The generated first-save derivative owns an identity pan/zoom transform. The initial generated file has no sheet transform and keeps identity in UI `faf0`. These states come from the disclosed [typed field inventory](DrawingPlainNotePresentation2026.md).
+
+The internal constructor accepts optional typed planar `ViewInput`. Its orientation is identity and its shift is in the sheet plane. The shared factory derives the pan/zoom transform from authored translation and positive scale. The sheet owns one embedded value and the Definition UI owns a distinct copy. The default recipe retains its earlier exact bytes.
+
+The [guarded construction receipt](../measurements/2026/DrawingSheetViewportConstruction01.json) covers six fresh workers. Two independent pan/zoom choices grow Definition by 34 bytes each. The third positive reproduces the prior complete container exactly. All six other streams stay byte-identical and the Definition map counter stays 169. Both authored poses survive the complete typed Definition read and re-emit. Input file reads during generation are zero. Out-of-plane pan, zero zoom and unknown input fields refuse before output.
+
+The [readonly viewport observer](../../tooling/sw2026/drawing_notes/ObserveNoteViewportInput01.py) freezes the two authored poses, identity default and three native control phases at `b775d4b86642c2544e6a963278556ec48e5b8fbd432a759e13afb556b3fada52`. The recipe checks the actual camera and note geometry before and after rebuild. The construction check qualifies the archive fields. Rendered parity still requires its own native evidence.
+
+[Change entry](../../../Documentation/Changes/Solidworks/Construction/Drawings/SolidworksDrawingSheetViewport.md) · [Gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/SheetLastOrientationOwnsPanZoom.md)
