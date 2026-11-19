@@ -5,7 +5,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismAtom impo
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutput import (
     ColdOutput,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsLineState
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Checks.CheckBossState import (
+    CheckBossState,
+)
 from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
@@ -22,29 +24,4 @@ def CheckPrismBoss(
         ColdValue is not None and ColdValue.BossValue is OwnerValue.NodeValue,
         SelectedScope="stock" if SelectedStock else None,
     )
-    Fields = OwnerValue.NodeValue.FieldsValue
-    if (
-        OwnerValue.ModeValue != ModeValue
-        or OwnerValue.IsReversed
-        or OwnerValue.SecondValue is not None
-    ):
-        raise ValueError(f"cache free prism requires one forward {ModeValue} direction")
-    if (
-        Fields.get("f28") != 0x40000000 | 0x140
-        or Fields.get("f810") != -1
-        or Fields.get("f838") != 0.0
-    ):
-        raise ValueError("cache free prism requires its ordinary create boss mode")
-    if (
-        Fields.get("f538") is not None
-        or Fields.get("f6e0") is not None
-        or Fields.get("f758") is not None
-        or Fields.get("f7a0") != 0
-    ):
-        raise ValueError("cache free prism has additional extrusion geometry state")
-    if (
-        not IsLineState(Fields.get("f368"))
-        or not IsLineState(Fields.get("f388"))
-        or not IsLineState(Fields.get("f780"))
-    ):
-        raise ValueError("cache free prism has selected geometry or body references")
+    CheckBossState(OwnerValue.NodeValue)

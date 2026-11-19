@@ -1,0 +1,1079 @@
+{
+  "artifact_validation": {
+    "missing_links": 0,
+    "parsed_python_files": 20,
+    "resolved_relative_markdown_links": 262
+  },
+  "baseline_source_manifest_sha256": "f018d720af14874b62fd8fd3354099d46e3fe7abc11c88fd0a83ee2e8c3d7f63",
+  "counts": {
+    "legacy_document_byte_equal_pairs": 3,
+    "malformed_refusals": 12,
+    "neutral_input_processes": 7,
+    "original_refusals": 2,
+    "positive_circle_reads": 6,
+    "reader_processes": 26,
+    "total_processes": 33
+  },
+  "donor_scan": {
+    "exit_code": 0,
+    "recorded_payloads": 0,
+    "source_files": 4599
+  },
+  "hidden_inputs_read": 0,
+  "independent_replays": {
+    "equivalent_worker_results": 33,
+    "exact_frozen_process_report_sha256": "88e3f2b93c6b083481b87c38fc54ed0a314c6271ce93f32de400d2b4e53fab62",
+    "hidden_inputs_read": 0,
+    "integrated_process_report_sha256": "ff08252a8bce328fae0c65659be34ad4f29f2026c7c466f047a43ce721cc2270",
+    "integrated_source_manifest_sha256": "ad644ea6b28d994f159da2ef8fdd1c4bac7e1d95f67fb7b9b0eb7c40e25f98c4",
+    "passing_worker_processes_each": 33,
+    "positive_worker_import_only_source_read_counts": {
+      "frozen": 32,
+      "integrated": 16,
+      "workers": 6
+    }
+  },
+  "limits": [
+    "ordinary archive version 19000 with physically absent native geometry payload",
+    "one fixed-centre driving circle and one blind create boss on the complete ordinary system graph",
+    "Front Plane diameter forward or Top Plane radius reversed only",
+    "no assigned atom bodies modifiers equations alternate parameter values selected scope draft or nonordinary starts",
+    "neutral analytic topology ids are not native persistent face ids",
+    "no new VM native author or held-out measurements"
+  ],
+  "native_face_identity": false,
+  "native_processes_started": 0,
+  "native_vendor_acceptance_added": false,
+  "public_writer_bytes_unchanged": true,
+  "pyright_configuration_notices": [
+    "reportImplicitAbstractClass",
+    "reportIncompleteStubValue",
+    "reportUnsafeMultipleInheritance"
+  ],
+  "raw_process_sha256": "88e3f2b93c6b083481b87c38fc54ed0a314c6271ce93f32de400d2b4e53fab62",
+  "results": {
+    "Afterfront1": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 801.1061266653974,
+        "axis_direction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "axis_origin_mm": [
+          5.875,
+          -8.125,
+          0.0
+        ],
+        "diagnostics": [
+          {
+            "attributes": {
+              "axial_interval_mm": [
+                0.0,
+                13.625
+              ],
+              "boss_owner": {
+                "class": "moExtrusion_c",
+                "end": 15067,
+                "field_span": false,
+                "object_index": 172,
+                "offset": 8048,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "depth_owner": {
+                "class": "moLengthParameter_c",
+                "dimension_id": 21,
+                "dimension_index": 181,
+                "display_index": 177,
+                "end": 9189,
+                "field_span": false,
+                "handle_index": 179,
+                "object_index": 182,
+                "offset": 9146,
+                "slot": "f818.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "method": "typed_parametric_circular_boss",
+              "model_version": 19000,
+              "native_kernel_identity": false,
+              "profile_owner": {
+                "class": "moProfileFeature_c",
+                "end": 8048,
+                "field_span": false,
+                "object_index": 147,
+                "offset": 5086,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "radial_owner": {
+                "arc_handle_index": 157,
+                "class": "moLengthParameter_c",
+                "dimension_index": 153,
+                "display_index": 163,
+                "end": 5851,
+                "field_span": false,
+                "handle_index": 165,
+                "object_index": 155,
+                "offset": 5785,
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              }
+            },
+            "code": "sldprt.brep_reconstructed",
+            "message": "B-rep reconstructed from the complete typed circular boss history"
+          }
+        ],
+        "edges": 2,
+        "face_id": "sldprt:body:1-sweep-side-1-face",
+        "faces": 3,
+        "features": 19,
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "5f53f98109e1fb2709220106f8e3d34df65b385def53ec539c8891b682bda143",
+        "mutation": null,
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "parameters": 2,
+        "passed": true,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8348,
+        "public_writer_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "radius_mm": 6.375000000000001,
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "sketches": 1,
+        "solid_count": 1,
+        "source_module_reads": 32,
+        "surface_id": "sldprt:body:1-sweep-side-1-surface",
+        "variant": "front",
+        "vertices": 2,
+        "volume_mm3": 1739.5894367706817
+      },
+      "stdout_sha256": "06fbb063b25511636de3490609bd89d81b1f1e31a302dc2049375bd199b702a4"
+    },
+    "Afterfront2": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 801.1061266653974,
+        "axis_direction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "axis_origin_mm": [
+          5.875,
+          -8.125,
+          0.0
+        ],
+        "diagnostics": [
+          {
+            "attributes": {
+              "axial_interval_mm": [
+                0.0,
+                13.625
+              ],
+              "boss_owner": {
+                "class": "moExtrusion_c",
+                "end": 15067,
+                "field_span": false,
+                "object_index": 172,
+                "offset": 8048,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "depth_owner": {
+                "class": "moLengthParameter_c",
+                "dimension_id": 21,
+                "dimension_index": 181,
+                "display_index": 177,
+                "end": 9189,
+                "field_span": false,
+                "handle_index": 179,
+                "object_index": 182,
+                "offset": 9146,
+                "slot": "f818.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "method": "typed_parametric_circular_boss",
+              "model_version": 19000,
+              "native_kernel_identity": false,
+              "profile_owner": {
+                "class": "moProfileFeature_c",
+                "end": 8048,
+                "field_span": false,
+                "object_index": 147,
+                "offset": 5086,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "radial_owner": {
+                "arc_handle_index": 157,
+                "class": "moLengthParameter_c",
+                "dimension_index": 153,
+                "display_index": 163,
+                "end": 5851,
+                "field_span": false,
+                "handle_index": 165,
+                "object_index": 155,
+                "offset": 5785,
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              }
+            },
+            "code": "sldprt.brep_reconstructed",
+            "message": "B-rep reconstructed from the complete typed circular boss history"
+          }
+        ],
+        "edges": 2,
+        "face_id": "sldprt:body:1-sweep-side-1-face",
+        "faces": 3,
+        "features": 19,
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "5f53f98109e1fb2709220106f8e3d34df65b385def53ec539c8891b682bda143",
+        "mutation": null,
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "parameters": 2,
+        "passed": true,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8348,
+        "public_writer_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "radius_mm": 6.375000000000001,
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "sketches": 1,
+        "solid_count": 1,
+        "source_module_reads": 32,
+        "surface_id": "sldprt:body:1-sweep-side-1-surface",
+        "variant": "front",
+        "vertices": 2,
+        "volume_mm3": 1739.5894367706817
+      },
+      "stdout_sha256": "06fbb063b25511636de3490609bd89d81b1f1e31a302dc2049375bd199b702a4"
+    },
+    "Aftertop1": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 1406.0590620222818,
+        "axis_direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_origin_mm": [
+          -2.75,
+          -13.625,
+          -4.125
+        ],
+        "diagnostics": [
+          {
+            "attributes": {
+              "axial_interval_mm": [
+                -13.625,
+                0.0
+              ],
+              "boss_owner": {
+                "class": "moExtrusion_c",
+                "end": 15121,
+                "field_span": false,
+                "object_index": 172,
+                "offset": 8102,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "depth_owner": {
+                "class": "moLengthParameter_c",
+                "dimension_id": 21,
+                "dimension_index": 181,
+                "display_index": 177,
+                "end": 9243,
+                "field_span": false,
+                "handle_index": 179,
+                "object_index": 182,
+                "offset": 9200,
+                "slot": "f818.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "method": "typed_parametric_circular_boss",
+              "model_version": 19000,
+              "native_kernel_identity": false,
+              "profile_owner": {
+                "class": "moProfileFeature_c",
+                "end": 8102,
+                "field_span": false,
+                "object_index": 147,
+                "offset": 5086,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "radial_owner": {
+                "arc_handle_index": 157,
+                "class": "moLengthParameter_c",
+                "dimension_index": 153,
+                "display_index": 163,
+                "end": 5851,
+                "field_span": false,
+                "handle_index": 165,
+                "object_index": 155,
+                "offset": 5785,
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              }
+            },
+            "code": "sldprt.brep_reconstructed",
+            "message": "B-rep reconstructed from the complete typed circular boss history"
+          }
+        ],
+        "edges": 2,
+        "face_id": "sldprt:body:1-sweep-side-1-face",
+        "faces": 3,
+        "features": 19,
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "43e13e7423e45046b2bc3cfcaf9f04c894f70349dbffe89cc9463a8ce7c79290",
+        "mutation": null,
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "parameters": 2,
+        "passed": true,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8342,
+        "public_writer_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "radius_mm": 9.625,
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "sketches": 1,
+        "solid_count": 1,
+        "source_module_reads": 32,
+        "surface_id": "sldprt:body:1-sweep-side-1-surface",
+        "variant": "top",
+        "vertices": 2,
+        "volume_mm3": 3965.4078318390493
+      },
+      "stdout_sha256": "8b421bd95406ee805846b8e905f2b25233aff77d129fd12a08a885ba95b73096"
+    },
+    "Aftertop2": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 1406.0590620222818,
+        "axis_direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_origin_mm": [
+          -2.75,
+          -13.625,
+          -4.125
+        ],
+        "diagnostics": [
+          {
+            "attributes": {
+              "axial_interval_mm": [
+                -13.625,
+                0.0
+              ],
+              "boss_owner": {
+                "class": "moExtrusion_c",
+                "end": 15121,
+                "field_span": false,
+                "object_index": 172,
+                "offset": 8102,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "depth_owner": {
+                "class": "moLengthParameter_c",
+                "dimension_id": 21,
+                "dimension_index": 181,
+                "display_index": 177,
+                "end": 9243,
+                "field_span": false,
+                "handle_index": 179,
+                "object_index": 182,
+                "offset": 9200,
+                "slot": "f818.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "method": "typed_parametric_circular_boss",
+              "model_version": 19000,
+              "native_kernel_identity": false,
+              "profile_owner": {
+                "class": "moProfileFeature_c",
+                "end": 8102,
+                "field_span": false,
+                "object_index": 147,
+                "offset": 5086,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "radial_owner": {
+                "arc_handle_index": 157,
+                "class": "moLengthParameter_c",
+                "dimension_index": 153,
+                "display_index": 163,
+                "end": 5851,
+                "field_span": false,
+                "handle_index": 165,
+                "object_index": 155,
+                "offset": 5785,
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              }
+            },
+            "code": "sldprt.brep_reconstructed",
+            "message": "B-rep reconstructed from the complete typed circular boss history"
+          }
+        ],
+        "edges": 2,
+        "face_id": "sldprt:body:1-sweep-side-1-face",
+        "faces": 3,
+        "features": 19,
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "43e13e7423e45046b2bc3cfcaf9f04c894f70349dbffe89cc9463a8ce7c79290",
+        "mutation": null,
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "parameters": 2,
+        "passed": true,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8342,
+        "public_writer_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "radius_mm": 9.625,
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "sketches": 1,
+        "solid_count": 1,
+        "source_module_reads": 32,
+        "surface_id": "sldprt:body:1-sweep-side-1-surface",
+        "variant": "top",
+        "vertices": 2,
+        "volume_mm3": 3965.4078318390493
+      },
+      "stdout_sha256": "8b421bd95406ee805846b8e905f2b25233aff77d129fd12a08a885ba95b73096"
+    },
+    "Beforefront": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "5f53f98109e1fb2709220106f8e3d34df65b385def53ec539c8891b682bda143",
+        "mutation": null,
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8348,
+        "public_writer_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "typed_guard_failure": "cold circle route absent in baseline",
+        "variant": "front"
+      },
+      "stdout_sha256": "47713ac0660361db11fd900bc9e11c50ec1cab2f7bf90dfbf27229642e4dc79e"
+    },
+    "Beforetop": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "43e13e7423e45046b2bc3cfcaf9f04c894f70349dbffe89cc9463a8ce7c79290",
+        "mutation": null,
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8342,
+        "public_writer_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "typed_guard_failure": "cold circle route absent in baseline",
+        "variant": "top"
+      },
+      "stdout_sha256": "c1d5783fe5224ac1ce31a8ec6ed074cd1177ef3fe91b812d8aaf432dd3d15663"
+    },
+    "Compatpocketbaseline": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 7623.312027085858,
+        "document_sha256": "8af93fd10cdad8736710d52011dbfa54683109aff7638026129543efc2ae0ebe",
+        "edges": 14,
+        "faces": 8,
+        "generated_sha256": "a1425fb1f6aa1ea8b873a13ac537af9731ebebe97c6b3874181c76e5cb1273d8",
+        "hidden_inputs_read": 0,
+        "kind": "pocket",
+        "native_processes_started": 0,
+        "passed": true,
+        "runtime_data_file_reads": 0,
+        "solid_count": 1,
+        "vertices": 10,
+        "volume_mm3": 33238.87034447399
+      },
+      "stdout_sha256": "fc2a1b37ae2e3ddc3d7290329702e86e46c7b553bcbb146ae96cb44de8eb427c"
+    },
+    "Compatpocketcandidate": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 7623.312027085858,
+        "document_sha256": "8af93fd10cdad8736710d52011dbfa54683109aff7638026129543efc2ae0ebe",
+        "edges": 14,
+        "faces": 8,
+        "generated_sha256": "a1425fb1f6aa1ea8b873a13ac537af9731ebebe97c6b3874181c76e5cb1273d8",
+        "hidden_inputs_read": 0,
+        "kind": "pocket",
+        "native_processes_started": 0,
+        "passed": true,
+        "runtime_data_file_reads": 0,
+        "solid_count": 1,
+        "vertices": 10,
+        "volume_mm3": 33238.87034447399
+      },
+      "stdout_sha256": "fc2a1b37ae2e3ddc3d7290329702e86e46c7b553bcbb146ae96cb44de8eb427c"
+    },
+    "Compatprismbaseline": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 2341.8199999999997,
+        "document_sha256": "a4ef01446aa4570a5b971165a790b490ddd8d2d16f665c1a3b4df401748e8f50",
+        "edges": 12,
+        "faces": 6,
+        "generated_sha256": "c2e328fb169dedeba0b0a4f23c5bf70f7d0ad6abdb1a280d91801b6def21c9f6",
+        "hidden_inputs_read": 0,
+        "kind": "prism",
+        "native_processes_started": 0,
+        "passed": true,
+        "runtime_data_file_reads": 0,
+        "solid_count": 1,
+        "vertices": 8,
+        "volume_mm3": 6770.169000000001
+      },
+      "stdout_sha256": "890adb64b0f7713aebc1985d38c5a49f5a608920b17e0aea2aaf44d27b38c2bc"
+    },
+    "Compatprismcandidate": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 2341.8199999999997,
+        "document_sha256": "a4ef01446aa4570a5b971165a790b490ddd8d2d16f665c1a3b4df401748e8f50",
+        "edges": 12,
+        "faces": 6,
+        "generated_sha256": "c2e328fb169dedeba0b0a4f23c5bf70f7d0ad6abdb1a280d91801b6def21c9f6",
+        "hidden_inputs_read": 0,
+        "kind": "prism",
+        "native_processes_started": 0,
+        "passed": true,
+        "runtime_data_file_reads": 0,
+        "solid_count": 1,
+        "vertices": 8,
+        "volume_mm3": 6770.169000000001
+      },
+      "stdout_sha256": "890adb64b0f7713aebc1985d38c5a49f5a608920b17e0aea2aaf44d27b38c2bc"
+    },
+    "Compatrevolvebaseline": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 3928.474585991401,
+        "document_sha256": "e55110d196c8d44e75aae26d758e5b29eea570649a5ed99d7aa406bb2e6a4606",
+        "edges": 12,
+        "faces": 6,
+        "generated_sha256": "77edc3da0e5741854091eeeabf3ce70a28d24d2708498acd00b107ed2c0092ce",
+        "hidden_inputs_read": 0,
+        "kind": "revolve",
+        "native_processes_started": 0,
+        "passed": true,
+        "runtime_data_file_reads": 0,
+        "solid_count": 1,
+        "vertices": 8,
+        "volume_mm3": 13725.611609847067
+      },
+      "stdout_sha256": "9d45b1237bf6cdda594622654a290981c5d882ecf319dab8c784e30287303c17"
+    },
+    "Compatrevolvecandidate": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 3928.474585991401,
+        "document_sha256": "e55110d196c8d44e75aae26d758e5b29eea570649a5ed99d7aa406bb2e6a4606",
+        "edges": 12,
+        "faces": 6,
+        "generated_sha256": "77edc3da0e5741854091eeeabf3ce70a28d24d2708498acd00b107ed2c0092ce",
+        "hidden_inputs_read": 0,
+        "kind": "revolve",
+        "native_processes_started": 0,
+        "passed": true,
+        "runtime_data_file_reads": 0,
+        "solid_count": 1,
+        "vertices": 8,
+        "volume_mm3": 13725.611609847067
+      },
+      "stdout_sha256": "9d45b1237bf6cdda594622654a290981c5d882ecf319dab8c784e30287303c17"
+    },
+    "Editfront": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 1258.4663664631064,
+        "axis_direction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "axis_origin_mm": [
+          5.875,
+          -8.125,
+          0.0
+        ],
+        "diagnostics": [
+          {
+            "attributes": {
+              "axial_interval_mm": [
+                0.0,
+                19.306625
+              ],
+              "boss_owner": {
+                "class": "moExtrusion_c",
+                "end": 15067,
+                "field_span": false,
+                "object_index": 172,
+                "offset": 8048,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "depth_owner": {
+                "class": "moLengthParameter_c",
+                "dimension_id": 21,
+                "dimension_index": 181,
+                "display_index": 177,
+                "end": 9189,
+                "field_span": false,
+                "handle_index": 179,
+                "object_index": 182,
+                "offset": 9146,
+                "slot": "f818.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "method": "typed_parametric_circular_boss",
+              "model_version": 19000,
+              "native_kernel_identity": false,
+              "profile_owner": {
+                "class": "moProfileFeature_c",
+                "end": 8048,
+                "field_span": false,
+                "object_index": 147,
+                "offset": 5086,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "radial_owner": {
+                "arc_handle_index": 157,
+                "class": "moLengthParameter_c",
+                "dimension_index": 153,
+                "display_index": 163,
+                "end": 5851,
+                "field_span": false,
+                "handle_index": 165,
+                "object_index": 155,
+                "offset": 5785,
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              }
+            },
+            "code": "sldprt.brep_reconstructed",
+            "message": "B-rep reconstructed from the complete typed circular boss history"
+          }
+        ],
+        "edges": 2,
+        "face_id": "sldprt:body:1-sweep-side-1-face",
+        "faces": 3,
+        "features": 19,
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "7e5c8dbf1bec3a7abe6bd24aca9a97c96bb6ab28cd535abc1e975b2d427ac7b4",
+        "mutation": null,
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "d1f25312630f84c7fb6c74e59dcc7608d177b30ff841b552c29c7776905d3a3a",
+        "parameters": 2,
+        "passed": true,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8355,
+        "public_writer_payload_sha256": "d1f25312630f84c7fb6c74e59dcc7608d177b30ff841b552c29c7776905d3a3a",
+        "radius_mm": 7.477875,
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "sketches": 1,
+        "solid_count": 1,
+        "source_module_reads": 32,
+        "surface_id": "sldprt:body:1-sweep-side-1-surface",
+        "variant": "front",
+        "vertices": 2,
+        "volume_mm3": 3391.662552225514
+      },
+      "stdout_sha256": "75926e8805bf646544a407305d7476358784f38555db7679289b402aa62f8ab6"
+    },
+    "Edittop": {
+      "exit_code": 0,
+      "result": {
+        "area_mm2": 2170.4706456669323,
+        "axis_direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "axis_origin_mm": [
+          -2.75,
+          -19.306625,
+          -4.125
+        ],
+        "diagnostics": [
+          {
+            "attributes": {
+              "axial_interval_mm": [
+                -19.306625,
+                0.0
+              ],
+              "boss_owner": {
+                "class": "moExtrusion_c",
+                "end": 15121,
+                "field_span": false,
+                "object_index": 172,
+                "offset": 8102,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "depth_owner": {
+                "class": "moLengthParameter_c",
+                "dimension_id": 21,
+                "dimension_index": 181,
+                "display_index": 177,
+                "end": 9243,
+                "field_span": false,
+                "handle_index": 179,
+                "object_index": 182,
+                "offset": 9200,
+                "slot": "f818.f18",
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              },
+              "method": "typed_parametric_circular_boss",
+              "model_version": 19000,
+              "native_kernel_identity": false,
+              "profile_owner": {
+                "class": "moProfileFeature_c",
+                "end": 8102,
+                "field_span": false,
+                "object_index": 147,
+                "offset": 5086,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              "radial_owner": {
+                "arc_handle_index": 157,
+                "class": "moLengthParameter_c",
+                "dimension_index": 153,
+                "display_index": 163,
+                "end": 5851,
+                "field_span": false,
+                "handle_index": 165,
+                "object_index": 155,
+                "offset": 5785,
+                "stream": "Contents/Config-0-ResolvedFeatures",
+                "value_field": "f58"
+              }
+            },
+            "code": "sldprt.brep_reconstructed",
+            "message": "B-rep reconstructed from the complete typed circular boss history"
+          }
+        ],
+        "edges": 2,
+        "face_id": "sldprt:body:1-sweep-side-1-face",
+        "faces": 3,
+        "features": 19,
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "65769b4eef7a68c9a081052e0e40dcc2a3b589488b3396e84edb67d437034d87",
+        "mutation": null,
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "a66518f4fe461aa9c5b6bc5b7e06184d647d4fa1de6f1e1191a08b9e1a0ee410",
+        "parameters": 2,
+        "passed": true,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8366,
+        "public_writer_payload_sha256": "a66518f4fe461aa9c5b6bc5b7e06184d647d4fa1de6f1e1191a08b9e1a0ee410",
+        "radius_mm": 11.290124999999998,
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "sketches": 1,
+        "solid_count": 1,
+        "source_module_reads": 32,
+        "surface_id": "sldprt:body:1-sweep-side-1-surface",
+        "variant": "top",
+        "vertices": 2,
+        "volume_mm3": 7731.321519471385
+      },
+      "stdout_sha256": "aba94c266c8ec12d9f07f9c8ee9575441b68e30a693bedd9afc1fd80d4773dd9"
+    },
+    "Rejectfrontdraft": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "5f53f98109e1fb2709220106f8e3d34df65b385def53ec539c8891b682bda143",
+        "mutation": "draft",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "547b25614ffba842e8a3c189f97a6cbe8217b714e9b9bd577fd18c805dd5b6c6",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8348,
+        "public_writer_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "front"
+      },
+      "stdout_sha256": "814336191170a2f90d58ccee5b41c9fff5d0b4e345a643b8286bcf21233d7078"
+    },
+    "Rejectfrontextra-parent": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "5f53f98109e1fb2709220106f8e3d34df65b385def53ec539c8891b682bda143",
+        "mutation": "extra-parent",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "3e5803f3ef43af84a530750525f765e44ca69879a0c1a37d72e2d208810c0b4a",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8348,
+        "public_writer_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "front"
+      },
+      "stdout_sha256": "f8692839f76e221ca87078d9f34b5494f2ddb4e6c92b2f5b0b2fbb91e8348913"
+    },
+    "Rejectfrontinactive-length": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "5f53f98109e1fb2709220106f8e3d34df65b385def53ec539c8891b682bda143",
+        "mutation": "inactive-length",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "5d67e2cd27da4a7231ca0e70714c4fa18b6107efa8959effbef75d85875cd637",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8348,
+        "public_writer_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "front"
+      },
+      "stdout_sha256": "b7039b29ee4b130caa827e5b4ccfe6d679332653988137e003689449871f64c1"
+    },
+    "Rejectfrontradius": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "5f53f98109e1fb2709220106f8e3d34df65b385def53ec539c8891b682bda143",
+        "mutation": "radius",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "1e1cf42cf7060960e5fe7548e6f09a418b740157b909cbf4cd5e626cdb82f121",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8348,
+        "public_writer_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "front"
+      },
+      "stdout_sha256": "0bfaad255f15ad91c75022c92c834a699a204560594cc939d3528373e8cd0d8a"
+    },
+    "Rejectfrontscope": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "5f53f98109e1fb2709220106f8e3d34df65b385def53ec539c8891b682bda143",
+        "mutation": "scope",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "dc916419d0810e2061e6adb431ab89a444520c2208b53e147e4bdd5dfd4afade",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8348,
+        "public_writer_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "front"
+      },
+      "stdout_sha256": "c13bede317902d209c0a5876b85e5ad772efacdf8c6838b44946513f31c2c330"
+    },
+    "Rejectfrontsupport": {
+      "exit_code": 3,
+      "result": {
+        "error": "SOLIDWORKS principal plane reference frame disagrees",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "5f53f98109e1fb2709220106f8e3d34df65b385def53ec539c8891b682bda143",
+        "mutation": "support",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "5144fed627f247c38084c7972ca32217bbbba02cd547afcf8a8d044f97c6d660",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8348,
+        "public_writer_payload_sha256": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "front"
+      },
+      "stdout_sha256": "86849e6171d456027b1913d1187b0c392bcadb86ad6e80fd8db2ccec25ce2abc"
+    },
+    "Rejecttopdraft": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "43e13e7423e45046b2bc3cfcaf9f04c894f70349dbffe89cc9463a8ce7c79290",
+        "mutation": "draft",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "25879cd281eff77729288c71bf510c947687f3d5e85ea085c346e7f8a14ab6dd",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8342,
+        "public_writer_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "top"
+      },
+      "stdout_sha256": "f3c0e3fe4699c9ed88239ed9695f920e584ce2e1b57cc145c2beecbeb2a3449c"
+    },
+    "Rejecttopextra-parent": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "43e13e7423e45046b2bc3cfcaf9f04c894f70349dbffe89cc9463a8ce7c79290",
+        "mutation": "extra-parent",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "a995aefc93ed095262f7879643e2927767095802cdce0fc762d196bedfa7d825",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8342,
+        "public_writer_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "top"
+      },
+      "stdout_sha256": "5618ddd135751a6f0a15a92785c9159dfbbba84373179557fb15ae840182b72e"
+    },
+    "Rejecttopinactive-length": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "43e13e7423e45046b2bc3cfcaf9f04c894f70349dbffe89cc9463a8ce7c79290",
+        "mutation": "inactive-length",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "f5279f64675bc2fe8451896d6e3202152c9ad4412bb9ae523bfe9862ecc77218",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8342,
+        "public_writer_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "top"
+      },
+      "stdout_sha256": "f2df0c25c5a7b76ccd682b73de826dc09bc057293df19c95c3c2fef765082924"
+    },
+    "Rejecttopradius": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "43e13e7423e45046b2bc3cfcaf9f04c894f70349dbffe89cc9463a8ce7c79290",
+        "mutation": "radius",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "41c5db0c3496e32ee41b55574bf01943ccdc33e437d7628664be4591c977cb86",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8342,
+        "public_writer_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "top"
+      },
+      "stdout_sha256": "e4779d2465ba0f2a958fd250ab371b7f751b524ef89e9645081767a8758cf298"
+    },
+    "Rejecttopscope": {
+      "exit_code": 3,
+      "result": {
+        "error": "SLDPRT contains no readable Parasolid payload",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "43e13e7423e45046b2bc3cfcaf9f04c894f70349dbffe89cc9463a8ce7c79290",
+        "mutation": "scope",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "7cddb0607a6ac34085d0cbfc19cef8bac0e30968237cfd3ff7e95359a2c691bc",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8342,
+        "public_writer_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "top"
+      },
+      "stdout_sha256": "ec79a879d3a33ad4485fc9005f63c553154ab4cea6e4fe8a4c6e9f5a8cfc1122"
+    },
+    "Rejecttopsupport": {
+      "exit_code": 3,
+      "result": {
+        "error": "SOLIDWORKS principal plane reference frame disagrees",
+        "hidden_inputs_read": 0,
+        "input_document_sha256": "43e13e7423e45046b2bc3cfcaf9f04c894f70349dbffe89cc9463a8ce7c79290",
+        "mutation": "support",
+        "native_face_identity": false,
+        "native_processes_started": 0,
+        "observed_payload_sha256": "fae1686e6b39e15a97f30573122f150170722bbca77437cb70f8ea74ddfea1c0",
+        "passed": false,
+        "public_writer_format": "solidworks.sldprt",
+        "public_writer_payload_bytes": 8342,
+        "public_writer_payload_sha256": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+        "runtime_data_file_reads": 0,
+        "schema": "kit.sw2026.public-cold-circle-read-probe.v1",
+        "variant": "top"
+      },
+      "stdout_sha256": "6cd92731b0a08bf44f2783758dd5e0f8faaf8907675740286d6ec2773bd10e05"
+    }
+  },
+  "schema": "kit.sw2026.sdk-cold-circle-read.v1",
+  "source_before_sha256": "f9f7f990ac1f1b70a6a4ba1e20b2d9ce0586266d74459070981e41f5f99450db",
+  "source_unchanged": true,
+  "static_checks": {
+    "Black03": {
+      "exit_code": 0
+    },
+    "Mypy03": {
+      "exit_code": 0
+    },
+    "Pyright03": {
+      "exit_code": 0
+    },
+    "Ruff03": {
+      "exit_code": 0
+    },
+    "Steering03": {
+      "exit_code": 0
+    }
+  },
+  "static_source_files": 17,
+  "status": "passed_scoped_sdk_processes",
+  "tool_sha256": {
+    "ProbeColdCircleLegacy.py": "80966380eb9ba592da3ddd871dadfa925594aa1b6663f6e4a5c66e9466b05600",
+    "ProbeColdCircleRead.py": "05f1516b3a71b347d24c578f03a301e9a5b4799660c5a2e5c99ac4b3d09822a0",
+    "RunColdCircleRead.py": "2b8c84d9e2c38a804030267d522010d37e1e9708f1e34b8bbab77358db6bab02"
+  }
+}

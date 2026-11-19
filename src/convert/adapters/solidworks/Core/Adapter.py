@@ -172,6 +172,9 @@ from convert.adapters.solidworks.Core.TypedMates.WithTypedMates import WithTyped
 from convert.adapters.solidworks.Core.TypedMates.WithTypedFixed import WithTypedFixed
 from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import HasDrawingClsid
 from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Display.ReadGeomParts import (
+    ReadGeomParts,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadNoCache import (
     ReadNoCache,
 )
@@ -367,25 +370,7 @@ def ReadNativePart(
         Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
         BrepValue = TypedBrep(Payloads)
     else:
-        Payloads = ()
-        MethodValue = str(DerivedValue.EvidenceValue.get("method", ""))
-        Messages = {
-            "typed_parametric_blind_circular_pocket": "B-rep reconstructed from the typed rectangular boss and blind circular cut",
-            "typed_parametric_through_all_circular_cut": "B-rep reconstructed from the typed rectangular stock and through-all circular cut",
-            "typed_parametric_ordinary_revolve": "B-rep reconstructed from the typed rectangle, selected revolve axis and live angle",
-        }
-        PayloadDiags = (
-            DiagValue(
-                code="sldprt.brep_reconstructed",
-                message=Messages.get(
-                    MethodValue,
-                    "B-rep reconstructed from the complete typed ordinary rectangular prism history",
-                ),
-                severity=Severity.INFO,
-                attributes=FrozenMapping(DerivedValue.EvidenceValue),
-            ),
-        )
-        BrepValue = DerivedValue.BrepValue
+        Payloads, PayloadDiags, BrepValue = ReadGeomParts(DerivedValue)
     SolidOpIds = frozenset(
         (
             FeatureId(Operation.object_id)
@@ -393,13 +378,12 @@ def ReadNativePart(
             if Operation.kind != "surface"
         )
     )
-    FinalFeature = FinalBodyId(TimeValues, SolidOpIds)
     BodyFeature = SolidBody(Model.features)
     Bodies = (
         BodyValue(
             id="sldprt:body:1",
             name=BodyFeature.name if BodyFeature is not None else "Body 1",
-            final_feature_id=FinalFeature,
+            final_feature_id=FinalBodyId(TimeValues, SolidOpIds),
             topology=(
                 DerivedValue.TopologyValue
                 if DerivedValue is not None

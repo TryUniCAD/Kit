@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Circles.ReadCircleGeom import (
+    ReadCircleGeom,
+)
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import NativeModel
@@ -39,8 +42,14 @@ def ReadNoCache(
         ManagerValue = ReadCmgrMut(Archive.require("Contents/CMgr"), 19000)
         if ModelValue.TypedGraph.get("cut_body_dependency") is not None:
             return ReadPocketGeom(LinkValue, ManagerValue, ModelValue, BodyId)
-        if any(Feature.class_name == "moRevolution_c" for Feature in ModelValue.features):
+        if any(
+            Feature.class_name == "moRevolution_c" for Feature in ModelValue.features
+        ):
             return ReadRevGeom(LinkValue, ManagerValue, ModelValue, BodyId)
+        if any(
+            SketchValue.TypedCircle is not None for SketchValue in ModelValue.sketches
+        ):
+            return ReadCircleGeom(LinkValue, ManagerValue, ModelValue, BodyId)
         ColdValue = ReadColdOutput(LinkValue)
         Features = CheckPrismScope(LinkValue, ManagerValue, ModelValue, ColdValue)
         return BuildPrismGeom(
