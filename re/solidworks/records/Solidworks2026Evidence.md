@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Imported local body envelope](../measurements/2026/ImportedLocalBodyEnvelope01.json) | Two independent processes re-emit the body-free configuration partition and local-body envelope. The disclosed resolved atom and selected mark agree with the two separate owners. |
 | [Held-out signed Top-plane boxes](../measurements/2026/AttachedTopBoxHeldoutNative01.json) | Both original native source hashes precede the frozen writer. Four guarded builds and six fresh native processes pass, with 726 candidate comparisons through independent edits and eight saved variants reopened. |
 | [Imported base-body witness replay](../measurements/2026/ImportedBaseBodyWitnessReplay01.json) | Two independent processes re-emit all five linked streams exactly from the disclosed typed schema 1 witness. The suffix producer fields and kernel publication remain open. |
 | [Imported base-body source locks](../measurements/2026/ImportedBaseBodySourcesNative01.json) | Ten native phases pass, including four controls and two private source locks. The disclosed native shape retains its persistent imported feature and one solid. Its linked archive reaches the `moBaseBody_c` schema 1 owner. |

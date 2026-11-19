@@ -21,6 +21,7 @@ VERSION = "34.5.2.0604"
 OWN_TOOLS = ("RunImportedBodySources.py", "AuthorImportedBody.py")
 CONTROL_TOOLS = ("AuthorRectangleAnchors.py", "AuthorCurves.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py")
 DISCLOSED = {"face_center_m": (0.007, -0.011, 0.004), "size_m": (0.019, 0.027, 0.013)}
+COHORTS = ("disclosed", "sealed", "contrast")
 
 
 def private_destination(value):
@@ -65,7 +66,7 @@ def verify(job_path, expected):
     require(digest(job_path) == expected, "frozen source job changed")
     job = json.loads(job_path.read_bytes())
     tools = job_path.parent / "Tools"
-    require(job["schema"] == SCHEMA and job["cohort"] in ("disclosed", "sealed")
+    require(job["schema"] == SCHEMA and job["cohort"] in COHORTS
             and job["oracle_version"] == VERSION and job["oracle_sha256"] == ORACLE
             and job["control_sha256"] == CONTROL and re.fullmatch(r"[a-f0-9]{40}", job["source_revision"]),
             "source job profile differs")
@@ -81,6 +82,13 @@ def verify(job_path, expected):
 def cases(cohort):
     if cohort == "disclosed":
         return {"Disclosed": DISCLOSED}
+    if cohort == "contrast":
+        feature_name = "Transfer Δ17"
+        return {
+            "OtherShape": {"face_center_m": (-0.018, 0.021, -0.008), "size_m": (0.010, 0.039, 0.021)},
+            "RenamedFeature": DISCLOSED | {"feature_name": feature_name},
+            "RenamedBody": DISCLOSED | {"feature_name": feature_name, "body_name": "Casting Ω72"},
+        }
     require(os.name == "nt", "sample held-out inputs only inside the Windows guest")
 
     def metres(ranges):
@@ -238,6 +246,10 @@ def run(job_path, expected):
                 if job["cohort"] == "disclosed":
                     data = reopened["cold"]
                     status["disclosed_observation"] = {key: data[key] for key in ("feature", "body_count", "topology", "mass_si")}
+                if job["cohort"] == "contrast":
+                    data = reopened["cold"]
+                    status["sources"][name]["observed"] = {key: data[key] for key in
+                                                            ("feature", "body_name", "body_count", "topology", "mass_si")}
                 write_json(public, status)
         except Exception as error:
             status["failure"] = {"stage": status["stage"], "type": type(error).__name__}
@@ -266,6 +278,16 @@ def run(job_path, expected):
                         and len(identities) == len(status["phases"]) == 2 * len(private_cases) + 2
                         and not {"failure", "final_control_failure", "custody_failure"} & status.keys())
     status["heldout_sources_locked"] = len(private_cases) if status["passed"] and job["cohort"] == "sealed" else 0
+    if status["passed"] and job["cohort"] == "contrast":
+        try:
+            for name, result in status["sources"].items():
+                destination = job_path.parent / (name + ".SLDPRT")
+                require(not destination.exists(), "the disclosed contrast output already exists")
+                copyfile(root / name / "Source.SLDPRT", destination)
+                require(digest(destination) == result["source_sha256"], "the disclosed contrast copy changed")
+        except Exception as error:
+            status["passed"] = False
+            status["disclosed_copy_failure"] = type(error).__name__
     if status["passed"]:
         status["source_batch_locked_at_unix_s"] = time.time()
     status["stage"] = "source_batch_passed" if status["passed"] else "source_batch_failed"
@@ -281,7 +303,7 @@ def main():
     planning.add_argument("control", type=Path)
     planning.add_argument("destination", type=Path)
     planning.add_argument("--guest-private-root", required=True)
-    planning.add_argument("--cohort", choices=("disclosed", "sealed"), required=True)
+    planning.add_argument("--cohort", choices=COHORTS, required=True)
     planning.add_argument("--revision", required=True)
     native = modes.add_parser("run")
     native.add_argument("job", type=Path)

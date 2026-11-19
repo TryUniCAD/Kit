@@ -84,8 +84,20 @@ identifies the serialized `moBaseBody_c` schema 1 wrapper and its shared
 import serializer. Invoke `python3 -B ReplayImportedBaseBody.py DISCLOSED_SOURCE`
 with the exact disclosed hash to measure five byte-exact linked streams
 through the schema 1 archive trunk. The script reports hashes and measured
-field order. Its body, atom and partition ownership remain to be correlated.
-The two sealed sources remain private during that work.
+field order. The two sealed sources stay private.
+
+The [envelope probe](LocalBodyEnvelope.py) accepts the same disclosed source
+and re-emits the ordinary local-body record and the body-free configuration
+partition. The JSON records the separate stream hashes, resolved atom and
+selected mark. See the [storage record](../../../solidworks/records/ImportedBaseBody2026.md#separate-local-body-storage).
+
+Use `--cohort contrast` and a new guest-local root to author a translated
+box and two matched feature and body name variants. The variant source
+producer uses the same controls, hash checks and persistent geometry
+observer. A passing batch shares only those three disclosed source files
+and their checked public observations. The sealed cohort remains private.
+[Feature name API](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IFeature_members.html)
+· [Body name API](https://help.solidworks.com/2024/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IBody2~Name.html)
 
 The packet authors source fixtures through SOLIDWORKS. It records zero Kit
 writer outputs and zero native writer acceptance. The public conversion route

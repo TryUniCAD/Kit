@@ -111,7 +111,17 @@ class ImportedBodyAuthor(CurveAuthor):
         self.rec.flush()
         feature = self.get(part, "CreateFeatureFromBody3", solid, False, CHECK_BODY)
         require(feature is not None, "part did not create an imported feature")
-        return self.typed(feature, "Feature")
+        feature = self.typed(feature, "Feature")
+        if "feature_name" in case:
+            feature.Name = case["feature_name"]
+            self.rebuild()
+            require(self.get(feature, "Name") == case["feature_name"], "native feature rename did not persist")
+        if "body_name" in case:
+            body, = self.get(part, "GetBodies2", SOLID, False)
+            body = self.typed(body, "Body2")
+            body.Name = case["body_name"]
+            require(self.get(body, "Name") == case["body_name"], "native appearance body rename did not apply")
+        return feature
 
     def rebuild(self):
         require(bool(self.get(self.model, "ForceRebuild3", False)), "imported source did not rebuild")
@@ -120,6 +130,8 @@ class ImportedBodyAuthor(CurveAuthor):
         name = str(self.get(feature, "Name"))
         kind = str(self.get(feature, "GetTypeName2"))
         require(bool(name) and kind == IMPORTED, "native import is not a named BaseBody feature")
+        if "feature_name" in case:
+            require(name == case["feature_name"], "the authored feature name changed")
         tree = self.feature_tree(required_names=(name,))
         require([row["name"] for row in tree if row["type"] == IMPORTED] == [name],
                 "part must contain exactly one BaseBody feature")
@@ -130,6 +142,9 @@ class ImportedBodyAuthor(CurveAuthor):
         require(len(solids) == 1 and not self.get(part, "GetBodies2", SHEET, False),
                 "part must expose one solid and zero sheet bodies")
         body = self.typed(solids[0], "Body2")
+        body_name = str(self.get(body, "Name"))
+        if "body_name" in case:
+            require(body_name == case["body_name"], "the authored body name changed")
         topology, body_faces = self.body_topology(body, case, temporary=False)
         feature_faces = tuple(self.get(feature, "GetFaces") or ())
         require(len(feature_faces) == len(body_faces) == 6, "import face counts differ")
@@ -147,5 +162,5 @@ class ImportedBodyAuthor(CurveAuthor):
         for axis, (actual, expected) in enumerate(zip(mass["com"], target["com"], strict=True)):
             self.rec.close_number(f"box centre coordinate {axis}", actual, expected, absolute=1e-11)
         return {"feature": {"name": name, "type": kind, "native_id": int(self.get(feature, "GetID"))},
-                "body_name": str(self.get(body, "Name")), "body_count": 1, "topology": topology, "mass_si": mass,
+                "body_name": body_name, "body_count": 1, "topology": topology, "mass_si": mass,
                 "feature_faces": len(feature_faces), "oldest_owner_face_count": len(body_faces), "tree": tree}

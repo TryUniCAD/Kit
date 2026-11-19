@@ -86,8 +86,44 @@ counts are 107 and 180. The codec requires the exact disclosed source
 hash and the measured context. The
 [replay receipt](../measurements/2026/ImportedBaseBodyWitnessReplay01.json)
 records hashes and lengths for all five streams. Source classification
-for the four subclass fields, populated kernel attachment and the
-other version and mode branches remain open.
+for the four subclass fields and the other version and mode branches
+remain open.
+
+## Separate local body storage
+
+The active configuration partition in the disclosed file contains a
+single body-free WORLD and three empty rollback marks. The selected mark
+ID 7 equals the base feature's `moPMarkRecord_c` reference. The feature's
+`f498` row and resolved atom `f140` share identity 101. The atom fields
+`f130` and `f12c` both name native feature 26. Its tail word `f19c` is 6
+in this witness.
+
+The body geometry is in the root-level
+`Config-0-FeatureBodies/LocalBodies` stream. Its one group key is
+`Imported1` and matches the second resolved subclass text in the
+disclosed file. The embedded body uses bare
+`SCH_3701250_37102_13006` and is 6,298 bytes before compression.
+The compressed body record starts at byte 44 and fills the 3,050-byte
+local bodies stream after its ordinary framing.
+
+In the exact `sldmodu.dll` above, the write function at `0x4bb334b0`
+opens `LocalBodies`, emits the group count, and then writes each CString
+key and high and low DWORDs of its body count. The caller writes a body
+status word at `0x4bb3381d` after the atom identity check. The import's
+ordinary body has status zero. The body serializer at `0x4c254640`
+writes the version-gated invalid-body byte and calls the raw body writer.
+Its length backpatch at `0x4c254940` measures the bytes beginning
+after the length itself. The payload starts with the kernel selector
+emitted at `0x4c254879` and then the compressed kernel graph. The
+ordinary present Parasolid body uses zero for both bytes. The matched
+reader at `0x4bb32ea0` reads the group count, key and paired count words
+before calling the body loader at `0x4c253660`.
+
+Two [independent envelope probes](../measurements/2026/ImportedLocalBodyEnvelope01.json)
+reconstruct both streams byte-for-byte from their measured fields. The
+[local body storage gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/ImportedBodyOwnsLocalStorage.md)
+records the separate partition and payload locations. The native name
+contrast and fresh geometry generation remain separate tasks.
 
 The source protocol writes vendor-authored control and source files.
 The Kit writer, generated native fallback and public capability-loss
