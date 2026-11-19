@@ -1858,7 +1858,9 @@ def NativeSketchMut(
         constraints=tuple(Constraints),
         parameter_ids=tuple(ParamIds),
         closed_profile_entity_ids=ClosedProfile(EntityValues),
-        suppressed=not IsBoolValue(ObjValue, "Visibility", True),
+        suppressed=IsBoolValue(
+            ObjValue, "SourceSuppressed", IsBoolValue(ObjValue, "Suppressed")
+        ),
         attributes={
             "freecad": NativeObjectA(ObjValue),
             "fully_constrained": IsBoolValue(ObjValue, "FullyConstrained"),

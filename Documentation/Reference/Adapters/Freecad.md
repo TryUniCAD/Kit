@@ -52,6 +52,11 @@ The native reader maps object declarations, properties, sketches, and feature de
 The protocol tables identify recognized type families.
 A recognized type identifier does not prove complete reconstruction of every instance.
 
+A sketch can drive an active feature while its native `Visibility` is false.
+The reader retains visibility in the FreeCAD properties and reads sketch suppression from `SourceSuppressed` or `Suppressed`.
+When rebuilding an edited sketch record, the writer preserves an existing native visibility property.
+[Hidden sketch example and evidence](../../Gotchas/Conversion/Freecad/HiddenSketchesCanDriveActiveFeatures.md)
+
 | Component     | Responsibility                                    |
 | ------------- | ------------------------------------------------- |
 | `Archive.py`  | Archive resources and document representation     |

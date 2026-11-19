@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Native FreeCAD sketch visibility](../measurements/2026/FreecadSketchVisibility01.json) | All 171 paths still read strictly after correcting 318 sketch suppression states. The two disclosed Pad profiles retain their hidden display, active feature links and all 17 parameters each. |
 | [Through-all line presentation](../measurements/2026/ThroughAllLinePresentation01.json) | The shared SDK builds seven styles and 40 independent category-font owners from each of two disclosed sources. Two 101-process runs pass, including 63 refusals each. Six Definition and 29 CMgr frontiers remain for those sources. |
 | [Drawing camera restoration](../measurements/2026/DrawingSheetViewportNative01.json) | Six fresh native processes prove exact authored pan and zoom before and after rebuild. Both authored-camera generated drawings still match the pristine blank image. |
 | [Drawing rebuild clear queue](../measurements/2026/DrawingRebuildClearQueueNative01.json) | Sixteen stable snapshots in four fresh processes show a valid handler and empty clear queue before and after rebuild for the source and generated drawing. |

@@ -2785,8 +2785,9 @@ def PatchSketchMut(
         Constraints,
         ShapeProp("", "InternalShape"),
         ShapeProp(),
-        BoolProp("Visibility", not bool(Sketch.get("suppressed"))),
     ]
+    if not any(Value.get("name") == "Visibility" for Value in Properties):
+        Replacements.append(BoolProp("Visibility", not bool(Sketch.get("suppressed"))))
     if DiagnosticsProp is not None:
         Replacements.append(DiagnosticsProp)
     if not PreserveNative:

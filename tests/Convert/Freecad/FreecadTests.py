@@ -749,12 +749,14 @@ def NativeSketch() -> tuple[ET.Element, ...]:
 
 
 # this definition exists because focused behavior needs one stable owner
-def NativePart(BrepData: bytes | None = None) -> bytes:
+def NativePart(
+    BrepData: bytes | None = None, *, SketchState: tuple[ET.Element, ...] = ()
+) -> bytes:
     PlaneProperties = (
         NativeProp("Label", "App::PropertyString", "String", {"value": "XY"}),
         NativePlacement(),
     )
-    SketchProperties = NativeSketch()
+    SketchProperties = (*NativeSketch(), *SketchState)
     Profile = NativeProp(
         "Profile", "App::PropertyLinkSub", "LinkSub", {"value": "Sketch", "count": "0"}
     )
@@ -3464,6 +3466,33 @@ def TestSelfPart() -> None:
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     VerifyPartXml(RootValue)
+
+
+# a hidden profile still drives its pad while explicit suppression remains independent
+@Pytest.mark.parametrize("Suppression", (None, "Suppressed", "SourceSuppressed"))
+def TestSketchVisibility(Suppression: str | None) -> None:
+    State: tuple[ET.Element, ...] = (
+        NativeProp("Visibility", "App::PropertyBool", "Bool", {"value": "false"}),
+    )
+    if Suppression is not None:
+        State += (
+            NativeProp(Suppression, "App::PropertyBool", "Bool", {"value": "true"}),
+        )
+    Adapter = FreeCadAdapter()
+    Document = Adapter.read(NativePart(SketchState=State))
+    (SketchValue,) = Document.sketches
+    (FeatureValue,) = Document.feature_timeline
+    assert SketchValue.suppressed is (Suppression is not None)
+    assert FeatureValue.sketch_id == SketchValue.id
+    assert not FeatureValue.suppressed
+    Output = IoStream.BytesIO()
+    _ = Adapter.write(EditCircle(Document), Output)
+    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
+        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
+    Visibility = RootValue.find(
+        "./ObjectData/Object[@name='Sketch']/Properties/Property[@name='Visibility']/Bool"
+    )
+    assert Visibility is not None and Visibility.get("value") == "false"
 
 
 # this definition exists because focused behavior needs one stable owner
