@@ -1,0 +1,46 @@
+# Read scoreboard for pinned Fusion and SOLIDWORKS files
+
+`re/automation/ReadScoreboard.py` decodes the pinned native files in `re/automation/Corpus.json` and reports how completely each reader understands them. It covers 714 Fusion files, 58 SOLIDWORKS parts and 6 SOLIDWORKS assemblies. The scoreboard measures progress towards a complete read for both applications before writer work.
+
+## Behaviour
+
+For each file, the scoreboard reads the pinned Git blob, checks its SHA-256 and attempts a strict read. When strict reading refuses the file, it records the reason and reads again in partial mode. Read options match the Fusion census: B-rep and tessellation payloads are included.
+
+Each file row records:
+
+- the outcome: `decoded`, `rejected`, `reader_error` or `evidence_limit`;
+- the reader mode, `strict` or `partial`, and the strict refusal reason;
+- every unresolved item from `ReaderEvidence.reader_evidence`, except the permanent independent-source marker, grouped by reason and by area;
+- `fully_read`, which is true only when strict mode accepts the file and no unresolved item remains.
+
+An area is the feature, sketch or document collection at an item's path. SOLIDWORKS feature steps use their stored native type. Fusion native steps use the class name from `re/Fusion/Study/fusion-class-catalog.json`, or a class GUID prefix when the catalogue has no name.
+
+The summary for each application gives the totals, the areas that block the most files, unresolved reasons, strict refusals, diagnostics and the features seen. For Fusion, it also compares read modes with `re/automation/FusionOutcomes.json`.
+
+`ReaderEvidence.reader_evidence` accepts an optional keyword `limit` between 1 and 20,000,000 entries. The default is still 200,000, so the existing callers are unchanged. The scoreboard passes 10,000,000, because the pinned SOLIDWORKS assemblies need between 0.9 and 5.8 million entries.
+
+## Usage
+
+Run the command with Python 3.14 from the repository root. Use an output directory that does not exist yet.
+
+```shell
+uv run python re/automation/ReadScoreboard.py --output /tmp/KitReadScoreboard
+```
+
+Add `--asset PATH` one or more times to score only those pinned paths. Paths are compared after Unicode NFC normalisation. `--top` sets how many rows each Markdown table shows.
+
+The command writes `Scoreboard.json` with every file row and `Scoreboard.md` with the summary tables.
+
+## Limitations
+
+- Byte ownership is not measured. The reader evidence reports `byte_accounting: unavailable`, so `fully_read` is not the plan's complete byte-ownership criterion.
+- A fully read file is not semantic qualification, native acceptance or lossless conversion.
+- The largest assembly, `Engine Assy KF EDIT 2.SLDASM`, needs about 2.7 GB of memory and 19 seconds.
+- Fusion class names come from observed study semantics and can be incomplete.
+
+## Verification
+
+- `tests/Research/Census/ReadScoreboardTests.py` runs the command on a strict Fusion file, a partial Fusion file and a SOLIDWORKS part whose accented path is supplied in NFD form. It checks totals, read modes, area attribution, the SOLIDWORKS decode and the Markdown page. It also checks that a reused output directory and an unpinned path are refused. Both cases passed locally.
+- All 64 pinned SOLIDWORKS files were read with the default limit. Only the four assemblies exceeded it, with or without tessellation. Measured entries: `ENSAMBLE 3_IZQUIERDO.SLDASM` 896,894; `Cylinder Head Assy 1.SLDASM` 958,093; `Turbo Assy KF.SLDASM` 1,230,790; `Engine Assy KF EDIT 2.SLDASM` 5,828,609.
+- Scored alone with the raised limit, `ENSAMBLE 3_IZQUIERDO.SLDASM` decodes as a partial read.
+- The complete 778-file run has not been recorded yet. Its totals will be added to this entry when it runs.
