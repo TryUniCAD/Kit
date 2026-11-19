@@ -1,13 +1,16 @@
 # FreeCAD hidden sketches stay active
 
 The native FCStd reader preserves hidden sketches as active profile drivers when the source has no explicit suppression.
-`SourceSuppressed` takes precedence over `Suppressed` when both properties exist.
-When an archive edit rebuilds a native sketch record, Kit preserves the existing `Visibility` property.
-These behaviors apply on the ordinary strict read and write paths.
+A boolean `SourceSuppressed` property takes precedence over `Suppressed`.
+Kit writes explicit suppression edits to the native sketch record and retains the source visibility property.
 
-The integration case exercises hidden active profiles and both explicit suppression properties through an adapter read, parameter edit and archive write. [Integration case](../../../tests/Convert/Freecad/FreecadTests.py)
+Kit can restore an unchanged archive carried by an older version that interpreted visibility as suppression.
+The carried model and an independent parse of the archive must both match the stored semantic digest.
+The compatibility check follows the normal archive validation and external reference limits.
 
-A prior replay on the same adapter source files read 171 available paths and corrected 318 sketch states in 94 paths.
-The report records 144 integration passes and 10 skips from that research run. [FCStd replay](../../../re/solidworks/measurements/2026/FreecadSketchVisibility01.json)
+The integration cases cover suppression priority, driving diameter edits, and exact restoration of old carriers and linked profiles. [Integration cases](../../../tests/Convert/Freecad/FreecadTests.py)
 
-[Adapter guide](../../Reference/Adapters/Freecad.md) and [native property gotcha](../../Gotchas/Conversion/Freecad/HiddenSketchesCanDriveActiveFeatures.md)
+The initial reader correction was measured on 171 path reads, with 318 sketch states corrected in 94 paths.
+The earlier research run reported 144 integration passes and 10 skips and records the tested adapter hashes. [Initial replay](../../../re/solidworks/measurements/2026/FreecadSketchVisibility01.json)
+
+[Adapter guide](../../Reference/Adapters/Freecad.md), [visibility gotcha](../../Gotchas/Conversion/Freecad/HiddenSketchesCanDriveActiveFeatures.md), and [legacy replay digest gotcha](../../Gotchas/Conversion/Freecad/LegacySketchReplayDigests.md)

@@ -488,11 +488,14 @@ def UnchangedNative(DocValue: CadDocument) -> bytes | None:
         return None
     try:
         Reparsed = ReadNativeFcstd(DataValue, DocValue.source.path)
+        if SemanticDigest(Reparsed) == Expected:
+            return DataValue
+        LegacyDoc = ReadNativeFcstd(
+            DataValue, DocValue.source.path, LegacyVisibility=True
+        )
     except (NativeFreeCadError, OSError, TypeError, ValueError):
         return None
-    if SemanticDigest(Reparsed) != Expected:
-        return None
-    return DataValue
+    return DataValue if SemanticDigest(LegacyDoc) == Expected else None
 
 
 # this definition exists because focused behavior needs one stable owner

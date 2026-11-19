@@ -180,6 +180,7 @@ class OuterState:
     active: set[FilePath]
     FileCount: int
     TotalBytes: int
+    LegacyVisibility: bool = False
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1824,6 +1825,7 @@ def NativeSketchMut(
     PlaneTransforms: Mapping[str, Transform],
     Parameters: list[Parameter],
     Consumed: set[tuple[str, str]],
+    LegacyVisibility: bool,
 ) -> Sketch:
     SketchId = f"freecad:sketch:{ObjValue.name}"
     SupportName, SupportId = AddSupportMut(ObjValue, PlaneIds, Planes)
@@ -1858,8 +1860,12 @@ def NativeSketchMut(
         constraints=tuple(Constraints),
         parameter_ids=tuple(ParamIds),
         closed_profile_entity_ids=ClosedProfile(EntityValues),
-        suppressed=IsBoolValue(
-            ObjValue, "SourceSuppressed", IsBoolValue(ObjValue, "Suppressed")
+        suppressed=(
+            not IsBoolValue(ObjValue, "Visibility", True)
+            if LegacyVisibility
+            else IsBoolValue(
+                ObjValue, "SourceSuppressed", IsBoolValue(ObjValue, "Suppressed")
+            )
         ),
         attributes={
             "freecad": NativeObjectA(ObjValue),
@@ -1874,6 +1880,7 @@ def ParseSketchMut(
     Objects: tuple[NativeObject, ...],
     Parameters: list[Parameter],
     ConsumedExpressions: set[tuple[str, str]],
+    LegacyVisibility: bool,
 ) -> tuple[tuple[SupportPlane, ...], tuple[Sketch, ...]]:
     SupportTargets = {
         Target
@@ -1894,6 +1901,7 @@ def ParseSketchMut(
             PlaneTransforms,
             Parameters,
             ConsumedExpressions,
+            LegacyVisibility,
         )
         for ObjValue in Objects
         if ObjValue.type_id == SketchTypeId
@@ -3845,18 +3853,26 @@ def ReadNativeFcstd(
     *,
     StateValue: OuterState | None = None,
     OuterDepth: int = 0,
+    LegacyVisibility: bool = False,
 ) -> CadDoc:
     Native = LoadNative(DataValue)
     SourceFile = ResolvedSource(SourcePath)
     ActiveState = StateValue
     if ActiveState is None and SourceFile is not None:
-        ActiveState = OuterState(SourceFile.parent, {}, {SourceFile}, 1, len(DataValue))
+        ActiveState = OuterState(
+            SourceFile.parent, {}, {SourceFile}, 1, len(DataValue), LegacyVisibility
+        )
     ResolvedOuter, UnresolvedOuter = OuterDocsMut(
         Native, SourcePath, ActiveState, OuterDepth
     )
     Parameters: list[Param] = []
     Consumed: set[tuple[str, str]] = set()
-    SupportPlanes, Sketches = ParseSketchMut(Native.objects, Parameters, Consumed)
+    SupportPlanes, Sketches = ParseSketchMut(
+        Native.objects,
+        Parameters,
+        Consumed,
+        LegacyVisibility if ActiveState is None else ActiveState.LegacyVisibility,
+    )
     SketchIds = {
         ObjValue.name: f"freecad:sketch:{ObjValue.name}"
         for ObjValue in Native.objects
