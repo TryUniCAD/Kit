@@ -12,14 +12,14 @@ Hopper independently resolved seven exact procedure entries for the manager, rel
 
 | Owner and wire fields | Ownership on the measured width-to-depth sources |
 | --- | --- |
-| `moRelMgr_c.f58`, `f10` | Actual relation list and dimension-value cache. The list contains one relation. The separate cache is empty in both disclosed saves. |
-| `moRelation_c.f10`, `f18`, `f48` | Equation text, independent unsigned state flags and a signed long. Both saves store flags `0x0200` and a zero long. The bit 9 and long producer rules remain open. |
+| `moRelMgr_c.f58`, `f10`, `f150` | Actual relation list, dimension-value cache and automatic solve order. The list contains one relation. The separate cache is empty in both disclosed saves. The automatic-order getter and setter at `0x4b2a30b0` and `0x4b30fa30` access `f150`, present as one in both saves. |
+| `moRelation_c.f10`, `f18`, `f48` | Equation text, independent unsigned state flags and a signed long. Both saves store flags `0x0200` and a zero long. The native `buildRelElementLists` branch sets bit 9 at `0x4c344378` after creating the relation elements. The long producer rule remains open. |
 | `moRelation_c.f58`, `f60` | The left and right side nodes, in that order. |
 | `moRelation_c.f74`, `f08`, `f38`, `f88`, `f6c`, `f8c` | The ordered tail. The disclosed text is `uuUNDEFINED` and all five numeric values are zero. The native sketch-relation setter controls `f88` and also sets `f6c` when enabled. The design-table disabled getter reads `f8c`. Fresh-value rules for the full tail require further evidence. |
 | `moRelEquationSide_c.f10`, `f50`, `f58`, `f98`, `fa0` | Parsed element list, side text, two signed longs and a link back to the actual parent relation. The left side owns one dimension token. The right owns the equals operator, sketch dimension, divide operator and literal divisor. |
 | `moRelDimension_c.f30`, `f78`, `f80` | Dependency list, optional component reference, and the typed dimension wrapper. Both local dimension elements have empty dependencies and null component references. |
 | Element base `f08`, `f10`, `f14`, `f18`, `f1c` | Text, color, start and exclusive end offsets, and element type. The measured right-side offsets are relative to the side text after its leading space. |
-| `moDimRefWrapper_c.fb0`, `f58`, tail | Cached SI value, actual feature or sketch dimension handle, and shared reference metadata. Both caches match the independent native dimension values. The wrapper value at `f08` changes from 120 to 134 across the edit on both wrappers. Its fresh producer remains open. |
+| `moDimRefWrapper_c.fb0`, `f58`, tail | Cached SI value, actual feature or sketch dimension handle, and shared reference metadata. The dimension wrapper constructor at `0x4c307500` calls the real handle's `getValue(1)` for the cached value. The shared constructor sets fresh `f08` to 101 at `0x4c30839b`. Both saved wrappers follow the native document update stamp from 120 to 134 after editing. |
 
 The first two zero words in a local dimension element belong to different owners, the embedded empty dependency list and the null component-reference tag. The separate dimension-wrapper node follows them. Ordinary `su_CArchive` emits a null object tag as a 16-bit word.
 
@@ -34,3 +34,5 @@ python -B re/tooling/sw2026/equations/ReplayPartEquationConfig.py --disclosed-pa
 ```
 
 Two independent replays produce the same receipt. Seven configuration and construction regression cases also pass. Native output from neutral equations needs the fresh field rules, the shared neutral dimension graph and the sealed native edit lifecycle. [Replay receipt](../measurements/2026/PartEquationConfigReplay01.json)
+
+Add `--linked` to compare the resolved-feature streams. The existing decoder inherits each actual Config-0 object and uses `f658` from the separate typed CMgr. Both resolved streams replay the original bytes with base 193 and final counter 320. The original and edited streams account for 9,133 and 9,383 bytes. The linked measurement compares each pair of saved wrapper stamps with the actual native document update stamp. [Linked replay receipt](../measurements/2026/PartEquationConfigReplay02.json)

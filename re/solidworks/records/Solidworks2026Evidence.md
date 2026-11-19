@@ -6,6 +6,8 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Linked equation configuration and feature streams](../measurements/2026/PartEquationConfigReplay02.json) | Both disclosed saves preserve all 83,664 bytes across both streams and the actual inherited maps. The two cached dimension wrappers in each save match the native document update stamp. |
+| [Drawing scene-view retry](../measurements/2026/DrawingSceneViewRuntime01.json) | All four fresh processes and 16 independent memory snapshots pass. Eight stage and role matches identify the same actual engine and invalidation target, with each process's two role keys aliasing one view and engine. |
 | [Through-all configuration feature events](../measurements/2026/ThroughAllCmgrFeatureEvents01.json) | Independent 110-process replays preserve the two actual event owners and change only their intended fields. The CMgr frontier moves from 29 to 23 for both disclosed designs. |
 | [Disclosed FreeCAD rectangle owners](../measurements/2026/FcstdRectangleSourceOwners01.json) | Both 11-process replays retain all 17 parameters, 11 sketch constraints and both actual expression dependencies. Independent analytic solids match the full source topology. |
 | [Typed part equation Config-0](../measurements/2026/PartEquationConfigReplay01.json) | Both complete disclosed streams return all 65,148 bytes and their original maps. The equation sides keep the actual feature and sketch dimension handles and both cached SI values. |

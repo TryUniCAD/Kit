@@ -4,10 +4,13 @@ import json
 from pathlib import Path
 
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
+from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Config.ReadConfigMut import ReadConfigMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Resolved.ReadResolvedMut import ReadResolvedMut
+from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 
 VERSION = 19000
@@ -132,7 +135,55 @@ def signature(graph):
     )
 
 
-def verify_disclosed(packet, lock, observations, role):
+def verify_resolved(document, config_graph, relation, observed):
+    cmgr = ReadCmgrMut(document.Require("Contents/CMgr"), VERSION)
+    context = {
+        "cmgr_f658": cmgr.RootValue.FieldsValue["f658"],
+        "model_compressed_stream": 1,
+        "model_is_part": 1,
+    }
+    source = document.Require("Contents/Config-0-ResolvedFeatures")
+    resolved = ReadResolvedMut(source, VERSION, config_graph.MapValue, context)
+    rebuilt, written = WriteResolMut(
+        resolved.RootsValue,
+        resolved.ExtraFields,
+        VERSION,
+        config_graph.MapValue,
+        context,
+    )
+    require(rebuilt == source, "typed ResolvedFeatures is not byte-exact")
+    require(
+        signature(resolved) == signature(written),
+        "resolved writer changed map identity",
+    )
+    prefix = tuple(entry.EntryValue for entry in config_graph.MapValue.EntriesValue)
+    require(
+        all(
+            item.EntryValue is adopted
+            for adopted, item in zip(prefix, resolved.MapValue.EntriesValue)
+        ),
+        "resolved map replaced an inherited configuration object",
+    )
+    stamp = observed["update_stamp"]
+    wrapper_stamps = [
+        token["wrapper_f08"]
+        for side in relation["sides"]
+        for token in side["tokens"]
+        if "binding_class" in token
+    ]
+    require(wrapper_stamps == [stamp, stamp], "wrapper cache epoch differs")
+    return {
+        "config_map_seed": resolved.MapBase,
+        "resolved_map_counter": resolved.MapValue.CounterValue,
+        "resolved_bytes": len(source),
+        "resolved_sha256": digest(source),
+        "inherited_objects": len(prefix),
+        "native_update_stamp": stamp,
+        "byte_exact": True,
+    }
+
+
+def verify_disclosed(packet, lock, observations, role, linked):
     path = packet / "Disclosed" / "D02" / "Native" / (role + ".SLDPRT")
     saved = lock["source_files"][role]
     raw = path.read_bytes()
@@ -164,7 +215,7 @@ def verify_disclosed(packet, lock, observations, role):
     again = ReadConfigMut(returned, VERSION, header, PartRelations=True)
     require(signature(graph) == signature(again), "reopen changed archive map identity")
     require(digest(path.read_bytes()) == saved["sha256"], "disclosed input changed")
-    return {
+    result = {
         "source_sha256": saved["sha256"],
         "config_bytes": len(config),
         "config_sha256": digest(config),
@@ -174,6 +225,11 @@ def verify_disclosed(packet, lock, observations, role):
         "byte_exact": True,
         "relation": relation,
     }
+    if linked:
+        result["linked"] = verify_resolved(
+            document, graph, relation, observations[role]
+        )
+    return result
 
 
 def verify_control(packet):
@@ -202,6 +258,7 @@ def main():
     parser = ArgumentParser()
     parser.add_argument("--disclosed-packet", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--linked", action="store_true")
     args = parser.parse_args()
     require(not args.output.exists(), "use an unused receipt path")
     packet = args.disclosed_packet
@@ -214,7 +271,9 @@ def main():
         "native evidence differs",
     )
     cases = {
-        role: verify_disclosed(packet, lock, json.loads(native)["observed"], role)
+        role: verify_disclosed(
+            packet, lock, json.loads(native)["observed"], role, args.linked
+        )
         for role in ("Original", "Edited")
     }
     proof = {
@@ -228,6 +287,10 @@ def main():
         "native_oracle_starts": 0,
         "generated_native_files": 0,
     }
+    if args.linked:
+        proof["linked_resolved_bytes"] = sum(
+            row["linked"]["resolved_bytes"] for row in cases.values()
+        )
     with args.output.open("x", encoding="utf-8", newline="\n") as out:
         json.dump(proof, out, indent=2, sort_keys=True, allow_nan=False)
         out.write("\n")
