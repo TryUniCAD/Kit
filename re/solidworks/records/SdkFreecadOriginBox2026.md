@@ -173,3 +173,47 @@ ModelHeader and Header2 streams re-emit their original bytes. The two final
 maps have 111 and 301 slots. The [source receipt](../measurements/2026/AttachedTopBoxSourcesNative01.json)
 records the disclosed outcomes and opaque holdout hashes. This source run adds
 zero generated outputs or conversion credits.
+
+## Generated attached Top-plane boxes
+
+The shared builder projects each of the three disclosed F14c files under
+FreeCAD 0.21.2, 1.0.2 and 1.1.4. It uses the live XZ support and its
+resolved quarter-turn placement. It binds the two positive sketch
+lengths to the actual origin corner and the two adjacent endpoints.
+The positive third dimension drives a reversed blind boss. The
+projection retains the source names, attachment identity and literal
+file properties.
+
+Eleven guarded processes create three generated files with zero
+construction input reads. Every F14c case produces identical bytes
+in repeated builds and after its source geometry payloads are removed.
+The existing F14a Front-plane request produces identical results with
+the prior and revised shared builders. The three F14c files have 12
+streams each and span 10,189 to 10,557 bytes.
+
+Eight fresh SOLIDWORKS 2026 SP05.2 processes pass, including both
+guest-local controls. Each generated part opens with one solid and
+zero errors or warnings. The six candidate processes pass 1,089
+numeric comparisons. The independent Length, Width and Height edits
+reach 27, 36.9 and 15 mm. Separate native saves and fresh reopens
+retain the signed sketch, real Top-plane parent, external origin
+coincidence, three driving dimensions, body name, feature history
+and all measured source properties. Each reopened body has eight
+vertices, twelve edges and six faces. Its volume, area and centre of
+mass match the independently computed signed world placement.
+
+The strict SDK reconstructs the initial boundary of each file from
+the typed feature graph. It recovers bounds of `(0, -10, 0)` to
+`(20, 0, 30)` mm, 6,000 mm³ and 2,200 mm². The history-only bounds
+have the same sign. Independent re-emission of six linked streams on
+each initial file gives 18 byte-exact comparisons. The
+[generated receipt](../measurements/2026/AttachedTopBoxGeneratedNative01.json)
+binds the three source hashes, guarded builds, native measurements,
+saves, and linked reads.
+
+The first generated packet reached a healthy geometric rebuild of the
+pristine control and failed to confirm that its process exited. It
+opened zero candidates. The accepted batch uses the same three generated
+files and a guest-local copy of the immutable control. Held-out source
+evaluation, public writer registration and original benchmark membership
+remain open.

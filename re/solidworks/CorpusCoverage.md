@@ -25,6 +25,14 @@ meets the same native lifecycle with the true driving radius and four lights. Bo
 The two initial and two native-saved files reproduce all 16 measured linked streams exactly.
 The held-out source bridge remains open and the FCStd conversion counts remain zero.
 
+The [generated attached Top-plane box trial](measurements/2026/AttachedTopBoxGeneratedNative01.json)
+derives three editable SOLIDWORKS parts from the disclosed F14c inputs
+under three FreeCAD releases. Eight native processes pass all 1,089 candidate
+comparisons through independent edits, native saves and fresh reopens.
+The initial files read strictly back to their signed geometry in Kit.
+Public writer registration, held-out acceptance and the original benchmark
+membership remain open. The trial adds zero benchmark conversion credits.
+
 The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
 preserve a live sketch-dimension dependency across edits, saves and fresh reopens.
 The original and edited guest-only inputs are locked before writer implementation.
