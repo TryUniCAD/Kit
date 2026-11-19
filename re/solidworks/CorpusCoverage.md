@@ -635,6 +635,9 @@ documents. An independent path-input pass matches the counts and resolves
 one external document link that the byte-input pass reports as unresolved.
 Benchmark membership, semantic equivalence and SOLIDWORKS output are
 separate checks. This census writes zero native files.
+
+The [public writer census](measurements/2026/PublicFcstdWriterCensus01.json) independently tests all 171 original paths for these 162 identities with strict geometry and their source path context. All reads succeed and every public write refuses before creating an output. A second complete replay reproduces all semantic results. The original 165-part and five-assembly roster remains unresolved.
+
 [Input mode behavior](../../Documentation/Gotchas/Conversion/Freecad/ByteInputsLackExternalReferenceOrigin.md)
 
 The [blind-pocket discovery](measurements/2026/GeneratedBlindPocketNative02.json)
