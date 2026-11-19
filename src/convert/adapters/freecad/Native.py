@@ -127,7 +127,8 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
-from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache, ReplayReadScope
+from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache
+from convert.adapters.freecad.Replay.ReplayReadScope import ReplayReadScope
 
 # this binding exists because shared behavior needs one stable value
 KMaxOuterDepth = 16

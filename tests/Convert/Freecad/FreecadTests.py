@@ -39,6 +39,7 @@ from convert.adapters.freecad.Adapter import (
     FilteredDoc,
     UnchangedNative,
 )
+from convert.adapters.freecad.Native import KMaxOuterDepth
 from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
 from convert.adapters.freecad.Replay.NativeIdentity import KReplaySketchAttr
 from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
@@ -3828,6 +3829,38 @@ def TestLinkedReads(
     assert len(tuple(Portable.with_suffix("").rglob("*.FCStd"))) == (
         len(Sources) - 1 + SharedChild
     )
+
+
+# replay requires an independent source graph that fits the native reference depth
+def TestReplayDepth(TmpPath: FilePath) -> None:
+    Sources = tuple(
+        TmpPath / f"linked{Index}.FCStd" for Index in range(KMaxOuterDepth + 1)
+    )
+    _ = Sources[-1].write_bytes(NativePart())
+    for Parent, Child in zip(Sources[:-1], Sources[1:], strict=True):
+        _ = Parent.write_bytes(NativeLinkOnly(Child.name))
+    Original = Sources[0].read_bytes()
+    Legacy = AnnotateOld(OpenDoc(Sources[0]))
+    Options = WriteOptions(values={"portable": False, "require_self_contained": False})
+    Adapter = FreeCadAdapter()
+    Output = IoStream.BytesIO()
+    Result = Adapter.write(Legacy, Output, Options)
+    assert Result.metadata["mode"] == "exact_native_roundtrip"
+    assert Output.getvalue() == Original
+    Added = TmpPath / "additional.FCStd"
+    _ = Added.write_bytes(NativePart())
+    _ = Sources[-1].write_bytes(NativeLinkOnly(Added.name))
+    Current = OpenDoc(Sources[0])
+    for _ in Sources[1:]:
+        Current = ReadLinkedChild(Current)[2]
+    assert any(
+        Item.code == "freecad.unresolved_external_documents"
+        for Item in Current.diagnostics
+    )
+    Output = IoStream.BytesIO()
+    Result = Adapter.write(Legacy, Output, Options)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
+    assert Output.getvalue() != Original
 
 
 # assembly component writes must also use independently verified carried sketch state
