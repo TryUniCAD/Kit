@@ -25,6 +25,10 @@ preserve a live sketch-dimension dependency across edits, saves and fresh reopen
 The original and edited guest-only inputs are locked before writer implementation.
 The FCStd counterpart still needs source dependency binding and generated acceptance.
 
+The [generated local equation reference trial](measurements/2026/WidthDepthLocalReferenceNative01.json)
+opens one disclosed part with a solid and an enabled width-to-depth equation.
+The rebuild after editing the width fails. The native held-outs stay sealed.
+
 Two [public SDK blank drawing cases](measurements/2026/SdkPublicBlankDrawingHeldout01.json)
 matched their pre-registration locked native sources through rebuild, scale
 edit, save and fresh reopen. The guarded builds use independently authored

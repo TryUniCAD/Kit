@@ -11,5 +11,7 @@ The current profile admits one local depth equal to half of the sketch width and
 
 Four guarded builds reproduce two ten-stream files with zero input reads after initialization.
 Both Config-0 and ResolvedFeatures round-trip exactly with their linked map.
-The [research record](../../../../../re/solidworks/records/PartEquationConfig2026.md#local-dimension-reference-handles) links the constructor evidence.
-Public equation writing and held-out acceptance remain open.
+One candidate opens and rebuilds with one solid and an enabled equation.
+The rebuild after the live width edit fails, and the recovery control passes.
+The [research record](../../../../../re/solidworks/records/PartEquationConfig2026.md#local-dimension-reference-handles) links the constructor and native evidence.
+The edit lifecycle, public equation writing and held-out acceptance remain open.

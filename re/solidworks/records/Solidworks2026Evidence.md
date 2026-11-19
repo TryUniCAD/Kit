@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Generated local equation references](../measurements/2026/WidthDepthLocalReferenceNative01.json) | Four guarded builds generate two ten-stream parts. One opens and rebuilds with a solid and the live equation. Its post-edit rebuild fails. A fresh recovery control passes. |
 | [Generated concentric edit and persistence](../measurements/2026/ConcentricPersistenceNative01.json) | Four fresh SP05.2 processes pass 140 numeric checks. The generated pair opens, preserves both authored occurrence names and live mate references, edits depth, saves both files and reopens at the edited depth. |
 | [Build-bound count and map re-verification](../measurements/2026/ReverificationCountOwners01.json) | Eight licensed images and all 1,000 signature entries match. Thirteen controls retain the measured framing. Five complete linked reads identify the actual configuration and history count owners. |
 | [Linked equation configuration and feature streams](../measurements/2026/PartEquationConfigReplay02.json) | Both disclosed saves preserve all 83,664 bytes across both streams and the actual inherited maps. The two cached dimension wrappers in each save match the native document update stamp. |
