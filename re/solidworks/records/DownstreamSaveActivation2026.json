@@ -1,0 +1,271 @@
+{
+  "acceptance": {
+    "application_usable": false,
+    "fresh_constructor_default": false,
+    "heldout": false,
+    "native_execution": false,
+    "selected_preference_measured": false,
+    "standalone_save_route": false,
+    "vendor_loadable": false
+  },
+  "complete_owners": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1732,
+      "end_exclusive": "0x49725e64",
+      "module": "slduiu.dll",
+      "name": "uiModelDoc_c::saveDocument",
+      "sha256": "95f4b2520be62beb3a4bda911b8b1b5ad49ecb37d1d0a105fa6e9bad3e6a93c8",
+      "start": "0x497257a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1732,
+          "end_exclusive": "0x49725e64",
+          "sha256": "95f4b2520be62beb3a4bda911b8b1b5ad49ecb37d1d0a105fa6e9bad3e6a93c8",
+          "start": "0x497257a0",
+          "unwind_rva": "0x1bb9c60"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 31,
+      "end_exclusive": "0x4a26dcaf",
+      "module": "slduiu.dll",
+      "name": "App_c setter slot0x558 bridge",
+      "sha256": "ef2391b1a03fe5a63d7805aea77b87679b48b1b9380ef870d598537dd4d6c086",
+      "start": "0x4a26dc90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 31,
+          "end_exclusive": "0x4a26dcaf",
+          "sha256": "ef2391b1a03fe5a63d7805aea77b87679b48b1b9380ef870d598537dd4d6c086",
+          "start": "0x4a26dc90",
+          "unwind_rva": "0x1ab4c00"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 136,
+      "end_exclusive": "0x4bdac8e8",
+      "module": "sldmodu.dll",
+      "name": "moConcept_c::hasFeatForMsgpack",
+      "sha256": "625b03181dc80b9eb46283fa4a21e78a97f819154f90cba5763e921e6aa1d603",
+      "start": "0x4bdac860",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 136,
+          "end_exclusive": "0x4bdac8e8",
+          "sha256": "625b03181dc80b9eb46283fa4a21e78a97f819154f90cba5763e921e6aa1d603",
+          "start": "0x4bdac860",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x45822327",
+      "module": "sldappu.dll",
+      "name": "CAmApp::setEnableDownstreamIds",
+      "sha256": "21919a67eefb64b2b9564afa69bf21901c20573037b64fde04baa7095edf1d80",
+      "start": "0x45822320",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x45813b87",
+      "module": "sldappu.dll",
+      "name": "CAmApp::isEnableDownstreamstreamIds",
+      "sha256": "cdb3a690322f05e332c109293d2aefceb4ba09fe2cccede754bcdf44ec0fa3e4",
+      "start": "0x45813b80",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 5089,
+      "end_exclusive": "0x457d5c81",
+      "module": "sldappu.dll",
+      "name": "refuted constructor candidate: exported CAmApp destructor",
+      "sha256": "0fd7e8dd33dd8d33ca110c3f60db8127990c3d25fabfebafa9088b22a811ed4b",
+      "start": "0x457d48a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 5089,
+          "end_exclusive": "0x457d5c81",
+          "sha256": "0fd7e8dd33dd8d33ca110c3f60db8127990c3d25fabfebafa9088b22a811ed4b",
+          "start": "0x457d48a0",
+          "unwind_rva": "0xc9e2b8"
+        }
+      ]
+    }
+  ],
+  "constructor_default": {
+    "broad_absence_claim": false,
+    "refuted_candidate": "0x457d48a0 is exactly exported ??1CAmApp@@UEAA@XZ, not a constructor; it cannot establish a fresh flag default",
+    "status": "not found"
+  },
+  "delivery_pr": 121,
+  "guard": {
+    "additional_scope": "the path is after earlier save checks; no claim every save reaches it",
+    "assigned_runtime_member": "i32+0x464",
+    "assigned_value": 1,
+    "conjunction_in_execution_order": [
+      "actual UI document virtual+0x1250 (isPartDoc) is nonzero",
+      "uiEnvironment_c::get()->getBOOL(RegKey_e(0x5f2),0) is nonzero",
+      "actual UI document virtual+0x1300 (getModel) returns nonnull",
+      "actual model moConcept_c::hasFeatForMsgpack() is true"
+    ],
+    "default_argument": "0 is getBOOL caller fallback, not a measured preference value",
+    "owner": "uiModelDoc_c::saveDocument(PCWSTR)",
+    "receiver": "am_GetApp() actual CAmApp",
+    "restoration": "this complete direct caller has no second selected setter call restoring0; transitive restoration is not closed",
+    "setting_identity": "numeric internal RegKey_e0x5f2 only; storage/resource/enum semantic name not yet bound",
+    "site": "0x49725bf1"
+  },
+  "has_feat_for_msgpack": {
+    "concrete_child_predicate_meanings": "not newly bound; no inference that an arbitrary ordinary part passes",
+    "list": "runtime+0x60, header count+0x18, head+0x08, node value+0x10 and next+0x00",
+    "receiver": "the actual model moConcept",
+    "result": "false for null/empty list; true when any direct child returns nonzero at virtual0x830 or0x5e8 or0xbe8 or0x838; false if traversal completes without such a child"
+  },
+  "instruction_windows": [
+    {
+      "bound": "reviewed instruction boundaries within exact complete saveDocument owner",
+      "bytes": 93,
+      "end_exclusive": "0x49725bf7",
+      "module": "slduiu.dll",
+      "name": "part/environment/model/feature guard and setter1",
+      "sha256": "83b1b2c52f720df1a4753a65703bbdf955fba843f17cd2af859936a8de46cfbc",
+      "start": "0x49725b9a"
+    },
+    {
+      "bound": "reviewed instruction boundaries within exact complete saveDocument owner",
+      "bytes": 12,
+      "end_exclusive": "0x49725c13",
+      "module": "slduiu.dll",
+      "name": "subsequent actual base-document save call",
+      "sha256": "7d58675c6df24975803ef021282fa4de441f48917790c75b2652b27f742d9533",
+      "start": "0x49725c07"
+    }
+  ],
+  "modules": [
+    {
+      "base": "0x453f0000",
+      "bytes": 16519768,
+      "machine": "0x8664",
+      "name": "sldappu.dll",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "base": "0x48ea0000",
+      "bytes": 36036696,
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  ],
+  "next_actual_save_call": {
+    "arguments": "actual UI document as RCX and original filename argument as RDX",
+    "callee_body_status": "not yet traced by this checkpoint",
+    "entry": "0x458e71f0",
+    "export": "?OnSaveDocument@uiBaseDoc_c@@MEAAHPEB_W@Z",
+    "iat": "0x4a468078",
+    "module": "sldappu.dll",
+    "ui_callsite": "0x49725c0d"
+  },
+  "owner": "/root/flag_ownership",
+  "prior_producer_files_unchanged": true,
+  "prior_producer_packet_sha256": "c23237dde0016a8787424381d29c39706bec5ad0b1fe14de085121b6d0388cbf",
+  "remaining": [
+    "bind CAmApp+0x464 constructor/initialization without treating destructor stores as defaults",
+    "bind internal setting0x5f2 identity without changing it",
+    "trace actual uiBaseDoc_c::OnSaveDocument route to selected file serializer",
+    "locate actual standalone configuration stream create/store, framing and context"
+  ],
+  "schema": "solidworks-downstream-save-activation-2026-v1",
+  "scoped_search": {
+    "images": [
+      "sldappu.dll",
+      "slduiu.dll",
+      "sldworks.exe",
+      "sldmfcu.dll",
+      "sldmodu.dll"
+    ],
+    "limits": "selected direct E8 and IAT call/tail forms only; virtual/aliased/inlined/ordinal paths remain open",
+    "manifest": "SetterRefs01.json private metadata",
+    "result": "only UI has selected named setter imports/call sites; two selected IAT sites are saveDocument and the actual virtual setter bridge; no direct same-image E8 call to setter was found in app .text"
+  },
+  "status": "conditional save-time activation statically bound; constructor default and actual standalone stream store remain open",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "task": "B04-SW2026-DOWNSTREAM-ID-DATA",
+  "ui_app_setter_slot": {
+    "pointer": {
+      "bound": "actual App_c slot0x558 pointer to0x4a26dc90",
+      "bytes": 8,
+      "end_exclusive": "0x4a7a99c0",
+      "sha256": "b640270fc0bb80c91bc391f386abb6d9452ff0a06d065a519689563fa33b2fe0",
+      "start": "0x4a7a99b8"
+    },
+    "slot": "0x558",
+    "table": "0x4a7a9460",
+    "target": "0x4a26dc90"
+  },
+  "ui_imports": [
+    {
+      "iat": "0x4a4653f0",
+      "module": "sldappu.dll",
+      "name": "?getBOOL@uiEnvironment_c@@QEBAHW4RegKey_e@SldSettingsUtils@@H@Z"
+    },
+    {
+      "iat": "0x4a4655e8",
+      "module": "sldappu.dll",
+      "name": "?am_GetApp@@YAPEAVCAmApp@@XZ"
+    },
+    {
+      "iat": "0x4a465668",
+      "module": "sldappu.dll",
+      "name": "?get@uiEnvironment_c@@SAPEAV1@XZ"
+    },
+    {
+      "iat": "0x4a467d58",
+      "module": "sldappu.dll",
+      "name": "?setEnableDownstreamIds@CAmApp@@QEAAXH@Z"
+    },
+    {
+      "iat": "0x4a468078",
+      "module": "sldappu.dll",
+      "name": "?OnSaveDocument@uiBaseDoc_c@@MEAAHPEB_W@Z"
+    },
+    {
+      "iat": "0x4a452970",
+      "module": "SLDMODU.dll",
+      "name": "?hasFeatForMsgpack@moConcept_c@@QEBA_NXZ"
+    }
+  ],
+  "verification": {
+    "method": "read-only pinned original PE and bounded LLVM",
+    "rea_hopper_opened": false,
+    "repo_or_git_mutations": false,
+    "saved_cad_or_hidden_inputs_read": false,
+    "tests_schema_codec_or_product_execution": false,
+    "vendor_bytes_or_listings_in_publication": false,
+    "vm_cad_com_preferences_or_license_actions": false
+  }
+}

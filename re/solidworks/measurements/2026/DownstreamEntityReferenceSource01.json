@@ -1,0 +1,21 @@
+{
+  "auxiliary_descriptors": 4,
+  "cad_inputs_read": 0,
+  "complete_function_entries": 35,
+  "full_native_admission_qualified": false,
+  "heldout_inputs_read": 0,
+  "materialized_sources_verified": 3,
+  "native_runs": 0,
+  "passed": true,
+  "record_sha256": "2c926fee75b0c597ba9140c1145be80d6cd1516cca2d3c65b317fb7b176f3165",
+  "runtime_descriptors": 6,
+  "schema": "kit.sw2026.downstream-entity-reference-source-verification.v1",
+  "sdk_product_runs": 0,
+  "serialize_cells": 6,
+  "source_intervals_verified": 53,
+  "source_pin_verification_only": true,
+  "tool_sha256": "bf1bcb5ed9fbdf7f7abc82ae1a0ba0338fa99b30e2df0be9a934838e4ef8ebc1",
+  "typed_imports_source_bound_by_module_hash": 32,
+  "vendor_bytes_or_listings_published": false,
+  "verified_modules": 4
+}

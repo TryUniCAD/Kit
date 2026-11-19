@@ -1,0 +1,104 @@
+from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
+
+from para.DownstreamIds import DownstreamIds, allocate_fresh_downstream, owned_solid_chains
+from para.rectangle.Allocate import Ref
+
+
+@dataclass(frozen=True)
+class EdgeIncidence:
+    edge: Ref
+    downstream_id: int
+    faces: tuple[Ref, Ref]
+    face_ids: tuple[int, int]
+    face_role_ids: tuple[tuple[int, int], tuple[int, int]]
+
+
+@dataclass(frozen=True)
+class PartCacheInputs:
+    allocation: DownstreamIds
+    incidence: tuple[EdgeIncidence, ...]
+
+
+def initial_prefix(offset_minutes):
+    if type(offset_minutes) is not int:
+        raise TypeError("the target calendar offset must be an integer number of minutes")
+    local = timezone(timedelta(minutes=offset_minutes))
+    sentinel = datetime(1990, 1, 1, tzinfo=local)
+    delta = sentinel - datetime(1970, 1, 1, tzinfo=timezone.utc)
+    return {
+        "f08": 1, "f0c": 19000, "f10": 2026306, "f14": 0, "f18": 0,
+        "f1c": 101, "f20": 101, "f28": delta.days * 86400 + delta.seconds,
+    }
+
+
+def topology_node(nodes, reference, kind):
+    node = nodes.get(reference)
+    if node is None or node.kind != kind:
+        raise ValueError("downstream incidence reaches an invalid topology kind")
+    return node
+
+
+def loop_fins(nodes, loop, face, fin_faces):
+    start = loop.fields["halfedge"]
+    if start in fin_faces:
+        raise ValueError("downstream incidence repeats a loop fin")
+    current = start
+    while current not in fin_faces:
+        fin = topology_node(nodes, current, 17)
+        following = topology_node(nodes, fin.fields["forward"], 17)
+        if fin.fields["loop"] != loop.ref or following.fields["backward"] != current:
+            raise ValueError("downstream fin ring has an invalid owner or backlink")
+        fin_faces[current] = face
+        current = following.ref
+    if current != start:
+        raise ValueError("downstream incidence enters a foreign fin ring")
+
+
+def face_incidence(nodes, faces):
+    fin_faces = {}
+    loops = set()
+    for face in faces:
+        current = face.fields["loop"]
+        while current:
+            loop = topology_node(nodes, current, 15)
+            if current in loops or loop.fields["face"] != face.ref:
+                raise ValueError("downstream face loop has an invalid or repeated owner")
+            loops.add(current)
+            loop_fins(nodes, loop, face.ref, fin_faces)
+            current = loop.fields["next"]
+    return fin_faces
+
+
+def prepare_part_cache_inputs(topology, owner, updated_at, subsecond_ticks):
+    faces, edges = owned_solid_chains(topology)
+    allocation = allocate_fresh_downstream(faces, edges, owner, updated_at, subsecond_ticks, is_assembly=False)
+    nodes = {node.ref: node for node in topology}
+    fin_faces = face_incidence(nodes, faces)
+    face_ids = dict(allocation.faces)
+    occurrences = set()
+    rows = []
+    for edge, (edge_ref, edge_id) in zip(edges, allocation.edges, strict=True):
+        first = topology_node(nodes, edge.fields["halfedge"], 17)
+        second = topology_node(nodes, first.fields["other"], 17)
+        if (first.ref == second.ref or second.fields["other"] != first.ref
+                or first.fields["edge"] != edge_ref or second.fields["edge"] != edge_ref
+                or first.ref not in fin_faces or second.ref not in fin_faces):
+            raise ValueError("downstream edge requires two linked fin owners")
+        first_face = fin_faces[first.ref]
+        second_face = fin_faces[second.ref]
+        curve = nodes.get(edge.fields.get("curve"))
+        if curve is None or curve.kind not in (30, 31) or curve.fields.get("owner") != edge_ref:
+            raise ValueError("downstream face roles require a line or circle curve owner")
+        sense = first.fields["sense"], second.fields["sense"]
+        if set(sense) != {"+", "-"}:
+            raise ValueError("downstream face roles require opposite fin senses")
+        ids = face_ids[first_face], face_ids[second_face]
+        left, right = ids if sense[0] == "+" else ids[::-1]
+        rows.append(EdgeIncidence(
+            edge_ref, edge_id, (first_face, second_face), ids, ((0, left), (1, right)),
+        ))
+        occurrences.update((first.ref, second.ref))
+    if occurrences != fin_faces.keys() or occurrences != {node.ref for node in topology if node.kind == 17}:
+        raise ValueError("downstream edge and face incidence covers different fins")
+    return PartCacheInputs(allocation, tuple(rows))

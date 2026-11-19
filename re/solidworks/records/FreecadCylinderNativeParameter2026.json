@@ -1,0 +1,351 @@
+{
+  "delivery_pr": 121,
+  "native_binding_output_sha256": "abbc72bcdda64242e395c5c57d71bc1d0f9a0310f397d14b5ead92e934e8c02f",
+  "native_bindings": {
+    "automatic_name": {
+      "format": "%s%d",
+      "format_address": "0x4cdf9d88",
+      "prefix": "D",
+      "prefix_address": "0x4d0457a8",
+      "prefix_pointer": "0x4db03700"
+    },
+    "circle_virtuals": {
+      "slots": {
+        "generate_name": "0x1e0",
+        "parameter_getter": "0xa0",
+        "set_parameter_name": "0x220",
+        "value_getter": "0x88",
+        "value_setter": "0x1b8"
+      },
+      "table": "0x4cf79588",
+      "targets": {
+        "generate_name": "0x4c820f20",
+        "parameter_getter": "0x4b284b80",
+        "set_parameter_name": "0x4c430bc0",
+        "value_getter": "0x4c81fc50",
+        "value_setter": "0x4c81fe00"
+      }
+    },
+    "custom_name_native_acceptance": false,
+    "generated_native_files": 0,
+    "heldout_inputs_read": 0,
+    "image": {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "format": "pe32-plus",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "imports": {
+      "0x4cd352a0": {
+        "module": "sldarchiveu.dll",
+        "symbol": "?getNewID@moHeader_c@@QEAAHXZ"
+      },
+      "0x4cd3d870": {
+        "module": "swccu.dll",
+        "symbol": "?IsStoring@su_CArchive@@QEBAHXZ"
+      },
+      "0x4cd3d878": {
+        "module": "swccu.dll",
+        "symbol": "?IsDBStream@su_CArchive@@QEBAHXZ"
+      },
+      "0x4cd3da28": {
+        "module": "swccu.dll",
+        "symbol": "??6@YAAEAVsu_CArchive@@AEAV0@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+      },
+      "0x4cd3da30": {
+        "module": "swccu.dll",
+        "symbol": "??5@YAAEAVsu_CArchive@@AEAV0@AEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+      }
+    },
+    "methods": {
+      "circle_dimension_constructor": {
+        "bytes": 67,
+        "end": "0x4c40ff03",
+        "file_offset": 19722944,
+        "rva": "0x12cfec0",
+        "sha256": "4752ad20c6751f99417d898d0865edd42adcdaca65fdc73503d651ed0cd7dc06",
+        "start": "0x4c40fec0"
+      },
+      "diameter_to_radius": {
+        "bytes": 113,
+        "end": "0x4c4311e1",
+        "file_offset": 19858800,
+        "rva": "0x12f1170",
+        "sha256": "af90bf6e617a7c5ffd72c368f3170179db40afcb0d5300093a05488a189ddeb3",
+        "start": "0x4c431170"
+      },
+      "dimension_parameter_name_setter": {
+        "bytes": 297,
+        "end": "0x4c821d69",
+        "file_offset": 23990336,
+        "rva": "0x16e1c40",
+        "sha256": "0e415a01819436714d3a891db3df28dc48fa5e99d3f7f110122343bb99f7d1dc",
+        "start": "0x4c821c40"
+      },
+      "dimension_value_getter": {
+        "bytes": 120,
+        "end": "0x4c81fcc8",
+        "file_offset": 23982160,
+        "rva": "0x16dfc50",
+        "sha256": "8d22f72a10a562de976ae62ed700209684367dd3d4b4b19c7f4a8b2fd87d5819",
+        "start": "0x4c81fc50"
+      },
+      "dimension_value_setter": {
+        "bytes": 1830,
+        "end": "0x4c820526",
+        "file_offset": 23982592,
+        "rva": "0x16dfe00",
+        "sha256": "ce31f2263e142b2844c66f79c5d09e7685ffe2cbc4febb47b92bef64d7411502",
+        "start": "0x4c81fe00"
+      },
+      "feature_parameter_auto_name": {
+        "bytes": 598,
+        "end": "0x4bea1656",
+        "file_offset": 14026752,
+        "rva": "0xd61400",
+        "sha256": "f5dbacfc0dd7e4b5f3ab00dcc9f405b4a2418f0579718cc1c1822afe711539c7",
+        "start": "0x4bea1400"
+      },
+      "generate_parameter_name": {
+        "bytes": 136,
+        "end": "0x4c820fa8",
+        "file_offset": 23986976,
+        "rva": "0x16e0f20",
+        "sha256": "ea388ce9e1011ab700de0337e756a58cfe8218510444cc1f3e676e9c97923be5",
+        "start": "0x4c820f20"
+      },
+      "length_value_setter": {
+        "bytes": 15,
+        "end": "0x4c19caef",
+        "file_offset": 17153760,
+        "rva": "0x105cae0",
+        "sha256": "5094784a68ffdb32ea85b16cf61522c107a8996d235de5c044ef61cb29b5d0e1",
+        "start": "0x4c19cae0"
+      },
+      "make_radial_dimension": {
+        "bytes": 530,
+        "end": "0x4c4cb882",
+        "file_offset": 20490864,
+        "rva": "0x138b670",
+        "sha256": "d927cd60080ad87d9b9e0108361f2b2b1727fa07335eb0b2d541175e3be70fde",
+        "start": "0x4c4cb670"
+      },
+      "node_lw_serializer": {
+        "bytes": 1098,
+        "end": "0x4c17b23a",
+        "file_offset": 17015280,
+        "rva": "0x103adf0",
+        "sha256": "5f5262d0f62d2bbcea73730a56fc2b7ea8bf8489a066d84df4b9902536553760",
+        "start": "0x4c17adf0"
+      },
+      "node_name_serializer": {
+        "bytes": 70,
+        "end": "0x4c179ce6",
+        "file_offset": 17010848,
+        "rva": "0x1039ca0",
+        "sha256": "5fd4eafd5bf772857118b0abdd768a6b2e41fcde82e41936b6fbbc8de660b46c",
+        "start": "0x4c179ca0"
+      },
+      "node_name_storage": {
+        "bytes": 138,
+        "end": "0x4b5552da",
+        "file_offset": 4277840,
+        "rva": "0x415250",
+        "sha256": "c39604d865d3fb8bf212aa1cd125b634bbe4e4feb30ddf7671131ba8b5a0ffd1",
+        "start": "0x4b555250"
+      },
+      "parameter_name_setter": {
+        "bytes": 103,
+        "end": "0x4c19ca17",
+        "file_offset": 17153456,
+        "rva": "0x105c9b0",
+        "sha256": "a2b861de02ee0d3bb4e235a5d2257ca2b507e81558ac3ad2406ecb08c5b4c48b",
+        "start": "0x4c19c9b0"
+      },
+      "parameter_serializer": {
+        "bytes": 821,
+        "end": "0x4c17a665",
+        "file_offset": 17012528,
+        "rva": "0x103a330",
+        "sha256": "b5068e261959921bd7f4555328fdc131333d73e732b60dbd52ac6220b531264f",
+        "start": "0x4c17a330"
+      },
+      "radius_to_diameter": {
+        "bytes": 113,
+        "end": "0x4c42f8c1",
+        "file_offset": 19852368,
+        "rva": "0x12ef850",
+        "sha256": "8905cb0bd33e14f269b2de1d4a440ab2bd113b6320b6d94bba4ba9893e0766e3",
+        "start": "0x4c42f850"
+      },
+      "secondary_node_flag_setter": {
+        "bytes": 14,
+        "end": "0x4c03ed7e",
+        "file_offset": 15720816,
+        "rva": "0xefed70",
+        "sha256": "f1fb8c9e8d3b09af1d9bdd1ac0f415c46f88f3dcb49c892625cb26aabaf34cb2",
+        "start": "0x4c03ed70"
+      },
+      "sketch_parameter_name_setter": {
+        "bytes": 449,
+        "end": "0x4c430d81",
+        "file_offset": 19857344,
+        "rva": "0x12f0bc0",
+        "sha256": "45af6eca1294f9034d5816c4396720e1dc80723549e493ac95f156392fcabc5b",
+        "start": "0x4c430bc0"
+      }
+    },
+    "mode_factors": {
+      "diameter_to_radius": 0.5,
+      "radius_to_diameter": 2.0
+    },
+    "native_processes_started": 0,
+    "node_name_serializer": {
+      "target": "0x4c179ca0",
+      "vendor_slot": 5,
+      "vtable": "0x4cd8ce98"
+    },
+    "passed": true,
+    "schema": "kit.sw2026.circle-native-parameter-bindings.v1",
+    "scope": "static exact-build bindings only; method semantics are independently recorded",
+    "target_execution": false
+  },
+  "native_qualification": {
+    "custom_name_edit_save_reopen": false,
+    "heldout_inputs_read": 0,
+    "new_native_files": 0,
+    "new_native_processes": 0,
+    "primitive_lowering": false
+  },
+  "open_fields": [
+    "all eleven additional primitive parameters",
+    "full source metadata and material owner",
+    "explicit derived support/sketch history",
+    "native custom name syntax and collisions",
+    "source-to-native full-name binding and independently locked source cases",
+    "parameter f48 alternate-name semantics are not a permitted shortcut"
+  ],
+  "owner": "/root/assembly_occurrence",
+  "pin_tool_sha256": "4cbfc909e97412bb0efdaad37f66c40477365ac7ec066d6a2f84ae338c69cd1e",
+  "rea_identity_evidence": {
+    "authority": "shipped-artifact",
+    "evidence_id": "ev_7fc3ecfa02cbbd7d6067ca5c370b778582e5ddc85ae1940285a50b90bfc6ceec",
+    "operation": "inspect_pe_resources",
+    "scope": "target-free identity and resource inventory, not function semantics"
+  },
+  "rules": [
+    {
+      "anchors": ["0x4c4cb723", "0x4c4cb75e", "0x4c40fed0", "0x4c40fee0"],
+      "automatic_full_circle": "equal endpoints select the diameter branch in the inspected ordinary path",
+      "confidence": "confirmed",
+      "diameter": {
+        "explicit_DirDistOption": 8,
+        "parameter_length": "2*r metres",
+        "type": 15
+      },
+      "id": "circle-mode",
+      "owner": "sgDim.f80 and Dimension_c.f28 -> moLengthParameter_c.f58",
+      "radius": {
+        "explicit_DirDistOption": 9,
+        "parameter_length": "r metres",
+        "type": 3
+      },
+      "scope": "constructor plus existing disclosed radius/diameter native observations"
+    },
+    {
+      "callbacks_and_general_equation_paths": "outside the confirmed operation bound",
+      "confidence": "partial",
+      "diameter_to_radius": {
+        "entry": "0x4c431170",
+        "factor": 0.5,
+        "from": 15,
+        "to": 3
+      },
+      "id": "mode-conversion",
+      "parameter_name": "no name replacement or allocation in the direct conversion bodies",
+      "parameter_owner": "the existing Dimension_c.f28, resolved by actual circle virtuals",
+      "radius_to_diameter": {
+        "entry": "0x4c42f850",
+        "factor": 2.0,
+        "from": 3,
+        "to": 15
+      },
+      "scope": "direct native body and ordinary double-parameter setter path, no new conversion runtime"
+    },
+    {
+      "anchors": ["0x4bea144b", "0x4bea1470", "0x4c820f20", "0x4bea15e4"],
+      "candidate_start": 1,
+      "collision_rule": "not generalized",
+      "confidence": "confirmed",
+      "first_name": "D1",
+      "id": "auto-name",
+      "prefix": "D",
+      "scope": "fresh first ordinary profile dimension; existing D1 observation plus static generator"
+    },
+    {
+      "arbitrary_name_native_lifecycle": "not measured",
+      "confidence": "confirmed",
+      "fixed_D1_wire_requirement": "refuted",
+      "id": "name-wire",
+      "parameter_name_object": "moNode_c.f18 -> moNodeName_c",
+      "runtime_name_object_offset": "0x18",
+      "runtime_text_offset": "0x08",
+      "scope": "native storage and ordinary name-object serializer only",
+      "serializer": "0x4c179ca0",
+      "setters": ["0x4c821c40", "0x4c19c9b0", "0x4b555250"],
+      "stored_text": "moNodeName_c.f08, UTF-16 CString"
+    },
+    {
+      "confidence": "confirmed",
+      "dimension_id_store": "0x4c821d11",
+      "header_allocation_call": "0x4c821d0b",
+      "id": "name-id-separation",
+      "id_owner": "Dimension_c.f50, not parameter node f08 or numeric name suffix",
+      "repeat_name_allocation": "existing nonnegative f50 bypasses this allocation branch",
+      "scope": "common dimension naming and already allocated dimension"
+    },
+    {
+      "compare_site": "0x4c19c9ee",
+      "confidence": "partial",
+      "equality_branch": "0x4c19c9f4",
+      "general_text_only_rename": "not qualified",
+      "id": "name-resource-side-effect",
+      "mask": "0x1",
+      "resource_id": "0x2e56",
+      "runtime_field": "0x2c",
+      "scope": "exact caller comparison and node-mask target; resolved resource text is unknown",
+      "set_flag_call": "0x4c19ca00",
+      "target": "0x4c03ed70",
+      "wire_field": "f2c"
+    }
+  ],
+  "schema": "kit.sw2026.freecad-cylinder-native-parameter-knowledge.v1",
+  "sdk_binding_receipt_sha256": "1667ce0156b2895279df05a936ef93803ac7fef4d89e9e99275ab7b12591e8b3",
+  "sdk_bindings": {
+    "current_checkout_matches": true,
+    "files_sha256": {
+      "src/convert/adapters/solidworks/Archive/Construction/Blind/BlindEndInput.py": "e20a663d8b7badda6390c24db0a24b669f0e4e6597d7ff94b5332ded242871e9",
+      "src/convert/adapters/solidworks/Archive/Construction/Blind/BossEndInput.py": "75d54cfd41ddf0791bcde2b751393c069c424b68359091bc232c573cdf1cf02e",
+      "src/convert/adapters/solidworks/Archive/Construction/Blind/SelectEndName.py": "c5fe36ab7edd93590d103c6dc5c810d266f1c489067eb58dc685b7effb8b8433",
+      "src/convert/adapters/solidworks/Archive/Construction/Circles/AddCircDimMut.py": "655fa1f43266d2f3e1e7075930d0ca87a3b14f6331b04cbae785c5d159d4aca3",
+      "src/convert/adapters/solidworks/Archive/Construction/Circles/MakeRadialVal.py": "b1e9f1d464ab5516563c2d2b39d3b535c9911d40f90660667f5d1b084f8db098",
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeLengthParam.py": "8d984f102329af727c101b1648d93aa4cf36c5c0b3e40519309ae57d56a1858a",
+      "src/convert/adapters/solidworks/Archive/Construction/Dimensions/ReadDriverName.py": "41a51ca8bf5ae2dea03795ebe70623179a454b7f6a991787b07f49e4cb882c96",
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitNodeMut.py": "708f80784822e9441494b8695bad17c49d63475dca6ccea2418381bcd545c42d",
+      "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartKeys.py": "a46ed808beb3458787570a6097d943bce73f55e52ab814c7f8c0e3c54f085c9c",
+      "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ReadCircParams.py": "3d08772039849575d4bc1441b4171211a21aa9c3c75fcc7070f9d5468b31e490",
+      "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeSketchKeys.py": "fc69eaebf5e4c03b370e147b943eb5921fcc247b28ad7ca1cc134ca161d911a4",
+      "src/convert/adapters/solidworks/Core/Preparation/Circle/CheckCircMode.py": "d6089afbd44f4c5d8c5b6eacf262cf4060cd070046b49ad5a08c1bc91f54adaf"
+    },
+    "full_sdk_code_manifest_sha256": "cf56b79d355d87863a445d57ca8886e4b6da8a95a124e1f7ac691319970858d9",
+    "sdk_base_revision": "47dd6ab67598eb7cdafe8b6595ba19ba2f7da355"
+  },
+  "static_analysis": {
+    "private_manifest01_sha256": "4927205b5f81298c369654dd721bd0d0f96a94b1af62c7da8fb561e2e66e3221",
+    "private_manifest02_sha256": "c2bea76b944ad23e279362255862cdd023de289af5e05f17ca2de0f196a25344",
+    "source": "original hash-bound PE, no target execution",
+    "tool": "Apple LLVM 21.0.0"
+  },
+  "status": "exact-build static binding; primitive writer and custom-name lifecycle remain unqualified",
+  "task": "B04-SW2026-FREECAD-CYLINDER"
+}

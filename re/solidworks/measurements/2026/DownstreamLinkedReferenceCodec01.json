@@ -1,0 +1,213 @@
+{
+  "archive_version": 19000,
+  "direct_body_unchanged_receipt_sha256": "c047dbae12d2bf80b80dc95082691e68ebe54bf3414f161c40cba816965a1e37",
+  "fresh_sdk_processes": 11,
+  "full_native_role_lifecycle_qualified": false,
+  "geometry_projection": [
+    {
+      "cache_emitted": false,
+      "constructor_time_words": {
+        "-480": 631180800,
+        "0": 631152000,
+        "330": 631132200
+      },
+      "edge_allocations": 12,
+      "face_allocations": 6,
+      "independent_incidence_checks": 24,
+      "independent_left_right_checks": 24,
+      "native_runs": 0,
+      "negative_refusals": {
+        "equal_fin_senses": "downstream face roles require opposite fin senses",
+        "invalid_backlink": "downstream fin ring has an invalid owner or backlink",
+        "invalid_loop_owner": "downstream face loop has an invalid or repeated owner",
+        "self_linked_edge": "downstream edge requires two linked fin owners"
+      },
+      "next_id": 19,
+      "partition_bytes": 3996,
+      "partition_sha256": "1607232f01344b670ba1d6988478351b3194f54eca6e8876f25fd15f8fe2d536",
+      "passed": true,
+      "profile": "prism",
+      "receipt_sha256": "4d26cffc6a90198ff519005f09769fac0e17cca491441a765844dad2ee969ae1",
+      "reversed_first_fin_checks": 12,
+      "runtime_io_attempts": 0,
+      "variant": 1
+    },
+    {
+      "cache_emitted": false,
+      "constructor_time_words": {
+        "-480": 631180800,
+        "0": 631152000,
+        "330": 631132200
+      },
+      "edge_allocations": 12,
+      "face_allocations": 6,
+      "independent_incidence_checks": 24,
+      "independent_left_right_checks": 24,
+      "native_runs": 0,
+      "negative_refusals": {
+        "equal_fin_senses": "downstream face roles require opposite fin senses",
+        "invalid_backlink": "downstream fin ring has an invalid owner or backlink",
+        "invalid_loop_owner": "downstream face loop has an invalid or repeated owner",
+        "self_linked_edge": "downstream edge requires two linked fin owners"
+      },
+      "next_id": 19,
+      "partition_bytes": 3994,
+      "partition_sha256": "489ae4fc4f71190261255676e26cd06585633a135e056aad29861abdde8b9bb4",
+      "passed": true,
+      "profile": "prism",
+      "receipt_sha256": "368f05b96b7aa4a28736e352cf4447b9e755e715b947d388cbd784b8c64c6229",
+      "reversed_first_fin_checks": 12,
+      "runtime_io_attempts": 0,
+      "variant": 2
+    },
+    {
+      "cache_emitted": false,
+      "constructor_time_words": {
+        "-480": 631180800,
+        "0": 631152000,
+        "330": 631132200
+      },
+      "edge_allocations": 2,
+      "face_allocations": 3,
+      "independent_incidence_checks": 4,
+      "independent_left_right_checks": 4,
+      "native_runs": 0,
+      "negative_refusals": {
+        "equal_fin_senses": "downstream face roles require opposite fin senses",
+        "invalid_backlink": "downstream fin ring has an invalid owner or backlink",
+        "invalid_loop_owner": "downstream face loop has an invalid or repeated owner",
+        "self_linked_edge": "downstream edge requires two linked fin owners"
+      },
+      "next_id": 6,
+      "partition_bytes": 1806,
+      "partition_sha256": "2348583e34958cb35886cfecfd1c24b49ea09115f58c4e4b49823f0b0ed8f68c",
+      "passed": true,
+      "profile": "cylinder",
+      "receipt_sha256": "475654f6cb4f9596bc5e29b53187973b6eb16fdeae53514b0cf3419bbe1125b9",
+      "reversed_first_fin_checks": 2,
+      "runtime_io_attempts": 0,
+      "variant": 1
+    },
+    {
+      "cache_emitted": false,
+      "constructor_time_words": {
+        "-480": 631180800,
+        "0": 631152000,
+        "330": 631132200
+      },
+      "edge_allocations": 2,
+      "face_allocations": 3,
+      "independent_incidence_checks": 4,
+      "independent_left_right_checks": 4,
+      "native_runs": 0,
+      "negative_refusals": {
+        "equal_fin_senses": "downstream face roles require opposite fin senses",
+        "invalid_backlink": "downstream fin ring has an invalid owner or backlink",
+        "invalid_loop_owner": "downstream face loop has an invalid or repeated owner",
+        "self_linked_edge": "downstream edge requires two linked fin owners"
+      },
+      "next_id": 6,
+      "partition_bytes": 1807,
+      "partition_sha256": "1962d64e15d491bc302295d3404da44eae87076d00d8be492e405fc99075b6b3",
+      "passed": true,
+      "profile": "cylinder",
+      "receipt_sha256": "dd21d8a49e0f8bdc1024a643d5bdd4b792c10957558cad5742c1195283a8578a",
+      "reversed_first_fin_checks": 2,
+      "runtime_io_attempts": 0,
+      "variant": 2
+    }
+  ],
+  "geometry_replay_identical_processes": 8,
+  "heldout_inputs_read": 0,
+  "independent_source_pin_receipt_sha256": "b2c66c34765fb3aa64737372a40af3ef16bdf32ad4ddfe25d92e8573f7262d28",
+  "left_right_profile": "ordinary paired-loop opposite-sense fins on an owned line or circle curve",
+  "native_cache_files_read": 0,
+  "oracle_build": "34.5.2.0604",
+  "orientation_source_receipt_sha256": "2f7118a0aa1d82a0f59c31b909f5028490c7281ba1bd4267f325a31ce71794fa",
+  "populated_native_cache_files_generated": 0,
+  "previous_tagged_partition_receipt_sha256": "0307e87097defe0c6bdc3cb6b94bf59d15ad2b05996ab24d05bdb36f7c8d44a4",
+  "projection_totals": {
+    "independent_incidence_checks": 56,
+    "independent_left_right_checks": 56,
+    "reversed_first_fin_checks": 28
+  },
+  "reference_replay": {
+    "drawing_context": {
+      "bytes": 1523,
+      "classes": [
+        "moCompCompositeEdge_c",
+        "moCompEdge_c",
+        "moCompFace_c",
+        "moCompSolidBody_c",
+        "moCompSurfaceBody_c",
+        "moCompVertex_c",
+        "moEdgeRef_c",
+        "moEndFaceSurfIdRep_c",
+        "moFaceRef_c",
+        "moFromSktEntSurfIdRep_c",
+        "moVertexRef_c"
+      ],
+      "counter": 23,
+      "map_slots": 22,
+      "sha256": "36d1ebbd7613dc7969aaf82c62d49225791c75626362bef62d26ff558ab305aa"
+    },
+    "drawing_tail_bytes": 32,
+    "independent_embedded_rows": 6,
+    "independent_match_rows": 2,
+    "native_cache_samples_read": 0,
+    "native_runs": 0,
+    "ordinary_part": {
+      "bytes": 1491,
+      "classes": [
+        "moCompCompositeEdge_c",
+        "moCompEdge_c",
+        "moCompFace_c",
+        "moCompSolidBody_c",
+        "moCompSurfaceBody_c",
+        "moCompVertex_c",
+        "moEdgeRef_c",
+        "moEndFaceSurfIdRep_c",
+        "moFaceRef_c",
+        "moFromSktEntSurfIdRep_c",
+        "moVertexRef_c"
+      ],
+      "counter": 23,
+      "map_slots": 22,
+      "sha256": "db30302f000bca9167c24a016ece8efe7d63deccbed50b12ce70eaa87094f932"
+    },
+    "passed": true,
+    "refusals": {
+      "bad_atom_count": "atom count disagrees with its identifier array",
+      "bad_entity_count": "entity reference count disagrees with the inline ID bodies",
+      "drawing_in_part_context": "ValueError",
+      "drawing_tail_in_part": "ff8 presence disagrees with the downstream serialization branch",
+      "foreign_component_reference": "component fe8 requires its declared downstream pointer kind",
+      "foreign_edge_link": "edge f190 requires its declared downstream pointer kind",
+      "foreign_vertex_reference": "entity reference f40 requires its declared downstream pointer kind",
+      "part_in_drawing_context": "ValueError",
+      "truncated_drawing": "ValueError"
+    },
+    "runtime_io_attempts": 0
+  },
+  "reference_replay_identical_processes": 2,
+  "reference_replay_stdout_sha256": "c19dddbd4401257ca65c15f77f4997ed7a2b8ec0f3e6397d5c898e463b67f463",
+  "schema": "kit.sw2026.linked-downstream-reference-codec.v1",
+  "source_sha256": {
+    "re/solidworks/records/DownstreamConstructorEnable2026.json": "64f030e71589b1a6c2a512700fbc8baf9e2e3014dc0649d6a9bb8faf11d00c80",
+    "re/solidworks/records/DownstreamDateAndEnable2026.json": "86c0af694b23adaa39557aae7fbbe6bea580f99c28eeabe8e9d8560e45c4d74d",
+    "re/solidworks/records/DownstreamEntityReferenceWire2026.json": "2c926fee75b0c597ba9140c1145be80d6cd1516cca2d3c65b317fb7b176f3165",
+    "re/solidworks/records/DownstreamFreshReferenceAssignments2026.json": "40c9215a5c71105ee20235d1f2da106c913e6fe1f0f69f1ad42c4d88150437a7",
+    "re/tooling/sw2026/downstream/Body.py": "7d0774e30eea9508f90f53845166597301b8690c8d004954b43268970c9570f7",
+    "re/tooling/sw2026/downstream/CacheInputs.py": "fbe4f93a0c6270dd94587d525f862f7018857f86fa5de97ba14aa7ba12ca429c",
+    "re/tooling/sw2026/downstream/CheckCacheInputs.py": "414aa9f3adb0e91320fc9febd2771e5f16296ad1531c65008a2135912d92e44b",
+    "re/tooling/sw2026/downstream/CheckReferences.py": "0ae619d50d60856c0163a8ad36f65d92a3fb8eff643376f15a27315dd6d2aa6d",
+    "re/tooling/sw2026/downstream/Components.py": "7c9212f5de5ebbc9a8412883be341c4b17651650eed5f7fb1c3ab52fcbf3cb59",
+    "re/tooling/sw2026/downstream/References.py": "c73f23e3aae09c12c42b5ec72b5466cd96ab76e0207ad4028c70dab8ffdacf0d",
+    "re/tooling/sw2026/drawing_edges/CheckDownstreamPartition.py": "461ed65ab2be27105b5895fbc1d1ed4a062d18852f36c4d72c7f353b0f2fb1d6",
+    "re/tooling/sw2026/para/DownstreamIds.py": "1923fdede42fe3bf4a2f2bdbb048fa474a702da7fdb108e96e206b23327ac043",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ComponentFields.py": "d6745d70a0e47a3d14b5b67780a13d9035df5cedaaeb7864ef7a74ded16e4d85",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/GeometryFields.py": "bafcdfabd20da21d6b343132136fad7628fc4dee46c3daf059581064702cc0c2",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ReferenceFields.py": "47970d7431a3ba87be3d0c95ab77c428c7acd1fc287cceb1c9e132711daafa48"
+  },
+  "vendor_runs": 0
+}

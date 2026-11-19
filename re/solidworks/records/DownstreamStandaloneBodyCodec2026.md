@@ -37,3 +37,5 @@ PYTHONPATH=src:.:re/tooling/sw2026 python -B -m downstream.CheckBody
 Two fresh SDK processes reproduce the 113-byte empty shape, 355-byte populated ANSI shape and 394-byte populated wide shape. They check independent scalar and text framing and preserve class slot 1, object slot 2 and five shared references to that object. Each repeats all three inputs under an audit hook that rejects runtime file opens, subprocess launches and socket connections. Eight invalid cases refuse.
 
 The populated cases exercise every counted section with synthetic rows. The component pointer rows use nulls and the shared identity object tests raw archive aliasing. Native cache reconstruction can discard nulls, normalize collections, clone identity values or destroy temporary read objects. The codec evidence applies to wire framing. A byte-exact replay of a disclosed saved stream, an actual standalone save invocation, a complete generative cache and linked drawing acceptance remain open.
+
+The linked profile now exercises nonnull component, entity and surface-ID objects in modeled part and drawing contexts. [Linked reference codec](DownstreamLinkedReferenceCodec2026.md)

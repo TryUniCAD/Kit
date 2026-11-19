@@ -6,6 +6,13 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Linked downstream reference codec](DownstreamLinkedReferenceCodec2026.md) | Two guarded SDK processes reproduce eleven concrete classes and 22 map slots in part and drawing contexts. Four fresh solids confirm 56 left/right role assignments and three constructor-time offsets. Native populated-cache lifecycles remain open. |
+| [Downstream direct entity references](DownstreamEntityReferenceWire2026.md) | Thirty-five native entries and 53 intervals bind the common reference, face, edge, vertex and embedded map fields. The mode-specific point and drawing identity fields now have explicit owners. |
+| [Downstream fresh reference assignment](DownstreamFreshReferenceAssignments2026.md) | Seventy source entries bind the constructed entity wrappers, adjacent-face role keys and orientation of ordinary paired fins. Conditional boundary roles and original native qualification remain open. |
+| [Downstream build code and enable owner](DownstreamDateAndEnable2026.md) | The source derives build code 2026306 from the exact embedded release metadata. The application slot reads a mutable state word. |
+| [Downstream save activation](DownstreamSaveActivation2026.md) | Six complete native owners bind the conditional UI part-save activation and its next base-document save call. |
+| [Cylinder native parameter bindings](FreecadCylinderNativeParameter2026.md) | Seventeen source ranges bind the shared named parameter and circle mode changes. Native custom-name lifecycle remains to be measured. |
+| [Cylinder English naming resource](FreecadCylinderNameResource2026.md) | The effective x64-facing framework view identifies the case-insensitive `Thickness` comparison and its flag update. Explicit `Radius` and `Height` fall outside that English-name branch. |
 | [Standalone downstream body codec](DownstreamStandaloneBodyCodec2026.md) | Two processes reproduce all 18 counted sections, ANSI and Unicode string frames and shared class/object identities. The pinned solid and surface body serializers share their wire fields. Saved-cache graph and native drawing replay remain open. |
 | [Standalone downstream archive map](DownstreamStandaloneMaps2026.md) | Four actual structured/zip, raw/compressed read routes create fresh maps. The first pointer operation reserves null slot zero. The standalone save dispatch remains open. |
 | [Downstream component bodies](DownstreamComponentWire2026.md) | Thirty-four complete source entries bind the selected component base, common entity reference, edge and vertex serializers. The drawing edge tail takes the actual kernel node ID on its live store path. Reached pointer graphs still need saved-cache replay. |
