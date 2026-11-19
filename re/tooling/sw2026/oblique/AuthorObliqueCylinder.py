@@ -20,6 +20,12 @@ class ObliqueAuthor(CurveAuthor):
         self.api = api
         self.predictions = predictions
 
+    def plane_arguments(self, key, value):
+        return angle_arguments(value)
+
+    def extrusion_arguments(self, case):
+        return boss_arguments(case)
+
     def declared_interface(self, value, name):
         require(value is not None, "null native interface " + name)
         iid = self.sw.pythoncom.MakeIID(self.api["interfaces"][name]["guid"])
@@ -306,12 +312,12 @@ class ObliqueAuthor(CurveAuthor):
         self.create_plane(
             NAMES["angle_a"],
             [(PRINCIPALS["right"], 0), (NAMES["hinge_a"], 1)],
-            angle_arguments(case["angle_a_rad"]),
+            self.plane_arguments("angle_a", case["angle_a_rad"]),
         )
         self.create_plane(
             NAMES["angle_b"],
             [(PRINCIPALS["top"], 0), (NAMES["hinge_b"], 1)],
-            angle_arguments(case["angle_b_rad"]),
+            self.plane_arguments("angle_b", case["angle_b_rad"]),
         )
         self.create_axis(NAMES["direction"], [NAMES["angle_a"], NAMES["angle_b"]])
         self.create_plane(
@@ -354,7 +360,7 @@ class ObliqueAuthor(CurveAuthor):
         boss = self.get(
             self.get(self.model, "FeatureManager"),
             "FeatureExtrusion3",
-            *boss_arguments(case)
+            *self.extrusion_arguments(case)
         )
         require(
             boss is not None, "selected-plane/selected-axis circular boss returned null"

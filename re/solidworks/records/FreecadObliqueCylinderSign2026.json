@@ -1,0 +1,349 @@
+{
+  "schema": "kit.sw2026.oblique-cylinder-native-sign-pin.v1",
+  "modules_sha256": {
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "sldmgu.dll": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+  },
+  "source_helpers_sha256": {
+    "NativeNamePe.py": "e07df1c6b1b16fa3958f1db4adac95b16ebc30888340b33238e4a9703d8a89c7",
+    "PinCylinderDirectionWire.py": "8e212ceb466a119e5b8445b814221cde8f81c4632f0bc7ce23d7bf420d9434d7"
+  },
+  "functions": [
+    {
+      "role": "axis_constructor",
+      "module": "sldmodu.dll",
+      "entry": "0x4c281520",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4c281520",
+          "end_exclusive": "0x4c281683",
+          "bytes": 355,
+          "sha256": "612c77b8a8ec861aaa7c327dfa62d1af2c1971af75149e95823934b0d6b618ef",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 355,
+      "ordered_fragment_sha256": "612c77b8a8ec861aaa7c327dfa62d1af2c1971af75149e95823934b0d6b618ef"
+    },
+    {
+      "role": "axis_update",
+      "module": "sldmodu.dll",
+      "entry": "0x4c288230",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4c288230",
+          "end_exclusive": "0x4c28851a",
+          "bytes": 746,
+          "sha256": "ae5bd6e2f8bbb2589d1a89d3d8259c29aa2cd98224fd483cadcfef8f58823093",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 746,
+      "ordered_fragment_sha256": "ae5bd6e2f8bbb2589d1a89d3d8259c29aa2cd98224fd483cadcfef8f58823093"
+    },
+    {
+      "role": "axis_intersection",
+      "module": "sldmodu.dll",
+      "entry": "0x4c286ca0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4c286ca0",
+          "end_exclusive": "0x4c286e6d",
+          "bytes": 461,
+          "sha256": "4b52191005be97a10d23f2e71956252f0556f30b0e916ecd7a30359a93b1b726",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 461,
+      "ordered_fragment_sha256": "4b52191005be97a10d23f2e71956252f0556f30b0e916ecd7a30359a93b1b726"
+    },
+    {
+      "role": "axis_plane_owner",
+      "module": "sldmodu.dll",
+      "entry": "0x4c289c20",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4c289c20",
+          "end_exclusive": "0x4c289d11",
+          "bytes": 241,
+          "sha256": "70e6c0156d1e0721d58ec980c23eeea05fd95277e37eb587a80227b54fa992de",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 241,
+      "ordered_fragment_sha256": "70e6c0156d1e0721d58ec980c23eeea05fd95277e37eb587a80227b54fa992de"
+    },
+    {
+      "role": "angle_geometry_constructor",
+      "module": "sldmodu.dll",
+      "entry": "0x4c2d77a0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4c2d77a0",
+          "end_exclusive": "0x4c2d77ea",
+          "bytes": 74,
+          "sha256": "2d04371c38f75923e7215ea15ce9cf5d2cb58ed72e97ac8a914f1ead5680daf7",
+          "unwind_flags": 2
+        }
+      ],
+      "total_bytes": 74,
+      "ordered_fragment_sha256": "2d04371c38f75923e7215ea15ce9cf5d2cb58ed72e97ac8a914f1ead5680daf7"
+    },
+    {
+      "role": "angle_normal",
+      "module": "sldmodu.dll",
+      "entry": "0x4b8ee700",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4b8ee700",
+          "end_exclusive": "0x4b8eebde",
+          "bytes": 1246,
+          "sha256": "49cbdd7653238a89f1e47da4ddac310658eb752856c9ffd2e94c5148528ebd3b",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 1246,
+      "ordered_fragment_sha256": "49cbdd7653238a89f1e47da4ddac310658eb752856c9ffd2e94c5148528ebd3b"
+    },
+    {
+      "role": "angle_reverse",
+      "module": "sldmodu.dll",
+      "entry": "0x4b2b1c70",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4b2b1c70",
+          "end_exclusive": "0x4b2b1c75",
+          "bytes": 5,
+          "sha256": "91f5a2d5aa48f0d219c94a376d9b0d3492f251fd55a69fb3015fd4fc4541601e",
+          "unwind_flags": null
+        }
+      ],
+      "total_bytes": 5,
+      "ordered_fragment_sha256": "91f5a2d5aa48f0d219c94a376d9b0d3492f251fd55a69fb3015fd4fc4541601e"
+    },
+    {
+      "role": "angle_magnitude",
+      "module": "sldmodu.dll",
+      "entry": "0x4b2bd110",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4b2bd110",
+          "end_exclusive": "0x4b2bd116",
+          "bytes": 6,
+          "sha256": "7084c765bb67e87ea396066a1ccfd699aa9d617f146ed46e9ee46e605b0f5586",
+          "unwind_flags": null
+        }
+      ],
+      "total_bytes": 6,
+      "ordered_fragment_sha256": "7084c765bb67e87ea396066a1ccfd699aa9d617f146ed46e9ee46e605b0f5586"
+    },
+    {
+      "role": "angle_plane",
+      "module": "sldmodu.dll",
+      "entry": "0x4b8ef160",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4b8ef160",
+          "end_exclusive": "0x4b8ef450",
+          "bytes": 752,
+          "sha256": "4d1a9896c957968a57e9fc1420b8c870b5eff80ce008b0b226b9f38f64949549",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 752,
+      "ordered_fragment_sha256": "4d1a9896c957968a57e9fc1420b8c870b5eff80ce008b0b226b9f38f64949549"
+    },
+    {
+      "role": "concrete_plane_update",
+      "module": "sldmodu.dll",
+      "entry": "0x4b8e8dd0",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x4b8e8dd0",
+          "end_exclusive": "0x4b8e8fbd",
+          "bytes": 493,
+          "sha256": "0059999259bb6b81a70850a9a1f10fa741eb32c5be8f2cddeaa3e9ceaef39b9b",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 493,
+      "ordered_fragment_sha256": "0059999259bb6b81a70850a9a1f10fa741eb32c5be8f2cddeaa3e9ceaef39b9b"
+    },
+    {
+      "role": "plane_intersection",
+      "module": "sldmgu.dll",
+      "entry": "0x31e0bd50",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x31e0bd50",
+          "end_exclusive": "0x31e0be89",
+          "bytes": 313,
+          "sha256": "c37ed59f631f0f786b84435863c7b69ff482aab6cc972798b934183c739329de",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 313,
+      "ordered_fragment_sha256": "c37ed59f631f0f786b84435863c7b69ff482aab6cc972798b934183c739329de"
+    },
+    {
+      "role": "cross_product",
+      "module": "sldmgu.dll",
+      "entry": "0x31f1a050",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x31f1a050",
+          "end_exclusive": "0x31f1a0c3",
+          "bytes": 115,
+          "sha256": "1be7c44bb87e1e6db3065c7149cdea507955fac7ba652efa266bfdb193f67a5d",
+          "unwind_flags": 0
+        }
+      ],
+      "total_bytes": 115,
+      "ordered_fragment_sha256": "1be7c44bb87e1e6db3065c7149cdea507955fac7ba652efa266bfdb193f67a5d"
+    },
+    {
+      "role": "rotation_xform",
+      "module": "sldmgu.dll",
+      "entry": "0x31f24670",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x31f24670",
+          "end_exclusive": "0x31f24779",
+          "bytes": 265,
+          "sha256": "74fee494ad35e676b95114fd7a2cc7ed41a6365b162fe264b3bfabeed6561df8",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 265,
+      "ordered_fragment_sha256": "74fee494ad35e676b95114fd7a2cc7ed41a6365b162fe264b3bfabeed6561df8"
+    },
+    {
+      "role": "rotation_matrix",
+      "module": "sldmgu.dll",
+      "entry": "0x31e2cd80",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x31e2cd80",
+          "end_exclusive": "0x31e2d258",
+          "bytes": 1240,
+          "sha256": "9970b17675934b7be356111f5fd4fe10c45ec4bb27c220e64a223fab2b5e889b",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 1240,
+      "ordered_fragment_sha256": "9970b17675934b7be356111f5fd4fe10c45ec4bb27c220e64a223fab2b5e889b"
+    },
+    {
+      "role": "unit_vector_xform",
+      "module": "sldmgu.dll",
+      "entry": "0x31f19400",
+      "fragment_count": 1,
+      "fragments": [
+        {
+          "begin": "0x31f19400",
+          "end_exclusive": "0x31f194d6",
+          "bytes": 214,
+          "sha256": "4d9607cbcf3c1b74dcea35cea27b6d6aeaf42085e7e9eda84fbb279f56f4c4b7",
+          "unwind_flags": 3
+        }
+      ],
+      "total_bytes": 214,
+      "ordered_fragment_sha256": "4d9607cbcf3c1b74dcea35cea27b6d6aeaf42085e7e9eda84fbb279f56f4c4b7"
+    },
+    {
+      "role": "vector_matrix",
+      "module": "sldmgu.dll",
+      "entry": "0x31f1a0d0",
+      "fragment_count": 3,
+      "fragments": [
+        {
+          "begin": "0x31f1a0d0",
+          "end_exclusive": "0x31f1a148",
+          "bytes": 120,
+          "sha256": "0ec6ccf8b571ef503ad7db78c2303da15a89a16d9d92249c7f8568f5e825d740",
+          "unwind_flags": 0
+        },
+        {
+          "begin": "0x31f1a148",
+          "end_exclusive": "0x31f1a17a",
+          "bytes": 50,
+          "sha256": "ead2385946c82a032718759fda8be657bbb5602a0e28bcf1adcf7d74e5d9c653",
+          "unwind_flags": 4
+        },
+        {
+          "begin": "0x31f1a17a",
+          "end_exclusive": "0x31f1a1f7",
+          "bytes": 125,
+          "sha256": "a538ef2eb992239b6bfbdf9821c99b20baddb40bc60cf1e29bc90e7f7cba4af8",
+          "unwind_flags": 4
+        }
+      ],
+      "total_bytes": 295,
+      "ordered_fragment_sha256": "e546649bf36773350a2cc7d9454865e9908f9cb212193ff886082d67de86a156"
+    }
+  ],
+  "function_count": 16,
+  "total_code_bytes": 6821,
+  "virtual_slots": [
+    {
+      "vtable": "0x4d162258",
+      "slot": "0x90",
+      "target": "0x4c286ca0"
+    },
+    {
+      "vtable": "0x4ced1c20",
+      "slot": "0x238",
+      "target": "0x4b8e8dd0"
+    }
+  ],
+  "imports": {
+    "plane_intersection": {
+      "iat": "0x4cd3c030",
+      "module": "sldmgu.dll",
+      "ordinal": null,
+      "name": "?interLine@@YAHAEBVmgPlane_c@@0PEAVmgPoint_c@@PEAVmgUnitVector_c@@@Z"
+    },
+    "rotate_xform": {
+      "iat": "0x4cd3abc0",
+      "module": "sldmgu.dll",
+      "ordinal": null,
+      "name": "?mg_RotateXform@@YA?AVmgXform_c@@NAEBVmgVector_c@@N@Z"
+    },
+    "unit_vector_xform": {
+      "iat": "0x4cd3a988",
+      "module": "sldmgu.dll",
+      "ordinal": null,
+      "name": "??D@YA?AVmgUnitVector_c@@AEBV0@AEBVmgXform_c@@@Z"
+    }
+  },
+  "angle_sign_mask": {
+    "address": "0x4cd9e340",
+    "bytes": 16,
+    "sha256": "8a5f16f43d7be9d5da1bb71656fa69fcc035482b234cfd571954d046f0ca954a"
+  },
+  "construction_rules": {
+    "axis_order": "constructor f80=first actual plane, f88=second actual plane; intersection consumes this order",
+    "axis_direction": "unit(cross(first_plane_normal, second_plane_normal))",
+    "angle": "actual angle geometry f38, negated when byte f40 is true",
+    "ordinary_perpendicular_hinge": "actual base-plane normal rotated about actual directed line with that signed angle; the non-perpendicular correction remains a distinct branch",
+    "api_selection_to_native_owner_order": "not generalized by this static packet; measured D01 reverses the two principal-plane selections and the new probe checks actual directed hinges"
+  },
+  "native_launches": 0,
+  "writer_output_count": 0,
+  "heldout_reads": 0,
+  "native_acceptance": false
+}
