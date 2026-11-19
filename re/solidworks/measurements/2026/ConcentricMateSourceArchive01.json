@@ -297,11 +297,13 @@
             "api_occurrence_id": 24,
             "archive_occurrence_slot": 8,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044309,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044309,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -315,11 +317,13 @@
             "api_occurrence_id": 25,
             "archive_occurrence_slot": 16,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044309,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044309,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -330,6 +334,7 @@
           }
         ],
         "archive_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+        "child_archive_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
         "exact_streams": {
           "Contents/Config-0": {
             "bytes": 25834,
@@ -373,11 +378,13 @@
             "api_occurrence_id": 24,
             "archive_occurrence_slot": 8,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044309,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044309,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -391,11 +398,13 @@
             "api_occurrence_id": 25,
             "archive_occurrence_slot": 16,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044309,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044309,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -406,6 +415,7 @@
           }
         ],
         "archive_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+        "child_archive_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
         "exact_streams": {
           "Contents/Config-0": {
             "bytes": 25494,
@@ -451,11 +461,13 @@
             "api_occurrence_id": 24,
             "archive_occurrence_slot": 8,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044655,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044655,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -469,11 +481,13 @@
             "api_occurrence_id": 25,
             "archive_occurrence_slot": 16,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044655,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044655,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -484,6 +498,7 @@
           }
         ],
         "archive_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+        "child_archive_sha256": "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527",
         "exact_streams": {
           "Contents/Config-0": {
             "bytes": 25846,
@@ -527,11 +542,13 @@
             "api_occurrence_id": 24,
             "archive_occurrence_slot": 8,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044655,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044655,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -545,11 +562,13 @@
             "api_occurrence_id": 25,
             "archive_occurrence_slot": 16,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044655,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044655,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -560,6 +579,7 @@
           }
         ],
         "archive_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+        "child_archive_sha256": "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9",
         "exact_streams": {
           "Contents/Config-0": {
             "bytes": 25494,
@@ -605,11 +625,13 @@
             "api_occurrence_id": 24,
             "archive_occurrence_slot": 8,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044948,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044948,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -623,11 +645,13 @@
             "api_occurrence_id": 25,
             "archive_occurrence_slot": 16,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044948,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044948,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -638,6 +662,7 @@
           }
         ],
         "archive_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+        "child_archive_sha256": "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f",
         "exact_streams": {
           "Contents/Config-0": {
             "bytes": 25888,
@@ -681,11 +706,13 @@
             "api_occurrence_id": 24,
             "archive_occurrence_slot": 8,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044948,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044948,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -699,11 +726,13 @@
             "api_occurrence_id": 25,
             "archive_occurrence_slot": 16,
             "observed_face_identity": {
-              "facet_entity_id": 27,
+              "facet_face_id": 27,
               "facet_identifier_text": "moFromSktEntSurfIdRep_c,33,1, \n",
-              "feature_creation": 1795044948,
-              "sketch_entity": 1,
-              "sketch_feature": 33
+              "producing_feature_creation_epoch": 1795044948,
+              "producing_feature_id": 33,
+              "producing_profile_id": 26,
+              "sketch_arc_creation_id": 1,
+              "sketch_entity_permanent_id": 1
             },
             "observed_local_axis": {
               "x": -0.0,
@@ -714,6 +743,7 @@
           }
         ],
         "archive_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+        "child_archive_sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
         "exact_streams": {
           "Contents/Config-0": {
             "bytes": 25566,
@@ -752,8 +782,10 @@
       }
     }
   },
-  "disclosed_mate_archive_proof_sha256": "df07534a6c17d37632c4b860a650015238fde0c1eae7e734be6646410f7a1e0c",
-  "disclosed_observer_sha256": "b55336346743e63c926d36dc75ab613708b9e0aeddddec46a33effc7fa85d2e1",
+  "disclosed_child_creation_epochs": 3,
+  "disclosed_child_face_links": 12,
+  "disclosed_mate_archive_proof_sha256": "47d8220c167e5ae83b8f09f4cc8bfc4ca0ae56b4b26a3f9532f94e0be1dd8341",
+  "disclosed_observer_sha256": "c3008cebd231a8003deaecdf68eddde5fc39b1448ced29d2590b262ea20887d4",
   "disclosed_source_locks": 3,
   "generated_mate_outputs": 0,
   "healthy_controls": 10,
@@ -1065,6 +1097,7 @@
     "retained_same_guest_designs": true,
     "transport_sha256": "3ad77791ae9e01f1f619c3095d3823d3e0a3843715ebbf65adc7f8c8270562f1"
   },
+  "prior_disclosed_mate_archive_proof_sha256": "df07534a6c17d37632c4b860a650015238fde0c1eae7e734be6646410f7a1e0c",
   "rechecked_rea_evidence": [
     "ev_dce068421fbd5576d2d720304f0a68a8019d0cd19d551e09922617c41adf388d",
     "ev_039080813e4811f6d7a52ae823dbdf1176dd0afe9d09200735f51c1fda4481ea"

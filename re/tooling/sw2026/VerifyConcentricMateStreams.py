@@ -15,6 +15,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField as Field
 from convert.adapters.solidworks.Archive.Bodies.ReadBodyMut import ReadBodyMut
+from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import DatumTime
 from convert.adapters.solidworks.Archive.Counts.ReadCount import ReadCount
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Mates.MakeMatesCtx import MakeMatesCtx
@@ -24,6 +25,12 @@ from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMu
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import RequireNode
 from convert.adapters.solidworks.Assembly.PlanarMates.ReadChain import ReadChain
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Core.TypedResolved.Circles.ReadLocalCirc import ReadLocalCirc
+from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
+from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
+from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
+from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
+from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 
 
@@ -124,9 +131,36 @@ def verify_geom(actual, native):
             "active cylinder radius differs from COM")
 
 
-def endpoints(model, root, live):
+def face_identity(surface, facet, child_link, child_features, radius):
+    owner = RequireNode(surface.FieldsValue["f10"]["f10"], "moFR_c")
+    ref = owner.FieldsValue["f10"]
+    producer_id = ref["f00"]
+    extrusion = ReadExtrude(child_link, child_features[producer_id], child_features)
+    profile = extrusion.ProfileValue
+    sketch = RequireNode(profile.FieldsValue["pd_f80"], "sgSketch")
+    circle = ReadLocalCirc(sketch, child_link, AllowFree=True)
+    require(circle is not None, "producing extrusion does not own the expected circular profile")
+    arc, = NativeRows(sketch.FieldsValue["arcs"])
+    permanent_id = NativeRecord(arc["arc"])["f08"]
+    creation = DatumTime(child_link.ConfigValue.HeaderValue, producer_id)
+    require(ref["f08"] == creation and surface.FieldsValue["f38"] == permanent_id
+            and isclose(circle[0].RadiusValue, 1000 * radius, rel_tol=1e-10, abs_tol=1e-10),
+            "persistent cylinder surface does not identify the producing extrusion and sketch circle")
+    return {
+        "producing_feature_id": producer_id,
+        "producing_feature_creation_epoch": creation,
+        "producing_profile_id": NativeNodeId(profile),
+        "sketch_entity_permanent_id": permanent_id,
+        "sketch_arc_creation_id": circle[0].ArcMark,
+        "facet_face_id": facet.FieldsValue["f40"],
+        "facet_identifier_text": str(facet.FieldsValue["f58"]),
+    }
+
+
+def endpoints(model, root, live, child_link):
     fields = root.FieldsValue
     order = live["ordered_endpoints"]
+    child_features = IndexFeatures(child_link)
     require(fields["f08"] == live["native_feature_id"] and fields["f3b4"] == live["alignment"] + 1
             and (fields["f4b8"], fields["f4c4"]) == (int(live["rotation_locked"]), -1),
             "stored mate identity, alignment or lock differs from COM")
@@ -157,25 +191,19 @@ def endpoints(model, root, live):
         require(face_ref.FieldsValue["nf0"] == 0 and len(face_ids) > 0,
                 "unqualified additional face records or missing persistent identity")
         surface = RequireNode(face_ids[0]["f08"], "moFromSktEntSurfIdRep_c")
-        owner = RequireNode(surface.FieldsValue["f10"]["f10"], "moFR_c")
         seen.append({
             "api_occurrence_id": native["occurrence_native_id"],
             "archive_occurrence_slot": occurrence.IndexValue,
             "snapshot_slot": snapshot.IndexValue, "active_slot": active.IndexValue,
-            "observed_local_axis": end["f108"], "observed_face_identity": {
-                "sketch_feature": owner.FieldsValue["f10"]["f00"],
-                "feature_creation": owner.FieldsValue["f10"]["f08"],
-                "sketch_entity": surface.FieldsValue["f38"],
-                "facet_entity_id": facet.FieldsValue["f40"],
-                "facet_identifier_text": str(facet.FieldsValue["f58"]),
-            },
+            "observed_local_axis": end["f108"],
+            "observed_face_identity": face_identity(surface, facet, child_link, child_features, end["f100"]),
         })
     require(len(seen) == 2 and seen[0]["archive_occurrence_slot"] != seen[1]["archive_occurrence_slot"],
             "concentric endpoints do not identify two separate occurrences")
     return seen
 
 
-def roundtrip(raw, live):
+def roundtrip(raw, child, live):
     archive = SldprtArchive.from_bytes(raw)
     link = ReadNativeLink(archive, 0)
     resolved = link.ResolvedValue
@@ -189,7 +217,8 @@ def roundtrip(raw, live):
     reader = GraphReader(cursor, ArchiveMaps(base, resolved.MapValue), partial(ReadBodyMut, context(resolved)))
     root = RequireNode(ReadNodeMut(reader), "moMateConcentric")
     require(cursor.GetRemaining() == 0, "unconsumed bytes in disclosed concentric mate stream")
-    bindings = endpoints(link.ConfigValue.RootValue, root, live)
+    child_link = ReadNativeLink(SldprtArchive.from_bytes(child), 0)
+    bindings = endpoints(link.ConfigValue.RootValue, root, live, child_link)
     cfg, seed = WriteConfigMut(link.ConfigValue.RootValue, 19000, link.ConfigValue.HeaderValue)
     resolved_bytes, emitted = WriteResolMut(resolved.RootsValue, resolved.ExtraFields, 19000,
                                              seed.MapValue, resolved.ContextValue)
@@ -215,7 +244,8 @@ def roundtrip(raw, live):
     objects = sum(isinstance(entry.EntryValue, ArchiveNode) for entry in added)
     require(len(added) == loaded_map.CounterValue - base, "mate map growth is not owned by actual nodes and classes")
     return {
-        "archive_sha256": digest(raw), "mate_alignment": live["alignment"], "rotation_locked": live["rotation_locked"],
+        "archive_sha256": digest(raw), "child_archive_sha256": digest(child),
+        "mate_alignment": live["alignment"], "rotation_locked": live["rotation_locked"],
         "inherited_counter": base, "mate_counter": loaded_map.CounterValue,
         "mate_added_object_count": objects, "mate_added_class_names": types, "actual_endpoint_bindings": bindings,
         "exact_streams": {path: {"sha256": digest(data), "bytes": len(data)} for path, data in (
@@ -246,10 +276,13 @@ def main():
         record = json.loads(checked(root, case / "SavedAuthor.json", progress["saved_author_sha256"]))
         results[role] = {}
         for phase in ("source", "edited"):
-            paths = list((case / "Native" / phase.title()).glob("*.SLDASM"))
-            require(len(paths) == 1, "expected one disclosed assembly per native phase")
-            raw = checked(root, paths[0], record["saved_files"][phase]["parent"]["sha256"])
-            results[role][phase] = roundtrip(raw, record[phase]["mate"])
+            folder = case / "Native" / phase.title()
+            saved = record["saved_files"][phase]
+            parents, children = list(folder.glob("*.SLDASM")), list(folder.glob("*.SLDPRT"))
+            require(len(parents) == len(children) == 1, "expected one disclosed assembly and child per native phase")
+            raw = checked(root, parents[0], saved["parent"]["sha256"])
+            child = checked(root, children[0], saved["child"]["sha256"])
+            results[role][phase] = roundtrip(raw, child, record[phase]["mate"])
     evidence = {
         "schema": "kit.sw2026.disclosed-concentric-archive-proof.v1", "packet_sha256": args.packet_sha256,
         "observer_sha256": digest(Path(__file__).read_bytes()), "passed": True,
@@ -258,7 +291,8 @@ def main():
     }
     with args.output.open("x", encoding="utf-8") as handle:
         handle.write(json.dumps(evidence, indent=2, sort_keys=True, allow_nan=False) + "\n")
-    print(json.dumps({"passed": True, "cases": 6, "exact_streams": 18, "result_sha256": digest(args.output.read_bytes())}))
+    print(json.dumps({"passed": True, "cases": 6, "exact_streams": 18, "child_face_links": 12,
+                      "result_sha256": digest(args.output.read_bytes())}))
 
 
 if __name__ == "__main__":

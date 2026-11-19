@@ -3,7 +3,7 @@
 Task `B04-SW2026-MATES-CONCENTRIC`, PR #121. Three disclosed native
 assemblies each supply an original save and an edited save. The
 controlled source cohort also locks two guest-private input pairs.
-The host verification reads the six disclosed assembly files.
+The host verification reads the six disclosed assembly and child pairs.
 [Source method](ConcentricMateConstructionSources2026.md)
 [Source and archive receipt](../measurements/2026/ConcentricMateSourceArchive01.json)
 
@@ -33,10 +33,13 @@ members are `moCylinderRef_w` objects. These are separate sets.
 - Each active face retains a `moFaceRef_c` and its ordered entity
   IDs. In the measured cohort those include the sketch-side surface
   identity and two end-face identities. The sketch-side identifier
-  carries a `moFR_c` reference to the actual sketch feature ID and
-  creation selector. The active wrapper's optional vector is
-  separately stored. Deriving that local vector and the full
-  faceted snapshot from new feature topology remains open.
+  carries a `moFR_c` reference to the producing child extrusion
+  and its first ModelHeader creation event. That extrusion's actual
+  profile owns the circle. The surface field `f38` matches the arc's
+  permanent marker `f08`. The circle's separate creation ID `f0c`
+  has the same value in these controls. The active wrapper's optional
+  vector is separately stored. Deriving that local vector and the
+  full faceted snapshot from new feature topology remains open.
 
 The archive's aligned and anti-aligned selectors are 1 and 2.
 The two aligned cases isolate API rotation lock in the first
@@ -63,10 +66,12 @@ repository. The current wire profile is archive version 19000.
 | `moFaceRef_c` | Shared boundary-entity base and the ordinary additional-face record count. This cohort has an empty additional list. | `0x4bba9640` |
 
 The research verifier compares the actual stored axes, points and
-radii to COM, validates twelve endpoint occurrences and writes back
-all eighteen linked streams directly from typed objects. It retains
-the exact class/alias graph. The archive witness covers the ordinary
-three disclosed sources. The broader reader, generation of the face
-and facet identities, native candidate verification and held-out
-writer acceptance remain open.
+radii to COM, validates twelve endpoint occurrences and binds all
+twelve face references to their hash-checked child extrusion and
+profile. All three independent creation epochs remain stable after
+edits. The verifier writes back all eighteen linked assembly
+streams directly from typed objects and retains the exact
+class and alias graph. The broader reader, generation of the
+remaining face and facet identities, native candidate verification
+and held-out writer acceptance remain open.
 [Replay tool](../../tooling/sw2026/VerifyConcentricMateStreams.py)
