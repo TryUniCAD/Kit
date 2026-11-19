@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Attached box native-save readback](../measurements/2026/AttachedTopBoxNativeSavedReadback01.json) | All 12 native saves retain their signed bounds, named driving lengths and one solid in the strict SDK. Five linked streams re-emit exactly on every save. |
 | [Generated attached Top-plane boxes](../measurements/2026/AttachedTopBoxGeneratedNative01.json) | Three disclosed FreeCAD inputs produce generated parts and pass 1,089 numeric checks through independent dimension edits, saves and fresh reopens. Both controls pass. Strict SDK reads recover the signed world geometry and 18 linked streams re-emit exactly. |
 | [Saved concentric mate orientation](../measurements/2026/ConcentricSavedAxisRead01.json) | The public readers retain the saved radial pair's signed local and world mate orientation independently of its collinear kernel cylinder. The prior 23 refusals remain unchanged. |
 | [Native concentric parent root owners](ConcentricParentRootAudit2026.md) | Typed reads account for 25 D01 history rows and recover the authored display-state name through the public reader. Whole-source admission remains closed. |

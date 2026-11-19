@@ -211,6 +211,13 @@ each initial file gives 18 byte-exact comparisons. The
 binds the three source hashes, guarded builds, native measurements,
 saves, and linked reads.
 
+An independent SDK read of all 12 native saves retains the original or
+edited dimension, body name and signed bounds. Each archive returns one
+solid with six faces, twelve edges and eight vertices. Config-0,
+ResolvedFeatures, CMgr, ModelHeader and Header2 re-emit exactly on
+each save. The [native-save receipt](../measurements/2026/AttachedTopBoxNativeSavedReadback01.json)
+records those 60 additional byte-exact comparisons.
+
 The first generated packet reached a healthy geometric rebuild of the
 pristine control and failed to confirm that its process exited. It
 opened zero candidates. The accepted batch uses the same three generated
