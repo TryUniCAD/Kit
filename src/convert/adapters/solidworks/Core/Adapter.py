@@ -3810,10 +3810,15 @@ def BoundingBoxA(Model: NativeModel) -> BoundingBox | None:
         Plane = PlaneById.get(Sketch.support_plane_id)
         if Plane is None or Operation.length_mm is None:
             continue
+        DepthValue = (
+            -Operation.length_mm
+            if Operation.extrusion_end is not None and Operation.direction_code == 1
+            else Operation.length_mm
+        )
         Direction = (
-            Plane.normal[0] * Operation.length_mm,
-            Plane.normal[1] * Operation.length_mm,
-            Plane.normal[2] * Operation.length_mm,
+            Plane.normal[0] * DepthValue,
+            Plane.normal[1] * DepthValue,
+            Plane.normal[2] * DepthValue,
         )
         StartFraction = (
             -0.5 if Operation.extrusion_end == ExtrusionEndCondition.MID_PLANE else 0.0

@@ -11,7 +11,7 @@ from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # blind scalar mode flags do not prove the absence of retained draft reference or start offset controls
-def CheckPrismEnd(OwnerValue: ExtrudeOwner) -> None:
+def CheckPrismEnd(OwnerValue: ExtrudeOwner, *, ReversedBlind: bool = False) -> None:
     Fields = OwnerValue.EndValue.FieldsValue
     EndCode = 6 if OwnerValue.ModeValue == ExtrudeEnd.KMidPlane else 0
     if (
@@ -20,7 +20,7 @@ def CheckPrismEnd(OwnerValue: ExtrudeOwner) -> None:
             for FieldName in KBlindZeroFields
         )
         or Fields.get("f08") != 1
-        or Fields.get("f8c") != 0
+        or Fields.get("f8c") != int(ReversedBlind)
         or Fields.get("f128") != 1
     ):
         raise ValueError("cache free prism has unsupported termination options")

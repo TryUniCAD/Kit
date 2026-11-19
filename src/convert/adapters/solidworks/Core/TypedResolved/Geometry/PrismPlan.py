@@ -11,3 +11,4 @@ class PrismPlan:
     LinesValue: tuple[LineGeometry, ...]
     DepthValue: float
     EvidenceValue: Mapping[str, object]
+    ReversedBlind: bool = False

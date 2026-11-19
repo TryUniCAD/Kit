@@ -26,6 +26,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
 from interchange.Features.FeatureExtrude import ExtrudeEnd
+from interchange.geometry.Models.VectorSpace import SpaceVector
 
 
 # only actual linked feature and dimension owners may determine the reconstructed body and its provenance
@@ -46,7 +47,12 @@ def ReadPrismPlan(
     CheckPrismBoss(
         OwnerValue, ColdValue, ModeValue=ModeValue, SelectedStock=SelectedStock
     )
-    CheckPrismEnd(OwnerValue)
+    ReversedBlind = (
+        OwnerValue.IsReversed
+        and OwnerValue.ModeValue == ModeValue == ExtrudeEnd.KBlind
+        and not SelectedStock
+    )
+    CheckPrismEnd(OwnerValue, ReversedBlind=ReversedBlind)
     Depth = OwnerValue.RequireDepth().DepthValue
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
     LoopValue = ReadPrismLoop(OwnerValue.ProfileValue, LinkValue)
@@ -54,8 +60,10 @@ def ReadPrismPlan(
         OwnerValue.ProfileValue,
         LinkValue.ConfigValue.RootValue,
         Features,
-        FrontOnly=ModeValue == ExtrudeEnd.KBlind,
+        FrontOnly=ModeValue == ExtrudeEnd.KBlind and not ReversedBlind,
     )
+    if ReversedBlind and FrameValue.z_axis != SpaceVector(0.0, 1.0, 0.0):
+        raise ValueError("cache free reversed prism requires its actual top support")
     EvidenceValue = {
         "method": "typed_parametric_rectangular_prism",
         "model_version": 19000,
@@ -69,4 +77,5 @@ def ReadPrismPlan(
         MakePrismLines(LoopValue),
         Depth.value_mm,
         EvidenceValue,
+        ReversedBlind=ReversedBlind,
     )

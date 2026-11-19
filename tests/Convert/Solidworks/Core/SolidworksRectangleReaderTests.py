@@ -1,4 +1,5 @@
 from collections import Counter as CountKinds
+from dataclasses import replace as ReplaceValue
 from json import loads as LoadJson
 from math import isclose as IsClose
 from pathlib import Path as FilePath
@@ -7,9 +8,22 @@ from sys import executable as PythonExec
 from typing import cast as CastValue
 
 from convert import open_document as OpenDocument
+from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTextInput import (
+    PartTextInput,
+)
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.LowerBoxModel import (
+    LowerBoxModel,
+)
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.MakeOriginBoxPart import (
+    MakeOriginBoxPart,
+)
 from convert.Geometry.Revolve.SweepVector import CrossVector, DotVector
+from interchange.geometry.Models.Transform import Transform
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
+from tests.Convert.Solidworks.Research.Construction.Part.MakePlainDoc import (
+    MakePlainDoc,
+)
 
 # the synchronized cohort contains an independently authored dimensional rectangle
 KCorpus = KRepoRoot / "re/solidworks/v2026/corpus"
@@ -146,3 +160,63 @@ def TestPrismOpen(TmpPath: FilePath) -> None:
     assert len(Cases) == 3
     assert all(CaseRow["sdk_strict_sketch_semantics"] is True for CaseRow in Cases)
     assert all(CaseRow["sdk_strict_summary_bounds"] is True for CaseRow in Cases)
+
+
+# a generated reversed boss must read through public geometry and history using the signed extent on its actual datum
+def TestSignedTopBoxOpen(TmpPath: FilePath) -> None:
+    Lengths = (15.0, 23.0, 4.0)
+    Source = MakePlainDoc("TopBox", *Lengths)
+    Frame = Transform(
+        SpaceVector(0.0, 0.0, 0.0),
+        SpaceVector(1.0, 0.0, 0.0),
+        SpaceVector(0.0, 0.0, -1.0),
+        SpaceVector(0.0, 1.0, 0.0),
+    )
+    Model = LowerBoxModel(
+        ReplaceValue(
+            Source,
+            support_planes=(
+                ReplaceValue(Source.support_planes[0], name="XZ-plane", transform=Frame),
+            ),
+        ),
+        "TopBox",
+        ("length", "width", Source.parameters[0].id),
+        Lengths,
+        ("Length", "Width", "Height"),
+        "Box",
+        TopAttached=True,
+    )
+    Candidate = MakeOriginBoxPart(
+        Model,
+        r"C:\Kit\TopBox.SLDPRT",
+        1740000000,
+        PartTextInput({}, {}, {}),
+        TopAttached=True,
+    )
+    OutputPath = TmpPath / "TopBox.SLDPRT"
+    _ = OutputPath.write_bytes(Candidate.BytesValue)
+    Readback = OpenDocument(OutputPath, include_tessellation=False)
+    assert not Readback.validate()
+    assert Readback.brep is not None
+    (Body,) = Readback.bodies
+    assert Body.name == "Box"
+    assert (
+        Body.topology.volume,
+        Body.topology.surface_area,
+        Body.topology.face_count,
+        Body.topology.edge_count,
+        Body.topology.vertex_count,
+    ) == (1380.0, 994.0, 6, 12, 8)
+    assert {Driver.name: Driver.value.value for Driver in Readback.parameters} == {
+        "Length": 15.0,
+        "Width": 23.0,
+        "Height": 4.0,
+    }
+    History = OpenDocument(
+        OutputPath, include_brep=False, include_tessellation=False
+    )
+    for Current in (Readback, History):
+        Bounds = Current.bodies[0].topology.bounding_box
+        assert Bounds is not None
+        assert Bounds.minimum == SpaceVector(0.0, -4.0, 0.0)
+        assert Bounds.maximum == SpaceVector(15.0, 0.0, 23.0)

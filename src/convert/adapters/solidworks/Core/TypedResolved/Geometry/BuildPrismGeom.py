@@ -13,8 +13,11 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutp
 def BuildPrismGeom(
     PlanValue: PrismPlan, BodyId: str, ColdValue: ColdOutput | None = None
 ) -> PartGeometry:
+    LowerMm, UpperMm = (
+        (-PlanValue.DepthValue, 0.0) if PlanValue.ReversedBlind else (0.0, PlanValue.DepthValue)
+    )
     ModelValue, VolumeValue, AreaValue, BoundsValue = BuildPrism(
-        BodyId, PlanValue.FrameValue, PlanValue.LinesValue, 0.0, PlanValue.DepthValue
+        BodyId, PlanValue.FrameValue, PlanValue.LinesValue, LowerMm, UpperMm
     )
     if ModelValue.validate(frozenset((BodyId,))):
         raise ValueError("cache free prism geometry failed neutral boundary validation")
