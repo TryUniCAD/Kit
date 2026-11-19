@@ -1,0 +1,439 @@
+{
+  "archive_version": 19000,
+  "build": "34.5.2.0604",
+  "data_windows": [],
+  "delivery_pr": 121,
+  "field_rules": [
+    {
+      "owner": "moReference runtime +0x540",
+      "rule": "Fresh/default and owner-taking construction initialize zero. Actual rename command sets one, but the current moReference wire grammar has no scalar for it. Reference pass-two recalculates it only under DotWorks; the ordinary branch skips that recalculation",
+      "sites": [
+        "0x4bbb8959",
+        "0x4bbb7e7b",
+        "0x4b6774d8",
+        "0x4b677547"
+      ],
+      "status": "confirmed",
+      "width_runtime_bytes": 4,
+      "wire_owner": null
+    },
+    {
+      "owner": "moReference.f18 / moNodeName.f08",
+      "rule": "The original model-input instance full label is stored here. Both independently authored native custom labels and generated Cylinder labels are preserved on disk, while fresh live values can normalize. The native source save is not missing these labels",
+      "status": "confirmed",
+      "width": "variable Unicode CString",
+      "wire_owner": "native CString in actual name object"
+    },
+    {
+      "owner": "moExtObject runtime +0x58",
+      "rule": "getOverrideSyncRefNamesWithFile reads bit0x10. The native serializer clears that bit before storing. Current >=0xf18 branch stores one byte and sign-extends one loaded byte into the runtime word; the older ext-ref-data object branch is excluded at19000",
+      "sites": [
+        "0x319fd91f",
+        "0x319fd947",
+        "0x319fd9cd",
+        "0x319fdcc8",
+        "0x319fdcfb",
+        "0x319fdd01"
+      ],
+      "status": "confirmed",
+      "width_current_wire_bytes": 1,
+      "width_runtime_bytes": 4,
+      "wire_owner": "external entry f58"
+    },
+    {
+      "owner": "moExtObject shared definition name",
+      "rule": "This is the actual child definition name, independently owned from each occurrence label and the shared path handle. The ordinary synchronization obtains this name then calls reference changeName to derive the normalized instance label",
+      "sites": [
+        "0x31a008b0",
+        "0x4b6b8f04",
+        "0x4b6b8f23"
+      ],
+      "status": "confirmed",
+      "wire_owner": "shared.h10 / moCStringHandle text"
+    },
+    {
+      "owner": "ordinary loaded name synchronization",
+      "rule": "Ordinary branch skips when environment0x72 is false and actual external override-sync is false. Otherwise a nonempty child definition name and needsSyncNameWithXModel predicate can reach changeName. This branch does not consult runtime+0x540",
+      "sites": [
+        "0x4b6b8b0c",
+        "0x4b6b8b10",
+        "0x4b6b8b16",
+        "0x4b6b8b25",
+        "0x4b6b8b45",
+        "0x4b6b8f23"
+      ],
+      "status": "confirmed source branch; runtime call edge not traced"
+    }
+  ],
+  "functions": [
+    {
+      "bytes": 7027,
+      "end_exclusive": "0x4b670eb3",
+      "module": "sldmodu.dll",
+      "name": "ordinary moReference Serialize",
+      "sha256": "f1f92c5059607ea3d15015351b844f666007c0c87385f37a4470fb75ac9d8ef2",
+      "start": "0x4b66f340",
+      "unwind_fragments": [
+        {
+          "bytes": 7027,
+          "end_exclusive": "0x4b670eb3",
+          "module": "sldmodu.dll",
+          "name": "ordinary moReference Serialize fragment",
+          "sha256": "f1f92c5059607ea3d15015351b844f666007c0c87385f37a4470fb75ac9d8ef2",
+          "start": "0x4b66f340",
+          "unwind_rva": "0x22d7580"
+        }
+      ]
+    },
+    {
+      "bytes": 70,
+      "end_exclusive": "0x4c179ce6",
+      "module": "sldmodu.dll",
+      "name": "moNodeName text Serialize",
+      "sha256": "5fd4eafd5bf772857118b0abdd768a6b2e41fcde82e41936b6fbbc8de660b46c",
+      "start": "0x4c179ca0",
+      "unwind_fragments": [
+        {
+          "bytes": 70,
+          "end_exclusive": "0x4c179ce6",
+          "module": "sldmodu.dll",
+          "name": "moNodeName text Serialize fragment",
+          "sha256": "5fd4eafd5bf772857118b0abdd768a6b2e41fcde82e41936b6fbbc8de660b46c",
+          "start": "0x4c179ca0",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bytes": 1586,
+      "end_exclusive": "0x4c17a322",
+      "module": "sldmodu.dll",
+      "name": "moNode persistent name owner Serialize",
+      "sha256": "20ea9bfa3a3f3c3306a12f73a6b3452b27e057fd7788dae11647b1914037b744",
+      "start": "0x4c179cf0",
+      "unwind_fragments": [
+        {
+          "bytes": 1586,
+          "end_exclusive": "0x4c17a322",
+          "module": "sldmodu.dll",
+          "name": "moNode persistent name owner Serialize fragment",
+          "sha256": "20ea9bfa3a3f3c3306a12f73a6b3452b27e057fd7788dae11647b1914037b744",
+          "start": "0x4c179cf0",
+          "unwind_rva": "0x246cd64"
+        }
+      ]
+    },
+    {
+      "bytes": 770,
+      "end_exclusive": "0x4bbb89a2",
+      "module": "sldmodu.dll",
+      "name": "default reference construction",
+      "sha256": "f93de91041ec7dc7c60b010211618bf04d4ff59a4cf5572e86454e232ee3a4d6",
+      "start": "0x4bbb86a0",
+      "unwind_fragments": [
+        {
+          "bytes": 770,
+          "end_exclusive": "0x4bbb89a2",
+          "module": "sldmodu.dll",
+          "name": "default reference construction fragment",
+          "sha256": "f93de91041ec7dc7c60b010211618bf04d4ff59a4cf5572e86454e232ee3a4d6",
+          "start": "0x4bbb86a0",
+          "unwind_rva": "0x2397ef4"
+        }
+      ]
+    },
+    {
+      "bytes": 1228,
+      "end_exclusive": "0x4bbb806c",
+      "module": "sldmodu.dll",
+      "name": "owner-taking reference construction",
+      "sha256": "788cb52936f453d8f664309b4f22df70960b1e8ecefb2c2f8698f12f54514cff",
+      "start": "0x4bbb7ba0",
+      "unwind_fragments": [
+        {
+          "bytes": 1228,
+          "end_exclusive": "0x4bbb806c",
+          "module": "sldmodu.dll",
+          "name": "owner-taking reference construction fragment",
+          "sha256": "788cb52936f453d8f664309b4f22df70960b1e8ecefb2c2f8698f12f54514cff",
+          "start": "0x4bbb7ba0",
+          "unwind_rva": "0x2397cb0"
+        }
+      ]
+    },
+    {
+      "bytes": 575,
+      "end_exclusive": "0x4b67758f",
+      "module": "sldmodu.dll",
+      "name": "reference pass-two override reconstruction",
+      "sha256": "39e307f275589e169d151ae6802a568bf9c306b7e80233a6919b2785ecdeb2e2",
+      "start": "0x4b677350",
+      "unwind_fragments": [
+        {
+          "bytes": 575,
+          "end_exclusive": "0x4b67758f",
+          "module": "sldmodu.dll",
+          "name": "reference pass-two override reconstruction fragment",
+          "sha256": "39e307f275589e169d151ae6802a568bf9c306b7e80233a6919b2785ecdeb2e2",
+          "start": "0x4b677350",
+          "unwind_rva": "0x22d76e0"
+        }
+      ]
+    },
+    {
+      "bytes": 3191,
+      "end_exclusive": "0x4b6b94f7",
+      "module": "sldmodu.dll",
+      "name": "assembly external-name synchronization",
+      "sha256": "86200eddc3f55d382537e27749e59a868216d66c993afd0e7c1b07b6cc400e58",
+      "start": "0x4b6b8880",
+      "unwind_fragments": [
+        {
+          "bytes": 3191,
+          "end_exclusive": "0x4b6b94f7",
+          "module": "sldmodu.dll",
+          "name": "assembly external-name synchronization fragment",
+          "sha256": "86200eddc3f55d382537e27749e59a868216d66c993afd0e7c1b07b6cc400e58",
+          "start": "0x4b6b8880",
+          "unwind_rva": "0x22db258"
+        }
+      ]
+    },
+    {
+      "bytes": 201,
+      "end_exclusive": "0x4bbc8b99",
+      "module": "sldmodu.dll",
+      "name": "reference name synchronization predicate",
+      "sha256": "45b4e722e392cb20a91c5b0ee06bd4abe00c5a9dd887fe00eb1a38f8a666c957",
+      "start": "0x4bbc8ad0",
+      "unwind_fragments": [
+        {
+          "bytes": 201,
+          "end_exclusive": "0x4bbc8b99",
+          "module": "sldmodu.dll",
+          "name": "reference name synchronization predicate fragment",
+          "sha256": "45b4e722e392cb20a91c5b0ee06bd4abe00c5a9dd887fe00eb1a38f8a666c957",
+          "start": "0x4bbc8ad0",
+          "unwind_rva": "0x2399eb4"
+        }
+      ]
+    },
+    {
+      "bytes": 2280,
+      "end_exclusive": "0x4bbc2038",
+      "module": "sldmodu.dll",
+      "name": "reference visible name projection",
+      "sha256": "d1787c574dda800f9d81a0c7587487217a956a2494f2fd569a1fee9d1c8499c6",
+      "start": "0x4bbc1750",
+      "unwind_fragments": [
+        {
+          "bytes": 2280,
+          "end_exclusive": "0x4bbc2038",
+          "module": "sldmodu.dll",
+          "name": "reference visible name projection fragment",
+          "sha256": "d1787c574dda800f9d81a0c7587487217a956a2494f2fd569a1fee9d1c8499c6",
+          "start": "0x4bbc1750",
+          "unwind_rva": "0x2399be4"
+        }
+      ]
+    },
+    {
+      "bytes": 221,
+      "end_exclusive": "0x4bbbbded",
+      "module": "sldmodu.dll",
+      "name": "ordinary reference changeName dispatch",
+      "sha256": "9ac6db79fc0d46f3badba1712e74335d1e35132389e7692a9a0d03c0ff617bb8",
+      "start": "0x4bbbbd10",
+      "unwind_fragments": [
+        {
+          "bytes": 46,
+          "end_exclusive": "0x4bbbbd3e",
+          "module": "sldmodu.dll",
+          "name": "ordinary reference changeName dispatch fragment",
+          "sha256": "c7564c50d56cb6fae58806149aebb74aa2902bb9e13f64fdfa7fbb0795d22b7a",
+          "start": "0x4bbbbd10",
+          "unwind_rva": "0x2399fd0"
+        },
+        {
+          "bytes": 135,
+          "end_exclusive": "0x4bbbbdc5",
+          "module": "sldmodu.dll",
+          "name": "ordinary reference changeName dispatch fragment",
+          "sha256": "1f5d30bc7d5b5bf4aca93e8d51bebe82e35035aa260c99e04f17375b47965a8c",
+          "start": "0x4bbbbd3e",
+          "unwind_rva": "0x2399fe0"
+        },
+        {
+          "bytes": 22,
+          "end_exclusive": "0x4bbbbddb",
+          "module": "sldmodu.dll",
+          "name": "ordinary reference changeName dispatch fragment",
+          "sha256": "37245c0095f8c28a7c28080af544e638ff0ac5b2000599ba766d9c650bf5556c",
+          "start": "0x4bbbbdc5",
+          "unwind_rva": "0x2399ff8"
+        },
+        {
+          "bytes": 18,
+          "end_exclusive": "0x4bbbbded",
+          "module": "sldmodu.dll",
+          "name": "ordinary reference changeName dispatch fragment",
+          "sha256": "00888cea629224d0f1a64d35f2dd9e520f8b8967410a005550aa34c642422ef3",
+          "start": "0x4bbbbddb",
+          "unwind_rva": "0x239a00c"
+        }
+      ]
+    },
+    {
+      "bytes": 2615,
+      "end_exclusive": "0x319fe317",
+      "module": "sldarchiveu.dll",
+      "name": "external file entry Serialize",
+      "sha256": "d573f7b7d719eda93206111c2a24e173db30c594c2ee697c4e155f0ef924e968",
+      "start": "0x319fd8e0",
+      "unwind_fragments": [
+        {
+          "bytes": 2615,
+          "end_exclusive": "0x319fe317",
+          "module": "sldarchiveu.dll",
+          "name": "external file entry Serialize fragment",
+          "sha256": "d573f7b7d719eda93206111c2a24e173db30c594c2ee697c4e155f0ef924e968",
+          "start": "0x319fd8e0",
+          "unwind_rva": "0x253f0"
+        }
+      ]
+    },
+    {
+      "bytes": 7,
+      "end_exclusive": "0x4b283b97",
+      "module": "sldmodu.dll",
+      "name": "runtime override getter",
+      "sha256": "82a0ceb14ebee3f0341b6ad1456bd0891a5fdcd80abca90ea5786fe31256adac",
+      "start": "0x4b283b90",
+      "unwind_fragments": []
+    },
+    {
+      "bytes": 7,
+      "end_exclusive": "0x4b2913a7",
+      "module": "sldmodu.dll",
+      "name": "runtime override setter",
+      "sha256": "b011011d5e3116923c1e452bf35717628309a6019cf977824c5576747d5b9877",
+      "start": "0x4b2913a0",
+      "unwind_fragments": []
+    },
+    {
+      "bytes": 10,
+      "end_exclusive": "0x31a009da",
+      "module": "sldarchiveu.dll",
+      "name": "external override-sync getter",
+      "sha256": "2eea99bd13cf8c071fa3ef149b7b07faa9562ba2cb88f8e7d597141e36d268c5",
+      "start": "0x31a009d0",
+      "unwind_fragments": []
+    },
+    {
+      "bytes": 25,
+      "end_exclusive": "0x31a018f9",
+      "module": "sldarchiveu.dll",
+      "name": "external override-sync setter",
+      "sha256": "b42f1592e69210449837a56e98d1e1c12a37b2af4c65d282d3f23090159d7661",
+      "start": "0x31a018e0",
+      "unwind_fragments": []
+    },
+    {
+      "bytes": 9,
+      "end_exclusive": "0x31a008b9",
+      "module": "sldarchiveu.dll",
+      "name": "external shared definition name getter",
+      "sha256": "ed126f61198d36a56e3dde91ad996e71de936fb1c6bbf7c210a8bb8a1be482d8",
+      "start": "0x31a008b0",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [],
+  "instruction_windows": [],
+  "limits": [
+    "direct current wire-owner classification; no missing scalar invented from runtime offsets",
+    "the exact native live call at the synchronization site has not been observed",
+    "no CArchive format or release version altered to enter legacy compatibility",
+    "no child definition rename or per-case ID field introduced",
+    "no VM, heldout inputs, vendor execution or retained Hopper sessions in this source audit"
+  ],
+  "modules": [
+    {
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "name": "sldarchiveu.dll",
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48"
+    }
+  ],
+  "native_bindings": {
+    "author_numeric_checks": 30,
+    "author_passed": true,
+    "author_result_sha256": "db589f84fda7cb47c70278bd79195317b7d74282f4bd458c1f536c395e67c570",
+    "controls_healthy": true,
+    "distinct_processes": 4,
+    "fresh_reopen_passed": false,
+    "fresh_reopen_preference": true,
+    "ids": [
+      24,
+      25
+    ],
+    "live_reopen_names": [
+      "IndependentNameCylinder-1",
+      "IndependentNameCylinder-2"
+    ],
+    "native_acceptance": false,
+    "native_aggregate_sha256": "9ce16e3107f58a0262a26447ec1d882ed86449ac245151c49ee70335e757f251",
+    "original_preference_restored": true,
+    "persisted_names": [
+      "AuthoredAxisA-1",
+      "AuthoredAxisB-2"
+    ],
+    "reopen_recorder_sha256": "666431530b0115a66a18fc850a33b7060f6caddb0fbb7a5593848fc0301bada8",
+    "reopen_result_sha256": "d8ab1c772c2146b36d126c01b8dbaaead961c4894471cd5b713b3e0c73a3423b",
+    "source_child_sha256": "3a39ac65c61cad230c36b27d53f7179813e68afabff2090e1ca98bdd08b2d16f",
+    "source_parent_sha256": "481a13c6f3c068d6df56521b7b0bb31c63f13404dbc0e2f469b0ca6d4034c83c"
+  },
+  "owner": "assembly_occurrence",
+  "proposed_falsifier": {
+    "claim_if_positive": "support ordinary preference-dependent normalization of the same persisted names; not a new writer flag or family acceptance",
+    "control_brackets_required": true,
+    "executed": false,
+    "expected_false_setting_names": [
+      "AuthoredAxisA-1",
+      "AuthoredAxisB-2"
+    ],
+    "expected_ids": [
+      24,
+      25
+    ],
+    "file_saves": 0,
+    "finally_restore_and_readback": true,
+    "fresh_oracle_only": true,
+    "inputs_unchanged": true,
+    "name_setter_calls": 0,
+    "native_source_sha256": "481a13c6f3c068d6df56521b7b0bb31c63f13404dbc0e2f469b0ca6d4034c83c",
+    "parameter_edits": 0,
+    "scope": "independent same-native-file read-only reopen under temporary captured-original preference lease"
+  },
+  "schema": "kit.sw2026.component-instance-name-wire-source.v1",
+  "task": "B04-SW2026-MATES-CONCENTRIC",
+  "vtable_cells": [
+    {
+      "cell": "0x4cf7ba68",
+      "module": "sldmodu.dll",
+      "target": "0x4b677350"
+    },
+    {
+      "cell": "0x4ce6b020",
+      "module": "sldmodu.dll",
+      "target": "0x4b6b8880"
+    },
+    {
+      "cell": "0x4cf7c5f8",
+      "module": "sldmodu.dll",
+      "target": "0x4bbbbd10"
+    }
+  ]
+}
