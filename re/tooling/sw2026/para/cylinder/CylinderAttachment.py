@@ -72,7 +72,7 @@ def bind_features(candidate, session, events):
 
 
 def attach_cylinder_mut(candidate, session, feature_events, previous_face_allocations, *,
-                        tessellated_faces=False, downstream=None):
+                        tessellated_faces=False, downstream=None, driver_mode="diameter"):
     require(KPartitionStream not in candidate.StreamsValue and candidate.CutValue is None, "expected a new circle part")
     root = candidate.SystemValue.RootValue
     model = root.FieldsValue
@@ -87,7 +87,7 @@ def attach_cylinder_mut(candidate, session, feature_events, previous_face_alloca
     body_tag = body_match_tag(positive_i32(session.first_tag, "body allocation tag"))
     tracking = CylinderBodyTracking(body_tag, updates.body, updates.face if tessellated_faces else None)
     projection = project_cylinder(candidate, session, previous_face_allocations,
-                                  tracking=tracking, downstream=downstream)
+                                  tracking=tracking, downstream=downstream, driver_mode=driver_mode)
     atom_id = projection.reserved_body_atom_id
     atom = MakeStockAtom(boss, atom_id)
     atom.FieldsValue.update(f180=body_tag, f1b0=body_tag, f188=1)

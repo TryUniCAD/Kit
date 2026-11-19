@@ -7,12 +7,14 @@ from types import MappingProxyType
 from convert.Geometry.Extrude.Circular.CircularExtrude import BuildCircular
 from convert.adapters.solidworks.Archive.Construction.Assembly.Bounds.Circles.NeedCircChild import NeedCircChild
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import DatumTime
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectCircle import ProjectCircle
 from convert.adapters.solidworks.Archive.Partition.CheckXmtGraph import CheckXmtGraph
 from convert.adapters.solidworks.Archive.Partition.ReadXmtVector import ReadXmtVector
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, ReadNodeName
 from convert.adapters.solidworks.Core.AssemblyPreparation.Model.ReadAsmModel import ReadAsmModel
 from convert.adapters.solidworks.Core.AssemblyPreparation.Placements.ReadAsmPlace import ReadAsmPlace
 from convert.adapters.solidworks.Core.Preparation.Circle.PlanCircle import PlanCircle
+from convert.adapters.solidworks.Core.TypedResolved.Circles.ReadLocalCirc import ReadLocalCirc
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.CheckCylSide import CheckCylSide
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.CylChild import CylChild
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.PickCylFace import PickCylFace
@@ -51,6 +53,7 @@ class CylinderBinding:
     body: object
     profile: str
     neutral_id_map: object = None
+    driver_mode: str = "diameter"
 
 
 @dataclass(frozen=True)
@@ -125,11 +128,17 @@ def read_neutral_side(document, plan, profile):
     return brep, side, surface, id_map
 
 
-def bind_cylinder(document, candidate, nodes, *, profile):
+def bind_cylinder(document, candidate, nodes, *, profile, driver_mode="diameter"):
     plan = NeedCircChild(candidate)
-    require(plan.IsDiameter, 'the generated kernel producer is qualified only for the diameter-driven circle profile')
+    require(driver_mode in ("diameter", "radius") and plan.IsDiameter is (driver_mode == "diameter"),
+            f'the generated kernel producer is qualified only for the {driver_mode}-driven circle profile')
     require(str(document.units) == 'mm', 'child units require explicit millimetres')
-    original_plan = PlanCircle(replace(document, brep=None))
+    if driver_mode == "radius":
+        require(profile == "derived_feature" and document.brep is None,
+                'the disclosed radius experiment requires a feature-only child without source B-rep')
+        original_plan = ProjectCircle(document)
+    else:
+        original_plan = PlanCircle(replace(document, brep=None))
     require(original_plan == plan, 'candidate does not represent the actual complete neutral circle plan')
     brep, neutral_face, neutral_surface, id_map = read_neutral_side(document, plan, profile)
     require(all(key == value.IndexValue for key, value in nodes.items()), 'kernel map keys lost actual node identity')
@@ -139,6 +148,11 @@ def bind_cylinder(document, candidate, nodes, *, profile):
     atom = ReadBodyScalar(nodes, attributes, 'ATOM_ID_2001', 1)
     link = NativeLink(candidate.ConfigValue, candidate.ResolvedValue, plan.ConfigName, 'Contents/Config-0')
     require(link.ConfigValue.HeaderValue is candidate.HeaderValue, 'candidate header is not the actual configuration header')
+    if driver_mode == "radius":
+        observed = ReadLocalCirc(candidate.ProfileValue.GeometryValue.SketchValue, link)
+        require(observed is not None and observed[1] is not None and observed[0].ModeValue == "radius"
+                and isclose(observed[1].value_mm, plan.CircleValue.RadiusValue * 1000, rel_tol=1e-12),
+                'the actual generated sketch must retain its driving radius and fixed centre')
     feature, marker = ReadCylOwner(link, atom)
     require(feature is candidate.BossValue.FeatureValue
             and marker == FieldInt(candidate.ProfileValue.GeometryValue.ArcValue.FieldsValue, 'f08')
@@ -155,7 +169,8 @@ def bind_cylinder(document, candidate, nodes, *, profile):
             and close(ReadXmtVector(surface, 'axis'), vector(neutral_surface.axis))
             and close((surface.FieldsValue['radius'],), (neutral_surface.radius * 0.001,)),
             'generated lateral geometry differs from the selected neutral cylinder')
-    return CylinderBinding(document, candidate, MappingProxyType(dict(nodes)), brep, neutral_face, neutral_surface, child, body, profile, id_map)
+    return CylinderBinding(document, candidate, MappingProxyType(dict(nodes)), brep, neutral_face, neutral_surface,
+                           child, body, profile, id_map, driver_mode)
 
 
 def place_point(point, frame):
@@ -196,7 +211,8 @@ def project_concentric(document, bindings):
     binding = bindings[model.ChildValue.id]
     require(type(binding) is CylinderBinding and binding.document is model.ChildDocument,
             'binding must retain the exact actual owned neutral document')
-    checked = bind_cylinder(binding.document, binding.candidate, binding.nodes, profile=binding.profile)
+    checked = bind_cylinder(binding.document, binding.candidate, binding.nodes,
+                            profile=binding.profile, driver_mode=binding.driver_mode)
     require(checked.neutral_face.id == binding.neutral_face.id
             and checked.child.FaceValue is binding.child.FaceValue
             and checked.child.FeatureValue is binding.child.FeatureValue,

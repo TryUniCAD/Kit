@@ -58,15 +58,16 @@ def cap_topology(cap, side_loop, body, point, axis, radial, radius, sense):
     )
 
 
-def generated_cylinder(candidate, marks):
+def generated_cylinder(candidate, marks, *, driver_mode="diameter"):
     plan = candidate.PlanValue
     profile = candidate.ProfileValue
     circle = profile.GeometryValue
-    require(type(plan) is CirclePlan and type(circle) is CircleGraph and plan.AxisValue == "z"
-            and plan.PlaneName == "Front Plane" and plan.IsDiameter
+    require(driver_mode in ("diameter", "radius")
+            and type(plan) is CirclePlan and type(circle) is CircleGraph and plan.AxisValue == "z"
+            and plan.PlaneName == "Front Plane" and plan.IsDiameter is (driver_mode == "diameter")
             and plan.EndValue.ModeValue == "blind" and plan.SecondDepth is None
             and not plan.EndValue.IsReversed and candidate.BossValue.ProfileValue is profile,
-            "cylinder cache experiment requires a generated forward blind Front diameter circle")
+            f"cylinder cache experiment requires a generated forward blind Front {driver_mode} circle")
     require(profile.ProfileValue.FieldsValue["pd_f80"] is circle.SketchValue
             and circle.SketchValue.FieldsValue["arcs"][0]["arc"] is circle.ArcValue.FieldsValue
             and circle.ArcValue.FieldsValue["_center"] is circle.CenterValue

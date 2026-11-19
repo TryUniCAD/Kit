@@ -57,7 +57,7 @@ def face_tracking_installs(topology, faces, tracking):
     )
 
 
-def project_cylinder(candidate, session, earlier_face_count=0, *, tracking=None, downstream=None):
+def project_cylinder(candidate, session, earlier_face_count=0, *, tracking=None, downstream=None, driver_mode="diameter"):
     require(type(candidate) is PartCandidate and candidate.CutValue is None,
             "the cylinder cache requires an actual generated ordinary part")
     require(type(earlier_face_count) is int and earlier_face_count >= 0,
@@ -72,7 +72,7 @@ def project_cylinder(candidate, session, earlier_face_count=0, *, tracking=None,
     feature_id = positive_i32(FieldInt(boss.FieldsValue, "f08"), "owning extrusion")
     epoch = signed_dword(DatumTime(candidate.HeaderValue, feature_id))
     marks = allocate_marks(session)
-    topology = generated_cylinder(candidate, marks)
+    topology = generated_cylinder(candidate, marks, driver_mode=driver_mode)
     marker = FieldInt(candidate.ProfileValue.GeometryValue.ArcValue.FieldsValue, "f08")
     atom_id = positive_i32(FieldInt(manager, "f260") + 1, "next body atom in the part")
     partial, first_id = complete_topology(topology.nodes)
