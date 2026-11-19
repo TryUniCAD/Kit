@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Generated downstream collector and face operands](DownstreamGeneratedCollector2026.md) | Sixteen guarded processes bind the generated part allocation to the collector members and derive 72 inline face operands with 24 initial role values. Full populated cache and linked drawing lifecycles remain open. |
 | [Collected surface clones](DownstreamCollectedSurfaceClones2026.md) | Six guarded processes verify the per-copy file objects and preserved shared name and path handles. The original surface witnesses reproduce exactly. |
 | [Downstream identity membership](DownstreamIdentityMembership2026.md) | Pinned source binds the cache GUID and hash, first-seen semantic keys, face-before-edge traversal and collector transfer. Full native population stays dependent on actual geometry and the post-conversion path. |
 | [Fresh downstream face rows](DownstreamFreshFaceRows2026.md) | Pinned source binds the one-loop face's six inline IDs, loop separator, selected mode, helper reconstruction and the alternate-key collision branch. |

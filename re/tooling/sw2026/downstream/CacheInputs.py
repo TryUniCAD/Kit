@@ -1,8 +1,10 @@
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
+from operator import attrgetter
 
-from para.DownstreamIds import DownstreamIds, allocate_fresh_downstream, owned_solid_chains
-from para.Tracking import unsigned
+from para.DownstreamIds import DownstreamIds, allocate_fresh_downstream, owned_solid_chains, owner_key
+from para.Tracking import FILETIME_TICKS_PER_SECOND, filetime_ticks, unsigned
+from para.concentric.CylinderFace import words
 from para.rectangle.Allocate import Ref
 
 
@@ -55,6 +57,23 @@ def finalized_part_prefix(part, next_id):
     }
 
 
+def attached_part_chains(partition, allocation, updated_at):
+    faces, edges = owned_solid_chains(partition.nodes, identity=attrgetter("index"))
+    nodes = {node.index: node for node in partition.nodes}
+    last_id = len(faces) + len(edges)
+    second = filetime_ticks(updated_at, 0)
+    if (allocation.is_assembly is not False or allocation.key != owner_key(allocation.owner)
+            or not second <= allocation.updated < second + FILETIME_TICKS_PER_SECOND
+            or len(allocation.faces) != len(faces) or len(allocation.edges) != len(edges)
+            or tuple(value for _, value in allocation.faces + allocation.edges) != tuple(range(1, last_id + 1))
+            or allocation.next_id != last_id + 1):
+        raise ValueError("downstream cache needs the actual fresh part allocation and update time")
+    for entity, operation in zip(faces + edges, allocation.installations(), strict=True):
+        if words(nodes, entity, operation.definition, 0) != operation.fields[0]:
+            raise ValueError("downstream allocation differs from the attached partition")
+    return nodes, faces, edges
+
+
 def topology_node(nodes, reference, kind):
     node = nodes.get(reference)
     if node is None or node.kind != kind:
@@ -62,7 +81,7 @@ def topology_node(nodes, reference, kind):
     return node
 
 
-def loop_fins(nodes, loop, face, fin_faces):
+def loop_fins(nodes, loop, face, fin_faces, *, identity=attrgetter("ref")):
     start = loop.fields["halfedge"]
     if start in fin_faces:
         raise ValueError("downstream incidence repeats a loop fin")
@@ -70,25 +89,25 @@ def loop_fins(nodes, loop, face, fin_faces):
     while current not in fin_faces:
         fin = topology_node(nodes, current, 17)
         following = topology_node(nodes, fin.fields["forward"], 17)
-        if fin.fields["loop"] != loop.ref or following.fields["backward"] != current:
+        if fin.fields["loop"] != identity(loop) or following.fields["backward"] != current:
             raise ValueError("downstream fin ring has an invalid owner or backlink")
         fin_faces[current] = face
-        current = following.ref
+        current = identity(following)
     if current != start:
         raise ValueError("downstream incidence enters a foreign fin ring")
 
 
-def face_incidence(nodes, faces):
+def face_incidence(nodes, faces, *, identity=attrgetter("ref")):
     fin_faces = {}
     loops = set()
     for face in faces:
         current = face.fields["loop"]
         while current:
             loop = topology_node(nodes, current, 15)
-            if current in loops or loop.fields["face"] != face.ref:
+            if current in loops or loop.fields["face"] != identity(face):
                 raise ValueError("downstream face loop has an invalid or repeated owner")
             loops.add(current)
-            loop_fins(nodes, loop, face.ref, fin_faces)
+            loop_fins(nodes, loop, identity(face), fin_faces, identity=identity)
             current = loop.fields["next"]
     return fin_faces
 

@@ -26,7 +26,7 @@ from para.rectangle.Allocate import DeltaEvent, MarkEvent, Session, Update
 from para.rectangle.ArchiveAttachment import FeatureUpdate
 
 
-def generated_attachment(variant):
+def authored_cylinder(variant):
     name = f"DownstreamCylinderSurface{variant}"
     destination = str(PureWindowsPath("C:/KitResearch", name + ".SLDPRT"))
     document = make_document({
@@ -46,6 +46,11 @@ def generated_attachment(variant):
                       + (Update.ADVANCE, Update.ADVANCE_BODY) * (variant - 1),
                       stamp, 1159 * variant)
     events = tuple(FeatureUpdate(i, stamp, i + 1, True) for i in range(3))
+    return candidate, session, events, destination
+
+
+def generated_attachment(variant):
+    candidate, session, events, destination = authored_cylinder(variant)
     return attach_cylinder_mut(candidate, session, events, 11 * variant), destination
 
 

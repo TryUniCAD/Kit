@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from operator import attrgetter
 from struct import iter_unpack
 from uuid import UUID
 
@@ -89,15 +90,15 @@ def allocate_fresh_downstream(
 
 
 def owned_solid_chains(
-    topology: tuple[DraftNode, ...],
-) -> tuple[tuple[DraftNode, ...], tuple[DraftNode, ...]]:
-    nodes = {node.ref: node for node in topology}
+    topology, *, identity=attrgetter("ref"),
+):
+    nodes = {identity(node): node for node in topology}
     bodies = tuple(node for node in topology if node.kind == 12)
     if len(nodes) != len(topology) or len(bodies) != 1:
         raise ValueError("downstream chain projection requires one uniquely owned solid")
     body, = bodies
     world = nodes.get(body.fields.get("owner"))
-    if (world is None or world.kind != WORLD_KIND or world.fields.get("body") != body.ref
+    if (world is None or world.kind != WORLD_KIND or world.fields.get("body") != identity(body)
             or body.fields.get("body_type") != 1 or body.fields.get("ref_instance") or body.fields.get("child")):
         raise ValueError("downstream chain projection requires an ordinary world-owned solid body")
 
@@ -115,21 +116,21 @@ def owned_solid_chains(
             previous, current = current, node.fields["next"]
         return tuple(found.values())
 
-    regions = walk(body.fields["region"], 19, "body", body.ref, has_previous=True)
+    regions = walk(body.fields["region"], 19, "body", identity(body), has_previous=True)
     if any(region.fields.get("frame") for region in regions):
         raise ValueError("downstream chain projection requires unframed solid regions")
     shells = tuple(
-        shell for region in regions for shell in walk(region.fields["shell"], 13, "region", region.ref)
+        shell for region in regions for shell in walk(region.fields["shell"], 13, "region", identity(region))
     )
     faces = tuple(
-        face for shell in shells for face in walk(shell.fields["face"], 14, "shell", shell.ref, has_previous=True)
+        face for shell in shells for face in walk(shell.fields["face"], 14, "shell", identity(shell), has_previous=True)
     )
-    edges = (*walk(body.fields["edge"], 16, "owner", body.ref, has_previous=True), *(
-        edge for shell in shells for edge in walk(shell.fields["edge"], 16, "owner", shell.ref, has_previous=True)
+    edges = (*walk(body.fields["edge"], 16, "owner", identity(body), has_previous=True), *(
+        edge for shell in shells for edge in walk(shell.fields["edge"], 16, "owner", identity(shell), has_previous=True)
     ))
     for kind, ordered in ((19, regions), (13, shells), (14, faces), (16, edges)):
-        references = {node.ref for node in ordered}
-        if len(references) != len(ordered) or references != {node.ref for node in topology if node.kind == kind}:
+        references = {identity(node) for node in ordered}
+        if len(references) != len(ordered) or references != {identity(node) for node in topology if node.kind == kind}:
             raise ValueError("downstream topology chain omits or repeats a member")
     return faces, edges
 
