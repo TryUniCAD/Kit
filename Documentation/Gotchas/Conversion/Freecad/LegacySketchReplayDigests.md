@@ -13,5 +13,6 @@ The rebuilt sketch uses the original explicit suppression state for an inherited
 Kit preserves suppression edits that differ from the older carried value.
 Kit records the independently parsed current digest on the carried archive after migrating its sketch flags.
 An unchanged linked child keeps exact replay when a portable export writes it beside the rebuilt parent.
+A parent rebuild verifies each carried child independently when its original external file is unavailable.
 
 [FreeCAD adapter guide](../../../Reference/Adapters/Freecad.md) and [restore integration cases](../../../../tests/Convert/Freecad/FreecadTests.py)

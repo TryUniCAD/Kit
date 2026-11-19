@@ -3606,9 +3606,11 @@ def TestOldDimEdit(Visible: bool) -> None:
 
 
 # a legacy parent fingerprint must also verify native sketches from linked child documents
-def TestOldLinked(TmpPath: FilePath) -> None:
+@Pytest.mark.parametrize("MissingChild", (False, True))
+def TestOldLinked(TmpPath: FilePath, MissingChild: bool) -> None:
     Child = TmpPath / "child.FCStd"
-    _ = Child.write_bytes(HiddenPart())
+    ChildBytes = HiddenPart()
+    _ = Child.write_bytes(ChildBytes)
     Source = TmpPath / "parent.FCStd"
     Original = NativeLinkOnly(Child.name)
     _ = Source.write_bytes(Original)
@@ -3633,16 +3635,33 @@ def TestOldLinked(TmpPath: FilePath) -> None:
             },
         )
     )
-    Output = IoStream.BytesIO()
-    Options = WriteOptions(values={"portable": False, "require_self_contained": False})
-    Result = FreeCadAdapter().write(Legacy, Output, Options)
-    assert Result.metadata["mode"] == "exact_native_roundtrip"
-    assert Output.getvalue() == Original
+    if MissingChild:
+        Child.unlink()
+        Legacy = Replace(
+            Legacy,
+            configurations=tuple(
+                Replace(Config, name="Edited") for Config in Legacy.configurations
+            ),
+        )
+    else:
+        Output = IoStream.BytesIO()
+        Options = WriteOptions(
+            values={"portable": False, "require_self_contained": False}
+        )
+        Result = FreeCadAdapter().write(Legacy, Output, Options)
+        assert Result.metadata["mode"] == "exact_native_roundtrip"
+        assert Output.getvalue() == Original
     Portable = TmpPath / "portable.FCStd"
     Result = FreeCadAdapter().write(Legacy, Portable)
     assert Result.metadata["external_document_file_count"] == 1
     (Copied,) = tuple(Portable.with_suffix("").glob("*.FCStd"))
-    assert Copied.read_bytes() == Child.read_bytes()
+    assert Copied.read_bytes() == ChildBytes
+    Reopened = OpenDoc(Portable)
+    Freecad = MetaMap(Reopened.metadata["freecad"])
+    (Linked,) = MetaSeq(Freecad["external_documents"])
+    ChildDoc = MetaMap(Linked)["document"]
+    assert isinstance(ChildDoc, CadDocument)
+    assert ChildDoc.sketches[0].suppressed is False
 
 
 # this definition exists because focused behavior needs one stable owner
