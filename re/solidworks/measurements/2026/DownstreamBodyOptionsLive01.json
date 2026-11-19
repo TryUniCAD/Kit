@@ -1,0 +1,78 @@
+{
+  "control": {
+    "bodies": 1,
+    "mass": {
+      "area": 0.0028,
+      "com": [
+        0.0,
+        0.0,
+        0.005
+      ],
+      "mass": 8.000000000000001e-06,
+      "volume": 8.000000000000001e-06
+    },
+    "open_errors": 0,
+    "open_warnings": 0,
+    "opened": true,
+    "rebuilt": true,
+    "whats_wrong": 0
+  },
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "delivery_pr": 121,
+  "feature_count": 19,
+  "heldout_inputs_read": 0,
+  "license_service_changes": 0,
+  "native_runs": 1,
+  "native_saves": 0,
+  "oracle": {
+    "file_version": "34.5.2.0604",
+    "pe_machine": "0x8664",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "passed": true,
+  "product_acceptance": false,
+  "raw_receipt_sha256": "f78d8ea9a4bca357586336d478d46c0ffbad4fa6f3df386b34f33fe28477a920",
+  "samples": {
+    "close_start": {
+      "forces_vertices": false,
+      "loaded": true,
+      "model_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "option_rva": 44132380,
+      "option_word": 0,
+      "uses_body_representative": false
+    },
+    "open_return": {
+      "forces_vertices": false,
+      "loaded": true,
+      "model_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "option_rva": 44132380,
+      "option_word": 0,
+      "uses_body_representative": false
+    },
+    "rebuild_return": {
+      "forces_vertices": false,
+      "loaded": true,
+      "model_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "option_rva": 44132380,
+      "option_word": 0,
+      "uses_body_representative": false
+    },
+    "startup": {
+      "forces_vertices": false,
+      "loaded": true,
+      "model_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "option_rva": 44132380,
+      "option_word": 0,
+      "uses_body_representative": false
+    }
+  },
+  "schema": "kit.sw2026.downstream-body-options-native-evidence.v1",
+  "scope": "read-only live startup and rebuild of one disclosed ordinary native part control",
+  "source_probe_sha256": {
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "ProbeDownstreamBodyOptions.py": "86bab249154c2ed07ea86c7242635df8aca96fec555c8d44156dee6fa71df2c6",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "task": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "transport": "prlctl exec --current-user; SldWorks.Application.34"
+}

@@ -1,0 +1,7 @@
+# Five-driver cylinder angular-plane ownership
+
+Adds a reproducible static evidence tool and field record for the two editable angular reference planes proposed for lossless FreeCAD cylinder lowering. It binds the actual CoincidentLine/AnglePlane input classes, constrained and old/API construction forks, runtime-class publication, current serializer suffixes, real angular display/handle/parameter ownership and the derived signed reference-frame selector.
+
+Run `PinCylinderAngledPlanes.py` with the two pinned lawful original modules, the repository root, the adjacent knowledge JSON and a new output path. Its numeric receipt checks exact method/function identities and construction edges without loading a CAD runtime or reading a model. [Usage, complete scope and source rules](../../../../../re/solidworks/records/FreecadCylinderAngledPlanes2026.md) · [Actual offline verification](../../../../../re/solidworks/measurements/2026/FreecadCylinderAngledPlanes01.json) · [Initialization gotcha](../../../../Gotchas/Conversion/Solidworks/Model/ReferencePlanes/AngledPlaneInitializationOwnsItsDriver.md)
+
+This is a source-only research milestone in PR #121. It preserves both prior direction/selected-end packets and adds no writer, public capability, new native source or generated-native acceptance. Zero-angle/sign conventions, exact API construction mode, nonzero display placement and final full-source preservation still require independently authored and locked native controls before construction code.
