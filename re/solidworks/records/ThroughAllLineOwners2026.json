@@ -1,0 +1,170 @@
+{
+  "comparison": "Typed owner graph difference; one marker per unequal-length array; composite identity pairs deduplicated, scalar occurrences counted independently",
+  "current_cmgr_frontiers": 29,
+  "current_definition_frontiers": 6,
+  "definition_remaining_paths": [
+    "Definition/fad0",
+    "Definition/fad4",
+    "Definition/faf8",
+    "Definition/fb00",
+    "Definition/fb04",
+    "Definition/nenv"
+  ],
+  "full_source_gate_closed": true,
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "previous_definition_frontiers": 10,
+  "schema": "kit.sw2026.throughall-line-owner-frontier.v1",
+  "sources": [
+    {
+      "all_seven_fragments_reemit": true,
+      "all_source_widths_use_preset_sentinel": true,
+      "case": "D01",
+      "complete_source_refusal_unchanged": true,
+      "distinct_font_objects": 40,
+      "distinct_style_objects": 7,
+      "end_caps": [
+        0,
+        2
+      ],
+      "font_count": 40,
+      "font_name_without_local_style_exists": true,
+      "native_17_bucket_order": true,
+      "owner_inventory_sha256": "957af91091b7b7510bd907440a38e737fe8610ae9e28b14607127944da56086d",
+      "preset_weights": [
+        0,
+        1,
+        2
+      ],
+      "previous_six_fragments_exact": true,
+      "remaining_owner_counts": [
+        {
+          "changed_frontier_paths": 6,
+          "owner_counts": {
+            "Definition/fad0": 1,
+            "Definition/fad4": 1,
+            "Definition/faf8": 1,
+            "Definition/fb00": 1,
+            "Definition/fb04": 1,
+            "Definition/nenv": 1
+          },
+          "stream": "Definition"
+        },
+        {
+          "changed_frontier_paths": 29,
+          "owner_counts": {
+            "CMgr/ext": 1,
+            "CMgr/f2a0": 1,
+            "CMgr/f2a4": 1,
+            "CMgr/f301": 1,
+            "CMgr/f360/f2a0": 1,
+            "CMgr/f360/f2a4": 1,
+            "CMgr/f360/f2c": 1,
+            "CMgr/f360/f301": 1,
+            "CMgr/f360/f450": 1,
+            "CMgr/f360/f460": 1,
+            "CMgr/f360/f4c4": 1,
+            "CMgr/f360/f4c8": 1,
+            "CMgr/f360/f6f8": 1,
+            "CMgr/f360/f78": 1,
+            "CMgr/f360/f85c": 1,
+            "CMgr/f360/f860": 1,
+            "CMgr/f360/fb00": 1,
+            "CMgr/f360/fb98": 1,
+            "CMgr/f360/fce8": 1,
+            "CMgr/f360/n450": 1,
+            "CMgr/f360/n460": 1,
+            "CMgr/f360/nb00": 1,
+            "CMgr/f360/nb98": 1,
+            "CMgr/f360/nce8": 1,
+            "CMgr/f5b8": 1,
+            "CMgr/f658": 1,
+            "CMgr/f6d0": 1,
+            "CMgr/n5b8": 1,
+            "CMgr/n_ext": 1
+          },
+          "stream": "CMgr"
+        }
+      ],
+      "source_document_sha256": "220b058dad01a550543ef8b7961761cc77efa3aca16f68ef54388c258e031af8",
+      "source_metadata_sha256": "374d96f03ba6d565e751bd65374f698749dc8dab1e5f4936a9e73343826c670c",
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "style_count": 7
+    },
+    {
+      "all_seven_fragments_reemit": true,
+      "all_source_widths_use_preset_sentinel": true,
+      "case": "D02",
+      "complete_source_refusal_unchanged": true,
+      "distinct_font_objects": 40,
+      "distinct_style_objects": 7,
+      "end_caps": [
+        0,
+        2
+      ],
+      "font_count": 40,
+      "font_name_without_local_style_exists": true,
+      "native_17_bucket_order": true,
+      "owner_inventory_sha256": "d27b8fe4d4dee1a184981ef6ab9aad1b248c04b18302e59418b174dd5137ecc3",
+      "preset_weights": [
+        0,
+        1,
+        2
+      ],
+      "previous_six_fragments_exact": true,
+      "remaining_owner_counts": [
+        {
+          "changed_frontier_paths": 6,
+          "owner_counts": {
+            "Definition/fad0": 1,
+            "Definition/fad4": 1,
+            "Definition/faf8": 1,
+            "Definition/fb00": 1,
+            "Definition/fb04": 1,
+            "Definition/nenv": 1
+          },
+          "stream": "Definition"
+        },
+        {
+          "changed_frontier_paths": 29,
+          "owner_counts": {
+            "CMgr/ext": 1,
+            "CMgr/f2a0": 1,
+            "CMgr/f2a4": 1,
+            "CMgr/f301": 1,
+            "CMgr/f360/f2a0": 1,
+            "CMgr/f360/f2a4": 1,
+            "CMgr/f360/f2c": 1,
+            "CMgr/f360/f301": 1,
+            "CMgr/f360/f450": 1,
+            "CMgr/f360/f460": 1,
+            "CMgr/f360/f4c4": 1,
+            "CMgr/f360/f4c8": 1,
+            "CMgr/f360/f6f8": 1,
+            "CMgr/f360/f78": 1,
+            "CMgr/f360/f85c": 1,
+            "CMgr/f360/f860": 1,
+            "CMgr/f360/fb00": 1,
+            "CMgr/f360/fb98": 1,
+            "CMgr/f360/fce8": 1,
+            "CMgr/f360/n450": 1,
+            "CMgr/f360/n460": 1,
+            "CMgr/f360/nb00": 1,
+            "CMgr/f360/nb98": 1,
+            "CMgr/f360/nce8": 1,
+            "CMgr/f5b8": 1,
+            "CMgr/f658": 1,
+            "CMgr/f6d0": 1,
+            "CMgr/n5b8": 1,
+            "CMgr/n_ext": 1
+          },
+          "stream": "CMgr"
+        }
+      ],
+      "source_document_sha256": "d7cc49de60ad656ef131d5a501f39cd4f6ed97e2b40f99603f3982a1208749a4",
+      "source_metadata_sha256": "1b32e03c7256a1acfbc29009988488c6fc2f7cf80a2e2a6cb1d50882dd404cfa",
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "style_count": 7
+    }
+  ]
+}
