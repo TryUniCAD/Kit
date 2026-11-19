@@ -126,6 +126,7 @@ from convert.adapters.freecad.Protocol import (
     SUPPORT_PLANE_TYPE_IDS as SupportPlaneTypeIds,
     XML_TRUE_VALUES as XmlTrueValues,
 )
+from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
 
 # this binding exists because shared behavior needs one stable value
 KMaxOuterDepth = 16
@@ -181,6 +182,7 @@ class OuterState:
     FileCount: int
     TotalBytes: int
     LegacyVisibility: bool = False
+    RecordReplay: bool = False
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3854,14 +3856,24 @@ def ReadNativeFcstd(
     StateValue: OuterState | None = None,
     OuterDepth: int = 0,
     LegacyVisibility: bool = False,
+    RecordReplay: bool = False,
 ) -> CadDoc:
     Native = LoadNative(DataValue)
     SourceFile = ResolvedSource(SourcePath)
     ActiveState = StateValue
     if ActiveState is None and SourceFile is not None:
         ActiveState = OuterState(
-            SourceFile.parent, {}, {SourceFile}, 1, len(DataValue), LegacyVisibility
+            SourceFile.parent,
+            {},
+            {SourceFile},
+            1,
+            len(DataValue),
+            LegacyVisibility,
+            RecordReplay,
         )
+    if ActiveState is not None:
+        LegacyVisibility = ActiveState.LegacyVisibility
+        RecordReplay = ActiveState.RecordReplay
     ResolvedOuter, UnresolvedOuter = OuterDocsMut(
         Native, SourcePath, ActiveState, OuterDepth
     )
@@ -3871,7 +3883,7 @@ def ReadNativeFcstd(
         Native.objects,
         Parameters,
         Consumed,
-        LegacyVisibility if ActiveState is None else ActiveState.LegacyVisibility,
+        LegacyVisibility,
     )
     SketchIds = {
         ObjValue.name: f"freecad:sketch:{ObjValue.name}"
@@ -3916,7 +3928,7 @@ def ReadNativeFcstd(
     Diagnostics = NativeDiags(Native, FeatureObjects, Meshes, UnresolvedOuter)
     MetaValue = NativeMeta(Native, AsmValue, ResolvedOuter)
     Configurations = BuildConfigs(Native.objects, FeatureIds)
-    return MakeNativeDoc(
+    DocValue = MakeNativeDoc(
         NativeSource(DataValue, SourcePath, Native),
         Configurations,
         Parameters,
@@ -3932,6 +3944,9 @@ def ReadNativeFcstd(
         MetaValue,
         AsmValue,
         bool(ResolvedOuter or UnresolvedOuter),
+    )
+    return (
+        AnnotateNative(DocValue) if RecordReplay and not LegacyVisibility else DocValue
     )
 
 

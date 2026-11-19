@@ -15,7 +15,6 @@ from convert.adapters.freecad.Replay.NativeIdentity import (
 from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
 from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
 from convert.adapters.freecad.Replay.SetReplayDigest import SetReplayDigest
-from interchange.Payloads.PayloadRecord import BrepPayload
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -24,20 +23,21 @@ def PrepareChild(DocValue: CadDocument) -> CadDocument:
     return PrepareReplay(DocValue, Migrate=True)[0]
 
 
-# failed parent verification leaves child verification independent of exact parent replay
-def RebuildReplay(
+# an independently repaired child invalidates a parent's previous semantic baseline
+def PrepareLinked(
     DocValue: CadDocument,
-    NativeDoc: BrepPayload,
     InitialDigest: str,
     Migrate: bool,
-    *,
-    RetireParent: bool = False,
-) -> tuple[CadDocument, None]:
+    ReplayBytes: bytes | None = None,
+) -> tuple[CadDocument, bytes | None]:
     if not Migrate:
-        return DocValue, None
+        return DocValue, ReplayBytes
     Prepared = PrepareChildren(DocValue, PrepareChild)
-    if RetireParent or SemanticDigest(Prepared) != InitialDigest:
-        Prepared = SetReplayDigest(Prepared, NativeDoc, None)
+    if SemanticDigest(Prepared) == InitialDigest:
+        return Prepared, ReplayBytes
+    PairValue = NativeDocPair(Prepared)
+    if PairValue is not None:
+        Prepared = SetReplayDigest(Prepared, PairValue[0], None)
     return Prepared, None
 
 
@@ -64,25 +64,24 @@ def PrepareReplay(
         Current = ReadNativeFcstd(DataValue, DocValue.source.path)
         IsHistorical = KReplaySketchAttr not in NativeDoc.attributes
         if SemanticDigest(Current) == Expected:
-            if Migrate and IsHistorical:
-                DocValue = SetReplayDigest(DocValue, NativeDoc, Expected)
-            return DocValue, ReplayBytes
+            return PrepareLinked(DocValue, InitialDigest, Migrate, ReplayBytes)
         if IsHistorical:
             Legacy = ReadNativeFcstd(
                 DataValue, DocValue.source.path, LegacyVisibility=True
             )
             if SemanticDigest(Legacy) == Expected:
-                if Migrate:
-                    DocValue = ApplyFlags(Legacy, Current, DocValue)
-                return DocValue, ReplayBytes
+                if not Migrate:
+                    return DocValue, ReplayBytes
+                Updated = ApplyFlags(Legacy, Current, DocValue)
+                return PrepareLinked(
+                    Updated, SemanticDigest(Updated), True, ReplayBytes
+                )
             if Migrate:
-                return RebuildReplay(
+                return PrepareLinked(
                     ApplySketchFlag(DocValue, Legacy, Current),
-                    NativeDoc,
                     InitialDigest,
                     True,
-                    RetireParent=True,
                 )
     except (NativeFreeCad, FreeCadAdapterA, OSError, TypeError, ValueError, BadZipFile):
-        return RebuildReplay(DocValue, NativeDoc, InitialDigest, Migrate)
-    return RebuildReplay(DocValue, NativeDoc, InitialDigest, Migrate)
+        return PrepareLinked(DocValue, InitialDigest, Migrate)
+    return PrepareLinked(DocValue, InitialDigest, Migrate)

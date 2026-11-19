@@ -105,13 +105,10 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.ReconcileEdit import ReconcileEdit
-from convert.adapters.freecad.Replay.MappedOuter import MappedOuter
 from convert.adapters.freecad.Replay.MetadataTypes import IsPayloadMap, IsPayloadSeq
 from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
 from convert.adapters.freecad.Replay.NativeOuter import NativeOuter
 from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
-from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
-from convert.adapters.freecad.Replay.SetReplayDigest import SetReplayDigest
 from interchange.Features.FeatureBoundPlane import BoundDatum
 
 # shared empty set keeps parameter defaults free of repeated constructor calls
@@ -262,31 +259,6 @@ def FilteredDoc(DocValue: CadDocument, Settings: ReadOptions) -> CadDoc:
     )
     MetaValue: Mapping[str, object] = FilterOuterMeta(Filtered.metadata, Settings)
     return Replace(Filtered, metadata=MetaValue)
-
-
-# this definition exists because focused behavior needs one stable owner
-def AnnotateNative(DocValue: CadDocument) -> CadDoc:
-    AsmValue = DocValue.assembly
-    if AsmValue is not None:
-        AsmValue = Replace(
-            AsmValue,
-            documents=tuple(
-                (
-                    Replace(
-                        ItemValue,
-                        document=AnnotateNative(ItemValue.document),
-                    )
-                    for ItemValue in AsmValue.documents
-                )
-            ),
-        )
-    MetaValue = MappedOuter(DocValue.metadata, AnnotateNative)
-    Annotated = Replace(DocValue, metadata=MetaValue, assembly=AsmValue)
-    PairValue = NativeDocPair(Annotated)
-    if PairValue is None:
-        return Annotated
-    NativeDoc, _ = PairValue
-    return SetReplayDigest(Annotated, NativeDoc, SemanticDigest(Annotated))
 
 
 # unchanged replay requires an independent archive parse against the carried digest
@@ -2086,7 +2058,6 @@ def ProbeSource(Instance: FreeCadAdapter, Source: Source) -> ProbeResult:
 def ReadSource(Source: Source, Options: ReadOptions | None = None) -> CadDoc:
     Settings = Options or ReadOptions(include_tessellation=True)
     DataValue = SourceBytes(Source)
-    Native = False
     try:
         Archive, Members = ValidatedArchiveMembers(DataValue)
         with Archive:
@@ -2096,12 +2067,9 @@ def ReadSource(Source: Source, Options: ReadOptions | None = None) -> CadDoc:
         if str(ErrorInfo) != "FCStd archive has no embedded Kit interchange document":
             raise FreeCadAdapterA(str(ErrorInfo)) from ErrorInfo
         try:
-            DocValue = ReadNativeFcstd(DataValue, SourcePath(Source))
+            DocValue = ReadNativeFcstd(DataValue, SourcePath(Source), RecordReplay=True)
         except (NativeFreeCadError, TypeError, ValueError) as NativeError:
             raise FreeCadAdapterA(str(NativeError)) from NativeError
-        Native = True
-    if Native:
-        DocValue = AnnotateNative(DocValue)
     DocValue = Replace(
         DocValue,
         configurations=Selected(DocValue.configurations, Settings.ConfigName),

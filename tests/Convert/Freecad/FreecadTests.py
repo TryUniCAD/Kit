@@ -36,10 +36,10 @@ from convert.adapters.freecad import Adapter as FreecadAdapterModule
 from convert.adapters.freecad import Archive as FreecadArchiveModule
 from convert.adapters.freecad import Native as FreecadNativeModule
 from convert.adapters.freecad.Adapter import (
-    AnnotateNative,
     FilteredDoc,
     UnchangedNative,
 )
+from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
 from convert.adapters.freecad.Replay.NativeIdentity import KReplaySketchAttr
 from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
 from convert.adapters.freecad.Format import (
@@ -3553,8 +3553,9 @@ def TestSketchState(Flags: tuple[tuple[str, str], ...], Suppressed: bool) -> Non
     )
 
 
-# historical replay fixtures predate the explicit sketch profile and retain their saved digest
-def DropProfile(Document: CadDocument) -> CadDocument:
+# old carrier fixtures retain historical sketch values and their saved baseline without a profile
+def AnnotateOld(Document: CadDocument) -> CadDocument:
+    Annotated = AnnotateNative(PrepareChildren(Document, AnnotateOld))
     Payloads = tuple(
         (
             Replace(
@@ -3568,14 +3569,9 @@ def DropProfile(Document: CadDocument) -> CadDocument:
             if KReplaySketchAttr in Payload.attributes
             else Payload
         )
-        for Payload in Document.brep_payloads
+        for Payload in Annotated.brep_payloads
     )
-    return PrepareChildren(Replace(Document, brep_payloads=Payloads), DropProfile)
-
-
-# old carrier fixtures retain the historical sketch values and the corresponding digest
-def AnnotateOld(Document: CadDocument) -> CadDocument:
-    return DropProfile(AnnotateNative(Document))
+    return Replace(Annotated, brep_payloads=Payloads)
 
 
 # older carriers must restore the original archive while edits still bypass exact replay
@@ -3730,6 +3726,53 @@ def TestOldLinked(TmpPath: FilePath, Scenario: str) -> None:
         _ = Adapter.write(Edited, EditedPath)
         (SavedChild,) = tuple(EditedPath.with_suffix("").glob("*.FCStd"))
         assert OpenDoc(SavedChild).sketches[0].suppressed
+
+
+# a linked historical FCStd manifest keeps its own prior sketch semantics until export
+def TestOldLinkFile(TmpPath: FilePath) -> None:
+    Child = TmpPath / "original.FCStd"
+    ChildBytes = HiddenPart()
+    _ = Child.write_bytes(ChildBytes)
+    Current = OpenDoc(Child)
+    Legacy = AnnotateOld(
+        Replace(Current, sketches=(Replace(Current.sketches[0], suppressed=True),))
+    )
+    Carrier = TmpPath / "legacy.FCStd"
+    _ = Carrier.write_bytes(BuildFcstdArchive(DocToManifest(Legacy)))
+    Source = TmpPath / "parent.FCStd"
+    _ = Source.write_bytes(NativeLinkOnly(Carrier.name))
+    Parent = OpenDoc(Source)
+    assert ReadLinkedChild(Parent)[2].sketches[0].suppressed
+    Portable = TmpPath / "export.FCStd"
+    Result = WriteDoc(Parent, Portable)
+    assert Result.metadata["external_document_file_count"] == 1
+    (Copied,) = tuple(Portable.with_suffix("").glob("*.FCStd"))
+    assert Copied.read_bytes() == ChildBytes
+    assert OpenDoc(Copied).sketches[0].suppressed is False
+    assert ReadLinkedChild(OpenDoc(Portable))[2].sketches[0].suppressed is False
+
+
+# a missing link prevents replay until a new check can verify the unchanged original model
+def TestRestoreLink(TmpPath: FilePath) -> None:
+    Child = TmpPath / "child.FCStd"
+    ChildBytes = NativePart()
+    _ = Child.write_bytes(ChildBytes)
+    Source = TmpPath / "source.FCStd"
+    Original = NativeLinkOnly(Child.name)
+    _ = Source.write_bytes(Original)
+    Legacy = AnnotateOld(OpenDoc(Source))
+    Child.unlink()
+    Options = WriteOptions(values={"portable": False, "require_self_contained": False})
+    Adapter = FreeCadAdapter()
+    Result = Adapter.write(Legacy, IoStream.BytesIO(), Options)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
+    Portable = TmpPath / "portable.FCStd"
+    _ = Adapter.write(Legacy, Portable)
+    _ = Child.write_bytes(ChildBytes)
+    Output = IoStream.BytesIO()
+    Replayed = Adapter.write(OpenDoc(Portable), Output, Options)
+    assert Replayed.metadata["mode"] == "exact_native_roundtrip"
+    assert Output.getvalue() == Original
 
 
 # assembly component writes must also use independently verified carried sketch state
