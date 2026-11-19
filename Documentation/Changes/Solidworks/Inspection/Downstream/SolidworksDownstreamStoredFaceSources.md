@@ -1,0 +1,5 @@
+# SOLIDWORKS downstream stored face sources
+
+The source record maps local cap and side representation ownership, three face-resolution paths and the separate producers of downstream role payloads. Same-model context conversion preserves the real representation and file/configuration alias graph. Full candidate resolution can store the actual live face handle with flags `0x300`. [Stored face record](../../../../../re/solidworks/records/DownstreamStoredFaceState2026.md)
+
+Replay the record's source verification command with the exact licensed module. It pins 69 complete functions, 146 intervals, 17 virtual slots, four class descriptors, 26 imports and nine relative call sites. Runtime allocation, replacement predicates and generated native persistence remain open. [Source receipt](../../../../../re/solidworks/measurements/2026/DownstreamStoredFaceSource01.json) · [Resolution state](../../../../Gotchas/Conversion/Solidworks/Archive/Downstream/FaceCacheFlagsFollowResolutionBranch.md) · [Role producers](../../../../Gotchas/Conversion/Solidworks/Archive/Downstream/EntityRolePayloadsHaveDifferentOwners.md)

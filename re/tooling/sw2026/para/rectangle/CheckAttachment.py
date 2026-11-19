@@ -31,8 +31,8 @@ CASE_NAME = "PartitionProbeChild.SLDPRT"
 MODIFIED_AT = 1794700033
 
 
-def neutral_request(path):
-    x1, y1, x2, y2, depth = CASE
+def neutral_request(path, extents=CASE, *, modified_at=MODIFIED_AT):
+    x1, y1, x2, y2, depth = extents
     planar = tuple((x, y) for x, y in ((x1, y1), (x2, y1), (x2, y2), (x1, y2)))
     request = MakePartInput([[x / 1000, y / 1000] for x, y in planar], depth / 1000, path.stem)
     request["document"].update(configuration_name="Default", density_kg_m3=1000.0, rectangle_dimensions={
@@ -40,8 +40,8 @@ def neutral_request(path):
         "height_text_m": [(x2 + 4) / 1000, (y1 + y2) / 2000],
         "route_centerline": False,
     })
-    request["provenance"]["modified_at"] = MODIFIED_AT
-    request["output"] = {"path_name": str(path), "saved_at": MODIFIED_AT + 28}
+    request["provenance"]["modified_at"] = modified_at
+    request["output"] = {"path_name": str(path), "saved_at": modified_at + 28}
     return request
 
 
