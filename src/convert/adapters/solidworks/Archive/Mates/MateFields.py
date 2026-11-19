@@ -68,6 +68,11 @@ KMateFields = MappingProxyType(
         "moMateCoincident": (NativeField("Base", "moMate2Geoms_c"),),
         "moMateParallel": (NativeField("Base", "moMate2Geoms_c"),),
         "moMatePerpendicular": (NativeField("Base", "moMate2Geoms_c"),),
+        "moMateConcentric": (
+            NativeField("Base", "moMate2Geoms_c"),
+            NativeField("Scalar", "f4b8", "i32"),
+            NativeField("Scalar", "f4c4", "i32"),
+        ),
         "moMateDim_c": (
             NativeField("Base", "moMate2Geoms_c"),
             NativeField("Node", "f4b8", "moDisplayDim_c"),

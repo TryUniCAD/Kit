@@ -1,0 +1,120 @@
+{
+  "correlated_active_endpoints": 12,
+  "correlated_support_snapshots": 12,
+  "delivery_pr": 121,
+  "deterministic_positive_owner_processes": 2,
+  "disclosed_child_files": 6,
+  "disclosed_child_hashes": [
+    {
+      "case": "D01",
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+      "phase": "source"
+    },
+    {
+      "case": "D01",
+      "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+      "phase": "edited"
+    },
+    {
+      "case": "D02",
+      "child_sha256": "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9",
+      "lock_sha256": "60c1b370eeb763bde246710402453fae52ff34de2bb5c16b9be74ade9d028b70",
+      "phase": "source"
+    },
+    {
+      "case": "D02",
+      "child_sha256": "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527",
+      "lock_sha256": "60c1b370eeb763bde246710402453fae52ff34de2bb5c16b9be74ade9d028b70",
+      "phase": "edited"
+    },
+    {
+      "case": "D03",
+      "child_sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
+      "lock_sha256": "acb688e75a817c29d38b95f2d985b8371701e4a106313f711217101ed911c1ee",
+      "phase": "source"
+    },
+    {
+      "case": "D03",
+      "child_sha256": "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f",
+      "lock_sha256": "acb688e75a817c29d38b95f2d985b8371701e4a106313f711217101ed911c1ee",
+      "phase": "edited"
+    }
+  ],
+  "facet_omission_qualified": false,
+  "generative_concentric_endpoint_qualified": false,
+  "hidden_inputs_read": 0,
+  "host_processes": 8,
+  "independent_partial_kernel_probe": {
+    "first_boundary_kind": 51,
+    "receipt_sha256": "50d42a6882b15693ecf639e95b2a854b507976e5f5112759ec0624882e3ce075",
+    "source_complete": false
+  },
+  "kernel_face_node_identity_generated": false,
+  "limits": [
+    "all controls contain one live generating arc; marker and creation id coincide in those files",
+    "multi-surface text ordering and generic multi-contour selection are not qualified",
+    "no kernel face-node numbering rule is inferred from observed value 27",
+    "no body atom id default is inferred from observed value 101",
+    "no omission, minus-one substitution, new mate output or held-out evaluation is credited"
+  ],
+  "native_binding_sha256": "3fe3a072eba3d2090772f973ad9ca2b4407b361ecc9c5fc1f4bada6aa8ffe1dc",
+  "native_function_closures": 15,
+  "native_processes_started": 0,
+  "native_writer_acceptance": false,
+  "negative_consistency_checks": [
+    {
+      "error": "surface entity id differs from the actual generating arc permanent marker",
+      "exit_code": 3,
+      "mutation": "marker",
+      "stdout_sha256": "e9eb1cbd05c81346aa48f676f7ace5cb3e25eb41091d79cbbc73c3ae846b1b64"
+    },
+    {
+      "error": "surface reference does not select the actual extrusion owner",
+      "exit_code": 3,
+      "mutation": "feature",
+      "stdout_sha256": "4f860ad5b5e95e8933d27a5e3ae8e4a22586a428479435d0a2a56a7d1ecd4b70"
+    },
+    {
+      "error": "surface reference does not select the actual first extrusion creation event",
+      "exit_code": 3,
+      "mutation": "creation",
+      "stdout_sha256": "0631d069c612b4fc4c7f28bae2a547db7ff1618c962e711ffc080e2bafd5cf67"
+    },
+    {
+      "error": "faceted body id differs from the actual generated body atom owner",
+      "exit_code": 3,
+      "mutation": "atom",
+      "stdout_sha256": "ad3e9ef223b6fe9e6f5221effda70f2eeb7e13e53b76870d2ab5f67df164d036"
+    },
+    {
+      "error": "faceted face text differs from the source-mapped ordinary surface format",
+      "exit_code": 3,
+      "mutation": "text",
+      "stdout_sha256": "992eabe85a180edd578e27600c081256caeedcde16a37ea13a6efe9f65bd3d0e"
+    }
+  ],
+  "negative_owner_processes": 5,
+  "owner": "assembly_occurrence",
+  "owner_audit_sha256": "6031581f3dcdab846083cc039bb517fb45682d96bb60a1c21c501a17fdfde6e7",
+  "parent_graph_sha256": "5a28338afa61c3b71daa0059970321e8134b3ace275ebc6f3f36dac0fef8ce4b",
+  "passed": true,
+  "process_result_sha256": "c513fec2627535be9aed8e0522f52e886333e14e1e008e768b9fd5328d1c03b1",
+  "qualifications": {
+    "active_surface_creation_epoch": "existing native rule and disclosed correlation",
+    "active_surface_extrusion_owner": "confirmed static and disclosed correlation",
+    "arc_marker_field_f08": "confirmed concrete native getter and disclosed correlation",
+    "facet_f40_face_node_id": "confirmed native getter and graphics input; number generation unresolved",
+    "facet_f50_body_atom_id": "confirmed native getter, graphics input and actual child atom correlation",
+    "facet_f58_single_surface_text": "confirmed native formatting and disclosed correlation",
+    "sketch_to_kernel_from_edge_attribute": "partial; direct upstream construction edge not yet bound"
+  },
+  "schema": "kit.sw2026.concentric-face-identity-correlation-receipt.v1",
+  "scope": "disclosed native face owner and faceted snapshot identities; no generative endpoint constructor",
+  "sdk_source_files": 4599,
+  "sdk_source_unchanged": true,
+  "source_before_sha256": "a9a6ec6fb74de9c293618f83f44fcbfaf5d36c2a62e28356e0d15d1f107e2f17",
+  "task_id": "B04-SW2026-MATES-CONCENTRIC",
+  "writer_outputs": 0
+}

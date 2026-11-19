@@ -1,0 +1,294 @@
+{
+  "claims": {
+    "facet_omission_or_minus_one_recovery": "unmeasured",
+    "kernel_face_node_number_from_fresh_parametric_model": "unresolved",
+    "marker_handle_receiver_selects_actual_arc": "confirmed static",
+    "native_field_displacements": "confirmed static",
+    "ordinary_surface_constructor_receives_actual_feature_and_unsigned_entity": "confirmed static",
+    "upstream_sketch_marker_to_kernel_from_edge_attribute": "partial; not traced end to end"
+  },
+  "concrete_arc_binding": {
+    "descriptor_va": "0x4dafb0e8",
+    "entity_slot": "0x378",
+    "factory_va": "0x4c5780d0",
+    "primary_table_va": "0x4d1c5ae8",
+    "target_va": "0x4c562f20"
+  },
+  "concrete_surface_binding": {
+    "primary_table_va": "0x4cf6ab10",
+    "target_va": "0x4ba878b0",
+    "text_slot": "0xa0"
+  },
+  "direct_call_edges": [
+    {
+      "site_va": "0x4c5c780d",
+      "target_va": "0x4b283ba0"
+    },
+    {
+      "site_va": "0x4c5780fa",
+      "target_va": "0x4c55d940"
+    },
+    {
+      "site_va": "0x4c6d2b3e",
+      "target_va": "0x4c6c2870"
+    },
+    {
+      "site_va": "0x4c6c28a5",
+      "target_va": "0x4bb5d2a0"
+    },
+    {
+      "site_va": "0x4b7883f5",
+      "target_va": "0x4c6d2b00"
+    },
+    {
+      "site_va": "0x4b7fa622",
+      "target_va": "0x4b810770"
+    },
+    {
+      "site_va": "0x4b7fa672",
+      "target_va": "0x4be98610"
+    },
+    {
+      "site_va": "0x4b7fa6ec",
+      "target_va": "0x4b7e9c60"
+    },
+    {
+      "site_va": "0x4ba878f1",
+      "target_va": "0x4c6ce4a0"
+    }
+  ],
+  "formats": {
+    "append_signed_entity": "%s,%d",
+    "surface_separator": ", "
+  },
+  "functions": {
+    "actual_arc_entity_receiver": {
+      "code_sha256": "7d2589239b66cd107ff43e5df124a0e9aa981ae79f2b5619d50128af2cd203ac",
+      "end_rva_exclusive": "0x1422f96",
+      "end_va_exclusive": "0x4c562f96",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x1422f20",
+      "start_va": "0x4c562f20",
+      "unwind_rva": "0x2245b40"
+    },
+    "actual_arc_handle_constructor": {
+      "code_sha256": "7b440f333deeca8edba5091b141b9838685efd478650863c0a84a9c1a7c7c1b6",
+      "end_rva_exclusive": "0x141d96e",
+      "end_va_exclusive": "0x4c55d96e",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0sgArcHandle@@QEAA@PEBVsgSketch@@HH@Z"
+      ],
+      "start_rva": "0x141d940",
+      "start_va": "0x4c55d940",
+      "unwind_rva": "0x24faa5c"
+    },
+    "actual_arc_runtime_factory": {
+      "code_sha256": "8cbc3fb6aa0592c9858066177492ed68459ce7f7cacfbd6daee06aec9e637f5b",
+      "end_rva_exclusive": "0x143810c",
+      "end_va_exclusive": "0x4c57810c",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x14380d0",
+      "start_va": "0x4c5780d0",
+      "unwind_rva": "0x2501f88"
+    },
+    "facet_tessellation_lookup": {
+      "code_sha256": "bfdd5b1362de5b7153f556a9a83e59085b46fdd26fb02babb2543c8c5848c4d7",
+      "end_rva_exclusive": "0x6bf3a9",
+      "end_va_exclusive": "0x4b7ff3a9",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?getTessellationHandle@moFacetedData_c@@QEAAPEAVtsFaceTessellationHandle_c@@PEAVmoModel_c@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAPEAVgcFace_w@@PEAV45@@Z"
+      ],
+      "start_rva": "0x6bf2c0",
+      "start_va": "0x4b7ff2c0",
+      "unwind_rva": "0x23107c0"
+    },
+    "faceted_constructor": {
+      "code_sha256": "5492eccbe5d9b8471488fbf53d8f548d228d52499a1e804e6a3c5f03a753ead2",
+      "end_rva_exclusive": "0x6a9dc0",
+      "end_va_exclusive": "0x4b7e9dc0",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0moFacetedData_c@@QEAA@PEAVmgPoint_c@@HPEAVtsFaceTessellationHandle_c@@HHHHHHHPEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+      ],
+      "start_rva": "0x6a9c60",
+      "start_va": "0x4b7e9c60",
+      "unwind_rva": "0x23105c0"
+    },
+    "faceted_default_constructor": {
+      "code_sha256": "1cec7bdc23bbe09179c3504a368343953fa8638e7c7295e5e0e87afada8c0df1",
+      "end_rva_exclusive": "0x6a9e1f",
+      "end_va_exclusive": "0x4b7e9e1f",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0moFacetedData_c@@QEAA@XZ"
+      ],
+      "start_rva": "0x6a9dc0",
+      "start_va": "0x4b7e9dc0",
+      "unwind_rva": "0x231058c"
+    },
+    "feature_reference_keeper": {
+      "code_sha256": "4e83a57ceacaafd8899982196ecdfe1bb4fad0cf593c60d104f38868ef4f6bd6",
+      "end_rva_exclusive": "0xa1d31f",
+      "end_va_exclusive": "0x4bb5d31f",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0xa1d2a0",
+      "start_va": "0x4bb5d2a0",
+      "unwind_rva": "0x238e7c8"
+    },
+    "from_edge_surface_assignment": {
+      "code_sha256": "b1481219e76a89972c9b5891c5863dbf83efc2fcbe6297fe1ed236a57b41e60f",
+      "end_rva_exclusive": "0x64885a",
+      "end_va_exclusive": "0x4b78885a",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?moMakeFromExtendedEdgeSurfIds@@YAXPEAVgcFace_w@@PEAX@Z"
+      ],
+      "start_rva": "0x648170",
+      "start_va": "0x4b788170",
+      "unwind_rva": "0x22fe72c"
+    },
+    "graphics_reference": {
+      "code_sha256": "993abbe58106ae6597131d3e5fe1410381778be9d5f250731536e1445ca2835e",
+      "end_rva_exclusive": "0x6baff8",
+      "end_va_exclusive": "0x4b7faff8",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?getGraphicsRefWrapData@moCompRef_c@@QEAAPEAVmoGraphicsRefWrapData_c@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+      ],
+      "start_rva": "0x6ba3d0",
+      "start_va": "0x4b7fa3d0",
+      "unwind_rva": "0x2310ed4"
+    },
+    "make_surface_id": {
+      "code_sha256": "f3ca00ffe7d39ac8c0c3747ef4cfb7bd99317bc71b7680661b12d5074b378522",
+      "end_rva_exclusive": "0x1592b95",
+      "end_va_exclusive": "0x4c6d2b95",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?makeFromSktEntSurfaceId@moEntityId_c@@QEAAXPEAVmoModelFeature_c@@K@Z"
+      ],
+      "start_rva": "0x1592b00",
+      "start_va": "0x4c6d2b00",
+      "unwind_rva": "0x25298b8"
+    },
+    "multi_surface_string": {
+      "code_sha256": "7ad7176a33bee5c35865ed6afe638d860b67979921d326cc99253c36ba506b74",
+      "end_rva_exclusive": "0xd58bdb",
+      "end_va_exclusive": "0x4be98bdb",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?getFaceIdStrWithMultiSurfIds@moFace@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ"
+      ],
+      "start_rva": "0xd58610",
+      "start_va": "0x4be98610",
+      "unwind_rva": "0x24032d8"
+    },
+    "permanent_marker": {
+      "code_sha256": "5e49d8b36f5109a912e48c41b4d69786d8dee12e409b1296eef747189dc28d91",
+      "end_rva_exclusive": "0x1487827",
+      "end_va_exclusive": "0x4c5c7827",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?getPermanentMarker@sgEntHandle@@QEBAKXZ"
+      ],
+      "start_rva": "0x1487740",
+      "start_va": "0x4c5c7740",
+      "unwind_rva": "0x2508450"
+    },
+    "surface_id_constructor": {
+      "code_sha256": "d0b887a61afb5cd6635c53788bf482fc0d64d00e64362dd187a0fd092784f72f",
+      "end_rva_exclusive": "0x15828e6",
+      "end_va_exclusive": "0x4c6c28e6",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x1582870",
+      "start_va": "0x4c6c2870",
+      "unwind_rva": "0x23712d4"
+    },
+    "surface_string": {
+      "code_sha256": "558dc54f05549d73b2af2160a618470472fcd82d0601b7e68d0189e3f604863f",
+      "end_rva_exclusive": "0x94792a",
+      "end_va_exclusive": "0x4ba8792a",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x9478b0",
+      "start_va": "0x4ba878b0",
+      "unwind_rva": "0x23712a8"
+    },
+    "surface_string_base": {
+      "code_sha256": "7941d9c4ba8cda3e0a867e7a13ca33c362664748226ecefc182dfb2675f914ff",
+      "end_rva_exclusive": "0x158e651",
+      "end_va_exclusive": "0x4c6ce651",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x158e4a0",
+      "start_va": "0x4c6ce4a0",
+      "unwind_rva": "0x252a590"
+    }
+  },
+  "getters": {
+    "actual_entity_permanent_marker_f08": {
+      "bytes": 4,
+      "code_sha256": "916ae10aa3fd76a4d5b25b2fb66e9df0fd04957c7ab10930268d1ed7808be689",
+      "field_displacement": "0x8",
+      "va": "0x4b283ba0"
+    },
+    "facet_body_atom_id_f50": {
+      "bytes": 4,
+      "code_sha256": "58e7369c57f4c2e5078496dcbdb6cec15f32eb29799a5b214cce0fc70a736beb",
+      "field_displacement": "0x50",
+      "va": "0x4b283940"
+    },
+    "facet_face_node_id_f40": {
+      "bytes": 4,
+      "code_sha256": "68b70ba1e6ad2356c69cac8e846649e599945994fa7690a0bf4af28fa25c24a5",
+      "field_displacement": "0x40",
+      "va": "0x4b286570"
+    },
+    "facet_feature_id_f54": {
+      "bytes": 4,
+      "code_sha256": "9c8eb3adab3133652cdccbd58b010e59bcef792f39806367b4a21f5a9815fbf5",
+      "field_displacement": "0x54",
+      "va": "0x4b286690"
+    }
+  },
+  "graphics_inputs": {
+    "0x4cd37fe8": {
+      "module": "sldgcu.dll",
+      "symbol": "?getPointer@gcPointerAttrib_w@@QEBAPEAXXZ"
+    },
+    "0x4cd38000": {
+      "module": "sldgcu.dll",
+      "symbol": "?getAllFromEntity@gcAttrib_w@@SAHPEAVgcTopEnt_w@@PEAVgcAttribDef_w@@PEAPEAPEAV1@H@Z"
+    },
+    "0x4cd380d8": {
+      "module": "sldgcu.dll",
+      "symbol": "?getNodeId@gcEnt_w@@QEAAHXZ"
+    },
+    "0x4cd38788": {
+      "module": "sldgcu.dll",
+      "symbol": "?getAtomId@gcBody_w@@QEAAHXZ"
+    }
+  },
+  "hidden_inputs_read": 0,
+  "hopper_sessions_opened": 0,
+  "module": {
+    "bytes": 46536280,
+    "image_base": "0x4b140000",
+    "machine": "0x8664",
+    "name": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "schema": "kit.sw2026.concentric-face-identity-native-bindings.v1",
+  "script_sha256": "a73004b8877422a04cb5aa9bc3b1487acbc0d322d7c3d9ec9cb29aea07b8c1f3",
+  "source_only": true,
+  "support_sha256": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+  "surface_entity_store_va": "0x4c6c28d0",
+  "vendor_runtime_executed": false,
+  "writer_outputs": 0
+}

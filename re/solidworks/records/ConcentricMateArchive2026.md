@@ -40,6 +40,9 @@ members are `moCylinderRef_w` objects. These are separate sets.
   has the same value in these controls. The active wrapper's optional
   vector is separately stored. Deriving that local vector and the
   full faceted snapshot from new feature topology remains open.
+- The five primary face rows are the side, the first cap, null,
+  the second cap and null. Both null entries count in the stored
+  list and remain distinct from the separate additional-face count.
 
 The archive's aligned and anti-aligned selectors are 1 and 2.
 The two aligned cases isolate API rotation lock in the first
@@ -75,3 +78,12 @@ class and alias graph. The broader reader, generation of the
 remaining face and facet identities, native candidate verification
 and held-out writer acceptance remain open.
 [Replay tool](../../tooling/sw2026/VerifyConcentricMateStreams.py)
+
+The shared SDK mates codec uses the same resolved map and typed
+base owners for the ordinary concentric profile. Its cylinder
+feature and mate both share the four verified native feature dispatch
+targets. It preserves the measured face order, both wrapper sets and
+all eighteen linked concentric streams. Six planar controls add
+eighteen exact comparisons across four existing mate classes.
+Fourteen malformed cases fail closed. Every worker reports zero
+runtime access after input delivery. [SDK receipt](../measurements/2026/ConcentricMateSdkArchive01.json)
