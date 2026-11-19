@@ -385,7 +385,12 @@ def refusal_controls(rows, tolerance):
     }
 
 
-def report(counterexamples=None):
+# catalogue recipes can reuse the archived checks for only their selected scope
+def report(counterexamples=None, *, recipe_ids=tuple(RECEIPTS)):
+    require(
+        recipe_ids in (tuple(RECEIPTS), ("P01",)),
+        "unsupported paired rectangle recipe selection",
+    )
     first_error = len(counterexamples) if counterexamples is not None else 0
     snapshot = GitSnapshot(ROOT)
     data = snapshot.blob(REVISION, SPECIFICATION)
@@ -398,7 +403,7 @@ def report(counterexamples=None):
     rows, receipts = [], {}
     p01 = fusion_rectangle_report()
     p01_saved = {row["source"]["variant"]: row for row in p01["archives"]}
-    for kind in RECEIPTS:
+    for kind in recipe_ids:
         recipe = recipes[kind]
         left, left_assets, left_observed = capture(
             snapshot, recipe, "fusion", specification
@@ -466,7 +471,12 @@ def report(counterexamples=None):
     if counterexamples is not None and len(counterexamples) > first_error:
         return {"pairs": rows}
     require(
-        Counter(row["recipe_id"] for row in rows) == {"P01": 6, "P03": 8},
+        Counter(row["recipe_id"] for row in rows)
+        == {
+            kind: count
+            for kind, count in (("P01", 6), ("P03", 8))
+            if kind in recipe_ids
+        },
         "unexpected paired discovery roster",
     )
     return {
@@ -476,7 +486,11 @@ def report(counterexamples=None):
         "scope": "paired partial-reader discovery evidence for measured rectangles and signed blind bosses",
         "receipts": receipts,
         "pairs": rows,
-        "controls": refusal_controls(rows, tolerances["length_mm_absolute"]),
+        "controls": (
+            refusal_controls(rows, tolerances["length_mm_absolute"])
+            if "P03" in recipe_ids
+            else {}
+        ),
     }
 
 

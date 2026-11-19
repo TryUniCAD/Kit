@@ -19,6 +19,7 @@ sys.path[:0] = [
 
 from Corpus import git
 from InferenceGrid.FeatureCatalogue import ReadCatalogue
+from InferenceGrid.FeatureFusionCatalogue import ReadFusionCatalogue
 from InferenceGrid.FeatureRoutes import FeatureRecipes
 from Records import bounded, canonical, label
 
@@ -29,11 +30,13 @@ SourceRoot = Path(__file__).resolve().parents[3]
 # one set of arguments supports catalogue planning and the existing worker commands
 def DispatchParser():
     parser = argparse.ArgumentParser(
-        description="Plan and dispatch SOLIDWORKS catalogue features deterministically"
+        description="Plan and dispatch SOLIDWORKS and Fusion catalogue features deterministically"
     )
     parser.add_argument("--store", type=Path)
     parser.add_argument("--feature")
-    parser.add_argument("--catalogue", type=Path)
+    source = parser.add_mutually_exclusive_group()
+    source.add_argument("--catalogue", type=Path)
+    source.add_argument("--fusion-catalogue", type=Path)
     parser.add_argument("--catalogue-sha256")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("manifest")
@@ -50,16 +53,10 @@ def DispatchParser():
 
 # catalogue planning never touches the controller or creates jobs for blocked entries
 def DispatchFeature(parser, args):
-    if args.catalogue_sha256 and args.catalogue is None:
-        parser.error("--catalogue-sha256 requires --catalogue")
-    catalogue = (
-        ReadCatalogue(args.catalogue, args.catalogue_sha256)
-        if args.catalogue is not None
-        else None
-    )
+    catalogue = LoadCatalogue(parser, args)
     if args.command == "manifest":
         if catalogue is None or args.feature is not None:
-            parser.error("manifest requires --catalogue and takes no --feature")
+            parser.error("manifest requires a catalogue and takes no --feature")
         return catalogue
     if args.feature is None:
         parser.error(f"{args.command} requires --feature")
@@ -71,11 +68,22 @@ def DispatchFeature(parser, args):
         parser.error(f"invalid choice: {args.feature!r} is not a known feature ID")
     if args.command == "plan" or recipe is None:
         if plan is None:
-            parser.error("plan requires --catalogue")
+            parser.error("plan requires a catalogue")
         return {**plan, "catalogue_sha256": catalogue["catalogue_sha256"]}
     if args.store is None:
         parser.error(f"{args.command} requires --store for a mapped feature")
     return {"feature": args.feature, **RunRecipe(recipe, args)}
+
+
+# an explicit source selector keeps the two independent catalogue schemas distinct
+def LoadCatalogue(parser, args):
+    if args.catalogue is not None:
+        return ReadCatalogue(args.catalogue, args.catalogue_sha256)
+    if args.fusion_catalogue is not None:
+        return ReadFusionCatalogue(args.fusion_catalogue, args.catalogue_sha256)
+    if args.catalogue_sha256:
+        parser.error("--catalogue-sha256 requires a catalogue")
+    return None
 
 
 # commands share one reviewed route while native advancement remains explicitly scoped

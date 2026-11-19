@@ -16,6 +16,12 @@ from Records import digest, label
 # the published planning export fits inside an explicit read boundary
 CatalogueBytes = 2 * 1024 * 1024
 
+# known circular evidence helps the planner distinguish missing wiring from missing observations
+RetainedReadbacks = {
+    "family:sketchconics:circle": "P02 SOLIDWORKS native circle binding readback",
+    "family:sketchdimensions:diameter-dimension": "P02 SOLIDWORKS native diameter binding readback",
+}
+
 
 # planning input must have one authoritative value for every field
 def UniqueFields(Pairs):
@@ -136,4 +142,7 @@ def FeaturePlan(Identity, Wave, FamilyDependencies, Feature):
         "route": DescribeRecipe(Recipe) if Recipe else None,
         "blockers": [] if Recipe else ["reviewed_recipe_and_pinned_evidence_required"],
     }
+    if Recipe is None and Key in RetainedReadbacks:
+        Plan["available_evidence"] = RetainedReadbacks[Key]
+        Plan["blockers"] = ["reviewed_decoder_route_for_readback_required"]
     return {**Plan, "plan_id": digest(Plan)}
