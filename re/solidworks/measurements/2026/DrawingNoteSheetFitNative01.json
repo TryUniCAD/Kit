@@ -1,0 +1,89 @@
+{
+  "cad_file_saves": 0,
+  "candidate_initial_pose": {
+    "orientation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "translation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "zoom": 1.0
+  },
+  "candidate_post_fit_bitmap": {
+    "bytes": 2073654,
+    "height": 720,
+    "sha256": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+    "width": 960
+  },
+  "distinct_processes": 4,
+  "document_settings_writes": 0,
+  "first_interruption_raw_sha256": "72842709aa6b40e5caa0935d96a3cc3c40d41b6abc8c45788f8e714759099bbf",
+  "heldout_source_reads": 0,
+  "job_sha256": "f44c830d5926001c66812e921ed36d57050ae34366854d99f474e4d639047574",
+  "native_inputs_unchanged": true,
+  "native_note_controls": 1,
+  "note_rendering_passed": false,
+  "oracle_build": "34.5.2.0604",
+  "post_fit_numeric_pose_measured": false,
+  "post_fit_pristine_bitmap": {
+    "bytes": 2073654,
+    "height": 720,
+    "sha256": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+    "width": 960
+  },
+  "pristine_controls": 2,
+  "raw_result_sha256": "04461c7077b5897229a5e8be7182dfb8f7633691508fba55ca598d2cbedc6d43",
+  "schema": "kit.sw2026.disclosed-drawing-note-sheet-fit-result.v1",
+  "scope": "disclosed viewport command and capture only",
+  "source_initial_pose": {
+    "orientation": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "translation": [
+      0.022356412811531168,
+      0.0021166666666666695,
+      0.0
+    ],
+    "zoom": 0.9803921568627451
+  },
+  "source_post_fit_bitmap": {
+    "bytes": 2073654,
+    "height": 720,
+    "sha256": "b14a52cddd11add23f41d0b8f8f4f3a7122039d61cb45ddba391f0c262223a97",
+    "width": 960
+  },
+  "tool_sha256": "0abf5d3b3072b6b1d881dd51e646217848d246726e9f5281130e26320de6edeb",
+  "view_zoom_to_sheet_invoked": true
+}

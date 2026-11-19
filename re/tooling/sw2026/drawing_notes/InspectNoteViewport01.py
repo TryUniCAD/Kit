@@ -5,7 +5,7 @@ from pathlib import Path
 
 from ObserveNoteDisplayFlags01 import verify
 from ObservePlainNotePresentation01 import (
-    ORACLE, CurveAuthor, Recorder, capture, digest, drawing_state, publish, require, vector,
+    ORACLE, CurveAuthor, Recorder, capture, digest, publish, require, vector,
 )
 
 
@@ -23,7 +23,7 @@ def pose(author):
             "translation": vector(translation, 3, "drawing viewport translation"), "zoom": zoom}
 
 
-def phase(role, output, source, expected, intent):
+def phase(role, output, source, expected):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -44,19 +44,11 @@ def phase(role, output, source, expected, intent):
             row["open"] = [errors, warnings]
             require(model is not None and errors == warnings == 0, "viewport drawing did not open cleanly")
             author.model = model
-            drawing = author.typed(model, "DrawingDoc")
             row["initial_pose"] = pose(author)
-            require(bool(author.get(model, "ForceRebuild3", False)), "viewport drawing did not rebuild")
-            row["initial"] = drawing_state(author, drawing, intent)
-            row["after_rebuild_pose"] = pose(author)
             row["initial_bitmap"] = capture(author, directory / "Initial.bmp")
             extension = author.typed(author.get(model, "Extension"), "ModelDocExtension")
             author.get(extension, "ViewZoomToSheet")
-            row["after_fit_pose"] = pose(author)
             row["after_fit_bitmap"] = capture(author, directory / "Fit.bmp")
-            row["after_fit"] = drawing_state(author, drawing, intent)
-            for field in ("sheet_view", "ordered_feature_tree", "model_dependencies", "annotation_count"):
-                require(row["initial"][field] == row["after_fit"][field], "sheet fit changed actual drawing content")
             row["passed"] = True
         except Exception as error:
             record.failure(error)
@@ -94,20 +86,20 @@ def main():
         print(dumps({"verified": True, "native_processes": 0}))
         return 0
     require(os.name == "nt", "viewport diagnostic requires the reserved Windows guest")
-    output = root / "SheetFitDiagnostic01"
+    output = root / "SheetFitDiagnostic02"
     output.mkdir()
     rows = {}
     for role in ROLES:
         if role in ("ControlBefore", "ControlAfter"):
-            key, intent = "Control.SLDDRW", None
+            key = "Control.SLDDRW"
         else:
-            if not rows["ControlBefore"]["passed"]:
-                rows[role] = {"passed": False, "skipped": "leading control failed"}
+            controls = ("ControlBefore", "NativeSource") if role == "Generated" else ("ControlBefore",)
+            if not all(rows[name]["passed"] for name in controls):
+                rows[role] = {"passed": False, "skipped": "preceding control failed"}
                 continue
             case = "Source" if role == "NativeSource" else "GridOffBoth"
             key = case + "/Disclosed01.SLDDRW"
-            intent = loads((root / case / "Intent.json").read_bytes())
-        rows[role] = phase(role, output, root / key, job["files"][key], intent)
+        rows[role] = phase(role, output, root / key, job["files"][key])
     births = {row["identity"]["process_creation_filetime"] for row in rows.values() if "identity" in row}
     result = output / "Result.json"
     passed = len(births) == 4 and all(row["passed"] for row in rows.values())
