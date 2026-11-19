@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.NoteGate
     GateNote,
 )
 
-# ordinary drawing attachments preserve their wire points actual view wrapper parameters and point tail specific to drawings
+# ordinary drawing attachments preserve their wire points actual view wrapper parameters and drawing only point tail
 KNoteAttachFields = MappingProxyType(
     {
         "moAttachPointData_c": GateNote(

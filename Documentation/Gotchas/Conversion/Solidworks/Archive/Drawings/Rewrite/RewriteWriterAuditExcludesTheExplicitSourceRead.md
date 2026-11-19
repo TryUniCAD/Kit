@@ -4,4 +4,4 @@ A preserved-document conversion must read its explicitly supplied source before 
 
 The guest observer counts one private canonical source file per SDK build, separately from zero original-native source files and zero guarded writer model/template reads. It retains all detailed records inside the guest and exports only the defined status/hash/count allowlist. The unchanged generator still consumes only structured neutral owners during emission.
 
-[Protocol](../../../../../../re/solidworks/records/BlankRewriteHeldoutProtocol2026.md)
+[Protocol](../../../../../../../re/solidworks/records/BlankRewriteHeldoutProtocol2026.md)

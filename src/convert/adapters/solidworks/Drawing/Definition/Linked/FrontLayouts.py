@@ -1,3 +1,27 @@
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.FavoriteFields import (
+    KNoteFavoriteFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.CharacterFields import (
+    KNoteCharacterFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.LineFields import (
+    KNoteLineFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.TextFields import (
+    KNoteTextFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.WrapperFields import (
+    KNoteWrapperFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.AbsoluteFields import (
+    KNoteAbsoluteFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.ComponentFields import (
+    KNoteComponentFields,
+)
+from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.CurveFields import (
+    KNoteCurveFields,
+)
 from types import MappingProxyType
 
 from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.AttachFields import (
@@ -41,6 +65,14 @@ KFrontLayouts = MappingProxyType(
         **KNoteAttachFields,
         **KNoteDetailFields,
         **KNoteFields,
+        **KNoteFavoriteFields,
+        **KNoteCharacterFields,
+        **KNoteLineFields,
+        **KNoteTextFields,
+        **KNoteWrapperFields,
+        **KNoteAbsoluteFields,
+        **KNoteComponentFields,
+        **KNoteCurveFields,
         **KBlankLayouts,
         **KViewFields,
         **KSupportFields,
