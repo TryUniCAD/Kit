@@ -15,6 +15,11 @@ not current capability.
 
 ## Generative 2026 research
 
+The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
+preserve a live sketch-dimension dependency across edits, saves and fresh reopens.
+The original and edited guest-only inputs are locked before writer implementation.
+The FCStd counterpart still needs source dependency binding and generated acceptance.
+
 Two [public SDK blank drawing cases](measurements/2026/SdkPublicBlankDrawingHeldout01.json)
 matched their pre-registration locked native sources through rebuild, scale
 edit, save and fresh reopen. The guarded builds use independently authored
