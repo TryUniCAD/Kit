@@ -117,11 +117,10 @@ def CheckRescanGroup(TmpPath: FilePath) -> None:
         SoloResult = Harness.ReadResult(SoloName)
         GroupRecords = GroupResult["result"]["records"]
         SoloRecords = SoloResult["result"]["records"]
-        assert GroupRecords.pop("execution")["fingerprint"] == JobInfo["fingerprint"]
-        assert (
-            SoloRecords.pop("execution")["fingerprint"]
-            == Harness.ReadJob(SoloName)["fingerprint"]
-        )
+        GroupExecution = GroupRecords.pop("execution")
+        SoloExecution = SoloRecords.pop("execution")
+        assert GroupExecution["fingerprint"] == JobInfo["fingerprint"]
+        assert SoloExecution["fingerprint"] == Harness.ReadJob(SoloName)["fingerprint"]
         assert (
             GroupRecords == SoloRecords
             and GroupRecords["source_sha256"] == Archives[Family][0]
