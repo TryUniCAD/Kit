@@ -5,6 +5,15 @@
   "heldout_source_credit": false,
   "independent_controls_passed": 3,
   "job_sha256": "ed89303077cc38bcc36775a32b56d0fce7f944bc3ad9690c5b5e5fed28e1d2d7",
+  "observation_scope": [
+    "sheet properties",
+    "view sentinel",
+    "document alerts",
+    "note identity",
+    "text",
+    "position",
+    "attachments"
+  ],
   "phases": {
     "ControlAfter": {
       "diagnostic_count": 0,

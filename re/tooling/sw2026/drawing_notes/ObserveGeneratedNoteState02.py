@@ -108,10 +108,10 @@ def phase(source, expected, role, intent, out):
         report["rebuild"] = bool(author.get(model, "ForceRebuild3", False))
         report["after_rebuild"] = capture(author, drawing, intent)
         after = snapshot(author, model, drawing, None, None, 0)
-        report["sheet_and_tree_unchanged"] = before == after
+        report["sheet_and_view_state_unchanged"] = before == after
         report["source_immutable"] = digest(source) == expected
         report["observation_complete"] = bool(
-            report["rebuild"] and report["sheet_and_tree_unchanged"] and report["source_immutable"]
+            report["rebuild"] and report["sheet_and_view_state_unchanged"] and report["source_immutable"]
         )
     except Exception as error:
         report["error"] = {"type": type(error).__name__, "message": str(error)}
