@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Explicit drawing origin resolution](../measurements/2026/DrawingExplicitOriginJoinProcess01.json) | The research reader follows the actual origin and sketch from two disclosed views of one child. Forty-eight guarded processes preserve five complete streams and public layout behavior. |
 | [Generated cylinder archive attachment](../measurements/2026/GeneratedCylinderAttachment01.json) | Two fresh part archives read back through the shared SDK atom, feature, mark and kernel body owners. Four fresh processes reproduce the archives with zero runtime reads. Native acceptance remains open. |
 | [Ordinary extrusion cap selectors](OrdinaryExtrusionCapIdentity2026.md) | Exact static evidence binds the preliminary end selector, the eventual contour field and the separate process allocator. Six disclosed forward cylinder states establish their actual physical and auxiliary order. |
 | [Generated cylinder partition](../measurements/2026/GeneratedCylinderPartition01.json) | Two independently authored Front cylinders produce typed active and rollback streams with zero runtime reads and distinct persistent face IDs and wire indexes within each stream. Six disclosed source states give twelve exact payload comparisons. Attachment and native acceptance remain open. |
