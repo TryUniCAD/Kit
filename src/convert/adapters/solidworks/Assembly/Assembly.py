@@ -808,13 +808,15 @@ def Configurations(RootValue: ET.Element) -> tuple[NativeAsmConfig, ...]:
     )
 
 
-# this definition exists because focused behavior needs one stable owner
+# assembly presentation needs its stored display labels across native index variants
 def DisplayStates(RootValue: ET.Element) -> tuple[NativeDisplay, ...]:
     return tuple(
         (
             NativeDisplay(
                 object_id=Integer(ItemValue.attrib.get("id")),
-                name=ItemValue.attrib.get("swName", ""),
+                name=ItemValue.attrib.get(
+                    "swDisplayStateName", ItemValue.attrib.get("swName", "")
+                ),
                 configuration_id=(
                     Integer(ItemValue.attrib.get("swConfigurationId"))
                     if "swConfigurationId" in ItemValue.attrib

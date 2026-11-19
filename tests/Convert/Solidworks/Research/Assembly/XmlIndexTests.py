@@ -1,11 +1,17 @@
 from base64 import b64decode as DecodeBytes
 from pathlib import Path as FilePath
 from typing import cast as CastValue
+from xml.etree.ElementTree import (
+    fromstring as ParseXml,
+    SubElement as AddXml,
+    tostring as XmlBytes,
+)
 
 import pytest as PytestLib
 
 from convert import open_document as OpenDocument
 from convert.adapters.solidworks.Container.Container import (
+    BuildSldprt,
     SldprtArchive,
     SldprtFormatError,
 )
@@ -103,3 +109,29 @@ def TestEmptyXml(TmpPath: FilePath) -> None:
     assert Document.validate() == () and Document.assembly is not None
     assert len(Document.assembly.definitions) == 1
     assert not Document.assembly.instances and not Document.assembly.documents
+
+    Archive = SldprtArchive.from_bytes(PathValue.read_bytes())
+    RootValue = ParseXml(Archive.require(ComponentTreeStream))
+    RootValue.attrib["swObjCount"] = str(int(RootValue.attrib["swObjCount"]) + 2)
+    States = AddXml(RootValue, "swDisplayStateList", {"swObjCount": "2"})
+    _ = AddXml(
+        States,
+        "swDisplayState",
+        {"id": "4", "swDisplayStateName": "Current State", "swName": "Older Name"},
+    )
+    _ = AddXml(States, "swDisplayState", {"id": "5", "swName": "Legacy State"})
+    _ = PathValue.write_bytes(
+        BuildSldprt(
+            dict(Archive.streams) | {ComponentTreeStream: XmlBytes(RootValue)},
+            FormatVersion=Archive.format_version,
+        )
+    )
+    Document = OpenDocument(PathValue)
+    assert Document.assembly is not None
+    DisplayRows = CastValue(
+        tuple[dict[str, object], ...], Document.assembly.attributes["display_states"]
+    )
+    assert [RowValue["name"] for RowValue in DisplayRows] == [
+        "Current State",
+        "Legacy State",
+    ]
