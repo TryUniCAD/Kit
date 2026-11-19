@@ -1,0 +1,200 @@
+{
+  "controls_healthy": true,
+  "diagnostic_completed": false,
+  "distinct_processes": 4,
+  "expected_generated_occurrence_names": [
+    "Cylinder-1",
+    "Cylinder-2"
+  ],
+  "file_saves": 0,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "parameter_edits": 0,
+  "phases": {
+    "ControlAfter": {
+      "diagnostic_completed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "process_creation_filetime": "134395715240462572"
+    },
+    "ControlBefore": {
+      "diagnostic_completed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "process_creation_filetime": "134395714247794582"
+    },
+    "ParentRebuild": {
+      "actual_returned_path_matches": true,
+      "after_rebuild": {
+        "components": [
+          {
+            "configuration": "Default",
+            "fixed": true,
+            "name": "NeutralCylinderAlphaDerived-1",
+            "native_id": 17,
+            "resolved_child_nonnull": true,
+            "suppressed": false,
+            "visible_child_bodies": 1
+          },
+          {
+            "configuration": "Default",
+            "fixed": false,
+            "name": "NeutralCylinderAlphaDerived-2",
+            "native_id": 18,
+            "resolved_child_nonnull": true,
+            "suppressed": false,
+            "visible_child_bodies": 1
+          }
+        ],
+        "direct_component_count": 2,
+        "document": {
+          "active_configuration": "AssemblyActive",
+          "actual_document_type": 2,
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 104,
+          "whats_wrong": 0
+        },
+        "strict_capture_error": {
+          "error": "component name path or uniqueness differs",
+          "type": "ValueError"
+        },
+        "strict_capture_passed": false
+      },
+      "before_rebuild": {
+        "components": [
+          {
+            "configuration": "Default",
+            "fixed": true,
+            "name": "NeutralCylinderAlphaDerived-1",
+            "native_id": 17,
+            "resolved_child_nonnull": true,
+            "suppressed": false,
+            "visible_child_bodies": 1
+          },
+          {
+            "configuration": "Default",
+            "fixed": false,
+            "name": "NeutralCylinderAlphaDerived-2",
+            "native_id": 18,
+            "resolved_child_nonnull": true,
+            "suppressed": false,
+            "visible_child_bodies": 1
+          }
+        ],
+        "direct_component_count": 2,
+        "document": {
+          "active_configuration": "AssemblyActive",
+          "actual_document_type": 2,
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 103,
+          "whats_wrong": 0
+        },
+        "strict_capture_error": {
+          "error": "component name path or uniqueness differs",
+          "type": "ValueError"
+        },
+        "strict_capture_passed": false
+      },
+      "diagnostic_completed": false,
+      "force_rebuild_return": true,
+      "open_errors": 0,
+      "open_warnings": 32,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": "134395714982729620"
+    },
+    "StandaloneChild": {
+      "actual_returned_path_matches": true,
+      "after_rebuild": {
+        "document": {
+          "active_configuration": "Default",
+          "actual_document_type": 1,
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 118,
+          "whats_wrong": 0
+        },
+        "geometry": {
+          "cylinder": [
+            0.003913,
+            -0.0074210000000000005,
+            0.022819,
+            -0.0,
+            -0.0,
+            -1.0,
+            0.005136999999999999
+          ],
+          "dimensions_m": {
+            "D1@RoundBoss": 0.022819,
+            "D1@RoundProfile": 0.010273999999999998
+          },
+          "mass": {
+            "area": 0.0009023280660348716,
+            "com": [
+              0.003912999999999999,
+              -0.0074210000000000005,
+              0.0114095
+            ],
+            "mass": 1.8917581449647854e-06,
+            "volume": 1.8917581449647854e-06
+          }
+        },
+        "strict_capture_passed": true,
+        "tree_row_count": 25,
+        "visible_bodies": 1
+      },
+      "before_rebuild": {
+        "document": {
+          "active_configuration": "Default",
+          "actual_document_type": 1,
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 104,
+          "whats_wrong": 0
+        },
+        "geometry": {
+          "cylinder": [
+            0.003913,
+            -0.0074210000000000005,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.005137
+          ],
+          "dimensions_m": {
+            "D1@RoundBoss": 0.022819,
+            "D1@RoundProfile": 0.010273999999999998
+          },
+          "mass": {
+            "area": 0.0009023280660348718,
+            "com": [
+              0.003912999999999999,
+              -0.0074210000000000005,
+              0.0114095
+            ],
+            "mass": 1.8917581449647858e-06,
+            "volume": 1.8917581449647858e-06
+          }
+        },
+        "strict_capture_passed": true,
+        "tree_row_count": 25,
+        "visible_bodies": 1
+      },
+      "diagnostic_completed": true,
+      "force_rebuild_return": true,
+      "open_errors": 0,
+      "open_warnings": 32,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": "134395714683748405"
+    }
+  },
+  "raw_result_sha256": "4adb114b31c981c7cb484b71897948f7d85c7c72feb16414138dfc078ec87f6d",
+  "schema": "kit.sw2026.concentric-open-diagnostic-summary.v1",
+  "trial_sha256": "c0fd9c34be82a7b506b49d90a1a41688228e57175defb3ff6a805af5e6d1a363"
+}

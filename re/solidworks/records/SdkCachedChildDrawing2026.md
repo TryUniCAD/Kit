@@ -1,0 +1,11 @@
+# Link a model view to a generated cache-bearing part
+
+Task B06-SW2026-LINKED-CACHED-CHILD, owner the PR #121 takeover agent. The disclosed preparation tool starts with a fresh typed neutral Front view and rectangular blind boss. It completes the owned analytic solid, gives the resolved extrusion the actual output atom, generates the corresponding downstream cache and passes that same part candidate to the typed drawing construction path. The view keeps the actual child locator and configuration. The drawing Definition re-emits byte for byte and the partial read recovers the exact typed reference. [Preparation tool](../../tooling/sw2026/PrepareSdkCachedDrawing.py)
+
+Two independent guarded host builds produce the same drawing, part and downstream cache hashes. The linked part has a single body atom, six downstream face identities and twelve edge identities. The constructor records zero file or subprocess accesses after warming code and validating inputs. Both attempts begin with explicit neutral parameters. [Host receipt](../measurements/2026/SdkCachedChildDrawingHost01.json)
+
+The report covers cache emission and model-reference identity. Native view rebuild and persistence still require a separately frozen comparison, and the particular cache consumer remains unobserved. [Prior generated solid lifecycle](SdkPrismPartition2026.md) · [Drawing preparation observation](DrawingPreparationGateProbe2026.md)
+
+## Frozen native comparison
+
+Trial SHA-256 efe4383034c6ac0746584bc6268999c8eead4230565bedfb507dfcfe20484f2d fixes two exact guarded builds, the authored neutral parameters, both pristine native control files and the complete observer closure before launch. The host-only verification passes without starting SOLIDWORKS. The generated drawing and part remain at their two original encoded Windows paths. The evaluator independently projects the expected ordered drawing and part feature names, part volume, area and centroid, view transform and bounds. It requires a fresh first open with the correct solid, a driving-depth read, a view position edit, save and fresh reopen. The pristine control brackets are independently repeated. [Oracle tool](../../tooling/sw2026/InspectSdkCachedDrawing.py)
