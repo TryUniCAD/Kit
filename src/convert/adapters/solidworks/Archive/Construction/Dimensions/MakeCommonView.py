@@ -1,33 +1,31 @@
-from struct import pack as PackValues
 from collections.abc import Sized
+from struct import pack as PackValues
 from typing import cast as CastValue
 
-from convert.adapters.solidworks.Archive.Construction.Dimensions.MakePoint import (
-    MakePoint,
-)
-from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeObList import (
-    MakeObList,
-)
-from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeTextFields import (
-    MakeTextFields,
+from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeDisplayFields import (
+    MakeDisplayFields,
 )
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeFavorite import (
     MakeFavorite,
 )
+from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeObList import (
+    MakeObList,
+)
+from convert.adapters.solidworks.Archive.Construction.Dimensions.MakePoint import (
+    MakePoint,
+)
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeRawIdentity import (
     MakeRawIdentity,
 )
-from convert.adapters.solidworks.Archive.Construction.Geometry.IdentityXform import (
-    IdentityXform,
+from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeTextFields import (
+    MakeTextFields,
+)
+from convert.adapters.solidworks.Archive.Construction.Dimensions.RequireDisplay import (
+    RequireDisplay,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
-)
-
-
-from convert.adapters.solidworks.Archive.Construction.Dimensions.RequireDisplay import (
-    RequireDisplay,
 )
 
 
@@ -37,54 +35,7 @@ def MakeCommonView(
 ) -> dict[str, object]:
     OwnerValue = RequireDisplay(HandleValue, DesignIntent, SelectedLeader, TextKind)
     FieldsValue: dict[str, object] = {
-        "f50": 0,
-        "f30": None,
-        "f40": None,
-        "f48": None,
-        "f54": 0,
-        "f11c": 0,
-        "f08": {
-            "f00": 65535,
-            "f02": 0,
-            "f04": 3,
-            "f08": {"f00": 4294967295, "f04": 0, "f08": {"f06": 0, "f00": -1.0}},
-        },
-        "f68": MakeObList(),
-        "fb0": MakeObList(),
-        "f58": 0,
-        "ff8": None,
-        "linked": 0,
-        "f118": FieldInt(OwnerValue.FieldsValue, "f2b0"),
-        "f390": 0,
-        "f3e0": 524416,
-        "f290": MakePoint(),
-        "has_f298": 0,
-        "has_f288": 0,
-        "f3f8": None,
-        "f400": MakePoint(),
-        "f2a0": IdentityXform(),
-        "has_f2c0": 0,
-        "f2c8": 0.0,
-        "has_f2d0": 0,
-        "f2d8": None,
-        "f3b8": -1.0,
-        "f2f0": 1,
-        "f2f8": {"f06": 0, "f00": -1.0},
-        "f2f4": 0,
-        "f304": 1,
-        "f30c": {"f06": 0, "f00": -1.0},
-        "f308": 0,
-        "f300": 0,
-        "f314": 0,
-        "f334": -1,
-        "f338": -1,
-        "has_f4a0": 0,
-        "f318": 1,
-        "f31c": 0,
-        "f320": {"f06": 0, "f00": -1.0},
-        "f328": 0,
-        "f32c": 0,
-        "has_f4b8": 0,
+        **MakeDisplayFields(FieldInt(OwnerValue.FieldsValue, "f2b0"), 524416),
         "f6a0": MakeTextFields(TextKind),
         "f870": 1,
         "f874": 1,

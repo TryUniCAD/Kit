@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
 
 
 # known incomplete branches must fail before an otherwise complete stream can escape the writer
-def CheckBlankNode(NodeValue: ArchiveNode) -> None:
+def CheckBlankNode(NodeValue: ArchiveNode, *, AllowPlainNote: bool = False) -> None:
     ClassName = NodeValue.ClassValue.NameValue
     FieldsValue = NodeValue.FieldsValue
     if ClassName == "moLayerMgr_c" and (
@@ -38,6 +38,7 @@ def CheckBlankNode(NodeValue: ArchiveNode) -> None:
             if (
                 RuleValue.TypeValue == "rf.suObList"
                 and RuleValue.NameValue != "f8f8"
+                and (not AllowPlainNote or RuleValue.NameValue != "f358")
                 and NeedConceptMap(FieldsValue[RuleValue.NameValue])["items"]
             ):
                 raise BodyUnsupported(
