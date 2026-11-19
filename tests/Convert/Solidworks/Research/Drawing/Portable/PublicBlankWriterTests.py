@@ -38,7 +38,7 @@ def TestPublicBlankWriter(TmpPath: FilePath) -> None:
         )
     ):
         SourcePath = TmpPath / f"Intent{Index}.json"
-        TargetPath = TmpPath / f"Blank{Index}.SLDDRW"
+        TargetPath = (TmpPath / f"Blank{Index}.SLDDRW").resolve()
         ReportPath = TmpPath / f"Run{Index}.json"
         _ = SourcePath.write_text(
             json.dumps(

@@ -19,7 +19,7 @@ WRAPPER = 'd8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959'
 API_METADATA = '92235db40b63b95246f2479a9166ecaa12c242d3f96d149e13827d1e92b756f5'
 COMPONENT_METADATA = 'bd66c956040c0547d1f0b7f5bd35e80681e9910542ccf0e9a61dcd79d34daa24'
 TOOLS = {'InspectDrawingEdgeQualification01.py', 'DrawingEdgeState01.py', 'AuthorCurves.py', 'AuthorDrawingSources.py',
-         'InspectDrawingCache.py', 'DrawingCacheCases.py', 'Swapp.py', 'OracleIdentity.py'}
+         'InspectDrawingCache.py', 'DrawingCacheCases.py', 'Swapp.py', 'OracleIdentity.py', 'DrawingEdgeBody01.py'}
 
 
 def digest(path):
@@ -83,13 +83,21 @@ def verify(packet, expected):
             selected = [row for row in observed['members'] if row['names'][0] == member and row['invoke_kind'] == 1]
             require(len(selected) == 1 and selected[0]['vtable_offset_bytes'] == slot and selected[0]['arguments'] == [],
                     'exact zero-argument component/root-model API shape differs: ' + member)
-    require(request['component_api_metadata_sha256'] == COMPONENT_METADATA and request['observer_revision'] == 'visible-front-cap-04'
-            and request['previous_trial_sha256'] == '3224ebc2de12538b843206675b3dbad38791300b02dc2e995bc155c0c79d737c'
-            and request['previous_failed_result_sha256'] == '839bcbd4a5dfd89cfae2879ba9e2932d3b7dc71b2a02e7f2d8303bf46905a9fb'
+    require(request['component_api_metadata_sha256'] == COMPONENT_METADATA and request['observer_revision'] == 'visible-part-body-owner-05'
+            and request['previous_trial_sha256'] == '6924557cf5ddaf5013a7a7414fe65938df629c543bcdb4ea5b8ab900c216eb74'
+            and request['previous_failed_result_sha256'] == '2b1086065acffae0b4bc72cc73f03b4b29e212a1914fc0d1f54e247321a4d132'
             and request['visible_edge_selection_rule'] == 'positive-view-normal-outer-cap-left-rail-v1'
             and request['original_trial_sha256'] == '36143744fc79f19fb60434d24884288f72733e764ed9fd8a8138aff4233d0872'
             and request['original_failed_result_sha256'] == '1056bde8473497d695c89276812fab2db2a66136c9c7351e8ddac40af47c6eb0',
             'the observer-only retry must preserve its exact predecessor')
+
+    from DrawingEdgeBody01 import METADATA as BODY_METADATA, validate as validate_body_api
+
+    body_metadata = json.loads(checked(root, 'BodyApiMetadata.json', BODY_METADATA).read_bytes())
+    validate_body_api(body_metadata)
+    require(request['body_api_metadata_sha256'] == BODY_METADATA
+            and request['body_ownership_rule'] == 'sole-resolved-part-body-and-exact-live-edge-membership-v1',
+            'the new body-ownership proof must remain exact')
 
     tools = root / 'Tools'
     require(Path(__file__).resolve().parent == tools and set(request['tools_sha256']) == TOOLS, 'run only the complete frozen observer')
@@ -167,6 +175,7 @@ def phase(packet, packet_sha, case, directory, source, source_sha, *, prior=None
             result['oracle_identity'] = identity
             require(identity['version_matches'] and identity['sha256'] == ORACLE and controller.revision == '34.5.2', 'oracle build differs')
             author = curves.CurveAuthor(controller.app, rec, Swapp)
+            author.edge_body_metadata = json.loads((packet.parent / 'BodyApiMetadata.json').read_bytes())
             require(digest(Path(author.interfaces.__file__)) == WRAPPER, 'registered 2026 wrapper bytes differ')
             author.model, errors, warnings = rec.call('open exact disclosed drawing', controller.open, source, doctype=3, read_only=True)
             result.update(open_errors=errors, open_warnings=warnings)

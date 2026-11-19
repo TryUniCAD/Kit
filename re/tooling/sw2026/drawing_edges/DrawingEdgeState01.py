@@ -92,12 +92,13 @@ def select_edge(author, drawing, case):
             selected.append(edge)
     require(len(selected) == 1, 'analytic endpoint rule must select exactly one real visible edge')
     edge = selected[0]
-    owner = author.get(author.typed(edge, 'Entity'), 'GetComponent')
-    require(owner is not None and author.get(author.app, 'IsSame', owner, component) == 1, 'selected edge is not owned by the actual visible component')
+    from DrawingEdgeBody01 import prove_owner
+
+    ownership = prove_owner(author, child, component, edge, case['edge_endpoints_m'], edge_points, endpoints_match)
     return view, child, edge, {'visible_edge_count': len(edges), 'visible_edge_endpoints_m': inventory,
                               'selected_endpoints_m': case['edge_endpoints_m'], 'actual_child_path': str(child_path),
                               'configuration': case['expected']['view']['configuration'], 'component_occurrence_configuration_observed': component_configuration,
-                              'actual_component_model_configuration': actual_configuration, 'component_is_root_observed': False, 'actual_parent_null': True, 'drawing_projected_occurrence': True}
+                              'actual_component_model_configuration': actual_configuration, 'component_is_root_observed': False, 'actual_parent_null': True, 'drawing_projected_occurrence': True, 'body_ownership': ownership}
 
 
 def persist_id(author, extension, entity):

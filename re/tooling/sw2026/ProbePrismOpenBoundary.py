@@ -212,6 +212,16 @@ class ColdAdmissionTrace(debug.SaveAggregateTrace):
                                 interfaces["symbols"], handle, read_int(data, stack + 0xf8, 8))
                             record["insertion_requests_update"] = read_int(data, stack + 0x120, 4, signed=True)
                             record["insertion_registers_name"] = read_int(data, stack + 0x128, 4, signed=True)
+                            wrapper = record["insertion_caller"]
+                            if wrapper["module"] == "sldmodu" and wrapper["return_rva"] == 0x4b493612 - MODULES["sldmodu"][0]:
+                                added_from = self._caller(interfaces["symbols"], handle, read_int(data, stack + 0x138, 8))
+                                record["environment_wrapper_caller"] = added_from
+                                if added_from["module"] == "sldmodu" and added_from["return_rva"] == 0x4bda6757 - MODULES["sldmodu"][0]:
+                                    defaults = self._caller(interfaces["symbols"], handle, read_int(data, stack + 0x2c8, 8))
+                                    record["add_new_feature_caller"] = defaults
+                                    if defaults["module"] == "sldmodu" and defaults["return_rva"] == 0x4c019fb4 - MODULES["sldmodu"][0]:
+                                        post_load = self._caller(interfaces["symbols"], handle, read_int(data, stack + 0x4e8, 8))
+                                        record["create_default_lights_caller"] = post_load
                             notifier = register(registers, "rdi")
                             if notifier:
                                 record["added_member_vtable"] = self._caller(

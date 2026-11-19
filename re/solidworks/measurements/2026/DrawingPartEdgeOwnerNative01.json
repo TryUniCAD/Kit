@@ -1,0 +1,35 @@
+{
+  "candidate_skipped": true,
+  "complete_lifecycle_controls_healthy": false,
+  "control_drawing_open_reached_live_edge": true,
+  "distinct_native_processes": 2,
+  "heldout_inputs_read": 0,
+  "oracle_build": "34.5.2.0604",
+  "packet_sha256": "47457fa53cf507373ab5a8a083897e89c486f11ae29b8eefbf164cbf8323c4bf",
+  "phases": {
+    "ControlAfter": {
+      "drawing_edge_body_vs_part_body": 0,
+      "first_failed_stage": "IsSame",
+      "raw_sha256": "97c27087f91aae356f737dff13bdc511617466a948b51f69882047f3704b9c64",
+      "same_domain_equalities": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "ControlBefore": {
+      "drawing_edge_body_vs_part_body": 0,
+      "first_failed_stage": "IsSame",
+      "raw_sha256": "5c53cee3eb78d83342de26abb00dec4af7ce8d906e5f2e1caf7c2e58c94f8f2f",
+      "same_domain_equalities": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "raw_summary_sha256": "848a20948ae30baa8a092a3ad9ec3caadf27082896f4a7d75b680c0483be7ed6",
+  "schema": "kit.sw2026.drawing-part-edge-owner-native.v1"
+}

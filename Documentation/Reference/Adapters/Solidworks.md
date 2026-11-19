@@ -198,7 +198,7 @@ solids retain outward face loops and positive signed volume in
 
 For an ordinary SOLIDWORKS 2026 drawing, pass `strict=False` to `open_document()` or run `kit decode SOURCE --partial`. The returned `CadDocument.drawing` includes the active sheet, paper dimensions and scale. A sheet can have one external part view in Front, Top, Right or Isometric orientation with its position, outline, saved model path and selected configuration. View position, orientation, scale ratio and model-to-sheet transform come from the native Definition view. The independently stored Header2 bounds corroborate the outline. Distances are in metres. The standard interchange JSON path preserves these records. [Edited view positions](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksEditedDrawingViewPosition.md)
 
-The opt-in route supports a single unformatted sheet and verifies that Definition and the sheet and reference indexes agree. The `slddrw.layout_inspection` diagnostic identifies annotations, styles and graphics as outside this profile. Strict reads and native drawing writes remain unavailable. [Drawing view properties](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingViewProperties.md) [Scaled named views](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksScaledNamedDrawingViews.md)
+The opt-in route supports a single unformatted sheet and verifies that Definition and the sheet and reference indexes agree. The `slddrw.layout_inspection` diagnostic identifies annotations, styles and graphics as outside this profile. Use the standalone blank drawing writer below for authored layouts. Strict reads of existing native drawings remain open. [Drawing view properties](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingViewProperties.md) [Scaled named views](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksScaledNamedDrawingViews.md)
 
 The research property constructor generates text sections, IDs and name dictionaries from neutral sheet metadata. With the retained property XML's literal `vt` prefix declared, the generated blank sheet passes native open, rebuild, scale edit, SaveAs and fresh reopen. Four reference lanes pass in the ten-process comparison. A separate disclosed generated drawing and part pass view position edit, save and fresh reopen across eight processes. Its saved drawing preserves the sixteen-row tree, resolved part configuration and child geometry. The scope includes a single independent unit-scale front view on an unformatted sheet. [Blank drawing result](../../Changes/Solidworks/Inspection/Drawings/SolidworksDrawingPropertyPrefix.md) [Linked drawing result](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksFrontDrawingPropertyPrefix.md)
 
@@ -206,7 +206,7 @@ The research composer also builds the four measured named views with positive ex
 
 Both pre-writer locked Front drawing and ordinary rectangle pairs passed source-to-generated comparisons through view edits, native save and fresh reopen. Their ordered feature trees, sheet and view state, linked child geometry and empty annotation inventories match under the registered rules. Both controls and all twelve phases passed. [Original held-out results](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksOriginalDrawingHeldoutProtocol.md)
 
-The internal SDK writer can serialize ordinary 2026 sheet fields with the caller's actual drawing archive context and object map. Two blank and two linked generated designs matched the research serializer's complete streams in independent processes. The SDK also reads and writes the complete Definition of an ordinary blank sheet, preserving its inline header identities and archive map. The linked Definition codec also round-trips a complete ordinary unit-scale Front view, including the active sheet, external child and support aliases. The named-view profile preserves complete Definition bytes, ownership, and authored scale for Front, Top, Right and Isometric views. It follows the native near-unity rule for geometric point application. The public drawing writer remains open. [Typed named Definition](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksNamedViewDefinitionCodec.md) [Typed sheet fields](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksDrawingSheetFieldWriter.md) [Typed blank Definition](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksBlankDefinitionWriter.md) [Typed linked Front Definition](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksLinkedFrontDefinitionCodec.md) The SDK also constructs a fresh blank sheet and its support graph from authored paper, scale and target values and the supplied drawing model. The complete seven-stream proof covers the actual support plane and component aliases. [Fresh sheet construction](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksBlankSheetConstruction.md) The SDK also builds the drawing model itself, including its actual self-component, managers, styles, sheet and support identities. Six ordinary blank or linked Front designs preserve all logical streams. The internal SDK blank-file entry point now builds all seven logical streams and the container from the portable drawing and explicit settings. Four independent neutral drawings match the research constructor byte for byte in guarded workers. Public drawing writer qualification remains open. [SDK blank file](../../Changes/Solidworks/Inspection/Drawings/Portable/SolidworksSdkBlankDrawingFile.md) [Fresh drawing model](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksBlankDrawingModel.md)
+The internal SDK writer can serialize ordinary 2026 sheet fields with the caller's actual drawing archive context and object map. Two blank and two linked generated designs matched the research serializer's complete streams in independent processes. The SDK also reads and writes the complete Definition of an ordinary blank sheet, preserving its inline header identities and archive map. The linked Definition codec also round-trips a complete ordinary unit-scale Front view, including the active sheet, external child and support aliases. The named-view profile preserves complete Definition bytes, ownership, and authored scale for Front, Top, Right and Isometric views. It follows the native near-unity rule for geometric point application. [Typed named Definition](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksNamedViewDefinitionCodec.md) [Typed sheet fields](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksDrawingSheetFieldWriter.md) [Typed blank Definition](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksBlankDefinitionWriter.md) [Typed linked Front Definition](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksLinkedFrontDefinitionCodec.md) The SDK also constructs a fresh blank sheet and its support graph from authored paper, scale and target values and the supplied drawing model. The complete seven-stream proof covers the actual support plane and component aliases. [Fresh sheet construction](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksBlankSheetConstruction.md) The SDK also builds the drawing model itself, including its actual self-component, managers, styles, sheet and support identities. Six ordinary blank or linked Front designs preserve all logical streams. The internal SDK blank-file entry point now builds all seven logical streams and the container from the portable drawing and explicit settings. Four independent neutral drawings match the research constructor byte for byte in guarded workers. [SDK blank file](../../Changes/Solidworks/Inspection/Drawings/Portable/SolidworksSdkBlankDrawingFile.md) [Fresh drawing model](../../Changes/Solidworks/Inspection/Drawings/Linked/SolidworksBlankDrawingModel.md)
 
 The complete linked SDK constructor builds the drawing from one external generated part and a single authored named view. Six designs pass exact stream and independent corner comparisons. One Front view and its generated part pass a native move, save and fresh reopen with exact native feature rows, resolved part geometry and live child depth. [Complete linked SDK drawing](../../Changes/Solidworks/Inspection/Drawings/Portable/SolidworksSdkLinkedDrawingFile.md) [Native lifecycle](../../Changes/Solidworks/Inspection/Drawings/Portable/SolidworksSdkLinkedDrawingNativeTrial.md)
 
@@ -271,7 +271,7 @@ A single flag change is not a general operation converter.
 
 ## Writing
 
-The public writer accepts a neutral millimetre document with one active
+The part writer accepts a neutral millimetre document with one active
 configuration, one sketch, one blind boss and one solid. It admits these
 three profiles:
 
@@ -296,8 +296,8 @@ of that locator.
 The `kit convert` command applies its separate portable-geometry gate.
 Use the SDK call above for the qualified SOLIDWORKS write profiles.
 
-The writer rejects other feature combinations, material assignments,
-unmapped source state, assemblies and drawings before publishing a file.
+The part writer rejects other feature combinations, material assignments and
+unmapped source state before publishing a file.
 [Native part writer](../../Changes/Solidworks/Construction/SolidworksNativePartWriter.md) ·
 [Default recipe and field rules](../../../re/solidworks/records/SdkDefaultPartRecipe2026.md)
 
@@ -307,9 +307,25 @@ Every generated file also took its `Config-0` stream from one recorded configura
 The [recorded payload removal](../../Changes/Solidworks/SolidworksRecordedPayloadRemoval.md) deleted that writer.
 CI now rejects any recorded field program in `src`.
 
-A future writer must derive each emitted structure from known format rules.
-The container, archive, configuration manager, definition, and resolved-feature codecs remain as its starting point.
+The generative writers derive each emitted structure from known format rules.
+The container, archive, configuration manager, definition and resolved-feature codecs provide the shared construction model.
 Do not present a carrier or a mode label as a completed translation.
+
+### Writing standalone blank drawings
+
+Call `write_document(document, path)` with an authored metre document and a
+`.SLDDRW` destination. The explicit format ID is `solidworks.slddrw`. The
+drawing must contain one active ANSI A landscape sheet with a name and positive
+integral scale terms. An explicit document name must match the destination
+basename.
+
+The SDK generates the seven native streams and the stock English presentation.
+Model views, linked references, additional sheets, annotations and preserved
+source metadata require broader support. The SDK rejects unsupported layouts
+before publication. Two source-locked layouts passed native open, rebuild,
+scale edit, save and fresh reopen against pristine controls. [Public blank writer](../../Changes/Solidworks/Construction/SolidworksPublicBlankDrawingWriter.md)
+
+### Writing assemblies
 
 The [assembly definition experiment](../../Changes/Solidworks/Inspection/Cohorts/SolidworksAssemblyDefinitionConstruction.md)
 constructs assembly document settings from authored inputs and the 2026 format rules.

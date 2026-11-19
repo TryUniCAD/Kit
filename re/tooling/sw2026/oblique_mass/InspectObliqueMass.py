@@ -8,10 +8,15 @@ import time
 
 from ObliqueMass import binding, collect, require
 
-SCHEMA = "kit.sw2026.oblique-mass-diagnostic.v1"
+SCHEMA = "kit.sw2026.oblique-mass-diagnostic.v2"
 BASELINE = "0cc67981af46bcee916354bdf90b7204c9a6bf74d89fb8104636e2728c3034d8"
 REGISTRY = "ae1cb6e0fd42acc1ca2988582af2374ef9519bae3cd868f80724ad84c145b99a"
 PHASES = ("ControlBefore", "F01", "F02", "ControlAfter")
+PREDECESSOR = "52a51eeaa8a6e60a1da06b0870c45f574f69242391dd3719c28c44e444462d0b"
+CONTROL_RESULTS = {
+    "ControlBefore": "6f442b8328ab68fd0fb72a5f070cf1a3fc3226adf7c898249b6ee82a5b5dbfc0",
+    "ControlAfter": "caee1b42c2bcf2fa9460618efa2f4fc5921ead23b4e9a27e697f8ee20c204a5e",
+}
 
 
 def fingerprint(path):
@@ -38,6 +43,24 @@ def prepare(args):
         and fingerprint(args.mass_metadata) == REGISTRY,
         "diagnostic source identity differs",
     )
+    require(
+        fingerprint(args.predecessor / "Trial.json") == PREDECESSOR,
+        "first failed diagnostic packet differs",
+    )
+    for phase, expected in CONTROL_RESULTS.items():
+        path = args.predecessor / "Inspection" / phase / "Result.json"
+        require(fingerprint(path) == expected, "first failed control result differs")
+        result = json.loads(path.read_bytes())
+        require(
+            result["diagnostic_complete"] is False
+            and result["controls_healthy"] is False
+            and len(result["mass_precision"]["levels"]) == 3
+            and all(
+                row["passed"] is False and row["status"] == 0
+                for row in result["mass_precision"]["levels"]
+            ),
+            "preserve the original failed document parser controls",
+        )
     previous = json.loads((source / "Protocol.json").read_bytes())
     require(
         previous["writer_output_count"] == 0
@@ -61,7 +84,7 @@ def prepare(args):
     ):
         shutil.copyfile(source / name, target / name)
     shutil.copyfile(args.mass_metadata, target / "MassApi.json")
-    for name in ("ObliqueMass.py", "InspectObliqueMass.py"):
+    for name in ("ObliqueMass.py", "InspectObliqueMass.py", "ObliqueMassShape.py"):
         shutil.copyfile(Path(__file__).parent / name, target / "Tools" / name)
     binding(json.loads((target / "MassApi.json").read_bytes()))
     files = {
@@ -82,6 +105,8 @@ def prepare(args):
         "schema": SCHEMA,
         "baseline_sha256": BASELINE,
         "registry_sha256": REGISTRY,
+        "predecessor_packet_sha256": PREDECESSOR,
+        "predecessor_control_results_sha256": CONTROL_RESULTS,
         "phases": list(PHASES),
         "files_sha256": files,
         "tools_sha256": tools,
@@ -134,6 +159,8 @@ def verify(path, expected):
         job["schema"] == SCHEMA
         and job["baseline_sha256"] == BASELINE
         and job["registry_sha256"] == REGISTRY
+        and job["predecessor_packet_sha256"] == PREDECESSOR
+        and job["predecessor_control_results_sha256"] == CONTROL_RESULTS
         and job["phases"] == list(PHASES),
         "diagnostic profile differs",
     )
@@ -335,18 +362,89 @@ def phase(root, job, name):
     return result
 
 
+def summarize(root, no_file=False):
+    rows = {}
+    states = {}
+    errors = {}
+    for phase in PHASES:
+        path = root / "Inspection" / phase / "Result.json"
+        if not path.is_file():
+            states[phase] = "missing-result"
+            continue
+        try:
+            row = json.loads(path.read_bytes())
+            require(row["phase"] == phase, "phase result identity differs")
+            rows[phase] = row
+            states[phase] = "captured"
+        except Exception as error:
+            states[phase] = "invalid-result"
+            errors[phase] = repr(error)
+    births = [
+        row.get("oracle_identity", {}).get("process_creation_filetime")
+        for row in rows.values()
+    ]
+    controls = all(
+        rows.get(name, {}).get("controls_healthy") is True
+        for name in ("ControlBefore", "ControlAfter")
+    )
+    skipped = {}
+    if rows.get("ControlBefore", {}).get("controls_healthy") is False:
+        skipped = {
+            name: "initial control did not qualify the mass observer"
+            for name in ("F01", "F02")
+            if name not in rows
+        }
+        states.update({name: "skipped-before-control" for name in skipped})
+    result = {
+        "diagnostic_complete": bool(
+            controls
+            and len(rows) == 4
+            and all(row.get("diagnostic_complete") is True for row in rows.values())
+            and None not in births
+            and len(set(births)) == 4
+        ),
+        "controls_healthy": controls,
+        "distinct_native_processes": len(set(births) - {None}),
+        "phase_states": states,
+        "missing_phase_results": [name for name in PHASES if name not in rows],
+        "skipped_candidates": skipped,
+        "phase_errors": errors,
+        "preserved_original_comparisons": {
+            name: rows[name].get("original_analytic_comparison_passed")
+            for name in ("F01", "F02")
+            if name in rows
+        },
+        "result_sha256": {
+            name: fingerprint(root / "Inspection" / name / "Result.json")
+            for name in rows
+        },
+        "native_acceptance": False,
+        "writer_output_count": 0,
+        "heldout_reads": 0,
+        "summary_written": not no_file and (root / "Inspection").is_dir(),
+    }
+    if result["summary_written"]:
+        store(root / "Inspection/Result.json", result)
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("prepare", "verify", "phase", "summary"))
     parser.add_argument("packet", type=Path, nargs="?")
     parser.add_argument("--packet-sha256")
     parser.add_argument("--baseline", type=Path)
+    parser.add_argument("--predecessor", type=Path)
+    parser.add_argument("--no-file", action="store_true")
     parser.add_argument("--mass-metadata", type=Path)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--guest-root")
     parser.add_argument("--guest-python")
     parser.add_argument("--phase", choices=PHASES)
     args = parser.parse_args()
+    require(
+        not args.no_file or args.mode == "summary", "no-file applies only to a summary"
+    )
     if args.mode == "prepare":
         result = prepare(args)
     else:
@@ -357,38 +455,7 @@ def main():
             result = phase(root, job, args.phase)
             verify(args.packet, args.packet_sha256)
         else:
-            rows = [
-                json.loads((root / "Inspection" / name / "Result.json").read_bytes())
-                for name in PHASES
-            ]
-            births = [
-                value.get("oracle_identity", {}).get("process_creation_filetime")
-                for value in rows
-            ]
-            controls = rows[0]["controls_healthy"] and rows[-1]["controls_healthy"]
-            complete = (
-                controls
-                and all(value["diagnostic_complete"] for value in rows)
-                and None not in births
-                and len(set(births)) == 4
-            )
-            result = {
-                "diagnostic_complete": complete,
-                "controls_healthy": controls,
-                "distinct_native_processes": len(set(births) - {None}),
-                "preserved_original_comparisons": {
-                    row["phase"]: row.get("original_analytic_comparison_passed")
-                    for row in rows[1:3]
-                },
-                "result_sha256": {
-                    name: fingerprint(root / "Inspection" / name / "Result.json")
-                    for name in PHASES
-                },
-                "native_acceptance": False,
-                "writer_output_count": 0,
-                "heldout_reads": 0,
-            }
-            store(root / "Inspection/Result.json", result)
+            result = summarize(root, no_file=args.no_file)
     printed = {
         key: result[key]
         for key in (
@@ -403,7 +470,7 @@ def main():
         )
         if key in result
     }
-    print(json.dumps(printed))
+    print(json.dumps(result if args.mode == "summary" else printed))
     return 0 if result.get("passed", result.get("diagnostic_complete", False)) else 3
 
 

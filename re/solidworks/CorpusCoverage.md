@@ -15,6 +15,12 @@ not current capability.
 
 ## Generative 2026 research
 
+Two [public SDK blank drawing cases](measurements/2026/SdkPublicBlankDrawingHeldout01.json)
+matched their pre-registration locked native sources through rebuild, scale
+edit, save and fresh reopen. The guarded builds use independently authored
+neutral drawing inputs and generate all seven streams. These are drawing
+layout acceptance cases outside the FCStd part and assembly benchmark.
+
 The independent research composer generates fresh native containers and streams
 from neutral polygon, circle, radial-dimension and depth inputs without saved-stream inputs.
 Its research results remain separate from public SDK and FCStd acceptance.

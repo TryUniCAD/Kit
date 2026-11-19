@@ -1,5 +1,7 @@
 from math import isclose, isfinite
 
+from ObliqueMassShape import document_values, shape
+
 
 def require(value, message):
     if not value:
@@ -53,7 +55,10 @@ def binding(metadata):
         "return_type": (12, 0),
         "argument_types": ((3, 1), (16387, 2), (11, 1)),
         "status_placeholder": -2147483648,
-        "returned_shape": ["twelve model-coordinate SI metrics", "actual byref status"],
+        "returned_shape": [
+            "twelve documented metrics with an explicitly checked measured 2026 extension",
+            "actual byref status",
+        ],
         "accuracy_arguments": {"0": "as-is", "1": "default", "2": "maximum"},
         "mass_property2_accuracy_enum_used": False,
         "body_density_kg_m3": 1.0,
@@ -194,6 +199,8 @@ def collect(author, metadata, original_default, prediction=None):
                             "out_status_is_returned_not_assumed": True,
                         },
                     )
+                    observed["raw_shape"] = shape(raw)
+                    author.rec.flush()
                     require(
                         isinstance(raw, tuple) and len(raw) == 2,
                         "mass call must return its variant and actual out status",
@@ -203,7 +210,9 @@ def collect(author, metadata, original_default, prediction=None):
                         type(raw[1]) is int and raw[1] == 0,
                         "native mass status is not OK",
                     )
-                    observed["metrics"] = metrics(raw[0])
+                    values, framing = document_values(raw, level)
+                    observed.update(framing)
+                    observed["metrics"] = metrics(values)
                     observed["versus_original_default"] = comparisons(
                         observed["metrics"], original_default
                     )
@@ -233,6 +242,8 @@ def collect(author, metadata, original_default, prediction=None):
                 ((5, 1),),
                 1.0,
             )
+            observed["raw_shape"] = shape(value)
+            author.rec.flush()
             observed["metrics"] = metrics(value)
             observed["versus_original_default"] = comparisons(
                 observed["metrics"], original_default

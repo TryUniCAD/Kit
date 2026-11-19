@@ -1,0 +1,84 @@
+{
+  "distinct_native_processes": 3,
+  "healthy_controls": 2,
+  "heldout_inputs_read": 0,
+  "interval_relative_to_replace_body_independently_measured": false,
+  "native_acceptance_added": false,
+  "oracle_build": "34.5.2.0604",
+  "phases": {
+    "ControlAfter": {
+      "bodies_before_rebuild": 1,
+      "native_input_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "open_warning": 0,
+      "process_birth_filetime": 134395635203041094,
+      "raw_sha256": "cbee5b09bf1a01837d25136190657ecabff546a2f368e8ee0ca3269cb1246377"
+    },
+    "ControlBefore": {
+      "bodies_before_rebuild": 1,
+      "native_input_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "open_warning": 0,
+      "process_birth_filetime": 134395634693196826,
+      "raw_sha256": "c0992b3e64d3af1f5e1db95afb47178fd91d972ebd09a8eddc64b0eae308296b"
+    },
+    "GeneratedFirstDirty": {
+      "bodies_before_rebuild": 0,
+      "native_input_sha256": "3c6e2216c9ecaff27c8a5897b87653cffa5681df71940c9b7104d27a9eaddd03",
+      "open_warning": 32,
+      "process_birth_filetime": 134395634916973460,
+      "raw_sha256": "fe635b11d4ea46eb079fb2b787290667d45b5d6ca9b629f9826d4aefe90857a3",
+      "scoped_store": {
+        "add_new_feature_caller": {
+          "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "module": "sldmodu",
+          "return_rva": 15572916
+        },
+        "added_member_feature_id": 27,
+        "added_member_vtable": {
+          "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "module": "sldmodu",
+          "return_rva": 29771216
+        },
+        "caller": {
+          "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "module": "sldmodu",
+          "return_rva": 10557157
+        },
+        "computed_node_flags": 1,
+        "create_default_lights_caller": {
+          "image_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+          "module": "slduiu",
+          "return_rva": 9412520
+        },
+        "environment_wrapper_caller": {
+          "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "module": "sldmodu",
+          "return_rva": 13002583
+        },
+        "feature_id": 9,
+        "feature_receiver_present": true,
+        "feature_table_is_extrusion": false,
+        "insertion_caller": {
+          "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "module": "sldmodu",
+          "return_rva": 3487250
+        },
+        "insertion_registers_name": 0,
+        "insertion_requests_update": 1,
+        "notifier_present": true,
+        "old_node_flags": 0,
+        "requested_state": 11,
+        "site": "part_first_dirty_store",
+        "source_address": "0x4c03ee0e",
+        "thread": 0,
+        "upstream_caller": {
+          "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "module": "sldmodu",
+          "return_rva": 13001604
+        }
+      }
+    }
+  },
+  "probe_sha256": "362b4f825538c2796953f044d32da773f8b5ac6c70066fa6273e5f5cb9123845",
+  "schema": "kit.sw2026.prism-environment-post-load.v1",
+  "source_join": "post_load_model / create_default_lights / add_new_feature / environment_wrapper / add_feature / feature_update / node_dirty_store"
+}

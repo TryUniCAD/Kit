@@ -1,0 +1,127 @@
+{
+  "schema": "kit.sw2026.blank-drawing-native-runner-provenance.v1",
+  "delivery_pr": 121,
+  "owner": "configuration_header",
+  "task": "B04-SW2026-DRAWPROPS/blank-public-qualification",
+  "status": "frozen source only; no new native execution",
+  "runner": {
+    "repo_path": "re/tooling/sw2026/blank_eval/RunBlankDrawingComparison01.py",
+    "sha256": "9839892d3cdb12ba02ad4c953679e10cf54866d571911a4806d4f36e8098b110"
+  },
+  "comparator": {
+    "repo_path": "re/tooling/sw2026/blank_eval/BlankDrawingComparison01.py",
+    "sha256": "38db51428485c1c0b7075cedfe44f76b99f0bf36d0a8c5300141cbb299cacfa7",
+    "unchanged": true,
+    "predecessor_stageable_manifest_sha256": "e54be608e13c1bb8f3419a854b8a558ff59a5d2ec1b5a15cc3f1c966e8c2e194"
+  },
+  "bind_before_intent_release": {
+    "artifact_role": "native_observer_manifest",
+    "manifest_filename": "Tools.json",
+    "manifest_sha256": "be474292df04082ee8b8e9712c0d11b8a85a14677cf61eb993d6635b4f222627",
+    "tools_sha256": {
+      "RunBlankDrawingComparison01.py": "9839892d3cdb12ba02ad4c953679e10cf54866d571911a4806d4f36e8098b110",
+      "BlankDrawingComparison01.py": "38db51428485c1c0b7075cedfe44f76b99f0bf36d0a8c5300141cbb299cacfa7",
+      "InspectDrawingCache.py": "ce7eb33d3f15c88a447fb6da46544f78fa66174ead4fcb0a49cd5bf0e3363c4c",
+      "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+      "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    }
+  },
+  "raw_record_shape_evidence": [
+    {
+      "disclosed_locator": "SdkBlankNative02/Inspection/ControlBefore/OpenEditSave/Record.json",
+      "sha256": "623b1a2d24874627e1c10c9d5e5621d27f4be6ce471537eac47890bf98486881",
+      "result_nested": true,
+      "save_status_is_json_list": true,
+      "fresh_reopen_has_no_edit_or_save": false
+    },
+    {
+      "disclosed_locator": "SdkBlankNative02/Inspection/ControlBefore/FreshReopen/Record.json",
+      "sha256": "062cdd071a8426a5fbe855ccbb8f7fa82fcbf1ace555ea0eaccaaed2570b5819",
+      "result_nested": true,
+      "save_status_is_json_list": false,
+      "fresh_reopen_has_no_edit_or_save": true
+    }
+  ],
+  "raw_record_discrepancy": "none; live save tuple is serialized as the JSON list already required by the frozen comparator",
+  "gate_sequence": [
+    "verify exact tool closure",
+    "verify final method binding and complete writer verification receipt",
+    "verify generation freeze and both locked intent hashes without opening an intent",
+    "verify both slot predictions and all four independent matching-path generated payload copies",
+    "exclusively write and hash AccessGate.json with zero preceding native source reads",
+    "only afterward compute/read the original source paths in a native worker",
+    "each worker verifies the same method/generation metadata and access receipt before reading its actual input",
+    "compare the untouched raw records after the independent trailing control attempt"
+  ],
+  "fixed_source_path_arrays": {
+    "Slot01": [
+      "C:\\KitBlankDrawingSource121\\Slot01\\Native\\Source.SLDDRW",
+      "C:\\KitBlankDrawingSource121\\Slot01\\edit\\EditedDrawing.SLDDRW"
+    ],
+    "Slot02": [
+      "C:\\KitBlankDrawingSource121\\Slot02\\Native\\Source.SLDDRW",
+      "C:\\KitBlankDrawingSource121\\Slot02\\edit\\EditedDrawing.SLDDRW"
+    ]
+  },
+  "raw_record_output": "$guest_output/Native/<base>/<stage>/Record.json",
+  "worker_link_output": "$guest_output/Workers/<base>_<stage>.json",
+  "observation_descriptor": {
+    "schema": "kit.sw2026.blank-drawing-native-observations.v1",
+    "generation_sha256": "exact frozen GenerationFreeze.json SHA-256",
+    "inputs_immutable": "actual postflight rehash result",
+    "phases": "actual ordered measured descriptors only; skipped rows are not fabricated"
+  },
+  "phase_descriptor": {
+    "name": "exact base/stage",
+    "input_sha256": "exact actual source or saved derivative hash",
+    "record": {
+      "path": "absolute raw Record.json path",
+      "sha256": "actual raw file digest"
+    }
+  },
+  "native_phase_order": [
+    "ControlBefore/OpenEditSave",
+    "ControlBefore/FreshReopen",
+    "Slot01/Source/OpenEditSave",
+    "Slot01/Source/FreshReopen",
+    "Slot01/Generated/OpenEditSave",
+    "Slot01/Generated/FreshReopen",
+    "Slot02/Source/OpenEditSave",
+    "Slot02/Source/FreshReopen",
+    "Slot02/Generated/OpenEditSave",
+    "Slot02/Generated/FreshReopen",
+    "ControlAfter/OpenEditSave",
+    "ControlAfter/FreshReopen"
+  ],
+  "failure_policy": {
+    "dependent_candidates_stop": true,
+    "independent_trailing_control_always_attempted_after_measured_failure": true,
+    "worker_timeout_seconds": 300,
+    "CAD_processes_killed": false,
+    "license_or_service_changes": false,
+    "timeout_cleanup": "Python worker only is terminated by subprocess.run; no process sweep kills or license operations; existing fresh-session guard may refuse trailing activation if native process remains; root adjudicates"
+  },
+  "comparison_policy": {
+    "original_comparator_unchanged": true,
+    "sheet_lifecycle_only": true,
+    "full_source_semantics_qualified": false,
+    "public_writer_acceptance_claim": false
+  },
+  "host_verification": {
+    "AST_compilation": true,
+    "undefined_name_check_F821": true,
+    "raw_record_shape_from_disclosed_JSON_only": true,
+    "native_runner_executed": false,
+    "prepare_executed": false,
+    "writer_builds": 0,
+    "product_tests": 0,
+    "integration_tests": 0,
+    "private_slot_reads": 0,
+    "CAD_launches": 0,
+    "guest_changes": 0,
+    "shared_checkout_writes": 0
+  }
+}
