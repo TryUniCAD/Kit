@@ -14,8 +14,7 @@ class SurfaceIdentity:
     representation: ArchiveNode
 
 
-def clone_collected_surface(identity):
-    representation = identity.representation
+def clone_collected_surface(representation):
     fields = representation.FieldsValue
     base = fields["f10"]
     keeper = base["f10"]

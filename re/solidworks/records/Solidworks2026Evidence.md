@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Generated prism validation and collector](DownstreamPrismFaceStore2026.md) and [native face-key order](DownstreamFaceKeyOrder2026.md) | Ten guarded processes verify the modeled original and swapped keys, a combined collector and twelve typed face rows across two generated prisms. The native linked drawing lifecycle remains open. |
 | [Generated prism face constructors](DownstreamPrismFaceConstructors2026.md) | Four guarded processes round-trip twelve typed part face rows with their actual body atoms, permanent sketch markers and local file ownership. The post-constructor native validators and linked drawing lifecycle remain open. |
 | [Stored ordinary face-reference state](DownstreamStoredFaceState2026.md), [runtime owner pointers](DownstreamRuntimeOwnerPointers2026.md) and [ordinary part reload](DownstreamPartOwnerReload2026.md) | Pinned source binds three face-resolution branches, the role producers and the ordinary load repair caller after body attachment. |
 | [Generated downstream collector and face operands](DownstreamGeneratedCollector2026.md) | Sixteen guarded processes bind the generated part allocation to the collector members and derive 72 inline face operands with 24 initial role values. Full populated cache and linked drawing lifecycles remain open. |

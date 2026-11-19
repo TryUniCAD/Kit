@@ -1,0 +1,167 @@
+{
+  "archive_version": 19000,
+  "delivery_pr": 121,
+  "guarded_processes": 10,
+  "heldout_input_reads": 0,
+  "native_runs": 0,
+  "parent_revision": "5572d008273f078c4908df34bc883e227770dbf9",
+  "qualified_corpus_assemblies": 0,
+  "qualified_corpus_parts": 0,
+  "qualified_heldout_cases": 0,
+  "regressions": [
+    {
+      "case": "Collector",
+      "exact_receipt_sha256": "a1f7c9d8b6a5f919db4acec9a2da41268259059f101e79b4938f02adb1616f10",
+      "fresh_processes": 1,
+      "variant": 1
+    },
+    {
+      "case": "Clone",
+      "exact_receipt_sha256": "84dc6e3bb4d37dca9742d292892a47dd198f75294ea79cc9d020a6050dd1e208",
+      "fresh_processes": 1,
+      "variant": 1
+    },
+    {
+      "case": "Constructor",
+      "exact_receipt_sha256": "a7fb06c9431ba2458a1df4fea17d4082ec97f0b9f265d6693910daa6adbd6cf8",
+      "fresh_processes": 1,
+      "variant": 1
+    },
+    {
+      "case": "Collector",
+      "exact_receipt_sha256": "8b43f7334f20615a8a7292abde86b7c383db54cef27c8f7a06330de1474213a9",
+      "fresh_processes": 1,
+      "variant": 2
+    },
+    {
+      "case": "Clone",
+      "exact_receipt_sha256": "d33fd659863e86b0de92740661411c1e632a9ddc72265681a0bfc1d5318ed11c",
+      "fresh_processes": 1,
+      "variant": 2
+    },
+    {
+      "case": "Constructor",
+      "exact_receipt_sha256": "dfc7d01405b663005b6384089cf4435181129bdc8c829ad06b282f9d58613077",
+      "fresh_processes": 1,
+      "variant": 2
+    }
+  ],
+  "results": [
+    {
+      "fresh_processes": 2,
+      "result": {
+        "atom": 101,
+        "body_sha256": "ea2cf8b5c350287d5820daf55fee0c65bb115dde84a25f6a1b8023f26a574473",
+        "collector_members": 6,
+        "collision_refusals": 2,
+        "keys": [
+          [
+            1,
+            518822468,
+            71146249
+          ],
+          [
+            2,
+            645077736,
+            92753946
+          ],
+          [
+            3,
+            353738221,
+            433309997
+          ],
+          [
+            4,
+            118761492,
+            822564310
+          ],
+          [
+            5,
+            974730811,
+            302764653
+          ],
+          [
+            6,
+            483613477,
+            938954220
+          ]
+        ],
+        "map_counter": 108,
+        "native_runs": 0,
+        "part_sha256": "e61bf63cba6b512fa09f9e4e33c5c07883e6553591f1b0254e92df92fef10ae7",
+        "passed": true,
+        "preserved_part_streams": 11,
+        "representations": 30,
+        "rows": 6,
+        "runtime_io_attempts": 0,
+        "scope": "generated prism collector and face rows in the scoped no-collision path",
+        "variant": 1
+      },
+      "stdout_sha256": "76d19aff86abf1f74d84e50ebafda01fa2952edca01701bea41ac5431e20edc2"
+    },
+    {
+      "fresh_processes": 2,
+      "result": {
+        "atom": 101,
+        "body_sha256": "a88a7c9b698a83bd71ad61aaa24f7969330804867b3e989da968d9feb3927e60",
+        "collector_members": 6,
+        "collision_refusals": 2,
+        "keys": [
+          [
+            1,
+            518822468,
+            71146249
+          ],
+          [
+            2,
+            645077736,
+            92753946
+          ],
+          [
+            3,
+            353738221,
+            433309997
+          ],
+          [
+            4,
+            118761492,
+            822564310
+          ],
+          [
+            5,
+            974730811,
+            302764653
+          ],
+          [
+            6,
+            483613477,
+            938954220
+          ]
+        ],
+        "map_counter": 108,
+        "native_runs": 0,
+        "part_sha256": "429e74ac88522a53e2114046952d49598f11c2f15e08ba38d789f0936e989184",
+        "passed": true,
+        "preserved_part_streams": 11,
+        "representations": 30,
+        "rows": 6,
+        "runtime_io_attempts": 0,
+        "scope": "generated prism collector and face rows in the scoped no-collision path",
+        "variant": 2
+      },
+      "stdout_sha256": "4ce95bca4004c09ca14d77a52d62dfa6f7851d99c06f8db4da672731607a7407"
+    }
+  ],
+  "schema": "kit.sw2026.prism-face-store-replay.v1",
+  "scope": "modeled ordinary no-collision face rows and collector members",
+  "source_files_sha256": {
+    "re/tooling/sw2026/downstream/CheckCollectedSurfaceClones.py": "4e609540722a10ea6087ae6f023ea99c485618ae5c8005dc8ebc08424a86acb7",
+    "re/tooling/sw2026/downstream/CheckPrismFaceStore.py": "49a07fd9b74d5d46a899ec67a8f233b459e5f637fa1b7cdfd87960235dbc26fa",
+    "re/tooling/sw2026/downstream/CollectorProjection.py": "28b8706abe230446c610b01835e73447a0a1de182eb686bf677de3fba0ecd295",
+    "re/tooling/sw2026/downstream/PrismFaceStore.py": "90d2d9c11b15231fd1f76098d2520a1cb980871aa9618b0e2a4d7f493c3e7f90",
+    "re/tooling/sw2026/downstream/SurfaceIdentities.py": "d34f471f4f73df894b2e8f7db3dcd885abf7e4faa02b875c2ca6442fdb68c8af"
+  },
+  "task": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "vendor_build": "34.5.2.0604",
+  "writer_input_file_reads": 0
+}

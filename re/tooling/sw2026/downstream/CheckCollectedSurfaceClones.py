@@ -43,7 +43,7 @@ def main():
         source_fields["f60"] = part.HeaderValue.FieldsValue["f48"]
         source_fields["f78"] = 11 * args.variant
         surfaces = cylinder_surface_identities(attachment, source_file)
-        clones = tuple(clone_collected_surface(surface) for surface in surfaces)
+        clones = tuple(clone_collected_surface(surface.representation) for surface in surfaces)
         new_files = tuple(surface_owner(clone) for clone in clones)
         assert len({id(node) for node in (*new_files, source_file)}) == 4
         assert all(node.FieldsValue["shared"] is source_fields["shared"] for node in new_files)
