@@ -1,0 +1,1269 @@
+{
+  "archive_version": 19000,
+  "build": "34.5.2.0604 AMD64",
+  "data_windows": [
+    {
+      "bound": "small format vocabulary constant only",
+      "bytes": 8,
+      "end_exclusive": "0x3cc784c8",
+      "module": "sldmfcu.dll",
+      "name": "paragraph numbering-format vocabulary",
+      "sha256": "b89f7140be81027fa29d8d90e462c52d1cc3468de90d2d0d5334a53fbe217475",
+      "start": "0x3cc784c0"
+    }
+  ],
+  "delivery_pr": 121,
+  "execution": {
+    "cad_execution": false,
+    "foreign_session_touched": false,
+    "native_execution": false,
+    "original_pe_static_analysis": true,
+    "rea_cleanup_pending_observed": true,
+    "rea_target_opened": false,
+    "schema_or_codec_execution": false,
+    "sealed_input_access": false,
+    "shared_source_writes": false,
+    "tests": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 419,
+      "end_exclusive": "0x4bed3ed3",
+      "module": "sldmodu.dll",
+      "name": "GenericTextCtor01",
+      "sha256": "af50fb6c18140e90cd68bd5a96b4da1d34e5280ef847322e2749e8c47ac708e4",
+      "start": "0x4bed3d30",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 419,
+          "end_exclusive": "0x4bed3ed3",
+          "sha256": "af50fb6c18140e90cd68bd5a96b4da1d34e5280ef847322e2749e8c47ac708e4",
+          "start": "0x4bed3d30",
+          "unwind_rva": "0x240a964"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 195,
+      "end_exclusive": "0x4bed3a13",
+      "module": "sldmodu.dll",
+      "name": "GenericTextListCtor01",
+      "sha256": "aa19c342a67ddfe3c4078b7bcec4a63d35ecbb1380061caee1380550cfa6514c",
+      "start": "0x4bed3950",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 195,
+          "end_exclusive": "0x4bed3a13",
+          "sha256": "aa19c342a67ddfe3c4078b7bcec4a63d35ecbb1380061caee1380550cfa6514c",
+          "start": "0x4bed3950",
+          "unwind_rva": "0x240e2a8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 157,
+      "end_exclusive": "0x4bed540d",
+      "module": "sldmodu.dll",
+      "name": "TextSpaceHolderCtor01",
+      "sha256": "10bd2a4f569313197c751aa4f4305695080e8163ae632f2cbb80b8a0fa522992",
+      "start": "0x4bed5370",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 157,
+          "end_exclusive": "0x4bed540d",
+          "sha256": "10bd2a4f569313197c751aa4f4305695080e8163ae632f2cbb80b8a0fa522992",
+          "start": "0x4bed5370",
+          "unwind_rva": "0x240b2f8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 83,
+      "end_exclusive": "0x4bed2793",
+      "module": "sldmodu.dll",
+      "name": "TextCharacterFactory01",
+      "sha256": "25820e77eb71caccd80221ef3f2b8f97163e7af732e62cdbff5aa3f7177f6bcb",
+      "start": "0x4bed2740",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 83,
+          "end_exclusive": "0x4bed2793",
+          "sha256": "25820e77eb71caccd80221ef3f2b8f97163e7af732e62cdbff5aa3f7177f6bcb",
+          "start": "0x4bed2740",
+          "unwind_rva": "0x240b504"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 222,
+      "end_exclusive": "0x4bed2f0e",
+      "module": "sldmodu.dll",
+      "name": "TextLineHeadFactory01",
+      "sha256": "cd345f2795f7cb06b506f9f19b7d873f05f9b0ffce60593682587093f02388e9",
+      "start": "0x4bed2e30",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 222,
+          "end_exclusive": "0x4bed2f0e",
+          "sha256": "cd345f2795f7cb06b506f9f19b7d873f05f9b0ffce60593682587093f02388e9",
+          "start": "0x4bed2e30",
+          "unwind_rva": "0x240dbb0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 588,
+      "end_exclusive": "0x4bed935c",
+      "module": "sldmodu.dll",
+      "name": "GenericTextSerialize01",
+      "sha256": "2f002005bb3ce3fd58cce73d6d6487676032f5e82ab755ed2a04c7475ea57cc2",
+      "start": "0x4bed9110",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 159,
+          "end_exclusive": "0x4bed91af",
+          "sha256": "2ca5d7a2e385e65a91f52712e2c5cde1ad061a2632011c7c074c4a85d60055cb",
+          "start": "0x4bed9110",
+          "unwind_rva": "0x22d4130"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 410,
+          "end_exclusive": "0x4bed9349",
+          "sha256": "3e72546519960ea9fd13c35dd23b7d3191d7e71b822643105b7fdac4030dbac0",
+          "start": "0x4bed91af",
+          "unwind_rva": "0x240b1b8"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 19,
+          "end_exclusive": "0x4bed935c",
+          "sha256": "d49788a25581946c96822126dd06632136ac06504715131ec96f21215aef6946",
+          "start": "0x4bed9349",
+          "unwind_rva": "0x240b1cc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 308,
+      "end_exclusive": "0x4bed8ff4",
+      "module": "sldmodu.dll",
+      "name": "TextLineMetricSerialize01",
+      "sha256": "528b12da321795e413834d18ec317734ab20b5bb1458e53a53853ba3a0f996e5",
+      "start": "0x4bed8ec0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 112,
+          "end_exclusive": "0x4bed8f30",
+          "sha256": "10f55c3aea6eb6e2f638d25431b9a5c4c91deb1243991bfaac9f2350ed748bfd",
+          "start": "0x4bed8ec0",
+          "unwind_rva": "0x22a202c"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 177,
+          "end_exclusive": "0x4bed8fe1",
+          "sha256": "265025ace54a696e41e12ea8a54f2a058263c8796955698ba50580e11b166d1e",
+          "start": "0x4bed8f30",
+          "unwind_rva": "0x240a93c"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 19,
+          "end_exclusive": "0x4bed8ff4",
+          "sha256": "36aed72abc935d0727f66f4043ee8b934b05b2cd12dcb4134627d916cf5f1bbc",
+          "start": "0x4bed8fe1",
+          "unwind_rva": "0x240a954"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 184,
+      "end_exclusive": "0x4bed9718",
+      "module": "sldmodu.dll",
+      "name": "TextCharacterSerialize01",
+      "sha256": "49a3b119977716f72826a3c777dc5ebab6d54aad3ae0e5ddffe5e2b6229a1132",
+      "start": "0x4bed9660",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 184,
+          "end_exclusive": "0x4bed9718",
+          "sha256": "49a3b119977716f72826a3c777dc5ebab6d54aad3ae0e5ddffe5e2b6229a1132",
+          "start": "0x4bed9660",
+          "unwind_rva": "0x225c318"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 542,
+      "end_exclusive": "0x4bedacde",
+      "module": "sldmodu.dll",
+      "name": "TextSpaceHolderSerialize01",
+      "sha256": "54810ffdc68263c0093a8af974bd695f47b1c79adaad89bac94200ed0f68ed43",
+      "start": "0x4bedaac0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 145,
+          "end_exclusive": "0x4bedab51",
+          "sha256": "4015e785eccf7d950d764801d00535f23afb5ff68c1f2719161ca5a8c11bd74c",
+          "start": "0x4bedaac0",
+          "unwind_rva": "0x22a202c"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 358,
+          "end_exclusive": "0x4bedacb7",
+          "sha256": "d24655a3507572b442939251369a3d1d37dec6849ad2757d83ba3af4d17a83be",
+          "start": "0x4bedab51",
+          "unwind_rva": "0x240b35c"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 20,
+          "end_exclusive": "0x4bedaccb",
+          "sha256": "1ce279085d1ac460f9028e58e7c7edf22f847bbe7ab13c2bddac93106eb06664",
+          "start": "0x4bedacb7",
+          "unwind_rva": "0x240b370"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 19,
+          "end_exclusive": "0x4bedacde",
+          "sha256": "6771db639951b539693fee0e5b8d4dae334a78ca64912524a9509dc0c7744a98",
+          "start": "0x4bedaccb",
+          "unwind_rva": "0x240b370"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 474,
+      "end_exclusive": "0x4c85240a",
+      "module": "sldmodu.dll",
+      "name": "DimTextCtor01",
+      "sha256": "da99c6b2237bbe11e5a3b47c9c0a4f4e2b22bfa01b45398a478da473af0beea6",
+      "start": "0x4c852230",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 474,
+          "end_exclusive": "0x4c85240a",
+          "sha256": "da99c6b2237bbe11e5a3b47c9c0a4f4e2b22bfa01b45398a478da473af0beea6",
+          "start": "0x4c852230",
+          "unwind_rva": "0x25629e4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 706,
+      "end_exclusive": "0x4beec442",
+      "module": "sldmodu.dll",
+      "name": "GenericSetText01",
+      "sha256": "ec0dc87e081394751ce91ebd5a47152334600b43782922c4fd9cb07199438180",
+      "start": "0x4beec180",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 706,
+          "end_exclusive": "0x4beec442",
+          "sha256": "ec0dc87e081394751ce91ebd5a47152334600b43782922c4fd9cb07199438180",
+          "start": "0x4beec180",
+          "unwind_rva": "0x240b1e0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 164,
+      "end_exclusive": "0x4bef4d04",
+      "module": "sldmodu.dll",
+      "name": "GenericTextSetter01",
+      "sha256": "2764c50a43431d1146db9b69c85d71846fdb2a68999593a08b797a0562753e42",
+      "start": "0x4bef4c60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 164,
+          "end_exclusive": "0x4bef4d04",
+          "sha256": "2764c50a43431d1146db9b69c85d71846fdb2a68999593a08b797a0562753e42",
+          "start": "0x4bef4c60",
+          "unwind_rva": "0x240aaa8"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 12,
+      "end_exclusive": "0x4b35de2c",
+      "module": "sldmodu.dll",
+      "name": "GenericUsesLastNewline01",
+      "sha256": "845afd4e23ad0450a4e6907aecfec02b122032ee7d0bbd4634542e3a8e0a52f1",
+      "start": "0x4b35de20",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 46,
+      "end_exclusive": "0x4bef097e",
+      "module": "sldmodu.dll",
+      "name": "GenericBoxDirtySetter01",
+      "sha256": "90dc64724b6cd1ab63ca08d5344b9076ebec6a4b98a2b7979ce5c4d5046f834d",
+      "start": "0x4bef0950",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 24,
+      "end_exclusive": "0x4bee98c8",
+      "module": "sldmodu.dll",
+      "name": "GenericInvalidateVirtual01",
+      "sha256": "e4260506dbec3c226e5a935454867168ca5e02b4ff4f75a2a71884a7b61bdf10",
+      "start": "0x4bee98b0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 121,
+      "end_exclusive": "0x4bee3629",
+      "module": "sldmodu.dll",
+      "name": "GenericGetBoxInfo01",
+      "sha256": "3181cc255006a8fdcfe9bdd105756d0b791a0f50514ddd95e05441a3be0d04db",
+      "start": "0x4bee35b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 121,
+          "end_exclusive": "0x4bee3629",
+          "sha256": "3181cc255006a8fdcfe9bdd105756d0b791a0f50514ddd95e05441a3be0d04db",
+          "start": "0x4bee35b0",
+          "unwind_rva": "0x225c318"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 95,
+      "end_exclusive": "0x4bef583f",
+      "module": "sldmodu.dll",
+      "name": "GenericUpdateBoxInfo01",
+      "sha256": "56cbb0b6dc6033fb8cb76a890ad51a8435268c82d93810858992a23f09f0b36f",
+      "start": "0x4bef57e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 95,
+          "end_exclusive": "0x4bef583f",
+          "sha256": "56cbb0b6dc6033fb8cb76a890ad51a8435268c82d93810858992a23f09f0b36f",
+          "start": "0x4bef57e0",
+          "unwind_rva": "0x226f680"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 461,
+      "end_exclusive": "0x4bef57dd",
+      "module": "sldmodu.dll",
+      "name": "TextListUpdateSize01",
+      "sha256": "31937a4231c0fb04f99ab769824bd98fc978d1ffd69a8d635eef2cb46abf2fed",
+      "start": "0x4bef5610",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 461,
+          "end_exclusive": "0x4bef57dd",
+          "sha256": "31937a4231c0fb04f99ab769824bd98fc978d1ffd69a8d635eef2cb46abf2fed",
+          "start": "0x4bef5610",
+          "unwind_rva": "0x240e4e4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 7356,
+      "end_exclusive": "0x4beee92c",
+      "module": "sldmodu.dll",
+      "name": "TextListComputeMetrics01",
+      "sha256": "fa329a5b12d3ef5da5ca4a4b49c2b20332ca763628d50f9c627c3fafb3d888b1",
+      "start": "0x4beecc70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 7356,
+          "end_exclusive": "0x4beee92c",
+          "sha256": "fa329a5b12d3ef5da5ca4a4b49c2b20332ca763628d50f9c627c3fafb3d888b1",
+          "start": "0x4beecc70",
+          "unwind_rva": "0x240f944"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 614,
+      "end_exclusive": "0x4bef6516",
+      "module": "sldmodu.dll",
+      "name": "TextCharacterComputeSize01",
+      "sha256": "82b6b46925414b540e84cbd59273c770d956676ce3ead923daec7dbc8c7213d2",
+      "start": "0x4bef62b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 22,
+          "end_exclusive": "0x4bef62c6",
+          "sha256": "3b0485d7785132259bddf16fbd1db50f88473c7c2daa13c00e1aee07c3a14f0f",
+          "start": "0x4bef62b0",
+          "unwind_rva": "0x240b490"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 135,
+          "end_exclusive": "0x4bef634d",
+          "sha256": "b78c6adba2777d97f6e0c3d464b16c49d31c0d72d1556cfa1aaeaed64fbb43cc",
+          "start": "0x4bef62c6",
+          "unwind_rva": "0x240b4a4"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 308,
+          "end_exclusive": "0x4bef6481",
+          "sha256": "3b5780257432265ee1d7994373cc6333664bdd19de4f555488ea807d938e5fc6",
+          "start": "0x4bef634d",
+          "unwind_rva": "0x240b4b8"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 42,
+          "end_exclusive": "0x4bef64ab",
+          "sha256": "1b9a3419d39fb04c769fc546fd3c41f3df2eedf62cf78bb46cae77b188a2d8a5",
+          "start": "0x4bef6481",
+          "unwind_rva": "0x240b4d0"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 83,
+          "end_exclusive": "0x4bef64fe",
+          "sha256": "fbcc19a0114c29875005e43e3f43b0396eebc1648587c4170865a7995b724144",
+          "start": "0x4bef64ab",
+          "unwind_rva": "0x240b4e4"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 24,
+          "end_exclusive": "0x4bef6516",
+          "sha256": "83eacb70f5d30f68fa2e1ea15f2d24cf4a2152392cffaf8d82cc8d3efd788f0a",
+          "start": "0x4bef64fe",
+          "unwind_rva": "0x240b4f4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 799,
+      "end_exclusive": "0x4bedc43f",
+      "module": "sldmodu.dll",
+      "name": "CharacterMetricsFetch01",
+      "sha256": "869a921399a2ccb2a771547d120a07f8eb51389194fa5d1ea1fd57a273c6d7a3",
+      "start": "0x4bedc120",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 799,
+          "end_exclusive": "0x4bedc43f",
+          "sha256": "869a921399a2ccb2a771547d120a07f8eb51389194fa5d1ea1fd57a273c6d7a3",
+          "start": "0x4bedc120",
+          "unwind_rva": "0x240ec5c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1126,
+      "end_exclusive": "0x4bef1d66",
+      "module": "sldmodu.dll",
+      "name": "TextFontSetup01",
+      "sha256": "8b8d49a8aa178ab1c248a44e304fe99baaa09c628d93816e255725c4072d19a4",
+      "start": "0x4bef1900",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1126,
+          "end_exclusive": "0x4bef1d66",
+          "sha256": "8b8d49a8aa178ab1c248a44e304fe99baaa09c628d93816e255725c4072d19a4",
+          "start": "0x4bef1900",
+          "unwind_rva": "0x240ebf4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 177,
+      "end_exclusive": "0x3c879851",
+      "module": "sldmfcu.dll",
+      "name": "ParagraphCtor01",
+      "sha256": "da7a57faa1ef1093ae94999737f70e13def68851af3b9486a9d6abc0cd12f846",
+      "start": "0x3c8797a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 177,
+          "end_exclusive": "0x3c879851",
+          "sha256": "da7a57faa1ef1093ae94999737f70e13def68851af3b9486a9d6abc0cd12f846",
+          "start": "0x3c8797a0",
+          "unwind_rva": "0x5e7468"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 149,
+      "end_exclusive": "0x3c7bf425",
+      "module": "sldmfcu.dll",
+      "name": "CharFormatCopyCtor01",
+      "sha256": "a561d749fe2368d490aeab0a519a88dd00f425e17ee3217ae1f77dec7110a291",
+      "start": "0x3c7bf390",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 149,
+          "end_exclusive": "0x3c7bf425",
+          "sha256": "a561d749fe2368d490aeab0a519a88dd00f425e17ee3217ae1f77dec7110a291",
+          "start": "0x3c7bf390",
+          "unwind_rva": "0x5d20dc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 72,
+      "end_exclusive": "0x4bef4d58",
+      "module": "sldmodu.dll",
+      "name": "GenericTextFormat01",
+      "sha256": "c3bdbbcbcfd9759320f2e5abb46025cf6c9d3c5fe1c13d6491fd5258c359b04d",
+      "start": "0x4bef4d10",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 72,
+          "end_exclusive": "0x4bef4d58",
+          "sha256": "c3bdbbcbcfd9759320f2e5abb46025cf6c9d3c5fe1c13d6491fd5258c359b04d",
+          "start": "0x4bef4d10",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 105,
+      "end_exclusive": "0x4c858bc9",
+      "module": "sldmodu.dll",
+      "name": "DimTextFormat01",
+      "sha256": "968be1982b39768e83d1cf85d3d5d45ed288b86266a95a1034f3dc838851c2dc",
+      "start": "0x4c858b60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 105,
+          "end_exclusive": "0x4c858bc9",
+          "sha256": "968be1982b39768e83d1cf85d3d5d45ed288b86266a95a1034f3dc838851c2dc",
+          "start": "0x4c858b60",
+          "unwind_rva": "0x2562c3c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 4688,
+      "end_exclusive": "0x4957a130",
+      "module": "slduiu.dll",
+      "name": "ViewDrawGenericText01",
+      "sha256": "c2e52e44ede7dce041d95218b04acfb9a525cb663cd250aebd0fff52b16b061b",
+      "start": "0x49578ee0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 4688,
+          "end_exclusive": "0x4957a130",
+          "sha256": "c2e52e44ede7dce041d95218b04acfb9a525cb663cd250aebd0fff52b16b061b",
+          "start": "0x49578ee0",
+          "unwind_rva": "0x1b850ec"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 166,
+      "end_exclusive": "0x495883d6",
+      "module": "slduiu.dll",
+      "name": "ViewGetGenericTextBox01",
+      "sha256": "ea00698e0672ba9b406c3b4bda81dc448f5167bcb8f58c8bf44bb1233d551da1",
+      "start": "0x49588330",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 29,
+          "end_exclusive": "0x4958834d",
+          "sha256": "431d691c8f77235f00f3790d5cd8d66edc7f1e567ee8549f52a404f6381d472a",
+          "start": "0x49588330",
+          "unwind_rva": "0x1b850a4"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 117,
+          "end_exclusive": "0x495883c2",
+          "sha256": "879435127d00cf727110cd95c1554526fbbe7f06a96e910fe2554355feea6a65",
+          "start": "0x4958834d",
+          "unwind_rva": "0x1b850b4"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2,
+          "end_exclusive": "0x495883c4",
+          "sha256": "9c6983a9acbc8f29be52de18a407a3cae2604e654c252d5d6416488c7ca4cd84",
+          "start": "0x495883c2",
+          "unwind_rva": "0x1b850c8"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 18,
+          "end_exclusive": "0x495883d6",
+          "sha256": "64b66be99069cf068bc3f495531d44d7471bbc2e9d851a3b23c4e20af012090d",
+          "start": "0x495883c4",
+          "unwind_rva": "0x1b850dc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 65,
+      "end_exclusive": "0x49588d31",
+      "module": "slduiu.dll",
+      "name": "NoteDrawGenericBridge01",
+      "sha256": "735abee80b820ad22dd39549d62f4c69af11b90a4e73d65a44ab7b331955314b",
+      "start": "0x49588cf0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 65,
+          "end_exclusive": "0x49588d31",
+          "sha256": "735abee80b820ad22dd39549d62f4c69af11b90a4e73d65a44ab7b331955314b",
+          "start": "0x49588cf0",
+          "unwind_rva": "0x1ac7e90"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 66,
+      "end_exclusive": "0x49588552",
+      "module": "slduiu.dll",
+      "name": "NoteDrawOrProcessText01",
+      "sha256": "62a3fb3456b3727d75d5f6b48bfa5ceac290132401227bdbd1b7de3c06d1d55d",
+      "start": "0x49588510",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 35802,
+      "end_exclusive": "0x49c3813a",
+      "module": "slduiu.dll",
+      "name": "DrawCaller49c2f560",
+      "sha256": "756a4d2f307abf9d9599f98a97830408c3bc544ed9a6c12a1df40cd6f16faf09",
+      "start": "0x49c2f560",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 35802,
+          "end_exclusive": "0x49c3813a",
+          "sha256": "756a4d2f307abf9d9599f98a97830408c3bc544ed9a6c12a1df40cd6f16faf09",
+          "start": "0x49c2f560",
+          "unwind_rva": "0x1c63420"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 9,
+      "end_exclusive": "0x4b35ce99",
+      "module": "sldmodu.dll",
+      "name": "MetricBaseHeight01",
+      "sha256": "8d40d685fbe37094242dcfa1b55cc60fcbc8f0d5f019e7765c4e28616e393c5a",
+      "start": "0x4b35ce90",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 13,
+      "end_exclusive": "0x4b35cedd",
+      "module": "sldmodu.dll",
+      "name": "MetricDescent01",
+      "sha256": "a5577faab637c975196f4b53b1ba8fb02bfceaa2ca3d0e58f0e101ad240a4312",
+      "start": "0x4b35ced0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x4b35d038",
+      "module": "sldmodu.dll",
+      "name": "MetricHeight01",
+      "sha256": "3edd3d12abd09d3a5566b5f2d631f07086da1308edf3ab57fc072dcaf372f48e",
+      "start": "0x4b35d030",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 9,
+      "end_exclusive": "0x4b35d269",
+      "module": "sldmodu.dll",
+      "name": "MetricWidth01",
+      "sha256": "746e6df3ddc39851a7d8edc5903481181c92cbd9ccc0112d3a7cd5df2a6a7606",
+      "start": "0x4b35d260",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 10,
+      "end_exclusive": "0x3c7db35a",
+      "module": "sldmfcu.dll",
+      "name": "Paragraph numeric-marker predicate",
+      "sha256": "9f2ac845a4e597a5433868408c59e49bfb11a8501efd8f762b53ebee3ce952d9",
+      "start": "0x3c7db350",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4cd325d0",
+      "module": "SLDMFCU.dll",
+      "name": "?ut_IsGlyphSupportedInFont@@YA_NPEAVCDC@@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@1@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd325e8",
+      "module": "SLDMFCU.dll",
+      "name": "?ut_SetFont@@YAPEAUHFONT__@@PEAVCDC@@AEBVutCharFormat_c@@IHPEAPEAVCFont@@PEAI3PEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd326a0",
+      "module": "SLDMFCU.dll",
+      "name": "??8utCharFormat_c@@QEBAHAEBV0@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd32d80",
+      "module": "SLDMFCU.dll",
+      "name": "?getCharHeightInPoints@utCharFormat_c@@QEBAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd32e80",
+      "module": "SLDMFCU.dll",
+      "name": "?getCharHeightInSysUnits@utCharFormat_c@@QEBANXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd331d0",
+      "module": "SLDMFCU.dll",
+      "name": "??0utParagraphFormat_c@@QEAA@W4utTextAlign_e@@NNW4utParaBNType_e@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd33790",
+      "module": "SLDMFCU.dll",
+      "name": "??4utCharFormat_c@@QEAAAEAV0@AEBV0@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd33798",
+      "module": "SLDMFCU.dll",
+      "name": "??0utCharFormat_c@@QEAA@AEBV0@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd31268",
+      "module": "KERNEL32.dll",
+      "name": "GetUserDefaultLangID",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd311b8",
+      "module": "GDI32.dll",
+      "name": "GetOutlineTextMetricsW",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd311c0",
+      "module": "GDI32.dll",
+      "name": "GetTextExtentPoint32W",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd311c8",
+      "module": "GDI32.dll",
+      "name": "GetTextMetricsW",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd31220",
+      "module": "GDI32.dll",
+      "name": "GetCharABCWidthsW",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4a464238",
+      "module": "sldappu.dll",
+      "name": "?currentPdc@uiBaseView_c@@QEAAPEAVCDC@@XZ",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a458270",
+      "module": "SLDMODU.dll",
+      "name": "?setBoxNeedsUpdated@moGenericText_c@@QEAAXH@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a458280",
+      "module": "SLDMODU.dll",
+      "name": "?updateBoxInfo@moGenericText_c@@QEAAXPEAVCDC@@AEBVutCharFormat_c@@PEAX@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a458288",
+      "module": "SLDMODU.dll",
+      "name": "?getBoxInfo@moGenericText_c@@QEAAHPEAVCDC@@AEBVutCharFormat_c@@PEAXPEAVmoGenTextBoxInfo_c@@@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a45c188",
+      "module": "SLDMODU.dll",
+      "name": "?getTextFormat@moDimText_c@@QEAAAEBVutCharFormat_c@@PEAVCObject@@@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x3cb1a578",
+      "module": "mfc140u.dll",
+      "name": "ordinal:296",
+      "source_module": "sldmfcu.dll"
+    },
+    {
+      "iat": "0x3cb1a930",
+      "module": "mfc140u.dll",
+      "name": "ordinal:1503",
+      "source_module": "sldmfcu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 33,
+      "end_exclusive": "0x4bed3da3",
+      "module": "sldmodu.dll",
+      "name": "generic constructor supplies explicit base format and starts dirty",
+      "sha256": "466cd5f19966b9e3645f3994e5cb2d1e141ae691129e5f9861266c683beab1e3",
+      "start": "0x4bed3d82"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 182,
+      "end_exclusive": "0x4bed3e7d",
+      "module": "sldmodu.dll",
+      "name": "generic constructor initializes paragraph and parses the supplied string",
+      "sha256": "d84d6202594bdbceacbed2dd2cc119bee0dbac15352383329b634c3381179d93",
+      "start": "0x4bed3dc7"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 63,
+      "end_exclusive": "0x4c8523dd",
+      "module": "sldmodu.dll",
+      "name": "DimText copies actual explicit format rather than a document row",
+      "sha256": "c6778e818c3aaccab92ab1a9443d4aeab0d0769c93a490c2fe9e59ce2bbb2bf0",
+      "start": "0x4c85239e"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 29,
+      "end_exclusive": "0x4bed9211",
+      "module": "sldmodu.dll",
+      "name": "load consumes raw flags then sets last-newline flag",
+      "sha256": "491276a1bd73c26f8625150f8ebd806834aeed8291e3500d12d77c695e2156fa",
+      "start": "0x4bed91f4"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 67,
+      "end_exclusive": "0x4beec334",
+      "module": "sldmodu.dll",
+      "name": "string parser receives actual last-newline flag and paragraph",
+      "sha256": "25dc2940c951d7a2dee33e375158855555da604c241e16faf4c9db659be04de5",
+      "start": "0x4beec2f1"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 32,
+      "end_exclusive": "0x4beec42a",
+      "module": "sldmodu.dll",
+      "name": "string parser invalidates box after token production",
+      "sha256": "7d75af96239325cba0ae521a16a8f36217475b41a7a173ed7f85e40185870193",
+      "start": "0x4beec40a"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 62,
+      "end_exclusive": "0x4bef635c",
+      "module": "sldmodu.dll",
+      "name": "glyph update tests and fetches actual character metrics",
+      "sha256": "34307818a8f00aa9b758e2c28057fe6c968827f71fb41c1eeb083ed8dddc328f",
+      "start": "0x4bef631e"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 74,
+      "end_exclusive": "0x4bef6500",
+      "module": "sldmodu.dll",
+      "name": "computed metrics publish height width base height and clear dirty",
+      "sha256": "1027dc19f685cd82fb74ad1a1607b70028b2366b818b7febfaafa657b33eb3a3",
+      "start": "0x4bef64b6"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 62,
+      "end_exclusive": "0x4bedc419",
+      "module": "sldmodu.dll",
+      "name": "metric result preserves explicit f32 height width and base height",
+      "sha256": "114b585b3d0975af81f1f44c9bd7d15b48ae1a2df65aa799efb954098ea3785a",
+      "start": "0x4bedc3db"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 57,
+      "end_exclusive": "0x4bef19f6",
+      "module": "sldmodu.dll",
+      "name": "current font selected at explicit native 720 setting",
+      "sha256": "e2f811565b5b6783a303d00294afd29f1e8036c9585c508255ee107fac8ecf2a",
+      "start": "0x4bef19bd"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 111,
+      "end_exclusive": "0x4bef1ab2",
+      "module": "sldmodu.dll",
+      "name": "font metrics choose outline metrics or text-metric fallback",
+      "sha256": "748639d11441d32a2e396056682d119ee7a2f5f93dcc7d6b5228479e1049fb6e",
+      "start": "0x4bef1a43"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 36,
+      "end_exclusive": "0x4beed9ee",
+      "module": "sldmodu.dll",
+      "name": "character traversal invokes its actual metric virtual",
+      "sha256": "03f0c746e7f758a501d504d884dd4b0b50ab47e6e835a8d71995b67ffbd5aa48",
+      "start": "0x4beed9ca"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 89,
+      "end_exclusive": "0x4c858bc9",
+      "module": "sldmodu.dll",
+      "name": "char format changes dispatch actual metric invalidation",
+      "sha256": "0d0d5de2e358ca35a3daf9cf237e609036c639862be656694b64272fd86aff45",
+      "start": "0x4c858b70"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 125,
+      "end_exclusive": "0x49c2f70a",
+      "module": "slduiu.dll",
+      "name": "actual note resolves text through concrete display virtual",
+      "sha256": "bfee937b3eeed4ba156995aba45a74b4a816e5fbea8e9578b0d3004b4f929508",
+      "start": "0x49c2f68d"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 107,
+      "end_exclusive": "0x49c3236b",
+      "module": "slduiu.dll",
+      "name": "generic note branch invokes actual drawing bridge",
+      "sha256": "17de0b163a53f155976671e8ca5c398b153c9ecea55aab536fc630ad804406f8",
+      "start": "0x49c32300"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 28,
+      "end_exclusive": "0x495790bb",
+      "module": "slduiu.dll",
+      "name": "generic drawing resolves effective format",
+      "sha256": "5f73dfb475ac01a72188689b84d5947d817ceb4bbc3963ebeb17dc4c9c309137",
+      "start": "0x4957909f"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 50,
+      "end_exclusive": "0x49579509",
+      "module": "slduiu.dll",
+      "name": "actual note text measures its box before rendering",
+      "sha256": "cb4b3923efdb7d5a8d877c5654321291d2ac513f16cb109fdcc5756a6ab0e125",
+      "start": "0x495794d7"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 38,
+      "end_exclusive": "0x49579c8a",
+      "module": "slduiu.dll",
+      "name": "ordinary draw invokes its common renderer only after box stage",
+      "sha256": "9fdb3c2d047842a23a362ba21a3f9959c83438b7d5d71a7ead1cb39b15d53837",
+      "start": "0x49579c64"
+    },
+    {
+      "bound": "decoded original instruction boundaries inside retained complete owner",
+      "bytes": 54,
+      "end_exclusive": "0x495883ad",
+      "module": "slduiu.dll",
+      "name": "view box helper passes actual font and device context",
+      "sha256": "c932f02f73755fe0a17e13d6243ea46cbd442d440d340f6c8336456942a7a6c4",
+      "start": "0x49588377"
+    }
+  ],
+  "limits": [
+    "No note writer or neutral source projection is added",
+    "The complete rich-text parser language is not promoted from its bounded function identity",
+    "No font glyph metrics are captured from any save or substituted as defaults",
+    "The display chain is static evidence, not a measurement that first-open executed it",
+    "Empty or zero constructor caches remain a discovery hypothesis until target first-open rendering, save and fresh reopen pass",
+    "No general loader guarantee is inferred from the last-newline load flag",
+    "Existing unsupported full drawing semantic admission remains unchanged"
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 8274520,
+      "exception_directory_bytes": 222504,
+      "exception_directory_rva": "0x7e6000",
+      "machine": "0x8664",
+      "name": "sldmfcu.dll",
+      "preferred_base": "0x3c720000",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    },
+    {
+      "bytes": 36036696,
+      "exception_directory_bytes": 880608,
+      "exception_directory_rva": "0x20bf000",
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    }
+  ],
+  "next_controlled_observations": {
+    "after_save_reopen": [
+      "repeat all native text and position measurements in a fresh process",
+      "complete raw Definition byte/map/alias replay",
+      "actual rewritten f160 mask1 versus last-newline mask2",
+      "actual per-glyph and line metrics, keeping input-derived values separate from observations"
+    ],
+    "before_rebuild": [
+      "note count and exact displayed text",
+      "actual moDimText position separately from absolute attachment point",
+      "font and annotation text-format ownership",
+      "nonempty rendering bounds and no load/rebuild diagnostics"
+    ],
+    "claims_pending": [
+      "native first-open note rendering",
+      "font-independent portable metric synthesis",
+      "C10 new note family",
+      "public drawing writer admission"
+    ],
+    "controls": "same ordinary source brackets in distinct fresh processes",
+    "fresh_graph": "complete typed note with actual owner aliases and constructor-derived token state; keep mask1 dirty and each ordinary glyph f30 dirty according to actual constructor, never force success by changing guard or saved bytes",
+    "inputs": "independently authored plain text and explicit actual format, no links symbols tables stacked text or undocumented tokens"
+  },
+  "owner": "PR121 flag_ownership",
+  "prior_immutable_delivery": {
+    "files": 28,
+    "manifest_sha256": "48235ead7a5f034f9d0cf0014468b8243298f6e1798b32d8bf903ad495cea978",
+    "sdk_files": 21
+  },
+  "proprietary_bytes_or_listings_in_report": false,
+  "rules": {
+    "actual_note_display": {
+      "bridge_guard": "mode argument nonzero or actual display-item data is nonnull; otherwise tail bridge returns",
+      "chain": [
+        "uiDocDrawMan::idrawOrProcessNote49c2f560",
+        "moDisplayNote concrete virtual458 ->4c7f9e10",
+        "GenericText predicate virtual88",
+        "49588cf0",
+        "49588510",
+        "uiModelView::drawGenText49578ee0",
+        "uiDocDrawMan::getGenTextBoxInfo49588330",
+        "moGenericText::getBoxInfo4bee35b0"
+      ],
+      "ordering": "box stage495794fc precedes common render call49579c85 in drawGenText",
+      "other_guards": [
+        "actual model and detail definitions exist",
+        "actual text pointer and nonempty string",
+        "actual device context exists",
+        "view scale and display-data guards select drawing branch"
+      ],
+      "status": "confirmed static note-specific call chain; no first-open runtime attribution"
+    },
+    "f160_mask_1": {
+      "consumer": "getBoxInfo and updateBoxInfo recompute if mask1 or process override is nonzero; both clear mask1 after recomputation",
+      "fresh_ctor": "initial f160=1 before subsequent named bit operations and text token construction",
+      "meaning": "box metrics need update",
+      "setter": "setBoxNeedsUpdated(true) sets mask1; false clears only mask1",
+      "status": "confirmed source predicate and constructor",
+      "virtual": "moGenericText concrete slot d8 sets mask1 and invalidates token caches"
+    },
+    "f160_mask_2": {
+      "does_not_imply": "box dirty or glyph refresh",
+      "formula": "(f160 >> 1) & 1",
+      "load_effect": "f160 |= 2 after consuming the raw archive word",
+      "meaning": "isUseLastNewLine",
+      "status": "confirmed source owner; runtime invocation unmeasured"
+    },
+    "format": {
+      "absent": "f10=0 and f18=null are constructor states, not proof of the effective note document format",
+      "explicit": "DimText constructor sets f10=1 and allocates a copy at f18 only when supplied actual utCharFormat pointer is nonnull",
+      "selection": "normal UI resolves effective format through moDimText::getTextFormat on the actual model",
+      "setter": "actual char format copied then concrete d8 virtual invalidates box",
+      "status": "confirmed input ownership"
+    },
+    "glyph_constructor": {
+      "char_f40": "unsigned UTF16 code unit, zero only in deserialization factory",
+      "char_f48": "runtime CString holder, omitted by current serializer",
+      "f10": 0,
+      "f2c": 0.0,
+      "f30": 1,
+      "f34": 0,
+      "f38": 0.0,
+      "metrics": "spaceholder f20/f24/f28 are float32 casts of three supplied doubles; the character factory passes zero for all three",
+      "status": "confirmed constructor state; saved-neutrality unqualified"
+    },
+    "metric_roles": {
+      "current_wire": "three f32, not three f64",
+      "descent": "float32(height - base_height), then widened by getter",
+      "f20": "height",
+      "f24": "width",
+      "f28": "base height",
+      "status": "confirmed native accessors"
+    },
+    "paragraph_seed": {
+      "f00": 0,
+      "f08": 0.0,
+      "f10": 0.0,
+      "f18": 0.01,
+      "f20": 0,
+      "f24": 0,
+      "f28": "$$.",
+      "f30": 0,
+      "f34": 0,
+      "f38": 0,
+      "f40": 0.0,
+      "f48": 0.0,
+      "f50": 0,
+      "f58": 0.001,
+      "f60": 0.001,
+      "f68": 0,
+      "f6c": -1,
+      "runtime_f70": 0,
+      "status": "confirmed constructor only for GenericText supplied alignment0 spacing0 spacing0 bullet-number-kind0"
+    },
+    "populated_metric_owner": {
+      "chain": [
+        "getBoxInfo/updateBoxInfo",
+        "4bef5610",
+        "4beecc70",
+        "actual character virtual148",
+        "4bef62b0",
+        "4bedc120"
+      ],
+      "font_setup": "4bef1900 calls ut_SetFont with720; selects GetOutlineTextMetricsW and falls back to GetTextMetricsW",
+      "inputs": [
+        "actual text UTF16 unit/string",
+        "effective utCharFormat",
+        "actual device context",
+        "font availability and glyph fallback",
+        "language and native shaping state",
+        "character spacing and fit flags"
+      ],
+      "publish": "character worker writes f20/f24/f28 and f2c, then f30=0",
+      "status": "confirmed static producers; no portable font engine qualified",
+      "width": "GetTextExtentPoint32W or glyph fallback path, with optional ABC-width adjustment"
+    }
+  },
+  "schema": "solidworks-note-fresh-text-native-evidence-v1",
+  "task": "B04-SW2026-DRAWING-NOTE-GRAMMAR",
+  "vtable_cells": [
+    {
+      "cell": "0x4d094978",
+      "class": "moGenericText_c",
+      "module": "sldmodu.dll",
+      "slot": "0x88",
+      "target": "0x4b27e150"
+    },
+    {
+      "cell": "0x4d094980",
+      "class": "moGenericText_c",
+      "module": "sldmodu.dll",
+      "slot": "0x90",
+      "target": "0x4bef4c60"
+    },
+    {
+      "cell": "0x4d094988",
+      "class": "moGenericText_c",
+      "module": "sldmodu.dll",
+      "slot": "0x98",
+      "target": "0x4bef4d10"
+    },
+    {
+      "cell": "0x4d0949c8",
+      "class": "moGenericText_c",
+      "module": "sldmodu.dll",
+      "slot": "0xd8",
+      "target": "0x4bee98b0"
+    },
+    {
+      "cell": "0x4d094e00",
+      "class": "moTextDataChar_c",
+      "module": "sldmodu.dll",
+      "slot": "0x148",
+      "target": "0x4bef62b0"
+    },
+    {
+      "cell": "0x4d22f4b8",
+      "class": "moDisplayNote_c",
+      "module": "sldmodu.dll",
+      "slot": "0x458",
+      "target": "0x4c7f9e10"
+    }
+  ]
+}
