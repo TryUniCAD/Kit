@@ -1,0 +1,334 @@
+{
+  "delivered_rewrite_source_sha256": "80f5dda735c24c24240e6c4e9465669b228ccc6d15e1b5a74d68e7d0fb1abf80",
+  "healthy_controls": 2,
+  "native_disclosed_lifecycles_passed": true,
+  "native_job_sha256": "14d676fa310a601b8a034352b9f9effe5cd67cf21310329dbd7b797f8bd720e6",
+  "native_result_sha256": "dc58c234f8ca9361573e66bb4c180d002c6c152d99da2ab63ee06d3f744babab",
+  "oracle_build": "34.5.2.0604",
+  "oracle_observer_source_revision": "47beacaafadefc0c23f7245a73406baf00468ccf",
+  "oracle_processes": 8,
+  "phases": {
+    "ControlAfter": {
+      "first": {
+        "edited_sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "initial_sheet_properties": [
+          0.0,
+          13.0,
+          1.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "open": [
+          0,
+          0
+        ],
+        "ordered_tree_count": 10,
+        "process_creation_filetime": 134395712389329902,
+        "raw_record_sha256": "8eac34c8a132938de894f3abd5f984d4d7f49f6485c0ca9b3eab35befc2dc79b",
+        "rebuilt_sheet_properties": [
+          0.0,
+          13.0,
+          1.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "save": [
+          true,
+          0,
+          0
+        ],
+        "source_immutable": true
+      },
+      "reopen": {
+        "edited_sheet_properties": null,
+        "initial_sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "open": [
+          0,
+          0
+        ],
+        "ordered_tree_count": 10,
+        "process_creation_filetime": 134395712621169048,
+        "raw_record_sha256": "c03cfb433f877606ac8438b283bd4c191329c73a2ca4daea9b0a71e4d0b131b3",
+        "rebuilt_sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "save": null,
+        "source_immutable": true
+      }
+    },
+    "ControlBefore": {
+      "first": {
+        "edited_sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "initial_sheet_properties": [
+          0.0,
+          13.0,
+          1.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "open": [
+          0,
+          0
+        ],
+        "ordered_tree_count": 10,
+        "process_creation_filetime": 134395710997198007,
+        "raw_record_sha256": "dce347b81b022a0d499f6aa07c230693297d17db3ee1df0deca5ffafb1d48a8e",
+        "rebuilt_sheet_properties": [
+          0.0,
+          13.0,
+          1.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "save": [
+          true,
+          0,
+          0
+        ],
+        "source_immutable": true
+      },
+      "reopen": {
+        "edited_sheet_properties": null,
+        "initial_sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "open": [
+          0,
+          0
+        ],
+        "ordered_tree_count": 10,
+        "process_creation_filetime": 134395711252245707,
+        "raw_record_sha256": "e4e1dcaaf6a402cf66436c316843381c75fb215a3a5ac945c157b1c0e2a565e5",
+        "rebuilt_sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "save": null,
+        "source_immutable": true
+      }
+    },
+    "PublicAlpha": {
+      "first": {
+        "edited_sheet_properties": [
+          0.0,
+          13.0,
+          43.0,
+          19.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "initial_sheet_properties": [
+          0.0,
+          13.0,
+          13.0,
+          9.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "open": [
+          0,
+          0
+        ],
+        "ordered_tree_count": 10,
+        "process_creation_filetime": 134395711929871764,
+        "raw_record_sha256": "1738ed429b62514b0cb16867f6b62878d67515e98d509e26e16a2f0653dd1523",
+        "rebuilt_sheet_properties": [
+          0.0,
+          13.0,
+          13.0,
+          9.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "save": [
+          true,
+          0,
+          0
+        ],
+        "source_immutable": true
+      },
+      "reopen": {
+        "edited_sheet_properties": null,
+        "initial_sheet_properties": [
+          0.0,
+          13.0,
+          43.0,
+          19.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "open": [
+          0,
+          0
+        ],
+        "ordered_tree_count": 10,
+        "process_creation_filetime": 134395712162112653,
+        "raw_record_sha256": "b205e8b9858e75be1e6d2c2f85bbb8e5c82fcb2dd1bc6cfd30a8f81176e92831",
+        "rebuilt_sheet_properties": [
+          0.0,
+          13.0,
+          43.0,
+          19.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "save": null,
+        "source_immutable": true
+      }
+    },
+    "SdkAlpha": {
+      "first": {
+        "edited_sheet_properties": [
+          0.0,
+          13.0,
+          43.0,
+          19.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "initial_sheet_properties": [
+          0.0,
+          13.0,
+          13.0,
+          7.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "open": [
+          0,
+          0
+        ],
+        "ordered_tree_count": 10,
+        "process_creation_filetime": 134395711474358927,
+        "raw_record_sha256": "a455df601e8b745ae3375bbab6af6146eda283c9795cfab2bdff40258bc230e2",
+        "rebuilt_sheet_properties": [
+          0.0,
+          13.0,
+          13.0,
+          7.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "save": [
+          true,
+          0,
+          0
+        ],
+        "source_immutable": true
+      },
+      "reopen": {
+        "edited_sheet_properties": null,
+        "initial_sheet_properties": [
+          0.0,
+          13.0,
+          43.0,
+          19.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "open": [
+          0,
+          0
+        ],
+        "ordered_tree_count": 10,
+        "process_creation_filetime": 134395711705619166,
+        "raw_record_sha256": "66cd2a23ed0033eb7b0a3a1e5ffc31ba5f9d202fe92435aebff09b82c03a99b1",
+        "rebuilt_sheet_properties": [
+          0.0,
+          13.0,
+          43.0,
+          19.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "save": null,
+        "source_immutable": true
+      }
+    }
+  },
+  "provided_candidates": {
+    "PublicAlpha": "0edbe6d923a312e6bea5c041929409d27683fd60d54350857cbc4dfd75da7d19",
+    "SdkAlpha": "b54e28c0dc20ae5c5297357611f248a04b657ea2067993c4075649ab464ff707"
+  },
+  "schema": "kit.sw2026.preserved-blank-rewrite-native-disclosed.v1",
+  "sealed_rewrite_inputs_read": 0
+}
