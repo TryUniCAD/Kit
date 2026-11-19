@@ -1,0 +1,344 @@
+{
+  "bounded_ranges": [
+    {
+      "bytes": 58,
+      "end_exclusive": "0x4b88032a",
+      "operand_facts": [
+        "0x4bb38350",
+        "%r15"
+      ],
+      "role": "manager_model_constructor",
+      "semantic_export_prefix": "??0moConfigurationMgr_c@@QEAA@PEAVmoModel_c@@@Z",
+      "sha256": "2de466d6284822e2f4741e087aa4bfe31e89f26a4e25a13d0e214302675a13d8",
+      "start": "0x4b8802f0"
+    },
+    {
+      "bytes": 114,
+      "end_exclusive": "0x4b880ada",
+      "operand_facts": [
+        "0x4c20e970",
+        "0x4b595780",
+        "%r15, %rdx",
+        "%rdi, %r8"
+      ],
+      "role": "part_configuration_allocation",
+      "semantic_export_prefix": null,
+      "sha256": "6349a75896b6a596cde041e5ae649d8e6c2bba866c8ed04ab572ac3eb4b3b79d",
+      "start": "0x4b880a68"
+    },
+    {
+      "bytes": 83,
+      "end_exclusive": "0x4b880d01",
+      "operand_facts": [
+        "0x4b89f1f0",
+        "0x368(",
+        "0x4b3979d0",
+        "0x4bb515c0"
+      ],
+      "role": "selected_configuration_activation",
+      "semantic_export_prefix": null,
+      "sha256": "e3a503aaf6a2f919bf373afc0c49bcccf604a77fb6e0a8cdea1cf166f7ea0fa4",
+      "start": "0x4b880cae"
+    },
+    {
+      "bytes": 52,
+      "end_exclusive": "0x4b5957b4",
+      "operand_facts": [
+        "0x4bdbf820",
+        "0x4ce2d008"
+      ],
+      "role": "part_configuration_constructor",
+      "semantic_export_prefix": "??0moPartConfiguration_c@@QEAA@",
+      "sha256": "66bbb6e1866faba8d098d970b96fe6f33b7b4cacc974479860ae973460dbfc4b",
+      "start": "0x4b595780"
+    },
+    {
+      "bytes": 66,
+      "end_exclusive": "0x4bdbf862",
+      "operand_facts": [
+        "0x4bb38350",
+        "0x4d027498"
+      ],
+      "role": "base_configuration_constructor",
+      "semantic_export_prefix": "??0moBaseConfiguration_c@@QEAA@",
+      "sha256": "a4904fdbfba66ddba1acb61b32a16f3d77a8a9b365d95eadadf3da08487b0bc8",
+      "start": "0x4bdbf820"
+    },
+    {
+      "bytes": 68,
+      "end_exclusive": "0x4bb42a84",
+      "operand_facts": [
+        "0x2b0(",
+        "0x2b4(",
+        "0x300(",
+        "0x301(",
+        "0x2ac("
+      ],
+      "role": "creation_version_getter",
+      "semantic_export_prefix": "?getCreateVersion@moFeature_c@@",
+      "sha256": "d58071b1416b0f412f3c8bb316acf9f1057c1cc90678f874473fb11f15960fc9",
+      "start": "0x4bb42a40"
+    },
+    {
+      "bytes": 109,
+      "end_exclusive": "0x4bb50a8d",
+      "operand_facts": [
+        "0x2b0(",
+        "0x2b4(",
+        "0x300(",
+        "0x301(",
+        "0x2b8(",
+        "0x2bc(",
+        "0x2ac("
+      ],
+      "role": "creation_version_explicit_setter",
+      "semantic_export_prefix": "?setCreateVersion@moFeature_c@@QEAAXIPEAI00000@Z",
+      "sha256": "37993ab31de9c63d1990ae4a7c63dffaa031a166fb5f172806f85d1217fc01e2",
+      "start": "0x4bb50a20"
+    },
+    {
+      "bytes": 20,
+      "end_exclusive": "0x4bb45c24",
+      "operand_facts": [
+        "0x2b8(",
+        "0x2bc("
+      ],
+      "role": "last_update_version_getter",
+      "semantic_export_prefix": "?getLastUpdateVersion@moFeature_c@@",
+      "sha256": "8036046a7492e20ba6ec5d3f5dc717b52bb508e20f41318877c2ead1d1c5e37a",
+      "start": "0x4bb45c10"
+    },
+    {
+      "bytes": 109,
+      "end_exclusive": "0x4bb4a51d",
+      "operand_facts": [
+        "0x29c(",
+        "0x4cd314f0",
+        "0x4c02d060",
+        "0x2a4(",
+        "0x2a0("
+      ],
+      "role": "precise_feature_moment_update",
+      "semantic_export_prefix": null,
+      "sha256": "3eb45aafe88efbf0d784ff5381bf0361db9d8a07eca17826c135b0a81a02d984",
+      "start": "0x4bb4a4b0"
+    },
+    {
+      "bytes": 36,
+      "end_exclusive": "0x4c21efd8",
+      "operand_facts": [
+        "0x4bb11aa0"
+      ],
+      "role": "manager_modern_base_dispatch",
+      "semantic_export_prefix": null,
+      "sha256": "ca3a1c6e27b582cb899fd91964c7c7611d29b136aad6e84713c47afd696bac26",
+      "start": "0x4c21efb4"
+    },
+    {
+      "bytes": 45,
+      "end_exclusive": "0x4c217eca",
+      "operand_facts": [
+        "0x247",
+        "0x4bb11aa0"
+      ],
+      "role": "configuration_modern_base_dispatch",
+      "semantic_export_prefix": null,
+      "sha256": "8156ad3c0f3bc49338d6848a16198c24b8edf676e212e859a97742429b2add35",
+      "start": "0x4c217e9d"
+    },
+    {
+      "bytes": 11,
+      "end_exclusive": "0x4c228b4d",
+      "operand_facts": [
+        "0x4c217e30"
+      ],
+      "role": "part_configuration_base_dispatch",
+      "semantic_export_prefix": null,
+      "sha256": "88322fc95368a11cdd0f61e3965d00b7769aa752d0125761b690b291f8ac1c67",
+      "start": "0x4c228b42"
+    }
+  ],
+  "complete_functions": {
+    "base_configuration_constructor": {
+      "code_sha256": "328721b7bc0e378dce651960b6d9bdaebf8ac942713a879b1dd58cd8303369f5",
+      "end_rva_exclusive": "0xc80a3b",
+      "end_va_exclusive": "0x4bdc0a3b",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0moBaseConfiguration_c@@QEAA@PEAVmoConcept_c@@PEAVmoConfigurationMgr_c@@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@2@Z"
+      ],
+      "start_rva": "0xc7f820",
+      "start_va": "0x4bdbf820",
+      "unwind_rva": "0x23e2bc0"
+    },
+    "base_configuration_serializer": {
+      "code_sha256": "fc50718da7ee40aa89e63a6ee9767c22614373eddab5e942d9e8c105e0e6315a",
+      "end_rva_exclusive": "0x10db8b9",
+      "end_va_exclusive": "0x4c21b8b9",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x10d7e30",
+      "start_va": "0x4c217e30",
+      "unwind_rva": "0x2481a08"
+    },
+    "feature_owner_constructor": {
+      "code_sha256": "6af1f7e2d3987e493db008e5e08f8e66ec4c915a945a622a0bd4543ef449c09a",
+      "end_rva_exclusive": "0x9f8708",
+      "end_va_exclusive": "0x4bb38708",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0moFeature_c@@IEAA@PEAVmoConcept_c@@H@Z"
+      ],
+      "start_rva": "0x9f8350",
+      "start_va": "0x4bb38350",
+      "unwind_rva": "0x238cccc"
+    },
+    "feature_serializer": {
+      "code_sha256": "e10778b7536682440694735eed8f6ea3476098507ea89f89660c065b29cc992b",
+      "end_rva_exclusive": "0x9d2b8e",
+      "end_va_exclusive": "0x4bb12b8e",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?Serialize@moFeature_c@@UEAAXAEAVsu_CArchive@@@Z"
+      ],
+      "start_rva": "0x9d1aa0",
+      "start_va": "0x4bb11aa0",
+      "unwind_rva": "0x2385e50"
+    },
+    "manager_constructor": {
+      "code_sha256": "af4ae4c1195bc96b312cfac4ea2a8eded51f9a48b0ed9a21a17cc032d68fe888",
+      "end_rva_exclusive": "0x740dc5",
+      "end_va_exclusive": "0x4b880dc5",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0moConfigurationMgr_c@@QEAA@PEAVmoModel_c@@@Z"
+      ],
+      "start_rva": "0x7402f0",
+      "start_va": "0x4b8802f0",
+      "unwind_rva": "0x2327a94"
+    },
+    "manager_serializer": {
+      "code_sha256": "f0ab61b4bde3f6387bec85ecb2a460607f1007045c1a5b6e18754be56cb589e6",
+      "end_rva_exclusive": "0x10e1a18",
+      "end_va_exclusive": "0x4c221a18",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x10def40",
+      "start_va": "0x4c21ef40",
+      "unwind_rva": "0x2483f60"
+    },
+    "part_configuration_constructor": {
+      "code_sha256": "4e792393c3865371b034ef854214c8c14b7ca487734c7d64f67832d5e60d7a41",
+      "end_rva_exclusive": "0x4559a2",
+      "end_va_exclusive": "0x4b5959a2",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0moPartConfiguration_c@@QEAA@PEAVmoConcept_c@@PEAVmoConfigurationMgr_c@@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@2@Z"
+      ],
+      "start_rva": "0x455780",
+      "start_va": "0x4b595780",
+      "unwind_rva": "0x22bd128"
+    },
+    "part_configuration_serializer": {
+      "code_sha256": "c8de7240341ee97a6212827115e3c9b7a5f5b26ec81c5d0a24fbd5ca7b7024a5",
+      "end_rva_exclusive": "0x10e9a53",
+      "end_va_exclusive": "0x4c229a53",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0x10e8a30",
+      "start_va": "0x4c228a30",
+      "unwind_rva": "0x2483c7c"
+    },
+    "precise_feature_moment_update": {
+      "code_sha256": "3eb45aafe88efbf0d784ff5381bf0361db9d8a07eca17826c135b0a81a02d984",
+      "end_rva_exclusive": "0xa0a51d",
+      "end_va_exclusive": "0x4bb4a51d",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "start_rva": "0xa0a4b0",
+      "start_va": "0x4bb4a4b0",
+      "unwind_rva": "0x22486c8"
+    }
+  },
+  "heldout_inputs_read": 0,
+  "imports": {
+    "0x4cd314f0": {
+      "module": "KERNEL32.dll",
+      "symbol": "GetSystemTimeAsFileTime"
+    },
+    "0x4cd3d880": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@J@Z"
+    },
+    "0x4cd3da40": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@E@Z"
+    },
+    "0x4cd3da48": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAE@Z"
+    },
+    "0x4cd3da60": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@K@Z"
+    },
+    "0x4cd3da68": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAK@Z"
+    }
+  },
+  "module": {
+    "base": "0x4b140000",
+    "bytes": 46536280,
+    "machine": "0x8664",
+    "name": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_acceptance": false,
+  "native_processes": 0,
+  "persistent_analysis_target_opened": false,
+  "rules": {
+    "moment": "Normal common update stores the update counter separately at f29c and asks GetSystemTimeAsFileTime, then stores FILETIME high/low words at f2a4/f2a0 unless the actual model is frozen. The typed component composes the requested precise moment, not the runtime update lifecycle. Seconds and 100ns fractions are independent of Header/save/revision times and of each other owner.",
+    "owners": "Native manager gets actual moModel separately in R15, initializes its own moFeature with null concept owner, and constructs actual moPartConfiguration with the real model in RDX and manager in R8. Concrete part configuration calls base configuration, whose moFeature constructor receives the actual concept/model. The SDK owner key is its symbolic fresh-construction relationship, not an asserted serialized native pointer.",
+    "provenance": "getCreateVersion and the ordinary explicit setCreateVersion bind main version f2b0, build f2b4, service f300, subservice f301 and kernel token f2ac. Optional setter arguments also bind separate last-update f2b8/f2bc, which this bounded component requires to stay zero. Creation subservice0 is not replaced with current SP05.2 save subservice2.",
+    "scope": "Only actual schema-one ordinary part manager with native id-1 and one selected actual schema-one part configuration id0, update stamp101 and zero last-update provenance. Creation file19000, service5, subservice0/2 and matching explicit target build/kernel. No source activation/caches/atom maps/appearance/self references or windows are promoted.",
+    "selection": "The manager activates the actually constructed part configuration through setCurConfig, sets its second selector under the shown ordinary conditions and supplies the same manager to setConfigurationMgr. Existing directory/identity construction and source typed aliases are reused; names or integer IDs alone are not treated as cross-stream proof.",
+    "wire": "Runtime serializer slot5 reaches concrete manager and part configuration. Both modern inherited paths reach the same actual moFeature serializer. It emits creation provenance, service bytes, high then low feature moment and kernel fields through existing typed field grammar. Physical archive words are emitted as little-endian 32-bit values; the existing typed layout represents the two FILETIME words as signed32."
+  },
+  "runtime_class_dispatch": [
+    {
+      "cell": "0x4cec6bd8",
+      "cell_sha256": "4ec3d8c158c890678e50bd011e7bf06026a94f235825240b46c1b2d932348874",
+      "role": "manager",
+      "rtti": ".?AVmoConfigurationMgr_c@@",
+      "serializer_slot": "0x28",
+      "target": "0x4c21ef40",
+      "vtable": "0x4cec6bb0"
+    },
+    {
+      "cell": "0x4ce2d030",
+      "cell_sha256": "4ba1d127e42a97baf003f098f3718b95aa5afe2151c47a3664d24a32678cf547",
+      "role": "part_configuration",
+      "rtti": ".?AVmoPartConfiguration_c@@",
+      "serializer_slot": "0x28",
+      "target": "0x4c228a30",
+      "vtable": "0x4ce2d008"
+    },
+    {
+      "cell": "0x4d0274c0",
+      "cell_sha256": "6ee405dbdecdb99c4460bd82b904837cdde0cad44e69c1d745bd89ab16e21d5d",
+      "role": "base_configuration",
+      "rtti": ".?AVmoBaseConfiguration_c@@",
+      "serializer_slot": "0x28",
+      "target": "0x4c217e30",
+      "vtable": "0x4d027498"
+    }
+  ],
+  "schema": "kit.sw2026.cmgr-feature-event-native-rules.v1",
+  "tools": {
+    "collector_sha256": "6e0a6bae7db55677325ff6ed0bd2509e7940a2f9265f3b23d1eb75b50e75c1fb",
+    "dependency_sha256": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+    "llvm_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c"
+  },
+  "vendor_bytes_or_listing_in_delivery": false
+}

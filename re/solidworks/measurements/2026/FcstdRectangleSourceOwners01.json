@@ -1,0 +1,546 @@
+{
+  "cases": [
+    {
+      "activity": {
+        "cad_file_reads": 8,
+        "cad_imports": 0,
+        "constructor_cad_reads": 0,
+        "foreign_cad_reads": 0,
+        "nested_processes": 0,
+        "stage": "final_source_identity"
+      },
+      "actual_names": {
+        "body": "Body",
+        "drivers": [
+          "Sketch.width",
+          "Sketch.height",
+          "Pad.Length"
+        ],
+        "feature": "Pad",
+        "sketch": "Sketch"
+      },
+      "case_id": "C059-P01",
+      "dependencies": [
+        {
+          "aliases": {
+            "ref0": "freecad:spreadsheet:Dimensions:cell:B1"
+          },
+          "evaluated_quantity": {
+            "canonical_angle_unit": "rad",
+            "canonical_length_unit": "mm",
+            "exponents": [
+              1,
+              0
+            ],
+            "magnitude": 30.0
+          },
+          "original_parameter_ids": [],
+          "resolved_owner_ids": [
+            "freecad:spreadsheet:Dimensions:cell:B1"
+          ],
+          "safe_expression": "ref0",
+          "source_text": "Dimensions.w",
+          "target_parameter_id": "freecad:parameter:Sketch:constraint:9"
+        }
+      ],
+      "factory_driver_owners": {
+        "body_id": "freecad:body:Body",
+        "body_name": "Body",
+        "depth": {
+          "attributes": {
+            "freecad_path": "Length",
+            "freecad_property": {
+              "attributes": {
+                "name": "Length",
+                "type": "App::PropertyLength"
+              },
+              "children": [
+                {
+                  "attributes": {
+                    "value": "10.0000000000000000"
+                  },
+                  "tag": "Float"
+                }
+              ],
+              "tag": "Property"
+            },
+            "freecad_property_type": "App::PropertyLength"
+          },
+          "expression": null,
+          "id": "freecad:parameter:Pad:Length",
+          "name": "Pad.Length",
+          "owner_id": "freecad:feature:Pad",
+          "provenance": null,
+          "role": "driving",
+          "value": {
+            "kind": "length",
+            "unit": "mm",
+            "value": 10.0
+          }
+        },
+        "feature_id": "freecad:feature:Pad",
+        "feature_name": "Pad",
+        "height": {
+          "attributes": {
+            "freecad_constraint": {
+              "First": "1",
+              "FirstPos": "0",
+              "IsActive": "1",
+              "IsDriving": "1",
+              "IsInVirtualSpace": "0",
+              "LabelDistance": "10.0000000000000000",
+              "LabelPosition": "0.0000000000000000",
+              "Name": "height",
+              "Second": "-2000",
+              "SecondPos": "0",
+              "Third": "-2000",
+              "ThirdPos": "0",
+              "Type": "6",
+              "Value": "20.0000000000000000"
+            },
+            "freecad_path": "Constraints[10]"
+          },
+          "expression": null,
+          "id": "freecad:parameter:Sketch:constraint:10",
+          "name": "Sketch.height",
+          "owner_id": "freecad:sketch:Sketch",
+          "provenance": null,
+          "role": "driving",
+          "value": {
+            "kind": "length",
+            "unit": "mm",
+            "value": 20.0
+          }
+        },
+        "native_generation_eligible": false,
+        "native_values_m": [
+          0.03,
+          0.02,
+          0.01
+        ],
+        "sketch_id": "freecad:sketch:Sketch",
+        "sketch_name": "Sketch",
+        "source_values_mm": [
+          30.0,
+          20.0,
+          10.0
+        ],
+        "support_plane_id": "freecad:plane:XY_Plane",
+        "width": {
+          "attributes": {
+            "freecad_constraint": {
+              "First": "0",
+              "FirstPos": "0",
+              "IsActive": "1",
+              "IsDriving": "1",
+              "IsInVirtualSpace": "0",
+              "LabelDistance": "10.0000000000000000",
+              "LabelPosition": "0.0000000000000000",
+              "Name": "width",
+              "Second": "-2000",
+              "SecondPos": "0",
+              "Third": "-2000",
+              "ThirdPos": "0",
+              "Type": "6",
+              "Value": "30.0000000000000000"
+            },
+            "freecad_path": "Constraints[9]"
+          },
+          "expression": {
+            "language": "freecad",
+            "parameter_ids": [],
+            "source": "Dimensions.w"
+          },
+          "id": "freecad:parameter:Sketch:constraint:9",
+          "name": "Sketch.width",
+          "owner_id": "freecad:sketch:Sketch",
+          "provenance": null,
+          "role": "driving",
+          "value": {
+            "kind": "length",
+            "unit": "mm",
+            "value": 30.0
+          }
+        }
+      },
+      "generated_analytic_brep_sha256": "408dfced9deeed58f16ef40cd379ec1ca6d079bac2cc92f243fd2f3cf7f0ba1d",
+      "generated_measure": {
+        "area_mm2": 2200.0,
+        "volume_mm3": 6000.0
+      },
+      "native_generation_refusals": [
+        "populated native equation ownership unqualified",
+        "original portable dependency IDs empty",
+        "all seventeen source parameter properties and inactive values need actual target owners",
+        "eleven explicit source constraints are not the seven-row qualified shared-point rectangle",
+        "source metadata, three axis objects, chronology and presentation are retained but not natively lowered",
+        "whole source envelope must not be stripped",
+        "source spreadsheet cells, alias, text and sheet state are not natively lowered",
+        "historical reader maps hidden source sketch to suppressed; root correction is a separate revision"
+      ],
+      "neutral_unchanged_by_projection": true,
+      "original_neutral_sha256": "fe5b4d403d3a4031fa0afa34750fd3ff9c2cf14c4003288da9583827df96bab5",
+      "owner_counts": {
+        "bodies": 1,
+        "constraints": 11,
+        "entities": 4,
+        "features": 1,
+        "parameters": 17,
+        "payloads_retained_by_fingerprint": 6,
+        "sketches": 1,
+        "source_objects": 11,
+        "support_planes": 3
+      },
+      "source_body_payload_bytes": 7070,
+      "source_body_payload_sha256": "c23899b4bff503b53823d36c66fc73b1748be3a294f498515559e4e5f7e5cf31",
+      "source_bytes_unchanged": true,
+      "source_envelope_sha256": "d39647632dfa0837398abf125a953dba54b4893f121afe6b32bf9bb27bfa18a0",
+      "source_measure": {
+        "area_mm2": 2200.0,
+        "bounds_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            30.0,
+            20.0,
+            10.0
+          ]
+        ],
+        "center_mm": [
+          15.0,
+          10.0,
+          5.0
+        ],
+        "method": "closed six-face rectangular boundary verified by the independent topology comparison",
+        "volume_mm3": 6000.0
+      },
+      "source_sha256": "73cd885cd4755b274fe1106db3022923352ea45a7a4d9964d48202790a47de61",
+      "topology_comparison": {
+        "coordinate_tolerance_mm": 1e-09,
+        "edges": 12,
+        "faces": 6,
+        "measure_scope": "analytic rectangular boundary comparison, not a vendor mass evaluator",
+        "passed": true,
+        "vertices": 8
+      }
+    },
+    {
+      "activity": {
+        "cad_file_reads": 8,
+        "cad_imports": 0,
+        "constructor_cad_reads": 0,
+        "foreign_cad_reads": 0,
+        "nested_processes": 0,
+        "stage": "final_source_identity"
+      },
+      "actual_names": {
+        "body": "Body",
+        "drivers": [
+          "Sketch.width",
+          "Sketch.height",
+          "Pad.Length"
+        ],
+        "feature": "Pad",
+        "sketch": "Sketch"
+      },
+      "case_id": "C130-P01",
+      "dependencies": [
+        {
+          "aliases": {
+            "ref0": "freecad:parameter:Sketch:constraint:9"
+          },
+          "evaluated_quantity": {
+            "canonical_angle_unit": "rad",
+            "canonical_length_unit": "mm",
+            "exponents": [
+              1,
+              0
+            ],
+            "magnitude": 20.0
+          },
+          "original_parameter_ids": [],
+          "resolved_owner_ids": [
+            "freecad:parameter:Sketch:constraint:9"
+          ],
+          "safe_expression": "ref0 / 2",
+          "source_text": "Sketch.Constraints.width / 2",
+          "target_parameter_id": "freecad:parameter:Pad:Length"
+        }
+      ],
+      "factory_driver_owners": {
+        "body_id": "freecad:body:Body",
+        "body_name": "Body",
+        "depth": {
+          "attributes": {
+            "freecad_path": "Length",
+            "freecad_property": {
+              "attributes": {
+                "name": "Length",
+                "type": "App::PropertyLength"
+              },
+              "children": [
+                {
+                  "attributes": {
+                    "value": "20.0000000000000000"
+                  },
+                  "tag": "Float"
+                }
+              ],
+              "tag": "Property"
+            },
+            "freecad_property_type": "App::PropertyLength"
+          },
+          "expression": {
+            "language": "freecad",
+            "parameter_ids": [],
+            "source": "Sketch.Constraints.width / 2"
+          },
+          "id": "freecad:parameter:Pad:Length",
+          "name": "Pad.Length",
+          "owner_id": "freecad:feature:Pad",
+          "provenance": null,
+          "role": "driving",
+          "value": {
+            "kind": "length",
+            "unit": "mm",
+            "value": 20.0
+          }
+        },
+        "feature_id": "freecad:feature:Pad",
+        "feature_name": "Pad",
+        "height": {
+          "attributes": {
+            "freecad_constraint": {
+              "First": "1",
+              "FirstPos": "0",
+              "IsActive": "1",
+              "IsDriving": "1",
+              "IsInVirtualSpace": "0",
+              "LabelDistance": "10.0000000000000000",
+              "LabelPosition": "0.0000000000000000",
+              "Name": "height",
+              "Second": "-2000",
+              "SecondPos": "0",
+              "Third": "-2000",
+              "ThirdPos": "0",
+              "Type": "6",
+              "Value": "20.0000000000000000"
+            },
+            "freecad_path": "Constraints[10]"
+          },
+          "expression": null,
+          "id": "freecad:parameter:Sketch:constraint:10",
+          "name": "Sketch.height",
+          "owner_id": "freecad:sketch:Sketch",
+          "provenance": null,
+          "role": "driving",
+          "value": {
+            "kind": "length",
+            "unit": "mm",
+            "value": 20.0
+          }
+        },
+        "native_generation_eligible": false,
+        "native_values_m": [
+          0.04,
+          0.02,
+          0.02
+        ],
+        "sketch_id": "freecad:sketch:Sketch",
+        "sketch_name": "Sketch",
+        "source_values_mm": [
+          40.0,
+          20.0,
+          20.0
+        ],
+        "support_plane_id": "freecad:plane:XY_Plane",
+        "width": {
+          "attributes": {
+            "freecad_constraint": {
+              "First": "0",
+              "FirstPos": "0",
+              "IsActive": "1",
+              "IsDriving": "1",
+              "IsInVirtualSpace": "0",
+              "LabelDistance": "10.0000000000000000",
+              "LabelPosition": "0.0000000000000000",
+              "Name": "width",
+              "Second": "-2000",
+              "SecondPos": "0",
+              "Third": "-2000",
+              "ThirdPos": "0",
+              "Type": "6",
+              "Value": "40.0000000000000000"
+            },
+            "freecad_path": "Constraints[9]"
+          },
+          "expression": null,
+          "id": "freecad:parameter:Sketch:constraint:9",
+          "name": "Sketch.width",
+          "owner_id": "freecad:sketch:Sketch",
+          "provenance": null,
+          "role": "driving",
+          "value": {
+            "kind": "length",
+            "unit": "mm",
+            "value": 40.0
+          }
+        }
+      },
+      "generated_analytic_brep_sha256": "23418aabcc5cb31a805735006f647a8a5e52fed1b0fbd0ff9e77e1dbb4a618f1",
+      "generated_measure": {
+        "area_mm2": 4000.0,
+        "volume_mm3": 16000.0
+      },
+      "native_generation_refusals": [
+        "populated native equation ownership unqualified",
+        "original portable dependency IDs empty",
+        "all seventeen source parameter properties and inactive values need actual target owners",
+        "eleven explicit source constraints are not the seven-row qualified shared-point rectangle",
+        "source metadata, three axis objects, chronology and presentation are retained but not natively lowered",
+        "whole source envelope must not be stripped",
+        "historical reader maps hidden source sketch to suppressed; root correction is a separate revision"
+      ],
+      "neutral_unchanged_by_projection": true,
+      "original_neutral_sha256": "6d8b355820d0ff8985a10994e182b689f6e9aa112878dad71390931a2c4ba746",
+      "owner_counts": {
+        "bodies": 1,
+        "constraints": 11,
+        "entities": 4,
+        "features": 1,
+        "parameters": 17,
+        "payloads_retained_by_fingerprint": 6,
+        "sketches": 1,
+        "source_objects": 10,
+        "support_planes": 3
+      },
+      "source_body_payload_bytes": 7070,
+      "source_body_payload_sha256": "466cf3b915f469f3bd1587c18e63f2acbf92760248017d6405fb9592e6b87d81",
+      "source_bytes_unchanged": true,
+      "source_envelope_sha256": "e93b29af547eb9893027068492d5ea2de41868a4b9a28604e72a45e75d2a61cf",
+      "source_measure": {
+        "area_mm2": 4000.0,
+        "bounds_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            40.0,
+            20.0,
+            20.0
+          ]
+        ],
+        "center_mm": [
+          20.0,
+          10.0,
+          10.0
+        ],
+        "method": "closed six-face rectangular boundary verified by the independent topology comparison",
+        "volume_mm3": 16000.0
+      },
+      "source_sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+      "topology_comparison": {
+        "coordinate_tolerance_mm": 1e-09,
+        "edges": 12,
+        "faces": 6,
+        "measure_scope": "analytic rectangular boundary comparison, not a vendor mass evaluator",
+        "passed": true,
+        "vertices": 8
+      }
+    }
+  ],
+  "code_manifest_shape_preflight_failure_retained": {
+    "cause": "the audit initially compared the manifest record dictionary to a digest; corrected to its sha256 and bytes fields",
+    "native_or_sdk_workers_launched_before_failure": 0,
+    "sdk_or_source_bytes_changed": false
+  },
+  "current_reader_visibility_fix_in_separate_revision": true,
+  "delivery_pr": 121,
+  "full_fcstd_conversion_qualified": false,
+  "historical_165_plus_5_membership_claimed": false,
+  "initial_evidence_serializer_failure_retained": {
+    "difference": "unordered capability-set order only in diagnostic JSON; generated analytic model bytes already matched",
+    "fix": "sort actual set members for evidence serialization only; source arrays and construction arguments unchanged",
+    "run": "01"
+  },
+  "method_sha256": "a6d6ad32d1bfb81f613c0f1be5387c10d857ed312665da919e9e8701661b34f2",
+  "native_acceptance": false,
+  "native_calls": 0,
+  "owner": "/root/assembly_occurrence",
+  "passed": true,
+  "positive_processes": 4,
+  "public_source_pins_sha256": "875737c907ec1d71648d88179f2f4e7d17f21f82ff0453d8c6337bbe5febe017",
+  "read_projection_is_not_native_admission": true,
+  "refusal_processes": 7,
+  "refusals": [
+    {
+      "case_id": "C059-P01",
+      "mode": "stale_width",
+      "refusal": {
+        "message": "cached source dimension is stale against its actual dependency graph",
+        "type": "ValueError"
+      }
+    },
+    {
+      "case_id": "C059-P01",
+      "mode": "missing_origin",
+      "refusal": {
+        "message": "typed source slot metadata is stale against the actual constraint",
+        "type": "ValueError"
+      }
+    },
+    {
+      "case_id": "C059-P01",
+      "mode": "unknown_reference",
+      "refusal": {
+        "message": "the typed formula is stale against its actual expression-engine owner",
+        "type": "ValueError"
+      }
+    },
+    {
+      "case_id": "C059-P01",
+      "mode": "ambiguous_alias",
+      "refusal": {
+        "message": "actual spreadsheet alias is ambiguous",
+        "type": "ValueError"
+      }
+    },
+    {
+      "case_id": "C130-P01",
+      "mode": "stale_width",
+      "refusal": {
+        "message": "cached source dimension is stale against its actual dependency graph",
+        "type": "ValueError"
+      }
+    },
+    {
+      "case_id": "C130-P01",
+      "mode": "foreign_owner",
+      "refusal": {
+        "message": "feature parameter has a stale actual owner",
+        "type": "ValueError"
+      }
+    },
+    {
+      "case_id": "C130-P01",
+      "mode": "reordered_profile",
+      "refusal": {
+        "message": "the source profile order differs from its actual entities",
+        "type": "ValueError"
+      }
+    }
+  ],
+  "schema": "kit.sw2026.fcstd-rectangle-source-owner-receipt.v1",
+  "sdk_manifest_sha256": "24b090548c73c8745636c5be3888d9268f2ca6ec5473ada762213e1e1df248be",
+  "sdk_processes": 11,
+  "sdk_snapshot_revision": "a15e32154f48393424c60eff2281386bdc926bd7",
+  "source_inventory_sha256": "db7280b68f5bd30d5d3a3f8e3fe92b1ed335e7cd76786ae5cfbddb0064efa52c",
+  "summary_sha256": "a00d33eac2780749554ab20fb0b1c358d987f9bfcae3a5244f05a4d13c857336",
+  "task_id": "B04-SW2026/fcstd-source-owners",
+  "writer_output_count": 0
+}

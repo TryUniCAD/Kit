@@ -6,6 +6,8 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Through-all configuration feature events](../measurements/2026/ThroughAllCmgrFeatureEvents01.json) | Independent 110-process replays preserve the two actual event owners and change only their intended fields. The CMgr frontier moves from 29 to 23 for both disclosed designs. |
+| [Disclosed FreeCAD rectangle owners](../measurements/2026/FcstdRectangleSourceOwners01.json) | Both 11-process replays retain all 17 parameters, 11 sketch constraints and both actual expression dependencies. Independent analytic solids match the full source topology. |
 | [Typed part equation Config-0](../measurements/2026/PartEquationConfigReplay01.json) | Both complete disclosed streams return all 65,148 bytes and their original maps. The equation sides keep the actual feature and sketch dimension handles and both cached SI values. |
 | [Through-all part UI scalar replay](../measurements/2026/ThroughAllUiScalarsRootReplay01.json) | Two disclosed Definition graphs reconstruct four view and toolbar fields exactly. Both 92-process replays pass 48 expected refusals and 70 exact fragment re-emissions. The two environment paths and 29 CMgr paths remain. |
 | [Width-to-depth equation source locks](../measurements/2026/NativeEquationWidthDepthSource01.json) | One disclosed and one guest-sealed 2026 source each pass 52 comparisons through native dependency edits, saves and fresh reopens, with healthy controls. The separate global assignment publishes zero rows before and after evaluation. |

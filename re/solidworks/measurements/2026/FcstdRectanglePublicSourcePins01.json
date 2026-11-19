@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "bytes": 7043,
+      "path": "src/Mod/Sketcher/App/GeoEnum.h",
+      "sha256": "e9b140e8400709b3c4104155bd7b6e3c5174826518f01e3914eead07f662620e",
+      "source_project": "FreeCAD/FreeCAD",
+      "source_saved": false,
+      "tag": "0.21.2",
+      "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/0.21.2/src/Mod/Sketcher/App/GeoEnum.h"
+    },
+    {
+      "bytes": 189125,
+      "path": "src/Mod/Sketcher/App/Sketch.cpp",
+      "sha256": "f4fa415ecccdbb657e0221e5d1ba9590deee0bff9c1434d739029055e2c65bf8",
+      "source_project": "FreeCAD/FreeCAD",
+      "source_saved": false,
+      "tag": "0.21.2",
+      "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD/0.21.2/src/Mod/Sketcher/App/Sketch.cpp"
+    }
+  ],
+  "no_vendor_binary_or_source_listing_staged": true,
+  "schema": "kit.freecad.public-source-pins.v1"
+}

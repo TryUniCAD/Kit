@@ -1,0 +1,127 @@
+{
+  "application_usable_new_profile": false,
+  "complete_source_preparation": false,
+  "confidence": {
+    "complete_source_preparation": "unqualified",
+    "exact_native_field_and_dispatch_ownership": "confirmed for pinned image",
+    "fresh_host_construction_and_byte_proof": "confirmed for frozen process matrix",
+    "new_native_component_acceptance": "not measured",
+    "original_heldout_credit": "none",
+    "source_correlation": "confirmed for two disclosed cases"
+  },
+  "delivery_pr": 121,
+  "dependency": {
+    "baseline_file_count": 4806,
+    "candidate_file_count": 4813,
+    "prior_ui_source_manifest_sha256": "efd2d828c25a9dcc472c0c3e2d9107395bce5485aef2f61a54d8d0b6d90ce362",
+    "prior_ui_stageable_sha256": "25c9842a4111fcba4c179dd6fc5a8870cd38e894e16578511614849332ca4a7a"
+  },
+  "disclosed_inputs": [
+    {
+      "name": "D01",
+      "sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d"
+    },
+    {
+      "name": "D02",
+      "sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431"
+    }
+  ],
+  "exact_assertions": {
+    "actual_selected_and_directory_aliases_retained": true,
+    "all_sealed_inputs_preserved": true,
+    "both_owners_validated_before_mutation": true,
+    "manager_and_configuration_distinct": true,
+    "old_callers_and_complete_generated_compatibility_outputs_exact": true,
+    "only_manager_fragment_changes_on_new_path": true,
+    "only_requested_cmgr_event_fields_change": true,
+    "previous_source_projection_and_full_refusal_unchanged": true,
+    "rejected_fresh_graphs_leave_event_words_unchanged": true,
+    "source_manager_and_active_events_exact": true,
+    "zero_runtime_input_reads_during_construction": true
+  },
+  "failure_history": {
+    "development_static01_causes": [
+      "Mypy rejected reuse of a mutable mapping local as a dict of integer operands",
+      "Steering rejected punctuation in two rationale comments"
+    ],
+    "development_static01_passed": false,
+    "development_static01_report_sha256": "875633358e237101872ce8c5a150371155640ff024b780edc722b6bd8fcd1c1d",
+    "native_experiments": 0,
+    "repaired_before_final_source_freeze": true,
+    "sdk_runtime_failures_counted_as_acceptance": 0
+  },
+  "git_mutations": false,
+  "heldout_inputs_read": 0,
+  "host_processes": {
+    "additional_whole_cmgr_round_trips": 16,
+    "event_comparison_repeated_identically": true,
+    "independent_event_pairs": 6,
+    "independent_whole_cmgr_comparison_workers": 8,
+    "main_replay_repeated_identically": true,
+    "main_workers": 102,
+    "negative_types": {
+      "BodyUnsupported": 2,
+      "ValueError": 62
+    },
+    "old_complete_container_pairs": 2,
+    "per_combined_run": 110,
+    "remaining_owner_inventory_round_trips": 8,
+    "sdk_refusal_workers": 64,
+    "seven_fragment_readback_round_trips": 56,
+    "source_cases": 2
+  },
+  "native_processes": 0,
+  "outcome": "Separate fresh manager/configuration feature event construction passes; complete original-source preparation remains refused",
+  "owner": "/root/configuration_header",
+  "passed": true,
+  "persistent_analysis_targets_opened": 0,
+  "pins": {
+    "combined_process_report_sha256": "8f7b9a110ac9b3cf26f95522f01924a595ad8cf57d33c625302ca85106fab8e6",
+    "comparison_binding_sha256": "97864030760bf78e80ee3ae3df92beb3f53b671f058ce3e37c1134cfc989761e",
+    "event_only_process_report_sha256": "548a3638204fc0278a1475fa092e18ecf8aec1481a1d61bb033836502a88afce",
+    "main_process_report_sha256": "9f2f9cf0ee96851d18a1e47f29cda50c803108f456967718e108ddbba3b32070",
+    "native_rules_replay_sha256": "54bcf9c3a1ebf9c8c0e6211db774b7d5908cec55ecc38300b6903a2192274832",
+    "native_rules_sha256": "54bcf9c3a1ebf9c8c0e6211db774b7d5908cec55ecc38300b6903a2192274832",
+    "source_evidence_dependencies_manifest_sha256": "f1e0b661b025887d2bb6c95017c1d7420bbcbc6af7f78050a3d949b22374d596",
+    "source_manifest_sha256": "f81afbada1479ce1dc1463096fcb79af3aa7a45e157260df4ba27a15898ef89b",
+    "static_report_sha256": "c190d29f0155ced30d8a8bdd6db869720d1b143d3437adc2f1921525ae6fe5b7"
+  },
+  "public_activation": false,
+  "residual_frontiers": {
+    "D01": {
+      "cmgr": 23,
+      "cmgr_before_component": 29,
+      "definition": 2
+    },
+    "D02": {
+      "cmgr": 23,
+      "cmgr_before_component": 29,
+      "definition": 2
+    }
+  },
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.throughall-cmgr-feature-events-host-measurement.v1",
+  "sdk_files_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Configuration/Events/ApplyCmgrMut.py": "813decf0de9690dfb411af711b6de55be75f8af2878a742dba34344a1218eb04",
+    "src/convert/adapters/solidworks/Archive/Construction/Configuration/Events/CmgrEvents.py": "23668a9a83a81df564f35a119e1f49e34cf5d9942883bf826b9444da46129441",
+    "src/convert/adapters/solidworks/Archive/Construction/Configuration/Events/ConfigEvent.py": "4cb03a0a859af8239208e1deef280923731421ac0735924089c7df6f40381d56",
+    "src/convert/adapters/solidworks/Archive/Construction/Configuration/Events/RequireCmgr.py": "85b943aca312fb3203f759e46c9f176e6374f14c8e2ca41e6c8a4844868041e4",
+    "src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceConfig/Events/MakeThruEvents.py": "5c78c45b332f87bff89d75b2df8f3495ee29f19fb18c8df85c39be58d2291f8c",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/SourceConfig/Events/ReadCfgEvent.py": "ed9114b04be4c81f044635a8d1cd30fa0eac462174a73ee71a2e7655c77a4e62",
+    "src/convert/adapters/solidworks/Core/Preparation/ThroughAll/SourceConfig/Events/ReadThruEvents.py": "0fd4a5fe34f5ec6ea61d3902d8e106b732bd26a665ef8444b79e9bd4a599dec4"
+  },
+  "shared_source_edits": false,
+  "source_environment_construction": false,
+  "static": {
+    "black": true,
+    "donor_scan": true,
+    "donor_scan_python_files": 4772,
+    "mypy": true,
+    "pyright": true,
+    "pyright_existing_unrecognized_config_key_notices": true,
+    "ruff": true,
+    "steering": true
+  },
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL-CMGR-EVENTS",
+  "vendor_loadable_new_profile": false
+}
