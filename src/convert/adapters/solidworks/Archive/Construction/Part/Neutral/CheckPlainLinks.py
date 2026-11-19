@@ -11,7 +11,10 @@ from interchange.Features.FeatureExtrude import ExtrudeFeature
 
 # a native driving dimension must preserve the actual neutral parameter sketch support configuration and body owners before synthesis
 def CheckPlainLinks(
-    DocumentValue: CadDocument, Definition: ExtrudeFeature, DepthName: str = "D1"
+    DocumentValue: CadDocument,
+    Definition: ExtrudeFeature,
+    DepthName: str = "D1",
+    AxisValue: str = "z",
 ) -> None:
     PlaneValue = CheckPartLinks(DocumentValue)
     Parameter, FeatureValue = (
@@ -35,7 +38,7 @@ def CheckPlainLinks(
         raise ValueError(
             "plain boss feature definition and driving parameter values disagree"
         )
-    if ReadPrincAxis(PlaneValue.transform) != "z":
+    if ReadPrincAxis(PlaneValue.transform) != AxisValue:
         raise ValueError(
-            "plain boss support must be the canonical front plane at the model origin"
+            "plain boss support must be its admitted principal plane at the origin"
         )

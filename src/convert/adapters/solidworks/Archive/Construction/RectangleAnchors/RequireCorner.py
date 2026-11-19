@@ -1,8 +1,8 @@
 from collections.abc import MutableMapping
 from typing import cast as CastValue
 
-from convert.adapters.solidworks.Archive.Construction.Geometry.PlaneFrame import (
-    PlaneFrame,
+from convert.adapters.solidworks.Archive.Construction.Geometry.FrameXform import (
+    FrameXform,
 )
 from convert.adapters.solidworks.Archive.Construction.Profile.ProfileGraph import (
     ProfileGraph,
@@ -18,6 +18,12 @@ from convert.adapters.solidworks.Archive.Construction.RectangleAnchors.CheckCorn
 )
 from convert.adapters.solidworks.Archive.Construction.RectangleAnchors.CheckAnchorDims import (
     CheckAnchorDims,
+)
+from convert.adapters.solidworks.Archive.Construction.SketchDimensions.ReadRectEdges import (
+    ReadRectEdges,
+)
+from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
+    PrincipalFrame,
 )
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
@@ -35,17 +41,16 @@ def RequireCorner(GraphValue: ProfileGraph) -> MutableMapping[str, object]:
         raise TypeError("corner anchor requires a constructed polygon profile")
     GeometryValue, ProfileValue = GraphValue.GeometryValue, GraphValue.ProfileValue
     SketchValue = GeometryValue.SketchValue
+    NegativeV = GraphValue.FrameValue == PrincipalFrame("y")
     if (
         ProfileValue.ClassValue != RuntimeClass("moProfileFeature_c", 1)
         or ProfileValue.FieldsValue.get("pd_f80") is not SketchValue
+        or ProfileValue.FieldsValue.get("pd_ff0") != FrameXform(GraphValue.FrameValue)
         or FieldInt(ProfileValue.FieldsValue, "f2b0") != 19000
-        or GraphValue.FrameValue
-        != PlaneFrame(
-            (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)
-        )
+        or (not NegativeV and GraphValue.FrameValue != PrincipalFrame("z"))
     ):
         raise ValueError(
-            "corner anchor requires the current origin front plane profile"
+            "corner anchor requires a current origin front or top plane profile"
         )
     if (
         len(GeometryValue.PointValues) != 4
@@ -80,7 +85,8 @@ def RequireCorner(GraphValue: ProfileGraph) -> MutableMapping[str, object]:
             "corner anchor requires existing rectangle drivers and no prior coincidence"
         )
     CheckCornerGeom(GeometryValue)
-    CheckAnchorDims(GeometryValue, Dimensions)
+    (FirstU, LastU, _), (FirstV, LastV, _) = ReadRectEdges(GeometryValue, NegativeV)
+    CheckAnchorDims(GeometryValue, Dimensions, ((FirstU, LastU), (FirstV, LastV)))
     Counters = SketchValue.FieldsValue.get("f140")
     if not isinstance(Counters, MutableMapping):
         raise ValueError("corner anchor requires mutable point creation counters")

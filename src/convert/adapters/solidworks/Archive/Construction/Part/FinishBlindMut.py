@@ -23,6 +23,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
+    BlindPlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan import (
     CirclePlan,
 )
@@ -71,17 +74,23 @@ def FinishBlindMut(
     PocketValue: PocketPlan | None = None,
     ThroughValue: ThroughPartSpec | None = None,
 ) -> PartCandidate:
-    EndInput = (
-        PlanValue.EndValue
-        if isinstance(PlanValue, CirclePlan)
-        else BlindEndInput(PlanValue.DepthValue, False, 19000, PlanValue.DepthName)
-    )
+    EndInput: BlindEndInput | BossEndInput
     if ThroughValue is not None:
         if PocketValue is not None or ThroughValue.StockValue is not PlanValue:
             raise ValueError(
                 "through all composition requires its actual sole stock plan"
             )
         EndInput = BossEndInput(PlanValue.DepthValue, False, 19000, "mid_plane")
+    elif isinstance(PlanValue, CirclePlan):
+        EndInput = PlanValue.EndValue
+    elif isinstance(PlanValue, BlindPlan) and PlanValue.Reversed:
+        EndInput = BossEndInput(
+            PlanValue.DepthValue, True, 19000, "blind", DepthName=PlanValue.DepthName
+        )
+    else:
+        EndInput = BlindEndInput(
+            PlanValue.DepthValue, False, 19000, PlanValue.DepthName
+        )
     BossValue = MakeBlindMut(
         PlanValue.FeatureName,
         SystemValue.RootValue,

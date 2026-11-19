@@ -1,3 +1,5 @@
+from math import isfinite as IsFinite
+
 from convert.adapters.solidworks.Archive.Construction.Dimensions.MakePoint import (
     MakePoint,
 )
@@ -13,17 +15,21 @@ from convert.adapters.solidworks.Archive.Construction.SketchDimensions.ReadPoint
 def ReadRectPlace(
     GraphValue: PolygonGraph,
     IndexValue: int,
+    PointIndices: tuple[int, int],
     LengthValue: float,
     TextPoint: tuple[float, float],
 ) -> dict[str, object]:
-    StartPoint = ReadPointPair(GraphValue.PointValues[IndexValue])
-    EndPoint = ReadPointPair(GraphValue.PointValues[IndexValue + 1])
-    AlongValue = TextPoint[IndexValue] - StartPoint[IndexValue]
-    AwayValue = (
-        StartPoint[1] - TextPoint[1]
-        if IndexValue == 0
-        else TextPoint[0] - StartPoint[0]
+    FirstIndex, LastIndex = PointIndices
+    StartPoint = ReadPointPair(GraphValue.PointValues[FirstIndex])
+    EndPoint = ReadPointPair(GraphValue.PointValues[LastIndex])
+    AcrossIndex = 1 - IndexValue
+    InteriorPoint = ReadPointPair(GraphValue.PointValues[(FirstIndex + 2) % 4])
+    AlongDirection = 1.0 if EndPoint[IndexValue] > StartPoint[IndexValue] else -1.0
+    AwayDirection = (
+        -1.0 if InteriorPoint[AcrossIndex] > StartPoint[AcrossIndex] else 1.0
     )
+    AlongValue = (TextPoint[IndexValue] - StartPoint[IndexValue]) * AlongDirection
+    AwayValue = (TextPoint[AcrossIndex] - StartPoint[AcrossIndex]) * AwayDirection
     if (
         not 0.0 <= AlongValue <= LengthValue
         or not IsFinite(AwayValue)
@@ -34,17 +40,22 @@ def ReadRectPlace(
         )
     FirstValue = MakePoint(XValue=StartPoint[0], YValue=StartPoint[1])
     SecondValue = MakePoint(XValue=EndPoint[0], YValue=EndPoint[1])
+    AlongVector = MakePoint(
+        XValue=AlongDirection if IndexValue == 0 else 0.0,
+        YValue=AlongDirection if IndexValue == 1 else 0.0,
+    )
+    AwayVector = MakePoint(
+        XValue=AwayDirection if AcrossIndex == 0 else 0.0,
+        YValue=AwayDirection if AcrossIndex == 1 else 0.0,
+    )
     return {
-        "f880": MakePoint(YValue=-1.0) if IndexValue == 0 else MakePoint(XValue=1.0),
+        "f880": AwayVector,
         "f8a8": AlongValue / LengthValue,
         "f8b0": AwayValue,
         "f958": FirstValue,
         "f970": dict(FirstValue),
         "f988": SecondValue,
         "f9a0": dict(SecondValue),
-        "fa38": MakePoint(XValue=1.0) if IndexValue == 0 else MakePoint(YValue=1.0),
+        "fa38": AlongVector,
         "fad0": LengthValue,
     }
-
-
-from math import isfinite as IsFinite

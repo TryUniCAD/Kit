@@ -134,16 +134,45 @@ def require_same_history(original, other):
         require(original[name] == other[name], f"signed Top source changed its {name}")
 
 
-def author_states(author, controller, directory, case):
+def snapshot(author, case, state):
+    value = author.snapshot(state_lengths(case, state))
+    if "source_text" in case:
+        from AuthorPartProperties import SUMMARY_FIELDS, dispatch_property, manager, read_text
+
+        expected = case["source_text"]
+        file_owner = manager(author, author.model, "")
+        properties = {name: read_text(author, file_owner, name) for name in author.get(file_owner, "GetNames") or ()}
+        require(properties.keys() == expected["file"].keys()
+                and all(row["raw"] == row["resolved"] == expected["file"][name]
+                        and row["type"] == 30 and not row["linked"] for name, row in properties.items()),
+                "attached box did not retain its literal FreeCAD file properties")
+        summary = {name: str(dispatch_property(author, author.model, "SummaryInfo", SUMMARY_FIELDS[name]))
+                   for name in expected["summary"]}
+        require(summary == expected["summary"], "attached box did not retain the authored summary")
+        value.update(source_properties=properties, source_summary=summary)
+    return value
+
+
+def author_states(author, controller, directory, case, generated_input=None):
     (directory / "Native").mkdir()
-    author.build(controller, case["original_m"])
-    original = author.snapshot(state_lengths(case, "Original"))
+    if generated_input is None:
+        author.build(controller, case["original_m"])
+    else:
+        author.model, error, warning = author.rec.call("open exact generated attached Top box", controller.open, generated_input)
+        require(author.model is not None and error == warning == 0
+                and Path(author.get(author.model, "GetPathName")).samefile(generated_input),
+                "generated attached box did not open cleanly")
+        author.rec.data["generated_open_status"] = [error, warning]
+        require(len(author.get(author.model, "GetBodies2", 0, False) or ()) == 1,
+                "fresh generated open did not expose one solid")
+        author.rec.flush()
+    original = snapshot(author, case, "Original")
     files, observations = {}, {}
     for state in STATES:
         if state != "Original":
             index = DRIVERS.index(state)
             author.edit(PARAMETERS[index], case["edit_m"][index])
-            state_observation = author.snapshot(state_lengths(case, state))
+            state_observation = snapshot(author, case, state)
             require_same_history(original, state_observation)
         else:
             state_observation = original
@@ -155,7 +184,7 @@ def author_states(author, controller, directory, case):
         observations[state] = state_observation
         if state != "Original":
             author.edit(PARAMETERS[index], case["original_m"][index])
-            require_same_history(original, author.snapshot(state_lengths(case, "Original")))
+            require_same_history(original, snapshot(author, case, "Original")))
     return files, observations
 
 
@@ -169,7 +198,7 @@ def reopen_states(author, controller, directory, case, authored):
                 and Path(author.get(author.model, "GetPathName")).samefile(path),
                 "signed Top source did not open its sealed path cleanly")
         require(len(author.get(author.model, "GetBodies2", 0, False) or ()) == 1, "fresh source open did not expose one solid")
-        observed = author.snapshot(state_lengths(case, state))
+        observed = snapshot(author, case, state)
         require_same_history(authored["observations"][state], observed)
         observations[state] = observed | {"open_errors": error, "open_warnings": warning}
         controller.close_doc(author.model)
@@ -185,7 +214,7 @@ def oracle_identity(value):
     return value
 
 
-def phase(directory, case, name, prior=None):
+def phase(directory, case, name, prior=None, *, generated_input=None):
     import Swapp
     from OracleIdentity import application_identity
 
@@ -203,7 +232,7 @@ def phase(directory, case, name, prior=None):
                 preference = bool(author.get(author.app, "GetUserPreferenceToggle", 10))
                 author.get(author.app, "SetUserPreferenceToggle", 10, False)
                 require(not author.get(author.app, "GetUserPreferenceToggle", 10), "interactive dimension prompt is still enabled")
-                files, observed = author_states(author, controller, directory, case)
+                files, observed = author_states(author, controller, directory, case, generated_input)
             else:
                 files, observed = reopen_states(author, controller, directory, case, prior)
             result.update(passed=True, files=files, observations=observed)
@@ -234,6 +263,10 @@ def phase(directory, case, name, prior=None):
         except Exception as error:
             rec.failure(error)
             result["passed"] = False
+    result["numeric_checks"] = len(rec.data["checks"])
+    result["first_failure"] = rec.data["first_failure"]
+    if generated_input is not None:
+        result["generated_open_status"] = rec.data.get("generated_open_status")
     rec.data.update(result=result, passed=result["passed"], finished_at=time.time())
     rec.flush()
     return result | {"record_sha256": digest(rec.path)}

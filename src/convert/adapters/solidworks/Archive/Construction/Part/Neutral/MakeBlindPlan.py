@@ -14,6 +14,9 @@ def MakeBlindPlan(
     ParameterId: str,
     DepthValue: float,
     DepthName: str,
+    *,
+    AxisValue: str = "z",
+    IsReversed: bool = False,
 ) -> BlindPlan:
     NameValue = ReadStyleText(
         DocumentValue.metadata.get("name"), "neutral document name"
@@ -38,4 +41,6 @@ def MakeBlindPlan(
         max(XValues) - min(XValues),
         max(YValues) - min(YValues),
         DepthName=DepthName,
+        PrincipalAxis=AxisValue,
+        Reversed=IsReversed,
     )

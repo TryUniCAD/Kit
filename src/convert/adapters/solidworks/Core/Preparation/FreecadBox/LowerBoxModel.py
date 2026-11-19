@@ -20,14 +20,21 @@ def LowerBoxModel(
     Dimensions: tuple[float, float, float],
     DriverNames: tuple[str, str, str],
     BodyName: str,
+    *,
+    TopAttached: bool = False,
 ) -> CadDocument:
     SourceFeature = DocumentValue.feature_timeline[0]
+    PlaneName = "XZ-plane" if TopAttached else "XY-plane"
     SourcePlane = next(
         PlaneValue
         for PlaneValue in DocumentValue.support_planes
-        if PlaneValue.name == "XY-plane"
+        if PlaneValue.name == PlaneName
     )
-    Plane = SupportPlane(SourcePlane.id, "Front Plane", SourcePlane.transform)
+    Plane = SupportPlane(
+        SourcePlane.id,
+        "Top Plane" if TopAttached else "Front Plane",
+        SourcePlane.transform,
+    )
     LengthId, WidthId, HeightId = ParameterIds
     Length, Width, Height = Dimensions
     SketchValue = MakeBoxProfile(
@@ -37,6 +44,7 @@ def LowerBoxModel(
         Length,
         Width,
         (LengthId, WidthId),
+        NegativeV=TopAttached,
     )
     LengthName, WidthName, HeightName = DriverNames
     HeightValue = ParameterValue(Height, ValueKind.KLength, "mm")
@@ -48,7 +56,7 @@ def LowerBoxModel(
         sketch_id=SketchValue.id,
         parameter_ids=(HeightId,),
         operation=BooleanOp.KCreate,
-        definition=ExtrudeFeature(length=HeightValue),
+        definition=ExtrudeFeature(length=HeightValue, reversed=TopAttached),
     )
     PartValue = CadDocument(
         DocumentValue.source,

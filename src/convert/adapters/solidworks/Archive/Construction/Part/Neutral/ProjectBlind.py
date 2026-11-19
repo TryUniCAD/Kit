@@ -27,10 +27,15 @@ def ProjectBlind(
     DocumentValue: CadDocument,
     ReadSketch: Callable[[Sketch, float], tuple[tuple[float, float], ...]],
     DepthName: str = "D1",
+    *,
+    AxisValue: str = "z",
+    IsReversed: bool = False,
 ) -> BlindPlan:
     RequirePlainDoc(DocumentValue)
-    Definition = RequireBossDef(DocumentValue.feature_timeline[0])
-    CheckPlainLinks(DocumentValue, Definition, DepthName)
+    Definition = RequireBossDef(
+        DocumentValue.feature_timeline[0], AxisValue, IsReversed
+    )
+    CheckPlainLinks(DocumentValue, Definition, DepthName, AxisValue)
     ScaleValue = {"mm": 0.001, "m": 1.0, "in": 0.0254}.get(DocumentValue.units)
     if ScaleValue is None:
         raise ValueError(
@@ -42,4 +47,6 @@ def ProjectBlind(
         DocumentValue.parameters[0].id,
         ReadLength(Definition.length),
         DepthName,
+        AxisValue=AxisValue,
+        IsReversed=IsReversed,
     )

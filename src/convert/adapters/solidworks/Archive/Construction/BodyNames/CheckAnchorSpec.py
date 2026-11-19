@@ -12,5 +12,6 @@ def CheckAnchorSpec(InputValue: AnchorPartInput) -> None:
         type(InputValue) is not AnchorPartInput
         or InputValue.KindValue not in ("corner", "center")
         or type(InputValue.DimensionsValue) is not RectDimInput
+        or (InputValue.TopAttached and InputValue.KindValue != "corner")
     ):
         raise ValueError("anchored part requires its complete declared anchor input")

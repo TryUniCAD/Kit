@@ -19,7 +19,11 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 # each fresh length driver must own its named parameter and two actual point references before persistent allocation
 def MakeRectValue(
-    GraphValue: ProfileGraph, IndexValue: int, LengthValue: float, NameValue: str
+    GraphValue: ProfileGraph,
+    FirstIndex: int,
+    LastIndex: int,
+    LengthValue: float,
+    NameValue: str,
 ) -> ArchiveNode:
     GeometryValue = GraphValue.GeometryValue
     Parameter = MakeLengthParam(GraphValue.ProfileValue, LengthValue, NameValue)
@@ -37,12 +41,12 @@ def MakeRectValue(
             "h1": MakePointRef(
                 GeometryValue.SketchValue,
                 GeometryValue.PointValues,
-                GeometryValue.PointValues[IndexValue],
+                GeometryValue.PointValues[FirstIndex],
             ),
             "h2": MakePointRef(
                 GeometryValue.SketchValue,
                 GeometryValue.PointValues,
-                GeometryValue.PointValues[IndexValue + 1],
+                GeometryValue.PointValues[LastIndex],
             ),
             "f180": 1,
             "f184": 1,

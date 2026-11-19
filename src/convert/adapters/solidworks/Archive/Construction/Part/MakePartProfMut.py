@@ -31,8 +31,8 @@ def MakePartProfMut(
     return MakeProfileMut(
         PlanValue.SketchName,
         SystemValue.RootValue,
-        SystemValue.SystemValues.PlaneValues["z"],
-        "z",
+        SystemValue.SystemValues.PlaneValues[PlanValue.AxisValue],
+        PlanValue.AxisValue,
         PolygonInput(PlanValue.VerticesValue, 19000),
         InputValue.TargetValue,
         Allocator,

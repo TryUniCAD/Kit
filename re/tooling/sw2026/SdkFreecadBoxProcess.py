@@ -29,16 +29,18 @@ CODECS = tuple(lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
 
 def build(request):
     source_labels = request.get("preserve_source_labels", False)
-    if set(request) - {"preserve_source_labels"} != {"document", "native_path"} or type(source_labels) is not bool:
+    attached_top = request.get("attached_top", False)
+    if (set(request) - {"preserve_source_labels", "attached_top"} != {"document", "native_path"}
+            or type(source_labels) is not bool or type(attached_top) is not bool):
         raise ValueError("FreeCAD box construction requires its neutral document and explicit native destination")
     document = FromData(request["document"])
     if type(document) is not CadDocument:
         raise TypeError("FreeCAD box construction requires an actual neutral document")
-    projected = project(document, source_labels=source_labels)
+    projected = project(document, source_labels=source_labels, attached_top=attached_top)
     part = projected.model
     part_file = MakeOriginBoxPart(
         part, request["native_path"], projected.creation_epoch, projected.properties,
-        UnitsValue=projected.unit_recipe,
+        UnitsValue=projected.unit_recipe, TopAttached=projected.attached_top,
     )
     plan = part_file.PlanValue
     if type(plan) is not BlindPlan:
@@ -61,6 +63,8 @@ def build(request):
         "source_feature_label": projected.source_feature_label,
         "parameter_bindings": projected.parameter_bindings,
         "actual_native_body_label_plan": part.bodies[0].name,
+        **({"actual_native_support_plane": plan.PlaneName,
+            "actual_native_boss_reversed": plan.Reversed} if attached_top else {}),
         "creation_epoch": projected.creation_epoch,
         "source_text": {"summary": projected.properties.SummaryFields, "file": projected.properties.DocumentFields},
         "geometry": projected.geometry,

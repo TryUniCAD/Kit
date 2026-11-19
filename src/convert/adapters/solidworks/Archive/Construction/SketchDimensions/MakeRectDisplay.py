@@ -38,6 +38,7 @@ def MakeRectDisplay(
     HandleValue: ArchiveNode,
     LengthValue: float,
     IndexValue: int,
+    PointIndices: tuple[int, int],
     AnnotationId: int,
     InputValue: RectDimInput,
     StyleValue: LinearStyle,
@@ -50,7 +51,11 @@ def MakeRectDisplay(
     FieldsValue.update(StyleValue.ProjectionValue)
     FieldsValue.update(
         ReadRectPlace(
-            RequirePolygon(GraphValue.GeometryValue), IndexValue, LengthValue, TextPoint
+            RequirePolygon(GraphValue.GeometryValue),
+            IndexValue,
+            PointIndices,
+            LengthValue,
+            TextPoint,
         )
     )
     FieldsValue["owner"] = GraphValue.ProfileValue

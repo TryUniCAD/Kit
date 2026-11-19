@@ -34,8 +34,8 @@ from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeSketc
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.PublishRectMut import (
     PublishRectMut,
 )
-from convert.adapters.solidworks.Archive.Construction.SketchDimensions.ReadRectLengths import (
-    ReadRectLengths,
+from convert.adapters.solidworks.Archive.Construction.SketchDimensions.ReadRectDrivers import (
+    ReadRectDrivers,
 )
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RectDimInput import (
     RectDimInput,
@@ -66,7 +66,7 @@ def MakeRectDimsMut(
         raise ValueError(
             "rectangle sketch requires two distinct driving parameter names"
         )
-    LengthValues = ReadRectLengths(GraphValue)
+    Drivers = ReadRectDrivers(GraphValue)
     CheckRectAlloc(Allocator)
     _ = RequireDimRows(GraphValue.GeometryValue.SketchValue)
     ModelValue = ArchiveNode.RequireNode(GraphValue.ProfileValue.FieldsValue["owner"])
@@ -77,17 +77,23 @@ def MakeRectDimsMut(
             "model annotation counter cannot allocate both rectangle displays"
         )
     ValueNodes = tuple(
-        MakeRectValue(GraphValue, IndexValue, LengthValue, NamesValue[IndexValue])
-        for IndexValue, LengthValue in enumerate(LengthValues)
+        MakeRectValue(GraphValue, FirstIndex, LastIndex, LengthValue, NameValue)
+        for (FirstIndex, LastIndex, LengthValue), NameValue in zip(
+            Drivers, NamesValue, strict=True
+        )
     )
     ResultValues: list[DimensionGraph] = []
-    for IndexValue, Dimension in enumerate(ValueNodes):
+    for IndexValue, (Dimension, Driver) in enumerate(
+        zip(ValueNodes, Drivers, strict=True)
+    ):
+        FirstIndex, LastIndex, LengthValue = Driver
         HandleValue = MakeSketchRef(GraphValue, ValueNodes, IndexValue)
         DisplayValue = MakeRectDisplay(
             GraphValue,
             HandleValue,
-            LengthValues[IndexValue],
+            LengthValue,
             IndexValue,
+            (FirstIndex, LastIndex),
             AnnotationId + IndexValue,
             InputValue,
             StyleValue,

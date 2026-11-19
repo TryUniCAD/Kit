@@ -36,10 +36,11 @@ def MakeOriginBoxPart(
     TextValue: PartTextInput,
     *,
     UnitsValue: UnitInput | None = None,
+    TopAttached: bool = False,
 ) -> PartCandidate:
     OutputValue = RequirePartPath(PathValue, CreationTime)
     PlainValue = PlainBodyView(DocumentValue)
-    PlanValue = ProjectRectDims(PlainValue)
+    PlanValue = ProjectRectDims(PlainValue, TopAttached=TopAttached)
     RecipeValue = MakePartRecipe(PlanValue, CreationTime)
     if UnitsValue is not None:
         RecipeValue = ReplaceValue(RecipeValue, DocumentUnits=UnitsValue)
@@ -48,13 +49,19 @@ def MakeOriginBoxPart(
         PropertiesValue=TextValue,
     )
     Margin = min(PlanValue.WidthValue, PlanValue.HeightValue) / 4
+    WidthText = (PlanValue.WidthValue / 2, Margin if TopAttached else -Margin)
+    HeightText = (
+        (-Margin, -PlanValue.HeightValue / 2)
+        if TopAttached
+        else (PlanValue.WidthValue + Margin, PlanValue.HeightValue / 2)
+    )
     Presentation = RectDimInput(
-        (PlanValue.WidthValue / 2, -Margin),
-        (PlanValue.WidthValue + Margin, PlanValue.HeightValue / 2),
+        WidthText,
+        HeightText,
         False,
         1,
         False,
     )
     return MakeAnchorNamed(
-        DocumentValue, InputValue, AnchorPartInput("corner", Presentation)
+        DocumentValue, InputValue, AnchorPartInput("corner", Presentation, TopAttached)
     )

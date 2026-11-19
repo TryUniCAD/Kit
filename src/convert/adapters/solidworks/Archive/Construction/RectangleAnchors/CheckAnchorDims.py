@@ -21,7 +21,9 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 
 # anchoring must preserve the already published rectangle constraints and actual entity use counts
 def CheckAnchorDims(
-    GeometryValue: PolygonGraph, Dimensions: Mapping[str, object]
+    GeometryValue: PolygonGraph,
+    Dimensions: Mapping[str, object],
+    DriverPoints: tuple[tuple[int, int], tuple[int, int]] = ((0, 1), (1, 2)),
 ) -> None:
     CountsValue: Counter[ArchiveNode] = Counter()
     for CountName, FieldName in KDimensionArrays:
@@ -50,14 +52,16 @@ def CheckAnchorDims(
         Dimension = ArchiveNode.RequireNode(RowValue.get("d"))
         if Dimension.ClassValue != RuntimeClass("sgPntPntDist", 1):
             raise ValueError("corner anchor requires actual point distance drivers")
-        for OffsetValue, FieldName in enumerate(("h1", "h2")):
+        for PointIndex, FieldName in zip(
+            DriverPoints[IndexValue], ("h1", "h2"), strict=True
+        ):
             HandleValue = ArchiveNode.RequireNode(Dimension.FieldsValue.get(FieldName))
-            PointValue = GeometryValue.PointValues[IndexValue + OffsetValue]
+            PointValue = GeometryValue.PointValues[PointIndex]
             CheckAnchorRef(
                 HandleValue,
                 PointValue,
                 GeometryValue.SketchValue,
-                IndexValue + OffsetValue,
+                PointIndex,
                 True,
             )
             CountsValue[PointValue] += 1

@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Archive.Construction.Blind.EndMode import KEndM
 from convert.adapters.solidworks.Archive.Construction.Blind.ReadEndDepth import (
     ReadEndDepth,
 )
+from convert.adapters.solidworks.Archive.Construction.Dimensions.ReadDriverName import (
+    ReadDriverName,
+)
 
 
 # the complete ordinary end specification keeps termination reversal and actual second direction independent
@@ -15,6 +18,7 @@ class BossEndInput:
     VersionValue: int
     ModeValue: KEndMode
     SecondDepth: float | None = None
+    DepthName: str = "D1"
 
     # each supported condition must retain precisely its modeled active physical lengths
     def __post_init__(self) -> None:
@@ -31,6 +35,9 @@ class BossEndInput:
             raise ValueError(
                 "a two direction boss requires exactly its active second depth"
             )
+        _ = ReadDriverName(self.DepthName)
+        if self.ModeValue != "blind" and self.DepthName != "D1":
+            raise ValueError("a custom primary driver requires a blind boss")
         _ = ReadEndDepth(self.DepthValue)
         if self.SecondDepth is not None:
             _ = ReadEndDepth(self.SecondDepth)

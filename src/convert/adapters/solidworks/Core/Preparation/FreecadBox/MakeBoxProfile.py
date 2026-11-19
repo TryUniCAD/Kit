@@ -17,12 +17,15 @@ def MakeBoxProfile(
     LengthValue: float,
     WidthValue: float,
     ParameterIds: tuple[str, str],
+    *,
+    NegativeV: bool = False,
 ) -> Sketch:
+    LocalWidth = -WidthValue if NegativeV else WidthValue
     Corners = (
         PlaneVector(0.0, 0.0),
         PlaneVector(LengthValue, 0.0),
-        PlaneVector(LengthValue, WidthValue),
-        PlaneVector(0.0, WidthValue),
+        PlaneVector(LengthValue, LocalWidth),
+        PlaneVector(0.0, LocalWidth),
     )
     Entities = tuple(
         SketchEntity(f"edge/{Index}", GeometryKind.KLine, LineGeometry(Start, End))
@@ -38,15 +41,21 @@ def MakeBoxProfile(
         )
         for Index, Entity in enumerate(Entities)
     )
+    LengthRefs = (ConstraintRef(Entities[0].id, "start"), ConstraintRef(Entities[0].id, "end"))
+    WidthRefs = (
+        (ConstraintRef(Entities[3].id, "end"), ConstraintRef(Entities[3].id, "start"))
+        if NegativeV
+        else (ConstraintRef(Entities[1].id, "start"), ConstraintRef(Entities[1].id, "end"))
+    )
     LengthRelations = tuple(
         SketchRelation(
             f"relation/length/{Index}",
             "distance",
-            (ConstraintRef(Edge.id, "start"), ConstraintRef(Edge.id, "end")),
+            References,
             ParameterId,
         )
-        for Index, (Edge, ParameterId) in enumerate(
-            zip(Entities[:2], ParameterIds, strict=True)
+        for Index, (References, ParameterId) in enumerate(
+            zip((LengthRefs, WidthRefs), ParameterIds, strict=True)
         )
     )
     return Sketch(

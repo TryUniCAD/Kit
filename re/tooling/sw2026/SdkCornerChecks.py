@@ -61,13 +61,15 @@ def corner(profile, origin, model, vertices, prepared, driver_names=("D1", "D2")
             require(handle.FieldsValue["idx"] == handle.FieldsValue["f18"] == ordinal and
                     handle.FieldsValue["_point"].FieldsValue is points[ordinal]["point"], "coincidence actual point handle differs")
         counts[ordinal] += 1
+    driver_points = ((0, 1), (0, 3) if vertices[3][1] < vertices[0][1] else (1, 2))
     for ordinal, row in enumerate(dims["val_g2"]):
         value = node(row["d"], "sgPntPntDist")
         parameter = node(value.FieldsValue["f28"], "moLengthParameter_c")
-        length = vertices[ordinal + 1][ordinal] - vertices[ordinal][ordinal]
+        first, last = driver_points[ordinal]
+        length = abs(vertices[last][ordinal] - vertices[first][ordinal])
         require(name(parameter) == driver_names[ordinal] and parameter.FieldsValue["f58"] == length and
                 value.FieldsValue["f50"] == 19 + ordinal, "anchor changed actual named length drivers")
-        for handle_name, expected in (("h1", ordinal), ("h2", ordinal + 1)):
+        for handle_name, expected in zip(("h1", "h2"), (first, last), strict=True):
             handle = node(value.FieldsValue[handle_name], "sgPointHandle")
             if prepared:
                 index(handle.FieldsValue, "idx", "f18", 0x777F, expected)

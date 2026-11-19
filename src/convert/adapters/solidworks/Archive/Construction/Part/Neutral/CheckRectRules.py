@@ -4,7 +4,10 @@ from interchange.geometry.Models.Sketch import ConstraintRef, Sketch
 
 # the admitted rectangle must carry the six actual editable relations rather than silently inventing solver intent from its current shape
 def CheckRectRules(
-    SketchValue: Sketch, Parameters: tuple[Parameter, Parameter]
+    SketchValue: Sketch,
+    Parameters: tuple[Parameter, Parameter],
+    *,
+    NegativeV: bool = False,
 ) -> None:
     if (
         len(SketchValue.constraints) != 6
@@ -16,6 +19,18 @@ def CheckRectRules(
     OrderValue = SketchValue.closed_profile_entity_ids[0]
     if len(OrderValue) != 4:
         raise ValueError("dimensioned rectangle requires four ordered line roles")
+    LengthRefs = (
+        ConstraintRef(OrderValue[0], "start"),
+        ConstraintRef(OrderValue[0], "end"),
+    )
+    WidthRefs = (
+        (ConstraintRef(OrderValue[3], "end"), ConstraintRef(OrderValue[3], "start"))
+        if NegativeV
+        else (
+            ConstraintRef(OrderValue[1], "start"),
+            ConstraintRef(OrderValue[1], "end"),
+        )
+    )
     ExpectedValues = tuple(
         (
             "horizontal" if IndexValue % 2 == 0 else "vertical",
@@ -24,15 +39,10 @@ def CheckRectRules(
         )
         for IndexValue, EntityId in enumerate(OrderValue)
     ) + tuple(
-        (
-            "distance",
-            (
-                ConstraintRef(OrderValue[IndexValue], "start"),
-                ConstraintRef(OrderValue[IndexValue], "end"),
-            ),
-            Parameter.id,
+        ("distance", References, Parameter.id)
+        for References, Parameter in zip(
+            (LengthRefs, WidthRefs), Parameters, strict=True
         )
-        for IndexValue, Parameter in enumerate(Parameters)
     )
     for RelationValue in SketchValue.constraints:
         if (

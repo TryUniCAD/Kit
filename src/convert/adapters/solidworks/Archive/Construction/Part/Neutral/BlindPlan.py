@@ -19,11 +19,13 @@ class BlindPlan:
     HeightValue: float
     DepthName: str = "D1"
     SketchDriverNames: tuple[str, str] = ("D1", "D2")
+    PrincipalAxis: str = "z"
+    Reversed: bool = False
 
-    # ordinary line loop parts use the canonical front support
+    # the actual principal axis determines the sketch support and plane frame
     @property
     def AxisValue(self) -> str:
-        return "z"
+        return self.PrincipalAxis
 
     # the admitted line loop boss has only its one active depth
     @property

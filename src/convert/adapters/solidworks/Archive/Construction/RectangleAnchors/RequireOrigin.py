@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Geometry.FrameXform import (
+    FrameXform,
+)
 from convert.adapters.solidworks.Archive.Construction.Origin.OriginGraph import (
     OriginGraph,
 )
@@ -6,6 +9,9 @@ from convert.adapters.solidworks.Archive.Construction.Profile.ProfileGraph impor
 )
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.ReadPointPair import (
     ReadPointPair,
+)
+from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
+    PrincipalFrame,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
@@ -29,8 +35,7 @@ def RequireOrigin(GraphValue: ProfileGraph, OriginValue: OriginGraph) -> None:
         or ProfileValue.FieldsValue.get("owner")
         is not GraphValue.ProfileValue.FieldsValue.get("owner")
         or ProfileValue.FieldsValue.get("pd_f80") is not SketchValue
-        or ProfileValue.FieldsValue.get("pd_ff0")
-        != GraphValue.ProfileValue.FieldsValue.get("pd_ff0")
+        or ProfileValue.FieldsValue.get("pd_ff0") != FrameXform(PrincipalFrame("z"))
     ):
         raise ValueError(
             "corner anchor requires the actual matching front origin owner"

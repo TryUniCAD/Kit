@@ -24,7 +24,9 @@ from interchange.document.Validation.DocumentValidate import AssertValid
 
 
 # exact rectangle relation admission must precede reuse of the unchanged plain boss geometry and ownership projection
-def ProjectRectDims(DocumentValue: CadDocument) -> BlindPlan:
+def ProjectRectDims(
+    DocumentValue: CadDocument, *, TopAttached: bool = False
+) -> BlindPlan:
     if type(DocumentValue) is not CadDocument:
         raise TypeError("dimensioned rectangle requires an actual neutral document")
     AssertValid(DocumentValue)
@@ -38,23 +40,30 @@ def ProjectRectDims(DocumentValue: CadDocument) -> BlindPlan:
         )
     WidthParam, HeightParam, DepthParam = ReadRectParams(DocumentValue)
     SketchValue = DocumentValue.sketches[0]
-    CheckRectRules(SketchValue, (WidthParam, HeightParam))
+    CheckRectRules(SketchValue, (WidthParam, HeightParam), NegativeV=TopAttached)
     BareSketch = ReplaceValue(SketchValue, constraints=(), parameter_ids=())
     BareDocument = ReplaceValue(
         DocumentValue, parameters=(DepthParam,), sketches=(BareSketch,)
     )
-    PlanValue = ProjectBlind(BareDocument, ReadRectSketch, DepthParam.name)
+    PlanValue = ProjectBlind(
+        BareDocument,
+        ReadRectSketch,
+        DepthParam.name,
+        AxisValue="y" if TopAttached else "z",
+        IsReversed=TopAttached,
+    )
     VerticesValue = PlanValue.VerticesValue
-    LeftValue, BottomValue = VerticesValue[0]
-    RightValue, TopValue = VerticesValue[2]
+    FirstU, FirstV = VerticesValue[0]
+    LastU, LastV = VerticesValue[2]
     if (
-        not LeftValue < RightValue
-        or not BottomValue < TopValue
-        or VerticesValue[1] != (RightValue, BottomValue)
-        or VerticesValue[3] != (LeftValue, TopValue)
+        not FirstU < LastU
+        or VerticesValue[1] != (LastU, FirstV)
+        or VerticesValue[3] != (FirstU, LastV)
+        or (TopAttached and ((FirstU, FirstV) != (0.0, 0.0) or LastV >= 0.0))
+        or (not TopAttached and FirstV >= LastV)
     ):
         raise ValueError(
-            "dimensioned rectangle must start at its lower left and run counterclockwise along positive axes"
+            "dimensioned rectangle must follow its admitted local axis order"
         )
     for Parameter, LengthValue in (
         (WidthParam, PlanValue.WidthValue),

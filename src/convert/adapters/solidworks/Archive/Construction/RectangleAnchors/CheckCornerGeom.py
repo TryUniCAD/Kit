@@ -1,9 +1,6 @@
 from convert.adapters.solidworks.Archive.Construction.Sketch.PolygonGraph import (
     PolygonGraph,
 )
-from convert.adapters.solidworks.Archive.Construction.SketchDimensions.ReadPointPair import (
-    ReadPointPair,
-)
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
@@ -14,21 +11,11 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 # an origin anchor must retain the actual rectangular contour and its independent endpoint and row identities
 def CheckCornerGeom(GeometryValue: PolygonGraph) -> None:
     SketchValue = GeometryValue.SketchValue
-    Positions = tuple(
-        ReadPointPair(PointValue) for PointValue in GeometryValue.PointValues
-    )
     if (
-        len(Positions) != 4
-        or Positions[0] != (0.0, 0.0)
-        or Positions[1][1] != 0.0
-        or Positions[3][0] != 0.0
-        or Positions[1][0] <= 1e-8
-        or Positions[3][1] <= 1e-8
-        or Positions[2] != (Positions[1][0], Positions[3][1])
-        or len(set(GeometryValue.PointValues)) != 4
+        len(set(GeometryValue.PointValues)) != 4
         or len(set(GeometryValue.LineValues)) != 4
     ):
-        raise ValueError("corner anchor requires a positive ordered origin rectangle")
+        raise ValueError("corner anchor requires distinct contour identities")
     RowsValue = ReadRows(SketchValue.FieldsValue.get("lines"))
     if (
         len(RowsValue) != 4

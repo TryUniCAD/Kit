@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 from itertools import product
-from math import isclose, isfinite
+from math import isclose, isfinite, pi, sqrt
 from uuid import UUID
 
 from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTextInput import PartTextInput
@@ -46,6 +46,7 @@ class BoxProjection:
     source_feature_label: str
     geometry: dict
     unit_recipe: UnitInput | None
+    attached_top: bool
 
 
 def default(properties, name, kind, tag, expected):
@@ -67,19 +68,38 @@ def identity(properties, name):
             f"FreeCAD {name} requires explicit support placement")
 
 
-def geo_properties(properties, version):
-    for name in ("AttachmentOffset", "Placement"):
-        identity(properties, name)
+def geo_properties(properties, version, attached_top):
+    identity(properties, "AttachmentOffset")
+    support = "Support" if version == "0.21" else "AttachmentSupport"
+    if attached_top:
+        placement = child(properties["Placement"], "Placement", "PropertyPlacement")["attributes"]
+        half_angle = sqrt(0.5)
+        require(
+            tuple(float(placement[key]) for key in ("Px", "Py", "Pz", "Ox", "Oy", "Oz"))
+            == (0.0, 0.0, 0.0, 1.0, 0.0, 0.0)
+            and all(isclose(float(placement[key]), target, abs_tol=1e-14, rel_tol=0.0)
+                    for key, target in zip(("Q0", "Q1", "Q2", "Q3", "A"),
+                                           (half_angle, 0.0, 0.0, half_angle, pi / 2), strict=True)),
+            "FreeCAD attached box does not resolve to a positive quarter-turn about model X",
+        )
+        link = child(properties[support], "LinkSubList", "LinkSubList")
+        require(
+            link["attributes"] == {"count": "1"}
+            and link["children"] == [{"tag": "Link", "attributes": {"obj": "XZ_Plane", "sub": ""}}],
+            "FreeCAD attached box must select exactly its actual whole XZ plane",
+        )
+    else:
+        identity(properties, "Placement")
+        empty(properties, support, "LinkSubList", "LinkSubList")
     default(properties, "BaseFeature", "Link", "Link", "")
     default(properties, "AttacherType", "String", "String", "Attacher::AttachEngine3D")
-    default(properties, "MapMode", "Enumeration", "Integer", "0")
+    default(properties, "MapMode", "Enumeration", "Integer", "5" if attached_top else "0")
     default(properties, "MapReversed", "Bool", "Bool", "false")
     refine = value(properties, "Refine", "Bool", "Bool")
     require(refine in (("false",) if version == "0.21" else ("false", "true")),
             "FreeCAD box has an unqualified refinement state")
     default(properties, "Visibility", "Bool", "Bool", "true")
     default(properties, "Label2", "String", "String", "")
-    empty(properties, "Support" if version == "0.21" else "AttachmentSupport", "LinkSubList", "LinkSubList")
     empty(properties, "ExpressionEngine", "ExpressionEngine", "ExpressionEngine")
     require(float(value(properties, "MapPathParameter", "Float", "Float")) == 0,
             "FreeCAD attachment has an active path coordinate")
@@ -173,9 +193,11 @@ def check_body(body, part, properties, version):
     return {}
 
 
-def check_geometry(document, sizes):
+def check_geometry(document, sizes, attached_top):
     lx, ly, lz = sizes
-    vertices = tuple(product((0.0, lx), (0.0, ly), (0.0, lz)))
+    minimum = (0.0, -lz, 0.0) if attached_top else (0.0, 0.0, 0.0)
+    maximum = (lx, 0.0, ly) if attached_top else sizes
+    vertices = tuple(product(*zip(minimum, maximum, strict=True)))
     if document.brep is not None:
         shape = document.brep
         require(tuple(len(getattr(shape, name)) for name in ("vertices", "edges", "faces", "shells", "bodies"))
@@ -185,7 +207,8 @@ def check_geometry(document, sizes):
                         for point in points) == 1 for corner in vertices),
                 "FreeCAD box cache is inconsistent with the independently computed origin and dimensions")
     return {"body_count": 1, "volume_m3": lx * ly * lz * 1e-9, "area_m2": 2 * (lx * ly + ly * lz + lz * lx) * 1e-6,
-            "centre_m": [size / 2000 for size in sizes], "bounds_mm": [[0, 0, 0], list(sizes)],
+            "centre_m": [(low + high) / 2000 for low, high in zip(minimum, maximum, strict=True)],
+            "bounds_mm": [list(minimum), list(maximum)],
             "source_cache_compared": document.brep is not None}
 
 
@@ -233,7 +256,7 @@ def source_text(document, body, feature, dimensions, version, flags):
         release_fields.cache_document(original)
         units, preferences = release_fields.document_units(properties)
         extra.update(preferences)
-        extra.update(flags)
+    extra.update(flags)
     return raw["Label"], PartTextInput(summary, extra, {}), int(creation.timestamp()), units
 
 
@@ -266,7 +289,7 @@ def source_origin(objects, expected, version):
     return {"FreeCAD Origin Point Id": row["name"], "FreeCAD Origin Point Label": value(point, "Label", "String", "String")}
 
 
-def project(document, *, source_labels=False):
+def project(document, *, source_labels=False, attached_top=False):
     version = release_fields.release(document.source.application_version)
     feature, body, _ = box_semantics(document, version)
     data = feature.definition.object_data
@@ -279,8 +302,11 @@ def project(document, *, source_labels=False):
         expected_properties |= {"FuzzyTolerance"}
     require(set(properties) == expected_properties and data["type_id"] == "PartDesign::AdditiveBox" and not data["touched"],
             "FreeCAD primitive property layout differs from the documented profile")
+    dependencies = [body.attributes["freecad"]["name"]]
+    if attached_top:
+        dependencies.append("XZ_Plane")
     require(data["extensions"] == release_fields.extensions(version)
-            and data["dependencies"] == [body.attributes["freecad"]["name"]],
+            and data["dependencies"] == dependencies,
             "FreeCAD primitive uses another attachment engine or owner")
     require({plane.name for plane in document.support_planes} == set(AXIS_ROLES)
             and len(document.support_planes) == 3,
@@ -297,22 +323,26 @@ def project(document, *, source_labels=False):
                 **{plane + "_Plane": "App::Plane" for plane in ("XY", "XZ", "YZ")}}
     origin_properties = source_origin(objects, expected, version)
     default(properties, "Label", "String", "String", feature.name)
-    geo_properties(properties, version)
+    geo_properties(properties, version, attached_top)
     body_properties = check_body(body, part, body.attributes["freecad"]["properties"], version)
     flags = body_properties | origin_properties
+    if attached_top:
+        support = next(plane for plane in document.support_planes if plane.name == "XZ-plane")
+        flags.update({"FreeCAD Attachment Support Id": support.id, "FreeCAD Attachment Map Mode": "5"})
     if version != "0.21":
         flags.update({"FreeCAD Feature Material UUID": release_fields.material_id(properties),
                       "FreeCAD Feature Refine": value(properties, "Refine", "Bool", "Bool")})
     if version == "1.1":
         flags["FreeCAD Feature Fuzzy Tolerance"] = value(properties, "FuzzyTolerance", "FloatConstraint", "Float")
     owners, sizes = box_dimensions(document, feature, properties, version)
-    geometry = check_geometry(document, sizes)
+    geometry = check_geometry(document, sizes, attached_top)
     name, text, creation, units = source_text(document, body, feature, owners, version, flags)
     lowered = LowerBoxModel(
         document, name, tuple(item.id for item in owners), sizes,
         DIMENSIONS if source_labels else ("D1", "D2", "D1"),
         body.name if source_labels else feature.name,
+        TopAttached=attached_top,
     )
     owner_names = {item.id: item.name for item in (*lowered.sketches, *lowered.feature_timeline)}
     bindings = {item.id: item.name + "@" + owner_names[item.owner_id] for item in lowered.parameters}
-    return BoxProjection(lowered, text, sizes, creation, bindings, body.name, feature.name, geometry, units)
+    return BoxProjection(lowered, text, sizes, creation, bindings, body.name, feature.name, geometry, units, attached_top)

@@ -50,7 +50,7 @@ def MakeAnchorBase(
     AnchorValue: AnchorPartInput,
 ) -> PartCandidate:
     CheckAnchorSpec(AnchorValue)
-    PlanValue = ProjectRectDims(DocumentValue)
+    PlanValue = ProjectRectDims(DocumentValue, TopAttached=AnchorValue.TopAttached)
     CheckPartInput(DocumentValue, InputValue, PlanValue)
     Allocator = PersistentIds()
     SystemValue = MakePartBaseMut(InputValue, PlanValue, Allocator)

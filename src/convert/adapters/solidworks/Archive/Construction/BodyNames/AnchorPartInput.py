@@ -11,3 +11,4 @@ from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RectDimIn
 class AnchorPartInput:
     KindValue: Literal["corner", "center"]
     DimensionsValue: RectDimInput
+    TopAttached: bool = False
