@@ -18,6 +18,180 @@
     "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
     "version": "34.5.2.0604"
   },
+  "native_lazy_creation_binding": {
+    "call_sites": [
+      {
+        "address": "0x4c01fa79",
+        "iat": "0x4cd32470",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "?GetThisClass@moScaleSysScale_c@@SAPEAUCRuntimeClass@@XZ"
+        },
+        "module": "sldmodu.dll"
+      },
+      {
+        "address": "0x4c01fa85",
+        "iat": "0x4cd33b80",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "?getUserUnits@moUnitsTable_c@@QEBAPEAVmoUserUnits_c@@PEAUCRuntimeClass@@@Z"
+        },
+        "module": "sldmodu.dll"
+      },
+      {
+        "address": "0x4c01fab0",
+        "iat": "0x4cd32478",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "??0moScaleSysScale_c@@QEAA@HH@Z"
+        },
+        "module": "sldmodu.dll"
+      },
+      {
+        "address": "0x4c01facf",
+        "iat": "0x4cd324d0",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "?iAddUserUnits@moUnitsTable_c@@QEAAHPEAVmoUserUnits_c@@@Z"
+        },
+        "module": "sldmodu.dll"
+      },
+      {
+        "address": "0x3c8ec664",
+        "iat": "0x3cb1d4a8",
+        "import": {
+          "module": "swccu.dll",
+          "symbol": "?Add@su_CObArray@@QEAAHPEAVCObject@@@Z"
+        },
+        "module": "sldmfcu.dll"
+      },
+      {
+        "address": "0x497c4a8f",
+        "iat": "0x4a4521b0",
+        "import": {
+          "module": "SLDMODU.dll",
+          "symbol": "?getDefaultScaleSysScale@moModel_c@@QEAAPEAVmoScaleSysScale_c@@XZ"
+        },
+        "module": "slduiu.dll"
+      },
+      {
+        "address": "0x497c4ab1",
+        "iat": "0x4a4679d0",
+        "import": {
+          "module": "sldappu.dll",
+          "symbol": "?isCustomScale@uiStatusBar_c@@QEAAHNN@Z"
+        },
+        "module": "slduiu.dll"
+      },
+      {
+        "address": "0x497c4abc",
+        "iat": "0x4a448808",
+        "import": {
+          "module": "SLDMFCU.dll",
+          "symbol": "?setScaleSysScaleEnum@moScaleSysScale_c@@QEAAXH@Z"
+        },
+        "module": "slduiu.dll"
+      },
+      {
+        "address": "0x497c4ad7",
+        "iat": "0x4a4521b0",
+        "import": {
+          "module": "SLDMODU.dll",
+          "symbol": "?getDefaultScaleSysScale@moModel_c@@QEAAPEAVmoScaleSysScale_c@@XZ"
+        },
+        "module": "slduiu.dll"
+      },
+      {
+        "address": "0x497c4ae3",
+        "iat": "0x4a467ee8",
+        "import": {
+          "module": "sldappu.dll",
+          "symbol": "?SetScaleSys@uiStatusBar_c@@QEAAXPEAVmoScaleSysScale_c@@@Z"
+        },
+        "module": "slduiu.dll"
+      }
+    ],
+    "draw_units_pointer_field": 2488,
+    "draw_units_virtual_slot": 4104,
+    "drawing_complete_object_locator": "0x4d376d00",
+    "drawing_vtable": "0x4d26af68",
+    "exact_native_runtime_insertion_timing_measured": false,
+    "modules": [
+      {
+        "base": "0x4b140000",
+        "name": "sldmodu.dll",
+        "owned_extents": [
+          {
+            "bytes": 131,
+            "end_exclusive": "0x4c01fae3",
+            "role": "model_get_or_add_scale",
+            "sha256": "7660df6cd04e6a1cfd14697b84607527756e157c421ed21b0313ace064634c10",
+            "start": "0x4c01fa60"
+          },
+          {
+            "bytes": 8,
+            "end_exclusive": "0x4b69e2e8",
+            "role": "drawing_get_units",
+            "sha256": "01cd199b05d8e71be9c3d2ec91f483e2063fa7f21d692f812d8fd2a48f77e72a",
+            "start": "0x4b69e2e0"
+          }
+        ],
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      },
+      {
+        "base": "0x3c720000",
+        "name": "sldmfcu.dll",
+        "owned_extents": [
+          {
+            "bytes": 115,
+            "end_exclusive": "0x3c8ec653",
+            "role": "table_find_class",
+            "sha256": "10b6e25aa74eac10afb9cc63be377814ed67c1390c88520f68f3ce010c789811",
+            "start": "0x3c8ec5e0"
+          },
+          {
+            "bytes": 20,
+            "end_exclusive": "0x3c8ec674",
+            "role": "table_append_class",
+            "sha256": "ab0b997587fbc228ecacae70b395547a8aeca13f6fe59efae81ad8c391c5c433",
+            "start": "0x3c8ec660"
+          }
+        ],
+        "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+      },
+      {
+        "base": "0x48ea0000",
+        "name": "slduiu.dll",
+        "owned_extents": [
+          {
+            "bytes": 528,
+            "end_exclusive": "0x497c4b00",
+            "role": "ui_update_scale_indicator",
+            "sha256": "351bbcd185b089f72c56862519618284ef5320ec8abb7deac2cf047915244b0f",
+            "start": "0x497c48f0"
+          }
+        ],
+        "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+      },
+      {
+        "base": "0x453f0000",
+        "name": "sldappu.dll",
+        "owned_extents": [
+          {
+            "bytes": 64,
+            "end_exclusive": "0x45aa3040",
+            "role": "ui_status_bar_set_scale",
+            "sha256": "20e3ca73fcb215343e1ae496bd85d1fe503915046b5c127be458f8f5890a4adb",
+            "start": "0x45aa3000"
+          }
+        ],
+        "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+      }
+    ],
+    "previous_receipt_sha256": "f52f0bef7f4018a26b836e88ca3f67e8e9dd87afb94d43e051747c940e1e8637",
+    "runtime_enum_source": "current drawing sheet ratio evaluated by the status-bar custom-scale predicate",
+    "ui_scale_refresh_can_create_missing_units_row": true
+  },
   "native_save_insertion_callsite_identified": false,
   "native_scale_enum_offset": 8,
   "new_native_processes": 0,

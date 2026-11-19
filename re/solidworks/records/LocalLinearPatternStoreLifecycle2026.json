@@ -1,0 +1,590 @@
+{
+  "schema": "kit.sw2026.local-linear-pattern-static-followup.v1",
+  "task_id": "B04-SW2026-LOCAL-LINEAR-PATTERN",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "evidence_kind": "static original-PE metadata and bounded native control/dataflow, not an application measurement",
+  "completed_checkpoints": [
+    {
+      "checkpoint": "StoreGeometryEvidence01",
+      "manifest_sha256": "c0812e6d70da9f5b7cfeb766679576d863284a978d07dce0208e1ad58caebee4",
+      "evidence_sha256": "49c481f7fcc36af9a097de71ecb9266bc5b68d670296cefc5df3082a870b4cda",
+      "all_bound_files_verified": true
+    },
+    {
+      "checkpoint": "OffsetPointEvidence01",
+      "manifest_sha256": "49dced56d9ff15438ed5e4c433a607285d07e8249cf90273f98595944f1b6949",
+      "evidence_sha256": "bec473539a1115ba2b7b9bc0c6bfa3075e0494f4ad515c1250e97112c5e4e5b7",
+      "all_bound_files_verified": true
+    },
+    {
+      "checkpoint": "ComponentDispatchEvidence01",
+      "manifest_sha256": "2da704216b279f6e84b1dc6fff206f8d6870756adf17d0a41734e62e9e8d6c5d",
+      "evidence_sha256": "ced8ee0ebd8196f273425e423131b9ea26d551e061c0222077c6922e4ebd424b",
+      "all_bound_files_verified": true
+    },
+    {
+      "checkpoint": "UnitComponentEvidence02",
+      "manifest_sha256": "bb7f6a3fba4540825045548ad0ef78b4f508f25917d758bd6a2c4863ee9031ce",
+      "evidence_sha256": "8d0154dfe64dcd9577fa2a855c9e9fcaee593be6f0d87304251aff33c8dbb6f7",
+      "all_bound_files_verified": true
+    }
+  ],
+  "modules": [
+    {
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "bytes": 46536280,
+      "preferred_base": "0x4b140000",
+      "machine": "0x8664",
+      "complete_functions": [
+        {
+          "name": "shared unit transform reference",
+          "range": [
+            "0x4b18f9c0",
+            "0x4b18f9e1"
+          ],
+          "bytes": 33,
+          "sha256": "6b8e0b1a911b1ab72d734af594769f137773e84537f3f8043547d92bd04a0b5c",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "unit component false slot+1e8",
+          "range": [
+            "0x4b27cbe0",
+            "0x4b27cbe3"
+          ],
+          "bytes": 3,
+          "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+          "boundary": "export-entry; complete leaf body through ret or unconditional tail jump",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "unit component true slot+1c0",
+          "range": [
+            "0x4b27e150",
+            "0x4b27e156"
+          ],
+          "bytes": 6,
+          "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+          "boundary": "export-entry; complete leaf body through ret or unconditional tail jump",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "moCompRef_c::iGetComponentPtr",
+          "range": [
+            "0x4b284d80",
+            "0x4b284d85"
+          ],
+          "bytes": 5,
+          "sha256": "091f5e45f0be74d7ee4478154027e057c5c9d8b9d8f3ce62e44700ee355c23de",
+          "boundary": "export-entry; complete leaf body through ret or unconditional tail jump",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "moUnitComponent_c constructor reached by new-model initialization",
+          "range": [
+            "0x4b8281a0",
+            "0x4b828258"
+          ],
+          "bytes": 184,
+          "sha256": "cfef6770cb17e9c71e9c6b32b5e2388a519a2ff786f47d1c7b78c9bd19b69141",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "shared unit transform reference",
+          "range": [
+            "0x4b831840",
+            "0x4b831878"
+          ],
+          "bytes": 56,
+          "sha256": "5f779a7a177e3da00124ecdfa2c5bab48c6dcbf5e4d142edb2f95c1882bb79e0",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "moLPattern_c::getOffsetPt_FromRef",
+          "range": [
+            "0x4bfd57c0",
+            "0x4bfd5e24"
+          ],
+          "bytes": 1636,
+          "sha256": "27f1e7497dc1e7d35b73aa75adfbe045ec42db3f8ec7c4b08758eb89434cd802",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "moModel_c self-component getter",
+          "range": [
+            "0x4c0254c0",
+            "0x4c0254c8"
+          ],
+          "bytes": 8,
+          "sha256": "f3de40cd5c9d60a88a24ffae37b8f28ae47e02b665138d875838cdd7f7f4feb5",
+          "boundary": "export-entry; complete leaf body through ret or unconditional tail jump",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "PatternParam store-computed vector/point helper",
+          "range": [
+            "0x4c1d8ed0",
+            "0x4c1d90fb"
+          ],
+          "bytes": 555,
+          "sha256": "0da03ebdd91b73b2a4ae13a2e7f443b0be2e2162fead3cde70e66d4cff6d39f3",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "PatternParam store geometry tail target",
+          "range": [
+            "0x4c1dfdb0",
+            "0x4c1dffc1"
+          ],
+          "bytes": 529,
+          "sha256": "d42c4cd59152a5aa13400d4a9d068747a891645bcf912aea690d346958ef18e7",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "moLineRef_w slot 0x258",
+          "range": [
+            "0x4c30cff0",
+            "0x4c30d0fa"
+          ],
+          "bytes": 266,
+          "sha256": "4a3a1dd0874f379cc18ffd8f32a90b3dfb1540091640064b3ff2818e9669b426",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "chained_fragments": [
+            {
+              "range": [
+                "0x4c30cff0",
+                "0x4c30d00d"
+              ],
+              "sha256": "e3d5e7c84d4246be72d277e9af02797072393fdd958e4a829dae7b91c4b6baac",
+              "unwind_rva": "0x22495bc"
+            },
+            {
+              "range": [
+                "0x4c30d00d",
+                "0x4c30d091"
+              ],
+              "sha256": "d32819c2cdb1970ad5a72da2d757e72b18f3a66d130330db5d07115b74de6219",
+              "unwind_rva": "0x24a9324"
+            },
+            {
+              "range": [
+                "0x4c30d091",
+                "0x4c30d0fa"
+              ],
+              "sha256": "d90c76995c6140982758563488b6897b6302520c735c819a5e96d52d087afd07",
+              "unwind_rva": "0x24a933c"
+            }
+          ],
+          "semantic_scope": "outer clone dispatch bound; no universal transitive constructor rule"
+        },
+        {
+          "name": "moRefWrapper_c::getComponent forwarding getter",
+          "range": [
+            "0x4c312bd0",
+            "0x4c312bd9"
+          ],
+          "bytes": 9,
+          "sha256": "2dc74029efc2434a5d4d16e7d561ecf9f5a0faeb9aa780c29c389313fbd81285",
+          "boundary": "export-entry; complete leaf body through ret or unconditional tail jump",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "moLineRef_w slot 0x3f8",
+          "range": [
+            "0x4c316200",
+            "0x4c317c3f"
+          ],
+          "bytes": 6719,
+          "sha256": "e1a368e4dcb52b7e54df2edaefd4f3ace865a51becec4d244b47c34c219e8f10",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "complete boundary/RTTI-slot fingerprint only; actual selected subtype/branch not interpreted"
+        },
+        {
+          "name": "moRefWrapper_c::isValid",
+          "range": [
+            "0x4c32e060",
+            "0x4c32e0b3"
+          ],
+          "bytes": 83,
+          "sha256": "854b9893a64608b42eb13f2fbb441dd6e414a2aa7b642d3b9464789c9f3cae4e",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        }
+      ],
+      "other_verified_native_spans": [
+        {
+          "range": [
+            "0x4b4ee21b",
+            "0x4b4ee264"
+          ],
+          "bytes": 73,
+          "sha256": "e1e30cc356c178f7959d660179f0102869f6c0b980e9e1845a8bb2f3edaeedd1",
+          "scope": "complete constructor/call argument instruction window in the bound Param serializer"
+        },
+        {
+          "range": [
+            "0x4b4ee264",
+            "0x4b4ee29e"
+          ],
+          "bytes": 58,
+          "sha256": "d0e3889528fdb94766f066fd45b7861d1c7c10003b55e1f777be08edb533dd67",
+          "scope": "complete three wire geometry write instruction window in the bound Param serializer"
+        },
+        {
+          "range": [
+            "0x4b8281f3",
+            "0x4b8281fd"
+          ],
+          "bytes": 10,
+          "sha256": "12ff4f2c268a42e245a7a70976d6644ac200a66db44b6399d473fca3c8c13939",
+          "scope": "complete LEA/store setting concrete unit vtable"
+        },
+        {
+          "range": [
+            "0x4bfd57f2",
+            "0x4bfd5811"
+          ],
+          "bytes": 31,
+          "sha256": "003ab2b9b2f1ce456fd11fa37b3ca05ee77b12b6ef6e65d149f243328b51af68",
+          "scope": "null/invalid guard through first target-specific setup"
+        },
+        {
+          "range": [
+            "0x4bfd5888",
+            "0x4bfd58d9"
+          ],
+          "bytes": 81,
+          "sha256": "6bd3b8d3643dee5cdd3e4e49a4965685a2d65f99ba75d6fc11bde7f4826ee3de",
+          "scope": "plane-reference branch with output point assignment"
+        },
+        {
+          "range": [
+            "0x4bfd5df7",
+            "0x4bfd5e24"
+          ],
+          "bytes": 45,
+          "sha256": "eb4e73e148af67cd3546ddb5bd6059bd691c0c174888984ef8b447739185f225",
+          "scope": "null/invalid zero-result epilogue"
+        },
+        {
+          "range": [
+            "0x4c00e850",
+            "0x4c00e855"
+          ],
+          "bytes": 5,
+          "sha256": "91962e669dd551f8b191ba6b8f3aaba5b7d4b2dede4b0f3d71b4dda833dd867b",
+          "scope": "complete direct unit-component constructor call from active model initialization"
+        },
+        {
+          "range": [
+            "0x4c30cff0",
+            "0x4c30d00d"
+          ],
+          "bytes": 29,
+          "sha256": "e3d5e7c84d4246be72d277e9af02797072393fdd958e4a829dae7b91c4b6baac",
+          "scope": "PE exception directory and complete chained unwind group"
+        },
+        {
+          "range": [
+            "0x4c30d00d",
+            "0x4c30d091"
+          ],
+          "bytes": 132,
+          "sha256": "d32819c2cdb1970ad5a72da2d757e72b18f3a66d130330db5d07115b74de6219",
+          "scope": "PE exception directory and complete chained unwind group"
+        },
+        {
+          "range": [
+            "0x4c30d091",
+            "0x4c30d0fa"
+          ],
+          "bytes": 105,
+          "sha256": "d90c76995c6140982758563488b6897b6302520c735c819a5e96d52d087afd07",
+          "scope": "PE exception directory and complete chained unwind group"
+        },
+        {
+          "range": [
+            "0x4c32e066",
+            "0x4c32e0a8"
+          ],
+          "bytes": 66,
+          "sha256": "1ac0e7dbeb0580b26607f7872969d655ee5d2e49ee91f760b62af935eef7c50e",
+          "scope": "reference validity field guards and false return"
+        },
+        {
+          "range": [
+            "0x4cba14a4",
+            "0x4cba14aa"
+          ],
+          "bytes": 6,
+          "sha256": "86176265c9f0d64e1c3987df86897bb6b2dc73cda560ea4c0f4aebc752cfd4a6",
+          "scope": "complete imported jump thunk"
+        },
+        {
+          "range": [
+            "0x4ce5cd18",
+            "0x4ce5cd20"
+          ],
+          "bytes": 8,
+          "sha256": "222703536b0670a64d4546432bd4c2cb6ca6828fe0e1ebed4d8b19d2a2b306d7",
+          "scope": "original vtable preceding complete-object-locator pointer"
+        },
+        {
+          "range": [
+            "0x4ce5cf78",
+            "0x4ce5cf80"
+          ],
+          "bytes": 8,
+          "sha256": "b6d5d894b6d820b79d4f1b0fce16aa3715791387fd66e86c4551dc214768cdd6",
+          "scope": "one original vtable pointer"
+        },
+        {
+          "range": [
+            "0x4ce5d118",
+            "0x4ce5d120"
+          ],
+          "bytes": 8,
+          "sha256": "84db07d67906ad37bdbf7d9290ee4043b12c30a278fe7687d2898a01283bafe4",
+          "scope": "one original vtable pointer"
+        },
+        {
+          "range": [
+            "0x4ce9c248",
+            "0x4ce9c250"
+          ],
+          "bytes": 8,
+          "sha256": "4e330eb3b221ccb59dad06ef54b6c574d0ee06985ecf14c77f2e2e794d9d2b03",
+          "scope": "one original vtable pointer"
+        },
+        {
+          "range": [
+            "0x4ce9c368",
+            "0x4ce9c370"
+          ],
+          "bytes": 8,
+          "sha256": "1521539b06ba82c3b9851ed134209715059e8f1f3c5568b9542ad8e7b93f4a66",
+          "scope": "one original vtable pointer"
+        },
+        {
+          "range": [
+            "0x4ce9c390",
+            "0x4ce9c398"
+          ],
+          "bytes": 8,
+          "sha256": "4e330eb3b221ccb59dad06ef54b6c574d0ee06985ecf14c77f2e2e794d9d2b03",
+          "scope": "one original vtable pointer"
+        },
+        {
+          "range": [
+            "0x4ce9c570",
+            "0x4ce9c578"
+          ],
+          "bytes": 8,
+          "sha256": "3745473baa291a1aebd804b641e32669e7f37a2c6aa7339fdcf5e3725935b0b3",
+          "scope": "one original unit-component vtable pointer"
+        },
+        {
+          "range": [
+            "0x4ce9c690",
+            "0x4ce9c698"
+          ],
+          "bytes": 8,
+          "sha256": "1521539b06ba82c3b9851ed134209715059e8f1f3c5568b9542ad8e7b93f4a66",
+          "scope": "one original unit-component vtable pointer"
+        },
+        {
+          "range": [
+            "0x4ce9c6b8",
+            "0x4ce9c6c0"
+          ],
+          "bytes": 8,
+          "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+          "scope": "one original unit-component vtable pointer"
+        },
+        {
+          "range": [
+            "0x4ce9c7f8",
+            "0x4ce9c800"
+          ],
+          "bytes": 8,
+          "sha256": "b7544b6276efeb1ee65ea35f4e7fb3923165ead475dfd3897232d128ce8b6e25",
+          "scope": "original unit vtable+328 pointer"
+        },
+        {
+          "range": [
+            "0x4d30b788",
+            "0x4d30b7a0"
+          ],
+          "bytes": 24,
+          "sha256": "d89b3152b7226f5a2503d154d00d57ef2c05f34b290ee85c8274e99fdc4cc221",
+          "scope": "complete x64 RVA-form locator"
+        },
+        {
+          "range": [
+            "0x4d319b58",
+            "0x4d319b70"
+          ],
+          "bytes": 24,
+          "sha256": "850d649daa10ca0cb26f20bfe8acc11d9e7a0ea3a1875778d90cd0db784129de",
+          "scope": "complete primary object locator"
+        },
+        {
+          "range": [
+            "0x4d319b80",
+            "0x4d319b98"
+          ],
+          "bytes": 24,
+          "sha256": "371d209dfb57df0b553af4d22a3a552ba4c473a325e11f4f7787418a2f511d1d",
+          "scope": "complete primary locator"
+        }
+      ]
+    },
+    {
+      "name": "sldmgu.dll",
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c",
+      "bytes": 2363992,
+      "preferred_base": "0x31dd0000",
+      "machine": "0x8664",
+      "complete_functions": [
+        {
+          "name": "mgVector_c three-scalar constructor",
+          "range": [
+            "0x31dd3a00",
+            "0x31dd3a12"
+          ],
+          "bytes": 18,
+          "sha256": "20016d0788bc133fc952348fff5ecda868c9026fc1b15c7e65819e11ae41fbad",
+          "boundary": "export-entry; complete leaf body through ret or unconditional tail jump",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "mgPoint_c default constructor exported alias",
+          "range": [
+            "0x31dd3a20",
+            "0x31dd3a31"
+          ],
+          "bytes": 17,
+          "sha256": "1018b23bfc6803d1e50586a1e9b0151b14d97a7ba9267a595518de56a7704eab",
+          "boundary": "export-entry; complete leaf body through ret or unconditional tail jump",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "mgMatrix_c default constructor",
+          "range": [
+            "0x31e26e50",
+            "0x31e26e8a"
+          ],
+          "bytes": 58,
+          "sha256": "e55ef0c8edb5892a88c6c2f8fbaf2212504df10cc83679e8f272a18f26b842f7",
+          "boundary": "export-entry; complete leaf body through ret or unconditional tail jump",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "mgUnitVector_c default constructor",
+          "range": [
+            "0x31f19380",
+            "0x31f193a5"
+          ],
+          "bytes": 37,
+          "sha256": "0b0e5dfd437c7122ca5fbc8a63e1287f8ad2f008b5628b161d05fd66d294679a",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "mgXform_c copy constructor",
+          "range": [
+            "0x31f1cf70",
+            "0x31f1d08a"
+          ],
+          "bytes": 282,
+          "sha256": "99e93e4acc75280ee2b57f6f47b709d0787569489ed50c643338eedf8d3aa941",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        },
+        {
+          "name": "mgXform_c default constructor",
+          "range": [
+            "0x31f1d560",
+            "0x31f1d5b7"
+          ],
+          "bytes": 87,
+          "sha256": "dc33b83e09821eb9d501e63e6c5e3f3d075446c43702582e87288d1d88dc73bd",
+          "boundary": "all contiguous PE chained unwind fragments",
+          "semantic_scope": "only the bounded rules described in the accompanying knowledge record"
+        }
+      ],
+      "other_verified_native_spans": []
+    }
+  ],
+  "complete_function_count": 20,
+  "ordinary_profile": {
+    "version": 19000,
+    "db": false,
+    "no_legacy_or_other_mode_admission": true
+  },
+  "findings": [
+    {
+      "status": "confirmed static direct caller/helper dataflow",
+      "rule": "Param store writes f78 vector and f90 point from untouched default local objects, whose complete native constructors produce positive zero coordinates; this is not emission of corresponding runtime members"
+    },
+    {
+      "status": "confirmed static guard",
+      "rule": "getOffsetPt_FromRef with null reference returns zero and leaves the supplied point unchanged; store calls therefore do not clear actual fa8/fc0 solely because f210/f238 is null"
+    },
+    {
+      "status": "confirmed static pointer chain",
+      "rule": "getComponent(wrapper) follows wrapper.f58 then CompRef.f58; the base component table has purecall transform/placement slots and cannot identify the actual concrete returned receiver"
+    },
+    {
+      "status": "conditional on actual unit receiver",
+      "rule": "moUnitComponent slots+1c0/+1e8 return true/false, and+a0 copies a shared transform object; its inspected initializer/default constructors establish identity state, but registration, later global preservation and selected-source receiver identity remain unproved"
+    }
+  ],
+  "semantics_not_closed": [
+    "actual selected line-reference subtype and reached+3f8 geometry branch",
+    "selected wrapper component instance/vtable and any nonunit virtual targets",
+    "full transitive effects of arbitrary reference-validity, geometry/kernel or callback branches",
+    "shared transform initializer execution/registration and exhaustive later mutation/alias preservation",
+    "fresh pattern/parameter constructor and all scalar/map/class domains",
+    "actual saved reachability of separate definition/parameter objects"
+  ],
+  "first_publication_preservation": {
+    "handoff_sha256": "bc6db0fc14e81fd587a4cd260423be6efefe37a50b69c6ff6d31a8dad022a4e7",
+    "packet01_sha256": "ff99e80b7890f8324b8885adf548e206ed5452d6e9354db6291fdad43343a51c",
+    "packet02_sha256": "5a1a9397655c8ac3f5208e1398d637232abc448209af9f4910e083ae267908f5",
+    "verification": "rehash bound files, no earlier packet/publication mutation",
+    "verified_now": true,
+    "verified_metadata_files": 6
+  },
+  "excluded_unfinished_trace": {
+    "function": "moLPatternData_c::createParam1",
+    "status": "initial bound/navigation only; not a completed checkpoint or a finding in this follow-up"
+  },
+  "execution": {
+    "vm_cad_com_calls": 0,
+    "hidden_inputs_read": 0,
+    "schema_codec_or_writer_work": false,
+    "local_product_or_test_execution": false,
+    "shared_checkout_or_git_mutation": false,
+    "hopper_sessions_opened": false,
+    "vendor_bytes_or_listings_in_receipt": false
+  },
+  "acceptance": {
+    "native_writer": false,
+    "heldout_writer": false,
+    "new_source_family": false,
+    "root_reported_new_native_cohort": "pending trusted oracle endpoint"
+  },
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}
