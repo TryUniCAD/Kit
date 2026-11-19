@@ -32,7 +32,11 @@ def AttachMembers(
     TargetValue: FeatureTarget,
     Allocator: PersistentIds,
 ) -> MemberGraph:
-    if type(SystemValue) is not PartSystem or type(InputValue) is not MemberInput:
+    if (
+        type(SystemValue) is not PartSystem
+        or type(InputValue) is not MemberInput
+        or type(Allocator) is not PersistentIds
+    ):
         raise TypeError(
             "member attachment requires actual system and typed semantic input"
         )
@@ -76,6 +80,13 @@ def AttachMembers(
     )
     if set(NamesValue).intersection(MemberNames):
         raise ValueError("member captions collide with actual existing system nodes")
+    Available = (
+        0x7FFFFFFF
+        - Allocator.NextValue
+        - sum(Identifier >= Allocator.NextValue for Identifier in Allocator.ReservedSet)
+    )
+    if Available < len(MemberNames):
+        raise ValueError("system members exceed persistent id capacity")
     LightsValue = tuple(
         MakeLightMut(Folder, ValueInput, TargetValue, Allocator)
         for ValueInput in InputValue.LightValues

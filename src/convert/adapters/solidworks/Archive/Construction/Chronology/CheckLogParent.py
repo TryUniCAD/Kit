@@ -11,25 +11,27 @@ from convert.adapters.solidworks.Core.TypedResolved.Presentation.ReadChildren im
 def CheckLogParent(
     ModelValue: ArchiveNode, NodeValue: ArchiveNode, BookValue: RevisionBook
 ) -> None:
+    KindValue = NodeValue.ClassValue.NameValue
     ParentValue = NodeValue.FieldsValue.get("owner")
-    if ParentValue is ModelValue:
+    if KindValue not in (
+        "moNotesAreaFtrFolder_c",
+        "moAmbientLight_c",
+        "moDirectionLight_c",
+    ):
+        if ParentValue is not ModelValue:
+            raise ValueError("revision member has no actual part rooted owner")
         return
     if (
         not isinstance(ParentValue, ArchiveNode)
         or ParentValue.FieldsValue.get("owner") is not ModelValue
     ):
         raise ValueError("revision member has no actual part rooted owner")
-    KindValue = NodeValue.ClassValue.NameValue
     ExpectedKind = (
         "moDetailCabinet_c"
         if KindValue == "moNotesAreaFtrFolder_c"
         else "moEnvFolder_c"
     )
-    if (
-        KindValue
-        not in ("moNotesAreaFtrFolder_c", "moAmbientLight_c", "moDirectionLight_c")
-        or ParentValue.ClassValue.NameValue != ExpectedKind
-    ):
+    if ParentValue.ClassValue.NameValue != ExpectedKind:
         raise ValueError("revision member has an unqualified containment path")
     ParentsValue = tuple(
         LogValue.OwnerValue
