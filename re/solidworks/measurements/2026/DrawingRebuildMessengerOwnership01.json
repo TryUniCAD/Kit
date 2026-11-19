@@ -1,0 +1,198 @@
+{
+  "acquisition_receipt_sha256": "f87d9cffe37b19964a5568a495500d00169426ec59e1051b3d6640e5714b12fc",
+  "bitmap_saves": 0,
+  "breakpoints": 0,
+  "data_collected": true,
+  "debugger_attaches": 0,
+  "distinct_processes": 4,
+  "document_saves": 0,
+  "healthy_controls": true,
+  "heldout_accepted": false,
+  "heldout_inputs_read": 0,
+  "injected_calls": 0,
+  "installed_module": "sldgraphicsuiu.dll",
+  "installed_module_rva": "0xd1e40",
+  "installed_module_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+  "job_sha256": "05716546442fa3a7165c0109aa442f3b336568d0d3d69e0506964ceed938f419",
+  "oracle_build": "34.5.2.0604",
+  "phases": {
+    "ControlAfter": {
+      "receipt_sha256": "753f9836539bf2fdc96562e47d5a2284e76152b24f918bc58c60191a7e85eaf2",
+      "snapshots": {
+        "after_open": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "after_rebuild": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "after_redraw": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "before_rebuild": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        }
+      }
+    },
+    "ControlBefore": {
+      "receipt_sha256": "28b180d7444d06c7c77842eb74026418e573d64b8bab4092f61323a056e2d364",
+      "snapshots": {
+        "after_open": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "after_rebuild": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "after_redraw": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "before_rebuild": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        }
+      }
+    },
+    "Generated": {
+      "receipt_sha256": "a45ca7c9203c8b69887083a35a7441fc32448d5239733054d4183c8a3f3549d4",
+      "snapshots": {
+        "after_open": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "after_rebuild": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "after_redraw": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "before_rebuild": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        }
+      }
+    },
+    "NativeSource": {
+      "receipt_sha256": "8bbaf99e60e89b293d48b731bc15e451be28117b6406b554e78b1d539f254701",
+      "snapshots": {
+        "after_open": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "after_rebuild": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "after_redraw": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        },
+        "before_rebuild": {
+          "confirmed_stable_chain": true,
+          "owner_sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf",
+          "target_rva": "0xd1e40",
+          "vtable_rva": "0x166c40"
+        }
+      }
+    }
+  },
+  "process_access_mask": "0x410",
+  "process_memory_writes": 0,
+  "raw_guest_result_sha256": "2753a8d3fe258179119f13911d44a848511d468f9eda972549c39535cedefc2b",
+  "runtime_dispatch_invocation_observed": false,
+  "schema": "kit.sw2026.disclosed-gr-messenger-ownership.v1",
+  "settings_writes": 0,
+  "source_generated_comparison": {
+    "after_open": {
+      "generated": {
+        "name": "sldgraphicsuiu.dll",
+        "rva": "0xd1e40",
+        "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+      },
+      "native_source": {
+        "name": "sldgraphicsuiu.dll",
+        "rva": "0xd1e40",
+        "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+      },
+      "target_owner_equal": true
+    },
+    "after_rebuild": {
+      "generated": {
+        "name": "sldgraphicsuiu.dll",
+        "rva": "0xd1e40",
+        "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+      },
+      "native_source": {
+        "name": "sldgraphicsuiu.dll",
+        "rva": "0xd1e40",
+        "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+      },
+      "target_owner_equal": true
+    },
+    "after_redraw": {
+      "generated": {
+        "name": "sldgraphicsuiu.dll",
+        "rva": "0xd1e40",
+        "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+      },
+      "native_source": {
+        "name": "sldgraphicsuiu.dll",
+        "rva": "0xd1e40",
+        "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+      },
+      "target_owner_equal": true
+    },
+    "before_rebuild": {
+      "generated": {
+        "name": "sldgraphicsuiu.dll",
+        "rva": "0xd1e40",
+        "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+      },
+      "native_source": {
+        "name": "sldgraphicsuiu.dll",
+        "rva": "0xd1e40",
+        "sha256": "3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf"
+      },
+      "target_owner_equal": true
+    }
+  },
+  "target_module_complete_memory_hash_verified": false,
+  "writer_qualified": false
+}

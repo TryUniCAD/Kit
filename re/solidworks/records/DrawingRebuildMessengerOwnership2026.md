@@ -1,6 +1,6 @@
 # Drawing rebuild messenger ownership, SOLIDWORKS 2026
 
-Status: partial. The ordinary drawing rebuild source reaches a session messenger virtual callback. Its actual runtime-installed implementation has not yet been measured by this packet. No rendering, source conversion, native writer or held-out acceptance is claimed.
+The ordinary drawing rebuild source reaches a session messenger virtual callback. Sixteen read-only snapshots across four fresh processes identify the same installed target for native and generated drawings. The rendering defect remains open.
 
 Task: DRAWING-NOTES-C10, PR #121. Owner: `flag_ownership`; root owns the native oracle, integration and publication. Dependencies are the disclosed plain-note controls, exact 2026 modules and the unchanged owned COM lifecycle. The exit condition for this observer is four healthy distinct owned processes with exact session identity and complete pointer ownership observations before and after rebuilding. Finding a matching target does not close the rendering defect.
 
@@ -40,8 +40,14 @@ The active observer calls no save, bitmap-export, text-insertion, text-edit or s
 
 The previous disclosed memory diagnostic remains immutable, SHA-256 `9857530b8c2eccb14f567a107381edd6556736bef7812b11be22f3f69922d5f1`: native source and pristine controls retained raster changes, while the generated candidate lost them after rebuild. This packet performs no new raster measurement and does not change that result. Neither target equality nor a stable messenger pointer is treated as a rendering pass.
 
-Local verification is limited to static AST parsing, file/hash reconciliation and original PE metadata. No Windows or CAD execution, local tests, sealed-input reads, shared edits or new Hopper sessions occurred. Runtime results are pending root execution. See [the change entry](../../../Documentation/Changes/Solidworks/Inspection/Drawings/Notes/DrawingRebuildMessengerObserver.md).
+Local verification is limited to static AST parsing, file/hash reconciliation and original PE metadata. No Windows or CAD execution, local tests, sealed-input reads, shared edits or new Hopper sessions occurred. The root-owned runtime observation is recorded below. See [the change entry](../../../Documentation/Changes/Solidworks/Inspection/Drawings/Notes/DrawingRebuildMessengerObserver.md).
 
 ## Static replay and corrected metadata
 
 The original PE replay passed four image pins, seven complete-function spans, two instruction windows, one import and two vtable cells. Verifier SHA-256 is `8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9`. Packet01 stopped during static provenance replay because its correctly attributed sldappu function had no module-list pin. Packet02 corrects only that metadata and preserves both observer sources exactly. The first packet and failure receipt remain immutable. Neither attempt ran Windows or CAD.
+
+## Actual installed target
+
+The [read-only receipt](../measurements/2026/DrawingRebuildMessengerOwnership01.json) passes all four independent guest processes with two healthy pristine brackets and no file or preference changes. In all sixteen snapshots the registered target is `sldgraphicsuiu.dll` at RVA `0xd1e40` and its owner vtable is at RVA `0x166c40`. The three pointer cells remain stable on reread in every snapshot. The native source and generated drawing therefore select the same registered target before and after rebuild. The measurement observes pointer ownership and leaves actual invocation and document-specific work to the callback trace.
+
+The complete module digest is `3948ce26833d053f9d4d0a8b4f8b1b9ed90662f4324aca2f4d002c7f3166edbf` for 2,071,128 on-disk AMD64 bytes. The read-only acquisition verified that exact identity on guest and host. Licensed images remain outside the checkout. Raw observation SHA-256 `2753a8d3fe258179119f13911d44a848511d468f9eda972549c39535cedefc2b`.
