@@ -47,7 +47,7 @@ from interchange.document.Models.Drawing.DrawingNote import DrawingNote
 from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
 from interchange.geometry.Models.VectorSpace import SpaceVector
 
-from NoteConstruction import construct_local_hierarchy, object_rows, register_origin_anchor
+from NoteConstruction import construct_local_hierarchy, object_rows, publish_first_note_identity, register_origin_anchor
 
 
 def emit_definition(doc, version):
@@ -79,7 +79,7 @@ def local_state(folder, note):
     folder.FieldsValue["f358"] = object_rows((note,))
 
 
-def build(input_value, *, origin_anchor):
+def build(input_value, *, origin_anchor, publish_identity=False):
     CheckBlankInput(input_value)
     layout = input_value.DrawingValue
     if len(layout.Sheets) != 1 or layout.ModelRefs:
@@ -100,16 +100,26 @@ def build(input_value, *, origin_anchor):
         raise ValueError("drawing sheet has no actual final detail owner")
     details = graph.ModelValue.FieldsValue["fae0"]
     display = construct_local_hierarchy(annotation, details, doc.VersionValue)
+    if publish_identity:
+        publish_first_note_identity(graph.ModelValue, folder, display, input_value.OptionsValue.StyleValue.LanguageId)
     local_state(folder, display)
     if origin_anchor:
         register_origin_anchor(display, annotation.PositionValue)
     definition, write_map = emit_definition(doc, doc.VersionValue)
     read, read_map, _ = ReadLinkedBody(definition, doc.VersionValue, "fresh note local hierarchy")
-    read_sheet = read.FieldsValue["model"].FieldsValue["f1430"]
+    read_model = read.FieldsValue["model"]
+    read_sheet = read_model.FieldsValue["f1430"]
     read_folder = read_sheet.FieldsValue["f390"]
     read_display = NeedOneNoteRow(read_folder, "f358", "moDisplayNote_c")
     read_data = read_display.FieldsValue["f48"].FieldsValue["fe8"]
     read_text = read_data.FieldsValue["f98"]
+    if publish_identity and (
+        read_data.FieldsValue["f18"].FieldsValue["f08"] != "DetailItem1"
+        or read_display.FieldsValue["f58"] != display.FieldsValue["f58"]
+        or read_model.FieldsValue["fd44"] != graph.ModelValue.FieldsValue["fd44"]
+        or read_data.FieldsValue["f08"] != -1
+    ):
+        raise ValueError("generated note name or independent display identity differs")
     if origin_anchor and ResolvePlainNote(read_sheet) is not read_text:
         raise ValueError("generated origin-anchor note does not bind its real text owner")
     if (
@@ -147,12 +157,13 @@ def main():
     parser.add_argument("--scale", required=True, nargs=2, type=float)
     parser.add_argument("--locator", required=True)
     parser.add_argument("--origin-anchor", action="store_true")
+    parser.add_argument("--publish-identity", action="store_true")
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--epoch", required=True, type=int)
     parser.add_argument("--block-id", required=True, type=UUID)
     args = parser.parse_args()
     input_value = note_input(args.text, args.position, args.sheet, args.scale, args.locator, args.epoch, args.block_id)
-    payload, streams, maps = build(input_value, origin_anchor=args.origin_anchor)
+    payload, streams, maps = build(input_value, origin_anchor=args.origin_anchor, publish_identity=args.publish_identity)
     if args.out.suffix.upper() != ".SLDDRW":
         raise ValueError("native output extension required")
     with args.out.open("xb") as output:

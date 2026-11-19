@@ -322,3 +322,19 @@ def register_origin_anchor(display, position):
         f298=object_rows((cache,)),
         f628=MakePoint(XValue=position.x/length, YValue=position.y/length, ZValue=position.z/length),
     )
+
+
+
+def publish_first_note_identity(model, folder, display, language_id):
+    owners = folder.FieldsValue["f358"]
+    index = model.FieldsValue["fd44"]
+    data = display.FieldsValue["f48"].FieldsValue["fe8"]
+    if (
+        language_id != 1033 or owners["n"] != 0 or owners["items"]
+        or type(index) is not int or not 10 <= index < 0x7FFFFFFF
+        or display.FieldsValue["f58"] != 0 or data.FieldsValue["f18"] is not None
+    ):
+        raise ValueError("first-note identity requires the fresh English note owners")
+    display.FieldsValue["f58"] = index
+    model.FieldsValue["fd44"] = index + 1
+    data.FieldsValue["f18"] = node("moNodeName_c", {"f08": "DetailItem" + str(owners["n"] + 1)})

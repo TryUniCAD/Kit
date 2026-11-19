@@ -27,7 +27,7 @@ def read_trial(path, expected):
           and trial["observer_sha256"] == digest(Path(__file__))
           and Path(__file__).resolve().parent == path.resolve().parent,
           "unexpected note state observer method")
-    check(trial["source_packet"] == "NativePacket01", "unexpected original note packet name")
+    check(trial["source_packet"] in {"NativePacket01", "NativePacket02"}, "unexpected note packet name")
     source_packet = path.resolve().parent.parent / trial["source_packet"]
     prior = source_packet / "Job.json"
     check(trial["prior_job_sha256"] == digest(prior), "original note trial changed")
@@ -55,6 +55,11 @@ def capture(author, drawing, intent):
     text = str(author.get(note, "GetText"))
     location = list(author.get(annotation, "GetPosition"))
     name = str(author.get(annotation, "GetName") or "")
+    try:
+        note_text_point = {"value": list(author.get(note, "GetTextPoint2") or ())}
+    except Exception as error:
+        note_text_point = {"error": {"type": type(error).__name__, "message": str(error)}}
+    name_matches = name == "DetailItem1" if intent.get("publish_identity") else bool(name)
     matches = (
         len(location) == 3 and all(isclose(value, target, rel_tol=0.0, abs_tol=2e-9)
                                   for value, target in zip(location, intent["initial_position"], strict=True))
@@ -64,11 +69,11 @@ def capture(author, drawing, intent):
     return {
         "text": text, "expected_text": intent["initial_text"],
         "text_matches": text == intent["initial_text"],
-        "name": name, "name_nonempty": bool(name),
-        "position": location, "expected_position": intent["initial_position"],
+        "name": name, "name_nonempty": bool(name), "name_matches": name_matches,
+        "position": location, "note_text_point": note_text_point, "expected_position": intent["initial_position"],
         "position_matches": matches, "annotation_count": len(rows),
         "attachments": attachments, "dangling": dangling,
-        "passed": text == intent["initial_text"] and bool(name) and matches and attachments == 0 and not dangling,
+        "passed": text == intent["initial_text"] and name_matches and matches and attachments == 0 and not dangling,
     }
 
 

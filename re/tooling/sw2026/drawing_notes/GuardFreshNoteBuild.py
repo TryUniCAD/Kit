@@ -39,7 +39,7 @@ def main():
             record["initial_text"], record["initial_position"], record["sheet"], record["scale"],
             record["locator"], record["epoch"], UUID(record["block_id"]),
         )
-        payload, streams, maps = build(inputs, origin_anchor=record["origin_anchor"])
+        payload, streams, maps = build(inputs, origin_anchor=record["origin_anchor"], publish_identity=record.get("publish_identity", False))
         with args.target.open("xb") as target:
             if target.write(payload) != len(payload):
                 raise OSError("short generated note write")
@@ -71,6 +71,7 @@ def main():
             "logical_streams": {name: sha256(value).hexdigest() for name, value in streams.items()},
             "map_counter": maps.CounterValue,
             "theoretical_anchor": record["origin_anchor"],
+            "name_and_display_identity_generated": record.get("publish_identity", False),
         }, sort_keys=True, indent=2) + "\n")
 
 

@@ -1,0 +1,7 @@
+# Drawing plain-note API ownership
+
+PR #121 adds an exact-build source record for ordinary drawing note creation, API dispatch, actual cabinet registration and separate attachment/text placement owners. It documents the environment-derived kind, its fresh value one, and the actual same-object API return path. It does not add an SDK writer or public note admission.
+
+Use the [rules ledger](../../../../../../re/solidworks/records/DrawingPlainNoteApiOwnership2026.md) and [numeric record](../../../../../../re/solidworks/records/DrawingPlainNoteApiOwnership2026.json) when composing a donor-free note graph. The public wrapper's inner API and native drawing document have different virtual layouts. Attachment cache, text point and GenericText display backlink also have distinct owners; see the [gotcha](../../../../../Gotchas/Conversion/Solidworks/Archive/Drawings/Notes/NoteApiDelegatesAndTextOwners.md).
+
+The [static receipt](../../../../../../re/solidworks/measurements/2026/DrawingPlainNoteApiSource01.json) verifies five exact original modules, 46 whole functions/leaves, 26 instruction ranges, three data ranges, seventeen imports and twenty virtual cells. No test, archive, CAD routine or VM ran in this lane. Ordinary sheet-note backlink production, configured kind overrides, complete placement policy and native first-open rendering remain pending. Existing public guards and held-out status are unchanged.
