@@ -13,14 +13,15 @@ from convert.adapters.freecad.Replay.NativeIdentity import (
     KReplaySketchAttr,
 )
 from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
-from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache
+from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from convert.adapters.freecad.Replay.SemanticDigest import SemanticDigest
 from convert.adapters.freecad.Replay.SetReplayDigest import SetReplayDigest
+from interchange.Payloads.PayloadRecord import BrepPayload
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # each embedded child has its own archive binding and historical digest
-def PrepareChild(DocValue: CadDocument, ReplayReads: ReplayReadCache) -> CadDocument:
+def PrepareChild(DocValue: CadDocument, ReplayReads: KReplayReadCache) -> CadDocument:
     return PrepareReplay(DocValue, Migrate=True, ReplayReads=ReplayReads)[0]
 
 
@@ -29,7 +30,7 @@ def PrepareLinked(
     DocValue: CadDocument,
     InitialDigest: str | None,
     Migrate: bool,
-    ReplayReads: ReplayReadCache,
+    ReplayReads: KReplayReadCache,
     ReplayBytes: bytes | None = None,
 ) -> tuple[CadDocument, bytes | None]:
     if not Migrate:
@@ -45,14 +46,23 @@ def PrepareLinked(
 
 # write requests share archive verification between exact replay and legacy sketch migration
 def PrepareReplay(
-    DocValue: CadDocument, *, Migrate: bool, ReplayReads: ReplayReadCache | None = None
+    DocValue: CadDocument, *, Migrate: bool, ReplayReads: KReplayReadCache | None = None
 ) -> tuple[CadDocument, bytes | None]:
     if ReplayReads is None:
         ReplayReads = {}
     PairValue = NativeDocPair(DocValue)
     if PairValue is None:
         return PrepareLinked(DocValue, None, Migrate, ReplayReads)
-    NativeDoc, _ = PairValue
+    return PrepareBound(DocValue, PairValue[0], Migrate, ReplayReads)
+
+
+# verified archive bindings can compare current and historical sketch interpretations
+def PrepareBound(
+    DocValue: CadDocument,
+    NativeDoc: BrepPayload,
+    Migrate: bool,
+    ReplayReads: KReplayReadCache,
+) -> tuple[CadDocument, bytes | None]:
     Expected = NativeDoc.attributes.get(KReplaySemanticAttr)
     DataValue = NativeDoc.data
     if not isinstance(Expected, str) or DataValue is None:

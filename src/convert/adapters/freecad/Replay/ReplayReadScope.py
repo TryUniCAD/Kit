@@ -5,18 +5,18 @@ from dataclasses import dataclass as Dataclass, field as Field
 import hashlib as Hashlib
 from pathlib import Path as FilePath
 
-from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache
+from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # one decode tracks relative source bounds and any earlier cached sibling reads
 @Dataclass(slots=True)
 class ReplayReadScope:
-    Reads: ReplayReadCache
+    Reads: KReplayReadCache
     Root: FilePath | None
     LegacyVisibility: bool
     ReusedReads: int = 0
-    Incomplete: set[int] = Field(default_factory=set)
+    Incomplete: set[int] = Field(default_factory=set[int])
 
     # only an independent validation may reuse a complete projection from this write
     def FindRead(self, SourcePath: str, DataValue: bytes) -> CadDocument | None:

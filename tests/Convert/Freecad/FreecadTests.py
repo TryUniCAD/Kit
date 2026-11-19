@@ -807,7 +807,7 @@ def NativePart(
         if BrepData is None
         else BrepData
     )
-    Objects = [
+    Objects: list[tuple[str, str, tuple[str, ...], tuple[ET.Element, ...]]] = [
         ("Body", "PartDesign::Body", ("Sketch", "Pad"), BodyProperties),
         ("XY_Plane", "App::Plane", (), PlaneProperties),
         ("Sketch", "Sketcher::SketchObject", ("XY_Plane",), SketchProperties),
@@ -3603,7 +3603,7 @@ def TestOldReplay(TmpPath: FilePath) -> None:
 # dimension edits must preserve active hidden sketches and explicit suppression on visible ones
 @Pytest.mark.parametrize("Visible", (False, True))
 def TestOldDimEdit(Visible: bool) -> None:
-    State = (
+    State: tuple[ET.Element, ...] = (
         NativeProp(
             "Visibility",
             "App::PropertyBool",
@@ -3676,6 +3676,40 @@ def EditLinkedFlag(Document: CadDocument, Suppressed: bool) -> CadDocument:
 
 
 # legacy reference recovery must preserve child bytes and every later deliberate edit
+def ReadLinkBundle(Portable: FilePath, ChildBytes: bytes) -> CadDocument:
+    (Copied,) = tuple(Portable.with_suffix("").glob("*.FCStd"))
+    assert Copied.read_bytes() == ChildBytes
+    Reopened = OpenDoc(Portable)
+    assert ReadLinkedChild(Reopened)[2].sketches[0].suppressed is False
+    assert Reopened.sketches[0].suppressed is False
+    assert Reopened.feature_timeline[0].sketch_id == Reopened.sketches[0].id
+    return Reopened
+
+
+# embedded and separately saved children must carry the same deliberate suppression edit
+def CheckLinkedMut(
+    Adapter: FreeCadAdapter,
+    Reopened: CadDocument,
+    Options: WriteOptions,
+    TmpPath: FilePath,
+) -> None:
+    Edited = Replace(
+        EditLinkedFlag(Reopened, True),
+        sketches=(Replace(Reopened.sketches[0], suppressed=True),),
+    )
+    Output = IoStream.BytesIO()
+    Result = Adapter.write(Edited, Output, Options)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
+    Resaved = Adapter.read(Output.getvalue())
+    assert ReadLinkedChild(Resaved)[2].sketches[0].suppressed
+    assert Resaved.sketches[0].suppressed
+    EditedPath = TmpPath / "edited.FCStd"
+    _ = Adapter.write(Edited, EditedPath)
+    (SavedChild,) = tuple(EditedPath.with_suffix("").glob("*.FCStd"))
+    assert OpenDoc(SavedChild).sketches[0].suppressed
+
+
+# recovery covers a present missing or restored source alongside the portable export
 @Pytest.mark.parametrize("Scenario", ("present", "edited", "restored"))
 def TestOldLinked(TmpPath: FilePath, Scenario: str) -> None:
     Child = TmpPath / "child.FCStd"
@@ -3707,28 +3741,10 @@ def TestOldLinked(TmpPath: FilePath, Scenario: str) -> None:
     Portable = TmpPath / "portable.FCStd"
     Result = Adapter.write(Legacy, Portable)
     assert Result.metadata["external_document_file_count"] == 1
-    (Copied,) = tuple(Portable.with_suffix("").glob("*.FCStd"))
-    assert Copied.read_bytes() == ChildBytes
-    Reopened = OpenDoc(Portable)
-    assert ReadLinkedChild(Reopened)[2].sketches[0].suppressed is False
-    assert Reopened.sketches[0].suppressed is False
-    assert Reopened.feature_timeline[0].sketch_id == Reopened.sketches[0].id
+    Reopened = ReadLinkBundle(Portable, ChildBytes)
     if Scenario == "restored":
         _ = Child.write_bytes(ChildBytes)
-        Edited = Replace(
-            EditLinkedFlag(Reopened, True),
-            sketches=(Replace(Reopened.sketches[0], suppressed=True),),
-        )
-        Output = IoStream.BytesIO()
-        Result = Adapter.write(Edited, Output, Options)
-        assert Result.metadata.get("mode") != "exact_native_roundtrip"
-        Resaved = Adapter.read(Output.getvalue())
-        assert ReadLinkedChild(Resaved)[2].sketches[0].suppressed
-        assert Resaved.sketches[0].suppressed
-        EditedPath = TmpPath / "edited.FCStd"
-        _ = Adapter.write(Edited, EditedPath)
-        (SavedChild,) = tuple(EditedPath.with_suffix("").glob("*.FCStd"))
-        assert OpenDoc(SavedChild).sketches[0].suppressed
+        CheckLinkedMut(Adapter, Reopened, Options, TmpPath)
 
 
 # a historical linked manifest retains its prior sketch semantics until export
@@ -3833,6 +3849,17 @@ def TestLinkedReads(
     )
 
 
+# the archived sketch must be active in a native parse and hidden in the emitted property
+def CheckRawHidden(Rebuilt: bytes) -> None:
+    assert ReadNativeFcstd(Rebuilt).sketches[0].suppressed is False
+    with Zipfile.ZipFile(IoStream.BytesIO(Rebuilt)) as Archive:
+        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
+    Visibility = RootValue.find(
+        "./ObjectData/Object[@name='Sketch']/Properties/Property[@name='Visibility']/Bool"
+    )
+    assert Visibility is not None and Visibility.get("value") == "false"
+
+
 # replay requires an independent source graph that fits the native reference depth
 def TestReplayDepth(TmpPath: FilePath) -> None:
     Sources = tuple(
@@ -3861,8 +3888,8 @@ def TestReplayDepth(TmpPath: FilePath) -> None:
     for _ in Sources[1:]:
         Current = ReadLinkedChild(Current)[2]
     assert any(
-        Item.code == "freecad.unresolved_external_documents"
-        for Item in Current.diagnostics
+        Diagnostic.code == "freecad.unresolved_external_documents"
+        for Diagnostic in Current.diagnostics
     )
     Output = IoStream.BytesIO()
     Result = Adapter.write(Legacy, Output, Options)
@@ -3870,13 +3897,7 @@ def TestReplayDepth(TmpPath: FilePath) -> None:
     Rebuilt = Output.getvalue()
     assert Rebuilt != Original
     assert Adapter.read(Rebuilt).sketches[0].suppressed is False
-    assert ReadNativeFcstd(Rebuilt).sketches[0].suppressed is False
-    with Zipfile.ZipFile(IoStream.BytesIO(Rebuilt)) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-    Visibility = RootValue.find(
-        "./ObjectData/Object[@name='Sketch']/Properties/Property[@name='Visibility']/Bool"
-    )
-    assert Visibility is not None and Visibility.get("value") == "false"
+    CheckRawHidden(Rebuilt)
 
 
 # assembly component writes must also use independently verified carried sketch state

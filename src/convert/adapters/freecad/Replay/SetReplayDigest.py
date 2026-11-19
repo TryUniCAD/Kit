@@ -17,7 +17,7 @@ def SetReplayDigest(
 ) -> CadDocument:
     Attributes = {**NativeDoc.attributes, KReplaySketchAttr: KExplicitSketchProfile}
     if Digest is None:
-        Attributes.pop(KReplaySemanticAttr, None)
+        _ = Attributes.pop(KReplaySemanticAttr, None)
     else:
         Attributes[KReplaySemanticAttr] = Digest
     Updated = Replace(NativeDoc, attributes=Attributes)

@@ -58,7 +58,9 @@ from interchange import (
 )
 from interchange.serialization.EncodeData import ToData
 from interchange.serialization.WireData import ValidateWireMap
-from convert.adapters.freecad.Errors.AdapterError import FreeCadAdapterA
+from convert.adapters.freecad.Errors.AdapterError import (
+    FreeCadAdapterA as FreeCadAdapterA,
+)
 from convert.adapters.freecad.Archive import (
     DOCUMENT_ENTRY as DocEntry,
     MANIFEST_ENTRY as ManifestEntry,
@@ -105,11 +107,14 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.ReconcileEdit import ReconcileEdit
-from convert.adapters.freecad.Replay.MetadataTypes import IsPayloadMap, IsPayloadSeq
+from convert.adapters.freecad.Replay.MetadataTypes import (
+    IsPayloadMap as IsPayloadMap,
+    IsPayloadSeq as IsPayloadSeq,
+)
 from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
 from convert.adapters.freecad.Replay.NativeOuter import NativeOuter
 from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
-from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache
+from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from interchange.Features.FeatureBoundPlane import BoundDatum
 
 # shared empty set keeps parameter defaults free of repeated constructor calls
@@ -264,7 +269,7 @@ def FilteredDoc(DocValue: CadDocument, Settings: ReadOptions) -> CadDoc:
 
 # unchanged replay requires an independent archive parse against the carried digest
 def UnchangedNative(
-    DocValue: CadDocument, ReplayReads: ReplayReadCache | None = None
+    DocValue: CadDocument, ReplayReads: KReplayReadCache | None = None
 ) -> bytes | None:
     return PrepareReplay(DocValue, Migrate=False, ReplayReads=ReplayReads)[1]
 
@@ -766,7 +771,7 @@ def IsPayloadMatch(
 
 # this definition exists because focused behavior needs one stable owner
 def TrustedNative(
-    DocValue: CadDocument, RootReplay: bytes | None, ReplayReads: ReplayReadCache
+    DocValue: CadDocument, RootReplay: bytes | None, ReplayReads: KReplayReadCache
 ) -> frozenset[NativeBrepKey]:
     Trusted: set[NativeBrepKey] = set()
     for ItemValue in DocTree(DocValue):
@@ -1954,7 +1959,7 @@ def WriteNative(
     Target: FilePath,
     Overwrite: bool,
     Validate: bool,
-    ReplayReads: ReplayReadCache,
+    ReplayReads: KReplayReadCache,
 ) -> tuple[dict[str, str], int]:
     Records = NativeOuter(DocValue)
     Folder = Target.parent / Target.stem
@@ -2173,7 +2178,7 @@ def BundleArtifacts(
     Portable: bool,
     NativeOuters: Sequence[tuple[str, CadDoc]],
     TrustedBreps: frozenset[NativeBrepKey],
-    ReplayReads: ReplayReadCache,
+    ReplayReads: KReplayReadCache,
 ) -> tuple[
     dict[str, dict[str, object]],
     dict[str, str],
@@ -2280,7 +2285,7 @@ def RebuildResult(
     Portable: bool,
     NativeOuters: Sequence[tuple[str, CadDoc]],
     TrustedBreps: frozenset[NativeBrepKey],
-    ReplayReads: ReplayReadCache,
+    ReplayReads: KReplayReadCache,
 ) -> WriteResult:
     (
         OuterLinks,
@@ -2345,7 +2350,7 @@ def WriteTarget(
     Target: Destination,
     Options: WriteOptions | None,
     Overwrite: bool | None,
-    ReplayReads: ReplayReadCache | None = None,
+    ReplayReads: KReplayReadCache | None = None,
 ) -> WriteResult:
     Selected = Options or WriteOptions()
     ShouldOverwrite = Selected.Overwrite if Overwrite is None else Overwrite

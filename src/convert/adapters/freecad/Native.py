@@ -127,7 +127,7 @@ from convert.adapters.freecad.Protocol import (
     XML_TRUE_VALUES as XmlTrueValues,
 )
 from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
-from convert.adapters.freecad.Replay.ReadCache import ReplayReadCache
+from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from convert.adapters.freecad.Replay.ReplayReadScope import ReplayReadScope
 
 # this binding exists because shared behavior needs one stable value
@@ -3853,53 +3853,15 @@ def MakeNativeDoc(
     return DocValue
 
 
-# this definition coordinates complete native archive decoding
-def ReadNativeFcstd(
+# native archive model decoding consumes the already guarded external references
+def DecodeNativeDoc(
+    Native: NativeArchive,
     DataValue: bytes,
-    SourcePath: str = "",
-    *,
-    StateValue: OuterState | None = None,
-    OuterDepth: int = 0,
-    LegacyVisibility: bool = False,
-    RecordReplay: bool = False,
-    ReplayReads: ReplayReadCache | None = None,
+    SourcePath: str,
+    LegacyVisibility: bool,
+    ResolvedOuter: dict[str, tuple[str, CadDoc]],
+    UnresolvedOuter: list[dict[str, str]],
 ) -> CadDoc:
-    SourceFile = ResolvedSource(SourcePath)
-    ActiveState = StateValue
-    ReadScope = (
-        ReplayReadScope(
-            ReplayReads,
-            SourceFile.parent if SourceFile is not None else None,
-            LegacyVisibility,
-        )
-        if StateValue is None and ReplayReads is not None and not RecordReplay
-        else None
-    )
-    if ActiveState is None and SourceFile is not None:
-        ActiveState = OuterState(
-            SourceFile.parent,
-            {},
-            {SourceFile},
-            1,
-            len(DataValue),
-            LegacyVisibility,
-            RecordReplay,
-            ReadScope,
-        )
-    if ActiveState is not None:
-        LegacyVisibility = ActiveState.LegacyVisibility
-        RecordReplay = ActiveState.RecordReplay
-        ReadScope = ActiveState.ReplayScope
-    IsNested = StateValue is not None or OuterDepth != 0
-    InitialReuse = ReadScope.ReusedReads if ReadScope is not None else 0
-    if ReadScope is not None and not IsNested:
-        Cached = ReadScope.FindRead(SourcePath, DataValue)
-        if Cached is not None:
-            return Cached
-    Native = LoadNative(DataValue)
-    ResolvedOuter, UnresolvedOuter = OuterDocsMut(
-        Native, SourcePath, ActiveState, OuterDepth
-    )
     Parameters: list[Param] = []
     Consumed: set[tuple[str, str]] = set()
     SupportPlanes, Sketches = ParseSketchMut(
@@ -3951,7 +3913,7 @@ def ReadNativeFcstd(
     Diagnostics = NativeDiags(Native, FeatureObjects, Meshes, UnresolvedOuter)
     MetaValue = NativeMeta(Native, AsmValue, ResolvedOuter)
     Configurations = BuildConfigs(Native.objects, FeatureIds)
-    DocValue = MakeNativeDoc(
+    return MakeNativeDoc(
         NativeSource(DataValue, SourcePath, Native),
         Configurations,
         Parameters,
@@ -3967,6 +3929,58 @@ def ReadNativeFcstd(
         MetaValue,
         AsmValue,
         bool(ResolvedOuter or UnresolvedOuter),
+    )
+
+
+# this definition coordinates complete native archive decoding
+def ReadNativeFcstd(
+    DataValue: bytes,
+    SourcePath: str = "",
+    *,
+    StateValue: OuterState | None = None,
+    OuterDepth: int = 0,
+    LegacyVisibility: bool = False,
+    RecordReplay: bool = False,
+    ReplayReads: KReplayReadCache | None = None,
+) -> CadDoc:
+    SourceFile = ResolvedSource(SourcePath)
+    ActiveState = StateValue
+    ReadScope = (
+        ReplayReadScope(
+            ReplayReads,
+            SourceFile.parent if SourceFile is not None else None,
+            LegacyVisibility,
+        )
+        if StateValue is None and ReplayReads is not None and not RecordReplay
+        else None
+    )
+    if ActiveState is None and SourceFile is not None:
+        ActiveState = OuterState(
+            SourceFile.parent,
+            {},
+            {SourceFile},
+            1,
+            len(DataValue),
+            LegacyVisibility,
+            RecordReplay,
+            ReadScope,
+        )
+    if ActiveState is not None:
+        LegacyVisibility = ActiveState.LegacyVisibility
+        RecordReplay = ActiveState.RecordReplay
+        ReadScope = ActiveState.ReplayScope
+    IsNested = StateValue is not None or OuterDepth != 0
+    InitialReuse = ReadScope.ReusedReads if ReadScope is not None else 0
+    if ReadScope is not None and not IsNested:
+        Cached = ReadScope.FindRead(SourcePath, DataValue)
+        if Cached is not None:
+            return Cached
+    Native = LoadNative(DataValue)
+    ResolvedOuter, UnresolvedOuter = OuterDocsMut(
+        Native, SourcePath, ActiveState, OuterDepth
+    )
+    DocValue = DecodeNativeDoc(
+        Native, DataValue, SourcePath, LegacyVisibility, ResolvedOuter, UnresolvedOuter
     )
     if RecordReplay and not LegacyVisibility:
         return AnnotateNative(DocValue)

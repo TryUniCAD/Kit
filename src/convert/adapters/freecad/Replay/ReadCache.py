@@ -6,4 +6,4 @@ from typing import TypeAlias
 from interchange.document.Models.DocumentModel import CadDocument
 
 # each export retains complete parses by source root path archive hash and sketch profile
-ReplayReadCache: TypeAlias = dict[tuple[FilePath | None, str, str, bool], CadDocument]
+KReplayReadCache: TypeAlias = dict[tuple[FilePath | None, str, str, bool], CadDocument]
