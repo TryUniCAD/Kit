@@ -1,0 +1,178 @@
+{
+  "cache_member": "0x7f8",
+  "direct_edges": [
+    {
+      "kind": "jump",
+      "module": "sldmodu.dll",
+      "site_va": "0x4b57a827",
+      "target_va": "0x4b581040"
+    },
+    {
+      "kind": "jump",
+      "module": "sldgcu.dll",
+      "site_va": "0x4388ecd0",
+      "target_va": "0x43e816e0"
+    },
+    {
+      "kind": "call",
+      "module": "sldgciParau.dll",
+      "site_va": "0x32f80ef4",
+      "target_va": "0x33096440"
+    },
+    {
+      "kind": "call",
+      "module": "sldmgu.dll",
+      "site_va": "0x31de87ad",
+      "target_va": "0x31de85b0"
+    }
+  ],
+  "functions": [
+    {
+      "code_sha256": "57feee002329c4318e0234d825404676bb7014bfd18f33b447e7c2fc07e7d7de",
+      "end_va_exclusive": "0x4b57a82c",
+      "module": "sldmodu.dll",
+      "role": "part_box_wrapper",
+      "start_va": "0x4b57a7e0"
+    },
+    {
+      "code_sha256": "cef97fd71339e25173d80c3460c3a0319dc2972d673bf1c6d496e0dea1df88a7",
+      "end_va_exclusive": "0x4b581568",
+      "module": "sldmodu.dll",
+      "role": "model_box",
+      "start_va": "0x4b581040"
+    },
+    {
+      "code_sha256": "cb1f654949df23750fc9b8ecc01316528e56bfb651c59411c0b84977228400ae",
+      "end_va_exclusive": "0x4388ecd5",
+      "module": "sldgcu.dll",
+      "role": "body_box_thunk",
+      "start_va": "0x4388ecd0"
+    },
+    {
+      "code_sha256": "8ccf87a3c754da7bf3534eea57d897c17ea5cb6f70b5dd8d6c900d048abf38e3",
+      "end_va_exclusive": "0x43e8170e",
+      "module": "sldgcu.dll",
+      "role": "body_box_dispatch",
+      "start_va": "0x43e816e0"
+    },
+    {
+      "code_sha256": "897a377b2960948a9eeccc05863cb8a2cb22b4b21acf3fe24898ead941c99f8f",
+      "end_va_exclusive": "0x32f80f08",
+      "module": "sldgciParau.dll",
+      "role": "backend_body_box",
+      "start_va": "0x32f80ef0"
+    },
+    {
+      "code_sha256": "c80ec1b52a7e1061a18a7a6b9fbfa44c05a0b016672e009e7f3353c6c0cbf7a4",
+      "end_va_exclusive": "0x33096501",
+      "module": "sldgciParau.dll",
+      "role": "backend_topology_box",
+      "start_va": "0x33096440"
+    },
+    {
+      "code_sha256": "3a19c802d858b8363d3e1c7b4a93916d161547698522b1d037d345d53ce66a7e",
+      "end_va_exclusive": "0x31de87e7",
+      "module": "sldmgu.dll",
+      "role": "array_box",
+      "start_va": "0x31de8760"
+    },
+    {
+      "code_sha256": "2b9ad5409d4652441e5c8ed370bdc03725d826f2dbf01b993d3c8fe34f8d8149",
+      "end_va_exclusive": "0x31de868a",
+      "module": "sldmgu.dll",
+      "role": "point_pair_setter",
+      "start_va": "0x31de85b0"
+    },
+    {
+      "code_sha256": "9882389a59c394ced336bd6606f3359ed8d302a30d32219a6f4670a528e6a4d3",
+      "end_va_exclusive": "0x31de563c",
+      "module": "sldmgu.dll",
+      "role": "sphere_getter",
+      "start_va": "0x31de53f0"
+    }
+  ],
+  "hidden_inputs_read": 0,
+  "hopper_sessions_opened": 0,
+  "imports": [
+    {
+      "iat_va": "0x4cd3a6a8",
+      "import": {
+        "module": "sldmgu.dll",
+        "symbol": "?isSet@mgBBox_c@@QEBAHXZ"
+      },
+      "instruction_bytes": 6,
+      "module": "sldmodu.dll",
+      "site_va": "0x4b5811f4"
+    },
+    {
+      "iat_va": "0x4cd3a6e8",
+      "import": {
+        "module": "sldmgu.dll",
+        "symbol": "??_5mgBBox_c@@QEAAAEAV0@AEBV0@@Z"
+      },
+      "instruction_bytes": 6,
+      "module": "sldmodu.dll",
+      "site_va": "0x4b58120c"
+    },
+    {
+      "iat_va": "0x4cd38778",
+      "import": {
+        "module": "sldgcu.dll",
+        "symbol": "?getBBox@gcBody_w@@QEAAHPEAVmgBBox_c@@@Z"
+      },
+      "instruction_bytes": 6,
+      "module": "sldmodu.dll",
+      "site_va": "0x4b581321"
+    },
+    {
+      "iat_va": "0x43f5a1a0",
+      "import": {
+        "module": "sldgciParau.dll",
+        "symbol": "?getBBox@gciBody_w@GCP@@QEAAHPEAVmgBBox_c@@@Z"
+      },
+      "instruction_bytes": 7,
+      "module": "sldgcu.dll",
+      "site_va": "0x43e81707"
+    },
+    {
+      "iat_va": "0x330b62b0",
+      "import": {
+        "module": "sldmgu.dll",
+        "symbol": "?set@mgBBox_c@@QEAAXQEAN@Z"
+      },
+      "instruction_bytes": 6,
+      "module": "sldgciParau.dll",
+      "site_va": "0x330964d2"
+    }
+  ],
+  "kernel_extrema_arithmetic_is_fully_traced": false,
+  "modules": {
+    "sldgciParau.dll": {
+      "bytes": 1875032,
+      "image_base": "0x32f70000",
+      "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+    },
+    "sldgcu.dll": {
+      "bytes": 10893912,
+      "image_base": "0x43740000",
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    },
+    "sldmgu.dll": {
+      "bytes": 2363992,
+      "image_base": "0x31dd0000",
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+    },
+    "sldmodu.dll": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  },
+  "native_processes": 0,
+  "part_bbox_virtual_slot": "0x1350",
+  "part_bbox_vtable": "0x4d1252d8",
+  "schema": "kit.sw2026.circle-child-bounds-native.v1",
+  "sphere_rule": "point-pair midpoint and half-diagonal; preserve all ten cache words when copying an existing box",
+  "support_sha256": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+  "tool_sha256": "e7381034417ebab108ee43aac654d23a760e96efb7a157f98b99f6c9cba7fdda"
+}

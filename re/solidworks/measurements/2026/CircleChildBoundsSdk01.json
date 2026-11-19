@@ -1,0 +1,258 @@
+{
+  "all_four_part_stream_pairs_exact": true,
+  "base_revision": "46f5562987bdb8203d7f36e6ba5acbf52bdd4e92",
+  "delivery_pr": 121,
+  "earlier_owner_guard_proof": {
+    "result_sha256": "e0a8c02c748f381018f1a64a8a8e5e401257380cdd1ba87cbd6bb8e482094493",
+    "sdk_processes": 19,
+    "superseded_scope": "before the added actual inactive-end and display/handle/parameter guards"
+  },
+  "hidden_inputs_read": 0,
+  "hopper_sessions_opened": 0,
+  "malformed_target_refusals": 15,
+  "native_acceptance_measured": false,
+  "native_bindings_repeat_exact": true,
+  "native_bindings_sha256": "fc5702c86b86d044c8215422f9119f63922e0c203d8fc0cd070c98725daaeb98",
+  "native_modules": {
+    "sldgciParau.dll": {
+      "bytes": 1875032,
+      "image_base": "0x32f70000",
+      "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+    },
+    "sldgcu.dll": {
+      "bytes": 10893912,
+      "image_base": "0x43740000",
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    },
+    "sldmgu.dll": {
+      "bytes": 2363992,
+      "image_base": "0x31dd0000",
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+    },
+    "sldmodu.dll": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  },
+  "native_processes": 0,
+  "new_assembly_files": 0,
+  "new_sdk_files": 7,
+  "owner": "assembly_occurrence",
+  "positive_circle_targets": 2,
+  "prior_circle_refusals": 2,
+  "process_source_before_sha256": "d93d3d0d5e2feda8c56140877d41162dc7ec69e4e2b7effc67d4011a28bcba3e",
+  "public_registry_changes": false,
+  "quality": {
+    "checks": [
+      {
+        "exit": 0,
+        "sha256": "957cf18a960fa6096c9ec3a8b8b28e7381a3f958f67432fb5dcc82380f872426",
+        "tool": "Black"
+      },
+      {
+        "exit": 0,
+        "sha256": "063eefd19f7066e51a0940aa1c7928729b6478bb34510107fa72552ba2d2cf2d",
+        "tool": "Ruff"
+      },
+      {
+        "exit": 0,
+        "sha256": "4b7da0bc236213ed8ca7a48d82e7572d84ce6654569fe74a299791b5f41d370d",
+        "tool": "Mypy"
+      },
+      {
+        "exit": 0,
+        "sha256": "09aa8754037ba5c4d16266200a8499a51ec9478c0218a5abb1e6ea8f644163e2",
+        "tool": "Pyright"
+      },
+      {
+        "exit": 0,
+        "sha256": "91332ecd0da4f67750144953e44573a6a2fd975372df8251d69120a9261f68ed",
+        "tool": "Steering"
+      },
+      {
+        "exit": 0,
+        "sha256": "e7e25e9171f77f835918d0cdbf8b10c02bc6f5fc7497747f47f35f23c3e11c64",
+        "tool": "Donors"
+      }
+    ],
+    "inherited_unrecognized_pyright_settings": [
+      "reportImplicitAbstractClass",
+      "reportIncompleteStubValue",
+      "reportUnsafeMultipleInheritance"
+    ],
+    "result_sha256": "2c6b9121885a037a9e89e3905dadf248b80f1307677462cc054b2816a30666a1"
+  },
+  "raw_process_sha256": "b68a7118a08c7dbc290fe9abfe0138d68b8a0a945618221074cdfc9a3047c257",
+  "rectangle_target_and_part_pairs_exact": 2,
+  "remaining_native_edge": "the exact kernel extrema rounding operation producing the disclosed one-ulp low-y difference is not fully traced",
+  "root_integrated_replay": {
+    "accepted_installed_sdk_files": 8,
+    "fresh_processes": 23,
+    "native_collector_repeat_exact_sha256": "fc5702c86b86d044c8215422f9119f63922e0c203d8fc0cd070c98725daaeb98",
+    "native_oracle_launches": 0,
+    "preapplication_process_replay_sha256": "0eca2f79aba38ee4f1d8db594ba08167bb8380c51575ef2dcf846f6299c6f254",
+    "result_sha256": "ee376c1799141c471affa11abad098b981e6f20d7604d9a4472f727b81ce9e70",
+    "saved_cache_audit_repeat_exact_sha256": "4c5060887202a39bfc91fdf0fb12e74effb3c3fa1cc020c1c3699bc9df8819fd"
+  },
+  "rows": [
+    {
+      "bounds": {
+        "b0": 0.0034610000000000005,
+        "b1": -0.0069169999999999995,
+        "b2": 0.0092135,
+        "b3": 0.008244000000000001,
+        "b4": -0.0021339999999999987,
+        "b5": 0.018427,
+        "b6": -0.0013220000000000007,
+        "b7": -0.0117,
+        "b8": 0.0,
+        "b9": 0.01142990639725453
+      },
+      "case": "C01",
+      "part_bytes": 8348,
+      "part_sha256": "ca71873636a000c171e5d44c2f475423346b174672b8867798234eccd3712064",
+      "public_rectangle_child_projection_refused": "dimensioned rectangle requires exactly three lengths one sketch and one boss",
+      "runtime_file_open_attempts": 0,
+      "target_aliases": {
+        "bytes": true,
+        "config_graph": true,
+        "configuration": true,
+        "header": true,
+        "resolved_graph": true,
+        "root": true,
+        "streams": true
+      }
+    },
+    {
+      "bounds": {
+        "b0": -0.011287000000000002,
+        "b1": 0.007466999999999999,
+        "b2": 0.006396499999999999,
+        "b3": -0.0018740000000000007,
+        "b4": 0.01688,
+        "b5": 0.012792999999999999,
+        "b6": -0.020700000000000003,
+        "b7": -0.0019460000000000015,
+        "b8": 0.0,
+        "b9": 0.014769033490719697
+      },
+      "case": "C02",
+      "part_bytes": 8348,
+      "part_sha256": "30a609ff5d3af26d55b4cb9d2f2e99cb95deb83a7633545c63347889fa7fae85",
+      "public_rectangle_child_projection_refused": "dimensioned rectangle requires exactly three lengths one sketch and one boss",
+      "runtime_file_open_attempts": 0,
+      "target_aliases": {
+        "bytes": true,
+        "config_graph": true,
+        "configuration": true,
+        "header": true,
+        "resolved_graph": true,
+        "root": true,
+        "streams": true
+      }
+    },
+    {
+      "bounds": {
+        "b0": 0.00682,
+        "b1": 0.012314499999999999,
+        "b2": 0.0066395000000000004,
+        "b3": 0.03147,
+        "b4": 0.02191,
+        "b5": 0.013279000000000001,
+        "b6": -0.01783,
+        "b7": 0.002719,
+        "b8": 0.0,
+        "b9": 0.027272313442390617
+      },
+      "case": "R01",
+      "part_bytes": 8051,
+      "part_sha256": "4a1400e867a455bc60a24a95fde4094043162e1f4c40f812bf89311200eeb8ee",
+      "public_rectangle_child_projection_refused": null,
+      "runtime_file_open_attempts": 0,
+      "target_aliases": {
+        "bytes": true,
+        "config_graph": true,
+        "configuration": true,
+        "header": true,
+        "resolved_graph": true,
+        "root": true,
+        "streams": true
+      }
+    },
+    {
+      "bounds": {
+        "b0": 0.015692,
+        "b1": -0.021017,
+        "b2": 0.013596500000000001,
+        "b3": 0.022471,
+        "b4": -0.002817,
+        "b5": 0.027193000000000002,
+        "b6": 0.008913,
+        "b7": -0.039217,
+        "b8": 0.0,
+        "b9": 0.023707797309113304
+      },
+      "case": "R02",
+      "part_bytes": 8051,
+      "part_sha256": "473127fde9f8f76e51f9772ec2ce9e93126aa7cadafb6462bce5ba5e92ae1e31",
+      "public_rectangle_child_projection_refused": null,
+      "runtime_file_open_attempts": 0,
+      "target_aliases": {
+        "bytes": true,
+        "config_graph": true,
+        "configuration": true,
+        "header": true,
+        "resolved_graph": true,
+        "root": true,
+        "streams": true
+      }
+    }
+  ],
+  "saved_audit_sha256": "4c5060887202a39bfc91fdf0fb12e74effb3c3fa1cc020c1c3699bc9df8819fd",
+  "schema": "kit.sw2026.circle-child-bounds-receipt.v1",
+  "scope": "internal ordinary forward Front circular blind-boss child targets only; public assembly writer unchanged",
+  "sdk_delta_files": 8,
+  "sdk_processes": 23,
+  "source_cache_comparison": {
+    "calculated_words": 60,
+    "child_states": 6,
+    "differences": [
+      {
+        "case": "D03",
+        "differences": [
+          {
+            "absolute_m": 4.336808689942018e-19,
+            "calculated_hex": "-0x1.f9f01b866e43bp-9",
+            "field": "b7",
+            "stored_hex": "-0x1.f9f01b866e43cp-9",
+            "ulps": 1.0
+          }
+        ],
+        "phase": "source"
+      },
+      {
+        "case": "D03",
+        "differences": [
+          {
+            "absolute_m": 4.336808689942018e-19,
+            "calculated_hex": "-0x1.f9f01b866e43bp-9",
+            "field": "b7",
+            "stored_hex": "-0x1.f9f01b866e43cp-9",
+            "ulps": 1.0
+          }
+        ],
+        "phase": "edited"
+      }
+    ],
+    "exact_calculated_words": 58,
+    "inputs_unchanged": true,
+    "max_difference_m": 4.336808689942018e-19,
+    "occurrence_words_exact": 120,
+    "sphere_words_exact": 24
+  },
+  "source_manifest_sha256": "e324e63adcdfb9c1f7b0934abab69cc9cbb5590670ece8de2241b9f331b1e687",
+  "source_unchanged": true,
+  "task": "B04-SW2026-MATES-CONCENTRIC/circle-child-bounds",
+  "writer_qualified": false
+}

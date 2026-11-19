@@ -1,17 +1,25 @@
 from convert.adapters.solidworks.Archive.Construction.Assembly.Bounds.MakeBox import (
     MakeBox,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.Bounds.Circles.MakeCircleBox import (
+    MakeCircleBox,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan import (
+    CirclePlan,
+)
 
 
-# the admitted generated child is a front supported forward rectangular boss whose local extents follow directly from its neutral plan
+# admitted child bounds retain exact line loop behavior and separately verify the ordinary front circle owners
 def MakeChildBox(ChildValue: PartCandidate) -> dict[str, float]:
     PlanValue = ChildValue.PlanValue
+    if type(PlanValue) is CirclePlan:
+        return MakeCircleBox(ChildValue)
     if type(PlanValue) is not BlindPlan:
         raise ValueError("assembly constituent bounds require an admitted line loop")
     VerticesValue = PlanValue.VerticesValue
