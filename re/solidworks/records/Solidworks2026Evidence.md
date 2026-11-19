@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Through-all part UI scalar replay](../measurements/2026/ThroughAllUiScalarsRootReplay01.json) | Two disclosed Definition graphs reconstruct four view and toolbar fields exactly. Both 92-process replays pass 48 expected refusals and 70 exact fragment re-emissions. The two environment paths and 29 CMgr paths remain. |
 | [Width-to-depth equation source locks](../measurements/2026/NativeEquationWidthDepthSource01.json) | One disclosed and one guest-sealed 2026 source each pass 52 comparisons through native dependency edits, saves and fresh reopens, with healthy controls. The separate global assignment publishes zero rows before and after evaluation. |
 | [Native FreeCAD sketch visibility](../measurements/2026/FreecadSketchVisibility01.json) | All 171 paths still read strictly after correcting 318 sketch suppression states. The two disclosed Pad profiles retain their hidden display, active feature links and all 17 parameters each. |
 | [Through-all line presentation](../measurements/2026/ThroughAllLinePresentation01.json) | The shared SDK builds seven styles and 40 independent category-font owners from each of two disclosed sources. Two 101-process runs pass, including 63 refusals each. Six Definition and 29 CMgr frontiers remain for those sources. |
