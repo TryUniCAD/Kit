@@ -1,0 +1,290 @@
+{
+  "comparison_obligations": [
+    {
+      "claim": "source custody only",
+      "id": "LOCK",
+      "require": "both private source/original-edited/intent hashes match public prewriter lock; no private values in this method"
+    },
+    {
+      "claim": "pre-unseal prerequisite",
+      "id": "WRITER",
+      "require": "complete isolated SDK and independent evaluator frozen before source access; disclosed SDK/research exact-byte parity and no-donor guard proven"
+    },
+    {
+      "claim": "full source admission remains false if any unexplained owner exists",
+      "id": "SOURCE_SCOPE",
+      "require": "full actual source graph accounted by declared supported semantic profile; each unprojected owner named, retained and refused"
+    },
+    {
+      "claim": "ordinary plain-note rule generalization only when all checks pass",
+      "id": "NOTE",
+      "require": "source and output exact Unicode text, callable name/identity, both API point getters, count, free/non-dangling state, owner aliases and edits persist"
+    },
+    {
+      "claim": "full drawing preservation only when no unexplained difference remains",
+      "id": "DRAWING",
+      "require": "exact source/output sheet, view absence, ordered concrete feature tree, semantic reference census and supported properties/presentation; all baseline name differences recorded"
+    },
+    {
+      "claim": "application rendering qualification pending exact observer binding",
+      "id": "RENDER",
+      "require": "independently frozen ordinary render/display geometry measurement or root-owned visual/export evidence; actual glyph visibility and format measured, not inferred from GetText or enumeration"
+    },
+    {
+      "claim": "native lifecycle under this exact source/output scope",
+      "id": "NATIVE",
+      "require": "13 distinct fresh exact-build processes, healthy bracketing pristine controls and disclosed note control, clean opens, rebuilds, save and fresh reopen"
+    },
+    {
+      "claim": "full heldout success cannot be inferred from a note-only semantic match",
+      "id": "C10",
+      "require": "all applicable C1-C11 obligations, source-only mapping and immutable writer; both slots pass without post-exposure fitting"
+    }
+  ],
+  "comparison_policy": {
+    "errors": "capture actual statuses and first failure before assertions; retain skipped and partial phases as failed/incomplete",
+    "fresh_processes": "process creation FILETIME identities all distinct, pinned executable hash/version/machine",
+    "output_custody": "unused packet/target/derivative paths; no overwrite; original/source-edited/candidate bytes immutable",
+    "position": "2e-9m absolute for each public API getter against independent source and locked intent",
+    "presentation": "full declared semantic fields strict; volatile/generated cache differences need an existing source-backed classification, never a wildcard mask",
+    "references": "actual owners and resolved identities; no selection-string heuristic",
+    "rendering": "pending explicit measured API/export route; exact missing route is not green",
+    "sheet_numeric": "same existing source phase1e-12 absolute property comparison",
+    "tree": "ordered exact triples(name,type,parent) plus actual traversal order; no ignored baseline rows or auto-renaming whitelist",
+    "unicode": "exact, no trim, no casefold, no normalization or fallback to display strings"
+  },
+  "disclosed_native_baseline": {
+    "candidate_sha256": "00e0175943682a25ffa6045b7a7f60189015a185dabf53f63ea127e28dc550ff",
+    "comparison_passed": true,
+    "controls_healthy": true,
+    "fresh_processes": 6,
+    "generator_program_sha256": {
+      "BlankRewriteGuard.py": "e5b7147ccef4fd148b90fb0aec50900f5a73cf6f9f8c3894bd90caffadedceb7",
+      "BuildNoteArchive.py": "8a0ce135470950296fea80a49ba24cbdd566b46be93d5d8975d5ed7e43ac47dc",
+      "FreezeGeneratedNote01.py": "9c00c1232ad98af920591a62e2adf8906ccfde19784bee5e299ba0b58ea4349b",
+      "GuardFreshNoteBuild.py": "9d04e5accb5541fd9422e30f7c4c48d8e2b5d8932cbf5f9db89f3d315080b790",
+      "NoteConstruction.py": "a78bfd1925ed025fd38d682a90e728d384354daef9b5a27fc52989d8180f44d5"
+    },
+    "heldout_source_credit": false,
+    "host_receipt_sha256": "ee0470ff0c8487c68bf7b56b417dfdfa312971c15f3fd4d83f765dc1690af943",
+    "job_sha256": "ed89303077cc38bcc36775a32b56d0fce7f944bc3ad9690c5b5e5fed28e1d2d7",
+    "observed_scope": "Unicode text, actual name, public position, editable text and position, rebuild/save/fresh reopen; no full-tree/rendering claim inferred from sheet snapshot",
+    "observer_tool_sha256": {
+      "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+      "AuthorPlainDrawingNotes.py": "51815085de142bc849d409f55aab4893315d719bacddfc442a2675c1cb3ea4d2",
+      "ObserveGeneratedNote01.py": "801f7e12ef4081bdc128c37876fc11290f06fa57c6021ff20ee4bbbf90a85715",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    },
+    "public_writer_qualified": false,
+    "result_logical_name": "PlainNoteBuild01/NativePacket03/Inspection/Result.json",
+    "result_sha256": "191a77eb4aabfc554f87d4b81a36cfaecc2138835783373b4766bfe83427950a"
+  },
+  "known_source_dependencies": [
+    {
+      "bytes": 11983,
+      "path": "re/tooling/sw2026/drawing_notes/AuthorPlainDrawingNotes.py",
+      "sha256": "51815085de142bc849d409f55aab4893315d719bacddfc442a2675c1cb3ea4d2"
+    },
+    {
+      "bytes": 6595,
+      "path": "re/tooling/sw2026/drawing_notes/ObserveGeneratedNote01.py",
+      "sha256": "801f7e12ef4081bdc128c37876fc11290f06fa57c6021ff20ee4bbbf90a85715"
+    },
+    {
+      "bytes": 9441,
+      "path": "re/tooling/sw2026/drawing_notes/ObserveGeneratedNoteState02.py",
+      "sha256": "92f1fd29bffeab522bf2bb8597baa5cdf723bafc31eddd59ec059ca92e0e3a08"
+    },
+    {
+      "bytes": 10953,
+      "path": "re/tooling/sw2026/drawing_notes/BuildNoteArchive.py",
+      "sha256": "8a0ce135470950296fea80a49ba24cbdd566b46be93d5d8975d5ed7e43ac47dc"
+    },
+    {
+      "bytes": 9503,
+      "path": "re/tooling/sw2026/drawing_notes/NoteConstruction.py",
+      "sha256": "a78bfd1925ed025fd38d682a90e728d384354daef9b5a27fc52989d8180f44d5"
+    },
+    {
+      "bytes": 3511,
+      "path": "re/tooling/sw2026/drawing_notes/GuardFreshNoteBuild.py",
+      "sha256": "9d04e5accb5541fd9422e30f7c4c48d8e2b5d8932cbf5f9db89f3d315080b790"
+    },
+    {
+      "bytes": 6763,
+      "path": "re/tooling/sw2026/blank_eval/InspectBlankRewrite.py",
+      "sha256": "ea4074b12bef644f1b682348f754540e7988e7579d6ab463d8c85e46f721bd87"
+    },
+    {
+      "bytes": 11679,
+      "path": "re/tooling/sw2026/InspectDrawingCache.py",
+      "sha256": "ce7eb33d3f15c88a447fb6da46544f78fa66174ead4fcb0a49cd5bf0e3363c4c"
+    },
+    {
+      "bytes": 740,
+      "path": "re/tooling/sw2026/DrawingCacheCases.py",
+      "sha256": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895"
+    },
+    {
+      "bytes": 19779,
+      "path": "re/tooling/sw2026/AuthorDrawingSources.py",
+      "sha256": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083"
+    },
+    {
+      "bytes": 70349,
+      "path": "re/tooling/sw2026/AuthorCurves.py",
+      "sha256": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2"
+    },
+    {
+      "bytes": 4284,
+      "path": "re/tooling/sw2026/OracleIdentity.py",
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    },
+    {
+      "bytes": 15690,
+      "path": "re/tooling/sw2026/Swapp.py",
+      "sha256": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    }
+  ],
+  "metadata_verifier_sha256": "7eabff37f570670165a152cf5d1c908087e5fc2f562adbaba05846affe9fdaa9",
+  "native_processes": 13,
+  "native_roles": [
+    "ControlBefore",
+    "NativeNoteSourceControl",
+    "Slot01/SourceInitial",
+    "Slot01/SourceEdited",
+    "Slot01/CandidateInitial",
+    "Slot01/CandidateIndependentEdit",
+    "Slot01/CandidateReopen",
+    "Slot02/SourceInitial",
+    "Slot02/SourceEdited",
+    "Slot02/CandidateInitial",
+    "Slot02/CandidateIndependentEdit",
+    "Slot02/CandidateReopen",
+    "ControlAfter"
+  ],
+  "ordinary_api_observations": [
+    "IAnnotation.GetName and INote.GetName separately, with exact registered IIDs and byte slots",
+    "INote.GetText exact Unicode string, plus independent UTF-16/code-unit semantic readback from typed archive",
+    "IAnnotation.GetPosition and INote.GetTextPoint2 separately; each finite three-vector, absolute tolerance2e-9m and no relative tolerance",
+    "IAnnotation.GetAttachedEntities3 count0 and IsDangling=false",
+    "exact one sheet sentinel annotation, actual active sheet name and GetProperties2 eight-vector; no model view after sentinel",
+    "ForceRebuild3/EditRebuild3 result plus Extension.GetWhatsWrongCount=0",
+    "actual ordered feature tree with names, concrete GetTypeName2 and parent/order, using InspectDrawingCache.drawing_tree",
+    "explicit text and position edit statuses; exclusive native save result[true,0,0]; fresh process identity and input/output hashes"
+  ],
+  "phase_contract": {
+    "CandidateIndependentEdit": "fresh generated original; SetText to locked edited text, rebuild and prove old position/name/attachments/tree stable; then SetPosition2 to locked edited point, rebuild and prove new text/name/attachments/tree stable; exclusive save to new derivative",
+    "CandidateInitial": "fresh generated original candidate, strict zero open diagnostics, capture before/after rebuild against actual SourceInitial",
+    "CandidateReopen": "fresh read-only candidate edited derivative by newly recorded hash; capture before/after rebuild against SourceEdited and previous candidate edited identity",
+    "ControlAfter": "fresh identical pristine blank control, all earlier control invariants and original hash; invalidates batch if unhealthy",
+    "ControlBefore": "fresh pristine blank drawing, open/rebuild, exact sheet/view/tree census, no note",
+    "NativeNoteSourceControl": "fresh disclosed native plain-note control, exact text/name/both public point getters, no attachments, unchanged source",
+    "SourceEdited": "fresh read-only already locked edited source; same capture; independent oracle reference for final edited values and identity",
+    "SourceInitial": "fresh read-only original private source with public-lock hash; capture actual note, sheet/view/tree, references and supported presentation before/after rebuild"
+  },
+  "public_shape_metadata": {
+    "attached_entity_count": 0,
+    "model_view_count": 0,
+    "note_count": 1,
+    "profile": "one unattached sheet note in one unlinked unformatted ANSI A sheet",
+    "source_edit_contract": "independent SetText and SetPosition2 values were saved and fresh-reopened before writer implementation",
+    "source_protocol": "re/solidworks/records/PlainDrawingNoteSourceProtocol2026.md",
+    "source_template_sha256": "05eb7612f0921d7f2b5bef7cc5576a54993f38740285d31fb2d7b1a09808ef66",
+    "unknown_until_release": [
+      "actual private text",
+      "actual private positions",
+      "private source/edited archives",
+      "private native observations",
+      "complete private formatting, properties, chronology and graph owners"
+    ]
+  },
+  "public_source_lock": {
+    "path": "re/solidworks/measurements/2026/PlainDrawingNoteSourceLock01.json",
+    "prewriter_revision": "fad81501377e21c66a905b91f533bd9b120d557b",
+    "private_source_values_disclosed": false,
+    "qualified_source_processes": 14,
+    "raw_receipt_sha256": "695b5732d6869ec4f73379642385f083a616592dc6809a63f55ba4318ebb8824",
+    "sha256": "ec77426e3a5e4c9f8e95252121bea1c1c2330e496d6d9db07b6286e9e07b5c5b",
+    "source_job_sha256": "fd8eebd00cc42e30d98f52de8d7b95519a0e6db9f53efc7a87f2265555c6ddc6",
+    "writer_generated_cases_at_lock": 0
+  },
+  "qualification": {
+    "heldout_passed": false,
+    "metadata_method_prepared": true,
+    "method_executed": false,
+    "private_sources_released": false,
+    "public_writer_qualified": false,
+    "writer_closure_verified": false
+  },
+  "remaining_before_native_packet": [
+    "root final complete SDK source-closure digest and disclosed parity receipt",
+    "exact selected semantic source projection and its full unsupported-owner boundary",
+    "frozen combined note observer using existing measured drawing_tree without blank-only tree assumptions",
+    "independent full presentation/rendering observation binding if claiming whole-drawing usability",
+    "root-owned guest-only source/input/unused target mapping and exclusive output packet hashes"
+  ],
+  "result_flags": {
+    "failures": "each flag remains false when its own dependency is absent, failed or merely unmeasured",
+    "full_drawing_preserved": "all sheet/tree/reference/style/property/render obligations pass",
+    "metadata_verified": "metadata only; does not permit source release",
+    "note_rule_heldout_verified": "all note-specific native and typed obligations pass on both slots",
+    "public_writer_qualified": "only root may promote after every applicable criterion and normal SDK entrypoint evidence",
+    "source_family_admitted": "all actual source semantic fields within frozen profile"
+  },
+  "schema": "kit.sw2026.plain-note-preunseal-method.v1",
+  "scope": {
+    "git_mutations": false,
+    "native_calls": 0,
+    "new_hopper_sessions": 0,
+    "original_source_verdict_changed": false,
+    "private_payloads_read": 0,
+    "shared_source_changed": false,
+    "vm_calls": 0
+  },
+  "sealed_slots": {
+    "Slot01": {
+      "edited_sha256": "286fa51df6017ffadf9450d82e58466662237b18ea9425d95f224384833b98a7",
+      "intent_sha256": "9202b71835f2e3fe42408e692c2814edc8c54d9ca766cd703e8464f6500c3e4d",
+      "original_sha256": "c9ff246430b82518e6f2671738be5c142fa3ea7c5a0425dc6bdf9e7914a5b7c0",
+      "private": true
+    },
+    "Slot02": {
+      "edited_sha256": "6edb84ed1e063f2fca35b7e1e2a33d3533a328fee906a22720217b3fa9ef2a62",
+      "intent_sha256": "03c077735d51deb792d238995e9e144782120987984597627b056c96d6a2f29e",
+      "original_sha256": "c9782dec871377f62dd7044528fed480ce21b78717a2ce2b05d47d71c47f7d88",
+      "private": true
+    }
+  },
+  "task": {
+    "delivery_pr": 121,
+    "exit": "root-approved immutable SDK/writer/reader/evaluator closure before any private payload is read, followed by fully recorded supported-scope comparison",
+    "id": "B04-SW2026-DRAWING-NOTES-C10",
+    "owner": "flag_ownership; root owns writer freeze, oracle, integration and actual release",
+    "scope": "metadata-only independent method for two already locked plain-note sources"
+  },
+  "typed_observations": [
+    "complete Definition decode/write byte parity with all object aliases, maps and cursor positions; never treat a retained unknown field as modeled",
+    "actual sheet detail-folder note row -> display -> component-note.fe8 -> note-data.f98 -> generic text",
+    "actual display.f30 and note-data.f48 folder aliases, generic text.f170 display alias, and actual local attachment owner",
+    "actual callable name holderf18.f08 separately from serializedf20, nodef08, displayf58 and model.fd44",
+    "actual cached attachmentf290 or selectedf298 row, framef2a0/effectiveF, vectorf628 and distancef630; reconstruct actual public point and retain textf38 separately",
+    "raw fields and runtime fixups remain distinct; nonfinite or malformed counts fail closed",
+    "source/source-edited/candidate/native-saved snapshots all bound to immutable inputs; unsupported fonts, style, units, properties, text formatting, chronology or extra objects remain explicit refusals"
+  ],
+  "writer_binding": {
+    "no_fitting_rule": "after any private input exposure, no writer, parser, mapper, acceptance tolerance or exception is changed for that cohort; a failure becomes new discovery with its verdict retained",
+    "private_source_exposure_allowed": false,
+    "required": [
+      "complete isolated SDK code closure and all no-CAD dependencies",
+      "exact constructor and semantic source-to-neutral request mapping",
+      "two disclosed SDK builds equal the already frozen research generator containers and all logical streams for identical explicit inputs",
+      "both new input variations preserve input-dependent list/count/map behavior and zero guarded runtime input reads",
+      "independent native observer plus host qualifier full source hashes",
+      "guard policy, controls and fixed comparison obligations frozen before private access"
+    ],
+    "status": "pending_root_sdk_freeze"
+  }
+}
