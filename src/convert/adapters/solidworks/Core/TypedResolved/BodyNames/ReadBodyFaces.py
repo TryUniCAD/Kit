@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 
 # both sides of the native boundary must belong to the same actual solid
 def ReadBodyFaces(
-    NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode
+    NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode, FaceCount: int = 6
 ) -> tuple[int, ...]:
     Regions = WalkXmtChain(
         NodesValue,
@@ -49,8 +49,8 @@ def ReadBodyFaces(
         "next_front",
         "previous_front",
     )
-    if len(FaceIds) != 6 or set(FaceIds) != set(FrontIds):
-        raise ValueError("named solid boundary is not the witnessed six face profile")
+    if len(FaceIds) != FaceCount or set(FaceIds) != set(FrontIds):
+        raise ValueError("named solid boundary is not the witnessed face profile")
     for IndexValue in FaceIds:
         FaceValue = NodesValue[IndexValue]
         if (

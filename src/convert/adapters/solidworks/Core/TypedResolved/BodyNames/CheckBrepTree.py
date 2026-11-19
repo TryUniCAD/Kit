@@ -5,12 +5,17 @@ from convert.adapters.solidworks.Archive.Partition.ReadXmtVector import ReadXmtV
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.BodyNameGraph import (
     BodyNameGraph,
 )
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Revolves.CheckRingVerts import (
+    CheckRingVerts,
+)
 from interchange.brep.Topology.BrepModel import BrepModel
 
 
 # decoded geometry must exhaust the actual named wire body before its neutral identity is assigned
 def CheckBrepTree(ModelValue: BrepModel, GraphValue: BodyNameGraph) -> None:
     TreeValue = GraphValue.TreeValue
+    if not TreeValue.VertexIds:
+        CheckRingVerts(ModelValue, GraphValue)
     Inventories = (
         (
             "face",
@@ -31,7 +36,11 @@ def CheckBrepTree(ModelValue: BrepModel, GraphValue: BodyNameGraph) -> None:
         (
             "vertex",
             TreeValue.VertexIds,
-            tuple(Vertex.id for Vertex in ModelValue.vertices),
+            (
+                tuple(Vertex.id for Vertex in ModelValue.vertices)
+                if TreeValue.VertexIds
+                else ()
+            ),
         ),
         (
             "surface",

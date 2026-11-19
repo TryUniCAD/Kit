@@ -1,0 +1,3049 @@
+{
+  "baseline_manifest_sha256": "498ed917f162c80100ee7029c5eadb18d0064b6127d3a87f8c2c82ee304c4293",
+  "complete_original_source_conversion": false,
+  "disclosed_revolve_sources": 3,
+  "final_negative_rule": "retain raw leaf false states; compare exact baseline/candidate errors or full documents in every mode; require source/audit/module custody independently",
+  "fixture_grammar_manifest_sha256": "f33b4b243ad1c164457ac0b69d36fc2f451081091e2b7a4dcd77307a61533616",
+  "fresh_host_processes": 82,
+  "groups": [
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": true,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": true,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": true,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": true,
+          "passed": true
+        }
+      ],
+      "name": "Case0",
+      "positive": true,
+      "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": true,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": true,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": true,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": true,
+          "passed": true
+        }
+      ],
+      "name": "Case1",
+      "positive": true,
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": true,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": true,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": true,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "OrdinaryBossRevolve"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": true,
+          "passed": true
+        }
+      ],
+      "name": "Case2",
+      "positive": true,
+      "source_sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Primary Solid"
+          ],
+          "candidate_label": [
+            "Primary Solid"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Primary Solid"
+          ],
+          "candidate_label": [
+            "Primary Solid"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Primary Solid"
+          ],
+          "candidate_label": [
+            "Primary Solid"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Primary Solid"
+          ],
+          "candidate_label": [
+            "Primary Solid"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case3",
+      "positive": false,
+      "source_sha256": "0394bd9ed2c446f3ffdb6152ab5781e8a948f93798a915a5ff8e666d82e50e0a"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case4",
+      "positive": false,
+      "source_sha256": "61149e0a47188b84f738bae4f1d677b030422add47012cf80c7659024542f2d1"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Alternate Body"
+          ],
+          "candidate_label": [
+            "Alternate Body"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Alternate Body"
+          ],
+          "candidate_label": [
+            "Alternate Body"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Alternate Body"
+          ],
+          "candidate_label": [
+            "Alternate Body"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Alternate Body"
+          ],
+          "candidate_label": [
+            "Alternate Body"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case5",
+      "positive": false,
+      "source_sha256": "1d81bf0e206741ab9c09626fbb84d121698245cdfedcca243f4d8cc00808c048"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case6",
+      "positive": false,
+      "source_sha256": "33c621870a8427751e9f9004a562aa1d83a57876acc925760bc5ccc9ffb0d9c7"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case7",
+      "positive": false,
+      "source_sha256": "44bd9e4259a3e5703a39ecb6d92fe9450b67eb699fc57f44ad48aae9b15c1bcc"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "AdditiveBox"
+          ],
+          "candidate_label": [
+            "AdditiveBox"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AdditiveBox"
+          ],
+          "candidate_label": [
+            "AdditiveBox"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AdditiveBox"
+          ],
+          "candidate_label": [
+            "AdditiveBox"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AdditiveBox"
+          ],
+          "candidate_label": [
+            "AdditiveBox"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case8",
+      "positive": false,
+      "source_sha256": "b0aca662be89a5e41449ea46f79ca099aba766cdea0e1c81b56f0e8e0485d122"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case9",
+      "positive": false,
+      "source_sha256": "a441e79bc94219c4c0bb4390cc6d13643ca8c56cb0ff69abdb1fa694e82d2778"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body"
+          ],
+          "candidate_label": [
+            "Body"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body"
+          ],
+          "candidate_label": [
+            "Body"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body"
+          ],
+          "candidate_label": [
+            "Body"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body"
+          ],
+          "candidate_label": [
+            "Body"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case10",
+      "positive": false,
+      "source_sha256": "8b018bd2ae5fe1d97c424a5ab051094e52bb24df9a8f85c66de32b45571d9774"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case11",
+      "positive": false,
+      "source_sha256": "9a619f233088d4c26d767642b02ec6dfbdfd25baad7686cd2265210da78f0f00"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Centered Solid"
+          ],
+          "candidate_label": [
+            "Centered Solid"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Centered Solid"
+          ],
+          "candidate_label": [
+            "Centered Solid"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Centered Solid"
+          ],
+          "candidate_label": [
+            "Centered Solid"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Centered Solid"
+          ],
+          "candidate_label": [
+            "Centered Solid"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case12",
+      "positive": false,
+      "source_sha256": "03f6756e214fd2a96975030143590d8e14643147470df86ee21123c59afd503b"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case13",
+      "positive": false,
+      "source_sha256": "9d9ec715ce7c8c4ef68e1a4878d1773bf70e7dda936e76fb7b35163e50cdca1c"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "candidate_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "candidate_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "candidate_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "candidate_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case14",
+      "positive": false,
+      "source_sha256": "af376780840e09a16ac8ede805aa5329ada551faab1313d42c89db6458b7e09a"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "candidate_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "candidate_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "candidate_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "candidate_label": [
+            "Pi\u00e8ce \u00c5ngstr\u00f6m"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case15",
+      "positive": false,
+      "source_sha256": "9a8e1147253a483a6f9f2a8277459027d5eea6c9e56e3120abf8601e040a75cd"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case16",
+      "positive": false,
+      "source_sha256": "39aa92e5a38364561206e83c7918de299b5712ffd14c9c3994758037ee31a0f9"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "candidate_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "candidate_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "candidate_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "candidate_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case17",
+      "positive": false,
+      "source_sha256": "6d4c718ee85b0bce954c9d364b3494d01319a4b376f4b663d847e90c136f91bf"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "candidate_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "candidate_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "candidate_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "candidate_label": [
+            "\u6881_\u0394\u03bf\u03ba\u03cc\u03c2"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case18",
+      "positive": false,
+      "source_sha256": "3f152a8ad6bd3c20abdb2e43446feaacd459ee5f2ec6fc0a852eebe943ad4929"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "AnchorBoss"
+          ],
+          "candidate_label": [
+            "AnchorBoss"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case19",
+      "positive": false,
+      "source_sha256": "08b10f4d0f568e4b33890fbe99371d377bb01638ff5107fe6fe3d2d09e8c9866"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "candidate_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "candidate_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "candidate_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "candidate_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case20",
+      "positive": false,
+      "source_sha256": "9a24db369d7599bdf37dc50121ad75009ab7019ab4ded32607a5cdfce7c2fafa"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "candidate_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "candidate_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "candidate_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Solid Bodies"
+          ],
+          "candidate_label": [
+            "Solid Bodies"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "candidate_label": [
+            "\u6881_\ud801\udc37_\u0394"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case21",
+      "positive": false,
+      "source_sha256": "846ee107e9a6666c45c0ed2e12422e85373e4c08418cb78e254384d9315d1e97"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case22",
+      "positive": false,
+      "source_sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case23",
+      "positive": false,
+      "source_sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case24",
+      "positive": false,
+      "source_sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Case25",
+      "positive": false,
+      "source_sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative0",
+      "positive": false,
+      "source_sha256": "6dc22a83f9b807446fe258b22e1f6a9f79c02369ff6a32ee299d95cda34ffb9c"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative1",
+      "positive": false,
+      "source_sha256": "f76a55e5e495ab1f19d6bd3f6c20d6c4f93f50eee61cdb8dbca5fcdb9a122c4a"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative2",
+      "positive": false,
+      "source_sha256": "0d6a731adc6338af7bc9935c39e5a743fad0159a5318199d8c508ef6f94ccff6"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative3",
+      "positive": false,
+      "source_sha256": "41ca5dafa92c8fd0e6befda8c29dd7116b2800e437c691188ef90e1709f9ba24"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative4",
+      "positive": false,
+      "source_sha256": "380b76f0c310daa237970dbed817cd76917ee54fbef2ad77b19282fa617b9e0d"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative5",
+      "positive": false,
+      "source_sha256": "6d2bf9cbb42e693f9c78581be73afa75341774f20bc385eda8d6aa811426a567"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative6",
+      "positive": false,
+      "source_sha256": "c75196674406cfb5bf16a3865c0e2bb9ed62324e0b32931871681d99440c256e"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative7",
+      "positive": false,
+      "source_sha256": "e6943ed521181838ad7b3fcbb81478b18f20b33787beee85f9aade6679cdbfee"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": null,
+          "candidate_label": null,
+          "error": {
+            "class": "SldprtFormat",
+            "message": "truncated Parasolid frame payload"
+          },
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": null,
+          "candidate_label": null,
+          "error": {
+            "class": "SldprtFormat",
+            "message": "truncated Parasolid frame payload"
+          },
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": null,
+          "candidate_label": null,
+          "error": {
+            "class": "SldprtFormat",
+            "message": "truncated Parasolid frame payload"
+          },
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative8",
+      "positive": false,
+      "source_sha256": "4528fd788171589d2be86db3879e287fef3d752770f79a1c902af71aecb1fcf5"
+    },
+    {
+      "comparisons": [
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Default",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Repeat",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "NoTess",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "History",
+          "name_projection_expected": false,
+          "passed": true
+        },
+        {
+          "baseline_label": [
+            "Body 1"
+          ],
+          "candidate_label": [
+            "Body 1"
+          ],
+          "error": null,
+          "mode": "Lenient",
+          "name_projection_expected": false,
+          "passed": true
+        }
+      ],
+      "name": "Negative9",
+      "positive": false,
+      "source_sha256": "21150e100d8da6b64ba13b88c07ad9b74174ff3c4f7e0909fcc4610f65d04262"
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "historical_observer_failures": [
+    {
+      "completed_groups": 34,
+      "passed": false,
+      "processes": 78,
+      "reason": "negative truncated-cache baseline exits3; first wrapper required all probes to exit0",
+      "report_sha256": "5185a0de0a37f31ae383bb55bc91e2f7b74656f3a732499024bbaeb35acecc4d",
+      "source_manifest_sha256": "3ba62511b5a4d8ba8c75f84bf23689fb389bcb2e95e2a319a2aee3668865d45b"
+    },
+    {
+      "completed_groups": 34,
+      "passed": false,
+      "processes": 78,
+      "reason": "strict cache rejection was allowed, but valid prior lenient no-brep fallback still failed a unary geometry predicate",
+      "report_sha256": "b3e57c1bd024cb493a30266bd63a2ef9168804075ff1a2ed42c962165adf6225",
+      "source_manifest_sha256": "80a6f3e2920b01d6cc942a702f2473e1b37812bca68a93f3a659ee69385f6f26"
+    }
+  ],
+  "independent_exact_root_replay_sha256": "f314990f3990e049287a3c4b6036f547b4b6e15f94619277ab67f53613d400b7",
+  "input_manifest_sha256": "59332eb2ca08bf22d431cdd7ece7c4aecbd3dc0d79fcb97c61fef2dacaff57e4",
+  "native_label_api_remeasured": false,
+  "native_processes": 0,
+  "negative_groups": 10,
+  "paired_groups": 36,
+  "paired_mode_comparisons": 180,
+  "passed": true,
+  "private_report_sha256": "f314990f3990e049287a3c4b6036f547b4b6e15f94619277ab67f53613d400b7",
+  "public_reader_workers": 72,
+  "public_writer_enablement": false,
+  "research_fixture_workers": 10,
+  "runner_sha256": "cbc1a1e6932575be62e14e5789283ee29dcf85dfcd010de223fc8a375e41f07d",
+  "runtime_external_access_attempts": 0,
+  "schema": "kit.sw2026.revolve-body-name-reader-receipt.v1",
+  "shared_source_files_edited_by_lane": 0,
+  "source_changes_for_final_observer_correction": false,
+  "source_manifest_sha256": "80a6f3e2920b01d6cc942a702f2473e1b37812bca68a93f3a659ee69385f6f26",
+  "source_revision": "62044821b7736939bd36ac99fe9c3f63e23d5a79",
+  "sources": [
+    {
+      "actual_output_atom_alias": [
+        true
+      ],
+      "actual_saved_implicit_label": "OrdinaryBossRevolve",
+      "first_unmapped_class": {
+        "already_decoded_nodes": 31,
+        "kind": 51,
+        "next_schema_marker": 255,
+        "payload_body_offset": 1700
+      },
+      "name": "control-RevolveFull",
+      "native_point_records": 0,
+      "native_vertex_records": 0,
+      "public_vertices": 4,
+      "real_atom": {
+        "class": "moAtom_c",
+        "fields": {
+          "body_kind": 0,
+          "f08": -1,
+          "f12c": 31,
+          "f130": 31,
+          "f140": 101,
+          "f180": 1091,
+          "f18c": 1,
+          "f1b0": 1091
+        },
+        "name": null
+      },
+      "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0"
+    },
+    {
+      "actual_output_atom_alias": [
+        true
+      ],
+      "actual_saved_implicit_label": "OrdinaryBossRevolve",
+      "first_unmapped_class": {
+        "already_decoded_nodes": 32,
+        "kind": 31,
+        "next_schema_marker": 255,
+        "payload_body_offset": 1792
+      },
+      "name": "control-RevolvePartialForward",
+      "native_point_records": 8,
+      "native_vertex_records": 8,
+      "public_vertices": 8,
+      "real_atom": {
+        "class": "moAtom_c",
+        "fields": {
+          "body_kind": 0,
+          "f08": -1,
+          "f12c": 31,
+          "f130": 31,
+          "f140": 101,
+          "f180": 1121,
+          "f18c": 1,
+          "f1b0": 1121
+        },
+        "name": null
+      },
+      "sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d"
+    },
+    {
+      "actual_output_atom_alias": [
+        true
+      ],
+      "actual_saved_implicit_label": "OrdinaryBossRevolve",
+      "first_unmapped_class": {
+        "already_decoded_nodes": 32,
+        "kind": 31,
+        "next_schema_marker": 255,
+        "payload_body_offset": 1792
+      },
+      "name": "control-RevolvePartialReverse",
+      "native_point_records": 8,
+      "native_vertex_records": 8,
+      "public_vertices": 8,
+      "real_atom": {
+        "class": "moAtom_c",
+        "fields": {
+          "body_kind": 0,
+          "f08": -1,
+          "f12c": 31,
+          "f130": 31,
+          "f140": 101,
+          "f180": 1121,
+          "f18c": 1,
+          "f1b0": 1121
+        },
+        "name": null
+      },
+      "sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b"
+    }
+  ],
+  "status": "bounded native-cache reader projection; no writer or original-source acceptance",
+  "tools_manifest_sha256": "e3f0a7468a777ea5bd07aff70017c20da3c020e65e80a9367b7bc1401a530468",
+  "unchanged_compatibility_states": 23,
+  "workers": [
+    {
+      "exit_code": 0,
+      "name": "Case0Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case0Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case1Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case1Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case2Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case2Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case3Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case3Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case4Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case4Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case5Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case5Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case6Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case6Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case7Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case7Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case8Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case8Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case9Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case9Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case10Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case10Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case11Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case11Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case12Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case12Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case13Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case13Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case14Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case14Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case15Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case15Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case16Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case16Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case17Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case17Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case18Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case18Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case19Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case19Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case20Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case20Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case21Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case21Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case22Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case22Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case23Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case23Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case24Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case24Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case25Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Case25Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a10cc386655638f6df2df7e262941f6d81a91cbe06f6d6259c912e91d09bfd04"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative0Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative0Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "aa955772b7cddc707cc2638977051ae1d421fe28e4c74cd1b7360f5ef3ae82a5"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative1Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative1Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "a654125e82d694edc1d4f91807a57ef7912f9e1dbd69ddd93fd7552bafb82fa8"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative2Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative2Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ce2f117f88a8ff7fdaf5ef86f893dbfa01c8dc2cc9133d59b7b3d7bdc6e17f1b"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative3Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative3Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "756f950d03b43b99ee181508239e1b9f1a7a9643f52bb74658d2e883e472de19"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative4Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative4Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "19636dd0a830b92f8293ae749650f1ca864ba6bd3dd13431ad3fb8761988df04"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative5Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative5Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "54b50aeb1fd1f075a3a6f49d63e312d0913d0edabfd527089a8e0cf5dc82e409"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative6Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative6Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "def86645ce98546e9e7d6c382d3a8beecac33f671b6272d3d42623f99fa82ec3"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative7Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative7Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "785fe01041a49f3e60b3607a9509d04f7d68c9c886e92cb3998c9bcc480357e5"
+    },
+    {
+      "exit_code": 3,
+      "name": "Negative8Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 3,
+      "name": "Negative8Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Fixture9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "d929869602d1e17514293783ae8690f23c54e832fdb51b75f46bf44af4ae6449"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative9Baseline",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "name": "Negative9Candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

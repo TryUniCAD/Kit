@@ -13,9 +13,17 @@ KAnalyticShapes = MappingProxyType(
             "LINE",
             "node_id:d attributes_features:p1019 owner:p1010 next:p1008 previous:p1008 geometric_owner:p141 sense:c pvec:v direction:v",
         ),
+        31: MakeXmtShape(
+            "CIRCLE",
+            "node_id:d attributes_features:p1019 owner:p1010 next:p1008 previous:p1008 geometric_owner:p141 sense:c centre:v normal:v x_axis:v radius:f",
+        ),
         50: MakeXmtShape(
             "PLANE",
             "node_id:d attributes_features:p1019 owner:p1007 next:p1006 previous:p1006 geometric_owner:p141 sense:c pvec:v normal:v x_axis:v",
+        ),
+        51: MakeXmtShape(
+            "CYLINDER",
+            "node_id:d attributes_features:p1019 owner:p1007 next:p1006 previous:p1006 geometric_owner:p141 sense:c pvec:v axis:v radius:f x_axis:v",
         ),
     }
 )

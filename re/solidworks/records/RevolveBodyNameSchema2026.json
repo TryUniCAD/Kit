@@ -1,0 +1,46 @@
+{
+  "schema": "kit.sw2026.revolve-name-kernel-base.v1",
+  "module": "pskernel.dll",
+  "sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
+  "preferred_base": "0x180000000",
+  "base_table": "0x184543880",
+  "init_start": "0x1820491d0",
+  "init_end_exclusive": "0x18205074f",
+  "init_sha256": "2c72c488d80a6bd08e16ab0ec27ede6f6fc878d6f83c6af46f09d7f67c8ab062",
+  "llvm_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c",
+  "vendor_listing_in_checkout": false,
+  "classes": [
+    {
+      "kind": 31,
+      "name": "CIRCLE",
+      "embedding_base": 13006,
+      "table_slot": "0x184543978",
+      "instruction_start": "0x18204a87b",
+      "instruction_end_exclusive": "0x18204aaff",
+      "instruction_sha256": "92ff66cc90f96efa31b4d01ae51b7f588fd9a6367f5723c2714e3ae814d7aee4",
+      "transmitted_field_count": 11,
+      "scalar_fields": "node_id:d attributes_features:p1019 owner:p1010 next:p1008 previous:p1008 geometric_owner:p141 sense:c centre:v normal:v x_axis:v radius:f",
+      "first_use_schema_marker": 255,
+      "effective_equals_base_on_three_disclosed_sources": true,
+      "confidence": "confirmed"
+    },
+    {
+      "kind": 51,
+      "name": "CYLINDER",
+      "embedding_base": 13006,
+      "table_slot": "0x184543a18",
+      "instruction_start": "0x18204caef",
+      "instruction_end_exclusive": "0x18204cd46",
+      "instruction_sha256": "07cab152e0945024fa03adb1b7b3bed821070ede270f92d82ec61b1ac50ffbeb",
+      "transmitted_field_count": 11,
+      "scalar_fields": "node_id:d attributes_features:p1019 owner:p1007 next:p1006 previous:p1006 geometric_owner:p141 sense:c pvec:v axis:v radius:f x_axis:v",
+      "first_use_schema_marker": 255,
+      "effective_equals_base_on_three_disclosed_sources": true,
+      "confidence": "confirmed"
+    }
+  ],
+  "source_correlation_sha256": "511771ade639d018423333eaa17e0cb2412d3d281045e1895a4bf761c96c674f",
+  "first_boundary_trace_sha256": "0d12f64900861ddec076d4a86c99b087ba559db1f553255442528e9464d1824e",
+  "native_body_owner_record": "NamedBodyOwnership2026.json",
+  "native_code_or_payload_distributed": false
+}

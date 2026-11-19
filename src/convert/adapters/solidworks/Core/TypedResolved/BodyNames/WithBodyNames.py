@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadNamedBody impo
     ReadNamedBody,
 )
 from interchange.document.Models.DocumentModel import CadDocument
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Revolves.ReadRevolveBody import (
+    ReadRevolveBody,
+)
 
 
 # unsupported body inventories retain their existing reader path without speculative naming or geometry changes
@@ -21,4 +24,7 @@ def WithBodyNames(
     try:
         return BindBodyName(Document, ReadNamedBody(Document, Archive, ConfigId))
     except (TypeError, ValueError, KeyError):
-        return Document
+        try:
+            return BindBodyName(Document, ReadRevolveBody(Document, Archive, ConfigId))
+        except (TypeError, ValueError, KeyError):
+            return Document

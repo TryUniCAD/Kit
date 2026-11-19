@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyScalar import (
     ReadBodyScalar,
 )
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyOwner import (
+    ReadBodyOwner,
+)
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadOutputAtom import (
     ReadOutputAtom,
 )
@@ -23,6 +26,8 @@ def ReadBodyAtom(
     Attributes: Mapping[str, XmtNode],
     LabelValue: str,
     ExplicitLabel: str | None,
+    *,
+    RevolveValue: ArchiveNode | None = None,
 ) -> tuple[ArchiveNode, int]:
     ModelValue = RequireNative(LinkValue.ConfigValue.RootValue, "moPart_c")
     Manager = NativeRecord(ModelValue.FieldsValue.get("fd88"))
@@ -41,16 +46,10 @@ def ReadBodyAtom(
     }
     if AtomsValue != {id(AtomValue)} or AtomValue.FieldsValue.get("body_kind") != 0:
         raise ValueError("named body has alternate archive atom ownership")
-    BossValues = tuple(
-        RequireNative(NodeValue, "moExtrusion_c")
-        for NodeValue in LinkValue.ResolvedValue.RootsValue
-        if NodeValue is not None and NodeValue.ClassValue.NameValue == "moExtrusion_c"
-    )
-    if len(BossValues) != 1:
-        raise ValueError("named body has no unique witnessed extrusion owner")
-    if ReadOutputAtom(BossValues[0]) is not AtomValue:
+    BossValue = ReadBodyOwner(LinkValue, RevolveValue)
+    if ReadOutputAtom(BossValue) is not AtomValue:
         raise ValueError("native output atom differs from the actual manager member")
-    FeatureId = NativeNodeId(BossValues[0])
+    FeatureId = NativeNodeId(BossValue)
     Expected = {
         "f140": ReadBodyScalar(NodesValue, Attributes, "ATOM_ID_2001", 1),
         "f180": ReadBodyScalar(NodesValue, Attributes, "BODY_MATCH", 0),
