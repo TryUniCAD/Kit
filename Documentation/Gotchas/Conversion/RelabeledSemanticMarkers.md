@@ -12,4 +12,4 @@ The [review finding](https://github.com/TryUniCAD/Kit/pull/94#discussion_r457668
 
 Evaluate retained semantic markers independently of the mutable source label. Apply the same checks to embedded documents and direct and registry writers before output mutation. Preserve the evidence for inspection until independent qualification resolves the underlying semantics.
 
-See [the change entry](../../Changes/Research/ReidentifiedWriteMarkers.md).
+See [the change entry](../../Changes/Research/Qualification/ReidentifiedWriteMarkers.md).

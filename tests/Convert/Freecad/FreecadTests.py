@@ -180,6 +180,8 @@ from interchange.Features.FeatureExtrude import ExtrudeFeature as ExtrusionFeatu
 from interchange.geometry.Models.GeometryTypes import KGeometryTypes as GeometryTypes
 from tests.Convert.NativeWrites.IsNativeBlock import IsNativeBlock
 from tests.Convert.Qualification.TypedPart import TypedPart
+from tests.Convert.Freecad.FixturePolicy.CodecRebuild import CodecRebuild
+from tests.Convert.Freecad.FixturePolicy.RepresentOnly import RepresentOnly
 from tests.Interchange.Document.DocumentTests import document as NeutralDoc
 from tests.Interchange.Brep.BrepTests import triangle_brep as TriangleBrep
 
@@ -1259,7 +1261,13 @@ def TestProtocolAre() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestEncodableIs() -> None:
-    Source = Replace(NeutralDoc(), brep=TriangleBrep())
+    Source = Replace(
+        RepresentOnly(),
+        brep=Replace(
+            TriangleBrep(),
+            bodies=(Replace(TriangleBrep().bodies[0], design_body_id=""),),
+        ),
+    )
     Adapter = FreeCadAdapter()
     CarrierOutput = IoStream.BytesIO()
     CarrierResult = Adapter.write(Source, CarrierOutput)
@@ -1304,7 +1312,7 @@ def TestEncodableIs() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestNonOpenBrep() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     Payload = BrepPayload(
         "foreign:brep",
         "parasolid.x_b",
@@ -1376,7 +1384,7 @@ def TestSolidworksA() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestDecodedBrep() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     DataValue = b"PS\x00\x00retained-source"
     Payload = BrepPayload(
         "source:brep",
@@ -1388,7 +1396,14 @@ def TestDecodedBrep() -> None:
         role=PayloadRole.BREP,
         file_extension=".x_b",
     )
-    DocValue = Replace(Source, brep=TriangleBrep(), brep_payloads=(Payload,))
+    DocValue = Replace(
+        Source,
+        brep=Replace(
+            TriangleBrep(),
+            bodies=(Replace(TriangleBrep().bodies[0], design_body_id=""),),
+        ),
+        brep_payloads=(Payload,),
+    )
     Output = IoStream.BytesIO()
     Result = FreeCadAdapter().write(DocValue, Output)
     Transfers = {Transfer.capability: Transfer for Transfer in Result.transfers}
@@ -1423,8 +1438,8 @@ def TestDuplicateDo() -> None:
         Source, feature_timeline=(*Source.feature_timeline, RefValue, Housekeeping)
     )
     DocValue.assert_valid()
-    Baseline = FreeCadAdapter().write(Source, IoStream.BytesIO())
-    Result = FreeCadAdapter().write(DocValue, IoStream.BytesIO())
+    Baseline = CodecRebuild(Source, IoStream.BytesIO())
+    Result = CodecRebuild(DocValue, IoStream.BytesIO())
     BaselineTransfers = {
         Transfer.capability: Transfer for Transfer in Baseline.transfers
     }
@@ -1848,7 +1863,7 @@ def TestNeutralAre() -> None:
         brep=TriangleBrep(),
     )
     Output = IoStream.BytesIO()
-    Result = FreeCadAdapter().write(DocValue, Output)
+    Result = CodecRebuild(DocValue, Output)
     PayloadData = Output.getvalue()
     VerifyTransfers(Result)
     VerifyWriteXml(PayloadData)
@@ -1872,7 +1887,7 @@ def TestNeutralAnd() -> None:
     DocValue = Replace(Source, feature_timeline=(System, RefValue, Extrusion))
     DocValue.assert_valid()
     Output = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     Declarations = {
@@ -2243,7 +2258,7 @@ def TestUnavailable() -> None:
     DocValue.assert_valid()
     Output = IoStream.BytesIO()
     Adapter = FreeCadAdapter()
-    Result = Adapter.write(DocValue, Output)
+    Result = CodecRebuild(DocValue, Output)
     Transfers = {Transfer.capability: Transfer for Transfer in Result.transfers}
     assert Transfers[Capability.EDITABLE_SKETCHES].mode == TransferMode.MIXED
     assert (
@@ -2297,7 +2312,17 @@ def TestNeutralTrip() -> None:
     DocValue = Replace(
         Source,
         sketches=(Sketch,),
-        feature_timeline=(Replace(Source.feature_timeline[0], suppressed=True),),
+        feature_timeline=(
+            FeatureStep(
+                "feature:sketch",
+                "Sketch",
+                FeatureKind.REFERENCE,
+                0,
+                sketch_id=Sketch.id,
+                attributes={"native_type": "sketch"},
+            ),
+        ),
+        bodies=(),
     )
     DocValue.assert_valid()
     Output = IoStream.BytesIO()
@@ -2385,7 +2410,17 @@ def TestUnbounded() -> None:
     DocValue = Replace(
         Source,
         sketches=(Sketch,),
-        feature_timeline=(Replace(Source.feature_timeline[0], suppressed=True),),
+        feature_timeline=(
+            FeatureStep(
+                "feature:sketch",
+                "Sketch",
+                FeatureKind.REFERENCE,
+                0,
+                sketch_id=Sketch.id,
+                attributes={"native_type": "sketch"},
+            ),
+        ),
+        bodies=(),
     )
     Output = IoStream.BytesIO()
     Result = FreeCadAdapter().write(DocValue, Output)
@@ -2443,7 +2478,7 @@ def TestGeomPayload() -> None:
     )
     Output = IoStream.BytesIO()
     Adapter = FreeCadAdapter()
-    Result = Adapter.write(DocValue, Output)
+    Result = CodecRebuild(DocValue, Output)
     Transfers = {Transfer.capability: Transfer.mode for Transfer in Result.transfers}
     assert Transfers[Capability.EDITABLE_SKETCHES] == TransferMode.NATIVE
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
@@ -2551,7 +2586,7 @@ def TestRuleCarrier() -> None:
     DocValue.assert_valid()
     Output = IoStream.BytesIO()
     Adapter = FreeCadAdapter()
-    Result = Adapter.write(DocValue, Output)
+    Result = CodecRebuild(DocValue, Output)
     Transfers = {Transfer.capability: Transfer.mode for Transfer in Result.transfers}
     assert Transfers[Capability.EDITABLE_SKETCHES] == TransferMode.MIXED
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
@@ -2562,23 +2597,32 @@ def TestRuleCarrier() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestNeutralUses() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     First = SketchEntity(
         "sketch:1:point:1", GeomKind.POINT, PointGeom(VectorTwo(0.0, 0.0))
     )
     Second = SketchEntity(
         "sketch:1:point:2", GeomKind.POINT, PointGeom(VectorTwo(10.0, 0.0))
     )
+    Dimension = Param(
+        "dimension:profile",
+        "ProfileDimension",
+        ParamValue(10.0, ValueKind.LENGTH, "mm"),
+    )
     Distance = SketchRule(
         "distance:points",
         RuleKind.DISTANCE,
         (RuleRef(First.id), RuleRef(Second.id)),
+        parameter_id=Dimension.id,
         attributes={"Value": 10.0},
     )
     Sketch = Replace(
-        Source.sketches[0], entities=(First, Second), constraints=(Distance,)
+        Source.sketches[0],
+        entities=(First, Second),
+        constraints=(Distance,),
+        parameter_ids=(Dimension.id,),
     )
-    DocValue = Replace(Source, sketches=(Sketch,))
+    DocValue = Replace(Source, sketches=(Sketch,), parameters=(Dimension,))
     Output = IoStream.BytesIO()
     _ = FreeCadAdapter().write(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
@@ -2595,24 +2639,31 @@ def TestNeutralUses() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestRadiusRule() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     Circle = SketchEntity(
         "sketch:1:circle:1", GeomKind.CIRCLE, CircleGeom(VectorTwo(0.0, 0.0), 8.0)
+    )
+    Dimension = Param(
+        "dimension:profile", "ProfileDimension", ParamValue(8.0, ValueKind.LENGTH, "mm")
     )
     Radius = SketchRule(
         "radius:native",
         RuleKind.RADIUS,
         (RuleRef(Circle.id),),
+        parameter_id=Dimension.id,
         attributes={"native_value": 8.0},
     )
     Sketch = Replace(
         Source.sketches[0],
         entities=(Circle,),
         constraints=(Radius,),
+        parameter_ids=(Dimension.id,),
         closed_profile_entity_ids=((Circle.id,),),
     )
     Output = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(Replace(Source, sketches=(Sketch,)), Output)
+    _ = FreeCadAdapter().write(
+        Replace(Source, sketches=(Sketch,), parameters=(Dimension,)), Output
+    )
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     Encoded = RootValue.find(
@@ -2849,7 +2900,7 @@ def TestCurrentMesh(Source: bytes, ExpectedSource: str) -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestMeshKernel() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     MeshValue = MeshRecord(
         "mesh:1",
         "Mesh",
@@ -3097,7 +3148,7 @@ def TestFcstdEmits() -> None:
         bodies=(Replace(Source.bodies[0], final_feature_id=Second.id),),
     )
     Target = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(Source, Target)
+    _ = CodecRebuild(Source, Target)
     DataValue = Target.getvalue()
     with Zipfile.ZipFile(IoStream.BytesIO(DataValue)) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
@@ -3385,7 +3436,7 @@ def TestSelfPart() -> None:
     VerifyPart(DocValue)
     DocValue = EditCircle(DocValue)
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     VerifyPartXml(RootValue)
@@ -3400,7 +3451,7 @@ def TestReplayPlane() -> None:
         Plane, transform=Replace(Plane.transform, origin=VectorThree(12.0, 34.0, 56.0))
     )
     Output = IoStream.BytesIO()
-    _ = Adapter.write(Replace(DocValue, support_planes=(EditedPlane,)), Output)
+    _ = CodecRebuild(Replace(DocValue, support_planes=(EditedPlane,)), Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     Placement = RootValue.find(
@@ -3418,7 +3469,7 @@ def TestReplayProp() -> None:
     DocValue = Adapter.read(NativePart())
     Feature = DocValue.feature_timeline[0]
     Output = IoStream.BytesIO()
-    _ = Adapter.write(
+    _ = CodecRebuild(
         Replace(DocValue, feature_timeline=(Replace(Feature, suppressed=True),)), Output
     )
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
@@ -3505,7 +3556,7 @@ def TestSketchShape() -> None:
     ]
     assert Payloads["Final.Shape.brp"].data == FinalBrep
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         assert Archive.read("Sketch.Shape.brp") == SketchBrep
         assert Archive.read("Sketch.Shape.Map.txt") == SketchMap
@@ -3901,7 +3952,7 @@ def TestCustomAsm() -> None:
         == "Vendor::FutureConstraintCollection"
     )
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     Types = {
@@ -3932,7 +3983,7 @@ def TestAsmObjects() -> None:
         {"source_stream": "Blob.bin", "data": b"opaque"}
     ]
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         Names = set(Archive.namelist())
         assert Archive.read("Blob.bin") == b"opaque"
@@ -4079,7 +4130,7 @@ def TestAsmWritesA() -> None:
     Adapter = FreeCadAdapter()
     DocValue = Adapter.read(NativeAsm())
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     VerifyAsmLinks(RootValue)
@@ -4091,7 +4142,7 @@ def TestAsmWrites() -> None:
     Adapter = FreeCadAdapter()
     DocValue = Adapter.read(NativeAsm(BrepModelBrep(TriangleBrep())))
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
         Types = {
@@ -4156,8 +4207,8 @@ def TestOuterSource(TmpPath: FilePath) -> None:
 def TestAsmGrouped(TmpPath: FilePath) -> None:
     First = TmpPath / "First.FCStd"
     Second = TmpPath / "Second.FCStd"
-    _ = First.write_bytes(NativePart())
-    _ = Second.write_bytes(NativePart())
+    _ = WriteDoc(TypedPart(), First)
+    _ = WriteDoc(TypedPart(), Second)
     Source = TmpPath / "Mixed.FCStd"
     _ = Source.write_bytes(
         NativeOuterAsm(
@@ -4261,7 +4312,7 @@ def TestLinkOnlyDoc(TmpPath: FilePath) -> None:
     SourceFolder = TmpPath / "source"
     Child = SourceFolder / "nested" / "Child.FCStd"
     Child.parent.mkdir(parents=True)
-    _ = Child.write_bytes(NativePart())
+    _ = WriteDoc(TypedPart(), Child)
     RootValue = SourceFolder / "LinkOnly.FCStd"
     _ = RootValue.write_bytes(NativeLinkOnly("nested/Child.FCStd"))
     Adapter = FreeCadAdapter()
@@ -4336,7 +4387,13 @@ def TestPartExact(TmpPath: FilePath) -> None:
     assert Result.metadata["mode"] == "exact_native_roundtrip"
     assert Result.metadata["native_self_contained"] is True
     assert Result.requirements == ()
-    assert Result.near_lossless is True
+    assert Result.near_lossless is False
+    assert Result.application_usable is False
+    assert Result.vendor_loadable is False
+    assert any(
+        Value.code == "freecad.native_replay.unqualified"
+        for Value in Result.diagnostics
+    )
     assert Target.read_bytes() == Source.read_bytes()
 
 
@@ -4368,9 +4425,7 @@ def TestRecomputed(Rebuild: bool) -> None:
     Forged = ForgedNativeDoc(DocValue, ForgedData)
     assert UnchangedNative(Forged) is None
     Output = IoStream.BytesIO()
-    Result = FreeCadAdapter().write(
-        Forged, Output, WriteOptions(values={"rebuild": Rebuild})
-    )
+    Result = CodecRebuild(Forged, Output, WriteOptions(values={"rebuild": Rebuild}))
     Transfers = {Value.capability: Value for Value in Result.transfers}
     assert Result.metadata.get("mode") != "exact_native_roundtrip"
     assert Transfers[Capability.BREP].mode is TransferMode.CARRIER
@@ -4437,30 +4492,13 @@ def TestRootCannot(TmpPath: FilePath) -> None:
     )
     Forged = AnnotateNative(Replace(DocValue, assembly=AsmValue))
     Target = TmpPath / "rebuilt" / "Parent.FCStd"
-    Result = WriteDoc(Forged, Target, values={"rebuild": True})
-    Transfers = {Value.capability: Value for Value in Result.transfers}
-    assert Transfers[Capability.BREP].mode is TransferMode.CARRIER
-    assert Transfers[Capability.BREP].carrier_reason is CarrierReason.SOURCE_OPAQUE
-    assert Result.application_usable is False
-    ComponentFiles = tuple(Target.parent.rglob("*.FCStd"))
-    assert Target in ComponentFiles
-    assert len(ComponentFiles) > 1
-    for ComponentFile in ComponentFiles:
-        with Zipfile.ZipFile(ComponentFile) as Archive:
-            RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-            NativeShapeFiles = tuple(
-                (
-                    Value.get("file", "")
-                    for Value in RootValue.findall(".//Part[@file]")
-                    if Value.get("file", "")
-                )
-            )
-            assert all(
-                (
-                    Archive.read(NameValue) != ForgedData
-                    for NameValue in NativeShapeFiles
-                )
-            )
+    with Pytest.raises(
+        ValueError, match="FreeCAD cannot emit editable required features"
+    ):
+        _ = WriteDoc(Forged, Target, values={"rebuild": True})
+    assert not Target.exists()
+    assert not Target.parent.exists()
+    assert UnchangedNative(ForgedNested) is None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -4543,7 +4581,7 @@ def TestFcstdXml() -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestCarrierA() -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart())
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Malformed = IoStream.BytesIO()
@@ -4563,7 +4601,7 @@ def TestCarrierA() -> None:
 def TestCarrier(ChangedCopy: str) -> None:
     Adapter = FreeCadAdapter()
     Valid = IoStream.BytesIO()
-    _ = Adapter.write(NeutralDoc(), Valid)
+    _ = Adapter.write(TypedPart(), Valid)
     with Zipfile.ZipFile(IoStream.BytesIO(Valid.getvalue())) as Source:
         Entries = {
             InfoValue.filename: Source.read(InfoValue)
@@ -4604,7 +4642,7 @@ def TestCarrier(ChangedCopy: str) -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestCarrierUses() -> None:
     Adapter = FreeCadAdapter()
-    DocValue = NeutralDoc()
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Legacy = IoStream.BytesIO()
@@ -4624,7 +4662,7 @@ def TestCarrierById() -> None:
         Config("configuration:b", "Second"),
         Config("configuration:c", "Shared"),
     )
-    DocValue = Replace(NeutralDoc(), configurations=Configurations)
+    DocValue = Replace(TypedPart(), configurations=Configurations)
     Output = IoStream.BytesIO()
     Adapter = FreeCadAdapter()
     _ = Adapter.write(DocValue, Output)
@@ -4644,7 +4682,7 @@ def TestCarrierById() -> None:
 def TestRejectsAnd() -> None:
     Adapter = FreeCadAdapter()
     Carrier = IoStream.BytesIO()
-    _ = Adapter.write(NeutralDoc(), Carrier)
+    _ = Adapter.write(TypedPart(), Carrier)
     for Source in (Carrier.getvalue(), NativePart()):
         with Pytest.raises(FreeCadAdapterError, match="configuration"):
             _ = Adapter.read(Source, ReadOptions(configuration="missing-configuration"))
@@ -4665,7 +4703,7 @@ def TestSelectsById() -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestCarrierAndA() -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart())
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Invalid = IoStream.BytesIO()
@@ -4708,7 +4746,7 @@ def TestCarrierAndA() -> None:
 )
 def TestCarrierDoc(DocXml: bytes | None) -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart())
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     with Zipfile.ZipFile(IoStream.BytesIO(Valid.getvalue())) as Source:
@@ -4728,7 +4766,7 @@ def TestCarrierDoc(DocXml: bytes | None) -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestCarrierNon() -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart(BrepModelBrep(TriangleBrep())))
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Invalid = IoStream.BytesIO()
@@ -4823,7 +4861,7 @@ def TestCarrierDeep() -> None:
 )
 def TestCarrierAnd(EntryName: str, EntryData: bytes, Message: str) -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart())
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Hostile = IoStream.BytesIO()

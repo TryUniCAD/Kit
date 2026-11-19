@@ -5,12 +5,13 @@ from interchange.Enums.EnumFeatures import FeatureKind
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
 from interchange.Features.FeatureKinds import HoleFeature
+from interchange.Features.ScopedExtrude import ScopedExtrude
 from tests.Convert.Api.Fusion.AdapterCases import AdapterCase
 
 
 # termination fixtures isolate unsupported end modes from other semantic evidence
 def EndEvidence(
-    Family: str, EndValue: ExtrudeEnd | str, IsSuppressed: bool
+    Family: str, EndValue: ExtrudeEnd | str, IsSuppressed: bool, IsScoped: bool = False
 ) -> CadDocument:
     Document = AdapterCase("cuboid")
     Original = next(
@@ -46,6 +47,17 @@ def EndEvidence(
                 Definition,
                 length=None if Family == "depthless" else LengthValue,
                 end_condition=EndValue,
+            ),
+        )
+    if IsScoped:
+        assert isinstance(Changed.definition, ExtrudeFeature)
+        Changed = ReplaceData(
+            Changed,
+            definition=ScopedExtrude(
+                Changed.definition,
+                "all_applicable",
+                (),
+                tuple(BodyValue.id for BodyValue in Document.bodies),
             ),
         )
     Changed = ReplaceData(Changed, suppressed=IsSuppressed)

@@ -1,6 +1,7 @@
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
 from interchange.Features.FeatureKinds import HoleFeature
+from interchange.Features.ScopedExtrude import ScopedExtrude
 
 # portable end modes give writers a shared boundary for reconstructing termination
 KPortableEnds = frozenset(
@@ -13,6 +14,8 @@ def EndFindings(Document: CadDocument) -> tuple[str, ...]:
     Findings: list[str] = []
     for StepValue in Document.feature_timeline:
         Definition = StepValue.definition
+        if isinstance(Definition, ScopedExtrude):
+            Definition = Definition.Extrusion
         if not isinstance(Definition, (ExtrudeFeature, HoleFeature)):
             continue
         EndValues: dict[str, ExtrudeEnd | str | None] = {

@@ -4,12 +4,22 @@ from pytest import mark as TestMark
 
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
+from interchange.Features.ScopedExtrude import ScopedExtrude
 from tests.Convert.Solidworks.Core.NativeWrites.EndEvidence import EndEvidence
 from tests.Convert.Solidworks.Core.NativeWrites.RejectFields import RejectFields
 
 
 # unknown end modes must fail consistently for both nesting and suppression states
-@TestMark.parametrize("Family", ("extrude", "second", "hole"))
+@TestMark.parametrize(
+    ("Family", "IsScoped"),
+    (
+        ("extrude", False),
+        ("second", False),
+        ("hole", False),
+        ("extrude", True),
+        ("second", True),
+    ),
+)
 @TestMark.parametrize(
     "EndValue", (ExtrudeEnd.NATIVE, "native:32767", "future:termination")
 )
@@ -21,20 +31,33 @@ def TestEndWrite(
     EndValue: ExtrudeEnd | str,
     IsNested: bool,
     IsSuppressed: bool,
+    IsScoped: bool,
 ) -> None:
-    RejectFields(EndEvidence(Family, EndValue, IsSuppressed), TmpPath, IsNested)
+    RejectFields(
+        EndEvidence(Family, EndValue, IsSuppressed, IsScoped), TmpPath, IsNested
+    )
 
 
 # depthless through all is valid neutral history while destination reconstruction still needs qualification
 @TestMark.parametrize(("IsNested", "IsSuppressed"), ((False, False), (True, True)))
-def TestDepthless(TmpPath: FilePath, IsNested: bool, IsSuppressed: bool) -> None:
-    Document = EndEvidence("depthless", ExtrudeEnd.THROUGH_ALL, IsSuppressed)
+@TestMark.parametrize("IsScoped", (False, True))
+def TestDepthless(
+    TmpPath: FilePath, IsNested: bool, IsSuppressed: bool, IsScoped: bool
+) -> None:
+    Document = EndEvidence("depthless", ExtrudeEnd.THROUGH_ALL, IsSuppressed, IsScoped)
     Restored = CadDocument.from_json(Document.to_json())
     assert Restored == Document
-    assert any(
-        isinstance(StepValue.definition, ExtrudeFeature)
-        and StepValue.definition.length is None
+    Definitions = tuple(
+        (
+            StepValue.definition.Extrusion
+            if isinstance(StepValue.definition, ScopedExtrude)
+            else StepValue.definition
+        )
         for StepValue in Restored.feature_timeline
+    )
+    assert any(
+        isinstance(Definition, ExtrudeFeature) and Definition.length is None
+        for Definition in Definitions
     )
     RejectFields(
         Document, TmpPath, IsNested, "depthless extrusion reconstruction is unqualified"

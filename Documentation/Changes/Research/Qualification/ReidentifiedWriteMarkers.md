@@ -12,4 +12,4 @@ Process integration cases read native input, persist and reopen relabeled neutra
 
 Steering, formatting and static typing are permitted local checks. No tests or native decoding ran locally. Exact-head remote verification remains required. This change resolves a refusal bypass; it does not qualify a source equation, a unit mapping or conversion.
 
-See [the marker gotcha](../../Gotchas/Conversion/RelabeledSemanticMarkers.md) and [the reader guide](../../Reference/Research/SolidworksResearchReader.md).
+See [the marker gotcha](../../../Gotchas/Conversion/RelabeledSemanticMarkers.md) and [the reader guide](../../../Reference/Research/SolidworksResearchReader.md).
