@@ -1,6 +1,6 @@
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# current note tail preserves favorite BOM thread map and numeric state without applying native load fixups
+# current note tail preserves favorite bill of materials thread map and numeric state without applying native load fixups
 KNoteTail = (
     NativeField("Text", "f6d8"),
     NativeField("Node", "f6e0"),

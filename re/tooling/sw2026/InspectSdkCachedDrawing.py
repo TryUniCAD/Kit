@@ -61,13 +61,14 @@ def predict(neutral):
                                        px + width / 2 + margin, py + height / 2 + margin]}}
     folder = neutral["native"]["options"]["folder_names"]
     support = neutral["support_names"]
+    sheet_support = neutral["native"]["options"]["sheet_names"]
     title, view_name = sheet["name"], view["name"]
     drawings = [[folder[key], tag, None] for key, tag in (
         ("comments", "CommentsFolder"), ("blocks", "BlockFolder"), ("binder", "DocsFolder"),
         ("annotations", "DetailCabinet"), ("ink_markups", "InkMarkupFolder"), ("review_markups", "MarkupCommentFolder"),
     )]
-    drawings.extend([[title, "DrSheet", None], [support["sheet_plane"], "RefPlane", title],
-                     [support["sheet_profile"], "ProfileFeature", title], [title.rsplit(" ", 1)[0] + " details", "DetailFolder", title],
+    drawings.extend([[title, "DrSheet", None], [sheet_support["plane_name"], "RefPlane", title],
+                     [sheet_support["profile_name"], "ProfileFeature", title], [sheet_support["detail_name"], "DetailFolder", title],
                      [view_name, "AbsoluteView", title], [support["detail"], "DetailFolder", view_name],
                      [support["sheet_plane"], "RefPlane", view_name], [support["sheet_profile"], "ProfileFeature", view_name],
                      [support["model_plane"], "RefPlane", view_name], [support["model_profile"], "ProfileFeature", view_name]])

@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Drawing.Definition.Linked.Fields.Notes.NoteGate
     GateNote,
 )
 
-# a null component makes both native external-owner predicates false without resolving a runtime file table
+# a null component makes both native predicates for external owners false without resolving a runtime file table
 KLocalDetailFields = (
     NativeField("Base", "moCompRef_c"),
     NativeField(
