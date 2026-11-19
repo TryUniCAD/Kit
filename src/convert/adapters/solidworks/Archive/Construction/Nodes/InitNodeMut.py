@@ -22,9 +22,12 @@ def InitNodeMut(
             "node initialization requires an empty concrete schema one archive node"
         )
     if NameValue is None:
-        if Allocator is not None or NodeValue.ClassValue.NameValue != "moRefPlane_c":
+        if Allocator is not None or NodeValue.ClassValue.NameValue not in (
+            "moRefPlane_c",
+            "moConfigurationMgr_c",
+        ):
             raise ValueError(
-                "only unregistered reference planes may omit a native name"
+                "only unregistered reference planes and configuration managers may omit a native name"
             )
     elif type(NameValue) is not str or not NameValue or "\x00" in NameValue:
         raise ValueError("node names must be nonempty strings without null characters")

@@ -1,0 +1,1260 @@
+{
+  "schema": "kit.sw2026.optional-manager-process-receipt.v1",
+  "status": "host constructor and typed projection qualified; no new native output acceptance",
+  "source_revision": "7971e9c01b4299f6764357c3f07699c2ddd72091",
+  "source_manifest_sha256": "05822833e81bd20003b94ff2efefa6d8d4dcb155666ed8621363aa0686a11352",
+  "baseline_manifest_sha256": "5b2fc22029618bab83513d6a3075bf7311fb83032731a9e52b8ff30134bb320d",
+  "tools_manifest_sha256": "29b4d4c6025504afb4817642d0ac47f1e19db4e74b30cc81f0950562447c0ab7",
+  "input_manifest_sha256": "9df7ffdfa513226e453a29d87a0e855a13e8fe6a23ac383c03ce5227afd9dee3",
+  "runner_sha256": "a895e573a4fbfd8f3f0e6bbe0b79764ec1df598943a747ebf4cd9e3005a1c53d",
+  "private_report_sha256": "7819c694453d91c3cde8603720b18ef36cbe2149c414119728fb7a7d82cff4df",
+  "passed": true,
+  "fresh_host_processes": 35,
+  "disclosed_native_source_cmgr_exact_replays": 4,
+  "fresh_manager_graph_cases": 4,
+  "neutral_revolve_build_cases": 4,
+  "default_output_hashes_preserved": 4,
+  "strict_public_semantic_mode_comparisons": 8,
+  "negative_process_cases": 23,
+  "runtime_external_access_attempts": 0,
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "original_source_preparation_admitted": false,
+  "public_unnamed_manager_preparation_enabled": false,
+  "unnamed_generated_outputs_native_qualified": false,
+  "native_evidence_sha256": "2e93529c261ab4dea00d1ee0c3916aa96134c4dae539cb7c467ca33155f3f6d7",
+  "sources": [
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "source",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "case": "control-RevolveFull",
+      "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "cmgr": {
+        "bytes": 2159,
+        "sha256": "7554382552fe45055073aff95e499abb74a9db17fedde925efb366de64825342",
+        "map_counter": 19,
+        "map_entries": 18,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Default",
+              "Description": "",
+              "UpdatedAt": 631180800
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "optional_name_absent": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "source",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "case": "control-RevolvePartialForward",
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "cmgr": {
+        "bytes": 2159,
+        "sha256": "d6c3371c33b4be612eb29e5190658e2ab843b9fcd3750d29eb6e7a24ae4f10b6",
+        "map_counter": 19,
+        "map_entries": 18,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Default",
+              "Description": "",
+              "UpdatedAt": 631180800
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "optional_name_absent": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "source",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "case": "control-RevolvePartialReverse",
+      "source_sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+      "cmgr": {
+        "bytes": 2159,
+        "sha256": "d988c5b59ac3d4add7b07588bdebe89569d8b6d46918f2580faa3f230bfec3c5",
+        "map_counter": 19,
+        "map_entries": 18,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Default",
+              "Description": "",
+              "UpdatedAt": 631180800
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "optional_name_absent": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "source",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "case": "ThroughAllD01CutForward",
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "cmgr": {
+        "bytes": 2261,
+        "sha256": "d8502b08c01f9af2e97c94dfd3ad47e92ce0765e662a906f648497ad1bdea50c",
+        "map_counter": 20,
+        "map_entries": 19,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Default",
+              "Description": "",
+              "UpdatedAt": 631180800
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "optional_name_absent": true,
+      "runtime_external_attempts": []
+    }
+  ],
+  "graphs": [
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "graph",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "cmgr": {
+        "bytes": 1157,
+        "sha256": "5af09454efcb87552addfe8a9152aa7fcabe15dc1e443c8077ca415d8106a7b9",
+        "map_counter": 9,
+        "map_entries": 8,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Working",
+              "Description": "explicit working configuration",
+              "UpdatedAt": 1795000000
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "deterministic_two_builds": true,
+      "global_allocator_next": 18,
+      "local_ids_independent": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "graph",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "cmgr": {
+        "bytes": 1189,
+        "sha256": "2feef6f5fa921b9f3b988e1fe875287cf7e0addcfaa3e541256df7ecd0da53af",
+        "map_counter": 10,
+        "map_entries": 9,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": "Configurations",
+          "ConfigValues": [
+            {
+              "NameValue": "Working",
+              "Description": "explicit working configuration",
+              "UpdatedAt": 1795000000
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "deterministic_two_builds": true,
+      "global_allocator_next": 18,
+      "local_ids_independent": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "graph",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "cmgr": {
+        "bytes": 2723,
+        "sha256": "87fb4aef7670800709f85940ec3ae8a3da34bc4a86f7718823c65b915ba12eca",
+        "map_counter": 13,
+        "map_entries": 12,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Working",
+              "Description": "explicit working configuration",
+              "UpdatedAt": 1795000000
+            },
+            {
+              "NameValue": "Review-β",
+              "Description": "",
+              "UpdatedAt": 1795000017
+            },
+            {
+              "NameValue": "Export",
+              "Description": "independent authored state",
+              "UpdatedAt": 1795000031
+            }
+          ],
+          "CurrentIndex": 2
+        }
+      },
+      "deterministic_two_builds": true,
+      "global_allocator_next": 18,
+      "local_ids_independent": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "graph",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "cmgr": {
+        "bytes": 2757,
+        "sha256": "906c3c2e2be7379807347404ec3eab09792f7b00a16916b0c54d15e134ec226a",
+        "map_counter": 14,
+        "map_entries": 13,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": "Configuration β",
+          "ConfigValues": [
+            {
+              "NameValue": "Working",
+              "Description": "explicit working configuration",
+              "UpdatedAt": 1795000000
+            },
+            {
+              "NameValue": "Review-β",
+              "Description": "",
+              "UpdatedAt": 1795000017
+            },
+            {
+              "NameValue": "Export",
+              "Description": "independent authored state",
+              "UpdatedAt": 1795000031
+            }
+          ],
+          "CurrentIndex": 1
+        }
+      },
+      "deterministic_two_builds": true,
+      "global_allocator_next": 18,
+      "local_ids_independent": true,
+      "runtime_external_attempts": []
+    }
+  ],
+  "builds": [
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "build",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "previous_sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+      "sha256": "3c990249c00e1118c5fdda64888494155d1e3529f2460c002f60640e74f86162",
+      "previous_named_bytes_preserved": true,
+      "deterministic_two_builds": true,
+      "changed_streams": [
+        "Contents/CMgr"
+      ],
+      "cmgr": {
+        "bytes": 1097,
+        "sha256": "8fef2fdc2006c790ceaa3419fd1b79902c7ecf4a43ae4e93eb8c56107391a518",
+        "map_counter": 9,
+        "map_entries": 8,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Default",
+              "Description": "",
+              "UpdatedAt": 1795011000
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "modes": {
+        "history": {
+          "semantics_identical": true,
+          "body_count": 1,
+          "brep_count": 0,
+          "native_payload_count": 0
+        },
+        "default": {
+          "semantics_identical": true,
+          "body_count": 1,
+          "brep_count": 1,
+          "native_payload_count": 0
+        }
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 789,
+          "sha256": "cb168b45c48485e04d5f5689452c8e157abfa4b25149176f1bb21a2dcbcf7295"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 789,
+          "sha256": "4f04e4d3ac9653f897e4f6a831c4dfb3e562317316658100e2340a77dd4f1d64"
+        },
+        "Contents/Config-0": {
+          "bytes": 22272,
+          "sha256": "b5f531b8f0c4b7c046e10d8fa17719a8f27fd4c399ec73721c97a3e234354299"
+        },
+        "Contents/CMgr": {
+          "bytes": 1097,
+          "sha256": "8fef2fdc2006c790ceaa3419fd1b79902c7ecf4a43ae4e93eb8c56107391a518"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "26bb31e33ef0c37d36e507fa74b517a932e3950be50ff2d9fb7a1ac5034fd135"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "0f05375a3b379c345600223891f3a47e7d78a71acb3c9f7e3ddb189afe375097"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1399,
+          "sha256": "48ace6ff1046ca4880d93a9ef64c0def490419220bfd8d99daa93c9a22bea82f"
+        }
+      },
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "build",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "previous_sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+      "sha256": "6934b5a5b4eb442a81b3003d26533e905037ed8700d1900eb251358cdee2357a",
+      "previous_named_bytes_preserved": true,
+      "deterministic_two_builds": true,
+      "changed_streams": [
+        "Contents/CMgr"
+      ],
+      "cmgr": {
+        "bytes": 1097,
+        "sha256": "691faa86d64803448fb457b13bb8447badedf3e2d3cab2296018fd8bac673ef5",
+        "map_counter": 9,
+        "map_entries": 8,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Default",
+              "Description": "",
+              "UpdatedAt": 1795011010
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "modes": {
+        "history": {
+          "semantics_identical": true,
+          "body_count": 1,
+          "brep_count": 0,
+          "native_payload_count": 0
+        },
+        "default": {
+          "semantics_identical": true,
+          "body_count": 1,
+          "brep_count": 1,
+          "native_payload_count": 0
+        }
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 801,
+          "sha256": "ae1b5d0a1f8a0e978a83e32fc3ec7cef465fbfd3a79fb6d93a9687a897dfa906"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 801,
+          "sha256": "7a42efb050d649be541d7610bac4778ac006a0b2f6fb301bd3357cf8ce5524b5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22276,
+          "sha256": "c9f8d310bbbe65ede56d71abe73093b91df60976770b2f3b9b01e566ccc0e1a3"
+        },
+        "Contents/CMgr": {
+          "bytes": 1097,
+          "sha256": "691faa86d64803448fb457b13bb8447badedf3e2d3cab2296018fd8bac673ef5"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "a9a31979e6b2f2d155043441224a69f4ac12f6b42048378c889bd0dae3971b5a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "85abf2087dcc26d03eb684aab9f6315035cde431f854144ae471dfb2b32c80dd"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "12f118f456beaeef37b7b84514198ecd331ca18582970b1962bfbb12cd0c6781"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1404,
+          "sha256": "4d77e59e2616673b814ea508ed920fc48aa89d6d21992a34b89646099681a90f"
+        }
+      },
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "build",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "previous_sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+      "sha256": "930d25f1d757c87fd510550686e50eb83e4309f38df668228f903feb8ba51c06",
+      "previous_named_bytes_preserved": true,
+      "deterministic_two_builds": true,
+      "changed_streams": [
+        "Contents/CMgr"
+      ],
+      "cmgr": {
+        "bytes": 1097,
+        "sha256": "9b9dc5c2f3d60ef1641d3405750737512adc48743da96102c3f5303e7ab98326",
+        "map_counter": 9,
+        "map_entries": 8,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Default",
+              "Description": "",
+              "UpdatedAt": 1795011020
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "modes": {
+        "history": {
+          "semantics_identical": true,
+          "body_count": 1,
+          "brep_count": 0,
+          "native_payload_count": 0
+        },
+        "default": {
+          "semantics_identical": true,
+          "body_count": 1,
+          "brep_count": 1,
+          "native_payload_count": 0
+        }
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 801,
+          "sha256": "3956beaf5fbb07d687149d56554f0ed7c9505c32208b176f7d744d731d1ef702"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 801,
+          "sha256": "c679c10f041f2a47e5de712d5be6627fd27957d97e4c5a34fde0357ec17a2b7a"
+        },
+        "Contents/Config-0": {
+          "bytes": 22276,
+          "sha256": "094efdfc8af684aa3f4ed2bbd4720fffe145bb74550852905b863b4ac4654f20"
+        },
+        "Contents/CMgr": {
+          "bytes": 1097,
+          "sha256": "9b9dc5c2f3d60ef1641d3405750737512adc48743da96102c3f5303e7ab98326"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "5b4ce1a259b177f2a586df9b42c97f1b2e4caa9e75621ecef04e9ff888abca0b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "767c51d1633c5a0dd9e4c68c14f75c65f307ae16cbbb8593e5001012d94549be"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "b471c334f2dfcbef2cba9574eebced928461660e9a6ade352c945f30c900ac58"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1404,
+          "sha256": "71ed907ee2f9ad10159f2f269c6537f8ba882bdaa2768abb0a5f94a506e2b705"
+        }
+      },
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "build",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "previous_sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+      "sha256": "28350630f2e5cbdf2ac8171d71d751d20a73134c9e6e48a46f77772447db279e",
+      "previous_named_bytes_preserved": true,
+      "deterministic_two_builds": true,
+      "changed_streams": [
+        "Contents/CMgr"
+      ],
+      "cmgr": {
+        "bytes": 1097,
+        "sha256": "a06a3ddf7f6bc9293dfddcb1ec857351ec9c9d5258c0c9a1523477818ef706ef",
+        "map_counter": 9,
+        "map_entries": 8,
+        "wire_byte_identity": true,
+        "actual_selector_aliases": true,
+        "manager_global_id": -1,
+        "intent": {
+          "NameValue": null,
+          "ConfigValues": [
+            {
+              "NameValue": "Default",
+              "Description": "",
+              "UpdatedAt": 1795011030
+            }
+          ],
+          "CurrentIndex": 0
+        }
+      },
+      "modes": {
+        "history": {
+          "semantics_identical": true,
+          "body_count": 1,
+          "brep_count": 0,
+          "native_payload_count": 0
+        },
+        "default": {
+          "semantics_identical": true,
+          "body_count": 1,
+          "brep_count": 1,
+          "native_payload_count": 0
+        }
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 807,
+          "sha256": "1c13598a312220190f370a58c2f0937eb54688e5bd07ff7da324e6ddd5eefa0c"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 807,
+          "sha256": "85c60f411057e6c238beb7bfc39f43ce5e50e5f497b27b937a1f3913d853d4ed"
+        },
+        "Contents/Config-0": {
+          "bytes": 22278,
+          "sha256": "0a3c3fffa8208c659fc4d5ff9754cf7b7c5ff5c0f3bd6f626ff59d0b266502c1"
+        },
+        "Contents/CMgr": {
+          "bytes": 1097,
+          "sha256": "a06a3ddf7f6bc9293dfddcb1ec857351ec9c9d5258c0c9a1523477818ef706ef"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "0a3fdf1a2a8f3473cfe5bc371ac8068548f7211a4d865b3e6b56fbe66fa587de"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 9859,
+          "sha256": "51873f6dfc519d70d51c6e0101ea457045f4a4a4b7c22a97c3238a857d1bcbed"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1406,
+          "sha256": "0ac12ebec4908115e8adf980b004d52fb4ec472c6c131ccf85f60e29e9a8da21"
+        }
+      },
+      "runtime_external_attempts": []
+    }
+  ],
+  "rejections": [
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "empty_name",
+      "rejection": "ValueError",
+      "message": "configuration manager name must not be empty",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "nul_name",
+      "rejection": "ValueError",
+      "message": "configuration manager name must be authored text without nul characters",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "boolean_name",
+      "rejection": "ValueError",
+      "message": "configuration manager name must be authored text without nul characters",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "empty_configs",
+      "rejection": "ValueError",
+      "message": "configuration manager requires explicit typed configuration inputs",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "list_configs",
+      "rejection": "ValueError",
+      "message": "configuration manager requires explicit typed configuration inputs",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "duplicate_configs",
+      "rejection": "ValueError",
+      "message": "configuration names must be distinct",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "boolean_selector",
+      "rejection": "ValueError",
+      "message": "current configuration must select an authored configuration",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "negative_selector",
+      "rejection": "ValueError",
+      "message": "current configuration must select an authored configuration",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "range_selector",
+      "rejection": "ValueError",
+      "message": "current configuration must select an authored configuration",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "none_current",
+      "rejection": "ValueError",
+      "message": "ordinary manager selectors must alias one actual directory configuration",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "distinct_selectors",
+      "rejection": "ValueError",
+      "message": "ordinary manager selectors must alias one actual directory configuration",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "foreign_current",
+      "rejection": "ValueError",
+      "message": "ordinary manager selectors must alias one actual directory configuration",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "wrong_config_class",
+      "rejection": "ValueError",
+      "message": "part root requires a concrete schema one moPartConfiguration_c",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "wrong_local_id",
+      "rejection": "ValueError",
+      "message": "ordinary manager requires its actual ordinal local identifiers",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "allocation_count",
+      "rejection": "ValueError",
+      "message": "ordinary manager allocation and directory counts differ",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "directory_count",
+      "rejection": "ValueError",
+      "message": "ordinary manager allocation and directory counts differ",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "empty_directory",
+      "rejection": "ValueError",
+      "message": "ordinary manager allocation and directory counts differ",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "missing_name",
+      "rejection": "ValueError",
+      "message": "configuration manager lacks its actual name field",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "empty_name_object",
+      "rejection": "ValueError",
+      "message": "planar mate graph expected text f08",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "wrong_name_class",
+      "rejection": "ValueError",
+      "message": "part root requires a concrete schema one moNodeName_c",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "wrong_name_schema",
+      "rejection": "ValueError",
+      "message": "part root requires a concrete schema one moNodeName_c",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "allocated_null_manager",
+      "rejection": "ValueError",
+      "message": "only unregistered reference planes and configuration managers may omit a native name",
+      "rejected": true,
+      "runtime_external_attempts": []
+    },
+    {
+      "schema": "kit.sw2026.optional-manager-process.v1",
+      "passed": true,
+      "mode": "reject",
+      "heldout_inputs_read": 0,
+      "native_processes": 0,
+      "full_original_source_preparation_admitted": false,
+      "public_unnamed_manager_preparation_enabled": false,
+      "fault": "unnamed_other_node",
+      "rejection": "ValueError",
+      "message": "only unregistered reference planes and configuration managers may omit a native name",
+      "rejected": true,
+      "runtime_external_attempts": []
+    }
+  ],
+  "workers": [
+    {
+      "name": "Source0",
+      "exit_code": 0,
+      "stdin_sha256": "10e73c314521f6d9e49f69590ca55091ab35ff49cbf5d870260416c5bb3180df",
+      "stdout_sha256": "7bc22d3eb19801ddf5d5697b4d4e6461ab23cb1d0ba632e8141633e8bad9e884",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Source1",
+      "exit_code": 0,
+      "stdin_sha256": "4752dd3fc632b7eca98be2a1c637944f3dfb69292ebd205500d1b39220a231f1",
+      "stdout_sha256": "a618998fc88c6c96e691a42de68a05c427e50c469d51ae2b5c72b45a21a1633b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Source2",
+      "exit_code": 0,
+      "stdin_sha256": "c64fa90e6062a1d35212d1ef82a8fa800293f371d30ed0aeafd4638e934bcd06",
+      "stdout_sha256": "9a623e73563efde60a079e3d37f7c7af0ba8c78c59f44719839a7fadd1f0e705",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Source3",
+      "exit_code": 0,
+      "stdin_sha256": "894347d969e58f0e15a5a934893a620525ba58cb8e0d02d5c0544ee1b0dfed68",
+      "stdout_sha256": "b0e3a923de47c2e73dca14afa829c335630aaa57a4beb834edc82e13c87f11c0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Graph0",
+      "exit_code": 0,
+      "stdin_sha256": "9fa995a538a4088fb570506230446297b71b682ff9b50c074b4e84c5ae6ec5f1",
+      "stdout_sha256": "c81ec2ae4fad8a08e18851c0c06d32f9f2377a51fb702842376c778ba556a25a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Graph1",
+      "exit_code": 0,
+      "stdin_sha256": "62dbbabdee1b72cacfaeee4d3dd7a08c5d24263954b5aae9f9b525751c5a5604",
+      "stdout_sha256": "5be1ba58f4d20ab0bca1f30f016ce494a065802a518d48efbdb00336f74680dc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Graph2",
+      "exit_code": 0,
+      "stdin_sha256": "885d846021f978aa4d5c4e5aab5953caf69f1a026ce8a147d47affbaaa49a5a2",
+      "stdout_sha256": "d8a33ba7a378713e90375c3364aae34dfe8068d0dbc05c9594c53dba3c1a58b0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Graph3",
+      "exit_code": 0,
+      "stdin_sha256": "5bec303a001b8f84e7a8a2d16e5cf2f334402e3cb5cdcb9b9539e9a8886dfaa6",
+      "stdout_sha256": "a0351b49d80cf9ffb9649b6bee59a3530b00bf56ab6b6139971d922dd40502cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Build0",
+      "exit_code": 0,
+      "stdin_sha256": "a0323beba2814860ee3e8428a1388ac4d05d1d3999e9579df3e01f90bcdd382c",
+      "stdout_sha256": "a81caa883c0028e4070e54d39d1365b14088d0969e7d07ab25a0996bbc5005ac",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Build1",
+      "exit_code": 0,
+      "stdin_sha256": "21852d389c48572161e938154da93cd9d68d8b0eaf67e5649b36fc675d980a69",
+      "stdout_sha256": "e401ce57b784e8635c3e0ce82a013b44d8c8ff424ebbf762fb47f63f0d1ea9a9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Build2",
+      "exit_code": 0,
+      "stdin_sha256": "dd9939a295abc1a247e8d077f12bc18de80846b90e6e869c0f15e6583beea08b",
+      "stdout_sha256": "d502836342ce66dd17f368ab24613e5f664f3e6dbb6ee7ee7904fcbc16015fea",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Build3",
+      "exit_code": 0,
+      "stdin_sha256": "26cfa2607ca44729c54427a7f327806a2dfa9d1aeeb99f49a39cac2137760621",
+      "stdout_sha256": "99080a93d584f7eca45ef2c151debd6cda1c61597ebf68db0ce472ce5bec3e77",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject0",
+      "exit_code": 0,
+      "stdin_sha256": "be45cc258e52d4cc56ef7fbad609429f3fc14c391a4926c8713dd13b8c82e4e5",
+      "stdout_sha256": "c7b4c8b9f48c6f45da88e31340f7a858dda24e3b45abdbe483426d801890c37c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject1",
+      "exit_code": 0,
+      "stdin_sha256": "c56c9a377c229ba05831bace6e5cef737fcc0daacf952ff6bd0a846aa2e2365c",
+      "stdout_sha256": "4cf404a36c28cc72ff4a6dd32287fb855392b871fb2138818a2e056565c09eb9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject2",
+      "exit_code": 0,
+      "stdin_sha256": "d0f1c08043ef6eef3649f22f545915c7ccb52756169c3beb3aeb09b41ed93799",
+      "stdout_sha256": "04f8b81f32f0bc89ad7d8f1bf8389217af9b2a870765cbdbaa14a522e387f076",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject3",
+      "exit_code": 0,
+      "stdin_sha256": "89933ed1f9e20a4a570d2734df015a250d3f473b926185a9de10c8f23a2ea845",
+      "stdout_sha256": "3af2111e730e103eb624625251d04306f2d614c768e305d13a5ee89e77422b32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject4",
+      "exit_code": 0,
+      "stdin_sha256": "727a102c3ad0fecaf9366c14babe241c8996086e7d130fe66cf04c7d1cf2bd7e",
+      "stdout_sha256": "fb162bc90c2ee6cc0afad707ede0606f40bbf79af03568262482b7ec59615584",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject5",
+      "exit_code": 0,
+      "stdin_sha256": "e5edbc133b35ae6bd52f38b0a0cebabf3835953050f9b3d611577d328a92b9bd",
+      "stdout_sha256": "ad7d8cce853a17dbdfe47227f16b2a3b06ada8c7d17ac027144e7bd1b1302157",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject6",
+      "exit_code": 0,
+      "stdin_sha256": "852768ad9923d237e89e80e7fc56afe68a2fa9a4687813076d6a509197c06a45",
+      "stdout_sha256": "5cad6aa5e77f3db8460aa51eb1eca0da9adcd41c3df5e516dcb38ef3a79fdb5f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject7",
+      "exit_code": 0,
+      "stdin_sha256": "cb82028e4cc45a8042156f008b338d0667c16a1ad4ffbde8b2cc2fc6d40493d0",
+      "stdout_sha256": "e86a7cfcd7a82b9862e8132154e27d8b768470852586212e77585beac116d1ec",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject8",
+      "exit_code": 0,
+      "stdin_sha256": "3f26888a925985400aefd6f9928287b69b32b04363d42cbb1ecde573def5a1f2",
+      "stdout_sha256": "9fe7cb765197f26faeae6a0f519730714a7809511cb0c892487af79c6c8a03da",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject9",
+      "exit_code": 0,
+      "stdin_sha256": "a2b012b2fc4e630e0922d646693924cda0244868c4850d3d198b2fa338c567b6",
+      "stdout_sha256": "f8b5324e4adc59f44be8f0e88d6005d05a10b6e80ae19c73ce0bca6b69bb5abc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject10",
+      "exit_code": 0,
+      "stdin_sha256": "e2417aa47c92c588e22f12219e3d3d529183062974fda9fca3fb550ad01087d6",
+      "stdout_sha256": "a74a10636ec7375fa95a3f1d109e35aaa878544bd025285280d5efedbe25f4c8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject11",
+      "exit_code": 0,
+      "stdin_sha256": "0dd6f8f880210d5ef41349b06707a62d23aaa7aa15f5740602393330b7f7f0a5",
+      "stdout_sha256": "b76769f1d12491d697737ebfbe939bfcb0756b5605560ee3dd18a95b8b61d147",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject12",
+      "exit_code": 0,
+      "stdin_sha256": "e5b25a291540de24d8eac4528dadf933e8e686d5bab3a244f4e348ea6f172050",
+      "stdout_sha256": "4e49ed44610f3dbdb0a107dc1cacfd0ae1ab09b391ee7881686394538243954c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject13",
+      "exit_code": 0,
+      "stdin_sha256": "5875425c0bdf40d260e8baf1dcd22e579398fd8e3a8a3ce7806bb33e21f37eeb",
+      "stdout_sha256": "18f8a2aac323d19a29730af7b82347321ea267cc079705728a9662b8eb3b83f4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject14",
+      "exit_code": 0,
+      "stdin_sha256": "f59c0cce9a2464707fe20c535b36c3aebb5a46434c0b7acf352c13b0332fbb9f",
+      "stdout_sha256": "375ce4f56d8de38a5fadf414894948621af0f245a0b426ad7ea65dcf893dc0cd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject15",
+      "exit_code": 0,
+      "stdin_sha256": "f1f7c95f32d69e7f6c8447da68b0067549d480111a073a6d77fb9cbb611081b4",
+      "stdout_sha256": "29151d8d302d58a92b043acf35c4d4feb4951863f9b75dc5b869423c7d9f7bb7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject16",
+      "exit_code": 0,
+      "stdin_sha256": "967c85177cc9c49b11c1292962e8db8199c786fb4255c6a6c3584bae68328800",
+      "stdout_sha256": "ae7a5df6b0be27522e7afa6cdd9b704a18fa8150fd7c1655a147f556c5e877e8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject17",
+      "exit_code": 0,
+      "stdin_sha256": "5a93276a27d79bf7a1f197fe425d4ce55b1d463fdf92201bfa1ba2b0264668f5",
+      "stdout_sha256": "7f30c209566ab1e5595e3dc7166a3d2646e441ed40124124257c3920a78ca6ba",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject18",
+      "exit_code": 0,
+      "stdin_sha256": "79402dc77fd955b5642d68eb438da6e583be314e9e32c9e0a78a0962f793386e",
+      "stdout_sha256": "1cae62854f0baa102f792c195b0129369bef9bc7cb4b7b65925a303c4e0c2ae3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject19",
+      "exit_code": 0,
+      "stdin_sha256": "de9bed45e9682b6f2615695ce3d7eae6ce40f01acb2aa4393a243b56d9ab98f2",
+      "stdout_sha256": "03ed08d08bddf554f53bcc823e2942f270832654b38b0f833ac79edfc0513524",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject20",
+      "exit_code": 0,
+      "stdin_sha256": "5cb8a61041a15fe7af087c111a18a9a6f83ed2c7488f7997a417bf4217b9ca02",
+      "stdout_sha256": "5637d46ac0a41f7f4ee72284877c16e7d60030aaaa356bf6bbd474ec51ea2024",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject21",
+      "exit_code": 0,
+      "stdin_sha256": "451ec1f24b73f8457771592918370b4d004380e455feb858787fcbfd3d7561ba",
+      "stdout_sha256": "a73756cc5a40d14612c92538d1b851efdb5b7b6f79826181dac194a6b922340a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Reject22",
+      "exit_code": 0,
+      "stdin_sha256": "db21f61bcb2c8a7e5e35f92fdd220a322a2a6ed1b42962df488b164f611ea5bd",
+      "stdout_sha256": "8679012fcf4263de18a7d883752607dd22f74a18509c947871ce7d5b50362b5e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "independent_exact_replay_sha256": "7819c694453d91c3cde8603720b18ef36cbe2149c414119728fb7a7d82cff4df"
+}

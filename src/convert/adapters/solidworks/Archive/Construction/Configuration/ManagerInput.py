@@ -10,13 +10,15 @@ from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText impor
 # the manager needs explicit configuration order current selection and its own authored display name without captured defaults
 @DataClass(frozen=True, slots=True)
 class ManagerInput:
-    NameValue: str
+    NameValue: str | None
     ConfigValues: tuple[ConfigSpec, ...]
     CurrentIndex: int
 
     # invalid manager inputs must be rejected independently of the global persistent identifier allocation sequence
     def __post_init__(self) -> None:
-        if not ReadStyleText(self.NameValue, "configuration manager name"):
+        if self.NameValue is not None and not ReadStyleText(
+            self.NameValue, "configuration manager name"
+        ):
             raise ValueError("configuration manager name must not be empty")
         if (
             type(self.ConfigValues) is not tuple

@@ -1,0 +1,182 @@
+{
+  "schema": "kit.sw2026.optional-manager-native-evidence.v1",
+  "module": "sldmodu.dll",
+  "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "preferred_base": "0x4b140000",
+  "functions": [
+    {
+      "name": "moConfigurationMgr owner ctor",
+      "start": "0x4b8802f0",
+      "end_exclusive": "0x4b880dc5",
+      "file_offset": 7599856,
+      "bytes": 2773,
+      "sha256": "af4ae4c1195bc96b312cfac4ea2a8eded51f9a48b0ed9a21a17cc032d68fe888",
+      "bound": "exact initial PE runtime-function range; possible chained continuations remain separately scoped"
+    },
+    {
+      "name": "moConfigurationMgr default ctor",
+      "start": "0x4b880dd0",
+      "end_exclusive": "0x4b881596",
+      "file_offset": 7602640,
+      "bytes": 1990,
+      "sha256": "e9de94cd56b279f0c77117f9442aff79a9bd1da1f33158ce571fd2f412d6acf1",
+      "bound": "exact initial PE runtime-function range; possible chained continuations remain separately scoped"
+    },
+    {
+      "name": "moNode constructor",
+      "start": "0x4c03c250",
+      "end_exclusive": "0x4c03c2b7",
+      "file_offset": 15709776,
+      "bytes": 103,
+      "sha256": "162d31cd9a7dbdb25da3d81575df765fd763cb5b455d12af7250e3a9c2a7dfe4",
+      "bound": "exact initial PE runtime-function range; possible chained continuations remain separately scoped"
+    },
+    {
+      "name": "moFeature owner ctor",
+      "start": "0x4bb38350",
+      "end_exclusive": "0x4bb38708",
+      "file_offset": 10450768,
+      "bytes": 952,
+      "sha256": "6af1f7e2d3987e493db008e5e08f8e66ec4c915a945a622a0bd4543ef449c09a",
+      "bound": "exact initial PE runtime-function range; possible chained continuations remain separately scoped"
+    },
+    {
+      "name": "moConfigurationMgr serializer",
+      "start": "0x4c21ef40",
+      "end_exclusive": "0x4c221a18",
+      "file_offset": 17687360,
+      "bytes": 10968,
+      "sha256": "f0ab61b4bde3f6387bec85ecb2a460607f1007045c1a5b6e18754be56cb589e6",
+      "bound": "exact initial PE runtime-function range; possible chained continuations remain separately scoped"
+    },
+    {
+      "name": "moNode serializer",
+      "start": "0x4c179cf0",
+      "end_exclusive": "0x4c17a322",
+      "file_offset": 17010928,
+      "bytes": 1586,
+      "sha256": "20ea9bfa3a3f3c3306a12f73a6b3452b27e057fd7788dae11647b1914037b744",
+      "bound": "exact initial PE runtime-function range; possible chained continuations remain separately scoped"
+    },
+    {
+      "name": "moNodeName serializer",
+      "start": "0x4c179ca0",
+      "end_exclusive": "0x4c179ce6",
+      "file_offset": 17010848,
+      "bytes": 70,
+      "sha256": "5fd4eafd5bf772857118b0abdd768a6b2e41fcde82e41936b6fbbc8de660b46c",
+      "bound": "exact exported instruction body ending with two tail dispatches; following byte is int3 alignment"
+    },
+    {
+      "name": "moNode SerializeLWData",
+      "start": "0x4c17adf0",
+      "end_exclusive": "0x4c17b23a",
+      "file_offset": 17015280,
+      "bytes": 1098,
+      "sha256": "5f5262d0f62d2bbcea73730a56fc2b7ea8bf8489a066d84df4b9902536553760",
+      "bound": "exact initial PE runtime-function range; possible chained continuations remain separately scoped"
+    },
+    {
+      "name": "manager inherited moConcept SerializeLWData",
+      "start": "0x4c17a7b0",
+      "end_exclusive": "0x4c17a9f1",
+      "file_offset": 17013680,
+      "bytes": 577,
+      "sha256": "6cf75e18885003afbc7173c8ee91b6c297f9fdc4a5861c3be4a95423d33f3d4e",
+      "bound": "exact initial PE runtime-function range; possible chained continuations remain separately scoped"
+    },
+    {
+      "name": "typed moNodeName pointer archive operator",
+      "start": "0x4c1776d0",
+      "end_exclusive": "0x4c17771f",
+      "file_offset": 17001168,
+      "bytes": 79,
+      "sha256": "5a839ca8eb60a627041f10bfeac759d04d5b9dea44e7a84542b3f4015d697873",
+      "bound": "exact bounded instruction body with returns at 0x4c17770a and 0x4c17771e; following byte is int3 alignment"
+    }
+  ],
+  "vtable_pointers": [
+    {
+      "vtable": "0x4cec6bb0",
+      "slot": "0x28",
+      "target": "0x4c21ef40"
+    },
+    {
+      "vtable": "0x4cec6bb0",
+      "slot": "0x4b8",
+      "target": "0x4c17a7b0"
+    },
+    {
+      "vtable": "0x4cec6bb0",
+      "slot": "0x4c0",
+      "target": "0x4c17b570"
+    },
+    {
+      "vtable": "0x4d0caf50",
+      "slot": "0x28",
+      "target": "0x4c179cf0"
+    },
+    {
+      "vtable": "0x4d0caf50",
+      "slot": "0x4b8",
+      "target": "0x4c17adf0"
+    },
+    {
+      "vtable": "0x4d0caf50",
+      "slot": "0x4c0",
+      "target": "0x4b27e120"
+    }
+  ],
+  "serialize_map_2026_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+  "instruction_tool": {
+    "name": "llvm-objdump",
+    "sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c"
+  },
+  "native_execution": false,
+  "vendor_listing_in_report": false,
+  "refuted_lookup": {
+    "table": "SerializeMap.json",
+    "status": "historical table rejected before use as 2026 evidence; no native rule derived from it",
+    "replacement": "actual constructor vtable pointers agree with SerializeMap2026.json"
+  },
+  "field_facts": [
+    {
+      "owner": "moNode_c.f18",
+      "meaning": "optional moNodeName_c object, not a plain CString",
+      "initialization_store": "0x4c03c284",
+      "initial_value": "null pointer",
+      "confidence": "confirmed"
+    },
+    {
+      "owner": "moConfigurationMgr_c owner constructor",
+      "meaning": "no name argument; null name forwarded to moFeature_c",
+      "call": "0x4b880325",
+      "callee": "0x4bb38350",
+      "zero_name_argument": "0x4b880323",
+      "confidence": "confirmed"
+    },
+    {
+      "owner": "ordinary binary moNode_c.f18",
+      "pointer_argument_address": "0x4c17af1a",
+      "typed_operator_call": "0x4c17af21",
+      "callee": "0x4c1776d0",
+      "runtime_descriptor": "0x4daefcf0",
+      "confidence": "confirmed"
+    },
+    {
+      "owner": "moNodeName_c.f08",
+      "meaning": "the present name has a separate string body",
+      "serializer": "0x4c179ca0",
+      "field_address": "0x4c179caa",
+      "confidence": "confirmed"
+    }
+  ],
+  "boundaries": {
+    "native_generated_unnamed_output_measured": false,
+    "special_database_branch_qualified": false,
+    "other_manager_families_qualified": false,
+    "full_original_source_admission": false,
+    "vendor_listings_in_checkout": false,
+    "hopper_or_vm_used": false
+  }
+}
