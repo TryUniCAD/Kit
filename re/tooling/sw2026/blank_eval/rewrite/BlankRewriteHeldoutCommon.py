@@ -109,6 +109,8 @@ def binding(value, expected):
     require(data['schema'] == 'kit.sw2026.blank-preserved-rewrite-heldout-binding.v1' and data['method_sha256'] == fingerprint(root / 'Method.json'), 'current binding differs')
     require(data['writer_manifest_sha256'] == method['writer_manifest_sha256'] and data['tools_sha256'] == method['tools_sha256'], 'current writer or observer changed')
     require(Path(sys.executable).resolve() == Path(data['python']).resolve(), 'guest interpreter changed')
+    if 'predecessor' in method:
+        require(data.get('predecessor') == method['predecessor'] and data.get('new_sdk_builds') == 0 and data.get('reuses_exact_first_run_candidates') is True, 'retry must retain the original generated inputs')
     output = guest_path(data['output_root'])
     require(path == output / 'Binding.json', 'binding owner differs')
     require(not output.is_relative_to(Path('C:/KitBlankDrawingSource121')), 'source storage must remain immutable')
@@ -117,7 +119,7 @@ def binding(value, expected):
 
 def export_report(report, raw_sha256):
     result = {
-        'schema': 'kit.sw2026.blank-preserved-rewrite-heldout-export.v1',
+        'schema': 'kit.sw2026.blank-preserved-rewrite-heldout-export.v2',
         'passed': report['passed'],
         'raw_result_sha256': raw_sha256,
         'method_sha256': report['method_sha256'],
@@ -127,6 +129,9 @@ def export_report(report, raw_sha256):
         'canonical_sdk_rewrite_heldout_only': True,
         'private_payloads_or_paths_exported': False,
         'native_flags_changed': False,
+        'sdk_builds_reused': report.get('sdk_builds_reused', False),
+        'new_sdk_builds': report.get('new_sdk_builds', 4),
+        'predecessor_private_result_sha256': report.get('predecessor_private_result_sha256', '0' * 64),
         'native_processes': report.get('native_processes', 0),
         'controls_passed': report.get('controls_passed', [False, False]),
         'sheet_states': report.get('sheet_states', 0),

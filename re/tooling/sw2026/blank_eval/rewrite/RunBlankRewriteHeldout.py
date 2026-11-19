@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import importlib
 import json
 import os
 import re
@@ -11,6 +12,7 @@ import traceback
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import BlankRewriteHeldoutCommon as common
+import BlankRewriteRetry as retry
 
 
 def prepare(args):
@@ -108,10 +110,13 @@ def run(args):
     legacy, code, prior_job, bound, locked, predictions, canonical = context
     report = {'schema': 'kit.sw2026.blank-preserved-rewrite-heldout-private-result.v1', 'passed': False, 'method_sha256': common.fingerprint(root / 'Method.json'), 'writer_manifest_sha256': method['writer_manifest_sha256'], 'binding_sha256': args.binding_sha256, 'phases': [], 'statuses': []}
     generation_ref = None
+    if 'predecessor' in bound_data:
+        report['new_sdk_builds'] = 0
+        report['predecessor_private_result_sha256'] = method['predecessor']['private_result_sha256']
 
     def perform(name, prior=None):
         path = output / 'Workers' / (name.replace('/', '_') + '.json')
-        command = [sys.executable, '-I', '-B', str(Path(__file__).resolve()), 'worker', '--method-sha256', args.method_sha256, '--binding', args.binding, '--binding-sha256', args.binding_sha256, '--generation-sha256', generation_ref['sha256'], '--phase', name]
+        command = [sys.executable, '-B', str(Path(__file__).resolve()), 'worker', '--method-sha256', args.method_sha256, '--binding', args.binding, '--binding-sha256', args.binding_sha256, '--generation-sha256', generation_ref['sha256'], '--phase', name]
         if prior is not None:
             command += ['--prior-sha256', prior['sha256']]
         status = {'name': name, 'passed': False}
@@ -140,7 +145,13 @@ def run(args):
         return bool(first['passed'] and perform(base + '/FreshReopen', first['worker'])['passed'])
 
     try:
-        generation_ref = generation({'sha256': args.binding_sha256}, method, output, context, root)
+        if 'predecessor' in bound_data:
+            generation_ref = retry.adopt(args, root, method, bound_data, output, context)
+            report['sdk_builds_reused'] = True
+            report['new_sdk_builds'] = 0
+            report['predecessor_private_result_sha256'] = method['predecessor']['private_result_sha256']
+        else:
+            generation_ref = generation({'sha256': args.binding_sha256}, method, output, context, root)
         report['generation'] = generation_ref
         report['paired_builds_identical'] = True
         report['sdk_runtime_input_reads'] = 0
@@ -205,7 +216,7 @@ def run(args):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('mode', choices=('verify-source', 'prepare', 'run', 'worker'))
+    parser.add_argument('mode', choices=('verify-source', 'verify-observer', 'prepare', 'prepare-retry', 'run', 'worker'))
     parser.add_argument('--method-sha256', required=True)
     parser.add_argument('--legacy-job')
     parser.add_argument('--legacy-job-sha256')
@@ -222,8 +233,18 @@ def main():
             root, method = common.packet()
             common.verify_source(root, method)
             value = {'passed': True, 'writer_manifest_sha256': method['writer_manifest_sha256'], 'native_launches': 0, 'private_payload_reads': 0}
+        elif args.mode == 'verify-observer':
+            common.require(os.name == 'nt', 'observer import verification is guest only')
+            common.packet()
+            for name in ('Swapp', 'InspectDrawingCache', 'OracleIdentity'):
+                importlib.import_module(name)
+            value = {'passed': True, 'native_launches': 0, 'private_payload_reads': 0}
         elif args.mode == 'prepare':
+            _, method = common.packet()
+            common.require('predecessor' not in method, 'retry requires prepare-retry')
             value = prepare(args)
+        elif args.mode == 'prepare-retry':
+            value = retry.prepare(args)
         elif args.mode == 'worker':
             value = worker(args)
             _, _, _, output = common.binding(args.binding, args.binding_sha256)
