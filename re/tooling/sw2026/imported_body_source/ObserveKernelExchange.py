@@ -63,8 +63,7 @@ def phase(directory, label, expected, candidate, binding):
             rec.data["initial_interconnect_preference"] = {"id": preference, "enabled": previous}
             rec.flush()
             if previous:
-                require(bool(observer.get(controller.app, "SetUserPreferenceToggle", preference, False)),
-                        "failed to select the legacy Parasolid translator")
+                observer.get(controller.app, "SetUserPreferenceToggle", preference, False)
             require(not observer.get(controller.app, "GetUserPreferenceToggle", preference),
                     "ordinary Parasolid translator is not active")
             error = Swapp.byref_long()
@@ -86,8 +85,7 @@ def phase(directory, label, expected, candidate, binding):
                     if observer is not None and previous is not None:
                         current = bool(observer.get(controller.app, "GetUserPreferenceToggle", preference))
                         if current is not previous:
-                            require(bool(observer.get(controller.app, "SetUserPreferenceToggle", preference, previous)),
-                                    "failed to restore original 3D Interconnect setting")
+                            observer.get(controller.app, "SetUserPreferenceToggle", preference, previous)
                         require(bool(observer.get(controller.app, "GetUserPreferenceToggle", preference)) is previous,
                                 "3D Interconnect setting was not restored")
                         result["preference_restored"] = True
