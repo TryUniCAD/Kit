@@ -39,7 +39,7 @@ from convert.adapters.freecad.Adapter import (
     FilteredDoc,
     UnchangedNative,
 )
-from convert.adapters.freecad.Native import KMaxOuterDepth
+from convert.adapters.freecad.Native import KMaxOuterDepth, ReadNativeFcstd
 from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
 from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
 from convert.adapters.freecad.Replay.NativeIdentity import IsNative, KReplaySketchAttr
@@ -3867,8 +3867,16 @@ def TestReplayDepth(TmpPath: FilePath) -> None:
     Output = IoStream.BytesIO()
     Result = Adapter.write(Legacy, Output, Options)
     assert Result.metadata.get("mode") != "exact_native_roundtrip"
-    assert Output.getvalue() != Original
-    assert Adapter.read(Output.getvalue()).sketches[0].suppressed is False
+    Rebuilt = Output.getvalue()
+    assert Rebuilt != Original
+    assert Adapter.read(Rebuilt).sketches[0].suppressed is False
+    assert ReadNativeFcstd(Rebuilt).sketches[0].suppressed is False
+    with Zipfile.ZipFile(IoStream.BytesIO(Rebuilt)) as Archive:
+        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
+    Visibility = RootValue.find(
+        "./ObjectData/Object[@name='Sketch']/Properties/Property[@name='Visibility']/Bool"
+    )
+    assert Visibility is not None and Visibility.get("value") == "false"
 
 
 # assembly component writes must also use independently verified carried sketch state
