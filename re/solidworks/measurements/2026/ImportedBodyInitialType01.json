@@ -1,0 +1,39 @@
+{
+  "author_observation": {
+    "create_feature_from_body_returned_object": true,
+    "first_failure": "GetTypeName2",
+    "get_type_name2": "BaseBody",
+    "name": "Imported1",
+    "observer_expected": "Imported",
+    "rebuild": true
+  },
+  "controls_healthy": true,
+  "distinct_native_processes": 3,
+  "heldout_sources_locked": 0,
+  "job_sha256": "a9b0c369939d660ddb19b66aa2d7397be9cf04b3f8ff728ce69e5b38ab7d61d0",
+  "native_writer_acceptance": false,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "phases": [
+    {
+      "name": "ControlBefore",
+      "passed": true,
+      "record_sha256": "ebe666ee7e2e3143680013ba717ab9290b2564d535d36089f0e5f3466c40bc96"
+    },
+    {
+      "name": "DisclosedAuthor",
+      "passed": false,
+      "record_sha256": "b2c4fda318b3266a94d6d669e8115211c6dc16061fafeb902a9e25aba553f508"
+    },
+    {
+      "name": "ControlAfter",
+      "passed": true,
+      "record_sha256": "3387d3cd498533572dd7292f8a91fca4a7dc87bb39c69871157c488779d1933d"
+    }
+  ],
+  "raw_batch_sha256": "2719a0951e773c347958379cf6688f4eeedc38e4a7bcd173927fcb6fa62cac40",
+  "saved_sources": 0,
+  "schema": "kit.sw2026.imported-body-authoring-type.v1",
+  "source_revision": "68170fe0b6c8f44ab6e6ff3f8a4b15c95965c279",
+  "writer_outputs": 0
+}

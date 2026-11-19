@@ -1,6 +1,6 @@
 # Native imported body source protocol
 
-This protocol authors and measures one solid with an `Imported` feature in
+This protocol authors and measures one solid with an imported base feature in
 SOLIDWORKS 2026 SP05.2 build `34.5.2.0604`. It belongs to the native import
 research in [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
 
@@ -14,7 +14,9 @@ The author passes a nine-double array to `IModeler::CreateBodyFromBox3`. It hold
 the face centre and lengths in metres and the +Z unit vector. The author passes the resulting temporary
 solid to `IPartDoc::CreateFeatureFromBody3` with reference-surface creation
 disabled and the body check bit enabled. The body check runs without the
-simplification option. The feature must report type `Imported`.
+simplification option. The first exact-build source attempt observed a
+feature named `Imported1` reporting type `BaseBody` after rebuild.
+The observer requires `BaseBody` from `GetTypeName2`.
 [2026 temporary box](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IModeler~CreateBodyFromBox3.html) · [2026 native import call](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IPartDoc~CreateFeatureFromBody3.html) · [2026 body creation flags](https://help.solidworks.com/2026/English/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swCreateFeatureBodyOpts_e.html) · [2026 feature types](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IFeature~GetTypeName2.html)
 
 The observer checks the eight expected corners, the twelve line edges and the

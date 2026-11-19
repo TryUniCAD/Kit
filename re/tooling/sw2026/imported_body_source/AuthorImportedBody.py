@@ -11,7 +11,7 @@ SOLID = 0
 SHEET = 1
 CHECK_BODY = 1
 OBJECT_SAME = 1
-IMPORTED = "Imported"
+IMPORTED = "BaseBody"
 
 
 def box_expectation(case):
@@ -119,10 +119,10 @@ class ImportedBodyAuthor(CurveAuthor):
     def observe(self, feature, case):
         name = str(self.get(feature, "Name"))
         kind = str(self.get(feature, "GetTypeName2"))
-        require(bool(name) and kind == IMPORTED, "native feature is not a named Imported feature")
+        require(bool(name) and kind == IMPORTED, "native import is not a named BaseBody feature")
         tree = self.feature_tree(required_names=(name,))
         require([row["name"] for row in tree if row["type"] == IMPORTED] == [name],
-                "part must contain exactly one Imported feature")
+                "part must contain exactly one BaseBody feature")
         require(int(self.get(self.get(self.model, "Extension"), "GetWhatsWrongCount")) == 0,
                 "native part has rebuild problems")
         part = self.typed(self.model, "PartDoc")
