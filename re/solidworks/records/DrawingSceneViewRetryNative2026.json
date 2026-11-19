@@ -1,0 +1,121 @@
+{
+  "acceptance": false,
+  "actual_getter_invocation_observed": false,
+  "data_windows": [
+    {
+      "bound": "typed primary RTTI data span; no payload included",
+      "bytes": 24,
+      "end_exclusive": "0x3e24e318",
+      "module": "slddrwu.dll",
+      "name": "real drawing view complete object locator",
+      "sha256": "57538347389fc462d0776f57da2ea459185906bad3a787dc477facc73ae63977",
+      "start": "0x3e24e300"
+    },
+    {
+      "bound": "typed primary RTTI data span; no payload included",
+      "bytes": 38,
+      "end_exclusive": "0x3e3c0fae",
+      "module": "slddrwu.dll",
+      "name": "real drawing view type descriptor",
+      "sha256": "e05cb2658f81ab19af33de652cfeb2d20982a3d7d7ef12d9f43e515161782ea0",
+      "start": "0x3e3c0f88"
+    }
+  ],
+  "delivery_pr": 121,
+  "execution": {
+    "cad": false,
+    "native": false,
+    "tests": false
+  },
+  "format_rules": {
+    "additional_source_lane": {
+      "actual_class": ".?AVuiDrawingView_c@@",
+      "actual_vtable_rva": "0x6230e0",
+      "field_offset": "0x478",
+      "getter_bytes": 8,
+      "getter_rva": "0x39d360",
+      "getter_sha256": "433f057b3a2a2d095b24323134043fd23141170ae6e582b5dd8f6974d2ebec24",
+      "invalidator_vslot": "0x78",
+      "module": "slddrwu.dll",
+      "rtti_this_offset": 0,
+      "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47"
+    },
+    "all_tree_and_read_guards_preserved": true,
+    "com_retry_method": {
+      "GetAnnotations_per_state": 1,
+      "GetFirstView_per_state": 1,
+      "automatic_com_retry_or_error_swallowing": false,
+      "existing_note_geometry_guards_preserved": true,
+      "fresh_DrawingDoc_QueryInterface_per_state": true,
+      "one_actual_collection_reused_for_count_and_note": true,
+      "rpc_cause_established": false
+    },
+    "hidden_inputs_read": 0,
+    "original_slduiu_lane_preserved": true,
+    "prior_complete_memory_snapshots": 16,
+    "prior_layer_values": "unknown because all 32 per-row getter guards refused the unqualified drawing override",
+    "prior_overall_exit": 3,
+    "prior_result_sha256": "8b72327abb9fa7b73fc5b1b1f880b8c7f0f0be750b7736393bef39cb425e716e",
+    "prior_rpc_stage": "sixth GetFirstView, zero-based API call index150, post-redraw note reacquisition after one returned annotation",
+    "renderer_or_writer_qualified": false,
+    "result_separation": {
+      "data_collected": "all original phase/control COM and memory criteria; still false on a phase failure",
+      "independent_memory_observations_complete": "all four guarded memory stages per exact owned process, clean input/ownership custody and healthy controls",
+      "ordinary_com_verification_complete": "all original ordinary state checks completed and passed",
+      "overall_exit": "3 retained for an incomplete COM phase even if memory is complete",
+      "source_generated_memory_comparison": "only when independent guarded memory collection is complete"
+    },
+    "schema": "kit.sw2026.drawing-view-retry-plan.v1",
+    "vm_calls": 0
+  },
+  "functions": [
+    {
+      "bound": "actual concrete uiDrawingView primary virtual entry; complete no-unwind leaf",
+      "bytes": 8,
+      "end_exclusive": "0x3df5d368",
+      "module": "slddrwu.dll",
+      "name": "DrawingLayerZeroGetterLeaf",
+      "sha256": "433f057b3a2a2d095b24323134043fd23141170ae6e582b5dd8f6974d2ebec24",
+      "start": "0x3df5d360",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "exact exported or concrete vtable entry; complete no-unwind leaf",
+      "bytes": 8,
+      "end_exclusive": "0x4955c608",
+      "module": "slduiu.dll",
+      "name": "LayerZeroGetterLeaf",
+      "sha256": "433f057b3a2a2d095b24323134043fd23141170ae6e582b5dd8f6974d2ebec24",
+      "start": "0x4955c600",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [],
+  "instruction_windows": [],
+  "modules": [
+    {
+      "bytes": 8949848,
+      "machine": "0x8664",
+      "name": "slddrwu.dll",
+      "preferred_base": "0x3dbc0000",
+      "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47"
+    },
+    {
+      "bytes": 36036696,
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    }
+  ],
+  "proprietary_bytes_or_listings_in_record": false,
+  "schema": "kit.sw2026.drawing-view-override-native.v1",
+  "task": "DRAWING-NOTES-C10",
+  "vtable_cells": [
+    {
+      "cell": "0x3e1e36c0",
+      "module": "slddrwu.dll",
+      "target": "0x3df5d360"
+    }
+  ]
+}
