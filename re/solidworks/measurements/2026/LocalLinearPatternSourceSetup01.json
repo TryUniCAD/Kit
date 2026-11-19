@@ -1,0 +1,105 @@
+{
+  "schema": "kit.sw2026.linear-pattern-source-setup-observation.v1",
+  "task_id": "B04-SW2026-LOCAL-LINEAR-PATTERN",
+  "source_revision": "f4a63f3751ad01c49c02877183b132ab5e34f10e",
+  "result": "failed before pattern creation: optional D2Axis null assignment returned COM type mismatch",
+  "source_acquisition_passed": false,
+  "packet01_sha256": "ff99e80b7890f8324b8885adf548e206ed5452d6e9354db6291fdad43343a51c",
+  "source_lock_sha256": "be425818b774ec9a86da639e496e786dfb04a24802ef60bd8887a91ff8d0ff4f",
+  "failed_phase_sha256": "29917645e0c5347681503c3dcc1742ebe83a371b14b4222ee0562654a5b33e60",
+  "root_reported_transport_sha256": "7dc45cf4070dc4840cedef1fd5bbae02b91b825c8dde7a6becc3c70c7241433a",
+  "failed_operation": {
+    "stage": "set D2Axis",
+    "exception_class": "com_error",
+    "com_error": -2147352571,
+    "argument": 1,
+    "requested_optional_value": "VT_DISPATCH null",
+    "pattern_created": false,
+    "native_saved_source_created": false,
+    "driving_edits_reached": false
+  },
+  "controls": [
+    {
+      "role": "before",
+      "raw_sha256": "e363ceff8930cf55e46848a73b411f84459f5868055798dc789fe8b2ae2c4263",
+      "passed": true,
+      "oracle_identity": {
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "file_version": "34.5.2.0604",
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134395237929190365
+      },
+      "opened": true,
+      "rebuilt": true,
+      "errors": 0,
+      "warnings": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "whats_wrong": 0
+    },
+    {
+      "role": "after",
+      "raw_sha256": "0913b9488672ca7a25f871618c8a5518c8c979ed070370aab3ed25f4ff456653",
+      "passed": true,
+      "oracle_identity": {
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "file_version": "34.5.2.0604",
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134395238393340979
+      },
+      "opened": true,
+      "rebuilt": true,
+      "errors": 0,
+      "warnings": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "whats_wrong": 0
+    }
+  ],
+  "distinct_native_processes": 3,
+  "application_pids_after": [],
+  "source_packet_unchanged": true,
+  "source_inputs_unchanged": true,
+  "control_unchanged": true,
+  "worker_verified_raw_hashes": [
+    "packet01 manifest and every bound file",
+    "D01X author Record.json",
+    "disclosed source lock",
+    "control-before JSON",
+    "control-after JSON"
+  ],
+  "root_reported_license_processes_unchanged": true,
+  "hidden_inputs_or_observations_read": 0,
+  "hidden_authoring_started": false,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "native_format_crash_inference": false,
+  "correction": {
+    "packet02_sha256": "5a1a9397655c8ac3f5208e1398d637232abc448209af9f4910e083ae267908f5",
+    "author_sha256": "b20836fc0346041b4f0edbde07fdd7ba7fabfb49989e66a5524ee845f8d5ae69",
+    "change": "remove both optional null/empty setters, record and require actual unused state before creation and after rebuild; every direction/edit/geometry/control gate retained",
+    "same_disclosed_specs": true,
+    "one_executable_changed": true,
+    "execution_pending": true
+  },
+  "transport_hash_verification": "reported by root; the exact transport file path was not supplied to this worker"
+}
