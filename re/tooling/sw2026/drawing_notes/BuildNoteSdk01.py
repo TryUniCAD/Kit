@@ -75,7 +75,10 @@ def verify(value, record):
         actual = paper["f430"]
         known = (*requested.ShiftValues, requested.ScaleValue)
         seen = tuple(actual[key] for key in ("f58", "f60", "f68", "f70"))
-        if actual["has_matrix"] or actual["f78"] or tuple(map(float.hex, seen)) != tuple(map(float.hex, known)):
+        if (
+            actual["has_matrix"] or actual["f78"]
+            or tuple(float(value).hex() for value in seen) != tuple(float(value).hex() for value in known)
+        ):
             raise ValueError("drawing viewport transform differs from the authored input")
     document = open_document(value.BytesValue, source_format="solidworks.slddrw", strict=False)
     sheet, = document.DrawingValue.Sheets

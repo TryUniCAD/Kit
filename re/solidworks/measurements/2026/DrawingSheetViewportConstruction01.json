@@ -17,6 +17,12 @@
   "job_sha256": "6d6750ac570b3b52f17332941b8608fc5bf2c92ecdc13ca13bb4a9af10eb4bf4",
   "native_processes": 0,
   "non_definition_streams_byte_identical": 6,
+  "numeric_scale_guarded_replay": {
+    "both_wire_outputs_equal": true,
+    "container_sha256": "7a83e85b9b2c5e8ba72b2bcc963d6672fc6f5767428fc585373a052f11ca7056",
+    "fresh_workers": 2,
+    "receipt_sha256": "6c322121fd3dbcc29ec2b6e3ea07b13291eed65eab1d32e6201eec5630888319"
+  },
   "outputs": {
     "Default": {
       "container_bytes": 6107,

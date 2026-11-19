@@ -141,10 +141,10 @@ def phase(directory, source, expected, intent, *, observe=None):
             require(model is not None and errors == warnings == 0, "presentation drawing did not open cleanly")
             author.model = model
             drawing = author.typed(model, "DrawingDoc")
-            author.get(model, "GraphicsRedraw2")
-            row["initial"] = drawing_state(author, drawing, intent)
             if observe is not None:
                 row["initial_observation"] = observe(author)
+            author.get(model, "GraphicsRedraw2")
+            row["initial"] = drawing_state(author, drawing, intent)
             row["rebuild"] = bool(author.get(model, "ForceRebuild3", False))
             require(row["rebuild"], "presentation drawing rebuild failed")
             author.get(model, "GraphicsRedraw2")

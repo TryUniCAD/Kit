@@ -37,11 +37,19 @@ def camera_matches(camera, requested):
     ))
 
 
+def observe_role(root, job, output, role):
+    control = role.startswith("Control")
+    name = "Control.SLDDRW" if control else role + "/Disclosed01.SLDDRW"
+    intent = None if control else loads((root / role / "Intent.json").read_bytes())
+    return phase(output / role, root / name, job["files"][name], intent, observe=pose)
+
+
 def main():
     parser = ArgumentParser()
-    parser.add_argument("mode", choices=("verify", "run"))
+    parser.add_argument("mode", choices=("verify", "run", "phase"))
     parser.add_argument("--job", type=Path, required=True)
     parser.add_argument("--sha256", required=True)
+    parser.add_argument("--role", choices=ROLES)
     args = parser.parse_args()
     root, job = verify(args.job, args.sha256)
     if args.mode == "verify":
@@ -49,18 +57,24 @@ def main():
         return 0
     require(os.name == "nt", "reserved Windows guest is required")
     output = root / "Inspection01"
+    if args.mode == "phase":
+        require(args.role is not None, "one exact viewport phase is required")
+        output.mkdir(exist_ok=True)
+        row = observe_role(root, job, output, args.role)
+        verify(args.job, args.sha256)
+        result = output / args.role / "Result.json"
+        print(dumps({"role": args.role, "passed": row["passed"], "result_sha256": digest(result)}))
+        return 0 if row["passed"] else 3
     output.mkdir()
     rows = {}
     placement = {}
     for role in ROLES:
-        control = role.startswith("Control")
         if role in CASES and not all(rows[name]["passed"] for name in ("ControlBefore", "NativeSource")):
             rows[role] = {"passed": False, "skipped": "leading native controls failed"}
             continue
-        name = "Control.SLDDRW" if control else role + "/Disclosed01.SLDDRW"
-        intent = None if control else loads((root / role / "Intent.json").read_bytes())
-        rows[role] = phase(output / role, root / name, job["files"][name], intent, observe=pose)
+        rows[role] = observe_role(root, job, output, role)
         if role in ("PanA", "PanB") and rows[role]["passed"]:
+            intent = loads((root / role / "Intent.json").read_bytes())
             placement[role] = {
                 label: camera_matches(rows[role][label], intent["viewport"])
                 for label in ("initial_observation", "rebuilt_observation")
