@@ -99,6 +99,25 @@ and their checked public observations. The sealed cohort remains private.
 [Feature name API](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IFeature_members.html)
 · [Body name API](https://help.solidworks.com/2024/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IBody2~Name.html)
 
+## Observe a standalone body in the native kernel
+
+Run [ObserveKernelBodyRestore.py](ObserveKernelBodyRestore.py) from a
+committed tool packet with the same source observer and versioned COM
+helpers. The job selects a new `C:\KitKernelRestoreNN` directory and binds
+all tool digests, raw file digests and expected SI geometry. Each case
+declares whether it is a vendor-authored local body control or a generated
+disclosed body. Invoke the tool through the same Parallels current-user
+transport with the job checksum.
+
+The probe first calibrates the automation route with a temporary body
+saved to a native IStream and returned through `IModeler::Restore`. The
+candidate lanes use the same restore and attachment calls. Each phase
+checks its process image, exact topology, vertices, volume, area and centre
+of mass. The last two phases repeat the raw and pristine application
+controls. Candidate acceptance requires successful bracketing controls.
+[Native restore interface](https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IModeler~IRestore2.html)
+· [Temporary solid measurement](https://help.solidworks.com/2024/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IBody2~GetMassProperties.html)
+
 The packet authors source fixtures through SOLIDWORKS. It records zero Kit
 writer outputs and zero native writer acceptance. The public conversion route
 and any opt-in capability-loss behavior require separate implementation and
