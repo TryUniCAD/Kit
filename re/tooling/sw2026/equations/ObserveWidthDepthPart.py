@@ -16,6 +16,9 @@ class PlainPartObserver(equations.EquationAuthor):
         fixed_depth = {**case, "width_mm": case["edit_width_mm"]} if edited else case
         return super().source_snapshot(fixed_depth, False)
 
+    def edit_source(self, case):
+        self.edit(equations.PARAMETERS[0], case["edit_width_mm"] / 1000)
+
 
 def load_job(path, expected):
     require(digest(path) == expected, "the frozen width/depth job changed")
