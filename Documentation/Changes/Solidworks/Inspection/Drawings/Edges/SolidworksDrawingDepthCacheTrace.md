@@ -1,0 +1,9 @@
+# Trace drawing edge-cache lookup after the passing depth baseline
+
+A new research freezer binds the existing two-stop cache observer to the exact six-process depth-aware drawing annotation baseline. It preserves the original packet, all ordinary lifecycle checks, five low-level observer modules, pinned engine hashes, and source-site/cleanup rules. The reproduced runner changes only its baseline trial binding.
+
+Use `FreezeDrawingDepthCacheTrace01.py` with the exact baseline packet and terminal receipt, an unused output path, original trace-source directory, cached debugger directory, and explicit Windows packet/interpreter identities. The generated `Recipe.json` contains the checksum-bound verify and run argument arrays for the sole oracle owner. It installs and launches nothing on the host.
+
+The first matched cache-reference pointer remains unjoined to the selected annotation edge. The cacheless generated child does not independently supply a requested downstream ID or runtime owner, so an exact generated owner/ID discriminator stays disabled. No native trace or new writer qualification is claimed.
+
+Host packet verification passes. The freezer checks 24 unchanged baseline files, the exact passed native result, and all six original trace-source hashes. Static checks and complete packet comparisons are recorded in the [freeze receipt](../../../../../../re/solidworks/measurements/2026/DrawingDepthBaselineTraceFreeze01.json). See the [bounded method](../../../../../../re/solidworks/records/DrawingDepthBaselineCacheTrace2026.md) for exact hashes, source sites, commands and remaining qualification.
