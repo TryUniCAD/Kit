@@ -139,15 +139,19 @@ def add_counts(mark, new=0):
     return Node(mark.index, mark.kind, {**mark.fields, "n_new_nodes": new, "n_del_nodes": 0, "n_copy_mod_nodes": 0})
 
 
-def project_rectangle(child, plan, appearance, previous_face_allocations=0, *, downstream=None):
-    partial, next_id = complete_topology(plan.topology)
-    active, nontransmitted, next_id = append_rectangle_attributes(
-        child, plan, partial, appearance, next_id, previous_face_allocations, downstream=downstream,
-    )
+def finish_prism_projection(active, next_id, history, nontransmitted):
     complete = tuple(augment(node, highest_node_id=next_id - 1) if node.kind == 12 else node for node in active)
     for node in complete:
         expected = {field.name for field in SCHEMAS[node.kind].current}
         require(node.fields.keys() == expected,
                 f"unclassified {SCHEMAS[node.kind].name} fields {sorted(expected ^ node.fields.keys())}")
-    draft = index_draft(complete, plan.history)
+    draft = index_draft(complete, history)
     return ProjectedRectangle(collect_state(draft, nontransmitted), nontransmitted)
+
+
+def project_rectangle(child, plan, appearance, previous_face_allocations=0, *, downstream=None):
+    partial, next_id = complete_topology(plan.topology)
+    active, nontransmitted, next_id = append_rectangle_attributes(
+        child, plan, partial, appearance, next_id, previous_face_allocations, downstream=downstream,
+    )
+    return finish_prism_projection(active, next_id, plan.history, nontransmitted)

@@ -53,22 +53,20 @@ def scalar_slots(slots):
     return tuple(v if v is None or isinstance(v, tuple) else (v,) for v in slots)
 
 
-def rectangle_installs(child, plan, appearance, previous_face_allocations):
+def prism_installs(brep, face_roles, tracking, feature_id, creation, appearance, previous_face_allocations):
     require(type(previous_face_allocations) is int and previous_face_allocations >= 0,
             "provide the count of earlier face-identification events")
-    body = Ref(plan.brep.bodies[0].id)
-    tracking = plan.tracking
-    creation = feature_created_at(child.model_header, child.extrusion.feature)
-    caps = {role.number: name for name, role in plan.face_roles.items() if role.cap}
-    sides = tuple(name for name, role in plan.face_roles.items() if not role.cap)
+    body = Ref(brep.bodies[0].id)
+    caps = {role.number: name for name, role in face_roles.items() if role.cap}
+    sides = tuple(name for name, role in face_roles.items() if not role.cap)
     attributed_faces = (caps[1], caps[0], *sides)
     for ordinal, name in enumerate(attributed_faces, FIRST_PROCESS_FACE_ID + previous_face_allocations):
         face = Ref(name)
         yield Install(face, "DOWNSTREAM_FACE_ID", tracking.face_fields[name]["DOWNSTREAM_FACE_ID"])
-        yield Install(face, "FACE_ID_2001", face_payload(plan.face_roles[name], plan.archive.feature_id, creation, ordinal))
+        yield Install(face, "FACE_ID_2001", face_payload(face_roles[name], feature_id, creation, ordinal))
     for name in ("ENT_TIME_STAMP_2001", "ATOM_ID_2001", "LAST_BODY_MODIFYING_FEATURE_ID", "SWIMPLICITBODYNAME_ID_U"):
         yield Install(body, name, scalar_slots(tracking.body_fields[name]))
-    for name in plan.face_roles:
+    for name in face_roles:
         yield Install(Ref(name), "SWEntUnchanged", scalar_slots(tracking.face_fields[name]["SWEntUnchanged"]))
     yield Install(body, "BODY_MATCH", scalar_slots(tracking.body_fields["BODY_MATCH"]))
     yield Install(body, "BODY_RECIPE_2001", (None, None))
@@ -76,9 +74,15 @@ def rectangle_installs(child, plan, appearance, previous_face_allocations):
         yield Install(body, "SDL/TYSA_DENSITY", ((appearance.density_kg_m3,), None))
     yield Install(body, "SDL/TYSA_COLOUR_2", (tuple(component / 255 for component in appearance.rgb),))
     yield Install(body, "SDL/TYSA_TRANSLUCENCY_2", ((appearance.transparency,),))
+    yield Install(body, "BODY_IN_LIGHTWEIGHT_PERM", (None, (1,)))
+
+
+def rectangle_installs(child, plan, appearance, previous_face_allocations):
     require(plan.archive.atom["f144"] == 0 and plan.archive.atom["f188"] == 1,
             "cache appearance requires a fresh visible solid atom")
-    yield Install(body, "BODY_IN_LIGHTWEIGHT_PERM", (None, (1,)))
+    return prism_installs(plan.brep, plan.face_roles, plan.tracking, plan.archive.feature_id,
+                          feature_created_at(child.model_header, child.extrusion.feature),
+                          appearance, previous_face_allocations)
 
 
 def append_rectangle_attributes(child, plan, topology, appearance, first_node_identifier, previous_face_allocations=0, *, downstream=None):

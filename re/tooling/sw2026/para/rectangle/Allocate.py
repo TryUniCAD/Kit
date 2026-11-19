@@ -176,13 +176,9 @@ def allocate_updates(session, model_header):
     return Updates(face_stamp, body_stamp, update, body, stamp)
 
 
-def allocate_tracking(child, geometry, session, marks, updates):
-    boss = child.extrusion.feature
-    feature_id = positive_i32(boss["f08"], "extrusion feature")
-    atom_id = positive_i32(child.model["fd88"]["f260"] + 1, "next model atom")
+def prism_tracking(geometry, session, updates, feature_id, atom_id, body_name):
     body_tag = positive_i32(session.first_tag, "first kernel entity tag")
     face_tags = {face.id: positive_i32(body_tag + offset, "face tag") for offset, face in enumerate(geometry.faces, 1)}
-    body_name = boss["f18"]["f08"]
     require(isinstance(body_name, str) and body_name and "\x00" not in body_name, "implicit body name needs an authored feature name")
     body_name_u16 = tuple(int.from_bytes(unit, "little") for unit in chunks(body_name.encode("utf-16-le"), 2))
     body_tracking = {
@@ -199,6 +195,14 @@ def allocate_tracking(child, geometry, session, marks, updates):
         }
         for face_id, tag in face_tags.items()
     }
+    return Tracking(body_tag, face_tags, body_tracking, face_tracking)
+
+
+def allocate_tracking(child, geometry, session, marks, updates):
+    boss = child.extrusion.feature
+    feature_id = positive_i32(boss["f08"], "extrusion feature")
+    atom_id = positive_i32(child.model["fd88"]["f260"] + 1, "next model atom")
+    tracking = prism_tracking(geometry, session, updates, feature_id, atom_id, boss["f18"]["f08"])
     atom = Obj("moAtom_c", {
         "f18": None,
         "f0c": 1,
@@ -218,8 +222,8 @@ def allocate_tracking(child, geometry, session, marks, updates):
         "f170": 0,
         "f18c": 1,
         "f198": -1,
-        "f180": body_match_tag(body_tag),
-        "f1b0": body_match_tag(body_tag),
+        "f180": body_match_tag(tracking.body_tag),
+        "f1b0": body_match_tag(tracking.body_tag),
         "f188": int(geometry.regions[0].solid),
         "f19c": 6,
     }, schema=1)
@@ -235,7 +239,7 @@ def allocate_tracking(child, geometry, session, marks, updates):
         active_header_fields={"f40": updates.saved_update, "f44": updates.saved_body, "f48": session.update_second},
         feature_id=feature_id,
     )
-    return Tracking(body_tag, face_tags, body_tracking, face_tracking), archive
+    return tracking, archive
 
 
 def chunks(data, width):
