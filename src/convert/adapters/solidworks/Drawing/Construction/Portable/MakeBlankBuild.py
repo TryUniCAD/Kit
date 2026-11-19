@@ -27,6 +27,7 @@ def MakeBlankBuild(DrawingValue: DrawingData, Options: DrawDocOptions) -> DrawBu
     if (
         type(SheetValue) is not DrawingSheet
         or SheetValue.Views
+        or SheetValue.Notes
         or type(SheetValue.EntityId) is not str
         or not SheetValue.EntityId
         or type(DrawingValue.ActiveSheetId) is not str

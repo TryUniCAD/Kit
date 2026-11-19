@@ -46,7 +46,7 @@ def NeedBlankDrawing(DocumentValue: CadDocument) -> DrawingData:
     if len(DrawingValue.Sheets) != 1 or DrawingValue.ModelRefs:
         raise ValueError("native blank drawing requires one unlinked sheet")
     SheetValue = DrawingValue.Sheets[0]
-    if SheetValue.Views or not IsAnsiLandscapeSize(SheetValue.SheetWidth, SheetValue.SheetHeight):
+    if SheetValue.Views or SheetValue.Notes or not IsAnsiLandscapeSize(SheetValue.SheetWidth, SheetValue.SheetHeight):
         raise ValueError("native blank drawing requires an empty landscape ANSI A sheet")
     _ = ReadSheetRatio(SheetValue.ScaleRatio)
     return DrawingValue

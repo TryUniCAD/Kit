@@ -63,6 +63,7 @@ KTypeWireFields: TypeMap[str, TypeMap[str, str]] = {
     "ComponentDef": {"SourceDigest": "source_sha256"},
     "ConstraintRef": {"EntityId": "entity_id"},
     "Diagnostic": {"EntityId": "entity_id"},
+    "DrawingNote": {"TextValue": "text", "PositionValue": "position"},
     "DrawingSheet": {"SheetWidth": "width", "SheetHeight": "height"},
     "DrawingView": {"PositionValue": "position", "OutlineValues": "outline"},
     "PointGeometry": {"Point": "point"},

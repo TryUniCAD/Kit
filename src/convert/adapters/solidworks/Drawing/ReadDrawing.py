@@ -6,6 +6,7 @@ from convert.adapters.solidworks.Container.Format import KFormatIdBySuffix
 from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import (
     CheckDrawLane,
+    KDefinitionStream,
 )
 from convert.adapters.solidworks.Drawing.Layout.MakeDrawDoc import MakeDrawDoc
 from convert.adapters.solidworks.Drawing.Layout.ReadDrawLayout import ReadDrawLayout
@@ -45,10 +46,25 @@ def ReadDrawing(
             ReadConcept,
         )
 
-        Version = CheckDrawLane(Archive)
-        Layout = JoinConcept(
-            ReadConcept(Archive, Version), ReadDrawLayout(Archive, Version)
+        from convert.adapters.solidworks.Drawing.Definition.PlainNotes.PlainNoteRequired import (
+            PlainNoteRequired,
         )
+
+        Version = CheckDrawLane(Archive)
+        try:
+            Concept = ReadConcept(Archive, Version)
+        except PlainNoteRequired:
+            from convert.adapters.solidworks.Drawing.Definition.PlainNotes.ReadNoteDrawing import (
+                ReadNoteDrawing,
+            )
+
+            Layout = ReadNoteDrawing(
+                Archive.require(KDefinitionStream),
+                Version,
+                ReadDrawLayout(Archive, Version),
+            )
+        else:
+            Layout = JoinConcept(Concept, ReadDrawLayout(Archive, Version))
     except SldprtFormat:
         raise
     except (KeyError, TypeError, ValueError) as ErrorValue:

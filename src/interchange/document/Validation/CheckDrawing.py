@@ -4,7 +4,11 @@ from interchange.document.Models.Drawing.DrawingData import DrawingData
 from interchange.document.Models.Drawing.DrawingModelRef import DrawingModelRef
 from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
 from interchange.document.Models.Drawing.ValidText import HasDrawingText, HasUniqueIds
-from interchange.document.Validation.CheckDrawSheet import CheckDrawSheet, HasValidViews
+from interchange.document.Validation.CheckDrawSheet import (
+    CheckDrawSheet,
+    HasValidNotes,
+    HasValidViews,
+)
 from interchange.document.Validation.CheckDrawView import CheckDrawView
 
 
@@ -44,8 +48,18 @@ def CheckDrawLinks(DrawingValue: DrawingData) -> tuple[str, ...]:
         for ViewValue in SheetValue.Views
     )
     ViewIds = tuple(ViewValue.EntityId for ViewValue in Views)
-    if not HasUniqueIds((*SheetIds, *ModelIds, *ViewIds)):
-        Errors.append("drawing sheet, view and model ids must be nonempty and unique")
+    NoteIds = tuple(
+        NoteValue.EntityId
+        for SheetValue in DrawingValue.Sheets
+        if SheetValue.Notes is not None and HasValidNotes(SheetValue.Notes)
+        for NoteValue in SheetValue.Notes
+    )
+    if not HasUniqueIds((*SheetIds, *ModelIds, *ViewIds, *NoteIds)):
+        Errors.append(
+            "drawing sheet, view, model and note ids must be nonempty and unique"
+            if NoteIds
+            else "drawing sheet, view and model ids must be nonempty and unique"
+        )
     if DrawingValue.ActiveSheetId not in SheetIds:
         Errors.append("drawing active sheet id must reference a sheet")
     if any(ViewValue.ModelRefId not in ModelIds for ViewValue in Views):

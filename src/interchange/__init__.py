@@ -92,6 +92,7 @@ from interchange.document.Models.DocumentMetadata import AddWrapperMeta, GetSema
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Models.Drawing.DrawingData import DrawingData
 from interchange.document.Models.Drawing.DrawingModelRef import DrawingModelRef
+from interchange.document.Models.Drawing.DrawingNote import DrawingNote
 from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
 from interchange.document.Models.Drawing.DrawingView import DrawingView
 from interchange.document.Models.DocumentPayload import GetPayloadIds
@@ -338,6 +339,7 @@ __all__ = (
     "CadDocumentValidationError",
     "DrawingData",
     "DrawingModelRef",
+    "DrawingNote",
     "DrawingSheet",
     "DrawingView",
     "CadSource",

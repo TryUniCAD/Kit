@@ -39,6 +39,7 @@ Check the format reference and result for each input.
 The generative SOLIDWORKS part writer supports a canonical line-loop sketch with a forward blind boss, a fixed-centre Front diameter with a forward blind boss, and a fixed-centre Top radius with a reversed blind boss. [SOLIDWORKS writer scope](Documentation/Reference/Adapters/Solidworks.md#writing)
 The SOLIDWORKS assembly writer supports bounded principal-plane mate groups and a single initially satisfied perpendicular between two occurrences of one owned rectangular part. [Assembly writer scope](Documentation/Reference/Adapters/SolidworksAssemblyWriting.md)
 The SOLIDWORKS drawing writer generates one editable unlinked ANSI A landscape sheet from a neutral layout. The strict reader recovers the generated sheet and its native metadata. [Drawing writer scope](Documentation/Reference/Adapters/Solidworks.md#writing-standalone-blank-drawings) · [Strict reader scope](Documentation/Reference/Research/Solidworks/Reading/GeneratedBlankStrictReader.md)
+The partial SOLIDWORKS drawing reader also recovers a single unattached plain note and its position from an unlinked sheet. [Drawing inspection scope](Documentation/Reference/Adapters/Solidworks.md#drawing-layout-inspection)
 The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md) reads and writes qualified parameter, circle, rectangle, cylinder, cuboid, and frustum documents. Arbitrary feature graphs remain unsupported; `strict=False` explicitly selects the earlier partial reader.
 
 ## Command line

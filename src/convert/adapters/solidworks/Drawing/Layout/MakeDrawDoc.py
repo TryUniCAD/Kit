@@ -22,6 +22,17 @@ KLayoutDiagnostic = Diagnostic(
 )
 
 
+# partial note inspection must disclose that native style and rendering still lack mapping
+KPlainNoteDiagnostic = Diagnostic(
+    code="slddrw.plain_note_inspection",
+    message=(
+        "Decoded sheet layout and plain note text and position. "
+        "Native styles and displayed geometry are outside this inspection profile."
+    ),
+    severity=Severity.KWarning,
+)
+
+
 # the public drawing document owns paper layout without fabricating design history
 def MakeDrawDoc(
     Archive: SldprtArchive,
@@ -50,5 +61,11 @@ def MakeDrawDoc(
         capabilities=(
             frozenset({Capability.KExternalRefs}) if Drawing.ModelRefs else frozenset()
         ),
-        diagnostics=(KLayoutDiagnostic,),
+        diagnostics=(
+            (
+                KPlainNoteDiagnostic
+                if any(Sheet.Notes for Sheet in Drawing.Sheets)
+                else KLayoutDiagnostic
+            ),
+        ),
     )
