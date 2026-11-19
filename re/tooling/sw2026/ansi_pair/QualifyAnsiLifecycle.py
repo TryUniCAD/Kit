@@ -78,7 +78,7 @@ def main():
         native["packet_sha256"] == args.packet_sha256
         and native["passed"] is True
         and native["controls_healthy"] is True
-        and native["distinct_native_processes"] == 18,
+        and native["distinct_native_processes"] == 2 + 4 * len(packet["cases"]),
         "ANSI native phases or controls are incomplete",
     )
     sys.path[:0] = [str(code / "src"), str(code)]
@@ -159,7 +159,7 @@ def main():
                     style_diagnostic=str(error),
                 )
             result["cases"].append(row)
-    result["passed"] = len(result["cases"]) == 20 and all(
+    result["passed"] = len(result["cases"]) == 5 * len(packet["cases"]) and all(
         row["passed"] for row in result["cases"]
     )
     result["native_geometry_lifecycle_passed"] = True

@@ -68,6 +68,12 @@ The data-only `AnsiDrawingRuntimeEarlyStyle01.json` has SHA-256 `dca701a7caebdd0
 
 The complete style-retention predicate compares this bit alongside the other typed fields. The unit, Swift and exclusion initialization addresses the common 184 differences. The centreline operation addresses the extra ANSI path.
 
+The completed four-pair native initialization batch verifies all
+18 phases and 20 linked archive joins. The complete presentation
+persists for both ISO designs. Each of the eight saved ANSI states
+has exactly one difference at `/drawing_details/f20`.
+[Native initialization receipt](../measurements/2026/DrawingDetailInitializationNative01.json)
+
 A separately frozen candidate applies the operation to the proved primary detail owner before serialization. Thirty-four guarded host processes compared all four previously initialized drawings to the new outputs. The two ISO containers and all four child containers match byte for byte. Each ANSI drawing changes only the centreline mask in the complete presentation. Repeated builds, separate typed replay and explicit-true requests pass. Explicit false and unqualified callers fail closed. [Construction receipt](../measurements/2026/DrawingCenterlineInitialization01.json)
 
 The guarded host process runs from the frozen source tree. It requires the exact source manifest and an unused external output directory. Native persistence with the new candidates, runtime overrides, future versions and full source and held-out qualification remain open. [Host runner](../../tooling/sw2026/AnsiLoadInitFlow.py)

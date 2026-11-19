@@ -79,13 +79,24 @@ def verify(packet, expected):
     for name, row in job["tools"].items():
         require(row["path"] == "Tools/" + name, "observer tool path differs")
         checked(root, row)
+    centreline = job.get("experiment") == "drawing-centreline-initialization"
+    expected_cases = 2 if centreline else 4
     require(
         job["control"]["sha256"] == CONTROL
-        and len(job["cases"]) == 4
+        and len(job["cases"]) == expected_cases
+        and job.get("expected_native_processes", 18) == 2 + expected_cases * len(PHASES)
         and job["source_original_admission"] is False
         and job["expected_text_depths_m"] == [0.0, 0.0, 0.0, 0.0],
         "spatial text trial control or case scope differs",
     )
+    if centreline:
+        require(
+            {(case["style_mode"], case["kind"]) for case in job["cases"]}
+            == {("ansi", "corner"), ("ansi", "center")}
+            and job["complete_style_retention_required"] is True
+            and job["ansi_drawing_f20_exemption"] is False,
+            "centreline trial requires both measured ANSI profiles and full style retention",
+        )
     checked(root, job["control"])
     for row in job["custody"]:
         checked(root, row)
@@ -514,7 +525,9 @@ def run(packet, expected):
             controls_healthy=before and after and matching_controls,
             distinct_native_processes=len(starts),
             packet_inputs_unchanged=True,
-            native_lifecycle_passed=len(starts) == len(result["phases"]) == 18
+            native_lifecycle_passed=len(starts)
+            == len(result["phases"])
+            == 2 + len(job["cases"]) * len(PHASES)
             and all(row["passed"] for row in result["phases"].values()),
         )
         result["passed"] = bool(
