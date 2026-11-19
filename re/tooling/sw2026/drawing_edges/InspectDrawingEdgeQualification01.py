@@ -19,7 +19,7 @@ WRAPPER = 'd8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959'
 API_METADATA = '92235db40b63b95246f2479a9166ecaa12c242d3f96d149e13827d1e92b756f5'
 COMPONENT_METADATA = 'bd66c956040c0547d1f0b7f5bd35e80681e9910542ccf0e9a61dcd79d34daa24'
 TOOLS = {'InspectDrawingEdgeQualification01.py', 'DrawingEdgeState01.py', 'AuthorCurves.py', 'AuthorDrawingSources.py',
-         'InspectDrawingCache.py', 'DrawingCacheCases.py', 'Swapp.py', 'OracleIdentity.py', 'DrawingEdgeBody01.py'}
+         'InspectDrawingCache.py', 'DrawingCacheCases.py', 'Swapp.py', 'OracleIdentity.py', 'DrawingEdgeBody01.py', 'DrawingEdgeCorrespondence01.py', 'AnnotationDepth01.py'}
 
 
 def digest(path):
@@ -83,9 +83,9 @@ def verify(packet, expected):
             selected = [row for row in observed['members'] if row['names'][0] == member and row['invoke_kind'] == 1]
             require(len(selected) == 1 and selected[0]['vtable_offset_bytes'] == slot and selected[0]['arguments'] == [],
                     'exact zero-argument component/root-model API shape differs: ' + member)
-    require(request['component_api_metadata_sha256'] == COMPONENT_METADATA and request['observer_revision'] == 'visible-part-body-owner-05'
-            and request['previous_trial_sha256'] == '6924557cf5ddaf5013a7a7414fe65938df629c543bcdb4ea5b8ab900c216eb74'
-            and request['previous_failed_result_sha256'] == '2b1086065acffae0b4bc72cc73f03b4b29e212a1914fc0d1f54e247321a4d132'
+    require(request['component_api_metadata_sha256'] == COMPONENT_METADATA and request['observer_revision'] == 'attached-cap-note-depth-07'
+            and request['previous_trial_sha256'] == 'bf759fd068dcc988f34c7f81c46d262bc822682788dfc8abc102cfbbe31cb302'
+            and request['previous_failed_result_sha256'] == 'ec4f7fd0edf20c15ad6c493f5a2529de61dbadf23f0dfe0293ba8ccaa87b397e'
             and request['visible_edge_selection_rule'] == 'positive-view-normal-outer-cap-left-rail-v1'
             and request['original_trial_sha256'] == '36143744fc79f19fb60434d24884288f72733e764ed9fd8a8138aff4233d0872'
             and request['original_failed_result_sha256'] == '1056bde8473497d695c89276812fab2db2a66136c9c7351e8ddac40af47c6eb0',
@@ -96,8 +96,28 @@ def verify(packet, expected):
     body_metadata = json.loads(checked(root, 'BodyApiMetadata.json', BODY_METADATA).read_bytes())
     validate_body_api(body_metadata)
     require(request['body_api_metadata_sha256'] == BODY_METADATA
-            and request['body_ownership_rule'] == 'sole-resolved-part-body-and-exact-live-edge-membership-v1',
+            and request['body_ownership_rule'] == 'native-part-correspondence-and-exact-live-edge-membership-v1',
             'the new body-ownership proof must remain exact')
+
+    from DrawingEdgeCorrespondence01 import METADATA as MAP_METADATA, validate as validate_correspondence_api
+
+    map_metadata = json.loads(checked(root, 'CorrespondenceApiMetadata.json', MAP_METADATA).read_bytes())
+    validate_correspondence_api(map_metadata)
+    require(request['correspondence_api_metadata_sha256'] == MAP_METADATA,
+            'the native correspondence API capture must remain exact')
+
+    from AnnotationDepth01 import METADATA as DEPTH_METADATA, RULE as DEPTH_RULE, plan as depth_plan, validate as validate_depth_api
+
+    validate_depth_api(json.loads(checked(root, 'AnnotationDepthApiMetadata.json', DEPTH_METADATA).read_bytes()))
+    require(request['annotation_depth_api_metadata_sha256'] == DEPTH_METADATA
+            and request['annotation_depth_rule'] == DEPTH_RULE,
+            'annotation depth hypothesis/capture must remain exact')
+    for case in request['cases']:
+        require(case['annotation_depth_prediction'] == depth_plan(case), 'derive note depth only from the frozen edge and view transform')
+    source_pin = json.loads(checked(root, 'AnnotationDepthSourcePin.json', request['annotation_depth_source_pin_sha256']).read_bytes())
+    checked(root, 'AnnotationDepthSources2026.json', request['annotation_depth_source_rules_sha256'])
+    require(source_pin['passed'] and source_pin['knowledge_sha256'] == request['annotation_depth_source_rules_sha256']
+            and source_pin['vendor_code_executed'] is False, 'native source pin/rules differ')
 
     tools = root / 'Tools'
     require(Path(__file__).resolve().parent == tools and set(request['tools_sha256']) == TOOLS, 'run only the complete frozen observer')
@@ -176,6 +196,8 @@ def phase(packet, packet_sha, case, directory, source, source_sha, *, prior=None
             require(identity['version_matches'] and identity['sha256'] == ORACLE and controller.revision == '34.5.2', 'oracle build differs')
             author = curves.CurveAuthor(controller.app, rec, Swapp)
             author.edge_body_metadata = json.loads((packet.parent / 'BodyApiMetadata.json').read_bytes())
+            author.edge_correspondence_metadata = json.loads((packet.parent / 'CorrespondenceApiMetadata.json').read_bytes())
+            author.annotation_depth_metadata = json.loads((packet.parent / 'AnnotationDepthApiMetadata.json').read_bytes())
             require(digest(Path(author.interfaces.__file__)) == WRAPPER, 'registered 2026 wrapper bytes differ')
             author.model, errors, warnings = rec.call('open exact disclosed drawing', controller.open, source, doctype=3, read_only=True)
             result.update(open_errors=errors, open_warnings=warnings)
@@ -194,8 +216,13 @@ def phase(packet, packet_sha, case, directory, source, source_sha, *, prior=None
             require(author.get(extension, 'GetUserPreferenceToggle', 779, 0) is True, 'document SaveModelData is not enabled')
             view, child, edge, selected = select_edge(author, drawing, case)
             result['edge_selection'] = selected
+            from AnnotationDepth01 import context as depth_context
+            from DrawingEdgeState01 import edge_points
+
+            depth = depth_context(author, view, edge, case, edge_points)
+            result['annotation_depth_prediction'] = depth
             if prior is None:
-                annotation, initial = create_note(author, drawing, view, edge, case)
+                annotation, initial = create_note(author, drawing, view, edge, case, depth=depth)
                 result['created_annotation'] = initial
                 token = persist_id(author, extension, edge)
             else:
@@ -205,13 +232,13 @@ def phase(packet, packet_sha, case, directory, source, source_sha, *, prior=None
                 annotation = find_annotation(author, view, prior['annotation']['name'])
             persisted = resolve_persist(author, extension, token)
             require(author.get(author.app, 'IsSame', persisted, edge) == 1, 'persistent edge token resolved a different live edge')
-            result['annotation'] = annotation_state(author, annotation, case['annotation']['after_text'], case['annotation']['after_position_m'], edge, case['edge_endpoints_m'])
+            result['annotation'] = annotation_state(author, annotation, case['annotation']['after_text'], case['annotation']['after_position_m'], edge, case['edge_endpoints_m'], depth=depth)
             require(bool(author.get(author.model, 'ForceRebuild3', False)), 'edge annotation edit did not rebuild')
             result['after_state'] = live_check(author, drawing, case, result['rebuilt_state']['drawing_tree'])
             view, child, current_edge, _ = select_edge(author, drawing, case)
             require(author.get(author.app, 'IsSame', resolve_persist(author, extension, token), current_edge) == 1, 'persistent edge no longer matches after rebuild')
             edge = current_edge
-            result['annotation_after_rebuild'] = annotation_state(author, annotation, case['annotation']['after_text'], case['annotation']['after_position_m'], edge, case['edge_endpoints_m'])
+            result['annotation_after_rebuild'] = annotation_state(author, annotation, case['annotation']['after_text'], case['annotation']['after_position_m'], edge, case['edge_endpoints_m'], depth=depth)
             result['persistent_edge_reference'] = {'bytes': len(token), 'sha256': sha256(token).hexdigest(), 'resolved_actual_edge': True}
             if prior is None:
                 target = directory / 'AnnotatedDrawing.SLDDRW'

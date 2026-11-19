@@ -6,6 +6,11 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Native part solid inventory](../measurements/2026/PrismPublicBodyInventoryNative01.json) | The native backing array contains one solid for the same-shape native part and zero for the generated part. The two ordinary opens and both manager calls use matching query state. |
+| [Attached drawing edge lifecycle](../measurements/2026/DrawingAttachedEdgeNative01.json) | Both controls and the generated linked pair preserve the computed plane depth and same persistent edge through six native phases. The application adds the attached note after opening the drawing. |
+| [Drawing cache trace](../measurements/2026/DrawingDepthBaselineCacheNative01.json) | Both instrumented controls save successfully. Neither reaches the armed lookup before the save event. The trace gate skips the generated lane. |
+| [Prism authored light and saved body bookkeeping](../measurements/2026/PrismAmbientSavedBodyNative01.json) | Four generated no-cache variants open with no warnings, expose zero bodies and rebuild to one solid. Both native controls pass. |
+| [Generated authored ambient light](../measurements/2026/PrismAuthoredAmbientNative01.json) | An independently generated light clears warning 32 and the save flag in both ordinary prism opens. Both still expose zero bodies before rebuild. The four generated rebuilds and both native controls pass. |
 | [Held-out public SDK blank drawing writer](../measurements/2026/SdkPublicBlankDrawingHeldout01.json) | Both pre-registration locked layouts match 30 native sheet states and 120 ordered tree rows through open, scale edits, saves and reopens. Twelve distinct processes and two healthy control lifecycles pass. |
 | [Public SDK blank drawing disclosure](../measurements/2026/SdkPublicBlankDrawingDisclosed01.json) | Two ordinary registry routes emit identical byte streams with no runtime data reads. The disclosed generated file opens, rebuilds, accepts a scale edit, saves and reopens with clean controls. |
 | [Post-load light reconstruction](PartEnvironmentDirtyPropagation2026.md) | The live dirty transition traces through post-load default light construction and the environment's actual parent update. Two ordinary native controls pass. |

@@ -94,7 +94,7 @@ def select_edge(author, drawing, case):
     edge = selected[0]
     from DrawingEdgeBody01 import prove_owner
 
-    ownership = prove_owner(author, child, component, edge, case['edge_endpoints_m'], edge_points, endpoints_match)
+    ownership = prove_owner(author, view, child, component, edge, case['edge_endpoints_m'], edge_points, endpoints_match)
     return view, child, edge, {'visible_edge_count': len(edges), 'visible_edge_endpoints_m': inventory,
                               'selected_endpoints_m': case['edge_endpoints_m'], 'actual_child_path': str(child_path),
                               'configuration': case['expected']['view']['configuration'], 'component_occurrence_configuration_observed': component_configuration,
@@ -118,12 +118,21 @@ def resolve_persist(author, extension, data):
     return author.typed(raw, 'Edge')
 
 
-def annotation_state(author, annotation, expected_text, expected_position, edge, endpoints):
+def annotation_state(author, annotation, expected_text, expected_position, edge, endpoints, *, depth=None):
     require(int(author.get(annotation, 'GetType')) == 6, 'the edited annotation is not a note')
     note = author.typed(author.get(annotation, 'GetSpecificAnnotation'), 'Note')
     require(str(author.get(note, 'GetText')) == expected_text, 'note text differs from explicit authored edit')
+    plane = None
+    constrained = expected_position
+    if depth is not None:
+        from AnnotationDepth01 import expected_position as constrained_position
+
+        plane = vector(author.get(annotation, 'GetPlane'), 9)
+        constrained = constrained_position(expected_position, depth)
     position = vector(author.get(annotation, 'GetPosition'), 3)
-    close_vector(author, 'annotation position', position, expected_position)
+    author.rec.data.setdefault('annotation_depth_observations', []).append({'authored_requested_position_m': expected_position, 'expected_constrained_position_m': constrained, 'actual_position_m': position, 'actual_plane_rotation': plane})
+    author.rec.flush()
+    close_vector(author, 'annotation position', position, constrained)
     attached = list(author.get(annotation, 'GetAttachedEntities3') or ())
     types = [int(item) for item in author.get(annotation, 'GetAttachedEntityTypes') or ()]
     require(len(attached) == 1 and attached[0] is not None and types == [1], 'note must be attached to exactly one actual edge')
@@ -133,7 +142,7 @@ def annotation_state(author, annotation, expected_text, expected_position, edge,
     require(author.get(author.app, 'IsSame', bound, edge) == 1, 'annotation points at a different edge object')
     return {'name': str(author.get(annotation, 'GetName')), 'text': str(author.get(note, 'GetText')),
             'position_m': position, 'attachment_types': types, 'attachment_count': len(attached),
-            'dangling': False, 'attached_endpoints_m': points, 'actual_edge_identity_matches': True}
+            'dangling': False, 'attached_endpoints_m': points, 'actual_edge_identity_matches': True, 'authored_requested_position_m': expected_position, 'expected_constrained_position_m': constrained, 'actual_plane_rotation': plane}
 
 
 def find_annotation(author, view, name):
@@ -145,7 +154,7 @@ def find_annotation(author, view, name):
     return selected[0]
 
 
-def create_note(author, drawing, view, edge, case):
+def create_note(author, drawing, view, edge, case, *, depth=None):
     model = author.model
     require(bool(author.get(drawing, 'ActivateView', case['expected']['view']['name'])), 'actual model view could not be activated')
     author.get(model, 'ClearSelection2', True)
@@ -155,7 +164,14 @@ def create_note(author, drawing, view, edge, case):
     attached = author.sw.VARIANT(author.sw.pythoncom.VT_ARRAY | author.sw.pythoncom.VT_DISPATCH, (edge,))
     require(bool(author.get(annotation, 'SetAttachedEntities', attached)), 'native note did not accept the actual displayed edge')
     require(bool(author.get(annotation, 'SetPosition2', *case['annotation']['before_position_m'])), 'native note initial position failed')
-    initial = annotation_state(author, annotation, case['annotation']['before_text'], case['annotation']['before_position_m'], edge, case['edge_endpoints_m'])
+    initial = annotation_state(author, annotation, case['annotation']['before_text'], case['annotation']['before_position_m'], edge, case['edge_endpoints_m'], depth=depth)
+    if depth is not None:
+        for requested_z in depth['independent_requested_z_probes_m']:
+            request = [*case['annotation']['before_position_m'][:2], requested_z]
+            require(bool(author.get(annotation, 'SetPosition2', *request)), 'orthogonal annotation depth request failed')
+            sample = annotation_state(author, annotation, case['annotation']['before_text'], request, edge, case['edge_endpoints_m'], depth=depth)
+            author.rec.data.setdefault('annotation_requested_z_probes', []).append(sample)
+            author.rec.flush()
     require(bool(author.get(note, 'SetText', case['annotation']['after_text'])), 'native note text edit failed')
     require(bool(author.get(annotation, 'SetPosition2', *case['annotation']['after_position_m'])), 'native note position edit failed')
     author.get(model, 'ClearSelection2', True)

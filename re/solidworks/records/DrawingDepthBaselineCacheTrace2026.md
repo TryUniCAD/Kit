@@ -1,6 +1,6 @@
 # Drawing edge-cache trace on the passed depth baseline
 
-The exact depth-aware annotation lifecycle passed all six native phases. The new cache trace is frozen and host-verified, but has not run in SOLIDWORKS. A returned pointer in this trace remains unjoined to the selected annotation edge.
+The exact depth-aware annotation lifecycle passed all six native phases. Both instrumented controls preserved that annotation behavior and saved successfully. The armed observer did not see the pre-save lookup. The generated trace lane requires a passing trace control.
 
 Task `B04-SW2026-DRAWING-DOWNSTREAM-ID`; owner `/root/assembly_occurrence`; delivery PR #121. Root owns integration and the exclusive native oracle. This source-only adaptation follows the [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md), [RE playbook](../../Playbook/README.md), and existing [two-stop method](DrawingEdgeCacheTwoStop2026.md).
 
@@ -43,4 +43,8 @@ A separate discriminator requires a distinct generated candidate with its actual
 
 Use an unused output directory and explicit baseline packet, terminal receipt, original six-source trace directory, cached debugger root, guest debugger directory, guest packet identity and verified guest interpreter. The freezer verifies the already cached engine package and five DLL hashes without installing, downloading, loading or copying any vendor binary. It writes the exact verify/run argument arrays in `Recipe.json`.
 
-Root captures the independent source before native execution, verifies the trace packet in the guest, and runs the recipe serially. No VM, COM, debugger attachment, private slot, or held-out input was accessed during this preparation. [Host freeze receipt](../measurements/2026/DrawingDepthBaselineTraceFreeze01.json)
+The original freeze passed host verification. The first transport attempt passed no arguments to a guest process because Parallels expects the VM name immediately after `exec`. A refreeze from the corrected source changes the trace trial's freezer digest and its recipe paths. All other frozen file bytes match the original packet. [Host freeze receipt](../measurements/2026/DrawingDepthBaselineTraceFreeze01.json)
+
+## Native trace
+
+The corrected packet passes guest verification, followed by two fresh instrumented controls. Both open with zero errors and warnings, complete the local annotation geometry checks, and save with `[true,0,0]`. Both observers arm and detach cleanly, with neither pre-event-7 lookup observed. The original trace gate keeps the generated lane closed. The specific lookup remains unobserved. [Native trace receipt](../measurements/2026/DrawingDepthBaselineCacheNative01.json)

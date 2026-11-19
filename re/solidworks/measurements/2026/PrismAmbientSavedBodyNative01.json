@@ -1,0 +1,137 @@
+{
+  "cases": {
+    "Prism1AmbientBase": {
+      "bookkeeping_mode": "base",
+      "expected_geometry": {
+        "area": 0.00197125,
+        "com": [
+          0.0178125,
+          0.002375,
+          0.004
+        ],
+        "depth": 0.008,
+        "volume": 4.693000000000001e-06
+      },
+      "geometry_after_rebuild": {
+        "area": 0.00197125,
+        "com": [
+          0.017812500000000002,
+          0.002375,
+          0.004
+        ],
+        "mass": 4.693000000000001e-06,
+        "volume": 4.693000000000001e-06
+      },
+      "input_sha256": "412feeb72bd45f9bbef19f6840032ccb67a8e86b56226411e9a690ad18b61555",
+      "process_birth_filetime": 134395661671131970,
+      "public_body_count_after_rebuild": 1,
+      "public_body_count_before_rebuild": 0,
+      "typed_part_node_flags": 0,
+      "typed_part_rebuild_flags": "0x100",
+      "typed_saved_body_count": 0
+    },
+    "Prism1AmbientBoth": {
+      "bookkeeping_mode": "both",
+      "expected_geometry": {
+        "area": 0.00197125,
+        "com": [
+          0.0178125,
+          0.002375,
+          0.004
+        ],
+        "depth": 0.008,
+        "volume": 4.693000000000001e-06
+      },
+      "geometry_after_rebuild": {
+        "area": 0.00197125,
+        "com": [
+          0.017812500000000002,
+          0.002375,
+          0.004
+        ],
+        "mass": 4.693000000000001e-06,
+        "volume": 4.693000000000001e-06
+      },
+      "input_sha256": "b1cb16c72923b2f8b898dcdf7167ba5c9f67348aa9aeb7efcd51ef1986c2d97a",
+      "process_birth_filetime": 134395661891406666,
+      "public_body_count_after_rebuild": 1,
+      "public_body_count_before_rebuild": 0,
+      "typed_part_node_flags": 0,
+      "typed_part_rebuild_flags": "0x8120",
+      "typed_saved_body_count": 1
+    },
+    "Prism2AmbientBase": {
+      "bookkeeping_mode": "base",
+      "expected_geometry": {
+        "area": 0.00206675,
+        "com": [
+          0.0195,
+          0.002375,
+          0.004875
+        ],
+        "depth": 0.00975,
+        "volume": 5.464874999999999e-06
+      },
+      "geometry_after_rebuild": {
+        "area": 0.00206675,
+        "com": [
+          0.019500000000000003,
+          0.002375,
+          0.004875
+        ],
+        "mass": 5.464875e-06,
+        "volume": 5.464875e-06
+      },
+      "input_sha256": "e35dbe3b52df1290a0a054bc0a89f4e74d900ab60c7849c6345d551666fa0134",
+      "process_birth_filetime": 134395662108098302,
+      "public_body_count_after_rebuild": 1,
+      "public_body_count_before_rebuild": 0,
+      "typed_part_node_flags": 0,
+      "typed_part_rebuild_flags": "0x100",
+      "typed_saved_body_count": 0
+    },
+    "Prism2AmbientBoth": {
+      "bookkeeping_mode": "both",
+      "expected_geometry": {
+        "area": 0.00206675,
+        "com": [
+          0.0195,
+          0.002375,
+          0.004875
+        ],
+        "depth": 0.00975,
+        "volume": 5.464874999999999e-06
+      },
+      "geometry_after_rebuild": {
+        "area": 0.00206675,
+        "com": [
+          0.019500000000000003,
+          0.002375,
+          0.004875
+        ],
+        "mass": 5.464875e-06,
+        "volume": 5.464875e-06
+      },
+      "input_sha256": "da979f3d4859338ee0679f8a9368b169fd76e1b298148a5986ce1f922d1652fb",
+      "process_birth_filetime": 134395662328142411,
+      "public_body_count_after_rebuild": 1,
+      "public_body_count_before_rebuild": 0,
+      "typed_part_node_flags": 0,
+      "typed_part_rebuild_flags": "0x8120",
+      "typed_saved_body_count": 1
+    }
+  },
+  "control_process_births": [
+    134395661427250447,
+    134395662551283175
+  ],
+  "controls_healthy": true,
+  "diagnostic_only": true,
+  "distinct_native_processes": 6,
+  "heldout_inputs_read": 0,
+  "job_sha256": "1904deffce87ba2aa1c1e94b2be2770ad73a563961abe079cd9379f69a3087fd",
+  "oracle_build": "34.5.2.0604",
+  "preparation_proof_sha256": "99dd70c225f7b3c019fc22016a1399a950ed1da86a59fd1ec897c9d141039aa8",
+  "raw_native_result_sha256": "52ebc9911b4b12386e58e9d0f568cfb7bb1d29d95b1542baf45070969999817d",
+  "schema": "kit.sw2026.prism-ambient-saved-state-native.v1"
+}

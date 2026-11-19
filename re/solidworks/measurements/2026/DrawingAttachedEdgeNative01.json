@@ -1,0 +1,148 @@
+{
+  "controls_healthy": true,
+  "disclosed_ordinary_native_annotation_lifecycle_passed": true,
+  "generated_linked_pair_passed": true,
+  "heldout_inputs_read": 0,
+  "native_authored_note_added_after_open": true,
+  "native_cache_consumer_measured": false,
+  "oracle_build": "34.5.2.0604",
+  "packet_sha256": "2c2ac4aa9a09a170c9667abc8d81d6cf5c25a4f6192cf436ef7380f14869adf7",
+  "phases": {
+    "ControlAfterFreshReopen": {
+      "expected_position_m": [
+        0.09741000000000001,
+        0.08863,
+        0.0035
+      ],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "owner_attachment_count": 1,
+      "persist_ref_sha256": "b38d127dcd77f505d1d656a8ffc737ef133fc1924ac688f30932ef541df56ec0",
+      "position_m": [
+        0.09741000000000001,
+        0.08863,
+        0.0035
+      ],
+      "process_birth_filetime": 134395660721459811,
+      "raw_record_sha256": "be2dadcae5ca345c4e1325c9be5895ef53b4122a56465b2291e6977aeeaff716",
+      "resolved_same_edge": true
+    },
+    "ControlAfterOpenEditSave": {
+      "derivative_sha256": "7f4abafbafc3f7afdd8d3970d265ffbc96124589f06cfacc421967abc229c67c",
+      "expected_position_m": [
+        0.09741000000000001,
+        0.08863,
+        0.0035
+      ],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "owner_attachment_count": 1,
+      "persist_ref_sha256": "b38d127dcd77f505d1d656a8ffc737ef133fc1924ac688f30932ef541df56ec0",
+      "position_m": [
+        0.09741000000000001,
+        0.08863,
+        0.0035
+      ],
+      "process_birth_filetime": 134395660233410353,
+      "raw_record_sha256": "b1d442330b07177979d6af54bb9e809d95efc8d9971f77231dd3613e8fac49ef",
+      "resolved_same_edge": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    },
+    "ControlBeforeFreshReopen": {
+      "expected_position_m": [
+        0.09741000000000001,
+        0.08863,
+        0.0035
+      ],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "owner_attachment_count": 1,
+      "persist_ref_sha256": "b38d127dcd77f505d1d656a8ffc737ef133fc1924ac688f30932ef541df56ec0",
+      "position_m": [
+        0.09741000000000001,
+        0.08863,
+        0.0035
+      ],
+      "process_birth_filetime": 134395658792932759,
+      "raw_record_sha256": "fa9c471fbd2a70a66d5aea734b035edf558f19c677111cb0bccaf8f87563fd21",
+      "resolved_same_edge": true
+    },
+    "ControlBeforeOpenEditSave": {
+      "derivative_sha256": "662d4af295f3db77e49cb7eae3ad69c2d7140560dfc2be786d3f3843796060df",
+      "expected_position_m": [
+        0.09741000000000001,
+        0.08863,
+        0.0035
+      ],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "owner_attachment_count": 1,
+      "persist_ref_sha256": "b38d127dcd77f505d1d656a8ffc737ef133fc1924ac688f30932ef541df56ec0",
+      "position_m": [
+        0.09741000000000001,
+        0.08863,
+        0.0035
+      ],
+      "process_birth_filetime": 134395658263402033,
+      "raw_record_sha256": "cda2f3f4815155479a79feac7b7da3cc95ae7b2a5aaccd7ac5f70f1eb94aee22",
+      "resolved_same_edge": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    },
+    "GeneratedFreshReopen": {
+      "expected_position_m": [
+        0.10675000000000001,
+        0.0883,
+        0.00715
+      ],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "owner_attachment_count": 1,
+      "persist_ref_sha256": "e0d51505a12ca0a68537429c215edc7afeaecd20856903d9ec55d0be30aae7c4",
+      "position_m": [
+        0.10675000000000001,
+        0.0883,
+        0.00715
+      ],
+      "process_birth_filetime": 134395659786087511,
+      "raw_record_sha256": "7716c5d950f29c2bc07c6576de557f47df408a4338b530bf73b2b4fab094295a",
+      "resolved_same_edge": true
+    },
+    "GeneratedOpenEditSave": {
+      "derivative_sha256": "ad722ffc3fbe6c0ff36c2707bc79c124c9582406d5a19b2fbf1930cb86f55e52",
+      "expected_position_m": [
+        0.10675000000000001,
+        0.0883,
+        0.00715
+      ],
+      "open_errors": 0,
+      "open_warnings": 0,
+      "owner_attachment_count": 1,
+      "persist_ref_sha256": "e0d51505a12ca0a68537429c215edc7afeaecd20856903d9ec55d0be30aae7c4",
+      "position_m": [
+        0.10675000000000001,
+        0.0883,
+        0.00715
+      ],
+      "process_birth_filetime": 134395659281960722,
+      "raw_record_sha256": "217285b7bd05b576996bebf99cb6fa0d8b4a0f782f2b2a4816f57fd3193011c0",
+      "resolved_same_edge": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    }
+  },
+  "raw_result_sha256": "92f51a9a5c5e7c7136b01d7a56d73c840e1a5e81df8f7af4a612ca36aa644401",
+  "schema": "kit.sw2026.drawing-attached-edge-lifecycle-native.v1",
+  "six_distinct_processes": 6,
+  "writer_annotation_support_added": false
+}

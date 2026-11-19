@@ -41,7 +41,11 @@ SITES = (
     ("replace_body_call", "sldmodu", 0x4c23f17d),
     ("get_body_atom_id_return", "sldmodu", 0x4c1cf4da),
     ("part_first_dirty_store", "sldmodu", 0x4c03ee0e),
+    ("public_solid_owner_return", "sldprtu", 0x33418f07),
+    ("atom_inventory_call", "sldmodu", 0x4c1aba65),
 )
+
+POST_OPEN_SITES = {"public_solid_owner_return", "atom_inventory_call"}
 
 
 CALLERS = {
@@ -109,6 +113,8 @@ class ColdAdmissionTrace(debug.SaveAggregateTrace):
         self.result["stage"] = "verify CAD module identities"
         bases = {}
         modules = {module for name, module, _ in SITES if name == self.terminal_site}
+        if self.terminal_site in POST_OPEN_SITES:
+            modules.add("sldmodu")
         for module in sorted(modules):
             _, digest = MODULES[module]
             index, base = debug.U32(), debug.U64()
@@ -185,6 +191,27 @@ class ColdAdmissionTrace(debug.SaveAggregateTrace):
             if self.opening.is_set():
                 record = {"site": name, "source_address": hex(address), "thread": thread.value}
                 stack = registers.value(12, "AMD64 stack", debug.U64)
+                if name in POST_OPEN_SITES:
+                    part = register(registers, "rbx" if name == "public_solid_owner_return" else "rsi")
+                    output = register(registers, "rdi" if name == "public_solid_owner_return" else "rdx")
+                    expected = self.live_bases["sldmodu"] + 0x4d1252d8 - MODULES["sldmodu"][0]
+                    debug.require(part and output and read_int(data, part, 8) == expected,
+                                  "public solid query returned through a different actual receiver")
+                    manager = read_int(data, part + 0xd88, 8)
+                    record.update(public_solid_array_count=read_int(data, output + 0x10, 4, signed=True),
+                                  public_solid_array_storage_present=bool(read_int(data, output + 8, 8)),
+                                  part_dirty_word=read_int(data, part + 0x0c, 4),
+                                  part_ordered_body_cache_enabled=bool(read_int(data, part + 0x1d40, 1)),
+                                  part_special_body_context_present=bool(read_int(data, part + 0xea8, 8)),
+                                  atom_manager_present=bool(manager))
+                    if name == "atom_inventory_call":
+                        debug.require(manager == register(registers, "rcx"), "actual atom manager receiver differs")
+                        record.update(visibility_filter=register(registers, "r8") & 0xffffffff,
+                                      body_type_filter=register(registers, "r9") & 0xffffffff,
+                                      feature_filter_present=bool(read_int(data, stack + 0x20, 8)),
+                                      option_6=read_int(data, stack + 0x28, 4, signed=True),
+                                      id_filter=read_int(data, stack + 0x30, 4, signed=True),
+                                      option_8=read_int(data, stack + 0x38, 4, signed=True))
                 if name == "part_first_dirty_store":
                     part = register(registers, "rbx")
                     expected_vtable = self.live_bases["sldmodu"] + (0x4d1252d8 - MODULES["sldmodu"][0])
@@ -348,6 +375,9 @@ def main():
     cli.add_argument("--writable", action="store_true")
     cli.add_argument("--open-delay", type=int, choices=(0, 5, 15), default=0)
     args = cli.parse_args()
+    post_open = args.terminal_site in POST_OPEN_SITES
+    if post_open and (not args.cold or not args.continue_after_hit):
+        raise ValueError("post-open probes require a cold independently loaded document and normal continuation")
     for path, digest in ((args.engine, ENGINE_SHA256), (args.control, args.control_sha256),
                          (args.part, args.part_sha256)):
         debug.require(sha256(path.read_bytes()).hexdigest() == digest, "scoped diagnostic input changed")
@@ -376,7 +406,7 @@ def main():
             model = None
             report["warmup_control_passed"] = True
         started = monotonic()
-        if report["instrumented"]:
+        if report["instrumented"] and not post_open:
             tracer = ColdAdmissionTrace(args.engine, identity, args.terminal_site, args.continue_after_hit)
             tracer.thread.start()
             debug.require(tracer.ready.wait(26) and tracer.result["armed"], "scoped debugger failed to arm")
@@ -390,6 +420,17 @@ def main():
         report["stage"] = "public open returned"
         report["open"] = {"opened": model is not None, "errors": errors, "warnings": warnings}
         args.output.write_text(dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        if post_open:
+            debug.require(model is not None and errors == 0, "post-open body probe requires a live ordinary part")
+            report["stage"] = "ordinary open completed before debugger attach"
+            report["debugger_armed_after_open"] = True
+            tracer = ColdAdmissionTrace(args.engine, identity, args.terminal_site, True)
+            tracer.thread.start()
+            debug.require(tracer.ready.wait(26) and tracer.result["armed"], "post-open debugger failed to arm")
+            tracer.opening.set()
+            report["stage"] = "first application solid query entered"
+            args.output.write_text(dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+            report["bodies_before_rebuild"] = Swapp.bodies(model)
         if tracer is not None:
             tracer.opening.clear()
             report["trace"] = tracer.finish()
@@ -397,12 +438,14 @@ def main():
             debug.require(report["trace"]["cleanup_confirmed"], "debugger did not detach cleanly")
         report["open"] = {"opened": model is not None, "errors": errors, "warnings": warnings}
         if model is not None:
-            report["bodies_before_rebuild"] = Swapp.bodies(model)
+            if not post_open:
+                report["bodies_before_rebuild"] = Swapp.bodies(model)
             report["needs_rebuild"] = int(Swapp.cv(model.Extension, "NeedsRebuild2"))
             if report["bodies_before_rebuild"] == 1:
                 report["mass"] = Swapp.mass(model)
         report["passed"] = (
             report.get("trace", {}).get("failure") is None
+            and (not post_open or len(report.get("trace", {}).get("hits", ())) == 1)
             and sha256(args.part.read_bytes()).hexdigest() == args.part_sha256
             and sha256(args.control.read_bytes()).hexdigest() == args.control_sha256
         )

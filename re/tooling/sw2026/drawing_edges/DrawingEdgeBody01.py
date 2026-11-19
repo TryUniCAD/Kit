@@ -86,7 +86,9 @@ def validate(metadata):
     return rows
 
 
-def prove_owner(author, child, component, edge, expected, edge_points, endpoints_match):
+def prove_owner(
+    author, view, child, component, edge, expected, edge_points, endpoints_match
+):
     metadata = author.edge_body_metadata
     validate(metadata)
     part = author.typed(child, "IPartDoc")
@@ -110,7 +112,7 @@ def prove_owner(author, child, component, edge, expected, edge_points, endpoints
         "edge_body_vs_actual_part_body": author.get(author.app, "IsSame", owner, body),
     }
     result = {
-        "rule": "sole-resolved-part-body-and-exact-live-edge-membership-v1",
+        "rule": "native-part-correspondence-and-exact-live-edge-membership-v1",
         "actual_part_body_count": len(bodies),
         "equality_codes": codes,
         "body_edges": [],
@@ -119,8 +121,37 @@ def prove_owner(author, child, component, edge, expected, edge_points, endpoints
     author.rec.data.setdefault("edge_body_observations", []).append(result)
     author.rec.flush()
     require(
-        all(type(value) is int and value == 1 for value in codes.values()),
-        "selected edge body differs from actual resolved part body or equality control",
+        all(
+            type(value) is int and value == 1
+            for key, value in codes.items()
+            if key != "edge_body_vs_actual_part_body"
+        )
+        and type(codes["edge_body_vs_actual_part_body"]) is int
+        and codes["edge_body_vs_actual_part_body"] in (0, 1),
+        "edge/body equality controls failed or raw cross-context result is unsupported",
+    )
+    result["raw_cross_context_body_equality_is_not_an_owner_test"] = True
+    from DrawingEdgeCorrespondence01 import map_to_part
+
+    part_edge, correspondence = map_to_part(
+        author, view, child, native_edge, expected, edge_points, endpoints_match
+    )
+    result["correspondence"] = correspondence
+    raw_part_owner = author.get(author.typed(part_edge, "IEdge"), "GetBody")
+    require(raw_part_owner is not None, "mapped part edge has no native body")
+    part_owner = author.typed(raw_part_owner, "IBody2")
+    result["mapped_part_body_self"] = author.get(
+        author.app, "IsSame", part_owner, part_owner
+    )
+    result["mapped_part_body_vs_actual_part_body"] = author.get(
+        author.app, "IsSame", part_owner, body
+    )
+    require(
+        all(
+            type(result[key]) is int and result[key] == 1
+            for key in ("mapped_part_body_self", "mapped_part_body_vs_actual_part_body")
+        ),
+        "mapped edge does not belong to the actual underlying part body",
     )
     raw_edges = list(author.get(body, "GetEdges") or ())
     require(
@@ -130,7 +161,7 @@ def prove_owner(author, child, component, edge, expected, edge_points, endpoints
     matched = []
     for index, raw in enumerate(raw_edges):
         actual, points = edge_points(author, raw)
-        equality = author.get(author.app, "IsSame", actual, native_edge)
+        equality = author.get(author.app, "IsSame", actual, part_edge)
         require(
             type(equality) is int and equality in (0, 1),
             "body-edge equality is unsupported or invalid",

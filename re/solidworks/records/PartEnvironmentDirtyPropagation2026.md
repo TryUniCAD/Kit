@@ -26,7 +26,9 @@ The extended scoped stop samples the wrapper caller after verifying the precedin
 
 The positive `replaceBody` and body-ID observations took place in separate processes. The order of the first dirty write relative to body publication and the effect of a generated light on ordinary open remain to be measured. The generated and native `f2b8` difference remains unassigned.
 
-A separately authored one-light graph can isolate the reload check while preserving real ownership and serializer fields. Its independently chosen coefficients and colour define an explicit presentation for the experiment. The session-default vector requires its own measurement.
+A separately authored one-light graph isolates the reload check while preserving real ownership and serializer fields. Its independently chosen coefficients and colour define an explicit presentation for the experiment. Two same-path guarded pairs preserve the kernel partition, complete downstream cache, original geometry IDs and part and folder flags. Only the five typed graph and bookkeeping streams change.
+
+Both generated prisms open with warning 32 when their environment is empty. Both authored-light variants open with zero warnings and the save flag clear. All four variants expose zero solids until an explicit rebuild, which yields one solid with the independently expected mass properties. Both ordinary bracketing controls pass. The native candidate filenames differ within each pair, with independent same-path byte comparisons performed before the native batch. [Authored ambient native measurement](../measurements/2026/PrismAuthoredAmbientNative01.json)
 
 ## Verification
 
