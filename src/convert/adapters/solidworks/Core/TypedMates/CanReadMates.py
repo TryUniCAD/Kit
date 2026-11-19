@@ -1,4 +1,6 @@
-from convert.adapters.solidworks.Archive.Mates.RequireMates import KPlanarClasses
+from convert.adapters.solidworks.Core.TypedMates.Cylinders.CanReadKinds import (
+    CanReadKinds,
+)
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 
@@ -31,7 +33,7 @@ def CanReadMates(EnvValue: PublicMateEnv) -> bool:
     if (
         not ListValue.mates
         or ListValue.declared_count != len(ListValue.mates)
-        or any(Value.class_name not in KPlanarClasses for Value in ListValue.mates)
+        or not CanReadKinds(tuple(Value.class_name for Value in ListValue.mates))
     ):
         return False
     Definitions = {Value.object_id: Value for Value in Native.definitions}

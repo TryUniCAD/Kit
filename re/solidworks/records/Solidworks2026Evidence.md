@@ -6,6 +6,11 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Public concentric mate reader](../measurements/2026/PublicConcentricMateRead01.json) | Both default and metadata-only reads preserve all twelve measured native endpoints. The integrated 76-process replay covers 22 malformed cases, four existing planar families and unchanged disabled resolution. |
+| [Drawing system-scale owner](../measurements/2026/DrawingSystemScaleOwners01.json) | Thirty-four exact Definition checks locate the empty schema-one row in the drawing's units table. All 24 measured saved states contain it. Six fresh inputs omit it while retaining their measured view scales. |
+| [Edited drawing view position](../measurements/2026/DrawingEditedViewPosition01.json) | Six asymmetric edited states match the native view position and outline. Twenty-four other disclosed states retain identical neutral output across the reader change. All 63 process checks pass. |
+| [FreeCAD cylinder native companions](../measurements/2026/FreecadCylinderNativeSources01.json) | Both disclosed native sources retain one solid through separate radius and depth edits. Eight applications and 50 analytic comparisons pass. The receipt counts source controls only. |
+| [Local linear-pattern ownership](LocalLinearPatternOwnership2026.md) and [assigned material source protocol](AssignedMaterialSourceProtocol2026.md) | Both source packets bind the actual native owners and exact edit route. New measurement batches remain pending. |
 | [Saved Biography and History](../measurements/2026/SdkSavedBiography01.json) | Six populated native saves and one fresh control re-emit fourteen metadata streams exactly. Through-all generation retains its prior full output hashes. |
 | [Generated ordinary revolves](../measurements/2026/SdkOrdinaryRevolveNative01.json) | Four neutral parts pass 340 native geometry and angle checks through edit, save and fresh reopen, with two healthy controls. |
 | [Spatial drawing text](../measurements/2026/DrawingSpatialTextConstruction01.json) | Six generated pairs preserve signed or planar text coordinates in 26 guarded workers. The exact binary owner and separate property/style gates are recorded. |

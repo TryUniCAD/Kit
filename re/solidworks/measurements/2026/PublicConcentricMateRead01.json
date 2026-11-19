@@ -1,0 +1,340 @@
+{
+  "base_revision": "9267384b3119b3f06aa464f78ff88073c3976bb0",
+  "changed_sdk_files": 28,
+  "concentric_writer_qualified": false,
+  "delivery_pr": 121,
+  "diagnostic_manifest_sha256": "b6af6978e83248f623a02d93106d95794c32a2138033f5ea7db28126bca83e60",
+  "diagnostic_output_count": 22,
+  "disabled_resolution_pairs": 2,
+  "fallback_comparison_excluded_metadata": [
+    "solidworks.typed_mates_semantics",
+    "solidworks_source_semantic_sha256"
+  ],
+  "first_complete_attempt": {
+    "aggregate_passed": false,
+    "differing_path_after_diagnostic_removal": "/metadata/solidworks_source_semantic_sha256",
+    "independent_full_document_diff_sha256": "9e892dd8e2294972d48803da2925691dcea48722924ef8860d6ffcc8b2d5805b",
+    "native_comparisons_sha256": "12044de9593bc83f6d37c55b61cc7edb177a10cee06a40d0fbd4c4735493103d",
+    "reason": "observer included the derived source seal after excluding its new diagnostic",
+    "sdk_source_changed_for_retry": false,
+    "source_before_sha256": "aa9a8b05938ee4938d39a6578e80d1fe48c56a407efebd8895ad5d3a5fe42d21"
+  },
+  "heldout_read_qualification": false,
+  "hidden_inputs_read": 0,
+  "hopper_sessions_opened": 0,
+  "host_processes": 77,
+  "independent_kernel_audit_sha256": "2bd548351cdcb9ac1a3a4fe533a7184d63862a7f2b5954e82a2d1e2195cce80a",
+  "integrated_replay": {
+    "disabled_resolution_pairs": 2,
+    "native_comparison_checks": 720,
+    "native_comparisons_sha256": "12044de9593bc83f6d37c55b61cc7edb177a10cee06a40d0fbd4c4735493103d",
+    "native_numeric_checks": 204,
+    "negative_cases": 22,
+    "original_receipt_sha256": "af338712394947b34b9658e2bb002892f1f0955fdd658af3c3ab1513b1a5e620",
+    "passed": true,
+    "planar_complete_document_pairs": 8,
+    "positive_public_processes": 12,
+    "result_sha256": "aa60518b1b7e0159f8d4cd2dfb77dbcbb47fa5feb7cede34957fa26d07e2c99f",
+    "sdk_processes": 76,
+    "source_before_sha256": "e939f0ae7502a3ee164e03e7001b1bc93613e077477274b82e38e94df9c83508",
+    "source_unchanged": true
+  },
+  "native_comparison_checks": 720,
+  "native_comparisons_sha256": "12044de9593bc83f6d37c55b61cc7edb177a10cee06a40d0fbd4c4735493103d",
+  "native_endpoint_observations_per_mode": 12,
+  "native_numeric_checks": 204,
+  "native_processes_started": 0,
+  "negative_cases": [
+    {
+      "case": "WrongOrdinal",
+      "diagnostic": "concentric resolved wrapper ownership or order differs",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrapperCollision",
+      "diagnostic": "concentric registered wrapper identities collide",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "StaleChildStamp",
+      "diagnostic": "mate wrapper child update is stale",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongConfiguration",
+      "diagnostic": "mate wrapper child configuration differs",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "ForeignChainOwner",
+      "diagnostic": "planar mate reference chain belongs to a different assembly",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongFeature",
+      "diagnostic": "concentric selected surface has a stale or foreign feature owner",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongCreation",
+      "diagnostic": "concentric selected surface has a stale or foreign feature owner",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongMarker",
+      "diagnostic": "concentric selected arc permanent marker differs",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongCap",
+      "diagnostic": "concentric adjacent cap identities differ from the actual child",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongLocalAxis",
+      "diagnostic": "concentric cylinder geometry or local axis differs from its actual child and occurrence",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongPoint",
+      "diagnostic": "concentric cylinder geometry or local axis differs from its actual child and occurrence",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongAxis",
+      "diagnostic": "concentric cylinder geometry or local axis differs from its actual child and occurrence",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongRadius",
+      "diagnostic": "concentric cylinder geometry or local axis differs from its actual child and occurrence",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongFaceDomain",
+      "diagnostic": "concentric faceted snapshot differs from actual face and body identities",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongBodyAtom",
+      "diagnostic": "concentric faceted snapshot differs from actual face and body identities",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongFacetText",
+      "diagnostic": "concentric faceted snapshot differs from actual face and body identities",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongParentStamp",
+      "diagnostic": "concentric detached support owner or parent epoch differs",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "UnsolvedMate",
+      "diagnostic": "concentric mate is outside the ordinary solved position profile",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongAlignment",
+      "diagnostic": "concentric cylinders disagree with the solved coaxial alignment",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "InvalidLock",
+      "diagnostic": "concentric alignment or position is unqualified",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "InvalidAlignment",
+      "diagnostic": "concentric alignment or position is unqualified",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongNullSlot",
+      "diagnostic": "concentric face support requires its two null entries",
+      "legacy_fallback_exact_except_diagnostic_and_derived_seal": true,
+      "status": "unsupported"
+    }
+  ],
+  "negative_public_processes": 44,
+  "new_native_acceptance_claimed": false,
+  "new_sdk_files": 25,
+  "owner": "assembly_occurrence",
+  "planar_complete_document_pairs": 8,
+  "planar_public_processes": 16,
+  "positive_public_processes": 12,
+  "preimplementation_source_sha256": "8ffba5a485329e8fcc3af47165c5f1a5f09a8b2f7de3d69eb448f51338d0ec8f",
+  "quality": {
+    "black_ast_unchanged": true,
+    "black_receipt_sha256": "3966b3eae2730555979c252073a69594adc666e618e943963e3fe7cab39670ba",
+    "checks": [
+      {
+        "exit": 0,
+        "sha256": "a285c77a71e7fd6d2a3ea052b82a082e298437d6c7119d7b47d4c31399e07a3e",
+        "tool": "Ruff"
+      },
+      {
+        "exit": 0,
+        "sha256": "c18beb117aa0c547232a6cd2879f7df6f41c888f7ce1f687bdcd16cf961cf2d0",
+        "tool": "Mypy"
+      },
+      {
+        "exit": 0,
+        "sha256": "7718d974aa6359f4e7e7d296a8eec6352b28c6898faf9ddf59385c971c29db66",
+        "tool": "Pyright"
+      },
+      {
+        "exit": 0,
+        "sha256": "0f8094e656b79813a06d4a263323533d359a4ab031d6c2efcbdaf42b8db3a77f",
+        "tool": "Donors"
+      },
+      {
+        "exit": 0,
+        "sha256": "c091f602d482f40c125e6b6113d50ad8bbc05df9a602a724131d2b036ba0ca9e",
+        "tool": "Steering"
+      }
+    ],
+    "inherited_unrecognized_pyright_settings": [
+      "reportImplicitAbstractClass",
+      "reportIncompleteStubValue",
+      "reportUnsafeMultipleInheritance"
+    ],
+    "pyright_scope": "28 changed SDK files with inherited strict configuration",
+    "raw_result_sha256": "df0c3dee7f7bc8696cf1e2cd8067585d405812f85708524eb56e9ed4d87f38c4"
+  },
+  "raw_result_sha256": "3aa93093a93afe88e0eb102811d29ea0e550c073f4003b56f3b84a0e402c30e3",
+  "rows": [
+    {
+      "alignment": "aligned",
+      "case": "D01",
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "child_update_stamp": 134,
+      "kernel_face_node_id": 27,
+      "native_order_geometry_and_lock_matched": true,
+      "normalized_kernel_index": 41,
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "phase": "source",
+      "public_face_id": "sldprt:brep:face:42",
+      "radius_mm": 7.19,
+      "rotation_locked": false,
+      "typed_admitted": true,
+      "wire_face_index": 42
+    },
+    {
+      "alignment": "aligned",
+      "case": "D01",
+      "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "child_update_stamp": 162,
+      "kernel_face_node_id": 27,
+      "native_order_geometry_and_lock_matched": true,
+      "normalized_kernel_index": 39,
+      "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "phase": "edited",
+      "public_face_id": "sldprt:brep:face:40",
+      "radius_mm": 7.19,
+      "rotation_locked": false,
+      "typed_admitted": true,
+      "wire_face_index": 40
+    },
+    {
+      "alignment": "aligned",
+      "case": "D02",
+      "child_sha256": "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9",
+      "child_update_stamp": 134,
+      "kernel_face_node_id": 27,
+      "native_order_geometry_and_lock_matched": true,
+      "normalized_kernel_index": 41,
+      "parent_sha256": "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+      "phase": "source",
+      "public_face_id": "sldprt:brep:face:42",
+      "radius_mm": 7.19,
+      "rotation_locked": true,
+      "typed_admitted": true,
+      "wire_face_index": 42
+    },
+    {
+      "alignment": "aligned",
+      "case": "D02",
+      "child_sha256": "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527",
+      "child_update_stamp": 162,
+      "kernel_face_node_id": 27,
+      "native_order_geometry_and_lock_matched": true,
+      "normalized_kernel_index": 39,
+      "parent_sha256": "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+      "phase": "edited",
+      "public_face_id": "sldprt:brep:face:40",
+      "radius_mm": 7.19,
+      "rotation_locked": true,
+      "typed_admitted": true,
+      "wire_face_index": 40
+    },
+    {
+      "alignment": "anti_aligned",
+      "case": "D03",
+      "child_sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
+      "child_update_stamp": 134,
+      "kernel_face_node_id": 27,
+      "native_order_geometry_and_lock_matched": true,
+      "normalized_kernel_index": 41,
+      "parent_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+      "phase": "source",
+      "public_face_id": "sldprt:brep:face:42",
+      "radius_mm": 5.83,
+      "rotation_locked": false,
+      "typed_admitted": true,
+      "wire_face_index": 42
+    },
+    {
+      "alignment": "anti_aligned",
+      "case": "D03",
+      "child_sha256": "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f",
+      "child_update_stamp": 162,
+      "kernel_face_node_id": 27,
+      "native_order_geometry_and_lock_matched": true,
+      "normalized_kernel_index": 39,
+      "parent_sha256": "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+      "phase": "edited",
+      "public_face_id": "sldprt:brep:face:40",
+      "radius_mm": 5.83,
+      "rotation_locked": false,
+      "typed_admitted": true,
+      "wire_face_index": 40
+    }
+  ],
+  "schema": "kit.sw2026.public-concentric-read-receipt.v1",
+  "scope": "one ordinary solved concentric mate between two rigid direct occurrences of one saved cylinder child",
+  "sdk_files": 4668,
+  "sdk_processes": 76,
+  "source_before_sha256": "ed9fd80749f644225f1f73505f0fb2b61390b79912de233a4382a9b275f14b86",
+  "source_unchanged": true,
+  "task": "B04-SW2026-MATES-CONCENTRIC/public-read",
+  "tool_sha256": {
+    "CompareConcentricRead.py": "3f314927583f121dc11d1b6f43565751ad6b109d322b58a3745f50b4c4a940ef",
+    "PrepareConcentricReadFaults.py": "2e8120c7b6c5178343c379913044eb95ef7e4a40dc173951aa4b9bdfef97fd81",
+    "ReadConcentricPublic.py": "6b00cf9a5fb143b03ed836e75bdb4e85699e10c4ebe992b8174076cf52d43bcc",
+    "RunConcentricPublicRead.py": "f590cc03f2935db9ac6159c8b715cd3bd08abec5cb74ebc32f1b082b465cab3b"
+  },
+  "writer_output_count": 0
+}

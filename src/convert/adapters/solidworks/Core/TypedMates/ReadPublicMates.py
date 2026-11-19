@@ -14,6 +14,9 @@ from convert.adapters.solidworks.Core.TypedMates.ReadMateRows import ReadMateRow
 from convert.adapters.solidworks.Core.TypedMates.ReadMateScope import ReadMateScope
 from convert.adapters.solidworks.Core.TypedMates.ReadFixedFlags import ReadFixedFlags
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
+from convert.adapters.solidworks.Core.TypedMates.Cylinders.ReadPublicCyl import (
+    ReadPublicCyl,
+)
 from interchange import MateConstraint, MateEntity
 
 
@@ -33,6 +36,10 @@ def ReadPublicMates(
         or len(GraphValue.RootsValue) != len(LegacyRules)
     ):
         raise ValueError("typed mate stream bytes or complete inventory differ")
+    if GraphValue.RootsValue[0].ClassValue.NameValue == "moMateConcentric":
+        return ReadPublicCyl(
+            EnvValue, LinkValue, GraphValue, LegacyEntities, LegacyRules
+        )
     Native = EnvValue.NativeValue
     Items = {Value.feature_id: Value for Value in Native.occurrences}
     if len(Items) != len(Native.occurrences):

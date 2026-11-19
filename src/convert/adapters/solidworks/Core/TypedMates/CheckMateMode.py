@@ -8,8 +8,12 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 # optional mate states must not be silently represented as an ordinary active aligned relationship
 def CheckMateMode(NodeValue: ArchiveNode) -> None:
     Fields = NodeValue.FieldsValue
-    ExpectedCode = 0 if NodeValue.ClassValue.NameValue == "moMatePerpendicular" else 1
-    if FieldInt(Fields, "f3b4") != ExpectedCode or FieldInt(Fields, "f0c") not in (
+    ExpectedCodes = (
+        (1, 2)
+        if NodeValue.ClassValue.NameValue == "moMateConcentric"
+        else (0,) if NodeValue.ClassValue.NameValue == "moMatePerpendicular" else (1,)
+    )
+    if FieldInt(Fields, "f3b4") not in ExpectedCodes or FieldInt(Fields, "f0c") not in (
         1,
         0x100,
     ):

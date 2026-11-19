@@ -14,18 +14,18 @@ Both original and edited partitions now parse completely, with checked active gr
 
 ## Actual identity correlation
 
-| Owner or field | Source-derived relationship | Verified scope |
-| --- | --- | --- |
-| `moFacetedData_c.f40` | Equals the cylindrical face's `node_id` | All 12 saved endpoint pairs |
-| `moFacetedData_c.f50` | Equals the body's `ATOM_ID_2001` integer, also the actual extrusion's `moAtom_c.f140` | All 12 pairs, with independent child archive ownership |
-| Lateral `FACE_ID_2001` | Integer vector `[74, extrusion_id, first_creation_epoch, flags, arc_permanent_marker]` | All six actual kernel faces; actual flags are zero here |
-| Active side representation | `moFR.f10.f00`, `moFR.f10.f08`, and `moFromSktEntSurfIdRep_c.f38` match that kernel vector's extrusion ID, creation epoch and permanent marker | All 12 active pairs |
-| Two plane-cap `FACE_ID_2001` vectors | `[40, extrusion_id, first_creation_epoch, flags, cap_role, contour]` match the two adjacent `moEndFaceSurfIdRep_c` owners | All 12 pairs, compared as a set; no cap traversal order inferred |
-| Active `moCylinderRef_w.f108` | Equals the actual child-local cylinder surface `axis` | All 12 pairs; D03 distinguishes this from the wrapper's world axis |
+| Owner or field                       | Source-derived relationship                                                                                                                    | Verified scope                                                     |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `moFacetedData_c.f40`                | Equals the cylindrical face's `node_id`                                                                                                        | All 12 saved endpoint pairs                                        |
+| `moFacetedData_c.f50`                | Equals the body's `ATOM_ID_2001` integer, also the actual extrusion's `moAtom_c.f140`                                                          | All 12 pairs, with independent child archive ownership             |
+| Lateral `FACE_ID_2001`               | Integer vector `[74, extrusion_id, first_creation_epoch, flags, arc_permanent_marker]`                                                         | All six actual kernel faces; actual flags are zero here            |
+| Active side representation           | `moFR.f10.f00`, `moFR.f10.f08`, and `moFromSktEntSurfIdRep_c.f38` match that kernel vector's extrusion ID, creation epoch and permanent marker | All 12 active pairs                                                |
+| Two plane-cap `FACE_ID_2001` vectors | `[40, extrusion_id, first_creation_epoch, flags, cap_role, contour]` match the two adjacent `moEndFaceSurfIdRep_c` owners                      | All 12 pairs, compared as a set; no cap traversal order inferred   |
+| Active `moCylinderRef_w.f108`        | Equals the actual child-local cylinder surface `axis`                                                                                          | All 12 pairs; D03 distinguishes this from the wrapper's world axis |
 
 The body and face attribute definitions are found by their actual owned attribute chain and native name, never by fixed stream positions. The auditor requires the selected face, body, atom, profile, arc and feature references to resolve unambiguously. It derives creation time from the actual header and actual extrusion ID. It preserves the distinct arc permanent-marker `f08` and creation-ID `f0c` roles established by the earlier native binding.
 
-The cylindrical face's transmit object index is `41` before the edit and `39` after it. Its actual kernel face `node_id` remains `27`. The body atom is measured as `101`. These values describe this corpus only. The demonstrated rule is to resolve the true owner and its ID, not to emit those repeated numbers as constants or use a face-array index.
+The typed kernel reader's normalized `IndexValue` is `41` before the edit and `39` after it. `XmtCursor.ReadIndex` subtracts one from the wire index, so the corresponding transmitted indexes and public face-ID suffixes are `42` and `40`. The actual kernel face `node_id` remains `27`; the body atom is measured as `101`. The immutable raw receipt's historical `face_transmit_index` key stores that normalized SDK index. These values describe this corpus only. Resolve the true owner and its ID; do not emit those repeated numbers as constants or use a face-array position. The [public projection](PublicConcentricMateRead2026.md) checks all three index domains.
 
 ## Supplemental publication trace
 
