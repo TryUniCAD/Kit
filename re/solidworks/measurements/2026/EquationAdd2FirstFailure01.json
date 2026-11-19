@@ -1,0 +1,136 @@
+{
+  "author_oracle_identity": {
+    "bytes": 718936,
+    "executable": "SLDWORKS.exe",
+    "expected_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "pe_machine": "0x8664",
+    "process_creation_filetime": 134395891200399570,
+    "process_id": 4028,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version_matches": true
+  },
+  "author_record_sha256": "84db9a5778000562e6a7e62b752459fead0863e57d18c8958f060b5aa0f6a5e9",
+  "author_result_sha256": "a6d6ed7149988f6cc7861e3a97b281adc200667bce413386f5c68b0b7394fab3",
+  "base_protocol_sha256": "83790d7f1bf268d310f14dfdecbfc269ba804fdcaf02b3df5fadf5f6e93567a2",
+  "controls": {
+    "ControlAfter": {
+      "numeric_checks": 7,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134395891463805789,
+        "process_id": 4620,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "sha256": "1fc223a506258d1709a6c80de9399ddb5092bb2f49c30531afd950a79e44a0a4"
+    },
+    "ControlBefore": {
+      "numeric_checks": 7,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134395890957618270,
+        "process_id": 3780,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "sha256": "4177240ecc52b414e1b72c637f71394ff9412e5cd616ee8c78ea65f9d6c68145"
+    }
+  },
+  "first_call": {
+    "arguments": {
+      "argument_types": [
+        [
+          3,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          1
+        ]
+      ],
+      "binding": "registered release-34.0 descriptor",
+      "invoke_kind": 1,
+      "member_id": 11,
+      "return_type": [
+        3,
+        0
+      ],
+      "values": [
+        0,
+        "\"source_width\" = 31.7 mm",
+        false
+      ]
+    },
+    "method": "IEquationMgr.Add2",
+    "result": -1,
+    "seconds": 0.0319999999992433
+  },
+  "host_checks": {
+    "passed": true,
+    "processes": 5,
+    "sha256": "f99bda21f526404dc227b21794c086177de2260e8a355e095fbe9b953456b264"
+  },
+  "native_source_files_saved": 0,
+  "original_failure_retained": true,
+  "preference_original": false,
+  "preference_restored": true,
+  "publication_after_call_measured": false,
+  "schema": "kit.sw2026.equation-add2-first-failure.v1",
+  "sealed_inputs_read": 0,
+  "successor": {
+    "before_publication_gating": "raw return, immediate count/status/rows, EvaluateAll and another count/status/rows",
+    "extra_intermediate_evaluation": true,
+    "input_call_arguments_changed": false,
+    "manifest_sha256": "e12eed179e2880ecc74540c70e17b010da0d859b356ded3bd8151fd9e116ab38",
+    "native_phases_executed": 0,
+    "protocol_sha256": "3e22bc6c0d7c9960a4c6e61ffbd625371a589f1001d48ef3174b5a27484d2182",
+    "recipe_sha256": "aca579a79547f06c1f2f093138152868e615d792a6f93893395042b9e1bff57a"
+  },
+  "writer_output_count": 0
+}
