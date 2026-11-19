@@ -1,0 +1,20 @@
+{
+  "actual_original_setting": true,
+  "author_name_gate_error": {
+    "error": "actual Name2 setter did not retain its explicit authored name",
+    "type": "ValueError"
+  },
+  "author_setting": false,
+  "exact_preference_setting_calls": 2,
+  "fresh_processes": 3,
+  "fresh_reopen_under_original_setting": false,
+  "heldout_inputs_read": 0,
+  "independent_pristine_controls_passed": 2,
+  "native_acceptance": false,
+  "oracle_file_version": "34.5.2.0604",
+  "raw_result_sha256": "da64946316bcea15fa51d1dd3662994b8f3ca23ecff9ade283b906f3e0886800",
+  "readback_after_restore": true,
+  "schema": "kit.sw2026.custom-component-name-preference-retry-native-summary.v1",
+  "source_commit": "167a855665b549d2a650685af4eb105b42384742",
+  "source_control_qualified": false
+}

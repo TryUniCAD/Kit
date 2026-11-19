@@ -44,3 +44,8 @@ Recovery is independent of source acceptance. It does not resume a partially aut
 [FreezeCustomComponentNameRetry01.py](../../tooling/sw2026/FreezeCustomComponentNameRetry01.py) binds the exact failed native result, unchanged input and original methods, actual setter metadata and the narrow authorization. [The host receipt](../measurements/2026/CustomComponentNamePreferenceRetryHost01.json) records the 48-file frozen closure. Host verification, independent prediction identity, syntax, undefined-name and documentation-link checks pass without CAD. Durable mutation/restoration and recovery remain native-unmeasured. The code contains no generic setting override, public writer activation, new database construction or sealed-input access.
 
 [Void-setter and restoration gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Assembly/Opening/ComponentNamePreferenceNeedsReadbackAndRestoration.md)
+
+
+## Native outcome
+
+Both pristine controls passed. The author read true before setting enum 18 to false. The cleanup restored the original true value and verified it without invoking recovery. The exact author stopped at its Name2 acceptance check after restoring the temporary setting. The fresh-reopen phase requires a successful author source and remained unstarted. [Native comparison result](../measurements/2026/CustomComponentNamePreferenceRetryNative01.json)

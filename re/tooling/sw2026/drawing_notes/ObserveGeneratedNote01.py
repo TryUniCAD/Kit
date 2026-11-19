@@ -96,6 +96,11 @@ def run(job_path, job_sha256):
                 control, None, directory, labels[role], override, incoming,
                 source_sha256, outgoing,
             )
+            if override and override.get("publish_identity"):
+                require(
+                    row["initial_note"]["name"] == row["rebuilt_note"]["name"] == "DetailItem1",
+                    "generated note lost its expected native identity",
+                )
         except Exception as error:
             path = directory / "PrivateResult.json"
             row = loads(path.read_bytes()) if path.is_file() else {}

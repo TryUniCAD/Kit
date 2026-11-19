@@ -1,0 +1,73 @@
+{
+  "after_rebuild": {
+    "annotation_count": 1,
+    "attachments": 0,
+    "dangling": false,
+    "expected_position": [
+      0.0937,
+      0.1029,
+      0.0
+    ],
+    "expected_text": "Visual inspection \u03a9 763",
+    "name": "DetailItem1",
+    "name_matches": true,
+    "name_nonempty": true,
+    "note_text_point": {
+      "value": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "passed": false,
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "position_matches": false,
+    "text": "Visual inspection \u03a9 763",
+    "text_matches": true
+  },
+  "before_rebuild": {
+    "annotation_count": 1,
+    "attachments": 0,
+    "dangling": false,
+    "expected_position": [
+      0.0937,
+      0.1029,
+      0.0
+    ],
+    "expected_text": "Visual inspection \u03a9 763",
+    "name": "DetailItem1",
+    "name_matches": true,
+    "name_nonempty": true,
+    "note_text_point": {
+      "value": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "passed": false,
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "position_matches": false,
+    "text": "Visual inspection \u03a9 763",
+    "text_matches": true
+  },
+  "both_live_position_apis_read_zero": true,
+  "candidate_sha256": "bae4f7025c70070111ad10db2f6dfac656f1d54bc000526e16e22f6d528d4905",
+  "controls_healthy": true,
+  "native_acceptance": false,
+  "native_processes": 4,
+  "raw_result_sha256": "6992c7c11202be1cf8e1dcad78dc3f480b06620cd73b1c56dac22a33d24d63d5",
+  "schema": "kit.sw2026.fresh-plain-note-named-native-summary.v1",
+  "source_commit": "42333e7af381e4388864946a7490e253bd65f5e5",
+  "source_immutable": true,
+  "text_and_name_retained": true,
+  "trial_sha256": "ff8ac9c319a91e11d5f591a1dbed696a1be1add5f64b9f6515f44fbb075762a6"
+}

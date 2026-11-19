@@ -320,6 +320,7 @@ def register_origin_anchor(display, position):
     display.FieldsValue.update(
         has_f298=1,
         f298=object_rows((cache,)),
+        f630=length,
         f628=MakePoint(XValue=position.x/length, YValue=position.y/length, ZValue=position.z/length),
     )
 

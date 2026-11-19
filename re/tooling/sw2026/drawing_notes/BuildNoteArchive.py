@@ -120,8 +120,11 @@ def build(input_value, *, origin_anchor, publish_identity=False):
         or read_data.FieldsValue["f08"] != -1
     ):
         raise ValueError("generated note name or independent display identity differs")
-    if origin_anchor and ResolvePlainNote(read_sheet) is not read_text:
-        raise ValueError("generated origin-anchor note does not bind its real text owner")
+    if origin_anchor and (
+        ResolvePlainNote(read_sheet) is not read_text
+        or read_display.FieldsValue["f630"] != display.FieldsValue["f630"]
+    ):
+        raise ValueError("generated origin-anchor note does not preserve its text owner and live distance")
     if (
         read_display.FieldsValue["f30"] is not read_folder
         or read_data.FieldsValue["f48"] is not read_folder
