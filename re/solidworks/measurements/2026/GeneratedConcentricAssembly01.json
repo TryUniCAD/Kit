@@ -1,0 +1,309 @@
+{
+  "base_revision": "0f571dad8f21624553aa6fef298d629d6b36e55e",
+  "cylinder_projection_and_untagged_attachment_compatibility": {
+    "FrontDiameter": {
+      "bytes_identical": true,
+      "repeat_receipt_sha256": "ecb86f2731ccfcc9fc6633c9c990aa290db4a0b5eb420120f40b034a9d740b9c"
+    },
+    "OffsetFrontDiameter": {
+      "bytes_identical": true,
+      "repeat_receipt_sha256": "1d3e80710995f6e3bf0287f160f257b77e61708f7c8987fb45ab7b50462f43d4"
+    },
+    "ReverseTop": {
+      "bytes_identical": true,
+      "repeat_receipt_sha256": "a15dd390fd329e74f8d1c260376d72de6f24c683e08c18ae877efb527e8e1dfb"
+    },
+    "untagged_attachment_1": {
+      "bytes_identical": true,
+      "repeat_receipt_sha256": "8212bd3ebc9e2fe5b6b215b74b7dca18bd82bdc67d7a7b5d5f05dfa803b84afb"
+    },
+    "untagged_attachment_2": {
+      "bytes_identical": true,
+      "repeat_receipt_sha256": "dd1c650b2fdbcb9bec152cfd8b0ecfa3669f881c34fda1b2c1e53316df02a0ad"
+    }
+  },
+  "delivery_pr": 121,
+  "disclosed_selection_correlations": {
+    "cases": [
+      {
+        "case": "D01",
+        "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+        "endpoints": 2,
+        "kernel_lateral_cap_order": [
+          1,
+          0
+        ],
+        "phase": "source"
+      },
+      {
+        "case": "D01",
+        "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+        "endpoints": 2,
+        "kernel_lateral_cap_order": [
+          1,
+          0
+        ],
+        "phase": "edited"
+      },
+      {
+        "case": "D02",
+        "child_sha256": "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9",
+        "endpoints": 2,
+        "kernel_lateral_cap_order": [
+          1,
+          0
+        ],
+        "phase": "source"
+      },
+      {
+        "case": "D02",
+        "child_sha256": "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527",
+        "endpoints": 2,
+        "kernel_lateral_cap_order": [
+          1,
+          0
+        ],
+        "phase": "edited"
+      },
+      {
+        "case": "D03",
+        "child_sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
+        "endpoints": 2,
+        "kernel_lateral_cap_order": [
+          1,
+          0
+        ],
+        "phase": "source"
+      },
+      {
+        "case": "D03",
+        "child_sha256": "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f",
+        "endpoints": 2,
+        "kernel_lateral_cap_order": [
+          1,
+          0
+        ],
+        "phase": "edited"
+      }
+    ],
+    "endpoints": 12,
+    "receipt_sha256": "0a72f12266b4fe9776abfa67ed0e765f3aa5f9e735cd235ed61cadeefcfcadc2",
+    "saved_states": 6,
+    "source_graph_sha256": "5a28338afa61c3b71daa0059970321e8134b3ace275ebc6f3f36dac0fef8ce4b",
+    "used_for_generation": false
+  },
+  "guarded_construction": {
+    "cad_runtime_or_donor_data_used": false,
+    "cases": [
+      {
+        "active_intervals": [
+          [
+            0.0,
+            0.022819
+          ],
+          [
+            0.0,
+            0.022819
+          ]
+        ],
+        "alignment": 1,
+        "assembly_bytes": 10399,
+        "assembly_sha256": "c13378f6876be09b2d102b52d84c1cb3661ea4711485598f13b484f6b1afab7a",
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "case": 1,
+        "child_sha256": "615e14358679180c4c07dceca47b1683dc57b909528b5b73075ba66b016038a6",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          2290,
+          2290
+        ],
+        "final_destination": "C:\\KitResearch\\ConcentricNeutralAlphaDerived.SLDASM",
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "foreign_face_refused": true,
+        "fresh_processes": 2,
+        "input_sha256": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3",
+        "kernel_node_id": 5,
+        "longer_mate_name_added_stream_bytes": 26,
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3816,
+        "mate_sha256": "18dec3988e6cee52e54ae8280c79031203d0ac503be5e87ea41365bd5332250c",
+        "native_runs": 0,
+        "occurrence_names": [
+          "Cylinder-1",
+          "Cylinder-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "profile": "derived_feature",
+        "repeat_receipt_sha256": "c4f5fe9e7e3edb1f37b1d87839e5d274ab3eaae929301a956bae95a74e80e763",
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "runtime_io_attempts": 0,
+        "same_process_repeat_exact": true,
+        "solved_reader_refused_presolve": true,
+        "source": "re/solidworks/inputs/ConcentricFeatureNeutral01.json",
+        "world_axes": [
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            -0.18065529823420404,
+            -0.5144806193887359,
+            0.8382561395500145
+          ]
+        ],
+        "world_origins": [
+          [
+            -0.015460606420462484,
+            0.014658111018034136,
+            0.007964246252471139
+          ],
+          [
+            -0.025165228386305687,
+            -0.012979273374909369,
+            0.052994527812958374
+          ]
+        ]
+      },
+      {
+        "active_intervals": [
+          [
+            0.0,
+            0.014763000000000004
+          ],
+          [
+            0.0,
+            0.014763
+          ]
+        ],
+        "alignment": 2,
+        "assembly_bytes": 10408,
+        "assembly_sha256": "301e9ffedf9f3860f730c4ba67b302346db7a395810162952e088144fa09fe5f",
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "case": 2,
+        "child_sha256": "1d7ba96b077cd192724f10e780fbabba5136e3b8549b7e8457a730c1955c8398",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          3438,
+          3438
+        ],
+        "final_destination": "C:\\KitResearch\\ConcentricNeutralBetaAuthored.SLDASM",
+        "fixed_flags": [
+          false,
+          true
+        ],
+        "foreign_face_refused": true,
+        "fresh_processes": 2,
+        "input_sha256": "2b00d988374d26b39d6edfd2752fe488d7ad9a527a3d1913bdd384ee614fbf63",
+        "kernel_node_id": 5,
+        "longer_mate_name_added_stream_bytes": 26,
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3816,
+        "mate_sha256": "5a4886deebd03be29d056bf3d7e303ee19658e34aa454d96323e8a5bb70f65ce",
+        "native_runs": 0,
+        "occurrence_names": [
+          "Cylinder-2",
+          "Cylinder-1"
+        ],
+        "occurrences": [
+          18,
+          17
+        ],
+        "profile": "authored_brep",
+        "repeat_receipt_sha256": "a1d8f8bc230223d374b9baf8045dedc870bfedaa9815064f26b07e4213e8b951",
+        "root_recipe": "neutral document",
+        "rotation_locked": true,
+        "round_tripped_linked_streams": 3,
+        "runtime_io_attempts": 0,
+        "same_process_repeat_exact": true,
+        "solved_reader_refused_presolve": true,
+        "source": "re/solidworks/inputs/ConcentricBrepNeutral01.json",
+        "world_axes": [
+          [
+            0.18065529823420398,
+            0.5144806193887359,
+            -0.8382561395500145
+          ],
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ]
+        ],
+        "world_origins": [
+          [
+            -0.044225791065869546,
+            -0.009411588480897709,
+            0.05107639464879625
+          ],
+          [
+            -0.03452116910002634,
+            0.018225795912045796,
+            0.006046113088309022
+          ]
+        ]
+      }
+    ],
+    "config_resolved_mates_full_stream_comparisons": 12,
+    "distinct_authored_neutral_assemblies": 2,
+    "fresh_processes": 4,
+    "production_registration": false,
+    "runtime_io_attempts": 0
+  },
+  "limits": [
+    "One active concentric mate on two direct occurrences of one forward Front blind cylinder",
+    "Prepositioned coaxial occurrences and explicit alignment and rotation lock",
+    "Session allocation seed and chronology are explicit research inputs",
+    "Exact native transient tag allocation and cold-open rebuild, editing, save and reopen remain unmeasured"
+  ],
+  "methods_sha256": {
+    "re/tooling/sw2026/CheckConcentricNeutralBrep.py": "0c18360db8d4f897beda2c426510491187fd7ec41df16a18087e59e996e2b4ec",
+    "re/tooling/sw2026/ConcentricNeutralAdmission.py": "a9ace3c50acbcec499eef6e445b357371ee44a58857395c08d0d61ca90dc2c5a",
+    "re/tooling/sw2026/ConcentricNeutralProcess.py": "1d7b55599be164f4ad2f5815353704eceed2ddd03b8cf5d94c0b53c0608377e2",
+    "re/tooling/sw2026/RunConcentricNeutralAdmission.py": "b6f15e9286a60ac4575c4deddd543026b7c257929ab880d299b426f2bf1beac9",
+    "re/tooling/sw2026/para/concentric/CheckConcentricAssembly.py": "20a5612a39b027360ac074af3f3e1bd7c1475db4ea722c5385cbdd84abb0e419",
+    "re/tooling/sw2026/para/concentric/CompareFaceReferences.py": "0a4b32fc83b56d9782117ec2cb05c5117f09b1a1302743d809d27cae061e9f4c",
+    "re/tooling/sw2026/para/concentric/ConcentricAssembly.py": "7664b162dc08556ac57bba9b687452c649767d3ee0ae8027f952c7cedad30ce5",
+    "re/tooling/sw2026/para/concentric/ConcentricMate.py": "a9f62dd44a30dbbc3dc4021f266cc64e7490fdcb8b2a8d3c8b188f5abf680438",
+    "re/tooling/sw2026/para/concentric/CylinderFace.py": "7dd7bdf7c5287eda305606e2f5052127a623d1c37046e268f6d6dc6faed01092",
+    "re/tooling/sw2026/para/cylinder/CylinderAttachment.py": "9e22b27ecbffc23ec3c09ab8245b983313196bf95e8007283fbbe29e87c65adc",
+    "re/tooling/sw2026/para/cylinder/ProjectCylinder.py": "4a9179937bc3dc7a7d0dce88335676cfd34724402fbabebf1675f3b66840b32c"
+  },
+  "neutral_selection_admission": {
+    "admission_cases": "re/solidworks/inputs/ConcentricNeutralAdmissionCases01.json",
+    "admission_cases_sha256": "e7f762b149063615ac5abb9d4c0d2049a88181922c47c4fbee5c0d422847ebe4",
+    "deterministic_positive_pairs": 7,
+    "independent_receipt_sha256": "8ca8ddd426d18513a1894f719234e9097fda4fcc096c6e80dca9bc3aceda4a1b",
+    "integrated_receipt_sha256": "f09273bc389cbe3428f8d224ab9c873553bdee1bf5f3e77c83001d38401bb72e",
+    "negative_processes": 31,
+    "normal_json_roundtrip_positives": 14,
+    "positive_processes": 14,
+    "retained_authored_graph_identities": 27,
+    "runtime_io_attempts": 0,
+    "sdk_processes": 45,
+    "source_before_sha256": "b740b481cc4a584507ea02ff78a9463a8708b6a895f4405f45715876d43fea21",
+    "unique_processes": 45
+  },
+  "new_heldout_credits": 0,
+  "new_native_acceptances": 0,
+  "schema": "kit.sw2026.generated-concentric-assembly.v1",
+  "sealed_inputs_opened": 0,
+  "target_build": "34.5.2.0604",
+  "task": "B04-SW2026-MATES-CONCENTRIC"
+}

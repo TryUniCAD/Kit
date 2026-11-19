@@ -4,7 +4,7 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime impo
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import PartCandidate
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, ReadNodeName, RequireNode, RequireRecord
 from para.Partition import Partition, frame_payloads, write_payloads
-from para.Tracking import body_match_tag, signed_dword, unsigned
+from para.Tracking import body_match_tag, signed_dword, unchanged_face_stamp, unsigned
 from para.cylinder.CylinderTopology import generated_cylinder
 from para.rectangle.Allocate import allocate_marks, index_draft, positive_i32, require
 from para.rectangle.AttributeChains import Install, register_attributes
@@ -17,6 +17,7 @@ class CylinderProjection:
     partition: Partition
     reserved_body_atom_id: int
     lateral_face_node_id: int
+    lateral_face_tag: int | None
 
     def stream(self):
         return frame_payloads(write_payloads(self.partition))
@@ -26,6 +27,7 @@ class CylinderProjection:
 class CylinderBodyTracking:
     body_tag: int
     body_stamp: int
+    face_stamp: int | None = None
 
 
 def tracking_installs(body, boss, tracking):
@@ -39,6 +41,18 @@ def tracking_installs(body, boss, tracking):
         Install(body, "ENT_TIME_STAMP_2001", (None, (stamp,))),
         Install(body, "SWIMPLICITBODYNAME_ID_U", (name_words, None)),
         Install(body, "BODY_IN_LIGHTWEIGHT_PERM", (None, (1,))),
+    )
+
+
+def face_tracking_installs(topology, faces, tracking):
+    allocated = {
+        member.ref: positive_i32(tracking.body_tag + offset, "generated kernel allocation")
+        for offset, member in enumerate(topology[1:])
+    }
+    stamp = unsigned(tracking.face_stamp, 32, "tessellation update stamp")
+    return allocated, tuple(
+        Install(owner, "SWEntUnchanged", ((unchanged_face_stamp(allocated[owner], stamp),),))
+        for owner, _ in faces
     )
 
 
@@ -66,7 +80,14 @@ def project_cylinder(candidate, session, earlier_face_count=0, *, tracking=None)
         Install(owner, "FACE_ID_2001", face_payload(role, feature_id, epoch, ordinal))
         for ordinal, (owner, role) in enumerate((start, end, side), FIRST_PROCESS_FACE_ID + earlier_face_count)
     )
-    tracking_rows = () if tracking is None else tracking_installs(topology.body, boss, tracking)
+    tag = None
+    tracking_rows = ()
+    if tracking is not None:
+        tracking_rows = tracking_installs(topology.body, boss, tracking)
+        if tracking.face_stamp is not None:
+            assigned, face_tracking = face_tracking_installs(partial, (start, end, side), tracking)
+            tag = assigned[topology.side]
+            tracking_rows += face_tracking
     installs = (
         *faces,
         *tracking_rows,
@@ -77,4 +98,4 @@ def project_cylinder(candidate, session, earlier_face_count=0, *, tracking=None)
     complete = tuple(augment(node, highest_node_id=next_id - 1) if node.kind == 12 else node for node in active)
     partition = collect_state(index_draft(complete, marks), pointers)
     lateral, = (node for node in complete if node.ref == topology.side)
-    return CylinderProjection(partition, atom_id, lateral.fields["node_id"])
+    return CylinderProjection(partition, atom_id, lateral.fields["node_id"], tag)

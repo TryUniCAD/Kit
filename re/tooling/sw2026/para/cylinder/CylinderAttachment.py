@@ -1,10 +1,11 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field, replace
 
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
 from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.BodyScope.MakeStockAtom import MakeStockAtom
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeMgrHeader import MakeMgrHeader
+from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import PartCandidate
 from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
@@ -13,7 +14,7 @@ from convert.adapters.solidworks.Container.Container import BuildSldprt
 from convert.adapters.solidworks.Container.Format import KPartitionStream, KResolvedFeaturesStream
 from para.rectangle.ArchiveAttachment import CLEAR_UPDATE_STATUS_MASK, REBUILT_EXTRUSION_STATUS, advance_stamp
 from para.Tracking import body_match_tag, local_downstream_face_words, unsigned
-from para.cylinder.ProjectCylinder import CylinderBodyTracking, project_cylinder
+from para.cylinder.ProjectCylinder import CylinderBodyTracking, CylinderProjection, project_cylinder
 from para.rectangle.Allocate import allocate_marks, allocate_updates, positive_i32, require
 
 
@@ -23,13 +24,21 @@ VERSION = 19000
 
 @dataclass(frozen=True)
 class GeneratedAttachment:
-    streams: dict[str, bytes]
-    file_bytes: bytes
+    candidate: PartCandidate = field(compare=False)
+    projection: CylinderProjection
     atom_id: int
     body_tag: int
     selected_mark: int
     activation_mark: int
     lateral_face_node_id: int
+
+    @property
+    def streams(self):
+        return self.candidate.StreamsValue
+
+    @property
+    def file_bytes(self):
+        return self.candidate.BytesValue
 
 
 def mark_node(mark):
@@ -61,7 +70,7 @@ def bind_features(candidate, session, events):
     model["f0c"] &= CLEAR_UPDATE_STATUS_MASK
 
 
-def attach_cylinder_mut(candidate, session, feature_events, previous_face_allocations):
+def attach_cylinder_mut(candidate, session, feature_events, previous_face_allocations, *, tessellated_faces=False):
     require(KPartitionStream not in candidate.StreamsValue and candidate.CutValue is None, "expected a new circle part")
     root = candidate.SystemValue.RootValue
     model = root.FieldsValue
@@ -74,7 +83,7 @@ def attach_cylinder_mut(candidate, session, feature_events, previous_face_alloca
             "source must have an unused ordinary output and live-body map")
     marks, updates = allocate_marks(session), allocate_updates(session, candidate.HeaderValue.FieldsValue)
     body_tag = body_match_tag(positive_i32(session.first_tag, "body allocation tag"))
-    tracking = CylinderBodyTracking(body_tag, updates.body)
+    tracking = CylinderBodyTracking(body_tag, updates.body, updates.face if tessellated_faces else None)
     projection = project_cylinder(candidate, session, previous_face_allocations, tracking=tracking)
     atom_id = projection.reserved_body_atom_id
     atom = MakeStockAtom(boss, atom_id)
@@ -96,9 +105,10 @@ def attach_cylinder_mut(candidate, session, feature_events, previous_face_alloca
     cmgr = candidate.SystemValue.ManagerValue
     cmgr_header = MakeMgrHeader(cmgr, candidate.ManagerHeader.FieldsValue["f60"])
     config_bytes, model_graph = WriteConfigMut(root, VERSION, header)
-    resolved_bytes, _ = WriteResolMut(candidate.ResolvedValue.RootsValue, None, VERSION, model_graph.MapValue,
-                                    {"model_compressed_stream": 1, "model_is_part": 1,
-                                     "cmgr_f658": cmgr.FieldsValue["f658"]})
+    resolved_bytes, resolved_graph = WriteResolMut(
+        candidate.ResolvedValue.RootsValue, None, VERSION, model_graph.MapValue,
+        {"model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": cmgr.FieldsValue["f658"]},
+    )
     streams = candidate.StreamsValue | {
         CONFIG: config_bytes,
         KResolvedFeaturesStream: resolved_bytes,
@@ -108,5 +118,9 @@ def attach_cylinder_mut(candidate, session, feature_events, previous_face_alloca
         "Contents/CMgrHdr2": WriteMgrHdrMut(cmgr_header, VERSION)[0],
         KPartitionStream: projection.stream(),
     }
-    return GeneratedAttachment(streams, BuildSldprt(streams, FormatVersion=4), atom_id, body_tag,
+    attached = replace(
+        candidate, ManagerHeader=cmgr_header, ConfigValue=model_graph, ResolvedValue=resolved_graph,
+        StreamsValue=streams, BytesValue=BuildSldprt(streams, FormatVersion=4),
+    )
+    return GeneratedAttachment(attached, projection, atom_id, body_tag,
                                marks.selected.mark_id, marks.activation.mark_id, projection.lateral_face_node_id)

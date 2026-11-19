@@ -6,6 +6,9 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Generated concentric assembly](../measurements/2026/GeneratedConcentricAssembly01.json) | Two authored neutral assemblies generate linked children and one concentric mate. Four guarded processes reproduce the three complete linked streams and reject foreign selections. A separate 45-process replay checks neutral face ownership and full supplied B-reps. Native cold open and edit remain pending. |
+| [Concentric face tag, extent and support](ConcentricFaceTagAndExtent2026.md) | Native source binds the kernel handle and signed projected rim limits. The [detached support record](ConcentricSupportSnapshotConstruction2026.md) binds its separate face, body and orientation fields. |
+| [Drawing edge surface roles](../measurements/2026/DrawingEdgeRailCorrelation01.json) | Four native role getters and 31 guarded processes join one rail in each disclosed view to independently reconstructed child geometry. The native edge order and identity remain open. |
 | [Explicit drawing origin resolution](../measurements/2026/DrawingExplicitOriginJoinProcess01.json) | The research reader follows the actual origin and sketch from two disclosed views of one child. Forty-eight guarded processes preserve five complete streams and public layout behavior. |
 | [Internal circular child bounds](../measurements/2026/CircleChildBoundsSdk01.json) | Twenty-three integrated SDK processes confirm real child owners and exact rectangle compatibility. All 120 occurrence words and 24 sphere words match the saved child caches. Two low-y extrema differ by one ULP. |
 | [Generated cylinder archive attachment](../measurements/2026/GeneratedCylinderAttachment01.json) | Two fresh part archives read back through the shared SDK atom, feature, mark and kernel body owners. Four fresh processes reproduce the archives with zero runtime reads. Native acceptance remains open. |

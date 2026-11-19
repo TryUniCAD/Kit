@@ -1,0 +1,178 @@
+{
+  "base_revision": "0f571dad8f21624553aa6fef298d629d6b36e55e",
+  "complete_brep_negatives": [
+    {
+      "generic_neutral_validation_errors": 0,
+      "mutation": "ring_radius",
+      "refusal": "concentric neutral brep: curves differs from the complete independently reconstructed ordinary model or has ambiguous ownership",
+      "result_sha256": "c7fdc25812037e5e99e4aa8ecbf1791a8f089ee8bdfa996ee6fad64726fcaa10"
+    },
+    {
+      "generic_neutral_validation_errors": 0,
+      "mutation": "ring_parameter",
+      "refusal": "concentric neutral brep: edges differs from the complete independently reconstructed ordinary model or has ambiguous ownership",
+      "result_sha256": "852d3f9b01d731f544d648b074a95c671856f35bca7e7f71b13a8aa70d9ec526"
+    },
+    {
+      "generic_neutral_validation_errors": 0,
+      "mutation": "edge_tolerance",
+      "refusal": "concentric neutral brep: edges differs from the complete independently reconstructed ordinary model or has ambiguous ownership",
+      "result_sha256": "6ffa58cbefbfed674edaf02b681e0a65dc94269f16cc4f78da9c59af7e116729"
+    },
+    {
+      "generic_neutral_validation_errors": 0,
+      "mutation": "body_transform",
+      "refusal": "concentric neutral admission: neutral shape requires one complete ordinary cylinder body",
+      "result_sha256": "14913458247dd81098a74233c447fa40b0e67353a173f25c5ae516ffa1c96a71"
+    },
+    {
+      "generic_neutral_validation_errors": 0,
+      "mutation": "face_provenance",
+      "refusal": "concentric neutral admission: neutral face graph has unrepresented extensions",
+      "result_sha256": "2c1da106124125edecc0a523572a4bd2e75d770fbb4c352468976abb9802737e"
+    },
+    {
+      "generic_neutral_validation_errors": 0,
+      "mutation": "reordered_shell",
+      "refusal": "concentric neutral brep: shells differs from the complete independently reconstructed ordinary model or has ambiguous ownership",
+      "result_sha256": "1a76f6b57d9716e255157ace9184305273002fa1b27d30eee11843063ed64f13"
+    },
+    {
+      "generic_neutral_validation_errors": 0,
+      "mutation": "extra_ring",
+      "refusal": "concentric neutral brep: curves has unrepresented or missing records",
+      "result_sha256": "d67fd9a7f0b59a04ba4244a565f1b6c4d4406b396bb290f4ba0a7719549cb9dc"
+    }
+  ],
+  "complete_neutral_ids_checked_per_positive": 27,
+  "delivery_pr": 121,
+  "exact_independent_repeat_pairs": 7,
+  "first_method": {
+    "result_sha256": "257c8d95cebcd8c117306154fcdaf2c9f7e2a58b33a745512742bb0a674007a7",
+    "scope": "carrier and structural checks before the later complete computed B-rep comparison; retained as discovery only",
+    "sdk_processes": 36
+  },
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "hopper_sessions_opened": 0,
+  "input_sha256": "e7f762b149063615ac5abb9d4c0d2049a88181922c47c4fbee5c0d422847ebe4",
+  "limitations": [
+    "One ordinary diameter-driven positive Front blind cylinder child reused by exactly two rigid direct occurrences",
+    "Only an initially coaxial aligned or anti-aligned mate with one fixed anchor and explicit Boolean rotation lock",
+    "Supplied B-rep must equal the complete computed ordinary analytic model exactly after an unambiguous ID bijection; alternative but equivalent trim encodings are refused",
+    "The canonical source face ID belongs to the generated neutral model and is distinct from both native persistent node_id and transmitted face index",
+    "The projector preserves the complete neutral document but does not certify whole-assembly emission, body tracking, public writing or native behavior",
+    "Native reader diagnostic attributes, endpoint frames, supplied selections, extra metadata and unsupported owners remain refused"
+  ],
+  "native_processes": 0,
+  "negative_processes": 31,
+  "new_assembly_files": 0,
+  "new_native_acceptance": false,
+  "normal_json_roundtrip_positives": 14,
+  "owner": "assembly_occurrence",
+  "positive_intents": 7,
+  "positive_processes": 14,
+  "positive_profiles": [
+    {
+      "alignment_code": 1,
+      "candidate_and_face_aliases": true,
+      "complete_neutral_identity_count": 27,
+      "fixed_index": 0,
+      "neutral_face_id": "body/round-sweep-side-1-face",
+      "normal_json_roundtrip_admitted": true,
+      "ordered_occurrence_indexes": [0, 1],
+      "profile": "derived_feature",
+      "public_writer_refusal": "all three actual principal plane ids are required",
+      "rotation_locked": false
+    },
+    {
+      "alignment_code": 1,
+      "candidate_and_face_aliases": true,
+      "complete_neutral_identity_count": 27,
+      "fixed_index": 0,
+      "neutral_face_id": "caller/lateral/AlphaAuthored",
+      "normal_json_roundtrip_admitted": true,
+      "ordered_occurrence_indexes": [0, 1],
+      "profile": "authored_brep",
+      "public_writer_refusal": "all three actual principal plane ids are required",
+      "rotation_locked": false
+    },
+    {
+      "alignment_code": 2,
+      "candidate_and_face_aliases": true,
+      "complete_neutral_identity_count": 27,
+      "fixed_index": 1,
+      "neutral_face_id": "body/round-sweep-side-1-face",
+      "normal_json_roundtrip_admitted": true,
+      "ordered_occurrence_indexes": [1, 0],
+      "profile": "derived_feature",
+      "public_writer_refusal": "all three actual principal plane ids are required",
+      "rotation_locked": true
+    },
+    {
+      "alignment_code": 2,
+      "candidate_and_face_aliases": true,
+      "complete_neutral_identity_count": 27,
+      "fixed_index": 1,
+      "neutral_face_id": "caller/lateral/BetaAuthored",
+      "normal_json_roundtrip_admitted": true,
+      "ordered_occurrence_indexes": [1, 0],
+      "profile": "authored_brep",
+      "public_writer_refusal": "all three actual principal plane ids are required",
+      "rotation_locked": true
+    },
+    {
+      "alignment_code": 1,
+      "candidate_and_face_aliases": true,
+      "complete_neutral_identity_count": 27,
+      "fixed_index": 0,
+      "neutral_face_id": "body/round-sweep-side-1-face",
+      "normal_json_roundtrip_admitted": true,
+      "ordered_occurrence_indexes": [1, 0],
+      "profile": "derived_feature",
+      "public_writer_refusal": "all three actual principal plane ids are required",
+      "rotation_locked": true
+    },
+    {
+      "alignment_code": 2,
+      "candidate_and_face_aliases": true,
+      "complete_neutral_identity_count": 27,
+      "fixed_index": 1,
+      "neutral_face_id": "caller/lateral/BetaFree",
+      "normal_json_roundtrip_admitted": true,
+      "ordered_occurrence_indexes": [0, 1],
+      "profile": "authored_brep",
+      "public_writer_refusal": "all three actual principal plane ids are required",
+      "rotation_locked": false
+    },
+    {
+      "alignment_code": 2,
+      "candidate_and_face_aliases": true,
+      "complete_neutral_identity_count": 27,
+      "fixed_index": 1,
+      "neutral_face_id": "caller/faces/1",
+      "normal_json_roundtrip_admitted": true,
+      "ordered_occurrence_indexes": [1, 0],
+      "profile": "authored_brep",
+      "public_writer_refusal": "all three actual principal plane ids are required",
+      "rotation_locked": true
+    }
+  ],
+  "process_result_sha256": "8ca8ddd426d18513a1894f719234e9097fda4fcc096c6e80dca9bc3aceda4a1b",
+  "process_source_before_sha256": "5bd62b692ebbd529a830beb18f47ec451e36a64d238df16199fc2bfcd4520d73",
+  "public_registration_changes": 0,
+  "runtime_io_attempts": 0,
+  "schema": "kit.sw2026.concentric-neutral-admission.v1",
+  "sdk_processes": 45,
+  "sdk_source_changes": 0,
+  "source_and_tools_unchanged": true,
+  "source_file_count": 5534,
+  "task": "B04-SW2026-MATES-CONCENTRIC/neutral-admission",
+  "tool_sha256": {
+    "CheckConcentricNeutralBrep.py": "0c18360db8d4f897beda2c426510491187fd7ec41df16a18087e59e996e2b4ec",
+    "ConcentricNeutralAdmission.py": "a9ace3c50acbcec499eef6e445b357371ee44a58857395c08d0d61ca90dc2c5a",
+    "ConcentricNeutralProcess.py": "1d7b55599be164f4ad2f5815353704eceed2ddd03b8cf5d94c0b53c0608377e2",
+    "RunConcentricNeutralAdmission.py": "b6f15e9286a60ac4575c4deddd543026b7c257929ab880d299b426f2bf1beac9"
+  },
+  "unique_processes": 45
+}
