@@ -19,6 +19,8 @@ MANAGER = "Contents/CMgr"
 ACTIVE_HEADER = "Header2"
 REBUILT_EXTRUSION_STATUS = 3
 CLEAR_UPDATE_STATUS_MASK = 0xFFFD7FF8
+FORCE_REBUILD_NODE_FLAG = 0x20
+PART_REBUILD_CALLBACK_NODE_FLAG = 0x8000
 
 
 @dataclass(frozen=True)
@@ -53,7 +55,10 @@ def apply_feature_updates(model, header, features, session, events):
     model["f0c"] &= CLEAR_UPDATE_STATUS_MASK
 
 
-def archive_for_oracle(*, registry, child, plan, projection, session, feature_updates):
+def archive_for_oracle(*, registry, child, plan, projection, session, feature_updates,
+                       record_saved_body_count=False, record_rebuild_completion=False):
+    require(type(record_saved_body_count) is bool and type(record_rebuild_completion) is bool,
+            "saved body bookkeeping controls must be Boolean")
     require(KPartitionStream not in child.streams and child.manager_header is not None and child.model_header["f38"] is not None,
             "standalone oracle candidate requires a fresh path-bound child")
     require(child.configuration["f08"] == 0 and child.extrusion.feature["f538"] is None,
@@ -67,6 +72,10 @@ def archive_for_oracle(*, registry, child, plan, projection, session, feature_up
     require(boss["f08"] == binding.feature_id and not model["fd88"]["atoms"] and not model["ffe0"] and model["fe38"] is None
             and not boss["has_f3d0"], "archive candidate requests a new attachment on the plan's ordinary extrusion")
     apply_feature_updates(model, header, (origin, sketch, boss), session, feature_updates)
+    if record_rebuild_completion:
+        require(any(event.geometry_notification for event in feature_updates),
+                "a completed rebuild requires a modeled geometry notification")
+        model["f2c"] |= FORCE_REBUILD_NODE_FLAG | PART_REBUILD_CALLBACK_NODE_FLAG
     atom_entries = binding.manager_registration["atoms"]
     require(len(atom_entries) == 1 and atom_entries[0]["o"] is binding.atom and binding.atom["f170"] == 0,
             "the captured model must own one ordinary visible body")
@@ -82,6 +91,8 @@ def archive_for_oracle(*, registry, child, plan, projection, session, feature_up
     require(not manager_document.tail and config is manager["f368"] and manager["f370"]["items"][0]["o"] is config,
             "configuration manager readback lost the generated active configuration")
     config["f860"] = header["f40"]
+    if record_saved_body_count:
+        config["f6f8"] = len(atom_entries)
     manager_bytes = store_rooted(manager_document, registry, FILE_VERSION)
     manager["owner"] = config["owner"] = model
     manager_header = configuration_manager_header(manager=manager, saved_at=child.manager_header["f60"])

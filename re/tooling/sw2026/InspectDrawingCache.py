@@ -63,7 +63,7 @@ def read_job(path, packet_digest):
     return request
 
 
-def phase(sw, identify, *, directory, native, expected_hash, expected, tree, oracle_sha, edit):
+def phase(sw, identify, *, directory, native, expected_hash, expected, tree, oracle_sha, edit, edited_ratio=_EDITED_RATIO):
     directory.mkdir(parents=True, exist_ok=False)
     rec = curves.Recorder(directory / "Record.json", {"drawing": native.name, "edit": edit})
     result = {"passed": False}
@@ -86,10 +86,10 @@ def phase(sw, identify, *, directory, native, expected_hash, expected, tree, ora
             result["rebuilt"], _ = check_drawing(author, drawing, expected, result["tree"])
             if edit:
                 sheet = author.typed(author.get(drawing, "GetCurrentSheet"), "Sheet")
-                curves.require(bool(author.get(sheet, "SetScale", *_EDITED_RATIO, False, False)), "drawing scale edit failed")
+                curves.require(bool(author.get(sheet, "SetScale", *edited_ratio, False, False)), "drawing scale edit failed")
                 curves.require(bool(author.get(author.model, "EditRebuild3")), "drawing scale edit rebuild failed")
                 wanted = list(expected["sheet_properties"])
-                wanted[2:4] = _EDITED_RATIO
+                wanted[2:4] = edited_ratio
                 result["edited"], _ = check_drawing(author, drawing, {**expected, "sheet_properties": wanted}, result["tree"])
                 derivative = directory / "EditedDrawing.SLDDRW"
                 result["save_status"] = rec.call("save edited drawing diagnostic", controller.save_as, author.model, derivative)

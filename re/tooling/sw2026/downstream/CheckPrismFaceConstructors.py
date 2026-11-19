@@ -29,7 +29,7 @@ from para.rectangle.RectanglePartition import complete_topology, project_rectang
 
 
 def authored_prism(variant, classes, *, model_path=None, model_second=None, allocate_downstream=True,
-                   later_body_updates=1):
+                   later_body_updates=1, record_saved_body_count=False, record_rebuild_completion=False):
     name = f"PrismFaceConstructors{variant}"
     path = PureWindowsPath(f"C:/KitResearch/{name}.SLDPRT" if model_path is None else model_path)
     if not path.is_absolute() or path.suffix.casefold() != ".sldprt":
@@ -55,7 +55,9 @@ def authored_prism(variant, classes, *, model_path=None, model_second=None, allo
         allocation = allocate_fresh_downstream(faces, edges, owner, second, fraction, is_assembly=False)
     projection = project_rectangle(child, plan, appearance, downstream=allocation)
     streams = archive_for_oracle(registry=classes, child=child, plan=plan, projection=projection,
-                                 session=session, feature_updates=events)
+                                 session=session, feature_updates=events,
+                                 record_saved_body_count=record_saved_body_count,
+                                 record_rebuild_completion=record_rebuild_completion)
     return path, SldprtArchive.from_bytes(BuildSldprt(streams, FormatVersion=4)), allocation
 
 
