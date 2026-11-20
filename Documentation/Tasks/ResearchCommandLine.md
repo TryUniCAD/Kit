@@ -149,6 +149,17 @@ Read `State/decoder-advice/<receipt>/Advice.json` for suggestions produced durin
 A suggestion requires an independently checked experiment before it can become a decoder rule.
 Use `kit run --root . fusion --help` for all options.
 
+To pause a run, open another terminal and use its existing output directory.
+Let the active workers finish before you resume.
+
+```sh
+kit run --root . fusion --directory /tmp/KitFusion --pause
+kit run --root . fusion --directory /tmp/KitFusion --resume
+```
+
+Resume from the same source revision. Kit reuses the original catalogue and worker settings.
+To retry a parked native job after its owner restores the application, add `--native-ready` to `--resume`.
+
 ## Keep the interfaces distinct
 
 | Command                                       | Contract                                                   |

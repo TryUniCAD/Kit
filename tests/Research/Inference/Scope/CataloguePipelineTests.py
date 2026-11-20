@@ -80,3 +80,14 @@ def CheckPipeline(TmpPath: FilePath) -> None:
         for Event in Events
     )
     assert not (RunPath / "OfflineSupervisor.log").exists()
+    _ = RunAutomation(
+        "InferenceGrid/RunFeatureCatalogue.py",
+        "--directory",
+        RunPath,
+        "--resume",
+        Expected=2,
+    )
+    Retained = DecodeJson((RunPath / "NativeHandoffResult.json").read_bytes())
+    assert Retained["phases"] == Handoff["phases"]
+    Resumed = DecodeJson((RunPath / "CatalogueResult.json").read_bytes())
+    assert Resumed["scopes"] == Summary["scopes"]
