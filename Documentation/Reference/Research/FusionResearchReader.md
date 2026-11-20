@@ -68,3 +68,5 @@ Inspect per-asset reasons and implement missing codec knowledge instead of relax
 - [Separate installed CLI proposal](https://github.com/TryUniCAD/Kit/pull/119)
 - [Reader source](../../../re/automation/FusionReader.py)
 - [SOLIDWORKS reader](SolidworksResearchReader.md)
+
+For a sketch with verified primitive membership, `fusion.geometry_child_ids` contains the native child ids in saved order. [Sketch geometry membership](../../Changes/Fusion/Features/FusionSketchGeometryRoster.md)
