@@ -1,6 +1,6 @@
 # Completed BaseBody archives for generated bare cylinders
 
-Task `B04-SW2026-IMPORTED-BODY`, owner `/root/release_path`, delivery PR #121. The [host builder](../../tooling/sw2026/imported_body_source/BuildLocalCylinderPart.py) composes two ordinary SOLIDWORKS 2026 part archives from the explicit [neutral cylinder inputs](GeneratedLocalCylinderKernel2026.md). The host exit is exact typed ownership and periodic geometry readback at both nominated logical destinations. The embedded native lifecycle is pending.
+Task `B04-SW2026-IMPORTED-BODY`, owner `/root/release_path`, delivery PR #121. The [host builder](../../tooling/sw2026/imported_body_source/BuildLocalCylinderPart.py) composes two ordinary SOLIDWORKS 2026 part archives from the explicit [neutral cylinder inputs](GeneratedLocalCylinderKernel2026.md). The host exit is exact typed ownership and periodic geometry readback at both nominated logical destinations. Both disclosed embedded native lifecycles pass.
 
 The earlier [native binary exchange](../measurements/2026/GeneratedLocalCylinderExchangeNative01.json) measured these exact two raw kernel payloads in SOLIDWORKS 34.5.2.0604. The raw receipt SHA-256 is `aa4af60b944359540e694859ee150cb0651e58bf06f776da8d82bc9b59013b11`. Both candidates passed 76 comparisons each with zero load and rebuild diagnostics, eight healthy controls and ten distinct processes. That measurement applies to raw kernel exchange.
 
@@ -33,6 +33,24 @@ PYTHONPATH=src:.:re/tooling/sw2026:re/tooling/sw2026/serial \
 
 Pass `--artifacts "$UNUSED_EXTERNAL_DIRECTORY"` to create the two generated files exclusively. The argument above binds the logical guest location independently of the host artifact directory.
 
-## Next native measurement
+## Native lifecycle
 
-The oracle owner should freeze the exact generated part hashes, nominated locators, periodic metrics, pristine application seed and disclosed stock cylinder controls in a standalone job. Use fresh application and stock BaseBody measurements before and after the candidate batch. The two candidates each require one cold open, rebuild and save copy phase and one fresh read-only reopen and rebuild phase. Preserve the input files and carry the actual persistent import reference into reopen. Require zero load, rebuild and save diagnostics, one live `BaseBody`, its implicit body label, the actual ownership of all three faces, and the signed geometry and six bounds already proven through raw exchange. Keep the original planar measurement defaults in [the native part lifecycle](../../tooling/sw2026/imported_body_source/ObserveLocalImportedPart.py). The periodic checks can reuse [the native cylinder observer](../../tooling/sw2026/imported_body_source/ObserveCylinderExchange.py). Accept an embedded lifecycle only after both control brackets and all distinct processes pass.
+The [packet preparer](../../tooling/sw2026/imported_body_source/PrepareCylinderPart.py)
+freezes the exact candidate hashes, logical locators, periodic
+metrics and separate application, generated planar and stock cylinder
+controls. The [guest observer](../../tooling/sw2026/imported_body_source/ObserveLocalCylinderPart.py)
+reuses the existing part lifecycle and the periodic shape comparator.
+Each case opens at its encoded locator, rebuilds and saves to a fresh
+copy. A distinct process reopens that copy read-only and verifies the
+actual persistent reference, complete ordered feature tree, face
+ownership, periodic geometry and signed extrema.
+
+SOLIDWORKS 2026 SP05.2 `34.5.2.0604` passes all ten distinct processes.
+Both parts open and save with zero diagnostics, retain feature 18 in
+`Default` and preserve one solid, three faces, two circular edges and
+zero native vertices. The four candidate phases pass 304 measurements.
+All six controls pass. The saved copies and initial candidates retain
+their recorded hashes. The tested receipts cover two disclosed
+completed part archives. Held-out evaluation and strict public
+periodic readback remain open.
+[Native receipt](../measurements/2026/GeneratedLocalCylinderPartNative01.json)
