@@ -2,6 +2,9 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.BindBodyName import (
     BindBodyName,
 )
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Local.ReadLocalNamedBody import (
+    ReadLocalName,
+)
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadNamedBody import (
     ReadNamedBody,
 )
@@ -27,4 +30,9 @@ def WithBodyNames(
         try:
             return BindBodyName(Document, ReadRevolveBody(Document, Archive, ConfigId))
         except (TypeError, ValueError, KeyError):
-            return Document
+            try:
+                return BindBodyName(
+                    Document, ReadLocalName(Document, Archive, ConfigId)
+                )
+            except (TypeError, ValueError, KeyError, OverflowError):
+                return Document

@@ -19,3 +19,5 @@ class BodyNameGraph:
     IsAuthored: bool
     StreamName: str
     StreamLength: int
+    LocalStoreKey: str | None = None
+    LocalNameOwner: str | None = None

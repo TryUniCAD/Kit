@@ -29,7 +29,11 @@ def BodyNameSource(GraphValue: BodyNameGraph) -> Provenance:
                 GraphValue.StreamName,
                 0,
                 GraphValue.StreamLength,
-                "native-body-partition",
+                (
+                    "native-local-body"
+                    if GraphValue.LocalStoreKey is not None
+                    else "native-body-partition"
+                ),
             ),
         ),
     )
