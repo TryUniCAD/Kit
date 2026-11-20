@@ -1,4 +1,4 @@
-from json import loads as LoadJson
+from json import dumps as DumpJson, loads as LoadJson
 from pathlib import Path as FilePath
 
 from tests.Convert.Solidworks.Archive.AnsiRecord import AnsiRecord
@@ -24,3 +24,12 @@ def TestAnsiWire(TmpPath: FilePath) -> None:
     assert FreshResult.returncode != 0
     assert "native wide string output requires Unicode text" in FreshResult.stderr
     assert not FreshPath.exists()
+    MixedValue = AnsiRecord()
+    MixedValue[0]["label"] = ["Group\u03a9", True]
+    MixedPath = TmpPath / "Mixed.json"
+    MixedOutput = TmpPath / "Mixed.bin"
+    _ = MixedPath.write_text(DumpJson(MixedValue), encoding="utf-8")
+    MixedResult = RunWire("write", MixedPath, MixedOutput)
+    assert MixedResult.returncode != 0
+    assert "native wide string output requires Unicode text" in MixedResult.stderr
+    assert not MixedOutput.exists()
