@@ -30,6 +30,7 @@ STATES = (
 )
 PHASES = ('ControlBefore', 'Baseline', 'Generated', 'Reopen', 'ControlAfter')
 SCHEMA = 'kit.sw2026.radial-concentric-parent-visibility.v1'
+DISPLAY_MODES = ('both', 'xml-only', 'store-only')
 
 
 def require(condition, message):
@@ -51,7 +52,7 @@ def publish(path, data):
     return checksum(data)
 
 
-def prepare(name, revision, written_at):
+def prepare(name, revision, written_at, display_mode):
     import subprocess
     import tarfile
     from tempfile import TemporaryDirectory
@@ -59,6 +60,7 @@ def prepare(name, revision, written_at):
     require(re.fullmatch(r'RadialConcentricDisplay[0-9]{2}', name), 'use a fresh RadialConcentricDisplayNN packet')
     require(re.fullmatch(r'[0-9a-f]{40}', revision), 'pin a full construction commit')
     require(REFERENCE_EPOCH < written_at <= 0xffffffff, 'supply one fresh authored epoch for both lanes')
+    require(display_mode in DISPLAY_MODES, 'select one exact display-store experiment')
     require(not (ORACLE_ROOT / name).exists() and (ORACLE_ROOT / name).resolve() == ORACLE_ROOT / name,
             'the host packet must be fresh and unredirected')
     subprocess.run(['git', 'merge-base', '--is-ancestor', revision, 'HEAD'], cwd=REPO, check=True)
@@ -72,9 +74,15 @@ def prepare(name, revision, written_at):
             with tarfile.open(archive) as source:
                 source.extractall(root, filter='data')
         tool = root / HERE.relative_to(REPO)
-        publish(tool, HERE.read_bytes())
-        entry = 'import runpy, sys; runpy.run_path(sys.argv[1])["construct"](sys.argv[2], sys.argv[3], int(sys.argv[4]))'
-        completed = subprocess.run([sys.executable, '-I', '-B', '-c', entry, str(tool), name, revision, str(written_at)], cwd=root)
+        operator = HERE.read_bytes()
+        if tool.exists():
+            require(tool.read_bytes() == operator, 'the committed operator differs from the launch tool')
+        else:
+            publish(tool, operator)
+        entry = 'import runpy, sys; runpy.run_path(sys.argv[1])["construct"](sys.argv[2], sys.argv[3], int(sys.argv[4]), sys.argv[5])'
+        completed = subprocess.run(
+            [sys.executable, '-I', '-B', '-c', entry, str(tool), name, revision, str(written_at), display_mode], cwd=root
+        )
         return completed.returncode
 
 
@@ -101,14 +109,16 @@ def guarded_case(radial, document, child, scene, lights, locator, written_at, re
         intent = DisplayListIntent(config, tuple(
             DisplayStateIntent(name, tuple(zip(ids, map(bool, vector), strict=True))) for name, vector in STATES
         ))
-        xml = make_display_tree(state, headers[0], part, references, intent)
-        with registry.track_usage('store', STREAM) as usage:
-            visual = make_visual_store(state, headers, references, intent, registry)
-        report = usage.snapshot()
-        require(report['completed'] and not report['raw_operations'] and not report['missing_schemas'],
-                'the new parent store must have complete typed generation')
-        replacement = shared.StreamsValue | {KComponentTreeStream: xml, STREAM: visual}
-        return replace(shared, StreamsValue=replacement)
+        extra = {}
+        if display in ('both', 'xml-only'):
+            extra[KComponentTreeStream] = make_display_tree(state, headers[0], part, references, intent)
+        if display in ('both', 'store-only'):
+            with registry.track_usage('store', STREAM) as usage:
+                extra[STREAM] = make_visual_store(state, headers, references, intent, registry)
+            report = usage.snapshot()
+            require(report['completed'] and not report['raw_operations'] and not report['missing_schemas'],
+                    'the new parent store must have complete typed generation')
+        return replace(shared, StreamsValue=shared.StreamsValue | extra)
 
     radial.EmitAsmStreams = build
     try:
@@ -230,7 +240,7 @@ def display_proof(base, parent, registry, configuration, ids, parent_locator):
             'sdk_raw_xml_rows': True, 'sdk_multi_state_public_owner': False}
 
 
-def construct(name, revision, written_at):
+def construct(name, revision, written_at, display_mode):
     sys.path.insert(0, str(HERE.parent))
     import PrepareRadialConcentric as radial
     from Classes import registry
@@ -263,7 +273,7 @@ def construct(name, revision, written_at):
     reg = registry()
     original, original_proof, owner = guarded_case(
         radial, document, child, request['environment_name'], radial.read_intents(request['lights'], REFERENCE_EPOCH),
-        guest(REFERENCE / 'Working' / NAMES['parent']), REFERENCE_EPOCH, reg, display=False,
+        guest(REFERENCE / 'Working' / NAMES['parent']), REFERENCE_EPOCH, reg, display=None,
     )
     require({role: checksum(data) for role, data in original.items()} == REFERENCE_FILES,
             'neutral reconstruction of the previously accepted fixed radial fixture changed bytes')
@@ -275,25 +285,35 @@ def construct(name, revision, written_at):
     paths = {role: guest(root / 'Working' / basename) for role, basename in NAMES.items()}
     args = (radial, document, child, request['environment_name'], radial.read_intents(request['lights'], written_at),
             paths['parent'], written_at, reg)
-    baseline, base_proof, base_owner = guarded_case(*args, display=False)
-    variant, variant_proof, variant_owner = guarded_case(*args, display=True)
+    baseline, base_proof, base_owner = guarded_case(*args, display=None)
+    complete_variant, complete_proof, complete_owner = guarded_case(*args, display='both')
+    variant, variant_proof, variant_owner = (
+        (complete_variant, complete_proof, complete_owner)
+        if display_mode == 'both' else guarded_case(*args, display=display_mode)
+    )
     require(base_owner == owner == variant_owner and variant_proof == base_proof
             and baseline['child'] == variant['child'], 'display intent changed the linked body, part or mate proof')
     left, right, linked = (SldprtArchive.from_bytes(payload) for payload in (baseline['parent'], variant['parent'], baseline['child']))
+    full = SldprtArchive.from_bytes(complete_variant['parent'])
+    require(complete_owner == base_owner and complete_proof == base_proof and complete_variant['child'] == baseline['child'],
+            'complete control changed the paired neutral proof')
     before, after = left.streams, right.streams
     changed = {key for key in before.keys() | after.keys() if before.get(key) != after.get(key)}
-    require(changed == {KComponentTreeStream, STREAM} and after.keys() - before.keys() == {STREAM}
+    expected = {'both': {KComponentTreeStream, STREAM}, 'xml-only': {KComponentTreeStream}, 'store-only': {STREAM}}
+    require(changed == expected[display_mode] and after.keys() - before.keys() == ({STREAM} & changed)
+            and all(after[key] == full.require(key) for key in changed)
             and STREAM not in linked.streams, 'the trial may change only parent XML and parent VisualStates')
     links = linked_proof(left, linked, paths, written_at, owner[1])
     require(links == linked_proof(right, linked, paths, written_at, owner[1]), 'the two parents do not identify the same child')
-    display = display_proof(left, right, reg, *owner, paths['parent'])
+    display = display_proof(left, full, reg, *owner, paths['parent'])
     hashes = {role: checksum(data) for role, data in variant.items()}
     baseline_hash = checksum(baseline['parent'])
     proof = {'schema': SCHEMA, 'revision': revision, 'preparer_sha256': checksum(HERE.read_bytes()),
              'reference_trial_sha256': REFERENCE_TRIAL, 'reference_result_sha256': REFERENCE_RESULT,
              'reference_archive_sha256': REFERENCE_FILES, 'reference_explicit_epoch': REFERENCE_EPOCH,
              'reference_rebuilt_exactly': True, 'authored_epoch': written_at, 'architecture': 'ordinary flat concentric/four-light radial',
-             'native_processes_started': 0, 'heldout_inputs_read': 0, 'runtime_io_attempts': 0, 'guarded_builds': 6,
+             'native_processes_started': 0, 'heldout_inputs_read': 0, 'runtime_io_attempts': 0,
+             'display_mode': display_mode, 'guarded_builds': 6 if display_mode == 'both' else 8,
              'baseline_sha256': baseline_hash, 'variant_sha256': hashes, 'same_final_links': links,
              'manager_locator': '', 'child_visual_states_present': False, 'source_request_sha256': radial.REQUEST,
              'changed_parent_streams': {key: {'before': len(before.get(key, b'')), 'after': len(after[key]),
@@ -318,7 +338,7 @@ def construct(name, revision, written_at):
     job = dict(old, controls=controls, files_sha256=file_hashes, generated_sha256=hashes,
                display_trial_schema=SCHEMA, native_phases=list(PHASES), baseline_parent_sha256=baseline_hash,
                guest_root=guest(root), authored_states=STATES, occurrence_ids=owner[1], revision=revision,
-               manager_locator_policy='ordinary empty f1f8 in both')
+               manager_locator_policy='ordinary empty f1f8 in both', display_mode=display_mode)
     trial = publish(root / 'Trial.json', canonical(job))
     prefix = ['prlctl', 'exec', 'Windows 11', '--current-user', json.loads(runtime)['executable'], '-B', guest(root / 'Tools' / HERE.name)]
     tail = [guest(root / 'Trial.json'), trial]
@@ -346,6 +366,7 @@ def guest_mode(command, packet, expected, role):
     require(HERE.parent == root / 'Tools' and packet.name == 'Trial.json' and job['display_trial_schema'] == SCHEMA
             and Path(job['guest_root']).resolve() == root and job['native_phases'] == list(PHASES)
             and job['working_names'] == NAMES and job['manager_locator_policy'] == 'ordinary empty f1f8 in both'
+            and job['display_mode'] in DISPLAY_MODES
             and job['authored_states'] == json.loads(json.dumps(STATES)), 'different frozen visibility trial')
     parent, child = persistence.working_paths(root, job)
     original = checked(root / 'OldBranch' / parent.name, job['baseline_parent_sha256'])
@@ -407,6 +428,7 @@ def guest_mode(command, packet, expected, role):
         passed = bool(controls and contrast and len(births) == len(PHASES)
                       and all(a < b for a, b in zip(births, births[1:])))
         report = {'schema': SCHEMA, 'packet_sha256': expected, 'passed': passed, 'controls_healthy': controls,
+                  'display_mode': job['display_mode'],
                   'same_locator_baseline_and_variant': contrast, 'distinct_native_processes': len(set(births)),
                   'numeric_checks': sum(row.get('numeric_checks', 0) for row in phases.values() if row),
                   'heldout_acceptance': False, 'source_appearance_acceptance': False, 'phases': phases}
@@ -466,10 +488,11 @@ def main():
     parser.add_argument('target')
     parser.add_argument('pin')
     parser.add_argument('value', nargs='?')
+    parser.add_argument('--display-component', choices=DISPLAY_MODES, default='both')
     args = parser.parse_args()
     if args.command == 'prepare':
         require(os.name == 'posix' and args.value is not None, 'host construction requires a name, commit and authored epoch')
-        return prepare(args.target, args.pin, int(args.value))
+        return prepare(args.target, args.pin, int(args.value), args.display_component)
     require(os.name == 'nt', 'observation requires the root-owned Windows guest')
     passed = guest_mode(args.command, Path(args.target), args.pin, args.value)
     print(json.dumps({'passed': passed, 'role': args.value}))

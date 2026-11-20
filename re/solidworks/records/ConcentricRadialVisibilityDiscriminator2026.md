@@ -51,3 +51,14 @@ qualifies the initial generated child's omitted store for the scoped
 parent visibility flow. Precedence between the parent stores, original
 source appearance, SDK publication and held-out evaluation remain open.
 [Native result](../measurements/2026/ConcentricRadialDisplayNative01.json)
+
+## Single-store experiments
+
+The preparer can select `--display-component xml-only` or
+`--display-component store-only` with an unused packet directory.
+It constructs both stores in a separate model-only host control and
+requires the selected stream to match that control exactly. The
+experimental pair changes one parent stream at its fixed locator
+and keeps the child archive byte-identical. Both comparators use
+the full native checks for actual named visibility, shape, edit and
+fresh reopen if the candidate opens correctly.
