@@ -96,4 +96,4 @@ class CircularView(TypedDict):
 
 # the complete display records both the initial object and its verified return
 class CircularDisplay(RadialPrefix, CircularView):
-    pass
+    """Binds a radial prefix and its independently decoded display caches."""

@@ -1,10 +1,23 @@
 import hashlib as Hashing
 import json as JsonCodec
 import os as OsLayer
+from re import fullmatch as MatchFull
 import signal as Signals
 import sys as System
 import time as TimeClock
 from pathlib import Path as FilePath
+from tests.Research.Supervisor.SessionRoot import SessionRoot
+
+
+# the staged input roster addresses files by their verified content digest
+def ReadInput(SessionPath: FilePath, InputInfo: dict[str, str]) -> bytes:
+    Digest = InputInfo["sha256"]
+    if (
+        not MatchFull(r"[0-9a-f]{64}", Digest)
+        or InputInfo["path"] != f"inputs/{Digest}"
+    ):
+        raise ValueError("invalid fixture input binding")
+    return (SessionPath / "inputs" / Digest).read_bytes()
 
 
 # published records need repeatable fixture content that lets tests detect crossed session inputs
@@ -14,7 +27,7 @@ def WriteResult(SessionPath: FilePath, JobInfo: dict[str, object]) -> int:
     Digests: list[str] = []
     for RoleName in sorted(Session["inputs"]):
         InputInfo = Session["inputs"][RoleName]
-        Content = (SessionPath / str(InputInfo["path"])).read_bytes()
+        Content = ReadInput(SessionPath, InputInfo)
         assert Hashing.sha256(Content).hexdigest() == InputInfo["sha256"]
         Digests.append(str(InputInfo["sha256"]))
     Options = JsonCodec.loads(JsonCodec.dumps(JobInfo["options"]))
@@ -36,7 +49,7 @@ def WriteResult(SessionPath: FilePath, JobInfo: dict[str, object]) -> int:
 def HasHoldInput(SessionPath: FilePath) -> bool:
     Session = JsonCodec.loads((SessionPath / "job.json").read_text(encoding="utf-8"))
     return any(
-        (SessionPath / str(InputInfo["path"])).read_bytes().startswith(b"hold")
+        ReadInput(SessionPath, InputInfo).startswith(b"hold")
         for InputInfo in Session["inputs"].values()
     )
 
@@ -61,7 +74,7 @@ def WritePhase(SessionPath: FilePath, PhaseName: str) -> None:
 
 # supervisor scenarios need a controllable child that still honors the real session output contract
 def RunFixture() -> int:
-    SessionPath = FilePath(System.argv[1])
+    SessionPath = SessionRoot(System.argv[1])
     Session = JsonCodec.loads((SessionPath / "job.json").read_text(encoding="utf-8"))
     JobInfo: dict[str, object] = Session["job"]
     Options = JsonCodec.loads(JsonCodec.dumps(JobInfo["options"]))
