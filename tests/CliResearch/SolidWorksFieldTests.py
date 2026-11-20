@@ -119,7 +119,13 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
     Doc = LoadJson((Run / "Input-strict.json").read_bytes())["document"]
     Scalars = LoadJson((Run / "Input-scalar-streams.json").read_bytes())
     Ownership = Scalars["members"]["Contents/Config-0-ResolvedFeatures"]["ownership"]
-    assert Ownership["role_counts"]["display"]["no_matching_declaration"] == 57
+    Patterns = [Row for Row in Ownership["records"] if Row["ownership_status"] == "pattern_count_hypothesis"]
+    assert {Row["count_hypothesis"]["feature_id"] for Row in Patterns} == {65, 257}
+    for Row in Patterns:
+        Pattern = Row["count_hypothesis"]
+        assert Pattern["count"] == 11
+        assert {Copy["offset"] - Row["offset"] for Copy in Pattern["matching_copies"] if Copy["format"] == "<d"} == {373, 397}
+    assert Ownership["role_counts"]["display"].get("no_matching_declaration", 0) == 57
     Selected = [Row for Row in Ownership["records"] if Row["selected_among_display_copies"]]
     assert Selected
     assert all(Row["native_trailer"]["role"] == "driving" for Row in Selected)

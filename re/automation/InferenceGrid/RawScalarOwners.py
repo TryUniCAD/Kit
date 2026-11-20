@@ -225,6 +225,19 @@ def changed_owner(before, after):
     if len(changed) != 1:
         return {"status": "requires_single_changed_record", "changed_records": len(changed)}
     a, b = changed[0]
+    first, second = a.get("count_hypothesis"), b.get("count_hypothesis")
+    if first or second:
+        if not first or not second or any(first[k] != second[k] for k in ("feature_id", "family", "parameter")):
+            return {"status": "inconsistent_pattern_count_evidence"}
+        if first["count"] == second["count"]:
+            return {"status": "unchanged_declared_count_with_different_record_bytes"}
+        formats = sorted(set(first["integer_formats"]) & set(second["integer_formats"]))
+        mirrors = {(m["format"], m["offset"] - a["offset"]) for m in first["matching_copies"]} & {
+            (m["format"], m["offset"] - b["offset"]) for m in second["matching_copies"]}
+        return {"status": "changed_pattern_count_hypothesis", "parameter": a["name"],
+                "candidate_feature_ids": [first["feature_id"]], "input_offset": a["offset"],
+                "control_offset": b["offset"], "input_value": first["count"], "control_value": second["count"],
+                "shared_integer_formats": formats, "shared_copy_displacements": sorted(mirrors)}
     owners = sorted(set(a["candidate_feature_ids"]) & set(b["candidate_feature_ids"]))
     return {
         "status": "single_shared_candidate" if len(owners) == 1 else "unresolved",
