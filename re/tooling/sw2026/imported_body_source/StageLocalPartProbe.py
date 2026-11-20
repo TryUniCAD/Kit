@@ -7,7 +7,6 @@ from pathlib import Path, PureWindowsPath
 import re
 from shutil import copyfile
 import subprocess
-import tarfile
 from tempfile import TemporaryDirectory
 
 
@@ -37,10 +36,29 @@ def json_data(value):
 def pinned_tree(repo, revision, directory):
     names = ("tests/__init__.py", "tests/Convert/__init__.py", "tests/Convert/Solidworks/__init__.py",
              "tests/Convert/Solidworks/Research/__init__.py")
-    tracked = subprocess.check_output(["git", "ls-tree", "--name-only", "-r", revision, "--", *names], cwd=repo, text=True)
-    data = subprocess.check_output(["git", "archive", revision, "--", "src", str(RESEARCH), str(GUARD), *tracked.splitlines()], cwd=repo)
-    with tarfile.open(fileobj=BytesIO(data)) as archive:
-        archive.extractall(directory, filter="data")
+    paths = ("src", str(RESEARCH), str(GUARD), *names)
+    tracked = subprocess.check_output(["git", "ls-tree", "-rz", revision, "--", *paths], cwd=repo)
+    objects = []
+    for line in tracked.rstrip(b"\0").split(b"\0"):
+        info, name = line.split(b"\t", 1)
+        mode, kind, identifier = info.split()
+        require(mode in (b"100644", b"100755") and kind == b"blob", "frozen tools require tracked regular files")
+        objects.append((identifier, Path(name.decode("utf-8"))))
+    batch = subprocess.run(["git", "cat-file", "--batch"], cwd=repo,
+                           input=b"".join(identifier + b"\n" for identifier, _ in objects),
+                           capture_output=True, check=True)
+    with BytesIO(batch.stdout) as stream:
+        for identifier, name in objects:
+            actual, kind, size = stream.readline().split()
+            require((actual, kind) == (identifier, b"blob") and not name.is_absolute()
+                    and ".." not in name.parts, "frozen Git object or path differs")
+            blob = stream.read(int(size))
+            require(len(blob) == int(size) and stream.read(1) == b"\n", "frozen Git object framing differs")
+            location = directory / name
+            location.parent.mkdir(parents=True, exist_ok=True)
+            with location.open("xb") as output:
+                output.write(blob)
+        require(not stream.read(), "frozen Git source has an unexpected tail")
 
 
 def build_candidates(root, folder, guest, ambient, completed):
@@ -83,7 +101,7 @@ def stage(args):
         copyfile(source, folder / name)
         require(digest((folder / name).read_bytes()) == checksum, "control changed during staging")
     with TemporaryDirectory(prefix="kit-local-import-") as temporary:
-        root = Path(temporary)
+        root = Path(temporary).resolve()
         pinned_tree(repo, args.revision, root)
         build_sha = build_candidates(root, folder, guest, args.ambient, args.completed)
         hashes = {}
