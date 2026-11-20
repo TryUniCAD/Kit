@@ -20,7 +20,7 @@ only the row fields.
 declared minimum. `Identity` retains the decoded signed i32 value.
 Both preserve the original word in the `#wire` field. The common
 normalization path retains the scene `Zero` and atom `AtomState`
-rules from the pending #191 and #194 slices. The tested atom rule
+rules exercised by the scene slice in #191 and accepted atom slice in #194. The tested atom rule
 clears its unsigned state above one when mask `0x80` is clear.
 The reader refuses unknown normalizations and unqualified widths
 for the two signed modes.
