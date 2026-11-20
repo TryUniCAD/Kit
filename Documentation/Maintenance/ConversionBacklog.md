@@ -76,17 +76,25 @@ and restore earlier originals after a later backup fails.
 
 ### B03-SW2026-ARCHIVE
 
-Active in the [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167).
-Its author owns the [exact-build research record](../../re/solidworks/records/Solidworks2026ArchiveCompatibility.md)
-for the observed signature table, map handoff and count fields.
-The record depends on the build manifest and typed traces from
-[PR #121](https://github.com/TryUniCAD/Kit/pull/121).
-The evidence delivery exits when the published revision preserves the
-receipt and its pinned source links and passes the PR checks and configured review.
+The [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167) landed the
+[exact-build research record](../../re/solidworks/records/Solidworks2026ArchiveCompatibility.md)
+for the observed signature table, map handoff and count fields. The record
+binds the build manifest and typed traces from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
 
 B03's qualified comparisons and codecs and B04's portable writer remain
 separate programme milestones. [PR #158](https://github.com/TryUniCAD/Kit/pull/158)
 continues the programme scope defined in [PR #94](https://github.com/TryUniCAD/Kit/pull/94).
+
+### B03-SW2026-ARCHIVE-CORE
+
+The PR #121 takeover team owns the wire primitive extraction on
+`codex/solidworks-archive-core` for a separate main-target delivery. It depends on
+the exact-build archive evidence above and the
+[pinned primitive rules](../../re/solidworks/records/ArchiveWirePrimitiveSlice2026.md).
+Exit requires the synthetic process integration and the normal CI and review
+gates on the delivered revision. Class descriptors, object maps and linked
+stream integration have separate exits.
+[Change entry](../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
 
 ### B08-SW2026-TERMINAL-FIN
 
