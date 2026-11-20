@@ -11,3 +11,9 @@ typed readback checks the authored scene fields in both packages.
 This tool uses the exact SOLIDWORKS 2026 SP05.2 observer closure for disclosed
 geometry and light evidence. Public admission and held-out acceptance are
 outside this comparison.
+
+All four native processes passed. The generated pair kept its authored light
+through cold open, rebuild, a linked child depth edit, save and fresh reopen.
+It passed 84 numeric checks, including geometry and driving dimensions.
+The typed native save matched all 60 light fields.
+[Native lifecycle receipt](../../../../../re/solidworks/measurements/2026/ConcentricParentLightsNative01.json)

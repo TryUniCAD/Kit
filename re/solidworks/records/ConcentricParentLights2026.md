@@ -1,6 +1,6 @@
 # Transfer the disclosed concentric parent lights
 
-Task `B04-SW2026-MATES-CONCENTRIC/parent-lights`, owner `assembly_frontier`, delivery PR #121. The bounded transfer preserves typed ambient and directional lighting through the shared assembly constructor and the normal metadata reader. It covers the ordinary disclosed D01 parent scene. Vendor measurement of the explicitly written parent scene and whole-source admission remain pending. [Process receipt](../measurements/2026/ConcentricParentLights01.json) · [Host proof](../../tooling/sw2026/para/concentric/ProveConcentricParentLights.py)
+Task `B04-SW2026-MATES-CONCENTRIC/parent-lights`, delivery PR #121. The bounded transfer preserves typed ambient and directional lighting through the shared assembly constructor and the normal metadata reader. The disclosed D01 scene and a separate authored light change have host and native evidence. Whole-source admission remains pending. [Process receipt](../measurements/2026/ConcentricParentLights01.json) · [Native receipt](../measurements/2026/ConcentricParentLightsNative01.json) · [Host proof](../../tooling/sw2026/para/concentric/ProveConcentricParentLights.py)
 
 ## Source and generated ownership
 
@@ -24,4 +24,25 @@ The normal reader recovers all four generated light names, roles and allocated I
 
 The two prior flat fixtures and two prior nested fixtures retain their complete prior bytes and exact guarded receipts. Eight workers compare eleven parent/child or nested definition file pairs. Twelve refusal cases cover invalid scene input, name collisions, unexpected classes, source status, list state and duplicate or foreign publication owners.
 
-The public and whole-source gates remain unchanged. The actual D01 parent still refuses with `assembly root contains unprojected model content`. Its notes, exploded-view manager, display states, independent model and configuration titles, and remaining source revision/presentation owners require their own transfer. The host proof neither projects those fields nor qualifies their loss. [Whole-source prerequisites](ConcentricSealedAdmission2026.md)
+## Native parent scene and persistence
+
+The candidate changes one parent directional light's label, colour, diffuse
+coefficient and specular coefficient. The child scene and independent
+assembly, mate and depth predictions retain their established inputs. Two
+guarded constructions match with zero runtime access. A same-locator empty
+scene comparison records eight affected logical streams, including actual
+light ownership, persistent ID allocation and the public Keyword index.
+
+Four fresh SOLIDWORKS `34.5.2.0604` processes finish the two controls,
+generated edit and save, and fresh reopen with no open, rebuild or save
+diagnostics. The generated pair passes 84 numeric checks and 24 ordered
+live-light observations. The reconstructed native save preserves all 60
+typed light fields within the documented tolerance. The real child depth
+edit and the selected signed concentric mate remain intact.
+[Native receipt](../measurements/2026/ConcentricParentLightsNative01.json)
+
+The actual D01 parent still refuses with `assembly root contains unprojected
+model content`. The [reciprocal note pair](ConcentricParentNotes2026.md) has a
+separate host proof. The exploded-view manager, display state, model and
+configuration names, and remaining revision and presentation owners are open.
+[Whole-source prerequisites](ConcentricSealedAdmission2026.md)
