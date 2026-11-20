@@ -13,5 +13,7 @@ reproduces both disclosed model-generated containers with distinct
 stream lengths and zero runtime input reads. One complete archive hash
 matches the [previously measured native trial](../../../../re/solidworks/measurements/2026/WidthDepthSameLocatorNative01.json).
 Both pass strict SDK readback with a solid and the actual dependency.
-Six unsupported intents emit zero bytes. Public writer registration
-and full native-source projection remain pending.
+Six unsupported intents emit zero bytes. The
+[normal writer qualification](SolidworksPublicWidthDepthWriter.md)
+covers the explicitly anchored neutral profile. Full native-source
+projection remains pending.

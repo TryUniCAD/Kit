@@ -122,3 +122,14 @@ The first summary command has transport exit 255. The summary rerun
 recovers the same three native phases without starting SOLIDWORKS.
 [Density contrast](../measurements/2026/SdkWidthDepthPrepDensityContrast01.json)
 · [Separate density owners](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Parts/DefaultPartDensityHasTwoOwners.md)
+
+Packet 04 uses the separately measured unassigned body density.
+Both controls and both edit and reopen lifecycles pass in six
+processes with 188 numeric checks. The same 47.875 mm width edit
+preserves the independent 19.5625 mm depth in the plain arm and
+drives the equation depth to 23.9375 mm. Both files save cleanly
+and reopen with the complete feature tree and measured mass properties.
+The normal SDK write produces the exact tested equation bytes
+with zero runtime file reads.
+[Native preparation result](../measurements/2026/SdkWidthDepthPreparationNative01.json)
+· [Normal writer proof](../measurements/2026/SdkPublicWidthDepthWriter01.json)

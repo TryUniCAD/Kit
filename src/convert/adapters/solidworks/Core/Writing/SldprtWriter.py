@@ -5,9 +5,6 @@ from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
-    KPartPlan,
-)
 from convert.adapters.solidworks.Container.Format import KPartSuffix
 from convert.adapters.solidworks.Core.AssemblyWriting.CanWriteAsm import CanWriteAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.EmitAsmMut import EmitAsmMut
@@ -17,8 +14,7 @@ from convert.adapters.solidworks.Core.DrawingWriting.CanWriteBlankDrawing import
 from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import (
     EmitBlankMut,
 )
-from convert.adapters.solidworks.Core.Preparation.Circle.PlanCircle import PlanCircle
-from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
+from convert.adapters.solidworks.Core.Preparation.PlanNativePart import PlanNativePart
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
@@ -42,11 +38,7 @@ class SldprtWriter(PairProtocol):
         if DocValue.assembly is not None:
             return CanWriteAsm(DocValue, Target)
         try:
-            PlanValue: KPartPlan
-            try:
-                PlanValue = PlanPartWrite(DocValue)
-            except (TypeError, ValueError):
-                PlanValue = PlanCircle(DocValue)
+            PlanValue = PlanNativePart(DocValue)
         except (TypeError, ValueError):
             return False
         if isinstance(Target, (str, FilePath)):

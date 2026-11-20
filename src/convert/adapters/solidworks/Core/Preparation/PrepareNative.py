@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPart
 from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
     PrepareCircle,
 )
+from convert.adapters.solidworks.Core.Preparation.Equations.PrepareEqPart import (
+    PrepareEqPart,
+)
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.RunPartPrep import RunPartPrep
@@ -20,6 +23,8 @@ def PrepareNative(
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
 ) -> PartCandidate:
+    if any(Parameter.expression is not None for Parameter in DocumentValue.parameters):
+        return PrepareEqPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
     try:
         PlanValue = PlanPartWrite(DocumentValue)

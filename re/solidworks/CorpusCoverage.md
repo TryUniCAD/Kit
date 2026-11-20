@@ -125,6 +125,12 @@ matches the cache-free generated equation part and its plain control
 in topology, volume, area and centre of mass. Two saved controls retain
 their native payloads and nine faults refuse strict reconstruction.
 
+The [normal equation writer](measurements/2026/SdkPublicWidthDepthWriter01.json)
+reproduces the exact [native-tested ordinary recipe](measurements/2026/SdkWidthDepthPreparationNative01.json)
+for an explicitly anchored neutral rectangle. The independent driving
+edit, save and reopen pass with both controls. These disclosed checks
+add zero FCStd benchmark conversions.
+
 Two [public SDK blank drawing cases](measurements/2026/SdkPublicBlankDrawingHeldout01.json)
 matched their pre-registration locked native sources through rebuild, scale
 edit, save and fresh reopen. The guarded builds use independently authored
