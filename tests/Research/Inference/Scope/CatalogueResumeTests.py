@@ -128,7 +128,7 @@ def CheckColdResume(TmpPath: FilePath) -> None:
     Before = DecodeJson(ReportPath.read_bytes())
     assert Before["status"] == "paused"
     Events = [
-        DecodeJson(LineText)["event"]
+        DecodeJson(LineText).get("event")
         for LineText in (RunPath / "OfflineSupervisor.log")
         .read_text(encoding="utf-8")
         .splitlines()
