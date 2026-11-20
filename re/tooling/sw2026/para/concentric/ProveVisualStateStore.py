@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 from codecs import lookup
-from collections import Counter
 from dataclasses import replace
 from hashlib import sha256
 import json
@@ -17,12 +16,15 @@ sys.path[:0] = [str(REPO), str(REPO / 'src'), str(SW2026), str(SW2026 / 'serial'
 
 from Classes import registry
 from defs.Visual import load_visual_states, store_visual_states
-from para.concentric.AuditConcentricDisplayState import checked, file_signature, model_inputs, published_cases, ReadCmgrMut
+from para.concentric.AuditConcentricDisplayState import ctext, checked, D01_LOCKED, file_signature, model_inputs, PUBLISHED_MANIFEST, published_cases, ReadCmgrMut
 from para.concentric.MakeDisplayTree import DisplayListIntent, DisplayStateIntent, make_display_tree
-from para.concentric.MakeVisualStateStore import CONTEXT_WORDS, DEFAULT_ALIAS, DEFAULT_NAME, STREAM, UNSELECTED, make_visual_store, need
+from para.concentric.MakeVisualStateStore import CONTEXT_WORDS, DEFAULT_ALIAS, DEFAULT_NAME, STREAM, UNSELECTED, feature_log, make_visual_store, need
 from tests.Convert.Solidworks.Research.ConstructionGuard import BuildAudit
 
+from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.CompRefFields import CompRefFields
+from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import DatumTime
+from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import ReadFileText
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNodeName
@@ -32,9 +34,12 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNa
 
 
 NATIVE_RECEIPT = 'e14c77749cd68ed554bbbdbf014d1360df9fa58a1524976329d93976b48e5d71'
+AUTHOR_RECEIPT = '1b008f32adcaaadd61a1d072ae3a012f8136418a5a6a9fe51b8fc65c2228587a'
 PARENT = '1b5f9a87c6db9b6c22c9fd445338cd1d478045e1e3fbccbd2c8ac17ccb7f7ceb'
 CHILD = '8dd479a4f05a1baf8d0a4166e1f4247e82f3f125933173e0de964dc64e74ab22'
 STALE_CHILD = '92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa'
+STRUCTURAL_REVISION = '38dc82ee2e6e78a43078b63876eb8649020c9e2e'
+STRUCTURAL_RECEIPT = 'adb6a793fe3e0489d5d081e15a6c0fcd35fa574f8b6ac9f42939330df3f88753'
 
 
 def digest(data):
@@ -67,6 +72,93 @@ def replay(archive, reg):
     return doc, summary
 
 
+def member_seconds(node):
+    fields = node.FieldsValue
+    return None if fields['f2a0'] == fields['f2a4'] == 0 else ReadMemberTime(node).SecondsValue
+
+
+def owner_clocks(archive, doc):
+    link = ReadNativeLink(archive, 0)
+    header = link.ConfigValue.HeaderValue
+    top_header = ReadHeaderGraph(archive.require('Header2'), 19000)
+    features = {row.FieldsValue['f08']: row for row in link.ResolvedValue.RootsValue}
+    rows = []
+    for row in doc.head['root'].f['f78']:
+        reference = row['ref'].FieldsValue.get('ff0')
+        if reference is None:
+            continue
+        feature_id = reference['f00']
+        actual = features[feature_id]
+        count = []
+        for owner in (header, top_header):
+            log = feature_log(owner, feature_id)
+            count.append(None if log is None else len(log[1]))
+        left, right = (DatumTime(owner, feature_id) for owner in (header, top_header))
+        need(left == right == reference['f08'], 'VisualStates feature time disagrees with actual ordered header logs')
+        rows.append({'feature_id': feature_id, 'class': actual.ClassValue.NameValue, 'visual_seconds': reference['f08'],
+                     'resolved_filetime_seconds': member_seconds(actual), 'config_creation_seconds': left,
+                     'header2_creation_seconds': right, 'log_event_counts': count})
+    return link, rows
+
+
+def parent_locator(archive, header):
+    data = archive.require('Contents/CMgr')
+    manager = ReadCmgrMut(data, 19000).RootValue
+    locator = manager.FieldsValue['f1f8']
+    current = ctext(header.FieldsValue['f38'].FieldsValue['shared']['h18'])
+    need(WriteCmgrMut(manager, 19000) == data and (not locator or locator == current), 'CMgr inherited locator does not replay or match the actual Header')
+    return {'codepoints': len(locator), 'header_codepoints': len(current), 'matches_header': locator == current,
+            'cmgr_bytes': len(data), 'cmgr_byte_identity': True}
+
+
+def pinned_clock_contrasts(root, reg):
+    d01 = root.parent / 'ConcentricMateSourcePacket02/Disclosed/D01/Native'
+    visibility = root.parent / 'ConcentricDisplayVisibility04'
+    author = json.loads(checked(REPO / 're/solidworks/measurements/2026/ConcentricDisplayAuthoring04.json', AUTHOR_RECEIPT))
+    extra = {f'D01{role}': (d01 / role / 'ConcentricD01AlignedFree.SLDASM', pins[0]) for role, pins in D01_LOCKED.items()}
+    extra.update({'D01BeforeNamed': (visibility / 'Inspection/Author/Before.SLDASM', author['evidence_sha256']['before']),
+                  'D01AfterNamed': (visibility / 'Working/ConcentricD01AlignedFree.SLDASM', author['evidence_sha256']['after'])})
+    parents = {}
+    for name, (path, pin) in extra.items():
+        archive = SldprtArchive.from_bytes(checked(path, pin))
+        doc, replay_proof = replay(archive, reg)
+        link, clocks = owner_clocks(archive, doc)
+        parents[name] = replay_proof | {'native_parent_sha256': pin, 'plane_clocks': clocks,
+                                        'cmgr_locator': parent_locator(archive, link.ConfigValue.HeaderValue)}
+    children = {f'D01{role}': (d01 / role / 'ConcentricD01Child.SLDPRT', pins[1]) for role, pins in D01_LOCKED.items()}
+    children.update({'D01Synchronized': (root / 'Revisions/Synchronized/ConcentricD01Child.SLDPRT', CHILD),
+                     'D01Stale': (root / 'Revisions/Stale/ConcentricD01Child.SLDPRT', STALE_CHILD)})
+    corpus = REPO / 're/solidworks/v2026/corpus/assembly-synchronized'
+    manifest = json.loads(checked(corpus / 'Manifest.json', PUBLISHED_MANIFEST))
+    need(manifest['heldout_payloads_read'] is False, 'synchronized part controls must be disclosed')
+    for row in manifest['records']:
+        if row['role'] == 'child':
+            children[row['name']] = (corpus / row['file'], row['sha256'])
+    child_proofs = {}
+    for name, (path, pin) in children.items():
+        archive = SldprtArchive.from_bytes(checked(path, pin))
+        doc, replay_proof = replay(archive, reg)
+        link, clocks = owner_clocks(archive, doc)
+        fields = doc.head['root'].f
+        holder, *entities = fields['f78']
+        config = ReadCmgrMut(archive.require('Contents/CMgr'), 19000).RootValue.FieldsValue['f360']
+        model = link.ConfigValue.RootValue.FieldsValue
+        properties = holder['attrs'][0]['objs'][0]['o'].f['f10']
+        need(fields['n_comps'] == 0 and fields['n_ents'] == 6 and holder['ref'].cls == 'moCompHolder_c'
+             and properties.cls == 'moVisualProperties_c' and fields['f0f0'][0]['name'] == DEFAULT_ALIAS
+             and len(clocks) == len(entities) == 5 and all(v['log_event_counts'] == [2, 2] and v['visual_seconds'] != v['resolved_filetime_seconds'] for v in clocks),
+             'independent child appearance or creation-log contrast differs')
+        root_rv, selected_rv, holder_rv = (row.FieldsValue['f20']['f90'] for row in (model['f78'], config.FieldsValue['f78'], properties))
+        need(root_rv == selected_rv and root_rv['f00'] != holder_rv['f00'] and root_rv['f68'] != holder_rv['f68'],
+             'child appearance holder must remain distinct from its actual model/config visual owner')
+        child_proofs[name] = replay_proof | {'native_child_sha256': pin, 'feature_clocks': clocks, 'entity_rows': 6,
+            'holder_appearance_present': True, 'holder_rv_record_id': holder_rv['f00'], 'model_rv_record_id': root_rv['f00'],
+            'holder_rv_locator_codepoints': len(holder_rv['f68']), 'model_rv_locator_codepoints': len(root_rv['f68'])}
+    need(len(child_proofs) == 6 and child_proofs['D01Stale']['sha256'] == child_proofs['D01Synchronized']['sha256'],
+         'child creation-log controls or the warning-clearing sync comparison differ')
+    return parents, child_proofs
+
+
 def source_evidence(root, reg):
     native = json.loads(checked(REPO / 're/solidworks/measurements/2026/ConcentricDisplaySyncNative01.json', NATIVE_RECEIPT))
     clean = native['paired_cold_opens']['Synchronized']
@@ -79,7 +171,8 @@ def source_evidence(root, reg):
     for name, path, wanted in cases:
         archive = SldprtArchive.from_bytes(checked(path, wanted))
         doc, proof = replay(archive, reg)
-        model = ReadNativeLink(archive, 0).ConfigValue.RootValue
+        link, clocks = owner_clocks(archive, doc)
+        model = link.ConfigValue.RootValue
         refs, config, cname, planes, header = model_inputs(archive)
         parent = header.FieldsValue['f38'].FieldsValue['shared']
         fields = doc.head['root'].f
@@ -96,10 +189,8 @@ def source_evidence(root, reg):
         for row in fields['f78']:
             feature = row['ref'].FieldsValue
             identity = feature['ff0']
-            plane = planes[identity['f00']]
             need(all(feature[key] == value for key, value in prefix.items() if key != 'f58')
-                 and feature['f58'].FieldsValue == {'owner': None, 'has_ext': 0}
-                 and identity['f08'] == ReadMemberTime(plane).SecondsValue, 'native plane owner or shared constructor fields differ')
+                 and feature['f58'].FieldsValue == {'owner': None, 'has_ext': 0}, 'native plane owner or shared constructor fields differ')
             need(tuple(item['key'] for item in row['attrs']) == ids, 'native plane state map keys differ')
             for item in row['attrs']:
                 props, plane_display = (entry['o'] for entry in item['objs'])
@@ -142,20 +233,17 @@ def source_evidence(root, reg):
                              'path_alias': path_alias, 'title_alias': title_alias})
         need(tuple(row['feature'] for row in contexts) == tuple(reversed(refs)) and len(appearances) == 1, 'native occurrence cache order or null appearance alias differs')
         result[name] = proof | {'native_parent_sha256': wanted, 'configuration': [config, cname], 'plane_order': plane_ids,
-                                'state_count': fields['n_states'], 'contexts': contexts}
+                                'state_count': fields['n_states'], 'contexts': contexts, 'plane_clocks': clocks,
+                                'cmgr_locator': parent_locator(archive, header)}
     need(result['D01Sync']['sha256'] == native['unchanged_display_streams'][STREAM], 'native synchronized store digest differs')
-    child = SldprtArchive.from_bytes(checked(root / 'Revisions/Synchronized/ConcentricD01Child.SLDPRT', CHILD))
-    stale_child = SldprtArchive.from_bytes(checked(root / 'Revisions/Stale/ConcentricD01Child.SLDPRT', STALE_CHILD))
-    child_doc, child_proof = replay(child, reg)
-    child_fields = child_doc.head['root'].f
-    holder = child_fields['f78'][0]
-    need(child_fields['n_comps'] == 0 and child_fields['n_ents'] == 6 and holder['ref'].cls == 'moCompHolder_c'
-         and holder['attrs'][0]['objs'][0]['o'].f['f10'].cls == 'moVisualProperties_c'
-         and stale_child.require(STREAM) == child.require(STREAM), 'independent child appearance evidence differs')
-    return {'sync_receipt_sha256': NATIVE_RECEIPT, 'parents': result,
-            'child': child_proof | {'entity_rows': child_fields['n_ents'], 'has_populated_appearance': True, 'native_child_sha256': CHILD,
-                                    'stale_child_sha256': STALE_CHILD, 'store_unchanged_by_child_sync': True,
-                                    'state_names': [item['name'] for item in child_fields['f0f0']]}}
+    extra, children = pinned_clock_contrasts(root, reg)
+    parents = result | extra
+    need(len(parents) == 8 and all(len(case['plane_clocks']) == 3 and all(v['log_event_counts'] == [2, 2]
+         and v['visual_seconds'] == v['resolved_filetime_seconds'] for v in case['plane_clocks']) for case in parents.values()),
+         'pinned parent archive clock congruence differs')
+    return {'sync_receipt_sha256': NATIVE_RECEIPT, 'author_receipt_sha256': AUTHOR_RECEIPT, 'parents': parents, 'children': children,
+            'parent_plane_rows_matching_both_representations': 24, 'child_feature_rows_matching_creation_log': 30,
+            'child_feature_rows_matching_resolved_filetime': 0}
 
 
 def generated_proof(reg, audit):
@@ -169,6 +257,7 @@ def generated_proof(reg, audit):
     from convert.adapters.solidworks.Archive.Construction.Assembly.MakeAsmMateMut import MakeAsmMateMut
     from convert.adapters.solidworks.Archive.Construction.Assembly.MakeAssembly import MakeAssembly
     from convert.adapters.solidworks.Archive.Construction.Assembly.Occurrences.PutOccsMut import PutOccsMut
+    from convert.adapters.solidworks.Archive.Construction.Header.MakeRootLog import MakeRootLog
     from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTime import FeatureTime
     from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import MakeBlindPart
     from convert.adapters.solidworks.Assembly.Assembly import DecodeNativeAsm
@@ -183,18 +272,23 @@ def generated_proof(reg, audit):
         lookup(encoding)
     audit.BeginBuild()
 
-    def construct(child, inputs, poses, mate_input, clocks):
+    def construct(child, inputs, poses, mate_input, epochs, member_times):
         CheckAsmInput(child, inputs, poses, mate_input)
         state = MakeAsmBase(inputs)
-        for axis, seconds in clocks.items():
+        for axis, seconds in member_times.items():
             state.PlaneValues[axis].FieldsValue.update(FeatureTime(seconds))
         headers = MakeAsmHeaders(state, inputs)
+        for header in headers:
+            log_list = header.FieldsValue['f20'].FieldsValue
+            log_list['items'] = (*log_list['items'], *(MakeRootLog(state.PlaneValues[axis], replace(inputs.HeaderValue, CreatedAt=seconds))
+                                                       for axis, seconds in epochs.items()))
         refs = PutOccsMut(state, child, inputs, poses, headers)
         mate = MakeAsmMateMut(state, child, inputs, mate_input, refs, headers)
-        return state, headers[0], refs, EmitAsmStreams(state, child, inputs, headers, refs, mate).StreamsValue
+        return state, headers, refs, EmitAsmStreams(state, child, inputs, headers, refs, mate).StreamsValue
 
-    def check_store(archive, state, header, refs, intent, clocks):
+    def check_store(archive, state, header, refs, intent, epochs):
         doc, proof = replay(archive, reg)
+        link, clocks = owner_clocks(archive, doc)
         fields = doc.head['root'].f
         ids = tuple(row.FieldsValue['f08'] for row in refs)
         parent = header.FieldsValue['f38'].FieldsValue['shared']
@@ -227,22 +321,19 @@ def generated_proof(reg, audit):
                 aliases['visible' if visible else 'hidden'].add(visual)
         need(tuple(row[0] for row in context_info) == tuple(reversed(ids)) and all(len(items) == 1 for items in owners.values()),
              'common parent path/title handles or generated occurrence order differ')
-        link = ReadNativeLink(archive, intent.configuration_id)
         owner_kind = 'moRefPlane_c'
         resolved = {row.FieldsValue['f08']: row for row in link.ResolvedValue.RootsValue if row.ClassValue.NameValue == owner_kind}
         config_planes = {row.EntryValue.FieldsValue['f08']: row.EntryValue for row in link.ConfigValue.MapValue.EntriesValue
                          if isinstance(row.EntryValue, ArchiveNode) and row.EntryValue.ClassValue.NameValue == owner_kind}
-        authored = {node.FieldsValue['f08']: clocks[axis] for axis, node in state.PlaneValues.items()}
+        authored = {node.FieldsValue['f08']: (epochs[axis] if epochs else 2592000) for axis, node in state.PlaneValues.items()}
         plane_ids = []
-        stored_clocks = {}
         for row in fields['f78']:
             handle = row['ref'].f
             identity, seconds = (handle['ff0'][key] for key in ('f00', 'f08'))
-            need(seconds == authored[identity] == ReadMemberTime(resolved[identity]).SecondsValue
-                 and handle['f58'].f == {'owner': None, 'has_ext': 0}, 'generated plane wire disagrees with the actual Resolved owner')
+            need(seconds == authored[identity] and handle['f58'].f == {'owner': None, 'has_ext': 0},
+                 'generated plane wire disagrees with the actual authored creation log')
             if identity in config_planes:
-                need(config_planes[identity] is resolved[identity] and ReadMemberTime(config_planes[identity]).SecondsValue == seconds,
-                     'Config plane alias and Resolved owner disagree')
+                need(config_planes[identity] is resolved[identity], 'Config plane alias and Resolved feature owner disagree')
             for stored, (key, _) in zip(row['attrs'], wanted_states, strict=True):
                 props, visual = (item['o'] for item in stored['objs'])
                 need(stored['key'] == key and stored['k'] == 2 and props.f == {'f08': 1, 'f10': None}
@@ -251,24 +342,27 @@ def generated_proof(reg, audit):
                 aliases['plane'].add(visual)
             aliases['detached_plane_components'].add(handle['f58'])
             plane_ids.append(identity)
-            stored_clocks[identity] = seconds
         sizes = {name: len(items) for name, items in aliases.items()}
         need(set(authored) == set(resolved) and tuple(plane_ids) == tuple(reversed(tuple(authored)))
              and sizes == {'properties': 1, 'label': 1, 'visible': 1, 'hidden': int(len(intent.states) > 1),
                            'plane': 1, 'detached_plane_components': 3}, 'generated alias groups or complete plane identities differ')
-        return proof | {'contexts': context_info, 'plane_ids': plane_ids, 'plane_times_on_shared_nodes': authored,
-                        'plane_times_in_visual_store': stored_clocks,
-                        'plane_times_in_resolved': {key: ReadMemberTime(value).SecondsValue for key, value in resolved.items()},
-                        'plane_times_in_config': {key: ReadMemberTime(value).SecondsValue for key, value in config_planes.items()},
+        return proof | {'contexts': context_info, 'plane_ids': plane_ids, 'authored_creation_seconds': authored,
+                        'plane_clocks': clocks, 'config_inline_plane_ids': list(config_planes),
                         'state_names': [name for _, name in wanted_states], 'state_keys': [key for key, _ in wanted_states],
                         'visibility_by_occurrence': visibility_by_id, 'alias_object_counts': sizes,
                         'counts': {'states': fields['n_states'], 'occurrences': fields['n_comps'], 'planes': fields['n_ents']}}
+
+    def stream_changes(first, second):
+        need(set(first) == set(second), 'clock contrast added or removed a structural stream')
+        return sorted(key for key, value in first.items() if value != second[key])
 
     results, refusals = [], {}
     for variant in (False, True):
         request = MakeAsmCase('coincident', 'x', variant)
         child = MakeBlindPart(FromData(request['child']['document']), settings(request['child']['settings']))
         inputs = assembly_settings(request['assembly'] | {'configuration_name': 'Display fixture' if variant else 'Default'})
+        created = inputs.HeaderValue.CreatedAt
+        inputs = replace(inputs, HeaderValue=replace(inputs.HeaderValue, ModifiedAt=created + 60, UpdatedAt=created + 61))
         if variant:
             inputs = replace(inputs, SystemValue=replace(inputs.SystemValue, HasEmptyExplodedView=True))
         poses, mate = occurrence_settings(request['occurrences']), mate_settings(request['mate'])
@@ -279,43 +373,77 @@ def generated_proof(reg, audit):
             states += [DisplayStateIntent('Gauge seat', ((second, False), (first, True))),
                        DisplayStateIntent('Tool change', ((first, False), (second, True)))]
         intent = DisplayListIntent(baseline.StateValue.CurrentConfig.FieldsValue['f08'], tuple(states))
-        clocks = dict(zip(('z', 'y', 'x'), ((1794800211, 1794800213, 1794800217) if variant else (1794800021, 1794800022, 1794800025)), strict=True))
-        state, header, refs, stream_data = construct(child, inputs, poses, mate, clocks)
-        repeated = construct(child, inputs, poses, mate, clocks)
+        axes = ('z', 'y', 'x')
+        epochs = dict(zip(axes, (created + n for n in ((7, 11, 13) if variant else (1, 3, 5))), strict=True))
+        filetimes = dict(zip(axes, (created + n for n in ((41, 43, 47) if variant else (29, 31, 37))), strict=True))
+        state, headers, refs, stream_data = construct(child, inputs, poses, mate, epochs, {})
+        repeated = construct(child, inputs, poses, mate, epochs, {})
+        varied = construct(child, inputs, poses, mate, epochs, filetimes)
+        header = headers[0]
         with reg.track_usage('store', STREAM) as use:
-            visual = make_visual_store(state, header, refs, intent, reg)
-        need(visual == make_visual_store(repeated[0], repeated[1], repeated[2], intent, reg)
-             and stream_data == repeated[3] and not use.snapshot()['raw_operations'], 'repeat neutral assembly generation differs')
+            visual = make_visual_store(state, headers, refs, intent, reg)
+        need(visual == make_visual_store(*repeated[:3], intent, reg) == make_visual_store(*varied[:3], intent, reg)
+             and stream_data == repeated[3] and not use.snapshot()['raw_operations'], 'neutral repeat or independent FILETIME changed the VisualStates archive')
         xml = make_display_tree(state, header, child, refs, intent)
         payload = BuildSldprt(dict(stream_data) | {STREAM: visual, KComponentTreeStream: xml}, FormatVersion=4)
         archive = SldprtArchive.from_bytes(payload)
-        proof = check_store(archive, state, header, refs, intent, clocks)
+        proof = check_store(archive, state, header, refs, intent, epochs)
+        changed_archive = SldprtArchive.from_bytes(BuildSldprt(dict(varied[3]) | {STREAM: visual, KComponentTreeStream: xml}, FormatVersion=4))
+        changed = check_store(changed_archive, varied[0], varied[1][0], varied[2], intent, epochs)
+        base_headers = (baseline.HeaderValue, baseline.TopHeader)
+        sentinel = make_visual_store(baseline.StateValue, base_headers, baseline.OccurrenceValues, intent, reg)
+        sentinel_archive = SldprtArchive.from_bytes(BuildSldprt(dict(baseline.StreamsValue) | {STREAM: sentinel, KComponentTreeStream: xml}, FormatVersion=4))
+        blank = check_store(sentinel_archive, baseline.StateValue, base_headers[0], baseline.OccurrenceValues, intent, {})
         opened = DecodeNativeAsm(archive)
         expected = [(row.name, ''.join('Yes,' if dict(row.visibility)[k] else 'No,' for k in (first, second))) for row in intent.states]
         need([(row.name, dict(row.attributes)['swShowState']) for row in opened.display_states] == expected
              and not child.StreamsValue.get(STREAM), 'the XML or independent generated child scope differs')
-        actual_clock_deltas = sorted(key for key, value in stream_data.items() if value != baseline.StreamsValue[key])
-        need(actual_clock_deltas == ['Contents/Config-0-ResolvedFeatures'] and not proof['plane_times_in_config'], 'the clocked candidate changed outside its actual Resolved plane owners')
+        log_deltas = stream_changes(baseline.StreamsValue, stream_data)
+        filetime_deltas = stream_changes(stream_data, varied[3])
+        expected_filetimes = {node.FieldsValue['f08']: filetimes[axis] for axis, node in varied[0].PlaneValues.items()}
+        need(log_deltas == ['Contents/Config-0-ModelHeader', 'Header2'] and filetime_deltas == ['Contents/Config-0-ResolvedFeatures']
+             and not proof['config_inline_plane_ids'] and not changed['config_inline_plane_ids'] and not blank['config_inline_plane_ids']
+             and all(row['resolved_filetime_seconds'] is None and row['log_event_counts'] == [1, 1] for row in proof['plane_clocks'])
+             and all(row['resolved_filetime_seconds'] == expected_filetimes[row['feature_id']] for row in changed['plane_clocks'])
+             and all(row['log_event_counts'] == [None, None] and row['visual_seconds'] == 2592000 for row in blank['plane_clocks'])
+             and visual != sentinel, 'the two clock owners or absent-log control are not independent')
         need(set(archive.streams) == set(stream_data) | {STREAM} and all(archive.require(key) == data for key, data in stream_data.items()
              if key != KComponentTreeStream), 'parent store construction rewrote another model stream')
         results.append(proof | {'configuration_name': ReadNodeName(state.CurrentConfig), 'configuration_id': intent.configuration_id,
-                               'occurrence_feature_ids': [first, second], 'clock_owner_stream_deltas': actual_clock_deltas,
+                               'occurrence_feature_ids': [first, second], 'explicit_log_stream_deltas': log_deltas,
+                               'independent_filetime_stream_deltas': filetime_deltas, 'visual_unchanged_by_filetime': True,
+                               'filetime_perturbation': changed['plane_clocks'], 'absent_log_control': blank['plane_clocks'],
                                'unchanged_child_sha256': digest(child.BytesValue), 'container_sha256': digest(payload)})
         if not variant:
-            old = (baseline.StateValue, baseline.HeaderValue, baseline.OccurrenceValues, intent, reg)
+            feature_id = state.PlaneValues['x'].FieldsValue['f08']
+            top_logs = headers[1].FieldsValue['f20'].FieldsValue
+            items = top_logs['items']
+            top_logs['items'] = tuple(log for log in items if log.FieldsValue['f48'] != feature_id)
             try:
-                make_visual_store(*old)
+                make_visual_store(state, headers, refs, intent, reg)
             except ValueError as error:
-                refusals['unset_actual_plane_clocks'] = str(error)
+                refusals['missing_log_in_header2'] = str(error)
+            finally:
+                top_logs['items'] = items
+            stamp = feature_log(headers[1], feature_id)[1][0]
+            creation = stamp['f18']
+            stamp['f18'] += 1
+            try:
+                make_visual_store(state, headers, refs, intent, reg)
+            except ValueError as error:
+                refusals['divergent_log_in_header2'] = str(error)
+            finally:
+                stamp['f18'] = creation
             context = state.CurrentConfig.FieldsValue['fce8'][1]['o'].FieldsValue['f10'].FieldsValue['f40'].FieldsValue
             context['f58'] = 8
             try:
-                make_visual_store(state, header, refs, intent, reg)
+                make_visual_store(state, headers, refs, intent, reg)
             except ValueError as error:
                 refusals['context_flag_eight'] = str(error)
             finally:
                 context['f58'] = 0
-    need(set(refusals) == {'unset_actual_plane_clocks', 'context_flag_eight'} and not audit.DeniedReads, 'guard scope or refusal failed')
+    need(set(refusals) == {'missing_log_in_header2', 'divergent_log_in_header2', 'context_flag_eight'} and not audit.DeniedReads,
+         'guard scope or refusal failed')
     need(results[0]['occurrence_feature_ids'] != results[1]['occurrence_feature_ids'], 'generated occurrence identities failed to vary')
     return results, refusals
 
@@ -324,18 +452,22 @@ def main():
     parser = argparse.ArgumentParser(description='Author two independent mode-zero VisualStates stores in a guarded host process')
     parser.add_argument('disclosed_sync_packet', type=Path)
     args = parser.parse_args()
+    checked(REPO / 're/solidworks/measurements/2026/ConcentricVisualStateStore01.json', STRUCTURAL_RECEIPT)
     source = source_evidence(args.disclosed_sync_packet.resolve(), registry())
     reg = registry()
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=REPO, text=True).strip()
-    modules = (Path(__file__), Path(__file__).with_name('MakeVisualStateStore.py'), Path(__file__).with_name('MakeDisplayTree.py'),
+    modules = (Path(__file__), *(Path(__file__).with_name(name) for name in ('MakeVisualStateStore.py', 'MakeDisplayTree.py',
+                  'AuditConcentricDisplayState.py', 'ProveConcentricSourceBrep.py')),
                *(SW2026 / 'serial/defs' / name for name in ('Visual.py', 'VisualRefs.py', 'ResolvedComp.py')),
                *(REPO / 'src/convert/adapters/solidworks/Archive/Construction' / name for name in ('Assembly/System/MakeAsmPlane.py',
-                  'Assembly/Occurrences/MakeOccConfig.py', 'Assembly/EmitAsmStreams.py', 'PlanarMates/CompRefFields.py', 'Nodes/FeatureTime.py')))
+                  'Assembly/Occurrences/MakeOccConfig.py', 'Assembly/EmitAsmStreams.py', 'PlanarMates/CompRefFields.py',
+                  'Nodes/FeatureTime.py', 'Header/MakeRootLog.py', 'PlanarMates/DatumTime.py', 'PlanarMates/ReadLogItems.py')))
     hashes = {str(path.relative_to(REPO)): digest(path.read_bytes()) for path in modules}
     audit = BuildAudit(SW2026 / 'serial/defs')
     sys.addaudithook(audit.InspectEvent)
     models, refusals = generated_proof(reg, audit)
-    print(json.dumps({'schema': 'kit.sw2026.concentric-mode-zero-visual-store.v1', 'head': head, 'source_hashes': hashes,
+    print(json.dumps({'schema': 'kit.sw2026.concentric-visual-creation-logs.v1', 'head': head, 'source_hashes': hashes,
+                      'prior_filetime_structural_experiment': {'commit': STRUCTURAL_REVISION, 'receipt_sha256': STRUCTURAL_RECEIPT},
                       'disclosed_source_evidence': source, 'generated_models': models, 'refusals': refusals,
                       'runtime_input_io_attempts': len(audit.DeniedReads), 'cad_files_written': 0, 'native_processes_started': 0,
                       'native_acceptance': False, 'public_writer_qualified': False, 'heldout_inputs_read': 0, 'passed': True},

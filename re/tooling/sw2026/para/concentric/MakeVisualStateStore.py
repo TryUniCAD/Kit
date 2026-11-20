@@ -9,11 +9,12 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState imp
 from convert.adapters.solidworks.Archive.Construction.Assembly.Occurrences.MakeExtFeature import MakeExtFeature
 from convert.adapters.solidworks.Archive.Construction.Assembly.Occurrences.MakeRefChain import MakeRefChain
 from convert.adapters.solidworks.Archive.Construction.PlanarMates.CompRefFields import CompRefFields
+from convert.adapters.solidworks.Archive.Construction.PlanarMates.DatumTime import DatumTime
+from convert.adapters.solidworks.Archive.Construction.PlanarMates.ReadLogItems import ReadLogItems
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
 from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import ReadFileKey, ReadFileText
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, ReadNodeName, ReadRows, RequireNode, RequireRecord
-from convert.adapters.solidworks.Core.Preparation.ThroughAll.Members.ReadMemberTime import ReadMemberTime
 
 
 VERSION = 19000
@@ -101,7 +102,17 @@ def context_rows(config, refs, owner, pooled):
     return tuple(ordered)
 
 
-def plane_rows(state):
+def feature_log(header, feature_id):
+    logs = ReadLogItems(header.FieldsValue['f20'], 'moLogs_c')
+    matches = tuple(row for row in logs if FieldInt(row.FieldsValue, 'f48') == feature_id)
+    need(len(matches) <= 1, 'VisualStates feature has ambiguous creation logs')
+    if not matches:
+        return None
+    log, = matches
+    return (log.FieldsValue['f50'], tuple(row.FieldsValue for row in ReadLogItems(log, 'moStamp_c')))
+
+
+def plane_rows(state, headers):
     known = tuple(state.PlaneValues.values())
     planes = tuple(row for row in state.FeatureValues if row.ClassValue.NameValue == 'moRefPlane_c')
     need(set(state.PlaneValues) == {'z', 'y', 'x'} and len(planes) == len(set(known)) == 3 and set(planes) == set(known),
@@ -109,12 +120,15 @@ def plane_rows(state):
     unit = RequireNode(state.RootValue.FieldsValue['f990'], 'moUnitComponent_c')
     for plane in reversed(planes):
         fields = plane.FieldsValue
-        need(fields['owner'] is state.RootValue and FieldInt(fields, 'f08') > 0 and FieldInt(fields, 'f2b0') == VERSION,
+        feature_id = FieldInt(fields, 'f08')
+        need(fields['owner'] is state.RootValue and feature_id > 0 and FieldInt(fields, 'f2b0') == VERSION,
              'VisualStates plane lacks the actual ordinary model owner')
-        clock = ReadMemberTime(plane)
+        header, top_header = headers
+        need(feature_log(header, feature_id) == feature_log(top_header, feature_id),
+             'VisualStates plane creation-log owners differ between the two generated headers')
         prefix = CompRefFields(unit)
         yield Obj('moCompFeature_c', prefix | {'f58': Obj('moUnitComponent_c', {'owner': None, 'has_ext': 0}),
-                                              'ff0': {'f00': fields['f08'], 'f08': clock.SecondsValue}})
+                                              'ff0': {'f00': feature_id, 'f08': DatumTime(header, feature_id)}})
 
 
 def visual_attribute(default, words):
@@ -125,7 +139,12 @@ def attribute_row(state_id, *objects):
     return {'key': state_id, 'k': len(objects), 'objs': [{'o': node} for node in objects]}
 
 
-def visual_document(state: AssemblyState, header: ArchiveNode, references: tuple[ArchiveNode, ...], intent: DisplayListIntent) -> StreamDoc:
+def visual_document(state: AssemblyState, headers: tuple[ArchiveNode, ArchiveNode], references: tuple[ArchiveNode, ...],
+                    intent: DisplayListIntent) -> StreamDoc:
+    header, top_header = (RequireNode(row, 'moHeader_c') for row in headers)
+    left, right = header.FieldsValue, top_header.FieldsValue
+    need(header is not top_header and left['fec'] == 1 and right['fec'] == 0 and left['f38'] is right['f38']
+         and left['f08'] == right['f08'], 'VisualStates requires the two actual generated headers and their shared self-file')
     config = selected_config(state)
     config_id = FieldInt(config.FieldsValue, 'f08')
     need(type(intent) is DisplayListIntent and type(intent.configuration_id) is int and intent.configuration_id == config_id >= 0,
@@ -147,7 +166,7 @@ def visual_document(state: AssemblyState, header: ArchiveNode, references: tuple
         attrs = [attribute_row(key, props, visibility[vector[feature]], label) for key, vector in zip(keys, values, strict=True)]
         components.append({'comp': node, 'm': len(attrs), 'attrs': attrs})
     planes = []
-    for node in plane_rows(state):
+    for node in plane_rows(state, headers):
         attrs = [attribute_row(key, props, plane_display) for key in keys]
         planes.append({'ref': node, 'm': len(attrs), 'attrs': attrs})
     states = [{'id': key, 'name': name, 'f384': 0, 'f394': 0, 'f38c': 0} for key, (name, _) in zip(keys, actions, strict=True)]
@@ -158,5 +177,6 @@ def visual_document(state: AssemblyState, header: ArchiveNode, references: tuple
     return StreamDoc('visual_states', {'file_version': VERSION, 'shown': 0, 'root': root}, [root], b'')
 
 
-def make_visual_store(state: AssemblyState, header: ArchiveNode, references: tuple[ArchiveNode, ...], intent: DisplayListIntent, registry) -> bytes:
-    return store_visual_states(visual_document(state, header, references, intent), registry)
+def make_visual_store(state: AssemblyState, headers: tuple[ArchiveNode, ArchiveNode], references: tuple[ArchiveNode, ...],
+                      intent: DisplayListIntent, registry) -> bytes:
+    return store_visual_states(visual_document(state, headers, references, intent), registry)

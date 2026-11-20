@@ -1,0 +1,1486 @@
+{
+  "cad_files_written": 0,
+  "disclosed_source_evidence": {
+    "author_receipt_sha256": "1b008f32adcaaadd61a1d072ae3a012f8136418a5a6a9fe51b8fc65c2228587a",
+    "child_feature_rows_matching_creation_log": 30,
+    "child_feature_rows_matching_resolved_filetime": 0,
+    "children": {
+      "A13SyncedSingle": {
+        "byte_identity": true,
+        "bytes": 1789,
+        "entity_rows": 6,
+        "feature_clocks": [
+          {
+            "class": "moProfileFeature_c",
+            "config_creation_seconds": 1794690249,
+            "feature_id": 26,
+            "header2_creation_seconds": 1794690249,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881658,
+            "visual_seconds": 1794690249
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881658,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881658,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881658,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 2,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881658,
+            "visual_seconds": 1794529625
+          }
+        ],
+        "holder_appearance_present": true,
+        "holder_rv_locator_codepoints": 44,
+        "holder_rv_record_id": 3,
+        "model_rv_locator_codepoints": 63,
+        "model_rv_record_id": 8,
+        "native_child_sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+        "opaque_bytes": 0,
+        "provisional_schemas": [
+          "moCompHolder_c",
+          "moDisplayedEntityTracker_c.Serialize"
+        ],
+        "sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+        "terminal_map": 26
+      },
+      "A14SyncedRepeat": {
+        "byte_identity": true,
+        "bytes": 1789,
+        "entity_rows": 6,
+        "feature_clocks": [
+          {
+            "class": "moProfileFeature_c",
+            "config_creation_seconds": 1794690249,
+            "feature_id": 26,
+            "header2_creation_seconds": 1794690249,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881713,
+            "visual_seconds": 1794690249
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881713,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881713,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881713,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 2,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794881713,
+            "visual_seconds": 1794529625
+          }
+        ],
+        "holder_appearance_present": true,
+        "holder_rv_locator_codepoints": 44,
+        "holder_rv_record_id": 3,
+        "model_rv_locator_codepoints": 63,
+        "model_rv_record_id": 9,
+        "native_child_sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c",
+        "opaque_bytes": 0,
+        "provisional_schemas": [
+          "moCompHolder_c",
+          "moDisplayedEntityTracker_c.Serialize"
+        ],
+        "sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+        "terminal_map": 26
+      },
+      "D01Edited": {
+        "byte_identity": true,
+        "bytes": 1789,
+        "entity_rows": 6,
+        "feature_clocks": [
+          {
+            "class": "moProfileFeature_c",
+            "config_creation_seconds": 1795044305,
+            "feature_id": 26,
+            "header2_creation_seconds": 1795044305,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044345,
+            "visual_seconds": 1795044305
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044345,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044345,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044345,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 2,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044345,
+            "visual_seconds": 1794529625
+          }
+        ],
+        "holder_appearance_present": true,
+        "holder_rv_locator_codepoints": 44,
+        "holder_rv_record_id": 3,
+        "model_rv_locator_codepoints": 63,
+        "model_rv_record_id": 7,
+        "native_child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+        "opaque_bytes": 0,
+        "provisional_schemas": [
+          "moCompHolder_c",
+          "moDisplayedEntityTracker_c.Serialize"
+        ],
+        "sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df",
+        "terminal_map": 26
+      },
+      "D01Source": {
+        "byte_identity": true,
+        "bytes": 1789,
+        "entity_rows": 6,
+        "feature_clocks": [
+          {
+            "class": "moProfileFeature_c",
+            "config_creation_seconds": 1795044305,
+            "feature_id": 26,
+            "header2_creation_seconds": 1795044305,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044315,
+            "visual_seconds": 1795044305
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044314,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044314,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044314,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 2,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044314,
+            "visual_seconds": 1794529625
+          }
+        ],
+        "holder_appearance_present": true,
+        "holder_rv_locator_codepoints": 44,
+        "holder_rv_record_id": 3,
+        "model_rv_locator_codepoints": 63,
+        "model_rv_record_id": 7,
+        "native_child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+        "opaque_bytes": 0,
+        "provisional_schemas": [
+          "moCompHolder_c",
+          "moDisplayedEntityTracker_c.Serialize"
+        ],
+        "sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df",
+        "terminal_map": 26
+      },
+      "D01Stale": {
+        "byte_identity": true,
+        "bytes": 1789,
+        "entity_rows": 6,
+        "feature_clocks": [
+          {
+            "class": "moProfileFeature_c",
+            "config_creation_seconds": 1795044305,
+            "feature_id": 26,
+            "header2_creation_seconds": 1795044305,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044315,
+            "visual_seconds": 1795044305
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044314,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044314,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044314,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 2,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795044314,
+            "visual_seconds": 1794529625
+          }
+        ],
+        "holder_appearance_present": true,
+        "holder_rv_locator_codepoints": 44,
+        "holder_rv_record_id": 3,
+        "model_rv_locator_codepoints": 63,
+        "model_rv_record_id": 7,
+        "native_child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+        "opaque_bytes": 0,
+        "provisional_schemas": [
+          "moCompHolder_c",
+          "moDisplayedEntityTracker_c.Serialize"
+        ],
+        "sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df",
+        "terminal_map": 26
+      },
+      "D01Synchronized": {
+        "byte_identity": true,
+        "bytes": 1789,
+        "entity_rows": 6,
+        "feature_clocks": [
+          {
+            "class": "moProfileFeature_c",
+            "config_creation_seconds": 1795044305,
+            "feature_id": 26,
+            "header2_creation_seconds": 1795044305,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795149630,
+            "visual_seconds": 1795044305
+          },
+          {
+            "class": "moOriginProfileFeature_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795149630,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795149630,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795149630,
+            "visual_seconds": 1794529625
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529625,
+            "feature_id": 2,
+            "header2_creation_seconds": 1794529625,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1795149630,
+            "visual_seconds": 1794529625
+          }
+        ],
+        "holder_appearance_present": true,
+        "holder_rv_locator_codepoints": 44,
+        "holder_rv_record_id": 3,
+        "model_rv_locator_codepoints": 63,
+        "model_rv_record_id": 10,
+        "native_child_sha256": "8dd479a4f05a1baf8d0a4166e1f4247e82f3f125933173e0de964dc64e74ab22",
+        "opaque_bytes": 0,
+        "provisional_schemas": [
+          "moCompHolder_c",
+          "moDisplayedEntityTracker_c.Serialize"
+        ],
+        "sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df",
+        "terminal_map": 26
+      }
+    },
+    "parent_plane_rows_matching_both_representations": 24,
+    "parents": {
+      "A12SyncedEmpty": {
+        "byte_identity": true,
+        "bytes": 597,
+        "cmgr_locator": {
+          "cmgr_byte_identity": true,
+          "cmgr_bytes": 1345,
+          "codepoints": 0,
+          "header_codepoints": 0,
+          "matches_header": true
+        },
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "contexts": [],
+        "native_parent_sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+        "opaque_bytes": 0,
+        "plane_clocks": [
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          }
+        ],
+        "plane_order": [
+          5,
+          4,
+          3
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize"
+        ],
+        "sha256": "c4c1cc25419c807851dc6814e4ce4a6ffbf3c99cc0f0c942ddde3e75bb2e4ed9",
+        "state_count": 1,
+        "terminal_map": 15
+      },
+      "A13SyncedSingle": {
+        "byte_identity": true,
+        "bytes": 1055,
+        "cmgr_locator": {
+          "cmgr_byte_identity": true,
+          "cmgr_bytes": 2229,
+          "codepoints": 0,
+          "header_codepoints": 0,
+          "matches_header": true
+        },
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "contexts": [
+          {
+            "chain_mode": 1,
+            "chain_stamp": 203,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 24,
+            "file_flag": 0,
+            "path_alias": true,
+            "title_alias": true
+          }
+        ],
+        "native_parent_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+        "opaque_bytes": 0,
+        "plane_clocks": [
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          }
+        ],
+        "plane_order": [
+          5,
+          4,
+          3
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "0ae3419e9e12f3e237e76835f6a7241f9c85b7eb7afda08bb2688d1cb423809e",
+        "state_count": 1,
+        "terminal_map": 32
+      },
+      "A14SyncedRepeat": {
+        "byte_identity": true,
+        "bytes": 1247,
+        "cmgr_locator": {
+          "cmgr_byte_identity": true,
+          "cmgr_bytes": 2617,
+          "codepoints": 0,
+          "header_codepoints": 0,
+          "matches_header": true
+        },
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "contexts": [
+          {
+            "chain_mode": 1,
+            "chain_stamp": 203,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 25,
+            "file_flag": 0,
+            "path_alias": true,
+            "title_alias": true
+          },
+          {
+            "chain_mode": 1,
+            "chain_stamp": 203,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 24,
+            "file_flag": 0,
+            "path_alias": true,
+            "title_alias": true
+          }
+        ],
+        "native_parent_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+        "opaque_bytes": 0,
+        "plane_clocks": [
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          }
+        ],
+        "plane_order": [
+          5,
+          4,
+          3
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "05204284bb871770638d93f06f1746fbe327fcb8e1b57dfaed481c4327b6eb4e",
+        "state_count": 1,
+        "terminal_map": 38
+      },
+      "D01AfterNamed": {
+        "byte_identity": true,
+        "bytes": 1593,
+        "cmgr_locator": {
+          "cmgr_byte_identity": true,
+          "cmgr_bytes": 3540,
+          "codepoints": 115,
+          "header_codepoints": 115,
+          "matches_header": true
+        },
+        "native_parent_sha256": "cb64a55e4cc1da4ebc1f1c0b0a9d22db286c13a082ffd16dea273360fa2a3c72",
+        "opaque_bytes": 0,
+        "plane_clocks": [
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          }
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "0ffadf4a1b705a69a8bdc94086015732794a13e6eb4b990f5388f6432ed7782f",
+        "terminal_map": 40
+      },
+      "D01BeforeNamed": {
+        "byte_identity": true,
+        "bytes": 1327,
+        "cmgr_locator": {
+          "cmgr_byte_identity": true,
+          "cmgr_bytes": 3310,
+          "codepoints": 0,
+          "header_codepoints": 115,
+          "matches_header": false
+        },
+        "native_parent_sha256": "281b0adf91dbd0942658baa5ac1d6a285f7370df35cf9199c7651ec56d6f33ba",
+        "opaque_bytes": 0,
+        "plane_clocks": [
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          }
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "1c635fae0367fa3b53c2827c0b06984d194029b4869181cb41411871a96ec9b3",
+        "terminal_map": 39
+      },
+      "D01Edited": {
+        "byte_identity": true,
+        "bytes": 1599,
+        "cmgr_locator": {
+          "cmgr_byte_identity": true,
+          "cmgr_bytes": 3348,
+          "codepoints": 0,
+          "header_codepoints": 134,
+          "matches_header": false
+        },
+        "native_parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+        "opaque_bytes": 0,
+        "plane_clocks": [
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          }
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "aed1504ad35260e463cb9d8506a18a88c2b498dbeb50cc17358095a77f7797f7",
+        "terminal_map": 40
+      },
+      "D01Source": {
+        "byte_identity": true,
+        "bytes": 1275,
+        "cmgr_locator": {
+          "cmgr_byte_identity": true,
+          "cmgr_bytes": 3024,
+          "codepoints": 0,
+          "header_codepoints": 0,
+          "matches_header": true
+        },
+        "native_parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+        "opaque_bytes": 0,
+        "plane_clocks": [
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          }
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "0074a31dad2c0aba533eadea9c2a55b30faef0a45646ebf198e9566719a34df6",
+        "terminal_map": 38
+      },
+      "D01Sync": {
+        "byte_identity": true,
+        "bytes": 1593,
+        "cmgr_locator": {
+          "cmgr_byte_identity": true,
+          "cmgr_bytes": 3516,
+          "codepoints": 109,
+          "header_codepoints": 109,
+          "matches_header": true
+        },
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "contexts": [
+          {
+            "chain_mode": 1,
+            "chain_stamp": 101,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 25,
+            "file_flag": 8,
+            "path_alias": true,
+            "title_alias": false
+          },
+          {
+            "chain_mode": 1,
+            "chain_stamp": 101,
+            "cmgr_chain_mode": 0,
+            "cmgr_chain_stamp": 203,
+            "feature": 24,
+            "file_flag": 8,
+            "path_alias": true,
+            "title_alias": false
+          }
+        ],
+        "native_parent_sha256": "1b5f9a87c6db9b6c22c9fd445338cd1d478045e1e3fbccbd2c8ac17ccb7f7ceb",
+        "opaque_bytes": 0,
+        "plane_clocks": [
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 5,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 4,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          },
+          {
+            "class": "moRefPlane_c",
+            "config_creation_seconds": 1794529626,
+            "feature_id": 3,
+            "header2_creation_seconds": 1794529626,
+            "log_event_counts": [
+              2,
+              2
+            ],
+            "resolved_filetime_seconds": 1794529626,
+            "visual_seconds": 1794529626
+          }
+        ],
+        "plane_order": [
+          5,
+          4,
+          3
+        ],
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "0ffadf4a1b705a69a8bdc94086015732794a13e6eb4b990f5388f6432ed7782f",
+        "state_count": 3,
+        "terminal_map": 40
+      }
+    },
+    "sync_receipt_sha256": "e14c77749cd68ed554bbbdbf014d1360df9fa58a1524976329d93976b48e5d71"
+  },
+  "generated_models": [
+    {
+      "absent_log_control": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 2592000,
+          "feature_id": 14,
+          "header2_creation_seconds": 2592000,
+          "log_event_counts": [
+            null,
+            null
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 2592000
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 2592000,
+          "feature_id": 13,
+          "header2_creation_seconds": 2592000,
+          "log_event_counts": [
+            null,
+            null
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 2592000
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 2592000,
+          "feature_id": 12,
+          "header2_creation_seconds": 2592000,
+          "log_event_counts": [
+            null,
+            null
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 2592000
+        }
+      ],
+      "alias_object_counts": {
+        "detached_plane_components": 3,
+        "hidden": 0,
+        "label": 1,
+        "plane": 1,
+        "properties": 1,
+        "visible": 1
+      },
+      "authored_creation_seconds": {
+        "12": 1794700001,
+        "13": 1794700003,
+        "14": 1794700005
+      },
+      "byte_identity": true,
+      "bytes": 1393,
+      "config_inline_plane_ids": [],
+      "configuration_id": 0,
+      "configuration_name": "Default",
+      "container_sha256": "55001635f4cd7de6e551e6072b2ccb8916bb73aab4d69e28fba7ccdc1dc55169",
+      "contexts": [
+        [
+          18,
+          203,
+          1,
+          0
+        ],
+        [
+          17,
+          203,
+          1,
+          0
+        ]
+      ],
+      "counts": {
+        "occurrences": 2,
+        "planes": 3,
+        "states": 1
+      },
+      "explicit_log_stream_deltas": [
+        "Contents/Config-0-ModelHeader",
+        "Header2"
+      ],
+      "filetime_perturbation": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700005,
+          "feature_id": 14,
+          "header2_creation_seconds": 1794700005,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": 1794700037,
+          "visual_seconds": 1794700005
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700003,
+          "feature_id": 13,
+          "header2_creation_seconds": 1794700003,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": 1794700031,
+          "visual_seconds": 1794700003
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700001,
+          "feature_id": 12,
+          "header2_creation_seconds": 1794700001,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": 1794700029,
+          "visual_seconds": 1794700001
+        }
+      ],
+      "independent_filetime_stream_deltas": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "occurrence_feature_ids": [
+        17,
+        18
+      ],
+      "opaque_bytes": 0,
+      "plane_clocks": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700005,
+          "feature_id": 14,
+          "header2_creation_seconds": 1794700005,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 1794700005
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700003,
+          "feature_id": 13,
+          "header2_creation_seconds": 1794700003,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 1794700003
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700001,
+          "feature_id": 12,
+          "header2_creation_seconds": 1794700001,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 1794700001
+        }
+      ],
+      "plane_ids": [
+        14,
+        13,
+        12
+      ],
+      "provisional_schemas": [
+        "moDisplayedEntityTracker_c.Serialize",
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "sha256": "623fd6fbd847b7a9c5cce24ab916633946ce30c4ff48f6277beca8ec276f387d",
+      "state_keys": [
+        1
+      ],
+      "state_names": [
+        "Display State-1"
+      ],
+      "terminal_map": 38,
+      "unchanged_child_sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+      "visibility_by_occurrence": {
+        "17": [
+          1
+        ],
+        "18": [
+          1
+        ]
+      },
+      "visual_unchanged_by_filetime": true
+    },
+    {
+      "absent_log_control": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 2592000,
+          "feature_id": 14,
+          "header2_creation_seconds": 2592000,
+          "log_event_counts": [
+            null,
+            null
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 2592000
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 2592000,
+          "feature_id": 13,
+          "header2_creation_seconds": 2592000,
+          "log_event_counts": [
+            null,
+            null
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 2592000
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 2592000,
+          "feature_id": 12,
+          "header2_creation_seconds": 2592000,
+          "log_event_counts": [
+            null,
+            null
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 2592000
+        }
+      ],
+      "alias_object_counts": {
+        "detached_plane_components": 3,
+        "hidden": 1,
+        "label": 1,
+        "plane": 1,
+        "properties": 1,
+        "visible": 1
+      },
+      "authored_creation_seconds": {
+        "12": 1794700007,
+        "13": 1794700011,
+        "14": 1794700013
+      },
+      "byte_identity": true,
+      "bytes": 1615,
+      "config_inline_plane_ids": [],
+      "configuration_id": 0,
+      "configuration_name": "Display fixture",
+      "container_sha256": "af3355cea27ff0345e52cd7752b6c57739a3a842148bf3110e11e7b1fab357e2",
+      "contexts": [
+        [
+          19,
+          203,
+          1,
+          0
+        ],
+        [
+          18,
+          203,
+          1,
+          0
+        ]
+      ],
+      "counts": {
+        "occurrences": 2,
+        "planes": 3,
+        "states": 3
+      },
+      "explicit_log_stream_deltas": [
+        "Contents/Config-0-ModelHeader",
+        "Header2"
+      ],
+      "filetime_perturbation": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700013,
+          "feature_id": 14,
+          "header2_creation_seconds": 1794700013,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": 1794700047,
+          "visual_seconds": 1794700013
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700011,
+          "feature_id": 13,
+          "header2_creation_seconds": 1794700011,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": 1794700043,
+          "visual_seconds": 1794700011
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700007,
+          "feature_id": 12,
+          "header2_creation_seconds": 1794700007,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": 1794700041,
+          "visual_seconds": 1794700007
+        }
+      ],
+      "independent_filetime_stream_deltas": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "occurrence_feature_ids": [
+        18,
+        19
+      ],
+      "opaque_bytes": 0,
+      "plane_clocks": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700013,
+          "feature_id": 14,
+          "header2_creation_seconds": 1794700013,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 1794700013
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700011,
+          "feature_id": 13,
+          "header2_creation_seconds": 1794700011,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 1794700011
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794700007,
+          "feature_id": 12,
+          "header2_creation_seconds": 1794700007,
+          "log_event_counts": [
+            1,
+            1
+          ],
+          "resolved_filetime_seconds": null,
+          "visual_seconds": 1794700007
+        }
+      ],
+      "plane_ids": [
+        14,
+        13,
+        12
+      ],
+      "provisional_schemas": [
+        "moDisplayedEntityTracker_c.Serialize",
+        "moExtFeature_c",
+        "moExtObjectInterface_c.FUN_4c179410"
+      ],
+      "sha256": "90fd40ac1f3dad913db6365e36163aead304a8ffc3c8a72ea3bded576fb5645a",
+      "state_keys": [
+        1,
+        2,
+        3
+      ],
+      "state_names": [
+        "Display State-1",
+        "Gauge seat",
+        "Tool change"
+      ],
+      "terminal_map": 39,
+      "unchanged_child_sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+      "visibility_by_occurrence": {
+        "18": [
+          1,
+          1,
+          0
+        ],
+        "19": [
+          1,
+          0,
+          1
+        ]
+      },
+      "visual_unchanged_by_filetime": true
+    }
+  ],
+  "head": "14bcb2f433d51741799517846b897d4f3c272027",
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "passed": true,
+  "prior_filetime_structural_experiment": {
+    "commit": "38dc82ee2e6e78a43078b63876eb8649020c9e2e",
+    "receipt_sha256": "adb6a793fe3e0489d5d081e15a6c0fcd35fa574f8b6ac9f42939330df3f88753"
+  },
+  "public_writer_qualified": false,
+  "refusals": {
+    "context_flag_eight": "VisualStates supports the ordinary context-file flag 0 branch only",
+    "divergent_log_in_header2": "VisualStates plane creation-log owners differ between the two generated headers",
+    "missing_log_in_header2": "VisualStates plane creation-log owners differ between the two generated headers"
+  },
+  "runtime_input_io_attempts": 0,
+  "schema": "kit.sw2026.concentric-visual-creation-logs.v1",
+  "source_hashes": {
+    "re/tooling/sw2026/para/concentric/AuditConcentricDisplayState.py": "7db91e8840e11e7863a46b638a44a1a947a5d7ad296c2e7f66bd5a76a3ac27dd",
+    "re/tooling/sw2026/para/concentric/MakeDisplayTree.py": "6ad64f0ed92e127a96b05ddc7c3e75db7463a7bf0db2944c41565e0476af5ab6",
+    "re/tooling/sw2026/para/concentric/MakeVisualStateStore.py": "993ed28f36e31e9bbb027c615eae70621f015143fe9dd79edb14e04fd3becbed",
+    "re/tooling/sw2026/para/concentric/ProveConcentricSourceBrep.py": "fc3a861fd4216ef2fc8fa47b35dbb07dec7f446ceb0ddabd6d6f8bd9e11b2235",
+    "re/tooling/sw2026/para/concentric/ProveVisualStateStore.py": "53582a800d1f219a769da2ec12d7bae35e2cd452ff74537110a4a8f7b2e58872",
+    "re/tooling/sw2026/serial/defs/ResolvedComp.py": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946",
+    "re/tooling/sw2026/serial/defs/Visual.py": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001",
+    "re/tooling/sw2026/serial/defs/VisualRefs.py": "c607a62dca5d9d7a40c2df91cc1ddf059f39305cbafddeba56c017d0f51a9614",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/EmitAsmStreams.py": "3d6029afd6f03f47f7886ce6ce8f2b171217cd0fccc77e0b8cef7a63d565a6f4",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Occurrences/MakeOccConfig.py": "5545ad00a475819cbd9f78503b444e425e5089aa7eede62ae97befd7bdbdbbdc",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/System/MakeAsmPlane.py": "6cfc6c399b7b5aa6617a912bf1416307047fabda80ff980ac2e35c9e5f73401c",
+    "src/convert/adapters/solidworks/Archive/Construction/Header/MakeRootLog.py": "cafe2d2b9c07b9103933590b20dcc9b96fed507c3e0b9218745be757c281c2bc",
+    "src/convert/adapters/solidworks/Archive/Construction/Nodes/FeatureTime.py": "9bf7f911632029b9a5e6e745e6f43e37d98ca3ad12af76fbe9a78659cf5f6e01",
+    "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/CompRefFields.py": "c0c1f8abf6b7dcf77630f3dd85b5343216565fda461de0f4a61d58edadd0dab4",
+    "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/DatumTime.py": "3aec44542ab90cd7763d0b835fc66de5d8724e26804b85e3fec2db92f7e27e7a",
+    "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/ReadLogItems.py": "3b36c9fdeeff4814eb2e63bae63fd374ae14d3c0259b187a77eb8602b89d19de"
+  }
+}
