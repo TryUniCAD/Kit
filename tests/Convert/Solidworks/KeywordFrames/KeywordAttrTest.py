@@ -38,4 +38,4 @@ def TestQNameAttr(TmpPath: FilePath) -> None:
             assert Result.returncode == 0, Result.stdout + Result.stderr
             PayloadValue = Target.read_bytes()
             assert b'xmlns:ns0="urn:kit:keyword"' in PayloadValue
-            assert f'state="ns0:{LocalName}"'.encode() in PayloadValue
+            assert f'<kit:Outside state="ns0:{LocalName}"/>'.encode() in PayloadValue
