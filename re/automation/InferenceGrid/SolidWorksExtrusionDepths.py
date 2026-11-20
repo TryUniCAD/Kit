@@ -24,14 +24,16 @@ def extrusion_records(data, features):
         return [], []
     markers = sorted((n.offset, n.object_id) for n in names if n.object_id in owners and owners[n.object_id].name == n.name)
     occurrences = Counter(owner for _, owner in markers)
-    intervals = [(owners[owner], start, markers[i+1][0]) for i, (start, owner) in enumerate(markers[:-1])
+    intervals = [(owners[owner], start, markers[i+1][0] if i+1 < len(markers) else len(data))
+                 for i, (start, owner) in enumerate(markers)
                  if owners[owner].kind == "Extrusion" and occurrences[owner] == 1]
     return intervals, ParseScalars(data, names)
 
 
 def extrusion_depths(root, data, features, pin, dimensions, projected, stream, controls=()):
-    ambiguous = {(r["feature_id"], r["name"]): r for r in dimensions if r["status"] == "ambiguous"}
-    if not any(f.kind == "Extrusion" and any((f.object_id, d.name) in ambiguous for d in f.dimensions) for f in features):
+    candidates = {(r["feature_id"], r["name"]): r for r in dimensions
+                  if r["status"] in {"ambiguous", "unique_cross_stream_match"}}
+    if not any(f.kind == "Extrusion" for f in features):
         return None
     seen = {hashlib.sha256(data).hexdigest()}
     groups = defaultdict(list)
@@ -75,17 +77,17 @@ def extrusion_depths(root, data, features, pin, dimensions, projected, stream, c
                 word = struct.pack("<d", sign*s.value)
                 pos = control.find(word, s.value_offset + 8, end)
                 while pos != -1:
-                    mirrors.add(pos - s.value_offset)
+                    mirrors.add((pos - s.value_offset, sign))
                     pos = control.find(word, pos + 1, end)
-            groups[end-s.value_offset].append({"file_sha256": digest, "stream_sha256": fingerprint, "feature_id": f.object_id,
+            groups[end == len(control), end-s.value_offset].append({"file_sha256": digest, "stream_sha256": fingerprint, "feature_id": f.object_id,
                                                "value_m": s.value, "mirrors": sorted(mirrors)})
     rules = []
-    for distance, samples in sorted(groups.items()):
+    for (terminal, distance), samples in sorted(groups.items()):
         if len({s["file_sha256"] for s in samples}) < 2 or len({s["value_m"] for s in samples}) < 2:
             continue
         offsets = sorted(set.intersection(*(set(s["mirrors"]) for s in samples)))
         if offsets:
-            rules.append({"before_next_feature": distance, "mirror_offsets": offsets, "samples": samples})
+            rules.append({"boundary": "stream_end" if terminal else "next_feature", "bytes_before_boundary": distance, "mirror_offsets": offsets, "samples": samples})
     intervals, scalars = extrusion_records(data, features)
     by_offset = {s.value_offset: s for s in scalars}
     results = []
@@ -93,17 +95,20 @@ def extrusion_depths(root, data, features, pin, dimensions, projected, stream, c
         if len(f.dimensions) != 1:
             continue
         dim = f.dimensions[0]
-        row = ambiguous.get((f.object_id, dim.name))
+        row = candidates.get((f.object_id, dim.name))
         if not row or dim.kind != "length":
             continue
         predictions = []
         for rule in rules:
-            pos = end - rule["before_next_feature"]
+            if (rule["boundary"] == "stream_end") != (end == len(data)):
+                continue
+            pos = end - rule["bytes_before_boundary"]
             s = by_offset.get(pos)
             if pos < start or s is None or s.name != dim.name or s.value <= 0:
                 continue
-            mirrors = [pos + off for off in rule["mirror_offsets"]]
-            if all(abs(struct.unpack_from("<d", data, m)[0]) == s.value for m in mirrors):
+            mirrors = [pos + off for off, _ in rule["mirror_offsets"]]
+            if all(m + 8 <= end and struct.unpack_from("<d", data, m)[0] == sign * s.value
+                   for m, (_, sign) in zip(mirrors, rule["mirror_offsets"])):
                 predictions.append((pos, s.value, mirrors))
         if len(predictions) != 1:
             continue

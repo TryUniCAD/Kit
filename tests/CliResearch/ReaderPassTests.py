@@ -8,8 +8,8 @@ from sys import executable as PythonPath
 from tests.CliResearch.ResearchRoot import ResearchRoot
 
 
-# held back reader bindings exercise successive source changes through the public file command
-def CheckSuccessiveReaderPasses(TmpPath: FilePath) -> None:
+# a separately supplied holdout remains outside training in a sparse checkout
+def CheckReservedControlReplay(TmpPath: FilePath) -> None:
     Root = ResearchRoot()
     Checkout = TmpPath / "checkout"
     RunProcess(
@@ -36,29 +36,6 @@ def CheckSuccessiveReaderPasses(TmpPath: FilePath) -> None:
     )
     RunProcess(
         ["git", "checkout", "--detach", ProcessEnvironment["GITHUB_SHA"]],
-        cwd=Checkout,
-        check=True,
-    )
-    Field = Checkout / "src/convert/adapters/solidworks/Core/BindMirroredField.py"
-    Counts = Field.with_name("Native.py")
-    Text = Field.read_text()
-    Start = Text.index(" = {", Text.index("KMirroredFields:")) + 3
-    Field.write_text(Text[:Start] + "{}" + Text[Text.index("\n\n", Start) :])
-    Text = Counts.read_text()
-    Start = Text.index(" = ", Text.index("KFeatureCountCopies:")) + 3
-    Counts.write_text(Text[:Start] + "()" + Text[Text.index("\n", Start) :])
-    RunProcess(
-        [
-            "git",
-            "-c",
-            "user.name=Research",
-            "-c",
-            "user.email=research@example.invalid",
-            "commit",
-            "--no-verify",
-            "-am",
-            "Hold back two reader rule families",
-        ],
         cwd=Checkout,
         check=True,
     )
@@ -103,46 +80,12 @@ def CheckSuccessiveReaderPasses(TmpPath: FilePath) -> None:
     assert LoadJson((Output / "FileScope.json").read_bytes())[
         "supplied_control_sha256"
     ] == [ControlPin]
-    FinalFields = LoadJson(
-        (Output / "Input-candidate-dimension-evidence.json").read_bytes()
-    )["discovered_feature_fields"]
-    assert any(
-        Row["file_sha256"] == ControlPin
-        for Group in FinalFields["owner_anchor_controls"]
-        for Row in Group["samples"]
-    )
-    assert (Output / "MirroredFields.patch").is_file()
-    assert (Output / "SketchPatternCounts.patch").is_file()
+    Evidence = LoadJson((Output / "Input-dimension-evidence.json").read_bytes())
+    assert Evidence["supplied_controls"] == [
+        {"sha256": ControlPin, "eligible_for_discovery": False}
+    ]
+    assert Evidence["discovered_feature_fields"]["predictions"] == []
     Passes = LoadJson((Output / "Input-reader-passes.json").read_bytes())
     assert Passes["stop"] == "no_verified_patch"
-    assert [Row["generator"] for Row in Passes["passes"]] == [
-        "mirrored-field-reader",
-        "pattern-count-reader",
-    ]
-    assert [len(Row["changed_parameters"]) for Row in Passes["passes"]] == [1, 2]
-    RunProcess(["git", "apply", str(Output / "Reader.patch")], cwd=Checkout, check=True)
-    Strict = TmpPath / "strict.json"
-    RunProcess(
-        [
-            PythonPath,
-            "-m",
-            "KitCli",
-            "decode",
-            str(Source),
-            "--from",
-            "solidworks.sldprt",
-            "-o",
-            str(Strict),
-        ],
-        env=Environment,
-        cwd=Checkout,
-        check=True,
-        timeout=180,
-    )
-    Document = LoadJson(Strict.read_bytes())["document"]
-    assert Document["source"]["sha256"] == Passes["input_sha256"]
-    Values = {Row["id"]: Row["value"] for Row in Document["parameters"]["$tuple"]}
-    assert abs(Values["sldprt:parameter:65:D2"]["value"] - 32.72727273) < 1e-9
-    for Id in ("sldprt:parameter:65:D1", "sldprt:parameter:257:D1"):
-        assert Values[Id]["kind"]["value"] == "integer"
-        assert Values[Id]["value"] == 11
+    assert Passes["passes"] == []
+    assert not (Output / "Reader.patch").exists()
