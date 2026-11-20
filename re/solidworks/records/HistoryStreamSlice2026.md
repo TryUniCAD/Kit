@@ -1,9 +1,11 @@
 # Ordinary SOLIDWORKS 2026 History and Biography streams
 
-The `B04-SW2026-HISTORY-STREAMS` tranche depends on the shared
-archive primitives and the Branch write action in PR #199 at
-`6a7a542393913c09b923e4032b3329c41ec8562c`. It extracts the
-standalone version-19000 scopes measured on SOLIDWORKS 2026
+The `B04-SW2026-HISTORY-STREAMS` tranche uses the shared archive
+primitives and the Branch write action accepted in PR #199 at
+`8fc3473532ee51120e341b9195e7692d6be0b83f`. The source manifest
+retains the original preparation revision
+`6a7a542393913c09b923e4032b3329c41ec8562c`. The codec covers the
+standalone version-19000 streams measured on SOLIDWORKS 2026
 SP05.2 `34.5.2.0604`.
 [Build, source and process manifest](../measurements/2026/HistoryStreamSources01.json)
 

@@ -12,9 +12,11 @@ from convert import write_document as WriteLegacy
 from convert.adapters import AdapterRegistry
 from convert.adapters.base.AdapterProtocols import CadReaderAdapter, CadWriterAdapter
 from interchange import Capability
+from interchange.document.Models.DocumentWalk import WalkDocuments
+from interchange.Features.FeatureKinds import NativeFeature
 from tests.Convert.Api.ApiTestPaths import KCatPartPath
 from tests.Convert.Api.ApiTestPaths import KFcstdPath
-from tests.Convert.Api.ApiTestPaths import KSamplePath
+from tests.Convert.Api.BuildApiSource import BuildApiSource
 
 
 # neutral interchange remains mandatory because independent adapters must never call each other
@@ -27,10 +29,11 @@ def CheckApiBridge(TmpPath: FilePath) -> None:
         *RegistryData.writers(),
     )
     assert FormatNames == {AdapterData.info.format_id for AdapterData in Adapters}
-    DocumentData = OpenLegacy(KSamplePath)
+    SourcePath = BuildApiSource(TmpPath)
+    DocumentData = OpenLegacy(SourcePath)
     OutputPath = TmpPath / "example.json"
-    ResultData = ConvertLegacy(KSamplePath, OutputPath)
-    assert ResultData.source_format == "solidworks.sldprt"
+    ResultData = ConvertLegacy(SourcePath, OutputPath)
+    assert ResultData.source_format == "fusion.f3d"
     assert ResultData.destination_format == "interchange.json"
     assert ResultData.roundtrip_safe is True
     assert ResultData.near_lossless is True
@@ -45,7 +48,7 @@ def CheckApiBridge(TmpPath: FilePath) -> None:
     assert OpenLegacy(OutputPath) == DocumentData
 
 
-# exact replay must stay usable because unchanged native bytes need no carrier translation
+# legacy exact replay must still respect unresolved native history refusal
 @Pytest.mark.parametrize(
     ("SourcePath", "FileName"),
     (
@@ -61,6 +64,17 @@ def CheckExactSwap(
     if not SourcePath.is_file():
         Pytest.skip(f"bundled exact replay fixture is unavailable: {SourcePath.name}")
     TargetPath = TmpPath / FileName
+    DocumentData = OpenLegacy(SourcePath)
+    if any(
+        isinstance(StepValue.definition, NativeFeature)
+        for PartValue in WalkDocuments(DocumentData)
+        for StepValue in PartValue.feature_timeline
+    ):
+        _ = TargetPath.write_bytes(b"existing destination")
+        with Pytest.raises(ValueError, match="native-only feature definitions"):
+            _ = ConvertLegacy(SourcePath, TargetPath, overwrite=True)
+        assert TargetPath.read_bytes() == b"existing destination"
+        return
     ResultData = ConvertLegacy(SourcePath, TargetPath)
     assert ResultData.application_usable is True
     assert ResultData.vendor_loadable is True
@@ -73,7 +87,7 @@ def CheckExactSwap(
 # reversible carriers remain available because portable swaps must preserve unsupported semantics
 def CheckCarryOut(TmpPath: FilePath) -> None:
     TargetPath = TmpPath / "portable.CATPart"
-    ResultData = ConvertLegacy(KSamplePath, TargetPath)
+    ResultData = ConvertLegacy(BuildApiSource(TmpPath), TargetPath)
     assert ResultData.application_usable is False
     assert ResultData.vendor_loadable is False
     assert ResultData.near_lossless is False
@@ -86,19 +100,20 @@ def CheckCarryOut(TmpPath: FilePath) -> None:
 
 # strict mode must reject carrier output because callers explicitly require application usability
 def CheckStrictGate(TmpPath: FilePath) -> None:
+    SourcePath = BuildApiSource(TmpPath)
     TargetPath = TmpPath / "blocked.CATPart"
     with Pytest.raises(ApplicationUsabilityError) as CapturedError:
-        _ = ConvertLegacy(KSamplePath, TargetPath, allow_carrier=False)
+        _ = ConvertLegacy(SourcePath, TargetPath, allow_carrier=False)
     assert CapturedError.value.code == "output_not_application_usable"
     assert CapturedError.value.format_id == "catia.v5"
     assert "carrier_only" in CapturedError.value.issues
     assert not TargetPath.exists()
-    assert tuple(TmpPath.iterdir()) == ()
+    assert tuple(TmpPath.iterdir()) == (SourcePath,)
 
 
 # direct document writes need the same usability policy as one step conversions
 def CheckWriteGate(TmpPath: FilePath) -> None:
-    DocumentData = OpenLegacy(KSamplePath)
+    DocumentData = OpenLegacy(BuildApiSource(TmpPath))
     TargetPath = TmpPath / "portable.CATPart"
     ResultData = WriteLegacy(DocumentData, TargetPath)
     assert ResultData.application_usable is False
@@ -114,7 +129,7 @@ def CheckWriteGate(TmpPath: FilePath) -> None:
 # carrier reporting must distinguish preserved opaque semantics from native target capabilities
 def CheckCarryMode(TmpPath: FilePath) -> None:
     ResultData = ConvertLegacy(
-        KSamplePath,
+        BuildApiSource(TmpPath),
         TmpPath / "example.CATPart",
         allow_carrier=True,
     )

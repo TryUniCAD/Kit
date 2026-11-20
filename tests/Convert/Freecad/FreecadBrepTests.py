@@ -27,6 +27,7 @@ from convert.adapters.freecad.Brep import (
     proven_ascii_brep as ProvenAsciiBrep,
     triangle_mesh_brep as TriangleMeshBrep,
 )
+from convert.Geometry.Parasolid import ReadBrepResult
 from convert.Geometry.Opencascade import (
     decode_ascii_brep as DecodeAsciiBrep,
     is_structurally_valid_ascii_brep as IsStructurallyValidAscii,
@@ -231,9 +232,6 @@ def TestSuppliedThe() -> None:
         "Random/Pistons/Piston.SLDPRT",
         "Random/Pistons/Piston_ring.SLDPRT",
         "Random/Pistons/Piston_shaft.SLDPRT",
-        "Single Turbo Dual Overhead Cam V8 - KDP - 2024/10MM x 20MM x 13MM head 316 Stainless Steel Socket Head Screw.SLDPRT",
-        "Single Turbo Dual Overhead Cam V8 - KDP - 2024/8MM x 15mm - 12 point screw.SLDPRT",
-        "Single Turbo Dual Overhead Cam V8 - KDP - 2024/CUIETA DE ENTRADA DE GASES.SLDPRT",
         "Single Turbo Dual Overhead Cam V8 - KDP - 2024/SEGUIDOR DE LEVA.SLDPRT",
     }
     Expected = {
@@ -242,23 +240,67 @@ def TestSuppliedThe() -> None:
         if (KRootValue / "re" / "solidworks" / "examples" / PathValue).is_file()
     }
     Accepted: set[str] = set()
+    Refusals: dict[str, str] = {}
     for Source in sorted(
         (KRootValue / "re" / "solidworks" / "examples").rglob("*.SLDPRT")
     ):
         if not Source.is_file() or Source.name.startswith("~$"):
             continue
+        Relative = Source.relative_to(
+            KRootValue / "re" / "solidworks" / "examples"
+        ).as_posix()
         DocValue = OpenDoc(Source)
         if DocValue.brep is None:
+            if Relative in Expected:
+                Refusals[Relative] = "no decoded B-rep: " + "; ".join(
+                    Issue.message for Issue in DocValue.diagnostics
+                )
             continue
         try:
             Encoded = BrepModelBrep(DocValue.brep)
-        except FreeCadBrepWriteError:
+        except FreeCadBrepWriteError as Error:
+            if Relative in Expected:
+                Refusals[Relative] = str(Error)
             continue
         assert IsStructurallyValidAscii(Encoded)
-        Accepted.add(
-            Source.relative_to(KRootValue / "re" / "solidworks" / "examples").as_posix()
-        )
-    assert Accepted == Expected
+        Accepted.add(Relative)
+    assert Accepted == Expected, Refusals
+
+
+# a readable ghost or feature packet must never stand in for the saved active solid
+@Pytest.mark.parametrize(
+    ("PartName", "ConfigId", "OtherStream"),
+    (
+        (
+            "10MM x 20MM x 13MM head 316 Stainless Steel Socket Head Screw.SLDPRT",
+            579,
+            "ResolvedFeatures",
+        ),
+        ("8MM x 15mm - 12 point screw.SLDPRT", 970, "ResolvedFeatures"),
+        ("CUIETA DE ENTRADA DE GASES.SLDPRT", 0, "GhostPartition"),
+    ),
+)
+def TestPartOwner(PartName: str, ConfigId: int, OtherStream: str) -> None:
+    Source = (
+        KRootValue
+        / "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024"
+        / PartName
+    )
+    Document = OpenDoc(Source)
+    Prefix = f"Contents/Config-{ConfigId}-"
+    (Active,) = (
+        PayloadValue
+        for PayloadValue in Document.brep_payloads
+        if PayloadValue.source_stream == Prefix + "Partition"
+        and PayloadValue.kind == "partition"
+    )
+    assert Active.data and ReadBrepResult(Active.data)[0] is None
+    assert any(
+        PayloadValue.data and ReadBrepResult(PayloadValue.data)[0] is not None
+        for PayloadValue in Document.brep_payloads
+        if PayloadValue.source_stream == Prefix + OtherStream
+    )
+    assert Document.brep is None
 
 
 # this definition exists because focused behavior needs one stable owner

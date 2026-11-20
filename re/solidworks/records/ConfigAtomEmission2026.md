@@ -22,7 +22,7 @@ Its runtime value depends on bit 0x80. If the retained word no longer
 represents a requested edit, the encoder derives a candidate from the
 edited value and checks the native projection again. An unrepresentable
 requested value refuses. Atom rows use the same class and reference maps
-as the reader. A private map prevents failed emission from changing the
+as the reader. The first emitted atom registers the class once. A subsequent atom reuses its class slot. An already-read object whose native index would change is rejected, including records with redundant class declarations. A private map prevents failed emission from changing the
 caller's prefix. The ordinary manager still requires unique kind-zero atom
 IDs, fresh objects, empty concept lists and absent linked visual owners.
 
@@ -32,12 +32,12 @@ IDs, fresh objects, empty concept lists and absent linked visual owners.
 | ConcaveOwned | [2115, 2227) | 112 | 50 to 52 |
 
 The guarded saved probes read each complete original record, re-emit its
-typed fields, and compare both bytes and object identities. Six separate
+typed fields, and compare both bytes and object identities. Seven separate
 model-authored inputs match independent scalar framing for zero, one or
-two atoms. The spans range from 12 to 194 bytes. The authored rows exercise
+two atoms. The spans range from 12 to 200 bytes. The authored rows exercise
 ANSI and Unicode names, all four condition combinations, an edited value
 with a stale wire word and signed identity fields. They deliberately supply
-a stale row count to test the derived prefix. Eleven malformed or
+a stale row count to test the derived prefix. Twelve malformed or
 unsupported inputs refuse. All runs disallow external accesses after
 loading the input and importing the engine.
 

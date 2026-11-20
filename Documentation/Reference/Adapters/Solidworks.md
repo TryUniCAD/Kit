@@ -98,6 +98,11 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The bounded lightweight material reader handles the part hatch, optional
+density parameter, model data with an absent scene and empty body visual
+counts. Each concrete owner retains its actual archive slot.
+[Lightweight material scope](../../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
 of the lightweight section, it inserts the original header objects
@@ -121,15 +126,11 @@ can reuse those exact objects. The stored unsigned atom state remains
 available alongside its runtime projection.
 [Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
-The shared atom manager encoder derives its row count and map allocation
-from typed rows. Its bounded emission preserves native state normalization
-under the actual archive conditions.
-[Atom manager emission](../../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
-
-The internal version-19000 History and Biography codec uses an independent
-archive map for each stream. It preserves existing biography telemetry
-and supports fresh history with explicit creation and build provenance.
-[Standalone history scope](../../Changes/Solidworks/Archive/Metadata/SolidworksHistoryStreamCodec.md)
+The shared version-19000 body reader has layouts for line fonts, embedded
+widths, character formats, and print width tables in part detail definitions.
+These fields retain their wire values and leave the archive map unchanged.
+Complete detail definitions require the remaining annotation and table owners.
+[Configuration font scope](../../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
 
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
@@ -188,6 +189,16 @@ Boss and cut behavior can depend on several related records.
 A single flag change is not a general operation converter.
 
 ## Writing
+
+The shared atom manager encoder derives its row count and map allocation
+from typed rows. Its bounded emission preserves native state normalization
+under the actual archive conditions.
+[Atom manager emission](../../Changes/Solidworks/Archive/SolidworksConfigAtomEmission.md)
+
+The internal version-19000 History and Biography codec uses an independent
+archive map for each stream. It preserves existing biography telemetry
+and supports fresh history with explicit creation and build provenance.
+[Standalone history scope](../../Changes/Solidworks/Archive/Metadata/SolidworksHistoryStreamCodec.md)
 
 Kit does not write SOLIDWORKS files.
 A conversion to a `.SLDPRT` or `.SLDASM` destination raises `AdapterNotFoundError` and creates no file.

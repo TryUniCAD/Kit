@@ -1,0 +1,13 @@
+# Witness the normal AppKit quit delegate
+
+The macOS application fixtures build a disposable Cocoa app and call its existing `NSApplication.terminate:` on the application main thread. The fixture starts under the unprivileged test owner, uses a private endpoint, and checks the exact process and empty document collection after sealing the attempt. The observer arms the existing Darwin process watch before publishing the request. [Apple normal application quit](https://developer.apple.com/documentation/appkit/nsapplication/terminate%28_%3A%29)
+
+The accepting delegate records its decision and normal termination notification. The separate watcher records the exact peer's kernel exit. The cancelling delegate records its decision, returns control to the app and leaves the same process alive. A second cancellation case omits the return receipt to exercise the missing-reply boundary. Both cancellation cases replay the same request and require the exclusive attempt record to refuse another call. Fixture teardown occurs after the observation. [Apple delegate reply](https://developer.apple.com/documentation/appkit/nsapplicationdelegate/applicationshouldterminate%28_%3A%29), [Apple termination notification](https://developer.apple.com/documentation/appkit/nsapplication/willterminatenotification)
+
+The private scratch directory retains the sealed attempt, delegate decision, any return receipt, and the separate exit observation. These fields distinguish consumed authorization, a normal delegate decision and an actual kernel exit. The fixture uses [the existing exact peer watcher](FusionQuitObserver.md) and the normal hosted macOS application selector.
+
+The fixture loads the [Python Cocoa bridge](MacCocoaQuitBridge.md) inside the disposable application from source pinned to the checkout. The bridge refuses an absent AppKit instance and a call from a worker thread.
+
+The intended Fusion integration still needs an approved signed-in witness for the exact installed app and its delegate. Until then the owner performs normal Fusion quit through the application and the existing observer records the exact exit.
+
+At PR head `786736c55`, all three disposable delegate cases passed on hosted macOS. The same job reported separate failures in the Python exit observer fixture and the AppKit replacement launch. [Hosted macOS process checks](https://github.com/TryUniCAD/Kit/actions/runs/43770822331/job/132986201023)

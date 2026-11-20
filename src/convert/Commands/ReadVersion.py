@@ -12,6 +12,7 @@ def ReadVersion() -> str:
             "convert",
             "decode",
             "research",
+            "run",
         ):
             return ""
         if Argument == "--version":

@@ -2,6 +2,7 @@ from dataclasses import replace as Replace
 
 from convert.Formats.Fusion.ParamProjection import ParamOrigin as RecordOrigin
 from convert.Formats.Fusion.Profiles.LineRing import OrderLineRing
+from convert.Formats.Fusion.Profiles.OwnedProfile import ReadOwnedPick
 from convert.Formats.Fusion.Profiles.ProfileLoop import ReadProfileLoop
 from convert.Formats.Fusion.Profiles.ProfileRef import KLoopGuid, ReadProfileRef
 from convert.Formats.Fusion.Profiles.SemiRing import OrderSemiRing
@@ -22,6 +23,12 @@ def AttachProfile(
     Owners: dict[int, RecordSpan],
     Sources: dict[int, tuple[Sketch, FeatureStep]],
 ) -> tuple[FeatureStep, Sketch, tuple[str, ...]]:
+    Origin = StepValue.provenance
+    if Origin is None:
+        raise ValueError("Missing Fusion profile feature provenance")
+    ProxySpans, ProxyAttrs = ReadOwnedPick(
+        BulkData, Owners, int(Origin.native_id), Descriptor.ObjectId
+    )
     SketchId, LoopId = ReadProfileRef(
         BulkData[Descriptor.PayloadOffset + 4 : Descriptor.EndOffset]
     )
@@ -58,9 +65,6 @@ def AttachProfile(
                 for Portion in Portions
             )
         }
-    Origin = StepValue.provenance
-    if Origin is None:
-        raise ValueError("Missing Fusion profile feature provenance")
     return (
         Replace(
             StepValue,
@@ -69,6 +73,7 @@ def AttachProfile(
             provenance=Replace(
                 Origin,
                 spans=Origin.spans
+                + ProxySpans
                 + RecordOrigin(Descriptor).spans
                 + RecordOrigin(LoopSpan).spans,
             ),
@@ -76,6 +81,8 @@ def AttachProfile(
                 {
                     **StepValue.attributes,
                     "fusion.profile_descriptor_id": Descriptor.ObjectId,
+                    "fusion.profile_loop_object_id": LoopId,
+                    **ProxyAttrs,
                     **Profile,
                 }
             ),

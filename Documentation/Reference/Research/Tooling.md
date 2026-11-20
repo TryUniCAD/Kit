@@ -15,6 +15,11 @@ Use the tools below for new format discovery, decompilation, tracing, and contro
 
 ## Tool map
 
+The [SOLIDWORKS planner catalogue](SolidworksPlannerCatalog.md) supplies a saved
+SQLite/CSV inventory of installed API declarations, feature families, subfeatures,
+planning dependencies and unresolved evidence. Verify the bundle before using it.
+Declared metadata and planned scope do not establish feature availability or conversion support.
+
 | Location              | Purpose                                | Required context                       |
 | --------------------- | -------------------------------------- | -------------------------------------- |
 | `re/tooling/ghidra/`  | Static analysis and decompilation      | Exact binary hash and analysis project |
@@ -84,8 +89,12 @@ Do not publish an unmeasured hypothesis as product support.
 
 ## Sources
 
+- [Pinned corpus and paired authoring specifications](PinnedCorpus.md)
+- [Durable evidence store and job controller](ResearchController.md)
 - [Research index](../../../re/README.md)
 - [Toolchain chapter of the instruction book](../../../re/Playbook/Toolchain.md)
 - [Ghidra setup](../../../re/tooling/ghidra/Setup.md)
 - [Runtime trace tool](../../../re/tooling/windbg/Multitrace.py)
 - [Serialization harness](../../../re/tooling/harness/Serialize.py)
+The [pinned SOLIDWORKS reader](SolidworksResearchReader.md) emits neutral JSON and a separate unresolved-evidence receipt.
+The [pinned Fusion reader](FusionResearchReader.md) emits the same evidence for batches of F3D and F3Z files.
