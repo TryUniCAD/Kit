@@ -136,6 +136,10 @@ def file_scope(path, application, scratch, root):
         else:
             timeline.check_returncode()
             components = json.loads(timeline.stdout)
+            from InferenceGrid.InferTimelineNames import infer_names
+            label_repair = infer_names(root, source, scratch, timeline_env, components, reports["body-correspondence"]["witnesses"])
+            if label_repair:
+                components, reports["timeline-names"] = label_repair
             recovered = {"components": components, "oracle_fields_match": None}
             if len(components) == 1:
                 names = [row["name"] for row in components[0]["features"]]

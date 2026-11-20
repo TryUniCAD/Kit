@@ -62,8 +62,8 @@ def RunCatalogueBatch(
         WriteRecord(Directory / "FileScope.json", Audit)
         for Layer, Report in Reports.items():
             WriteRecord(Directory / f"Input-{Layer}.json", Report)
-            if Layer in ("design-names", "state-repair"):
-                Name = "DesignNames.patch" if Layer == "design-names" else "BrepTypes.patch"
+            if Layer in ("design-names", "state-repair", "timeline-names"):
+                Name = {"design-names": "DesignNames.patch", "state-repair": "BrepTypes.patch", "timeline-names": "TimelineNames.patch"}[Layer]
                 with (Directory / Name).open("x", encoding="utf-8") as Patch:
                     Patch.write(Report["patch"])
     WriteRecord(Directory / "CataloguePlan.json", Plan)

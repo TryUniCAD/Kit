@@ -37,3 +37,5 @@ Integrated Codex advice now explicitly selects `gpt-6.2-sol` at medium reasoning
 Timeline recovery now runs independently of the strict reader's error wording. In the Loft control the work-plane feature at object 235 stores an empty user name. Its typed work-plane link reaches object 234, which stores the measured name “Loft plane”.
 
 Independent Loft, LoftRects and Sweep file runs recovered all eleven measured feature names in order. Native timeline research now also recovers double parameters and checks their names, expressions, roles, units and numeric values against available captured observations.
+
+A local comparison recovered all measured parameter names and values, expressions, units and roles for Loft (two), Construction (four) and CopyBody (two). Sweep had six saved parameter records and three measured parameters. The three common records agreed. File-driven runs can now propose a label-binding patch from independently measured timelines and verify it by fresh graph traversal.
