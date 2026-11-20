@@ -174,3 +174,51 @@ def CheckLoftState(TmpPath: FilePath) -> None:
             text=True,
         )
         assert Applicable.returncode == 0, Applicable.stderr
+
+
+# held out parameter collections distinguish reported sweep roles from other saved bindings
+def CheckSweepProjection(TmpPath: FilePath) -> None:
+    RootPath = ResearchRoot()
+    SourcePath = (
+        RootPath / "re/Fusion/Study/sweepnurbspaths-7ded30a4b9ae/polynomial_cubic.f3d"
+    )
+    RunPath = TmpPath / "sweep"
+    Result = RunProcess(
+        [
+            PythonPath,
+            "-m",
+            "KitCli",
+            "run",
+            "--root",
+            str(RootPath),
+            "fusion",
+            "--input",
+            str(SourcePath),
+            "--directory",
+            str(RunPath),
+            "--workers",
+            "1",
+            "--reserved-memory-mib",
+            "512",
+        ],
+        capture_output=True,
+        text=True,
+        timeout=300,
+    )
+    assert Result.returncode == 2, Result.stderr
+    Report = LoadJson((RunPath / "Input-timeline.json").read_bytes())[
+        "parameter_projection"
+    ]
+    assert Report["status"] == "held_out_match"
+    assert Report["predicted_visible_roles"] == [
+        "AlongDistance",
+        "TaperAngle",
+        "TwistAngle",
+    ]
+    assert Report["other_saved_roles"] == [
+        "AgainstDistance",
+        "AgainstRailDistance",
+        "AlongRailDistance",
+    ]
+    Digests = {Row["source_sha256"] for Row in Report["training"]}
+    assert len(Digests) >= 2 and Report["held_out_sha256"] not in Digests

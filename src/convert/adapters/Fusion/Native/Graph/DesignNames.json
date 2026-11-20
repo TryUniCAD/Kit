@@ -1,4 +1,22 @@
 {
+  "2243F105-E1CA-40F2-A3D7-24507E61AC5E": [
+    "CurvatureUses",
+    0,
+    "63D6AD42-466A-40B7-9CCD-EB21BC500EF6",
+    "Geometry"
+  ],
+  "2319971D-8E07-441A-8F16-11C8F6F862D4": [
+    "ETCachedSpline3d",
+    2,
+    "518AD6D6-763A-472C-9F19-9CFF03E8DC45",
+    "EntityTracking"
+  ],
+  "4224E565-F64F-4532-93F4-ABE3AB9CA574": [
+    "TangentUses",
+    0,
+    "63D6AD42-466A-40B7-9CCD-EB21BC500EF6",
+    "Geometry"
+  ],
   "493A89BA-E146-498D-9033-2783FE727AF4": [
     "DcDirectModelingData",
     3,
@@ -29,10 +47,22 @@
     "2FCB0587-233E-449B-9724-9AAE5AA23647",
     "Fusion"
   ],
+  "D82E012F-6DDD-4AED-BDE1-C0F7F9100B9B": [
+    "ConstrainedSpline3D",
+    3,
+    "EE518F9E-9CC3-4424-9CAB-2B92426E5312",
+    "MSketch"
+  ],
   "F1451EC8-11A4-4952-84ED-5AB7C13E2E83": [
     "DcSketchProject",
     4,
     "E8BDB9D4-2E39-405C-B05E-E2206AD3F125",
     "Fusion"
+  ],
+  "F81C561A-B091-40F8-A875-BA72FD2FBFE8": [
+    "PointUses",
+    1,
+    "63D6AD42-466A-40B7-9CCD-EB21BC500EF6",
+    "Geometry"
   ]
 }
