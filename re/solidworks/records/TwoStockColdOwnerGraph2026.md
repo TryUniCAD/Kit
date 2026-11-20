@@ -51,6 +51,8 @@ The selected stock retained its 12 mm depth and identical notch at 1,256.306036 
 
 The guarded default SDK read refuses the initial file because it has no cached Parasolid payload. The edited native save retains both D1 values and raw partition geometry in the SDK, but its design projection still collapses the two stocks and leaves the cut untyped. Full SDK round-trip coverage, registration, the selected stock's separate depth edit and both held-out native-source comparisons remain open. This disclosed trial contributes zero FCStd corpus conversions.
 
+The [save contrast runner](../../tooling/sw2026/throughsource/twostockgraph/MeasureTwoStockSaveContrast01.py) schedules separate unchanged and selected-depth saves from the same exact generated input. It keeps the input immutable and brackets the saves with fresh controls.
+
 ## Cache-free reconstruction from archive owners
 
 The independent [owner decoder](TwoStockColdOwnershipRead2026.md) resolves the two provisional stock atoms, live D1s, signed frames and actual selected feature from the input archive. The reconstruction derives each rectangle from its four linked adjacent lines. It reads the free circle from the reached cut sketch and checks that its effective direction covers the selected stock. The existing neutral geometry builder constructs two separate bodies and retains the exact selected and untouched feature IDs.
