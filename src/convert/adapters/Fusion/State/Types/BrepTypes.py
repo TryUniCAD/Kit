@@ -1,3 +1,30 @@
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
+    ChoiceValue,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
+    LoftSubdata,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Grammar.GrammarValue import (
+    SubtypeNode,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Spline.BsCurve import BsCurve
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Spline.BsSurface import BsSurface
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.CurveRecords import (
+    ExpParCur,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.LoftRecords import LoftPiece
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.LoftRecords import (
+    LoftSection,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.LoftRecords import (
+    LoftSplSur,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Complex.Typed.SurfaceRecords import (
+    SplineCommon,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Spline.PcurveNode import PcurveNode
+from convert.Formats.Fusion.BrepCodec.Journal.Spline.SplineNode import SplineNode
+from convert.Formats.Fusion.BrepCodec.Journal.Spline.SubtypeRef import SubtypeRef
 from convert.Formats.Fusion.BrepCodec.Journal.Round.TorusNode import TorusNode
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.ConeFrame import ConeFrame
 from convert.Formats.Fusion.BrepCodec.Frustum.Models.FrustumFrame import FrustumFrame
@@ -59,6 +86,19 @@ from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismTags import PrismTags
 
 # the boundary representation types order must stay explicit so public document claims remain grounded in native records
 KBrepTypes: tuple[type[object], ...] = (
+    ChoiceValue,
+    LoftSubdata,
+    SubtypeNode,
+    BsCurve,
+    BsSurface,
+    ExpParCur,
+    LoftPiece,
+    LoftSection,
+    LoftSplSur,
+    SplineCommon,
+    PcurveNode,
+    SplineNode,
+    SubtypeRef,
     TorusNode,
     ConeFrame,
     FrustumFrame,

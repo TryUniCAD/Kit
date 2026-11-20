@@ -27,3 +27,5 @@ Five local feature controls exposed typed native records missing from the semant
 On separate Sweep and FilletRim controls, both isolated runs at `a461dcb43` generated the same explicit TorusNode registry patch. Both passed full semantic-state model equality and public native decode. The patch was applied to the reader. The fillet body's geometry independently matched its capture. The sweep's geometry correspondence remained unresolved.
 
 On the Loft control at `d998c09de`, the runner independently discovered 13 missing spline, curve and surface record types. Applying the generated candidate in isolation restored native CLI decoding and exact state model equality. The smaller LoftRects control already decoded on that revision.
+
+The 13-record loft patch was applied to the reader. A separate directional loft still required three additional typed records: CurveContext, ExactIntCur and IntcurveNode.
