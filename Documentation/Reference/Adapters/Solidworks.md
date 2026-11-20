@@ -55,6 +55,11 @@ The reader combines available feature, geometry, and assembly information.
 Source metadata and diagnostics qualify the decoded result.
 The cached body geometry and feature history provide different evidence.
 
+For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid
+reader uses forward fin links and terminal vertices. This preserves outward
+face loops and positive signed volume in the disclosed rectangular case.
+[Current fin orientation](../../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
+
 ## Feature history
 
 The resolved-feature grammar includes class definitions and object references.

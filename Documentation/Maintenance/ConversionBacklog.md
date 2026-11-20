@@ -88,6 +88,18 @@ B03's qualified comparisons and codecs and B04's portable writer remain
 separate programme milestones. [PR #158](https://github.com/TryUniCAD/Kit/pull/158)
 continues the programme scope defined in [PR #94](https://github.com/TryUniCAD/Kit/pull/94).
 
+### B08-SW2026-TERMINAL-FIN
+
+The PR #121 takeover agent owns this active reader compatibility task.
+The separate main-target PR from `codex/solidworks-terminal-fin` extracts
+the current Parasolid fin traversal correction. It depends on the existing
+decoder and the disclosed L1 native fixture.
+[Change entry](../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
+
+Exit requires revision-bound CI and review evidence. The strict public
+reader must preserve the disclosed closed shell and positive signed volume.
+[Fixture and original comparison](../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
+
 ### Fusion schemas
 
 The [saved-document coverage record](../Changes/Fusion/Records/FusionSavedDocumentCoverage.md#remaining-boundaries)
