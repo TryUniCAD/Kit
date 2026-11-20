@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# line width styles retain their signed selector before the stored float
+# label widths need a distinct call site because line fonts use different native restore arguments
 KMaterialFields = MappingProxyType(
     {
         "utLineWidth_c.Serialize0": (

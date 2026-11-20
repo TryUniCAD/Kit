@@ -49,12 +49,32 @@ selected exact field records through the shared body codec.
 | `su_CStringArray` | [3795, 3921), five Unicode strings | [2772, 2898), five Unicode strings |
 | `utLineWidth_c.Serialize0` | [9275, 9281), signed selector and float | [7724, 7730), signed selector and float |
 
-The bounded support probe uses the real part object and header
-alias from the accepted part-start reader. It preserves those
-inherited identities and the measured next counter. It independently
-decodes the scalar widths and the observed CString frames. The unit
-component resolves the exact part object at slot 2. The outer model
-and its remaining graph fields stay outside this bounded invocation.
+The bounded support probe uses the real part object and header alias
+from the accepted part-start reader. It preserves those inherited
+identities and the measured next counter. It independently decodes the
+scalar widths and observed CString frames. The ordinary unit component
+owner resolves the exact part object at slot 2 in that context. A
+null tag, header alias in slot 3, a separately mapped schema-one part
+in slot 4, and a new class tag all refuse at the field start. The
+decoder retains the original cursor, map and field scope on refusal.
+
+The native witness process verifies each physical span against its
+immutable Config-0 digest. It independently reads `kind = 2` before the
+ten-byte equality branch and `n10c4 = 0` before the empty greater-than
+branch. The clear-condition branch uses the condition word from the
+pinned complete trace and matches the zero `f160` word on the wire.
+It checks all three outcomes through the shared predicate executor.
+
+The native repeat process uses the accepted view body profile at
+`c1809221c0910c301dd457ce92e51e7b1b74f522`. The shared fixed-repeat
+executor decodes ten concrete schema-one `moView_c` objects from each
+2,012-byte span. The first tag adds the view class. Rows occupy slots
+85–94 in L1 and 80–89 in ConcaveOwned. The next slot advances 84→95 and
+79→90, respectively, while base four and the inherited identities
+stay fixed. Each view has an exact contiguous physical interval. The
+bounded process exercises the actual view owners and uses the pinned
+cursor and map handoff from the surrounding model.
+[Accepted view body profile](https://github.com/TryUniCAD/Kit/pull/192)
 
 Three independently authored frames use below, equal and above
 comparison values. Their archive flags distinguish the target mask
@@ -62,18 +82,22 @@ from unrelated set bits. Each frame exercises ten fixed rows and an
 empty repeat, both signed normalizations, and the shared scene and
 atom modes. The process compares the full decoded fields and exact
 extent. It refuses unqualified branch and normalization rules,
-invalid fixed counts, truncation and an absent component owner.
+invalid fixed counts, truncation and an unresolved component owner.
 [Guarded process results](../measurements/2026/ConfigFieldModesReader01.json)
 
 ```sh
 python -I -B re/tooling/sw2026/CheckCfgFieldModes.py ladder
 python -I -B re/tooling/sw2026/CheckCfgFieldModes.py concave
 python -I -B re/tooling/sw2026/CheckCfgFieldModes.py authored
+python -I -B re/tooling/sw2026/CheckCfgFieldModes.py ladder --native-witnesses
+python -I -B re/tooling/sw2026/CheckCfgFieldModes.py concave --native-witnesses
 python -I -B re/tooling/sw2026/CheckCfgFieldModes.py circle --disclosed-root /path/to/disclosed-controls
 ```
 
 The queue cases use the two tracked native parts and the authored
-frames. The disclosed circular source has a separately pinned
+frames. The host repeat proof combines the accepted view revision
+with the scoped field mode changes and retains the exact source
+manifest. The disclosed circular source has a separately pinned
 149-byte `f1018` owner at [25324, 25473), with counter 119 before
 and after. It is a directly owned schema-one `moSheetMetalMaster_c`
 with no archive slot. Its inherited feature and virtual targets

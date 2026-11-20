@@ -11,9 +11,10 @@ KModeProbe = (
 
 
 # retain process diagnostics while requiring completion of the chosen profile
-def RunModeCase(CaseName: str) -> dict[str, object]:
+def RunModeCase(CaseName: str, *, WitnessOnly: bool = False) -> dict[str, object]:
+    Options = ("--native-witnesses",) if WitnessOnly else ()
     Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(KModeProbe), CaseName),
+        (PythonExec, "-I", "-B", str(KModeProbe), CaseName, *Options),
         capture_output=True,
         text=True,
         encoding="utf-8",

@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# the observed bounds record stores ten consecutive doubles in its owning body
+# inline model bounds need their own layout because the partition cache has a separate owner
 KExternalFields = MappingProxyType(
     {
         "mgBBox_c.restore": (

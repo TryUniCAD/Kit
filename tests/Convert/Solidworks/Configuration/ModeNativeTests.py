@@ -42,3 +42,19 @@ def TestNativeModes() -> None:
             "f00": -1.0,
         }
         assert LeavesValue.get("mgBBox_c.restore", {}).get("bytes") == BoundsSize
+        Refusals = CastValue(list[dict[str, object]], ReportValue["component_refusals"])
+        assert [
+            (FaultValue["case"], FaultValue["word"], FaultValue["offset"])
+            for FaultValue in Refusals
+        ] == [
+            ("null", 0, 0),
+            ("header_alias", 3, 0),
+            ("distinct_part", 4, 0),
+            ("new_class", 0xFFFF, 0),
+        ]
+        assert [FaultValue["diagnostic"] for FaultValue in Refusals] == [
+            "SOLIDWORKS component owner requires an existing object",
+            "SOLIDWORKS component owner differs from its enclosing part",
+            "SOLIDWORKS component owner differs from its enclosing part",
+            "SOLIDWORKS component owner requires an existing object",
+        ]

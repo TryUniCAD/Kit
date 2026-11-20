@@ -3,6 +3,9 @@ from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBodyTextMut import (
     ReadBodyTextMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadFrameOwner import (
+    ReadFrameOwner,
+)
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
 from convert.adapters.solidworks.Archive.Reading.ReadNativeScalar import ReadScalarMut
 
@@ -12,7 +15,10 @@ def ReadValueMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
     Cursor = FrameValue.ReaderValue.Cursor
     Value: object
     if RuleValue.KindValue == "Node":
-        Value = ReadNodeMut(FrameValue.ReaderValue)
+        if RuleValue.ModeValue == "FrameOwner":
+            Value = ReadFrameOwner(FrameValue)
+        else:
+            Value = ReadNodeMut(FrameValue.ReaderValue)
     elif RuleValue.KindValue == "Text":
         Value = ReadBodyTextMut(Cursor)
     else:
