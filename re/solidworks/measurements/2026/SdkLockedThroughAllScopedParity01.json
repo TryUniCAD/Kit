@@ -1,0 +1,73 @@
+{
+  "candidate_sha256": "64af73a897e8cab5faf85fba7cc90c4c63f7c76d06127397d005dd31d539f761",
+  "comparison": {
+    "continuous_automatic_selection_qualified": false,
+    "generation_sha256": "ed763ee254491e9deffbd19b096d677190afd2eb7d39d729c7808f58a8f8d23d",
+    "heldout_credit": 0,
+    "locked_source_native_processes": 5,
+    "matched_candidate_snapshots": 6,
+    "new_native_processes": 4,
+    "original_source_equivalence": false,
+    "passed": true,
+    "phase_receipt_sha256": {
+      "ControlAfter": "d721eeb9e7af8ca767b3fedb032101acaadaa1f7b53f5339ec3edc7940672c39",
+      "ControlBefore": "294e5c497430e536e24e0dfc16389e4fa946aec57d76d0f7f6b74c34df239bdd",
+      "Generated": "aece386f49c3e437fe92a0affcb7f9402955f8af6d61fcdfd2b4eebbff8136d7",
+      "Reopen": "139e08af5e03d50bf7287b0a68df8ee9824e32589a3c59f37ba79a5178326b6e"
+    },
+    "public_writer_qualified": false,
+    "saved_selected_scope": {
+      "candidate_saved": {
+        "binding": "saved_configuration_atom_alias",
+        "complete_source_refused": null,
+        "runtime_external_attempts": 0,
+        "sha256": "6f7837ceb477c201634fa2c0ba2b5547f618c0010ef49451ad2b3cd675b767c9",
+        "streams": null,
+        "unresolved_presentation": {
+          "code": "sldprt.native_record_unresolved",
+          "owners": [
+            "Ambient",
+            "Directional1",
+            "Directional2",
+            "Directional3",
+            "Exploded Views",
+            "Lights and Cameras"
+          ],
+          "severity": "info"
+        }
+      },
+      "edited": {
+        "binding": "saved_configuration_atom_alias",
+        "complete_source_refused": true,
+        "runtime_external_attempts": 0,
+        "sha256": "e036869549d6e5437e9c032878cf4f9560a221b1c2ff688c4cf2a776d51d47a3",
+        "streams": null,
+        "unresolved_presentation": null
+      },
+      "source": {
+        "binding": "saved_configuration_atom_alias",
+        "complete_source_refused": true,
+        "runtime_external_attempts": 0,
+        "sha256": "a4073781169570818a16dd4c76250038c81f7f3c6e721072b0b1a36ee921265f",
+        "streams": null,
+        "unresolved_presentation": null
+      }
+    },
+    "source_native_reads_after_generation": true,
+    "whole_source_admitted": false
+  },
+  "comparison_sha256": "cd9bd77ea979afcc167c5c378b788acaa782c2fd88a5861ea426dc3179ec4605",
+  "freeze_sha256": "70b285d4793812bd55b51735454f4876b14e6add72459f4cd28b8e0322bd1387",
+  "independent_prediction_sha256": "4ed01318efe2049f658cf6aad8e44f1b519f4fe64ec2d3f9db18b5c645b3dd93",
+  "method_sha256": "7c27a21fc14572671699845dc919563f614ffc145ce7e0f9bc8ef13c054ba9ad",
+  "native_com": "SldWorks.Application.34",
+  "native_source_files_read_during_generation": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "runtime_external_attempts_during_generation": 0,
+  "schema": "kit.sw2026.locked-throughall-selected-stock-parity.receipt.v1",
+  "sdk_tar_sha256": "13ef7f85228493fc105036aefd9ff2911f95387e72b20cf7506dc1d73587239f",
+  "source_lock_sha256": "3efe141cd31cc06e8b7545db590548dd1ba511960261e8b78cf72523d5d5ba79",
+  "source_slot": "H02",
+  "writer_revision": "5b0e43d3b2096d238b104e6eb710661169fc486f"
+}

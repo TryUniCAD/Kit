@@ -15,7 +15,7 @@ Both slot locks closed 2026-11-18 before the public lock commit `64993a926e5cfca
 
 ## Frozen comparator
 
-The [evaluator](../../tooling/sw2026/throughsource/EvaluateLockedThroughAll01.py) captures the SDK `src` closure at `6803987defeb0e69e39542b05eaa3618aefb46ff`, the public locks, the actual disclosed D01 control locator and hash, and the accepted common observer with its exact COM metadata. The control comes from the [disclosed selected-stock lifecycle](../measurements/2026/SdkThroughAllSelectedBodyNative01.json). Its source packet SHA-256 is `2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a`. Four fresh disclosed processes passed its 72 measurements, and the original and generated parts share the complete 27-row native tree. The frozen observer and independent source author retain their exact file hashes.
+The [evaluator](../../tooling/sw2026/throughsource/EvaluateLockedThroughAll01.py) captures a pinned SDK `src` closure, the public locks, the actual disclosed D01 control locator and hash, and the accepted common observer with its exact COM metadata. The earliest supported SDK commit is `6803987defeb0e69e39542b05eaa3618aefb46ff`. The control comes from the [disclosed selected-stock lifecycle](../measurements/2026/SdkThroughAllSelectedBodyNative01.json). Its source packet SHA-256 is `2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a`. Four fresh disclosed processes passed its 72 measurements, and the original and generated parts share the complete 27-row native tree. The frozen observer and independent source author retain their exact file hashes.
 
 Guest `prepare` releases only the selected slot’s neutral authoring intent from the opaque specification. It computes independent signed analytic volume, area and centre-of-mass predictions before generation. Two fresh isolated workers accept scalar neutral intent through stdin only. Each creates the same portable document, calls the normal internal preparation with a binary sink and explicit final C: locator, checks the linked self filename and all ten exact typed stream round trips, and uses the ordinary strict read to confirm the real cold selected-stock atom and a single solid. The writer guard traps external file opens, enumeration, registry, network, native-module and process calls after dependency loading. It counts attempted access even if the SDK catches the error. Original native siblings and source observation rows remain unopened during generation. The resulting candidate, predictions, audited stream digests and final locator are bound in the guest-local `Generation.json` before any candidate oracle or reference comparison.
 
@@ -30,11 +30,12 @@ a later SDK. Each packet retains its own exact tools and digests.
 
 The ready H01 host freeze is `SdkLockedThroughAll02/Freeze.json`, SHA-256 `495c6ecaa18cb1c4166de6d2d407faac165661ad8ac685f662bf82da7bbd9959`. Its predecessor `SdkLockedThroughAll01` remains a frozen host artifact, SHA-256 `a62cbfb3bd8db14d2a4c0b27635a17b54b0cee13ed68db58aa1353841a681b7c`. The disclosed cross-observer rehearsal exposed a missing import root in its comparison supervisor. Packet 02 loads the verified `Code/src` before importing the comparison primitive. After that fix, the independent D01 source observation and the common observer’s initial and rebuilt D01 observations passed the same full-tree, driver, end, support-frame and mass comparator. Neither freeze records a new native acceptance.
 
-For another freeze, choose an unused numbered packet and one eligible slot, and supply an explicit writer epoch.
+For a regression replay choose an unused numbered packet and supply the exact writer commit and an explicit epoch. The earlier source remains evaluated.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/throughsource/EvaluateLockedThroughAll01.py \
-  freeze SdkLockedThroughAll03 --slot H02 --epoch 1795178252
+  freeze SdkLockedThroughAll04 --slot H02 --epoch "$(date +%s)" \
+  --revision 5b0e43d3b2096d238b104e6eb710661169fc486f
 ```
 
 The oracle owner runs each guest mode serially with the accepted disclosed `py -3.12` and installed user-site COM bindings. Supply the returned freeze digest and `prepare` digest verbatim. `ControlAfter` runs even if `Generated` or `Reopen` fails. Skip `Reopen` after a failed generation or edit/save. A failed stage remains immutable and a new numbered packet is required for retry.
@@ -76,3 +77,24 @@ Parallels returned an invalid-argument error after the trailing control
 completed. The guest comparison file was absent. Repeating the
 read-only summary produced the recorded result without another native
 launch. [H01 comparison receipt](../measurements/2026/SdkLockedThroughAllNativeComparison01.json)
+
+## H02 native result
+
+Packet 03 pinned SDK `5b0e43d3b2096d238b104e6eb710661169fc486f`,
+which emits the measured null secondary display for the selected stock.
+Its disclosed precheck read that physical display and the live D1 from
+the exact native-saved calibration part. The two guarded H02 builds
+reproduced ten linked streams and the same archive without reading
+either locked native sibling. [Disclosed saved readback](../measurements/2026/SdkSelectedStockSecondarySaved01.json)
+
+Two healthy bracketing controls and both candidate phases passed in
+four distinct SOLIDWORKS processes. All six candidate snapshots match
+the pre-writer locked native source or its edited sibling for the
+recursive tree, live D1, stock and cut end definitions, support frame,
+body count, volume, area, centre of mass and material-free COM mass.
+The saved candidate retains scope 1 and the actual selected-stock alias
+through strict SDK readback with zero external accesses. It records
+six informational unresolved presentation names. The original's
+continuous automatic scope still refuses. The result adds zero
+production, complete-source or FCStd benchmark credit.
+[H02 scoped comparison receipt](../measurements/2026/SdkLockedThroughAllScopedParity01.json)

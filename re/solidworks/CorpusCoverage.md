@@ -128,6 +128,13 @@ passes native stock-depth editing, save and fresh reopen. Its source
 comparison reports a mismatch in the stock extrusion's secondary depth.
 This case receives zero held-out and FCStd benchmark credit.
 
+The [second locked through-all candidate](measurements/2026/SdkLockedThroughAllScopedParity01.json)
+matches all six scoped source snapshots with two healthy controls.
+The explicitly selected stock retains its native driver and solid
+through the edit, save and fresh reopen. Complete source transfer and
+continuous automatic scope remain open. The case adds zero FCStd
+benchmark conversions.
+
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,
 save and reopen across 14 processes. Strict SDK readback reaches 20
