@@ -118,9 +118,9 @@ section completes at 22. The second section stops after its tag at 28
 with an unresolved object diagnostic. Its failure restores the outer
 cursor to 22. Base and counter stay at 3 and slot 3 remains absent.
 [Sibling process evidence](../measurements/2026/ConfigSectionSiblings01.json)
-· [Sibling queue case](../../../tests/Convert/Solidworks/Configuration/AliasSpanTests.py)
+· [Sibling queue case](../../../tests/Convert/Solidworks/Configuration/Sections/AliasSpanTests.py)
 
-The new [guarded process cases](../../../tests/Convert/Solidworks/Configuration/CfgSectionTests.py)
+The new [guarded process cases](../../../tests/Convert/Solidworks/Configuration/Sections/CfgSectionTests.py)
 await the merge queue. Complete section-body traversal still needs the
 remaining model owners, including visual properties and native view context
 operations. The version-19000 layout does not enable older skip variants,

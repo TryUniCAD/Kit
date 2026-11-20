@@ -1,6 +1,8 @@
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Configuration.ReadSectionCase import ReadSectionCase
+from tests.Convert.Solidworks.Configuration.Sections.ReadSectionCase import (
+    ReadSectionCase,
+)
 
 # the first section binds the alias before the second section consumes its own body
 KLinkedWindows: list[dict[str, object]] = [

@@ -6,7 +6,7 @@ from typing import cast as CastValue
 
 # native and authored section cases share a fresh guarded reader process
 KSectionProbe = (
-    FilePath(__file__).resolve().parents[4] / "re/tooling/sw2026/CheckCfgSection.py"
+    FilePath(__file__).resolve().parents[5] / "re/tooling/sw2026/CheckCfgSection.py"
 )
 
 

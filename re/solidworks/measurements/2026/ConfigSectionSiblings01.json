@@ -117,9 +117,9 @@
   "python_version": "3.14.7",
   "queue_run_recorded": false,
   "queue_source_sha256": {
-    "tests/Convert/Solidworks/Configuration/CfgSectionTests.py": "34b4a21144c62297efe2e6650366df1aa2fff271ae296124de837ebc38d916c7",
     "tests/Convert/Solidworks/Configuration/RunSecCase.py": "b7b7f2d9a2978efe98e788aaa99d748e0fd38b058e1c463e8de76bb9c08dca05",
-    "tests/Convert/Solidworks/Configuration/SectAliasTests.py": "30fd3b93619f48ae198dc856cfcd2bc35fd3fcb1083cc37ffa26d5f09d3ffa49"
+    "tests/Convert/Solidworks/Configuration/SectAliasTests.py": "30fd3b93619f48ae198dc856cfcd2bc35fd3fcb1083cc37ffa26d5f09d3ffa49",
+    "tests/Convert/Solidworks/Configuration/Sections/CfgSectionTests.py": "3b051d1ca2a7ac317f6cb1738565aa7dbe1e00e8e75611f234c5cb2dfa987920"
   },
   "schema": "Kit.SolidworksConfigSectionSiblingProof.1"
 }

@@ -1,4 +1,6 @@
-from tests.Convert.Solidworks.Configuration.ReadSectionCase import ReadSectionCase
+from tests.Convert.Solidworks.Configuration.Sections.ReadSectionCase import (
+    ReadSectionCase,
+)
 
 
 # verified framing must keep the actual header alias and distinguish incomplete ownership
