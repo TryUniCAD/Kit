@@ -31,7 +31,9 @@ ScopeErrors = (
 
 
 # a private worker store keeps batch results separate from active research work
-def RunCatalogueBatch(Directory, SourceRoot, Revision, Catalogues, MaxSeconds, Native):
+def RunCatalogueBatch(
+    Directory, SourceRoot, Revision, Catalogues, MaxSeconds, Native, Advice=None
+):
     CheckRevision(Revision)
     if Directory.is_relative_to(SourceRoot):
         raise ValueError("use a new run directory outside the source checkout")
@@ -51,7 +53,9 @@ def RunCatalogueBatch(Directory, SourceRoot, Revision, Catalogues, MaxSeconds, N
     Failures = []
     PhaseJobs = {}
     if Submissions:
-        Failure = RunSupervisor(Directory, SourceRoot, Config, MaxSeconds, "Offline")
+        Failure = RunSupervisor(
+            Directory, SourceRoot, Config, MaxSeconds, "Offline", Advice
+        )
         if Failure:
             Failures.append(Failure)
         if Native is not None:
@@ -118,7 +122,9 @@ def AdvanceCatalogue(Plan, Store, Submissions, Native):
 
 
 # the established supervisor executes each claim and retains its own durable receipts
-def RunSupervisor(Directory, SourceRoot, Config, MaxSeconds, Stage):
+def RunSupervisor(Directory, SourceRoot, Config, MaxSeconds, Stage, Advice=None):
+    AdviceArgs = Advice.arguments() if Advice else []
+    AdviceSeconds = 90 * Advice.calls if Advice else 0
     try:
         with (Directory / f"{Stage}Supervisor.log").open("xb") as Log:
             Process = subprocess.run(
@@ -133,11 +139,12 @@ def RunSupervisor(Directory, SourceRoot, Config, MaxSeconds, Stage):
                     "8",
                     "--max-seconds",
                     str(MaxSeconds),
+                    *AdviceArgs,
                 ],
                 cwd=SourceRoot,
                 stdout=Log,
                 stderr=subprocess.STDOUT,
-                timeout=MaxSeconds + 90,
+                timeout=MaxSeconds + AdviceSeconds + 90,
                 check=False,
             )
         if Process.returncode:

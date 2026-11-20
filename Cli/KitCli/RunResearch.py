@@ -16,7 +16,12 @@ def RunResearch(Options: CliOptions) -> NoReturn:
     if Options.ResearchRoot is None:
         raise ValueError("Research requires --root pointing to a trusted PR94 checkout")
     RootPath = Options.ResearchRoot.expanduser().resolve()
-    ScriptName = KResearchScripts.get(Options.ResearchTool)
+    BatchRun = Options.Command == "run"
+    ScriptName = (
+        "InferenceGrid/RunFeatureCatalogue.py"
+        if BatchRun
+        else KResearchScripts.get(Options.ResearchTool)
+    )
     if ScriptName is None:
         raise ValueError("Unknown research tool")
     ScriptPath = RootPath / "re" / "automation" / ScriptName
@@ -33,7 +38,9 @@ def RunResearch(Options: CliOptions) -> NoReturn:
     if Options.ResearchTool == "supervisor" and KPlatform == "win32":
         raise ValueError("The PR94 research supervisor requires Linux or macOS")
     Arguments = list(Options.ToolArgs)
-    if Options.ResearchTool in ("solidworks", "fusion", "corpus"):
+    if BatchRun:
+        Arguments = [*Arguments, "--batch-format", Options.ResearchTool]
+    elif Options.ResearchTool in ("solidworks", "fusion", "corpus"):
         if any(
             Value.split("=", 1)[0] in ("--r", "--ro", "--roo", "--root")
             for Value in Arguments

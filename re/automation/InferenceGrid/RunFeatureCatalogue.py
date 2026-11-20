@@ -7,6 +7,8 @@
 # to you under it immediately and permanently.
 
 import argparse
+from argparse import SUPPRESS
+import os
 from pathlib import Path
 import sqlite3
 import subprocess
@@ -17,6 +19,7 @@ sys.path[:0] = [
     str(Path(__file__).resolve().parents[3] / "src"),
 ]
 
+from CodexAdvice.AdviceOptions import add_options, read_options
 from Corpus import git
 from InferenceGrid.CatalogueBatch import RunCatalogueBatch
 from InferenceGrid.FeatureCatalogue import ReadCatalogue
@@ -27,19 +30,30 @@ from Records import bounded, canonical, label
 # a single invocation owns catalogue planning and execution through its private controller
 def MainRun():
     Parser = argparse.ArgumentParser(
-        description="Run every mapped feature in one or both CAD catalogues"
+        description="Run every mapped feature in one or both CAD catalogues",
+        allow_abbrev=False,
     )
     Parser.add_argument("--directory", required=True, type=Path)
     Parser.add_argument("--solidworks-catalogue", type=Path)
     Parser.add_argument("--solidworks-sha256")
     Parser.add_argument("--fusion-catalogue", type=Path)
+    Parser.add_argument(
+        "--catalogue", type=Path, help="Catalogue path for the kit run format"
+    )
+    Parser.add_argument(
+        "--batch-format", choices=("fusion", "solidworks"), help=SUPPRESS
+    )
     Parser.add_argument("--fusion-sha256")
     Parser.add_argument("--max-seconds", type=int, default=1200)
     Parser.add_argument("--native-config", type=Path)
     Parser.add_argument("--native-kind")
     Parser.add_argument("--native-resource")
+    add_options(Parser)
     Args = Parser.parse_args()
     try:
+        Advice = read_options(Args)
+        if Advice is not None and os.name != "posix":
+            raise ValueError("decoder advice requires macOS or Linux")
         Catalogues = ReadRunInputs(Args)
         Native = ReadNativeOptions(Args)
         SourceRoot = Path(__file__).resolve().parents[3]
@@ -51,6 +65,7 @@ def MainRun():
             Catalogues,
             bounded(Args.max_seconds, 1, 86400),
             Native,
+            Advice,
         )
         Output = canonical(
             {
@@ -76,16 +91,31 @@ def MainRun():
 
 # both input formats retain their own source identities and optional pins
 def ReadRunInputs(Args):
-    Catalogues = {}
-    for Source, PathValue, Pin, Read in (
-        (
-            "solidworks",
+    Paths = {
+        "solidworks": (
             Args.solidworks_catalogue,
             Args.solidworks_sha256,
             ReadCatalogue,
         ),
-        ("fusion", Args.fusion_catalogue, Args.fusion_sha256, ReadFusionCatalogue),
-    ):
+        "fusion": (Args.fusion_catalogue, Args.fusion_sha256, ReadFusionCatalogue),
+    }
+    if Args.batch_format:
+        Other = "fusion" if Args.batch_format == "solidworks" else "solidworks"
+        if any(Paths[Other][:2]):
+            raise ValueError(
+                f"kit run {Args.batch_format} only accepts its own catalogue"
+            )
+        del Paths[Other]
+        Existing, Digest, Read = Paths[Args.batch_format]
+        if Existing is not None and Args.catalogue is not None:
+            raise ValueError("provide the catalogue path once")
+        Paths[Args.batch_format] = (Args.catalogue or Existing, Digest, Read)
+    elif Args.catalogue is not None:
+        raise ValueError(
+            "use --catalogue with kit run, or specify the catalogue format"
+        )
+    Catalogues = {}
+    for Source, (PathValue, Pin, Read) in Paths.items():
         if PathValue is not None:
             Catalogues[Source] = Read(PathValue, Pin)
         elif Pin is not None:

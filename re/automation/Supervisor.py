@@ -146,6 +146,7 @@ class Supervisor:
         self.config = config
         self.linux_oom_observer = linux_oom_observer
         self.windows_claims = claiming and sys.platform == "win32" and config["controller"].get("adapter") == "a03"
+        self.advice_options = None
         self.codex_budget = 0
         self.codex_executor = None
         self.claim_error = None
@@ -594,7 +595,15 @@ class Supervisor:
         try:
             output = self.state / "decoder-advice"
             output.mkdir(mode=0o700, exist_ok=True)
-            result = advise(self.adapter.store, packet, output, 0, 90, integrated=True)
+            result = advise(
+                self.adapter.store,
+                packet,
+                output,
+                0,
+                90,
+                integrated=True,
+                options=self.advice_options,
+            )
         except (OSError, ValueError, KeyError, TypeError, sqlite3.Error) as error:
             result = {"status": "failed", "error_type": type(error).__name__}
         self.report("decoder_advice", None, {"job": packet["job"], **result})
@@ -711,15 +720,22 @@ def set_pause(config, pool, reason):
 
 
 def main():
+    from CodexAdvice.AdviceOptions import add_options, read_options
+
     parser = argparse.ArgumentParser(description="Local research session supervisor")
     parser.add_argument("--config", type=Path, required=True)
     commands = parser.add_subparsers(dest="command", required=True)
     running = commands.add_parser("run")
     running.add_argument("--idle-seconds", type=float)
     running.add_argument("--max-seconds", type=float)
-    running.add_argument("--codex-on-stall", nargs="?", type=int, const=16, metavar="MAX_CALLS")
+    running.add_argument(
+        "--codex-on-stall", nargs="?", type=int, const=16, metavar="MAX_CALLS"
+    )
+    add_options(running)
     status_command = commands.add_parser("status")
-    status_command.add_argument("--claim-occupancy", nargs=3, metavar=("RESOURCE", "FROM_UNIX", "UNTIL_UNIX"))
+    status_command.add_argument(
+        "--claim-occupancy", nargs=3, metavar=("RESOURCE", "FROM_UNIX", "UNTIL_UNIX")
+    )
     pause = commands.add_parser("pause")
     pause.add_argument("pool")
     pause.add_argument("--reason", required=True)
@@ -738,10 +754,18 @@ def main():
         config = read_config(args.config)
         if args.command == "run":
             supervisor = Supervisor(config, True)
-            if args.codex_on_stall is not None:
+            options = read_options(args)
+            if args.codex_on_stall is not None and options is not None:
+                raise ValueError("use either --codex-on-stall or --advisor")
+            if args.codex_on_stall is not None or options is not None:
                 if os.name != "posix" or config["controller"].get("adapter") != "a03":
-                    raise ValueError("Codex advice requires a POSIX host and the a03 controller")
-                supervisor.codex_budget = bounded(args.codex_on_stall, 1, 256)
+                    raise ValueError(
+                        "decoder advice requires a POSIX host and the a03 controller"
+                    )
+                supervisor.advice_options = options
+                supervisor.codex_budget = (
+                    options.calls if options else bounded(args.codex_on_stall, 1, 256)
+                )
             response = supervisor.run(args.idle_seconds, args.max_seconds)
         elif args.command == "status":
             response = status(config)
