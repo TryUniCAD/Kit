@@ -1,11 +1,30 @@
 from __future__ import annotations
 
-from Core import ArchiveError, Load, Store
+from Core import ArchiveError, DOCUMENT_VERSION_2026, Load, Obj, Store
 from Dsl import Vgt, Vlt, ver, i32, u32, cstr, obj, rep, base
 from Schema import If, Fn
 import Streams
 
 VIS_CONDITIONS = 0x20004000
+
+
+def ordinary_visual_owner(version, context, parents, record, kind):
+    return (version == DOCUMENT_VERSION_2026 and context == {"conditions": VIS_CONDITIONS}
+            and parents == ("visStateKeyData_c",)
+            and isinstance(record, Obj) and (record.cls, record.schema) == (kind, 1))
+
+
+def empty_tracker(version, context, parents, record):
+    return (ordinary_visual_owner(version, context, parents, record, "visStateKeyData_c")
+            and record.f.get("n") == 0 and record.f.get("f08") == [])
+
+
+def part_self_holder(version, context, parents, record):
+    if not ordinary_visual_owner(version, context, parents, record, "moCompHolder_c"):
+        return False
+    owner = record.f.get("f58")
+    return (isinstance(owner, Obj) and (owner.cls, owner.schema) == ("moUnitComponent_c", 1)
+            and all(record.f.get(name) == 0 for name in ("f84", "has_fb0", "has_fb8", "has_fc0", "has_fc8", "has_fd0")))
 
 
 def flag(name, default=0):
@@ -82,7 +101,7 @@ def define_key_data(reg):
             cstr("key"),
             obj("ref"),
         ]),
-    ])
+    ], usage_profile=empty_tracker)
     reg.define("visStateKeyData_c", [
         base("visStateKeyData_c.FUN_32742fd0"),
         If(flag("vis_skip_body"), [], [
@@ -141,4 +160,4 @@ PLANS = {
 def define(reg):
     define_attributes(reg)
     define_key_data(reg)
-    reg.provisional("moCompHolder_c", [base("moCompRef_c")])
+    reg.provisional("moCompHolder_c", [base("moCompRef_c")], usage_profile=part_self_holder)

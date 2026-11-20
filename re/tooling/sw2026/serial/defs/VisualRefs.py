@@ -3,6 +3,10 @@ from __future__ import annotations
 from Core import ArchiveError, DOCUMENT_VERSION_2026, Obj
 from Dsl import Vgt, Vge, Vlt, ver, i32, u32, u16, u8, f64, cstr, obj, rep, base, emb, time32
 from Schema import If, Fn
+from defs.Visual import VIS_CONDITIONS
+
+VISUAL_REFERENCE_PARENTS = ("visStateKeyData_c", "moContextChainComponent_c",
+                            "moChainComponent_c", "moReferenceChain_c", "moExtFeatureList_c")
 
 
 def legacy(what):
@@ -139,7 +143,7 @@ def define_reference_archive(reg, name, operations):
 def ordinary_external_reference(version, context, parents, record):
     if version != DOCUMENT_VERSION_2026:
         return False
-    if any(context.get(key, 0) for key in ("plain_cstring_names", "owner_is_drawing", "conditions")):
+    if any(context.get(key, 0) for key in ("plain_cstring_names", "owner_is_drawing")):
         return False
     if not isinstance(record, Obj) or (record.cls, record.schema) != ("moExtFeature_c", 1):
         return False
@@ -157,6 +161,10 @@ def ordinary_external_reference(version, context, parents, record):
     if not parents or "moDrawing_c" in parents or "moDeformConfiguration_c" in parents:
         return False
     reference = fields["f50"]
+    if context == {"conditions": VIS_CONDITIONS}:
+        return parents == VISUAL_REFERENCE_PARENTS and reference is None
+    if context.get("conditions", 0):
+        return False
     if (parents[0], parents[-1]) == ("moAssembly_c", "moReference_c"):
         return (isinstance(reference, Obj) and reference.cls == "moReference_c"
                 and reference.f.get("f4f8") is record and fields.get("f44") == reference.f.get("f08"))
