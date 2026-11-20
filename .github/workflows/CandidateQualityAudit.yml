@@ -227,7 +227,7 @@ jobs:
           cat > "$RUNNER_TEMP/compare-source.py" <<'PY'
           from pathlib import Path
           from convert import open_document
-          from convert.Geometry.Parasolid import ReadBrepResult, ParaHeaderData
+          from convert.Geometry import Parasolid
           from convert.adapters.freecad.Brep import BrepModelBrep
           folder = Path('re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024')
           for name in ('10MM x 20MM x 13MM head 316 Stainless Steel Socket Head Screw.SLDPRT', '8MM x 15mm - 12 point screw.SLDPRT', 'CUIETA DE ENTRADA DE GASES.SLDPRT'):
@@ -235,8 +235,8 @@ jobs:
               print(name, [(cfg.name,cfg.active) for cfg in doc.configurations], 'has_brep', doc.brep is not None)
               for payload in doc.brep_payloads:
                   if payload.data:
-                      model, why = ReadBrepResult(payload.data)
-                      print(payload.source_stream, payload.kind, len(payload.data), getattr(ParaHeaderData(payload.data), 'schema', None), model is not None, why)
+                      model, why = Parasolid.ReadBrepResult(payload.data) if hasattr(Parasolid, "ReadBrepResult") else (Parasolid.DecodeBrepModel(payload.data), "")
+                      print(payload.source_stream, payload.kind, len(payload.data), getattr(Parasolid.ParaHeaderData(payload.data), 'schema', None), model is not None, why)
               if doc.brep:
                   try:
                       BrepModelBrep(doc.brep)
