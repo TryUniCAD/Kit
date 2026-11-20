@@ -8,6 +8,7 @@ from ntpath import (
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
+from convert.adapters.solidworks.Container.Format import KPartSuffix
 
 
 # generated native identity must use an explicit absolute target path and save event without resolving or reading any filesystem state
@@ -27,7 +28,7 @@ class SelfFileInput:
                 "native self identity requires an explicit absolute windows target path"
             )
         NameValue, Extension = SplitExt(BaseName(self.PathName))
-        if not NameValue or Extension.casefold() != ".sldprt":
+        if not NameValue or Extension.casefold() != KPartSuffix:
             raise ValueError("native self path must identify a part")
         if type(self.SavedAt) is not int or not 0 <= self.SavedAt <= 0xFFFFFFFF:
             raise ValueError("native save event must fit unsigned unix seconds")
