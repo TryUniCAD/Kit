@@ -15,7 +15,7 @@ import sys
 from tests.Research.Inference.Scope.FeatureHandoffTests import InvokeAutomation
 from tests.Research.SupervisorClient import KRepoRoot
 
-# a written recipe with a closed-form volume exercises the full specification path
+# a written recipe with an analytic volume exercises the full specification path
 WrittenFeature = "family:fillet:constant-radius-fillet"
 
 # an identity that no recipe covers keeps the original planner blocker
@@ -25,7 +25,7 @@ UnwrittenFeature = "family:fillet:unwritten-fillet"
 MappedFeature = "family:extrude:cut-extrude"
 
 
-# one family holds written, unwritten and mapped entries without native dependencies
+# one family groups entries with different recipe states without native dependencies
 def RecipeCatalogue(Features):
     return {
         "schema_version": 1,
@@ -138,7 +138,7 @@ def CheckRunAwaitingCapture(TmpPath: Path):
     assert Entry["blockers"] == ["pinned_native_evidence_required"]
 
 
-# the checker validates the committed file and reports in-scope entries without recipes
+# the checker validates the committed file and reports missing recipes within scope
 def CheckSpecificationCoverage(TmpPath: Path):
     Command = "InferenceGrid/FeatureSpecs.py"
     Totals = json.loads(InvokeAutomation(Command))
