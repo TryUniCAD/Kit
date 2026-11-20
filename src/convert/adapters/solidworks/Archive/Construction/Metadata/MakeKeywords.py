@@ -73,10 +73,14 @@ def MakeKeywords(
         for DimValue in ItemValue.DimensionValues
     )
     if not HasDegrees and any(
-        ItemValue.TagValue == "Sketch" and ItemValue.KindValue is None
+        ItemValue.TagValue == "Sketch"
+        and ItemValue.KindValue is None
+        and not ItemValue.DimensionValues
         for ItemValue in FeatureValues
     ):
-        raise ValueError("omitted sketch type requires its native revolve angle")
+        raise ValueError(
+            "undimensioned sketch type omission requires its native revolve angle"
+        )
     for FeatureValue in FeatureValues:
         MakeKeyFeatMut(RootValue, FeatureValue)
     return FrameKeywords(RootValue, HasDegrees or CompactTags)

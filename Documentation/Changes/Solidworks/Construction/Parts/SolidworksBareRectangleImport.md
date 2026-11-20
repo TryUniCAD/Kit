@@ -26,8 +26,8 @@ ambient light from the same creation event.
 [Disclosed native lifecycle](../../../../../re/solidworks/measurements/2026/GeneratedLocalBodyPartCompleted01.json)
 · [Same-locator lighting comparison](../../../../../re/solidworks/measurements/2026/GeneratedLocalImportLightingContrast01.json)
 
-A separately authored signed rectangular solid passes the no-options
-host staging path and default strict readback. The read verifies both
+A separately authored signed rectangular solid passes the host staging
+path with carrier disabled and default strict readback. The read verifies both
 stored self locations, the closed boundary and its actual body,
 feature and configuration owners. The write reports exactly two
 native transfers, B-rep and configurations. The guarded exact and
@@ -41,8 +41,8 @@ prism residual check. The exact face-plane check refuses it before output.
 The host report SHA-256 is
 `5ed595144edd9ba39bb9fc79edd9c627629b84298d00a45ccdbf0c531a2dfda6`.
 
-The no-options Windows route generated a 9,884-byte translated solid
-in its actual destination. SOLIDWORKS 2026 SP05.2 `34.5.2.0604`
+The Windows SDK route with carrier disabled generated a 9,884-byte
+translated solid in its actual destination. SOLIDWORKS 2026 SP05.2 `34.5.2.0604`
 opened, rebuilt, saved and freshly reopened the output with zero
 errors or warnings. The candidate and its fresh reopen passed 116
 comparisons for one solid, six faces, twelve edges, eight vertices, volume,
