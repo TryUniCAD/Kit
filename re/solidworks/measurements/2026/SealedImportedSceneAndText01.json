@@ -1,0 +1,60 @@
+{
+  "cases": {
+    "Slot01": {
+      "candidate_sha256": "84f6713d911deced72001e70af7d135b164b7d086ff2860184f79c8137c3d1c0",
+      "input_sha256": "27de26139590fe292ae420212af7515660fdb48d8f4f1830fae739cb3799b93a",
+      "model_generated_streams": 15,
+      "native_phase_records": [
+        "b41dd818a90d94ea05d797c740348664a1efc5ab4abd466fa9d3d77699f872e0",
+        "9d650b6b021459eb6274617fb2c360b4187bcde771a8820e9fc7e650d15ed006",
+        "36c30e847540ba349743bff880f60d3864473e8594c73a586e22723a85d40568"
+      ],
+      "numeric_candidate_checks": 116,
+      "runtime_input_file_reads": 0,
+      "saved_candidate_sha256": "787b1911c2b1d22742a09a4bb2c1449cf43bacae1e1002a784d20d5723cb3b74",
+      "saved_empty_text_scopes": 3,
+      "saved_light_values": 64,
+      "source_unchanged": true
+    },
+    "Slot02": {
+      "candidate_sha256": "361fcff09cacca19cd36a8dd65fc1ca08528d08cb85b99685831c5dd61a4d7f9",
+      "input_sha256": "db9a9dc8cdaec057421ad7934ab8a55680d6e50b1e966e61887c56a43bbe755d",
+      "model_generated_streams": 15,
+      "native_phase_records": [
+        "93f855e5cc4e1cc84cd572b9faed263ab8b290823354ec6cdb5f61115507428b",
+        "ba71f17356f9c51d59051eabecf560b0c47e1aa2c5a4f93d41d3f40f33f25bd2",
+        "51c55a8d5acbb91fbfe66c6dd466482c393acd4f496e6add685f218964360462"
+      ],
+      "numeric_candidate_checks": 116,
+      "runtime_input_file_reads": 0,
+      "saved_candidate_sha256": "ff32ba1cec2bc16293fff9496b31927f1329aadb96b6b60ed5452669dbfe7175",
+      "saved_empty_text_scopes": 3,
+      "saved_light_values": 64,
+      "source_unchanged": true
+    }
+  },
+  "complete_heldout_geometry_lifecycles": 2,
+  "complete_heldout_scene_text_lifecycles": 2,
+  "complete_original_source_conversions": 0,
+  "control_receipts": {
+    "after": "5c41fe6c1906e8c73a974f037add531adb1023248265b5fa75f325cf19c4aa11",
+    "before": "827e39df8fc9e7650726180a6e8baa1322a365e7bde96176f2026ec132a94205"
+  },
+  "controls_healthy": true,
+  "distinct_accepted_processes": 8,
+  "faults": {},
+  "heldout_payloads_shared": 0,
+  "job_sha256": "f401161506ff129cdd8a1791a2425bc9516423957c88b223cc391894ca80ef07",
+  "native_driver_result_sha256": "bc21c713d30c45bfc3c7b559aea566a6e1497b5ec5c145c405bc795ffd286548",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.sealed-import-scene-text.v1",
+  "source_lock_receipt_sha256": "1a5a4993881c967682496c90924c262c7954fddd67dd9d1ee3e105186deed281",
+  "unqualified_source_domains": [
+    "source tracking and provenance",
+    "binary property manager",
+    "archived payload and system attributes"
+  ],
+  "writer_revision": "261972afb33e27912eae3a056880289033dd8f2e"
+}

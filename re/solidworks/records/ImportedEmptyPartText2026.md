@@ -42,3 +42,12 @@ inspection checks all those light values and text owners. The public record
 keeps digests and field counts. The source geometry, light values and raw
 file bytes remain in the guest.
 [Source lock](../measurements/2026/ImportedBaseBodySourcesNative01.json)
+
+Both locked originals passed the geometry, scene and empty text lifecycle
+with healthy controls in eight fresh processes. The two guarded builds per
+case match exactly and read zero files during generation. The native saves
+preserve 128 authored light values and six explicitly empty text scopes.
+The generated and reopened solids pass 232 geometry checks. The receipt
+retains zero complete original-source conversions until source provenance,
+the binary property manager and other archived owners are qualified.
+[Held-out scene and text receipt](../measurements/2026/SealedImportedSceneAndText01.json)

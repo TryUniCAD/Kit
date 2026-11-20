@@ -67,7 +67,9 @@ directional light semantics with their actual names, coefficients and creation
 times. Three disclosed parts retain this scene and their planar solids through
 clean native open, rebuild, save and fresh reopen. The shared part text
 serializer also preserves explicit empty summary, document and configuration
-scopes through native save when selected by the neutral model.
+scopes through native save when selected by the neutral model. Two pre-writer
+locked imports preserve these scopes and their authored lights through the
+same measured geometry lifecycle.
 [Local import scene](../../Changes/Solidworks/Construction/SolidworksLocalImportScene.md)
 [Empty part text scopes](../../Changes/Solidworks/Construction/SolidworksEmptyPartTextScopes.md)
 
@@ -116,6 +118,12 @@ The normal reader now projects the measured ordinary solved concentric profile b
 The assembly reader exposes display-state names in `CadDocument.assembly.attributes["display_states"]`. It reads `swDisplayStateName` and accepts `swName` when the display-state attribute is absent. [Display-state names](../../Changes/Solidworks/Reading/Assembly/SolidworksAssemblyDisplayStateNames.md)
 
 For the measured SOLIDWORKS 2026 profile, `assembly.attributes["typed_display_states"]` also exposes the selected configuration, XML list and state IDs, and ordered visibility for one or two direct visible occurrences. Each entry binds its XML occurrence ID to its persistent feature ID. The typed view is optional for source reads. Native writing and the precedence of the separate VisualStates store remain unqualified. [Typed display-state reading](../../Changes/Solidworks/Research/Mates/SolidworksConcentricDisplayRead.md)
+
+Two opposite native-authored occurrence states are present in the saved
+instance tree and VisualStates graphs. The cold open returned warning 32
+with healthy controls. Both parent snapshots reference a later update stamp
+than the paired child carries on disk.
+[Assembly display-state authoring evidence](../../../re/solidworks/records/ConcentricDisplayAuthoring2026.md)
 
 The public writer accepts one initially satisfied principal-plane perpendicular between two direct occurrences of one owned dimensioned rectangular part. Both pre-writer locked assembly and child pairs pass the standard registry recipe, a live child depth edit, valid reorientation, synchronized save and fresh reopen. Both retain the ordered mate references, geometry and three driver values. [Perpendicular writer qualification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
 
