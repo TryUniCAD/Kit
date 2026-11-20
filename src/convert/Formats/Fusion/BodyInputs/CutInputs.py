@@ -39,7 +39,7 @@ def ReadCutInputs(
         raise ValueError("Fusion Cut requires one owned target body proxy")
     (ProxyId,) = Proxies
     Picks = ReadInputPicks(
-        BulkData, Owners, FeatureId, ProxyId, "target", KCutTargetMode
+        BulkData, Owners, FeatureId, ProxyId, "target", KCutTargetMode, CutTarget=True
     )
     if len(Picks) != 1:
         raise ValueError("Fusion Cut requires one whole target body")
