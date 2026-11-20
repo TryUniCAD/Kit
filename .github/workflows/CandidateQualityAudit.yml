@@ -248,7 +248,7 @@ jobs:
           git fetch --no-tags --filter=blob:none origin "$revision"
           reference="$RUNNER_TEMP/rectangle-reference"
           git worktree add --detach --no-checkout "$reference" "$revision"
-          git -C "$reference" restore --source=HEAD --staged --worktree -- src re/automation re/solidworks/archive
+          git -C "$reference" restore --source=HEAD --staged --worktree -- src re/automation re/Fusion/Study re/solidworks/archive
           .venv/bin/python "$reference/re/automation/RectanglePairEvidence.py" > "$RUNNER_TEMP/reference.json"
           .venv/bin/python re/automation/RectanglePairEvidence.py > "$RUNNER_TEMP/current.json"
           sha256sum "$RUNNER_TEMP/reference.json" "$RUNNER_TEMP/current.json"
