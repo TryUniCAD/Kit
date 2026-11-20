@@ -21,9 +21,18 @@ def RecipeHash(RecipeKey):
     if len(Raw) > 4 * 1024 * 1024:
         raise ValueError("written recipe specification exceeds its byte limit")
     Root = loads(Raw)
-    if type(Root.get("schema_version")) is not int or Root["schema_version"] != 1:
+    if (
+        not isinstance(Root, dict)
+        or type(Root.get("schema_version")) is not int
+        or Root["schema_version"] != 1
+    ):
         raise ValueError("unsupported written recipe specification version")
-    Rows = [Row for Row in Root["recipes"] if Row.get("id") == RecipeKey]
+    SourceRows = Root.get("recipes")
+    if not isinstance(SourceRows, list) or any(
+        not isinstance(Row, dict) for Row in SourceRows
+    ):
+        raise ValueError("written recipe specification requires a recipe record list")
+    Rows = [Row for Row in SourceRows if Row.get("id") == RecipeKey]
     if len(Rows) != 1:
         raise ValueError("executable recipe requires one exact written source row")
     return sha256(
