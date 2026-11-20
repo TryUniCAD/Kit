@@ -24,9 +24,9 @@ def TestNamespaces(TmpPath: FilePath) -> None:
         )
         Written = RunKeywordFrame("write", Source, Output)
         assert Written.returncode == 0, Written.stderr
-        Wire = Output.read_bytes()
-        assert b'xmlns:kit="urn:kit:declared"' in Wire
-        assert b'xml:lang="en"' in Wire
-        assert b'kit:role="feature"' in Wire
-        Read = RunKeywordFrame("read", Output, Source.with_suffix(".result"))
-        assert Read.returncode == 0, Read.stderr
+        PayloadValue = Output.read_bytes()
+        assert b'xmlns:kit="urn:kit:declared"' in PayloadValue
+        assert b'xml:lang="en"' in PayloadValue
+        assert b'kit:role="feature"' in PayloadValue
+        Restored = RunKeywordFrame("read", Output, Source.with_suffix(".result"))
+        assert Restored.returncode == 0, Restored.stderr

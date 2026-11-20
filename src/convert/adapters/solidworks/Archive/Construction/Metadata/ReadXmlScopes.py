@@ -8,12 +8,12 @@ from defusedxml.ElementTree import iterparse as ReadEvents
 KXmlNamespace = "http://www.w3.org/XML/1998/namespace"
 
 # resolved names and names written as attribute values share each parsed element namespace scope
-XmlScopes: TypeAlias = dict[Element, dict[str, str]]
+KXmlScopes: TypeAlias = dict[Element, dict[str, str]]
 
 
 # namespace events preserve declarations that ordinary element tree attributes omit
-def ReadXmlScopes(PayloadValue: bytes) -> tuple[Element, XmlScopes]:
-    ScopesValue: XmlScopes = {}
+def ReadXmlScopes(PayloadValue: bytes) -> tuple[Element, KXmlScopes]:
+    ScopesValue: KXmlScopes = {}
     Pending: dict[str, str] = {}
     Parents = [{"xml": KXmlNamespace}]
     for EventName, EventValue in ReadEvents(

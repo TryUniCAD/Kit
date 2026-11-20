@@ -3,11 +3,11 @@ from xml.etree.ElementTree import Element
 from convert.adapters.solidworks.Archive.Construction.Metadata.ExpandXmlName import (
     ExpandXmlName,
 )
-from convert.adapters.solidworks.Archive.Construction.Metadata.MatchXmlAttrs import (
-    MatchXmlAttrs,
+from convert.adapters.solidworks.Archive.Construction.Metadata.HasXmlAttrs import (
+    HasXmlAttrs,
 )
 from convert.adapters.solidworks.Archive.Construction.Metadata.ReadXmlScopes import (
-    XmlScopes,
+    KXmlScopes,
 )
 
 
@@ -16,7 +16,7 @@ def CheckXmlTree(
     SourceValue: Element,
     ParsedValue: Element,
     Inherited: dict[str, str],
-    ParsedScopes: XmlScopes,
+    ParsedScopes: KXmlScopes,
 ) -> None:
     Attributes = {
         str(NameValue): Value for NameValue, Value in SourceValue.attrib.items()
@@ -37,7 +37,7 @@ def CheckXmlTree(
     }
     if (
         ExpandXmlName(str(SourceValue.tag), ScopeValue, True) != ParsedValue.tag
-        or not MatchXmlAttrs(Expected, ParsedValue.attrib, ParsedScopes[ParsedValue])
+        or not HasXmlAttrs(Expected, ParsedValue.attrib, ParsedScopes[ParsedValue])
         or (SourceValue.text or "") != (ParsedValue.text or "")
         or (SourceValue.tail or "") != (ParsedValue.tail or "")
         or len(SourceValue) != len(ParsedValue)

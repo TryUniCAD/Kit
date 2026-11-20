@@ -6,8 +6,8 @@ from tests.Convert.Solidworks.KeywordFrames.RunKeywordFrame import RunKeywordFra
 
 # a qualified attribute value keeps its own namespace even when the element name is unqualified
 def TestQNameAttr(TmpPath: FilePath) -> None:
-    for Shadow in (False, True):
-        Source = TmpPath / f"attribute{Shadow}.json"
+    for Scenario in ("ordinary", "shadow", "invalid"):
+        Source = TmpPath / f"attribute{Scenario}.json"
         Target = Source.with_suffix(".bin")
         _ = Source.write_text(
             DumpJson(
@@ -18,13 +18,14 @@ def TestQNameAttr(TmpPath: FilePath) -> None:
                     "text": "",
                     "tail": "",
                     "qualified_attribute": True,
-                    "qualified_attribute_shadow": Shadow,
+                    "qualified_attribute_shadow": Scenario == "shadow",
+                    "invalid_qualified_attribute": Scenario == "invalid",
                 }
             ),
             encoding="utf-8",
         )
         Result = RunKeywordFrame("write", Source, Target)
-        if Shadow:
+        if Scenario != "ordinary":
             assert Result.returncode != 0
             assert not Target.exists()
         else:
