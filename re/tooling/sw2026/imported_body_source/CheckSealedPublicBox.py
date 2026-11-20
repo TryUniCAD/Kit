@@ -21,6 +21,7 @@ from VerifyPublicCyl import CAPS, EMITTER, FORMAT, check_target, guarded_prepare
 from convert import open_document, write_document
 from convert.Geometry.Parasolid import KLengthScale
 from convert.adapters.base.TransferContract import TransferMode
+from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeader
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismVectors import KMillimetersPerMeter
 from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -62,7 +63,7 @@ def project_source(slot, lock):
     document = CadDocument(CadSource("kit.neutral", "", ""),
                            (Configuration("active", projection.configuration_name, True),),
                            (), (), (), (), (), (), brep=projection.model)
-    require(document.capabilities == CAPS and not document.validate(),
+    require(GetDocumentCaps(document) == CAPS and not document.validate(),
             "projection acquired data besides the solid and active configuration")
     return document, projection
 

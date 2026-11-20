@@ -44,11 +44,16 @@ python3.14 -B re/tooling/sw2026/imported_body_source/RunSealedPublicBox.py freez
 guest_packet='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SdkSealedBareRectangle01'
 tool="$guest_packet"'\Kit\re\tooling\sw2026\imported_body_source\RunSealedPublicBox.py'
 job="$guest_packet"'\Job.json'
-prlctl exec --current-user 'Windows 11' "$guest_python" -B "$tool" verify "$job" "$job_sha256"
-prlctl exec --current-user 'Windows 11' "$guest_python" -B "$tool" build "$job" "$job_sha256"
-prlctl exec --current-user 'Windows 11' "$guest_python" -B "$tool" measure "$job" "$job_sha256" "$build_sha256"
+prlctl exec 'Windows 11' --current-user "$guest_python" -B "$tool" verify "$job" "$job_sha256"
+prlctl exec 'Windows 11' --current-user "$guest_python" -B "$tool" build "$job" "$job_sha256"
+prlctl exec 'Windows 11' --current-user "$guest_python" -B "$tool" measure "$job" "$job_sha256" "$build_sha256"
 ```
 
 Use the verified guest Python executable. Copy `job_sha256` from successful host freeze output and `build_sha256` from successful guest build output. Only `Result.json` in the host packet is the publishable native result. Keep the private guest root on failures and use fresh numbered paths for a new run.
 
 [Freeze and guest entry point](../../tooling/sw2026/imported_body_source/RunSealedPublicBox.py) · [Guarded writer and paired checks](../../tooling/sw2026/imported_body_source/CheckSealedPublicBox.py)
+
+The first build stopped before any native launch. Its guard compared the
+fresh document's empty declared capability cache with the two inferred
+capabilities. A fresh packet uses the registry's shared inference for
+this assertion. The writer and the original locks are identical.
