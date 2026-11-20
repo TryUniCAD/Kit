@@ -15,7 +15,8 @@ outputs. [Source lock](../v2026/heldout/PrincipalRevolveSourceLock01.json)
 | Authoring revision | `954e5773df5088df4995701ea684f98ecb1dcac1` |
 | Production source tree at lock | `f6830bfd53fc99747c91ca4a3cd7eead3915d6ee` |
 | Oracle | SOLIDWORKS 2026 SP05.2, `34.5.2.0604`, COM `SldWorks.Application.34` |
-| Lock SHA-256 | `ac1a3c15db459409ab3a7aacf1281feba1c714bae8e6c8b8d7ae5d04930ab722` |
+| Guest lock receipt SHA-256 | `ac1a3c15db459409ab3a7aacf1281feba1c714bae8e6c8b8d7ae5d04930ab722` |
+| Tracked LF lock receipt SHA-256 | `9396b94d1d503a0389c1db4ce7711125429265b271694bbe28a890b49059dc48` |
 | Exit | Preserve the actual selected axis, support, direction, driving angle, tree and geometry through saved native rebuild and fresh reopen |
 
 The disclosed controls comprise a Front full turn and a Top
