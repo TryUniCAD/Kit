@@ -12,7 +12,9 @@ def ReadNodeTagMut(
     *,
     RequireCanonicalTags: bool = False,
 ) -> ArchiveTag:
-    TagValue, Offset = ReadTag(Cursor.BytesValue, Cursor.OffsetValue)
+    TagValue, Offset = ReadTag(
+        Cursor.BytesValue, Cursor.OffsetValue, LimitValue=Cursor.LimitValue
+    )
     if RequireCanonicalTags and Offset - Cursor.OffsetValue != len(EncodeTag(TagValue)):
         raise ValueError("SOLIDWORKS archive tag uses a noncanonical width")
     if TagValue.KindValue in ("NewClass", "ClassRef") and NestingDepth >= MaxDepth:

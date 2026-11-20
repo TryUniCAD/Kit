@@ -15,4 +15,8 @@ def NormalizeWord(
         NumberValue = CastValue(int, Value)
         Conditions = ContextValue.FlagsValue.get("conditions", 0)
         return 0 if NumberValue > 1 and not (Conditions & 0x80) else NumberValue
+    if RuleValue.ModeValue == "AtLeast":
+        return max(CastValue(int, Value), RuleValue.MaskValue)
+    if RuleValue.ModeValue == "Identity":
+        return CastValue(int, Value)
     raise BodyUnsupported("unsupported native normalization rule")

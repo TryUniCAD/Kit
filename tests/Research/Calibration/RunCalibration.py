@@ -203,6 +203,7 @@ def RunCalibration(
     ExitCode: int | None = 0,
     MaxWorkers: int | None = None,
     CompareGrouped: bool = False,
+    TimeoutSeconds: int = 240,
 ) -> dict[str, object]:
     ModeItems = ["--compare-grouped"] if CompareGrouped else []
     if MaxWorkers is not None:
@@ -222,7 +223,7 @@ def RunCalibration(
         capture_output=True,
         text=True,
         check=False,
-        timeout=240,
+        timeout=TimeoutSeconds,
     )
     ReportPath = OutputPath / "Calibration.json"
     Expected = ExitCode
