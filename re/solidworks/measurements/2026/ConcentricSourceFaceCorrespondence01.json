@@ -1,0 +1,755 @@
+{
+  "comparison_base": "c4a54e48504f7bfaed0c14e3aaac9996e42bda10",
+  "correspondence_sha256": "1a356a943a52305c36d0af090f07e1ad79e2e23d7e2226a39c47b0fe38025706",
+  "d01_author_sha256": "2db426555837d4ef400c478c89ca6f94a63b5b200f555d5dafbeee8a557688be",
+  "d01_lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+  "new_native_processes": 0,
+  "passed": true,
+  "radial_author_sha256": "3263e7d2019953bede2c36948b84274d915b9cd8f4de1afc0bcb1988e0397f03",
+  "rejected": {
+    "axially_shifted_carrier_origin": "saved cylinder correspondence: lateral carrier orientation, radius or axial origin disagrees with the modeled cylinder",
+    "both_wrapper_signs_reversed": "saved cylinder correspondence: source selected axis differs from its actual signed local and world wrapper",
+    "cap_substituted_as_lateral_selection": "saved cylinder correspondence: mate endpoint does not select the actual lateral face on a direct occurrence",
+    "coaxial_but_different_extent": "saved cylinder correspondence: generated radius, local extent or design frame differs from the source",
+    "different_actual_parent_archive": "saved cylinder correspondence: parent archive does not match the public source digest",
+    "extra_lateral_loop": "saved cylinder correspondence: cap edge does not have one reciprocal lateral use",
+    "incomplete_closed_edge": "saved cylinder correspondence: cap edge is not its complete closed circle",
+    "occurrence_shift_along_same_carrier": "saved cylinder correspondence: portable occurrence changed its underlying native placement",
+    "reversed_native_cap_role": "saved cylinder correspondence: cap reference selector differs from carrier-relative role and producing feature",
+    "same_occurrence_twice": "saved cylinder correspondence: mate portable and native owner references differ",
+    "whole_source_still_outside_ordinary_assembly_writer": "assembly root contains unprojected model content",
+    "wrong_cap_point": "saved cylinder correspondence: cap origin disagrees with the two modeled end planes",
+    "wrong_lateral_point": "saved cylinder correspondence: lateral carrier orientation, radius or axial origin disagrees with the modeled cylinder",
+    "wrong_rim_center": "saved cylinder correspondence: circular edge carrier differs from its actual cap plane",
+    "wrong_seam_point": "saved cylinder correspondence: circular edge seam point differs from its physical curve"
+  },
+  "reports": {
+    "Edited": {
+      "endpoints": [
+        {
+          "entity": "sldasm:mate:2:0:0:entity:0",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.046910000000000014
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:4",
+          "reference_number": "1",
+          "source_axial_bounds_m": [
+            0.0,
+            0.04691
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.06561
+          ],
+          "world_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "entity": "sldasm:mate:2:0:0:entity:1",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.046910000000000014
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.04393000000000001,
+            -0.03126999999999999,
+            0.26817
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:7",
+          "reference_number": "2",
+          "source_axial_bounds_m": [
+            0.0,
+            0.04691000000000001
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.31508
+          ],
+          "world_axis": [
+            0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ],
+      "face_ids": {
+        "sldprt:brep:face:40": "sldprt:brep:face:8",
+        "sldprt:brep:face:54": "sldprt:brep:face:10",
+        "sldprt:brep:face:56": "sldprt:brep:face:9"
+      },
+      "generation": {
+        "generated_bytes": 10528,
+        "generated_sha256": "9ad2fe4580feb64f1ed547e9a106a81e1bcf399d3b40524b7c967b79a0f548e6",
+        "independent_builds": 2,
+        "neutral_request_sha256": "69cd395bd4d48ab7420555bc17f66336e1a7332694d283f88c6f3472d6440cbc",
+        "source_driving_owners": {
+          "boss": "sldprt:feature:33",
+          "depth_parameter": "sldprt:parameter:33:D1",
+          "fixed_center": "sldprt:sketch:26:native:6063",
+          "profile_arc": "sldprt:sketch:26:profile:0",
+          "radius_parameter": "sldprt:parameter:26:D1",
+          "sketch": "sldprt:sketch:26"
+        },
+        "writer_runtime_file_process_or_network_attempts": 0
+      },
+      "parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "source": {
+        "body_atom": 101,
+        "carrier_origin_mm": [
+          2.63,
+          -4.17,
+          46.91
+        ],
+        "carrier_sign": -1,
+        "child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+        "lateral_face": "sldprt:brep:face:40",
+        "lateral_node_id": 27,
+        "permanent_arc_marker": 1,
+        "producer": "sldprt:feature:33",
+        "radius_mm": 7.19,
+        "rims": {
+          "0": {
+            "cap_coedge": "sldprt:brep:coedge:50",
+            "cap_face": "sldprt:brep:face:56",
+            "cap_loop": "sldprt:brep:loop:52",
+            "curve": "sldprt:brep:curve:9",
+            "edge": "sldprt:brep:edge:46",
+            "seam": "sldprt:brep:vertex:65582",
+            "selector": 0,
+            "side_coedge": "sldprt:brep:coedge:49",
+            "side_loop": "sldprt:brep:loop:48"
+          },
+          "1": {
+            "cap_coedge": "sldprt:brep:coedge:45",
+            "cap_face": "sldprt:brep:face:54",
+            "cap_loop": "sldprt:brep:loop:47",
+            "curve": "sldprt:brep:curve:44",
+            "edge": "sldprt:brep:edge:11",
+            "seam": "sldprt:brep:vertex:65547",
+            "selector": 1,
+            "side_coedge": "sldprt:brep:coedge:51",
+            "side_loop": "sldprt:brep:loop:59"
+          }
+        },
+        "start_end_centers_mm": [
+          [
+            2.63,
+            -4.17,
+            0.0
+          ],
+          [
+            2.63,
+            -4.17,
+            46.910000000000004
+          ]
+        ]
+      },
+      "target": {
+        "body_atom": 101,
+        "carrier_origin_mm": [
+          2.63,
+          -4.17,
+          0.0
+        ],
+        "carrier_sign": 1,
+        "child_sha256": "9ad2fe4580feb64f1ed547e9a106a81e1bcf399d3b40524b7c967b79a0f548e6",
+        "lateral_face": "sldprt:brep:face:8",
+        "lateral_node_id": 5,
+        "permanent_arc_marker": 1,
+        "producer": "sldprt:feature:20",
+        "radius_mm": 7.19,
+        "rims": {
+          "0": {
+            "cap_coedge": "sldprt:brep:coedge:18",
+            "cap_face": "sldprt:brep:face:9",
+            "cap_loop": "sldprt:brep:loop:14",
+            "curve": "sldprt:brep:curve:16",
+            "edge": "sldprt:brep:edge:15",
+            "seam": "sldprt:brep:vertex:65551",
+            "selector": 1,
+            "side_coedge": "sldprt:brep:coedge:19",
+            "side_loop": "sldprt:brep:loop:11"
+          },
+          "1": {
+            "cap_coedge": "sldprt:brep:coedge:24",
+            "cap_face": "sldprt:brep:face:10",
+            "cap_loop": "sldprt:brep:loop:20",
+            "curve": "sldprt:brep:curve:22",
+            "edge": "sldprt:brep:edge:21",
+            "seam": "sldprt:brep:vertex:65557",
+            "selector": 0,
+            "side_coedge": "sldprt:brep:coedge:25",
+            "side_loop": "sldprt:brep:loop:12"
+          }
+        },
+        "start_end_centers_mm": [
+          [
+            2.63,
+            -4.17,
+            0.0
+          ],
+          [
+            2.63,
+            -4.17,
+            46.91000000000001
+          ]
+        ]
+      }
+    },
+    "Source": {
+      "endpoints": [
+        {
+          "entity": "sldasm:mate:2:0:0:entity:0",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.03137
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:4",
+          "reference_number": "1",
+          "source_axial_bounds_m": [
+            0.0,
+            0.03137
+          ],
+          "source_face": "sldprt:brep:face:42",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.05007
+          ],
+          "world_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "entity": "sldasm:mate:2:0:0:entity:1",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.03137
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.2558
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:7",
+          "reference_number": "2",
+          "source_axial_bounds_m": [
+            0.0,
+            0.03137000000000001
+          ],
+          "source_face": "sldprt:brep:face:42",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.28717000000000004
+          ],
+          "world_axis": [
+            0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ],
+      "face_ids": {
+        "sldprt:brep:face:42": "sldprt:brep:face:8",
+        "sldprt:brep:face:54": "sldprt:brep:face:9",
+        "sldprt:brep:face:58": "sldprt:brep:face:10"
+      },
+      "generation": {
+        "generated_bytes": 10528,
+        "generated_sha256": "05d21e489ef99a335079b73a4c80ec2d6c448efb95ca3e681dd3fd941b53853b",
+        "independent_builds": 2,
+        "neutral_request_sha256": "a829c10ac2b4af2b6c53ffa18089bcb5a4b9d4f9fd568ca6cb4c07fc221132df",
+        "source_driving_owners": {
+          "boss": "sldprt:feature:33",
+          "depth_parameter": "sldprt:parameter:33:D1",
+          "fixed_center": "sldprt:sketch:26:native:6063",
+          "profile_arc": "sldprt:sketch:26:profile:0",
+          "radius_parameter": "sldprt:parameter:26:D1",
+          "sketch": "sldprt:sketch:26"
+        },
+        "writer_runtime_file_process_or_network_attempts": 0
+      },
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "pinned_generated_target": {
+        "body": {
+          "body_atom": 101,
+          "carrier_origin_mm": [
+            2.63,
+            -4.17,
+            0.0
+          ],
+          "carrier_sign": 1,
+          "child_sha256": "699be1addf4b644f1ebdeecc6862f65610155d294e10fa6d7cbcf3d6a224f1cd",
+          "lateral_face": "sldprt:brep:face:8",
+          "lateral_node_id": 5,
+          "permanent_arc_marker": 1,
+          "producer": "sldprt:feature:20",
+          "radius_mm": 7.19,
+          "rims": {
+            "0": {
+              "cap_coedge": "sldprt:brep:coedge:18",
+              "cap_face": "sldprt:brep:face:9",
+              "cap_loop": "sldprt:brep:loop:14",
+              "curve": "sldprt:brep:curve:16",
+              "edge": "sldprt:brep:edge:15",
+              "seam": "sldprt:brep:vertex:65551",
+              "selector": 1,
+              "side_coedge": "sldprt:brep:coedge:19",
+              "side_loop": "sldprt:brep:loop:11"
+            },
+            "1": {
+              "cap_coedge": "sldprt:brep:coedge:24",
+              "cap_face": "sldprt:brep:face:10",
+              "cap_loop": "sldprt:brep:loop:20",
+              "curve": "sldprt:brep:curve:22",
+              "edge": "sldprt:brep:edge:21",
+              "seam": "sldprt:brep:vertex:65557",
+              "selector": 0,
+              "side_coedge": "sldprt:brep:coedge:25",
+              "side_loop": "sldprt:brep:loop:12"
+            }
+          },
+          "start_end_centers_mm": [
+            [
+              2.63,
+              -4.17,
+              0.0
+            ],
+            [
+              2.63,
+              -4.17,
+              31.37
+            ]
+          ]
+        },
+        "endpoints": [
+          {
+            "entity": "sldasm:mate:2:0:0:entity:0",
+            "generated_axial_bounds_m": [
+              0.0,
+              -0.03137
+            ],
+            "generated_face": "sldprt:brep:face:8",
+            "generated_world_origin_m": [
+              0.043930000000000004,
+              -0.03127,
+              0.018700000000000005
+            ],
+            "local_axis": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "occurrence": "sldasm:instance:4",
+            "reference_number": "1",
+            "source_axial_bounds_m": [
+              0.0,
+              0.03137
+            ],
+            "source_face": "sldprt:brep:face:42",
+            "stored_world_origin_m": [
+              0.043930000000000004,
+              -0.03127,
+              0.05007
+            ],
+            "world_axis": [
+              -0.0,
+              -0.0,
+              -1.0
+            ]
+          },
+          {
+            "entity": "sldasm:mate:2:0:0:entity:1",
+            "generated_axial_bounds_m": [
+              0.0,
+              -0.03137
+            ],
+            "generated_face": "sldprt:brep:face:8",
+            "generated_world_origin_m": [
+              0.04393000000000001,
+              -0.031270000000000006,
+              0.2558
+            ],
+            "local_axis": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "occurrence": "sldasm:instance:7",
+            "reference_number": "2",
+            "source_axial_bounds_m": [
+              0.0,
+              0.03137000000000001
+            ],
+            "source_face": "sldprt:brep:face:42",
+            "stored_world_origin_m": [
+              0.043930000000000004,
+              -0.03127,
+              0.28717000000000004
+            ],
+            "world_axis": [
+              0.0,
+              -0.0,
+              -1.0
+            ]
+          }
+        ],
+        "faces": {
+          "sldprt:brep:face:42": "sldprt:brep:face:8",
+          "sldprt:brep:face:54": "sldprt:brep:face:9",
+          "sldprt:brep:face:58": "sldprt:brep:face:10"
+        },
+        "parent_sha256": "9474ca54466a450eec3ba5e49703053fe160e0a221647b2bcc984d8d3672dc74"
+      },
+      "source": {
+        "body_atom": 101,
+        "carrier_origin_mm": [
+          2.63,
+          -4.17,
+          31.37
+        ],
+        "carrier_sign": -1,
+        "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+        "lateral_face": "sldprt:brep:face:42",
+        "lateral_node_id": 27,
+        "permanent_arc_marker": 1,
+        "producer": "sldprt:feature:33",
+        "radius_mm": 7.19,
+        "rims": {
+          "0": {
+            "cap_coedge": "sldprt:brep:coedge:56",
+            "cap_face": "sldprt:brep:face:54",
+            "cap_loop": "sldprt:brep:loop:53",
+            "curve": "sldprt:brep:curve:9",
+            "edge": "sldprt:brep:edge:43",
+            "seam": "sldprt:brep:vertex:65579",
+            "selector": 0,
+            "side_coedge": "sldprt:brep:coedge:50",
+            "side_loop": "sldprt:brep:loop:52"
+          },
+          "1": {
+            "cap_coedge": "sldprt:brep:coedge:51",
+            "cap_face": "sldprt:brep:face:58",
+            "cap_loop": "sldprt:brep:loop:49",
+            "curve": "sldprt:brep:curve:45",
+            "edge": "sldprt:brep:edge:11",
+            "seam": "sldprt:brep:vertex:65547",
+            "selector": 1,
+            "side_coedge": "sldprt:brep:coedge:48",
+            "side_loop": "sldprt:brep:loop:66"
+          }
+        },
+        "start_end_centers_mm": [
+          [
+            2.63,
+            -4.17,
+            0.0
+          ],
+          [
+            2.63,
+            -4.17,
+            31.37
+          ]
+        ]
+      },
+      "target": {
+        "body_atom": 101,
+        "carrier_origin_mm": [
+          2.63,
+          -4.17,
+          0.0
+        ],
+        "carrier_sign": 1,
+        "child_sha256": "05d21e489ef99a335079b73a4c80ec2d6c448efb95ca3e681dd3fd941b53853b",
+        "lateral_face": "sldprt:brep:face:8",
+        "lateral_node_id": 5,
+        "permanent_arc_marker": 1,
+        "producer": "sldprt:feature:20",
+        "radius_mm": 7.19,
+        "rims": {
+          "0": {
+            "cap_coedge": "sldprt:brep:coedge:18",
+            "cap_face": "sldprt:brep:face:9",
+            "cap_loop": "sldprt:brep:loop:14",
+            "curve": "sldprt:brep:curve:16",
+            "edge": "sldprt:brep:edge:15",
+            "seam": "sldprt:brep:vertex:65551",
+            "selector": 1,
+            "side_coedge": "sldprt:brep:coedge:19",
+            "side_loop": "sldprt:brep:loop:11"
+          },
+          "1": {
+            "cap_coedge": "sldprt:brep:coedge:24",
+            "cap_face": "sldprt:brep:face:10",
+            "cap_loop": "sldprt:brep:loop:20",
+            "curve": "sldprt:brep:curve:22",
+            "edge": "sldprt:brep:edge:21",
+            "seam": "sldprt:brep:vertex:65557",
+            "selector": 0,
+            "side_coedge": "sldprt:brep:coedge:25",
+            "side_loop": "sldprt:brep:loop:12"
+          }
+        },
+        "start_end_centers_mm": [
+          [
+            2.63,
+            -4.17,
+            0.0
+          ],
+          [
+            2.63,
+            -4.17,
+            31.37
+          ]
+        ]
+      }
+    },
+    "Working": {
+      "endpoints": [
+        {
+          "entity": "sldasm:mate:2:0:0:entity:0",
+          "generated_axial_bounds_m": [
+            0.0,
+            0.036797010000000005
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "occurrence": "sldasm:instance:4",
+          "reference_number": "1",
+          "source_axial_bounds_m": [
+            0.0,
+            -0.036797010000000005
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.05549701000000001
+          ],
+          "world_axis": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "entity": "sldasm:mate:2:0:0:entity:1",
+          "generated_axial_bounds_m": [
+            0.0,
+            0.036797010000000005
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.2558
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "occurrence": "sldasm:instance:7",
+          "reference_number": "2",
+          "source_axial_bounds_m": [
+            0.0,
+            -0.03679701000000002
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.29259701000000005
+          ],
+          "world_axis": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "face_ids": {
+        "sldprt:brep:face:40": "sldprt:brep:face:8",
+        "sldprt:brep:face:54": "sldprt:brep:face:10",
+        "sldprt:brep:face:56": "sldprt:brep:face:9"
+      },
+      "generation": {
+        "generated_bytes": 10542,
+        "generated_sha256": "979b724007aa2ee31bf01eea1e73d76a79ba7156ed8fe16b92ea8c2e90944524",
+        "independent_builds": 2,
+        "neutral_request_sha256": "4cd5c9b4c87d4b71c751064e91010b82b51765c62c698840ae0f2481f20c6a4b",
+        "source_driving_owners": {
+          "boss": "sldprt:feature:20",
+          "depth_parameter": "sldprt:parameter:20:D1",
+          "fixed_center": "sldprt:sketch:18:native:5779",
+          "profile_arc": "sldprt:sketch:18:profile:0",
+          "radius_parameter": "sldprt:parameter:18:D1",
+          "sketch": "sldprt:sketch:18"
+        },
+        "writer_runtime_file_process_or_network_attempts": 0
+      },
+      "parent_sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3",
+      "source": {
+        "body_atom": 101,
+        "carrier_origin_mm": [
+          2.63,
+          -4.17,
+          36.79701000000001
+        ],
+        "carrier_sign": -1,
+        "child_sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416",
+        "lateral_face": "sldprt:brep:face:40",
+        "lateral_node_id": 27,
+        "permanent_arc_marker": 1,
+        "producer": "sldprt:feature:20",
+        "radius_mm": 7.19,
+        "rims": {
+          "0": {
+            "cap_coedge": "sldprt:brep:coedge:50",
+            "cap_face": "sldprt:brep:face:56",
+            "cap_loop": "sldprt:brep:loop:52",
+            "curve": "sldprt:brep:curve:9",
+            "edge": "sldprt:brep:edge:46",
+            "seam": "sldprt:brep:vertex:65582",
+            "selector": 0,
+            "side_coedge": "sldprt:brep:coedge:49",
+            "side_loop": "sldprt:brep:loop:48"
+          },
+          "1": {
+            "cap_coedge": "sldprt:brep:coedge:45",
+            "cap_face": "sldprt:brep:face:54",
+            "cap_loop": "sldprt:brep:loop:47",
+            "curve": "sldprt:brep:curve:44",
+            "edge": "sldprt:brep:edge:11",
+            "seam": "sldprt:brep:vertex:65547",
+            "selector": 1,
+            "side_coedge": "sldprt:brep:coedge:51",
+            "side_loop": "sldprt:brep:loop:59"
+          }
+        },
+        "start_end_centers_mm": [
+          [
+            2.63,
+            -4.17,
+            0.0
+          ],
+          [
+            2.63,
+            -4.17,
+            36.79701000000001
+          ]
+        ]
+      },
+      "target": {
+        "body_atom": 101,
+        "carrier_origin_mm": [
+          2.63,
+          -4.17,
+          0.0
+        ],
+        "carrier_sign": 1,
+        "child_sha256": "979b724007aa2ee31bf01eea1e73d76a79ba7156ed8fe16b92ea8c2e90944524",
+        "lateral_face": "sldprt:brep:face:8",
+        "lateral_node_id": 5,
+        "permanent_arc_marker": 1,
+        "producer": "sldprt:feature:20",
+        "radius_mm": 7.19,
+        "rims": {
+          "0": {
+            "cap_coedge": "sldprt:brep:coedge:18",
+            "cap_face": "sldprt:brep:face:9",
+            "cap_loop": "sldprt:brep:loop:14",
+            "curve": "sldprt:brep:curve:16",
+            "edge": "sldprt:brep:edge:15",
+            "seam": "sldprt:brep:vertex:65551",
+            "selector": 1,
+            "side_coedge": "sldprt:brep:coedge:19",
+            "side_loop": "sldprt:brep:loop:11"
+          },
+          "1": {
+            "cap_coedge": "sldprt:brep:coedge:24",
+            "cap_face": "sldprt:brep:face:10",
+            "cap_loop": "sldprt:brep:loop:20",
+            "curve": "sldprt:brep:curve:22",
+            "edge": "sldprt:brep:edge:21",
+            "seam": "sldprt:brep:vertex:65557",
+            "selector": 0,
+            "side_coedge": "sldprt:brep:coedge:25",
+            "side_loop": "sldprt:brep:loop:12"
+          }
+        },
+        "start_end_centers_mm": [
+          [
+            2.63,
+            -4.17,
+            0.0
+          ],
+          [
+            2.63,
+            -4.17,
+            36.79701000000001
+          ]
+        ]
+      }
+    }
+  },
+  "schema": "kit.sw2026.disclosed-concentric-face-correspondence.v1",
+  "sealed_inputs_read": 0,
+  "source_bytes_and_models_unchanged": true,
+  "tool_sha256": "fc3a861fd4216ef2fc8fa47b35dbb07dec7f446ceb0ddabd6d6f8bd9e11b2235",
+  "whole_source_admitted": false
+}
