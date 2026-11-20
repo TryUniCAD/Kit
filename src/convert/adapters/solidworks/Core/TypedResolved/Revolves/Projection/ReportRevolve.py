@@ -12,6 +12,10 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveOwner import
 def ReportRevolve(
     LinkValue: NativeLink, OwnerValue: RevolveOwner
 ) -> Mapping[str, object]:
+    NormalValue = OwnerValue.FrameValue.SupportValue.z_axis
+    PlaneName = "front"
+    if NormalValue.z != 1.0:
+        PlaneName = "top" if NormalValue.y == 1.0 else "right"
     return {
         "feature_id": NativeNodeId(OwnerValue.NodeValue),
         "profile_id": NativeNodeId(OwnerValue.ProfileValue),
@@ -28,7 +32,7 @@ def ReportRevolve(
         "feature_owner": NativeNodeSpan(LinkValue, OwnerValue.NodeValue),
         "parameter_owner": OwnerValue.AngleValue.OwnerValue,
         "axis_owner": NativeNodeSpan(LinkValue, OwnerValue.AxisValue.WrapperValue),
-        "scope": "ordinary_modern_single_blind_rectangular_boss_front_upward_axis",
+        "scope": f"ordinary_modern_single_blind_rectangular_boss_{PlaneName}_upward_axis",
         "full_native_tree_qualified": False,
         "public_writer_qualified": False,
     }

@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.BindRevP
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.BindRevStep import (
     BindRevStep,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.CheckRevSupport import (
+    CheckRevSupport,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Projection.MakeRevSelect import (
     MakeRevSelect,
 )
@@ -46,6 +49,7 @@ def ApplyRevDoc(
         raise ValueError(
             "ordinary revolve neutral suppression state is outside measured semantics"
         )
+    CheckRevSupport(DocumentValue, SketchValues[0], OwnerValue)
     SketchValue = MakeRevSketch(SketchValues[0], OwnerValue)
     ParamValues = BindRevParams(DocumentValue.parameters, OwnerValue)
     SelectValue = MakeRevSelect(LinkValue, OwnerValue)

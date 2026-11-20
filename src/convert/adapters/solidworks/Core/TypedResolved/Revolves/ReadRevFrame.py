@@ -1,6 +1,9 @@
 from collections.abc import Mapping
 from math import hypot as Hypot
 
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis import (
+    ReadPrincAxis,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
     ReadPrismFrame,
@@ -25,7 +28,9 @@ def ReadRevFrame(
     GraphValue: RevolveProfile,
     IsReverse: bool,
 ) -> RevolveAxis:
-    FrameValue = ReadPrismFrame(ProfileValue, RootValue, Features)
+    FrameValue = ReadPrismFrame(ProfileValue, RootValue, Features, FrontOnly=False)
+    if FrameValue.z_axis.z != 1.0:
+        _ = ReadPrincAxis(FrameValue)
     StartValue = MapRevPoint(
         FrameValue, GraphValue.AxisPoints[GraphValue.AxisValue.StartValue].PositionValue
     )
