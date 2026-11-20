@@ -96,12 +96,9 @@ def TestNativeMatch(TmpPath: FilePath) -> None:
         "/topology/bounding_box/maximum/z": (10.0, 0.0),
     }
     Sources = CastValue(dict[str, dict[str, object]], Report["sources"])
-    assert (
-        sum(
-            len(CastValue(list[object], Source["unresolved"]))
-            for Source in Sources.values()
-        )
-        == 70
+    assert all(
+        len(CastValue(list[object], Source["unresolved"])) == 33
+        for Source in Sources.values()
     )
     assert all(
         any(
