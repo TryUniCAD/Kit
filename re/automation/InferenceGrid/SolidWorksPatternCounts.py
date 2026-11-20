@@ -92,3 +92,16 @@ def pattern_counts(data, features, root, held_out):
                             "parameter_class_offset": start, "parameter_offset": scalar,
                             "possible_integer_widths": widths, "handle_class_offset": handle, "handle_value_offset": mirror})
     return results, rule
+
+
+
+def count_matches_parameter(record, parameter):
+    value = parameter.get("value") or {}
+    attrs = parameter.get("attributes", {})
+    spans = parameter.get("provenance", {}).get("spans", {}).get("$tuple", [])
+    return (value.get("kind", {}).get("value") == "integer" and type(value.get("value")) is int
+            and value["value"] == record["count"] and value.get("unit") == ""
+            and attrs.get("dimension_kind") == "sketch_pattern_count" and "native_unit" in attrs
+            and attrs["native_unit"] is None and attrs.get("native_value") == record["count"]
+            and any((s["stream"], s["offset"], s["length"], s["record_kind"]) ==
+                    (record["stream"], record["handle_value_offset"], 8, "dimension-scalar") for s in spans))

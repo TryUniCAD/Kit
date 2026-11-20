@@ -15,6 +15,7 @@ import sys
 
 from convert.adapters.solidworks.Core.Native import KSketchCountOffsets
 from InferenceInputs import read_file
+from InferenceGrid.SolidWorksPatternCounts import count_matches_parameter
 
 
 def promote_counts(root, source, scratch, env, document, evidence):
@@ -62,12 +63,7 @@ def promote_counts(root, source, scratch, env, document, evidence):
                 return None
             continue
         row = targets[key]
-        value = new["value"]
-        spans = new["provenance"]["spans"]["$tuple"]
-        if (value["kind"]["value"] != "integer" or type(value["value"]) is not int or value["value"] != row["count"]
-                or value["unit"] or new["attributes"]["native_unit"] is not None or
-                not any((s["stream"], s["offset"], s["length"], s["record_kind"]) ==
-                        (row["stream"], row["handle_value_offset"], 8, "dimension-scalar") for s in spans)):
+        if not count_matches_parameter(row, new):
             return None
         checked.append(new["id"])
     if len(set(checked)) != len(rows) or len(checked) != len(rows):

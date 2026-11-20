@@ -78,6 +78,7 @@ def CheckPatternCounts(TmpPath: FilePath) -> None:
         and Row["stream_sha256"] != Rule["held_out_stream_sha256"]
         for Row in Rule["samples"]
     )
+    assert Evidence["keyword_evidence"]["counts"]["verified_pattern_count"] == 2
     Counts = Evidence["keyword_evidence"]["pattern_counts"]
     assert sorted((Row["pattern"], Row["count"]) for Row in Counts) == [
         ("circular", 6),
