@@ -1,5 +1,8 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.MassCacheFields import (
+    KMassCacheFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # current native field order supplies both directions without saved document values
@@ -24,25 +27,7 @@ KFeatureFields = MappingProxyType(
             NativeField("Base", "moFeature_c.FUN_4bb2b240"),
             NativeField("Scalar", "f35c", "i32"),
         ),
-        "moMassPropCache_c.Serialize": (
-            NativeField("Length", "n10", "i32", CountValue="f08"),
-            NativeField(
-                "Repeat",
-                "f08",
-                BodyValue=(
-                    NativeField("Scalar", "atom", "i32"),
-                    NativeField("Scalar", "v", "i32"),
-                    NativeField("Scalar", "d", "f64"),
-                ),
-                CountValue="n10",
-            ),
-            NativeField(
-                "Branch",
-                "n10",
-                BodyValue=(NativeField("Embed", "f18", "moMassProp_c"),),
-                ModeValue="NotEquals",
-            ),
-        ),
+        "moMassPropCache_c.Serialize": KMassCacheFields,
         "moSheetMetalMaster_c": (
             NativeField("Base", "moFeature_c"),
             NativeField("Length", "n370", "i32", CountValue="f358"),

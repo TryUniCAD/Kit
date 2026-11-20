@@ -1,5 +1,8 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.MassPropFields import (
+    KMassPropFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # native field order is shared by both archive directions without document supplied programs
@@ -565,41 +568,7 @@ KConfigurationFields = MappingProxyType(
                 CountValue="n120",
             ),
         ),
-        "moMassProp_c": (
-            NativeField("Scalar", "f20", "f64"),
-            NativeField("Scalar", "f28", "f64"),
-            NativeField("Scalar", "f30", "f64"),
-            NativeField("Scalar", "f10", "f64"),
-            NativeField("Scalar", "f08", "f64"),
-            NativeField("Scalar", "f18", "f64"),
-            NativeField("Scalar", "f38", "f64"),
-            NativeField("Scalar", "f40", "f64"),
-            NativeField("Scalar", "f48", "f64"),
-            NativeField("Scalar", "f50", "f64"),
-            NativeField("Scalar", "f60", "f64"),
-            NativeField("Scalar", "f58", "f64"),
-            NativeField("Scalar", "f1c0", "i32"),
-            NativeField("Scalar", "f1c4", "i32"),
-            NativeField("Scalar", "f1c8", "i32"),
-            NativeField("Scalar", "f1cc", "i32"),
-            NativeField("Scalar", "f1e0", "i32"),
-            NativeField("Scalar", "f00", "f64"),
-            NativeField("Scalar", "f134", "i32"),
-            NativeField("Scalar", "f138", "i32"),
-            NativeField("Scalar", "f13c", "i32"),
-            NativeField("Scalar", "f140", "i32"),
-            NativeField("Text", "f148"),
-            NativeField("Text", "f150"),
-            NativeField("Scalar", "f1f0", "i32"),
-            NativeField("Scalar", "fc8", "f64"),
-            NativeField("Scalar", "fd0", "f64"),
-            NativeField("Scalar", "fd8", "f64"),
-            NativeField("Embed", "f68", "mgVector_c.restore"),
-            NativeField("Embed", "f80", "mgVector_c.restore"),
-            NativeField("Embed", "f98", "mgVector_c.restore"),
-            NativeField("Scalar", "f15c", "i32"),
-            NativeField("Scalar", "f128", "u16"),
-        ),
+        "moMassProp_c": KMassPropFields,
         "moNodeName_c": (NativeField("Text", "f08"),),
         "moPartConfigObject_c": (
             NativeField("Scalar", "f0c", "i32"),

@@ -731,7 +731,11 @@ KModelFields = MappingProxyType(
                                     NativeField(
                                         "Branch",
                                         "f161c",
-                                        BodyValue=(NativeField("BBoxCache", "f1640"),),
+                                        BodyValue=(
+                                            NativeField(
+                                                "BBoxCache", "f1640", ModeValue="Tagged"
+                                            ),
+                                        ),
                                         ModeValue="Equals",
                                     ),
                                 ),

@@ -7,6 +7,7 @@ from types import MappingProxyType
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadArrayMut import ReadArrayMut
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBBoxMut import ReadBBoxMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBooleanMut import (
     ReadBooleanMut,
 )
@@ -14,9 +15,6 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBranchMut import (
     ReadBranchMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBytesMut import ReadBytesMut
-from convert.adapters.solidworks.Archive.Bodies.Reading.ReadCachesMut import (
-    ReadCachesMut,
-)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadControlMut import (
     ReadControlMut,
 )
@@ -27,6 +25,7 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadGhostMut import Read
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadLengthMut import (
     ReadLengthMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadMassMut import ReadMassMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNestedMut import (
     ReadNestedMut,
 )
@@ -75,8 +74,8 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Repeat": ReadRepeatMut,
             "Normalize": ReadNormalMut,
             "GhostCount": ReadGhostMut,
-            "MassCaches": ReadCachesMut,
-            "BBoxCache": ReadCachesMut,
+            "MassCaches": ReadMassMut,
+            "BBoxCache": ReadBBoxMut,
             "DirectNode": ReadOwnedMut,
             "Packed": ReadPackedMut,
         }
