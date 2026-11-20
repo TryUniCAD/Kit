@@ -10,3 +10,11 @@ On a disclosed SOLIDWORKS 2026 rectangle, the original comparison measured
 The backport includes the same CAD fixture and a strict public read
 integration case that checks the closed shell and its signed volume.
 [Fixture provenance and measurements](../../../../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
+
+An independently authored capsule was locked before the fin change. The
+strict reader follows two lines and two exterior semicircles on each cap,
+with opposing outward normals and positive signed volume. Its computed
+volume and area match the native SOLIDWORKS 2026 SP05.2 measurements. The
+previous interpretation fails the exterior semicircle check on the same
+partition. Both fresh native controls passed.
+[Held-out curved evidence](../../../../../re/solidworks/measurements/2026/SolidworksCurvedFinHeldout01.json)

@@ -98,7 +98,9 @@ decoder and the disclosed L1 native fixture.
 
 Exit requires revision-bound CI and review evidence. The strict public
 reader must preserve the disclosed closed shell and positive signed volume.
-[Fixture and original comparison](../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
+A separately locked capsule passes the current rule and fails the older
+semicircle traversal. Its signed volume and area match the fresh native
+reference. [Fixture and comparisons](../../re/solidworks/records/SolidworksCurrentFinOrientation2026.md)
 
 ### Fusion schemas
 

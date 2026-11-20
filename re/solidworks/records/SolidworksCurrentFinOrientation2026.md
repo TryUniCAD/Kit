@@ -23,3 +23,24 @@ case reads the fixture using the public strict reader and integrates the
 signed volume from its directed loops.
 [Original measurement receipt](../measurements/2026/SolidworksCurrentFinOrientation01.json)
 · [Integration case](../../../tests/Convert/Solidworks/Core/SolidworksTerminalFinTests.py)
+
+## Held-out curved part
+
+The native capsule source and authoring plan were locked at `1cea817924b9`,
+before fin implementation `87f780657`. The strict SDK at the frozen
+revision reads the original inside Windows and checks the complete closed
+shell. Each cap follows two straight edges and two exterior semicircles.
+The bottom and top signed areas are −259.9498535700781 mm² and
++259.9498535700782 mm² respectively. The decoded outward loop geometry
+gives positive volume 1,855.782004636788 mm³ and area
+1,102.9808663783933 mm², which match the independent native results.
+
+Using only the previous fin rule on the same original partition fails the
+exterior semicircle check. Both native controls pass, as do the read-only
+capsule and an independent translated cylinder in four fresh SOLIDWORKS
+2026 SP05.2 processes. The original native files keep their locked hashes.
+The capsule is the SDK winding check. The cylinder is a separate native
+reference.
+[Held-out receipt](../measurements/2026/SolidworksCurvedFinHeldout01.json)
+· [Guest SDK observer](../../tooling/MeasureSolidworksCurvedFin.py)
+· [Native observer](../../tooling/sw2026/ObserveHeldoutFinNative.py)
