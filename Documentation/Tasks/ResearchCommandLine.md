@@ -263,3 +263,5 @@ For repeated SOLIDWORKS diameters, inspect the owning sketch, scalar offset, and
 For dimensions with repeated values across different features, [owner anchors](../Changes/Research/Inference/SolidWorksOwnerAnchors.md) record the independently observed relationship used to select a source span.
 
 When a SOLIDWORKS run generates multiple reader changes, apply the cumulative `Reader.patch` to its recorded base. The [successive reader passes](../Changes/Research/Inference/SuccessiveReaderPasses.md) report shows which parameters each pass verified.
+
+A `paired_sketch_length` result records the driving and display offsets for a [full-precision sketch length](../Changes/Research/Inference/PairedSketchLengthPrecision.md).

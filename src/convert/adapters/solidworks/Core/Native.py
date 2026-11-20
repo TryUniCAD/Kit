@@ -1,5 +1,6 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.Core.NativeOperand import NativeOperand as NativeOperand
+from convert.adapters.solidworks.Core.PairedSketchLength import PairedSketchLength
 from convert.adapters.solidworks.Core.NativeScalar import NativeScalar as NativeScalar
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension as NativeDimension
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
@@ -1685,6 +1686,14 @@ def BuildNativeList(
                 for ItemValue in Semantic(Feature.kind, tuple(Feature.dimensions))
             )
         )
+        if Feature.kind == "Sketch" and Record and Record.name == Feature.name and Display and Display.UnitName == "mm":
+            Occurrences = Counter(Item.name for Item in Dimensions)
+            ScalarsByName = IndexInch(Owned)
+            Dimensions = tuple(
+                PairedSketchLength(Dimension, ScalarsByName.get(Dimension.name, ()), Display, ResolvedStream)
+                if Occurrences[Dimension.name] == 1 else Dimension
+                for Dimension in Dimensions
+            )
         if Counts:
             Updated = []
             for Dimension in Dimensions:

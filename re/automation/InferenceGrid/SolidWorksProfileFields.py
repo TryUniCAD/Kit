@@ -172,3 +172,41 @@ def profile_fields(data, stream, features, rows, projected, sketches):
                 )
             )
     return results
+
+
+def paired_sketch_lengths(data, stream, features, rows, projected):
+    ambiguous = [r for r in rows if r["status"] == "ambiguous" and len(r["candidate_locations"]) == 2]
+    if not ambiguous:
+        return
+    owners = {(f.object_id, f.name): f for f in features}
+    names = ParseNames(data)
+    markers = sorted((n.offset, n.object_id, n.name) for n in names if (n.object_id, n.name) in owners)
+    counts = Counter(owner for _, owner, _ in markers)
+    bounds = {owner: (start, markers[i+1][0] if i+1 < len(markers) else len(data))
+              for i, (start, owner, name) in enumerate(markers)
+              if counts[owner] == 1 and owners[owner, name].kind == "Sketch"}
+    scalars = {s.value_offset: s for s in ParseScalars(data, names)}
+    frequencies = Counter((r["feature_id"], r["name"]) for r in rows)
+    for row in ambiguous:
+        key = row["feature_id"], row["name"]
+        params = projected.get(key, [])
+        if key[0] not in bounds or frequencies[key] != 1 or len(params) != 1:
+            continue
+        start, end = bounds[key[0]]
+        pair = [scalars.get(pos) for source, pos in row["candidate_locations"] if source == stream and start <= pos < end - 7]
+        if len(pair) != 2 or not all(pair) or {s.role for s in pair} != {"display", "driving"}:
+            continue
+        copy, driving = pair if pair[0].role == "display" else reversed(pair)
+        if (copy.name != row["name"] or driving.name != copy.name or copy.value != driving.value
+                or None in {copy.object_id, driving.object_id} or copy.object_id == driving.object_id or not driving.operands
+                or [(o.kind_code,o.entity_index) for o in copy.operands] != [(o.kind_code,o.entity_index) for o in driving.operands]):
+            continue
+        param = params[0]
+        if (param["attributes"].get("dimension_kind") != "length" or param["attributes"].get("native_value") != driving.value
+                or param["attributes"].get("native_role") != "driving" or param["value"]["unit"] != "mm"
+                or not math.isclose(param["value"]["value"], driving.value*1000, rel_tol=1e-12, abs_tol=1e-12)):
+            continue
+        if any((span["stream"], span["offset"], span["length"], span["record_kind"]) == (stream, driving.value_offset, 8, "dimension-scalar")
+               for span in param["provenance"]["spans"]["$tuple"]):
+            yield row, {"verified_location": (stream, driving.value_offset), "display_offset": copy.value_offset,
+                        "operand_indices": [o.entity_index for o in driving.operands]}

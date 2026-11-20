@@ -9,7 +9,7 @@
 from InferenceGrid.SolidWorksExtrusionDepths import extrusion_depths
 from InferenceGrid.SolidWorksFeatureCounts import feature_counts
 from InferenceGrid.SolidWorksFieldDiscovery import native_parameter_matches
-from InferenceGrid.SolidWorksProfileFields import profile_fields
+from InferenceGrid.SolidWorksProfileFields import paired_sketch_lengths, profile_fields
 from InferenceGrid.SolidWorksPatternCounts import count_matches_parameter, pattern_counts
 
 from bisect import bisect_right
@@ -244,6 +244,11 @@ def keyword_evidence(streams, discovered, document, root, pin, fields):
         row.update(status="held_out_owner_anchor", reader_span_matches=True, verified_location=location,
                    anchors=prediction["anchors"], sample_group=prediction["sample_group"])
         counts[row["status"]] += 1
+    if resolved in streams:
+        for row, offsets in paired_sketch_lengths(streams[resolved], resolved, features, rows, projected):
+            counts[row["status"]] -= 1
+            row.update(status="paired_sketch_length", reader_span_matches=True, **offsets)
+            counts[row["status"]] += 1
     proposals = ownership_hypotheses(rows, features, streams[resolved], resolved) if resolved in streams else None
     extrusions = extrusion_depths(root, streams[resolved], features, pin, rows, projected, resolved) if resolved in streams else None
     for prediction in (extrusions or {}).get("predictions", []):

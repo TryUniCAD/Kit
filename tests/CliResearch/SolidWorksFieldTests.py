@@ -224,3 +224,17 @@ def CheckRoundedPatternAngle(TmpPath: FilePath) -> None:
     assert Passes["passes"] == []
     assert Passes["stop"] == "no_verified_patch"
     assert not (Run / "Reader.patch").exists()
+    Paired = [Row for Row in Dimensions if Row["status"] == "paired_sketch_length"]
+    assert {(Row["feature_id"], Row["name"]) for Row in Paired} == {
+        (66, "D2"),
+        (295, "D3"),
+    }
+    (SketchLength,) = [
+        Row
+        for Row in Doc["parameters"]["$tuple"]
+        if Row["id"] == "sldprt:parameter:66:D2"
+    ]
+    assert SketchLength["value"]["value"] == 39.41420312445611
+    assert SketchLength["attributes"]["source_text"] == "39.41"
+    assert SketchLength["attributes"]["native_role"] == "driving"
+    assert SketchLength["provenance"]["spans"]["$tuple"][0]["offset"] == 49223
