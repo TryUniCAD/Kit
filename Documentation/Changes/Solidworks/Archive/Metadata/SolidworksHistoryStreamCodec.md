@@ -19,9 +19,10 @@ native lifecycle evidence supply six exact stream comparisons.
 Two authored history inputs and a shared-date case match separate
 wire constructions, with twelve refusals observed. An independently
 framed Unicode comment edit shifts the emitted root and date-code
-spans while keeping the source coordinates. Queue execution and
-held-out native stream evidence remain pending. This internal codec
-is a prerequisite for complete part writing.
+spans while keeping the source coordinates. Deleting an earlier state
+reassigns the surviving date-code object in the emitted map. Queue
+execution and held-out native stream evidence remain pending. This
+internal codec is a prerequisite for complete part writing.
 [Source and process evidence](../../../../../re/solidworks/records/HistoryStreamSlice2026.md)
 · [History count gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Metadata/HistoryNeedsFinalStates.md)
 · [History output offsets](../../../../Gotchas/Conversion/Solidworks/Archive/Metadata/HistoryWriteUsesOutputOffsets.md)

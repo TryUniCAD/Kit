@@ -71,15 +71,22 @@ The original graph retains `[0, 111)` and `[56, 89)`.
 Both maps bind their own date-code object at slot 4. The returned graph
 comes from typed readback of the emitted buffer.
 
+The date-owner deletion probe reads two states with distinct date-code
+objects in slots 4 and 5. Both use class slot 3. Removing the first state
+emits the surviving build code 2040693 at slot 4 and sets the output
+map counter to 5. The source map retains both objects and counter 6.
+The output matches a separately framed single-state record.
+
 ```sh
 python -I -B re/tooling/sw2026/CheckHistory.py ladder
 python -I -B re/tooling/sw2026/CheckHistory.py annulus
 python -I -B re/tooling/sw2026/CheckHistory.py concave
 python -I -B re/tooling/sw2026/CheckHistory.py authored
 python -I -B re/tooling/sw2026/CheckHistory.py edited
+python -I -B re/tooling/sw2026/CheckHistory.py renumbered
 ```
 
-All five host processes reported zero external accesses after
+All six host processes reported zero external accesses after
 input loading. The manifest records their digests.
 The internal codec uses typed fields and shared scalar, string and map
 primitives. The source fixtures are disclosed controls. This tranche
@@ -90,3 +97,4 @@ Earlier version lanes and additional archive owners have separate exits.
 [Disclosed queue cases](../../../tests/Convert/Solidworks/Archive/HistoryTests.py)
 · [Authored queue case](../../../tests/Convert/Solidworks/Archive/HistoryWireTest.py)
 · [Output coordinates queue case](../../../tests/Convert/Solidworks/Archive/HistoryEditTest.py)
+· [Date-code map queue case](../../../tests/Convert/Solidworks/Archive/HistoryMapTest.py)

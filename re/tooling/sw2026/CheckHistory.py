@@ -24,7 +24,7 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 VERSION = 19000
 PREFIX = "_MO_VERSION_19000/"
 MANIFEST = ROOT / "re/solidworks/measurements/2026/HistoryStreamSources01.json"
-CASES = ("ladder", "annulus", "concave", "authored", "edited")
+CASES = ("ladder", "annulus", "concave", "authored", "edited", "renumbered")
 
 
 def require(valid, message):
@@ -154,6 +154,45 @@ def edited():
             "output_sha256": digest(output)}
 
 
+def renumbered():
+    first = HistoryInput(1881802743, "removed", 2031447, 0, 1033, False)
+    retained = replace(first, CreatedAt=1909975145, CommentText="retained", BuildCode=2040693)
+    first_state = (version_stamp(first.CreatedAt, first.CommentText) + pack("<I", VERSION)
+                   + new_class("moDateCodeHistory_c") + pack("<ii", 1, first.BuildCode))
+    retained_state = (version_stamp(retained.CreatedAt, retained.CommentText)
+                      + pack("<IHii", VERSION, 0x8003, 1, retained.BuildCode))
+    source = (new_class("moVersionHistory_c") + pack("<i", 2)
+              + first_state + retained_state + history_tail(first))
+    source_graph = ReadHistGraph(source, VERSION)
+    source_report = describe(source_graph, source, "History")
+    rows = source_graph.RootValue.FieldsValue["states"]
+    removed_date, retained_date = (row["st"]["f38"] for row in rows)
+    before = [removed_date.IndexValue, retained_date.IndexValue]
+    source_entries = source_graph.MapValue.EntriesValue
+    require(before == [4, 5] and source_report["n"] == 2 and source_report["counter"] == 6
+            and removed_date is not retained_date and source_entries[3].EntryValue is removed_date
+            and source_entries[4].EntryValue is retained_date
+            and source_entries[2].EntryValue is removed_date.ClassValue is retained_date.ClassValue
+            and [date.FieldsValue["states"][0]["st"]["f08"] for date in (removed_date, retained_date)]
+            == [first.BuildCode, retained.BuildCode], "source date-code objects or class reuse differ")
+    rows.pop(0)
+    output, graph = WriteHistGraph(source_graph.RootValue, VERSION)
+    report = describe(graph, output, "History")
+    emitted = graph.RootValue.FieldsValue["states"][0]["st"]
+    date = emitted["f38"]
+    build = date.FieldsValue["states"][0]["st"]["f08"]
+    after = [removed_date.IndexValue, retained_date.IndexValue]
+    require(after == before and source_graph.RootValue.FieldsValue["n"] == 2
+            and source_graph.MapValue.EntriesValue is source_entries
+            and rows[0]["st"]["f38"] is retained_date, "emission reassigned the source map")
+    require(output == history_wire(retained) and report["n"] == 1 and report["counter"] == 5
+            and date.IndexValue == 4 and date is not removed_date and date is not retained_date
+            and build == retained.BuildCode, "emitted history did not reassign the surviving date owner")
+    return {"source_slots": before, "post_write_source_slots": after, "emitted_slot": date.IndexValue,
+            "map_counters": [source_report["counter"], report["counter"]], "retained_build": build,
+            "source_sha256": digest(source), "output_sha256": digest(output)}
+
+
 def fresh_history(spec):
     root = MakeFreshHist(spec)
     expected = history_wire(spec)
@@ -246,8 +285,12 @@ def main():
     sys.addaudithook(audit_run)
     if control is not None:
         result = verify_control(*control)
+    elif case == "authored":
+        result = authored()
+    elif case == "edited":
+        result = edited()
     else:
-        result = authored() if case == "authored" else edited()
+        result = renumbered()
     print(json.dumps(result | {"case": case, "runtime_external_accesses": 0}, sort_keys=True, ensure_ascii=True))
 
 
