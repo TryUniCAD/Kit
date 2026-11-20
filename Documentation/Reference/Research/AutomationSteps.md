@@ -40,6 +40,15 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+A08h is active on `codex/catalogue-authoring-integration`, owned by Codex. It
+connects catalogue selection to the existing native builders with parameter
+overrides and automatic downstream decoding. Dependencies are A03/A08 worker
+ownership, the P01–P05 builders, and the catalogue/resume implementation. Its
+remaining native and process acceptance is recorded in
+[catalogue sample authoring](../../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md).
+This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
+requirements.
+
 The user assigned SOLIDWORKS and CAD-independent implementation to Codex on 2026-11-17.
 Delivery remains on [PR #158](https://github.com/TryUniCAD/Kit/pull/158), from isolated branch `codex/pr158-solidworks-completion`.
 The starting source revision is `a6cc279f629d088c526a654149bb9dc99a8b2bb6`.

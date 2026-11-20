@@ -166,6 +166,22 @@ To retry a parked native job after its owner restores the application, add `--na
 
 ## Keep the interfaces distinct
 
+### Author new catalogue samples
+
+Add `--author-samples` to a catalogue run to create new native samples before
+decoding them. `--authoring-cases` selects catalogue identities and validated
+parameter overrides. `--prepare-only` writes the plan without launching CAD.
+Discovery uses the executable P01, P03, and P04 builders. Reserved P02 and P05
+authoring require explicit `--capture-mode qualification` or `holdout`.
+
+SOLIDWORKS needs `--solidworks-host` with installed executable and interop paths.
+Fusion needs its native worker options and `--fusion-lifecycle` for automatic
+owned restart. Use the same source revision across workers and the selected
+checkout. Pause/resume keeps the existing native and decoder receipts.
+
+See [catalogue sample authoring](../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md)
+for the case format, native host requirements, limitations, and evidence rules.
+
 | Command                                       | Contract                                                   |
 | --------------------------------------------- | ---------------------------------------------------------- |
 | `kit convert SOURCE DESTINATION`              | User conversion through the SDK and its output policy      |
