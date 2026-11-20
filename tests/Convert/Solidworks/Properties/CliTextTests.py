@@ -25,14 +25,14 @@ def TestCliTextCopy(TmpPath: FilePath) -> None:
     TargetPath = TmpPath / "target.json"
     Original = DocumentValue.to_json()
     _ = SourcePath.write_text(Original, encoding="utf-8")
-    Args = ("convert", str(SourcePath), str(TargetPath), "--json")
-    Copied = CliProcess(TmpPath, *Args)
+    Arguments = ("convert", str(SourcePath), str(TargetPath), "--json")
+    Copied = CliProcess(TmpPath, *Arguments)
     assert Copied.returncode == 0, Copied.stderr
     Output = TargetPath.read_bytes()
     assert LoadJson(Output) == LoadJson(Original)
     Filtered = CliProcess(
         TmpPath,
-        *Args,
+        *Arguments,
         "--configuration",
         DocumentValue.configurations[0].name,
         "--overwrite",

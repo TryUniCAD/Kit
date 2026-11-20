@@ -46,7 +46,7 @@ def TestLiteralText() -> None:
 
 
 # an interchange write must retain all three qualified scopes and their actual owner
-def TestLiteralWrite() -> None:
+def TestTextWrite() -> None:
     ReportValue = RunPartText(
         KPartProbe / "CheckLiteralTextWrite.py",
         KPartCorpus / "part-properties/CircularProperties.SLDPRT",
