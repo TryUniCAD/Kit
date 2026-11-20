@@ -149,8 +149,12 @@ The generated-output total remains zero for this lock.
 The [neutral owner graph](measurements/2026/TwoStockColdOwnerGraph01.json)
 constructs the two provisional stock records, both editable depth owners
 and the explicit cut selection. All ten model-derived streams survive
-in-memory container readback. Native regeneration and benchmark coverage
-remain open for this graph.
+in-memory container readback.
+
+One [disclosed generated two-stock part](measurements/2026/TwoStockColdNative01.json)
+passed native rebuild, the unrelated depth edit, save and fresh reopen.
+Both native controls passed. Complete strict SDK readback and the two
+locked inputs remain open. This adds zero benchmark conversions.
 
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,
