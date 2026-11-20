@@ -448,6 +448,16 @@ cases, and current revision queue and review evidence. Inline bodies,
 handle modes and full configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
+### B04-SW2026-CONFIG-FONT-FIELDS
+
+The PR #121 takeover team owns this bounded reader on
+`codex/solidworks-config-annotation-font` for separate main delivery.
+It reuses the accepted scalar, text and embedded field readers and the
+part header handoff. Exit requires exact native field and map comparisons,
+guarded malformed cases and current revision queue and review evidence.
+The composed label, annotation and detail definitions have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent delivered the current Parasolid fin traversal

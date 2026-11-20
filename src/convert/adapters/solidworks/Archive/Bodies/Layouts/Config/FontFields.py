@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# current native field order supplies both directions without saved document values
+# line font records share their untagged width layout across ordinary archive owners
 KFontFields = MappingProxyType(
     {
         "uiLFConfig_c": (

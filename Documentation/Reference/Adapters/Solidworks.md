@@ -305,6 +305,12 @@ can reuse those exact objects. The stored unsigned atom state remains
 available alongside its runtime projection.
 [Atom manager scope](../../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
+The shared version-19000 body reader has layouts for line fonts, embedded
+widths, character formats, and print width tables in part detail definitions.
+These fields retain their wire values and leave the archive map unchanged.
+Complete detail definitions require the remaining annotation and table owners.
+[Configuration font scope](../../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
