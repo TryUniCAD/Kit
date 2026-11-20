@@ -220,6 +220,49 @@ jobs:
           version: "0.12.5"
       - run: uv sync --frozen --no-default-groups --extra dev --python 3.14
       - run: uv run --no-sync python re/automation/CaptureHistory.py fetch
+      - name: Measure sketch membership agreement
+        run: |
+          uv run --no-sync python - <<'PYTHON'
+          from pathlib import Path
+          from convert.Formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
+          from convert.Formats.Fusion.DocumentRead import ReadFusionDoc
+          from convert.Formats.Fusion.Sketches.SketchRuleIds import ReadSketchRules
+          from convert.Formats.Fusion.Sketches.SketchPlacement import KSketchBase
+          from convert.Formats.Fusion.MetaCursor import MetaCursor
+          from convert.Formats.Fusion.HistoryRef import ReadNativeRef
+          base = Path('re/Fusion/Study')
+          for sample in ['extents-f0f33a9a605f/distance_positive.f3d','holdouts-f8c508a73323/expression_depth.f3d','models-97a5e41e2ba7/revolve_full.f3d','bodyselections-62e42366c722/scale_two_bodies_point.f3d']:
+              path = base / sample
+              doc = ReadFusionDoc(path)
+              with OpenFusionZip(path.read_bytes(), None) as archive:
+                  bulk, spans = archive.ReadDesign()
+                  for sketch in doc.sketches:
+                      owner = int(sketch.provenance.native_id)
+                      root, = [r for r in spans if r.IsPrimary and r.ObjectId == owner]
+                      children = {int(e.provenance.native_id) for e in sketch.entities}
+                      constraints, dimensions = ReadSketchRules(bulk,root)
+                      expected = children.union(constraints,dimensions)
+                      for r in spans:
+                          if r.ObjectId != owner or r.ClassGuid != KSketchBase:
+                              continue
+                          cursor = MetaCursor(bulk[r.PayloadOffset+4:r.EndOffset])
+                          cursor.Offset = 28
+                          cursor.ReadText(True, Maximum=1024)
+                          start = cursor.Offset
+                          matches = []
+                          for offset in range(start, min(start+64,len(cursor.DataValue))):
+                              cursor.Offset = offset
+                              try:
+                                  count = cursor.ReadCount(10000)
+                                  if count < len(children) or not count:
+                                      continue
+                                  ids = {ReadNativeRef(cursor) for _ in range(count)}
+                              except ValueError:
+                                  continue
+                              if children <= ids:
+                                  matches.append((offset-start,count,len(ids-expected),len(expected-ids)))
+                          print(path.name,'entities',len(children),'rules',len(constraints)+len(dimensions),'membership counts',matches)
+          PYTHON
       - name: Inspect the partition inputs for missing solids
         run: |
           mkdir -p "$RUNNER_TEMP/kit-base"
