@@ -3131,7 +3131,6 @@ def NativeMarkerA(Marker: NativeMarker, EntityType: str | None = None) -> Native
 # this state exists because sketch rule resolution shares occurrence counters
 @DataClass(slots=True)
 class RuleContext:
-    MarkerCircles: tuple[SketchEntity, ...]
     Candidates: Mapping[float, list[tuple[str, str]]]
     DimensionsByName: Mapping[str, list[NativeDimension]]
     ParamIdsByName: Mapping[str, list[str]]
@@ -3139,6 +3138,7 @@ class RuleContext:
     ParamUsage: Defaultdict[str, int]
     RuleIdUsage: Defaultdict[str, int]
     ParamIds: set[str]
+    MarkerCircles: tuple[SketchEntity, ...] = ()
 
 
 # this definition exists because rule resolution needs indexed dimensions and profiles
@@ -3163,7 +3163,6 @@ def RuleContextA(
         DimensionsByName[Dimension.name].append(Dimension)
         ParamIdsByName[Dimension.name].append(ParamId)
     return RuleContext(
-        tuple(Entity for Entity in MarkerValues if isinstance(Entity.geometry, CircleGeom)),
         Candidates,
         DimensionsByName,
         ParamIdsByName,
@@ -3171,6 +3170,9 @@ def RuleContextA(
         Defaultdict(int),
         Defaultdict(int),
         ParamIds,
+        tuple(
+            Entity for Entity in MarkerValues if isinstance(Entity.geometry, CircleGeom)
+        ),
     )
 
 

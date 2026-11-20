@@ -116,3 +116,13 @@ def CheckFeatureCountCopies(TmpPath: FilePath) -> None:
     assert [Row["count"] for Row in Rule["counts"]] == [36]
     assert Rule["counts"][0]["keyword_count_matches"]
     assert Rule["counts"][0]["public_reader_matches"]
+    Dimensions = Evidence["keyword_evidence"]["dimensions"]
+    Depths = [Row for Row in Dimensions if Row["status"] == "held_out_extrusion_depth"]
+    assert len(Depths) == 2
+    assert {Row["display_text"] for Row in Depths} == {"3.5"}
+    assert len({tuple(Row["verified_location"]) for Row in Depths}) == 2
+    Radial = [Row for Row in Dimensions if Row["status"] == "paired_radial_dimension"]
+    assert len(Radial) == 1
+    assert Radial[0]["display_offset"] != Radial[0]["verified_location"][1]
+    assert Radial[0]["display_text"] == "<MOD-DIAM>57"
+    assert all(Row["status"] != "ambiguous" for Row in Dimensions)
