@@ -22,19 +22,23 @@ The delivered framing file
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
 `62d04af2ee71dfa7671b01fe795b105c2d97e32e391e2bf348102fc69fa39523`.
 The [named-tree serializer](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/EmitKeywordXml.py)
-has SHA-256 `8773e31df6072e6bdb2b671180f034f0f8a52dadfc71c5f130dabc9e1a27d370`.
+has SHA-256 `f5cd56033511dfac15c43d1bb93a74c7c5cbbc4383daeea1abf8f883ab5ef6d1`.
 The [name boundary](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckXmlNames.py)
 has SHA-256 `754d19d4612a8163beaaf991d212ef94f3d1af3e1ef09d844035899882f5e3ef`.
 The [tree comparison](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckXmlTree.py)
-has SHA-256 `d4aee1a6b2305e9da3cb4e7171925a21cd775b53b28c355c5607a3a894bad4dd`.
+has SHA-256 `74cb38439908ceb7b15a0c5ed5db86f0c140a9107bf08cff67ed97fad90d185a`.
 The [namespace expansion](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/ExpandXmlName.py)
 has SHA-256 `ffbb86416a2f1c662bcf29adabd54a5ba5608020578a37267911a25410e0adb8`.
-The [parsed namespace scopes](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/ReadXmlScopes.py)
-has SHA-256 `aecbdede425d3189e51142fbf1a895a0bf20a7303ce5943baf053c126d8e0cf1`.
+The [parsed namespace declarations](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/ReadXmlScopes.py)
+has SHA-256 `54c39b9c8b8a0706930526b036ac56f99f38186331470707109ba7e8c14547af`.
 The [attribute comparison](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/HasXmlAttrs.py)
-has SHA-256 `eeaaac425967a4e0dae8e31a586210aaa56c1794daf3f7889d6c588d7094e0a3`.
-The path-sorted seven-file manifest SHA-256 is
-`b45531aa8e907f84ee294b873befef6c4746355957ce14eaa7c37085840df727`.
+has SHA-256 `2c61128ceeffa065b483a0af3ec1b006432502833c8a795476ed3dc33ca5ab66`.
+The [bounded namespace updates](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/BindXmlScopeMut.py)
+has SHA-256 `3409f056aaf3965c70a2d4c010c54a501d8a39b0445dc85dd40b840d2038c19e`.
+The [qualified value grammar](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/IsXmlNcName.py)
+has SHA-256 `dc5cb1c54cfc83233bff1eda4c975f43a02850d3a67983153021a0cf47832976`.
+The path-sorted nine-file manifest SHA-256 is
+`4ebd324a40417eea2ea18a85a0569076ecbf4f8d78c5b10070c5d675143f3bfe`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. The serializer uses the
 standard-library `tostring` exposed by the repository's locked
@@ -45,6 +49,13 @@ instruction starters in authored name tokens. The final tree is checked
 against the authored tree with actual scoped namespace declarations.
 Literal namespaces retain their lexical form. A generated prefix
 collision that changes the parsed namespace fails before publication.
+The parser retains declarations only at their actual anchors. The tree
+walk applies those changes on entry and restores the affected prefixes
+before checking a sibling. Inherited maps are shared across each visit.
+Qualified attribute values follow the XML 1.0 Fifth Edition local-name
+grammar, including its Unicode continuation ranges.
+[XML name grammar](https://www.w3.org/TR/xml/#NT-NameStartChar)
+[Namespace local names](https://www.w3.org/TR/xml-names/#NT-NCName)
 
 ## Framing and serialization
 

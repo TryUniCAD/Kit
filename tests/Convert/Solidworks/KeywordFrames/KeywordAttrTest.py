@@ -6,7 +6,12 @@ from tests.Convert.Solidworks.KeywordFrames.RunKeywordFrame import RunKeywordFra
 
 # a qualified attribute value keeps its own namespace even when the element name is unqualified
 def TestQNameAttr(TmpPath: FilePath) -> None:
-    for Scenario in ("ordinary", "shadow", "invalid"):
+    for Scenario, LocalName in (
+        ("ordinary", "Native"),
+        ("unicode", "Part‿Name"),
+        ("shadow", "Native"),
+        ("invalid", "Part Name"),
+    ):
         Source = TmpPath / f"attribute{Scenario}.json"
         Target = Source.with_suffix(".bin")
         _ = Source.write_text(
@@ -18,18 +23,19 @@ def TestQNameAttr(TmpPath: FilePath) -> None:
                     "text": "",
                     "tail": "",
                     "qualified_attribute": True,
+                    "sibling_namespace": True,
                     "qualified_attribute_shadow": Scenario == "shadow",
-                    "invalid_qualified_attribute": Scenario == "invalid",
+                    "qualified_local_name": LocalName,
                 }
             ),
             encoding="utf-8",
         )
         Result = RunKeywordFrame("write", Source, Target)
-        if Scenario != "ordinary":
+        if Scenario in ("shadow", "invalid"):
             assert Result.returncode != 0
             assert not Target.exists()
         else:
             assert Result.returncode == 0, Result.stdout + Result.stderr
             PayloadValue = Target.read_bytes()
             assert b'xmlns:ns0="urn:kit:keyword"' in PayloadValue
-            assert b'state="ns0:Native"' in PayloadValue
+            assert f'state="ns0:{LocalName}"'.encode() in PayloadValue

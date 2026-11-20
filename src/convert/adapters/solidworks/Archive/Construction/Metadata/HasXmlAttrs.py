@@ -1,10 +1,11 @@
 from collections.abc import Mapping
 from typing import cast as CastValue
 
-from defusedxml.ElementTree import fromstring as ReadElement
-
 from convert.adapters.solidworks.Archive.Construction.Metadata.ExpandXmlName import (
     ExpandXmlName,
+)
+from convert.adapters.solidworks.Archive.Construction.Metadata.IsXmlNcName import (
+    IsXmlNcName,
 )
 
 
@@ -22,7 +23,7 @@ def HasXmlAttrs(
         Actual = TextValue
         if not isinstance(SourceValue, str):
             LocalName = TextValue.split(":", 1)[-1]
-            if ReadElement(f"<{LocalName}/>", forbid_dtd=True).tag != LocalName:
+            if not IsXmlNcName(LocalName):
                 return False
             Actual = ExpandXmlName(TextValue, ScopeValue, True)
         if str(SourceValue) != Actual:

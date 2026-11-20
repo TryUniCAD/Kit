@@ -27,7 +27,13 @@ def EmitKeywordXml(RootValue: Element, CompactTags: bool) -> bytes:
         ParsedValue, ParsedScopes = ReadXmlScopes(PayloadValue)
         if ParsedValue.tag != RootValue.tag:
             raise ValueError("serialized keyword root changed its native name")
-        CheckXmlTree(RootValue, ParsedValue, {"xml": KXmlNamespace}, ParsedScopes)
+        CheckXmlTree(
+            RootValue,
+            ParsedValue,
+            {"xml": KXmlNamespace},
+            {"xml": KXmlNamespace},
+            ParsedScopes,
+        )
     except (SyntaxError, TypeError, ValueError) as ErrorInfo:
         raise ValueError(
             "native keyword framing requires well-formed XML"
