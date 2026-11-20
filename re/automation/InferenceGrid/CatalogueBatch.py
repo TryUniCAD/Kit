@@ -118,6 +118,8 @@ def RunCatalogueBatch(
             Outcome["file_stall"] = str(Directory / "FileStall.json")
         if FileAdviceStatus is not None:
             Outcome["file_advice"] = {"status": FileAdviceStatus, "path": str(Directory / "FileAdvice/Advice.json")}
+        if "reader-patch" in Reports:
+            Outcome["reader_patch"] = str(Directory / "Reader.patch")
         Outcome["file_scope"] = str(Directory / "FileScope.json")
         if Outcome["status"] == "completed":
             Outcome["status"] = "coverage_incomplete"

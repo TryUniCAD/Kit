@@ -191,7 +191,6 @@ def round_reader(root, data, pin, scratch):
     report["missing_control_sha256"] = sorted(wanted - seen)
     if (
         wanted != seen
-        or not report["native_witness"]
         or not all(row["geometry_matches"] for row in replays)
         or len({row["predicted"]["volumeCm3"] for row in replays}) < 2
         or (root / relative).exists()
@@ -207,6 +206,7 @@ def round_reader(root, data, pin, scratch):
             "patch": patch,
             "path": relative,
             "input_sha256": pin,
+            "target_verification": "native_observation_matches" if report["native_witness"] else "decoded_without_native_observation",
             "reader_sha256": report["reader_sha256"],
             "replayed_sha256": [row["source_sha256"] for row in replays],
             "base": subprocess.check_output(

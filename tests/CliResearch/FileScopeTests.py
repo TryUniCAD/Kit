@@ -271,8 +271,14 @@ def CheckUnlabelledSnapshot(TmpPath: FilePath) -> None:
 def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
     from os import environ as Environment, pathsep as PathSeparator
 
+    from zipfile import ZipFile as Archive
+
     Root = ResearchRoot()
     Folder = Root / "re/Fusion/LocalOracle/RoundBodies"
+    Source = TmpPath / "unknown"
+    with Archive(Folder / "vendor_DecodedPlacedTorus.f3d") as Document:
+        (Member,) = [Name for Name in Document.namelist() if Name.endswith(".smb")]
+        Source.write_bytes(Document.read(Member))
     Output = TmpPath / "run"
     Result = RunProcess(
         [
@@ -284,7 +290,7 @@ def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
             str(Root),
             "auto",
             "--input",
-            str(Folder / "DecodedPlacedTorus.smb"),
+            str(Source),
             "--directory",
             str(Output),
         ],
@@ -295,10 +301,9 @@ def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
     Record = LoadJson((Output / "Input-reader-patch.json").read_bytes())
     Report = LoadJson((Output / "Input-raw-structure.json").read_bytes())
     assert Report["profile"] == "Torus" and len(Record["replayed_sha256"]) == 5
-    assert (
-        Report["native_witness"]["geometry_matches"]
-        and not Report["missing_control_sha256"]
-    )
+    assert Record["input_sha256"] not in Record["replayed_sha256"]
+    assert Record["target_verification"] == "decoded_without_native_observation"
+    assert Report["native_witness"] is None and not Report["missing_control_sha256"]
     RunProcess(
         ["git", "apply", "--no-index", str(Output / "Reader.patch")],
         cwd=TmpPath,
