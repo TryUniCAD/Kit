@@ -1,4 +1,4 @@
-from convert.adapters.freecad.FixedOrigin import IsFixedOrigin
+from convert.adapters.freecad.EditShape.FixedOrigin import IsFixedOrigin
 from convert.adapters.freecad.EditRing.RingEndpoints import CheckRingEnds, ReadRingEnds
 from convert.Geometry.Extrude.Polygon.PrismRing import MeasureRing, ReadPrismRing
 from interchange.brep.Topology.BrepMath import IsFinitePlane

@@ -8,4 +8,4 @@ Inspection of all eleven pinned P04 Fusion discovery archives verified Cut `446`
 
 The partial document carries the saved Cut operation and target identity. Cut extent, supporting-face projection, final BRep regeneration and strict editable conversion retain separate qualification requirements.
 
-The Cut reader selects its target descriptor layout explicitly because Mirror uses the same numeric mode. [Mirror and Cut selection mode](../../../Gotchas/Conversion/Fusion/MirrorAndCutSelectionMode.md)
+The Cut reader selects its target descriptor layout explicitly because Mirror uses the same numeric mode. [Mirror and Cut selection mode](../../../Gotchas/Conversion/Fusion/Features/MirrorAndCutSelectionMode.md)
