@@ -1,0 +1,12 @@
+{
+  "candidates": {
+    "PrincipalRevolveHeldoutRight": "07df0e087581fb9fcb68b94da523508074576e4bf925839c5aed65f897298313",
+    "PrincipalRevolveHeldoutTop": "479a98f542d63471d1cbca0958870dca70294e1adbcbdb08f8eeaae9822d9736"
+  },
+  "freeze_sha256": "9b8c814e29c4862eb99ea51699dde0bbb6d308c5ce20ce0ebdcbcb52bac5630c",
+  "generation_sha256": "30b127f6bd04746e79019180099f62e55b87499e635b25182e0b04533a0bb0d2",
+  "native_processes": 0,
+  "original_files_read": 0,
+  "schema": "kit.sw2026.principal-revolve-heldout-generation-pin.v1",
+  "source_tree": "c1967f83c511b6ffc699684335e132704851a1fb"
+}
