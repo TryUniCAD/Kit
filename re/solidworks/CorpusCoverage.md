@@ -61,6 +61,13 @@ The receipt records the omitted source domains. [Supplemental SDK readback](meas
 checks their original, generated and saved bodies and reproduces 30 linked
 streams. These SOLIDWORKS inputs contribute zero FCStd benchmark conversions.
 
+Three [disclosed note-pair projections](measurements/2026/ImportedPartNotesNative01.json)
+keep the original ordered 24-row cold feature trees across native open
+and fresh reopen. Native saves preserve both note owners and chronology,
+the supplied scene and the generated property owners. Both controls
+pass across eleven native processes. These disclose presentation coverage
+for the scoped local import and add zero FCStd benchmark cases.
+
 The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
 preserve a live sketch-dimension dependency across edits, saves and fresh reopens.
 The original and edited guest-only inputs are locked before writer implementation.

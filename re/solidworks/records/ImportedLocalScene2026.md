@@ -38,3 +38,21 @@ stopped before COM with a manifest-key mismatch. Its host used forward
 slashes and the guest compared native path separators. The retry uses
 portable archive keys while retaining native output paths.
 [Existing manifest gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Extrusion/FrozenManifestKeysUsePortablePaths.md)
+
+## Empty notes and ordered feature tree
+
+The same three disclosed inputs also supply the actual annotation cabinet's
+reciprocal empty notes pair. The writer builds the two owners beside the
+authored lights from typed captions and chronology. At each destination,
+adding the pair changes five logical streams. The independently generated
+baseline keeps the same configuration, geometry and file property owner.
+
+The generated files pass 348 geometry comparisons through cold open,
+rebuild, native save and independent reopen. Both controls pass across
+eleven fresh processes. All three 24-row cold feature trees match their
+respective originals. Both notes match in the source, generated and
+reopened trees, including after rebuild. Each native save keeps both
+typed captions and chronology, 64 light values, three empty property
+scopes and the 102-byte file property owner. This disclosed trial leaves
+complete original-source admission and public writer qualification open.
+[Native notes receipt](../measurements/2026/ImportedPartNotesNative01.json)

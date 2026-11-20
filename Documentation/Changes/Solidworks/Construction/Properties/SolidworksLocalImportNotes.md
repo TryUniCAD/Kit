@@ -10,8 +10,14 @@ children own both records.
 Three disclosed source projections preserve the actual note inputs and
 planar solids through an independent SDK read. Construction reads zero
 files. The same-path contrast changes only the resolved stream, its two
-headers, configuration manager and KeyWords. The native lifecycle and
-complete tree equivalence have separate acceptance checks.
+headers, configuration manager and KeyWords. All three generated files
+open, rebuild, save and reopen in SOLIDWORKS 2026 SP05.2. The original and
+generated sources have identical ordered 24-row native feature trees at
+cold open and after fresh reopen. Both note rows retain their type, parent
+and captions after rebuild. Native saves preserve their typed chronology,
+the supplied lights, empty text scopes and binary file property manager.
+Both controls passed across eleven fresh processes.
 
 [Native probe](../../../../../re/tooling/sw2026/imported_body_source/ProbeImportedPartScene.py)
+· [Native result](../../../../../re/solidworks/measurements/2026/ImportedPartNotesNative01.json)
 · [Cabinet ownership](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/LocalNotesFollowCabinetMembers.md)

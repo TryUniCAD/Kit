@@ -1,0 +1,539 @@
+{
+  "appearance_graph": {
+    "appearance_observations": {
+      "default_appearance": 1,
+      "pbr_name": "basic",
+      "pbr_present": 1,
+      "pbr_version": "2025x",
+      "physical_material_idname_text": "Steel",
+      "rgb_packed": "0xe4e4e4",
+      "rv_present": 1,
+      "rv_shader_name": "defaultplastic"
+    },
+    "document_appearance": [
+      "moVisualProperties_c",
+      1,
+      10
+    ],
+    "entity_rows_in_order": [
+      {
+        "joined_feature": [],
+        "properties_attribute": [
+          "visStateVisualPropertiesAttribute_c",
+          1,
+          8
+        ],
+        "ref": [
+          "moCompHolder_c",
+          1,
+          4
+        ],
+        "unit": [
+          "moUnitComponent_c",
+          1,
+          6
+        ],
+        "visibility_attribute": [
+          "visStateVisualStateAttribute_c",
+          1,
+          12
+        ],
+        "visibility_fields": [
+          1,
+          6,
+          1,
+          0
+        ]
+      },
+      {
+        "joined_feature": [
+          26,
+          "moProfileFeature_c"
+        ],
+        "properties_attribute": [
+          "visStateVisualPropertiesAttribute_c",
+          1,
+          16
+        ],
+        "ref": [
+          "moCompFeature_c",
+          1,
+          14
+        ],
+        "unit": [
+          "moUnitComponent_c",
+          1,
+          15
+        ],
+        "visibility_attribute": [
+          "visStateVisualStateAttribute_c",
+          1,
+          12
+        ],
+        "visibility_fields": [
+          1,
+          6,
+          1,
+          0
+        ]
+      },
+      {
+        "joined_feature": [
+          5,
+          "moOriginProfileFeature_c"
+        ],
+        "properties_attribute": [
+          "visStateVisualPropertiesAttribute_c",
+          1,
+          16
+        ],
+        "ref": [
+          "moCompFeature_c",
+          1,
+          17
+        ],
+        "unit": [
+          "moUnitComponent_c",
+          1,
+          18
+        ],
+        "visibility_attribute": [
+          "visStateVisualStateAttribute_c",
+          1,
+          12
+        ],
+        "visibility_fields": [
+          1,
+          6,
+          1,
+          0
+        ]
+      },
+      {
+        "joined_feature": [
+          4,
+          "moRefPlane_c"
+        ],
+        "properties_attribute": [
+          "visStateVisualPropertiesAttribute_c",
+          1,
+          16
+        ],
+        "ref": [
+          "moCompFeature_c",
+          1,
+          19
+        ],
+        "unit": [
+          "moUnitComponent_c",
+          1,
+          20
+        ],
+        "visibility_attribute": [
+          "visStateVisualStateAttribute_c",
+          1,
+          21
+        ],
+        "visibility_fields": [
+          0,
+          6,
+          1,
+          0
+        ]
+      },
+      {
+        "joined_feature": [
+          3,
+          "moRefPlane_c"
+        ],
+        "properties_attribute": [
+          "visStateVisualPropertiesAttribute_c",
+          1,
+          16
+        ],
+        "ref": [
+          "moCompFeature_c",
+          1,
+          22
+        ],
+        "unit": [
+          "moUnitComponent_c",
+          1,
+          23
+        ],
+        "visibility_attribute": [
+          "visStateVisualStateAttribute_c",
+          1,
+          21
+        ],
+        "visibility_fields": [
+          0,
+          6,
+          1,
+          0
+        ]
+      },
+      {
+        "joined_feature": [
+          2,
+          "moRefPlane_c"
+        ],
+        "properties_attribute": [
+          "visStateVisualPropertiesAttribute_c",
+          1,
+          16
+        ],
+        "ref": [
+          "moCompFeature_c",
+          1,
+          24
+        ],
+        "unit": [
+          "moUnitComponent_c",
+          1,
+          25
+        ],
+        "visibility_attribute": [
+          "visStateVisualStateAttribute_c",
+          1,
+          21
+        ],
+        "visibility_fields": [
+          0,
+          6,
+          1,
+          0
+        ]
+      }
+    ],
+    "holder_differs_from_live_only_at": [
+      "/f20/f90/f00",
+      "/f20/f90/f68"
+    ],
+    "holder_locator": "<SystemTexture>\\graphics\\materials\\color.p2m",
+    "holder_locator_codepoints": 44,
+    "model_config_locator_codepoints": 63,
+    "model_config_locator_kind": "absolute Windows 8.3 under installed data root",
+    "model_config_typed_appearance_values_equal": true,
+    "root": [
+      "visStateKeyData_c",
+      1,
+      2
+    ],
+    "state_association": [
+      {
+        "key": 0,
+        "one": 1,
+        "value": 1
+      }
+    ],
+    "state_rows": [
+      {
+        "f384": 0,
+        "f38c": 0,
+        "f394": 0,
+        "id": 1,
+        "name": "<Default>_Display State 1"
+      }
+    ],
+    "store_byte_exact_replay": true,
+    "store_bytes": 1789,
+    "store_opaque_bytes": 0,
+    "store_terminal_map": 26,
+    "visual_provisional_schemas": [
+      "moCompHolder_c",
+      "moDisplayedEntityTracker_c.Serialize"
+    ]
+  },
+  "archive_version": 19000,
+  "build": "34.5.2.0604",
+  "cad_files_written": 0,
+  "children": {
+    "A13SyncedSingle": {
+      "config_class": "moPartConfiguration_c",
+      "definition_bytes": 3816,
+      "definition_exact_sdk_replay": true,
+      "definition_sha256": "7fa456b6979140dc87b863601c18675b9b1d59cba99ca1898387f4b111563375",
+      "file_sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+      "holder_rv_id_words": [
+        3,
+        0
+      ],
+      "manager_next_appearance_id": 9,
+      "manager_reference_rows": 0,
+      "model_config_rv_id_words": [
+        8,
+        0
+      ],
+      "root_class": "moPart_c",
+      "store_sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438"
+    },
+    "A14SyncedRepeat": {
+      "config_class": "moPartConfiguration_c",
+      "definition_bytes": 3816,
+      "definition_exact_sdk_replay": true,
+      "definition_sha256": "527c90f79b20917b5a83fb9a0820ec3d8e9f1ef9ce82c6390028d0b57b1a51df",
+      "file_sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c",
+      "holder_rv_id_words": [
+        3,
+        0
+      ],
+      "manager_next_appearance_id": 10,
+      "manager_reference_rows": 0,
+      "model_config_rv_id_words": [
+        9,
+        0
+      ],
+      "root_class": "moPart_c",
+      "store_sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438"
+    },
+    "D01Edited": {
+      "config_class": "moPartConfiguration_c",
+      "definition_bytes": 3816,
+      "definition_exact_sdk_replay": true,
+      "definition_sha256": "8f8ae279fbeadcf4650c9207d959bb1ce7adcbec8db170465c2f02ad22669cb9",
+      "file_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "holder_rv_id_words": [
+        3,
+        0
+      ],
+      "manager_next_appearance_id": 8,
+      "manager_reference_rows": 0,
+      "model_config_rv_id_words": [
+        7,
+        0
+      ],
+      "root_class": "moPart_c",
+      "store_sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df"
+    },
+    "D01Source": {
+      "config_class": "moPartConfiguration_c",
+      "definition_bytes": 3816,
+      "definition_exact_sdk_replay": true,
+      "definition_sha256": "8f8ae279fbeadcf4650c9207d959bb1ce7adcbec8db170465c2f02ad22669cb9",
+      "file_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "holder_rv_id_words": [
+        3,
+        0
+      ],
+      "manager_next_appearance_id": 8,
+      "manager_reference_rows": 0,
+      "model_config_rv_id_words": [
+        7,
+        0
+      ],
+      "root_class": "moPart_c",
+      "store_sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df"
+    },
+    "D01Stale": {
+      "config_class": "moPartConfiguration_c",
+      "definition_bytes": 3816,
+      "definition_exact_sdk_replay": true,
+      "definition_sha256": "8f8ae279fbeadcf4650c9207d959bb1ce7adcbec8db170465c2f02ad22669cb9",
+      "file_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "holder_rv_id_words": [
+        3,
+        0
+      ],
+      "manager_next_appearance_id": 8,
+      "manager_reference_rows": 0,
+      "model_config_rv_id_words": [
+        7,
+        0
+      ],
+      "root_class": "moPart_c",
+      "store_sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df"
+    },
+    "D01Synchronized": {
+      "config_class": "moPartConfiguration_c",
+      "definition_bytes": 3816,
+      "definition_exact_sdk_replay": true,
+      "definition_sha256": "c52bd0357809d15a24d69f943e8049ae0ab67a055feda9401d982c3337b8e24b",
+      "file_sha256": "8dd479a4f05a1baf8d0a4166e1f4247e82f3f125933173e0de964dc64e74ab22",
+      "holder_rv_id_words": [
+        3,
+        0
+      ],
+      "manager_next_appearance_id": 11,
+      "manager_reference_rows": 0,
+      "model_config_rv_id_words": [
+        10,
+        0
+      ],
+      "root_class": "moPart_c",
+      "store_sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df"
+    }
+  },
+  "disclosed_manifest_sha256": "86729463bf5734f53e209de81f09976cc95bee8c7d33395eb512ec0ed8b823b3",
+  "field_rules": {
+    "holder_first_allocation_event_classified": false,
+    "id_allocation": "return previous counter and increment uint64",
+    "id_initial_seed": 1,
+    "id_wire_words": [
+      "f00:low_u32",
+      "f04:high_u32"
+    ],
+    "populated_preset_value_rules_complete": false,
+    "system_locator_runtime_rule": "ui_GetDataDir(1) joined to path suffix after the leading <SystemTexture> token"
+  },
+  "fixed_generated_child_discriminator": {
+    "observed_reference_pair": {
+      "child_sha256": "699be1addf4b644f1ebdeecc6862f65610155d294e10fa6d7cbcf3d6a224f1cd",
+      "child_visual_store_present": false,
+      "parent_sha256": "9474ca54466a450eec3ba5e49703053fe160e0a221647b2bcc984d8d3672dc74",
+      "parent_visual_store_present": false,
+      "previous_numeric_checks": 140,
+      "previous_zero_warning_lifecycle": true
+    },
+    "qualifies_complete_d01_appearance": false,
+    "scope": "model-only parent display stores with the same generated child bytes and locators",
+    "trial_performed": false
+  },
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_modules": {
+    "sldmfcu.dll": {
+      "address_ranges_sha256": [
+        [
+          "rv_filename_get",
+          "0x3c896500",
+          "0x3c8965cf",
+          "ea6d79de4e6fec81e74622068250e7055cbea5d8f2f3e3a64ab98dee917f0b2e"
+        ],
+        [
+          "rv_filename_set",
+          "0x3c898800",
+          "0x3c898820",
+          "fbeaa8bb9020d0d3457e6a1cc2cbb46c24bf5defe4b058bda2ce10827226b75e"
+        ],
+        [
+          "rv_save",
+          "0x3c898200",
+          "0x3c898772",
+          "25ed31925777bec38b0938114a658cfaf7e44e5cf25c811adea5e294e036b59d"
+        ],
+        [
+          "rv_material_id_get",
+          "0x3c74ad90",
+          "0x3c74ad94",
+          "92ca7142687bd5513bea360e328ca1c00c3c3a9b71ffdda7bfc2407de7693978"
+        ],
+        [
+          "rv_material_id_set",
+          "0x3c7640d0",
+          "0x3c7640d4",
+          "1b97e9656365fefb824e1a24a6846645b520ec3b4e37fe427c529a4f3c7fdeb9"
+        ]
+      ],
+      "bytes": 8274520,
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    },
+    "sldmodu.dll": {
+      "address_ranges_sha256": [
+        [
+          "initialize_preference_default",
+          "0x4c1fbbc0",
+          "0x4c1fbebe",
+          "a3d0c65d0b73fac46673c61f6fe99b2039ddf3c88cac625b0f2c71ecb56e5475"
+        ],
+        [
+          "get_default_appearance",
+          "0x4c1fe0b0",
+          "0x4c1fe477",
+          "a980ad903185c3c2f2caedb362e927c397c4376184309f1d6b8d09386b690932"
+        ],
+        [
+          "set_default_appearance_on_part",
+          "0x4c207330",
+          "0x4c207545",
+          "60696880244543824680fc0a50953310f6abaad89cbdac0baf1f828c2439b129"
+        ],
+        [
+          "appearance_allocator_constructor",
+          "0x4c1f15f0",
+          "0x4c1f1652",
+          "767a698799e9de6595c46eef87b7986af5e8d08528c59a197818c946b9f3e5e4"
+        ],
+        [
+          "get_new_appearance_id",
+          "0x4c1ffb40",
+          "0x4c1ffb4d",
+          "2b6d1e0866a2cbb57078f532702157e8c931256b25628a3f63a17389a7dcca2f"
+        ],
+        [
+          "set_visual_properties_from_file",
+          "0x4b4ec6a0",
+          "0x4b4ec770",
+          "1a38a6313e4e44c9f47be565f6de66a0c7c24bac3dad896d9bd520fbf8db77fb"
+        ],
+        [
+          "p2m_visual_application",
+          "0x4b4e9480",
+          "0x4b4eac35",
+          "321e6cababb6eadb19cb5c04af075f7395303c1a2b5a18940b73b5f929b6699d"
+        ],
+        [
+          "component_holder_constructor",
+          "0x4b7e74c0",
+          "0x4b7e7546",
+          "18ede16869e25bc8b3a31b1388cdaf72f124e2faf9fa420f974af7b2b9ec80fd"
+        ]
+      ],
+      "bytes": 46536280,
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "sldvisualstateu.dll": {
+      "address_ranges_sha256": [
+        [
+          "prepare_display_state_holder",
+          "0x327aa2e0",
+          "0x327aaa96",
+          "10d5c30f958c74b53e350cda8e2a6121569fdc82124947aa48dcd4f97949b5c5"
+        ],
+        [
+          "assign_display_state_appearance_ids",
+          "0x32748fc0",
+          "0x3274952f",
+          "053f544a7dbd048a5b625a52328dab1f837b0d72087ea40aa85b3b456f52f3f4"
+        ]
+      ],
+      "bytes": 1326168,
+      "sha256": "fb85d7921c52393e8bb847258b72d8cd006b37c118138c8260c6efe7dcc22c2c"
+    }
+  },
+  "native_trial_runs": 0,
+  "public_writer_qualified": false,
+  "related_receipts_sha256": {
+    "ConcentricDisplaySyncNative01.json": "e14c77749cd68ed554bbbdbf014d1360df9fa58a1524976329d93976b48e5d71",
+    "ConcentricRadialAssemblyNative01.json": "d9cfb90dd07b62a49160d4d816328072767c979d89a801842add035dbcf37016",
+    "ConcentricVisualCreationLogs01.json": "9f25786515a4175dfa8351b758baf6925243f37fa24c72b2233ca15b84407eea"
+  },
+  "schema": "kit.sw2026.concentric-child-appearance.v1",
+  "source_hashes": {
+    "re/data/Serialization/SerializeMap2026.json": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+    "re/tooling/sw2026/materials/MaterialPe.py": "11e173fb6682ffcfc6bd7a0a58085ad9695fe176b0088ea8b46924a4742672c7",
+    "re/tooling/sw2026/para/concentric/ProveConcentricSourceBrep.py": "fc3a861fd4216ef2fc8fa47b35dbb07dec7f446ceb0ddabd6d6f8bd9e11b2235",
+    "re/tooling/sw2026/para/concentric/ProveVisualStateStore.py": "53582a800d1f219a769da2ec12d7bae35e2cd452ff74537110a4a8f7b2e58872",
+    "re/tooling/sw2026/serial/defs/ResolvedComp.py": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946",
+    "re/tooling/sw2026/serial/defs/SmallCMgr.py": "76c46ab9d70235fa5346e449a34df0850484cfeb9ad10553bd5f54ff811db11d",
+    "re/tooling/sw2026/serial/defs/Visual.py": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001",
+    "src/convert/adapters/solidworks/Archive/Cmgr/ReadCmgrMut.py": "13e7a371e53d0f374d9fc94be1e370357e49b91f08c524669c98d9966998705b",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/PartBuildInput.py": "f0d89e1e45dd874b583912b05081239ade4f3d8556018e6b0f5a992a42be2bef",
+    "src/convert/adapters/solidworks/Archive/Construction/Presentation/MakeModelVisual.py": "1b95492ef4584e8c45d446a242c764e898bbfc5e9de9651e16e93dbe24a57da4",
+    "src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/MakeAppearMgr.py": "327f1aa0132ba47dacc31e6fd5a49d0f5cb55dc2d4dc47cec79d33d95b5b7129",
+    "src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/ReadEmptyAppr.py": "d2c89b64d52e526d3e9b17dc732e4e9138afb275112c517de9afdf403ccfd51f",
+    "src/convert/adapters/solidworks/Archive/Definition/ReadModelDef.py": "eecea11c67dfe124b23a181ef2d851bd532081e7aab0c415865896c650df9c24",
+    "src/convert/adapters/solidworks/Archive/Definition/WriteModelDef.py": "650b7017b4f9f5157b02af69a52e57665d450ca2af6d1420aae6634507b311f1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "c00869fa3ead56527000885d53532451dd2a2c16cdd0e13e930b1e2466716ac7"
+  },
+  "source_head": "3a651f09276a88c33dd2f8463c4516c2a04557bf",
+  "tool_identity": {
+    "llvm_objdump": "Apple LLVM 21.0.0",
+    "llvm_objdump_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c",
+    "python": "3.14.7",
+    "rea_pe_resource_evidence": {
+      "sldmfcu.dll": "ev_39df975b631bff2aa8799bb5b9e6b0ff030bf97f15561a657e042528e98d89a4",
+      "sldvisualstateu.dll": "ev_71874834f73774fee02af323b2cc414ffd897c3757005a46a599d21a837367d0"
+    }
+  }
+}
