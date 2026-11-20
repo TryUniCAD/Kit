@@ -103,6 +103,13 @@ archive version 19000.
 Complete configuration admission requires the remaining model body.
 [Configuration header link scope](../../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
+The bounded version-19000 part cache reader keeps zero through two mass
+slots, each slot's atom rows and attached mass properties, and the
+signed trailer when two slots are stored. The measured bounds field
+carries an empty count in this profile. Populated bounds records require
+additional owner evidence. Cache reads preserve the caller's map state.
+[Part cache scope](../../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)
