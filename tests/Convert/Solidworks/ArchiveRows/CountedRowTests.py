@@ -24,7 +24,7 @@ def TestCountedRows(TmpPath: FilePath) -> None:
         "combined_rows": [{"value": 31}],
     }
     _ = SourcePath.write_text(DumpJson(AuthoredValue), encoding="utf-8")
-    WriteResult = RunRows("write", SourcePath, WirePath)
+    WriteResult = RunRows("write", SourcePath, WirePath, ("--expect-widths", "2", "2"))
     assert WriteResult.returncode == 0, WriteResult.stdout + WriteResult.stderr
     assert WirePath.read_bytes() == PackValues(
         "<HiiHiIIiIIi", 2, -11, 21, 0, -7, 7, 1, -17, 0, 1, 31
