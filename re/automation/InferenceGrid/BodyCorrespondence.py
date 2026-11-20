@@ -12,6 +12,7 @@ import subprocess
 
 from convert.Formats.Fusion.Topology.BodyAnchor import KBodyGuid
 from InferenceGrid.MeasureBodies import near
+from InferenceGrid.TraceRefusal import LOCAL
 
 
 def fields(group):
@@ -20,15 +21,26 @@ def fields(group):
 
 def cached_bodies(native):
     result = []
+    positions = {}
     for segment in native["fields"]["Segments"]["tuple"]:
         records = segment["fields"]
         sid = records["Metadata"]["fields"]["Header"]["fields"]["SegmentId"]
         for record in records["Records"]["tuple"]:
             obj = record["fields"]
             groups = [group["fields"] for group in obj["Groups"]["tuple"]]
-            if not obj["IsPrimary"] or not groups or groups[0]["ClassGuid"].upper() != KBodyGuid:
+            if not obj["IsPrimary"] or not groups:
+                continue
+            if groups[0]["ClassGuid"].upper() == "CD57BC48-50EC-47DC-975A-FB6DEA72F4DA":
+                children = fields(groups[0]).get("groupChildren")
+                if isinstance(children, dict):
+                    for ordinal, child in enumerate(children.get("fields", {}).get("Items", {}).get("tuple", []), 1):
+                        if isinstance(child, dict) and child.get("record") == LOCAL:
+                            positions.setdefault((sid, obj["ObjectId"], child["fields"]["ObjectId"]), []).append(ordinal)
+            if groups[0]["ClassGuid"].upper() != KBodyGuid:
                 continue
             properties = fields(groups[0])
+            parent = properties.get("rGroupParent")
+            collection = parent["fields"]["ObjectId"] if isinstance(parent, dict) and parent.get("record") == LOCAL else None
             cache = properties.get("cache")
             values = {}
             if isinstance(cache, dict):
@@ -37,8 +49,11 @@ def cached_bodies(native):
             cog = values.get("cog")
             center = fields(cog["fields"]) if isinstance(cog, dict) and "Fields" in cog.get("fields", {}) else {}
             result.append({"segment": sid, "object": obj["ObjectId"], "stored_name": properties.get("userName"),
-                           "creation_index": properties.get("creationIndex"), "volume_cm3": values.get("volume"),
+                           "collection": collection, "creation_index": properties.get("creationIndex"), "volume_cm3": values.get("volume"),
                            "area_cm2": values.get("area"), "center_cm": [center.get(axis) for axis in "xyz"]})
+    for body in result:
+        slots = positions.get((body["segment"], body["collection"], body["object"]), [])
+        body["collection_ordinal"] = slots[0] if len(slots) == 1 else None
     return result
 
 
@@ -54,10 +69,14 @@ def capture_names(root, pin, size, native):
             continue
         raw = subprocess.check_output(["git", "-C", root, "cat-file", "blob", blob])
         report = json.loads(raw)
+        if not isinstance(report, dict) or report.get("status") != "captured":
+            continue
         for case in report.get("controls", []):
             if not isinstance(case, dict) or (case.get("sha256"), case.get("bytes"), case.get("status")) != (pin, size, "captured"):
                 continue
             measured = case.get("observed", {}).get("bodies", [])
+            if not isinstance(measured, list) or not all(isinstance(row, dict) and isinstance(row.get("name"), str) for row in measured):
+                continue
             matches = []
             for body in bodies:
                 candidates = []
@@ -74,7 +93,7 @@ def capture_names(root, pin, size, native):
             if bijective:
                 for body, index in zip(bodies, ids):
                     aligned.append({"object": body["object"], "segment": body["segment"], "stored_name": body["stored_name"],
-                                    "creation_index": body["creation_index"], "vendor_name": measured[index]["name"]})
+                                    "creation_index": body["creation_index"], "collection_ordinal": body["collection_ordinal"], "vendor_name": measured[index]["name"]})
             witnesses.append({"capture": blob, "sha256": hashlib.sha256(raw).hexdigest(), "case": case["name"],
                               "unique_geometry_match": bijective, "candidate_indices": matches, "matches": aligned})
     return {"input_sha256": pin, "bodies": bodies, "witnesses": witnesses}

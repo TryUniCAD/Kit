@@ -74,3 +74,29 @@ def CheckFileScope(TmpPath: FilePath) -> None:
     Outcome = LoadJson((RunPath / "CatalogueResult.json").read_bytes())
     assert Outcome["status"] == "coverage_incomplete"
     assert Outcome["scopes"]["p04-through-all-body-selection"]["assessment_job"]
+
+
+# equal-volume pattern members require independent centroid matches through the public CLI
+def CheckPatternBodyIdentity(TmpPath: FilePath) -> None:
+    RootPath = ResearchRoot()
+    SourcePath = RootPath / "re/Fusion/LocalOracle/FeatureAuthoring/Controls/BodyRectPattern.f3d"
+    RunPath = TmpPath / "pattern"
+    Result = RunProcess(
+        [
+            PythonPath, "-m", "KitCli", "run", "--root", str(RootPath), "fusion",
+            "--input", str(SourcePath), "--directory", str(RunPath), "--workers", "1",
+            "--reserved-memory-mib", "512",
+        ],
+        capture_output=True,
+        text=True,
+        timeout=300,
+    )
+    assert Result.returncode == 2, Result.stderr
+    Report = LoadJson((RunPath / "Input-body-correspondence.json").read_bytes())
+    Witness, = Report["witnesses"]
+    assert Witness["unique_geometry_match"]
+    assert len(Witness["matches"]) == 6
+    assert {
+        (Body["stored_name"], Body["collection_ordinal"], Body["vendor_name"])
+        for Body in Witness["matches"]
+    } == {("", Index, f"Body{Index}") for Index in range(1, 7)}
