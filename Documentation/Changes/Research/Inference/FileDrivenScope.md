@@ -49,3 +49,5 @@ The spline-path sweep controls exposed a sketch class in the MSketch namespace. 
 On polynomial and rational cubic spline sweeps, two separate file-driven runs each held that file out and inferred its vendor parameter inventory from four other exports. Each correctly predicted AlongDistance, TaperAngle and TwistAngle. The three remaining saved roles were AgainstDistance, AgainstRailDistance and AlongRailDistance. Both runs independently generated the same graph registry patch for spline-path classes. These experiments cover the observed mode and do not establish the rule for a guided or two-sided sweep.
 
 File-driven SOLIDWORKS research now searches both byte orders, single and double precision, and offsets up to 96 bytes from a tagged UTF-16 dimension name. It excludes the input recipe before fitting and compares a unique encoding with independently measured edit values in the input.
+
+The first local runs recovered the four measured P05 revolve dimensions and the three P03 blind-boss dimensions. The P04 cut located two depths in the resolved feature stream. Six other dimensions pointed to the numbered configuration stream, which the scanner now also reads.

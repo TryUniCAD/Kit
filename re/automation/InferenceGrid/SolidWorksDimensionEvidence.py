@@ -9,6 +9,7 @@
 import hashlib
 import json
 import math
+import re
 from pathlib import Path
 import struct
 
@@ -39,7 +40,7 @@ def name_records(streams, name):
     marker = KSerializedStringMarker + bytes([len(raw) // 2]) + raw
     found = []
     for stream, data in streams.items():
-        if not stream.endswith("-ResolvedFeatures"):
+        if not re.fullmatch(r"Contents/Config-[0-9]+(?:-ResolvedFeatures)?", stream):
             continue
         start = data.find(marker)
         while start != -1:
@@ -49,6 +50,33 @@ def name_records(streams, name):
                 return []
             start = data.find(marker, end)
     return found
+
+
+def observed_records(streams, fmt, displacement):
+    records = {}
+    for stream, data in streams.items():
+        if not re.fullmatch(r"Contents/Config-[0-9]+(?:-ResolvedFeatures)?", stream):
+            continue
+        start = 0
+        while (start := data.find(KSerializedStringMarker, start)) != -1:
+            start += len(KSerializedStringMarker)
+            if start >= len(data):
+                break
+            length = data[start]
+            end = start + 1 + 2 * length
+            if length in (0, 255) or end > len(data) or DimensionScalar(data, end, len(data)) != end + displacement:
+                continue
+            try:
+                name = data[start + 1:end].decode("utf-16le")
+            except UnicodeDecodeError:
+                continue
+            if not name or not name.isprintable():
+                continue
+            pos = end + displacement
+            value = struct.unpack_from(fmt, data, pos)[0]
+            if math.isfinite(value):
+                records.setdefault(name, []).append({"stream": stream, "offset": pos, "system_value": value})
+    return records
 
 
 def dimensions(observation):
@@ -109,6 +137,7 @@ def dimension_evidence(root, source, pin, document):
         return {**result, "status": "no_unique_rule"}
     fmt, offset = next(iter(candidates))
     streams = SldprtArchive.FromBytes(source.read_bytes()).Streams
+    discovered = observed_records(streams, fmt, offset)
     features = {row["id"]: row["name"] for row in document.get("feature_timeline", {}).get("$tuple", [])}
     for row in document.get("parameters", {}).get("$tuple", []):
         requested.setdefault((features.get(row.get("owner_id")), row["name"]), []).append(row)
@@ -118,23 +147,19 @@ def dimension_evidence(root, source, pin, document):
     predictions = []
     for owner, name in sorted(requested, key=str):
         rows = requested[(owner, name)]
-        positions = [(key, end + offset) for key, end in name_records(streams, name)
-                     if DimensionScalar(streams[key], end, len(streams[key])) == end + offset]
-        prediction = {"name": name, "owner": owner, "candidate_count": len(positions)}
-        if len(positions) == len(rows) == 1:
-            key, pos = positions[0]
-            value = struct.unpack_from(fmt, streams[key], pos)[0]
-            if math.isfinite(value):
-                spans = rows[0].get("provenance", {}).get("spans", {}).get("$tuple", [])
-                prediction.update(stream=key, offset=pos, system_value=value,
-                                  reader_span_matches=any((s["stream"], s["offset"], s["length"]) ==
-                                                          (key, pos, struct.calcsize(fmt)) for s in spans))
-                oracle = measured.get((owner, name), [])
-                if len(oracle) == 1:
-                    prediction["vendor_value_matches"] = math.isclose(value, oracle[0], rel_tol=1e-12, abs_tol=1e-14)
+        matches = discovered.get(name, [])
+        prediction = {"name": name, "owner": owner, "candidate_count": len(matches)}
+        if len(matches) == len(rows) == 1:
+            match = matches[0]
+            spans = rows[0].get("provenance", {}).get("spans", {}).get("$tuple", [])
+            prediction.update(match, reader_span_matches=any((s["stream"], s["offset"], s["length"]) ==
+                                                             (match["stream"], match["offset"], struct.calcsize(fmt)) for s in spans))
+            oracle = measured.get((owner, name), [])
+            if len(oracle) == 1:
+                prediction["vendor_value_matches"] = math.isclose(match["system_value"], oracle[0], rel_tol=1e-12, abs_tol=1e-14)
         predictions.append(prediction)
     verified = bool(checks) and len(predictions) == len(checks) and all(
         row.get("vendor_value_matches") and row.get("reader_span_matches") for row in predictions)
     return {**result, "status": "held_out_dimensions_match" if verified else "partial_evidence",
             "measurement_stage": "edited_before_save" if checks else None, "predictions": predictions,
-            "measured_count": len(checks), "missing_from_reader": [list(key) for key in measured if key not in requested]}
+            "discovered_dimension_records": discovered, "measured_count": len(checks), "missing_from_reader": [list(key) for key in measured if key not in requested]}
