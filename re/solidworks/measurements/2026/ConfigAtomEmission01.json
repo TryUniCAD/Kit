@@ -2,7 +2,7 @@
   "complete_native_files_written": 0,
   "engine_sha256": {
     "re/solidworks/measurements/2026/ConfigAtomSource01.json": "ff3512e26704024c5d00cad2e413d5365b48f1936e5926006ff67cef4570af9d",
-    "re/tooling/sw2026/CheckAtomEmission.py": "c5edbaad873fa4b52bce92849fa39ddbcf73d4323740c6113744ec263ccb28d0",
+    "re/tooling/sw2026/CheckAtomEmission.py": "035cc1bee07533cf14ab9cca310f3d64ab4665f8a24dff6cb15620e2c6b8ff00",
     "src/convert/adapters/solidworks/Archive/Bodies/ReadBodyRows.py": "743f89eebd5a7780e887b5d1fad3ed6e1f93c642a474be13b1cadaad8379db9f",
     "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteActions.py": "c8da4a6a52226dc8ad7dfb743a886fd868961cd269a9f55e9934ba7118e77ef4",
     "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteArrayMut.py": "42a240d716b08bf545165492e3b091d8a24abf15ef9fc21ecbd60ccb090d3199",
@@ -11,7 +11,7 @@
     "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteNestedMut.py": "b1184013150b37672d7e6dcbf18047bd5d52a32f277532c153efcd72f09f5d8f",
     "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteNormalMut.py": "1aae9ffac3b5c758956f3a57bc6cfdb6781009b4e9d4572b67be097b6c609df8",
     "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteVirtualMut.py": "8f57d973673f9da88919cffb33e8ab63c6e97df97b69c51f229082bc8acbe528",
-    "src/convert/adapters/solidworks/Archive/Config/Atoms/PutAtomBodyMut.py": "cc20bb53d2edb241e937ba30566828d58e8d36523f13cc7a5c91c24d75f351a3",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/PutAtomBodyMut.py": "9b7b75a40b8e0db42e1f3431262da9af7f8fefa5f0fdfa667e77bfcbf66c3d78",
     "src/convert/adapters/solidworks/Archive/Config/Atoms/WriteAtomMgr.py": "8fd15c4b8d7954b66391049cf907819509df92e97807bf0ee865e7b09bc21a4f"
   },
   "guarded_cases": {
@@ -163,6 +163,20 @@
             ]
           }
         ],
+        "first_use": {
+          "allocation": [
+            57,
+            58,
+            59
+          ],
+          "duplicate_declaration": "duplicate_class_declaration",
+          "range": [
+            57,
+            60
+          ],
+          "sha256": "dd9cebf7299e1e3bced22ef132eb6c13b37654a0d698cae8f962f760075e3de4",
+          "size": 200
+        },
         "full_native_writer_qualified": false,
         "input": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
         "interval": [
@@ -191,7 +205,7 @@
           59
         ]
       },
-      "stdout_sha256": "ae1d129ec3b468c5c357159ab68b9a48ea4db5fc6bded668160bd46a3130b05b"
+      "stdout_sha256": "112f16d249aa552b6cafd75f4dd66330572b3dc6248dd3d19e11603c51c276b4"
     }
   },
   "heldout_credit": 0,

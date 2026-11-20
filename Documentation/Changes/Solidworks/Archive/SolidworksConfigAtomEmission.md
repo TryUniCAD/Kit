@@ -8,8 +8,8 @@ normalized value must have a wire representation under the active archive
 conditions.
 
 Two exact native manager spans re-emit byte-for-byte after typed decoding.
-Six modeled inputs cover zero through two rows, independent text lengths,
-and all measured condition masks. Eleven invalid inputs refuse in guarded
+Seven modeled inputs cover zero through two rows, independent text lengths,
+and all measured condition masks. Twelve invalid inputs refuse in guarded
 processes. Complete configuration emission and native file acceptance have
 separate exits.
 [Field ownership and verification](../../../../re/solidworks/records/ConfigAtomEmission2026.md)

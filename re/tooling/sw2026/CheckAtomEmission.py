@@ -78,6 +78,42 @@ def check_generated(version, seed, model, slot, conditions, specs):
             "range": [seed.CounterValue, mapped.CounterValue]}
 
 
+def check_first_use(version, seed, model):
+    slot = seed.CounterValue
+    require(all(row.EntryValue != KAtomClass for row in seed.EntriesValue),
+            "fresh prefix already contains the atom descriptor")
+    nodes = (authored_atom(-53, 0), authored_atom(-54, 1))
+    left = author_body(slot, -53, 0)
+    right = author_body(slot, -54, 1)
+    name = b"moAtom_c"
+    descriptor = pack("<3H", 0xFFFF, 1, len(name)) + name
+    expected = author_manager((descriptor + left[2:], right))
+    emitted, mapped = WriteAtomMgr(manager_fields(nodes), version, seed, model)
+    loaded = ReadAtomMgr(emitted, version, seed, model)
+    require(emitted == expected, "first use did not emit the descriptor then reuse its slot")
+    require(mapped.CounterValue == loaded.MapValue.CounterValue == slot + 3,
+            "first use did not reserve one class and two objects")
+    before = len(seed.EntriesValue)
+    require(all(a is b for a, b in zip(seed.EntriesValue, mapped.EntriesValue[:before], strict=True)),
+            "fresh allocation changed the inherited prefix")
+    rows = mapped.EntriesValue[before:]
+    require([row.IndexValue for row in rows] == [slot, slot + 1, slot + 2]
+            and rows[0].EntryValue is KAtomClass
+            and rows[1].EntryValue is nodes[0] and rows[2].EntryValue is nodes[1],
+            "emitted class and object identities differ")
+    first, second = (row["o"] for row in loaded.FieldsValue["atoms"])
+    require(first.ClassValue is second.ClassValue is loaded.MapValue.EntriesValue[before].EntryValue,
+            "reread rows use distinct class descriptors")
+    repeated = author_manager((descriptor + left[2:], descriptor + right[2:]))
+    modified = ReadAtomMgr(repeated, version, seed, model)
+    require(modified.MapValue.CounterValue == slot + 4, "duplicate descriptor control did not allocate twice")
+    refused = refuse("duplicate_class_declaration",
+                     lambda: WriteAtomMgr(modified.FieldsValue, version, seed, model),
+                     "would change its native map index")
+    return {"size": len(emitted), "sha256": digest(emitted), "allocation": [slot, slot + 1, slot + 2],
+            "range": [slot, mapped.CounterValue], "duplicate_declaration": refused}
+
+
 def refuse(label, emit: Callable[[], object], expected_message):
     try:
         emit()
@@ -141,6 +177,7 @@ def check(case_name):
         result["authored"] = [check_generated(version, mapped, model, class_slot, flags, specs)
                               for flags, specs in cases]
         result["refusals"] = refusals(model, mapped, known_atom)
+        result["first_use"] = check_first_use(version, seed, model)
     require(not model.FieldsValue and len(seed.EntriesValue) == 3, "manager path changed its caller model or prefix")
     return result
 

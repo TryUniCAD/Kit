@@ -47,6 +47,10 @@ def TestNewAtoms() -> None:
     assert RowsValue[1]["states"] == [[-51, 1, 1, ["A", "alt"]]]
     assert RowsValue[2]["states"] == [[-51, 0, 0, ["A", "alt"]], [-52, 1, 1, "λ22"]]
     assert RowsValue[3]["states"] == [[37, 0x80000003, 0x80000003, "αλ"]]
+    FirstUse = CastValue(dict[str, object], ReportValue["first_use"])
+    assert FirstUse["allocation"] == [57, 58, 59]
+    assert FirstUse["range"] == [57, 60]
+    assert FirstUse["duplicate_declaration"] == "duplicate_class_declaration"
     assert ReportValue["refusals"] == [
         "inconsistent_state",
         "wrong_wire_type",
