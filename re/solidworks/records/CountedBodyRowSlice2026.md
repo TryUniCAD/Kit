@@ -21,7 +21,7 @@ dependencies are `Counts/{EncodeCount,ReadCount}`, `Maps/ArchiveMaps`,
 The original 13-file production source manifest SHA-256 is
 `02a2356fcc8a6c6e92dd4c68b048e91f3c7fa7e626920004638b3cc8719720d0`.
 The revised 18-file production manifest is
-`9f5edb49bc507470e7e314af524704bc23b09adf28415cdccf1615f2441c2928`.
+`a11542d0ab8aa59fa031c70553228660080cd802a5d51c1878a9ca9de3e3eb31`.
 Ten pinned files are unchanged. The revision updates `NormalizeCount`,
 `ReadCountMut` and `WriteCountMut` and adds `ApplyCountMode`,
 `ReadSplitMut`, `EncodeCountForm`, `SelectCountWord` and `WriteSplitMut`.
@@ -45,7 +45,9 @@ An inline count uses the rule name with `#count` as its count key.
 Equivalent rows preserve the accepted width using the documented
 markers. Physically valid retained widths are ignored when a changed
 row length requires a fresh count. A width with a missing, incompatible
-or unrepresentable word fails closed.
+or unrepresentable word fails closed. After encoding, the write scope
+exposes the actual prefix width while the source mapping retains its
+input width.
 [Count owners and framing](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/re/solidworks/records/MfcCountArchive2026.md)
 [Width gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/CountWidthsRetainWireIdentity.md)
 
@@ -77,7 +79,8 @@ signed minus-seven count for an empty array and checks combined and
 separate split fields. The
 [escaped-width case](../../../tests/Convert/Solidworks/ArchiveRows/CountWidthTests.py)
 starts from independently framed vendor and framework prefixes and
-checks exact replay and changed lengths in fresh write processes.
+checks exact replay and changed lengths in fresh write processes. It
+also checks the emitted widths through scope lookup in each process.
 The [malformed reads](../../../tests/Convert/Solidworks/ArchiveRows/RejectRowTests.py)
 require the original cursor, unchanged scope and no decoded result.
 The [malformed writes](../../../tests/Convert/Solidworks/ArchiveRows/RejectWidthTests.py)

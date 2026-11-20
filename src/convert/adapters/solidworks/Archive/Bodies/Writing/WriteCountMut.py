@@ -42,4 +42,7 @@ def WriteCountMut(
     else:
         Payload = EncodeScalar(CountValue, RuleValue.TypeValue)
     FrameValue.WriterValue.OutputValue.extend(Payload)
-    FrameValue.ScopeValue.ValuesValue[CountName] = CountValue
+    Values = FrameValue.ScopeValue.ValuesValue
+    Values[CountName] = CountValue
+    if IsArchive:
+        Values[WidthName] = len(Payload)

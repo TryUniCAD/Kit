@@ -123,7 +123,7 @@ def read_record(payload, rules):
     return fields
 
 
-def write_record(fields, rules):
+def write_record(fields, rules, expected_widths):
     before = deepcopy(fields)
     context = BodyContext(19000, {}, {}, {})
     writer = BodyWriter(ArchiveMaps(1), context, reject_nested)
@@ -136,6 +136,13 @@ def write_record(fields, rules):
         verify_rows(scope, rule.NameValue, observed)
     if fields != before or ReadScopeValue(scope, "row_count") != len(fields["rows"]):
         raise ValueError("writing the count must update the overlay and retain the source")
+    if expected_widths is not None:
+        widths = [
+            ReadScopeValue(scope, "row_count#width"),
+            ReadScopeValue(scope, "framework_rows#count#width"),
+        ]
+        if widths != expected_widths:
+            raise ValueError(f"written count widths {widths} differ from {expected_widths}")
     return bytes(writer.OutputValue)
 
 
@@ -145,12 +152,14 @@ def main():
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--count-mode")
+    parser.add_argument("--expect-widths", type=int, nargs=2)
     options = parser.parse_args()
     rules = ARRAY_FIELDS
     if options.count_mode is not None:
         rules = (replace(rules[0], ModeValue=options.count_mode), *rules[1:])
     if options.mode == "write":
-        payload = write_record(loads(options.source.read_text(encoding="utf-8")), rules)
+        fields = loads(options.source.read_text(encoding="utf-8"))
+        payload = write_record(fields, rules, options.expect_widths)
     else:
         payload = dumps(read_record(options.source.read_bytes(), rules)).encode("utf-8")
     with options.output.open("xb") as output:

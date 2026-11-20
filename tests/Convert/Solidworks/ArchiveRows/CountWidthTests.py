@@ -21,7 +21,9 @@ def TestCountWidths(TmpPath: FilePath) -> None:
     assert ModelValue["row_count#width"] == 6
     assert ModelValue["framework_rows#count#width"] == 14
     assert (ModelValue["split_high"], ModelValue["split_low"]) == (3, 0)
-    ReplayResult = RunRows("write", ReadPath, ReplayPath)
+    ReplayResult = RunRows(
+        "write", ReadPath, ReplayPath, ("--expect-widths", "6", "14")
+    )
     assert ReplayResult.returncode == 0, ReplayResult.stdout + ReplayResult.stderr
     assert ReplayPath.read_bytes() == SourceBytes
     ModelValue["rows"].append({"value": 21})
@@ -30,7 +32,9 @@ def TestCountWidths(TmpPath: FilePath) -> None:
     EditedPath = TmpPath / "Edited.json"
     DerivedPath = TmpPath / "Derived.bin"
     _ = EditedPath.write_text(DumpJson(ModelValue), encoding="utf-8")
-    EditedResult = RunRows("write", EditedPath, DerivedPath)
+    EditedResult = RunRows(
+        "write", EditedPath, DerivedPath, ("--expect-widths", "2", "2")
+    )
     assert EditedResult.returncode == 0, EditedResult.stdout + EditedResult.stderr
     assert DerivedPath.read_bytes() == PackValues(
         "<HiiHiIIiII", 2, -9, 21, 0, -7, 0, 1, 8, 0, 0
