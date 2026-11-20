@@ -14,6 +14,7 @@ from tests.Research.Inference.Authoring.Pipeline.PreparePipeline import PrepareP
 from tests.Research.Inference.Authoring.Pipeline.ReadAccepted import ReadAccepted
 from tests.Research.Inference.Authoring.Pipeline.RunPipeline import RunPipeline
 from tests.Research.Inference.Authoring.Pipeline.RunSupervisor import RunSupervisor
+from tests.Research.Inference.Authoring.Pipeline.VerifyDigest import VerifyDigest
 
 
 # real artifact transport must continue to the public decoder and retain unresolved semantics honestly
@@ -40,7 +41,7 @@ def CheckDecode(TmpPath: FilePath) -> None:
     assert SampleValue["portable_complete"] is False
     assert SampleValue["native_acceptance"] == "not_established"
     assert SampleValue["unresolved"]
-    assert len(SampleValue["neutral_sha256"]) == 64
+    VerifyDigest(TmpPath, SampleValue)
     assert DecodeResult["output_artifacts"] == {}
     _ = RunPipeline(
         KSourceRoot / "re/automation/Controller.py",
