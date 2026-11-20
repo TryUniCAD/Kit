@@ -15,7 +15,7 @@ REPO = HERE.parents[5]
 SW2026 = HERE.parents[2]
 sys.path[:0] = [str(HERE.parent), str(REPO), str(REPO / 'src'), str(SW2026), str(SW2026 / 'serial')]
 
-from ObserveChildAppearanceContrast import AUTHORING_PROTOCOL, BUILD, COLOR, MEMBERS, MODULES, PART_NAME, PHASES, PUBLISHED_STOCK_COLOR, RGB, ROUGHNESS, SCHEMA, appearance_signature
+from ObserveChildAppearanceContrast import AUTHORING_PROTOCOL, BUILD, MEMBERS, MODULES, PART_NAME, PHASES, ROUGHNESS, SCHEMA, STOCK_COLOR, STOCK_RGB, appearance_signature
 from ConcentricNativeContract import checked, digest, require
 
 HOME_PATH = Path('/Users/odin')
@@ -23,16 +23,26 @@ MANAGED = HOME_PATH / 'Documents/UniCAD/Oracle121Takeover'
 RADIAL = MANAGED / 'ConcentricRadialIntent01'
 REFERENCE = MANAGED / 'RadialConcentricDisplay04'
 PRECEDING = MANAGED / 'ConcentricChildAppearanceContrast01'
+REACQUISITION = MANAGED / 'ConcentricChildAppearanceContrast02'
 D01 = MANAGED / 'ConcentricMateSourcePacket02/Disclosed/D01/Native/Source'
 WRITER = '3f5c5cca62a86569694d1fd9550a04f3217363b7'
 AUDITOR = '090620126fcc73d064b83aff722574f2ce29491d'
 EPOCH = 1795163100
 VISUAL = 'ThirdPtyStore/VisualStates'
+PRIOR_RGB = [53, 137, 211]
+PRIOR_COLOR = 0xD38935
 PRECEDING_PINS = {
     'Trial.json': 'c47d3f04f64367e79feef71dc38cc337936901c6d72b83bbecb5e4025cbc58f0',
     'Recipe.json': '0e5b159e9d9b41a5d5e8ea88fa37b64bee9f8fbe6079f2f2614fddb81c71bae9',
     'Result.json': 'ab900c7fac8dc57436b67d5f21e978bad9c53e982f2d6bfbb440c88a3505a6cf',
     'Inspection/AuthorA/Record.json': 'b9f542e927c230dbe1c9b27ea9a055f608683670eeb988d7b3d9860fc9e44863',
+}
+REACQUISITION_PINS = {
+    'Trial.json': 'fcac15da3ff6897d0e2c7256906b3350bb96a46331a6eab456ff0e9e01c8382d',
+    'Recipe.json': 'fd839f09a06421277ab5f65158976ca3ec89efd8e0eb2115f03509f58697ffb8',
+    'Result.json': '6dbe9870120f6618a4e879711aa3fe5041c15116130108c9f52be79cc8b9b5c1',
+    'Inspection/AuthorA/Record.json': '102647e3ea68bac81ca9070f98a270a72c1ec514abf5b174a7891f408540a856',
+    'Evidence/PrecedingNativeFailure.json': 'f934f8de7cbcfea35b03fc8d3623e425d892bb20ede668f0324ab15ee844fab7',
 }
 PINNED = {
     RADIAL / 'IndependentRequest.json': 'd25e6b4bdd6631c8c40aeae0335f96cebcbc740af0151dd7154ae08a873a6ca1',
@@ -99,39 +109,70 @@ def checkout(directory, revision, paths):
             source.extractall(directory, filter='data')
 
 
-def preceding_failure():
-    require(all((PRECEDING / path).resolve(strict=True) == PRECEDING / path for path in PRECEDING_PINS), 'preceding evidence redirected')
-    rows = {path: read_json(PRECEDING / path, expected) for path, expected in PRECEDING_PINS.items()}
+def failed_author(root, pins):
+    require(all((root / path).resolve(strict=True) == root / path for path in pins), 'preceding evidence redirected')
+    rows = {path: read_json(root / path, expected) for path, expected in pins.items()}
     job = rows['Trial.json']
     result = rows['Result.json']
     author = rows['Inspection/AuthorA/Record.json']
     phases = result['phases']
-    require(result['trial_sha256'] == PRECEDING_PINS['Trial.json'] and result['passed'] is False
-            and rows['Recipe.json']['trial_sha256'] == PRECEDING_PINS['Trial.json']
+    require(result['trial_sha256'] == pins['Trial.json'] and result['passed'] is False
+            and rows['Recipe.json']['trial_sha256'] == pins['Trial.json']
             and result['controls_healthy'] is True and result['native_processes'] == 3
-            and author['job'] == {'trial_sha256': PRECEDING_PINS['Trial.json'], 'phase': 'AuthorA'}
+            and author['job'] == {'trial_sha256': pins['Trial.json'], 'phase': 'AuthorA'}
             and author['result'] == phases['AuthorA'] and author['passed'] is False
             and all(phases[role]['passed'] for role in ('ControlBefore', 'ControlAfter'))
             and phases['ReopenA'] is phases['AuthorB'] is phases['ReopenB'] is None
             and author['result']['save_count'] == author['result']['open_errors'] == author['result']['open_warnings'] == 0
-            and not (PRECEDING / 'Inspection/AuthorA' / PART_NAME).exists(), 'preceding trial did not fail before save and reopen')
+            and not (root / 'Inspection/AuthorA' / PART_NAME).exists()
+            and job['rgb'] == PRIOR_RGB and job['roughness'] == ROUGHNESS, 'preceding trial did not fail before save and reopen')
     for directory in ('Working', 'Frozen'):
-        part = PRECEDING / directory / PART_NAME
+        part = root / directory / PART_NAME
         require(part.resolve(strict=True) == part, 'preceding baseline redirected')
         checked(part, job['baseline_sha256'])
+    proof = {'source_hashes': pins, 'baseline_sha256': job['baseline_sha256'], 'controls_passed': True,
+             'native_processes': result['native_processes'], 'input_unchanged': True, 'clean_save_count': 0, 'reopen_count': 0,
+             'first_failure': author['result']['first_failure']}
+    return job, author, proof
+
+
+def preceding_failure():
+    job, author, proof = failed_author(PRECEDING, PRECEDING_PINS)
     application = author['api_calls']
     published = next(index for index, call in enumerate(application) if call['method'] == 'AddDisplayStateSpecificRenderMaterial')
     relevant = application[published - 5:]
-    expected = {'PrimaryColor': [COLOR, PUBLISHED_STOCK_COLOR], 'Roughness': [ROUGHNESS['A'], ROUGHNESS['A']],
+    expected = {'PrimaryColor': [PRIOR_COLOR, STOCK_COLOR], 'Roughness': [ROUGHNESS['A'], ROUGHNESS['A']],
                 'AddEntity': [True], 'AddDisplayStateSpecificRenderMaterial': [True]}
     require(all([row['result'] for row in relevant if row['method'] == method] == values for method, values in expected.items())
             and [row['method'] for row in application[published + 1:published + 4]] == ['GetRenderMaterials2', 'QueryInterface RenderMaterial', 'GetEntities']
             and [row['method'] for row in application[-2:]] == ['PrimaryColor', 'Roughness']
             and all(row['method'] not in {'Save3', 'GetMaterialIds'} for row in application), 'preceding publication checkpoint evidence differs')
-    return job, {'source_hashes': PRECEDING_PINS, 'baseline_sha256': job['baseline_sha256'], 'controls_passed': True,
-                 'native_processes': result['native_processes'], 'input_unchanged': True, 'clean_save_count': 0, 'reopen_count': 0,
-                 'creator_color': COLOR, 'published_color': PUBLISHED_STOCK_COLOR, 'roughness': ROUGHNESS['A'],
-                 'first_failure': author['result']['first_failure'], 'material_ids_read': False}
+    retry_job, retry, retry_proof = failed_author(REACQUISITION, REACQUISITION_PINS)
+    require(retry_job['authoring_protocol'] == 'set-primary-color-on-published-row-once'
+            and retry_job['installed'] == job['installed'] and retry_job['radial'] == job['radial']
+            and retry_job['controls'] == job['controls'], 'preceding contrast changed its scope')
+    phases = retry['result']['appearance_checkpoints']
+    for key in ('creator_requested', 'creator_after_attach', 'creator_after_publication'):
+        require((phases[key]['primary_color'], phases[key]['roughness']) == (PRIOR_COLOR, ROUGHNESS['A']),
+                'originating creator did not retain its authored private colour')
+    before, direct, again = (phases[key] for key in ('published_before_set', 'published_set_direct', 'reacquired_after_set'))
+    require((before['primary_color'], direct['primary_color'], again['primary_color']) == (STOCK_COLOR, PRIOR_COLOR, STOCK_COLOR)
+            and all(appearance_signature(value | {'primary_color': STOCK_COLOR}) == appearance_signature(before) for value in (direct, again))
+            and before['asset_sha256'] == job['installed']['asset']['sha256'] and before['roughness'] == ROUGHNESS['A']
+            and before['same_creator_iunknown'] is again['same_published_iunknown'] is False
+            and before['entity_count'] == 1 and before['same_model_iunknown'] is True
+            and before['ids'] == phases['creator_after_publication']['published_ids'] == [4, 0]
+            and retry['result']['working_sha256'] == retry_job['baseline_sha256'], 'preceding native reacquisition colours or actual owner differed')
+    operations = [call['method'] for call in retry['api_calls']]
+    require(operations.count('set published PrimaryColor once') == 1 and 'Save3' not in operations
+            and operations.count('GetRenderMaterials2') == 2 and 'reacquired_after_set' in retry['first_failure']['error'],
+            'preceding trial did not stop on its independent reacquisition')
+    return retry_job, {
+        '01': proof | {'creator_color': PRIOR_COLOR, 'published_color': STOCK_COLOR, 'roughness': ROUGHNESS['A'], 'material_ids_read': False},
+        '02': retry_proof | {'creator_color': PRIOR_COLOR, 'published_color': STOCK_COLOR, 'direct_setter_color': PRIOR_COLOR,
+                              'reacquired_color': STOCK_COLOR, 'different_acquired_iunknown': True, 'same_document_owner': True,
+                              'material_ids': before['ids'], 'roughness': ROUGHNESS['A']},
+    }
 
 
 def prepare(name, installed_path, installed_sha):
@@ -145,7 +186,7 @@ def prepare(name, installed_path, installed_sha):
     runtime = read_json(REFERENCE / 'Evidence/GuestPython.json', PINNED[REFERENCE / 'Evidence/GuestPython.json'])
     installed = load_installed(installed_path, installed_sha, runtime)
     require(installed_sha == preceding_job['files_sha256']['Evidence/Installed.json'] and installed == preceding_job['installed']
-            and preceding_job['rgb'] == list(RGB) and preceding_job['roughness'] == ROUGHNESS, 'source experiment changed its authored intent or stock asset')
+            and preceding_job['roughness'] == ROUGHNESS, 'source experiment changed its roughness inputs or stock asset')
     prediction = read_json(REFERENCE / 'Evidence/Prediction.json', PINNED[REFERENCE / 'Evidence/Prediction.json'])
     controls = reference['controls']
     require(set(controls) == set(CONTROL), 'control pair changed')
@@ -196,20 +237,21 @@ def prepare(name, installed_path, installed_sha):
             files['Tools/' + filename] = publish(root / 'Tools' / filename, data)
         for filename, data in {'Installed.json': checked(installed_path, installed_sha).read_bytes(),
                                'Neutral.json': checked(request, PINNED[request]).read_bytes(), 'Build.json': build,
-                               'PrecedingNativeFailure.json': preceding,
+                               'PrecedingNativeFailures.json': preceding,
                                'AppearanceInputs.json': {'owner': 'native part self', 'asset_sha256': installed['asset']['sha256'],
-                                                         'rgb': list(RGB), 'roughness': ROUGHNESS,
+                                                         'stock_rgb': list(STOCK_RGB), 'authored_properties': ['Roughness'],
+                                                         'roughness': ROUGHNESS,
                                                          'authoring_protocol': AUTHORING_PROTOCOL}}.items():
             files['Evidence/' + filename] = publish(root / 'Evidence' / filename, data)
     trial = root / 'Trial.json'
     job = {'schema': SCHEMA, 'guest_root': guest(root), 'files_sha256': files, 'controls': controls, 'installed': installed,
-           'baseline_sha256': frozen['Frozen'], 'part_name': PART_NAME, 'rgb': list(RGB), 'roughness': ROUGHNESS,
+           'baseline_sha256': frozen['Frozen'], 'part_name': PART_NAME, 'stock_rgb': list(STOCK_RGB), 'roughness': ROUGHNESS,
            'radial': {key: radial_trial[key] for key in ('case', 'lights')}, 'prediction_control': prediction['control'],
            'phases': list(PHASES), 'heldout_inputs_read': False, 'source_evidence_only': True,
            'authoring_protocol': AUTHORING_PROTOCOL,
            'revision': {'writer': WRITER, 'auditor': AUDITOR, 'preparer_sha256': digest(HERE), 'writer_epoch': EPOCH}}
     require(job['radial'] == preceding_job['radial'] and job['controls'] == preceding_job['controls']
-            and job['baseline_sha256'] != preceding_job['baseline_sha256'], 'new native path or scoped source controls differ')
+            and all(job['baseline_sha256'] != old['baseline_sha256'] for old in preceding.values()), 'new native path or scoped source controls differ')
     trial_sha = publish(trial, job)
     prefix = ['prlctl', 'exec', 'Windows 11', '--current-user', runtime['executable'], '-B', guest(root / 'Tools' / observer.name)]
     tail = [guest(trial), trial_sha]
@@ -243,7 +285,7 @@ def change(a, b):
 
 
 def prospective(properties, expected_roughness):
-    expected = [f32(channel * f32(1 / 255)) for channel in RGB]
+    expected = [f32(channel * f32(1 / 255)) for channel in STOCK_RGB]
     legacy = properties['f20']
     rv = legacy.get('f90')
     pbr = properties.get('f88')
@@ -252,7 +294,7 @@ def prospective(properties, expected_roughness):
                                         'emission': 'fb8'}.items()} if pbr else {}
     return {'packed_legacy_color': properties['f0c'], 'packed_realview_color': None if rv is None else rv['f14'],
             'matching_packed_color': [owner for owner, actual in [('visual.f0c', properties['f0c']),
-                                                                  ('realview.f14', None if rv is None else rv['f14'])] if actual == COLOR],
+                                                                  ('realview.f14', None if rv is None else rv['f14'])] if actual == STOCK_COLOR],
             'realview_id_words': None if rv is None else [rv['f00'], rv['f04']],
             'legacy_roughness': None if rv is None else rv['f74'], 'pbr_roughness': None if pbr is None else pbr['f2c'],
             'matching_roughness': [owner for owner, actual in [('realview.f74', None if rv is None else rv['f74']),
@@ -353,12 +395,16 @@ def collect_audit(root, trial_sha, result_sha):
     require(job['schema'] == result['schema'] == SCHEMA and result['trial_sha256'] == trial_sha and result['passed'] is True
             and job['authoring_protocol'] == AUTHORING_PROTOCOL
             and result['controls_healthy'] is True and result['native_processes'] == 6 and result['heldout_credit'] == 0
-            and result['source_evidence_only'] is True and job['heldout_inputs_read'] is False and job['rgb'] == list(RGB)
+            and result['source_evidence_only'] is True and job['heldout_inputs_read'] is False and job['stock_rgb'] == list(STOCK_RGB)
             and job['roughness'] == ROUGHNESS and set(result['phases']) == set(PHASES), 'no complete healthy native source trial')
     for role, phase in result['phases'].items():
         row = json.loads((root / 'Inspection' / role / 'Record.json').read_bytes())
         require(row['job'] == {'trial_sha256': trial_sha, 'phase': role} and row['result'] == phase and row['passed'] is True
                 and phase['open_errors'] == phase['open_warnings'] == 0, 'native phase receipt differs: ' + role)
+        methods = [entry['method'] for entry in row['api_calls']]
+        material_properties = [method for method in methods if any(name in method.casefold() for name in ('primarycolor', 'roughness'))]
+        require(set(material_properties) <= {'PrimaryColor', 'Roughness', 'set Roughness'}
+                and material_properties.count('set Roughness') == int(role.startswith('Author')), 'unexpected authored appearance property: ' + role)
     frozen = root / 'Frozen' / PART_NAME
     basis, basis_graph, base_proof = inspect_part(frozen, job['baseline_sha256'])
     require(base_proof['visual_replay'] is None and base_proof['self_file'][1] == guest(root / 'Working' / PART_NAME),
@@ -372,19 +418,18 @@ def collect_audit(root, trial_sha, result_sha):
         owner = result['phases']['Author' + lane]
         reopen = result['phases']['Reopen' + lane]
         stages = owner['appearance_checkpoints']
-        after = ('published_set_direct', 'reacquired_after_set', 'rebuilt_reacquired')
-        require(set(stages) == {'creator_requested', 'creator_after_attach', 'creator_after_publication', 'published_before_set', *after}
-                and stages['published_before_set']['primary_color'] == PUBLISHED_STOCK_COLOR
-                and stages['published_before_set']['ids'] == stages['creator_after_publication']['published_ids'] == owner['appearance']['ids']
-                and stages['published_before_set']['roughness'] == ROUGHNESS[lane]
+        observed = ('published_reacquired', 'rebuilt_reacquired')
+        require(set(stages) == {'creator_initial', 'creator_roughness_set', 'creator_after_attach', 'creator_after_publication', *observed}
+                and stages['creator_roughness_set'] == {'primary_color': stages['creator_initial']['primary_color'], 'roughness': ROUGHNESS[lane]}
+                and stages['published_reacquired']['ids'] == stages['creator_after_publication']['published_ids'] == owner['appearance']['ids']
                 and set(reopen['appearance_checkpoints']) == {'cold_reopen', 'rebuilt_reacquired'}
                 and owner['save_count'] == 1 and owner['saved_sha256'] == owner['working_sha256'] == reopen['working_sha256']
-                and owner['save_status'] == [True, 0, 0] and reopen['save_count'] == 0, 'post-publication setter or clean save checkpoints differ')
+                and owner['save_status'] == [True, 0, 0] and reopen['save_count'] == 0, 'roughness-only publication or clean save checkpoints differ')
         cold = reopen['appearance']
         require(all(appearance_signature(row) == appearance_signature(cold)
-                    for row in [*(stages[key] for key in after), *reopen['appearance_checkpoints'].values()]),
-                'retention differs after the setter, reacquisition or reopen')
-        require(cold['same_model_iunknown'] is True and cold['entity_count'] == 1 and cold['primary_color'] == COLOR
+                    for row in [*(stages[key] for key in observed), *reopen['appearance_checkpoints'].values()]),
+                'retention differs after the publication, rebuild or reopen')
+        require(cold['same_model_iunknown'] is True and cold['entity_count'] == 1 and cold['primary_color'] == STOCK_COLOR
                 and cold['asset_sha256'] == job['installed']['asset']['sha256'] and cold['roughness'] == ROUGHNESS[lane],
                 'native self owner or actual author input differs')
         ars[lane], graphs[lane], reports[lane] = inspect_part(root / 'Inspection' / ('Author' + lane) / PART_NAME,
@@ -405,8 +450,8 @@ def collect_audit(root, trial_sha, result_sha):
             'source_evidence': reports, 'paired_appearance_field_delta': deltas, 'paired_stream_delta': streams_changed,
             'physical_equal_between_arms': True, 'generated_baseline': base_proof,
             'baseline_appearance_roles': {key: value is not None for key, value in basis_graph.items()},
-            'baseline_streams': sorted(basis.streams), 'expected_f32': [f32(channel * f32(1 / 255)) for channel in RGB],
-            'heldout_credit': 0, 'writer_qualified': False}
+            'baseline_streams': sorted(basis.streams), 'expected_stock_f32': [f32(channel * f32(1 / 255)) for channel in STOCK_RGB],
+            'heldout_credit': 0, 'writer_qualified': False, 'native_primary_color_setters': 0}
 
 
 def audit(arguments):

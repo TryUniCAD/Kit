@@ -29,17 +29,16 @@ MEMBERS = {
         ("GetRenderMaterials2", 1, 2),
     },
     "IRenderMaterial": {
-        ("PrimaryColor", 2, 0), ("PrimaryColor", 4, 1), ("Roughness", 2, 0), ("Roughness", 4, 1),
+        ("PrimaryColor", 2, 0), ("Roughness", 2, 0), ("Roughness", 4, 1),
         ("AddEntity", 1, 1), ("GetEntities", 1, 0), ("GetMaterialIds", 1, 2), ("FileName", 2, 0),
     },
     "IConfiguration": {("GetDisplayStates", 1, 0), ("GetDisplayStatesCount", 1, 0)},
     "IModelDoc2": {("Save3", 1, 3), ("IsOpenedReadOnly", 1, 0)},
 }
-RGB = (53, 137, 211)
+STOCK_RGB = (229, 229, 229)
 ROUGHNESS = {"A": 0.3125, "B": 0.6875}
-COLOR = sum(channel << (8 * index) for index, channel in enumerate(RGB))
-PUBLISHED_STOCK_COLOR = 0xE5E5E5
-AUTHORING_PROTOCOL = "set-primary-color-on-published-row-once"
+STOCK_COLOR = sum(channel << (8 * index) for index, channel in enumerate(STOCK_RGB))
+AUTHORING_PROTOCOL = "installed-stock-color-roughness-only"
 PART_NAME = "DisclosedRadialSceneProbe.SLDPRT"
 
 
@@ -111,7 +110,7 @@ def verify(packet, expected):
             and HERE == root / "Tools" / HERE.name
             and job["part_name"] == PART_NAME
             and job["authoring_protocol"] == AUTHORING_PROTOCOL
-            and job["rgb"] == list(RGB) and job["roughness"] == ROUGHNESS and job["heldout_inputs_read"] is False,
+            and job["stock_rgb"] == list(STOCK_RGB) and job["roughness"] == ROUGHNESS and job["heldout_inputs_read"] is False,
             "wrong disclosed appearance packet")
     for relative, wanted in job["files_sha256"].items():
         path = root / relative
@@ -212,9 +211,10 @@ def appearance(author, model, asset, job, roughness, editing, checkpoints, stage
     selected = {"configuration": str(author.get(config, "Name")), "display_state": str(display)}
     if editing:
         creator = author.typed(author.get(extension, "CreateRenderMaterial", str(asset)), "RenderMaterial")
-        author.set(creator, "PrimaryColor", COLOR)
+        initial = checkpoints["creator_initial"] = render_values(author, creator)
         author.set(creator, "Roughness", roughness)
-        checkpoints["creator_requested"] = render_values(author, creator)
+        modified = checkpoints["creator_roughness_set"] = render_values(author, creator)
+        require_intent(modified, initial["primary_color"], roughness, "only roughness on the creator")
         require(author.get(creator, "AddEntity", model) is True, "the native render API refused its part-scope entity")
         checkpoints["creator_after_attach"] = render_values(author, creator)
         first, second = (sw.byref_long() for _ in range(2))
@@ -224,23 +224,14 @@ def appearance(author, model, asset, job, roughness, editing, checkpoints, stage
         published = [int(first.value), int(second.value)]
         require(published != [-1, -1], "published material lacks its explicit ID pair")
         checkpoints["creator_after_publication"] = render_values(author, creator) | {"published_ids": published}
-        target, prior = acquire_material(author, extension, model, selector, names, asset, data_root)
-        checkpoints["published_before_set"] = prior | selected | {"same_creator_iunknown": same_identity(author, target, creator)}
-        require(prior["ids"] == published, "actual selected-state material does not own the published IDs")
-        require_intent(prior, PUBLISHED_STOCK_COLOR, roughness, "published pre-set contrast")
-        author.rec.call("set published PrimaryColor once", setattr, target, "PrimaryColor", COLOR, parameters={"value": COLOR})
-        direct = observed_material(author, target, model, asset, data_root) | selected
-        checkpoints["published_set_direct"] = direct
-        successor, observed = acquire_material(author, extension, model, selector, names, asset, data_root)
-        checkpoints[stage] = observed | selected | {"same_published_iunknown": same_identity(author, successor, target)}
-        require(direct["ids"] == published, "direct setter readback changed its actual material ID pair")
-        require_intent(direct, COLOR, roughness, "direct published setter")
+        target, observed = acquire_material(author, extension, model, selector, names, asset, data_root)
+        checkpoints[stage] = observed | selected | {"same_creator_iunknown": same_identity(author, target, creator)}
     else:
         published = None
         _, observed = acquire_material(author, extension, model, selector, names, asset, data_root)
         checkpoints[stage] = observed | selected
     require(published is None or published == observed["ids"], "the published material and selected state returned different IDs")
-    require_intent(observed, COLOR, roughness, stage)
+    require_intent(observed, STOCK_COLOR, roughness, stage)
     return observed | selected | {"published_ids": published}
 
 
@@ -309,7 +300,7 @@ def phase(packet, expected, role):
                 if editing:
                     result["geometry"] = radial.capture(author, job["radial"], 1.0)
                 checkpoints = result["appearance_checkpoints"] = {}
-                initial_stage = "reacquired_after_set" if editing else "cold_reopen"
+                initial_stage = "published_reacquired" if editing else "cold_reopen"
                 result["appearance"] = appearance(author, model, asset, job, ROUGHNESS[lane], editing, checkpoints, initial_stage)
                 result["rebuild_geometry"] = radial.capture(author, job["radial"], 1.0)
                 refreshed = appearance(author, model, asset, job, ROUGHNESS[lane], False, checkpoints, "rebuilt_reacquired")
