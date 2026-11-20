@@ -1,7 +1,11 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
-    KFeatColorClass,
+    KExplViewClass,
     KRelMgrClass,
+    KSketchBlockClass,
+)
+from convert.adapters.solidworks.Archive.Config.Members.CheckCfgOwner import (
+    CheckCfgOwner,
 )
 from convert.adapters.solidworks.Archive.Config.Members.CheckRelMember import (
     CheckRelMember,
@@ -12,12 +16,12 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
 
-# only the observed color member can complete as null without allocating an object
+# null records must stay distinct from present managers with unqualified inherited objects
 def CheckCfgMember(
     RootValue: ArchiveNode | None, MemberClass: RuntimeClass, MapValue: ArchiveMaps
 ) -> None:
     if RootValue is None:
-        if MemberClass != KFeatColorClass:
+        if MemberClass == KRelMgrClass:
             raise BodyUnsupported(
                 "SOLIDWORKS relation member requires its concrete root"
             )
@@ -33,3 +37,5 @@ def CheckCfgMember(
         )
     if MemberClass == KRelMgrClass:
         CheckRelMember(RootValue)
+    elif MemberClass in (KSketchBlockClass, KExplViewClass):
+        CheckCfgOwner(RootValue)
