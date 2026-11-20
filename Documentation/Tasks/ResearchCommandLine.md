@@ -311,3 +311,5 @@ See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthE
 [Native scalar record roles](../Changes/Research/Inference/ScalarRecordRoles.md) distinguish driving records, display values and unclassified trailers.
 
 [Pattern count encoding evidence](../Changes/Research/Inference/NamedPatternCountEvidence.md) records competing interpretations at named scalar offsets.
+
+[Counted text discovery](../Changes/Research/Inference/CountedTextDiscovery.md) generates a prefix reader for related raw streams.

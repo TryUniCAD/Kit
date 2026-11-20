@@ -146,6 +146,7 @@ def raw_scope(data, path, pin, application, root, scratch, control_paths=()):
                         "supply distinct nonempty raw binary comparison streams"
                     )
                 seen.add(digest)
+                remaining -= len(blob)
                 controls.append(blob)
                 found = frame_candidates(blob)
                 viable &= {
@@ -164,6 +165,13 @@ def raw_scope(data, path, pin, application, root, scratch, control_paths=()):
             if scalar:
                 report["named_scalar_experiment"] = scalar
                 report["status"] = scalar["status"]
+            if not patch:
+                from InferenceGrid.CountedText import text_reader
+                text, patch = text_reader(root, scratch, data, pin, controls)
+                if text:
+                    report["counted_text"] = text
+                    if not scalar:
+                        report["status"] = text["status"]
     audit = {
         "source_sha256": pin,
         "source_name": path.name,
