@@ -447,6 +447,10 @@ def CheckReversedSavedPrism(TmpPath: FilePath) -> None:
     Graph = LoadJson((Run / "Input-edited-graph.json").read_bytes())
     assert Graph["status"] == "candidate_matches_native_graph"
     Update, = Graph["updates"]
+    Reader = LoadJson((Run / "Input-reader-patch.json").read_bytes())
+    assert Reader["observed_bindings"] == {"LengthFwd": "length"}
+    assert Reader["bindings"] == {"LengthFwd": "length", "LengthRev": "second_length"}
+    assert {Field for Replay in Reader["control_replays"] for Field in Replay["definition_fields"]} == {"length", "second_length"}
     assert Update["parameter_id"] == "depth:forward"
     assert Update["definition_field"] == "length"
     Step, = (Item for Item in Graph["candidate"]["feature_timeline"]["$tuple"] if Item["id"] == Update["feature_id"])

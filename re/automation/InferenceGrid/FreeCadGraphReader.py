@@ -92,6 +92,7 @@ if __name__ == "__main__":
                          capture_output=True, timeout=90)
     if run.returncode or json.loads(run.stdout) != graph:
         return None
+    from InferenceGrid.FreeCadDepthEdits import depth_edits, reconcile_depths
     from InferenceInputs import read_file
 
     verified = set()
@@ -102,16 +103,22 @@ if __name__ == "__main__":
             continue
         data = read_file(folder / case["file"], 16 * 1024 * 1024)
         if hashlib.sha256(data).hexdigest() != case["sha256"]:
+            return None
+        native_changes = depth_edits(data)
+        if not native_changes or any(change["field"] not in bindings for change in native_changes):
             continue
+        comparison = reconcile_depths(data, native_changes)
+        if comparison["status"] != "candidate_matches_native_graph":
+            return None
         control = scratch / "graph-control.FCStd"
         control.write_bytes(data)
         replay = subprocess.run([sys.executable, script, control], cwd=scratch, env=env,
                                 capture_output=True, timeout=90)
         if replay.returncode:
-            continue
+            return None
         record = json.loads(replay.stdout)
-        if record["status"] != "candidate_matches_native_graph":
-            continue
+        if record != comparison:
+            return None
         slots = sorted({u["definition_field"] for u in record["updates"]})
         verified.update(slots)
         replays.append({"control_sha256": case["sha256"], "definition_fields": slots})
