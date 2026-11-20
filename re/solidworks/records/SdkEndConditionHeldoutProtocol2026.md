@@ -8,7 +8,7 @@
 | Inputs | Historical `H03MidPlane` and `H04TwoDirections` |
 | Dependencies | Current shared SDK circle constructor and reader, original pre-writer source locks, unchanged recursive circle observer and comparator |
 | Exit | Immutable generated predictions, strict original SDK admission, clean paired native lifecycle and exact saved-output SDK readback |
-| State | Both guarded predictions and strict source attachments pass. The first native packet failed in its observer; the corrected observer must be measured. |
+| State | Both guarded predictions and strict source attachments pass. The corrected native packet passes. Two generated mid-plane saves need separate SDK readback diagnosis. |
 
 ## Independence and source identities
 
@@ -122,6 +122,20 @@ generated file. The retry uses the existing corrected body observer
 that reads `IBody2.GetType` and `GetVertexCount`. It retains the same
 comparison predicates.
 [Installed COM gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Parts/BodyTypeUsesGetType.md)
+
+The corrected observer used the same two generated file hashes. All
+14 distinct native processes passed, including both controls. Each
+reference and generated lane kept its 25-row recursive native tree,
+configuration, visible solid, analytic geometry and actual dimension
+owners through edits, save and fresh reopen.
+
+The frozen SDK replay passed ten of the twelve readbacks with 20 exact
+linked Config and Resolved stream comparisons. Both generated mid-plane
+saves stopped on an exact fixed-point versus circle-centre comparison.
+The two-direction candidate and both original reference lanes passed
+all three readbacks. The native pass remains separate from that SDK
+boundary and public qualification remains open.
+[Paired case measurements](../measurements/2026/SdkPairedEndConditionsNative01.json)
 
 Native appearance, drawing and assembly behavior and additional source
 owners require separate evidence. This protocol makes no public writer
