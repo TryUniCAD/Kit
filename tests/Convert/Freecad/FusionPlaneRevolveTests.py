@@ -171,7 +171,8 @@ def TestPlaneEdit(TmpPath: FilePath) -> None:
         text=True,
         timeout=120,
     )
-    assert Result.returncode == 0, (Result.stdout, Result.stderr)
+    print(Result.stdout, Result.stderr)
+    assert Result.returncode == 0
     Loaded, Rebuilt, Edited, Reopened = (
         tuple(map(float, LineValue.split()[1:]))
         for LineValue in Result.stdout.splitlines()
