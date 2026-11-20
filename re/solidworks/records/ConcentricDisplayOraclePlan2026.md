@@ -27,12 +27,20 @@ Each state creation starts with the default separately active. `GetDisplayStates
 
 Build the private packet from the repository root with `python3 -B re/tooling/sw2026/para/concentric/PrepareConcentricDisplayOracle.py`. It requires an unused numbered `ConcentricDisplayVisibilityNN` directory. The first prepared packet has trial SHA-256 `8e494acef294a47195e0a7d5d0e931b1794d55cfd6e9264c600a8ae1f0714632` and recipe SHA-256 `bbe05d623fdaac8c7463517793cbadb9656257cd39d38fc652760da4c019d51c`. The recipe contains exact `prlctl` argument vectors and host wait limits. Run one command at a time. Require preflight and the leading control before authoring, and the author receipt before observation. After a native failure, attempt the trailing control only once the oracle is idle. Preserve each `Inspection/<phase>/Record.json` before running the file-only `summary`. All four native records must pass and report increasing process birth times. A new attempt uses an unused numbered directory.
 
-Use packet `ConcentricDisplayVisibility02` for dispatch. Its trial SHA-256 is
-`63cf59bcef6c18c4007bec5badd09917e81f682430a25d9e034d50c290c7879f` and its
-recipe SHA-256 is `8b93d0e3bb28413c6c9f6ea808efba112428920fab20937bd9566f13513d41b0`.
-The installed Parallels parser requires the VM name before `--current-user`.
-The first packet remains unexecuted.
+The installed Parallels parser takes the VM name before `--current-user`.
+The first packet remains unexecuted. Packet `ConcentricDisplayVisibility02`
+failed preflight in isolated Python because its user-site `pythoncom` was
+hidden. The failure receipt SHA-256 is
+`377863cb6b35c1cbeb37046dbdda78af753d67c77f56c9b00f4aa08cc595bc81`.
+No SOLIDWORKS process started in either attempt.
 [Observed Parallels transport](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/ParallelsInventoryTransportStatus.md)
+[Guest COM import gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/Rewrite/IsolatedPythonHidesUserSiteComObservers.md)
+
+Use packet `ConcentricDisplayVisibility03` for dispatch through the pinned
+user-site-enabled Python. Its trial SHA-256 is
+`0aa6638570ce6f007a5024303a4619aedbf8de0036eea337eb4e8c4ea639e29f` and its
+recipe SHA-256 is `2929ad4692c401a241d7a5920631a20d66f48eebc0616df5bd634860fcc94945`.
+The registered interface and enum preflight passed before any CAD launch.
 
 The saved baseline is retained privately at `Inspection/Author/Before.SLDASM`. Both its bytes and the changed final parent were saved at the same owned parent path. After a passing cold read, compare the two native archives independently, joining `COMPINSTANCETREE` through configuration and occurrence XML IDs and joining `ThirdPtyStore/VisualStates` through its typed state keys and occurrence owners. Agreement would establish correlation with authored visibility. A later causal discrimination requires its own controlled same-path oracle batch.
 

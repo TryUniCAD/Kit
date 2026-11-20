@@ -111,7 +111,7 @@ def prepare(name):
     }
     trial = publish(output, 'Trial.json', json_bytes(job))
     prefix = ['prlctl', 'exec', 'Windows 11', '--current-user', json.loads(runtime)['executable'],
-              '-I', '-B', guest(output / 'Tools' / OBSERVER)]
+              '-B', guest(output / 'Tools' / OBSERVER)]
     argv = {phase: [*prefix, *flags, guest(output / 'Trial.json'), trial] for phase, flags in STEPS.items()}
     recipe = publish(output, 'Recipe.json', json_bytes({
         'trial_sha256': trial, 'ordered_steps': list(STEPS), 'argv': argv,
