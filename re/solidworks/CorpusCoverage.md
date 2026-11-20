@@ -162,6 +162,12 @@ owners. Initial and edited geometry matches the disclosed native
 measures. The reader also resolves an independently generated
 second-stock selection. Ordinary SDK registration remains open.
 
+The [saved two-stock SDK trial](measurements/2026/TwoStockSavedSdkRead01.json)
+reads both editable depths and the selected cut from the original
+disclosed source and three derivatives saved by SOLIDWORKS.
+The native controls and separate edits to each depth passed.
+This contributes zero original FCStd benchmark conversions.
+
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,
 save and reopen across 14 processes. Strict SDK readback reaches 20

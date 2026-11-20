@@ -7,12 +7,24 @@ from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 # role checks exclude joins and alternate ends before body pointers define the portable history
 def CheckStockMode(
-    OwnerValue: ExtrudeOwner, ProfileValue: ArchiveNode, SolidMode: int
+    OwnerValue: ExtrudeOwner,
+    ProfileValue: ArchiveNode,
+    SolidMode: int,
+    *,
+    AllowSavedTolerance: bool = False,
 ) -> None:
     IsCut = SolidMode == 1
     Fields = OwnerValue.NodeValue.FieldsValue
     EndFields = OwnerValue.EndValue.FieldsValue
     Flags = Fields.get("f28")
+    Tolerance = Fields.get("f838")
+    SupportedTolerance = Tolerance == 0.0 or (
+        AllowSavedTolerance
+        and SolidMode == 0
+        and Tolerance == 1e-5
+        and Fields.get("f2b8") == 19000
+        and Fields.get("f2bc") == 2026306
+    )
     if (
         OwnerValue.ParentsValue != (ProfileValue,)
         or OwnerValue.ProfileValue is not ProfileValue
@@ -22,7 +34,7 @@ def CheckStockMode(
         or Fields.get("f810") != SolidMode
         or type(Flags) is not int
         or Flags & 0x7FFFFFFF != (0x400201CA if IsCut else 0x40000140)
-        or Fields.get("f838") != 0.0
+        or not SupportedTolerance
         or Fields.get("f6e0") is not None
         or Fields.get("f758") is not None
         or Fields.get("f7a0") != 0

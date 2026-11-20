@@ -11,7 +11,10 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtru
 
 # each physical stock must keep its own preceding profile and editable depth
 def ReadStockOps(
-    LinkValue: NativeLink, Features: Mapping[int, ArchiveNode]
+    LinkValue: NativeLink,
+    Features: Mapping[int, ArchiveNode],
+    *,
+    AllowSavedTolerance: bool = False,
 ) -> tuple[ExtrudeOwner, ExtrudeOwner, ExtrudeOwner]:
     FirstProfile, FirstNode, SecondProfile, SecondNode, CutProfile, CutNode = tuple(
         Features.values()
@@ -20,7 +23,9 @@ def ReadStockOps(
     SecondStock = ReadExtrude(LinkValue, SecondNode, Features, NewSolid=True)
     CutValue = ReadExtrude(LinkValue, CutNode, Features, IsCut=True)
     CheckStockMode(FirstStock, FirstProfile, -1)
-    CheckStockMode(SecondStock, SecondProfile, 0)
+    CheckStockMode(
+        SecondStock, SecondProfile, 0, AllowSavedTolerance=AllowSavedTolerance
+    )
     CheckStockMode(CutValue, CutProfile, 1)
     FirstDepth, SecondDepth = FirstStock.RequireDepth(), SecondStock.RequireDepth()
     if (

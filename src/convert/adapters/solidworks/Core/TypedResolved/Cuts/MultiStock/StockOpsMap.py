@@ -44,6 +44,7 @@ def StockOpsMap(
     OwnersValue[CutId] = ReplaceValue(
         CutValue, ParentsValue=(Selected, CutValue.ProfileValue)
     )
+    MergeTolerance = StockValues[1].NodeValue.FieldsValue.get("f838")
     return OwnersValue, {
         "binding": "saved_two_stock_atom_alias",
         "feature_scope_code": 1,
@@ -53,4 +54,9 @@ def StockOpsMap(
         "consumed_atom_id": ReadCutAtomId(AtomsValue.ConsumedAtom, Selected),
         "untouched_atom_id": ReadCutAtomId(AtomsValue.UntouchedAtom, Untouched),
         "result_atom_id": ReadCutAtomId(AtomsValue.ResultAtom, CutValue.NodeValue),
+        **(
+            {"native_independent_stock_merge_tolerance_m": MergeTolerance}
+            if MergeTolerance
+            else {}
+        ),
     }

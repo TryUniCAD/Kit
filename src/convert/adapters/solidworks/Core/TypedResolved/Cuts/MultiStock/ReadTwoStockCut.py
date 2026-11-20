@@ -20,7 +20,9 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 # typed lineage preserves the selected input and both surviving solids for later body binding
 def ReadTwoStockCut(LinkValue: NativeLink) -> StockCutLineage:
     Features = ReadStockRoots(LinkValue)
-    FirstStock, SecondStock, CutValue = ReadStockOps(LinkValue, Features)
+    FirstStock, SecondStock, CutValue = ReadStockOps(
+        LinkValue, Features, AllowSavedTolerance=True
+    )
     RootValue = RequireNative(LinkValue.ConfigValue.RootValue, "moPart_c")
     FirstFrame, SecondFrame, CutFrame = (
         ReadPrismFrame(OwnerValue.ProfileValue, RootValue, Features, FrontOnly=False)
