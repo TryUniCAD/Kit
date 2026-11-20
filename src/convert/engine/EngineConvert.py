@@ -25,16 +25,19 @@ class EngineConvert:
         WriteOpts: WriteOptions | None = None,
     ) -> ConvertResult:
         RegistryData = getattr(self, "registry")
+        SelectedRead = ReadOpts or ReadOptions()
         DocumentData, ReaderData = RegistryData.read_with_adapter(
             SourceData,
             format_id=SourceFormat,
-            options=ReadOpts or ReadOptions(),
+            options=SelectedRead,
         )
-        OutputResult = RegistryData.write(
+        OutputResult = RegistryData.WriteFromRead(
             DocumentData,
             TargetData,
-            format_id=DestFormat,
-            options=WriteOpts or WriteOptions(),
+            ReaderData,
+            SelectedRead,
+            FormatId=DestFormat,
+            WriteOpts=WriteOpts or WriteOptions(),
         )
         return ConvertResult(
             document=DocumentData,

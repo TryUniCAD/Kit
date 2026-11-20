@@ -94,9 +94,11 @@ class ConversionEngine(PairProtocol):
             FormatId=source_format,
             ReadOpts=read_options,
         )
-        output = self.registry.WriteDocument(
+        output = self.registry.WriteFromRead(
             document,
             destination,
+            reader,
+            read_options,
             FormatId=destination_format,
             WriteOpts=write_options,
         )
