@@ -1,0 +1,104 @@
+import hashlib as Hashing
+import json as JsonCodec
+import os as OsLayer
+from re import fullmatch as MatchFull
+import signal as Signals
+import sys as System
+import time as TimeClock
+from pathlib import Path as FilePath
+from tests.Research.Supervisor.SessionRoot import SessionRoot
+
+
+# the staged input roster addresses files by their verified content digest
+def ReadInput(SessionPath: FilePath, InputInfo: dict[str, str]) -> bytes:
+    Digest = InputInfo["sha256"]
+    if (
+        not MatchFull(r"[0-9a-f]{64}", Digest)
+        or InputInfo["path"] != f"inputs/{Digest}"
+    ):
+        raise ValueError("invalid fixture input binding")
+    return (SessionPath / "inputs" / Digest).read_bytes()
+
+
+# published records need repeatable fixture content that lets tests detect crossed session inputs
+def WriteResult(SessionPath: FilePath, JobInfo: dict[str, object]) -> int:
+    JobText = (SessionPath / "job.json").read_text(encoding="utf-8")
+    Session = JsonCodec.loads(JobText)
+    Digests: list[str] = []
+    for RoleName in sorted(Session["inputs"]):
+        InputInfo = Session["inputs"][RoleName]
+        Content = ReadInput(SessionPath, InputInfo)
+        assert Hashing.sha256(Content).hexdigest() == InputInfo["sha256"]
+        Digests.append(str(InputInfo["sha256"]))
+    Options = JsonCodec.loads(JsonCodec.dumps(JobInfo["options"]))
+    Records = Options.get("records", {"count": 1})
+    Records["inputs"] = Digests
+    Records["tokenless"] = "lease_token" not in JobText
+    ResultInfo = {
+        "outcome": str(Options.get("outcome", "completed")),
+        "reason": "fixture runner finished",
+        "records": Records,
+    }
+    _ = (SessionPath / "result.json").write_text(
+        JsonCodec.dumps(ResultInfo), encoding="utf-8"
+    )
+    return 0
+
+
+# lifecycle scenarios need a deterministic way to hold a real worker until the owning test intervenes
+def HasHoldInput(SessionPath: FilePath) -> bool:
+    Session = JsonCodec.loads((SessionPath / "job.json").read_text(encoding="utf-8"))
+    return any(
+        ReadInput(SessionPath, InputInfo).startswith(b"hold")
+        for InputInfo in Session["inputs"].values()
+    )
+
+
+# process timing assertions need an atomic signal that the worker reached a particular phase
+def WritePhase(SessionPath: FilePath, PhaseName: str) -> None:
+    StagePath = SessionPath / f".{PhaseName}.entered.tmp"
+    Handle = OsLayer.open(
+        StagePath, OsLayer.O_CREAT | OsLayer.O_EXCL | OsLayer.O_WRONLY, 0o600
+    )
+    try:
+        with OsLayer.fdopen(Handle, "w", encoding="utf-8") as Writer:
+            _ = Writer.write(
+                JsonCodec.dumps({"pid": OsLayer.getpid(), "phase": PhaseName})
+            )
+            Writer.flush()
+            OsLayer.fsync(Writer.fileno())
+        OsLayer.replace(StagePath, SessionPath / f"{PhaseName}.entered.json")
+    finally:
+        StagePath.unlink(missing_ok=True)
+
+
+# supervisor scenarios need a controllable child that still honors the real session output contract
+def RunFixture() -> int:
+    SessionPath = SessionRoot(System.argv[1])
+    Session = JsonCodec.loads((SessionPath / "job.json").read_text(encoding="utf-8"))
+    JobInfo: dict[str, object] = Session["job"]
+    Options = JsonCodec.loads(JsonCodec.dumps(JobInfo["options"]))
+    ModeName = str(Options.get("mode", "complete"))
+    if ModeName == "invalid":
+        _ = (SessionPath / "result.json").write_text(
+            JsonCodec.dumps({"outcome": "completed"}), encoding="utf-8"
+        )
+        return 0
+    if ModeName == "crash":
+        _ = System.stderr.write("fixture failure\n")
+        return 3
+    if ModeName == "ignore-term":
+        _ = Signals.signal(Signals.SIGTERM, Signals.SIG_IGN)
+        TimeClock.sleep(120)
+        return 0
+    if ModeName == "sleep-first" and int(Session["attempt"]) == 1:
+        WritePhase(SessionPath, "sleep-first")
+        TimeClock.sleep(120)
+    if ModeName == "hold" and HasHoldInput(SessionPath):
+        WritePhase(SessionPath, "hold")
+        TimeClock.sleep(120)
+    return WriteResult(SessionPath, JobInfo)
+
+
+if __name__ == "__main__":
+    System.exit(RunFixture())

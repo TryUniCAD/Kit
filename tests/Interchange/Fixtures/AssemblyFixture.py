@@ -1,3 +1,11 @@
+from dataclasses import replace as Replace
+
+from interchange.Enums.EnumValues import ValueKind
+from interchange.Features.FeatureExtrude import ExtrudeFeature
+from interchange.geometry.Models.GeometryCurves import CircleGeometry
+from interchange.geometry.Models.Sketch import SketchEntity
+from interchange.geometry.Models.VectorPlane import PlaneVector
+from interchange.Records.RecordParameter import ParameterValue
 from interchange.assembly.AssemblyData import AssemblyData
 from interchange.assembly.AssemblyEnums import ComponentKind, MateEntityKind, MateKind
 from interchange.assembly.ComponentDefinition import ComponentDef
@@ -13,9 +21,36 @@ from interchange.Records.RecordSource import CadSource
 from tests.Interchange.Fixtures.DocumentFixture import BuildDocument
 
 
+# the piston needs a closed profile and a measured extrusion to exercise editable component history
+def BuildPiston() -> CadDocument:
+    Source = BuildDocument()
+    (SketchValue,) = Source.sketches
+    (Feature,) = Source.feature_timeline
+    Circle = SketchEntity(
+        "sketch:1:circle:1", "circle", CircleGeometry(PlaneVector(0.0, 0.0), 10.0)
+    )
+    return Replace(
+        Source,
+        sketches=(
+            Replace(
+                SketchValue,
+                entities=(Circle,),
+                closed_profile_entity_ids=((Circle.id,),),
+            ),
+        ),
+        feature_timeline=(
+            Replace(
+                Feature,
+                operation="create",
+                definition=ExtrudeFeature(ParameterValue(5.0, ValueKind.LENGTH, "mm")),
+            ),
+        ),
+    )
+
+
 # the canonical assembly fixture composes document data without module cycles
 def BuildAssembly() -> CadDocument:
-    PartValue = BuildDocument()
+    PartValue = BuildPiston()
     RootValue = ComponentDef("definition:root", "Engine", ComponentKind.KAssembly)
     Subassembly = ComponentDef(
         "definition:subassembly", "Piston", ComponentKind.KAssembly

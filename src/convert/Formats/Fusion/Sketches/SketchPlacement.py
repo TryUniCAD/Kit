@@ -4,6 +4,7 @@ from convert.Formats.Fusion.HistoryRef import ReadNativeRef
 from convert.Formats.Fusion.MetaCursor import MetaCursor
 from convert.Formats.Fusion.ParamProjection import ParamOrigin as RecordOrigin
 from convert.Formats.Fusion.RecordSpan import RecordSpan
+from convert.Formats.Fusion.Sketches.PrincipalSupport import AttachPrincipal
 from convert.Formats.Fusion.Sketches.SketchFrame import ReadFrame
 from interchange.Core.Common import FreezeMapping
 from interchange.geometry.Models.SupportPlane import SupportPlane
@@ -21,7 +22,7 @@ def ResolveSketch(
     Feature: RecordSpan,
     Owners: dict[int, RecordSpan],
     Bases: dict[int, list[RecordSpan]],
-) -> tuple[RecordSpan, SupportPlane]:
+) -> tuple[RecordSpan, SupportPlane, tuple[int, ...] | None]:
     Cursor = MetaCursor(BulkData[Feature.PayloadOffset + 4 : Feature.EndOffset])
     Cursor.Offset = 3
     Count = Cursor.ReadCount(1024)
@@ -43,6 +44,7 @@ def ResolveSketch(
     FrameId = ReadNativeRef(Cursor)
     Cursor.Offset = 28
     NameValue = Cursor.ReadText(True, Maximum=1024)
+    Children = ReadChildRoster(Cursor)
     FrameSpan = Owners.get(FrameId)
     if (
         FrameSpan is None
@@ -72,4 +74,26 @@ def ResolveSketch(
             }
         ),
     )
-    return RootSpan, PlaneValue
+    return (
+        RootSpan,
+        AttachPrincipal(BulkData, Owners, Feature, ComponentId, PlaneValue),
+        Children,
+    )
+
+
+# managed group children and the parent backlink delimit a supported sketch continuation
+def ReadChildRoster(Cursor: MetaCursor) -> tuple[int, ...] | None:
+    try:
+        if Cursor.TakeBytes(1) != bytes(1):
+            return None
+        Children = tuple(ReadNativeRef(Cursor) for _ in range(Cursor.ReadCount(100000)))
+        ParentId = ReadNativeRef(Cursor)
+    except ValueError:
+        return None
+    if (
+        Cursor.Offset != len(Cursor.DataValue)
+        or ParentId <= 0
+        or len(set(Children)) != len(Children)
+    ):
+        return None
+    return Children
