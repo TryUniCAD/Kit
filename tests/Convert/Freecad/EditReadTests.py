@@ -7,7 +7,6 @@ from zipfile import ZipFile
 import pytest as Pytest
 
 from convert import write_document as WriteDocument
-from tests.Convert.Freecad.FixturePolicy.CodecRebuild import CodecRebuild
 from tests.Convert.FusionRead import OpenResearch as OpenDocument
 from convert.adapters.freecad.Adapter import FreeCadAdapterA
 from convert.adapters.freecad.ArchiveEditPlan import KEditableBinding, KProfileBinding
@@ -206,7 +205,7 @@ def TestDepthEdit(TmpPath: FilePath, DistanceMm: float, ChangeMode: str) -> None
 def TestStaleEdit(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
     Document = OpenDocument(KSourcePath, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
-    _ = CodecRebuild(Document, Output)
+    _ = WriteDocument(Document, Output)
     Stale = ChangeEditFile(Output, 25.0, None, ChangeMode)
     with Pytest.raises(FreeCadAdapterA, match=Reason):
         _ = OpenDocument(Stale)
@@ -223,7 +222,7 @@ def TestStaleEdit(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
 def TestExtraShape(TmpPath: FilePath, ChangeMode: str, Reason: str) -> None:
     Document = OpenDocument(KSourcePath, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
-    _ = CodecRebuild(Document, Output)
+    _ = WriteDocument(Document, Output)
     Edited = ChangeEditFile(Output, 25.0, MakeEditShape(Document, 25.0), ChangeMode)
     with Pytest.raises(FreeCadAdapterA, match=Reason):
         _ = OpenDocument(Edited)
@@ -265,7 +264,7 @@ def TestFormulaEdit(TmpPath: FilePath) -> None:
 def TestBadFormula(TmpPath: FilePath, ChangeMode: str) -> None:
     Document = OpenDocument(KFormulaPath, StrictMode=False)
     Output = TmpPath / "editable.FCStd"
-    _ = CodecRebuild(Document, Output)
+    _ = WriteDocument(Document, Output)
     DistanceMm = 19.25 if ChangeMode == "bound" else 26.0
     ShapeData = None if ChangeMode == "bound" else MakeEditShape(Document, DistanceMm)
     Edited = ChangeEditFile(

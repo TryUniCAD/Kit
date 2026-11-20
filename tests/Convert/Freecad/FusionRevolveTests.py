@@ -79,7 +79,7 @@ def TestNativeRev(
     Transfers = {Value.capability: Value.mode for Value in Result.transfers}
     assert Result.application_usable and Result.vendor_loadable
     assert Transfers[Capability.BREP] is TransferMode.NATIVE
-    assert Transfers[Capability.PARAMETRIC_HISTORY] is TransferMode.MIXED
+    assert Transfers[Capability.PARAMETRIC_HISTORY] is TransferMode.NATIVE
     with ZipFile(Output) as Archive:
         AssertRevZip(Archive, StepValue.id, Definition, AngleDeg, SideMode)
     assert OpenDocument(Output) == DocValue
