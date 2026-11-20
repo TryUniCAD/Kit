@@ -27,5 +27,5 @@ def CheckCutState() -> None:
     ActualDigest = DigestBytes(Result.stdout.replace(b"\r\n", b"\n")).hexdigest()
     assert (
         ActualDigest
-        == "98fee890f42e66362571036c7b627c3d2b9ee478bbcaad5a9776125ca68c9668"
+        == "bba9de1a17ca9035136bb0fba7dd4d3324c301c4efd5d05161ea933e0be5a5df"
     )

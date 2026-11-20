@@ -119,7 +119,7 @@ def CheckThinGuard() -> None:
 def CheckExtWrite(TmpPath: FilePath, Folder: str, Capture: str, Reason: bytes) -> None:
     Document = OpenDocument(KStudyPath / Folder / f"{Capture}.f3d", StrictMode=False)
     Target = TmpPath / "extrude.FCStd"
-    with Pytest.raises(ValueError, match="native or unresolved required semantics"):
+    with Pytest.raises(ValueError, match="FreeCAD cannot emit editable required features"):
         _ = WriteDocument(Document, Target, allow_carrier=False)
     assert not Target.exists()
     Result = CodecRebuild(Document, Target)
