@@ -297,3 +297,5 @@ For an unrecognized ZIP package, inspect [member structure and cross-file refere
 [Native FreeCAD input](../Changes/Research/Inference/FreeCadFileResearch.md) also runs the neutral feature reader and compares matching recorded controls.
 
 See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthEdits.md) when the embedded model is stale.
+
+[Edited prism evidence](../Changes/Research/Inference/EditedPrismEvidence.md) compares the predicted solid with its saved shape member.

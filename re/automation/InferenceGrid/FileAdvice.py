@@ -41,7 +41,8 @@ def file_stall(audit, reports):
         ]
         sources = ["FileScope.json", "Input-" + dimension_layer + ".json"]
     elif reports.get("native-edits", {}).get("changes"):
-        focus = "edited_extrusion_geometry"
+        focus = ("edited_graph_reconciliation" if all(row.get("saved_geometry", {}).get("status") == "edited_prism_confirmed"
+                 for row in reports["native-edits"]["changes"]) else "edited_extrusion_geometry")
         references = [{"feature_id": row["kit_feature_id"], "field": row["field"]}
                       for row in reports["native-edits"]["changes"]]
         sources = ["FileScope.json", "Input-native-edits.json"]
@@ -90,6 +91,7 @@ def advise_file(directory, stall, options):
         "ambiguous_dimension": "Multiple stored scalar locations fit a declared CAD dimension.",
         "missing_dimension": "No stored scalar location matches a declared CAD dimension.",
         "feature_semantics": "A native CAD feature has no mapped semantic experiment.",
+        "edited_graph_reconciliation": "The saved prism matches the edited depths. Reconciliation of the remaining embedded feature graph needs verification.",
         "edited_extrusion_geometry": "A saved native extrusion depth differs from its embedded model. The resulting solid and dependent features require independent verification.",
         "geometry_only": "Standalone solid geometry matches measured volume, bounds and topology counts. The parent document history is outside this input.",
         "profile_validation": "A standalone geometry reader recovered a typed profile. An independent measurement is needed to verify the recovered model.",
