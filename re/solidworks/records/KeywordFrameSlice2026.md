@@ -21,16 +21,20 @@ The delivered framing file
 [`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
 adds the carriage-return rule and guards the outer document boundary. Its source SHA-256 is
 `62d04af2ee71dfa7671b01fe795b105c2d97e32e391e2bf348102fc69fa39523`.
-The focused [named-tree serializer](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/EmitKeywordXml.py)
-has SHA-256 `7ab3240dd25bb20a2dfc32f387f2b37056cb7e6831c0e9c21d42f287b7934a12`.
+The [named-tree serializer](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/EmitKeywordXml.py)
+has SHA-256 `8773e31df6072e6bdb2b671180f034f0f8a52dadfc71c5f130dabc9e1a27d370`.
 The [name boundary](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckXmlNames.py)
 has SHA-256 `754d19d4612a8163beaaf991d212ef94f3d1af3e1ef09d844035899882f5e3ef`.
 The [tree comparison](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/CheckXmlTree.py)
-has SHA-256 `4c8778750c751baec87f758a4baada5e5e27dfe53d1402821e5555833853add9`.
+has SHA-256 `e25dd6b95c04b15edaa35e95c81fe9554c5dd2c94e8c6ab92994dbb32154f1d6`.
 The [namespace expansion](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/ExpandXmlName.py)
 has SHA-256 `ffbb86416a2f1c662bcf29adabd54a5ba5608020578a37267911a25410e0adb8`.
-The path-sorted five-file manifest SHA-256 is
-`919604e565a87aeb4355cbcabd047bcc56025b3894090e27ae559e415287ddbb`.
+The [parsed namespace scopes](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/ReadXmlScopes.py)
+has SHA-256 `6b7667ed58807d1f1f19b5157b0474ad8a7c6645b11624690005fe0fc2436c61`.
+The [attribute comparison](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/MatchXmlAttrs.py)
+has SHA-256 `6ca4d48dc8b69ae24933ef542e627490750a5bbac4eba356b4b3e434d41b964d`.
+The path-sorted seven-file manifest SHA-256 is
+`8b4e01bdfbead601017799b34858644d8b05e22dc4d33ced1c5f1d4421e877e5`.
 Each manifest hashes the repository-relative path followed by a NUL,
 the lowercase file SHA-256 and a newline. The serializer uses the
 standard-library `tostring` exposed by the repository's locked

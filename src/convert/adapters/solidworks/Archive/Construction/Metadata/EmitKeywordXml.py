@@ -2,12 +2,15 @@ from xml.etree.ElementTree import Element
 
 from defusedxml.ElementTree import tostring as XmlBytes
 
-from convert.adapters.base import ParseUntrusted
 from convert.adapters.solidworks.Archive.Construction.Metadata.CheckXmlNames import (
     CheckXmlNames,
 )
 from convert.adapters.solidworks.Archive.Construction.Metadata.CheckXmlTree import (
     CheckXmlTree,
+)
+from convert.adapters.solidworks.Archive.Construction.Metadata.ReadXmlScopes import (
+    KXmlNamespace,
+    ReadXmlScopes,
 )
 
 
@@ -21,12 +24,10 @@ def EmitKeywordXml(RootValue: Element, CompactTags: bool) -> bytes:
         PayloadValue = PayloadValue.replace(b"\r", b"&#13;")
         if CompactTags:
             PayloadValue = PayloadValue.replace(b" />", b"/>")
-        ParsedValue = ParseUntrusted(PayloadValue)
+        ParsedValue, ParsedScopes = ReadXmlScopes(PayloadValue)
         if ParsedValue.tag != RootValue.tag:
             raise ValueError("serialized keyword root changed its native name")
-        CheckXmlTree(
-            RootValue, ParsedValue, {"xml": "http://www.w3.org/XML/1998/namespace"}
-        )
+        CheckXmlTree(RootValue, ParsedValue, {"xml": KXmlNamespace}, ParsedScopes)
     except (SyntaxError, TypeError, ValueError) as ErrorInfo:
         raise ValueError(
             "native keyword framing requires well-formed XML"

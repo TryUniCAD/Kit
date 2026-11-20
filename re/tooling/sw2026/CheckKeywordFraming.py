@@ -44,6 +44,10 @@ def author_frame(source):
         root.set("xmlns:kit", "urn:kit:declared")
         feature.set("xml:lang", "en")
         feature.set("kit:role", "feature")
+    if source.get("qualified_attribute"):
+        feature.set("state", QName("{urn:kit:keyword}Native"))
+        if source.get("qualified_attribute_shadow"):
+            feature.set("xmlns:ns0", "urn:kit:other")
     if source.get("namespace_shadow"):
         feature.set("xmlns:ns0", "urn:kit:other")
         SubElement(feature, QName("{urn:kit:keyword}Native"))
