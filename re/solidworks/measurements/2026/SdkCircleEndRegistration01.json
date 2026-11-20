@@ -1,0 +1,485 @@
+{
+  "baseline_guard_sha256": "d6089afbd44f4c5d8c5b6eacf262cf4060cd070046b49ad5a08c1bc91f54adaf",
+  "baseline_sdk_source_revision": "92716507fef21bab511f6ac349f29a5cf965cba3",
+  "baseline_sdk_source_sha256": "c1499c173a495b0186e3acf733fcfb02b7bdb94fc46a6a902768fedec44d0e72",
+  "byte_identical_existing_blinds": [
+    {
+      "artifact": {
+        "bytes": 8384,
+        "sha256": "02962abe99f14ef41993e9d6678b3438ab35be59b8ad8304c0d8e00d5c8bac27"
+      },
+      "cad_launches": 0,
+      "event": 1794974400,
+      "name": "sdk public front diameter",
+      "native_transfers": {
+        "body_structure": "native",
+        "configurations": "native",
+        "editable_sketches": "native",
+        "parameters": "native",
+        "parametric_history": "native",
+        "support_planes": "native"
+      },
+      "path_staging_events": {
+        "open": 2,
+        "os.link": 1,
+        "os.mkdir": 2,
+        "os.remove": 1,
+        "os.rmdir": 1,
+        "os.scandir": 2,
+        "tempfile.mkdtemp": 1
+      },
+      "profile": [
+        "z",
+        "Front Plane",
+        true,
+        false,
+        "blind",
+        false
+      ],
+      "readback": {
+        "case": "sdk public front diameter",
+        "end_condition": "blind",
+        "file_sha256": "02962abe99f14ef41993e9d6678b3438ab35be59b8ad8304c0d8e00d5c8bac27",
+        "owned_depths": {
+          "D1": 13.625
+        },
+        "passed": true,
+        "phase": "public-generated",
+        "radial_mm": 12.750000000000002,
+        "radial_mode": "diameter",
+        "reverse": false,
+        "typed_streams_exact": 2
+      },
+      "runtime_input_reads": 0,
+      "stored_self_path": "C:\\KitSdkCandidates\\sdk public front diameter.SLDPRT",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a52ea9f2fc8f5b5eefd81f7b3ffe7a97db8bbc8b486890df940b7e6b0bb2abb0"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "ee4a3da99969f1fe766e404849519a4ee6f84c6bf4c729053669c5a9d316f544"
+        },
+        "Contents/Config-0": {
+          "bytes": 22284,
+          "sha256": "c96458a4fdf85c1e349a2b504b6c56bb6932e1ed3308fd8afdcbcc4d0258367b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 693,
+          "sha256": "a8155b15256bf9e2de3c22454217c32bc14e590d088e864557d4ec7107250148"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15067,
+          "sha256": "395c835386e28abc9cf8e32d0ba81f81dd201ac489991eccbb2c6fdda3620c2c"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 693,
+          "sha256": "477aa9a3f3cfd0a04375d9dd56577a5c5fef5bf2fae29c34438061a4e7005a39"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1475,
+          "sha256": "8180042e3ca55eef8c63b147148c9e01dc9179eae3ad0c94ebcb36ff1f19033e"
+        }
+      }
+    },
+    {
+      "artifact": {
+        "bytes": 8370,
+        "sha256": "86591750d4d4f97e1a5c660d24921fffa1d7e48390b7fac19a0e25e05aac9b1d"
+      },
+      "cad_launches": 0,
+      "event": 1794974400,
+      "name": "sdk public top radius",
+      "native_transfers": {
+        "body_structure": "native",
+        "configurations": "native",
+        "editable_sketches": "native",
+        "parameters": "native",
+        "parametric_history": "native",
+        "support_planes": "native"
+      },
+      "path_staging_events": {
+        "open": 2,
+        "os.link": 1,
+        "os.mkdir": 2,
+        "os.remove": 1,
+        "os.rmdir": 1,
+        "os.scandir": 2,
+        "tempfile.mkdtemp": 1
+      },
+      "profile": [
+        "y",
+        "Top Plane",
+        false,
+        true,
+        "blind",
+        false
+      ],
+      "readback": {
+        "case": "sdk public top radius",
+        "end_condition": "blind",
+        "file_sha256": "86591750d4d4f97e1a5c660d24921fffa1d7e48390b7fac19a0e25e05aac9b1d",
+        "owned_depths": {
+          "D1": 13.625
+        },
+        "passed": true,
+        "phase": "public-generated",
+        "radial_mm": 9.625,
+        "radial_mode": "radius",
+        "reverse": true,
+        "typed_streams_exact": 2
+      },
+      "runtime_input_reads": 0,
+      "stored_self_path": "C:\\KitSdkCandidates\\sdk public top radius.SLDPRT",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a52ea9f2fc8f5b5eefd81f7b3ffe7a97db8bbc8b486890df940b7e6b0bb2abb0"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "ee4a3da99969f1fe766e404849519a4ee6f84c6bf4c729053669c5a9d316f544"
+        },
+        "Contents/Config-0": {
+          "bytes": 22276,
+          "sha256": "902a036ead90a573914f41bb59f552337a5a17c7f8eeb550ffac5893db6be547"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 669,
+          "sha256": "42314459a5444ac0258752c98b1715c53983901a1d4b4f1c5c5f6fa64754cf6d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15121,
+          "sha256": "b6e8169ee8045f644a2a6991f4c63b4c8888f7d8733e415615b6afc1e74f97b8"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 669,
+          "sha256": "7735cb407d4f3f83886c542a24c71cad532e0a7adb36620c86c2ae2a4dbde734"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1471,
+          "sha256": "4bfe5dd7304d733a74794d8dd917d86bb61882b7659423f65e297aa8bd666c17"
+        }
+      }
+    }
+  ],
+  "cad_launches": 0,
+  "exact_original_event": 1794974400,
+  "fresh_sdk_processes": 7,
+  "generated_freeze_sha256": "0d9655b482e7aa46f80ddc2a000fd597f6a869a55c481aa227e9b9b9c9b0e987",
+  "native_identical_public_profiles": [
+    {
+      "artifact": {
+        "bytes": 8361,
+        "sha256": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe"
+      },
+      "cad_launches": 0,
+      "event": 1794974400,
+      "name": "H03MidPlane",
+      "native_transfers": {
+        "body_structure": "native",
+        "configurations": "native",
+        "editable_sketches": "native",
+        "parameters": "native",
+        "parametric_history": "native",
+        "support_planes": "native"
+      },
+      "path_staging_events": {
+        "open": 2,
+        "os.link": 1,
+        "os.mkdir": 2,
+        "os.remove": 1,
+        "os.rmdir": 1,
+        "os.scandir": 2,
+        "tempfile.mkdtemp": 1
+      },
+      "profile": [
+        "x",
+        "Right Plane",
+        true,
+        false,
+        "mid_plane",
+        false
+      ],
+      "readback": {
+        "case": "H03MidPlane",
+        "end_condition": "mid_plane",
+        "file_sha256": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+        "owned_depths": {
+          "D1": 33.971
+        },
+        "passed": true,
+        "phase": "public-generated",
+        "radial_mm": 15.837999999999997,
+        "radial_mode": "diameter",
+        "reverse": false,
+        "typed_streams_exact": 2
+      },
+      "request_sha256": "117c9de6f8db2f7dff7addf36d385c8ae17b0f6e9a4a9a56170f92105f42d168",
+      "runtime_input_reads": 0,
+      "stored_self_path": "C:\\KitSdkCandidates\\H03MidPlane.SLDPRT",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a52ea9f2fc8f5b5eefd81f7b3ffe7a97db8bbc8b486890df940b7e6b0bb2abb0"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "ee4a3da99969f1fe766e404849519a4ee6f84c6bf4c729053669c5a9d316f544"
+        },
+        "Contents/Config-0": {
+          "bytes": 22256,
+          "sha256": "9bb92aabe8e0ef199a888a7a3209d0c3f04f71c6e7f25fb7fe59eba1ee73322a"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 609,
+          "sha256": "b5db4f9e7c0dba6fb0647ed32218ab473e5a18e0cfd6c07d2516d6a3f0a6d758"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15139,
+          "sha256": "b60d0ed034e38058893055349014806a390ab308ad8e5a141a03236db5cb84c9"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 609,
+          "sha256": "1d4c8f4dab30e3a5e4183811ab6382611131ab72a26e13e7d3f520ccdab1f501"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1486,
+          "sha256": "9dfe4a9bd60b5978f3b1ee9b3696f0511a221fb9e7856c6e1eab269737ca7dbd"
+        }
+      }
+    },
+    {
+      "artifact": {
+        "bytes": 8392,
+        "sha256": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080"
+      },
+      "cad_launches": 0,
+      "event": 1794974400,
+      "name": "H04TwoDirections",
+      "native_transfers": {
+        "body_structure": "native",
+        "configurations": "native",
+        "editable_sketches": "native",
+        "parameters": "native",
+        "parametric_history": "native",
+        "support_planes": "native"
+      },
+      "path_staging_events": {
+        "open": 2,
+        "os.link": 1,
+        "os.mkdir": 2,
+        "os.remove": 1,
+        "os.rmdir": 1,
+        "os.scandir": 2,
+        "tempfile.mkdtemp": 1
+      },
+      "profile": [
+        "y",
+        "Top Plane",
+        true,
+        true,
+        "two_directions",
+        true
+      ],
+      "readback": {
+        "case": "H04TwoDirections",
+        "end_condition": "two_lengths",
+        "file_sha256": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+        "owned_depths": {
+          "D1": 21.389,
+          "D2": 8.917
+        },
+        "passed": true,
+        "phase": "public-generated",
+        "radial_mm": 22.462,
+        "radial_mode": "diameter",
+        "reverse": true,
+        "typed_streams_exact": 2
+      },
+      "request_sha256": "11e7e1bb7c7ed199e169695fbd1ec44771e4a9ff03c5da6a707306848c3a4949",
+      "runtime_input_reads": 0,
+      "stored_self_path": "C:\\KitSdkCandidates\\H04TwoDirections.SLDPRT",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a52ea9f2fc8f5b5eefd81f7b3ffe7a97db8bbc8b486890df940b7e6b0bb2abb0"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "ee4a3da99969f1fe766e404849519a4ee6f84c6bf4c729053669c5a9d316f544"
+        },
+        "Contents/Config-0": {
+          "bytes": 22266,
+          "sha256": "74e569081d274b31c1fe34dcb41437ead3a1f99d868dfd639e41459abfc3c1f0"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 639,
+          "sha256": "f5114f64da1a4ac7716f7784dc90c163c75b58cc6bbfb4ff0775bf9c60bcf646"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15139,
+          "sha256": "3561ec3245b62b66db114438a9bc73c4929eee60fe15b0798c6ac4c46f9c71c3"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 639,
+          "sha256": "fd83513b6fc4849d051080290606fd3832fa284e22c5f4961bb6cee31ade7374"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1530,
+          "sha256": "2e6276a9f1a09af1126f16728bc05e3245bd9e3bdf5fe398c0399fb32207bb62"
+        }
+      }
+    }
+  ],
+  "native_sha256": "e94dd631acd5942a53296f36b77d1c3bc8b321e8ba7fd725327c74ac4a12916c",
+  "passed": true,
+  "production_guard_sha256": "35ba7c6ed3748f6da36ea265e464486004e89f63a0cfc94880a8fc2d9537620d",
+  "public_path_and_stream_writes": 12,
+  "refusals": {
+    "destination_refusals": [
+      "foreign-basename",
+      "unknown-configuration"
+    ],
+    "profiles": [
+      {
+        "coherent": true,
+        "diagnostic": "circle preparation is not qualified for this support driver or end profile",
+        "existing_path_unchanged": true,
+        "name": "midplane-reversed",
+        "new_path_absent": true,
+        "stream_empty": true
+      },
+      {
+        "coherent": true,
+        "diagnostic": "circle preparation is not qualified for this support driver or end profile",
+        "existing_path_unchanged": true,
+        "name": "midplane-radius",
+        "new_path_absent": true,
+        "stream_empty": true
+      },
+      {
+        "coherent": true,
+        "diagnostic": "circle preparation is not qualified for this support driver or end profile",
+        "existing_path_unchanged": true,
+        "name": "midplane-foreign-name",
+        "new_path_absent": true,
+        "stream_empty": true
+      },
+      {
+        "coherent": true,
+        "diagnostic": "circle preparation is not qualified for this support driver or end profile",
+        "existing_path_unchanged": true,
+        "name": "midplane-front",
+        "new_path_absent": true,
+        "stream_empty": true
+      },
+      {
+        "coherent": true,
+        "diagnostic": "circle preparation is not qualified for this support driver or end profile",
+        "existing_path_unchanged": true,
+        "name": "midplane-metres",
+        "new_path_absent": true,
+        "stream_empty": true
+      },
+      {
+        "coherent": true,
+        "diagnostic": "circle preparation is not qualified for this support driver or end profile",
+        "existing_path_unchanged": true,
+        "name": "two-direction-forward",
+        "new_path_absent": true,
+        "stream_empty": true
+      },
+      {
+        "coherent": true,
+        "diagnostic": "circle preparation is not qualified for this support driver or end profile",
+        "existing_path_unchanged": true,
+        "name": "two-direction-radius",
+        "new_path_absent": true,
+        "stream_empty": true
+      },
+      {
+        "coherent": false,
+        "diagnostic": "two direction boss requires its independent blind second end",
+        "existing_path_unchanged": true,
+        "name": "two-direction-wrong-second-mode",
+        "new_path_absent": true,
+        "stream_empty": true
+      },
+      {
+        "coherent": true,
+        "diagnostic": "circle preparation is not qualified for this support driver or end profile",
+        "existing_path_unchanged": true,
+        "name": "blind-front-radius",
+        "new_path_absent": true,
+        "stream_empty": true
+      },
+      {
+        "coherent": true,
+        "diagnostic": "circle preparation is not qualified for this support driver or end profile",
+        "existing_path_unchanged": true,
+        "name": "blind-top-diameter",
+        "new_path_absent": true,
+        "stream_empty": true
+      }
+    ]
+  },
+  "runtime_vendor_reads": 0,
+  "schema": "kit.sw2026.sdk-circle-end-registration.v1",
+  "sdk_source_inventory": {
+    "files": 5011,
+    "sha256": "f17f48e1d07e2ec5133d5d940a4676eb024c8e00aa995848439aed7201099664"
+  },
+  "sdk_worktree_base": "7e6ffd5b8e20565dce6f74a6e4327512e291fb22",
+  "standard_properties_match_complete_streams": true,
+  "tool_sha256": "b704b945b7f6bdcd39e8393a9e7bb38b54d5a25eab9aad50d16bc45f10514e47"
+}

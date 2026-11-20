@@ -100,8 +100,10 @@ save and reopen across 14 processes. Strict SDK readback reaches 20
 exact linked streams. Both generated mid-plane saves stop on the
 exact centre comparison. The [supplemental centre check](measurements/2026/SdkEndConditionCentreReadback01.json)
 binds both portable values to the same native point and passes all
-twelve reads and 24 linked streams. These are native SOLIDWORKS
-sources outside the FCStd corpus.
+twelve reads and 24 linked streams. The [normal writer registration](measurements/2026/SdkCircleEndRegistration01.json)
+reproduces both native-measured generated hashes through path and stream
+writes and preserves the two previously admitted blind outputs. These
+are native SOLIDWORKS sources outside the FCStd corpus.
 
 Two [sealed native imports](measurements/2026/SealedImportedLocalGeometryNative01.json)
 also pass geometry projection, generation and the full native lifecycle.

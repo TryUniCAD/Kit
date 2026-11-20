@@ -369,19 +369,24 @@ A single flag change is not a general operation converter.
 
 ## Writing
 
-The part writer accepts a neutral millimetre document with one active
-configuration, one sketch, one blind boss and one solid. It admits these
-three profiles:
+The parametric part writer accepts a neutral millimetre document with one
+active configuration, one sketch, one boss and one solid. It admits these
+profiles:
 
-- An ordinary closed line loop on the canonical Front Plane with a forward boss
-- One fixed-centre analytic circle on the canonical Front Plane with a driving diameter and a forward boss
-- One fixed-centre analytic circle on the canonical Top Plane with a driving radius and a reversed boss
+- An ordinary closed line loop on the canonical Front Plane with a forward blind boss
+- A fixed-centre analytic circle on the canonical Front Plane with a driving diameter and a forward blind boss
+- A fixed-centre analytic circle on the canonical Top Plane with a driving radius and a reversed blind boss
+- A fixed-centre analytic circle on the canonical Right Plane with a driving diameter and a symmetric mid-plane boss
+- A fixed-centre analytic circle on the canonical Top Plane with a driving diameter and a reversed two-direction boss
 
 Circle centres can be translated within their support plane. The writer
 preserves the neutral sketch, boss and configuration names and the
-actual driving radial and depth owners. The public circle route reproduces
-both exact first-generation files from the held-out native comparison.
-[Circle writer registration](../../Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md)
+actual driving radial and depth owners. The symmetric profile uses one
+total depth. The two-direction profile retains independent first and
+second depths. The public circle route reproduces all four measured
+first-generation files from the held-out native comparisons.
+[Blind circle registration](../../Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md) ·
+[Mid-plane and two-direction registration](../../Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
 
 Call `write_document(document, path)` with a `.SLDPRT` path whose basename
 matches the document name. Set `overwrite=True` to replace an existing
