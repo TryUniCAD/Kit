@@ -127,6 +127,13 @@ def CheckColdResume(TmpPath: FilePath) -> None:
     ReportPath = RunPath / "CatalogueResult.json"
     Before = DecodeJson(ReportPath.read_bytes())
     assert Before["status"] == "paused"
+    Events = [
+        DecodeJson(LineText)["event"]
+        for LineText in (RunPath / "OfflineSupervisor.log")
+        .read_text(encoding="utf-8")
+        .splitlines()
+    ]
+    assert "catalogue_paused" in Events and "started" not in Events
     assert not ReadReceipts(Before)
     _ = RunAutomation(
         "InferenceGrid/RunFeatureCatalogue.py",
@@ -137,7 +144,7 @@ def CheckColdResume(TmpPath: FilePath) -> None:
     )
     After = DecodeJson(ReportPath.read_bytes())
     assert After["scopes"]["p03-blind-boss.solidworks"]["status"] == "completed"
-    assert ReadReceipts(After)
+    assert ReadReceipts(After).keys() == ControlReceipts(TmpPath).keys()
 
 
 # a deliberately high reserve exposes a capacity refusal through terminal progress
