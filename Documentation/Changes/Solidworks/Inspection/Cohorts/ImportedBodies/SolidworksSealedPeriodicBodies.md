@@ -25,5 +25,5 @@ The linked LF Git blob SHA-256 is
 The lock precedes the typed neutral cylindrical B-rep construction
 route. Generated acceptance, arbitrary imported geometry and public
 fallback remain open.
-[Procedure](../../../../../re/tooling/sw2026/imported_body_source/README.md)
-[Source lock](../../../../../re/solidworks/measurements/2026/SealedPeriodicImportedSourceLock01.json)
+[Procedure](../../../../../../re/tooling/sw2026/imported_body_source/README.md)
+[Source lock](../../../../../../re/solidworks/measurements/2026/SealedPeriodicImportedSourceLock01.json)

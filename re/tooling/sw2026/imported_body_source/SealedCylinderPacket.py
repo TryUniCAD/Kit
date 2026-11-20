@@ -99,14 +99,15 @@ def encode(value):
     ).encode()
 
 
-def checked(path, checksum):
+def checked(path, checksum, *, allow_empty=False):
     require(
         is_digest(checksum) and path.is_file() and not path.is_symlink(),
         "missing or invalid checked file",
     )
     length = path.stat().st_size
     require(
-        0 < length <= 64 * 1024**2, "checked file size is outside this packet profile"
+        (allow_empty or length > 0) and length <= 64 * 1024**2,
+        "checked file size is outside this packet profile",
     )
     data = path.read_bytes()
     require(
@@ -250,7 +251,7 @@ def verify_packet(path, checksum):
         "frozen SDK or tool inventory differs",
     )
     for name, identity in job["files_sha256"].items():
-        checked(root / name, identity)
+        checked(root / name, identity, allow_empty=name.startswith("Code/"))
     return job, lock
 
 
