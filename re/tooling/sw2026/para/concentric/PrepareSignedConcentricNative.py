@@ -25,6 +25,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.MakeCirclePart import
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectCircle import ProjectCircle
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Container.Format import KeywordsStream
 from convert.adapters.solidworks.Core.AssemblyPreparation.Model.ReadAsmModel import ReadAsmModel
 from convert.adapters.solidworks.Core.AssemblyPreparation.Paths.ReadAsmPaths import ReadAsmPaths
 from convert.adapters.solidworks.Core.AssemblyPreparation.Placements.ReadAsmPlace import ReadAsmPlace
@@ -114,7 +115,7 @@ def signed_expectation(prediction, local_axes):
     }
 
 
-def model_with_lights(document, scene, lights, destination, written_at):
+def model_with_lights(document, scene, lights, destination, written_at, parent_lights=()):
     model = ReadAsmModel(document)
     paths = ReadAsmPaths(model.RootValue.name, model.ChildValue.name, destination, written_at)
     child = model.ChildDocument
@@ -135,15 +136,20 @@ def model_with_lights(document, scene, lights, destination, written_at):
     bound = bind_cylinder(child, part, nodes, profile=profile, driver_mode=driver)
     intent = project_concentric(document, {model.ChildValue.id: bound})
     metadata = MakeAsmRecipe(model, recipe, principal_planes(document, written_at), paths.ParentValue)
+    if parent_lights:
+        system = metadata.SystemValue
+        folders = tuple((role, scene if role == "moEnvFolder_c" else name) for role, name in system.FolderNames)
+        metadata = replace(metadata, SystemValue=replace(system, FolderNames=folders, LightValues=parent_lights))
     placements = tuple(ReadAsmPlace(row) for row in model.Occurrences)
     return (attachment, intent, metadata, placements), paths
 
 
-def build(document, axes, scene, intents, destination, written_at, expected):
+def build(document, axes, scene, intents, destination, written_at, expected, *, parent_intents=()):
     GetDocumentCaps(ReadAsmModel(document).ChildDocument)
     for encoding in ("utf-16-le", "utf-16-be", "cp1252", "utf-8"):
         codecs.lookup(encoding)
     lights = read_intents(intents, written_at)
+    parent_lights = read_intents(parent_intents, written_at)
     active = True
     attempted = []
 
@@ -154,10 +160,10 @@ def build(document, axes, scene, intents, destination, written_at, expected):
 
     sys.addaudithook(guard)
     try:
-        bundle, paths = model_with_lights(document, scene, lights, destination, written_at)
+        bundle, paths = model_with_lights(document, scene, lights, destination, written_at, parent_lights)
         parent = emit_parts(bundle, axes)
         child = bundle[0].file_bytes
-        repeated, _ = model_with_lights(document, scene, lights, destination, written_at)
+        repeated, _ = model_with_lights(document, scene, lights, destination, written_at, parent_lights)
         require(emit_parts(repeated, axes) == parent and repeated[0].file_bytes == child, "fresh signed writes differ")
         measurement = verify_parts(parent, bundle, axes)
         signed_rows(measurement["world_axes"], expected["world_axes"], "generated archive signed world axes")
@@ -165,6 +171,21 @@ def build(document, axes, scene, intents, destination, written_at, expected):
         archive = SldprtArchive.from_bytes(child)
         actual_scene, actual_lights = source_scene(ReadNativeLink(archive, 0))
         require((actual_scene, actual_lights) == (scene, lights), "generated child omitted its own complete lighting graph")
+        if parent_lights:
+            parent_archive = SldprtArchive.from_bytes(parent)
+            actual_scene, actual_lights = source_scene(ReadNativeLink(parent_archive, 0))
+            require((actual_scene, actual_lights) == (scene, parent_lights), "generated parent omitted its authored scene")
+            attachment, intent, settings, placements = bundle
+            empty = replace(settings, SystemValue=replace(settings.SystemValue, LightValues=()))
+            baseline = emit_parts((attachment, intent, empty, placements), axes)
+            empty_archive = SldprtArchive.from_bytes(baseline)
+            require(set(empty_archive.streams) == set(parent_archive.streams), "parent light stream inventory changed")
+            changed = sorted(name for name, data in parent_archive.streams.items() if data != empty_archive.require(name))
+            require({"Contents/Config-0", KeywordsStream} <= set(changed), "parent lights did not reach the actual archive and index")
+            measurement["parent_lighting"] = {
+                "actual_typed_inputs_equal": True, "same_locator_empty_scene_sha256": sha256(baseline).hexdigest(),
+                "changed_logical_streams": changed,
+            }
     finally:
         active = False
     require(not attempted, "runtime input accesses occurred")
@@ -239,12 +260,13 @@ def host_verify(root, packet_sha):
 
 
 def stage_case(out, baseline_root, baseline, runtime, controls, source_closure, document, axes, scene, lights,
-               prediction, signed, signed_control, written_at, case):
+               prediction, signed, signed_control, written_at, case, *,
+               parent_intents=(), writer_revision=REVISION, preparer=None):
     names = {"parent": document.metadata["name"] + ".SLDASM",
              "child": document.assembly.documents[0].document.metadata["name"] + ".SLDPRT"}
     require(not out.exists(), "new owned packet directory required")
     target = windows_path(out / "Working" / names["parent"])
-    files, proof = build(document, axes, scene, lights, target, written_at, signed)
+    files, proof = build(document, axes, scene, lights, target, written_at, signed, parent_intents=parent_intents)
     for label in ("Tools", "Evidence", "Frozen", "Working"):
         (out / label).mkdir(parents=True)
     for relative, wanted in baseline["files_sha256"].items():
@@ -253,15 +275,18 @@ def stage_case(out, baseline_root, baseline, runtime, controls, source_closure, 
     (out / "Evidence/GuestPython.json").write_bytes(runtime)
     write_json(out / "Evidence/Prediction.json", {"generated": prediction["generated"], "control": prediction["control"]})
     write_json(out / "Evidence/ExpectedSigned.json", {"generated": signed, "control": signed_control})
-    write_json(out / "Evidence/Neutral.json", {"document": ToData(document), "local_axes": axes, "lights": lights})
+    neutral = {"document": ToData(document), "local_axes": axes, "lights": lights}
+    if parent_intents:
+        neutral.update(parent_lights=parent_intents, parent_environment=scene)
+    write_json(out / "Evidence/Neutral.json", neutral)
     write_json(out / "Evidence/Build.json", proof)
     for directory in ("Frozen", "Working"):
         for role, payload in files.items():
             (out / directory / names[role]).write_bytes(payload)
     job = {
         "schema": SCHEMA, "roles": list(ROLES), "oracle_sha256": ORACLE, "require_preference_18_true": True,
-        "heldout_inputs_read": 0, "native_processes_started": 0, "writer_revision": REVISION,
-        "preparer_sha256": digest(Path(__file__)), "source_closure": source_closure, "case": case,
+        "heldout_inputs_read": 0, "native_processes_started": 0, "writer_revision": writer_revision,
+        "preparer_sha256": digest(preparer or Path(__file__)), "source_closure": source_closure, "case": case,
         "controls": controls, "working_names": names,
         "generated_sha256": {role: sha256(payload).hexdigest() for role, payload in files.items()},
         "files_sha256": {str(path.relative_to(out)): digest(path) for owner in ("Tools", "Evidence") for path in (out / owner).iterdir()},
