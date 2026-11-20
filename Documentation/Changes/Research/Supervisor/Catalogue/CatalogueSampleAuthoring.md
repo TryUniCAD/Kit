@@ -94,7 +94,8 @@ failure stops further supervised work and leaves the native recovery fences.
 
 ## Task and validation
 
-A08h, owner Codex, branch `codex/catalogue-authoring-integration`, connects the
+A08h, owner Codex, delivery [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
+from `codex/catalogue-native-authoring`, connects the
 catalogue to parameterized native authoring. It depends on the existing A03/A08
 controller, worker ownership, P01–P05 builders, and catalogue/resume work. Its exit
 requires process integration coverage and measured native authoring, fresh reopen,
@@ -106,6 +107,9 @@ catalogue selection and parameter overrides, controller queueing and resume,
 configuration tamper rejection, Fusion preparation, SOLIDWORKS compiler/admission,
 retained receipt checks, lifecycle ownership, and real artifact-to-public-decoder
 execution. Fixture transport checks explicitly claim no native acceptance.
+The expanded suite passed all 38 checks at `27cc80b9` after the native environment
+repair. Five affected controller/resume/public-decoder checks also passed after
+integrating the merged catalogue prerequisites.
 
 A separate configured SOLIDWORKS 34.4.1 run authored a 43 × 23 × 12 mm forward
 XY boss: one solid, volume 11868.000000000002 mm³, center of mass
@@ -122,6 +126,32 @@ The identical before/after evidence-map digest is
 `fe30b3f2337f0a4e84434e1b5657b6b5bf507800a7090ec95fdb233dd328b521`.
 This measures that configured P03 case. Native Fusion and other newly configured
 recipe families retain their separate application acceptance requirements.
+
+The complete catalogue command subsequently ran without intervention at
+`27cc80b9`, whose source tree is identical to review commit `cfe1e913`. It authored
+a fresh 47 × 29 × 13 mm boss: one solid, volume 17719 mm³, center of mass
+approximately `[23.5, 14.5, 6.5]` mm. All eight archives passed native edits,
+restoration, variants, fresh reopen, and rebuild. Both controls matched at
+881814.3482038013 mm³; both native processes exited normally. The native capture
+and dependent decoder each completed on attempt one with accepted controller
+receipts and zero supervisor failures, orphans, or stale jobs. The standard
+4096 MiB memory reserve remained enabled.
+
+Capture receipt:
+`771e471c17054de38d9dccdbdce170bbab41793205c90300e7ff3ba4dfa087a6`.
+Decoder receipt:
+`1581b76cced34772ee1424cc05b73609fecd73728ce36ef1200cb6679b1e780c`.
+The native report digest is
+`e3f376443f18182170d214dce95c8788b1a581964a65866157cdbd8e75ee7a34`;
+the identical before/after evidence-map digest is
+`1f5f8c4a38f2e7e2b05326f82e0a151b7c8bd8f2abbe6e8040a8104b2890b8af`.
+
+The command correctly returned `2`, `coverage_incomplete`. All eight reader
+outputs were deterministic, with 53 findings each: 25 native-only records,
+26 retained byte spans without portable semantics, one direction/frame/operation
+evidence finding, and one independent source inventory/native acceptance finding.
+These are retained decoder gaps, not an interrupted pipeline. The decoder summary
+digest is `82ced15e559fe6b763fd4ec9a335141e38283aee95236b2be793e2650d81ef6d`.
 
 See [owned native attachment](../../../../Gotchas/Research/Workers/SolidWorks/OwnedNativeAttachment.md)
 for the startup and lifetime corrections exposed by the native trial.

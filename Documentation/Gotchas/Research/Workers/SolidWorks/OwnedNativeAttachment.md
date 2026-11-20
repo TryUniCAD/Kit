@@ -52,3 +52,7 @@ phase subprocess restores those paths; temporary files remain private. The
 supervisor and decoder environment policy is unchanged. Arbitrary environment
 keys, credentials, executable search paths, and Python module paths are refused.
 No dialog is clicked, add-in unloaded, or user preference changed by this repair.
+The corrected real catalogue run subsequently completed native authoring,
+fresh-process verification, and automatic decoding on its first attempt. Both
+owned processes exited normally; the controls and sealed hashes were unchanged.
+The decoder still reported semantic gaps, separately from native execution.

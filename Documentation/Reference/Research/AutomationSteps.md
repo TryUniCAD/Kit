@@ -40,9 +40,13 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
-A08h is active on `codex/catalogue-authoring-integration`, owned by Codex. It
+A08h is checking on [PR #207](https://github.com/TryUniCAD/Kit/pull/207), branch
+`codex/catalogue-native-authoring`, owned by Codex. It
 connects catalogue selection to the existing native builders with parameter
-overrides and automatic downstream decoding. Dependencies are A03/A08 worker
+overrides and automatic downstream decoding. One complete configured P03 run
+created eight native archives, verified them in fresh processes, and automatically
+completed the dependent deterministic decoder job. Its 53 findings per sample
+remain explicit. Dependencies are A03/A08 worker
 ownership, the P01–P05 builders, and the catalogue/resume implementation. Its
 remaining native and process acceptance is recorded in
 [catalogue sample authoring](../../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md).
