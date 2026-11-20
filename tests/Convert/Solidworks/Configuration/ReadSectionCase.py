@@ -11,7 +11,7 @@ KSectionProbe = (
 
 
 # process failures must retain the underlying reader diagnostic
-def RunSecCase(CaseName: str) -> dict[str, object]:
+def ReadSectionCase(CaseName: str) -> dict[str, object]:
     Outcome = RunProcess(
         (PythonExec, "-I", "-B", str(KSectionProbe), CaseName),
         capture_output=True,

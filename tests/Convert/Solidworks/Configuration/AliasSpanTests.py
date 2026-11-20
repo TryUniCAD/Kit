@@ -1,6 +1,6 @@
 from typing import cast as CastValue
 
-from tests.Convert.Solidworks.Configuration.RunSecCase import RunSecCase
+from tests.Convert.Solidworks.Configuration.ReadSectionCase import ReadSectionCase
 
 # the first section binds the alias before the second section consumes its own body
 KLinkedWindows: list[dict[str, object]] = [
@@ -16,8 +16,8 @@ KMissingWindows: list[dict[str, object]] = [
 
 
 # sibling windows resolve the original header owner through the live map
-def TestSiblingSec() -> None:
-    ReportValue = RunSecCase("siblings")
+def TestSiblingSpan() -> None:
+    ReportValue = ReadSectionCase("siblings")
     assert ReportValue["case"] == "siblings"
     assert ReportValue["wire_bytes"] == ReportValue["outer_cursor"] == 32
     assert ReportValue["header_slot"] == 69 and ReportValue["config_slot"] == 3

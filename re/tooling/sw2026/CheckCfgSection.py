@@ -14,7 +14,6 @@ sys.path[:0] = [str(ROOT / "src"), str(HERE.parent)]
 from CheckCfgMembers import digest, require
 from CheckCfgOwners import audit_run
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
-from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.GhostFields import KGhostFields
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
