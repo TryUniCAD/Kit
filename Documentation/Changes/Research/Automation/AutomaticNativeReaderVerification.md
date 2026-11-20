@@ -81,6 +81,10 @@ Absent decoded centers or other required values prevent a passing case.
 Native observations retain feature types, but the current common comparison checks names and suppression rather than complete feature definitions.
 Sketch comparison checks inventory counts rather than full constraint operands and reference semantics.
 Those broader semantic checks remain required before full CAD qualification can be claimed.
+The report lists these checks in `semantic_gaps` and keeps `full_semantics_verified` false.
+Successful measurement comparisons set `measurement_status` to `passed` but leave the overall status `unverified`.
+The command returns status `5` for that incomplete verification.
+Consequently, this initial implementation cannot yet certify complete decoding, even with a licensed API available.
 
 Fusion needs its owner-enabled startup add-in to load in the newly launched process.
 The protocol requires its PID to match the directly launched process.

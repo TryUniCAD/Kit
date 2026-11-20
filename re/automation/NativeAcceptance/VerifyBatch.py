@@ -62,7 +62,7 @@ def VerifyBatch(root, application, samples, output):
 
     availability = ApiStatus(application)
     revision = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"], capture_output=True, text=True, timeout=15, check=True).stdout.strip()
-    report = {"schema": 1, "application": application, "source_revision": revision, "scope": "native_source_reader_verification", "status": "unverified", "portable_complete": False, "conversion_qualified": False, "cases": [], "controls": {}}
+    report = {"schema": 1, "application": application, "source_revision": revision, "scope": "native_source_reader_verification", "status": "unverified", "portable_complete": False, "conversion_qualified": False, "full_semantics_verified": False, "semantic_gaps": ["complete_feature_definitions", "constraint_operands", "reference_bindings"], "cases": [], "controls": {}}
     if availability["status"] != "available":
         report.update(status="api_unavailable", action=availability["action"])
         WriteJson(output, report)
@@ -136,7 +136,11 @@ def VerifyBatch(root, application, samples, output):
             stable = sources == current
         except (OSError, ValueError):
             stable = False
-        report["status"] = "invalid_batch" if not healthy or not stable else "passed" if not report.get("error") and report["cases"] and all(item["status"] == "passed" for item in report["cases"]) else "failed"
+        measured = not report.get("error") and report["cases"] and all(item["status"] == "passed" for item in report["cases"])
+        report["measurement_status"] = "invalid_batch" if not healthy or not stable else "passed" if measured else "failed"
+        report["status"] = "unverified" if report["measurement_status"] == "passed" else report["measurement_status"]
+        if report["status"] == "unverified":
+            report["action"] = "Native measurements passed, but full feature definitions, constraint operands and reference bindings still require semantic verification; do not claim complete decoding"
         report["controls_healthy"] = healthy
         report["sources_unchanged"] = stable
         WriteJson(output, report)
