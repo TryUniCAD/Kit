@@ -177,6 +177,17 @@ evidence. Full configuration admission and write coverage have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
 
+### B04-SW2026-CONFIG-VIEWS
+
+The PR #121 takeover team owns this bounded `moView_c` reader on
+`codex/solidworks-config-view-context`. It depends on the shared
+member reader and field actions from #187. Exit requires both disclosed
+view groups, the authored archive state and refusal cases, and current
+revision queue and review evidence. Full configuration admission,
+annotation view owners and populated presentation lists retain separate
+exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+
 ### B04-SW2026-CONFIG-THREAD-MARK
 
 The PR #121 takeover team owns this bounded thread and mark read
@@ -221,6 +232,16 @@ refusals and current revision queue and review evidence. Populated
 bounds ownership and complete physical `Config-0` admission have
 separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
+
+### B04-SW2026-CONFIG-ATOMS
+
+The PR #121 takeover team owns this bounded part atom reader on
+`codex/solidworks-config-atom-manager`. It uses the typed maps, header
+objects and accepted concept fields. Exit requires both disclosed
+manager and producer identities, guarded signed state and rejection
+cases, and current revision queue and review evidence. Inline bodies,
+handle modes and full configuration admission retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
 ### B08-SW2026-TERMINAL-FIN
 

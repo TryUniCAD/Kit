@@ -11,3 +11,4 @@ class CfgMemberGraph:
     RootValue: ArchiveNode | None
     MapValue: MapSnapshot
     ReportValue: Mapping[str, object]
+    FlagsValue: Mapping[str, int]

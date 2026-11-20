@@ -12,6 +12,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBranchMut import (
     ReadBranchMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBytesMut import ReadBytesMut
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadContextMut import (
+    ReadContextMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadDirectMut import (
     ReadDirectMut,
 )
@@ -22,6 +25,9 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadLengthMut import (
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadMassMut import ReadMassMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNestedMut import (
     ReadNestedMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNormalMut import (
+    ReadNormalMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import (
     ReadPresentMut,
@@ -50,6 +56,7 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Base": ReadNestedMut,
             "Embed": ReadNestedMut,
             "Array": ReadArrayMut,
+            "Context": ReadContextMut,
             "Present": ReadPresentMut,
             "Length": ReadLengthMut,
             "Repeat": ReadRepeatMut,
@@ -59,6 +66,7 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Boolean": ReadBooleanMut,
             "MassCaches": ReadMassMut,
             "BBoxCache": ReadBBoxMut,
+            "Normalize": ReadNormalMut,
         }
     )
 )
