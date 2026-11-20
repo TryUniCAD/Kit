@@ -1,0 +1,42 @@
+{
+  "assets": [
+    {
+      "format": "sldprt",
+      "git_blob": "a2d5850f129b310fa6d67c35a028eaabfdf9ace7",
+      "kind": "native",
+      "path": "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveFrontFull.SLDPRT",
+      "prefix_hex": "57c7505900000004a4b7cc954e555be8",
+      "sha256": "04763616b53383aa354b130613a4ccd85e2b6fecc4b2a504c38893d6007e9705",
+      "size_bytes": 61363
+    },
+    {
+      "format": "sldprt",
+      "git_blob": "ab25577933d63c0c84b85035cbeeb4ae7021e23b",
+      "kind": "native",
+      "path": "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveTopForward.SLDPRT",
+      "prefix_hex": "b045397400000004bd945d86349a461c",
+      "sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0",
+      "size_bytes": 65739
+    },
+    {
+      "format": "sldprt",
+      "git_blob": "dfad3c9eb755fdeec902f7b2df4f0363daf3167e",
+      "kind": "native",
+      "path": "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveTopReverse.SLDPRT",
+      "prefix_hex": "29b7471e00000004d572ed761bde3214",
+      "sha256": "04f734b81c99be660bfb3bf9c4b98cd4bf50d456ea13cb3008584dd2892ba932",
+      "size_bytes": 74355
+    },
+    {
+      "format": "sldprt",
+      "git_blob": "1838b6ccd991b5ddfaa9815dbb82af5fe04c1f26",
+      "kind": "native",
+      "path": "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveRightReverse.SLDPRT",
+      "prefix_hex": "7a607cee000000042fe92953868a955b",
+      "sha256": "0c3ef35a0f8412895cf870359df037ae3450aad45abaa426767838894e18e681",
+      "size_bytes": 57732
+    }
+  ],
+  "manifest_version": 1,
+  "source_revision": "36347d69a22f2dca8e681fde3c1dbb1f80ce1bbf"
+}

@@ -28,14 +28,62 @@ hashes and the phase receipt digests were carried back. The pinned
 older Front full-turn control brackets the authoring and reopen
 phases. [Existing native author](../../tooling/sw2026/AuthorRevolveSources.py)
 
-The present SDK admission binds `RevolvePlan.AxisValue` and the
-profile to Front. It checks the selected axis in the Front model
-frame and writes its world-origin and direction cache in
-`moLineRef_w.fc8/fe0`. Measure those owners on the disclosed
-Top pair and at least one independent disclosed Right control
-before extending the shared frame transform. Freeze implementation
-and the comparisons before releasing either sealed case.
+The earlier SDK admission bound the profile to Front. The
+shared principal-frame extension now checks the selected line
+in the actual support frame and generates the model-space cache in
+`moLineRef_w.fc8/fe0`. The disclosed Top pair and independently
+authored Right case establish the two additional placements.
+Freeze the writer and comparison before releasing either sealed case.
 [Axis cache evidence](../../../Documentation/Gotchas/Conversion/Solidworks/Model/RevolveAxisCacheUsesModelCoordinates.md)
+
+## Disclosed archive measurements
+
+All four pinned native files reproduce the ten measured streams
+through typed graphs. The pinned CLI projects the revolve owner in
+each case and retains the unqualified research marker. The
+unresolved counts are 48 for Front and 58 per Top or Right file.
+[Pinned assets](../v2026/PrincipalRevolveDiscoveryManifest01.json) · [Archive and CLI receipt](../measurements/2026/PrincipalRevolveDisclosedArchives01.json)
+
+The `moCompRefPlane_c.ff0.f00` field binds the actual datum.
+Its `f100` codes are Front 3, Top 2 and Right 1. The profile's
+`pd_ff0` uses the same datum frame. In model metres, the
+ordered local point `(u, v)` maps to `(u, v, 0)` on Front,
+`(u, 0, -v)` on Top and `(0, v, -u)` on Right. The selected
+construction handle still identifies the actual profile line.
+
+| Owner | Classification | Disclosed evidence |
+| --- | --- | --- |
+| `moLineRef_w.fc8` | Derived model-space first endpoint | Front `(0.002, -0.013, 0)`, Top `(0.004, 0, 0.016)`, Right `(0, -0.0219, -0.0093)` |
+| `moLineRef_w.fe0` | Derived unit vector of the ordered line | Front and Right `(0, 1, 0)`, Top `(0, 0, -1)` |
+| `moLineRef_w.fb8` | Derived projection of the endpoint difference onto the unit vector | Front `0.037`, Top `0.039`, Right `0.0421` metres |
+| `moLineRef_w.fb0` | Local line parameter origin | Zero on all four sources |
+| `moLineRef_w.f68` | Volatile cache validity | One in all four native saves. The fresh wrapper uses the previously measured cold value zero |
+| `moRevolution_c.f824` and D1 | Explicit sweep sense and positive angle | The Top contrast changes reverse without changing the cache point, direction or span |
+
+The pinned SP05.2 resolver slice at virtual address `0x4c316200`
+in `sldmodu.dll` was inspected through REA and Ghidra. The
+2,048-byte slice has SHA-256
+`293379a3537f5073e13b7b5bd6fbd2c1ad6780bcbde45c97c90be1cbfc70d3dd`.
+The private REA receipt has SHA-256
+`9c371d8c7cc5bbe734bb55b79e4341518271b811f9097e413a83056933036190`
+and ID `ev_6a40f9aeef14de6076e9654e78dd0f5246a154e56e1f5c06a8f3737512067b29`.
+The bounded result preserves the prior loader context. The archive
+and native measurements establish the field ownership across these
+planes. [Local resolver and cache update](OrdinaryRevolvedBossLoad2026.md)
+
+## Generated preparation
+
+Four guarded workers build the disclosed shapes from authored
+neutral documents with no external access. Their path and named
+stream preparations yield identical files. All 40 generated
+load-critical streams replay exactly. The strict SDK reads each
+generated part's closed solid, actual datum, selected line and D1.
+Four more guarded workers refuse translated and rotated supports,
+an unrelated axis origin and a direction perpendicular to the
+selected line.
+[Guarded builder](../../tooling/sw2026/revolve/PrincipalWriter/BuildPrincipalRevolves.py) · [Preparation receipt](../measurements/2026/SdkPrincipalRevolvePreparation01.json)
+
+## Oracle procedure
 
 The preparation helper must run in the same Windows guest as the
 native author. Set the tool paths to the pinned copies on the Mac

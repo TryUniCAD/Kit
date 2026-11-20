@@ -1,0 +1,630 @@
+{
+  "cases": [
+    {
+      "proof": {
+        "archive_streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1129,
+            "sha256": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22290,
+            "sha256": "941d3ea1db5b34257beaddfb384d5d28d982b1bc69e5bda72ae76eb999614c40"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 841,
+            "sha256": "77dd32954eb973a36bf8e6e2278a2801cc0b7db75dafec30a052db490bbabb25"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 9859,
+            "sha256": "e10a8579fef340305deeb68f7e3796b1072164d4f4cf7d0d06d9d1cc3b967d4e"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 841,
+            "sha256": "c932daee7724047bfbb3a283d99cd55ce173fe53fcd7f074972b28f627304c3a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "qualified": true,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 187,
+            "qualified": true,
+            "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1408,
+            "sha256": "3b6bde8f4a113e431df5ee7c87e86822c55d2c57239db752878955fb2648cbce"
+          }
+        },
+        "area_mm2": 6861.2383554401085,
+        "body_faces": 4,
+        "bytes": 8103,
+        "caller_stream_untouched": true,
+        "external_access_attempts": [],
+        "path_and_named_stream_equal": true,
+        "projection": {
+          "axis": "sldprt:sketch:18:line:5",
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "driver": "sldprt:parameter:19:D1",
+          "feature": "sldprt:feature:19",
+          "local_mm": [
+            [
+              2.0,
+              -13.000000000000002
+            ],
+            [
+              2.0,
+              24.0
+            ]
+          ],
+          "plane": "sldprt:plane:14",
+          "radians": 6.283185307179586,
+          "world_mm": [
+            [
+              2.0,
+              -13.000000000000002,
+              0.0
+            ],
+            [
+              2.0,
+              24.0,
+              0.0
+            ]
+          ]
+        },
+        "sha256": "0a4b996b35316aa12c43222113e6d033d3a9e5fc617109056315120a907287c5",
+        "volume_mm3": 30787.608005179973
+      },
+      "request": {
+        "plane": "front",
+        "spec": {
+          "angle_deg": 360,
+          "axial_mm": [
+            -8,
+            17
+          ],
+          "axis_span_mm": [
+            -13,
+            24
+          ],
+          "axis_x_mm": 2,
+          "created_at": 1760000000,
+          "edit_angle_deg": 153,
+          "name": "KitPrincipalRevolveFrontFull",
+          "radial_mm": [
+            7,
+            21
+          ],
+          "reverse": false,
+          "self_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveGenerated01\\Candidates\\KitPrincipalRevolveFrontFull.SLDPRT"
+        }
+      }
+    },
+    {
+      "proof": {
+        "archive_streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1129,
+            "sha256": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22292,
+            "sha256": "adfbc27e1a38da95bbec740ec05a7ba2c4ac91a6a2ea6b6fdb9f67aee915f68c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 847,
+            "sha256": "72477379c0d45ba2f7f7f7e5e7d6b1dbb25eea42a3a6d8aea9e6e82572e61160"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 9931,
+            "sha256": "458b20b087143d8d34616dc17cbc778077a4fb922bcecb81917536cd9c08befc"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 847,
+            "sha256": "621779ca4a2331e8c3bd0272597581a4f0782ad308ef28d735a112697c63889b"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "qualified": true,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 187,
+            "qualified": true,
+            "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1409,
+            "sha256": "6a257f486957f2c4f9af07c29aea7546b2d41651eca4ad587347cadcd3bf9d1c"
+          }
+        },
+        "area_mm2": 4192.516929421681,
+        "body_faces": 6,
+        "bytes": 8150,
+        "caller_stream_untouched": true,
+        "external_access_attempts": [],
+        "path_and_named_stream_equal": true,
+        "projection": {
+          "axis": "sldprt:sketch:18:line:5",
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "driver": "sldprt:parameter:19:D1",
+          "feature": "sldprt:feature:19",
+          "local_mm": [
+            [
+              4.0,
+              -16.0
+            ],
+            [
+              4.0,
+              23.0
+            ]
+          ],
+          "plane": "sldprt:plane:15",
+          "radians": 1.8151424220741028,
+          "world_mm": [
+            [
+              4.0,
+              0.0,
+              16.0
+            ],
+            [
+              4.0,
+              0.0,
+              -23.0
+            ]
+          ]
+        },
+        "sha256": "7eb582248c1132496c1c481f9b5348ed286196132073d42173e48a900e18cc48",
+        "volume_mm3": 17079.58262050627
+      },
+      "request": {
+        "plane": "top",
+        "spec": {
+          "angle_deg": 104,
+          "axial_mm": [
+            -11,
+            16
+          ],
+          "axis_span_mm": [
+            -16,
+            23
+          ],
+          "axis_x_mm": 4,
+          "created_at": 1760000000,
+          "edit_angle_deg": 171,
+          "name": "KitPrincipalRevolveTopForward",
+          "radial_mm": [
+            12,
+            29
+          ],
+          "reverse": false,
+          "self_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveGenerated01\\Candidates\\KitPrincipalRevolveTopForward.SLDPRT"
+        }
+      }
+    },
+    {
+      "proof": {
+        "archive_streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1129,
+            "sha256": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22292,
+            "sha256": "475d56cb4f238b4ed6e314f447d2587e9a5671adaeff0dbd2c08940251297298"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 847,
+            "sha256": "44d1c9062072b4aa21a3c48af54bd6877fb739b25db94d92c857acd876049a0e"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 9931,
+            "sha256": "8bd0450ae7f0253edcd74a9c2b953cefa3b957d7ea50afe6e31c0a214682fa97"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 847,
+            "sha256": "e302b641b159262d8d47e935d9fbf3a4c5f272b40b2f08b14267691c6dc464fd"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "qualified": true,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 187,
+            "qualified": true,
+            "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1409,
+            "sha256": "d237db9115fede11ac2c929ab5c08692d05deffc1e50631bae2096b5c3791673"
+          }
+        },
+        "area_mm2": 4192.516929421681,
+        "body_faces": 6,
+        "bytes": 8135,
+        "caller_stream_untouched": true,
+        "external_access_attempts": [],
+        "path_and_named_stream_equal": true,
+        "projection": {
+          "axis": "sldprt:sketch:18:line:5",
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "driver": "sldprt:parameter:19:D1",
+          "feature": "sldprt:feature:19",
+          "local_mm": [
+            [
+              4.0,
+              -16.0
+            ],
+            [
+              4.0,
+              23.0
+            ]
+          ],
+          "plane": "sldprt:plane:15",
+          "radians": 1.8151424220741028,
+          "world_mm": [
+            [
+              4.0,
+              0.0,
+              16.0
+            ],
+            [
+              4.0,
+              0.0,
+              -23.0
+            ]
+          ]
+        },
+        "sha256": "12d178d8d39f8e21a428269a03d0e29fe2ae4c67c27eb1e302833b9d8402abd5",
+        "volume_mm3": 17079.58262050627
+      },
+      "request": {
+        "plane": "top",
+        "spec": {
+          "angle_deg": 104,
+          "axial_mm": [
+            -11,
+            16
+          ],
+          "axis_span_mm": [
+            -16,
+            23
+          ],
+          "axis_x_mm": 4,
+          "created_at": 1760000000,
+          "edit_angle_deg": 171,
+          "name": "KitPrincipalRevolveTopReverse",
+          "radial_mm": [
+            12,
+            29
+          ],
+          "reverse": true,
+          "self_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveGenerated01\\Candidates\\KitPrincipalRevolveTopReverse.SLDPRT"
+        }
+      }
+    },
+    {
+      "proof": {
+        "archive_streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1129,
+            "sha256": "d31802f95676f4a4dcbe6f5c24397135617b0e5e49e4834f5960d4862992043d"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 137,
+            "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22296,
+            "sha256": "db697ea241ae5e94cf0479220049d54c3481983521eb58c57246393d77cad87d"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 859,
+            "sha256": "aeef810a95d0affd60d72906c67d67da4a3e18da6e637e42bd4cb07d8308fa90"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 9931,
+            "sha256": "aa30a6f3679e9bf1f1b4d6965941988b4f18b36ee4a033fa01e14cd330844668"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 859,
+            "sha256": "5ecfd97ff4c085b780ec430941bcf60b2ad2b34ca38a50a93d2fbba18ec6aff6"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "qualified": true,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 187,
+            "qualified": true,
+            "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1412,
+            "sha256": "77206d0bd6e5fe779f9b10ac9e17c46be22c1e4489222fa6b42472834a5c62c3"
+          }
+        },
+        "area_mm2": 5049.978875620517,
+        "body_faces": 6,
+        "bytes": 8153,
+        "caller_stream_untouched": true,
+        "external_access_attempts": [],
+        "path_and_named_stream_equal": true,
+        "projection": {
+          "axis": "sldprt:sketch:18:line:5",
+          "direction": [
+            0,
+            -1,
+            0
+          ],
+          "driver": "sldprt:parameter:19:D1",
+          "feature": "sldprt:feature:19",
+          "local_mm": [
+            [
+              9.3,
+              -21.9
+            ],
+            [
+              9.3,
+              20.2
+            ]
+          ],
+          "plane": "sldprt:plane:16",
+          "radians": 1.5271630954950384,
+          "world_mm": [
+            [
+              0.0,
+              -21.9,
+              -9.3
+            ],
+            [
+              0.0,
+              20.2,
+              -9.3
+            ]
+          ]
+        },
+        "sha256": "88d14ad016c4796c45872d8ac89724397510f2e319011ceb510dbab5add47185",
+        "volume_mm3": 23917.84807966701
+      },
+      "request": {
+        "plane": "right",
+        "spec": {
+          "angle_deg": 87.5,
+          "axial_mm": [
+            -16.9,
+            12.2
+          ],
+          "axis_span_mm": [
+            -21.9,
+            20.2
+          ],
+          "axis_x_mm": 9.3,
+          "created_at": 1760000000,
+          "edit_angle_deg": 138.25,
+          "name": "KitPrincipalRevolveRightReverse",
+          "radial_mm": [
+            11.3,
+            34.7
+          ],
+          "reverse": true,
+          "self_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveGenerated01\\Candidates\\KitPrincipalRevolveRightReverse.SLDPRT"
+        }
+      }
+    },
+    {
+      "proof": {
+        "external_access_attempts": [],
+        "refusal": "boss support must be a canonical principal frame at origin"
+      },
+      "request": {
+        "alteration": "rotated-support",
+        "plane": "top",
+        "spec": {
+          "angle_deg": 104,
+          "axial_mm": [
+            -11,
+            16
+          ],
+          "axis_span_mm": [
+            -16,
+            23
+          ],
+          "axis_x_mm": 4,
+          "created_at": 1760000000,
+          "edit_angle_deg": 171,
+          "name": "KitPrincipalRevolveTopForward",
+          "radial_mm": [
+            12,
+            29
+          ],
+          "reverse": false,
+          "self_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveGenerated01\\Candidates\\KitPrincipalRevolveTopForward.SLDPRT"
+        }
+      }
+    },
+    {
+      "proof": {
+        "external_access_attempts": [],
+        "refusal": "boss support must be a canonical principal frame at origin"
+      },
+      "request": {
+        "alteration": "translated-support",
+        "plane": "top",
+        "spec": {
+          "angle_deg": 104,
+          "axial_mm": [
+            -11,
+            16
+          ],
+          "axis_span_mm": [
+            -16,
+            23
+          ],
+          "axis_x_mm": 4,
+          "created_at": 1760000000,
+          "edit_angle_deg": 171,
+          "name": "KitPrincipalRevolveTopReverse",
+          "radial_mm": [
+            12,
+            29
+          ],
+          "reverse": true,
+          "self_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveGenerated01\\Candidates\\KitPrincipalRevolveTopReverse.SLDPRT"
+        }
+      }
+    },
+    {
+      "proof": {
+        "external_access_attempts": [],
+        "refusal": "normalized revolve definition differs from its actual selected axis"
+      },
+      "request": {
+        "alteration": "wrong-axis-direction",
+        "plane": "top",
+        "spec": {
+          "angle_deg": 104,
+          "axial_mm": [
+            -11,
+            16
+          ],
+          "axis_span_mm": [
+            -16,
+            23
+          ],
+          "axis_x_mm": 4,
+          "created_at": 1760000000,
+          "edit_angle_deg": 171,
+          "name": "KitPrincipalRevolveTopForward",
+          "radial_mm": [
+            12,
+            29
+          ],
+          "reverse": false,
+          "self_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveGenerated01\\Candidates\\KitPrincipalRevolveTopForward.SLDPRT"
+        }
+      }
+    },
+    {
+      "proof": {
+        "external_access_attempts": [],
+        "refusal": "normalized revolve definition differs from its actual selected axis"
+      },
+      "request": {
+        "alteration": "wrong-axis-origin",
+        "plane": "top",
+        "spec": {
+          "angle_deg": 104,
+          "axial_mm": [
+            -11,
+            16
+          ],
+          "axis_span_mm": [
+            -16,
+            23
+          ],
+          "axis_x_mm": 4,
+          "created_at": 1760000000,
+          "edit_angle_deg": 171,
+          "name": "KitPrincipalRevolveTopReverse",
+          "radial_mm": [
+            12,
+            29
+          ],
+          "reverse": true,
+          "self_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveGenerated01\\Candidates\\KitPrincipalRevolveTopReverse.SLDPRT"
+        }
+      }
+    }
+  ],
+  "native_processes": 0,
+  "schema": "kit.sw2026.sdk-principal-revolve-discovery.v1",
+  "sealed_sources_read": 0,
+  "source_revision": "61bb95c2d7b0996c0efe920f4a305cfc650cf0f2",
+  "source_tree": "c1967f83c511b6ffc699684335e132704851a1fb",
+  "tool_sha256": "d1ca3d67bf2b3babbdda0b024935bf3781e732b6332e90c0e5c1ee922a58ad7b"
+}
