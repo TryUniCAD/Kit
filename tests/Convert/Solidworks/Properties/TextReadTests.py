@@ -22,3 +22,20 @@ def TestNoTextPart(TmpPath: FilePath) -> None:
     assert "custom_properties" not in Document.metadata
     assert "document_summary" not in Document.metadata
     assert Document.feature_timeline and Document.sketches and Document.parameters
+
+
+# each explicit empty scope must survive a fresh public read without adding an absent owner
+def TestEmptyText(TmpPath: FilePath) -> None:
+    SourcePath = MakeTextPart(
+        TmpPath / "EmptyText.SLDPRT",
+        False,
+        EmptyScopes=frozenset({"summary", "configuration"}),
+    )
+    Document = RunPublicRead(SourcePath)
+    assert Document.metadata["document_summary"] == {}
+    assert "custom_properties" not in Document.metadata
+    (ConfigValue,) = Document.configurations
+    assert ConfigValue.attributes["custom_properties"] == {}
+    InfoValue = Document.metadata["solidworks.part_text_properties"]
+    assert isinstance(InfoValue, dict) and InfoValue["configuration_ids"] == (0,)
+    assert Document.feature_timeline and Document.sketches and Document.parameters

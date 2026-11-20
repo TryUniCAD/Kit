@@ -8,3 +8,4 @@ class PartTextInput:
     SummaryFields: Mapping[str, object]
     DocumentFields: Mapping[str, object]
     ConfigurationFields: Mapping[str, object]
+    EmptyScopes: frozenset[str] = frozenset()

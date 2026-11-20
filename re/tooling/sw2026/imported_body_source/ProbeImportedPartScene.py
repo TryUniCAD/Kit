@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[4]
 RESEARCH = Path("re/tooling/sw2026")
 TOOLS = RESEARCH / "imported_body_source"
 IMPORTS = Path("src/convert/adapters/solidworks/Archive/Construction/Part/Imports")
+PROPERTIES = IMPORTS.parents[1] / "Metadata/Properties"
 sys.path[:0] = [str(ROOT / "src"), str(ROOT), str(ROOT / TOOLS), str(ROOT / RESEARCH), str(ROOT / RESEARCH / "serial")]
 
 from AuthorCurves import EvidenceFailure, digest, require, write_json
@@ -25,7 +26,7 @@ from EvaluateSealedImportedGeometry import expected_shape
 from LocalBodyKernel import fingerprint
 from ObserveLocalImportedPart import phase
 from ProjectDisclosedImport import decode_import, project_import, rectangular_boundary
-from ProjectImportedSemantics import project_import_semantics
+from ProjectImportedSemantics import project_import_semantics, project_part_text
 from RunImportedBodySources import cases
 from StageLocalPartProbe import pinned_tree
 from VerifyBareImportPackage import BareLabels, EXPECTED_LIGHT_STREAMS, guard_build, recipe
@@ -49,6 +50,7 @@ BOUND_OPERATORS = tuple(path.as_posix() for path in (
     *(TOOLS / name for name in ("ProbeImportedPartScene.py", "ObserveLocalImportedPart.py", "ProjectDisclosedImport.py", "ProjectImportedSemantics.py")),
     *(RESEARCH / name for name in ("AuthorCurves.py", "AuthorRectangleAnchors.py", "OracleIdentity.py", "Swapp.py", "downstream/lighting/AuditStockPartLights.py")),
     *(IMPORTS / name for name in ("BindImportScene.py", "CheckBareImport.py", "MakeBareImport.py", "ReadImportScene.py")),
+    *(PROPERTIES / name for name in ("MakePartProps.py", "PartTextInput.py")),
 ))
 
 
@@ -64,7 +66,7 @@ def decoded_scene_row(folder, lights):
     return tuple((light.NameValue, types[light.KindValue], folder) for light in lights)
 
 
-def prepared_part(source, target):
+def prepared_part(source, target, preserve_empty=False):
     original = decode_import(source)
     footprint = project_import(original)
     semantics = project_import_semantics(original)
@@ -76,7 +78,9 @@ def prepared_part(source, target):
                            (Configuration("active", semantics.configuration_name, True),), (), (), (), (), (), (),
                            brep=footprint.model)
     labels = BareLabels(target.stem, semantics.configuration_name, semantics.feature_name)
-    settings = recipe(labels, target, EPOCH, semantics.properties)
+    properties = project_part_text(original, preserve_empty=True) if preserve_empty else semantics.properties
+    settings = recipe(labels, target, EPOCH, properties)
+    property_streams = []
     with guard_build() as audit:
         candidate = MakeBareImport(document, settings, labels, LightValues=lights)
         empty = MakeBareImport(document, settings, labels)
@@ -94,6 +98,15 @@ def prepared_part(source, target):
                         for values, bound in zip(actual, expected, strict=True)
                         for coordinate, point in zip(values, bound, strict=True)),
                 "generated part changed local boundary or typed source labels")
+        if preserve_empty:
+            require(properties.EmptyScopes == {"summary", "document", "configuration"}
+                    and project_part_text(decoded, preserve_empty=True) == properties,
+                    "generated read did not recover all three explicit empty scopes")
+            no_text = MakeBareImport(document, recipe(labels, target, EPOCH, semantics.properties), labels, LightValues=lights)
+            property_streams = sorted(name for name in candidate.StreamsValue.keys() | no_text.StreamsValue.keys()
+                                      if candidate.StreamsValue.get(name) != no_text.StreamsValue.get(name))
+            require(set(property_streams) == {"docProps/core.xml", "docProps/custom.xml", "docProps/Config-0-Properties.xml"},
+                    "explicit empty scopes changed unrelated streams")
     contrast = sorted(name for name in candidate.StreamsValue.keys() | empty.StreamsValue.keys()
                       if candidate.StreamsValue.get(name) != empty.StreamsValue.get(name))
     require(set(contrast) == EXPECTED_LIGHT_STREAMS, "authored lights changed unrelated native state")
@@ -101,6 +114,7 @@ def prepared_part(source, target):
         "file": fingerprint(candidate.BytesValue), "feature": details["feature"],
         "neutral_lights": tuple(map(asdict, lights)), "native_scene": decoded_scene_row(folder, lights),
         "stream_count": len(candidate.StreamsValue), "same_path_empty_contrast": contrast,
+        "empty_property_streams": property_streams,
         "explicit_empty_text_owners_preserved": "solidworks.part_text_properties" in decoded.metadata,
         "runtime_file_reads": len(audit.DeniedReads), "native_path": str(target),
     }
@@ -112,7 +126,7 @@ def read_checked(path, expected):
     return value
 
 
-def emit(packet, guest, publish):
+def emit(packet, guest, publish, preserve_empty):
     require(os.name != "nt", "prepare disclosed part candidates on the host")
     for codec in ("ascii", "latin-1", "utf-8", "utf-16-le"):
         lookup(codec)
@@ -122,7 +136,7 @@ def emit(packet, guest, publish):
     for name, (_, checksum) in INPUTS.items():
         path = packet / "Sources" / (name + ".SLDPRT")
         target = guest / "Generated" / path.name
-        data, report = prepared_part(read_checked(path, checksum), target)
+        data, report = prepared_part(read_checked(path, checksum), target, preserve_empty)
         require(digest(path) == checksum, "disclosed source changed while preparing")
         if publish:
             with (packet / "Candidates" / path.name).open("xb") as output:
@@ -131,7 +145,7 @@ def emit(packet, guest, publish):
     print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))
 
 
-def prepare(source_root, packet, guest, revision):
+def prepare(source_root, packet, guest, revision, preserve_empty):
     require(re.fullmatch(r"[a-f0-9]{40}", revision) and len(guest.parts) == 2 and guest.drive.casefold() == "c:"
             and re.fullmatch(r"KitImportScene[0-9]{2}", guest.name), "use a committed revision and fresh guest directory")
     require(not packet.is_relative_to(ROOT), "keep the disclosed staging packet outside Kit")
@@ -145,6 +159,8 @@ def prepare(source_root, packet, guest, revision):
     pinned_tree(ROOT, revision, directory)
     entry = directory / TOOLS / Path(__file__).name
     argv = [sys.executable, "-I", "-B", str(entry), "emit", str(packet), str(guest)]
+    if preserve_empty:
+        argv.append("--preserve-empty-text")
     clean = subprocess.check_output(argv)
     repeat = subprocess.check_output([*argv, "--publish"])
     require(clean == repeat, "two frozen scene builds differ")
@@ -189,6 +205,11 @@ def measure_case(packet, guest, name, build, record, row):
     folder, lights = light_scene(read_checked(saved, first["saved_sha256"]))
     require(decoded_scene_row(folder, lights) == scene and compare(tuple(map(asdict, lights)), build["neutral_lights"]),
             "native save changed an authored light value")
+    if build["explicit_empty_text_owners_preserved"]:
+        original = project_part_text(decode_import(read_checked(source, build["source_sha256"])), preserve_empty=True)
+        saved_text = project_part_text(decode_import(read_checked(saved, first["saved_sha256"])), preserve_empty=True)
+        require(saved_text == original, "native save changed an explicit empty property scope")
+        row["saved_empty_text_scopes"] = sorted(saved_text.EmptyScopes)
     row.update(binary_light_values_preserved=sum(len(asdict(light)) for light in lights), full_disclosed_lifecycle=True)
 
 
@@ -253,17 +274,19 @@ if __name__ == "__main__":
     prep.add_argument("packet", type=Path)
     prep.add_argument("guest", type=PureWindowsPath)
     prep.add_argument("--revision", required=True)
+    prep.add_argument("--preserve-empty-text", action="store_true")
     own = modes.add_parser("emit")
     own.add_argument("packet", type=Path)
     own.add_argument("guest", type=PureWindowsPath)
     own.add_argument("--publish", action="store_true")
+    own.add_argument("--preserve-empty-text", action="store_true")
     oracle = modes.add_parser("observe")
     oracle.add_argument("job", type=Path)
     oracle.add_argument("--job-sha256", required=True)
     args = parser.parse_args()
     if args.mode == "prepare":
-        prepare(args.source_root.resolve(), args.packet.resolve(), args.guest, args.revision)
+        prepare(args.source_root.resolve(), args.packet.resolve(), args.guest, args.revision, args.preserve_empty_text)
     elif args.mode == "emit":
-        emit(args.packet.resolve(), args.guest, args.publish)
+        emit(args.packet.resolve(), args.guest, args.publish, args.preserve_empty_text)
     else:
         raise SystemExit(observe(args.job.resolve(), args.job_sha256))

@@ -16,14 +16,17 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.ReadPr
 def MakePartProps(InputsValue: PartTextInput | None) -> dict[str, bytes]:
     if InputsValue is None:
         return {}
+    EmptyScopes = InputsValue.EmptyScopes
+    if EmptyScopes - {"summary", "document", "configuration"}:
+        raise ValueError("part text names an unknown empty property scope")
     DocumentRows = ReadPropRows(InputsValue.DocumentFields)
     ConfigurationRows = ReadPropRows(InputsValue.ConfigurationFields)
     StreamsValue: dict[str, bytes] = {}
-    if InputsValue.SummaryFields:
+    if InputsValue.SummaryFields or "summary" in EmptyScopes:
         StreamsValue["docProps/core.xml"] = MakeCoreProps(InputsValue.SummaryFields)
-    if DocumentRows:
+    if DocumentRows or "document" in EmptyScopes:
         StreamsValue["docProps/custom.xml"] = MakeCustomProps(DocumentRows, False)
-    if ConfigurationRows:
+    if ConfigurationRows or "configuration" in EmptyScopes:
         StreamsValue["docProps/Config-0-Properties.xml"] = MakeCustomProps(
             ConfigurationRows, True
         )

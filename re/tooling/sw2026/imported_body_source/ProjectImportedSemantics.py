@@ -20,7 +20,7 @@ def read_bag(value):
     return MappingProxyType(dict(value))
 
 
-def project_part_text(document: CadDocument) -> PartTextInput:
+def project_part_text(document: CadDocument, *, preserve_empty=False) -> PartTextInput:
     require(type(document) is CadDocument and document.source.format_id == FORMAT,
             "literal source text requires a strict SOLIDWORKS part")
     config = active_configuration(document)
@@ -33,10 +33,18 @@ def project_part_text(document: CadDocument) -> PartTextInput:
     config_ids = (config.attributes["native_configuration_id"],) if TEXT_SCOPE in config.attributes else ()
     require(proof.get("configuration_ids") == config_ids,
             "source configuration text does not belong to the selected owner")
+    owners = (
+        ("summary", document.metadata, "document_summary"),
+        ("document", document.metadata, TEXT_SCOPE),
+        ("configuration", config.attributes, TEXT_SCOPE),
+    )
+    empty_scopes = frozenset(name for name, container, key in owners
+                             if preserve_empty and key in container and not container[key])
     return PartTextInput(
         read_bag(document.metadata.get("document_summary", {})),
         read_bag(document.metadata.get(TEXT_SCOPE, {})),
         read_bag(config.attributes.get(TEXT_SCOPE, {})),
+        empty_scopes,
     )
 
 

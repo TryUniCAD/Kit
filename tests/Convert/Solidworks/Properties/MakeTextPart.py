@@ -17,7 +17,12 @@ from tests.Convert.Solidworks.Research.Construction.Part.MakePolygonCase import 
 
 
 # public geometry construction and shared property generation provide independently authored complete native reader inputs
-def MakeTextPart(TargetPath: FilePath, IsProperties: bool = True) -> FilePath:
+def MakeTextPart(
+    TargetPath: FilePath,
+    IsProperties: bool = True,
+    *,
+    EmptyScopes: frozenset[str] = frozenset(),
+) -> FilePath:
     RequestValue = MakePolygonCase(
         TargetPath.stem, ((-13.0, -5.0), (24.0, -2.0), (8.0, 19.0)), False
     )
@@ -42,8 +47,12 @@ def MakeTextPart(TargetPath: FilePath, IsProperties: bool = True) -> FilePath:
             },
             {"SharedName": "Configuration <β>"},
         )
+    else:
+        InputsValue = PartTextInput({}, {}, {}, EmptyScopes)
+    PropertiesValue = MakePartProps(InputsValue)
+    if PropertiesValue:
         StreamsValue = SldprtArchive.OpenAction(TargetPath).streams
         _ = TargetPath.write_bytes(
-            BuildSldprt({**StreamsValue, **MakePartProps(InputsValue)}, FormatVersion=4)
+            BuildSldprt({**StreamsValue, **PropertiesValue}, FormatVersion=4)
         )
     return TargetPath
