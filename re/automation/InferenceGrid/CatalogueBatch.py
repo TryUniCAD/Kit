@@ -81,7 +81,11 @@ def RunCatalogueBatch(
             if FileInput is not None and Experiments:
                 from InferenceGrid.DepthControlReplay import replay_depth_edit
                 Ordered = ([Selected] if Selected in Experiments else []) + [name for name in Experiments if name != Selected]
-                Replays = [replay_depth_edit(SourceRoot, FileInput, Stall, name) for name in Ordered]
+                if Stall["focus"] == "counted_text_gap":
+                    from InferenceGrid.CountedText import resume_text
+                    Replays = [resume_text(FileInput, Stall["source_sha256"], Reports["raw-structure"]["counted_text"], name) for name in Ordered]
+                else:
+                    Replays = [replay_depth_edit(SourceRoot, FileInput, Stall, name) for name in Ordered]
                 WriteRecord(Directory / "FileExperiments.json", {"advisor_selection": Selected, "results": Replays})
     WriteRecord(Directory / "CataloguePlan.json", Plan)
     Store = Directory / "Store"

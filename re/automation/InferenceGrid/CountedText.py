@@ -216,3 +216,25 @@ def fusion_manifest_reader(root, scratch, raw):
         report.update(member=KActiveManifest, member_sha256=pin,
                       controls=[{"split": k, "archive_sha256": pair[0]} for k, pair in ordered])
     return report, patch
+
+
+def resume_text(source, pin, report, experiment):
+    from InferenceInputs import read_file
+
+    blob = read_file(source, 128 * 1024 * 1024)
+    if hashlib.sha256(blob).hexdigest() != pin:
+        raise ValueError("input changed before text experiment")
+    codecs = ("ascii",) if experiment == "probe narrow counted text" else ("utf-16le", "utf-16be")
+    pos = report["prefix_bytes"]
+    candidates = []
+    for offset in range(pos, min(pos + 65, len(blob))):
+        for codec in codecs:
+            first = field(blob, offset, report["width"], report["order"], codec)
+            if not first or len(first["value"]) < 3:
+                continue
+            following = [r for c in ("ascii", "utf-16le", "utf-16be")
+                         if (r := field(blob, first["end"], report["width"], report["order"], c))]
+            if len(following) == 1:
+                candidates.append((first, following[0]))
+    return {"experiment": experiment, "status": "candidate" if candidates else "no_match",
+            "candidate_pairs": candidates, "start": pos, "input_sha256": pin}

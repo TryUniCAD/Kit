@@ -315,3 +315,5 @@ See [edited native extrusion depths](../Changes/Research/Inference/FreeCadDepthE
 [Counted text discovery](../Changes/Research/Inference/CountedTextDiscovery.md) generates a prefix reader for related raw streams.
 
 [Resuming text decoding after a gap](../Changes/Research/Inference/ManifestTextGaps.md) describes the bounded search and held-out replay.
+
+[Executable text-gap experiments](../Changes/Research/Inference/AdvisorTextExperiment.md) explain how an advisor choice advances a stalled raw stream.

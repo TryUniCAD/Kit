@@ -40,6 +40,12 @@ def file_stall(audit, reports):
             for row in missing
         ]
         sources = ["FileScope.json", "Input-" + dimension_layer + ".json"]
+    elif reports.get("raw-structure", {}).get("counted_text", {}).get("status") == "candidate_text_prefix" and (
+        reports["raw-structure"]["counted_text"]["prefix_bytes"] < reports["raw-structure"]["size"]
+    ):
+        focus = "counted_text_gap"
+        references = [{"offset": reports["raw-structure"]["counted_text"]["prefix_bytes"]}]
+        sources = ["FileScope.json", "Input-raw-structure.json"]
     elif reports.get("edited-graph", {}).get("status") == "candidate_matches_native_graph":
         focus = "edited_graph_reopen"
         references = [{"feature_id": row["feature_id"], "parameter_id": row["parameter_id"]}
@@ -80,7 +86,8 @@ def file_stall(audit, reports):
     )
     return {
         "available_experiments": (
-            ["vary blind boss depth", "vary blind cut depth"] if shifted else []
+            ["vary blind boss depth", "vary blind cut depth"] if shifted else
+            ["probe narrow counted text", "probe wide counted text"] if focus == "counted_text_gap" else []
         ),
         "signed_extrusion_layout_refuted_on_searched_fields": exhausted_layout,
         "source_sha256": audit["source_sha256"],
@@ -101,6 +108,7 @@ def advise_file(directory, stall, options):
         "edited_extrusion_geometry": "A saved native extrusion depth differs from its embedded model. The resulting solid and dependent features require independent verification.",
         "geometry_only": "Standalone solid geometry matches measured volume, bounds and topology counts. The parent document history is outside this input.",
         "profile_validation": "A standalone geometry reader recovered a typed profile. An independent measurement is needed to verify the recovered model.",
+        "counted_text_gap": "A counted text sequence stopped at an opaque gap. Probe for the next two adjacent text records.",
         "stream_layout": "A native CAD stream contains ranges without a known semantic owner.",
     }
     destination = directory / "FileAdvice"
