@@ -223,6 +223,20 @@ B03's qualified comparisons and codecs and B04's portable writer remain
 separate programme milestones. [PR #158](https://github.com/TryUniCAD/Kit/pull/158)
 continues the programme scope defined in [PR #94](https://github.com/TryUniCAD/Kit/pull/94).
 
+### B03-SW2026-ARCHIVE-CORE
+
+The PR #121 takeover team delivered the wire primitives in
+[PR #173](https://github.com/TryUniCAD/Kit/pull/173). The exact accepted revision
+`fc9b3881912fc368f1eab6625ffc9cb7da8d2c16` passed configured review, all PR CI
+and the native merge queue. The synthetic processes cover the archive
+counts, tags, scalar positions and ANSI and wide CString boundaries.
+[Change entry](../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
+[Merge-queue acceptance](https://github.com/TryUniCAD/Kit/actions/runs/44674053238)
+
+Class descriptors, object maps and linked streams have separate exits.
+[PR #174](https://github.com/TryUniCAD/Kit/pull/174) carries the next object and
+map slice through review.
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent delivered the current Parasolid fin traversal

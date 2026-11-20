@@ -40,6 +40,11 @@ The implemented container uses encoded stream names and compressed data.
 A valid stream directory does not prove valid native feature records.
 A valid feature record does not establish a successful vendor rebuild.
 
+Internal archive primitives encode and decode collection counts, structural
+tags, CString frames and fixed-width scalars in memory. Stream owners select
+the count dialect and supply the context for object references.
+[Wire primitives and verification](../../Changes/Solidworks/SolidworksArchiveWirePrimitives.md)
+
 For ordinary version-19000 blind-cut files, the codec retains the native cut class and its affected-body and surface-reference records. The public reader binds a measured one-boss cut to its actual sketch, consumed body producer and live depth owners. The cut sketch preserves a free, radius-driven or diameter-driven circle. For the cache-free rectangular Front Plane profile, the default reader reconstructs the exact planar and cylindrical boundaries. [Typed history](../../Changes/Solidworks/Reading/Parts/SolidworksTypedBlindPocketHistory.md) [Cache-free solid](../../Changes/Solidworks/Reading/Parts/SolidworksCacheFreePocketGeometry.md)
 
 For the measured single-stock version-19000 through-all cuts, the public reader preserves the native single or dual end selection, independent reversal, free circle, saved body scope and actual mid-plane stock driver. The neutral cut has no active length parameter. [Through-all cut history](../../Changes/Solidworks/Reading/Parts/SolidworksThroughAllCutHistory.md)
