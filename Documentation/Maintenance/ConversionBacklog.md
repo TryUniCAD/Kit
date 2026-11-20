@@ -160,6 +160,8 @@ The 165-part and five-assembly generated audit, editable native round trips, fai
 
 #### Active PR #121 workstreams
 
+The literal-property reader depends on complete physical Config-0 admission. The pinned 19000 dependency audit records the remaining structural groups and tracked acceptance fixtures. [Physical configuration delivery](../../re/solidworks/records/ConfigPhysicalDelivery2026.md)
+
 The takeover agent owns the serialized Windows oracle. Each workstream delivers through PR #121 and retains the parent CAD acceptance criteria.
 
 | Task | Owner | Current scope | Dependencies | Exit condition |
