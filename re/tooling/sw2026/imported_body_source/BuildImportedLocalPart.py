@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from codecs import lookup
+from collections.abc import Mapping
 from dataclasses import asdict, dataclass, replace
 from hashlib import sha256
 import json
@@ -20,6 +21,7 @@ from convert.adapters.solidworks.Archive.Construction.Header.MakeRootLog import 
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordConfig import KeywordConfig
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature import KeywordFeature
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeywords import MakeKeywords
+from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTextInput import PartTextInput
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import PersistentIds
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartArchive import EmitPartArchive
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.BindImportMut import BindImportMut
@@ -56,6 +58,7 @@ FEATURE_CLASS = "moBaseBody_c"
 EPOCH = 1790000000
 MODES = ("Bare", "Owned")
 AUTHORED_AMBIENT = AmbientInput("Import ambient", "KitImportAmbient", 0.5, 0.5, 0.0, 0x00FFFFFF)
+DEFAULT_FEATURE_NAME = "Imported geometry"
 
 
 @dataclass(frozen=True)
@@ -66,6 +69,39 @@ class ImportedLabels:
     PlaneName: str = "Front Plane"
     AxisValue: str = "z"
     SketchName: str = ""
+
+
+@dataclass(frozen=True, slots=True)
+class ImportedPartSemantics:
+    feature_name: str
+    body_name: str
+    body_name_is_authored: bool
+    configuration_name: str
+    properties: PartTextInput
+
+
+def import_labels(name, configuration, feature_name, semantics):
+    if semantics is None:
+        return ImportedLabels(name, configuration.name, feature_name), feature_name, None
+    require(type(semantics) is ImportedPartSemantics and feature_name == DEFAULT_FEATURE_NAME,
+            "supply a separate local import semantic input without a competing feature label")
+    require(configuration.name == semantics.configuration_name,
+            "local import text belongs to the selected neutral configuration")
+    require(type(semantics.body_name_is_authored) is bool
+            and all(type(label) is str and label.strip() and label.isprintable()
+                    for label in (semantics.configuration_name, semantics.feature_name, semantics.body_name)),
+            "local import semantics require ordinary printable labels")
+    require(not semantics.body_name_is_authored,
+            "local import authored body name needs a qualified compatibility carrier")
+    require(semantics.body_name == semantics.feature_name,
+            "the derived local body name must agree with the actual feature")
+    properties = semantics.properties
+    require(type(properties) is PartTextInput
+            and all(isinstance(scope, Mapping) for scope in (
+                properties.SummaryFields, properties.DocumentFields, properties.ConfigurationFields,
+            )),
+            "local import properties require three typed literal text bags")
+    return ImportedLabels(name, configuration.name, semantics.feature_name), semantics.body_name, properties
 
 
 def make_document(name, points, levels, light):
@@ -167,7 +203,7 @@ def publish_completed_update(system, headers, feature, recipe):
         header.FieldsValue["f40"] = stamp
 
 
-def make_part(document, destination, mode, completed=False, *, feature_name="Imported geometry"):
+def make_part(document, destination, mode, completed=False, *, feature_name=DEFAULT_FEATURE_NAME, semantics=None):
     document.AssertValid()
     require(mode in MODES and str(document.units) == "mm" and
             set(document.metadata) <= {"kit.sw2026.ambient"} and
@@ -177,9 +213,12 @@ def make_part(document, destination, mode, completed=False, *, feature_name="Imp
             "the local-body diagnostic requires a standalone neutral millimetre boundary")
     name = PureWindowsPath(destination).stem
     configuration, = document.configurations
-    labels = ImportedLabels(name, configuration.name, feature_name)
+    require(configuration.active and configuration.parent_id is None and not (
+        configuration.overrides or configuration.suppressed_feature_ids or configuration.attributes
+    ), "local import requires an active neutral configuration without unowned fields")
+    labels, body_name, properties = import_labels(name, configuration, feature_name, semantics)
     recipe = MakePartRecipe(labels, EPOCH)
-    recipe = replace(recipe, OutputValue=SelfFileInput(destination, EPOCH))
+    recipe = replace(recipe, OutputValue=SelfFileInput(destination, EPOCH), PropertiesValue=properties)
     allocator = PersistentIds()
     system = MakePartBaseMut(recipe, labels, allocator)
     marks, partition = empty_local_history()
@@ -198,7 +237,7 @@ def make_part(document, destination, mode, completed=False, *, feature_name="Imp
     if completed:
         publish_completed_update(system, headers, feature, recipe)
     if mode == "Owned":
-        nodes = make_owned_nodes(document.brep, labels.FeatureName, feature.FieldsValue["f08"], atom_id, body_stamp)
+        nodes = make_owned_nodes(document.brep, body_name, feature.FieldsValue["f08"], atom_id, body_stamp)
     else:
         nodes = make_nodes(document.brep)
         require_closed_unattributed(nodes)

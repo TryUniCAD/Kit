@@ -13,7 +13,7 @@ def ReadPropChild(NodeValue: object, ClassName: str) -> ArchiveNode:
     return NodeValue
 
 
-# present advanced containers can be admitted only when every property scope is empty
+# ordinary text projection requires every present advanced scope to be structurally empty
 def CheckEmptyProps(RootValue: ArchiveNode) -> None:
     FieldsValue = RootValue.FieldsValue
     StateValue = (FieldsValue["f0c"], FieldsValue["f08"], FieldsValue["f54"])
@@ -26,12 +26,16 @@ def CheckEmptyProps(RootValue: ArchiveNode) -> None:
         )
     Container = ReadPropChild(RowsValue[0]["o"], "moCusPropContainer_c").FieldsValue
     FileValue = ReadPropChild(Container["f08"], "moFilePropContainer_c").FieldsValue
-    CutValue = ReadPropChild(Container["f10"], "moCutListPropContainer_c").FieldsValue
+    CutOwner = Container["f10"]
+    CutValue = (
+        None
+        if CutOwner is None
+        else ReadPropChild(CutOwner, "moCutListPropContainer_c").FieldsValue
+    )
     if (
         FileValue["f08"] is not None
         or FileValue["f10"] is not None
-        or CutValue["f08"]
-        or CutValue["f38"]
+        or (CutValue is not None and (CutValue["f08"] or CutValue["f38"]))
         or Container["f18"] is not None
     ):
         raise ValueError(
