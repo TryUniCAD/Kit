@@ -1,0 +1,531 @@
+{
+  "baseline": "9b323b383bcfaf69baad61d4ea70c1537e898a41",
+  "evidence": {
+    "cross-atom": {
+      "external_access_attempts": 0,
+      "refusal": "saved kernel body tag or producer differs from its surviving atom"
+    },
+    "cross-deletion": {
+      "external_access_attempts": 0,
+      "refusal": "rollback slots overlap or differ from their actual current class"
+    },
+    "cross-geometry": {
+      "external_access_attempts": 0,
+      "refusal": "rollback stock geometry does not follow its linked profile and D1"
+    },
+    "cross-qualifier": {
+      "external_access_attempts": 0,
+      "refusal": "inconsistent source-index selector for a rollback target"
+    },
+    "cross-selector": {
+      "external_access_attempts": 0,
+      "refusal": "history mark differs from actual chronological owner"
+    },
+    "cross-world": {
+      "external_access_attempts": 0,
+      "refusal": "kernel owner chain is not reciprocal"
+    },
+    "selected": {
+      "active_payload_bytes": 13239,
+      "active_payload_sha256": "157c3e063dc73e0776201a8580aefb5afb9d35d4577aa1812a2b2a9d447c7285",
+      "analytic_profiles_and_circle_match": true,
+      "cut_refutes_wire_index_threshold": {
+        "highest_true_slot": 398,
+        "lowest_false_slot": 41
+      },
+      "delta_payload_bytes": 6325,
+      "delta_payload_sha256": "b38344cad4aae4490411b384bfdbbb23e09f071c87fcc4819343f7b62c12b0d9",
+      "external_access_attempts": 0,
+      "first_restored_owner": {
+        "atom": 101,
+        "attribute": "SWIMPLICITBODYNAME_ID_U",
+        "body_slot": 6,
+        "kernel_kind": 98,
+        "label": "SteadyStock",
+        "wire_slot": 380
+      },
+      "legacy_single_body_refusal": "current kernel framing differs",
+      "native_mark_owners_map_index_and_id": [
+        [
+          105,
+          3
+        ],
+        [
+          267,
+          16
+        ],
+        [
+          342,
+          18
+        ],
+        [
+          405,
+          21
+        ]
+      ],
+      "partition_wire_index": 377,
+      "phase_frames": [
+        {
+          "bodies": [
+            {
+              "atom": 102,
+              "faces": 6,
+              "label": "MovingStock",
+              "producer": 40,
+              "tag": 3597,
+              "vertices": 8,
+              "wire_slot": 2
+            },
+            {
+              "atom": 103,
+              "faces": 8,
+              "label": "ThroughFeature",
+              "producer": 47,
+              "tag": 3121,
+              "vertices": 12,
+              "wire_slot": 6
+            }
+          ],
+          "changed_body_slots": [
+            6,
+            2
+          ],
+          "copy_staging_count": 76,
+          "decompressed_delta_offset": 144,
+          "delta_key": 3,
+          "header_mark_counts": [
+            94,
+            23,
+            26
+          ],
+          "mark_id": 21,
+          "node_count": 376,
+          "null_true_nonnull_true_nonnull_false": [
+            262,
+            409,
+            35
+          ],
+          "removed_body_slots": [],
+          "restored_removed_changed": [
+            19,
+            84,
+            73
+          ],
+          "wire_index": 378,
+          "world_alive": true,
+          "world_head": 2
+        },
+        {
+          "bodies": [
+            {
+              "atom": 102,
+              "faces": 6,
+              "label": "MovingStock",
+              "producer": 40,
+              "tag": 3597,
+              "vertices": 8,
+              "wire_slot": 2
+            },
+            {
+              "atom": 101,
+              "faces": 6,
+              "label": "SteadyStock",
+              "producer": 32,
+              "tag": 3121,
+              "vertices": 8,
+              "wire_slot": 6
+            }
+          ],
+          "changed_body_slots": [
+            6
+          ],
+          "copy_staging_count": 2,
+          "decompressed_delta_offset": 5558,
+          "delta_key": 6,
+          "header_mark_counts": [
+            158,
+            0,
+            0
+          ],
+          "mark_id": 18,
+          "node_count": 311,
+          "null_true_nonnull_true_nonnull_false": [
+            32,
+            11,
+            0
+          ],
+          "removed_body_slots": [
+            2
+          ],
+          "restored_removed_changed": [
+            0,
+            142,
+            2
+          ],
+          "wire_index": 379,
+          "world_alive": true,
+          "world_head": 2
+        },
+        {
+          "bodies": [
+            {
+              "atom": 101,
+              "faces": 6,
+              "label": "SteadyStock",
+              "producer": 32,
+              "tag": 3121,
+              "vertices": 8,
+              "wire_slot": 6
+            }
+          ],
+          "changed_body_slots": [],
+          "copy_staging_count": 1,
+          "decompressed_delta_offset": 4881,
+          "delta_key": 1,
+          "header_mark_counts": [
+            158,
+            0,
+            0
+          ],
+          "mark_id": 16,
+          "node_count": 169,
+          "null_true_nonnull_true_nonnull_false": [
+            15,
+            0,
+            0
+          ],
+          "removed_body_slots": [
+            6
+          ],
+          "restored_removed_changed": [
+            0,
+            142,
+            1
+          ],
+          "wire_index": 401,
+          "world_alive": true,
+          "world_head": 6
+        },
+        {
+          "bodies": [],
+          "changed_body_slots": [],
+          "copy_staging_count": 1,
+          "decompressed_delta_offset": 4772,
+          "delta_key": 2,
+          "header_mark_counts": [
+            0,
+            0,
+            0
+          ],
+          "mark_id": 3,
+          "node_count": 27,
+          "null_true_nonnull_true_nonnull_false": [
+            15,
+            0,
+            0
+          ],
+          "removed_body_slots": [],
+          "restored_removed_changed": [
+            0,
+            0,
+            1
+          ],
+          "wire_index": 400,
+          "world_alive": true,
+          "world_head": 0
+        },
+        {
+          "bodies": [],
+          "changed_body_slots": [],
+          "copy_staging_count": 0,
+          "decompressed_delta_offset": 4739,
+          "delta_key": 0,
+          "header_mark_counts": [
+            0,
+            0,
+            0
+          ],
+          "mark_id": 1,
+          "node_count": 27,
+          "null_true_nonnull_true_nonnull_false": [
+            0,
+            0,
+            0
+          ],
+          "removed_body_slots": [],
+          "restored_removed_changed": [
+            0,
+            0,
+            0
+          ],
+          "wire_index": 399,
+          "world_alive": false,
+          "world_head": 0
+        }
+      ],
+      "scope_code": 1
+    },
+    "short-capacity": {
+      "external_access_attempts": 0,
+      "refusal": "rollback copy capacity or retained WORLD differs"
+    },
+    "short-mark-count": {
+      "external_access_attempts": 0,
+      "refusal": "mark header counts disagree with physical rollback lists"
+    },
+    "unrestricted": {
+      "active_payload_bytes": 13239,
+      "active_payload_sha256": "24683c785eafcf3133b9114ad9a7a1e63137cd59d69e45e3267579df4b390b2d",
+      "analytic_profiles_and_circle_match": true,
+      "cut_refutes_wire_index_threshold": {
+        "highest_true_slot": 398,
+        "lowest_false_slot": 41
+      },
+      "delta_payload_bytes": 6325,
+      "delta_payload_sha256": "2933c1669a85d2338e97041b4b1ab6549c39ee207dc2f6e2ef904b51ff09ae57",
+      "external_access_attempts": 0,
+      "first_restored_owner": {
+        "atom": 101,
+        "attribute": "SWIMPLICITBODYNAME_ID_U",
+        "body_slot": 6,
+        "kernel_kind": 98,
+        "label": "SteadyStock",
+        "wire_slot": 380
+      },
+      "legacy_single_body_refusal": "current kernel framing differs",
+      "native_mark_owners_map_index_and_id": [
+        [
+          105,
+          3
+        ],
+        [
+          267,
+          16
+        ],
+        [
+          342,
+          18
+        ],
+        [
+          405,
+          21
+        ]
+      ],
+      "partition_wire_index": 377,
+      "phase_frames": [
+        {
+          "bodies": [
+            {
+              "atom": 102,
+              "faces": 6,
+              "label": "MovingStock",
+              "producer": 40,
+              "tag": 3597,
+              "vertices": 8,
+              "wire_slot": 2
+            },
+            {
+              "atom": 103,
+              "faces": 8,
+              "label": "ThroughFeature",
+              "producer": 47,
+              "tag": 3121,
+              "vertices": 12,
+              "wire_slot": 6
+            }
+          ],
+          "changed_body_slots": [
+            6,
+            2
+          ],
+          "copy_staging_count": 76,
+          "decompressed_delta_offset": 144,
+          "delta_key": 3,
+          "header_mark_counts": [
+            94,
+            23,
+            26
+          ],
+          "mark_id": 21,
+          "node_count": 376,
+          "null_true_nonnull_true_nonnull_false": [
+            262,
+            409,
+            35
+          ],
+          "removed_body_slots": [],
+          "restored_removed_changed": [
+            19,
+            84,
+            73
+          ],
+          "wire_index": 378,
+          "world_alive": true,
+          "world_head": 2
+        },
+        {
+          "bodies": [
+            {
+              "atom": 102,
+              "faces": 6,
+              "label": "MovingStock",
+              "producer": 40,
+              "tag": 3597,
+              "vertices": 8,
+              "wire_slot": 2
+            },
+            {
+              "atom": 101,
+              "faces": 6,
+              "label": "SteadyStock",
+              "producer": 32,
+              "tag": 3121,
+              "vertices": 8,
+              "wire_slot": 6
+            }
+          ],
+          "changed_body_slots": [
+            6
+          ],
+          "copy_staging_count": 2,
+          "decompressed_delta_offset": 5558,
+          "delta_key": 6,
+          "header_mark_counts": [
+            158,
+            0,
+            0
+          ],
+          "mark_id": 18,
+          "node_count": 311,
+          "null_true_nonnull_true_nonnull_false": [
+            32,
+            11,
+            0
+          ],
+          "removed_body_slots": [
+            2
+          ],
+          "restored_removed_changed": [
+            0,
+            142,
+            2
+          ],
+          "wire_index": 379,
+          "world_alive": true,
+          "world_head": 2
+        },
+        {
+          "bodies": [
+            {
+              "atom": 101,
+              "faces": 6,
+              "label": "SteadyStock",
+              "producer": 32,
+              "tag": 3121,
+              "vertices": 8,
+              "wire_slot": 6
+            }
+          ],
+          "changed_body_slots": [],
+          "copy_staging_count": 1,
+          "decompressed_delta_offset": 4881,
+          "delta_key": 1,
+          "header_mark_counts": [
+            158,
+            0,
+            0
+          ],
+          "mark_id": 16,
+          "node_count": 169,
+          "null_true_nonnull_true_nonnull_false": [
+            15,
+            0,
+            0
+          ],
+          "removed_body_slots": [
+            6
+          ],
+          "restored_removed_changed": [
+            0,
+            142,
+            1
+          ],
+          "wire_index": 401,
+          "world_alive": true,
+          "world_head": 6
+        },
+        {
+          "bodies": [],
+          "changed_body_slots": [],
+          "copy_staging_count": 1,
+          "decompressed_delta_offset": 4772,
+          "delta_key": 2,
+          "header_mark_counts": [
+            0,
+            0,
+            0
+          ],
+          "mark_id": 3,
+          "node_count": 27,
+          "null_true_nonnull_true_nonnull_false": [
+            15,
+            0,
+            0
+          ],
+          "removed_body_slots": [],
+          "restored_removed_changed": [
+            0,
+            0,
+            1
+          ],
+          "wire_index": 400,
+          "world_alive": true,
+          "world_head": 0
+        },
+        {
+          "bodies": [],
+          "changed_body_slots": [],
+          "copy_staging_count": 0,
+          "decompressed_delta_offset": 4739,
+          "delta_key": 0,
+          "header_mark_counts": [
+            0,
+            0,
+            0
+          ],
+          "mark_id": 1,
+          "node_count": 27,
+          "null_true_nonnull_true_nonnull_false": [
+            0,
+            0,
+            0
+          ],
+          "removed_body_slots": [],
+          "restored_removed_changed": [
+            0,
+            0,
+            0
+          ],
+          "wire_index": 399,
+          "world_alive": false,
+          "world_head": 0
+        }
+      ],
+      "scope_code": 0
+    }
+  },
+  "external_access_attempts": 0,
+  "generated_files": 0,
+  "heldout_sources": 0,
+  "native_processes_run": 0,
+  "schema": "kit.sw2026.two-stock-physical-rollback.v1",
+  "selected_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+  "static_kernel_sha256": "2a0b45e9778c42acaa9a955d4dd4826c8892ac3be08532b819778c7989c66969",
+  "tools_sha256": {
+    "ProveTwoStockHistory.py": "449d7c3211766cdd6c2b4b295862fd219ff448795ffcfb0cdfcfa34e766f080a",
+    "ReadTwoStockHistory.py": "42f7d6f1f1a9b77a134a46fa5230629879791cdef3ae4a1bd74a107a64a8f46f"
+  },
+  "unrestricted_sha256": "f87568db0dfa361ea44c42def01063c8ed07ea57c8270098cf3c60995e3e3b22",
+  "worker_count": 10,
+  "writer_qualified": false
+}
