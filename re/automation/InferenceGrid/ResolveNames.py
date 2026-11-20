@@ -93,6 +93,7 @@ def advance_names(native, original_message, source, root, scratch):
     if initial == names:
         return None
     candidate = json.dumps(names, sort_keys=True, indent=2) + "\n"
+    (staging / VOCABULARY).write_text(candidate, encoding="utf-8")
     patch = "".join(difflib.unified_diff(original.splitlines(True), candidate.splitlines(True), "a/" + VOCABULARY, "b/" + VOCABULARY))
     return {"evidence": evidence, "added": {g: row for g, row in names.items() if g not in initial},
             "next_result": message, "patch": patch, "whole_file_verified": False}
