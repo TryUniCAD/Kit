@@ -188,7 +188,8 @@ def build(packet, code, checksum, verify_only):
         run_path(str(worker), run_name="__main__")
     proof = json.loads(output.getvalue())
     require(
-        proof["construction_runtime_input_reads"] == proof["native_processes_started"] == 0
+        proof["schema"] == "kit.sw2026.public-periodic-cylinder-windows.v1"
+        and proof["construction_runtime_input_reads"] == proof["native_processes_started"] == 0
         and proof["windows_disclosed"]["native_caps"] == ["brep", "configurations"]
         and proof["windows_disclosed"]["part"]["bytes"] == destination.stat().st_size
         and proof["windows_disclosed"]["part"]["sha256"] == digest(destination.read_bytes()),

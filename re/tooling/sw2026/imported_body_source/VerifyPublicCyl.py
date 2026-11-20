@@ -331,6 +331,27 @@ def main():
     parser.add_argument("--windows-output", type=Path)
     args = parser.parse_args()
     warm()
+    oblique = geometry_document(OBLIQUE)
+    oblique = replace(
+        oblique, configurations=(replace(oblique.configurations[0], name="Inspection"),)
+    )
+    if args.windows_output is not None:
+        target = args.windows_output
+        require(
+            os.name == "nt"
+            and target.is_absolute()
+            and not target.exists()
+            and (not target.parent.exists() or not tuple(target.parent.iterdir())),
+            "use an unused absolute Windows part destination in an empty directory",
+        )
+        evidence = {
+            "schema": "kit.sw2026.public-periodic-cylinder-windows.v1",
+            "windows_disclosed": publish(oblique, target, fixed_clock=False),
+            "construction_runtime_input_reads": 0,
+            "native_processes_started": 0,
+        }
+        print(json.dumps(evidence, indent=2, sort_keys=True))
+        return
     receipt = NATIVE_RECEIPT.read_bytes()
     native = json.loads(receipt)
     require(
@@ -339,10 +360,6 @@ def main():
     )
     document = geometry_document(SPEC)
     exact = exact_replay(document, native["cases"]["TranslatedZ"])
-    oblique = geometry_document(OBLIQUE)
-    oblique = replace(
-        oblique, configurations=(replace(oblique.configurations[0], name="Inspection"),)
-    )
     writer = SldprtWriter()
     with TemporaryDirectory(prefix="kit-public-periodic-") as directory:
         destination = Path(directory) / "public" / "ObliqueCylinder.SLDPRT"
@@ -357,16 +374,6 @@ def main():
         "construction_runtime_input_reads": 0,
         "native_processes_started": 0,
     }
-    if args.windows_output is not None:
-        target = args.windows_output
-        require(
-            os.name == "nt"
-            and target.is_absolute()
-            and not target.exists()
-            and (not target.parent.exists() or not tuple(target.parent.iterdir())),
-            "use an unused absolute Windows part destination in an empty directory",
-        )
-        evidence["windows_disclosed"] = publish(oblique, target, fixed_clock=False)
     print(json.dumps(evidence, indent=2, sort_keys=True))
 
 
