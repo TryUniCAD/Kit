@@ -30,3 +30,17 @@ file reads during construction.
 [Disclosed native lifecycle](../../../../re/solidworks/measurements/2026/GeneratedLocalCylinderPartNative01.json)
 · [Guarded SDK proof](../../../../re/tooling/sw2026/imported_body_source/VerifyPublicCyl.py)
 · [Locked geometry lifecycles](../../../../re/solidworks/measurements/2026/SealedPeriodicCylinderLocalNative01.json)
+
+The normal Windows SDK publication produced a new 9,039-byte oblique
+part in its actual destination using the system clock. Its closed solid
+and `Inspection` configuration passed 152 native comparisons across
+clean open, rebuild, save and fresh read-only reopen. Both bracketing
+controls passed on build `34.5.2.0604`.
+[Public native lifecycle](../../../../re/solidworks/measurements/2026/SdkPublicPeriodicNative01.json)
+
+Byte identity for the disclosed reference is bound to its runtime.
+A separate cross-runtime comparison retained eleven exact streams and
+traced every changed byte in the twelfth to eight computed camera
+coefficients. The native Windows check used the exact bytes written
+by that runtime at the normal destination.
+[Runtime comparison](../../../../re/solidworks/measurements/2026/SdkPeriodicRuntimeMath01.json)

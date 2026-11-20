@@ -91,8 +91,10 @@ remain in guest custody at this construction checkpoint.
 Both [sealed cylinder geometry candidates](measurements/2026/SealedPeriodicCylinderLocalNative01.json)
 pass the paired open, rebuild, save and fresh reopen with all 456
 numeric checks and two healthy controls across eight processes. The
-receipt lists omitted source document domains. These results add
-zero FCStd benchmark conversions.
+receipt lists omitted source document domains. A separate
+[normal writer native trial](measurements/2026/SdkPublicPeriodicNative01.json)
+passes 152 candidate checks with two healthy controls. These results
+add zero FCStd benchmark conversions.
 
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,

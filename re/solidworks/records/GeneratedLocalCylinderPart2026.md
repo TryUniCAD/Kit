@@ -65,3 +65,32 @@ both generated archives, matches the native volume, area, centroid and
 bounds, exercises two planar and four marked controls and checks eleven
 refusals. It uses zero guarded runtime file reads.
 [Strict geometry proof](../measurements/2026/SdkBareCylinderGeometry01.json)
+
+## Normal SDK publication
+
+The normal registry writes the separately authored oblique part to
+`C:\KitPublicPeriodic01\Candidate\ObliqueCylinder.SLDPRT` with its
+real clock and active `Inspection` configuration. The 9,039-byte
+candidate SHA-256 is
+`120d5ef09767aa1180bcfbf3c6818331594d53ab0a5091cebfb625080803361f`.
+Four distinct SOLIDWORKS SP05.2 processes verify both bracketing controls
+and 152 candidate checks. The candidate retains its actual feature 18,
+persistent owner, ordered tree, one solid and three faces. It opens,
+rebuilds, saves and freshly reopens with zero load or save diagnostics.
+The candidate and its save-copy hashes are recorded separately.
+[Public native receipt](../measurements/2026/SdkPublicPeriodicNative01.json)
+[Guest staging and observer](../../tooling/sw2026/imported_body_source/ObservePublicCyl.py)
+
+The original disclosed TranslatedZ reference replays byte for byte on
+macOS Python 3.14.7. The same model, event and logical path on Windows
+Python 3.12.7 produces 8,990 bytes. Eleven logical streams are identical.
+Exactly 56 wire bytes change in `Contents/Config-0`, all belonging to
+eight two-ULP differences in the Left, Right, Top and Bottom camera
+diagonals. The typed reader locates each live `moView_c.f368.f08`
+coefficient and accounts for all changed offsets. Geometry, feature and
+configuration ownership, and the local Parasolid body stay identical
+in this arithmetic comparison. The new normal Windows operation uses
+its own locked file identity in the native phases.
+[Arithmetic proof](../measurements/2026/SdkPeriodicRuntimeMath01.json)
+[Reproducer](../../tooling/sw2026/imported_body_source/ProbePeriodicRuntime.py)
+[Shared standard views rule](StandardViewsConstruction2026.md)
