@@ -131,6 +131,17 @@ Configuration binding, CMgr headers and inline Definition headers have
 separate exits.
 [Change entry](../Changes/Solidworks/SolidworksStandaloneHeaders.md)
 
+### B03-SW2026-KEYWORDS-MODEL
+
+The PR #121 takeover team owns the typed keyword row extraction on
+`codex/solidworks-keyword-typed`. It depends on the accepted
+[KeyWords framing](https://github.com/TryUniCAD/Kit/pull/181) and the
+[field ownership record](../../re/solidworks/records/KeywordModelSlice2026.md).
+Exit requires guarded independent wire assertions, XML readback, refusal
+coverage, and revision-bound CI and review. Neutral graph projection and
+part and assembly writer qualification have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
+
 ### B04-SW2026-CONFIG-UNITS
 
 The PR #121 takeover team owns this unit-table reader on
