@@ -1,0 +1,206 @@
+name: Candidate quality audit
+on:
+  push:
+    branches: [fix/pr158-quality-audit-20261120]
+permissions:
+  contents: read
+jobs:
+  pyright:
+    name: Pyright
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: 52e1b81ec8ed86bb43fffe3d2a0c15996224f393
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Synchronize the locked environment
+        run: uv sync --frozen --all-groups --all-extras --python 3.11
+
+      - name: Run strict Pyright
+        run: uv run pyright
+
+  mypy:
+    name: Mypy
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: 52e1b81ec8ed86bb43fffe3d2a0c15996224f393
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Synchronize the locked environment
+        run: uv sync --frozen --all-groups --all-extras --python 3.11
+
+      - name: Run strict Mypy
+        run: uv run mypy
+
+  steering:
+    name: Python steering
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: 52e1b81ec8ed86bb43fffe3d2a0c15996224f393
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Synchronize the locked environment
+        run: uv sync --frozen --all-groups --all-extras --python 3.11
+
+      - name: Verify tracked Python sources
+        run: |
+          mapfile -d '' PythonFiles < <(git ls-files -z -- '*.py')
+          uv run python -m tools.Steering.SteeringCompliance \
+            --baseline-file tools/Steering/SteeringBaseline.txt \
+            "${PythonFiles[@]}"
+
+      - name: Verify no recorded payloads
+        run: uv run python -m tools.Donors.CheckReplays src
+
+  policy:
+    name: Verify CI policy and pytest compatibility
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: 52e1b81ec8ed86bb43fffe3d2a0c15996224f393
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Synchronize the locked environment
+        run: uv sync --frozen --all-groups --all-extras --python 3.11
+
+      - name: Verify repository CI contracts at process boundaries
+        run: >-
+          uv run pytest tests/Policy/CodeqlPolicyTests.py
+          tests/Policy/CiReportsTests.py tests/Policy/QueueAggregationTests.py
+          tests/Policy/ReviewerAggregationTests.py tests/Steering/AgentSkillsMigrationTests.py
+          tests/Convert/Api/ApiMetadataTests.py tests/Policy/DiffBreakdownTests.py
+          tests/Policy/ShardPlanTests.py
+          tests/Convert/Commands/CliRuntimeTests.py
+
+      - name: Exercise native file reading and writing
+        run: >-
+          uv run pytest
+          tests/Convert/Solidworks
+          tests/Convert/Formats/ParasolidTests.py
+          tests/Steering/RationaleCommentsTests.py
+
+  research-cli:
+    name: Research CLI compatibility
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      KIT_RESEARCH_CHECKOUT: ${{ github.workspace }}/ResearchCheckout
+    steps:
+      - name: Checkout candidate CLI source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: 52e1b81ec8ed86bb43fffe3d2a0c15996224f393
+          persist-credentials: false
+
+      - name: Checkout candidate research tools separately
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: ResearchCheckout
+          fetch-depth: 0
+          filter: blob:none
+          ref: 52e1b81ec8ed86bb43fffe3d2a0c15996224f393
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install CLI and compatibility dependencies
+        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+
+      - name: Hydrate sealed research inputs for candidate CLI cases
+        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
+
+      - name: Verify deterministic tools through the installed CLI
+        run: >-
+          uv run --no-sync --python 3.14 python -m pytest tests/CliResearch -q
+
+  research-cli-windows:
+    name: Research CLI Windows compatibility
+    runs-on: windows-2025
+    timeout-minutes: 20
+    env:
+      KIT_RESEARCH_CHECKOUT: ${{ github.workspace }}/ResearchCheckout
+    steps:
+      - name: Checkout candidate CLI source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: 52e1b81ec8ed86bb43fffe3d2a0c15996224f393
+          persist-credentials: false
+
+      - name: Checkout candidate research tools separately
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: ResearchCheckout
+          fetch-depth: 0
+          filter: blob:none
+          ref: 52e1b81ec8ed86bb43fffe3d2a0c15996224f393
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install CLI and compatibility dependencies
+        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+
+      - name: Hydrate sealed research inputs for candidate CLI cases
+        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
+
+      - name: Verify reader and controller exit statuses through the installed CLI
+        run: >-
+          uv run --no-sync --python 3.14 python -m pytest
+          tests/CliResearch/BridgeRejectTests.py
+          tests/CliResearch/SwReaderTests.py
+          tests/CliResearch/FusionReaderTests.py
+          tests/CliResearch/ReaderRejectTests.py
+          tests/CliResearch/InterruptTests.py
+          tests/CliResearch/LeaseFlowTests.py -q
