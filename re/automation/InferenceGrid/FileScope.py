@@ -40,6 +40,10 @@ def file_scope(path, application, scratch, root, control_paths=()):
     if application == "freecad":
         from InferenceGrid.IdentifyFile import inspect_zip
         package = inspect_zip(data)
+    manifest_text, manifest_patch = None, None
+    if application == "fusion":
+        from InferenceGrid.CountedText import fusion_manifest_reader
+        manifest_text, manifest_patch = fusion_manifest_reader(root, scratch, data)
     del data
     env = {**os.environ, "PYTHONPATH": os.pathsep.join(map(str, (root / "src", root / "Cli")))}
     format_id = {"fusion": "fusion.f3d", "freecad": "freecad.fcstd"}.get(application, "solidworks" + suffix)
@@ -50,6 +54,10 @@ def file_scope(path, application, scratch, root, control_paths=()):
     command = [sys.executable, "-m", "KitCli", "decode", str(source), "--from", format_id]
     attempts = {}
     reports = {}
+    if manifest_text:
+        reports["manifest-text"] = manifest_text
+    if manifest_patch:
+        reports["reader-patch"] = {**manifest_patch, "archive_sha256": pin, "member": manifest_text["member"]}
     for phase, flags in (("container", ["--layer", "container"]), ("strict", []), ("partial", ["--partial"]), ("native", ["--layer", "native"])):
         if phase == "container" and application == "freecad":
             continue

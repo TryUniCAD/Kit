@@ -128,7 +128,58 @@ if __name__ == "__main__":
                        "snapshot_id_matches": len(values) > 2 and values[2] == snapshot})
     if checks:
         report["fusion_manifest_checks"] = checks
+        if not all(row["asset_id_matches"] and row["snapshot_id_matches"] for row in checks):
+            report["status"] = "manifest_identity_conflict"
+            return report, None
     return report, {"path": path, "reader_sha256": digest, "input_sha256": pin,
                     "base": subprocess.check_output(["git", "-C", root, "rev-parse", "HEAD"], text=True).strip(),
                     "control_sha256": [hashlib.sha256(b).hexdigest() for b in controls],
                     "patch": "".join(difflib.unified_diff([], code.splitlines(True), "/dev/null", "b/" + path))}
+
+
+def fusion_manifest_reader(root, scratch, raw):
+    from convert.Formats.Fusion.ArchiveRead.IndexedArchive import OpenFusionZip
+    from convert.Formats.Fusion.SourceProof.Auxiliary.Manifest.ReadActiveMeta import KActiveManifest, KMaxManifestBytes
+    from InferenceInputs import read_file
+
+    def member(archive):
+        with OpenFusionZip(archive) as package:
+            return package.ReadMember(KActiveManifest, KMaxManifestBytes)
+
+    try:
+        target = member(raw)
+    except (ValueError, NotImplementedError):
+        return None, None
+    pin = hashlib.sha256(target).hexdigest()
+    recipes = {r["id"]: r["split"] for r in json.loads(read_file(root / "re/automation/PairSpecs.json", 1024 * 1024))["recipes"]}
+    controls = {}
+    seen = {pin}
+    for path in sorted((root / "re/automation/PairedCaptures").glob("P*/fusion-*/receipt.json")):
+        receipt = json.loads(read_file(path, 1024 * 1024))
+        split = recipes.get(receipt["recipe_id"])
+        if receipt["errors"] or split not in {"discovery", "qualification", "holdout"} or split in controls:
+            continue
+        for save in receipt["native_files"]:
+            name = save["file"]
+            if Path(name).name != name or not name.endswith("baseline-a.f3d"):
+                continue
+            archive = read_file(path.parent / name, 16 * 1024 * 1024)
+            if hashlib.sha256(archive).hexdigest() != save["sha256"]:
+                continue
+            try:
+                blob = member(archive)
+            except (ValueError, NotImplementedError):
+                continue
+            digest = hashlib.sha256(blob).hexdigest()
+            if digest not in seen:
+                controls[split] = (save["sha256"], blob)
+                seen.add(digest)
+                break
+    if "discovery" not in controls:
+        return None, None
+    ordered = [(k, controls[k]) for k in ("discovery", "qualification", "holdout") if k in controls]
+    report, patch = text_reader(root, scratch, target, pin, [pair[1] for _, pair in ordered])
+    if report:
+        report.update(member=KActiveManifest, member_sha256=pin,
+                      controls=[{"split": k, "archive_sha256": pair[0]} for k, pair in ordered])
+    return report, patch
