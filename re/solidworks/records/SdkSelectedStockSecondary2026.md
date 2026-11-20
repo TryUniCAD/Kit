@@ -32,3 +32,7 @@ python3.14 -I -B re/tooling/sw2026/throughsource/VerifyStockSecondarySdk01.py \
 ```
 
 This verifies an internal repair and the exact previously native-tested disclosed artifact. The additional Top and Right results are guarded SDK observations. The host verification starts no native process and carries zero held-out credit. Whole-source equivalence, continuous automatic feature scope and public writer registration remain unqualified.
+
+## Native-saved derivative
+
+A fresh guarded Windows SDK worker reads the calibration's exact native-saved null-display derivative, SHA-256 `bc46905923fe7a14f71b8c9823a6f075a4c52a2b80a8e146c6a6e5dd7b060035`. It binds the saved configuration and body atom, retains the live `0.04739 m` D1 and one solid, then checks the physical stock `f20` from the resolved archive. It records six unresolved presentation labels separately. There are zero runtime external accesses and no new native launches or sealed payload reads. [Readback receipt](../measurements/2026/SdkSelectedStockSecondarySaved01.json)
