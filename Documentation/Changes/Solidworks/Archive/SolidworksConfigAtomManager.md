@@ -3,8 +3,10 @@
 The bounded ordinary version-19000 reader accepts the part's embedded atom
 manager and its newly allocated concrete kind-zero atoms. Supply the actual
 part owner, the inherited archive map and the manager frame to `ReadAtomMgr`.
-The reader retains separate signed manager, atom and feature IDs and returns
-the same atom objects in its updated map.
+Its optional `ConditionBits` carries the archive state and stamp bits
+`0x80` and `0x400000`. Ordinary parts use zero. The reader retains separate
+signed manager, atom and feature IDs and returns the same atom objects in its
+updated map.
 
 The shared normalization action keeps both the persisted unsigned state and
 its runtime projection. The prepared guarded process cases verify the

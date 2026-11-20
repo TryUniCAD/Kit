@@ -34,8 +34,10 @@ def ReadAtomMgr(
     VersionValue: int,
     SeedValue: MapSnapshot,
     ModelValue: ArchiveNode,
+    *,
+    ConditionBits: int = 0,
 ) -> AtomMgrGraph:
-    ContextValue = MakeAtomCtx(VersionValue)
+    ContextValue = MakeAtomCtx(VersionValue, ConditionBits)
     MapValue = ArchiveMaps(SeedValue.CounterValue, SeedValue)
     if ModelValue.ClassValue != KPartClass or ObjectIndex(MapValue, ModelValue) is None:
         raise BodyUnsupported("SOLIDWORKS atom manager requires its mapped part owner")

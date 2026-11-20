@@ -93,11 +93,15 @@ owner. Complete Config and Resolved stream admission remain separate.
 
 A two-row frame reuses the actual earlier atom class. It allocates two
 distinct atoms, keeps signed atom and producer words, and verifies the
-unsigned state projection. With conditions `0x80` and `0x400080`,
-independent inputs retain the high unsigned state, contrasting
-omitted and present stamp words. These establish typed wire
-behavior. Valid body, feature and kernel semantics for authored
-negative values have their own acceptance requirements.
+unsigned state projection. The internal manager entry accepts explicit
+`ConditionBits` drawn from `0x80` and `0x400000`, with zero as the
+ordinary default. Independent full manager frames exercise each bit and
+their combination. They check the atom interval, inherited map identity,
+all three optional stamp words and the distinct final manager word.
+Crossing the flag contexts refuses omitted or unexpected stamps. These
+cases establish typed wire behavior. Valid body, feature and kernel
+semantics for authored negative values have their own acceptance
+requirements.
 
 Invalid cases include partial and trailing data, a detached parent,
 wrong versions and schema, null and borrowed atom owners, duplicate
@@ -110,7 +114,16 @@ python -I -B re/tooling/sw2026/CheckCfgAtoms.py ladder
 python -I -B re/tooling/sw2026/CheckCfgAtoms.py concave
 ```
 
-[Guarded queue cases](../../../tests/Convert/Solidworks/Configuration/CfgAtomTests.py)
+[L1 queue case](../../../tests/Convert/Solidworks/Configuration/CfgAtomTests.py)
+· [ConcaveOwned queue case](../../../tests/Convert/Solidworks/Configuration/ImportAtomTests.py)
+
+Two fresh guarded host processes completed the scoped source and
+authored checks after the condition handoff change. The L1 report
+SHA-256 is
+`a53842ffa89665787b648312ae896ccdcba8638821f187526aa4cf40793156c8`.
+The ConcaveOwned report SHA-256 is
+`19ae5771189f331d8c385043e16fd601fafaee224d3d70263638b950b4b41e08`.
+Both report zero external access after loading their bound inputs.
 
 The new queue checks await execution. Named atoms, nonempty lists,
 inline bodies, handle modes, other model roles, full Config and

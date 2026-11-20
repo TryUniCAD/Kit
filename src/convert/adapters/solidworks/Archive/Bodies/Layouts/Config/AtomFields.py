@@ -35,7 +35,7 @@ KAtomFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "body_kind",
-                BodyValue=(NativeField("Fail", "SOLIDWORKS atom body kind"),),
+                BodyValue=(NativeField("Fail", "atom body kind"),),
                 ModeValue="Nonzero",
             ),
             NativeField("Scalar", "f170", "i32"),

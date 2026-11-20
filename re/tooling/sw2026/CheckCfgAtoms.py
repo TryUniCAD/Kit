@@ -1,6 +1,5 @@
 from argparse import ArgumentParser
 from codecs import lookup
-from functools import partial
 import json
 from pathlib import Path
 from struct import pack, unpack
@@ -13,9 +12,7 @@ sys.path[:0] = [str(ROOT / "src"), str(HERE.parent)]
 from CheckCfgMembers import digest, require
 from CheckCfgOwners import audit_run
 from convert.adapters.solidworks.Archive.Config.Atoms.AtomTypes import KAtomClass, KPartClass
-from convert.adapters.solidworks.Archive.Config.Atoms.MakeAtomCtx import MakeAtomCtx
 from convert.adapters.solidworks.Archive.Config.Atoms.ReadAtomMgr import ReadAtomMgr
-from convert.adapters.solidworks.Archive.Config.Atoms.ReadAtomNodeMut import ReadAtomNodeMut
 from convert.adapters.solidworks.Archive.Header.HeaderRefNodes import HeaderRefNodes
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
@@ -170,24 +167,37 @@ def state_values(node):
     return [data["f144#wire"], data["f144"], data["f140"], data["f130"], data["f12c"]]
 
 
-def authored_context(seed, slot):
+def authored_context(model, seed, slot):
     raw = 0x80000003
     cases = []
-    for flags in (0x80, 0x400080):
-        context = MakeAtomCtx(19000)
-        context.FlagsValue["conditions"] = flags
-        data = author_body(slot, -19, raw, flags=flags)
-        cursor = BinaryReader(data)
-        mapped = ArchiveMaps(seed.CounterValue, seed)
-        decoder = partial(ReadAtomNodeMut, context)
-        body = ReadNodeMut(GraphReader(cursor, mapped, decoder))
-        assert cursor.GetRemaining() == 0 and body.EndOffset == len(data)
-        assert body.IndexValue == seed.CounterValue and mapped.EntryMap[body.IndexValue].EntryValue is body
-        assert body.ClassValue is mapped.EntryMap[slot].EntryValue
-        assert all(mapped.EntryMap[entry.IndexValue] is entry for entry in seed.EntriesValue)
-        cases.append([flags, len(data), state_values(body), body.FieldsValue.get("f180")])
+    for flags in (0x80, 0x400000, 0x400080):
+        data = author_manager((author_body(slot, -19, raw, flags=flags),))
+        decoded = ReadAtomMgr(data, 19000, seed, model, ConditionBits=flags)
+        fields = decoded.FieldsValue
+        assert decoded.ReportValue["completed"]
+        assert fields["f260"] == 207 and fields["n6c"] == 1
+        assert fields["fa8"] == 0xABCDEF01
+        body, = (row["o"] for row in fields["atoms"])
+        entries = decoded.MapValue.EntriesValue
+        assert all(old is new for old, new in zip(seed.EntriesValue, entries[:-1], strict=True))
+        assert body.ClassValue is next(row.EntryValue for row in seed.EntriesValue if row.IndexValue == slot)
+        assert entries[-1].EntryValue is body and entries[-1].IndexValue == body.IndexValue == seed.CounterValue
+        assert decoded.MapValue.CounterValue == seed.CounterValue + 1
+        assert (body.StartOffset, body.EndOffset) == (8, len(data) - 4)
+        assert body.FieldsValue["f19c"] == 6
+        stamp_keys = ("f180", "f188", "f1b0")
+        if flags & 0x400000:
+            stamps = [body.FieldsValue[key] for key in stamp_keys]
+            assert stamps == [-7, 1, -7]
+        else:
+            assert all(key not in body.FieldsValue for key in stamp_keys)
+            stamps = []
+        cases.append({
+            "conditions": flags, "frame_bytes": len(data),
+            "atom_span": [body.StartOffset, body.EndOffset], "slot": body.IndexValue,
+            "state": state_values(body), "stamps": stamps, "manager_tail": fields["fa8"],
+        })
     return cases
-
 
 def authored_rows(model, seed, slot):
     raw = 0x80000003
@@ -205,9 +215,9 @@ def authored_rows(model, seed, slot):
             "manager_tail": decoded.FieldsValue["fa8"], "names": [node.FieldsValue["f20"] for node in nodes]}
 
 
-def refuse(label, data, seed, model, expected, version=19000):
+def refuse(label, data, seed, model, expected, version=19000, *, flags=0):
     try:
-        ReadAtomMgr(data, version, seed, model)
+        ReadAtomMgr(data, version, seed, model, ConditionBits=flags)
     except ValueError as error:
         require(expected in str(error), f"{label} produced a different rejection: {error}")
         return label
@@ -223,6 +233,10 @@ def authored_refusals(model, seed, slot, original, anchor):
         refuse("truncated", valid[:-1], seed, model, "truncated SOLIDWORKS archive field"),
         refuse("trailing", valid + b"\0", seed, model, "trailing data"),
         refuse("wrong_version", valid, seed, model, "archive version 19000", 18900),
+        refuse("unsupported_context", b"", seed, model, "unsupported SOLIDWORKS atom manager context", flags=0x10),
+        refuse("unexpected_stamps", valid, seed, model, "trailing data", flags=0x80),
+        refuse("missing_stamps", author_manager((author_body(slot, -19, 3, flags=0x80),)),
+               seed, model, "truncated SOLIDWORKS archive field", flags=0x400080),
         refuse("detached_part", valid, seed, ArchiveNode(KPartClass, {}), "requires its mapped part owner"),
         refuse("wrong_schema", author_manager((wrong_class,)), seed, model, "unsupported SOLIDWORKS atom body owner"),
         refuse("null_atom", author_manager((b"\0\0",)), seed, model, "requires concrete atoms"),
@@ -234,7 +248,7 @@ def authored_refusals(model, seed, slot, original, anchor):
         refuse("list_tail", author_manager((author_body(slot, -19, 3, tail=-1),)),
                seed, model, "unqualified SOLIDWORKS atom resolved list"),
         *[refuse(f"body_kind_{kind}", author_manager((author_body(slot, -19, 3, body_kind=kind),)),
-                 seed, model, "unsupported native field path SOLIDWORKS atom body kind")
+                 seed, model, "unsupported SOLIDWORKS native field path atom body kind")
           for kind in (-1, 1, 2)],
     ]
 
@@ -258,7 +272,7 @@ def run(name):
         inherited = manager.MapValue
         class_slot = case["atom"]["class_slot"]
         output.update(authored=authored_rows(model, inherited, class_slot),
-                      context=authored_context(inherited, class_slot),
+                      context=authored_context(model, inherited, class_slot),
                       refusals=authored_refusals(model, inherited, class_slot, atom.IndexValue, case["manager"]["header_slot"]))
     return output
 
