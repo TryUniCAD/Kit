@@ -65,6 +65,21 @@ reader uses forward fin links and terminal vertices. This preserves outward
 face loops and positive signed volume in the disclosed rectangular case.
 [Current fin orientation](../../Changes/Solidworks/Inspection/Model/SolidworksCurrentFinOrientation.md)
 
+A part read can recover a closed planar solid from the local body store
+when the sole selected configuration is zero, the active partition is
+empty, and its rollback history validates. A sole resolved native
+`Imported` feature must match the local group key. The SDK retains the
+feature and payload records and returns the solid with matching design
+body counts. The ordinary partition decoder keeps priority.
+If the required current-profile local solid fails validation, a strict
+B-rep read raises a format error. Explicit non-strict reads retain the
+payloads with a local geometry rejection warning.
+`extract_brep` reads the native payloads with strict framing
+validation and without requiring local snapshot reconstruction.
+This is source-backed inspection of the native import. Conversion
+acceptance follows the [CAD success criteria](../Operations/CadSuccessCriteria.md).
+[Local body readback](../../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
+
 ## Feature history
 
 The resolved-feature grammar includes class definitions and object references.

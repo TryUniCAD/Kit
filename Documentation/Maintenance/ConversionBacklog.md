@@ -60,6 +60,18 @@ B04's parent is not complete merely because controlled constructor probes exist.
 
 ## Important gap boundaries
 
+### B04-SW2026-LOCAL-IMPORT-READBACK
+
+The PR #121 takeover agent owns the strict local geometry reader extraction
+on `codex/solidworks-local-import-readback`. It depends on the terminal fin
+semantics in [PR #171](https://github.com/TryUniCAD/Kit/pull/171) and the typed
+partition rules from [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+Exit requires the public SDK integrations to verify both disclosed planar
+solids and their native feature ownership and body counts. The accepted
+revision must also pass the absent-history, mismatched-mark, wrong-owner,
+and metadata controls.
+[Change entry](../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
+
 ### B14-COMPANION-PUBLICATION
 
 The PR #121 takeover agent owns this active destination-safety task. The
