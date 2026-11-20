@@ -272,7 +272,7 @@ def keyword_evidence(streams, discovered, document, root, pin, fields, controls=
         if len(matched) == 1 and prediction["reader_span_matches"]:
             row = matched[0]
             counts[row["status"]] -= 1
-            row["status"] = "held_out_extrusion_depth"
+            row["status"] = "control_supported_extrusion_depth"
             row["verified_location"] = (resolved, prediction["offset"])
             counts[row["status"]] += 1
     return {"status": "compared", "extrusion_depth_evidence": extrusions, "feature_pattern_evidence": feature_rule, "pattern_count_rule": rule, "pattern_counts": decoded, "ownership_hypotheses": proposals, "configuration_id": configs[0].configuration_id,
