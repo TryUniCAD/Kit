@@ -13,13 +13,13 @@ using SolidWorks.Interop.sldworks;
 
 public sealed partial class SolidWorksCapture
 {
-    static double BindingValue(IFeature Feature,string FieldPath)
+    static double BindingValue(IFeature Feature,string FieldPath,bool FrameFlip=false)
     {
         string FieldName=FieldPath.Split('.').Last();
         var Definition=Feature.GetDefinition();
         var Extrude=Definition as IExtrudeFeatureData2;
         var Revolve=Definition as IRevolveFeatureData2;
-        if(FieldName=="offset_mm" && Extrude!=null) return Extrude.FromOffsetDistance*1000*(Extrude.FromOffsetReverse?-1:1);
+        if(FieldName=="offset_mm" && Extrude!=null) return Extrude.FromOffsetDistance*1000*((Extrude.FromOffsetReverse^FrameFlip)?-1:1);
         if(FieldName=="depth1_mm" && Extrude!=null) return Extrude.GetDepth(true)*1000;
         if(FieldName=="depth2_mm" && Extrude!=null) return Extrude.GetDepth(false)*1000;
         if(FieldName=="angle1_deg" && Revolve!=null) return Revolve.GetRevolutionAngle(true)*180/Math.PI;
@@ -33,9 +33,10 @@ public sealed partial class SolidWorksCapture
         return Dimension.SystemValue*(FieldName.EndsWith("_deg")?180/Math.PI:1000);
     }
 
-    static void ProgramEdit(IModelDoc2 Document,Dictionary<string,object> Program,string Parameter,double Value)
+    void ProgramEdit(IModelDoc2 Document,Dictionary<string,object> Program,string Parameter,double Value)
     {
         var Binding=MapValue(MapValue(Program["bindings"])[Parameter]);
+        bool FrameFlip=IsFrameFlip(Document);
         string OwnerName=TextValue(Binding,"owner"), FieldName=TextValue(Binding,"field").Split('.').Last();
         var Feature=Features(Document).Single(Found=>Found.Name==OwnerName);
         var Definition=Feature.GetDefinition();
@@ -46,7 +47,7 @@ public sealed partial class SolidWorksCapture
             Check(Extrude.AccessSelections(Document,null),"Access editable extrusion owner");
             bool Access=true;
             try {
-                if(FieldName=="offset_mm") { Extrude.FromOffsetDistance=Math.Abs(Value)*.001; Extrude.FromOffsetReverse=Value<0; Edited=true; }
+                if(FieldName=="offset_mm") { Extrude.FromOffsetDistance=Math.Abs(Value)*.001; Extrude.FromOffsetReverse=(Value<0)^FrameFlip; Edited=true; }
                 if(FieldName=="depth1_mm" || FieldName=="depth2_mm") { Extrude.SetDepth(FieldName=="depth1_mm",Value*.001); Edited=true; }
                 if(FieldName=="thickness_mm") { Extrude.SetWallThickness(true,Value*.001); Edited=true; }
                 Check(Edited,"Unsupported extrusion edit binding");
@@ -71,6 +72,6 @@ public sealed partial class SolidWorksCapture
                 "Set owned recipe driving dimension");
         }
         Rebuild(Document);
-        Check(Math.Abs(BindingValue(Feature,TextValue(Binding,"field"))-Value)<1e-7,"Native edited property differs from requested value");
+        Check(Math.Abs(BindingValue(Feature,TextValue(Binding,"field"),FrameFlip)-Value)<1e-7,"Native edited property differs from requested value");
     }
 }

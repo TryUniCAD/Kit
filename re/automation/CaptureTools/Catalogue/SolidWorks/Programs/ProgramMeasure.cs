@@ -49,7 +49,9 @@ public sealed partial class SolidWorksCapture
                 "parents",Array(Feature.GetParents()).Cast<IFeature>().Select(Parent=>Parent.Name).ToArray()));
             if(Feature.GetTypeName2()=="ProfileFeature") {
                 var Sketch=(ISketch)Feature.GetSpecificFeature2();
-                Sketches.Add(Sketch.GetSketchRegionCount()>0?DescribeSketch(Document,Feature,Sketch):OpenSketchRead(Feature,Sketch));
+                var SketchRow=MapValue(Sketch.GetSketchRegionCount()>0?DescribeSketch(Document,Feature,Sketch):OpenSketchRead(Feature,Sketch));
+                SketchRow["normal_world"]=ProgramNormal(Sketch);
+                Sketches.Add(SketchRow);
             }
         }
         Reading["feature_tree"]=Tree;
@@ -59,7 +61,7 @@ public sealed partial class SolidWorksCapture
             var Contract=MapValue(Binding.Value);
             string OwnerName=TextValue(Contract,"owner"), FieldName=TextValue(Contract,"field");
             var Feature=Features(Document).Single(Found=>Found.Name==OwnerName);
-            Bindings[Binding.Key]=Row("owner",OwnerName,"field",FieldName,"value",BindingValue(Feature,FieldName));
+            Bindings[Binding.Key]=Row("owner",OwnerName,"field",FieldName,"value",BindingValue(Feature,FieldName,IsFrameFlip(Document)));
         }
         Reading["parameter_bindings"]=Bindings;
         return Reading;

@@ -8,6 +8,8 @@
 
 from math import isclose, radians
 
+from CaptureTools.Catalogue.SolidWorks.CheckProfile import ProfileWorld
+
 
 # operation identity must survive native saving rather than merely produce equivalent geometry
 def CheckProgramOps(CaseValue, Observed):
@@ -29,8 +31,19 @@ def CheckProgramOps(CaseValue, Observed):
     if ("cut" in Feature["type"].lower()) != IsCut:
         raise ValueError("SOLIDWORKS native add or cut feature identity differs")
     End = Operation["end"]
+    Sketch = next(
+        Sketch for Sketch in Observed["sketches"] if Sketch["name"] == "RecipeProfile"
+    )
+    Normal = Sketch["normal_world"]
+    Target = ProfileWorld(CaseValue["options"]["basis"], [0, 0, 1])
+    Alignment = sum(
+        First * Second for First, Second in zip(Normal, Target, strict=True)
+    )
+    if len(Normal) != 3 or not isclose(abs(Alignment), 1, rel_tol=0, abs_tol=1e-8):
+        raise ValueError("SOLIDWORKS actual sketch normal differs from the basis")
+    FrameFlip = Operation["kind"] == "extrude" and Alignment < 0
     Expected = {
-        "reverse_direction": CaseValue["options"]["direction"] == -1,
+        "reverse_direction": (CaseValue["options"]["direction"] == -1) != FrameFlip,
         "merge": Operation["effect"] == "join",
         "thin": Operation["thin"] is not None,
     }
@@ -50,7 +63,7 @@ def CheckProgramOps(CaseValue, Observed):
             Expected["end2"] = 0
             Numbers["depth2_m"] = End["depth2_mm"] / 1000
         if Start["kind"] == "offset":
-            Expected["offset_reverse"] = Start["reverse"]
+            Expected["offset_reverse"] = Start["reverse"] != FrameFlip
             Numbers["offset_m"] = Start["offset_mm"] / 1000
         if End["kind"] == "up_to_plane" and (
             Reading["end_reference_name"] != "EndPlane"

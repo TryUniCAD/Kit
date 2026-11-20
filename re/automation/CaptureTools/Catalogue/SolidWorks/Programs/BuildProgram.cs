@@ -44,13 +44,15 @@ public sealed partial class SolidWorksCapture
             Profile["diameter_mm"]=Seed["diameter_mm"];
         }
         var Sketch=ProgramProfile(Document,Profile,BasisName,"SeedProfile",false);
-        Extrusion(Document,Sketch,"SeedFeature",false,Millimetres(Seed,"height_mm"),false,false);
+        Extrusion(Document,Sketch,"SeedFeature",IsFrameFlip((ISketch)Sketch.GetSpecificFeature2(),BasisName),Millimetres(Seed,"height_mm"),false,false);
         Rebuild(Document);
     }
 
     void ExtrudeProgram(IModelDoc2 Document,IFeature Profile,Dictionary<string,object> Operation,string BasisName,bool Reverse)
     {
         var Start=MapValue(Operation["start"]);
+        bool FrameFlip=IsFrameFlip((ISketch)Profile.GetSpecificFeature2(),BasisName);
+        Reverse=Reverse^FrameFlip;
         var End=MapValue(Operation["end"]);
         string EndKind=TextValue(End,"kind");
         int EndCode=EndKind=="midplane"?6:EndKind=="up_to_plane"?4:0;
@@ -59,7 +61,8 @@ public sealed partial class SolidWorksCapture
             Document.ClearSelection2(true);
             string PlaneName=BasisName=="YZ"?"Right Plane":BasisName=="XZ"?"Top Plane":"Front Plane";
             Check(Document.Extension.SelectByID2(PlaneName,"PLANE",0,0,0,false,0,null,0),"Select end plane support");
-            EndPlane=Document.FeatureManager.InsertRefPlane(8,Millimetres(End,"target_z_mm"),0,0,0,0) as IFeature;
+            var SeedSketch=(ISketch)Features(Document).Single(Found=>Found.Name=="SeedProfile").GetSpecificFeature2();
+            EndPlane=Document.FeatureManager.InsertRefPlane(8|(IsFrameFlip(SeedSketch,BasisName)?256:0),Millimetres(End,"target_z_mm"),0,0,0,0) as IFeature;
             Check(EndPlane!=null,"Create live extrusion end plane");
             EndPlane.Name="EndPlane";
             FeatureDimension(EndPlane,"target_z_mm",Millimetres(End,"target_z_mm"));
@@ -71,7 +74,7 @@ public sealed partial class SolidWorksCapture
         int StartCode=TextValue(Start,"kind")=="offset"?3:0;
         double FirstDepth=Millimetres(End,"depth1_mm"), SecondDepth=Millimetres(End,"depth2_mm");
         double Offset=Millimetres(Start,"offset_mm");
-        bool FlipOffset=Convert.ToBoolean(Start["reverse"]);
+        bool FlipOffset=Convert.ToBoolean(Start["reverse"])^FrameFlip;
         Check(TextValue(Operation,"effect")!="cut","Typed extrusion cuts require a separate supported operation");
         IFeature Feature;
         if(Operation["thin"]!=null) {
