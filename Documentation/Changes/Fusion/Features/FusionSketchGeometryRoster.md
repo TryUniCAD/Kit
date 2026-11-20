@@ -7,3 +7,5 @@ A hosted comparison matched all seven sketch geometry rosters across an extrusio
 The reader also preserves the native point's fixed flag and exposes its origin flag in `fusion.point_is_origin`. A corner may share the origin’s coordinates and have a different fixed state. [Native solver observations](../../../../re/Fusion/Reconstruction/SketchConstraints/ConstraintModel.md)
 
 A sketch can become a portable reference step when its owning timeline record links back, its support resolves, its geometry roster agrees, its native geometric and dimensional rule rosters match in order, and the root uses the supported transform and offset layout. Projected geometry remains outside this qualification. FreeCAD’s editable profile checks retain the fixed origin's solver constraint through readback.
+
+The principal sketch plane reader follows the stored matrix-controller reference through the sketch’s variable-length parameter and child lists. [Principal sketch controller offsets](../../../Gotchas/Conversion/Fusion/Sketch/PrincipalSketchControllerOffsets.md)
