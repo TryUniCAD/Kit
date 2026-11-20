@@ -145,7 +145,7 @@ from convert.adapters.solidworks.Core.EquationTarget import (
     KUnresolvedEqTargets,
     ResolveTarget,
 )
-from convert.adapters.solidworks.Core.BindInch import KUnresolvedInchDimension
+from convert.adapters.solidworks.Core.Inch.BindInch import KUnresolvedInchDimension
 from convert.adapters.solidworks.Core.BossProjection import BindBossAxis
 from convert.adapters.solidworks.Core.CircularProjection import ProjectRoundDoc
 from convert.adapters.solidworks.Core.CircleOnly.Projection import ProjectSoloDoc

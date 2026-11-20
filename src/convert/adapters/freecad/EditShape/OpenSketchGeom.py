@@ -1,4 +1,4 @@
-from convert.adapters.freecad.FixedOrigin import IsFixedOrigin
+from convert.adapters.freecad.EditShape.FixedOrigin import IsFixedOrigin
 from math import hypot as Hypot
 
 from interchange.brep.Topology.BrepMath import IsFinitePlane

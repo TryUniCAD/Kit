@@ -3,8 +3,8 @@ from __future__ import annotations as Annotations
 from dataclasses import replace as Replace
 from typing import Mapping
 
-from convert.adapters.solidworks.Core.InchDecimal import InchDecimal
-from convert.adapters.solidworks.Core.InchScalar import IsRoundedInch
+from convert.adapters.solidworks.Core.Inch.InchDecimal import InchDecimal
+from convert.adapters.solidworks.Core.Inch.InchScalar import IsRoundedInch
 from interchange.Features.DistanceParam import KLengthFactors
 
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension

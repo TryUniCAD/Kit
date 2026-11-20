@@ -1,4 +1,4 @@
-from convert.adapters.freecad.FixedOrigin import IsFixedOrigin
+from convert.adapters.freecad.EditShape.FixedOrigin import IsFixedOrigin
 from math import isclose as IsClose
 
 from convert.adapters.base.WriteValidate import IsObjectTuple

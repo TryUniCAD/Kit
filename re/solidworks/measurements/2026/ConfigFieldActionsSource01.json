@@ -1,0 +1,100 @@
+{
+  "schema": "kit.sw2026.config-field-actions-source.v1",
+  "aggregate_reference": "f4fc8744235448c0ff6048e4447440bb7927a6d1",
+  "preparation_base": "391bec82992173dd582efed6f042074a10aea29d",
+  "archive_version": 19000,
+  "native_file_version": "34.5.2.0604",
+  "stream": "Contents/Config-0",
+  "method": "read-only cursor and map observations on the pinned aggregate full configuration reader, cross-referenced with the exact-build native function analysis",
+  "candidate_queue_run_recorded": false,
+  "native_application_run": false,
+  "unchanged_aggregate_files": {
+    "src/convert/adapters/solidworks/Archive/Bodies/GetVirtualRule.py": "5061c51c6d3e83d80430ee3ff693b8ec8f5ebb73641fa7ed87b42fee7831e7f5",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/FeatureFields.py": "ce84e3fc7a9ee82f9b55be4a92953986632a1185202c6802e26ef9012f547a98",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadBytesMut.py": "4511ca4fe698225485a249c47db08b93ba63486af7d8cfa1e85e49e059fcaa61"
+  },
+  "full_reference_trace": {
+    "layout_counts": {
+      "ladder": 141,
+      "concave": 126,
+      "union": 141
+    },
+    "field_action_kind_count": 20,
+    "missing_reader_actions_in_pair": [
+      "BBoxCache",
+      "Boolean",
+      "Context",
+      "Direct",
+      "GhostCount",
+      "MassCaches",
+      "Normalize",
+      "Section"
+    ],
+    "next_bounded_owner": {
+      "control": "ladder",
+      "field": "f12d0",
+      "class": "moCThreadRefMgr_c",
+      "interval": [25101, 25132],
+      "sha256": "d52958726c06925727ed38661d8db86a050edb80f1abfc383c1758f1412cb9d1",
+      "class_slot": 106,
+      "object_slot": 107
+    }
+  },
+  "controls": {
+    "ladder": {
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "part_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "owners": [
+        {
+          "field": "fe80",
+          "interval": [24301, 24500],
+          "sha256": "0b02fea8244314afb4a20c91c356121cbf377ea939829baafb3d6c247507a987",
+          "counter": [97, 99],
+          "new_class_slot": 97,
+          "object_slot": 98,
+          "base_interval": [24325, 24470],
+          "guid_interval": [24470, 24486],
+          "guid_sha256": "f58dbac47df9237a6204d9e6939e2a0c2943b34d1d6c0ff7f0142adcc5bd79dd",
+          "optional_name_flag": 24371,
+          "map_backlink": 24490,
+          "map_backlink_slot": 98,
+          "map_length": 24492
+        },
+        {
+          "field": "f13f8",
+          "interval": [25159, 25354],
+          "sha256": "9f5b70fcfe8889e3241290af7b0eb65dad42093985b8fd1030e18cae7371e539",
+          "counter": [108, 110],
+          "new_class_slot": 108,
+          "object_slot": 109,
+          "base_interval": [25187, 25332],
+          "word_map_count": 25352
+        }
+      ]
+    },
+    "concave": {
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "part_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "owners": [
+        {
+          "field": "fe80",
+          "interval": [22500, 22502],
+          "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "counter": [90, 90],
+          "new_class_slot": null,
+          "object_slot": null
+        },
+        {
+          "field": "f13f8",
+          "interval": [22662, 22664],
+          "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "counter": [94, 94],
+          "new_class_slot": null,
+          "object_slot": null
+        }
+      ]
+    }
+  }
+}
