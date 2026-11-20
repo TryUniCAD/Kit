@@ -46,6 +46,8 @@ def RunResearch(Options: CliOptions) -> NoReturn:
         ):
             raise ValueError("Set research --root once, before the tool name")
         Arguments = ["--root", str(RootPath), *Arguments]
+        if Options.ResearchTool in ("solidworks", "fusion"):
+            Arguments.append("--native-verify")
     with ResearchSignals() as (ChildProcesses, PendingSignals):
         with StartProcess(
             [KPythonPath, str(ScriptPath), *Arguments],

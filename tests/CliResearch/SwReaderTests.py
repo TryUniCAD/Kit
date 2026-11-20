@@ -1,4 +1,5 @@
 from pathlib import Path as FilePath
+from json import loads as DecodeJson
 
 from tests.CliResearch.CheckReceipt import CheckReceipt
 from tests.CliResearch.DirectReader import DirectReader
@@ -15,7 +16,7 @@ def CheckSwReceipts(TmpPath: FilePath) -> None:
         TmpPath, "SolidworksReader.py", *Arguments, "--output", str(Direct)
     )
     Result = ResearchCli(TmpPath, "solidworks", *Arguments, "--output", str(Bridged))
-    assert Reference.returncode == Result.returncode == 0, (
+    assert Reference.returncode == 0 and Result.returncode == 4, (
         Reference.stderr,
         Result.stderr,
     )
@@ -26,7 +27,13 @@ def CheckSwReceipts(TmpPath: FilePath) -> None:
     assert {Value.name for Value in Bridged.iterdir()} == {
         "document.json",
         "receipt.json",
+        "NativeVerification.json",
     }
+    NativeReport = DecodeJson((Bridged / "NativeVerification.json").read_bytes())
+    assert NativeReport["status"] == "api_unavailable"
+    assert NativeReport["action"]
+    assert NativeReport["portable_complete"] is False
+    assert NativeReport["conversion_qualified"] is False
     for FileName in ("document.json", "receipt.json"):
         assert (Direct / FileName).read_bytes() == (Bridged / FileName).read_bytes()
     CheckReceipt(Bridged)
