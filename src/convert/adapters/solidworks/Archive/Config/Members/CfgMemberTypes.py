@@ -14,6 +14,17 @@ KSketchBlockClass = RuntimeClass("moSketchBlockMgr_c", 1)
 # the part exploded view manager owns a separate inherited feature body and map
 KExplViewClass = RuntimeClass("moPrtExplViewManager_c", 1)
 
+# the observed thread map uses a concrete schema one descriptor when present
+KThreadMgrClass = RuntimeClass("moCThreadRefMgr_c", 1)
+
+# the kernel mark has its own schema and position in the same part map
+KPMarkClass = RuntimeClass("moPMarkRecord_c", 1)
+
+# these two bounded roles require concrete owners in the qualified profiles
+KRequiredMembers = MappingProxyType(
+    {KRelMgrClass: "relation", KPMarkClass: "partition mark"}
+)
+
 # the member reader admits only the measured concrete descriptors
 KCfgMemberSchemas = MappingProxyType(
     {
@@ -23,6 +34,8 @@ KCfgMemberSchemas = MappingProxyType(
             KFeatColorClass,
             KSketchBlockClass,
             KExplViewClass,
+            KThreadMgrClass,
+            KPMarkClass,
         )
     }
 )
