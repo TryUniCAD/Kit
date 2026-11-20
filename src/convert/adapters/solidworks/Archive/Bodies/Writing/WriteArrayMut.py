@@ -1,9 +1,11 @@
-from collections.abc import MutableMapping, Sequence
+from collections.abc import MutableMapping
 from dataclasses import replace as ReplaceValue
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Bodies.NormalizeCount import NormalizeCount
+from convert.adapters.solidworks.Archive.Bodies.ReadBodyRows import ReadBodyRows
 from convert.adapters.solidworks.Archive.Bodies.ReadScopeValue import ReadScopeValue
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteCountMut import (
@@ -13,13 +15,15 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteCountMut import (
 
 # ordered row fields must remain modeled mappings rather than recorded byte operations
 def WriteArrayMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
-    Value = ReadScopeValue(FrameValue.ScopeValue, RuleValue.NameValue)
-    if not isinstance(Value, Sequence) or isinstance(Value, (str, bytes, bytearray)):
-        raise ValueError(
-            f"SOLIDWORKS body array {RuleValue.NameValue} requires ordered rows"
-        )
-    ItemsValue = CastValue(Sequence[object], Value)
-    WriteCountMut(FrameValue, RuleValue, len(ItemsValue))
+    ItemsValue = ReadBodyRows(FrameValue.ScopeValue, RuleValue.NameValue)
+    if RuleValue.KindValue == "Repeat":
+        LengthValue = ReadScopeValue(FrameValue.ScopeValue, RuleValue.CountValue)
+        if type(LengthValue) is not int or NormalizeCount(
+            LengthValue, RuleValue.ModeValue
+        ) != len(ItemsValue):
+            raise ValueError("native repeat count differs from its modeled rows")
+    else:
+        WriteCountMut(FrameValue, RuleValue, len(ItemsValue))
     for Index, Fields in enumerate(ItemsValue):
         if not isinstance(Fields, MutableMapping):
             raise ValueError("SOLIDWORKS body array rows require field mappings")

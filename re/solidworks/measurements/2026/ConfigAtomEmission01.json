@@ -1,0 +1,201 @@
+{
+  "complete_native_files_written": 0,
+  "engine_sha256": {
+    "re/solidworks/measurements/2026/ConfigAtomSource01.json": "ff3512e26704024c5d00cad2e413d5365b48f1936e5926006ff67cef4570af9d",
+    "re/tooling/sw2026/CheckAtomEmission.py": "c5edbaad873fa4b52bce92849fa39ddbcf73d4323740c6113744ec263ccb28d0",
+    "src/convert/adapters/solidworks/Archive/Bodies/ReadBodyRows.py": "743f89eebd5a7780e887b5d1fad3ed6e1f93c642a474be13b1cadaad8379db9f",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteActions.py": "c8da4a6a52226dc8ad7dfb743a886fd868961cd269a9f55e9934ba7118e77ef4",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteArrayMut.py": "42a240d716b08bf545165492e3b091d8a24abf15ef9fc21ecbd60ccb090d3199",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteBranchMut.py": "8263c513fc105fa776521dc2c38e630c5362eb212a89615be163a2036906e8f3",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteLengthMut.py": "ba27a1e67bcfe1138c20e429941352b123662a7f686889af5d430a27b8f0316d",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteNestedMut.py": "b1184013150b37672d7e6dcbf18047bd5d52a32f277532c153efcd72f09f5d8f",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteNormalMut.py": "1aae9ffac3b5c758956f3a57bc6cfdb6781009b4e9d4572b67be097b6c609df8",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteVirtualMut.py": "8f57d973673f9da88919cffb33e8ab63c6e97df97b69c51f229082bc8acbe528",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/PutAtomBodyMut.py": "cc20bb53d2edb241e937ba30566828d58e8d36523f13cc7a5c91c24d75f351a3",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/WriteAtomMgr.py": "8fd15c4b8d7954b66391049cf907819509df92e97807bf0ee865e7b09bc21a4f"
+  },
+  "guarded_cases": {
+    "concave": {
+      "result": {
+        "full_native_writer_qualified": false,
+        "input": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+        "interval": [
+          2115,
+          2227
+        ],
+        "native_body_sha256": "cd514c6afb75ebccb1337b2ceb16b0a8bf328e3bddd930b3dc027a7db313e62e",
+        "native_emission_sha256": "cd514c6afb75ebccb1337b2ceb16b0a8bf328e3bddd930b3dc027a7db313e62e",
+        "runtime_external_accesses": 0,
+        "saved_count": 1,
+        "saved_range": [
+          50,
+          52
+        ]
+      },
+      "stdout_sha256": "8c8e757ade6ba8f4a31cae5042b1e1d9615cc29ded682ef7da8ea6bb100a550d"
+    },
+    "ladder": {
+      "result": {
+        "authored": [
+          {
+            "conditions": 0,
+            "count": 0,
+            "range": [
+              59,
+              59
+            ],
+            "rows": 0,
+            "sha256": "7082927e3b3c89b3d58cede65decf8071a0e67eeb31e45e9d4613c9f9519ffb6",
+            "size": 12,
+            "states": []
+          },
+          {
+            "conditions": 0,
+            "count": 1,
+            "range": [
+              59,
+              60
+            ],
+            "rows": 1,
+            "sha256": "009078c700983988207bb6cb0292ba9e91c8ae3c116e83239d952181dce962c1",
+            "size": 100,
+            "states": [
+              [
+                -51,
+                1,
+                1,
+                [
+                  "A",
+                  "alt"
+                ]
+              ]
+            ]
+          },
+          {
+            "conditions": 0,
+            "count": 2,
+            "range": [
+              59,
+              61
+            ],
+            "rows": 2,
+            "sha256": "63e316c9bf7639586aa25ef1de74967656abe040428f8c2460f104a8541faff7",
+            "size": 194,
+            "states": [
+              [
+                -51,
+                0,
+                0,
+                [
+                  "A",
+                  "alt"
+                ]
+              ],
+              [
+                -52,
+                1,
+                1,
+                "λ22"
+              ]
+            ]
+          },
+          {
+            "conditions": 128,
+            "count": 1,
+            "range": [
+              59,
+              60
+            ],
+            "rows": 1,
+            "sha256": "765e7d3bed52b6e48a4fd0be63173e0607a448c6953604e46945d307b18f6f66",
+            "size": 92,
+            "states": [
+              [
+                37,
+                2147483651,
+                2147483651,
+                "αλ"
+              ]
+            ]
+          },
+          {
+            "conditions": 4194304,
+            "count": 1,
+            "range": [
+              59,
+              60
+            ],
+            "rows": 1,
+            "sha256": "0d7d7e78981ca6e188a669ab2f1397d1b875d14c6defb598c10bf9531b491add",
+            "size": 100,
+            "states": [
+              [
+                18,
+                0,
+                0,
+                [
+                  "A",
+                  "alt"
+                ]
+              ]
+            ]
+          },
+          {
+            "conditions": 4194432,
+            "count": 1,
+            "range": [
+              59,
+              60
+            ],
+            "rows": 1,
+            "sha256": "2669237e312e30faf1f8dd8d190f1b5e8adba6ab07811839daba36c2de0f4736",
+            "size": 100,
+            "states": [
+              [
+                197,
+                2147483656,
+                2147483656,
+                [
+                  "A",
+                  "alt"
+                ]
+              ]
+            ]
+          }
+        ],
+        "full_native_writer_qualified": false,
+        "input": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+        "interval": [
+          3062,
+          3174
+        ],
+        "native_body_sha256": "68a12eace31a252758266598f230aa648a4884726800855a23a41ed61cb73d13",
+        "native_emission_sha256": "68a12eace31a252758266598f230aa648a4884726800855a23a41ed61cb73d13",
+        "refusals": [
+          "inconsistent_state",
+          "wrong_wire_type",
+          "overflow_wire",
+          "unmapped_model",
+          "wrong_class",
+          "nonzero_body_kind",
+          "concept_link",
+          "borrowed_atom",
+          "duplicate_atom_id",
+          "wrong_context",
+          "wrong_version"
+        ],
+        "runtime_external_accesses": 0,
+        "saved_count": 1,
+        "saved_range": [
+          57,
+          59
+        ]
+      },
+      "stdout_sha256": "ae1d129ec3b468c5c357159ab68b9a48ea4db5fc6bded668160bd46a3130b05b"
+    }
+  },
+  "heldout_credit": 0,
+  "native_processes_started": 0,
+  "reader_baseline": "e3a7969b167ed632dce5a8e88b3b7f03be43cc0f",
+  "schema": "kit.sw2026.atom-manager-emission.v1"
+}
