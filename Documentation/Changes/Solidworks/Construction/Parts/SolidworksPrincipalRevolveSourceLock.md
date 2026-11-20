@@ -10,4 +10,4 @@ The existing native author runs the job and records the source lock.
 This method supplies independent source inputs for principal-plane
 rule work. Record the native author's hash lock before implementing
 Top or Right preparation.
-[Source authoring method](../../../../../re/solidworks/records/OrdinaryRevolvedBoss2026.md)
+[Source authoring method and lock](../../../../../re/solidworks/records/PrincipalRevolveSources2026.md)
