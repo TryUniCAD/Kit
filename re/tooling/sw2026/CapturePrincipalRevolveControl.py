@@ -75,7 +75,7 @@ def capture(output, control, checkout, revision):
         after = control_phase(control, output / "ControlAfter.json")
     phases = [
         {
-            "phase": row["phase"],
+            "phase": row["job"]["phase"],
             "passed": row["passed"],
             "record_sha256": pin,
             "birth": row.get("oracle_identity", {}).get("process_creation_filetime"),
