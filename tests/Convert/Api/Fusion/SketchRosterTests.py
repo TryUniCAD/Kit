@@ -45,3 +45,20 @@ def TestRoster() -> None:
     (Partial,) = OpenResearch(Stream, StrictMode=False).sketches
     assert Partial.entities == SketchValue.entities
     assert "fusion.geometry_child_ids" not in Partial.attributes
+
+
+# the native solver fixes the selected corner while keeping the coincident origin independent
+@KRequiresCodec
+def TestFixedCorner() -> None:
+    Controls = KStudyPath.parent / "LocalOracle/RectangleConstraints"
+    for Sample, Expected in (("Orientation4.f3d", False), ("FixedAnchor.f3d", True)):
+        (SketchValue,) = OpenResearch(Controls / Sample, StrictMode=False).sketches
+        Points = {Value.id: Value for Value in SketchValue.entities}
+        Origin = Points["fusion-sketch-entity-205"]
+        Corner = Points["fusion-sketch-entity-228"]
+        assert Origin.geometry == Corner.geometry
+        assert Origin.fixed and Origin.attributes["fusion.point_is_origin"] is True
+        assert (
+            Corner.fixed is Expected
+            and Corner.attributes["fusion.point_is_origin"] is False
+        )
