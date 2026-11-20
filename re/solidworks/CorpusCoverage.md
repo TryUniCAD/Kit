@@ -1,13 +1,16 @@
 # FCStd to SOLIDWORKS corpus coverage
 
 Status: **0 of 165 FCStd parts and 0 of five FCStd assemblies qualified**.
-PR #121's generative public writer accepts the scoped neutral line-loop and
-the two qualified fixed-centre circle blind bosses. Its held-out native
-SOLIDWORKS examples are separate from the FCStd benchmark. The earlier writer measured below re-emitted a recorded
-vendor stream per family, so it was removed from production.
-See the [native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md).
-See the [circle writer registration](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleWriterRegistration.md).
-See `Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md`.
+PR #121's generative public writer accepts bounded line-loop, circle
+and equation profiles and a standalone geometry-only periodic cylinder.
+The four fixed-centre circle profiles cover blind, symmetric mid-plane
+and two-direction ends. Its held-out native SOLIDWORKS examples belong
+to distinct evaluations. The historical FCStd audit below used vendor
+stream re-emission. That writer was removed from production.
+[Native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
+[Circle end modes](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
+[Periodic import](../../Documentation/Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
+[Recorded payload removal](../../Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md)
 
 The figures below are the last audit of that removed writer. They record which source histories it
 accepted and which oracle checks it passed. They are research evidence for a generative serializer,
