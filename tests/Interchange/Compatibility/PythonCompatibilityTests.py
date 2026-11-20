@@ -259,8 +259,10 @@ def CheckRegistry() -> None:
             DistanceExtrude,
             PlaneExtrude,
             PlaneRevolve,
-            ScopedExtrude,
         )
     )
-    assert set(KTypeRegistry.values()) == IntendedTypes
-    assert set(KTypeRegistry) == {ClassType.__name__ for ClassType in IntendedTypes}
+    assert KTypeRegistry["ScopedExtrusionFeature"] is ScopedExtrude
+    assert set(KTypeRegistry.values()) == IntendedTypes | {ScopedExtrude}
+    assert set(KTypeRegistry) == {ClassType.__name__ for ClassType in IntendedTypes} | {
+        "ScopedExtrusionFeature"
+    }

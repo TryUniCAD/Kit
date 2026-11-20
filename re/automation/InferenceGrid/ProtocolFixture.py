@@ -26,8 +26,8 @@ from FusionPhasePlan import CASES, SCOPE, phase_paths
 REVISION = "5018f106b8287c83756233c677cc155e8b963357"
 ROOT = Path(__file__).resolve().parents[3]
 PATHS = {
-    "tool": "re/automation/CaptureTools/ScopeControl/FusionScopeControl.py",
-    "model": "re/automation/CaptureTools/ScopeControl/FusionScopeModel.py",
+    "tool": "re/automation/PairedCaptures/ScopeControl/FusionScopeControl.py",
+    "model": "re/automation/PairedCaptures/ScopeControl/FusionScopeModel.py",
     "specification": "re/automation/PairedCaptures/ScopeControl/ScopeControlSpec.json",
     "fresh_process": "re/automation/PairedCaptures/FusionFreshProcess.py",
     "helper": "re/automation/PairedCaptures/FusionCapture.py",
