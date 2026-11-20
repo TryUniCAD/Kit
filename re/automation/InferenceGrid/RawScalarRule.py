@@ -398,7 +398,7 @@ def part_scalars(root, source, pin, scratch, controls):
         }
         for (other, _), replay in zip(others, rule["control_replays"]):
             result["members"][other] = replay
-        from InferenceGrid.RawScalarOwners import associate, native_comparisons
+        from InferenceGrid.RawScalarOwners import associate, changed_owner, native_comparisons
 
         for member, row in result["members"].items():
             if "records" in row:
@@ -407,12 +407,12 @@ def part_scalars(root, source, pin, scratch, controls):
         if patch and any("records" not in row for row in result["members"].values()):
             return result, None
         if patch:
-            for member, row in result["members"].items():
-                process = subprocess.run(
+            def run_reader(path, member):
+                return subprocess.run(
                     [
                         sys.executable,
                         str(private / "NamedScalarReader.py"),
-                        str(source),
+                        str(path),
                         "--member",
                         member,
                         "--owners",
@@ -428,12 +428,21 @@ def part_scalars(root, source, pin, scratch, controls):
                     capture_output=True,
                     timeout=60,
                 )
+            for member, row in result["members"].items():
+                process = run_reader(source, member)
                 if process.returncode or json.loads(process.stdout) != {
                     "records": row["records"],
                     "ownership": row["ownership"],
                 }:
                     result["status"] = "native_entry_replay_failed"
                     return result, None
+            for path in controls:
+                for member, row in result["members"].items():
+                    if not row.get("ownership", {}).get("records"):
+                        continue
+                    proc = run_reader(path, member)
+                    comparison = changed_owner(row, json.loads(proc.stdout)) if not proc.returncode else {"status": "control_reader_refused"}
+                    row.setdefault("paired_changes", []).append({"control_sha256": path.stem, **comparison})
             patch = {
                 **patch,
                 "input_sha256": pin,

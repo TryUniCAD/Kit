@@ -147,3 +147,24 @@ def native_comparisons(root, pin, members):
                         }
                     )
     return comparisons
+
+
+def changed_owner(before, after):
+    rows = before.get("ownership", {}).get("records", [])
+    controls = after.get("ownership", {}).get("records", [])
+    if not rows or [r["name"] for r in rows] != [r["name"] for r in controls]:
+        return {"status": "different_record_layout"}
+    changed = [(a, b) for a, b in zip(rows, controls) if a["value"] != b["value"]]
+    if len(changed) != 1:
+        return {"status": "requires_single_changed_record", "changed_records": len(changed)}
+    a, b = changed[0]
+    owners = sorted(set(a["candidate_feature_ids"]) & set(b["candidate_feature_ids"]))
+    return {
+        "status": "single_shared_candidate" if len(owners) == 1 else "unresolved",
+        "parameter": a["name"],
+        "input_offset": a["offset"],
+        "control_offset": b["offset"],
+        "input_value": a["value"],
+        "control_value": b["value"],
+        "candidate_feature_ids": owners,
+    }

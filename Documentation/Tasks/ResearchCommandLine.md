@@ -287,3 +287,5 @@ For standalone planar shells and geometry journals, [planar journal replay](../C
 For an extracted native configuration stream, use [raw scalar reader inference](../Changes/Research/Inference/RawScalarReaderInference.md) to fit a numeric layout to discovery measurements and replay it on another raw stream with `--control`.
 
 Use [scalar feature associations](../Changes/Research/Inference/ScalarFeatureAssociations.md) to distinguish measured feature names from candidates that depend on the preceding serialized marker.
+
+Use a single-parameter edit to [compare generated scalar readings across two native parts](../Changes/Research/Inference/PairedScalarChanges.md).
