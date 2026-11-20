@@ -92,3 +92,11 @@ The 1,328 exact binary stream comparisons and 1,240 comparisons without
 provisional schemas remain. A separate scan found zero recorded
 payloads in the 4,962 production Python files of that aggregate snapshot.
 [Body-value integration receipt](../measurements/2026/BinaryArchiveAfterBodyValues01.json)
+
+After integrating PR #178, the same 88 complete reports agree again.
+The separate SDK configuration-directory path reproduces all 88
+directory streams and their exact maps. Every disclosed directory
+has one concrete child. The scoped process tests cover the authored
+65,535-row case, including the shared class and aliased row slots.
+[SDK directory census](../measurements/2026/ManagerDirectoryCorpus01.json)
+· [Integrated audit](../measurements/2026/BinaryArchiveAfterManagerDirectory01.json)

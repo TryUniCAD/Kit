@@ -295,13 +295,24 @@ refusals, and unchanged input prefixes at the nesting boundary.
 
 ### B04-SW2026-CMGR-HEADER
 
-The takeover team owns the typed configuration directory in
-[PR #178](https://github.com/TryUniCAD/Kit/pull/178). It depends on the
-accepted scalar, text, object and counted-row codecs. The exit requires
-exact native-directory byte and map replay, independent model-generated
-rows, role and schema refusals, current-revision review and green queue
-acceptance. Full configuration projection and native document writing
-have separate exits. [Field and process evidence](https://github.com/TryUniCAD/Kit/blob/5b231edbcf48caa147883804c906faef42564b79/re/solidworks/records/ManagerDirectorySlice2026.md)
+[PR #178](https://github.com/TryUniCAD/Kit/pull/178) delivered the typed
+configuration directory at `171ad6a3e1c26a86ecae015a23067431d141cf2c`.
+It uses the accepted scalar, text, object and counted-row codecs.
+The native queue passed the exact native-directory byte and map
+replay, authored extended rows and role refusals. The aggregate SDK
+also replays all 88 disclosed directories exactly.
+[Field and process evidence](../../re/solidworks/records/ManagerDirectorySlice2026.md)
+· [Accepted queue](https://github.com/TryUniCAD/Kit/actions/runs/44703486075)
+· [Corpus](../../re/solidworks/measurements/2026/ManagerDirectoryCorpus01.json)
+
+### B03-SW2026-KEYWORD-FRAMING
+
+The takeover team owns the typed XML framing in
+[PR #181](https://github.com/TryUniCAD/Kit/pull/181). Its exit requires
+exact replay of both pinned framing profiles, separately authored
+text preservation, refusal of invalid document tails, configured
+review and green queue acceptance. Typed model projection has its
+own delivery scope.
 
 ### B08-SW2026-TERMINAL-FIN
 

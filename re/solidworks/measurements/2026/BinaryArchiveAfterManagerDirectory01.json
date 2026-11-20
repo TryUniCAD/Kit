@@ -1,0 +1,41 @@
+{
+  "schema": "kit.sw2026.binary-corpus-after-manager-merge.v1",
+  "full_binary_report_sha256": "3a0e8b5cbafd53fac273c84a848da7d2b33880c0092b3bc1ca0656731a54fe46",
+  "prior_full_binary_report_sha256": "7d1a38db2e9d3a5052ec75ee212308b268f5a1c80c2bc5e18d7ba0ecf8d67db0",
+  "typed_manager_report_sha256": "68b09b0ce337b70433b1c28b3e305ec2ed2b6db4332a381041d6d97c448d2405",
+  "all_88_per_file_reports_equal": true,
+  "main_revision": "171ad6a3e1c26a86ecae015a23067431d141cf2c",
+  "no_recorded_payloads_source_files": 4973,
+  "assemblies": 8,
+  "codec_git_objects": {
+    "re/tooling/sw2026/AuditKeywordCorpus.py": "37afbc48f80150d79751db0678917304ba3bc770",
+    "re/tooling/sw2026/serial": "524addbc06c8df1467fa7a0427282d7278aea194",
+    "src": "8b45ae66ea887b09d28b22153ead4d734991d605"
+  },
+  "codec_revision": "abf3761fc6fa3c17959a5946e12be012c621ad51",
+  "complete_files": {
+    "exact_without_raw": 88,
+    "exact_without_tail": 88,
+    "proven_typed_exact": 0
+  },
+  "heldout_inputs_read": 0,
+  "missing_schema_incidence": {},
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "parts": 80,
+  "provisional_schema_incidence": {
+    "moCompHolder_c": 80,
+    "moDisplayedEntityTracker_c.Serialize": 88,
+    "moExtFeature_c": 6,
+    "moExtObjectInterface_c.FUN_4c179410": 6
+  },
+  "script_sha256": "37ca0e6b06e93fd05ced6725f890d40700cab1f7703b032680a4aa250fc6bafa",
+  "source_files": 88,
+  "source_revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "stream_counts": {
+    "attempts": 1328,
+    "exact_without_raw": 1328,
+    "exact_without_tail": 1328,
+    "proven_typed_exact": 1240
+  }
+}
