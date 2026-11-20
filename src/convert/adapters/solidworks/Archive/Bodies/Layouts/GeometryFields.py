@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# native field order is shared by both archive directions without document supplied programs
+# embedded vector fields share their stored binary64 component order
 KGeometryFields = MappingProxyType(
     {
         "mgVector_c.restore": (

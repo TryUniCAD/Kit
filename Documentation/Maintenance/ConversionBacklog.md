@@ -188,6 +188,29 @@ Populated thread maps and complete configuration support have separate
 exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+### B04-SW2026-CONFIG-HEADER-LINK
+
+The PR #121 takeover team owns the bounded part header handoff on
+`codex/solidworks-config-model-header-link` for separate main delivery.
+It depends on the standalone header and typed archive map codecs.
+Exit requires exact named ModelHeader selection, preserved object
+identities at the part's lightweight boundary, malformed physical
+prefix refusals and current revision queue and review evidence.
+Complete configuration admission and the property owner's physical
+link remain separate work.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
+
+### B04-SW2026-CONFIG-CACHES
+
+The PR #121 takeover team owns the bounded part cache reader on
+`codex/solidworks-config-caches` for separate main delivery. It depends
+on the shared body field, counted row and branch readers. Exit requires
+the disclosed mass and empty bounds intervals, malformed record
+refusals and current revision queue and review evidence. Populated
+bounds ownership and complete physical `Config-0` admission have
+separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
+
 ### B04-SW2026-CONFIG-SCENE
 
 The PR #121 takeover team owns this bounded scene and light

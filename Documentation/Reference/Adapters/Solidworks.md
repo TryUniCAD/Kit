@@ -93,6 +93,23 @@ remain separate. A present thread manager retains the signed wire word
 and its runtime Boolean.
 [Thread and mark record scope](../../Changes/Solidworks/Archive/SolidworksConfigThreadMarks.md)
 
+The internal part-start reader loads the named
+`Contents/Config-0-ModelHeader` and the current part root. At the start
+of the lightweight section, it inserts the original header objects
+into the part's map while preserving their standalone identities.
+The self file comes first, followed by the directory entries in
+stored order. This reader requires physical format 4 and logical
+archive version 19000.
+Complete configuration admission requires the remaining model body.
+[Configuration header link scope](../../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
+
+The bounded version-19000 part cache reader keeps zero through two mass
+slots, each slot's atom rows and attached mass properties, and the
+signed trailer when two slots are stored. The measured bounds field
+carries an empty count in this profile. Populated bounds records require
+additional owner evidence. Cache reads preserve the caller's map state.
+[Part cache scope](../../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
+
 The configuration scene reader keeps the environment folder, its actual
 name and the observed ambient and directional light children. The
 runtime light reset retains its separate signed wire word. Populated
