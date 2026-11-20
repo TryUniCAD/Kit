@@ -29,7 +29,7 @@ from tests.Research.Windows.Readback.QueueReadback import QueueReadback
         ("command_inactive", "restored command batching state"),
     ),
 )
-def CheckDiscoveryQueue(TmpPath: FilePath, FaultName: str, ExpectedReason: str) -> None:
+def CheckDiscovery(TmpPath: FilePath, FaultName: str, ExpectedReason: str) -> None:
     RootPath, ConfigPath = InstallReadback(TmpPath)
     Result = QueueReadback(
         TmpPath, RootPath, ConfigPath, FaultName, "p01-p03-p04-readback"

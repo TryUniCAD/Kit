@@ -15,11 +15,11 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.freecad.Adapter import (
     FreeCadAdapter,
-    NativeOuter,
     RebuildResult,
     ResolveTarget,
     TrustedNative,
 )
+from convert.adapters.freecad.Replay.NativeOuter import NativeOuter
 from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
 from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
 from interchange.document.Models.DocumentModel import CadDocument

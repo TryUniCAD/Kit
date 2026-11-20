@@ -17,13 +17,13 @@ from tests.Research.SupervisorClient import FixtureJob
 
 # the report fixture exercises completed parked and dependent zero attempt controller jobs
 def CreateJobs(RootPath: FilePath, Client: JobClient) -> None:
-    Jobs = [
+    JobRows = [
         FixtureJob("pilot:completed", "fixture.inspect"),
         FixtureJob("pilot:parked", "fixture.inspect"),
         FixtureJob("pilot:dependent", "fixture.inspect", depends_on=["pilot:parked"]),
     ]
     BatchFile = RootPath / "Jobs.json"
-    _ = WriteRecord(BatchFile, {"jobs": Jobs})
+    _ = WriteRecord(BatchFile, {"jobs": JobRows})
     _ = Client.RunCli("submit-batch", str(BatchFile))
     ResultFile = RootPath / "Result.json"
     _ = WriteRecord(ResultFile, {"observed": True})
@@ -49,7 +49,7 @@ def CreateJobs(RootPath: FilePath, Client: JobClient) -> None:
 def CreateRun(RootPath: FilePath, StartTime: float) -> FilePath:
     RunRoot = RootPath / "Run"
     RunRoot.mkdir()
-    Manifest = {
+    Manifest: dict[str, object] = {
         "version": 1,
         "run_id": "pilot:fixture",
         "source_revision": "9fc3c9a238f3128691e6b6a90e7769fffdb82a65",

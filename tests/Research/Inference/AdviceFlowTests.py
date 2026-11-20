@@ -12,7 +12,7 @@ from pathlib import Path as FilePath
 
 from pytest import mark as MarkValue
 
-from tests.Research.Inference.AdviceProvider import VerifyReceipt, InstallProvider
+from tests.Research.Inference.AdviceProvider import VerifyReceipt, SetProviderMut
 from tests.Research.Inference.InferenceBoundaryTests import GapReport, WriteFieldPlan
 from tests.Research.Inference.InferenceHost import PrepareWorker
 from tests.Research.SupervisorClient import FixtureJob
@@ -22,7 +22,7 @@ from tests.Research.SupervisorClient import FixtureJob
 @MarkValue.skipif(PlatformName != "posix", reason="Codex account runner requires POSIX")
 def CheckGapAdvice(TmpPath: FilePath) -> None:
     Harness = PrepareWorker(TmpPath)
-    InstallProvider(Harness, TmpPath)
+    SetProviderMut(Harness, TmpPath)
     Harness.BindBytes(
         "gap-plan",
         EncodeJson(
@@ -49,7 +49,7 @@ def CheckGapAdvice(TmpPath: FilePath) -> None:
 @MarkValue.skipif(PlatformName != "posix", reason="Codex account runner requires POSIX")
 def CheckFieldCall(TmpPath: FilePath, Refute: bool) -> None:
     Harness = PrepareWorker(TmpPath)
-    InstallProvider(Harness, TmpPath)
+    SetProviderMut(Harness, TmpPath)
     Inputs = WriteFieldPlan(TmpPath, Refute)
     for Descriptor in Inputs.values():
         Harness.BindBytes(
@@ -60,7 +60,9 @@ def CheckFieldCall(TmpPath: FilePath, Refute: bool) -> None:
             FixtureJob(
                 "field-advice",
                 "inference.fields",
-                inputs={Role: Value["binding"] for Role, Value in Inputs.items()},
+                inputs={
+                    RoleName: Value["binding"] for RoleName, Value in Inputs.items()
+                },
                 options={"scope": "authored-generic-fields"},
             )
         ]

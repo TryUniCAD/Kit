@@ -353,17 +353,10 @@ def ReadNativePart(
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
-    ParamIds = {Param.id for Param in ParamValues}
-    PlaneValues = Planes(Model, ParamIds)
-    SketchValues = Sketches(Model, ParamIds)
+    PlaneValues, SketchValues = PartSketchData(Model, {Param.id for Param in ParamValues})
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
-    HasTypedSolid = Model.cut_source is not None or (
-        len(Model.operations) == 1
-        and Model.operations[0].kind == "join"
-        and bool(Model.operations[0].archive_spans)
-    )
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -377,7 +370,7 @@ def ReadNativePart(
         ReadActivePart(
             Payloads,
             Model.active_configuration_id,
-            KPartBodyId if HasTypedSolid else None,
+            TypedBodyId(Model),
             (Record.name for Record in Archive.records),
         )
         if Candidate is None
@@ -411,8 +404,7 @@ def ReadNativePart(
     )
     if LocalOwner is not None and BrepValue is not None:
         BrepValue, Fallback = LinkLocalBody(BrepValue, KPartBodyId, Fallback)
-    Topology = PartTopology(SavedPart, KPartBodyId, Fallback)
-    Summary, Measures = ActivePartMass(SavedPart, Topology, KPartBodyId)
+    Summary, Measures = ActivePartMass(SavedPart, PartTopology(SavedPart, KPartBodyId, Fallback), KPartBodyId)
     Bodies = (
         BodyValue(
             id=KPartBodyId,
@@ -504,6 +496,22 @@ def ReadNativePart(
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(DocValue, DataValue)
+
+
+# planes and sketches must bind to the same native parameter identities
+def PartSketchData(Model: NativeModel, ParamIds: set[str]) -> tuple[tuple[SupportPlane, ...], tuple[SketchData, ...]]:
+    return Planes(Model, ParamIds), Sketches(Model, ParamIds)
+
+
+# an active partition receives the body identity only when native records prove solid ownership
+def TypedBodyId(Model: NativeModel) -> str | None:
+    if Model.cut_source is not None:
+        return KPartBodyId
+    if len(Model.operations) == 1:
+        Operation = Model.operations[0]
+        if Operation.kind == "join" and Operation.archive_spans:
+            return KPartBodyId
+    return None
 
 
 # native refinements need a shared order because later paths use the preceding geometry

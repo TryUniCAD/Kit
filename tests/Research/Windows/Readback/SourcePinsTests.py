@@ -30,7 +30,7 @@ def CheckSourcePins(TmpPath: FilePath, HelperName: str, HasReplacement: bool) ->
     _ = HelperPath.write_bytes(HelperPath.read_bytes() + b"\n# fixture drift\n")
     if HasReplacement:
         AfterBlob = ReadbackGit(RootPath, "hash-object", "-w", str(HelperPath))
-        ReadbackGit(RootPath, "replace", BeforeBlob, AfterBlob)
+        _ = ReadbackGit(RootPath, "replace", BeforeBlob, AfterBlob)
         assert ReadbackGit(RootPath, "show", "HEAD:" + RelativePath).endswith(
             "fixture drift"
         )

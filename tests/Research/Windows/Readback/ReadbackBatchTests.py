@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from collections.abc import Callable
+from typing import TYPE_CHECKING as TypeChecking, cast as CastValue
 from json import dumps as EncodeJson, loads as DecodeJson
 from pathlib import Path as FilePath
 from sqlite3 import connect as OpenDatabase
@@ -17,9 +19,12 @@ from pytest import mark as TestMark
 
 from tests.Research.SupervisorClient import InitStore, KRepoRoot
 
+if TypeChecking:
+    from _win32typing import PyHANDLE as MutexHandle
+
 
 # calling the entry points in separate processes verifies persistence outside a single interpreter
-def InvokeReadbackCommand(
+def RunReadback(
     CommandName: str, StorePath: FilePath, *Arguments: str
 ) -> dict[str, object]:
     Outcome = RunProcess(
@@ -37,11 +42,13 @@ def InvokeReadbackCommand(
         timeout=20,
     )
     assert Outcome.returncode == 0, Outcome.stderr
-    return DecodeJson(Outcome.stdout)
+    Reply: object = DecodeJson(Outcome.stdout)
+    assert isinstance(Reply, dict)
+    return CastValue(dict[str, object], Reply)
 
 
 # both scenarios use a private capacity one resource without launching the application
-def InstallBatchFixture(TmpPath: FilePath) -> tuple[FilePath, tuple[str, str], str]:
+def InstallBatch(TmpPath: FilePath) -> tuple[FilePath, tuple[str, str], str]:
     StorePath = TmpPath / "Store"
     ConfigPath = TmpPath / "Installation.json"
     _ = InitStore(StorePath, 3)
@@ -61,14 +68,14 @@ def InstallBatchFixture(TmpPath: FilePath) -> tuple[FilePath, tuple[str, str], s
     QueueArgs = ("--installation", str(ConfigPath))
     Controller = "Controller.py"
     ResourceName = "application:solidworks:fixture"
-    InvokeReadbackCommand(
-        Controller, StorePath, "resource", ResourceName, "--capacity", "1"
-    )
+    _ = RunReadback(Controller, StorePath, "resource", ResourceName, "--capacity", "1")
     return StorePath, QueueArgs, ResourceName
 
 
 # a real watcher process exercises admission alongside separate controller commands
-def StartWatcher(StorePath, QueueArgs, *Settings):
+def StartWatcher(
+    StorePath: FilePath, QueueArgs: tuple[str, str], *Settings: str
+) -> OpenProcess[str]:
     return OpenProcess(
         [
             PythonExe,
@@ -90,78 +97,43 @@ def StartWatcher(StorePath, QueueArgs, *Settings):
 
 # pending checks must stay unassigned while earlier native code owns the shared lease
 @TestMark.skipif(HostPlatform != "win32", reason="Windows SOLIDWORKS admission")
-def CheckTimedReadbackBatch(TmpPath: FilePath) -> None:
-    from win32event import CreateMutex, ReleaseMutex, WaitForSingleObject
+def CheckTimedBatch(TmpPath: FilePath) -> None:
+    from win32event import ReleaseMutex, WaitForSingleObject
 
-    StorePath, QueueArgs, ResourceName = InstallBatchFixture(TmpPath)
+    StorePath, QueueArgs, ResourceName = InstallBatch(TmpPath)
     BatchTool = "SolidWorksReadbackBatch.py"
     Controller = "Controller.py"
-    for CheckId, ScopeName in (("profile", "principal"), ("through-cut", "cut")):
-        Reply = InvokeReadbackCommand(
-            BatchTool, StorePath, *QueueArgs, "enqueue", CheckId, ScopeName
-        )
-        assert Reply == {"batch": None, "check": CheckId, "scope": ScopeName}
-    assert InvokeReadbackCommand(Controller, StorePath, "status")["jobs"] == []
-
-    Oracle = CreateMutex(None, False, r"Local\KitResearchControllerOracle")
+    SeedReadback(StorePath, QueueArgs, BatchTool, Controller)
+    Oracle = OpenNamedMutex(r"Local\KitResearchControllerOracle")
     assert WaitForSingleObject(Oracle, 0) in (0, 128)
     OracleHeld = True
     Watcher = StartWatcher(StorePath, QueueArgs)
     try:
         WaitSeconds(1.5)
         assert Watcher.poll() is None
-        assert InvokeReadbackCommand(Controller, StorePath, "status")["jobs"] == []
-        InvokeReadbackCommand(
-            Controller, StorePath, "resource", ResourceName, "--available"
-        )
+        assert RunReadback(Controller, StorePath, "status")["jobs"] == []
+        _ = RunReadback(Controller, StorePath, "resource", ResourceName, "--available")
         assert (
-            InvokeReadbackCommand(BatchTool, StorePath, *QueueArgs, "flush")["status"]
+            RunReadback(BatchTool, StorePath, *QueueArgs, "flush")["status"]
             == "waiting_application"
         )
-        assert InvokeReadbackCommand(Controller, StorePath, "status")["jobs"] == []
+        assert RunReadback(Controller, StorePath, "status")["jobs"] == []
         ReleaseMutex(Oracle)
         OracleHeld = False
-        Deadline = ReadClock() + 15
-        while ReadClock() < Deadline:
-            State = InvokeReadbackCommand(BatchTool, StorePath, *QueueArgs, "status")
-            Pending = State["checks"]
-            assert isinstance(Pending, list) and len(Pending) == 2
-            if all(Check["batch_id"] is not None for Check in Pending):
-                break
-            assert Watcher.poll() is None
-            WaitSeconds(0.2)
-        else:
-            raise AssertionError("watcher did not release the batch")
-        assert Pending[0]["batch_id"] == Pending[1]["batch_id"]
-        assert all(Check["state"] == "queued" for Check in Pending)
-        BatchJob = Pending[0]["batch_id"]
-        assert (
-            InvokeReadbackCommand(
-                BatchTool, StorePath, *QueueArgs, "enqueue", "profile", "principal"
-            )["batch"]
-            == BatchJob
-        )
-        InvokeReadbackCommand(
-            BatchTool, StorePath, *QueueArgs, "enqueue", "later", "discovery"
-        )
-        assert (
-            InvokeReadbackCommand(BatchTool, StorePath, *QueueArgs, "flush")["status"]
-            == "active_batch"
-        )
-        Jobs = InvokeReadbackCommand(Controller, StorePath, "status")["jobs"]
-        assert isinstance(Jobs, list) and len(Jobs) == 1 and Jobs[0]["id"] == BatchJob
-        assert Jobs[0]["kind"] == "capture.solidworks"
+        VerifyBatch(Watcher, StorePath, QueueArgs, BatchTool, Controller)
     finally:
         if Watcher.poll() is None:
             Watcher.terminate()
-        Watcher.communicate(timeout=10)
+        _ = Watcher.communicate(timeout=10)
         if OracleHeld:
             ReleaseMutex(Oracle)
         Oracle.Close()
 
 
 # older resource jobs must retain their normal controller definition and queue order
-def SubmitEarlier(StorePath, PathValue, JobId, ResourceName):
+def SubmitEarlier(
+    StorePath: FilePath, PathValue: FilePath, JobId: str, ResourceName: str
+) -> None:
     _ = PathValue.write_text(
         EncodeJson(
             {
@@ -175,14 +147,14 @@ def SubmitEarlier(StorePath, PathValue, JobId, ResourceName):
         ),
         encoding="utf-8",
     )
-    return InvokeReadbackCommand("Controller.py", StorePath, "submit", str(PathValue))
+    _ = RunReadback("Controller.py", StorePath, "submit", str(PathValue))
 
 
 # a successful fixture job uses the same settlement path as any controller worker
-def FinishFixture(StorePath, TmpPath, ClaimPath):
+def FinishFixture(StorePath: FilePath, TmpPath: FilePath, ClaimPath: FilePath) -> None:
     Results = TmpPath / "Result.json"
     _ = Results.write_text("{}", encoding="utf-8")
-    InvokeReadbackCommand(
+    _ = RunReadback(
         "Controller.py",
         StorePath,
         "finish",
@@ -198,7 +170,7 @@ def FinishFixture(StorePath, TmpPath, ClaimPath):
 
 
 # the integration checks wait for specific durable state rather than a long fixed delay
-def AwaitBatchCondition(Watcher, Condition):
+def AwaitBatch(Watcher: OpenProcess[str], Condition: Callable[[], bool]) -> None:
     Deadline = ReadClock() + 15
     while ReadClock() < Deadline:
         if Condition():
@@ -209,7 +181,7 @@ def AwaitBatchCondition(Watcher, Condition):
 
 
 # durable admission is visible across controller processes and can recover from watcher exit
-def HasFixtureReservation(StorePath):
+def HasReservation(StorePath: FilePath) -> bool:
     with OpenDatabase(StorePath / "ledger.sqlite3") as Database:
         return (
             Database.execute(
@@ -221,26 +193,149 @@ def HasFixtureReservation(StorePath):
 
 # a large aged backlog gets the next slot while running and unrelated work remain eligible
 @TestMark.skipif(HostPlatform != "win32", reason="Windows SOLIDWORKS admission")
-def CheckBacklogReservesNextSlot(TmpPath: FilePath) -> None:
-    from win32event import CreateMutex, ReleaseMutex, WaitForSingleObject
+def CheckBacklog(TmpPath: FilePath) -> None:
+    from win32event import ReleaseMutex, WaitForSingleObject
 
-    StorePath, QueueArgs, ResourceName = InstallBatchFixture(TmpPath)
+    StorePath, QueueArgs, ResourceName = InstallBatch(TmpPath)
     BatchTool = "SolidWorksReadbackBatch.py"
     Controller = "Controller.py"
-    InvokeReadbackCommand(
-        Controller, StorePath, "resource", ResourceName, "--available"
+    ActiveClaim = SeedEarlier(StorePath, TmpPath, ResourceName, Controller)
+    Oracle = OpenNamedMutex(r"Local\KitResearchControllerOracle")
+    Priority = OpenNamedMutex(r"Local\KitResearchControllerReadbackPriority")
+    assert WaitForSingleObject(Oracle, 0) in (0, 128)
+    OracleHeld = True
+    _ = RunReadback(BatchTool, StorePath, *QueueArgs, "enqueue", "first", "principal")
+    Watcher = StartWatcher(
+        StorePath, QueueArgs, "--priority-count", "2", "--priority-seconds", "1"
     )
+    try:
+        BatchClaim = AwaitBacklog(
+            Watcher, StorePath, TmpPath, QueueArgs, Priority, ActiveClaim
+        )
+        ReleaseMutex(Oracle)
+        OracleHeld = False
+
+        # releasing the oracle returns every batch check to the queued state
+        AwaitBatch(
+            Watcher,
+            lambda: all(
+                Check["state"] == "queued"
+                for Check in BatchRows(
+                    RunReadback(BatchTool, StorePath, *QueueArgs, "status")["checks"]
+                )
+            ),
+        )
+        VerifyRelease(StorePath, TmpPath, BatchClaim, Controller)
+        assert WaitForSingleObject(Priority, 5000) in (0, 128)
+        ReleaseMutex(Priority)
+    finally:
+        if Watcher.poll() is None:
+            Watcher.terminate()
+        _ = Watcher.communicate(timeout=10)
+        if OracleHeld:
+            ReleaseMutex(Oracle)
+        Oracle.Close()
+        Priority.Close()
+
+
+# the second enqueue must reserve the batch while priority ownership prevents competing admission
+def AwaitBacklog(
+    Watcher: OpenProcess[str],
+    StorePath: FilePath,
+    TmpPath: FilePath,
+    QueueArgs: tuple[str, str],
+    Priority: "MutexHandle",
+    ActiveClaim: FilePath,
+) -> FilePath:
+    from win32event import WaitForSingleObject
+
+    WaitSeconds(1.5)
+    assert Watcher.poll() is None
+    assert not HasReservation(StorePath)
+    _ = RunReadback(
+        "SolidWorksReadbackBatch.py", StorePath, *QueueArgs, "enqueue", "second", "cut"
+    )
+
+    # the watcher reserves the fixture once the queued cut becomes eligible
+    AwaitBatch(Watcher, lambda: HasReservation(StorePath))
+    assert WaitForSingleObject(Priority, 0) == 258
+    FinishFixture(StorePath, TmpPath, ActiveClaim)
+    return VerifyClaims(StorePath, TmpPath, "Controller.py")
+
+
+# accepted readback work must retain its two checks and refuse a second overlapping batch
+def VerifyBatch(
+    Watcher: OpenProcess[str],
+    StorePath: FilePath,
+    QueueArgs: tuple[str, str],
+    BatchTool: str,
+    Controller: str,
+) -> None:
+    Pending: list[dict[str, object]] = []
+    Deadline = ReadClock() + 15
+    while ReadClock() < Deadline:
+        State = RunReadback(BatchTool, StorePath, *QueueArgs, "status")
+        Pending = BatchRows(State["checks"])
+        assert len(Pending) == 2
+        if all(Check["batch_id"] is not None for Check in Pending):
+            break
+        assert Watcher.poll() is None
+        WaitSeconds(0.2)
+    else:
+        raise AssertionError("watcher did not release the batch")
+    assert Pending[0]["batch_id"] == Pending[1]["batch_id"]
+    assert all(Check["state"] == "queued" for Check in Pending)
+    BatchJob = Pending[0]["batch_id"]
+    assert (
+        RunReadback(
+            BatchTool, StorePath, *QueueArgs, "enqueue", "profile", "principal"
+        )["batch"]
+        == BatchJob
+    )
+    _ = RunReadback(BatchTool, StorePath, *QueueArgs, "enqueue", "later", "discovery")
+    assert (
+        RunReadback(BatchTool, StorePath, *QueueArgs, "flush")["status"]
+        == "active_batch"
+    )
+    JobRows = BatchRows(RunReadback(Controller, StorePath, "status")["jobs"])
+    assert len(JobRows) == 1 and JobRows[0]["id"] == BatchJob
+    assert JobRows[0]["kind"] == "capture.solidworks"
+
+
+# controller responses need verified rows before the fixture inspects job state
+def BatchRows(Value: object) -> list[dict[str, object]]:
+    assert isinstance(Value, list)
+    Records = CastValue(list[object], Value)
+    assert all(isinstance(Entry, dict) for Entry in Records)
+    return CastValue(list[dict[str, object]], Records)
+
+
+# preexisting queued work establishes the initial state before any watcher can consume it
+def SeedReadback(
+    StorePath: FilePath, QueueArgs: tuple[str, str], BatchTool: str, Controller: str
+) -> None:
+    for CheckId, ScopeName in (("profile", "principal"), ("through-cut", "cut")):
+        Reply = RunReadback(
+            BatchTool, StorePath, *QueueArgs, "enqueue", CheckId, ScopeName
+        )
+        assert Reply == {"batch": None, "check": CheckId, "scope": ScopeName}
+    assert RunReadback(Controller, StorePath, "status")["jobs"] == []
+
+
+# existing work must already hold its lease before starting the priority watcher
+def SeedEarlier(
+    StorePath: FilePath, TmpPath: FilePath, ResourceName: str, Controller: str
+) -> FilePath:
+    _ = RunReadback(Controller, StorePath, "resource", ResourceName, "--available")
     OtherResource = "offline:fixture"
-    InvokeReadbackCommand(
-        Controller, StorePath, "resource", OtherResource, "--available"
-    )
+    _ = RunReadback(Controller, StorePath, "resource", OtherResource, "--available")
     SpecPath = TmpPath / "Earlier.json"
     SubmitEarlier(StorePath, SpecPath, "earlier:active", ResourceName)
     SubmitEarlier(StorePath, SpecPath, "earlier:waiting", ResourceName)
     SubmitEarlier(StorePath, SpecPath, "offline:waiting", OtherResource)
     ActiveClaim = TmpPath / "Active.json"
     assert (
-        InvokeReadbackCommand(
+        RunReadback(
             Controller,
             StorePath,
             "claim",
@@ -251,69 +346,27 @@ def CheckBacklogReservesNextSlot(TmpPath: FilePath) -> None:
         )["job"]
         == "earlier:active"
     )
-    Oracle = CreateMutex(None, False, r"Local\KitResearchControllerOracle")
-    Priority = CreateMutex(None, False, r"Local\KitResearchControllerReadbackPriority")
-    assert WaitForSingleObject(Oracle, 0) in (0, 128)
-    OracleHeld = True
-    InvokeReadbackCommand(
-        BatchTool, StorePath, *QueueArgs, "enqueue", "first", "principal"
+    return ActiveClaim
+
+
+# reserving the native slot must allow the unrelated worker to claim its pending job
+def VerifyClaims(StorePath: FilePath, TmpPath: FilePath, Controller: str) -> FilePath:
+    OfflineClaim = TmpPath / "Offline.json"
+    assert (
+        RunReadback(
+            Controller,
+            StorePath,
+            "claim",
+            "--worker",
+            "fixture",
+            "--claim-file",
+            str(OfflineClaim),
+        )["job"]
+        == "offline:waiting"
     )
-    Watcher = StartWatcher(
-        StorePath, QueueArgs, "--priority-count", "2", "--priority-seconds", "1"
-    )
-    try:
-        WaitSeconds(1.5)
-        assert Watcher.poll() is None
-        assert not HasFixtureReservation(StorePath)
-        InvokeReadbackCommand(
-            BatchTool, StorePath, *QueueArgs, "enqueue", "second", "cut"
-        )
-
-        # the watcher reserves the fixture once the queued cut becomes eligible
-        AwaitBatchCondition(Watcher, lambda: HasFixtureReservation(StorePath))
-        assert WaitForSingleObject(Priority, 0) == 258
-        FinishFixture(StorePath, TmpPath, ActiveClaim)
-        OfflineClaim = TmpPath / "Offline.json"
-        assert (
-            InvokeReadbackCommand(
-                Controller,
-                StorePath,
-                "claim",
-                "--worker",
-                "fixture",
-                "--claim-file",
-                str(OfflineClaim),
-            )["job"]
-            == "offline:waiting"
-        )
-        BatchClaim = TmpPath / "Batch.json"
-        assert (
-            InvokeReadbackCommand(
-                Controller,
-                StorePath,
-                "claim",
-                "--worker",
-                "fixture",
-                "--claim-file",
-                str(BatchClaim),
-            )["job"]
-            is None
-        )
-
-        ReleaseMutex(Oracle)
-        OracleHeld = False
-
-        # releasing the oracle returns every batch check to the queued state
-        AwaitBatchCondition(
-            Watcher,
-            lambda: all(
-                Check["state"] == "queued"
-                for Check in InvokeReadbackCommand(
-                    BatchTool, StorePath, *QueueArgs, "status"
-                )["checks"]
-            ),
-        )
-        assert InvokeReadbackCommand(
+    BatchClaim = TmpPath / "Batch.json"
+    assert (
+        RunReadback(
             Controller,
             StorePath,
             "claim",
@@ -321,28 +374,46 @@ def CheckBacklogReservesNextSlot(TmpPath: FilePath) -> None:
             "fixture",
             "--claim-file",
             str(BatchClaim),
-        )["job"].startswith("readback:solidworks:batch:")
-        FinishFixture(StorePath, TmpPath, BatchClaim)
-        ResumeClaim = TmpPath / "Resume.json"
-        assert (
-            InvokeReadbackCommand(
-                Controller,
-                StorePath,
-                "claim",
-                "--worker",
-                "fixture",
-                "--claim-file",
-                str(ResumeClaim),
-            )["job"]
-            == "earlier:waiting"
-        )
-        assert WaitForSingleObject(Priority, 5000) in (0, 128)
-        ReleaseMutex(Priority)
-    finally:
-        if Watcher.poll() is None:
-            Watcher.terminate()
-        Watcher.communicate(timeout=10)
-        if OracleHeld:
-            ReleaseMutex(Oracle)
-        Oracle.Close()
-        Priority.Close()
+        )["job"]
+        is None
+    )
+
+    return BatchClaim
+
+
+# releasing the batch must restore the original queue order after the synthetic owner exits
+def VerifyRelease(
+    StorePath: FilePath, TmpPath: FilePath, BatchClaim: FilePath, Controller: str
+) -> None:
+    BatchId = RunReadback(
+        Controller,
+        StorePath,
+        "claim",
+        "--worker",
+        "fixture",
+        "--claim-file",
+        str(BatchClaim),
+    )["job"]
+    assert isinstance(BatchId, str) and BatchId.startswith("readback:solidworks:batch:")
+    FinishFixture(StorePath, TmpPath, BatchClaim)
+    ResumeClaim = TmpPath / "Resume.json"
+    assert (
+        RunReadback(
+            Controller,
+            StorePath,
+            "claim",
+            "--worker",
+            "fixture",
+            "--claim-file",
+            str(ResumeClaim),
+        )["job"]
+        == "earlier:waiting"
+    )
+
+
+# pywin32 accepts null security attributes to use the process default descriptor but its stub omits that overload
+def OpenNamedMutex(NameValue: str) -> "MutexHandle":
+    from win32event import CreateMutex
+
+    Create = CastValue("Callable[[None, bool, str], MutexHandle]", CreateMutex)
+    return Create(None, False, NameValue)

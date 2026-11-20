@@ -8,6 +8,7 @@
 
 from hashlib import sha256 as DigestBytes
 from json import dumps as EncodeJson, loads as ParseJson
+from typing import cast as CastValue
 from pathlib import Path as FilePath
 
 from tests.Research.Inference.InferenceHost import PrepareWorker
@@ -30,7 +31,7 @@ def BindCaptures(Harness: SessionHost) -> dict[str, tuple[str, str]]:
     ArchiveRoot = (
         FilePath(__file__).resolve().parents[3] / "re/automation/PairedCaptures/P03"
     )
-    Archives = {}
+    Archives: dict[str, tuple[str, str]] = {}
     for Family, NativeFormat, Extension in (
         ("fusion", "fusion.f3d", "f3d"),
         ("solidworks", "solidworks.sldprt", "SLDPRT"),
@@ -62,7 +63,7 @@ def RescanJob(
 
 
 # a refused archive must retry alone while its peers keep the results produced by the shared worker
-def CheckRescanGroup(TmpPath: FilePath) -> None:
+def CheckRescans(TmpPath: FilePath) -> None:
     Harness = PrepareWorker(TmpPath)
     EnableGrouping(Harness)
     Archives = BindCaptures(Harness)
@@ -98,12 +99,21 @@ def CheckRescanGroup(TmpPath: FilePath) -> None:
     assert Harness.ReadJob("second-bad")["state"] == "failed"
     assert Harness.ReadJob("second-bad")["attempts"] == 2
     BadAttempt = ReadTryResult(Harness, "second-bad")
-    assert BadAttempt["result"] is None and BadAttempt["receipt"]["group_size"] == 3
+    assert (
+        BadAttempt["result"] is None
+        and RecordFields(BadAttempt["receipt"])["group_size"] == 3
+    )
     SoloFinish = BatchEvents(Events, "finished")[-1]
     assert (
-        SoloFinish["job"] == "second-bad" and SoloFinish["receipt"]["exit_status"] == 1
+        SoloFinish["job"] == "second-bad"
+        and RecordFields(SoloFinish["receipt"])["exit_status"] == 1
     )
 
+    VerifyPeers(Harness, Archives)
+
+
+# grouped rescan results must agree with independent runs on both archive formats
+def VerifyPeers(Harness: SessionHost, Archives: dict[str, tuple[str, str]]) -> None:
     for JobName, Family in (("first-fusion", "fusion"), ("third-sw", "solidworks")):
         JobInfo = Harness.ReadJob(JobName)
         assert JobInfo["state"] == "completed" and JobInfo["attempts"] == 1
@@ -115,13 +125,21 @@ def CheckRescanGroup(TmpPath: FilePath) -> None:
             Record["group_size"] for Record in BatchEvents(SoloEvents, "started")
         ] == [1]
         SoloResult = Harness.ReadResult(SoloName)
-        GroupRecords = GroupResult["result"]["records"]
-        SoloRecords = SoloResult["result"]["records"]
-        GroupExecution = GroupRecords.pop("execution")
-        SoloExecution = SoloRecords.pop("execution")
+        GroupRecords = RecordFields(RecordFields(GroupResult["result"])["records"])
+        SoloRecords = RecordFields(RecordFields(SoloResult["result"])["records"])
+        GroupExecution = RecordFields(GroupRecords.pop("execution"))
+        SoloExecution = RecordFields(SoloRecords.pop("execution"))
         assert GroupExecution["fingerprint"] == JobInfo["fingerprint"]
         assert SoloExecution["fingerprint"] == Harness.ReadJob(SoloName)["fingerprint"]
         assert (
             GroupRecords == SoloRecords
             and GroupRecords["source_sha256"] == Archives[Family][0]
         )
+
+
+# nested receipt fields require validated string keys before comparison
+def RecordFields(Value: object) -> dict[str, object]:
+    assert isinstance(Value, dict)
+    Fields = CastValue(dict[object, object], Value)
+    assert all(isinstance(FieldName, str) for FieldName in Fields)
+    return CastValue(dict[str, object], Fields)
