@@ -205,14 +205,6 @@ Tests execute only in remote CI.
 The Linux and Windows [compatibility jobs](../Changes/Commands/ResearchCandidateCompatibility.md) install the CLI from the workflow candidate and select a separate research checkout at the same revision.
 See [the change record](../Changes/Research/DeterministicResearchCli.md) for compatibility coverage and limits.
 
-## Related information
-
-- [General CLI](CommandLine.md)
-- [Research plan](../Reference/Research/AutomationPlan.md)
-- [Step register](../Reference/Research/AutomationSteps.md)
-- [SOLIDWORKS reader](../Reference/Research/SolidworksResearchReader.md)
-- [Fusion reader](../Reference/Research/FusionResearchReader.md)
-
 ## Start research from a CAD file
 
 ```sh
@@ -336,3 +328,11 @@ See [edited native extrusion depths](../Changes/Research/Inference/FreeCad/FreeC
 [Resuming text decoding after a gap](../Changes/Research/Inference/ManifestTextGaps.md) describes the bounded search and held-out replay.
 
 [Executable text-gap experiments](../Changes/Research/Inference/AdvisorTextExperiment.md) explain how an advisor choice advances a stalled raw stream.
+
+## Related information
+
+- [General CLI](CommandLine.md)
+- [Research plan](../Reference/Research/AutomationPlan.md)
+- [Step register](../Reference/Research/AutomationSteps.md)
+- [SOLIDWORKS reader](../Reference/Research/SolidworksResearchReader.md)
+- [Fusion reader](../Reference/Research/FusionResearchReader.md)
