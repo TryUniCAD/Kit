@@ -222,25 +222,31 @@ jobs:
       - run: uv run --no-sync python re/automation/CaptureHistory.py fetch
       - name: Inspect the partition inputs for missing solids
         run: |
-          uv run --no-sync python - <<'PY'
+          mkdir -p "$RUNNER_TEMP/kit-base"
+          git archive fa4c497e4 src | tar -x -C "$RUNNER_TEMP/kit-base"
+          cat > "$RUNNER_TEMP/compare-source.py" <<'PY'
           from pathlib import Path
           from convert import open_document
-          from convert.Geometry.Parasolid import ReadBrepResult
+          from convert.Geometry.Parasolid import ReadBrepResult, ParaHeaderData
           from convert.adapters.freecad.Brep import BrepModelBrep
           folder = Path('re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024')
           for name in ('10MM x 20MM x 13MM head 316 Stainless Steel Socket Head Screw.SLDPRT', '8MM x 15mm - 12 point screw.SLDPRT', 'CUIETA DE ENTRADA DE GASES.SLDPRT'):
               doc = open_document(folder / name)
               print(name, [(cfg.name,cfg.active) for cfg in doc.configurations], 'has_brep', doc.brep is not None)
               for payload in doc.brep_payloads:
-                  if payload.kind in ('partition', 'delta') and payload.data:
+                  if payload.data:
                       model, why = ReadBrepResult(payload.data)
-                      print(payload.source_stream, payload.kind, len(payload.data), model is not None, why)
+                      print(payload.source_stream, payload.kind, len(payload.data), getattr(ParaHeaderData(payload.data), 'schema', None), model is not None, why)
               if doc.brep:
                   try:
                       BrepModelBrep(doc.brep)
                   except ValueError as error:
                       print(str(error))
           PY
+          for source in "$RUNNER_TEMP/kit-base/src" "$PWD/src"; do
+            echo "$source"
+            PYTHONPATH="$source" .venv/bin/python "$RUNNER_TEMP/compare-source.py"
+          done
       - name: Identify changed fields against the original archived reporter
         run: |
           set -eu
