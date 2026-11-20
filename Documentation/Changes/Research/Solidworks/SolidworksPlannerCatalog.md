@@ -17,9 +17,9 @@ help baseline is 2026, so cross-version availability remains an explicit gap.
 The bundle records sources, items, relationships and gaps, exports readable CSVs,
 and includes a verifier for hashes, SQLite integrity, foreign keys, canonical
 content and export counts. Read the
-[collection and query guide](../../Reference/Research/SolidworksPlannerCatalog.md)
+[collection and query guide](../../../Reference/Research/SolidworksPlannerCatalog.md)
 for commands and interpretation. The
-[metadata availability gotcha](../../Gotchas/Research/SolidworksMetadataAvailability.md)
+[metadata availability gotcha](../../../Gotchas/Research/SolidworksMetadataAvailability.md)
 explains why declarations and command enums cannot qualify authorability.
 
 ## Ownership and exit condition
@@ -58,3 +58,12 @@ resolvable dependencies and explicit acceptance gates. Bundle verification is
 recorded against its actual manifest and PR revision; this page does not claim
 unexecuted merge-group acceptance, native application acceptance or complete
 SOLIDWORKS translation support.
+
+## Base integration repair
+
+After base integration, the research change directory contained 33 direct tracked files.
+The [path policy check](https://github.com/TryUniCAD/Kit/actions/runs/44788448921/job/136469708165) rejected the directory.
+This entry now lives in the focused `Solidworks` subdirectory, with its relative links updated.
+The parent directory returns to 32 direct tracked files.
+Local verification checks the staged diff and link destinations without running tests.
+Remote PR checks verify the repair; merge-group acceptance remains deferred.
