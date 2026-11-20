@@ -29,7 +29,7 @@ public sealed partial class SolidWorksCapture
             if(Revolve!=null) return Revolve.GetWallThickness(true)*1000;
         }
         var Dimension=Dimensions(Feature).Single(Found=>Found.Name==FieldName);
-        Check(Dimension.DrivenState==0,"Recipe binding must own a driving dimension");
+        Check(Dimension.DrivenState==2,"Recipe binding must own a driving dimension");
         return Dimension.SystemValue*(FieldName.EndsWith("_deg")?180/Math.PI:1000);
     }
 
@@ -67,7 +67,7 @@ public sealed partial class SolidWorksCapture
             } finally { if(Access) Revolve.ReleaseSelectionAccess(); }
         } else {
             var Dimension=Dimensions(Feature).Single(Found=>Found.Name==FieldName);
-            Check(Dimension.DrivenState==0 && Dimension.SetSystemValue3(Value*(FieldName.EndsWith("_deg")?Math.PI/180:.001),1,null)==0,
+            Check(Dimension.DrivenState==2 && Dimension.SetSystemValue3(Value*(FieldName.EndsWith("_deg")?Math.PI/180:.001),1,null)==0,
                 "Set owned recipe driving dimension");
         }
         Rebuild(Document);
