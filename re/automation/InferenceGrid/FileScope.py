@@ -33,7 +33,7 @@ def file_scope(path, application, scratch, root, control_paths=()):
         if control_paths and suffix != ".sldprt":
             raise ValueError("--control requires a SOLIDWORKS part")
         if application in {"asm", "unknown"}:
-            return raw_scope(data, path, pin, application, root)
+            return raw_scope(data, path, pin, application, root, scratch)
     source = scratch / ("input" + suffix)
     source.write_bytes(data)
     del data

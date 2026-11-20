@@ -279,3 +279,5 @@ The [revolution angle ownership](../Changes/Research/Inference/RevolutionAngleOw
 Use [local control parts](../Changes/Research/Inference/LocalControlParts.md) to supply a saved part with `--control`. Field-discovery passes use [registered discovery controls](../Changes/Research/Inference/DiscoveryControlEligibility.md). The dimension report records each supplied hash and its eligibility.
 
 The [single-dimension control experiment](../Changes/Research/Inference/SingleDimensionControlExperiments.md) compares matching saves automatically. Inspect `next_control_edits` for the exact parameter and proposed native value when a distinguishing control is missing.
+
+For standalone spheres and tori, see [analytic solid reader generation](../Changes/Research/Inference/AnalyticSolidReaderGeneration.md) for the generated script, its required Python paths and the native comparisons that gate the patch.

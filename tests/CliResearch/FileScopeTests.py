@@ -265,3 +265,68 @@ def CheckUnlabelledSnapshot(TmpPath: FilePath) -> None:
     assert (
         LoadJson((Output / "FileStall.json").read_bytes())["focus"] == "geometry_only"
     )
+
+
+# the generated reader must apply cleanly and reproduce a second native solid through its own entry point
+def CheckGeneratedTorusReader(TmpPath: FilePath) -> None:
+    from os import environ as Environment, pathsep as PathSeparator
+
+    Root = ResearchRoot()
+    Folder = Root / "re/Fusion/LocalOracle/RoundBodies"
+    Output = TmpPath / "run"
+    Result = RunProcess(
+        [
+            PythonPath,
+            "-m",
+            "KitCli",
+            "run",
+            "--root",
+            str(Root),
+            "auto",
+            "--input",
+            str(Folder / "DecodedPlacedTorus.smb"),
+            "--directory",
+            str(Output),
+        ],
+        capture_output=True,
+        timeout=180,
+    )
+    assert Result.returncode == 2, Result.stderr
+    Record = LoadJson((Output / "Input-reader-patch.json").read_bytes())
+    Report = LoadJson((Output / "Input-raw-structure.json").read_bytes())
+    assert Report["profile"] == "Torus" and len(Record["replayed_sha256"]) == 5
+    assert (
+        Report["native_witness"]["geometry_matches"]
+        and not Report["missing_control_sha256"]
+    )
+    RunProcess(
+        ["git", "apply", "--no-index", str(Output / "Reader.patch")],
+        cwd=TmpPath,
+        check=True,
+    )
+    Reader = TmpPath / Record["path"]
+    with Reader.open("rb") as Stream:
+        assert FileDigest(Stream, "sha256").hexdigest() == Record["reader_sha256"]
+    Env = {
+        **Environment,
+        "PYTHONPATH": PathSeparator.join(
+            str(Root / P) for P in ("src", "re/automation")
+        ),
+    }
+    Replay = RunProcess(
+        [PythonPath, str(Reader), str(Folder / "AuthoredTorus.smb")],
+        cwd=TmpPath,
+        env=Env,
+        capture_output=True,
+        check=True,
+        timeout=60,
+    )
+    assert abs(LoadJson(Replay.stdout)["volumeCm3"] - 49.565153302270765) < 1e-9
+    Refusal = RunProcess(
+        [PythonPath, str(Reader), str(Folder / "AuthoredSphere.smb")],
+        cwd=TmpPath,
+        env=Env,
+        capture_output=True,
+        timeout=60,
+    )
+    assert Refusal.returncode != 0

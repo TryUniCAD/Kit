@@ -43,7 +43,8 @@ def identify_file(data):
     return "unknown", ""
 
 
-def raw_scope(data, path, pin, application, root):
+def raw_scope(data, path, pin, application, root, scratch):
+    patch = None
     report = {"status": "unidentified", "size": len(data)}
     if application == "asm":
         from convert.Formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.ReadPrismSnap import (
@@ -79,6 +80,14 @@ def raw_scope(data, path, pin, application, root):
             if report["profile"] == "PrismSnapshot":
                 report["native_witness"] = prism_witness(root, data, pin, model)
             break
+        else:
+            from InferenceGrid.RoundReader import round_reader
+            candidate, reason, patch = round_reader(root, data, pin, scratch)
+            if candidate is None:
+                report["readers"]["round_surface"] = {"status": "refused", "reason": reason}
+            else:
+                report["readers"]["round_surface"] = {"status": "decoded"}
+                report.update(candidate)
     else:
         report["length_prefix_candidates"] = frame_candidates(data)
     audit = {
@@ -95,7 +104,7 @@ def raw_scope(data, path, pin, application, root):
     }
     return {application: {"catalogue_sha256": pin, "features": {}}}, (
         audit,
-        {"raw-structure": report},
+        {"raw-structure": report, **({"reader-patch": patch} if patch else {})},
     )
 
 
