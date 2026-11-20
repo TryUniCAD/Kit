@@ -1,0 +1,57 @@
+import json as JsonCodec
+import tempfile as TempFiles
+from pathlib import Path as FilePath
+
+from tests.Research.FusionChecks import VerifyControl
+from tests.Research.FusionClient import KArchiveAsset, KControlAsset, RunFusionReader
+from interchange.document.Models.DocumentModel import CadDocument
+
+
+# the normal reader invocation must produce a reproducible result for the pinned control
+def CheckFusionFlow() -> None:
+    with TempFiles.TemporaryDirectory() as TempPath:
+        TargetPath = FilePath(TempPath) / "Decoded"
+        ArgumentList = ["--asset", KControlAsset, "--output", str(TargetPath)]
+        ResultInfo = RunFusionReader(ArgumentList)
+        assert ResultInfo.returncode == 0, ResultInfo.stderr
+        Summary = JsonCodec.loads((TargetPath / "summary.json").read_text())
+        assert JsonCodec.loads(ResultInfo.stdout)["counts"] == Summary["counts"]
+        assert Summary["counts"]["strict"] == 1
+        assert Summary["counts"]["partial"] == 0
+        assert Summary["allow_partial"] is False
+        assert Summary["portable_complete"] is False
+        Entry = Summary["assets"][0]
+        assert Entry["path"] == KControlAsset
+        assert Entry["outcome"] == "decoded"
+        assert Entry["reader_mode"] == "strict"
+        Document = CadDocument.from_json(
+            (TargetPath / Entry["directory"] / "document.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        assert Document.metadata["kit.research_read_status"] == "unqualified"
+        VerifyControl(TargetPath, Entry)
+        PriorData = (TargetPath / "summary.json").read_bytes()
+        ResultInfo = RunFusionReader(ArgumentList)
+        assert ResultInfo.returncode == 1
+        assert (TargetPath / "summary.json").read_bytes() == PriorData
+
+
+# assembly archives must fail explicitly because they lie outside the part reader contract
+def CheckArchive() -> None:
+    with TempFiles.TemporaryDirectory() as TempPath:
+        TargetPath = FilePath(TempPath) / "Rejected"
+        ResultInfo = RunFusionReader(
+            ["--asset", KArchiveAsset, "--output", str(TargetPath)]
+        )
+        assert ResultInfo.returncode == 3, ResultInfo.stderr
+        Summary = JsonCodec.loads((TargetPath / "summary.json").read_text())
+        Entry = Summary["assets"][0]
+        assert Entry["path"] == KArchiveAsset
+        assert Entry["outcome"] in ("rejected", "reader_error")
+        assert Entry["reason"]
+        assert "directory" not in Entry
+        assert Summary["counts"]["decoded"] == 0
+        assert [EntryPath.name for EntryPath in TargetPath.iterdir()] == [
+            "summary.json"
+        ]

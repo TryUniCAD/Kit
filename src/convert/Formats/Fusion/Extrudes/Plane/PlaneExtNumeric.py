@@ -1,7 +1,5 @@
-from convert.Formats.Fusion.Extrudes.ExtrudeBinding import (
-    CheckExtBinding,
-    KExtrudeCache,
-)
+from convert.Formats.Fusion.Extrudes.ExtCacheOwner import KExtrudeCache
+from convert.Formats.Fusion.Extrudes.ExtrudeBinding import CheckExtBinding
 from convert.Formats.Fusion.Extrudes.Plane.PlaneExtFields import PlaneExtFields
 from convert.Formats.Fusion.HistoryRef import ReadNativeRef
 from convert.Formats.Fusion.ParamProjection import ParamQuantity

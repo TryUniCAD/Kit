@@ -12,11 +12,20 @@ from convert.adapters.Fusion.Native.Graph.GraphValues import (
     PointCoords,
 )
 from convert.adapters.Fusion.Native.Graph.NativeGraph import NativeGraph
+from convert.adapters.Fusion.Native.DatumPrism.ReadDatumFrame import KYzMatrix
+from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.adapters.Fusion.Native.Graph.SketchContexts import KSketchContexts
+from convert.adapters.Fusion.Native.Rectangle.RectSketchProof import RectSketchProof
 
 
 # invalid placement input must fail here so public document claims remain grounded in native records
-def CheckPlacement(Graph: NativeGraph, Context: KSketchContexts) -> None:
+def CheckPlacement(
+    Graph: NativeGraph,
+    Context: KSketchContexts,
+    Dimension: NativeNode | None = None,
+    Rectangle: RectSketchProof | None = None,
+    YzDatum: bool = False,
+) -> None:
     Instance = Graph.OneClass("ComponentInstance")
     if Graph.Resolve(Instance.Fields["rTargetComponent"]) != Context.Component:
         raise ValueError("Native root instance targets another component")
@@ -35,7 +44,10 @@ def CheckPlacement(Graph: NativeGraph, Context: KSketchContexts) -> None:
             "subType": 0,
         },
     )
-    CheckIdentity(Context.Plane.Fields["transform"])
+    if YzDatum:
+        RequireFields(Context.Plane, {"transform": KYzMatrix})
+    else:
+        CheckIdentity(Context.Plane.Fields["transform"])
     CheckIdentity(Context.Sketch.Fields["occurrenceTransform"])
     RequireFields(
         Context.Sketch,
@@ -46,11 +58,10 @@ def CheckPlacement(Graph: NativeGraph, Context: KSketchContexts) -> None:
             "rOwningDeriveFeature": None,
         },
     )
-    EmptyFields(Context.Sketch, ("constraints", "dimensions", "offsets"))
+    CheckSketchRefs(Graph, Context, Dimension, Rectangle)
     EmptyFields(
         Context.SketchFeature,
         (
-            "dcParameters",
             "meshSections",
             "sketchIsoCurves",
             "sketchProjects",
@@ -59,10 +70,41 @@ def CheckPlacement(Graph: NativeGraph, Context: KSketchContexts) -> None:
     )
     if Graph.Resolve(Context.Sketch.Fields["rDcNode"]) != Context.SketchFeature:
         raise ValueError("Native sketch feature link is not reciprocal")
+    CheckMatrix(Graph, Context, YzDatum)
+
+
+# the constrained rectangle may carry only the rules and bindings already proved against its geometry
+def CheckSketchRefs(
+    Graph: NativeGraph,
+    Context: KSketchContexts,
+    Dimension: NativeNode | None,
+    Rectangle: RectSketchProof | None,
+) -> None:
+    EmptyFields(Context.Sketch, ("offsets",))
+    if Rectangle is None:
+        EmptyFields(Context.Sketch, ("constraints",))
+        if Dimension is None:
+            EmptyFields(Context.Sketch, ("dimensions",))
+            EmptyFields(Context.SketchFeature, ("dcParameters",))
+        return
+    SameNodes(LinkedNodes(Graph, Context.Sketch, "constraints"), Rectangle.Rules)
+    SameNodes(LinkedNodes(Graph, Context.Sketch, "dimensions"), Rectangle.Dimensions)
+    SameNodes(
+        LinkedNodes(Graph, Context.SketchFeature, "dcParameters"), Rectangle.Bindings
+    )
+
+
+# the native sketch matrix and its unique plane recipe must agree with the xy frame
+def CheckMatrix(
+    Graph: NativeGraph, Context: KSketchContexts, YzDatum: bool = False
+) -> None:
     Matrix = ResolveField(
         Graph, Context.SketchFeature, "rSketchPlaneMatrix", "DRMatrix"
     )
-    CheckIdentity(Matrix.Fields["matrix3d"])
+    if YzDatum:
+        RequireFields(Matrix, {"matrix3d": KYzMatrix})
+    else:
+        CheckIdentity(Matrix.Fields["matrix3d"])
     RequireFields(
         Matrix,
         {
@@ -90,5 +132,11 @@ def CheckPlacement(Graph: NativeGraph, Context: KSketchContexts) -> None:
     PlaneNode = Graph.ResolveId(Recipe.Fields["m_entityId"])
     PlaneFields = ObjectFields(PlaneNode.Fields["plane"])
     SameNumbers(PointCoords(PlaneFields["origin"]), (0.0, 0.0, 0.0))
-    SameNumbers(PointCoords(PlaneFields["uAxis"]), (1.0, 0.0, 0.0))
-    SameNumbers(PointCoords(PlaneFields["vAxis"]), (0.0, 1.0, 0.0))
+    SameNumbers(
+        PointCoords(PlaneFields["uAxis"]),
+        (0.0, 1.0, 0.0) if YzDatum else (1.0, 0.0, 0.0),
+    )
+    SameNumbers(
+        PointCoords(PlaneFields["vAxis"]),
+        (0.0, 0.0, 1.0) if YzDatum else (0.0, 1.0, 0.0),
+    )

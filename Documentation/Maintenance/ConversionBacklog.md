@@ -46,7 +46,7 @@ Availability is a dated observation, not a permanent reservation.
 | B06 | Ordinary part histories and schema coverage            | Planned   | PR #94 register: A16; child owners unassigned         | B05 and feature-specific evidence            | Qualified sketches, constraints, expressions, cuts, revolutions, finishing operations, patterns and geometry pass held-out route acceptance.          |
 | B07 | Complete assembly, configuration and drawing semantics | Planned   | PR #94 register: A16; coordinate drawing PRs          | B06 and independent native controls          | Supported documents preserve all occurrences, mates, variants, dependencies, drawing dimensions and links through edit/rebuild and reopen.            |
 | B08 | Integrate existing native-format and evidence work     | Active    | Each existing PR below owns its scoped delivery       | Each PR's implementation and gates           | Accepted implementations are integrated without reviving donor writers. Their exact capability limits enter B01 and B12.                              |
-| B09 | Remaining CAD family adapters                          | Planned   | PR #94 register: A16; coordinate PRs #115–#117        | B01, B05 and family-specific grammar         | All nine roadmap families have qualified native reads and independent writes for their declared version scope.                                        |
+| B09 | Remaining CAD family adapters                          | Planned   | PR #94 register: A16 child claims                     | B01, B05 and family-specific grammar         | All nine roadmap families have qualified native reads and independent writes for their declared version scope.                                        |
 | B10 | CLI workflow and error usability                       | Available | Unassigned; separate scoped PR                        | Existing CLI and documented supported cases  | Representative users install, select formats, convert, inspect results and recover from refusal without undocumented assistance.                      |
 | B11 | Documentation accuracy, accessibility and evaluation   | Available | Unassigned; separate scoped PR                        | Current public contracts                     | Task guides match source and support limits. Rendered/narrow-view and representative-user findings are resolved or recorded explicitly.               |
 | B12 | Directional conversion acceptance matrix               | Planned   | Unassigned release owner; reuse PR #94's A13 evidence | B01 and each supported route                 | Every promised direction/version passes all CAD criteria on independent cases. Unsupported combinations refuse before output mutation.                |
@@ -221,6 +221,17 @@ Complete configuration admission and the property owner's physical
 link remain separate work.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
+### B04-SW2026-CONFIG-LW-MATERIAL
+
+The PR #121 takeover team owns the ordinary material and model-data
+read slice on `codex/solidworks-config-material-owners`. It uses
+the accepted part header handoff and lightweight node grammar.
+Exit requires both measured suffixes and map identities, guarded
+authored contrasts and refusals, and current revision review and queue
+evidence. Complete configuration admission and material assignment
+retain separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
+
 ### B04-SW2026-CONFIG-CACHES
 
 The PR #121 takeover team owns the bounded part cache reader on
@@ -241,6 +252,16 @@ manager and producer identities, guarded signed state and rejection
 cases, and current revision queue and review evidence. Inline bodies,
 handle modes and full configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
+
+### B04-SW2026-CONFIG-FONT-FIELDS
+
+The PR #121 takeover team owns this bounded reader on
+`codex/solidworks-config-annotation-font` for separate main delivery.
+It reuses the accepted scalar, text and embedded field readers and the
+part header handoff. Exit requires exact native field and map comparisons,
+guarded malformed cases and current revision queue and review evidence.
+The composed label, annotation and detail definitions have separate exits.
+[Change entry](../Changes/Solidworks/Archive/SolidworksConfigFontFields.md)
 
 ### B08-SW2026-TERMINAL-FIN
 
@@ -276,9 +297,8 @@ This is B07 expansion work within PR #94's broad plan, not a completed or active
 
 ### Other native formats
 
-NX, Creo and CATIA already have open implementation PRs.
-Their containers, retained payloads and bounded geometry work do not establish arbitrary parametric conversion.
-Coordinate B08/B09 with those PRs before adding another adapter effort.
+The NX, CATIA and Creo implementation PRs closed without merging on 2026-11-16.
+Their work on containers, retained payloads and bounded geometry remains research evidence for scoped A16 child claims. Each claimed route requires independent native acceptance after A13 and A15. [NX #115](https://github.com/TryUniCAD/Kit/pull/115), [CATIA #116](https://github.com/TryUniCAD/Kit/pull/116), [Creo #117](https://github.com/TryUniCAD/Kit/pull/117)
 Rhino, standalone AutoCAD and Parashell have no matching implementation PR in the inspected inventory.
 They still belong to the broader A16 expansion scope and require explicit child claims.
 

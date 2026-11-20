@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from pathlib import Path as FilePath
 
+from convert.adapters.freecad.NativeParameters.RecoverAlias import RecoverAlias
 from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
 from convert.adapters.freecad.Replay.OuterState import OuterState
 from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
@@ -59,6 +60,7 @@ def ReadNativeArc(
     DocValue, Children, HasUnresolved = DecodeDoc(
         DataValue, SourcePath, ActiveState, OuterDepth, LegacyVisibility
     )
+    DocValue = RecoverAlias(DocValue)
     if RecordReplay and not LegacyVisibility:
         return AnnotateNative(DocValue)
     if ReadScope is not None:

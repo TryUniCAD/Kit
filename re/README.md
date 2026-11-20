@@ -15,6 +15,8 @@ notes.
 `Methodology.md` is the short history of how SOLIDWORKS was cracked; where it and the playbook
 differ, the playbook wins. The existing SOLIDWORKS directories provide the worked example both were
 distilled from. `Fusion/` preserves a separate native-file study and its original commit history.
+The [automation plan](../Documentation/Reference/Research/AutomationPlan.md) defines the neutral-first research pipeline.
+The [implementation steps](../Documentation/Reference/Research/AutomationSteps.md) track ownership, dependencies and evidence.
 
 ## Research inputs
 
