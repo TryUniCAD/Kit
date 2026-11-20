@@ -66,7 +66,7 @@ def ReadRun(Directory, SourceRoot, Format):
 # accepted submissions are reused directly rather than submitted a second time
 def ReadSubmissions(Directory, Plan):
     Submissions, Results = {}, {}
-    for Index, Scope in enumerate(Plan["scopes"], 1):
+    for Index, Scope in enumerate(Plan.get("scope_order", Plan["scopes"]), 1):
         Entry = read_record(Directory / f"Submission{Index}.json")
         if Entry["scope"] != Scope or (Entry["receipt"] is None) == (
             Entry["failure"] is None

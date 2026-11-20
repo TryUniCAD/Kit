@@ -118,6 +118,7 @@ def main():
     parser.add_argument("--manifest", type=Path, default=Path(__file__).with_name("Corpus.json"))
     parser.add_argument("--asset", required=True)
     parser.add_argument("--configuration")
+    parser.add_argument("--native-verify", action="store_true")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     try:
@@ -126,7 +127,14 @@ def main():
         if args.configuration is not None and not 1 <= len(args.configuration) <= 256:
             raise ValueError("configuration must contain 1–256 characters")
         result = decode(args.root.resolve(), args.manifest, args.asset, args.configuration, args.output)
+        if args.native_verify:
+            from NativeAcceptance.ReaderBatch import VerifyReader
+
+            verification = VerifyReader(args.root.resolve(), "solidworks", args.output)
+            result["native_verification"] = {key: verification[key] for key in ("status", "action") if key in verification}
         print(json.dumps(result, sort_keys=True))
+        if args.native_verify and verification["status"] != "passed":
+            return 4 if verification["status"] == "api_unavailable" else 5
         return 0
     except (OSError, ValueError, KeyError, TypeError, RecursionError, subprocess.SubprocessError) as error:
         print(json.dumps({"error": str(error)[:2048], "portable_complete": False}, sort_keys=True), file=sys.stderr)

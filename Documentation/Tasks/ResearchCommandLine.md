@@ -64,6 +64,20 @@ Use `kit research --root /path/to/KitPr94 fusion --help` for the authoritative r
 Expected result: the existing reader publishes its normal artifacts or reports its existing failure.
 Successful receipts do not establish portable completeness or native conversion acceptance.
 
+The installed CLI automatically requests native API verification after decoding.
+Read `NativeVerification.json` for the application observations and case comparisons.
+An unavailable API returns status `4` with instructions for the local machine.
+Failed or invalid native verification returns status `5`.
+Fusion decoding failures retain status `3`.
+The original decoding artifacts remain available after a verification failure.
+
+For SOLIDWORKS, use Windows with its licensed registered COM API and `pywin32` in Kit's Python environment.
+For Fusion, run `kit research --root /path/to/KitPr94 api enable fusion`.
+Enable KitVerify and **Run on Startup** in Fusion **Scripts and Add-Ins**, then close Fusion.
+Kit starts fresh verification sessions automatically.
+Close existing vendor sessions before verification.
+See [automatic native reader verification](../Changes/Research/Automation/AutomaticNativeReaderVerification.md) for checks, scope, and current limitations.
+
 ## Manage durable research jobs
 
 The corpus and controller retain their existing commands:
@@ -143,11 +157,13 @@ Use `--reserved-memory-mib 1024` to reserve 1 GiB, or `--reserved-memory-mib 0` 
 An explicit value applies to every supervisor stage started by this batch.
 Kit still requires enough available memory for each worker's estimated demand.
 
-Kit automatically runs independent offline jobs in parallel when memory and CPU are available.
+Kit runs mapped scopes sequentially in prerequisite order.
+Each scope's assessment depends on all jobs from the preceding scope.
+Kit automatically runs independent offline jobs within a scope in parallel when memory and CPU are available.
 Small compatible rescans can share one worker process in groups of up to four files.
 Each file retains its own result and receipt.
 Use `--workers N` to cap the number of offline workers.
-Set `--workers 1` for a serial offline run. Native CAD workers follow their own supervisor configuration.
+Set `--workers 1` for a serial offline run. Native capture workers follow their own supervisor configuration.
 
 With a configured native worker, a reviewed capture can start while independent offline jobs run.
 The capture still needs its prerequisite assessment and a licensed application session.
@@ -157,6 +173,9 @@ See the [catalogue native handoff](../Changes/Research/Controller/DeterministicI
 Kit shows active workers, queued jobs, and waits in the terminal while it runs.
 Progress uses standard error. The final JSON remains on standard output.
 Read `CatalogueResult.json` for completed and blocked entries. Exit status 2 means coverage remains incomplete.
+The catalogue also batches completed rescan inputs through the locally available vendor API.
+Read its `native_verification` field and the separate application reports.
+Missing API access prevents the whole catalogue from reporting completion.
 Read `State/decoder-advice/<receipt>/Advice.json` for suggestions produced during the offline batch stage.
 A suggestion requires an independently checked experiment before it can become a decoder rule.
 Use `kit run --root . fusion --help` for all options.
