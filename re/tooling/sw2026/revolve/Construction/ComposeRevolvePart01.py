@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from math import degrees
 
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import SetCfgStampMut
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordConfig import KeywordConfig
@@ -78,7 +78,7 @@ def make_candidate(document, settings):
     streams = {'Header2': WriteHeadGraph(headers[1], 19000),
         'Contents/Config-0-ModelHeader': WriteHeadGraph(headers[0], 19000),
         'Contents/Config-0': config_bytes, 'Contents/CMgr': WriteCmgrMut(system.ManagerValue, 19000),
-        'Contents/CMgrHdr2': WriteMgrHdrMut(headers[2], 19000)[0],
+        'Contents/CMgrHdr2': WriteMgrHeader(headers[2], 19000)[0],
         KResolvedFeaturesStream: resolved_bytes,
         'Contents/Definition': WriteModelDef(definition).OutputValue,
         '_MO_VERSION_19000/Biography': WriteHistMut(MakeBiography(), 19000)[0],

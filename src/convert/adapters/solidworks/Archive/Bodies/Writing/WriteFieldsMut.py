@@ -1,10 +1,10 @@
-from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from struct import error as StructError
 
+from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
-from convert.adapters.solidworks.Archive.Bodies.Writing.WriteFieldMut import (
-    WriteFieldMut,
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteActions import (
+    KWriteActions,
 )
 
 
@@ -15,7 +15,12 @@ def WriteFieldsMut(FrameValue: WriteFrame, RulesValue: tuple[NativeField, ...]) 
         UsageValue.FieldCalls[RuleValue.KindValue] += 1
         UsageValue.FieldPath.append(RuleValue.NameValue or RuleValue.KindValue)
         try:
-            WriteFieldMut(FrameValue, RuleValue)
+            Handler = KWriteActions.get(RuleValue.KindValue)
+            if Handler is None:
+                raise BodyUnsupported(
+                    f"unsupported SOLIDWORKS native field path {RuleValue.NameValue}"
+                )
+            Handler(FrameValue, RuleValue)
         except BodyUnsupported:
             raise
         except (TypeError, ValueError, KeyError, StructError) as ErrorInfo:

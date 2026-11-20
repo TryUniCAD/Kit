@@ -225,11 +225,11 @@ def owners(link, named):
 def roundtrip(archive, link):
     from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
     from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import (
-        ReadMgrHdrMut,
+    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import (
+        ReadMgrHeader,
     )
-    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import (
-        WriteMgrHdrMut,
+    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import (
+        WriteMgrHeader,
     )
     from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
     from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import (
@@ -252,7 +252,7 @@ def roundtrip(archive, link):
         link.ResolvedValue.ContextValue,
     )
     manager = ReadCmgrMut(streams["Contents/CMgr"], 19000)
-    header = ReadMgrHdrMut(streams["Contents/CMgrHdr2"], 19000)
+    header = ReadMgrHeader(streams["Contents/CMgrHdr2"], 19000)
     output = {
         "Contents/Config-0": config,
         link.StreamName: resolved,
@@ -261,7 +261,7 @@ def roundtrip(archive, link):
         ),
         "Header2": WriteHeadGraph(ReadHeaderGraph(streams["Header2"], 19000), 19000),
         "Contents/CMgr": WriteCmgrMut(manager.RootValue, 19000),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(header.RootValue, 19000)[0],
+        "Contents/CMgrHdr2": WriteMgrHeader(header.RootValue, 19000)[0],
     }
     require(
         all(output[name] == streams[name] for name in output),

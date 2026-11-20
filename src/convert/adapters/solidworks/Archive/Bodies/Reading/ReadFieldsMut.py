@@ -1,7 +1,7 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
-from convert.adapters.solidworks.Archive.Bodies.Reading.ReadFieldMut import ReadFieldMut
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadActions import KReadActions
 
 
 # failures need the actual native schema and field path before traversal unwinds
@@ -11,7 +11,12 @@ def ReadFieldsMut(FrameValue: ReadFrame, RulesValue: tuple[NativeField, ...]) ->
         UsageValue.FieldCalls[RuleValue.KindValue] += 1
         UsageValue.FieldPath.append(RuleValue.NameValue or RuleValue.KindValue)
         try:
-            ReadFieldMut(FrameValue, RuleValue)
+            Handler = KReadActions.get(RuleValue.KindValue)
+            if Handler is None:
+                raise BodyUnsupported(
+                    f"unsupported SOLIDWORKS native field path {RuleValue.NameValue}"
+                )
+            Handler(FrameValue, RuleValue)
         except BodyUnsupported:
             raise
         except (TypeError, ValueError, KeyError) as ErrorInfo:

@@ -53,8 +53,8 @@ def main():
     sys.path.insert(0, str(args.sdk / "src"))
     from convert.adapters.solidworks.Container.Container import SldprtArchive
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
-    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
     from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
     from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
     from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
@@ -168,8 +168,8 @@ def main():
             references.append({"class": value.ClassValue.NameValue, "target_id": identifier, "actual_creation_event": target["f08"], "expected_first_log_event": expected, "matches_first_event": target["f08"] == expected})
         core = fromstring(archive.require("docProps/core.xml"))
         core_clocks = {child.tag: child.text for child in core if child.tag in ("{http://purl.org/dc/terms/}created", "{http://purl.org/dc/terms/}modified")}
-        manager = ReadMgrHdrMut(archive.require("Contents/CMgrHdr2"), 19000).RootValue
-        require(WriteMgrHdrMut(manager, 19000)[0] == archive.require("Contents/CMgrHdr2"), "manager save owner does not round trip")
+        manager = ReadMgrHeader(archive.require("Contents/CMgrHdr2"), 19000).RootValue
+        require(WriteMgrHeader(manager, 19000)[0] == archive.require("Contents/CMgrHdr2"), "manager save owner does not round trip")
         for header in headers:
             header["computed_latest_tail_event"] = max((log["events"][-1]["epoch"] for log in header["logs"] if log["events"]), default=None)
             require(header["clock_owners"]["f70"] == header["self"]["creation_epoch"], "source self creation and actual header identity disagree")

@@ -1,19 +1,14 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.ObListFields import (
+    KObListFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # native field order is shared by both archive directions without document supplied programs
 KContainerFields = MappingProxyType(
     {
-        "suObList": (
-            NativeField(
-                "Array",
-                "items",
-                "Count",
-                BodyValue=(NativeField("Node", "o"),),
-                CountValue="n",
-            ),
-        ),
+        "suObList": KObListFields,
         "su_CDWordArray": (
             NativeField(
                 "Array",

@@ -22,7 +22,7 @@ def main():
     from convert import open_document
     from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
     from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
-    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
+    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
     from convert.adapters.solidworks.Container.Container import SldprtArchive
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
     from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
@@ -74,7 +74,7 @@ def main():
             require(shared["h10"].FieldsValue["value"].TextValue == model_name and shared["h18"].FieldsValue["value"].TextValue == row["output_path"], "target path replaced or conflated the actual model name")
             require(shared["f28"] == fields["f70"] == candidate["clocks"].CreatedAt and self_fields["f60"] == candidate["input"].OutputValue.SavedAt, "file identity borrowed an unrelated event clock")
             identities.append({"stream": name, "actual_model_name": model_name, "output_stem": output_stem, "path_utf8_sha256": sha256(row["output_path"].encode()).hexdigest(), "self_creation": shared["f28"], "self_save": self_fields["f60"]})
-        manager_save = ReadMgrHdrMut(archive.require("Contents/CMgrHdr2"), 19000).RootValue.FieldsValue["f60"]
+        manager_save = ReadMgrHeader(archive.require("Contents/CMgrHdr2"), 19000).RootValue.FieldsValue["f60"]
         require(manager_save == candidate["input"].OutputValue.SavedAt, "existing admitted manager save policy changed")
         loaded = open_document(candidate["bytes"], source_format="solidworks.sldprt", strict=True)
         before = open_document(baseline["bytes"], source_format="solidworks.sldprt", strict=True)

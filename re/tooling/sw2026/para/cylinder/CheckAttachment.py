@@ -9,7 +9,7 @@ import sys
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
@@ -50,7 +50,7 @@ def readback(attached, earlier):
     assert tag == atom.FieldsValue["f180"] == atom.FieldsValue["f1b0"] == attached.body_tag
     assert ReadBodyScalar(nodes, attrs, "ENT_TIME_STAMP_2001", 1) == signed_dword(link.ConfigValue.HeaderValue.FieldsValue["f44"])
     manager = ReadCmgrMut(archive.require("Contents/CMgr"), 19000).RootValue
-    manager_header = ReadMgrHdrMut(archive.require("Contents/CMgrHdr2"), 19000).RootValue
+    manager_header = ReadMgrHeader(archive.require("Contents/CMgrHdr2"), 19000).RootValue
     config_header = manager_header.FieldsValue["f08"]["items"][0]["o"].FieldsValue
     assert config_header["f38"] == manager.FieldsValue["f360"].FieldsValue["f860"] == link.ConfigValue.HeaderValue.FieldsValue["f40"]
     assert config_header["f50"] == model["f1300"]

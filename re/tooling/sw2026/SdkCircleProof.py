@@ -20,8 +20,8 @@ sys.addaudithook(AUDIT.InspectEvent)
 from SdkBlindPartChecks import name, node, require
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.MakeLinkContext import MakeLinkContext
 from convert.adapters.solidworks.Archive.Config.ReadConfigMut import ReadConfigMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
@@ -231,7 +231,7 @@ def prepare(authored):
         "Contents/Config-0-ModelHeader": WriteHeadGraph(header, 19000),
         "Contents/Config-0": config_bytes,
         "Contents/CMgr": WriteCmgrMut(cmgr.RootValue, 19000),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(ReadMgrHdrMut(streams["Contents/CMgrHdr2"], 19000).RootValue, 19000)[0],
+        "Contents/CMgrHdr2": WriteMgrHeader(ReadMgrHeader(streams["Contents/CMgrHdr2"], 19000).RootValue, 19000)[0],
         "Contents/Config-0-ResolvedFeatures": WriteResolMut(resolved.RootsValue, resolved.ExtraFields, 19000, repeated.MapValue, context)[0],
         "Contents/Definition": WriteModelDef(ReadModelDef(streams["Contents/Definition"], 19000).GraphValue).OutputValue,
         "swXmlContents/KeyWords": FrameKeywords(keywords, False),

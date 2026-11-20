@@ -30,8 +30,8 @@ def main():
     from convert.adapters.registry.RegistryErrors import NotFoundError
     from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
     from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
     from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
     from convert.adapters.solidworks.Archive.Construction.Metadata.FrameKeywords import FrameKeywords
     from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
@@ -167,7 +167,7 @@ def main():
             for name in ('Header2', 'Contents/Config-0-ModelHeader'):
                 stream_checks[name] = WriteHeadGraph(ReadHeaderGraph(archive.require(name), 19000), 19000) == archive.require(name)
             stream_checks['Contents/CMgr'] = WriteCmgrMut(ReadCmgrMut(archive.require('Contents/CMgr'), 19000).RootValue, 19000) == archive.require('Contents/CMgr')
-            stream_checks['Contents/CMgrHdr2'] = WriteMgrHdrMut(ReadMgrHdrMut(archive.require('Contents/CMgrHdr2'), 19000).RootValue, 19000)[0] == archive.require('Contents/CMgrHdr2')
+            stream_checks['Contents/CMgrHdr2'] = WriteMgrHeader(ReadMgrHeader(archive.require('Contents/CMgrHdr2'), 19000).RootValue, 19000)[0] == archive.require('Contents/CMgrHdr2')
             stream_checks['Contents/Definition'] = WriteModelDef(ReadModelDef(archive.require('Contents/Definition'), 19000).GraphValue).OutputValue == archive.require('Contents/Definition')
             for name in ('_MO_VERSION_19000/Biography', '_MO_VERSION_19000/History'):
                 stream_checks[name] = WriteHistMut(ReadHistMut(archive.require(name), 19000).RootValue, 19000)[0] == archive.require(name)

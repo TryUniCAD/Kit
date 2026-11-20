@@ -4,8 +4,8 @@ from xml.etree.ElementTree import fromstring
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.Metadata.FrameKeywords import FrameKeywords
 from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
@@ -25,7 +25,7 @@ def stream_audit(archive, link):
     for name in ('Header2','Contents/Config-0-ModelHeader'):
         emitted[name] = WriteHeadGraph(ReadHeaderGraph(archive.require(name),19000),19000)
     emitted['Contents/CMgr'] = WriteCmgrMut(ReadCmgrMut(archive.require('Contents/CMgr'),19000).RootValue,19000)
-    emitted['Contents/CMgrHdr2'] = WriteMgrHdrMut(ReadMgrHdrMut(archive.require('Contents/CMgrHdr2'),19000).RootValue,19000)[0]
+    emitted['Contents/CMgrHdr2'] = WriteMgrHeader(ReadMgrHeader(archive.require('Contents/CMgrHdr2'),19000).RootValue,19000)[0]
     emitted['Contents/Definition'] = WriteModelDef(ReadModelDef(archive.require('Contents/Definition'),19000).GraphValue).OutputValue
     metadata = {}
     for name in ('_MO_VERSION_19000/Biography','_MO_VERSION_19000/History'):

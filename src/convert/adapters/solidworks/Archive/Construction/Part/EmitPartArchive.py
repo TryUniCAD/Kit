@@ -2,7 +2,7 @@ from collections.abc import MutableMapping
 from typing import cast as CastValue
 
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeBiography import (
@@ -62,7 +62,7 @@ def EmitPartArchive(
         "Contents/Config-0-ModelHeader": WriteHeadGraph(HeaderValue, 19000),
         "Contents/Config-0": ConfigBytes,
         "Contents/CMgr": WriteCmgrMut(SystemValue.ManagerValue, 19000),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(ManagerHeader, 19000)[0],
+        "Contents/CMgrHdr2": WriteMgrHeader(ManagerHeader, 19000)[0],
         KResolvedFeaturesStream: ResolvedBytes,
         "Contents/Definition": WriteModelDef(DefinitionValue).OutputValue,
         "_MO_VERSION_19000/Biography": WriteHistMut(MakeBiography(), 19000)[0],

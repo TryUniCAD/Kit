@@ -1,7 +1,7 @@
 from dataclasses import dataclass, replace
 
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.BodyScope.MakeStockAtom import MakeStockAtom
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import SetCfgStampMut
@@ -81,7 +81,7 @@ def attach_sdk_prism(candidate, session, feature_events, appearance, light, prev
         "Contents/Config-0-ModelHeader": WriteHeadGraph(candidate.HeaderValue, 19000),
         "Header2": WriteHeadGraph(candidate.TopHeader, 19000),
         "Contents/CMgr": WriteCmgrMut(cmgr, 19000),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(manager_header, 19000)[0],
+        "Contents/CMgrHdr2": WriteMgrHeader(manager_header, 19000)[0],
         KPartitionStream: prism.stream(),
     }
     attached = replace(candidate, ManagerHeader=manager_header, ConfigValue=config_graph,

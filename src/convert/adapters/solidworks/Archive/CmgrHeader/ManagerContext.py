@@ -2,6 +2,8 @@ from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.CmgrHeader.ManagerLayouts import (
     KManagerLayouts,
+)
+from convert.adapters.solidworks.Archive.CmgrHeader.ManagerSchemas import (
     KManagerSchemas,
 )
 

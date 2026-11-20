@@ -1,4 +1,4 @@
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyInput import (
     AssemblyInput,
 )
@@ -26,7 +26,7 @@ def MakeAsmCommon(
     return {
         "Header2": WriteHeadGraph(TopHeader, 19000),
         "Contents/Config-0-ModelHeader": WriteHeadGraph(HeaderValue, 19000),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(ManagerHeader, 19000)[0],
+        "Contents/CMgrHdr2": WriteMgrHeader(ManagerHeader, 19000)[0],
         "Contents/Definition": WriteModelDef(DefinitionValue).OutputValue,
         "_MO_VERSION_19000/Biography": WriteHistMut(MakeBiography(), 19000)[0],
         "_MO_VERSION_19000/History": WriteHistMut(

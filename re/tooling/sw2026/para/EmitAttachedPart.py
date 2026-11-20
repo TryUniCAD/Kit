@@ -1,7 +1,7 @@
 from dataclasses import replace
 
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeMgrHeader import (
     MakeMgrHeader,
@@ -38,7 +38,7 @@ def emit_attached_part(candidate, partition=None):
         "Contents/Config-0-ModelHeader": WriteHeadGraph(candidate.HeaderValue, 19000),
         "Header2": WriteHeadGraph(candidate.TopHeader, 19000),
         "Contents/CMgr": WriteCmgrMut(cmgr, 19000),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(manager_header, 19000)[0],
+        "Contents/CMgrHdr2": WriteMgrHeader(manager_header, 19000)[0],
     }
     if partition is not None:
         streams[KPartitionStream] = partition

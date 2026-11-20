@@ -21,8 +21,8 @@ sys.addaudithook(AUDIT.InspectEvent)
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.MakeLinkContext import MakeLinkContext
 from convert.adapters.solidworks.Archive.Config.ReadConfigMut import ReadConfigMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
@@ -79,7 +79,7 @@ def typed_readback(candidate, destination):
         referral = header.FieldsValue["f38"].FieldsValue
         path = referral["shared"]["h18"].FieldsValue["value"]
         require(path.TextValue == destination and referral["f60"] == REQUEST["written_at"], "native path or save event differs")
-    cmgr_header = ReadMgrHdrMut(streams["Contents/CMgrHdr2"], 19000)
+    cmgr_header = ReadMgrHeader(streams["Contents/CMgrHdr2"], 19000)
     require(cmgr_header.RootValue.FieldsValue["f60"] == REQUEST["written_at"], "typed manager save event differs")
     biography = ReadHistMut(streams["_MO_VERSION_19000/Biography"], 19000)
     history = ReadHistMut(streams["_MO_VERSION_19000/History"], 19000)
@@ -92,7 +92,7 @@ def typed_readback(candidate, destination):
         head_name: WriteHeadGraph(head, 19000),
         "Header2": WriteHeadGraph(top, 19000),
         "Contents/CMgr": WriteCmgrMut(manager.RootValue, 19000),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(cmgr_header.RootValue, 19000)[0],
+        "Contents/CMgrHdr2": WriteMgrHeader(cmgr_header.RootValue, 19000)[0],
         config_name: WriteConfigMut(config.RootValue, 19000, head)[0],
         resolved_name: WriteResolMut(resolved.RootsValue, resolved.ExtraFields, 19000, config.MapValue, context)[0],
         "Contents/Definition": WriteModelDef(definition.GraphValue).OutputValue,

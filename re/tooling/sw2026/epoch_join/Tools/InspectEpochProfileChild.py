@@ -70,7 +70,7 @@ def main():
     from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrInfo import ReadCmgrInfo
     from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
     from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrRows import ReadCmgrRows
-    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
+    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
     from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
     from convert.adapters.solidworks.Archive.History.ReadHistMut import ReadHistMut
     from convert.adapters.solidworks.Archive.History.WriteHistMut import WriteHistMut
@@ -367,7 +367,7 @@ def main():
                 for value in config_nodes
             ]
             child_model = linked.ConfigValue.RootValue
-            child_manager_header = ReadMgrHdrMut(child_archive.require("Contents/CMgrHdr2"), 19000)
+            child_manager_header = ReadMgrHeader(child_archive.require("Contents/CMgrHdr2"), 19000)
             row["child_clock_owners"] = {
                 "model_header": observe_header(linked.ConfigValue.HeaderValue, child_model),
                 "top_header": observe_header(ReadHeaderGraph(child_archive.require("Header2"), 19000), child_model),

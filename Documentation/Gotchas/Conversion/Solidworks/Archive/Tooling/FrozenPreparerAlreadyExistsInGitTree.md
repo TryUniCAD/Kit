@@ -10,4 +10,4 @@ Invoke the extracted preparer from the frozen tree. The host
 orchestrator supplies the nominated revision and the explicit
 creation event for the SDK recipe.
 
-[Frozen packet preparer](../../../../../re/tooling/sw2026/equations/PrepareWidthDepthSameLocator.py)
+[Frozen packet preparer](../../../../../../re/tooling/sw2026/equations/PrepareWidthDepthSameLocator.py)

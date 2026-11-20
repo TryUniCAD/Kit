@@ -21,8 +21,8 @@ from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.MakeLinkContext import MakeLinkContext
 from convert.adapters.solidworks.Archive.Config.ReadConfigMut import ReadConfigMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
@@ -126,8 +126,8 @@ def main():
     cmgr_usage = BodyUsage()
     cmgr_bytes = WriteCmgrMut(manager.RootValue, 19000, UsageValue=cmgr_usage)
     resolved_bytes, repeated_resolved = WriteResolMut(features, resolved.ExtraFields, 19000, repeated.MapValue, context)
-    mgr_header = ReadMgrHdrMut(buffers["Contents/CMgrHdr2"], 19000)
-    mgr_bytes, repeated_mgr = WriteMgrHdrMut(mgr_header.RootValue, 19000)
+    mgr_header = ReadMgrHeader(buffers["Contents/CMgrHdr2"], 19000)
+    mgr_bytes, repeated_mgr = WriteMgrHeader(mgr_header.RootValue, 19000)
     definition = ReadModelDef(buffers["Contents/Definition"], 19000)
     def_bytes = WriteModelDef(definition.GraphValue)
     bio = ReadHistMut(buffers["_MO_VERSION_19000/Biography"], 19000)

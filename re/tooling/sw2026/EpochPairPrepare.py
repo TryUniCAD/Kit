@@ -19,8 +19,8 @@ from OriginChildShape import inspect_child
 from OriginPairChecks import check_display
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Config.MakeLinkContext import MakeLinkContext
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
@@ -61,7 +61,7 @@ def main():
     model = concrete(child.ConfigValue.RootValue, "moPart_c")
     header = child.ConfigValue.HeaderValue
     top = ReadHeaderGraph(child_archive.require("Header2"), 19000)
-    manager = ReadMgrHdrMut(child_archive.require("Contents/CMgrHdr2"), 19000)
+    manager = ReadMgrHeader(child_archive.require("Contents/CMgrHdr2"), 19000)
     hist = history(child_archive)
     child_clocks = require_clocks(observe_header(header, model), hist, manager.RootValue, expected)
     top_clocks = require_clocks(observe_header(top, model), hist, manager.RootValue, expected)
@@ -75,7 +75,7 @@ def main():
         "Contents/Config-0": config_bytes,
         "Contents/Config-0-ResolvedFeatures": resolved_bytes,
         "Contents/CMgr": WriteCmgrMut(cmgr.RootValue, 19000),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(manager.RootValue, 19000)[0],
+        "Contents/CMgrHdr2": WriteMgrHeader(manager.RootValue, 19000)[0],
     }
     require(all(value == child_archive.require(name) for name, value in roundtrips.items()),
             "epoch child linked stream bytes or aliases changed")

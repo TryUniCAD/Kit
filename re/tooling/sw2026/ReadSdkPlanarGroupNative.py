@@ -44,8 +44,8 @@ def audit(root, path):
     sys.path.insert(0, str(root / "src"))
     from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
     from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
     from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
     from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
     from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
@@ -64,7 +64,7 @@ def audit(root, path):
     header = link.ConfigValue.HeaderValue
     manager = ReadCmgrMut(streams["Contents/CMgr"], 19000)
     config = manager.RootValue.FieldsValue["f360"]
-    mgr_header = ReadMgrHdrMut(streams["Contents/CMgrHdr2"], 19000)
+    mgr_header = ReadMgrHeader(streams["Contents/CMgrHdr2"], 19000)
     top = ReadHeaderGraph(streams["Header2"], 19000)
     result = {"input_sha256": digest(path), "model_class": model.ClassValue.NameValue, "configuration": ReadNodeName(config),
               "model_state": {key: scalar(model.FieldsValue[key]) for key in ("f08", "f1300", "f1560", "fd44", "fd48", "f1a18", "f1a20", "f7f8") if key in model.FieldsValue},
@@ -77,7 +77,7 @@ def audit(root, path):
     resolved_bytes, resolved = WriteResolMut(link.ResolvedValue.RootsValue, link.ResolvedValue.ExtraFields, 19000, stored.MapValue, link.ResolvedValue.ContextValue)
     actual.update({"Contents/Config-0": config_bytes, "Contents/Config-0-ResolvedFeatures": resolved_bytes,
                    "Contents/CMgr": WriteCmgrMut(manager.RootValue, 19000), "Header2": WriteHeadGraph(top, 19000),
-                   "Contents/Config-0-ModelHeader": WriteHeadGraph(header, 19000), "Contents/CMgrHdr2": WriteMgrHdrMut(mgr_header.RootValue, 19000)[0]})
+                   "Contents/Config-0-ModelHeader": WriteHeadGraph(header, 19000), "Contents/CMgrHdr2": WriteMgrHeader(mgr_header.RootValue, 19000)[0]})
     if model.ClassValue.NameValue == "moAssembly_c":
         refs = tuple(row["o"] for row in model.FieldsValue["f68"]["list"]["items"])
         result["occurrences"] = [{"name": ReadNodeName(node), **{key: scalar(node.FieldsValue[key]) for key in ("f08", "f3c0", "f3e0", "f3e8", "f3f0", "f3f4", "f3f8", "f400", "f408", "f360", "f370")}} for node in refs]

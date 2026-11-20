@@ -67,8 +67,8 @@ def main():
     from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
     from convert.adapters.solidworks.Archive.History.ReadHistMut import ReadHistMut
     from convert.adapters.solidworks.Archive.History.WriteHistMut import WriteHistMut
-    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+    from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+    from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
     from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
     from convert.adapters.solidworks.Container.Container import SldprtArchive
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
@@ -100,10 +100,10 @@ def main():
         model = concrete(child.ConfigValue.RootValue, "moPart_c")
         header = child.ConfigValue.HeaderValue
         top = ReadHeaderGraph(child_archive.require("Header2"), 19000)
-        manager = ReadMgrHdrMut(child_archive.require("Contents/CMgrHdr2"), 19000)
+        manager = ReadMgrHeader(child_archive.require("Contents/CMgrHdr2"), 19000)
         require(WriteHeadGraph(header, 19000) == child_archive.require("Contents/Config-0-ModelHeader")
                 and WriteHeadGraph(top, 19000) == child_archive.require("Header2")
-                and WriteMgrHdrMut(manager.RootValue, 19000)[0] == child_archive.require("Contents/CMgrHdr2"),
+                and WriteMgrHeader(manager.RootValue, 19000)[0] == child_archive.require("Contents/CMgrHdr2"),
                 "native clock header replay differs")
         drawing = ReadNamedDef(drawing_archive.require("Contents/Definition"), 19000, case["view"]["orientation"])
         require(WriteNamedDef(drawing.GraphValue).OutputValue == drawing_archive.require("Contents/Definition"),
