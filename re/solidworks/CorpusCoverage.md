@@ -102,8 +102,11 @@ exact centre comparison. The [supplemental centre check](measurements/2026/SdkEn
 binds both portable values to the same native point and passes all
 twelve reads and 24 linked streams. The [normal writer registration](measurements/2026/SdkCircleEndRegistration01.json)
 reproduces both native-measured generated hashes through path and stream
-writes and preserves the two previously admitted blind outputs. These
-are native SOLIDWORKS sources outside the FCStd corpus.
+writes and preserves the two previously admitted blind outputs. The
+[default strict reader](measurements/2026/SdkColdCircleEndReadback01.json)
+reconstructs both freshly generated solids from their actual typed
+drivers and signed stations without a geometry cache. These are native
+SOLIDWORKS sources outside the FCStd corpus.
 
 Two [sealed native imports](measurements/2026/SealedImportedLocalGeometryNative01.json)
 also pass geometry projection, generation and the full native lifecycle.

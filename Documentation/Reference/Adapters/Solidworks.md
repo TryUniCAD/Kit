@@ -97,7 +97,7 @@ The public SDK uses matching version-19000 feature nodes for native name, class 
 
 The strict part reader can reconstruct a neutral B-rep for a guarded version-19000 rectangular blind prism whose source omits the geometry-cache stream. The reader validates the complete typed feature history, plan, drivers and configuration before building the solid. Its `sldprt.brep_reconstructed` diagnostic identifies the computed geometry, and `brep_payloads` is empty. Parts with a native cache use its native payload decoder. [Typed prism reconstruction](../../Changes/Solidworks/Inspection/Parts/Geometry/SolidworksTypedPrismReconstruction.md)
 
-The default strict reader also reconstructs the two circle profiles already qualified by the public writer: a Front Plane diameter-driven forward blind boss, or a Top Plane radius-driven reversed blind boss. It validates the real circle, fixed centre, depth, support and complete ordinary system graph. The reconstruction diagnostic reports `native_kernel_identity=false`; neutral face IDs do not establish native mate references. [Strict circle geometry](../../Changes/Solidworks/Reading/Parts/SolidworksColdCircleGeometry.md)
+The default strict reader reconstructs the four qualified circle profiles without a saved geometry cache. It validates the actual circle, fixed centre, active depths, linked support and complete ordinary graph. The Right Plane mid-plane profile retains one total depth and the reversed Top Plane two-direction profile retains both signed depth owners. The reconstruction diagnostic reports `native_kernel_identity=false`. [Blind circle geometry](../../Changes/Solidworks/Reading/Parts/SolidworksColdCircleGeometry.md) · [Mid-plane and two-direction geometry](../../Changes/Solidworks/Inspection/Extrusions/SolidworksColdCircleEndReadback.md)
 
 For an ordinary cache-free prism with one actual output atom, the reader retains the atom's printable ASCII body name after validating its relationships and the computed B-rep. The name evidence reports `native_kernel_identity=false`. [Cache-free body names](../../Changes/Solidworks/Reading/Names/SolidworksCachelessBodyNames.md)
 
@@ -413,6 +413,20 @@ CI now rejects any recorded field program in `src`.
 The generative writers derive each emitted structure from known format rules.
 The container, archive, configuration manager, definition and resolved-feature codecs provide the shared construction model.
 Do not present a carrier or a mode label as a completed translation.
+
+### Writing a periodic imported solid
+
+Use `write_document(document, path)` with an ordinary `.SLDPRT` path
+and a geometry-only millimetre document. The qualified profile has one
+closed periodic cylinder and one active configuration. Two outward
+caps and their full circular rims share the signed mantle axis and
+retain the canonical linked seam ownership. The destination supplies
+the part name and the active configuration retains its authored name.
+The writer generates one native `Imported geometry` BaseBody and
+reports native B-rep and configuration transfers. Other geometry and
+requests carrying source identity or additional model content refuse
+before publication.
+[Periodic cylinder writer](../../Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
 
 ### Writing standalone blank drawings
 

@@ -1,0 +1,273 @@
+{
+  "before_reader_diagnosis": {
+    "default_error": "SLDPRT contains no readable Parasolid payload",
+    "exact_inputs_probed": [
+      "H03MidPlane",
+      "H04TwoDirections"
+    ],
+    "first_typed_refusal": "cache free circle is outside the qualified support driver and direction profiles",
+    "guard_sha256": "4ace0619beeadb878245b12840105624192e35e41166a11bf4a1c35558ba9787",
+    "sdk_commit": "6946388b8f8e5de5acc0e502ea75a8d17b21ffae"
+  },
+  "cases": {
+    "H03MidPlane": {
+      "authored_mode_near_miss_sha256": {
+        "direction": "d0c9367d437789778b368fb07bb04e6088c0e9e0e85057d05be3fe4af84c6715",
+        "driver": "61246919e5ed240205b929fcfd766781f75807e2fd01157c8ff511271144531c",
+        "support": "4a4f8ad6d6fc18a227e4fce6f11d822a035c974f240c628e5635c3270f125c0f"
+      },
+      "generated_cold_read": {
+        "area_mm2": 2084.3016469080844,
+        "axial_interval_mm": [
+          -16.9855,
+          16.9855
+        ],
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "body_id": "sldprt:body:1",
+        "body_label": "CurveBoss",
+        "boss_id": "sldprt:feature:20",
+        "bounds_mm": [
+          [
+            -16.9855,
+            -17.232,
+            -12.89
+          ],
+          [
+            16.9855,
+            -1.394000000000002,
+            2.9479999999999977
+          ]
+        ],
+        "bytes": 8361,
+        "cap_origins_mm": [
+          [
+            -16.9855,
+            -9.313,
+            -4.971000000000001
+          ],
+          [
+            16.9855,
+            -9.313,
+            -4.971000000000001
+          ]
+        ],
+        "centre_mm": [
+          4.971000000000001,
+          -9.313
+        ],
+        "cold_eligible": true,
+        "depth_owners": {
+          "D1": {
+            "dimension_id": 21,
+            "dimension_index": 181,
+            "length": 43,
+            "object_index": 182,
+            "offset": 9218,
+            "parameter_id": "sldprt:parameter:20:D1",
+            "slot": "f818.f18",
+            "value_mm": 33.971
+          }
+        },
+        "diameter_owner": {
+          "length": 66,
+          "object_index": 155,
+          "offset": 5793,
+          "parameter_id": "sldprt:parameter:18:D1",
+          "value_mm": 15.837999999999997
+        },
+        "edges": 2,
+        "faces": 3,
+        "native_payload_streams": [],
+        "radius_mm": 7.918999999999999,
+        "runtime_data_file_reads": 0,
+        "sha256": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+        "shells": 1,
+        "solids": 1,
+        "status": "analytic_cylinder",
+        "vertices": 2,
+        "volume_mm3": 6692.66196306875
+      },
+      "native_saved_derivative_sha256": {
+        "generated/edited-fresh-reopen": "616c9b11f0f0bb62f348369e134b8a7b9ae5f45cfd9fb86470f0d80166785ffc",
+        "generated/fresh-reopen": "dcf1c0c37e4d75eed691e55b146bc612438a00a61409ec32f79def91a6831668",
+        "generated/open-save": "0e8a031a3068466d5fad67b8670c35606ae6cbd851dfd2011c2b56bfa785a6c5",
+        "reference/edited-fresh-reopen": "d723064b16c0bf6e48f23cab6f6fa63a516da92be7e38e939cc17fef1c70b6f3",
+        "reference/fresh-reopen": "851772be8f65648505b35dd0d64742fe2ff7bc34eb3e07a40fa36e1bbb700116",
+        "reference/open-save": "bcbd5ea0ccb2ef440f508f0f82004b4b54cd8bf0e07b135753b1454aed7a62b2"
+      },
+      "request_sha256": "117c9de6f8db2f7dff7addf36d385c8ae17b0f6e9a4a9a56170f92105f42d168"
+    },
+    "H04TwoDirections": {
+      "authored_mode_near_miss_sha256": {
+        "direction": "de4dc352367913086dc58943b6323bf575a9492f0c2ef7857f495519d1367257",
+        "driver": "6c8c76c0f1cfb38a63338ebe7e7dd23b18592da23a0cca6ae663d3d55498df6c",
+        "support": "26234c0c565b5af1ed0d3840e09a480a18b4aecc1b0dcf99030c24f2dfb641ca"
+      },
+      "generated_cold_read": {
+        "area_mm2": 2931.1188074796005,
+        "axial_interval_mm": [
+          -21.389,
+          8.917
+        ],
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "body_id": "sldprt:body:1",
+        "body_label": "CurveBoss",
+        "boss_id": "sldprt:feature:20",
+        "bounds_mm": [
+          [
+            -17.424,
+            -21.389,
+            -19.954
+          ],
+          [
+            5.038,
+            8.917,
+            2.507999999999999
+          ]
+        ],
+        "bytes": 8392,
+        "cap_origins_mm": [
+          [
+            -6.193,
+            -21.389,
+            -8.723
+          ],
+          [
+            -6.193,
+            8.917,
+            -8.723
+          ]
+        ],
+        "centre_mm": [
+          -6.193,
+          8.723
+        ],
+        "cold_eligible": true,
+        "depth_owners": {
+          "D1": {
+            "dimension_id": 21,
+            "dimension_index": 181,
+            "length": 43,
+            "object_index": 182,
+            "offset": 9218,
+            "parameter_id": "sldprt:parameter:20:D1",
+            "slot": "f818.f18",
+            "value_mm": 21.389
+          },
+          "D2": {
+            "dimension_id": 22,
+            "dimension_index": 187,
+            "length": 43,
+            "object_index": 188,
+            "offset": 10801,
+            "parameter_id": "sldprt:parameter:20:D2",
+            "slot": "f818.f20",
+            "value_mm": 8.917
+          }
+        },
+        "diameter_owner": {
+          "length": 66,
+          "object_index": 155,
+          "offset": 5793,
+          "parameter_id": "sldprt:parameter:18:D1",
+          "value_mm": 22.462
+        },
+        "edges": 2,
+        "faces": 3,
+        "native_payload_streams": [],
+        "radius_mm": 11.231,
+        "runtime_data_file_reads": 0,
+        "sha256": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+        "shells": 1,
+        "solids": 1,
+        "status": "analytic_cylinder",
+        "vertices": 2,
+        "volume_mm3": 12009.235076848396
+      },
+      "native_saved_derivative_sha256": {
+        "generated/edited-fresh-reopen": "5aa46c24f9f8411b6b17149a4d2b0cdd1efee7785e16978664105f74b13b400f",
+        "generated/fresh-reopen": "805c2991aa4469e8325e4c571d2b450b6746e2a3f94f782f89362b41600278d2",
+        "generated/open-save": "d5b7d8971883166b52c5903866eab4988596ccbdf051a6c2f5ce87bbc9e5706a",
+        "reference/edited-fresh-reopen": "34dc5e58ad6f32abbcc5849c2d68137e7e21d9b8c6f5ef3b1d83e8a4a3a30dec",
+        "reference/fresh-reopen": "ab4c46a48e2946f2b3d7b00d02ae1bba3f4792dffdfe81316b80dc169815f3b6",
+        "reference/open-save": "559cf7932de58054cb355cef60631d6a8a8ba5735975bf75da3b3be98637d1df"
+      },
+      "request_sha256": "11e7e1bb7c7ed199e169695fbd1ec44771e4a9ff03c5da6a707306848c3a4949"
+    }
+  },
+  "counts": {
+    "authored_mode_near_miss_refusals": 6,
+    "existing_blind_positive_reads": 4,
+    "existing_legacy_full_document_hash_matches": 3,
+    "existing_malformed_archive_refusals": 12,
+    "fresh_default_strict_read_processes": 39,
+    "native_saved_derivative_cached_reads": 12,
+    "neutral_control_authoring_processes": 7,
+    "original_generated_analytic_solids": 2
+  },
+  "existing_route_controls": {
+    "blind_payloads_sha256": {
+      "Afterfront1": "84d10de57047dc4217fb3cf4c676c845a543b67c6caa86ef6232668ffe3e37ee",
+      "Aftertop1": "e63fe67e55f222ad6e48eb5ccb3c6c5c0d152b157856312f4061af16aac25590",
+      "Editfront": "d1f25312630f84c7fb6c74e59dcc7608d177b30ff841b552c29c7776905d3a3a",
+      "Edittop": "a66518f4fe461aa9c5b6bc5b7e06184d647d4fa1de6f1e1191a08b9e1a0ee410"
+    },
+    "legacy_complete_documents_sha256": {
+      "pocket": "8af93fd10cdad8736710d52011dbfa54683109aff7638026129543efc2ae0ebe",
+      "prism": "a4ef01446aa4570a5b971165a790b490ddd8d2d16f665c1a3b4df401748e8f50",
+      "revolve": "e55110d196c8d44e75aae26d758e5b29eea570649a5ed99d7aa406bb2e6a4606"
+    },
+    "previous_receipt_sha256": "d547bdbe3179275e989c1deffa2c1b95eca6925fa8b009afd8f49bb296183bdf",
+    "unchanged_malformed_case_names": [
+      "Rejectfrontdraft",
+      "Rejectfrontextra-parent",
+      "Rejectfrontinactive-length",
+      "Rejectfrontradius",
+      "Rejectfrontscope",
+      "Rejectfrontsupport",
+      "Rejecttopdraft",
+      "Rejecttopextra-parent",
+      "Rejecttopinactive-length",
+      "Rejecttopradius",
+      "Rejecttopscope",
+      "Rejecttopsupport"
+    ]
+  },
+  "frozen_input_manifest_sha256": "0d9655b482e7aa46f80ddc2a000fd597f6a869a55c481aa227e9b9b9c9b0e987",
+  "native_kernel_identity": false,
+  "native_processes_started": 0,
+  "native_save_observation": {
+    "all_partition_streams": [
+      "Contents/Config-0-Partition"
+    ],
+    "all_passed_default_strict": true,
+    "all_returned_brep": true,
+    "analytic_cold_path_used": false,
+    "payloads_per_document": 2
+  },
+  "original_source_inputs_opened": 0,
+  "paired_native_sha256": "e94dd631acd5942a53296f36b77d1c3bc8b321e8ba7fd725327c74ac4a12916c",
+  "paired_oracle_build": "SOLIDWORKS 2026 SP05.2 (34.5.2.0604)",
+  "paired_packet_sha256": "8f38fd02f84cd554342005cd2dd0457de879cd443e96d2721af05d770cbb0bdd",
+  "raw_process_result_sha256": "4081b974ea370c3593a207c29d71275a13677ca13600c92405daf7cf00dc1bb0",
+  "reader_guard_sha256": "2cef8567006d7477b653bfc772a302bbf8ac052ab69e3fcbc4ea00f9f5d701d4",
+  "runtime_data_file_reads": 0,
+  "schema": "kit.sw2026.cold-circle-end-read.receipt.v1",
+  "source_manifest_scope": "Python SDK source and four proof scripts before and after the same run",
+  "source_manifest_sha256": "908a05a20259e48dc3b8118f6911a9130cce62c18f7799afbe3c3dece884599c",
+  "status": "measured",
+  "tools_sha256": {
+    "ProbeColdCircleLegacy.py": "80966380eb9ba592da3ddd871dadfa925594aa1b6663f6e4a5c66e9466b05600",
+    "ProbeColdCircleRead.py": "05f1516b3a71b347d24c578f03a301e9a5b4799660c5a2e5c99ac4b3d09822a0",
+    "VerifySdkCircleEndRegistration.py": "b704b945b7f6bdcd39e8393a9e7bb38b54d5a25eab9aad50d16bc45f10514e47",
+    "VerifySdkColdCircleEnds.py": "c4e349c6fd42d023a6613ebd79c01688cf4ddba9caa201d3fa776ff873bc270c"
+  }
+}

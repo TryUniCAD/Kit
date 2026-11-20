@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis import (
+    ReadPrincAxis,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
     LocalCircle,
 )
@@ -6,7 +9,7 @@ from interchange.Features.FeatureExtrude import ExtrudeEnd
 from interchange.geometry.Models.Transform import Transform
 
 
-# the first cold circle route retains the two native qualified public writer profiles instead of accepting every finite analytic cylinder
+# signed circle intervals require a measured combination of support driver direction and active ends
 def CheckCircMode(
     OwnerValue: ExtrudeOwner, CircleValue: LocalCircle, FrameValue: Transform
 ) -> None:
@@ -15,13 +18,17 @@ def CheckCircMode(
         (Normal.x, Normal.y, Normal.z),
         CircleValue.ModeValue,
         OwnerValue.IsReversed,
+        OwnerValue.ModeValue,
+        OwnerValue.SecondValue is not None,
     )
-    if (
-        OwnerValue.ModeValue != ExtrudeEnd.KBlind
-        or OwnerValue.SecondValue is not None
-        or ProfileValue
-        not in {((0.0, 0.0, 1.0), "diameter", False), ((0.0, 1.0, 0.0), "radius", True)}
-    ):
+    if ProfileValue not in {
+        ((0.0, 0.0, 1.0), "diameter", False, ExtrudeEnd.KBlind, False),
+        ((0.0, 1.0, 0.0), "radius", True, ExtrudeEnd.KBlind, False),
+        ((1.0, 0.0, 0.0), "diameter", False, ExtrudeEnd.KMidPlane, False),
+        ((0.0, 1.0, 0.0), "diameter", True, ExtrudeEnd.KTwoLengths, True),
+    }:
         raise ValueError(
             "cache free circle is outside the qualified support driver and direction profiles"
         )
+    if OwnerValue.ModeValue != ExtrudeEnd.KBlind:
+        _ = ReadPrincAxis(FrameValue)
