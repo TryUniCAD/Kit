@@ -57,8 +57,9 @@ benchmark conversions.
 
 Two [sealed native imports](measurements/2026/SealedImportedLocalGeometryNative01.json)
 also pass geometry projection, generation and the full native lifecycle.
-The receipt records the omitted source domains. These SOLIDWORKS inputs
-contribute zero FCStd benchmark conversions.
+The receipt records the omitted source domains. [Supplemental SDK readback](measurements/2026/SealedImportedLocalGeometryReadback01.json)
+checks their original, generated and saved bodies and reproduces 30 linked
+streams. These SOLIDWORKS inputs contribute zero FCStd benchmark conversions.
 
 The [native width-to-depth equation sources](measurements/2026/NativeEquationWidthDepthSource01.json)
 preserve a live sketch-dimension dependency across edits, saves and fresh reopens.

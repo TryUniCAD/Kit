@@ -9,13 +9,9 @@ import sys
 
 from BuildLocalBodyKernel import CASES, make_nodes, prism_model, require_closed_unattributed, require_neutral_prism
 from LocalBodyEnvelope import LOCAL, PARTITION, LocalBody, decode, encode
-from LocalBodyKernel import BODY, _render_local, decode_local, encode_closed_local, fingerprint
+from LocalBodyKernel import BODY, _render_local, decode_local, fingerprint
 from ReplayImportedBaseBody import require
 from builders.EmptyPartition import PMARK_KIND, PARTITION_KIND, WORLD_KIND
-from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
-from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
-from convert.adapters.solidworks.Archive.Construction.BodyScope.MakeStockAtom import MakeStockAtom
 from convert.adapters.solidworks.Archive.Construction.Chronology.FeatureInstant import FeatureInstant
 from convert.adapters.solidworks.Archive.Construction.Chronology.MakeFeatTime import MakeFeatTime
 from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampMut import SetCfgStampMut
@@ -23,23 +19,16 @@ from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import
 from convert.adapters.solidworks.Archive.Construction.Header.MakeRootLog import MakeRootLog
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordConfig import KeywordConfig
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature import KeywordFeature
-from convert.adapters.solidworks.Archive.Construction.Metadata.MakeBiography import MakeBiography
-from convert.adapters.solidworks.Archive.Construction.Metadata.MakeFreshHist import MakeFreshHist
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeywords import MakeKeywords
-from convert.adapters.solidworks.Archive.Construction.Nodes.AtomSeeds import KAtomLists, KAtomWords
-from convert.adapters.solidworks.Archive.Construction.Nodes.InitFeatureMut import InitFeatureMut
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import PersistentIds
+from convert.adapters.solidworks.Archive.Construction.Part.EmitPartArchive import EmitPartArchive
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.BindImportMut import BindImportMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartBaseMut import MakePartBaseMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartHeaders import MakePartHeaders
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import MakePartDef
-from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
-from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
-from convert.adapters.solidworks.Archive.History.WriteHistMut import WriteHistMut
-from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
-from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
+from convert.adapters.solidworks.Archive.Partition.LocalWrite.EncodeLocalXmt import EncodeLocalXmt
+from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
-from convert.adapters.solidworks.Container.Format import KResolvedFeaturesStream, KeywordsStream
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeName import ReadNativeName
@@ -63,7 +52,6 @@ from para.rectangle.RectanglePartition import complete_topology
 from tests.Convert.Solidworks.Research.ConstructionGuard import BuildAudit
 
 
-VERSION = 19000
 FEATURE_CLASS = "moBaseBody_c"
 EPOCH = 1790000000
 MODES = ("Bare", "Owned")
@@ -119,35 +107,7 @@ def empty_local_history():
     return marks, frame_payloads(write_payloads(partition))
 
 
-def mark_node(mark):
-    return ArchiveNode(RuntimeClass("moPMarkRecord_c", 1), {"f18": mark.mark_id})
-
-
-def bind_feature(system, allocator, target, labels, marks):
-    owner = system.RootValue
-    feature = ArchiveNode(RuntimeClass(FEATURE_CLASS, 1), {})
-    InitFeatureMut(feature, labels.FeatureName, owner, target, allocator)
-    fields = feature.FieldsValue
-    fields.update(dict.fromkeys(KAtomWords, 0))
-    fields.update({field: [] for field in KAtomLists})
-    fields.update(f35c=0, f368={"n": 0, "items": []}, f388={"n": 0, "items": []}, f538=None,
-                  f4a0=1, f6e0=None, f758=None, f780={"n": 0, "items": []}, f7a0=0,
-                  source_filename="", local_body_switch=1, local_storage_key=labels.FeatureName,
-                  segment_mesh_count=0, segment_mesh_ids=[])
-    manager = owner.FieldsValue["fd88"]
-    atom_id = manager["f260"] + 1
-    atom = MakeStockAtom(feature, atom_id)
-    atom.FieldsValue["f188"] = 1
-    entries = [{"o": atom}]
-    manager.update(f260=atom_id, n6c=len(entries), atoms=entries, fa8=VERSION)
-    system.ManagerValue.FieldsValue["f658"] = 1
-    owner.FieldsValue.update(fe38=mark_node(marks.activation), f1010=1)
-    fields.update(has_f528=1, f528={"n": len(entries), "items": entries}, n494=len(entries), f498=[{"v": atom_id}],
-                  has_f3d0=1, f3d0=mark_node(marks.selected), f3c0=0, f3c8=0, f580=0)
-    return feature, atom_id
-
-
-def make_owned_kernel(model, name, feature_id, atom_id, body_stamp):
+def make_owned_nodes(model, name, feature_id, atom_id, body_stamp):
     require_neutral_prism(model)
     topology, next_id = complete_topology(topology_nodes(model, None))
     body = topology[0].ref
@@ -171,31 +131,20 @@ def make_owned_kernel(model, name, feature_id, atom_id, body_stamp):
         if item.kind == BODY:
             fields["highest_node_id"] = attributes.next_identifier - 1
         nodes.append(Node(indices[item.ref], item.kind, fields))
-    return encode_closed_local(tuple(nodes))
+    return tuple(nodes)
 
 
 def make_streams(system, feature, recipe, headers, labels, local, partition):
-    header, top, manager_header = headers
     graph_nodes = (*system.FeatureValues, feature)
-    config, graph = WriteConfigMut(system.RootValue, VERSION, header)
-    resolved, _ = WriteResolMut(graph_nodes, {"n": 0, "fcd8": []}, VERSION, graph.MapValue, {
-        "model_is_part": 1, "model_compressed_stream": 1, "cmgr_f658": system.ManagerValue.FieldsValue["f658"],
-    })
     definition = MakePartDef(recipe.DefinitionValue, recipe.DensityValue)
     keys = tuple(KeywordFeature(node.FieldsValue["f08"], ReadNativeName(node),
                                 "Imported" if node is feature else node.ClassValue.NameValue,
                                 "Feature", (), (), None, None) for node in graph_nodes)
     configs = tuple(KeywordConfig(node.FieldsValue["f08"], ReadNativeName(node), "") for node in system.ConfigValues)
-    return {
-        "Header2": WriteHeadGraph(top, VERSION), "Contents/Config-0-ModelHeader": WriteHeadGraph(header, VERSION),
-        "Contents/Config-0": config, "Contents/CMgr": WriteCmgrMut(system.ManagerValue, VERSION),
-        "Contents/CMgrHdr2": WriteMgrHdrMut(manager_header, VERSION)[0], KResolvedFeaturesStream: resolved,
-        "Contents/Definition": WriteModelDef(definition).OutputValue,
-        "_MO_VERSION_19000/Biography": WriteHistMut(MakeBiography(), VERSION)[0],
-        "_MO_VERSION_19000/History": WriteHistMut(MakeFreshHist(recipe.HistoryValue), VERSION)[0],
-        KeywordsStream: MakeKeywords(labels.NameValue, recipe.HeaderValue.ModifiedAt, configs, keys),
-        LOCAL: encode(local), PARTITION: partition,
-    }
+    keywords = MakeKeywords(labels.NameValue, recipe.HeaderValue.ModifiedAt, configs, keys)
+    streams, _, _ = EmitPartArchive(system, graph_nodes, headers, definition, recipe, keywords,
+                                     BodyMapFields={"n": 0, "fcd8": []})
+    return streams | {LOCAL: encode(local), PARTITION: partition}
 
 
 def publish_completed_update(system, headers, feature, recipe):
@@ -234,7 +183,8 @@ def make_part(document, destination, mode, completed=False, *, feature_name="Imp
     allocator = PersistentIds()
     system = MakePartBaseMut(recipe, labels, allocator)
     marks, partition = empty_local_history()
-    feature, atom_id = bind_feature(system, allocator, recipe.TargetValue, labels, marks)
+    feature, atom_id = BindImportMut(
+        system, allocator, recipe.TargetValue, labels.FeatureName, (marks.activation.mark_id, marks.selected.mark_id))
     if "kit.sw2026.ambient" in document.metadata:
         light = AmbientInput(**document.metadata["kit.sw2026.ambient"])
         AttachAmbientMut(system.RootValue, light, recipe.TargetValue, allocator, EPOCH)
@@ -248,11 +198,11 @@ def make_part(document, destination, mode, completed=False, *, feature_name="Imp
     if completed:
         publish_completed_update(system, headers, feature, recipe)
     if mode == "Owned":
-        raw = make_owned_kernel(document.brep, labels.FeatureName, feature.FieldsValue["f08"], atom_id, body_stamp)
+        nodes = make_owned_nodes(document.brep, labels.FeatureName, feature.FieldsValue["f08"], atom_id, body_stamp)
     else:
         nodes = make_nodes(document.brep)
         require_closed_unattributed(nodes)
-        raw = _render_local(nodes)
+    raw = EncodeLocalXmt(tuple(XmtNode(node.index, node.kind, node.fields) for node in nodes))
     streams = make_streams(system, feature, recipe, headers, labels, LocalBody(labels.FeatureName, raw), partition)
     return BuildSldprt(streams, FormatVersion=4), streams
 

@@ -233,6 +233,15 @@ body geometry, topology and feature reference. The 11-process batch passes
 560 candidate comparisons and all three native controls.
 [Completed-update native receipt](../measurements/2026/GeneratedLocalBodyPartCompleted01.json)
 
+The shared part archive owner now writes the configuration map, resolved
+features and the other required part streams for both parametric parts and
+generated local imports. The import binder allocates one body atom and links
+it to the generated feature and rollback marks. At their measured logical
+destinations, all four native-accepted imported parts and all six signed box
+builds reproduced their full files and 120 stream digests with zero runtime
+input reads.
+[Shared archive regression](../measurements/2026/SharedGeneratedPartArchive01.json)
+
 ## Sealed source geometry
 
 The two independently authored native input files were locked before the
@@ -254,6 +263,10 @@ admission remain open.
 [Sealed native receipt](../measurements/2026/SealedImportedLocalGeometryNative01.json)
 · [Geometry projection and omissions](ImportedBodySourceGeometry2026.md)
 
-The source protocol writes vendor-authored control and source files.
-The Kit writer, generated native fallback and public capability-loss
-report remain open.
+In a separate guest process, the frozen SDK read all six originals, generated
+parts and native saves. Each pair retained the same import feature name and
+complete planar solid boundary. The five linked archive streams in each file
+re-emit exactly. The supplemental receipt records counts and hashes.
+[Sealed SDK readback](../measurements/2026/SealedImportedLocalGeometryReadback01.json)
+
+The public fallback and capability-loss reporting remain open.
