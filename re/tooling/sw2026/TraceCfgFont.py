@@ -128,6 +128,7 @@ def record_positions(run, body, control, version, config, header):
             "header_alias": descriptor(alias.EntryValue),
             "conditions": frame.ContextValue.FlagsValue.get("conditions", 0),
         }
+        return None
 
     body.ReadSchemaMut = observe
     try:
