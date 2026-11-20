@@ -9,7 +9,7 @@ from struct import unpack
 import sys
 
 from BuildLocalBodyKernel import CASES, make_nodes, prism_model, require_closed_unattributed, require_neutral_prism
-from LocalBodyEnvelope import LOCAL, PARTITION, LocalBody, decode, encode
+from LocalBodyEnvelope import LOCAL, PARTITION, decode
 from LocalBodyKernel import BODY, _render_local, decode_local, fingerprint
 from ReplayImportedBaseBody import require
 from builders.EmptyPartition import PMARK_KIND, PARTITION_KIND, WORLD_KIND
@@ -29,7 +29,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.MakePartHeaders impor
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import MakePartDef
 from convert.adapters.solidworks.Archive.Partition.ImportHistory.ImportEvent import ImportEvent
 from convert.adapters.solidworks.Archive.Partition.ImportHistory.MakeImportHist import MakeImportHist
-from convert.adapters.solidworks.Archive.Partition.LocalWrite.EncodeLocalXmt import EncodeLocalXmt
+from convert.adapters.solidworks.Archive.Partition.LocalWrite.EncodeLocalBody import EncodeLocalBody
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
@@ -180,7 +180,7 @@ def make_streams(system, feature, recipe, headers, labels, local, partition):
     keywords = MakeKeywords(labels.NameValue, recipe.HeaderValue.ModifiedAt, configs, keys)
     streams, _, _ = EmitPartArchive(system, graph_nodes, headers, definition, recipe, keywords,
                                      BodyMapFields={"n": 0, "fcd8": []})
-    return streams | {LOCAL: encode(local), PARTITION: partition}
+    return streams | {LOCAL: local, PARTITION: partition}
 
 
 def make_part(document, destination, mode, completed=False, *, feature_name=DEFAULT_FEATURE_NAME, semantics=None):
@@ -220,8 +220,8 @@ def make_part(document, destination, mode, completed=False, *, feature_name=DEFA
     else:
         nodes = make_nodes(document.brep)
         require_closed_unattributed(nodes)
-    raw = EncodeLocalXmt(tuple(XmtNode(node.index, node.kind, node.fields) for node in nodes))
-    streams = make_streams(system, feature, recipe, headers, labels, LocalBody(labels.FeatureName, raw), history.BytesValue)
+    local = EncodeLocalBody(labels.FeatureName, tuple(XmtNode(node.index, node.kind, node.fields) for node in nodes))
+    streams = make_streams(system, feature, recipe, headers, labels, local, history.BytesValue)
     return BuildSldprt(streams, FormatVersion=4), streams
 
 

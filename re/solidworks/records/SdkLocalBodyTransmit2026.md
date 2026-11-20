@@ -55,6 +55,12 @@ This is local transmit evidence for a package writer prerequisite. Native
 lifecycle and public conversion acceptance are measured separately.
 [Existing native lifecycle](../measurements/2026/GeneratedLocalBodyPartCompleted01.json)
 
+The package also generates the native LocalBodies envelope from the actual
+feature name and freshly typed kernel nodes. Six different shape and key
+combinations re-emit exactly, including a 255-unit Unicode CString key. Four
+previously native-accepted part files reproduce all 48 streams.
+[Envelope receipt](../measurements/2026/SdkGeneratedLocalEnvelope01.json)
+
 ## Reproduce the comparison
 
 ```sh
