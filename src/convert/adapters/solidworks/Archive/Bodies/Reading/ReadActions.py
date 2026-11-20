@@ -4,6 +4,7 @@ from types import MappingProxyType
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadArrayMut import ReadArrayMut
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBBoxMut import ReadBBoxMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBooleanMut import (
     ReadBooleanMut,
 )
@@ -17,6 +18,7 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadContextMut import (
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadLengthMut import (
     ReadLengthMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadMassMut import ReadMassMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNestedMut import (
     ReadNestedMut,
 )
@@ -41,14 +43,16 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Base": ReadNestedMut,
             "Embed": ReadNestedMut,
             "Array": ReadArrayMut,
+            "Context": ReadContextMut,
             "Present": ReadPresentMut,
             "Length": ReadLengthMut,
             "Repeat": ReadRepeatMut,
             "Branch": ReadBranchMut,
-            "Context": ReadContextMut,
             "Virtual": ReadVirtualMut,
             "Bytes": ReadBytesMut,
             "Boolean": ReadBooleanMut,
+            "MassCaches": ReadMassMut,
+            "BBoxCache": ReadBBoxMut,
         }
     )
 )

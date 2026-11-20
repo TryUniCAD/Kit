@@ -87,6 +87,11 @@ concrete virtual targets. The sketch map backlink retains the newly
 allocated manager's identity.
 [Configuration field action scope](../../Changes/Solidworks/Archive/SolidworksConfigFieldActions.md)
 
+The bounded configuration member reader also handles the ordinary view
+record with compact transforms and empty presentation lists. Context
+changes govern both optional list windows in the same archive.
+[Configuration view scope](../../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+
 The same member reader accepts a concrete partition mark and an absent
 or empty thread reference manager. The archive slot and kernel mark ID
 remain separate. A present thread manager retains the signed wire word
@@ -103,10 +108,12 @@ archive version 19000.
 Complete configuration admission requires the remaining model body.
 [Configuration header link scope](../../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
-The bounded configuration member reader also handles the ordinary view
-record with compact transforms and empty presentation lists. Context
-changes govern both optional list windows in the same archive.
-[Configuration view scope](../../Changes/Solidworks/Archive/SolidworksConfigViewRecords.md)
+The bounded version-19000 part cache reader keeps zero through two mass
+slots, each slot's atom rows and attached mass properties, and the
+signed trailer when two slots are stored. The measured bounds field
+carries an empty count in this profile. Populated bounds records require
+additional owner evidence. Cache reads preserve the caller's map state.
+[Part cache scope](../../Changes/Solidworks/Archive/SolidworksConfigCaches.md)
 
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
