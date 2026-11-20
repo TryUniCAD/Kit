@@ -241,3 +241,5 @@ Equation replay requires the configuration's relation-manager count to agree wit
 The file-driven run selects the existing P01 paired experiment when a sketch contains a single closed axis-aligned rectangular profile and at least two linked driving length constraints. FileScope.json records the sketch and driving parameter IDs used for dispatch.
 
 For single-configuration SOLIDWORKS parts, the dimension report compares the keyword XML's feature IDs, dimension names and display values with the configuration's discovered binary records. Length comparisons use the file's recorded display precision. A match must identify one record which is also unique to that XML dimension. Other matches retain their ambiguity. This corroborates two representations inside one file.
+
+For ambiguous keyword matches, the runner tests whether a dimension follows its owner's binary feature-name marker. It checks unambiguous dimensions first, groups the results by native feature kind, and excludes the target owner from supporting examples. A competing location stays ambiguous unless a single compatible marker interval survives. The proposed location remains a research hypothesis.

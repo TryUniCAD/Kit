@@ -67,7 +67,9 @@ def file_scope(path, application, scratch, root):
     for step in timeline:
         definition = step.get("definition") or {}
         operation = (step.get("operation") or {}).get("value")
-        termination = (definition.get("end_condition") or {}).get("value")
+        termination = definition.get("end_condition")
+        if isinstance(termination, dict):
+            termination = termination.get("value")
         route = None
         if step["kind"]["value"] == "extrusion":
             if operation == "cut" and termination == "through_all":
