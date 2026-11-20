@@ -10,17 +10,22 @@
 
 ## Source pin
 
-The single production file
-[`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
-matches the [aggregate source](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
+The original `FrameKeywords.py` matches the
+[aggregate source](https://github.com/TryUniCAD/Kit/blob/a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f/src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
 and the [88-file audit source](https://github.com/TryUniCAD/Kit/blob/5554733fde548afabdc6db221f387163d15e9497/src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
 byte for byte. Its source SHA-256 is
 `8a487d9c9f5a18eb09438ebc26c9bd31ef40a12e95e44e642032b94a878634f0`.
-The one-file manifest SHA-256 is
+Its one-file manifest SHA-256 is
 `0fc16240b0a5be45846576ed7681c0f979ce2e8e3bb8579f4ea1472d059e45aa`.
-The manifest hashes the repository-relative path followed by a NUL,
-the lowercase file SHA-256 and a newline. Production imports are
-limited to the Python standard library.
+The delivered single production file
+[`FrameKeywords.py`](../../../src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py)
+adds the carriage-return rule below. Its source SHA-256 is
+`d36f8d6f8af533542f9af3acfd2159a187ac43494d64976d6ffd36ab32031990`
+and its one-file manifest SHA-256 is
+`c38cfb7f94d5bc29ecc9d7a15e81ee79ea0afff4fa803556cba3138b25886005`.
+Each manifest hashes the repository-relative path followed by a NUL,
+the lowercase file SHA-256 and a newline. Production imports use
+the Python standard library.
 
 ## Framing and serialization
 
@@ -35,7 +40,8 @@ The formatting argument selects either compact `/>` or spaced
 The [88-file comparison](https://github.com/TryUniCAD/Kit/blob/889fb6dffcad5ed3b0a065e07c21a53979a17be7/re/solidworks/records/KeywordCorpusFraming2026.md)
 binds the exact-build research to 80 tracked parts and eight
 assemblies. All 88 matched the compact lexical form, with two
-CRLF pairs and no bare LF in the source streams. The
+CRLF pairs and no bare LF in the source streams under the original
+framer. The
 [numeric receipt](https://github.com/TryUniCAD/Kit/blob/889fb6dffcad5ed3b0a065e07c21a53979a17be7/re/solidworks/measurements/2026/KeywordCorpusFraming01.json)
 has SHA-256
 `3d364bb0779efc1076d4c1d89a472e0aac5835a628a0ca505cc6ea80e0cd1ce4`.
@@ -54,11 +60,21 @@ Comment and processing-instruction text use separate branches and
 fall outside the admitted element tree.
 [Empty tag gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordEmptyTagsFollowProfile.md)
 
+XML 1.0 normalizes literal CR and CRLF before parsing. The framer
+replaces each literal CR in the serialized payload with `&#13;`
+before adding the outer CRLF pairs. For CRLF in ordinary text or
+a child tail, the numeric reference precedes the original LF.
+ElementTree already represents attribute CR and LF as `&#13;`
+and `&#10;`, respectively. Those references survive the payload
+substitution. [XML 1.0 end-of-line handling](https://www.w3.org/TR/xml/#sec-line-ends)
+[Carriage-return gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordTextPreservesCarriageReturns.md)
+
 ## Disclosed controls and process exit
 
 The existing disclosures have distinct logical stream hashes and
 the following observed empty tag styles. Both have the exact
-marker and declaration and two CRLF pairs.
+marker and declaration, two outer CRLF pairs, and zero literal
+carriage returns inside the XML payload.
 
 | Source | Origin | Source SHA-256 | Stream SHA-256 | Bytes | Empty tags |
 | --- | --- | --- | --- | ---: | --- |
@@ -71,9 +87,10 @@ for disclosed replay. The [disclosed cases](../../../tests/Convert/Solidworks/Ke
 require exact bytes after reassembly with each observed style.
 The [independent authored case](../../../tests/Convert/Solidworks/KeywordFrames/KeywordModelTests.py)
 uses Unicode, XML special characters and the literal empty
-delimiter spelling in an attribute and text. Separate read and
-write processes check both lexical forms and the recovered
-authored values. The
+delimiter spelling in an attribute, text and a tail. It also
+authors a standalone CR and a CRLF sequence in each of those values.
+Separate read and write processes check both lexical forms and
+the recovered authored values. The
 [refusal cases](../../../tests/Convert/Solidworks/KeywordFrames/KeywordRejectTests.py)
 require that an incorrect root or non-boolean mode fails before
 publishing bytes.

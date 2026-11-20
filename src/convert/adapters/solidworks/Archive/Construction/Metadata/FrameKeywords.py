@@ -11,6 +11,7 @@ def FrameKeywords(RootValue: Element, CompactTags: bool) -> bytes:
     PayloadValue = CastValue(
         bytes, XmlBytes(RootValue, encoding="utf-8", short_empty_elements=True)
     )
+    PayloadValue = PayloadValue.replace(b"\r", b"&#13;")
     if CompactTags:
         PayloadValue = PayloadValue.replace(b" />", b"/>")
     return b'\x86<?xml version="1.0" encoding="UTF-8"?>\r\n' + PayloadValue + b"\r\n"

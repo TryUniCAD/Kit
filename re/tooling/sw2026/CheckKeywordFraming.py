@@ -27,16 +27,22 @@ def author_frame(source):
     feature = SubElement(
         root, "Feature", {"id": "7", "Name": "Sketch1", "Type": "ProfileFeature"}
     )
-    SubElement(feature, "Dimension", {"Name": "D1"}).text = source["text"]
+    dimension = SubElement(feature, "Dimension", {"Name": "D1"})
+    dimension.text = source["text"]
+    dimension.tail = source["tail"]
     return FrameKeywords(root, source["compact"])
 
 
 def describe_frame(payload):
     root = ParseXml(payload)
+    dimension = root.find("./Feature/Dimension")
+    if dimension is None:
+        raise ValueError("authored keyword dimension is missing")
     return {
         "root": root.tag,
         "name": root.get("Name"),
-        "text": root.findtext("./Feature/Dimension"),
+        "text": dimension.text,
+        "tail": dimension.tail,
     }
 
 

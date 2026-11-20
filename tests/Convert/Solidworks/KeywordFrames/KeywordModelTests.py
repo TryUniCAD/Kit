@@ -3,6 +3,7 @@ from pathlib import Path as FilePath
 
 from tests.Convert.Solidworks.KeywordFrames.MakeKeyWire import (
     KKeywordName,
+    KKeywordTail,
     KKeywordText,
     MakeKeyWire,
 )
@@ -15,7 +16,12 @@ def TestKeyXml(TmpPath: FilePath) -> None:
         AuthoredPath = TmpPath / f"{StyleName}.json"
         WirePath = TmpPath / f"{StyleName}.bin"
         ReadPath = TmpPath / f"{StyleName}-read.json"
-        Fields = {"root": "Keywords", "name": KKeywordName, "text": KKeywordText}
+        Fields = {
+            "root": "Keywords",
+            "name": KKeywordName,
+            "text": KKeywordText,
+            "tail": KKeywordTail,
+        }
         _ = AuthoredPath.write_text(
             DumpJson({**Fields, "compact": IsCompact}), encoding="utf-8"
         )

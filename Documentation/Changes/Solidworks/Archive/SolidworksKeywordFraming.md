@@ -3,10 +3,12 @@
 `FrameKeywords` encodes an ordinary `Keywords` element tree as
 UTF-8. It adds the native stream marker, XML declaration and CRLF
 framing. The caller selects compact or space-padded empty tags
-explicitly. Ordinary attributes and text retain their characters
-through XML escaping.
+explicitly. Ordinary attributes, text and child tails retain their
+characters through XML escaping. Numeric character references preserve
+CR and CRLF through XML end-of-line normalization.
+[Carriage-return handling](../../../Gotchas/Conversion/Solidworks/Archive/Metadata/KeywordTextPreservesCarriageReturns.md)
 
-The framing contract covers named elements, attributes and text.
+The framing contract covers named elements, attributes, text and tails.
 Comment and processing-instruction nodes fall outside that vocabulary.
 Configuration and feature projection follow their own format rules.
 

@@ -14,7 +14,13 @@ def TestBadKeys(TmpPath: FilePath) -> None:
         WirePath = TmpPath / f"{CaseName}.bin"
         _ = SourcePath.write_text(
             DumpJson(
-                {"root": RootValue, "compact": ModeValue, "name": "a", "text": "b"}
+                {
+                    "root": RootValue,
+                    "compact": ModeValue,
+                    "name": "a",
+                    "text": "b",
+                    "tail": "c",
+                }
             ),
             encoding="utf-8",
         )
