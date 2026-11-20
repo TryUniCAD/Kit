@@ -67,10 +67,16 @@ refusals cover wrong or missing seed slots, truncation, surplus bytes,
 wrong version and schema, a null relation, a reused object, oversized
 counts, and unresolved object and visual row owners.
 
+The queue also feeds a class reference to the L1 color class at slot 95.
+The reused descriptor must retain its identity and allocate only
+object slot 97. A class reference to the native color object at slot 96
+must fail before its body is read.
+
 ```sh
 python -I -B re/tooling/sw2026/CheckCfgMembers.py ladder
 python -I -B re/tooling/sw2026/CheckCfgMembers.py concave
 python -I -B re/tooling/sw2026/CheckCfgMembers.py authored
+python -I -B re/tooling/sw2026/CheckCfgMembers.py color-ref
 ```
 
 [Exact receipt](../measurements/2026/ConfigMemberFieldsReader01.json)

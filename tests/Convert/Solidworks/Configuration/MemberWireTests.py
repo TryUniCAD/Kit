@@ -35,3 +35,16 @@ def TestMemberWire() -> None:
         "wrong_color_schema",
         "unqualified_color_row",
     ]
+
+
+# a native color descriptor reused by tag keeps its class slot and allocates one object
+def TestColorSlot() -> None:
+    Original, Reused, Refusals = ReadMemberCase("color-ref")
+    assert Original["class"] == ["moFeatColorTab_c", 0, 96]
+    assert Original["map_counter"] == 97
+    assert Reused["class"] == ["moFeatColorTab_c", 0, 97]
+    assert Reused["fields"] == {"n": 0x80000000, "items": []}
+    assert Reused["bytes"] == 6
+    assert Reused["map_counter"] == 98
+    assert Reused["inherited_slots"] == [59, 60, 95, 96]
+    assert Refusals == ["color_object_slot"]

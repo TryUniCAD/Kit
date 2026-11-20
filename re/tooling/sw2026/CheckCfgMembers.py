@@ -234,11 +234,33 @@ def authored_case():
     }
 
 
+def inherited_color_case():
+    controls, _, _ = originals("ladder")
+    original_data, original, original_seed = controls[1]
+    seed = original.MapValue
+    class_entry, object_entry = seed.EntriesValue[-2:]
+    descriptor = class_entry.EntryValue
+    require(descriptor is original.RootValue.ClassValue, "unexpected color class seed")
+    data = pack("<HI", 0x8000 | class_entry.IndexValue, 0x80000000)
+    graph = ReadCfgMember(data, 19000, seed, KFeatColorClass)
+    new_entry, = graph.MapValue.EntriesValue[len(seed.EntriesValue):]
+    require(graph.RootValue.ClassValue is descriptor and new_entry.EntryValue is graph.RootValue,
+            "color class reference did not preserve its descriptor and allocate only the object")
+    wrong_kind = pack("<HI", 0x8000 | object_entry.IndexValue, 0x80000000)
+    return {
+        "case": "color-ref",
+        "members": [inspect(original_data, original, original_seed), inspect(data, graph, seed)],
+        "refusals": [refuse("color_object_slot", wrong_kind, seed, KFeatColorClass,
+                            "archive class reference")],
+    }
+
+
 def main():
     parser = ArgumentParser(description="Verify bounded ordinary configuration members")
-    parser.add_argument("case", choices=(*CASES, "authored"))
+    parser.add_argument("case", choices=(*CASES, "authored", "color-ref"))
     args = parser.parse_args()
-    report = authored_case() if args.case == "authored" else native_case(args.case)
+    wire_cases = {"authored": authored_case, "color-ref": inherited_color_case}
+    report = wire_cases[args.case]() if args.case in wire_cases else native_case(args.case)
     print(json.dumps(report, sort_keys=True))
 
 
