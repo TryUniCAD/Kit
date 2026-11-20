@@ -68,6 +68,12 @@ The current configuration directory codec reads and constructs
 Its archive map starts at one, independently of the full `CMgr` stream.
 [Configuration directory scope](../../Changes/Solidworks/Archive/SolidworksConfigurationDirectory.md)
 
+The internal part header constructor takes the allocated part,
+its actual selected configuration and explicit save provenance.
+It builds both standalone header roles and the configuration
+directory. Each stream uses its own archive map.
+[Fresh part header scope](../../Changes/Solidworks/Archive/SolidworksFreshPartHeaders.md)
+
 The internal unit-table codec reads one complete ordinary version-19000
 `moUnitsTable_c` object using its caller's archive map snapshot. It keeps
 inherited unit fields, the optional length override and the class slots

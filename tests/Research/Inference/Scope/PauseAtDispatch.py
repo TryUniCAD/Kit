@@ -25,8 +25,12 @@ if __name__ == "__main__":
     ImportPaths.insert(
         0, str(FilePath(__file__).resolve().parents[4] / "re/automation")
     )
+
+
     # the cli establishes its research import paths before loading the batch runner
     Launcher = ImportModule("InferenceGrid.RunFeatureCatalogue")
+
+
     # the real supervisor must observe the durable pause request and write its own report
     RunSupervisor = ImportModule("InferenceGrid.CatalogueBatch").RunSupervisor
     with Patch("InferenceGrid.CatalogueBatch.RunSupervisor", PauseDispatch):

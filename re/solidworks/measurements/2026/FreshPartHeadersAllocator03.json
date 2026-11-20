@@ -1,0 +1,38 @@
+{
+  "all_previous_observations_equal": true,
+  "disclosed_stream_equalities": 6,
+  "guarded_processes": 9,
+  "held_out_cases": 0,
+  "measured_authored_streams": 9,
+  "native_runs": 0,
+  "prior_allocator_receipt_sha256": "89f5d7c0a4a9bd674211fb62ede64eb2d93bd43982e25bf378183cc3971f124e",
+  "prior_receipt_sha256": "0eeab804dbfa244a0f6a625dd692544657c20b098f26e3c95e426dd56c1587ea",
+  "production_sources_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Files/MakeFileConfig.py": "b9a19dec373c00b071e9ea362dffc57271c97d037e0a08b5dcc5fb9b5c3d88ec",
+    "src/convert/adapters/solidworks/Archive/Construction/Files/MakeFileDef.py": "28dc98b99f26a3db7f2c766cf598b943844c1e011e891cd348c5c57e0ea42483",
+    "src/convert/adapters/solidworks/Archive/Construction/Files/MakeSelfFile.py": "636fe43d7d19b685e66799219540694293567c0a0f643a81846a87ec16376f9c",
+    "src/convert/adapters/solidworks/Archive/Construction/Files/SelfFileInput.py": "555c71ec1abb58404847f63f3524df6c42ca189523698027f11c41c8ef7517df",
+    "src/convert/adapters/solidworks/Archive/Construction/Header/HeaderInput.py": "b0bbac75a8a7a1c2ce6350160424e562f485f31faed529e1540ef478b2fafd74",
+    "src/convert/adapters/solidworks/Archive/Construction/Header/HeaderZeroes.py": "10f32a5d6ee74a30e3f24cc2825b823dd9d6bda397168b84afa90d058bde4f45",
+    "src/convert/adapters/solidworks/Archive/Construction/Header/MakePartHeader.py": "990332bf8133f35d918cbb9ae9a0e342fe2a0a0df0c0f07230a99db39511d01a",
+    "src/convert/adapters/solidworks/Archive/Construction/Header/MakePartHeads.py": "1a76199372183158ffad025c2c8cb9e72d24d70520b78c98c533830c8c85e81a",
+    "src/convert/adapters/solidworks/Archive/Construction/Header/MakeRootLog.py": "cafe2d2b9c07b9103933590b20dcc9b96fed507c3e0b9218745be757c281c2bc",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeMgrHeader.py": "d478bb90db553586cf569ed92e834bb2857c9c37b2fe3cb95eb1c0198cd0431a",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/ManagerHeader/MakeMgrEntry.py": "bce2161b7fca731ab889c4735fa881fbe45bfb96e68132d385d8c38f85f9da87",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/ManagerHeader/SelectMgrCfg.py": "8a208f9569f22474fb47476f90fc1b1923b30f9358ced9ae0ba3b7b32533422f",
+    "src/convert/adapters/solidworks/Archive/Construction/Model/GraphValue.py": "413dc54ae25927e9c5d45bf08443a2e6f134aefedf05c8b2694e256b655b31d8",
+    "src/convert/adapters/solidworks/Archive/Construction/Model/RequireRootNode.py": "26ec96b38540cab268a0cc806006aaba4db402954ac4e8bfdc3613b28d552803",
+    "src/convert/adapters/solidworks/Archive/Construction/Nodes/CheckIdSeed.py": "8a3b61be1e1c436ee1c67dc76f02507397b00a360dd432db72e4c4f7dc794157",
+    "src/convert/adapters/solidworks/Archive/Construction/Nodes/PersistentIds.py": "1a3520090fd5072c759f400c116573b9ecbb57a77a0a44af30bf2ce3116de5ae"
+  },
+  "refusals": 12,
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.fresh-part-headers-allocator-check.v1",
+  "source_revision": "3bdeae46811e2af2136e6267e29b827a64c61404",
+  "worker_and_queue_sources_sha256": {
+    "re/tooling/sw2026/AuthorFreshHead.py": "e50a291872611e90baa718992553b960dc6db2ce2c04011f4329881ad014032c",
+    "re/tooling/sw2026/CheckFreshHeads.py": "06b1d53885758c6441722ea88b6826004c3ed74d7b7a99350579d217ea5fee01",
+    "tests/Convert/Solidworks/ArchiveHeader/FreshHeadTests.py": "cb047de17ca95cccf4231202c24d1462ac84edfbdb10443d5087cfcb5f5ee8d2",
+    "tests/Convert/Solidworks/ArchiveHeader/RunFreshHead.py": "dcaa581bf270afc8549a6b279caa341e15c1a9b1a98be6393d8412e63d656578"
+  }
+}
