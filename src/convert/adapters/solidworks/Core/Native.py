@@ -1,5 +1,8 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
+from convert.adapters.solidworks.Core.BindInch import BindInch
+from convert.adapters.solidworks.Core.IndexInch import IndexInch
+from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
 from collections.abc import Iterator
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
 from io import StringIO
@@ -9,7 +12,7 @@ import math as MathValue
 import re as RegexLib
 import struct as Struct
 from types import MappingProxyType
-from typing import Mapping, Sequence
+from typing import TYPE_CHECKING, Mapping, Sequence
 import xml.etree.ElementTree as XmlTree  # noqa: DUO107
 from interchange import (
     BooleanOperation as BoolOperation,
@@ -20,6 +23,7 @@ from convert.Geometry.Opencascade import decode_ascii_brep as DecodeAsciiBrep
 from convert.adapters.base import ParseUntrusted
 from convert.adapters.base.SafeParsing import CheckXmlDoctype
 from convert.adapters.solidworks.Container.Container import SldprtFormatError
+from convert.adapters.solidworks.Container.PlaneBasis import IsOrthonormal, MatrixAxes
 from convert.adapters.solidworks.Container.Format import (
     ASSEMBLY_SUFFIX as AsmSuffix,
     CANONICAL_PLANE_FEATURE_TYPE as CanonicalPlaneFeatureType,
@@ -32,6 +36,7 @@ from convert.adapters.solidworks.Container.Format import (
     SERIALIZED_STRING_MARKER as SerializedStringMarker,
     dimension_scalar_value_offset as DimensionScalarValue,
 )
+from convert.adapters.solidworks.Core.ProfileHeader import ProfileHeader
 from convert.adapters.solidworks.Resolved.Core import (
     ANGLE_COPY_DELTAS as AngleCopyDeltas,
     DEPTH_COPY_DELTAS as DepthCopyDeltas,
@@ -44,6 +49,10 @@ from convert.adapters.solidworks.Resolved.Core import (
     circle_radius_mm as CircleRadiusMm,
     locate_features as LocateFeatures,
 )
+
+if TYPE_CHECKING:
+    from convert.adapters.solidworks.Core.Cut.CutSource import CutSource
+    from convert.adapters.solidworks.Resolved.RectanglePart import RectanglePart
 
 # this binding exists because shared behavior needs one stable value
 KRadiansToDegrees = 180.0 / MathValue.pi
@@ -976,13 +985,15 @@ class NativeScalar:
 @Dataclass(frozen=True, slots=True)
 class NativeDimension:
     name: str
-    value_mm: float
+    value_mm: float | None
     kind: str
     source_text: str
     native_value: float | None = None
     native_offset: int | None = None
     native_role: str | None = None
     operands: tuple[NativeOperand, ...] = ()
+    inch_display_value: float | None = None
+    native_stream: str | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1043,6 +1054,7 @@ class NativeProfile:
     parameter_name: str | None = None
     dimension_kind: str | None = None
     start_angle_degrees: float | None = None
+    HeaderOffset: int | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1106,6 +1118,8 @@ class NativeSketch:
     support_plane: NativeSketchPlane | None = None
     support_source: str = KRefSupportSource
     unframed_support_plane_id: int | None = None
+    rectangle: RectanglePart | None = None
+    rectangle_geometry_stream: str | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1174,6 +1188,7 @@ class NativeOperation(NativeOpFrame):
     angle_copies: tuple[NativeDepthCopy, ...] = ()
     instance_count: int | None = None
     spacing_mm: float | None = None
+    archive_spans: tuple[tuple[int, int, str], ...] = ()
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1212,6 +1227,7 @@ class NativeEquation:
     native_length: int
     configuration_id: int
     native_stream: str
+    archive_spans: tuple[tuple[int, int, str], ...] = ()
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1229,6 +1245,8 @@ class NativeModel:
     equations: tuple[NativeEquation, ...] = Field(default_factory=tuple)
     active_configuration_id: int | None = None
     bounding_box: NativeBoundingBox | None = None
+    linear_display: LinearDisplay | None = None
+    cut_source: CutSource | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1297,21 +1315,6 @@ def RepairPlaneIMut(ObjectIds: dict[str, int]) -> None:
             NextId += 1
         ObjectIds[KeyValue] = NextId
         Taken.add(NextId)
-
-
-# this definition exists because focused behavior needs one stable owner
-def IsOrthonormal(Vectors: tuple[tuple[float, float, float], ...]) -> bool:
-    return all(
-        (
-            MathValue.isclose(NormAction(Vector), 1.0, abs_tol=1e-09)
-            for Vector in Vectors
-        )
-    ) and all(
-        (
-            MathValue.isclose(DotAction(LeftValue, Right), 0.0, abs_tol=1e-09)
-            for LeftValue, Right in Itertools.combinations(Vectors, 2)
-        )
-    )
 
 
 # root parsing isolates native header identity and log count validation
@@ -1484,10 +1487,12 @@ def BuildNativeList(
     Classes: tuple[NativeClass, ...],
     Scalars: tuple[NativeScalar, ...],
     ResolvedStream: str,
+    Display: LinearDisplay | None = None,
 ) -> tuple[
     dict[int, NativeName],
     dict[int, tuple[NativeScalar, ...]],
     list[NativeFeature],
+    dict[int, dict[str, tuple[NativeScalar, ...]]],
 ]:
     RecordById = FeatureRecords(XmlFeatures, Names)
     OrderedRecords = sorted(
@@ -1503,6 +1508,11 @@ def BuildNativeList(
         for Index, Record in enumerate(OrderedRecords)
     }
     ScalarOwner = ScalarOwners(Scalars, OrderedRecords, EndsValue)
+    InchByOwner = (
+        {OwnerId: IndexInch(Owned) for OwnerId, Owned in ScalarOwner.items()}
+        if Display is not None and Display.UnitName == "in"
+        else {}
+    )
     NativeFeatures: list[NativeFeature] = []
     for Feature in XmlFeatures:
         Record = RecordById.get(Feature.object_id)
@@ -1510,9 +1520,10 @@ def BuildNativeList(
         if not NameValue:
             NameValue = f"{Feature.kind or Feature.xml_tag} {Feature.object_id}"
         Owned = ScalarOwner.get(Feature.object_id, ())
+        NamedScalars = InchByOwner.get(Feature.object_id, {})
         Dimensions = tuple(
             (
-                BindDimension(ItemValue, Owned)
+                BindDimension(ItemValue, Owned, Display, NamedScalars)
                 for ItemValue in Semantic(Feature.kind, tuple(Feature.dimensions))
             )
         )
@@ -1540,13 +1551,15 @@ def BuildNativeList(
                 native_stream=ResolvedStream,
             )
         )
-    return (RecordById, ScalarOwner, NativeFeatures)
+    return (RecordById, ScalarOwner, NativeFeatures, InchByOwner)
 
 
 # dimension rebinding owns child scalar recovery for native features
 def RebindDimsMut(
     NativeFeatures: list[NativeFeature],
     ScalarOwner: dict[int, tuple[NativeScalar, ...]],
+    InchByOwner: Mapping[int, Mapping[str, tuple[NativeScalar, ...]]],
+    Display: LinearDisplay | None = None,
 ) -> dict[int, int]:
     FeatureIndexes = {
         Feature.object_id: Index for Index, Feature in enumerate(NativeFeatures)
@@ -1556,10 +1569,11 @@ def RebindDimsMut(
         ChildScalars = ScalarOwner.get(ChildId or -1, ())
         if not ChildScalars:
             continue
+        NamedScalars = InchByOwner.get(ChildId or -1, {})
         Rebound = tuple(
             (
                 (
-                    BindDimension(Dimension, ChildScalars)
+                    BindDimension(Dimension, ChildScalars, Display, NamedScalars)
                     if Dimension.native_offset is None
                     else Dimension
                 )
@@ -1686,6 +1700,7 @@ def DecodeNative(
     ConfigId: int | None = None,
     ResolvedStream: str = ResolvedFeaturesStream,
     ConfigStream: str = "",
+    Display: LinearDisplay | None = None,
     **LegacyValues: object,
 ) -> NativeModel:
     UnknownValues = set(LegacyValues) - {
@@ -1723,10 +1738,10 @@ def DecodeNative(
         RebindIds(XmlFeatures, Names)
     Classes = ParseClasses(Resolved)
     Scalars = ParseScalars(Resolved, Names)
-    RecordById, ScalarOwner, NativeFeatures = BuildNativeList(
-        XmlFeatures, Names, Resolved, Classes, Scalars, ResolvedStream
+    RecordById, ScalarOwner, NativeFeatures, InchByOwner = BuildNativeList(
+        XmlFeatures, Names, Resolved, Classes, Scalars, ResolvedStream, Display
     )
-    FeatureIndexes = RebindDimsMut(NativeFeatures, ScalarOwner)
+    FeatureIndexes = RebindDimsMut(NativeFeatures, ScalarOwner, InchByOwner, Display)
     StateData, Author, Planes, UnframedPlanes = CreateState(
         Resolved,
         ResolvedStream,
@@ -1760,6 +1775,7 @@ def DecodeNative(
         equations=Equations,
         active_configuration_id=ActiveConfigId,
         bounding_box=BoundingBox(Resolved, Classes),
+        linear_display=Display,
     )
 
 
@@ -2145,16 +2161,28 @@ def ScalarOwners(
 
 # this definition exists because focused behavior needs one stable owner
 def BindDimension(
-    Dimension: NativeDimension, Scalars: tuple[NativeScalar, ...]
+    Dimension: NativeDimension,
+    Scalars: tuple[NativeScalar, ...],
+    Display: LinearDisplay | None = None,
+    NamedScalars: Mapping[str, tuple[NativeScalar, ...]] | None = None,
 ) -> NativeDimension:
-    Target = (
-        Dimension.value_mm
-        if Dimension.kind == "instance_count"
-        else (
-            MathValue.radians(Dimension.value_mm)
-            if Dimension.kind == "angle"
-            else Dimension.value_mm / 1000.0
+    if (
+        Display is not None
+        and Display.UnitName == "in"
+        and Dimension.kind not in {"angle", "instance_count"}
+    ):
+        return BindInch(
+            Dimension,
+            NamedScalars if NamedScalars is not None else IndexInch(Scalars),
+            Display.Decimals,
         )
+    Value = Dimension.value_mm
+    if Value is None:
+        return Dimension
+    Target = (
+        Value
+        if Dimension.kind == "instance_count"
+        else (MathValue.radians(Value) if Dimension.kind == "angle" else Value / 1000.0)
     )
     ValueMatches = [
         Scalar
@@ -2172,7 +2200,7 @@ def BindDimension(
     )
     return NativeDimension(
         name=Dimension.name,
-        value_mm=Dimension.value_mm,
+        value_mm=Value,
         kind=Dimension.kind,
         source_text=Dimension.source_text,
         native_value=Scalar.value,
@@ -2627,9 +2655,7 @@ def ReadSketchPlane(
     RowsValue = Struct.unpack_from("<9d", DataValue, BasisOffset)
     if not all((MathValue.isfinite(Value) for Value in RowsValue)):
         return None
-    UAxis = (RowsValue[0], RowsValue[3], RowsValue[6])
-    VAxis = (RowsValue[1], RowsValue[4], RowsValue[7])
-    Normal = (RowsValue[2], RowsValue[5], RowsValue[8])
+    UAxis, VAxis, Normal = MatrixAxes(RowsValue)
     if not IsOrthonormal((UAxis, VAxis, Normal)):
         return None
     return NativeSketchA(
@@ -3269,7 +3295,9 @@ def SelectRects(
     Rectangles: list[tuple[float, float, float, float]],
     Dimensions: tuple[NativeDimension, ...],
 ) -> list[tuple[float, float, float, float]]:
-    Values = [Dimension.value_mm for Dimension in Dimensions]
+    Values = [
+        Dimension.value_mm for Dimension in Dimensions if Dimension.value_mm is not None
+    ]
     MatchValues = [
         Rectangle
         for Rectangle in Rectangles
@@ -3470,20 +3498,23 @@ def DecodeProfiles(
 
 # graph traversal owns extraction of one connected edge component
 def TakeGraphMut(
-    Edges: Sequence[NativeMarker], Remaining: set[int]
+    Edges: Sequence[NativeMarker],
+    Remaining: set[int],
+    VertexEdges: Mapping[int, set[int]],
 ) -> tuple[set[int], set[int]]:
-    Component = {Remaining.pop()}
-    Vertices = set(Edges[next(iter(Component))].endpoint_indices or ())
-    Changed = True
-    while Changed:
-        Changed = False
-        for Index in tuple(Remaining):
-            Endpoints = set(Edges[Index].endpoint_indices or ())
-            if Vertices & Endpoints:
-                Remaining.remove(Index)
-                Component.add(Index)
-                Vertices.update(Endpoints)
-                Changed = True
+    Pending = [Remaining.pop()]
+    Component: set[int] = set()
+    Vertices: set[int] = set()
+    while Pending:
+        Index = Pending.pop()
+        Component.add(Index)
+        for Vertex in Edges[Index].endpoint_indices or ():
+            if Vertex in Vertices:
+                continue
+            Vertices.add(Vertex)
+            Neighbors = VertexEdges[Vertex] & Remaining
+            Remaining.difference_update(Neighbors)
+            Pending.extend(Neighbors)
     return (Component, Vertices)
 
 
@@ -3527,6 +3558,7 @@ def RectComponent(
     Markers: Sequence[NativeMarker],
     Component: set[int],
     Vertices: set[int],
+    MarkerIndexes: Mapping[int, int],
 ) -> NativeProfile | None:
     if len(Component) != 4 or len(Vertices) != 4:
         return None
@@ -3554,6 +3586,9 @@ def RectComponent(
         "rectangle",
         (XsValue[0], YsValue[0], XsValue[1], YsValue[1]),
         LineOffsets,
+        HeaderOffset=ProfileHeader(
+            Edges, Markers, Component, Vertices, KCircleLocus.hex(), MarkerIndexes
+        ),
     )
 
 
@@ -3576,15 +3611,22 @@ def StructuralA(
             for Endpoint in Marker.endpoint_indices
         )
     )
+    MarkerIndexes = {Marker.offset: Index for Index, Marker in enumerate(Markers)}
+    VertexEdges: dict[int, set[int]] = {}
+    for Index, Marker in enumerate(Edges):
+        for Vertex in Marker.endpoint_indices or ():
+            VertexEdges.setdefault(Vertex, set()).add(Index)
     Remaining = set(range(len(Edges)))
     Profiles: list[NativeProfile] = []
     UsedValue: set[int] = set()
     while Remaining:
-        Component, Vertices = TakeGraphMut(Edges, Remaining)
-        Profile = RectComponent(Edges, Markers, Component, Vertices)
+        Component, Vertices = TakeGraphMut(Edges, Remaining, VertexEdges)
+        Profile = RectComponent(Edges, Markers, Component, Vertices, MarkerIndexes)
         if Profile is not None:
             Profiles.append(Profile)
             UsedValue.update(Profile.marker_offsets)
+            if Profile.HeaderOffset is not None:
+                UsedValue.add(Profile.HeaderOffset)
     return (tuple(Profiles), UsedValue)
 
 
@@ -3684,11 +3726,17 @@ def PolyProfiles(
             for EndpointIndex in MarkerData.endpoint_indices
         )
     )
+    VertexEdges: dict[int, set[int]] = {}
+    for EdgeIndex, MarkerData in enumerate(EdgeData):
+        for VertexIndex in MarkerData.endpoint_indices or ():
+            VertexEdges.setdefault(VertexIndex, set()).add(EdgeIndex)
     RemainingIndexes = set(range(len(EdgeData)))
     ProfileData: list[NativeProfile] = []
     UsedOffsets: set[int] = set()
     while RemainingIndexes:
-        ComponentIndexes, VertexIndexes = TakeGraphMut(EdgeData, RemainingIndexes)
+        ComponentIndexes, VertexIndexes = TakeGraphMut(
+            EdgeData, RemainingIndexes, VertexEdges
+        )
         if len(ComponentIndexes) != 6 or len(VertexIndexes) != 6:
             continue
         OrderedData = OrderPolyEdges(EdgeData, ComponentIndexes, VertexIndexes)
@@ -3752,6 +3800,17 @@ def CircleClosure(
 
 
 # circle dimension matching owns unique radius and diameter normalization
+def CircleDimension(Value: float | None, Radius: float) -> tuple[str, float] | None:
+    if Value is None:
+        return None
+    if MathValue.isclose(Value, Radius, rel_tol=1e-07, abs_tol=1e-07):
+        return ("radius", Value)
+    if MathValue.isclose(Value, Radius * 2.0, rel_tol=1e-07, abs_tol=1e-07):
+        return ("diameter", Value / 2.0)
+    return None
+
+
+# circle recovery needs a stable dimension link when the scalar identifies one geometry
 def MatchCircleMut(
     Dimensions: tuple[NativeDimension, ...],
     Radius: float,
@@ -3760,12 +3819,9 @@ def MatchCircleMut(
 ) -> tuple[tuple[float, float, float], str | None, str | None]:
     Matches: list[tuple[int, str, float]] = []
     for Index, Dimension in enumerate(Dimensions):
-        if MathValue.isclose(Dimension.value_mm, Radius, rel_tol=1e-07, abs_tol=1e-07):
-            Matches.append((Index, "radius", Dimension.value_mm))
-        elif MathValue.isclose(
-            Dimension.value_mm, Radius * 2.0, rel_tol=1e-07, abs_tol=1e-07
-        ):
-            Matches.append((Index, "diameter", Dimension.value_mm / 2.0))
+        Match = CircleDimension(Dimension.value_mm, Radius)
+        if Match is not None:
+            Matches.append((Index, *Match))
     ParamName = None
     DimensionKind = None
     if len(Matches) == 1 and Matches[0][0] not in Normalized:
@@ -3926,20 +3982,10 @@ def CircleSet(
                 continue
             StartAngle = MarkerStart(CenterMarker, RimMarker)
             for Index, Dimension in enumerate(Dimensions):
-                Semantic = None
-                NormalizedRadius = RadiusValue
-                if MathValue.isclose(
-                    Dimension.value_mm, RadiusValue, rel_tol=1e-07, abs_tol=1e-07
-                ):
-                    Semantic = "radius"
-                    NormalizedRadius = Dimension.value_mm
-                elif MathValue.isclose(
-                    Dimension.value_mm, RadiusValue * 2.0, rel_tol=1e-07, abs_tol=1e-07
-                ):
-                    Semantic = "diameter"
-                    NormalizedRadius = Dimension.value_mm / 2.0
-                if Semantic is None:
+                Match = CircleDimension(Dimension.value_mm, RadiusValue)
+                if Match is None:
                     continue
+                Semantic, NormalizedRadius = Match
                 CenterCoordinates = CenterMarker.coordinates_mm
                 if CenterCoordinates is None:
                     continue
@@ -4217,7 +4263,14 @@ def Native(
         (ItemValue.native_offset is None for ItemValue in ByName.values())
     ):
         return None
-    return (ByName["d1"].value_mm, ByName["d2"].value_mm, ByName["d3"].value_mm)
+    First, Second, Third = (
+        ByName["d1"].value_mm,
+        ByName["d2"].value_mm,
+        ByName["d3"].value_mm,
+    )
+    if First is None or Second is None or Third is None:
+        return None
+    return (First, Second, Third)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -4543,17 +4596,11 @@ VERTICAL_AXIS_SUBELEMENT = KVerticalAxisSubElem
 _SKETCH_PLANE_ID_RELATIVE = KSketchPlaneIdRelative  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
-_SKETCH_PLANE_REFERENCE_PREFIX = KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
-
-# this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_SCAN_BYTES = KSketchPlaneScanBytes  # lgtm[py/unused-global-variable]
 
-
-# this binding exists because shared behavior needs one stable value
-_SURFACE_EXTRUSION_FEATURE_TYPES = KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
 
 
 # this binding exists because shared behavior needs one stable value

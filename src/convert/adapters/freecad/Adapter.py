@@ -58,6 +58,11 @@ from interchange import (
 )
 from interchange.serialization.EncodeData import ToData
 from interchange.serialization.WireData import ValidateWireMap
+from convert.adapters.registry.EquationWrite import CheckEquations
+from convert.adapters.registry.InchWrite import CheckInchWrite
+from convert.adapters.registry.ResearchWrite import CheckResearch
+from convert.adapters.registry.SupportWrite import CheckSupports
+from convert.adapters.registry.NativeWrite import CheckNative
 from convert.adapters.freecad.Errors.AdapterError import (
     FreeCadAdapterA as FreeCadAdapterA,
 )
@@ -66,6 +71,8 @@ from convert.adapters.freecad.Archive import (
     MANIFEST_ENTRY as ManifestEntry,
     NATIVE_DOCUMENT_SHA256_ATTRIBUTE as KNativeDocHashAttr,
     NativeBrepKey,
+    HasNativeProf,
+    Items,
     ReadZipManifest,
     MAX_ENTRY_SIZE as MaxEntrySize,
     MAX_TOTAL_SIZE as MaxTotalSize,
@@ -87,6 +94,7 @@ from convert.adapters.freecad.Brep import (
     proven_ascii_brep as ProvenAsciiBrep,
 )
 from convert.adapters.freecad.EditRead.Formula.ReconcileSheet import ReconcileSheet
+from convert.adapters.freecad.NativeReplay.ReplayResult import ReplayResult
 from convert.adapters.freecad.EditRead.Sketch.ReconcileSketch import ReconcileSketch
 from convert.adapters.freecad.EditPlaneRev.ReconcilePlaneRev import ReconcilePlane
 from convert.adapters.freecad.EditRev.ReconcileRev import ReconcileRev
@@ -112,6 +120,7 @@ from convert.adapters.freecad.Replay.MetadataTypes import (
     IsPayloadSeq as IsPayloadSeq,
 )
 from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
+from convert.adapters.freecad.Replay.NativeIdentity import IsNative
 from convert.adapters.freecad.Replay.NativeOuter import NativeOuter
 from convert.adapters.freecad.Replay.PrepareReplay import PrepareReplay
 from convert.adapters.freecad.Replay.ReadCache import KReplayReadCache
@@ -418,6 +427,23 @@ def FeatureSet(DocValue: CadDocument) -> tuple[FeatureStep, ...]:
     )
 
 
+# native extrusion requires both a portable operation and an editable source profile
+def HasExtrudeShape(DocValue: CadDocument, Feature: FeatureStep) -> bool:
+    Manifest = DocToManifest(DocValue)
+    Features = [
+        Value
+        for Value in Items(Manifest.get("feature_timeline", ()))
+        if Value.get("id") == Feature.id
+    ]
+    return NativeShapeFeatureCount(
+        {**Manifest, "feature_timeline": Features}
+    ) == 1 and any(
+        HasNativeProf(Sketch)
+        for Sketch in Items(Manifest.get("sketches", ()))
+        if Sketch.get("id") == Feature.sketch_id
+    )
+
+
 # this definition identifies feature kinds that the native writer can reconstruct
 def CanWriteFeature(
     DocValue: CadDocument, Feature: FeatureStep, SketchNative: Mapping[str, bool]
@@ -430,6 +456,7 @@ def CanWriteFeature(
             bool(Feature.SketchId)
             and SketchNative.get(Feature.SketchId or "", False)
             and IsExtrusion(Feature)
+            and HasExtrudeShape(DocValue, Feature)
         )
     if KindValue == FeatureKind.FILLET.value:
         Definition = Feature.Definition
@@ -2107,6 +2134,7 @@ def ReadEmbedded(
     DocValue = ManifestDoc(Value)
     from convert.adapters.freecad.EditDatum.ReconcileDatum import ReconcileDatum
     from convert.adapters.freecad.EditScale.ScaleReadGuard import ReconcileScale
+    from convert.adapters.freecad.InlineRead.CheckInline import GuardInline
 
     DocValue = ReconcileDatum(DocValue, Value, RootValue, Archive, Members)
     DocValue = ReconcileScale(DocValue, Value, RootValue, Archive, Members)
@@ -2115,6 +2143,13 @@ def ReadEmbedded(
     DocValue = ReconcilePlane(DocValue, RootValue, Archive, Members)
     DocValue = ReconcileSheet(DocValue, Value, RootValue)
     DocValue = ReconcileSketch(DocValue, Value, RootValue, Archive, Members)
+    GuardInline(
+        DocValue,
+        Value,
+        RootValue,
+        RetainedRoute=any(IsMeshUsable(MeshValue) for MeshValue in DocValue.meshes)
+        or any(IsNative(Payload) for Payload in DocValue.brep_payloads),
+    )
     return DocValue
 
 
@@ -2144,28 +2179,18 @@ def ExactResult(
     Portable: bool,
     NativeOuters: Sequence[tuple[str, CadDoc]],
     NativeSource: bytes,
+    UnprovenFeatures: tuple[str, ...] = (),
 ) -> WriteResult:
     PathValue = WriteBytes(Target, NativeSource, Overwrite)
     OuterRequirements = DocValue.assembly is not None or bool(NativeOuters)
-    Requirements = ("referenced FreeCAD component files",) if OuterRequirements else ()
-    return WriteResult(
-        path=PathValue,
-        adapter=Instance.info.format_id,
-        bytes_written=len(NativeSource),
-        diagnostics=DocValue.Diagnostics,
-        transfers=CapabilityA(DocValue, TargetPath, Portable, True),
-        metadata={
-            "mode": "exact_native_roundtrip",
-            "compatibility": "native-exact",
-            "vendor_loadable": True,
-            "application_usable": True,
-            "native_self_contained": not OuterRequirements,
-            "referenced_files_written": 0,
-            "runtime": "python-stdlib",
-        },
-        requirements=Requirements,
-        application_usable=True,
-        vendor_loadable=True,
+    return ReplayResult(
+        Instance.info.format_id,
+        DocValue,
+        PathValue,
+        len(NativeSource),
+        OuterRequirements,
+        CapabilityA(DocValue, TargetPath, Portable, True),
+        UnprovenFeatures,
     )
 
 
@@ -2235,6 +2260,7 @@ def RebuildMeta(
     NativeOuters: Sequence[tuple[str, CadDoc]],
     CarrierOnly: bool,
     AppUsable: bool,
+    VendorLoadable: bool,
 ) -> dict[str, object]:
     AsmValue = DocValue.assembly
     return {
@@ -2256,7 +2282,7 @@ def RebuildMeta(
         "carrier_embedded_reference_count": len(NativeOuters)
         + (len(AsmValue.documents) if AsmValue is not None else 0),
         "application_usable": AppUsable,
-        "vendor_loadable": True,
+        "vendor_loadable": VendorLoadable,
     }
 
 
@@ -2271,6 +2297,29 @@ def RebuildDiags(DocValue: CadDocument, CarrierOnly: bool) -> tuple[DiagValue, .
             "Referenced documents are retained in the Kit carrier but cannot be exposed as native relative files from a stream destination",
             Severity.WARNING,
         ),
+    )
+
+
+# fresh history caches cannot establish independent initial application acceptance
+def HasFreshExtrude(DocValue: CadDocument) -> bool:
+    Features = tuple(
+        Feature
+        for Feature in DocValue.feature_timeline
+        if not Feature.suppressed and EnumText(Feature.kind) != "reference"
+    )
+    return (
+        DocValue.assembly is None
+        and DocValue.brep is None
+        and not any(
+            IsNative(Payload)
+            or Payload.role not in {PayloadRole.AUXILIARY, PayloadRole.VERIFICATION}
+            for Payload in DocValue.brep_payloads
+        )
+        and not any(IsMeshUsable(MeshValue) for MeshValue in DocValue.meshes)
+        and len(Features) == 1
+        and EnumText(Features[0].kind) == "extrusion"
+        and EnumText(Features[0].operation) in {"", "create"}
+        and IsExtrusion(Features[0])
     )
 
 
@@ -2320,7 +2369,10 @@ def RebuildResult(
     Transfers = CapabilityA(
         DocValue, TargetPath, Portable, False, TrustedBreps, EditableFeatures
     )
-    AppUsable = not CarrierOnly and IsNativeGeom(DocValue, TrustedBreps)
+    VendorLoadable = not HasFreshExtrude(DocValue)
+    AppUsable = (
+        VendorLoadable and not CarrierOnly and IsNativeGeom(DocValue, TrustedBreps)
+    )
     MetaValue = RebuildMeta(
         DocValue,
         OuterLinks,
@@ -2330,6 +2382,7 @@ def RebuildResult(
         NativeOuters,
         CarrierOnly,
         AppUsable,
+        VendorLoadable,
     )
     return WriteResult(
         path=PathValue,
@@ -2339,8 +2392,52 @@ def RebuildResult(
         metadata=MetaValue,
         transfers=Transfers,
         application_usable=AppUsable,
-        vendor_loadable=True,
+        vendor_loadable=VendorLoadable,
     )
+
+
+# required features need individual accounting before freecad can promise editable output
+def MissingFeatures(
+    DocValue: CadDocument, EditableFeatures: Collection[str]
+) -> tuple[str, ...]:
+    Parts: dict[Capability, list[bool]] = {Value: [] for Value in Capability}
+    Reasons: dict[Capability, set[CarrierReason]] = {
+        Value: set() for Value in Capability
+    }
+    SketchNative, _ = AddSketchMut(DocValue, DocToManifest(DocValue), Parts, Reasons)
+    return tuple(
+        Feature.id
+        for Feature in FeatureSet(DocValue)
+        if Feature.id not in EditableFeatures
+        and not CanWriteFeature(DocValue, Feature, SketchNative)
+    )
+
+
+# an archive carrier cannot satisfy the editable history requirement for any component
+def CheckFeatures(
+    DocValue: CadDocument, *, AllowReplay: bool = False
+) -> tuple[str, ...]:
+    UnprovenFeatures: list[str] = []
+    for Component in DocTree(DocValue):
+        if not MissingFeatures(Component, ()):
+            continue
+        EditableFeatures: set[str] = set()
+        if Component is DocValue and DocValue.assembly is None:
+            _ = BuildFcstdArchive(
+                DocToManifest(Component), editable_features=EditableFeatures
+            )
+        Missing = MissingFeatures(Component, EditableFeatures)
+        if Missing:
+            FeatureLabels = tuple(
+                f"{Component.source.path}: {Value}" for Value in Missing
+            )
+            if not AllowReplay:
+                raise ValueError(
+                    "FreeCAD cannot emit editable required features: "
+                    + "; ".join(FeatureLabels)
+                )
+            UnprovenFeatures.extend(FeatureLabels)
+    return tuple(UnprovenFeatures)
 
 
 # this definition selects exact replay or reconstruction for one write request
@@ -2385,7 +2482,9 @@ def WriteTarget(
             Portable,
             NativeOuters,
             NativeSource,
+            CheckFeatures(DocValue, AllowReplay=True),
         )
+    _ = CheckFeatures(DocValue)
     return RebuildResult(
         Instance,
         DocValue,
@@ -2439,6 +2538,11 @@ class FreeCadAdapter(PairProtocol):
         *,
         Overwrite: bool | None = None,
     ) -> WriteResult:
+        CheckResearch(DocValue)
+        CheckInchWrite(DocValue)
+        CheckEquations(DocValue)
+        CheckSupports(DocValue)
+        CheckNative(DocValue)
         return WriteTarget(self, DocValue, Target, Options, Overwrite)
 
 

@@ -2,6 +2,7 @@ from convert.Formats.Fusion.HistoryRef import ReadNativeRef
 from convert.Formats.Fusion.MetaCursor import MetaCursor
 from convert.Formats.Fusion.RecordSpan import RecordSpan
 from convert.Formats.Fusion.SelectionProxy import SelectCursor
+from convert.Formats.Fusion.Topology.BodyPick import KCutPickMarker, KCutTargetMode
 from convert.Formats.Fusion.Topology.PickSupport import KSupportGuid
 
 # the fixed selection helper separates typed links from an opaque cached scalar
@@ -9,6 +10,9 @@ KPlanePickHelper = "5FBE538E-139B-46D4-BCAF-CC796D1E1F78"
 
 # bounded secondary proxy records share the same type across selection roles
 KProxySecondary = "2DF7DA30-A4E4-4260-AFD1-D9C7154CB44B"
+
+# the bounded sketch face support selects four contexts through this proxy mode
+KSketchFaceMode = 129
 
 
 # identical trailer framing preserves exact reciprocal links in both selector roles
@@ -18,16 +22,23 @@ def ReadPickFooter(
     Cursor: MetaCursor,
     *,
     ModeCode: int = 5,
+    Marker: bytes | None = None,
 ) -> tuple[int, int]:
+    if Marker is None:
+        Marker = (
+            KCutPickMarker
+            if ModeCode in (KCutTargetMode, KSketchFaceMode)
+            else b"\1\1\0\0"
+        )
     if (
         Cursor.ReadWord() != 0
         or Cursor.ReadWord() != ModeCode
         or Cursor.TakeBytes(10) != bytes(10)
-        or Cursor.TakeBytes(4) != b"\1\1\0\0"
+        or Cursor.TakeBytes(4) != Marker
     ):
         raise ValueError("Unsupported Fusion plane selection trailer")
     _ = Cursor.TakeBytes(8)
-    if Cursor.TakeBytes(4) != b"\1\1\0\0":
+    if Cursor.TakeBytes(4) != Marker:
         raise ValueError("Unsupported Fusion plane selection trailer marker")
     HelperId = ReadNativeRef(Cursor)
     Helper = SelectCursor(BulkData, Owners, HelperId, KPlanePickHelper)

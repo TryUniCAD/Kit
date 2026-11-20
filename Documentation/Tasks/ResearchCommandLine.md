@@ -77,7 +77,7 @@ The CLI preserves stale-lease status `3` and the controller's integrity checks.
 
 ## Run configured sessions
 
-Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/ResearchSupervisor.md).
+Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](../Reference/Research/ResearchSupervisor.md).
 Use only trusted configuration and runner programs.
 
 ```sh
@@ -98,7 +98,10 @@ Supervisor contention retains status `4`.
 
 No production decode runner or model-provider registry is supplied by this bridge.
 Models remain disabled by default.
-Optional Codex/Claude runners, escalation, budgets, and private-data controls remain A10 work under the plan's authorization rules.
+To request GPT-6.2-Sol advice automatically on inference stalls, add `--codex-on-stall` to the supervisor's `run` command. See [automatic decoder advice](../Changes/Research/Advice/AutomaticDecoderAdvice.md).
+
+The separate [Codex advice command](../Changes/Research/Advice/CodexFallback.md) can watch an approved parked inference job.
+It uses the local Codex login and writes proposals for independent verification.
 Application workers remain separate isolated research oracles.
 See [session output lifetime](../Gotchas/Research/SupervisorSessionOutputLifetime.md) before implementing a persistent decode runner.
 
@@ -132,12 +135,13 @@ Conversion and inspection do not import its process launcher dependencies.
 | Runner unavailable                | Configure an implemented runner or retain the blocked prerequisite |
 
 Tests execute only in remote CI.
+The Linux and Windows [compatibility jobs](../Changes/Commands/ResearchCandidateCompatibility.md) install the CLI from the workflow candidate and select a separate research checkout at the same revision.
 See [the change record](../Changes/Research/DeterministicResearchCli.md) for compatibility coverage and limits.
 
 ## Related information
 
 - [General CLI](CommandLine.md)
-- [Research plan](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/AutomationPlan.md)
-- [Step register](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/AutomationSteps.md)
-- [SOLIDWORKS reader](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/SolidworksResearchReader.md)
-- [Fusion reader](https://github.com/Stephen316/Kit/blob/b86f30c7e41abdc3812ada795a193377f6ddd220/Documentation/Reference/Research/FusionResearchReader.md)
+- [Research plan](../Reference/Research/AutomationPlan.md)
+- [Step register](../Reference/Research/AutomationSteps.md)
+- [SOLIDWORKS reader](../Reference/Research/SolidworksResearchReader.md)
+- [Fusion reader](../Reference/Research/FusionResearchReader.md)

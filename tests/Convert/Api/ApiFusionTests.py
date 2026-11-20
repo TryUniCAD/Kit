@@ -1,3 +1,4 @@
+from dataclasses import replace as ReplaceData
 from io import BytesIO as ByteStream
 from pathlib import Path as FilePath
 from zipfile import ZipFile
@@ -10,6 +11,8 @@ from convert.adapters import AdapterNotFoundError
 from convert.adapters.Fusion.Adapter import FusionReader
 from convert.Formats.Fusion.DesignZip import KDesignPrefix
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Enums.EnumFeatures import FeatureKind
+from tests.Convert.Api.Fusion.AdapterCases import AdapterCase
 from tests.Convert.Formats.FusionHistoryTests import HistoryArchive
 from tests.Convert.Formats.JsonTests import NonSeekable
 
@@ -78,9 +81,26 @@ def CheckFusStream() -> None:
     )
 
 
-# a reader only format cannot claim output or create a target file
+# public fusion export must refuse incomplete history before writer selection
 def CheckFusWriter(TmpPath: FilePath) -> None:
     Document = OpenDocument(HistoryArchive(), SourceFormat="f3d", StrictMode=False)
+    assert any(
+        StepValue.kind == FeatureKind.NATIVE for StepValue in Document.feature_timeline
+    )
+    TargetPath = TmpPath / "blocked.f3d"
+    for FormatId in ("fusion.f3d", "f3d"):
+        with Pytest.raises(ValueError, match="native or unresolved required semantics"):
+            _ = WriteDocument(Document, TargetPath, destination_format=FormatId)
+    with Pytest.raises(AdapterNotFoundError, match="no writer supports"):
+        _ = WriteDocument(Document, TargetPath)
+    with Pytest.raises(ValueError, match="native or unresolved required semantics"):
+        _ = WriteDocument(Document, TmpPath / "blocked.json")
+    assert tuple(TmpPath.iterdir()) == ()
+
+
+# public fusion authoring must fail when its required portable contract is absent
+def CheckFusMissing(TmpPath: FilePath) -> None:
+    Document = ReplaceData(AdapterCase("cuboid"), metadata={})
     TargetPath = TmpPath / "blocked.f3d"
     for FormatId in ("fusion.f3d", "f3d"):
         with Pytest.raises(AdapterNotFoundError, match="does not support"):

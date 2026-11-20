@@ -11,13 +11,18 @@ from convert.adapters.Fusion.Native.Graph.IntegerValue import IntegerValue
 from convert.adapters.Fusion.Native.Graph.NativeNode import NativeNode
 from convert.adapters.Fusion.Native.Parameters.ParamExpression import ParamExpression
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
+from convert.adapters.Fusion.Native.Rectangle.RectSketchProof import RectSketchProof
 from interchange.Enums.EnumValues import ValueKind
 from interchange.Records.RecordParameter import Parameter, ParameterValue
 
 
 # the parameters operation needs a distinct decoding boundary so public document claims remain grounded in native records
 def ReadParameters(
-    Graph: NativeGraph, Context: ExtrudeContext, AllowTaper: bool = False
+    Graph: NativeGraph,
+    Context: ExtrudeContext,
+    AllowTaper: bool = False,
+    Rectangle: RectSketchProof | None = None,
+    Reverse: bool = False,
 ) -> tuple[Parameter, ...]:
     Table = ResolveField(Graph, Context.Component, "rParameterTable", "ParameterTable")
     Nodes = LinkedNodes(Graph, Table, "children")
@@ -29,7 +34,11 @@ def ReadParameters(
         raise ValueError("Native parameter names must be nonempty and unique")
     Along = CheckBinding(Graph, Context.Along, Context)
     Taper = CheckBinding(Graph, Context.Taper, Context)
-    SameNodes((Context.Along, Context.Taper), Graph.ByClass("DcDoubleParameter"))
+    SketchBindings = Rectangle.Bindings if Rectangle else ()
+    SameNodes(
+        (*SketchBindings, Context.Along, Context.Taper),
+        Graph.ByClass("DcDoubleParameter"),
+    )
     ParameterIds = tuple(
         IntegerValue(NodeValue.Fields["rparamId"])
         for NodeValue in (Context.Along, Context.Taper)
@@ -42,18 +51,26 @@ def ReadParameters(
         raise ValueError(
             "Native parameter identifiers disagree with their fragment allocator"
         )
+    Distance = NumberValue(Along.Fields["value"])
     if (
         Along.Fields["unit"] != "mm"
         or Taper.Fields["unit"] != "deg"
-        or NumberValue(Along.Fields["value"]) <= 0
+        or (Distance >= 0.0 if Reverse else Distance <= 0.0)
         or (not AllowTaper and NumberValue(Taper.Fields["value"]) != 0)
     ):
         raise ValueError(
             "Native extrusion parameter units, distance or taper are unsupported"
         )
+    Owners = {Along.Identity: Context.Extrude, Taper.Identity: Context.Extrude}
+    if Rectangle is not None:
+        for NodeValue in Rectangle.Parameters:
+            Owners[NodeValue.Identity] = Context.SketchFeature
     return tuple(
         ProjectParam(
-            NodeValue, Catalog, Context.Extrude if NodeValue in (Along, Taper) else None
+            NodeValue,
+            Catalog,
+            Owners.get(NodeValue.Identity),
+            Reverse and NodeValue == Along,
         )
         for NodeValue in Nodes
     )
@@ -84,6 +101,7 @@ def ProjectParam(
     NodeValue: NativeNode,
     Catalog: dict[str, NativeNode],
     Owner: NativeNode | None,
+    Reverse: bool = False,
 ) -> Parameter:
     IsOwned = Owner is not None
     RequireFields(
@@ -115,7 +133,7 @@ def ProjectParam(
         NodeValue.Identity,
         TextValue(NodeValue.Fields["userName"]),
         Value,
-        expression=ParamExpression(NodeValue, Catalog),
+        expression=ParamExpression(NodeValue, Catalog, Reverse),
         owner_id=Owner.Identity if Owner is not None else "",
         attributes={
             "comment": TextValue(NodeValue.Fields["comment"]),

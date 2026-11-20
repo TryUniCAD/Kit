@@ -1,0 +1,460 @@
+import json as JsonCodec
+import sqlite3 as SqlCodec
+import sys as System
+from contextlib import closing as CloseConnection
+from hashlib import sha256 as HashBytes
+from pathlib import Path as FilePath
+
+from pytest import mark as TestMark
+
+from tests.Research.Applications.DispatchHost import DispatchHost
+from tests.Research.Applications.FusionPhaseQueueTests import (
+    MakeQueueHost,
+    RunFusionTool,
+)
+from tests.Research.Applications.RunQueueHost import RunQueueHost
+from tests.Research.SupervisorClient import KRepoRoot, SessionHost
+
+
+# a real queued pair provides the phase identity pins used by the recovery audit
+def PrepareTimeout(
+    RootPath: FilePath, *, OwnerLifecycle: bool = True
+) -> tuple[SessionHost, dict[str, object]]:
+    PlanRoot = RootPath / "Prepared"
+    Planned = JsonCodec.loads(
+        RunFusionTool(
+            "re/automation/PairedCaptures/FusionFreshProcess.py",
+            ["--output", str(PlanRoot), "--recipe", "P01", "--read-existing"],
+        )
+    )
+    Harness = MakeQueueHost(RootPath, Planned["source_revision"])
+    (RootPath / "AbsentEndpoint").mkdir(mode=0o700)
+    Inbox = RootPath / "Inbox"
+    Inbox.mkdir(mode=0o700)
+    Installation = RootPath / "Installation.json"
+    Owner = JsonCodec.loads(Installation.read_bytes())
+    Owner["macos_automatic_quit"] = True
+    _ = Installation.write_text(JsonCodec.dumps(Owner), encoding="utf-8")
+    assert Harness.StorePath is not None
+    _ = RunFusionTool(
+        "re/automation/Controller.py",
+        [
+            "--store",
+            str(Harness.StorePath),
+            "resource",
+            "application:fusion:local",
+            "--capacity",
+            "1",
+            "--available",
+        ],
+    )
+    Queued: dict[str, object] = JsonCodec.loads(
+        RunFusionTool(
+            "re/automation/ApplicationWorkers/QueueFusionPhases.py",
+            [
+                "--config",
+                str(Harness.ConfigFile),
+                "--plan",
+                str(PlanRoot / "plan.json"),
+                "--resource",
+                "application:fusion:local",
+                "--receipt",
+                str(Inbox / "pair.json"),
+            ]
+            + (["--owner-lifecycle"] if OwnerLifecycle else []),
+        )
+    )
+    return Harness, Queued
+
+
+# a real macos request timeout must preserve exact custody without starting a cad host
+@TestMark.skipif(System.platform != "darwin", reason="Fusion worker host boundary")
+def CheckFusionWait(TmpPath: FilePath) -> None:
+    RootPath = TmpPath.resolve()
+    Harness, Queued = PrepareTimeout(RootPath)
+    Names = JsonCodec.loads(JsonCodec.dumps(Queued["jobs"]))
+    _ = Harness.RunIdle(IdleSeconds=1, MaxSeconds=60)
+    Status = Harness.ReadJob(Names["a"])
+    assert Status["state"] == "waiting_application", Status
+    assert Harness.ReadJob(Names["b"])["state"] == "waiting_evidence"
+    Endpoint = RootPath / "AbsentEndpoint"
+    Accepted = Harness.ReadResult(Names["a"])
+    RequestPath = VerifyTimeout(Endpoint, Accepted, Queued["plan_sha256"])
+    VerifyAudit(Harness, Queued, RequestPath)
+    VerifyArchive(Harness, RequestPath)
+
+
+# only the existing owned request can explain the terminal parked attempt
+def VerifyTimeout(
+    Endpoint: FilePath, Accepted: dict[str, object], PlanHash: object
+) -> FilePath:
+    (RequestPath,) = Endpoint.glob("jobs/*/probe.request")
+    RequestBytes = RequestPath.read_bytes()
+    Request = JsonCodec.loads(RequestBytes)
+    Result = JsonCodec.loads(JsonCodec.dumps(Accepted["result"]))
+    Records = Result["records"]
+    assert Records["queue_timeout"] == {
+        "version": 1,
+        "queue_job_id": RequestPath.parent.name,
+        "request_sha256": HashBytes(RequestBytes).hexdigest(),
+        "source_revision": Request["source_revision"],
+        "operation": "probe",
+        "plan_sha256": PlanHash,
+    }
+    Fence = JsonCodec.loads((Endpoint / "fence.json").read_bytes())
+    assert Fence["job_id"] == RequestPath.parent.name
+    assert Fence["reason"] == "quarantined"
+    assert (RequestPath.parent / "cancel.json").is_file()
+    assert Records["native_qualified"] is False
+    assert "output_artifacts" not in Accepted
+    assert "application_rearm_intent_sha256" not in Accepted
+    return RequestPath
+
+
+# the same queue receipt must select the parked and archived phase observations
+def AuditArgs(Harness: SessionHost) -> list[str]:
+    assert Harness.StorePath is not None
+    return [
+        "--store",
+        str(Harness.StorePath),
+        "--queue-receipt",
+        str(Harness.RootPath / "TimedQueue.json"),
+        "--installation",
+        str(Harness.RootPath / "Installation.json"),
+    ]
+
+
+# the read only audit must bind the parked result and the original spool bytes
+def VerifyAudit(
+    Harness: SessionHost, Queued: dict[str, object], RequestPath: FilePath
+) -> None:
+    assert Harness.StorePath is not None
+    QueuePath = Harness.RootPath / "TimedQueue.json"
+    _ = QueuePath.write_text(JsonCodec.dumps(Queued), encoding="utf-8")
+    ScriptPath = "re/automation/ApplicationWorkers/AuditFusionPhases.py"
+    Arguments = AuditArgs(Harness)
+    Report = JsonCodec.loads(RunFusionTool(ScriptPath, Arguments))
+    Phase = Report["phases"]["a"]
+    assert Report["status"] == "pending" and Report["resource_available"] is False
+    assert Phase["spool_observation"] == {
+        "status": "request",
+        "fence_status": "quarantined",
+    }
+    RequestBytes = RequestPath.read_bytes()
+    assert (
+        Phase["queue_timeout"]["request_sha256"] == HashBytes(RequestBytes).hexdigest()
+    )
+    _ = RequestPath.write_bytes(RequestBytes + b" ")
+    _ = RunFusionTool(ScriptPath, Arguments, ExitCode=1)
+    _ = RequestPath.write_bytes(RequestBytes)
+
+
+# an ownership refusal must preserve the requesting spool and its exact fence
+def VerifyRefusal(
+    ArchivePath: str, Arguments: list[str], SpoolPath: FilePath, FencePath: FilePath
+) -> None:
+    import fcntl as FileLocks
+
+    FenceBytes = FencePath.read_bytes()
+    Fence = JsonCodec.loads(FenceBytes)
+    Fence["reason"] = "acceptance_required"
+    HeldBytes = JsonCodec.dumps(Fence).encode("utf-8")
+    _ = FencePath.write_bytes(HeldBytes)
+    _ = RunFusionTool(ArchivePath, Arguments, ExitCode=1)
+    assert FencePath.read_bytes() == HeldBytes
+    assert SpoolPath.is_dir()
+    _ = FencePath.write_bytes(FenceBytes)
+    with (FencePath.parent / "host.lock").open("ab") as LockFile:
+        FileLocks.flock(LockFile.fileno(), FileLocks.LOCK_EX | FileLocks.LOCK_NB)
+        _ = RunFusionTool(ArchivePath, Arguments, ExitCode=1)
+        assert FencePath.read_bytes() == FenceBytes
+        assert SpoolPath.is_dir()
+
+
+# an interrupted fence release can retry from the archived bytes without rearming the store
+def VerifyReplay(
+    ArchivePath: str, Arguments: list[str], FencePath: FilePath, FenceBytes: bytes
+) -> None:
+    Retry = JsonCodec.loads(RunFusionTool(ArchivePath, Arguments))
+    assert Retry["status"] == "already_archived" and not FencePath.exists()
+    _ = FencePath.write_bytes(FenceBytes)
+    Resumed = JsonCodec.loads(RunFusionTool(ArchivePath, Arguments))
+    assert Resumed["status"] == "archive_resumed" and not FencePath.exists()
+    assert Resumed["archive_manifest_sha256"] == Retry["archive_manifest_sha256"]
+
+
+# the archival receipt and unchanged controller prove the limits of the owner action
+def VerifyArchive(Harness: SessionHost, RequestPath: FilePath) -> None:
+    assert Harness.StorePath is not None
+    DatabasePath = Harness.StorePath / "ledger.sqlite3"
+    StoreHash = HashBytes(DatabasePath.read_bytes()).hexdigest()
+    ArchivePath = "re/automation/ApplicationWorkers/ArchiveFusionProbe.py"
+    Arguments = [
+        "--config",
+        str(Harness.ConfigFile),
+        "--queue-receipt",
+        str(Harness.RootPath / "TimedQueue.json"),
+    ]
+    SpoolPath = RequestPath.parent
+    Endpoint = Harness.RootPath / "AbsentEndpoint"
+    FencePath = Endpoint / "fence.json"
+    VerifyRefusal(ArchivePath, Arguments, SpoolPath, FencePath)
+    FenceBytes = FencePath.read_bytes()
+    Retained = {
+        EntryPath.name: EntryPath.read_bytes() for EntryPath in SpoolPath.iterdir()
+    }
+    Result = VerifyOwnArc(Harness, RequestPath, FenceBytes)
+    assert Result["status"] == "phase_a_probe_archived"
+    assert Result["resource_rearmed"] is False
+    assert Result["native_retry"] == "waiting_for_verified_owner_readiness"
+    assert not SpoolPath.exists() and not FencePath.exists()
+    SavedPath = Endpoint / "failed-spools" / SpoolPath.name
+    for FileName, Content in Retained.items():
+        assert (SavedPath / FileName).read_bytes() == Content
+    Manifest = SavedPath / "ProbeArchive.json"
+    assert (
+        HashBytes(Manifest.read_bytes()).hexdigest()
+        == Result["archive_manifest_sha256"]
+    )
+    VerifyReplay(ArchivePath, Arguments, FencePath, FenceBytes)
+    VerifyReadback(Harness, SavedPath, HashBytes(Manifest.read_bytes()).hexdigest())
+    assert HashBytes(DatabasePath.read_bytes()).hexdigest() == StoreHash
+    VerifyRetry(Harness, HashBytes(Manifest.read_bytes()).hexdigest())
+
+
+# separate owner programs must refuse a claimed probe and resume the exact completed archive
+def VerifyOwnArc(
+    Harness: SessionHost, RequestPath: FilePath, FenceBytes: bytes
+) -> dict[str, object]:
+    RootPath = Harness.RootPath
+    Lifecycle = RootPath / "Lifecycle.json"
+    _ = Lifecycle.write_text("disposable owner profile\n", encoding="utf-8")
+    ScriptPath = "re/automation/ApplicationWorkers/FusionLifecycleOwner.py"
+    Arguments = [
+        "--config",
+        str(Harness.ConfigFile),
+        "--installation",
+        str(RootPath / "Installation.json"),
+        "--lifecycle",
+        str(Lifecycle),
+        "--queue-directory",
+        str(RootPath / "Inbox"),
+        "--once",
+    ]
+    FencePath = RootPath / "AbsentEndpoint/fence.json"
+    ClaimedPath = RequestPath.with_suffix(".running")
+    _ = RequestPath.rename(ClaimedPath)
+    Refused = JsonCodec.loads(RunFusionTool(ScriptPath, Arguments, ExitCode=1))
+    assert Refused["status"] == "lifecycle_refused"
+    assert FencePath.read_bytes() == FenceBytes and ClaimedPath.is_file()
+    _ = ClaimedPath.rename(RequestPath)
+    HostedFence = JsonCodec.loads(FenceBytes)
+    HostedFence["host"] = JsonCodec.loads(RequestPath.read_bytes())["client"]
+    HostedBytes = JsonCodec.dumps(HostedFence).encode()
+    _ = FencePath.write_bytes(HostedBytes)
+    Deferred = JsonCodec.loads(RunFusionTool(ScriptPath, Arguments))
+    assert Deferred["status"] == "waiting_for_acknowledged_phase_a"
+    assert FencePath.read_bytes() == HostedBytes and RequestPath.is_file()
+    _ = FencePath.write_bytes(FenceBytes)
+    Result: dict[str, object] = JsonCodec.loads(RunFusionTool(ScriptPath, Arguments))
+    _ = FencePath.write_bytes(FenceBytes)
+    Recovered = JsonCodec.loads(RunFusionTool(ScriptPath, Arguments))
+    assert Result == Recovered and not FencePath.exists()
+    return Result
+
+
+# a listener may hold its lock while the owner reads only the archived receipt and pins
+def VerifyReadback(
+    Harness: SessionHost, SavedPath: FilePath, ManifestHash: str
+) -> None:
+    import fcntl as FileLocks
+
+    ScriptPath = "re/automation/ApplicationWorkers/AuditFusionPhases.py"
+    Arguments = AuditArgs(Harness)
+    Endpoint = Harness.RootPath / "AbsentEndpoint"
+    with (Endpoint / "host.lock").open("ab") as LockFile:
+        FileLocks.flock(LockFile.fileno(), FileLocks.LOCK_EX | FileLocks.LOCK_NB)
+        Report = JsonCodec.loads(RunFusionTool(ScriptPath, Arguments))
+        assert Report["resource_available"] is False
+        assert Report["phases"]["a"]["spool_observation"] == {
+            "status": "archived",
+            "archive_manifest_sha256": ManifestHash,
+            "fence_status": "absent",
+        }
+        RequestPath = SavedPath / "probe.request"
+        Retained = RequestPath.read_bytes()
+        _ = RequestPath.write_bytes(Retained + b" ")
+        _ = RunFusionTool(ScriptPath, Arguments, ExitCode=1)
+        _ = RequestPath.write_bytes(Retained)
+
+
+# the owner retry changes only phase admissions after matching the exact archived bytes
+def VerifyRetry(Harness: SessionHost, ManifestHash: str) -> None:
+    import fcntl as FileLocks
+
+    assert Harness.StorePath is not None
+    DatabasePath = Harness.StorePath / "ledger.sqlite3"
+    QueuePath = Harness.RootPath / "TimedQueue.json"
+    Queue = JsonCodec.loads(QueuePath.read_bytes())
+    ArchiveTool = "re/automation/ApplicationWorkers/RetryFusionProbe.py"
+    Arguments = [
+        "--config",
+        str(Harness.ConfigFile),
+        "--queue-receipt",
+        str(QueuePath),
+        "--archive-manifest-sha256",
+    ]
+    StoreHash = HashBytes(DatabasePath.read_bytes()).hexdigest()
+    VerifyRetryRead(Harness, ArchiveTool, Arguments, ManifestHash)
+    _ = RunFusionTool(ArchiveTool, Arguments + ["0" * 64], ExitCode=1)
+    assert HashBytes(DatabasePath.read_bytes()).hexdigest() == StoreHash
+    LockPath = Harness.RootPath / "AbsentEndpoint/host.lock"
+    with LockPath.open("ab") as LockFile:
+        FileLocks.flock(LockFile.fileno(), FileLocks.LOCK_EX | FileLocks.LOCK_NB)
+        Result = JsonCodec.loads(RunFusionTool(ArchiveTool, Arguments + [ManifestHash]))
+    assert Result == {"status": "retry_queued", "archive_manifest_sha256": ManifestHash}
+    VerifyQueued(Harness, Queue["jobs"])
+    StoreHash = HashBytes(DatabasePath.read_bytes()).hexdigest()
+    Replay = JsonCodec.loads(RunFusionTool(ArchiveTool, Arguments + [ManifestHash]))
+    assert Replay["status"] == "retry_already_requested"
+    Observed = JsonCodec.loads(
+        RunFusionTool(ArchiveTool, Arguments + [ManifestHash, "--check"])
+    )
+    assert Observed == {
+        "retry_admissibility": "already_requested",
+        "physical_host_readiness": "unverified",
+        "archive_manifest_sha256": ManifestHash,
+    }
+    assert HashBytes(DatabasePath.read_bytes()).hexdigest() == StoreHash
+
+
+# preflight must observe an exact archive without taking ownership or changing retained bytes
+def VerifyRetryRead(
+    Harness: SessionHost, ScriptPath: str, Arguments: list[str], ManifestHash: str
+) -> None:
+    import fcntl as FileLocks
+
+    assert Harness.StorePath is not None
+    Endpoint = Harness.RootPath / "AbsentEndpoint"
+    DatabasePath = Harness.StorePath / "ledger.sqlite3"
+    StoreBefore = DatabasePath.read_bytes()
+    EndpointBefore = ReadEndpoint(Endpoint)
+    with (Endpoint / "dispatch.lock").open("r+b") as LockFile:
+        FileLocks.flock(LockFile.fileno(), FileLocks.LOCK_EX | FileLocks.LOCK_NB)
+        Eligible = JsonCodec.loads(
+            RunFusionTool(ScriptPath, Arguments + [ManifestHash, "--check"])
+        )
+        Blocked = JsonCodec.loads(
+            RunFusionTool(ScriptPath, Arguments + ["0" * 64, "--check"], ExitCode=1)
+        )
+    assert Eligible == {
+        "retry_admissibility": "eligible_at_snapshot",
+        "physical_host_readiness": "unverified",
+        "archive_manifest_sha256": ManifestHash,
+    }
+    assert Blocked == {
+        "retry_admissibility": "blocked_or_unverified",
+        "physical_host_readiness": "unverified",
+        "stage": "archive_and_resource",
+    }
+    assert DatabasePath.read_bytes() == StoreBefore
+    assert ReadEndpoint(Endpoint) == EndpointBefore
+
+
+# the endpoint snapshot detects changes to locks spools archives and their roster
+def ReadEndpoint(Endpoint: FilePath) -> dict[FilePath, bytes | None]:
+    return {
+        EntryPath.relative_to(Endpoint): (
+            EntryPath.read_bytes() if EntryPath.is_file() else None
+        )
+        for EntryPath in Endpoint.rglob("*")
+    }
+
+
+# accepted evidence still gates the repeat phase while the first phase waits for its own retry
+def VerifyQueued(Harness: SessionHost, Names: dict[str, str]) -> None:
+    First = Harness.ReadJob(Names["a"])
+    Second = Harness.ReadJob(Names["b"])
+    assert First["state"] == "queued" and First["attempts"] == 1
+    assert Second["state"] == "waiting_evidence" and Second["attempts"] == 0
+    assert First["result"] is not None and Second["result"] is None
+
+
+# this disposable capture must reach a real controller timeout without a long default lease
+def ShortTimeout(Harness: SessionHost, JobName: str) -> None:
+    assert Harness.StorePath is not None
+    with CloseConnection(
+        SqlCodec.connect(Harness.StorePath / "ledger.sqlite3")
+    ) as DbConn:
+        RowData = DbConn.execute(
+            "SELECT definition FROM jobs WHERE id=?", (JobName,)
+        ).fetchone()
+    assert RowData is not None
+    Definition = JsonCodec.loads(RowData[0])
+    Definition["timeout_seconds"] = 16
+    Definition["lease_seconds"] = 12
+    Harness.SubmitJobs([Definition])
+
+
+# one exact admitted request must stay observable before and after terminal settlement
+@TestMark.skipif(System.platform != "darwin", reason="Fusion worker host boundary")
+def CheckEntry(TmpPath: FilePath) -> None:
+    RootPath = TmpPath.resolve()
+    Dispatch = DispatchHost(RootPath)
+    Harness, Queued = PrepareTimeout(RootPath, OwnerLifecycle=False)
+    Dispatch.Endpoint = RootPath / "AbsentEndpoint"
+    Dispatch.Command = [
+        System.executable,
+        str(KRepoRoot / "re/automation/ApplicationWorkers/FusionPhaseHealthFixture.py"),
+    ]
+    JobNames: dict[str, str] = JsonCodec.loads(JsonCodec.dumps(Queued["jobs"]))
+    ShortTimeout(Harness, JobNames["a"])
+    _ = (RootPath / "TimedQueue.json").write_text(
+        JsonCodec.dumps(Queued), encoding="utf-8"
+    )
+    with RunQueueHost(Dispatch, "entry") as HostInfo:
+        _ = Harness.RunIdle(IdleSeconds=1, MaxSeconds=35)
+        assert Harness.ReadJob(JobNames["a"])["state"] == "waiting_application"
+        assert Harness.ReadJob(JobNames["b"])["state"] == "waiting_evidence"
+        VerifyEntry(Harness, Dispatch, HostInfo)
+
+
+# changing the creation time must fail even when the recorded process id is unchanged
+def VerifyEntry(
+    Harness: SessionHost, Dispatch: DispatchHost, HostInfo: dict[str, object]
+) -> None:
+    assert Harness.StorePath is not None
+    Database = Harness.StorePath / "ledger.sqlite3"
+    Before = Database.read_bytes()
+    ToolPath = "re/automation/ApplicationWorkers/AuditFusionPhases.py"
+    Arguments = AuditArgs(Harness)
+    (EntryPath,) = Dispatch.Endpoint.glob("jobs/*/phase-native-entry.json")
+    RawData = EntryPath.read_bytes()
+    Record = JsonCodec.loads(RawData)
+    Expected = {
+        "sha256": HashBytes(RawData).hexdigest(),
+        "host": HostInfo,
+        "observed_at": Record["observed_at"],
+    }
+    Observed = ReadEntry(ToolPath, Arguments)
+    assert Observed["status"] == "running" and Observed["native_entry"] == Expected
+    Record["host"]["started"] = "different process lifetime"
+    _ = EntryPath.write_text(JsonCodec.dumps(Record), encoding="utf-8")
+    _ = RunFusionTool(ToolPath, Arguments, ExitCode=1)
+    _ = EntryPath.write_bytes(RawData)
+    (Dispatch.Endpoint / "release-phase").touch()
+    _ = Dispatch.WaitFile(
+        str((EntryPath.parent / "phase.done").relative_to(Dispatch.Endpoint))
+    )
+    Settled = ReadEntry(ToolPath, Arguments)
+    assert Settled["status"] == "done" and Settled["response_status"] == "expired"
+    assert Settled["native_entry"] == Expected and Settled["retained_output_count"] == 0
+    assert EntryPath.read_bytes() == RawData and Database.read_bytes() == Before
+
+
+# the executable must keep timeout observations separate from native qualification
+def ReadEntry(ToolPath: str, Arguments: list[str]) -> dict[str, object]:
+    Report = JsonCodec.loads(RunFusionTool(ToolPath, Arguments))
+    assert Report["status"] == "pending" and Report["native_qualified"] is False
+    Observation: dict[str, object] = Report["phases"]["a"]["spool_observation"]
+    return Observation

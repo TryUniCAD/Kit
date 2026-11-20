@@ -9,20 +9,26 @@ from convert.Formats.Fusion.BodyInputs.BodyInputProject import ProjectPicks
 from convert.Formats.Fusion.ConstructionPlane.ProjectConstruction import (
     ProjectDatums,
 )
+from convert.Formats.Fusion.Extrudes.Cut.ProjectCutEnds import ProjectCutEnds
 from convert.Formats.Fusion.Extrudes.ExtrudeProject import ProjectExtrudes
 from convert.Formats.Fusion.Extrudes.Plane.PlaneExtProject import ProjectPlaneExt
 from convert.Formats.Fusion.FormulaDeps.FormulaLink import LinkFormulaDeps
 from convert.Formats.Fusion.HistoryPart import HistoryPart
 from convert.Formats.Fusion.PlaneProjection import ProjectPlanes
 from convert.Formats.Fusion.Profiles.ProfileProjection import ProjectProfiles
+from convert.Formats.Fusion.Profiles.RectControls.ProjectRectCtrl import ProjectRectCtrl
 from convert.Formats.Fusion.RecordSpan import RecordSpan
 from convert.Formats.Fusion.Revolves.RevolveBody import ProjectRevBody
 from convert.Formats.Fusion.Revolves.RevolveProject import ProjectRevolves
 from convert.Formats.Fusion.Scales.ScaleProject import ProjectScale
+from convert.Formats.Fusion.Sketches.CenterDeps.ProjectCutCent import ProjectCutCent
+from convert.Formats.Fusion.Sketches.FaceSupport.FaceProjection import ProjectFaces
+from convert.Formats.Fusion.Sketches.DimParamRoles import PromoteDimDrive
 from convert.Formats.Fusion.Sketches.SketchRules import AttachRules
 from convert.Formats.Fusion.Sketches.SketchProjection import ProjectSketches
 from convert.Formats.Fusion.SourceBytes import LoadFusionBytes
 from convert.Formats.Fusion.Topology.BodyProjection import ProjectBodyList
+from convert.Formats.Fusion.Topology.CutResult.ProjectCutBody import ProjectCutBody
 from convert.Formats.Fusion.ZipHistory import ReadBulkHistory
 from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
@@ -103,6 +109,7 @@ def ProjectFusDoc(
     )
     Steps = ProjectDatums(BulkData, Spans, History, Planes, Steps, Parameters)
     Sketches, SketchRuleIssues = AttachRules(BulkData, Spans, Sketches, Parameters)
+    Parameters = PromoteDimDrive(Sketches, Parameters, SketchRuleIssues)
     Steps, ExtrudeIssues = ProjectExtrudes(
         BulkData, Spans, Steps, Parameters, Frames, Sketches
     )
@@ -222,6 +229,11 @@ def FinishFusionDoc(
 ) -> CadDocument:
     Document = ProjectBodyList(Document, BulkData, Spans, History)
     Document = ProjectPicks(Document, BulkData, Spans, History)
+    Document = ProjectCutEnds(Document, BulkData, Spans)
+    Document = ProjectFaces(Document, BulkData, Spans, LoadBlob)
+    Document = ProjectCutCent(Document, BulkData, Spans, History)
+    Document = ProjectRectCtrl(Document, BulkData, Spans, History)
+    Document = ProjectCutBody(Document, BulkData, Spans, LoadBlob)
     Document = ProjectScale(Document, BulkData, Spans, History, LoadBlob)
     Document.AssertValid()
     return Document
