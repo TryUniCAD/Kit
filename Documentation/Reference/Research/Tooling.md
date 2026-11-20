@@ -27,6 +27,10 @@ Declared metadata and planned scope do not establish feature availability or con
 | `re/tooling/harness/` | Vendor measurement and sample creation | Isolated licensed environment          |
 | `re/binaries/`        | External input verification            | Licensed installation and manifest     |
 
+The [Fusion planner catalogue](FusionPlannerCatalog.md) supplies indexed API, command, native-schema and recipe inventories.
+Its SQLite bundle can be read without Fusion or a vendor runtime.
+Inventory presence does not establish authoring or conversion support.
+
 Read each tool's source and setup guide before executing it.
 Do not assume that historical command paths match a new machine.
 Keep vendor software outside repository checkouts under the [research artifact policy](ResearchArtifacts.md).

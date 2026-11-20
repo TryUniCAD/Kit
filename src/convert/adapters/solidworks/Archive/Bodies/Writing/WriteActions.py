@@ -1,6 +1,3 @@
-from convert.adapters.solidworks.Archive.Bodies.Writing.WritePackedMut import (
-    WritePackedMut,
-)
 from collections.abc import Callable
 from types import MappingProxyType
 
@@ -11,6 +8,9 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteArrayMut import (
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBooleanMut import (
     WriteBooleanMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBranchMut import (
+    WriteBranchMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBytesMut import (
     WriteBytesMut,
@@ -33,11 +33,14 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteLengthMut import (
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNestedMut import (
     WriteNestedMut,
 )
-from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNormalizeMut import (
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNormalMut import (
     WriteNormalMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteOwnedMut import (
     WriteOwnedMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WritePackedMut import (
+    WritePackedMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WritePresentMut import (
     WritePresentMut,
@@ -54,6 +57,9 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteValidateMut import 
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteValueMut import (
     WriteValueMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteVirtualMut import (
+    WriteVirtualMut,
+)
 
 # both archive directions extend through the same explicit field vocabulary without document programs
 KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] = (
@@ -67,10 +73,10 @@ KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] 
             "Array": WriteArrayMut,
             "Boolean": WriteBooleanMut,
             "Present": WritePresentMut,
-            "Branch": WriteControlMut,
+            "Branch": WriteBranchMut,
             "Context": WriteControlMut,
             "Mask": WriteControlMut,
-            "Virtual": WriteControlMut,
+            "Virtual": WriteVirtualMut,
             "Validate": WriteValidMut,
             "Section": WriteSectionMut,
             "Direct": WriteDirectMut,
