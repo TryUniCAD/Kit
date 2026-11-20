@@ -313,6 +313,8 @@ See [edited native extrusion depths](../Changes/Research/Inference/FreeCad/FreeC
 
 [Edited extrusion graph recovery](../Changes/Research/Inference/FreeCad/EditedExtrusionGraph.md) records the candidate feature definition and its driving parameter.
 
+The generated reader and graph receipt retain the same input identity in `source_sha256`; see [queue reader repairs](../Changes/Research/Inference/Validation/QueueReaderRuntimeRepairs.md).
+
 [Derived extrusion readers](../Changes/Research/Inference/FreeCad/DerivedDepthGraphReader.md) capture replayed native-to-graph bindings in Reader.patch.
 
 [Complementary depth discovery](../Changes/Research/Inference/FreeCad/ComplementaryDepthBindings.md) explains the extra controlled variations and independent replays.

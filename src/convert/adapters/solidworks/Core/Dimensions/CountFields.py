@@ -10,7 +10,8 @@ from convert.adapters.solidworks.Container.Format import (
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
 
 if TYPE_CHECKING:
-    from convert.adapters.solidworks.Core.Native import NativeName, XmlFeature
+    from convert.adapters.solidworks.Core.Records.NativeName import NativeName
+    from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 
 
 # feature instance counts require a named parameter inside a single matching owner interval

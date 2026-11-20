@@ -7,11 +7,9 @@ from convert.adapters.solidworks.Core.Dimensions.ReadCountParam import ReadCount
 from convert.adapters.solidworks.Core.Dimensions.JoinCountPairs import JoinCountPairs
 
 if TYPE_CHECKING:
-    from convert.adapters.solidworks.Core.Native import (
-        NativeClass,
-        NativeName,
-        XmlFeature,
-    )
+    from convert.adapters.solidworks.Core.Records.NativeClass import NativeClass
+    from convert.adapters.solidworks.Core.Records.NativeName import NativeName
+    from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 
 
 # count parameters and handles must share a feature interval and pattern family

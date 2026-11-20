@@ -8,8 +8,8 @@ from interchange.geometry.Models.Sketch import ConstraintRef as RuleRef
 from convert.adapters.solidworks.Core.Dimensions.RadialTarget import RadialTarget
 
 if TYPE_CHECKING:
-    from convert.adapters.solidworks.Core.Adapter import RuleContext
-    from convert.adapters.solidworks.Core.Native import NativeRule
+    from convert.adapters.solidworks.Core.Dimensions.RuleContext import RuleContext
+    from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 
 
 # native circle operands and rectangle measurements need distinct reference binding rules

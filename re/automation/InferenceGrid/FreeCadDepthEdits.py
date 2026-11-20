@@ -164,4 +164,5 @@ def reconcile_depths(data, changes, bindings=None):
     if ReadInlineScope(document, graph) is None:
         raise ValueError("candidate falls outside inline graph verification")
     GuardInline(document, graph, archive.root, RetainedRoute=False)
-    return {"status": "candidate_matches_native_graph", "updates": updates, "candidate": graph}
+    return {"source_sha256": hashlib.sha256(data).hexdigest(),
+            "status": "candidate_matches_native_graph", "updates": updates, "candidate": graph}

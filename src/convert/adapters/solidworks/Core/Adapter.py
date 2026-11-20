@@ -1,4 +1,5 @@
 from __future__ import annotations as Annotations
+from convert.adapters.solidworks.Core.Dimensions.RuleContext import RuleContext
 from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
 from convert.adapters.solidworks.Core.Dimensions.BindRuleRefsMut import BindRuleRefsMut
 from collections import defaultdict as Defaultdict
@@ -168,16 +169,16 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.LinkLocal
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalImport import (
     ReadLocalImport,
 )
+from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
+from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
-    XmlFeature,
     NativeMarker,
     NativeModel,
     NativeOperation,
     NativePlane,
     NativeProfile,
-    NativeRule,
     NativeSketch,
     DIRECTION_AXIS_ROLE as DirectionAxisRole,
     decode_native_model as DecodeNativeModel,
@@ -3143,19 +3144,6 @@ def NativeMarkerA(Marker: NativeMarker, EntityType: str | None = None) -> Native
             }
         ),
     )
-
-
-# this state exists because sketch rule resolution shares occurrence counters
-@DataClass(slots=True)
-class RuleContext:
-    Candidates: Mapping[float, list[tuple[str, str]]]
-    DimensionsByName: Mapping[str, list[NativeDimension]]
-    ParamIdsByName: Mapping[str, list[str]]
-    DimensionUsage: Defaultdict[float, int]
-    ParamUsage: Defaultdict[str, int]
-    RuleIdUsage: Defaultdict[str, int]
-    ParamIds: set[str]
-    MarkerCircles: tuple[SketchEntity, ...] = ()
 
 
 # this definition exists because rule resolution needs indexed dimensions and profiles

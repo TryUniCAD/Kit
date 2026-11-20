@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Container.Format import (
 )
 
 if TYPE_CHECKING:
-    from convert.adapters.solidworks.Core.Native import NativeClass
+    from convert.adapters.solidworks.Core.Records.NativeClass import NativeClass
 
 
 # count parameter names must be bounded by their typed record before pairing with a handle

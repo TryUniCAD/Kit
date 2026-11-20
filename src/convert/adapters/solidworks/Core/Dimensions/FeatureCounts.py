@@ -7,7 +7,8 @@ import struct as Struct
 from convert.adapters.solidworks.Core.Dimensions.CountFields import CountFields
 
 if TYPE_CHECKING:
-    from convert.adapters.solidworks.Core.Native import NativeName, XmlFeature
+    from convert.adapters.solidworks.Core.Records.NativeName import NativeName
+    from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 
 
 # count handles need independently qualified copies before their native scalar can be exported

@@ -1,4 +1,8 @@
 from __future__ import annotations as Annotations
+from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
+from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
+from convert.adapters.solidworks.Core.Records.NativeClass import NativeClass
+from convert.adapters.solidworks.Core.Records.NativeName import NativeName
 from convert.adapters.solidworks.Core.NativeOperand import (
     NativeOperand as NativeOperand,
 )
@@ -982,35 +986,6 @@ def DecodeTreeMut(StateData: DecodeState, Author: Sequence[NativeFeature]) -> No
 
 # this definition exists because focused behavior needs one stable owner
 @Dataclass(frozen=True, slots=True)
-class NativeName:
-    offset: int
-    text_end: int
-    name: str
-    object_id: int | None
-    class_token: int
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeClass:
-    offset: int
-    name: str
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
-class NativeRule:
-    id: str
-    kind: str
-    references: tuple[str, ...]
-    parameter: str | None
-    value: float | None
-    native_offset: int | None
-    native_code: int | None
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(frozen=True, slots=True)
 class NativeProfile:
     kind: str
     coordinates: tuple[float, ...]
@@ -1221,17 +1196,6 @@ class NativeModelA:
     configuration_name: str
     document_path: str
     objects: tuple[tuple[int, str], ...]
-
-
-# this definition exists because focused behavior needs one stable owner
-@Dataclass(slots=True)
-class XmlFeature:
-    object_id: int
-    name: str
-    kind: str
-    xml_tag: str
-    properties: dict[str, str]
-    dimensions: list[NativeDimension]
 
 
 # this binding exists because shared behavior needs one stable value

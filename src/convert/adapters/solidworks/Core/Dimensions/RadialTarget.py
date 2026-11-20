@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
-    from convert.adapters.solidworks.Core.Native import NativeRule
+    from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
     from interchange.geometry.Models.Sketch import SketchEntity
 
 
