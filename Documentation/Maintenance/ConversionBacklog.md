@@ -119,6 +119,17 @@ gates on the delivered revision. Actual header and configuration stream
 owners have separate exits.
 [Change entry](../Changes/Solidworks/SolidworksArchiveObjectMaps.md)
 
+### B03-SW2026-ARCHIVE-HEADERS
+
+The PR #121 takeover team owns the standalone header extraction on
+`codex/solidworks-archive-headers`. It depends on the
+[typed object maps](https://github.com/TryUniCAD/Kit/pull/174) and
+[pinned standalone header evidence](../../re/solidworks/records/StandaloneHeaderSlice2026.md).
+Exit requires exact two-stream replay of the existing native part control
+and the normal CI and review gates on the delivered revision. Configuration
+binding, CMgr headers and inline Definition headers have separate exits.
+[Change entry](../Changes/Solidworks/SolidworksStandaloneHeaders.md)
+
 ### B08-SW2026-TERMINAL-FIN
 
 The PR #121 takeover agent owns this active reader compatibility task.
