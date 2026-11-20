@@ -6,9 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from collections.abc import Callable
 from math import dist as Distance, isclose as IsClose
-from typing import TYPE_CHECKING, TypeVar
 
 from convert.adapters.solidworks.Container.Archive import ArchiveError
 from convert.adapters.solidworks.Resolved.OriginProfile import OriginProfile
@@ -19,7 +17,7 @@ from convert.adapters.solidworks.Sketch.CircularRecords import (
     CircularPoint,
     RadialPrefix,
 )
-from convert.adapters.solidworks.Sketch.Cursor import SketchArchive
+from convert.adapters.solidworks.Sketch.Cursor import KCircleHandle, SketchArchive
 from convert.adapters.solidworks.Sketch.DimFields import ReadDimFields
 from convert.adapters.solidworks.Sketch.DisplayOpen import ReadDisplayBase
 from convert.adapters.solidworks.Sketch.Displays import TakeShownClass
@@ -32,56 +30,10 @@ from convert.adapters.solidworks.Sketch.Relations import ReadRelations
 from convert.adapters.solidworks.Sketch.SketchTail import ReadLogicalTail
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 
-if TYPE_CHECKING:
-    from typing_extensions import override as MarkOverrideMut
-else:
 
-    # preserve the original callable type when marking its override
-    KMethod = TypeVar("KMethod", bound=Callable[..., object])
-
-    # preserve override metadata without a runtime extension dependency
-    def MarkOverrideMut(Method: KMethod) -> KMethod:
-        setattr(Method, "__override__", True)
-        return Method
-
-
-# the full circle and the primary point adjacency share this allocated handle type
-KCircleHandle = "sgArcHandle"
-
-
-# this reader verifies the radialcursor boundary
+# circular records use arc adjacency and the inactive g1 operand layout
 class CircularCursor(SketchArchive):
-    """Limit otherwise shared point adjacency to a witnessed circular handle."""
-
-    # redirect ordinary point adjacency to the reached arc handle
-    @MarkOverrideMut
-    def ReadObject(self, *Expected: str | None) -> int:
-        if Expected == (None, "sgLineHandle"):
-            Expected = (None, KCircleHandle)
-        return super().ReadObject(*Expected)
-
-    # decode circular adjacency and the inactive entity inactive operand
-    @MarkOverrideMut
-    def ReadPayload(self, NameValue: str, ObjectIndex: int) -> None:
-        if NameValue == KCircleHandle:
-            (SlotValue,) = self.ReadInts("<H")
-            RequireArch(
-                SlotValue < 0x777F, True, "unsupported circular handle index width"
-            )
-            Owner, Flags = self.ReadInts("<2i")
-        elif NameValue == "sgEntHandle":
-            RequireArch(
-                self.ReadInts("<H") == (0x777F,),
-                True,
-                "expected invalid placeholder index width",
-            )
-            SlotValue, Owner, Flags = self.ReadInts("<3i")
-            RequireArch(SlotValue == -2, True, "unexpected second G1 operand")
-        else:
-            super().ReadPayload(NameValue, ObjectIndex)
-            return
-        RequireArch((Owner, Flags) == (-1, 0), True, "circular handle is not local")
-        self.Handles[ObjectIndex] = SlotValue, Owner, Flags
+    KCircularHandles = True
 
 
 # this reader verifies the points boundary

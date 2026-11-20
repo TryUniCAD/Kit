@@ -27,7 +27,8 @@ def WriteRegistry(RootPath: FilePath, KindPools: dict[str, str]) -> FilePath:
     _ = SchemaFile.write_text(JsonCodec.dumps(KResultSchema), encoding="utf-8")
     RunnerArgs = [
         System.executable,
-        str(KRepoRoot / "tests/Research/SessionRunner.py"),
+        "-m",
+        "tests.Research.SessionRunner",
         "{session}",
     ]
     Registry = {
