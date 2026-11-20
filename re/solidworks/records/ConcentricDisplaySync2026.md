@@ -39,3 +39,6 @@ The comparison changes the child save as a unit. Individual regenerated
 child fields, display-stream precedence and model-only writer qualification
 remain open. The batch reads no held-out assembly payloads and grants no
 writer coverage credit.
+
+The [generated display list](ConcentricDisplayTreeComposition2026.md)
+separately binds model-authored actions to actual assembly occurrence IDs.
