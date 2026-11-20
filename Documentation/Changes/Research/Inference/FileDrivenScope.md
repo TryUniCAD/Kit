@@ -53,3 +53,5 @@ File-driven SOLIDWORKS research now searches both byte orders, single and double
 The first local runs recovered the four measured P05 revolve dimensions and the three P03 blind-boss dimensions. The P04 cut located two depths in the resolved feature stream. Six other dimensions pointed to the numbered configuration stream, which the scanner now also reads.
 
 At revision 6d43020f1, training on other SOLIDWORKS recipes selected little-endian float64 at displacement 22. The decoder independently found eight cut dimensions across two configuration streams, four revolve dimensions and two rectangular sketch dimensions. Each uniquely located scalar matched its vendor edit measurement and neutral-reader span. The report additionally checks conversion from native metres or radians to the neutral unit.
+
+File-driven SOLIDWORKS research can replay a two-operand quotient from the saved configuration stream and separately infer its arithmetic from controlled edits. Reports retain each source offset, byte length, training digest, independent operand change, competing arithmetic rule and held-out result.

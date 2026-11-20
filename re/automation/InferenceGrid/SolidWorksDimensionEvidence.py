@@ -173,6 +173,8 @@ def dimension_evidence(root, source, pin, document):
         predictions.append(prediction)
     verified = bool(checks) and len(predictions) == len(checks) and all(
         row.get("vendor_value_matches") and row.get("reader_span_matches") and row.get("neutral_value_matches") for row in predictions)
-    return {**result, "status": "held_out_dimensions_match" if verified else "partial_evidence",
+    from InferenceGrid.SolidWorksEquationEvidence import equation_evidence
+    equations = equation_evidence(streams, predictions, sets, pin)
+    return {**result, "equations": equations, "status": "held_out_dimensions_match" if verified else "partial_evidence",
             "measurement_stage": "edited_before_save" if checks else None, "predictions": predictions,
             "discovered_dimension_records": discovered, "measured_count": len(checks), "missing_from_reader": [list(key) for key in measured if key not in requested]}
