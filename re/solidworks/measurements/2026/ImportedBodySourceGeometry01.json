@@ -1,0 +1,488 @@
+{
+  "cases": {
+    "DisclosedImported": {
+      "analytical_source_si": {
+        "area_m2": 0.002222,
+        "bounds_m": [
+          [
+            -0.0024999999999999996,
+            -0.0245,
+            0.004
+          ],
+          [
+            0.0165,
+            0.0025000000000000005,
+            0.017
+          ]
+        ],
+        "centroid_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "volume_m3": 6.669e-06
+      },
+      "body_name": null,
+      "configuration_name": "Default",
+      "decoded_kernel_si": {
+        "area_m2": 0.002222,
+        "bounds_m": [
+          [
+            -0.0024999999999999996,
+            -0.0245,
+            0.004
+          ],
+          [
+            0.0165,
+            0.0025000000000000005,
+            0.017
+          ]
+        ],
+        "centroid_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "volume_m3": 6.669000000000002e-06
+      },
+      "feature_name": "Imported1",
+      "frame": {
+        "bytes": 1663,
+        "sha256": "5fb29edd0cb11ca215ee746b187d0d74251341bbc1716ca0f437d4269ca194f3"
+      },
+      "omissions": [
+        "source part and body labels",
+        "datum and system tree entries",
+        "configuration identifiers, states and properties beyond the active configuration name",
+        "material, appearance, document properties and application settings",
+        "source entity identifiers, attributes and provenance",
+        "source analytic carrier parameterization",
+        "source archive structures, native payloads and tessellation"
+      ],
+      "omitted_capabilities": [
+        "body_structure",
+        "configurations",
+        "native_payloads",
+        "parametric_history",
+        "provenance",
+        "roundtrip_metadata",
+        "support_planes"
+      ],
+      "omitted_metadata": [
+        "adapter",
+        "file_id",
+        "kit.wrapper_metadata_keys",
+        "native_class_names",
+        "native_feature_count",
+        "native_name_record_count",
+        "native_scalar_count",
+        "solidworks.part_text_properties",
+        "solidworks.typed_configuration_graph",
+        "solidworks.typed_configuration_manager",
+        "solidworks.typed_resolved_semantics",
+        "solidworks_source_bytes",
+        "solidworks_source_format_id",
+        "solidworks_source_semantic_sha256",
+        "solidworks_source_sha256",
+        "stream_names"
+      ],
+      "raw": {
+        "bytes": 3759,
+        "sha256": "c407b9672728de4865aa775e5b67b5adebb4d7aa3db823c5131bef5d36878d86"
+      },
+      "resident_node_kinds": {
+        "BODY": 1,
+        "EDGE": 12,
+        "FACE": 6,
+        "HALFEDGE": 24,
+        "LINE": 12,
+        "LOOP": 6,
+        "PLANE": 6,
+        "POINT": 8,
+        "REGION": 2,
+        "SHELL": 2,
+        "VERTEX": 8
+      },
+      "source_geometry_attributes_and_provenance_removed_result_equal": true,
+      "source_payloads_removed_result_equal": true,
+      "typed_roundtrip_exact": true,
+      "unattributed_resident_nodes": 87,
+      "wrapper_roundtrip_exact": true
+    },
+    "OtherShape": {
+      "analytical_source_si": {
+        "area_m2": 0.002838,
+        "bounds_m": [
+          [
+            -0.023,
+            0.0015000000000000013,
+            -0.008
+          ],
+          [
+            -0.012999999999999998,
+            0.0405,
+            0.013
+          ]
+        ],
+        "centroid_m": [
+          -0.018,
+          0.021,
+          0.0025
+        ],
+        "volume_m3": 8.190000000000001e-06
+      },
+      "body_name": null,
+      "configuration_name": "Default",
+      "decoded_kernel_si": {
+        "area_m2": 0.0028380000000000002,
+        "bounds_m": [
+          [
+            -0.023,
+            0.0015000000000000013,
+            -0.008
+          ],
+          [
+            -0.012999999999999998,
+            0.0405,
+            0.013
+          ]
+        ],
+        "centroid_m": [
+          -0.018000000000000002,
+          0.021,
+          0.002499999999999999
+        ],
+        "volume_m3": 8.190000000000001e-06
+      },
+      "feature_name": "Imported1",
+      "frame": {
+        "bytes": 1652,
+        "sha256": "61c04dc2c013f14c473484bb3883a4efc0b6190be548f8f78cf640c48385e83d"
+      },
+      "omissions": [
+        "source part and body labels",
+        "datum and system tree entries",
+        "configuration identifiers, states and properties beyond the active configuration name",
+        "material, appearance, document properties and application settings",
+        "source entity identifiers, attributes and provenance",
+        "source analytic carrier parameterization",
+        "source archive structures, native payloads and tessellation"
+      ],
+      "omitted_capabilities": [
+        "body_structure",
+        "configurations",
+        "native_payloads",
+        "parametric_history",
+        "provenance",
+        "roundtrip_metadata",
+        "support_planes"
+      ],
+      "omitted_metadata": [
+        "adapter",
+        "file_id",
+        "kit.wrapper_metadata_keys",
+        "native_class_names",
+        "native_feature_count",
+        "native_name_record_count",
+        "native_scalar_count",
+        "solidworks.part_text_properties",
+        "solidworks.typed_configuration_graph",
+        "solidworks.typed_configuration_manager",
+        "solidworks.typed_resolved_semantics",
+        "solidworks_source_bytes",
+        "solidworks_source_format_id",
+        "solidworks_source_semantic_sha256",
+        "solidworks_source_sha256",
+        "stream_names"
+      ],
+      "raw": {
+        "bytes": 3759,
+        "sha256": "faed2f6aa1224c2c90d6c02995f7664bcc88f8d5538504546c070e5e95ad55e5"
+      },
+      "resident_node_kinds": {
+        "BODY": 1,
+        "EDGE": 12,
+        "FACE": 6,
+        "HALFEDGE": 24,
+        "LINE": 12,
+        "LOOP": 6,
+        "PLANE": 6,
+        "POINT": 8,
+        "REGION": 2,
+        "SHELL": 2,
+        "VERTEX": 8
+      },
+      "source_geometry_attributes_and_provenance_removed_result_equal": true,
+      "source_payloads_removed_result_equal": true,
+      "typed_roundtrip_exact": true,
+      "unattributed_resident_nodes": 87,
+      "wrapper_roundtrip_exact": true
+    },
+    "RenamedBody": {
+      "analytical_source_si": {
+        "area_m2": 0.002222,
+        "bounds_m": [
+          [
+            -0.0024999999999999996,
+            -0.0245,
+            0.004
+          ],
+          [
+            0.0165,
+            0.0025000000000000005,
+            0.017
+          ]
+        ],
+        "centroid_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "volume_m3": 6.669e-06
+      },
+      "body_name": null,
+      "configuration_name": "Default",
+      "decoded_kernel_si": {
+        "area_m2": 0.002222,
+        "bounds_m": [
+          [
+            -0.0024999999999999996,
+            -0.0245,
+            0.004
+          ],
+          [
+            0.0165,
+            0.0025000000000000005,
+            0.017
+          ]
+        ],
+        "centroid_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "volume_m3": 6.669000000000002e-06
+      },
+      "feature_name": "Transfer Δ17",
+      "frame": {
+        "bytes": 1663,
+        "sha256": "5fb29edd0cb11ca215ee746b187d0d74251341bbc1716ca0f437d4269ca194f3"
+      },
+      "omissions": [
+        "source part and body labels",
+        "datum and system tree entries",
+        "configuration identifiers, states and properties beyond the active configuration name",
+        "material, appearance, document properties and application settings",
+        "source entity identifiers, attributes and provenance",
+        "source analytic carrier parameterization",
+        "source archive structures, native payloads and tessellation"
+      ],
+      "omitted_capabilities": [
+        "body_structure",
+        "configurations",
+        "native_payloads",
+        "parametric_history",
+        "provenance",
+        "roundtrip_metadata",
+        "support_planes"
+      ],
+      "omitted_metadata": [
+        "adapter",
+        "file_id",
+        "kit.wrapper_metadata_keys",
+        "native_class_names",
+        "native_feature_count",
+        "native_name_record_count",
+        "native_scalar_count",
+        "solidworks.part_text_properties",
+        "solidworks.typed_configuration_graph",
+        "solidworks.typed_configuration_manager",
+        "solidworks.typed_resolved_semantics",
+        "solidworks_source_bytes",
+        "solidworks_source_format_id",
+        "solidworks_source_semantic_sha256",
+        "solidworks_source_sha256",
+        "stream_names"
+      ],
+      "raw": {
+        "bytes": 3759,
+        "sha256": "c407b9672728de4865aa775e5b67b5adebb4d7aa3db823c5131bef5d36878d86"
+      },
+      "resident_node_kinds": {
+        "BODY": 1,
+        "EDGE": 12,
+        "FACE": 6,
+        "HALFEDGE": 24,
+        "LINE": 12,
+        "LOOP": 6,
+        "PLANE": 6,
+        "POINT": 8,
+        "REGION": 2,
+        "SHELL": 2,
+        "VERTEX": 8
+      },
+      "source_geometry_attributes_and_provenance_removed_result_equal": true,
+      "source_payloads_removed_result_equal": true,
+      "typed_roundtrip_exact": true,
+      "unattributed_resident_nodes": 87,
+      "wrapper_roundtrip_exact": true
+    },
+    "RenamedFeature": {
+      "analytical_source_si": {
+        "area_m2": 0.002222,
+        "bounds_m": [
+          [
+            -0.0024999999999999996,
+            -0.0245,
+            0.004
+          ],
+          [
+            0.0165,
+            0.0025000000000000005,
+            0.017
+          ]
+        ],
+        "centroid_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "volume_m3": 6.669e-06
+      },
+      "body_name": null,
+      "configuration_name": "Default",
+      "decoded_kernel_si": {
+        "area_m2": 0.002222,
+        "bounds_m": [
+          [
+            -0.0024999999999999996,
+            -0.0245,
+            0.004
+          ],
+          [
+            0.0165,
+            0.0025000000000000005,
+            0.017
+          ]
+        ],
+        "centroid_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "volume_m3": 6.669000000000002e-06
+      },
+      "feature_name": "Transfer Δ17",
+      "frame": {
+        "bytes": 1663,
+        "sha256": "5fb29edd0cb11ca215ee746b187d0d74251341bbc1716ca0f437d4269ca194f3"
+      },
+      "omissions": [
+        "source part and body labels",
+        "datum and system tree entries",
+        "configuration identifiers, states and properties beyond the active configuration name",
+        "material, appearance, document properties and application settings",
+        "source entity identifiers, attributes and provenance",
+        "source analytic carrier parameterization",
+        "source archive structures, native payloads and tessellation"
+      ],
+      "omitted_capabilities": [
+        "body_structure",
+        "configurations",
+        "native_payloads",
+        "parametric_history",
+        "provenance",
+        "roundtrip_metadata",
+        "support_planes"
+      ],
+      "omitted_metadata": [
+        "adapter",
+        "file_id",
+        "kit.wrapper_metadata_keys",
+        "native_class_names",
+        "native_feature_count",
+        "native_name_record_count",
+        "native_scalar_count",
+        "solidworks.part_text_properties",
+        "solidworks.typed_configuration_graph",
+        "solidworks.typed_configuration_manager",
+        "solidworks.typed_resolved_semantics",
+        "solidworks_source_bytes",
+        "solidworks_source_format_id",
+        "solidworks_source_semantic_sha256",
+        "solidworks_source_sha256",
+        "stream_names"
+      ],
+      "raw": {
+        "bytes": 3759,
+        "sha256": "c407b9672728de4865aa775e5b67b5adebb4d7aa3db823c5131bef5d36878d86"
+      },
+      "resident_node_kinds": {
+        "BODY": 1,
+        "EDGE": 12,
+        "FACE": 6,
+        "HALFEDGE": 24,
+        "LINE": 12,
+        "LOOP": 6,
+        "PLANE": 6,
+        "POINT": 8,
+        "REGION": 2,
+        "SHELL": 2,
+        "VERTEX": 8
+      },
+      "source_geometry_attributes_and_provenance_removed_result_equal": true,
+      "source_payloads_removed_result_equal": true,
+      "typed_roundtrip_exact": true,
+      "unattributed_resident_nodes": 87,
+      "wrapper_roundtrip_exact": true
+    }
+  },
+  "construction_denied_io_events": 0,
+  "construction_source_file_reads": 0,
+  "different_source_geometry_changes_kernel_bytes": true,
+  "disclosed_source_sha256": {
+    "Control": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+    "DisclosedImported": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+    "OtherShape": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d",
+    "RenamedBody": "2814fd13c29c840f2079485d47856333e756860fd0abee927703fc47a7cb7f43",
+    "RenamedFeature": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8"
+  },
+  "native_acceptance": false,
+  "native_application_launches": 0,
+  "native_solidworks_outputs": 0,
+  "owning_sources_sha256": {
+    "re/tooling/sw2026/imported_body_source/BuildLocalBodyKernel.py": "e738c2e96719c3e6164efa38f8dfd7d3f6221fea194382db3cba66677036e247",
+    "re/tooling/sw2026/imported_body_source/LocalBodyKernel.py": "e1a9bb70e0cbf76ff13327574e713e03e4a2701f782ce48cb0f5f9241cff46d6",
+    "re/tooling/sw2026/imported_body_source/ProjectDisclosedImport.py": "c6a5b3b9899b0a3e1bd89f9b4784647e97721704d25e579b8c0c3ff4df36b08c",
+    "re/tooling/sw2026/imported_body_source/VerifyDisclosedImport.py": "9e3660f38d297b77167d72b313cf184131c4714120e26ddfb0c9dfc5492434f0",
+    "src/convert/Geometry/Extrude/Polygon/PolygonExtrude.py": "f10468888132e6018a80b113d09cd47501b4b0b1fd563f1745a7a08ee4c99d8b",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "7af9e347e6042e23a18ebd80d2d344facfead51a7173d99d6ab5f38f0fe931bb",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/NativeRow.py": "bda0087fd28bef14be7607b56372a3bc436d8a7532bebfebda6eb8928d4363fe",
+    "tests/Convert/Solidworks/Research/ConstructionGuard.py": "f31598bb5ee9811819fd5a7040674e5601a23dcd326d21ba8a76c50edff4e6bf"
+  },
+  "refusals": {
+    "actual_parametric_extrude_control": "projection requires one authored native import feature",
+    "diagonal_edge": "invalid source B-rep: B-rep loop sldprt:brep:loop:87 is disconnected or open; B-rep loop sldprt:brep:loop:25 is disconnected or open",
+    "foreign_body_owner": "projection requires one design body owned by the native import",
+    "foreign_native_owner": "projection requires an unsuppressed native moBaseBody_c import without parametric inputs",
+    "inactive_configuration": "projection requires one active root configuration without overrides or suppression",
+    "interior_vertex": "source vertices do not describe all eight distinct axis-aligned box corners",
+    "inward_plane_normal": "source face plane does not coincide with its outward box side",
+    "line_trim_misses_vertex": "edge line trim does not reach its source vertex",
+    "malformed_plane_origin": "source face plane does not coincide with its outward box side",
+    "missing_brep": "projection requires a typed SDK B-rep",
+    "multiple_configurations": "projection requires one configuration",
+    "nonzero_topology_tolerance": "source solid has degenerate topology or local tolerances",
+    "reversed_face_use": "source body does not have one outward closed solid shell",
+    "scrambled_face_trim": "invalid source B-rep: B-rep loop sldprt:brep:loop:87 is disconnected or open",
+    "unclosed_shell": "source body does not have one outward closed solid shell",
+    "unsupported_configuration_name_override": "active configuration name or identity lacks a matching selected native owner",
+    "unsupported_feature_name_override": "import feature name or identity does not agree with its typed native owner"
+  },
+  "renamed_source_geometry_is_identical": true,
+  "runtime": {
+    "python": "3.13.15",
+    "zlib": "1.2.12"
+  },
+  "schema": "kit.sw2026.imported-body-source-geometry.v1"
+}

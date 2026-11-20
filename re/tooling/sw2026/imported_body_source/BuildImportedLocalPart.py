@@ -218,7 +218,7 @@ def publish_completed_update(system, headers, feature, recipe):
         header.FieldsValue["f40"] = stamp
 
 
-def make_part(document, destination, mode, completed=False):
+def make_part(document, destination, mode, completed=False, *, feature_name="Imported geometry"):
     document.AssertValid()
     require(mode in MODES and str(document.units) == "mm" and
             set(document.metadata) <= {"kit.sw2026.ambient"} and
@@ -228,7 +228,7 @@ def make_part(document, destination, mode, completed=False):
             "the local-body diagnostic requires a standalone neutral millimetre boundary")
     name = PureWindowsPath(destination).stem
     configuration, = document.configurations
-    labels = ImportedLabels(name, configuration.name, "Imported geometry")
+    labels = ImportedLabels(name, configuration.name, feature_name)
     recipe = MakePartRecipe(labels, EPOCH)
     recipe = replace(recipe, OutputValue=SelfFileInput(destination, EPOCH))
     allocator = PersistentIds()

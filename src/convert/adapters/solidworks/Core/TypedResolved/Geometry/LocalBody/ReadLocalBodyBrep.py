@@ -23,7 +23,7 @@ from interchange.Payloads.PayloadRecord import BrepPayload
 KLocalBodyStream = "Config-0-FeatureBodies/LocalBodies"
 
 
-# local fallback only recovers the sole complete boundary of a body-free active partition
+# an empty active partition lets the single local solid supply its own complete boundary
 def ReadLocalBrep(Payloads: Sequence[BrepPayload]) -> BrepModel | None:
     StreamsValue = {
         (Payload.source_stream, Payload.kind): Payload.data for Payload in Payloads
