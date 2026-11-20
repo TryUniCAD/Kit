@@ -91,6 +91,12 @@ def ReadRunOptions(Run, MaxSeconds):
 
 # pause is a durable request to stop claiming new work without interrupting active workers
 def PauseCatalogue(Directory, SourceRoot, Format):
+    if (Directory / "AuthoringRun.json").is_file():
+        from InferenceGrid.Authoring.RunAuthorBatch import ReadAuthorRun
+
+        ReadAuthorRun(Directory, SourceRoot, Format)
+        write_private(Directory / "CataloguePause.json", {"paused": True})
+        return {"status": "pausing", "directory": str(Directory)}
     _, Run = ReadRun(Directory, SourceRoot, Format)
     if Run["stage"] is not None:
         write_private(Directory / "CataloguePause.json", {"paused": True})

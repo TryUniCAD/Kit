@@ -306,6 +306,8 @@ jobs:
         ^tests/Research/Supervisor/Grouping/SupervisorSoloTests\.py::CheckBatchCrash
         ^tests/Research/Owners/
         ^tests/Research/WindowsRecords/
+        ^tests/Research/Inference/Authoring/SolidWorks/NativeEnvTests\.py::
+        ^tests/Research/Inference/Authoring/SolidWorks/PhaseProcessTests\.py::
     defaults:
       run:
         shell: bash

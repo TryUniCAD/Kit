@@ -7,6 +7,10 @@ import signal
 import sys
 import time
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from CaptureTools.Catalogue.Fusion.VerifyReport import CheckArtifacts, VerifyReport
+
 from ApplicationProtocol import (
     ApplicationTimeout,
     QueueClient,
@@ -35,11 +39,19 @@ from FusionPhasePlan import (
 )
 from FusionRestart import wait_for_restart
 
+
 def input_file(session, job, role, limit=256 * 1024 * 1024):
     require(role in job["inputs"], f"missing application input role: {role}")
     item = job["inputs"][role]
-    require(isinstance(item["sha256"], str) and re.fullmatch("[0-9a-f]{64}", item["sha256"]), "invalid application input digest")
-    require(item["path"] == f"inputs/{item['sha256']}", "application input is outside the private session")
+    require(
+        isinstance(item["sha256"], str)
+        and re.fullmatch("[0-9a-f]{64}", item["sha256"]),
+        "invalid application input digest",
+    )
+    require(
+        item["path"] == f"inputs/{item['sha256']}",
+        "application input is outside the private session",
+    )
     source = session / item["path"]
     raw = file_bytes(source, limit)
     require(sha256(raw) == item["sha256"], "application input digest changed")
@@ -51,14 +63,21 @@ def accepted_first(session, job, config, plan_hash, scope):
     accepted = json.loads(raw)
     result_sha256 = sha256(raw)
     dependency = job["dependencies"].get(accepted["receipt"]["job_id"])
-    require(dependency is not None and dependency["result"] == result_sha256,
-            "phase B requires the accepted phase A result as a completed controller dependency")
+    require(
+        dependency is not None and dependency["result"] == result_sha256,
+        "phase B requires the accepted phase A result as a completed controller dependency",
+    )
     result = accepted["result"]
     records = result["records"]
-    require(accepted["output_artifacts_version"] == 1 and result["outcome"] == "completed" and records["plan_sha256"] == plan_hash
-            and records["phase"] == "a" and records["installation"] == config["installation"]
-            and records.get("scope") == scope,
-            "accepted phase A provenance does not match this installation and plan")
+    require(
+        accepted["output_artifacts_version"] == 1
+        and result["outcome"] == "completed"
+        and records["plan_sha256"] == plan_hash
+        and records["phase"] == "a"
+        and records["installation"] == config["installation"]
+        and records.get("scope") == scope,
+        "accepted phase A provenance does not match this installation and plan",
+    )
     return accepted, raw
 
 
@@ -71,17 +90,24 @@ def stage_plan(client, session, job, raw, plan, plan_hash, accepted):
         prior.mkdir(mode=0o700)
         names = phase_paths(plan, "a")
         if scope is not None:
-            require(set(result["output_artifacts"]) == set(names) | {"dispatch"},
-                    "accepted scope phase A output roles changed")
+            require(
+                set(result["output_artifacts"]) == set(names) | {"dispatch"},
+                "accepted scope phase A output roles changed",
+            )
             write_new(prior / "accepted.json", result_bytes)
         prior_bytes = len(result_bytes) if scope is not None else 0
         for role, name in names.items():
             _, data = input_file(session, job, role)
             expected = result["output_artifacts"][role]
-            require(sha256(data) == expected["sha256"] and len(data) == expected["size_bytes"],
-                    "phase A input differs from the accepted controller artifact")
+            require(
+                sha256(data) == expected["sha256"]
+                and len(data) == expected["size_bytes"],
+                "phase A input differs from the accepted controller artifact",
+            )
             prior_bytes += len(data)
-            require(prior_bytes <= 256 * 1024 * 1024, "prior phase A inputs exceed 256 MiB")
+            require(
+                prior_bytes <= 256 * 1024 * 1024, "prior phase A inputs exceed 256 MiB"
+            )
             write_new(client.directory / name, data)
         receipt = record(prior / "receipt.json")
         if scope is None:
@@ -94,6 +120,13 @@ def stage_plan(client, session, job, raw, plan, plan_hash, accepted):
                 and receipt["measurements_sha256"] == sha256(data)
                 and report["status"] == "complete",
                 "phase A inputs are incomplete or belong to a different plan",
+            )
+        elif scope == "catalogue-parametric-fusion":
+            data = file_bytes(prior / "report.json", 16 * 1024 * 1024)
+            report = json.loads(data)
+            VerifyReport(receipt, report, data, plan_hash, "a", plan["cases"])
+            CheckArtifacts(
+                report, {role: result["output_artifacts"][role] for role in names}, "a"
             )
         else:
             data = file_bytes(prior / "report.json")
@@ -211,12 +244,20 @@ def collect(session, client, response, plan, plan_hash, phase):
         require_win_sources(client.config, response["proof"]["loaded_sources"])
     report_name = "measurements.json" if scope is None else "report.json"
     directory = session / "work" / f"phase-{phase}"
-    data = file_bytes(directory / report_name)
+    data = file_bytes(
+        directory / report_name,
+        16 * 1024 * 1024 if scope == "catalogue-parametric-fusion" else 1024 * 1024,
+    )
     report = json.loads(data)
     sealed = record(directory / "receipt.json")
     if scope is None:
         check_discovery_phase(sealed, report, data, plan, plan_hash, phase, artifacts)
         build = report["fusion_version"]
+    elif scope == "catalogue-parametric-fusion":
+        VerifyReport(sealed, report, data, plan_hash, phase, plan["cases"])
+        CheckArtifacts(report, artifacts, phase)
+        require(report["mode"] == plan["mode"], "catalogue report changed capture mode")
+        build = report["application_build"]
     else:
         check_scope_report(sealed, report, data, plan_hash, phase)
         check_scope_archives(report, artifacts, phase)
@@ -228,7 +269,10 @@ def collect(session, client, response, plan, plan_hash, phase):
         "Fusion fixture reports cannot settle a native phase",
     )
     if phase == "b":
-        prior_raw = file_bytes(client.directory / "phase-a" / report_name)
+        prior_raw = file_bytes(
+            client.directory / "phase-a" / report_name,
+            16 * 1024 * 1024 if scope == "catalogue-parametric-fusion" else 1024 * 1024,
+        )
         previous = json.loads(prior_raw)["process"]
         require(
             previous["pid"] != response["host"]["pid"]
@@ -260,19 +304,38 @@ def dispatch(session, config):
     options = job["job"]["options"]
     scope = plan_scope(options)
     phase = options.get("phase")
-    require(job["session_version"] == 1 and phase in ("a", "b")
-            and options == phase_options(scope, phase), "application job requires a phase and optional fixed scope")
-    records = {"installation": config["installation"], "application": config["application"],
-               "phase": phase, "claim": "unqualified_dispatch", "native_qualified": False}
+    require(
+        job["session_version"] == 1
+        and phase in ("a", "b")
+        and options == phase_options(scope, phase),
+        "application job requires a phase and optional fixed scope",
+    )
+    records = {
+        "installation": config["installation"],
+        "application": config["application"],
+        "phase": phase,
+        "claim": "unqualified_dispatch",
+        "native_qualified": False,
+    }
     if scope is not None:
         records["scope"] = scope
     windows = windows_phase_a(config)
     if windows and (phase != "a" or scope is not None):
-        return {"outcome": "waiting_application", "reason": "Windows Fusion only admits ordinary Phase A", "records": records}
+        return {
+            "outcome": "waiting_application",
+            "reason": "Windows Fusion only admits ordinary Phase A",
+            "records": records,
+        }
     if config["application"] != "fusion" or (sys.platform != "darwin" and not windows):
-        return {"outcome": "waiting_application", "reason": "this installation has no qualified Fusion fresh-phase counterpart on this platform", "records": records}
+        return {
+            "outcome": "waiting_application",
+            "reason": "this installation has no qualified Fusion fresh-phase counterpart on this platform",
+            "records": records,
+        }
     deadline = min(job["stop_at"] - 1, time.time() + 300)
-    require(deadline > time.time(), "application session has no remaining dispatch budget")
+    require(
+        deadline > time.time(), "application session has no remaining dispatch budget"
+    )
     client = None
     try:
         load_pinned(config, "re/automation/ApplicationWorkers/ApplicationProtocol.py")
@@ -280,38 +343,67 @@ def dispatch(session, config):
             client = QueueClient(config, deadline)
         _, raw = input_file(session, job, "plan", limit=1024 * 1024)
         plan = json.loads(raw)
-        require(plan["source_revision"] == config["source_revision"] and plan_scope(plan) == scope,
-                "plan and installation revision or declared scope differ")
+        require(
+            plan["source_revision"] == config["source_revision"]
+            and plan_scope(plan) == scope,
+            "plan and installation revision or declared scope differ",
+        )
         plan_hash = sha256(raw)
         accepted = None
         if phase == "b":
             accepted = accepted_first(session, job, config, plan_hash, scope)
-            wait_for_restart(config, accepted[0]["result"]["records"], plan_hash, deadline)
+            wait_for_restart(
+                config, accepted[0]["result"]["records"], plan_hash, deadline
+            )
             client = QueueClient(config, deadline)
         stage_plan(client, session, job, raw, plan, plan_hash, accepted)
         probe = client.call("probe", {"plan_sha256": plan_hash})
-        require(probe["proof"]["control"] == "healthy" and probe["proof"]["host"] == probe["host"]
-                and probe["proof"]["plan_sha256"] == plan_hash and probe["proof"]["documents_after"] == 0
-                and probe["proof"].get("scope") == scope
-                and 0 <= time.time() - probe["proof"]["measured_at"] <= 60, "application readiness lacks fresh pinned control evidence")
+        require(
+            probe["proof"]["control"] == "healthy"
+            and probe["proof"]["host"] == probe["host"]
+            and probe["proof"]["plan_sha256"] == plan_hash
+            and probe["proof"]["documents_after"] == 0
+            and probe["proof"].get("scope") == scope
+            and 0 <= time.time() - probe["proof"]["measured_at"] <= 60,
+            "application readiness lacks fresh pinned control evidence",
+        )
         if windows:
             proof = probe["proof"]
             require_win_sources(config, proof["loaded_sources"])
-            require(proof["input_pins"] == plan["pins"]
-                    and proof["readings"]["healthy_control"]["compute_all_return"] is True
-                    and proof["readings"]["healthy_control"]["native_input"] == plan["pins"]["control"],
-                    "Windows Fusion readiness does not bind the exact pinned control")
+            require(
+                proof["input_pins"] == plan["pins"]
+                and proof["readings"]["healthy_control"]["compute_all_return"] is True
+                and proof["readings"]["healthy_control"]["native_input"]
+                == plan["pins"]["control"],
+                "Windows Fusion readiness does not bind the exact pinned control",
+            )
         probe_hash = sha256(file_bytes(client.directory / "probe.done"))
-        response = client.call("phase", {"phase": phase, "plan_sha256": plan_hash,
-                                         "probe_sha256": probe_hash})
+        response = client.call(
+            "phase",
+            {"phase": phase, "plan_sha256": plan_hash, "probe_sha256": probe_hash},
+        )
         if windows:
-            require(response["proof"]["probe_sha256"] == probe_hash
-                    and response["proof"]["fusion_version"] == probe["proof"]["fusion_version"],
-                    "Windows Fusion phase proof differs from the admitted probe")
+            require(
+                response["proof"]["probe_sha256"] == probe_hash
+                and response["proof"]["fusion_version"]
+                == probe["proof"]["fusion_version"],
+                "Windows Fusion phase proof differs from the admitted probe",
+            )
         artifacts = collect(session, client, response, plan, plan_hash, phase)
-        records.update({"plan_sha256": plan_hash, "host": response["host"], "fusion_version": response["proof"]["fusion_version"],
-                        "restart_handoff": response["proof"].get("restart_handoff")})
-        return {"outcome": "completed", "reason": response["reason"], "records": records, "artifacts": artifacts}
+        records.update(
+            {
+                "plan_sha256": plan_hash,
+                "host": response["host"],
+                "fusion_version": response["proof"]["fusion_version"],
+                "restart_handoff": response["proof"].get("restart_handoff"),
+            }
+        )
+        return {
+            "outcome": "completed",
+            "reason": response["reason"],
+            "records": records,
+            "artifacts": artifacts,
+        }
     except ApplicationTimeout as error:
         request = error.request
         link = request_link(request)
@@ -323,20 +415,32 @@ def dispatch(session, config):
             "operation": request["operation"],
             "plan_sha256": request["body"]["plan_sha256"],
         }
-        return {"outcome": "waiting_application", "reason": str(error)[:2048], "records": records}
+        return {
+            "outcome": "waiting_application",
+            "reason": str(error)[:2048],
+            "records": records,
+        }
     except (WaitingApplication, FileNotFoundError, BlockingIOError) as error:
-        return {"outcome": "waiting_application", "reason": str(error)[:2048], "records": records}
+        return {
+            "outcome": "waiting_application",
+            "reason": str(error)[:2048],
+            "records": records,
+        }
     finally:
         if client is not None:
             client.close()
 
 
 def interrupted(number, frame):
-    raise InterruptedError("application worker interrupted; external CAD remains owned by its launcher")
+    raise InterruptedError(
+        "application worker interrupted; external CAD remains owned by its launcher"
+    )
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Dispatch pinned Fusion phases to a private local add-in queue")
+    parser = argparse.ArgumentParser(
+        description="Dispatch pinned Fusion phases to a private local add-in queue"
+    )
     parser.add_argument("--installation", type=Path, required=True)
     parser.add_argument("session", type=Path)
     args = parser.parse_args()
@@ -347,8 +451,11 @@ def main():
         config = configuration(args.installation)
         result = dispatch(session, config)
     except (OSError, ValueError, KeyError, TypeError) as error:
-        result = {"outcome": "rejected", "reason": f"{type(error).__name__}: {error}"[:2048],
-                  "records": {"claim": "unqualified_dispatch", "native_qualified": False}}
+        result = {
+            "outcome": "rejected",
+            "reason": f"{type(error).__name__}: {error}"[:2048],
+            "records": {"claim": "unqualified_dispatch", "native_qualified": False},
+        }
     write_record(session / "result.json", result)
     return 0
 
