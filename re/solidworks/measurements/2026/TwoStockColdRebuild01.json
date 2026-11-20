@@ -1,0 +1,150 @@
+{
+  "guarded_processes": 4,
+  "held_out_cases": 0,
+  "native_oracle_processes": 0,
+  "native_receipt_sha256": "d672ec1f8d427844410a7e2d809bfbcf0d130ecaf1df1bb78cefdd1f5f64e187",
+  "phases": {
+    "edited": {
+      "archive": {
+        "bytes": 8589,
+        "sha256": "b2792f7a86f38f0cb2ed5421c0b68d44b688126e42fdab229f093d6f9e35e8ff"
+      },
+      "bodies": {
+        "MovingStock": {
+          "area_mm2": 1500.0,
+          "centre_mm": [
+            14.5,
+            8.0,
+            9.0
+          ],
+          "faces": 6,
+          "final_feature_id": "sldprt:feature:22",
+          "id": "sldprt:body:22",
+          "solid_count": 1,
+          "volume_mm3": 3248.0
+        },
+        "ThroughFeature": {
+          "area_mm2": 868.1693915921742,
+          "centre_mm": [
+            21.0,
+            -8.886027482188885,
+            6.0
+          ],
+          "faces": 8,
+          "final_feature_id": "sldprt:feature:25",
+          "id": "sldprt:body:25",
+          "solid_count": 1,
+          "volume_mm3": 1256.3060357342374
+        }
+      },
+      "result_producer": "sldprt:feature:25",
+      "runtime_access_attempts": 0,
+      "selected_atom": 101,
+      "selected_index": 0,
+      "selected_producer": "sldprt:feature:19",
+      "selection_id": "sldprt:feature:25:stock-body",
+      "untouched_intersects_tool": true,
+      "untouched_producer": "sldprt:feature:22"
+    },
+    "initial": {
+      "archive": {
+        "bytes": 8574,
+        "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508"
+      },
+      "bodies": {
+        "MovingStock": {
+          "area_mm2": 664.0,
+          "centre_mm": [
+            5.0,
+            8.0,
+            9.0
+          ],
+          "faces": 6,
+          "final_feature_id": "sldprt:feature:22",
+          "id": "sldprt:body:22",
+          "solid_count": 1,
+          "volume_mm3": 1120.0
+        },
+        "ThroughFeature": {
+          "area_mm2": 868.1693915921742,
+          "centre_mm": [
+            21.0,
+            -8.886027482188885,
+            6.0
+          ],
+          "faces": 8,
+          "final_feature_id": "sldprt:feature:25",
+          "id": "sldprt:body:25",
+          "solid_count": 1,
+          "volume_mm3": 1256.3060357342374
+        }
+      },
+      "result_producer": "sldprt:feature:25",
+      "runtime_access_attempts": 0,
+      "selected_atom": 101,
+      "selected_index": 0,
+      "selected_producer": "sldprt:feature:19",
+      "selection_id": "sldprt:feature:25:stock-body",
+      "untouched_intersects_tool": false,
+      "untouched_producer": "sldprt:feature:22"
+    },
+    "saved": {
+      "archive": {
+        "bytes": 76337,
+        "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+      },
+      "refusal": "provisional two-stock ownership excludes stored body caches",
+      "runtime_access_attempts": 0
+    },
+    "second": {
+      "archive": {
+        "bytes": 8637,
+        "sha256": "4e28595d99295462f656b216facd0fa2800efb10befa2a6508bf5914b4143721"
+      },
+      "bodies": {
+        "AlphaSolid": {
+          "area_mm2": 585.0,
+          "centre_mm": [
+            -4.5,
+            7.0,
+            3.75
+          ],
+          "faces": 6,
+          "final_feature_id": "sldprt:feature:19",
+          "id": "sldprt:body:19",
+          "solid_count": 1,
+          "volume_mm3": 900.0
+        },
+        "RightScopeCut": {
+          "area_mm2": 766.0409526957654,
+          "centre_mm": [
+            4.75,
+            -13.0,
+            8.950193621550921
+          ],
+          "faces": 8,
+          "final_feature_id": "sldprt:feature:25",
+          "id": "sldprt:body:25",
+          "solid_count": 1,
+          "volume_mm3": 1334.8490102884289
+        }
+      },
+      "result_producer": "sldprt:feature:25",
+      "runtime_access_attempts": 0,
+      "selected_atom": 102,
+      "selected_index": 1,
+      "selected_producer": "sldprt:feature:22",
+      "selection_id": "sldprt:feature:25:stock-body",
+      "untouched_intersects_tool": false,
+      "untouched_producer": "sldprt:feature:19"
+    }
+  },
+  "schema": "kit.sw2026.disclosed-cache-free-stock-rebuild.v1",
+  "source_revision": "454513a85e38f0dd03faa1c4ea52d5cff275b052",
+  "tool_sha256": {
+    "re/tooling/sw2026/throughsource/twostockgraph/ProveRebuiltColdStocks.py": "1a6849b3f3bdf85cffeacbf392c91d7d3ce3c93b798711fdb177aa0cc23f163e",
+    "re/tooling/sw2026/throughsource/twostockgraph/ReadColdStockOwners.py": "b3d285e0ebd2ae61d8038d442b6fe20531a0a7ec6fa2620f1276b001a25c1e1f",
+    "re/tooling/sw2026/throughsource/twostockgraph/RebuildColdStockShape.py": "606fd4fc725e63aee1dce72410223802f416f2355020c4d81df1a31cba45abad",
+    "re/tooling/sw2026/throughsource/twostockshape/BuildTwoStockShape.py": "e67ed83e743dad06f103218e358471851d485a23df12663d8198d43554d2cb7e"
+  }
+}

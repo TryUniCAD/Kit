@@ -258,7 +258,10 @@ def untouched_overlap(bounds, selected, circle, direction):
 
 
 def build_two_stock_shape(document):
-    intent = project_intent(document)
+    return build_intent_shape(project_intent(document))
+
+
+def build_intent_shape(intent):
     originals = {body.final_feature_id: body for body in intent.bodies}
     moving = originals[intent.untouched.feature_id]
     result = originals[intent.cut_id]

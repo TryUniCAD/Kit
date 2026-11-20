@@ -1,0 +1,564 @@
+{
+  "contrast_generation": {
+    "deterministic_repetitions": 2,
+    "external_access_attempts": 0
+  },
+  "corrupt_owners": {
+    "changed_profile_frame": {
+      "external_access_attempts": 0,
+      "refused": "cache free prism profile placement differs from its actual datum"
+    },
+    "consumed_stock": {
+      "external_access_attempts": 0,
+      "refused": "pre-rebuild solid has a result, consumed atom or chooser owner"
+    },
+    "detached_depth_display": {
+      "external_access_attempts": 0,
+      "refused": "through-all presentation owner does not alias its archive map"
+    },
+    "detached_manager_atom": {
+      "external_access_attempts": 0,
+      "refused": "cut body atom manager contains missing or additional ownership"
+    },
+    "foreign_component_owner": {
+      "external_access_attempts": 0,
+      "refused": "cut selection wrapper differs from the consumed boss atom"
+    },
+    "invented_result": {
+      "external_access_attempts": 0,
+      "refused": "pre-rebuild solid has a result, consumed atom or chooser owner"
+    },
+    "later_producer": {
+      "external_access_attempts": 0,
+      "refused": "cut selector does not identify an actual earlier stock producer"
+    },
+    "mismatched_atom_key": {
+      "external_access_attempts": 0,
+      "refused": "cut selection wrapper differs from the consumed boss atom"
+    },
+    "realized_stock_atom": {
+      "external_access_attempts": 0,
+      "refused": "cold name has alternate node body tag or display state"
+    },
+    "renamed_depth": {
+      "external_access_attempts": 0,
+      "refused": "blind stock lacks its actual typed D1"
+    },
+    "reordered_manager_atoms": {
+      "external_access_attempts": 0,
+      "refused": "provisional stock atoms disagree with their manager allocation"
+    },
+    "retargeted_stock": {
+      "external_access_attempts": 0,
+      "refused": "cut and selected stock do not share their exact signed datum"
+    },
+    "saved_face_carrier": {
+      "external_access_attempts": 0,
+      "refused": "cold cut selection has an external or cached topology owner"
+    },
+    "shared_depth": {
+      "external_access_attempts": 0,
+      "refused": "independent stocks share an actual driving depth owner"
+    },
+    "wrong_allocator": {
+      "external_access_attempts": 0,
+      "refused": "provisional stock atoms disagree with their manager allocation"
+    }
+  },
+  "disclosed": {
+    "archive": [
+      8574,
+      "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508"
+    ],
+    "config_map": [
+      4,
+      90
+    ],
+    "consumed_atom_present": false,
+    "cut_result_present": false,
+    "external_access_attempts": 0,
+    "linked_streams": {
+      "Contents/CMgr": [
+        1129,
+        "a89e9fbb04a1168d1acb253019fb84c9d38c9f25270a5ac14dfde88d05b8bbb1"
+      ],
+      "Contents/Config-0": [
+        22470,
+        "1d0ea07a53f13a307c8dc4e00047d3c00b126813357f6793b330159e5b95b065"
+      ],
+      "Contents/Config-0-ModelHeader": [
+        687,
+        "79142a4e66ecdced4823929f3a93127073b79b214943413bb63512ccecb524bb"
+      ],
+      "Contents/Config-0-ResolvedFeatures": [
+        14902,
+        "2f006e47e9d1ff6fb5654c73910a62d55b584bb501d74e38dafb1a07af68c4c7"
+      ]
+    },
+    "manager": {
+      "next_word": 102,
+      "rows": [
+        {
+          "body_kind": 0,
+          "f12c": 19,
+          "f130": 19,
+          "f140": 101,
+          "f144": 0,
+          "index": 51
+        },
+        {
+          "body_kind": 0,
+          "f12c": 22,
+          "f130": 22,
+          "f140": 102,
+          "f144": 0,
+          "index": 52
+        }
+      ]
+    },
+    "owners": [
+      {
+        "driver": {
+          "depth_m": 0.012,
+          "modeled_owner_fields": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "name": "D1",
+          "name_index": 183,
+          "native_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 180,
+            "display_index": 176,
+            "end": 8211,
+            "field_span": false,
+            "handle_index": 178,
+            "object_index": 182,
+            "offset": 8145,
+            "slot": "f818.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "retaining_handles_field": false
+        },
+        "feature_class": "moExtrusion_c",
+        "feature_id": 19,
+        "operation_mode": -1,
+        "profile_id": 18,
+        "reversed": false,
+        "selection_scope": 0,
+        "signed_frame": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "storage_indices": [
+          171,
+          150,
+          174
+        ],
+        "support_id": 14
+      },
+      {
+        "driver": {
+          "depth_m": 0.01,
+          "modeled_owner_fields": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "name": "D1",
+          "name_index": 215,
+          "native_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 23,
+            "dimension_index": 213,
+            "display_index": 211,
+            "end": 12260,
+            "field_span": false,
+            "handle_index": 212,
+            "object_index": 214,
+            "offset": 12217,
+            "slot": "f818.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "retaining_handles_field": false
+        },
+        "feature_class": "moICE_c",
+        "feature_id": 22,
+        "operation_mode": 0,
+        "profile_id": 21,
+        "reversed": false,
+        "selection_scope": 0,
+        "signed_frame": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "storage_indices": [
+          208,
+          188,
+          210
+        ],
+        "support_id": 16
+      },
+      {
+        "driver": null,
+        "feature_class": "moICE_c",
+        "feature_id": 25,
+        "operation_mode": 1,
+        "profile_id": 24,
+        "reversed": true,
+        "selection_scope": 1,
+        "signed_frame": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "storage_indices": [
+          227,
+          218,
+          232
+        ],
+        "support_id": 14
+      }
+    ],
+    "resolved_map": [
+      90,
+      234
+    ],
+    "selected_atom_id": 101,
+    "selected_index": 0,
+    "selection": {
+      "component_index": 231,
+      "f100": 0,
+      "f104": 0,
+      "f108": 19,
+      "f110": [
+        {
+          "v": 101
+        }
+      ],
+      "f18": 101,
+      "f1c": 101,
+      "face_carrier_present": false,
+      "wrapper_index": 230
+    }
+  },
+  "fcstd_conversions": 0,
+  "fresh_processes": 19,
+  "heldout_sources_read": 0,
+  "independent_second_selected": {
+    "archive": [
+      8660,
+      "f8c7869bb5f8096c4edd6ccb10f485429a5fe7bdcf1508b03af7466c5c18ff0d"
+    ],
+    "config_map": [
+      4,
+      90
+    ],
+    "consumed_atom_present": false,
+    "cut_result_present": false,
+    "external_access_attempts": 0,
+    "linked_streams": {
+      "Contents/CMgr": [
+        1129,
+        "5478d19054e711f0ab29d0cd4d745176d47cb701128acb8fca9d7f4366d8ea15"
+      ],
+      "Contents/Config-0": [
+        22472,
+        "41d7af8f527d754646fa48a7924fa6d4e02c9a2a987dc82133753bae67f59631"
+      ],
+      "Contents/Config-0-ModelHeader": [
+        693,
+        "085172d14f4510703748cbdfa62c1a7988b9d643689c20516bfdfc2712885c3e"
+      ],
+      "Contents/Config-0-ResolvedFeatures": [
+        14992,
+        "a6667458a87070b8cbf9c9b77db27d0a0f2e1d7cafa1e799cb1f57280c244203"
+      ]
+    },
+    "manager": {
+      "next_word": 102,
+      "rows": [
+        {
+          "body_kind": 0,
+          "f12c": 19,
+          "f130": 19,
+          "f140": 101,
+          "f144": 0,
+          "index": 51
+        },
+        {
+          "body_kind": 0,
+          "f12c": 22,
+          "f130": 22,
+          "f140": 102,
+          "f144": 0,
+          "index": 52
+        }
+      ]
+    },
+    "owners": [
+      {
+        "driver": {
+          "depth_m": 0.00875,
+          "modeled_owner_fields": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "name": "D1",
+          "name_index": 183,
+          "native_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 180,
+            "display_index": 176,
+            "end": 8213,
+            "field_span": false,
+            "handle_index": 178,
+            "object_index": 182,
+            "offset": 8147,
+            "slot": "f818.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "retaining_handles_field": false
+        },
+        "feature_class": "moExtrusion_c",
+        "feature_id": 19,
+        "operation_mode": -1,
+        "profile_id": 18,
+        "reversed": false,
+        "selection_scope": 0,
+        "signed_frame": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "storage_indices": [
+          171,
+          150,
+          174
+        ],
+        "support_id": 14
+      },
+      {
+        "driver": {
+          "depth_m": 0.01125,
+          "modeled_owner_fields": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "name": "D1",
+          "name_index": 215,
+          "native_owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 23,
+            "dimension_index": 213,
+            "display_index": 211,
+            "end": 12286,
+            "field_span": false,
+            "handle_index": 212,
+            "object_index": 214,
+            "offset": 12243,
+            "slot": "f818.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "retaining_handles_field": false
+        },
+        "feature_class": "moICE_c",
+        "feature_id": 22,
+        "operation_mode": 0,
+        "profile_id": 21,
+        "reversed": false,
+        "selection_scope": 0,
+        "signed_frame": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "storage_indices": [
+          208,
+          188,
+          210
+        ],
+        "support_id": 16
+      },
+      {
+        "driver": null,
+        "feature_class": "moICE_c",
+        "feature_id": 25,
+        "operation_mode": 1,
+        "profile_id": 24,
+        "reversed": true,
+        "selection_scope": 1,
+        "signed_frame": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "storage_indices": [
+          227,
+          218,
+          232
+        ],
+        "support_id": 16
+      }
+    ],
+    "resolved_map": [
+      90,
+      234
+    ],
+    "selected_atom_id": 102,
+    "selected_index": 1,
+    "selection": {
+      "component_index": 231,
+      "f100": 0,
+      "f104": 0,
+      "f108": 22,
+      "f110": [
+        {
+          "v": 102
+        }
+      ],
+      "f18": 102,
+      "f1c": 102,
+      "face_carrier_present": false,
+      "wrapper_index": 230
+    }
+  },
+  "local_test_suites": 0,
+  "native_reference_revision": "9d6daad135fe65337d82900e1ccd984bdb086f0e",
+  "native_runs": 0,
+  "observation_stdout_sha256": "9b04b77de47b6602a60bf19a1a479eae180ed8ea05ddda1521d61f90c6af6f86",
+  "passed": true,
+  "public_sdk_changed": false,
+  "schema": "kit.sw2026.cold-two-stock-owner-read.v1",
+  "source_revision": "454513a85e38f0dd03faa1c4ea52d5cff275b052",
+  "source_sha256": {
+    "re/solidworks/measurements/2026/TwoStockColdNative01.json": "d672ec1f8d427844410a7e2d809bfbcf0d130ecaf1df1bb78cefdd1f5f64e187",
+    "re/solidworks/measurements/2026/TwoStockColdOwnerGraph01.json": "0eb4e501125a2ce3da05713ecfec761b21f638a37a37c95ccc7225cedbc7753e",
+    "re/tooling/sw2026/throughsource/twostockgraph/BuildTwoStockGraph.py": "d245ed4565dff661a1552f8cbe935b4044609376fab34018f128fba5ca1760a0",
+    "re/tooling/sw2026/throughsource/twostockgraph/ColdStockOwnerFaults.py": "d90b1665a2a5a591ac3e17015a08d70e37dde267a826a7bbbe6f53d238e169ca",
+    "re/tooling/sw2026/throughsource/twostockgraph/LinkTwoStockGraph.py": "8072f66b5e9654ed0a11226a0f537d5e56aa40704d0609b3fdc29e78dfa61b17",
+    "re/tooling/sw2026/throughsource/twostockgraph/ProveColdStockOwners.py": "cd703796b817ec2976f18f7d6dc871261171ed5935f8f2b5beaefcdc40d2214e",
+    "re/tooling/sw2026/throughsource/twostockgraph/ProveTwoStockGraph.py": "5c5f0ecb0f06cab042c5af754938ac82b66229585d476d8d622c5c97fa5dfb3d",
+    "re/tooling/sw2026/throughsource/twostockgraph/ReadColdStockOwners.py": "b3d285e0ebd2ae61d8038d442b6fe20531a0a7ec6fa2620f1276b001a25c1e1f",
+    "re/tooling/sw2026/throughsource/twostockshape/BuildTwoStockShape.py": "a1147d66e0edbaaec5aa0461699c6f6d9c3d18d0302efaf5213317384f741a83",
+    "re/tooling/sw2026/throughsource/twostockshape/ProofModels.py": "0e72d9b5161316671773ee366540eac5c1b308f84144d47c890b9ef38c1e9bbf",
+    "re/tooling/sw2026/throughsource/twostockshape/ShapeIntent.py": "7d0741ce00864d0bd8d424edc54a138a71721996e34f0a77746ff5deac082295"
+  }
+}

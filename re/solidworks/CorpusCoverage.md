@@ -156,6 +156,12 @@ passed native rebuild, the unrelated depth edit, save and fresh reopen.
 Both native controls passed. Complete strict SDK readback and the two
 locked inputs remain open. This adds zero benchmark conversions.
 
+The [cache-free reader proof](measurements/2026/TwoStockColdRebuild01.json)
+rebuilds both analytic solids from the generated archive's actual
+owners. Initial and edited geometry matches the disclosed native
+measures. The reader also resolves an independently generated
+second-stock selection. Ordinary SDK registration remains open.
+
 The [paired SDK end-condition trial](measurements/2026/SdkPairedEndConditionsNative01.json)
 passes native mid-plane and two-direction source parity, driving edits,
 save and reopen across 14 processes. Strict SDK readback reaches 20
