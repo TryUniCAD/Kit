@@ -31,6 +31,12 @@ new mixed display states survive native rebuild, a driving depth edit,
 paired save and fresh reopen. All five fresh processes pass. This adds
 zero original FCStd corpus cases.
 
+The [single-store trials](measurements/2026/ConcentricRadialDisplayStoresNative01.json)
+show the generated parent retains both named states through the same
+lifecycle with its binary VisualStates stream alone. Native save
+populates the initial XML. The isolated XML change opens cleanly and
+exposes only the default state with both controls healthy.
+
 The [signed wrapper trial](measurements/2026/ConcentricSignedWrapperNative01.json)
 passes two complete disclosed native assembly lifecycles, including the
 tilted anti-aligned mate with rotation locked. The saved archive retains the

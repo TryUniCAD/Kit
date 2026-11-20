@@ -48,8 +48,9 @@ The initial generated child has no VisualStates stream. SOLIDWORKS
 creates a 1,817-byte child store when saving the edited part. The
 parent retains both display streams on the measured save. This result
 qualifies the initial generated child's omitted store for the scoped
-parent visibility flow. Precedence between the parent stores, original
-source appearance, SDK publication and held-out evaluation remain open.
+parent visibility flow. The single-store comparisons below isolate
+which parent stream can carry the named states. Original source
+appearance, SDK publication and held-out evaluation remain open.
 [Native result](../measurements/2026/ConcentricRadialDisplayNative01.json)
 
 ## Single-store experiments
@@ -62,3 +63,22 @@ experimental pair changes one parent stream at its fixed locator
 and keeps the child archive byte-identical. Both comparators use
 the full native checks for actual named visibility, shape, edit and
 fresh reopen if the candidate opens correctly.
+
+At writer revision `3f5c5cca62a86569694d1fd9550a04f3217363b7`, two guarded
+builds of each branch produced stable bytes without runtime file reads.
+The native observer records SOLIDWORKS 2026 SP05.2 `34.5.2.0604`.
+
+| Candidate | Sole initial parent delta | Native processes | Numeric comparisons | Outcome |
+| --- | --- | ---: | ---: | --- |
+| VisualStates only | Add 1,819-byte `ThirdPtyStore/VisualStates` | 5 | 168 total, 84 candidate | Both mixed states apply to native occurrence IDs 17 and 18 on initial open, rebuild, after the depth edit and on fresh reopen. |
+| XML only | Extend `swXmlContents/COMPINSTANCETREE` from 2,346 to 2,699 bytes | 4 | 98 total, 14 candidate | Candidate opens with error 0 and warning 0. `GetDisplayStates` returns only `Display State-1` and the count is 1. Fresh reopen is skipped. |
+
+Both baselines and all four controls passed. In the VisualStates-only
+initial parent, all 12 other stream digests match the baseline and its
+XML has no `swDisplayStateList`. Native save writes a 2,847-byte
+instance tree with visibility vectors `Yes,Yes,`, `Yes,No,` and
+`No,Yes,`. The generated child is byte-identical within each comparison.
+
+An earlier transport interruption exited 255 before the baseline
+application record. Both controls passed and zero candidate phases ran.
+[Revision-bound single-store receipts](../measurements/2026/ConcentricRadialDisplayStoresNative01.json)
