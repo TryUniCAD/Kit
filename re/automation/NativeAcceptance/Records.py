@@ -49,6 +49,11 @@ def FileHash(path):
 
 
 def Endpoint():
+    selected = os.environ.get("KIT_NATIVE_API_DIRECTORY")
+    if selected is not None:
+        if not 1 <= len(selected) <= 4096 or not Path(selected).is_absolute():
+            raise ValueError("KIT_NATIVE_API_DIRECTORY must be a bounded absolute path")
+        return Path(selected)
     return Path.home() / ".kit" / "verification" / "fusion"
 
 

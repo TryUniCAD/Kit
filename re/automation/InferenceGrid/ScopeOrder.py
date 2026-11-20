@@ -29,11 +29,7 @@ def OrderScopes(Catalogues, Scopes):
                 if Group["parent"]:
                     Pending.append(Group["parent"])
             Graph[Recipe.Scope].discard(Recipe.Scope)
-    for Scope, Identity in Scopes.items():
-        Recipe = FeatureRecipes[Identity]
-        Graph[Scope].update(
-            Other
-            for Other, OtherIdentity in Scopes.items()
-            if FeatureRecipes[OtherIdentity].Recipe < Recipe.Recipe
-        )
+    Sequence = [Scope for _, Scope in sorted((FeatureRecipes[Identity].Recipe, Scope) for Scope, Identity in Scopes.items())]
+    for Before, After in zip(Sequence, Sequence[1:]):
+        Graph[After].add(Before)
     return list(TopologicalSorter(Graph).static_order())

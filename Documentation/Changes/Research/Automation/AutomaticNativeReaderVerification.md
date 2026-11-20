@@ -24,6 +24,11 @@ Kit then launches a fresh local process for each measurement.
 An existing application session remains open and blocks verification.
 Enable the add-in again after changing verifier sources.
 
+`KIT_NATIVE_API_DIRECTORY` selects an absolute private Fusion verification directory instead of `~/.kit/verification/fusion`.
+Use a separate directory for an isolated research host or compatibility run.
+When using this option, start Fusion with the same environment setting.
+Compatibility tests select an unused directory and cannot attach to a configured user add-in.
+
 ## Results
 
 The readers retain their existing `document.json`, `receipt.json`, and Fusion `summary.json` artifacts.
@@ -55,6 +60,10 @@ An unavailable API returns setup instructions and leaves verification incomplete
 | `5`                | Native verification failed or its batch was invalid      |
 
 Direct research scripts retain offline decoding unless passed `--native-verify`.
+The launcher checks the selected reader's advertised options before forwarding that option.
+Older checkouts still decode their pinned inputs.
+They return status `4` after successful decoding and explicitly report that verification was not performed.
+Their existing artifacts and Fusion partial-result status remain intact.
 The installed developer CLI supplies that option automatically.
 Production conversion does not import or invoke these research oracles.
 

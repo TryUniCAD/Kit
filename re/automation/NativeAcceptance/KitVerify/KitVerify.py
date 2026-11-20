@@ -14,7 +14,10 @@ _event = "kit.native.verification"
 
 
 def Setup():
-    endpoint = Path.home() / ".kit/verification/fusion"
+    selected = os.environ.get("KIT_NATIVE_API_DIRECTORY")
+    endpoint = Path(selected) if selected is not None else Path.home() / ".kit/verification/fusion"
+    if not endpoint.is_absolute():
+        raise ValueError("native API directory must be absolute")
     config_path = endpoint / "config.json"
     config_raw = config_path.read_bytes()
     config = json.loads(config_raw)
