@@ -62,26 +62,22 @@ def TestAxisRev(TmpPath: FilePath, SampleName: str) -> None:
                 "./Property[@name='Geometry']/GeometryList/Geometry/Construction"
             )
         ] == ["0", "0", "0", "1", "0"]
-        assert (
-            len(
-                AxisProps.findall(
-                    "./Property[@name='Constraints']/ConstraintList/Constrain"
-                )
+        assert sorted(
+            RowValue.get("Type", "")
+            for RowValue in AxisProps.findall(
+                "./Property[@name='Constraints']/ConstraintList/Constrain"
             )
-            == 4
-        )
+        ) == ["1"] * 4 + ["17"]
         Profile = RootValue.find(
             f"./ObjectData/Object[@name='{Source.get('value')}']/Properties"
         )
         assert Profile is not None
-        assert (
-            len(
-                Profile.findall(
-                    "./Property[@name='Constraints']/ConstraintList/Constrain"
-                )
+        assert sorted(
+            RowValue.get("Type", "")
+            for RowValue in Profile.findall(
+                "./Property[@name='Constraints']/ConstraintList/Constrain"
             )
-            == 12
-        )
+        ) == ["1"] * 12 + ["17"]
         Binding = RootValue.find(
             f"./ObjectData/Object[@name='KitMetadata']/Properties/Property[@name='{KAxisRevBinding}']/String"
         )

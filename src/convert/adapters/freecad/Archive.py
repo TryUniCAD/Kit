@@ -1,5 +1,6 @@
 from __future__ import annotations as Annotations
 from interchange.geometry.Models.VectorSpace import SpaceVector
+from interchange.Features.DistanceParam import KLengthFactors
 from collections.abc import Callable, Sequence as ValueSequence
 import base64 as BaseSixFour
 import copy as CopyValue
@@ -53,6 +54,7 @@ from convert.adapters.freecad.EditRev.RevolveProps import MakeRevProps
 from convert.adapters.freecad.EditableExt import EditExtrude
 from convert.adapters.freecad.EditableRev import EditRevolve, ReadEditRevolve
 from convert.adapters.freecad.EditSketchPlan import IsSketchWire, KSketchEditBinding
+from convert.adapters.freecad.ExtrusionCache.InlineShape import MakeInlineShape
 from convert.adapters.freecad.Format import FORMAT_ID as FormatId
 from convert.adapters.freecad.FormulaSheet.FormulaClosure import BuildFusionExpr
 from convert.adapters.freecad.FormulaSheet.SheetBinding import KFormulaSheetBinding
@@ -85,6 +87,7 @@ from convert.adapters.freecad.Protocol import (
     MIDPOINT_REFERENCE_POINT_NAMES as MidpointRefPointNames,
     NEUTRAL_GEOMETRY_TYPE_BY_KIND as NeutralGeomTypeByKind,
     NEUTRAL_GEOMETRY_TYPE_ID_BY_KIND as NeutralGeomTypeIdByKind,
+    PERMISSIVE_TRUE_VALUES as PermissiveTrueValues,
     SKETCH_TYPE_ID as SketchTypeId,
     SPLINE_GEOMETRY_KINDS as SplineGeomKinds,
     SPLINE_CONTROL_TAGS as SplineControlTags,
@@ -2767,6 +2770,24 @@ def SketchLinks(Properties: list[XmlTree.Element], PlaneName: str) -> list[str]:
     return Dependencies
 
 
+# explicit suppression needs its own property so sketch edits preserve display state
+def SetSuppressMut(Properties: list[XmlTree.Element], Suppressed: bool) -> None:
+    Entries = {Value.get("name"): Value.find("./Bool") for Value in Properties}
+    Record = Entries.get("SourceSuppressed")
+    if Record is None:
+        Record = Entries.get("Suppressed")
+    if Record is not None:
+        Previous = Record.get("value", "false").casefold() in PermissiveTrueValues
+        if Previous != Suppressed:
+            Record.set("value", "true" if Suppressed else "false")
+        return
+    if Suppressed:
+        PropName = "SourceSuppressed" if "Suppressed" in Entries else "Suppressed"
+        if PropName in Entries:
+            raise ValueError("native sketch suppression properties are not boolean")
+        Properties.append(BoolProp(PropName, True, Dynamic=True))
+
+
 # this definition exists because native sketch properties need selective semantic replacement
 def PatchSketchMut(
     Sketch: Mapping[str, object],
@@ -2785,8 +2806,10 @@ def PatchSketchMut(
         Constraints,
         ShapeProp("", "InternalShape"),
         ShapeProp(),
-        BoolProp("Visibility", not bool(Sketch.get("suppressed"))),
     ]
+    if not any(Value.get("name") == "Visibility" for Value in Properties):
+        Replacements.append(BoolProp("Visibility", True))
+    SetSuppressMut(Properties, bool(Sketch.get("suppressed")))
     if DiagnosticsProp is not None:
         Replacements.append(DiagnosticsProp)
     if not PreserveNative:
@@ -2833,6 +2856,7 @@ def NeutralSketch(
         JsonProp("SourceSketchJSON", Sketch),
         BoolProp("Visibility", False),
     ]
+    SetSuppressMut(Properties, bool(Sketch.get("suppressed")))
     if DiagnosticsProp is not None:
         Properties.append(DiagnosticsProp)
     return Properties
@@ -3316,6 +3340,80 @@ def FeatureParam(
         ):
             return ParamId
     return LengthIds[0] if LengthIds else IdsValue[0] if IdsValue else ""
+
+
+# native distance properties require physical millimetres regardless of parameter display units
+def GetExtLength(ValueData: object) -> float:
+    if not IsPayloadMap(ValueData) or EnumAction(ValueData.get("kind")) != "length":
+        raise ValueError("FreeCAD extrusion end requires a typed length")
+    UnitValue = ValueData.get("unit")
+    Factor = KLengthFactors.get(UnitValue) if isinstance(UnitValue, str) else None
+    Magnitude = ValueData.get("value")
+    if Factor is None or type(Magnitude) not in (int, float):
+        raise ValueError("FreeCAD extrusion end length has unsupported units or value")
+    LengthValue = Number(Magnitude) * Factor
+    if not MathValue.isfinite(LengthValue) or LengthValue < 0:
+        raise ValueError("FreeCAD extrusion end length must be finite and nonnegative")
+    return LengthValue
+
+
+# explicit end owners prevent equal lengths from selecting unrelated parameter drivers
+def CheckExtOwner(
+    FeatureInfo: FeatureData,
+    Parameters: ParamCatalog,
+    ParamId: str,
+    FieldName: str,
+) -> None:
+    ParamValue = Parameters.ByIdentifier.get(ParamId)
+    if (
+        ParamValue is None
+        or ParamId not in Sequence(FeatureInfo.Source.get("parameter_ids", []))
+        or ParamValue.get("owner_id") != FeatureInfo.FeatureId
+        or EnumAction(ParamValue.get("role")) != "driving"
+        or Parameters.kind(ParamId) != "length"
+    ):
+        raise ValueError("FreeCAD extrusion end owner differs from its typed length")
+    if not MathValue.isclose(
+        GetExtLength(ParamValue.get("value")),
+        GetExtLength(FeatureInfo.Definition.get(FieldName)),
+        rel_tol=0.0,
+        abs_tol=1e-9,
+    ):
+        raise ValueError("FreeCAD extrusion end owner has a stale typed length")
+
+
+# directional dependencies must follow explicit ownership instead of matching scalar values
+def ReadExtBindings(
+    FeatureInfo: FeatureData, Parameters: ParamCatalog, Length: float
+) -> tuple[str, str]:
+    HasReverse = not bool(FeatureInfo.Definition.get("symmetric")) and (
+        EnumAction(FeatureInfo.Definition.get("end_condition")) == "two_lengths"
+        or FeatureInfo.Definition.get("second_length") is not None
+    )
+    if "length_parameter_ids" not in FeatureInfo.Attributes:
+        if HasReverse and Sequence(FeatureInfo.Source.get("parameter_ids", [])):
+            raise ValueError(
+                "FreeCAD two length extrusion requires explicit end owners"
+            )
+        return (
+            ("", "")
+            if HasReverse
+            else (FeatureParam(FeatureInfo.Source, Parameters, Length), "")
+        )
+    RawIds = FeatureInfo.Attributes["length_parameter_ids"]
+    if IsPayloadMap(RawIds) and set(RawIds) != {"$tuple"}:
+        raise ValueError("FreeCAD extrusion end owners require an ordered sequence")
+    IdsValue = Sequence(RawIds)
+    Bindings = [Value for Value in IdsValue if isinstance(Value, str) and Value]
+    if (
+        len(Bindings) != len(IdsValue)
+        or len(Bindings) != (2 if HasReverse else 1)
+        or len(set(Bindings)) != len(Bindings)
+    ):
+        raise ValueError("FreeCAD extrusion end owner roster is invalid")
+    for ParamId, FieldName in zip(Bindings, ("length", "second_length")):
+        CheckExtOwner(FeatureInfo, Parameters, ParamId, FieldName)
+    return Bindings[0], Bindings[1] if HasReverse else ""
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -7073,7 +7171,7 @@ def AddRawExtMut(
         Features.CurrentName = FeatureInfo.InputBase
 
 
-# this definition exists because extrusion direction follows its support plane and reversal semantics
+# native direction keeps the profile or explicit axis separate from the saved reversal flag
 def ExtrudeVector(
     Geometry: DocGeometry, FeatureInfo: FeatureData
 ) -> tuple[float, float, float]:
@@ -7093,24 +7191,13 @@ def ExtrudeVector(
         TransformValue if IsPayloadMap(TransformValue) else {}
     )
     Normal = Normalize(Vector(Transform.get("z_axis"), (0.0, 0.0, 1.0)))
-    Reversed = bool(
-        FeatureInfo.Definition.get(
-            "reversed",
-            Number(
-                FeatureInfo.Attributes.get("direction_multiplier"),
-                -1.0 if FeatureInfo.Operation == "cut" else 1.0,
-            )
-            < 0,
-        )
-    )
     Explicit = FeatureInfo.Definition.get("direction")
     if Explicit is not None:
         return Normalize(Vector(Explicit, Normal))
-    Scale = -1.0 if Reversed else 1.0
-    return (Normal[0] * Scale, Normal[1] * Scale, Normal[2] * Scale)
+    return Normal
 
 
-# this definition exists because extrusion tools need canonical profile length and expression properties
+# native extrusion properties keep direction reversal and dimension expressions independently editable
 def AddExtToolMut(
     Context: DocContext,
     FeatureInfo: FeatureData,
@@ -7118,7 +7205,9 @@ def AddExtToolMut(
     Length: float,
     SecondLength: float,
     Symmetric: bool,
-    Expression: str | None,
+    Expressions: list[tuple[str, str]],
+    *,
+    Reversed: bool = False,
 ) -> Object:
     ToolType = BoolOperationTypeByKind["create"]
     ToolRequested = (
@@ -7145,7 +7234,7 @@ def AddExtToolMut(
             FloatProp("LengthFwd", Length, "App::PropertyDistance"),
             FloatProp("LengthRev", SecondLength, "App::PropertyDistance"),
             BoolProp("Solid", True),
-            BoolProp("Reversed", False),
+            BoolProp("Reversed", Reversed),
             BoolProp("Symmetric", Symmetric),
             StringProp(
                 "EndCondition",
@@ -7154,7 +7243,7 @@ def AddExtToolMut(
                 ),
                 Dynamic=True,
             ),
-            ExpressionProp([("LengthFwd", Expression)] if Expression else []),
+            ExpressionProp(Expressions),
             ShapeProp(),
             *FeatureMeta(
                 FeatureInfo.Source,
@@ -7164,7 +7253,7 @@ def AddExtToolMut(
         ]
     )
     ToolValue.dependencies.append(FeatureInfo.SketchName)
-    if Expression:
+    if Expressions:
         ToolValue.dependencies.append(Context.ParamSheet.name)
     return ToolValue
 
@@ -7222,6 +7311,16 @@ def AddExtrudeMut(
     FeatureInfo: FeatureData,
 ) -> Object:
     Direction = ExtrudeVector(Geometry, FeatureInfo)
+    Reversed = bool(
+        FeatureInfo.Definition.get(
+            "reversed",
+            Number(
+                FeatureInfo.Attributes.get("direction_multiplier"),
+                -1.0 if FeatureInfo.Operation == "cut" else 1.0,
+            )
+            < 0,
+        )
+    )
     Length = abs(
         Number(
             FeatureInfo.Definition.get("length"),
@@ -7230,13 +7329,49 @@ def AddExtrudeMut(
     )
     SecondLength = abs(Number(FeatureInfo.Definition.get("second_length")))
     Symmetric = bool(FeatureInfo.Definition.get("symmetric"))
-    ParamId = FeatureParam(FeatureInfo.Source, Context.Parameters, Length)
-    Expression = Context.Parameters.expression(ParamId)
+    Bindings = ReadExtBindings(FeatureInfo, Context.Parameters, Length)
+    if "length_parameter_ids" in FeatureInfo.Attributes:
+        Length = GetExtLength(FeatureInfo.Definition.get("length"))
+        SecondLength = (
+            GetExtLength(FeatureInfo.Definition.get("second_length"))
+            if Bindings[1]
+            else 0.0
+        )
+    Expressions = [
+        (PropertyName, Expression)
+        for PropertyName, ParamId in zip(("LengthFwd", "LengthRev"), Bindings)
+        if (Expression := Context.Parameters.expression(ParamId))
+    ]
     ToolValue = AddExtToolMut(
-        Context, FeatureInfo, Direction, Length, SecondLength, Symmetric, Expression
+        Context,
+        FeatureInfo,
+        Direction,
+        Length,
+        SecondLength,
+        Symmetric,
+        Expressions,
+        Reversed=Reversed,
     )
     Final = AddBoolMut(Context, FeatureInfo, ToolValue)
     TrackSolidMut(Features, FeatureInfo, Final)
+    if (
+        not FeatureInfo.BaseName
+        and not Context.NativeValues
+        and FeatureInfo.Operation in CreateOperationNames
+    ):
+        ShapeData = MakeInlineShape(
+            Context.Manifest,
+            FeatureInfo.FeatureId,
+            Direction,
+            Length,
+            SecondLength,
+            Symmetric,
+            Reversed,
+        )
+        if ShapeData is not None:
+            ShapeFile = AddBrepEntryMut(Features.PayloadEntries, Final.name, ShapeData)
+            ReplaceNameMut(Final.properties, "Shape", ShapeProp(ShapeFile))
+            Features.FinalShapeFile = ShapeFile
     return Final
 
 
@@ -7322,7 +7457,13 @@ def HasEditExtMut(
         return False
     Direction = (PlanValue.Direction.x, PlanValue.Direction.y, PlanValue.Direction.z)
     ToolValue = AddExtToolMut(
-        Context, FeatureInfo, Direction, PlanValue.DistanceMm, 0.0, False, Expression
+        Context,
+        FeatureInfo,
+        Direction,
+        PlanValue.DistanceMm,
+        0.0,
+        False,
+        [("LengthFwd", Expression)],
     )
     ShapeFile = AddBrepEntryMut(Features.PayloadEntries, ToolValue.name, ShapeData)
     ReplaceNameMut(ToolValue.properties, "Shape", ShapeProp(ShapeFile))
@@ -8438,8 +8579,23 @@ def ChooseOuter(Context: DocContext, Features: DocFeatures) -> str:
     )
 
 
+# cached result metadata must name a shape owned by the current feature or existing representation
+def SetShapeFileMut(Context: DocContext, Features: DocFeatures) -> None:
+    Owners = {Features.CurrentName, *Features.DocBreps}
+    if Features.FinalShapeFile and not any(
+        PartValue.get("file") == Features.FinalShapeFile
+        for ObjectValue in Context.Graph.Objects
+        if ObjectValue.name in Owners
+        for Property in ObjectValue.properties
+        if Property.get("name") == "Shape"
+        for PartValue in Property.findall("Part")
+    ):
+        Features.FinalShapeFile = ""
+
+
 # this definition exists because outer target links and metadata must describe the finalized graph
 def SetOuterMut(Context: DocContext, Features: DocFeatures) -> None:
+    SetShapeFileMut(Context, Features)
     Features.OuterTarget = ChooseOuter(Context, Features)
     TargetObject = next(
         (

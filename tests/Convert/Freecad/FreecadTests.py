@@ -1,4 +1,5 @@
 from __future__ import annotations as Annotations
+
 import base64 as BaseSixFour
 from collections.abc import Callable as FuncCall, Mapping, Sequence
 from dataclasses import replace as Replace
@@ -13,7 +14,9 @@ from typing import TypeGuard, TypedDict as TypeDict
 import xml.etree.ElementTree as XmlTree
 import zipfile as Zipfile
 import zlib as ZlibValue
+
 import pytest as Pytest
+
 from convert import (
     ApplicationUsabilityError as AppUsabilityError,
     convert as Convert,
@@ -36,10 +39,15 @@ from convert.adapters.freecad import Adapter as FreecadAdapterModule
 from convert.adapters.freecad import Archive as FreecadArchiveModule
 from convert.adapters.freecad import Native as FreecadNativeModule
 from convert.adapters.freecad.Adapter import (
-    AnnotateNative,
     FilteredDoc,
     UnchangedNative,
 )
+from convert.adapters.freecad.Native import KMaxOuterDepth, ReadNativeFcstd
+from convert.adapters.freecad.Replay.AnnotateNative import AnnotateNative
+from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
+from convert.adapters.freecad.Replay.NativeIdentity import IsNative, KReplaySketchAttr
+from convert.adapters.freecad.Replay.PrepareChildren import PrepareChildren
+from convert.adapters.freecad.Replay.SetReplayDigest import SetReplayDigest
 from convert.adapters.freecad.Format import (
     CAPABILITY_CARRIER_REASONS as CapabilityCarrierReasons,
     CAPABILITY_WRITE_TYPE_IDS as CapabilityWriteTypeIds,
@@ -175,6 +183,10 @@ from interchange.Enums.EnumValues import ValueKind
 from interchange.Features.FeatureExtrude import ExtrudeEnd as ExtrusionEndCondition
 from interchange.Features.FeatureExtrude import ExtrudeFeature as ExtrusionFeature
 from interchange.geometry.Models.GeometryTypes import KGeometryTypes as GeometryTypes
+from tests.Convert.NativeWrites.IsNativeBlock import IsNativeBlock
+from tests.Convert.Qualification.TypedPart import TypedPart
+from tests.Convert.Freecad.FixturePolicy.CodecRebuild import CodecRebuild
+from tests.Convert.Freecad.FixturePolicy.RepresentOnly import RepresentOnly
 from tests.Interchange.Document.DocumentTests import document as NeutralDoc
 from tests.Interchange.Brep.BrepTests import triangle_brep as TriangleBrep
 
@@ -749,12 +761,17 @@ def NativeSketch() -> tuple[ET.Element, ...]:
 
 
 # this definition exists because focused behavior needs one stable owner
-def NativePart(BrepData: bytes | None = None) -> bytes:
+def NativePart(
+    BrepData: bytes | None = None,
+    *,
+    SketchState: tuple[ET.Element, ...] = (),
+    FileValue: str | None = None,
+) -> bytes:
     PlaneProperties = (
         NativeProp("Label", "App::PropertyString", "String", {"value": "XY"}),
         NativePlacement(),
     )
-    SketchProperties = NativeSketch()
+    SketchProperties = (*NativeSketch(), *SketchState)
     Profile = NativeProp(
         "Profile", "App::PropertyLinkSub", "LinkSub", {"value": "Sketch", "count": "0"}
     )
@@ -797,15 +814,17 @@ def NativePart(BrepData: bytes | None = None) -> bytes:
         if BrepData is None
         else BrepData
     )
-    return NativeArchive(
-        (
-            ("Body", "PartDesign::Body", ("Sketch", "Pad"), BodyProperties),
-            ("XY_Plane", "App::Plane", (), PlaneProperties),
-            ("Sketch", "Sketcher::SketchObject", ("XY_Plane",), SketchProperties),
-            ("Pad", "PartDesign::Pad", ("Sketch", "Body"), PadProperties),
-        ),
-        {"Pad.Shape.brp": BrepValue},
-    )
+    Objects: list[tuple[str, str, tuple[str, ...], tuple[ET.Element, ...]]] = [
+        ("Body", "PartDesign::Body", ("Sketch", "Pad"), BodyProperties),
+        ("XY_Plane", "App::Plane", (), PlaneProperties),
+        ("Sketch", "Sketcher::SketchObject", ("XY_Plane",), SketchProperties),
+        ("Pad", "PartDesign::Pad", ("Sketch", "Body"), PadProperties),
+    ]
+    if FileValue is not None:
+        Objects.append(
+            ("PartLink", "App::Link", (), NativeLinkProps(FileValue, "Body"))
+        )
+    return NativeArchive(tuple(Objects), {"Pad.Shape.brp": BrepValue})
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -948,9 +967,9 @@ def NativeOuterAsm(
     return NativeArchive(tuple(Objects), {})
 
 
-# this definition exists because focused behavior needs one stable owner
-def NativeLinkOnly(FileValue: str, Target: str = "Body") -> bytes:
-    Properties = (
+# part fixtures share the same native link state whether they own local geometry
+def NativeLinkProps(FileValue: str, Target: str) -> tuple[ET.Element, ...]:
+    return (
         NativeProp(
             "Label", "App::PropertyString", "String", {"value": "External Part"}
         ),
@@ -959,7 +978,13 @@ def NativeLinkOnly(FileValue: str, Target: str = "Body") -> bytes:
         NativePlacement("LinkPlacement"),
         NativeProp("Visibility", "App::PropertyBool", "Bool", {"value": "true"}),
     )
-    return NativeArchive((("PartLink", "App::Link", (), Properties),), {})
+
+
+# the link only fixture isolates external native source handling
+def NativeLinkOnly(FileValue: str, Target: str = "Body") -> bytes:
+    return NativeArchive(
+        (("PartLink", "App::Link", (), NativeLinkProps(FileValue, Target)),), {}
+    )
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1254,7 +1279,13 @@ def TestProtocolAre() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestEncodableIs() -> None:
-    Source = Replace(NeutralDoc(), brep=TriangleBrep())
+    Source = Replace(
+        RepresentOnly(),
+        brep=Replace(
+            TriangleBrep(),
+            bodies=(Replace(TriangleBrep().bodies[0], design_body_id=""),),
+        ),
+    )
     Adapter = FreeCadAdapter()
     CarrierOutput = IoStream.BytesIO()
     CarrierResult = Adapter.write(Source, CarrierOutput)
@@ -1299,7 +1330,7 @@ def TestEncodableIs() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestNonOpenBrep() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     Payload = BrepPayload(
         "foreign:brep",
         "parasolid.x_b",
@@ -1359,7 +1390,6 @@ def TestSolidworksA() -> None:
     )
     DocValue = Replace(
         Source,
-        source=Replace(Source.source, format_id="solidworks.sldprt"),
         sketches=(Sketch,),
         feature_timeline=(Feature,),
         brep_payloads=(Payload,),
@@ -1372,7 +1402,7 @@ def TestSolidworksA() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestDecodedBrep() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     DataValue = b"PS\x00\x00retained-source"
     Payload = BrepPayload(
         "source:brep",
@@ -1384,7 +1414,14 @@ def TestDecodedBrep() -> None:
         role=PayloadRole.BREP,
         file_extension=".x_b",
     )
-    DocValue = Replace(Source, brep=TriangleBrep(), brep_payloads=(Payload,))
+    DocValue = Replace(
+        Source,
+        brep=Replace(
+            TriangleBrep(),
+            bodies=(Replace(TriangleBrep().bodies[0], design_body_id=""),),
+        ),
+        brep_payloads=(Payload,),
+    )
     Output = IoStream.BytesIO()
     Result = FreeCadAdapter().write(DocValue, Output)
     Transfers = {Transfer.capability: Transfer for Transfer in Result.transfers}
@@ -1419,8 +1456,8 @@ def TestDuplicateDo() -> None:
         Source, feature_timeline=(*Source.feature_timeline, RefValue, Housekeeping)
     )
     DocValue.assert_valid()
-    Baseline = FreeCadAdapter().write(Source, IoStream.BytesIO())
-    Result = FreeCadAdapter().write(DocValue, IoStream.BytesIO())
+    Baseline = CodecRebuild(Source, IoStream.BytesIO())
+    Result = CodecRebuild(DocValue, IoStream.BytesIO())
     BaselineTransfers = {
         Transfer.capability: Transfer for Transfer in Baseline.transfers
     }
@@ -1844,7 +1881,7 @@ def TestNeutralAre() -> None:
         brep=TriangleBrep(),
     )
     Output = IoStream.BytesIO()
-    Result = FreeCadAdapter().write(DocValue, Output)
+    Result = CodecRebuild(DocValue, Output)
     PayloadData = Output.getvalue()
     VerifyTransfers(Result)
     VerifyWriteXml(PayloadData)
@@ -1868,7 +1905,7 @@ def TestNeutralAnd() -> None:
     DocValue = Replace(Source, feature_timeline=(System, RefValue, Extrusion))
     DocValue.assert_valid()
     Output = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     Declarations = {
@@ -2239,7 +2276,7 @@ def TestUnavailable() -> None:
     DocValue.assert_valid()
     Output = IoStream.BytesIO()
     Adapter = FreeCadAdapter()
-    Result = Adapter.write(DocValue, Output)
+    Result = CodecRebuild(DocValue, Output)
     Transfers = {Transfer.capability: Transfer for Transfer in Result.transfers}
     assert Transfers[Capability.EDITABLE_SKETCHES].mode == TransferMode.MIXED
     assert (
@@ -2293,7 +2330,17 @@ def TestNeutralTrip() -> None:
     DocValue = Replace(
         Source,
         sketches=(Sketch,),
-        feature_timeline=(Replace(Source.feature_timeline[0], suppressed=True),),
+        feature_timeline=(
+            FeatureStep(
+                "feature:sketch",
+                "Sketch",
+                FeatureKind.REFERENCE,
+                0,
+                sketch_id=Sketch.id,
+                attributes={"native_type": "sketch"},
+            ),
+        ),
+        bodies=(),
     )
     DocValue.assert_valid()
     Output = IoStream.BytesIO()
@@ -2381,7 +2428,17 @@ def TestUnbounded() -> None:
     DocValue = Replace(
         Source,
         sketches=(Sketch,),
-        feature_timeline=(Replace(Source.feature_timeline[0], suppressed=True),),
+        feature_timeline=(
+            FeatureStep(
+                "feature:sketch",
+                "Sketch",
+                FeatureKind.REFERENCE,
+                0,
+                sketch_id=Sketch.id,
+                attributes={"native_type": "sketch"},
+            ),
+        ),
+        bodies=(),
     )
     Output = IoStream.BytesIO()
     Result = FreeCadAdapter().write(DocValue, Output)
@@ -2439,7 +2496,7 @@ def TestGeomPayload() -> None:
     )
     Output = IoStream.BytesIO()
     Adapter = FreeCadAdapter()
-    Result = Adapter.write(DocValue, Output)
+    Result = CodecRebuild(DocValue, Output)
     Transfers = {Transfer.capability: Transfer.mode for Transfer in Result.transfers}
     assert Transfers[Capability.EDITABLE_SKETCHES] == TransferMode.NATIVE
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
@@ -2547,7 +2604,7 @@ def TestRuleCarrier() -> None:
     DocValue.assert_valid()
     Output = IoStream.BytesIO()
     Adapter = FreeCadAdapter()
-    Result = Adapter.write(DocValue, Output)
+    Result = CodecRebuild(DocValue, Output)
     Transfers = {Transfer.capability: Transfer.mode for Transfer in Result.transfers}
     assert Transfers[Capability.EDITABLE_SKETCHES] == TransferMode.MIXED
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
@@ -2558,23 +2615,32 @@ def TestRuleCarrier() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestNeutralUses() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     First = SketchEntity(
         "sketch:1:point:1", GeomKind.POINT, PointGeom(VectorTwo(0.0, 0.0))
     )
     Second = SketchEntity(
         "sketch:1:point:2", GeomKind.POINT, PointGeom(VectorTwo(10.0, 0.0))
     )
+    Dimension = Param(
+        "dimension:profile",
+        "ProfileDimension",
+        ParamValue(10.0, ValueKind.LENGTH, "mm"),
+    )
     Distance = SketchRule(
         "distance:points",
         RuleKind.DISTANCE,
         (RuleRef(First.id), RuleRef(Second.id)),
+        parameter_id=Dimension.id,
         attributes={"Value": 10.0},
     )
     Sketch = Replace(
-        Source.sketches[0], entities=(First, Second), constraints=(Distance,)
+        Source.sketches[0],
+        entities=(First, Second),
+        constraints=(Distance,),
+        parameter_ids=(Dimension.id,),
     )
-    DocValue = Replace(Source, sketches=(Sketch,))
+    DocValue = Replace(Source, sketches=(Sketch,), parameters=(Dimension,))
     Output = IoStream.BytesIO()
     _ = FreeCadAdapter().write(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
@@ -2591,24 +2657,31 @@ def TestNeutralUses() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestRadiusRule() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     Circle = SketchEntity(
         "sketch:1:circle:1", GeomKind.CIRCLE, CircleGeom(VectorTwo(0.0, 0.0), 8.0)
+    )
+    Dimension = Param(
+        "dimension:profile", "ProfileDimension", ParamValue(8.0, ValueKind.LENGTH, "mm")
     )
     Radius = SketchRule(
         "radius:native",
         RuleKind.RADIUS,
         (RuleRef(Circle.id),),
+        parameter_id=Dimension.id,
         attributes={"native_value": 8.0},
     )
     Sketch = Replace(
         Source.sketches[0],
         entities=(Circle,),
         constraints=(Radius,),
+        parameter_ids=(Dimension.id,),
         closed_profile_entity_ids=((Circle.id,),),
     )
     Output = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(Replace(Source, sketches=(Sketch,)), Output)
+    _ = FreeCadAdapter().write(
+        Replace(Source, sketches=(Sketch,), parameters=(Dimension,)), Output
+    )
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     Encoded = RootValue.find(
@@ -2621,29 +2694,25 @@ def TestRadiusRule() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestSolidworksB() -> None:
-    Source = NeutralDoc()
-    DocValue = Replace(
-        Source, source=Replace(Source.source, format_id="solidworks.sldprt")
+    Source = TypedPart()
+    OpenSketch = Replace(
+        Source.sketches[0],
+        entities=NeutralDoc().sketches[0].entities,
+        closed_profile_entity_ids=(),
     )
-    Output = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(DocValue, Output)
-    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-    DeclValue = RootValue.find("./Objects/Object[@name='Boss1']")
-    assert DeclValue is not None
-    assert DeclValue.get("type") == "Part::Feature"
-    Properties = RootValue.find("./ObjectData/Object[@name='Boss1']/Properties")
-    assert Properties is not None
-    Executable = Properties.find("./Property[@name='NativeExecutable']/Bool")
-    Reason = Properties.find("./Property[@name='NativeExecutionReason']/String")
-    assert Executable is not None and Executable.get("value") == "false"
-    assert Reason is not None and Reason.get("value") == "no_native_closed_profile"
-    assert FreeCadAdapter().read(Output.getvalue()) == DocValue
+    DocValue = Replace(Source, sketches=(OpenSketch,))
+    assert not OpenSketch.closed_profile_entity_ids
+    Output = IoStream.BytesIO(b"existing destination")
+    with Pytest.raises(
+        ValueError, match="FreeCAD cannot emit editable required features"
+    ):
+        _ = FreeCadAdapter().write(DocValue, Output)
+    assert Output.getvalue() == b"existing destination"
 
 
 # this definition exists because focused behavior needs one stable owner
 def TestSolidworks() -> None:
-    Source = NeutralDoc()
+    Source = TypedPart()
     First = SketchEntity(
         "sketch:1:circle:1", GeomKind.CIRCLE, CircleGeom(VectorTwo(0.0, 0.0), 10.0)
     )
@@ -2657,21 +2726,14 @@ def TestSolidworks() -> None:
     )
     DocValue = Replace(
         Source,
-        source=Replace(Source.source, format_id="solidworks.sldprt"),
         sketches=(Sketch,),
     )
-    Output = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(DocValue, Output)
-    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-    DeclValue = RootValue.find("./Objects/Object[@name='Boss1']")
-    Reason = RootValue.find(
-        "./ObjectData/Object[@name='Boss1']/Properties/Property[@name='NativeExecutionReason']/String"
-    )
-    assert DeclValue is not None and DeclValue.get("type") == "Part::Feature"
-    assert Reason is not None
-    assert Reason.get("value") == "profile_topology_not_statically_sound"
-    assert FreeCadAdapter().read(Output.getvalue()) == DocValue
+    Output = IoStream.BytesIO(b"existing destination")
+    with Pytest.raises(
+        ValueError, match="FreeCAD cannot emit editable required features"
+    ):
+        _ = FreeCadAdapter().write(DocValue, Output)
+    assert Output.getvalue() == b"existing destination"
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2790,15 +2852,9 @@ def TestFeatureAnd() -> None:
             ),
         ),
     )
-    Output = IoStream.BytesIO()
-    _ = Adapter.write(Edited, Output)
-    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-    AngleNode = RootValue.find(
-        "./ObjectData/Object[@name='Revolution']/Properties/Property[@name='Angle']/Float"
-    )
-    assert AngleNode is not None
-    assert AngleNode.get("value") == "37.5"
+    Restored = CadDocument.from_json(Edited.to_json())
+    assert Restored.feature_timeline == Edited.feature_timeline
+    assert IsNativeBlock(Restored, FreeCadAdapter().write, ".FCStd")
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2832,30 +2888,9 @@ def TestNonFeature() -> None:
         ),
     )
     DocValue.assert_valid()
-    Output = IoStream.BytesIO()
-    Adapter = FreeCadAdapter()
-    _ = Adapter.write(DocValue, Output)
-    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-    FeatureObject = next(
-        (
-            NodeValue
-            for NodeValue in RootValue.findall("./ObjectData/Object")
-            if (KitId := NodeValue.find("./Properties/Property[@name='KitId']/String"))
-            is not None
-            and KitId.get("value") == Feature.id
-        )
-    )
-    Values = {
-        NodeValue.get("name"): StringValue.get("value", "")
-        for NodeValue in FeatureObject.findall("./Properties/Property")
-        if (StringValue := NodeValue.find("./String")) is not None
-    }
-    assert Values["KitRole"] == "feature-data"
-    assert Values["NativeTypeId"] == "PartDesign::Hole"
-    assert '"diameter":6.5' in Values["NativeDefinitionJSON"]
-    Restored = Adapter.read(Output.getvalue())
-    assert Restored.feature(Feature.id).definition == Feature.definition
+    Restored = CadDocument.from_json(DocValue.to_json())
+    assert Restored.feature_timeline == DocValue.feature_timeline
+    assert IsNativeBlock(Restored, FreeCadAdapter().write, ".FCStd")
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2883,7 +2918,7 @@ def TestCurrentMesh(Source: bytes, ExpectedSource: str) -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestMeshKernel() -> None:
-    Source = NeutralDoc()
+    Source = RepresentOnly()
     MeshValue = MeshRecord(
         "mesh:1",
         "Mesh",
@@ -3070,89 +3105,47 @@ def TestExplicit() -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestStrictTo(TmpPath: FilePath) -> None:
     Output = TmpPath / "blocked.FCStd"
-    with Pytest.raises(AppUsabilityError) as Captured:
-        _ = Convert(KSample, Output, allow_carrier=False)
-    assert "opaque_source_data" in Captured.value.issues
-    assert not Output.exists()
+    _ = Output.write_bytes(b"existing destination")
+    with Pytest.raises(ValueError, match="unqualified SOLIDWORKS sketch support"):
+        _ = Convert(KSample, Output, allow_carrier=False, overwrite=True)
+    assert Output.read_bytes() == b"existing destination"
 
 
 # this definition exists because focused behavior needs one stable owner
 def TestDirectFcstd(TmpPath: FilePath) -> None:
-    Output = TmpPath / "example.FCStd"
-    Result = Convert(KSample, Output, allow_carrier=True)
-    Restored = OpenDoc(Output)
-    assert Restored == Result.document
-    assert Restored.validate() == ()
-    assert [Payload.sha256 for Payload in Restored.brep_payloads] == [
+    Source = OpenDoc(KSample)
+    Source.assert_valid()
+    assert [Payload.sha256 for Payload in Source.brep_payloads] == [
         "8c57db227621a15a0a429cdd65dbe3f374e2c1145ef2f3edc3a25b745513bf3d",
         "3f3e3efbfbee0f41bda187579547881126cbf48101f006eecd759f491fc87ac6",
         "59d5eef7feb40d7a2ce52e20e50e14ca8eedaa1a1671b33a13fdc43720311cb7",
     ]
-    with Zipfile.ZipFile(Output) as Archive:
-        _ = Archive.testzip()
-        Names = set(Archive.namelist())
-        assert "Document.xml" in Names
-        assert "interchange/document.json" in Names
-        assert "Fillet1.Edges" not in Names
-        assert (
-            len(
-                Names
-                & {
-                    "interchange/native/sldprt_brep_0.x_b",
-                    "interchange/native/sldprt_brep_1.x_b",
-                    "interchange/native/sldprt_brep_2.x_b",
-                }
-            )
-            == 3
-        )
-        for Payload in Restored.brep_payloads:
-            Entry = f"interchange/native/{Payload.id.replace(':', '_')}.x_b"
-            assert Hashlib.sha256(Archive.read(Entry)).hexdigest() == Payload.sha256
+    assert IsNativeBlock(
+        Source,
+        FreeCadAdapter().write,
+        ".FCStd",
+        "unqualified SOLIDWORKS sketch support",
+    )
 
 
 # this definition exists because focused behavior needs one stable owner
 def TestFcstd(TmpPath: FilePath) -> None:
-    Output = TmpPath / "example.FCStd"
-    _ = Convert(KSample, Output, allow_carrier=True)
-    with Zipfile.ZipFile(Output) as Archive:
-        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-        Objects = RootValue.findall("./Objects/Object")
-        Types = [ItemValue.get("type") for ItemValue in Objects]
-        Names = {ItemValue.get("name") for ItemValue in Objects}
-        assert Types.count("Spreadsheet::Sheet") == 1
-        assert Types.count("Sketcher::SketchObject") == 5
-        assert Types.count("Part::Extrusion") == 5
-        assert Types.count("Part::Cut") == 2
-        assert Types.count("Part::MultiFuse") == 2
-        assert Types.count("Part::Fillet") == 0
-        assert {
-            "Parameters",
-            "Sketch1",
-            "Sketch2",
-            "Sketch3",
-            "Sketch4",
-            "Sketch6",
-            "Boss_Extrude1",
-            "Cut_Extrude1",
-            "Boss_Extrude2",
-            "Cut_Extrude2",
-            "Boss_Extrude3",
-            "Fillet1",
-        } <= Names
-        Fillet = RootValue.find("./Objects/Object[@name='Fillet1']")
-        assert Fillet is not None
-        assert Fillet.get("type") == "Part::Feature"
-        Executable = RootValue.find(
-            "./ObjectData/Object[@name='Fillet1']/Properties/Property[@name='NativeExecutable']/Bool"
-        )
-        Reason = RootValue.find(
-            "./ObjectData/Object[@name='Fillet1']/Properties/Property[@name='NativeExecutionReason']/String"
-        )
-        assert Executable is not None and Executable.get("value") == "false"
-        assert Reason is not None
-        assert Reason.get("value") == "topology_selection_not_statically_provable"
-        XmlValue = Archive.read("Document.xml")
-        assert b"KitMetadata" in XmlValue
+    Source = OpenDoc(KSample)
+    Source.assert_valid()
+    assert {Feature.name for Feature in Source.feature_timeline} >= {
+        "Boss-Extrude1",
+        "Cut-Extrude1",
+        "Boss-Extrude2",
+        "Cut-Extrude2",
+        "Boss-Extrude3",
+        "Fillet1",
+    }
+    assert IsNativeBlock(
+        Source,
+        FreeCadAdapter().write,
+        ".FCStd",
+        "unqualified SOLIDWORKS sketch support",
+    )
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3173,7 +3166,7 @@ def TestFcstdEmits() -> None:
         bodies=(Replace(Source.bodies[0], final_feature_id=Second.id),),
     )
     Target = IoStream.BytesIO()
-    _ = FreeCadAdapter().write(Source, Target)
+    _ = CodecRebuild(Source, Target)
     DataValue = Target.getvalue()
     with Zipfile.ZipFile(IoStream.BytesIO(DataValue)) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
@@ -3193,21 +3186,22 @@ def TestFcstdEmits() -> None:
 
 # this definition exists because focused behavior needs one stable owner
 def TestFcstdOutput(TmpPath: FilePath) -> None:
+    Source = TypedPart()
     First = TmpPath / "first.FCStd"
     Second = TmpPath / "second.FCStd"
-    _ = Convert(KSample, First, allow_carrier=True)
-    _ = Convert(KSample, Second, allow_carrier=True)
+    _ = WriteDoc(Source, First, allow_carrier=True)
+    _ = WriteDoc(Source, Second, allow_carrier=True)
     assert First.read_bytes() == Second.read_bytes()
 
 
 # this definition exists because focused behavior needs one stable owner
 def TestFcstdStream(TmpPath: FilePath) -> None:
     Output = TmpPath / "example.FCStd"
-    Result = Convert(KSample, Output, allow_carrier=True)
+    _ = WriteDoc(TypedPart(), Output, allow_carrier=True)
     Stream = IoStream.BytesIO(Output.read_bytes())
     assert FreeCadAdapter().probe(Stream).confidence == 1.0
     assert Stream.tell() == 0
-    assert OpenDoc(Stream) == Result.document
+    assert OpenDoc(Stream) == TypedPart()
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3460,10 +3454,477 @@ def TestSelfPart() -> None:
     VerifyPart(DocValue)
     DocValue = EditCircle(DocValue)
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     VerifyPartXml(RootValue)
+
+
+# shared fixture keeps native sketch visibility independent of explicit suppression flags
+def HiddenPart(
+    Flags: tuple[tuple[str, str], ...] = (), *, FileValue: str | None = None
+) -> bytes:
+    return NativePart(
+        SketchState=tuple(
+            NativeProp(NameValue, "App::PropertyBool", "Bool", {"value": Value})
+            for NameValue, Value in (("Visibility", "false"), *Flags)
+        ),
+        FileValue=FileValue,
+    )
+
+
+# parameter edits exercise the driving constraint instead of changing only display geometry
+def EditDiameter(Document: CadDocument) -> CadDocument:
+    ParamId = Document.sketches[0].constraints[0].parameter_id
+    return Replace(
+        Document,
+        parameters=tuple(
+            (
+                Replace(Param, value=Replace(Param.value, value=14.0))
+                if Param.id == ParamId
+                else Param
+            )
+            for Param in Document.parameters
+        ),
+    )
+
+
+# a hidden profile still drives its pad while explicit suppression remains independent
+@Pytest.mark.parametrize(
+    ("Flags", "Suppressed"),
+    (
+        ((), False),
+        ((("Suppressed", "true"),), True),
+        ((("SourceSuppressed", "true"),), True),
+        ((("SourceSuppressed", "false"), ("Suppressed", "true")), False),
+    ),
+)
+def TestSketchState(Flags: tuple[tuple[str, str], ...], Suppressed: bool) -> None:
+    Adapter = FreeCadAdapter()
+    Document = Adapter.read(HiddenPart(Flags))
+    (SketchValue,) = Document.sketches
+    (FeatureValue,) = Document.feature_timeline
+    assert SketchValue.suppressed is Suppressed
+    assert FeatureValue.sketch_id == SketchValue.id
+    assert not FeatureValue.suppressed
+    Changed = Replace(
+        EditDiameter(Document),
+        sketches=(Replace(SketchValue, suppressed=not Suppressed),),
+    )
+    Output = IoStream.BytesIO()
+    _ = CodecRebuild(Changed, Output)
+    assert Adapter.read(Output.getvalue()).sketches[0].suppressed is (not Suppressed)
+    with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
+        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
+    Properties = RootValue.find("./ObjectData/Object[@name='Sketch']/Properties")
+    assert Properties is not None
+    Visibility = Properties.find("./Property[@name='Visibility']/Bool")
+    assert Visibility is not None and Visibility.get("value") == "false"
+    Diameter = Properties.find(
+        "./Property[@name='Constraints']/ConstraintList/Constrain[@Name='Diameter']"
+    )
+    assert Diameter is not None and float(Diameter.get("Value", "")) == 14.0
+    Owner = Properties.find("./Property[@name='SourceSuppressed']/Bool")
+    if Owner is None:
+        Owner = Properties.find("./Property[@name='Suppressed']/Bool")
+    assert Owner is not None and Owner.get("value") == (
+        "false" if Suppressed else "true"
+    )
+
+
+# old carrier fixtures retain historical sketch values and their saved baseline without a profile
+def AnnotateOld(Document: CadDocument) -> CadDocument:
+    Annotated = AnnotateNative(PrepareChildren(Document, AnnotateOld))
+    Payloads = tuple(
+        (
+            Replace(
+                Payload,
+                attributes={
+                    KeyValue: Value
+                    for KeyValue, Value in Payload.attributes.items()
+                    if KeyValue != KReplaySketchAttr
+                },
+            )
+            if KReplaySketchAttr in Payload.attributes
+            else Payload
+        )
+        for Payload in Annotated.brep_payloads
+    )
+    return Replace(Annotated, brep_payloads=Payloads)
+
+
+# older carriers must restore the original archive while edits still bypass exact replay
+def TestOldReplay(TmpPath: FilePath) -> None:
+    Source = HiddenPart()
+    Document = FreeCadAdapter().read(Source)
+    Legacy = AnnotateOld(
+        Replace(Document, sketches=(Replace(Document.sketches[0], suppressed=True),))
+    )
+    Carrier = TmpPath / "source.CATPart"
+    _ = WriteDoc(Legacy, Carrier)
+    Restored = TmpPath / "restored.FCStd"
+    Result = Convert(Carrier, Restored)
+    assert Result.output.metadata["mode"] == "exact_native_roundtrip"
+    assert Restored.read_bytes() == Source
+    Carried = OpenDoc(Carrier)
+    Edited = Replace(
+        Carried, sketches=(Replace(Carried.sketches[0], suppressed=False),)
+    )
+    Rebuilt = IoStream.BytesIO()
+    Update = CodecRebuild(Edited, Rebuilt)
+    assert Update.metadata.get("mode") != "exact_native_roundtrip"
+    assert Rebuilt.getvalue() != Source
+
+
+# dimension edits must preserve active hidden sketches and explicit suppression on visible ones
+@Pytest.mark.parametrize("Visible", (False, True))
+def TestOldDimEdit(Visible: bool) -> None:
+    State: tuple[ET.Element, ...] = (
+        NativeProp(
+            "Visibility",
+            "App::PropertyBool",
+            "Bool",
+            {"value": "true" if Visible else "false"},
+        ),
+    )
+    if Visible:
+        State += (
+            NativeProp(
+                "SourceSuppressed", "App::PropertyBool", "Bool", {"value": "true"}
+            ),
+        )
+    Adapter = FreeCadAdapter()
+    Source = NativePart(SketchState=State)
+    Document = Adapter.read(Source)
+    assert Document.sketches[0].suppressed is Visible
+    Legacy = AnnotateOld(
+        Replace(
+            Document,
+            sketches=(Replace(Document.sketches[0], suppressed=not Visible),),
+        )
+    )
+    Output = IoStream.BytesIO()
+    Result = CodecRebuild(EditDiameter(Legacy), Output)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
+    Rebuilt = Adapter.read(Output.getvalue())
+    SketchValue = Rebuilt.sketches[0]
+    assert SketchValue.suppressed is Visible
+    Driver = next(
+        Param
+        for Param in Rebuilt.parameters
+        if Param.id == SketchValue.constraints[0].parameter_id
+    )
+    assert Driver.value.value == 14.0
+    Second = IoStream.BytesIO()
+    Edited = Replace(Rebuilt, sketches=(Replace(SketchValue, suppressed=not Visible),))
+    _ = CodecRebuild(Edited, Second)
+    assert Adapter.read(Second.getvalue()).sketches[0].suppressed is (not Visible)
+
+
+# linked fixture extraction anchors suppression checks to the carried child
+def ReadLinkedChild(
+    Document: CadDocument,
+) -> tuple[Mapping[str, object], Mapping[str, object], CadDocument]:
+    Freecad = MetaMap(Document.metadata["freecad"])
+    (LinkValue,) = MetaSeq(Freecad["external_documents"])
+    LinkMeta = MetaMap(LinkValue)
+    ChildDoc = LinkMeta["document"]
+    assert isinstance(ChildDoc, CadDocument)
+    return Freecad, LinkMeta, ChildDoc
+
+
+# suppression edits keep the original relative reference and archive binding
+def EditLinkedFlag(Document: CadDocument, Suppressed: bool) -> CadDocument:
+    Freecad, LinkMeta, ChildDoc = ReadLinkedChild(Document)
+    Changed = Replace(
+        ChildDoc, sketches=(Replace(ChildDoc.sketches[0], suppressed=Suppressed),)
+    )
+    return Replace(
+        Document,
+        metadata={
+            **Document.metadata,
+            "freecad": {
+                **Freecad,
+                "external_documents": [{**LinkMeta, "document": Changed}],
+            },
+        },
+    )
+
+
+# legacy reference recovery must preserve child bytes and every later deliberate edit
+def ReadLinkBundle(Portable: FilePath, ChildBytes: bytes) -> CadDocument:
+    (Copied,) = tuple(Portable.with_suffix("").glob("*.FCStd"))
+    assert Copied.read_bytes() == ChildBytes
+    Reopened = OpenDoc(Portable)
+    assert ReadLinkedChild(Reopened)[2].sketches[0].suppressed is False
+    assert Reopened.sketches[0].suppressed is False
+    assert Reopened.feature_timeline[0].sketch_id == Reopened.sketches[0].id
+    return Reopened
+
+
+# embedded and separately saved children must carry the same deliberate suppression edit
+def VerifyLinkedMut(
+    Adapter: FreeCadAdapter,
+    Reopened: CadDocument,
+    Options: WriteOptions,
+    TmpPath: FilePath,
+) -> None:
+    Edited = Replace(
+        EditLinkedFlag(Reopened, True),
+        sketches=(Replace(Reopened.sketches[0], suppressed=True),),
+    )
+    Output = IoStream.BytesIO()
+    Result = CodecRebuild(Edited, Output, Options)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
+    Resaved = Adapter.read(Output.getvalue())
+    assert ReadLinkedChild(Resaved)[2].sketches[0].suppressed
+    assert Resaved.sketches[0].suppressed
+    EditedPath = TmpPath / "edited.FCStd"
+    with Pytest.raises(ValueError, match="required features"):
+        _ = CodecRebuild(Edited, EditedPath)
+    assert not tuple(EditedPath.with_suffix("").glob("*.FCStd"))
+
+
+# recovery covers a present missing or restored source alongside the portable export
+@Pytest.mark.parametrize("Scenario", ("present", "edited", "restored"))
+def TestOldLinked(TmpPath: FilePath, Scenario: str) -> None:
+    Child = TmpPath / "child.FCStd"
+    ChildBytes = HiddenPart()
+    _ = Child.write_bytes(ChildBytes)
+    Source = TmpPath / "parent.FCStd"
+    Original = HiddenPart(FileValue=Child.name)
+    _ = Source.write_bytes(Original)
+    Document = EditLinkedFlag(OpenDoc(Source), True)
+    Legacy = AnnotateOld(
+        Replace(Document, sketches=(Replace(Document.sketches[0], suppressed=True),))
+    )
+    Adapter = FreeCadAdapter()
+    Options = WriteOptions(values={"portable": False, "require_self_contained": False})
+    if Scenario == "present":
+        Output = IoStream.BytesIO()
+        Result = Adapter.write(Legacy, Output, Options)
+        assert Result.metadata["mode"] == "exact_native_roundtrip"
+        assert Output.getvalue() == Original
+    else:
+        Child.unlink()
+    if Scenario == "edited":
+        Legacy = Replace(
+            Legacy,
+            configurations=tuple(
+                Replace(Config, name="Edited") for Config in Legacy.configurations
+            ),
+        )
+    Portable = TmpPath / "portable.FCStd"
+    Result = CodecRebuild(Legacy, Portable)
+    assert Result.metadata["external_document_file_count"] == 1
+    Reopened = ReadLinkBundle(Portable, ChildBytes)
+    if Scenario == "restored":
+        _ = Child.write_bytes(ChildBytes)
+        VerifyLinkedMut(Adapter, Reopened, Options, TmpPath)
+
+
+# a historical linked manifest retains its prior sketch semantics until export
+def TestOldLinkFile(TmpPath: FilePath) -> None:
+    Child = TmpPath / "original.FCStd"
+    ChildBytes = HiddenPart()
+    _ = Child.write_bytes(ChildBytes)
+    Current = OpenDoc(Child)
+    Legacy = AnnotateOld(
+        Replace(Current, sketches=(Replace(Current.sketches[0], suppressed=True),))
+    )
+    Carrier = TmpPath / "legacy.FCStd"
+    _ = Carrier.write_bytes(BuildFcstdArchive(DocToManifest(Legacy)))
+    Source = TmpPath / "parent.FCStd"
+    _ = Source.write_bytes(NativeLinkOnly(Carrier.name))
+    Parent = OpenDoc(Source)
+    assert ReadLinkedChild(Parent)[2].sketches[0].suppressed
+    Portable = TmpPath / "export.FCStd"
+    Result = WriteDoc(Parent, Portable)
+    assert Result.metadata["external_document_file_count"] == 1
+    (Copied,) = tuple(Portable.with_suffix("").glob("*.FCStd"))
+    assert Copied.read_bytes() == ChildBytes
+    assert OpenDoc(Copied).sketches[0].suppressed is False
+    assert ReadLinkedChild(OpenDoc(Portable))[2].sketches[0].suppressed is False
+
+
+# a missing link prevents replay until a new check can verify the unchanged original model
+def TestRestoreLink(TmpPath: FilePath) -> None:
+    Child = TmpPath / "child.FCStd"
+    ChildBytes = NativePart()
+    _ = Child.write_bytes(ChildBytes)
+    Source = TmpPath / "source.FCStd"
+    Original = NativeLinkOnly(Child.name)
+    _ = Source.write_bytes(Original)
+    Legacy = AnnotateOld(OpenDoc(Source))
+    Child.unlink()
+    Options = WriteOptions(values={"portable": False, "require_self_contained": False})
+    Adapter = FreeCadAdapter()
+    Result = Adapter.write(Legacy, IoStream.BytesIO(), Options)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
+    Portable = TmpPath / "portable.FCStd"
+    _ = Adapter.write(Legacy, Portable)
+    _ = Child.write_bytes(ChildBytes)
+    Output = IoStream.BytesIO()
+    Replayed = Adapter.write(OpenDoc(Portable), Output, Options)
+    assert Replayed.metadata["mode"] == "exact_native_roundtrip"
+    assert Output.getvalue() == Original
+
+
+# portable writes reuse each complete linked parse across verification and physical output
+@Pytest.mark.parametrize("SharedChild", (False, True))
+def TestLinkedReads(
+    TmpPath: FilePath, MonkeyPatch: Pytest.MonkeyPatch, SharedChild: bool
+) -> None:
+    Sources = (
+        TmpPath / "root.FCStd",
+        *(TmpPath / f"linked{Index}.FCStd" for Index in range(3)),
+        TmpPath / "child.FCStd",
+    )
+    _ = Sources[-1].write_bytes(NativePart())
+    for Parent, Child in zip(Sources[:-1], Sources[1:], strict=True):
+        _ = Parent.write_bytes(NativeLinkOnly(Child.name))
+    if SharedChild:
+        _ = Sources[0].write_bytes(
+            NativeArchive(
+                (
+                    (
+                        "Branch",
+                        "App::Link",
+                        (),
+                        NativeLinkProps(Sources[1].name, "Body"),
+                    ),
+                    (
+                        "Shared",
+                        "App::Link",
+                        (),
+                        NativeLinkProps(Sources[-1].name, "Body"),
+                    ),
+                ),
+                {},
+            )
+        )
+    Legacy = AnnotateOld(OpenDoc(Sources[0]))
+    Watched = frozenset(Source.resolve() for Source in Sources[1:])
+    Observed: list[FilePath] = []
+    ReadBytes = FilePath.read_bytes
+
+    # delegated file reads count linked decoding while leaving the full export path active
+    def ReadWatched(PathValue: FilePath) -> bytes:
+        if PathValue in Watched:
+            Observed.append(PathValue)
+        return ReadBytes(PathValue)
+
+    MonkeyPatch.setattr(FilePath, "read_bytes", ReadWatched)
+    Portable = TmpPath / "portable.FCStd"
+    Result = WriteDoc(Legacy, Portable)
+    Extra = tuple(Source.resolve() for Source in Sources[2:]) if SharedChild else ()
+    assert Result.metadata["external_document_file_count"] == 1 + SharedChild
+    assert sorted(Observed) == sorted((*Watched, *Extra))
+    assert len(tuple(Portable.with_suffix("").rglob("*.FCStd"))) == (
+        len(Sources) - 1 + SharedChild
+    )
+
+
+# the archived sketch must be active in a native parse and hidden in the emitted property
+def VerifyRawHidden(Rebuilt: bytes) -> None:
+    assert ReadNativeFcstd(Rebuilt).sketches[0].suppressed is False
+    with Zipfile.ZipFile(IoStream.BytesIO(Rebuilt)) as Archive:
+        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
+    Visibility = RootValue.find(
+        "./ObjectData/Object[@name='Sketch']/Properties/Property[@name='Visibility']/Bool"
+    )
+    assert Visibility is not None and Visibility.get("value") == "false"
+
+
+# replay requires an independent source graph that fits the native reference depth
+def TestReplayDepth(TmpPath: FilePath) -> None:
+    Sources = tuple(
+        TmpPath / f"linked{Index}.FCStd" for Index in range(KMaxOuterDepth + 1)
+    )
+    _ = Sources[-1].write_bytes(NativePart())
+    for Parent, Child in zip(Sources[:-1], Sources[1:], strict=True):
+        _ = Parent.write_bytes(NativeLinkOnly(Child.name))
+    Original = HiddenPart(FileValue=Sources[1].name)
+    _ = Sources[0].write_bytes(Original)
+    Current = OpenDoc(Sources[0])
+    assert Current.sketches[0].suppressed is False
+    Legacy = AnnotateOld(
+        Replace(Current, sketches=(Replace(Current.sketches[0], suppressed=True),))
+    )
+    Options = WriteOptions(values={"portable": False, "require_self_contained": False})
+    Adapter = FreeCadAdapter()
+    Output = IoStream.BytesIO()
+    Result = Adapter.write(Legacy, Output, Options)
+    assert Result.metadata["mode"] == "exact_native_roundtrip"
+    assert Output.getvalue() == Original
+    Added = TmpPath / "additional.FCStd"
+    _ = Added.write_bytes(NativePart())
+    _ = Sources[-1].write_bytes(NativeLinkOnly(Added.name))
+    Current = OpenDoc(Sources[0])
+    for _ in Sources[1:]:
+        Current = ReadLinkedChild(Current)[2]
+    assert any(
+        Diagnostic.code == "freecad.unresolved_external_documents"
+        for Diagnostic in Current.diagnostics
+    )
+    Output = IoStream.BytesIO()
+    Result = CodecRebuild(Legacy, Output, Options)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
+    Rebuilt = Output.getvalue()
+    assert Rebuilt != Original
+    assert Adapter.read(Rebuilt).sketches[0].suppressed is False
+    VerifyRawHidden(Rebuilt)
+
+
+# assembly component writes must also use independently verified carried sketch state
+@Pytest.mark.parametrize("ParentProof", ("complete", "no_digest", "no_pair"))
+def TestOldAsmLink(TmpPath: FilePath, ParentProof: str) -> None:
+    Child = TmpPath / "child.FCStd"
+    _ = Child.write_bytes(HiddenPart())
+    Source = TmpPath / "assembly.FCStd"
+    _ = Source.write_bytes(
+        NativeOuterAsm((("Child", "App::Link", Child.name, "Body"),))
+    )
+    Document = OpenDoc(Source)
+    Assembly = Document.assembly
+    assert Assembly is not None
+    (Component,) = Assembly.documents
+    PartValue = Component.document
+    LegacyPart = Replace(
+        PartValue, sketches=(Replace(PartValue.sketches[0], suppressed=True),)
+    )
+    Legacy = AnnotateOld(
+        Replace(
+            Document,
+            assembly=Replace(
+                Assembly, documents=(Replace(Component, document=LegacyPart),)
+            ),
+        )
+    )
+    if ParentProof == "no_digest":
+        PairValue = NativeDocPair(Legacy)
+        assert PairValue is not None
+        Legacy = SetReplayDigest(Legacy, PairValue[0], None)
+    elif ParentProof == "no_pair":
+        Legacy = Replace(
+            Legacy,
+            brep_payloads=tuple(
+                Payload for Payload in Legacy.brep_payloads if not IsNative(Payload)
+            ),
+        )
+    Child.unlink()
+    Portable = TmpPath / "portable.FCStd"
+    Result = CodecRebuild(Legacy, Portable)
+    assert Result.metadata.get("mode") != "exact_native_roundtrip"
+    assert Result.metadata["component_file_count"] == 1
+    with Zipfile.ZipFile(Portable) as Archive:
+        RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
+    (Reference,) = {
+        LinkValue.get("file") for LinkValue in RootValue.findall(".//XLink")
+    }
+    assert Reference is not None
+    Saved = OpenDoc(Portable.parent / Reference)
+    assert Saved.sketches[0].suppressed is False
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3475,7 +3936,7 @@ def TestReplayPlane() -> None:
         Plane, transform=Replace(Plane.transform, origin=VectorThree(12.0, 34.0, 56.0))
     )
     Output = IoStream.BytesIO()
-    _ = Adapter.write(Replace(DocValue, support_planes=(EditedPlane,)), Output)
+    _ = CodecRebuild(Replace(DocValue, support_planes=(EditedPlane,)), Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     Placement = RootValue.find(
@@ -3493,7 +3954,7 @@ def TestReplayProp() -> None:
     DocValue = Adapter.read(NativePart())
     Feature = DocValue.feature_timeline[0]
     Output = IoStream.BytesIO()
-    _ = Adapter.write(
+    _ = CodecRebuild(
         Replace(DocValue, feature_timeline=(Replace(Feature, suppressed=True),)), Output
     )
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
@@ -3580,7 +4041,7 @@ def TestSketchShape() -> None:
     ]
     assert Payloads["Final.Shape.brp"].data == FinalBrep
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         assert Archive.read("Sketch.Shape.brp") == SketchBrep
         assert Archive.read("Sketch.Shape.Map.txt") == SketchMap
@@ -3976,7 +4437,7 @@ def TestCustomAsm() -> None:
         == "Vendor::FutureConstraintCollection"
     )
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     Types = {
@@ -4007,7 +4468,7 @@ def TestAsmObjects() -> None:
         {"source_stream": "Blob.bin", "data": b"opaque"}
     ]
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         Names = set(Archive.namelist())
         assert Archive.read("Blob.bin") == b"opaque"
@@ -4154,7 +4615,7 @@ def TestAsmWritesA() -> None:
     Adapter = FreeCadAdapter()
     DocValue = Adapter.read(NativeAsm())
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
     VerifyAsmLinks(RootValue)
@@ -4166,7 +4627,7 @@ def TestAsmWrites() -> None:
     Adapter = FreeCadAdapter()
     DocValue = Adapter.read(NativeAsm(BrepModelBrep(TriangleBrep())))
     Output = IoStream.BytesIO()
-    _ = Adapter.write(DocValue, Output)
+    _ = CodecRebuild(DocValue, Output)
     with Zipfile.ZipFile(IoStream.BytesIO(Output.getvalue())) as Archive:
         RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
         Types = {
@@ -4231,8 +4692,8 @@ def TestOuterSource(TmpPath: FilePath) -> None:
 def TestAsmGrouped(TmpPath: FilePath) -> None:
     First = TmpPath / "First.FCStd"
     Second = TmpPath / "Second.FCStd"
-    _ = First.write_bytes(NativePart())
-    _ = Second.write_bytes(NativePart())
+    _ = WriteDoc(TypedPart(), First)
+    _ = WriteDoc(TypedPart(), Second)
     Source = TmpPath / "Mixed.FCStd"
     _ = Source.write_bytes(
         NativeOuterAsm(
@@ -4336,7 +4797,7 @@ def TestLinkOnlyDoc(TmpPath: FilePath) -> None:
     SourceFolder = TmpPath / "source"
     Child = SourceFolder / "nested" / "Child.FCStd"
     Child.parent.mkdir(parents=True)
-    _ = Child.write_bytes(NativePart())
+    _ = WriteDoc(TypedPart(), Child)
     RootValue = SourceFolder / "LinkOnly.FCStd"
     _ = RootValue.write_bytes(NativeLinkOnly("nested/Child.FCStd"))
     Adapter = FreeCadAdapter()
@@ -4411,7 +4872,13 @@ def TestPartExact(TmpPath: FilePath) -> None:
     assert Result.metadata["mode"] == "exact_native_roundtrip"
     assert Result.metadata["native_self_contained"] is True
     assert Result.requirements == ()
-    assert Result.near_lossless is True
+    assert Result.near_lossless is False
+    assert Result.application_usable is False
+    assert Result.vendor_loadable is False
+    assert any(
+        Value.code == "freecad.native_replay.unqualified"
+        for Value in Result.diagnostics
+    )
     assert Target.read_bytes() == Source.read_bytes()
 
 
@@ -4443,9 +4910,7 @@ def TestRecomputed(Rebuild: bool) -> None:
     Forged = ForgedNativeDoc(DocValue, ForgedData)
     assert UnchangedNative(Forged) is None
     Output = IoStream.BytesIO()
-    Result = FreeCadAdapter().write(
-        Forged, Output, WriteOptions(values={"rebuild": Rebuild})
-    )
+    Result = CodecRebuild(Forged, Output, WriteOptions(values={"rebuild": Rebuild}))
     Transfers = {Value.capability: Value for Value in Result.transfers}
     assert Result.metadata.get("mode") != "exact_native_roundtrip"
     assert Transfers[Capability.BREP].mode is TransferMode.CARRIER
@@ -4512,30 +4977,13 @@ def TestRootCannot(TmpPath: FilePath) -> None:
     )
     Forged = AnnotateNative(Replace(DocValue, assembly=AsmValue))
     Target = TmpPath / "rebuilt" / "Parent.FCStd"
-    Result = WriteDoc(Forged, Target, values={"rebuild": True})
-    Transfers = {Value.capability: Value for Value in Result.transfers}
-    assert Transfers[Capability.BREP].mode is TransferMode.CARRIER
-    assert Transfers[Capability.BREP].carrier_reason is CarrierReason.SOURCE_OPAQUE
-    assert Result.application_usable is False
-    ComponentFiles = tuple(Target.parent.rglob("*.FCStd"))
-    assert Target in ComponentFiles
-    assert len(ComponentFiles) > 1
-    for ComponentFile in ComponentFiles:
-        with Zipfile.ZipFile(ComponentFile) as Archive:
-            RootValue = XmlTree.fromstring(Archive.read("Document.xml"))
-            NativeShapeFiles = tuple(
-                (
-                    Value.get("file", "")
-                    for Value in RootValue.findall(".//Part[@file]")
-                    if Value.get("file", "")
-                )
-            )
-            assert all(
-                (
-                    Archive.read(NameValue) != ForgedData
-                    for NameValue in NativeShapeFiles
-                )
-            )
+    with Pytest.raises(
+        ValueError, match="FreeCAD cannot emit editable required features"
+    ):
+        _ = WriteDoc(Forged, Target, values={"rebuild": True})
+    assert not Target.exists()
+    assert not Target.parent.exists()
+    assert UnchangedNative(ForgedNested) is None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -4618,7 +5066,7 @@ def TestFcstdXml() -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestCarrierA() -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart())
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Malformed = IoStream.BytesIO()
@@ -4638,7 +5086,7 @@ def TestCarrierA() -> None:
 def TestCarrier(ChangedCopy: str) -> None:
     Adapter = FreeCadAdapter()
     Valid = IoStream.BytesIO()
-    _ = Adapter.write(NeutralDoc(), Valid)
+    _ = Adapter.write(TypedPart(), Valid)
     with Zipfile.ZipFile(IoStream.BytesIO(Valid.getvalue())) as Source:
         Entries = {
             InfoValue.filename: Source.read(InfoValue)
@@ -4679,7 +5127,7 @@ def TestCarrier(ChangedCopy: str) -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestCarrierUses() -> None:
     Adapter = FreeCadAdapter()
-    DocValue = NeutralDoc()
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Legacy = IoStream.BytesIO()
@@ -4699,7 +5147,7 @@ def TestCarrierById() -> None:
         Config("configuration:b", "Second"),
         Config("configuration:c", "Shared"),
     )
-    DocValue = Replace(NeutralDoc(), configurations=Configurations)
+    DocValue = Replace(TypedPart(), configurations=Configurations)
     Output = IoStream.BytesIO()
     Adapter = FreeCadAdapter()
     _ = Adapter.write(DocValue, Output)
@@ -4719,7 +5167,7 @@ def TestCarrierById() -> None:
 def TestRejectsAnd() -> None:
     Adapter = FreeCadAdapter()
     Carrier = IoStream.BytesIO()
-    _ = Adapter.write(NeutralDoc(), Carrier)
+    _ = Adapter.write(TypedPart(), Carrier)
     for Source in (Carrier.getvalue(), NativePart()):
         with Pytest.raises(FreeCadAdapterError, match="configuration"):
             _ = Adapter.read(Source, ReadOptions(configuration="missing-configuration"))
@@ -4740,7 +5188,7 @@ def TestSelectsById() -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestCarrierAndA() -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart())
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Invalid = IoStream.BytesIO()
@@ -4783,7 +5231,7 @@ def TestCarrierAndA() -> None:
 )
 def TestCarrierDoc(DocXml: bytes | None) -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart())
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     with Zipfile.ZipFile(IoStream.BytesIO(Valid.getvalue())) as Source:
@@ -4803,7 +5251,7 @@ def TestCarrierDoc(DocXml: bytes | None) -> None:
 # this definition exists because focused behavior needs one stable owner
 def TestCarrierNon() -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart(BrepModelBrep(TriangleBrep())))
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Invalid = IoStream.BytesIO()
@@ -4898,7 +5346,7 @@ def TestCarrierDeep() -> None:
 )
 def TestCarrierAnd(EntryName: str, EntryData: bytes, Message: str) -> None:
     Adapter = FreeCadAdapter()
-    DocValue = Adapter.read(NativePart())
+    DocValue = TypedPart()
     Valid = IoStream.BytesIO()
     _ = Adapter.write(DocValue, Valid, WriteOptions(values={"rebuild": True}))
     Hostile = IoStream.BytesIO()

@@ -107,7 +107,7 @@ def HasSketchLog(Document: CadDocument) -> bool:
 # every marked sketch must own a supported independent native solver graph
 def IsSketchStep(SketchValue: Sketch, StepValue: FeatureStep) -> bool:
     return (
-        StepValue.kind == FeatureKind.KNative
+        StepValue.kind in (FeatureKind.KNative, FeatureKind.KReference)
         and StepValue.definition is None
         and StepValue.operation is None
         and not StepValue.input_feature_ids

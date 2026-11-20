@@ -1,0 +1,103 @@
+{
+  "cases": {
+    "ConcaveOwned": {
+      "bytes": 10890,
+      "earlier_strict_sdk_counts": {
+        "bodies": 1,
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12
+      },
+      "fixture": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "independent_neutral_sha256": "c22525c4346c27b67321c3ac9594e8db151fba45c9159b181703b563d670e60e",
+      "native_geometry": {
+        "area_m2": 0.002068,
+        "com_m": [
+          0.01744186046511628,
+          -0.0043023255813953495,
+          0.0034999999999999996
+        ],
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12,
+        "volume_m3": 5.1600000000000006e-06
+      },
+      "native_initial_diagnostics": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "native_observation_hashes": [
+        "181eebbfd8b7589c3569472efd58238e753eabaffd5b5b7ffdac43bc01578eee",
+        "9b9c6696dd33eaafcc6c3f6c1e60bf7e565827a1cf061eb91609de905f8ffbcc"
+      ],
+      "native_reopen_diagnostics": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "native_saved_sha256": "e63505d39a1408003707ad93b898007a05f0110ffa0dd1f649761223000680a5",
+      "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    "RectangularBare": {
+      "bytes": 9914,
+      "earlier_strict_sdk_counts": {
+        "bodies": 1,
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8
+      },
+      "fixture": "re/solidworks/v2026/corpus/local-import-readback/RectangularBare.SLDPRT",
+      "independent_neutral_sha256": "fba4909b28a0d95b9415091ef3fe2d7d148d20e53ce90dd7235d76c7736b9f05",
+      "native_geometry": {
+        "area_m2": 0.0011499999999999998,
+        "com_m": [
+          -0.0024999999999999996,
+          0.014,
+          0.008499999999999999
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 2.574e-06
+      },
+      "native_initial_diagnostics": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "native_observation_hashes": [
+        "a0db08425959c575b9cc388b4163ac72c463e2b4fdfccfb9e125d11fca0243c8",
+        "97c2f01cb9103e66c462944ea93f5538a43ca8e4310d771a8d7590a44e3460f2"
+      ],
+      "native_reopen_diagnostics": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "native_saved_sha256": "6c3bd9562db256fcb79b467cadac754dd158a871081a6884fee2c56f62cd4f1b",
+      "sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+    }
+  },
+  "earlier_sdk_readback": {
+    "reader_revision": "a2a8125d136a43f750dafee4f0f4d93d04255301",
+    "receipt_path": "re/solidworks/measurements/2026/ImportedLocalBodySdkSavedRead01.json",
+    "receipt_sha256": "a9e40a634f2234b03f490ea9511e0b02e27379fa4b172bb265466bc5ba21da3d",
+    "revision": "a794b0b3adfbf619ad00bd177203eefddda571d5"
+  },
+  "extracted_reader_source_revision": "5f20d577f92ef842b2229f2e67fafede36e44daa",
+  "native_completed_lifecycle": {
+    "controls_healthy": true,
+    "generator_revision": "67b2fa8b2aee19bade296f764bf7267afcbc72ca",
+    "native_job_sha256": "d2f212fdf22dbc810249373a01e806c7905bd2352be407cf41835828b87276a1",
+    "native_raw_sha256": "ecd54cd147bd24b9fb6ad14835ea981e7282ea4f914a0c785a2d490d33d6970b",
+    "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "oracle_file_version": "34.5.2.0604",
+    "receipt_path": "re/solidworks/measurements/2026/GeneratedLocalBodyPartCompleted01.json",
+    "receipt_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+    "revision": "1d216c54d588fc18525d9a4f49aba25cc92da5bf"
+  },
+  "schema": "kit.sw2026.local-import-readback-fixtures.v1",
+  "scope": "Two disclosed neutral-model generated decoder inputs. Native-observed completed builds, with independent geometry and no sealed source payloads.",
+  "source_pull_request": 121
+}

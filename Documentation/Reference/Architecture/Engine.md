@@ -50,16 +50,20 @@ The adapter writes into that storage.
 The registry checks the result before output commitment.
 The commit includes the requested file and any staged companion outputs.
 
-With `overwrite=False`, a conflict in the destination set raises `FileExistsError`.
-With replacement enabled, the staging code attempts to save existing targets for rollback.
-Backup creation can fail after moving an earlier target.
-The caller does not receive that partial backup list.
-Temporary storage cleanup can then remove the saved original.
-Automatic rollback therefore does not guarantee recovery from handled failures.
-Keep independent backups of existing outputs and companion files before replacement.
-Prefer an unused destination with `overwrite=False`.
-Multi-file commitment is not a universal crash-atomic filesystem transaction.
-Do not promise recovery from power loss or every external filesystem change.
+With `overwrite=False`, a conflict in the destination set raises
+`FileExistsError`. Publishing a file also checks exclusivity in the filesystem
+operation, so a file created by another process after the initial scan retains
+its data. On POSIX systems the destination filesystem needs to support hard
+links for this file publication. Directory outputs use the platform's directory
+move behavior.
+
+On a handled failure, rollback checks the identity of each published entry
+before removing it. With replacement enabled, the registry records each backup
+as it moves the original and restores earlier backups if a later move fails.
+
+Multi-file commitment uses a sequence of filesystem operations. Keep
+independent backups for recovery from power loss or external filesystem
+changes.
 
 ## Stream destinations
 

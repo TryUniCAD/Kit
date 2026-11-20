@@ -9,6 +9,11 @@ import tokenize as Tokenize
 from dataclasses import dataclass as DataClass
 from pathlib import Path as FilePath
 
+if not __package__:
+    System.path.insert(0, str(FilePath(__file__).resolve().parents[2]))
+
+from tools.Steering.LicenseNotice import GetNoticeLines
+
 # generated and third party folders stay excluded because repository scans must remain actionable
 KSkipFolders = frozenset(
     {
@@ -840,12 +845,17 @@ def CheckComments(
 ) -> list[Finding]:
     TokenList = list(Tokenize.generate_tokens(IoStream.StringIO(SourceText).readline))
     ReasonLines = GetReasonLines(SyntaxTree, ParentMap)
+    NoticeLines = GetNoticeLines(SourceText)
     FindingList: list[Finding] = []
     for TokenInfo in TokenList:
         if TokenInfo.type != Tokenize.COMMENT:
             continue
         TokenPos = (TokenInfo.start[0], TokenInfo.start[1])
-        if TokenPos in ReasonLines or IsPragmaComment(TokenInfo):
+        if (
+            TokenPos in ReasonLines
+            or TokenPos in NoticeLines
+            or IsPragmaComment(TokenInfo)
+        ):
             continue
         MsgText = "code comment is not an allowed rationale or type pragma"
         FindingList.append(
