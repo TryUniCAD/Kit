@@ -60,6 +60,20 @@ B04's parent is not complete merely because controlled constructor probes exist.
 
 ## Important gap boundaries
 
+### B14-COMPANION-PUBLICATION
+
+The PR #121 takeover agent owns this active destination-safety task. The
+separate main-target PR from `codex/staged-companion-publication` extracts
+the generic file publication correction from
+[PR #121](https://github.com/TryUniCAD/Kit/pull/121).
+It depends on the existing registry and staging directory next to the
+destination. [Change entry](../Changes/Commands/CompanionPublication.md)
+
+Exit requires revision-bound CI and review evidence. The registry integration
+cases must preserve a concurrent companion file with replacement disabled
+and restore earlier originals after a later backup fails.
+[Integration cases](../../tests/Convert/Registry/RegistryRaceTests.py)
+
 ### B03-SW2026-ARCHIVE
 
 Active in the [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167).
