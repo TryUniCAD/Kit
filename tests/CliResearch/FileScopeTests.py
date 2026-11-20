@@ -54,8 +54,19 @@ def CheckFileScope(TmpPath: FilePath) -> None:
     Manifest = LoadJson((RunPath / "Input-manifest-text.json").read_bytes())
     assert Manifest["status"] == "replayed_text_prefix"
     assert Manifest["shared_codecs"] == ["utf-16le", "utf-16le", "utf-16le", "ascii"]
-    assert all(Check["asset_id_matches"] and Check["snapshot_id_matches"] for Check in Manifest["fusion_manifest_checks"])
-    assert {Control["split"] for Control in Manifest["controls"]} == {"discovery", "qualification", "holdout"}
+    assert [record["sha256"] for record in Manifest["fusion_manifest_checks"]] == [
+        Manifest["member_sha256"],
+        *(control["member_sha256"] for control in Manifest["controls"]),
+    ]
+    assert all(
+        Check["asset_id_matches"] and Check["snapshot_id_matches"]
+        for Check in Manifest["fusion_manifest_checks"]
+    )
+    assert {Control["split"] for Control in Manifest["controls"]} == {
+        "discovery",
+        "qualification",
+        "holdout",
+    }
     Timeline = LoadJson((RunPath / "Input-timeline.json").read_bytes())
     assert Timeline["oracle_fields_match"] is True
     assert [Feature["name"] for Feature in Timeline["components"][0]["features"]] == [
@@ -433,16 +444,34 @@ def CheckUnlabelledDimensionStream(TmpPath: FilePath) -> None:
 
 # a reversed saved extrusion must agree with edited geometry and reject stale end positions
 def CheckReversedSavedPrism(TmpPath: FilePath) -> None:
+    from os import environ as Environment, pathsep as PathSeparator
+
     Root = ResearchRoot()
     Run = TmpPath / "research"
     Result = RunProcess(
-        [PythonPath, "-m", "KitCli", "run", "--root", str(Root), "auto", "--input",
-         str(Root / "re/FreeCad/Verification/ReversedFrontEdited.FCStd"),
-         "--directory", str(Run), "--workers", "1", "--reserved-memory-mib", "512"],
-        capture_output=True, text=True, timeout=300,
+        [
+            PythonPath,
+            "-m",
+            "KitCli",
+            "run",
+            "--root",
+            str(Root),
+            "auto",
+            "--input",
+            str(Root / "re/FreeCad/Verification/ReversedFrontEdited.FCStd"),
+            "--directory",
+            str(Run),
+            "--workers",
+            "1",
+            "--reserved-memory-mib",
+            "512",
+        ],
+        capture_output=True,
+        text=True,
+        timeout=300,
     )
     assert Result.returncode == 2, Result.stderr
-    Edit, = LoadJson((Run / "Input-native-edits.json").read_bytes())["changes"]
+    (Edit,) = LoadJson((Run / "Input-native-edits.json").read_bytes())["changes"]
     Geometry = Edit["saved_geometry"]
     assert Edit["field"] == "LengthFwd"
     assert Geometry["saved_stations_mm"] == [-14.0, 5.0]
@@ -451,14 +480,51 @@ def CheckReversedSavedPrism(TmpPath: FilePath) -> None:
     assert Geometry["embedded_depths_match"] is False
     Graph = LoadJson((Run / "Input-edited-graph.json").read_bytes())
     assert Graph["status"] == "candidate_matches_native_graph"
-    Update, = Graph["updates"]
+    (Update,) = Graph["updates"]
     Reader = LoadJson((Run / "Input-reader-patch.json").read_bytes())
     assert Reader["observed_bindings"] == {"LengthFwd": "length"}
     assert Reader["bindings"] == {"LengthFwd": "length", "LengthRev": "second_length"}
-    assert {Field for Replay in Reader["control_replays"] for Field in Replay["definition_fields"]} == {"length", "second_length"}
+    assert {
+        Field
+        for Replay in Reader["control_replays"]
+        for Field in Replay["definition_fields"]
+    } == {"length", "second_length"}
     assert Update["parameter_id"] == "depth:forward"
     assert Update["definition_field"] == "length"
-    Step, = (Item for Item in Graph["candidate"]["feature_timeline"]["$tuple"] if Item["id"] == Update["feature_id"])
+    (Step,) = (
+        Item
+        for Item in Graph["candidate"]["feature_timeline"]["$tuple"]
+        if Item["id"] == Update["feature_id"]
+    )
     assert Step["definition"]["length"]["value"] == 14.0
     assert Step["definition"]["second_length"]["value"] == 5.0
-    assert LoadJson((Run / "FileStall.json").read_bytes())["focus"] == "edited_graph_reopen"
+    assert (
+        LoadJson((Run / "FileStall.json").read_bytes())["focus"]
+        == "edited_graph_reopen"
+    )
+    RunProcess(
+        ["git", "apply", "--no-index", str(Run / "Reader.patch")],
+        cwd=TmpPath,
+        check=True,
+    )
+    Generated = TmpPath / Reader["path"]
+    with Generated.open("rb") as stream:
+        assert FileDigest(stream, "sha256").hexdigest() == Reader["reader_sha256"]
+    Replay = RunProcess(
+        [
+            PythonPath,
+            str(Generated),
+            str(Root / "re/FreeCad/Verification/ReversedFrontEdited.FCStd"),
+        ],
+        cwd=TmpPath,
+        env={
+            **Environment,
+            "PYTHONPATH": PathSeparator.join(
+                map(str, (Root / "src", Root / "re/automation"))
+            ),
+        },
+        capture_output=True,
+        check=True,
+        timeout=90,
+    )
+    assert LoadJson(Replay.stdout) == Graph

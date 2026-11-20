@@ -214,7 +214,14 @@ def fusion_manifest_reader(root, scratch, raw):
     report, patch = text_reader(root, scratch, target, pin, [pair[1] for _, pair in ordered])
     if report:
         report.update(member=KActiveManifest, member_sha256=pin,
-                      controls=[{"split": k, "archive_sha256": pair[0]} for k, pair in ordered])
+                      controls=[{"split": k, "archive_sha256": pair[0], "member_sha256": hashlib.sha256(pair[1]).hexdigest()}
+                                for k, pair in ordered])
+        if patch:
+            expected = [pin, *(row["member_sha256"] for row in report["controls"])]
+            checked = [row["sha256"] for row in report.get("fusion_manifest_checks", ())]
+            if checked != expected:
+                report["status"] = "incomplete_manifest_identity"
+                return report, None
     return report, patch
 
 
