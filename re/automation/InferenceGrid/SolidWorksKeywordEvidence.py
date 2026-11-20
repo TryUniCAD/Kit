@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from InferenceGrid.SolidWorksPatternCounts import pattern_counts
+
 from bisect import bisect_right
 from collections import Counter, defaultdict
 import math
@@ -133,5 +135,11 @@ def keyword_evidence(streams, discovered, document):
         counts[status] += 1
     resolved = base + "-ResolvedFeatures"
     proposals = ownership_hypotheses(rows, features, streams[resolved], resolved) if resolved in streams else None
-    return {"status": "compared", "ownership_hypotheses": proposals, "configuration_id": configs[0].configuration_id,
+    decoded = pattern_counts(streams[resolved], features) if resolved in streams else []
+    for record in decoded:
+        displays = [row["display_text"].strip() for row in rows if
+                    (row["feature_id"], row["name"]) == (record["feature_id"], record["name"])]
+        record["keyword_count_matches"] = displays == [str(record["count"])]
+        record["stream"] = resolved
+    return {"status": "compared", "pattern_counts": decoded, "ownership_hypotheses": proposals, "configuration_id": configs[0].configuration_id,
             "display_unit": display.UnitName, "counts": counts, "dimensions": rows}

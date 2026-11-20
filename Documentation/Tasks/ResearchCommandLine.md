@@ -245,3 +245,5 @@ For single-configuration SOLIDWORKS parts, the dimension report compares the key
 For ambiguous keyword matches, the runner tests whether a dimension follows its owner's binary feature-name marker. It checks unambiguous dimensions first, groups the results by native feature kind, and excludes the target owner from supporting examples. A competing location stays ambiguous unless a single compatible marker interval survives. The proposed location remains a research hypothesis.
 
 In SOLIDWORKS dimension evidence, inspect `keyword_evidence.dimensions[].integer_encoding_hypotheses` for alternative interpretations of unmatched displayed integers. Each entry records the stream, byte offset, and matching integer formats. These candidates do not count toward verified coverage.
+
+For explicit SOLIDWORKS sketch pattern count classes, inspect `keyword_evidence.pattern_counts`. The decoder reads a named parameter and its linear or circular handle in the same saved feature interval, then compares their common count with the keyword dimension. The report includes both offsets and all compatible integer widths.
