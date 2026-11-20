@@ -14,7 +14,7 @@ from sys import executable as PythonExe
 from tests.Research.SupervisorClient import SessionHost
 
 
-# a provider-side log detects duplicate requests even when the supervisor overwrites an attempt record
+# a separate provider log detects duplicate requests even when the supervisor overwrites an attempt record
 def InstallProvider(Harness: SessionHost, TmpPath: FilePath) -> None:
     Provider = TmpPath / "codex"
     _ = Provider.write_text(
