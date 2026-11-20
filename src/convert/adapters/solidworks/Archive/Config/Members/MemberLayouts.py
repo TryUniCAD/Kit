@@ -9,8 +9,14 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.FeatColorFields i
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.OwnerFields import (
     KOwnerFields,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.RecordFields import (
+    KRecordFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.RelMgrFields import (
     KRelMgrFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ThreadFields import (
+    KThreadFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.FeatureFields import (
     KFeatureFields,
@@ -31,5 +37,7 @@ KMemberLayouts = MappingProxyType(
         **KFeatureFields,
         **KConceptFields,
         **KOwnerFields,
+        **KRecordFields,
+        **KThreadFields,
     }
 )
