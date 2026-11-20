@@ -6,7 +6,7 @@ from convert.Commands.ResearchTools import KResearchScripts
 
 # deterministic research tools need a trusted checkout and unchanged downstream arguments
 def AddResearchMut(
-    Parser: ArgumentParser, Tools: tuple[str, ...] = tuple(KResearchScripts)
+    Parser: ArgumentParser, Tools: tuple[str, ...] | None = None
 ) -> None:
     _ = Parser.add_argument(
         "--root",
@@ -17,7 +17,7 @@ def AddResearchMut(
     )
     _ = Parser.add_argument(
         "ResearchTool",
-        choices=Tools,
+        choices=tuple(KResearchScripts) if Tools is None else Tools,
         help="Research tool or campaign format",
     )
     _ = Parser.add_argument(
