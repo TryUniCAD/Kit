@@ -94,7 +94,9 @@ def is_sketch_reference(value, path, sketches, steps):
     )
 
 
-def reader_evidence(document):
+def reader_evidence(document, *, limit=200000):
+    if type(limit) is not int or not 1 <= limit <= 20000000:
+        raise ValueError("reader evidence limit must be between 1 and 20000000 entries")
     sketch_rows, steps = root_sketch_rows(document)
     sketch_counts, eligible_sketches = Counter(), set()
     missing_definitions = []
@@ -104,8 +106,8 @@ def reader_evidence(document):
     stack = [(document, "", None)]
     while stack:
         value, path, provenance = stack.pop()
-        if len(records) + len(fields) + len(unresolved) + len(stack) > 200000:
-            raise ValueError("reader evidence exceeds 200000 entries")
+        if len(records) + len(fields) + len(unresolved) + len(stack) > limit:
+            raise ValueError(f"reader evidence exceeds {limit} entries")
         if isinstance(value, dict):
             provenance = value.get("provenance") or provenance
             kind = value.get("$type")
