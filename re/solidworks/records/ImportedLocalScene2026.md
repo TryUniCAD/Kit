@@ -29,3 +29,9 @@ reopened save in fresh processes bracketed by known-good controls on build
 rebuild. Typed save readback checks the original semantic light inputs. These
 are disclosed discovery inputs. Held-out and public writer qualification
 remain separate.
+
+The first frozen packet `893c11258cd5f61f3e50547a76397e089c11c5675327e3f364b90d0e1a2996ae`
+stopped before COM with a manifest-key mismatch. Its host used forward
+slashes and the guest compared native path separators. The retry uses
+portable archive keys while retaining native output paths.
+[Existing manifest gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/Extrusion/FrozenManifestKeysUsePortablePaths.md)

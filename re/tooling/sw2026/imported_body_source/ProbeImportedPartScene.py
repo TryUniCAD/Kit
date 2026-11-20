@@ -45,11 +45,11 @@ INPUTS = {
     "OtherShape": ("ImportedBodyContrast02/OtherShape.SLDPRT", "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d"),
     "RenamedFeature": ("ImportedBodyContrast02/RenamedFeature.SLDPRT", "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8"),
 }
-BOUND_OPERATORS = tuple(map(str, (
+BOUND_OPERATORS = tuple(path.as_posix() for path in (
     *(TOOLS / name for name in ("ProbeImportedPartScene.py", "ObserveLocalImportedPart.py", "ProjectDisclosedImport.py", "ProjectImportedSemantics.py")),
     *(RESEARCH / name for name in ("AuthorCurves.py", "AuthorRectangleAnchors.py", "OracleIdentity.py", "Swapp.py", "downstream/lighting/AuditStockPartLights.py")),
     *(IMPORTS / name for name in ("BindImportScene.py", "CheckBareImport.py", "MakeBareImport.py", "ReadImportScene.py")),
-)))
+))
 
 
 def light_scene(raw):
