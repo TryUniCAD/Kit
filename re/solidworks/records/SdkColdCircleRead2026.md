@@ -49,4 +49,8 @@ The first partial process deck stopped in a negative-input author: it asked a de
 
 The private handoff pins the exact candidate/baseline code roots, scripts, source hashes and requests. Run [RunColdCircleRead.py](../../tooling/sw2026/RunColdCircleRead.py) with the two immutable roots and a fresh output directory. The script exercises real normal-entry writes/reads and existing SDK constructors in separate processes; it does not call a unit-test runner, a CAD runtime or a vendor oracle.
 
+## Shared main integration
+
+The guarded process comparison at source revision `b69c8c99e68c7a3852aa85cc540293b749cb5c16` reran the narrow end-condition experiment after integrating main's native evidence write guards and ordinary fallback readers. All 39 strict read processes passed their expected outcome with zero runtime data-file reads. The round fallback now requires an unspecified or blind end. Resolved mid-plane and two-direction modes retain their own reader path. A typed circular cut now retains its actual plane-reference provenance. Removing just the two new support fields in the comparison object and recomputing its envelope digest reproduces the exact earlier pocket document hash. The emitted part bytes, topology, physical measures and refusal checks match the earlier evidence. Receipt SHA-256 is `856a28b86d9ea66cb26d0f11e5da631f83207e4076088aab954a41902b50afdb`. [Guarded read receipt](../measurements/2026/SdkColdCircleMainIntegration01.json)
+
 This result repairs the strict read boundary for the existing public writer profiles. It does not establish arbitrary circular-source equivalence, original held-out conversion, generated native cylinder references, concentric mate writing or new vendor acceptance. Those remain separate parts of PR #121.
