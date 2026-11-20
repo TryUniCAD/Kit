@@ -2,7 +2,6 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-
 # imported solids need their own typed local storage boundary after the inherited feature fields
 KImportFields = MappingProxyType(
     {
