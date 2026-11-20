@@ -34,15 +34,15 @@ TAIL_FIELDS = ("f388", "f38c", "f378", "n380", "f360", "f394", "n398",
                "f3a8", "f3b8", "n3b0", "f3c0", "f3c8")
 
 
-class TraceFlags(dict):
-    def __init__(self, cursor):
-        super().__init__(conditions=0x1000, ctx3d0=1, ctx87c=9)
-        self.cursor = cursor
-        self.events = []
+def trace_flags(cursor):
+    events = []
 
-    def __setitem__(self, name, value):
-        self.events.append([name, self.cursor.GetOffset(), self.get(name, 0), value])
-        super().__setitem__(name, value)
+    class TraceFlags(dict):
+        def __setitem__(self, name, value):
+            events.append([name, cursor.GetOffset(), self.get(name, 0), value])
+            super().__setitem__(name, value)
+
+    return TraceFlags(conditions=0x1000, ctx3d0=1, ctx87c=9), events
 
 
 def load_case(name):
@@ -171,7 +171,7 @@ def authored_view(class_slot, *, flag=0, links=(), first_list=0, second_list=0):
 
 def authored_context(data, seed, class_slot):
     cursor = BinaryReader(data)
-    state = TraceFlags(cursor)
+    state, events = trace_flags(cursor)
     initial = dict(state)
     context = BodyContext(19000, KMemberLayouts, KMemberVirtuals, KCfgMemberSchemas, FlagsValue=state)
     original = seed.EntriesValue
@@ -195,7 +195,7 @@ def authored_context(data, seed, class_slot):
     })
     assert bounded.RootValue.FieldsValue == node.FieldsValue and bounded.FlagsValue == state
     assert bounded.RootValue.StartOffset == 0 and bounded.RootValue.EndOffset == len(data)
-    return {"events": state.events, "flags": dict(state), "slot": node.IndexValue,
+    return {"events": events, "flags": dict(state), "slot": node.IndexValue,
             "fields": node.FieldsValue, "member_context_calls": bounded.ReportValue["field_calls"]["Context"],
             "member_flags": dict(bounded.FlagsValue)}
 

@@ -10,10 +10,12 @@ from convert.adapters.solidworks.Archive.Config.Members.CfgMemberGraph import (
 )
 from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
     KCfgMemberSchemas,
-    KViewClass,
 )
 from convert.adapters.solidworks.Archive.Config.Members.CheckCfgMember import (
     CheckCfgMember,
+)
+from convert.adapters.solidworks.Archive.Config.Members.CopyMemberFlags import (
+    CopyMemberFlags,
 )
 from convert.adapters.solidworks.Archive.Config.Members.MemberLayouts import (
     KMemberLayouts,
@@ -31,9 +33,6 @@ from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReade
 from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
 
-# the observed view windows read these caller flags and preserve their unrelated bits
-KViewFlagNames = frozenset(("conditions", "ctx3d0", "ctx87c"))
-
 
 # bounded member bytes and an explicit caller role must agree before exposing the map
 def ReadCfgMember(
@@ -50,13 +49,7 @@ def ReadCfgMember(
         )
     if MemberClass.SchemaValue not in KCfgMemberSchemas.get(MemberClass.NameValue, ()):
         raise BodyUnsupported("SOLIDWORKS configuration member has an unsupported role")
-    FlagsValue = dict(FlagSeed or {})
-    if FlagsValue and (
-        MemberClass != KViewClass
-        or not FlagsValue.keys() <= KViewFlagNames
-        or any(type(WordValue) is not int for WordValue in FlagsValue.values())
-    ):
-        raise BodyUnsupported("unsupported SOLIDWORKS configuration member context")
+    FlagsValue = CopyMemberFlags(MemberClass, FlagSeed)
     ContextValue = BodyContext(
         VersionValue,
         KMemberLayouts,
