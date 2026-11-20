@@ -24,7 +24,8 @@ KReason = "completed e\u0301vidence"
 class InvokeApi(Protocol):
 
     # operation arguments retain paths and labels without weakening response typing at either boundary
-    def __call__(self, *ArgList: object) -> dict[str, object]: ...
+    def __call__(self, *ArgList: object) -> dict[str, object]:
+        raise NotImplementedError
 
 
 # fixture records use the unchanged canonical utf eight payload representation and immutable digest definition

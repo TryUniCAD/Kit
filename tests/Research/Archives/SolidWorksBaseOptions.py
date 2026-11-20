@@ -26,12 +26,14 @@ class BaseTailCodec(Protocol):
         Generation: int,
         DisplayMode: int,
         ConditionOne: bool,
-    ) -> bytes: ...
+    ) -> bytes:
+        raise NotImplementedError
 
     # the default shifted point and flags close the base serialization
     def EncodeBaseEnd(
         self, *, Generation: int, DisplayMode: int, ConditionOne: bool
-    ) -> bytes: ...
+    ) -> bytes:
+        raise NotImplementedError
 
 
 # compare every byte except the explicitly normalized inactive side from the archive
