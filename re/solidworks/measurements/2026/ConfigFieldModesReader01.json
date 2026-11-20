@@ -53,10 +53,10 @@
   "preparation_base": "2759bcdb61c76c6b00fd467354cd85ace50f86bc",
   "queue_run_recorded": false,
   "queue_source_sha256": {
-    "tests/Convert/Solidworks/Configuration/ModeNativeTests.py": "a3f712c6ea4481b6cfa287267f3f888d5338d9f831b55b8d1c73d80fa6d1e928",
-    "tests/Convert/Solidworks/Configuration/ModeWireTests.py": "453afe2bfe647cf42473e595e7c6717970e021194d660077887bbc8d4df5ff19",
-    "tests/Convert/Solidworks/Configuration/ModeWitnessTests.py": "a71b466def34956532649f80aef2f035f18b62a6b451b1f0905201de0ca6c62a",
-    "tests/Convert/Solidworks/Configuration/RunModeCase.py": "4324acecb09c226cb1a6bfef36461d74c95861bd981651ad4bb6fa1cf9c33bb7"
+    "tests/Convert/Solidworks/Configuration/FieldModes/ModeNativeTests.py": "f32444270e7aa8b388c38a663fb6e0946fa9d5f5a18f2dd1c07de2e53faeebf4",
+    "tests/Convert/Solidworks/Configuration/FieldModes/ModeWireTests.py": "858d12027a8f621ca419abd5b796b37d0230c0d09009bf5450bfcf5a8ff1974f",
+    "tests/Convert/Solidworks/Configuration/FieldModes/ModeWitnessTests.py": "242b3bde9fca75d05ba4b2738be24d98671c01531bb435f5625065397ac2f17e",
+    "tests/Convert/Solidworks/Configuration/FieldModes/RunModeCase.py": "9b7be78217e9534d6565e5977682866116c35d5238f0937b2347135af403f551"
   },
   "review_checkout_source_sha256": {
     "src/convert/adapters/solidworks/Archive/Bodies/IsBranchTaken.py": "968cfbb3c55d6354e764dcb749e1c81870c34360322a0ca2682b8f87f4051d29",
