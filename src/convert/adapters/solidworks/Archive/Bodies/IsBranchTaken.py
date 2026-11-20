@@ -1,3 +1,5 @@
+from typing import cast as CastValue
+
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
@@ -25,4 +27,11 @@ def IsBranchTaken(
             (FlagsValue.get("pe_active", 0) and FlagsValue.get("pe_helper", 0))
             or FlagsValue.get("pe_file", 0)
         )
+    if ModeValue == "Equals":
+        return ReadScopeValue(ScopeValue, RuleValue.NameValue) == RuleValue.MaskValue
+    if ModeValue == "Greater":
+        Value = CastValue(int, ReadScopeValue(ScopeValue, RuleValue.NameValue))
+        return Value > RuleValue.MaskValue
+    if ModeValue == "NotCondition":
+        return not (Conditions & RuleValue.MaskValue)
     raise BodyUnsupported(f"unsupported native branch rule {ModeValue}")

@@ -1,0 +1,997 @@
+{
+  "aggregate_reference": "9f0ccb5389c121e750ca3b73f8e5d248b34d2e15",
+  "archive_version": 19000,
+  "atom_normalizer_reference": "71c7973b3b5ff43128b1e3a8cd60976565fd2ac5",
+  "context_comparator_reference": "cb0ac42c6ab245fbebbe5fa329ae8afbbca46a35",
+  "controls": {
+    "circle": {
+      "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+      "header_sha256": "dbff4fc3e0c22cc292d30541648df2aef7e7e193c513d005ceb3cbc88e962a9a",
+      "leaf_records": [
+        {
+          "end": [
+            2443,
+            4,
+            45
+          ],
+          "fields": {
+            "owner": {
+              "class": "moPart_c",
+              "index": 2,
+              "schema": 1
+            }
+          },
+          "layout": "moComponent_c",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80",
+            "moUnitComponent_c"
+          ],
+          "start": [
+            2441,
+            4,
+            45
+          ],
+          "wire_sha256": "99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8"
+        },
+        {
+          "end": [
+            2658,
+            4,
+            49
+          ],
+          "fields": {
+            "b0": 0.007124999999999999,
+            "b1": -0.0056749999999999995,
+            "b2": 0.0089125,
+            "b3": 0.0186,
+            "b4": 0.0058,
+            "b5": 0.017825,
+            "b6": -0.00435,
+            "b7": -0.01715,
+            "b8": 0,
+            "b9": 0.01851442427541294
+          },
+          "layout": "mgBBox_c.restore",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80"
+          ],
+          "start": [
+            2578,
+            4,
+            49
+          ],
+          "wire_sha256": "a5b06b80c571d837120d7b2cc9ebb9490115333a6fa24ed154a5b6b27a368129"
+        },
+        {
+          "end": [
+            3927,
+            4,
+            61
+          ],
+          "fields": {
+            "items": [
+              {
+                "s": "Description"
+              },
+              {
+                "s": "High Priority"
+              },
+              {
+                "s": "Low Priority"
+              },
+              {
+                "s": "Complete"
+              },
+              {
+                "s": "Reminder"
+              }
+            ],
+            "n": 5
+          },
+          "layout": "su_CStringArray",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c"
+          ],
+          "start": [
+            3801,
+            4,
+            61
+          ],
+          "wire_sha256": "55c8040025e95dd49f51757648a213d114c2bf1510895dfbf60eb0952c42570b"
+        },
+        {
+          "end": [
+            9287,
+            4,
+            69
+          ],
+          "fields": {
+            "f00": -1,
+            "f06": 0
+          },
+          "layout": "utLineWidth_c.Serialize0",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c",
+            "moAnnotationDefs_c",
+            "moBalloonDefs_c",
+            "moBaseAnnotationDefs_c"
+          ],
+          "start": [
+            9281,
+            4,
+            69
+          ],
+          "wire_sha256": "ca425c8b2ebe10b3c92f5b6ba0b58feebeef930a450f5cdd7b6455c73258487b"
+        }
+      ],
+      "mode_witnesses": [
+        {
+          "action": "Branch",
+          "compared": 2,
+          "conditions": 0,
+          "end": [
+            2712,
+            4,
+            49
+          ],
+          "field": "kind",
+          "mask": 2,
+          "mode": "Equals",
+          "predicate": true,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80",
+            "moModel_c.FUN_4c22ec20"
+          ],
+          "start": [
+            2702,
+            4,
+            49
+          ],
+          "type": "",
+          "width": 10,
+          "wire_sha256": "98ac7513f6dfc501cc7390c48649eefcdca1b8f88f58db021199ee549f2dc435"
+        },
+        {
+          "action": "Branch",
+          "compared": 0,
+          "conditions": 0,
+          "end": [
+            25477,
+            4,
+            119
+          ],
+          "field": "n10c4",
+          "mask": 0,
+          "mode": "Greater",
+          "predicate": false,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            25477,
+            4,
+            119
+          ],
+          "type": "",
+          "width": 0,
+          "wire_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "action": "Branch",
+          "compared": null,
+          "conditions": 0,
+          "end": [
+            2716,
+            4,
+            49
+          ],
+          "field": "",
+          "mask": 128,
+          "mode": "NotCondition",
+          "predicate": true,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80"
+          ],
+          "start": [
+            2712,
+            4,
+            49
+          ],
+          "type": "",
+          "width": 4,
+          "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "action": "Repeat",
+          "conditions": 0,
+          "end": [
+            24989,
+            4,
+            112
+          ],
+          "field": "f9f8",
+          "mask": 10,
+          "mode": "Fixed",
+          "rows": 10,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            22977,
+            4,
+            101
+          ],
+          "type": "",
+          "width": 2012,
+          "wire_sha256": "13cfaf8ae662239a56f8ab379e03478f10a47a975cbb31cdef06b345e87b6dc8"
+        }
+      ],
+      "normalizations": [
+        {
+          "action": "Normalize",
+          "conditions": 0,
+          "end": [
+            25030,
+            4,
+            114
+          ],
+          "field": "fd44",
+          "mask": 10,
+          "mode": "AtLeast",
+          "projected": 10,
+          "raw": 10,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            25026,
+            4,
+            114
+          ],
+          "type": "i32",
+          "width": 4,
+          "wire_sha256": "075de2b906dbd7066da008cab735bee896370154603579a50122f9b88545bd45"
+        },
+        {
+          "action": "Normalize",
+          "conditions": 0,
+          "end": [
+            25038,
+            4,
+            114
+          ],
+          "field": "fd48",
+          "mask": 0,
+          "mode": "AtLeast",
+          "projected": 0,
+          "raw": 0,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            25034,
+            4,
+            114
+          ],
+          "type": "i32",
+          "width": 4,
+          "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "action": "Normalize",
+          "conditions": 0,
+          "end": [
+            25542,
+            4,
+            120
+          ],
+          "field": "f152c",
+          "mask": 0,
+          "mode": "Identity",
+          "projected": 1,
+          "raw": 1,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0"
+          ],
+          "start": [
+            25538,
+            4,
+            120
+          ],
+          "type": "i32",
+          "width": 4,
+          "wire_sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450"
+        }
+      ],
+      "path": "PartPropertySource01/Inspection/CircularPropertiesAuthor/CircularProperties.SLDPRT",
+      "scope": "disclosed",
+      "separate_direct_owner": {
+        "action": "DirectNode",
+        "conditions": 0,
+        "end": [
+          25473,
+          4,
+          119
+        ],
+        "field": "f1018",
+        "field_value": {
+          "class": "moSheetMetalMaster_c",
+          "index": null,
+          "schema": 1
+        },
+        "mask": 0,
+        "mode": "",
+        "scope": [
+          "moPart_c",
+          "moPart_c.FUN_4c2378b0",
+          "moModel_c.FUN_4c234150"
+        ],
+        "start": [
+          25324,
+          4,
+          119
+        ],
+        "type": "moSheetMetalMaster_c",
+        "width": 149,
+        "wire_sha256": "f75ffe9d1742b2d0c44ce72b3c39a0b59954ccbfbb2865ae05e4fa0851a47869"
+      },
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "terminal_map_counter": 122
+    },
+    "concave": {
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "leaf_records": [
+        {
+          "end": [
+            1724,
+            4,
+            44
+          ],
+          "fields": {
+            "owner": {
+              "class": "moPart_c",
+              "index": 2,
+              "schema": 1
+            }
+          },
+          "layout": "moComponent_c",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80",
+            "moUnitComponent_c"
+          ],
+          "start": [
+            1722,
+            4,
+            44
+          ],
+          "wire_sha256": "99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8"
+        },
+        {
+          "end": [
+            2898,
+            4,
+            54
+          ],
+          "fields": {
+            "items": [
+              {
+                "s": "Description"
+              },
+              {
+                "s": "High Priority"
+              },
+              {
+                "s": "Low Priority"
+              },
+              {
+                "s": "Complete"
+              },
+              {
+                "s": "Reminder"
+              }
+            ],
+            "n": 5
+          },
+          "layout": "su_CStringArray",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c"
+          ],
+          "start": [
+            2772,
+            4,
+            54
+          ],
+          "wire_sha256": "55c8040025e95dd49f51757648a213d114c2bf1510895dfbf60eb0952c42570b"
+        },
+        {
+          "end": [
+            7730,
+            4,
+            54
+          ],
+          "fields": {
+            "f00": -1,
+            "f06": 0
+          },
+          "layout": "utLineWidth_c.Serialize0",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c",
+            "moAnnotationDefs_c",
+            "moBalloonDefs_c",
+            "moBaseAnnotationDefs_c"
+          ],
+          "start": [
+            7724,
+            4,
+            54
+          ],
+          "wire_sha256": "ca425c8b2ebe10b3c92f5b6ba0b58feebeef930a450f5cdd7b6455c73258487b"
+        }
+      ],
+      "mode_witnesses": [
+        {
+          "action": "Branch",
+          "compared": 2,
+          "conditions": 0,
+          "end": [
+            1842,
+            4,
+            46
+          ],
+          "field": "kind",
+          "mask": 2,
+          "mode": "Equals",
+          "predicate": true,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80",
+            "moModel_c.FUN_4c22ec20"
+          ],
+          "start": [
+            1832,
+            4,
+            46
+          ],
+          "type": "",
+          "width": 10,
+          "wire_sha256": "98ac7513f6dfc501cc7390c48649eefcdca1b8f88f58db021199ee549f2dc435"
+        },
+        {
+          "action": "Branch",
+          "compared": 0,
+          "conditions": 0,
+          "end": [
+            22589,
+            4,
+            93
+          ],
+          "field": "n10c4",
+          "mask": 0,
+          "mode": "Greater",
+          "predicate": false,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            22589,
+            4,
+            93
+          ],
+          "type": "",
+          "width": 0,
+          "wire_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "action": "Branch",
+          "compared": null,
+          "conditions": 0,
+          "end": [
+            1846,
+            4,
+            46
+          ],
+          "field": "",
+          "mask": 128,
+          "mode": "NotCondition",
+          "predicate": true,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80"
+          ],
+          "start": [
+            1842,
+            4,
+            46
+          ],
+          "type": "",
+          "width": 4,
+          "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "action": "Repeat",
+          "conditions": 0,
+          "end": [
+            22475,
+            4,
+            90
+          ],
+          "field": "f9f8",
+          "mask": 10,
+          "mode": "Fixed",
+          "rows": 10,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            20463,
+            4,
+            79
+          ],
+          "type": "",
+          "width": 2012,
+          "wire_sha256": "e188b482d13a55326df1e7bba767ca6f0e74c1969841b18062e6c9b5e7c4c6d5"
+        }
+      ],
+      "normalizations": [
+        {
+          "action": "Normalize",
+          "conditions": 0,
+          "end": [
+            22492,
+            4,
+            90
+          ],
+          "field": "fd44",
+          "mask": 10,
+          "mode": "AtLeast",
+          "projected": 10,
+          "raw": 10,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            22488,
+            4,
+            90
+          ],
+          "type": "i32",
+          "width": 4,
+          "wire_sha256": "075de2b906dbd7066da008cab735bee896370154603579a50122f9b88545bd45"
+        },
+        {
+          "action": "Normalize",
+          "conditions": 0,
+          "end": [
+            22500,
+            4,
+            90
+          ],
+          "field": "fd48",
+          "mask": 0,
+          "mode": "AtLeast",
+          "projected": 0,
+          "raw": 0,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            22496,
+            4,
+            90
+          ],
+          "type": "i32",
+          "width": 4,
+          "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "action": "Normalize",
+          "conditions": 0,
+          "end": [
+            22654,
+            4,
+            94
+          ],
+          "field": "f152c",
+          "mask": 0,
+          "mode": "Identity",
+          "projected": 0,
+          "raw": 0,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0"
+          ],
+          "start": [
+            22650,
+            4,
+            94
+          ],
+          "type": "i32",
+          "width": 4,
+          "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        }
+      ],
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "scope": "tracked",
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "terminal_map_counter": 94
+    },
+    "ladder": {
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "leaf_records": [
+        {
+          "end": [
+            2437,
+            4,
+            45
+          ],
+          "fields": {
+            "owner": {
+              "class": "moPart_c",
+              "index": 2,
+              "schema": 1
+            }
+          },
+          "layout": "moComponent_c",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80",
+            "moUnitComponent_c"
+          ],
+          "start": [
+            2435,
+            4,
+            45
+          ],
+          "wire_sha256": "99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8"
+        },
+        {
+          "end": [
+            2652,
+            4,
+            49
+          ],
+          "fields": {
+            "b0": 0,
+            "b1": 0,
+            "b2": 0.005,
+            "b3": 0.02,
+            "b4": 0.01,
+            "b5": 0.01,
+            "b6": -0.02,
+            "b7": -0.01,
+            "b8": 0,
+            "b9": 0.0229128784747792
+          },
+          "layout": "mgBBox_c.restore",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80"
+          ],
+          "start": [
+            2572,
+            4,
+            49
+          ],
+          "wire_sha256": "451c6021f2f4dc03a675e25c7957d3dd472ce91be9fc1730a60f6caf181c25c9"
+        },
+        {
+          "end": [
+            3921,
+            4,
+            61
+          ],
+          "fields": {
+            "items": [
+              {
+                "s": "Description"
+              },
+              {
+                "s": "High Priority"
+              },
+              {
+                "s": "Low Priority"
+              },
+              {
+                "s": "Complete"
+              },
+              {
+                "s": "Reminder"
+              }
+            ],
+            "n": 5
+          },
+          "layout": "su_CStringArray",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c"
+          ],
+          "start": [
+            3795,
+            4,
+            61
+          ],
+          "wire_sha256": "55c8040025e95dd49f51757648a213d114c2bf1510895dfbf60eb0952c42570b"
+        },
+        {
+          "end": [
+            9281,
+            4,
+            69
+          ],
+          "fields": {
+            "f00": -1,
+            "f06": 0
+          },
+          "layout": "utLineWidth_c.Serialize0",
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150",
+            "moDetailDefs_c",
+            "moAnnotationDefs_c",
+            "moBalloonDefs_c",
+            "moBaseAnnotationDefs_c"
+          ],
+          "start": [
+            9275,
+            4,
+            69
+          ],
+          "wire_sha256": "ca425c8b2ebe10b3c92f5b6ba0b58feebeef930a450f5cdd7b6455c73258487b"
+        }
+      ],
+      "mode_witnesses": [
+        {
+          "action": "Branch",
+          "compared": 2,
+          "conditions": 0,
+          "end": [
+            2706,
+            4,
+            49
+          ],
+          "field": "kind",
+          "mask": 2,
+          "mode": "Equals",
+          "predicate": true,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80",
+            "moModel_c.FUN_4c22ec20"
+          ],
+          "start": [
+            2696,
+            4,
+            49
+          ],
+          "type": "",
+          "width": 10,
+          "wire_sha256": "98ac7513f6dfc501cc7390c48649eefcdca1b8f88f58db021199ee549f2dc435"
+        },
+        {
+          "action": "Branch",
+          "compared": 0,
+          "conditions": 0,
+          "end": [
+            25057,
+            4,
+            105
+          ],
+          "field": "n10c4",
+          "mask": 0,
+          "mode": "Greater",
+          "predicate": false,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            25057,
+            4,
+            105
+          ],
+          "type": "",
+          "width": 0,
+          "wire_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "action": "Branch",
+          "compared": null,
+          "conditions": 0,
+          "end": [
+            2710,
+            4,
+            49
+          ],
+          "field": "",
+          "mask": 128,
+          "mode": "NotCondition",
+          "predicate": true,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2309d0",
+            "moModel_c.FUN_4c22ec80"
+          ],
+          "start": [
+            2706,
+            4,
+            49
+          ],
+          "type": "",
+          "width": 4,
+          "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "action": "Repeat",
+          "conditions": 0,
+          "end": [
+            24252,
+            4,
+            95
+          ],
+          "field": "f9f8",
+          "mask": 10,
+          "mode": "Fixed",
+          "rows": 10,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            22240,
+            4,
+            84
+          ],
+          "type": "",
+          "width": 2012,
+          "wire_sha256": "a851b4ead81929d81ad0870c153903fd684f9b8242e05baba27af14cb934dfc9"
+        }
+      ],
+      "normalizations": [
+        {
+          "action": "Normalize",
+          "conditions": 0,
+          "end": [
+            24293,
+            4,
+            97
+          ],
+          "field": "fd44",
+          "mask": 10,
+          "mode": "AtLeast",
+          "projected": 12,
+          "raw": 12,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            24289,
+            4,
+            97
+          ],
+          "type": "i32",
+          "width": 4,
+          "wire_sha256": "42f4aeb81c1ef81f771f3de8abca9dcf66901c575530e7672e4b1146474ae650"
+        },
+        {
+          "action": "Normalize",
+          "conditions": 0,
+          "end": [
+            24301,
+            4,
+            97
+          ],
+          "field": "fd48",
+          "mask": 0,
+          "mode": "AtLeast",
+          "projected": 0,
+          "raw": 0,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0",
+            "moModel_c.FUN_4c234150"
+          ],
+          "start": [
+            24297,
+            4,
+            97
+          ],
+          "type": "i32",
+          "width": 4,
+          "wire_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "action": "Normalize",
+          "conditions": 0,
+          "end": [
+            25151,
+            4,
+            108
+          ],
+          "field": "f152c",
+          "mask": 0,
+          "mode": "Identity",
+          "projected": 1,
+          "raw": 1,
+          "scope": [
+            "moPart_c",
+            "moPart_c.FUN_4c2378b0"
+          ],
+          "start": [
+            25147,
+            4,
+            108
+          ],
+          "type": "i32",
+          "width": 4,
+          "wire_sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450"
+        }
+      ],
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "scope": "tracked",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "terminal_map_counter": 110
+    }
+  },
+  "physical_file_version": 4,
+  "position_fields": [
+    "logical_config_offset",
+    "map_base",
+    "next_map_counter"
+  ],
+  "preparation_base": "2759bcdb61c76c6b00fd467354cd85ace50f86bc",
+  "scene_compatibility_reference": "28650ee3f051acbb164ab7ccb60d85f92f2c5aee",
+  "schema": "Kit.SolidworksConfigFieldModes.1"
+}

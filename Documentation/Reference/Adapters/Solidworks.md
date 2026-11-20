@@ -103,6 +103,12 @@ archive version 19000.
 Complete configuration admission requires the remaining model body.
 [Configuration header link scope](../../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
+The shared body reader uses the stored comparison field and archive
+conditions for ordinary branches. A fixed repeat uses its field
+declaration for the row count. Signed normalization retains the
+original word with its runtime projection.
+[Configuration field modes](../../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
+
 The KeyWords framer serializes a typed XML tree with the native
 stream marker, UTF-8 declaration and explicit empty tag style.
 [KeyWords framing scope](../../Changes/Solidworks/Archive/SolidworksKeywordFraming.md)

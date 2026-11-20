@@ -1,0 +1,518 @@
+{
+  "accepted_member_repeat_compatibility": {
+    "guarded_processes": 3,
+    "source_receipt": "re/solidworks/measurements/2026/ConfigMemberFieldsReader01.json",
+    "source_receipt_sha256": "94505bfaf868356c33c586abc959c2359abebcbecf2862945241fbecc61bfbf2",
+    "stdout_sha256": {
+      "authored": "2bf13ba974abc506f95487e250a7bef7b3a0b21f3284d7a3d1032d26c768a4ad",
+      "concave": "e523efeceb349826ab43984181710ba9691f1122865d6a335ec1d7e84fe92fcc",
+      "ladder": "c8d0afa37310d36c1cddda18e135646ccae96baaf700c8f3085f372d03cb7ca9"
+    }
+  },
+  "aggregate_reference": "9f0ccb5389c121e750ca3b73f8e5d248b34d2e15",
+  "compatibility": {
+    "atom_mode_bodies_preserved": true,
+    "new_comparator_modes": [
+      "Equals",
+      "Greater",
+      "NotCondition"
+    ],
+    "shared_wire_assignments_preserved": true,
+    "view_comparator_pending_modes": [
+      "BitsEqual",
+      "Context",
+      "NotEquals"
+    ]
+  },
+  "native_processes_started": 0,
+  "preparation_base": "2759bcdb61c76c6b00fd467354cd85ace50f86bc",
+  "queue_run_recorded": false,
+  "queue_source_sha256": {
+    "tests/Convert/Solidworks/Configuration/ModeNativeTests.py": "f140b9f48cf8ceff7e4f1321b167e0abf6d410d2df3b05fe71e4fa53a719c2df",
+    "tests/Convert/Solidworks/Configuration/ModeWireTests.py": "453afe2bfe647cf42473e595e7c6717970e021194d660077887bbc8d4df5ff19",
+    "tests/Convert/Solidworks/Configuration/RunModeCase.py": "f9a60e644d4c74afb0f016be71ab8e845ef30ecacdfd210f7b85d170139c491c"
+  },
+  "schema": "Kit.SolidworksConfigFieldModesReader.1",
+  "source_manifest_sha256": "fb67782a7a3681e27300f877632317a785385f8af2312c7ef9d47a34f381d516",
+  "source_proof": "re/solidworks/measurements/2026/ConfigFieldModesSource01.json",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/IsBranchTaken.py": "968cfbb3c55d6354e764dcb749e1c81870c34360322a0ca2682b8f87f4051d29",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ExternalFields.py": "124aef47c77ec4ddec05106299df262e8baec9829ac5a18d185e2867cc5bbbda",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/MaterialFields.py": "820dff822052d61ec2fcd146e418160ae1179aa9e127de486da0913f235723ec",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ContainerFields.py": "08e5d03f5e7804fca94630fcacb44ea6793c25663ec057f2027eb767c52583f0",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ReferenceFields.py": "c152fa094c23f201a5b3569d6bfd4fe9c21de16f9c1c4bca96fc8f6efa162eb7",
+    "src/convert/adapters/solidworks/Archive/Bodies/NormalizeWord.py": "1932d1ddc5ff1652dfd02744da53e398c21031d059beec7ecd7e855c0c8ec177",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "7c6929b2df6f889c000c404da892d6fa15341e7f58ea65709dfd2e8c4da43f14",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadNormalMut.py": "198e7c95f4f84044575487b95bc728af261e0089dbdf54facea1b827c658c6ea",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadRepeatMut.py": "c51d9bea960d4df0af516689bbd50726dc07ede0af1cc780e4da4ee602f158ea"
+  },
+  "tools_sha256": {
+    "re/tooling/sw2026/CheckCfgFieldModes.py": "8989c9eb8d89eeb93f71eb67474b3ec9d45d74518d4b9d33e4f17960ff99b42c",
+    "re/tooling/sw2026/CheckCfgMembers.py": "d7aa8fcd744ffcc09df8f7297867dbcb3f5f0b8f7b5caf56c120dfe88c6303f4",
+    "re/tooling/sw2026/CheckCfgOwners.py": "a25c4a45c7da0d54cef240b58e3ac2b5628023949004472c793b504602360894",
+    "src/convert/adapters/solidworks/Archive/Config/Link/ReadPartStart.py": "cc619458c65a54dd888ded22c7c8259dd94a665a9683fd5d8f996e218d47f747"
+  },
+  "verified_host": {
+    "case_results": {
+      "authored": {
+        "case": "authored",
+        "identical_repeat": true,
+        "records": [
+          {
+            "bytes": 72,
+            "conditions": 0,
+            "fields": {
+              "atom": 0,
+              "atom#wire": 4026532033,
+              "clear": 59,
+              "different": 31,
+              "empty": [],
+              "fixed": [
+                {
+                  "value": -9
+                },
+                {
+                  "value": -8
+                },
+                {
+                  "value": -5
+                },
+                {
+                  "value": 0
+                },
+                {
+                  "value": 7
+                },
+                {
+                  "value": 16
+                },
+                {
+                  "value": 27
+                },
+                {
+                  "value": 40
+                },
+                {
+                  "value": 55
+                },
+                {
+                  "value": 72
+                }
+              ],
+              "identity": -78,
+              "identity#wire": -78,
+              "not_above": 47,
+              "scene": 0,
+              "scene#wire": -763,
+              "selector": 9,
+              "threshold": 10,
+              "threshold#wire": -4
+            },
+            "sha256": "aff2db50efb45e74b3d9695d889b7e1282b9c1ad4e93f9e1e0a1c100ba878693"
+          },
+          {
+            "bytes": 72,
+            "conditions": 32,
+            "fields": {
+              "atom": 0,
+              "atom#wire": 4026532033,
+              "clear": 59,
+              "empty": [],
+              "equal": 31,
+              "fixed": [
+                {
+                  "value": -9
+                },
+                {
+                  "value": -8
+                },
+                {
+                  "value": -5
+                },
+                {
+                  "value": 0
+                },
+                {
+                  "value": 7
+                },
+                {
+                  "value": 16
+                },
+                {
+                  "value": 27
+                },
+                {
+                  "value": 40
+                },
+                {
+                  "value": 55
+                },
+                {
+                  "value": 72
+                }
+              ],
+              "identity": -3,
+              "identity#wire": -3,
+              "not_above": 47,
+              "scene": 0,
+              "scene#wire": -523,
+              "selector": 10,
+              "threshold": 10,
+              "threshold#wire": 10
+            },
+            "sha256": "75e51ad356c9b850a5c437c7e7bb6841231577dd8e1f6b5d3de035947394f1c9"
+          },
+          {
+            "bytes": 72,
+            "conditions": 160,
+            "fields": {
+              "above": 47,
+              "atom": 4026532033,
+              "atom#wire": 4026532033,
+              "different": 31,
+              "empty": [],
+              "fixed": [
+                {
+                  "value": -9
+                },
+                {
+                  "value": -8
+                },
+                {
+                  "value": -5
+                },
+                {
+                  "value": 0
+                },
+                {
+                  "value": 7
+                },
+                {
+                  "value": 16
+                },
+                {
+                  "value": 27
+                },
+                {
+                  "value": 40
+                },
+                {
+                  "value": 55
+                },
+                {
+                  "value": 72
+                }
+              ],
+              "identity": 9,
+              "identity#wire": 9,
+              "masked": 59,
+              "scene": 0,
+              "scene#wire": -745,
+              "selector": 11,
+              "threshold": 15,
+              "threshold#wire": 15
+            },
+            "sha256": "9274bd33f543e4902102bad1f7ea89d2a6ae138814f05fd39c94f9b4f7281192"
+          }
+        ],
+        "refusals": [
+          "branch",
+          "fixed_negative",
+          "fixed_limit",
+          "fixed_truncated",
+          "normalization",
+          "signed_width",
+          "direct_owner",
+          "component_owner"
+        ],
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "a328d95d46b1e32ae7fe040e23b6a2bc2942f4e35bb19e2d63b3f444e0114f99"
+      },
+      "circle": {
+        "case": "circle",
+        "identical_repeat": true,
+        "leaves": {
+          "mgBBox_c.restore": {
+            "bytes": 80,
+            "counter": 49,
+            "fields": {
+              "b0": 0.007124999999999999,
+              "b1": -0.0056749999999999995,
+              "b2": 0.0089125,
+              "b3": 0.0186,
+              "b4": 0.0058,
+              "b5": 0.017825,
+              "b6": -0.00435,
+              "b7": -0.01715,
+              "b8": 0,
+              "b9": 0.01851442427541294
+            }
+          },
+          "moComponent_c": {
+            "bytes": 2,
+            "counter": 45,
+            "fields": {
+              "owner": {
+                "class": "moPart_c",
+                "index": 2,
+                "schema": 1
+              }
+            }
+          },
+          "su_CStringArray": {
+            "bytes": 126,
+            "counter": 61,
+            "fields": {
+              "items": [
+                {
+                  "s": "Description"
+                },
+                {
+                  "s": "High Priority"
+                },
+                {
+                  "s": "Low Priority"
+                },
+                {
+                  "s": "Complete"
+                },
+                {
+                  "s": "Reminder"
+                }
+              ],
+              "n": 5
+            }
+          },
+          "utLineWidth_c.Serialize0": {
+            "bytes": 6,
+            "counter": 69,
+            "fields": {
+              "f00": -1,
+              "f06": 0
+            }
+          }
+        },
+        "normalizations": [
+          {
+            "counter": 114,
+            "field": "fd44",
+            "span": [
+              25026,
+              25030
+            ],
+            "value": 10,
+            "wire": 10
+          },
+          {
+            "counter": 114,
+            "field": "fd48",
+            "span": [
+              25034,
+              25038
+            ],
+            "value": 0,
+            "wire": 0
+          },
+          {
+            "counter": 120,
+            "field": "f152c",
+            "span": [
+              25538,
+              25542
+            ],
+            "value": 1,
+            "wire": 1
+          }
+        ],
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "d8360baa3eec2cc8fa483d909ddced4d814ae97ea1041c9f17271c31de1b7ec9"
+      },
+      "concave": {
+        "case": "concave",
+        "identical_repeat": true,
+        "leaves": {
+          "moComponent_c": {
+            "bytes": 2,
+            "counter": 44,
+            "fields": {
+              "owner": {
+                "class": "moPart_c",
+                "index": 2,
+                "schema": 1
+              }
+            }
+          },
+          "su_CStringArray": {
+            "bytes": 126,
+            "counter": 54,
+            "fields": {
+              "items": [
+                {
+                  "s": "Description"
+                },
+                {
+                  "s": "High Priority"
+                },
+                {
+                  "s": "Low Priority"
+                },
+                {
+                  "s": "Complete"
+                },
+                {
+                  "s": "Reminder"
+                }
+              ],
+              "n": 5
+            }
+          },
+          "utLineWidth_c.Serialize0": {
+            "bytes": 6,
+            "counter": 54,
+            "fields": {
+              "f00": -1,
+              "f06": 0
+            }
+          }
+        },
+        "normalizations": [
+          {
+            "counter": 90,
+            "field": "fd44",
+            "span": [
+              22488,
+              22492
+            ],
+            "value": 10,
+            "wire": 10
+          },
+          {
+            "counter": 90,
+            "field": "fd48",
+            "span": [
+              22496,
+              22500
+            ],
+            "value": 0,
+            "wire": 0
+          },
+          {
+            "counter": 94,
+            "field": "f152c",
+            "span": [
+              22650,
+              22654
+            ],
+            "value": 0,
+            "wire": 0
+          }
+        ],
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "636538958758359ed834d301f058bce976fd7808818f86a68316c90c97831979"
+      },
+      "ladder": {
+        "case": "ladder",
+        "identical_repeat": true,
+        "leaves": {
+          "mgBBox_c.restore": {
+            "bytes": 80,
+            "counter": 49,
+            "fields": {
+              "b0": 0,
+              "b1": 0,
+              "b2": 0.005,
+              "b3": 0.02,
+              "b4": 0.01,
+              "b5": 0.01,
+              "b6": -0.02,
+              "b7": -0.01,
+              "b8": 0,
+              "b9": 0.0229128784747792
+            }
+          },
+          "moComponent_c": {
+            "bytes": 2,
+            "counter": 45,
+            "fields": {
+              "owner": {
+                "class": "moPart_c",
+                "index": 2,
+                "schema": 1
+              }
+            }
+          },
+          "su_CStringArray": {
+            "bytes": 126,
+            "counter": 61,
+            "fields": {
+              "items": [
+                {
+                  "s": "Description"
+                },
+                {
+                  "s": "High Priority"
+                },
+                {
+                  "s": "Low Priority"
+                },
+                {
+                  "s": "Complete"
+                },
+                {
+                  "s": "Reminder"
+                }
+              ],
+              "n": 5
+            }
+          },
+          "utLineWidth_c.Serialize0": {
+            "bytes": 6,
+            "counter": 69,
+            "fields": {
+              "f00": -1,
+              "f06": 0
+            }
+          }
+        },
+        "normalizations": [
+          {
+            "counter": 97,
+            "field": "fd44",
+            "span": [
+              24289,
+              24293
+            ],
+            "value": 12,
+            "wire": 12
+          },
+          {
+            "counter": 97,
+            "field": "fd48",
+            "span": [
+              24297,
+              24301
+            ],
+            "value": 0,
+            "wire": 0
+          },
+          {
+            "counter": 108,
+            "field": "f152c",
+            "span": [
+              25147,
+              25151
+            ],
+            "value": 1,
+            "wire": 1
+          }
+        ],
+        "runtime_external_accesses": 0,
+        "stdout_sha256": "cf74988671e89a324aab80d0ca4f0bde0fd7fc1bddb26d9befc8ab406c106425"
+      }
+    },
+    "guarded_processes": 8,
+    "original_sources_pristine": true,
+    "python_version": "3.14.7",
+    "source_proof_sha256": "d79172351078d23e336a9d8564bf636920a1004cb447dd183e623e020da3eda0"
+  }
+}
