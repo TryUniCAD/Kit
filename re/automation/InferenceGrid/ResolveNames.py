@@ -63,7 +63,7 @@ def advance_names(native, original_message, source, root, scratch):
         entry, identity, name = entries[0], types[0], classes[0]
         base = entry["BaseGuid"].upper()
         version = entry["SchemaVersion"]
-        if (entry["ClassSpace"] != "Fusion" or identity["base_identifier"].upper() != base
+        if (entry["ClassSpace"] != "Fusion" or (identity["base_identifier"] or "").upper() != base
             or identity["version"] != version or identity["name"] != name + "MetaType"
             or not re.fullmatch(r"[A-Za-z][A-Za-z0-9_]{0,127}", name)
             or sum(c["class"].split("::")[-1] == name for c in labels["classes"]) != 1):
