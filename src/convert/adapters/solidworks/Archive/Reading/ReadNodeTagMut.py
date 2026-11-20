@@ -7,7 +7,9 @@ from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
 def ReadNodeTagMut(
     Cursor: BinaryReader, NestingDepth: int, MaxDepth: int
 ) -> ArchiveTag:
-    TagValue, Offset = ReadTag(Cursor.BytesValue, Cursor.OffsetValue)
+    TagValue, Offset = ReadTag(
+        Cursor.BytesValue, Cursor.OffsetValue, LimitValue=Cursor.LimitValue
+    )
     if TagValue.KindValue in ("NewClass", "ClassRef") and NestingDepth >= MaxDepth:
         raise ValueError("SOLIDWORKS archive nesting exceeds the supported depth")
     Cursor.OffsetValue = Offset

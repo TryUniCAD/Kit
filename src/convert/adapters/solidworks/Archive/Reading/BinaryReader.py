@@ -6,14 +6,26 @@ from dataclasses import dataclass as DataClass
 class BinaryReader:
     BytesValue: bytes
     OffsetValue: int = 0
+    LimitValue: int | None = None
+
+    # nested cursors require an absolute window inside the shared buffer
+    def __post_init__(self) -> None:
+        if self.LimitValue is None:
+            return
+        if not 0 <= self.OffsetValue <= self.LimitValue <= len(self.BytesValue):
+            raise ValueError("SOLIDWORKS archive cursor has an invalid window")
 
     # graph callbacks need the current position without knowing cursor storage
     def GetOffset(self) -> int:
         return self.OffsetValue
 
-    # count validation needs the exact remaining stream length
+    # prefix codecs must obey the same limit as scalar reads
+    def GetEnd(self) -> int:
+        return len(self.BytesValue) if self.LimitValue is None else self.LimitValue
+
+    # count validation needs the exact remaining space in the current window
     def GetRemaining(self) -> int:
-        return len(self.BytesValue) - self.OffsetValue
+        return self.GetEnd() - self.OffsetValue
 
     # all field reads must fail at a real record boundary on truncation
     def TakeBytes(self, ByteCount: int) -> bytes:

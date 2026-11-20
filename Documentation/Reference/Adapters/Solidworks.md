@@ -113,6 +113,11 @@ archive version 19000.
 Complete configuration admission requires the remaining model body.
 [Configuration header link scope](../../Changes/Solidworks/Archive/SolidworksConfigHeaderLink.md)
 
+The internal configuration section action bounds native body readers to the
+declared lightweight or resolved length and keeps their shared map. Its scoped
+ordinary records include direct model-header aliases and an empty ghost manager.
+[Configuration section scope](../../Changes/Solidworks/Archive/SolidworksConfigSections.md)
+
 The bounded version-19000 part cache reader keeps zero through two mass
 slots, each slot's atom rows and attached mass properties, and the
 signed trailer when two slots are stored. The measured bounds field
