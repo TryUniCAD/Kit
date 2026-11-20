@@ -10,9 +10,6 @@ from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 
 # embedded emission must retain live computed mappings without materializing a second document
 def WriteNestedMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
-    if RuleValue.KindValue == "Base":
-        FrameValue.SchemaWriter(FrameValue, RuleValue.NameValue)
-        return
     Value = ReadScopeValue(FrameValue.ScopeValue, RuleValue.NameValue)
     if not isinstance(Value, MutableMapping):
         raise ValueError(

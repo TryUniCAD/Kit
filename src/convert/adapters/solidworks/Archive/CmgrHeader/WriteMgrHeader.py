@@ -12,7 +12,7 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
 # a lightweight configuration directory must derive every count tag and byte from its actual projected manager records
-def WriteMgrHdrMut(
+def WriteMgrHeader(
     RootValue: ArchiveNode, VersionValue: int
 ) -> tuple[bytes, ManagerGraph]:
     if RootValue.ClassValue != KManagerClass:

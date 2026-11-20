@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from copy import deepcopy
 from hashlib import sha256
 from json import dumps, loads
 from pathlib import Path
@@ -11,8 +12,8 @@ from convert.adapters.solidworks.Archive.CmgrHeader.ManagerSchemas import (
     KConfigHdrClass,
     KManagerClass,
 )
-from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHdrMut import ReadMgrHdrMut
-from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHdrMut import WriteMgrHdrMut
+from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+from convert.adapters.solidworks.Archive.CmgrHeader.WriteMgrHeader import WriteMgrHeader
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -41,12 +42,42 @@ def author_directory(source):
     return root
 
 
+def directory_state(root):
+    list_fields = root.FieldsValue["f08"]
+    rows = list_fields["items"]
+    nodes = {id(root): root}
+    for row in rows:
+        child = row["o"]
+        if isinstance(child, ArchiveNode):
+            nodes[id(child)] = child
+    fields = {
+        key: (
+            node.ClassValue,
+            node.StartOffset,
+            node.EndOffset,
+            node.IndexValue,
+            id(node.FieldsValue),
+            deepcopy(node.FieldsValue, nodes.copy()),
+        )
+        for key, node in nodes.items()
+    }
+    return id(list_fields), id(rows), tuple(id(row) for row in rows), fields
+
+
+def write_directory(root, version):
+    initial = directory_state(root)
+    result = WriteMgrHeader(root, version)
+    if directory_state(root) != initial:
+        raise ValueError("manager directory writing changed input graph state")
+    return result
+
+
 def replay_directory(payload, version):
-    graph = ReadMgrHdrMut(payload, version)
+    graph = ReadMgrHeader(payload, version)
     root = graph.RootValue
     if root.StartOffset != 0 or root.EndOffset != len(payload):
         raise ValueError("manager directory did not consume the complete stream")
-    written, repeated = WriteMgrHdrMut(root, version)
+    written, repeated = write_directory(root, version)
     if written != payload or repeated.MapValue != graph.MapValue:
         raise ValueError("manager directory bytes or map changed on replay")
     entries = {entry.IndexValue: entry.EntryValue for entry in graph.MapValue.EntriesValue}
@@ -97,7 +128,7 @@ def main():
     options = parser.parse_args()
     if options.mode == "write":
         source = loads(options.source.read_text(encoding="utf-8"))
-        payload, _ = WriteMgrHdrMut(author_directory(source), 19000)
+        payload, _ = write_directory(author_directory(source), 19000)
     else:
         if options.mode == "document":
             report = replay_container(options.source, options.source_sha256)

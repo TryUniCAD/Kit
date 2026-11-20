@@ -26,11 +26,12 @@ container layouts with manifest SHA-256
 `f943b57c4caf4d5a6166f1a05621f91a62379f7f9920ef3baebfda7575815181`.
 The delivery extracts the object-list rule from the container
 layouts, narrows the action tables and puts dispatch in the field
-loops. It adds separate manager descriptors and role checks. Eleven
-production modules match the aggregate byte for byte.
+loops. The nesting callbacks implement the registered embed rule.
+It adds separate manager descriptors and role checks. Nine production
+modules match the aggregate byte for byte.
 
 The delivered 23-file production manifest SHA-256 is
-`3bd12e4100154bcc1c4e853420f0fe07f2d3cfac3ae9fb3e26e3e51361949d5c`.
+`4111213382e0c2cc09cf8e79c4c09c716d7effc5ccd3d400d4d8180d4e4c5b8f`.
 Each manifest hashes the sorted repository-relative paths, each
 followed by a NUL, the lowercase file SHA-256 and a newline. The
 archive dependency walk found no import cycles in 88 modules.
@@ -92,6 +93,10 @@ the binary codec from a fresh process and publishes only a complete
 result. The [row case](../../../tests/Convert/Solidworks/CmgrHeader/ManagerRowTests.py)
 uses independently framed bytes for signed and unsigned words,
 Unicode text, the embedded list and a concrete child's alias.
+The [extended count case](../../../tests/Convert/Solidworks/CmgrHeader/ManagerCountTests.py)
+authors 65,535 rows. It checks the first canonical extended count,
+class slot 3 reused by distinct child objects 4 and 5, and the
+remaining short aliases to child 4.
 The [role cases](../../../tests/Convert/Solidworks/CmgrHeader/ManagerRoleTests.py)
 use missing bodies to verify early rejection of wrong roles and
 schemas. The null and manager-reference cases check both directions.
@@ -100,6 +105,11 @@ require complete byte consumption, exact re-emission and matching
 map membership.
 
 The binary constructor takes the actual typed directory fields.
+`ReadMgrHeader` uses a fresh cursor over its immutable input.
+`WriteMgrHeader` allocates its map and output privately. Its object
+store assigns map entries, and computed counts stay in the operation's
+field scope overlay. The process snapshots input node fields, identities
+and position markers across fresh writes and replay.
 Production projection from full part and assembly configuration
 graphs and container integration have separate acceptance work.
 Native document rebuild and edit qualification require their own

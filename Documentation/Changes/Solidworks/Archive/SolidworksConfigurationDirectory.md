@@ -1,6 +1,6 @@
 # SOLIDWORKS configuration directory records
 
-The internal `ReadMgrHdrMut` and `WriteMgrHdrMut` operations read and
+The internal `ReadMgrHeader` and `WriteMgrHeader` operations read and
 construct the version-19000 `Contents/CMgrHdr2` stream. They use a
 fresh object map and the shared scalar, text, object and counted-row
 handlers. The embedded configuration list contributes a count and
@@ -14,6 +14,8 @@ explicit field values.
 
 The [authored-row case](../../../../tests/Convert/Solidworks/CmgrHeader/ManagerRowTests.py)
 checks independent wire bytes. The
+[extended count case](../../../../tests/Convert/Solidworks/CmgrHeader/ManagerCountTests.py)
+checks two distinct children and a 65,535-row directory. The
 [role cases](../../../../tests/Convert/Solidworks/CmgrHeader/ManagerRoleTests.py)
 check refusal and the
 [disclosed replay cases](../../../../tests/Convert/Solidworks/CmgrHeader/ManagerNativeTests.py)

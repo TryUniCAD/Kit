@@ -14,7 +14,7 @@ from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMu
 
 
 # current manager header readback must preserve complete typed rows and refuse unknown roots or trailing opaque data
-def ReadMgrHdrMut(BufferValue: bytes, VersionValue: int) -> ManagerGraph:
+def ReadMgrHeader(BufferValue: bytes, VersionValue: int) -> ManagerGraph:
     ContextValue = ManagerContext(VersionValue)
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
