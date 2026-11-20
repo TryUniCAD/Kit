@@ -46,7 +46,7 @@ def CheckResume(TmpPath: FilePath) -> None:
             Deadline = Clock() + 25
             while (
                 not LogPath.is_file()
-                or '"event":"finished"' not in LogPath.read_text(encoding="utf-8")
+                or '"event":"started"' not in LogPath.read_text(encoding="utf-8")
             ):
                 assert Process.poll() is None and Clock() < Deadline
                 WaitFor(0.05)
@@ -75,7 +75,23 @@ def CheckResume(TmpPath: FilePath) -> None:
     After = DecodeJson(ReportPath.read_bytes())
     assert After["scopes"]["p03-blind-boss.solidworks"]["status"] == "completed"
     FinalJobs = ReadReceipts(After)
-    assert len(FinalJobs) > len(SavedJobs)
+    ControlPath = TmpPath / "UninterruptedRun"
+    RunAutomation(
+        ToolPath,
+        "--directory",
+        ControlPath,
+        "--solidworks-catalogue",
+        KCatalogue,
+        "--workers",
+        "1",
+        "--reserved-memory-mib",
+        "0",
+        "--max-seconds",
+        "35",
+        Expected=2,
+    )
+    Control = DecodeJson((ControlPath / "CatalogueResult.json").read_bytes())
+    assert FinalJobs.keys() == ReadReceipts(Control).keys()
     assert SavedJobs.items() <= FinalJobs.items()
     assert not (RunPath / "CataloguePause.json").exists()
 
