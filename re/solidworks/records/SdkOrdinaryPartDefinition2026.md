@@ -45,7 +45,10 @@ also use separate processes to author a mapped line-style reference
 and reject independent escaped alternatives to its low-index object
 and class references. The receiver requires the original compact tags
 to replay exactly and verifies each expanded tag's underlying reference
-with the shared compatibility decoder. These cases await queue evidence.
+with the shared compatibility decoder. A separate authored case allocates
+32,764 distinct line-style objects. The repeated last object occupies the
+first escaped index `0x7fff`. The fresh receiver checks its six physical
+bytes, identity and exact re-emission. These cases await queue evidence.
 [Width gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/DefinitionTagWidths.md)
 
 ## Guarded measurement

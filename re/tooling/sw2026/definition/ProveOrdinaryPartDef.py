@@ -292,7 +292,7 @@ def refusals():
     }
 
 
-def emit_references():
+def emit_references(wide=False):
     from convert.adapters.solidworks.Archive.Definition.WriteModelDef import (
         WriteModelDef,
     )
@@ -301,14 +301,25 @@ def emit_references():
 
     model = authored(AUTHORED["ordinary"])
     style_class = RuntimeClass("moLineStyle_c", 1)
-    shared = ArchiveNode(
-        style_class, {"f08": "Shared", "f10": "S01", "f18": [], "f20": 0}
-    )
-    separate = ArchiveNode(
-        style_class, {"f08": "Distinct", "f10": "S02", "f18": [], "f20": 0}
-    )
+    if wide:
+        nodes = [
+            ArchiveNode(
+                style_class,
+                {"f08": f"Style {index:05d}", "f10": "", "f18": [], "f20": 0},
+            )
+            for index in range(0x7FFF - 3)
+        ]
+        nodes.append(nodes[-1])
+    else:
+        shared = ArchiveNode(
+            style_class, {"f08": "Shared", "f10": "S01", "f18": [], "f20": 0}
+        )
+        separate = ArchiveNode(
+            style_class, {"f08": "Distinct", "f10": "S02", "f18": [], "f20": 0}
+        )
+        nodes = [shared, shared, separate]
     model.DocumentValue.FieldsValue["f878"] = {
-        "styles": [{"o": node} for node in (shared, shared, separate)]
+        "styles": [{"o": node} for node in nodes]
     }
     return WriteModelDef(model).OutputValue
 
@@ -350,6 +361,35 @@ def refuse_reference_widths(data):
             lambda: ReadModelDef(altered, 19000), "archive tag uses a noncanonical width"
         )
     return output
+
+
+def replay_wide_reference(data):
+    from convert.adapters.solidworks.Archive.Definition.ReadModelDef import ReadModelDef
+    from convert.adapters.solidworks.Archive.Definition.WriteModelDef import WriteModelDef
+
+    typed = ReadModelDef(data, 19000)
+    rows = typed.GraphValue.DocumentValue.FieldsValue["f878"]["styles"]
+    owner = rows[-2]["o"]
+    require(
+        len(rows) == 0x7FFF - 2 and rows[-1]["o"] is owner
+        and owner.IndexValue == 0x7FFF and owner.EndOffset is not None,
+        "the threshold tag did not resolve to its actual mapped style",
+    )
+    offset = owner.EndOffset
+    tag = data[offset:offset + 6]
+    require(tag == pack("<HI", 0x7FFF, 0x7FFF), "wrong canonical wide tag bytes")
+    written = WriteModelDef(typed.GraphValue)
+    require(
+        written.OutputValue == data
+        and written.MapValue.CounterValue == typed.MapValue.CounterValue,
+        "the canonical wide reference did not replay exactly",
+    )
+    return {
+        "object_index": owner.IndexValue,
+        "next_map_index": typed.MapValue.CounterValue,
+        "tag_width": len(tag),
+        "typed_wire_equal": True,
+    }
 
 
 def worker(mode):
@@ -394,6 +434,10 @@ def worker(mode):
         output = emit_references()
     elif mode == "wide_refs":
         output = refuse_reference_widths(raw)
+    elif mode == "author_wide_tag":
+        output = emit_references(wide=True)
+    elif mode == "replay_wide_tag":
+        output = replay_wide_reference(raw)
     elif mode in NATIVE:
         output = native_readback(raw, mode)
     else:

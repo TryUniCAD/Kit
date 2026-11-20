@@ -39,3 +39,18 @@ def TestDefWideTags(TmpPath: FilePath) -> None:
         "archive tag uses a noncanonical width" in Diagnostic
         for Diagnostic in Report.values()
     )
+
+
+# the first escaped slot distinguishes replay support from blanket rejection
+def TestDefWideRead(TmpPath: FilePath) -> None:
+    WireValue = RunDefProcess(TmpPath, "author_wide_tag", b"")
+    Report = CastValue(
+        dict[str, object],
+        LoadJson(RunDefProcess(TmpPath, "replay_wide_tag", WireValue)),
+    )
+    assert Report == {
+        "object_index": 0x7FFF,
+        "next_map_index": 0x8004,
+        "tag_width": 6,
+        "typed_wire_equal": True,
+    }
