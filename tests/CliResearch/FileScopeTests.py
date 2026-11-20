@@ -51,14 +51,14 @@ def CheckFileScope(TmpPath: FilePath) -> None:
         "5662F619-2281-4AD9-93DC-1FCFDA1062E7"
         not in Audit["reader_attempts"]["strict"]["message"]
     )
-    Trace = LoadJson((RunPath / "Input-references.json").read_bytes())
-    First = Trace["nodes"][0]
-    assert First["id"] == Trace["start"] == [0, 346]
-    assert First["metatypes"] == ["DcSketchProjectMetaType"]
-    assert any(
-        Link["field"] == "rDcSketch" and Link["target"] == [0, 334]
-        for Link in First["links"]
-    )
+    Timeline = LoadJson((RunPath / "Input-timeline.json").read_bytes())
+    assert Timeline["oracle_fields_match"] is True
+    assert [Feature["name"] for Feature in Timeline["components"][0]["features"]] == [
+        "RectangleSketch",
+        "BlindBoss",
+        "CutSketch",
+        "ThroughAllCut",
+    ]
     Changes = LoadJson((RunPath / "Input-repeat-save.json").read_bytes())
     assert Changes["status"] == "compared"
     assert len(set(Changes["controls"]) | {Audit["source_sha256"]}) == 3

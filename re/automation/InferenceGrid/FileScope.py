@@ -116,6 +116,24 @@ def file_scope(path, application, scratch, root):
         proposal = advance_names(reports["native"], attempts["strict"].get("message", ""), source, root, scratch)
         if proposal is not None:
             reports["design-names"] = proposal
+        diagnosis = proposal["next_result"] if proposal else attempts["strict"].get("message")
+        if diagnosis == "Native Fusion projection requires a sketch followed by one extrusion":
+            timeline_env = env.copy()
+            if proposal:
+                timeline_env["PYTHONPATH"] = os.pathsep.join(map(str, (scratch / "candidate/src", root / "Cli")))
+            timeline = subprocess.run([sys.executable, str(Path(__file__).with_name("RecoverTimeline.py")), source],
+                                      cwd=scratch, env=timeline_env, capture_output=True, timeout=180, check=True)
+            components = json.loads(timeline.stdout)
+            recovered = {"components": components, "oracle_fields_match": None}
+            oracle = comparison and comparison.get("oracle_timeline")
+            if oracle and len(components) == 1:
+                actual = components[0]["features"]
+                types = {"DcSketch": "Sketch", "DcExtrudeFeature": "ExtrudeFeature"}
+                recovered["oracle_fields_match"] = len(actual) == len(oracle) and all(
+                    types.get(a["native_class"]) == b["type"] and
+                    all(a[k] == b[k] and type(a[k]) is type(b[k]) for k in ("index", "name", "suppressed"))
+                    for a, b in zip(actual, oracle))
+            reports["timeline"] = recovered
         if trace is not None:
             reports["references"] = trace
             audit["refusal_trace"] = {"start": trace["start"], "class": trace["class"], "nodes": len(trace["nodes"]),

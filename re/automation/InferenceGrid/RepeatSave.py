@@ -76,7 +76,11 @@ def compare_capture(native, pin, root, scratch, command, env):
         candidates = [{"segment": key[0], "object": key[1], "class": key[2], "field": key[3],
                        "control": first[key][1], "input": observed[key][1]}
                       for key in stable if first[key][0] is observed[key][0] and first[key] != observed[key]]
-        return {"status": "compared", "recipe": receipt["recipe_id"], "measurement_sha256": receipt["measurement_receipt_sha256"],
+        exports = [row["file"] for row in rows if row["sha256"] == pin]
+        reopened = [row["reopened"]["feature_tree"] for key in ("variants", "edits")
+                    for row in measured["observations"].get(key, []) if row.get("export") in exports
+                    and isinstance(row.get("reopened", {}).get("feature_tree"), list)]
+        return {"oracle_timeline": reopened[0] if len(reopened) == 1 else None, "status": "compared", "recipe": receipt["recipe_id"], "measurement_sha256": receipt["measurement_receipt_sha256"],
                 "controls": [row["sha256"] for row in controls], "input": pin, "shared_scalar_fields": len(common),
                 "repeat_stable": len(stable), "changed_after_repeat_filter": candidates}
     return None
