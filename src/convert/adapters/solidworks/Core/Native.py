@@ -1,6 +1,8 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
+from collections.abc import Iterator
 from dataclasses import dataclass as Dataclass, field as Field, replace as Replace
+from io import StringIO
 import hashlib as Hashlib
 import itertools as Itertools
 import math as MathValue
@@ -16,6 +18,7 @@ from interchange import (
 )
 from convert.Geometry.Opencascade import decode_ascii_brep as DecodeAsciiBrep
 from convert.adapters.base import ParseUntrusted
+from convert.adapters.base.SafeParsing import CheckXmlDoctype
 from convert.adapters.solidworks.Container.Container import SldprtFormatError
 from convert.adapters.solidworks.Container.Format import (
     ASSEMBLY_SUFFIX as AsmSuffix,
@@ -1881,6 +1884,20 @@ def ParseXml(DataValue: bytes) -> XmlTree.Element:
         raise SldprtFormatError(
             f"invalid XML metadata stream: {ErrorInfo}"
         ) from ErrorInfo
+
+
+# keyword framing needs one element encoder so compact and spaced markup use identical text escaping
+def EncodeNativeXml(RootValue: XmlTree.Element) -> bytes:
+    PayloadValue: bytes = XmlTree.tostring(
+        RootValue, encoding="utf-8", short_empty_elements=True
+    )
+    return PayloadValue
+
+
+# qualified keyword values need namespace events because parsed elements omit their prefix declarations
+def ReadXmlEvents(TextValue: str) -> Iterator[tuple[str, object]]:
+    CheckXmlDoctype(TextValue)
+    return XmlTree.iterparse(StringIO(TextValue), events=("start-ns", "start"))
 
 
 # this definition exists because focused behavior needs one stable owner
