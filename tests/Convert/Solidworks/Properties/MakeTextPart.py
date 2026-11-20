@@ -22,6 +22,7 @@ def MakeTextPart(
     IsProperties: bool = True,
     *,
     EmptyScopes: frozenset[str] = frozenset(),
+    HasEmptyFileOwner: bool = False,
 ) -> FilePath:
     RequestValue = MakePolygonCase(
         TargetPath.stem, ((-13.0, -5.0), (24.0, -2.0), (8.0, 19.0)), False
@@ -48,7 +49,7 @@ def MakeTextPart(
             {"SharedName": "Configuration <β>"},
         )
     else:
-        InputsValue = PartTextInput({}, {}, {}, EmptyScopes)
+        InputsValue = PartTextInput({}, {}, {}, EmptyScopes, HasEmptyFileOwner)
     PropertiesValue = MakePartProps(InputsValue)
     if PropertiesValue:
         StreamsValue = SldprtArchive.OpenAction(TargetPath).streams

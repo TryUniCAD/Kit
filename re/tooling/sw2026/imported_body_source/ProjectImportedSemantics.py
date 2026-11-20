@@ -5,6 +5,9 @@ from BuildImportedLocalPart import ImportedPartSemantics
 from LocalBodyKernel import require
 from ProjectDisclosedImport import FORMAT, active_configuration, source_owners
 from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTextInput import PartTextInput
+from convert.adapters.solidworks.Archive.Properties.CheckEmptyProps import CheckEmptyProps, ReadPropChild
+from convert.adapters.solidworks.Archive.Properties.ReadPropManager import ReadPropRoot
+from convert.adapters.solidworks.Container.Container import SldprtArchive
 from interchange import CadDocument
 
 
@@ -46,6 +49,18 @@ def project_part_text(document: CadDocument, *, preserve_empty=False) -> PartTex
         read_bag(config.attributes.get(TEXT_SCOPE, {})),
         empty_scopes,
     )
+
+
+def read_empty_file_owner(raw):
+    data = SldprtArchive.from_bytes(raw).get("Contents/CusProps")
+    require(data is not None, "native file property owner is absent")
+    root = ReadPropRoot(data, 19000)
+    CheckEmptyProps(root)
+    rows = root.FieldsValue["f20"]
+    require(len(rows) == 1, "native file property owner is absent")
+    container = ReadPropChild(rows[0]["o"], "moCusPropContainer_c")
+    require(container.FieldsValue["f10"] is None, "native file property owner has a separate cut list")
+    return data
 
 
 def read_local_names(document, feature, body):

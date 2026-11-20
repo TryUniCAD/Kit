@@ -9,3 +9,4 @@ class PartTextInput:
     DocumentFields: Mapping[str, object]
     ConfigurationFields: Mapping[str, object]
     EmptyScopes: frozenset[str] = frozenset()
+    HasEmptyFileOwner: bool = False

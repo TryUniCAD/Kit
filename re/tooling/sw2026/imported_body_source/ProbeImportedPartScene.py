@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from codecs import lookup
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from hashlib import sha256
 import json
 from math import isclose
@@ -26,7 +26,7 @@ from EvaluateSealedImportedGeometry import expected_shape
 from LocalBodyKernel import fingerprint
 from ObserveLocalImportedPart import phase
 from ProjectDisclosedImport import decode_import, project_import, rectangular_boundary
-from ProjectImportedSemantics import project_import_semantics, project_part_text
+from ProjectImportedSemantics import project_import_semantics, project_part_text, read_empty_file_owner
 from RunImportedBodySources import cases
 from StageLocalPartProbe import pinned_tree
 from VerifyBareImportPackage import BareLabels, EXPECTED_LIGHT_STREAMS, guard_build, recipe
@@ -66,7 +66,7 @@ def decoded_scene_row(folder, lights):
     return tuple((light.NameValue, types[light.KindValue], folder) for light in lights)
 
 
-def prepared_part(source, target, preserve_empty=False):
+def prepared_part(source, target, preserve_empty=False, *, preserve_empty_file_owner=False):
     original = decode_import(source)
     footprint = project_import(original)
     semantics = project_import_semantics(original)
@@ -79,6 +79,11 @@ def prepared_part(source, target, preserve_empty=False):
                            brep=footprint.model)
     labels = BareLabels(target.stem, semantics.configuration_name, semantics.feature_name)
     properties = project_part_text(original, preserve_empty=True) if preserve_empty else semantics.properties
+    manager_stream = None
+    if preserve_empty_file_owner:
+        require(preserve_empty, "property owner trial preserves the source XML scopes")
+        manager_stream = read_empty_file_owner(source)
+        properties = replace(properties, HasEmptyFileOwner=True)
     settings = recipe(labels, target, EPOCH, properties)
     property_streams = []
     with guard_build() as audit:
@@ -100,17 +105,25 @@ def prepared_part(source, target, preserve_empty=False):
                 "generated part changed local boundary or typed source labels")
         if preserve_empty:
             require(properties.EmptyScopes == {"summary", "document", "configuration"}
-                    and project_part_text(decoded, preserve_empty=True) == properties,
+                    and project_part_text(decoded, preserve_empty=True) == replace(properties, HasEmptyFileOwner=False),
                     "generated read did not recover all three explicit empty scopes")
             no_text = MakeBareImport(document, recipe(labels, target, EPOCH, semantics.properties), labels, LightValues=lights)
             property_streams = sorted(name for name in candidate.StreamsValue.keys() | no_text.StreamsValue.keys()
                                       if candidate.StreamsValue.get(name) != no_text.StreamsValue.get(name))
-            require(set(property_streams) == {"docProps/core.xml", "docProps/custom.xml", "docProps/Config-0-Properties.xml"},
-                    "explicit empty scopes changed unrelated streams")
+            expected = {"docProps/core.xml", "docProps/custom.xml", "docProps/Config-0-Properties.xml"}
+            if preserve_empty_file_owner:
+                expected.add("Contents/CusProps")
+            require(set(property_streams) == expected, "explicit property owners changed unrelated streams")
+        if preserve_empty_file_owner:
+            without_owner = replace(settings, PropertiesValue=replace(properties, HasEmptyFileOwner=False))
+            control = MakeBareImport(document, without_owner, labels, LightValues=lights)
+            unrelated = {name: value for name, value in candidate.StreamsValue.items() if name != "Contents/CusProps"}
+            require(unrelated == control.StreamsValue and read_empty_file_owner(candidate.BytesValue) == manager_stream,
+                    "modeled file property owner differs from its native layout or changed other streams")
     contrast = sorted(name for name in candidate.StreamsValue.keys() | empty.StreamsValue.keys()
                       if candidate.StreamsValue.get(name) != empty.StreamsValue.get(name))
     require(set(contrast) == EXPECTED_LIGHT_STREAMS, "authored lights changed unrelated native state")
-    return candidate.BytesValue, {
+    result = {
         "file": fingerprint(candidate.BytesValue), "feature": details["feature"],
         "neutral_lights": tuple(map(asdict, lights)), "native_scene": decoded_scene_row(folder, lights),
         "stream_count": len(candidate.StreamsValue), "same_path_empty_contrast": contrast,
@@ -118,6 +131,9 @@ def prepared_part(source, target, preserve_empty=False):
         "explicit_empty_text_owners_preserved": "solidworks.part_text_properties" in decoded.metadata,
         "runtime_file_reads": len(audit.DeniedReads), "native_path": str(target),
     }
+    if preserve_empty_file_owner:
+        result["file_property_owner"] = fingerprint(candidate.StreamsValue["Contents/CusProps"])
+    return candidate.BytesValue, result
 
 
 def read_checked(path, expected):

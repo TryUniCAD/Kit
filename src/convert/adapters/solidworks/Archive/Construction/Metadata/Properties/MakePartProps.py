@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PartTe
 from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.ReadPropRows import (
     ReadPropRows,
 )
+from convert.adapters.solidworks.Archive.Properties.WriteEmptyProps import (
+    WriteEmptyProps,
+)
 
 
 # each ordinary text property scope yields its own computed package stream when present in the neutral model
@@ -30,4 +33,6 @@ def MakePartProps(InputsValue: PartTextInput | None) -> dict[str, bytes]:
         StreamsValue["docProps/Config-0-Properties.xml"] = MakeCustomProps(
             ConfigurationRows, True
         )
+    if InputsValue.HasEmptyFileOwner:
+        StreamsValue["Contents/CusProps"] = WriteEmptyProps(19000)
     return StreamsValue

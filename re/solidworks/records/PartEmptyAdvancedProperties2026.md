@@ -41,3 +41,28 @@ Wrong cut-list classes, populated cut lists, missing file owners and the
 native advanced property control still refuse projection.
 [Host measurement](../measurements/2026/ImportedLocalPartSemantics01.json)
 [Nullable cut-list gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Properties/EmptyImportPropertyManagerCanOmitCutList.md)
+
+## Generated local import owner
+
+The internal `PartTextInput.HasEmptyFileOwner` flag preserves an explicitly
+present file-property object through the shared part constructor. Each node
+is fresh. The root's single key-zero entry owns a file container with null
+document and configuration lists, no cut-list owner and no extra owner.
+The common writer derives all three class and object tags and both keyed
+array and node framing. It shares the same release-specific layouts as the
+reader.
+
+A same-path comparison on each of three disclosed local imports changes only
+`Contents/CusProps` when this flag changes. The typed output equals the
+102-byte native stream on all three originals, and construction reads no
+files. The file owner does not create a summary or custom XML dictionary
+on its own. Public compatibility still uses the complete read guard.
+[Change entry](../../../Documentation/Changes/Solidworks/Construction/Properties/SolidworksEmptyFilePropertyOwner.md)
+
+The sealed `--empty-file-owner` evaluation preserves original geometry,
+scene, explicit XML scopes and this actual binary manager. It first verifies
+its exact source lock and file-owner graph and then projects only the typed
+intent flag into the build. The native save must retain the same complete
+binary manager. The original and generated sources are measured through a
+fresh cold open, rebuild, save and reopen using healthy pristine controls.
+The sealed result is pending.

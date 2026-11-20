@@ -103,17 +103,17 @@ def evaluate(slot, source_lock, specification, output):
     }, [tuple(row["oracle_identity"][key] for key in ("process_id", "process_creation_filetime")) for row in phases]
 
 
-def evaluate_scene(slot, source_lock, specification, output):
+def evaluate_scene(slot, source_lock, specification, output, *, preserve_empty_file_owner=False):
     from ProbeImportedPartScene import compare, decoded_scene_row, light_scene, prepared_part, read_checked
-    from ProjectImportedSemantics import project_part_text
+    from ProjectImportedSemantics import project_part_text, read_empty_file_owner
 
     source = SOURCE_ROOT / slot / "Source.SLDPRT"
     source_hash = source_lock["source_sha256"]
     original = read_checked(source, source_hash)
     target = output / (slot + ".SLDPRT")
     saved = output / (slot + "Saved.SLDPRT")
-    generated, build = prepared_part(original, target, preserve_empty=True)
-    other, repeat = prepared_part(original, target, preserve_empty=True)
+    generated, build = prepared_part(original, target, preserve_empty=True, preserve_empty_file_owner=preserve_empty_file_owner)
+    other, repeat = prepared_part(original, target, preserve_empty=True, preserve_empty_file_owner=preserve_empty_file_owner)
     require(generated == other and build == repeat and build["runtime_file_reads"] == 0,
             "sealed semantic build was nondeterministic or read files")
     require(build["explicit_empty_text_owners_preserved"], "selected source text owners are missing")
@@ -137,26 +137,35 @@ def evaluate_scene(slot, source_lock, specification, output):
             and native_text == source_text,
             "a saved source light or empty text scope changed")
     phases = (native, candidate, reopened)
-    return {
+    report = {
         "input_sha256": source_hash, "candidate_sha256": build["file"]["sha256"],
         "saved_candidate_sha256": candidate["saved_sha256"], "model_generated_streams": build["stream_count"],
         "runtime_input_file_reads": 0, "saved_light_values": sum(len(asdict(light)) for light in lights),
         "saved_empty_text_scopes": len(native_text.EmptyScopes), "source_unchanged": True,
         "numeric_candidate_checks": candidate["numeric_checks"] + reopened["numeric_checks"],
         "native_phase_records": [row["record_sha256"] for row in phases],
-    }, [tuple(row["oracle_identity"][key] for key in ("process_id", "process_creation_filetime")) for row in phases]
+    }
+    if preserve_empty_file_owner:
+        original_owner = read_empty_file_owner(original)
+        require(read_empty_file_owner(saved_data) == original_owner, "native save changed the empty file owner")
+        report["file_property_owner"] = build["file_property_owner"]
+    return report, [tuple(row["oracle_identity"][key] for key in ("process_id", "process_creation_filetime")) for row in phases]
 
 
 def run(job_path, checksum):
     require(os.name == "nt" and digest(job_path) == checksum, "run the frozen evaluator inside the exact guest")
     job = json.loads(job_path.read_bytes())
-    scene_mode = job["schema"] == "kit.sw2026.sealed-import-scene-text-job.v1"
+    schema = job["schema"]
+    paths = {
+        "kit.sw2026.sealed-import-geometry-job.v1": Path(r"C:\KitImportedEvaluation01"),
+        "kit.sw2026.sealed-import-scene-text-job.v1": Path(r"C:\KitImportedEvaluation02"),
+        "kit.sw2026.sealed-import-property-owner-job.v1": Path(r"C:\KitImportedEvaluation03"),
+    }
+    require(job["oracle_sha256"] == ORACLE and schema in paths, "unexpected sealed import evaluator profile")
     output = Path(job["guest_output"])
-    require(output.drive.casefold() == "c:" and output.parent == Path("C:\\")
-            and output.name == ("KitImportedEvaluation02" if scene_mode else "KitImportedEvaluation01")
-            and not output.exists(), "use the owned separate evaluation path")
-    require(job["oracle_sha256"] == ORACLE and (scene_mode or job["schema"] == "kit.sw2026.sealed-import-geometry-job.v1"),
-            "unexpected sealed import evaluator profile")
+    require(output == paths[schema] and not output.exists(), "use the owned separate evaluation path")
+    property_mode = schema == "kit.sw2026.sealed-import-property-owner-job.v1"
+    scene_mode = property_mode or schema == "kit.sw2026.sealed-import-scene-text-job.v1"
     operator_folder = Path(__file__).resolve().parent
     require(set(job["operators"]) == set(OPERATORS + (SCENE_OPERATORS if scene_mode else ())) and
             all(digest(operator_folder / name) == checksum for name, checksum in job["operators"].items()),
@@ -183,7 +192,11 @@ def run(job_path, checksum):
               "public_writer_qualified": False, "controls_healthy": False}
     if scene_mode:
         report["schema"] = "kit.sw2026.sealed-import-scene-text.v1"
-        report["unqualified_source_domains"] = ["source tracking and provenance", "binary property manager", "archived payload and system attributes"]
+        report["unqualified_source_domains"] = ["source tracking and provenance", "archived payload and system attributes"]
+        if property_mode:
+            report["schema"] = "kit.sw2026.sealed-import-property-owner.v1"
+        else:
+            report["unqualified_source_domains"].append("binary property manager")
     identities = []
     before = control(output, "ControlBefore", seed)
     faults = {}
@@ -191,8 +204,11 @@ def run(job_path, checksum):
         if before["passed"]:
             for slot in SLOTS:
                 try:
-                    evaluator = evaluate_scene if scene_mode else evaluate
-                    result, process_ids = evaluator(slot, locks["sources"][slot], expected[slot], output)
+                    arguments = slot, locks["sources"][slot], expected[slot], output
+                    if scene_mode:
+                        result, process_ids = evaluate_scene(*arguments, preserve_empty_file_owner=property_mode)
+                    else:
+                        result, process_ids = evaluate(*arguments)
                     report["cases"][slot] = result
                     identities.extend(process_ids)
                 except Exception as exc:
@@ -209,6 +225,8 @@ def run(job_path, checksum):
     report["complete_heldout_geometry_lifecycles"] = len(report["cases"]) if report["controls_healthy"] else 0
     if scene_mode:
         report["complete_heldout_scene_text_lifecycles"] = report["complete_heldout_geometry_lifecycles"]
+    if property_mode:
+        report["complete_heldout_file_property_owner_lifecycles"] = report["complete_heldout_geometry_lifecycles"]
     report["faults"] = faults
     write_json(frozen_dir / "Result.json", report)
     print(json.dumps({"controls_healthy": report["controls_healthy"], "geometry_lifecycles": report["complete_heldout_geometry_lifecycles"]}))
